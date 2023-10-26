@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.service.RaceService;
 import racingcar.view.OutputRaceView;
 
 public class RaceController {
