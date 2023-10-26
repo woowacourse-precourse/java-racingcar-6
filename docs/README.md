@@ -1,0 +1,14 @@
+### 구현 기능 목록
+- [ ] 경주할 자동차 이름 입력 받기 (inputCarName)
+  - [ ] 쉼표 기준으로 분리 (splitByComma)
+  - [ ] 이름별로 5자 이하인지 확인 (Exception\isLengthOverFive)
+- [ ] 시도할 회수 입력 받기 (inputTryTime)
+- [ ] 차수별 자동차 전진 현황 출력 (NowRacing)
+  - [ ] 0~3: 정차
+  - [ ] 4~9: 한 칸 전진
+- [ ] 게임 완료 후 우승자 출력 (PrintWinner)
+  - [ ] 단독 우승 (winOnlyOne)
+  - [ ] 여러 명 우승: 쉼표로 구분 (winManyCars)
+- [ ] 입력 값이 잘못된 경우 `IllegalArgumentException` 발생시킴 (Exception)
+  - [ ] 자동차 이름이 6자 이상일 경우 (isLengthOverFive)
+  - [ ] 시도할 회수가 숫자가 아닐 경우 (isNumber)
