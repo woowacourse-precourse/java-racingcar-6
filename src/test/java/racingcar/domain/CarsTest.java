@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Comparator;
+import java.util.Optional;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -40,5 +42,26 @@ class CarsTest {
         assertThatThrownBy(() -> Cars.from(nameZero))
                 .isInstanceOf(IllegalArgumentException.class);
 
+    }
+
+    @Test
+    void 우승자_이름_추출() {
+        // given
+        Cars cars = Cars.from("a,b,c,d,e");
+        int n = 10;
+
+        // when
+        while(n-- > 0) {
+            cars.go();
+        }
+
+
+        // then
+        Car maxCar = cars.getCars()
+                .stream()
+                .max(Comparator.comparing(Car::getPosition)).get();
+
+        assertThat(cars.findWinnerNameList())
+                .contains(maxCar.getName());
     }
 }
