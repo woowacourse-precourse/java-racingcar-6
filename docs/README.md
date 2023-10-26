@@ -1,14 +1,34 @@
 ### 구현 기능 정리 ###
-- [x] 시작 기능 // RacingGame : void run()
-- [x] 자동차 이름 여려개 한 번에 입력 받기 // InputView : String enterCarNames()
-- [x] 자동차들 생성하기 // Cars : Cars from(String carNames)
-- [x] 단일 자동차 생성하기 // Car : Car from(String carName)
-- [x] 수행 횟수 입력 받기 // InputView : String enterNumberOfTimes()
-- [x] 0 ~ 9 무작위 값 구하기 // RandomNumberGenerator : Integer generate()
-- [x] 무작위 값 확인 해서 4이상일 경우 자동차 전진하기 // Cars : void go()
-- [x] 전진하는 자동차 이름과 함께 출력하기 // OutputView : void printRoundResult(CarsDto carsDto)
-- [x] 수행 횟수동안 전진 출력 반복하기 // RacingGame : void rotate()
-- [x] 우승자 결정하기 // Cars : Cars findWinners()
-- [x] 우승자 출력하기 // OutputView : void printWinner(CarsDto)
-- [x] 자동차 이름 길이 5이하 검증하기 // CarValidator : void validate(String name) throw RacingException
-- [x] 수행 횟수 입력값 0 또는 양의 정수인지 검증하기 // NumberValidator : void validate(String times) throw RacingException
+#### Controller ####
+- ##### RacingGame #####
+- [x] 시작 기능
+- [x] 수행 횟수동안 전진 출력 반복하기
+- [x] 수행 횟수 입력값 0 또는 양의 정수인지 검증하기
+- 
+#### Model ####
+- ##### Car #####
+- [x] 단일 자동차 생성하기
+- [x] 이름 길이 5이하 검증하기
+- [x] 무작위 값 확인 해서 4이상일 경우 자동차 전진하기
+- ##### Cars #####
+- [x] 자동차들 생성하기
+- [x] 자동차에게 무작위 값 전달해서 전진 명령하기
+- [x] 우승자 결정하기
+- ##### RandomNumberGenerator #####
+- [x] 0 ~ 9 무작위 값 구하기
+
+#### View ####
+- ##### InputView #####
+- [x] 자동차 이름 여려개 한 번에 입력 받기
+- [x] 수행 횟수 입력 받기
+- ##### OutputView #####
+- [x] 전진하는 자동차 이름과 함께 출력하기
+- [x] 우승자 출력하기
+
+#### Dto ####
+- ##### CarsDto ####
+- [x] CarDto List로 생성하기
+- ##### CarDto ####
+- [x] Car 객체 데이터 전달받기
+
+
