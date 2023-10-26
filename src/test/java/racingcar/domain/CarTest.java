@@ -25,12 +25,12 @@ class CarTest {
         assertEquals(car.getPosition(), 1);
     }
 
-    @ParameterizedTest
-    @ValueSource(ints = {1, 2, 3})
-    void move_메서드는_랜덤한_숫자가_4이하가_나오면_position을_증가시키지_않는다(int number) {
+    @Test
+    void move_메서드는_랜덤한_숫자가_4이하가_나오면_position을_증가시키지_않는다() {
         Car car = new Car("woni");
+        NotIncreasePositionNumber notIncreasePositionNumber = new NotIncreasePositionNumber();
 
-        car.move(number);
+        car.move(notIncreasePositionNumber.generate());
 
         assertEquals(car.getPosition(), 0);
     }
