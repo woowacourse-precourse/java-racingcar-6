@@ -1,11 +1,19 @@
 # 자동차 경주 게임
 
 ## 기능 목록
-- [✔] 0에서 9 사이의 무작위 값을 생성한다. NumberGenerator#createRandomNumber()
+- [✔] 0에서 9 사이의 무작위 값을 자동차 수만큼 생성한다. NumberGenerator#createRandomNumbers()
 - [ ] 자동차의 이름은 5자 이하만 가능하다. - Car#validateNameSize()
-- [ ] 자동차는 4 이상의 무작위 값이 나오면 전진할 수 있다. - Car#move()
-- [ ] 자동차는 다른 자동차와의 이동 거리를 비교할 수 있다. - Car#compare()
-  - [ ] 이동 거리가 같으면 공동 우승자이다. - Winner?
+- [ ] 자동차는 전진할 수 있다. - Car#move()
+- [ ] 자동차는 4 이상의 무작위 값이 나오면 전진할 수 있다. - Cars#move()
+- [ ] 최종 자동차의 이동 거리를 비교하여 우승자를 가릴 수 있다. - Cars#getWinner()
+- [ ] n개의 자동차의 이동 거리 중 최댓값을 구할 수 있다. - Cars#getMaxLocation()
+
+1try 때마다 n개의 무작위 값을 생성
+
+Integer.compare(x, y)
+i. x > y, return 1
+ii. x == y, return 0
+iii. x < y, return -1
 
 ## 기능 요구사항
 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.

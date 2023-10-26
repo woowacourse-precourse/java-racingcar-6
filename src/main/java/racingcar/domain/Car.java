@@ -10,14 +10,14 @@ public class Car {
     }
 
     public void move() {
-
-    }
-
-    public int compare(Car car) {
-        return 0;
+        location++;
     }
 
     public void validateNameSize(String name) {
 
+    }
+
+    public int getLocation() {
+        return location;
     }
 }
