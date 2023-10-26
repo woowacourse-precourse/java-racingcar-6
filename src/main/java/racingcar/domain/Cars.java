@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 
-import static racingcar.constant.RacingGameContant.CARS_SPLIT_STRING;
+import static racingcar.constant.RacingGameConstant.CARS_SPLIT_STRING;
 
 import java.util.Arrays;
 import java.util.List;

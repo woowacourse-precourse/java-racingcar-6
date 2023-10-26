@@ -1,6 +1,6 @@
 package racingcar.constant;
 
-public final class RacingGameContant {
+public final class RacingGameConstant {
 
     public static final Integer CAR_START_POSITION = 0;
     public static final Integer CAR_ONE_STEP = 1;
@@ -12,7 +12,7 @@ public final class RacingGameContant {
     public static final Integer ZERO = 0;
     public static final String REGEX = "[0-9]+";
 
-    private RacingGameContant() {
+    private RacingGameConstant() {
     }
 
 }

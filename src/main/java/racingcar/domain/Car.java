@@ -1,9 +1,9 @@
 package racingcar.domain;
 
-import static racingcar.constant.RacingGameContant.CAR_CAN_GO_NUMBER;
-import static racingcar.constant.RacingGameContant.CAR_LIMIT_NAME_LENGTH;
-import static racingcar.constant.RacingGameContant.CAR_ONE_STEP;
-import static racingcar.constant.RacingGameContant.CAR_START_POSITION;
+import static racingcar.constant.RacingGameConstant.CAR_CAN_GO_NUMBER;
+import static racingcar.constant.RacingGameConstant.CAR_LIMIT_NAME_LENGTH;
+import static racingcar.constant.RacingGameConstant.CAR_ONE_STEP;
+import static racingcar.constant.RacingGameConstant.CAR_START_POSITION;
 import static racingcar.exception.ErrorMessage.INVALID_NAME_LENGTH;
 
 import racingcar.exception.RacingGameException;

@@ -1,7 +1,7 @@
 package racingcar.controller;
 
-import static racingcar.constant.RacingGameContant.REGEX;
-import static racingcar.constant.RacingGameContant.ZERO;
+import static racingcar.constant.RacingGameConstant.REGEX;
+import static racingcar.constant.RacingGameConstant.ZERO;
 import static racingcar.exception.ErrorMessage.NOT_INTEGER;
 
 import camp.nextstep.edu.missionutils.Console;

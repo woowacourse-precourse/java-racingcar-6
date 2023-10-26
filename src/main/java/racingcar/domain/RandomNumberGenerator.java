@@ -1,7 +1,7 @@
 package racingcar.domain;
 
-import static racingcar.constant.RacingGameContant.MAX_VALUE;
-import static racingcar.constant.RacingGameContant.MIN_VALUE;
+import static racingcar.constant.RacingGameConstant.MAX_VALUE;
+import static racingcar.constant.RacingGameConstant.MIN_VALUE;
 
 import camp.nextstep.edu.missionutils.Randoms;
 

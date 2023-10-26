@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
-import static racingcar.constant.RacingGameContant.CARS_SPLIT_STRING;
+import static racingcar.constant.RacingGameConstant.CARS_SPLIT_STRING;
 
 public class InputView {
 
