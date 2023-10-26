@@ -13,8 +13,8 @@ public class Car {
         return this.name;
     }
 
-    public void addDistance(int dice) {
-        if (dice >= 4) {
+    public void addDistance(int dice, int forward) {
+        if (dice >= forward) {
             this.distance++;
         }
     }

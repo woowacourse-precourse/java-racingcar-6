@@ -7,6 +7,7 @@ import racingcar.model.Dice;
 import racingcar.model.Game;
 
 public class GameController {
+    private final Integer MOVING_FORWARD_NUMBER = 4;
     public Game makeGame(String maxRound) {
         return new Game(maxRound);
     }
@@ -19,7 +20,7 @@ public class GameController {
         while (game.getPresentRoundNumber() < game.getMaxRoundNumber()) {
             for (Car car : cars) {
                 Dice dice = rollDiceTen();
-                car.addDistance(dice.getDice());
+                car.addDistance(dice.getDice(), MOVING_FORWARD_NUMBER);
                 car.getDistanceLine();
             }
             game.roundNumberPlus();
