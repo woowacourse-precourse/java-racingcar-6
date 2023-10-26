@@ -46,6 +46,7 @@ public class RacingGameInputController {
 
     // 시도할 회수 입력 및 검증
     public static Integer scanNumberOfRounds() {
+        InputView.printEnterNumberOfRounds();
         String userInput = Console.readLine();
         validateNumberOfRounds(userInput);
 
