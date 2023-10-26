@@ -1,5 +1,7 @@
 package racingcar.controlller;
 
+import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.model.Car;
 import racingcar.model.CarList;
 import racingcar.view.OutputView;
 
@@ -34,7 +36,7 @@ public class RacingGameController extends GameController {
         // n라운드 진행
         OutputView.printResultMessage();    // 실행 결과
         for (int i = 0; i < numberOfRounds; i++) {
-            // 게임 진행
+            // 한 라운드 진행
             doOneRound();
             // 최종 우승자 출력
             OutputView.printCurrentState(carList);
@@ -44,5 +46,15 @@ public class RacingGameController extends GameController {
     }
 
     private void doOneRound() {
+        for (Car car : carList.getCarList()) {
+            moveOrNot(car);
+        }
+    }
+
+    private void moveOrNot(Car car) {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        if (randomNumber >= 4) {
+            car.moveForward(1);
+        }
     }
 }

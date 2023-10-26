@@ -8,4 +8,8 @@ public class CarList {
     public CarList(List<Car> carList) {
         this.carList = carList;
     }
+
+    public List<Car> getCarList() {
+        return carList;
+    }
 }
