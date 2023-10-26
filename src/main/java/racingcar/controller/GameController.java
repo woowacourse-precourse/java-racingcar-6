@@ -1,9 +1,9 @@
 package racingcar.controller;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.model.Car;
+import racingcar.model.Name;
 import racingcar.utils.GeneratedRandomNumber;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -17,17 +17,17 @@ public class GameController {
 
     public static void start(){
 
-        cars = getCars(inputCarName());
-        attempts = inputAttempts();
+            cars = getCars(inputCarName());
+            attempts = inputAttempts();
 
-        while(attempts!=0){
-            // 게임 시도
-            playAttempt();
-            // 시도 횟수 감소
-            attempts--;
-        }
+            while(attempts!=0){
+                // 게임 시도
+                playAttempt();
+                // 시도 횟수 감소
+                attempts--;
+            }
 
-        finishGame();
+            finishGame();
     }
 
     private static int inputAttempts(){
@@ -60,6 +60,13 @@ public class GameController {
     }
 
     private static List<Car> getCars(String cars){
-        return Arrays.stream(cars.split(",")).map(carName -> new Car(carName)).collect(Collectors.toList());
+        cars.replaceAll(" ","");
+        List<Car> convertCars = new ArrayList<>();
+
+        for (String carName : cars.split(",")){
+            convertCars.add(new Car(new Name(carName)));
+        }
+
+        return convertCars;
     }
 }

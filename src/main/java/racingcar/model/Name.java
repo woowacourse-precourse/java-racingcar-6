@@ -2,11 +2,16 @@ package racingcar.model;
 
 public class Name {
     private final String value;
+    private static final int MAX_LENGTH = 5;
 
     public Name(String name){
 
         validate(name);
         this.value = name;
+    }
+
+    public String getName(){
+        return value;
     }
 
     private void validate(String name){
@@ -15,6 +20,10 @@ public class Name {
         }
 
         if(isDigit(name)){
+            throw new IllegalArgumentException();
+        }
+
+        if(isOverFiveLength(name)){
             throw new IllegalArgumentException();
         }
     }
@@ -31,5 +40,9 @@ public class Name {
         }
 
         return false;
+    }
+
+    private boolean isOverFiveLength(String name){
+        return name.length() > MAX_LENGTH;
     }
 }
