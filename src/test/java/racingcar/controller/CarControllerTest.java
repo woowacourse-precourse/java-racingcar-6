@@ -6,7 +6,6 @@ import racingcar.domain.Car;
 import racingcar.dto.CarsDto;
 import racingcar.dto.WinnerDto;
 
-import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -49,7 +48,7 @@ public class CarControllerTest {
         // given
         String inputStr = "철수,  , 유리";
 
-        // when
+        // when-then
         assertThatThrownBy(() -> carController.generateCars(inputStr))
                 .isInstanceOf(IllegalArgumentException.class);
     }

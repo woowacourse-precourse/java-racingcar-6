@@ -23,8 +23,8 @@ public class RaceGameServiceTest {
         CarsDto carsDto = new CarsDto(cars);
 
         // when
-        CarsDto carsDto1 = raceGameService.roundStart(carsDto);
-        Car[] cars1 = carsDto1.cars();
+        raceGameService.roundStart(carsDto);
+        Car[] cars1 = carsDto.cars();
 
         // then
         for (int i=0; i<cars1.length; i++) {
