@@ -5,10 +5,18 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Race {
-    public List<Car> cars;
+    private List<Car> cars;
 
-    public void addCar(Car car) {
+    public void addCar(String carName) {
+        Car car = new Car();
+        car.setName(carName);
         cars.add(car);
+    }
+
+    public void addCars(List<String> carNames) {
+        for (String carName : carNames) {
+            addCar(carName);
+        }
     }
 
     public List<Car> getCars() {
