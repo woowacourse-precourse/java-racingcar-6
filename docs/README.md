@@ -20,7 +20,7 @@
 ### EXCEPTION
 - [ ] InputErrorException (유효한 값이 아닐 시 IllegalArgumentException 발생 후 종료)
     - [ ] CarNameInputErrorException
-      - [ ] 각 이름의 길이가 5자 초과 확인
+      - [x] 각 이름의 길이가 5자 초과 확인
       - [ ] 같은 이름을 가진 자동차가 있는 지 확인
       - [x] 아무 값도 입력 안할 경우 (1자 미만)
     - [ ] TryCountInputErrorException
