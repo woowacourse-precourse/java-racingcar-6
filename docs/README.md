@@ -30,8 +30,8 @@
 
 ### RacingCarOutputView
 
-- printStartMessage(): 실행 결과를 출력한다.
-    - [ ] `"실행 결과"` 출력.
+- printStartMessage(): "실행 결과" 메세지를 출력한다.
+    - [x] `"실행 결과"` 출력.
 
 - printEachRacingResult(): `사용자가 입력한 횟수`만큼 각 차수별 실행 결과를 출력한다.
     - [ ] 경주할 자동차의 이름 순서에 맞게 `이름 : -` 형태로 출력.
