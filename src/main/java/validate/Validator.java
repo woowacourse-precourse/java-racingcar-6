@@ -4,6 +4,7 @@ public class Validator {
 
     private static final int MAX_LENGTH = 5;
     private static final String TOO_LONG_NAME = "이름은 %d글자 미만이어야 합니다.";
+    private static final String ONLY_NUMBER = "숫자만 입력 가능합니다.";
 
     private Validator() {
     }
@@ -11,6 +12,14 @@ public class Validator {
     public static void validateNameLength(String name) {
         if (isNameTooLong(name)) {
             throw new IllegalArgumentException(String.format(TOO_LONG_NAME, MAX_LENGTH));
+        }
+    }
+
+    public static void validateNumericInput(String attempts) {
+        try {
+            Integer.parseInt(attempts);
+        } catch (NumberFormatException exception) {
+            throw new IllegalArgumentException(ONLY_NUMBER);
         }
     }
 

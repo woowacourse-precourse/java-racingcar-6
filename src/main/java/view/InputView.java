@@ -1,5 +1,7 @@
 package view;
 
+import static validate.Validator.validateNumericInput;
+
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
@@ -20,7 +22,7 @@ public class InputView {
     public static int getAttemptsFromUserInput() {
         System.out.println(ATTEMPTS_FROM_USER_INPUT);
         String input = Console.readLine();
-        //TODO : validateNumericInput()
+        validateNumericInput(input);
         return Integer.parseInt(input);
     }
 }
