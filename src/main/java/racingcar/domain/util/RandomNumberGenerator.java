@@ -11,6 +11,7 @@ public class RandomNumberGenerator implements NumberGenerator {
         this.maxInclusive = maxInclusive;
     }
 
+    @Override
     public int generate() {
         return Randoms.pickNumberInRange(minInclusive, maxInclusive);
     }
