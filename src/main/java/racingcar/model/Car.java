@@ -1,8 +1,9 @@
 package racingcar.model;
 
+import java.util.Comparator;
 import java.util.List;
 
-public class Car {
+public class Car implements Comparable<Car> {
     public static List<Car> carList;
 
     private final String name;
@@ -25,4 +26,14 @@ public class Car {
         return this.position;
     }
 
+    @Override
+    public int compareTo(Car car) {
+        if (car.position < position) {
+            return 1;
+        }
+        if (car.position > position) {
+            return -1;
+        }
+        return 0;
+    }
 }
