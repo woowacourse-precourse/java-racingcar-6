@@ -22,7 +22,8 @@ public class Application {
 
         Map<String, String> carsAndMoves = app.addCountWhenMove(racingGameCount, carNameList);
 
-        System.out.println(app.determineMoveTheFurthest(carsAndMoves, carNameList));
+        String winner = app.determineMoveTheFurthest(carsAndMoves, carNameList);
+        System.out.println(winner);
 
     }
 
@@ -78,7 +79,7 @@ public class Application {
     private void preventNullValue(Map<String, String> carsAndMoves ,List<String> carNameList, int randomNumber, int index) {
         String moveCount = carsAndMoves.get(carNameList.get(index));
 
-        if (randomNumber > 4) {
+        if (randomNumber >= 4) {
 
             if (moveCount != null)
                 carsAndMoves.put(carNameList.get(index), moveCount + "-");
@@ -87,7 +88,7 @@ public class Application {
                 carsAndMoves.put(carNameList.get(index), "-");
         }
 
-        if (randomNumber <= 4) {
+        if (randomNumber < 4) {
 
             if (moveCount != null)
                 carsAndMoves.put(carNameList.get(index), moveCount);
@@ -98,8 +99,25 @@ public class Application {
     }
 
     private String determineMoveTheFurthest(Map<String, String> carsAndMoves, List<String> carNameList) {
-        return carsAndMoves.get(carNameList.get(0)).length() + "";
-    }
+        List<String> result = new ArrayList<>();
+        int temp = 0;
 
+        for (String carName : carNameList) {
+            int moveCount = carsAndMoves.get(carName).length();
+
+            if (moveCount == temp) {
+                result.add(carName);
+            }
+
+            if (moveCount > temp) {
+                temp = moveCount;
+                result.clear();
+                result.add(carName);
+            }
+
+        }
+
+        return "최종 우승자" + " : " + result.toString().replaceAll("\\[|\\]", "");
+    }
 
 }
