@@ -18,6 +18,13 @@ public class Car {
         }
     }
 
+    public boolean isMaxMoveNumber(int maxMoveNumber){
+        if(moveNumber == maxMoveNumber){
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         return this.name + " : " + printMove();
