@@ -26,8 +26,6 @@ public class UnitTest {
     @Test
     void test_check_exception() {
         List<String> carNames = Arrays.asList("short", "verylongname");
-        assertThatThrownBy(() -> {
-            checkException(carNames);
-        }).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> checkException(carNames)).isInstanceOf(IllegalArgumentException.class);
     }
 }
