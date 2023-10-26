@@ -43,8 +43,8 @@
 
 #### CarRacingTrackGenerator
 게임의 환경을 만들어 주는 Util 객체
-- [ ] `RacingTrackGenerator`를 상속받아 구현하도록 설계한다. `create` 메서드를 오버라이딩하여 구현한다.
-    - [ ] `RacingTrackGanerator`는 인터페이스로 만든다.
+- [x] `RacingTrackGenerator`를 상속받아 구현하도록 설계한다. `create` 메서드를 오버라이딩하여 구현한다.
+    - [x] `RacingTrackGanerator`는 인터페이스로 만든다.
 
 
 ### View
