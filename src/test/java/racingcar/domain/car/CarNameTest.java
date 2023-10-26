@@ -25,6 +25,7 @@ final class CarNameTest {
 
     }
 
+
     @DisplayName("이름이 1~5자가 아닌 자동차 이름 생성 시 예외 발생")
     @Test
     void createCarNameFailure() {
@@ -37,6 +38,30 @@ final class CarNameTest {
         // then
         assertThatThrownBy(() ->
                 new CarName(input1))
+                .isInstanceOf(IllegalArgumentException.class);
+
+        assertThatThrownBy(() ->
+                new CarName(input2))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("차 이름에 공백이 포함될 경우 예외 발생")
+    @Test
+    void createCarNameFailure1() {
+        // given
+        final String input1 = " 123 ";
+        final String input2 = " 12345";
+        final String input3 = "1234 ";
+
+        // when
+
+        // then
+        assertThatThrownBy(() ->
+                new CarName(input1))
+                .isInstanceOf(IllegalArgumentException.class);
+
+        assertThatThrownBy(() ->
+                new CarName(input2))
                 .isInstanceOf(IllegalArgumentException.class);
 
         assertThatThrownBy(() ->
