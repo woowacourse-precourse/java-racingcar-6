@@ -20,7 +20,7 @@ class RaceTest {
 
             Race race = new Race(input);
 
-            assertThat(race.getCars().size()).isGreaterThanOrEqualTo(1);
+            assertThat(race.getCars().isEmpty()).isFalse();
         }
 
         @Test
@@ -49,6 +49,6 @@ class RaceTest {
 
         RaceResult raceResult = race.findWinners();
 
-        assertThat(raceResult).isNotNull();
+        assertThat(raceResult.winners().isEmpty()).isFalse();
     }
 }
