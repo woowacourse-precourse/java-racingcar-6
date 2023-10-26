@@ -1,12 +1,14 @@
 package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Input_car {
-    public static Map<String, Integer> car_map = new HashMap<>();
+    public static Map<String, Integer> car_map = new LinkedHashMap<>();
     public static Integer excute_count = 0;
     public static void input_car() {
+        car_map = new LinkedHashMap<>();
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
         String[] input_split = input.split(",");
