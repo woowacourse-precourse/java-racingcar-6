@@ -25,4 +25,10 @@ class RaceTest {
         assertNotNull(race.getCars());
         assertEquals(cars, race.getCars());
     }
+
+    @Test
+    @DisplayName("run 메서드 동작 확인")
+    public void testRun() {
+        assertDoesNotThrow(() -> race.run(), "예외처리 요류가 발생하면 안됩니다.");
+    }
 }
