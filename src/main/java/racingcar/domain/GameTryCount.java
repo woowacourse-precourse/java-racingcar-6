@@ -24,11 +24,12 @@ public class GameTryCount {
     }
 
     public void proceed() {
-        if (!isStillCanTry()) {
-            throw new IllegalStateException(CANNOT_MOVE_ANYMORE.message);
+        if (isStillCanTry()) {
+            remainingAttempts--;
+            return;
         }
 
-        remainingAttempts--;
+        throw new IllegalStateException(CANNOT_MOVE_ANYMORE.message);
     }
 
     public boolean isStillCanTry() {
