@@ -6,7 +6,11 @@ public class Car {
 
     public Car(final String carName){
         this.carName = carName;
-        this.carAdvances = carAdvances;
+        this.carAdvances = 0;
+    }
+
+    public void addAdvances(){
+        this.carAdvances++;
     }
 
     public String getCarName(){
