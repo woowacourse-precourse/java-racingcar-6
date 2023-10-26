@@ -11,6 +11,11 @@ public class CarSetting {
         for (int index = 0; index < carName.length; index++) {
             car[index] = new Car();
             car[index].setCarName(carName[index]);
+        }
+    }
+
+    public void runningCars() {
+        for (int index = 0; index < carName.length; index++) {
             if (isGreaterThan()) {
                 car[index].increaseRunCount();
             }
@@ -28,12 +33,16 @@ public class CarSetting {
 
     public void setCarName() {
         carName = Console.readLine().split(",");
-    }
-    public void setCar(){
-        car = new Car[carName.length];
+        setCar();
     }
 
-    public Car[] getCar(){
+    public void setCar() {
+        car = new Car[carName.length];
+        setCars();
+    }
+
+    public Car[] getCar() {
+        runningCars();
         return car;
     }
 
