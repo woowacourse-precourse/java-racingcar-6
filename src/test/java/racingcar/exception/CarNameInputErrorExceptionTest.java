@@ -3,6 +3,9 @@ package racingcar.exception;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 class CarNameInputErrorExceptionTest {
@@ -22,6 +25,17 @@ class CarNameInputErrorExceptionTest {
         //given
         InputErrorException inputErrorException = new CarNameInputErrorException();
         List<String> checkInputList = List.of("JJONGHYUNI");
+
+        //when, then
+        Assertions.assertThatThrownBy(() -> inputErrorException.checkUserInputValidate(checkInputList))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 자동차_이름을_아무것도_입력_안했을_경우_예외_발생(){
+        //given
+        InputErrorException inputErrorException = new CarNameInputErrorException();
+        List<String> checkInputList = new ArrayList<>(Collections.emptyList());
 
         //when, then
         Assertions.assertThatThrownBy(() -> inputErrorException.checkUserInputValidate(checkInputList))

@@ -11,10 +11,11 @@ public class CarNameInputErrorException implements InputErrorException{
 
     @Override
     public void checkUserInputValidate(List<String> checkStringList) {
+        if(isStringListEmpty(checkStringList)){
+            throw new IllegalArgumentException(CAR_NAME_LIST_EMPTY_MESSAGE);
+        }
         checkStringList.forEach(checkString -> {
-            if (isStringListEmpty(checkStringList)){
-                throw new IllegalArgumentException(CAR_NAME_LIST_EMPTY_MESSAGE);
-            } else if (isCarNameShorterThanMinLength(checkString)) {
+            if (isCarNameShorterThanMinLength(checkString)) {
                 throw new IllegalArgumentException(CAR_NAME_LENGTH_SHORT_MESSAGE);
             } else if (isCarNameLongerThanMaxLength(checkString)) {
                 throw new IllegalArgumentException(CAR_NAME_LENGTH_LONG_MESSAGE);
