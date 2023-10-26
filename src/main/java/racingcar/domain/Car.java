@@ -17,6 +17,10 @@ public class Car {
         checkNumeric(name);
     }
 
+    public void goForward() {
+        this.position++;
+    }
+
     private void checkBlank(String name) {
         if (name.equals(" ")) {
             throw new IllegalArgumentException("공백은 입력 불가능 합니다.");
@@ -33,5 +37,13 @@ public class Car {
         if (name.matches("^[0-9]*$")) {
             throw new IllegalArgumentException("숫자는 입력 불가능 합니다.");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name='" + name + '\'' +
+                ", position=" + position +
+                '}';
     }
 }
