@@ -10,7 +10,7 @@ class TryCountInputErrorExceptionTest {
     @Test
     void 자동차_경주_시도_횟수_빈_값_입력_시_예외_발생(){
         //given
-        String checkInput = "";
+        final String checkInput = "";
 
         //when,then
         Assertions.assertThatThrownBy(() -> inputErrorException.checkUserInputValidate(checkInput))
@@ -20,7 +20,7 @@ class TryCountInputErrorExceptionTest {
     @Test
     void 자동차_경주_시도_횟수_입력_값_숫자가_아닐_경우_예외_발생(){
         //given
-        String checkInput ="asd";
+        final String checkInput ="asd";
 
         //when,then
         Assertions.assertThatThrownBy(() -> inputErrorException.checkUserInputValidate(checkInput))

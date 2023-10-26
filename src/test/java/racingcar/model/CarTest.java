@@ -8,8 +8,8 @@ class CarTest {
     @Test
     void 자동차_모델_4이상의_값이_들어올_경우_포지션_상승하는_지_확인(){
         //given
-        Car car = new Car("JJONG", 0);
-        int moveCommand = new MoveNumberGenerator().generate();
+        final Car car = new Car("JJONG", 0);
+        final int moveCommand = new MoveNumberGenerator().generate();
 
         //when
         car.moveOrStop(moveCommand);
@@ -21,8 +21,8 @@ class CarTest {
     @Test
     void 자동차_모델_4이하의_값이_들어올_경우_포지션_증감_없는_지_확인(){
         //given
-        Car car = new Car("JJONG", 0);
-        int moveCommand = new NotMoveNumberGenerator().generate();
+        final Car car = new Car("JJONG", 0);
+        final int moveCommand = new NotMoveNumberGenerator().generate();
 
         //when
         car.moveOrStop(moveCommand);
