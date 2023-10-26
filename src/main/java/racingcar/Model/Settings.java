@@ -1,11 +1,15 @@
 package racingcar.Model;
 
 public class Settings {
-    public int ATTEMPT_COUNT;
+    public static int CAR_AMOUNT, ATTEMPT_COUNT;
 
+    public static void setCarAmount(int cars) {
+        CAR_AMOUNT = cars;
+    }
 
-    public void setAttempts(int attempts) {
+    public static void setAttempts(int attempts) {
         ATTEMPT_COUNT = attempts;
+        System.out.printf("\n%d, %d\n", CAR_AMOUNT, ATTEMPT_COUNT);
     }
 
 }
