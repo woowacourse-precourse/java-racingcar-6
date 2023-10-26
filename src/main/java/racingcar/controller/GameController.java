@@ -17,11 +17,12 @@ public class GameController {
 
     public static void start(){
 
-        int attempts = Integer.parseInt(InputView.attempts());
+        cars = getCars(inputCarName());
+        attempts = inputAttempts();
 
         while(attempts!=0){
             // 게임 시도
-
+            playAttempt();
             // 시도 횟수 감소
             attempts--;
         }
