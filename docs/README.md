@@ -1,8 +1,9 @@
 # 🎯 구현할 기능 목록 ✔
 
 
-### [  ] - 뼈대 구성
-- [  ] Model, View, Controller 클래스 생성
+### [ ✔ ] - 뼈대 구성
+
+- [ ✔ ] Model, View, Controller 클래스 생성
 
 
 ### [  ] - 게임 로직 
