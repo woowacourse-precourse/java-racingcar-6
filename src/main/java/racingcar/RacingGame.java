@@ -17,17 +17,17 @@ public class RacingGame {
         return names.split(COMMA);
     }
 
-    public void checkNameCorrectRange(String name){
+    private void checkNameCorrectRange(String name){
         if(name.length()>NAME_MAX_LENGTH){
             throw new IllegalArgumentException("이름이 5자를 초과했습니다. 초과이름: "+name);
         }
     }
 
-    public String removeWhiteSpace(String name){
+    private String removeWhiteSpace(String name){
         return name.replace(" ","");
     }
 
-    public void checkNameIsEmpty(String name){
+    private void checkNameIsEmpty(String name){
         if(name.length()==NAME_EMPTY_SIZE){
             throw new IllegalArgumentException("비어있는 이름이 들어왔습니다.");
         }
