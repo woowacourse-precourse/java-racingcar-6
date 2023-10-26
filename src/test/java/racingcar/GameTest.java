@@ -27,9 +27,8 @@ public class GameTest {
 
         for (int i = 0; i < carNames.length; i++) {
             Assertions.assertTrue(carNames[i].length() <= 5);
-            Assertions.assertTrue(carNames.length == input.length());
         }
-
+        Assertions.assertTrue(carNames.length == inputs.length);
 
     }
 
