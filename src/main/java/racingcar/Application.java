@@ -3,9 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Application {
 
@@ -43,14 +41,15 @@ public class Application {
         }
     }
 
-    public static int sumAllForward(List<Integer> ranNumList){
-        int forwardDistance = 0;
+    public static Map<String, Integer> sumAllForward(String name, List<Integer> ranNumList){
+        int sumForward = 0;
         for(int i=0; i<ranNumList.size(); i++){
-            forwardDistance += forwardOrStop(ranNumList.get(i));
+            sumForward += forwardOrStop(ranNumList.get(i));
         }
+        Map<String, Integer> forwardDistance = new HashMap<>();
+        forwardDistance.put(name, sumForward);
         return forwardDistance;
     }
-
 
     public static void main(String[] args) {
     }
