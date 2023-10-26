@@ -4,6 +4,7 @@ package racingcar;
 import java.util.*;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
 	public static void main(String[] args) {
@@ -22,8 +23,23 @@ public class Application {
 			throw new IllegalArgumentException("숫자를 입력해주세요.");
 		}
 		
+		System.out.println("실행 결과");
+		Map<String, String> carsMap = new HashMap<>();
+		for (String car : carsList) {
+			carsMap.put(car, "");
+		}
 		for (int i = 0; i < loop; i++) {
 			
+			for (String car : carsList) {
+				
+				int random = Randoms.pickNumberInRange(0, 9);
+				if (random >= 4) {
+					String result = carsMap.get(car) + "-";
+					carsMap.replace(car, result);
+				}
+				System.out.println(car + " : " + carsMap.get(car));
+			}
+			System.out.println();
 		}
 	}
 
