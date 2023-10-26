@@ -25,4 +25,9 @@ public class RaceService {
             OutputRaceView.printRaceResult(race.getCars());
         }
     }
+
+    public List<Car> getWinners() {
+        int maxPosition = race.getCars().stream().mapToInt(Car::getPosition).max().orElse(0);
+        return race.getCars().stream().filter(car -> car.getPosition() == maxPosition).collect(Collectors.toList());
+    }
 }
