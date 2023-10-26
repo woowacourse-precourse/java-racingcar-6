@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
 import java.util.List;
 
 public class Application {
@@ -20,6 +21,9 @@ public class Application {
     }
 
     public static List<String> getCarNameListFromCarNames(final String carNames) {
-        return List.of("");
+        final String DELIMITER_CAR_NAMES = ",";
+        final String[] carNamesSplittingByDelimiter = carNames.split(DELIMITER_CAR_NAMES);
+        final List<String> carNameList = Arrays.asList(carNamesSplittingByDelimiter);
+        return carNameList;
     }
 }
