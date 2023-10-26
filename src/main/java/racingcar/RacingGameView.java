@@ -26,4 +26,16 @@ public class RacingGameView {
         }
     }
 
+    public int inputGameRounds() {
+        System.out.println(ROUND_INPUT_GUIDE);
+        String rounds = Console.readLine();
+        validatePositiveNumber(rounds);
+        return Integer.parseInt(rounds);
+    }
+
+    public void validatePositiveNumber(String input) {
+        if (!input.matches("^[1-9]\\d*$")) {
+            throw new IllegalArgumentException("입력 값은 1 이상의 숫자여야 합니다.");
+        }
+    }
 }

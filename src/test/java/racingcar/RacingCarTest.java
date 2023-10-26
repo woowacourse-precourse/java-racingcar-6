@@ -23,5 +23,4 @@ class RacingCarTest {
         //then
         assertEquals(expectedMovement, racingCar.getMovement());
     }
-
 }
