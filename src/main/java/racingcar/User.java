@@ -35,9 +35,9 @@ public class User {
 
     private void validateCarNameLength(List<String> carNames) {
 
-        for (int i = 0; i < carNames.size(); i++) {
+        for (String carName : carNames) {
 
-            if (carNames.get(i).length() > 5) {
+            if (carName.length() > 5) {
 
                 throw new IllegalArgumentException("자동차 이름은 5글자 이하로만 가능합니다.");
 
