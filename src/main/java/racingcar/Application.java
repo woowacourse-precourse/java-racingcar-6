@@ -1,6 +1,7 @@
 package racingcar;
 
 import racingcar.controller.RacingController;
+import racingcar.util.TypeConverter;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -12,7 +13,7 @@ public class Application {
     }
 
     private static InputView inputView() {
-        return new InputView();
+        return new InputView(new TypeConverter());
     }
 
     private static OutputView outputView() {
