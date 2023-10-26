@@ -44,12 +44,12 @@
     - [x] 자동차의 전진 상태값을 증가시킨다. 
 - [ ] 현재 자동차들의 전진 결과를 출력한다. -printCurrentCarResult()
   - 자동차들의 출력순서는 입력받은 순이다.
-  - [ ] 자동차의 전진 상태값을 작대기(-)로 바꿔준다. -switchMoveStatusToSlash()
-- [ ] 자동차들중 우승한 (가장 많이 전진한) 자동차의 이름을[ 출력한다. -findWinningCarsAndPrint()
-  - [ ] 자동차들 중 가장 멀리 나간 자동차를 구한다.findWinningCars()
+  - [x] 자동차의 전진 상태값을 작대기(-)로 바꿔준다. -switchMovePositionToSlash()
+- [ ] 자동차들중 우승한 (가장 많이 전진한) 자동차의 이름을 출력한다. -findWinningCarsAndPrint()
+  - [ ] 자동차들 중 가장 멀리 나간 자동차를 구한다. -findWinningCars()
     - 가장 멀리 나간 자동차가 여러대 일수도 있다.
-  - [ ] 해당 자동차의 이름을 출력한다. printCarName()
-    - [ ] 여러대인 경우 쉼표(,)를 이용해 구분한다. splitByComma()
+  - [ ] 해당 자동차의 이름을 출력한다. -printCarName()
+    - [ ] 여러대인 경우 쉼표(,)를 이용해 구분한다. -splitByComma()
 
 ## 구현 클래스
 - Car: 자동차의 이름과 위치상태를 가진 클래스
@@ -58,3 +58,5 @@
 - Name: 자동차의 이름이라는 상태를 관리하는 클래스
 - Position: 자동차의 현재 위치상태를 관리하는 클래스
   - moveForward(): 자동차를 한칸 전진시키는 기능을 가진 메서드
+  - checkValueIsOverFour(): 인자의 값이 4 이상안지 확인하는 메서드
+  - swithcMovePositionToSlash():위치 상태값을 작대기(-)로 바꿔주는 메서드
