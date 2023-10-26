@@ -1,16 +1,13 @@
 package domain;
 
+import validator.NameValidator;
+
 public class Car {
     private final String carName;
     public final Count count;
 
     public Car(String carName) {
-        if (carName == null) {
-            throw new IllegalArgumentException();
-        }
-        if (carName.length() > 5) {
-            throw new IllegalArgumentException();
-        }
+        NameValidator.validateCarName(carName);
         this.carName = carName;
         this.count = new Count();
     }
