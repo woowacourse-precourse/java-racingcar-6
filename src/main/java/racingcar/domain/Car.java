@@ -36,9 +36,7 @@ public class Car {
         return name.length() > LIMIT_NAME_LENGTH;
     }
 
-    public void go() {
-        Integer randomNumber = RandomNumberGenerator.generate();
-
+    public void go(Integer randomNumber) {
         if (isAbleToGo(randomNumber)) {
             position += ONE_STEP;
         }

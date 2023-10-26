@@ -24,7 +24,7 @@ public class Cars {
     }
 
     public void go() {
-        cars.forEach(Car::go);
+        cars.forEach(car -> car.go(RandomNumberGenerator.generate()));
     }
 
     public List<Car> getCars() {
