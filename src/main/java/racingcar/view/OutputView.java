@@ -5,15 +5,9 @@ import racingcar.enums.StringEnum;
 
 public class OutputView {
     public void printCurrent(String name, int position) {
-        StringBuilder result = new StringBuilder();
 
-        result.append(name).append(" :");
-
-        if (position > 0) {
-            result.append(" ");
-        }
-
-        result.append(getProgressBar(position));
+        String result = name + " : "
+                + getProgressBar(position);
 
         System.out.println(result);
     }
