@@ -28,4 +28,15 @@ public class Cars {
         }
         return Collections.max(carLocations);
     }
+
+    public List<Car> getWinner() {
+        List<Car> winner = new ArrayList<>();
+        int maxLocation = getMaxLocation();
+        for (Car car : cars) {
+            int location = car.getLocation();
+            if (location == maxLocation)
+                winner.add(car);
+        }
+        return winner;
+    }
 }
