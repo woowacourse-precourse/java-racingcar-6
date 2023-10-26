@@ -6,12 +6,21 @@ import java.util.List;
 
 public class RacingGame {
     private List<Car> cars = new ArrayList<>();
-    private int winnerCount = 0;
 
     public void createAndAddCars(String[] names) {
         for (String name : names) {
             cars.add(new Car(name));
         }
+    }
+
+    public void startGame() {
+        int round = 0;
+        System.out.println("\n실행결과");
+        do {
+            playRound();
+            round++;
+        } while (round < Settings.ATTEMPT_COUNT);
+        System.out.printf("최종 우승자 : %s\n", getWinners());
     }
 
     private void playRound() {
@@ -25,16 +34,6 @@ public class RacingGame {
         System.out.println();
     }
 
-    public void startGame() {
-        int round = 0;
-        System.out.println("\n실행결과");
-        do {
-            playRound();
-            round++;
-        } while (round < Settings.ATTEMPT_COUNT);
-        System.out.printf("최종 우승자 : %s\n", getWinners());
-    }
-
     private String getWinners() {
         StringBuilder winners = new StringBuilder();
         int biggest = biggestMoves();
@@ -45,14 +44,8 @@ public class RacingGame {
                 winners.append(", ");
             }
         }
-
         cutStringEnd(winners);
         return winners.toString();
-    }
-
-    private void cutStringEnd(StringBuilder winners) {
-        int length = winners.length();
-        winners.delete(length - 2, length);
     }
 
     private int biggestMoves() {
@@ -64,6 +57,11 @@ public class RacingGame {
             }
         }
         return biggest;
+    }
+
+    private void cutStringEnd(StringBuilder winners) {
+        int length = winners.length();
+        winners.delete(length - 2, length);
     }
 
 }

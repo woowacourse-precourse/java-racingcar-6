@@ -12,14 +12,13 @@ public class Controller {
 
     public void requestCarGenerate(String[] cars) {
         racingGame.createAndAddCars(cars);
-        requestSetCarAmount(cars);
     }
 
     public void requestSetAttempts(int attempts) {
         Settings.setAttempts(attempts);
     }
 
-    private void requestSetCarAmount(String[] cars) {
+    public void requestSetCarAmount(String[] cars) {
         Settings.setCarAmount(cars.length);
     }
 

@@ -4,10 +4,11 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private final String name;
-    private int moves = 0;
+    private int moves;
 
     public Car(String name) {
         this.name = name;
+        this.moves = 0;
     }
 
     public void tryMove() {
@@ -25,7 +26,7 @@ public class Car {
     }
 
     private boolean canMove() {
-        return Randoms.pickNumberInRange(0, 9) > 3;
+        return (Randoms.pickNumberInRange(0, 9) > 3);
     }
 
 }
