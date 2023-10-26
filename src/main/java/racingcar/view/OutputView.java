@@ -7,7 +7,7 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    public static void printCurrentState(CarList carList) {
-        
+    public static void printCurrentForwardState(CarList carList) {
+        System.out.println(carList.getForwardStateString());
     }
 }

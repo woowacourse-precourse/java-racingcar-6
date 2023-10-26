@@ -38,9 +38,12 @@ public class RacingGameController extends GameController {
         for (int i = 0; i < numberOfRounds; i++) {
             // 한 라운드 진행
             doOneRound();
-            // 최종 우승자 출력
-            OutputView.printCurrentState(carList);
+            // 현재 자동차들의 전진 상태 출력
+            OutputView.printCurrentForwardState(carList);
         }
+        // 최종 우승자 출력
+        // TO DO...
+        
         // 게임 종료
         isRunning = false;
     }

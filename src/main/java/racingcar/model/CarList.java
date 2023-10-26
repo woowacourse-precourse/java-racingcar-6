@@ -12,4 +12,13 @@ public class CarList {
     public List<Car> getCarList() {
         return carList;
     }
+
+    public String getForwardStateString() {
+        StringBuilder sb = new StringBuilder();
+        for (Car car : carList) {
+            sb.append(car.getForwardStateString(car));
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
 }
