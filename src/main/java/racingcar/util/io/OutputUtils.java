@@ -6,6 +6,7 @@ public class OutputUtils {
     private static final String EXECUTION_RESULT_MESSAGE = "실행 결과";
     private static final String CAR_MOVE = "%s : %s";
     private static final String MOVE = "-";
+    private static final String FINAL_WINNER_MESSAGE = "최종 우승자 : %s";
 
     public static void printCarInputMessage() {
         System.out.println(CAR_INPUT_MESSAGE);
@@ -22,5 +23,9 @@ public class OutputUtils {
 
     public static void printCarMove(String name, int move) {
         System.out.println(String.format(CAR_MOVE, name, MOVE.repeat(move)));
+    }
+
+    public static void printFinalWinners(String winners) {
+        System.out.println(String.format(FINAL_WINNER_MESSAGE, winners));
     }
 }
