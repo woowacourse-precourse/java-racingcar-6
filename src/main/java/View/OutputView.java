@@ -1,6 +1,7 @@
 package View;
 
 import java.util.List;
+import Model.RacingCar;
 
 public class OutputView {
     private static final String START = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -16,12 +17,14 @@ public class OutputView {
         System.out.println(TRIAL);
     }
 
-    public void printResult(/*List<RacingCar> RacingCars*/){
+    public void printResult(List<RacingCar> RacingCars){
         System.out.println(RESULT);
-        /* TODO */
+        for (RacingCar racingCar : RacingCars){
+            System.out.println(racingCar.getName() + " : " + racingCar.visibleDistance());
+        }
     }
 
     public void printWinner(List<String> Winners){
-        System.out.println(WINNER + Winners);
+        System.out.println(WINNER + String.join(", ", Winners));
     }
 }
