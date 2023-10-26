@@ -3,7 +3,7 @@ package Model;
 import camp.nextstep.edu.missionutils.Randoms;
 import Config.GameConfig;
 
-public class RacingCar {
+public class RacingCar implements Comparable<RacingCar>{
     private final String name;
     private int distance;
 
@@ -25,5 +25,14 @@ public class RacingCar {
 
     public String visibleDistance(){
         return "-".repeat(this.distance);
+    }
+
+    public boolean isSameDistance(RacingCar other){
+        return other.distance == this.distance;
+    }
+
+    @Override
+    public int compareTo(RacingCar other) {
+        return this.distance - other.distance;
     }
 }
