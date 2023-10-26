@@ -25,7 +25,7 @@
   *  camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange() 를 활용하여 0 ~ 9까지의 랜덤 값을 받아온다.
 * checkForward()
   * getRandomNumber()의 반환값을 검사하여 차가 앞으로 갈지 말지를 결정한다.
-  * 숫자가 4 이상이면 전진한다.
+  * 숫자가 4 이상인지 확인.
 * Class Car 
   * 객체에 자동차 이름과 진행 거리를 저장해 준다.
   * ```
@@ -34,7 +34,9 @@
       int distance;
     }
     ```
-  * 생성된 객체를 리스트에 담아 보관한다. 
+  * 생성된 객체를 리스트에 담아 보관한다.
+* goForward()
+ * checkForward() 에서 true가 반환되면 실제도 자동차를 전진시켜준다.
 
 ### 출력
 * printDistance()
