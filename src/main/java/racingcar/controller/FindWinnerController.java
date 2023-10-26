@@ -9,7 +9,7 @@ public class FindWinnerController {
     private final List<Car> cars;
     private final List<String> winnerCars;
 
-    public FindWinnerController(List<Car> cars){
+    public FindWinnerController(final List<Car> cars){
         this.cars = new ArrayList<>(cars);
         winnerCars = new ArrayList<>();
     }
