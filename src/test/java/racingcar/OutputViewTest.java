@@ -12,13 +12,6 @@ import racingcar.view.OutputView;
 
 public class OutputViewTest {
 
-    OutputView outputView;
-
-    @BeforeEach
-    void setUp() {
-        outputView = new OutputView();
-    }
-
     @Test
     void 경주할_자동차_이름_입력_요청_출력_테스트() {
 
@@ -26,10 +19,11 @@ public class OutputViewTest {
         PrintStream printStream = new PrintStream(outputStream);
         System.setOut(printStream);
 
-        outputView.printRequestCarNameMessage();
+        OutputView.printRequestCarNameMessage();
 
         String caputredOutput = outputStream.toString();
         Assertions.assertEquals("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n", caputredOutput);
 
     }
+
 }
