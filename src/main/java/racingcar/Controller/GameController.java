@@ -1,2 +1,5 @@
-package racingcar.Controller;public class GameController {
+package racingcar.Controller;
+
+public class GameController {
+
 }

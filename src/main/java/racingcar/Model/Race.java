@@ -1,2 +1,5 @@
-package racingcar.Model;public class Race {
+package racingcar.Model;
+
+public class Race {
+
 }

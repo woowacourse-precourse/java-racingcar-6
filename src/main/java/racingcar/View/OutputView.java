@@ -1,2 +1,5 @@
-package racingcar.View;public class OutputView {
+package racingcar.View;
+
+public class OutputView {
+
 }
