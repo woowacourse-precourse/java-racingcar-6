@@ -5,11 +5,16 @@ import racingcar.model.Car;
 import racingcar.service.RacingGame;
 import racingcar.view.InputView;
 import racingcar.service.Exception;
+import racingcar.view.OutputView;
 
 public class GameController {
+
+    private final RacingGame game = new RacingGame();
+
     public void play() {
         setCar();
         setRaceCount();
+        startRace();
     }
 
     private void setCar() {
@@ -21,6 +26,11 @@ public class GameController {
     }
 
     private void setRaceCount() {
-        RacingGame game = new RacingGame(Exception.checkRaceCount(InputView.inputRaceCount()));
+        game.setRaceCount(Exception.checkRaceCount(InputView.inputRaceCount()));
+    }
+
+    private void startRace() {
+        OutputView.printRaceResultMessage();
+        game.startRaceCount();
     }
 }
