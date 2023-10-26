@@ -7,53 +7,86 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGame {
+    private static final Integer ZERO = 0;
+    private static final String REGEX = "[0-9]+";
 
     private static final InputView inputView = new InputView();
     private static final OutputView outputView = new OutputView();
+    private Integer rotateCount;
+    private Cars cars;
 
-    private RacingGame() {
+    public RacingGame() {
     }
 
-    public static void run() {
+    public void run() {
+        init();
+
+        rotate();
+
+        finish();
+    }
+
+    private void init() {
+        cars = generateCars();
+        rotateCount = askRotateNumber();
+    }
+
+    private Cars generateCars() {
         String carNames = inputView.enterCarNames();
-        Cars cars = Cars.from(carNames);
 
-        Integer numberOfTimes = convertToInteger(inputView.enterNumberOfTimes());
-
-        rotate(cars, numberOfTimes);
-
-        List<String> winners = cars.findWinnerNameList();
-
-        outputView.printWinners(winners);
+        return Cars.from(carNames);
     }
 
-    private static void rotate(Cars cars, Integer numberOfTimes) {
-        outputView.printRunResult();
-
-        while (numberOfTimes-- > 0) {
-            cars.go();
-            CarsDto carsDto = CarsDto.of(cars);
-
-            outputView.printCarsResults(carsDto);
-        }
+    private Integer askRotateNumber() {
+        String rotateNumber = inputView.enterRotateNumber();
+        
+        return convertToInteger(rotateNumber);
     }
 
-    private static Integer convertToInteger(String inputNumberString) {
+    private Integer convertToInteger(String inputNumberString) {
         validateNumber(inputNumberString);
 
         return Integer.valueOf(inputNumberString);
     }
 
-    private static void validateNumber(String inputNumberString) {
+    private void validateNumber(String inputNumberString) {
         if (isNotNumber(inputNumberString)) {
             throw new IllegalArgumentException("[ERROR] 숫자만 입력가능합니다.");
         }
 
     }
 
-    private static boolean isNotNumber(String inputNumberString) {
-        final String REGEX = "[0-9]+";
-
+    private boolean isNotNumber(String inputNumberString) {
         return !inputNumberString.matches(REGEX);
+    }
+
+    private void rotate() {
+        outputView.printRunResult();
+
+        while (isRemainRotateCount()) {
+            raceStart();
+            subRotateCount();
+        }
+    }
+
+    private void subRotateCount() {
+        rotateCount--;
+    }
+
+    private boolean isRemainRotateCount() {
+        return rotateCount > ZERO;
+    }
+
+    private void raceStart() {
+        cars.go();
+        CarsDto carsDto = CarsDto.of(cars);
+
+        outputView.printCarsResults(carsDto);
+    }
+
+    private void finish() {
+        List<String> winners = cars.findWinnerNameList();
+
+        outputView.printWinners(winners);
     }
 }

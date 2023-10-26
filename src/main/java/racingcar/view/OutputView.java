@@ -19,7 +19,7 @@ public class OutputView {
     }
 
     public void printCarsResults(final CarsDto carsDto) {
-        carsDto.getCarDtos()
+        carsDto.getCarDtoList()
                 .forEach(this::printCarResult);
 
         System.out.printf(NEWLINE);

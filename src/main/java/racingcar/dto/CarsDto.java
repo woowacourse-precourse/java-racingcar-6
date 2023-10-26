@@ -17,7 +17,7 @@ public class CarsDto {
         return carsDto;
     }
 
-    public List<CarDto> getCarDtos() {
+    public List<CarDto> getCarDtoList() {
         return carDtos;
     }
 }
