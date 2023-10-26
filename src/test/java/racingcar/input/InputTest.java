@@ -2,7 +2,6 @@ package racingcar.input;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.assertj.core.api.Assertions;
@@ -23,8 +22,8 @@ public class InputTest {
     @Test
     @DisplayName("자동차 입력 문구 출력 테스트")
     public void testInputCarsMessage() {
-
         Input input = new Input();
+
         input.printInputCarsMessage();
         String output = byteArrayOutputStream.toString();
 
@@ -43,6 +42,19 @@ public class InputTest {
 
         List<String> cars = Arrays.asList("tiger", "eagle", "bear");
         String carNames = "tiger,eagle,bear";
+
         Assertions.assertThat(input.parsedCarsName(carNames)).isEqualTo(cars);
+    }
+
+    @Test
+    @DisplayName("입력값에 최대 길이(5)를 초과하는 자동차 이름이 포함되어 있을 때 에러가 발생 테스트 ")
+    public void testInputCarNameExceedsMaxLength() {
+        Input input = new Input();
+
+        String carNames = "lion,leopard,cow";
+        List<String> cars = input.parsedCarsName(carNames);
+
+        org.junit.jupiter.api.Assertions.assertThrows(IllegalArgumentException.class,
+                () -> input.isValidCarNameLength(cars));
     }
 }
