@@ -15,6 +15,15 @@ public class Input {
         return Console.readLine();
     }
 
+    public static List<String> consoleStrings() {
+        return consoleStrings(DEFAULT_SPLIT_REGEX);
+    }
+
+    public static List<String> consoleStrings(String regex) {
+        return Arrays.stream(Console.readLine().split(regex))
+                .toList();
+    }
+
     public static Integer consoleNumber() {
         try {
             return Integer.parseInt(Console.readLine());
