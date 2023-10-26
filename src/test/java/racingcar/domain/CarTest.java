@@ -3,6 +3,7 @@ package racingcar.domain;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -14,12 +15,12 @@ class CarTest {
         assertThatThrownBy(() -> new Car(name)).isInstanceOf(IllegalArgumentException.class);
     }
 
-    @ParameterizedTest
-    @ValueSource(ints = {4, 5, 6, 7})
-    void move_메서드는_랜덤한_숫자가_4이상이_나오면_position을_증가시킨다(int number) {
+    @Test
+    void move_메서드는_랜덤한_숫자가_4이상이_나오면_position을_증가시킨다() {
         Car car = new Car("pobi");
+        IncreasePositionNumber increasePositionNumber = new IncreasePositionNumber();
 
-        car.move(number);
+        car.move(increasePositionNumber.generate());
 
         assertEquals(car.getPosition(), 1);
     }
