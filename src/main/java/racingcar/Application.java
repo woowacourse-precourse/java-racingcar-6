@@ -11,7 +11,9 @@ public class Application {
         // 경주할 자동차를 입력받음
         Race raceList = raceController.getRace();
 
+        // 경기횟수를 입력받음
         int raceCount = raceController.getRaceCount();
+        
         // 게임시작
         raceController.game(raceList, raceCount);
 
