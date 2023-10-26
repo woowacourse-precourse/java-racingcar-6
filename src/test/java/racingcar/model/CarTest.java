@@ -28,4 +28,14 @@ class CarTest {
         assertThatThrownBy(() -> new Car(nullName))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void exceptionThrownWhenNameExceedsMaxLength() {
+        // given
+        String longName = "pobipobi";
+
+        // when & then
+        assertThatThrownBy(() -> new Car(longName))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
