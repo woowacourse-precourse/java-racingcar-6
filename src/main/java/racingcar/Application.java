@@ -2,7 +2,10 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Application {
@@ -60,6 +63,26 @@ public class Application {
                 System.out.println();
             }
             System.out.println();
+        }
+
+        // 자동차 경주 종료 단계
+        // 가장 많이 전진한 자동차 명단 추리기
+        Integer maxValue = Collections.max(carList.values());
+        List<String> winnerList = new ArrayList<>();
+        for (String carName : carList.keySet()) {
+            if (maxValue.equals(carList.get(carName))) {
+                winnerList.add(carName);
+            }
+        }
+        // 최종 우승자 출력
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < winnerList.size(); i++) {
+            if (i == 0) {
+                System.out.print(winnerList.get(i));
+            }
+            else if (i > 0) {
+                System.out.print(", " + winnerList.get(i));
+            }
         }
     }
 }
