@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import static racingcar.constants.ErrorConstants.DUPLICATE_NAME_ERROR_MESSAGE;
+import static racingcar.constants.ErrorConstants.NOT_DIGIT_ERROR_MESSAGE;
 
 public class RequestChecker {
 
@@ -41,7 +42,7 @@ public class RequestChecker {
         try {
             return Integer.parseInt(movementAttempts);
         } catch (NumberFormatException e){
-            throw new IllegalArgumentException("시도할 횟수는 숫자만 입력 가능합니다.");
+            throw new IllegalArgumentException(NOT_DIGIT_ERROR_MESSAGE);
         }
     }
 }
