@@ -1,10 +1,12 @@
 package racingcar.controller;
 
 import racingcar.service.Accelerator;
+import racingcar.service.Judgement;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RacingCarController {
@@ -18,7 +20,7 @@ public class RacingCarController {
 
     public void run() {
         String cars = inputView.readCars();
-        String[] names = cars.split(",");
+        List<String> names = List.of(cars.split(","));
         int round = Integer.parseInt(inputView.readRound());
         Map<String, Integer> position = new HashMap<>();
 
@@ -33,6 +35,7 @@ public class RacingCarController {
             outputView.printResult(position);
             System.out.println();
         }
+        outputView.printFinalWinner(Judgement.choseWinner(position));
     }
 
     private void play(Map<String, Integer> position) {
