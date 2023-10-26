@@ -15,6 +15,8 @@
   - 0~9 사이의 난수를 뽑아 4 이상인 경우 true, 아니면 false를 반환합니다.
 - `List<Player> getChampions( List<Player> players )`
   - 플레이어 중 가장 먼 거리를 이동한 플레이어들을 반환합니다.
+- `boolean isInteger(String count)`
+  - 입력된 파라미터가 정수로 변환 가능하면 true, 아니면 false를 반환합니다.
 ---
 ### Message
 - `String distanceOfPlayer( Player player )`
