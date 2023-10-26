@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.stream.IntStream;
 
 public class Car {
     private final String name;
@@ -35,8 +36,14 @@ public class Car {
         distance++;
     }
 
-    public int getDistance() {
-        return distance;
+    public String getDistanceString() {
+        final String STRING_ONE_DISTANCE = "-";
+        final StringBuilder builder = new StringBuilder(distance);
+
+        IntStream.range(1, distance)
+                .forEach(value -> builder.append(STRING_ONE_DISTANCE));
+
+        return builder.toString();
     }
 
     @Override
