@@ -2,28 +2,32 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Player {
+
     private Player() {
     }
 
     public static List<String> inputCarName () {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        List<String> names = List.of(Console.readLine().split(","));
-        validateListSize(names.size());
+        List<String> car = Arrays.stream(Console.readLine().split(",")).toList();
 
-        names.forEach(Player::validateName);
-        names.forEach(System.out::println);
+        validateListSize(car.size());
+        car.forEach(Player::validateName);
 
-        return names;
+        return car;
     }
 
     public static int inputCount() {
+        int count = 0;
+
         System.out.println("시도할 회수는 몇회인가요?");
         String inputString = Console.readLine();
 
-        int count = Integer.parseInt(inputString);
+        count = Integer.parseInt(inputString);
         validateCount(count);
 
         return count;
@@ -47,5 +51,3 @@ public class Player {
         }
     }
 }
-
-
