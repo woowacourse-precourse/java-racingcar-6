@@ -13,4 +13,8 @@ public class GameGuidePrinter {
     public String getTryCountMessage() {
         return tryCountMessage;
     }
+
+    public String getResultMessage() {
+        return resultMessage;
+    }
 }
