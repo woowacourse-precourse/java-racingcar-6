@@ -18,19 +18,20 @@ public class Logics {
 
     public static String winners (DataObj[] Datas) {
         int maxNum = 0;
-        String result = "";
-        for(int i = 0; i < Datas.length; i++) {
-            maxNum = Math.max(maxNum, Datas[i].getProgress().length());
-        }
-        for(int i = 0; i < Datas.length; i++) {
-            if(maxNum == Datas[i].getProgress().length() && result.length() == 0) {
-                result+=Datas[i].getName();
-            } else if (maxNum == Datas[i].getProgress().length() && result.length() != 0) {
-                result+=", "+Datas[i].getName();
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < Datas.length; i++) {
+            int progressLength = Datas[i].getProgress().length();
+
+            if (progressLength > maxNum) {
+                maxNum = progressLength;
+                result = new StringBuilder(Datas[i].getName());
+            } else if (progressLength == maxNum) {
+                result.append(", ").append(Datas[i].getName());
             }
         }
 
-        return result;
+        return result.toString();
     }
 
 }
