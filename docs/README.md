@@ -41,6 +41,12 @@
 - [x] `Map<Integer, Position>`으로 위치에 대한 정보로 Position 객체를 관리하는 필드를 생성한다.(캐싱 구조)
 - [x] `CarRacingGame`으로 특정 자동차의 위치를 알아내면 그 위치가 어디인지 알려주는 기능을 하는 메서드를 구현한다.
 
+#### CarRacingTrackGenerator
+게임의 환경을 만들어 주는 Util 객체
+- [ ] `RacingTrackGenerator`를 상속받아 구현하도록 설계한다. `create` 메서드를 오버라이딩하여 구현한다.
+    - [ ] `RacingTrackGanerator`는 인터페이스로 만든다.
+
+
 ### View
 
 #### ConsoleInputView
@@ -64,8 +70,3 @@
 
 - [x] `NumberGenerator`를 상속받아 구현하도록 설계한다. `genarate` 메서드를 오버라이딩 하도록 설계한다.
   - [x] `NumberGenerator`는 인터페이스로 만든다.
-
-#### CarRacingGenerator
-게임의 환경을 만들어 주는 Util 객체
-- [ ] `RacingGenerator`를 상속받아 구현하도록 설계한다. `create` 메서드를 오버라이딩하여 구현한다.
-  - [ ] `RacingGanerator`는 인터페이스로 만든다.
