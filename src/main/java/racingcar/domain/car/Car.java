@@ -14,6 +14,10 @@ public class Car {
         this.position = 0;
     }
 
+    public String getName() {
+        return name.name();
+    }
+
     public int getPosition() {
         return position;
     }
@@ -23,4 +27,5 @@ public class Car {
             position++;
         }
     }
+
 }
