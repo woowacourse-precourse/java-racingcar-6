@@ -1,7 +1,7 @@
 package racingcar.model;
 
 import racingcar.exception.CarNameValidator;
-import racingcar.util.Constants;
+import racingcar.util.CarConstant;
 
 public class Car {
     private final String name;
@@ -13,7 +13,7 @@ public class Car {
     }
 
     public void move(int randomNumber) {
-        if (randomNumber >= Constants.RANDOM_THRESHOLD) {
+        if (randomNumber >= CarConstant.RANDOM_THRESHOLD) {
             distance++;
         }
     }
