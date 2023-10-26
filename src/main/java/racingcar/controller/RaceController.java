@@ -27,6 +27,9 @@ public class RaceController {
 
     void simulateTurn() {
         race.simulateTurn();
-        race.getCarList().forEach(c -> outputView.printCurrent(c.getName(), c.getPos()));
+        
+        for (Car c : race.getCarList()) {
+            outputView.printCurrent(c.getName(), c.getPos());
+        }
     }
 }
