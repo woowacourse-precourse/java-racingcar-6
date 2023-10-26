@@ -73,7 +73,7 @@ public class Application {
         return longestDistance;
     }
 
-    private static List<Car> filterCarListWithLongestDistance(final List<Car> carList, int longestDistance) {
+    private static List<Car> filterCarListWithLongestDistance(final List<Car> carList, final int longestDistance) {
        return carList.stream()
                 .filter(car -> car.getDistance() == longestDistance)
                 .collect(Collectors.toList());
