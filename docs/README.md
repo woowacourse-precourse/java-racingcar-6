@@ -22,7 +22,8 @@
     1. Car의 MaxPosition을 찾고
     2. MaxPosition의 차들의 이름을 뽑아 리턴해준다.
 #### Car
-1. 차를 생성한다(Name, 위치)
+1. 차를 생성한다(Name)
+2. 차를 움직인다.
 
 #### Name
 
