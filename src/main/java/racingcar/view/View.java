@@ -1,11 +1,11 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.domain.Car;
+import racingcar.model.Car;
 
 public class View {
 
-    void showResult(List<Car> carList) {
+    public void showResult(List<Car> carList) {
         int count = 0;
 
         for (Car car : carList) {
@@ -18,7 +18,7 @@ public class View {
         }
     }
 
-    void showPhase(List<Car> carList) {
+    public void showPhase(List<Car> carList) {
         for (Car car : carList) {
             System.out.print(car.getName() + " : ");
             printDistance(car);

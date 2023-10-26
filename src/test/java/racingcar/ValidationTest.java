@@ -6,7 +6,7 @@ import static org.assertj.core.api.ThrowableAssert.catchThrowable;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Car;
+import racingcar.model.Car;
 
 class ValidationTest {
 

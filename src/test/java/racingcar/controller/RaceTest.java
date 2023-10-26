@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.*;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Car;
+import racingcar.model.Car;
 
 class RaceTest {
 
