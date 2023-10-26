@@ -31,8 +31,8 @@ public class GameManager {
         setWinner("");
     }
 
-    public void setPlayers() {
-        StringTokenizer st = new StringTokenizer(Console.readLine(),",");
+    public void setPlayers(String playerText) {
+        StringTokenizer st = new StringTokenizer(playerText,",");
         while(st.hasMoreTokens()){
             addPlayer(st.nextToken());
         }
