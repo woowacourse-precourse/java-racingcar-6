@@ -43,9 +43,9 @@ class OutputViewTest {
 
         // then
         assertThat(out.toString()).contains("a : -\n"
-                                            + "b : --\n"
-                                            + "c : ---\n"
-                                            + "d : ----\n");
+                + "b : --\n"
+                + "c : ---\n"
+                + "d : ----\n");
     }
 
     @Test

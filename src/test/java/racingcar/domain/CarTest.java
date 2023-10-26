@@ -6,7 +6,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.Test;
 
 
-
 class CarTest {
 
     @Test
@@ -67,7 +66,6 @@ class CarTest {
         assertThat(car.getPosition()).isEqualTo(0);
         car.isHere(0);
     }
-
 
 
 }

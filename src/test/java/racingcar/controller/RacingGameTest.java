@@ -32,7 +32,6 @@ class RacingGameTest {
         // given
         InputViewTest.systemIn("a,b,c\nG");
 
-
         // when
         // then
         assertThatThrownBy(() -> racingGame.run())

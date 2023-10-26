@@ -49,10 +49,9 @@ class CarsTest {
         int n = 10;
 
         // when
-        while(n-- > 0) {
+        while (n-- > 0) {
             cars.go();
         }
-
 
         // then
         Car maxCar = cars.getCars()
@@ -70,10 +69,9 @@ class CarsTest {
         int n = 10;
 
         // when
-        while(n-- > 0) {
+        while (n-- > 0) {
             cars.go();
         }
-
 
         // then
         Integer maxPosition = cars.getCars()
