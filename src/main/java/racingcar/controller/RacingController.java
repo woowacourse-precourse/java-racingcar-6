@@ -12,5 +12,6 @@ public class RacingController {
         output.showCarNamesInputMessage();
         String carNames = input.readCarNames();
         output.showCountInputMessage();
+        String count = input.readCount();
     }
 }

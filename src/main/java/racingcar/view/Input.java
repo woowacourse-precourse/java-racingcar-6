@@ -8,6 +8,10 @@ public class Input {
         return read();
     }
 
+    public String readCount() {
+        return read();
+    }
+
     private String read() {
         return Console.readLine();
     }
