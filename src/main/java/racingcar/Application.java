@@ -34,6 +34,7 @@ public class Application {
         return ranNumList;
     }
 
+//    전진이면 1을 반환, 정지면 0을 반환
     public static int forwardOrStop(int ranNum){
         if(ranNum >= 4){
             return 1;
@@ -41,6 +42,7 @@ public class Application {
             return 0;
         }
     }
+
 
     public static void main(String[] args) {
     }
