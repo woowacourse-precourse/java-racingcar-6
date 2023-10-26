@@ -15,9 +15,9 @@ public class InputView {
         return INSTANCE;
     }
 
-    public void displayCarNamePrompt() {
+    public List<String> displayCarNamePrompt() {
         System.out.println(Message.CAR_NAME_INPUT.getMessage());
-        CarNameInput();
+        return CarNameInput();
     }
 
     public void displayRaceCountPrompt() {
