@@ -3,7 +3,6 @@ package racingcar.exception;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
 
 class RaceExceptionTest {
@@ -16,6 +15,12 @@ class RaceExceptionTest {
     @Test
     void shouldThrowExceptionWhenCarNameIsLongerThanFive() {
         assertThatThrownBy(() -> RaceException.validateCarName("abcdef"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void shouldThrowExceptionWhenCarNameIsEmpty() {
+        assertThatThrownBy(() -> RaceException.validateCarName(""))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
