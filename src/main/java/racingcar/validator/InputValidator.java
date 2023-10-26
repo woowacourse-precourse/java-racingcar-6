@@ -22,4 +22,10 @@ public class InputValidator {
             throw new IllegalArgumentException("자동차 이름은 1 ~ 5글자로 입력해야 합니다.");
         }
     }
+
+    public static void validateCarNameIsBlank(String carName) {
+        if (carName.equals(" ") || carName.equals("")) {
+            throw new IllegalArgumentException("자동차 이름을 공백으로 입력해선 안됩니다.");
+        }
+    }
 }
