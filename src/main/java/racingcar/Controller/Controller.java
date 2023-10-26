@@ -1,27 +1,12 @@
 package racingcar.Controller;
 
-import java.util.ArrayList;
-import java.util.List;
-import racingcar.Model.Car;
+import racingcar.Model.Scoreboard;
 
 public class Controller {
-    public Controller() {
-
-    }
+    Scoreboard scoreboard = new Scoreboard();
 
     public void requestCarGenerate(String[] names) {
-        createAndAddCars(names);
-    }
-
-    private void createAndAddCars(String[] names) {
-        List<Car> cars = new ArrayList<>();
-        for (String name : names) {
-            cars.add(new Car(name));
-        }
-
-        for (Car car : cars) {
-            car.getName();
-        }
+        scoreboard.createAndAddCars(names);
     }
 
 }
