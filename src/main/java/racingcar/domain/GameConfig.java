@@ -32,7 +32,7 @@ public class GameConfig {
                 throw new IllegalArgumentException("중복된 자동차 이름이 있습니다.");
             } else {
                 checkCarName.add(carName);
-                Car car = new Car(carName);
+                Car car = new Car(carName.trim());
                 cars.add(car);
             }
         }
