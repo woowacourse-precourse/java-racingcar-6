@@ -22,10 +22,10 @@
     반환값: int result (전진하면 1, 정지면 0)
 
 5. ```
-   sumAllForward( List<Integer> ranNumList )
+   sumAllForward( String name, List<Integer> ranNumList )
      기능: 참가자의 최종 전진 횟수 산출
      매개변수: ranNumList (시도 횟수 만큼 생성된 난수 리스트)
-     반환값: int forwardDistance (참가자의 최종 전진 횟수)
+     반환값: Map<Stirng, Integer> forwardDistance (참가자의 최종 전진 횟수)
 
 6. ```
    chooseWinner( Map<String, Integer> finalResult)
