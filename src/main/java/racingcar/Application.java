@@ -11,15 +11,31 @@ public class Application {
         String[] cars = inputCars.split(",");
 
         System.out.println("시도할 회수는 몇회인가요?");
-        String tryCount = Console.readLine();
+        int tryCount = Integer.parseInt(Console.readLine());
 
         Car[] carList = new Car[cars.length];
         for (int i = 0; i < cars.length; i++) {
             carList[i] = new Car(cars[i]);
         }
+
+        for (int i = 0; i < tryCount; i++) {
+            int randNum = getRandomNumber();
+
+        }
+
     }
-    public int getRandomNumber(){
+    public static int getRandomNumber(){
         return Randoms.pickNumberInRange(0,9);
+    }
+
+    public static boolean decideMove(int num){
+        if (9>= num && num>=4){
+            return true;
+        } else if (3 >= num && num >= 0) {
+            return false;
+        }else {
+            throw new IllegalArgumentException("랜덤 값 오류");
+        }
     }
 }
 
