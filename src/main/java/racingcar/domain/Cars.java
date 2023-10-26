@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Cars {
 
-    private List<Car> cars;
+    private static List<Car> cars;
 
     public Cars(List<Car> cars) {
         this.cars = cars;
@@ -29,7 +29,7 @@ public class Cars {
         return Collections.max(carLocations);
     }
 
-    public List<Car> getWinner() {
+    public Winner getWinner() {
         List<Car> winner = new ArrayList<>();
         int maxLocation = getMaxLocation();
         for (Car car : cars) {
@@ -37,6 +37,10 @@ public class Cars {
             if (location == maxLocation)
                 winner.add(car);
         }
-        return winner;
+        return new Winner(winner);
+    }
+
+    public int getNumberOfPeople() {
+        return cars.size();
     }
 }
