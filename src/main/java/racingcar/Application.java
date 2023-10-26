@@ -43,6 +43,14 @@ public class Application {
         }
     }
 
+    public static int sumAllForward(List<Integer> ranNumList){
+        int forwardDistance = 0;
+        for(int i=0; i<ranNumList.size(); i++){
+            forwardDistance += forwardOrStop(ranNumList.get(i));
+        }
+        return forwardDistance;
+    }
+
 
     public static void main(String[] args) {
     }
