@@ -101,8 +101,10 @@ class InputViewTest {
         assertThrows(IllegalArgumentException.class, () -> {
             InputView.validationTryCount("-1");
         });
-
-
+        // Integer Max 값 이상의 경우 예외 발생
+        assertThrows(IllegalArgumentException.class, () -> {
+            InputView.validationTryCount("2147483648");
+        });
     }
 
 }
