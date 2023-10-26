@@ -22,8 +22,10 @@ public class RacingController {
     public void run() {
         List<Car> cars = inputView.getCars();
         int tryCount = inputView.getTryCount();
+        outputView.printResultMessage();
         for (int i = 0; i < tryCount; i++) {
             circuit.race(cars);
+            outputView.printRaceResult(cars);
         }
     }
 }
