@@ -22,5 +22,6 @@ public class Application {
             move(cars);
         }
 
+        getWinner(cars);
     }
 }

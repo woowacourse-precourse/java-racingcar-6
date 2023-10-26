@@ -65,4 +65,32 @@ public class GameManager {
         return Randoms.pickNumberInRange(0, 9);
     }
 
+    public static void getWinner(List<Car> cars) {
+        StringBuilder sb = new StringBuilder("최종 우승자 : ");
+
+        int max = 0;
+
+        for (Car car : cars) {
+            max = Math.max(max, car.getCount());
+        }
+
+        List<String> winners = new ArrayList<>();
+
+        for (Car car : cars) {
+            if (car.getCount() == max) {
+                winners.add(car.getName());
+            }
+        }
+
+        if (winners.size() > 1) {
+            for (int i = 0; i < winners.size() - 1; i++) {
+                sb.append(winners.get(i)).append(", ");
+            }
+            sb.append(winners.get(winners.size() - 1));
+        } else {
+            sb.append(winners.get(0));
+        }
+
+        System.out.println(sb);
+    }
 }
