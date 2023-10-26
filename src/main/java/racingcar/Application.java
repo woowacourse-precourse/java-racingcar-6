@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
+        Console.close();
     }
 
     public static void printInputCarNameMessage() {
@@ -18,7 +19,6 @@ public class Application {
 
     public static String readCarNames() {
         final String carNames = Console.readLine();
-        Console.close();
         return carNames;
     }
 
@@ -37,7 +37,6 @@ public class Application {
     public static int readTryCount() {
         final String tryCount = Console.readLine();
         final int tryCountConvertedToInt = Integer.parseInt(tryCount);
-        Console.close();
         return tryCountConvertedToInt;
     }
 
