@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.stream.IntStream;
 import racingcar.model.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -23,5 +24,8 @@ public class RacingCarGameController {
     private void moveCars(Cars cars){
         int count = inputView.readMoveCount();
         outputView.printResultMessage();
+        IntStream.rangeClosed(1,count).forEach(index -> {
+            cars.move();
+        });
     }
 }

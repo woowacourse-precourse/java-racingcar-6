@@ -18,4 +18,7 @@ public class Cars {
                 .collect(Collectors.toList()));
     }
 
+    public void move() {
+        carList.forEach(Car::move);
+    }
 }
