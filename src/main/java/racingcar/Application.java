@@ -19,16 +19,22 @@ public class Application {
         }
 
         for (int i = 0; i < tryCount; i++) {
-            int randNum = getRandomNumber();
-
+            for(Car car : carList){
+                if (decideMove()){
+                    car.moveForward();
+                }
+                // 테스트 출력
+                System.out.println(car.getName()+ ": " + car.getCnt());
+            }
         }
-
     }
+
     public static int getRandomNumber(){
         return Randoms.pickNumberInRange(0,9);
     }
 
-    public static boolean decideMove(int num){
+    public static boolean decideMove(){
+        int num = getRandomNumber();
         if (9>= num && num>=4){
             return true;
         } else if (3 >= num && num >= 0) {
