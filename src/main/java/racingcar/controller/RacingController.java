@@ -13,6 +13,7 @@ public class RacingController {
     private static final String CAR_NAME_DELIMITER = ",";
     private static final int RANDOM_NUMBER_START = 0;
     private static final int RANDOM_NUMBER_END = 9;
+    private static final int MIN_NUMBER = 4;
 
     private final Output output = new Output();
     private final Input input = new Input();
@@ -31,6 +32,10 @@ public class RacingController {
         return Arrays.stream(carNames.split(CAR_NAME_DELIMITER))
                 .map(Car::new)
                 .toList();
+    }
+
+    private boolean canMove() {
+        return MIN_NUMBER <= makeRandomNumber();
     }
 
     private int makeRandomNumber() {
