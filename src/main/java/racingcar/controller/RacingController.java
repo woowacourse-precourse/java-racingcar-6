@@ -27,5 +27,6 @@ public class RacingController {
             circuit.race(cars);
             outputView.printRaceResult(cars);
         }
+        List<Car> winner = circuit.findWinner(cars);
     }
 }
