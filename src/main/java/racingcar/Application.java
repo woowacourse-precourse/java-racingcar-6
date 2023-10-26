@@ -8,16 +8,38 @@ import java.util.Arrays;
 
 public class Application {
 
+    public static int isUnvalid(String[] parsed_cars) {
+        for(int i=0; i<parsed_cars.length; i++){
+            if(parsed_cars[i].length()>5)
+                return 1;
+        }
+        return 0;
+    }
+
+    public static void exceptionHandle(String[] parsed_cars, int try_cnt) {
+        try {
+            if (isUnvalid(parsed_cars)==1){
+                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+            }
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage());
+        }
+
+    }
+
     public static Object[] getUserInput() {
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String user_input = Console.readLine();
+        String cars = Console.readLine();
+        String[] parsed_cars = String.valueOf(cars).split(",");
 
         System.out.println("시도할 회수는 몇회 인가요?");
         int try_cnt = Integer.parseInt(Console.readLine());
 
+        exceptionHandle(parsed_cars, try_cnt);
+
         //System.out.println(user_input + " " + try_cnt);
-        return new Object[]{user_input, try_cnt};
+        return new Object[]{parsed_cars, try_cnt};
     }
 
     public static int[] carMovingOnce(int[] cars_moved) {
@@ -77,7 +99,7 @@ public class Application {
 
     public static void playGame(Object[] user_input) {
         //cars, try_cnt, car_moved : 차량 목록, 시도 횟수, 차량 이동 횟수
-        String[] cars = String.valueOf(user_input[0]).split(",");
+        String[] cars = (String[]) user_input[0];
         int try_cnt = (Integer) user_input[1];
         int[] cars_moved = new int[cars.length]; //차량 이동 횟수
         Arrays.fill(cars_moved, 0); // 모든 요소를 0으로 초기화
