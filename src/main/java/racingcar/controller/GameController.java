@@ -10,8 +10,6 @@ import racingcar.view.OutputView;
 
 public class GameController {
 
-    private static int CAR_ADVANCE_NUMBER = 4;
-
     private static List<Car> cars;
     private static int attempts;
 
@@ -40,7 +38,7 @@ public class GameController {
 
     private static void playAttempt(){
         for(Car car : cars){
-            if(isValidateAdvance()){
+            if(car.isValidateAdvance(GeneratedRandomNumber.getNumber())){
                 car.addAdvances();
             }
         }
@@ -53,10 +51,6 @@ public class GameController {
         OutputView.executionResult();
         FindWinnerController findWinnerController = new FindWinnerController(cars);
         OutputView.winner(findWinnerController.getWinners());
-    }
-
-    private static boolean isValidateAdvance(){
-        return GeneratedRandomNumber.getNumber() >= CAR_ADVANCE_NUMBER;
     }
 
     private static List<Car> getCars(String cars){
