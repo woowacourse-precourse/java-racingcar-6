@@ -11,7 +11,6 @@ public class Judgment {
 
         Map<String, Integer> records = new HashMap<>();
 
-        // 리스트를 순회하며 Map에 이름과 "-" 개수를 담는다.
         for (Car car : cars) {
             records.put(car.getName(), car.getForward().length());
         }

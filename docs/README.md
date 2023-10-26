@@ -8,8 +8,10 @@
   - [x] 이름은 1글자 이상, 5자 이하만 입력이 가능하다.
 - [x] 사용자가 시도할 횟수를 입력받는다. - GameConfig#setMoveCount()
 - [x] 레이스를 시작하고, 주어진 횟수만큼 반복한다. - Race#startRace()
-  - [x] 각 자동차는 0부터 9까지의 무작위 값을 얻은 후 그 값이 4 이상일 경우 전진한다. - Race#shouldCarMove()
-  - [x] 각 자동차마다 전진할지, 가만히 있을지 확인한다. Race#forwardOrNot
+  - [x] 각 자동차는 0부터 9까지의 무작위 값을 얻은 후 그 값이 4 이상일 경우 전진한다. - Car#shouldCarMove()
+  - [x] 각 자동차마다 전진할지, 가만히 있을지 확인한다. - Race#forwardOrNot()
+  - [x] 전진한 거리의 최대값을 찾는다. - Judgment#findMaxForward()
+  - [x] 최대값과 이동거리가 같은 자동차의 이름을 배열로 정리한다. Judgment#getWinners()
   - [x] 제일 많이 이동한 자동차가 우승한다. - Judgment#checkWinners()
   - [x] 누가 우승했는지 알려주고, 2인 이상일 경우 쉼표(,)를 이용하여 구분한다.
 - [] 사용자가 잘못된 값을 입력했을 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션이 종료된다.
