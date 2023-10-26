@@ -43,8 +43,31 @@ public class RacingGameInputController {
     }
 
     // 시도할 회수 입력 및 검증
-    public static int scanNumberOfRounds() {
-        // TO DO: 구현
-        return -1;
+    public static Integer scanNumberOfRounds() {
+        String userInput = Console.readLine();
+        validateNumberOfRounds(userInput);
+
+        return createNumberOfRounds(userInput);
+    }
+
+    private static void validateNumberOfRounds(String userInput) {
+        validateInteger(userInput);
+        validatePositiveInteger(userInput);
+    }
+
+    private static void validateInteger(String userInput) {
+        if (!userInput.matches("[0-9]+")) {
+            throw new IllegalArgumentException("숫자를 입력하지 않았습니다.");
+        }
+    }
+
+    private static void validatePositiveInteger(String userInput) {
+        if (Integer.parseInt(userInput) < 0) {
+            throw new IllegalArgumentException("음수를 입력했습니다.");
+        }
+    }
+
+    private static Integer createNumberOfRounds(String userInput) {
+        return Integer.parseInt(userInput);
     }
 }
