@@ -7,7 +7,11 @@ import model.Cars;
 public class OutputView {
 
     private static final String RESULT = "실행 결과";
+    private static final String FINAL_WINNER = "최종 우승자";
     private static final String COMMA = ",";
+    private static final String COLON = ":";
+    private static final String SPACE = " ";
+
 
     private OutputView() {
     }
@@ -18,6 +22,7 @@ public class OutputView {
 
     public static void displayFinalWinner(Cars cars) {
         String[] finalWinner = cars.winner();
+        System.out.print(FINAL_WINNER + SPACE + COLON + SPACE);
         System.out.println(String.join(COMMA, finalWinner));
     }
 
@@ -27,5 +32,6 @@ public class OutputView {
         for (Car car : racingCars) {
             System.out.println(car.currentRacingStatus());
         }
+        System.out.println();
     }
 }

@@ -74,33 +74,39 @@ public class OutputViewTest {
 
         // then
         assertThat(outputStreamCaptor.toString()).isEqualTo(
-                "tree : \ncap : --\nant : \nsky : \n");
+                "tree : \ncap : --\nant : \nsky : \n\n");
 
     }
 
     static Stream<Arguments> carsAndWinner() {
         return Stream.of(
-                Arguments.arguments(new Cars(new String[]{"tree", "cap", "ant", "sky"}), "cap"),
-                Arguments.arguments(new Cars(new String[]{"cap", "tree", "ant", "sky"}), "tree"),
-                Arguments.arguments(new Cars(new String[]{"tree", "fire", "ant", "sky"}), "fire"),
-                Arguments.arguments(new Cars(new String[]{"tree", "sky", "ant", "xxx"}), "sky"),
-                Arguments.arguments(new Cars(new String[]{"tree", "web", "ant", "sky"}), "web"),
-                Arguments.arguments(new Cars(new String[]{"tree", "back", "ant", "sky"}), "back"));
+                Arguments.arguments(new Cars(new String[]{"tree", "cap", "ant", "sky"}),
+                        "최종 우승자 : cap"),
+                Arguments.arguments(new Cars(new String[]{"cap", "tree", "ant", "sky"}),
+                        "최종 우승자 : tree"),
+                Arguments.arguments(new Cars(new String[]{"tree", "fire", "ant", "sky"}),
+                        "최종 우승자 : fire"),
+                Arguments.arguments(new Cars(new String[]{"tree", "sky", "ant", "xxx"}),
+                        "최종 우승자 : sky"),
+                Arguments.arguments(new Cars(new String[]{"tree", "web", "ant", "sky"}),
+                        "최종 우승자 : web"),
+                Arguments.arguments(new Cars(new String[]{"tree", "back", "ant", "sky"}),
+                        "최종 우승자 : back"));
     }
 
     static Stream<Arguments> carsAndWinners() {
         return Stream.of(Arguments.arguments(new Cars(new String[]{"tree", "cap", "ant", "sky"}),
-                        "cap,ant,sky"),
+                        "최종 우승자 : cap,ant,sky"),
                 Arguments.arguments(new Cars(new String[]{"cap", "tree", "ant", "sky"}),
-                        "tree,ant,sky"),
+                        "최종 우승자 : tree,ant,sky"),
                 Arguments.arguments(new Cars(new String[]{"tree", "fire", "ant", "sky"}),
-                        "fire,ant,sky"),
+                        "최종 우승자 : fire,ant,sky"),
                 Arguments.arguments(new Cars(new String[]{"tree", "sky", "ant", "xxx"}),
-                        "sky,ant,xxx"),
+                        "최종 우승자 : sky,ant,xxx"),
                 Arguments.arguments(new Cars(new String[]{"tree", "web", "ant", "sky"}),
-                        "web,ant,sky"),
+                        "최종 우승자 : web,ant,sky"),
                 Arguments.arguments(new Cars(new String[]{"tree", "back", "ant", "sky"}),
-                        "back,ant,sky"));
+                        "최종 우승자 : back,ant,sky"));
     }
 
 
