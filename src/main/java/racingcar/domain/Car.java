@@ -3,15 +3,15 @@ package racingcar.domain;
 public class Car {
 
     private final Name name;
-    private int position;
+    private final Position position;
 
     public Car(Name name) {
         this.name = name;
-        this.position = 0;
+        this.position = Position.setStartPosition();
     }
 
     public void goForward() {
-        this.position++;
+        this.position.move();
     }
 
     public String getName() {
@@ -19,6 +19,6 @@ public class Car {
     }
 
     public int getPosition() {
-        return position;
+        return position.getValue();
     }
 }
