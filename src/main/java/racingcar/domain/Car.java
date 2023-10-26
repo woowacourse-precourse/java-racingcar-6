@@ -2,16 +2,26 @@ package racingcar.domain;
 
 public class Car {
 
-    private String name;
-    private Integer position;
     private static final Integer START_POSITION = 0;
     private static final Integer ONE_STEP = 1;
     private static final Integer CAN_GO_NUMBER = 4;
+    private static final Integer LIMIT_NAME_LENGTH = 5;
+
+    private String name;
+    private Integer position;
+
 
 
     private Car(String name) {
+        validate(name);
         this.name = name;
         this.position = START_POSITION;
+    }
+
+    private void validate(String name) {
+        if (name.length() > LIMIT_NAME_LENGTH) {
+            throw new IllegalArgumentException("[ERROR]이름 길이가 너무 깁니다.");
+        }
     }
 
     private Car(String name, Integer position) {
