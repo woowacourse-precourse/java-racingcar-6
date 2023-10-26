@@ -34,6 +34,14 @@ public class Application {
         return ranNumList;
     }
 
+    public static int forwardOrStop(int ranNum){
+        if(ranNum >= 4){
+            return 1;
+        }else {
+            return 0;
+        }
+    }
+
     public static void main(String[] args) {
     }
 }
