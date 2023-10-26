@@ -1,5 +1,9 @@
 package racingcar.view;
 
+import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
+import java.util.List;
+
 public class InputView {
 
     private static final InputView INSTANCE = new InputView();
@@ -13,10 +17,19 @@ public class InputView {
 
     public void displayCarNamePrompt() {
         System.out.println(Message.CAR_NAME_INPUT.getMessage());
+        CarNameInput();
     }
 
     public void displayRaceCountPrompt() {
         System.out.println(Message.RACE_COUNT.getMessage());
+    }
+
+    private List<String> CarNameInput() {
+        String carNames = Console.readLine();
+        List<String> carNameList = Arrays.stream(carNames.split(","))
+                .map(String::trim)
+                .toList();
+        return carNameList;
     }
 
     private enum Message {
