@@ -1,11 +1,12 @@
 package racingcar.domain;
 
+import static racingcar.exception.ExceptionMessage.GameTryCountException.CANNOT_MOVE_ANYMORE;
 import static racingcar.exception.ExceptionMessage.GameTryCountException.TRY_COUNT_MUST_BE_AT_LEAST_ONE;
 
 public class GameTryCount {
     private static final int ATTEMPT_LOWER_BOUND = 1;
 
-    private final int remainingAttempts;
+    private int remainingAttempts;
 
     private GameTryCount(final int attemptCount) {
         this.remainingAttempts = attemptCount;
@@ -20,5 +21,21 @@ public class GameTryCount {
         if (attemptCount < ATTEMPT_LOWER_BOUND) {
             throw new IllegalArgumentException(TRY_COUNT_MUST_BE_AT_LEAST_ONE.message);
         }
+    }
+
+    public void proceed() {
+        if (!isStillCanTry()) {
+            throw new IllegalStateException(CANNOT_MOVE_ANYMORE.message);
+        }
+
+        remainingAttempts--;
+    }
+
+    public boolean isStillCanTry() {
+        return remainingAttempts > 0;
+    }
+
+    public int getRemainingAttempts() {
+        return remainingAttempts;
     }
 }

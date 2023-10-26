@@ -15,6 +15,7 @@ public interface ExceptionMessage {
 
     enum GameTryCountException {
         TRY_COUNT_MUST_BE_AT_LEAST_ONE("게임 시도 횟수는 최소 1번 이상이여야 합니다."),
+        CANNOT_MOVE_ANYMORE("게임 시도 횟수를 모두 소모했기 때문에 더이상 이동할 수 없습니다."),
         ;
 
         public final String message;
