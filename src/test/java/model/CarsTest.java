@@ -20,4 +20,19 @@ public class CarsTest {
         //then
         assertThat(winner).isEqualTo(new String[]{"tree", "pine", "ant"});
     }
+
+    @Test
+    @DisplayName("가장 많이 움직인 자동차 pine인지")
+    public void 가장_많이_움직인_자동차는_pine_테스트() {
+        //given
+        String[] names = {"tree", "pine", "ant"};
+        Cars cars = new Cars(names);
+        
+        //when
+        cars.indexAt(1).increaseMovingCountIfGreater(4, 9);
+        String[] winner = cars.winner();
+
+        //then
+        assertThat(winner).isEqualTo(new String[]{"pine"});
+    }
 }
