@@ -11,4 +11,8 @@ public class Position {
     public boolean checkValueIsOverFour(int value){
         return value>=FORWARD_THRESHOLD;
     }
+
+    public void moveForward(){
+        position+=1;
+    }
 }
