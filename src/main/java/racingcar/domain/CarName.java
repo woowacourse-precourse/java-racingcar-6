@@ -26,4 +26,18 @@ public class CarName {
             throw new IllegalArgumentException(INVALID_NAME_LENGTH.message);
         }
     }
+
+    @Override
+    public boolean equals(final Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+
+        final CarName other = (CarName) object;
+        return name.equals(other.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
 }
