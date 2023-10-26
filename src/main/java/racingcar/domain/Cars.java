@@ -9,11 +9,11 @@ public class Cars {
 
     private final List<Car> cars;
 
-    public Cars(String[] carNames) {
-        cars = new ArrayList<>();
+    public Cars(List<Car> cars, String[] carNames) {
         for (String car : carNames) {
             cars.add(new Car(car));
         }
+        this.cars = cars;
     }
 
     public List<Car> getCars() {
