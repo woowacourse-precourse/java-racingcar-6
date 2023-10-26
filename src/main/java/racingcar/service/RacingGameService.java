@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CarService {
+public class RacingGameService {
 
     private List<Car> carList = new ArrayList<>();
 

@@ -1,15 +1,15 @@
 package racingcar.controller;
 
-import racingcar.service.CarService;
+import racingcar.service.RacingGameService;
 import racingcar.validator.Validator;
 import racingcar.view.InputView;
 
 public class RacingCarGame {
 
-    private final CarService carService;
+    private final RacingGameService racingGameService;
 
-    public RacingCarGame(CarService carService) {
-        this.carService = carService;
+    public RacingCarGame(RacingGameService racingGameService) {
+        this.racingGameService = racingGameService;
     }
 
     public void run() {
@@ -19,7 +19,7 @@ public class RacingCarGame {
     private void gameStart() {
         String[] carNameArr = splitCarNames(InputView.carNames());
         Validator.InputCarNames(carNameArr);
-        carService.init(carNameArr);
+        racingGameService.init(carNameArr);
     }
 
     private String[] splitCarNames(String carNames) {
