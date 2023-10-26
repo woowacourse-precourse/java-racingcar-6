@@ -9,14 +9,19 @@ public class RunningMessage {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public void printResultMessage(){
+    public void printResultMessage() {
         System.out.println();
         System.out.println("실행 결과");
     }
 
-    public void printRunCount(int runCount){
-        for(int i=0; i<runCount; i++){
+    public void printCarName(String carName) {
+        System.out.print(carName + " : ");
+    }
+
+    public void printRunCount(int runCount) {
+        for (int i = 0; i < runCount; i++) {
             System.out.print("-");
         }
+        System.out.println();
     }
 }
