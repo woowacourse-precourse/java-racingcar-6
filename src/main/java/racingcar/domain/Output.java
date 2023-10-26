@@ -4,20 +4,20 @@ import java.util.List;
 
 public class Output {
 
-    public void CarNameInputMessage() {
+    public void printInputCarNameMessage() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(.) 기준으로 구분)");
     }
 
-    public void gameCountInputMessage() {
+    public void printInputGameCountMessage() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public void resultMessage() {
+    public void printResultMessage() {
         System.out.println();
         System.out.println("실행 결과");
     }
 
-    public void printResult(List<Car> moveResult) {
+    public void printNameAndDistance(List<Car> moveResult) {
         for (int i = 0; i < moveResult.size(); i++) {
             System.out.println(moveResult.get(i).toString());
         }
@@ -25,14 +25,8 @@ public class Output {
     }
 
     public void printWinner(Cars cars) {
-        List<String> winners = cars.whosWinner();
-        String winnerList = "";
-        for (int i = 0; i < winners.size(); i++) {
-            winnerList += winners.get(i);
-            if (winners.size() > 1 && i + 1 != winners.size()) {
-                winnerList += ", ";
-            }
-        }
+        List<String> winners = cars.findWinner();
+        String winnerList = String.join(", ", winners);
         System.out.println("최종 우승자 : " + winnerList);
     }
 }

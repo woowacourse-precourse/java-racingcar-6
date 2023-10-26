@@ -5,34 +5,41 @@ import java.util.List;
 
 public class Cars {
 
+    private static final int START_LINE = 0;
+
     private List<Car> cars;
-    Output output = new Output();
 
     public Cars(List<String> carNames) {
         cars = new ArrayList<>(carNames.size());
-        for (int i = 0; i < carNames.size(); i++) {
-            Car car = new Car(carNames.get(i));
+        for (int index = 0; index < carNames.size(); index++) {
+            String carName = carNames.get(index);
+            Car car = new Car(carName);
             cars.add(car);
         }
     }
 
-    public List<Car> move() {
-        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
-        for (int i = 0; i < cars.size(); i++) {
-            int randomNumber = randomNumberGenerator.generateNumber();
-            Car car = cars.get(i);
-            moveIfGreaterThanThree(car, randomNumber);
+    public List<Car> moveAllCar() {
+        for (int index = 0; index < cars.size(); index++) {
+            int randomNumber = generateRandomNumber();
+            if (randomNumber > 3) {
+                moveCar(index);
+            }
         }
         return cars;
     }
 
-    private void moveIfGreaterThanThree(Car car, int randomNumber) {
-        if (randomNumber > 3) {
-            car.move();
-        }
+    private void moveCar(int index) {
+        Car car = cars.get(index);
+        car.move();
     }
 
-    public List<String> whosWinner() {
+    private int generateRandomNumber() {
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+        int number = randomNumberGenerator.generateNumber();
+        return number;
+    }
+
+    public List<String> findWinner() {
         List<String> winners = new ArrayList<>();
         int furthestDistance = findFurthestDistance();
         for (Car car : cars) {
@@ -43,11 +50,11 @@ public class Cars {
     }
 
     private int findFurthestDistance() {
-        int furthestDistance = 0;
+        int position = START_LINE;
         for (Car car : cars) {
-            if (car.getPosition() > furthestDistance)
-                furthestDistance = car.getPosition();
+            if (car.getPosition() > position)
+                position = car.getPosition();
         }
-        return furthestDistance;
+        return position;
     }
 }

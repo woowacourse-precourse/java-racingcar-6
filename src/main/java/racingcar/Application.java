@@ -9,24 +9,21 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
+
         Output output = new Output();
         Input input = new Input();
 
-        output.CarNameInputMessage();
-        List<String> carNames = input.inputCarNames();
-        output.gameCountInputMessage();
-        int gameCount = input.inputGameCount();
-
+        output.printInputCarNameMessage();
+        List<String> carNames = input.getCarNames();
+        output.printInputGameCountMessage();
+        int gameCount = input.getGameCount();
         Cars cars = new Cars(carNames);
-        output.resultMessage();
+        output.printResultMessage();
 
         for (int i = 0; i < gameCount; i++) {
-            List<Car> moveResult = cars.move();
-            output.printResult(moveResult);
+            List<Car> moveResult = cars.moveAllCar();
+            output.printNameAndDistance(moveResult);
         }
-
         output.printWinner(cars);
-
-
     }
 }

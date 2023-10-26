@@ -8,25 +8,27 @@ import java.util.List;
 
 public class Input {
 
+    private static final int CAR_NAME_MAX_LENGTH = 5;
+    public static final String COMMA = ",";
+
     String userInput;
 
-    public List<String> inputCarNames() {
+    public List<String> getCarNames() {
         userInput = Console.readLine();
-        List<String> carNames = new ArrayList<>();
-        carNames = Arrays.asList(userInput.split(","));
+        List<String> carNames = Arrays.asList(userInput.split(COMMA));
         validateNameLength(carNames);
         return carNames;
     }
 
     private void validateNameLength(List<String> carNames) {
         for (String name : carNames) {
-            if (name.length() > 5) {
+            if (name.length() > CAR_NAME_MAX_LENGTH) {
                 throw new IllegalArgumentException();
             }
         }
     }
 
-    public int inputGameCount() {
+    public int getGameCount() {
         userInput = Console.readLine();
         return Integer.parseInt(userInput);
     }
