@@ -1,13 +1,17 @@
 package racingcar.view;
 
+import java.util.List;
 import racingcar.controller.dto.GameResultResponse;
-import racingcar.controller.dto.GameWinnerResponse;
 
 public interface OutputView {
 
     void printCarNameRequestMessage();
+
     void printGameAttemptsNumberRequestMessage();
+
     void printGameResultMessage();
+
     void printGameResult(GameResultResponse gameResultResponse);
-    void printWinner(GameWinnerResponse gameWinnerResponse);
+
+    void printWinner(List<String> winners);
 }
