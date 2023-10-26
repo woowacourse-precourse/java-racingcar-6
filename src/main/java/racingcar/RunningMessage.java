@@ -8,4 +8,8 @@ public class RunningMessage {
     public void printHowManyGame() {
         System.out.println("시도할 횟수는 몇회인가요?");
     }
+
+    public void printResultMessage(){
+        System.out.println("실행 결과");
+    }
 }
