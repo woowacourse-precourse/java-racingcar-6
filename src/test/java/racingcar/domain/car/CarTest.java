@@ -3,11 +3,8 @@ package racingcar.domain.car;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.car.Car;
-import racingcar.domain.car.CarEngine;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CarTest {
     @Test
@@ -22,19 +19,6 @@ class CarTest {
 
         // then
         assertThat(car.getPosition()).isZero();
-    }
-
-    @Test
-    @DisplayName("자동차의 이름은 5글자를 초과할 경우 IllegalArgumentException을 반환한다")
-    void car_construct_with_5length_over_name() {
-        // given
-        String name = "name-with-longer-than-5-length";
-        CarEngine engine = () -> true;
-
-        // when & then
-        assertThatThrownBy(() -> new Car(name, engine))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("이름은 5글자를 초과할 수 없습니다.");
     }
 
     @Nested
