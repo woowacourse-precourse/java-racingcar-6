@@ -3,9 +3,9 @@ package racingcar.validator;
 import java.util.HashSet;
 import java.util.Set;
 
-public class InputValidator {
+public class CarNameValidator {
 
-    private InputValidator() {
+    private CarNameValidator() {
     }
 
     public static void validateNull(String input) {
