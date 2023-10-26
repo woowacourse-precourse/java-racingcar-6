@@ -7,6 +7,8 @@ import java.util.Set;
 
 public class Exception {
 
+    private static final int CAR_NAME_MAX_LENGTH = 5;
+    private static final String BLANK = " ";
     private static List<String> carNames;
     public static void checkCarName(String inputVaule) throws IllegalArgumentException {
         checkEmpty(inputVaule);
@@ -28,19 +30,19 @@ public class Exception {
     }
 
     private static void checkNoName(String inputVaule) {
-        if (inputVaule.isEmpty() || inputVaule.equals(" ")) {
+        if (inputVaule.isEmpty() || inputVaule.equals(BLANK)) {
             throw new IllegalArgumentException("잘못된 값 입력 : 입력되지 않은 자동차 이름이 있습니다.");
         }
     }
 
     private static void checkblank(String inputVaule) {
-        if (inputVaule.contains(" ")) {
+        if (inputVaule.contains(BLANK)) {
             throw new IllegalArgumentException("잘못된 값 입력 : 자동차 이름에는 공백이 들어갈 수 없습니다.");
         }
     }
 
     private static void checkLength(String inputVaule) {
-        if (inputVaule.length() > 5) {
+        if (inputVaule.length() > CAR_NAME_MAX_LENGTH) {
             throw new IllegalArgumentException("잘못된 값 입력 : 자동차 이름은 5자 이내로 입력해주세요");
         }
     }
