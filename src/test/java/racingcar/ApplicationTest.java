@@ -50,7 +50,7 @@ class ApplicationTest extends NsTest {
     @Test
     void 라운드_생성() {
         GameController gameController = new GameController();
-        Game game = gameController.makeRound("2");
+        Game game = gameController.makeGame("2");
         assertThat(game.getMaxRoundNumber()).isEqualTo(2);
     }
 
@@ -59,7 +59,7 @@ class ApplicationTest extends NsTest {
         GameController gameController = new GameController();
 
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> gameController.makeRound("가나다"))
+                assertThatThrownBy(() -> gameController.makeGame("가나다"))
                 .isInstanceOf(IllegalArgumentException.class));
     }
 
