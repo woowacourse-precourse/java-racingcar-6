@@ -1,4 +1,4 @@
-package constants;
+package racingcar.util;
 
 public class Constants {
     // InputRaceView Constants
