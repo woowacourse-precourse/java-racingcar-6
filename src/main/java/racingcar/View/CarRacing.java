@@ -5,6 +5,7 @@ import racingcar.Controller.InputController;
 public class CarRacing {
     public void run(){
         InputController inputController = new InputController();
-        int NumberOfCar=inputController.getNumberOfCar();
+        inputController.getNameOfCar();
+        int raceTries=inputController.getRaceTries();
     }
 }
