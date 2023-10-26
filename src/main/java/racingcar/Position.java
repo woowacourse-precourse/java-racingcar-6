@@ -3,7 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Position {
-    public int position;
+    private int position;
     private static final int FORWARD_THRESHOLD=4;
     private static final String SLASH="-";
     public static final int VALUE_LOW_BOUND=0;
@@ -23,15 +23,15 @@ public class Position {
         }
     }
 
-    public int makeRandomValue(){
+    private int makeRandomValue(){
         return Randoms.pickNumberInRange(VALUE_LOW_BOUND,VALUE_HIGH_BOUND);
     }
 
-    public boolean checkValueIsOverFour(int value){
+    private boolean checkValueIsOverFour(int value){
         return value>=FORWARD_THRESHOLD;
     }
 
-    public void moveForward(){
+    private void moveForward(){
         position+=1;
     }
 
