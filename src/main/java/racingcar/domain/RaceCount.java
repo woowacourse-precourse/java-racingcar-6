@@ -5,7 +5,7 @@ import java.util.Objects;
 public class RaceCount {
     private static final int MIN_RACE_COUNT = 1;
 
-    private final int raceCount;
+    private int raceCount;
 
     public RaceCount(int raceCount) {
         validateRaceCount(raceCount);
@@ -18,6 +18,10 @@ public class RaceCount {
                     String.format("경주를 진행할 횟수는 최소 %d이상이어야 합니다.", MIN_RACE_COUNT)
             );
         }
+    }
+
+    public void decrease() {
+        raceCount--;
     }
 
     @Override
