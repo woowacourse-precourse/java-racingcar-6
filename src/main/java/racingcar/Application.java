@@ -40,13 +40,21 @@ public class Application {
                 if(canMove){
                     scores[j]++;
                 }
+                printScores(cars.get(j), scores[j]);
+
             }
+            System.out.println(" ");
         }
 
-        System.out.println(scores[0]);
-        System.out.println(scores[1]);
 
 
+
+    }
+    // 기능 4.
+    public static void printScores(String name, int score){
+
+        String scoreToPrint = "-".repeat(score);
+        System.out.println(String.format("%s: %s", name, scoreToPrint));
 
     }
 }
