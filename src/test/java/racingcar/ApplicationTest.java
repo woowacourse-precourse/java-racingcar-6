@@ -104,6 +104,13 @@ class ApplicationTest extends NsTest {
         }
     }
 
+    @Test
+    void 실행_결과_문구를_출력() {
+        final String STRING_EXECUTION_RESULT = "실행 결과";
+        Application.printExecutionResult();
+        assertThat(output()).contains(STRING_EXECUTION_RESULT);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

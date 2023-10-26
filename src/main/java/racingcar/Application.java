@@ -44,4 +44,7 @@ public class Application {
         final String STRING_NEW_LINE = "\n";
         System.out.println(STRING_NEW_LINE);
     }
+
+    public static void printExecutionResult() {
+    }
 }
