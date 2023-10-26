@@ -16,8 +16,9 @@ public class Application {
         List<Car> cars = carController.makeCar(readLine());
         System.out.println("시도할 회수는 몇회인가요?");
         Game game = gameController.makeGame(readLine());
-        System.out.println("실행 결과");
-        System.out.println();
+        System.out.println("\n실행 결과");
         gameController.judge(cars, game);
+        gameController.score(cars);
+        System.out.println("최종 우승자 : " + gameController.score(cars));
     }
 }

@@ -11,7 +11,7 @@ public class Game {
 
     private Integer validString(String s) {
         try {
-            return maxRoundNumber = Integer.getInteger(s);
+            return maxRoundNumber = Integer.parseInt(s);
         } catch (RuntimeException e) {
             throw new IllegalArgumentException();
         }
@@ -29,5 +29,4 @@ public class Game {
     public Integer getPresentRoundNumber() {
         return presentRoundNumber;
     }
-
 }
