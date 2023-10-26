@@ -53,6 +53,14 @@ class ApplicationTest extends NsTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> racingList.inputCarList("aaa,bbb,cccccc"));
     }
 
+    @Test
+    @DisplayName("자동차 이름 중복 입력")
+    void inputDuplicateValidate() {
+        RacingList racingList = new RacingList();
+        Assertions.assertThrows(IllegalArgumentException.class, () -> racingList.inputCarList("aaa,bbb,aaa"));
+    }
+
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
