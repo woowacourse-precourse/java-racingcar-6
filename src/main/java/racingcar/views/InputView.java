@@ -16,7 +16,7 @@ public class InputView {
 
     public static Integer getTryCount() {
         String tryCount = Console.readLine();
-        checkDigit(tryCount);
+        validationTryCount(tryCount);
         return Integer.parseInt(tryCount);
     }
 
@@ -26,15 +26,25 @@ public class InputView {
         return getCarnameList(carnames);
     }
 
+    public static List<Car> getCarnameList(String carnames) {
+        String[] carnameArr = carnames.split(",");
+        checkLengthCarName(carnameArr);
+
+        return Arrays.stream(carnameArr)
+                .map(o -> new Car(o))
+                .collect(Collectors.toUnmodifiableList());
+    }
+
     public static void checkNullAndEmpty(String str) {
         isNull(str);
         isEmpty(str);
     }
 
-    public static void checkDigit(String str) {
+    public static void validationTryCount(String str) {
         isNull(str);
         isEmpty(str);
         isDigit(str);
+        isGreaterThanZero(str);
     }
 
     private static void isNull(String str) {
@@ -58,13 +68,10 @@ public class InputView {
         }
     }
 
-    public static List<Car> getCarnameList(String carnames) {
-        String[] carnameArr = carnames.split(",");
-        checkLengthCarName(carnameArr);
-
-        return Arrays.stream(carnameArr)
-                .map(o -> new Car(o))
-                .collect(Collectors.toUnmodifiableList());
+    private static void isGreaterThanZero(String str) {
+        if (Integer.parseInt(str) <= 0) {
+            throw new IllegalArgumentException(ExceptionComments.INPUT_VALUE_INCORRECT_COMMENT);
+        }
     }
 
     private static void checkLengthCarName(String[] carnameArr) {
