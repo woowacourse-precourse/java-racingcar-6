@@ -12,6 +12,10 @@ public class Car {
         this.location = 0;
     }
 
+    public String ownerOfCar() {
+        return this.name;
+    }
+
     public int randomDrive() {
 
         if (Randoms.pickNumberInRange(0, 9)>=4) {

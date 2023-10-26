@@ -10,17 +10,17 @@
         - 0~9사이 무작위 값을 구하고 4 이상이면 필드 값 중 위치 값을 +1
         - 그 후 결과로 객체의 위치 값을 return
 2. 자동차 이름 입력 컨트롤러 
-   - 입력된 String 값을 ','를 기준으로 split 후 ArrayList로 변환
+   - 입력된 String 값을 ','를 기준으로 split 후 trim하고 배열로 변환
      - 입력 값 유효성 검사
         >> 1자 이상 5자 이하
-   - 객체 생성 후 ArrayList<Car> Dto 객체 반환
+   - 객체 생성 후 CarsDto 객체 반환
 3. RaceGameService 객체 구현
    - roundStart() 메소드
       - List<Car>를 매개변수로 받아 각각 Car.randomDrive()를 실행
       - 결과를 int[len]으로 모아서 return
         - len = 매개변수로 받은 List의 길이
 4. 시도 횟수 입력 컨트롤러
-   - List<car> dto와 사용자 read를 입력 받음 
+   - CarsDto와 사용자 read를 입력 받음 
    - 사용자로부터 입력된 String 값을 int로 변환
      - 유효성 검사
        1. 0을 허용할 것인가?
