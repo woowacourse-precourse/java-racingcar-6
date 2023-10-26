@@ -6,6 +6,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class RacingGameTest {
@@ -28,5 +29,14 @@ public class RacingGameTest {
         RacingGame racingGame=new RacingGame();
         assertThatThrownBy(()->racingGame.checkNameCorrectRange(name))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("이름의 공백을 제거하는 기능.")
+    @ParameterizedTest
+    @CsvSource(value={" na me :name","n a m e:name"," wh i t e:white"},delimiter = ':')
+    void removeWhiteSpace(String input,String expected){
+        RacingGame racingGame=new RacingGame();
+
+        assertThat(racingGame.removeWhiteSpace(input)).isEqualTo(expected);
     }
 }
