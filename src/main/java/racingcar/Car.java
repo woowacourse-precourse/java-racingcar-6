@@ -11,7 +11,12 @@ public class Car {
     public String getCarName() {
         return name;
     }
-    public void setRandomNumber(int randomNumber){
+
+    public void setRandomNumber(int randomNumber) {
         this.randomNumber = randomNumber;
+    }
+
+    public int getRandomNumber() {
+        return randomNumber;
     }
 }
