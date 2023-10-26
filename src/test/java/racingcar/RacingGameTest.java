@@ -59,4 +59,14 @@ public class RacingGameTest {
         }
 
     }
+
+    @DisplayName("입력 문자열이 정수로 이루어져 있는지 확인하는 기능.")
+    @ParameterizedTest
+    @ValueSource(strings = {"abcs","1aav","a2f","aaaa3"})
+    void checkAttemptCountIsInteger_입력값_정수_확인(String input){
+        RacingGame racingGame=new RacingGame();
+
+        assertThatThrownBy(()->racingGame.checkAttemptCountIsInteger(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
