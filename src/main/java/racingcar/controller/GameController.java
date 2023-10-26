@@ -10,6 +10,11 @@ import racingcar.view.OutputView;
 
 public class GameController {
 
+    private static int CAR_ADVANCE_NUMBER = 4;
+
+    private static List<Car> cars;
+    private static int attempts;
+
     public static void start(){
 
         int attempts = Integer.parseInt(InputView.attempts());
