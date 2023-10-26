@@ -46,6 +46,7 @@ public class GameController {
         }
 
         OutputView.resultPerAttempt(cars);
+        System.out.println();
     }
 
     private static void finishGame(){
