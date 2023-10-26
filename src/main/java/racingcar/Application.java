@@ -34,6 +34,9 @@ public class Application {
     }
 
     public static int readTryCount() {
-        return 0;
+        final String tryCount = Console.readLine();
+        final int tryCountConvertedToInt = Integer.parseInt(tryCount);
+        Console.close();
+        return tryCountConvertedToInt;
     }
 }
