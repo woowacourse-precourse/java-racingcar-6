@@ -20,8 +20,8 @@ final class CarNameTest {
         final CarName carName2 = new CarName(input2);
 
         // then
-        assertThat(carName1).isEqualTo(input1);
-        assertThat(carName2).isEqualTo(input2);
+        assertThat(carName1.carName()).isEqualTo(input1);
+        assertThat(carName2.carName()).isEqualTo(input2);
 
     }
 
@@ -59,7 +59,6 @@ final class CarNameTest {
         final String input3 = "1234 ";
 
         // when
-
         // then
         assertThatThrownBy(() ->
                 new CarName(input1))
