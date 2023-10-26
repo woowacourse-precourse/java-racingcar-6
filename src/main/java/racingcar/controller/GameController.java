@@ -51,7 +51,8 @@ public class GameController {
 
     private static void finishGame(){
         OutputView.executionResult();
-        OutputView.winner();
+        FindWinnerController findWinnerController = new FindWinnerController(cars);
+        OutputView.winner(findWinnerController.getWinners());
     }
 
     private static boolean isValidateAdvance(){
