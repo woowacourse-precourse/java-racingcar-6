@@ -2,7 +2,7 @@
 - [x] 시작 기능 // RacingGame : void run()
 - [x] 자동차 이름 여려개 한 번에 입력 받기 // InputView : String enterCarNames()
 - [x] 자동차들 생성하기 // Cars : Cars from(String carNames)
-- [ ] 단일 자동차 생성하기 // Car : Car from(String carName)
+- [x] 단일 자동차 생성하기 // Car : Car from(String carName)
 - [ ] 수행 횟수 입력 받기 // InputView : String enterNumberOfTimes()
 - [ ] 0 ~ 9 무작위 값 구하기 // RandomNumberGenerator : Integer generate()
 - [ ] 무작위 값 확인 해서 4이상일 경우 자동차 전진하기 // Cars : void go()
