@@ -1,14 +1,11 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.regex.Pattern;
 
 public class RacingGame {
     public static final String COMMA=",";
     public static final int NAME_MAX_LENGTH=5;
     public static final int NAME_EMPTY_SIZE=0;
-    public static final int VALUE_LOW_BOUND=0;
-    public static final int VALUE_HIGH_BOUND=9;
 
     private static final Pattern INTEGER=Pattern.compile("[0-9]+");
 
@@ -34,10 +31,6 @@ public class RacingGame {
         if(name.length()==NAME_EMPTY_SIZE){
             throw new IllegalArgumentException("비어있는 이름이 들어왔습니다.");
         }
-    }
-
-    public int makeRandomValue(){
-        return Randoms.pickNumberInRange(VALUE_LOW_BOUND,VALUE_HIGH_BOUND);
     }
 
     public void checkAttemptCountIsInteger(String input){

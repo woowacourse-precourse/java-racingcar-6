@@ -35,4 +35,14 @@ public class PositionTest {
         Position position=new Position(status);
         assertThat(position.switchPositionToSlash()).isEqualTo(expected);
     }
+
+    @DisplayName("0에서 9 사이의 랜덤한 값을 만드는 기능.")
+    @Test
+    void makeRandomValue_랜덤값_생성(){
+        Position position=new Position();
+
+        for(int attempt=0;attempt<100;attempt++){
+            assertThat(position.makeRandomValue()).isBetween(0,9);
+        }
+    }
 }

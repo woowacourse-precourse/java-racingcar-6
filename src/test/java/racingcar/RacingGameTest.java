@@ -49,17 +49,6 @@ public class RacingGameTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @DisplayName("0에서 9 사이의 랜덤한 값을 만드는 기능.")
-    @Test
-    void makeRandomValue_랜덤값_생성(){
-        RacingGame racingGame=new RacingGame();
-
-        for(int attempt=0;attempt<100;attempt++){
-            assertThat(racingGame.makeRandomValue()).isBetween(0,9);
-        }
-
-    }
-
     @DisplayName("입력 문자열이 정수로 이루어져 있는지 확인하는 기능.")
     @ParameterizedTest
     @ValueSource(strings = {"abcs","1aav","a2f","aaaa3"})
