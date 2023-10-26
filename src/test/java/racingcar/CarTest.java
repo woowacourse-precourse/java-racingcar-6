@@ -16,9 +16,10 @@ import org.mockito.MockedStatic;
 public class CarTest {
     @Test
     void Car_객체는_이름_속성을_가짐() {
-        final String expectedName = "jun";
-        final Car car = new Car(expectedName);
-        assertThat(car.getName()).isEqualTo(expectedName);
+        final String expected = "jun";
+        final Car car = new Car(expected);
+        final String actual = car.getName();
+        assertThat(actual).isEqualTo(expected);
     }
 
     @ParameterizedTest
