@@ -7,11 +7,12 @@
           <br>
 
   #### 🎯예외사항
-    - [ ] 파싱할 문자가 `,`가 아닐 경우
+    - [X] 자동차 이름이 5글자 초과일 경우
+      <br>
       `IllegalArgumentException` 발생
-    - [ ] 자동차 이름이 0글자 or 5글자 초과일 경우
-      `IllegalArgumentException` 발생
-    - [ ] 자동차 이름이 중복된 경우
+      <br>
+      (`,`를 기준으로 파싱하기 때문에 0글자인 경우는 없다.)
+    - [X] 자동차 이름이 중복된 경우
       `IllegalArgumentException` 발생
       <br><br><br>
 - [ ] 시도할 회수를 입력받아 저장
