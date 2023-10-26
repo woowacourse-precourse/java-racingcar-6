@@ -1,5 +1,7 @@
 package racingcar.validator;
 
+import racingcar.domain.RacingCar;
+
 import java.util.List;
 
 public class RacingCarValidator {
@@ -8,8 +10,8 @@ public class RacingCarValidator {
     private static final String ATTEMPT_NUMBER_INPUT_EXCEPTION_MESSAGE = "숫자만 입력할 수 있습니다.";
 
 
-    public static boolean racingCarNameLengthValidator(List<String> raingCar){
-        if(raingCar.stream().anyMatch(v-> v.length()> 5)){
+    public static boolean racingCarNameLengthValidator(List<RacingCar> raingCar){
+        if(raingCar.stream().anyMatch(v-> v.getName().length()> 5)){
             throw new IllegalArgumentException(RACING_CAR_NAME_LENGTH_EXCEPTION_MESSAGE) ;
         }
         return true;

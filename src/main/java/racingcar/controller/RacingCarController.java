@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.RacingCar;
 import racingcar.validator.RacingCarValidator;
 import racingcar.view.InputView;
 
@@ -16,26 +17,27 @@ public class RacingCarController {
     }
 
     private void racingCarGameStart() {
-
         RacingCarValidator.racingCarNameLengthValidator(requestRacingCarNameList());
-        requestAttemptNumberInput();
+        requestAttemptNumberCovertStringToInteger();
     }
 
 
-    private List<String> requestRacingCarNameList(){
+    private List<RacingCar  > requestRacingCarNameList(){
         return racingCarNameConvertStringToArray(racingCarNameInput());
     }
 
-    public List<String> racingCarNameConvertStringToArray(String racingCar){
-       return Arrays.stream(racingCar.split(COMMA))
+    public List<RacingCar> racingCarNameConvertStringToArray(String racingCar){
+       List<RacingCar> racingCarList = Arrays.stream(racingCar.split(COMMA))
+               .map(car -> new RacingCar(car,0))
                 .collect(Collectors.toList());
+       return racingCarList;
     }
 
     private String racingCarNameInput(){
         return InputView.racingCarNameInput();
     }
 
-    private Integer requestAttemptNumberInput(){
+    private Integer requestAttemptNumberCovertStringToInteger(){
         String number = InputView.attemptNumberInput();
         RacingCarValidator.attemptOnlyInputNumber(number);
         return Integer.parseInt(number);
