@@ -6,7 +6,7 @@ public class RacingList {
 
     private final LinkedHashMap<String, Integer> carList = new LinkedHashMap<>();
 
-    public void inputCarList(String input) {
+    public void initData(String input) {
         String[] list = input.split(",");
         for (String s : list) {
             sizeValidate(s);
