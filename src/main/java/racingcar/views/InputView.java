@@ -15,10 +15,10 @@ public class InputView {
     private InputView() {
     }
 
-    public static Integer getTryCount() {
-        String tryCount = Console.readLine();
-        validationTryCount(tryCount);
-        return Integer.parseInt(tryCount);
+    public static Integer getMovingCount() {
+        String movingCount = Console.readLine();
+        validateMovingCount(movingCount);
+        return Integer.parseInt(movingCount);
     }
 
     public static List<Car> getCarNames() {
@@ -41,7 +41,7 @@ public class InputView {
         isEmpty(str);
     }
 
-    public static void validationTryCount(String str) {
+    public static void validateMovingCount(String str) {
         isNull(str);
         isEmpty(str);
         isDigit(str);
