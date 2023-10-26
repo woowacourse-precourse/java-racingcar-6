@@ -19,6 +19,9 @@ public class RacingGame {
     public void run() {
         String[] names = preHandleNames();
         int count = preHendleCount();
+        gameController.raceSet(names);
+        gameController.race(count);
+        gameController.raceResult();
     }
 
     private String[] preHandleNames() {
@@ -34,6 +37,5 @@ public class RacingGame {
         gameInputException.validateNumberZero(input);
         return Integer.parseInt(input);
     }
-
 
 }
