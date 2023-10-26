@@ -41,5 +41,18 @@ public class CarTest {
                 .range(START_INCLUSIVE, END_INCLUSIVE)
                 .mapToObj(number -> Arguments.of(number, number >= CONDITION_MOVING_FORWARD));
     }
+
+    @Test
+    void moveForward_메서드_무작위값이_4이상인_경우애_distance_하나_증가() {
+        final Car car = new Car("jun");
+        final int CONDITION_MOVING_FORWARD = 4;
+
+        try (MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
+            mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
+                    .thenReturn(CONDITION_MOVING_FORWARD);
+
+            car.moveForward();
+            assertThat(car.getDistance()).isEqualTo(1);
+        }
     }
 }
