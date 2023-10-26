@@ -1,7 +1,8 @@
 package racingcar.domain.game;
 
+import java.util.List;
+
 public record RoundResult(
-        String carName,
-        int coordinate
+        List<MoveResult> moveResults
 ) {
 }
