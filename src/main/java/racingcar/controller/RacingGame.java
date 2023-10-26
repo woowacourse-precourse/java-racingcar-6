@@ -18,12 +18,19 @@ public class RacingGame {
 
     public void run() {
         handleCarNameInput();
+        handleNumberOfattempsInput();
     }
     
     public void handleCarNameInput() {
         outputView.printCarNameInputMessage();
         String carNames = inputView.carNameInput();
         racingGameService.addCars(carNames);
+    }
+    
+    public void handleNumberOfattempsInput() {
+        outputView.printNumberOfattempsInputMessage();
+        String attemps = inputView.numberOfAttempsInput();
+        racingGameService.setAttemps(attemps);
     }
     
     
