@@ -41,6 +41,21 @@ public class OutputViewTest {
     }
 
 
+    @Test
+    void 결과_시작_출력_테스트() {
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setOut(printStream);
+
+        OutputView.printResultStartMessage();
+
+        String caputredOutput = outputStream.toString();
+        Assertions.assertEquals("\n실행 결과\n", caputredOutput);
+
+    }
+
+
 
 
 
