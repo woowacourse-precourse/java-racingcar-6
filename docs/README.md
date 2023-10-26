@@ -49,4 +49,4 @@ MVC 모델을 도입함에 있어서 Model마다의 기능을 정의한다.
 
 # 기능 플로우 차트
 
-![플로우차트](https://github.com/dltjdgh0428/java-racingcar-6/assets/33485494/a6efce2b-52a9-4775-8664-e6a780a459af)
+<img src="https://github.com/dltjdgh0428/java-racingcar-6/assets/33485494/a6efce2b-52a9-4775-8664-e6a780a459af"/>
