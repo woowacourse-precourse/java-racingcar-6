@@ -2,7 +2,7 @@ package study;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.Cars.goForward;
+import racingcar.Cars;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
