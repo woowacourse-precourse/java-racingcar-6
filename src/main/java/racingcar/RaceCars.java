@@ -26,6 +26,13 @@ public class RaceCars {
                 .toList();
     }
 
+    public void printAllCar() {
+        for (RaceCar car : raceCarList) {
+            car.printCurrentPositions();
+        }
+        System.out.println();
+    }
+
     public void moveForwardEach() {
         for (RaceCar car : raceCarList) {
             if (canMoveForward()) {
