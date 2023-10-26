@@ -42,4 +42,4 @@ MVC 모델을 도입함에 있어서 Model마다의 기능을 정의한다.
 
 # 기능 플로우 차트
 
-![플로우차트.PNG](..%2F..%2F%ED%94%8C%EB%A1%9C%EC%9A%B0%EC%B0%A8%ED%8A%B8.PNG)
+![플로우차트](https://github.com/dltjdgh0428/java-racingcar-6/assets/33485494/a6efce2b-52a9-4775-8664-e6a780a459af)
