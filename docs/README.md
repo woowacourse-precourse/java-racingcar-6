@@ -3,8 +3,8 @@
   -[x] 0~9 무작위의 값 생성 : generateRandomNumber()
   -[x] 0, 1, 2, 3 : 멈춤 / 4, 5, 6, 7, 8, 9 : 전진 : isCarMoving()
 - [] 쉼표 기준 자동차 이름 구분 : splitCarNames(String input)
-- [] 자동차 이름은 5자 이하 : validateCarNameLength(String carName)
-  -[] 잘못 입력 : IllegalArgumentException 발생 
+- [x] 자동차 이름은 5자 이하 : validateCarNameLength(String carName)
+  -[x] 잘못 입력 : IllegalArgumentException 발생 
 - [] 우승자 목록 생성
   - [] 혼자 : 그냥 출력
   - [] 여러명 : 쉼표 구분 출력
