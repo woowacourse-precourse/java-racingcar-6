@@ -11,18 +11,22 @@ public class Car implements Vehicle {
 
     private final String name;
 
-    public Car(final String name) {
-        validateCarName(name);
+    private Car(final String name) {
         this.name = name;
     }
 
-    private void validateCarName(final String name) {
+    public static Car createWith(final String name) {
+        validateCarName(name);
+        return new Car(name);
+    }
+
+    private static void validateCarName(final String name) {
         if (isNameLengthValid(name)) {
             throw new NotValidNameLengthException(name);
         }
     }
 
-    private boolean isNameLengthValid(final String name) {
+    private static boolean isNameLengthValid(final String name) {
         return name.length() < MAX_CAR_NAME_LENGTH.getValue();
     }
 
