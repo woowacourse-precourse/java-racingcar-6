@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.NoSuchElementException;
 
 public class Race {
-    ArrayList<Car> carList;
+    ArrayList<Car> carList = new ArrayList<>();
 
     public void addCar(Car car) {
         carList.add(car);
@@ -27,5 +27,9 @@ public class Race {
     int findFarthest() {
         Comparator<Car> compareByPose = Comparator.comparingInt(Car::getPos);
         return carList.stream().max(compareByPose).orElseThrow(NoSuchElementException::new).getPos();
+    }
+
+    void simulateTurn() {
+        carList.forEach(Car::turnAction);
     }
 }
