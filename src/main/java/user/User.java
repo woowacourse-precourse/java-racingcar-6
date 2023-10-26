@@ -5,12 +5,15 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.StringTokenizer;
 
 public class User {
-    public static List<String> input() {
+    public static List<String> playerInput() {
         String players = Console.readLine();
-        return new ArrayList<>(Arrays.asList(players.split(",")));
+
+        List<String> playersArray = new ArrayList<>(Arrays.asList(players.split(",")));
+        ExceptionHandler.raiseException(playersArray);
+
+        return playersArray;
     }
 }
 
