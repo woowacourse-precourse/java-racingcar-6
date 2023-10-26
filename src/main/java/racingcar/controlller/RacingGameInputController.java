@@ -7,11 +7,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.CarList;
+import racingcar.view.InputView;
 
 // 프론트 엔드 역할을 할 컨트롤러
 public class RacingGameInputController {
     // 자동차 이름 입력 및 검증
     public static CarList scanCarList() {
+        InputView.printEnterCarNames();
         String userInput = Console.readLine();
         validateCarList(userInput);
 
