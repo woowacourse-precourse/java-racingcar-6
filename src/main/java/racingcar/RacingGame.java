@@ -38,4 +38,10 @@ public class RacingGame {
             throw new IllegalArgumentException("정수를 입력해야합니다.");
         }
     }
+
+    public void validateName(String name){
+        String nameWithoutWhiteSpace=removeWhiteSpace(name);
+        checkNameIsEmpty(nameWithoutWhiteSpace);
+        checkNameCorrectRange(nameWithoutWhiteSpace);
+    }
 }
