@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import racingcar.model.Car;
+import racingcar.service.RacingGame;
 import racingcar.view.InputView;
 import racingcar.service.Exception;
 
@@ -20,6 +21,6 @@ public class GameController {
     }
 
     private void setRaceCount() {
-        Exception.checkRaceCount(InputView.inputRaceCount());
+        RacingGame game = new RacingGame(Exception.checkRaceCount(InputView.inputRaceCount()));
     }
 }

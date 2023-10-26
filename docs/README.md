@@ -35,14 +35,14 @@
 
 ### Game Controller
 - [x] 자동차 생성 명령
-- [] 전진 시도 횟수 설정 명령
+- [x] 전진 시도 횟수 설정 명령
 - [ ] 자동차 경주 실행 명령 (게임 로직 실행)
 - [ ] 실행 결과 출력 명령
 - [ ] 게임 결과 출력 명령
 
 
 ### Racing Car Game
-- [ ] 게임 횟수를 가짐
+- [x] 게임 횟수를 가짐
 - [ ] 게임 회차 별 자동차별 랜덤 숫자 생성 (0부터 9까지의 숫자 한개)
   - [ ] 랜덤값 추출은 [우테코에서 제공하는 라이브러리](https://github.com/woowacourse-projects/mission-utils#mission-utils) `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용
 - [ ] 게임 회차 별 생성된 랜던 값이 4 이상인 자동차의 전진 횟수 증가

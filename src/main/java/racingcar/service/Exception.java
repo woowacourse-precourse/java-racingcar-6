@@ -23,9 +23,10 @@ public class Exception {
         checkSameName();
     }
 
-    public static void checkRaceCount(String inputValue) throws IllegalArgumentException {
+    public static String checkRaceCount(String inputValue) throws IllegalArgumentException {
         checkEmpty(inputValue);
         checkInteger(inputValue);
+        return inputValue;
     }
 
     private static void checkEmpty(String inputValue) {
