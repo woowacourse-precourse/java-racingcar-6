@@ -19,4 +19,8 @@ public class Cars {
                 .map(String::trim)
                 .collect(Collectors.toList());
     }
+
+    public List<Car> getCarsList() {
+        return carsList;
+    }
 }

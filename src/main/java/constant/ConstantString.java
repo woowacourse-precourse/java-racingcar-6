@@ -1,5 +1,7 @@
 package constant;
 
+import domain.Car;
+
 public class ConstantString {
     public static int MAX_NAME_LENGTH = 5;
 
@@ -7,4 +9,10 @@ public class ConstantString {
     public static String ATTEMPT_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
     public static String EXECUTION_RESULT = "실행 결과";
     public static String FINAL_WINNER = "최종 우승자";
+
+    public static String processMessage(Car car) {
+        return car.getCarName()
+                        + " : "
+                        + "-".repeat(Math.max(0, car.count.getCount()));
+    }
 }

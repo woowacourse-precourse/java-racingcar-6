@@ -13,7 +13,7 @@ public class Car {
     }
 
     public String getCarName() {
-        return this.carName;
+        return carName;
     }
 
     public void moveOrStop(int randomNumber) {

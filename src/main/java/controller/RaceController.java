@@ -1,9 +1,12 @@
 package controller;
 
+import static constant.ConstantString.EXECUTION_RESULT;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import domain.Car;
 import domain.Cars;
 import view.InputView;
+import view.OutputView;
 
 public class RaceController {
     private Cars cars;
@@ -14,7 +17,7 @@ public class RaceController {
 
     public void set() {
         cars = new Cars(InputView.carNames());
-        printCarLists();
+        // printCarLists();
         start(InputView.attemptCount());
     }
 
@@ -25,13 +28,10 @@ public class RaceController {
     }
 
     private void start(int attemptCount) {
+        System.out.println(EXECUTION_RESULT);
         for (int i = attemptCount; i > 0; i--) {
             decideForwardMovement();
-        }
-
-        for (int i = 0; i < cars.carsList.size(); i++) {
-            Car c = cars.carsList.get(i);
-            System.out.println(c.getCarName() + " " + c.count.getCount());
+            OutputView.printProcess(cars.getCarsList());
         }
     }
 
