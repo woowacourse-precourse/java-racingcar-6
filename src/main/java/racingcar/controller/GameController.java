@@ -32,5 +32,6 @@ public class GameController {
         Counter counter = new Counter();
         int max = counter.maxCount(now);
         now=counter.eliminate(now, max);
+        outputMessage.result(car, now);
     }
 }
