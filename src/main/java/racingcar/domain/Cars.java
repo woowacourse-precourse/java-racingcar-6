@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
     private final List<Car> cars;
@@ -20,5 +21,21 @@ public class Cars {
         for (Car car : cars) {
             car.moveOrStop(numberGenerator.generate());
         }
+    }
+
+    public List<Car> findMostMovedCars() {
+        return findMostMovedCars(findMaxPositionCar());
+    }
+
+    private List<Car> findMostMovedCars(Car maxPositionCar) {
+        return cars.stream()
+                .filter(car -> car.isSamePosition(maxPositionCar))
+                .collect(Collectors.toList());
+    }
+
+    private Car findMaxPositionCar() {
+        return cars.stream()
+                .max(Car::compareTo)
+                .get();
     }
 }

@@ -4,7 +4,7 @@ import racingcar.utils.Constants;
 
 import java.util.Objects;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private static final int INITIAL_POSITION = 0;
     private static final int MIN_NUMBER_TO_MOVE = 4;
 
@@ -34,6 +34,14 @@ public class Car {
         }
     }
 
+    public boolean isSamePosition(Car car) {
+        return car.isMatchPosition(position);
+    }
+
+    private boolean isMatchPosition(Position position) {
+        return this.position.equals(position);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -45,5 +53,10 @@ public class Car {
     @Override
     public int hashCode() {
         return Objects.hash(name, position);
+    }
+
+    @Override
+    public int compareTo(Car other) {
+        return position.compareTo(other.position);
     }
 }

@@ -57,4 +57,18 @@ class CarsTest {
                         new Car("woni", 0),
                         new Car("jun", 0));
     }
+
+    @Test
+    @DisplayName("경주에 참여하는 자동차들 중 가장 많이 전진한 자동차를 알 수 있다.")
+    void findMostMovedCars() {
+        List<Car> source = List.of(
+                new Car("pobi", 2),
+                new Car("woni", 1),
+                new Car("jun", 2));
+        Cars cars = new Cars(source);
+
+        List<Car> result = cars.findMostMovedCars();
+
+        assertThat(result).containsExactly(new Car("pobi", 2), new Car("jun", 2));
+    }
 }
