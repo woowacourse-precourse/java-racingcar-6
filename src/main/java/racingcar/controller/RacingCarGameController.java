@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.model.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -14,6 +15,7 @@ public class RacingCarGameController {
     }
 
     public void run(){
+        Cars cars = Cars.makeCarList(inputView.readCarNames());
 
     }
 }
