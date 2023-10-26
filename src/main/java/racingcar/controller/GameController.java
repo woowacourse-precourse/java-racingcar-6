@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.domain.Garage;
+import racingcar.domain.Circuit;
 import racingcar.domain.TryCount;
 import racingcar.service.RacingService;
 import racingcar.view.InputView;
@@ -19,9 +19,8 @@ public class GameController {
     }
 
     public void playGame() {
-        Garage garage = inputView.getInputCarNames();
+        Circuit circuit = inputView.getInputCarNames();
         TryCount tryCount = inputView.getTryCount();
-        racingService.race(garage);
-
+        racingService.race(circuit);
     }
 }

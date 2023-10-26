@@ -4,23 +4,23 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class Garage {
+public class Circuit {
 
     private final List<Car> cars;
 
-    private Garage(List<Car> cars) {
+    private Circuit(List<Car> cars) {
         this.cars = cars;
     }
 
-    public static Garage fromCarNames(List<String> carNames) {
+    public static Circuit fromCarNames(List<String> carNames) {
         List<Car> cars = carNames.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
-        return new Garage(cars);
+        return new Circuit(cars);
     }
 
     public void moveCars(List<Integer> randomNumbers) {
-        IntStream.range(0, getGarageSize())
+        IntStream.range(0, getCircuitSize())
                 .forEach(index -> getMove(randomNumbers, index));
     }
 
@@ -30,7 +30,7 @@ public class Garage {
         car.move(randomNumber);
     }
 
-    public int getGarageSize() {
+    public int getCircuitSize() {
         return this.cars.size();
     }
 
