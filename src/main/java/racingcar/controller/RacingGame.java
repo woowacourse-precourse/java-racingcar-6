@@ -16,8 +16,14 @@ public class RacingGame {
 
         Integer numberOfTimes = convertToInteger(inputView.enterNumberOfTimes());
 
+        rotate(cars, numberOfTimes);
+    }
 
+    private static void rotate(Cars cars, Integer numberOfTimes) {
+        while (numberOfTimes-- > 0) {
+            cars.go();
 
+        }
     }
 
     private static Integer convertToInteger(final String inputNumberString) {

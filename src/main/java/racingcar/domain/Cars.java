@@ -20,4 +20,8 @@ public class Cars {
                 .toList());
 
     }
+
+    public void go() {
+        cars.forEach(Car::go);
+    }
 }
