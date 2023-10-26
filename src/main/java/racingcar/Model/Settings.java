@@ -9,7 +9,6 @@ public class Settings {
 
     public static void setAttempts(int attempts) {
         ATTEMPT_COUNT = attempts;
-        System.out.printf("\n%d, %d\n", CAR_AMOUNT, ATTEMPT_COUNT);
     }
 
 }
