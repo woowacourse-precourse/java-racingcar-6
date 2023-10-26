@@ -7,23 +7,23 @@ import java.util.List;
 public class Race {
     private List<Car> cars;
 
-    public void addCar(String carName) {
+    private void addCar(String carName) {
         Car car = new Car();
         car.setName(carName);
         cars.add(car);
     }
 
-    public void addCars(List<String> carNames) {
+    void addCars(List<String> carNames) {
         for (String carName : carNames) {
             addCar(carName);
         }
     }
 
-    public List<Car> getCars() {
+    List<Car> getCars() {
         return cars;
     }
 
-    public List<Car> getWinner() {
+    List<Car> getWinner() {
         List<Car> carsCopy = new ArrayList<>();
         carsCopy.addAll(cars);
 
