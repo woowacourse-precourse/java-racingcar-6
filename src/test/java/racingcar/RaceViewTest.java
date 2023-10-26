@@ -14,7 +14,7 @@ public class RaceViewTest {
 
         RaceView view = new RaceView();
 
-        String result = view.getCarInput();
+        String result = view.getCarListInput();
         assertEquals(input, result);
     }
 }

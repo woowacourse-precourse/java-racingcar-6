@@ -17,7 +17,7 @@
   - 유틸리티 클래스
 
 ## 자동차 입력 기능
-- [x] RaceView : `getCarInput` 메서드
+- [x] RaceView : `getCarListInput` 메서드
   - 사용자로부터 자동차 목록을 입력받는다.
 - [ ] Application : `validateCarListInput` 메서드
   - 문자열을 인수로 받아 자동차 목록 입력 형식으로서 유효한지 검사한다.
