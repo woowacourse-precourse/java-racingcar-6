@@ -1,17 +1,17 @@
 package racingcar.model;
 
 public class Game {
-    private Long maxRoundNumber;
-    private Long presentRoundNumber;
+    private Integer maxRoundNumber;
+    private Integer presentRoundNumber;
 
     public Game(String s) {
         this.maxRoundNumber = validString(s);
-        this.presentRoundNumber = 0L;
+        this.presentRoundNumber = 0;
     }
 
-    private Long validString(String s) {
+    private Integer validString(String s) {
         try {
-            return maxRoundNumber = Long.parseLong(s);
+            return maxRoundNumber = Integer.getInteger(s);
         } catch (RuntimeException e) {
             throw new IllegalArgumentException();
         }
@@ -22,11 +22,11 @@ public class Game {
         System.out.println();
     }
 
-    public Long getMaxRoundNumber() {
+    public Integer getMaxRoundNumber() {
         return maxRoundNumber;
     }
 
-    public Long getPresentRoundNumber() {
+    public Integer getPresentRoundNumber() {
         return presentRoundNumber;
     }
 
