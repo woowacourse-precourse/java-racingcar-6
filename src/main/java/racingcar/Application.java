@@ -2,7 +2,9 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
-import racingcar.controller.Race;
+import racingcar.controller.Generator;
+import racingcar.controller.Validation;
+import racingcar.model.Race;
 import racingcar.model.Car;
 import racingcar.view.View;
 

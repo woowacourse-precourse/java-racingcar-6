@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.controller;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.ThrowableAssert.catchThrowable;
@@ -6,6 +6,7 @@ import static org.assertj.core.api.ThrowableAssert.catchThrowable;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.controller.Validation;
 import racingcar.model.Car;
 
 class ValidationTest {
