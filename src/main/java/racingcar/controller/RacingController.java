@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.view.Input;
 import racingcar.view.Output;
@@ -10,6 +11,8 @@ import java.util.List;
 public class RacingController {
 
     private static final String CAR_NAME_DELIMITER = ",";
+    private static final int RANDOM_NUMBER_START = 0;
+    private static final int RANDOM_NUMBER_END = 9;
 
     private final Output output = new Output();
     private final Input input = new Input();
@@ -28,5 +31,9 @@ public class RacingController {
         return Arrays.stream(carNames.split(CAR_NAME_DELIMITER))
                 .map(Car::new)
                 .toList();
+    }
+
+    private int makeRandomNumber() {
+        return Randoms.pickNumberInRange(RANDOM_NUMBER_START, RANDOM_NUMBER_END);
     }
 }
