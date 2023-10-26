@@ -1,9 +1,46 @@
 ## 📌 기능 목록
-- 자동차 이름 입력을 통해 자동차 생성 (5자 이내, 쉼표를 통해 구분)
-- 횟수 입력을 통해 이동 횟수 설정
-- 이동 회차 당 전진 조건에 따라서 전진 여부 결정
-  - 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우
-- 이동 회차별 실행 결과 출력
-- 모든 회차 종료 후 게임 결과(우승자) 출력
-- 우승자는 한 명 이상일 수 있음 (쉼표를 통해 구분)
-- 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션 종료
+
+### Car
+- [ ] 5자 이내의 자동차 이름을 가짐
+- [ ] 전진 횟수를 가짐
+
+
+### Input
+- [ ] 자동자 이름을 입력 받음
+  - [ ] 쉼표를 통해 구분
+- [ ] 전진 시도 횟수(게임 횟수)를 입력 받음
+- [ ] 입력받는 값은 [우테코에서 제공하는 라이브러리](https://github.com/woowacourse-projects/mission-utils#mission-utils) `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용
+
+
+### Output
+- [ ] 차수별 실행 결과 출력
+- [ ] 우승자 안내 문구를 출력
+
+
+### Exception Check
+- [ ] 자동차 이름 입력값 검증
+  - [ ] 5자 초과 입력할 경우 예외 처리
+- [ ] 전진 시도 횟수(게임 횟수) 입력값 검증
+  - [ ] 입력된 값이 숫자가 아닐 경우 예외 처리
+- [ ] 예외 처리 방식 : `IllegalArgumentException` 발생시킨 후 애플리케이션 종료
+
+
+### Application
+- [ ] Game Controller 실행
+
+
+### Game Controller
+- [ ] 자동차 생성 명령
+- [ ] 전진 시도 횟수 설정 명령
+- [ ] 자동차 경주 실행 명령 (게임 로직 실행)
+- [ ] 실행 결과 출력 명령
+- [ ] 게임 결과 출력 명령
+
+
+### Racing Car Game
+- [ ] 게임 횟수를 가짐
+- [ ] 게임 회차 별 자동차별 랜덤 숫자 생성 (0부터 9까지의 숫자 한개)
+  - [ ] 랜덤값 추출은 [우테코에서 제공하는 라이브러리](https://github.com/woowacourse-projects/mission-utils#mission-utils) `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용
+- [ ] 게임 회차 별 생성된 랜던 값이 4 이상인 자동차의 전진 횟수 증가
+- [ ] 회차별 실행 결과 Game Controller 전달
+- [ ] 모든 회차 실행 결과 Game Controller 전달
