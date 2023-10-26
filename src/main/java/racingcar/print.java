@@ -23,4 +23,11 @@ public class Print {
         }
     }
 
+    public static void winner(Race race) {
+        List<Car> winner = race.getWinner();
+        List<String> winnerName = winner.stream()
+                .map(Car::getName)
+                .toList();
+        System.out.println("최종 우승자 : " + String.join(", ", winnerName));
+    }
 }
