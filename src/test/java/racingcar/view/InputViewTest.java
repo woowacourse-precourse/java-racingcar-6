@@ -9,11 +9,18 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class InputViewTest {
 
     InputView inputView = new InputView();
+    OutputStream out = new ByteArrayOutputStream();
+
+    @BeforeEach
+    void open() {
+        System.setOut(new PrintStream(out));
+    }
 
     @AfterEach
     void close() {
@@ -23,13 +30,7 @@ public class InputViewTest {
     @Test
     void 차이름_입력() {
         // given
-        OutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out));
-
-        String input = "aa,bb";
-
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+        systemIn("aa,bb");
 
         // when
         inputView.enterCarNames();
@@ -41,18 +42,17 @@ public class InputViewTest {
     @Test
     void 시도_횟수_입력() {
         // given
-        OutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out));
-
-        String input = "5";
-
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+        systemIn("5");
 
         // when
         inputView.enterRotateNumber();
 
         // then
         assertThat(out.toString()).contains("시도할 회수는 몇회인가요?");
+    }
+
+    public static void systemIn(String input) {
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
     }
 }

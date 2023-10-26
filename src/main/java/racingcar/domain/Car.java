@@ -11,7 +11,6 @@ import racingcar.exception.RacingGameException;
 public class Car {
 
 
-
     private final String name;
     private Integer position;
 

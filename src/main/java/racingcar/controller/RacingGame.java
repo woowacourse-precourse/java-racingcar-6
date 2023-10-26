@@ -30,20 +30,20 @@ public class RacingGame {
     }
 
     private void init() {
-        cars = generateCars();
-        rotateCount = askRotateNumber();
+        generateCars();
+        askRotateNumber();
     }
 
-    private Cars generateCars() {
+    private void generateCars() {
         final String carNames = inputView.enterCarNames();
 
-        return Cars.from(carNames);
+        cars = Cars.from(carNames);
     }
 
-    private Integer askRotateNumber() {
+    private void askRotateNumber() {
         final String rotateNumber = inputView.enterRotateNumber();
 
-        return convertToInteger(rotateNumber);
+        rotateCount = convertToInteger(rotateNumber);
     }
 
     private Integer convertToInteger(String inputNumberString) {

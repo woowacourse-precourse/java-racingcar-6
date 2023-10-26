@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.CarDto;
 import racingcar.dto.CarsDto;
@@ -15,6 +16,12 @@ import racingcar.dto.CarsDto;
 class OutputViewTest {
 
     OutputView outputView = new OutputView();
+    OutputStream out = new ByteArrayOutputStream();
+
+    @BeforeEach
+    void open() {
+        System.setOut(new PrintStream(out));
+    }
 
     @AfterEach
     void close() {
@@ -31,10 +38,6 @@ class OutputViewTest {
 
         CarsDto carsDto = new CarsDto(List.of(carDtoA, carDtoB, carDtoC, carDtoD));
 
-        OutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out));
-
-
         // when
         outputView.printCarsResults(carsDto);
 
@@ -49,9 +52,6 @@ class OutputViewTest {
     void 우승자_출력() {
         // given
         List<String> winnerName = List.of("a", "b", "c");
-
-        OutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out));
 
         // when
         outputView.printWinners(winnerName);
