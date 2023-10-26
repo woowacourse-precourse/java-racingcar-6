@@ -37,20 +37,20 @@ public class RacingGame {
         }
     }
 
-    private static Integer convertToInteger(final String inputNumberString) {
+    private static Integer convertToInteger(String inputNumberString) {
         validateNumber(inputNumberString);
 
         return Integer.valueOf(inputNumberString);
     }
 
-    private static void validateNumber(final String inputNumberString) {
+    private static void validateNumber(String inputNumberString) {
         if (isNotNumber(inputNumberString)) {
             throw new IllegalArgumentException("[ERROR] 숫자만 입력가능합니다.");
         }
 
     }
 
-    private static boolean isNotNumber(final String inputNumberString) {
+    private static boolean isNotNumber(String inputNumberString) {
         final String REGEX = "[0-9]+";
 
         return !inputNumberString.matches(REGEX);

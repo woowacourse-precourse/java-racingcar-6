@@ -23,7 +23,7 @@ public class Car {
         }
     }
 
-    public static Car from(String name) {
+    public static Car from(final String name) {
         //validateName(name);
         return new Car(name);
     }
@@ -48,7 +48,7 @@ public class Car {
         return position;
     }
 
-    public Boolean isHere(Integer position) {
+    public Boolean isHere(final Integer position) {
         return this.position.equals(position);
     }
 

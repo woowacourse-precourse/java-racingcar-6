@@ -18,7 +18,7 @@ public class OutputView {
         System.out.println(RUN_RESULT);
     }
 
-    public void printCarsResults(CarsDto carsDto) {
+    public void printCarsResults(final CarsDto carsDto) {
         carsDto.getCarDtos()
                 .forEach(this::printCarResult);
 
@@ -34,7 +34,7 @@ public class OutputView {
         System.out.printf(format, name);
     }
 
-    public void printWinners(List<String> winnerNames) {
+    public void printWinners(final List<String> winnerNames) {
         System.out.printf(FINAL_WINNER_FORMAT, String.join(NAME_JOIN_SIGNAL, winnerNames));
     }
 }

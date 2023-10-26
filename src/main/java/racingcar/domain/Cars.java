@@ -13,7 +13,7 @@ public class Cars {
         this.cars = cars;
     }
 
-    public static Cars from(String carNames) {
+    public static Cars from(final String carNames) {
 
         return new Cars(Arrays.stream(carNames.split(SPLIT_STRING))
                 .map(Car::from)

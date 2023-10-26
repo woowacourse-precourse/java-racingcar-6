@@ -7,7 +7,7 @@ public class CarsDto {
 
     private List<CarDto> carDtos;
 
-    public static CarsDto of(Cars cars) {
+    public static CarsDto of(final Cars cars) {
         CarsDto carsDto = new CarsDto();
         carsDto.carDtos = cars.getCars()
                 .stream()
