@@ -1,6 +1,7 @@
 package racingcar.game;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
@@ -9,18 +10,31 @@ public class Game {
     public void run(){
 
     }
-/*
-    private List<Player> setPlayers(){
-        String input = Console.readLine();
 
-        if(input.isEmpty()){
+    private List<Player> setPlayers(String userNames){
+        if(userNames.isEmpty()){
             throw new IllegalArgumentException();
         }
 
-        String[] users = input.split(",");
+        String[] users = userNames.split(",");
 
+        if(users.length==0){
+            throw new IllegalArgumentException();
+        }
+
+        List<Player> playerList = new ArrayList<>();
+
+        for(String user : users){
+            if(checkNameLength(user)){
+                playerList.add(new Player(user));
+            }else {
+                throw new IllegalArgumentException();
+            }
+        }
+
+        return playerList;
     }
- */
+
     private boolean checkNameLength(String name){
         String removeSpace = name.trim();
         if(removeSpace.length()<=5 && removeSpace.length()>=1){
