@@ -1,5 +1,6 @@
 package game;
 
+import controller.GameController;
 import exception.GameInputException;
 import view.InputView;
 
@@ -7,10 +8,12 @@ public class RacingGame {
 
     private final InputView inputView;
     private final GameInputException gameInputException;
+    private final GameController gameController;
 
     public RacingGame() {
         inputView = new InputView();
         gameInputException = new GameInputException();
+        gameController = new GameController();
     }
 
     public void run() {
