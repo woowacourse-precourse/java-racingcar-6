@@ -24,4 +24,8 @@ public class GameController {
         Recorder recorder = new Recorder();
         now = recorder.record(car, lap);
     }
+
+    public void endGame() {
+
+    }
 }
