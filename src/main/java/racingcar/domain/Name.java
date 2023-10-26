@@ -9,8 +9,8 @@ public class Name {
     }
 
     private void validateName(String name) {
-        if (name.length() > 5) {
-            throw new IllegalArgumentException("이름 길이는 최대 5자입니다.");
+        if (name.isEmpty() || name.length() > 5) {
+            throw new IllegalArgumentException("이름은 1~5 글자여야 합니다.");
         }
     }
 
