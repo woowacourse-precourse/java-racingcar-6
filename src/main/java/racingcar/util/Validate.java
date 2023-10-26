@@ -15,4 +15,12 @@ public class Validate {
             throw new IllegalArgumentException("잘못된 입력 : \",\" 뒤는 자동차 이름이 들어가야합니다.");
         }
     }
+
+    public void CarNameLength(List<String> list) {
+        for(String name: list) {
+            if(name.length() > 5) {
+                throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다.");
+            }
+        }
+    }
 }
