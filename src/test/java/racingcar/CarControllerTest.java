@@ -40,4 +40,15 @@ public class CarControllerTest {
         assertThatThrownBy(() -> carController.generateCars(inputStr))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("자동차 생성 공백 예외 테스트")
+    @Test
+    void generateCarsExceptionTest2() {
+        // given
+        String inputStr = "철수,  , 유리";
+
+        // when
+        assertThatThrownBy(() -> carController.generateCars(inputStr))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
