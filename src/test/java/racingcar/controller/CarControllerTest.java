@@ -73,7 +73,7 @@ public class CarControllerTest {
         String[] winners = winnerDto.names();
         assertThat(winners).isNotEmpty();
         for (String name : winners) {
-            assertThat(name).isIn(names);
+            assertThat(names).contains(name);
         }
     }
 }
