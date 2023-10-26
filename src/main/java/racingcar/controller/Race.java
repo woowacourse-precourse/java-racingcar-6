@@ -2,21 +2,27 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.domain.Car;
+import racingcar.model.Car;
 
 public class Race {
 
     private final List<Car> carList;
 
-    public Race() {
-        this.carList = new ArrayList<>();
-    }
-
     public Race(List<Car> carList) {
         this.carList = carList;
     }
 
-    List<Car> checkWinner() {
+    public List<Car> getCarList() {
+        return this.carList;
+    }
+
+    public void phase() {
+        for (Car car : this.carList) {
+            car.move();
+        }
+    }
+
+    public List<Car> checkWinner() {
         List<Car> list = new ArrayList<>();
         int max = 0;
 
