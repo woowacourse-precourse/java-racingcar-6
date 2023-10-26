@@ -1,9 +1,11 @@
 package view;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -33,7 +35,7 @@ public class InputViewTest {
         String[] splitedInput = InputView.getCarsNameFromUserInput();
 
         //then
-        Assertions.assertThat(splitedInput).isEqualTo(results);
+        assertThat(splitedInput).isEqualTo(results);
     }
 
     @ParameterizedTest(name = "입력 값 : {0}")
@@ -48,6 +50,21 @@ public class InputViewTest {
         int results = InputView.getAttemptsFromUserInput();
 
         //then
-        Assertions.assertThat(results).isEqualTo(attempt);
+        assertThat(results).isEqualTo(attempt);
+    }
+
+    @ParameterizedTest(name = "입력 값 : {0}")
+    @ValueSource(strings = {"a", "b", "c"})
+    @DisplayName("시도 횟수 문자 입력시 예외 발생하는지")
+    public void 시도_횟수_예외_테스트(String input) {
+        //given
+        String attempt = input;
+
+        //when, then
+        provideInput(input);
+        assertThatThrownBy(InputView::getAttemptsFromUserInput)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("숫자만 입력 가능합니다.");
+
     }
 }
