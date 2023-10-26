@@ -4,7 +4,7 @@
   - [ ] 몇번의 이동을 할 것인지 입력 받기  - InputView#ongoingTurn
     - [ ] 숫자가 아닐 경우 예외 처리    - Inputview에서 알아서 터짐?
 - [ ] 로직
-  - [ ] 무작위 값을 만들고 수가 4이상인지 판단하기  - RandomNumber#overFour
+  - [ ] 무작위 값을 만들고 수가 4이상인지 판단하기  - GoDiscriminator#overFour
   - [ ] 판단 후 이상이라면 car을 update하기  - car#update
   - [ ] 우승자 판단하기  - cars#longestDistanceCar
 - [ ] 출력
