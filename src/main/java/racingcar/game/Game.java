@@ -3,6 +3,7 @@ package racingcar.game;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Game {
@@ -49,5 +50,29 @@ public class Game {
             return false;
         };
         return true;
+    }
+
+    private List<Player> getChampions( List<Player> players ){
+        List<Player> champions = new ArrayList<>();
+
+        if(players.size()==1){
+            return players;
+        }
+
+        Collections.sort(players,
+            (e1, e2)->{
+                return e2.getDistance()-e1.getDistance();
+            }
+        );
+
+        champions.add(players.get(0));
+
+        for(int i = 1 ; i<players.size(); i++){
+            if(players.get(i).getDistance() == champions.get(0).getDistance()){
+                champions.add(players.get(i));
+            }
+        }
+
+        return champions;
     }
 }
