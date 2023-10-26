@@ -23,9 +23,8 @@
 
 `Name name`, `MovingCount movingCount`를 갖는 클래스
 
-- `increaseMovingCount()` movingCount 증가시켜주는 메서드
-- `isSameNumber()` 다른 Car클래스와 같은 movingCount 갖고 있는지 판별 메서드
-- `getName()` 이름 반환 메서드
+- `increaseMovingCountIfGreater()` 임의의 수가 기준 숫자보다 크면 movingCount 증가시켜주는 메서드
+- `isSameMovingCount()` 다른 Car클래스와 같은 movingCount 갖고 있는지 판별 메서드
 - `compareTo()` 비교 오버라이드 메서드
 - `toString()` 이름과 movingCount만큼 "-" 반환 메서드
 
