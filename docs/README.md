@@ -24,7 +24,7 @@
 ## 기능 목록  -메서드명
 
 -[ ] 사용자에게 자동차들의 이름을 입력받는다. -inputCarsName()
-  - [ ] 입력받은 문자열을 쉼표(,)를 기준으로 나눠준다. -splitNames()
+  - [x] 입력받은 문자열을 쉼표(,)를 기준으로 나눠준다. -splitNames()
   - [ ] 각 이름들의 길이가 5 이하인지 확인한다. -checkNameCorrectRange()
     - 길이가 5 초과일경우 IllegalArgumentException을 발생하고 애플리케이션을 종료시킨다.
 -[ ] 각 이름들을 담은 자동차 객체를 만든다. -makeCar()
