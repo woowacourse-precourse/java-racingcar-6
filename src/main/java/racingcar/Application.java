@@ -51,18 +51,18 @@ public class Application {
         System.out.println(STRING_EXECUTION_RESULT);
     }
 
-    public static List<Car> getCarList(List<String> carNameList) {
+    public static List<Car> getCarList(final List<String> carNameList) {
         final List<Car> carList = carNameList.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
         return Collections.unmodifiableList(carList);
     }
 
-    public static void moveForward(List<Car> carList) {
+    public static void moveForward(final List<Car> carList) {
         carList.stream().forEach(Car::moveForward);
     }
 
-    public static List<Car> getCarListWithLongestDistance(List<Car> carList) {
+    public static List<Car> getCarListWithLongestDistance(final List<Car> carList) {
         return List.of();
     }
 }
