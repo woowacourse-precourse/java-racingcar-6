@@ -2,10 +2,9 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
-import racingcar.domain.Name;
+import racingcar.domain.CarGarage;
 import racingcar.util.TypeConverter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class InputView {
@@ -16,16 +15,12 @@ public class InputView {
         this.converter = converter;
     }
 
-    public List<Car> getCars() {
+    public CarGarage getCars() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
-        List<String> nameList = converter.convertToList(input);
-        List<Car> cars = new ArrayList<>();
-        for (String name : nameList) {
-            Name carName = new Name(name);
-            cars.add(new Car(carName));
-        }
-        return cars;
+        List<String> nameList = converter.convertToNameList(input);
+        List<Car> cars = converter.convertToCarList(nameList);
+        return new CarGarage(cars);
     }
 
     public int getTryCount() {

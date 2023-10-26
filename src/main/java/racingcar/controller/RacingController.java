@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Car;
+import racingcar.domain.CarGarage;
 import racingcar.service.RacingCircuit;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -20,14 +21,14 @@ public class RacingController {
     }
 
     public void run() {
-        List<Car> cars = inputView.getCars();
+        CarGarage carGarage = inputView.getCars();
         int tryCount = inputView.getTryCount();
         outputView.printResultMessage();
         for (int i = 0; i < tryCount; i++) {
-            circuit.race(cars);
-            outputView.printRaceResult(cars);
+            circuit.race(carGarage);
+            outputView.printRaceResult(carGarage);
         }
-        List<Car> winner = circuit.findWinner(cars);
+        List<Car> winner = carGarage.findWinner();
         outputView.printWinner(winner);
     }
 }

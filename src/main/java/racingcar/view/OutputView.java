@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import racingcar.domain.Car;
+import racingcar.domain.CarGarage;
 import racingcar.util.StringUtil;
 
 import java.util.List;
@@ -17,12 +18,9 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    public void printRaceResult(List<Car> cars) {
-        for (Car car : cars) {
-            String result = stringUtil.makeRaceResult(car);
-            System.out.println(result);
-        }
-        System.out.println();
+    public void printRaceResult(CarGarage cars) {
+        String result = stringUtil.makeRaceResult(cars);
+        System.out.println(result);
     }
 
     public void printWinner(List<Car> winner) {

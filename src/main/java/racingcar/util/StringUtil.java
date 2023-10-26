@@ -1,14 +1,20 @@
 package racingcar.util;
 
 import racingcar.domain.Car;
+import racingcar.domain.CarGarage;
 
 import java.util.List;
 
 public class StringUtil {
 
-    public String makeRaceResult(Car car) {
+    public String makeRaceResult(CarGarage garage) {
+        StringBuilder sb = new StringBuilder();
         String format = "%s : %s";
-        return String.format(format, car.getName(), "-".repeat(car.getPosition()));
+        for (Car car : garage.cars()) {
+            String formatted = String.format(format, car.getName(), "-".repeat(car.getPosition()));
+            sb.append(formatted).append("\n");
+        }
+        return sb.toString();
     }
 
     public String makeWinnerResult(List<Car> winner) {
