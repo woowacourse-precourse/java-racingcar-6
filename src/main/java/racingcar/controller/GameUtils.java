@@ -1,5 +1,11 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class GameUtils {
-    // 게임 흐름에 필요한 도구들
+    public List<String> splitByComma(String userInput){
+        return Arrays.asList(userInput.split(","));
+    }
 }
