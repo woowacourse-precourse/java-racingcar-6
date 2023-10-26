@@ -1,14 +1,11 @@
 package racingcar.view;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.OutputTestSupport;
-import racingcar.constants.MessageConstants;
 import racingcar.entity.car.Car;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 import static racingcar.constants.MessageConstants.*;
 
 class ExecutionViewTest extends OutputTestSupport {
@@ -19,7 +16,7 @@ class ExecutionViewTest extends OutputTestSupport {
         // given // when
         ExecutionView.printExecutionStartMessage();
         // then
-        assertThat(output()).isEqualTo(EXECUTION_START_MESSAGE);
+        assertThat(outputWithoutTrim()).isEqualTo(EXECUTION_START_MESSAGE);
     }
 
     @Test
@@ -31,7 +28,16 @@ class ExecutionViewTest extends OutputTestSupport {
         // when
         ExecutionView.printExecutionMessage(car);
         // then
-        assertThat(output()).isEqualTo("myCar : -");
+        assertThat(outputWithoutTrim()).isEqualTo("myCar : -");
+    }
+
+    @Test
+    @DisplayName("개행문자 newLine을 출력할 수 있다.")
+    public void newLine() {
+        // given // when
+        ExecutionView.newLine();
+        // then
+        assertThat(getOutput()).isEqualTo("\n");
     }
 
 }

@@ -21,10 +21,15 @@ public abstract class OutputTestSupport {
     @AfterEach
     protected final void printOutput() {
         System.setOut(standardOut);
-        System.out.println(output());
+        System.out.println(outputWithoutTrim());
     }
 
-    protected final String output() {
+    protected final String outputWithoutTrim() {
         return captor.toString().trim();
     }
+
+    protected final String getOutput() {
+        return captor.toString();
+    }
+
 }

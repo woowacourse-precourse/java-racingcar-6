@@ -25,4 +25,8 @@ public class ExecutionView {
     private static String generateHyphenString(int moveCount){
         return HYPHEN.repeat(moveCount);
     }
+
+    public static void newLine(){
+        System.out.println();
+    }
 }

@@ -16,7 +16,7 @@ class InputViewTest extends OutputTestSupport {
         // given // when
         InputView.printStartMessage();
         // then
-        assertThat(output()).isEqualTo(START_MESSAGE);
+        assertThat(outputWithoutTrim()).isEqualTo(START_MESSAGE);
     }
 
     @Test
@@ -25,6 +25,6 @@ class InputViewTest extends OutputTestSupport {
         // given // when
         InputView.printAttemptCountMessage();
         // then
-        assertThat(output()).isEqualTo(ATTEMPT_COUNT_MESSAGE);
+        assertThat(outputWithoutTrim()).isEqualTo(ATTEMPT_COUNT_MESSAGE);
     }
 }
