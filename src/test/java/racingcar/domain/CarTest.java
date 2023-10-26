@@ -27,4 +27,15 @@ class CarTest {
 
         assertThat(car).isEqualTo(new Car("pobi", 0));
     }
+
+    @ParameterizedTest
+    @ValueSource(ints = {-1, 10})
+    @DisplayName("입력된 값이 0보다 작거나 9보다 크다면 예외가 발생한다.")
+    void invalidNumber(int number) {
+        Car car = new Car("pobi");
+
+        assertThatThrownBy(() -> car.moveOrStop(number))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("잘못된 입력 값입니다.");
+    }
 }

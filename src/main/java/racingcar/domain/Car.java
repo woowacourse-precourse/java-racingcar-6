@@ -19,8 +19,16 @@ public class Car {
     }
 
     public void moveOrStop(int number) {
+        validateNumber(number);
+
         if (number >= MIN_NUMBER_TO_MOVE) {
             position.increase();
+        }
+    }
+
+    private void validateNumber(int number) {
+        if (number < RandomNumberGenerator.MIN_NUMBER_RANGE || number > RandomNumberGenerator.MAX_NUMBER_RANGE) {
+            throw new IllegalArgumentException("잘못된 입력 값입니다.");
         }
     }
 
