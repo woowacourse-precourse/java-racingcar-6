@@ -31,4 +31,10 @@
 - ##### CarDto ####
 - [x] Car 객체 데이터 전달받기
 
+#### Exception ####
+- ##### ErrorMessage #####
+- [x] 예외 메시지 enum 생성
+- ##### RacingGameException #####
+- [x] 자동차게임 예외 생성
+
 
