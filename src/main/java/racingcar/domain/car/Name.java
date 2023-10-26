@@ -25,4 +25,8 @@ public class Name {
             throw new IllegalArgumentException("이름은 5글자 이하여야합니다.");
         }
     }
+
+    public String getName() {
+        return name;
+    }
 }

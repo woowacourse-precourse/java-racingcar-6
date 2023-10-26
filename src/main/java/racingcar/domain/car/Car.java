@@ -14,10 +14,6 @@ public class Car implements Comparable<Car> {
         this.position++;
     }
 
-    public int getPosition() {
-        return position;
-    }
-
     public boolean isSamePosition(Car other) {
         return this.position == other.position;
     }
@@ -25,5 +21,14 @@ public class Car implements Comparable<Car> {
     @Override
     public int compareTo(Car o) {
         return this.position - o.position;
+    }
+
+
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return name.getName();
     }
 }
