@@ -1,5 +1,9 @@
 package racingcar.input;
 
-public class InputService {
+import camp.nextstep.edu.missionutils.Console;
 
+public class InputService {
+    public  String writeCarName() {
+        return Console.readLine();
+    }
 }
