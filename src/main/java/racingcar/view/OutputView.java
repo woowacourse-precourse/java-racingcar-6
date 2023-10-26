@@ -12,18 +12,18 @@ public class OutputView {
         System.out.println(RESULT);
     }
 
-    public static void resultPerAttempt(List<Car> cars){
+    public static void resultPerAttempt(final List<Car> cars){
         for(Car car : cars){
             System.out.println(makeCarResult(car));
         }
     }
 
-    public static void winner(List<String> winners){
+    public static void winner(final List<String> winners){
 
         System.out.print(FINAL_WINNER + " : " + String.join(",",winners));
     }
 
-    private static String makeCarResult(Car car){
+    private static String makeCarResult(final Car car){
         StringBuilder sb = new StringBuilder();
         sb.append(car.getCarName());
         sb.append(" : ");
