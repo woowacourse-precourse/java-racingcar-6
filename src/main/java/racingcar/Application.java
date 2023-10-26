@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,14 +17,34 @@ public class Application {
         }
         // 기능 2.
         System.out.println("시도할 회수는 몇회인가요?");
+        int trial;
         try {
-            int trial = Integer.parseInt(Console.readLine());
-            if(trial < 0 || trial > Integer.MAX_VALUE){
+            trial = Integer.parseInt(Console.readLine());
+            if(trial < 0){
                 throw new IllegalArgumentException(String.format("게임 시도 횟수는 음수가 되면 안됩니다. 현재 작성한 횟수: %d", trial));
+            }
+            if(trial > Integer.MAX_VALUE ){
+                throw new IllegalArgumentException("최고 횟수 초과");
             }
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자가 아닌 값이 입력되었습니다.");
         }
+
+        // 기능 3.
+        // car마다 전진 조건 할당
+        int[] scores = new int[cars.size()];
+
+        for(int i=0; i<trial; i++){
+            for(int j = 0; j<cars.size(); j++){
+                boolean canMove = Randoms.pickNumberInRange(0,9) >= 4;
+                if(canMove){
+                    scores[j]++;
+                }
+            }
+        }
+
+        System.out.println(scores[0]);
+        System.out.println(scores[1]);
 
 
 
