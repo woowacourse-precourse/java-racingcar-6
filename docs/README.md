@@ -18,7 +18,7 @@ pobi,woni,jun
 - [x] 구분자를 쉼표(,)가 아닌 다른 값을 사용 했을 경우 (공백도 포함) ``IllegalArgumentException``
 - [x] 쉼표(,)로 구분된 이름이 5글자를 초과할 경우 ``IllegalArgumentException``
 - [x] 아무런 값을 입력하지 않았을 경우 ``IllegalArgumentException``
-- [] 중복된 자동차 이름을 입력했을 경우 ``IllegalArgumentException``
+- [x] 중복된 자동차 이름을 입력했을 경우 ``IllegalArgumentException``
 - [] 입력한 이동 횟수가 음수일 경우 ``IllegalArgumentException``
 - [x] 자동차 이름을 공백으로 입력 했을 경우 ``IllegalArgumentException``
   - [] 자동차 이름 중간에 공백은 허용한다. ```ex:) god jun```

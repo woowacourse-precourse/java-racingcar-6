@@ -40,4 +40,10 @@ public class InputValidator {
             throw new IllegalArgumentException("마지막 글자를 공백으로 사용할 수 없습니다.");
         }
     }
+
+    public static void validateDuplication(int nameSetSize, int carCount) {
+        if (nameSetSize != carCount) {
+            throw new IllegalArgumentException("중복된 이름을 입력할 수 없습니다.");
+        }
+    }
 }
