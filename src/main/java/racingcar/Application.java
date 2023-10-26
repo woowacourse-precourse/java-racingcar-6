@@ -25,6 +25,15 @@ public class Application {
         return count;
     }
 
+    public static List<Integer> getRandomNumList(int count){
+        List<Integer> ranNumList = new ArrayList<>();
+        for(int i=0; i<count; i++){
+            int ranNum = Randoms.pickNumberInRange(0,9);
+            ranNumList.add(ranNum);
+        }
+        return ranNumList;
+    }
+
     public static void main(String[] args) {
     }
 }
