@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.regex.Pattern;
 
 public class RacingGame {
     public static final String COMMA=",";
@@ -8,6 +9,8 @@ public class RacingGame {
     public static final int NAME_EMPTY_SIZE=0;
     public static final int VALUE_LOW_BOUND=0;
     public static final int VALUE_HIGH_BOUND=9;
+
+    private static final Pattern INTEGER=Pattern.compile("[0-9]+");
 
     public RacingGame(){
 
@@ -35,5 +38,11 @@ public class RacingGame {
 
     public int makeRandomValue(){
         return Randoms.pickNumberInRange(VALUE_LOW_BOUND,VALUE_HIGH_BOUND);
+    }
+
+    public void checkAttemptCountIsInteger(String input){
+        if(!INTEGER.matcher(input).matches()){
+            throw new IllegalArgumentException("정수를 입력해야합니다.");
+        }
     }
 }
