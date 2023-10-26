@@ -42,4 +42,13 @@ public class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(GameMessage.nameError.getMessage());
     }
+
+    @Test
+    void 회수_첫숫자_0_체크() {
+        GameInputException gameException = new GameInputException();
+        String input = "01";
+        assertThatThrownBy(() -> gameException.validateNumberZero(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(GameMessage.countError.getMessage());
+    }
 }
