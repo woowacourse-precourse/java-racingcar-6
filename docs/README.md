@@ -8,8 +8,8 @@
 ### Input
 - [x] 자동자 이름을 입력 받음
   - [x] 쉼표를 통해 구분
-- [ ] 전진 시도 횟수(게임 횟수)를 입력 받음
-- [ ] 입력받는 값은 [우테코에서 제공하는 라이브러리](https://github.com/woowacourse-projects/mission-utils#mission-utils) `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용
+- [x] 전진 시도 횟수(게임 횟수)를 입력 받음
+- [x] 입력받는 값은 [우테코에서 제공하는 라이브러리](https://github.com/woowacourse-projects/mission-utils#mission-utils) `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용
 
 
 ### Output
@@ -34,7 +34,7 @@
 
 ### Game Controller
 - [x] 자동차 생성 명령
-- [ ] 전진 시도 횟수 설정 명령
+- [] 전진 시도 횟수 설정 명령
 - [ ] 자동차 경주 실행 명령 (게임 로직 실행)
 - [ ] 실행 결과 출력 명령
 - [ ] 게임 결과 출력 명령
