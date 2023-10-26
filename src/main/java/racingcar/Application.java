@@ -18,6 +18,7 @@ public class Application {
         int inputCount = Integer.parseInt(Console.readLine());
 
         race(inputCount, map);
+        System.out.println(getAnswer(map));
     }
 
     private static void race(Integer inputCount, LinkedHashMap<String, Integer> map) {
@@ -33,5 +34,26 @@ public class Application {
             }
             System.out.println();
         }
+    }
+
+    public static String getAnswer(LinkedHashMap<String, Integer> map) {
+        List<String> winners = new ArrayList<>();
+        int max = 0;
+        for (HashMap.Entry<String, Integer> e : map.entrySet()) {
+            if (e.getValue() > max) {
+                max = e.getValue();
+                winners.clear();
+                winners.add(e.getKey());
+            } else if (e.getValue() == max) {
+                winners.add(e.getKey());
+            }
+        }
+
+        String ans = "최종 우승자 : ";
+        for (String winner : winners) {
+            ans += winner + ", ";
+        }
+        ans = ans.substring(0, ans.length()-2);
+        return ans;
     }
 }
