@@ -28,6 +28,10 @@ public class Race {
         carList.forEach(Car::turnAction);
     }
 
+    public ArrayList<Car> getCarList() {
+        return carList;
+    }
+
     int findFarthest() {
         Comparator<Car> compareByPose = Comparator.comparingInt(Car::getPos);
         return carList.stream().max(compareByPose).orElseThrow(NoSuchElementException::new).getPos();
