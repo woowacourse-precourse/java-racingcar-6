@@ -5,12 +5,12 @@ import racingcar.AttemptNumber;
 import racingcar.validator.AttemptsInputValidator;
 import racingcar.validator.Validator;
 
-public class AttemptsInput implements Input{
+public class AttemptInput implements Input{
 
     private final Validator validator = new AttemptsInputValidator();
     private final String attempts;
 
-    public AttemptsInput() {
+    public AttemptInput() {
         attempts = Console.readLine();
         validate();
     }
