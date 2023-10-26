@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import racingcar.exception.RaceException;
+import racingcar.exception.CarNameValidator;
 import racingcar.util.Constants;
 
 public class Car {
@@ -8,7 +8,7 @@ public class Car {
     private int position = 0;
 
     public Car(String name) {
-        RaceException.validateCarName(name);
+        CarNameValidator.validate(name);
         this.name = name;
     }
 

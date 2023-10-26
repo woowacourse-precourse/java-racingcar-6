@@ -8,19 +8,19 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class RaceExceptionTest {
     @Test
     void shouldThrowExceptionWhenCarNameIsNull() {
-        assertThatThrownBy(() -> RaceException.validateCarName(null))
+        assertThatThrownBy(() -> CarNameValidator.validate(null))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void shouldThrowExceptionWhenCarNameIsLongerThanFive() {
-        assertThatThrownBy(() -> RaceException.validateCarName("abcdef"))
+        assertThatThrownBy(() -> CarNameValidator.validate("abcdef"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void shouldThrowExceptionWhenCarNameIsEmpty() {
-        assertThatThrownBy(() -> RaceException.validateCarName(""))
+        assertThatThrownBy(() -> CarNameValidator.validate(""))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
