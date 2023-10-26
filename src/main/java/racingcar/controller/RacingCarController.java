@@ -12,5 +12,8 @@ public class RacingCarController {
     public void run() {
         String cars = inputView.readCars();
         String[] names = cars.split(",");
+        Integer round = Integer.parseInt(inputView.readRound());
+
+
     }
 }
