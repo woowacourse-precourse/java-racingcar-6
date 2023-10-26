@@ -38,7 +38,7 @@ class ApplicationTest extends NsTest {
     @DisplayName("입력값 구분 후 데이터 초기화")
     void splitStringAndDataInit() {
         RacingList racingList = new RacingList();
-        racingList.inputCarList("aaa,bbb,ccc");
+        racingList.initData("aaa,bbb,ccc");
         LinkedHashMap<String, Integer> compareValue = new LinkedHashMap<>();
         compareValue.put("aaa", 0);
         compareValue.put("bbb", 0);
@@ -50,14 +50,14 @@ class ApplicationTest extends NsTest {
     @DisplayName("자동차 입력 값 길이 제한 초과")
     void inputSizeValidate() {
         RacingList racingList = new RacingList();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> racingList.inputCarList("aaa,bbb,cccccc"));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> racingList.initData("aaa,bbb,cccccc"));
     }
 
     @Test
     @DisplayName("자동차 이름 중복 입력")
     void inputDuplicateValidate() {
         RacingList racingList = new RacingList();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> racingList.inputCarList("aaa,bbb,aaa"));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> racingList.initData("aaa,bbb,aaa"));
     }
 
 
