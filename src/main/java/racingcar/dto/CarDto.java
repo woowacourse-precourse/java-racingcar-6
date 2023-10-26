@@ -7,7 +7,7 @@ public class CarDto {
     private String name;
     private Integer position;
 
-    public static CarDto of(Car car) {
+    public static CarDto of(final Car car) {
         CarDto carDto = new CarDto();
         carDto.name = car.getName();
         carDto.position = car.getPosition();

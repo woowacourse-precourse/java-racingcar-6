@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import static racingcar.exception.ErrorMessage.NOT_INTEGER;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.domain.Cars;
 import racingcar.dto.CarsDto;
@@ -35,13 +36,13 @@ public class RacingGame {
     }
 
     private Cars generateCars() {
-        String carNames = inputView.enterCarNames();
+        final String carNames = inputView.enterCarNames();
 
         return Cars.from(carNames);
     }
 
     private Integer askRotateNumber() {
-        String rotateNumber = inputView.enterRotateNumber();
+        final String rotateNumber = inputView.enterRotateNumber();
         
         return convertToInteger(rotateNumber);
     }
@@ -82,14 +83,16 @@ public class RacingGame {
 
     private void raceStart() {
         cars.go();
-        CarsDto carsDto = CarsDto.of(cars);
+        final CarsDto carsDto = CarsDto.of(cars);
 
         outputView.printCarsResults(carsDto);
     }
 
     private void finish() {
-        List<String> winners = cars.findWinnerNameList();
+        final List<String> winners = cars.findWinnerNameList();
 
         outputView.printWinners(winners);
+
+        Console.close();
     }
 }
