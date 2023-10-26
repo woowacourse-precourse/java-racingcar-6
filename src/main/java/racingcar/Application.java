@@ -12,10 +12,10 @@ public class Application {
         // 자동차 이름 입력 관련 1차 유효성 검사
         if (nameInput.contains(",")) {
             if (nameInput.charAt(0) == ',' || nameInput.charAt(nameInput.length()-1) == ',') {
-                throw new IllegalArgumentException("Invalid name input format: "+nameInput);
+                throw new IllegalArgumentException("Invalid name input format: " + nameInput);
             }
             if (nameInput.contains(",,")) {
-                throw new IllegalArgumentException("Invalid name input format: "+nameInput);
+                throw new IllegalArgumentException("Invalid name input format: " + nameInput);
             }
         }
         // 자동차 이름 입력 관련 2차 유효성 검사
@@ -25,10 +25,19 @@ public class Application {
                 throw new IllegalArgumentException("Not valid length: "+carName.length());
             }
             if (carList.containsKey(carName)) {
-                throw new IllegalArgumentException("Duplicated car name : " + carName);
+                throw new IllegalArgumentException("Duplicated car name: " + carName);
             }
             carList.put(carName, 0);
         }
-        // 입력된 자동차 이름순으로 저장되었는지 확인하기 위한 테스트 작성 필요
+        // 시도 횟수 입력
+        System.out.println("시도할 횟수는 몇회인가요?");
+        String countInput = Console.readLine();
+        // 시도 횟수 유효성 검사
+        int count;
+        try {
+            count = Integer.parseInt(countInput);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Not Integer: " + countInput);
+        }
     }
 }
