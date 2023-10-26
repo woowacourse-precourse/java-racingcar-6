@@ -18,6 +18,13 @@ public class Application {
         return nameList;
     }
 
+    public static int inputCountNum() { // checkInput 구현시 수정 필요
+        System.out.println("시도 횟수를 입력해 주세요!");
+        String inputStr = Console.readLine();
+        int count = Integer.parseInt(inputStr);
+        return count;
+    }
+
     public static void main(String[] args) {
     }
 }
