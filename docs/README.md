@@ -19,8 +19,8 @@
   - [ ] 전진 조건은 0 ~ 9 사이의 무작위 값을 구한 값이 4이상일 경우이다.
 - [ ] 최종 우승자 출력
   - [ ] 우승자는 한 명이상일 수 있다.  
-  - [ ] 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
-    </br>
+  - [ ] 여러 명일 경우 쉼표(,)를 이용하여 구분한다.     
+     
 
 ## 2. MVC 기능 분리
 ### Controller
@@ -28,14 +28,12 @@
 ### Model
 
 ### View
+     
+## 3. 패키지 구조
 
-</br>
 
-## 2. 패키지 구조
 
-</br>
-
-## 3. Git 커밋 컨벤션
+## 4. Git 커밋 컨벤션
 ```
 type: subject
 ```
@@ -51,7 +49,7 @@ type: subject
 ### Subject
 * 50자를 넘기지 않고, 마침표를 붙이지 않습니다.
 * 과거 시제를 사용하지 않고 명령어로 작성합니다.
-</br>
 
-## 4. Java 코드 컨벤션
+
+## 5. Java 코드 컨벤션
 https://github.com/woowacourse/woowacourse-docs/tree/main/styleguide/java#java-style-guide
