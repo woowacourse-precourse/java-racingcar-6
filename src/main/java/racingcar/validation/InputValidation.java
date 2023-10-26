@@ -1,12 +1,8 @@
 package racingcar.validation;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class InputValidation {
 
-    public static void NameLength(String name) {
+    public static void nameLength(String name) {
         if (name.length() > 5) {
             throw new IllegalArgumentException("자동차 이름은 5자 이내로 지어야 합니다.");
         }

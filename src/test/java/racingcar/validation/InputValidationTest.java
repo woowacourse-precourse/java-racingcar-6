@@ -47,19 +47,19 @@ class InputValidationTest {
 
         // when
         Throwable result1 = catchThrowable(() -> {
-            InputValidation.NameLength(case1);
+            InputValidation.nameLength(case1);
         });
         Throwable result2 = catchThrowable(() -> {
-            InputValidation.NameLength(case2);
+            InputValidation.nameLength(case2);
         });
         Throwable result3 = catchThrowable(() -> {
-            InputValidation.NameLength(case3);
+            InputValidation.nameLength(case3);
         });
         Throwable result4 = catchThrowable(() -> {
-            InputValidation.NameLength(case4);
+            InputValidation.nameLength(case4);
         });
         Throwable result5 = catchThrowable(() -> {
-            InputValidation.NameLength(case5);
+            InputValidation.nameLength(case5);
         });
 
         // then
