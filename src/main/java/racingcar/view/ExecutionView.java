@@ -8,7 +8,7 @@ public class ExecutionView {
 
     private static final String EXECUTION_MESSAGE_FORMAT = "%s : %s";
 
-    public static void printExecutionMessage(){
+    public static void printExecutionStartMessage(){
         System.out.println(EXECUTION_START_MESSAGE);
     }
 
