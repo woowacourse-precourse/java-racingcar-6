@@ -27,4 +27,7 @@ public class Application {
         final List<String> carNameList = Arrays.asList(carNamesSplittingByDelimiter);
         return Collections.unmodifiableList(carNameList);
     }
+
+    public static void printInputTryCountMessage() {
+    }
 }

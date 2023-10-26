@@ -77,6 +77,13 @@ class ApplicationTest extends NsTest {
                 .isInstanceOf(UnsupportedOperationException.class);
     }
 
+    @Test
+    void 시도할_회수를_물어보는_문구_출력() {
+        final String STRING_INPUT_TRY_COUNT = "시도할 회수는 몇회인가요?";
+        Application.printInputTryCountMessage();
+        assertThat(output()).contains(STRING_INPUT_TRY_COUNT);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
