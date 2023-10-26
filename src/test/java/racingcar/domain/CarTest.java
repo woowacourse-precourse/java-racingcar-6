@@ -9,8 +9,8 @@ class CarTest {
     @Test
     void move() {
         // given
-        Car car1 = new Car();
-        Car car2 = new Car();
+        Car car1 = new Car("car1");
+        Car car2 = new Car("car2");
 
         // when
         car1.move();
