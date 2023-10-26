@@ -11,14 +11,14 @@ class NameValidatorTest {
     Validator validator = new NameValidator();
 
     @ParameterizedTest
-    @DisplayName("[통과해야하는 케이스]시도 회수 검증 테스트")
+    @DisplayName("[통과해야하는 케이스] 이름 검증 테스트")
     @ValueSource(strings = {"pobi", "woni", "jun"})
     void successTest(String input) {
         validator.validate(input);
     }
 
     @ParameterizedTest
-    @DisplayName("[실패야하는 케이스]시도 회수 검증 테스트")
+    @DisplayName("[실패야하는 케이스] 이름 검증 테스트")
     @ValueSource(strings = {"", "ChunJiwoo"})
     void failTest(String input) {
         assertThrows(
