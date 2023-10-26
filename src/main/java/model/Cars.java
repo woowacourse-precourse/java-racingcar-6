@@ -38,4 +38,8 @@ public class Cars {
 
         return winners.toArray(new String[winners.size()]);
     }
+
+    public List<Car> getCars() {
+        return this.cars;
+    }
 }
