@@ -1,4 +1,6 @@
 package racingcar.dto;
 
-public class CarCondition {
+import java.util.List;
+
+public record CarCondition(List<String> names, List<Integer> positions) {
 }
