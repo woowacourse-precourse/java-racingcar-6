@@ -5,4 +5,7 @@ public class InputView {
         return Console.readLine();
     }
 
+    public int inputTryCount() {
+        return Integer.parseInt(Console.readLine());
+    }
 }

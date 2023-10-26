@@ -15,6 +15,6 @@ public class RacingCarGame {
         outputView.printStartGame();
         String carName = inputView.inputCarName();
         String[] carNameList = carName.split(",");
-        System.out.println(Arrays.toString(carNameList));
+        int tryCount = inputView.inputTryCount();
     }
 }
