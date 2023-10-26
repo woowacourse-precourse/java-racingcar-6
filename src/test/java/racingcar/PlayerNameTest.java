@@ -15,7 +15,7 @@ public class PlayerNameTest {
     @EmptySource
     void 플레이어_이름이_비어있으면_예외를_발생한다(String empty) {
         PlayerName playerName = new PlayerName();
-        assertThatThrownBy(() -> playerName.validateForm(empty)).
+        assertThatThrownBy(() -> playerName.validateFormat(empty)).
             isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -41,13 +41,13 @@ public class PlayerNameTest {
     @ValueSource(strings = {"roseLisa", "rose,,lisa", ",rose,lisa", "rose,lisa,", "rose,"})
     void 플레이어_이름이_콤마로_구분되지_않으면_예외를_발생한다(String names) {
         PlayerName playerName = new PlayerName();
-        assertThatThrownBy(() -> playerName.validateForm(names)).
+        assertThatThrownBy(() -> playerName.validateFormat(names)).
             isInstanceOf(IllegalArgumentException.class);
     }
     @ParameterizedTest
     @ValueSource(strings = {"rose,lisa", "rose,lisa,jisu,jenny"})
     void 플레이어_이름이_콤마로_구분되어_들어오면_예외를_발생시키지_않는다(String names) {
         PlayerName playerName = new PlayerName();
-        assertDoesNotThrow(() -> playerName.validateForm(names));
+        assertDoesNotThrow(() -> playerName.validateFormat(names));
     }
 }
