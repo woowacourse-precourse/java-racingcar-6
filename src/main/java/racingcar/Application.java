@@ -46,5 +46,7 @@ public class Application {
     }
 
     public static void printExecutionResult() {
+        final String STRING_EXECUTION_RESULT = "실행 결과";
+        System.out.println(STRING_EXECUTION_RESULT);
     }
 }
