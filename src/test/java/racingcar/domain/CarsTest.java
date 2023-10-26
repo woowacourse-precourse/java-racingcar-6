@@ -3,6 +3,7 @@ package racingcar.domain;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -86,5 +87,33 @@ class CarsTest {
 
         assertThat(cars.findWinnerNameList())
                 .isEqualTo(carList);
+    }
+
+    @Test
+    void 외부_변경_빈리스트_보호() {
+        // given
+        Cars beforeCars = Cars.from("a,b,c");
+
+        // when
+        List<Car> carList = beforeCars.getCars();
+
+        carList = new ArrayList<>();
+
+        // then
+        assertThat(beforeCars.getCars().size()).isEqualTo(3);
+    }
+
+    @Test
+    void 외부_변경_리스트_내부_변경_보호() {
+        // given
+        Cars beforeCars = Cars.from("a,b,c");
+
+        // when
+        List<Car> carList = beforeCars.getCars();
+        Car car = carList.get(0);
+        car = Car.from("d");
+
+        // then
+        assertThat(beforeCars.getCars().get(0).getName()).isEqualTo("a");
     }
 }
