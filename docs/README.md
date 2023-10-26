@@ -4,10 +4,14 @@
     - "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)" 멘트 출력
 - 경주할 자동자 이름 입력 기능
     - 경주할 자동차 이름들은 입력 받는다. ( camp.nextstep.edu.missionutils.Console의 readLine() )
+        - 최초 입력 시 입력 값 valid
+            - 빈 값 체크
+            - null 체크
         - 입력 받은 이름은 쉼표로 구분 하여 관리
-        - 입력 받은 이름 중 5자 이하 인지 확인
-            - 5자 이하인 경우 정상 진행
-            - 5자 초과인 경우 IllegalArgumentException 예외 발생
+            - 입력 받은 이름 중 5자 이하 인지 확인
+                - 5자 이하인 경우 정상 진행
+                - 5자 초과인 경우 IllegalArgumentException 예외 발생
+            - 입력 시 공백을 제거할 것인가??????
 - 사용자 시도 횟수 입력 기능
     - 시도할 횟수를 입력 받는다. ( camp.nextstep.edu.missionutils.Console의 readLine() )
     - 입력된 횟수가 정상 적인 값인지 확인
