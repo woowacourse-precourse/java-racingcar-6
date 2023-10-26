@@ -37,4 +37,15 @@ public interface ExceptionMessage {
             this.message = message;
         }
     }
+
+    enum InputException {
+        CAR_HAS_INVALID_CHARACTER("자동차 이름은 숫자/문자만 가능합니다."),
+        ;
+
+        public final String message;
+
+        InputException(final String message) {
+            this.message = message;
+        }
+    }
 }
