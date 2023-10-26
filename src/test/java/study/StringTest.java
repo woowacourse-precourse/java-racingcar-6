@@ -3,9 +3,12 @@ package study;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.ArrayList;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import racingcar.Cars;
 import racingcar.InputView;
+import racingcar.OutputView;
 
 public class StringTest {
 
@@ -27,20 +30,27 @@ public class StringTest {
     }
 
     @Test
-    @Disabled
-    void substring_메서드로_특정_구간_값을_반환() {
-        String input = "(1,2)";
-        String result = input.substring(1, 4);
-
-        assertThat(result).isEqualTo("1,2");
+    void 우승자_이름_반환() {
+        ArrayList<String> name = new ArrayList<>();
+        name.add("james");
+        name.add("kim");
+        OutputView ouputview = new OutputView();
+        ouputview.printFinalWinner(name);
     }
 
     @Test
-    @Disabled
-    void charAt_메서드로_특정_위치의_문자_찾기() {
-        String input = "abc";
-        char charAtElement = input.charAt(0);
-        assertThat(charAtElement).isEqualTo('a');
+    void 게임_결과_반환() {
+        Cars james = new Cars("james");
+        Cars peter = new Cars("peter");
+        Cars kim = new Cars("kim");
+
+        ArrayList<Cars> players = new ArrayList<>();
+        players.add(james);
+        players.add(peter);
+        players.add(kim);
+        OutputView ouputview = new OutputView();
+
+        ouputview.printSingleGame(players);
     }
 
     @Test

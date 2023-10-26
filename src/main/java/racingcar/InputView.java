@@ -2,8 +2,6 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.List;
-
 public class InputView {
 
     public static String getCarsName() {
@@ -15,6 +13,7 @@ public class InputView {
         String tryNumber = Console.readLine();
         return tryNumber;
     }
+
     public static String[] splitCarName(String input) {
         String[] result = input.split(",");
 

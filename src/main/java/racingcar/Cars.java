@@ -1,10 +1,19 @@
 package racingcar;
 
 public class Cars {
-    private static int distance = 0;
+    private int distance = 0;
+    private final String carName;
+
+    public Cars(String carName) {
+        this.carName = carName;
+    }
 
     public int goForward() {
-        return distance++;
+        return ++distance;
+    }
+
+    public String getName() {
+        return this.carName;
     }
 
     public int askDistance() {
