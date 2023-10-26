@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import racingcar.exception.RaceException;
+import racingcar.util.Constants;
 
 public class Car {
     private final String name;
@@ -12,7 +13,7 @@ public class Car {
     }
 
     public void move(int randomNumber) {
-        if (randomNumber >= 4) {
+        if (randomNumber >= Constants.RANDOM_THRESHOLD) {
             position++;
         }
     }
