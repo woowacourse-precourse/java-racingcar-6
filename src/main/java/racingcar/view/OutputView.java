@@ -5,6 +5,7 @@ import racingcar.model.Car;
 
 public class OutputView {
     private static final String RESULT = "실행 결과";
+    private static final String FINAL_WINNER = "최종 우승자";
     private static final String CAR_ADVANCE = "-";
 
     public static void executionResult(){
@@ -17,8 +18,9 @@ public class OutputView {
         }
     }
 
-    public static void winner(){
+    public static void winner(List<String> winners){
 
+        System.out.print(FINAL_WINNER + " : " + String.join(",",winners));
     }
 
     private static String makeCarResult(Car car){
