@@ -21,3 +21,23 @@
 - [ ] 각 차수별 실행 결과를 자동차 별로 출력
 - [ ] 우승자 안내 문구 출력
 - [ ] 공동 우승인 경우 이름을 쉼표(,)를 이용해 구분하여 출력
+
+---
+## 클래스 설계
+
+### `Model`
+- **CarInputProcess** : 자동차 이름 입력 받고 처리
+- **RepeatNumberInputProcess** : 이동할 횟수 입력 받고 처리
+- **RandomValueGenerator** : 무작위 값 생성
+
+### `View`
+- **InputView** : 입력 시 필요한 메시지 출력
+- **OutputView** : 출력 시 필요한 메시지 출력
+
+### `Controller`
+- **GameController** : 게임의 전반적 진행 기능
+
+### `Service`
+- **CarNameCheck** : 자동차 이름 입력값 검증
+- **RepeatNumberCheck** : 이동할 횟수 입력값 검증
+- **FindWinner** : 게임 우승자 파악
