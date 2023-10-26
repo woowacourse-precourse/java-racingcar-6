@@ -15,4 +15,13 @@ class InputViewTest {
         assertThat(result).contains("woni", "jun", "pobi");
         assertThat(result).containsExactly("pobi", "woni", "jun");
     }
+
+    @Test
+    @DisplayName("구분자가 포함되지 않은 경우 값을 그대로 반환 테스트")
+    void splitTest2() {
+        String input = "pobi";
+        String[] result = InputView.splitByComma(input);
+
+        assertThat(result).contains("pobi");
+    }
 }
