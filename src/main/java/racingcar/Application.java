@@ -15,7 +15,10 @@ public class Application {
         for (Car car : carNames) {
             System.out.println("car.getName() = " + car.getName());
         }
-        // 도전 횟수 받기
+        // 도전 횟수 멘트
         OutputView.tryCountInputComment();
+        // 도전 횟수 입력 받기
+        Integer tryCount = InputView.getTryCount();
+        System.out.println("tryCount = " + tryCount);
     }
 }

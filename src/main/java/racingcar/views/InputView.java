@@ -13,9 +13,14 @@ public class InputView {
     private InputView() {
     }
 
+    public static Integer getTryCount() {
+        String tryCount = Console.readLine();
+        checkDigit(tryCount);
+        return Integer.parseInt(tryCount);
+    }
+
     public static List<Car> getCarNames() {
         String carnames = Console.readLine();
-        // 최초 입력 값에 대해서 빈값 null 체크
         checkNullAndEmpty(carnames);
         return getCarnameList(carnames);
     }
@@ -23,6 +28,12 @@ public class InputView {
     public static void checkNullAndEmpty(String str) {
         isNull(str);
         isEmpty(str);
+    }
+
+    public static void checkDigit(String str) {
+        isNull(str);
+        isEmpty(str);
+        isDigit(str);
     }
 
     private static void isNull(String str) {
@@ -34,6 +45,15 @@ public class InputView {
     private static void isEmpty(String str) {
         if (str.trim().isEmpty()) {
             throw new CarNameIncorrectException("빈값 이 입력 되었습니다.");
+        }
+    }
+
+    private static void isDigit(String str) {
+        char[] charArray = str.toCharArray();
+        for (char c : charArray) {
+            if (!Character.isDigit(c)) {
+                throw new IllegalArgumentException("숫자가 아닙니다.");
+            }
         }
     }
 
