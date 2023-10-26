@@ -26,12 +26,16 @@ public class Application {
         List<String> car_name_list = new ArrayList<>();
         for (String name : names) {
             String trimmed_name = name.trim();
-            if (trimmed_name.isEmpty() || trimmed_name.length() >=6) {
-                throw new IllegalArgumentException();
-            }
+            check_name_validation(trimmed_name);
             car_name_list.add(trimmed_name);
         }
         return car_name_list.toArray(new String[0]);
+    }
+
+    public static void check_name_validation(String name){
+        if (name.isEmpty() || name.length() >=6) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public static int input_repeat_count(){
