@@ -39,6 +39,7 @@ public class MainController {
     }
 
     private void endGame(GameData gameData) {
-//        OutputView.printWinner(gameData);
+        List<Car> winner = service.getWinner(gameData.carList());
+        OutputView.printWinner(winner);
     }
 }
