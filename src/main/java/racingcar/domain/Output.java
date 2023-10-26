@@ -19,9 +19,20 @@ public class Output {
 
     public void printResult(List<Car> moveResult) {
         for (int i = 0; i < moveResult.size(); i++) {
-            String carResult;
             System.out.println(moveResult.get(i).toString());
         }
         System.out.println();
+    }
+
+    public void printWinner(Cars cars) {
+        List<String> winners = cars.whosWinner();
+        String winnerList = "";
+        for (int i = 0; i < winners.size(); i++) {
+            winnerList += winners.get(i);
+            if (winners.size() > 1 && i + 1 != winners.size()) {
+                winnerList += ", ";
+            }
+        }
+        System.out.println("최종 우승자 : " + winnerList);
     }
 }
