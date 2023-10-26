@@ -21,6 +21,6 @@ public class OutputUtils {
     }
 
     public static void printCarMove(String name, int move) {
-        System.out.println(String.format(CAR_MOVE, name, move));
+        System.out.println(String.format(CAR_MOVE, name, MOVE.repeat(move)));
     }
 }
