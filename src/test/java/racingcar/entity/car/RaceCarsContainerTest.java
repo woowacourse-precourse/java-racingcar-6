@@ -7,7 +7,6 @@ import racingcar.request.RequestChecker;
 import java.io.ByteArrayInputStream;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 import static racingcar.constants.ErrorConstants.CAR_NAME_ERROR_MESSAGE;
 import static racingcar.constants.ErrorConstants.DUPLICATE_NAME_ERROR_MESSAGE;
 

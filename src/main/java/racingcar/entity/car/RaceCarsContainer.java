@@ -15,19 +15,9 @@ public class RaceCarsContainer {
         this.cars = cars;
     }
 
-    private static Set<Name> convertToName(String[] oldNames){
-        Set<Name> names = Arrays.stream(oldNames)
-                .map(Name::new)
-                .collect(Collectors.toSet());
-
-        if (!hasDuplicateCarName(oldNames.length,names.size())){
+    private void validateDuplicate(int oldNameSize, int nameSize){
+        if (oldNameSize != nameSize){
             throw new IllegalArgumentException(DUPLICATE_NAME_ERROR_MESSAGE);
         }
-
-        return names;
-    }
-
-    private static boolean hasDuplicateCarName(int oldNameSize, int nameSize){
-        return oldNameSize == nameSize;
     }
 }
