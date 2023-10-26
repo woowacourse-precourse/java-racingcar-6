@@ -40,11 +40,15 @@ public class Application {
 
         try {
             int counts = Integer.parseInt(input_count);
-            if (counts <= 0) {
-                throw new IllegalArgumentException();
-            }
+            check_count(counts);
             return counts;
         } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public static void check_count(int counts) {
+        if (counts <= 0) {
             throw new IllegalArgumentException();
         }
     }
