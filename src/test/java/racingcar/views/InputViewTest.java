@@ -1,13 +1,15 @@
 package racingcar.views;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
-import org.junit.jupiter.api.Assertions;
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.exception.CarNameIncorrectException;
+import racingcar.exception.CarNameSizeLimitExceededException;
 
 class InputViewTest {
 
@@ -30,24 +32,47 @@ class InputViewTest {
         String inputEmpty = "";
         String inputBlank = "  ";
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(IllegalArgumentException.class, () -> {
             InputView.checkNullAndEmpty(inputNull);
         });
-        Assertions.assertThrows(CarNameIncorrectException.class, () -> {
+        assertThrows(CarNameIncorrectException.class, () -> {
             InputView.checkNullAndEmpty(inputNull);
         });
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(IllegalArgumentException.class, () -> {
             InputView.checkNullAndEmpty(inputEmpty);
         });
-        Assertions.assertThrows(CarNameIncorrectException.class, () -> {
+        assertThrows(CarNameIncorrectException.class, () -> {
             InputView.checkNullAndEmpty(inputEmpty);
         });
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(IllegalArgumentException.class, () -> {
             InputView.checkNullAndEmpty(inputBlank);
         });
-        Assertions.assertThrows(CarNameIncorrectException.class, () -> {
+        assertThrows(CarNameIncorrectException.class, () -> {
             InputView.checkNullAndEmpty(inputBlank);
         });
+
+    }
+
+    @Test
+    @DisplayName("자동차 이름 입력 시 , 으로 분리 및 자동차 이름 5자 이하 인지 확인")
+    void carnameSplitAndNameSizeLimitTest() {
+
+        String normal = "1,12,123,1234,12345";
+        String emptyError = "123,1234,12345, ,";
+        String sizeError = "1,12,123456";
+
+        List<String> carnameList = InputView.getCarnameList(normal);
+        assertThat(carnameList.size()).isEqualTo(5);
+        assertThat(carnameList).isNotNull();
+
+        assertThrows(CarNameIncorrectException.class, () -> {
+            InputView.getCarnameList(emptyError);
+        });
+
+        assertThrows(CarNameSizeLimitExceededException.class, () -> {
+            InputView.getCarnameList(sizeError);
+        });
+
 
     }
 
