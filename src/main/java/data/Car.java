@@ -15,6 +15,10 @@ public class Car implements Comparable<Car>{
         track.append("-");
     }
 
+    public String getName(){
+        return this.name;
+    }
+
     public int getTrackLength(){
         return this.track.length();
     }
