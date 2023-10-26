@@ -34,4 +34,10 @@ public class InputValidator {
             throw new IllegalArgumentException("첫 글자를 공백으로 사용할 수 없습니다.");
         }
     }
+
+    public static void validateIsEndBlank(String carName) {
+        if (carName.matches(".*\\s$")) {
+            throw new IllegalArgumentException("마지막 글자를 공백으로 사용할 수 없습니다.");
+        }
+    }
 }
