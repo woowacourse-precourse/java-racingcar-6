@@ -32,6 +32,15 @@ class CarTest {
     }
 
     @Test
+    void 빈문자_예외() {
+
+        String name = " ";
+
+        assertThatThrownBy(() -> Car.from(name))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     void 숫자_4이상만_이동() {
         // given
         Integer number = 4;
