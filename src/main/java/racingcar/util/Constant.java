@@ -2,6 +2,7 @@ package racingcar.util;
 
 public enum Constant {
 
+    ZERO(0),
     NEXT_INDEX(1),
     FORWARD_THRESHOLD(4),
     MAX_CAR_NAME_LENGTH(5);
