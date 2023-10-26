@@ -2,7 +2,6 @@ package racingcar.controller;
 
 import racingcar.domain.Car;
 import racingcar.domain.Dice;
-import racingcar.service.RacingCarGameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -12,12 +11,10 @@ import java.util.stream.Collectors;
 public class RacingCarGame {
 
     private final InputView inputView;
-    private final RacingCarGameService racingCarGameService;
     private final OutputView outputView;
 
     public RacingCarGame() {
         this.inputView = new InputView();
-        this.racingCarGameService = new RacingCarGameService();
         this.outputView = new OutputView();
     }
 
@@ -26,11 +23,10 @@ public class RacingCarGame {
         int tryNumber = inputView.inputTryNumber();
 
         for(int i=0; i<tryNumber; i++){
-            moveOrStop(carList);
-            System.out.println();
+            moveOrStay(carList);
+//            System.out.println();
             outputView.printResult(carList);
         }
-
         outputView.printWinner(carList);
 
     }
@@ -41,9 +37,9 @@ public class RacingCarGame {
                 .collect(Collectors.toList());
     }
 
-    public void moveOrStop(List<Car> carList){
+    public void moveOrStay(List<Car> carList){
         carList.stream()
-                .forEach(car -> racingCarGameService.moveOrStop(Dice.getRandomNumber(), car));
+                .forEach(car -> car.move(Dice.getRandomNumber()));
     }
 }
 
