@@ -8,6 +8,7 @@ import java.io.ByteArrayInputStream;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
 import racingcar.exception.CarNameIncorrectException;
 import racingcar.exception.CarNameSizeLimitExceededException;
 
@@ -61,7 +62,7 @@ class InputViewTest {
         String emptyError = "123,1234,12345, ,";
         String sizeError = "1,12,123456";
 
-        List<String> carnameList = InputView.getCarnameList(normal);
+        List<Car> carnameList = InputView.getCarnameList(normal);
         assertThat(carnameList.size()).isEqualTo(5);
         assertThat(carnameList).isNotNull();
 

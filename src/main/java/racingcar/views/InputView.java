@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.domain.Car;
 import racingcar.exception.CarNameIncorrectException;
 import racingcar.exception.CarNameSizeLimitExceededException;
 
@@ -12,7 +13,7 @@ public class InputView {
     private InputView() {
     }
 
-    public static List<String> getCarNames() {
+    public static List<Car> getCarNames() {
         String carnames = Console.readLine();
         // 최초 입력 값에 대해서 빈값 null 체크
         checkNullAndEmpty(carnames);
@@ -36,11 +37,13 @@ public class InputView {
         }
     }
 
-    public static List<String> getCarnameList(String carnames) {
+    public static List<Car> getCarnameList(String carnames) {
         String[] carnameArr = carnames.split(",");
         checkLengthCarName(carnameArr);
 
-        return Arrays.stream(carnameArr).collect(Collectors.toUnmodifiableList());
+        return Arrays.stream(carnameArr)
+                .map(o -> new Car(o))
+                .collect(Collectors.toUnmodifiableList());
     }
 
     private static void checkLengthCarName(String[] carnameArr) {
