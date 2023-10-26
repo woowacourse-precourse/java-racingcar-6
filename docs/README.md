@@ -3,9 +3,10 @@
   - 0대 일때, IllegalArgumentException 예외처리
   - 1대 일때, 단독우승?x 경주이므로 IllegalArgumentException 예외처리
   - 2대이상 입력
-- 입력은 5자 이하만 가능 
+- 이름은 5자 이하만 가능 
     - 6자 이상, IllegalArgumentException 예외처리
     - 전부 공백, IllegalArgumentException 예외처리
+- 이름에 공백 포함시 => 공백 제거
 - 제공된 라이브러리 사용
 - 요구 사항에 명시된 출력문 구성
 
