@@ -71,9 +71,9 @@ class CarTest {
 
         car.move(pickNumberInRange);
 
-        if(pickNumberInRange >= 4){
+        if (pickNumberInRange >= 4) {
             assertThat(car.getPosition()).isEqualTo(initialPosition + 1);
-        } else{
+        } else {
             assertThat(car.getPosition()).isEqualTo(initialPosition);
         }
     }
