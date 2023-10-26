@@ -2,8 +2,6 @@ package racingcar.Model;
 
 public class Car {
 
-    public static final int MAX_CAR_NAME_LENGTH = 5;
-    public static final String LONG_CAR_NAME_MESSAGE = "차량의 이름은 5글자 이하여야 합니다.";
     public static final int MAX_NAME_LENGTH = 5;
     public static final String EXCEED_LENGTH_MESSAGE = "5글자 이하의 이름을 입력해주세요";
     private String carName;
