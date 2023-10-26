@@ -50,8 +50,9 @@ public class Game {
         List<Player> playerList = new ArrayList<>();
 
         for(String user : users){
-            if(checkNameLength(user)){
-                playerList.add(new Player(user));
+            String removeSpace = user.trim();
+            if(checkNameLength(removeSpace)){
+                playerList.add(new Player(removeSpace));
             }else {
                 throw new IllegalArgumentException();
             }
@@ -61,8 +62,7 @@ public class Game {
     }
 
     private boolean checkNameLength(String name){
-        String removeSpace = name.trim();
-        if(removeSpace.length()<=5 && removeSpace.length()>=1){
+        if(name.length()<=5 && name.length()>=1){
             return true;
         }
         return false;
