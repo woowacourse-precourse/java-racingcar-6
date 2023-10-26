@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.constants.ErrorConstants.CAR_NAME_ERROR_MESSAGE;
 import static racingcar.constants.ErrorConstants.DUPLICATE_NAME_ERROR_MESSAGE;
 
-class RaceCarsContainerTest {
+class RaceCarsTest {
 
     @Test
     @DisplayName("중복된 이름을 입력시 예외가 발생한다.")

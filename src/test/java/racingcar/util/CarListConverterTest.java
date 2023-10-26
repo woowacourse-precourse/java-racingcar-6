@@ -25,21 +25,19 @@ class CarListConverterTest {
     }
 
     @Test
-    @DisplayName("중복된 자동차의 이름을 제거되어 리스트로 변환된다.")
-    public void convertDistinctTest() {
+    @DisplayName("자동차의 이름이 중복될 경우 예외가 발생한다.")
+    public void convertDuplicateExceptionTest() {
         // given
         String[] names = new String[]{"pobi","pobi","pobi"};
-        // when
-        List<Car> cars = CarListConverter.convertStringArrayToCarList(names);
-        // then
-        assertThat(cars).hasSize(1)
-                .extracting("name")
-                .containsOnly("pobi");
+        // when // then
+        assertThatThrownBy(() -> CarListConverter.convertStringArrayToCarList(names))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(DUPLICATE_NAME_ERROR_MESSAGE);
     }
 
     @Test
-    @DisplayName("중복된 자동차의 이름이 5글자를 초과할 경우 예외가 발생한다.")
-    public void nameLengthExceptionTest() {
+    @DisplayName("자동차의 이름이 5글자를 초과할 경우 예외가 발생한다.")
+    public void convertNameLengthExceptionTest() {
         // given
         String[] names = new String[]{"pobbbii","pobi","pobiii"};
         // when // then
