@@ -10,7 +10,7 @@
 - `boolean checkNameLength(String userName)`
   - 앞뒤 공백은 제거합니다.
   - 1자 이상 5자 이하인 경우 true, 아니면 false를 반환합니다.
-- `boolean isForward( Player player )`
+- `boolean isForward()`
   - 전진 여부를 판단합니다.
   - 0~9 사이의 난수를 뽑아 4 이상인 경우 true, 아니면 false를 반환합니다.
 - `List<Player> getChampions( List<Player> players )`
