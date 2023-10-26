@@ -15,8 +15,8 @@ public class RaceController {
     public void start() {
         ArrayList<String> names = inputView.getParticipant();
         names.forEach(e -> race.addCar(new Car(e)));
-        int repeatCount = inputView.getTryCount();
 
+        int repeatCount = inputView.getTryCount();
         for (int i = 0; i < repeatCount; i++) {
             simulateTurn();
         }
@@ -27,7 +27,7 @@ public class RaceController {
 
     void simulateTurn() {
         race.simulateTurn();
-        
+
         for (Car c : race.getCarList()) {
             outputView.printCurrent(c.getName(), c.getPos());
         }

@@ -2,7 +2,7 @@ package racingcar.module;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Car {
+public class Car implements Comparable<Car> {
 
     static final int STOP_THRESHOLD = 3;
     String name;
@@ -11,6 +11,10 @@ public class Car {
     public Car(String name) {
         this.name = name;
         this.pos = 0;
+    }
+
+    public boolean isAtSamePos(Car car) {
+        return this.pos == car.pos;
     }
 
     public void turnAction() {
@@ -31,4 +35,8 @@ public class Car {
         return name;
     }
 
+    @Override
+    public int compareTo(Car car) {
+        return Integer.compare(this.pos, car.pos);
+    }
 }

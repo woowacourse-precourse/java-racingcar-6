@@ -1,8 +1,8 @@
 package racingcar.module;
 
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.NoSuchElementException;
+import java.util.Collections;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class Race {
@@ -13,10 +13,10 @@ public class Race {
     }
 
     public ArrayList<String> getWinner() {
-        int max = findFarthest();
+        final Car car = findFarthest();
 
         return carList.stream()
-                .filter(e -> e.getPos() == max)
+                .filter(car::isAtSamePos)
                 .map(Car::getName)
                 .collect(Collectors.toCollection(ArrayList::new));
     }
@@ -25,16 +25,14 @@ public class Race {
         carList.forEach(Car::turnAction);
     }
 
-    public ArrayList<Car> getCarList() {
-        return carList;
+    public List<Car> getCarList() {
+        return Collections.unmodifiableList(carList);
     }
 
-    int findFarthest() {
-        Comparator<Car> compareByPose = Comparator.comparingInt(Car::getPos);
+    Car findFarthest() {
         return carList.stream()
-                .max(compareByPose)
-                .orElseThrow(NoSuchElementException::new)
-                .getPos();
+                .max(Car::compareTo)
+                .orElseThrow(IllegalAccessError::new);
     }
 
 
