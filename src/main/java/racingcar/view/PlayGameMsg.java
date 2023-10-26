@@ -13,4 +13,8 @@ public class PlayGameMsg {
     public void changeLine(){
         System.out.println();
     }
+
+    public void end(String winner){
+        System.out.printf("최종 우승자 : %s%n",winner);
+    }
 }

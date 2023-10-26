@@ -9,6 +9,7 @@ public class Controller {
     public void run(){
         setGame();
         playGame();
+        endGame();
     }
 
     public void setGame(){
@@ -17,6 +18,10 @@ public class Controller {
 
     public void playGame(){
         game.playGame();
+    }
+
+    public void endGame(){
+        game.endGame();
     }
 
 }

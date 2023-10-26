@@ -1,15 +1,12 @@
 package racingcar.game;
 
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 import racingcar.input.PlayNumber;
 import racingcar.input.PlayerName;
 import racingcar.random.DriveStop;
 import racingcar.view.PlayGameMsg;
 import racingcar.view.RequestInput;
-
-import java.util.Map;
 
 public class Game {
 
@@ -30,6 +27,10 @@ public class Game {
     public void playGame(){
         playGameMsg.start();
         repeatPlayNum();
+    }
+
+    public void endGame(){
+        printFinalResult();
     }
 
     public void setPlayer(){
@@ -64,6 +65,23 @@ public class Game {
             playerScore.replace(player, score + 1);
         }
         playGameMsg.eachResult(player, playerScore.get(player));
+    }
+
+    public void printFinalResult(){
+        int maxScore = Collections.max(playerScore.values());
+        List<String> winners = new ArrayList<String>();
+        for(String player : playerNames){
+            winners = addWinner(winners, player, maxScore);
+        }
+        String result = String.join(", ", winners);
+        playGameMsg.end(result);
+    }
+
+    public List<String> addWinner(List<String> winners, String player, int maxScore){
+        if(playerScore.get(player) == maxScore){
+            winners.add(player);
+        }
+        return winners;
     }
 
 }
