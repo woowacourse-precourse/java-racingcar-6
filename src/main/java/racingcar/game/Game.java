@@ -1,6 +1,7 @@
 package racingcar.game;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,5 +42,12 @@ public class Game {
             return true;
         }
         return false;
+    }
+
+    private boolean isForward(){
+        if(Randoms.pickNumberInRange(0,9) < 4){
+            return false;
+        };
+        return true;
     }
 }

@@ -1,6 +1,7 @@
 package racingcar.game;
 
-import camp.nextstep.edu.missionutils.Console;
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import org.assertj.core.api.Assertions;
@@ -34,9 +35,11 @@ public class GameTest {
 
         String userNames = "adbdc3, ab, add2";
 
-        Assertions.assertThatThrownBy( ()->{
-            miniGame.setPlayers(userNames);
-        }).isExactlyInstanceOf(IllegalArgumentException.class);
+        Assertions.assertThatThrownBy(
+            ()->{
+                miniGame.setPlayers(userNames);
+            }
+        ).isExactlyInstanceOf(IllegalArgumentException.class);
     }
 
     // private 메서드 테스트 용도 내부 클래스
