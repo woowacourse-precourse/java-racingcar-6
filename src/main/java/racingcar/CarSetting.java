@@ -7,11 +7,6 @@ public class CarSetting {
     private String[] carName;
     private Car[] car;
 
-    CarSetting() {
-
-        car = new Car[carName.length];
-    }
-
     public void setCars() {
         for (int index = 0; index < carName.length; index++) {
             car[index] = new Car();
@@ -33,6 +28,13 @@ public class CarSetting {
 
     public void setCarName() {
         carName = Console.readLine().split(",");
+    }
+    public void setCar(){
+        car = new Car[carName.length];
+    }
+
+    public Car[] getCar(){
+        return car;
     }
 
 }
