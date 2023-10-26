@@ -17,6 +17,16 @@ public class Position {
         position=status;
     }
 
+    public void attemptForward(){
+        if(checkValueIsOverFour(makeRandomValue())){
+            moveForward();
+        }
+    }
+
+    public int makeRandomValue(){
+        return Randoms.pickNumberInRange(VALUE_LOW_BOUND,VALUE_HIGH_BOUND);
+    }
+
     public boolean checkValueIsOverFour(int value){
         return value>=FORWARD_THRESHOLD;
     }
@@ -27,9 +37,5 @@ public class Position {
 
     public String switchPositionToSlash(){
         return SLASH.repeat(position);
-    }
-
-    public int makeRandomValue(){
-        return Randoms.pickNumberInRange(VALUE_LOW_BOUND,VALUE_HIGH_BOUND);
     }
 }
