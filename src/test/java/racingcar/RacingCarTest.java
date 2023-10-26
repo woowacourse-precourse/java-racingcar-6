@@ -11,16 +11,16 @@ class RacingCarTest {
     @DisplayName("자동차가 이동한만큼 이동거리가 증가하는지 테스트")
     void testMoveWhenRandomNumberIsLessThan4() {
         RacingCar racingCar = new RacingCar("페라리");
-        int expectedMovement = 0;
+        StringBuilder expectedMovement = new StringBuilder();
 
         //when
         for (int i = 0; i < 10; i++) {
             if (racingCar.move()) {
-                expectedMovement++;
+                expectedMovement.append("-");
             }
         }
 
         //then
-        assertEquals(expectedMovement, racingCar.getMovement());
+        assertEquals(expectedMovement.toString(), racingCar.getMovement());
     }
 }

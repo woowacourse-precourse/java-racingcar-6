@@ -5,22 +5,22 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class RacingCar {
 
     private final String name;
-    private int movement;
+    private String movement;
 
     public RacingCar(String name) {
         this.name = name;
-        this.movement = 0;
+        this.movement = "";
     }
 
     public String getName() {
         return name;
     }
 
-    public int getMovement() {
+    public String getMovement() {
         return movement;
     }
 
-    private void setMovement(int movement) {
+    private void setMovement(String movement) {
         this.movement = movement;
     }
 
@@ -28,10 +28,10 @@ public class RacingCar {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
 
         if (randomNumber >= 4) {
-            setMovement(getMovement() + 1);
+            setMovement(getMovement() + "-");
             return true;
         }
-        
+
         return false;
     }
 }
