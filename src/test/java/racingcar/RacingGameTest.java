@@ -1,9 +1,12 @@
 package racingcar;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class RacingGameTest {
 
@@ -16,5 +19,14 @@ public class RacingGameTest {
 
         assertThat(splitNames).contains("jun","pobi","woni");
         assertThat(splitNames).containsExactly("pobi","woni","jun");
+    }
+
+    @DisplayName("이름의 길이를 확인하는 기능.")
+    @ParameterizedTest
+    @ValueSource(strings={"eleven","abcdef","qwerdf","111234","1q2w3e4r"})
+    void checkNameCorrectRange_이름_길이_적합성_판단(String name){
+        RacingGame racingGame=new RacingGame();
+        assertThatThrownBy(()->racingGame.checkNameCorrectRange(name))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
