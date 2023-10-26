@@ -64,4 +64,35 @@ public class CarTest {
                 () -> assertThat(actual3).isFalse()
         );
     }
+
+    @Test
+    @DisplayName("동일한 Position에 위치한지 확인한다")
+    void isSamePosition() {
+        // given
+        final Car car1 = new Car("pobi");
+        car1.moveForward(5);
+        car1.moveForward(5);
+        car1.moveForward(5); // 3
+
+        final Car car2 = new Car("pobi");
+        car2.moveForward(5);
+        car2.moveForward(5); // 2
+
+        final Car car3 = new Car("pobi2");
+        car3.moveForward(5);
+        car3.moveForward(5);
+        car3.moveForward(5); // 3
+
+        // when
+        final boolean actual1 = car1.isSamePosition(car2.getPosition().getValue());
+        final boolean actual2 = car1.isSamePosition(car3.getPosition().getValue());
+        final boolean actual3 = car2.isSamePosition(car3.getPosition().getValue());
+
+        // then
+        assertAll(
+                () -> assertThat(actual1).isFalse(),
+                () -> assertThat(actual2).isTrue(),
+                () -> assertThat(actual3).isFalse()
+        );
+    }
 }
