@@ -17,6 +17,13 @@ public class InputView {
         return toList(names);
     }
 
+    public static String readTryCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String tryCount = Console.readLine();
+        validateBlank(tryCount);
+        return tryCount;
+    }
+
     private static void validateBlank(String input) {
         if (input == null || input.isBlank()) {
             throw new IllegalArgumentException("빈 값이 입력되면 안됩니다.");
