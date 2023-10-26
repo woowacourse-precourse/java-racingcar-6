@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.domain.Car;
 import racingcar.dto.CarsDto;
 import racingcar.dto.WinnerDto;
+import racingcar.service.CarService;
 import racingcar.service.RaceGameService;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.Arrays;
 public class CarController {
 
     private final RaceGameService raceGameService = new RaceGameService();
+    private final CarService carService = new CarService();
 
     public CarsDto generateCars(String readStr) {
         String[] strings = readStr.split(",");
@@ -18,19 +20,14 @@ public class CarController {
                 .map(String::trim)
                 .toArray(String[]::new);
 
-
+        // 유효성 검사
         for (String str : strings) {
             if (str.length() > 5 || str.length() < 1) {
                 throw new IllegalArgumentException();
             }
         }
 
-        Car[] cars = Arrays.stream(strings)
-                .map((name) ->
-                        new Car(name))
-                .toArray(Car[]::new);
-
-        return new CarsDto(cars);
+        return carService.createCarsByNames(strings);
     }
 
     public WinnerDto gameStartNTimes(CarsDto carsDto, String readStr) {
@@ -45,7 +42,7 @@ public class CarController {
         }
 
         // 레이스 반복
-        System.out.println("");
+        System.out.println();
         System.out.println("실행 결과");
         CarsDto carsDto1 = carsDto;
         for (int i = 0; i < repeatNum; i++) {
@@ -83,6 +80,6 @@ public class CarController {
             sb.append("-".repeat(locates[i]));
             System.out.println(sb);
         }
-        System.out.println("");
+        System.out.println();
     }
 }
