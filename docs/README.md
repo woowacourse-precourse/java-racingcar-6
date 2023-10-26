@@ -20,6 +20,7 @@ pobi,woni,jun
 - [x] 아무런 값을 입력하지 않았을 경우 ``IllegalArgumentException``
 - [x] 중복된 자동차 이름을 입력했을 경우 ``IllegalArgumentException``
 - [] 입력한 이동 횟수가 0이거나 음수일 경우 ``IllegalArgumentException``
+- [] 이동 횟수를 숫자가 아닌 값을 이력했을 경우 ``IllegalArgumentException``
 - [x] 자동차 이름을 공백으로 입력 했을 경우 ``IllegalArgumentException``
   - [x] 자동차 이름 중간에 공백은 허용한다. ```ex:) god jun```
   - [x] 자동차 이름의 첫 글자는 공백을 허용하지 않는다.
