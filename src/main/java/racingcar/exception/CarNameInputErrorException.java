@@ -1,5 +1,7 @@
 package racingcar.exception;
 
+import java.util.List;
+
 public class CarNameInputErrorException implements InputErrorException{
     private final static int CAR_NAME_LEGTH_MIN_RANGE = 1;
     private final static int CAR_NAME_LEGTH_MAX_RANGE = 5;
@@ -7,12 +9,14 @@ public class CarNameInputErrorException implements InputErrorException{
     private final static String CAR_NAME_LENGTH_LONG_MESSAGE = "각 자동차 이름은 5글자 이하로 입력해주세요.";
 
     @Override
-    public void checkUserInputValidate(String checkString) {
-        if (isCarNameShorterThanMinLength(checkString)){
-            throw new IllegalArgumentException(CAR_NAME_LENGTH_SHORT_MESSAGE);
-        } else if (isCarNameLongerThanMaxLength(checkString)) {
-            throw new IllegalArgumentException(CAR_NAME_LENGTH_LONG_MESSAGE);
-        }
+    public void checkUserInputValidate(List<String> checkStringList) {
+        checkStringList.forEach(checkString -> {
+            if (isCarNameShorterThanMinLength(checkString)) {
+                throw new IllegalArgumentException(CAR_NAME_LENGTH_SHORT_MESSAGE);
+            } else if (isCarNameLongerThanMaxLength(checkString)) {
+                throw new IllegalArgumentException(CAR_NAME_LENGTH_LONG_MESSAGE);
+            }
+        });
     }
 
     private static boolean isCarNameShorterThanMinLength(String checkString){
