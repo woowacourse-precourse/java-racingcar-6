@@ -27,10 +27,10 @@ public class Application {
             System.out.println("실행 결과");
             for (HashMap.Entry<String, Integer> e : map.entrySet()) {
                 int randomNumber = Randoms.pickNumberInRange(0, 9);
-                String s = e.getKey() + " : ";
+                StringBuilder s = new StringBuilder(e.getKey() + " : ");
                 int cnt = e.getValue();
                 if (randomNumber >= 4) map.put(e.getKey(), ++cnt);
-                for (int j=0; j<cnt; ++j) s += "-";
+                s.append("-".repeat(Math.max(0, cnt)));
                 System.out.println(s);
             }
             System.out.println();
@@ -50,12 +50,12 @@ public class Application {
             }
         }
 
-        String ans = "최종 우승자 : ";
+        StringBuilder ans = new StringBuilder("최종 우승자 : ");
         for (String winner : winners) {
-            ans += winner + ", ";
+            ans.append(winner).append(", ");
         }
-        ans = ans.substring(0, ans.length()-2);
-        return ans;
+        ans = new StringBuilder(ans.substring(0, ans.length() - 2));
+        return ans.toString();
     }
 
     public static void checkException(List<String> carNames) {
