@@ -1,8 +1,17 @@
 package racingcar.controller;
 
-public class GameController {
+import racingcar.view.InputMessage;
 
-    public void startGame(){
+public class GameController {
+    InputMessage inputMessage;
+
+    public void readyGame() {
+        inputMessage.carName();
+        inputMessage.times();
+
+    }
+
+    public void startGame() {
 
     }
 }
