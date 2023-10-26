@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.domain.MoveNumber;
+import racingcar.domain.RacingCarGame;
 import racingcar.domain.RacingCar;
 import racingcar.validator.RacingCarValidator;
 import racingcar.view.InputView;
@@ -19,15 +19,14 @@ public class RacingCarController {
 
     private void racingCarGameStart() {
         List<RacingCar> racingCarList = requestRacingCarNameList();
-        MoveNumber moveNumber = new MoveNumber(requestAttemptNumberCovertStringToInteger());
-
+        RacingCarGame racingCarGame = new RacingCarGame(requestAttemptNumberCovertStringToInteger(),true);
+        repeatMoveRacingCar(racingCarList, racingCarGame);
     }
 
-    private void repeatMoveRacingCar(List<RacingCar> racingCarList, MoveNumber moveNumber){
-      while(moveNumber.getNumber()>=0){
-
-
-
+    private void repeatMoveRacingCar(List<RacingCar> racingCarList, RacingCarGame racingCarGame){
+        /** while문이 종료되면 입력된 이동만큼 반복한 것 **/
+        while(racingCarGame.isGameState()){
+            racingCarList.forEach(RacingCar::moveRacingCar);
       }
     }
 
