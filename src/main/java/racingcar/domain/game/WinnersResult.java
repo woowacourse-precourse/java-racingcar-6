@@ -1,4 +1,4 @@
-package racingcar.domain.move;
+package racingcar.domain.game;
 
 import java.util.List;
 

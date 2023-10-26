@@ -1,6 +1,7 @@
-package racingcar.domain.move;
+package racingcar.domain.car;
 
 import java.util.List;
+import racingcar.domain.move.MoveDecider;
 
 public final class Cars {
     private final List<Car> cars;

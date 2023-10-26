@@ -1,4 +1,4 @@
-package racingcar.domain.move;
+package racingcar.domain.car;
 
 public record CarName(String carName) {
     public CarName {

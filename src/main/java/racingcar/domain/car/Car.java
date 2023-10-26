@@ -1,4 +1,6 @@
-package racingcar.domain.move;
+package racingcar.domain.car;
+
+import racingcar.domain.move.Coordinate;
 
 public record Car(
         CarName carName,
