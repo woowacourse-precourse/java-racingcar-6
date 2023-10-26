@@ -53,7 +53,7 @@
 - 앞으로 전진한 횟수
 ---
 
-### RandomGneratedNumber
+### RandomGeneratedNumber
 **메소드**
 - [ ] 0~9사이의 랜덤한 숫자를 생성해주는 메서드
   - 중복 x
