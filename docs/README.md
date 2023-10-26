@@ -30,10 +30,10 @@
       - [x] 빈 값이 들어올 경우
 
 ### UTIL
-- [ ] MessageUtil (enum)
-  - [ ] 필요한 메시지 나열
-  - [ ] 메시지 print 메소드
-  - [ ] 메시지 println 메소드
+- [x] MessageUtil (enum)
+  - [x] 필요한 메시지 나열
+  - [x] 메시지 print 메소드
+  - [x] 메시지 println 메소드
 
 - [ ] RandomNumberGenerator
   - [ ] 자동차의 전진 조건인 랜덤 숫자 (0~9) 만들어주는 기능
