@@ -27,7 +27,8 @@ public class CarTest {
         final Car car = new Car("jun");
 
         try (MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
-            mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt())).thenReturn(randomNumber);
+            mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
+                    .thenReturn(randomNumber);
             assertThat(car.isRunnable()).isEqualTo(expected);
         }
     }
