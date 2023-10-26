@@ -34,16 +34,11 @@ public class RacingCar {
         return racingCars;
     }
 
-    public boolean checkMovementCondition() {
+    public void move() {
         int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-        return randomNumber > MIN_MOVEMENT_CONDITION_NUMBER;
-    }
 
-//    public void move() {
-//        int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-//
-//        if (randomNumber > MIN_MOVEMENT_CONDITION_NUMBER) {
-//            currentLocation += HYPHEN;
-//        }
-//    }
+        if (randomNumber > MIN_MOVEMENT_CONDITION_NUMBER) {
+            currentLocation += HYPHEN;
+        }
+    }
 }

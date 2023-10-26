@@ -9,5 +9,8 @@ public enum TextConstant {
     public static final String ATTEMPT_COUNT_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
     public static final String DOT = ",";
     public static final String STARTING_POINT = "";
+    public static final String BLANK = "";
     public static final String HYPHEN = "-";
+    public static final String COLON = " : ";
+    public static final String EXECUTION_RESULT_MESSAGE = "실행 결과";
 }

@@ -19,6 +19,7 @@ public class GameManager {
 
     public void startGame() {
         List<RacingCar> racingCars = prepareGame();
+        playGame(racingCars);
     }
 
     private List<RacingCar> prepareGame() {
@@ -29,5 +30,13 @@ public class GameManager {
         attemptCount = messageReceiver.receiveAttemptCount();
 
         return racingCars;
+    }
+
+    private void playGame(final List<RacingCar> racingCars) {
+        messagePrinter.printExecutionResultMessage();
+
+        for (int i = 0; i < attemptCount; i++) {
+            racingCars.forEach(RacingCar::move);
+        }
     }
 }
