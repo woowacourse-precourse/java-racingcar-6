@@ -17,11 +17,12 @@ public class RacingCarController {
 
     private void racingCarGameStart() {
 
-        RacingCarValidator.racingCarNameLengthValidator(requestNameRacingCarList());
+        RacingCarValidator.racingCarNameLengthValidator(requestRacingCarNameList());
+        requestAttemptNumberInput();
     }
 
 
-    private List<String> requestNameRacingCarList(){
+    private List<String> requestRacingCarNameList(){
         return racingCarNameConvertStringToArray(racingCarNameInput());
     }
 
@@ -33,4 +34,11 @@ public class RacingCarController {
     private String racingCarNameInput(){
         return InputView.racingCarNameInput();
     }
+
+    private Integer requestAttemptNumberInput(){
+        String number = InputView.attemptNumberInput();
+        RacingCarValidator.attemptOnlyInputNumber(number);
+        return Integer.parseInt(number);
+    }
+
 }
