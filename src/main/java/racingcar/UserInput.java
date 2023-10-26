@@ -13,4 +13,9 @@ public class UserInput {
         return cars.split(",");
     }
 
+    public int askTryNum() {
+        System.out.println(TRY_NUMBER_INPUT_MESSAGE);
+
+        return Integer.parseInt(Console.readLine());
+    }
 }
