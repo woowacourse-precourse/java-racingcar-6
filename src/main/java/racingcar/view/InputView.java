@@ -5,7 +5,6 @@ import static racingcar.constants.MessageConstants.START_MESSAGE;
 
 public class InputView {
 
-
     public static void printStartMessage(){
         System.out.println(START_MESSAGE);
     }
