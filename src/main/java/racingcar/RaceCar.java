@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.view.Output;
+
 public class RaceCar {
 
     private final CarName name;
@@ -18,11 +20,12 @@ public class RaceCar {
         return position.compareTo(other.position);
     }
 
+    public void printCurrentPositions() {
+        Output.printMessage(name + " : " + position.drawProcess());
+    }
+
     @Override
     public String toString() {
-        return "RaceCar{" +
-                "name=" + name +
-                ", position=" + position +
-                '}';
+        return name.name();
     }
 }
