@@ -27,6 +27,7 @@ public class GameManager {
         this.winner = winner;
     }
     private void gameInit(int maxCount){
+        players = new ArrayList<Player>();
         setMaxCount(maxCount);
         setWinner("");
     }
@@ -42,6 +43,12 @@ public class GameManager {
     }
 
     public void play(){
+        for(int i=0;i<maxCount;i++){
+            startTurn();
+            System.out.println();
+        }
+    }
+    public void startTurn(){
         players.forEach( player -> {
             player.move();
             player.print();
