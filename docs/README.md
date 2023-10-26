@@ -74,8 +74,8 @@
 ## Exception
 
 ### 1. 예외상황 처리 기능
-#### Class: RaceException
-- `validateCarName(String name)` 메서드:
+#### Class: CarNameValidator
+- `validate` 메서드:
     - 자동차 이름에 대한 유효성 검사:
         - 입력값이 null인 경우 예외 발생
         - 입력된 이름의 길이가 5자 초과인 경우 예외 발생
