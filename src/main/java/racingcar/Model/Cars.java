@@ -2,6 +2,7 @@ package racingcar.Model;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.Util.RandomGenerator;
 
 public class Cars {
 
@@ -17,6 +18,13 @@ public class Cars {
 
     public List<Car> getCars() {
         return cars;
+    }
+
+    public void move() {
+        for (Car car : cars) {
+            int randomNumber = RandomGenerator.generateRandomNumber();
+            car.move(randomNumber);
+        }
     }
 
 }
