@@ -2,7 +2,7 @@ package racingcar.model;
 
 public class Car {
     private final Name name;
-    private Advance advance;
+    private final Advance advance;
 
     public Car(final Name name) {
         this.name = name;
