@@ -1,28 +1,25 @@
 package racingcar.controller;
 
-import java.util.List;
+import racingcar.dto.CarCondition;
 import racingcar.dto.RaceResult;
+import racingcar.service.RaceService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RaceController {
-    public static final String SEPARATOR = ",";
     public static final String NOT_NUMBER = "시도할 회수는 숫자를 입력해주세요";
 
     private static RaceController raceController;
+    private static final RaceService raceService = RaceService.getInstance();
 
     public void start() {
-        List<String> carNames = toCarNames(InputView.takeNames());
+        String carNames = InputView.takeNames();
         int count = toCount(InputView.takeCount());
 
+        OutputView.sendResultStart();
         RaceResult raceResult = play(carNames, count);
 
-        OutputView.sendRaceEnd();
         OutputView.sendWinners(raceResult);
-    }
-
-    private List<String> toCarNames(String input) {
-        return List.of(input.split(SEPARATOR));
     }
 
     private int toCount(String input) {
@@ -33,8 +30,15 @@ public class RaceController {
         }
     }
 
-    public RaceResult play(List<String> carNames, int count) {
-        return null;
+    public RaceResult play(String carNames, int count) {
+        raceService.initRace(carNames);
+
+        while (count-- > 0) {
+            CarCondition carCondition = raceService.proceed();
+            OutputView.sendRaceCondition(carCondition);
+        }
+
+        return raceService.end();
     }
 
     public static RaceController getInstance() {

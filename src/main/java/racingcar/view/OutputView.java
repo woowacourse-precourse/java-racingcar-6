@@ -8,7 +8,8 @@ public class OutputView {
     public static final String RACE_RESULT_MESSAGE = "실행 결과";
     public static final String WINNERS = "최종 우승자 : ";
 
-    public static void sendRaceEnd() {
+    public static void sendResultStart() {
+        System.out.println();
         System.out.println(RACE_RESULT_MESSAGE);
     }
 
@@ -21,6 +22,7 @@ public class OutputView {
     }
 
     public static void sendWinners(RaceResult raceResult) {
+        System.out.println();
         System.out.println(WINNERS + createWinnersMessage(raceResult.winners()));
     }
 
