@@ -38,6 +38,6 @@ public class Position implements Comparable<Position> {
 
     @Override
     public int compareTo(final Position o) {
-        return Integer.compare(o.value, this.value);
+        return Integer.compare(this.value, o.value);
     }
 }
