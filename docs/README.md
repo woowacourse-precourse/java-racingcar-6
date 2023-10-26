@@ -13,12 +13,43 @@
 - 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
 - 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료되어야 한다.
 
+
+### 과제 진행 요구 사항
+
+- 미션은 [java-racingcar-6](https://github.com/woowacourse-precourse/java-racingcar-6) 저장소를 Fork & Clone해 시작한다.
+- **기능을 구현하기 전 `docs/README.md`에 구현할 기능 목록을 정리**해 추가한다.
+- **Git의 커밋 단위는 앞 단계에서 `docs/README.md`에 정리한 기능 목록 단위**로 추가한다.
+    - [커밋 메시지 컨벤션](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 가이드를 참고해 커밋 메시지를 작성한다.
+- 과제 진행 및 제출 방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고한다.
+
+
 ## 구현할 기능 목록
 1. 자동차 이름 입력 받기
 - 5글자 초과된 이름일 경우
 - 중복된 이름일 경우 `IllegalArgumentException`
+
 2. 시도할 횟수 입력 받기
 - 숫자 이외의 값이 있다면 `IllegalArgumentException`발생
+
 3. 자동차가 전진 하는 조건 만들기
+- `Randoms.pickNumberInRange(0,9)` 사용
+- 0 ~ 9 사이 값이 4이상일 경우 전진 그 외의 경우 정지
 4. 시도할 횟수마다 결과를 출력하기
+```
+pobi : --
+woni : ----
+jun : ---
+```
+
 5. 단독 우승자와 공동 우승자를 구분하여 우승자 출력하기.
+- 단독 우승자 안내 문구
+
+```
+최종 우승자 : pobi
+```
+
+- 공동 우승자 안내 문구
+
+```
+최종 우승자 : pobi, jun
+```
