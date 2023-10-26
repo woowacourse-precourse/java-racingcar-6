@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 
@@ -60,6 +61,13 @@ class ApplicationTest extends NsTest {
             Application.readCarNames();
             mockConsole.verify(() -> Console.close(), times(1));
         }
+    }
+
+    @Test
+    void 자동차_이름을_쉼표로_구분하여_이름_배열을_만듦() {
+        final List<String> expected = List.of("pobi", "woni", "jun");
+        final List<String> actual = List.of("");
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Override
