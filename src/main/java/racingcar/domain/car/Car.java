@@ -1,17 +1,17 @@
 package racingcar.domain.car;
 
 import racingcar.domain.car.vo.CarName;
+import racingcar.domain.car.vo.CarPosition;
 
 public class Car {
     private final CarName name;
     private final CarEngine engine;
-
-    private int position;
+    private final CarPosition position;
 
     public Car(String name, CarEngine engine) {
         this.name = new CarName(name);
         this.engine = engine;
-        this.position = 0;
+        this.position = new CarPosition();
     }
 
     public String getName() {
@@ -19,12 +19,12 @@ public class Car {
     }
 
     public int getPosition() {
-        return position;
+        return position.getPosition();
     }
 
     public void move() {
         if (engine.move()) {
-            position++;
+            position.move();
         }
     }
 }
