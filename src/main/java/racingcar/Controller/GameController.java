@@ -22,6 +22,7 @@ public class GameController {
 
     public void initiateGame() {
         OutputView.printPlayMessage();
+
     }
     public void displayWinners() {
 //        racingCars.showWinners();

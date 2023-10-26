@@ -1,5 +1,9 @@
 package racingcar.Model;
 
-public class RacingCars {
+import java.util.ArrayList;
 
+public class RacingCars {
+    public RacingCars(ArrayList<String> carNames) {
+
+    }
 }
