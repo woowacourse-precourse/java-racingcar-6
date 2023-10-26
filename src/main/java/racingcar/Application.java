@@ -89,5 +89,9 @@ public class Application {
     }
 
     public static void printWinnersFromCarList(final List<Car> carList) {
+        final String STRING_WINNER_MESSAGE = "최종 우승자 : ";
+        String winners = getWinnersFromCarList(carList);
+        System.out.print(STRING_WINNER_MESSAGE);
+        System.out.println(winners);
     }
 }
