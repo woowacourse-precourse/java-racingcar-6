@@ -6,7 +6,7 @@ import racingcar.util.NumberGenrator;
 
 class CarTest {
     @Test
-    void 자동차_모델_4이상의_값이_들어올_경우_움직이는_지_확인(){
+    void 자동차_모델_4이상의_값이_들어올_경우_포지션_상승하는_지_확인(){
         //given
         Car car = new Car("JJONG", 0);
         int moveCommand = new MoveNumberGenerator().generate();
@@ -17,10 +17,31 @@ class CarTest {
         //then
         Assertions.assertThat(car.getPosition()).isEqualTo(1);
     }
+
+    @Test
+    void 자동차_모델_4이하의_값이_들어올_경우_포지션_증감_없는_지_확인(){
+        //given
+        Car car = new Car("JJONG", 0);
+        int moveCommand = new NotMoveNumberGenerator().generate();
+
+        //when
+        car.moveOrStop(moveCommand);
+
+        //then
+        Assertions.assertThat(car.getPosition()).isEqualTo(0);
+    }
+
     private class MoveNumberGenerator implements NumberGenrator {
         @Override
         public int generate() {
             return 4;
+        }
+    }
+
+    private class NotMoveNumberGenerator implements NumberGenrator {
+        @Override
+        public int generate() {
+            return 3;
         }
     }
 }
