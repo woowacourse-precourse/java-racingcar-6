@@ -34,7 +34,7 @@ public class Validator {
         validateNumber(inputedRounds);
     }
     public static void validateNumber(String inputedRounds) {
-        Pattern pattern = Pattern.compile("^[1-9]+$");
+        Pattern pattern = Pattern.compile("^[0-9]+$");
         Matcher matcher = pattern.matcher(inputedRounds);
         if (!matcher.matches()) {
             throw new IllegalArgumentException(NOT_NUMBER_MESSAGE);
