@@ -1,14 +1,13 @@
 # 기능 요구 사항 정리
 ## 1. 경주할 자동차 이름 입력
-- [ ] RacingGameController 작성
-  - [ ] InputView 작성
-    - [ ] readCarNames 메소드 작성
-      - [ ] 입력값 받기
-      - [ ] 입력값 변환
-        - [ ] 문자열 split (",")
-        - [ ] 각 문자열 trim
-- [ ] InputView RacingGameController에 인스턴스 변수로 포함
-- [ ] InputView RacingGameController에 인스턴스 변수로 포함
+- [x] RacingGameController 작성
+  - [x] InputView 작성
+    - [x] readCarNames 메소드 작성
+      - [x] 입력값 받기
+      - [x] 입력값 변환
+        - [x] 문자열 split (",")
+        - [x] 각 문자열 trim
+- [x] InputView RacingGameController에 인스턴스 변수로 포함
 ## 2. 자동차 객체 생성과 입력 데이터 검증
 - [ ] carNames에 따라 Car 객체 생성
   - [ ] carName의 길이 1 이상
