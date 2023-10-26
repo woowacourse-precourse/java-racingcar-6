@@ -40,4 +40,5 @@
 
 ## 개발을 시작하고 나서의 고민들 & 메모
 
+- [코드리뷰 하면서 좋았던 MVC 코드](https://github.com/woowacourse-precourse/java-baseball-6/pull/2312#discussion_r1372543018)가 있었는데, MVC 패턴까진 아니더라도 좋았던 개념 부분(실행 흐름과 객체 상태를 깔끔하게 분리)은 적용할 수 있을지 고민해보자.
 
