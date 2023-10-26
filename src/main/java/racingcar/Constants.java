@@ -1,2 +1,6 @@
-package racingcar;public class Constants {
+package racingcar;
+
+public class Constants {
+    public static final String DELIMITER = ",";
+
 }

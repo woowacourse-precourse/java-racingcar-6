@@ -6,20 +6,25 @@ import racingcar.View.OutputView;
 
 public class GameController {
     private InputController inputController;
-    private GameController raceController;
-    private OutputView raceView;
+    private GameController gameController;
+    int rounds;
 
     public GameController() {
-        inputController = new InputController();
-        raceView = new OutputView();
+        initialize();
         initiateGame();
+        displayWinners();
+    }
+
+    public void initialize(){
+
+        rounds = inputController.getRoundCount();
     }
 
     public void initiateGame() {
-        List<Car> cars = inputController.getCarList();
-        int roundCount = inputController.getRoundCount();
-        raceController = new RaceController(cars, roundCount, raceView);
-        raceController.runRace();
-        raceController.displayWinners();
+        OutputView.printPlayMessage();
+
+    }
+    public void displayWinners() {
+        cars.showWinners();
     }
 }

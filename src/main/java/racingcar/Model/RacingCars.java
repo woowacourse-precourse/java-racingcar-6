@@ -1,5 +1,5 @@
 package racingcar.Model;
 
-public class Race {
+public class RacingCars {
 
 }
