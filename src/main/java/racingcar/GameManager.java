@@ -23,5 +23,6 @@ public class GameManager {
         messagePrinter.printCarNameInputMessage();
         String[] carNames = messageReceiver.receiveCarNames();
         List<RacingCar> racingCars = RacingCar.getRacingCars(carNames);
+        messagePrinter.printAttemptCountInputMessage();
     }
 }
