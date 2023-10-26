@@ -33,7 +33,7 @@ class RaceServiceTest {
         for (String inputCarName : input) {
             Race race = raceService.getCarName();
             String[] split = inputCarName.split(",");
-            Map<String, Integer> raceMap = race.getRace();
+            Map<String, Integer> raceMap = race.testGetRace();
 
             for (String name : split) {
                 assertThat(raceMap.keySet().contains(name)).isTrue();
@@ -48,7 +48,7 @@ class RaceServiceTest {
         command(input);
 
         Race race = raceService.getCarName();
-        Map<String, Integer> raceMap = race.getRace();
+        Map<String, Integer> raceMap = race.testGetRace();
 
         String[] split = input[0].split(",");
         raceMap.put(split[0], raceMap.getOrDefault(split[0], 0) + 3);
@@ -66,7 +66,7 @@ class RaceServiceTest {
         command(input);
 
         Race race = raceService.getCarName();
-        Map<String, Integer> raceMap = race.getRace();
+        Map<String, Integer> raceMap = race.testGetRace();
 
         String[] split = input[0].split(",");
         raceMap.put(split[0], raceMap.getOrDefault(split[0], 0) + 4);

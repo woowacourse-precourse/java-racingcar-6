@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -15,8 +16,12 @@ public class Race {
         this.race = Arrays.stream(raceList.split(",")).collect(Collectors.toMap(key -> key, value -> 0));
     }
 
-    public Map<String, Integer> getRace() {
-        return race;
+    public Map<String, Integer> testGetRace() {
+        Map<String, Integer> cloneMap = new HashMap<>();
+        for (String carName : race.keySet()) {
+            cloneMap.put(carName, race.get(carName));
+        }
+        return cloneMap;
     }
 
     public void play() {
