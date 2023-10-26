@@ -67,14 +67,14 @@ class CarTest {
     @DisplayName("자동차 전진 여부 확인")
     void carShouldMoveWhenNumberIsGreaterThanOrEqualTo4() {
         int pickNumberInRange = Randoms.pickNumberInRange(0, 9);
-        int initialPosition = car.getPosition();
+        int initialPosition = car.getDistance();
 
         car.move(pickNumberInRange);
 
         if (pickNumberInRange >= 4) {
-            assertThat(car.getPosition()).isEqualTo(initialPosition + 1);
+            assertThat(car.getDistance()).isEqualTo(initialPosition + 1);
         } else {
-            assertThat(car.getPosition()).isEqualTo(initialPosition);
+            assertThat(car.getDistance()).isEqualTo(initialPosition);
         }
     }
 }

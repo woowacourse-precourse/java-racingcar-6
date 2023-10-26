@@ -10,7 +10,7 @@ public class OutputRaceView {
     public static void printRaceResult(List<Car> cars) {
         cars.forEach(car -> {
             System.out.print(car.getName() + " : ");
-            for (int i = 0; i < car.getPosition(); i++) {
+            for (int i = 0; i < car.getDistance(); i++) {
                 System.out.print("-");
             }
             System.out.println();

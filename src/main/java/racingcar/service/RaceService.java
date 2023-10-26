@@ -40,7 +40,7 @@ public class RaceService {
     }
 
     public List<Car> getWinners() {
-        int maxPosition = race.getCars().stream().mapToInt(Car::getPosition).max().orElse(0);
-        return race.getCars().stream().filter(car -> car.getPosition() == maxPosition).collect(Collectors.toList());
+        int maxPosition = race.getCars().stream().mapToInt(Car::getDistance).max().orElse(0);
+        return race.getCars().stream().filter(car -> car.getDistance() == maxPosition).collect(Collectors.toList());
     }
 }

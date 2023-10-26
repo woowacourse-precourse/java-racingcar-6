@@ -5,7 +5,7 @@ import racingcar.util.Constants;
 
 public class Car {
     private final String name;
-    private int position = 0;
+    private int distance = 0;
 
     public Car(String name) {
         CarNameValidator.validate(name);
@@ -14,12 +14,12 @@ public class Car {
 
     public void move(int randomNumber) {
         if (randomNumber >= Constants.RANDOM_THRESHOLD) {
-            position++;
+            distance++;
         }
     }
 
-    public int getPosition() {
-        return position;
+    public int getDistance() {
+        return distance;
     }
 
     public String getName() {
