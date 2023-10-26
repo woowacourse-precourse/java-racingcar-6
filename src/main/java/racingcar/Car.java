@@ -36,6 +36,10 @@ public class Car {
         distance++;
     }
 
+    public int getDistance() {
+        return distance;
+    }
+
     public String getDistanceString() {
         final String STRING_ONE_DISTANCE = "-";
         final StringBuilder builder = new StringBuilder(distance);

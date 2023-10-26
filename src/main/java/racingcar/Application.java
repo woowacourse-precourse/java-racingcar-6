@@ -63,6 +63,19 @@ public class Application {
     }
 
     public static List<Car> getCarListWithLongestDistance(final List<Car> carList) {
-        return List.of();
+        final int longestDistance = getLongestDistanceFromCarList(carList);
+        final List<Car> carListWithLongestDistance = filterCarListWithLongestDistance(carList, longestDistance);
+        return Collections.unmodifiableList(carListWithLongestDistance);
+    }
+
+    private static int getLongestDistanceFromCarList(final List<Car> carList) {
+        int longestDistance = carList.stream().mapToInt(Car::getDistance).max().orElse(0);
+        return longestDistance;
+    }
+
+    private static List<Car> filterCarListWithLongestDistance(final List<Car> carList, int longestDistance) {
+       return carList.stream()
+                .filter(car -> car.getDistance() == longestDistance)
+                .collect(Collectors.toList());
     }
 }
