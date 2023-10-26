@@ -34,11 +34,11 @@ class CarsTest {
     @Test
     void Cars_비정상_생성_이름없음() {
         // given
-        String nameZero = ",";
+        String nameZero = ", ";
 
         // when then
-        //assertThat(Cars.from(nameZero).getCars().size()).isEqualTo(2);
         assertThatThrownBy(() -> Cars.from(nameZero))
                 .isInstanceOf(IllegalArgumentException.class);
+
     }
 }
