@@ -17,7 +17,7 @@
 
 ## 구현 요구 사항 정리
 
-### ERROR
+### EXCEPTION
 - [ ] InputErrorException (유효한 값이 아닐 시 IllegalArgumentException 발생 후 종료)
     - [ ] CarNameInputErrorException
       - [ ] 각 이름의 길이가 5자 초과 확인
