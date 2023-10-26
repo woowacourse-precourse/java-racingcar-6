@@ -56,4 +56,48 @@ public class RacingCarGame {
             throw new IllegalArgumentException();
         }
     }
+
+    private void inputCarNameMessage(){
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+    }
+
+    private void inputMovementAmountMessage(){
+        System.out.println("시도할 회수는 몇회인가요?");
+    }
+
+    private void printCurrentResultMessage(){
+        System.out.println("실행 결과");
+    }
+
+    private void moveCars(){
+        for(CarInfo car: this.carArray){
+            moveCar(car);
+        }
+    }
+
+    private void moveCar(CarInfo car) {
+        if(decideMoveOrNot()) {
+            car.increaseTotalMovement();
+        } else {
+            ;   // do nothing
+        }
+    }
+
+    private boolean decideMoveOrNot() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+
+        if(randomNumber >= 4) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private void printCurrentResult(){
+
+    }
+
+    private void printFinalResult(){
+
+    }
 }

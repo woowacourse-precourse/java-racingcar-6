@@ -17,7 +17,7 @@ public class CarInfo {
         return this.totalMovement;
     }
 
-    public void updateTotalMovement(int movement){
-        this.totalMovement += movement;
+    public void increaseTotalMovement(){
+        this.totalMovement += 1;
     }
 }
