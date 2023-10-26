@@ -6,17 +6,15 @@ import java.util.*;
 
 public class UserInput {
 
-    public Map<String, String> getCarList() {
-        Map<String, String> carMap = new HashMap<>();
-
+    public List<String> getCarList() {
         String input = Console.readLine();
         List<String> carList = ValidChecker.carListCheck(input);
 
         carList.forEach(car -> {
-            carMap.put(car, "");
+            car += " : ";
         });
 
-        return carMap;
+        return carList;
     }
 
     public int getNumberOfTry() {
