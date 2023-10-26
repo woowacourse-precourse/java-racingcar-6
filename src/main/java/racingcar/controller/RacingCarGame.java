@@ -20,6 +20,7 @@ public class RacingCarGame {
         String[] carNameArr = splitCarNames(InputView.carNames());
         Validator.inputCarNames(carNameArr);
         racingGameService.init(carNameArr);
+        String attemptCount = InputView.askForAttemptCount();
     }
 
     private String[] splitCarNames(String carNames) {
