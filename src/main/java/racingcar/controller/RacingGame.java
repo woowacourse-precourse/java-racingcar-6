@@ -28,6 +28,8 @@ public class RacingGame {
     }
 
     private static void rotate(Cars cars, Integer numberOfTimes) {
+        outputView.printRunResult();
+
         while (numberOfTimes-- > 0) {
             cars.go();
             CarsDto carsDto = CarsDto.of(cars);

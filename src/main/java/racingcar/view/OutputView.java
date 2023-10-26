@@ -10,7 +10,7 @@ import racingcar.dto.CarsDto;
 
 public class OutputView {
 
-    private static final String RUN_RESULT = "실행 결과";
+    private static final String RUN_RESULT = "\n실행 결과";
     private static final String CAR_POSITION_FORMAT = "%s : ";
     private static final String POSITION_SIGNAL = "-";
     private static final String NEWLINE = "\n";
