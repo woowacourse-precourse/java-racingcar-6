@@ -20,13 +20,7 @@ public class RacingGame {
             racingCars.add(new RacingCar(name));
         }
 
-        for (int i = 0; i < gameRounds; i++) {
-            for (RacingCar car : racingCars) {
-                car.move();
-            }
-
-            racingGameView.printRoundResult(racingCars);
-        }
+        playRounds(gameRounds, racingCars);
 
         int maxLength = 0;
         List<RacingCar> winners = new ArrayList<>();
@@ -44,5 +38,16 @@ public class RacingGame {
         }
 
         racingGameView.printWinners(winners);
+    }
+
+    private void playRounds(int gameRounds, List<RacingCar> racingCars) {
+        for (int i = 0; i < gameRounds; i++) {
+            moveCars(racingCars);
+            racingGameView.printRoundResult(racingCars);
+        }
+    }
+
+    private void moveCars(List<RacingCar> racingCars) {
+        racingCars.forEach(RacingCar::move);
     }
 }
