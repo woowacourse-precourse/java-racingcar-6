@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.MoveNumber;
 import racingcar.domain.RacingCar;
 import racingcar.validator.RacingCarValidator;
 import racingcar.view.InputView;
@@ -17,13 +18,24 @@ public class RacingCarController {
     }
 
     private void racingCarGameStart() {
-        RacingCarValidator.racingCarNameLengthValidator(requestRacingCarNameList());
-        requestAttemptNumberCovertStringToInteger();
+        List<RacingCar> racingCarList = requestRacingCarNameList();
+        MoveNumber moveNumber = new MoveNumber(requestAttemptNumberCovertStringToInteger());
+
+    }
+
+    private void repeatMoveRacingCar(List<RacingCar> racingCarList, MoveNumber moveNumber){
+      while(moveNumber.getNumber()>=0){
+
+
+
+      }
     }
 
 
-    private List<RacingCar  > requestRacingCarNameList(){
-        return racingCarNameConvertStringToArray(racingCarNameInput());
+    private List<RacingCar> requestRacingCarNameList(){
+        List<RacingCar> racingCarList = racingCarNameConvertStringToArray(racingCarNameInput());
+        RacingCarValidator.racingCarNameLengthValidator(racingCarList);
+        return racingCarList;
     }
 
     public List<RacingCar> racingCarNameConvertStringToArray(String racingCar){
