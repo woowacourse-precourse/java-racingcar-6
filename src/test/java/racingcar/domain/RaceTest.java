@@ -11,22 +11,22 @@ import racingcar.dto.RaceResult;
 class RaceTest {
 
     @Nested
-    @DisplayName("시도할 횟수만큼 Car 생성: ")
+    @DisplayName("Car 생성: ")
     class createCarsBy {
         @Test
         @DisplayName("올바른 입력")
         void validInput() {
-            String input = "5";
+            String input = "name";
 
             Race race = new Race(input);
 
-            assertThat(race.getCars().size()).isEqualTo(Integer.parseInt(input));
+            assertThat(race.getCars().size()).isGreaterThanOrEqualTo(1);
         }
 
         @Test
-        @DisplayName("숫자가 아닌 입력")
-        void notNumberInput() {
-            String input = "5";
+        @DisplayName("한 명도 존재하지 않는 입력")
+        void NoOneExistInput() {
+            String input = ",,";
 
             assertThrows(IllegalArgumentException.class, () -> new Race(input));
         }
