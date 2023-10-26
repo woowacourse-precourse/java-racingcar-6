@@ -25,5 +25,17 @@ public class ValidatorTest {
         assertThat(emptyStringException.getMessage()).isEqualTo(Validator.NULL_OR_EMPTY_MESSAGE);
     }
 
-    
+    @Test
+    @DisplayName("쉼표로 구분된 문자열 유효성검사 테스트")
+    public void validateCorrectPatternTest() {
+        String validInput = "tico,damas";
+        String invalidInput = "tico,";
+
+        IllegalArgumentException invalidPatternException = assertThrows(
+            IllegalArgumentException.class, () -> Validator.validateCorrectPattern(invalidInput));
+        assertThat(invalidPatternException.getMessage()).isEqualTo(
+            Validator.INVALID_PATTERN_MESSAGE);
+
+        assertDoesNotThrow(() -> Validator.validateCorrectPattern(validInput));
+    }
 }
