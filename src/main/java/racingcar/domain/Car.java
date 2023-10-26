@@ -12,20 +12,24 @@ public class Car {
 
 
     private Car(String name) {
-        validate(name);
         this.name = name;
         this.position = START_POSITION;
     }
 
-    private void validate(String name) {
-        if (name.length() > LIMIT_NAME_LENGTH) {
+    public static Car from(final String name) {
+        validate(name);
+
+        return new Car(name);
+    }
+
+    private static void validate(String name) {
+        if (isTooLong(name)) {
             throw new IllegalArgumentException("[ERROR]이름 길이가 너무 깁니다.");
         }
     }
 
-    public static Car from(final String name) {
-        //validateName(name);
-        return new Car(name);
+    private static boolean isTooLong(String name) {
+        return name.length() > LIMIT_NAME_LENGTH;
     }
 
     public void go() {

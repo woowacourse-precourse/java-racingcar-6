@@ -33,6 +33,7 @@ public class RacingGame {
         while (numberOfTimes-- > 0) {
             cars.go();
             CarsDto carsDto = CarsDto.of(cars);
+
             outputView.printCarsResults(carsDto);
         }
     }
