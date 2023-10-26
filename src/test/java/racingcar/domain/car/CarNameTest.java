@@ -26,12 +26,13 @@ final class CarNameTest {
     }
 
 
-    @DisplayName("이름이 1~5자가 아닌 자동차 이름 생성 시 예외 발생")
+    @DisplayName("이름이 null이거나 1~5자가 아닌 자동차 이름 생성 시 예외 발생")
     @Test
     void createCarNameFailure() {
         // given
-        final String input1 = "";
-        final String input2 = "123456";
+        final String input1 = null;
+        final String input2 = "";
+        final String input3 = "123456";
 
         // when
 
@@ -42,6 +43,10 @@ final class CarNameTest {
 
         assertThatThrownBy(() ->
                 new CarName(input2))
+                .isInstanceOf(IllegalArgumentException.class);
+
+        assertThatThrownBy(() ->
+                new CarName(input3))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -65,7 +70,7 @@ final class CarNameTest {
                 .isInstanceOf(IllegalArgumentException.class);
 
         assertThatThrownBy(() ->
-                new CarName(input2))
+                new CarName(input3))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
