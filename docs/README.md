@@ -16,9 +16,9 @@
   - [x] 5자 이하의 이름
   - [x] 전진
 
-- [ ] CarCondition
-  - [ ] 우승자 이름
-  - [ ] 현재 위치
+- [x] CarCondition
+  - [x] 이름 목록
+  - [x] 현재 위치 목록
 
 - [x] RaceResult
   - [x] 우승자 이름 목록
