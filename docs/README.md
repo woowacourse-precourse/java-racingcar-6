@@ -21,8 +21,8 @@
     - [X] 잘못된 입력일 경우 `IllegalArgumentException`을 발생시킨 후 종료
     - > 자동차 목록 입력에 대해서는 다음과 같이 판단<br> - `숫자 or 문자`만 허용<br> - `space / , / : / ...`와 같은 특수문자는 불가능
 
-- [ ] 자동차를 이동시킬 횟수를 입력한다
-    - [ ] 잘못된 입력일 경우 `IllegalArgumentException`을 발생시킨 후 종료
+- [X] 자동차를 이동시킬 횟수를 입력한다
+    - [X] 잘못된 입력일 경우 `IllegalArgumentException`을 발생시킨 후 종료
 
 ### 출력
 
