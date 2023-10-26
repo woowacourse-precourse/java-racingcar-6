@@ -1,6 +1,8 @@
 package racingcar.View;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.Util.Parser;
+import racingcar.Util.Validator;
 
 public class InputView {
 
@@ -10,6 +12,7 @@ public class InputView {
         System.out.println(CAR_NAME_INPUT_MESSAGE);
         String inputedCarNames = Console.readLine();
         Validator.validateCarNames(inputedCarNames);
+        String[] carNames = Parser.parseString(inputedCarNames);
         return inputedCarNames;
     }
 }
