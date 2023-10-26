@@ -18,6 +18,8 @@ public class RacingCarController {
         String input = Console.readLine();
 
         validateIsNumber(input);
+        validateIsValidTryCount(input);
+
         return Integer.parseInt(input);
     }
 
@@ -36,6 +38,12 @@ public class RacingCarController {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("시도 횟수는 숫자여야 합니다.");
+        }
+    }
+
+    private void validateIsValidTryCount(String input) {
+        if (Integer.parseInt(input) < 0) {
+            throw new IllegalArgumentException("시도 횟수는 0 이상이어야 합니다.");
         }
     }
 }
