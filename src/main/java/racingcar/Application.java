@@ -13,6 +13,7 @@ public class Application {
     public static void test() {
         try {
             input_car_name();
+            input_repeat_count();
         } catch (IllegalArgumentException e){
             throw e;
         }
@@ -33,6 +34,19 @@ public class Application {
         return car_name_list.toArray(new String[0]);
     }
 
+    public static int input_repeat_count(){
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input_count = Console.readLine();
 
+        try {
+            int counts = Integer.parseInt(input_count);
+            if (counts <= 0) {
+                throw new IllegalArgumentException();
+            }
+            return counts;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
 
 }
