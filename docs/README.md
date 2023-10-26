@@ -35,8 +35,10 @@
     }
     ```
   * 생성된 객체를 리스트에 담아 보관한다.
+* goCycle()
+  * 입력한 시도 횟수만큼 레이스를 시도한다. 
 * goForward()
- * checkForward() 에서 true가 반환되면 실제도 자동차를 전진시켜준다.
+  * checkForward() 에서 true가 반환되면 실제도 자동차를 전진시켜준다.
 
 ### 출력
 * printDistance()
