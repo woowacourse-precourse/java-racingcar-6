@@ -8,7 +8,7 @@ public class Car {
     String name;
     int pos;
 
-    Car(String name) {
+    public Car(String name) {
         this.name = name;
         this.pos = 0;
     }
