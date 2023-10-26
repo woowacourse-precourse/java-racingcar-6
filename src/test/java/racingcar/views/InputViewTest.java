@@ -63,16 +63,16 @@ class InputViewTest {
         String emptyError = "123,1234,12345, ,";
         String sizeError = "1,12,123456";
 
-        List<Car> carnameList = InputView.getCarnameList(normal);
+        List<Car> carnameList = InputView.getCarNameList(normal);
         assertThat(carnameList.size()).isEqualTo(5);
         assertThat(carnameList).isNotNull();
 
         assertThrows(CarNameIncorrectException.class, () -> {
-            InputView.getCarnameList(emptyError);
+            InputView.getCarNameList(emptyError);
         });
 
         assertThrows(CarNameSizeLimitExceededException.class, () -> {
-            InputView.getCarnameList(sizeError);
+            InputView.getCarNameList(sizeError);
         });
 
 

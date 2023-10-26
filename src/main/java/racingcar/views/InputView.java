@@ -3,7 +3,6 @@ package racingcar.views;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.constants.Config;
 import racingcar.constants.ExceptionComments;
 import racingcar.domain.Car;
@@ -24,16 +23,16 @@ public class InputView {
     public static List<Car> getCarNames() {
         String carNames = Console.readLine();
         checkNullAndEmpty(carNames);
-        return getCarnameList(carNames);
+        return getCarNameList(carNames);
     }
 
-    public static List<Car> getCarnameList(String carNames) {
+    public static List<Car> getCarNameList(String carNames) {
         String[] carNameArr = carNames.split(",");
         checkLengthCarName(carNameArr);
 
         return Arrays.stream(carNameArr)
-                .map(o -> new Car(o))
-                .collect(Collectors.toUnmodifiableList());
+                .map(Car::new)
+                .toList();
     }
 
     public static void checkNullAndEmpty(String str) {
@@ -71,7 +70,7 @@ public class InputView {
 
     private static void isValidNumber(String str) {
         try {
-            Integer value = Integer.parseInt(str);
+            int value = Integer.parseInt(str);
             if (value <= 0) {
                 throw new IllegalArgumentException(ExceptionComments.INPUT_VALUE_INCORRECT_COMMENT);
             }
