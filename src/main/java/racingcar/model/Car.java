@@ -9,9 +9,7 @@ public class Car {
         this.distance = 0;
     }
 
-    public void addDistance(boolean forward){
-        if(forward){
-            this.distance++;
-        }
-    
+    public void addDistance() {
+        this.distance++;
+    }
 }
