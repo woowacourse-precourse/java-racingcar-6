@@ -159,6 +159,22 @@ class ApplicationTest extends NsTest {
         }
     }
 
+    @Test
+    void Car_리스트에서_최종_우승자_이름_목록_생성() {
+        final List<Car> carList = List.of(new Car("pobi"), new Car("woni"), new Car("jun"));
+        final String expected = "pobi, woni";
+
+        try (MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
+            mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
+                    .thenReturn(MOVING_FORWARD, MOVING_FORWARD, STOP);
+
+            Application.moveForward(carList);
+            final String actual = Application.getWinnersFromCarList(carList);
+
+            assertThat(actual).isEqualTo(expected);
+        }
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

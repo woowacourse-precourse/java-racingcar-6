@@ -78,4 +78,8 @@ public class Application {
                 .filter(car -> car.getDistance() == longestDistance)
                 .collect(Collectors.toList());
     }
+
+    public static String getWinnersFromCarList(final List<Car> carList) {
+        return "";
+    }
 }
