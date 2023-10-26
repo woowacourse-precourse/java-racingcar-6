@@ -14,6 +14,17 @@ public class Application {
 		List<String> carsList = splitComma(cars);
 		checkLength(carsList);
 		System.out.println(carsList);
+		System.out.println("시도할 회수는 몇회인가요?");
+		int loop;
+		try {
+			loop = Integer.parseInt(Console.readLine());
+		} catch (NumberFormatException e) {
+			throw new IllegalArgumentException("숫자를 입력해주세요.");
+		}
+		
+		for (int i = 0; i < loop; i++) {
+			
+		}
 	}
 
 	private static List<String> splitComma(String cars) {
