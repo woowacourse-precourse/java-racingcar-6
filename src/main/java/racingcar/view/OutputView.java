@@ -11,7 +11,7 @@ import racingcar.dto.CarsDto;
 public class OutputView {
 
     private static final String RUN_RESULT = "실행 결과";
-    private static final String CAR_POSITION_FORMAT = "%d : ";
+    private static final String CAR_POSITION_FORMAT = "%s : ";
     private static final String POSITION_SIGNAL = "-";
     private static final String NEWLINE = "\n";
     private static final String FINAL_WINNER_FORMAT = "최종 우승자 : %s\n";
