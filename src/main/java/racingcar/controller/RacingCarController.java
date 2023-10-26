@@ -7,5 +7,6 @@ public class RacingCarController {
 
     public void start() {
         OutputView.printCarNameInputMessage();
+        InputView.inputCarNames();
     }
 }
