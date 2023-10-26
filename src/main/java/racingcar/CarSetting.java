@@ -1,11 +1,16 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class CarSetting {
-    Input input = new Input();
-    String[] carName = input.getInputCars().split(",");
-    Car[] car = new Car[carName.length];
+    private String[] carName;
+    private Car[] car;
+
+    CarSetting() {
+        carName = Console.readLine().split(",");
+        car = new Car[carName.length];
+    }
 
     public void setCars() {
         for (int index = 0; index < carName.length; index++) {
