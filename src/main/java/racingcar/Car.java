@@ -40,7 +40,7 @@ public class Car {
         final String STRING_ONE_DISTANCE = "-";
         final StringBuilder builder = new StringBuilder(distance);
 
-        IntStream.range(1, distance)
+        IntStream.rangeClosed(1, distance)
                 .forEach(value -> builder.append(STRING_ONE_DISTANCE));
 
         return builder.toString();
