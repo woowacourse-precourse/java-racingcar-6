@@ -16,8 +16,12 @@ public class Car {
         }
     }
 
-    public void getName() {
-        System.out.println(this.name);
+    public String getName() {
+        return this.name;
+    }
+
+    public int getMoves() {
+        return this.moves;
     }
 
     private boolean canMove() {

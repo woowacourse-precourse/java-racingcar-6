@@ -7,7 +7,7 @@ public class Controller {
     RacingGame racingGame = new RacingGame();
 
     public void requestStartGame() {
-        RacingGame.startGame();
+        racingGame.startGame();
     }
 
     public void requestCarGenerate(String[] cars) {
