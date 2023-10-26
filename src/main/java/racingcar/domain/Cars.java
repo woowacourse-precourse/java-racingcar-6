@@ -8,6 +8,7 @@ public class Cars {
     List<Car> cars;
 
     public Cars(List<String> carNames) {
+        cars = new ArrayList<>(carNames.size());
         for (int i = 0; i < carNames.size(); i++) {
             Car car = new Car(carNames.get(i));
             cars.add(car);
@@ -26,6 +27,7 @@ public class Cars {
             int randomNumber = randomNumberGenerator.generateNumber();
             Car car = cars.get(i);
             moveIfGreaterThanThree(car, randomNumber);
+            System.out.println(car.distance+" "+ car.name);
         }
     }
 
