@@ -13,13 +13,13 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class UnitTest {
     @Nested
     class InputViewTest {
 
         private static ByteArrayOutputStream outContent;
-
 
         @Mock
         InputView inputView = InputView.getInstance();
@@ -47,6 +47,32 @@ public class UnitTest {
             assertTrue(outContent.toString().contains("시도할 회수는 몇회인가요?"));
         }
 
+    }
+
+    @Nested
+    class OutputViewTest {
+        private static ByteArrayOutputStream outputStream;
+        OutputView outputView = OutputView.getInstance();
+
+        @BeforeAll
+        public static void setStream() {
+            outputStream = new ByteArrayOutputStream();
+            System.setOut(new PrintStream(outputStream));
+        }
+
+        @Test
+        void displayGameWinner() {
+            String result = "최종 우승자 : " + System.lineSeparator();
+            outputView.displayGameWinner();
+            assertThat(outputStream.toString()).isEqualTo(result);
+        }
+
+        @Test
+        void displayGameResult() {
+            String result = "실행 결과" + System.lineSeparator();
+            outputView.displayGameResult();
+            assertThat(outputStream.toString()).isEqualTo(result);
+        }
     }
 
 }
