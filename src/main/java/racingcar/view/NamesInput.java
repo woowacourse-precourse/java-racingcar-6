@@ -18,7 +18,6 @@ public class NamesInput implements Input {
         namesValidator.validate(names);
     }
 
-    @Override
     public String readLine() {
         return names;
     }

@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.AttemptNumber;
 import racingcar.validator.AttemptsInputValidator;
 import racingcar.validator.Validator;
 
@@ -18,8 +19,7 @@ public class AttemptsInput implements Input{
         validator.validate(attempts);
     }
 
-    @Override
-    public String readLine() {
-        return attempts;
+    public AttemptNumber readLine() {
+        return new AttemptNumber(Integer.parseInt(attempts));
     }
 }
