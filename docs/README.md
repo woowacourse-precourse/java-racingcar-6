@@ -6,7 +6,7 @@
 
 ### 2. 
 - [ ] Console.readLine()으로 몇 번의 이동을 할 것인지를 입력한다. 
-  - 이 때 횟수 제한은 없지만, 횟수가 음수이거나 숫자가 아니면 IllegalArgumentException을 발생시킨다.
+  - 이 때 횟수 제한은 없지만, 횟수가 음수이거나 숫자가 아니면, 또 최대 값을 넘어서면 IllegalArgumentException을 발생시킨다.
 ### 3.
 - [ ] 자동차 경주를 시작한다. 각 자동차마다 전진할 수 있는 조건은 0에서 9 사이 중 4 이상일 때다.
   - 만약 숫자가 아니거나 0이상 9이하가 아니면 IllegalArgumentException을 발생시킨다.
