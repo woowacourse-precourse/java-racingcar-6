@@ -4,7 +4,7 @@ public class Name {
     private final String value;
     private static final int MAX_LENGTH = 5;
 
-    public Name(String name){
+    public Name(final String name){
 
         validate(name);
         this.value = name;
@@ -42,7 +42,7 @@ public class Name {
         return false;
     }
 
-    private boolean isOverFiveLength(String name){
+    private boolean isOverFiveLength(final String name){
         return name.length() > MAX_LENGTH;
     }
 }
