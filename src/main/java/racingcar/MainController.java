@@ -1,9 +1,7 @@
 package racingcar;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.view.InputView;
-import racingcar.view.OutputView;
 
 public class MainController {
     private final RacingService service;
@@ -30,7 +28,7 @@ public class MainController {
     private void proceedGame(GameData gameData) {
         int moveCount  = 0;
         while (moveCount++ < gameData.trialCount()) {
-            service.move(gameData.carNames());
+//            service.move(gameData.carNames());
 //            OutputView.printResult(gameData.racerList());
         }
     }
