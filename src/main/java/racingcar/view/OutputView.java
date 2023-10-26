@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import java.util.ArrayList;
-import racingcar.enums.StringEnum;
+import racingcar.enums.TextEnum;
 
 public class OutputView {
     public void printCurrent(String name, int position) {
@@ -18,7 +18,7 @@ public class OutputView {
     }
 
     public void printResult(ArrayList<String> winner) {
-        String s = StringEnum.RESULT_STRING + String.join(", ", winner);
+        String s = TextEnum.RESULT_TEXT + String.join(", ", winner);
         System.out.println(s);
     }
 }
