@@ -17,4 +17,19 @@ public class InputView {
         return Arrays.stream(names.split(","))
                 .collect(Collectors.toList());
     }
+
+    public int readTryCount(){
+        System.out.println(TRY_COUNT_INPUT_PROMPT);
+
+        return readLineAndParseInt();
+    }
+
+
+    private int readLineAndParseInt(){
+        try{
+            return Integer.parseInt(Console.readLine());
+        } catch(NumberFormatException e){
+            throw new IllegalArgumentException("숫자로 변환할 수 없습니다.");
+        }
+    }
 }
