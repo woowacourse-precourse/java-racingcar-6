@@ -21,8 +21,8 @@ public class RacingCarGame {
     public void run(){
         List<Car> carList = getCarList(inputView.inputNames());
         int tryNumber = inputView.inputTryNumber();
-        moveOrStop(carList, Dice.getRandomNumber());
-        
+        moveOrStop(carList);
+
     }
 
     public List<Car> getCarList(List<String> nameList){
@@ -31,9 +31,9 @@ public class RacingCarGame {
                 .collect(Collectors.toList());
     }
 
-    public void moveOrStop(List<Car> carList, int diceNumber){
+    public void moveOrStop(List<Car> carList){
         carList.stream()
-                .forEach(car -> racingCarGameService.moveOrStop(diceNumber, car));
+                .forEach(car -> racingCarGameService.moveOrStop(Dice.getRandomNumber(), car));
     }
 }
 
