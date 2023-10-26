@@ -15,8 +15,25 @@ public class Game {
         players = setPlayers(userNames);
 
         System.out.println(message.requestPlayCount);
-        String count = Console.readLine();
+        String countString = Console.readLine();
+        if(!isInteger(countString)){
+            throw new IllegalArgumentException();
+        }
 
+        System.out.println(message.result);
+
+        int count = Integer.parseInt(countString);
+
+        for (int i = 0 ; i<count; i++){
+            for (int j = 0 ; j<players.size(); j++){
+                Player player = players.get(j);
+                isForward(player);
+                System.out.println(message.distanceOfPlayer(player));
+            }
+            System.out.println();
+        }
+
+        System.out.println(message.champions(getChampions(players)));
     }
 
     private List<Player> setPlayers(String userNames){
@@ -51,11 +68,10 @@ public class Game {
         return false;
     }
 
-    private boolean isForward(){
-        if(Randoms.pickNumberInRange(0,9) < 4){
-            return false;
+    private void isForward(Player player){
+        if(Randoms.pickNumberInRange(0,9) >= 4){
+            player.forward();
         };
-        return true;
     }
 
     private List<Player> getChampions( List<Player> players ){
