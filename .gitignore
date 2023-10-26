@@ -5,6 +5,9 @@ build/
 !**/src/main/**
 !**/src/test/**
 
+package.json
+package-lock.json
+
 ### STS ###
 .apt_generated
 .classpath
