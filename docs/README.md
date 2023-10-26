@@ -7,7 +7,7 @@
 - [x] 0 ~ 9 무작위 값 구하기 // RandomNumberGenerator : Integer generate()
 - [x] 무작위 값 확인 해서 4이상일 경우 자동차 전진하기 // Cars : void go()
 - [x] 전진하는 자동차 이름과 함께 출력하기 // OutputView : void printRoundResult(CarsDto carsDto)
-- [ ] 수행 횟수동안 전진 출력 반복하기 // RacingGame : void rotate()
+- [x] 수행 횟수동안 전진 출력 반복하기 // RacingGame : void rotate()
 - [ ] 우승자 결정하기 // Cars : Cars filterWinner()
 - [ ] 우승자 출력하기 // OutputView : void printWinner(CarsDto)
 - [ ] 자동차 이름 길이 5이하 검증하기 // CarValidator : void validateName(String name) throw IllegalArgumentException
