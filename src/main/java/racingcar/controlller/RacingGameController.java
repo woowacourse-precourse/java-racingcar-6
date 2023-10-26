@@ -1,12 +1,10 @@
 package racingcar.controlller;
 
-import java.util.ArrayList;
-import java.util.List;
-import racingcar.model.Car;
+import racingcar.model.CarList;
 import racingcar.view.OutputView;
 
 public class RacingGameController extends GameController {
-    private List<Car> carList;
+    private CarList carList;
     private int numberOfRounds;
 
     public RacingGameController(boolean isRunning) {
@@ -16,8 +14,6 @@ public class RacingGameController extends GameController {
     @Override
     public void init() {
         // 게임 시작 후 필요한 객체들 생성
-        carList = new ArrayList<>();
-        numberOfRounds = 0;
     }
 
     @Override
@@ -36,7 +32,7 @@ public class RacingGameController extends GameController {
         numberOfRounds = RacingGameInputController.scanNumberOfRounds();
 
         // n라운드 진행
-        OutputView.printResultMessage();    //
+        OutputView.printResultMessage();    // 실행 결과
         for (int i = 0; i < numberOfRounds; i++) {
             // 게임 진행
             doOneRound();
@@ -45,5 +41,8 @@ public class RacingGameController extends GameController {
         }
         // 게임 종료
         isRunning = false;
+    }
+
+    private void doOneRound() {
     }
 }
