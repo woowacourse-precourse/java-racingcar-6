@@ -2,11 +2,9 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Comparator;
-import java.util.Optional;
-import org.assertj.core.api.Assertions;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class CarsTest {
@@ -63,5 +61,32 @@ class CarsTest {
 
         assertThat(cars.findWinnerNameList())
                 .contains(maxCar.getName());
+    }
+
+    @Test
+    void 공동_우승자_추출() {
+        // given
+        Cars cars = Cars.from("a,b,c,d,e");
+        int n = 10;
+
+        // when
+        while(n-- > 0) {
+            cars.go();
+        }
+
+
+        // then
+        Integer maxPosition = cars.getCars()
+                .stream()
+                .mapToInt(Car::getPosition)
+                .max().getAsInt();
+
+        List<String> carList = cars.getCars()
+                .stream().filter(car -> car.getPosition() == maxPosition)
+                .map(car -> car.getName())
+                .toList();
+
+        assertThat(cars.findWinnerNameList())
+                .isEqualTo(carList);
     }
 }
