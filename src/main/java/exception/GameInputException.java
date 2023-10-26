@@ -22,4 +22,10 @@ public class GameInputException {
         }
     }
 
+    public void validateNumberZero(String number) {
+        if(number.length() > 1 && number.charAt(0) == '0') {
+            throw new IllegalArgumentException(GameMessage.countError.getMessage());
+        }
+    }
+
 }
