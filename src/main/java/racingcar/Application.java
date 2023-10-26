@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
@@ -11,8 +12,7 @@ public class Application {
     private static final int STOP = 3;
     public static void main(String[] args) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        Scanner inputCar = new Scanner(System.in);
-        String totalCar = inputCar.nextLine();
+        String totalCar = Console.readLine();
         String[] carName = totalCar.split(",");
         int[] carPresentPoint = new int[carName.length];
 
@@ -21,8 +21,7 @@ public class Application {
         }
 
         System.out.println("시도할 회수는 몇회인가요?");
-        Scanner inputCount = new Scanner(System.in);
-        int count = inputCount.nextInt();
+        int count = Integer.parseInt(Console.readLine());
 
         System.out.println("실행 결과");
         for (int i = 0; i < count; i++) {
