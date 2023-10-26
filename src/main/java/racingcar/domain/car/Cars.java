@@ -1,12 +1,15 @@
 package racingcar.domain.car;
 
 import java.util.List;
-import racingcar.domain.move.MoveDecider;
+import racingcar.domain.game.MoveResult;
+import racingcar.domain.game.RoundResult;
+import racingcar.domain.move.MoveCommander;
 
 public final class Cars {
     private final List<Car> cars;
 
     private Cars(final List<Car> cars) {
+        validateDuplicateCars(cars);
         this.cars = cars;
     }
 
@@ -14,7 +17,22 @@ public final class Cars {
         return new Cars(cars);
     }
 
-    public void moveAllBy(final MoveDecider moveDecider) {
-        // TODO:
+    private static void validateDuplicateCars(final List<Car> cars) {
+        final int uniqueCarsSize = (int) cars.stream().distinct().count();
+        System.out.println(uniqueCarsSize);
+        final boolean hasDuplicateCarName = uniqueCarsSize != cars.size();
+
+        if (hasDuplicateCarName) {
+            throw new IllegalArgumentException();
+        }
     }
+
+    public RoundResult moveAllBy(final MoveCommander moveCommander) {
+        final List<MoveResult> moveResults = cars.stream()
+                .map(car -> car.movedBy(moveCommander.nextCommand()))
+                .toList();
+
+        return new RoundResult(moveResults);
+    }
+
 }
