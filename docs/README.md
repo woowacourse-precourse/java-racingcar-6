@@ -13,6 +13,7 @@
 
 - Player 클래스 구성 변수 및 함수
     1. String name : 플레이어 이름
+      <br>1-1. setName, getName : name을 반환하거나 변화시키는 함수
     2. String result : 진행정도를 String으로 표현
       <br>2-1. getResult, setResult : result를 반환하거나 변화시키는 함수
     3. int count : 진행정도를 int로 표현
