@@ -27,12 +27,27 @@ public class InputViewTest {
     public void 사용자_이름_입력_테스트(String input) {
         //given
         String[] results = input.split(",");
-        
+
         //when
         provideInput(input);
         String[] splitedInput = InputView.getCarsNameFromUserInput();
 
         //then
         Assertions.assertThat(splitedInput).isEqualTo(results);
+    }
+
+    @ParameterizedTest(name = "입력 값 : {0}")
+    @ValueSource(strings = {"5", "4", "3"})
+    @DisplayName("시도 횟수 정상 동작하는지")
+    public void 시도_횟수_입력_테스트(String input) {
+        //given
+        int attempt = Integer.parseInt(input);
+
+        //when
+        provideInput(input);
+        int results = InputView.getAttemptsFromUserInput();
+
+        //then
+        Assertions.assertThat(results).isEqualTo(attempt);
     }
 }
