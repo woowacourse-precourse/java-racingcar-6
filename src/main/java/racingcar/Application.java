@@ -7,6 +7,12 @@ public class Application {
         // TODO: 프로그램 구현
     }
 
+    public static void validateCarListInputBlank(List<String> inputList) {
+        for (String name : inputList) {
+            validateCarInputBlank(name);
+        }
+    }
+
     public static void validateCarInputBlank(String name) {
         if (name.isBlank()) {
             throw new IllegalArgumentException("자동차의 이름은 비어있을 수 없습니다.");
