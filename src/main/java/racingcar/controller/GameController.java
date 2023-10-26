@@ -8,13 +8,18 @@ import racingcar.service.Exception;
 public class GameController {
     public void play() {
         setCar();
+        setRaceCount();
     }
 
     private void setCar() {
-        Exception.checkCarName(InputView.InputCarName());
+        Exception.checkCarName(InputView.inputCarName());
         Car.carList = new ArrayList<>();
         for (String name : Exception.carNames) {
             Car.carList.add(new Car(name));
         }
+    }
+
+    private void setRaceCount() {
+        InputView.inputRaceCount();
     }
 }
