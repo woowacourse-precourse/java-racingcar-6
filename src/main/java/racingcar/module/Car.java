@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
 
-    static int STOP_THRESHOLD = 3;
+    static final int STOP_THRESHOLD = 3;
     String name;
     int pos;
 

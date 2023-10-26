@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class InputValidator {
 
-    static int MAX_LENGTH = 5;
+    static final int MAX_LENGTH = 5;
 
     public ArrayList<String> validateParticipant(String s) {
         Arrays
