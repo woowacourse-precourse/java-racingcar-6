@@ -23,11 +23,11 @@ public class Car {
         this.pos++;
     }
 
-    int getPos() {
+    public int getPos() {
         return pos;
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 
