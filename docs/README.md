@@ -1,7 +1,7 @@
 # 자동차 경주 게임
 
 ## 기능 목록
-- [ ] 0에서 9 사이의 무작위 값을 생성한다. NumberGenerator#createRandomNumber()
+- [✔] 0에서 9 사이의 무작위 값을 생성한다. NumberGenerator#createRandomNumber()
 - [ ] 자동차의 이름은 5자 이하만 가능하다. - Car#validateNameSize()
 - [ ] 자동차는 4 이상의 무작위 값이 나오면 전진할 수 있다. - Car#move()
 - [ ] 자동차는 다른 자동차와의 이동 거리를 비교할 수 있다. - Car#compare()
