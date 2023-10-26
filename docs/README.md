@@ -20,16 +20,17 @@
 
 ## RacingCar
 
-- RacingCar(String carName){}
-  - 입력받은 자동차 이름으로 RacingCar 객체를 생성한다.
-- this.location = 0; 
-  - RacingCar 에는 현재 위치에 대한 정보가 담겨있다.
-- getLocation(); 
-  - 현재위치 정보를 알수 있어야한다.
-- move(); 
-  - 현재 위치에서 전진할수 있어야한다.
-    - 전진하는 조건은 0~9 사이의 무작위값을 구한후 무작위값이 4 이상이다.
-      - Random 값 추출은 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용한다.
+- [x] RacingCar(String name){}
+  - [x] 입력받은 자동차 이름으로 RacingCar 객체를 생성한다.
+- [x] this.location = 0; 
+  - [x] RacingCar 에는 현재 위치에 대한 정보가 담겨있다.
+- [x] getLocation(); 
+  - [x] 현재위치 정보를 알수 있어야한다.
+- [x] move(); 
+  - [x] 현재 위치에서 전진할수 있어야한다.
+- [x] isMove();
+    - [x] 전진하는 조건은 0~9 사이의 무작위값을 구한후 무작위값이 4 이상이다.
+    - [x] Random 값 추출은 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용한다.
 
 ## RacingGameController
 
