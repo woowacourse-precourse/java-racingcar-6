@@ -15,7 +15,7 @@ public class RacingGameController extends GameController {
 
     @Override
     public void init() {
-        // 게임 시작 후 필요한 객체들 생성
+        // 게임 시작 전 필요한 사전 작업 진행
     }
 
     @Override
