@@ -14,6 +14,11 @@ public class View {
         return names;
     }
 
+    public int inputTryCount() {
+        String read = Console.readLine();
+        return Integer.parseInt(read);
+    }
+
     private void validateNameLength(String[] names) {
         for(String name : names) {
             if (name.length() > 5) {
