@@ -27,7 +27,7 @@ public class RacingGameInputController {
     private static void validateNames(String userInput) {
         List<String> carNames = Arrays.stream(userInput.split(","))
                 .collect(Collectors.toList());
-        if (carNames.stream().filter(car -> car.length() > 5).count() != carNames.size()) {
+        if (carNames.stream().filter(car -> car.length() <= 5).count() != carNames.size()) {
             throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
         }
     }
