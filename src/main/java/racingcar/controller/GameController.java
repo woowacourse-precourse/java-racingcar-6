@@ -15,6 +15,7 @@ public class GameController {
         setCar();
         setRaceCount();
         startRace();
+        showWinner();
     }
 
     private void setCar() {
@@ -32,5 +33,11 @@ public class GameController {
     private void startRace() {
         OutputView.printRaceResultMessage();
         game.startRaceCount();
+    }
+
+    private void showWinner() {
+        game.selectWinner();
+        String winnerList = String.join(",", game.getWinnerList());
+        OutputView.printWinner(winnerList);
     }
 }
