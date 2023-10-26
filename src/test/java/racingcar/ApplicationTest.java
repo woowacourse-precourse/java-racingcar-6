@@ -31,6 +31,13 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 경주할_자동차_이름을_입력하는_메시지_출력() {
+        final String STRING_INPUT_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+        Application.printInputCarNameMessage();
+        assertThat(output()).contains(STRING_INPUT_CAR_NAME);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
