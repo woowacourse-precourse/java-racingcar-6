@@ -77,4 +77,9 @@ public class Car {
         Car otherCar = (Car) other;
         return name.equals(otherCar.name);
     }
+
+    @Override
+    public String toString() {
+        return name + " : " + getDistanceString();
+    }
 }

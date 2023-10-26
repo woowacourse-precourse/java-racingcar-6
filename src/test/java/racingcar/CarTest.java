@@ -2,7 +2,9 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.mockStatic;
+import static org.mockito.Mockito.when;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.stream.IntStream;
@@ -86,6 +88,24 @@ public class CarTest {
             car.moveForward();
 
             final String actual = car.getDistanceString();
+            assertThat(actual).isEqualTo(expected);
+        }
+    }
+
+    @Test
+    void toString_메서드에_이름과_거리_문자열_출력() {
+        final Car car = new Car("jun");
+        final int CONDITION_MOVING_FORWARD = 4;
+        final String expected = "jun : --";
+
+        try (MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
+            mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
+                    .thenReturn(CONDITION_MOVING_FORWARD, CONDITION_MOVING_FORWARD);
+
+            car.moveForward();
+            car.moveForward();
+
+            final String actual = car.toString();
             assertThat(actual).isEqualTo(expected);
         }
     }
