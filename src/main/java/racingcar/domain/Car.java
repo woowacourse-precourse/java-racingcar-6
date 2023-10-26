@@ -4,6 +4,7 @@ import racingcar.constant.ActionConstant;
 
 public class Car {
 
+    private static final int STANDARD_NUMBER = 4;
     private String name;
     private int moveNumber = 0;
 
@@ -11,8 +12,8 @@ public class Car {
         this.name = name;
     }
 
-    public void move(String action){
-        if (ActionConstant.MOVE.equals(action)){
+    public void move(int diceNumber){
+        if (diceNumber >= STANDARD_NUMBER){
             moveNumber++;
         }
     }
