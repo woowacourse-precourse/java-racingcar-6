@@ -1,13 +1,11 @@
 package racingcar.controller;
 
-import racingcar.domain.Car;
 import racingcar.domain.CarGarage;
 import racingcar.domain.TryCount;
+import racingcar.domain.Winner;
 import racingcar.service.RacingCircuit;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-
-import java.util.List;
 
 public class RacingController {
 
@@ -29,7 +27,7 @@ public class RacingController {
             circuit.race(carGarage);
             outputView.printRaceResult(carGarage);
         }
-        List<Car> winner = carGarage.findWinner();
+        Winner winner = carGarage.findWinner();
         outputView.printWinner(winner);
     }
 }

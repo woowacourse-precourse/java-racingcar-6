@@ -1,10 +1,8 @@
 package racingcar.view;
 
-import racingcar.domain.Car;
 import racingcar.domain.CarGarage;
+import racingcar.domain.Winner;
 import racingcar.util.StringUtil;
-
-import java.util.List;
 
 public class OutputView {
 
@@ -23,7 +21,7 @@ public class OutputView {
         System.out.println(result);
     }
 
-    public void printWinner(List<Car> winner) {
+    public void printWinner(Winner winner) {
         String result = stringUtil.makeWinnerResult(winner);
         System.out.println(result);
     }

@@ -2,6 +2,7 @@ package racingcar.util;
 
 import racingcar.domain.Car;
 import racingcar.domain.CarGarage;
+import racingcar.domain.Winner;
 
 import java.util.List;
 
@@ -17,10 +18,10 @@ public class StringUtil {
         return sb.toString();
     }
 
-    public String makeWinnerResult(List<Car> winner) {
+    public String makeWinnerResult(Winner winner) {
         StringBuilder sb = new StringBuilder();
         sb.append("최종 우승자 : ");
-        List<String> names = winner.stream()
+        List<String> names = winner.getValue().stream()
                 .map(Car::getName)
                 .toList();
         sb.append(String.join(", ", names));

@@ -5,11 +5,12 @@ import java.util.stream.Collectors;
 
 public record CarGarage(List<Car> cars) {
 
-    public List<Car> findWinner() {
+    public Winner findWinner() {
         int maxPosition = getMaxPosition(cars);
-        return cars.stream()
+        List<Car> winner = cars.stream()
                 .filter(it -> it.getPosition() == maxPosition)
                 .collect(Collectors.toList());
+        return new Winner(winner);
     }
 
     private int getMaxPosition(List<Car> cars) {
