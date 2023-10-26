@@ -9,16 +9,16 @@
         - [x] 각 문자열 trim
 - [x] InputView RacingGameController에 인스턴스 변수로 포함
 ## 2. 자동차 객체 생성과 입력 데이터 검증
-- [ ] carNames에 따라 Car 객체 생성
-  - [ ] carName의 길이 1 이상
-  - [ ] carName의 길이 5 이하
-- [ ] `List<Car>` 를 담고 있는 일급컬렉션 Cars 객체 생성
-  - [ ] 차량 이름 중복 검증
-  - [ ] Car 대수 검증 (1대 이상)
+- [x] carNames에 따라 Car 객체 생성
+  - [x] carName의 길이 1 이상
+  - [x] carName의 길이 5 이하
+- [x] `List<Car>` 를 담고 있는 일급컬렉션 Cars 객체 생성
+  - [x] 차량 이름 중복 검증
+  - [x] Car 대수 검증 (1대 이상)
 ## 3. 이동 시도 횟수 입력
-- [ ] InputView 작성
-- [ ] readTryCount 메소드 작성
-  - [ ] 입력값 받기
+- [ ] InputView
+  - [ ] readTryCount 메소드 작성
+    - [ ] 입력값 받기
 ## 4. RacingGame 객체 생성과 검증
 - [ ] RacingGame 객체 생성
   - [ ] 입력값 검증
