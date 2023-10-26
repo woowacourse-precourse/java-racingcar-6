@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
 
+    static int STOP_THRESHOLD = 3;
     String name;
     int pos;
 
@@ -13,7 +14,7 @@ public class Car {
     }
 
     public void turnAction() {
-        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+        if (Randoms.pickNumberInRange(0, 9) > STOP_THRESHOLD) {
             move();
         }
     }
