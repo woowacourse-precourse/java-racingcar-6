@@ -27,4 +27,21 @@ public class Cars {
         }
     }
 
+    public List<String> getWinners() {
+        List<String> winners = new ArrayList<>();
+        int maxPosition = -1;
+
+        for (Car car : cars) {
+            int position = car.getPosition();
+            if (position == maxPosition) {
+                winners.add(car.getCarName());
+            }
+            if (position > maxPosition) {
+                maxPosition = position;
+                winners.clear();
+                winners.add(car.getCarName());
+            }
+        }
+        return winners;
+    }
 }
