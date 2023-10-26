@@ -18,6 +18,8 @@
 ### Message
 - `String distanceOfPlayer( Player player )`
   - 플레이어의 이동 거리 메시지를 생성하여 반환합니다.
+- `String printChampions( List<Player> champions )`
+  - 우승자 메시지를 생성하여 반환합니다.
 ---
 
 ### Player
