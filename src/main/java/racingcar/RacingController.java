@@ -15,6 +15,7 @@ public class RacingController {
     public void play() {
         String[] carNames = view.inputCarNames();
         int tryCount = view.inputTryCount();
+        setupCars(carNames);
         race(tryCount);
     }
 

@@ -4,16 +4,20 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private String name;
+    private int moveCount;
 
     Car(String name) {
         this.name = name;
     }
 
-    public boolean move() {
+    public void move() {
         int random = Randoms.pickNumberInRange(0, 9);
         if (random >= 4) {
-            return true;
+            moveCount += 1;
         }
-        return false;
+    }
+
+    public int getMoveCount() {
+        return moveCount;
     }
 }
