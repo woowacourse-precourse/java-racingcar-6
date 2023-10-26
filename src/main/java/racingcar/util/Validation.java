@@ -15,4 +15,10 @@ public class Validation {
         }
         throw new IllegalArgumentException("Invalid car name length");
     }
+
+    private static void valiEmptyCarName(String carName) {
+        if (carName.isEmpty()) {
+            throw new IllegalArgumentException("Invalid car name isEmpty");
+        }
+    }
 }
