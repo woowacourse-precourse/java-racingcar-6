@@ -1,27 +1,25 @@
 package racingcar.controller;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import racingcar.model.Car;
 
 public class FindWinnerController {
     private final List<Car> cars;
-    private final List<Car> winnerCars;
+    private final List<String> winnerCars;
 
     public FindWinnerController(List<Car> cars){
         this.cars = new ArrayList<>(cars);
         winnerCars = new ArrayList<>();
     }
 
-    public List<Car> getWinners(){
+    public List<String> getWinners(){
 
         sortedCarByAdvances();
         findWinner();
-        findCoWinner();
 
-        return Collections.unmodifiableList(cars);
+        return winnerCars;
     }
 
     private void sortedCarByAdvances(){
@@ -33,18 +31,14 @@ public class FindWinnerController {
         });
     }
 
-    public void findCoWinner() {
+    public void findWinner() {
 
         Car winnerCar = cars.get(0);
 
         for (Car car : cars) {
             if(car.getCarAdvances() == winnerCar.getCarAdvances()){
-                winnerCars.add(car);
+                winnerCars.add(car.getCarName());
             }
         }
-    }
-
-    public void findWinner(){
-        winnerCars.add(cars.get(0));
     }
 }
