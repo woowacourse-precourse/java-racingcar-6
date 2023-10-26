@@ -1,11 +1,13 @@
 package racingcar.domain;
 
+import static racingcar.constant.RacingGameContant.MAX_VALUE;
+import static racingcar.constant.RacingGameContant.MIN_VALUE;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RandomNumberGenerator {
 
-    private static final Integer MAX_VALUE = 9;
-    private static final Integer MIN_VALUE = 0;
+
 
 
     public static Integer generate() {

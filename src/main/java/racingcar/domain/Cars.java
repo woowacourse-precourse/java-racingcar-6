@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 
+import static racingcar.constant.RacingGameContant.CARS_SPLIT_STRING;
+
 import java.util.Arrays;
 import java.util.List;
 import racingcar.exception.ErrorMessage;
@@ -8,7 +10,7 @@ import racingcar.exception.RacingGameException;
 
 public class Cars {
 
-    private static final String SPLIT_STRING = ",";
+
     private final List<Car> cars;
 
     private Cars(List<Car> cars) {
@@ -17,7 +19,7 @@ public class Cars {
 
     public static Cars from(final String carNames) {
 
-        return new Cars(Arrays.stream(carNames.split(SPLIT_STRING))
+        return new Cars(Arrays.stream(carNames.split(CARS_SPLIT_STRING))
                 .map(Car::from)
                 .toList());
 

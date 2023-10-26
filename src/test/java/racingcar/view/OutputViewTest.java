@@ -37,4 +37,19 @@ class OutputViewTest {
                                             + "c : ---\n"
                                             + "d : ----\n");
     }
+
+    @Test
+    void 우승자_출력() {
+        // given
+        List<String> winnerName = List.of("a", "b", "c");
+
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        // when
+        outputView.printWinners(winnerName);
+
+        // then
+        assertThat(out.toString()).contains("최종 우승자 : a, b, c");
+    }
 }

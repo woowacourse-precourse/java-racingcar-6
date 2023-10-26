@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import static racingcar.constant.RacingGameContant.REGEX;
+import static racingcar.constant.RacingGameContant.ZERO;
 import static racingcar.exception.ErrorMessage.NOT_INTEGER;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -11,8 +13,6 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGame {
-    private static final Integer ZERO = 0;
-    private static final String REGEX = "[0-9]+";
 
     private static final InputView inputView = new InputView();
     private static final OutputView outputView = new OutputView();
@@ -43,7 +43,7 @@ public class RacingGame {
 
     private Integer askRotateNumber() {
         final String rotateNumber = inputView.enterRotateNumber();
-        
+
         return convertToInteger(rotateNumber);
     }
 
