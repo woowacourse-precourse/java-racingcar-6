@@ -23,10 +23,19 @@ public class Car {
         return randomNumber >= CONDITION_MOVING_FORWARD;
     }
 
+    public boolean canStop() {
+        return !canMoveForward();
+    }
+
     public void moveForward() {
+        if (canStop()) {
+            return;
+        }
+
+        distance++;
     }
 
     public int getDistance() {
-        return 0;
+        return distance;
     }
 }
