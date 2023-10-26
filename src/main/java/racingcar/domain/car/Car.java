@@ -23,9 +23,8 @@ public class Car {
     }
 
     public void move() {
-        if(engine.move()) {
+        if (engine.move()) {
             position++;
         }
     }
-
 }
