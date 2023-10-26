@@ -2,7 +2,9 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingGameView {
 
@@ -12,14 +14,13 @@ public class RacingGameView {
     private static final String ERROR_NAME_LENGTH = "이름은 5글자 이하만 가능합니다.";
     private static final int MAX_NAME_LENGTH = 5;
 
-    public String inputCarNames() {
+    public List<String> inputCarNames() {
         System.out.println(NAME_INPUT_GUIDE);
         String carNames = Console.readLine();
-        validateCarNames(carNames);
-        return carNames;
+        return validateCarNames(carNames);
     }
 
-    public void validateCarNames(String input) {
+    public List<String> validateCarNames(String input) {
         String[] result = input.split(",");
 
         for (String name : result) {
@@ -27,6 +28,8 @@ public class RacingGameView {
                 throw new IllegalArgumentException(ERROR_NAME_LENGTH);
             }
         }
+
+        return Arrays.asList(result);
     }
 
     public int inputGameRounds() {
@@ -51,5 +54,13 @@ public class RacingGameView {
         for (RacingCar car : cars) {
             System.out.printf("%s : %s%n", car.getName(), car.getMovement());
         }
+        System.out.println();
+    }
+
+    public void printWinners(List<RacingCar> cars) {
+        String winners = cars.stream()
+                .map(RacingCar::getName)
+                .collect(Collectors.joining(", "));
+        System.out.printf("최종 우승자 : %s", winners);
     }
 }
