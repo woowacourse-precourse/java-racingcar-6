@@ -50,4 +50,20 @@ public class CarTest {
         //then
         assertThat(result).isTrue();
     }
+
+    @Test
+    @DisplayName("서로 다른 자동차 값이 증가했을 때 서로 다른지")
+    public void 서로_다른_자동차_값_증가_테스트() {
+        //given
+        Car car = new Car("test");
+        Car otherCar = new Car("tes");
+
+        //when
+        car.increaseMovingCountIfGreater(4, 9);
+        car.increaseMovingCountIfGreater(4, 9);
+        boolean result = car.isSameMovingCount(otherCar);
+
+        //then
+        assertThat(result).isFalse();
+    }
 }
