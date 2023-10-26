@@ -19,8 +19,8 @@ final class CoordinateTest {
         final Coordinate coordinate2 = new Coordinate(input2);
 
         // then
-        assertThat(coordinate1.coordinate()).isEqualTo(input1);
-        assertThat(coordinate2.coordinate()).isEqualTo(input2);
+        assertThat(coordinate1.getCoordinate()).isEqualTo(input1);
+        assertThat(coordinate2.getCoordinate()).isEqualTo(input2);
     }
 
     @DisplayName("Coordinate를 음수로 생성 시, 예외를 던진다")
