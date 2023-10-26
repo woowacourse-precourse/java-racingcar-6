@@ -3,6 +3,7 @@ package racingcar.exception;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.setAllowComparingPrivateFields;
 
 public class RacingValidatorTest {
 
@@ -15,49 +16,49 @@ public class RacingValidatorTest {
     @Test
     void 입력받은_레이싱_경기_횟수_숫자가_아님_예외() {
         String input = "asd";
-        assertThatThrownBy(() -> RacingValidator.validateNumericException(input))
+        assertThatThrownBy(() -> RacingValidator.validate(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void 입력받은_레이싱_경기_횟수_공백_예외() {
         String input = "";
-        assertThatThrownBy(() -> RacingValidator.validateBlankException(input))
+        assertThatThrownBy(() -> RacingValidator.validate(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void 입력받은_레이싱_경기_횟수_공백_포함_예외() {
         String input = " 12";
-        assertThatThrownBy(() -> RacingValidator.validateNumericException(input))
+        assertThatThrownBy(() -> RacingValidator.validate(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void 입력받은_레이싱_경기_횟수_숫자로_변환시_0이면_예외() {
         String input = "0";
-        assertThatThrownBy(() -> RacingValidator.validatePositiveNumber(input))
+        assertThatThrownBy(() -> RacingValidator.validate(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void 입력받은_레이싱_경기_횟수_음수_예외() {
         String input = "-612";
-        assertThatThrownBy(() -> RacingValidator.validatePositiveNumber(input))
+        assertThatThrownBy(() -> RacingValidator.validate(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void 입력받은_레이싱_경기_횟수_int_형_최대값_넘으면_예외() {
         String input = "3333333333";
-        assertThatThrownBy(() -> RacingValidator.validateIntegerOverflowException(input))
+        assertThatThrownBy(() -> RacingValidator.validate(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void 문자열_소수점을_숫자로_변환_예외() {
         String input = "6.2";
-        assertThatThrownBy(() -> RacingValidator.validateNumericException(input))
+        assertThatThrownBy(() -> RacingValidator.validate(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
