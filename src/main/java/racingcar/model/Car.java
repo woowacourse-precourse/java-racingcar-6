@@ -16,6 +16,9 @@ public class Car {
         }
     }
 
+    public int getPosition(){
+        return this.position;
+    }
     private static boolean isCarMoveable(int moveCommand){
         return moveCommand >= CAR_MOVEABLE_VALUE;
     }

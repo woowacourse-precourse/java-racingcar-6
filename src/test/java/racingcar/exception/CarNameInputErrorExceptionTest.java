@@ -3,11 +3,6 @@ package racingcar.exception;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 class CarNameInputErrorExceptionTest {
     InputErrorException inputErrorException = new CarNameInputErrorException();
     private final static String CAR_NAME_LENGTH_SHORT_MESSAGE = "각 자동차 이름은 1글자 이상 입력해야합니다. 게임을 종료합니다.";
