@@ -14,6 +14,11 @@ public class Car {
         this.position = START_POSITION;
     }
 
+    private Car(String name, Integer position) {
+        this.name = name;
+        this.position = position;
+    }
+
     public static Car from(String name) {
         //validateName(name);
         return new Car(name);
@@ -30,4 +35,13 @@ public class Car {
     private static boolean isAbleToGo(Integer randomNumber) {
         return randomNumber >= CAN_GO_NUMBER;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getPosition() {
+        return position;
+    }
+
 }

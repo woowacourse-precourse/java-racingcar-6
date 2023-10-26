@@ -7,7 +7,7 @@ import java.util.List;
 public class Cars {
 
     private static final String SPLIT_STRING = ",";
-    private List<Car> cars;
+    private final List<Car> cars;
 
     private Cars(List<Car> cars) {
         this.cars = cars;
@@ -23,5 +23,9 @@ public class Cars {
 
     public void go() {
         cars.forEach(Car::go);
+    }
+
+    public List<Car> getCars() {
+        return cars;
     }
 }
