@@ -2,6 +2,7 @@ package racingcar.domain.car;
 
 import racingcar.domain.game.MoveResult;
 import racingcar.domain.move.Coordinate;
+import racingcar.domain.move.MoveCommand;
 
 public class Car {
     private final CarName carName;
@@ -19,8 +20,10 @@ public class Car {
         this(new CarName(carName), Coordinate.zero());
     }
 
-    public MoveResult moved() {
-        coordinate.increase();
+    public MoveResult movedBy(final MoveCommand command) {
+        if (MoveCommand.GO == command) {
+            coordinate.increase();
+        }
         return new MoveResult(carName.carName(), coordinate.getCoordinate());
     }
 
