@@ -10,6 +10,16 @@ public class GameService {
         cars = new Cars();
     }
 
+    public void fillNames(String[] names) {
+        cars.fill(names);
+    }
 
+    public String raceResult(int count) {
+        return cars.getResult(count);
+    }
+
+    public String getWinners() {
+        return cars.getWinners();
+    }
 
 }
