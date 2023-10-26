@@ -23,13 +23,14 @@ public class Exception {
         checkSameName();
     }
 
-    public static void checkRaceCount(String inputValue) {
-
+    public static void checkRaceCount(String inputValue) throws IllegalArgumentException {
+        checkEmpty(inputValue);
+        checkInteger(inputValue);
     }
 
     private static void checkEmpty(String inputValue) {
         if (inputValue.isEmpty()) {
-            throw new IllegalArgumentException("잘못된 값 입력 : 자동차 이름을 입력해주세요.");
+            throw new IllegalArgumentException("잘못된 값 입력 : 입력 값을 넣어주세요.");
         }
     }
 
@@ -58,5 +59,11 @@ public class Exception {
         }
     }
 
-    //private static void check
+    private static void checkInteger(String inputValue) {
+        try {
+            Integer.parseInt(inputValue);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("잘못된 값 입력 : 숫자만 입력 가능합니다.");
+        }
+    }
 }

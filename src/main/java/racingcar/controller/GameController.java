@@ -20,6 +20,6 @@ public class GameController {
     }
 
     private void setRaceCount() {
-        InputView.inputRaceCount();
+        Exception.checkRaceCount(InputView.inputRaceCount());
     }
 }
