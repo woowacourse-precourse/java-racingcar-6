@@ -2,6 +2,7 @@ package racingcar.domain;
 
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class Cars {
@@ -27,5 +28,20 @@ public class Cars {
 
     public List<Car> getCars() {
         return cars;
+    }
+
+    public Cars findWinners() {
+        Integer maxPosition = findMaxPosition();
+
+        return new Cars(cars.stream()
+                .filter(car -> car.isHere(maxPosition))
+                .toList());
+    }
+
+    private Integer findMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElseThrow(() -> new IllegalArgumentException("[ERROR] 최대 위치를 찾을 수 없습니다."));
     }
 }

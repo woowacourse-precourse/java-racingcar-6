@@ -44,4 +44,8 @@ public class Car {
         return position;
     }
 
+    public Boolean isHere(Integer position) {
+        return this.position.equals(position);
+    }
+
 }

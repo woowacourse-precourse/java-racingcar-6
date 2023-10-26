@@ -21,7 +21,8 @@ public class RacingGame {
 
         rotate(cars, numberOfTimes);
 
-        //cars.findWinners();
+        Cars winners = cars.findWinners();
+        CarsDto winnersDto = CarsDto.of(winners);
     }
 
     private static void rotate(Cars cars, Integer numberOfTimes) {
