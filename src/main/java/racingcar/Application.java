@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
@@ -16,5 +17,9 @@ public class Application {
         final String carNames = Console.readLine();
         Console.close();
         return carNames;
+    }
+
+    public static List<String> getCarNameListFromCarNames(final String carNames) {
+        return List.of("");
     }
 }
