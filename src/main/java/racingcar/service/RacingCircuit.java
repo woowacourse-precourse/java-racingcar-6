@@ -18,7 +18,7 @@ public class RacingCircuit {
     }
 
     private boolean checkRacingCondition() {
-        return Randoms.pickNumberInRange(0, 9) > 4;
+        return Randoms.pickNumberInRange(0, 9) >= 4;
     }
 
     public List<Car> findWinner(List<Car> cars) {
