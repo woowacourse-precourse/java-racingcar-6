@@ -79,6 +79,9 @@ public class Application {
     }
 
     public static void printCarNameAndDistanceStringInCarList(final List<Car> carList) {
+        carList.stream()
+                .map(Car::toString)
+                .forEach(toString -> System.out.println(toString));
     }
 
     public static List<Car> getCarListWithLongestDistance(final List<Car> carList) {
