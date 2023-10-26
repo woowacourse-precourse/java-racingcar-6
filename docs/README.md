@@ -24,6 +24,7 @@
 ## 기능 목록  -메서드명
 
 -[ ] 사용자에게 자동차들의 이름을 입력받는다. -inputCarsName()
+  - [ ] 콘솔에서 사용자에게 이름들을 입력받는다. -inputNames()
   - [x] 입력받은 문자열을 쉼표(,)를 기준으로 나눠준다. -splitNames()
   - [ ] 이름의 적합성을 판단한다. -validateName()
     - [x] 이름에 공백이 포함되는 경우 공백을 지운다. -removeWhiteSpace()
@@ -38,8 +39,8 @@
   - [x] 입력값이 정수인지 확인한다. -checkAttemptCountIsInteger()
     - 정수가 아닌경우 IllegalArgumentException을 발생하고 애플리케이션을 종료시킨다.
 - [ ] 각 자동차들의 전진을 시도한다. -Cars.attemptForward()
-  - [x] 0에서 9 사이의 무작위 값을 만든다. -makeRandomValue()
-  - [ ] 무작위 값이 4 이상일 경우 자동차를 전진시킨다. -Position.attemptForward()
+  - [x] 무작위 값이 4 이상일 경우 자동차를 전진시킨다. -Position.attemptForward()
+    - [x] 0에서 9 사이의 무작위 값을 만든다. -Position.makeRandomValue()
     - [x] 해당 값이 4 이상의 값인지 판단한다. -Position.checkValueIsOverFour()  
     - [x] 자동차의 전진 상태값을 증가시킨다. -Position.moveForward()
 - [ ] 현재 자동차들의 전진 결과를 출력한다. -printCurrentCarResult()
@@ -59,7 +60,10 @@
 - Name: 자동차의 이름이라는 상태를 관리하는 클래스
 - Position: 자동차의 현재 위치상태를 관리하는 클래스 
   - attemptForward(): 전진을 시도하는 기능을 가진 메서드.
-  - moveForward(): 자동차를 한칸 전진시키는 기능을 가진 메서드
-  - checkValueIsOverFour(): 인자의 값이 4 이상안지 확인하는 메서드
+    - makeRandomValue(): 0부터 9사이의 무작위 값을 만들어내는 메서드
+    - moveForward(): 자동차를 한칸 전진시키는 기능을 가진 메서드
+    - checkValueIsOverFour(): 인자의 값이 4 이상안지 확인하는 메서드
   - swithcMovePositionToSlash():위치 상태값을 작대기(-)로 바꿔주는 메서드
-  - makeRandomValue(): 0부터 9사이의 무작위 값을 만들어내는 메서드
+- View: 콘솔로 보여지는 입력 문구, 결과 출력에 관한 기능들을 가진 클래스 
+  - inputNames():콘솔에서 사용자에게 이름들을 입력받는 기능을 가진 메서드
+  
