@@ -25,8 +25,13 @@
 
 -[ ] 사용자에게 자동차들의 이름을 입력받는다. -inputCarsName()
   - [x] 입력받은 문자열을 쉼표(,)를 기준으로 나눠준다. -splitNames()
-  - [x] 각 이름들의 길이가 5 이하인지 확인한다. -checkNameCorrectRange()
-    - 길이가 5 초과일경우 IllegalArgumentException을 발생하고 애플리케이션을 종료시킨다.
+  - [ ] 이름의 적합성을 판단한다. -validateName()
+    - [ ] 이름에 공백이 포함되는 경우 공백을 지운다. -removeWhiteSpace()
+    - [ ] 이름의 길이가 0,즉 비어있는지 확인한다. -checkNameIsEmpty()
+      - 길이가 0일경우 IllegalArgumentException을 발생하고 애플리케이션을 종료시킨다.
+    - [x] 각 이름들의 길이가 5 이하인지 확인한다. -checkNameCorrectRange()
+      - 길이가 5 초과일경우 IllegalArgumentException을 발생하고 애플리케이션을 종료시킨다.
+    
 -[ ] 각 이름들을 담은 자동차 객체를 만든다. -makeCar()
 -[ ] 자동차 객체들을 담은 객체를 만든다. -makeCars()
 -[ ] 사용자에게 이동을 시도할 횟수를 입력받는다. -inputAttemptCount()
