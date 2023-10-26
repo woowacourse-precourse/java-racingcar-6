@@ -9,7 +9,7 @@ public class CarsDto {
 
     public static CarsDto of(Cars cars) {
         CarsDto carsDto = new CarsDto();
-        carsDto.carDtos =  cars.getCars()
+        carsDto.carDtos = cars.getCars()
                 .stream()
                 .map(CarDto::of)
                 .toList();

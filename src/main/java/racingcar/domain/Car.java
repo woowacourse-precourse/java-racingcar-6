@@ -7,9 +7,8 @@ public class Car {
     private static final Integer CAN_GO_NUMBER = 4;
     private static final Integer LIMIT_NAME_LENGTH = 5;
 
-    private String name;
+    private final String name;
     private Integer position;
-
 
 
     private Car(String name) {
@@ -22,11 +21,6 @@ public class Car {
         if (name.length() > LIMIT_NAME_LENGTH) {
             throw new IllegalArgumentException("[ERROR]이름 길이가 너무 깁니다.");
         }
-    }
-
-    private Car(String name, Integer position) {
-        this.name = name;
-        this.position = position;
     }
 
     public static Car from(String name) {
