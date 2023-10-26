@@ -5,7 +5,13 @@ import racingcar.domain.Car;
 
 public class Validation {
 
-    public static void checkEmpty(List<Car> carList) {
+    public static void duplication(List<String> nameList, String name) {
+        if (nameList.contains(name)) {
+            throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
+        }
+    }
+
+    public static void empty(List<Car> carList) {
         if (carList.isEmpty()) {
             throw new IllegalArgumentException("자동차 이름은 1개 이상 있어야 합니다.");
         }

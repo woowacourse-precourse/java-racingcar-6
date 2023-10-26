@@ -13,7 +13,7 @@ public class Generator {
             list.add(new Car(name));
         }
 
-        Validation.checkEmpty(list);
+        Validation.empty(list);
         return list;
     }
 }

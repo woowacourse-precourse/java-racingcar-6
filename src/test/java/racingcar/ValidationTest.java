@@ -3,6 +3,7 @@ package racingcar;
 import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.ThrowableAssert.catchThrowable;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
@@ -10,17 +11,38 @@ import racingcar.domain.Car;
 class ValidationTest {
 
     @Test
-    void checkEmpty() {
+    void duplication() {
+        // given
+        List<String> stringList = new ArrayList<>();
+        stringList.add("name1");
+        String case1 = "name1";
+        String case2 = "name2";
+
+        // when
+        Throwable result1 = catchThrowable(() -> {
+            Validation.duplication(stringList, case1);
+        });
+        Throwable result2 = catchThrowable(() -> {
+            Validation.duplication(stringList, case2);
+        });
+
+        // then
+        assertThat(result1).as("duplicate").isInstanceOf(IllegalArgumentException.class);
+        assertThat(result2).as("non duplicate").doesNotThrowAnyException();
+    }
+
+    @Test
+    void empty() {
         // given
         List<Car> case1 = List.of(new Car("car1", 1));
         List<Car> case2 = List.of();
 
         // when
         Throwable result1 = catchThrowable(() -> {
-            Validation.checkEmpty(case1);
+            Validation.empty(case1);
         });
         Throwable result2 = catchThrowable(() -> {
-            Validation.checkEmpty(case2);
+            Validation.empty(case2);
         });
 
         // then
