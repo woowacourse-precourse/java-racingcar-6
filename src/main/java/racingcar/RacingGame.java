@@ -7,6 +7,8 @@ public class RacingGame {
     public void play() {
         Race race = new Race();
         race.registerRacer();
+        race.decideRound();
+
     }
 
 }
