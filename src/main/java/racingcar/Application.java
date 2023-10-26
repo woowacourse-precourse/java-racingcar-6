@@ -25,13 +25,7 @@ public class Application {
             output.printResult(moveResult);
         }
 
-        output.printWinner();
-
-
-
-
-
-
+        output.printWinner(cars);
 
 
     }

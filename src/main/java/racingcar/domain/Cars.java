@@ -36,7 +36,7 @@ public class Cars {
         List<String> winners = new ArrayList<>();
         int furthestDistance = findFurthestDistance();
         for (Car car : cars) {
-            if(car.getPosition() == furthestDistance)
+            if (car.getPosition() == furthestDistance)
                 winners.add(car.getName());
         }
         return winners;
@@ -45,7 +45,7 @@ public class Cars {
     private int findFurthestDistance() {
         int furthestDistance = 0;
         for (Car car : cars) {
-            if(car.getPosition() > furthestDistance)
+            if (car.getPosition() > furthestDistance)
                 furthestDistance = car.getPosition();
         }
         return furthestDistance;
