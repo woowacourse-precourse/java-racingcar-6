@@ -15,6 +15,6 @@ public class Validator {
     }
 
     private static boolean isNameTooLong(String name) {
-        return name.length() > MAX_LENGTH;
+        return name.length() >= MAX_LENGTH;
     }
 }
