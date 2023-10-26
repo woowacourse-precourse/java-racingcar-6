@@ -17,4 +17,8 @@ public class GameGuidePrinter {
     public String getResultMessage() {
         return resultMessage;
     }
+
+    public String getFinalWinnerMessage() {
+        return finalWinnerMessage;
+    }
 }
