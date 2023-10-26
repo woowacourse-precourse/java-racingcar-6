@@ -9,7 +9,8 @@ public enum GameMessage {
     equal(" : "),
     bar("-"),
     nameError("자동차의 이름은 5자리 이내입니다."),
-    countError("회수는 음수가 아닌 정수로 입력해주세요.");
+    countError("회수는 음수가 아닌 정수로 입력해주세요."),
+    REGEX("[0-9]+");
 
     private String message;
 
