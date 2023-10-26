@@ -20,6 +20,18 @@ public class CarTest {
     }
 
     @Test
+    void 자동차_전진() {
+        //given
+        Car car = new Car("name");
+
+        //when
+        car.goForward();
+
+        //then
+        assertThat(car.getPosition()).isEqualTo(1);
+    }
+
+    @Test
     void 공백_이름_예외() {
         //given
         String blankName = " ";
