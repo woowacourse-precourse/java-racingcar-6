@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.List;
+import racingcar.message.ErrorMessage;
 
 public record GameData(List<Car> carList, int trialCount) {
     public GameData {

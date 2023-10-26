@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.domain;
+
+import racingcar.message.ErrorMessage;
 
 public record Car(String name) {
     private static final int MAX_NAME_LENGTH = 4;

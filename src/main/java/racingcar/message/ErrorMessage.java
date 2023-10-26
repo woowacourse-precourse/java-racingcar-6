@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.message;
 
 public interface ErrorMessage {
     String INPUT_BLANK = "빈 값을 입력하였습니다.";

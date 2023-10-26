@@ -1,8 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.ErrorMessage;
-import racingcar.Message;
+import racingcar.message.ErrorMessage;
 
 public class InputView {
     public static String inputString(String message) {
