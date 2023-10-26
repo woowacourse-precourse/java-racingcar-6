@@ -2,13 +2,16 @@ package racingcar.Model;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.Model.Validation.ValidatorCars;
 
 
 public class RacingGame {
     private List<Car> cars = new ArrayList<>();
+    ValidatorCars validator = new ValidatorCars();
 
     public void createAndAddCars(String[] names) {
         for (String name : names) {
+            validator.isValid(name);
             cars.add(new Car(name));
         }
     }

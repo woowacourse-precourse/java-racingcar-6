@@ -2,9 +2,11 @@ package racingcar.View;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.Controller.Controller;
+import racingcar.Model.Validation.ValidatorAttempts;
 
 public class InputView {
     Controller controller = new Controller();
+    ValidatorAttempts validator = new ValidatorAttempts();
 
     public void askForCarNames() {
         String[] names = getCarNames();
@@ -30,6 +32,7 @@ public class InputView {
     private int getAttempts() {
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
+        validator.isValid(input);
         return Integer.parseInt(input);
     }
 
