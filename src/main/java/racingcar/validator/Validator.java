@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 
 public class Validator {
-    public static void InputCarNames(String[] carNameArr) {
+    public static void inputCarNames(String[] carNameArr) {
         if (hasDuplicates(carNameArr)) {
             throw new IllegalArgumentException("중복된 이름이 있습니다.");
         }

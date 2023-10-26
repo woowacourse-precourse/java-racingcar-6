@@ -18,7 +18,7 @@ public class RacingCarGame {
 
     private void gameStart() {
         String[] carNameArr = splitCarNames(InputView.carNames());
-        Validator.InputCarNames(carNameArr);
+        Validator.inputCarNames(carNameArr);
         racingGameService.init(carNameArr);
     }
 

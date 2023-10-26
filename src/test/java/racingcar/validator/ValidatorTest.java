@@ -11,14 +11,14 @@ class ValidatorTest {
     @Test
     void 이름이_1에서_5자로_유효할_경우() {
         String[] carNameArr = {"david","pobi","lucy"};
-        assertThatCode(()->Validator.InputCarNames(carNameArr))
+        assertThatCode(()->Validator.inputCarNames(carNameArr))
                 .doesNotThrowAnyException();
     }
 
     @Test
     void 이름이_1에서_5자가_아닐_경우() {
         String[] carNameArr = {"david","pobi","hwanyeong"};
-        assertThatThrownBy(()->Validator.InputCarNames(carNameArr))
+        assertThatThrownBy(()->Validator.inputCarNames(carNameArr))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("이름은 1~5자만 가능합니다.");
     }
@@ -26,7 +26,7 @@ class ValidatorTest {
     @Test
     void 중복된_이름이_있는_경우() {
         String[] carNameArr = {"pobi","pobi","hwan"};
-        assertThatThrownBy(()->Validator.InputCarNames(carNameArr))
+        assertThatThrownBy(()->Validator.inputCarNames(carNameArr))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("중복된 이름이 있습니다.");
     }
@@ -34,7 +34,7 @@ class ValidatorTest {
     @Test
     void 이름에_공백이_존재할_경우() {
         String[] carNameArr = {"lucy","po bi","hwan"," "};
-        assertThatThrownBy(()->Validator.InputCarNames(carNameArr))
+        assertThatThrownBy(()->Validator.inputCarNames(carNameArr))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("이름에 공백이 존재합니다.");
     }
