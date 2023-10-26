@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Position {
     private static final int MIN_POSITION = 0;
 
-    private final int position;
+    private int position;
 
     public Position(int position) {
         validatePosition(position);
@@ -18,6 +18,10 @@ public class Position {
                     String.format("자동차의 위치는 %d보다 작을 수 없습니다.", MIN_POSITION)
             );
         }
+    }
+
+    public void increase() {
+        position++;
     }
 
     @Override

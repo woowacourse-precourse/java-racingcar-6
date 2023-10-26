@@ -1,0 +1,39 @@
+package racingcar.domain;
+
+import java.util.Objects;
+
+public class Car {
+    private static final int INITIAL_POSITION = 0;
+    private static final int MIN_NUMBER_TO_MOVE = 4;
+
+    private final Name name;
+    private final Position position;
+
+    Car(String name, int position) {
+        this.name = new Name(name);
+        this.position = new Position(position);
+    }
+
+    public Car(String name) {
+        this(name, INITIAL_POSITION);
+    }
+
+    public void moveOrStop(int number) {
+        if (number >= MIN_NUMBER_TO_MOVE) {
+            position.increase();
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return Objects.equals(name, car.name) && Objects.equals(position, car.position);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, position);
+    }
+}
