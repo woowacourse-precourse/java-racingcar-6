@@ -23,4 +23,9 @@ public class Car {
     public void moveForward() {
         position++;
     }
+
+    @Override
+    public String toString() {
+        return name + " : " + "-".repeat(position);
+    }
 }
