@@ -13,12 +13,13 @@ public class Car {
         return name;
     }
 
-    public boolean isRunnable() {
+    public boolean canMoveForward() {
         final int START_INCLUSIVE = 1;
         final int END_INCLUSIVE = 9;
-        final int CONDITION_FOR_RUNNABLE = 4;
+        final int CONDITION_MOVING_FORWARD = 4;
 
         final int randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
-        return randomNumber >= CONDITION_FOR_RUNNABLE;
+        return randomNumber >= CONDITION_MOVING_FORWARD;
+    }
     }
 }

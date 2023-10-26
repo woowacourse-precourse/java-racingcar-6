@@ -23,22 +23,23 @@ public class CarTest {
 
     @ParameterizedTest
     @MethodSource("provideRandomNumbersForIsGreaterThanFour")
-    void isRunnable_메서드_무작위_값이_4이상인_경우에_전진이_가능(final int randomNumber, final boolean expected) {
+    void canMoveForward_메서드_무작위_값이_4이상인_경우에_전진이_가능(final int randomNumber, final boolean expected) {
         final Car car = new Car("jun");
 
         try (MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
             mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
                     .thenReturn(randomNumber);
-            assertThat(car.isRunnable()).isEqualTo(expected);
+            assertThat(car.canMoveForward()).isEqualTo(expected);
         }
     }
 
     private static Stream<Arguments> provideRandomNumbersForIsGreaterThanFour() {
         final int START_INCLUSIVE = 1;
         final int END_INCLUSIVE = 9;
-        final int CONDITION_FOR_RUNNABLE = 4;
+        final int CONDITION_MOVING_FORWARD = 4;
         return IntStream
                 .range(START_INCLUSIVE, END_INCLUSIVE)
-                .mapToObj(number -> Arguments.of(number, number >= CONDITION_FOR_RUNNABLE));
+                .mapToObj(number -> Arguments.of(number, number >= CONDITION_MOVING_FORWARD));
+    }
     }
 }
