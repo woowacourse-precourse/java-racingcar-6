@@ -17,7 +17,8 @@
     - 입력된 횟수가 정상 적인 값인지 확인
         - 정상 적인 입력 값인 경우 정상 진행
         - 숫자가 아닌 경우 IllegalArgumentException 예외 발생
-        - Integer MAX 가 넘어 가는 경우 IllegalArgumentException 예외 발생 : 요구사항에 별도의 횟수 제한은 없는 것으로 확인되지만, 의문...
+        - Integer MAX 가 넘어 가는 경우 IllegalArgumentException 예외 발생 : 요구사항에 별도의 횟수 제한은 없는 것으로 확인되어 Integer Max로 제한
+        - 시도 횟수가 0 또는 0 이하 인 경우 IllegalArgumentException 예외 발생
 - 자동차 경주 게임 실행 기능
     - 각각의 경주할 자동차는 랜덤의 값을 리턴 받는다. ( camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange() )
         - 랜덤의 값은 범위는 ( 0 ~ 9 ) 이다.
