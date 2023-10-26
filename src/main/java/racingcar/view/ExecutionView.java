@@ -7,6 +7,7 @@ import static racingcar.constants.MessageConstants.*;
 public class ExecutionView {
 
     private static final String EXECUTION_MESSAGE_FORMAT = "%s : %s";
+    private static final String HYPHEN = "-";
 
     public static void printExecutionStartMessage(){
         System.out.println(EXECUTION_START_MESSAGE);
@@ -22,10 +23,6 @@ public class ExecutionView {
     }
 
     private static String generateHyphenString(int moveCount){
-        StringBuilder sb = new StringBuilder();
-        for (int i=0; i<moveCount; i++){
-            sb.append('-');
-        }
-        return sb.toString();
+        return HYPHEN.repeat(moveCount);
     }
 }
