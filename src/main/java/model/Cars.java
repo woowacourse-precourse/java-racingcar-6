@@ -17,6 +17,10 @@ public class Cars {
         this.cars = carList;
     }
 
+    public Car indexAt(int index) {
+        return cars.get(index);
+    }
+
     public String[] winner() {
         List<String> winners = new ArrayList<>();
         cars.sort(Car::compareTo);
