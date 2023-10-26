@@ -20,4 +20,8 @@ public class RacingGame {
     public boolean isGameEnd() {
         return raceCount.isLastCount();
     }
+
+    public List<Car> findWinners() {
+        return cars.findMostMovedCars();
+    }
 }

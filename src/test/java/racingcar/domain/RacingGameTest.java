@@ -38,4 +38,18 @@ class RacingGameTest {
 
         assertThat(racingGame.isGameEnd()).isTrue();
     }
+
+    @Test
+    @DisplayName("자동차 경주 게임의 우승자를 알 수 있다.")
+    void findWinners() {
+        List<Car> cars = List.of(
+                new Car("pobi", 3),
+                new Car("woni", 3),
+                new Car("jun", 1));
+        RacingGame racingGame = new RacingGame(cars, 1);
+
+        List<Car> winners = racingGame.findWinners();
+
+        assertThat(winners).containsExactly(new Car("pobi", 3), new Car("woni", 3));
+    }
 }
