@@ -13,5 +13,6 @@ public class RacingCarController {
     public void start() {
         OutputView.printCarNameInputMessage();
         CarController.makeCar(InputView.inputCarNames());
+        OutputView.printRacingCountInputMessage();
     }
 }
