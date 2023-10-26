@@ -11,6 +11,7 @@ public class GameController {
     Input input;
     List<String> car;
     int lap;
+    int[] now;
 
     public void readyGame() {
         inputMessage.carName();
@@ -21,7 +22,6 @@ public class GameController {
 
     public void startGame() {
         Recorder recorder = new Recorder();
-        recorder.record(car,lap);
-
+        now = recorder.record(car, lap);
     }
 }
