@@ -37,7 +37,8 @@ public class Application {
 			moveCars(carsMap);
 			System.out.println();
 		}
-
+		
+		//우승자 출력 및 다수일 시 쉼표(,)를 이용하여 출력하는 기능
 		String winner = "";
 		int length = 0;
 		for (String car : carsMap.keySet()) {
@@ -52,6 +53,7 @@ public class Application {
 		System.out.println("최종 우승자 : " + winner);
 	}
 
+	// 자동차 이름을 쉼표(,) 기준으로 구분하는 메소드
 	private static List<String> splitComma(String cars) {
 
 		String[] carsArr = cars.split(",");
@@ -59,7 +61,8 @@ public class Application {
 
 		return carsList;
 	}
-
+	
+	// 5자 이하만 가능하게 하는 메소드
 	private static void checkLength(List<String> carsList) {
 
 		for (String cars : carsList) {
@@ -68,7 +71,8 @@ public class Application {
 			}
 		}
 	}
-
+	
+	// 랜덤 값 생성 및 그 값을 자동차에게 사용하고 이름을 같이 출력하는 메소드
 	private static void moveCars(Map<String, String> carsMap) {
 
 		for (String car : carsMap.keySet()) {
