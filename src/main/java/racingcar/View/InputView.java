@@ -1,8 +1,6 @@
 package racingcar.View;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.Util.Parser;
-import racingcar.Util.Validator;
 
 public class InputView {
 
