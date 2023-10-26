@@ -1,6 +1,8 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Car {
     private String carName;
@@ -22,6 +24,14 @@ public class Car {
 
     private int generateRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
+    }
+    public String getCarName(){
+        return carName;
+    }
+    public String getPositionToString(){
+        return IntStream.rangeClosed(0,this.position)
+                .mapToObj(i -> "-")
+                .collect(Collectors.joining());
     }
 
 }

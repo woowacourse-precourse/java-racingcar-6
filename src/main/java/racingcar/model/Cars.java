@@ -21,4 +21,7 @@ public class Cars {
     public void move() {
         carList.forEach(Car::move);
     }
+    public List<Car> getCarList(){
+        return carList;
+    }
 }

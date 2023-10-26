@@ -26,6 +26,7 @@ public class RacingCarGameController {
         outputView.printResultMessage();
         IntStream.rangeClosed(1,count).forEach(index -> {
             cars.move();
+            outputView.printCarsPosition(cars);
         });
     }
 }
