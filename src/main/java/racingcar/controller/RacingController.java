@@ -18,5 +18,6 @@ public class RacingController {
 
     public void run() {
         List<Car> cars = inputView.getCars();
+        int tryCount = inputView.getTryCount();
     }
 }
