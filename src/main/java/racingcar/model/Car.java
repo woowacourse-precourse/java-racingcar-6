@@ -1,23 +1,23 @@
 package racingcar.model;
 
 public class Car {
-    private final Name carName;
-    private int carAdvances;
+    private final Name name;
+    private Advance advance;
 
-    public Car(final Name carName) {
-        this.carName = carName;
-        this.carAdvances = 0;
+    public Car(final Name name) {
+        this.name = name;
+        this.advance = new Advance();
     }
 
     public void addAdvances(){
-        this.carAdvances++;
+        advance.addAdvance();
     }
 
     public String getCarName(){
-        return this.carName.getName();
+        return this.name.getName();
     }
 
     public int getCarAdvances(){
-        return this.carAdvances;
+        return this.advance.getValue();
     }
 }
