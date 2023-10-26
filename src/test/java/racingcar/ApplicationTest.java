@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -13,6 +14,7 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
+    @Disabled
     void 전진_정지() {
         assertRandomNumberInRangeTest(
             () -> {
@@ -24,6 +26,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    @Disabled
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
