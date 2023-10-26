@@ -43,6 +43,23 @@ public class OutputViewTest {
 
     }
 
+    @ParameterizedTest(name = "winner : {1}")
+    @MethodSource("carsAndWinners")
+    @DisplayName("올바른 최종 우승자 여러명 출력하는지")
+    public void 최종_우승자_여러명_출력_테스트(Cars cars, String result) {
+        //given
+        cars.indexAt(1).increaseMovingCountIfGreater(4, 5);
+        cars.indexAt(2).increaseMovingCountIfGreater(4, 5);
+        cars.indexAt(3).increaseMovingCountIfGreater(4, 5);
+
+        //when
+        OutputView.displayFinalWinner(cars);
+
+        //then
+        assertThat(result).isEqualTo(outputStreamCaptor.toString().trim());
+
+    }
+
     static Stream<Arguments> carsAndWinner() {
         return Stream.of(
                 Arguments.arguments(new Cars(new String[]{"tree", "cap", "ant", "sky"}), "cap"),
@@ -52,4 +69,21 @@ public class OutputViewTest {
                 Arguments.arguments(new Cars(new String[]{"tree", "web", "ant", "sky"}), "web"),
                 Arguments.arguments(new Cars(new String[]{"tree", "back", "ant", "sky"}), "back"));
     }
+
+    static Stream<Arguments> carsAndWinners() {
+        return Stream.of(Arguments.arguments(new Cars(new String[]{"tree", "cap", "ant", "sky"}),
+                        "cap,ant,sky"),
+                Arguments.arguments(new Cars(new String[]{"cap", "tree", "ant", "sky"}),
+                        "tree,ant,sky"),
+                Arguments.arguments(new Cars(new String[]{"tree", "fire", "ant", "sky"}),
+                        "fire,ant,sky"),
+                Arguments.arguments(new Cars(new String[]{"tree", "sky", "ant", "xxx"}),
+                        "sky,ant,xxx"),
+                Arguments.arguments(new Cars(new String[]{"tree", "web", "ant", "sky"}),
+                        "web,ant,sky"),
+                Arguments.arguments(new Cars(new String[]{"tree", "back", "ant", "sky"}),
+                        "back,ant,sky"));
+    }
+
+
 }
