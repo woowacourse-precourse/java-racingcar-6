@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
 import org.mockito.MockedStatic;
@@ -126,15 +127,21 @@ class ApplicationTest extends NsTest {
     @Test
     void Car_리스트_안에_있는_모든_Car를_앞으로_움직임() {
         final List<Car> carList = List.of(new Car("pobi"), new Car("woni"), new Car("jun"));
+        final List<String> expected = List.of("-", "-", "");
 
         try (MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
             mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
                     .thenReturn(MOVING_FORWARD, MOVING_FORWARD, STOP);
 
             Application.moveForward(carList);
-            assertThat(carList.get(0).getDistanceString()).isEqualTo("-");
-            assertThat(carList.get(1).getDistanceString()).isEqualTo("-");
-            assertThat(carList.get(2).getDistanceString()).isEqualTo("");
+
+            final List<String> actual = carList.stream()
+                            .map(Car::getDistanceString)
+                            .collect(Collectors.toList());
+
+            assertThat(actual).isEqualTo(expected);
+        }
+    }
         }
     }
 
