@@ -7,6 +7,8 @@ import java.util.List;
 
 public class GameManager {
 
+    private static int attemptCount;
+
     private final MessagePrinter messagePrinter;
     private final MessageReceiver messageReceiver;
 
@@ -15,16 +17,17 @@ public class GameManager {
         this.messageReceiver = messageReceiver;
     }
 
-    public void playGame() {
-        int attemptCount = prepareGame();
+    public void startGame() {
+        List<RacingCar> racingCars = prepareGame();
     }
 
-    private int prepareGame() {
+    private List<RacingCar> prepareGame() {
         messagePrinter.printCarNameInputMessage();
         String[] carNames = messageReceiver.receiveCarNames();
         List<RacingCar> racingCars = RacingCar.createRacingCars(carNames);
         messagePrinter.printAttemptCountInputMessage();
+        attemptCount = messageReceiver.receiveAttemptCount();
 
-        return messageReceiver.receiveAttemptCount();
+        return racingCars;
     }
 }

@@ -9,6 +9,6 @@ public class Application {
         MessagePrinter messagePrinter = new MessagePrinter();
         MessageReceiver messageReceiver = new MessageReceiver();
         GameManager gameManager = new GameManager(messagePrinter, messageReceiver);
-        gameManager.playGame();
+        gameManager.startGame();
     }
 }

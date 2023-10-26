@@ -1,9 +1,12 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static racingcar.constant.NumberConstant.*;
+import static racingcar.constant.TextConstant.HYPHEN;
 import static racingcar.constant.TextConstant.STARTING_POINT;
 
 public class RacingCar {
@@ -30,4 +33,17 @@ public class RacingCar {
 
         return racingCars;
     }
+
+    public boolean checkMovementCondition() {
+        int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        return randomNumber > MIN_MOVEMENT_CONDITION_NUMBER;
+    }
+
+//    public void move() {
+//        int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+//
+//        if (randomNumber > MIN_MOVEMENT_CONDITION_NUMBER) {
+//            currentLocation += HYPHEN;
+//        }
+//    }
 }
