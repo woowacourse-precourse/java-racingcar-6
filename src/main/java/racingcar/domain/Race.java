@@ -40,15 +40,13 @@ public class Race {
         }
     }
 
-    public RaceResult findWinners() {
+    public List<String> findWinners() {
         int maxPosition = findMaxPosition();
 
-        List<String> winners = cars.stream()
+        return cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::getName)
                 .collect(Collectors.toList());
-
-        return new RaceResult(winners);
     }
 
     private int findMaxPosition() {

@@ -33,7 +33,7 @@ public class RaceService {
     }
 
     public RaceResult end() {
-        return null;
+        return new RaceResult(race.findWinners());
     }
 
     public static RaceService getInstance() {
