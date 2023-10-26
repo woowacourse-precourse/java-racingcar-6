@@ -1,9 +1,18 @@
-package racingcar.validation;
+package racingcar;
 
-public class InputValidation {
+import java.util.List;
+import racingcar.domain.Car;
+
+public class Validation {
+
+    public static void checkEmpty(List<Car> carList) {
+        if (carList.isEmpty()) {
+            throw new IllegalArgumentException("자동차 이름은 1개 이상 있어야 합니다.");
+        }
+    }
 
     public static void nameLength(String name) {
-        if (name.length() > 5) {
+        if (name.length() > 5 || name.isEmpty()) {
             throw new IllegalArgumentException("자동차 이름은 5자 이내로 지어야 합니다.");
         }
     }

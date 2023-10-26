@@ -1,11 +1,32 @@
-package racingcar.validation;
+package racingcar;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.ThrowableAssert.catchThrowable;
 
+import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
 
-class InputValidationTest {
+class ValidationTest {
+
+    @Test
+    void checkEmpty() {
+        // given
+        List<Car> case1 = List.of(new Car("car1", 1));
+        List<Car> case2 = List.of();
+
+        // when
+        Throwable result1 = catchThrowable(() -> {
+            Validation.checkEmpty(case1);
+        });
+        Throwable result2 = catchThrowable(() -> {
+            Validation.checkEmpty(case2);
+        });
+
+        // then
+        assertThat(result1).as("1 car").doesNotThrowAnyException();
+        assertThat(result2).as("no car").isInstanceOf(IllegalArgumentException.class);
+    }
 
     @Test
     void isNumber() {
@@ -17,16 +38,16 @@ class InputValidationTest {
 
         // when
         Throwable result1 = catchThrowable(() -> {
-            InputValidation.isNumber(case1);
+            Validation.isNumber(case1);
         });
         Throwable result2 = catchThrowable(() -> {
-            InputValidation.isNumber(case2);
+            Validation.isNumber(case2);
         });
         Throwable result3 = catchThrowable(() -> {
-            InputValidation.isNumber(case3);
+            Validation.isNumber(case3);
         });
         Throwable result4 = catchThrowable(() -> {
-            InputValidation.isNumber(case4);
+            Validation.isNumber(case4);
         });
 
         // then
@@ -47,19 +68,19 @@ class InputValidationTest {
 
         // when
         Throwable result1 = catchThrowable(() -> {
-            InputValidation.nameLength(case1);
+            Validation.nameLength(case1);
         });
         Throwable result2 = catchThrowable(() -> {
-            InputValidation.nameLength(case2);
+            Validation.nameLength(case2);
         });
         Throwable result3 = catchThrowable(() -> {
-            InputValidation.nameLength(case3);
+            Validation.nameLength(case3);
         });
         Throwable result4 = catchThrowable(() -> {
-            InputValidation.nameLength(case4);
+            Validation.nameLength(case4);
         });
         Throwable result5 = catchThrowable(() -> {
-            InputValidation.nameLength(case5);
+            Validation.nameLength(case5);
         });
 
         // then

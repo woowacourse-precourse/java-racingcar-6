@@ -3,7 +3,10 @@
 ## 기능 목록
 
 - [ ] 자동차 이름을 입력받는다.
-  - [x] 이름이 5자 이하인지 확인한다. - InputValidation#nameLength()
+  - [ ] 자동차 리스트를 생성한다.
+  - [x] 이름이 5자 이하의 자연수인지 확인한다. - Validation#nameLength()
+  - [ ] 이름이 중복되는지 확인한다.
+  - [x] 만들어진 리스트가 비었는지 확인한다. - Validation#checkEmpty()
 
 
 - [ ] 이동할 횟수를 입력받는다.
