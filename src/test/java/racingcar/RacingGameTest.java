@@ -48,4 +48,15 @@ public class RacingGameTest {
         assertThatThrownBy(()-> racingGame.checkNameIsEmpty(emptyName))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("0에서 9 사이의 랜덤한 값을 만드는 기능.")
+    @Test
+    void makeRandomValue_랜덤값_생성(){
+        RacingGame racingGame=new RacingGame();
+
+        for(int attempt=0;attempt<100;attempt++){
+            assertThat(racingGame.makeRandomValue()).isBetween(0,9);
+        }
+
+    }
 }
