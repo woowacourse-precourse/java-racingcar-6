@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 
 public class OutputRaceView {
     public static void printRaceResult(List<Car> cars) {
-        System.out.println(Constants.RACE_RESULT_HEADER);
         cars.forEach(car -> {
             System.out.print(car.getName() + " : ");
             for (int i = 0; i < car.getPosition(); i++) {
@@ -16,6 +15,7 @@ public class OutputRaceView {
             }
             System.out.println();
         });
+        System.out.println();
     }
 
     public static void printWinners(List<Car> winners) {
