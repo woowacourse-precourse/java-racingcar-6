@@ -4,6 +4,7 @@ public interface ExceptionMessage {
     enum CarException {
         NAME_MUST_BE_EXISTS("이름이 존재하지 않습니다."),
         INVALID_NAME_LENGTH("자동차는 5자 이하의 이름을 가질 수 있습니다."),
+        NO_PARTICIPANTS("경주 게임에 참여하는 자동차는 최소 1개 이상 존재해야 합니다."),
         DUPLICATE_CAR("중복된 자동차(중복된 이름)은 허용하지 않습니다."),
         ;
 

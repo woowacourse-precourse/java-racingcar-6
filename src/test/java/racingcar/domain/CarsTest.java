@@ -8,8 +8,17 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.exception.ExceptionMessage.CarException.DUPLICATE_CAR;
+import static racingcar.exception.ExceptionMessage.CarException.NO_PARTICIPANTS;
 
 public class CarsTest {
+    @Test
+    @DisplayName("경주에 참여하는 자동차가 비어있으면 게임을 진행할 수 없다")
+    void throwExceptionByNoParticipants() {
+        assertThatThrownBy(() -> Cars.from(List.of()))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(NO_PARTICIPANTS.message);
+    }
+
     @Test
     @DisplayName("중복된 자동차가 존재하면 게임을 진행할 수 없다")
     void throwExceptionByDuplicateCar() {
