@@ -39,6 +39,7 @@ public class GameManager {
         }
     }
     public void addPlayer(String name){
+        if(name.length()>5) throw new IllegalArgumentException();
         players.add(new Player(name));
     }
 
@@ -70,6 +71,6 @@ public class GameManager {
     }
 
     public void print(){
-        System.out.println("최종우승자 : "+getWinner());
+        System.out.println("최종 우승자 : "+getWinner());
     }
 }

@@ -31,7 +31,7 @@ public class Player implements Comparable<Player>{
     }
     public void move(){
         int score = Randoms.pickNumberInRange(0,9);
-        if(score>4){
+        if(score>=4){
             setResult(getResult()+"-");
             setCount(getCount()+1);
         }
