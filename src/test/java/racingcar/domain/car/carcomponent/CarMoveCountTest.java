@@ -13,4 +13,20 @@ public class CarMoveCountTest {
         CarMoveCount carMoveCount = new CarMoveCount(2);
         assertThat(carMoveCount.getMoveCount()).isEqualTo(2);
     }
+
+    @Test
+    @DisplayName("전진 신호(true) 가 파라미터로 주어지면 moveCount 를 1 증가시킨 객체를 반환한다.")
+    void carMoveTest_true() {
+        CarMoveCount carMoveCount = new CarMoveCount(0);
+        CarMoveCount newCarMoveCount = carMoveCount.countMove(true);
+        assertThat(newCarMoveCount.getMoveCount()).isEqualTo(1);
+    }
+
+    @Test
+    @DisplayName("멈춤 신호(false) 가 파라미터로 주어지면 동일한 moveCount 인 객체를 반환한다. ")
+    void carMoveTest_false() {
+        CarMoveCount carMoveCount = new CarMoveCount(0);
+        CarMoveCount newCarMoveCount = carMoveCount.countMove(false);
+        assertThat(newCarMoveCount.getMoveCount()).isEqualTo(0);
+    }
 }
