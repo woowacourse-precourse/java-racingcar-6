@@ -13,6 +13,14 @@ public class Car {
         this.distance = 0;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
     public void moveForward() {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
             distance += 1;
