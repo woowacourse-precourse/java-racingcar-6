@@ -40,6 +40,8 @@ public interface ExceptionMessage {
 
     enum InputException {
         CAR_HAS_INVALID_CHARACTER("자동차 이름은 숫자/문자만 가능합니다."),
+        INPUT_MUST_NOT_CONTAINS_SPACE("공백없이 입력해주세요."),
+        GAME_TRY_COUNT_MUST_BE_NUMERIC("게임 시도 횟수는 숫자로 입력해주세요."),
         ;
 
         public final String message;
