@@ -35,8 +35,8 @@
   - [x] 메시지 print 메소드
   - [x] 메시지 println 메소드
 
-- [ ] RandomNumberGenerator
-  - [ ] 자동차의 전진 조건인 랜덤 숫자 (0~9) 만들어주는 기능
+- [x] RandomNumberGenerator
+  - [x] 자동차의 전진 조건인 랜덤 숫자 (0~9) 만들어주는 기능
 
 - [x] TransferUtil
   - [x] String -> List<String>으로 변환 기능
