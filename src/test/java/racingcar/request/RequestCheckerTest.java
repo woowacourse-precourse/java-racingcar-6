@@ -10,8 +10,7 @@ import java.io.ByteArrayInputStream;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.*;
-import static racingcar.constants.ErrorConstants.CAR_NAME_ERROR_MESSAGE;
-import static racingcar.constants.ErrorConstants.DUPLICATE_NAME_ERROR_MESSAGE;
+import static racingcar.constants.ErrorConstants.*;
 
 
 class RequestCheckerTest {
@@ -69,6 +68,18 @@ class RequestCheckerTest {
         int movementAttempts = RequestChecker.getNumberOfMovementAttempts();
         // then
         assertThat(5).isEqualTo(movementAttempts);
+    }
+
+    @Test
+    @DisplayName("입력이 숫자가 아니면 예외가 발생한다.")
+    public void getNumberOfMovementAttemptsException() {
+        // given
+        String request = "haen";
+        System.setIn(new ByteArrayInputStream(request.getBytes()));
+        // when // then
+        assertThatThrownBy(() -> RequestChecker.getNumberOfMovementAttempts())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(NOT_DIGIT_ERROR_MESSAGE);
     }
 
 }
