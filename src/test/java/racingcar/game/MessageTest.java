@@ -8,12 +8,12 @@ import org.junit.jupiter.api.Test;
 public class MessageTest {
 
     @Test
-    void distanceMessageTest(){
+    void distanceMessageTest() {
         Player player = new Player("worm");
 
         int distance = 4;
 
-        for(int i = 0 ; i < distance; i++){
+        for (int i = 0; i < distance; i++) {
             player.forward();
         }
 
@@ -21,7 +21,7 @@ public class MessageTest {
     }
 
     @Test
-    void championMessageTest(){
+    void championMessageTest() {
         List<Player> champions = new ArrayList<>();
         champions.add(new Player("worm"));
         champions.add(new Player("bird"));

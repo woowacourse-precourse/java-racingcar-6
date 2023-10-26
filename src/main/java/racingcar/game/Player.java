@@ -4,7 +4,7 @@ public class Player {
     private String name;
     private int distance = 0;
 
-    public Player(String name){
+    public Player(String name) {
         this.name = name;
     }
 
@@ -12,11 +12,11 @@ public class Player {
         return this.name;
     }
 
-    public int getDistance(){
+    public int getDistance() {
         return this.distance;
     }
 
-    public void forward(){
+    public void forward() {
         this.distance++;
     }
 }

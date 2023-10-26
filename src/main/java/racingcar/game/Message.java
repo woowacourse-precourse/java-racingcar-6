@@ -11,25 +11,25 @@ public class Message {
     private final String comma = ", ";
     private final char distanceUnit = '-';
 
-    public String distanceOfPlayer( Player player ){
+    public String distanceOfPlayer(Player player) {
         StringBuilder message = new StringBuilder();
 
         message.append(player.getName()).append(spaceColon);
 
-        for(int i = 0 ; i < player.getDistance(); i++){
+        for (int i = 0; i < player.getDistance(); i++) {
             message.append(distanceUnit);
         }
 
         return message.toString();
     }
 
-    public String champions(List<Player> champions){
+    public String champions(List<Player> champions) {
         StringBuilder message = new StringBuilder();
         message.append(champion);
 
-        for(int i = 0 ; i < champions.size(); i++){
+        for (int i = 0; i < champions.size(); i++) {
             message.append(champions.get(i).getName());
-            if(i<champions.size()-1){
+            if (i < champions.size() - 1) {
                 message.append(comma);
             }
         }
