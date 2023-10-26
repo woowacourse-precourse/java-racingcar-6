@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.constants.ExceptionComments;
 import racingcar.domain.Car;
 import racingcar.exception.CarNameIncorrectException;
 import racingcar.exception.CarNameSizeLimitExceededException;
@@ -38,13 +39,13 @@ public class InputView {
 
     private static void isNull(String str) {
         if (str == null) {
-            throw new CarNameIncorrectException("null 이 입력 되었습니다.");
+            throw new CarNameIncorrectException(ExceptionComments.INPUT_NULL_VALUE_COMMENT);
         }
     }
 
     private static void isEmpty(String str) {
         if (str.trim().isEmpty()) {
-            throw new CarNameIncorrectException("빈값 이 입력 되었습니다.");
+            throw new CarNameIncorrectException(ExceptionComments.INPUT_EMPTY_VALUE_COMMENT);
         }
     }
 
@@ -52,7 +53,7 @@ public class InputView {
         char[] charArray = str.toCharArray();
         for (char c : charArray) {
             if (!Character.isDigit(c)) {
-                throw new IllegalArgumentException("숫자가 아닙니다.");
+                throw new IllegalArgumentException(ExceptionComments.INPUT_TYPE_NON_NUMBER);
             }
         }
     }
@@ -70,7 +71,7 @@ public class InputView {
         for (String name : carnameArr) {
             isEmpty(name);
             if (name.length() > 5) {
-                throw new CarNameSizeLimitExceededException("이름의 크기가 5를 초과 하였습니다.");
+                throw new CarNameSizeLimitExceededException(ExceptionComments.INPUT_VALUE_SIZE_OVER);
             }
         }
     }
