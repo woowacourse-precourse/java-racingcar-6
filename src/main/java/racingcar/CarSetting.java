@@ -8,7 +8,7 @@ public class CarSetting {
     private Car[] car;
 
     CarSetting() {
-        carName = Console.readLine().split(",");
+
         car = new Car[carName.length];
     }
 
@@ -30,4 +30,9 @@ public class CarSetting {
         int randomNumber = makeRandomNumber();
         return randomNumber >= 4;
     }
+
+    public void setCarName() {
+        carName = Console.readLine().split(",");
+    }
+
 }
