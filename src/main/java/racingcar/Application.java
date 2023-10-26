@@ -9,5 +9,7 @@ public class Application {
         String inputCars = Console.readLine();
         String[] cars = inputCars.split(",");
 
+        System.out.println("시도할 회수는 몇회인가요?");
+        String tryCount = Console.readLine();
     }
 }
