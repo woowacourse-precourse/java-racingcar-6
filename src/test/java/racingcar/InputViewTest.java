@@ -15,4 +15,10 @@ public class InputViewTest {
         List<String> inputViewList = inputView.splitInputByComma("minjun, dahyeong, jason");
         assertThat(inputViewList.size()).isEqualTo(3);
     }
+
+    @Test
+    void 자동차이름_공백_제거_테스트() {
+        List<String> inputViewList = inputView.splitInputByComma(" minjun , dahyeong, jason ");
+        assertThat(inputViewList.get(0).length()).isEqualTo(6);
+    }
 }
