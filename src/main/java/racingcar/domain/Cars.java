@@ -15,4 +15,10 @@ public class Cars {
             throw new IllegalArgumentException("경주에 참여할 자동차는 최소 1대 이상이어야 합니다.");
         }
     }
+
+    public void makeMoveOrStop(NumberGenerator numberGenerator) {
+        for (Car car : cars) {
+            car.moveOrStop(numberGenerator.generate());
+        }
+    }
 }
