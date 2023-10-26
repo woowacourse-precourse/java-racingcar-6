@@ -1,7 +1,12 @@
 package racingcar.domain;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class CarTest {
 
@@ -23,5 +28,31 @@ class CarTest {
         // then
         Assertions.assertThatThrownBy(() -> new Car(carName))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {4, 5, 6, 7, 8, 9})
+    public void 자동차의_전진_가능_테스트(int randomNumber) {
+        // given
+        Car car = new Car("pobi");
+
+        // when
+        boolean forward = car.isForward(randomNumber);
+
+        // then
+        assertTrue(forward);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, 2, 3})
+    public void 자동차의_전진_불가능_테스트(int randomNumber) {
+        // given
+        Car car = new Car("pobi");
+
+        // when
+        boolean notForward = car.isForward(randomNumber);
+
+        // then
+        assertFalse(notForward);
     }
 }
