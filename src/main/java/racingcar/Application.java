@@ -63,13 +63,13 @@ public class Application {
     public static void printScores(String name, int score){
 
         String scoreToPrint = "-".repeat(score);
-        System.out.println(String.format("%s: %s", name, scoreToPrint));
+        System.out.println(String.format("%s : %s", name, scoreToPrint));
 
     }
 
     // 기능 5.
     public static void printWinner(List<String> winners){
-        System.out.printf("최종 우승자: ");
+        System.out.printf("최종 우승자 : ");
         System.out.println(String.join(",", winners));
     }
 }
