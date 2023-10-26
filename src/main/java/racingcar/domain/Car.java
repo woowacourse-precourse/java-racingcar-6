@@ -4,6 +4,7 @@ public class Car {
 
     private static final int NAME_MIN_LENGTH = 1;
     private static final int NAME_MAX_LENGTH = 5;
+    private static final int FORWARD_BASE_NUMBER = 4;
     private static final String CAR_NAME_LENGTH_EXCEPTION_MESSAGE = "5자 이하의 이름만 가능합니다.";
 
     private final String name;
@@ -11,6 +12,10 @@ public class Car {
     public Car(String name) {
         validateCarNameLength(name);
         this.name = name;
+    }
+
+    public boolean isForward(int randomNumber) {
+        return randomNumber >= FORWARD_BASE_NUMBER;
     }
 
     private void validateCarNameLength(String name) {
