@@ -8,9 +8,11 @@ import java.util.Collections;
 public class Cars {
 
     private final ArrayList<Car> carList;
+    private final StringBuilder sb;
 
     public Cars() {
         carList = new ArrayList<>();
+        sb = new StringBuilder();
     }
 
     public void fill(String[] carNameArr,int[] distance) {
