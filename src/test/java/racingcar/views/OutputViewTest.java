@@ -45,4 +45,46 @@ class OutputViewTest {
         assertThat(outputConstant).isEqualTo(result);
     }
 
+    @Test
+    @DisplayName("레이싱 결과 시작 멘트 출력 값 테스트")
+    void racingCarResultCommentTest() {
+        PrintStream standardOut = System.out;
+        ByteArrayOutputStream byteOutput = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(byteOutput));
+
+        OutputView.racingCarResultComment();
+
+        System.setOut(standardOut);
+        String result = byteOutput.toString().trim();
+        assertThat(result).isEqualTo(RacingCarGameComments.RESULT_COMMENT);
+    }
+
+    @Test
+    @DisplayName("레이싱 이동 결과 출력 값 테스트")
+    void racingCarResultPrintTest() {
+        PrintStream standardOut = System.out;
+        ByteArrayOutputStream byteOutput = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(byteOutput));
+
+        OutputView.racingCarResultPrint("lee", "----");
+
+        System.setOut(standardOut);
+        String result = byteOutput.toString().trim();
+        assertThat(result).isEqualTo("lee : ----");
+    }
+
+    @Test
+    @DisplayName("레이싱 우승자 출력 값 테스트")
+    void racingCarWinnerPrintTest() {
+        PrintStream standardOut = System.out;
+        ByteArrayOutputStream byteOutput = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(byteOutput));
+
+        OutputView.racingCarWinnerPrint(new String[]{"toby, lee"});
+
+        System.setOut(standardOut);
+        String result = byteOutput.toString().trim();
+        assertThat(result).isEqualTo(RacingCarGameComments.WINNER_COMMENT + "toby, lee");
+    }
+
 }
