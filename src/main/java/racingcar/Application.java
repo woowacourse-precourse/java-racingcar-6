@@ -9,6 +9,7 @@ public class Application {
         // 자동차 이름 설정
         InputView inputView = new InputView();
 
-        inputView.setCarNames();
+        inputView.askForCarNames();
     }
+
 }

@@ -12,4 +12,8 @@ public class Car {
         this.moves++;
     }
 
+    public void getName() {
+        System.out.println(this.name);
+    }
+
 }
