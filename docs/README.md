@@ -41,7 +41,7 @@
   - [ ] 0에서 9 사이의 무작위 값을 만든다. -makeRandomValue()
   - [x] 해당 값이 4 이상의 값인지 판단한다. -checkValueIsOverFour()
   - [ ] 4 이상일 경우 자동차를 전진시킨다. -Position.moveForward()
-    - [ ] 자동차의 전진 상태값을 증가시킨다. 
+    - [x] 자동차의 전진 상태값을 증가시킨다. 
 - [ ] 현재 자동차들의 전진 결과를 출력한다. -printCurrentCarResult()
   - 자동차들의 출력순서는 입력받은 순이다.
   - [ ] 자동차의 전진 상태값을 작대기(-)로 바꿔준다. -switchMoveStatusToSlash()
