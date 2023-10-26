@@ -59,17 +59,10 @@ public class GameTest {
     }
 
     @Test
-    void 자동차_무작위_값_생성_테스트(){
+    void 자동차_무작위_값_생성_테스트() {
         int carNumber = game.createCarNumber();
-
-        Assertions.assertTrue(carNumber>=0&&carNumber<=9);
-
+        Assertions.assertTrue(carNumber >= 0 && carNumber <= 9);
     }
-
-
-
-
-
 
 
 }
