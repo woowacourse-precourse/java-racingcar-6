@@ -2,6 +2,7 @@ package racingcar.model;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 import racingcar.exception.car_racing_game.NotUniqueCarNameException;
 
@@ -21,6 +22,12 @@ public class CarRacingGame implements RacingGame {
         }
     }
 
+    private int countDistinctElement() {
+        return (int) racingTrack.keySet().stream()
+                .distinct()
+                .count();
+    }
+
     private boolean isDuplicate(final int distinctCount) {
         return distinctCount < racingTrack.size();
     }
@@ -31,13 +38,17 @@ public class CarRacingGame implements RacingGame {
                 .collect(Collectors.toList());
     }
 
-    private int countDistinctElement() {
-        return (int) racingTrack.keySet().stream()
-                .distinct()
-                .count();
-    }
-
     @Override
     public void move() {
+        Set<Car> cars = racingTrack.keySet();
+        cars.stream()
+                .filter(Car::canMove)
+                .forEach(this::moveNextPosition);
+    }
+
+    private void moveNextPosition(final Car car) {
+        Position position = racingTrack.get(car);
+        Position nextPosition = position.getNextPosition(position);
+        racingTrack.put(car, nextPosition);
     }
 }
