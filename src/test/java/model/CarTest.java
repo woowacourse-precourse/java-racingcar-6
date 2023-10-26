@@ -66,4 +66,19 @@ public class CarTest {
         //then
         assertThat(result).isFalse();
     }
+
+
+    @Test
+    @DisplayName("현재 경주 상태 테스트")
+    public void 경주_상태_테스트() {
+        //given
+        Car car = new Car("test");
+
+        //when
+        car.increaseMovingCountIfGreater(4, 5);
+        String status = car.currentRacingStatus();
+
+        //then
+        assertThat(status).isEqualTo("test : -");
+    }
 }
