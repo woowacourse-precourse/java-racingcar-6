@@ -21,6 +21,7 @@ public class RacingCarGame {
         Validator.inputCarNames(carNameArr);
         racingGameService.init(carNameArr);
         String attemptCount = InputView.askForAttemptCount();
+        Validator.isInteger(attemptCount);
     }
 
     private String[] splitCarNames(String carNames) {

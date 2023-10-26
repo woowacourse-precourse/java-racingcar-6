@@ -37,4 +37,12 @@ public class Validator {
     private static List<String> arrayToList(String[] carNameArr) {
         return Arrays.stream(carNameArr).toList();
     }
+
+    public static void isInteger(String attemptCount) {
+        try {
+            Integer.parseInt(attemptCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("정수만 입력 가능합니다.");
+        }
+    }
 }
