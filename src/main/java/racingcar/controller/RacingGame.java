@@ -1,11 +1,14 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
+import racingcar.dto.CarsDto;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingGame {
 
-    public static final InputView inputView = new InputView();
+    private static final InputView inputView = new InputView();
+    private static final OutputView outputView = new OutputView();
 
     private RacingGame() {
     }
@@ -17,12 +20,15 @@ public class RacingGame {
         Integer numberOfTimes = convertToInteger(inputView.enterNumberOfTimes());
 
         rotate(cars, numberOfTimes);
+
+        //cars.findWinners();
     }
 
     private static void rotate(Cars cars, Integer numberOfTimes) {
         while (numberOfTimes-- > 0) {
             cars.go();
-
+            CarsDto carsDto = CarsDto.of(cars);
+            outputView.printCarsResults(carsDto);
         }
     }
 
