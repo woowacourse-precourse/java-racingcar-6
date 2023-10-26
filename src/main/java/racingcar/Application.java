@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Application {
@@ -45,6 +46,35 @@ public class Application {
         System.out.println();
     }
 
+    public static void printWinner(String[] cars, int[] cars_moved) {
+
+        String last_comment = "최종 우승자 : ";
+
+        int max_moved = -1;
+        for (int i = 0; i < cars.length; i++) {
+            if (max_moved < cars_moved[i])
+                max_moved = cars_moved[i];
+        }
+
+        ArrayList<String> winners = new ArrayList<>();
+        for (int i = 0; i < cars.length; i++) {
+            if (max_moved == cars_moved[i])
+                winners.add(cars[i]);
+        }
+
+        last_comment += winners.get(0);
+
+        if (winners.size() == 1) { //최종우승자가 1명인 경우
+            System.out.println(last_comment);
+            return;
+        }
+
+        for (int i = 1; i < winners.size(); i++) {  //최종우승자가 여러명인 경우
+            last_comment += (", " + winners.get(i));
+        }
+        System.out.println(last_comment);
+    }
+
     public static void playGame(Object[] user_input) {
         //cars, try_cnt, car_moved : 차량 목록, 시도 횟수, 차량 이동 횟수
         String[] cars = String.valueOf(user_input[0]).split(",");
@@ -58,6 +88,9 @@ public class Application {
             cars_moved = carMovingOnce(cars_moved);
             printMovingResult(cars, cars_moved);
         }
+
+        printWinner(cars, cars_moved);
+
     }
 
     public static void main(String[] args) {
