@@ -38,4 +38,22 @@ public class Car {
     public int getDistance() {
         return distance;
     }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == null) {
+            return false;
+        }
+
+        if (this == other) {
+            return true;
+        }
+
+        if (getClass() != other.getClass()) {
+            return false;
+        }
+
+        Car otherCar = (Car) other;
+        return name.equals(otherCar.name);
+    }
 }
