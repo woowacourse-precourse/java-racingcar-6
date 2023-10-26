@@ -1,22 +1,15 @@
 package racingcar.domain;
 
-public class Name {
+public record Name(String value) {
 
-    private final String value;
-
-    public Name(String value) {
+    public Name {
         validateName(value);
-        this.value = value;
     }
 
     private void validateName(String name) {
         checkBlank(name);
         checkLength(name);
         checkNumeric(name);
-    }
-
-    public String getValue() {
-        return value;
     }
 
     private void checkBlank(String name) {

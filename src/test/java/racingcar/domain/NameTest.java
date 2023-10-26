@@ -15,7 +15,7 @@ public class NameTest {
         Name validName = new Name(VALID_NAME);
 
         //then
-        assertThat(validName.getValue()).isEqualTo(VALID_NAME);
+        assertThat(validName.value()).isEqualTo(VALID_NAME);
     }
 
     @Test
