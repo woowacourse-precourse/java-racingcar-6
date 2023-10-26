@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.constants.Config;
 import racingcar.constants.ExceptionComments;
 import racingcar.domain.Car;
 import racingcar.exception.CarNameIncorrectException;
@@ -21,16 +22,16 @@ public class InputView {
     }
 
     public static List<Car> getCarNames() {
-        String carnames = Console.readLine();
-        checkNullAndEmpty(carnames);
-        return getCarnameList(carnames);
+        String carNames = Console.readLine();
+        checkNullAndEmpty(carNames);
+        return getCarnameList(carNames);
     }
 
-    public static List<Car> getCarnameList(String carnames) {
-        String[] carnameArr = carnames.split(",");
-        checkLengthCarName(carnameArr);
+    public static List<Car> getCarnameList(String carNames) {
+        String[] carNameArr = carNames.split(",");
+        checkLengthCarName(carNameArr);
 
-        return Arrays.stream(carnameArr)
+        return Arrays.stream(carNameArr)
                 .map(o -> new Car(o))
                 .collect(Collectors.toUnmodifiableList());
     }
@@ -79,10 +80,10 @@ public class InputView {
         }
     }
 
-    private static void checkLengthCarName(String[] carnameArr) {
-        for (String name : carnameArr) {
+    private static void checkLengthCarName(String[] carNameArr) {
+        for (String name : carNameArr) {
             isEmpty(name);
-            if (name.length() > 5) {
+            if (name.length() > Config.CAR_NAME_SIZE) {
                 throw new CarNameSizeLimitExceededException(ExceptionComments.INPUT_VALUE_SIZE_OVER);
             }
         }

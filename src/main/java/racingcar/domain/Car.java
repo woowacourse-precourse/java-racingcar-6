@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.constants.Config;
 import racingcar.views.OutputView;
 
 public class Car {
@@ -26,8 +27,8 @@ public class Car {
     }
 
     public void tryAddPosition() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if (randomNumber >= 4) {
+        int randomNumber = Randoms.pickNumberInRange(Config.BEGIN_RANGE, Config.END_RANGE);
+        if (randomNumber >= Config.MOVING_FORWORD) {
             this.position += "-";
             this.distance++;
         }
