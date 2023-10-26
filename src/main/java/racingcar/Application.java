@@ -16,10 +16,6 @@ public class Application {
         String[] carName = totalCar.split(",");
         int[] carPresentPoint = new int[carName.length];
 
-        for (String s : carName) {
-
-        }
-
         System.out.println("시도할 회수는 몇회인가요?");
         int count = Integer.parseInt(Console.readLine());
 
