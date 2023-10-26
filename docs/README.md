@@ -24,10 +24,10 @@
 
 ## 함수
 > #### 입력 함수
-> 입력받은 자동차명 처리하는 함수 getCarNames
+> 입력받은 자동차명 처리하는 함수 makeMapCars
 > ```java
 > //입력받은 이름을 해시맵의 key로 정리
-> public static Map<Integer> makeListCars(String names)
+> public static Map<Integer> makeMapCars(String names)
 >```
 
 > #### 출력함수
@@ -48,6 +48,7 @@
 > 자동차별로 전진하는 함수 carsDistance
 > ```java
 > //각 자동차별 랜던값을 생성 후 출력 -> 4 이상일 경우 count
+> //Randoms.pickNumberInRange(0,9)를 사용
 > public static int randomDistance(Map cars)
 >```
 > 우승자 List를 만드는 함수 makeWinnerList
