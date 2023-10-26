@@ -66,7 +66,7 @@ class ApplicationTest extends NsTest {
     @Test
     void 자동차_이름을_쉼표로_구분하여_이름_배열을_만듦() {
         final List<String> expected = List.of("pobi", "woni", "jun");
-        final List<String> actual = List.of("");
+        final List<String> actual = Application.getCarNameListFromCarNames("pobi,woni,jun");
         assertThat(actual).isEqualTo(expected);
     }
 
