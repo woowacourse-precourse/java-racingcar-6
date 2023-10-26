@@ -28,7 +28,7 @@
     - [ ] TryCountInputErrorException
       - [ ] 숫자 이외의 값이 들어오는지 검사
       - [ ] 아무 값도 입력 안할 경우 (1자 미만)
-      - [ ] 빈 배열이 들어올 경우
+      - [x] 빈 값이 들어올 경우
 
 ### UTIL
 - [ ] MessageUtil (enum)
@@ -39,8 +39,8 @@
 - [ ] RandomNumberGenerator
   - [ ] 자동차의 전진 조건인 랜덤 숫자 (0~9) 만들어주는 기능
 
-- [ ] TransferUtil
-  - [ ] String -> List<String>으로 변환 기능
+- [x] TransferUtil
+  - [x] String -> List<String>으로 변환 기능
 
 ### MODEL
 - [ ] Car

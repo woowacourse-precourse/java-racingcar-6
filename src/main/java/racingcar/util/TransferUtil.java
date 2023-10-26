@@ -7,7 +7,7 @@ import java.util.List;
 
 public class TransferUtil {
     public List<String> transferStringToListString(String targetString){
-        if(targetString.isEmpty()){
+        if (targetString.isEmpty()){
             return new ArrayList<>(Collections.emptyList());
         }
         String[] targetStringList = targetString.split(",");
