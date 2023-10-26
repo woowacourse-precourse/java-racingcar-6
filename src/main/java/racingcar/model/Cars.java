@@ -8,11 +8,11 @@ public class Cars {
     private List<Car> carList;
 
 
-    private Cars(List<Car> carList){
+    private Cars(List<Car> carList) {
         this.carList = carList;
     }
 
-    public static Cars makeCarList(List<String> carNames){
+    public static Cars makeCarList(List<String> carNames) {
         return new Cars(carNames.stream()
                 .map(Car::new)
                 .collect(Collectors.toList()));
@@ -21,7 +21,8 @@ public class Cars {
     public void move() {
         carList.forEach(Car::move);
     }
-    public List<Car> getCarList(){
+
+    public List<Car> getCarList() {
         return carList;
     }
 }

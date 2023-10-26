@@ -9,27 +9,30 @@ public class Car {
     private int position = 0;
 
 
-    public Car(String carName){
+    public Car(String carName) {
         this.carName = carName;
     }
 
     public void move() {
-        if(isMove()){
+        if (isMove()) {
             position++;
         }
     }
-    private boolean isMove(){
+
+    private boolean isMove() {
         return generateRandomNumber() >= 4;
     }
 
     private int generateRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
-    public String getCarName(){
+
+    public String getCarName() {
         return carName;
     }
-    public String getPositionToString(){
-        return IntStream.rangeClosed(0,this.position)
+
+    public String getPositionToString() {
+        return IntStream.rangeClosed(0, this.position)
                 .mapToObj(i -> "-")
                 .collect(Collectors.joining());
     }
