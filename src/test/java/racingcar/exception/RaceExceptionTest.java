@@ -12,4 +12,10 @@ class RaceExceptionTest {
         assertThatThrownBy(() -> RaceException.validateCarName(null))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void shouldThrowExceptionWhenCarNameIsLongerThanFive() {
+        assertThatThrownBy(() -> RaceException.validateCarName("abcdef"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
