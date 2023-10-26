@@ -38,4 +38,17 @@ public class ValidatorTest {
 
         assertDoesNotThrow(() -> Validator.validateCorrectPattern(validInput));
     }
+
+    @Test
+    @DisplayName("숫자값 유효성검사 테스트")
+    public void validateRounds() {
+        String validInput = "15";
+        String invalidateInput = "십오";
+
+        IllegalArgumentException notNumberException = assertThrows(IllegalArgumentException.class,
+            () -> Validator.validateRounds(invalidateInput));
+        assertThat(notNumberException.getMessage()).isEqualTo(Validator.NOT_NUMBER_MESSAGE);
+
+        assertDoesNotThrow(() -> Validator.validateRounds(validInput));
+    }
 }
