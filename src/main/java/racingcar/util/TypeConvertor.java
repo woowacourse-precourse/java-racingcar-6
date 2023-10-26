@@ -13,7 +13,16 @@ public class TypeConvertor {
                     .filter(s -> !s.isEmpty())
                     .collect(Collectors.toList());
         } catch (Exception e) {
-            throw new IllegalArgumentException("Invalid input format", e);
+            throw new IllegalArgumentException();
         }
     }
+
+    public static Integer stringToInt(String input) {
+        try {
+            return Integer.parseInt(input.trim());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
 }
