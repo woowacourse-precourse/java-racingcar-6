@@ -7,7 +7,9 @@ public enum GameMessage {
     result("실행 결과"),
     winner("최종 우승자"),
     equal(" : "),
-    bar("-");
+    bar("-"),
+    nameError("자동차의 이름은 5자리 이내입니다."),
+    countError("회수는 음수가 아닌 정수로 입력해주세요.");
 
     private String message;
 
