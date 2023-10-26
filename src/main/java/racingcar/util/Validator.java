@@ -11,7 +11,11 @@ public class Validator {
         }
     }
 
-    public void lap() {
-
+    public void lap(String tempLap) throws IllegalArgumentException {
+        try {
+            Integer.parseInt(tempLap);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("유효하지 않은 입력값입니다. 정수를 입력하세요.");
+        }
     }
 }

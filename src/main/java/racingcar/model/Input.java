@@ -3,22 +3,23 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.util.Validator;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Input {
     Validator validator = new Validator();
-    List<String> carList = new ArrayList<>();
 
-    public void car() {
+    public List<String> car() {
         String tempCar = Console.readLine();
         String[] splitCar = tempCar.split(",");
-        carList = Arrays.asList(splitCar);
+        List<String> carList = Arrays.asList(splitCar);
         validator.car(carList);
+        return carList;
     }
 
-    public void lap() {
-        String tempTime = Console.readLine();
+    public int lap() {
+        String tempLap = Console.readLine();
+        validator.lap(tempLap);
+        return Integer.parseInt(tempLap);
     }
 }
