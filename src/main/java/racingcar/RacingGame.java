@@ -9,6 +9,7 @@ public class RacingGame {
         race.registerRacer();
         race.decideRound();
 
+        race.run();
     }
 
 }

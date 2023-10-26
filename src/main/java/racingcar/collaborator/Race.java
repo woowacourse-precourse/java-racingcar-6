@@ -19,4 +19,8 @@ public class Race {
         numberOfRound = Input.consoleNumber();
     }
 
+    public void run() {
+        Output.consoleLine("실행 결과");
+    }
+
 }
