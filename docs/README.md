@@ -7,8 +7,9 @@
 - `List<Player> setPlayers()`
   - 플레이어 이름을 입력 받고 저장합니다.
   - , 를 기준으로 플레이어를 구분합니다.
+- `boolean checkNameLength(String userName)`
   - 앞뒤 공백은 제거합니다.
-  - 1자 이상, 5자 이하인 경우만 허용합니다.
+  - 1자 이상 5자 이하인 경우 true, 아니면 false를 반환합니다.
 - `boolean isForward( Player player )`
   - 전진 여부를 판단합니다.
   - 0~9 사이의 난수를 뽑아 4 이상인 경우 true, 아니면 false를 반환합니다.
