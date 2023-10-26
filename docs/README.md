@@ -6,8 +6,8 @@
 
 
 ### Input
-- [ ] 자동자 이름을 입력 받음
-  - [ ] 쉼표를 통해 구분
+- [x] 자동자 이름을 입력 받음
+  - [x] 쉼표를 통해 구분
 - [ ] 전진 시도 횟수(게임 횟수)를 입력 받음
 - [ ] 입력받는 값은 [우테코에서 제공하는 라이브러리](https://github.com/woowacourse-projects/mission-utils#mission-utils) `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용
 
@@ -18,19 +18,22 @@
 
 
 ### Exception Check
-- [ ] 자동차 이름 입력값 검증
-  - [ ] 5자 초과 입력할 경우 예외 처리
+- [x] 자동차 이름 입력값 검증
+  - [x] 자동차 이름이 없는 경우 예외 처리
+  - [x] 자동차 이름에 공백이 포함될 경우 예외 처리
+  - [x] 5자 초과 입력할 경우 예외 처리
+  - [x] 중복된 자동차 이름이 있을 경우 예외 처리
 - [ ] 전진 시도 횟수(게임 횟수) 입력값 검증
   - [ ] 입력된 값이 숫자가 아닐 경우 예외 처리
 - [ ] 예외 처리 방식 : `IllegalArgumentException` 발생시킨 후 애플리케이션 종료
 
 
 ### Application
-- [ ] Game Controller 실행
+- [x] Game Controller 실행
 
 
 ### Game Controller
-- [ ] 자동차 생성 명령
+- [x] 자동차 생성 명령
 - [ ] 전진 시도 횟수 설정 명령
 - [ ] 자동차 경주 실행 명령 (게임 로직 실행)
 - [ ] 실행 결과 출력 명령
