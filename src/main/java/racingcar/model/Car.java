@@ -1,8 +1,11 @@
 package racingcar.model;
 
+import static racingcar.util.Constant.FORWARD_THRESHOLD;
 import static racingcar.util.Constant.MAX_CAR_NAME_LENGTH;
 
 import racingcar.exception.car.NotValidNameLengthException;
+import racingcar.util.NumberGenerator;
+import racingcar.util.RandomNumberGenerator;
 
 public class Car implements Vehicle {
 
@@ -25,6 +28,11 @@ public class Car implements Vehicle {
 
     @Override
     public boolean canMove() {
-        return false;
+        NumberGenerator numberGenerator = new RandomNumberGenerator();
+        return numberGenerator.generateNumber() >= FORWARD_THRESHOLD.getValue();
+    }
+
+    public String getName() {
+        return name;
     }
 }
