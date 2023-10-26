@@ -11,5 +11,6 @@ public class RacingController {
     public void run() {
         output.showCarNamesInputMessage();
         String carNames = input.readCarNames();
+        output.showCountInputMessage();
     }
 }
