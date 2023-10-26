@@ -36,7 +36,8 @@ package model
   class Exception
     nameLengthException(); 이름 1-5자
     duplicateNameException(); 이름 중복
-    nameDivisionSignException(); 이름 구분 기호 에러
+    notHavingCommaException(); 쉼표 유뮤 확인(2명이상 자동 확인)
+    noCommaException(); 이름 구분 기호 에러
 
     tryNumberFormException(); try 입력값이 숫자인지
     tryNumberSizeException(); try 입력값이 0보다 작을 때
