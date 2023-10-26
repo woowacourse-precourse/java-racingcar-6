@@ -95,6 +95,14 @@ class ApplicationTest extends NsTest {
         }
     }
 
+    @Test
+    void 시도할_회수를_입력이후_Console_close_메서드_호출() {
+        try (MockedStatic<Console> mockConsole = mockStatic(Console.class)) {
+            mockConsole.when(() -> Console.readLine()).thenReturn("0");
+            Application.readTryCount();
+            mockConsole.verify(() -> Console.close(), times(1));
+        }
+    }
 
     @Override
     public void runMain() {
