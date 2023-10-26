@@ -46,9 +46,9 @@ public class ValidatorTest {
         String invalidateInput = "십오";
 
         IllegalArgumentException notNumberException = assertThrows(IllegalArgumentException.class,
-            () -> Validator.validateRounds(invalidateInput));
+            () -> Validator.validateNumber(invalidateInput));
         assertThat(notNumberException.getMessage()).isEqualTo(Validator.NOT_NUMBER_MESSAGE);
 
-        assertDoesNotThrow(() -> Validator.validateRounds(validInput));
+        assertDoesNotThrow(() -> Validator.validateNumber(validInput));
     }
 }
