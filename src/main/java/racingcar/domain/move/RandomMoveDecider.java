@@ -1,4 +1,9 @@
 package racingcar.domain.move;
 
-public class RandomMoveDecider {
+public final class RandomMoveDecider implements MoveDecider {
+
+    @Override
+    public Movement nextMovement() {
+        return null;
+    }
 }

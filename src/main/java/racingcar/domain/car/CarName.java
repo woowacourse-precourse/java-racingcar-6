@@ -1,6 +1,8 @@
 package racingcar.domain.car;
 
 import java.util.List;
+import racingcar.domain.exception.CarNameContainsBannedCharacterException;
+import racingcar.domain.exception.InvalidCarNameLengthException;
 
 public record CarName(String carName) {
 
@@ -15,13 +17,13 @@ public record CarName(String carName) {
 
     private static void validateCarNameLength(final String carName) {
         if (carName == null || carName.isEmpty() || carName.length() > MAX_CAR_NAME_LENGTH) {
-            throw new IllegalArgumentException("차 이름은 1~5자여야 합니다.");
+            throw new InvalidCarNameLengthException();
         }
     }
 
     private static void validateNotContainsBannedChars(final String carName) {
         if (containsBannedChars(carName)) {
-            throw new IllegalArgumentException("차 이름은 공백이 포함될 수 없습니다.");
+            throw new CarNameContainsBannedCharacterException();
         }
     }
 

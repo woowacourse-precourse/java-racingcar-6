@@ -28,7 +28,7 @@ final class CarNameTest {
 
     @DisplayName("이름이 null이거나 1~5자가 아닌 자동차 이름 생성 시 예외 발생")
     @Test
-    void createCarNameFailure() {
+    void createCarNameFailureIfLengthIsMoreThanFiveOrNullOrEmpty() {
         // given
         final String input1 = null;
         final String input2 = "";
@@ -50,13 +50,14 @@ final class CarNameTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @DisplayName("차 이름에 공백이 포함될 경우 예외 발생")
+    @DisplayName("차 이름에 공백, \\t, \\r, \\n 등의 금지된 문자 포함될 경우 예외 발생")
     @Test
-    void createCarNameFailure1() {
+    void createCarNameFailureIfInputContainsBannedCharacters() {
         // given
-        final String input1 = " 123 ";
-        final String input2 = " 12345";
-        final String input3 = "1234 ";
+        final String input1 = " ";
+        final String input2 = "\t";
+        final String input3 = "\r ";
+        final String input4 = "\n ";
 
         // when
         // then
@@ -71,5 +72,10 @@ final class CarNameTest {
         assertThatThrownBy(() ->
                 new CarName(input3))
                 .isInstanceOf(IllegalArgumentException.class);
+
+        assertThatThrownBy(() ->
+                new CarName(input4))
+                .isInstanceOf(IllegalArgumentException.class);
     }
+
 }
