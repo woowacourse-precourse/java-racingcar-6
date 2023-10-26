@@ -9,6 +9,7 @@ import model.Cars;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -39,7 +40,7 @@ public class OutputViewTest {
         OutputView.displayFinalWinner(cars);
 
         //then
-        assertThat(result).isEqualTo(outputStreamCaptor.toString().trim());
+        assertThat(outputStreamCaptor.toString().trim()).isEqualTo(result);
 
     }
 
@@ -56,7 +57,24 @@ public class OutputViewTest {
         OutputView.displayFinalWinner(cars);
 
         //then
-        assertThat(result).isEqualTo(outputStreamCaptor.toString().trim());
+        assertThat(outputStreamCaptor.toString().trim()).isEqualTo(result);
+
+    }
+
+    @Test
+    @DisplayName("올바른 경주 상태 출력하는지")
+    public void 올바른_경주_상태_출력_테스트() {
+        //given
+        Cars cars = new Cars(new String[]{"tree", "cap", "ant", "sky"});
+        cars.indexAt(1).increaseMovingCountIfGreater(4, 5);
+        cars.indexAt(1).increaseMovingCountIfGreater(4, 5);
+
+        //when,
+        OutputView.displayCurrentRacingStatus(cars);
+
+        // then
+        assertThat(outputStreamCaptor.toString()).isEqualTo(
+                "tree : \ncap : --\nant : \nsky : \n");
 
     }
 
