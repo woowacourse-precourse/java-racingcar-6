@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
+import racingcar.View.InputView;
 
 public class InputController {
     private static final Pattern CAR_NAME_PATTERN = Pattern.compile("^[a-zA-Z0-9,]+$");
@@ -13,14 +14,26 @@ public class InputController {
     public List<String> getCarNames() {
         while (true) {
             String input = InputView.carInput();
-            if (isValidCarNamesInput(input)) {
-                List<String> carNames = splitInput(input);
-                if (isValidCarNamesList(carNames)) {
-                    return carNames;
-                }
+            List<String> carNames = processInput(input);
+            if (carNames != null) {
+                return carNames;
             }
-            System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
+            displayErrorMessage();
         }
+    }
+
+    private List<String> processInput(String input) {
+        if (isValidCarNamesInput(input)) {
+            List<String> carNames = splitInput(input);
+            if (isValidCarNamesList(carNames)) {
+                return carNames;
+            }
+        }
+        return null;
+    }
+
+    private void displayErrorMessage() {
+        System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
     }
 
     private List<String> splitInput(String input) {
@@ -50,7 +63,7 @@ public class InputController {
 
     private boolean hasLongName(List<String> carNames) {
         if (carNames.stream().anyMatch(name -> name.length() > 5)) {
-            throw new IllegalArgumentException("자동차 이름 길이가 5자를 초과하는 경우가 있습니다.");
+            throw new IllegalArgumentException("자동차 이름 길이가 5자 초과했습니다.");
         }
         return false;
     }
