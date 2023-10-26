@@ -13,12 +13,10 @@ public class RacingGame {
     public void start() {
         setParticipants();
         setRepeat();
-
-        // for test
-        for (Car participant : participants) {
-            participant.Test();
+        while (repeat-- > 0) {
+            move();
+            test();
         }
-        System.out.println(repeat);
     }
 
     private void setParticipants() {
@@ -32,5 +30,18 @@ public class RacingGame {
 
     private void setRepeat() {
         repeat = InputView.inputRepeat();
+    }
+
+    private void move() {
+        for (Car participant : participants) {
+            participant.move();
+        }
+    }
+
+    private void test() {
+        // for test
+        for (Car participant : participants) {
+            participant.test();
+        }
     }
 }
