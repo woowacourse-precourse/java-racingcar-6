@@ -27,7 +27,7 @@ public class Car {
             throw new IllegalArgumentException(CAR_NAME_ERROR_MESSAGE);
         }
     }
-    private void validateIsCarNameExceedMaxLength() {
+    private void validateIsCarNameExceedingMaxLength() {
         if (name.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException(CAR_NAME_ERROR_MESSAGE);
         }
@@ -35,7 +35,7 @@ public class Car {
 
     private void validate() {
         validateIsCarNameEmpty();
-        validateIsCarNameExceedMaxLength();
+        validateIsCarNameExceedingMaxLength();
     }
 
 }
