@@ -39,6 +39,9 @@
 - [ ] RandomNumberGenerator
   - [ ] 자동차의 전진 조건인 랜덤 숫자 (0~9) 만들어주는 기능
 
+- [ ] TransferUtil
+  - [ ] String -> List<String>으로 변환 기능
+
 ### MODEL
 - [ ] Car
   - [ ] 이름과 현재 위치 담을 생성자
