@@ -31,9 +31,15 @@
 
 ### 1. 게임 라운드 실행 기능
 #### Class: RaceController
-- 전체 게임의 라운드를 진행하는 `startRace` 메서드:
-    - `RaceService`를 활용하여 게임 시작
-    - `OutputRaceView`를 통해 게임 결과 출력
+- `startRace` 메서드:
+  - 전체 게임의 라운드를 관리하고 결과를 출력.
+- `conductRace` 메서드:
+  - 경주 게임을 시작하는 기능을 수행
+  - `RaceService`의 `start` 메서드를 호출하여 경주를 시작.
+- `displayWinners` 메서드:
+  - 경주 게임의 결과로 나온 우승자들을 화면에 표시한다.
+  - `RaceService`의 `getWinner` 메서드를 통해 우증자 정보를 받아온 후, `OutputView`의 `PrintWinners` 메서드를 사용하여 우승자를 출력.
+
 
 ## Service
 
