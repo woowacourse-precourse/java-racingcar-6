@@ -1,6 +1,6 @@
 package racingcar.entity.car;
 
-import static racingcar.entity.constants.ErrorConstants.*;
+import static racingcar.constants.ErrorConstants.*;
 
 public class Name {
     private String name;

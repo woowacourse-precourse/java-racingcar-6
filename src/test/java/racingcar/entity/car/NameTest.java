@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
-import static racingcar.entity.constants.ErrorConstants.*;
+import static racingcar.constants.ErrorConstants.*;
 
 class NameTest {
 
