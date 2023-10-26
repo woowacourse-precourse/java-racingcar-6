@@ -7,6 +7,7 @@ public class GameController {
 
     public void readyGame() {
         inputMessage.carName();
+
         inputMessage.times();
 
     }
