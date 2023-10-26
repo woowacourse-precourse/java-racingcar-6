@@ -9,7 +9,7 @@
   - [x] 입력 받은 입력값을 ',' 기준으로 분리하기
   - [x] 자동차 이름들 공백 제거
   - [ ] 자동차 객체 생성하기
-    - [ ] 자동차 이름이 5자를 넘어가면 `IllegalArgumentException`
+    - [x] 자동차 이름이 5자를 넘어가면 `IllegalArgumentException`
     - [ ] 자동차 이름이 0자면 `IllegalArgumentException`
     - [ ] 자동차 이름으로 객체 생성하기
   - [ ] 객체를 배열로 리턴하기
