@@ -5,4 +5,8 @@ public class GameGuidePrinter {
     private static final String tryCountMessage = "시도할 회수는 몇회인가요?";
     private static final String resultMessage = "실행 결과";
     private static final String finalWinnerMessage = "최종 우승자 : ";
+
+    public String getCarNameInputMessage() {
+        return carNameInputMessage;
+    }
 }
