@@ -39,4 +39,13 @@ public class RacingGameTest {
 
         assertThat(racingGame.removeWhiteSpace(input)).isEqualTo(expected);
     }
+
+    @DisplayName("이름이 비었는지 확인하는 기능.")
+    @Test
+    void checkNameIsEmpty_이름_사이즈_0인경우(){
+        RacingGame racingGame=new RacingGame();
+        String emptyName="";
+        assertThatThrownBy(()-> racingGame.checkNameIsEmpty(emptyName))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
