@@ -3,6 +3,7 @@ package racingcar;
 public class RacingGame {
     public static final String COMMA=",";
     public static final int NAME_MAX_LENGTH=5;
+    public static final int NAME_EMPTY_SIZE=0;
     public RacingGame(){
 
     }
@@ -19,5 +20,11 @@ public class RacingGame {
 
     public String removeWhiteSpace(String name){
         return name.replace(" ","");
+    }
+
+    public void checkNameIsEmpty(String name){
+        if(name.length()==NAME_EMPTY_SIZE){
+            throw new IllegalArgumentException("비어있는 이름이 들어왔습니다.");
+        }
     }
 }
