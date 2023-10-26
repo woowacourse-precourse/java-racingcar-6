@@ -5,8 +5,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Separator {
-    public static List<String> separateByComma(String input) {
-        String[] carsArr = input.split(",");
+    private static final String DELIMETER = "";
+
+    public static List<String> separateByDelimeter(String input) {
+        String[] carsArr = input.split(DELIMETER);
         return new ArrayList<>(Arrays.asList(carsArr));
     }
 }
