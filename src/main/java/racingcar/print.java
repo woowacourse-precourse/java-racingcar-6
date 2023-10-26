@@ -23,8 +23,7 @@ public class Print {
         }
     }
 
-    public static void winner(Race race) {
-        List<Car> winner = race.getWinner();
+    public static void winner(List<Car> winner) {
         List<String> winnerName = winner.stream()
                 .map(Car::getName)
                 .toList();
