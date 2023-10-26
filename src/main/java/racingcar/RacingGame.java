@@ -16,4 +16,8 @@ public class RacingGame {
             throw new IllegalArgumentException("이름이 5자를 초과했습니다. 초과이름: "+name);
         }
     }
+
+    public String removeWhiteSpace(String name){
+        return name.replace(" ","");
+    }
 }
