@@ -1,3 +1,11 @@
+### 프로그래밍 요구사항
+
+- ~~JDK 17버전에서 동작해야한다.~~
+- 들여쓰기 depth를 3이 넘지 않도록 구현해야한다. (ex: while문 안에 if문이 있으면 들여쓰기는 2이다.)
+- 3항 연산자를 쓰지 않는다.
+- Random  및 Scanner API대신 `camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()`를 사용한다.
+- 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
+
 ## 객체 간의 협력관계 파악하기
 
 <img src="./racing-car-object-collaborate.png" >
