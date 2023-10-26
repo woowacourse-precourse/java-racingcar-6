@@ -17,4 +17,13 @@ public class Car {
         }
     }
 
+    @Override
+    public String toString() {
+        return this.name + " : " + printMove();
+    }
+
+    private String printMove(){
+        String str = "-";
+        return str.repeat(moveNumber);
+    }
 }
