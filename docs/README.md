@@ -22,16 +22,21 @@
 - [ ] 최종 우승자 결과 계산
 	- [ ] 자동차의 수만큼 loop - 
 		- [ ] 현재 상황이 시도할 횟수와 같다면
-			- 우승자 목록에 추가 - WinnerList
+			- 우승자 목록에 추가 - Winners
 			- addWinner(winner); 
-			- List<String> winnerList
+			- List<String> winners
 - [ ] 최종 우승자 결과 출력 printWinners(List<String> winners) - join 함수 사용해보기
 
 ### 만들 객체들
-Car - 자동차 - 이름, 진행상황 - 전진하는 기능
-Cars - 자동차 목록 - 자동차 목록 저장 기능
-WinnerList - 우승자 목록 - 우승자들을 저장하는 기능
-
+- [x] RacingGame (controller) - 출력과 입력 제어
+- [x] RacingGameService (service) - DATA를 가져와서(?) 출력과 입력을 제어 및 검증
+- [x] model
+	- [x] Car - 자동차 - 이름, 진행상황, 전진하는 기능
+	- [x] Cars - 자동차 목록 - 자동차 목록 저장 기능
+	- [x] WinnerList - 우승자 목록 - 우승자들을 저장하는 기능
+- view
+	- [x] InputView 입력값 가져오기 담당
+	- [x] OutputView 출력하기 담당
 
 
 ### 상수로 지정할 만한 것들
