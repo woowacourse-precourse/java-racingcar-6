@@ -3,6 +3,8 @@ package racingcar;
 import racingcar.view.MessagePrinter;
 import racingcar.view.MessageReceiver;
 
+import java.util.List;
+
 public class GameManager {
 
     private final MessagePrinter messagePrinter;
@@ -19,6 +21,7 @@ public class GameManager {
 
     private void prepareGame() {
         messagePrinter.printCarNameInputMessage();
-        messageReceiver.receiveCarName();
+        String[] carNames = messageReceiver.receiveCarNames();
+        List<RacingCar> racingCars = RacingCar.getRacingCars(carNames);
     }
 }
