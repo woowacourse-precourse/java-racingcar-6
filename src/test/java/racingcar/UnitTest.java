@@ -2,9 +2,13 @@ package racingcar;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static racingcar.Application.checkException;
 import static racingcar.Application.getAnswer;
 
 public class UnitTest {
@@ -17,5 +21,13 @@ public class UnitTest {
 
         String result = getAnswer(map);
         assertThat(result).isEqualTo("최종 우승자 : car1, car3");
+    }
+
+    @Test
+    void test_check_exception() {
+        List<String> carNames = Arrays.asList("short", "verylongname");
+        assertThatThrownBy(() -> {
+            checkException(carNames);
+        }).isInstanceOf(IllegalArgumentException.class);
     }
 }
