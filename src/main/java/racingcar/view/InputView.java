@@ -8,4 +8,8 @@ public class InputView {
     public static void requestCarName() {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
     }
+
+    public static void requestGameCount() {
+        System.out.println(INPUT_GAME_COUNT_MESSAGE);
+    }
 }
