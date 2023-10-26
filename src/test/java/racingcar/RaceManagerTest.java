@@ -8,18 +8,23 @@ import org.junit.jupiter.api.Test;
 
 class RaceManagerTest extends NsTest {
 
-    private static final String MESSAGE =
-            "raceCarList=[RaceCar{name=pobi, position=RacePosition{currentPosition=%d}}, "
-                    + "RaceCar{name=woni, position=RacePosition{currentPosition=%d}}]";
+    private static final String MESSAGE_FOR_POBI = "pobi : %s";
+    private static final String MESSAGE_FOR_WONI = "woni : %s";
+
+    private String to(int i) {
+        return "-".repeat(i);
+    }
 
     @Test
     void 시도1번포비1워니0() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni", "3");
-                    assertThat(output()).contains(String.format(MESSAGE, 1, 0));
+                    assertThat(output()).contains(
+                            String.format(MESSAGE_FOR_POBI, to(1)), String.format(MESSAGE_FOR_WONI, to(0))
+                    );
                 },
-                4, 3
+                4, 3, 5, 0, 5, 0
         );
     }
 
@@ -28,7 +33,9 @@ class RaceManagerTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni", "3");
-                    assertThat(output()).contains(String.format(MESSAGE, 1, 2));
+                    assertThat(output()).contains(
+                            String.format(MESSAGE_FOR_POBI, to(1)), String.format(MESSAGE_FOR_WONI, to(2))
+                    );
                 },
                 4, 3, 2, 6, 2, 6
         );
@@ -39,7 +46,9 @@ class RaceManagerTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni", "3");
-                    assertThat(output()).contains(String.format(MESSAGE, 2, 2));
+                    assertThat(output()).contains(
+                            String.format(MESSAGE_FOR_POBI, to(2)), String.format(MESSAGE_FOR_WONI, to(2))
+                    );
                 },
                 4, 4, 5, 5, 2, 2
         );
@@ -49,6 +58,5 @@ class RaceManagerTest extends NsTest {
     public void runMain() {
         RaceManager raceManager = new RaceManager();
         raceManager.startRace();
-        System.out.println("raceManager = " + raceManager);
     }
 }

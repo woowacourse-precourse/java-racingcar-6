@@ -32,9 +32,23 @@ public class RaceManager {
     }
 
     public void startRace() {
+        Output.printMessage(RESULT_MESSAGE);
+
         for (int i = 0; i < attemptNumber.number(); i++) {
             carList.moveForwardEach();
+            carList.printAllCar();
         }
+
+        printWinner();
+    }
+
+    private void printWinner() {
+        StringBuilder builder = new StringBuilder();
+        for (RaceCar car : carList.getMaximumList()) {
+            builder.append(car).append(", ");
+        }
+
+        Output.printMessage(FINAL_WINNER_MESSAGE + builder);
     }
 
     @Override
