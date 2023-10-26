@@ -34,3 +34,10 @@
 - Output 클래스
   - public static void printMessage(String message)
     - System.out.println() 메소드를 가독성이 좋게 변경
+
+### RandomNumberGenerator 클래스
+
+- RandomNumberGenerator 클래스
+  - public static int getRandomNumber()
+    - camp.nextstep.edu.missionutils.Randoms API를 이용한 무작위 수를 반환한다.
+
