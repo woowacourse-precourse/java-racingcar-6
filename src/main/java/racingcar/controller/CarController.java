@@ -9,10 +9,10 @@ public class CarController {
     List<Car> carList = new ArrayList<>();
 
     CarController() {
-        carsCreater(InputHandler.inputCars());
+        createCars(InputHandler.inputCars());
     }
 
-    void carsCreater(String userInput) {
+    void createCars(String userInput) {
         List<String> separated = List.of(userInput.split(","));
         separated.forEach(i -> carList.add(new Car(i)));
     }

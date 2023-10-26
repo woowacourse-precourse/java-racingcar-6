@@ -11,7 +11,7 @@ public class CarControllerTest {
     @Test
     void carsCreaterTest() {
         CarController controller = new CarController();
-        controller.carsCreater("붕붕이,부왕이,부르릉");
+        controller.createCars("붕붕이,부왕이,부르릉");
         assertEquals(controller.carList.get(0).name.get(), "붕붕이");
     }
 }
