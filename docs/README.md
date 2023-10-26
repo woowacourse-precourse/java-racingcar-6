@@ -22,10 +22,10 @@
     - [ ] CarNameInputErrorException
       - [ ] 각 이름의 길이가 5자 초과 확인
       - [ ] 같은 이름을 가진 자동차가 있는 지 확인
-      - [ ] 아무 값도 입력 안할 경우
+      - [x] 아무 값도 입력 안할 경우 (1자 미만)
     - [ ] TryCountInputErrorException
       - [ ] 숫자 이외의 값이 들어오는지 검사
-      - [ ] 아무 값도 입력 안할 경우
+      - [ ] 아무 값도 입력 안할 경우 (1자 미만)
 
 ### UTIL
 - [ ] MessageUtil (enum)
