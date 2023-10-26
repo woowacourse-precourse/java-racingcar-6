@@ -16,13 +16,15 @@ public class GameManager {
     }
 
     public void playGame() {
-        prepareGame();
+        int attemptCount = prepareGame();
     }
 
-    private void prepareGame() {
+    private int prepareGame() {
         messagePrinter.printCarNameInputMessage();
         String[] carNames = messageReceiver.receiveCarNames();
-        List<RacingCar> racingCars = RacingCar.getRacingCars(carNames);
+        List<RacingCar> racingCars = RacingCar.createRacingCars(carNames);
         messagePrinter.printAttemptCountInputMessage();
+
+        return messageReceiver.receiveAttemptCount();
     }
 }

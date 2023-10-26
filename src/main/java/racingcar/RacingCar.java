@@ -20,7 +20,7 @@ public class RacingCar {
         return new RacingCar(carName, STARTING_POINT);
     }
 
-    public static List<RacingCar> getRacingCars(final String[] carNames) {
+    public static List<RacingCar> createRacingCars(final String[] carNames) {
         List<RacingCar> racingCars = new ArrayList<>();
 
         for (String carName : carNames) {
