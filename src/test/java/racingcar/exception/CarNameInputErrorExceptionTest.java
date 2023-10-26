@@ -17,5 +17,4 @@ class CarNameInputErrorExceptionTest {
         Assertions.assertThatThrownBy(() -> inputErrorException.checkUserInputValidate(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
-
 }
