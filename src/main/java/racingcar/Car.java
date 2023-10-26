@@ -3,7 +3,7 @@ package racingcar;
 public class Car {
     private int cnt;
 
-    public Car() {
+    public Car(String car) {
         this.cnt = 0;
     }
     public void moveForward(){

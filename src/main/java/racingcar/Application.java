@@ -11,5 +11,10 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
         String tryCount = Console.readLine();
+
+        Car[] carList = new Car[cars.length];
+        for (int i = 0; i < cars.length; i++) {
+            carList[i] = new Car(cars[i]);
+        }
     }
 }
