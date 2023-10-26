@@ -1,5 +1,9 @@
 # 🏎️ 자동차 경주 게임
 
+## 흐름도
+
+![flow_chart.png](flow_chart.png)
+
 ## 기능 요구 사항
 
 - [ ] 입력
