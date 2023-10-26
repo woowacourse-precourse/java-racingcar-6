@@ -12,6 +12,9 @@ public class InputException {
            if(name.length() > 5) {
                throw new IllegalArgumentException();
            }
+           if(name.contains(" ")) {
+               throw new IllegalArgumentException();
+           }
        }
     }
 

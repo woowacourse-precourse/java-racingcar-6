@@ -2,17 +2,19 @@ package racingcar.impl;
 
 import racingcar.Game;
 import racingcar.RandomNumberProvider;
-import racingcar.entity.Result;
 import racingcar.UserInput;
+import racingcar.entity.Participant;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.function.DoubleToIntFunction;
 
 public class RacingGame implements Game {
     private UserInput userInput;
     private RandomNumberProvider randomNumberProvider;
-    private List<String> participants;
+    private List<Participant> participants;
     private int attemptNum;
-    private List<Result> results;
 
     public RacingGame(UserInput userInput, RandomNumberProvider randomNumberProvider) {
         this.userInput = userInput;
@@ -23,20 +25,34 @@ public class RacingGame implements Game {
     @Override
     public void start() {
         setParticipants();
-        initResults();
+        setAttemptNum();
         for(int numOfAttempt = 1; numOfAttempt <= attemptNum; numOfAttempt++) {
             startOneTurn();
+            printCurrentResults();
         }
     }
 
 
 
     private void startOneTurn() {
-        for(String participant : participants) {
+        for(Participant participant : participants) {
             if(isForward()) {
-
+                int forward = participant.getForward();
+                participant.setForward(++forward);
             }
         }
+
+    }
+
+    private void printCurrentResults() {
+        for(Participant participant : participants) {
+            System.out.print(participant.getName() + " : ");
+            for(int numberOfForward = 0; numberOfForward < participant.getForward(); numberOfForward++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 
     private boolean isForward() {
@@ -44,21 +60,35 @@ public class RacingGame implements Game {
     }
 
     private void setParticipants() {
-        participants = userInput.inputUserNames();
+        participants = new ArrayList<>();
+        for(String name : userInput.inputUserNames()) {
+            participants.add(new Participant(name, 0));
+        }
     }
 
     private void setAttemptNum() {
         attemptNum = userInput.inputAttemptNum();
     }
 
-    private void initResults() {
-        for(String participant : participants) {
-            results.add(new Result(participant, 0));
+    @Override
+    public void getResult() {
+        List<Participant> winner = getWinner();
+        for(Participant participant : winner) {
+            System.out.print(participant.getName());
         }
     }
 
-    @Override
-    public String getResult() {
-        return null;
+    private List<Participant> getWinner() {
+        List<Participant> winners = new ArrayList<>();
+        participants.sort((o1, o2) -> o2.getForward() - o1.getForward());
+        Participant first = participants.get(0);
+        winners.add(participants.get(0));
+        for(int numOfParticipant = 1; numOfParticipant < participants.size(); numOfParticipant++) {
+            if(participants.get(numOfParticipant).getForward() < first.getForward()) {
+                break;
+            }
+            winners.add(participants.get(numOfParticipant));
+        }
+        return winners;
     }
 }
