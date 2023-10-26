@@ -1,5 +1,6 @@
 package racingcar.cars;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -30,5 +31,9 @@ public class Cars {
                 throw new IllegalArgumentException();
             }
         }
+    }
+
+    private int generateRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 }
