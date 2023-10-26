@@ -10,7 +10,7 @@ public class Output {
     }
 
     public static void printWinner (String winners) {
-        System.out.println("최종 우승자" + winners);
+        System.out.println("최종 우승자 : " + winners);
     }
 
 }

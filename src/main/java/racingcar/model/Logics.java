@@ -6,7 +6,10 @@ import racingcar.model.DataObj;
 public class Logics {
     public static String forwardOrNot () {
         int randomNumbers = Randoms.pickNumberInRange(0, 9);
-        return randomNumbers >= 4 ? "-" : "";
+        if(randomNumbers >= 4) {
+            return "-";
+        }
+        return "";
     }
 
     public static String[] splitNames (String names) {
@@ -20,12 +23,10 @@ public class Logics {
             maxNum = Math.max(maxNum, Datas[i].getProgress().length());
         }
         for(int i = 0; i < Datas.length; i++) {
-            if(maxNum == Datas[i].getProgress().length()) {
-                if(result.length() == 0) {
-                    result+=Datas[i].getName();
-                } else {
-                    result+=", "+Datas[i].getName();
-                }
+            if(maxNum == Datas[i].getProgress().length() && result.length() == 0) {
+                result+=Datas[i].getName();
+            } else if (maxNum == Datas[i].getProgress().length() && result.length() != 0) {
+                result+=", "+Datas[i].getName();
             }
         }
 
