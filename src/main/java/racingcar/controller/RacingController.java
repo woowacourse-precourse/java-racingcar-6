@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.Car;
 import racingcar.domain.CarGarage;
+import racingcar.domain.TryCount;
 import racingcar.service.RacingCircuit;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -22,9 +23,9 @@ public class RacingController {
 
     public void run() {
         CarGarage carGarage = inputView.getCars();
-        int tryCount = inputView.getTryCount();
+        TryCount count = inputView.getTryCount();
         outputView.printResultMessage();
-        for (int i = 0; i < tryCount; i++) {
+        for (int i = 0; i < count.value(); i++) {
             circuit.race(carGarage);
             outputView.printRaceResult(carGarage);
         }

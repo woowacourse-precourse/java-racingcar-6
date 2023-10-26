@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
 import racingcar.domain.CarGarage;
+import racingcar.domain.TryCount;
 import racingcar.util.TypeConverter;
 
 import java.util.List;
@@ -23,32 +24,13 @@ public class InputView {
         return new CarGarage(cars);
     }
 
-    public int getTryCount() {
+    public TryCount getTryCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
         try {
-            int count = Integer.parseInt(input);
-            checkCount(count);
-            return count;
+            return new TryCount(Integer.parseInt(input));
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자만 입력 가능합니다.");
-        }
-    }
-
-    private void checkCount(int count) {
-        checkPositive(count);
-        checkMax(count);
-    }
-
-    private void checkPositive(int count) {
-        if (count <= 0) {
-            throw new IllegalArgumentException("자연수만 입력 가능합니다.");
-        }
-    }
-
-    private void checkMax(int count) {
-        if (count >= Integer.MAX_VALUE) {
-            throw new IllegalArgumentException("유효하지 않은 입력입니다.");
         }
     }
 }
