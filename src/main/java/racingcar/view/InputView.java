@@ -21,6 +21,7 @@ public class InputView {
     public int inputTryNumber(){
         System.out.println("시도할 회수는 몇회인가요?");
         String tryNumber = readLine();
+        Validator.validateOverOneNumber(tryNumber);
         return Integer.parseInt(tryNumber);
     }
 
