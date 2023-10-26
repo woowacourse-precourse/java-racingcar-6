@@ -1,12 +1,17 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.Mockito.mockStatic;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.when;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -41,8 +46,13 @@ class ApplicationTest extends NsTest {
     @Test
     void 경주할_자동차_이름을_입력() {
         final String expected = "pobi,woni,jun";
-        final String inputCarName = "";
-        assertThat(inputCarName).contains(expected);
+
+        try (MockedStatic<Console> mockConsole = mockStatic(Console.class)) {
+            mockConsole.when(() -> Console.readLine()).thenReturn(expected);
+            final String readCarNames = Application.readCarNames();
+            assertThat(readCarNames).contains(expected);
+        }
+    }
     }
 
     @Override
