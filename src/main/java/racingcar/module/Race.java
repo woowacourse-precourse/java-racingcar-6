@@ -24,12 +24,14 @@ public class Race {
         return winnerList;
     }
 
+    public void simulateTurn() {
+        carList.forEach(Car::turnAction);
+    }
+
     int findFarthest() {
         Comparator<Car> compareByPose = Comparator.comparingInt(Car::getPos);
         return carList.stream().max(compareByPose).orElseThrow(NoSuchElementException::new).getPos();
     }
 
-    void simulateTurn() {
-        carList.forEach(Car::turnAction);
-    }
+
 }
