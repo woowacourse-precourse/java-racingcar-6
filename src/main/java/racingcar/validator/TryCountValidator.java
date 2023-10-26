@@ -2,15 +2,15 @@ package racingcar.validator;
 
 import racingcar.util.Convertor;
 
-public class MoveCountValidator {
+public class TryCountValidator {
 
-    private MoveCountValidator() {
+    private TryCountValidator() {
     }
 
     public static void validate(String input) {
         validateNull(input);
         validateInputFormat(input);
-        validateMoveCount(input);
+        validateInputRange(input);
         validateIsStartZero(input);
     }
 
@@ -26,7 +26,7 @@ public class MoveCountValidator {
         }
     }
 
-    private static void validateMoveCount(String input) {
+    private static void validateInputRange(String input) {
         int moveCount = Convertor.convertStringToInt(input);
         if (moveCount < 1) {
             throw new IllegalArgumentException("이동 횟수는 0보다 커야 합니다.");

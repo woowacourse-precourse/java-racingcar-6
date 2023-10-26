@@ -2,7 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.validator.CarNameValidator;
-import racingcar.validator.MoveCountValidator;
+import racingcar.validator.TryCountValidator;
 
 public class InputView {
 
@@ -15,9 +15,9 @@ public class InputView {
         return input;
     }
 
-    public static String inputMoveCount() {
+    public static String inputTryCount() {
         String input = Console.readLine();
-        MoveCountValidator.validate(input);
+        TryCountValidator.validate(input);
         return input;
     }
 }
