@@ -5,7 +5,7 @@
 - [x] 자동차의 위치 비교 결과를 표현한 Enum - CarPositionCompareResult
 - [x] 자동차의 이동 횟수를 저장한다 - CarMoveCount
 - [x] 이동 여부에 따라 moveCount 를 증가한 객체를 반환한다 - CarMoveCount
-- [ ] 시도할 회수를 저장하고 CarMoveCount 와 비교한다 - TotalNumberToMove
+- [x] 시도할 회수를 저장하고 CarMoveCount 와 비교한다 - TotalNumberToMove
 - [ ] 자동차의 이름을 저장하고 출력한다 - Car
 - [ ] CarPosition 을 저장하고 비교한다 - Car
 - [ ] CarMoveCount 를 저장하고 업데이트한다 - Car
