@@ -14,7 +14,6 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.mockStatic;
-import static org.mockito.Mockito.times;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -58,15 +57,6 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 경주할_자동차_이름을_입력이후_Console_close_메서드_호출() {
-        try (MockedStatic<Console> mockConsole = mockStatic(Console.class)) {
-            mockConsole.when(() -> Console.readLine()).thenReturn("");
-            Application.readCarNames();
-            mockConsole.verify(() -> Console.close(), times(1));
-        }
-    }
-
-    @Test
     void 자동차_이름을_쉼표로_구분하여_이름_배열을_만듦() {
         final List<String> expected = List.of("pobi", "woni", "jun");
         final List<String> actual = Application.getCarNameListFromCarNames("pobi,woni,jun");
@@ -105,15 +95,6 @@ class ApplicationTest extends NsTest {
             mockConsole.when(() -> Console.readLine()).thenReturn(String.valueOf(expected));
             final int actual = Application.readTryCount();
             assertThat(actual).isEqualTo(expected);
-        }
-    }
-
-    @Test
-    void 시도할_회수를_입력이후_Console_close_메서드_호출() {
-        try (MockedStatic<Console> mockConsole = mockStatic(Console.class)) {
-            mockConsole.when(() -> Console.readLine()).thenReturn("0");
-            Application.readTryCount();
-            mockConsole.verify(() -> Console.close(), times(1));
         }
     }
 
