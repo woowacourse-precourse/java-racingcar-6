@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import java.util.List;
+import java.util.ArrayList;
 import racingcar.enums.StringEnum;
 
 public class OutputView {
@@ -23,10 +23,8 @@ public class OutputView {
         return s.append("-".repeat(position));
     }
 
-    public void printResult(List<String> winner) {
-        String s =
-                StringEnum.RESULT_STRING
-                        + String.join(", ", winner);
+    public void printResult(ArrayList<String> winner) {
+        String s = StringEnum.RESULT_STRING + String.join(", ", winner);
         System.out.println(s);
     }
 }
