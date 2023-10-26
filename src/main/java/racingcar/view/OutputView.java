@@ -10,6 +10,8 @@ public class OutputView {
 
     private static final String DELIMITER = " : ";
 
+    private static final String FINAL_WINNER = "최종 우승자";
+
     public void showResultMessage() {
         System.out.println("실행 결과");
     }
@@ -23,6 +25,6 @@ public class OutputView {
     }
 
     public void showWinner(Referee referee, Cars cars) {
-        System.out.println("최종 우승자" + DELIMITER + referee.getWinner(cars));
+        System.out.println(FINAL_WINNER + DELIMITER + referee.getWinner(cars));
     }
 }
