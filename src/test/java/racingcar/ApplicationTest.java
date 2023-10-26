@@ -70,6 +70,13 @@ class ApplicationTest extends NsTest {
         assertThat(actual).isEqualTo(expected);
     }
 
+    @Test
+    void getCarNameListFromCarNames_메서드에서_받은_리스트는_수정이_불가능() {
+        final List<String> carNameList = Application.getCarNameListFromCarNames("pobi,woni,jun");
+        assertThatThrownBy(() -> carNameList.set(0, "daram"))
+                .isInstanceOf(UnsupportedOperationException.class);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
