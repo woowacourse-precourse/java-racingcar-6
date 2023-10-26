@@ -24,8 +24,7 @@ public class CarTest {
     @ParameterizedTest
     @MethodSource("provideRandomNumbersForIsGreaterThanFour")
     void isRunnable_메서드_무작위_값이_4이상인_경우에_전진이_가능(final int randomNumber, final boolean expected) {
-        final String expectedName = "jun";
-        final Car car = new Car(expectedName);
+        final Car car = new Car("jun");
 
         try (MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
             mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt())).thenReturn(randomNumber);
