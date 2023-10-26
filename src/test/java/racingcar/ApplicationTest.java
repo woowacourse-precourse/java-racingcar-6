@@ -152,6 +152,7 @@ class ApplicationTest extends NsTest {
             mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
                     .thenReturn(MOVING_FORWARD, MOVING_FORWARD, STOP);
 
+            Application.moveForward(carList);
             final List<Car> actual = Application.getCarListWithLongestDistance(carList);
 
             assertThat(actual).isEqualTo(expected);
