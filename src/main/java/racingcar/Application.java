@@ -36,8 +36,12 @@ public class Application {
 
     public static int readTryCount() {
         final String tryCount = Console.readLine();
-        final int tryCountConvertedToInt = Integer.parseInt(tryCount);
-        return tryCountConvertedToInt;
+        try {
+            final int tryCountConvertedToInt = Integer.parseInt(tryCount);
+            return tryCountConvertedToInt;
+        } catch (NumberFormatException exception) {
+            throw new IllegalArgumentException("숫자를 입력해 주세요.");
+        }
     }
 
     public static void printNewLine() {
