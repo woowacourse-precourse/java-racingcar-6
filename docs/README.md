@@ -10,5 +10,5 @@
 - [x] 수행 횟수동안 전진 출력 반복하기 // RacingGame : void rotate()
 - [x] 우승자 결정하기 // Cars : Cars findWinners()
 - [x] 우승자 출력하기 // OutputView : void printWinner(CarsDto)
-- [x] 자동차 이름 길이 5이하 검증하기 // CarValidator : void validate(String name) throw IllegalArgumentException
-- [x] 수행 횟수 입력값 0 또는 양의 정수인지 검증하기 // NumberValidator : void validate(String times) throw IllegalArgumentException
+- [x] 자동차 이름 길이 5이하 검증하기 // CarValidator : void validate(String name) throw RacingException
+- [x] 수행 횟수 입력값 0 또는 양의 정수인지 검증하기 // NumberValidator : void validate(String times) throw RacingException
