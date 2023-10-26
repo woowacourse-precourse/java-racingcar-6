@@ -15,4 +15,8 @@ public class Player {
     public int getDistance(){
         return this.distance;
     }
+
+    public void forward(){
+        this.distance++;
+    }
 }

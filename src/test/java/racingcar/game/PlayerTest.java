@@ -7,16 +7,24 @@ import org.junit.jupiter.api.Test;
 public class PlayerTest {
 
     @Test
-    @DisplayName("Player 이름 출력 테스트")
     void playerNamePrint(){
         Player player = new Player("worm");
         Assertions.assertThat(player.getName()).isEqualTo("worm");
     }
 
     @Test
-    @DisplayName("Player 거리 출력 테스트")
     void playerDistancePrint(){
         Player player = new Player("worm");
         Assertions.assertThat(player.getDistance()).isEqualTo(0);
+    }
+
+    @Test
+    void increaseDistance(){
+        Player player = new Player("worm");
+        int distance = 3;
+        for(int i = 0 ; i < distance; i++){
+            player.forward();
+        }
+        Assertions.assertThat(player.getDistance()).isEqualTo(distance);
     }
 }
