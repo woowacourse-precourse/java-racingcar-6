@@ -1,7 +1,9 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
+import racingcar.model.MoveInfo;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +15,13 @@ public class RacingGame {
     public void start() {
         setParticipants();
         setRepeat();
+
+        OutputView.printResultTitle();
         while (repeat-- > 0) {
             move();
-            test();
         }
+
+        finishGame();
     }
 
     private void setParticipants() {
@@ -35,13 +40,26 @@ public class RacingGame {
     private void move() {
         for (Car participant : participants) {
             participant.move();
+            OutputView.printResult(participant.info());
         }
+        System.out.println();
     }
 
-    private void test() {
-        // for test
+    private void finishGame() {
+        int maxMoved = -1;
+        List<String> names = new ArrayList<>();
+
         for (Car participant : participants) {
-            participant.test();
+            MoveInfo info = participant.info();
+            if (info.moved > maxMoved) {
+                maxMoved = info.moved;
+                names = new ArrayList<>();
+                names.add(info.name);
+            } else if (info.moved == maxMoved) {
+                names.add(info.name);
+            }
         }
+
+        OutputView.printFinalWinner(names);
     }
 }

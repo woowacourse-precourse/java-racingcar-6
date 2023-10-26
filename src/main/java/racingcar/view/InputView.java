@@ -7,7 +7,7 @@ public class InputView {
     private static final String INPUT_REPEAT = "시도할 회수는 몇회인가요?";
 
     private InputView() {
-        // 생성자 호출 금지
+        // 생성자 호출 방지
     }
 
     public static String[] inputNames() {

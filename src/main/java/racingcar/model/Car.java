@@ -3,7 +3,7 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    private String name;
+    private final String name;
     private int moved = 0;
 
     public Car(String name) {
@@ -20,8 +20,7 @@ public class Car {
         }
     }
 
-    // for test
-    public void test() {
-        System.out.println(name + " " + moved);
+    public MoveInfo info() {
+        return new MoveInfo(name, moved);
     }
 }
