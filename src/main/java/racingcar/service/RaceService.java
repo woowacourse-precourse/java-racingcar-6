@@ -14,15 +14,25 @@ public class RaceService {
     private Race race;
 
     public void start() {
-        List<Car> cars = Arrays.stream(InputRaceView.readCarNames().split(","))
-                .map(Car::new)
-                .collect(Collectors.toList());
-
-        int raceCount = InputRaceView.readRaceCount();
+        List<Car> cars = initializeCars();
+        int raceCount = getRaceCount();
         race = new Race(cars);
 
         System.out.println(Constants.RACE_RESULT_HEADER);
+        conductRaces(raceCount);
+    }
 
+    private List<Car> initializeCars() {
+        return Arrays.stream(InputRaceView.readCarNames().split(","))
+                .map(Car::new)
+                .collect(Collectors.toList());
+    }
+
+    private int getRaceCount() {
+        return InputRaceView.readRaceCount();
+    }
+
+    private void conductRaces(int raceCount) {
         for (int i = 0; i < raceCount; i++) {
             race.run();
             OutputRaceView.printRaceResult(race.getCars());
