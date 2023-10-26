@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
 
     private static final int MAX_CAR_NAME_LENGTH = 5;
@@ -23,7 +25,12 @@ public class Car {
     }
 
     public void drive() {
-        this.position += 1;
+//        this.position += 1;
+        // TODO: Randoms와의 의존성을 가지는 것에 대해 생각해보기
+        int number = Randoms.pickNumberInRange(1, 9);
+        if (number > 3) {
+            this.position += 1;
+        }
     }
 
     private String expressPosition() {
