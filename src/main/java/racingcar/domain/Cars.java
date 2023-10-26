@@ -21,4 +21,10 @@ public class Cars {
         }
         return cars;
     }
+
+    public void move() {
+        for (Car car : cars) {
+            car.move();
+        }
+    }
 }
