@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 
-class RaceExceptionTest {
+class CarNameValidatorTest {
     @Test
     @DisplayName("자동차 이름이 null일때 예외처리 발생")
     void shouldThrowExceptionWhenCarNameIsNull() {
