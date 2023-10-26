@@ -3,6 +3,8 @@ package racingcar.domain;
 
 import java.util.Arrays;
 import java.util.List;
+import racingcar.exception.ErrorMessage;
+import racingcar.exception.RacingGameException;
 
 public class Cars {
 
@@ -42,6 +44,6 @@ public class Cars {
         return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
-                .orElseThrow(() -> new IllegalArgumentException("[ERROR] 최대 위치를 찾을 수 없습니다."));
+                .orElseThrow(() -> RacingGameException.of(ErrorMessage.CANT_FIND_MAX_VALUE));
     }
 }
