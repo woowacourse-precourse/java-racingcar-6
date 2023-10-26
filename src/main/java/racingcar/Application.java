@@ -12,7 +12,7 @@ public class Application {
         // TODO: 프로그램 구현
         GameConfig gameConfig = new GameConfig();
         Race race = new Race();
-        List<Car> cars = gameConfig.createCars("민지,윤호,민겸,지희,지볌우시,바나바나,보노보노보,하이젠버그,한");
+        List<Car> cars = gameConfig.createCars("민지");
 
         for (Car car : cars) {
             System.out.println(car.getName());
@@ -21,5 +21,12 @@ public class Application {
         gameConfig.setMoveCount(Integer.parseInt(Console.readLine()));
 
         System.out.println("시도 횟수 = " + gameConfig.moveCount);
+
+        race.startRace(cars, gameConfig.moveCount);
+
+
+        for (Car car : cars) {
+            System.out.println(car.getName() + car.getForward() + "번 이동");
+        }
     }
 }
