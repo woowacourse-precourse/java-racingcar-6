@@ -11,4 +11,4 @@
 - [ ] 우승자 결정하기 // Cars : Cars filterWinner()
 - [ ] 우승자 출력하기 // OutputView : void printWinner(CarsDto)
 - [ ] 자동차 이름 길이 5이하 검증하기 // CarValidator : void validateName(String name) throw IllegalArgumentException
-- [ ] 수행 횟수 입력값 0 또는 양의 정수인지 검증하기 // NumberValidator : void validate(String times) throw IllegalArgumentException
+- [x] 수행 횟수 입력값 0 또는 양의 정수인지 검증하기 // NumberValidator : void validate(String times) throw IllegalArgumentException
