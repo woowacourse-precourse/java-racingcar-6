@@ -27,7 +27,7 @@
   - [x] 입력받은 문자열을 쉼표(,)를 기준으로 나눠준다. -splitNames()
   - [ ] 이름의 적합성을 판단한다. -validateName()
     - [x] 이름에 공백이 포함되는 경우 공백을 지운다. -removeWhiteSpace()
-    - [ ] 이름의 길이가 0,즉 비어있는지 확인한다. -checkNameIsEmpty()
+    - [x] 이름의 길이가 0,즉 비어있는지 확인한다. -checkNameIsEmpty()
       - 길이가 0일경우 IllegalArgumentException을 발생하고 애플리케이션을 종료시킨다.
     - [x] 각 이름들의 길이가 5 이하인지 확인한다. -checkNameCorrectRange()
       - 길이가 5 초과일경우 IllegalArgumentException을 발생하고 애플리케이션을 종료시킨다.
