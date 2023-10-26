@@ -17,8 +17,11 @@ public class ExceptionHandler {
 
     // 중복 이름 불허
     public static boolean isNameAlreadyExists(List<String> playerArray) {
+        Set<String> uniqueNames = new HashSet<>();
         for (String player : playerArray) {
-            if (playerArray.contains(player)) return true;
+            if (!uniqueNames.add(player)) {
+                return true;
+            }
         }
         return false;
     }
