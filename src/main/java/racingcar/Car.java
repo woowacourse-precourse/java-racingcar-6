@@ -9,6 +9,16 @@ public class Car {
 
     public Car(final String name) {
         this.name = name;
+        validateNameSize();
+    }
+
+    private void validateNameSize() {
+        final int LIMIT_NAME_SIZE = 5;
+        if (name.length() <= LIMIT_NAME_SIZE) {
+            return;
+        }
+
+        throw new IllegalArgumentException("Car 객체의 name 속성은 " + LIMIT_NAME_SIZE + "자 이하만 가능합니다.");
     }
 
     public String getName() {

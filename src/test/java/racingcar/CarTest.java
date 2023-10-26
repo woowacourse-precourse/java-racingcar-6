@@ -1,6 +1,7 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.mockStatic;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -20,6 +21,12 @@ public class CarTest {
         final Car car = new Car(expected);
         final String actual = car.getName();
         assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    void name_속성이_5글자를_초과하면_IllegalArgumentException_예외() {
+        assertThatThrownBy(() -> new Car("abcdef"))
+            .isInstanceOf(IllegalArgumentException.class);
     }
 
     @ParameterizedTest
