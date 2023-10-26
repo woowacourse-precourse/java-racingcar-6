@@ -6,23 +6,25 @@ import static org.assertj.core.api.Assertions.*;
 
 public class CarTest {
 
+    private static final String VALID_NAME = "pobi";
+
     @Test
     void 자동차_정상_생성() {
         //given
-        String validName = "pobi";
+        Name validName = new Name(VALID_NAME);
 
         //when
         Car car = new Car(validName);
 
         //then
-        assertThat(car.getName()).isEqualTo(validName);
+        assertThat(car.getName()).isEqualTo(validName.getValue());
         assertThat(car.getPosition()).isEqualTo(0);
     }
 
     @Test
     void 자동차_전진() {
         //given
-        Car car = new Car("name");
+        Car car = new Car(new Name(VALID_NAME));
 
         //when
         car.goForward();
@@ -31,36 +33,4 @@ public class CarTest {
         assertThat(car.getPosition()).isEqualTo(1);
     }
 
-    @Test
-    void 공백_이름_예외() {
-        //given
-        String blankName = " ";
-
-        //when & then
-        assertThatThrownBy(() -> new Car(blankName))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("공백은 입력 불가능 합니다.");
-    }
-
-    @Test
-    void 이름_길이_예외() {
-        //given
-        String longName = "abcdef";
-
-        //when & then
-        assertThatThrownBy(() -> new Car(longName))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("5자 이하의 이름만 가능합니다.");
-    }
-
-    @Test
-    void 숫자_이름_예외() {
-        //given
-        String numberName = "123";
-
-        //when & then
-        assertThatThrownBy(() -> new Car(numberName))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("숫자는 입력 불가능 합니다.");
-    }
 }

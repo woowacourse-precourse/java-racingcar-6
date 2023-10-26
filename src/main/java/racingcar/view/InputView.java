@@ -2,6 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
+import racingcar.domain.Name;
 import racingcar.util.TypeConverter;
 
 import java.util.ArrayList;
@@ -21,7 +22,8 @@ public class InputView {
         List<String> nameList = converter.convertToList(input);
         List<Car> cars = new ArrayList<>();
         for (String name : nameList) {
-            cars.add(new Car(name));
+            Name carName = new Name(name);
+            cars.add(new Car(carName));
         }
         return cars;
     }
