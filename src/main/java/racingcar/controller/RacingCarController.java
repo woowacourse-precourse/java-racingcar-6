@@ -14,5 +14,6 @@ public class RacingCarController {
         OutputView.printCarNameInputMessage();
         CarController.makeCar(InputView.inputCarNames());
         OutputView.printRacingCountInputMessage();
+        RacingCountController.makeRacingCount(InputView.inputRacingCount());
     }
 }

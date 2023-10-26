@@ -4,7 +4,10 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
     public static String inputCarNames() {
-        String carNames = Console.readLine();
-        return carNames;
+        return Console.readLine();
+    }
+
+    public static String inputRacingCount() {
+        return Console.readLine();
     }
 }
