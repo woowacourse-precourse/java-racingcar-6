@@ -80,10 +80,8 @@ public class CarController {
             StringBuffer sb = new StringBuffer();
             sb.append(names[i]);
             sb.append(" : ");
-            for (int j = 0; j < locates[i]; j++) {
-                sb.append("-");
-            }
-            System.out.println(sb.toString());
+            sb.append("-".repeat(locates[i]));
+            System.out.println(sb);
         }
         System.out.println("");
     }
