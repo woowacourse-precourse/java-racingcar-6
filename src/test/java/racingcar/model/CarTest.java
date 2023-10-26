@@ -38,4 +38,14 @@ class CarTest {
         assertThatThrownBy(() -> new Car(longName))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void exceptionThrownWhenNameIsLessThanMinLength() {
+        // given
+        String shortName = "";
+
+        // when & then
+        assertThatThrownBy(() -> new Car(shortName))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
