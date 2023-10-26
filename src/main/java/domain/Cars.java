@@ -2,6 +2,8 @@ package domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import message.GameMessage;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -28,11 +30,32 @@ public class Cars {
         }
     }
 
-    public void race() {
+    public String getResult(int count) {
+        while(count-- > 0) {
+            race();
+        }
+        return sb.toString();
+    }
+
+    private void race() {
         for(Car car : carList) {
             int randomNumber = Randoms.pickNumberInRange(0,9);
             car.move(randomNumber);
+            raceRecord(car);
         }
+        sb.append(GameMessage.newLine.getMessage());
+    }
+
+    private void raceRecord(Car car) {
+        sb.append(car.getName()).append(GameMessage.equal.getMessage());
+        buildBar(car.getDistance());
+    }
+
+    private void buildBar(int distance) {
+        for(int i = 0; i < distance; i++) {
+            sb.append(GameMessage.bar.getMessage());
+        }
+        sb.append(GameMessage.newLine.getMessage());
     }
 
     public String getWinners() {
