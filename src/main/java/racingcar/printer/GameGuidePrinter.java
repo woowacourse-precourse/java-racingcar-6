@@ -9,4 +9,8 @@ public class GameGuidePrinter {
     public String getCarNameInputMessage() {
         return carNameInputMessage;
     }
+
+    public String getTryCountMessage() {
+        return tryCountMessage;
+    }
 }
