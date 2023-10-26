@@ -12,14 +12,14 @@ public class Application {
         OutputView.racingCarOpeningComment();
         // 자동차 이름 입력 받기
         List<Car> cars = InputView.getCarNames();
-        for (Car car : cars) {
-            System.out.println("car.getName() = " + car.getName());
-        }
+//        for (Car car : cars) {
+//            System.out.println("car.getName() = " + car.getName());
+//        }
         // 도전 횟수 멘트
         OutputView.tryCountInputComment();
         // 도전 횟수 입력 받기
         Integer tryCount = InputView.getTryCount();
-        System.out.println("tryCount = " + tryCount);
+//        System.out.println("tryCount = " + tryCount);
 
         // 레이싱 게임 결과 멘트
         OutputView.racingCarResultComment();
@@ -42,10 +42,11 @@ public class Application {
                 .map(car -> car.getName())
                 .toArray(String[]::new);
 
-        for (String s : resultArr) {
-            System.out.println("s = " + s);
-        }
+//        for (String s : resultArr) {
+//            System.out.println("s = " + s);
+//        }
 
-
+        // 우승자 출력
+        OutputView.racingCarWinnerPrint(resultArr);
     }
 }

@@ -27,4 +27,9 @@ public class OutputView {
     public static void println() {
         System.out.println();
     }
+
+    public static void racingCarWinnerPrint(String... names) {
+        String winners = String.join(", ", names);
+        System.out.println(RacingCarGameComments.WINNER_COMMENT + winners);
+    }
 }

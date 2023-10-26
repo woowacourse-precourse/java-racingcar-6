@@ -8,4 +8,5 @@ public abstract class RacingCarGameComments {
 
     public static final String RESULT_COMMENT = "실행 결과";
 
+    public static final String WINNER_COMMENT = "최종 우승자 : ";
 }
