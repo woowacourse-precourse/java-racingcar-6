@@ -13,8 +13,6 @@ public class CarController {
             Car car = new Car(s);
             cars.add(car);
         }
-
         return cars;
     }
-
 }
