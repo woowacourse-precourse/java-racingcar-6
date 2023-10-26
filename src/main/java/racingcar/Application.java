@@ -6,6 +6,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 
 public class Application {
+    static int max=0;
+    static String winner="";
     public static void main(String[] args) {
         String[] cars_name;
         Integer[] cars_race;
@@ -25,6 +27,10 @@ public class Application {
             racing(cars_name,cars_race);
             System.out.println();
         }
+        for(i=0;i< cars_name.length;i++){
+            win(cars_name[i],cars_race[i]);
+        }
+        System.out.println("최종 우승자 : "+winner);
     }
     public static void racing(String[] name, Integer[] race){
         for(int i=0;i<name.length;i++){
@@ -38,5 +44,14 @@ public class Application {
     }
     public static void road(Integer race){
         for(int i=0;i< race;i++)System.out.print("-");
+    }
+    public static void win(String name, Integer road){
+        if(road>max){
+            max=road;
+            winner=name;
+        } else if(road==max){
+            winner=winner+", "+name;
+        }
+
     }
 }
