@@ -84,6 +84,18 @@ class ApplicationTest extends NsTest {
         assertThat(output()).contains(STRING_INPUT_TRY_COUNT);
     }
 
+    @Test
+    void 시도할_회수를_입력() {
+        final int expected = 5;
+
+        try (MockedStatic<Console> mockConsole = mockStatic(Console.class)) {
+            mockConsole.when(() -> Console.readLine()).thenReturn(String.valueOf(expected));
+            final int readTryCount = Application.readTryCount();
+            assertThat(readTryCount).isEqualTo(expected);
+        }
+    }
+
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
