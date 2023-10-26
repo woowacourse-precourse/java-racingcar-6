@@ -9,4 +9,10 @@ public class Car {
         this.carName = carName;
         this.carPosition = 0;
     }
+
+    public void move(Integer randomNumber) {
+        if (randomNumber >= 4) {
+            this.carPosition++;
+        }
+    }
 }
