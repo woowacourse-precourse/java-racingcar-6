@@ -22,3 +22,15 @@
     - 입력한 차들의 이름의 길이가 5를 초과할 경우 IllegalArgumentException을 발생
   - public static int throwIfInputIsString(String count)
     - 입력한 시도 횟수가 숫자가 아닐 경우 IllegalArgumentException을 발생
+
+### Input, Output 클래스
+
+- Input 클래스
+  - public static List<String> readCars()
+    - 차들의 이름을 입력 받고 ErrorDetector를 통한 유효성 검사를 진행
+  - public static int readCount()
+    - 시도 횟수를 입력 받고 ErrorDetector를 통한 유효성 검사를 진행
+
+- Output 클래스
+  - public static void printMessage(String message)
+    - System.out.println() 메소드를 가독성이 좋게 변경
