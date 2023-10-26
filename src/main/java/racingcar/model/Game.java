@@ -19,7 +19,6 @@ public class Game {
 
     public void roundNumberPlus() {
         this.presentRoundNumber++;
-        System.out.println();
     }
 
     public Integer getMaxRoundNumber() {

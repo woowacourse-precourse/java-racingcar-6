@@ -1,9 +1,7 @@
 package racingcar.model;
 
-import java.util.Comparator;
-
-public class Car implements Comparator<Car> {
-    private String name;
+public class Car {
+    private final String name;
     private Integer distance;
 
     public Car(String name) {
@@ -21,9 +19,10 @@ public class Car implements Comparator<Car> {
         }
     }
 
-    public void getDistanceLine() {
+    public String getDistanceLine() {
         StringBuilder stringBuilder = new StringBuilder();
-        System.out.println(stringBuilder.append(getName()).append(" : ").append("-".repeat(Math.max(0, this.distance))));
+        return String.valueOf(
+                stringBuilder.append(getName()).append(" : ").append("-".repeat(Math.max(0, this.distance))));
     }
 
     public Integer getDistance() {
@@ -35,10 +34,5 @@ public class Car implements Comparator<Car> {
             throw new IllegalArgumentException();
         }
         return name;
-    }
-
-    @Override
-    public int compare(Car o1, Car o2) {
-        return o1.distance.compareTo(o2.distance);
     }
 }
