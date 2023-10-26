@@ -57,4 +57,8 @@ public class Application {
                 .collect(Collectors.toList());
         return Collections.unmodifiableList(carList);
     }
+
+    public static void moveForward(List<Car> carList) {
+        carList.stream().forEach(Car::moveForward);
+    }
 }
