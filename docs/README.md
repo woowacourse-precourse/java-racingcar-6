@@ -17,7 +17,6 @@
 #### CarRacingGame
 자동차 경주 게임을 담당하는 객체이다.
 
-- [ ] 사용자가 정한 시도 횟수만큼 `Position` 객체를 생성한다.
 - [ ] `Map<Car, Position>`으로 레이싱 게임에 참여중인 자동차와 그 자동차의 현재 위치를 관리하는 필드를 생성한다.
     - 예외처리
       - [ ] 게임에 참여하는 Car의 이름이 중복되는지 검증한다.
@@ -65,3 +64,8 @@
 
 - [ ] `NumberGenerator`를 상속받아 구현하도록 설계한다. `genarate` 메서드를 오버라이딩 하도록 설계한다.
   - [ ] `NumberGenerator`는 인터페이스로 만든다.
+
+#### CarRacingGenerator
+게임의 환경을 만들어 주는 Util 객체
+- [ ] `RacingGenerator`를 상속받아 구현하도록 설계한다. `create` 메서드를 오버라이딩하여 구현한다.
+  - [ ] `RacingGanerator`는 인터페이스로 만든다.
