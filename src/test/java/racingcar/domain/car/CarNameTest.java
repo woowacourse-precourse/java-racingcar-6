@@ -5,6 +5,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.exception.CarNameContainsBannedCharacterException;
+import racingcar.domain.exception.InvalidCarNameLengthException;
 
 final class CarNameTest {
 
@@ -39,15 +41,18 @@ final class CarNameTest {
         // then
         assertThatThrownBy(() ->
                 new CarName(input1))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(InvalidCarNameLengthException.class)
+                .hasMessage(InvalidCarNameLengthException.INVALID_CAR_NAME_LENGTH_EXCEPTION_MESSAGE);
 
         assertThatThrownBy(() ->
                 new CarName(input2))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(InvalidCarNameLengthException.class)
+                .hasMessage(InvalidCarNameLengthException.INVALID_CAR_NAME_LENGTH_EXCEPTION_MESSAGE);
 
         assertThatThrownBy(() ->
                 new CarName(input3))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(InvalidCarNameLengthException.class)
+                .hasMessage(InvalidCarNameLengthException.INVALID_CAR_NAME_LENGTH_EXCEPTION_MESSAGE);
     }
 
     @DisplayName("차 이름에 공백, \\t, \\r, \\n 등의 금지된 문자 포함될 경우 예외 발생")
@@ -63,19 +68,27 @@ final class CarNameTest {
         // then
         assertThatThrownBy(() ->
                 new CarName(input1))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(CarNameContainsBannedCharacterException.class)
+                .hasMessage(
+                        CarNameContainsBannedCharacterException.CAR_NAME_CONTAINS_BANNED_CHARACTER_EXCEPTION_MESSAGE);
 
         assertThatThrownBy(() ->
                 new CarName(input2))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(CarNameContainsBannedCharacterException.class)
+                .hasMessage(
+                        CarNameContainsBannedCharacterException.CAR_NAME_CONTAINS_BANNED_CHARACTER_EXCEPTION_MESSAGE);
 
         assertThatThrownBy(() ->
                 new CarName(input3))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(CarNameContainsBannedCharacterException.class)
+                .hasMessage(
+                        CarNameContainsBannedCharacterException.CAR_NAME_CONTAINS_BANNED_CHARACTER_EXCEPTION_MESSAGE);
 
         assertThatThrownBy(() ->
                 new CarName(input4))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(CarNameContainsBannedCharacterException.class)
+                .hasMessage(
+                        CarNameContainsBannedCharacterException.CAR_NAME_CONTAINS_BANNED_CHARACTER_EXCEPTION_MESSAGE);
     }
 
 }
