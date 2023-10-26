@@ -2,12 +2,12 @@ package racingcar.Controller;
 
 import java.util.List;
 import racingcar.Model.Car;
+import racingcar.Model.RacingCars;
 import racingcar.View.OutputView;
 
 public class GameController {
-    private InputController inputController;
-    private GameController gameController;
-    int rounds;
+    private int rounds;
+    private RacingCars racingCars;
 
     public GameController() {
         initialize();
@@ -16,15 +16,14 @@ public class GameController {
     }
 
     public void initialize(){
-
-        rounds = inputController.getRoundCount();
+        racingCars = InputController.getCarNames();
+        rounds = InputController.getRoundCount();
     }
 
     public void initiateGame() {
         OutputView.printPlayMessage();
-
     }
     public void displayWinners() {
-        cars.showWinners();
+//        racingCars.showWinners();
     }
 }
