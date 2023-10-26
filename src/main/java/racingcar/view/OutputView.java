@@ -17,20 +17,20 @@ public class OutputView {
         List<String> names = carCondition.names();
         List<Integer> positions = carCondition.positions();
         for (int carNumber = 0; carNumber < names.size(); carNumber++) {
-            System.out.println(names.get(carNumber) + " : " + positions.get(carNumber));
+            System.out.println(names.get(carNumber) + " : " + toBars(positions.get(carNumber)));
         }
+        System.out.println();
+    }
+
+    private static String toBars(int position) {
+        return "-".repeat(position);
     }
 
     public static void sendWinners(RaceResult raceResult) {
-        System.out.println();
         System.out.println(WINNERS + createWinnersMessage(raceResult.winners()));
     }
 
     private static String createWinnersMessage(List<String> winners) {
-        StringBuilder builder = new StringBuilder();
-        for (String winner : winners) {
-            builder.append(winner);
-        }
-        return String.join(builder.toString(), ", ");
+        return String.join(", ", winners);
     }
 }

@@ -3,6 +3,7 @@ package racingcar.domain;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -47,8 +48,8 @@ class RaceTest {
     void findWinners() {
         Race race = new Race("5");
 
-        RaceResult raceResult = race.findWinners();
+        List<String> raceResult = race.findWinners();
 
-        assertThat(raceResult.winners().isEmpty()).isFalse();
+        assertThat(raceResult.isEmpty()).isFalse();
     }
 }
