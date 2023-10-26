@@ -31,4 +31,12 @@ class RaceTest {
     public void testRun() {
         assertDoesNotThrow(() -> race.run(), "예외처리 요류가 발생하면 안됩니다.");
     }
+
+    @Test
+    @DisplayName("getCars 메서드가 정확한 Car 객체 리스트를 반환하는지 검증")
+    public void testGetCars() {
+        List<Car> retrievedCars = race.getCars();
+        assertNotNull(retrievedCars);
+        assertEquals(cars, retrievedCars);
+    }
 }
