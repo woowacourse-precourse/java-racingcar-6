@@ -3,6 +3,7 @@ package racingcar.module;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 public class Race {
     ArrayList<Car> carList = new ArrayList<>();
@@ -12,16 +13,12 @@ public class Race {
     }
 
     public ArrayList<String> getWinner() {
-        ArrayList<String> winnerList = new ArrayList<>();
         int max = findFarthest();
 
-        for (Car c : carList) {
-            if (c.getPos() == max) {
-                winnerList.add(c.getName());
-            }
-        }
-
-        return winnerList;
+        return carList.stream()
+                .filter(e -> e.getPos() == max)
+                .map(Car::getName)
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     public void simulateTurn() {
@@ -34,7 +31,10 @@ public class Race {
 
     int findFarthest() {
         Comparator<Car> compareByPose = Comparator.comparingInt(Car::getPos);
-        return carList.stream().max(compareByPose).orElseThrow(NoSuchElementException::new).getPos();
+        return carList.stream()
+                .max(compareByPose)
+                .orElseThrow(NoSuchElementException::new)
+                .getPos();
     }
 
 
