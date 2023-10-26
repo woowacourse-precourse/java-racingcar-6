@@ -1,6 +1,7 @@
 package racingcar.views;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -74,6 +75,25 @@ class InputViewTest {
             InputView.getCarnameList(sizeError);
         });
 
+
+    }
+
+    @Test
+    @DisplayName("도전 횟수 입력 받기 숫자 타입 체크")
+    void tryCountInputAndNumberTypeCheckTest() {
+        // 정상의 경우
+        assertDoesNotThrow(() -> InputView.checkDigit("123"));
+
+        // 비정상의 경우 예외 발생
+        assertThrows(IllegalArgumentException.class, () -> {
+            InputView.checkDigit(" ");
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            InputView.checkDigit("1 3");
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            InputView.checkDigit(" a");
+        });
 
     }
 
