@@ -5,6 +5,8 @@ import java.util.List;
 
 import racingcar.input.PlayNumber;
 import racingcar.input.PlayerName;
+import racingcar.random.DriveStop;
+import racingcar.view.PlayGameMsg;
 import racingcar.view.RequestInput;
 
 import java.util.Map;
@@ -16,10 +18,16 @@ public class Game {
     public RequestInput requestInput = new RequestInput();
     public PlayerName playerName = new PlayerName();
     public PlayNumber playNumber = new PlayNumber();
+    public PlayGameMsg playGameMsg = new PlayGameMsg();
+    public DriveStop driveStop = new DriveStop();
 
     public void setGame(){
         setPlayer();
         setPlayNum();
+    }
+
+    public void playGame(){
+        playGameMsg.start();
     }
 
     public void setPlayer(){

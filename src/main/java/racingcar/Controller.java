@@ -14,4 +14,8 @@ public class Controller {
         game.setGame();
     }
 
+    public void playGame(){
+        game.playGame();
+    }
+
 }
