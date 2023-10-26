@@ -2,10 +2,12 @@ package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.List;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.CarDto;
 import racingcar.dto.CarsDto;
@@ -13,6 +15,11 @@ import racingcar.dto.CarsDto;
 class OutputViewTest {
 
     OutputView outputView = new OutputView();
+
+    @AfterEach
+    void close() {
+        Console.close();
+    }
 
     @Test
     void 차들_결과_출력() {

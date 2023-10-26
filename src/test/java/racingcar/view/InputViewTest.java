@@ -2,16 +2,23 @@ package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 public class InputViewTest {
 
     InputView inputView = new InputView();
+
+    @AfterEach
+    void close() {
+        Console.close();
+    }
 
     @Test
     void 차이름_입력() {
