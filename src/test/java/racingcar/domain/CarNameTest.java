@@ -21,7 +21,7 @@ public class CarNameTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"abcdef", "abcde ", " abcd "})
+    @ValueSource(strings = {"abcdef", "abcde123"})
     @DisplayName("이름이 5자를 초과하면 CarName을 생성할 수 없다")
     void throwExceptionByInvalidNameLength(final String name) {
         assertThatThrownBy(() -> CarName.from(name))
