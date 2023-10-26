@@ -27,8 +27,11 @@ public class RacingCarGame {
 
         for(int i=0; i<tryNumber; i++){
             moveOrStop(carList);
+            System.out.println();
             outputView.printResult(carList);
         }
+
+        outputView.printWinner(carList);
 
     }
 
