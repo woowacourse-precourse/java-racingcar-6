@@ -8,10 +8,17 @@ import java.util.List;
 
 public class Input {
 
+    String userInput;
+
     public List<String> inputCarNames() {
-        String userInput = Console.readLine();
+        userInput = Console.readLine();
         List<String> carNames = new ArrayList<>();
         carNames = Arrays.asList(userInput.split(","));
         return carNames;
+    }
+
+    public int inputGameCount() {
+        userInput = Console.readLine();
+        return Integer.parseInt(userInput);
     }
 }
