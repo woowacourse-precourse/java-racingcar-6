@@ -1,7 +1,13 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -29,6 +35,21 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void validateCarInputBlank_유효성검사_성공_테스트() {
+        String input = "red";
+
+        Application.validateCarInputBlank(input);
+    }
+
+    @Test
+    void validateCarInputBlank_유효성검사_실패_테스트() {
+        String input = "";
+
+        assertThatThrownBy(() -> Application.validateCarInputBlank(input))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Override
