@@ -19,14 +19,16 @@
 ## 자동차 입력 기능
 - [x] RaceView : `getCarInput` 메서드
   - 사용자로부터 자동차 목록을 입력받는다.
-- [ ] Application : `validateCarInput` 메서드
+- [ ] Application : `validateCarListInput` 메서드
   - 문자열을 인수로 받아 자동차 목록 입력 형식으로서 유효한지 검사한다.
     - 빈 문자열이라면 `IllegalArgumentException` 발생
-      - [ ] `validateCarInputBlank` 메서드
+      - [ ] `validateCarListInputBlank` 메서드
+        - [ ] `validateCarInputBlank` 메서드
     - 자동차 이름 중 5자를 초과하는 이름이 있다면 `IllegalArgumentException` 발생
-      - [ ] `validateCarInputLength` 메서드
+      - [ ] `validateCarListInputLength` 메서드
+        - [ ] `validateCarInputLength` 메서드
     - 자동차 이름에 중복이 있다면 `IllegalArgumentException` 발생
-      - [ ] `validateCarInputUnique` 메서드
+      - [ ] `validateCarListInputUnique` 메서드
 
 ## 자동차 생성 기능
 - [ ] Car `생성자`
