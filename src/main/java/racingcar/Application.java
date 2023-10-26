@@ -11,41 +11,33 @@ public class Application {
 
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String cars = Console.readLine();
-		
+
 		List<String> carsList = splitComma(cars);
 		checkLength(carsList);
-		
+
 		System.out.println("시도할 회수는 몇회인가요?");
-		
+
 		int loop;
 		try {
 			loop = Integer.parseInt(Console.readLine());
 		} catch (NumberFormatException e) {
 			throw new IllegalArgumentException("숫자를 입력해주세요.");
 		}
-		
+
 		System.out.println();
 		System.out.println("실행 결과");
-		
-		Map<String, String> carsMap = new HashMap<>();
+
+		Map<String, String> carsMap = new LinkedHashMap<>();
 		for (String car : carsList) {
 			carsMap.put(car, "");
 		}
-		
+
 		for (int i = 0; i < loop; i++) {
 
-			for (String car : carsList) {
-
-				int random = Randoms.pickNumberInRange(0, 9);
-				if (random >= 4) {
-					String result = carsMap.get(car) + "-";
-					carsMap.replace(car, result);
-				}
-				System.out.println(car + " : " + carsMap.get(car));
-			}
+			moveCars(carsMap);
 			System.out.println();
 		}
-		
+
 		String winner = "";
 		int length = 0;
 		for (String car : carsMap.keySet()) {
@@ -76,7 +68,19 @@ public class Application {
 			}
 		}
 	}
-	
-	
-	
+
+	private static void moveCars(Map<String, String> carsMap) {
+
+		for (String car : carsMap.keySet()) {
+
+			int random = Randoms.pickNumberInRange(0, 9);
+			if (random >= 4) {
+				String result = carsMap.get(car) + "-";
+				carsMap.replace(car, result);
+			}
+			System.out.println(car + " : " + carsMap.get(car));
+		}
+
+	}
+
 }
