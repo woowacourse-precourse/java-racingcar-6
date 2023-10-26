@@ -28,4 +28,21 @@ class OutputViewTest {
         assertThat(outputConstant).isEqualTo(result);
     }
 
+    @Test
+    @DisplayName("도전 횟수 멘트 출력 값 테스트")
+    void tryComment() {
+        String output = "시도할 회수는 몇회인가요?";
+        String outputConstant = RacingCarGameComments.TRY_COMMENT;
+        PrintStream standardOut = System.out;
+        ByteArrayOutputStream byteOutput = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(byteOutput));
+
+        OutputView.tryCountInputComment();
+
+        System.setOut(standardOut);
+        String result = byteOutput.toString().trim();
+        assertThat(output).isEqualTo(result);
+        assertThat(outputConstant).isEqualTo(result);
+    }
+
 }
