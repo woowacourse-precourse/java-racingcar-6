@@ -1,14 +1,11 @@
 # 구현 기능 목록
 
 ## 입력 (InputView)
-- carNamesInput();
-  - camp.nextstep.edu.missionutils에서 제공하는 Randoms 및 Console API를 사용하여 구현해야 한다.
-  - 사용자가 입력하는 값은 camp.nextstep.edu.missionutils.Console의 readLine()을 활용한다.
-  - ,를 기준으로 자동차 이름을 부여한다.
-  - 5자 이하만 가능하다.
+-  carNamesInput();
+   - [x] 사용자가 입력하는 값은 camp.nextstep.edu.missionutils.Console의 readLine()을 활용한다.
 - wantTryMove();
-  - 몇번의 이동을 할것인지 입력한다.
-- 사용자가 잘못된 입력을 했을경우 IllegalArgumentException 발생후 종료한다.
+  - [x] 몇번의 이동을 할것인지 입력한다.
+
 
 ## 출력 (OutputView)
 
@@ -49,6 +46,8 @@
   
 ## Validator
 - ,를 기준으로 자동차 이름을 입력 받을때 5자 이하인지 검증.
+- 사용자가 잘못된 입력을 했을경우 IllegalArgumentException 발생후 종료한다.
 
 ## Converter
 - 유저에게 입력받은 자동차 이름들을 List<RacingCar> 로 바꿔준다.
+- 유저에게 입력받은 원하는 전진 횟수를 int 로 바꿔준다.
