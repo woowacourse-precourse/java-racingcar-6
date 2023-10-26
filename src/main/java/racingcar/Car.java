@@ -17,4 +17,8 @@ public class Car {
     public void increaseRunCount() {
         runCount++;
     }
+
+    public int getRunCount(){
+        return runCount;
+    }
 }
