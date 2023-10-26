@@ -78,6 +78,16 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 자동차_이름_목록으로_자동차_객체_목록_생성() {
+        final List<Car> expected = List.of(new Car("pobi"), new Car("woni"), new Car("jun"));
+
+        final List<String> carNameList = List.of("pobi", "woni", "jun");
+        final List<Car> actual = Application.getCarList(carNameList);
+
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
     void 시도할_회수를_물어보는_문구_출력() {
         final String STRING_INPUT_TRY_COUNT = "시도할 회수는 몇회인가요?";
         Application.printInputTryCountMessage();
