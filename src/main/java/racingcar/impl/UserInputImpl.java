@@ -19,7 +19,7 @@ public class UserInputImpl implements UserInput {
         String[] cutIntoComma = userInput.split(",");
         List<String> nameList = new ArrayList<>(Arrays.asList(cutIntoComma));
         try {
-
+            InputException.isValidName(nameList);
         } catch (Exception e) {
             throw new IllegalArgumentException();
         }
@@ -28,12 +28,12 @@ public class UserInputImpl implements UserInput {
 
     @Override
     public int inputAttemptNum() {
-        int inputAttemptNum;
+        String attemptNum = Console.readLine();
         try {
-            inputAttemptNum = Integer.parseInt(Console.readLine());
+            InputException.isValidAttemptNum(attemptNum);
         } catch (Exception e) {
             throw new IllegalArgumentException();
         }
-        return 0;
+        return Integer.parseInt(attemptNum);
     }
 }
