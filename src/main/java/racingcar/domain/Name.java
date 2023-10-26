@@ -1,6 +1,10 @@
 package racingcar.domain;
 
+import static racingcar.util.ErrorMessage.*;
+
 public record Name(String value) {
+
+    private static final String NUMBER_REGEX = "^[0-9]*$";
 
     public Name {
         validateName(value);
@@ -14,19 +18,19 @@ public record Name(String value) {
 
     private void checkBlank(String name) {
         if (name.isBlank() || name.isEmpty()) {
-            throw new IllegalArgumentException("공백은 입력 불가능 합니다.");
+            throw new IllegalArgumentException(BLANK_ERROR.getMessage());
         }
     }
 
     private void checkLength(String name) {
         if (name.length() > 5) {
-            throw new IllegalArgumentException("5자 이하의 이름만 가능합니다.");
+            throw new IllegalArgumentException(LENGTH_ERROR.getMessage());
         }
     }
 
     private void checkNumeric(String name) {
-        if (name.matches("^[0-9]*$")) {
-            throw new IllegalArgumentException("숫자는 입력 불가능 합니다.");
+        if (name.matches(NUMBER_REGEX)) {
+            throw new IllegalArgumentException(NO_NUMERIC_ERROR.getMessage());
         }
     }
 }

@@ -8,23 +8,40 @@ import java.util.List;
 
 public class StringUtil {
 
+    private static final String CAR_NAME_POSITION_FORMAT = "%s : %s";
+    private static final String POSITION_DELIMITER = "-";
+    private static final String NEXT_LINE = "\n";
+
+    private static final String WINNER_LINE = "최종 우승자 : ";
+    private static final String WINNER_DELIMITER = ", ";
+
     public String makeRaceResult(CarGarage garage) {
         StringBuilder sb = new StringBuilder();
-        String format = "%s : %s";
         for (Car car : garage.cars()) {
-            String formatted = String.format(format, car.getName(), "-".repeat(car.getPosition()));
-            sb.append(formatted).append("\n");
+            String formattedLine = applyFormat(car);
+            sb.append(formattedLine).append(NEXT_LINE);
         }
         return sb.toString();
     }
 
+    private String applyFormat(Car car) {
+        return String.format(CAR_NAME_POSITION_FORMAT,
+                car.getName(),
+                POSITION_DELIMITER.repeat(car.getPosition())
+        );
+    }
+
     public String makeWinnerResult(Winner winner) {
         StringBuilder sb = new StringBuilder();
-        sb.append("최종 우승자 : ");
-        List<String> names = winner.getValue().stream()
+        sb.append(WINNER_LINE);
+        List<String> names = getWinnerName(winner);
+        sb.append(String.join(WINNER_DELIMITER, names));
+        return sb.toString();
+    }
+
+    private static List<String> getWinnerName(Winner winner) {
+        return winner.getValue().stream()
                 .map(Car::getName)
                 .toList();
-        sb.append(String.join(", ", names));
-        return sb.toString();
     }
 }

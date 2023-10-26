@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import static racingcar.util.ErrorMessage.INVALID_NUMBER_ERROR;
+import static racingcar.util.ErrorMessage.NEGATIVE_NUMBER_ERROR;
+
 public record TryCount(int value) {
 
     public TryCount {
@@ -13,13 +16,13 @@ public record TryCount(int value) {
 
     private void checkPositive(int count) {
         if (count <= 0) {
-            throw new IllegalArgumentException("자연수만 입력 가능합니다.");
+            throw new IllegalArgumentException(NEGATIVE_NUMBER_ERROR.getMessage());
         }
     }
 
     private void checkMax(int count) {
         if (count >= Integer.MAX_VALUE) {
-            throw new IllegalArgumentException("유효하지 않은 입력입니다.");
+            throw new IllegalArgumentException(INVALID_NUMBER_ERROR.getMessage());
         }
     }
 }

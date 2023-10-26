@@ -6,17 +6,22 @@ import racingcar.domain.Name;
 import java.util.ArrayList;
 import java.util.List;
 
+import static racingcar.util.ErrorMessage.SPLIT_REGEX_ERROR;
+
 public class TypeConverter {
+
+    private static final String SPLIT_UNIT = ",";
+    private static final String SPECIAL_REGEX = "";
 
     public List<String> convertToNameList(String input) {
         checkSplitUnit(input);
-        String[] split = input.split(",");
+        String[] split = input.split(SPLIT_UNIT);
         return List.of(split);
     }
 
     private void checkSplitUnit(String input) {
-        if (input.matches("")) {
-            throw new IllegalArgumentException("쉼표(,)로만 구분 가능합니다.");
+        if (input.matches(SPECIAL_REGEX)) {
+            throw new IllegalArgumentException(SPLIT_REGEX_ERROR.getMessage());
         }
     }
 

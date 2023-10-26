@@ -6,6 +6,8 @@ import racingcar.util.StringUtil;
 
 public class OutputView {
 
+    private static final String RESULT_MESSAGE = "실행 결과";
+
     private final StringUtil stringUtil;
 
     public OutputView(StringUtil stringUtil) {
@@ -13,7 +15,7 @@ public class OutputView {
     }
 
     public void printResultMessage() {
-        System.out.println("실행 결과");
+        System.out.println(RESULT_MESSAGE);
     }
 
     public void printRaceResult(CarGarage cars) {
