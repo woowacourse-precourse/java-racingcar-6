@@ -8,6 +8,7 @@ public class Controller {
 
     public void run(){
         setGame();
+        playGame();
     }
 
     public void setGame(){

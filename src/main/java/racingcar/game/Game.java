@@ -14,6 +14,7 @@ import java.util.Map;
 public class Game {
 
     private int playNum;
+    List<String> playerNames;
     public Map<String, Integer> playerScore = new HashMap<String, Integer>();
     public RequestInput requestInput = new RequestInput();
     public PlayerName playerName = new PlayerName();
@@ -28,11 +29,12 @@ public class Game {
 
     public void playGame(){
         playGameMsg.start();
+        repeatPlayNum();
     }
 
     public void setPlayer(){
         requestInput.playerName();
-        List<String> playerNames = playerName.validatedUserInput();
+        playerNames = playerName.validatedUserInput();
         for(String playerName: playerNames) {
             playerScore.put(playerName, 0);
         }
@@ -42,4 +44,26 @@ public class Game {
         requestInput.playNum();
         playNum = playNumber.validatedUserInput();
     }
+
+    public void repeatPlayNum(){
+        for(int i=0; i<playNum; i++){
+            repeatPlayers();
+        }
+    }
+
+    public void repeatPlayers(){
+        for(String player: playerNames){
+            updateScore(player);
+        }
+        playGameMsg.changeLine();
+    }
+
+    public void updateScore(String player) {
+        int score = playerScore.get(player);
+        if (driveStop.isDrive()) {
+            playerScore.replace(player, score + 1);
+        }
+        playGameMsg.eachResult(player, playerScore.get(player));
+    }
+
 }
