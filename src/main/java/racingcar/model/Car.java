@@ -5,8 +5,7 @@ public class Car {
     private Long distance;
 
     public Car(String name) {
-        validName(name);
-        this.name = name;
+        this.name = validName(name);
         this.distance = 0L;
     }
 
@@ -14,9 +13,10 @@ public class Car {
         return this.name;
     }
 
-    private void validName(String name) throws IllegalArgumentException {
+    private String validName(String name) throws IllegalArgumentException {
         if (name.length() > 5) {
             throw new IllegalArgumentException();
         }
+        return name;
     }
 }
