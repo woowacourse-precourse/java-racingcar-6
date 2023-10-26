@@ -16,4 +16,13 @@ class CarsTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차의 이름은 " + Constraints.MAX_SIZE.getValue() + "보다 작아야 합니다.");
     }
+
+    @Test
+    void 중복된_자동차명() {
+        List<String> carNames = Arrays.asList("Car1", "Car2", "Car1");
+
+        assertThatThrownBy(() -> new Cars(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("중복된 자동차 이름이 존재 합니다.");
+    }
 }
