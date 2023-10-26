@@ -1,20 +1,23 @@
 package racingcar.model;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import racingcar.exception.car_racing_game.NotUniqueCarNameException;
+import racingcar.exception.position.NotFoundPositionException;
 
 public class CarRacingGame implements RacingGame {
+
     private final Map<Car, Position> racingTrack;
 
     public CarRacingGame(final Map<Car, Position> racingTrack) {
-        validate();
+        validateDuplicateName();
         this.racingTrack = racingTrack;
     }
 
-    private void validate() {
+    private void validateDuplicateName() {
         int distinctCount = countDistinctElement();
         if (isDuplicate(distinctCount)) {
             List<String> keyList = convertKeySetToStringList();
@@ -50,5 +53,30 @@ public class CarRacingGame implements RacingGame {
         Position position = racingTrack.get(car);
         Position nextPosition = position.getNextPosition(position);
         racingTrack.put(car, nextPosition);
+    }
+
+    @Override
+    public Map<Vehicle, Position> getRacingTrack() {
+        return Collections.unmodifiableMap(racingTrack);
+    }
+
+    @Override
+    public List<String> getWinner() {
+        int maxPosition = getMaxPosition();
+        return calculateWinners(maxPosition);
+    }
+
+    private int getMaxPosition() {
+        return racingTrack.values().stream()
+                .mapToInt(Position::getPositionIndex)
+                .max()
+                .orElseThrow(NotFoundPositionException::new);
+    }
+
+    private List<String> calculateWinners(int maxPosition) {
+        return racingTrack.entrySet().stream()
+                .filter(entry -> entry.getValue().getPositionIndex() == maxPosition)
+                .map(entry -> entry.getKey().getName())
+                .collect(Collectors.toList());
     }
 }
