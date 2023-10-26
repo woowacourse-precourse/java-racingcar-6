@@ -9,7 +9,7 @@ public class RandomNumberGenerator {
 
 
     public static Integer generate() {
-        return Randoms.pickNumberInRange(0,9);
+        return Randoms.pickNumberInRange(MIN_VALUE, MAX_VALUE);
     }
 
 }
