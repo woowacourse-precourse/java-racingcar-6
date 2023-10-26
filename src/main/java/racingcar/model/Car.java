@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.exception.RaceException;
+
 public class Car {
     private final String name;
     private int position = 0;
