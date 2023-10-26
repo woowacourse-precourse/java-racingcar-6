@@ -7,7 +7,7 @@ public class Valid {
     public static final int MAX_PLAY_COUNT = 10;
     public static final int LIMIT_CAR_COUNT = 10;
 
-    public void validCarName(String text) {
+    public static void validCarName(String text) {
         if (text == null || text.isEmpty() || text.isBlank()){
             throw new IllegalArgumentException("값을 입력해야합니다.");
         }
@@ -28,7 +28,7 @@ public class Valid {
         }
     }
 
-    public void validCount(String text) {
+    public static void validCount(String text) {
         if (text == null || text.isEmpty() || text.isBlank()) {
             throw new IllegalArgumentException("빈칸은 작성할 수 없습니다.");
         }
