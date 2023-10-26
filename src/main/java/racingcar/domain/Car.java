@@ -1,10 +1,10 @@
 package racingcar.domain;
 
 public class Car {
-    Name name;
+    public Name name;
     Progress progress;
 
-    Car(String name) {
+    public Car(String name) {
         this.name = new Name(name);
         progress = new Progress();
     }
