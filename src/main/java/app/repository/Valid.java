@@ -1,4 +1,4 @@
-package app;
+package app.repository;
 
 
 public class Valid {
@@ -7,7 +7,7 @@ public class Valid {
     public static final int MAX_PLAY_COUNT = 10;
     public static final int LIMIT_CAR_COUNT = 10;
 
-    public void getCarName(String text) {
+    public void validCarName(String text) {
         if (text == null || text.isEmpty() || text.isBlank()){
             throw new IllegalArgumentException("값을 입력해야합니다.");
         }
@@ -28,7 +28,7 @@ public class Valid {
         }
     }
 
-    public void isNumber(String text) {
+    public void validCount(String text) {
         if (text == null || text.isEmpty() || text.isBlank()) {
             throw new IllegalArgumentException("빈칸은 작성할 수 없습니다.");
         }
@@ -39,8 +39,7 @@ public class Valid {
         if (text.equals("0")){
             throw new IllegalArgumentException("0 이상의 숫자를 작성해야합니다");
         }
-        int textInt = Integer.parseInt(text);
-        if (textInt > MAX_PLAY_COUNT) {
+        if (Integer.parseInt(text) > MAX_PLAY_COUNT) {
             throw new IllegalArgumentException("최대 " + MAX_PLAY_COUNT + "게임까지 할 수 있습니다.");
         }
     }
