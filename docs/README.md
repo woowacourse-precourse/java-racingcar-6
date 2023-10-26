@@ -15,4 +15,4 @@
 5. 우승자 출력
    1) HashMap에 자동차 이름,Move 요소 담음
    2) Move의 맥스값과 HashMapd의 value를 비교하여 맥스값이랑 일치 시 해당 Key값 WinnerList에 담음
-   3) winnerList 출력
+   3) winnerList 출력 
