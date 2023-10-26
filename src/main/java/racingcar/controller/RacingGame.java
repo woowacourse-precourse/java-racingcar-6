@@ -1,8 +1,11 @@
 package racingcar.controller;
 
+import static racingcar.exception.ErrorMessage.NOT_INTEGER;
+
 import java.util.List;
 import racingcar.domain.Cars;
 import racingcar.dto.CarsDto;
+import racingcar.exception.RacingGameException;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -51,7 +54,7 @@ public class RacingGame {
 
     private void validateNumber(String inputNumberString) {
         if (isNotNumber(inputNumberString)) {
-            throw new IllegalArgumentException("[ERROR] 숫자만 입력가능합니다.");
+            throw RacingGameException.of(NOT_INTEGER);
         }
 
     }

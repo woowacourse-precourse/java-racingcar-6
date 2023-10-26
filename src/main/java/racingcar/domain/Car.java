@@ -1,5 +1,9 @@
 package racingcar.domain;
 
+import static racingcar.exception.ErrorMessage.LONG_NAME;
+
+import racingcar.exception.RacingGameException;
+
 public class Car {
 
     private static final Integer START_POSITION = 0;
@@ -24,7 +28,7 @@ public class Car {
 
     private static void validate(String name) {
         if (isTooLong(name)) {
-            throw new IllegalArgumentException("[ERROR]이름 길이가 너무 깁니다.");
+            throw RacingGameException.of(LONG_NAME);
         }
     }
 
