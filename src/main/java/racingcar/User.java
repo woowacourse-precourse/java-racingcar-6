@@ -13,7 +13,7 @@ public class User {
      */
     public List<String> getCarNamesFromUser() {
 
-        String carName = Console.readLine();
+        String carName = Console.readLine().replace(" ", "").toLowerCase();
 
         List<String> carNames = new ArrayList<>(Arrays.asList(carName.split(",")));
 
