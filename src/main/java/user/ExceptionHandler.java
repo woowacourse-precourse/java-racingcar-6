@@ -26,7 +26,7 @@ public class ExceptionHandler {
         return false;
     }
 
-    public static void raiseException(List<String> playerArray) {
+    public static void raisePlayerInputException(List<String> playerArray) {
         for (String playerName : playerArray) {
             if (!isValidPlayerName(playerName)) {
                 throw new IllegalArgumentException("공백 또는 특수문자는 이름에 사용하실 수 없습니다.");
@@ -38,6 +38,15 @@ public class ExceptionHandler {
         if (isNameAlreadyExists(playerArray)) {
             throw new IllegalArgumentException("이미 존재하는 이름입니다.");
         }
+    }
 
+    public static boolean isValidMoveNumber(String moveNumber) {
+        return !moveNumber.equals("0") && moveNumber.matches("^[0-9]+$");
+    }
+
+    public static void rasieMoveNumberInputException(String str) {
+        if (!isValidMoveNumber(str)) {
+            throw new IllegalArgumentException(("0 이외의 숫자만 입력할 수 있습니다."));
+        }
     }
 }
