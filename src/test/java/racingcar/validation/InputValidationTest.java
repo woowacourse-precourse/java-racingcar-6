@@ -8,6 +8,35 @@ import org.junit.jupiter.api.Test;
 class InputValidationTest {
 
     @Test
+    void isNumber() {
+        // given
+        String case1 = "1";
+        String case2 = "12";
+        String case3 = "-1";
+        String case4 = "a";
+
+        // when
+        Throwable result1 = catchThrowable(() -> {
+            InputValidation.isNumber(case1);
+        });
+        Throwable result2 = catchThrowable(() -> {
+            InputValidation.isNumber(case2);
+        });
+        Throwable result3 = catchThrowable(() -> {
+            InputValidation.isNumber(case3);
+        });
+        Throwable result4 = catchThrowable(() -> {
+            InputValidation.isNumber(case4);
+        });
+
+        // then
+        assertThat(result1).as("1").doesNotThrowAnyException();
+        assertThat(result2).as("12").doesNotThrowAnyException();
+        assertThat(result3).as("-1").isInstanceOf(IllegalArgumentException.class);
+        assertThat(result4).as("a").isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     void nameLength() {
         // given
         String case1 = "12345";
