@@ -2,7 +2,7 @@ package racingcar.service;
 
 import racingcar.model.Car;
 import racingcar.model.Race;
-import racingcar.util.Constants;
+import racingcar.util.OutputRaceViewConstant;
 import racingcar.view.InputRaceView;
 import racingcar.view.OutputRaceView;
 
@@ -18,7 +18,7 @@ public class RaceService {
         int raceCount = getRaceCount();
         race = new Race(cars);
 
-        System.out.println(Constants.RACE_RESULT_HEADER);
+        System.out.println(OutputRaceViewConstant.RACE_RESULT_HEADER);
         conductRaces(raceCount);
     }
 
