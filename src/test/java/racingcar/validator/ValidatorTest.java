@@ -38,4 +38,17 @@ class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("이름에 공백이 존재합니다.");
     }
+
+    @Test
+    void 입력받은_횟수가_정수가_아닐_경우() {
+        assertThatThrownBy(() -> Validator.isInteger("a"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("정수만 입력 가능합니다.");
+    }
+
+    @Test
+    void 입력받은_횟수가_정수인_경우() {
+        assertThatCode(() -> Validator.isInteger("3"))
+                .doesNotThrowAnyException();
+    }
 }
