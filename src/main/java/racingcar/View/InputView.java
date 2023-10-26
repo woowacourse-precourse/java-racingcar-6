@@ -9,6 +9,7 @@ public class InputView {
     public String requestCarNames() {
         System.out.println(CAR_NAME_INPUT_MESSAGE);
         String inputedCarNames = Console.readLine();
+        Validator.validateCarNames(inputedCarNames);
         return inputedCarNames;
     }
 }
