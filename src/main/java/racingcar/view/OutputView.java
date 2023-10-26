@@ -20,7 +20,7 @@ public class OutputView {
                 .orElseThrow(() -> new IllegalArgumentException());
 
         List<String> winnerNames = carList.stream()
-                .filter(car -> car.getMoveNumber() == maxMoveNumber)
+                .filter(car -> car.isMaxMoveNumber(maxMoveNumber))
                 .map(car -> car.getName())
                 .collect(Collectors.toList());
 
