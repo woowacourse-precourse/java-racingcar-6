@@ -17,11 +17,11 @@ public class InputView {
         return toList(names);
     }
 
-    public static String readTryCount() {
+    public static int readTryCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         String tryCount = Console.readLine();
         validateBlank(tryCount);
-        return tryCount;
+        return validateInteger(tryCount);
     }
 
     private static void validateBlank(String input) {
@@ -33,5 +33,13 @@ public class InputView {
     private static List<String> toList(String input) {
         return Arrays.stream(input.split(","))
                 .collect(Collectors.toList());
+    }
+
+    private static int validateInteger(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력해 주세요.");
+        }
     }
 }
