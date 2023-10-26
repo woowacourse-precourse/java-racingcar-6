@@ -13,6 +13,10 @@ public class RacingGame {
     public static void run() {
         String carNames = inputView.enterCarNames();
         Cars cars = Cars.from(carNames);
+        String inputNumberString = inputView.enterNumberOfTimes();
+        //Integer numberOfTimes = convertInteger(inputNumberString);
+
+
 
     }
 }
