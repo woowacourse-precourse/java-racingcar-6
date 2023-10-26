@@ -20,5 +20,10 @@ public class Application {
         // 도전 횟수 입력 받기
         Integer tryCount = InputView.getTryCount();
         System.out.println("tryCount = " + tryCount);
+
+        // 레이싱 게임 결과 멘트
+        OutputView.racingCarResultComment();
+
+        
     }
 }

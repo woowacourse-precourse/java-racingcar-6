@@ -15,4 +15,8 @@ public class OutputView {
     public static void tryCountInputComment() {
         System.out.println(RacingCarGameComments.TRY_COMMENT);
     }
+
+    public static void racingCarResultComment() {
+        System.out.println(RacingCarGameComments.RESULT_COMMENT);
+    }
 }
