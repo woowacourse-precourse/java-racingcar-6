@@ -15,4 +15,9 @@ public class InputView {
         return Console.readLine();
     }
 
+    public String inputRaceCount() {
+        System.out.println(GameMessage.count.getMessage());
+        return Console.readLine();
+    }
+
 }
