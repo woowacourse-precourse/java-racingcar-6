@@ -42,12 +42,47 @@
     - camp.nextstep.edu.missionutils.Randoms API를 이용한 무작위 수를 반환한다.
 
 ### Car 클래스 Comparable<Car> 구현
-  - Car 생성자
-    - 차 이름을 받아서 name에 저장
-    - distance를 0으로 초기화
-  - getName(), getDistance()
-    - name 값과 distance 값을 반환
-  - move()
-    - Randoms API 수를 받아서 상수 FORWARD_STANDARD 이상이면 distance +1
-  - @Override public int compareTo(Car o)
-    - o.distance - this.distance를 리턴해서 역순 정렬을 위해서 오버라이드
+
+- Car 생성자
+  - 차 이름을 받아서 name에 저장
+  - distance를 0으로 초기화
+- getName(), getDistance()
+  - name 값과 distance 값을 반환
+- move()
+  - Randoms API 수를 받아서 상수 FORWARD_STANDARD 이상이면 distance +1
+- @Override public int compareTo(Car o)
+  - o.distance - this.distance를 리턴해서 역순 정렬을 위해서 오버라이드
+
+### Track 클래스
+
+- public void addCars()
+  - 자동차를 개수만큼 트랙에 저장
+- public void moveCars()
+  - 자동차 이동
+- public String showProgress()
+  - 레이스 진행 상태 출력
+- public String showResult()
+  - list로 받은 레이스 결과 출력
+- private Car findFirstPlace()
+  - 배열을 통해 가장 멀리 간 자동차를 구해서 반환
+- private List<String> findWinners()
+  - 모든 우승자를 찾아서 list로 반환한다.
+
+
+### Race 클래스
+
+- Race 생성자
+  - Track 클래스를 생성
+- public void start()
+  - 자동차 경주를 시작하는 메소드
+  - private 메소드 실행
+- private void ready()
+  - GAME_START 메세지 출력
+  - 자동차 이름 입력 받고 유효성 검사 진행
+- private void set()
+  - INPUT_COUNT 메세지 출력
+  - 시도 횟수 입력 받고 유효성 검사 진행
+- private void go()
+  - GAME_RESULT 결과 및 내용 출력
+- private void finish()
+  - GAME_OVER 메세지 + 결과 출력

@@ -1,4 +1,4 @@
-package game;
+package racingcar;
 
 public class Car implements Comparable<Car> {
     public static final int FORWARD_STANDARD = 4;
