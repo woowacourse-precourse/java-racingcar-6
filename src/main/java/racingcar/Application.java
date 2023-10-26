@@ -10,6 +10,7 @@ public class Application {
 
         String str = Console.readLine();
         List<String> carNames = new ArrayList<>(Arrays.asList(str.split(",")));
+        checkException(carNames);
 
         LinkedHashMap<String, Integer> map = new LinkedHashMap<>();
         for (String carName : carNames) map.put(carName, 0);
@@ -55,5 +56,13 @@ public class Application {
         }
         ans = ans.substring(0, ans.length()-2);
         return ans;
+    }
+
+    public static void checkException(List<String> carNames) {
+        for (String carName : carNames) {
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException();
+            }
+        }
     }
 }
