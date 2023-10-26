@@ -9,4 +9,8 @@ public class StringParser {
         String[] nameArray = input.split(",");
         return Arrays.asList(nameArray);
     }
+
+    public static int toInteger(String input) {
+        return Integer.parseInt(input);
+    }
 }
