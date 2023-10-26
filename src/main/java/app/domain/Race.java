@@ -16,14 +16,6 @@ public class Race {
         this.race = Arrays.stream(raceList.split(",")).collect(Collectors.toMap(key -> key, value -> 0));
     }
 
-    public Map<String, Integer> testGetRace() {
-        Map<String, Integer> cloneMap = new HashMap<>();
-        for (String carName : race.keySet()) {
-            cloneMap.put(carName, race.get(carName));
-        }
-        return cloneMap;
-    }
-
     public void play() {
         for (String carName : race.keySet()) {
             int randomNum = Randoms.pickNumberInRange(0,9);
