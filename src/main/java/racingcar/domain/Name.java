@@ -1,9 +1,13 @@
 package racingcar.domain;
 
 public class Name {
-    String name;
+    private final String name;
 
     Name(String name) {
         this.name = name;
+    }
+
+    String get() {
+        return name;
     }
 }

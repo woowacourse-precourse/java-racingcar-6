@@ -8,4 +8,8 @@ public class Car {
         this.name = new Name(name);
         progress = new Progress();
     }
+
+    public void move() {
+        progress.move();
+    }
 }
