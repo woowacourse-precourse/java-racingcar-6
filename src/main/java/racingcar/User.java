@@ -21,11 +21,15 @@ public class User {
 
     public int getNumberOfMovesFromUser() {
 
-        String numberOfTimes = Console.readLine();
+        String number = Console.readLine();
 
-        validateNumberOfTimesIsNumeric(numberOfTimes);
+        validateNumberOfTimesIsNumeric(number);
 
-        return Integer.parseInt(numberOfTimes);
+        int numberOfTimes = Integer.parseInt(number);
+
+        validateNumberOfTimesIsPositive(numberOfTimes);
+
+        return numberOfTimes;
     }
 
 
@@ -41,11 +45,20 @@ public class User {
         }
     }
 
-    private void validateNumberOfTimesIsNumeric(String numberOfTimes) {
+    private void validateNumberOfTimesIsNumeric(String number) {
 
-        if (!numberOfTimes.chars().allMatch(Character::isDigit)) {
+        if (!number.chars().allMatch(Character::isDigit)) {
 
             throw new IllegalArgumentException("사용할 횟수는 숫자로만 가능합니다.");
+
+        }
+    }
+
+    private void validateNumberOfTimesIsPositive(int numberOfTimes) {
+
+        if (numberOfTimes <= 0) {
+
+            throw new IllegalArgumentException("사용할 횟수는 1 이상으로만 가능합니다.");
 
         }
     }
