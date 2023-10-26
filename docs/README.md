@@ -9,7 +9,7 @@
   - [x] 만들어진 리스트가 비었는지 확인한다. - Validation#empty()
 
 
-- [x] 이동할 횟수를 입력받는다.
+- [x] 이동할 횟수를 입력받는다. - Application#askNumber()
   - [x] 입력값이 숫자인지 확인한다. - InputValidation#isNumber()
 
 
