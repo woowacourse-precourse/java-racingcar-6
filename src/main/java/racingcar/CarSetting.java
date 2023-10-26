@@ -11,7 +11,9 @@ public class CarSetting {
         for (int index = 0; index < carName.length; index++) {
             car[index] = new Car();
             car[index].setCarName(carName[index]);
-
+            if (isGreaterThan()) {
+                car[index].increaseRunCount();
+            }
         }
     }
 
