@@ -5,10 +5,6 @@ public class Car {
     private int position = 0;
 
     public void setName(String name) {
-        if(name.length() > 5 || name.isEmpty()){
-            throw new IllegalArgumentException();
-        }
-
         this.name = name;
     }
 
