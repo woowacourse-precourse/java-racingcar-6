@@ -1,6 +1,10 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameManager {
 
@@ -42,4 +46,23 @@ public class GameManager {
 
         return count;
     }
+
+    public static void move(List<Car> cars) {
+        StringBuilder sb = new StringBuilder();
+
+        for (Car car : cars) {
+            if (getRandomValue() >= 4) {
+                car.move();
+            }
+            String length = "-".repeat(car.getCount());
+            sb.append(car.getName()).append(" : ").append(length).append('\n');
+        }
+
+        System.out.println(sb);
+    }
+
+    private static int getRandomValue() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
+
 }
