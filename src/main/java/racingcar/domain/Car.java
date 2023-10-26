@@ -14,15 +14,7 @@ public class Car {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getForward() {
         return forward;
-    }
-
-    public void setForward(String forward) {
-        this.forward = forward;
     }
 }

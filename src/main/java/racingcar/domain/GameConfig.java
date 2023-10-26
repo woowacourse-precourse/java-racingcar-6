@@ -16,6 +16,7 @@ public class GameConfig {
     }
 
     public List<Car> createCars(String carNames) {
+
         List<Car> cars = new ArrayList<>();
         List<String> checkCarName = new ArrayList<>();
 

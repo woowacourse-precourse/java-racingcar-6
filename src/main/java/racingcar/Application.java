@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
 import racingcar.domain.GameConfig;
+import racingcar.domain.Judgment;
 import racingcar.domain.Race;
 
 import java.util.List;
@@ -12,7 +13,8 @@ public class Application {
         // TODO: 프로그램 구현
         GameConfig gameConfig = new GameConfig();
         Race race = new Race();
-        List<Car> cars = gameConfig.createCars("민지,형빈,민호,jinho");
+        Judgment judgment = new Judgment();
+        List<Car> cars = gameConfig.createCars("민지,형빈,민호,jinho,jayZ,빈지노");
 
         System.out.print("시도할 횟수를 입력해주세요 : ");
         gameConfig.setMoveCount(Integer.parseInt(Console.readLine()));
@@ -21,6 +23,9 @@ public class Application {
 
         race.startRace(cars, gameConfig.moveCount);
 
+        List<String> winners = judgment.checkWinners(cars);
+
+        System.out.println("winners = " + String.join(", ", winners));
 
 //        for (Car car : cars) {
 //            System.out.println(car.getName() + car.getForward());
