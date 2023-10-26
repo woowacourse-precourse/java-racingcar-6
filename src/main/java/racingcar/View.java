@@ -1,8 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.List;
-import java.util.ArrayList;
 
 public class View {
     private final String DELIMITER = ",";
@@ -16,7 +14,16 @@ public class View {
 
     public int inputTryCount() {
         String read = Console.readLine();
+        validateIsNumber(read);
         return Integer.parseInt(read);
+    }
+
+    private void validateIsNumber(String s) {
+        try {
+            Integer.parseInt(s);
+        }catch (Exception e) {
+            throw new IllegalArgumentException("숫자만 입력해야 합니다.");
+        }
     }
 
     private void validateNameLength(String[] names) {
