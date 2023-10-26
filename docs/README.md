@@ -16,9 +16,9 @@
    - 객체 생성 후 CarsDto 객체 반환
 3. RaceGameService 객체 구현
    - roundStart() 메소드
-      - List<Car>를 매개변수로 받아 각각 Car.randomDrive()를 실행
+      - CarsDto를 매개변수로 받아 각각 Car.randomDrive()를 실행
       - 결과를 int[len]으로 모아서 return
-        - len = 매개변수로 받은 List의 길이
+        - len = 매개변수로 받은 배열의 길이
 4. 시도 횟수 입력 컨트롤러
    - CarsDto와 사용자 read를 입력 받음 
    - 사용자로부터 입력된 String 값을 int로 변환

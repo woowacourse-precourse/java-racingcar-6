@@ -1,8 +1,7 @@
-package racingcar;
+package racingcar.controller;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.controller.CarController;
 import racingcar.domain.Car;
 import racingcar.dto.CarsDto;
 

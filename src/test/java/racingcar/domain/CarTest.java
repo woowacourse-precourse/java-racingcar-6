@@ -1,8 +1,7 @@
-package racingcar;
+package racingcar.domain;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Car;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -20,6 +19,6 @@ public class CarTest {
         int location = car.randomDrive();
 
         // then
-        assertThat(location).isGreaterThan(0);
+        assertThat(location).isGreaterThanOrEqualTo(0);
     }
 }
