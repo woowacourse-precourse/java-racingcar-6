@@ -6,10 +6,9 @@ import java.util.*;
 
 public class UserInput {
 
-    private Map<String, String> carMap = new HashMap<>();
-    private int numberOfTry = 0;
-
     public Map<String, String> getCarList() {
+        Map<String, String> carMap = new HashMap<>();
+
         String input = Console.readLine();
         List<String> carList = ValidChecker.carListCheck(input);
 
@@ -21,6 +20,8 @@ public class UserInput {
     }
 
     public int getNumberOfTry() {
+        int numberOfTry = 0;
+
         String input = Console.readLine();
         numberOfTry = ValidChecker.numberOfTryCheck(input);
 
