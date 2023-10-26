@@ -16,8 +16,9 @@ public class Counter {
         for (int i = 0; i < now.length; i++) {
             if (now[i] != max) {
                 result[i] = 0;
+            } else {
+                result[i] = max;
             }
-            result[i] = max;
         }
         return result;
     }

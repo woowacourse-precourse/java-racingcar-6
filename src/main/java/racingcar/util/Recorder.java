@@ -3,17 +3,18 @@ package racingcar.util;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.view.OutputMessage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Recorder {
-    OutputMessage outputMessage;
-    List<String> car;
+    OutputMessage outputMessage = new OutputMessage();
+    List<String> car = new ArrayList<>();
     int[] now;
 
     public int[] record(List<String> car, int lap) {
         this.car = car;
         now = makeRecord(car.size());
-        while (lap < 0) {
+        while (lap > 0) {
             countRecord();
             printRecord();
             lap--;

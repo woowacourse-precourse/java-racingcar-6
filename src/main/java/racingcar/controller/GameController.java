@@ -6,13 +6,14 @@ import racingcar.util.Recorder;
 import racingcar.view.InputMessage;
 import racingcar.view.OutputMessage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameController {
-    InputMessage inputMessage;
-    OutputMessage outputMessage;
-    Input input;
-    List<String> car;
+    InputMessage inputMessage = new InputMessage();
+    OutputMessage outputMessage = new OutputMessage();
+    Input input = new Input();
+    List<String> car = new ArrayList<>();
     int lap;
     int[] now;
 
@@ -31,7 +32,7 @@ public class GameController {
     public void endGame() {
         Counter counter = new Counter();
         int max = counter.maxCount(now);
-        now=counter.eliminate(now, max);
+        now = counter.eliminate(now, max);
         outputMessage.result(car, now);
     }
 }
