@@ -1,10 +1,10 @@
 package Config;
 
 public class GameConfig {
-    public int minValue = 0;
-    public int maxValue = 9;
-    public int movingCondition = 4;
-    public int nameLimit = 5;
-    public String nameSeparator = ",";
-    public boolean multipleWinning = true;
+    public static int minValue = 0;
+    public static int maxValue = 9;
+    public static int movingCondition = 4;
+    public static int nameLimit = 5;
+    public static String nameSeparator = ",";
+    public static boolean multipleWinning = true;
 }
