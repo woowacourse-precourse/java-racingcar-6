@@ -9,10 +9,6 @@ public class Game {
         this.presentRoundNumber = 0L;
     }
 
-    public Long getMaxRoundNumber() {
-        return maxRoundNumber;
-    }
-
     private Long validString(String s) {
         try {
             return maxRoundNumber = Long.parseLong(s);
@@ -20,4 +16,18 @@ public class Game {
             throw new IllegalArgumentException();
         }
     }
+
+    public void roundNumberPlus() {
+        this.presentRoundNumber++;
+        System.out.println();
+    }
+
+    public Long getMaxRoundNumber() {
+        return maxRoundNumber;
+    }
+
+    public Long getPresentRoundNumber() {
+        return presentRoundNumber;
+    }
+
 }

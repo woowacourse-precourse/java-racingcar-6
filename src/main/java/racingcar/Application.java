@@ -18,5 +18,6 @@ public class Application {
         Game game = gameController.makeGame(readLine());
         System.out.println("실행 결과");
         System.out.println();
+        gameController.judge(cars, game);
     }
 }
