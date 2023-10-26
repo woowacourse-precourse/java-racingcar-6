@@ -1,22 +1,22 @@
 # 구현 기능 목록
 
 ## 입력 (InputView)
--  carNamesInput();
+- [x] carNamesInput();
    - [x] 사용자가 입력하는 값은 camp.nextstep.edu.missionutils.Console의 readLine()을 활용한다.
-- wantTryMove();
+- [x] wantTryMove();
   - [x] 몇번의 이동을 할것인지 입력한다.
 
 
 ## 출력 (OutputView)
 
-- printRequestCarNames();
-  - 경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
-- printRequestWantTryMove(); 
-  - 시도할 회수는 몇회인가요?
-- printCarLocation(); 
-  - 각 이동후 자동차 이름과 전진한 현재위치를 출력한다.
-- printWinner(); 
-  - 모든 이동후 최종 우승자를 , 를 기준으로 출력한다.
+- [x] printRequestCarNames();
+  - [x] 경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
+- [x] printRequestTryCount(); 
+  - [x] 시도할 회수는 몇회인가요?
+- [x] printCarLocation(); 
+  - [x] 각 이동후 자동차 이름과 전진한 현재위치를 출력한다. 
+- [x] printWinner(); 
+  - [x] 모든 이동후 최종 우승자를 , 를 기준으로 출력한다.
 
 ## RacingCar
 
