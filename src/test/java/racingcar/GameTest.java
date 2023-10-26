@@ -3,6 +3,7 @@ package racingcar;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import net.bytebuddy.dynamic.scaffold.MethodGraph.Linked;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,11 +14,13 @@ public class GameTest {
 
     Car car;
     Game game;
+    LinkedHashMap<String, Integer> cars;
+
 
     @BeforeEach
     void setUp() {
         car = new Car();
-        game = new Game();
+        game = new Game(cars);
     }
 
 
@@ -40,16 +43,15 @@ public class GameTest {
     void 자동차_맵_생성_테스트() {
 
         String input = "pobi,jun,king,pobi,pobi";
-        String[] inputs = input.split(",");
         String[] carNames = game.splitCarName(input);
-        LinkedHashMap<String, Integer> cars = game.createCarMap(carNames);
 
-        for (int i = 0; i < inputs.length; i++) {
-            cars.putIfAbsent(inputs[i], 0);
-            cars.put(inputs[i], cars.get(inputs[i]) + 1);
+        HashMap<String, Integer> distinctCarNames = new HashMap<>();
+
+        for (int i = 0; i < carNames.length; i++) {
+            distinctCarNames.put(carNames[i], 0);
         }
-
-        Assertions.assertTrue(carNames.length == cars.size());
+        cars = game.createCarMap(carNames);
+        Assertions.assertTrue(distinctCarNames.size() == cars.size());
 
     }
 
