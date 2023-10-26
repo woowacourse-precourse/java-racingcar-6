@@ -26,13 +26,13 @@
 -[ ] 사용자에게 자동차들의 이름을 입력받는다. -inputCarsName()
   - [x] 콘솔에서 사용자에게 이름들을 입력받는다. -inputNames()
   - [x] 입력받은 문자열을 쉼표(,)를 기준으로 나눠준다. -splitNames()
-  - [x] 이름의 적합성을 판단한다. -validateName()
-    - [x] 이름에 공백이 포함되는 경우 공백을 지운다. -removeWhiteSpace()
-    - [x] 이름의 길이가 0,즉 비어있는지 확인한다. -checkNameIsEmpty()
-      - 길이가 0일경우 IllegalArgumentException을 발생하고 애플리케이션을 종료시킨다.
-    - [x] 각 이름들의 길이가 5 이하인지 확인한다. -checkNameCorrectRange()
-      - 길이가 5 초과일경우 IllegalArgumentException을 발생하고 애플리케이션을 종료시킨다.
-    
+  - [ ] 입력받은 이름을 담는 객체를 생성. Name()
+    - [x] 이름의 적합성을 판단한다. -NameValidator.validateName()
+      - [x] 이름에 공백이 포함되는 경우 공백을 지운다. -NameValidator.removeWhiteSpace()
+      - [x] 이름의 길이가 0,즉 비어있는지 확인한다. -NameValidator.checkNameIsEmpty()
+        - 길이가 0일경우 IllegalArgumentException을 발생하고 애플리케이션을 종료시킨다.
+      - [x] 각 이름들의 길이가 5 이하인지 확인한다. -NameValidator.checkNameCorrectRange()
+        - 길이가 5 초과일경우 IllegalArgumentException을 발생하고 애플리케이션을 종료시킨다.
 -[ ] 각 이름들을 담은 자동차 객체를 만든다. -makeCar()
 -[ ] 자동차 객체들을 담은 객체를 만든다. -makeCars()
 -[ ] 사용자에게 이동을 시도할 횟수를 입력받는다. -inputAttemptCount()
@@ -52,18 +52,21 @@
   - [ ] 해당 자동차의 이름을 출력한다. -printCarName()
     - [ ] 여러대인 경우 쉼표(,)를 이용해 구분한다. -splitByComma()
 
-## 구현 클래스
+## 구현 클래스 및 하위 메서드
 - Car: 자동차의 이름과 위치상태를 가진 클래스
-  - attemptForward(): 앞으로 전진을 시도하는 기능을 가진 메서드 
-- Cars: 자동차들의 상태를 가진 메서드
-  - attemptForward(): 자동차들의 전진을 시도하는 기능을 가진 메서드
+  - attemptForward(): 앞으로 전진을 시도하는 기능
+- Cars: 자동차들의 상태를 가진 클래스
+  - attemptForward(): 자동차들의 전진을 시도하는 기능
 - Name: 자동차의 이름이라는 상태를 관리하는 클래스
 - Position: 자동차의 현재 위치상태를 관리하는 클래스 
-  - attemptForward(): 전진을 시도하는 기능을 가진 메서드.
-    - makeRandomValue(): 0부터 9사이의 무작위 값을 만들어내는 메서드
-    - moveForward(): 자동차를 한칸 전진시키는 기능을 가진 메서드
-    - checkValueIsOverFour(): 인자의 값이 4 이상안지 확인하는 메서드
-  - swithcMovePositionToSlash():위치 상태값을 작대기(-)로 바꿔주는 메서드
+  - attemptForward(): 전진을 시도하는 기능을 가진 기능
+    - makeRandomValue(): 0부터 9사이의 무작위 값을 만들어내는 기능 
+    - moveForward(): 자동차를 한칸 전진시키는 기능
+    - checkValueIsOverFour(): 인자의 값이 4 이상안지 확인하는 기능
+  - swithcMovePositionToSlash():위치 상태값을 작대기(-)로 바꿔주는 기능 
 - View: 콘솔로 보여지는 입력 문구, 결과 출력에 관한 기능들을 가진 클래스 
-  - inputNames():콘솔에서 사용자에게 이름들을 입력받는 기능을 가진 메서드
-  
+  - inputNames():콘솔에서 사용자에게 이름들을 입력받는 기능
+- NameValidator:이름의 적합성을 판단하는 클래스
+  - removeWhiteSpace(): 이름의 존재하는 공백을 지우는 기능
+  - checkNameIsEmpty(): 이름이 비어있는지 확인하는 기능
+  - checkNameCorrectRange(): 이름이 미션에서 제한하는 범위(5자)를 넘었는지 확인하는 기능
