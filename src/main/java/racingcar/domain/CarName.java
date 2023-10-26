@@ -6,10 +6,10 @@ import static racingcar.exception.ExceptionMessage.CarException.NAME_MUST_BE_EXI
 public class CarName {
     private static final int NAME_LENGTH = 5;
 
-    private final String name;
+    private final String value;
 
-    private CarName(final String name) {
-        this.name = name;
+    private CarName(final String value) {
+        this.value = value;
     }
 
     public static CarName from(final String name) {
@@ -27,17 +27,21 @@ public class CarName {
         }
     }
 
+    public String getValue() {
+        return value;
+    }
+
     @Override
     public boolean equals(final Object object) {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
 
         final CarName other = (CarName) object;
-        return name.equals(other.name);
+        return value.equals(other.value);
     }
 
     @Override
     public int hashCode() {
-        return name.hashCode();
+        return value.hashCode();
     }
 }
