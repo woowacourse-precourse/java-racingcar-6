@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.List;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -17,16 +18,17 @@ public class MainController {
     }
 
     private GameData initGame() {
+        List<String> carNames = Converter.splitByDelimiter(InputView.inputString(Message.INPUT_CAR_NAME), ",");
         return new GameData(
-                InputView.inputString(Message.INPUT_CAR_NAMES),
-                InputView.inputString(Message.INPUT_TRIAL_COUNT)
+                carNames,
+                InputView.inputInteger(Message.INPUT_TRIAL_COUNT)
         );
     }
 
     private void proceedGame(GameData gameData) {
         int moveCount  = 0;
         while (moveCount++ < gameData.trialCount()) {
-            service.move(gameData);
+            service.move(gameData.carNames());
             OutputView.printResult(gameData.racerList());
         }
     }

@@ -1,7 +1,9 @@
 package racingcar;
 
+import java.util.List;
+
 public class RacingService {
-    public void move(RacerList racerList) {
+    public void move(List<String> carList) {
 
     }
 }
