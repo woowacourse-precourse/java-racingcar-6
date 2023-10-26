@@ -1,14 +1,15 @@
 package racingcar.view;
 
 import java.util.List;
+import racingcar.enums.StringEnum;
 
 public class OutputView {
-    public void printCurrent(String name, int position){
+    public void printCurrent(String name, int position) {
         StringBuilder result = new StringBuilder();
 
         result.append(name).append(" :");
 
-        if(position>0){
+        if (position > 0) {
             result.append(" ");
         }
 
@@ -17,15 +18,15 @@ public class OutputView {
         System.out.println(result);
     }
 
-    StringBuilder getProgressBar(int position){
+    StringBuilder getProgressBar(int position) {
         StringBuilder s = new StringBuilder();
         return s.append("-".repeat(position));
     }
 
-    public void printResult(List<String> winner){
+    public void printResult(List<String> winner) {
         String s =
-                "최종 우승자 : "
-                + String.join(", ", winner);
+                StringEnum.RESULT_STRING
+                        + String.join(", ", winner);
         System.out.println(s);
     }
 }
