@@ -11,7 +11,7 @@ import static racingcar.util.ErrorMessage.SPLIT_REGEX_ERROR;
 public class TypeConverter {
 
     private static final String SPLIT_UNIT = ",";
-    private static final String SPECIAL_REGEX = "";
+    private static final String SPECIAL_REGEX = "^[!|~₩@#$%^&*().<>/?{}/-_=+]*$";
 
     public List<String> convertToNameList(String input) {
         checkSplitUnit(input);
