@@ -19,15 +19,15 @@ public class OutputView {
     }
 
     public void printCarsResults(final CarsDto carsDto) {
-        carsDto.getCarDtoList()
+        carsDto.carDtos()
                 .forEach(this::printCarResult);
 
         System.out.printf(NEWLINE);
     }
 
     private void printCarResult(CarDto carDto) {
-        String name = carDto.getName();
-        Integer position = carDto.getPosition();
+        String name = carDto.name();
+        Integer position = carDto.position();
 
         String format = CAR_POSITION_FORMAT + POSITION_SIGNAL.repeat(position) + NEWLINE;
 
