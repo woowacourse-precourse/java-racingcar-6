@@ -2,18 +2,27 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public record Car(String carName) {
-    private static final StringBuilder distanceTraveled = new StringBuilder();
+public class Car {
+    private final StringBuilder distanceTraveled = new StringBuilder();
+    private final String carName;
 
-    public static boolean isMovingForward() {
+    Car(String carName) {
+        this.carName = carName;
+    }
+
+    String getCarName() {
+        return carName;
+    }
+
+    boolean isMovingForward() {
         return Randoms.pickNumberInRange(0, 9) >= 4;
     }
 
-    public static void moveForward() {
+    void moveForward() {
         distanceTraveled.append("-");
     }
 
-    public String getDistanceTraveled() {
+    String getDistanceTraveled() {
         return distanceTraveled.toString();
     }
 }
