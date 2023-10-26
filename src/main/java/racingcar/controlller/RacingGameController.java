@@ -42,8 +42,8 @@ public class RacingGameController extends GameController {
             OutputView.printCurrentForwardState(carList);
         }
         // 최종 우승자 출력
-        // TO DO...
-        
+        OutputView.printWinners(carList.winnersToString());
+
         // 게임 종료
         isRunning = false;
     }

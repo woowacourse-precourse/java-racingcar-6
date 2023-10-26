@@ -10,4 +10,8 @@ public class OutputView {
     public static void printCurrentForwardState(CarList carList) {
         System.out.println(carList.getForwardStateString());
     }
+
+    public static void printWinners(String winners) {
+        System.out.println(winners);
+    }
 }

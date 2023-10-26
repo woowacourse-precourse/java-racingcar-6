@@ -10,6 +10,14 @@ public class Car {
         position = 0;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
     private void validateName(String name) {
         validateNull(name);
         validateLength(name);
