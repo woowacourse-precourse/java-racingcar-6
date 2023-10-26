@@ -17,11 +17,15 @@ public class OutputView {
         System.out.println(TRIAL);
     }
 
-    public void printResult(List<RacingCar> RacingCars){
+    public void printResultMessage(){
         System.out.println(RESULT);
+    }
+
+    public void printResult(List<RacingCar> RacingCars){
         for (RacingCar racingCar : RacingCars){
             System.out.println(racingCar.getName() + " : " + racingCar.visibleDistance());
         }
+        System.out.println();
     }
 
     public void printWinner(List<String> Winners){
