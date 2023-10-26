@@ -8,12 +8,12 @@
 - [x] 자동차 이름 입력 메세지 출력 - printCarNameInputMessage()
 - [x] 자동차 이름 입력 - carNameInput() - Car
 	- [ ] 유효성 검사 - Validator
-- [ ] 자동차 이름 저장 - saveCars(carNameInput()) - Cars
+- [ ] 자동차 이름 저장 - addCars(carNameInput()) - Cars
 
 - [x] 시도할 횟수 입력 메세지 출력 - printNumberOfattempsInputMessage()
 - [x] 시도할 횟수 입력 - numberOfattempsInput()
 	- [ ] 유효성 검사
-- [ ] 시도한 횟수 저장 - saveCount(carNameInput()) - Counter
+- [ ] 시도한 횟수 저장 - saveCount(carNameInput()) - Attemps
 
 - [ ] 시도할 횟수가 될 때까지 loop
 	- [ ] 자동차의 수만큼 loop
@@ -21,7 +21,7 @@
 		- [ ] 생성한 수가 4 이상 이라면 현재 상황에 '-' 추가 - boolean overStandard(generateRandomNumber()) - STANDARD_NUMBER = 4
 			- [ ] 현재 상황에 '-' 추가 - forward() 
 				- [ ] 저장 car.setCurrent(car.getCurrent() + "-");
-		- [ ] 각 자동차의 이름 및 현재 상황 출력 - car.getName() + : + car.getCurrent()
+		- [ ] 각 자동차의 이름 및 현재 상황 출력 - car.getName() + : + car.getDistance()
 
 - [ ] 최종 우승자 결과 계산
 	- [ ] 자동차의 수만큼 loop - 
@@ -37,7 +37,8 @@
 - [x] model
 	- [x] Car - 자동차 - 이름, 진행상황, 전진하는 기능
 	- [x] Cars - 자동차 목록 - 자동차 목록 저장 기능
-	- [x] WinnerList - 우승자 목록 - 우승자들을 저장하는 기능
+	- [x] Winners - 우승자 목록 - 우승자들을 저장하는 기능
+	- [ ] Attemps - 시도할 횟수 저장 - 변수로 해도 될거 같긴한데 진짜 게임들을 생각해보면 나중에 게임 기록들을 남기니까 만들어 보기로 함
 - view
 	- [x] InputView 입력값 가져오기 담당
 	- [x] OutputView 출력하기 담당
