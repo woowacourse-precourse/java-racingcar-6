@@ -1,12 +1,12 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.utils.Constants;
 
 public class RandomNumberGenerator {
-    public static final int MIN_NUMBER_RANGE = 0;
-    public static final int MAX_NUMBER_RANGE = 9;
 
     public int generate() {
-        return Randoms.pickNumberInRange(MIN_NUMBER_RANGE, MAX_NUMBER_RANGE);
+        return Randoms.pickNumberInRange(
+                Constants.MIN_NUMBER_RANGE, Constants.MAX_NUMBER_RANGE);
     }
 }

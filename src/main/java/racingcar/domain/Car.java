@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.utils.Constants;
+
 import java.util.Objects;
 
 public class Car {
@@ -27,7 +29,7 @@ public class Car {
     }
 
     private void validateNumber(int number) {
-        if (number < RandomNumberGenerator.MIN_NUMBER_RANGE || number > RandomNumberGenerator.MAX_NUMBER_RANGE) {
+        if (number < Constants.MIN_NUMBER_RANGE || number > Constants.MAX_NUMBER_RANGE) {
             throw new IllegalArgumentException("잘못된 입력 값입니다.");
         }
     }
