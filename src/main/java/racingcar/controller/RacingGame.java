@@ -5,7 +5,6 @@ import static racingcar.constant.RacingGameContant.ZERO;
 import static racingcar.exception.ErrorMessage.NOT_INTEGER;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.List;
 import racingcar.domain.Cars;
 import racingcar.dto.CarsDto;
 import racingcar.exception.RacingGameException;
@@ -83,15 +82,12 @@ public class RacingGame {
 
     private void raceStart() {
         cars.go();
-        final CarsDto carsDto = CarsDto.of(cars);
 
-        outputView.printCarsResults(carsDto);
+        outputView.printCarsResults(CarsDto.of(cars));
     }
 
     private void finish() {
-        final List<String> winners = cars.findWinnerNameList();
-
-        outputView.printWinners(winners);
+        outputView.printWinners(cars.findWinnerNameList());
 
         Console.close();
     }
