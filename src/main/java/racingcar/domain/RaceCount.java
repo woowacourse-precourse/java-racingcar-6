@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class RaceCount {
     private static final int MIN_RACE_COUNT = 1;
+    private static final int ZERO_COUNT = 0;
 
     private int raceCount;
 
@@ -22,6 +23,10 @@ public class RaceCount {
 
     public void decrease() {
         raceCount--;
+    }
+
+    public boolean isLastCount() {
+        return raceCount == ZERO_COUNT;
     }
 
     @Override

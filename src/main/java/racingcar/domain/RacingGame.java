@@ -16,4 +16,8 @@ public class RacingGame {
 
         raceCount.decrease();
     }
+
+    public boolean isGameEnd() {
+        return raceCount.isLastCount();
+    }
 }
