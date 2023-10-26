@@ -12,9 +12,9 @@ import javax.xml.crypto.Data;
 
 public class RacingCar {
     public static void playing () {
-        String InputNames = Input.printNameToBeInput();
-        Errors.nameInputThrowError(InputNames);
-        String[] splitNames = Logics.splitNames(InputNames);
+        String inputNames = Input.printNameToBeInput();
+        Errors.nameInputThrowError(inputNames);
+        String[] splitNames = Logics.splitNames(inputNames);
 
         String inputNumber = Input.printNumToBeInput();
         Errors.numberInputThrowError(inputNumber);
@@ -30,8 +30,9 @@ public class RacingCar {
                 Datas[j].setData(splitNames[j], Logics.forwardOrNot());
                 Output.printProgressing(Datas[j].getName(), Datas[j].getProgress());
             }
+            System.out.println();
         }
-
+        Output.printWinner(Logics.winners(Datas));
 
     }
 }
