@@ -38,6 +38,13 @@ class ApplicationTest extends NsTest {
         assertThat(output()).contains(STRING_INPUT_CAR_NAME);
     }
 
+    @Test
+    void 경주할_자동차_이름을_입력() {
+        final String expected = "pobi,woni,jun";
+        final String inputCarName = "";
+        assertThat(inputCarName).contains(expected);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
