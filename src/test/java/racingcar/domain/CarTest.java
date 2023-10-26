@@ -84,9 +84,9 @@ public class CarTest {
         car3.moveForward(5); // 3
 
         // when
-        final boolean actual1 = car1.isSamePosition(car2.getPosition().getValue());
-        final boolean actual2 = car1.isSamePosition(car3.getPosition().getValue());
-        final boolean actual3 = car2.isSamePosition(car3.getPosition().getValue());
+        final boolean actual1 = car1.isSamePosition(car2.getPosition());
+        final boolean actual2 = car1.isSamePosition(car3.getPosition());
+        final boolean actual3 = car2.isSamePosition(car3.getPosition());
 
         // then
         assertAll(
