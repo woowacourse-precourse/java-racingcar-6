@@ -7,6 +7,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.LinkedHashMap;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class ApplicationTest extends NsTest {
@@ -33,6 +35,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    @DisplayName("입력값 구분 후 데이터 초기화")
     void splitStringAndDataInit() {
         RacingList racingList = new RacingList();
         racingList.inputCarList("aaa,bbb,ccc");
@@ -41,6 +44,13 @@ class ApplicationTest extends NsTest {
         compareValue.put("bbb", 0);
         compareValue.put("ccc", 0);
         assertThat(racingList.getCarList()).isEqualTo(compareValue);
+    }
+
+    @Test
+    @DisplayName("자동차 입력 값 길이 제한 초과")
+    void inputSizeValidate() {
+        RacingList racingList = new RacingList();
+        Assertions.assertThrows(IllegalArgumentException.class, () -> racingList.inputCarList("aaa,bbb,cccccc"));
     }
 
     @Override
