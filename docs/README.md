@@ -44,7 +44,7 @@
 
 2. InputView 
 - [x] 자동차 이름 입력
-- [ ] 경주 시도 횟수 입력
+- [x] 경주 시도 횟수 입력
 
 ### Controller
 1. RacingController

@@ -10,4 +10,9 @@ public class InputView {
         System.out.println(CAR_NAME_INPUT_STRING);
         return Console.readLine();
     }
+
+    public String askTrialTimes() {
+        System.out.println(TRIAL_TIMES_INPUT_STRING);
+        return Console.readLine();
+    }
 }
