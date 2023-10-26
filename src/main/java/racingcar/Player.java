@@ -19,6 +19,8 @@ public class Player {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String player = Console.readLine();
         List<String> PlayerList = Arrays.stream(player.split(",")).map(String::trim).collect(Collectors.toList());
+        nameError(PlayerList);
+
         return PlayerList;
     }
     public List<Integer> setScore(List<String> playerList ){
@@ -27,6 +29,13 @@ public class Player {
             scoreList.add(0);
         }
         return scoreList;
+    }
+    private void nameError(List<String> strList){
+        for(String str :strList ){
+            if(str.length()>5){
+                throw new IllegalArgumentException("이름은 5글자까지 입력 가능합니다.");
+            }
+        }
     }
     private int validation(String input){
         int num;
