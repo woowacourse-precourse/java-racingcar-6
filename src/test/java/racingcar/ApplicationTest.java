@@ -53,6 +53,14 @@ class ApplicationTest extends NsTest {
             assertThat(readCarNames).contains(expected);
         }
     }
+
+    @Test
+    void 경주할_자동차_이름을_입력이후_Console_close_메서드_호출() {
+        try (MockedStatic<Console> mockConsole = mockStatic(Console.class)) {
+            mockConsole.when(() -> Console.readLine()).thenReturn("");
+            Application.readCarNames();
+            mockConsole.verify(() -> Console.close(), times(1));
+        }
     }
 
     @Override
