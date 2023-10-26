@@ -44,6 +44,19 @@ class CarTest {
         assertThat(car.getPosition()).isEqualTo(1);
     }
 
+    @Test
+    void 숫자_4_미만_이동불가() {
+        // given
+        Integer number = 3;
+        Car car = Car.from("1234");
+
+        // when
+        car.go(number);
+
+        // then
+        assertThat(car.getPosition()).isEqualTo(0);
+    }
+
 
 
 }
