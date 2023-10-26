@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.CarName;
 import racingcar.RaceCar;
 import racingcar.RaceCars;
@@ -36,5 +38,13 @@ class RaceCarsTest {
         List<RaceCar> maximumList = raceCars.getMaximumList();
 
         System.out.println("maximumList = " + maximumList);
+    }
+
+    @ParameterizedTest
+    @DisplayName("String 기반 생성자 테스트")
+    @ValueSource(strings = {"pobi,woni,jun"})
+    void newConstructorTest(String names) {
+        RaceCars raceCars = new RaceCars(names);
+        System.out.println("raceCars = " + raceCars);
     }
 }

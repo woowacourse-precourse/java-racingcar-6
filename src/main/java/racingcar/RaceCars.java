@@ -12,6 +12,18 @@ public class RaceCars {
         this.raceCarList = Collections.unmodifiableList(raceCarList);
     }
 
+    public RaceCars(String carNameStrings) {
+        this.raceCarList = Collections.unmodifiableList(convertStringToList(carNameStrings));
+    }
+
+    private List<RaceCar> convertStringToList(String carNameStrings) {
+        List<String> splitList = new ArrayList<>(List.of(carNameStrings.split(",")));
+
+        return splitList.stream()
+                .map(name -> new RaceCar(new CarName(name)))
+                .toList();
+    }
+
     public List<RaceCar> getMaximumList() {
         List<RaceCar> maximumList = new ArrayList<>();
         RaceCar firstCar = raceCarList.get(0);
@@ -29,5 +41,10 @@ public class RaceCars {
         }
 
         return maximumList;
+    }
+
+    @Override
+    public String toString() {
+        return "raceCarList=" + raceCarList;
     }
 }
