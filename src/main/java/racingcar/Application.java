@@ -80,6 +80,11 @@ public class Application {
     }
 
     public static String getWinnersFromCarList(final List<Car> carList) {
-        return "";
+        final List<Car> carListWithLongestDistance = getCarListWithLongestDistance(carList);
+        final List<String> winnerList = carListWithLongestDistance.stream()
+                .map(Car::getName).collect(Collectors.toList());
+        final String STRING_WINNER_DELIMITER = ", ";
+        final String winners = String.join(STRING_WINNER_DELIMITER, winnerList);
+        return winners;
     }
 }
