@@ -15,4 +15,11 @@ public class RacePosition {
     public int compareTo(RacePosition other) {
         return Integer.compare(this.currentPosition, other.currentPosition);
     }
+
+    @Override
+    public String toString() {
+        return "RacePosition{" +
+                "currentPosition=" + currentPosition +
+                '}';
+    }
 }

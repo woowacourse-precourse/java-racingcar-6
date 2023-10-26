@@ -9,4 +9,9 @@ public record CarName(String name) {
     private void throwIfInvalidName(String name) {
 
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

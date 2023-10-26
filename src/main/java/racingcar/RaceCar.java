@@ -17,4 +17,12 @@ public class RaceCar {
     public int compareTo(RaceCar other) {
         return position.compareTo(other.position);
     }
+
+    @Override
+    public String toString() {
+        return "RaceCar{" +
+                "name=" + name +
+                ", position=" + position +
+                '}';
+    }
 }
