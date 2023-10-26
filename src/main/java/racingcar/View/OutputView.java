@@ -7,21 +7,22 @@ public class OutputView {
 
     public static final String WINNER_MESSAGE = "최종 우승자 : ";
 
-    public void printRoundResult(List<Car> cars) {
+    public static void printRoundResult(List<Car> cars) {
         for (Car car : cars) {
             System.out.print(car.getCarName()+" : ");
             printPosition(car.getPosition());
         }
+        System.out.println();
     }
 
-    private void printPosition(int position) {
+    private static void printPosition(int position) {
         for (int i = 0; i < position; i++) {
             System.out.print("-");
         }
         System.out.println();
     }
 
-    public void printWinners(List<String> winners) {
+    public static void printWinners(List<String> winners) {
         System.out.println(WINNER_MESSAGE +String.join(", ",winners));
     }
 }
