@@ -23,8 +23,7 @@ public class Application {
                 if (decideMove()){
                     car.moveForward();
                 }
-                // 테스트 출력
-                System.out.println(car.getName()+ ": " + car.getCnt());
+                System.out.println(car.toString());
             }
         }
     }

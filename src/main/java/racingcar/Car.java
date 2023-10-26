@@ -14,6 +14,7 @@ public class Car {
     @Override
     public String toString() {
         StringBuilder bar = new StringBuilder();
+        bar.append(this.name + " : ");
         for (int i = 0; i <cnt ; i++) {
             bar.append("-");
         }
