@@ -1,7 +1,10 @@
 package racingcar;
 
+import java.sql.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import net.bytebuddy.dynamic.scaffold.MethodGraph.Linked;
 import org.junit.jupiter.api.Assertions;
@@ -54,6 +57,19 @@ public class GameTest {
         Assertions.assertTrue(distinctCarNames.size() == cars.size());
 
     }
+
+    @Test
+    void 자동차_무작위_값_생성_테스트(){
+        int carNumber = game.createCarNumber();
+
+        Assertions.assertTrue(carNumber>=0&&carNumber<=9);
+
+    }
+
+
+
+
+
 
 
 }
