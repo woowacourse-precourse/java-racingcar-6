@@ -9,7 +9,7 @@ public class Winners {
 	private final int smallint=Integer.MIN_VALUE;
 	private final int stub=2;
 
-	public void getWinners(Map<String, Integer> records,String [] eachName) {
+	/*public void getWinners(Map<String, Integer> records,String [] eachName) {
 
 		List<String> winners=whoAreTheWinners(records, eachName);
 		
@@ -54,5 +54,5 @@ public class Winners {
 		toast=toast.substring(0, toast.length()-stub);
 		
 		return toast;
-	}
+	}*/
 }

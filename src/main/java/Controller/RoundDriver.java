@@ -14,7 +14,7 @@ public class RoundDriver {
 	private final int advance=1;
 	private final int stop=0;
 
-	public int advance_or_stop() {
+	/*public int advance_or_stop() {
 		
 		int advance_or_stop=stop;
 		int random=Randoms.pickNumberInRange(smallest_range,greatest_range);;
@@ -57,5 +57,5 @@ public class RoundDriver {
 			hyphens+="-";
 		
 		return hyphens;
-	}
+	}*/
 }
