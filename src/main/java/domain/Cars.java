@@ -33,6 +33,9 @@ public class Cars {
     public String getResult(int count) {
         while(count-- > 0) {
             race();
+            if(count != 0) {
+                sb.append(GameMessage.newLine.getMessage());
+            }
         }
         return sb.toString();
     }
@@ -43,7 +46,6 @@ public class Cars {
             car.move(randomNumber);
             raceRecord(car);
         }
-        sb.append(GameMessage.newLine.getMessage());
     }
 
     private void raceRecord(Car car) {
