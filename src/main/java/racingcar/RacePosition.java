@@ -22,4 +22,8 @@ public class RacePosition {
                 "currentPosition=" + currentPosition +
                 '}';
     }
+
+    public String drawProcess() {
+        return "-".repeat(currentPosition);
+    }
 }
