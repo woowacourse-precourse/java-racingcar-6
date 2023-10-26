@@ -1,12 +1,12 @@
 ## 구현 기능 목록
 
-- [ ] RaceController
-  - [ ] 경주 시작
-  - [ ] 경주 진행
+- [x] RaceController
+  - [x] 경주 시작
+  - [x] 경주 진행
 
-- [ ] RaceService
-  - [ ] 시도할 회수만큼 경주 진행
-  - [ ] 도메인에서 반환된 데이터 DTO로 변환
+- [x] RaceService
+  - [x] 경주 진행
+  - [x] 경주 결과 반환
 
 - [x] Race
   - [x] 자동차들 전진시키기
