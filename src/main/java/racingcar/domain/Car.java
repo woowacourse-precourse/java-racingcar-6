@@ -16,11 +16,13 @@ public class Car {
         return this.name;
     }
 
-    public int randomDrive() {
+    public int getLocation() {
+        return this.location;
+    }
 
+    public void randomDrive() {
         if (Randoms.pickNumberInRange(0, 9)>=4) {
             this.location++;
         }
-        return this.location;
     }
 }

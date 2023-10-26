@@ -17,18 +17,16 @@
 3. RaceGameService 객체 구현
    - roundStart() 메소드
       - CarsDto를 매개변수로 받아 각각 Car.randomDrive()를 실행
-      - 결과를 int[len]으로 모아서 return
-        - len = 매개변수로 받은 배열의 길이
+      - 결과를 다시 CarsDto로 return
 4. 시도 횟수 입력 컨트롤러
    - CarsDto와 사용자 read를 입력 받음 
    - 사용자로부터 입력된 String 값을 int로 변환
      - 유효성 검사
-       1. 0을 허용할 것인가?
-          운이 없을 경우 100번을 실행해도 아무도 안움직일 수도 있음
-          0도 허용 >> 이 경우 모두가 최종 우승자
+       1. 0을 허용 X
        2. [0-9]+ 로 처리
    - 아래의 행동을 입력된 만큼 반복
      - RaceGameService.roundStart() 실행
-     - 결과 int[]와 dto를 통해 실행결과 표기
+     - 결과는 dto를 통해 실행결과 표기
    - 횟수가 끝난 뒤 최종 우승자를 출력
+5. 기타 출력 설정
    

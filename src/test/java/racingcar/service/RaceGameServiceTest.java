@@ -23,11 +23,14 @@ public class RaceGameServiceTest {
         CarsDto carsDto = new CarsDto(cars);
 
         // when
-        int[] locates = raceGameService.roundStart(carsDto);
+        CarsDto carsDto1 = raceGameService.roundStart(carsDto);
+        Car[] cars1 = carsDto1.cars();
 
         // then
-        for (int locate : locates) {
-            assertThat(locate).isGreaterThanOrEqualTo(0);
+        for (int i=0; i<cars1.length; i++) {
+            Car car = cars1[i];
+            assertThat(car.ownerOfCar()).isEqualTo(names[i]);
+            assertThat(car.getLocation()).isGreaterThanOrEqualTo(0);
         }
     }
 }

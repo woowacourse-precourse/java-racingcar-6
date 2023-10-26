@@ -16,9 +16,9 @@ public class CarTest {
         Car car = new Car(carName);
 
         // when
-        int location = car.randomDrive();
+        car.randomDrive();
 
         // then
-        assertThat(location).isGreaterThanOrEqualTo(0);
+        assertThat(car.getLocation()).isGreaterThanOrEqualTo(0);
     }
 }
