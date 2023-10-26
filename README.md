@@ -166,8 +166,8 @@ Randoms.pickNumberInRange(0,9);
 ## 과제 구현을 위한 기능
 
 1. Car class
-   - run() 몇 번 전진했는지에 대한 값을 보유
-   - private 이름 값 보유
+   - run() 몇 번 전진했는지에 대한 값을 보유, 입력된 이름값 보유
+   - getter 역할을 하는 메소드
 2. MainGame class
    - 누가 이겼는지 판별하는 기능
    - 우승자가 몇명인지 판단해서 리턴하는 기능
