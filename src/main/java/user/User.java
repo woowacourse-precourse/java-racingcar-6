@@ -11,9 +11,17 @@ public class User {
         String players = Console.readLine();
 
         List<String> playersArray = new ArrayList<>(Arrays.asList(players.split(",")));
-        ExceptionHandler.raiseException(playersArray);
+        ExceptionHandler.raisePlayerInputException(playersArray);
 
         return playersArray;
+    }
+
+    public static String moveNumberInput() {
+        String moveNumber = Console.readLine();
+
+        ExceptionHandler.rasieMoveNumberInputException(moveNumber);
+
+        return moveNumber;
     }
 }
 
