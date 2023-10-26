@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.util.RandomNumber;
+
 public class Car {
 
     private String name;
@@ -9,4 +11,11 @@ public class Car {
         this.name = name;
         this.moveDistance = 0;
     }
+
+    public void move() {
+        if (RandomNumber.canMove(RandomNumber.createRandomNumber())) {
+            moveDistance += 1;
+        }
+    }
+
 }
