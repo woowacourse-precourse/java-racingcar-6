@@ -10,4 +10,8 @@ public class Car {
     public Car(String name) {
         this.name = new Name(name);
     }
+
+    public String getName() {
+        return name.getName();
+    }
 }
