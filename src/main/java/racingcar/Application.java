@@ -24,6 +24,13 @@ public class Application {
         // 레이싱 게임 결과 멘트
         OutputView.racingCarResultComment();
 
-        
+        // 레이싱 게임 시작
+        for (int i = 0; i < tryCount; i++) {
+            carNames.stream().forEach(car -> {
+                car.tryAddDistance();
+                car.carDistancePrint();
+            });
+            OutputView.println();
+        }
     }
 }

@@ -19,4 +19,12 @@ public class OutputView {
     public static void racingCarResultComment() {
         System.out.println(RacingCarGameComments.RESULT_COMMENT);
     }
+
+    public static void racingCarResultPrint(String name, String dis) {
+        System.out.printf("%s : %s\n", name, dis);
+    }
+
+    public static void println() {
+        System.out.println();
+    }
 }
