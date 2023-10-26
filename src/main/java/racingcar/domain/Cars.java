@@ -5,7 +5,8 @@ import java.util.List;
 
 public class Cars {
 
-    List<Car> cars;
+    private List<Car> cars;
+    Output output = new Output();
 
     public Cars(List<String> carNames) {
         cars = new ArrayList<>(carNames.size());
@@ -15,20 +16,14 @@ public class Cars {
         }
     }
 
-    public void move(int gameCount) {
-        for (int j = 0; j < gameCount; j++) {
-            moveEachCar();
-        }
-    }
-
-    private void moveEachCar() {
+    public List<Car> move() {
         RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
         for (int i = 0; i < cars.size(); i++) {
             int randomNumber = randomNumberGenerator.generateNumber();
             Car car = cars.get(i);
             moveIfGreaterThanThree(car, randomNumber);
-            System.out.println(car.distance+" "+ car.name);
         }
+        return cars;
     }
 
     private void moveIfGreaterThanThree(Car car, int randomNumber) {
@@ -36,4 +31,5 @@ public class Cars {
             car.move();
         }
     }
+
 }
