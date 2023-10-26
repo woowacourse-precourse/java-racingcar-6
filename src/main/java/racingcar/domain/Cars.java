@@ -30,12 +30,13 @@ public class Cars {
         return cars;
     }
 
-    public Cars findWinners() {
+    public List<String> findWinnerNameList() {
         Integer maxPosition = findMaxPosition();
 
-        return new Cars(cars.stream()
+        return cars.stream()
                 .filter(car -> car.isHere(maxPosition))
-                .toList());
+                .map(Car::getName)
+                .toList();
     }
 
     private Integer findMaxPosition() {

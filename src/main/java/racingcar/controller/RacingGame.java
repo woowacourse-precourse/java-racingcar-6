@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.List;
 import racingcar.domain.Cars;
 import racingcar.dto.CarsDto;
 import racingcar.view.InputView;
@@ -21,8 +22,9 @@ public class RacingGame {
 
         rotate(cars, numberOfTimes);
 
-        Cars winners = cars.findWinners();
-        CarsDto winnersDto = CarsDto.of(winners);
+        List<String> winners = cars.findWinnerNameList();
+
+        outputView.printWinners(winners);
     }
 
     private static void rotate(Cars cars, Integer numberOfTimes) {
