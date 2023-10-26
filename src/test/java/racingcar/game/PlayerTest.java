@@ -12,4 +12,11 @@ public class PlayerTest {
         Player player = new Player("worm");
         Assertions.assertThat(player.getName()).isEqualTo("worm");
     }
+
+    @Test
+    @DisplayName("Player 거리 출력 테스트")
+    void playerDistancePrint(){
+        Player player = new Player("worm");
+        Assertions.assertThat(player.getDistance()).isEqualTo(0);
+    }
 }

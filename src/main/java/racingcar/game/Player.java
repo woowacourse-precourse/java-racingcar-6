@@ -11,4 +11,8 @@ public class Player {
     public String getName() {
         return this.name;
     }
+
+    public int getDistance(){
+        return this.distance;
+    }
 }
