@@ -14,4 +14,13 @@ class ValidatorTest {
                 isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ExceptionMessage.INPUT_VALUE);
     }
+
+    @ParameterizedTest
+    @DisplayName("이름 6자 이상 입력 예외 테스트")
+    @ValueSource(strings = {"gildong", "홍2동1동길", "monster", " d wd d2w w  "})
+    void invalidInputsTest2(String input) {
+        Assertions.assertThatThrownBy(() -> Validator.isLengthLessThanFive(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("이름은 5자 이하만 가능합니다.");
+    }
 }
