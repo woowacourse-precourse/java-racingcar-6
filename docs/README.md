@@ -51,9 +51,9 @@
 
 #### ConsoleInputView
 콘솔 입력을 담담하는 View이며 InputView를 상속받는다.
-- [ ] InputView 인터페이스의 `readLine`을 오버라이딩하여 입력 메서드를 구현한다.
+- [x] InputView 인터페이스의 `readLine`을 오버라이딩하여 입력 메서드를 구현한다.
     - 예외처리
-    - [ ] 입력이 blank인지 검증한다.
+    - [x] 입력이 blank인지 검증한다.
 #### ConsoleOutputView
 콘솔 출력을 담담하는 View이며 OutputView를 상속받는다.
 
