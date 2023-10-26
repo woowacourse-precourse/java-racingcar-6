@@ -44,7 +44,7 @@ public class InputView {
         isNull(str);
         isEmpty(str);
         isDigit(str);
-        isGreaterThanZero(str);
+        isValidNumber(str);
     }
 
     private static void isNull(String str) {
@@ -68,8 +68,13 @@ public class InputView {
         }
     }
 
-    private static void isGreaterThanZero(String str) {
-        if (Integer.parseInt(str) <= 0) {
+    private static void isValidNumber(String str) {
+        try {
+            Integer value = Integer.parseInt(str);
+            if (value <= 0) {
+                throw new IllegalArgumentException(ExceptionComments.INPUT_VALUE_INCORRECT_COMMENT);
+            }
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ExceptionComments.INPUT_VALUE_INCORRECT_COMMENT);
         }
     }
