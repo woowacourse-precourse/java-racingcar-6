@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Race {
 
-    public void forwardOrNot(List<Car> cars) {
+    private void forwardOrNot(List<Car> cars) {
 
         for (Car car : cars) {
             if (car.shouldCarMove()) {
@@ -14,7 +14,7 @@ public class Race {
             }
             System.out.println(car.getName() + " : " + car.getForward());
         }
-        System.out.println(" ");
+        System.out.println();
     }
 
     public void startRace(List<Car> cars, int moveCount) {

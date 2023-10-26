@@ -6,10 +6,14 @@ import java.util.List;
 public class GameConfig {
     public int moveCount;
 
+    public int getMoveCount() {
+        return moveCount;
+    }
+
     public void setMoveCount(int moveCount) {
 
         if (moveCount < 1) {
-            throw new IllegalArgumentException("시도할 횟수는 0회 이상이어야 합니다.");
+            throw new IllegalArgumentException("시도할 회수는 0회 이상이어야 합니다.");
         }
 
         this.moveCount = moveCount;

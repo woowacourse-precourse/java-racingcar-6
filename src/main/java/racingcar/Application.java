@@ -8,27 +8,27 @@ import racingcar.domain.Race;
 
 import java.util.List;
 
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+
         GameConfig gameConfig = new GameConfig();
-        Race race = new Race();
         Judgment judgment = new Judgment();
-        List<Car> cars = gameConfig.createCars("민지,형빈,민호,jinho,jayZ,빈지노");
+        Race race = new Race();
 
-        System.out.print("시도할 횟수를 입력해주세요 : ");
-        gameConfig.setMoveCount(Integer.parseInt(Console.readLine()));
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        List<Car> cars = gameConfig.createCars(Console.readLine());
+        System.out.println("시도할 회수는 몇회인가요?");
 
-        System.out.println("시도 횟수 = " + gameConfig.moveCount);
+        try {
+            gameConfig.setMoveCount(Integer.parseInt(Console.readLine()));
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자만 입력이 가능합니다.");
+        }
 
-        race.startRace(cars, gameConfig.moveCount);
-
+        System.out.println("실행 결과");
+        race.startRace(cars, gameConfig.getMoveCount());
         List<String> winners = judgment.checkWinners(cars);
-
-        System.out.println("winners = " + String.join(", ", winners));
-
-//        for (Car car : cars) {
-//            System.out.println(car.getName() + car.getForward());
-//        }
+        System.out.printf("최종 우승자 : %s", String.join(", ", winners));
     }
 }
