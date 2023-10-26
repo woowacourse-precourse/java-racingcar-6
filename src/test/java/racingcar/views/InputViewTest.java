@@ -82,18 +82,26 @@ class InputViewTest {
     @DisplayName("도전 횟수 입력 받기 숫자 타입 체크")
     void tryCountInputAndNumberTypeCheckTest() {
         // 정상의 경우
-        assertDoesNotThrow(() -> InputView.checkDigit("123"));
+        assertDoesNotThrow(() -> InputView.validationTryCount("123"));
 
         // 비정상의 경우 예외 발생
         assertThrows(IllegalArgumentException.class, () -> {
-            InputView.checkDigit(" ");
+            InputView.validationTryCount(" ");
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            InputView.checkDigit("1 3");
+            InputView.validationTryCount("1 3");
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            InputView.checkDigit(" a");
+            InputView.validationTryCount(" a");
         });
+        // 0 이하의 값 입려 시 예외 발생
+        assertThrows(IllegalArgumentException.class, () -> {
+            InputView.validationTryCount("0");
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            InputView.validationTryCount("-1");
+        });
+
 
     }
 
