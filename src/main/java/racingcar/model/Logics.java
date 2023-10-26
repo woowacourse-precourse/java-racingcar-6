@@ -12,8 +12,8 @@ public class Logics {
         return names.split(",");
     }
 
-    public static String winners (String[] names, String[] progress) {
-
-    }
+//    public static String winners (String[] names, String[] progress) {
+//
+//    }
 
 }

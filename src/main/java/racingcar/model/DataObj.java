@@ -2,11 +2,11 @@ package racingcar.model;
 
 public class DataObj {
     private String name;
-    private String progress;
+    private String progress = "";
 
-    public static void setData (String name, String progress) {
-        name = name;
-        progress = progress;
+    public void setData (String name, String progress) {
+        this.name = name;
+        this.progress += progress;
     }
 
     public String getName () {
