@@ -1,5 +1,5 @@
 ### 구현 기능 정리 ###
-- [ ] 시작 기능 // RacingGame : void run()
+- [x] 시작 기능 // RacingGame : void run()
 - [ ] 자동차 이름 여려개 한 번에 입력 받기 // InputView : String enterCarNames()
 - [ ] 자동차들 생성하기 // Cars : Cars from(String carNames)
 - [ ] 단일 자동차 생성하기 // Car : Car from(String carName)
