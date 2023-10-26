@@ -77,6 +77,17 @@ public class GameTest {
         Assertions.assertThat(champions.get(1).getName()).isEqualTo("worm");
     }
 
+    @Test
+    void parseIntegerTest(){
+        String count = "숫자 아님";
+
+        Assertions.assertThatThrownBy(
+            ()->{
+                Integer.parseInt(count);
+            }
+        ).isExactlyInstanceOf(NumberFormatException.class);
+    }
+
     // private 메서드 테스트 용도 내부 클래스
     static class MiniGame{
         boolean checkNameLength(String name){

@@ -7,9 +7,15 @@ import java.util.Collections;
 import java.util.List;
 
 public class Game {
-
     private List<Player> players;
+    private Message message = new Message();
     public void run(){
+        System.out.println(message.requestPlayerName);
+        String userNames = Console.readLine();
+        players = setPlayers(userNames);
+
+        System.out.println(message.requestPlayCount);
+        String count = Console.readLine();
 
     }
 
@@ -74,5 +80,14 @@ public class Game {
         }
 
         return champions;
+    }
+
+    private boolean isInteger(String count){
+        try{
+            Integer.parseInt(count);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
 }
