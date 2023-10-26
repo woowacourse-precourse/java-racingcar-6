@@ -9,6 +9,7 @@ public class Application {
 
         inputView.askForCarNames();
         inputView.askForAttempts();
+        inputView.playGame();
     }
 
 }

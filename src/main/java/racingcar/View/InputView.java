@@ -6,6 +6,10 @@ import racingcar.Controller.Controller;
 public class InputView {
     Controller controller = new Controller();
 
+    public void playGame() {
+        controller.requestStartGame();
+    }
+
     public void askForCarNames() {
         String[] names = getCarNames();
         controller.requestCarGenerate(names);

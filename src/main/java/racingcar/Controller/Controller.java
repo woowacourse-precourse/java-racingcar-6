@@ -1,18 +1,26 @@
 package racingcar.Controller;
 
-import racingcar.Model.Scoreboard;
+import racingcar.Model.RacingGame;
 import racingcar.Model.Settings;
 
 public class Controller {
-    Scoreboard scoreboard = new Scoreboard();
-    Settings settings = new Settings();
+    RacingGame racingGame = new RacingGame();
 
-    public void requestCarGenerate(String[] names) {
-        scoreboard.createAndAddCars(names);
+    public void requestStartGame() {
+        RacingGame.startGame();
+    }
+
+    public void requestCarGenerate(String[] cars) {
+        racingGame.createAndAddCars(cars);
+        requestSetCarAmount(cars);
     }
 
     public void requestSetAttempts(int attempts) {
-        settings.setAttempts(attempts);
+        Settings.setAttempts(attempts);
+    }
+
+    private void requestSetCarAmount(String[] cars) {
+        Settings.setCarAmount(cars.length);
     }
 
 }
