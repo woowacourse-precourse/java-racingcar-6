@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -46,7 +47,15 @@ public class Application {
             System.out.println(" ");
         }
 
-
+        // 기능 5.
+        int max = Arrays.stream(scores).max().getAsInt();
+        List<String> winners = new ArrayList<>();
+        for(int i = 0; i<scores.length; i++){
+            if(scores[i] == max){
+                winners.add(cars.get(i));
+            }
+        }
+        printWinner(winners);
 
 
     }
@@ -56,5 +65,11 @@ public class Application {
         String scoreToPrint = "-".repeat(score);
         System.out.println(String.format("%s: %s", name, scoreToPrint));
 
+    }
+
+    // 기능 5.
+    public static void printWinner(List<String> winners){
+        System.out.printf("최종 우승자: ");
+        System.out.println(String.join(",", winners));
     }
 }
