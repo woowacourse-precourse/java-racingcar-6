@@ -18,7 +18,7 @@ public class InputView {
         return carnames;
     }
 
-    private static void checkNullAndEmpty(String str) {
+    public static void checkNullAndEmpty(String str) {
         isNull(str);
         isEmpty(str);
     }
@@ -31,7 +31,7 @@ public class InputView {
     }
 
     private static void isEmpty(String str) {
-        if (str.isEmpty()) {
+        if (str.trim().isEmpty()) {
             throw new CarNameIncorrectException("빈값 이 입력 되었습니다.");
         }
     }
