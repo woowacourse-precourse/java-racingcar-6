@@ -10,4 +10,10 @@ public class User {
         List<String> carName = Arrays.asList(input.split(","));
         return carName;
     }
+
+    public int inputTryNumber(){
+        String input = Console.readLine();
+        int tryNumber = Integer.parseInt(input);
+        return tryNumber;
+    }
 }
