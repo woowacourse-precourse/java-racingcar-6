@@ -6,15 +6,15 @@ import racingcar.view.OutputView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RacingCarController {
-
+public class GameController {
     public static List<Car> cars = new ArrayList<>();
 
-    public void start() {
+    public void play() {
         OutputView.printCarNameInputMessage();
         CarController.makeCar(InputView.inputCarNames());
         OutputView.printRacingCountInputMessage();
-        RacingCountController.makeRacingCount(InputView.inputRacingCount());
+        int racingCount = RacingCountController.makeRacingCount(InputView.inputRacingCount());
         OutputView.printRacingResultMessage();
+        RacingController.racingStart(racingCount);
     }
 }
