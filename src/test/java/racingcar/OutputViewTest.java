@@ -26,4 +26,23 @@ public class OutputViewTest {
 
     }
 
+    @Test
+    void 시도할_회수_입력_요청_출력_테스트() {
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setOut(printStream);
+
+        OutputView.printRequestTryNumberMessage();
+
+        String caputredOutput = outputStream.toString();
+        Assertions.assertEquals("시도할 회수는 몇회인가요?\n", caputredOutput);
+
+    }
+
+
+
+
+
+
 }
