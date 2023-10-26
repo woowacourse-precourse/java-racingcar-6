@@ -41,3 +41,13 @@
   - public static int getRandomNumber()
     - camp.nextstep.edu.missionutils.Randoms API를 이용한 무작위 수를 반환한다.
 
+### Car 클래스 Comparable<Car> 구현
+  - Car 생성자
+    - 차 이름을 받아서 name에 저장
+    - distance를 0으로 초기화
+  - getName(), getDistance()
+    - name 값과 distance 값을 반환
+  - move()
+    - Randoms API 수를 받아서 상수 FORWARD_STANDARD 이상이면 distance +1
+  - @Override public int compareTo(Car o)
+    - o.distance - this.distance를 리턴해서 역순 정렬을 위해서 오버라이드
