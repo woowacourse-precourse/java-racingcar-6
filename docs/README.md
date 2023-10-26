@@ -20,3 +20,7 @@
     - [ ] 각 차수마다 자동차의 이름과 나아간 거리를 출력한다.
       - [ ] 나아간 거리 만큼 '-'를 출력한다.
     - [ ] 최종 우승자(들)를 출력한다.
+
+## 플로우 차트
+![java-racingcar-6-flowchart.jpg](asset%2Fjava-racingcar-6-flowchart.jpg)
+
