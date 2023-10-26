@@ -8,4 +8,8 @@ public class OutputMessage {
     public void finishRecord() {
         System.out.println();
     }
+
+    public void result() {
+
+    }
 }

@@ -4,11 +4,13 @@ import racingcar.model.Input;
 import racingcar.util.Counter;
 import racingcar.util.Recorder;
 import racingcar.view.InputMessage;
+import racingcar.view.OutputMessage;
 
 import java.util.List;
 
 public class GameController {
     InputMessage inputMessage;
+    OutputMessage outputMessage;
     Input input;
     List<String> car;
     int lap;
@@ -29,5 +31,6 @@ public class GameController {
     public void endGame() {
         Counter counter = new Counter();
         int max = counter.maxCount(now);
+        now=counter.eliminate(now, max);
     }
 }

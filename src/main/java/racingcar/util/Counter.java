@@ -10,4 +10,15 @@ public class Counter {
         }
         return temp;
     }
+
+    public int[] eliminate(int[] now, int max) {
+        int[] result = new int[now.length];
+        for (int i = 0; i < now.length; i++) {
+            if (now[i] != max) {
+                result[i] = 0;
+            }
+            result[i] = max;
+        }
+        return result;
+    }
 }
