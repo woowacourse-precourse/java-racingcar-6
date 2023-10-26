@@ -11,6 +11,7 @@ public class MoveCountValidator {
         validateNull(input);
         validateInputFormat(input);
         validateMoveCount(input);
+        validateIsStartZero(input);
     }
 
     private static void validateNull(String input) {
@@ -29,6 +30,13 @@ public class MoveCountValidator {
         int moveCount = Convertor.convertStringToInt(input);
         if (moveCount < 1) {
             throw new IllegalArgumentException("이동 횟수는 0보다 커야 합니다.");
+        }
+    }
+
+    private static void validateIsStartZero(String input) {
+        if (input.charAt(0) == '0') {
+            Integer.parseInt(input);
+            throw new IllegalArgumentException("이동 횟수의 첫 번째 숫자는 0이 될 수 없습니다.");
         }
     }
 }
