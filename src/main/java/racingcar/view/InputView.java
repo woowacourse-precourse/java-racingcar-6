@@ -7,20 +7,18 @@ import racingcar.validator.InputValidator;
 
 public class InputView {
 
-    InputValidator inputValidator = new InputValidator();
-
-    public ArrayList<String> getParticipant() {
+    public static ArrayList<String> getParticipant() {
         System.out.println(TextEnum.PARTICIPANT_TEXT);
 
-        return inputValidator
+        return InputValidator
                 .validateParticipant(Console.readLine());
 
     }
 
-    public int getTryCount() {
+    public static int getTryCount() {
         System.out.println(TextEnum.ROUND_TEXT);
 
-        return inputValidator
+        return InputValidator
                 .validateCount(Console.readLine());
     }
 }

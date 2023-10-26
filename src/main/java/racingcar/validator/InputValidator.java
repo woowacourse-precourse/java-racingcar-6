@@ -8,17 +8,17 @@ public class InputValidator {
 
     static final int MAX_LENGTH = 5;
 
-    public ArrayList<String> validateParticipant(String s) {
+    public static ArrayList<String> validateParticipant(String s) {
         Arrays
                 .stream(s.split(","))
-                .forEach(this::checkValidity);
+                .forEach(InputValidator::checkValidity);
 
         return Arrays
                 .stream(s.split(","))
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public int validateCount(String s) {
+    public static int validateCount(String s) {
         try {
             return Integer.parseInt(s);
         } catch (NumberFormatException e) {
@@ -26,7 +26,7 @@ public class InputValidator {
         }
     }
 
-    void checkValidity(String s) {
+    static void checkValidity(String s) {
         if (s.isEmpty() || s.length() > MAX_LENGTH) {
             throw new IllegalArgumentException();
         }

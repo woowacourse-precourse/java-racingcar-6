@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car implements Comparable<Car> {
 
     static final int STOP_THRESHOLD = 3;
-    String name;
+    final String name;
     int pos;
 
     public Car(String name) {
