@@ -142,6 +142,19 @@ class ApplicationTest extends NsTest {
             assertThat(actual).isEqualTo(expected);
         }
     }
+
+    @Test
+    void Car_리스트_안에서_가장_멀리_간_Car_목록_생성() {
+        final List<Car> carList = List.of(new Car("pobi"), new Car("woni"), new Car("jun"));
+        final List<Car> expected = List.of(carList.get(0), carList.get(1));
+
+        try (MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
+            mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
+                    .thenReturn(MOVING_FORWARD, MOVING_FORWARD, STOP);
+
+            final List<Car> actual = Application.getCarListWithLongestDistance(carList);
+
+            assertThat(actual).isEqualTo(expected);
         }
     }
 

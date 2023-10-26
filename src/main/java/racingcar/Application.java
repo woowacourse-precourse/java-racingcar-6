@@ -61,4 +61,8 @@ public class Application {
     public static void moveForward(List<Car> carList) {
         carList.stream().forEach(Car::moveForward);
     }
+
+    public static List<Car> getCarListWithLongestDistance(List<Car> carList) {
+        return List.of();
+    }
 }
