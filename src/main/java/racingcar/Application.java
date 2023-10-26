@@ -39,4 +39,9 @@ public class Application {
         Console.close();
         return tryCountConvertedToInt;
     }
+
+    public static void printNewLine() {
+        final String STRING_NEW_LINE = "\n";
+        System.out.println(STRING_NEW_LINE);
+    }
 }
