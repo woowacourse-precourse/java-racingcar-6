@@ -26,9 +26,11 @@
 ## 구현할 기능 목록
 1. 자동차 이름 입력 받기
 - 5글자 초과된 이름일 경우
-- 중복된 이름일 경우 `IllegalArgumentException`
+- 입력이 없을 경우
+- 중복된 이름일 경우 `IllegalArgumentException` 발생
 
 2. 시도할 횟수 입력 받기
+- 입력이 없을 경우
 - 숫자 이외의 값이 있다면 `IllegalArgumentException`발생
 
 3. 자동차가 전진 하는 조건 만들기
