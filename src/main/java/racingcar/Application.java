@@ -3,10 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
-
 public class Application {
-    static int max=0;
+    static int max=-1;
     static String winner="";
     public static void main(String[] args) {
         String[] cars_name;
@@ -19,18 +17,25 @@ public class Application {
         cars_race=new Integer[cars_name.length];
         for(i=0;i<cars_race.length;i++){
             cars_race[i]=0;
+            if(cars_name[i].length()>5){
+                throw new IllegalArgumentException("잘못된 입력입니다.");
+            }
         }
         System.out.println("시도할 회수는 몇회인가요?");
         n=Integer.parseInt(Console.readLine());
-        System.out.println("\n실행 결과");
-        for(i=0;i<n;i++){
-            racing(cars_name,cars_race);
-            System.out.println();
+        if(n>=0&&n<=2147483647){
+            System.out.println("\n실행 결과");
+            for (i = 0; i < n; i++) {
+                racing(cars_name, cars_race);
+                System.out.println();
+            }
+            for (i = 0; i < cars_name.length; i++) {
+                win(cars_name[i], cars_race[i]);
+            }
+            System.out.println("최종 우승자 : " + winner);
+        }else{
+            throw new IllegalArgumentException("잘못된 입력입니다.");
         }
-        for(i=0;i< cars_name.length;i++){
-            win(cars_name[i],cars_race[i]);
-        }
-        System.out.println("최종 우승자 : "+winner);
     }
     public static void racing(String[] name, Integer[] race){
         for(int i=0;i<name.length;i++){
