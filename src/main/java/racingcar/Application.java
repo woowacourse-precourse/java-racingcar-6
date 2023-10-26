@@ -1,7 +1,10 @@
 package racingcar;
 
+import racingcar.View.CarRacing;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        CarRacing carRacing = new CarRacing();
+        carRacing.run();
     }
 }
