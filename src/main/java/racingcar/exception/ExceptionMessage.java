@@ -26,4 +26,15 @@ public interface ExceptionMessage {
             this.message = message;
         }
     }
+
+    enum WinnerException {
+        WINNER_MUST_BE_EXISTS("우승자는 1명 이상 존재해야 합니다."),
+        ;
+
+        public final String message;
+
+        WinnerException(final String message) {
+            this.message = message;
+        }
+    }
 }

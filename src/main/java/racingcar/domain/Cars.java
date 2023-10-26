@@ -1,10 +1,12 @@
 package racingcar.domain;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import static racingcar.exception.ExceptionMessage.CarException.DUPLICATE_CAR;
 import static racingcar.exception.ExceptionMessage.CarException.NO_PARTICIPANTS;
+import static racingcar.exception.ExceptionMessage.WinnerException.WINNER_MUST_BE_EXISTS;
 
 public class Cars {
     private final List<Car> cars;
@@ -35,6 +37,21 @@ public class Cars {
         return cars.stream()
                 .distinct()
                 .count() != cars.size();
+    }
+
+    public List<Car> getWinners() {
+        final Position maxPosition = extractMaxPosition();
+
+        return cars.stream()
+                .filter(car -> car.isSamePosition(maxPosition))
+                .toList();
+    }
+
+    private Position extractMaxPosition() {
+        return cars.stream()
+                .max(Comparator.comparing(Car::getPosition))
+                .orElseThrow(() -> new IllegalArgumentException(WINNER_MUST_BE_EXISTS.message))
+                .getPosition();
     }
 
     public List<Car> getCars() {

@@ -21,12 +21,12 @@ public class Car {
         return fuel >= MOVE_THRESHOLD;
     }
 
-    public Position getPosition() {
-        return position;
-    }
-
     public boolean isSamePosition(final Position compare) {
         return position.equals(compare);
+    }
+
+    public Position getPosition() {
+        return position;
     }
 
     @Override
