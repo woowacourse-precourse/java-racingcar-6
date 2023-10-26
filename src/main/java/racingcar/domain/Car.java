@@ -26,4 +26,12 @@ public class Car {
         String str = "-";
         return str.repeat(moveNumber);
     }
+
+    public int getMoveNumber() {
+        return moveNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
