@@ -1,8 +1,10 @@
 package racingcar.handler;
 
+import java.util.List;
+
 public interface InputHandler {
 
-    public String inputCarName();
+    public List<String> inputCarName();
 
     public int inputTryCount();
 }
