@@ -1,5 +1,8 @@
 package racingcar.service;
 
+import java.util.ArrayList;
+import java.util.List;
+import racingcar.domain.Car;
 import racingcar.domain.Race;
 import racingcar.dto.CarCondition;
 import racingcar.dto.RaceResult;
@@ -13,7 +16,20 @@ public class RaceService {
     }
 
     public CarCondition proceed() {
-        return null;
+        for (Car car : race.getCars()) {
+            car.move();
+        }
+        return createCarCondition();
+    }
+
+    private CarCondition createCarCondition() {
+        List<String> names = new ArrayList<>();
+        List<Integer> positions = new ArrayList<>();
+        for (Car car : race.getCars()) {
+            names.add(car.getName());
+            positions.add(car.getPosition());
+        }
+        return new CarCondition(names, positions);
     }
 
     public RaceResult end() {
