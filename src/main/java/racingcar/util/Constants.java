@@ -8,4 +8,13 @@ public class Constants {
     // OutputRaceView Constants
     public static final String RACE_RESULT_HEADER = "\n실행 결과";
     public static final String WINNER_ANNOUNCEMENT = "최종 우승자 : ";
+
+    // Car Movement Constants
+    public static final int RANDOM_THRESHOLD = 4;
+    public static final int MIN_NAME_LENGTH = 1;
+    public static final int MAX_NAME_LENGTH = 5;
+
+    // Race Constants
+    public static final int MIN_RANDOM_RANGE = 0;
+    public static final int MAX_RANDOM_RANGE = 9;
 }
