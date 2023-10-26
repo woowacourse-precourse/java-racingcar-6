@@ -5,9 +5,11 @@ import racingcar.view.MessageReceiver;
 
 import java.util.List;
 
+import static racingcar.constant.NumberConstant.START_ATTEMPT_COUNT;
+
 public class GameManager {
 
-    private static int attemptCount;
+    private static int END_ATTEMPT_COUNT;
 
     private final MessagePrinter messagePrinter;
     private final MessageReceiver messageReceiver;
@@ -20,6 +22,7 @@ public class GameManager {
     public void startGame() {
         List<RacingCar> racingCars = prepareGame();
         playGame(racingCars);
+        endGame();
     }
 
     private List<RacingCar> prepareGame() {
@@ -27,7 +30,7 @@ public class GameManager {
         String[] carNames = messageReceiver.receiveCarNames();
         List<RacingCar> racingCars = RacingCar.createRacingCars(carNames);
         messagePrinter.printAttemptCountInputMessage();
-        attemptCount = messageReceiver.receiveAttemptCount();
+        END_ATTEMPT_COUNT = messageReceiver.receiveAttemptCount();
 
         return racingCars;
     }
@@ -35,9 +38,13 @@ public class GameManager {
     private void playGame(final List<RacingCar> racingCars) {
         messagePrinter.printExecutionResultMessage();
 
-        for (int i = 0; i < attemptCount; i++) {
+        for (int i = START_ATTEMPT_COUNT; i < END_ATTEMPT_COUNT; i++) {
             racingCars.forEach(RacingCar::move);
             messagePrinter.printExecutionResult(racingCars);
         }
+    }
+
+    private void endGame() {
+
     }
 }

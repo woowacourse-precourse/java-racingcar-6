@@ -6,21 +6,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static racingcar.constant.NumberConstant.*;
-import static racingcar.constant.TextConstant.HYPHEN;
-import static racingcar.constant.TextConstant.STARTING_POINT;
+import static racingcar.constant.TextConstant.*;
 
-public class RacingCar {
+public final class RacingCar {
 
-    private String carName;
+    private final String carName;
+
     private String currentLocation;
+    private int winningPoint;
 
-    private RacingCar(final String carName, final String currentLocation) {
+    public RacingCar(final String carName, final String currentLocation, final int winningPoint) {
         this.carName = carName;
         this.currentLocation = currentLocation;
+        this.winningPoint = winningPoint;
     }
 
     public static RacingCar of(final String carName) {
-        return new RacingCar(carName, STARTING_POINT);
+        return new RacingCar(carName, BLANK, ZERO_POINT);
     }
 
     public static List<RacingCar> createRacingCars(final String[] carNames) {
@@ -34,14 +36,40 @@ public class RacingCar {
         return racingCars;
     }
 
+    public static List<RacingCar> findWinners(final List<RacingCar> racingCars) {
+        List<RacingCar> winners = new ArrayList<>();
+        int maxPoint = getMaxPoint(racingCars);
+
+        for (RacingCar racingCar : racingCars) {
+            if (maxPoint == racingCar.winningPoint) {
+                winners.add(racingCar);
+            }
+        }
+
+        return winners;
+    }
+
+    private static int getMaxPoint(final List<RacingCar> racingCars) {
+        int maxPoint = ZERO_POINT;
+
+        for (RacingCar racingCar : racingCars) {
+            if (maxPoint < racingCar.winningPoint) {
+                maxPoint = racingCar.winningPoint;
+            }
+        }
+        return maxPoint;
+    }
+
     public void move() {
         int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
 
         if (randomNumber > MIN_MOVEMENT_CONDITION_NUMBER) {
             currentLocation += HYPHEN;
+            winningPoint += ONE_POINT;
         }
     }
 
+    // getter
     public String getCarName() {
         return carName;
     }
