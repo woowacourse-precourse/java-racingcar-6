@@ -1,3 +1,5 @@
+package racingcar;
+
 class Car {
     private String name;
     private int pos;
