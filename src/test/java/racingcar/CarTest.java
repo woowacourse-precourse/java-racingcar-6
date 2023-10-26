@@ -22,7 +22,7 @@ public class CarTest {
     }
 
     @ParameterizedTest
-    @MethodSource("provideRandomNumbersForIsGreaterThanFour")
+    @MethodSource("provideRandomNumbersForIsGreaterThanAndEqualFour")
     void canMoveForward_메서드_무작위_값이_4이상인_경우에_전진이_가능(final int randomNumber, final boolean expected) {
         final Car car = new Car("jun");
 
@@ -33,13 +33,34 @@ public class CarTest {
         }
     }
 
-    private static Stream<Arguments> provideRandomNumbersForIsGreaterThanFour() {
+    private static Stream<Arguments> provideRandomNumbersForIsGreaterThanAndEqualFour() {
         final int START_INCLUSIVE = 1;
         final int END_INCLUSIVE = 9;
         final int CONDITION_MOVING_FORWARD = 4;
         return IntStream
                 .range(START_INCLUSIVE, END_INCLUSIVE)
                 .mapToObj(number -> Arguments.of(number, number >= CONDITION_MOVING_FORWARD));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRandomNumbersForIsLessThanFour")
+    void canStop_메서드_무작위_값이_4미만인_경우에_정지(final int randomNumber, final boolean expected) {
+        final Car car = new Car("jun");
+
+        try (MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
+            mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
+                    .thenReturn(randomNumber);
+            assertThat(car.canStop()).isEqualTo(expected);
+        }
+    }
+
+    private static Stream<Arguments> provideRandomNumbersForIsLessThanFour() {
+        final int START_INCLUSIVE = 1;
+        final int END_INCLUSIVE = 9;
+        final int CONDITION_MOVING_FORWARD = 4;
+        return IntStream
+                .range(START_INCLUSIVE, END_INCLUSIVE)
+                .mapToObj(number -> Arguments.of(number, number < CONDITION_MOVING_FORWARD));
     }
 
     @Test
