@@ -9,6 +9,7 @@ public class Car {
     private int forwardCount;
 
     public Car(String name) {
+        // validate() 추가 예정
         this.id = count++;
         this.name = name;
         this.forwardCount = 0;
@@ -20,5 +21,10 @@ public class Car {
 
     public void forward() {
         forwardCount++;
+    }
+
+    // 테스트 용 코드
+    public static void resetId() {
+        count = 0;
     }
 }
