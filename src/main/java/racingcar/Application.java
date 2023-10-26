@@ -12,11 +12,8 @@ public class Application {
         // TODO: 프로그램 구현
         GameConfig gameConfig = new GameConfig();
         Race race = new Race();
-        List<Car> cars = gameConfig.createCars("민지");
+        List<Car> cars = gameConfig.createCars("민지,형빈,민호,jinho");
 
-        for (Car car : cars) {
-            System.out.println(car.getName());
-        }
         System.out.print("시도할 횟수를 입력해주세요 : ");
         gameConfig.setMoveCount(Integer.parseInt(Console.readLine()));
 
@@ -25,8 +22,8 @@ public class Application {
         race.startRace(cars, gameConfig.moveCount);
 
 
-        for (Car car : cars) {
-            System.out.println(car.getName() + car.getForward() + "번 이동");
-        }
+//        for (Car car : cars) {
+//            System.out.println(car.getName() + car.getForward());
+//        }
     }
 }

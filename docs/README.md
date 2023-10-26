@@ -7,7 +7,7 @@
   - [x] 자동차 이름은 쉼표(,)를 기준으로 구분한다.
   - [x] 이름은 1글자 이상, 5자 이하만 입력이 가능하다.
 - [x] 사용자가 시도할 횟수를 입력받는다. - GameConfig#setMoveCount()
-- [] 레이스를 시작하고, 주어진 횟수만큼 반복한다. - Race#startRace()
+- [x] 레이스를 시작하고, 주어진 횟수만큼 반복한다. - Race#startRace()
   - [x] 각 자동차는 0부터 9까지의 무작위 값을 얻은 후 그 값이 4 이상일 경우 전진한다. - Race#shouldCarMove()
   - [x] 각 자동차마다 전진할지, 가만히 있을지 확인한다. Race#forwardOrNot
   - [] 제일 많이 이동한 자동차가 우승한다. - Judgment#checkWinners()

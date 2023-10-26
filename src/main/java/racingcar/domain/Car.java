@@ -3,11 +3,11 @@ package racingcar.domain;
 public class Car {
 
     public String name;
-    public int forward;
+    public String forward;
 
     public Car(String name) {
         this.name = name;
-        this.forward = 0;
+        this.forward = "";
     }
 
     public String getName() {
@@ -18,11 +18,11 @@ public class Car {
         this.name = name;
     }
 
-    public int getForward() {
+    public String getForward() {
         return forward;
     }
 
-    public void setForward(int forward) {
+    public void setForward(String forward) {
         this.forward = forward;
     }
 }
