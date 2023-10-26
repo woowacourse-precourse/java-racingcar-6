@@ -41,4 +41,12 @@ public class RacingCar {
             currentLocation += HYPHEN;
         }
     }
+
+    public String getCarName() {
+        return carName;
+    }
+
+    public String getCurrentLocation() {
+        return currentLocation;
+    }
 }

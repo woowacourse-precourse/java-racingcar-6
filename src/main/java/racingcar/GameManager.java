@@ -37,6 +37,7 @@ public class GameManager {
 
         for (int i = 0; i < attemptCount; i++) {
             racingCars.forEach(RacingCar::move);
+            messagePrinter.printExecutionResult(racingCars);
         }
     }
 }

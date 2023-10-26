@@ -19,4 +19,13 @@ public class MessagePrinter {
     public void printExecutionResultMessage() {
         System.out.println(EXECUTION_RESULT_MESSAGE);
     }
+
+    public void printExecutionResult(final List<RacingCar> racingCars) {
+        racingCars.forEach(racingCar -> {
+            String carName = racingCar.getCarName();
+            String currentLocation = racingCar.getCurrentLocation();
+            System.out.println(carName + COLON + currentLocation);
+        });
+        System.out.println(BLANK);
+    }
 }
