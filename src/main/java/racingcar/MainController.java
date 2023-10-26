@@ -29,11 +29,11 @@ public class MainController {
         int moveCount  = 0;
         while (moveCount++ < gameData.trialCount()) {
             service.move(gameData.carNames());
-            OutputView.printResult(gameData.racerList());
+//            OutputView.printResult(gameData.racerList());
         }
     }
 
     private void endGame(GameData gameData) {
-        OutputView.printWinner(gameData);
+//        OutputView.printWinner(gameData);
     }
 }
