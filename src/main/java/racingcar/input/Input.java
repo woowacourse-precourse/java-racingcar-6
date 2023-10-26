@@ -17,4 +17,8 @@ public class Input {
     public String inputCarsName() {
         return Console.readLine();
     }
+
+    public String inputAttemptCount() {
+        return Console.readLine();
+    }
 }
