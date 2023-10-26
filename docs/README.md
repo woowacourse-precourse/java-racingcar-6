@@ -14,7 +14,7 @@
   - [x] 각 자동차의 이동 현황을 출력한다. - View#showPhase()
 
 
-- [ ] 누가 우승했는지 확인한다.
+- [x] 누가 우승했는지 확인한다. - Race#checkWinner()
 
 
 - [x] 우승자를 출력한다. - View#showResult()
