@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.Input;
+import racingcar.util.Counter;
 import racingcar.util.Recorder;
 import racingcar.view.InputMessage;
 
@@ -26,6 +27,7 @@ public class GameController {
     }
 
     public void endGame() {
-
+        Counter counter = new Counter();
+        int max = counter.maxCount(now);
     }
 }
