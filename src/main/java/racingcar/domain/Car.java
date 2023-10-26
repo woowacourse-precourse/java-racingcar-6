@@ -11,18 +11,23 @@ public class Car {
         this.name = name;
     }
 
+    public Car(String name, int distance) {
+        this.distance = distance;
+        this.name = name;
+    }
+
     public int getDistance() {
-        return distance;
+        return this.distance;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     void move() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         if (randomNumber >= 4) {
-            distance++;
+            this.distance++;
         }
     }
 }
