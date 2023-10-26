@@ -25,8 +25,7 @@ public class OutputView {
 
     private static String makeCarResult(final Car car){
         StringBuilder sb = new StringBuilder();
-        sb.append(car.getCarName());
-        sb.append(" : ");
+        sb.append(car.getCarName() + " : ");
 
         for (int i = 0; i < car.getCarAdvances(); i++) {
             sb.append(CAR_ADVANCE);
