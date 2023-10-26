@@ -2,7 +2,9 @@ package racingcar;
 
 public class Car {
     private String name;
-    private int randomNumber;
+    private int runCount = 0;
+
+    int moveCount;
 
     public void setCarName(String name) {
         this.name = name;
@@ -12,11 +14,7 @@ public class Car {
         return name;
     }
 
-    public void setRandomNumber(int randomNumber) {
-        this.randomNumber = randomNumber;
-    }
-
-    public int getRandomNumber() {
-        return randomNumber;
+    public void increaseRunCount() {
+        runCount++;
     }
 }
