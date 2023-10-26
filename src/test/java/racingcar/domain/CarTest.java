@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -33,4 +34,37 @@ class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("이름은 5글자를 초과할 수 없습니다.");
     }
+
+    @Nested
+    @DisplayName("자동차의 move 메소드는")
+    class CarMoveTest {
+        @Test
+        @DisplayName("자신의 엔진의 실행 결과가 true면 현 위치를 1 증가시킨다")
+        void car_move_test() {
+            // given
+            CarEngine engine = () -> true;
+
+            // when
+            Car car = new Car("pobi", engine);
+            car.move();
+
+            // then
+            assertThat(car.getPosition()).isEqualTo(1);
+        }
+
+        @Test
+        @DisplayName("자신의 엔진의 실행 결과가 false면 현 위치를 증가시키지 않는다")
+        void car_move_test_with_false_engine_result() {
+            // given
+            CarEngine engine = () -> false;
+
+            // when
+            Car car = new Car("pobi", engine);
+            car.move();
+
+            // then
+            assertThat(car.getPosition()).isZero();
+        }
+    }
+
 }
