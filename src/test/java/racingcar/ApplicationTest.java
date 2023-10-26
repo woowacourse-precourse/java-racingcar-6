@@ -1,9 +1,11 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
 import org.mockito.MockedStatic;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -119,6 +121,21 @@ class ApplicationTest extends NsTest {
         final String STRING_EXECUTION_RESULT = "실행 결과";
         Application.printExecutionResult();
         assertThat(output()).contains(STRING_EXECUTION_RESULT);
+    }
+
+    @Test
+    void Car_리스트_안에_있는_모든_Car를_앞으로_움직임() {
+        final List<Car> carList = List.of(new Car("pobi"), new Car("woni"), new Car("jun"));
+
+        try (MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
+            mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
+                    .thenReturn(MOVING_FORWARD, MOVING_FORWARD, STOP);
+
+            Application.moveForward(carList);
+            assertThat(carList.get(0).getDistanceString()).isEqualTo("-");
+            assertThat(carList.get(1).getDistanceString()).isEqualTo("-");
+            assertThat(carList.get(2).getDistanceString()).isEqualTo("");
+        }
     }
 
     @Override
