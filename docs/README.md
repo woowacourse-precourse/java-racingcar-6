@@ -53,10 +53,12 @@
 
 ## 구현 클래스
 - Car: 자동차의 이름과 위치상태를 가진 클래스
+  - attemptForward(): 앞으로 전진을 시도하는 기능을 가진 메서드 
 - Cars: 자동차들의 상태를 가진 메서드
-  - attemptForward():자동차들의 전진을 시도하는 기능을 가진 메서드
+  - attemptForward(): 자동차들의 전진을 시도하는 기능을 가진 메서드
 - Name: 자동차의 이름이라는 상태를 관리하는 클래스
-- Position: 자동차의 현재 위치상태를 관리하는 클래스
+- Position: 자동차의 현재 위치상태를 관리하는 클래스 
   - moveForward(): 자동차를 한칸 전진시키는 기능을 가진 메서드
   - checkValueIsOverFour(): 인자의 값이 4 이상안지 확인하는 메서드
   - swithcMovePositionToSlash():위치 상태값을 작대기(-)로 바꿔주는 메서드
+  - makeRandomValue(): 0부터 9사이의 무작위 값을 만들어내는 메서드
