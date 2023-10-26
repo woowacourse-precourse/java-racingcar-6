@@ -4,14 +4,12 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.List;
 import java.util.stream.Stream;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -25,11 +23,6 @@ public class RacingCarInputViewTest {
     @BeforeEach
     public void setup() {
         System.setOut(new PrintStream(OUTPUT));
-    }
-
-    @AfterEach
-    public void restore() {
-        Console.close();
     }
 
     public static InputStream generateUserInput(String input) {
