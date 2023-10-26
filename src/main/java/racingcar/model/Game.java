@@ -21,7 +21,6 @@ public class Game {
 
         for (int i = 0; i < carNames.length; i++) {
             cars.putIfAbsent(carNames[i], 0);
-            cars.put(carNames[i], cars.get(carNames[i]) + 1);
         }
 
         return cars;
