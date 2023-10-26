@@ -9,6 +9,11 @@ public class Validation {
         }
     }
 
+    public static void valiCarName(String carName) {
+        valiEmptyCarName(carName);
+        valiCarNameLength(carName);
+    }
+
     private static void valiCarNameLength(String carName) {
         if (carName.length() <= CAR_NAME_LENGTH && carName.length() > 0) {
             return;
