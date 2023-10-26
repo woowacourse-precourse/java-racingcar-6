@@ -30,7 +30,8 @@ public class CarTest {
         try (MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
             mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
                     .thenReturn(randomNumber);
-            assertThat(car.canMoveForward()).isEqualTo(expected);
+            final boolean actual = car.canMoveForward();
+            assertThat(actual).isEqualTo(expected);
         }
     }
 
