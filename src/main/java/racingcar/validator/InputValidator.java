@@ -11,7 +11,7 @@ public class InputValidator {
     public ArrayList<String> validateParticipant(String s) {
         Arrays
                 .stream(s.split(","))
-                .forEach(this::checkEmptyOrThrow);
+                .forEach(this::checkValidity);
 
         return Arrays
                 .stream(s.split(","))
@@ -28,7 +28,7 @@ public class InputValidator {
         return value;
     }
 
-    void checkEmptyOrThrow(String s) {
+    void checkValidity(String s) {
         if (s.isEmpty() || s.length() > MAX_LENGTH) {
             throw new IllegalArgumentException();
         }
