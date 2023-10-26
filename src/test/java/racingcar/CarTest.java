@@ -70,14 +70,16 @@ public class CarTest {
     void moveForward_메서드_무작위값이_4이상인_경우애_distance_하나_증가() {
         final Car car = new Car("jun");
         final int CONDITION_MOVING_FORWARD = 4;
-        final String STRING_ONE_DISTANCE = "-";
+        final String expected = "-";
 
         try (MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
             mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
                     .thenReturn(CONDITION_MOVING_FORWARD);
 
             car.moveForward();
-            assertThat(car.getDistanceString()).isEqualTo(STRING_ONE_DISTANCE);
+
+            final String actual = car.getDistanceString();
+            assertThat(actual).isEqualTo(expected);
         }
     }
 }
