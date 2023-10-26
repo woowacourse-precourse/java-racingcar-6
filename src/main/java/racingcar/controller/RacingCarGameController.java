@@ -22,5 +22,6 @@ public class RacingCarGameController {
 
     private void moveCars(Cars cars){
         int count = inputView.readMoveCount();
+        outputView.printResultMessage();
     }
 }
