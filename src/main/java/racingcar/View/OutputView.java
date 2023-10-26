@@ -5,6 +5,8 @@ import racingcar.Model.Car;
 
 public class OutputView {
 
+    public static final String WINNER_MESSAGE = "최종 우승자 : ";
+
     public void printRoundResult(List<Car> cars) {
         for (Car car : cars) {
             System.out.print(car.getCarName()+" : ");
@@ -19,4 +21,7 @@ public class OutputView {
         System.out.println();
     }
 
+    public void printWinners(List<String> winners) {
+        System.out.println(WINNER_MESSAGE +String.join(", ",winners));
+    }
 }
