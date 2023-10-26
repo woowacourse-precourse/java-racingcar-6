@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -38,6 +39,27 @@ public class Application {
             count = Integer.parseInt(countInput);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Not Integer: " + countInput);
+        }
+
+        // 자동차 경주 진행 단계
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < count; i++) {
+            for (String carName : carList.keySet()) {
+                // 현재 자동차의 전진/정지 여부 결정
+                int randomNum = Randoms.pickNumberInRange(0,9);
+                int moves = carList.get(carName);
+                if (randomNum >= 4) {
+                    moves++;
+                    carList.put(carName, moves);
+                }
+                // 해당 차수의 실행 결과 출력
+                System.out.print(carName + " : ");
+                for (int j = 0; j < moves; j++) {
+                    System.out.print("-");
+                }
+                System.out.println();
+            }
+            System.out.println();
         }
     }
 }
