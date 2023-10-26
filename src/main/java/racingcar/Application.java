@@ -17,6 +17,7 @@ public class Application {
         for (int i=0;i<cars_race.length;i++){
             cars_race[i]=0;
         }
-
+        System.out.println("시도할 회수는 몇회인가요?");
+        n= Integer.parseInt(Console.readLine());
     }
 }
