@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class RacingGame {
 
-    private RacingGameView racingGameView;
+    private final RacingGameView racingGameView;
 
     public RacingGame() {
         this.racingGameView = new RacingGameView();
@@ -36,6 +36,7 @@ public class RacingGame {
     }
 
     private void playRounds(int gameRounds, List<RacingCar> racingCars) {
+        racingGameView.printResultMessage();
         for (int round = 0; round < gameRounds; round++) {
             moveCars(racingCars);
             racingGameView.printRoundResult(racingCars);
