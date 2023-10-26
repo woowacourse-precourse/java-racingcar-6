@@ -28,4 +28,10 @@ public class InputValidator {
             throw new IllegalArgumentException("자동차 이름을 공백으로 입력해선 안됩니다.");
         }
     }
+
+    public static void validateIsStartBlank(String carName) {
+        if (carName.matches("^\\s.*")) {
+            throw new IllegalArgumentException("첫 글자를 공백으로 사용할 수 없습니다.");
+        }
+    }
 }
