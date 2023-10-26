@@ -13,7 +13,7 @@ public class Car implements Comparable<Car> {
     }
 
     public boolean isSameMovingCount(Car otherCar) {
-        return this.movingCount == otherCar.movingCount;
+        return this.movingCount.equals(otherCar.movingCount);
     }
 
     public void increaseMovingCountIfGreater(int number, int randomNumber) {
