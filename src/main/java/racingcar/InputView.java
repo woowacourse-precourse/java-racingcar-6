@@ -9,7 +9,6 @@ public class InputView {
     public static String getCarsName() {
         String carsName = Console.readLine();
         return carsName;
-
     }
 
     public static String getTryNumber() {
