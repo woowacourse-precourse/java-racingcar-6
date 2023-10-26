@@ -22,12 +22,18 @@ public class RacingController {
     public void run() {
         CarGarage carGarage = inputView.getCars();
         TryCount count = inputView.getTryCount();
+
+        raceCar(count, carGarage);
+
+        Winner winner = carGarage.findWinner();
+        outputView.printWinner(winner);
+    }
+
+    private void raceCar(TryCount count, CarGarage carGarage) {
         outputView.printResultMessage();
         for (int i = 0; i < count.value(); i++) {
             circuit.race(carGarage);
             outputView.printRaceResult(carGarage);
         }
-        Winner winner = carGarage.findWinner();
-        outputView.printWinner(winner);
     }
 }
