@@ -10,9 +10,9 @@ public class UserInput {
         String input = Console.readLine();
         List<String> carList = ValidChecker.carListCheck(input);
 
-        carList.forEach(car -> {
-            car += " : ";
-        });
+        for (int i = 0; i < carList.size(); i++) {
+            carList.set(i, carList.get(i).concat(" : "));
+        }
 
         return carList;
     }

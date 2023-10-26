@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.function.BiConsumer;
 
 public class RacingGame {
-    private Map<String, String> carMap;
+    private List<String> carList;
     private int numberOfTry;
 
     private UserInput userInput;
@@ -32,7 +32,7 @@ public class RacingGame {
 
     private void getUserInput() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        carMap = userInput.getCarList();
+        carList = userInput.getCarList();
 
         System.out.println("시도할 회수는 몇회인가요?");
         numberOfTry = userInput.getNumberOfTry();
@@ -41,18 +41,16 @@ public class RacingGame {
     }
 
     private void oneEpoch() {
-        carMap.forEach((car, length) -> {
-            boolean goOrStopVal = generator.randomBooleanGenerator();
-
-            if (goOrStopVal) {
-                length += "-";
+        for (int i = 0; i < carList.size(); i++) {
+            if (generator.randomBooleanGenerator()) {
+                carList.set(i, carList.get(i).concat("-"));
             }
-        });
+        }
     }
 
     private void printProcess() {
-        carMap.forEach((car, length) -> {
-            System.out.println(car + " : " + length);
+        carList.forEach((car) -> {
+            System.out.println(car);
         });
 
         System.out.println();
@@ -76,12 +74,14 @@ public class RacingGame {
     private Map<Integer, List<String>> getResult() {
         Map<Integer, List<String>> resultOfRacing = new HashMap<>();
 
-        for (int i = 0; i < numberOfTry; i++) {
+        for (int i = 0; i <= numberOfTry; i++) {
             resultOfRacing.put(i, new ArrayList<>());
         }
 
-        carMap.forEach((car, length) -> {
-            resultOfRacing.get(length.length()).add(car);
+        carList.forEach((car) -> {
+            String carName = car.replace("-", "").replace(" : ", "");
+            int moveLength = car.length() - carName.length() - 3;
+            resultOfRacing.get(moveLength).add(carName);
         });
 
         return resultOfRacing;

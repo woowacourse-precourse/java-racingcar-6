@@ -1,13 +1,14 @@
 package racingcar.implementation;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
 public class ValidChecker {
 
-    public static List<String> carListCheck(String input) {
-        List<String> carList = Arrays.stream(input.split(",")).toList();
+    public static ArrayList<String> carListCheck(String input) {
+        ArrayList<String> carList = new ArrayList<>(Arrays.stream(input.split(",")).toList());
         Iterator<String> iterator = carList.iterator();
 
         while (iterator.hasNext()) {
