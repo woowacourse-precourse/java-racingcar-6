@@ -17,4 +17,8 @@ public class Input {
     public String getInputCars() {
         return cars;
     }
+
+    public int getInputNumberOfAttempt(){
+        return numberOfAttempt;
+    }
 }
