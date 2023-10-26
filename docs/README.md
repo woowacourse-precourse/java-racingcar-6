@@ -62,8 +62,8 @@
 #### RandomNumberGenerator
 0~9 사이의 랜덤 숫자를 생성하는 Util 객체
 
-- [ ] `NumberGenerator`를 상속받아 구현하도록 설계한다. `genarate` 메서드를 오버라이딩 하도록 설계한다.
-  - [ ] `NumberGenerator`는 인터페이스로 만든다.
+- [x] `NumberGenerator`를 상속받아 구현하도록 설계한다. `genarate` 메서드를 오버라이딩 하도록 설계한다.
+  - [x] `NumberGenerator`는 인터페이스로 만든다.
 
 #### CarRacingGenerator
 게임의 환경을 만들어 주는 Util 객체
