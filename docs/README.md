@@ -21,20 +21,20 @@
     - [ ] moves를 가진다.
 
 
-- [ ] MoveRule(인터페이스) : 차가 이동하는 조건에 대해 정의한다.
+- [x] MoveRule(인터페이스) : 차가 이동하는 조건에 대해 정의한다.
     - 인터페이스로 만드는 이유 : 지금은 0 ~ 9 사이에서 4만 넘으면 한칸 전진하는 방식이지만, 이 룰은 바뀔 수 있다.
-    - [ ] NumberGenerator를 생성자 주입으로 받는다.
+    - [x] NumberGenerator를 인터페이스로 받는다.
         - ex : 0 ~ 9 에서 나온 숫자만큼 움직이기 등
-        - [ ] tryMove() : 움직임을 시도한다.
-            - [ ] 반환값으로 움직인 거리(int)를 반환한다.
+        - [x] tryMove() : 움직임을 시도한다.
+            - [x] 반환값으로 움직인 거리(int)를 반환한다.
 
 - [ ] CutLineMoveRule : 최소 점수 이상만 한칸 움직이는 룰(MoveRule 구현체)
     - [ ] 0 ~ 9에서 랜덤으로 4이상으로 나오면 1을 반환한다.
     - [ ] 그 이외에는 0을 반환한다.
 
-- [ ] NumberGenerator(인터페이스) : 숫자를 생성하기 위한 인터페이스
+- [ x NumberGenerator(인터페이스) : 숫자를 생성하기 위한 인터페이스
     - 생성하는 이유 : 테스트코드에서 난수를 테스트 하기 위해
-    - [] generate(int startInclude, int endExclude) : 난수를 생성한다
+    - [x] generate(int startInclude, int endExclude) : 난수를 생성한다
 
 - [ ] RandomNumberGenerator(구현체)
     - [] 0 ~ 9 까지 랜덤한 난수를 생성한다.
