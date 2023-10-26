@@ -87,4 +87,7 @@ public class Application {
         final String winners = String.join(STRING_WINNER_DELIMITER, winnerList);
         return winners;
     }
+
+    public static void printWinnersFromCarList(final List<Car> carList) {
+    }
 }
