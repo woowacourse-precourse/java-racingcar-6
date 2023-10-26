@@ -1,6 +1,6 @@
 package racingcar.domain.move;
 
-public enum Movement {
+public enum MoveCommand {
     GO,
     STAY
 }

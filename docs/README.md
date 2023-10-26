@@ -47,16 +47,16 @@
 자동차의 위치에 대한 래핑 클래스
 
 -[ ] properties
- coordinate: `int`
+    -[ ] coordinate: `int`
 
 -[ ] behaviours
-    - [ ] validateCoordinate: 위치는 음수 불가
+    -[ ] validateCoordinate: 위치는 음수 불가
 
 ---
 
-## MoveDecider(interface)
+## MoveCommander(interface)
 
-자동차가 움직일지 말지 결정하는 메소드를 가진 인터페이스
+자동차가 움직일지 말지 명령어 생성 인터페이스
 
 -[ ] behaviours
     - [ ] `nextMovement`: `Movement`
@@ -68,14 +68,16 @@
 자동차 이름에 대한 래핑 클래스
 
 -[ ] properties
-    - [ ] name: 자동차명
+    -[ ] carName: 자동차명
 
 -[ ] behaviours
     - [ ] validateNameLength: 자동차 이름은 1~5자 가능
 
 ---
 
-## Movement(enum)
+## MoveCommand(enum)
+
+Car가 움직일지 말지 결정하는 명령어
 
 - GO
 - STAY
