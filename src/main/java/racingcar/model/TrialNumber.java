@@ -15,4 +15,8 @@ public class TrialNumber {
             }
         }
     }
+
+    public int getTrialNumber() {
+        return trialNumber;
+    }
 }
