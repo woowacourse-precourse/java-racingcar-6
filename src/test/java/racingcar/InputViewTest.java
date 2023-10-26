@@ -22,4 +22,18 @@ public class InputViewTest {
 
     }
 
+
+    @Test
+    void 시도_횟수_입력_테스트() {
+
+        ByteArrayInputStream fakeInput = new ByteArrayInputStream("5".getBytes());
+        System.setIn(fakeInput);
+
+        String input = InputView.readTryNumber();
+
+        Assertions.assertTrue(input != null);
+
+    }
+
+
 }
