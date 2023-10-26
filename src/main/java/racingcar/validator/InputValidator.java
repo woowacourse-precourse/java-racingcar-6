@@ -19,13 +19,11 @@ public class InputValidator {
     }
 
     public int validateCount(String s) {
-        int value;
         try {
-            value = Integer.parseInt(s);
+            return Integer.parseInt(s);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
-        return value;
     }
 
     void checkValidity(String s) {
