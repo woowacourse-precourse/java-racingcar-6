@@ -103,8 +103,8 @@ class ApplicationTest extends NsTest {
 
         try (MockedStatic<Console> mockConsole = mockStatic(Console.class)) {
             mockConsole.when(() -> Console.readLine()).thenReturn(String.valueOf(expected));
-            final int readTryCount = Application.readTryCount();
-            assertThat(readTryCount).isEqualTo(expected);
+            final int actual = Application.readTryCount();
+            assertThat(actual).isEqualTo(expected);
         }
     }
 
