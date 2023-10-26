@@ -52,6 +52,21 @@ class ApplicationTest extends NsTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void validateCarListInputBlank_유효성검사_성공_테스트() {
+        List<String> inputList = Arrays.asList("red", "green", "blue");
+
+        Application.validateCarListInputBlank(inputList);
+    }
+
+    @Test
+    void validateCarListInputBlank_유효성검사_실패_테스트() {
+        List<String> inputList = Arrays.asList("", "red", "green");
+
+        assertThatThrownBy(() -> Application.validateCarListInputBlank(inputList))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
