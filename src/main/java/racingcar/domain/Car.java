@@ -7,25 +7,38 @@ public class Car {
 
     private String name;
 
-    private StringBuilder distance = new StringBuilder();
+    private String position;
+
+    private int distance;
 
     public Car(String name) {
         this.name = name;
+        this.position = "";
+        this.distance = 0;
     }
 
     public String getName() {
         return name;
     }
 
-    public void tryAddDistance() {
+    public int getDistance() {
+        return distance;
+    }
+
+    public void tryAddPosition() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         if (randomNumber >= 4) {
-            this.distance.append("-");
+            this.position += "-";
+            this.distance++;
         }
     }
 
-    public void carDistancePrint() {
-        OutputView.racingCarResultPrint(this.name, this.distance.toString());
+    public void carPositionPrint() {
+        OutputView.racingCarResultPrint(this.name, this.position);
+    }
+
+    public boolean carEqualsMaxDistance(int distance) {
+        return this.distance == distance;
     }
 
 }

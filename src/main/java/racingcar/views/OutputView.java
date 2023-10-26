@@ -20,8 +20,8 @@ public class OutputView {
         System.out.println(RacingCarGameComments.RESULT_COMMENT);
     }
 
-    public static void racingCarResultPrint(String name, String dis) {
-        System.out.printf("%s : %s\n", name, dis);
+    public static void racingCarResultPrint(String name, String pos) {
+        System.out.printf("%s : %s\n", name, pos);
     }
 
     public static void println() {

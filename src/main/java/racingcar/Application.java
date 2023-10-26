@@ -11,8 +11,8 @@ public class Application {
         // 오프닝 멘트
         OutputView.racingCarOpeningComment();
         // 자동차 이름 입력 받기
-        List<Car> carNames = InputView.getCarNames();
-        for (Car car : carNames) {
+        List<Car> cars = InputView.getCarNames();
+        for (Car car : cars) {
             System.out.println("car.getName() = " + car.getName());
         }
         // 도전 횟수 멘트
@@ -26,11 +26,26 @@ public class Application {
 
         // 레이싱 게임 시작
         for (int i = 0; i < tryCount; i++) {
-            carNames.stream().forEach(car -> {
-                car.tryAddDistance();
-                car.carDistancePrint();
-            });
+            cars.stream()
+                    .forEach(car -> {
+                        car.tryAddPosition();
+                        car.carPositionPrint();
+                    });
             OutputView.println();
         }
+
+        // 레이싱 결과 출력
+        // 최대 거리 값 구하기
+        int maxPos = cars.stream().mapToInt(car -> car.getDistance()).max().getAsInt();
+        String[] resultArr = cars.stream()
+                .filter(car -> car.carEqualsMaxDistance(maxPos))
+                .map(car -> car.getName())
+                .toArray(String[]::new);
+
+        for (String s : resultArr) {
+            System.out.println("s = " + s);
+        }
+
+
     }
 }
