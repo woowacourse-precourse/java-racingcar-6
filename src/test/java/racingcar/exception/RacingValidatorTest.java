@@ -1,11 +1,12 @@
-package racingcar.domian;
+package racingcar.exception;
 
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class RacingTest {
+public class RacingValidatorTest {
+
     @Test
     void 입력받은_레이싱_경기_횟수_숫자_성공() {
         String input = "6";
