@@ -19,7 +19,22 @@ public class RacingCarGame {
     }
 
     public void run(){
-
+        List<Car> carList = getCarList(inputView.inputNames());
+        int tryNumber = inputView.inputTryNumber();
+        moveOrStop(carList, Dice.getRandomNumber());
+        
     }
 
+    public List<Car> getCarList(List<String> nameList){
+        return nameList.stream()
+                .map(name -> new Car(name))
+                .collect(Collectors.toList());
+    }
+
+    public void moveOrStop(List<Car> carList, int diceNumber){
+        carList.stream()
+                .forEach(car -> racingCarGameService.moveOrStop(diceNumber, car));
+    }
 }
+
+
