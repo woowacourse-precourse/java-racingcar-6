@@ -29,5 +29,7 @@ public class Application {
     }
 
     public static void printInputTryCountMessage() {
+        final String STRING_INPUT_TRY_COUNT = "시도할 회수는 몇회인가요?";
+        System.out.println(STRING_INPUT_TRY_COUNT);
     }
 }
