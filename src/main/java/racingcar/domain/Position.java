@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class Position {
+public class Position implements Comparable<Position> {
     private static final int INIT_POSITION = 0;
     private static final int MOVING_INTERVAL = 1;
 
@@ -34,5 +34,10 @@ public class Position {
     @Override
     public int hashCode() {
         return value;
+    }
+
+    @Override
+    public int compareTo(final Position o) {
+        return Integer.compare(o.value, this.value);
     }
 }
