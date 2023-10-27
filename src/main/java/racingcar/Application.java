@@ -10,12 +10,24 @@ import racingcar.domain.OutputView;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
+        Cars cars = getCarsFromUser();
+        int moveCount = getMoveCountFromUser();
+        printResults(cars, moveCount);
+    }
+
+    public static Cars getCarsFromUser() {
         OutputView.printCarNamesMessage();
         List<String> carStrings = InputView.getCarStrings();
-        OutputView.printMoveCountMessage();
-        int moveCount = InputView.getMoveCount();
         List<Car> carList = CarListGenerator.getCarList(carStrings);
-        Cars cars = new Cars(carList);
+        return new Cars(carList);
+    }
+
+    public static int getMoveCountFromUser() {
+        OutputView.printMoveCountMessage();
+        return InputView.getMoveCount();
+    }
+
+    public static void printResults(Cars cars, int moveCount) {
         OutputView.printResultMessage();
         for (int count = 0; count < moveCount; count++) {
             cars.move();
