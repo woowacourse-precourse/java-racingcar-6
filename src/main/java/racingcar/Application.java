@@ -1,10 +1,19 @@
 package racingcar;
 
+import java.util.List;
+
 import static camp.nextstep.edu.missionutils.Console.readLine;
+import static racingcar.Car.createCarList;
+import static racingcar.Car.moveCar;
 
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
+        List<Car> carList = createCarList();
+
+        int repeatCount = inputNumberOfRepetitions();
+        StringBuilder result = moveCar(carList , repeatCount);
+        System.out.println(result);
     }
 
     public static int inputNumberOfRepetitions() {

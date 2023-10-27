@@ -41,4 +41,20 @@ class Car {
                 .collect(Collectors.toList());
     }
 
+    public static StringBuilder moveCar(List<Car> carList, int repeatCount) {
+        StringBuilder output = new StringBuilder("실행 결과\n");
+
+        for (int i = 0; i < repeatCount; i++) {
+            carList.stream().forEach(car -> {
+                car.moveForward();
+                output.append(car).append("\n");
+            });
+
+            output.append("\n");
+        }
+
+        int size = output.length();
+        return output.delete(size - 1, size);
+    }
+
 }
