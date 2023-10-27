@@ -5,9 +5,9 @@ import racingcar.constants.Config;
 
 public class Car {
 
-    private String name;
+    private final String name;
 
-    private Move move;
+    private final Move move;
 
     public Car(String name) {
         this.name = name;

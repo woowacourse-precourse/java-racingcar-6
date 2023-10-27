@@ -6,19 +6,19 @@ public class Move {
 
     private int distance;
 
-    public Move() {
+    protected Move() {
         this.position = "";
     }
 
-    public String getPosition() {
+    protected String getPosition() {
         return position;
     }
 
-    public int getDistance() {
+    protected int getDistance() {
         return distance;
     }
 
-    public void addMove() {
+    protected void addMove() {
         this.distance++;
         this.position += "-";
     }
