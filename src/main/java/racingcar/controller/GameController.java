@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.constants.GameMessage;
 import racingcar.model.Car;
@@ -17,5 +18,13 @@ public class GameController {
         int number = Converter.convertStringToInt(inputNumber);
 
         Car cars = new Car(names, number);
+
+        racing(cars);
+    }
+
+    public void racing(Car cars){
+        for(int i = 0; i < cars.getAttempt(); i ++) {
+            cars.forward();
+        }
     }
 }
