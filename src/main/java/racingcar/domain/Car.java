@@ -29,4 +29,12 @@ public class Car {
         }
         return record.toString();
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
 }
