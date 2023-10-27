@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.constants.Config;
-import racingcar.views.OutputView;
 
 public class Car {
 
@@ -19,8 +18,12 @@ public class Car {
         return name;
     }
 
-    public int getDistance() {
+    public int getMoveDistance() {
         return move.getDistance();
+    }
+
+    public String getMovePosition() {
+        return move.getPosition();
     }
 
     public void tryAddMove() {
@@ -28,10 +31,6 @@ public class Car {
         if (randomNumber >= Config.MOVING_FORWORD) {
             this.move.addMove();
         }
-    }
-
-    public void carPositionPrint() {
-        OutputView.racingCarResultPrint(this.name, this.move.getPosition());
     }
 
     public boolean carEqualsMaxDistance(int distance) {

@@ -35,7 +35,7 @@ public class RacingCarGameController {
         for (int i = 0; i < movingCount; i++) {
             cars.forEach(car -> {
                 car.tryAddMove();
-                car.carPositionPrint();
+                OutputView.racingCarResultPrint(car.getName(), car.getMovePosition());
             });
             OutputView.println();
         }
@@ -43,7 +43,7 @@ public class RacingCarGameController {
 
     private void racingCarGameResult() {
         int maxPos = cars.stream()
-                .mapToInt(Car::getDistance)
+                .mapToInt(Car::getMoveDistance)
                 .max()
                 .orElseGet(() -> 0);
 
