@@ -31,6 +31,20 @@ public class RacingGame {
         System.out.println("");
     }
 
+    private List<Car> extractWinners() {
+        int farthestPosition = findFarthestPosition();
+        return this.carList.stream()
+                .filter(element -> element.isWinner(farthestPosition))
+                .collect(Collectors.toList());
+    }
+
+    private int findFarthestPosition() {
+        return this.carList.stream()
+                .mapToInt(element -> element.getPosition())
+                .max()
+                .orElseThrow(() -> new IllegalArgumentException());
+    }
+
     private void proceedRound() {
         this.carList.stream().forEach(element -> {
             element.move();
