@@ -15,13 +15,10 @@ public class CarController {
         String playerInput = inputView.getCarNameInput();
         return Arrays.asList(playerInput.split(","));
     }
-    public Car createCar(String carName) {
-        return new Car(carName);
-    }
 
     public List<Car> getRacingCars() {
         for (String carName : inputToCarNameList()) {
-            racingCars.add(createCar(carName));
+            racingCars.add(new Car(carName));
         }
         return racingCars;
     }

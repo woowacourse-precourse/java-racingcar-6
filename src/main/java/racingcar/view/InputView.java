@@ -17,11 +17,10 @@ public class InputView {
         return playerInput;
     }
 
-    public String getCountInput() {
+    public int getCountInput() {
         System.out.println(COUNT_INPUT_MESSAGE);
         String playerInput = Console.readLine();
         countInputValidator.validate(playerInput);
-        System.out.println(playerInput);
-        return playerInput;
+        return Integer.parseInt(playerInput);
     }
 }
