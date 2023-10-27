@@ -3,6 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
+    private static final String RESULT_FORMAT = "%s : %s";
+    private static final String DISTANCE_MARKER = "-";
     private String name;
     private int moveCount;
 
@@ -17,7 +19,15 @@ public class Car {
         }
     }
 
-    public int getMoveCount() {
-        return moveCount;
+    public String getCurrentResult() {
+        return String.format(RESULT_FORMAT, name, getDistance());
+    }
+
+    private String getDistance() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < moveCount; i++) {
+            sb.append(DISTANCE_MARKER);
+        }
+        return sb.toString();
     }
 }
