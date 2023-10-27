@@ -10,4 +10,13 @@ public class InputValue {
         return numberOfCars;
     }
 
+    public static String[] InputNameOfCars() {
+        String userInputCarName = Console.readLine();
+        validateSeparator(userInputCarName);
+        String[] nameOfCars = userInputCarName.split(",");
+        validateNameOfCarsRange(nameOfCars);
+        validateDuplicateName(nameOfCars);
+        return nameOfCars;
+    }
+
 }
