@@ -1,13 +1,16 @@
 package racingcar.validator;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.exception.InvalidMaxRoundInputException;
 
 final class InputValidatorTest {
 
-    @DisplayName("")
+    @DisplayName(",로 이름이 구분된 문자열 검증 성공")
     @Test
-    void test() {
+    void validateSuccess() {
         // given
         final String input1 = "a,b,c";
         final String input2 = "a,b";
@@ -16,5 +19,72 @@ final class InputValidatorTest {
         // then
         inputValidator.validateCarNamesInput(input1);
         inputValidator.validateCarNamesInput(input2);
+    }
+
+    @DisplayName("1자리 숫자로 이루어진 MaxRound 입력 성공")
+    @Test
+    void validateMaxRoundSuccess() {
+        // given
+        final String input1 = "1";
+        final String input2 = "2";
+        final String input3 = "9";
+        final InputValidator inputValidator = new InputValidator();
+        // when
+        // then
+        inputValidator.validateMaxRoundInput(input1);
+        inputValidator.validateMaxRoundInput(input2);
+        inputValidator.validateMaxRoundInput(input3);
+    }
+
+    @DisplayName("1자리 외의 숫자 혹은 공백 및 숫자 이외의 MaxRound 입력 예외 발생")
+    @Test
+    void validateMaxRoundFailure() {
+        // given
+        final String input1 = "";
+        final String input2 = "12";
+        final String input3 = "X";
+        final InputValidator inputValidator = new InputValidator();
+        // when
+        // then
+        assertThatThrownBy(() ->
+                inputValidator.validateMaxRoundInput(input1))
+                .isInstanceOf(InvalidMaxRoundInputException.class)
+                .hasMessage(InvalidMaxRoundInputException.INVALID_MAX_ROUND_INPUT_EXCEPTION_MESSAGE);
+
+        assertThatThrownBy(() ->
+                inputValidator.validateMaxRoundInput(input2))
+                .isInstanceOf(InvalidMaxRoundInputException.class)
+                .hasMessage(InvalidMaxRoundInputException.INVALID_MAX_ROUND_INPUT_EXCEPTION_MESSAGE);
+
+        assertThatThrownBy(() ->
+                inputValidator.validateMaxRoundInput(input3))
+                .isInstanceOf(InvalidMaxRoundInputException.class)
+                .hasMessage(InvalidMaxRoundInputException.INVALID_MAX_ROUND_INPUT_EXCEPTION_MESSAGE);
+    }
+
+    @DisplayName(",로 이름이 구분되었으나 공백이 포함되거나 빈 문자열은 검증 실패")
+    @Test
+    void validateFailure2() {
+        // given
+        final String input1 = "12";
+        final String input2 = "12x";
+        final String input3 = "X";
+        final InputValidator inputValidator = new InputValidator();
+        // when
+        // then
+        assertThatThrownBy(() ->
+                inputValidator.validateMaxRoundInput(input1))
+                .isInstanceOf(InvalidMaxRoundInputException.class)
+                .hasMessage(InvalidMaxRoundInputException.INVALID_MAX_ROUND_INPUT_EXCEPTION_MESSAGE);
+
+        assertThatThrownBy(() ->
+                inputValidator.validateMaxRoundInput(input2))
+                .isInstanceOf(InvalidMaxRoundInputException.class)
+                .hasMessage(InvalidMaxRoundInputException.INVALID_MAX_ROUND_INPUT_EXCEPTION_MESSAGE);
+
+        assertThatThrownBy(() ->
+                inputValidator.validateMaxRoundInput(input3))
+                .isInstanceOf(InvalidMaxRoundInputException.class)
+                .hasMessage(InvalidMaxRoundInputException.INVALID_MAX_ROUND_INPUT_EXCEPTION_MESSAGE);
     }
 }
