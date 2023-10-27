@@ -18,8 +18,12 @@ public class InputValidator {
     }
 
     public void validateTryCount(final String input) {
-        if (!input.matches(NUMERIC_REGEX)) {
+        if (hasNonNumeric(input)) {
             throw new IllegalArgumentException(ErrorMessage.NOT_NUMERIC.toValue());
         }
+    }
+
+    private boolean hasNonNumeric(final String input) {
+        return !input.matches(NUMERIC_REGEX);
     }
 }
