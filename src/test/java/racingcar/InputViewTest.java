@@ -29,7 +29,7 @@ class InputViewTest {
         System.setIn(inputStream);
         InputView inputView = new InputView();
         //when
-        List<String> carStrings = inputView.getCars();
+        List<String> carStrings = inputView.getCarStrings();
         //then
         assertThat(carStrings).containsExactly("pobi", "woni", "jun");
     }
