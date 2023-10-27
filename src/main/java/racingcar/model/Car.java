@@ -7,7 +7,7 @@ public class Car {
     private static final int MAX_RANDOM_NUMBER = 9;
 
     private final String name;
-    private final Integer forwards;
+    private Integer forwards;
 
     public Car(String name) {
         this.name = name;
