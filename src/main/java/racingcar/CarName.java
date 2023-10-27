@@ -1,13 +1,14 @@
 package racingcar;
 
 
+import camp.nextstep.edu.missionutils.Console;
 import org.junit.platform.commons.util.StringUtils;
 
 public class CarName {
     private static final int MAX_NAME_LENGTH = 5;
     private String name;
 
-    private void validateName(String name) {
+    private void validateName(String name) throws IllegalArgumentException {
         // 사용해도 되나?? static import
         if (StringUtils.isBlank(name)) {
             throw new IllegalArgumentException("자동차 이름은 공백이 될 수 없습니다.");
@@ -17,7 +18,7 @@ public class CarName {
         }
     }
 
-    public CarName(String name) {
+    public CarName(String name) throws IllegalArgumentException {
         validateName(name);
         this.name = name;
     }
