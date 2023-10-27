@@ -3,7 +3,12 @@ package racingcar.validator;
 import java.util.List;
 import java.util.regex.Pattern;
 
+/*
+ *   프로그램의 검증을 담당
+ * */
+
 public class Validator {
+
     public static void stringsLengthInRange(List<String> strings, int minSize, int maxSize) {
         for (String string : strings) {
             stringLengthInRange(string, minSize, maxSize);
@@ -38,5 +43,26 @@ public class Validator {
             throw new IllegalArgumentException("정해진 정규식을 벗어났습니다.");
         }
 
+    }
+
+    public static void stringsSizeBiggerThan(int size, List<String> carNames) {
+        if (carNames.size() <= size) {
+            throw new IllegalArgumentException("리스트가 정해진 크기에 맞지않습니다.");
+        }
+    }
+
+    public static void stringToInteger(String string) {
+        try {
+            Integer.parseInt(string);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("너무 광범위한 숫자이거나 올바른 숫자 형식이 아닙니다.");
+        }
+    }
+
+    public static void integerInRange(Integer integer, int minValue, int maxValue) {
+
+        if (integer < minValue || integer > maxValue) {
+            throw new IllegalArgumentException("값이 정해진 범위내에 속하지 않습니다");
+        }
     }
 }
