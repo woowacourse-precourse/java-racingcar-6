@@ -45,6 +45,10 @@ public class Cars {
         return new Winners(winnerList);
     }
 
+    public List<String> getCarNameList() {
+        return new ArrayList<>(cars.keySet());
+    }
+
     private void verifyCarNameLength(String name) {
         if (name.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_EXCESS_ERROR_MESSAGE);
