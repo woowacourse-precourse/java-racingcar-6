@@ -1,7 +1,7 @@
 # 구성 요소 분석
 ## 1. 자동차 클래스
 자동차 리스트를 구성하기 위한 클래스이다. 자동차의 이름과 이동한 경로를 저장한다.
-### 기능1) 자동차 설정 `public void createCar()`
+### 기능1) 자동차 설정 `public void createCar(String carName)`
 매개변수로 지정할 자동차의 이름 문자열을 넘겨 받는다.
 
 ### 기능2) 자동차 이동 `public void movingCar()`
