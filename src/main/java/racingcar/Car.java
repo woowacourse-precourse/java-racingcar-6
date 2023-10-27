@@ -1,8 +1,14 @@
 package racingcar;
 
 public class Car {
+
+    public final String name;
     private long totalMoveCount;
     private Engine engine;
+
+    public Car(String name) {
+        this.name = name;
+    }
 
     public void moveCar() {
         if (canMove()) {
