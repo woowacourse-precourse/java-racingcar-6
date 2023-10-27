@@ -20,4 +20,16 @@ public class UserInputException {
                 .filter(carName -> !uniqueCarNames.add(carName))
                 .count();
     }
+
+    public void validateBlankCarName(String[] carNames) {
+        // 자동차 이름 공백 검사
+        if (containsBlankName(carNames)) {
+            throw new IllegalArgumentException("자동차 이름에 공백이 포함되어 있습니다. 게임이 종료됩니다.");
+        }
+    }
+
+    private boolean containsBlankName(String[] carNames) {
+        return Arrays.stream(carNames)
+                .anyMatch(carName -> carName.contains(" "));
+    }
 }
