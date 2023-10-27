@@ -1,6 +1,9 @@
 package racingcar;
 
 import racingcar.config.GameConfig;
+import racingcar.exception.DuplicateCarNamesException;
+import racingcar.exception.ExceedCarNameLengthException;
+import racingcar.exception.NotExistCarsException;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -42,13 +45,13 @@ public class Cars {
 
     private void validateNotExistCar(final List<String> splitCarNames) {
         if (splitCarNames.size() == 0) {
-            throw new IllegalArgumentException();
+            throw new NotExistCarsException();
         }
     }
 
     private void validateCarNamesLength(final String splitCarName) {
         if(splitCarName.length() > GameConfig.LIMIT_CAR_NAME_LENGTH){
-            throw new IllegalArgumentException();
+            throw new ExceedCarNameLengthException();
         }
     }
 
@@ -57,7 +60,7 @@ public class Cars {
         int distinctCarNamesCount = new HashSet<>(splitCarNames).size();
 
         if (carNamesCount != distinctCarNamesCount) {
-            throw new IllegalArgumentException();
+            throw new DuplicateCarNamesException();
         }
     }
 }
