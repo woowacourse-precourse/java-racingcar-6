@@ -6,9 +6,11 @@ import java.util.List;
 
 public class User {
 
-    public List<Car> nameForCar(int names) {
-
-        return null;
+    public List<Car> nameForCar(String names) {
+        List<String> carsName=separateNames(names);
+        List<Car> cars=new ArrayList<>();
+        carsName.stream().forEach(name->cars.add(new Car(name)));
+        return cars;
     }
 
     public int fillInMovingNumber() {
