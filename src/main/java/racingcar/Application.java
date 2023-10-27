@@ -10,47 +10,17 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import racingcar.view.InputView;
 
 public class Application {
     public static void main(String[] args) {
         // 자동차 이름 입력
-        System.out.println("경주할 자동차 이름을 입력하세요(이름은 쉼표(,) 기준으로 구분");
-        String nameInput = Console.readLine();
-        // 자동차 이름 입력 관련 1차 유효성 검사
-        if (nameInput.contains(DELIMETER)) {
-            if (nameInput.charAt(0) == DELIMETER.charAt(0)
-                    || nameInput.charAt(nameInput.length()-1) == DELIMETER.charAt(0)) {
-                throw new IllegalArgumentException(NAME_LENGTH_ZERO + nameInput);
-            }
-            if (nameInput.contains(",,")) {
-                throw new IllegalArgumentException(NAME_LENGTH_ZERO + nameInput);
-            }
-        }
-        // 자동차 이름 입력 관련 2차 유효성 검사
-        Map<String, Integer> carList = new LinkedHashMap<>();
-        for (String carName : nameInput.split(DELIMETER)) {
-            if (carName.length() > NAME_LENGTH_MAX) {
-                throw new IllegalArgumentException(OVER_NAME_LENGTH + carName);
-            }
-            if (carList.containsKey(carName)) {
-                throw new IllegalArgumentException(NAME_DUPLICATED + carName);
-            }
-            carList.put(carName, 0);
-        }
-        // 시도 횟수 입력
-        System.out.println("시도할 횟수는 몇회인가요?");
-        String countInput = Console.readLine();
-        // 시도 횟수 유효성 검사
-        int count;
-        try {
-            count = Integer.parseInt(countInput);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(NUMERIC + countInput);
-        }
-
+        InputView inputView = new InputView();
+        Map<String, Integer> carList = inputView.inputCarName();
+        int rounds = inputView.inputRounds();
         // 자동차 경주 진행 단계
         System.out.println("\n실행 결과");
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < rounds; i++) {
             for (String carName : carList.keySet()) {
                 // 현재 자동차의 전진/정지 여부 결정
                 int randomNum = Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX);
