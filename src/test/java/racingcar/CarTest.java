@@ -14,8 +14,10 @@ class CarTest extends NsTest {
         Car pobi = new Car("pobi");
         Car woni = new Car("woni");
 
-        pobi.moveIfSatisfy(2);
-        woni.moveIfSatisfy(2);
+        pobi.moveIfSatisfy();
+        pobi.moveIfSatisfy();
+        woni.moveIfSatisfy();
+        woni.moveIfSatisfy();
 
         System.out.println(pobi);
         System.out.println(woni);

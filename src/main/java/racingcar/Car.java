@@ -23,12 +23,10 @@ public class Car {
         }
     }
 
-    public void moveIfSatisfy(int count) {
-        for (int iteration = 0; iteration < count; iteration++) {
-            int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM, MAX_RANDOM);
-            if (randomNumber >= SATISFY_FOR_MOVE) {
-                location.append(LOCATION);
-            }
+    public void moveIfSatisfy() {
+        int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM, MAX_RANDOM);
+        if (randomNumber >= SATISFY_FOR_MOVE) {
+            location.append(LOCATION);
         }
     }
 
