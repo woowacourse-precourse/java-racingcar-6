@@ -23,4 +23,14 @@ public class Application {
     return carNames;
   }
 
+  private static int getNumberOfAttempts() {
+    System.out.println("시도할 횟수는 몇회인가요?");
+    int numAttempts = Integer.parseInt(readLine());
+    if (numAttempts <= 0) {
+      throw new IllegalArgumentException("시도 횟수는 1 이상이어야 합니다.");
+    }
+    System.out.println();
+    return numAttempts;
+  }
+
 }
