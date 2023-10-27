@@ -1,6 +1,8 @@
 package racingcar;
 
+import java.util.List;
+
 public interface Print {
-    void winner();
+    void winner(List<String> winners);
     void printCarPositions();
 }

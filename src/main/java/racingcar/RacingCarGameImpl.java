@@ -17,6 +17,7 @@ public class RacingCarGameImpl implements RacingCarGame {
         PrintImpl print = new PrintImpl(carNames, positions);
         System.out.println("실행 결과");
         gameItem.carMove(attemptsNumber, print);
+        print.winner(gameItem.checkWinner());
         
         
     }

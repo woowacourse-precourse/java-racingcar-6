@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,8 +39,21 @@ public class GameItemImpl implements GameItem {
 
     @Override
     public List<String> checkWinner() {
-        // TODO Auto-generated method stub
-        return null;
+        int maxPosition = 0;
+        List<String> winners = new ArrayList<>();
+        
+        for (Map.Entry<String, Integer> entry : carPositions.entrySet()) {
+            int currentPosition = entry.getValue();
+            if (currentPosition > maxPosition) {
+                maxPosition = currentPosition;
+                winners.clear();
+                winners.add(entry.getKey());
+            } else if (currentPosition == maxPosition) {
+                winners.add(entry.getKey());
+            }
+        }
+        
+        return winners;
     }
 
     @Override

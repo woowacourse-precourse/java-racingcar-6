@@ -13,9 +13,14 @@ public class PrintImpl implements Print {
     }
     
     @Override
-    public void winner() {
-        // TODO Auto-generated method stub
-
+    public void winner(List<String> winners) {
+        System.out.print("최종 우승자 : ");
+        for (String winner : winners) {
+            System.out.print(winner);
+            if(winners.indexOf(winner) < winners.size() - 1) {
+                System.out.print(", ");
+            }
+        }
     }
 
     @Override
