@@ -31,4 +31,15 @@ public class RacingGame {
                 .map(name->new Car(new Name(name),new Position()))
                 .collect(Collectors.toList());
     }
+
+    public int inputAttemptCount(String input){
+        checkAttemptCountIsInteger(input);
+        return toInt(input);
+    }
+
+    private int toInt(String input){
+        return Integer.parseInt(input);
+    }
+
+
 }
