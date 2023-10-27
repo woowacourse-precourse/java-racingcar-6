@@ -39,7 +39,7 @@ class CarTest {
         Car car = new Car("홍길동");
 
         assertThat(car).usingRecursiveComparison()
-                .ignoringFields("position")
+                .comparingOnlyFields("name")
                 .isEqualTo(new Car("홍길동"));
     }
 
