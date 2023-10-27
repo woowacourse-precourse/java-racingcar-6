@@ -22,6 +22,7 @@
             <li><h4>전진하는 기능.</h4></li>
             <li><h4>상태(전진 상태)를 출력하는 기능.</h4></li>
             <li><h4>현재 위치를 반환하는 기능.</h4></li>
+            <li><h4>자동차명을 반환하는 기능.</h4></li>
         </ul>
     </li>
     <br>
@@ -45,6 +46,14 @@
         <ul>
             <li><h4>0에서 9 사이에서 무작위 값을 반환하는 기능.</h4></li>
         </ul>
+    </li>
+    <br>
+    <li>
+        <h2>String을 RacingCarPlayer로 변환하는 기능</h2>
+    </li>
+    <br>
+    <li>
+        <h2>RacingCarPlayer를 String으로 변환하는 기능</h2>
     </li>
     <br>
     <li>
