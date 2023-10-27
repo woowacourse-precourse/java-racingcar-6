@@ -1,26 +1,38 @@
 package domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 import view.InputView;
+import view.OutputView;
 
 public class RaceService {
+    private static final int MIN_NUMBER = 0;
+    private static final int MAX_NUMBER = 1;
     private final InputView inputView;
-    private final RanNumService ranNumService;
+    private final OutputView outputView;
 
-    RaceService() {
+    public RaceService() {
         inputView = new InputView();
-        ranNumService = new RanNumService();
+        outputView = new OutputView();
     }
 
-    private Map<String, Integer> carNamesToMap() {
-        Map<String, Integer> carNamesMap = new HashMap<>();
-        String carNames = inputView.enterCarNames();
-        String[] carNamesList = carNames.split(",");
-        for (String carName : carNamesList) {
-            carNamesMap.put(carName, 0);
+    public void moveCarAndPrintResult(){
+        List<String> carNames = carNamesToList();
+        int[] result = new int[carNames.size()];
+        for (int i = 0; i < carNames.size(); i++) {
+            int randomNumber = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
+            if (randomNumber >= 4){
+                result[i] += 1;
+            }
         }
-        return carNamesMap;
+        outputView.printResult(carNames, result);
+    }
+
+
+    private List<String> carNamesToList() {
+        String carNames = inputView.enterCarNames();
+        String[] carNamesArr = carNames.split(",");
+        return Arrays.asList(carNamesArr);
     }
 }
