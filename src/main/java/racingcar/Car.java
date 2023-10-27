@@ -25,4 +25,12 @@ public class Car {
     private int startEngine() {
         return engine.generateRandomNumber();
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name='" + name + '\'' +
+                ", totalMoveCount=" + totalMoveCount +
+                '}';
+    }
 }
