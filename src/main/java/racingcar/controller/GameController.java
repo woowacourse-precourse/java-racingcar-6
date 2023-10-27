@@ -38,10 +38,6 @@ public class GameController {
         return raceHistory;
     }
 
-    public List<Car> getCars() {
-        return cars;
-    }
-
     private int getMaxPosition() {
         int max = 0;
         for (Car car : cars) {
