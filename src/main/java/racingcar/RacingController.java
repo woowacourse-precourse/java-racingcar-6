@@ -18,6 +18,7 @@ public class RacingController {
         setupCars(carNames);
         race(tryCount);
         List<String> winners = findWinners();
+        view.printWinners(winners);
     }
 
     private void race(int count) {
@@ -52,6 +53,7 @@ public class RacingController {
         List<String> names = new ArrayList<>();
         Car currentWinner = cars.get(0);
         for (Car car : cars) {
+            if (currentWinner.compareTo(car) > 0) continue;
             if (currentWinner.compareTo(car) < 0) {
                 names.clear();
                 currentWinner = car;
