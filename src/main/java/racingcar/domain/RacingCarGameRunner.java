@@ -49,8 +49,8 @@ public class RacingCarGameRunner {
                 .collect(Collectors.toList());
     }
 
-    private void validateInput(String numberOfRounds) {
-        String trimmed = numberOfRounds.trim();
+    private void validateInput(String input) {
+        String trimmed = input.trim();
         if (trimmed.startsWith("-")) {
             throw new IllegalArgumentException("시도 횟수는 음수일 수 없습니다.");
         }
