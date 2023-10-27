@@ -1,7 +1,5 @@
 package racingcar;
 
-public interface Message {
+public interface Showable {
     void showMessage();
-
-
 }
