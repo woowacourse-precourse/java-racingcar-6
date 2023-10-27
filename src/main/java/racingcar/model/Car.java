@@ -11,6 +11,13 @@ public class Car {
         this.distance = distance;
     }
 
+    private void move() {
+        int randomNumber = generateRandomNumber();
+        if (randomNumber >= 4) {
+            distance += "-";
+        }
+    }
+
     private int generateRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
