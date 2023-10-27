@@ -165,7 +165,7 @@ Randoms.pickNumberInRange(0,9);
 ## 🔨 기능 목록
 - [x] 각 자동차에 이름을 부여할 수 있다. - inputCarsName()
     - [x] 자동차 이름은 쉼표(,)를 기준으로 구분한다. - splitNameByComma()
-    - [ ] 이름은 5자 이하만 가능하다. - isValidNameLength()
+    - [x] 이름은 5자 이하만 가능하다. - isValidNameLength()
 - [ ] 사용자는 몇 번의 이동을 할 것인지를 입력한다. - inputRaceTime()
 - [ ] 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다. - oneTimeRace
     - [ ] 0에서 9 사이에서 무작위 값을 구한다. - makeRandomNumber()
@@ -174,7 +174,7 @@ Randoms.pickNumberInRange(0,9);
 - [ ] 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. - printWinners()  
     - [ ] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다. -splitCarsName()
 - [ ] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.  
-    - [ ] 자동차의 이름이 6글자 이상인 경우
+    - [x] 자동차의 이름이 6글자 이상인 경우
     - [ ] 자동차의 이름에 공백이 있는 경우
     - [ ] 이동 횟수 입력시 숫자가 아닌 경우
-    - [ ] 빈 문자열이 입력되는 경우
+    - [x] 빈 문자열이 입력되는 경우
