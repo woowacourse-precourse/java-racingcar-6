@@ -22,12 +22,24 @@ public class Car {
         this.forwardCount = forwardCount;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getForwardCount() {
+        return forwardCount;
+    }
+
     public Car increaseForwardCount() {
         return new Car(name, forwardCount + 1);
     }
 
     public String receiveForwardTrail() {
         return FORWARD_TRAIL_INDICATOR.repeat(forwardCount);
+    }
+
+    public boolean compare(int forwardCount) {
+        return this.forwardCount == forwardCount;
     }
 
     private void validate(String name) {
