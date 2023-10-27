@@ -4,8 +4,9 @@ public class RacingCarGameImpl implements RacingCarGame {
 
     @Override
     public void startGame() {
-        // TODO Auto-generated method stub
-
+        Input input = new InputImpl();
+        input.carName();
+        input.attemptsNumber();
     }
 
 }

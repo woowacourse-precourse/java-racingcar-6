@@ -1,14 +1,31 @@
 package racingcar;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class GameItemImpl implements GameItem {
     private List<String> carNames;
+    private Map<String, Integer> carPositions;
+    public GameItemImpl(InputImpl input) {
+        this.carNames = input.carName();
+        this.carPositions = new HashMap<>();
+        for (String name : carNames) {
+            carPositions.put(name, 0);
+        }
+    }
     @Override
     public void carMove() {
-        // TODO Auto-generated method stub
-
+        for (String name : carNames) {
+            
+            int randomNum = Randoms.pickNumberInRange(0, 9);
+            if (randomNum >= 4) {
+                int currentPosition = carPositions.get(name);
+                carPositions.put(name, currentPosition++);
+            }
+        }
     }
 
     @Override
@@ -19,8 +36,7 @@ public class GameItemImpl implements GameItem {
 
     @Override
     public Map<String, Integer> carPostion() {
-        // TODO Auto-generated method stub
-        return null;
+        return carPositions;
     }
 
 }
