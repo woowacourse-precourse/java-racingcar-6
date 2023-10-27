@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.LinkedHashMap;
 
 public class RacingGame {
@@ -51,4 +52,10 @@ public class RacingGame {
         System.out.println(attemptingPhrase);
         attemptingNum = Integer.parseInt(Console.readLine());
     }
+
+    public int generateRandomNumber() {
+        int randomNum = Randoms.pickNumberInRange(0, 9);
+        return randomNum;
+    }
+
 }
