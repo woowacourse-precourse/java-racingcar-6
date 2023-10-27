@@ -15,6 +15,9 @@ public class ProgressBoard {
         return INSTANCE;
     }
 
+    public void registerCar(Car car) {
+        this.SCORE_BOARD.put(car, EMPTY_STRING);
+    }
 
 
 }
