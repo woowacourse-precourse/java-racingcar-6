@@ -1,20 +1,21 @@
 package racingcar.domain.car.carcomponent.carmove;
 
-public class CarMoveReader {
+import static racingcar.Constant.ZERO;
 
-    private final TotalMoveCount totalCountToMove;
+public class CarMoveReader {
+    private final TotalMoveNumber totalMoveNumber;
     private CarMoveCount carMoveCount;
 
-    public CarMoveReader(int totalCountToMove) {
-        this.totalCountToMove = new TotalMoveCount(totalCountToMove);
-        carMoveCount = new CarMoveCount(0);
+    public CarMoveReader(int totalMoveNumber) {
+        this.totalMoveNumber = new TotalMoveNumber(totalMoveNumber);
+        carMoveCount = new CarMoveCount(ZERO);
     }
 
     public void moveCar() {
-        carMoveCount = carMoveCount.countMove(canMoveCar());
+        carMoveCount = carMoveCount.raiseMoveCount();
     }
 
     public boolean canMoveCar() {
-        return totalCountToMove.isCarMovable(carMoveCount);
+        return totalMoveNumber.isCarMovable(carMoveCount);
     }
 }
