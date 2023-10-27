@@ -26,7 +26,6 @@ public class Name {
         List<String> names = List.of(splitNames);
 
         return names.stream()
-                .distinct()
                 .map(Name::from)
                 .collect(Collectors.toList());
     }

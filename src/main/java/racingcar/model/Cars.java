@@ -8,6 +8,7 @@ public class Cars {
     private final List<Car> cars;
 
     private Cars(final List<Car> cars) {
+        validateEachCarUnique(cars);
         this.cars = cars;
     }
 
@@ -38,5 +39,15 @@ public class Cars {
                 .filter(car -> car.isWinner(gameCount))
                 .map(Car::getName)
                 .collect(Collectors.toList());
+    }
+
+    private void validateEachCarUnique(final List<Car> cars) {
+        List<Car> uniqueCars = cars.stream()
+                .distinct()
+                .toList();
+
+        if (uniqueCars.size() != cars.size()) {
+            throw new IllegalArgumentException();
+        }
     }
 }

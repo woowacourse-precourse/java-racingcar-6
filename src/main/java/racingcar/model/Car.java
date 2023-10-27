@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import java.util.Objects;
+
 public class Car {
 
     private static final int MINIMUM_ACCERATE_VALUE = 4;
@@ -30,6 +32,23 @@ public class Car {
     @Override
     public String toString() {
         return name.getName() + " : " + POSITION_MARK.repeat(position);
+    }
+
+    @Override
+    public boolean equals(final Object other) {
+        if (this == other) {
+            return true;
+        }
+        if ((other == null) || (getClass() != other.getClass())) {
+            return false;
+        }
+        Car car = (Car) other;
+        return Objects.equals(name.getName(), car.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name.getName());
     }
 
     public String getName() {
