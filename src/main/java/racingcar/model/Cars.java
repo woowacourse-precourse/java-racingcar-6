@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Cars {
 
