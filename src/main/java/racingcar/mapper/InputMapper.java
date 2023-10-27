@@ -15,18 +15,22 @@ public class InputMapper {
         return List.of(input.split(getNameListDelimiter().getShape()));
     }
 
+    private static void checkInputNonNull(String input) {
+        if (Objects.isNull(input)) {
+            throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
+        }
+    }
+
+    public static Delimiter getNameListDelimiter() {
+        return Delimiter.NAME;
+    }
+
     public static int mapToPositiveNumber(String input) {
         checkInputNonNull(input);
         int parsed = parseInt(input);
         checkPositiveNumber(parsed);
 
         return parsed;
-    }
-
-    private static void checkInputNonNull(String input) {
-        if (Objects.isNull(input)) {
-            throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
-        }
     }
 
     private static int parseInt(String input) {
@@ -41,9 +45,5 @@ public class InputMapper {
         if (returning <= 0) {
             throw new IllegalArgumentException(NOT_POSITIVE_NUMBER_MESSAGE);
         }
-    }
-
-    public static Delimiter getNameListDelimiter() {
-        return Delimiter.NAME;
     }
 }
