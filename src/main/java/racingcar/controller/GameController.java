@@ -38,14 +38,14 @@ public class GameController {
 
     private static void playAttempt(){
         for(Car car : cars){
-            isValidateAdvance(car,GeneratedRandomNumber.getNumber());
+            moveCar(car,GeneratedRandomNumber.getNumber());
         }
 
         OutputView.resultPerAttempt(cars);
         System.out.println();
     }
 
-    private static void isValidateAdvance(final Car car, final int randomNumber){
+    private static void moveCar(final Car car, final int randomNumber){
         if(car.isValidateAdvance(randomNumber)){
             car.addAdvances();
         }
