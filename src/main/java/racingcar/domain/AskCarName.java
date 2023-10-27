@@ -5,9 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AskCarName {
-    public Map<String, Integer> askCarName() {
-        String inputCarName = Console.readLine();
-
+    public Map<String, Integer> askCarName(String inputCarName) {
         if (checkCarName(inputCarName)) {
             return splitCarName(inputCarName);
         } else {

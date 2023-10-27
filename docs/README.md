@@ -6,8 +6,9 @@
   - [x] 각 자동차의 이름을 ','를 기준으로 구분한다. AskCarName#splitCarName()
   - [x] 자동차의 이름은 5자 이하만 가능하다. AskCarName#validateLengthOfCarName()
 
-- [ ] 플레이어에게 몇 번의 이동을 할 것인지를 입력받는다. AskHowManyPlayGame#askHowManyPlayGame()
-  - [ ] 플레이어에게 입력받는 값이 숫자인지 검증한다. AskHowManyPlayGame#validateNumber()
+- [x] 플레이어에게 몇 번의 이동을 할 것인지를 입력받는다. AskHowManyPlayGame#askHowManyPlayGame()
+- [x] 플레이어에게 입력받는 값이 숫자인지 검증한다. AskHowManyPlayGame#askHowManyPlayGame()
+- [x] 플레이어에게 입력받은 값을 int형으로 반환한다. AskHowManyPlayGame#askHowManyPlayGame()
 
 2. 게임 진행
 - [ ] 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다. OutputCarName#outputCarName()
