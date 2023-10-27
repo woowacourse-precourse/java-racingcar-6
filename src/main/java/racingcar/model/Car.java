@@ -2,10 +2,8 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import racingcar.utils.Validator;
 
 public class Car {
     private final List<String> names;
@@ -29,6 +27,14 @@ public class Car {
 
     public int getAttempt() {
         return attempt;
+    }
+
+    public List<String> getNames() {
+        return names;
+    }
+
+    public String getNameByIndex(int idx) {
+        return names.get(idx);
     }
 
     public List<Integer> getMileage() {
