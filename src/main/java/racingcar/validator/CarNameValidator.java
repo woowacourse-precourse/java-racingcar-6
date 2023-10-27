@@ -4,6 +4,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class CarNameValidator {
+    private static final String COMMA = ",";
+    private static final String EMPTY = "";
+    private static final String BLANK = " ";
+    private static final String NOT_COMMA_AND_ALLOW_BLANK_BETWEEN_NAME = ".*[^,\\s^a-zA-Z0-9^[가-힣]*$].*";
+    private static final String BLANK_IN_START = "^\\s.*";
+    private static final String BLANK_IN_END = ".*\\s$";
+    private static final int MAX_RANGE = 5;
+    private static final int MIM_RANGE = 1;
 
     private CarNameValidator() {
     }
@@ -16,18 +24,18 @@ public class CarNameValidator {
 
     private static void validateNull(String input) {
         if (input.isBlank()) {
-            throw new IllegalArgumentException("아무런 값을 입력하지 않았습니다.");
+            throw new IllegalArgumentException(ErrorMessage.NULL_ERROR);
         }
     }
 
     private static void validateSeparator(String input) {
-        if (input.matches(".*[^,\\s^a-zA-Z0-9^[가-힣]*$].*")) {
-            throw new IllegalArgumentException("자동차 이름은 쉼표(,)를 기준으로 구분해야 합니다.");
+        if (input.matches(NOT_COMMA_AND_ALLOW_BLANK_BETWEEN_NAME)) {
+            throw new IllegalArgumentException(ErrorMessage.ONLY_COMMA);
         }
     }
 
     private static void validateCarName(String input) {
-        String[] carNames = input.split(",");
+        String[] carNames = input.split(COMMA);
         Set<String> nameSet = new HashSet<>();
         for (String carName : carNames) {
             validateCarNameLength(carName);
@@ -40,32 +48,32 @@ public class CarNameValidator {
     }
 
     private static void validateCarNameLength(String carName) {
-        if (carName.length() > 5 || carName.length() == 0) {
-            throw new IllegalArgumentException("자동차 이름은 1 ~ 5글자로 입력해야 합니다.");
+        if (carName.length() > MAX_RANGE || carName.length() < MIM_RANGE) {
+            throw new IllegalArgumentException(ErrorMessage.NAME_BETWEEN_ONE_AND_FIVE);
         }
     }
 
     private static void validateCarNameIsBlank(String carName) {
-        if (carName.equals(" ") || carName.equals("")) {
-            throw new IllegalArgumentException("자동차 이름을 공백으로 입력해선 안됩니다.");
+        if (carName.equals(BLANK) || carName.equals(EMPTY)) {
+            throw new IllegalArgumentException(ErrorMessage.NOT_ALLOW_NAME_REPLACED_BLANK);
         }
     }
 
     private static void validateIsStartBlank(String carName) {
-        if (carName.matches("^\\s.*")) {
-            throw new IllegalArgumentException("첫 글자를 공백으로 사용할 수 없습니다.");
+        if (carName.matches(BLANK_IN_START)) {
+            throw new IllegalArgumentException(ErrorMessage.NOT_ALLOW_BLANK_IN_START);
         }
     }
 
     private static void validateIsEndBlank(String carName) {
-        if (carName.matches(".*\\s$")) {
-            throw new IllegalArgumentException("마지막 글자를 공백으로 사용할 수 없습니다.");
+        if (carName.matches(BLANK_IN_END)) {
+            throw new IllegalArgumentException(ErrorMessage.NOT_ALLOW_BLANK_IN_END);
         }
     }
 
     private static void validateDuplication(int nameSetSize, int carCount) {
         if (nameSetSize != carCount) {
-            throw new IllegalArgumentException("중복된 이름을 입력할 수 없습니다.");
+            throw new IllegalArgumentException(ErrorMessage.NOT_ALLOW_NAME_DUPLICATION);
         }
     }
 }
