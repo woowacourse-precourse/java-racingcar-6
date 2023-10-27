@@ -32,7 +32,7 @@ public class ConsoleOutputView implements OutputView {
 
     @Override
     public void printGameResult(final GameResultResponse gameResultResponse) {
-        gameResultResponse.getMap().forEach((vehicle, position) -> {
+        gameResultResponse.getResult().forEach((vehicle, position) -> {
             System.out.println(makeResult(vehicle, position));
         });
         printNewLine();
