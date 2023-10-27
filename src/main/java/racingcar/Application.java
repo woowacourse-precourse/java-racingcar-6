@@ -1,6 +1,7 @@
 package racingcar;
 import camp.nextstep.edu.missionutils.Console;
-
+import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 
 public class Application {
     private static String[] RacerInput(){ //사용자의 입력을 받는 함수
@@ -21,6 +22,31 @@ public class Application {
         String RacingCountInput = Console.readLine(); //시도할 횟수를 입력받음
         try{return Integer.parseInt(RacingCountInput);} //시도할 횟수를 Int 형식으로 return
         catch (NumberFormatException ex) {throw new IllegalArgumentException("유효하지 않은 수 입니다.");} //수가 아닌 경우 에러
+    }
+    private static void Racing_setting(){ //Racer에 대한 정보와, Racing횟수에 대한 정보를 Racing 함수에 전달
+        String[] RacerNames = RacerInput();
+        int RacingCount = RacingCount();
+        Racing(RacerNames,RacingCount);
+    }
+    private static void Racing(String[] RacerName,int RacingCount){
+        ArrayList<Integer> RacerList = new ArrayList<>();
+        for(int i=0;i<RacingCount;i++){
+            for(int j=0;j<RacerName.length;j++) {
+                RacerList.add(Randoms.pickNumberInRange(1, 9));
+            }
+            RacingResult(RacerList,RacerName);
+            RacerList.clear();
+        }
+    }
+    private static void RacingResult(ArrayList<Integer>RacerRanking, String[] RacerName){
+        ArrayList<Integer> CounterList = new ArrayList<>();
+        for(int i=0;i<RacerRanking.size();i++){
+            if (RacerRanking.get(i)>=4){
+
+            }
+        }
+
+
     }
     public static void main(String[] args) {
         // TODO: 프로그램 구현
