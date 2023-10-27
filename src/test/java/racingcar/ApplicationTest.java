@@ -153,11 +153,11 @@ class ApplicationTest extends NsTest {
         thirdRaceCar.movementControlCar(3);
         thirdRaceCar.movementControlCar(4);
 
-        winRaceCarList = gameHost.winRaceCar(raceCarList);
-        String result = winRaceCarList.toString();
+        winRaceCarList = gameHost.winRaceCar(raceCarList, 3);
+        String result = winRaceCarList.get(0).toString();
 
         // then
-        assertThat(result).isEqualTo(nameArr[0]);
+        assertThat(result).isEqualTo("one");
     }
 
     // ================ JudgeStandard.class ================
