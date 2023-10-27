@@ -48,8 +48,8 @@ class RacingGameTest {
                 new Car("jun", 1));
         RacingGame racingGame = new RacingGame(cars, 1);
 
-        List<Car> winners = racingGame.findWinners();
+        List<String> winners = racingGame.findWinners();
 
-        assertThat(winners).containsExactly(new Car("pobi", 3), new Car("woni", 3));
+        assertThat(winners).containsExactly("pobi", "woni");
     }
 }
