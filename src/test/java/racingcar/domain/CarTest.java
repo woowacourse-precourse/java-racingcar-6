@@ -8,7 +8,7 @@ class CarTest {
     @Test
     void 자동차_전진_확인(){
         Car car = new Car("test");
-        int position = car.getPosition();
+        Integer position = car.getPosition();
 
         for (int i=0; i < 3; i++) {
             car.moveForward();
