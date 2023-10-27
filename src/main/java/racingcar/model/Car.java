@@ -22,7 +22,7 @@ public class Car implements Vehicle {
     }
 
     private static void validateCarName(final String name) {
-        if (isNameLengthValid(name)) {
+        if (!isNameLengthValid(name)) {
             throw new NotValidNameLengthException(name);
         }
     }
@@ -37,6 +37,7 @@ public class Car implements Vehicle {
         return numberGenerator.generateNumber() >= FORWARD_THRESHOLD.getValue();
     }
 
+    @Override
     public String getName() {
         return name;
     }
