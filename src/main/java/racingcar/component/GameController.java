@@ -19,6 +19,16 @@ public class GameController {
         this.raceSimulator = raceSimulator;
     }
 
+    public void startGame() {
+        initGame();
+        doGame();
+    }
+
+    private void doGame() {
+        raceSimulator.simulate(this.carList.getCarList(), this.duration);
+        printer.printWinner(this.carList.getCarList());
+    }
+
     private void initGame() {
         this.carList = new CarList(inputter.getNameInput().stream().map(Car::new)
                 .collect(Collectors.toList()));
