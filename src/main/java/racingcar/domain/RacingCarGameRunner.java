@@ -3,6 +3,8 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.Cars;
+import racingcar.domain.result.GameResult;
+import racingcar.domain.result.GameResultGenerator;
 
 import java.util.Arrays;
 import java.util.List;
