@@ -17,4 +17,20 @@ class ValidatorTest {
         boolean isValid = validator.isValidCarNames(carNames);
         Assertions.assertThat(isValid).isEqualTo(Boolean.FALSE);
     }
+
+    @Test
+    void 전진횟수_문자입력() {
+        String inputMoveCount = "testInput";
+        Validator validator = new Validator();
+        boolean isValid = validator.isValidMoveCount(inputMoveCount);
+        Assertions.assertThat(isValid).isEqualTo(Boolean.FALSE);
+    }
+
+    @Test
+    void 전진횟수_숫자입력() {
+        String inputMoveCount = "123";
+        Validator validator = new Validator();
+        boolean isValid = validator.isValidMoveCount(inputMoveCount);
+        Assertions.assertThat(isValid).isEqualTo(Boolean.TRUE);
+    }
 }
