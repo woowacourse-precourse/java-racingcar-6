@@ -24,10 +24,10 @@ public class CarTest {
     }
 
     @Test
-    @DisplayName("모든 유효성 검사를 통과한 입력값이면 key가 되는 자동차 이름은 Map에 입력 순서대로 저장")
+    @DisplayName("모든 유효성 검사를 통과하는 입력값이면 key가 되는 자동차 이름은 Map에 입력 순서대로 저장")
     void createCarNameList_orderTest() {
         String input = "name1,name2,name3,name4";
-        Set<String> expected = new LinkedHashSet<String>(Arrays.asList(input.split(",")));
+        Set<String> expected = new LinkedHashSet<>(Arrays.asList(input.split(",")));
         Map<String, Integer> result = sample.createCarNameList(input);
         assertThat(expected).isEqualTo(result.keySet());
     }

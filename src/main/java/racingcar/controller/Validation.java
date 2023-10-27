@@ -6,30 +6,30 @@ import static racingcar.constant.ExceptionMessage.*;
 import java.util.Map;
 
 public class Validation {
-    public void nameLengthZero(String carNameInput) {
+    public void checkNullNameInInput(String carNameInput) {
         if (carNameInput.contains(DELIMETER)) {
-            findCommaFirstOrLast(carNameInput);
-            continuousComma(carNameInput);
+            checkFirstOrLastComma(carNameInput);
+            checkContinuousComma(carNameInput);
         }
     }
 
-    private void findCommaFirstOrLast(String carNameInput) {
+    private void checkFirstOrLastComma(String carNameInput) {
         int lastIndex = carNameInput.length()-1;
         if (carNameInput.charAt(0) == DELIMETER.charAt(0) || carNameInput.charAt(lastIndex) == DELIMETER.charAt(0)) {
             throw new IllegalArgumentException(NULL_CAR_NAME + carNameInput);
         }
     }
-    private void continuousComma(String carNameInput) {
+    private void checkContinuousComma(String carNameInput) {
         if (carNameInput.contains(DELIMETER+DELIMETER)) {
             throw new IllegalArgumentException(NULL_CAR_NAME + carNameInput);
         }
     }
-    public void overNameLengthLimit(String carNameToken) {
+    public void checkNameTokenLengthOver(String carNameToken) {
         if (carNameToken.length() > NAME_LENGTH_MAX) {
             throw new IllegalArgumentException(OVER_CAR_NAME_LIMIT + carNameToken);
         }
     }
-    public void nameDuplicated(String carNameToken, Map<String,Integer> carList) {
+    public void checkNameTokenDuplicated(String carNameToken, Map<String,Integer> carList) {
         if (carList.containsKey(carNameToken)) {
             throw new IllegalArgumentException(CAR_NAME_DUPLICATED + carNameToken);
         }
