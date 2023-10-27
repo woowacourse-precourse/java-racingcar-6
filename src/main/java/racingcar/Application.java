@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class Application {
     public static void main(String[] args) {
@@ -34,7 +36,13 @@ public class Application {
             }
         }
 
-        // 이름에 공백 포함시 => 공백 제거
+        // 이름 중복시 => 예외처리
+        if( carNames.length > Arrays.stream(carNames).distinct().toArray().length){
+            throw new IllegalArgumentException("중복되지 않은 이름을 입력해 주세요.");
+        }
+
+
+        // 이름 양 끝에 공백 포함시 => 공백 제거
         for (int i = 0; i < carNames.length; i++) {
             carNames[i] = carNames[i].trim();
         }
