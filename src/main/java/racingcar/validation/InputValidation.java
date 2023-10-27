@@ -56,7 +56,7 @@ public class InputValidation {
         return Stream.of(input.split(",")).collect(Collectors.toList());
     }
 
-    private static int validateInputNumber(String input) {
+    public static int validateInputNumber(String input) {
         if(!isNumber(input)) {
             throw new IllegalArgumentException("숫자를 입력하지 않았습니다.");
         }
