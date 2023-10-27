@@ -11,7 +11,7 @@ public class InputView {
         return Console.readLine();
     }
 
-    public static String wantTryMoveInput() {
+    public static String tryCountInput() {
         return Console.readLine();
     }
 }
