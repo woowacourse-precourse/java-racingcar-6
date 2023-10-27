@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -7,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GameMessageTest {
 
+    @DisplayName("게임 시작시 출력되는 메세지에 대한 테스트")
     @Test
     void getStartMessage() {
         //given
@@ -15,6 +17,7 @@ class GameMessageTest {
         assertThat(GameMessage.START_MESSAGE.getStartMessage()).isEqualTo(startMessage);
     }
 
+    @DisplayName("게임 시도 횟수를 요청하는 메시지에 대한 테스트")
     @Test
     void getRequestTryMessage() {
         //given
@@ -23,6 +26,7 @@ class GameMessageTest {
         assertThat(GameMessage.REQUEST_TRY_MESSAGE.getRequestTryMessage()).isEqualTo(requestTryMessage);
     }
 
+    @DisplayName("게임 실행 결과 메시지에 대한 테스트")
     @Test
     void getGameResultMessage() {
         //given
@@ -31,6 +35,7 @@ class GameMessageTest {
         assertThat(GameMessage.GAME_RESULT_MESSAGE.getGameResultMessage()).isEqualTo(gameResultMessage);
     }
 
+    @DisplayName("게임 최종 우승자 메시지에 대한 테스트")
     @Test
     void getWinnerMessage() {
         //given
