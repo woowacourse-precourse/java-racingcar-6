@@ -1,12 +1,16 @@
 package racingcar.domain.participant;
 
 public class Participant {
+    private final String DEFAULT_NAME = "(undefined)";
+
     private Participant() {
-        this.carName = "undefined";
+        this.carName = DEFAULT_NAME;
     }
 
     protected Participant(String carName) {
-        this.carName = carName;
+        if ( carName.isEmpty() )
+            this.carName = DEFAULT_NAME;
+        else this.carName = carName;
         this.distance = 0;
     }
 
