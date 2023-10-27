@@ -36,21 +36,6 @@ public class RacingGame {
         }
     }
 
-    public int inputAttemptCount(String input) {
-        checkAttemptCountIsInteger(input);
-        return toInt(input);
-    }
-
-    private void checkAttemptCountIsInteger(String input) {
-        if (!Constants.INTEGER.matcher(input).matches()) {
-            throw new IllegalArgumentException("정수를 입력해야합니다.");
-        }
-    }
-
-    private int toInt(String input) {
-        return Integer.parseInt(input);
-    }
-
     public String printCarName(List<Car> cars) {
         StringBuilder result = new StringBuilder();
 
