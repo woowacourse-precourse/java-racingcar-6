@@ -2,7 +2,9 @@ package racingcar.constants;
 
 public enum ErrorMessage {
 
-    DIVISION_CAR_NAME_ERROR("이름은 쉼표(,) 기준으로 구분해야 합니다.");
+    DIVISION_CAR_NAME_ERROR("이름은 쉼표(,) 기준으로 구분해야 합니다."),
+    CAR_NAME_LENGTH_ERROR("자동차 이름은 5자 이하만 가능합니다."),
+    CARS_COUNT_ERROR("자동차 이름을 2개 이상 입력해주세요");
 
     private final String message;
 
