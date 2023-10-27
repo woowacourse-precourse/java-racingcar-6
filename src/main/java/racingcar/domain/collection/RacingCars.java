@@ -43,14 +43,18 @@ public class RacingCars implements Cars {
         List<RacingCar> cars = getCars();
         List<String> result = new ArrayList<>();
         for (int i = 0; i < cars.size(); i++) {
-            RacingCar racingCar = cars.get(i);
-            int progress = racingCar.getProgress();
-            if (progress == maxProgress) {
-                result.add(racingCar.getName());
-            }
+            addMaxCarName(maxProgress, cars, result, i);
         }
 
         return result;
+    }
+
+    private static void addMaxCarName(int maxProgress, List<RacingCar> cars, List<String> result, int i) {
+        RacingCar racingCar = cars.get(i);
+        int progress = racingCar.getProgress();
+        if (progress == maxProgress) {
+            result.add(racingCar.getName());
+        }
     }
 
 }
