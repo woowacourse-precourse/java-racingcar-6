@@ -49,5 +49,20 @@ class CarTest {
 
     }
 
+    @Test
+    @DisplayName("자동차가 정지하면 이동거리는 증가하지 않는다.")
+    void 정지_테스트(){
+        //given
+        String locate1="";
+        for(int i=0;i<2;i++){
+            locate1=car1.moveForward();
+        }
+
+        //when
+        locate1=car1.moveStop();
+
+        //then
+        Assertions.assertThat(locate1).isEqualTo("--");
+    }
 
 }
