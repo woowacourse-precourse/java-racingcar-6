@@ -7,7 +7,7 @@
     - 6자 이상, IllegalArgumentException 예외처리
     - 전부 공백, IllegalArgumentException 예외처리
 - 이름 양 끝에 공백 포함시 => 공백 제거
-- 이름 중복시, IllegalArgumentException 예외처리
+- 이름 중복 시, IllegalArgumentException 예외처리
 - 제공된 라이브러리 사용
 - 요구 사항에 명시된 출력문 구성
 
