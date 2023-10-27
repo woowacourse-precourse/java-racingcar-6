@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.game;
 
 import racingcar.collaborator.Race;
 
@@ -9,7 +9,9 @@ public class RacingGame {
         race.registerRacer();
         race.decideRound();
 
-        race.run();
+        String result = race.run();
+        System.out.println(result);
+
     }
 
 }
