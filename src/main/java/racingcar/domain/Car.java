@@ -1,7 +1,7 @@
 package racingcar.domain;
 
-import static racingcar.domain.constant.DomainConstant.CAR_INIT_POSITION;
-import static racingcar.domain.constant.DomainConstant.CAR_MOVE_CONDITION;
+import static racingcar.domain.constant.CarConstant.CAR_INIT_POSITION;
+import static racingcar.domain.constant.CarConstant.CAR_MOVE_CONDITION;
 
 public class Car {
     private int position;

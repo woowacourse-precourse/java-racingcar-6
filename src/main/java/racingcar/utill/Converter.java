@@ -25,4 +25,8 @@ public class Converter {
 
         return carList;
     }
+
+    public static String stringListToStringConvert(List<String> stringList) {
+        return String.join(", ", stringList);
+    }
 }

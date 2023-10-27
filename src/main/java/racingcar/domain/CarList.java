@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static racingcar.utill.Converter.stringListToStringConvert;
 import static racingcar.view.RacingView.carMoveOrStopDecisionResultView;
 import static racingcar.view.RacingView.newLine;
 
@@ -32,7 +33,7 @@ public class CarList {
                 .collect(Collectors.toMap(Car::getCarName, Car::getCarPosition));
 
         List<String> winnerList = findWinner(rankingMap);
-        return (stringListToString(winnerList));
+        return (stringListToStringConvert(winnerList));
     }
 
     private List<String> findWinner(Map<String, Integer> rankingMap) {
@@ -46,10 +47,6 @@ public class CarList {
         }
 
         return winnerList;
-    }
-
-    private String stringListToString(List<String> stringList) {
-        return String.join(", ", stringList);
     }
 
     @Override
