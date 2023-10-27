@@ -9,21 +9,19 @@ import racingcar.view.OutputView;
 
 public class AppConfig {
 
-    private AppConfig() {}
-
-    public static RacingController setController() {
+    public RacingController setController() {
         return new RacingController(inputView(), outputView(), racingService());
     }
 
-    private static InputView inputView() {
+    private InputView inputView() {
         return new InputView(new TypeConverter());
     }
 
-    private static OutputView outputView() {
+    private OutputView outputView() {
         return new OutputView(new StringUtil());
     }
 
-    private static RacingService racingService() {
+    private RacingService racingService() {
         return new RacingService();
     }
 
