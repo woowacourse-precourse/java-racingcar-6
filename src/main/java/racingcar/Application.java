@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,12 +12,9 @@ public class Application {
     }
 
     public static void test() {
-        try {
-            input_car_name();
-            input_repeat_count();
-        } catch (IllegalArgumentException e){
-            throw e;
-        }
+        String[] car_name_list = input_car_name();
+        int repeat_count = input_repeat_count();
+        go_or_stop(car_name_list, repeat_count);
     }
     public static String[] input_car_name(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -43,9 +41,9 @@ public class Application {
         String input_count = Console.readLine();
 
         try {
-            int counts = Integer.parseInt(input_count);
-            check_count(counts);
-            return counts;
+            int repeat_count = Integer.parseInt(input_count);
+            check_count(repeat_count);
+            return repeat_count;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
@@ -54,6 +52,34 @@ public class Application {
     public static void check_count(int counts) {
         if (counts <= 0) {
             throw new IllegalArgumentException();
+        }
+    }
+
+    public static void go_or_stop(String[] car_name_list, int repeat_count) {
+        System.out.println();
+        System.out.println("실행 결과");
+
+        String[] results = new String[car_name_list.length];
+
+        for (int i = 0; i < car_name_list.length; i++) {
+            results[i] = "";
+        }
+
+        for (int i = 0; i < repeat_count; i++) {
+            for (int j = 0; j < car_name_list.length; j++) {
+                int random_number = Randoms.pickNumberInRange(0, 9);
+                if (random_number < 4) {
+                    results[j] += "";
+                } else {
+                    results[j] += "-";
+                }
+            }
+            for (int k = 0; k < car_name_list.length; k++) {
+                String car_name = car_name_list[k];
+                String result = results[k];
+                System.out.println(car_name + " : " + result);
+            }
+            System.out.println();
         }
     }
 
