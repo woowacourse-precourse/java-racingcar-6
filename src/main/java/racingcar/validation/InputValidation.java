@@ -14,7 +14,7 @@ public class InputValidation {
     }
 
     private static void validateInputFormat(String input) {
-        if(isSeparateByComma(input)) {
+        if(!isSeparateByComma(input)) {
             throw new IllegalArgumentException("올바르게 구분되지 않았습니다.");
         }
     }
