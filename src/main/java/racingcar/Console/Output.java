@@ -17,6 +17,7 @@ public class Output {
     }
 
     public static void printExecutionResultsMessage() {
+        System.out.println();
         System.out.println(Constants.EXECUTION_RESULT_MESSAGE);
     }
 
@@ -33,7 +34,6 @@ public class Output {
             }
             stringBuilder.append('\n');
         }
-        stringBuilder.append('\n');
         System.out.println(stringBuilder);
     }
 

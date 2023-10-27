@@ -9,7 +9,7 @@ public class Constants {
     static final String FINAL_WINNER_MESSAGE = "최종 우승자 : ";
 
     static final String MOVE = "-";
-    static final String COMMAS = ",";
+    public static final String COMMAS = ",";
 
     public static final String EXCEPTION_CAR_NAME_SIZE_MESSAGE = "자동차 이름은 5자 이하여야 합니다.";
     public static final String EXCEPTION_CAR_NAME_EMPTY_MESSAGE = "자동차 이름 입력은 필수 입니다.";
