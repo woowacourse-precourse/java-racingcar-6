@@ -15,9 +15,9 @@ public class InputView {
         return input;
     }
 
-    public String readTryCount() {
+    public int readTryCount() {
         String input = Console.readLine();
         tryCountInputErrorException.checkUserInputValidate(input);
-        return input;
+        return Integer.parseInt(input);
     }
 }
