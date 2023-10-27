@@ -42,4 +42,11 @@ public class Validator {
             throw new IllegalArgumentException("1이상의 숫자만 가능합니다.");
         }
     }
+
+    public static void isInRangeOfInt(String input) {
+        long number = Long.parseLong(input);
+        if (number > Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("int 데이터 타입 값 범위 내로 입력하세요.");
+        }
+    }
 }
