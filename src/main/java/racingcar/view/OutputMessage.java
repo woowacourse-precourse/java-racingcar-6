@@ -22,6 +22,9 @@ public class OutputMessage {
         if (winner.size() == 1) {
             System.out.println(winner.get(0));
         }
-
+        if (winner.size() > 1) {
+            String winnerList = String.join(", ", winner);
+            System.out.println(winnerList);
+        }
     }
 }
