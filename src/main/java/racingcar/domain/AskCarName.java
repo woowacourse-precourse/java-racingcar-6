@@ -23,7 +23,7 @@ public class AskCarName {
 
     }
 
-    private boolean checkCarName(String inputCarName) {
+    public boolean checkCarName(String inputCarName) {
         if (inputCarName.contains(",")) {
             return true;
         } else {
@@ -31,7 +31,7 @@ public class AskCarName {
         }
     }
 
-    private Map<String, Integer> splitCarName(String inputCarName) {
+    public Map<String, Integer> splitCarName(String inputCarName) {
         String[] strSplit = inputCarName.split(",");
         Map<String, Integer> result = new HashMap<>();
 
@@ -46,7 +46,7 @@ public class AskCarName {
         return result;
     }
 
-    private boolean validateLengthOfCarName(String carName) {
+    public boolean validateLengthOfCarName(String carName) {
         if (carName.length() < 5) {
             return true;
         } else {
