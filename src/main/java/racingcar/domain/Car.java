@@ -2,11 +2,11 @@ package racingcar.domain;
 
 public class Car {
 
-    private final String carName;
+    private final CarName carName;
     private int carPosition;
 
     public Car(String carName) {
-        this.carName = carName;
+        this.carName = new CarName(carName);
         this.carPosition = 0;
     }
 
@@ -17,7 +17,7 @@ public class Car {
     }
 
     public String getCarName() {
-        return carName;
+        return carName.getValue();
     }
 
     public int getCarPosition() {
