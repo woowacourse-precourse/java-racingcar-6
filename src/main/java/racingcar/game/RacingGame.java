@@ -1,6 +1,7 @@
 package racingcar.game;
 
 import racingcar.collaborator.Race;
+import racingcar.io.Output;
 
 public class RacingGame {
 
@@ -10,8 +11,8 @@ public class RacingGame {
         race.decideRound();
 
         String result = race.run();
-        System.out.println(result);
-
+        Output.consoleLine("실행 결과");
+        Output.consoleLine(result);
     }
 
 }
