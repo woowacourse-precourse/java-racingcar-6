@@ -9,4 +9,8 @@ public class RacingGame {
     private static final String attemptingPhrase = "시도할 회수는 몇회인가요?";
     private static final String resultPhrase = "실행 결과";
     private static final String winnerPhrase = "최종 우승자 : ";
+
+    public void startGame() {
+        System.out.println(startingPhrase);
+    }
 }
