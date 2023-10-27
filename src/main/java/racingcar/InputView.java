@@ -17,13 +17,24 @@ public class InputView {
         return carStrings;
     }
 
-    public String getRounds() {
-        return Console.readLine();
+    public int getMoveCount() {
+        String input = Console.readLine();
+        validateDigit(input);
+        return Integer.parseInt(input);
     }
 
     private void validateNullOrEmpty(String string) {
         if (string == null || string.isEmpty()) {
             throw new IllegalArgumentException("[ERROR] 입력이 널이거나 빈 문자열입니다.");
+        }
+    }
+
+    private void validateDigit(String string) {
+        validateNullOrEmpty(string);
+        boolean isDigit = string.chars()
+                .allMatch(Character::isDigit);
+        if (!isDigit) {
+            throw new IllegalArgumentException("[ERROR] 입력이 숫자가 아닙니다.");
         }
     }
 }

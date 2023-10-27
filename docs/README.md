@@ -4,9 +4,9 @@
   - [ ] 우승자 출력 : printWinner
     - [ ] 단독 우승자 출력 
     - [ ] 공동 우승자 출력
-- [ ] 입력 : InputView
+- [x] 입력 : InputView
   - [x] 경주할 자동차들의 이름을 쉼표 기준으로 입력 : getCarStrings
-  - [ ] 라운드 횟수 입력 : getRounds
+  - [x] 이동 횟수 입력 : getMoveCount
 - [x] 자동차 객체 : Car
   - [x] 인스턴스 변수 : 이름
   - [x] 인스턴스 변수 : 위치
