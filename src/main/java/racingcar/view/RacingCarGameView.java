@@ -27,7 +27,7 @@ public class RacingCarGameView {
         return count;
     }
 
-    public void resultView(RacingResult racingResult) {
+    public void printResult(RacingResult racingResult) {
 
         Map<String, Integer> result = racingResult.getResult();
 
