@@ -13,14 +13,18 @@ public class RaceController {
         // 입력 받은 자동차 이름 설정
         initializeCars(raceView.inputCarNames());
         attempts = raceView.inputNumberOfAttempts();
+        int temp_attempts = attempts;
+
         System.out.println("실행 결과");
-        while (attempts != 0) {
+        while (temp_attempts != 0) {
             for (Car car : cars) {
                 moveCarIfRandomNumberIsFourOrHigher(car);
             }
             raceView.displayRaceProgress(cars);
-            attempts--;
+            System.out.println();
+            temp_attempts--;
         }
+
         raceView.displayWinner(findWinner());
     }
 

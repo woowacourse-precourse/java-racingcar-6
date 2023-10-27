@@ -22,7 +22,7 @@ public class RaceView {
     }
 
     public void displayWinner(String winner) {
-        System.out.println(winner);
+        System.out.println("최종 우승자 : " + winner);
     }
 
 }
