@@ -1,7 +1,6 @@
 package util.stringconverter;
 
 import racingcar.RacingCarPlayer;
-import util.stringconverter.StringConverter;
 
 public class RacingCarConverter implements StringConverter<RacingCarPlayer> {
     @Override

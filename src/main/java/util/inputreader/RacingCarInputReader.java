@@ -1,7 +1,7 @@
 package util.inputreader;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
+import camp.nextstep.edu.missionutils.Console;
 
 public class RacingCarInputReader implements InputReader {
     public List<String> inputPlayers() throws IllegalArgumentException{

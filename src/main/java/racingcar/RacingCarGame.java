@@ -1,10 +1,10 @@
 package racingcar;
 
-import game.Game;
 import java.util.ArrayList;
 import java.util.List;
+import game.Game;
+import util.inputreader.RacingCarInputReader;
 import util.stringconverter.RacingCarConverter;
-import util.RacingCarInputReader;
 
 public class RacingCarGame implements Game {
     private List<RacingCarPlayer> players;
