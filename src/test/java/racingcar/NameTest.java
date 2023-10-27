@@ -80,40 +80,10 @@ public class NameTest {
     }
 
     @Test
-    void 한자는_입력되면_안_된다_예외() {
+    void 한글과_알파벳을_제외한_언어는_안된다() {
         // given & when
         Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Name name = Name.from("崔賢俊");
-        });
-        // then
-        assertThat(exception.getMessage()).isEqualTo(CAR_NAMV_VALUE_EXCEPTION.toString());
-    }
-
-    @Test
-    void 일본어는_입력되면_안_된다_예외() {
-        // given & when
-        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Name name = Name.from("はな");
-        });
-        // then
-        assertThat(exception.getMessage()).isEqualTo(CAR_NAMV_VALUE_EXCEPTION.toString());
-    }
-
-    @Test
-    void 키릴_문자는_입력되면_안_된다_예외() {
-        // given & when
-        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Name name = Name.from("Алекс");
-        });
-        // then
-        assertThat(exception.getMessage()).isEqualTo(CAR_NAMV_VALUE_EXCEPTION.toString());
-    }
-
-    @Test
-    void 아랍어는_입력되면_안_된다_예외() {
-        // given & when
-        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Name name = Name.from("حسن");
+            Name name = Name.from("崔はлن");
         });
         // then
         assertThat(exception.getMessage()).isEqualTo(CAR_NAMV_VALUE_EXCEPTION.toString());
