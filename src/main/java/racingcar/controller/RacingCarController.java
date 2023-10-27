@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.RacingCars;
 import racingcar.domain.TryCount;
+import racingcar.domain.Winners;
 import racingcar.io.InputManager;
 import racingcar.io.OutputView;
 import racingcar.service.RacingCarService;
@@ -25,15 +26,22 @@ public class RacingCarController {
         createRacingCars();
         createTryCount();
         move();
+        checkWinners();
+    }
+
+    private void checkWinners() {
+        final Winners winners = racingCarService.checkWinners();
+        outputView.printWinners(winners);
     }
 
     private void move() {
         outputView.printResult();
         TryCount tryCount = racingCarService.findTryCount();
+
         while (tryCount.hasLeftCount()) {
             final RacingCars racingCars = racingCarService.move();
             outputView.printRacingCars(racingCars);
-            tryCount = tryCount.nextTryCount();
+            tryCount = tryCount.next();
         }
     }
 
