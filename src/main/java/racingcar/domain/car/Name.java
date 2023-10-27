@@ -7,12 +7,9 @@ import static racingcar.domain.car.NameConstants.NOT_ALPHABETIC;
 
 import java.util.Objects;
 
-public class Name {
-    private final String input;
-
-    public Name(String input) {
-        validate(input);
-        this.input = input;
+public record Name(String value) {
+    public Name {
+        validate(value);
     }
 
     private void validate(String input) {
@@ -45,11 +42,7 @@ public class Name {
             return false;
         }
         Name name = (Name) o;
-        return Objects.equals(input, name.input);
+        return Objects.equals(value, name.value);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(input);
-    }
 }
