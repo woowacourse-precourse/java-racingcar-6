@@ -3,11 +3,9 @@ package model;
 public class Car implements Comparable<Car> {
     private final Name name;
     private final MovingCount movingCount;
-    private static final int MAX_LENGTH = 5;
     private static final String DASH = "-";
     private static final String COLON = ":";
     private static final String SPACE = " ";
-    private static final String TOO_LONG_NAME = "이름은 %d글자 미만이어야 합니다.";
 
     public Car(String name) {
         this.name = new Name(name);
@@ -39,15 +37,5 @@ public class Car implements Comparable<Car> {
     @Override
     public String toString() {
         return this.name.getName();
-    }
-
-    private static void validateNameLength(String name) {
-        if (isNameTooLong(name)) {
-            throw new IllegalArgumentException(String.format(TOO_LONG_NAME, MAX_LENGTH));
-        }
-    }
-
-    private static boolean isNameTooLong(String name) {
-        return name.length() >= MAX_LENGTH;
     }
 }
