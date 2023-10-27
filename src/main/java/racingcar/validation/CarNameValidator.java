@@ -5,6 +5,7 @@ import racingcar.resource.CarGameValue;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CarNameValidator {
 
@@ -20,20 +21,27 @@ public class CarNameValidator {
         validateNull();
         validateBlank();
         validateLength();
+        validateDuplicate();
         return this.CAR_NAMES;
     }
 
     public void validateNull() {
-        CAR_NAMES.forEach(StringValidator::stringIsNull);
+        this.CAR_NAMES.forEach(StringValidator::stringIsNull);
     }
 
     public void validateBlank() {
-        CAR_NAMES.forEach(StringValidator::stringIsBlank);
+        this.CAR_NAMES.forEach(StringValidator::stringIsBlank);
     }
 
     public void validateLength() {
-        if (CAR_NAMES.stream().anyMatch(name -> name.length() > CarGameValue.CAR_NAME_MAX_LENGTH.getValue())) {
+        if (this.CAR_NAMES.stream().anyMatch(name -> name.length() > CarGameValue.CAR_NAME_MAX_LENGTH.getValue())) {
             throw new IllegalArgumentException(String.format(ErrorMessage.INPUT_NAME_LENGTH_MESSAGE.getValue(), 5));
+        }
+    }
+
+    public void validateDuplicate() {
+        if (this.CAR_NAMES.size() != this.CAR_NAMES.stream().distinct().count()) {
+            throw new IllegalArgumentException(ErrorMessage.INPUT_NAME_DUPLICATE_MESSAGE.getValue());
         }
     }
 }
