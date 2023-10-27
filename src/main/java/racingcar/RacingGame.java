@@ -2,14 +2,8 @@ package racingcar;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.regex.Pattern;
 
 public class RacingGame {
-    public static final String COMMA = ",";
-    public static final String WHITESPACE = " ";
-    public static final String EMPTY = "";
-    private static final Pattern INTEGER = Pattern.compile("[0-9]+");
-
     public RacingGame() {
     }
 
@@ -26,11 +20,11 @@ public class RacingGame {
     }
 
     private String[] splitNames(String names) {
-        return names.split(COMMA);
+        return names.split(Constants.COMMA);
     }
 
     private String removeWhiteSpace(String name) {
-        return name.replace(WHITESPACE, EMPTY);
+        return name.replace(Constants.WHITESPACE, Constants.EMPTY);
     }
 
     private void checkHasDuplicates(List<String> names) {
@@ -48,7 +42,7 @@ public class RacingGame {
     }
 
     private void checkAttemptCountIsInteger(String input) {
-        if (!INTEGER.matcher(input).matches()) {
+        if (!Constants.INTEGER.matcher(input).matches()) {
             throw new IllegalArgumentException("정수를 입력해야합니다.");
         }
     }
@@ -61,7 +55,7 @@ public class RacingGame {
         StringBuilder result = new StringBuilder();
 
         for (Car car : cars) {
-            result.append(WHITESPACE).append(car.getNameValue()).append(COMMA);
+            result.append(Constants.WHITESPACE).append(car.getNameValue()).append(Constants.COMMA);
         }
 
         trim(result);
