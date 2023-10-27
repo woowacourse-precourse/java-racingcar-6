@@ -44,6 +44,9 @@
 - InputView
     - 자동차 이름 입력 받기
 
+- InputMapper
+    - 자동차 이름 입력값을 자동차 일급컬렉션으로 변환
+
 - RacingCar (자동차 도메인)
 
 - RacingCars (자동차 일급컬렉션)
