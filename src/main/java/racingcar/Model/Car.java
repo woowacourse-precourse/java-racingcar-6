@@ -9,4 +9,10 @@ public class Car {
 		this.distance = 0;
 	}
 
+	public int getDistance() {
+		return this.distance;
+	}
+
+
+
 }
