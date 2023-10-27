@@ -23,15 +23,19 @@ public class RacingCars {
 
     public List<Car> findWinner() {
         List<Car> winnerCars = new ArrayList<>();
-        Car maxDistanceCar = racingCars.stream()
-                .max(Car::compareTo)
-                .orElseThrow(IllegalAccessError::new);
+        Car maxDistanceCar = findMaxDistanceCar();
 
         racingCars.stream()
                 .filter(car -> maxDistanceCar.getDistance() == car.getDistance())
                 .forEach(winner -> winnerCars.add(winner));
 
         return winnerCars;
+    }
+
+    private Car findMaxDistanceCar() {
+        return racingCars.stream()
+                .max(Car::compareTo)
+                .orElseThrow(IllegalAccessError::new);
     }
 
     public List<Car> getRacingCars() {
