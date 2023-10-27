@@ -19,11 +19,15 @@ public class OutputView {
         System.out.println(car.getName() + " : " + ONE_STEP.repeat(car.getCurrentPosition()));
     }
 
-    public void printWinnerResult(String winner) {
+    public void printWinnerResultMessage(String winner) {
         System.out.println("최종 우승자 : " + winner);
     }
 
-    public void printJointWinnerResult(List<String> jointWinner) {
+    public void printSpaceMessage() {
+        System.out.println();
+    }
+
+    public void printJointWinnerResultMessage(List<String> jointWinner) {
         String result = String.join(", ", jointWinner);
         System.out.println("최종 우승자 : " + result);
     }

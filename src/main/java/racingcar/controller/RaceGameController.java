@@ -12,23 +12,24 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RaceGameController {
-    private InputView inputView;
-    private OutputView outputView;
+    private final InputView inputView;
+    private final OutputView outputView;
 
-    public RaceGameController() {
-        inputView = new InputView();
-        outputView = new OutputView();
+    public RaceGameController(InputView inputView, OutputView outputView) {
+        this.inputView = inputView;
+        this.outputView = outputView;
     }
 
     public void startGame() {
-        inputView.printStartMessage();
-        //차후 보완
-        String names = Console.readLine();
         RacingCars racingCars = new RacingCars();
         Referee referee = new Referee();
 
+        inputView.printStartMessage();
+        //차후 보완
+        String names = Console.readLine();
+
         racingCars.carCreator(splinter(names));
-        System.out.println(splinter(names));
+
         inputView.printLoopSetMessage();
         int loop = Integer.parseInt(Console.readLine());
         //실행시작
@@ -40,10 +41,10 @@ public class RaceGameController {
         // --를 통한 분한
         List<String> nameList = referee.winnerNameList(racingCars);
         if(nameList.size()==1){
-            outputView.printWinnerResult(nameList.get(0));
+            outputView.printWinnerResultMessage(nameList.get(0));
         }
         if(nameList.size() > 1){
-            outputView.printJointWinnerResult(nameList);
+            outputView.printJointWinnerResultMessage(nameList);
         }
         // outputView
     }
@@ -53,6 +54,7 @@ public class RaceGameController {
             car.moveIfRandomSuccess();
             outputView.printRaceStatusMessage(car);
         }
+        outputView.printSpaceMessage();
     }
 
     public List<String> splinter(String name) {
