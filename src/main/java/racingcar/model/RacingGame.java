@@ -1,8 +1,8 @@
-package racingcar.Model;
+package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.Model.Validation.ValidatorCars;
+import racingcar.model.validation.ValidatorCars;
 
 
 public class RacingGame {

@@ -1,4 +1,4 @@
-package racingcar.Model.Validation;
+package racingcar.model.validation;
 
 class Validator {
     public void isEmpty(String string, String message) {

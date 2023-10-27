@@ -1,8 +1,8 @@
-package racingcar.View;
+package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.Controller.Controller;
-import racingcar.Model.Validation.ValidatorAttempts;
+import racingcar.controller.Controller;
+import racingcar.model.validation.ValidatorAttempts;
 
 public class InputView {
     Controller controller = new Controller();

@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.View.InputView;
+import racingcar.view.InputView;
 
 public class Application {
     public static void main(String[] args) {

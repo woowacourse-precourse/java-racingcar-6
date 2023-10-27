@@ -1,4 +1,4 @@
-package racingcar.Model.Validation;
+package racingcar.model.validation;
 
 public class ValidatorAttempts extends Validator {
     private final String errorMessage = "공백 없이 자연수로만 입력해주세요.";

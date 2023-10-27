@@ -1,7 +1,7 @@
-package racingcar.Controller;
+package racingcar.controller;
 
-import racingcar.Model.RacingGame;
-import racingcar.Model.Settings;
+import racingcar.model.RacingGame;
+import racingcar.model.Settings;
 
 public class Controller {
     RacingGame racingGame = new RacingGame();
