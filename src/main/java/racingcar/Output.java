@@ -2,7 +2,7 @@ package racingcar;
 
 import java.util.List;
 
-public interface Print {
+public interface Output {
     void winner(List<String> winners);
-    void printCarPositions();
+    void printCarLocations();
 }

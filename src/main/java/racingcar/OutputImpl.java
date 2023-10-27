@@ -3,11 +3,11 @@ package racingcar;
 import java.util.List;
 import java.util.Map;
 
-public class PrintImpl implements Print {
+public class OutputImpl implements Output {
     private List<String> carNames;
     private Map<String, Integer> carPositions;
     
-    public PrintImpl(List<String> input, Map<String, Integer> carPosition) {
+    public OutputImpl(List<String> input, Map<String, Integer> carPosition) {
         this.carNames = input;
         this.carPositions = carPosition;
     }
@@ -19,15 +19,15 @@ public class PrintImpl implements Print {
     }
 
     @Override
-    public void printCarPositions() {
+    public void printCarLocations() {
         for (String name : carNames) {
-            printCarPosition(name, carPositions.get(name));
+            printCarLocation(name, carPositions.get(name));
         }
         System.out.println();
         
     }
     
-    private void printCarPosition(String name, int position) {
+    private void printCarLocation(String name, int position) {
         System.out.print(name + " : ");
         for (int i = 0; i < position; i++) {
             System.out.print("-");

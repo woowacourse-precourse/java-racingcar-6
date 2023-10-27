@@ -24,10 +24,10 @@ public class GameItemImpl implements GameItem {
     }
     
     @Override
-    public void carMove(int attemptsNumber, PrintImpl print) {
+    public void carMove(int attemptsNumber, OutputImpl output) {
         for (int i = 0; i < attemptsNumber; i++) {
             moveCars();
-            print.printCarPositions();
+            output.printCarLocations();
         }
     }
     
