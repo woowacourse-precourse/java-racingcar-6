@@ -1,14 +1,14 @@
 package racingcar.util;
 
+import static racingcar.util.Constant.END_INCLUSIVE;
+import static racingcar.util.Constant.START_INCLUSIVE;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RandomNumberGenerator implements NumberGenerator {
 
-    private static final int START_INCLUSIVE = 0;
-    private static final int END_INCLUSIVE = 9;
-
     @Override
     public int generate() {
-        return Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
+        return Randoms.pickNumberInRange(START_INCLUSIVE.getValue(), END_INCLUSIVE.getValue());
     }
 }
