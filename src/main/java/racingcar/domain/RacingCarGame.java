@@ -75,7 +75,9 @@ public class RacingCarGame {
         for(Car car : this.cars) {
             if (car.getMoveCounts() == maxMoveCounts) {
                 winnerNames.add(car.getName());
+                continue;
             }
+            break;
         }
         Output.printFinalResult(winnerNames);
     }

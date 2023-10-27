@@ -38,17 +38,6 @@ public class Output {
     }
 
     public static void printFinalResult(List<String> winners) {
-        stringBuilder = new StringBuilder();
-        stringBuilder.append(Constants.FINAL_WINNER_MESSAGE);
-
-        int idx = 0;
-        while (idx < winners.size()) {
-            if (idx != 0) {
-                stringBuilder.append(Constants.COMMAS).append(" ");
-            }
-            stringBuilder.append(winners.get(idx));
-            idx++;
-        }
-        System.out.println(stringBuilder);
+        System.out.println(Constants.FINAL_WINNER_MESSAGE + String.join(", ", winners));
     }
 }
