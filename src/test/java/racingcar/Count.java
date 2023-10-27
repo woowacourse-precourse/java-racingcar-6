@@ -20,6 +20,10 @@ final class Count {
         return instance;
     }
 
+    void countDown() {
+        times--;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
