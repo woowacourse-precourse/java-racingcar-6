@@ -1,5 +1,7 @@
 package domain;
 
+import static constant.ConstantString.DELIMITER;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +18,7 @@ public class Cars {
     }
 
     private List<String> splitCarNames(String carNames) {
-        return Arrays.stream(carNames.split(","))
+        return Arrays.stream(carNames.split(DELIMITER))
                 .map(String::trim)
                 .collect(Collectors.toList());
     }

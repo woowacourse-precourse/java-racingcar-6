@@ -1,5 +1,7 @@
 package domain;
 
+import static constant.ConstantString.MOVING_FORWARD;
+
 import validator.NameValidator;
 
 public class Car {
@@ -17,7 +19,7 @@ public class Car {
     }
 
     public void moveOrStop(int randomNumber) {
-        if (randomNumber >= 4) {
+        if (randomNumber >= MOVING_FORWARD) {
             count.plusCount();
         }
     }

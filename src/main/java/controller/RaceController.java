@@ -1,5 +1,6 @@
 package controller;
 
+import static constant.ConstantString.DEFAULT_MAX_COUNT;
 import static constant.ConstantString.EXECUTION_RESULT;
 import static constant.ConstantString.MAX_NUMBER_RANGE;
 import static constant.ConstantString.MIN_NUMBER_RANGE;
@@ -46,7 +47,7 @@ public class RaceController {
 
     private List<String> findWinners() {
         List<String> winnerList = new ArrayList<>();
-        int maxCount = 0;
+        int maxCount = DEFAULT_MAX_COUNT;
 
         for (Car car : cars.getCarsList()) {
             int count = car.getCount();

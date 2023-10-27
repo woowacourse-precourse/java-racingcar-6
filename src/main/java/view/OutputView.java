@@ -1,10 +1,10 @@
 package view;
 
 import static constant.ConstantString.FINAL_WINNER;
+import static constant.ConstantString.WINNER_DELIMITER;
 
 import constant.ConstantString;
 import domain.Car;
-import java.util.ArrayList;
 import java.util.List;
 
 public class OutputView {
@@ -21,7 +21,7 @@ public class OutputView {
 
     public static void printWinners(List<String> winnerLists) {
         System.out.print(FINAL_WINNER);
-        String winners = String.join(", ", winnerLists);
+        String winners = String.join(WINNER_DELIMITER, winnerLists);
         System.out.println(winners);
     }
 }
