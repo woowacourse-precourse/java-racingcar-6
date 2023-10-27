@@ -5,5 +5,3 @@ public class Application {
         GameRunner.playGame();
     }
 }
-
-

@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Cars {
-    List<Car> carList;
+    private final List<Car> carList;
 
     public static Cars createCars(String[] names) {
         List<Car> carList = Arrays.stream(names)
@@ -20,15 +20,15 @@ public class Cars {
         this.carList = carList;
     }
 
-    public void calculateMoveCount() {
+    public void moveCars() {
         for (Car car : carList) {
-            if (Randoms.pickNumberInRange(0, 9) >= 4) {
-                car.increaseMoveCount();
-            }
-            int count = car.getMoveCount();
-            System.out.print(car.getName() + " " + ":" + " ");
-            printScore(count);
-            System.out.println();
+            tryToMoveCar(car);
+        }
+    }
+
+    private void tryToMoveCar(Car car) {
+        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            car.increaseMoveCount();
         }
     }
 
@@ -44,7 +44,7 @@ public class Cars {
                 .toList();
     }
 
-    private static void printScore(int count) {
+    public static void printScore(int count) {
         for (int i = 0; i < count; i++) {
             System.out.print("-");
         }
