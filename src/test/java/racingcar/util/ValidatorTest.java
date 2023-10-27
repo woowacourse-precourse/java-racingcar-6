@@ -57,4 +57,13 @@ class ValidatorTest {
         Assertions.assertThatCode(() -> Validator.isValidName(inputs))
                 .doesNotThrowAnyException();
     }
+
+    @ParameterizedTest
+    @DisplayName("1미만의 수를 입력 예외 테스트")
+    @ValueSource(strings = {"0", "-151", "00", "000", "01", "-1"})
+    void invalidInputsTest4(String input) {
+        Assertions.assertThatThrownBy(() -> Validator.isOneOrMore(input)).
+                isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("1이상의 숫자만 가능합니다.");
+    }
 }
