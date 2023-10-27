@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import racingcar.utils.NumberGenerator;
 
 public class GameRule {
     private final int STANDARD_NAME_SIZE = 5;

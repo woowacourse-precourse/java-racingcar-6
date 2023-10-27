@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import racingcar.utils.NumberGenerator;
-import racingcar.utils.RandomNumberGenerator;
 
 public class Car {
 
