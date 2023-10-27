@@ -4,20 +4,16 @@
 
 ## 기능 목록
 
-### InputHandler
-- [X] 경주할 자동차 이름을 입력받는 기능 - *receiveRaceCarNames*
+- [X] 경주할 자동차 이름을 입력받는 기능 - InputHandler.*receiveRaceCarNames*
+- [] 시도할 회수를 입력받는 기능 - InputHandler.*receiveTryCount*
 - [X] 자동차 각각의 이름을 알아내는 기능 - RaceCarNames.*parseCarNamesFromRaceCarInput*
 - [] 자동차가 총 몇대인지 알아내는 기능 - RaceCarNames.*calculateTotalCarCount*
-- [] 시도할 회수를 입력받는 기능 - TryCount.*receiveTryCount*
 - [] 회수가 숫자가 아닌 경우 에러를 발생하는 기능 - TryCount.*isTryCountNumeric*
-
-### Car
 - [] 이름이 5자 이하인지 확인하는 기능 - CarName.*isNameUnder5Characters*
 - [] 자동차 이름이 공백인지 확인하는 기능 - CarName.*isCarNameEmpty*
 - [] 자동차를 전진시키는 기능 - CarPosition.*moveCarForward*
-- [] 랜덤 값을 생성하는 기능 - CarPosition.*generateRandomNumber*
-
-### OutputHandler
+- [] 랜덤 값을 생성하는 기능 - Application.*generateRandomNumber*
+- [] 우승자가 누구인지 판별하는 기능 - Application.*calculateWhoAreTheWinners*
 - [] 각 차수별 실행 결과를 출력하는 기능 - OutputHandler.*printCurrentRacingResult*
 - [] 우승자를 출력하는 기능 - OutputHandler.*printRaceWinners*
 
