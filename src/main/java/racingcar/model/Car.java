@@ -23,7 +23,7 @@ public class Car {
 
     private void validateName(String name) {
         validateNull(name);
-        validateLength(name);
+        validateNameLength(name);
     }
 
     private void validateNull(String name) {
@@ -32,7 +32,7 @@ public class Car {
         }
     }
 
-    private void validateLength(String name) {
+    private void validateNameLength(String name) {
         if (name.isEmpty() || name.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException(
                     "이름은 " + MIN_CAR_NAME_LENGTH + "자 이상 " + MAX_CAR_NAME_LENGTH + "자 이하여야 합니다.");
