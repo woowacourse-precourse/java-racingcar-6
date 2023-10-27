@@ -8,9 +8,10 @@
     -[]이름은 5자 이하만 가능하다. User#vailedName()
 -[]사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다. User#fillInMovingNumber();
 
--[]전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다.
-    -[] 0에서 9사이의 무작위 값을 구해야 한다. Judgment#creatRandomNumber()
-    -[] 무작위 값이 4이상인지 판단해야 한다.   Judgment#IsNumberFourOrMore();
+
+-[] 0에서 9사이의 무작위 값을 구해야 한다. Random#createNumber()
+
+-[] 무작위 값이 4이상인지 판단해야 한다.   Judgment#IsNumberFourOrMore();
 
 -[]자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다. Referee#announceWinner()
     -[]우승자의 숫자를 구해야 한다. Referee#calculateNumberOfWinner();
