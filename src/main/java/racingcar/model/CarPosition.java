@@ -6,6 +6,7 @@ import java.util.Objects;
 
 public final class CarPosition {
     private static final int MIN_POSITION = 0;
+    private static final int MOVE_STEP = 1;
     private final int position;
 
     private CarPosition(int position) {
@@ -26,6 +27,10 @@ public final class CarPosition {
 
     public static CarPosition initialPosition() {
         return new CarPosition(MIN_POSITION);
+    }
+
+    public CarPosition move() {
+        return new CarPosition(position + MOVE_STEP);
     }
 
     @Override

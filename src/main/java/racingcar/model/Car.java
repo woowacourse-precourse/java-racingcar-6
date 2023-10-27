@@ -1,9 +1,11 @@
 package racingcar.model;
 
-public class Car {
+import java.util.Objects;
+
+public final class Car {
 
     private final CarName name;
-    private CarPosition position;
+    private final CarPosition position;
 
     private Car(CarName name, CarPosition position) {
         this.name = name;
@@ -16,7 +18,28 @@ public class Car {
         return new Car(name, position);
     }
 
-    public CarName getName() {
-        return name;
+    public Car move(MovementCondition movementCondition) {
+        if (movementCondition.isMovable()) {
+            CarPosition movedPosition = position.move();
+            return new Car(name, movedPosition);
+        }
+        return new Car(name, position);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Car car = (Car) o;
+        return Objects.equals(name, car.name) && Objects.equals(position, car.position);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, position);
     }
 }

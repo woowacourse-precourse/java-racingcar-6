@@ -3,19 +3,26 @@ package racingcar.controller;
 import racingcar.dto.request.RacingCarNamesDto;
 import racingcar.dto.request.TryCountDto;
 import racingcar.model.CarGroup;
+import racingcar.model.MoveHistory;
+import racingcar.model.MovementCondition;
+import racingcar.model.RacingGame;
 import racingcar.model.TryCount;
 import racingcar.view.InputView;
 
 public class RacingGameController {
     private final InputView inputView;
+    private final MovementCondition movementCondition;
 
-    public RacingGameController(InputView inputView) {
+    public RacingGameController(InputView inputView, MovementCondition movementCondition) {
         this.inputView = inputView;
+        this.movementCondition = movementCondition;
     }
 
     public void run() {
         CarGroup carGroup = createCarGroup();
         TryCount tryCount = createTryCount();
+        RacingGame racingGame = RacingGame.initialize(carGroup, tryCount);
+        MoveHistory moveHistory = racingGame.playWith(movementCondition);
 
     }
 

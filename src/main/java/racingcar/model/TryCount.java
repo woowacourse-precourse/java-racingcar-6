@@ -33,6 +33,10 @@ public final class TryCount {
         return new TryCount(count);
     }
 
+    public int getCount() {
+        return count;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
