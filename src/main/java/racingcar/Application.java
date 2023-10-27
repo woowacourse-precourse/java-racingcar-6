@@ -3,9 +3,13 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Application {
     private static String carString;
     private static int tryNum;
+    private static int size;
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         init();     // 자동차 이름 입력, 시도할 횟수 입력
@@ -13,7 +17,9 @@ public class Application {
         String[] carArray = changeToCarArr();       // 자동차 이름 분리 저장할 배열
         String[] raceResultArr = new String[carArray.length];        // 자동차 경주 실행 결과 저장할 배열
 
-        carRace(carArray, raceResultArr);
+        carRace(carArray, raceResultArr);       // 자동차 경주 실행 결과 저장 및 출력
+
+        whoIsWinner(carArray, raceResultArr);       // 우승자 출력
     }
 
     public static void init() {
@@ -83,5 +89,49 @@ public class Application {
             return false;
         }
         return true;
+    }
+
+    public static void whoIsWinner(String[] carArray, String[] raceResultArr) {
+        System.out.print("최종 우승자 : ");
+        List<String> winnerList = new ArrayList<>();
+
+        checkMaxSize(raceResultArr);
+
+        saveWinner(carArray, raceResultArr, winnerList);
+
+        printWinner(winnerList);
+    }
+
+    public static void saveWinner(String[] carArray, String[] raceResultArr, List<String> winnerList) {
+        for (int i = 0; i < raceResultArr.length; i++) {
+            if (raceResultArr[i].length() == size) {
+                winnerList.add(carArray[i]);
+            }
+        }
+    }
+
+    public static void printWinner(List<String> winnerList) {
+        if (winnerList.size() > 1) {
+            moreThanOneWinner(winnerList);
+        }
+        System.out.println(winnerList.get(0));
+    }
+
+    public static void moreThanOneWinner(List<String> winnerList) {
+        for (int i = 0; i < winnerList.size(); i++) {
+            System.out.print(winnerList.get(i));
+            if (i != winnerList.size()) {
+                System.out.print(", ");
+            }
+        }
+    }
+
+    public static void checkMaxSize(String[] raceResultArr) {
+        size = -1;
+        for (int i = 0; i < raceResultArr.length; i++) {
+            if (raceResultArr[i].length() > size) {
+                size = raceResultArr[i].length();
+            }
+        }
     }
 }

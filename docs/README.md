@@ -27,3 +27,13 @@
   * 단, 아직 한 단계도 전진하지 못하여 null인 경우에는 ""를 출력해주며 null이라고 출력이 안되게 설정함.
 ### - checkForwardTest()
 * junit의 @Test와 Assertions의 assertThat을 이용하여 4미만의 수와 이상의 수를 판별하는지 테스트 진행.
+
+## 4. 우승자 출력 : whoIsWinner()
+### - 우승자가 몇단계 전진 했는지 파악 : checkMaxSize()
+* raceResultArr를 돌면서 가장 length가 긴 우승자의 전진 사이즈를 전역변수 size에 저장시켜 주었다.
+### - 우승자 명단 저장 : saveWinner()
+* raceResultArr를 돌면서 미리 저장해놓은 size의 길이와 일치하는  length를 가진 자동차의 이름을 List에 저장해준다.
+### - 우승자 명단 출력 : printWinner()
+* 우승자가 한명일 경우는 List의 0번째 인덱스를 출력.
+* 우승자가 두명이상일 경우
+  * moreThanOneWinner() : List를 돌면서 출력하는데 자동차 이름 사이마다 ", "를 넣어주면서 출력.
