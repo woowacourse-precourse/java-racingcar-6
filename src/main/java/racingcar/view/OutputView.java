@@ -7,4 +7,7 @@ public class OutputView {
     public void requestTryCount() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
+    public void printStartResult(){
+        System.out.println("실행 결과");
+    }
 }
