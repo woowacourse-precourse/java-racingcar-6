@@ -25,14 +25,13 @@
   - [x] 입력값 검증
     - [x] 최소 시도 횟수 1
 ## 5. 단일 움직임 작성
-- [ ] Car 움직임 메소드
-  - [ ] isMovable 메소드 작성
-    - [ ] Randoms.pickNumberInRange(0,9);
-  - [ ] 이동 여부에 따라 스스로의 distance 갱신
-  - [ ] toString() 은 현재 이동 상황에 따른 값 리턴
+- [x] Car 움직임 메소드
+  - [x] isMovable 메소드 작성
+    - [x] Randoms.pickNumberInRange(0,9);
+  - [x] 이동 여부에 따라 스스로의 distance 갱신 (moveForward, attemptToMove)
     - `"$name : $distanceString"`
-- [ ] Cars의 움직임 메소드
-  - [ ] 각 Car의 움직임 메소드 호출
+- [x] Cars의 움직임 메소드
+  - [x] 각 Car의 움직임 메소드 호출
 ## 5. 전체 움직임 작성
 - [ ] RacingGame
   - [ ] 단일 움직임 메소드
