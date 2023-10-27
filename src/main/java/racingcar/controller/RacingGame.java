@@ -7,7 +7,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGame {
-    private Cars cars = new Cars();
+    private final Cars cars = new Cars();
 
     public void setUp() {
         List<String> carNames = getCarNames();
