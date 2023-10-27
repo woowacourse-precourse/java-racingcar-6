@@ -21,9 +21,7 @@ public class Car {
     }
 
     public String currentLocation() {
-        StringBuilder location = new StringBuilder(name + " : ");
-        location.append("-".repeat(Math.max(0, moveDistance)));
-        return location.toString();
+        return name + " : " + "-".repeat(Math.max(0, moveDistance));
     }
 
     public int distance() {

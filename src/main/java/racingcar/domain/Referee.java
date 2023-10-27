@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Referee {
-
     public String announcementWinners(List<Car> carList) {
         List<Car> winners = selectionWinners(carList);
         StringBuilder sb = new StringBuilder();

@@ -33,3 +33,6 @@ out/
 
 ### JAVA ###
 .class
+
+### MAC ###
+.DS_Store
