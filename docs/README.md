@@ -13,7 +13,7 @@
     - [ ] RacingCarGameController
         - view Package와 domain Package의 데이터를 전달하며 값을 출력하는 클래스
         - 프로그램을 실행하는 `run` 메서드
-        - RacingCar객체를 반환하여 자동차 이름을 받아오는 `loadCarName` 메서드
+        - RacingCar객체를 반환하여 자동차 이름을 받아오는 `loadCarNames` 메서드
         - TryCount객체를 반환하여 시도 회수를 받아오는 `loadTryCount` 메서드
         - 게임을 진행시키는 `playGame` 메서드
 

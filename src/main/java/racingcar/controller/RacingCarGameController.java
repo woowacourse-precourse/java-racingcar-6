@@ -1,6 +1,9 @@
 package racingcar.controller;
 
+import racingcar.domain.RacingCar;
 import racingcar.handler.InputHandler;
+
+import java.util.List;
 
 public class RacingCarGameController {
 
@@ -11,6 +14,12 @@ public class RacingCarGameController {
     }
 
     public void run() {
+        RacingCar racingCar = loadCarNames();
+    }
 
+    public RacingCar loadCarNames() {
+        List<String> carNames = inputHandler.inputCarName();
+
+        return new RacingCar(carNames);
     }
 }
