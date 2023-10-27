@@ -19,6 +19,13 @@ public class Game {
         this.roundNumber = roundNumber;
     }
 
+    public void play(){
+        for(int round = 0; round < roundNumber; round++){
+            playRound();
+        }
+        printWinner();
+    }
+
     private void initPosition() {
         positions = new HashMap<>();
         for(Car car : cars){
