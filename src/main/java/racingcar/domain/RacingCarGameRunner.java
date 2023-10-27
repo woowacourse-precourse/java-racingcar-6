@@ -16,7 +16,10 @@ public class RacingCarGameRunner {
         String carNameInput = getPlayerInput(GAME_START_MESSAGE);
         List<String> carNames = processCarNameInput(carNameInput);
         cars = getEntry(carNames);
+
         String numberOfRoundInput = getPlayerInput(NUMBER_OF_ROUND_MESSAGE);
+        validateInput(numberOfRoundInput);
+        int numberOfRound = Integer.parseInt(numberOfRoundInput);
 
     }
 
@@ -36,5 +39,17 @@ public class RacingCarGameRunner {
         return carNames.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
+    }
+
+    private void validateInput(String numberOfRounds) {
+        String trimmed = numberOfRounds.trim();
+        if (trimmed.startsWith("-")) {
+            throw new IllegalArgumentException("시도 횟수는 음수일 수 없습니다.");
+        }
+        try {
+            Integer.parseInt(trimmed);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("잘못된 입력값입니다.");
+        }
     }
 }
