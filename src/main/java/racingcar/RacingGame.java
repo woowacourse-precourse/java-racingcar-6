@@ -1,7 +1,9 @@
 package racingcar;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -39,6 +41,14 @@ public class RacingGame {
 
     private int toInt(String input){
         return Integer.parseInt(input);
+    }
+
+    public void checkHasDuplicates(String[] names){
+        Set<String> uniqueName=new HashSet<>(List.of(names));
+
+        if(names.length!=uniqueName.size()){
+            throw new IllegalArgumentException("중복된 이름이 존재합니다.");
+        }
     }
 
 
