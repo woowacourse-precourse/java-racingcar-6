@@ -1,8 +1,10 @@
 package racingcar.model;
 
+import racingcar.validation.RoundValidator;
+import racingcar.validation.Validator;
+
 public class Round {
 
-    public static final String ONLY_NUMBER = "^[0-9]+";
     private Integer round;
 
     //TODO: 타입이 달라달라 어떻게 할래?
@@ -21,19 +23,7 @@ public class Round {
     }
 
     private void validate(String value) {
-        validateType(value);
-        validateRange(value);
-    }
-
-    private void validateType(String value) {
-        if (value != null && !value.matches(ONLY_NUMBER)) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    private void validateRange(String value) {
-        if (0 >= Integer.parseInt(value)) {
-            throw new IllegalArgumentException();
-        }
+        Validator validator = new RoundValidator();
+        validator.validate(value);
     }
 }
