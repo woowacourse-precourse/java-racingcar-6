@@ -76,8 +76,8 @@
 사용자로부터 입력받는 클래스
 
 - member function
-  - [ ] String inputRacingCarsName() : 자동차 이름 입력
-  - [ ] String inputCount() : 시도 횟수 입력
+  - [x] String inputRacingCarsName() : 자동차 이름 입력
+  - [x] String inputCount() : 시도 횟수 입력
 
 ### OutputView
 사용자에게 출력하여 보여주는 클래스
