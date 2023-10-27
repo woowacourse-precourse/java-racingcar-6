@@ -10,6 +10,7 @@ public class InputVerifier {
         List<String> nameList = List.of(names.split(","));
         nameList.forEach(InputVerifier::checkLength);
         nameList.forEach(InputVerifier::checkNull);
+        checkDistinct(nameList);
     }
 
     public static void verifyTry(String tryReamain) throws IllegalArgumentException {
@@ -27,6 +28,14 @@ public class InputVerifier {
     private static void checkNull(String name) {
         if (name.isEmpty()) {
             throw new IllegalArgumentException(ExceptionMessage.IS_NULL.getMessage());
+        }
+    }
+
+    private static void checkDistinct(List<String> nameList) {
+        if (nameList.stream()
+                .distinct()
+                .count() != nameList.size()) {
+            throw new IllegalArgumentException(ExceptionMessage.DISTINCT.getMessage());
         }
     }
 
