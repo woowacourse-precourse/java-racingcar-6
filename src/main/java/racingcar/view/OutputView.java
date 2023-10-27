@@ -19,7 +19,6 @@ public class OutputView {
     }
 
     public static void winner(final List<String> winners){
-
         System.out.print(FINAL_WINNER + " : " + String.join(",",winners));
     }
 
