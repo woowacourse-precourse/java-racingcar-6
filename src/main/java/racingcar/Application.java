@@ -15,12 +15,14 @@ public class Application {
         Driver driver = new Driver();
         String drivers = Console.readLine();
         Map<String, String> driverMap = driver.makeDriverRoster(drivers);
+        driver.validateDriverRoster(driverMap);
 
         System.out.println("시도할 회수는 몇 회인가요?");
         String opportunity = Console.readLine();
         OpportunityValidator opportunityValidator = new OpportunityValidator();
         opportunityValidator.validateOpportunity(opportunity);
 
+        System.out.println();
         System.out.println("실행 결과");
         RaceSimulator raceSimulator = new RaceSimulator();
         raceSimulator.simulateRace(driverMap, Integer.parseInt(opportunity));
