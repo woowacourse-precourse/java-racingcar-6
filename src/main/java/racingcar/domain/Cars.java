@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 import racingcar.service.RandomNumberGenerator;
 import racingcar.service.Rule;
@@ -14,10 +13,6 @@ public class Cars {
             cars.add(new Car(car));
         }
         this.cars = cars;
-    }
-
-    public List<Car> getCars() {
-        return new ArrayList<>(cars);
     }
 
     public void moveCars(Rule rule, RandomNumberGenerator randomNumberGenerator) {
