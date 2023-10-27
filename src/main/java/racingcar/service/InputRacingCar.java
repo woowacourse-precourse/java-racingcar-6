@@ -27,6 +27,8 @@ public class InputRacingCar {
         for (String name : racingCarsNames) {
             if (name.length() > 5) {
                 throw new IllegalArgumentException(ErrorMessage.INPUT_LENGTH_EXCEEDED_ERROR);
+            }else if(name.length()==0){
+                throw new IllegalArgumentException(ErrorMessage.EMPTY_NAME_ERROR);
             }
         }
     }
