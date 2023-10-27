@@ -83,4 +83,16 @@ public class RacingGame {
         }
         return max;
     }
+
+    public List<String> chooseWinner(List<String> nameList, List<Integer> distanceList) {
+        List<String> winnerList = new ArrayList<>();
+        int max = findMax(distanceList);
+        for (int i = 0; i < distanceList.size(); i++) {
+            if (distanceList.get(i) == max) {
+                String winner = nameList.get(i);
+                winnerList.add(winner);
+            }
+        }
+        return winnerList;
+    }
 }
