@@ -21,4 +21,7 @@ public class GameManager {
         }
     }
 
+    private void initAttempts(){
+        attempts = inputView.getAttempts();
+    }
 }
