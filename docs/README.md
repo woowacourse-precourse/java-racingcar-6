@@ -9,9 +9,9 @@
     - 올바른 커밋 메시지 작성 동반 필요
 - 파일, 패키지 이름 수정, 이동하지 않기
 - 프로그램 종료 시 'System.exit()' 호출하지 않기
-- 구현 완료 시 'ApplicationTest'의 모든 테스트 성공 여부 확인
+- 구현 완료 시 'ApplicationTest' 의 모든 테스트 성공 여부 확인
 - **Java 코드 컨벤션**을 지켰는지 확인
-- indent가 3 이상이 되지 않도록 구현 - 함수 분리를 통해 해결
+- indent 가 3 이상이 되지 않도록 구현 - 함수 분리를 통해 해결
 - 3항 연산자 쓰지 않기
 - 함수가 한 가지 일만 하도록 구현
 - JUnit5, AssertJ를 이용하여 기능별로 테스트 코드 구현
@@ -38,7 +38,7 @@
 
 - View.InputView
   - 입력과 관련된 기능 수행
-  - Validator를 통한 검증 실패 시 IllegalArgumentException 발생
+  - Validator 를 통한 검증 실패 시 IllegalArgumentException 발생
 - View.OutputView
   - 출력과 관련된 기능 수행
   - 출력 메시지 관리, RacingCar 객체를 받아 차수별 실행 출력, 우승자 명단을 받아 결과 출력
