@@ -5,7 +5,6 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static racingcar.validate.CountValidator.numberValidate;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.LinkedHashMap;
@@ -62,17 +61,55 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    @DisplayName("시도 횟수 : 양의 정수가 아닌 정수 입력")
-    void notPositiveNumber() {
-        assertThrows(IllegalArgumentException.class, () -> numberValidate("-1"));
+    @DisplayName("공동 우승")
+    void joint_winners() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : -", "최종 우승자 : pobi, woni");
+                },
+                MOVING_FORWARD, MOVING_FORWARD
+        );
     }
 
     @Test
-    @DisplayName("시도 횟수 : 숫자가 아닌 값 입력")
-    void notNumberValidate() {
-        assertThrows(IllegalArgumentException.class, () -> numberValidate("aaaa"));
+    @DisplayName("상태 값 출력 테스트")
+    void statePrint() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "2");
+                    assertThat(output()).contains("pobi : -", "woni : -", "pobi : --", "woni : -", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, STOP
+        );
     }
 
+    @Test
+    @DisplayName("시도 횟수 입력 예외 처리 검증")
+    void countValidate() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java", "-1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java", "null"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+
+    }
+
+    @Test
+    @DisplayName("차 이름 중복 입력")
+    void duplicateTest() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,pobi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 
     @Override
     public void runMain() {
