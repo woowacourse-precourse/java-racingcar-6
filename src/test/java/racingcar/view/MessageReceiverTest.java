@@ -36,4 +36,32 @@ class MessageReceiverTest {
             carNames = messageReceiver.receiveCarNames();
         }
     }
+
+    @Nested
+    class AttemptCountReceiverTest extends NsTest {
+
+        private int attemptCount;
+
+        @Test
+        void 시도할_횟수_입력() {
+            // when
+            run("5");
+
+            // then
+            assertThat(attemptCount).isEqualTo(5);
+        }
+
+        @Test
+        void 시도할_횟수_입력이_0이하이면_예외발생() {
+            // expected
+            assertThatThrownBy(() -> run("0"))
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
+
+        @Override
+        protected void runMain() {
+            MessageReceiver messageReceiver = new MessageReceiver();
+            attemptCount = messageReceiver.receiveAttemptCount();
+        }
+    }
 }

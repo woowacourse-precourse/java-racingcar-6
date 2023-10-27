@@ -2,7 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import static racingcar.constant.NumberConstant.MAX_CAR_NAME_SIZE;
+import static racingcar.constant.NumberConstant.*;
 import static racingcar.constant.TextConstant.COMMA;
 
 public class MessageReceiver {
@@ -17,7 +17,10 @@ public class MessageReceiver {
 
     public int receiveAttemptCount() {
         String inputText = Console.readLine();
-        return Integer.parseInt(inputText);
+        int attemptCount = Integer.parseInt(inputText);
+        validateAttemptCount(attemptCount);
+
+        return attemptCount;
     }
 
     private void validateCarName(final String[] carNames) {
@@ -25,6 +28,12 @@ public class MessageReceiver {
             if (carName.length() > MAX_CAR_NAME_SIZE) {
                 throw new IllegalArgumentException();
             }
+        }
+    }
+
+    private void validateAttemptCount(final int attemptCount) {
+        if (attemptCount < MIN_ATTEMPT_COUNT) {
+            throw new IllegalArgumentException();
         }
     }
 }
