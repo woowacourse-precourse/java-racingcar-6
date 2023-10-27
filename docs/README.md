@@ -78,7 +78,12 @@
 
 ## domain
    __1. Cars__
-   - [ ] addCars
+   - [x] addCars(메소드 분리)
+     1) removeSpaces(공백을 모두 제거)
+     2) splitByComma(","단위로 분리 후 리스트에 저장)
+     3) validateNameLength(자동차 이름 길이를 검증)
+     4) validateUniqueNames(이름이 중복되지 않는지 검증)
+     5) initializeCars(검증된 데이터를 값(직진 거리)은 0인 해쉬맵으로 저장한다)
       - 자동차 이름을 받아 검증해서 키값(직진 거리)은 0인 해쉬맵으로 저장한다
    - [ ] getCars
       - 자동차 데이터를 보내준다
