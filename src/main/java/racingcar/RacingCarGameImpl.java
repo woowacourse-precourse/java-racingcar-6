@@ -10,13 +10,15 @@ public class RacingCarGameImpl implements RacingCarGame {
         InputImpl input = new InputImpl();
         
         List<String> carNames = input.carName();
-        int attemtsNumber = input.attemptsNumber();
+        int attemptsNumber = input.attemptsNumber();
         
         GameItemImpl gameItem = new GameItemImpl(carNames);
-        Map<String, Integer> positions = gameItem.carPostion();
-        
+        Map<String, Integer> positions = gameItem.carPosition();
         PrintImpl print = new PrintImpl(carNames, positions);
-        print.printCarPositions();
+        System.out.println("실행 결과");
+        gameItem.carMove(attemptsNumber, print);
+        
+        
     }
 
 }

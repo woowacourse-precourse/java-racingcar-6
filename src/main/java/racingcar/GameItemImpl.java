@@ -19,13 +19,19 @@ public class GameItemImpl implements GameItem {
     }
     
     @Override
-    public void carMove() {
+    public void carMove(int attemptsNumber, PrintImpl print) {
+        for (int i = 0; i < attemptsNumber; i++) {
+            moveCars();
+            print.printCarPositions();
+        }
+    }
+    
+    private void moveCars() {
         for (String name : carNames) {
-            
             int randomNum = Randoms.pickNumberInRange(0, 9);
             if (randomNum >= 4) {
                 int currentPosition = carPositions.get(name);
-                carPositions.put(name, currentPosition++);
+                carPositions.put(name, currentPosition + 1);
             }
         }
     }
@@ -37,8 +43,9 @@ public class GameItemImpl implements GameItem {
     }
 
     @Override
-    public Map<String, Integer> carPostion() {
+    public Map<String, Integer> carPosition() {
         return carPositions;
     }
+
 
 }

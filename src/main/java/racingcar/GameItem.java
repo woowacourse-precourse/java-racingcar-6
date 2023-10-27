@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface GameItem {
-    void carMove();
+    void carMove(int attemptsNumber, PrintImpl print);
     List<String> checkWinner();
-    Map<String, Integer> carPostion();
+    Map<String, Integer> carPosition();
 }
