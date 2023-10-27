@@ -18,6 +18,11 @@ public class InputView {
         return carNames;
     }
 
+    public int askGameCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        return Integer.parseInt(Console.readLine());
+    }
+
     public List<String> splitName(String inputName) {
         return Arrays.asList(inputName.split(","));
     }

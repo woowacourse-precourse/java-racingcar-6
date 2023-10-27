@@ -11,6 +11,7 @@ public class Controller {
 
     public void racingGame() {
         List<String> carNames = inputView.askName();
+        int count = inputView.askGameCount();
 
 
     }
