@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.exception.CarNameIncorrectException;
 import racingcar.exception.CarNameSizeLimitExceededException;
+import racingcar.utils.InputValidate;
 
 class InputViewTest {
 
@@ -35,22 +36,22 @@ class InputViewTest {
         String inputBlank = "  ";
 
         assertThrows(IllegalArgumentException.class, () -> {
-            InputView.checkNullAndEmpty(inputNull);
+            InputValidate.checkNullAndEmpty(inputNull);
         });
         assertThrows(CarNameIncorrectException.class, () -> {
-            InputView.checkNullAndEmpty(inputNull);
+            InputValidate.checkNullAndEmpty(inputNull);
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            InputView.checkNullAndEmpty(inputEmpty);
+            InputValidate.checkNullAndEmpty(inputEmpty);
         });
         assertThrows(CarNameIncorrectException.class, () -> {
-            InputView.checkNullAndEmpty(inputEmpty);
+            InputValidate.checkNullAndEmpty(inputEmpty);
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            InputView.checkNullAndEmpty(inputBlank);
+            InputValidate.checkNullAndEmpty(inputBlank);
         });
         assertThrows(CarNameIncorrectException.class, () -> {
-            InputView.checkNullAndEmpty(inputBlank);
+            InputValidate.checkNullAndEmpty(inputBlank);
         });
 
     }
@@ -82,28 +83,27 @@ class InputViewTest {
     @DisplayName("도전 횟수 입력 받기 숫자 타입 체크")
     void tryCountInputAndNumberTypeCheckTest() {
         // 정상의 경우
-        assertDoesNotThrow(() -> InputView.validateMovingCount("123"));
-
+        assertDoesNotThrow(() -> InputValidate.validateMovingCount("123"));
         // 비정상의 경우 예외 발생
         assertThrows(IllegalArgumentException.class, () -> {
-            InputView.validateMovingCount(" ");
+            InputValidate.validateMovingCount(" ");
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            InputView.validateMovingCount("1 3");
+            InputValidate.validateMovingCount("1 3");
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            InputView.validateMovingCount(" a");
+            InputValidate.validateMovingCount(" a");
         });
         // 0 이하의 값 입려 시 예외 발생
         assertThrows(IllegalArgumentException.class, () -> {
-            InputView.validateMovingCount("0");
+            InputValidate.validateMovingCount("0");
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            InputView.validateMovingCount("-1");
+            InputValidate.validateMovingCount("-1");
         });
         // Integer Max 값 이상의 경우 예외 발생
         assertThrows(IllegalArgumentException.class, () -> {
-            InputView.validateMovingCount("2147483648");
+            InputValidate.validateMovingCount("2147483648");
         });
     }
 
