@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import racingcar.exception.car_racing_game.NotUniqueCarNameException;
-import racingcar.exception.position.NotFoundPositionException;
+import racingcar.exception.position.NotExistPositionException;
 
 public class CarRacingGame implements RacingGame {
 
@@ -67,7 +67,7 @@ public class CarRacingGame implements RacingGame {
         return carPositionMap.values().stream()
                 .mapToInt(Position::getPositionIndex)
                 .max()
-                .orElseThrow(NotFoundPositionException::new);
+                .orElseThrow(NotExistPositionException::new);
     }
 
     private List<String> calculateWinners(int maxPosition) {

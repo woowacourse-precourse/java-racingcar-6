@@ -5,7 +5,7 @@ import static racingcar.util.Constant.NEXT_INDEX;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
-import racingcar.exception.position.NotFoundPositionException;
+import racingcar.exception.position.NotExistPositionException;
 
 public class Position {
 
@@ -35,7 +35,7 @@ public class Position {
         return cache.entrySet().stream()
                 .filter(entry -> entry.getValue().equals(position))
                 .findAny()
-                .orElseThrow(() -> new NotFoundPositionException(position.getPositionIndex()))
+                .orElseThrow(() -> new NotExistPositionException(position.getPositionIndex()))
                 .getKey();
     }
 
