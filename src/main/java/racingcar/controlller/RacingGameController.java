@@ -45,6 +45,10 @@ public class RacingGameController extends GameController {
         OutputView.printWinners(carList.winnersToString());
 
         // 게임 종료
+        endGame();
+    }
+
+    private void endGame() {
         isRunning = false;
     }
 
