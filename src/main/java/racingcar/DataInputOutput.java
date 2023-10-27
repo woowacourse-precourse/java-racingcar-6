@@ -37,6 +37,14 @@ public class DataInputOutput {
             case "OUTPUT_END" -> System.out.println(OUTPUT_RESULT_END);
         }
     }
-    public void printMovingResult(){}
+    public void printMovingResult(){
+        Car currentCar;
+
+        for (Car car : carList) {
+            currentCar = car;
+            System.out.println(currentCar.getCarName() + " : " + currentCar.getCarPath());
+        }
+        System.out.println(" ");
+    }
     public void makeRandomNumber(){}
 }
