@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
 import racingcar.model.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -17,10 +18,10 @@ public class RacingGame {
 
     private void play(int attemptCount) {
         OutputView.displayGameResultMessage();
-        for (int attempt = 0; attempt < attemptCount; attempt++) {
+        IntStream.range(0, attemptCount).forEach(attempt -> {
             cars.moveAll();
             OutputView.displayGameResult(cars.toString());
-        }
+        });
         OutputView.displayWinners(getWinners());
     }
 
