@@ -8,6 +8,14 @@ public class Car {
         this.name = name;
     }
 
+    public int getDistance() {
+        return distance;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public void move(int randomNumber) {
         if (4 <= randomNumber && randomNumber <= 9) {
             distance++;

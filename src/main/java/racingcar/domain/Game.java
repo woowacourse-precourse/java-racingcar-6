@@ -3,7 +3,6 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -47,6 +46,15 @@ public class Game {
     }
 
     public void findWinners() {
-
+        int maxDistance = -1;
+        for(Car car : cars) {
+            if (car.getDistance() > maxDistance) {
+                maxDistance = car.getDistance();
+                winners.clear();
+                winners.add(car.getName());
+            } else if (car.getDistance() == maxDistance) {
+                winners.add(car.getName());
+            }
+        }
     }
 }
