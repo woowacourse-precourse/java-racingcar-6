@@ -1,5 +1,8 @@
 package domain;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import view.InputView;
 
 public class RaceService {
@@ -11,4 +14,13 @@ public class RaceService {
         ranNumService = new RanNumService();
     }
 
+    private Map<String, Integer> carNamesToMap() {
+        Map<String, Integer> carNamesMap = new HashMap<>();
+        String carNames = inputView.enterCarNames();
+        String[] carNamesList = carNames.split(",");
+        for (String carName : carNamesList) {
+            carNamesMap.put(carName, 0);
+        }
+        return carNamesMap;
+    }
 }
