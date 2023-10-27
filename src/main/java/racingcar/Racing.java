@@ -51,6 +51,8 @@ public class Racing {
 
         inputCarName();
         tryNumber = inputTryNumber();
+
+        script.guideResult();
     }
 
 }
