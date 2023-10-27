@@ -34,6 +34,7 @@ public class RacingController {
         }
 
         output.showResultMessage();
+        output.showResult(cars);
     }
 
     private List<Car> makeCars(String carNames) {
