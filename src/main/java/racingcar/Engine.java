@@ -15,6 +15,6 @@ public class Engine {
     }
 
     public boolean rollDice() {
-        return makeRandomNumber(DICE_MIN_RANGE, DICE_MIN_RANGE) >= FORWARD_ABLE_NUMBER;
+        return makeRandomNumber(DICE_MIN_RANGE, DICE_MAX_RANGE) >= FORWARD_ABLE_NUMBER;
     }
 }
