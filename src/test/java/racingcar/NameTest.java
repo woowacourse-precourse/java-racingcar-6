@@ -35,4 +35,14 @@ public class NameTest {
         // then
         assertThat(exception.getMessage()).isEqualTo(CAR_NAME_BLANK_EXCEPTION.toString());
     }
+
+    @Test
+    void 공백이_마지막에_포함되면_안_된다_예외() {
+        // given & when
+        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Name name = Name.from("bob  ");
+        });
+        // then
+        assertThat(exception.getMessage()).isEqualTo(CAR_NAME_BLANK_EXCEPTION.toString());
+    }
 }
