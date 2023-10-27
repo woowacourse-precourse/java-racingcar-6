@@ -3,7 +3,6 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 import game.Game;
-import java.util.stream.Collectors;
 import util.RacingCarRandoms;
 import util.inputreader.RacingCarInputReader;
 
@@ -52,7 +51,7 @@ public class RacingCarGame implements Game {
 
     public void setPlayers(){
         List<String> players = racingCarInputReader.inputPlayers();
-        this.players = players.stream().map(racingCarFormatter::racingCarPlayerFromString).collect(Collectors.toList());
+        this.players = this.racingCarFormatter.listStringToListRacingCarPlayer(players);
     }
 
     public void setTryCount(){
