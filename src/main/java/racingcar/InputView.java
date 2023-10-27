@@ -2,12 +2,11 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import org.junit.platform.commons.util.StringUtils;
 
 public class InputView {
     private static final String DELIMITER = ",";
+
     public List<String> getCars() {
         List<String> carStrings = new ArrayList<>();
         String input = Console.readLine();
