@@ -1,9 +1,9 @@
 package racingcar;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.Test;
 
 public class MyTest {
@@ -24,5 +24,22 @@ public class MyTest {
         assertThatThrownBy(() -> {
             testToInputMovementAmount.checkMovementAmountTest(testInput);
         }).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 무작위값_발생_파트_테스트() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    RacingCarGame testRandomNumber = new RacingCarGame();
+                    boolean[] testOutput = new boolean[5];
+
+                    for(int i = 0; i < 5; i++) {
+                        testOutput[i] = testRandomNumber.testDecideMoveOrNot();
+                    }
+
+                    assertThat(testOutput).containsExactly(true, false, false, true, false);
+                },
+                4, 1, 1, 9, 0
+        );
     }
 }

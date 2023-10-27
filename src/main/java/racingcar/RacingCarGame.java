@@ -62,10 +62,6 @@ public class RacingCarGame {
         this.carNames = carNames.split(",", 0);
     }
 
-    public void splitCarNamesTest(String testCarNames){
-        splitCarNames(testCarNames);
-    }
-
     private void checkCarName(){
         for(String carName: this.carNames){
             if(carName.length() > 5) {  // check the car name's length is over than 5
@@ -99,11 +95,6 @@ public class RacingCarGame {
             throw new IllegalArgumentException();
         }
     }
-
-    public void checkMovementAmountTest(String movementAmountTest) {
-        checkMovementAmount(movementAmountTest);
-    }
-
 
     private void inputCarNameMessage(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -199,5 +190,17 @@ public class RacingCarGame {
         }
 
         return maximum;
+    }
+
+    public void splitCarNamesTest(String testCarNames){
+        splitCarNames(testCarNames);
+    }
+
+    public void checkMovementAmountTest(String movementAmountTest) {
+        checkMovementAmount(movementAmountTest);
+    }
+
+    public boolean testDecideMoveOrNot() {
+        return decideMoveOrNot();
     }
 }
