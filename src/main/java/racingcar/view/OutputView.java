@@ -2,7 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import racingcar.domain.Car;
-import racingcar.dto.CarsGenerateDto;
+import racingcar.domain.Cars;
 import racingcar.service.Referee;
 
 public class OutputView {
@@ -24,7 +24,7 @@ public class OutputView {
         System.out.println();
     }
 
-    public void showWinner(Referee referee, CarsGenerateDto generatedCars) {
+    public void showWinner(Referee referee, Cars generatedCars) {
         System.out.println(FINAL_WINNER + DELIMITER + referee.getWinnersCarName(generatedCars));
     }
 }
