@@ -54,14 +54,14 @@ public class GameTest {
         //carNameList를 moveForward에 전달하면 car 객체 내부에서 모든 차를 운전하는걸로
         //이렇게 되면 car 객체 내에서 createCarNumber를 해야함..
 
-
-        car.moveForward();
+        carLocations = car.moveForward(carNameList);
 
         for(int i = 0 ; i < carNameList.size(); i++){
-            int randomNumber = car.createRandomNumber();
-            String key = carNameList.get(i);
-            carLocations = car.moveForward(key,randomNumber);
+            System.out.println(carNameList.get(i)+" " +carLocations.get(carNameList.get(i)));
         }
+
+
+
 
 
 

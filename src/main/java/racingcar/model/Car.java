@@ -14,9 +14,15 @@ public class Car {
     }
 
 
-    public LinkedHashMap<String, Integer> moveForward(String carName, int carNumber) {
-        locations = new LinkedHashMap<>();
+    public LinkedHashMap<String, Integer> moveForward(List<String>carNameList) {
 
+        for(int i = 0 ; i < carNameList.size(); i++){
+            int randomNumber = createRandomNumber();
+            String key = carNameList.get(i);
+            if(randomNumber>=4){
+                locations.put(key,locations.get(key)+1);
+            }
+        }
         return locations;
     }
 
