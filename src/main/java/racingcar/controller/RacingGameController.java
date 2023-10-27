@@ -22,7 +22,14 @@ public class RacingGameController {
         return new RacingGame(cars, attemptCount);
     }
 
+    private void play(RacingGame racingGame) {
+        while (!racingGame.isEnd()) {
+            racingGame.proceed();
+        }
+    }
+
     public void run() {
         RacingGame racingGame = initGame();
+        play(racingGame);
     }
 }
