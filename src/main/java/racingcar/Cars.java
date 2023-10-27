@@ -1,6 +1,8 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalInt;
 
 public class Cars {
     private List<Car> cars;
@@ -20,5 +22,15 @@ public class Cars {
         for (Car car : cars) {
             System.out.println(car);
         }
+    }
+
+    public List<Car> getWinnerList() {
+        OptionalInt maxOptional = cars.stream()
+                .mapToInt(Car::getMoveCount)
+                .max();
+        int max = maxOptional.orElse(0);
+        return cars.stream()
+                .filter(car -> car.getMoveCount() == max)
+                .toList();
     }
 }
