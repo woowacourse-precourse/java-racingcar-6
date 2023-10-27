@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.domain.Car;
 
 public class InputView {
 
@@ -30,6 +31,11 @@ public class InputView {
                 .map(String::trim)
                 .toList();
         return carNameList;
+    }
+
+    public int RaceCount() {
+        int raceCount = Integer.parseInt(Console.readLine());
+        return raceCount;
     }
 
     private enum Message {
