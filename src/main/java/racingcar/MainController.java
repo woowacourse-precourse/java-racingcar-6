@@ -21,8 +21,10 @@ public class MainController {
     }
 
     private GameData initGame() {
-        List<String> carNames = Converter.splitByDelimiter(InputView.inputString(ViewMessage.INPUT_CAR_NAME), ",");
-        List<Car> carList = carNames.stream().map(Car::new).toList();
+        List<Car> carList = Converter.splitByDelimiter(InputView.inputString(ViewMessage.INPUT_CAR_NAME), ",")
+                .stream()
+                .map(Car::new)
+                .toList();
         return new GameData(
                 carList,
                 InputView.inputInteger(ViewMessage.INPUT_TRIAL_COUNT)

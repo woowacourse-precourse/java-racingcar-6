@@ -4,10 +4,8 @@ import racingcar.message.ErrorMessage;
 
 public class Car {
     private static final int MAX_NAME_LENGTH = 4;
-    private static final int MIN_NAME_LENGTH = 1;
     private final String name;
     private int position;
-
 
     public Car(String name) {
         validateName(name);
@@ -16,11 +14,18 @@ public class Car {
     }
 
     private void validateName(String name) {
-        if (name == null || name.isEmpty()) {
+        validateBlank(name);
+        validateSizeInRange(name);
+    }
+
+    private void validateBlank(String name) {
+        if (name == null || name.isBlank()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_CAR_NAME);
         }
+    }
 
-        if (name.length() > MAX_NAME_LENGTH || name.length() < MIN_NAME_LENGTH) {
+    private void validateSizeInRange(String name) {
+        if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_CAR_NAME);
         }
     }
