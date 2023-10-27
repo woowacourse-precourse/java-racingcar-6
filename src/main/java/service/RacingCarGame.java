@@ -1,4 +1,5 @@
-package game;
+package service;
+
 import controller.Controller;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
@@ -6,7 +7,9 @@ import static exception.Validator.validateCarNameLength;
 import static exception.Validator.validateNaturalNumber;
 import static random.RandomNumber.pickRandomNumber;
 
-public class Game {
+import static repository.RandomNumber.pickRandomNumber;
+
+public class RacingCarGame {
     public void start() {
         Controller controller = new Controller();
         String[] carNameList = controller.getCarNameList();

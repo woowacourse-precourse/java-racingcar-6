@@ -1,4 +1,4 @@
-package random;
+package repository;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
