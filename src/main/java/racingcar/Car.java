@@ -5,11 +5,15 @@ import java.util.Objects;
 class Car {
 
     private final Name name;
-    private long moveCount;
+    private int moveCount;
 
     Car(String name) {
         this.name = new Name(name);
-        this.moveCount = 0L;
+        this.moveCount = 0;
+    }
+
+    String currentStatus() {
+        return name.name() + " : " + "-".repeat(moveCount);
     }
 
     @Override
