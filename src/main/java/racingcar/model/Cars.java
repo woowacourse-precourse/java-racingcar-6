@@ -10,4 +10,10 @@ public class Cars {
         Car car = new Car(name, "");
         cars.add(car);
     }
+
+    public void moveAll() {
+        for (Car car : cars) {
+            car.move();
+        }
+    }
 }
