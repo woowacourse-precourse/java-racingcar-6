@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import camp.nextstep.edu.missionutils.Console;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,5 +17,9 @@ public class InputView {
             trimInputList.add(input.trim());
         }
         return trimInputList;
+    }
+
+    public void closeConsole() {
+        Console.close();
     }
 }
