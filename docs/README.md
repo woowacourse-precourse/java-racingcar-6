@@ -6,8 +6,8 @@
 
 2. domain 
    - Car: 자동차의 정보를 담은 클래스
+   - CarDto : 자동차의 이름과 위치 정보를 데이터 전송 객체 형식으로 변환 후 전달하는 클래스
    - RandomNumberGenerator: 0에서 9 사이에서 무작위 값을 생성하는 클래스
-   - Player: 사용자의 입력을 받는 클래스
    - MoveStrategy : 자동차가 움직일 수 있는지 여부를 결정하는 인터페이스
    - RandomMoveStrategy : MoveStrategy 인터페이스를 구현하는 클래스 
    
