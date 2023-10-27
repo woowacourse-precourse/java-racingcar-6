@@ -14,7 +14,7 @@ public class Position {
     }
 
     public Position(int value) {
-        if(value < 0) {
+        if (value < 0) {
             throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
         }
         this.value = value;
@@ -22,6 +22,10 @@ public class Position {
 
     public void increase() {
         this.value += 1;
+    }
+
+    public Position copy() {
+        return new Position(this.value);
     }
 
     @Override

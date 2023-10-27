@@ -42,4 +42,16 @@ class PositionTest {
         // then
         assertThat(position).isEqualTo(new Position(8));
     }
+
+    @Test
+    public void 포지션_복사_테스트() {
+        // given
+        Position position = new Position(7);
+
+        // when
+        Position copyPosition = position.copy();
+
+        // then
+        assertThat(position).isEqualTo(copyPosition);
+    }
 }
