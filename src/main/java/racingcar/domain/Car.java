@@ -33,10 +33,10 @@ public class Car {
 
     @Override
     public String toString() {
-        String distance = "";
+        StringBuilder sb = new StringBuilder(name + " : ");
         for (int i = 0; i < position; i++) {
-            distance += "-";
+            sb.append("-");
         }
-        return name + " : " + distance;
+        return sb.toString();
     }
 }
