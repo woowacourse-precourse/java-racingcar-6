@@ -10,15 +10,25 @@ class Cars {
     private static final String DELIMITER = ",";
 
     Cars(String input) {
+
+    }
+
+    private Cars() {
+    }
+
+    static Cars create(String input) {
         String[] names = input.split(DELIMITER);
-        if(names.length < 1) throw new IllegalArgumentException();
+        if (names.length < 1) throw new IllegalArgumentException();
 
-        // TODO : 메소드 분리
-        if(names.length != Arrays.stream(names).distinct().count()) throw new IllegalArgumentException();
+        // TODO : 메소드 분동
+        if (names.length != Arrays.stream(names).distinct().count()) throw new IllegalArgumentException();
 
-        cars.addAll(Arrays.stream(names)
+        Cars instance = new Cars();
+        instance.cars.addAll(Arrays.stream(names)
                 .map(Car::new)
                 .toList());
+
+        return instance;
     }
 
 
