@@ -2,29 +2,29 @@ package racingcar.domain;
 
 public class Car {
 
-    private final CarName carName;
-    private int carPosition;
+    private final Name name;
+    private int position;
 
     public Car(String carName) {
-        this.carName = new CarName(carName);
-        this.carPosition = 0;
+        this.name = new Name(carName);
+        this.position = 0;
     }
 
     public void move(Integer randomNumber) {
         if (randomNumber >= 4) {
-            this.carPosition++;
+            this.position++;
         }
     }
 
-    public String getCarName() {
-        return carName.getValue();
+    public String getName() {
+        return name.getValue();
     }
 
-    public int getCarPosition() {
-        return carPosition;
+    public int getPosition() {
+        return position;
     }
 
     public boolean isWinner(int maxPosition) {
-        return this.carPosition == maxPosition;
+        return this.position == maxPosition;
     }
 }

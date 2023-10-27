@@ -4,7 +4,7 @@ public class TryCount {
 
     private final int count;
 
-    private TryCount(int count) {  // 생성자를 private로 변경
+    private TryCount(int count) {
         this.count = count;
     }
 

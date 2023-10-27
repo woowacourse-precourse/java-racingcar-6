@@ -3,13 +3,13 @@ package racingcar.domain;
 import static racingcar.util.ExceptionMessage.CHECK_NAME_EMPTY;
 import static racingcar.util.ExceptionMessage.CHECK_NAME_LENGTH;
 
-public class CarName {
+public class Name {
 
     public static final int NAME_LENGTH = 5;
 
     private final String name;
 
-    public CarName(String name) {
+    public Name(String name) {
         validateCarName(name);
         this.name = name;
     }

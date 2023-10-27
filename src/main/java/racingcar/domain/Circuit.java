@@ -40,13 +40,13 @@ public class Circuit {
 
         return cars.stream()
                 .filter(car -> car.isWinner(maxPosition))
-                .map(Car::getCarName)
+                .map(Car::getName)
                 .collect(Collectors.toList());
     }
 
     private int getMaxPosition() {
         return cars.stream()
-                .mapToInt(Car::getCarPosition)
+                .mapToInt(Car::getPosition)
                 .max()
                 .orElse(0);
     }

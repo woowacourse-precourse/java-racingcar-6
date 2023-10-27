@@ -8,8 +8,8 @@ public class RacingResult {
     private final int position;
 
     public RacingResult(final Car car) {
-        this.carName = car.getCarName();
-        this.position = car.getCarPosition();
+        this.carName = car.getName();
+        this.position = car.getPosition();
     }
 
     public String getCarName() {
