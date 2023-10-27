@@ -66,4 +66,11 @@ class CarService {
         return false;
     }
 
+    //3) 판별 결과에 따라 현재 상태 세팅
+    public void setCurrentCar(boolean flag, Car car){
+        if(flag){ //전진 상태일 때만
+            car.count++;//++처리
+        }
+        return;
+    }
 }
