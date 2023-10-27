@@ -1,0 +1,27 @@
+package racingcar.model;
+
+public class RacingCar {
+    private String name;
+    private int distance;
+
+    public String getName() {
+        return this.name;
+    }
+
+    public RacingCar(String carName, int distance) {
+        this.name = carName;
+        this.distance = distance;
+    }
+
+//    public void setDistance() {
+//        this.distance = 0;
+//    }
+
+    public int getDistance() {
+        return this.distance;
+    }
+
+    public void addDistance() {
+        this.distance += 1;
+    }
+}
