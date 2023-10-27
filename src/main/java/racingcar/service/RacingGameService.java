@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import racingcar.model.Attemps;
 import racingcar.model.Car;
@@ -46,9 +47,15 @@ public class RacingGameService {
     
     public boolean reaches() {
         for (Car car : cars.getCarList()) {
-            if (car.getDistance().length() == attemps.getNumber())
+            if (car.getDistance().length() == attemps.getNumber()) {
+                winners.addWinner(car);
                 return true;
+            }
         }
         return false;
+    }
+    
+    public String getWinners() {
+        return winners.getWinner().stream().map(car -> car.getName()).collect(Collectors.joining(","));
     }
 }
