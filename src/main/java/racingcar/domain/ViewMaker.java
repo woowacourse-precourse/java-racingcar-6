@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
-import static racingcar.constant.GameResultConstant.PROGRESSIVE_BAR;
-import static racingcar.constant.GameResultConstant.WINNER_RESULT;
+import static racingcar.constant.GameResultMessageConstant.PROGRESSIVE_BAR;
+import static racingcar.constant.GameResultMessageConstant.WINNER_RESULT;
 
 public class ViewMaker {
     public ViewMaker() {
