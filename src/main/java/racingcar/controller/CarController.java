@@ -8,11 +8,11 @@ import racingcar.view.InputHandler;
 public class CarController {
     List<Car> carList = new ArrayList<>();
 
-    CarController() {
+    public CarController() {
         createCars(InputHandler.inputCars());
     }
 
-    void createCars(String userInput) {
+    public void createCars(String userInput) {
         List<String> separated = List.of(userInput.split(","));
         separated.forEach(i -> carList.add(new Car(i)));
     }
