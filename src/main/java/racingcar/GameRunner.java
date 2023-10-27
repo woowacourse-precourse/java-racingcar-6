@@ -1,16 +1,17 @@
 package racingcar;
 
+import racingcar.dto.InputDTO;
 import racingcar.view.InputView;
 
 public class GameRunner {
 
     public static void playGame() {
-        String[] names = InputView.readCarNames();
-        Cars cars = Cars.createCars(names);
-        int count = InputView.readTrialCount();
+
+        InputDTO inputDTO = InputView.readUserInput();
+        Cars cars = Cars.createCars(inputDTO.names());
 
         System.out.println("\n실행 결과");
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < inputDTO.trialCount(); i++) {
             cars.calculateMoveCount();
             System.out.println();
         }
