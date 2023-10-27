@@ -49,6 +49,11 @@ public class GameService {
     }
 
     public List<String> getWinner() {
-        carRepository.findCarWithMaxPosition();
+        List<Car> carWithMaxPosition = carRepository.findCarWithMaxPosition();
+
+        ArrayList<String> winners = new ArrayList<>();
+        carWithMaxPosition.forEach(car -> winners.add(car.getName()));
+
+        return winners;
     }
 }
