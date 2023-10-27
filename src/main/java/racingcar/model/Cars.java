@@ -19,4 +19,8 @@ public class Cars {
 
         return new Cars(cars);
     }
+
+    public void racing() {
+
+    }
 }

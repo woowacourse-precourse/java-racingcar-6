@@ -23,6 +23,12 @@ public class GameController {
         
         askView.askPlayCount();
         savePlayCount();
+
+        int round = 0;
+        while (!playCount.isPlayEnd(round)) {
+            cars.racing();
+            round++;
+        }
     }
 
     private void joinCars() {
