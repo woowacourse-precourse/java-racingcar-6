@@ -48,6 +48,7 @@ public class RacingGame {
     }
 
     public void getAttemptingNum() {
+        System.out.println(attemptingPhrase);
         attemptingNum = Integer.parseInt(Console.readLine());
     }
 }
