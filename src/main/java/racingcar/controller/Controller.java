@@ -22,6 +22,10 @@ public class Controller {
             for (Car car : cars) {
                 car.move();
             }
+            System.out.println();
+            for (Car car : cars) {
+                System.out.println(car.getRecord());
+            }
         }
     }
 }
