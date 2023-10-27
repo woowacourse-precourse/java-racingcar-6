@@ -29,6 +29,10 @@ public class Car {
         return gameCount == position;
     }
 
+    public boolean isPositionEqualTo(final int number) {
+        return position == number;
+    }
+
     @Override
     public String toString() {
         return name.getName() + " : " + POSITION_MARK.repeat(position);
