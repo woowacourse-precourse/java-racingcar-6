@@ -12,7 +12,10 @@ class CarTest {
     @Test
     void create() {
         Car car = new Car("홍길동");
-        assertThat(car).isEqualTo(new Car("홍길동"));
+
+        assertThat(car).usingRecursiveComparison()
+                .ignoringFields("position")
+                .isEqualTo(new Car("홍길동"));
     }
 
     @DisplayName("name 사이즈 5이하 테스트 : 5이하가 아니라면 IllegalArgumentException가 발생한다.")
