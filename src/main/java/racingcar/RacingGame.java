@@ -13,6 +13,7 @@ public class RacingGame {
     private static final String winnerPhrase = "최종 우승자 : ";
 
     HashMap<String, Integer> racingCars;
+    int attemptingNum;
 
     public void startGame() {
         System.out.println(startingPhrase);
@@ -44,5 +45,9 @@ public class RacingGame {
         if(name.length() > MAX_NAME_SIZE) {
             throw new IllegalArgumentException("이름은 5글자 이하여야 합니다.");
         }
+    }
+
+    public void getAttemptingNum() {
+        attemptingNum = Integer.parseInt(Console.readLine());
     }
 }
