@@ -24,4 +24,14 @@ public class PlayCountTest {
         // then
         assertThat(exception.getMessage()).isEqualTo(PLAY_COUNT_VALUE_EXCEPTION.toString());
     }
+
+    @Test
+    void 횟수는_숫자여야_한다() {
+        // given & when
+        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            PlayCount count = PlayCount.from("abc");
+        });
+        // then
+        assertThat(exception.getMessage()).isEqualTo(PLAY_COUNT_VALUE_EXCEPTION.toString());
+    }
 }
