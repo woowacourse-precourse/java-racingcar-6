@@ -28,7 +28,7 @@ public class RaceManager {
 
         racing();
 
-
+        printWinner();
     }
 
     private void racing() {
@@ -40,12 +40,17 @@ public class RaceManager {
         }
     }
 
-    public List<Car> selectWinner() {
+    public void printWinner() {
+
+        List<String> winners = selectWinner();
+        String winnerMessage = String.join(", ", winners);
+
+        System.out.println();
+    }
+
+    public List<String> selectWinner() {
 
         return null;
     }
 
-    public void printWinner() {
-
-    }
 }
