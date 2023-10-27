@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.LinkedHashMap;
+
 public class OutputView {
 
     private static final String INPUT_RACING_CAR_NAMES_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -16,5 +18,23 @@ public class OutputView {
 
     public void printExecutionResultMessage() {
         System.out.println(EXECUTION_RESULT_MESSAGE);
+    }
+
+    public void printExecutionResult(LinkedHashMap<String, Integer> progressStatus) {
+        StringBuilder ExecutionResult = new StringBuilder();
+        for (String carName : progressStatus.keySet()) {
+            makeCarMovingResult(progressStatus, carName, ExecutionResult);
+        }
+        System.out.println(ExecutionResult);
+    }
+
+    private void makeCarMovingResult(LinkedHashMap<String, Integer> progressStatus, String carName,
+                                     StringBuilder ExecutionResult) {
+        ExecutionResult.append(carName)
+                .append(" : ");
+        for (int i = 0; i < progressStatus.get(carName); i++) {
+            ExecutionResult.append("-");
+        }
+        ExecutionResult.append("\n");
     }
 }
