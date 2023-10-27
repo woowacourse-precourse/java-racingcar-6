@@ -19,7 +19,7 @@
 
 
 - [ ] domain Package
-    - [ ] RacingCar
+    - [x] RacingCar
         - 게임을 위해 입력한 자동차 이름에 대해서 유효성 검사와 값의 반환을 담당하는 일급 컬렉션
         - 입력값이 영어와 한글인지 확인하는 (대문자와 소문자 영어, 한글만 가능하고 그 외의 숫자, 기호, 스페이스 바는 예외처리) `validateCarNames` 메서드
         - 입력값에 중복된 값이 있는지 확인하는 `validateDuplicate` 메서드
