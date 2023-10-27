@@ -18,15 +18,15 @@ public class NameValidator {
         isNameLengthExceeded(name);
     }
 
-    private static void isNameLengthExceeded(String name) throws IllegalArgumentException {
-        if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException(MAX_LENGTH_EXCEEDED_MESSAGE);
-        }
-    }
-
     private static void isNameEmpty(String name) throws IllegalArgumentException {
         if (name.isEmpty()) {
             throw new IllegalArgumentException(EMPTY_NAME_MESSAGE);
+        }
+    }
+
+    private static void isNameLengthExceeded(String name) throws IllegalArgumentException {
+        if (name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException(MAX_LENGTH_EXCEEDED_MESSAGE);
         }
     }
 

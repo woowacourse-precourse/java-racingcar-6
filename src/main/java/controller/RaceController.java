@@ -15,10 +15,6 @@ import view.OutputView;
 public class RaceController {
     private Cars cars;
 
-    public RaceController() {
-
-    }
-
     public void set() {
         cars = new Cars(InputView.carNames());
         start(InputView.attemptCount());
