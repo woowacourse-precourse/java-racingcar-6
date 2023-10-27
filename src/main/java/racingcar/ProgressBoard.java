@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 public class ProgressBoard {
     private final HashMap<String, String> SCORE_BOARD;
@@ -27,6 +28,9 @@ public class ProgressBoard {
         this.SCORE_BOARD.put(carName, this.SCORE_BOARD.get(carName) + MOVE_STRING);
     }
 
+    public Set<String> getParticipants() {
+        return this.SCORE_BOARD.keySet();
+    }
     public String progressOf(String carName) {
         return this.SCORE_BOARD.get(carName);
     }
