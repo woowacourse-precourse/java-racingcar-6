@@ -24,17 +24,17 @@ class IOTest {
     }
 
     @Test
-    void inputName_정상_작동() {
+    void inputCarNames_정상_작동() {
         String input = "a,b,c";
         provideInput(input);
 
-        String[] nameArr = io.inputName();
+        String[] nameArr = io.inputCarNames();
 
         assertThat(nameArr).containsExactly("a", "b", "c");
     }
 
     @Test
-    void inputName_앞에_쉼표_발견() {
+    void inputCarNames_앞에_쉼표_발견() {
         String input = ",b,c";
         provideInput(input);
 
@@ -42,7 +42,7 @@ class IOTest {
     }
 
     @Test
-    void inputName_뒤에_쉼표_발견() {
+    void inputCarNames_뒤에_쉼표_발견() {
         String input = "a,b,";
         provideInput(input);
 
@@ -50,17 +50,17 @@ class IOTest {
     }
 
     @Test
-    void inputNumber_정상_작동() {
+    void inputNumberOfAttempts_정상_작동() {
         String input = "6";
         provideInput(input);
 
-        int number = io.inputNumber();
+        int number = io.inputNumberOfAttempts();
 
         assertThat(number).isEqualTo(6);
     }
 
     @Test
-    void inputNumber_입력_안함() {
+    void inputNumberOfAttempts_입력_안함() {
         String input = "";
         provideInput(input);
 
@@ -68,7 +68,7 @@ class IOTest {
     }
 
     @Test
-    void inputNumber_숫자가_아닌_경우() {
+    void inputNumberOfAttempts_숫자가_아닌_경우() {
         String input = "a";
         provideInput(input);
 
@@ -76,7 +76,7 @@ class IOTest {
     }
 
     @Test
-    void outputStatus() {
+    void outputRacingStatus() {
         Map<String, Integer> nameMap = new HashMap<>();
         nameMap.put("pobi", 3);
         nameMap.put("woni", 2);
@@ -87,11 +87,9 @@ class IOTest {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
 
-        io.outputStatus(nameArr, nameMap);
+        io.outputRacingStatus(nameArr, nameMap);
 
-        String expectedOutput = "pobi : ---\n" +
-                "woni : --\n" +
-                "jun : ----\n\n";
+        String expectedOutput = "pobi : ---\n" + "woni : --\n" + "jun : ----\n\n";
 
         assertThat(outContent.toString()).isEqualTo(expectedOutput);
     }

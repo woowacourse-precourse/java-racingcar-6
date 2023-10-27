@@ -5,8 +5,8 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Map;
 
 public class IO {
-    public String[] inputName() {
-        outputNameRequest();
+    public String[] inputCarNames() {
+        outputCarNameInputRequest();
         String name = Console.readLine();
         if (name.isBlank()) {
             throw new IllegalArgumentException();
@@ -17,8 +17,8 @@ public class IO {
         return name.split(",");
     }
 
-    public int inputNumber() {
-        outputNumberRequest();
+    public int inputNumberOfAttempts() {
+        outputNumberOfAttemptsInputRequest();
         String number = Console.readLine();
         if (number.length() == 1 && Character.isDigit(number.charAt(0))) {
             return Integer.parseInt(number);
@@ -27,19 +27,19 @@ public class IO {
         }
     }
 
-    public void outputNameRequest() {
+    public void outputCarNameInputRequest() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
-    public void outputNumberRequest() {
+    public void outputNumberOfAttemptsInputRequest() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public void outputIntro() {
+    public void outputResultIntroduction() {
         System.out.println("실행 결과");
     }
 
-    public void outputStatus(String[] nameArr, Map<String, Integer> nameMap) {
+    public void outputRacingStatus(String[] nameArr, Map<String, Integer> nameMap) {
         for (String s : nameArr) {
             System.out.print(s + " : ");
             for (int j = 0; j < nameMap.get(s); j++) {
