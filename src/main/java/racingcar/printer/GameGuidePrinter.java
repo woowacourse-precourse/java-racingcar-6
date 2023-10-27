@@ -32,4 +32,14 @@ public class GameGuidePrinter {
         }
         System.out.println("\n");
     }
+
+    public static String resultPosition(Car car) {
+        StringBuilder resultPosition = new StringBuilder();
+
+        for (int i = 0; i < car.getPosition(); i++) {
+            resultPosition.append("-");
+        }
+
+        return resultPosition.toString();
+    }
 }
