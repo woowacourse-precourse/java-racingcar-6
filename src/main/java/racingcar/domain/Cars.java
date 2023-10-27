@@ -20,6 +20,14 @@ public class Cars {
     }
 
 
+    public Integer findWinnerPosition() {
+        List<Car> sorted = cars.stream()
+                .sorted()
+                .collect(Collectors.toList());
+
+        return sorted.get(sorted.size()-1).getPosition();
+    }
+
 
 
     private List<Car> createCars(List<String> names, MovingStrategy movingStrategy) {
