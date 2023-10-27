@@ -17,4 +17,10 @@ public class Cars {
             car.moveForward(randomNumber);
         }
     }
+
+    public List<String> getCarStatusList() {
+        return carList.stream()
+                .map(car -> car.getCarStatus())
+                .toList();
+    }
 }
