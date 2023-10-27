@@ -5,12 +5,10 @@ import view.InputView;
 import view.OutputView;
 
 public class RacingController {
-    private Cars cars;
 
     public void playGame() {
-        String[] carNames = InputView.getCarsNameFromUserInput();
+        Cars cars = new Cars(InputView.getCarsNameFromUserInput());
         int attempt = InputView.getAttemptsFromUserInput();
-        cars = new Cars(carNames);
 
         OutputView.displayResult();
         for (int i = 0; i < attempt; i++) {
