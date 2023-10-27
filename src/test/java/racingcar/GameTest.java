@@ -3,6 +3,7 @@ package racingcar;
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,8 +23,7 @@ public class GameTest {
 
     @BeforeEach
     void setUp() {
-        car = new Car();
-        game = new Game(cars);
+        car = new Car(cars);
     }
 
 
@@ -42,26 +42,38 @@ public class GameTest {
     }
 
 
-    @Test
-    void 자동차_맵_생성_테스트() {
-
-        String input = "pobi,jun,king,pobi,pobi";
-        String[] carNames = game.splitCarName(input);
-
-        HashMap<String, Integer> distinctCarNames = new HashMap<>();
-
-        for (int i = 0; i < carNames.length; i++) {
-            distinctCarNames.put(carNames[i], 0);
-        }
-        cars = game.createCarMap(carNames);
-        Assertions.assertTrue(distinctCarNames.size() == cars.size());
-
-    }
 
     @Test
     void 자동차_무작위_값_생성_테스트() {
         int carNumber = game.createCarNumber();
         Assertions.assertTrue(carNumber >= 0 && carNumber <= 9);
+    }
+
+    @Test
+    void 자동차_게임_시작(){
+
+        String input = "pobi,jun,king,wuk";
+        String [] carNames = game.splitCarName(input);
+        cars = car.createLocationMap(carNames);
+
+        Iterator<String> keys = cars.keySet().iterator();
+        while (keys.hasNext()){
+            String key = keys.next();
+            int randomNumber = game.createCarNumber();
+            //car.moveForward(key,randomNumber);
+        }
+
+
+        //car에서 locations 가지기
+        //game에서 locations 가지기
+
+
+        //게임시작
+        // carMap 갯수만큼 순회하면서 랜덤 숫자 생성하고 car에 move 신호 주기
+
+
+
+
     }
 
 
