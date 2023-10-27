@@ -38,17 +38,14 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    void 이름에_대한_예외_처리_blank() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
-
-//    @Test
-//    void 이름에_대한_예외_처리_blank() {
-//        assertSimpleTest(() ->
-//                assertThatThrownBy(() -> runException("", "1"))
-//                        .isInstanceOf(IllegalArgumentException.class)
-//        );
-//    }
 
     @Test
     void 이름에_대한_예외_처리_space() {
