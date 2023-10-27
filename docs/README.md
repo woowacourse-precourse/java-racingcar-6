@@ -10,6 +10,32 @@
 - [ ] 음수가 아닌 정수 형태여야 함 (0 이상의 정수, 0을 허용할지 말지 고민중...)
 - [ ] int 형 범위를 벗어나는 정수는 불가
 
+# 테스트 코드
+
+## Car 클래스
+
+- [ ] 생성자: name 필드가 제대로 초기화되는지
+- [ ] 생성자: 5자 이상의 이름이 사용될 시 에러를 발생시키는지
+- [ ] move: moved 필드 값이 이전보다 크거나 같아졌는지
+
+## InputView 클래스
+
+- [ ] inputNames: 각 이름이 ','에 의해 잘 나누어지는지
+- [ ] inputRepeat: 숫자로 잘 변환하여 반환하는지
+- [ ] inputRepeat: 변환할 수 없는 형태일 경우 에러를 발생시키는지
+- [ ] inputRepeat: 범위를 벗어나는 수일 경우 에러를 발생시키는지
+
+## OutputView 클래스
+
+- [ ] printResultWinner: 인자로 받은 names 리스트의 이름들을 ", "를 구분자로 합쳐 출력하는지
+- [ ] printResult: 인자로 받은 이름과, info.moved 횟수만큼 '-'를 반복하여 형식에 맞게 출혁하는지
+
+## RacingGame 클래스
+
+- [ ] setParticipants: participants 필드가 제대로 구성되는지
+- [ ] setRepeat: repeat 필드가 제대로 저장되는지
+- [ ] finishGame: 최종 우승자를 확인할 수 있는지
+
 # 주의할 점
 
 - [ ] Java 코드 컨벤션을 준수해야 함
