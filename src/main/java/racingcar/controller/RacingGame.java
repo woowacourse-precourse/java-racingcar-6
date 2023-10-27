@@ -6,7 +6,6 @@ import racingcar.model.CarRepository;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
@@ -16,20 +15,18 @@ public class RacingGame {
     private CarRepository carRepository;
     private int repeatCount;
 
-    public RacingGame(List<String> cars, int repeatCount) {
+    public RacingGame() {
         this.inputView = new InputView();
         this.outputView = new OutputView();
-        carRepository = new CarRepository(cars);
-        this.repeatCount = repeatCount;
     }
 
-    public RacingGame() {
-        this(new ArrayList<>(), 10);
+    public void initialize(List<String> carNames, int repeatCount) {
+        this.carRepository = new CarRepository(carNames);
+        this.repeatCount = repeatCount;
     }
 
     public void start() {
         setupGame();
-        System.out.println(carRepository + " " + repeatCount);
         play();
         outputView.getResult(carRepository.getMaxCars());
     }
@@ -38,7 +35,6 @@ public class RacingGame {
         for (int i = 0; i < repeatCount; i++) {
             OneRoundMove();
             outputView.printOneRoundResult(carRepository);
-            System.out.println(carRepository + " " + i);
         }
     }
 
@@ -57,8 +53,7 @@ public class RacingGame {
     }
 
     public void setupGame() {
-        this.carRepository = new CarRepository(inputView.getCarsName());
-        this.repeatCount = inputView.getRepeatCount();
+        initialize(inputView.getCarsName(), inputView.getRepeatCount());
     }
 
 }

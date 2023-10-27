@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import org.junit.platform.commons.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,28 +11,30 @@ import static racingcar.constant.Constants.*;
 public class InputView {
     public List<String> getCarsName() {
         System.out.println(INPUT_CARS);
-        return validCarNames(Console.readLine());
+        return extractAndValidateCarNames(Console.readLine());
     }
 
     public int getRepeatCount() {
         System.out.println(INPUT_REPEAT_COUNT);
-        return validRepeatCount(Console.readLine());
+        return extractAndValidateRepeatCount(Console.readLine());
     }
 
-    private List<String> validCarNames(String input) {
+    private List<String> extractAndValidateCarNames(String input) {
+        validateInput(input);
+
         String[] carNames = input.split(INPUT_SPLIT_STRING);
-        List<String> names = new ArrayList<>();
+        List<String> validCarNames = new ArrayList<>();
 
         for (String carName : carNames) {
-            if (NAMES_MAX_LENGTH < carName.length())
-                throw new IllegalArgumentException(ERROR_INVALID_CAR_NAME);
-            names.add(carName.trim());
+            String trimCarName = carName.trim();
+            validateCarName(trimCarName);
+            validCarNames.add(trimCarName);
         }
-        return names;
 
+        return validCarNames;
     }
 
-    private int validRepeatCount(String input) {
+    private int extractAndValidateRepeatCount(String input) {
         try {
             int repeatCnt = Integer.parseInt(input);
             if (repeatCnt <= MIN_REPEAT_CNT || MAX_REPEAT_CNT < repeatCnt)
@@ -41,6 +44,22 @@ public class InputView {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ERROR_INVALID_REPEAT_COUNT);
         }
+    }
+
+    private void validateInput(String input) {
+        if (StringUtils.isBlank(input)) {
+            throw new IllegalArgumentException(ERROR_INVALID_CAR_NAME);
+        }
+    }
+
+    private void validateCarName(String carName) {
+        if (isCarNameInvalid(carName)) {
+            throw new IllegalArgumentException(ERROR_INVALID_CAR_NAME);
+        }
+    }
+
+    private boolean isCarNameInvalid(String carName) {
+        return carName.length() > NAMES_MAX_LENGTH;
     }
 
 }
