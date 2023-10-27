@@ -1,6 +1,6 @@
 package racingcar.model;
 
-public final class Car {
+public final class Car{
     private final String name;
     private final int progress;
 
@@ -14,6 +14,9 @@ public final class Car {
     }
 
     public Car move(int randomNumber) {
+        if(randomNumber < 0 || randomNumber > 9) {
+            throw new IllegalArgumentException("0~9사이의 수만 입력 받을 수 있습니다.");
+        }
         if(isMoved(randomNumber)) {
             return new Car(this.name, this.progress + 1);
         }
@@ -22,5 +25,9 @@ public final class Car {
 
     private boolean isMoved(int number) {
         return number >= 4;
+    }
+
+    public int getProgress() {
+        return progress;
     }
 }
