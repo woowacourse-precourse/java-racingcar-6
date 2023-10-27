@@ -1,25 +1,29 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
 
     private final List<Car> participantCars;
+    private final int retryCount;
 
-    public Game(List<Car> participantCars) {
+    public Game(List<Car> participantCars, int retryCount) {
         this.participantCars = participantCars;
+        this.retryCount = retryCount;
     }
 
     public void playGame() {
-        controlCar();
+        System.out.println("실행결과");
+        tryRoundUntilRetryCount();
 
-        displayCarPosition();
+        displayWinner();
     }
 
-    private void controlCar() {
-        int gamePlayCount = 5;
-        for (int i = 0; i < gamePlayCount; i++) {
+    private void tryRoundUntilRetryCount() {
+        for (int i = 0; i < retryCount; i++) {
             moveCar();
+            displayCarPosition();
         }
     }
 
@@ -30,6 +34,22 @@ public class Game {
             }
         }
     }
+
+    private List<Car> determineWinner() {
+        int maxPosition = 0;
+        for (Car participantCar : participantCars) {
+            maxPosition = Math.max(maxPosition, participantCar.getPosition());
+        }
+
+        int finalMaxPosition = maxPosition;
+
+        List<Car> winners = participantCars.stream()
+            .filter(car -> car.getPosition() == finalMaxPosition)
+            .toList();
+
+        return winners;
+    }
+
 
     private boolean isMoveToForward() {
         return getRandomNumber() >= 4;
@@ -42,7 +62,19 @@ public class Game {
     private void displayCarPosition() {
         for (Car participantCar : participantCars) {
             int position = participantCar.getPosition();
-            System.out.println(participantCar.getName() + " : " + "-".repeat(position));
+            System.out.println(participantCar.getName() + " : " + "-".repeat(position) + "\n");
         }
+    }
+
+    private void displayWinner() {
+        List<Car> winners = determineWinner();
+        List<String> tempWinner = new ArrayList<>();
+
+        for (Car winner : winners) {
+            tempWinner.add(winner.getName());
+        }
+
+        String winnerNames = String.join(", ", tempWinner);
+        System.out.println("최종 우승자 : " + winnerNames);
     }
 }
