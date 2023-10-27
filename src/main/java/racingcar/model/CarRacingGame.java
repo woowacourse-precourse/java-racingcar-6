@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 import racingcar.exception.car_racing_game.NotUniqueCarNameException;
 import racingcar.exception.position.NotFoundPositionException;
 
@@ -13,32 +12,32 @@ public class CarRacingGame implements RacingGame {
     private final Map<Car, Position> racingTrack;
 
     public CarRacingGame(final Map<Car, Position> racingTrack) {
-        validateDuplicateName();
+        validateDuplicateName(racingTrack);
         this.racingTrack = racingTrack;
     }
 
-    private void validateDuplicateName() {
-        int distinctCount = countDistinctElement();
-        if (isDuplicate(distinctCount)) {
-            List<String> keyList = convertKeySetToStringList();
+    private void validateDuplicateName(final Map<Car, Position> racingTrack) {
+        int distinctCount = countDistinctElement(racingTrack);
+        if (isDuplicate(distinctCount, racingTrack)) {
+            List<String> keyList = convertKeySetToStringList(racingTrack);
             throw new NotUniqueCarNameException(keyList);
         }
     }
 
-    private int countDistinctElement() {
+    private int countDistinctElement(final Map<Car, Position> racingTrack) {
         return (int) racingTrack.keySet().stream()
                 .distinct()
                 .count();
     }
 
-    private boolean isDuplicate(final int distinctCount) {
+    private boolean isDuplicate(final int distinctCount, final Map<Car, Position> racingTrack) {
         return distinctCount < racingTrack.size();
     }
 
-    private List<String> convertKeySetToStringList() {
+    private List<String> convertKeySetToStringList(final Map<Car, Position> racingTrack) {
         return racingTrack.keySet().stream()
                 .map(Car::getName)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
@@ -77,6 +76,6 @@ public class CarRacingGame implements RacingGame {
         return racingTrack.entrySet().stream()
                 .filter(entry -> entry.getValue().getPositionIndex() == maxPosition)
                 .map(entry -> entry.getKey().getName())
-                .collect(Collectors.toList());
+                .toList();
     }
 }
