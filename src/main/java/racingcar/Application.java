@@ -1,12 +1,8 @@
 package racingcar;
 
-import racingcar.domain.Car;
 import racingcar.domain.GameController;
 import racingcar.domain.GameData;
 import racingcar.domain.View;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Application {
     public static void main(String[] args) {

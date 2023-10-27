@@ -34,15 +34,15 @@ public class GameData {
         return tryRepetitionNumber;
     }
 
+    public void setTryRepetitionNumber(Integer tryRepetitionNumber) {
+        this.tryRepetitionNumber = tryRepetitionNumber;
+    }
+
     public List<Car> getWinnerList() {
         return winnerList;
     }
 
     public void setWinnerList(List<Car> winnerList) {
         this.winnerList = winnerList;
-    }
-
-    public void setTryRepetitionNumber(Integer tryRepetitionNumber) {
-        this.tryRepetitionNumber = tryRepetitionNumber;
     }
 }
