@@ -1,31 +1,31 @@
 package racingcar.domain;
 
-import static racingcar.domain.DomainConstant.CAR_MOVE;
 import static racingcar.domain.DomainConstant.CAR_MOVE_CONDITION;
 import static racingcar.view.RacingView.carMoveOrStopDecisionResultView;
 
 public class Car {
-    private final StringBuilder stopOrMoveDecisionResult;
+    private int position;
     private final String carName;
+
 
     public Car(String carName) {
         this.carName = carName;
-        stopOrMoveDecisionResult = new StringBuilder();
+        position = 0;
     }
 
     public void stopOrMoveDecision(int randomNumber) {
         if (randomNumber >= CAR_MOVE_CONDITION) {
-            stopOrMoveDecisionResult.append(CAR_MOVE);
+            position++;
         }
-        carMoveOrStopDecisionResultView(carName, stopOrMoveDecisionResult.toString());
+        carMoveOrStopDecisionResultView(carName, position);
     }
 
     public String getCarName() {
         return carName;
     }
 
-    public int calculateDistance() {
-        return stopOrMoveDecisionResult.toString().length();
+    public int getCarPosition() {
+        return position;
     }
 
     @Override

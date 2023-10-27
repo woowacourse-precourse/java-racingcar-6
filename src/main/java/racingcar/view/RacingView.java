@@ -13,7 +13,11 @@ public class RacingView {
         System.out.println(ATTEMPT_NUMBER_INPUT);
     }
 
-    public static void carMoveOrStopDecisionResultView(String carName, String racingResult) {
-        System.out.println(carName + " : " + racingResult);
+    public static void carMoveOrStopDecisionResultView(String carName, int cartPosition) {
+        System.out.println(carName + " : " + "*".repeat(cartPosition));
+    }
+
+    public static void winnerView(String winner) {
+        System.out.println("최종우승자 : " + winner);
     }
 }
