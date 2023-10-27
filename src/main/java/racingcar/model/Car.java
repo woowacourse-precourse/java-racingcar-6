@@ -16,11 +16,11 @@ public class Car {
     }
 
     public String getCarName(){
-        return this.name.getName();
+        return name.getName();
     }
 
     public int getCarAdvances(){
-        return this.advance.getValue();
+        return advance.getValue();
     }
 
     public static boolean isValidateAdvance(final int randomNumber){
