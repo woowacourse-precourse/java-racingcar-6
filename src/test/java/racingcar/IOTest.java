@@ -34,6 +34,15 @@ class IOTest {
     }
 
     @Test
+    void inputCarNames_공백() {
+        String input = "";
+        provideInput(input);
+
+        assertThatIllegalArgumentException();
+    }
+
+
+    @Test
     void inputCarNames_앞에_쉼표_발견() {
         String input = ",b,c";
         provideInput(input);
