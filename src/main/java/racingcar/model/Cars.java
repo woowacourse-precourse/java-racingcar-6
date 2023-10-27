@@ -1,11 +1,13 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashMap;
 import java.util.Map;
 import racingcar.validator.InputValidator;
 
 public class Cars {
     private static final int ZERO_POSITION = 0;
+    private static final int MIN_MOVE_NUMBER = 4;
     Map<Name, Integer> cars;
 
     public Cars(String names) {
@@ -20,6 +22,14 @@ public class Cars {
             carMap.put(new Name(carName), ZERO_POSITION);
         }
         return carMap;
+    }
+
+    private void decideToMove() {
+        cars.forEach((name, position) -> {
+            if (Randoms.pickNumberInRange(1, 9) >= MIN_MOVE_NUMBER) {
+                cars.put(name, position + 1);
+            }
+        });
     }
 
 }
