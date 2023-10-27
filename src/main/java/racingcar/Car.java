@@ -5,9 +5,11 @@ import java.util.Objects;
 class Car {
 
     private final Name name;
+    private long moveCount;
 
     Car(String name) {
         this.name = new Name(name);
+        this.moveCount = 0L;
     }
 
     @Override
