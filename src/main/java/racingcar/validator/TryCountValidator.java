@@ -3,6 +3,9 @@ package racingcar.validator;
 import racingcar.util.Convertor;
 
 public class TryCountValidator {
+    private static final String ONLY_NUMBER = "^[0-9]*$";
+    private static final char ZERO = '0';
+    private static final int MIN_COUNT = 1;
 
     private TryCountValidator() {
     }
@@ -16,27 +19,27 @@ public class TryCountValidator {
 
     private static void validateNull(String input) {
         if (input.isBlank()) {
-            throw new IllegalArgumentException("아무런 값을 입력하지 않았습니다.");
+            throw new IllegalArgumentException(ErrorMessage.NULL_ERROR);
         }
     }
 
     private static void validateInputFormat(String input) {
-        if (!input.matches("^[0-9]*$")) {
-            throw new IllegalArgumentException("횟수는 숫자만 입력할 수 있습니다.");
+        if (!input.matches(ONLY_NUMBER)) {
+            throw new IllegalArgumentException(ErrorMessage.TRY_COUNT_ONY_NUMBER);
         }
     }
 
     private static void validateInputRange(String input) {
-        int moveCount = Convertor.convertStringToInt(input);
-        if (moveCount < 1) {
-            throw new IllegalArgumentException("이동 횟수는 0보다 커야 합니다.");
+        int tryCount = Convertor.convertStringToInt(input);
+        if (tryCount < MIN_COUNT) {
+            throw new IllegalArgumentException(ErrorMessage.TRY_COUNT_GT_ZERO);
         }
     }
 
     private static void validateIsStartZero(String input) {
-        if (input.charAt(0) == '0') {
+        if (input.charAt(0) == ZERO) {
             Integer.parseInt(input);
-            throw new IllegalArgumentException("이동 횟수의 첫 번째 숫자는 0이 될 수 없습니다.");
+            throw new IllegalArgumentException(ErrorMessage.TRY_COUNT_NOT_ALLOW_ZERO_IN_FIRST);
         }
     }
 }
