@@ -38,6 +38,16 @@ public class Application {
             System.out.println();
         }
 
+        int max = scores[0];
+        for (int i = 0; i < scores.length; i++) {
+            if(scores[i] > max) {
+                max = scores[i];
+            }
+        }
+        System.out.println(max);
+
+        // TODO : 1max와 같은 점수를 가진 사람이름을 출력해보시오. 2스코어점수를 막대로 표현하기
+
     }
 
 
