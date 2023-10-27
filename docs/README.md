@@ -2,6 +2,7 @@
 
 1. 게임 준비
 - [ ] 경주 할 자동차 이름을 입력받는다. AskCarName#askCarName()
+  - [ ] 입력받은 값에 ','이 포함 되어 있는지 확인한다. AskCarName#checkCarName()
   - [ ] 각 자동차의 이름을 ','를 기준으로 구분한다. AskCarName#splitCarName()
   - [ ] 자동차의 이름은 5자 이하만 가능하다. AskCarName#validateLengthOfCarName()
 
