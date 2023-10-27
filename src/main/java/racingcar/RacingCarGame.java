@@ -3,24 +3,28 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 import game.Game;
+import java.util.stream.Collectors;
 import util.RacingCarRandoms;
 import util.inputreader.RacingCarInputReader;
-import util.stringconverter.RacingCarConverter;
 
 public class RacingCarGame implements Game {
     private List<RacingCarPlayer> players;
 
+    private List<RacingCarPlayer> winners;
+
     private int tryCount;
+
     private final RacingCarInputReader racingCarInputReader;
 
-    private final RacingCarConverter racingCarConverter;
+    private final RacingCarFormatter racingCarFormatter;
 
     private final RacingCarRandoms racingCarRandoms;
 
     public RacingCarGame() {
         this.players = new ArrayList<>();
+        this.winners = new ArrayList<>();
         this.racingCarInputReader = new RacingCarInputReader();
-        this.racingCarConverter = new RacingCarConverter();
+        this.racingCarFormatter = new RacingCarFormatter();
         this.racingCarRandoms = new RacingCarRandoms();
     }
 
@@ -35,7 +39,7 @@ public class RacingCarGame implements Game {
 
     public void setPlayers(){
         List<String> players = racingCarInputReader.inputPlayers();
-        players.stream().map(racingCarConverter::fromString).forEach(this.players::add);
+        this.players = players.stream().map(racingCarFormatter::racingCarPlayerFromString).collect(Collectors.toList());
     }
 
     public void setTryCount(){
