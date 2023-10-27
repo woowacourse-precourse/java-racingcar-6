@@ -1,0 +1,56 @@
+# 기능할 구현 목록
+기능 구현 목록 초안입니다.  
+
+----
+## class Stadium
+기능 목록
+```
+void inputCars()
+    경주할 차 목록을 입력받는다.
+```
+```
+void inputTryCount()
+    전진 횟수를 입력받는다. 
+```
+```
+void goCars()
+    모든 차를 전진한다.
+```
+```
+List findWinner()
+    최종 승자를 찾는다.
+```
+```
+void printWinner()
+    최종 승자를 출력한다.
+```
+## class Car 
+기능 목록
+```
+void run()
+    전진한다.
+```
+```
+isRunnable()
+    전진 가능한지 확인한다.
+```
+
+## SnapShot
+```
+void printSnapshot(int order)
+    order번째 전진의 스냅샷을 출력한다.
+```
+```
+void setSnapshot(int order)
+    order번째 전진의 스냅샷을 세팅한다.
+```
+```
+Map getSnapShot(int order)
+    order번째 전진의 스냅샷을 가져온다.
+```
+
+## class Util
+```
+boolean getRandomBoolean()
+    랜덤으로 true/false를 생성한다.
+```
