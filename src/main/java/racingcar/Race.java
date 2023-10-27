@@ -12,9 +12,11 @@ import java.util.StringTokenizer;
 public class Race {
 
     private List<Car> cars = new ArrayList<>();
+    private List<String> winners = new ArrayList<>();
+    private int moveTrialCount;
+    private int maxProgress = 0;
     private StringTokenizer st;
     private RaceValidator raceValidator = new RaceValidator();
-    private int moveTrialCount;
     private RaceView raceView = new RaceView();
 
     public void start() {
@@ -29,6 +31,10 @@ public class Race {
             moveTrial();
             raceView.printProgress(cars);
         }
+
+        calculateMaxProgress();
+        findWinner();
+        raceView.printFinalWinner(winners);
     }
 
     private void generateCar() {
@@ -59,6 +65,24 @@ public class Race {
         System.out.println(car.getName() + "의 랜덤값 : " + randomNumber);
         if (randomNumber >= 4) {
             car.forward();
+        }
+    }
+
+    private void calculateMaxProgress() {
+        for (Car car : cars) {
+            maxProgress = Math.max(maxProgress, car.getProgress());
+        }
+    }
+
+    private void findWinner() {
+        for (Car car : cars) {
+            addWinner(car);
+        }
+    }
+
+    private void addWinner(Car car) {
+        if (car.getProgress() == maxProgress) {
+            winners.add(car.getName());
         }
     }
 }
