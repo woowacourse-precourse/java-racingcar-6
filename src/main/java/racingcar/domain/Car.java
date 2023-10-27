@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import racingcar.constant.ActionConstant;
 
 public class Car {
 
