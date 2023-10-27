@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.Racer;
+import racingcar.model.Round;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -15,10 +16,9 @@ public class RacingCarController {
 
     public void run() {
         Racer racer = new Racer(inputView.readCars());
-        int round = Integer.parseInt(inputView.readRound());
+        Round round = new Round(inputView.readRound());
         outputView.printExecution();
-
-        for (int i = 0; i < round; i++) {
+        while (round.isContinue()) {
             racer.play();
             outputView.printResult(racer);
         }
