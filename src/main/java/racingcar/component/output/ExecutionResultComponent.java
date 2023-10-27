@@ -1,10 +1,12 @@
 package racingcar.component.output;
 
-import racingcar.common.Component;
+import static strings.Strings.LINE_BREAK;
+
+import racingcar.component.Component;
 
 public final class ExecutionResultComponent implements Component {
 
-    private static final String TEXT = "실행 결과\n";
+    private static final String TEXT = LINE_BREAK + "실행 결과" + LINE_BREAK;
 
     @Override
     public String render() {

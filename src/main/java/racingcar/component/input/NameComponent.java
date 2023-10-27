@@ -1,6 +1,6 @@
 package racingcar.component.input;
 
-import racingcar.common.Component;
+import racingcar.component.Component;
 
 public final class NameComponent implements Component {
 

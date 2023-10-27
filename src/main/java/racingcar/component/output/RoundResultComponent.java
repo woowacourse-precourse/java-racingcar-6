@@ -4,14 +4,14 @@ import static strings.Strings.DASH;
 import static strings.Strings.LINE_BREAK;
 
 import java.util.stream.Collectors;
-import racingcar.common.Component;
+import racingcar.component.Component;
 import racingcar.domain.car.dto.output.CarRacingDto;
 import racingcar.domain.car.dto.output.CarsRacingDto;
 import strings.Strings;
 
 public final class RoundResultComponent implements Component {
 
-    private static boolean isFirstRender = false;
+    private static boolean isFirstRender = true;
 
     private final CarsRacingDto dto;
 
@@ -27,7 +27,7 @@ public final class RoundResultComponent implements Component {
                     .render()
                     + renderCarsData();
         }
-        return renderCarsData();
+        return LINE_BREAK + LINE_BREAK + renderCarsData();
     }
 
     private String renderCarsData() {

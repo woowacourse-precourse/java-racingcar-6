@@ -1,9 +1,10 @@
 package racingcar.component.output;
 
 import static strings.Strings.COMMAS;
+import static strings.Strings.LINE_BREAK;
 import static strings.Strings.WHITE_SPACE;
 
-import racingcar.common.Component;
+import racingcar.component.Component;
 import racingcar.domain.game.CarsFinishedDto;
 
 public final class GameResultComponent implements Component {
@@ -17,7 +18,7 @@ public final class GameResultComponent implements Component {
 
     @Override
     public String render() {
-        return String.format(TEXT,
+        return String.format(LINE_BREAK + LINE_BREAK + TEXT,
                 String.join(
                         COMMAS + WHITE_SPACE,
                         dto.winnerNames()
