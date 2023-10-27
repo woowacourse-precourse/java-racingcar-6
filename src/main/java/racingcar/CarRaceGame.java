@@ -17,7 +17,7 @@ public class CarRaceGame {
     public void startRace() {
         addRaceCars();
         int raceCount = inputRaceCount();
-        startMoveCar(raceCount);
+        startMoveCars(raceCount);
         printWinner();
     }
 
@@ -37,19 +37,15 @@ public class CarRaceGame {
         judge.addCars(carNames);
     }
 
-    private void startMoveCar(final int raceCount) {
+    private void startMoveCars(final int raceCount) {
         for (int count = 0; count < raceCount; count++) {
             judge.moveCars(getGenerateSupplier());
-            List<MoveResult> singleMoveResult = getSingleMoveResults();
-            printSingleMoveResult(singleMoveResult);
+            printSingleMoveResult();
         }
     }
 
-    private List<MoveResult> getSingleMoveResults() {
-        return judge.createSingleMoveResults();
-    }
-
-    private void printSingleMoveResult(final List<MoveResult> singleMoveResults) {
+    private void printSingleMoveResult() {
+        List<MoveResult> singleMoveResults = judge.createSingleMoveResults();
         String singleResult = generateMoveResultsMessage(singleMoveResults);
         OutputView.printSingleResult(singleResult);
     }
