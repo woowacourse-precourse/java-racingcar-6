@@ -26,24 +26,29 @@ public class Application {
         final List<Car> cars = transformStringToCarList(Console.readLine());
         System.out.println("시도할 회수는 몇회인가요?");
 
-        int turn = Integer.parseInt(Console.readLine());
-        int maxScore = 0;
+        try{
+            int turn = Integer.parseInt(Console.readLine());
+            int maxScore = 0;
 
-        System.out.println("실행 결과");
-        for (int i = 0; i < turn; i++) {
-            maxScore = cars.stream().mapToInt(Car::run).max().orElse(0);
-            System.out.println();
-        }
-
-        List<String> winner = new ArrayList<>();
-
-        for (Car car : cars) {
-            final String carName = car.ifMaxScore(maxScore);
-            if (!carName.isEmpty()) {
-                winner.add(carName);
+            System.out.println("실행 결과");
+            for (int i = 0; i < turn; i++) {
+                maxScore = cars.stream().mapToInt(Car::run).max().orElse(0);
+                System.out.println();
             }
+
+            List<String> winner = new ArrayList<>();
+
+            for (Car car : cars) {
+                final String carName = car.ifMaxScore(maxScore);
+                if (!carName.isEmpty()) {
+                    winner.add(carName);
+                }
+            }
+            String winnerFormat = String.format("최종 우승자 : %s", String.join(", ", winner));
+            System.out.println(winnerFormat);
+        }catch (Exception e){
+            throw new IllegalArgumentException("숫자만 입력해 주세요.");
         }
-        String winnerFormat = String.format("최종 우승자 : %s", String.join(", ", winner));
-        System.out.println(winnerFormat);
+
     }
 }
