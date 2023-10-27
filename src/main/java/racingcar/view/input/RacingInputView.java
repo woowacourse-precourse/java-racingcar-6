@@ -10,4 +10,9 @@ public class RacingInputView {
         return Console.readLine();
     }
 
+    public String inputTryCount() {
+        RacingOutputView.outputTryCount();
+        return Console.readLine();
+    }
+
 }
