@@ -24,6 +24,7 @@ public class RacingGame {
         handleCarNameInput();
         handleNumberOfattempsInput();
         handlePlayRacingGame();
+        handleWinners();
     }
 
     public void handleCarNameInput() {
@@ -44,5 +45,10 @@ public class RacingGame {
             outputView.printPlayResult(results);
             isGoal = racingGameService.reaches();
         }
+    }
+
+    public void handleWinners() {
+        String winnerList = racingGameService.getWinners();
+        outputView.printWinners(winnerList);
     }
 }
