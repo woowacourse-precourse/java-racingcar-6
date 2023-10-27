@@ -6,4 +6,5 @@ public class GameConfig {
     public static int movingCondition = 4;
     public static int nameLimit = 5;
     public static String nameSeparator = ",";
+    public static boolean nameDuplication = false;
 }

@@ -23,7 +23,7 @@ public class Validator {
             }
         }
         Set<String> nameSet = new HashSet<>(nameList);
-        if (nameSet.size() != nameList.size()){
+        if (!GameConfig.nameDuplication && nameSet.size() != nameList.size()){
             throw new IllegalArgumentException(DUPLICATED_NAME);
         }
     }
