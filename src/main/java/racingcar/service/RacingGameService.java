@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import racingcar.constants.Constants;
 import racingcar.model.Attemps;
 import racingcar.model.Car;
 import racingcar.model.Cars;
@@ -25,7 +26,8 @@ public class RacingGameService {
     }
 
     public void addCars(String carNames) {
-        List<String> carNameList = new ArrayList<String>(Arrays.asList(carNames.split(",")));
+        List<String> carNameList = new ArrayList<String>(
+                Arrays.asList(carNames.split(Constants.SEPARATOR.getStringValue())));
         cars.addCars(carNameList);
     }
 
@@ -63,6 +65,7 @@ public class RacingGameService {
     }
 
     public String getWinners() {
-        return winners.getWinner().stream().map(car -> car.getName()).collect(Collectors.joining(","));
+        return winners.getWinner().stream().map(car -> car.getName())
+                .collect(Collectors.joining(Constants.SEPARATOR.getStringValue() + " "));
     }
 }
