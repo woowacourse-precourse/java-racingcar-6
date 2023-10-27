@@ -67,4 +67,19 @@ public class ValidateInputTest {
         assertThatThrownBy(() -> Application.validateCarListInputLength(inputList))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void validateCarListInputUnique_유효성검사_성공_테스트() {
+        List<String> inputList = Arrays.asList("red", "green", "blue");
+
+        Application.validateCarListInputUnique(inputList);
+    }
+
+    @Test
+    void validateCarListInputUnique_유효성검사_실패_테스트() {
+        List<String> inputList = Arrays.asList("red", "green", "red");
+
+        assertThatThrownBy(() -> Application.validateCarListInputUnique(inputList))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
