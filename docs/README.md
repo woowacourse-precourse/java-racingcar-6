@@ -27,7 +27,7 @@
   - [x] 콘솔에서 사용자에게 이름들을 입력받는다. -inputNames()
   - [x] 입력받은 문자열을 쉼표(,)를 기준으로 나눠준다. -splitNames()
   - [x] 이름에 공백이 포함되는 경우 공백을 지운다. -removeWhiteSpace()
-  - [ ] 입력받은 이름들중 중복이 있는지 확인한다. -checkHasDuplicates()
+  - [x] 입력받은 이름들중 중복이 있는지 확인한다. -checkHasDuplicates()
     - 중복이 있는 경우 IllegalArgumentException을 발생하고 애플리케이션을 종료시킨다.
   - [x] 입력받은 이름을 담는 객체를 생성. Name()
     - [x] 이름의 적합성을 판단한다. -NameValidator.validateName()
