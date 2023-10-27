@@ -10,4 +10,9 @@ public class Input {
         String[] Names = input.split(",");
         return Arrays.asList(Names);
     }
+
+    public static int readMoveCount() {
+        String input = Console.readLine();
+        return Integer.parseInt(input);
+    }
 }
