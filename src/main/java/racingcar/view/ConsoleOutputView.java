@@ -24,7 +24,6 @@ public class ConsoleOutputView {
             }
             result.append("\n");
         }
-        result.append("\n");
         return result.toString();
     }
 

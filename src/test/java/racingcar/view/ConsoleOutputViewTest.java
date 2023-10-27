@@ -3,12 +3,12 @@ package racingcar.view;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class ConsoleOutputViewTest {
     ConsoleOutputView consoleOutputView = new ConsoleOutputView();
+
     @Test
     void showInputCarNamesPrompt() {
         String output = consoleOutputView.showInputCarNamesPrompt();
@@ -23,7 +23,7 @@ class ConsoleOutputViewTest {
 
     @Test
     void showExecutionResultsHeader() {
-        String output = consoleOutputView.showInputTryNumberPrompt();
+        String output = consoleOutputView.showExecutionResultsHeader();
         assertEquals(output, "실행 결과");
     }
 
@@ -33,7 +33,7 @@ class ConsoleOutputViewTest {
         ArrayList<Integer> carGoingCount = new ArrayList<>(List.of(3, 5, 2));
 
         String output = consoleOutputView.showExecutionResults(carNames, carGoingCount);
-        assertEquals(output, "Tom : ---\nBob : -----\nLisa : --\n\n");
+        assertEquals(output, "Tom : ---\nBob : -----\nLisa : --\n");
     }
 
     @Test

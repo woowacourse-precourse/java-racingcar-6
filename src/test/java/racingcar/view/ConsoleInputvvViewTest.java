@@ -1,14 +1,11 @@
 package racingcar.view;
 
-import camp.nextstep.edu.missionutils.Console;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.io.ByteArrayInputStream;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
-
-class ConsoleInputViewTest {
+class ConsoleInputvvViewTest {
     @Test
     void getUserInput() {
         // 가짜 입력 스트림 생성
@@ -18,7 +15,7 @@ class ConsoleInputViewTest {
         System.setIn(fakeInput);
 
         // getUserInput 메서드 호출
-        String userInput = ConsoleInputView.getUserInput();
+        String userInput = ConsoleInputView.UserInput();
 
         // 원래 System.in 복원
         System.setIn(System.in);
