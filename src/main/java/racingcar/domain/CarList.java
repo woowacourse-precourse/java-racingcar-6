@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static racingcar.view.RacingView.carMoveOrStopDecisionResultView;
+import static racingcar.view.RacingView.newLine;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,6 +24,7 @@ public class CarList {
             String carName = car.getCarName();
             carMoveOrStopDecisionResultView(carName, carPosition);
         }
+        newLine();
     }
 
     public String racingWinnerDecision() {
