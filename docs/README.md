@@ -15,7 +15,7 @@
 
 ## 도메인
 
-- [] Car : 자동차
+- [ ] Car : 자동차
     - [x] name을 가진다.
         - [x] 이름의 길이는 5를 초과할 경우 IllegalArgumentException을 발생시킨다.
     - [x] moves를 가진다.
@@ -23,15 +23,9 @@
 
 - [x] MoveRule(인터페이스) : 차가 이동하는 조건에 대해 정의한다.
     - 인터페이스로 만드는 이유 : 지금은 0 ~ 9 사이에서 4만 넘으면 한칸 전진하는 방식이지만, 이 룰은 바뀔 수 있다.
-    - [x] NumberGenerator를 인터페이스로 받는다.
         - ex : 0 ~ 9 에서 나온 숫자만큼 움직이기 등
-        - [x] tryMove() : 움직임을 시도한다.
-            - [x] 반환값으로 움직인 거리(int)를 반환한다.
+        - [x] tryMove() : 0 ~ 9 중 랜덤 숫자를 받고 4 이상일때만 1을 반환
 
-
-- [x] NumberGenerator(인터페이스) : 숫자를 생성하기 위한 인터페이스
-    - 생성하는 이유 : 테스트코드에서 난수를 테스트 하기 위해
-    - [x] generate(int startInclude, int endExclude) : 난수를 생성한다.
 
 - [x] MoveRuleByMinimumScore : 최소 점수 이상만 한칸 움직이는 룰
     - [x] MoveRule 인터페이스를 구현한다.
@@ -40,12 +34,12 @@
 
 - [x] NumberGenerator(인터페이스) : 숫자를 생성하기 위한 인터페이스
     - 생성하는 이유 : 테스트코드에서 난수를 테스트 하기 위해
+    - [x] NumberGenerator를 인터페이스로 받는다.
     - [x] generate(int startInclude, int endExclude) : 난수를 생성한다
 
 
 - [x] RandomNumberGenerator(구현체)
     - [x] 0 ~ 9 까지 랜덤한 난수를 생성한다.
-
 
 - [ ] RacingGame : 레이싱 게임을 하는 곳
     - [ ] 총 진행 횟수를 가진다.
