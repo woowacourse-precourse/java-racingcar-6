@@ -81,8 +81,10 @@ class ApplicationTest extends NsTest {
         raceCarList.get(0).movementControlCar();
         raceCarList.get(0).movementControlCar();
         raceCarList.get(0).movementControlCar();
+
         raceCarList.get(1).movementControlCar();
         raceCarList.get(1).movementControlCar();
+
         raceCarList.get(2).movementControlCar();
 
         Integer result_one = raceCarList.get(0).getCntMovementOfCar();
@@ -93,6 +95,28 @@ class ApplicationTest extends NsTest {
         assertThat(result_one).isEqualTo(3);
         assertThat(result_two).isEqualTo(2);
         assertThat(result_three).isEqualTo(1);
+    }
+
+    // ================ GameHost.class ================
+    @DisplayName("게임을 진행하는 게임 진행자를 생성하는 클래스")
+    @Test
+    public void winRaceCarTest() throws Exception {
+        // given
+        List<RaceCar> winRaceCarList = new ArrayList<>();
+
+        // when
+        raceCarList.get(0).movementControlCar();
+        raceCarList.get(0).movementControlCar();
+        raceCarList.get(0).movementControlCar();
+        raceCarList.get(1).movementControlCar();
+        raceCarList.get(1).movementControlCar();
+        raceCarList.get(2).movementControlCar();
+
+        winRaceCarList = gameHost.winRaceCar(raceCarList);
+        String result = winRaceCarList.toString();
+        
+        // then
+        assertThat(result).isEqualTo(nameArr[0]);
     }
 
 
