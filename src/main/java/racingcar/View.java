@@ -2,12 +2,12 @@ package racingcar;
 
 public class View {
 
-    public void printMsg(String output) {
+    private void printMsg(String output) {
         System.out.println(output);
     }
 
     public void inputNamesMsg() {
-        printMsg("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
+        printMsg("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
     public void inputRoundMsg() {
