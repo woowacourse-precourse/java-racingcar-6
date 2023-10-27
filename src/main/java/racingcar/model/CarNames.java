@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -28,6 +29,10 @@ public class CarNames {
 
             carNames.add(carName);
         }
+    }
+
+    public List<String> getCarNames() {
+        return Collections.unmodifiableList(carNames);
     }
 
 

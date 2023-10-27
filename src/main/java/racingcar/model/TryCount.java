@@ -11,4 +11,8 @@ public class TryCount {
     public int getCount() {
         return tryCount;
     }
+
+    public void decreaseCount() {
+        tryCount--;
+    }
 }
