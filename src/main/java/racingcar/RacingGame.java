@@ -23,12 +23,21 @@ public class RacingGame {
             printCarStates();
         }
 
+        List<Car> winners = extractWinners();
+        printWinners(winners);
     }
 
     private void printCarStates() {
         this.carList.stream()
                 .forEach(System.out::println);
         System.out.println("");
+    }
+
+    private void printWinners(List<Car> winners) {
+        String msg = winners.stream()
+                .map(element -> element.getName())
+                .collect(Collectors.joining(", "));
+        System.out.println("최종 우승자 : " + msg);
     }
 
     private List<Car> extractWinners() {
