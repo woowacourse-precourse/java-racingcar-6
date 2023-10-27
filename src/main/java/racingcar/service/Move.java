@@ -25,7 +25,14 @@ public class Move {
     }
 
     public void stopTheCar(LinkedHashMap<String, String> carList, List<Integer> randomNumberList) {
-        String moveValue = car.getCarList().get(carname);
-        car.getCarList().put(carname, moveValue + "");
+        int randomNumberListIndex = 0;
+        for (Map.Entry<String, String> entry : carList.entrySet()) {
+            String key = entry.getKey();
+            if (randomNumberList.get(randomNumberListIndex) < 4) {
+                String moveValue = carList.get(key);
+                carList.put(key, moveValue + "");
+            }
+            randomNumberListIndex++;
+        }
     }
 }
