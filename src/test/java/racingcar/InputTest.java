@@ -1,10 +1,14 @@
 package racingcar;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.constants.ErrorMessage;
 import racingcar.utils.Converter;
 
 public class InputTest {
@@ -25,5 +29,16 @@ public class InputTest {
         String input = "4";
 
         assertThat(Converter.convertStringToInt(input)).isEqualTo(4);
+    }
+
+    @Test
+    @DisplayName("사죵자의 입력이 숫자가 아닐때, 에러를 출력하는가?")
+    void testErrorConvertToInt() {
+        String input = "다섯번";
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class, () -> Converter.convertStringToInt(input));
+
+        assertThat(exception.getMessage()).isEqualTo(ErrorMessage.ERROR_NAME_MUST_BE_NUMBER.getMessage());
     }
 }
