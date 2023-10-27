@@ -6,13 +6,15 @@ import java.util.Map;
 
 public class Game {
     Car[] cars;
+    int roundNumber;
     Map<Car, Integer> positions;
     int winnerPosition;
 
-    public Game(String[] carNames){
+    public Game(String[] carNames, int roundNumber){
         makeCars(carNames);
         initPosition();
         winnerPosition = 0;
+        this.roundNumber = roundNumber;
     }
 
     private void initPosition() {

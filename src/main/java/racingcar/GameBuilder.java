@@ -24,5 +24,11 @@ public class GameBuilder {
         return this;
     }
 
-    //TODO : Game build()
+    public Game build(){
+        if(names == null || roundNumber == 0){
+            throw new IllegalArgumentException(ExceptionMessage.CANT_BUILD_GAME_YET);
+        }
+
+        return new Game(names, roundNumber);
+    }
 }
