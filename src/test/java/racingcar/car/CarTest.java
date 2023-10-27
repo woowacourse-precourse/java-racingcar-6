@@ -1,9 +1,11 @@
 package racingcar.car;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import racingcar.model.Car;
 
 public class CarTest {
     @Nested
@@ -32,6 +34,12 @@ public class CarTest {
                     .isInstanceOf(IllegalArgumentException.class);
             assertThatThrownBy(() -> new Car("1234"))
                     .isInstanceOf(IllegalArgumentException.class);
+        }
+
+        @Test
+        void 자동차_생성_성공() {
+            Car car = new Car("pobi");
+            assertThat(car.getName()).isEqualTo("pobi");
         }
     }
 

@@ -1,4 +1,4 @@
-package racingcar.car;
+package racingcar.model;
 
 public class Car {
     private String name;
@@ -14,5 +14,9 @@ public class Car {
             throw new IllegalArgumentException("입력값은 영어나 한글만 가능합니다.");
         }
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 }
