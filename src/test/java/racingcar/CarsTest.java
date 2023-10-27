@@ -20,4 +20,11 @@ final class CarsTest {
         assertThrows(IllegalArgumentException.class, () -> new Cars(input));
     }
 
+    @Test
+    void 사용자가_1자_미만의_이름을_입력한경우_예외를_던진다() {
+        String input = ",pobi,woni,jun";
+
+        assertThrows(IllegalArgumentException.class, () -> new Cars(input));
+    }
+
 }
