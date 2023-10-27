@@ -24,10 +24,12 @@ public class RacingCarGameController {
 
         RacingResult racingResult = new RacingResult(carNames, tryCount);
         // 시도 횟수만큼 반복
+        // 처음 "실행 결과" 출력해야함
         while(tryCount.getCount() > 0) {
             // 시도횟수마다 결과 반환하는 메서드반환
             racingResult = racingCarGameService.continueGame(racingResult);
             // 결과 뿌리는 뷰 호출
+            racingCarGameView.resultView(racingResult);
             // 결과 클래스는 차 이름들과 그에 매핑되는 진행결과를 정수로 가지고 있어야 함
             // 해당 메서드에서 이전결과를 계속 가지고 있어야 함
         }

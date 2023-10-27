@@ -1,6 +1,9 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.model.RacingResult;
+
+import java.util.Map;
 
 public class RacingCarGameView {
 
@@ -23,4 +26,21 @@ public class RacingCarGameView {
         int count = Integer.parseInt(Console.readLine());
         return count;
     }
+
+    public void resultView(RacingResult racingResult) {
+
+        Map<String, Integer> result = racingResult.getResult();
+
+        for (String s : result.keySet()) {
+            System.out.print(s + " : ");
+            int count = result.get(s);
+            while(count > 0) {
+                System.out.print("-");
+                count--;
+            }
+            System.out.println();
+        }
+
+    }
+
 }
