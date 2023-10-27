@@ -2,6 +2,10 @@ package racingcar.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -11,6 +15,26 @@ import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.service.Exception;
 
 class ExceptionTest {
+
+    @BeforeAll
+    static void testStart() {
+        System.out.println("테스트를 시작합니다.");
+    }
+
+    @BeforeEach
+    void unitTestStart() {
+        System.out.print("- 테스트 메소드 실행 / ");
+    }
+
+    @AfterEach
+    void unitTestEnd() {
+        System.out.println("종료");
+    }
+
+    @AfterAll
+    static void testEnd() {
+        System.out.println("테스트를 종료합니다.");
+    }
 
     @ParameterizedTest
     @EmptySource
