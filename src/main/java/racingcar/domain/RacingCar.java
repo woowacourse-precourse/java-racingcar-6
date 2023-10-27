@@ -1,8 +1,11 @@
 package racingcar.domain;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Pattern;
 
+import static racingcar.handler.ErrorHandler.DUPLICATE_NUMBER;
 import static racingcar.handler.ErrorHandler.INVALID_ENGLISH_KOREAN;
 
 public class RacingCar {
@@ -11,6 +14,7 @@ public class RacingCar {
 
     public RacingCar(List<String> carNames) {
         validateCarName(carNames);
+        validateDuplicate(carNames);
 
         this.carNames = carNames;
     }
@@ -22,6 +26,14 @@ public class RacingCar {
             if (!Pattern.matches(regex, carName)) {
                 throw INVALID_ENGLISH_KOREAN.getException();
             }
+        }
+    }
+
+    public void validateDuplicate(List<String> carNames) {
+        Set<String> uniqueCarName = new HashSet<>(carNames);
+
+        if (uniqueCarName.size() != carNames.size()) {
+            throw DUPLICATE_NUMBER.getException();
         }
     }
 }
