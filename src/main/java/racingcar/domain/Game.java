@@ -14,13 +14,12 @@ public class Game {
 
     public List<CarDistanceMessage> forwardCars() {
 
-        List<CarDistanceMessage> messages = new ArrayList<>();
-
         for (Car car : cars) {
             RandomNumber number = RandomNumber.createRandomNumber();
             if (number.isMovable()) car.move();
         }
 
+        List<CarDistanceMessage> messages = new ArrayList<>();
         for (Car car : cars) {
             messages.add(car.createCarDistanceMessage());
         }
