@@ -16,4 +16,8 @@ public class Race {
     public void convertToCar(){
         carNameList.forEach(carName -> carList.add(new Car(carName)));
     }
+
+    public void start(){
+        carList.forEach(Car::go);
+    }
 }

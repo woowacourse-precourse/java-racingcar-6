@@ -9,5 +9,10 @@ public class GameController {
     public GameController() {
         this.inputController = new InputController();
         this.race = new Race(inputController.carValidate(), inputController.roundValidate());
+        play();
+    }
+
+    public void play(){
+        race.start();
     }
 }
