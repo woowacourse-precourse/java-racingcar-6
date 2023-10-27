@@ -20,4 +20,16 @@ class PlayerTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    @DisplayName("이동 횟수 숫자 테스트")
+    void 이동_횟수_숫자_테스트() {
+        String notNumber1 = "13qw3";
+        String notNumber2 = "qwe";
+
+        Assertions.assertThatThrownBy(() -> player.checkMovingCountFormat(notNumber1))
+                .isInstanceOf(IllegalArgumentException.class);
+        Assertions.assertThatThrownBy(() -> player.checkMovingCountFormat(notNumber1))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
 }
