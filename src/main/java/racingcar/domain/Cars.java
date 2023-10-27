@@ -21,6 +21,10 @@ public class Cars {
         return cars.get(index);
     }
 
+    public int size() {
+        return cars.size();
+    }
+
     public List<Car> getWinnerList() {
         OptionalInt maxOptional = cars.stream()
                 .mapToInt(Car::getMoveCount)
