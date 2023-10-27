@@ -33,7 +33,11 @@ public class Application {
         createListOfCars(names);
 
         System.out.println("시도할 회수는 몇회인가요?");
-        times = Integer.valueOf(readLine());
+        try{
+            times = Integer.valueOf(readLine());
+        }catch(NumberFormatException e){
+            throw new IllegalArgumentException();
+        }
     }
 
     public static void createListOfCars(List<String> names){
