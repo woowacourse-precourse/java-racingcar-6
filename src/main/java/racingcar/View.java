@@ -7,6 +7,7 @@ public class View {
     private final String DELIMITER = ",";
 
     public String[] inputCarNames() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String read = Console.readLine();
         String[] names = read.split(DELIMITER);
         validateNameLength(names);
@@ -14,7 +15,9 @@ public class View {
     }
 
     public int inputTryCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
         String read = Console.readLine();
+        System.out.println();
         validateIsNumber(read);
         return Integer.parseInt(read);
     }
