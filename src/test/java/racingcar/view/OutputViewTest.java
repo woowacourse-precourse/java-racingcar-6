@@ -43,4 +43,17 @@ public class OutputViewTest {
 
         assertEquals(expected, outputStream.toString());
     }
+
+    @DisplayName("실행 결과 메세지 출력 기능 테스트")
+    @Test
+    void testRaceResultMessage() {
+        String expected = "실행 결과\n";
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+
+        outputView.raceResultMessage();
+        System.setOut(System.out);
+
+        assertEquals(expected, outputStream.toString());
+    }
 }
