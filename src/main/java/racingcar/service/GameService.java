@@ -2,21 +2,21 @@ package racingcar.service;
 
 import racingcar.domain.car.Cars;
 
-public class Game {
+public class GameService implements Service {
     private final Cars cars;
     private final Attempt attempt;
     private Count count;
     private GameState state;
 
-    private Game(Cars cars, Attempt attempt) {
+    private GameService(Cars cars, Attempt attempt) {
         this.cars = cars;
         this.attempt = attempt;
         this.count = Count.zero();
         state = GameState.ON;
     }
 
-    public static Game of(Cars cars, Attempt attempt) {
-        return new Game(cars, attempt);
+    public static GameService of(Cars cars, Attempt attempt) {
+        return new GameService(cars, attempt);
     }
 
     public void tryToOff() {

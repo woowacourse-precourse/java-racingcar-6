@@ -14,7 +14,7 @@ import racingcar.domain.car.Name;
 import racingcar.domain.car.RandomNumberGenerator;
 import racingcar.domain.car.Rule;
 
-public class GameTest {
+public class GameServiceTest {
     @Test
     void 시도_횟수보다_적게_이동시켰다면_게임을_종료하지_않는다() {
         //given
@@ -25,13 +25,13 @@ public class GameTest {
         Decider decider = Decider.of(rule, generator);
         Cars cars = Cars.of(List.of(car), decider);
         Attempt attempt = Attempt.withNumber(1);
-        Game game = Game.of(cars, attempt);
+        GameService gameService = GameService.of(cars, attempt);
 
         //when
-        game.tryToOff();
+        gameService.tryToOff();
 
         //then
-        assertFalse(game.isOver());
+        assertFalse(gameService.isOver());
     }
 
     @Test
@@ -44,13 +44,13 @@ public class GameTest {
         Decider decider = Decider.of(rule, generator);
         Cars cars = Cars.of(List.of(car), decider);
         Attempt attempt = Attempt.withNumber(1);
-        Game game = Game.of(cars, attempt);
+        GameService gameService = GameService.of(cars, attempt);
 
         //when
-        game.moveCars();
-        game.tryToOff();
+        gameService.moveCars();
+        gameService.tryToOff();
 
         //then
-        assertTrue(game.isOver());
+        assertTrue(gameService.isOver());
     }
 }
