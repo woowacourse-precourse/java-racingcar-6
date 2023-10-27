@@ -13,5 +13,15 @@ public class RaceController {
         }
     }
 
+    public void moveCarIfRandomNumberIsFourOrHigher(Car car) {
+        if (car.generateRandomNumber() >= 4) {
+            modifyCar(car);
+        }
+    }
+
+    public void modifyCar(Car car) {
+        car.setProgress();
+    }
+
 
 }

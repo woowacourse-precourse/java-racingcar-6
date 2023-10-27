@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
     private String name;
     private StringBuilder progress;
@@ -15,6 +17,14 @@ public class Car {
 
     public String getProgress() {
         return this.progress.toString();
+    }
+
+    public void setProgress(){
+        this.progress.append("-");
+    }
+
+    public int generateRandomNumber(){
+        return Randoms.pickNumberInRange(0,9);
     }
 
 }

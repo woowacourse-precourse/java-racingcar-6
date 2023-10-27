@@ -7,8 +7,8 @@
 - [x] 시도할 횟수 입력 받기 - inputNumberOfAttempts()
 - [x] 진행 절차를 출력할 메소드 구현 - displayRaceProgress()
 - [x] 우승자를 출력할 메소드 구현 - displayWinner()
-- [ ] 각 자동차 별로 1회당 0 ~ 9 사이의 랜덤 숫자를 생성한다.
-    - [ ] 4 이상일 경우 한 번 진행시킨다.
+- [x] 각 자동차 별로 1회당 0 ~ 9 사이의 랜덤 숫자를 생성한다. - generateRandomNumber()
+    - [x] 4 이상일 경우 한 번 진행시킨다. - moveCarIfRandomNumberIsFourOrHigher()
 - [ ] 게임을 진행할 컨트롤러를 생성한다.
 - [ ] 시도할 횟수가 끝나고 결과를 검사한다.
 
