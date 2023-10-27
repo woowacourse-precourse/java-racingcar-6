@@ -20,23 +20,16 @@ public class Cars {
     }
 
     private void validate(List<String> names) {
+        checkInput(names);
         checkDuplicate(names);
-        checkComma(names);
     }
 
-    private void checkComma(List<String> names) {
-        if (hasComma(names)) {
+    private void checkInput(List<String> names) {
+        if (names.isEmpty()) {
             throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
         }
     }
 
-    private boolean hasComma(List<String> names) {
-        long count = names.stream()
-                .filter(name -> name.contains(","))
-                .count();
-
-        return count != 0;
-    }
 
     private void checkDuplicate(List<String> names) {
         if (hasDuplicate(names)) {
