@@ -15,6 +15,10 @@ public class ConsoleImpl implements Console {
         System.out.println(message);
     }
 
+    private void println() {
+        System.out.println();
+    }
+
     private String getPlayerInput() {
         return readLine();
     }
@@ -42,6 +46,7 @@ public class ConsoleImpl implements Console {
         print(" : ");
         for ( int i = 0; i < distance; i++ )
             print("-");
+        println();
     }
 
     @Override
