@@ -1,4 +1,4 @@
-package view;
+package racingcar.view;
 
 public class ErrorMessage {
     public static String EMPTY_NAME_ERROR="이름에 빈칸있습니다.";

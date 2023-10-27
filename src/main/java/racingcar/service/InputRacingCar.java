@@ -1,11 +1,10 @@
-package service;
+package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
-import view.ErrorMessage;
-import vo.RacingCar;
-import vo.RacingCars;
+import racingcar.view.ErrorMessage;
+import racingcar.vo.RacingCars;
 
 public class InputRacingCar {
 
