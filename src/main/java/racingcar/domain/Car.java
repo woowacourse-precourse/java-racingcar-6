@@ -51,4 +51,9 @@ public class Car {
     private boolean hasBlank(String name) {
         return StringUtils.containsWhitespace(name);
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s : %s", name, receiveForwardTrail());
+    }
 }

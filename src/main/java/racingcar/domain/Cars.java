@@ -20,6 +20,12 @@ public class Cars {
         cars = convertToCars(names);
     }
 
+    public List<String> getCurrentState() {
+        return cars.stream()
+                .map(Car::toString)
+                .collect(Collectors.toList());
+    }
+
     public void evaluateCondition() {
         for (int index = 0; index < cars.size(); index++) {
             conditionalMove(index);

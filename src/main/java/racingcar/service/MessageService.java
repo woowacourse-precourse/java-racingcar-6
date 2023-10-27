@@ -1,5 +1,7 @@
 package racingcar.service;
 
+import racingcar.domain.Cars;
+
 public class MessageService {
 
     private static final String START_GAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -20,7 +22,18 @@ public class MessageService {
     }
 
     public void printFinalWinner() {
-        System.out.print(FINAL_WINNER);
+        print(FINAL_WINNER);
+    }
+
+    public void printRank(Cars cars) {
+        for (String carInfo : cars.getCurrentState()) {
+            println(carInfo);
+        }
+        print("\n");
+    }
+
+    private void print(String message) {
+        System.out.print(message);
     }
 
     private void println(String message) {
