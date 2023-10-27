@@ -60,7 +60,7 @@
     - [ ] 사용자 입력 수집
     - [ ] 경주 실행
     - [ ] 결과 표시
-- [ ] 에러 메세지 Enum
+- [X] 에러 메세지 Enum
 - [ ] View IO Enum
 - [ ] Application
     - [ ] RaceController 호출
