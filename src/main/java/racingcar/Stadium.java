@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.List;
 import java.util.Arrays;
+import java.util.StringJoiner;
 
 class Stadium {
     int first_pos;
@@ -36,16 +37,23 @@ class Stadium {
         }
     }
 
-    public static String showCar(Car car){
+    public static String showCar(Car car) {
         String dash = "-".repeat(car.getPos());
-        return String.format("%s: %s",car.getName(), dash);
+        return String.format("%s: %s", car.getName(), dash);
     }
+
     private static void print(String s) {
         System.out.println(s);
     }
 
-    public void winner() {
-
+    public String winner() {
+        StringJoiner stringjoiner = new StringJoiner(",");
+        for (Car car:cars){
+            if(car.getPos()==first_pos){
+                stringjoiner.add(car.getName());
+            }
+        }
+        return stringjoiner.toString();
     }
 
 
