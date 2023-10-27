@@ -18,5 +18,6 @@ public class CarRacing {
             raceController.raceStart();
         }
         List<String> winners=raceController.getWinner();
+        System.out.println("최종 우승자: " + String.join(", ", winners));
     }
 }
