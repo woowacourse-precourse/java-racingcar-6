@@ -10,13 +10,17 @@ import racingcar.view.OutputView;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RaceController {
 
     private static final OutputView outputView = new OutputView();
     private static final InputView inputView = new InputView();
     private static final NumberGenerator numberGenerator = new NumberGenerator();
+
     private static final String DELIMITER = ",";
+    private static final String NUMERIC_REGX = "\\d";
 
     // 1. 경주할 자동차 이름 입력 받기
     // 2. 시도 횟수 입력 받기
@@ -49,7 +53,6 @@ public class RaceController {
     private Cars generateCars() {
         outputView.printInputCarsName();
         String stringNames = inputView.inputName();
-        // 검증
         List<String> carsName = Arrays.stream(stringNames.split(DELIMITER)).toList();
         List<Car> cars = new ArrayList<>();
         for (String carName : carsName) {
@@ -61,9 +64,21 @@ public class RaceController {
 
     private int getTryNumber() {
         outputView.printInputTryNumber();
-        String tryNumber = inputView.inputTryNumber();
-        // 검증
-        return Integer.parseInt(tryNumber);
+        String stringTryNumber = inputView.inputTryNumber();
+        validateNumeric(stringTryNumber);
+        int tryNumber = Integer.parseInt(stringTryNumber);
+        validateTryNumberSize(tryNumber);
+        return tryNumber;
     }
 
+    public void validateNumeric(String tryNumber) {
+        Matcher matcher = Pattern.compile(NUMERIC_REGX).matcher(tryNumber);
+        if(!matcher.matches())
+            throw new IllegalArgumentException("숫자가 아님");
+    }
+
+    public void validateTryNumberSize(int tryNumber) {
+        if (tryNumber < 1)
+            throw new IllegalArgumentException("시도 횟수 부족");
+    }
 }

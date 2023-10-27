@@ -2,15 +2,23 @@
 
 ## 기능 목록
 - [✔] 0에서 9 사이의 무작위 값을 자동차 수만큼 생성한다. NumberGenerator#createRandomNumbers()
-- [ ] 자동차의 이름은 5자 이하만 가능하다. - Car#validateNameSize()
 - [✔] 자동차는 전진할 수 있다. - Car#move()
 - [✔] 자동차는 4 이상의 무작위 값이 나오면 전진할 수 있다. - Cars#move()
 - [✔] 최종 자동차의 이동 거리를 비교하여 우승자를 가릴 수 있다. - Cars#getWinner()
 - [✔] n개의 자동차의 이동 거리 중 최댓값을 구할 수 있다. - Cars#getMaxLocation()
 - [✔] 우승자 클래스를 따로 생성함 - Winner
-- [ ] 이름을 쉼표(,)를 기준으로 구분할 수 있다. - RaceController#inputName()
+- [✔] 이름을 쉼표(,)를 기준으로 구분할 수 있다. - RaceController#generateCars()
 
-1try 때마다 n개의 무작위 값을 생성
+
+- 자동차 이름은 모든 문자가 가능하나 공백은 불가능하다. InputView에서 공백 제거 (✔)
+
+## 검증
+- 자동차의 이름은 1자 이상 5자 이하만 가능하다. Car (✔)
+- 자동차의 이름은 중복될 수 없다. Cars (✔)
+- 자동차는 최소 2대 이상 입력해야 한다. Cars (✔)
+- 시도 횟수가 숫자로 입력되었는지 검증한다. RaceController (✔)
+- 시도 횟수는 1회 이상이어야 한다. RaceController (✔)
+
 
 ## 기능 요구사항
 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.

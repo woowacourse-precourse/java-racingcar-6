@@ -2,6 +2,9 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class InputView {
 
     private static final String BLANK = " ";
@@ -16,7 +19,7 @@ public class InputView {
     }
 
     public String deleteBlank(String input) {
-        input.replace(BLANK, EMPTY);
+        input = input.replace(BLANK, EMPTY);
         return input;
     }
 

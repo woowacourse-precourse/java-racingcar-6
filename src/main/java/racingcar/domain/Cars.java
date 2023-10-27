@@ -1,14 +1,14 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Cars {
 
     private static List<Car> cars;
 
     public Cars(List<Car> cars) {
+        validateNumberOfParticipants(cars);
+        validateDuplicateName(cars);
         this.cars = cars;
     }
 
@@ -59,6 +59,18 @@ public class Cars {
             carsCurrentLocation.add(currentLocation);
         }
         return carsCurrentLocation;
+    }
+
+    public void validateNumberOfParticipants(List<Car> cars) {
+        if (cars.size() < 2)
+            throw new IllegalArgumentException("참가 인원 부족");
+    }
+
+    public void validateDuplicateName(List<Car> cars) {
+        List<String> carsName = cars.stream().map(Car::getName).toList();
+        Set<String> distinctName = new HashSet<>(carsName);
+        if (carsName.size() != distinctName.size())
+            throw new IllegalArgumentException("이름 중복");
     }
 
 }

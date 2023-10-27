@@ -27,7 +27,6 @@ public class OutputView {
         List<String> nameOfCars = cars.getCarsName();
         List<Integer> carsCurrentLocation = cars.getCarsCurrentLocation();
 
-
         for (int i = 0; i < nameOfCars.size(); i++) {
             String participant = nameOfCars.get(i);
             int carCurrentLocation = carsCurrentLocation.get(i);
