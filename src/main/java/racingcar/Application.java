@@ -9,7 +9,7 @@ import java.util.List;
 public class Application {
     public static void main(String[] args) throws IllegalArgumentException {
         Application T = new Application();
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String racingCar = Console.readLine();
         List<String> racingCarName = T.listConversion(racingCar);
 
@@ -19,6 +19,8 @@ public class Application {
         if (!isValidNum(gameNumString)) {
             throw new IllegalArgumentException("올바른 회수 입력이 아닙니다.");
         }
+        System.out.println();
+        System.out.println("실행 결과");
 
         int gameNum = Integer.valueOf(gameNumString);
         List<String>[] makeDash = T.forward(racingCarName, gameNum);
