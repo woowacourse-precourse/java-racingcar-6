@@ -17,7 +17,7 @@ public class OutputView {
     }
 
     public void displayExecutionResult() {
-        System.out.print(EXECUTION_RESULT);
+        System.out.print(LINE + EXECUTION_RESULT);
     }
 
     public void displayRacingState(String message) {
