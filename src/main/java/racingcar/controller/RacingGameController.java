@@ -12,6 +12,10 @@ public class RacingGameController {
     InputValidator inputValidator = new InputValidator();
 
     public void gameStart() {
+        getCarNameAndCheckValidation();
+    }
+
+    private void getCarNameAndCheckValidation() {
         List<String> carNameList = carNameSplitService.splitCarNames(inputView.getCarNames());
         inputValidator.checkCarNameInputValidation(carNameList);
     }
