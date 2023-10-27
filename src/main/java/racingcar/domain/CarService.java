@@ -17,7 +17,7 @@ public class CarService {
     //1) 입력받은 자동차 이름별 Car 클래스 생성 및 리스트에 담기
     public ArrayList<Car> changeUserInputToCarList(UserInput input) {
         ArrayList<Car> list = new ArrayList<>();
-        String[] tmp = input.userInputCarName.split(",");
+        String[] tmp = input.getUserInputCarName().split(",");
         //각 자동차 이름별로 Car 클래스 리스트에 담고 초기화
         for (int i = 0; i < tmp.length; i++) {
             list.add(new Car((tmp[i]), 0));

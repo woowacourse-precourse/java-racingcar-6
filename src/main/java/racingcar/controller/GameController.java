@@ -19,7 +19,7 @@ public class GameController {
 
     //전체 게임 횟수만큼 게임 반복 및 실행 start 기능
     public void gameStart() {
-        int count = carService.input.gameCount;
+        int count = carService.input.getGameCount();
         ArrayList<Car> carsList = carService.carList;
         //자동차 객체 임시 컨트롤
         for (int i = 0; i < count; i++) {

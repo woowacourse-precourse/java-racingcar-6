@@ -1,10 +1,42 @@
 package racingcar.view;
 
+import camp.nextstep.edu.missionutils.Console;
+
 public class UserInput {
-    public String userInputCarName;
-    public int gameCount;
+    static String userInputCarName;
+    static int gameCount;
 
     public UserInput() {
+    }
+
+    public void setGameCount(int gameCount) {
+        this.gameCount = gameCount;
+    }
+
+    public void setUserInputCarName(String userInputCarName) {
+        this.userInputCarName = userInputCarName;
+    }
+
+    public static String getUserInputCarName() {
+        return userInputCarName;
+    }
+
+    public static int getGameCount() {
+        return gameCount;
+    }
+
+    //1) 사용자 입력 처리해서 객체에도 세팅
+    public void inputUser(UserInput userInput) {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String carName = Console.readLine();
+
+        validateInput(carName);
+
+        System.out.println("시도할 회수는 몇회인가요?");
+        int gameCount = Integer.parseInt(Console.readLine());
+
+        userInput.setUserInputCarName(carName);
+        userInput.setGameCount(gameCount);
     }
 
     //validate 메소드 분리 - 길이
@@ -39,29 +71,6 @@ public class UserInput {
         }
     }
 
-    public void setGameCount(int gameCount) {
-        this.gameCount = gameCount;
-    }
-
-    public void setUserInputCarName(String userInputCarName) {
-        this.userInputCarName = userInputCarName;
-    }
-
-    //1) 사용자 입력 처리해서 객체에도 세팅
-    public void inputUser(UserInput userInput) {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String carName = Console.readLine();
-
-        //input validater 호출했어야 함
-        validateInput(carName);
-
-        System.out.println("시도할 회수는 몇회인가요?");
-        int gameCount = Integer.parseInt(Console.readLine());
-
-        userInput.setUserInputCarName(carName);
-        userInput.setGameCount(gameCount);
-    }
-
     //2) 사용자 입력에 대한 예외처리
     public void validateInput(String carName) throws IllegalArgumentException {
         String[] names = carName.split(",");
@@ -71,6 +80,5 @@ public class UserInput {
         validateBlank(names);
         //3) 이름 중복도 안됨
         validateDuplicate(names);
-
     }
 }
