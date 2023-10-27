@@ -1,10 +1,10 @@
 package racingcar.view;
 
 import racingcar.RacingCar;
+import racingcar.RacingCarRace;
 
 import java.util.List;
 
-import static racingcar.constant.NumberConstant.MIN_WINNER_SIZE;
 import static racingcar.constant.NumberConstant.ONE;
 import static racingcar.constant.TextConstant.*;
 
@@ -26,7 +26,9 @@ public class MessagePrinter {
         System.out.print(FINAL_WINNER_MESSAGE);
     }
 
-    public void printExecutionResult(final List<RacingCar> racingCars) {
+    public void printExecutionResult(final RacingCarRace racingCarRace) {
+        List<RacingCar> racingCars = racingCarRace.getRacingCars();
+
         racingCars.forEach(racingCar -> {
             String carName = racingCar.getCarName();
             String currentLocation = racingCar.getCurrentLocation();
@@ -35,7 +37,8 @@ public class MessagePrinter {
         System.out.println(BLANK);
     }
 
-    public void printWinners(final List<RacingCar> winners) {
+    public void printWinners(final RacingCarRace racingCarRace) {
+        List<RacingCar> winners = racingCarRace.findWinners();
         StringBuilder result = new StringBuilder();
         int maxWinnerSize = winners.size() - ONE;
 

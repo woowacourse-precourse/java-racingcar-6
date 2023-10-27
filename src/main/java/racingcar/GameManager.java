@@ -3,13 +3,10 @@ package racingcar;
 import racingcar.view.MessagePrinter;
 import racingcar.view.MessageReceiver;
 
-import java.util.List;
 
 import static racingcar.constant.NumberConstant.*;
 
 public class GameManager {
-
-    private static int END_ATTEMPT_COUNT;
 
     private final MessagePrinter messagePrinter;
     private final MessageReceiver messageReceiver;
@@ -20,33 +17,32 @@ public class GameManager {
     }
 
     public void startGame() {
-        List<RacingCar> racingCars = prepareGame();
-        playGame(racingCars);
-        endGame(racingCars);
+        RacingCarRace racingCarRace = prepareGame();
+        playGame(racingCarRace);
+        endGame(racingCarRace);
     }
 
-    private List<RacingCar> prepareGame() {
+    private RacingCarRace prepareGame() {
         messagePrinter.printCarNameInputMessage();
         String[] carNames = messageReceiver.receiveCarNames();
-        List<RacingCar> racingCars = RacingCar.createRacingCars(carNames);
         messagePrinter.printAttemptCountInputMessage();
-        END_ATTEMPT_COUNT = messageReceiver.receiveAttemptCount();
+        int attemptCount = messageReceiver.receiveAttemptCount();
 
-        return racingCars;
+        return RacingCarRace.createRacingCarRace(carNames, attemptCount);
     }
 
-    private void playGame(final List<RacingCar> racingCars) {
+    private void playGame(final RacingCarRace racingCarRace) {
         messagePrinter.printExecutionResultMessage();
+        int endAttemptCount = racingCarRace.getAttemptCount();
 
-        for (int i = START_ATTEMPT_COUNT; i < END_ATTEMPT_COUNT; i++) {
-            racingCars.forEach(RacingCar::move);
-            messagePrinter.printExecutionResult(racingCars);
+        for (int i = START_ATTEMPT_COUNT; i < endAttemptCount; i++) {
+            racingCarRace.runRace();
+            messagePrinter.printExecutionResult(racingCarRace);
         }
     }
 
-    private void endGame(final List<RacingCar> racingCars) {
+    private void endGame(final RacingCarRace racingCarRace) {
         messagePrinter.printWinnerMessage();
-        List<RacingCar> winners = RacingCar.findWinners(racingCars);
-        messagePrinter.printWinners(winners);
+        messagePrinter.printWinners(racingCarRace);
     }
 }
