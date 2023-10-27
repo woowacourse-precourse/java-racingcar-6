@@ -95,4 +95,14 @@ public class RacingGame {
         }
         return winnerList;
     }
+
+    public String getWinnerNameString(List<String> winnerList) {
+        String winnerStr = "";
+        for (String name : winnerList) {
+            winnerStr += "," + name;
+        }
+        winnerStr = winnerStr.substring(1);
+        return winnerStr;
+    }
+    
 }
