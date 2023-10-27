@@ -10,5 +10,10 @@ public class InputView {
         String names = Console.readLine();
         return Arrays.asList(names.split(","));
     }
+
+    public int getMoveCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        return Integer.parseInt(Console.readLine());
+    }
 }
 
