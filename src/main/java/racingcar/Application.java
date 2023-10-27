@@ -27,7 +27,7 @@ public class Application {
 
             }
 
-            inputView.printRaceResult(cars);
+            inputView.printRaceProgress(cars);
         }
     }
 }

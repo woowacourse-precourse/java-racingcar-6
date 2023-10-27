@@ -37,7 +37,7 @@ public class InputView {
         return numberOfTimes;
     }
 
-    public void printRaceResult(List<Car> cars) {
+    public void printRaceProgress(List<Car> cars) {
 
         StringBuilder raceResult = new StringBuilder();
 
