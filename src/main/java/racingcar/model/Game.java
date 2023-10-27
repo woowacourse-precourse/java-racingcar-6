@@ -1,31 +1,23 @@
 package racingcar.model;
 
 public class Game {
-    private Integer maxRoundNumber;
-    private Integer presentRoundNumber;
+    private final MaxRoundNumber maxRoundNumber;
+    private PresentRoundNumber presentRoundNumber;
 
     public Game(String s) {
-        this.maxRoundNumber = validString(s);
-        this.presentRoundNumber = 0;
-    }
-
-    private Integer validString(String s) {
-        try {
-            return maxRoundNumber = Integer.parseInt(s);
-        } catch (RuntimeException e) {
-            throw new IllegalArgumentException();
-        }
+        this.maxRoundNumber = new MaxRoundNumber(s);
+        this.presentRoundNumber = new PresentRoundNumber(0);
     }
 
     public void roundNumberPlus() {
-        this.presentRoundNumber++;
+        this.presentRoundNumber = new PresentRoundNumber(presentRoundNumber.getRawPresentRoundNumber() + 1);
     }
 
-    public Integer getMaxRoundNumber() {
+    public MaxRoundNumber getMaxRoundNumber() {
         return maxRoundNumber;
     }
 
-    public Integer getPresentRoundNumber() {
+    public PresentRoundNumber getPresentRoundNumber() {
         return presentRoundNumber;
     }
 }

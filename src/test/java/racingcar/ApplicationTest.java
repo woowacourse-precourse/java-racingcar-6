@@ -62,7 +62,7 @@ class ApplicationTest extends NsTest {
     void 라운드_생성() {
         GameController gameController = new GameController();
         Game game = gameController.makeGame("2");
-        assertThat(game.getMaxRoundNumber()).isEqualTo(2);
+        assertThat(game.getMaxRoundNumber().getRawMaxRoundNumber()).isEqualTo(2);
     }
 
     @Test

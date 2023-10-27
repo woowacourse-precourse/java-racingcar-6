@@ -10,6 +10,8 @@ import racingcar.model.Dice;
 import racingcar.model.DiceNumber;
 import racingcar.model.Distance;
 import racingcar.model.Game;
+import racingcar.model.MaxRoundNumber;
+import racingcar.model.PresentRoundNumber;
 import racingcar.model.WinnerList;
 
 public class GameController {
@@ -26,11 +28,16 @@ public class GameController {
 
     public String judge(Cars cars, Game game) {
         StringBuilder stringBuilder = new StringBuilder();
-        while (game.getPresentRoundNumber() < game.getMaxRoundNumber()) {
+        MaxRoundNumber maxRoundNumber = game.getMaxRoundNumber();
+        while (getGamePresentRoundNumber(game) < maxRoundNumber.getRawMaxRoundNumber()) {
             stringBuilder.append(gameRoundPlay(cars)).append("\n");
             game.roundNumberPlus();
         }
         return String.valueOf(stringBuilder);
+    }
+
+    private int getGamePresentRoundNumber(Game game) {
+        return game.getPresentRoundNumber().getRawPresentRoundNumber();
     }
 
     public String score(Cars cars) {
