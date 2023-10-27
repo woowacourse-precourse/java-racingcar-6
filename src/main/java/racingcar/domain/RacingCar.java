@@ -1,25 +1,16 @@
 package racingcar.domain;
 
-import racingcar.constant.ErrorMessage;
 import racingcar.constant.MoveStatus;
 
 public final class RacingCar {
 
-    private static final int MAX_NAME_LENGTH = 5;
     private static final String NAME_STATUS_DELIMITER = " : ";
-    private final String name;
+    private final Name name;
     private final MoveStatuses moveStatuses;
 
     public RacingCar(final String name) {
-        validate(name);
-        this.name = name;
+        this.name = new Name(name);
         this.moveStatuses = new MoveStatuses();
-    }
-
-    private void validate(final String name) {
-        if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_CAR_NAME_LENGTH.toValue());
-        }
     }
 
     public void addMoveStatus(final MoveStatus moveStatus) {
@@ -27,7 +18,7 @@ public final class RacingCar {
     }
 
     public String toResultMessage() {
-        return name + NAME_STATUS_DELIMITER + moveStatuses.toMessage();
+        return name.toValue() + NAME_STATUS_DELIMITER + moveStatuses.toMessage();
     }
 
     public int moveDistance() {
@@ -35,7 +26,7 @@ public final class RacingCar {
     }
 
     public String toName() {
-        return this.name;
+        return name.toValue();
     }
 
     public boolean hasSameDistance(final Integer distance) {
