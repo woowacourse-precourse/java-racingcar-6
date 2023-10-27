@@ -1,9 +1,10 @@
 package racingcar.model;
 
 public class Name {
-    private static final String NAME_LENGTH_EXCEPTION_MESSAGE = "이름은 1~5글자여야 합니다";
     private static final int MIN_NAME_LENGTH = 1;
     private static final int MAX_NAME_LENGTH = 5;
+    private static final String NAME_LENGTH_EXCEPTION_MESSAGE = String.format("이름은 %d~%d글자여야 합니다", MIN_NAME_LENGTH,
+            MAX_NAME_LENGTH);
 
     private final String name;
 
@@ -22,7 +23,8 @@ public class Name {
         }
     }
 
-    public String getName() {
+    @Override
+    public String toString() {
         return this.name;
     }
 

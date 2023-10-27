@@ -8,8 +8,8 @@ import racingcar.view.OutputView;
 
 public class RacingGame {
 
-    Cars cars;
-    TryNumber tryNumber;
+    private Cars cars;
+    private TryNumber tryNumber;
 
     public void play() {
         initialize();

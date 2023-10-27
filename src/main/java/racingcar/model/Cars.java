@@ -1,67 +1,53 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.stream.Collectors;
 import racingcar.validator.InputValidator;
 
 public class Cars {
-    private static final int ZERO_POSITION = 0;
-    private static final int MIN_MOVE_NUMBER = 4;
-    private static final String NAME_POSITION_DIVIDER = " : ";
-    private static final String POSITION_STRING = "-";
 
-    private final Map<Name, Integer> cars;
+    private final List<Car> cars;
 
     public Cars(String names) {
         InputValidator.validateCarNames(names);
         cars = generateCars(names);
     }
 
-    private Map<Name, Integer> generateCars(String names) {
-        Map<Name, Integer> carMap = new LinkedHashMap<>();
+    private List<Car> generateCars(String names) {
+        List<Car> carList = new ArrayList<>();
         String[] carNamesArray = names.replace(" ", "").split(",");
         for (String carName : carNamesArray) {
-            carMap.put(new Name(carName), ZERO_POSITION);
+            carList.add(new Car(carName));
         }
-        return carMap;
+        return carList;
     }
 
     public void decideToMove() {
-        cars.forEach((name, position) -> {
-            if (Randoms.pickNumberInRange(1, 9) >= MIN_MOVE_NUMBER) {
-                cars.put(name, position + 1);
-            }
-        });
+        cars.forEach(Car::decideToMove);
     }
 
     public String generateRoundResultString() {
         StringBuilder sb = new StringBuilder();
-        cars.forEach((name, position) -> {
-            sb.append(name.getName());
-            sb.append(NAME_POSITION_DIVIDER);
-            sb.append(POSITION_STRING.repeat(position));
-            sb.append("\n");
+        cars.forEach(car -> {
+            sb.append(car.toString());
         });
         return sb.toString();
     }
 
     public int getMaxPosition() {
-        return Collections.max(cars.values());
+        return cars.stream()
+                .mapToInt(Car::getCarPosition)
+                .max()
+                .getAsInt();
     }
 
     public List<String> getWinners() {
-        List<String> winners = new ArrayList<>();
         int maxPosition = getMaxPosition();
-        cars.forEach((name, position) -> {
-            if (cars.get(name) == maxPosition) {
-                winners.add(name.getName());
-            }
-        });
-        return winners;
+        return cars.stream()
+                .filter(car -> maxPosition == car.getCarPosition())
+                .map(Car::getCarName)
+                .collect(Collectors.toList());
     }
 
 }
