@@ -32,4 +32,16 @@ public class UserInputException {
         return Arrays.stream(carNames)
                 .anyMatch(carName -> carName.contains(" "));
     }
+
+    public void validateCarNameLength(String[] carNames) {
+        // 자동차 이름 길이 검사
+        if (overMaxLength(carNames)) {
+            throw new IllegalArgumentException("자동차 이름이 5자 이상입니다. 게임이 종료됩니다.");
+        }
+    }
+
+    private boolean overMaxLength(String[] carNames) {
+        return Arrays.stream(carNames)
+                .anyMatch(carName -> carName.length() > 5);
+    }
 }
