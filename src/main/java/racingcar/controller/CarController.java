@@ -1,7 +1,5 @@
 package racingcar.controller;
 
-import java.util.List;
-import racingcar.domain.Car;
 import racingcar.domain.CarGame;
 import racingcar.util.ValidInput;
 import racingcar.view.InputView;
@@ -10,22 +8,32 @@ import racingcar.view.OutputView;
 public class CarController {
 
     public void run(){
-        String carNames = InputView.inputCarNames();
-        ValidInput.validCarNameLength(carNames);
-
-        String gameCountStr = InputView.inputRacingCount();
-        ValidInput.validOnlyNumber(gameCountStr);
-        int gameCount = Integer.parseInt(gameCountStr);
-
+        String carNames = inputCarNames();
+        int gameCount = inputGameCount();
         CarGame carGame = new CarGame(carNames,gameCount);
 
         OutputView.printResult();
-        for(int i = 0;i<gameCount;i++){
+        playMovingCar(carGame,gameCount);
+
+        OutputView.printWinner(carGame.findWinner());
+    }
+
+    private String inputCarNames() {
+        String carNames = InputView.inputCarNames();
+        ValidInput.validCarNameLength(carNames);
+        return carNames;
+    }
+
+    private int inputGameCount() {
+        String gameCountStr = InputView.inputRacingCount();
+        ValidInput.validOnlyNumber(gameCountStr);
+        return Integer.parseInt(gameCountStr);
+    }
+
+    private void playMovingCar(CarGame carGame,int gameCount) {
+        for(int i = 0; i< gameCount; i++){
             carGame.movePosition();
             OutputView.printPosition(carGame.getCars());
         }
-
-        List<Car> winner = carGame.findWinner();
-        OutputView.printWinner(winner);
     }
 }
