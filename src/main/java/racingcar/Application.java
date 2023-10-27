@@ -21,12 +21,22 @@ public class Application {
         String s = Console.readLine();
         Name = s.split((","));
         UserNum = Name.length;
+        CheckName(Name);
         for(int i=0;i<UserNum;i++)
         {
             User.put(Name[i],0);
         }
         for (String key : User.keySet()) {
             System.out.println("KEY : " + key);
+        }
+    }
+    public static void CheckName(String[] a) {
+        for(int i=0;i<UserNum;i++)
+        {
+            if(a[i].length()>5)
+            {
+                throw new IllegalArgumentException();
+            }
         }
     }
 }
