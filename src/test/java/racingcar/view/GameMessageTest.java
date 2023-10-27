@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-class GameMessageTest {
+public class GameMessageTest {
 
     @DisplayName("게임 시작시 출력되는 메세지에 대한 테스트")
     @Test

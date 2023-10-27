@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-class RacingCarTest {
+public class RacingCarTest {
 
     @DisplayName("레이싱 자동차를 생성하는 생성자 테스트")
     @Test
