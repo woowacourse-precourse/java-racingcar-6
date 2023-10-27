@@ -4,8 +4,10 @@ import java.util.List;
 import java.util.function.Supplier;
 import racingcar.domain.CarRaceJudge;
 import racingcar.dto.MoveResult;
+import racingcar.generator.MoveResultMessageGenerator;
 import racingcar.generator.RandomNumberGenerator;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class CarRaceGame {
 
@@ -32,18 +34,18 @@ public class CarRaceGame {
         Supplier<Integer> randomNumberGenerator = RandomNumberGenerator::generateRandomNumber;
         for (int count = 0; count < raceCount; count++) {
             judge.moveCars(randomNumberGenerator);
-            List<MoveResult> singleMoveResult = getSingleMoveResult();
+            List<MoveResult> singleMoveResult = getSingleMoveResults();
             printSingleMoveResult(singleMoveResult);
         }
     }
 
-    private List<MoveResult> getSingleMoveResult() {
-        List<MoveResult> moveResults = judge.createSingleMoveResults();
-        return moveResults;
+    private List<MoveResult> getSingleMoveResults() {
+        return judge.createSingleMoveResults();
     }
 
-    private void printSingleMoveResult(final List<MoveResult> singleMoveResult) {
-
+    private void printSingleMoveResult(final List<MoveResult> singleMoveResults) {
+        String singleResult = MoveResultMessageGenerator.generateMoveResultsMessage(singleMoveResults);
+        OutputView.printSingleResult(singleResult);
     }
 
 
