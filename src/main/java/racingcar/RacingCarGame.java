@@ -7,9 +7,10 @@ import java.util.*;
 
 public class RacingCarGame {
 
-    private HashMap<String, Integer> cars = new LinkedHashMap<>();
-
-
+    HashMap<String, Integer> cars = new LinkedHashMap<>();
+    List<String> winners = new ArrayList<>();
+    private static final int MOVE_50_PERCENT = 4;
+    static long count;
 
 
     public void inputUserCarName() {
@@ -24,6 +25,7 @@ public class RacingCarGame {
         }
 
     }
+
     private static void validateInputNotEmpty(String userInput) {
         if (userInput.isEmpty()) {
             throw new IllegalArgumentException("입력이 없습니다.");
@@ -90,5 +92,17 @@ public class RacingCarGame {
 
     private boolean canMove() {
         return Randoms.pickNumberInRange(0, 9) >= MOVE_50_PERCENT;
+    }
+
+    public void resultPrint() {
+        for (Map.Entry<String, Integer> entry : cars.entrySet()) {
+            if (entry.getValue() >= count) {
+                winners.add(entry.getKey());
+            }
+        }
+
+        String result = String.join(",", winners);
+        System.out.println("최종 우승자 : " + result);
+
     }
 }
