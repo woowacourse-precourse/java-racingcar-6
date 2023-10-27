@@ -12,7 +12,7 @@ public class Car {
     }
 
     public void addAdvances(){
-        advance.addAdvance();
+        advance.add();
     }
 
     public String getCarName(){

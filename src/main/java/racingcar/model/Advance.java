@@ -7,7 +7,7 @@ public class Advance {
         this.value = 0;
     }
 
-    public void addAdvance(){
+    public void add(){
         value++;
     }
 
