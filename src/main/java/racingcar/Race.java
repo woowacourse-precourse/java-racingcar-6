@@ -15,10 +15,20 @@ public class Race {
     private StringTokenizer st;
     private RaceValidator raceValidator = new RaceValidator();
     private int moveTrialCount;
+    private RaceView raceView = new RaceView();
 
     public void start() {
+        raceView.printInputCarname();
         generateCar();
+
+        raceView.printInputMoveTrialCount();
         moveTrialCount = getMoveTrialCount();
+
+        raceView.printExecutionResult();
+        while (moveTrialCount-- > 0) {
+            moveTrial();
+            raceView.printProgress(cars);
+        }
     }
 
     private void generateCar() {
@@ -36,5 +46,19 @@ public class Race {
         String input = Console.readLine();
         raceValidator.validateMoveTrialCount(input);
         return Integer.parseInt(input);
+    }
+
+    private void moveTrial() {
+        for (Car car : cars) {
+            moveForwardOrStop(car);
+        }
+    }
+
+    private void moveForwardOrStop(Car car) {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        System.out.println(car.getName() + "의 랜덤값 : " + randomNumber);
+        if (randomNumber >= 4) {
+            car.forward();
+        }
     }
 }
