@@ -1,7 +1,7 @@
 ### 구현 기능 목록
 - [x] 경주할 자동차 이름 입력 받기 (inputCarName)
   - [ ] 쉼표 기준으로 분리 (splitByComma)
-- [ ] 시도할 회수 입력 받기 (inputTryNumber)
+- [x] 시도할 회수 입력 받기 (inputTryNumber)
 - [ ] 차수별 자동차 전진 현황 출력 (nowRacing)
   - [ ] 0~3: 정차
   - [ ] 4~9: 한 칸 전진
