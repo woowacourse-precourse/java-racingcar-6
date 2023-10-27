@@ -15,10 +15,10 @@
 
 ## 도메인
 
-- [ ] Car : 자동차
-    - [ ] name을 가진다.
-        - [ ] 이름의 길이는 5를 초과할 경우 IllegalArgumentException을 발생시킨다.
-    - [ ] moves를 가진다.
+- [] Car : 자동차
+    - [x] name을 가진다.
+        - [x] 이름의 길이는 5를 초과할 경우 IllegalArgumentException을 발생시킨다.
+    - [x] moves를 가진다.
 
 
 - [x] MoveRule(인터페이스) : 차가 이동하는 조건에 대해 정의한다.
