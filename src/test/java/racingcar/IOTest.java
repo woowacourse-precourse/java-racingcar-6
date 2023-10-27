@@ -5,31 +5,45 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.factories.CarFactory;
 import racingcar.factories.CarRecordFactory;
 
 public class IOTest {
 
+    GameRule rule;
+    InputStream stdIn;
+    InputPrompt prompt;
+
+    @BeforeEach
+    void init() {
+        rule = new GameRule(5, 0, 9);
+        InputStream stdIn = System.in;
+        prompt = new InputPrompt(rule);
+    }
+
+    @AfterEach
+    void clean() {
+        prompt.close();
+    }
+
     @Test
     void 정상적인_자동차_이름_입력() {
         // given
-        GameRule rule = new GameRule(5, 0, 9);
         String[] names = new String[] {"BMW", "pobi", "woni", "abcde"};
         CarRecord expectedNames = CarRecordFactory.createEmptyCarRecord();
         for (int i = 0; i < names.length; i++) {
             expectedNames.register(CarFactory.car(rule, names[i]));
         }
         String rawInputString = String.join(",", names) + "\n";
-        InputPrompt prompt = new InputPrompt(rule);
         // when
-        InputStream stdIn = System.in;
-        System.setIn(new ByteArrayInputStream(rawInputString.getBytes()));
+        stdInWillRead(rawInputString);
         CarRecord actualNames = prompt.readCarNames();
         // then
         assertThat(actualNames).isEqualTo(expectedNames);
-        prompt.close();
-        System.setIn(stdIn);
+        restoreStdIn();
    }
 
     /**
@@ -38,10 +52,7 @@ public class IOTest {
     @Test
     void 비정상적인_자동차_이름_입력() {
         // given
-        GameRule rule = new GameRule(5, 0, 9);
         String[] names = new String[] {"woni1", "abcdef"};
-        InputPrompt prompt = new InputPrompt(rule);
-        InputStream stdIn = System.in;
         for (int i = 0; i < names.length; i++) {
             // when
             System.setIn(new ByteArrayInputStream(names[i].getBytes()));
@@ -49,44 +60,47 @@ public class IOTest {
             Assertions.assertThatThrownBy(() -> prompt.readCarNames()).isInstanceOf(IllegalArgumentException.class);
             prompt.close();
         }
-        System.setIn(stdIn);
+        restoreStdIn();
     }
 
    @Test
     void 정상적인_이동_횟수_입력() {
        // given
-       GameRule rule = new GameRule(5, 0, 9);
        String[] inputs = new String[] {"5", "50", "05", "010201", "    3     "};
        int[] numbers = new int[] {5, 50, 5, 10201, 3};
-       InputPrompt prompt = new InputPrompt(rule);
-       InputStream stdIn = System.in;
        for (int i = 0; i < inputs.length; i++) {
-           System.setIn(new ByteArrayInputStream(inputs[i].getBytes()));
            // when
+           stdInWillRead(inputs[i]);
            NumberOfRepetitions n = prompt.readNumberOfRepetitions();
            // then
            assertThat(n).isEqualTo(new NumberOfRepetitions(numbers[i]));
            prompt.close();
        }
-       System.setIn(stdIn);
+       restoreStdIn();
    }
 
     @Test
     void 비정상적인_이동_횟수_입력() {
         // given
-        GameRule rule = new GameRule(5, 0, 9);
         String[] inputs = new String[] {"5k", "0", " k  3     ", "1   3"};
         int[] numbers = new int[] {5, 50, 5, 10201, 3};
-        InputPrompt prompt = new InputPrompt(rule);
-        InputStream stdIn = System.in;
         for (int i = 0; i < inputs.length; i++) {
             // when
-            System.setIn(new ByteArrayInputStream(inputs[i].getBytes()));
+            stdInWillRead(inputs[i]);
             // then
             Assertions.assertThatThrownBy(() -> prompt.readNumberOfRepetitions())
                     .isInstanceOf(IllegalArgumentException.class);
             prompt.close();
         }
+        System.setIn(stdIn);
+    }
+
+    void stdInWillRead(String input) {
+        ByteArrayInputStream bis = new ByteArrayInputStream(input.getBytes());
+        System.setIn(bis);
+    }
+
+    void restoreStdIn() {
         System.setIn(stdIn);
     }
 }
