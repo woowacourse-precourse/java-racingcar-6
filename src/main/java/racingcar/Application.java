@@ -21,7 +21,7 @@ public class Application {
         String s = Console.readLine();
         Name = s.split((","));
         UserNum = Name.length;
-        CheckName();
+        CheckName(s);
         for(int i=0;i<UserNum;i++)
         {
             User.put(Name[i],0);
@@ -30,19 +30,17 @@ public class Application {
             System.out.println("KEY : " + key);
         }
     }
-    public static void CheckName() {
+    public static void CheckName(String s) {
         for(int i=0;i<UserNum;i++)
         {
-            if(Name[i].length()>5)
+            if(Name[i].length()>5||Objects.equals(Name[i], ""))
             {
                 throw new IllegalArgumentException();
             }
         }
-
-        if(User.isEmpty())
-        {
+        if(s.charAt(s.length() - 1)==',') {
             throw new IllegalArgumentException();
         }
     }
-
 }
+
