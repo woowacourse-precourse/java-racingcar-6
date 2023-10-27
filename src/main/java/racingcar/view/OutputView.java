@@ -7,6 +7,7 @@ public class OutputView {
     private final static String REQUEST_NUMBER_OF_TRY_MESSAGE = "시도할 회수는 몇회인가요?";
     private final static String RACE_RESULT_MESSAGE = "실행 결과";
     private final static String MOVEMENT = "-";
+    private final static String WINNER_IS = "최종 우승자 : ";
 
     public void requestCarNamesMessage() {
         System.out.println(REQUEST_CAR_NAMES_MESSAGE);
@@ -24,5 +25,9 @@ public class OutputView {
         for(CarDto car : cars) {
             System.out.println(car.name + " : " + MOVEMENT.repeat(car.len));
         }
+    }
+
+    public void raceWinnerMessage(List<String> cars) {
+        System.out.println(WINNER_IS + String.join(", ", cars));
     }
 }
