@@ -82,4 +82,10 @@ public class NameTest {
         // then
         assertThat(exception.getMessage()).isEqualTo(CAR_NAMV_VALUE_EXCEPTION.toString());
     }
+
+    @Test
+    void 숫자는_입력_가능하다() {
+        // given & when
+        Name name = Name.from("1a9");
+    }
 }
