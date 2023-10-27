@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.HashMap;
 
 public class RacingGame {
@@ -20,5 +21,10 @@ public class RacingGame {
 
     public void playGame() {
 
+    }
+
+    public String getInput() {
+        String input = Console.readLine().trim();
+        return input;
     }
 }
