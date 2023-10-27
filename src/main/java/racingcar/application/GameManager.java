@@ -6,6 +6,7 @@ import racingcar.domain.DefaultFuelFactory;
 import racingcar.domain.FuelFactory;
 import racingcar.domain.GameTry;
 import racingcar.io.InputProcessor;
+import racingcar.io.OutputProcessor;
 
 import java.util.List;
 
@@ -18,6 +19,8 @@ public class GameManager {
     public void run() {
         readRacingCars();
         readGameTryCount();
+        racingStart();
+        notifyWinners();
     }
 
     private void readRacingCars() {
@@ -34,5 +37,17 @@ public class GameManager {
     private void readGameTryCount() {
         final int attempCount = InputProcessor.readAttemptCount();
         gameTry = GameTry.from(attempCount);
+    }
+
+    private void racingStart() {
+        while (gameTry.isStillCanTry()) {
+            cars.racing(FUEL_FACTORY);
+            OutputProcessor.printRacingRound(cars.getCars());
+            gameTry.proceed();
+        }
+    }
+
+    private void notifyWinners() {
+        OutputProcessor.printWinners(cars.getWinners());
     }
 }
