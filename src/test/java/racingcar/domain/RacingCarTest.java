@@ -19,4 +19,13 @@ public class RacingCarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorHandler.INVALID_ENGLISH_KOREAN.getException().getMessage());
     }
+
+    @DisplayName("자동차 이름이 중복된 경우 예외가 발생한다")
+    @ParameterizedTest(name = "[{index}] input : {0} ")
+    @ValueSource(strings = {"pobi,pobi,woni", "pobi,현대,woni,현대"})
+    void createCarNamesWithDuplicate(String inputString) {
+        assertThatThrownBy(() -> new RacingCar(List.of(inputString.split(","))))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ErrorHandler.DUPLICATE_NUMBER.getException().getMessage());
+    }
 }
