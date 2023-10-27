@@ -7,6 +7,7 @@ import java.util.StringTokenizer;
 
 public class DataInputOutput {
     private static List<Car> carList = new ArrayList<Car>();
+    private static int numTotalMoving;
     public void userInputCarsInfo(){
         // Validate Here
         StringTokenizer tokenizer = new StringTokenizer(Console.readLine(), ",");
@@ -17,7 +18,11 @@ public class DataInputOutput {
             carList.add(newCar);
         }
     }
-    public void userInputMovingInfo(){}
+    public void userInputMovingInfo(){
+        String userInput = Console.readLine();
+        //Validate Here
+        numTotalMoving = Integer.parseInt(userInput);
+    }
     public void printSystemMessage(){}
     public void printMovingResult(){}
     public void makeRandomNumber(){}
