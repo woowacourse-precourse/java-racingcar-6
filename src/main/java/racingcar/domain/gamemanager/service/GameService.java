@@ -1,6 +1,7 @@
 package racingcar.domain.gamemanager.service;
 
 import racingcar.domain.car.Car;
+import racingcar.domain.car.dao.CarRepository;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,10 +9,21 @@ import java.util.List;
 
 public class GameService {
 
-    public void saveCar(String carNames) {
-        createCar(carNames);
+    private final CarRepository carRepository;
 
-        save();
+    public GameService(CarRepository carRepository) {
+        this.carRepository = carRepository;
+    }
+
+
+    public void saveCars(String carNames) {
+        List<Car> car = createCar(carNames);
+
+        saveCar(car);
+    }
+
+    private void saveCar(List<Car> cars) {
+        cars.forEach(carRepository::save);
     }
 
     private List<Car> createCar(String carNames) {
