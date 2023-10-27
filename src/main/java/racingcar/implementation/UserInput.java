@@ -14,7 +14,7 @@ public class UserInput {
 
     public List<String> getCarList() {
         String input = sc.next();
-        List<String> carList = checker.carListCheck(input);
+        List<String> carList = checker.carListCheck(input.replace(" ",""));
 
         for (int i = 0; i < carList.size(); i++) {
             carList.set(i, carList.get(i).concat(" : "));
