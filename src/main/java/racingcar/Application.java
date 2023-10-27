@@ -6,8 +6,9 @@ public class Application {
 
     public static void main(String[] args) {
         AppConfig config = new AppConfig();
-        RacingController racingController = config.setController();
+        RacingController racingController = config.setRacing();
         racingController.run();
+        config.endRacing();
     }
 
 }

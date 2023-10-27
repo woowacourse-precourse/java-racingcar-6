@@ -1,17 +1,24 @@
-package racingcar.util;
+package racingcar.util.convert;
 
 import racingcar.domain.Car;
 import racingcar.domain.Name;
+import racingcar.util.Validator;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TypeConverter {
+public class StringToCarListConverter implements Converter<String, List<Car>>{
 
     private static final String SPLIT_UNIT = ",";
 
-    public List<Car> convertToCarList(String input) {
-        List<Name> nameList = convertToNameList(input);
+    @Override
+    public boolean supports(Object from, Class<?> to) {
+        return from.getClass() == String.class && to == List.class;
+    }
+
+    @Override
+    public List<Car> convert(String target) {
+        List<Name> nameList = convertToNameList(target);
         return convertToCarList(nameList);
     }
 

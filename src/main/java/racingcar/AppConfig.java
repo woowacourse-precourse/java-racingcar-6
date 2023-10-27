@@ -1,20 +1,34 @@
 package racingcar;
 
 import racingcar.controller.RacingController;
+import racingcar.util.convert.ConverterHolder;
+import racingcar.util.convert.StringToCarListConverter;
+import racingcar.util.convert.StringToTryCountConverter;
 import racingcar.service.RacingService;
 import racingcar.util.StringUtil;
-import racingcar.util.TypeConverter;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
+import java.util.List;
+
 public class AppConfig {
 
-    public RacingController setController() {
+    public RacingController setRacing() {
+
+        setConverters();
+
         return new RacingController(inputView(), outputView(), racingService());
     }
 
+    private void setConverters() {
+        ConverterHolder.setConverters(List.of(
+                new StringToCarListConverter(),
+                new StringToTryCountConverter()
+        ));
+    }
+
     private InputView inputView() {
-        return new InputView(new TypeConverter());
+        return new InputView();
     }
 
     private OutputView outputView() {
@@ -25,4 +39,7 @@ public class AppConfig {
         return new RacingService();
     }
 
+    public void endRacing() {
+        ConverterHolder.clearHolder();
+    }
 }
