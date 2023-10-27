@@ -16,6 +16,11 @@ public class ConvertUtil {
         return carList;
     }
 
+    public static String convertListCarToStr(List<Car> cars){
+        List<String> carNames = cars.stream().map(Car::getName).toList();
+        return String.join(", ",carNames);
+    }
+
     public static String convertPositionToStr(int position){
         String strPosition = "";
         for(int i = 0;i<position;i++){

@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.util.ConvertUtil;
@@ -17,4 +18,9 @@ public class OutputView {
         }
         System.out.println();
     }
+
+    public static void printWinner(List<Car> cars){
+        System.out.println("최종 우승자 : " + ConvertUtil.convertListCarToStr(cars));
+    }
+
 }
