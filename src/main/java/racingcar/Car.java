@@ -1,12 +1,12 @@
 package racingcar;
 
 public class Car {
-    private long position;
+    private long totalMoveCount;
     private Engine engine;
 
     public void moveCar() {
         if (canMove()) {
-            this.position++;
+            this.totalMoveCount++;
         }
     }
 
