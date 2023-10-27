@@ -35,6 +35,14 @@ class CarsTest {
     }
 
     @Test
+    @DisplayName("경주에 참여하는 자동차의 이름 중 중복되는 이름이 있다면 예외가 발생한다.")
+    void hasDuplicatedName() {
+        assertThatThrownBy(() -> new Cars(List.of(new Car("pobi"), new Car("pobi"))))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("경주에 참여하는 자동차들의 이름은 중복될 수 없습니다.");
+    }
+
+    @Test
     @DisplayName("경주에 참여하는 자동차들을 전진시킬 수 있다.")
     void move() {
         cars.makeMoveOrStop(() -> 4);
