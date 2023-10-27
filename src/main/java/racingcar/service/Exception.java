@@ -10,6 +10,7 @@ public class Exception {
     private static final int CAR_NAME_MAX_LENGTH = 5;
     private static final String BLANK = " ";
     public static List<String> carNames;
+
     public static void checkCarName(String inputValue) throws IllegalArgumentException {
         checkEmpty(inputValue);
 
