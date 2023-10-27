@@ -28,6 +28,7 @@ public class RacingGameController {
         outputView.printGameResultMessage();
         while (!racingGame.isEnd()) {
             racingGame.proceed();
+            outputView.printGameState(racingGame.getCurrentState());
         }
     }
 
