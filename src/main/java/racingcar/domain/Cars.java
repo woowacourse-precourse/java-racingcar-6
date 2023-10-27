@@ -13,6 +13,12 @@ public class Cars {
         this.cars = createCars(names, movingStrategy);
     }
 
+    public void raceAllCars() {
+        for (Car car : cars) {
+            car.goForward();
+        }
+    }
+
     private List<Car> createCars(List<String> names, MovingStrategy movingStrategy) {
         return names.stream()
                 .map(name -> new Car(movingStrategy, name, 0))
