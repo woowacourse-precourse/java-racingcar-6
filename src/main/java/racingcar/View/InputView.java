@@ -1,6 +1,8 @@
 package racingcar.View;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
+import java.util.List;
 
 public class InputView {
     private static final String racingCarName = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -11,8 +13,15 @@ public class InputView {
         return Console.readLine();
     }
 
-    public String AskTryCount(){
+    public int AskTryCount(){
         System.out.println(tryCount);
-        return Console.readLine();
+        String inputTryCount = Console.readLine();
+        int intTrtCount = Integer.parseInt(inputTryCount);
+        return intTrtCount;
+    }
+
+    public List<String> storeCarName() {
+        List<String> carName = Arrays.asList(AskCarName().split(","));
+        return carName;
     }
 }
