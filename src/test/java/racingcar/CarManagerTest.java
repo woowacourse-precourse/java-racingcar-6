@@ -17,8 +17,8 @@ class CarManagerTest extends NsTest {
         CarManager pobiManager = new CarManager(pobi);
         CarManager woniManager = new CarManager(woni);
 
-        pobiManager.moveIfSatisfy();
-        woniManager.moveIfSatisfy();
+        pobiManager.moveIfSatisfy(2);
+        woniManager.moveIfSatisfy(2);
 
         System.out.println(pobi);
         System.out.println(woni);
@@ -29,9 +29,9 @@ class CarManagerTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     main(new String[]{});
-                    assertThat(output()).contains("pobi : -", "woni :"); // output() 메서드의 trim() 적용됨을 유의
+                    assertThat(output()).contains("pobi : -", "woni : --"); // output() 메서드의 trim() 적용됨을 유의
                 },
-                MOVING_FORWARD, STOP
+                MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD
         );
     }
 

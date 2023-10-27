@@ -13,9 +13,11 @@ public class CarManager {
         this.car = car;
     }
 
-    public void moveIfSatisfy() {
-        if (createRandomNumber() >= SATISFY_FOR_MOVE) {
-            car.move();
+    public void moveIfSatisfy(int count) {
+        for (int iteration = 0; iteration < count; iteration++) {
+            if (createRandomNumber() >= SATISFY_FOR_MOVE) {
+                car.move();
+            }
         }
     }
 
