@@ -12,4 +12,12 @@ public class Car {
         return name;
     }
 
+    public void move_forward(String onePlace) {
+        this.nowPlace = this.nowPlace + onePlace;
+    }
+
+    public String getNowPlace() {
+        return nowPlace;
+    }
+
 }
