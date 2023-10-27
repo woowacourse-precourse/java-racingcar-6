@@ -5,8 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class CarGenerator {
+
     private static final int LENGTH = 5;
-    private String[] carNameArray;
+    private final String[] carNameArray;
+
     public CarGenerator(String carString) {
         carNameArray = carSplit(carString);
     }
