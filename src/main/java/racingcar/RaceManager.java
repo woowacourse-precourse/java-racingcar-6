@@ -22,7 +22,7 @@ public class RaceManager {
 
         for (int i = 0; i < attemptNumber.getAttemptNumber(); i++) {
             carList.moveForwardEach();
-            carList.printAllCar();
+            Output.printAllCar(carList.getIterator());
         }
 
         printWinner();

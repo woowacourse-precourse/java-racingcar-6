@@ -2,9 +2,9 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import racingcar.view.Input;
-import racingcar.view.Output;
 
 public class RaceCars {
 
@@ -12,7 +12,6 @@ public class RaceCars {
     private static final int LESS_THAN = -1;
     private static final int FIRST_ELEMENT_INDEX = 0;
     private static final String SPLIT_DELIMITER = ",";
-    private static final String VERTICAL_WHITESPACE = "";
 
     private final List<RaceCar> raceCarList;
 
@@ -36,11 +35,8 @@ public class RaceCars {
                 .toList();
     }
 
-    public void printAllCar() {
-        for (RaceCar car : raceCarList) {
-            car.printCurrentPositions();
-        }
-        Output.printMessage(VERTICAL_WHITESPACE);
+    public Iterator<RaceCar> getIterator() {
+        return raceCarList.iterator();
     }
 
     public void moveForwardEach() {

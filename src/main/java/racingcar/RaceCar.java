@@ -2,11 +2,8 @@ package racingcar;
 
 import racingcar.configuration.AppConfig;
 import racingcar.domain.MoveProbability;
-import racingcar.view.Output;
 
 public class RaceCar {
-
-    private static final String FIELD_SEPARATOR = " : ";
 
     private final CarName name;
     private final RacePosition position;
@@ -31,8 +28,8 @@ public class RaceCar {
         return position.compareTo(other.position);
     }
 
-    public void printCurrentPositions() {
-        Output.printMessage(name + FIELD_SEPARATOR + position.drawProcess());
+    public String getCurrentPositions() {
+        return position.drawProcess();
     }
 
     @Override
