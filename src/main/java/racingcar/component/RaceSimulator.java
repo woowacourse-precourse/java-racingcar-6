@@ -1,6 +1,7 @@
 package racingcar.component;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.List;
 
 public class RaceSimulator {
     private RaceSimulator() {}
@@ -12,6 +13,14 @@ public class RaceSimulator {
             raceSimulator = new RaceSimulator();
         }
         return raceSimulator;
+    }
+
+    private void oneLoop(List<Car> cars) {
+        for (Car car : cars) {
+            if (canGo()) {
+                car.go();
+            }
+        }
     }
 
     private boolean canGo() {
