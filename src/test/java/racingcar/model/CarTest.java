@@ -9,6 +9,18 @@ import org.junit.jupiter.api.Test;
 
 class CarTest {
 
+    @DisplayName("move 테스트 : 자동차의 position 이 한칸 전진한다.")
+    @Test
+    void move() {
+        Car car = new Car("홍길동", 5);
+
+        car.move();
+
+        assertThat(car).usingRecursiveComparison()
+                .comparingOnlyFields("position")
+                .isEqualTo(new Car("홍길동", 6));
+    }
+
     @DisplayName("같은 position 인지 테스트 : 자동차의 position 이 같으면 true, 다르면 false 반환.")
     @Test
     void isSamePosition() {
