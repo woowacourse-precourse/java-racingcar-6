@@ -36,4 +36,7 @@ public class Service {
         return numberGenerator.getRandomNumber() >= GO_NUMBER;
     }
 
+    public void showProgressOf(List<String> participants) {
+        outputView.printProgressMessage(participants, progressBoard);
+    }
 }
