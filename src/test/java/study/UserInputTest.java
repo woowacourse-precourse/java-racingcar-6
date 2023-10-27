@@ -13,7 +13,7 @@ public class UserInputTest {
 
         String input = "pobi,woni,jun";
 
-        assertThat(UserInputReceiver.receiveCarNameAndGetCarNameList(input))
+        assertThat(UserInputReceiver.ReceiveCarNames(input))
                 .contains("pobi").contains("woni").contains("jun");
     }
 
@@ -22,7 +22,7 @@ public class UserInputTest {
 
         String input = "pobi,woni,cronggg";
 
-        assertThatThrownBy(() -> UserInputReceiver.receiveCarNameAndGetCarNameList(input))
+        assertThatThrownBy(() -> UserInputReceiver.ReceiveCarNames(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
