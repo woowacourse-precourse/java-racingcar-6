@@ -1,6 +1,7 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.ExceptionMessage.CAR_NAME_BLANK_EXCEPTION;
 import static racingcar.ExceptionMessage.CAR_NAME_LENGTH_EXCEPTION;
 
 import org.junit.jupiter.api.Assertions;
@@ -23,5 +24,15 @@ public class NameTest {
         });
         // then
         assertThat(exception.getMessage()).isEqualTo(CAR_NAME_LENGTH_EXCEPTION.toString());
+    }
+
+    @Test
+    void 공백이_처음에_포함되면_안_된다_예외() {
+        // given & when
+        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Name name = Name.from("  bob");
+        });
+        // then
+        assertThat(exception.getMessage()).isEqualTo(CAR_NAME_BLANK_EXCEPTION.toString());
     }
 }
