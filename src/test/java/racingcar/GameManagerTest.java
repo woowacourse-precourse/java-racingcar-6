@@ -1,12 +1,8 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 
 public class GameManagerTest {
-
     @Test
     void 우승자를_알려주는_테스트() {
         User user = new User();

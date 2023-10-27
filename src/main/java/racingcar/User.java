@@ -21,7 +21,9 @@ public class User {
         for (int i = 0; i < attemptNum; i++) {
             for (Car car : cars) {
                 car.driving();
+                System.out.println(car.getCarName() + " : " + car.getDistanceDriven());
             }
+            System.out.println();
         }
     }
 
