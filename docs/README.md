@@ -77,3 +77,4 @@
 
 - ProgressMessage: 진행 메시지를 가진다
 - ErrorMessage: 예외사항 메시지를 가진다
+- MoveStatus: 움직임 여부를 가진다
