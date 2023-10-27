@@ -8,7 +8,6 @@ import static racingcar.exception.ErrorMessage.NOT_INTEGER;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.dto.CarsDto;
 import racingcar.exception.RacingGameException;
@@ -49,6 +48,7 @@ public class RacingGame {
 
         rotateCount = convertToInteger(rotateNumber);
     }
+
     private List<String> splitString(String carNames) {
         return Arrays.stream(carNames.split(CARS_SPLIT_STRING))
                 .toList();
@@ -91,7 +91,7 @@ public class RacingGame {
     private void raceStart() {
         cars.go();
 
-        outputView.printCarsResults(CarsDto.of(cars));
+        outputView.printCarsResults(CarsDto.from(cars));
     }
 
     private void finish() {
