@@ -17,6 +17,7 @@ class InputValidatorTest {
         });
     }
 
+    @Test
     void 중간에_다섯글자_넘는_경우() {
         List<String> carNames = Arrays.asList("pobi", "다섯글자넘는이름", "jun");
         assertThrows(IllegalArgumentException.class, () -> {
@@ -24,6 +25,7 @@ class InputValidatorTest {
         });
     }
 
+    @Test
     void 컴마_연속_두개() {
         List<String> carNames = Arrays.asList("pobi", "", "jun", "aa");
         assertThrows(IllegalArgumentException.class, () -> {
@@ -31,6 +33,7 @@ class InputValidatorTest {
         });
     }
 
+    @Test
     void 빈_문자열() {
         List<String> carNames = Arrays.asList("");
         assertThrows(IllegalArgumentException.class, () -> {
@@ -38,6 +41,7 @@ class InputValidatorTest {
         });
     }
 
+    @Test
     void 컴마_빈칸_컴마() {
         List<String> carNames = Arrays.asList("pobi", " ", "jun");
         assertThrows(IllegalArgumentException.class, () -> {
@@ -45,11 +49,10 @@ class InputValidatorTest {
         });
     }
 
+    @Test
     void 올바른_입력() {
         List<String> carNames = Arrays.asList("pobi", "jun", "aa");
-        assertThrows(IllegalArgumentException.class, () -> {
-            InputValidator.validateCarNames(carNames);
-        });
+        assertDoesNotThrow(()->InputValidator.validateCarNames(carNames));
     }
 
 
