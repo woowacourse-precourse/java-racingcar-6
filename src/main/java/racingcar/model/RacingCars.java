@@ -1,11 +1,12 @@
 package racingcar.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCars {
-    private final RacingCarsList racingCarsList;
+    private final List<RacingCar> racingCars;
 
-    public RacingCars(RacingCarsList racingCarsList) {
-        this.racingCarsList = racingCarsList;
+    public RacingCars(RacingCarsListMaker racingCarsListMaker) {
+        this.racingCars = racingCarsListMaker.getRacingCarsList();
     }
 }
