@@ -1,7 +1,9 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import camp.nextstep.edu.missionutils.Console;
 
@@ -12,8 +14,33 @@ public class Application {
     	
     	String carInput = Console.readLine();
     	List<String> carList = inputToCarList(carInput);
+    	carListException(carList);
     	
     }
+
+	public static void carListException(List<String> carList) {
+		atLeastOneCar(carList);
+    	limitFiveEach(carList);
+    	distinctName(carList);
+	}
+
+	public static void distinctName(List<String> carList) {
+		Set<String> carSet = new HashSet<>(carList);
+    	if(carSet.size() != carList.size())
+    		throw new IllegalArgumentException();
+	}
+
+	public static void limitFiveEach(List<String> carList) {
+		for(int i = 0; i < carList.size(); i++) {
+    		if(carList.get(i).length() > 5)
+    			throw new IllegalArgumentException();
+    	}
+	}
+
+	public static void atLeastOneCar(List<String> carList) {
+		if(carList.size() < 1)
+    		throw new IllegalArgumentException();
+	}
     
     public static List<String> inputToCarList(String carInput) {
 		String[] separate = carInput.split(",");
@@ -27,6 +54,7 @@ public class Application {
     	
 		return carList;
 	}
+
 }
 
 	
