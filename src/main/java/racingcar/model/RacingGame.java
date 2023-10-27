@@ -8,7 +8,7 @@ public interface RacingGame {
 
     void move(NumberGenerator numberGenerator);
 
-    Map<Vehicle, Position> getVehiclePositionMap();
+    Map<String, Integer> getResult();
 
     List<String> getWinner();
 }

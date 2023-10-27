@@ -30,14 +30,14 @@ public class ConsoleOutputView implements OutputView {
 
     @Override
     public void printGameResult(final GameResultResponse gameResultResponse) {
-        gameResultResponse.getResult().forEach((vehicle, position) -> {
-            System.out.println(makeResult(vehicle.getName(), position.getPositionIndex()));
+        gameResultResponse.getResult().forEach((vehicleName, positionIndex) -> {
+            System.out.println(makeResult(vehicleName, positionIndex));
         });
         printNewLine();
     }
 
-    private String makeResult(final String carName, final int positionIndex) {
-        return carName + COLON + HYPHEN.repeat(positionIndex);
+    private String makeResult(final String vehicleName, final int positionIndex) {
+        return vehicleName + COLON + HYPHEN.repeat(positionIndex);
     }
 
     private void printNewLine() {

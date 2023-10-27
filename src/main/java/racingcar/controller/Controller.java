@@ -8,7 +8,6 @@ import racingcar.controller.dto.GameResultResponse;
 import racingcar.model.Car;
 import racingcar.model.CarName;
 import racingcar.model.CarRacingTrackGenerator;
-import racingcar.model.Position;
 import racingcar.model.RacingGame;
 import racingcar.model.RacingTrackGenerator;
 import racingcar.model.Vehicle;
@@ -40,7 +39,7 @@ public class Controller {
 
     private void play(final RacingGame racingGame) {
         racingGame.move(new RandomNumberGenerator());
-        Map<Vehicle, Position> racingTrack = racingGame.getVehiclePositionMap();
+        Map<String, Integer> racingTrack = racingGame.getResult();
         GameResultResponse gameResultResponse = GameResultResponse.from(racingTrack);
         outputView.printGameResult(gameResultResponse);
     }

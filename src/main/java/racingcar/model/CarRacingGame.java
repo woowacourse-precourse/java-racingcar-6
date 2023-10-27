@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import racingcar.exception.position.NotExistPositionException;
@@ -32,8 +32,12 @@ public class CarRacingGame implements RacingGame {
     }
 
     @Override
-    public Map<Vehicle, Position> getVehiclePositionMap() {
-        return Collections.unmodifiableMap(carRacingManager.getCarPositionMap());
+    public Map<String, Integer> getResult() {
+        Map<String, Integer> vehiclePositionMap = new LinkedHashMap<>();
+        for (Map.Entry<Car, Position> entry : carRacingManager.getCarPositionEntries()) {
+            vehiclePositionMap.put(entry.getKey().getName(), entry.getValue().getPositionIndex());
+        }
+        return vehiclePositionMap;
     }
 
     @Override
