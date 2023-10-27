@@ -7,6 +7,8 @@ public class Rule {
     public static final Integer MIN_POSSIBILITY = 0;
     public static final Integer MAX_POSSIBILITY = 9;
     public static final Integer MOVING_POSSIBILITY = 4;
+    public static final Integer MIN_PARTICIPANT = 1;
+    public static final String SEPARATOR = ",";
 
 
     private Rule() {
