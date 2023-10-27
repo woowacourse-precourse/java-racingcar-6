@@ -9,7 +9,11 @@ public class InputView {
     }
 
     public int readAttempt() {
-        return parseInt(readLine());
+        try {
+            return parseInt(readLine());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(e);
+        }
     }
 
     public static String readLine() {
