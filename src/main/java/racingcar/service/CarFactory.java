@@ -14,6 +14,7 @@ public class CarFactory {
         List<Car> cars = new ArrayList<>();
 
         for (String carName : carNames) {
+
             Validator.validateCarName(carName);
             cars.add(new Car(carName));
         }
