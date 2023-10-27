@@ -6,7 +6,7 @@
 
 
 - [ ] 경주를 하는 자동차 생성하는 클래스. // RaceCar
-  - [ ] 자동차의 이름을 입력 받는다. // RaceCar#RaceCar();
+  - [ ] 자동차의 생성자 (입력 받는다.) // RaceCar#RaceCar();
     - [ ] 이름은 5자 이하만 가능하다.
     - [ ] 생성자를 통해서 입력을 받는다.
   - [ ] 자동차의 이동을 제어해준다. // RaceCar#carMovementControl
@@ -37,56 +37,73 @@
     - [ ] 입력받은 자동차의 이름으로 레이싱 자동차를 만든다.
     - [ ] 이름은 5자 이하 검사
     - [ ] 한글 포함 검사
-  
+
+  - [ ] 입력받은 이름 문자열로 자동차를 만들어준다. // GameProcess#createRaceCars()
+    
   - [ ] 게임을 시도할 회수를 입력하는 메서드 // GameProcess#inputNumberGameAttempts
   - [ ] 레이싱게임의 최종 승자를 알려준다. // GameProcess#knowFinalWinner
-  
+
   
 
 - [ ] 모든 클래스에서 사용할 수 있는 메서드의 모음인 Utill 클래스 작성. // Utill
-  - [ ] 문자열 입력 :  이름은 5자 이하만 가능하다. // Utill#input
-    - [ ] 숫자을 포함하는가 검사
+  - [ ] 문자열 입력 :  이름은 5자 이하만 가능하다. // Utill#inputString
+    - [ ] 숫자을 포함하는가 검사 
     
     - [ ] 공백입력 검사
     
-    - [ ] 특수기호 포함 검사.
+    - [ ] 특수기호 포함 검사
     
-      
-    
-  - [ ] 숫자 입력 : 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다. // Utill#
+  - [ ] 숫자 입력 : 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다. // Utill#inputNum
     - [ ] 공백 입력 검사
-    - [ ] 음수 입력 검사
+    - [ ] 양수 입력 검사
     - [ ] 문자열 포함 검사
     - [ ] 특수문자 포함 검사
 
 
 
-- [ ] 사용자 화면을 보여주는 클래스
+- [ ] 사용자 화면을 보여주는 클래스. // GameStart
 
-  - [ ] 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
+  - [ ] 전진하는 모든 차들의 자동차를 출력할 (자동차 이름을 같이 출력한다.) // GameStart#printSituationOfCarCurrent
 
     - [ ] 전진은 "-"을 출력 ( pobi : - )
 
-  - [ ] 우승자가 누구인지 출력을 해준다.
-
+      ```
+      pobi : ----
+      woni : ---
+      jun : ----
+      ```
+  
+  - [ ] 우승자가 누구인지 출력을 해준다. // GameStart#printWinnerOfRaceGame
+  
     - [ ] 우승자는 한명이상이다.
-    - [ ] 우승자가 여러명일경우 쉼표(,)를 이용하여 구분한다. s
-
-  - [ ] 게임 진행 상황을 보여준다.
-
+  
+    - [ ] 우승자가 여러명일경우 쉼표(,)를 이용하여 구분한다. 
+  
+      ```
+      최종 우승자 : pobi, jun
+      ```
+  
+  - [ ] 게임 진행 상황을 보여준다. // GameStart#showProcessOfRaceGame
+  
     - [ ] 시도할 회수만큼 게임 진행 상황을 출력한다.
+  
+  - [ ] 게임 시작. // GameStart#run
+  
+    - [ ] 게임 시작을 한다.
+  
+  
 
 
 
 
 - [ ] 올바른 값을 확인하기 위한 검증 클래스를 만든다. ValidException
-  - [ ] 이름은 5자 이하 검사 ValidException
-  - [ ] 한글 포함 검사
-  - [ ] 숫자을 포함하는가 검사
-  - [ ] 공백 입력 검사
-  - [ ] 음수 입력 검사
-  - [ ] 문자열 포함 검사
-  - [ ] 특수문자 포함 검사
+  - [ ] 이름은 5자 이하 검사. // ValidException#isValidFIveLessString
+  - [ ] 한글 포함 검사. //  ValidException#isValidIncludeKorean
+  - [ ] 숫자을 포함하는가 검사  // ValidException#isValidIncludeNum
+  - [ ] 공백 입력 검사 // ValidException#isValidBlankCheck
+  - [ ] 양수 입력 검사 // ValidException#isValidPositiveCheck
+  - [ ] 문자열 포함 검사  // ValidException#isValidIncludeString
+  - [ ] 특수문자 포함 검사 // ValidException#isValidIncludeSpecialString
 
 
 
