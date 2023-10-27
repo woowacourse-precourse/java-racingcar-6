@@ -43,4 +43,22 @@ public class Cars {
     public int getNumberOfPeople() {
         return cars.size();
     }
+
+    public List<String> getCarsName() {
+        List<String> nameOfCars = new ArrayList<>();
+        for (Car car : cars) {
+            nameOfCars.add(car.getName());
+        }
+        return nameOfCars;
+    }
+
+    public List<Integer> getCarsCurrentLocation() {
+        List<Integer> carsCurrentLocation = new ArrayList<>();
+        for (Car car : cars) {
+            int currentLocation = car.getLocation();
+            carsCurrentLocation.add(currentLocation);
+        }
+        return carsCurrentLocation;
+    }
+
 }

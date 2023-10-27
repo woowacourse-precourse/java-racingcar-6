@@ -7,7 +7,8 @@
 - [✔] 자동차는 4 이상의 무작위 값이 나오면 전진할 수 있다. - Cars#move()
 - [✔] 최종 자동차의 이동 거리를 비교하여 우승자를 가릴 수 있다. - Cars#getWinner()
 - [✔] n개의 자동차의 이동 거리 중 최댓값을 구할 수 있다. - Cars#getMaxLocation()
-- [✔] 우승자 객체를 따로 생성함 - Winner
+- [✔] 우승자 클래스를 따로 생성함 - Winner
+- [ ] 이름을 쉼표(,)를 기준으로 구분할 수 있다. - RaceController#inputName()
 
 1try 때마다 n개의 무작위 값을 생성
 
