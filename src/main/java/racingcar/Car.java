@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar;
 
 public class Car implements Comparable<Car>{
     public String name;
@@ -9,7 +9,7 @@ public class Car implements Comparable<Car>{
         this.length = length;
     }
 
-    public void setLength(int length) {
+    public void addLength(int length) {
         this.length = length;
     }
 

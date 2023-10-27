@@ -1,8 +1,5 @@
 package racingcar;
 
-import racingcar.model.Car;
-
-import java.util.Collections;
 import java.util.List;
 
 public class Print {
