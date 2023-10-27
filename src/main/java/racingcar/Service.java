@@ -8,6 +8,7 @@ public class Service {
     private final ProgressBoard progressBoard;
     private final InputView inputView;
     private final OutputView outputView;
+    private final NumberGenerator numberGenerator;
     private final int GO_NUMBER = 4;
     private List<String> participants;
 
@@ -15,6 +16,7 @@ public class Service {
         this.progressBoard = ProgressBoard.getInstance();
         this.inputView = new InputView();
         this.outputView = new OutputView();
+        this.numberGenerator = new NumberGenerator();
     }
 
     public String receiveParticipants() {
@@ -58,8 +60,8 @@ public class Service {
     private List<String> getWinners() {
         int maxMove = getMaxMove();
         List<String> winners = new ArrayList<>();
-        for(String participant : participants) {
-            if(progressBoard.progressOf(participant).length()==maxMove) {
+        for (String participant : participants) {
+            if (progressBoard.progressOf(participant).length() == maxMove) {
                 winners.add(participant);
             }
         }
