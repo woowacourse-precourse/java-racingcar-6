@@ -16,25 +16,16 @@ public class RacingGameController extends GameController {
     }
 
     @Override
-    public void init() {
-        scanInputs();
-    }
-
-    private void scanInputs() {
-        cars = RacingGameInputController.scanCarList();
-        numberOfRounds = RacingGameInputController.scanNumberOfRounds();
-    }
-
-    @Override
     public void run() {
         while (isRunning) {
-            init();
             startGame();
         }
     }
 
     @Override
     public void startGame() {
+        cars = RacingGameInputController.scanCarList();
+        numberOfRounds = RacingGameInputController.scanNumberOfRounds();
         OutputView.printResultHeaderMessage();
         for (int i = 0; i < numberOfRounds; i++) {
             doOneRound();

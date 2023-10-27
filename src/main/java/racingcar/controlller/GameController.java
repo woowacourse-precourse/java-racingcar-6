@@ -7,8 +7,6 @@ abstract class GameController {
         this.isRunning = running;
     }
 
-    public abstract void init();
-
     public abstract void run();
 
     public abstract void startGame();
