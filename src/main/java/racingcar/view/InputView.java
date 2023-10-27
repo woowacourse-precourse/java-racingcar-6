@@ -20,6 +20,15 @@ public class InputView {
 
     public int totalRound() {
         printInputAttemptCountMessage();
-        return Integer.parseInt(Console.readLine());
+        String inputRound = Console.readLine();
+        if(isNotNumeric(inputRound)) {
+            throw new IllegalArgumentException();
+        }
+        return Integer.parseInt(inputRound);
+    }
+
+    private boolean isNotNumeric(String inputValue) {
+        return !inputValue.chars()
+                .allMatch(Character::isDigit);
     }
 }
