@@ -37,7 +37,7 @@ public class RacingController {
             output.showResult(cars);
         }
 
-        List<Car> winners = findWinners(cars);
+        output.showWinners(findWinners(cars));
     }
 
     private List<Car> makeCars(String carNames) {
