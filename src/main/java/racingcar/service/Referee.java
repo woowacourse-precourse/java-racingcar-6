@@ -32,8 +32,8 @@ public class Referee {
     }
 
     public String getWinnersCarName(CarsGenerateDto generatedCars) {
-        WinnerCarResponse winnerCarResponse = judgeWinner(generatedCars);
-        return winnerCarResponse.cars().stream()
+        WinnerCarResponse winner = judgeWinner(generatedCars);
+        return winner.cars().stream()
                 .map(Car::getCarName)
                 .collect(Collectors.joining(MULTI_WINNER_DELIMITER));
     }
