@@ -17,10 +17,8 @@ public class Cars {
         }
     }
 
-    public void printCars() {
-        for (Car car : cars) {
-            System.out.println(car);
-        }
+    public Car get(int index) {
+        return cars.get(index);
     }
 
     public List<Car> getWinnerList() {
