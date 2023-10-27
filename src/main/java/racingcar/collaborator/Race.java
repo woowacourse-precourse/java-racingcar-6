@@ -2,6 +2,7 @@ package racingcar.collaborator;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.collaborator.generic.RaceProgress;
 import racingcar.collaborator.generic.RacerProgress;
 import racingcar.io.Input;
 import racingcar.io.Output;
@@ -10,7 +11,11 @@ public class Race {
 
     private List<Racer> racers;
     private Integer numberOfRound;
-    private List<List<RacerProgress>> raceProgress = new ArrayList<>();
+    private List<RaceProgress> raceProgress;
+
+    public Race() {
+        this.raceProgress = new ArrayList<>();
+    }
 
     public void registerRacer() {
         Output.consoleLine("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -31,13 +36,16 @@ public class Race {
                 racer.drive();
             }
 
-            raceProgress.add(racers.stream()
-                    .map(Racer::getProgress)
-                    .toList());
+            List<RacerProgress> list = new ArrayList<>();
+            for (Racer racer : racers) {
+                RacerProgress progress = racer.getProgress();
+                list.add(progress);
+            }
+            raceProgress.add(new RaceProgress(list));
         }
     }
 
-    public List<List<RacerProgress>> result() {
+    public List<RaceProgress> result() {
         return raceProgress;
     }
 }
