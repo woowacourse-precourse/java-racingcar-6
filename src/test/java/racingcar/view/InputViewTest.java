@@ -34,6 +34,18 @@ class InputViewTest {
         assertEquals(expectedCarNames, actualCarNames);
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"pobi,woni,jun", "gim,lee,park", "lee,jun,ho"})
+    void CarNames객체의_내부_CarName_객체들이_예상대로_저장되는지_테스트(String input) {
+        CarNames carNames = new CarNames(input);
+        List<CarName> expectedCarNames = Arrays.stream(input.split(","))
+                .map(CarName::new)
+                .collect(Collectors.toList());
+
+        List<CarName> actualCarNames = carNames.names();
+
+        assertEquals(expectedCarNames, actualCarNames);
+    }
 
     @ParameterizedTest
     @ValueSource(strings = {"pobi,woni,jun", "gim,lee,park", "lee,jun,ho"})
