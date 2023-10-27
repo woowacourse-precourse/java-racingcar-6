@@ -25,7 +25,16 @@ public class RacingCarGameService implements CarGameService {
 
     @Override
     public List<Car> updateCar() {
-        factory.updateCarDistance();
+        factory.updateCarDistance(makeRandomNumbers());
         return factory.getNameAndDistance();
+    }
+
+    @Override
+    public List<Integer> makeRandomNumbers() {
+        List<Integer> randomNumbers = new ArrayList<>();
+        for (int i = 0; i < factory.getNumOfCars(); i++) {
+            randomNumbers.add(RandomNumberCreator.makeRandomNumber());
+        }
+        return randomNumbers;
     }
 }
