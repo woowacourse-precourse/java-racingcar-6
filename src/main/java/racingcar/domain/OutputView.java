@@ -17,11 +17,14 @@ public class OutputView {
         System.out.println(MOVE_COUNT_MESSAGE);
     }
 
-    public static void printResult(Cars cars, int moveCount) {
+    public static void printResultMessage() {
+        System.out.println();
         System.out.println(RESULT_MESSAGE);
-        for (int iteration = 0; iteration < moveCount; iteration++) {
-            cars.move();
-            cars.printCars();
+    }
+
+    public static void printCarsLocation(Cars cars) {
+        for (int index = 0; index < cars.size(); index++) {
+            System.out.println(cars.get(index));
             System.out.println();
         }
     }
