@@ -19,6 +19,13 @@ final class NameTest {
         assertThrows(IllegalArgumentException.class, () -> new Name("다섯글자이상"));
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"a", "abc", "abcde"})
+    void 자동차이름의_길이가_1이상_5이하일_경우_예외가_발생하지_않는다(String name) {
+        assertDoesNotThrow(() -> new Name(name));
+    }
+
+
     record Name(String name) {
         Name {
             if (name.length() < 1) {
