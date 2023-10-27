@@ -3,11 +3,12 @@ package racingcar;
 public class Car {
 
     public final String name;
+    private final Engine engine;
     private long totalMoveCount;
-    private Engine engine;
 
-    public Car(String name) {
+    public Car(String name, Engine engine) {
         this.name = name;
+        this.engine = engine;
     }
 
     public void moveCar() {
