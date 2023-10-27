@@ -6,11 +6,6 @@ import static racingcar.constant.ExceptionMessage.*;
 import java.util.Map;
 
 public class Validation {
-    public void validateInputBlank(String input) {
-        if (input.isBlank()) {
-            throw new IllegalArgumentException(BLANK_INPUT);
-        }
-    }
     public void validateNameLengthZero(String carName) {
         int lastIndex = carName.length()-1;
         if (carName.contains(DELIMETER)) {
