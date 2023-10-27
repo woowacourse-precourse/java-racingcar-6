@@ -14,14 +14,14 @@ public class PlayCount {
         this.goal = Integer.parseInt(goal);
     }
 
-    public static PlayCount from(final String input) {
-        return new PlayCount(input);
-    }
-
     private void validateValue(final String input) {
         if (!input.matches("[0-9]+")) {
             throw new IllegalArgumentException(PLAY_COUNT_VALUE_EXCEPTION.toString());
         }
+    }
+
+    public static PlayCount from(final String input) {
+        return new PlayCount(input);
     }
 
     public void endOneRound() {
