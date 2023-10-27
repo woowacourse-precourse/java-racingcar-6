@@ -25,7 +25,7 @@ public enum CarRaceCountRule {
     }
 
     private static void validateRange(final int inputCount) {
-        if (MIN_COUNT.count > inputCount || MAX_COUNT.count > inputCount) {
+        if (MIN_COUNT.count > inputCount || MAX_COUNT.count < inputCount) {
             throw new IllegalArgumentException("시도 횟수는 1 이상 10 이하의 숫자를 입력해야 합니다.");
         }
     }
