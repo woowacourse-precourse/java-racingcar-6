@@ -82,9 +82,7 @@ class ApplicationTest extends NsTest {
         GameController gameController = new GameController();
 
         Cars cars = new Cars(List.of(car1, car2));
-        assertSimpleTest(() -> {
-                    assertThat(gameController.score(cars)).isEqualTo("bh");
-                }
+        assertSimpleTest(() -> assertThat(gameController.score(cars)).isEqualTo("bh")
         );
     }
 
