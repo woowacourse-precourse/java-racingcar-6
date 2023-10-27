@@ -86,6 +86,7 @@ public class GameController {
         String inputNames = InputView.inputCarNames();
 
         return Arrays.stream(inputNames.split(","))
-                .toList();
+                .peek(InputValidator::validateInputNameLength)
+                .collect(Collectors.toList());
     }
 }
