@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import static racingcar.domain.DomainConstant.CAR_MOVE;
 import static racingcar.domain.DomainConstant.CAR_MOVE_CONDITION;
-import static racingcar.utill.RandomNumberGenerator.createRandomNumber;
 import static racingcar.view.RacingView.carMoveOrStopDecisionResultView;
 
 public class Car {
@@ -14,8 +13,8 @@ public class Car {
         stopOrMoveDecisionResult = new StringBuilder();
     }
 
-    public void stopOrMoveDecision() {
-        if (createRandomNumber() >= CAR_MOVE_CONDITION) {
+    public void stopOrMoveDecision(int randomNumber) {
+        if (randomNumber >= CAR_MOVE_CONDITION) {
             stopOrMoveDecisionResult.append(CAR_MOVE);
         }
         carMoveOrStopDecisionResultView(carName, stopOrMoveDecisionResult.toString());
