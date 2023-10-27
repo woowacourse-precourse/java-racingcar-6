@@ -14,11 +14,11 @@ public class Application {
         System.out.println("");
         System.out.println("실행 결과");
 
-        int k = 0;
-        while (k < carRacing.moveTimes) {
+        int l = 0;
+        while (l < carRacing.moveTimes) {
             carRacing.moveForward();
             System.out.println("");
-            k++;
+            l++;
         }
     }
 }
@@ -52,27 +52,33 @@ class Event {
             System.out.println("시도할 회수는 몇회인가요?");
             moveTimes = Integer.parseInt(Console.readLine());
         }
-        catch (IllegalArgumentException e) {
-            System.out.println("회수가 올바르지 않습니다.");
+        catch (Exception e) {
+            throw new IllegalArgumentException("회수가 올바르지 않습니다.");
         }
 
     }
 
     void moveForward() {
 
-        int j = 0;
-        while (j < players.length ) {
+        int i = 0;
+        while (i < players.length ) {
             movePoint = Randoms.pickNumberInRange(0,9);
 
             if (movePoint >= 4) {
-                scoreBoard[j] = scoreBoard[j] + movePoint;
+                scoreBoard[i] = scoreBoard[i] + movePoint;
             }
 
-            j++;
+            i++;
         }
 
-        for (int i = 0; i < players.length; i++) {
-            System.out.println(players[i] + " : " + scoreBoard[i]);
+        for (int j = 0; j < players.length; j++) {
+            System.out.print(players[j] + " : ");
+
+            for (int k = 0; k < scoreBoard[j]; k++) {
+                System.out.print("-");
+            }
+
+            System.out.print("\n");
         }
     }
 
