@@ -2,7 +2,16 @@ package racingcar.domain;
 
 public class Car {
 
+    private String name;
     private int distance;
+
+    private Car(String name) {
+        this.name = name;
+    }
+
+    public static Car makeCar(String name) {
+        return new Car(name);
+    }
 
     public void validateCarName(String name) {
         if(name.isBlank() || name.length() > 5) {
