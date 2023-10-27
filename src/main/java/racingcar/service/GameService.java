@@ -20,6 +20,8 @@ public class GameService {
         String[] cars = groupCarsByName(carList);
         List<Car> cars1 = createCar(cars);
         gameGuidePrinter.getTryCountMessage();
+        int tryCount = tryCountInput();
+        gameGuidePrinter.getResultMessage();
     }
 
     private String carNameInput() {
@@ -42,5 +44,10 @@ public class GameService {
         }
 
         return cars1;
+    }
+
+    private int tryCountInput() {
+        String tryCount = Console.readLine();
+        return Integer.parseInt(tryCount);
     }
 }
