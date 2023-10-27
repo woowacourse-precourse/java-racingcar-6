@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -56,5 +57,42 @@ class CarsTest {
                         new CarDescription("pobi", 1),
                         new CarDescription("lee", 1)
                 );
+    }
+
+    @DisplayName("선두의 이름을 조회할 수 있다.")
+    @Test
+    void frontCar() {
+        Cars cars = Cars.from(List.of("pobi", "lee"));
+        cars.moveAll(moveFirstCarPolicy(new AtomicBoolean(true)));
+
+        List<String> result = cars.findFrontCarsName();
+
+        assertThat(result)
+                .hasSize(1)
+                .containsExactly("pobi");
+    }
+
+    @DisplayName("선두는 여러명이 될 수 있다.")
+    @Test
+    void frontCars() {
+        Cars cars = Cars.from(List.of("pobi", "lee"));
+        cars.moveAll(() -> true);
+
+        List<String> result = cars.findFrontCarsName();
+
+        assertThat(result)
+                .hasSize(2)
+                .containsExactly("pobi", "lee");
+    }
+
+    private MovePolicy moveFirstCarPolicy(AtomicBoolean isFirst) {
+        return () -> {
+            if (isFirst.get()) {
+                isFirst.set(false);
+                return true;
+            }
+
+            return false;
+        };
     }
 }

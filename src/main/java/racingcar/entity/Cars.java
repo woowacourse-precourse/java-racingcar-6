@@ -1,5 +1,6 @@
 package racingcar.entity;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -61,9 +62,29 @@ class Cars {
         cars.forEach(car -> car.move(policy));
     }
 
+    public List<String> findFrontCarsName() {
+        List<CarDescription> descriptions = describeAll();
+
+        return findNames(descriptions, findMaxPosition(descriptions));
+    }
+
     public List<CarDescription> describeAll() {
         return cars.stream()
                 .map(Car::describeSelf)
+                .toList();
+    }
+
+    private int findMaxPosition(List<CarDescription> descriptions) {
+        return descriptions.stream()
+                .map(CarDescription::position)
+                .max(Comparator.naturalOrder())
+                .orElse(Position.INITIAL_POSITION);
+    }
+
+    private List<String> findNames(List<CarDescription> descriptions, int targetPosition) {
+        return descriptions.stream()
+                .filter(description -> description.position() == targetPosition)
+                .map(CarDescription::name)
                 .toList();
     }
 }
