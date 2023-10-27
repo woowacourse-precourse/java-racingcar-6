@@ -15,4 +15,9 @@ public class Input {
 
         return carNameList;
     }
+
+    public int getTryCount(){
+        int tryCount = Integer.parseInt(Console.readLine());
+        return tryCount;
+    }
 }
