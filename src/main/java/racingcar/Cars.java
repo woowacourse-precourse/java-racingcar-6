@@ -10,14 +10,13 @@ public class Cars {
         this.cars = cars;
     }
 
-    public List<Car> move() {
+    public void move() {
         for (Car car : cars) {
             car.startEngine();
         }
-        return getReadOnlyCarList();
     }
 
-    private List<Car> getReadOnlyCarList() {
+    public List<Car> getReadOnlyCarList() {
         return cars.stream()
                 .map(car -> new Car(car.getName(), car.getCarEngine(), new Position(car.getPosition())))
                 .collect(Collectors.toUnmodifiableList());
