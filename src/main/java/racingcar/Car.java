@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
 
     private String name;
@@ -16,4 +18,11 @@ public class Car {
     public int getForwardDistanceBetweenStartLine() {
         return forwardDistanceBetweenStartLine;
     }
+
+    public void tryForwardByCondition(int randomNumber) {
+        if (randomNumber >= 4){
+            forwardDistanceBetweenStartLine += 1;
+        }
+    }
+
 }
