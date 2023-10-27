@@ -50,14 +50,26 @@ public class StringTest {
                 .hasMessageContaining("String index out of range: 5");
     }
 
+    Application sol1 = new Application();
     @Test
     public void checkCarLength_자동차_이름_길이확인(){
-        Application sol1 = new Application();
         String input1 = "lee,hong,kimkim";
 
         boolean checked = sol1.checkCarLength(input1);
 
         assertThat(checked).isFalse();
+    }
+
+    @Test
+    public void checkForwardTest() {
+        int car1 = 4;
+        int car2 = 3;
+
+        boolean b1 = sol1.checkForward(car1);
+        boolean b2 = sol1.checkForward(car2);
+
+        assertThat(b1).isTrue();
+        assertThat(b2).isFalse();
     }
 
 }

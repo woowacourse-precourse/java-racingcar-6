@@ -25,3 +25,5 @@
 ### - 실행 결과 출력 : printResult()
 * 저장된 결과를 출력 양식에 맞게 출력해줌.
   * 단, 아직 한 단계도 전진하지 못하여 null인 경우에는 ""를 출력해주며 null이라고 출력이 안되게 설정함.
+### - checkForwardTest()
+* junit의 @Test와 Assertions의 assertThat을 이용하여 4미만의 수와 이상의 수를 판별하는지 테스트 진행.
