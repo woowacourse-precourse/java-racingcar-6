@@ -11,5 +11,6 @@ public class Application {
         GameController gameController = new GameController(new GameService(new CarRepository()));
         gameController.startGame();
         gameController.receiveTryCount();
+        gameController.endGame();
     }
 }

@@ -4,6 +4,8 @@ import racingcar.domain.gamemanager.service.GameService;
 import racingcar.domain.view.InputView;
 import racingcar.domain.view.OutputView;
 
+import java.util.List;
+
 public class GameController {
 
     private final GameService gameService;
@@ -26,6 +28,9 @@ public class GameController {
 
     public void endGame() {
         OutputView.printEndGame();
-        gameService.getWinner();
+        List<String> winners = gameService.getWinner();
+        for (String winner : winners) {
+            System.out.println(winner);
+        }
     }
 }
