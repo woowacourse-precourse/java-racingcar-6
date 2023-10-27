@@ -3,7 +3,7 @@ package racingcar.view;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.OutputTestSupport;
-import racingcar.entity.car.Car;
+import racingcar.domain.car.Car;
 
 import static org.assertj.core.api.Assertions.*;
 import static racingcar.constants.MessageConstants.*;

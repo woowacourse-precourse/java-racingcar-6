@@ -1,4 +1,4 @@
-package racingcar.entity.car;
+package racingcar.domain.car;
 
 public class Car {
     private Name name;

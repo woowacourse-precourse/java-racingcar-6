@@ -1,6 +1,6 @@
 package racingcar.service;
 
-import racingcar.entity.car.RaceCars;
+import racingcar.domain.car.RaceCars;
 import racingcar.view.ExecutionView;
 
 public class RaceGameService {

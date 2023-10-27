@@ -1,8 +1,8 @@
 package racingcar.controller;
 
-import racingcar.entity.car.Car;
-import racingcar.entity.car.RaceCars;
-import racingcar.request.RequestChecker;
+import racingcar.domain.car.Car;
+import racingcar.domain.car.RaceCars;
+import racingcar.util.Console;
 import racingcar.service.RaceGameService;
 import racingcar.view.InputView;
 
@@ -28,12 +28,12 @@ public class RaceGameController {
 
     private String[] requestCarNames() {
         InputView.printStartMessage();
-        return RequestChecker.requestNames();
+        return Console.requestNames();
     }
 
     private int requestAttemptCount(){
         InputView.printAttemptCountMessage();
-        return RequestChecker.getNumberOfMovementAttempts();
+        return Console.getNumberOfMovementAttempts();
     }
 
 }

@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import racingcar.entity.car.Car;
+import racingcar.domain.car.Car;
 
 import static racingcar.constants.MessageConstants.*;
 

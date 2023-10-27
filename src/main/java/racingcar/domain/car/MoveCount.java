@@ -1,6 +1,6 @@
-package racingcar.entity.car;
+package racingcar.domain.car;
 
-import static racingcar.entity.car.SupportedMove.*;
+import static racingcar.domain.car.SupportedMove.*;
 
 public class MoveCount {
 

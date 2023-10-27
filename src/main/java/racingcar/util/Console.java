@@ -1,17 +1,15 @@
-package racingcar.request;
-
-import camp.nextstep.edu.missionutils.Console;
+package racingcar.util;
 
 import static racingcar.constants.ErrorConstants.NOT_DIGIT_ERROR_MESSAGE;
 
-public class RequestChecker {
+public class Console {
 
     public static String[] requestNames() {
-        return Console.readLine().split(",");
+        return camp.nextstep.edu.missionutils.Console.readLine().split(",");
     }
 
     public static int getNumberOfMovementAttempts(){
-        String movementAttempts = Console.readLine();
+        String movementAttempts = camp.nextstep.edu.missionutils.Console.readLine();
         return parseInt(movementAttempts);
     }
 

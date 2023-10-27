@@ -1,6 +1,6 @@
 package racingcar.util;
 
-import racingcar.entity.car.Car;
+import racingcar.domain.car.Car;
 
 import java.util.Arrays;
 import java.util.List;

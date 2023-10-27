@@ -1,4 +1,4 @@
-package racingcar.entity.car;
+package racingcar.domain.car;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

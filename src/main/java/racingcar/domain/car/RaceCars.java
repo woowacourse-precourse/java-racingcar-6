@@ -1,4 +1,4 @@
-package racingcar.entity.car;
+package racingcar.domain.car;
 
 import racingcar.util.Randoms;
 import racingcar.view.ExecutionView;

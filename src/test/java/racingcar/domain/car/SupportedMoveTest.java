@@ -1,10 +1,10 @@
-package racingcar.entity.car;
+package racingcar.domain.car;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
-import static racingcar.entity.car.SupportedMove.*;
+import static racingcar.domain.car.SupportedMove.*;
 
 class SupportedMoveTest {
 

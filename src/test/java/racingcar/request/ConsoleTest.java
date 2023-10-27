@@ -1,9 +1,9 @@
 package racingcar.request;
 
-import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.util.Console;
 
 import java.io.ByteArrayInputStream;
 
@@ -11,11 +11,11 @@ import static org.assertj.core.api.Assertions.*;
 import static racingcar.constants.ErrorConstants.*;
 
 
-class RequestCheckerTest {
+class ConsoleTest {
 
     @AfterEach
     public void tearDown() {
-        Console.close();
+        camp.nextstep.edu.missionutils.Console.close();
     }
 
     @Test
@@ -25,7 +25,7 @@ class RequestCheckerTest {
         String request = "pobi,woni,jun";
         System.setIn(new ByteArrayInputStream(request.getBytes()));
         // when
-        String[] names = RequestChecker.requestNames();
+        String[] names = Console.requestNames();
         // then
         assertThat(names).hasSize(3)
                 .contains("pobi", "woni", "jun");
@@ -38,7 +38,7 @@ class RequestCheckerTest {
         String request = "5";
         System.setIn(new ByteArrayInputStream(request.getBytes()));
         // when
-        int movementAttempts = RequestChecker.getNumberOfMovementAttempts();
+        int movementAttempts = Console.getNumberOfMovementAttempts();
         // then
         assertThat(5).isEqualTo(movementAttempts);
     }
@@ -50,7 +50,7 @@ class RequestCheckerTest {
         String request = "haen";
         System.setIn(new ByteArrayInputStream(request.getBytes()));
         // when // then
-        assertThatThrownBy(() -> RequestChecker.getNumberOfMovementAttempts())
+        assertThatThrownBy(() -> Console.getNumberOfMovementAttempts())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(NOT_DIGIT_ERROR_MESSAGE);
     }
