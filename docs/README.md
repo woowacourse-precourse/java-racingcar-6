@@ -4,8 +4,8 @@
     - [X] 입력받을 자동차의 이름은 5글자 이하로 구성된다. Validator#isValidCarNames()
     - [X] 입력받을 자동차는 쉼표(,)로 구분된다.
     - [X] 잘못된 값이 들어올 경우 `IllegalArgumentException`을 발생시키고 종료시킨다.
-- [ ] 몇 번 이동할 것인지 입력받는다. -InputView#askMoveCount()
-    - [ ] 잘못된 값이 들어올 경우 `IllegalArgumentException`을 발생시키고 종료시킨다.
+- [X] 몇 번 이동할 것인지 입력받는다. -InputView#askMoveCount()
+    - [X] 잘못된 값이 들어올 경우 `IllegalArgumentException`을 발생시키고 종료시킨다.
 - [ ] 0에서 9사이의 무작위 숫자를 생성한다.
 - [ ] 생성한 숫자가 4이상인지 확인한다.
     - [ ] 4이상이면 자동차를 전진시킨다.
