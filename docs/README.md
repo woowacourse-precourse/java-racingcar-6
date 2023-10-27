@@ -12,7 +12,7 @@
     - [ ] 전진/정지 메서드
         - Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
         - 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다.
-    - [ ] `toString` 메서드 재정의
+    - [x] `toString()` 메서드 재정의
         - 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
     - [ ] 유닛 테스트 코드 작성
 - 우승자를 판단하는 클래스
