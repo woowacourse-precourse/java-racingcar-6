@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Comparator;
 import java.util.List;
 import racingcar.util.ConvertUtil;
 
@@ -21,5 +22,13 @@ public class CarGame {
                 car.addPosition();
             }
         }
+    }
+
+    public List<Car> findWinner(){
+        return cars.stream().filter(car -> car.getPosition() == findMaxPosition()).toList();
+    }
+
+    private int findMaxPosition(){
+        return cars.stream().map(Car::getPosition).max(Integer::compareTo).orElseThrow(IllegalArgumentException::new);
     }
 }
