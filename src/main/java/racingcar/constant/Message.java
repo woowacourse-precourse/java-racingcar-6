@@ -5,6 +5,8 @@ public final class Message {
 
     public static final int NAME_MIN_LENGTH = 1;
     public static final int NAME_MAX_LENGTH = 5;
+    public static final int DICE_MIN_RANGE = 0;
+    public static final int DICE_MAX_RANGE = 9;
     public static final int FORWARD_ABLE_NUMBER = 4;
 
     public static String INPUT_CAR_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
