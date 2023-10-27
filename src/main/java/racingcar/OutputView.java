@@ -17,7 +17,7 @@ public class OutputView {
         System.out.println(Constants.TRY_RESULT);
     }
 
-    public static void printFinalWinner(ArrayList<String> winnerNames) {
+    public void printFinalWinner(ArrayList<String> winnerNames) {
         System.out.print(Constants.FINAL_WINNER + " : ");
         for (String name : winnerNames) {
             System.out.print(name + ", ");
@@ -27,7 +27,7 @@ public class OutputView {
         }
     }
 
-    public static void printSingleGame(ArrayList<Cars> players) {
+    public void printSingleGame(ArrayList<Cars> players) {
         for (Cars player : players) {
             int distance = player.askDistance();
             String message = player.getName() + " : " + DASH.repeat(distance);

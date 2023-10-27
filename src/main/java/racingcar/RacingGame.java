@@ -3,14 +3,23 @@ package racingcar;
 import java.util.ArrayList;
 
 public class RacingGame {
+    private final GameModel gameModel;
+    private final InputView inputView;
+    private final OutputView outputView;
 
-    public static void initializeGame() {
+    public RacingGame() {
+        this.gameModel = new GameModel();
+        this.inputView = new InputView();
+        this.outputView = new OutputView();
+    }
+
+    private void initializeGame() {
         OutputView.printStartMessage();
     }
 
-    public static ArrayList<Cars> insertPlayer() {
+    public ArrayList<Cars> insertPlayer() {
         ArrayList<Cars> players = new ArrayList<>();
-        ArrayList<String> cars = InputView.getCarsName();
+        ArrayList<String> cars = inputView.getCarsName();
         for (String car : cars) {
             Cars user = new Cars(car);
             players.add(user);
@@ -18,28 +27,29 @@ public class RacingGame {
         return players;
     }
 
-    public static void startRacing(ArrayList<Cars> racingPlayers, int tryNumber) {
+    private void runRacing(ArrayList<Cars> racingPlayers, int tryNumber) {
         for (int i = 0; i < tryNumber; i++) {
-            GameModel.tryOneCycle(racingPlayers); // 한번 반복할때마다 나아갈지 말지 결정
-            OutputView.printSingleGame(racingPlayers);
+            gameModel.tryOneCycle(racingPlayers); // 한번 반복할때마다 나아갈지 말지 결정
+            outputView.printSingleGame(racingPlayers);
             System.out.println(); // 개행
         }
     }
 
-    public static void racingGame() {
+    public void racingGame() {
         initializeGame();
+
         ArrayList<Cars> racingPlayers = insertPlayer();
 
         OutputView.printAskTryNumber();
 
-        int tryNumber = Integer.parseInt(InputView.getTryNumber());
+        int tryNumber = Integer.parseInt(inputView.getTryNumber());
 
-        OutputView.printResultMessage();
+        outputView.printResultMessage();
 
-        startRacing(racingPlayers, tryNumber);
+        runRacing(racingPlayers, tryNumber);
 
-        ArrayList<String> finalWinner = GameModel.decideFinalWinner(racingPlayers);
+        ArrayList<String> finalWinner = gameModel.decideFinalWinner(racingPlayers);
 
-        OutputView.printFinalWinner(finalWinner);
+        outputView.printFinalWinner(finalWinner);
     }
 }

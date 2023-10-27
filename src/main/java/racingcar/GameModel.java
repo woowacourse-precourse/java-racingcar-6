@@ -4,19 +4,18 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 
 public class GameModel {
-    public static int generateRandomNumber() {
+    private int generateRandomNumber() {
         return Randoms.pickNumberInRange(Constants.MIN, Constants.MAX);
     }
 
-    public static boolean decideGoAndStop() {
+    private boolean decideGoAndStop() {
         if (generateRandomNumber() >= Constants.CRITICAL_NUMBER) {
             return true;
         }
         return false;
     }
 
-
-    public static ArrayList<String> decideFinalWinner(ArrayList<Cars> players) {
+    public ArrayList<String> decideFinalWinner(ArrayList<Cars> players) {
         ArrayList<String> winners = new ArrayList<>();
         int maxDistance = -1;
         for (Cars player : players) {
@@ -32,10 +31,10 @@ public class GameModel {
         return winners;
     }
 
-    public static void tryOneCycle(ArrayList<Cars> players) {
+    public void tryOneCycle(ArrayList<Cars> players) {
         for (Cars player : players) {
             if (decideGoAndStop()) {
-                player.goForward();
+                player.goOneStep();
             }
         }
     }

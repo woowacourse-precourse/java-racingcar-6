@@ -11,7 +11,7 @@ public class Cars {
         this.carName = carName;
     }
 
-    public int goForward() {
+    public int goOneStep() {
         return ++distance;
     }
 
