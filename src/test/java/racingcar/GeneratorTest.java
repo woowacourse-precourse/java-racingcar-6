@@ -1,11 +1,10 @@
-package racingcar.controller;
+package racingcar;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.AssertionsForClassTypes.catchThrowable;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import racingcar.controller.Generator;
 import racingcar.model.Car;
 
 class GeneratorTest {
