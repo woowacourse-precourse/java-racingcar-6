@@ -8,6 +8,7 @@ public class Application {
 
     private static int ASCIIZERO = 48;
     private static int ASCIININE = 57;
+    private static int MOVE_NUMBER = 4;
 
     private static class Car {
 
@@ -21,6 +22,10 @@ public class Application {
 
         private String getCarName() {
             return this.carName;
+        }
+
+        private void move() {
+            this.location++;
         }
 
         private int getLocation() {
@@ -38,7 +43,13 @@ public class Application {
         List<Car> cars = createCars(carNames);
 
         for (Car car : cars) {
-            System.out.println(car.getCarName());
+            System.out.print(car.getCarName() + " ");
+            System.out.println(car.getLocation());
+        }
+        moveCars(cars);
+        for (Car car : cars) {
+            System.out.print(car.getCarName() + " ");
+            System.out.println(car.getLocation());
         }
     }
 
@@ -50,6 +61,14 @@ public class Application {
         }
 
         return cars;
+    }
+
+    private static void moveCars(final List<Car> cars) {
+        for (Car car : cars) {
+            if (canMove()) {
+                car.move();
+            }
+        }
     }
 
     private static String[] inputCarNames() {
@@ -126,5 +145,24 @@ public class Application {
         }
 
         return true;
+    }
+
+    private static boolean canMove() {
+        int randomNum = Randoms.pickNumberInRange(0, 9);
+        System.out.println("randomNum " + Integer.toString(randomNum));
+
+        if (isInMoveRange(randomNum)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    private static boolean isInMoveRange(final int randomNum) {
+        if (randomNum >= MOVE_NUMBER) {
+            return true;
+        }
+
+        return false;
     }
 }
