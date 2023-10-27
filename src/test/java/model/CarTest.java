@@ -13,4 +13,24 @@ public class CarTest {
         assertThat(car.getClass()).isEqualTo(Car.class);
     }
 
+    @Test
+    public void Car_한_칸_전진() {
+        String name = "자동차";
+        String one_place = "-";
+        Car car = new Car(name);
+        car.move_forward(one_place);
+
+        assertThat(car.getNowPlace()).isEqualTo("-");
+    }
+
+    @Test
+    public void Car_한_칸_전진_후_한_칸_더_전진() {
+        String name = "자동차";
+        String one_place = "-";
+        Car car = new Car(name);
+        car.move_forward(one_place);
+        car.move_forward(one_place);
+
+        assertThat(car.getNowPlace()).isEqualTo("--");
+    }
 }
