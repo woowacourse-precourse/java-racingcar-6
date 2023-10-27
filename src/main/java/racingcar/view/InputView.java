@@ -6,4 +6,8 @@ public class InputView {
     public String inputCarNamesToRace() {
         return Console.readLine();
     }
+
+    public String inputNumberOfTry() {
+        return Console.readLine();
+    }
 }
