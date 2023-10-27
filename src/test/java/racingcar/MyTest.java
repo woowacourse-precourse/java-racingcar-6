@@ -1,12 +1,13 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.Test;
+
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import org.junit.jupiter.api.Test;
-
-public class MyTest {
+public class MyTest extends NsTest {
     @Test
     void 구분자_명확하게_분리하는지_확인_테스트(){
         RacingCarGame testToInputSplit = new RacingCarGame();
@@ -65,5 +66,34 @@ public class MyTest {
         testInput[4] = new CarInfo("T4", 6);
 
         assertThat(testMaximumMovement.testGetMaximumMovement(testInput)).isEqualTo(6);
+    }
+
+    @Test
+    void 최종_우승자_출력_테스트() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    String[] testOutput = {
+                            "jung : -",
+                            "kim : ",
+                            "lee : -",
+                            "jung : --",
+                            "kim : -",
+                            "lee : --",
+                            "jung : ---",
+                            "kim : -",
+                            "lee : ---",
+                            "최종 우승자 : jung, lee"
+                    };
+
+                    run("jung,kim,lee", "3");
+                    assertThat(output()).contains(testOutput);
+                },
+                4, 1, 7, 7, 6, 7, 5, 3, 9
+        );
+    }
+
+    @Override
+    public void runMain() {
+        Application.main(new String[]{});
     }
 }
