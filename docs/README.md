@@ -28,6 +28,8 @@
   - feature, develop, main(0Chord) branch로 분기
 - 입,출력 Adapter 생성
   - 입출력 변경 가능성에 염두에 두어 interface를 통한 DI 처리
+- inputConvertService 생성
+  - 입력을 split한 후 Car로 변경
 - CarPark Class 생성
   - 경주용 차들을 List 형태로 연관관계
   - 일급컬렉션으로 생성
