@@ -55,15 +55,9 @@ public class Racing {
         return tryNumber;
     }
 
-    private void tryMove() {
-        for (StringBuilder move : moves) {
-            moveController.moveCar(move);
-        }
-    }
-
     private void race(int tryNumber) {
         for (int race = 0; race < tryNumber; race++) {
-            tryMove();
+            moveController.tryMove(moves);
             script.showResult(cars, moves);
         }
     }
@@ -79,6 +73,6 @@ public class Racing {
         script.guideResult();
 
         race(tryNumber);
+        script.showWinner(moveController.findWinner(cars, moves));
     }
-
 }
