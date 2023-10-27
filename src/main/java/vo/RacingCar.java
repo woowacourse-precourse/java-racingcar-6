@@ -8,4 +8,8 @@ public class RacingCar {
         this.racingCarName = racingCarName;
     }
 
+    public String getRacingCarName() {
+        return racingCarName;
+    }
+
 }

@@ -11,4 +11,9 @@ public class RacingCars {
             racingCars.add(new RacingCar(car));
         }
     }
+
+    public List<RacingCar> getRacingCars() {
+        return racingCars;
+    }
+
 }
