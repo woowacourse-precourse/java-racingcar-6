@@ -12,7 +12,6 @@ public class GameController {
     private final InputView inputView;
     private final OutputView outputView;
     private final RandomNumber randomNumber;
-
     private Cars cars;
     private PlayCount playCount;
 
