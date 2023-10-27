@@ -10,19 +10,19 @@ public class Validator {
         validateBlank(carNames);
     }
 
-    public static void validateUnique(List<String> carName) {
+    private static void validateUnique(List<String> carName) {
         if (carName.size() != new HashSet<>(carName).size()) {
             throw new IllegalArgumentException("중복이 존재합니다.");
         }
     }
 
-    public static void validateLength(List<String> carNames) {
+    private static void validateLength(List<String> carNames) {
         if (carNames.stream().anyMatch(name -> name.length() > 5)) {
             throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
         }
     }
 
-    public static void validateBlank(List<String> carNames) {
+    private static void validateBlank(List<String> carNames) {
         if (carNames.stream().anyMatch(String::isBlank)) {
             throw new IllegalArgumentException("공백만 입력할 수 있습니다.");
         }
