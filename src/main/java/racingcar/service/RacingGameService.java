@@ -11,6 +11,7 @@ import racingcar.model.Attemps;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.Winners;
+import racingcar.utils.Validator;
 
 public class RacingGameService {
     private final Cars cars;
@@ -24,12 +25,11 @@ public class RacingGameService {
     }
 
     public void addCars(String carNames) {
-        // TODO: 유효성 검사
-        cars.addCars(new ArrayList<String>(Arrays.asList(carNames.split(","))));
+        List<String> carNameList = new ArrayList<String>(Arrays.asList(carNames.split(",")));
+        cars.addCars(carNameList);
     }
 
     public void setAttemps(String numberOfAttemps) {
-        // TODO: 유효성 검사
         attemps.setNumber(Integer.valueOf(numberOfAttemps));
     }
 

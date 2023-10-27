@@ -29,12 +29,14 @@ public class RacingGame {
         outputView.printCarNameInputMessage();
         String carNames = inputView.carNameInput();
         racingGameService.addCars(carNames);
+        outputView.printMessage(carNames);
     }
 
     public void handleNumberOfattempsInput() {
         outputView.printNumberOfattempsInputMessage();
         String attemps = inputView.numberOfAttempsInput();
         racingGameService.setAttemps(attemps);
+        outputView.printMessage("" + attemps);
     }
 
     public void handlePlayRacingGame() {
