@@ -7,9 +7,9 @@ import racingcar.util.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.util.stream.Collectors;
 
 public class RacingGame {
     Game game;
@@ -39,28 +39,32 @@ public class RacingGame {
     }
 
     public void playGame(){
-        int randomNumber;
-        for (Car car : carList) {
-            randomNumber = Randoms.pickNumberInRange(0, 9);
-            if (randomNumber > 4) {
-                car.addScore();
-                checkChangeWinnerPosition(car.getScore());
-            }
+        carList.forEach(this::movePosition);
+    }
+
+    public void movePosition(Car car){
+        if (Randoms.pickNumberInRange(0, 9) > 4) {
+            car.addScore();
+            updateWinnerPosition(car.getScore());
         }
     }
 
-    public void checkChangeWinnerPosition(String newPosition){
+    public void updateWinnerPosition(String newPosition){
         if(game.getWinnerPosition().length()<newPosition.length()){
             game.setWinnerPosition(newPosition);
         }
     }
 
     public void calcAndPrintWinner(){
-        List<String> winnerList = new ArrayList<>();
-        for (Car car : carList) {
-            if(car.getScore().length() == game.getWinnerPosition().length())
-                winnerList.add(car.getName());
-        }
+        List<String> winnerList = carList.stream()
+                .filter(car -> isWinner(car, game))
+                .map(Car::getName)
+                .collect(Collectors.toList());
         OutputView.printWinner(winnerList);
     }
+
+    public boolean isWinner(Car car, Game game) {
+        return car.getScore().length() == game.getWinnerPosition().length();
+    }
+
 }
