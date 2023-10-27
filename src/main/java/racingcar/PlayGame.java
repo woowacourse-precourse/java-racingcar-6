@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
 public class PlayGame {
-    public void TryGame(int TryNumber, List<String> members){
+    public void TryGame(List<String> members, int TryNumber){
         System.out.println("실행 결과");
         List<Integer> count = new ArrayList<>();
         for(int i=0;i<members.size();i++)
