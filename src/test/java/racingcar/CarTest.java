@@ -11,10 +11,8 @@ class CarTest {
     public void tryMove_return_false_when_0() throws Exception{
         Car car = new Car("name");
         assertRandomNumberInRangeTest(
-                ()-> {
-                    Assertions.assertThat(car.tryMove())
-                            .isFalse();
-                },
+                ()-> Assertions.assertThat(car.tryMove())
+                            .isFalse(),
                 0
         );
     }
@@ -23,10 +21,8 @@ class CarTest {
     public void tryMove_return_false_when_3() throws Exception{
         Car car = new Car("name");
         assertRandomNumberInRangeTest(
-                ()-> {
-                    Assertions.assertThat(car.tryMove())
-                            .isFalse();
-                },
+                ()-> Assertions.assertThat(car.tryMove())
+                            .isFalse(),
                 3
         );
     }
@@ -35,10 +31,8 @@ class CarTest {
     public void tryMove_return_true_when_4() throws Exception{
         Car car = new Car("name");
         assertRandomNumberInRangeTest(
-                ()-> {
-                    Assertions.assertThat(car.tryMove())
-                            .isTrue();
-                },
+                ()-> Assertions.assertThat(car.tryMove())
+                            .isTrue(),
                 4
         );
     }
@@ -47,10 +41,8 @@ class CarTest {
     public void tryMove_return_true_when_9() throws Exception{
         Car car = new Car("name");
         assertRandomNumberInRangeTest(
-                ()-> {
-                    Assertions.assertThat(car.tryMove())
-                            .isTrue();
-                },
+                ()-> Assertions.assertThat(car.tryMove())
+                            .isTrue(),
                 4
         );
     }
