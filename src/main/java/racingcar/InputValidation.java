@@ -14,4 +14,12 @@ public class InputValidation {
             throw new IllegalArgumentException();
         }
     }
+
+    public static void validateNameOfCarsRange(String[] nameOfCars) {
+        for(String name : nameOfCars) {
+            if(name.length() < NumberConst.MIN_NAME_OF_CAR_LENGTH && name.length() > NumberConst.MAX_NAME_OF_CAR_LENGTH) {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
 }

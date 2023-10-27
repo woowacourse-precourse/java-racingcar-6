@@ -14,7 +14,7 @@ public class InputValue {
         String userInputCarName = Console.readLine();
         InputValidation.validateSeparator(userInputCarName);
         String[] nameOfCars = userInputCarName.split(",");
-        validateNameOfCarsRange(nameOfCars);
+        InputValidation.validateNameOfCarsRange(nameOfCars);
         validateDuplicateName(nameOfCars);
         return nameOfCars;
     }
