@@ -12,6 +12,10 @@ class Car {
         this.moveCount = 0;
     }
 
+    void move() {
+        moveCount++;
+    }
+
     String currentStatus() {
         return name.name() + " : " + "-".repeat(moveCount);
     }
