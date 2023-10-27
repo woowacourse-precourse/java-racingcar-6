@@ -11,13 +11,27 @@ public class Car {
         this.position = new Position();
     }
 
+    public Car(String name, CarEngine carEngine, Position position) {
+        this.name = name;
+        this.carEngine = carEngine;
+        this.position = position;
+    }
+
     public void startEngine() {
-        if (carEngine.start()) {
+        if (carEngine.isStart()) {
             position.goForward();
         }
     }
 
-    public int getPosition() {
+    String getName() {
+        return this.name;
+    }
+
+    CarEngine getCarEngine() {
+        return this.carEngine;
+    }
+
+    int getPosition() {
         return this.position.getValue();
     }
 }
