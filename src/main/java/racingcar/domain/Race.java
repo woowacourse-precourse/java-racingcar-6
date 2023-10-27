@@ -21,6 +21,15 @@ public class Race {
 		}
 	}
 
+	public int getMaxRecord() {
+		int max = 0;
+		for (Car car : cars) {
+			max = Math.max(car.getPosition(), max);
+		}
+
+		return max;
+	}
+
 	public List<Car> getCars() {
 		return cars;
 	}

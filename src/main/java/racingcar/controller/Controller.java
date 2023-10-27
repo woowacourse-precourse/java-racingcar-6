@@ -16,6 +16,8 @@ public class Controller {
 		initRace();
 
 		startRace();
+
+		printFinalWinner();
 	}
 
 	private void initRace() {
@@ -32,5 +34,9 @@ public class Controller {
 
 			resultView.getResult(race);
 		}
+	}
+
+	private void printFinalWinner() {
+		resultView.getFinalWinner(race);
 	}
 }
