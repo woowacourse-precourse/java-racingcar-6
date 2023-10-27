@@ -10,6 +10,7 @@ public class Control {
         int[] carMove = new int[nameList.size()];
         for(int i=0;i<iterate;i++){
             carMoveCheck(carMove);
+            carMovePrint(carMove, nameList);
         }
     }
 
@@ -21,6 +22,14 @@ public class Control {
             }
         }
     }
-
-
+    private void carMovePrint(int[] carMove, ArrayList<String> nameList){
+        for(int i=0;i<carMove.length;i++){
+            System.out.print(nameList.get(i)+" : ");
+            for(int j=0;j<carMove[i];j++){
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
 }
