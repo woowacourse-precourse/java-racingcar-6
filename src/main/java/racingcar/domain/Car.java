@@ -40,6 +40,7 @@ public class Car implements Comparable<Car> {
         for (int count = 0; count < forwardCount; count++) {
             state.append("-");
         }
+
         return state.toString();
     }
 }
