@@ -12,6 +12,7 @@ public class InputView {
 
     public String readRepeatCount() {
         String input = Console.readLine();
+        InputValidator.validateNumber(input);
         return input;
     }
 }
