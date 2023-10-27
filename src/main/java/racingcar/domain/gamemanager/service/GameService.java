@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.dao.CarRepository;
 import racingcar.domain.view.InputView;
+import racingcar.domain.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,7 +43,7 @@ public class GameService {
             List<Car> findCars = carRepository.findAll();
 
             findCars.forEach(car -> car.updatePosition(randomNumber));
-
+            OutputView.printRoundResult();
             findCars.forEach(System.out::println);
         }
     }

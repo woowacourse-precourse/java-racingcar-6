@@ -6,4 +6,8 @@ public class OutputView {
     public static void printEndGame() {
         System.out.println(OutputMessage.PRINT_FINAL_WINNER);
     }
+
+    public static void printRoundResult() {
+        System.out.println(OutputMessage.PRINT_ROUND_RESULT);
+    }
 }
