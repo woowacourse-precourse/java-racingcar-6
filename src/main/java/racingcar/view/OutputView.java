@@ -20,10 +20,7 @@ public class OutputView {
         System.out.println(Config.WINNER_MESSAGE + stringList);
     }
 
-    public static void eachResultMessgae(List<String> result) {
-        for (String eachResult : result) {
-            System.out.println(eachResult);
-        }
-        System.out.println();
+    public static void eachResultMessgae(String result) {
+        System.out.println(result);
     }
 }
