@@ -1,15 +1,12 @@
 package racingcar.service;
 
-import static racingcar.utill.Validator.attemptNumberValidation;
-import static racingcar.utill.Validator.carNameValidation;
+import static racingcar.utill.Converter.attemptStringToInt;
+import static racingcar.utill.Converter.stringToCarList;
 import static racingcar.view.RacingView.attemptNumberInputView;
 import static racingcar.view.RacingView.carNameInputView;
 import static racingcar.view.RacingView.winnerView;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.ArrayList;
-import java.util.List;
-import racingcar.domain.Car;
 import racingcar.domain.CarList;
 
 public class CarRacingService {
@@ -28,20 +25,4 @@ public class CarRacingService {
         }
     }
 
-    private int attemptStringToInt(String stringValue) {
-        attemptNumberValidation(stringValue);
-        return Integer.parseInt(stringValue);
-    }
-
-    private List<Car> stringToCarList(String carNameString) {
-        List<Car> carList = new ArrayList<>();
-        String[] split = carNameString.split(",", -1);
-
-        for (String a : split) {
-            carNameValidation(a);
-            carList.add(new Car(a));
-        }
-
-        return carList;
-    }
 }
