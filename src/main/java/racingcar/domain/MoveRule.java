@@ -1,5 +1,5 @@
 package racingcar.domain;
 
-public interface RacingRule {
+public interface MoveRule {
     int tryMove();
 }
