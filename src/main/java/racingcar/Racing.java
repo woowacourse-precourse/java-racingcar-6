@@ -9,14 +9,17 @@ public class Racing {
     Input input = new Input();
     public void startRacing(){
         setPlayerResult();
-        movePlayer(verifyNumber());
+        for (int i = 0; i < input.getRound(); i++) {
+            movePlayer(verifyNumber(selectNumber()),i);
+        }
+
     }
     public int selectNumber(){
         int pickNumber=Randoms.pickNumberInRange(0,9);
         return pickNumber;
     }
-    public boolean verifyNumber(){
-        if (selectNumber()>=4){
+    public boolean verifyNumber(int pickNumber){
+        if (pickNumber>=4){
             return true;
         }
         return false;
@@ -29,11 +32,9 @@ public class Racing {
     public ArrayList<Integer> getPlayerResult(){
         return playerResult;
     }
-    public void movePlayer(boolean move){
-        for (int i = 0; i < playerResult.size(); i++) {
-            if(move){
-                playerResult.set(i,playerResult.get(i)+1);
-            }
+    public void movePlayer(boolean move,int playerNumber){
+        if(move){
+            playerResult.set(playerNumber,playerResult.get(playerNumber)+1);
         }
     }
 
