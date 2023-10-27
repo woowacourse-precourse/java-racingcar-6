@@ -3,7 +3,7 @@ package racingcar.model;
 public enum MessageEnum {
     INPUT_CAR_NAME_MESSAGE("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"),
     INPUT_TRY_NUMBER_MESSAGE("시도할 회수는 몇회인가요?"),
-    MIN_SIZE_VALIDATE_MESSAGE("최소 " + NumberEnum.MIN_SIZE.getNumber() +"대의 차는 입력해야 합니다."),
+    MIN_SIZE_VALIDATE_MESSAGE("최소 " + NumberEnum.MIN_SIZE.getNumber() + "대의 차는 입력해야 합니다."),
     DUPLICATION_VALIDATE_MESSAGE("중복되는 차량의 이름이 존재합니다."),
     RESULT_MESSAGE("실행 결과"),
     MOVEMENT("-"),

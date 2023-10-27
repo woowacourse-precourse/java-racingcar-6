@@ -38,7 +38,7 @@ public class CarCreatorTest {
     }
 
     @Test
-    void 최소_차량_입력_테스트(){
+    void 최소_차량_입력_테스트() {
         String input = "pobi";
 
         assertThatThrownBy(() -> {
@@ -47,7 +47,7 @@ public class CarCreatorTest {
     }
 
     @Test
-    void 중복_차량_테스트(){
+    void 중복_차량_테스트() {
         String input = "pobi,pobi";
 
         assertThatThrownBy(() -> {

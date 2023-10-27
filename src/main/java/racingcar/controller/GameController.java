@@ -25,11 +25,11 @@ public class GameController {
         outputMessage.resultMessage();
         List<Integer> movement = createMovementList(carNames);
         for (int i = 0; i < tryNumber; i++) {
-            movement = racingGame(movement);
+            racingGame(movement);
             outputMessage.raceStatusMessage(carNames, movement);
         }
 
-        outputMessage.winnerMessage(racingResult(carNames,movement));
+        outputMessage.winnerMessage(racingResult(carNames, movement));
     }
 
     private List<Integer> racingGame(List<Integer> movement) {
@@ -49,21 +49,21 @@ public class GameController {
         return movement;
     }
 
-    public List<String> racingResult(List<String> carNames, List<Integer> movement){
+    public List<String> racingResult(List<String> carNames, List<Integer> movement) {
         List<String> winner = new ArrayList<>();
         List<Integer> winnerIndex = new ArrayList<>();
         int maxMove = 0;
-        for(int i = 0; i < movement.size(); i++){
+        for (int i = 0; i < movement.size(); i++) {
             int currentMove = movement.get(i);
-            if(currentMove > maxMove){
+            if (currentMove > maxMove) {
                 maxMove = currentMove;
                 winnerIndex.clear();
             }
-            if (currentMove == maxMove){
+            if (currentMove == maxMove) {
                 winnerIndex.add(i);
             }
         }
-        for(int i = 0; i < winnerIndex.size(); i++){
+        for (int i = 0; i < winnerIndex.size(); i++) {
             winner.add(carNames.get(winnerIndex.get(i)));
         }
 

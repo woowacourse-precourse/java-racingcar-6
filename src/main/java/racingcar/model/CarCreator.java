@@ -30,8 +30,8 @@ public class CarCreator {
         }
     }
 
-    private void validateDuplicateCarName(List<String> carNames){
-        if(carNames.size() != carNames.stream().distinct().count()){
+    private void validateDuplicateCarName(List<String> carNames) {
+        if (carNames.size() != carNames.stream().distinct().count()) {
             throw new IllegalArgumentException(MessageEnum.DUPLICATION_VALIDATE_MESSAGE.getMessage());
         }
     }
