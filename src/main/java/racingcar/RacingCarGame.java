@@ -60,11 +60,16 @@ public class RacingCarGame implements Game {
 
     public void movePlayers(){
         this.players.forEach(player -> {
-            if(this.getRandomNumber() >= 4){
+            if(this.isPlayerCanMove(this.getRandomNumber())){
                 player.move();
             }
         });
     }
+
+    public boolean isPlayerCanMove(int randomNumber){
+        return randomNumber >= 4;
+    }
+
     public int getRandomNumber(){
         return this.racingCarRandoms.getRandomNumber();
     }
