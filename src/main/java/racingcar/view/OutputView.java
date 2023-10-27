@@ -13,4 +13,8 @@ public class OutputView {
         String winner = String.join(", ", winners);
         System.out.println(Message.WINNER_MESSAGE + winner);
     }
+
+    public static void printCarPosition(String name, int position) {
+        System.out.println(name + " : " + "-".repeat(position));
+    }
 }
