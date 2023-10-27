@@ -68,6 +68,12 @@ public class NameTest {
     }
 
     @Test
+    void 한글은_입력_가능하다() {
+        // given & when
+        Name name = Name.from("존");
+    }
+
+    @Test
     void 특수기호는_입력되면_안_된다() {
         // given & when
         Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
