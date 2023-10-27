@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 final class NameTest {
@@ -30,5 +33,17 @@ final class NameTest {
         Name name2 = new Name("동일한이름");
 
         assertEquals(name1, name2);
+    }
+
+    @Test
+    void 동일한_이름은_Hash_자료구조에서도_동일한_객체로_인식된다() {
+        Name name1 = new Name("동일한이름");
+        Name name2 = new Name("동일한이름");
+        Set<Name> set = new HashSet<>();
+
+        set.add(name1);
+        set.add(name2);
+
+        assertEquals(1, set.size());
     }
 }
