@@ -47,10 +47,17 @@ public class Application {
             System.out.print(car.getCarName() + " ");
             System.out.println(car.getLocation());
         }
-        moveCars(cars);
+
+        repeatAttempts(attemptsNum, cars);
         for (Car car : cars) {
             System.out.print(car.getCarName() + " ");
             System.out.println(car.getLocation());
+        }
+    }
+
+    private static void repeatAttempts(final int attemptsNum, final List<Car> cars) {
+        for (int i = 0; i < attemptsNum; i++) {
+            moveCars(cars);
         }
     }
 
@@ -159,7 +166,6 @@ public class Application {
 
     private static boolean canMove() {
         int randomNum = Randoms.pickNumberInRange(0, 9);
-        System.out.println("randomNum " + Integer.toString(randomNum));
 
         if (isInMoveRange(randomNum)) {
             return true;
