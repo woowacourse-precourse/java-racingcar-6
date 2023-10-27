@@ -1,6 +1,9 @@
 package racingcar.controller;
 
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
+import racingcar.domain.NumberGenerator;
+import racingcar.domain.Winner;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -12,6 +15,7 @@ public class RaceController {
 
     private static final OutputView outputView = new OutputView();
     private static final InputView inputView = new InputView();
+    private static final NumberGenerator numberGenerator = new NumberGenerator();
     private static final String DELIMITER = ",";
 
     // 1. 경주할 자동차 이름 입력 받기
@@ -27,11 +31,32 @@ public class RaceController {
     // 8. Cars에서 winner 얻어오기
     // 9. winner 출력하기
 
-    private List<String> getName() {
+    public void gameStart() {
+        Cars cars = generateCars();
+        int tryNumber = getTryNumber();
+
+        outputView.printResultStart();
+        for (int i = 0; i < tryNumber; i++) {
+            List<Integer> numbers = numberGenerator.createRandomNumbers(cars.getNumberOfPeople());
+            cars.move(numbers);
+            outputView.printResult(cars);
+        }
+
+        Winner winner = cars.getWinner();
+        outputView.printWinner(winner);
+    }
+
+    private Cars generateCars() {
         outputView.printInputCarsName();
         String stringNames = inputView.inputName();
         // 검증
-        return Arrays.stream(stringNames.split(DELIMITER)).toList();
+        List<String> carsName = Arrays.stream(stringNames.split(DELIMITER)).toList();
+        List<Car> cars = new ArrayList<>();
+        for (String carName : carsName) {
+            Car car = new Car(carName);
+            cars.add(car);
+        }
+        return new Cars(cars);
     }
 
     private int getTryNumber() {
@@ -40,7 +65,5 @@ public class RaceController {
         // 검증
         return Integer.parseInt(tryNumber);
     }
-
-    
 
 }

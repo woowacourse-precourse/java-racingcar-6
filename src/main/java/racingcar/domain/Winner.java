@@ -11,10 +11,6 @@ public class Winner {
         this.winner = winner;
     }
 
-    public boolean isSoloWinner() {
-        return winner.size() == 1;
-    }
-
     public String[] getWinnerName() {
         return winner.stream()
                 .map(Car::getName)
