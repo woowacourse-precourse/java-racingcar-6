@@ -1,10 +1,13 @@
 package racingcar;
 
+import static racingcar.Validation.validateLengthOfName;
+
 public class Cars {
     private int distance = 0;
-    private final String carName;
+    private String carName;
 
     public Cars(String carName) {
+        validateLengthOfName(carName);
         this.carName = carName;
     }
 

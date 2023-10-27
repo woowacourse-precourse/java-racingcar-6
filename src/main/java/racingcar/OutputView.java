@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class OutputView {
     private final static String DASH = "-";
 
-    public void printStartMessage() {
+    public static void printStartMessage() {
         System.out.println(Constants.START_MESSAGE);
     }
 

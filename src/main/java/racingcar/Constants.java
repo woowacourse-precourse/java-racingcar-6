@@ -8,5 +8,5 @@ public class Constants {
     public final static int MIN = 0;
     public final static int MAX = 9;
     public final static int CRITICAL_NUMBER = 4;
-    public final static int CRITICAL_NAME_LENGTH = 5;
+    public final static int MAX_NAME_LENGTH = 5;
 }
