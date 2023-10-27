@@ -9,13 +9,13 @@ public class Cars {
     public void addCar(String name) {
         carList.add(new Car(name));
     }
-    
+
     public void addCars(List<String> names) {
         for (String name : names) {
             addCar(name);
         }
     }
-    
+
     public List<Car> getCarList() {
         return carList;
     }

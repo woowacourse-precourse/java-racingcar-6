@@ -10,7 +10,6 @@ public class Winners {
         winnerList.add(winnerCar);
     }
 
-    
     public List<Car> getWinner() {
         return winnerList;
     }
