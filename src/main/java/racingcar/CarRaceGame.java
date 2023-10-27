@@ -32,6 +32,19 @@ public class CarRaceGame {
         Supplier<Integer> randomNumberGenerator = RandomNumberGenerator::generateRandomNumber;
         for (int count = 0; count < raceCount; count++) {
             judge.moveCars(randomNumberGenerator);
+            List<MoveResult> singleMoveResult = getSingleMoveResult();
+            printSingleMoveResult(singleMoveResult);
         }
     }
+
+    private List<MoveResult> getSingleMoveResult() {
+        List<MoveResult> moveResults = judge.createSingleMoveResults();
+        return moveResults;
+    }
+
+    private void printSingleMoveResult(final List<MoveResult> singleMoveResult) {
+
+    }
+
+
 }

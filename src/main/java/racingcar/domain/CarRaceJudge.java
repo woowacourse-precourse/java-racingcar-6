@@ -28,6 +28,13 @@ public class CarRaceJudge {
         }
     }
 
+    public List<MoveResult> createSingleMoveResults() {
+        List<Car> cars = carRepository.findAll();
+        return cars.stream()
+                .map(MoveResult::createResultOf)
+                .toList();
+    }
+
     private void validate(final List<String> carNames) {
         validateDuplicate(carNames);
         validateCarCount(carNames);
