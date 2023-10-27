@@ -11,7 +11,7 @@ public class Attempt {
         this.value = value;
     }
 
-    public static Attempt from(int value) {
+    public static Attempt withNumber(int value) {
         return new Attempt(value);
     }
 
@@ -36,5 +36,9 @@ public class Attempt {
     @Override
     public int hashCode() {
         return Objects.hash(value);
+    }
+
+    public int getValue() {
+        return value;
     }
 }
