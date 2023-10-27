@@ -11,7 +11,7 @@ public class RacingService {
      *
      * @param names 사용자의 자동차 이름들 입력값
      * @return 유효한 자동차 이름 리스트
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException 공백, 길이 5 초과, 중복 이름일 시
      */
     List<String> testValidNames(String names) throws IllegalArgumentException {
         String[] namesArr = names.split(",");
@@ -24,7 +24,7 @@ public class RacingService {
         boolean isDuplicate = Arrays.stream(namesArr)
                 .distinct().count() != namesArr.length;
 
-        if (isInvalidLength || isDuplicate  || isInvalidName) {
+        if (isInvalidLength || isDuplicate || isInvalidName) {
             throw new IllegalArgumentException("유효하지 않은 이름을 입력했습니다.");
         }
         return Arrays.stream(namesArr).toList();
@@ -44,7 +44,7 @@ public class RacingService {
      *
      * @param count 이동 회수
      * @return 이동 회수 유효성 true / false
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException 1 이상의 숫자가 아닐 시
      */
     int testValidCount(String count) throws IllegalArgumentException {
         try {
@@ -69,11 +69,13 @@ public class RacingService {
     /**
      * 3-2. 차수별 자동차 이동결과 출력
      */
-    void printTotalMove() {
+    String getCarTotalMove() {
         List<Car> carList = racingRepository.getCarList();
+        StringBuilder totalMove = new StringBuilder();
+
         for (Car car : carList) {
-            System.out.printf("%s : %s \n", car.getName(), "-".repeat(car.getTotalMove()));
+            totalMove.append(car.getName() + " : " + "-".repeat(car.getTotalMove()) + "\n");
         }
-        System.out.println();
+        return totalMove.toString();
     }
 }
