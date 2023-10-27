@@ -15,4 +15,12 @@ class CarTest {
         assertThatThrownBy(() -> new Car(name))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("자동차 이름에 특수문자나 숫자가 있으면 예외가 발생한다.")
+    @CsvSource({"pobi;", "pobi1", "포비!", "포비2"})
+    @ParameterizedTest
+    void NotLetterNameEx(String name) {
+        assertThatThrownBy(() -> new Car(name))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
