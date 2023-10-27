@@ -11,6 +11,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
+import racingcar.domain.model.AttemptsNumber;
+import racingcar.domain.model.CarName;
+import racingcar.domain.model.CarNames;
 
 class InputViewTest {
 

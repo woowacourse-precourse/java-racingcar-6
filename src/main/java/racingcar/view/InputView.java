@@ -1,5 +1,8 @@
 package racingcar.view;
 
+import racingcar.domain.model.AttemptsNumber;
+import racingcar.domain.model.CarNames;
+
 public class InputView {
     private final InputProvider consoleProvider;
 
