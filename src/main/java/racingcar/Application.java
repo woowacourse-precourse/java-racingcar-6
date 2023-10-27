@@ -9,6 +9,9 @@ public class Application {
         // TODO: 프로그램 구현
         init();     // 자동차 이름 입력, 시도할 횟수 입력
 
+        String[] carArray = changeToCarArr();       // 자동차 이름 분리 저장할 배열
+
+
     }
 
     public static void init() {
@@ -32,5 +35,9 @@ public class Application {
         }
 
         return true;
+    }
+
+    public static String[] changeToCarArr() {
+        return carString.split(",");
     }
 }
