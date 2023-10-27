@@ -1,6 +1,5 @@
 package racingcar.domain.car;
 
-import racingcar.util.Randoms;
 import racingcar.view.ExecutionView;
 
 import java.util.Collections;

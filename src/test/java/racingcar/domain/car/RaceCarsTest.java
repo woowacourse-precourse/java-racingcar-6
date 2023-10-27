@@ -53,10 +53,34 @@ public class RaceCarsTest{
                 }));
     }
 
+    @TestFactory
+    @DisplayName("입력값이 4이상이면 자동차를 움직일 수 있다.")
+    public Collection<DynamicTest> executeRace() {
+
+        return List.of(
+                DynamicTest.dynamicTest(("입력값이 4미만이면 정지한다."), () -> {
+                    //given
+                    RaceCars raceCars = createRaceCars(new String[]{"haen"});
+                    //when
+                    raceCars.executeRace(3);
+                    Car car = raceCars.getCars().get(0);
+                    //then
+                    assertThat(car.getMoveCount()).isZero();
+                }),
+                DynamicTest.dynamicTest(("입력값이 4이상이면 전진한다."), () -> {
+                    //given
+                    RaceCars raceCars = createRaceCars(new String[]{"haen"});
+                    //when
+                    raceCars.executeRace(4);
+                    Car car = raceCars.getCars().get(0);
+                    //then
+                    assertThat(car.getMoveCount()).isOne();
+                }));
+    }
+
     private RaceCars createRaceCars(String[] names) {
         List<Car> cars = CarListConverter.convertStringArrayToCarList(names);
         return new RaceCars(cars);
     }
-
 
 }
