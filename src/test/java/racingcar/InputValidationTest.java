@@ -29,4 +29,16 @@ class InputValidationTest {
         assertThatThrownBy(() -> InputValidation.validateInput("tayo2"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 쉼표_외_특수문자_입력_시_예외_처리() {
+        assertThatThrownBy(() -> InputValidation.validateInput("tayo!"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 공백_입력_시_예외_처리() {
+        assertThatThrownBy(() -> InputValidation.validateInput(""))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
