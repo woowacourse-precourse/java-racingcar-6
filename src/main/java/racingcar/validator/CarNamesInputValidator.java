@@ -2,8 +2,9 @@ package racingcar.validator;
 
 import java.util.Arrays;
 
-public class CarNamesInputValidator {
+public class CarNamesInputValidator implements InputValidator {
 
+    @Override
     public void validate(String input) {
         isInputEmpty(input);
         hasLessThanTwoCarNames(input);

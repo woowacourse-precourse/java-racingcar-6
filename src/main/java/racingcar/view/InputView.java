@@ -3,13 +3,20 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.validator.CarNamesInputValidator;
+import racingcar.validator.InputValidator;
+import racingcar.validator.NumberOfRoundsInputValidator;
 
 public class InputView {
 
-    private final CarNamesInputValidator carNamesInputValidator;
+    private final InputValidator carNamesInputValidator;
+    private final InputValidator numberOfRoundsInputValidator;
 
-    public InputView(CarNamesInputValidator carNamesInputValidator) {
+    public InputView(
+            InputValidator carNamesInputValidator,
+            InputValidator numberOfRoundsInputValidator
+    ) {
         this.carNamesInputValidator = carNamesInputValidator;
+        this.numberOfRoundsInputValidator = numberOfRoundsInputValidator;
     }
 
     public List<String> askForCarNames() {
@@ -20,6 +27,7 @@ public class InputView {
 
     public int askForNumberOfRounds() {
         String userInput = Console.readLine();
+        numberOfRoundsInputValidator.validate(userInput);
         return Integer.parseInt(userInput);
     }
 }
