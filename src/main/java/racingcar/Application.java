@@ -20,10 +20,10 @@ public class Application {
         Cars cars = new Cars(carNames);
         output.printResultMessage();
 
-        for (int i = 0; i < gameCount; i++) {
-            List<Car> moveResult = cars.moveAllCar();
-            output.printNameAndDistance(moveResult);
-        }
+        CarRacingGame carRacingGame = new CarRacingGame();
+        carRacingGame.start(gameCount, cars);
+
         output.printWinner(cars);
     }
+
 }
