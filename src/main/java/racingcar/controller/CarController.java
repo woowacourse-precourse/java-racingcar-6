@@ -15,8 +15,8 @@ public class CarController {
 
     private void createCars(String userInput) {
         InputVerifier.verifyName(userInput);
-        List<String> separated = List.of(userInput.split(","));
-        separated.forEach(i -> carList.add(new Car(i)));
+        List.of(userInput.split(","))
+                .forEach(i -> carList.add(new Car(i)));
     }
 
     public List<Car> getCarList() {

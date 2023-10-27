@@ -13,6 +13,7 @@ public class WinnerChecker {
                 .collect(toList());
     }
 
+    // TODO 2023 10 28 두 메서드 대신 하나의 스트림으로 구현할 방법 찾기
     private static int getMaxProgress(List<Car> carList) {
         return carList.stream()
                 .mapToInt(Car::getProgressToInt)

@@ -5,7 +5,7 @@ import static java.util.stream.Collectors.joining;
 import java.util.List;
 import java.util.stream.IntStream;
 import racingcar.domain.Car;
-import racingcar.domain.NumberOfTries;
+import racingcar.domain.NumberOfTry;
 import racingcar.service.CarMover;
 import racingcar.service.WinnerChecker;
 import racingcar.verifier.InputVerifier;
@@ -14,7 +14,7 @@ import racingcar.view.OutputHandler;
 
 public class RaceController {
     private final List<Car> carList;
-    private NumberOfTries numberOfTries;
+    private NumberOfTry numberOfTry;
 
     public RaceController(List<Car> carList) {
         this.carList = carList;
@@ -25,7 +25,7 @@ public class RaceController {
     }
 
     private void doTry() {
-        IntStream.range(0, numberOfTries.getValue())
+        IntStream.range(0, numberOfTry.getValue())
                 .forEach(i -> {
                     CarMover.move(carList);
                     printRaceProgress();
@@ -52,6 +52,6 @@ public class RaceController {
 
     private void createTryRemains(String userInput) {
         InputVerifier.verifyTry(userInput);
-        numberOfTries = new NumberOfTries(Integer.parseInt(userInput));
+        numberOfTry = new NumberOfTry(Integer.parseInt(userInput));
     }
 }
