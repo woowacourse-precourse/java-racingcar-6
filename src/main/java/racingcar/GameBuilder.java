@@ -6,8 +6,8 @@ import java.util.Arrays;
 import racingcar.constant.ExceptionMessage;
 
 public class GameBuilder {
-    String[] names;
-    int roundNumber;
+    private String[] names;
+    private int roundNumber;
 
     public GameBuilder getCarsName(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
