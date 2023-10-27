@@ -35,7 +35,7 @@ public class Race {
         }
     }
 
-    public String getWinners() {
+    public String Winners() {
         int maxCount = 0;
         for (int i = 0; i < carGoingCount.size(); i++) {
             maxCount = Math.max(maxCount, carGoingCount.get(i));

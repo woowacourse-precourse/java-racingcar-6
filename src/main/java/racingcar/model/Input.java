@@ -19,5 +19,4 @@ public class Input {
         }
         return tryNumber;
     }
-
 }

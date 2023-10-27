@@ -17,7 +17,7 @@ public class GameController {
         System.out.println(consoleOutputView.showInputCarNamesPrompt());
         Input.inputCarNames(race);               // 자동차 이름 입력
         System.out.println(consoleOutputView.showInputTryNumberPrompt());
-        int tryNumber = Input.inputTryNumber(); // 실행 횟수 입력
+        int tryNumber = Input.inputTryNumber();  // 실행 횟수 입력
         System.out.println();
 
         /*
@@ -28,6 +28,6 @@ public class GameController {
             race.runRace();
             System.out.println(consoleOutputView.showExecutionResults(race.getCarNames(), race.getCarGoingCount()));
         }
-        System.out.println(consoleOutputView.showWinner(race.getWinners()));
+        System.out.println(consoleOutputView.showWinner(race.Winners()));
     }
 }

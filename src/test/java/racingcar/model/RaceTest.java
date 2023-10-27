@@ -1,17 +1,17 @@
 package racingcar.model;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RaceTest {
     private Race race = new Race();
 
     @Test
     void initialize() {
-        ArrayList<String> carNames = new ArrayList<>(List.of("Car1","Car2","Car3"));
+        ArrayList<String> carNames = new ArrayList<>(List.of("Car1", "Car2", "Car3"));
 
         race.initialize(carNames);
 
@@ -25,7 +25,7 @@ public class RaceTest {
 
     @Test
     void runRace() {
-        ArrayList<String> carNames = new ArrayList<>(List.of("Car1","Car2","Car3"));
+        ArrayList<String> carNames = new ArrayList<>(List.of("Car1", "Car2", "Car3"));
 
         race.initialize(carNames);
 
@@ -41,16 +41,16 @@ public class RaceTest {
 
     @Test
     void getWinners() {
-        ArrayList<String> carNames = new ArrayList<>(List.of("Car1","Car2","Car3"));
+        ArrayList<String> carNames = new ArrayList<>(List.of("Car1", "Car2", "Car3"));
 
         race.initialize(carNames);
 
         ArrayList<Integer> carGoingCount = new ArrayList<>(List.of(1, 2, 2));
 
-        for (int i=0; i<carGoingCount.size(); i++) {
+        for (int i = 0; i < carGoingCount.size(); i++) {
             race.getCarGoingCount().set(i, carGoingCount.get(i));
         }
-        String winners = race.getWinners();
+        String winners = race.Winners();
 
         // getWinners 메서드가 예상대로 동작하는지 확인
         assertEquals("Car2, Car3", winners);
