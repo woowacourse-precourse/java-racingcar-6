@@ -1,11 +1,10 @@
 package racingcar.domain.car.carcomponent.carmove;
 
+import static racingcar.Constant.ONE;
+
 public record CarMoveCount(int moveCount) {
 
-    public CarMoveCount countMove(boolean moveOrNot) {
-        if (moveOrNot) {
-            return new CarMoveCount(moveCount + 1);
-        }
-        return this;
+    CarMoveCount raiseMoveCount() {
+        return new CarMoveCount(moveCount + ONE);
     }
 }
