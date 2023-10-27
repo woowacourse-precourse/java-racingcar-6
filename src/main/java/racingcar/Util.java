@@ -25,9 +25,6 @@ public final class Util {
         return input == null || input.isEmpty();
     }
 
-    public static List<String> splitString(String input, String delimiter) {
-        return new ArrayList<>(List.of(input.split(delimiter)));
-    }
     public static boolean matchesPattern(String input, Pattern pattern) {
         return pattern.matcher(input).matches();
     }

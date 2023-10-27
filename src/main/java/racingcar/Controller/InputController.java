@@ -1,11 +1,7 @@
 package racingcar.Controller;
 
-import java.util.List;
-import java.util.regex.Pattern;
-import racingcar.Constants;
 import racingcar.Model.CarValidation;
 import racingcar.Model.RacingCars;
-import racingcar.Util;
 import racingcar.View.InputView;
 
 public class InputController {

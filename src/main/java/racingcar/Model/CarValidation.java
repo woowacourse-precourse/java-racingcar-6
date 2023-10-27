@@ -1,6 +1,7 @@
 package racingcar.Model;
 
 import java.util.ArrayList;
+import racingcar.Constants;
 import racingcar.Util;
 
 public class CarValidation {
@@ -27,7 +28,9 @@ public class CarValidation {
     }
 
     private void isCorrectFormat(){
-
+        if (!Constants.namesStringPattern.matcher(NAMES_STRING).matches()) {
+            throw new IllegalArgumentException("이름 형식이 잘못 되었습니다");
+        }
     }
 
     private void isNotDuplicate(){

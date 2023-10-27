@@ -1,7 +1,5 @@
 package racingcar.Controller;
 
-import java.util.List;
-import racingcar.Model.Car;
 import racingcar.Model.RacingCars;
 import racingcar.View.OutputView;
 
