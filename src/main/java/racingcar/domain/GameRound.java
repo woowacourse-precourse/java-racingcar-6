@@ -6,7 +6,14 @@ public class GameRound {
     private int currentRound;
 
     public GameRound(int totalRound, int currentRound) {
+        validateTotalRound(totalRound);
         this.totalRound = totalRound;
         this.currentRound = currentRound;
+    }
+
+    private void validateTotalRound(int totalRound) {
+        if (totalRound < 1) {
+            throw new IllegalArgumentException();
+        }
     }
 }
