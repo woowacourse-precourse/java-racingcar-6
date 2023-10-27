@@ -14,6 +14,7 @@ public class Application {
 
     public static void game_start(){
         GenCar();
+        int Num = PutNum();
     }
 
     public static void GenCar(){
@@ -39,6 +40,17 @@ public class Application {
             }
         }
         if(s.charAt(s.length() - 1)==',') {
+            throw new IllegalArgumentException();
+        }
+    }
+    public static int PutNum() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String s = Console.readLine();
+        int i = Integer.parseInt(s);
+        if (i > 0) {
+            return Integer.parseInt(s);
+        }
+        else {
             throw new IllegalArgumentException();
         }
     }
