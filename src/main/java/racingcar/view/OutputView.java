@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import racingcar.domain.CarDistanceMessage;
+import racingcar.domain.WinnersMessage;
 
 import java.util.List;
 
@@ -25,6 +26,10 @@ public class OutputView {
     public void printCarDistanceMessages(List<CarDistanceMessage> messages) {
         messages.forEach(System.out::println);
         System.out.println();
+    }
+
+    public void printWinnersMessage(WinnersMessage message) {
+        System.out.println(message);
     }
 
 }
