@@ -34,7 +34,8 @@ public class RaceController {
     }
 
     private void printRaceProgress() {
-        OutputHandler.printRaceProgress(carList.stream()
+        OutputHandler.printRaceProgress(
+                carList.stream()
                         .map(Car::getNameToString)
                         .toList(),
                 carList.stream()
@@ -43,10 +44,11 @@ public class RaceController {
     }
 
     private void printFinalWinner() {
-        List<Car> winnerList = WinnerChecker.findWinner(carList);
-        OutputHandler.printFinalWinner(winnerList.stream()
-                .map(Car::getNameToString)
-                .collect(joining(", ")));
+        OutputHandler.printFinalWinner(
+                WinnerChecker.findWinner(carList)
+                        .stream()
+                        .map(Car::getNameToString)
+                        .collect(joining(", ")));
     }
 
     private void createTryRemains(String userInput) {
