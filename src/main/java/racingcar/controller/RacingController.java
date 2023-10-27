@@ -39,6 +39,7 @@ public class RacingController {
 
     public static void showRacingWinner(List<Car> cars) {
         List<String> winnerCars = computeRacingWinner(cars);
+        OutputView.printRacingWinner(winnerCars);
     }
 
     private static List<String> computeRacingWinner(List<Car> cars) {
