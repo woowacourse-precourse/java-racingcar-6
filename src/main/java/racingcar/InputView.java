@@ -7,7 +7,7 @@ import java.util.List;
 public class InputView {
     private static final String DELIMITER = ",";
 
-    public List<String> getCars() {
+    public List<String> getCarStrings() {
         List<String> carStrings = new ArrayList<>();
         String input = Console.readLine();
         validateNullOrEmpty(input);
