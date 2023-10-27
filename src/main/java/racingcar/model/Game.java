@@ -21,8 +21,5 @@ public class Game {
     }
 
 
-    public int createCarNumber() {
-        int carNumber = Randoms.pickNumberInRange(0, 9);
-        return carNumber;
-    }
+
 }

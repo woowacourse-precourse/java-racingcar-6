@@ -43,31 +43,28 @@ public class GameTest {
 
     }
 
-
-    @Test
-    void 자동차_무작위_값_생성_테스트() {
-        int carNumber = game.createCarNumber();
-        Assertions.assertTrue(carNumber >= 0 && carNumber <= 9);
-    }
-
     @Test
     void 자동차_게임_시작() {
 
         String input = "pobi,jun,king,wuk";
         List<String> carNameList = game.splitCarName(input);
-
+        LinkedHashMap<String,Integer> carLocations;
         car.createLocationMap(carNameList);
 
-
-        Iterator<String> keys = cars.keySet().iterator();
-
-        while (keys.hasNext()) {
-            String key = keys.next();
-            int randomNumber = game.createCarNumber();
-            car.moveForward(key, randomNumber);
+        //carNameList를 moveForward에 전달하면 car 객체 내부에서 모든 차를 운전하는걸로
+        //이렇게 되면 car 객체 내에서 createCarNumber를 해야함..
 
 
+        car.moveForward();
+
+        for(int i = 0 ; i < carNameList.size(); i++){
+            int randomNumber = car.createRandomNumber();
+            String key = carNameList.get(i);
+            carLocations = car.moveForward(key,randomNumber);
         }
+
+
+
 
         //car에서 locations 가지기
         //game에서 locations 가지기

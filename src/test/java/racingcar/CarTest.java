@@ -36,6 +36,13 @@ public class CarTest {
 //
 //    }
 
+
+    @Test
+    void 자동차_무작위_값_생성_테스트() {
+        int carNumber = car.createRandomNumber();
+        Assertions.assertTrue(carNumber >= 0 && carNumber <= 9);
+    }
+
     @Test
     void 자동차_맵_생성_테스트() {
 

@@ -1,29 +1,38 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.LinkedHashMap;
 import java.util.List;
 
 public class Car {
+    private LinkedHashMap<String, Integer> locations;
 
-    private String carName;
-    private LinkedHashMap<String, Integer> cars;
+    private int randomNumber;
 
     public Car(LinkedHashMap<String, Integer> cars) {
-        this.cars = cars;
+        this.locations = cars;
     }
 
 
-    public int moveForward(String carName,int carNumber) {
+    public LinkedHashMap<String, Integer> moveForward(String carName, int carNumber) {
+        locations = new LinkedHashMap<>();
 
-        return 0;
+        return locations;
     }
+
+
+    public int createRandomNumber() {
+        int carNumber = Randoms.pickNumberInRange(0, 9);
+        return carNumber;
+    }
+
 
     public LinkedHashMap<String, Integer> createLocationMap(List<String> carNameList) {
-        cars = new LinkedHashMap<>();
+        locations = new LinkedHashMap<>();
         for (int i = 0; i < carNameList.size(); i++) {
-            cars.putIfAbsent(carNameList.get(i), 0);
+            locations.putIfAbsent(carNameList.get(i), 0);
         }
-        return cars;
+        return locations;
     }
 
 
