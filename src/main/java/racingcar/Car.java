@@ -18,6 +18,11 @@ public class Car {
         if(isMove()) this.distance += 1;
     }
 
+    public void printMove() {
+        String dash = "-".repeat(this.distance);
+        System.out.println(this.name + " : " + dash);
+    }
+
     public boolean isMove(){
         return makeRandomNumber() >= 4;
     }
