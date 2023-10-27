@@ -22,6 +22,6 @@ public class InputValidator implements Validator {
         return number;
     }
     private boolean isValidName(String name) {
-        return name.length() <= 5;
+        return !name.isEmpty() && name.length() <= 5;
     }
 }
