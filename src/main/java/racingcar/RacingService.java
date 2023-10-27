@@ -16,15 +16,15 @@ public class RacingService {
     List<String> testValidNames(String names) throws IllegalArgumentException {
         String[] namesArr = names.split(",");
 
-//        boolean isInvalidName = Arrays.stream(namesArr)
-//                .map(String::trim).anyMatch(String::isEmpty)
-//                || names.endsWith(",");
+        boolean isInvalidName = Arrays.stream(namesArr)
+                .map(String::trim).anyMatch(String::isEmpty)
+                || names.endsWith(",");
         boolean isInvalidLength = Arrays.stream(namesArr)
                 .anyMatch(name -> name.length() > 5);
         boolean isDuplicate = Arrays.stream(namesArr)
                 .distinct().count() != namesArr.length;
 
-        if (isInvalidLength || isDuplicate /* || isInvalidName*/) {
+        if (isInvalidLength || isDuplicate  || isInvalidName) {
             throw new IllegalArgumentException("유효하지 않은 이름을 입력했습니다.");
         }
         return Arrays.stream(namesArr).toList();
