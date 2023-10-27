@@ -13,6 +13,10 @@ public class Location {
         this.value = value;
     }
 
+    public static Location init() {
+        return new Location(0);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
