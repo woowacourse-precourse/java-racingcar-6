@@ -50,7 +50,7 @@ public class Cars {
         }
     }
 
-    public static String totalCarRacingStatus(Cars racingCars) {
+    public static String getRacingStatusOfAllCars(Cars racingCars) {
         StringBuilder stringBuilder = new StringBuilder();
 
         for (Car car : racingCars.cars) {
