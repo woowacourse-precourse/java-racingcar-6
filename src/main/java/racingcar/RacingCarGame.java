@@ -19,10 +19,7 @@ public class RacingCarGame {
     }
 
     public void run() {
-        outputProcessor.printCarNameInputMessage();
-        this.cars = inputProcessor.readCarNamesInput();
-        outputProcessor.printRepetitionInputMessage();
-        this.repetition = inputProcessor.readRepetitionInput();
+        initializeGame();
 
         for (int repetitionCount = 0; repetitionCount < repetition; repetitionCount++) {
             processTurn();
@@ -30,6 +27,13 @@ public class RacingCarGame {
         }
 
 
+    }
+
+    private void initializeGame() {
+        outputProcessor.printCarNameInputMessage();
+        this.cars = inputProcessor.readCarNamesInput();
+        outputProcessor.printRepetitionInputMessage();
+        this.repetition = inputProcessor.readRepetitionInput();
     }
 
     private void processTurn() {
