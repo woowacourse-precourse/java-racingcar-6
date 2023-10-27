@@ -18,6 +18,6 @@ public class ConsoleInput implements Input {
     @Override
     public void getMoveCount() {
         String moveCount = Console.readLine();
-        System.out.println(moveCount);
+        inputValidator.validateMoveCount(moveCount);
     }
 }

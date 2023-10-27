@@ -29,4 +29,15 @@ public class InputValidator {
             throw new IllegalArgumentException("자동차 이름의 길이는 1이상 5이하여야 합니다");
         }
     }
+
+
+    public void validateMoveCount(String moveCnt) {
+        if (!moveCnt.matches("[0-9]+")) {
+            throw new IllegalArgumentException("이동횟수는 자연수여야합니다.");
+        }
+
+        if (Integer.parseInt(moveCnt) == 0) {
+            throw new IllegalArgumentException("이동횟수는 0이어서는 안됩니다.");
+        }
+    }
 }

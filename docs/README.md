@@ -5,7 +5,7 @@
 ### 1. 사용자 입력 받기
 - [x] 자동차 이름 받기 - Input #getCarNames()
 - [x] 자동차 이동횟수 받기 - Input #getMoveCount()
-- [ ] 입력값 검증하기
+- [x] 입력값 검증하기
   - 자동차 이름은 쉼표 기준 구분, 5자 이하 - InputValidator #validateCarNames() 
   - 이동횟수는 자연수 - InputValidator #validateMoveCount()
 
