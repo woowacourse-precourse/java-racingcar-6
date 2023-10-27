@@ -10,8 +10,8 @@ public class CarMoveReaderTest {
     @DisplayName("CarMoveReader 에서 자동차 전진 횟수를 저장하고, 전진 가능 여부를 확인한다_totalNumberMove 보다 적게 전진하면 True 반환.")
     void CarMoveReaderTest_CanMove() {
         CarMoveReader carMoveReader = new CarMoveReader(4);
-        carMoveReader.moveCar();
-        carMoveReader.moveCar();
+        carMoveReader.raiseMoveCount();
+        carMoveReader.raiseMoveCount();
         boolean moveOrNot = carMoveReader.canMoveCar();
         Assertions.assertThat(moveOrNot).isTrue();
     }
@@ -20,8 +20,8 @@ public class CarMoveReaderTest {
     @DisplayName("CarMoveReader 에서 자동차 전진 횟수를 저장하고, 전진 가능 여부를 확인한다_totalNumberMove 와 같은 횟수 전진하면 False 반환.")
     void CarMoveReaderTest_CannotMove() {
         CarMoveReader carMoveReader = new CarMoveReader(2);
-        carMoveReader.moveCar();
-        carMoveReader.moveCar();
+        carMoveReader.raiseMoveCount();
+        carMoveReader.raiseMoveCount();
         boolean moveOrNot = carMoveReader.canMoveCar();
         Assertions.assertThat(moveOrNot).isFalse();
     }

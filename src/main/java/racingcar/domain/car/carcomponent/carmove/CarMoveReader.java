@@ -11,7 +11,7 @@ public class CarMoveReader {
         carMoveCount = new CarMoveCount(ZERO);
     }
 
-    public void moveCar() {
+    public void raiseMoveCount() {
         carMoveCount = carMoveCount.raiseMoveCount();
     }
 

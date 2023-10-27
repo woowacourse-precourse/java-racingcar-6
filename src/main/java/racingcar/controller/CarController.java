@@ -15,7 +15,7 @@ public class CarController {
 
     public String moveCarsAndGetResult(Supplier<Boolean> moveOrNot) {
         String result = cars.moveCarAndGetResult(moveOrNot);
-        carMoveReader.moveCar();
+        carMoveReader.raiseMoveCount();
         return result;
     }
 
