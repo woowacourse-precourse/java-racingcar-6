@@ -46,11 +46,32 @@
 	- [x] OutputView 출력하기 담당
 
 
-### 상수로 지정할 만한 것들
+### 상수로 지정할 만한 것들 
 - STANDARD_NUMBER = 4
 - MIN_NUMBER = 0
 - MAX_NUMBER = 9
+- MAX_LENGTH = 5
+- SEPARATOR = ","
 
+#### enum 사용해보기
+- 커뮤니티에서 만난 여러 사람들의 코드를 보니 enum을 사용하여 상수를 대체하는 경우가 있었다.
+- 이번기회에 공부해서 내것으로 만들어 보자
+
+- enum 이라는 타입을 생성한다.
+- 값이 정해진 문자들을 선언한다.
+- MONDAY,TUESDAY... 
+- 가져올 때는 MyEnum.MONDAY 와 같이 가져온다.
+- 다른 값과 비교시 equals() 와 == 둘 다 사용 가능하다.
+- enum의 equals()는 내부에서 ==를 이미 사용하고 있었다고 한다.
+- 단, equals() 사용시 NullPointerException에 주의해야 한다.
+- NPE 를 피하기 위해서는 MyEnum.MONDAY.eqauls(Other.MONDAY) 같은 식으로 만들어 주어야 한다.
+
+- STANDARD_NUMBER가 4의 값을 가지기 위해서는
+- STANDARD_NUMBER(4)와 같이 선언을 한다.
+	- 1. private int intValue; 를 선언
+	- 2. private(밖에서 재생성하면 안돼) MyEnum (int intValue) {this.intValue = intValue} 로 생성자를 만든다.
+	- 3. public int getIntValue() {return intValue}; 메서드
+- 이러면 이제 밖에서 MyEnum.STANDARD_NUMBER.getIntValue()로 사용할 수 있다.
 ---
 
 ## 🚀 기능 요구 사항
