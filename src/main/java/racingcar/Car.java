@@ -24,5 +24,14 @@ public class Car {
             forwardDistanceBetweenStartLine += 1;
         }
     }
+    
+    public void locationInfoVisualizing(){
+        StringBuilder info = new StringBuilder(name + " : ");
+
+        for (int i = 0; i < forwardDistanceBetweenStartLine; i++) {
+            info.append("-");
+        }
+        System.out.println(info);
+    }
 
 }
