@@ -5,8 +5,12 @@ import java.util.Objects;
 public class Distance {
     private final int value;
 
-    public Distance(int value) {
+    private Distance(int value) {
         this.value = value;
+    }
+
+    public static Distance from(int value) {
+        return new Distance(value);
     }
 
     public Distance add(int addend) {

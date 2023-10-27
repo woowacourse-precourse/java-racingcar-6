@@ -8,7 +8,7 @@ public class Car {
 
     public Car(Name name) {
         this.name = name;
-        this.distance = new Distance(0);
+        this.distance = Distance.from(0);
     }
 
     public void go() {
