@@ -14,4 +14,10 @@ public class ValidInput {
         }
     }
 
+    public static void validOnlyNumber(String input){
+        String reg = "^[0-9]*$";
+        if(!input.matches(reg)){
+            throw new IllegalArgumentException();
+        }
+    }
 }
