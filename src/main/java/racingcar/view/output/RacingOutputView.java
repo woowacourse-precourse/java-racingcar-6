@@ -6,4 +6,8 @@ public class RacingOutputView {
         throw new AssertionError("인스턴스화 불가능");
     }
 
+    public static void outputCarName() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+    }
+
 }
