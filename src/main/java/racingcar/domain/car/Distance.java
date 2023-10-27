@@ -4,17 +4,17 @@ import java.util.Objects;
 
 public class Distance {
     private final int value;
-
+    private static final Distance INSTANCE_WITH_ZERO = new Distance(0);
     private Distance(int value) {
         this.value = value;
     }
 
-    public static Distance from(int value) {
-        return new Distance(value);
+    public static Distance zero() {
+        return INSTANCE_WITH_ZERO;
     }
 
-    public Distance add(int addend) {
-        return new Distance(value + addend);
+    public Distance plusOne() {
+        return new Distance(value + 1);
     }
 
     @Override
@@ -32,5 +32,9 @@ public class Distance {
     @Override
     public int hashCode() {
         return Objects.hash(value);
+    }
+
+    public int getValue() {
+        return value;
     }
 }

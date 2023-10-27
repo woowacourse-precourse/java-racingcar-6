@@ -8,11 +8,11 @@ public class Car {
 
     public Car(Name name) {
         this.name = name;
-        this.distance = Distance.from(0);
+        this.distance = Distance.zero();
     }
 
     public void go() {
-        distance = distance.add(1);
+        distance = distance.plusOne();
     }
 
     @Override
