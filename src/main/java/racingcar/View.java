@@ -35,8 +35,8 @@ public class View {
         System.out.println("실행 결과");
     }
 
-    public void printFinalWinnerMessage(){
+    public void printFinalWinnerMessage(String result){
         System.out.println();
-        System.out.print("최종 우승자 : ");
+        System.out.print("최종 우승자 : "+result);
     }
 }
