@@ -18,6 +18,14 @@ public class RacingCar {
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getMoveDistance() {
+        return moveDistance;
+    }
+
     private boolean canMove() {
         if(getMoveValue()> moveCondition){
             return true;
