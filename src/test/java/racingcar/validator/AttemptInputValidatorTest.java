@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 class AttemptInputValidatorTest {
 
-    Validator validator = new AttemptsInputValidator();
+    Validator validator = new AttemptInputValidator();
 
     @ParameterizedTest
     @DisplayName("[통과해야하는 케이스]시도 회수 검증 테스트")
@@ -19,7 +19,7 @@ class AttemptInputValidatorTest {
 
     @ParameterizedTest
     @DisplayName("[실패야하는 케이스]시도 회수 검증 테스트")
-    @ValueSource(strings = {"-1", "1b", ",a", "no"})
+    @ValueSource(strings = {"-1", "1b", ",a", "no", "222222222222"})
     void failTest(String input) {
         assertThrows(
                 IllegalArgumentException.class,
