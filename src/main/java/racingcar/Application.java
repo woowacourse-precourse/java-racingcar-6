@@ -1,39 +1,30 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.View.InputView;
 
 public class Application {
     public static void main(String[] args) {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
-        String[] nameInput = readNames();
+        String[] nameInput = InputView.readCarNames();
+
         List<Car> carList = Arrays.stream(nameInput)
                 .map(Car::new)
                 .toList();
 
         Cars cars = new Cars(carList);
 
-        System.out.println("시도할 회수는 몇회인가요?");
-        int raceCount = readCount();
+        int count = InputView.readTrialCount();
 
         System.out.println("\n실행 결과");
-        for (int i = 0; i < raceCount; i++) {
+        for (int i = 0; i < count; i++) {
             cars.calculateMoveCount();
             System.out.println();
         }
 
         System.out.print("최종 우승자 : ");
         System.out.println(String.join(", ", cars.getWinner()));
-    }
-
-    private static int readCount() {
-        return Integer.parseInt(Console.readLine());
-    }
-
-    private static String[] readNames() {
-        return Console.readLine().split(",");
     }
 }
 
