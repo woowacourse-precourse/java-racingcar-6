@@ -3,7 +3,6 @@ package racingcar;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 public class RacingGame {
     public static final String COMMA = ",";
@@ -17,13 +16,13 @@ public class RacingGame {
     public List<Car> inputCarNames(String input) {
         List<String> names = Arrays.stream(splitNames(input))
                 .map(this::removeWhiteSpace)
-                .collect(Collectors.toList());
+                .toList();
 
         checkHasDuplicates(names);
 
         return names.stream()
                 .map(name -> new Car(new Name(name), new Position()))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     private String[] splitNames(String names) {
