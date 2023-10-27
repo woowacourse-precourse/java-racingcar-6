@@ -9,13 +9,15 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class GameItemImpl implements GameItem {
     private List<String> carNames;
     private Map<String, Integer> carPositions;
-    public GameItemImpl(InputImpl input) {
-        this.carNames = input.carName();
+    
+    public GameItemImpl(List<String> input) {
+        this.carNames = input;
         this.carPositions = new HashMap<>();
         for (String name : carNames) {
             carPositions.put(name, 0);
         }
     }
+    
     @Override
     public void carMove() {
         for (String name : carNames) {
