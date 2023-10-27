@@ -1,6 +1,6 @@
 package racingcar.validator;
 
-public class AttemptsInputValidator implements Validator {
+public class AttemptInputValidator implements Validator {
 
     private static final int MIN_NUMBER = 0;
 
