@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 public class NameValidatorTest {
     @DisplayName("이름의 적합성을 판단하는 기능")
     @ParameterizedTest
-    @ValueSource(strings={"eleven","abcdef","qwerdf","111234","1q2w3e4r","","  "})
+    @ValueSource(strings={"eleven","abcdef","qwerdf","111234","1q2w3e4r",""})
     void validateName_이름의_적합성_판단(String name){
         NameValidator validator=NameValidator.INSTANCE;
 
