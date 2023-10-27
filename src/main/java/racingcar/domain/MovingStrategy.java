@@ -9,4 +9,13 @@ public class MovingStrategy {
     public MovingStrategy(RandomNumberGenerator randomNumberGenerator) {
         this.randomNumberGenerator = randomNumberGenerator;
     }
+
+    public Boolean isCarMove() {
+        Integer number = generateNumber();
+        return number >= 4 ? true : false;
+    }
+
+    private Integer generateNumber() {
+        return randomNumberGenerator.generate();
+    }
 }
