@@ -27,7 +27,7 @@ public class CarRacingGame implements RacingGame {
 
     private void moveNextPosition(final Car car) {
         Position position = carRacingManager.getPosition(car);
-        Position nextPosition = position.getNextPosition(position);
+        Position nextPosition = position.getNextPosition();
         carRacingManager.changePosition(car, nextPosition);
     }
 

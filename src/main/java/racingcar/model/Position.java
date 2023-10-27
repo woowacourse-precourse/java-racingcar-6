@@ -20,8 +20,8 @@ public class Position {
         return cache.computeIfAbsent(positionIndex, Position::new);
     }
 
-    public Position getNextPosition(final Position position) {
-        return cache.get(getKeyByValue(position) + NEXT_INDEX.getValue());
+    public Position getNextPosition() {
+        return cache.get(getKeyByValue(this) + NEXT_INDEX.getValue());
     }
 
     private int getKeyByValue(final Position position) {
