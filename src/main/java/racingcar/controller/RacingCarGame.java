@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.Car;
 import racingcar.domain.Dice;
+import racingcar.service.RacingCarGameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -13,10 +14,12 @@ public class RacingCarGame {
 
     private final InputView inputView;
     private final OutputView outputView;
+    private final RacingCarGameService racingCarGameService;
 
     public RacingCarGame() {
         this.inputView = new InputView();
         this.outputView = new OutputView();
+        this.racingCarGameService = new RacingCarGameService();
     }
 
     public void run(){
@@ -29,7 +32,9 @@ public class RacingCarGame {
             moveOrStay(carList, dice);
             outputView.printResult(carList);
         }
-        outputView.printWinner(carList);
+        int maxMoveNumber = racingCarGameService.getMaxMoveNumber(carList);
+        List<String> winnerNames = racingCarGameService.getWinnerNames(carList, maxMoveNumber);
+        outputView.printWinner(winnerNames);
 
     }
 
