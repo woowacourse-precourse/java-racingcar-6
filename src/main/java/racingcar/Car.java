@@ -1,14 +1,20 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
     private static final String LOCATION = "-";
     private static final int MAX_NAME_LENGTH = 5;
+    private static final int MAX_RANDOM = 9;
+    private static final int MIN_RANDOM = 0;
+    private static final int SATISFY_FOR_MOVE = 4;
     private String name;
-    private String location = "";
+    private StringBuilder location;
 
     public Car(String name) {
         validateCarName(name);
         this.name = name;
+        location = new StringBuilder();
     }
 
     private void validateCarName(String name) {
@@ -17,8 +23,13 @@ public class Car {
         }
     }
 
-    public void move() {
-        location += LOCATION;
+    public void moveIfSatisfy(int count) {
+        for (int iteration = 0; iteration < count; iteration++) {
+            int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM, MAX_RANDOM);
+            if (randomNumber >= SATISFY_FOR_MOVE) {
+                location.append(LOCATION);
+            }
+        }
     }
 
     public String getName() {
