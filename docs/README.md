@@ -16,14 +16,14 @@
 - [ ] 무작위 값이 4 이상이면 전진한다. NumberGenerator#checkMoreThanFour()
 
 3. 게임 종료
-- [ ] 우승자는 한 명 이상일 수 있다. GameResult#checkWinnerCar()
-- [ ] 게임 종료 후 우승한 자동차 이름을 알려준다. GameResult#outputWinnerCarName()
-  - [ ] 우승자가 여러 명일 경우 ','를 이용하여 구분한다.
+- [x] 우승자는 한 명 이상일 수 있다. GameResult#checkWinnerCar()
+- [x] 게임 종료 후 우승한 자동차 이름을 알려준다. GameResult#outputWinnerCarName()
+- [x] 우승자가 여러 명일 경우 ','를 이용하여 구분한다.
 
 # 공통
 - [ ] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨다.
 - [ ] Random 값 추출은 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용한다.
-- [ ] 사용자가 입력하는 값은 camp.nextstep.edu.missionutils.Console의 readLine()을 활용한다.
+- [x] 사용자가 입력하는 값은 camp.nextstep.edu.missionutils.Console의 readLine()을 활용한다.
 
 
 ## 기능 요구사항
