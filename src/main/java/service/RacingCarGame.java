@@ -40,16 +40,17 @@ public class RacingCarGame {
     }
 
     private void getResult(String[] carNameList, int carNameLength, int[] result, StringBuilder sb, int i) {
+    private void getResult(String[] carNameList, int carNameLength, int[] forwardCounts, StringBuilder sb, int i) {
         for (int j = 0; j < carNameLength; j++) {
             if (canCarMoveForward(pickRandomNumber())) {
-                result[j]++;
+                forwardCounts[j]++;
             }
         }
 
         for (int k = 0; k < carNameLength; k++) {
             sb.append(carNameList[k])
                     .append(" : ")
-                    .append("-".repeat(result[k]))
+                    .append("-".repeat(forwardCounts[k]))
                     .append("\n");
         }
 
