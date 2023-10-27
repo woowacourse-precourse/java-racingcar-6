@@ -14,7 +14,7 @@ class CarTest {
         car.stopOrMoveDecision(5);
 
         //then
-        Assertions.assertThat(car).extracting("stopOrMoveDecisionResult").isEqualTo("-");
+        Assertions.assertThat(car).extracting("position").isEqualTo(1);
 
     }
 }
