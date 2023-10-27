@@ -15,8 +15,8 @@ public final class Winners {
         this.names = Collections.unmodifiableList(names);
     }
 
-    private void validate(final List<String> winnerNames) {
-        if (winnerNames.isEmpty()) {
+    private void validate(final List<String> names) {
+        if (names.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_WINNER_NUM.toValue());
         }
     }
