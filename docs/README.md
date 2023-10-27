@@ -32,7 +32,7 @@
 
 ## Convert
 
-- String을 List로 변환한다.
+- String을 쉼표 기준으로, List로 변환한다.
 - String을 Integer로 변환한다.
     - 변환 과정에서 발생하는 NumberFormatException을 잡아 IllegalArgumentException을 발생시킨다.
 
@@ -61,7 +61,7 @@
 ## Convert
 
 - 변환 과정을 테스트한다.
-    - String을 List로 변환하는 기능을 테스트한다.
+    - String을 쉼표 기준으로, List로 변환하는 기능을 테스트한다.
     - String을 Integer로 변환하는 기능을 테스트한다.
     - 숫자로 변환할 수 없는 입력이 있을 때 발생하는 NumberFormatException을 잡아 IllegalArgumentException을 발생시킨다.
 
