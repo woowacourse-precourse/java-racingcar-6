@@ -5,6 +5,6 @@ import racingcar.model.Car;
 
 public interface CarGameService {
     void makeAndStoreCar(String[] names);
-    List<Car> updateCar();
+    List<Car> updateCar(List<Integer> randomNumbers);
     List<Integer> makeRandomNumbers();
 }
