@@ -48,11 +48,9 @@ public class Validator {
     }
 
     private boolean hasDuplicates(List<String> list) {
-        Set<String> uniqueNames = new HashSet<>();
-        for (String item : list) {
-            if (!uniqueNames.add(item.trim())) {
-                return true;
-            }
+        Set<String> uniqueItems = new HashSet<>(list);
+        if (list.size() != uniqueItems.size()) {
+            return true;
         }
         return false;
     }
