@@ -10,20 +10,21 @@
 8. 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.
 
 ### 기능 목록
-- [ ] 경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)을 입력
-  - [ ] 자동차 이름 수 만큼 자동차 객체 생성 
+- [ ] 경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)을 입력 - String CarNames
+  - [ ] 입력 받은 자동차 이름 split - parseCarNames(String CarNames)
+  - [ ] 자동차 이름 수 만큼 자동차 객체 생성 - createCar(String carName)
   
-- [ ] 시도할 회수를 입력
+- [ ] 시도할 회수를 입력 - int raceAttemptCount
 
 - [ ] 경주 할 자동차는 0 에서 9 사이에서 무작위 값이 4 이상인 경우 전진
-  - [ ] 무작위 수 생성 (0 에서 9사이)
-  - [ ] 전진 여부 판단 (무작위 수가 4이상 인지 검증)
+  - [ ] 무작위 수 생성 (0 에서 9사이) - generateRandomDigit()
+  - [ ] 전진 여부 판단 (무작위 수가 4이상 인지 검증) - isForward(int randomDigit)
   
-- [ ] 시도할 회수만큼 반복하며 레이스 상태 출력 (자동차 이름 : 전진 수 만큼 -)
+- [ ] 시도할 회수만큼 반복하며 레이스 상태 출력 (자동차 이름 : 전진 수 만큼 -) - displayRaceStatus()
 
-- [ ] 최종 우승자 판단
-- [ ] 최종 우승자 출력 (다수의 유저의 결과값이 동일할 경우 공동 출력)
+- [ ] 최종 우승자 판단 - findWinner()
+- [ ] 최종 우승자 출력 (다수의 유저의 결과값이 동일할 경우 공동 출력) - displayFindWinner(List<String> raceResults)
 
 예외 처리
 - [ ] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생
-  - [ ] 시도할 회수 입력 시 문자를 입력한 경우 
+  - [ ] 시도할 회수 입력 시 문자를 입력한 경우 - isRaceAttemptCountValid()
