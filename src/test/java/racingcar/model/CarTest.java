@@ -1,10 +1,10 @@
-package racingcar;
+package racingcar.model;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class ModelTest {
-    Car car;
+public class CarTest {
+    private Car car;
     @Test
     void Car_생성() {
         car = new Car("pobi", 4);
