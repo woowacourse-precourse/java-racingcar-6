@@ -2,11 +2,8 @@ package racingcar.domain.car;
 
 import java.util.List;
 
-public class Cars {
-
-    private final List<Car> cars;
-
-    public Cars(final List<Car> cars) {
+public record Cars(List<Car> cars) {
+    public Cars(List<Car> cars) {
         this.cars = List.copyOf(cars);
     }
 }

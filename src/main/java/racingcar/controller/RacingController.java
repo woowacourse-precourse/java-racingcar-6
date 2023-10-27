@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.car.Car;
 import racingcar.domain.car.CarFactory;
+import racingcar.domain.car.Cars;
 import racingcar.domain.racing.Judgement;
 import racingcar.domain.racing.Racing;
 import racingcar.view.InputView;
@@ -24,8 +25,9 @@ public class RacingController {
 
     public void run() {
         String carNamesFromUser = requestCarNamesFromUser();
-        List<Car> carList = CarFactory.generateCarNameList(carNamesFromUser);
-        Racing racing = new Racing(carList);
+        List<Car> carLIst = CarFactory.generateCarList(carNamesFromUser);
+        Cars cars = new Cars(carLIst);
+        Racing racing = new Racing(cars);
 
         String racingRoundCountFromUser = requestRacingRoundCountFromUser();
         RoundCount roundCount = new RoundCount(racingRoundCountFromUser);
