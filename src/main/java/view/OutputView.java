@@ -1,7 +1,5 @@
 package view;
 
-import java.util.List;
-import model.Car;
 import model.Cars;
 
 public class OutputView {
@@ -27,11 +25,6 @@ public class OutputView {
     }
 
     public static void displayCurrentRacingStatus(Cars cars) {
-        List<Car> racingCars = cars.getCars();
-
-        for (Car car : racingCars) {
-            System.out.println(car.currentRacingStatus());
-        }
-        System.out.println();
+        System.out.println(Cars.totalCarRacingStatus(cars));
     }
 }
