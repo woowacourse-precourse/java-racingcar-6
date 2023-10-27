@@ -1,19 +1,19 @@
 package racingcar.Domain;
 
 
-public class car {
+public class Car {
     private static final Integer POSITION_INCREMENT = 1;
     private static final Integer POSITION_INIT = 0;
     private final String name;
     private Integer position;
 
-    private car (String name, Integer position) {
+    private Car(String name, Integer position) {
         this.name = name;
         this.position = position;
     }
 
-    public static car of (String name) {
-        return new car(name, POSITION_INIT);
+    public static Car of (String name) {
+        return new Car(name, POSITION_INIT);
     }
 
     public String findName () {
