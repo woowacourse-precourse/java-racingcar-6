@@ -10,7 +10,7 @@
 - [x] 0~9 사이의 무작위 숫자를 생성한다. `int generate()`
 
 ### Referee
-- [ ] 각 자동차의 전진 횟수를 비교하여 최종 우승자를 결정한다. `List<Car> judge()`
+- [x] 각 자동차의 전진 횟수를 비교하여 최종 우승자를 결정한다. `List<Car> judge(List<Car> cars)`
 
 ### InputView
 - [ ] 경주할 자동차 이름을 입력 받는다. `List<String> readCarNames()`

@@ -15,4 +15,12 @@ public class Car {
             forwardCount++;
         }
     }
+
+    public int getLargerForwardCount(int maxForwardCount) {
+        return Math.max(forwardCount, maxForwardCount);
+    }
+
+    public boolean isSameAs(int forwardCount) {
+        return this.forwardCount == forwardCount;
+    }
 }
