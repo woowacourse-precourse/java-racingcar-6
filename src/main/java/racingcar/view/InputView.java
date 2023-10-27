@@ -16,7 +16,7 @@ public class InputView implements View {
     }
 
     public List<String> getUserInputName() {
-        System.out.println(INPUT_CARS_NAME_MESSAGE);
+        System.out.println(INPUT_CARS_NAME_MESSAGE.getMessage());
         String input = Console.readLine();
 
         List<String> nameList =  Arrays.stream(input.split(","))
@@ -27,7 +27,7 @@ public class InputView implements View {
     }
 
     public Integer getUserInputCount() {
-        System.out.println(TRY_COUNT_MESSAGE);
+        System.out.println(TRY_COUNT_MESSAGE.getMessage());
         return inputValidator.isNumber(Console.readLine());
     }
 }
