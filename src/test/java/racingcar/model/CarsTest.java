@@ -28,15 +28,12 @@ class CarsTest {
     }
 
     @Test
-    void carsNameMatchesCarNames() {
-        // 준비
+    void 자동차객체_저장_확인() {
         List<String> carNames = Arrays.asList("Car1", "Car2", "Car3");
         Cars cars = new Cars(carNames);
 
-        // 실행
         List<Car> result = cars.getCars();
 
-        // 단언
         for (int i = 0; i < result.size(); i++) {
             assertThat(result.get(i).getName()).isEqualTo(carNames.get(i));
         }
