@@ -13,7 +13,7 @@ class CarTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
-    void Car_move_테스트() {
+    void move_테스트() {
         assertRandomNumberInRangeTest(
             () -> {
                 Car car = new Car("testCar");
@@ -27,7 +27,7 @@ class CarTest extends NsTest {
     }
 
     @Test
-    void Car_toString_테스트() {
+    void toString_테스트() {
         assertRandomNumberInRangeTest(
                 () -> {
                     Car car = new Car("testCar");
