@@ -175,8 +175,8 @@ class ApplicationTest extends NsTest {
         secondRaceCar.movementControlCar(8);
         secondRaceCar.movementControlCar(1);
 
-        boolean result_true = judgeStandard.isVictoryCondition(firstRaceCar);
-        boolean result_false = judgeStandard.isVictoryCondition(secondRaceCar);
+        boolean result_true = judgeStandard.isVictoryCondition(firstRaceCar, 3);
+        boolean result_false = judgeStandard.isVictoryCondition(secondRaceCar, 3);
 
         // then
         assertThat(result_true).isTrue();
