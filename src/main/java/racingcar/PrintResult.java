@@ -20,12 +20,10 @@ public class PrintResult {
     }
     public static List<String> selectWinner(List<String> car_list, StringBuilder[] move_result){
         List<String> winner = new ArrayList<>();
-        int[] carMove = new int[move_result.length];
         int max_move = 0;
 
-        for (int i = 0; i < move_result.length; i++) {
-            int numberOfMove = move_result[i].length();
-            carMove[i] = numberOfMove;
+        for (StringBuilder move : move_result) {
+            int numberOfMove = move.length();
             if (numberOfMove >= max_move) {
                 max_move = numberOfMove;
             }

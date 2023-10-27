@@ -18,8 +18,7 @@ public class CarInput {
     public int inputNumberOfMove(){
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
-        ValidCheck.moveTypeCheck(input);
 
-        return Integer.parseInt(input);
+        return ValidCheck.moveTypeCheck(input);
     }
 }
