@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.Model.Cars;
+import racingcar.Model.RacingCarRandomNumber;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -31,6 +33,20 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름_범위_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> Cars.processLongNameException("abcdef,javaji"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 랜덤_숫자_범위_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> RacingCarRandomNumber.validateRandomNumberRange(10))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
     @Override
     public void runMain() {
         Application.main(new String[]{});
