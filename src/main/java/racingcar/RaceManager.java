@@ -5,9 +5,7 @@ import racingcar.view.Output;
 
 public class RaceManager {
 
-    private static final String RESULTS_DELIMITER = ", ";
     private static final String RESULT_MESSAGE = "실행 결과";
-    private static final String FINAL_WINNER_MESSAGE = "최종 우승자 : ";
 
     private final RaceCars carList;
     private final AttemptNumber attemptNumber;
@@ -29,12 +27,8 @@ public class RaceManager {
     }
 
     private void printWinner() {
-        StringBuilder builder = new StringBuilder();
-        for (RaceCar car : carList.getMaximumList()) {
-            builder.append(car).append(RESULTS_DELIMITER);
-        }
-
-        Output.printMessage(FINAL_WINNER_MESSAGE + builder);
+        RaceWinnerList winnerList = new RaceWinnerList(carList);
+        Output.printWinner(winnerList.getIterator());
     }
 
     @Override
