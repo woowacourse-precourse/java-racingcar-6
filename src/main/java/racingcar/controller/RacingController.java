@@ -6,7 +6,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingController {
-    private CarService carService;
+    private final CarService carService;
 
     public RacingController(CarService carService) {
         this.carService = carService;
@@ -14,7 +14,7 @@ public class RacingController {
 
     public void init() {
         OutputView.printNameInputDescription();
-        String carNames = InputView.inputCarNames();
+        carService.createCars(InputView.inputCarNames());
     }
 
 }
