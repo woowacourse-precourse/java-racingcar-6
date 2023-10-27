@@ -2,6 +2,8 @@ package racingcar;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
@@ -21,7 +23,29 @@ class CarTest {
         String longName = "pobibibi";
         assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> new Car(longName))
-                .withMessage("자동차 이름은 5자 이하만 가능합니다.");
+                .withMessage("자동차 이름이 적합하지 않습니다.");
     }
+
+    @Test
+    public void 자동차_이름_쉼표구분_성공() {
+        String carNames = "pobi,woni,jun";
+        Game game = new Game(carNames, 5);
+
+        List<Car> cars = game.getCars();
+        assertThat(cars.size()).isEqualTo(3);
+        assertThat(cars.get(0).getName()).isEqualTo("pobi");
+        assertThat(cars.get(1).getName()).isEqualTo("woni");
+        assertThat(cars.get(2).getName()).isEqualTo("jun");
+    }
+
+    @Test
+    public void 자동차_이름_쉼표구분_실패() {
+        String wrongCarNames = "pobi woni,jun";
+
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> new Game(wrongCarNames, 5))
+                .withMessage("자동차 이름이 적합하지 않습니다.");
+    }
+
 
 }
