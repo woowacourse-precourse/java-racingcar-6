@@ -2,11 +2,24 @@ package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class CarTest {
+
+    @DisplayName("같은 position 인지 테스트 : 자동차의 position 이 같으면 true, 다르면 false 반환.")
+    @Test
+    void isSamePosition() {
+        Car car = new Car("홍길동", 5);
+
+        assertAll(
+                () -> assertThat(car.isSamePosition(5)).isTrue(),
+                () -> assertThat(car.isSamePosition(7)).isFalse()
+        );
+
+    }
 
     @DisplayName("create 생성 테스트 : Car 생성 시 이름을 부여할 수 있다.")
     @Test

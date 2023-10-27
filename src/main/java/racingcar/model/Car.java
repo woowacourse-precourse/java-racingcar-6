@@ -17,9 +17,19 @@ public class Car {
         this.position = INIT_POSITION;
     }
 
+    public Car(String name, int position) {
+        validateSize(name);
+        this.name = name;
+        this.position = position;
+    }
+
     private void validateSize(String name) {
         if (name.length() > MAX_NAME_SIZE) {
             throw new IllegalArgumentException("이름 크기는 5이하여야 합니다.");
         }
+    }
+
+    public boolean isSamePosition(int position) {
+        return this.position == position;
     }
 }
