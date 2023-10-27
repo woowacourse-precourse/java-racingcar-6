@@ -14,7 +14,6 @@ public class CarService {
         this.carList = changeUserInputToCarList(input);
     }
 
-
     //1) 입력받은 자동차 이름별 Car 클래스 생성 및 리스트에 담기
     public ArrayList<Car> changeUserInputToCarList(UserInput input) {
         ArrayList<Car> list = new ArrayList<>();
@@ -43,44 +42,6 @@ public class CarService {
     }
 
     /**
-     * 결과 출력과 관련된 함수
-     */
-    //++ 현재 상태를 출력하는 함수
-    public void printCurrentCar(ArrayList<Car> list) {
-        for (int i = 0; i < list.size(); i++) {
-            System.out.print(list.get(i).carName + " : ");
-            for (int j = 0; j < list.get(i).count; j++) {
-                System.out.print("-");
-            }
-            System.out.println();
-        }
-        System.out.println();
-    }
-
-    //++최종 우승자를 출력하는 함수
-    public void printFinalWinner(ArrayList<Car> carsList) {
-        //모든 게임 완료된 상테에서 최종 우승자 가리기
-        int winScore = getMaxScore(carsList);
-        ArrayList<String> winnerName = getWinnerName(carsList, winScore);
-        System.out.print("최종 우승자 : ");
-
-        //1명일 때
-        if (winnerName.size() == 1) {
-            System.out.print(winnerName.get(0));
-        }
-        //여러 명일 떄
-        if (winnerName.size() >= 2) {
-            for (int i = 0; i < winnerName.size(); i++) {
-                if (i == winnerName.size() - 1) { //마지막에는 쉼표 제거
-                    System.out.print(winnerName.get(i));
-                }
-                System.out.print(winnerName.get(i) + ", ");
-            }
-        }
-    }
-
-
-    /**
      * 최종 우승자 판별 기능
      */
     //4) 최종 우승자의 max Score 찾는 함수
@@ -102,5 +63,4 @@ public class CarService {
         }
         return winner;
     }
-
 }

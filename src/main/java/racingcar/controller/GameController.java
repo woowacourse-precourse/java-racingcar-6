@@ -4,11 +4,13 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import racingcar.domain.Car;
 import racingcar.domain.CarService;
+import racingcar.view.Output;
 import racingcar.view.UserInput;
 
 public class GameController {
     UserInput input;
     CarService carService;
+    Output output;
 
     public GameController() {
         input = inputUser();
@@ -38,10 +40,11 @@ public class GameController {
                 //판별된 상태에 따른 상태 세팅
                 carService.setCurrentCar(flag, carsList.get(j));
             }
-            //현재의 게임 객체들 상태 출력
-            carService.printCurrentCar(carsList); //(1) 출력 : 매번 횟수별로 현재 상태를 출력
+            output = new Output(carService);
+            //(1) 출력 : 현재의 게임 객체들 상태 출력
+            output.printCurrentCar(carsList);
         }
         //(2) 출력 : 최종 우승자 출력
-        carService.printFinalWinner(carsList);
+        output.printFinalWinner(carsList);
     }
 }
