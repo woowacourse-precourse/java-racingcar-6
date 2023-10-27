@@ -1,7 +1,5 @@
 package racingcar;
 
-import java.util.List;
-
 public class ValidCheck {
     public static void namesize_check(String[] car_list){
         for (String car_name : car_list){
