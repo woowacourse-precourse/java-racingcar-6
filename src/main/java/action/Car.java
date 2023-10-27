@@ -11,7 +11,7 @@ public class Car implements Movable {
     private final static int STOP = 3;
 
     private final String carName;
-    private StringBuilder status;
+    private final StringBuilder status;
 
     public Car(String carName) {
         this.carName = carName;
@@ -27,12 +27,15 @@ public class Car implements Movable {
     }
 
     @Override
-    public int action() {
+    public void action() {
         int pickNumber = createRandom();
         if (pickNumber == MOVE_FORWARD) {
-            status.append("-");
+            moveForward();
         }
-        return pickNumber;
+    }
+
+    public void moveForward() {
+        status.append("-");
     }
 
     @Override
