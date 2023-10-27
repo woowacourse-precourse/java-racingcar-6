@@ -26,9 +26,9 @@ public class GameController {
         TryCount tryCount = inputView.getTryCount();
         for (int i = 0; i < tryCount.getCount(); i++) {
             List<RacingResult> raceResults = racingService.race(circuit);
-            outputView.printResult(raceResults);
+            outputView.printRacingResult(raceResults);
         }
-
+        outputView.printWinner(circuit.getWinners());
 
     }
 }

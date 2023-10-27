@@ -2,7 +2,7 @@ package racingcar.domain;
 
 public class Car {
 
-    private String carName;
+    private final String carName;
     private int carPosition;
 
     public Car(String carName) {
@@ -22,5 +22,9 @@ public class Car {
 
     public int getCarPosition() {
         return carPosition;
+    }
+
+    public boolean isWinner(int maxPosition) {
+        return this.carPosition == maxPosition;
     }
 }

@@ -35,4 +35,19 @@ public class Circuit {
         return this.cars.size();
     }
 
+    public List<String> getWinners() {
+        int maxPosition = getMaxPosition();
+
+        return cars.stream()
+                .filter(car -> car.isWinner(maxPosition))
+                .map(Car::getCarName)
+                .collect(Collectors.toList());
+    }
+
+    private int getMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getCarPosition)
+                .max()
+                .orElse(0);
+    }
 }
