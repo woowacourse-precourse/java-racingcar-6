@@ -11,8 +11,8 @@ public class InputView {
         return Console.readLine();
     }
 
-    public static int inputNumberOfGame() {
+    public static String inputNumberOfGame() {
         System.out.println(INPUT_NUMBER_OF_GAMES_MESSAGE);
-        return Integer.parseInt(Console.readLine());
+        return Console.readLine();
     }
 }
