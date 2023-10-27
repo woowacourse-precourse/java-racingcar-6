@@ -11,13 +11,13 @@ public class InputPrompt {
         this.rule = rule;
     }
 
-    public CarRecord readCarNames() {
+    public CarRecord readCarNames() throws IllegalArgumentException {
         String rawInput = Console.readLine();
         String[] tokens = rawInput.split(",");
         return CarRecordFactory.createCarRecord(rule, tokens);
     }
 
-    public NumberOfRepetitions readNumberOfRepetitions() {
+    public NumberOfRepetitions readNumberOfRepetitions() throws IllegalArgumentException {
         return new NumberOfRepetitions(Console.readLine().trim());
     }
 
