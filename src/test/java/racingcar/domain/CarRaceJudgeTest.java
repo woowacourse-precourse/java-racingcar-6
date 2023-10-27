@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -26,5 +27,16 @@ class CarRaceJudgeTest {
 
         // then
         assertThat(isSaved).isTrue();
+    }
+
+    @DisplayName("자동차 이름은 중복될 수 없습니다.")
+    @Test
+    void addCars_exception_withDuplicateNames() {
+        // given
+        List<String> names = List.of("pobi", "pobi");
+
+        // when & then
+        assertThatIllegalArgumentException().isThrownBy(() -> carRaceJudge.addCars(names))
+                .withMessageContaining("자동차 이름은 중복될 수 없습니다.");
     }
 }
