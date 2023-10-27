@@ -8,4 +8,8 @@ public class View {
     public void printAttemptCountsQuestionMessage() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
+
+    public void printPlayResultText() {
+        System.out.println("\n실행 결과");
+    }
 }
