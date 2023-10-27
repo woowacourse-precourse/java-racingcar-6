@@ -12,6 +12,11 @@ import static org.junit.jupiter.api.Assertions.*;
 final class NameTest {
 
     @Test
+    void 자동차이름은_null이_될수없다() {
+        assertThrows(IllegalArgumentException.class, () -> new Name(null));
+    }
+
+    @Test
     void 자동차이름의_길이가_1_미만일_경우_예외를_터트린다() {
         assertThrows(IllegalArgumentException.class, () -> new Name(""));
     }
