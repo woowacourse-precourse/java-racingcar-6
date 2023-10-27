@@ -14,6 +14,10 @@ public class Name {
         this.name = name;
     }
 
+    public static Name init(String carName) {
+        return new Name(carName);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
