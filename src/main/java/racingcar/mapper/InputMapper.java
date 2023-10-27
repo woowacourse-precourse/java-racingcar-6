@@ -7,7 +7,7 @@ public class InputMapper {
 
     private static final String INVALID_INPUT_MESSAGE = "유효하지 않은 입력값입니다.";
     private static final String INVALID_NUMBER_FORMAT_MESSAGE = "숫자만 입력해주세요.";
-    public static final String NOT_POSITIVE_NUMBER_MESSAGE = "양수만 입력해주세요.";
+    private static final String NOT_POSITIVE_NUMBER_MESSAGE = "양수만 입력해주세요.";
 
     public static List<String> mapToNameList(String input) {
         checkInputNonNull(input);
