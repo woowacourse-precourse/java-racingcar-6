@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import racingcar.exception.position.NotExistPositionException;
+import racingcar.util.NumberGenerator;
 
 public class CarRacingGame implements RacingGame {
 
@@ -18,9 +19,9 @@ public class CarRacingGame implements RacingGame {
     }
 
     @Override
-    public void move() {
+    public void move(final NumberGenerator numberGenerator) {
         carRacingManager.getCars().stream()
-                .filter(Car::canMove)
+                .filter(car -> car.canMove(numberGenerator))
                 .forEach(this::moveNextPosition);
     }
 

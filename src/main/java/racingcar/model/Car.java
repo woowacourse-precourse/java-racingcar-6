@@ -4,7 +4,6 @@ import static racingcar.util.Constant.FORWARD_THRESHOLD;
 
 import java.util.Objects;
 import racingcar.util.NumberGenerator;
-import racingcar.util.RandomNumberGenerator;
 
 public class Car implements Vehicle {
 
@@ -19,8 +18,7 @@ public class Car implements Vehicle {
     }
 
     @Override
-    public boolean canMove() {
-        NumberGenerator numberGenerator = new RandomNumberGenerator();
+    public boolean canMove(final NumberGenerator numberGenerator) {
         return numberGenerator.generate() >= FORWARD_THRESHOLD.getValue();
     }
 

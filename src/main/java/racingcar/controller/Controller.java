@@ -13,6 +13,7 @@ import racingcar.model.RacingGame;
 import racingcar.model.RacingTrackGenerator;
 import racingcar.model.Vehicle;
 import racingcar.util.Converter;
+import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -38,7 +39,7 @@ public class Controller {
     }
 
     private void play(final RacingGame racingGame) {
-        racingGame.move();
+        racingGame.move(new RandomNumberGenerator());
         Map<Vehicle, Position> racingTrack = racingGame.getVehiclePositionMap();
         GameResultResponse gameResultResponse = GameResultResponse.from(racingTrack);
         outputView.printGameResult(gameResultResponse);
