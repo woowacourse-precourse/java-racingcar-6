@@ -4,10 +4,22 @@ import java.util.Objects;
 
 public class Position {
 
-    private final int position;
+    private static final int STANDARD = 4;
+
+    private int position;
 
     public Position(final int position) {
         this.position = position;
+    }
+
+    public void move(final int number) {
+        if (canMove(number)) {
+            position++;
+        }
+    }
+
+    private boolean canMove(final int number) {
+        return number >= STANDARD;
     }
 
     @Override
