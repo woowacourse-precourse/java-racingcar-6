@@ -19,7 +19,7 @@ public class TypeConvertor {
 
     public static Integer stringToInt(String input) {
         try {
-            return Integer.parseInt(input.trim());
+            return Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }

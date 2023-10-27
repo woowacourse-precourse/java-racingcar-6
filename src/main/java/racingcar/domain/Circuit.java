@@ -19,9 +19,10 @@ public class Circuit {
         return new Circuit(cars);
     }
 
-    public void moveCars(List<Integer> randomNumbers) {
+    public List<Car> moveCars(List<Integer> randomNumbers) {
         IntStream.range(0, getCircuitSize())
                 .forEach(index -> getMove(randomNumbers, index));
+        return cars;
     }
 
     private void getMove(List<Integer> randomNumbers, int index) {

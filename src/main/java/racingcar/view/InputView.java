@@ -26,7 +26,7 @@ public class InputView {
     }
 
     public TryCount getTryCount() {
-        System.out.println("시도할 회수는 몇회인가요?\n");
+        System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
         Integer convertTryCount = TypeConvertor.stringToInt(input);
         return TryCount.of(convertTryCount);
