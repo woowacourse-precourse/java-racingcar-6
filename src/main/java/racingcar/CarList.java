@@ -8,6 +8,11 @@ public class CarList {
 
     public CarList(String carsName){
         this.carList = new ArrayList<>();
+        String[] names = splitNamesByComma(carsName);
+    }
+
+    private String[] splitNamesByComma(String name){
+        return name.split(",");
     }
 
 }
