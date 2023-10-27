@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static racingcar.constant.Constants.*;
-import static racingcar.constant.Constants.ERROR_INVALID_REPEAT_COUNT;
 
 public class InputView {
     public List<String> getCarsName() {
@@ -26,7 +25,7 @@ public class InputView {
         for (String carName : carNames) {
             if (NAMES_MAX_LENGTH < carName.length())
                 throw new IllegalArgumentException(ERROR_INVALID_CAR_NAME);
-            names.add(carName);
+            names.add(carName.trim());
         }
         return names;
 

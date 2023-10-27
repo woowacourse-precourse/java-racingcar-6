@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
 import racingcar.model.CarRepository;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,11 +12,13 @@ import java.util.List;
 public class RacingGame {
     public static final int MOVE_RULE = 4;
     private final InputView inputView;
+    private final OutputView outputView;
     private CarRepository carRepository;
     private int repeatCount;
 
     public RacingGame(List<String> cars, int repeatCount) {
         this.inputView = new InputView();
+        this.outputView = new OutputView();
         carRepository = new CarRepository(cars);
         this.repeatCount = repeatCount;
     }
@@ -33,6 +36,7 @@ public class RacingGame {
     private void play() {
         while (repeatCount-- > 0) {
             OneRoundMove();
+            outputView.printOneRoundResult(carRepository);
             System.out.println(carRepository + " " + repeatCount);
         }
     }
