@@ -1,9 +1,12 @@
 package racingcar.domain;
 
+import racingcar.global.GameConfig;
 import racingcar.global.exception.RacingCarException;
 
+import java.util.List;
 import java.util.Objects;
 
+import static racingcar.global.GameConfig.NAME_MAXIMUM_CONSTRAINT;
 import static racingcar.global.exception.ErrorMessage.*;
 
 public class Validator {
@@ -20,7 +23,7 @@ public class Validator {
         }
     }
 
-    public static void validateWhiteSpace(final String input) {
+    public static void validateContainWhiteSpace(final String input) {
         if (hasWhiteSpace(input)) {
             throw RacingCarException.of(CONTAIN_IMPROPER_LETTER);
         }
@@ -32,13 +35,13 @@ public class Validator {
         }
     }
 
-    public static void validateEndsWithTab(final String input) {
+    public static void validateContainTab(final String input) {
         if (input.endsWith(TAB)) {
             throw RacingCarException.of(ENDS_WITH_TAB);
         }
     }
 
-    public static void validateEndsWithNewLine(final String input) {
+    public static void validateContainNewLine(final String input) {
         if (input.endsWith(NEW_LINE)) {
             throw RacingCarException.of(ENDS_WITH_NEW_LINE);
         }
@@ -50,12 +53,24 @@ public class Validator {
         }
     }
 
+    public static void validateNameLength(final List<String> inputs) {
+        if (isInValidNameLength(inputs)) {
+            throw RacingCarException.of(TOO_LONG_INPUT);
+        }
+    }
+
+
     private static boolean hasWhiteSpace(final String input) {
         return input.chars().anyMatch(Character::isWhitespace);
     }
 
+    private static boolean isInValidNameLength(final List<String> inputs) {
+        return inputs.stream()
+                .anyMatch(input -> input.length() > NAME_MAXIMUM_CONSTRAINT.getValue());
+    }
+
+
     private static boolean isInvalidNumber(final String input) {
-        return !input.chars()
-                .allMatch(Character::isDigit);
+        return !input.chars().allMatch(Character::isDigit);
     }
 }

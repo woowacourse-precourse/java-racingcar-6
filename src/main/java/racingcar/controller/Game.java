@@ -25,8 +25,7 @@ public class Game {
         // 사용자에게 시도할 횟수 요청 (View -> Controller)
         String gameCountInput = InputView.playerInput();
 
-        // 플레이 결과 일급 컬렉션 Results 생성 (Controller -> Domain)
-        //Result result = create(cars, gameCountInput)
-
+        // 횟수 요청 예외처리
+        Validator.validateNumber(gameCountInput);
     }
 }
