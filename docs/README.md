@@ -38,7 +38,8 @@
   - [x] 현재 상태에 대한 정보를 가지고 있는 클래스 RacingGameState 작성
 - [x] 게임 진행 로직 RacingGameController에 추가
 ## 6. 게임 결과 출력
-- [ ] RacingGameState 인스턴스를 인자로 받아 Outputview에서 최종 우승자 출력
+- [x] 단계별 이동 상황 출력
+- [ ] 최종 우승자 출력
 
 ---  
 # MVC 적용 사항 정리
