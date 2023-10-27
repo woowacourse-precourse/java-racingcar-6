@@ -36,6 +36,8 @@ public class RacingController {
             }
             output.showResult(cars);
         }
+
+        List<Car> winners = findWinners(cars);
     }
 
     private List<Car> makeCars(String carNames) {
@@ -50,5 +52,17 @@ public class RacingController {
 
     private int makeRandomNumber() {
         return Randoms.pickNumberInRange(RANDOM_NUMBER_START, RANDOM_NUMBER_END);
+    }
+
+    private List<Car> findWinners(List<Car> cars) {
+        int maxMove = cars.stream()
+                .map(Car::getMoveCount)
+                .mapToInt(num -> num)
+                .max()
+                .orElseThrow();
+
+        return cars.stream()
+                .filter(car -> car.isMaxMove(maxMove))
+                .toList();
     }
 }
