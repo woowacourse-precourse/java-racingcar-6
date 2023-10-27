@@ -6,23 +6,21 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class CarName {
-    private String carNames;
+    private String inputCarNames;
     private ArrayList<String> carList= new ArrayList<>();
     private ArrayList<String> clearCarList= new ArrayList<>();
-    public void InputCarNames(){
-        carNames = Console.readLine();
-    }
 
-    public void CarNamesToList(){
-        StringTokenizer cars = new StringTokenizer(carNames,",");
+    public void carNamesToList(String inputCarNames){
+        this.inputCarNames = inputCarNames;
+        StringTokenizer cars = new StringTokenizer(inputCarNames,",");
         while(cars.hasMoreTokens()){
             this.carList.add(cars.nextToken());
         }
     }
-    public void clearCarList(ArrayList<String> carList){
+    public void setClearCarList(){
         isSameCarName(carList);
         isCarNameLengthOver5(carList);
-        isSeperatorNotComma(carList);
+        isSeperatorNotComma(this.inputCarNames);
         this.clearCarList = carList;
     }
     public ArrayList<String> getClearCarList(){
@@ -40,9 +38,9 @@ public class CarName {
             throw new IllegalArgumentException("자동차 이름의 길이는 5 이하여야 합니다.");
         }
     }
-    public void isSeperatorNotComma(ArrayList<String> carList) throws IllegalArgumentException{
+    public void isSeperatorNotComma(String inputCarNames) throws IllegalArgumentException{
         int cnt = 0;
-        for(Character c: carNames.toCharArray()){
+        for(Character c: inputCarNames.toCharArray()){
             if(c == ','){
                 cnt++;
             }
