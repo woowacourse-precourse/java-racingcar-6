@@ -113,4 +113,16 @@ public class RacingGame {
         String winnerStr = getWinnerNameString(winnerList);
         System.out.println("최종 우승자 : " + winnerStr);
     }
+
+    public void checkInput(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public void checkInput(int count) {
+        if (count < 0) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
