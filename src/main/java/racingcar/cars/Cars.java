@@ -21,6 +21,13 @@ public class Cars {
         return Collections.unmodifiableList(clonedCars);
     }
 
+    public int getDistanceMoved(int randomNumber) {
+        if (randomNumber >= 4) {
+            return 1;
+        }
+        return 0;
+    }
+
     private List<String> parsedCarsName(String inputValue) {
         return Arrays.asList(inputValue.split(","));
     }
