@@ -12,6 +12,11 @@ public class InputView {
 		return userInput().split(",");
 	}
 
+	public int getNumberOfAttempts() {
+		System.out.println(ASK_NUMBER_OF_ATTEMPTS);
+		return Integer.parseInt(userInput());
+	}
+
 	public String userInput() {
 		return Console.readLine();
 	}
