@@ -17,9 +17,52 @@ class ApplicationTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni", "1");
-                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                    assertThat(output()).contains(
+                            "pobi : -", "woni : ",
+                            "최종 우승자 : pobi"
+                    );
                 },
                 MOVING_FORWARD, STOP
+        );
+    }
+
+    @Test
+    void 게임을_진행한다1() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi1,pobi2,pobi3", "5");
+                    assertThat(output()).contains(
+                            "pobi1 : -", "pobi2 : ", "pobi3 : -",
+                            "pobi1 : --", "pobi2 : -", "pobi3 : --",
+                            "pobi1 : ---", "pobi2 : --", "pobi3 : ---",
+                            "pobi1 : ----", "pobi2 : ---", "pobi3 : ----",
+                            "pobi1 : -----", "pobi2 : ----", "pobi3 : -----",
+                            "최종 우승자 : pobi1, pobi3"
+                    );
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 게임을_진행한다2() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi1,pobi2,pobi3,pobi4,pobi5", "3");
+                    assertThat(output()).contains(
+                            "pobi1 : -", "pobi2 : ", "pobi3 : -", "pobi4 : ", "pobi5 : -",
+                            "pobi1 : -", "pobi2 : ", "pobi3 : --", "pobi4 : ", "pobi5 : -",
+                            "pobi1 : --", "pobi2 : -", "pobi3 : --", "pobi4 : ", "pobi5 : --",
+                            "최종 우승자 : pobi1, pobi3, pobi5"
+                    );
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD,
+                STOP, STOP, MOVING_FORWARD, STOP, STOP,
+                MOVING_FORWARD, MOVING_FORWARD, STOP, STOP, MOVING_FORWARD
         );
     }
 
