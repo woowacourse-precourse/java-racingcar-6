@@ -15,18 +15,14 @@ public class Car {
     }
 
     public void move(){
-        this.distance += 1;
+        if(isMove()) this.distance += 1;
     }
 
     public boolean isMove(){
-
+        return makeRandomNumber() >= 4;
     }
 
     public int makeRandomNumber(){
         return Randoms.pickNumberInRange(0,9);
-    }
-
-    public ArrayList<String> findWinner(){
-
     }
 }

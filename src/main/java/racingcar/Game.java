@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.ArrayList;
+
 public class Game {
 
     public void play() {
@@ -27,6 +29,10 @@ public class Game {
     }
 
     public void printWinner(){
+
+    }
+    public ArrayList<String> findWinner(){
+        ArrayList<String> winners = new ArrayList<>();
 
     }
 }
