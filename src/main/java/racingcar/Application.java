@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
     public static void main(String[] args) {
@@ -46,15 +47,36 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         userInput = Console.readLine();
         int roundCount;
+
         try {
             roundCount = Integer.parseInt(userInput);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자만 입력하세요.");
         }
+
         if(roundCount <= 0){
-            throw new IllegalArgumentException("1이상의 숫자를 입력하세요");
+            throw new IllegalArgumentException("1이상의 숫자를 입력하세요.");
         }
 
+        // 3. 이동 로직 구현
+        System.out.println("실행 결과");
+
+        String[] movedCount = {"","",""}; // 배열 대신 컬렉션으로 교체 하기, 초기화 방법고려
+        for(int i=0; i<roundCount; i++){
+
+            for(int j=0; j<3; j++){
+                // 3도 상수로 변환하기
+                if(Randoms.pickNumberInRange(0,9) >= 4){
+                    movedCount[j] += "-";
+                }
+            }
+
+            for(int k=0; k<3; k++){
+                System.out.println(carNames[k] + " : " + movedCount[k]);
+            }
+
+            System.out.println();
+        }
 
     }
 }
