@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
+
 import racingcar.model.Car;
 
 public class OutputView {
@@ -14,10 +15,8 @@ public class OutputView {
         System.out.println("\n실행 결과");
     }
 
-    public void printRaceStatusMessage(List<Car> cars){
-        for (Car car : cars) {
-            System.out.println(car.getName() + " : "  + ONE_STEP.repeat(car.getCurrentPosition()));
-        }
+    public void printRaceStatusMessage(Car car) {
+        System.out.println(car.getName() + " : " + ONE_STEP.repeat(car.getCurrentPosition()));
     }
 
     public void printWinnerResult(String winner) {

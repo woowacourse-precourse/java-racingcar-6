@@ -1,14 +1,18 @@
 package racingcar.model;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Referee {
-    private List<Car> winner;
+    private List<String> winnerNameList;
     private int winnerStep;
 
-    public void findWinnerStep(RacingCars cars) {
+    public Referee(){
+        winnerNameList = new ArrayList<>();
+    }
 
+    public void findWinnerStep(RacingCars cars) {
         for (Car car : cars.getAllCars()) {
             if (winnerStep < car.getCurrentPosition()) {
                 winnerStep = car.getCurrentPosition();
@@ -16,13 +20,13 @@ public class Referee {
         }
     }
 
-    public List<Car> winnerResult(RacingCars cars) {
+    public List<String> winnerNameList(RacingCars cars) {
         for (Car car : cars.getAllCars()) {
             if (winnerStep == car.getCurrentPosition()) {
-                winner.add(car);
+                winnerNameList.add(car.getName());
             }
         }
-        return Collections.unmodifiableList(winner);
+        return Collections.unmodifiableList(winnerNameList);
     }
 
 
