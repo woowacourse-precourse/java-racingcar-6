@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -15,45 +16,82 @@ import static racingcar.exception.ExceptionMessage.CarException.DUPLICATE_CAR;
 import static racingcar.exception.ExceptionMessage.CarException.NO_PARTICIPANTS;
 
 public class CarsTest {
-    @Test
-    @DisplayName("경주에 참여하는 자동차가 비어있으면 게임을 진행할 수 없다")
-    void throwExceptionByNoParticipants() {
-        assertThatThrownBy(() -> Cars.from(List.of()))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(NO_PARTICIPANTS.message);
+    @Nested
+    @DisplayName("레이싱 참여자들 집합 Cars")
+    class Construct {
+        @Test
+        @DisplayName("경주에 참여하는 자동차가 비어있으면 게임을 진행할 수 없다")
+        void throwExceptionByNoParticipants() {
+            assertThatThrownBy(() -> Cars.from(List.of()))
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessage(NO_PARTICIPANTS.message);
+        }
+
+        @Test
+        @DisplayName("중복된 자동차가 존재하면 게임을 진행할 수 없다")
+        void throwExceptionByDuplicateCar() {
+            // given
+            final List<Car> candidate = List.of(
+                    new Car("pobi"),
+                    new Car("pobi"),
+                    new Car("pobi2")
+            );
+
+            // when - then
+            assertThatThrownBy(() -> Cars.from(candidate))
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessage(DUPLICATE_CAR.message);
+        }
+
+        @Test
+        @DisplayName("게임에 참여할 Cars를 관리한다")
+        void success() {
+            // given
+            final List<Car> candidates = List.of(
+                    new Car("pobi1"),
+                    new Car("pobi2"),
+                    new Car("pobi3")
+            );
+
+            // when
+            final Cars cars = Cars.from(candidates);
+
+            // then
+            assertThat(cars.getCars()).hasSize(candidates.size());
+        }
     }
 
     @Test
-    @DisplayName("중복된 자동차가 존재하면 게임을 진행할 수 없다")
-    void throwExceptionByDuplicateCar() {
+    @DisplayName("각 Car별로 fuel을 주입함으로써 레이싱을 진행한다")
+    void racing() {
         // given
-        final List<Car> candidate = List.of(
-                new Car("pobi"),
-                new Car("pobi"),
-                new Car("pobi2")
-        );
+        final Car car1 = new Car("pobi1");
+        final Car car2 = new Car("pobi2");
+        final Car car3 = new Car("pobi3");
+        final Cars cars = Cars.from(List.of(car1, car2, car3));
+        final int initPosition = 0;
 
-        // when - then
-        assertThatThrownBy(() -> Cars.from(candidate))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(DUPLICATE_CAR.message);
-    }
+        /* first time */
+        cars.racing(() -> 4);
+        final int step1Position = initPosition + 1;
 
-    @Test
-    @DisplayName("게임에 참여할 Cars를 관리한다")
-    void success() {
-        // given
-        final List<Car> candidates = List.of(
-                new Car("pobi1"),
-                new Car("pobi2"),
-                new Car("pobi3")
-        );
+        assertThat(cars.getCars())
+                .map(car -> car.getPosition().getValue())
+                .containsExactly(step1Position, step1Position, step1Position);
 
-        // when
-        final Cars cars = Cars.from(candidates);
+        /* second time */
+        cars.racing(() -> 2);
+        final int step2Position = step1Position;
+        assertThat(cars.getCars())
+                .map(car -> car.getPosition().getValue())
+                .containsExactly(step2Position, step2Position, step2Position);
 
-        // then
-        assertThat(cars.getCars()).hasSize(candidates.size());
+        /* third time */
+        cars.racing(() -> 6);
+        final int step3Position = step2Position + 1;
+        assertThat(cars.getCars())
+                .map(car -> car.getPosition().getValue())
+                .containsExactly(step3Position, step3Position, step3Position);
     }
 
     @ParameterizedTest(name = "[{index}] 경주 참여자 = {0} -> 우승자 -> {1}")
