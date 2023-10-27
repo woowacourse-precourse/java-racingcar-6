@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import racingcar.domain.car.CarMovement;
 import racingcar.domain.car.Cars;
 import racingcar.domain.car.carcomponent.carmove.CarMoveReader;
 import racingcar.util.Generator;
@@ -16,17 +15,23 @@ public class GameController {
         this.outputView = outputView;
     }
 
-    public void makeCarMove() {
-        Cars cars = Generator.generaterCars(inputView.inputCarNames());
-        CarMoveReader totalNumberToMove = Generator.generateCarMoveReader(inputView.inputAttemptTimes());
-
-        CarMovement carMovementReader = new CarMovement(cars, totalNumberToMove);
+    public void doGame() {
+        CarController carController = getCarController();
         outputView.printResult();
+        moveCarsAndPrintResult(carController);
+        outputView.printWinCars(carController.getWinner());
+    }
 
-        while (carMovementReader.isMovable()) {
-            String moveResult = carMovementReader.moveCarsAndGetResult(Generator.randomCarMoveGenerator());
+    private CarController getCarController() {
+        Cars cars = Generator.generaterCars(inputView.inputCarNames());
+        CarMoveReader carMoveReader = Generator.generateCarMoveReader(inputView.inputAttemptTimes());
+        return new CarController(cars, carMoveReader);
+    }
+
+    private void moveCarsAndPrintResult(CarController carController) {
+        while (carController.isMovable()) {
+            String moveResult = carController.moveCarsAndGetResult(Generator.randomCarMoveGenerator());
             outputView.printMoveResult(moveResult);
         }
-        outputView.printWinCars(carMovementReader.getWinner());
     }
 }

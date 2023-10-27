@@ -14,12 +14,12 @@ public class Cars {
         this.cars = cars;
     }
 
-    protected String moveCarAndGetResult(Supplier<Boolean> moveOrNot) {
+    public String moveCarAndGetResult(Supplier<Boolean> moveOrNot) {
         cars.forEach(car -> car.move(moveOrNot.get()));
-        return this.makeMoveResult();
+        return makeMoveResult();
     }
 
-    protected String getWinner() {
+    public String getWinner() {
         WinCars winCars = new WinCars();
         cars.forEach(winCars::checkCarWinGame);
         return winCars.getWinCars();

@@ -1,13 +1,14 @@
-package racingcar.domain.car;
+package racingcar.controller;
 
 import java.util.function.Supplier;
+import racingcar.domain.car.Cars;
 import racingcar.domain.car.carcomponent.carmove.CarMoveReader;
 
-public class CarMovement {
+public class CarController {
     private final Cars cars;
     private final CarMoveReader carMoveReader;
 
-    public CarMovement(Cars cars, CarMoveReader carMoveReader) {
+    public CarController(Cars cars, CarMoveReader carMoveReader) {
         this.cars = cars;
         this.carMoveReader = carMoveReader;
     }
@@ -19,7 +20,7 @@ public class CarMovement {
     }
 
     public boolean isMovable() {
-        return this.carMoveReader.canMoveCar();
+        return carMoveReader.canMoveCar();
     }
 
     public String getWinner() {

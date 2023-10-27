@@ -21,12 +21,12 @@ public class Car {
 
     protected void move(boolean moveOrNot) {
         if (moveOrNot) {
-            this.carPosition = carPosition.move();
+            carPosition = carPosition.move();
         }
     }
 
     protected CarPositionCompareResult comparePosition(Car otherCar) {
-        return this.carPosition.compare(otherCar.carPosition);
+        return carPosition.compare(otherCar.carPosition);
     }
 
     protected String getCarName() {
