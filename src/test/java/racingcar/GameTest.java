@@ -1,84 +1,48 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
-class IOTest {
-
-    IO io;
+class GameTest {
+    private Game game;
 
     @BeforeEach
     void setUp() {
-        io = new IO();
+        game = new Game();
     }
 
     @Test
-    void inputName_정상_작동() {
-        String input = "a,b,c";
-        provideInput(input);
+    void arrToMap() {
+        String[] arr = {"a", "b", "c"};
+        Map<String, Integer> result = game.arrToMap(arr);
 
-        String[] nameArr = io.inputName();
-
-        assertThat(nameArr).containsExactly("a", "b", "c");
+        assertThat(result).containsOnlyKeys("a", "b", "c");
+        assertThat(result.values()).allMatch(value -> value == 0);
     }
 
     @Test
-    void inputName_앞에_쉼표_발견() {
-        String input = ",b,c";
-        provideInput(input);
+    void logic() {
+        String[] nameArr = {"a", "b", "c"};
+        Map<String, Integer> nameMap = game.arrToMap(nameArr);
+        int number = 5;
 
-        assertThatIllegalArgumentException();
+        game.logic(nameArr, nameMap, number);
+
+        assertThat(nameMap.values()).allMatch(value -> value >= 0 && value <= number);
     }
 
     @Test
-    void inputName_뒤에_쉼표_발견() {
-        String input = "a,b,";
-        provideInput(input);
+    void judge() {
+        Map<String, Integer> nameMap = game.arrToMap(new String[]{"a"});
+        String name = "a";
+        int number = 5;
 
-        assertThatIllegalArgumentException();
-    }
+        game.judge(name, nameMap);
 
-    @Test
-    void inputNumber_정상_작동() {
-        String input = "6";
-        provideInput(input);
-
-        int number = io.inputNumber();
-
-        assertThat(number).isEqualTo(6);
-    }
-
-    @Test
-    void inputNumber_입력_안함() {
-        String input = "";
-        provideInput(input);
-
-        assertThatIllegalArgumentException();
-    }
-
-    @Test
-    void inputNumber_숫자가_아닌_경우() {
-        String input = "a";
-        provideInput(input);
-
-        assertThatIllegalArgumentException();
-    }
-
-    @AfterEach
-    void 테스트종료() {
-        Console.close();
-    }
-
-    private void provideInput(String input) {
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+        assertThat(nameMap.get(name)).isLessThanOrEqualTo(number);
     }
 }
