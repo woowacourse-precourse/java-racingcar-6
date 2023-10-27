@@ -1,6 +1,9 @@
 package racingcar.model;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.OptionalInt;
+import java.util.stream.Collectors;
 import racingcar.util.MoveResolver;
 
 public class Game {
@@ -18,7 +21,15 @@ public class Game {
         }
     }
 
-    public void getWinners() {
+    public List<Car> getWinnerCars() {
+        int maxPosition = getMaxPosition();
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .toList();
+    }
 
+    private int getMaxPosition() {
+        OptionalInt max = cars.stream().mapToInt(Car::getPosition).max();
+        return max.orElse(0);
     }
 }
