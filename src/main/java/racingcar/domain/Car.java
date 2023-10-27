@@ -28,6 +28,13 @@ public class Car implements Comparable<Car> {
         return moved;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return new String(name);
+    }
     private void validateNameLength(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("[ERROR] 입력할 수 있는 이름의 글자수는 최대 5입니다.");
