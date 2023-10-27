@@ -10,4 +10,8 @@ public class OutputView {
     public void printTryCountInputMessage() {
         MessageUtil.TRY_COUNT_INPUT_MESSAGE.messagePrintln();
     }
+
+    public void printCarNameAndPosition(String carNameAndPosition) {
+        System.out.println(carNameAndPosition);
+    }
 }
