@@ -4,21 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarList {
-    private List<Car> cars = new ArrayList<>();
+    private List<RacingCarCreator> racingCarsList = new ArrayList<>();
     private final User user;
-    private final Car car;
-    public RacingCarList(User user, Car car) {
+    private final RacingCarCreator racingCarCreator;
+    public RacingCarList(User user, RacingCarCreator racingCarCreator) {
         this.user = user;
-        this.car = car;
+        this.racingCarCreator = racingCarCreator;
     }
-    public List<Car> getRacingCarList() {
-        int carCount = getCarCount();
-        for (int i = 0; i < carCount; i++) {
-            cars.add(car.createNewCar());
+    public List<RacingCarCreator> getRacingCarList() {
+        String[] carNames = user.inputCarNames();
+        for (String carName : carNames) {
+            racingCarsList.add(racingCarCreator.createNewCar(carName));
         }
-        return cars;
-    }
-    private int getCarCount() {
-        return Integer.parseInt(user.inputCarCount());
+        return racingCarsList;
     }
 }
