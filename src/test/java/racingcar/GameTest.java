@@ -3,9 +3,11 @@ package racingcar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class GameTest {
     private Game game;
@@ -44,5 +46,24 @@ class GameTest {
         game.judge(name, nameMap);
 
         assertThat(nameMap.get(name)).isLessThanOrEqualTo(number);
+    }
+
+    @Test
+    public void findMaxVal_성공() {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("a", 25);
+        map.put("c", 30);
+        map.put("b", 35);
+
+        int maxVal = game.findMaxVal(map);
+        assertThat(maxVal).isEqualTo(35);
+    }
+
+    @Test
+    public void findMaxVal_실패() {
+        Map<String, Integer> emptyMap = new HashMap<>();
+
+        assertThatThrownBy(() -> game.findMaxVal(emptyMap))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
