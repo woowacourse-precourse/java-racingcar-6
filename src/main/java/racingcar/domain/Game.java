@@ -24,7 +24,9 @@ public class Game {
     }
 
     private void initCarList(String[] carNames) {
-
+        for(String carName : carNames) {
+            cars.add(new Car(carName));
+        }
     }
 
     public void inputGameTurns() {
