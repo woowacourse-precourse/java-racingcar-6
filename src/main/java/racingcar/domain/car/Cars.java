@@ -2,6 +2,7 @@ package racingcar.domain.car;
 
 import static racingcar.domain.car.NameConstants.NAME_DUPLICATED;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Cars {
@@ -34,5 +35,12 @@ public class Cars {
         cars.stream()
                 .filter(car -> decider.isSucceed())
                 .forEach(Car::go);
+    }
+
+    public List<Car> findWinner() {
+        Car maxCar = Collections.max(cars);
+        return cars.stream()
+                .filter(car -> maxCar.compareTo(car) == 0)
+                .toList();
     }
 }
