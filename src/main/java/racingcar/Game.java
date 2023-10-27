@@ -3,6 +3,9 @@ package racingcar;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.function.IntFunction;
+import java.util.stream.Collectors;
 
 public class Game {
     Car[] cars;
@@ -17,6 +20,13 @@ public class Game {
         this.roundNumber = roundNumber;
     }
 
+    public void play(){
+        for(int round = 0; round < roundNumber; round++){
+            playRound();
+        }
+        printWinner();
+    }
+
     private void initPosition() {
         positions = new HashMap<>();
         for(Car car : cars){
@@ -25,8 +35,36 @@ public class Game {
     }
 
     private void makeCars(String[] carNames) {
-        cars = (Car[]) Arrays.stream(carNames)
-                .map((name) -> new Car(name))
-                .toArray();
+        cars = Arrays.stream(carNames)
+                .map(Car::new)
+                .toArray(Car[]::new);
+    }
+
+    public void playRound(){
+        for(Car car : cars){
+            moveCar(car);
+            System.out.println(car);
+        }
+    }
+
+    private void moveCar(Car car) {
+        if(!car.tryMove()) {
+            return;
+        }
+
+        int nextPosition = positions.get(car) + 1;
+        positions.put(car, nextPosition);
+        if(winnerPosition < nextPosition){
+            winnerPosition = nextPosition;
+        }
+    }
+
+    public void printWinner(){
+        String winner = positions.entrySet().stream()
+                .filter(entry -> entry.getValue() == winnerPosition)
+                .map(Entry::getKey)
+                .map(Car::getName)
+                .collect(Collectors.joining(","));
+        System.out.println(winner);
     }
 }

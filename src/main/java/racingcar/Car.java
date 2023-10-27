@@ -15,6 +15,10 @@ public class Car {
         this.location = 0;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public boolean tryMove(){
         int randomNum = Randoms.pickNumberInRange(START_RANGE, END_RANGE);
         if(canGo(randomNum)){
