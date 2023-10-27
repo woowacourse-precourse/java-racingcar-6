@@ -13,7 +13,7 @@ class CarTest {
     @DisplayName("자동차는 이름과 위치를 가진다.")
     @CsvSource(value = {"go, 1", "kim, 2"})
     void test1(final String name, final int position) {
-        Car car = new Car(name, position);
+        final Car car = new Car(name, position);
         assertThat(car.getName()).isEqualTo(name);
         assertThat(car.getPosition()).isEqualTo(position);
     }
@@ -27,8 +27,16 @@ class CarTest {
     @Test
     @DisplayName("숫자가 4이상이면 자동차는 전진한다.")
     void test3() {
-        Car car = new Car("go", 1);
+        final Car car = new Car("go", 1);
         car.move(4);
         assertThat(car.getPosition()).isEqualTo(2);
+    }
+
+    @Test
+    @DisplayName("숫자가 3이하이면 자동차는 멈춘다.")
+    void test4() {
+        final Car car = new Car("go", 1);
+        car.move(3);
+        assertThat(car.getPosition()).isEqualTo(1);
     }
 }
