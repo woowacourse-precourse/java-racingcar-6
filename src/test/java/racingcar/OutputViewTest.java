@@ -34,7 +34,7 @@ class OutputViewTest extends NsTest {
     void printWinner() {
         //given
         //when
-        OutputView.printWinner(new Car("pobi"), new Car("jun"));
+        OutputView.printWinner(Arrays.asList(new Car("pobi"), new Car("jun")));
         //then
         assertThat(output()).contains("최종 우승자 : pobi, jun");
     }

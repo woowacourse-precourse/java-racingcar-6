@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+
 public class OutputView {
     private static final String CAR_NAMES_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분";
     private static final String MOVE_COUNT_MESSAGE = "시도할 횟수는 몇회인가요?";
@@ -24,11 +26,11 @@ public class OutputView {
         }
     }
 
-    public static void printWinner(Car... winners) {
+    public static void printWinner(List<Car> winnerList) {
         System.out.print(WINNER_MESSAGE);
-        for (int index = 0; index < winners.length; index++) {
-            System.out.print(winners[index].getName());
-            if (index != winners.length - 1) {
+        for (int index = 0; index < winnerList.size(); index++) {
+            System.out.print(winnerList.get(index).getName());
+            if (index != winnerList.size() - 1) {
                 System.out.print(WINNER_DELIMITER);
             }
         }
