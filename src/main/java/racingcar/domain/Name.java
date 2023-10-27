@@ -17,4 +17,8 @@ public class Name {
     public void print() {
         System.out.print(name);
     }
+
+    public String getName() {
+        return name;
+    }
 }
