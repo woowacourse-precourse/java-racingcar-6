@@ -29,4 +29,10 @@ public class Validator {
             throw new IllegalArgumentException("자동차 이름을 최소 2개 이상 입력해야 합니다.");
         }
     }
+
+    public static void validateNaturalNumber(int round) {
+        if (round < 1) {
+            throw new IllegalArgumentException("자연수만 입력 가능합니다.");
+        }
+    }
 }
