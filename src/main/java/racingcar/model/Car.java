@@ -9,8 +9,9 @@ public class Car {
     private final String name;
 
     public Car(final String name) {
-        validateLength(name);
-        this.name = name;
+        final String trimmedName = name.trim();
+        validateLength(trimmedName);
+        this.name = trimmedName;
     }
 
     private void validateLength(final String name) {
