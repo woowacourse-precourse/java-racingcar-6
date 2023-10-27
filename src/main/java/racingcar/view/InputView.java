@@ -15,16 +15,12 @@ public class InputView {
     }
 
     public static List<String> inputCarName() {
-        try {
             System.out.println(InfoMessage.CAR_NAME_INPUT_MESSAGE.getMessage());
             String carName = Console.readLine();
             InputValidation inputValidation = new InputValidation();
             inputValidation.carNameValidation(carName);
             return Arrays.stream(carName.split(CAR_NAME_SEPARATOR))
                     .collect(Collectors.toList());
-        } catch (Exception e) {
-            throw new IllegalArgumentException();
-        }
     }
 
     public static int inputRound() {

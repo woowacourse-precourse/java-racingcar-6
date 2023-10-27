@@ -1,27 +1,32 @@
 package racingcar.view;
 
 import racingcar.domain.Car;
+import racingcar.domain.Winners;
 import racingcar.utils.InfoMessage;
 
-public class ResultView {
-    private static final String POSITION_SYMBOL = "-";
-    private static final String NANE_POSITION_SPLITTER = ":";
+import java.util.List;
 
-    private ResultView() {
+public class ResultView {
+    private static final String POSITION_STATUS = "-";
+    private static final String NANE_COLON = ":";
+
+    public ResultView() {
     }
 
     public void printShowResult() {
         System.out.println(InfoMessage.RESULT_MESSAGE.getMessage());
     }
 
-    public void showRoundResult(Car car) {
-        System.out.print(car.getName() + NANE_POSITION_SPLITTER);
-        showPosition(car.getPosition());
+    public void showRoundResult(List<Car> cars) {
+        cars.forEach(car ->
+            System.out.println(car.getName() + NANE_COLON + POSITION_STATUS.repeat(car.getPosition())));
+
+        System.out.println();
     }
 
-    public void showPosition(int position) {
-        for (int i = 0; i < position; i++) {
-            System.out.print(POSITION_SYMBOL);
-        }
+    public void callWinner(String winnerNames) {
+        System.out.print(InfoMessage.CALL_WINNER_MESSAGE.getMessage());
+        System.out.println(winnerNames);
+
     }
 }
