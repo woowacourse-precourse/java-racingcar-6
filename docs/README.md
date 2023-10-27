@@ -19,38 +19,62 @@ classDiagram
     GameController --> OutputView
     GameController --> GameService
     
+    GameController --> DtoManger
+    DtoManger --> Dto
+    DtoManger --> CarStatusVo
+    
     class Application {
         
     }
-    
+    %% controller 
     class GameController {
-       + run() void
-       - initGame() void
-       - 
+        - GameService
+        - InputView
+        - OuputView
+        + run() void
+        - initGame() void
     }
-    
+    %% view
     class InputView {
-        
+        + getUserInput()
     }
     
     class OutputView {
         
     }
-    
+    %% service
     class GameService {
         
     }
-    
+    %% dto
     class Dto {
-%%        getter
-%%        setter
+        
     }
+    
+    class CarVo {
+        - String name;
+        - int position;
+        + equals(String name) void
+        + getCar(String name) void
+    }
+    
     class Car {
         - String name;
         - int position;
     }
+    %% model
+    class RandomMoveStop {
+        
+    }
     
+    %% util
+    class DtoManger {
+        
+    }
     
+    class Validator {
+        
+    }
 ```
 
     
