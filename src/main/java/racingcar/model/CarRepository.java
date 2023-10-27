@@ -23,4 +23,24 @@ public class CarRepository {
                 "carRepository=" + cars +
                 '}';
     }
+
+    public List<String> getMaxCars() {
+        List<String> maxCars = new ArrayList<>();
+        int max = getMaxForwardCounts();
+
+        for (Car car : cars) {
+            if (car.getForwardCount() == max) {
+                maxCars.add(car.getName());
+            }
+        }
+
+        return maxCars;
+    }
+
+    private int getMaxForwardCounts() {
+        return cars.stream()
+                .mapToInt(Car::getForwardCount)
+                .max()
+                .orElse(0);
+    }
 }

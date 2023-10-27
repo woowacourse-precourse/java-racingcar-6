@@ -31,13 +31,14 @@ public class RacingGame {
         setupGame();
         System.out.println(carRepository + " " + repeatCount);
         play();
+        outputView.getResult(carRepository.getMaxCars());
     }
 
     private void play() {
-        while (repeatCount-- > 0) {
+        for (int i = 0; i < repeatCount; i++) {
             OneRoundMove();
             outputView.printOneRoundResult(carRepository);
-            System.out.println(carRepository + " " + repeatCount);
+            System.out.println(carRepository + " " + i);
         }
     }
 
