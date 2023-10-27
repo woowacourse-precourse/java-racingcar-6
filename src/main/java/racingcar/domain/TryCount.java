@@ -29,6 +29,13 @@ public final class TryCount {
     }
 
     public TryCount next() {
+        validateValue();
         return new TryCount(this);
+    }
+
+    private void validateValue() {
+        if (value <= NONE_LEFT) {
+            throw new IllegalStateException(ErrorMessage.INVALID_TRY_COUNT_VALUE.toValue());
+        }
     }
 }
