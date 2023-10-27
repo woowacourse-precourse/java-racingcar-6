@@ -2,14 +2,14 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.car.Car;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class CarGenerator {
 
     Car car = new Car();
 
-    public HashMap<String,String> createCarList() {
-        HashMap<String,String> carList = new HashMap<>();
+    public LinkedHashMap<String,String> createCarList() {
+        LinkedHashMap<String,String> carList = new LinkedHashMap<>();
         String [] cars = splitStringByCommas();
         for(String car : cars) {
             carList.put(car,"");
