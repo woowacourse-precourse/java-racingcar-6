@@ -58,6 +58,18 @@ public class NameTest {
     }
 
     @Test
+    void 한글은_입력_가능하다() {
+        // given & when
+        Name name = Name.from("존");
+    }
+
+    @Test
+    void 숫자는_입력_가능하다() {
+        // given & when
+        Name name = Name.from("1a9");
+    }
+
+    @Test
     void 한자는_입력되면_안_된다_예외() {
         // given & when
         Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
@@ -68,12 +80,6 @@ public class NameTest {
     }
 
     @Test
-    void 한글은_입력_가능하다() {
-        // given & when
-        Name name = Name.from("존");
-    }
-
-    @Test
     void 특수기호는_입력되면_안_된다() {
         // given & when
         Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
@@ -81,11 +87,5 @@ public class NameTest {
         });
         // then
         assertThat(exception.getMessage()).isEqualTo(CAR_NAMV_VALUE_EXCEPTION.toString());
-    }
-
-    @Test
-    void 숫자는_입력_가능하다() {
-        // given & when
-        Name name = Name.from("1a9");
     }
 }
