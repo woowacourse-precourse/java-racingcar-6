@@ -16,12 +16,14 @@ public class Car {
     }
     public int getScore() {return this.score;}
 
-    public String run(){
+    public int run(){
         final int randomInt = Randoms.pickNumberInRange(0,9);
         if(randomInt >= 4){
             this.score ++;
         }
-        return String.format("%s : %s",this.name,"-".repeat(this.score));
+        final String printFormat = String.format("%s : %s",this.name,"-".repeat(this.score));
+        System.out.println(printFormat);
+        return this.score;
     }
 
 }
