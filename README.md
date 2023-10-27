@@ -163,8 +163,8 @@ Randoms.pickNumberInRange(0,9);
 - 과제 진행 및 제출 방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고한다.
 
 ## 🔨 기능 목록
-- [ ] 각 자동차에 이름을 부여할 수 있다. - inputName()
-    - [ ] 자동차 이름은 쉼표(,)를 기준으로 구분한다. - splitName()
+- [ ] 각 자동차에 이름을 부여할 수 있다. - inputCarsName()
+    - [ ] 자동차 이름은 쉼표(,)를 기준으로 구분한다. - splitNameByComma()
     - [ ] 이름은 5자 이하만 가능하다. - isValidNameLength()
 - [ ] 사용자는 몇 번의 이동을 할 것인지를 입력한다. - inputRaceTime()
 - [ ] 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다. - oneTimeRace
