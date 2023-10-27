@@ -36,7 +36,6 @@ public class WinnerController {
     public void printRunMsg() {
         for (Map<String,Integer> racerCarName : moveRandomNumber.generateRandomGameNumber()){
             for( String Key : racerCarName.keySet()){
-                int key = Integer.parseInt(Key);
                 int value = racerCarName.get(Key);
                 System.out.print(Key + " : " );
                 outputView.printRandomCount(value);
