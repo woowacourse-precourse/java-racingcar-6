@@ -36,10 +36,12 @@ startGame();        : 게임에 필요한 메서드들 호출
 ```
 -Print를 위한 interface작성
 ```
+ printCarPosition();
  winner();
 ```
 -PrintImpl에 필요한 메서드 구현
 ```
+ printCarPosition(); : 실행결과에서 자동차의 현재 위치를 찍어주는 메서드
  winner(); : 우승자를 출력할 메서드
 ```
 -GameItem을 위한 interface작성
