@@ -51,6 +51,10 @@ Map getSnapShot(int order)
 
 ## class Util
 ```
-boolean getRandomBoolean()
-    랜덤으로 true/false를 생성한다.
+int getRandomSingleDigit()
+    랜덤으로 한 자리 숫자를 리턴한다.
+```
+```
+boolean getBooleanByNumber()
+    숫자 값에 따라 true/false를 생성한다.
 ```
