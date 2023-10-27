@@ -14,4 +14,13 @@ public class Validation {
         }
         return true;
     }
+
+    public boolean isNumber(String number) {
+        try {
+            Integer.parseInt(number);
+        } catch (NumberFormatException numberFormatException) {
+            throw new IllegalArgumentException("정수를 입력해주세요.");
+        }
+        return true;
+    }
 }
