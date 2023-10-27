@@ -41,3 +41,4 @@
 ## 열거형 목록
 
 - ProgressMessage: 진행 메시지를 가진다
+- ErrorMessage: 예외사항 메시지를 가진다
