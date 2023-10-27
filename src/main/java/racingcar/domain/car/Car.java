@@ -1,8 +1,8 @@
 package racingcar.domain.car;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.domain.Name;
-import racingcar.domain.Position;
+import racingcar.domain.car.property.Name;
+import racingcar.domain.car.property.Position;
 
 public class Car {
 
