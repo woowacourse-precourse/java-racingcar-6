@@ -1,22 +1,21 @@
 package racingcar;
 
 import racingcar.Car.Car;
-import racingcar.Car.CarMover;
 import racingcar.View.InputView;
-import racingcar.View.OutputView;
+import racingcar.Computer.RaceManager;
 import java.util.List;
 
+
 public class Race {
-    private List< Car > cars;
+    private RaceManager raceManager;
 
     public void init() {
-        cars = InputView.promptCarNames();
-
+        List<Car> cars = InputView.promptCarNames();
+        int repeatCount = InputView.promptNumber();
+        raceManager = new RaceManager(cars, repeatCount);
     }
 
     public void play() {
-        CarMover.moveCars(cars);
-        OutputView.printCars(cars);
+        raceManager.startRace();
     }
-
 }

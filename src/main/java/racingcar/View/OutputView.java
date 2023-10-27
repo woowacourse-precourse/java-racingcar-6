@@ -5,8 +5,12 @@ import java.util.List;
 
 public class OutputView {
 
+    private static boolean hasPrintedHeader = false;
     public static void printCars(List<Car> cars) {
-        System.out.println("실행 결과:");
+        if(!hasPrintedHeader){
+            System.out.println("실행 결과:");
+            hasPrintedHeader= true;
+        }
         for (Car car : cars) {
             printCar(car);
         }
