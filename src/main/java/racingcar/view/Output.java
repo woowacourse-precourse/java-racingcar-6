@@ -16,7 +16,7 @@ public class Output {
     public static void printAllCar(Iterator<RaceCar> iterator) {
         while (iterator.hasNext()) {
             RaceCar raceCar = iterator.next();
-            printMessage(raceCar + FIELD_SEPARATOR + raceCar.getCurrentPositions());
+            printMessage(concat(raceCar, FIELD_SEPARATOR, raceCar.getCurrentPositions()));
         }
         printMessage(VERTICAL_WHITESPACE);
     }
@@ -29,6 +29,14 @@ public class Output {
             builder.append(raceCar).append(RESULTS_DELIMITER);
         }
 
-        Output.printMessage(FINAL_WINNER_MESSAGE + builder);
+        Output.printMessage(concat(FINAL_WINNER_MESSAGE, builder));
+    }
+
+    private static String concat(Object... objects) {
+        StringBuilder builder = new StringBuilder();
+        for (Object object : objects) {
+            builder.append(object.toString());
+        }
+        return builder.toString();
     }
 }
