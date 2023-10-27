@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import racingcar.domain.Car;
-import racingcar.domain.Winners;
 import racingcar.utils.InfoMessage;
 
 import java.util.List;
