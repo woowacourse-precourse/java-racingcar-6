@@ -10,4 +10,10 @@ public class GameView {
         return carNames;
     }
 
+    public String inputAttempts() {
+        System.out.println("시도할 횟수는 몇회인가요?");
+        String attempts = Console.readLine();
+
+        return attempts;
+    }
 }
