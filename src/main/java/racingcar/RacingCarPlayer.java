@@ -25,4 +25,8 @@ public class RacingCarPlayer {
     public int getCurrentPosition() {
         return currentPosition;
     }
+
+    public String getCarName() {
+        return carName;
+    }
 }
