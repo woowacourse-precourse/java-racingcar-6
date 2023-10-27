@@ -14,6 +14,16 @@ public class Cars {
         this.cars = cars;
     }
 
+    private void validateEachCarUnique(final List<Car> cars) {
+        List<Car> uniqueCars = cars.stream()
+                .distinct()
+                .toList();
+
+        if (uniqueCars.size() != cars.size()) {
+            throw new IllegalArgumentException(CAR_NAME_DUPLICATE_EXCEPTION.toString());
+        }
+    }
+
     public static Cars from(final String names) {
         List<Name> carNames = Name.createCarNames(names);
         List<Car> cars = carNames.stream()
@@ -45,15 +55,5 @@ public class Cars {
 
     public int carsCount() {
         return cars.size();
-    }
-
-    private void validateEachCarUnique(final List<Car> cars) {
-        List<Car> uniqueCars = cars.stream()
-                .distinct()
-                .toList();
-
-        if (uniqueCars.size() != cars.size()) {
-            throw new IllegalArgumentException(CAR_NAME_DUPLICATE_EXCEPTION.toString());
-        }
     }
 }
