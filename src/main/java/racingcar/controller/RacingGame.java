@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.Car;
 import racingcar.model.MoveInfo;
+import racingcar.model.RacingRepeat;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -10,14 +11,14 @@ import java.util.List;
 
 public class RacingGame {
     private List<Car> participants = new ArrayList<>();
-    private int repeat;
+    private RacingRepeat repeat;
 
     public void start() {
         setParticipants();
         setRepeat();
 
         OutputView.printResultTitle();
-        while (repeat-- > 0) {
+        while (repeat.decrease() > 0) {
             move();
         }
 

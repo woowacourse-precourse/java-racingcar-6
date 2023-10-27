@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import racingcar.model.RacingRepeat;
+
 public class InputViewTest {
     @Test
     @DisplayName("각 이름이 쉼표에 의해 잘 나누어지는지 확인")
@@ -18,7 +20,7 @@ public class InputViewTest {
     @DisplayName("반복 횟수 입력값이 올바르게 변환되는지 확인")
     public void inputRepeat() {
         assertThat(InputView.inputRepeat("17"))
-                .isEqualTo(17);
+                .isInstanceOf(RacingRepeat.class);
     }
 
     @Test
@@ -35,6 +37,15 @@ public class InputViewTest {
                 .isInstanceOf(IllegalArgumentException.class);
         // 소수점을 포함한 실수 형태
         assertThatThrownBy(() -> InputView.inputRepeat("17.5"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("반복 횟수 입력값 범위가 1이상의 정수가 아닌 경우")
+    public void inputRepeatRangeError() {
+        assertThatThrownBy(() -> InputView.inputRepeat("0"))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> InputView.inputRepeat("-2"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
