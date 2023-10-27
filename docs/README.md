@@ -31,8 +31,8 @@
 
 
 
-- [ ] 게임 판단 기준 JudgeStandard
-  - [ ] 자동차중에 전진을 한 숫작 5개이면 승리를 한것이다. // JudgeStandard#isVictoryCondition
+- [x] 게임 판단 기준 JudgeStandard
+  - [x] 자동차중에 전진을 한 숫작 5개이면 승리를 한것이다. // JudgeStandard#isVictoryCondition
 
 
 
