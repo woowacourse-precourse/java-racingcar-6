@@ -58,6 +58,16 @@ public class NameTest {
     }
 
     @Test
+    void 공백으로만_이루어지면_안_된다_예외() {
+        // given & when
+        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Name name = Name.from("  ");
+        });
+        // then
+        assertThat(exception.getMessage()).isEqualTo(CAR_NAME_BLANK_EXCEPTION.toString());
+    }
+
+    @Test
     void 한글은_입력_가능하다() {
         // given & when
         Name name = Name.from("존");
