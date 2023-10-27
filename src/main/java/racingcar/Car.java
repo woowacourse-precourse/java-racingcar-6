@@ -13,6 +13,10 @@ public class Car {
         return name;
     }
 
+    public String process() {
+        return ("-".repeat(position));
+    }
+
     public void updatePosition() {
         position++;
     }
