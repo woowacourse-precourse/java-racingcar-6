@@ -55,4 +55,20 @@ public class InputValidation {
     private static List<String> changeStringToList(String input) {
         return Stream.of(input.split(",")).collect(Collectors.toList());
     }
+
+    private static int validateInputNumber(String input) {
+        if(!isNumber(input)) {
+            throw new IllegalArgumentException("숫자를 입력하지 않았습니다.");
+        }
+        return Integer.parseInt(input);
+    }
+
+    private static boolean isNumber(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return true;
+    }
 }
