@@ -14,6 +14,10 @@ public class GameManager {
 
     private int attempts;
 
+    public GameManager(){
+        initGame();
+    }
+
     public void initGame(){
         initRaceCars();
         initAttempts();
