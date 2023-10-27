@@ -1,4 +1,4 @@
-## 구현 기능 순서
+## 기능 구현 순서
 
 1. Car, Position, Name, RacingCarGameRunner 클래스 작성
 2. 사용자로부터 자동차 이름을 입력받는 기능
