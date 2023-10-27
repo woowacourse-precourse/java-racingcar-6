@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 
 public class RacingGame {
     public static final String COMMA = ",";
+    public static final String WHITESPACE = " ";
+    public static final String EMPTY = "";
     private static final Pattern INTEGER = Pattern.compile("[0-9]+");
 
     public RacingGame() {
@@ -29,7 +31,7 @@ public class RacingGame {
     }
 
     private String removeWhiteSpace(String name) {
-        return name.replace(" ", "");
+        return name.replace(WHITESPACE, EMPTY);
     }
 
     private void checkHasDuplicates(List<String> names) {
@@ -60,7 +62,7 @@ public class RacingGame {
         StringBuilder result = new StringBuilder();
 
         for (Car car : cars) {
-            result.append(" ").append(car.getNameValue()).append(COMMA);
+            result.append(WHITESPACE).append(car.getNameValue()).append(COMMA);
         }
 
         trim(result);
