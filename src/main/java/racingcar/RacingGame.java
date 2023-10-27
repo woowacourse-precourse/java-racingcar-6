@@ -31,8 +31,10 @@ public class RacingGame {
     public HashMap<String, Integer> addHashMapWithNames(String input) {
         String[] names = input.split(",");
         racingCars = new HashMap<>();
+
         for (String name : names) {
             name = name.trim();
+            checkValidCarName(name);
             racingCars.put(name, 0);
         }
 
