@@ -7,7 +7,7 @@
     1) getCarsName() : 경주에 참여하는 자동차들의 이름을 입력받음
     2) getPlayCount() : 이동할 횟수를 입력받음
 3. Moving : 이동 횟수마다 이동 여부를 결정하는 클래스
-    1) decideAllCars(int cars) : 각 자동차들의 전진하는 조건 확인 후 반환
+    1) decide() : 자동차의 전진 여부 판단
 4. Car : 각 자동차를 나타내는 엔티티
     1) move() : 한 번 전진
 5. RacingGameService : 게임을 진행하는 서비스 클래스
