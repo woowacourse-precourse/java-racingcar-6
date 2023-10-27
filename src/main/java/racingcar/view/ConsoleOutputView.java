@@ -2,6 +2,8 @@ package racingcar.view;
 
 import java.util.List;
 import racingcar.controller.dto.GameResultResponse;
+import racingcar.model.Position;
+import racingcar.model.Vehicle;
 
 public class ConsoleOutputView implements OutputView {
 
@@ -10,6 +12,8 @@ public class ConsoleOutputView implements OutputView {
     private static final String GAME_RESULT_MESSAGE = "실행 결과";
     private static final String GAME_WINNER_MESSAGE = "최종 우승자 : ";
     private static final String COMMA = ",";
+    private static final String COLON = " : ";
+    private static final String HYPHEN = "-";
 
     @Override
     public void printCarNameRequestMessage() {
@@ -28,6 +32,13 @@ public class ConsoleOutputView implements OutputView {
 
     @Override
     public void printGameResult(final GameResultResponse gameResultResponse) {
+        gameResultResponse.getMap().forEach((vehicle, position) -> {
+            System.out.println(makeResult(vehicle, position));
+        });
+    }
+
+    private String makeResult(final Vehicle vehicle, final Position position) {
+        return vehicle.getName() + COLON + HYPHEN.repeat(position.getPositionIndex());
     }
 
     @Override
