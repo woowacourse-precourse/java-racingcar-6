@@ -131,7 +131,7 @@ __2. OutputView__
     woni :
     jun : -
 
-- [ ] printFinalWinner
+- [x] printFinalWinner
     - 데이터를 넘겨받아 최종 우승자를 출력한다
 
 
