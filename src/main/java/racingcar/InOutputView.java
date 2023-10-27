@@ -27,9 +27,9 @@ public class InOutputView {
     }
 
     public void printCarsState(Cars cars){
-
+        System.out.println(cars.getCarStates());
     }
     public void printWinner(Cars cars){
-
+        System.out.println("최종 우승자 : "+String.join(",",cars.getWinner()));
     }
 }
