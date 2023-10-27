@@ -2,13 +2,10 @@ package racingcar.domain;
 
 public class Car {
 
-    private final String name;
+    private final String name = getCarName();
 
-    private final int position = 0;
+    private int position = 0;
 
-    public Car(String name) {
-        this.name = name;
-    }
 
     public String getCarName(){
         return name;
@@ -17,5 +14,10 @@ public class Car {
     public int getCarPosition(){
         return position;
     }
+
+    public  void moveForward(int distance){
+        position += distance;
+    }
+
 
 }
