@@ -18,13 +18,13 @@ public class MoveStatuses {
         elements.add(moveStatus);
     }
 
-    public int size() {
+    public int numOfElement() {
         return elements.size();
     }
 
     public String toMessage() {
         return elements.stream()
-                .map(status -> MOVE_EXPRESSION)
+                .map(element -> MOVE_EXPRESSION)
                 .collect(Collectors.joining());
     }
 }

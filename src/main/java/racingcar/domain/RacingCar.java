@@ -31,7 +31,7 @@ public final class RacingCar {
     }
 
     public int moveDistance() {
-        return moveStatuses.size();
+        return moveStatuses.numOfElement();
     }
 
     public String toName() {
