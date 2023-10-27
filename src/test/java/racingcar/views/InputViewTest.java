@@ -10,6 +10,7 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.exception.CarNameDuplicateException;
 import racingcar.exception.CarNameIncorrectException;
 import racingcar.exception.CarNameSizeLimitExceededException;
 import racingcar.utils.InputValidate;
@@ -75,8 +76,6 @@ class InputViewTest {
         assertThrows(CarNameSizeLimitExceededException.class, () -> {
             InputView.getCarNameList(sizeError);
         });
-
-
     }
 
     @Test
@@ -104,6 +103,22 @@ class InputViewTest {
         // Integer Max 값 이상의 경우 예외 발생
         assertThrows(IllegalArgumentException.class, () -> {
             InputValidate.validateMovingCount("2147483648");
+        });
+    }
+
+    @Test
+    @DisplayName("자동차 이름 중복 입력 시 예외 발생 테스트")
+    void carNameDuplicateTest() {
+
+        String normal = "1,12,123,1234,12345";
+        String error = "1,12,12345,1";
+
+        List<Car> carnameList1 = InputView.getCarNameList(normal);
+        assertThat(carnameList1.size()).isEqualTo(5);
+        assertThat(carnameList1).isNotNull();
+
+        assertThrows(CarNameDuplicateException.class, () -> {
+            InputView.getCarNameList(error);
         });
     }
 

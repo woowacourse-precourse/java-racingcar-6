@@ -5,7 +5,6 @@ import racingcar.constants.RacingCarGameComments;
 public class OutputView {
 
     private OutputView() {
-
     }
 
     public static void racingCarOpeningComment() {

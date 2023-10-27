@@ -1,7 +1,9 @@
 package racingcar.utils;
 
+import java.util.Arrays;
 import racingcar.constants.Config;
 import racingcar.constants.ExceptionComments;
+import racingcar.exception.CarNameDuplicateException;
 import racingcar.exception.CarNameIncorrectException;
 import racingcar.exception.CarNameSizeLimitExceededException;
 
@@ -20,6 +22,12 @@ public class InputValidate {
             if (name.length() > Config.CAR_NAME_SIZE) {
                 throw new CarNameSizeLimitExceededException(ExceptionComments.INPUT_VALUE_SIZE_OVER);
             }
+        }
+    }
+
+    public static void checkDuplicateCarName(String[] carNameArr) {
+        if (carNameArr.length > Arrays.stream(carNameArr).distinct().count()) {
+            throw new CarNameDuplicateException(ExceptionComments.INPUT_CAR_NAME_DUPLICATED);
         }
     }
 
