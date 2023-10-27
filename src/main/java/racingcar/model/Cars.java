@@ -16,7 +16,7 @@ public class Cars {
     }
 
 
-    private List<Car> userInputToCars(List<String> userInput) {
+    public List<Car> userInputToCars(List<String> userInput) {
         List<Car> carList = new ArrayList<>();
         for (String name : userInput) {
             CarName carName = new CarName(name);
