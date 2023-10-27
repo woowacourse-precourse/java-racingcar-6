@@ -1,19 +1,37 @@
 package racingcar.domain;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 class CarTest {
     @Test
-    @DisplayName("이름의 길이가 6이면 IllegalArgumentException이 발생한다.")
-    void 이름_길이_초과_예외_() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new Car("sixSix"));
+    @DisplayName("생성한 Car와 이름이 같으면 성공한다.")
+    void 이름_성공_테스트() {
+        //given
+        Car car = new Car("test");
+        //when, then
+        assertThat(car.getName()).isEqualTo("test");
     }
 
     @Test
-    @DisplayName("이름의 길이가 5면 IllegalArgumentException이 발생하지 않는다.")
-    void CarTest() {
-        Car car = new Car("fives");
+    @DisplayName("생성한 Car와 이름이 같으면 성공한다.")
+    void 거리_초기화_테스트() {
+        //given
+        Car car = new Car("test");
+        //when, then
+        assertThat(car.getDistance()).isZero();
+    }
+
+    @Test
+    @DisplayName("이동한 거리가 3과 같으면 성공")
+    void 거리_3_성공_테스트() {
+        //given
+        Car car = new Car("test");
+        //when
+        car.move(3);
+        //then
+        assertThat(car.getDistance()).isEqualTo(3);
     }
 }

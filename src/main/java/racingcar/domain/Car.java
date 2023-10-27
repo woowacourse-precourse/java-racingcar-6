@@ -1,22 +1,23 @@
 package racingcar.domain;
 
 public class Car {
-    private static final int MAX_NAME_LENGTH = 5;
     private final String name;
-    private int moves = 0;
+    private int distance;
 
     public Car(String name) {
-        validateNameLength(name);
         this.name = name;
+        distance = 0;
     }
 
-    void go(int distance) {
-        moves += distance;
+    public void move(int moveDistance) {
+        distance += moveDistance;
     }
 
-    private void validateNameLength(String name) {
-        if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException();
-        }
+    String getName() {
+        return name;
+    }
+
+    int getDistance() {
+        return distance;
     }
 }

@@ -17,7 +17,6 @@
 
 - [ ] Car : 자동차
     - [x] name을 가진다.
-        - [x] 이름의 길이는 5를 초과할 경우 IllegalArgumentException을 발생시킨다.
     - [x] moves를 가진다.
 
 
