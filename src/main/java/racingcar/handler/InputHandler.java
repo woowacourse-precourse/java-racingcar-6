@@ -24,6 +24,18 @@ public class InputHandler {
         return nameList;
     }
 
+    public int convertAttemptsToInt(String inputAttempts) {
+        if (inputAttempts == null || inputAttempts.trim().isEmpty()) {
+            throw new IllegalArgumentException("입력값이 잘못되었습니다.");
+        }
+
+        try {
+            return Integer.parseInt(inputAttempts);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("입력값이 잘못되었습니다.");
+        }
+    }
+
     private void validName(String trimName, List<String> nameList) {
         if (trimName.isEmpty()) {
             throw new IllegalArgumentException("입력값이 잘못되었습니다.");
