@@ -13,10 +13,10 @@ public class Game {
 
     }
 
-    public void inputCarNames() {
+    public String inputCarNames() {
         String carNames = Console.readLine();
         checkValidCarNames(carNames);
-        initCarList(carNames.split(","));
+        return carNames;
     }
 
     private void checkValidCarNames(String input) {
