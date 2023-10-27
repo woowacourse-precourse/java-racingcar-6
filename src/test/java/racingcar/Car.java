@@ -11,6 +11,16 @@ public class Car {
         this.distance = distance;
     }
 
+    public void move(int movingCriteria) {
+        if (movingCriteria >= 4) {
+            goForward();
+        }
+    }
+
+    private void goForward() {
+        distance++;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -35,4 +45,6 @@ public class Car {
     public int getDistance() {
         return distance;
     }
+
+
 }

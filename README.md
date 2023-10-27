@@ -66,9 +66,9 @@
   - 자동차 이름을 입력받는다 (inputCarNames, CarNamesValidator)
   - 콤마(,)를 기준으로 구분한다
 
-- 각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다 (RegisterCarNamesController) (1)
-  - 자동차는 이름 특성을 가지고 있다 (String carName)
-  - 자동차는 움직인 횟수 특성을 가지고 있다 (int distance)
+- [x] 각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다 (RegisterCarNamesController) (1)
+  - [x] 자동차는 이름 특성을 가지고 있다 (String carName)
+  - [x] 자동차는 움직인 횟수 특성을 가지고 있다 (int distance)
   - 출력시 자동차 이름도 같이 출력해야 한다 (RoundResultController)
 
 - 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다 (CarNamesValidator)
@@ -82,11 +82,11 @@
 - 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다 (RegisterRoundController)
   - 입력받은 이동 횟수 - RoundTotal
 
-- 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다. (2) 
+- 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다.  
   - 전진 조건은 무작위 수를 기준으로 진행된다 (pickNumberInRange(0, 9))
-  - 4 이상인 경우에만 전진한다
-    - 4이상이 경우 moveForward()
-    - 4보다 작은 경우 stop() 
+  - [x] 4 이상인 경우에만 전진한다 (2)
+    - [x] 4이상이 경우 moveForward()
+    - [x] 4보다 작은 경우 stop() 
 
 - 라운드 별 자동차들의 전진 횟수를 주어진 형식에 맞게 출력한다 (RacingRoundController)
   - 전진 횟수를 '-'로 표현한다
