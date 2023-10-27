@@ -10,7 +10,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
     public static void main(String[] args) {
-    	
+    	startGameProcess();
     }
     
 	//게임 시작전 안내문 출력
@@ -141,5 +141,16 @@ public class Application {
     	winnerName.append(winners.get(winners.size()-1));
     	System.out.println("최종 우승자 : "+winnerName.toString());
     }
+    
+    //전체 게임 과정
+	private static void startGameProcess() {
+		startGame();
+		String carNames = inputCarName();
+		List<String> carList=separateCarNameInput(carNames);
+		int movingNumber=inputMovingNumber();
+		Map<String, Integer> carRacingRecord = setCarRacingRecord(carList);
+		printCarRacingResult(movingNumber,carList,carRacingRecord);
+		printGameResult(carList,carRacingRecord);
+	}
     
 }
