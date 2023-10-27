@@ -2,6 +2,7 @@ package model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -15,10 +16,10 @@ public class CarsTest {
         Cars cars = new Cars(names);
 
         //when
-        String[] winner = cars.winner();
+        List<String> winner = cars.winner();
 
         //then
-        assertThat(winner).isEqualTo(new String[]{"tree", "pine", "ant"});
+        assertThat(winner).isEqualTo(List.of("tree", "pine", "ant"));
     }
 
     @Test
@@ -27,12 +28,12 @@ public class CarsTest {
         //given
         String[] names = {"tree", "pine", "ant"};
         Cars cars = new Cars(names);
-        
+
         //when
         cars.indexAt(1).increaseMovingCountIfGreater(4, 9);
-        String[] winner = cars.winner();
+        List<String> winner = cars.winner();
 
         //then
-        assertThat(winner).isEqualTo(new String[]{"pine"});
+        assertThat(winner).isEqualTo(List.of("pine"));
     }
 }

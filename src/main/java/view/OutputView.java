@@ -1,5 +1,6 @@
 package view;
 
+import java.util.List;
 import model.Cars;
 
 public class OutputView {
@@ -19,7 +20,7 @@ public class OutputView {
     }
 
     public static void displayFinalWinner(Cars cars) {
-        String[] finalWinner = cars.winner();
+        List<String> finalWinner = cars.winner();
         System.out.print(FINAL_WINNER + SPACE + COLON + SPACE);
         System.out.println(String.join(COMMA, finalWinner));
     }

@@ -25,7 +25,7 @@ public class Cars {
         return cars.get(index);
     }
 
-    public String[] winner() {
+    public List<String> winner() {
         List<String> winners = new ArrayList<>();
         cars.sort(Car::compareTo);
 
@@ -40,7 +40,7 @@ public class Cars {
             winners.add(nextCar.toString());
         }
 
-        return winners.toArray(new String[winners.size()]);
+        return winners;
     }
 
     public void carsPickRandomNumber() {
