@@ -11,7 +11,7 @@ final class CarsTest {
 
     @Test
     void Cars는_하나_이상의_Car를_가지지_않는경우_예외를_던진다() {
-        String input = ",";
+        String input = "";
 
         assertThrows(IllegalArgumentException.class, () -> Cars.create(input));
     }
@@ -24,7 +24,7 @@ final class CarsTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {",pobi,woni,jun", "pobi,,woni,jun", "pobi,woni,jun,", "pobi,woni,jun,,"})
+    @ValueSource(strings = {",", ",pobi,woni,jun", "pobi,,woni,jun", "pobi,woni,jun,", "pobi,woni,jun,,"})
     void 사용자가_1자_미만의_이름을_입력한경우_예외를_던진다(String target) {
         assertThrows(IllegalArgumentException.class, () -> Cars.create(target));
     }
