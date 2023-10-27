@@ -1,8 +1,6 @@
 package racingcar.domain.car.dto;
 
 import java.util.List;
-import racingcar.domain.car.Car;
-import racingcar.domain.car.Cars;
 import racingcar.domain.exception.DuplicateCarNameException;
 import racingcar.domain.exception.NoCarsException;
 
@@ -26,12 +24,5 @@ public record CreateCars(List<String> carNames) {
         if (hasDuplicateCarName) {
             throw new DuplicateCarNameException();
         }
-    }
-
-    public Cars intoCars() {
-        final List<Car> cars = carNames.stream()
-                .map(Car::new)
-                .toList();
-        return Cars.from(cars);
     }
 }
