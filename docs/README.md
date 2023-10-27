@@ -12,7 +12,7 @@
 
 # DAO
 + RacingCarInformationDao
-  + 사용자의 이름과 이동 횟수 정보를 담을 객체 (Map 자료구조 활용)
+  + 사용자의 이름과 이동 횟수 정보를 담을 객체 (LinkedHashMap 자료구조 활용)
   
 
 + WinnerInformationDao

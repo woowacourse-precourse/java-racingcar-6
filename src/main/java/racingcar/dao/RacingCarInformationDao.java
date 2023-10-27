@@ -1,10 +1,11 @@
 package racingcar.dao;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class RacingCarInformationDao {
-    private Map<String, Integer> racingCarInfoDao = new HashMap<>();
+    private LinkedHashMap<String, Integer> racingCarInfoDao = new LinkedHashMap<>();
 
 
     public void put(String name, int forward) {
