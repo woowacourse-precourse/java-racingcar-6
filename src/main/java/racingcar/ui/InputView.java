@@ -11,4 +11,7 @@ public class InputView {
         return Console.readLine();
     }
 
+    private void close() {
+        Console.close();
+    }
 }
