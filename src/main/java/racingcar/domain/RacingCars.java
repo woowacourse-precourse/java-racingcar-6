@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 import racingcar.dto.CarStatusDto;
 
 public class RacingCars {
+    private static final String JOIN_SEPARATOR = ", ";
     private final List<Car> cars;
 
     public RacingCars(List<Car> cars) {
@@ -19,7 +20,7 @@ public class RacingCars {
         return cars.stream()
                 .filter(car -> car.getPosition() == getMaxPosition())
                 .map(Car::getName)
-                .collect(Collectors.joining(", "));
+                .collect(Collectors.joining(JOIN_SEPARATOR));
     }
 
     public List<CarStatusDto> getCarStatuses() {
