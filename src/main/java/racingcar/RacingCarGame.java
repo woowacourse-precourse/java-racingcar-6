@@ -8,8 +8,7 @@ import java.util.*;
 public class RacingCarGame {
 
     private HashMap<String, Integer> cars = new LinkedHashMap<>();
-    private static final int MOVE_50_PERCENT = 4;
-    static long count;
+
 
 
 
