@@ -3,6 +3,9 @@ package racingcar;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -29,5 +32,21 @@ public class RacingGameTest {
 
         assertThatThrownBy(()->racingGame.checkAttemptCountIsInteger(input))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("콘솔에서 이름 입력부터 Name 생성까지 통합 기능.")
+    @Test
+    void inputCarNames_이름입력_통합(){
+        RacingGame racingGame=new RacingGame();
+        String names="pobi,woni,jun,james,timmy,ski";
+        String[] splitName=names.split(",");
+        InputStream in=new ByteArrayInputStream(names.getBytes());
+        System.setIn(in);
+
+        List<Car> cars=racingGame.inputCarNames();
+
+        for(int index=0;index<cars.size();index++){
+            assertThat(cars.get(index).getNameValue()).isEqualTo(splitName[index]);
+        }
     }
 }
