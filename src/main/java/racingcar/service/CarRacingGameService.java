@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import racingcar.model.Car;
+import racingcar.model.Game;
 
 public class CarRacingGameService {
     public Car getCar(String carNameInput) {
@@ -41,6 +42,33 @@ public class CarRacingGameService {
             if (inputCarName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자를 넘길 수 없습니다.");
             }
+        }
+    }
+
+    public Game getGame(Car cars, String gameSetInput) {
+        validateGameSetInput(gameSetInput);
+
+        return new Game(cars, gameSetInput);
+    }
+
+    private void validateGameSetInput(String gameSetInput) {
+        isNumber(gameSetInput);
+        checkRange(gameSetInput);
+    }
+
+    private void isNumber(String gameSetInput) {
+        try {
+            Integer.parseInt(gameSetInput);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자만 입력이 가능합니다.");
+        }
+    }
+
+    private void checkRange(String gameSetInput) {
+        int set = Integer.parseInt(gameSetInput);
+
+        if (set < 1 || set > 99) {
+            throw new IllegalArgumentException("1이상 99이하의 숫자만 입력이 가능합니다.");
         }
     }
 }
