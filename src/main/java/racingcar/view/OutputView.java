@@ -14,4 +14,8 @@ public class OutputView {
     public void printCarNameAndPosition(String carNameAndPosition) {
         System.out.println(carNameAndPosition);
     }
+
+    public void printNewLine() {
+        System.out.println();
+    }
 }
