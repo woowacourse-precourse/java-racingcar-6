@@ -13,8 +13,10 @@ public class RacingCar {
 
     public void playGame() {
         startGame();
+        System.out.println("실행 결과");
         for (int i = 0; i < playCount; i++) {
             playRound();
+            printRoundResult();
         }
         // endGame();
     }
@@ -44,5 +46,12 @@ public class RacingCar {
         for (Car car : cars) {
             car.moveForward();
         }
+    }
+
+    private void printRoundResult() {
+        for (Car car : cars) {
+            car.printMoves();
+        }
+        System.out.println();
     }
 }

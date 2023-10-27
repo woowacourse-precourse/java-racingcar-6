@@ -11,6 +11,7 @@ public class Car {
         this.moves = 0;
     }
 
+
     public void moveForward() {
         int num = getRandomNumber();
         if (num >= 4) {
@@ -20,5 +21,13 @@ public class Car {
 
     private int getRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
+    }
+
+    public void printMoves() {
+        System.out.print(name + " : ");
+        for (int i = 0; i < moves; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 }
