@@ -11,21 +11,25 @@ public class Car {
     
     private final String name;
     private final int forwardCount;
-    
+
     public Car(String name) {
         this(name, 0);
     }
-    
+
     private Car(String name, int forwardCount) {
         validate(name);
         this.name = name;
         this.forwardCount = forwardCount;
     }
 
+    public Car increaseForwardCount() {
+        return new Car(name, forwardCount + 1);
+    }
+
     public String receiveForwardTrail() {
         return FORWARD_TRAIL_INDICATOR.repeat(forwardCount);
     }
-    
+
     private void validate(String name) {
         validateInput(name);
         validateLength(name);
