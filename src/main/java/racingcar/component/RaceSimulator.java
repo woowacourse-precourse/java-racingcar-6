@@ -1,5 +1,7 @@
 package racingcar.component;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class RaceSimulator {
     private RaceSimulator() {}
 
@@ -12,4 +14,8 @@ public class RaceSimulator {
         return raceSimulator;
     }
 
+    private boolean canGo() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        return randomNumber >= 4;
+    }
 }
