@@ -13,5 +13,6 @@ public class RacingCarController {
     public void play() {
         outputView.printStartMessage();
         inputView.readRacingCarName();
+        outputView.printRepeatNumberMessage();
     }
 }
