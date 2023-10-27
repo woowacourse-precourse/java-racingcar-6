@@ -7,15 +7,17 @@ import Validator.Validator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class InputView {
 
     public List<RacingCar> getNames(){
         String names = Console.readLine();
-        List<String> nameList;
         List<RacingCar> racingCars = new ArrayList<>();
-        Validator.nameValidator(names);
-        nameList = List.of(names.split(GameConfig.nameSeparator));
+        List<String> nameList = Stream.of(names.split(GameConfig.nameSeparator))
+                .map(String::strip)
+                .toList();
+        Validator.nameValidator(nameList);
         for (String name : nameList){
             racingCars.add(new RacingCar(name));
         }

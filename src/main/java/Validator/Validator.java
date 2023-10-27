@@ -10,8 +10,7 @@ public class Validator {
     private static final String NOT_NUMBER = "숫자를 입력하여야 합니다.";
     private static final String LESS_THEN_ZERO = "0 이상의 숫자를 입력하여야 합니다.";
 
-    public static void nameValidator(String Names){
-        List<String> nameList = List.of(Names.split(GameConfig.nameSeparator));
+    public static void nameValidator(List<String> nameList){
         for (String name : nameList){
             if (name.length() == 0){
                 throw new IllegalArgumentException(NOTHING);
