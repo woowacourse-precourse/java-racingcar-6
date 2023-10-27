@@ -17,7 +17,7 @@ public class ConsoleOutput implements Output {
 
     @Override
     public void printExecutionResult(List<Car> carList) {
-
+        carList.forEach(car -> System.out.println(car.getName() + " : " + "-".repeat(car.getDistance())));
     }
 
     @Override
