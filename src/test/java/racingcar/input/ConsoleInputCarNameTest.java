@@ -51,6 +51,14 @@ class ConsoleInputCarNameTest extends NsTest {
     }
 
     @Test
+    void 자동차_이름_입력_예외_이름_특수문자_포함() {
+        String input = "a@b#,def,gh";
+
+        assertThatThrownBy(() -> runException(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     void 자동차_이름_입력_예외_자동차_1대미만() {
         String input = "\0";
 
@@ -69,7 +77,6 @@ class ConsoleInputCarNameTest extends NsTest {
     @Override
     protected void runMain() {
         consoleInput.receiveCarNamesAndMakeList()
-                .stream()
                 .forEach(car -> System.out.println(car.getName()));
     }
 }
