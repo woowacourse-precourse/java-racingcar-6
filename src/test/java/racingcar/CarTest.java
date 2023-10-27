@@ -21,14 +21,28 @@ class CarTest extends NsTest {
 
         System.out.println(pobi);
         System.out.println(woni);
+
+        System.out.println(pobi.getMoveCount());
+        System.out.println(woni.getMoveCount());
     }
 
     @Test
-    void 전진_정지() {
+    void toString_테스트() {
         assertRandomNumberInRangeTest(
                 () -> {
                     main(new String[]{});
                     assertThat(output()).contains("pobi : -", "woni : --"); // output() 메서드의 trim() 적용됨을 유의
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void getMoveCount_테스트() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    main(new String[]{});
+                    assertThat(output()).contains("1", "2"); // output() 메서드의 trim() 적용됨을 유의
                 },
                 MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD
         );
