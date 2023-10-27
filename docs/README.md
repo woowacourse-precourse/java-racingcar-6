@@ -2,10 +2,10 @@
   - [x] 중복 확인
   - [x] 5자 이상 길이 확인
   - [x] 공백 확인
-    - [ ] 잘못된 값을 입력할 경우`IllegalArgumentException`발생 시킨 후 종료
+    - [x] 잘못된 값을 입력할 경우`IllegalArgumentException`발생 시킨 후 종료
 - [x] 시도할 횟수 입력 받기
-  - [ ] 1 이하의 값인지 확인
   - [ ] 문자 확인
+  - [ ] 1 이하의 값인지 확인
     - [ ] 잘못된 값을 입력할 경우`IllegalArgumentException`발생 시킨 후 종료
 - [x] 자동차 이름 저장, 거리 초기화
 - [x] 시도할 횟수 만큼 경주 반복
