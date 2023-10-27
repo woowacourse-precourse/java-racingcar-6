@@ -52,4 +52,8 @@ public class RacingCarGame implements Game {
     public int getRandomNumber(){
         return this.racingCarRandoms.getRandomNumber();
     }
+
+    public void printPlayersPosition(){
+        this.players.forEach(RacingCarPlayer::printPosition);
+    }
 }
