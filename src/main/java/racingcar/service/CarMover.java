@@ -3,6 +3,7 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.system.SystemConstant;
 
 public class CarMover {
 
@@ -13,6 +14,6 @@ public class CarMover {
     }
 
     static boolean isMoving() {
-        return Randoms.pickNumberInRange(0, 9) >= 4;
+        return Randoms.pickNumberInRange(0, 9) >= SystemConstant.MOVE_STANDARD.getValue();
     }
 }
