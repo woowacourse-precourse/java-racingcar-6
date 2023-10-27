@@ -3,7 +3,6 @@ package racingcar;
 import java.util.List;
 
 public class RacingCarInputValidator {
-
     public static final int MAX_CAR_NAME_LENGTH = 5;
     public static final int MIN_ATTEMPT_NUMBER = 0;
     public static final int MAX_ATTEMPT_NUMBER = 200_000_000;
