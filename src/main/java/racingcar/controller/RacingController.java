@@ -3,7 +3,7 @@ package racingcar.controller;
 import racingcar.domain.CarGarage;
 import racingcar.domain.TryCount;
 import racingcar.domain.Winner;
-import racingcar.service.RacingCircuit;
+import racingcar.service.RacingService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -11,12 +11,12 @@ public class RacingController {
 
     private final InputView inputView;
     private final OutputView outputView;
-    private final RacingCircuit circuit;
+    private final RacingService racingService;
 
-    public RacingController(InputView inputView, OutputView outputView) {
+    public RacingController(InputView inputView, OutputView outputView, RacingService racingService) {
         this.inputView = inputView;
         this.outputView = outputView;
-        this.circuit = new RacingCircuit();
+        this.racingService = racingService;
     }
 
     public void run() {
@@ -32,7 +32,7 @@ public class RacingController {
     private void raceCar(TryCount count, CarGarage carGarage) {
         outputView.printResultMessage();
         for (int i = 0; i < count.value(); i++) {
-            circuit.race(carGarage);
+            racingService.race(carGarage);
             outputView.printRaceResult(carGarage);
         }
     }

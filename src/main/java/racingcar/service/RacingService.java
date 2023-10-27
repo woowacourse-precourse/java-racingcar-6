@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.CarGarage;
 
-public class RacingCircuit {
+public class RacingService {
 
     public void race(CarGarage garage) {
         for (Car car : garage.cars()) {
