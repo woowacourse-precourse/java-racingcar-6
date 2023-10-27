@@ -1,24 +1,52 @@
 package racingcar.view;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
-import static racingcar.constant.RacingGameConstant.CARS_SPLIT_STRING;
+import static racingcar.exception.ErrorMessage.NOT_INTEGER;
+
+import java.util.Arrays;
+import java.util.List;
+import racingcar.exception.RacingGameException;
 
 public class InputView {
 
+    public static final String CARS_SPLIT_STRING = ",";
+    public static final String REGEX = "[0-9]+";
     private static final String ENTER_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(%s) 기준으로 구분)\n";
 
     private static final String ASK_ROTATE_NUMBER = "시도할 회수는 몇회인가요?";
 
-    public String enterCarNames() {
+    public List<String> enterCarNames() {
         System.out.printf(ENTER_CAR_NAMES, CARS_SPLIT_STRING);
 
-        return readLine();
+        return toStringList(readLine());
     }
 
-    public String enterRotateNumber() {
+    private static List<String> toStringList(String input) {
+        return Arrays.stream(input.split(CARS_SPLIT_STRING))
+                .toList();
+    }
+
+    public Integer enterRotateNumber() {
         System.out.println(ASK_ROTATE_NUMBER);
 
-        return readLine();
+        return convertToInteger(readLine());
+    }
+
+    private Integer convertToInteger(final String inputNumberString) {
+        validateNumber(inputNumberString);
+
+        return Integer.valueOf(inputNumberString);
+    }
+
+    private void validateNumber(final String inputNumberString) {
+        if (isNotNumber(inputNumberString)) {
+            throw RacingGameException.of(NOT_INTEGER);
+        }
+
+    }
+
+    private boolean isNotNumber(final String inputNumberString) {
+        return !inputNumberString.matches(REGEX);
     }
 
 }

@@ -1,15 +1,15 @@
 package racingcar.domain;
 
-import static racingcar.constant.RacingGameConstant.CAR_CAN_GO_NUMBER;
-import static racingcar.constant.RacingGameConstant.CAR_LIMIT_NAME_LENGTH;
-import static racingcar.constant.RacingGameConstant.CAR_ONE_STEP;
-import static racingcar.constant.RacingGameConstant.CAR_START_POSITION;
 import static racingcar.exception.ErrorMessage.INVALID_NAME_LENGTH;
 
 import racingcar.exception.RacingGameException;
 
 public class Car {
 
+    public static final Integer CAR_START_POSITION = 0;
+    public static final Integer CAR_ONE_STEP = 1;
+    public static final Integer CAR_CAN_GO_NUMBER = 4;
+    public static final Integer CAR_LIMIT_NAME_LENGTH = 5;
     private final String name;
     private Integer position;
 
@@ -32,7 +32,7 @@ public class Car {
     }
 
     private static boolean isWrongLength(String name) {
-        return name.length() > CAR_LIMIT_NAME_LENGTH || name.isBlank();
+        return name.isBlank() || name.length() > CAR_LIMIT_NAME_LENGTH;
     }
 
     public void go(final Integer randomNumber) {
