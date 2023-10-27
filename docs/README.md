@@ -2,9 +2,9 @@
 
 ## 기능 목록
 
-- [ ] 자동차 이름을 입력한다. - inputCarNames()
+- [x] 자동차 이름을 입력한다. - inputCarNames()
   - [x] 자동차 이름은 쉼표(,)를 기준으로 구분한다.
-  - [ ] 이름은 5자 이하만 가능하다. (입력 오류 : IllegalArgumentException)
+  - [x] 이름은 5자 이하만 가능하다. (입력 오류 : IllegalArgumentException) - checkNamingError
 
 - [ ] 이동을 시도할 횟수를 입력한다. - inputNumberOfRaces()
   - [ ] 숫자만 입력이 가능하다. (입력 오류 : IllegalArgumentException)

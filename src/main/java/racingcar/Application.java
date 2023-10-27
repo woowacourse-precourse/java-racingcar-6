@@ -2,7 +2,6 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -12,6 +11,7 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         List<String> carNamesList = inputCarNames();
         System.out.println(carNamesList);
+        System.out.println(carNamesList.size());
     }
 
     public static List<String> inputCarNames() {
@@ -20,6 +20,16 @@ public class Application {
         String[] carNamesSplitted = carNames.split(",");
         List<String> carNamesList = new ArrayList<>();
         Collections.addAll(carNamesList, carNamesSplitted);
+        checkNamingError(carNamesList);
         return carNamesList;
+    }
+
+    public static void checkNamingError(List<String> carNamesList) {
+        int maxLength = 5;
+        for (String item : carNamesList) {
+            if (item.length() > maxLength) {
+                throw new IllegalArgumentException("이름 길이 5자 초과");
+            }
+        }
     }
 }
