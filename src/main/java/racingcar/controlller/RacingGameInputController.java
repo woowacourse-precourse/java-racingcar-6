@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.utils.Parser;
 import racingcar.view.InputView;
 
 // 프론트 엔드 역할을 할 컨트롤러

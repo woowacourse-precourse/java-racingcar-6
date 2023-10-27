@@ -4,6 +4,7 @@ import static racingcar.constant.RacingGameConstants.MAX_CAR_NAME_LENGTH;
 import static racingcar.constant.RacingGameConstants.MIN_CAR_NAME_LENGTH;
 
 import java.util.List;
+import racingcar.utils.Parser;
 
 public class RacingGameInputValidator {
     // 자동차 이름 입력 검증
