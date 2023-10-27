@@ -61,6 +61,7 @@ Model, Controller, View, Logic 에 대해 인터페이스를 먼저 구현한다
 
 # 추가 업데이트
 1. Logic - 10번 getPlayers() 추가 필요성 
+2. View - printRoundInfo() -> printRoundProgress() 수정
 
 
 
