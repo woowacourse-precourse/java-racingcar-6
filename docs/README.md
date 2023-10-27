@@ -1,15 +1,15 @@
 ##  Precourse Week 2 : 🚗 자동차 경주
 ### 🚘 기능 구현 목록
-- [ ] 경주할 자동차 이름을 입력 받는다.
-  - [ ] 자동차 이름을 입력 받기 전. 안내 문구를 출력한다.
+- [x] 경주할 자동차 이름을 입력 받는다.
+  - [x] 자동차 이름을 입력 받기 전. 안내 문구를 출력한다.
     ```
     경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
     ```
-  - [ ] 사용자에게 자동차 이름을 입력 받는다.
-  - [ ] 쉼표를 기준으로 자동차 이름을 분리한다.
-    - [ ] [Validation] 자동차 이름을 입력하지 않았을 경우, `IllegalArgumentException`을 발생 시킨 후 종료한다.
-    - [ ] [Validation] 자동차 이름이 5자를 초과할 경우, `IllegalArgumentException`을 발생 시킨 후 종료한다.
-    - [ ] [Validation] 자동차 이름이 중복일 경우, `IllegalArgumentException`을 발생 시킨 후 종료한다.
+  - [x] 사용자에게 자동차 이름을 입력 받는다.
+  - [x] 쉼표를 기준으로 자동차 이름을 분리한다.
+    - [x] [Validation] 자동차 이름을 입력하지 않았을 경우, `IllegalArgumentException`을 발생 시킨 후 종료한다.
+    - [x] [Validation] 자동차 이름이 5자를 초과할 경우, `IllegalArgumentException`을 발생 시킨 후 종료한다.
+    - [x] [Validation] 자동차 이름이 중복일 경우, `IllegalArgumentException`을 발생 시킨 후 종료한다.
 - [ ] 시도할 회수를 입력 받는다.
   - [ ] 시도 회수를 입력 받기 전, 안내 문구를 출력한다.
     ```
