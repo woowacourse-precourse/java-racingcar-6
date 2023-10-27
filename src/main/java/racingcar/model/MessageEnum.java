@@ -8,7 +8,8 @@ public enum MessageEnum {
     RESULT_MESSAGE("실행 결과"),
     MOVEMENT("-"),
     INVALID_INPUT_MESSAGE("유효하지 않은 정보를 입력했습니다."),
-    MAX_LENGTH_EXCEEDED("입력한 이름 중 길이가 " + NumberEnum.MAX_LENGTH.getNumber() + "가 넘는 이름이 있습니다.");
+    MAX_LENGTH_EXCEEDED("입력한 이름 중 길이가 " + NumberEnum.MAX_LENGTH.getNumber() + "가 넘는 이름이 있습니다."),
+    WINNER_MESSAGE("최종 우승자 : ");
 
     private String Message;
 

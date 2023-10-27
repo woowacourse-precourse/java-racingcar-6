@@ -15,4 +15,13 @@ public class OutputMessage {
         System.out.println();
 
     }
+
+    public void winnerMessage(List<String> winner) {
+        System.out.print(MessageEnum.WINNER_MESSAGE.getMessage());
+
+        if (winner.size() == 1) {
+            System.out.println(winner.get(0));
+        }
+
+    }
 }
