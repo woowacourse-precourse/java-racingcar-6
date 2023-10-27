@@ -1,10 +1,10 @@
 package racingcar.Domain;
 
-import java.util.Map;
 
 public class car {
     private static final Integer POSITION_INCREMENT = 1;
-    private String name;
+    private static final Integer POSITION_INIT = 0;
+    private final String name;
     private Integer position;
 
     private car (String name, Integer position) {
@@ -12,8 +12,8 @@ public class car {
         this.position = position;
     }
 
-    public static car of (String name, Integer position) {
-        return new car(name, position);
+    public static car of (String name) {
+        return new car(name, POSITION_INIT);
     }
 
     public String findName () {
