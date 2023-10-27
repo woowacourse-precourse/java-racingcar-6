@@ -59,7 +59,7 @@
    - String name : 자동차 이름
    - int moveDistance : 이동 거리
 - member function
-   - [ ] Car(String) : name, moveDistance 초기화
+   - [x] Car(String) : name, moveDistance 초기화
    - [ ] String getName() : 자동차 이름 반환
    - [ ] int getMoveDistance() : 이동 거리 반환
    - [ ] void move() : 전진 조건을 만족하면 전진
