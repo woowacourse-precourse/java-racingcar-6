@@ -1,4 +1,4 @@
-package racingcar.component.in;
+package racingcar.component.input;
 
 import racingcar.common.Component;
 
