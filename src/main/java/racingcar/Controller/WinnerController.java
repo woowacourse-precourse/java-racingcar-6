@@ -4,9 +4,11 @@ import java.security.Key;
 import java.util.HashMap;
 import java.util.Map;
 import racingcar.View.InputView;
+import racingcar.View.OutputView;
 
 public class WinnerController {
     MoveRandomNumber moveRandomNumber = new MoveRandomNumber();
+    OutputView outputView = new OutputView();
     InputView inputView = new InputView();
     public int Move;
     public Map<String,Integer> judgeWin(){
@@ -28,6 +30,19 @@ public class WinnerController {
 
         }
         return carPosition;
+    }
+
+    //실행결과 출력
+    public void printRunMsg() {
+        for (Map<String,Integer> racerCarName : moveRandomNumber.generateRandomGameNumber()){
+            for( String Key : racerCarName.keySet()){
+                int key = Integer.parseInt(Key);
+                int value = racerCarName.get(Key);
+                System.out.print(Key + " : " );
+                outputView.printRandomCount(value);
+            }
+        }
+
     }
 
 }
