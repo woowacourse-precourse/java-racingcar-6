@@ -33,6 +33,11 @@ public class CarSetting {
 
     public void setCarName() {
         carName = Console.readLine().split(",");
+        for (String name : carName) {
+            if (name.length() >= 5) {
+                throw new IllegalArgumentException();
+            }
+        }
         setCar();
     }
 
