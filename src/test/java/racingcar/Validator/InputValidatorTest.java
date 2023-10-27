@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.InputValidator;
-import racingcar.exception.DivisionCarNamesError;
+import racingcar.exception.DivisionCarNamesException;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -18,7 +18,7 @@ class InputValidatorTest {
     @DisplayName("자동차들 이름을 쉼표(,)로 구분하지 않는다면 에러가 발생한다.")
     void validate_division_car_names(String names) {
         assertThatThrownBy(() -> InputValidator.validateDivisionCarNames(names))
-                .isInstanceOf(DivisionCarNamesError.class);
+                .isInstanceOf(DivisionCarNamesException.class);
     }
 
     @Test

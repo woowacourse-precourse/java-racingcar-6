@@ -1,7 +1,7 @@
 package racingcar;
 
 import racingcar.constants.ErrorMessage;
-import racingcar.exception.CarNameLengthError;
+import racingcar.exception.CarNameLengthException;
 
 public class Car {
 
@@ -17,7 +17,7 @@ public class Car {
 
     private void validateNameLength(String name) {
         if (name.length() > MAX_CAR_NAME_LENGTH) {
-            throw new CarNameLengthError(ErrorMessage.CAR_NAME_LENGTH_ERROR.getMessage());
+            throw new CarNameLengthException(ErrorMessage.CAR_NAME_LENGTH_ERROR.getMessage());
         }
     }
 }

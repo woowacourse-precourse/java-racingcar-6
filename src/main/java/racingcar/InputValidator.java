@@ -2,7 +2,7 @@ package racingcar;
 
 import racingcar.constants.ErrorMessage;
 import racingcar.constants.InputPattern;
-import racingcar.exception.DivisionCarNamesError;
+import racingcar.exception.DivisionCarNamesException;
 
 public class InputValidator {
 
@@ -11,7 +11,7 @@ public class InputValidator {
 
     public static void validateDivisionCarNames(String carNames) {
         if (InputPattern.isNotMatchCarNamesPattern(carNames)) {
-            throw new DivisionCarNamesError(ErrorMessage.DIVISION_CAR_NAME_ERROR.getMessage());
+            throw new DivisionCarNamesException(ErrorMessage.DIVISION_CAR_NAME_ERROR.getMessage());
         }
     }
 }

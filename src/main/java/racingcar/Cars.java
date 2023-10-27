@@ -1,7 +1,7 @@
 package racingcar;
 
 import racingcar.constants.ErrorMessage;
-import racingcar.exception.CarsCountError;
+import racingcar.exception.CarsCountException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,7 +18,7 @@ public class Cars {
 
     private void validateCarsCount() {
         if (racingCars.size() < 2) {
-            throw new CarsCountError(ErrorMessage.CARS_COUNT_ERROR.getMessage());
+            throw new CarsCountException(ErrorMessage.CARS_COUNT_ERROR.getMessage());
         }
     }
 
