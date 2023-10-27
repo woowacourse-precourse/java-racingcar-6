@@ -12,6 +12,12 @@ public class GameController {
     public void run() {
         String carNames = getCarNameFromUser();
         makeCar(carNames);
+        Integer gameCycleNumber = getGameCycleNumberFromUser();
+    }
+
+    private Integer getGameCycleNumberFromUser() {
+        InputManager.requestGameCycleNumber();
+        return Integer.valueOf(Console.readLine());
     }
 
     private void makeCar(String carNames) {
