@@ -31,4 +31,13 @@ public class OutputView {
     }
 
 
+    public static void printFinalWinner(List<String> winners) {
+        for(int i = 0 ; i < winners.size(); i++){
+            System.out.print(winners.get(i));
+            if(i<winners.size()-1){
+                System.out.print(", ");
+            }
+        }
+
+    }
 }

@@ -93,11 +93,12 @@ public class OutputViewTest {
         winners.add("pobi");
         winners.add("jun");
 
-        OutputView.printFinalWinner(winners);
 
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStream);
         System.setOut(printStream);
+
+        OutputView.printFinalWinner(winners);
 
         String capturedOutput = outputStream.toString();
 
