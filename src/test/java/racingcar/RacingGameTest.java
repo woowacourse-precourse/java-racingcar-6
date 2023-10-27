@@ -5,6 +5,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -57,6 +58,19 @@ public class RacingGameTest {
         String input="12345";
 
         assertThat(racingGame.inputAttemptCount(input)).isEqualTo(12345);
+
+    }
+
+    @DisplayName("차들의 이름을 출력하는 기능.")
+    @Test
+    void printCarName(){
+        RacingGame racingGame=new RacingGame();
+        List<Car> cars=Arrays.asList(new Car(new Name("pobi"),new Position()),new Car(new Name("jun"),new Position()));
+        String expected="pobi, jun";
+
+        String result=racingGame.printCarName(cars);
+
+        assertThat(result).isEqualTo(expected);
 
     }
 }
