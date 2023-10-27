@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
+import java.util.stream.IntStream;
 import racingcar.domain.Car;
 import racingcar.domain.Racing;
 import racingcar.domain.Referee;
@@ -14,11 +15,9 @@ public class Application {
         int playRound = askPlayTurn();
 
         Racing racing = new Racing(racingList);
-
         System.out.println("실행 결과");
-        for (int round = 0; round < playRound; round++) {
-            racing.run();
-        }
+        IntStream.range(0, playRound).forEach(i -> racing.run());
+
         Referee referee = new Referee();
         String winners = referee.announcementWinners(racingList);
         System.out.println("최종 우승자 : " + winners);
@@ -33,13 +32,13 @@ public class Application {
     public static int askPlayTurn() {
         System.out.println("시도할 회수는 몇회인가요?");
         String getTurn = Console.readLine();
-        if (!isValidData(getTurn)){
-            throw new IllegalArgumentException("숫자를 입력해주세요.");
+        if (getTurn.equals("0") || !isValidData(getTurn)){
+            throw new IllegalArgumentException("유효하지않은 입력입니다.");
         }
         return Integer.parseInt(getTurn);
     }
 
     private static boolean isValidData(final String getTurn) {
-        return getTurn.matches("[1-9]+");
+        return getTurn.matches("[0-9]+");
     }
 }
