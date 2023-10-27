@@ -11,7 +11,6 @@ import racingcar.service.UserService;
 
 public class CarCreatorTest {
 
-    UserService userService;
     CarCreator carCreator;
 
     @BeforeEach
