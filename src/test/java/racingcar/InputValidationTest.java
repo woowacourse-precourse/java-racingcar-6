@@ -61,4 +61,10 @@ class InputValidationTest {
         assertThatThrownBy(() -> InputValidation.validateCarNames(test))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 숫자가_아닌_경우_예외_처리() {
+        assertThatThrownBy(() -> InputValidation.validateMoveCount("two"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
