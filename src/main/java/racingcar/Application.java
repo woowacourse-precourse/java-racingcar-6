@@ -1,11 +1,33 @@
 package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Application {
 
     private static int ASCIIZERO = 48;
     private static int ASCIININE = 57;
+
+    private static class Car {
+
+        String carName;
+        int location;
+
+        Car(final String carName) {
+            this.carName = carName;
+            this.location = 0;
+        }
+
+        private String getCarName() {
+            return this.carName;
+        }
+
+        private int getLocation() {
+            return this.location;
+        }
+    }
+
     public static void main(String[] args) {
         // TODO: 프로그램 구현
 
@@ -13,11 +35,21 @@ public class Application {
         String[] carNames = inputCarNames();
         int attemptsNum = inputAttemptsNum();
 
-//        for (String carName : carNames) {
-//            System.out.println(carName);
-//        }
-//
-//        System.out.println(attemptsNum);
+        List<Car> cars = createCars(carNames);
+
+        for (Car car : cars) {
+            System.out.println(car.getCarName());
+        }
+    }
+
+    private static List<Car> createCars(final String[] carNames) {
+        List<Car> cars = new ArrayList<>();
+
+        for (String carName : carNames) {
+            cars.add(new Car(carName));
+        }
+
+        return cars;
     }
 
     private static String[] inputCarNames() {
