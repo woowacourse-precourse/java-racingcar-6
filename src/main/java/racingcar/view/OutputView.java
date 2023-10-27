@@ -19,8 +19,8 @@ public class OutputView {
     }
 
     public static void printResult(MoveInfo info) {
-        System.out.print(info.name + " : ");
-        System.out.println(RESULT_SIGN.repeat(info.moved));
+        System.out.print(info.getName() + " : ");
+        System.out.println(RESULT_SIGN.repeat(info.getMoved()));
     }
 
     public static void printFinalWinner(List<String> names) {

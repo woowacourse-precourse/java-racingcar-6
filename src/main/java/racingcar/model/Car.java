@@ -3,14 +3,11 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    private final String name;
+    private final CarName name;
     private int moved = 0;
 
     public Car(String name) {
-        if (name.length() > 5) {
-            throw new IllegalArgumentException("[Error]: 자동차 이름이 5자를 넘음");
-        }
-        this.name = name;
+        this.name = new CarName(name);
     }
 
     public int move() {

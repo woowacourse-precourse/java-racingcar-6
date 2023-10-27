@@ -51,12 +51,12 @@ public class RacingGame {
 
         for (Car participant : participants) {
             MoveInfo info = participant.info();
-            if (info.moved > maxMoved) {
-                maxMoved = info.moved;
+            if (info.getMoved() > maxMoved) {
+                maxMoved = info.getMoved();
                 names = new ArrayList<>();
-                names.add(info.name);
-            } else if (info.moved == maxMoved) {
-                names.add(info.name);
+                names.add(info.getName());
+            } else if (info.getMoved() == maxMoved) {
+                names.add(info.getName());
             }
         }
 

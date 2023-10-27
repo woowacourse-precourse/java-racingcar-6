@@ -11,7 +11,7 @@ public class CarTest {
     @DisplayName("name 필드가 제대로 초기화되는지")
     public void nameField() {
         Car testCar = new Car("poky");
-        assertThat(testCar.info().name).isEqualTo("poky");
+        assertThat(testCar.info().getName()).isEqualTo("poky");
     }
 
     @Test
