@@ -37,8 +37,14 @@
     - [x] MoveRule 인터페이스를 구현한다.
         - [x] 4 이상이 나오면 1을 반환한다.
         - [x] 그 이외에는 0을 반환한다.
-    - [x] NumberGenrator 인터페이스를 구현한다.
-        - [x] 0 ~ 9 까지 랜덤한 난수를 생성한다.
+
+- [x] NumberGenerator(인터페이스) : 숫자를 생성하기 위한 인터페이스
+    - 생성하는 이유 : 테스트코드에서 난수를 테스트 하기 위해
+    - [x] generate(int startInclude, int endExclude) : 난수를 생성한다
+
+
+- [x] RandomNumberGenerator(구현체)
+    - [x] 0 ~ 9 까지 랜덤한 난수를 생성한다.
 
 
 - [ ] RacingGame : 레이싱 게임을 하는 곳
