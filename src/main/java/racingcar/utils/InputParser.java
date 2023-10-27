@@ -5,7 +5,7 @@ import java.util.List;
 
 public class InputParser {
 
-    public static List<String> parseCarNames(String input){
+    public static List<String> parseCarNames(String input) {
         return Arrays.asList(input.split(","));
     }
 
