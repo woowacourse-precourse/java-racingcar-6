@@ -1,4 +1,4 @@
-package racingcar.controller;
+package racingcar.view;
 
 public class OutputView {
 
