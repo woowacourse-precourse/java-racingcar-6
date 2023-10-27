@@ -42,4 +42,16 @@ public class View {
         String finalWinnerResultForm = convertToFinalWinnerResultForm(winners);
         System.out.println(finalWinnerResultForm);
     }
+
+    private static String convertToFinalWinnerResultForm(List<String> winners) {
+        StringBuilder finalWinnerResultForm = new StringBuilder("최종 우승자 : ");
+        for (int idx = 0; idx < winners.size(); idx++) {
+            finalWinnerResultForm.append(winners.get(idx));
+            if (idx == winners.size() - 1) {
+                break;
+            }
+            finalWinnerResultForm.append(", ");
+        }
+        return finalWinnerResultForm.toString();
+    }
 }
