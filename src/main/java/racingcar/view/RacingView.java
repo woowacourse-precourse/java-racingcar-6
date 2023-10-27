@@ -12,4 +12,8 @@ public class RacingView {
     public static void attemptNumberInputView() {
         System.out.println(ATTEMPT_NUMBER_INPUT);
     }
+
+    public static void carMoveOrStopDecisionResultView(String carName, String racingResult) {
+        System.out.println(carName + " : " + racingResult);
+    }
 }
