@@ -18,7 +18,7 @@
 
 ### OutputView
 - [x] 실행 결과 문구를 출력한다. `void printRacingResultMessage()`
-- [ ] 차수별 실행 결과를 출력한다. `void printRacingResult()`
+- [x] 차수별 실행 결과를 출력한다. `void printRacingResult()`
 - [ ] 최종 우승자를 출력한다. `void printWinners()`
   - 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
 
