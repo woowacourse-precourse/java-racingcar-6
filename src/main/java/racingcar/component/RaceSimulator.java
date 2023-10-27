@@ -4,13 +4,16 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class RaceSimulator {
-    private RaceSimulator() {}
+    private Printer printer;
+    private RaceSimulator(Printer printer) {
+        this.printer = printer;
+    }
 
     private static RaceSimulator raceSimulator;
 
-    public static RaceSimulator getRaceSimulator() {
+    public static RaceSimulator getRaceSimulator(Printer printer) {
         if (raceSimulator == null) {
-            raceSimulator = new RaceSimulator();
+            raceSimulator = new RaceSimulator(printer);
         }
         return raceSimulator;
     }
