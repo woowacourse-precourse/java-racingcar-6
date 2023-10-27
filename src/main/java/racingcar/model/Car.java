@@ -33,6 +33,10 @@ public class Car {
         return this.position == position;
     }
 
+    public boolean isSamePosition(Car car) {
+        return this.position == car.position;
+    }
+
     public void move() {
         this.position += 1;
     }
