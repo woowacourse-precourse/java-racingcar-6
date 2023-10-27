@@ -44,22 +44,46 @@ public class GameTest {
     }
 
     @Test
-    void 자동차_게임_시작() {
+    void 자동차_게임_시작_테스트() {
 
         String input = "pobi,jun,king,wuk";
         List<String> carNameList = game.splitCarName(input);
-        LinkedHashMap<String,Integer> carLocations;
+        LinkedHashMap<String, Integer> carLocations;
         car.createLocationMap(carNameList);
 
         carLocations = car.moveForward(carNameList);
 
-        for(int i = 0 ; i < carNameList.size(); i++){
-            System.out.println(carNameList.get(i)+" " +carLocations.get(carNameList.get(i)));
+        for (int i = 0; i < carNameList.size(); i++) {
+            System.out.println(carNameList.get(i) + " " + carLocations.get(carNameList.get(i)));
         }
 
+    }
+
+    @Test
+    void 우승자_검사_테스트(){
+
+        LinkedHashMap<String, Integer> locations = new LinkedHashMap<>();
+        List<String> carNameList = new ArrayList<>();
+        carNameList.add("pobi");
+        carNameList.add("jun");
+        carNameList.add("king");
+        carNameList.add("rook");
+        locations.put("pobi", 1);
+        locations.put("jun", 3);
+        locations.put("king", 0);
+        locations.put("rook", 2);
+
+        List<String> winners = new ArrayList<>();
+
+        winners = game.judgeWinner(carNameList,locations);
+
+        Assertions.assertTrue(winners.get(0).equals("jun"));
 
 
     }
+
+
+
 
 
 }
