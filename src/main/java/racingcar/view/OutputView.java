@@ -13,21 +13,8 @@ public class OutputView {
                 .forEach(car -> System.out.println(car.toString()));
     }
 
-    public void printWinner(List<Car> carList){
-        int maxMoveNumber = carList.stream()
-                .mapToInt(Car::getMoveNumber)
-                .max()
-                .orElseThrow(() -> new IllegalArgumentException());
-
-        List<String> winnerNames = carList.stream()
-                .filter(car -> car.isMaxMoveNumber(maxMoveNumber))
-                .map(car -> car.getName())
-                .collect(Collectors.toList());
-
+    public void printWinner(List<String> winnerNames){
         String join = String.join(", ", winnerNames);
-
         System.out.println("최종 우승자 : " + join);
-
-
     }
 }
