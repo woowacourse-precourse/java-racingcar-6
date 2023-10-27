@@ -12,7 +12,7 @@ public class RacingCar {
         this.isWinner = isWinner;
     }
 
-    public RacingCar init(String carName) {
+    public static RacingCar init(String carName) {
         return new RacingCar(Name.init(carName), Location.init(), IsWinner.init());
     }
 }
