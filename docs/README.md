@@ -7,7 +7,7 @@
 ## Model
 
 ### Name 
-- isValid => 이름 조건 검증
+- isValid => 이름 조건 검증(5자 이하)
 
 ### Move
 - generateRandom => 랜덤값 생성
@@ -31,7 +31,7 @@
 ## Controller
 
 ### GameController
-- start => 게임 시작
+- start => 이름 입력, 이름 조건 검증
 - playGame => 게임 실행 반복
 - showResult => 결과 도출
 
