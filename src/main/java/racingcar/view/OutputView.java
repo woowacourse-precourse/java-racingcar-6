@@ -9,7 +9,7 @@ public class OutputView {
 
     public OutputView() {}
 
-    public void printWinner(List<String> winners) {
+    public static void printWinner(List<String> winners) {
         String winner = String.join(", ", winners);
         System.out.println(Message.WINNER_MESSAGE + winner);
     }

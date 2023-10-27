@@ -24,6 +24,7 @@ public class GameController {
         }
 
         List<Car> winners = findWinners(cars);
+        displayWinnersName(winners);
     }
 
     private List<Car> findWinners(List<Car> cars) {
@@ -33,6 +34,12 @@ public class GameController {
         return sortedCars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .collect(Collectors.toList());
+    }
+
+    private void displayWinnersName(List<Car> winners) {
+        OutputView.printWinner(winners.stream()
+                .map(Car::getName)
+                .collect(Collectors.toList()));
     }
 
     private List<Car> sortCarsByPosition(List<Car> cars) {
