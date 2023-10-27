@@ -32,8 +32,7 @@ public class Car {
         return randomNum >= MIN_MOVABLE_NUMBER;
     }
 
-    @Override
-    public String toString(){
+    public String getRoundResult(){
         StringBuilder sb = new StringBuilder(name);
         sb.append(" : ");
         for(int i = 0; i<location; i++){

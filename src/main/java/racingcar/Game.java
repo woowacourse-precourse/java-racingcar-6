@@ -44,7 +44,7 @@ public class Game {
     public void playRound(){
         for(Car car : cars){
             moveCar(car);
-            System.out.println(car);
+            System.out.println(car.getRoundResult());
         }
         System.out.println();
     }

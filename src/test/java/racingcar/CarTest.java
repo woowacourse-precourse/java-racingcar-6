@@ -79,6 +79,6 @@ class CarTest {
         for(int i = 0; i<roundNum; i++){
             car.tryMove();
         }
-        return car.toString();
+        return car.getRoundResult();
     }
 }
