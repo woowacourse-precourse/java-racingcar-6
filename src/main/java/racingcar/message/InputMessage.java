@@ -1,4 +1,4 @@
-package racingcar.domain.message;
+package racingcar.message;
 
 public enum InputMessage {
 

@@ -1,4 +1,4 @@
-package racingcar.domain.resource;
+package racingcar.resource;
 
 public enum CarGameValue {
     POWER(1)

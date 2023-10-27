@@ -1,4 +1,4 @@
-package racingcar.domain.message;
+package racingcar.message;
 
 public enum ErrorMessage {
     INPUT_NULL_BLANK_MESSAGE("입력 값이 존재하지 않습니다.")
