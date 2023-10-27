@@ -11,6 +11,10 @@ public class InputView {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         return Console.readLine();
     }
+    public static String roundInput(){
+        System.out.println("시도할 회수는 몇회인가요?");
+        return Console.readLine();
+    }
 
     public static String[] InputToArray(String input) throws IllegalArgumentException {
         String[] carsName = input.split(",");
@@ -26,6 +30,10 @@ public class InputView {
         }
 
         return carsName;
+    }
+
+    public static int inputToInt(String roundNum) throws IllegalArgumentException{
+        return Integer.parseInt(roundNum);
     }
 
     public static boolean isNotDuplicate(String[] s) {
