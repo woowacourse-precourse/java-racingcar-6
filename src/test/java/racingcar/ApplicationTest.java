@@ -1,17 +1,18 @@
 package racingcar;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
+import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.controller.CarController;
 import racingcar.controller.GameController;
 import racingcar.model.Car;
+import racingcar.model.Cars;
 import racingcar.model.Game;
-
-import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
-import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -20,11 +21,11 @@ class ApplicationTest extends NsTest {
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
@@ -68,7 +69,23 @@ class ApplicationTest extends NsTest {
 
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> gameController.makeGame("가나다"))
-                .isInstanceOf(IllegalArgumentException.class));
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
+    @Test
+    void 승자_집계() {
+        Car car1 = new Car("pobi");
+        car1.addDistance(3, 4);
+        Car car2 = new Car("bh");
+        car2.addDistance(4, 4);
+
+        GameController gameController = new GameController();
+
+        Cars cars = new Cars(List.of(car1, car2));
+        assertSimpleTest(() -> {
+                    assertThat(gameController.score(cars)).isEqualTo("bh");
+                }
+        );
     }
 
     @Override
