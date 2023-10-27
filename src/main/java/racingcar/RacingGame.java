@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.HashMap;
+
 public class RacingGame {
 
     private static final int MIN_NAME_SIZE = 1;
@@ -10,7 +12,13 @@ public class RacingGame {
     private static final String resultPhrase = "실행 결과";
     private static final String winnerPhrase = "최종 우승자 : ";
 
+    HashMap<String, Integer> racingCars;
+
     public void startGame() {
         System.out.println(startingPhrase);
+    }
+
+    public void playGame() {
+
     }
 }
