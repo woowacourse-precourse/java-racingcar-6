@@ -4,6 +4,7 @@ import racingcar.model.Cars;
 import racingcar.model.PlayCount;
 import racingcar.view.input.InputView;
 import racingcar.view.output.OutputView;
+import java.util.List;
 
 public class GameController {
 
@@ -30,6 +31,7 @@ public class GameController {
         while (!playCount.isPlayEnd(round)) {
             cars.racing();
             round++;
+            printCarsStatus();
         }
     }
 
@@ -41,5 +43,10 @@ public class GameController {
     private void savePlayCount() {
         String countInput = inputView.receivePlayCount();
         playCount = PlayCount.from(countInput);
+    }
+
+    private void printCarsStatus() {
+        List<String> carsStatus = cars.eachStatus();
+        outputView.printCarsStatus(carsStatus);
     }
 }

@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
 
@@ -24,5 +25,11 @@ public class Cars {
             int number = RandomNumber.pickNumber();
             car.accelerate(number);
         });
+    }
+
+    public List<String> eachStatus() {
+        return cars.stream()
+                .map(Car::toString)
+                .collect(Collectors.toList());
     }
 }

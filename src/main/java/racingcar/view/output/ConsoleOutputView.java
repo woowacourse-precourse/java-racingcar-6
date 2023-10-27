@@ -1,5 +1,7 @@
 package racingcar.view.output;
 
+import java.util.List;
+
 public class ConsoleOutputView implements OutputView {
 
     @Override
@@ -16,5 +18,13 @@ public class ConsoleOutputView implements OutputView {
     public void printGameEnd() {
         System.out.println();
         System.out.println("실행 결과");
+    }
+
+    @Override
+    public void printCarsStatus(final List<String> cars) {
+        for (String car : cars) {
+            System.out.println(car);
+        }
+        System.out.println();
     }
 }
