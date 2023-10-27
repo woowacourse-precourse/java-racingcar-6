@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.handler.InputHandler;
+import racingcar.model.Cars;
 import racingcar.service.CarService;
 import racingcar.view.GameView;
 
@@ -19,6 +20,13 @@ public class GameController {
 
     public void startGame() {
         String carNames = gameView.inputCarNames();
+        List<String> nameList = inputHandler.convertNamesToNameList(carNames);
+        Cars cars = carService.createCars(nameList);
+
+        String inputAttempts = gameView.inputAttempts();
+        int attempts = inputHandler.convertAttemptsToInt(inputAttempts);
+
+
 
     }
 }
