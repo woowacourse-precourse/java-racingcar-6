@@ -85,4 +85,8 @@ public class Racing {
         return Randoms.pickNumberInRange(0, 9) > 3;
     }
 
+    public long getAttempCount() {
+        return attempCount;
+    }
+
 }

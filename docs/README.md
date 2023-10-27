@@ -102,8 +102,8 @@
    - [x] race
      1) isMovable(랜덤숫자를 생성해 움직일지 결정해준다)
      - 자동차 데이터를 가져와 랜덤 숫자를 생성해서 조건을 충족시키면 한칸 전진시킨다
-   - [ ] getAttempCount
-     - 시도횟수를 보내준다
+   - [x] getAttempCount
+     - 시도횟수를 보내준다가
 
 ## view
    __1. InputView__
