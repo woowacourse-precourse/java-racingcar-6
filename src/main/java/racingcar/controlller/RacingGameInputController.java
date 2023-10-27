@@ -1,6 +1,7 @@
 package racingcar.controlller;
 
 import static racingcar.model.RacingGameConstants.MAX_CAR_NAME_LENGTH;
+import static racingcar.model.RacingGameConstants.MIN_CAR_NAME_LENGTH;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
@@ -23,16 +24,19 @@ public class RacingGameInputController {
     }
 
     private static void validateCarList(String userInput) {
-        validateNames(userInput);
+        validateCarNames(userInput);
     }
 
-    private static void validateNames(String userInput) {
+    private static void validateCarNames(String userInput) {
         List<String> carNames = Arrays.stream(userInput.split(","))
                 .toList();
-        if (carNames.stream()
-                .filter(carName -> carName.length() <= MAX_CAR_NAME_LENGTH)
-                .count() != carNames.size()) {
-            throw new IllegalArgumentException("이름은 " + MAX_CAR_NAME_LENGTH + "자 이하만 가능합니다.");
+        carNames.forEach(RacingGameInputController::validateCarNameLength);
+    }
+
+    private static void validateCarNameLength(String carName) {
+        if (carName.isEmpty() || carName.length() > MAX_CAR_NAME_LENGTH) {
+            throw new IllegalArgumentException(
+                    "이름은 " + MIN_CAR_NAME_LENGTH + "자 이상 " + MAX_CAR_NAME_LENGTH + "자 이하여야 합니다.");
         }
     }
 
