@@ -45,7 +45,7 @@ pobi,woni,jun
 - 0에서 9 사이에서 무작위 값을 구한다.
 - `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
 - 사용 예시
-```java
+```
 Randoms.pickNumberInRange(0,9);
 ```
 
