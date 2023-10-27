@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import racingcar.domain.Car;
 import racingcar.domain.Circuit;
 import racingcar.domain.TryCount;
 import racingcar.dto.RacingResult;
@@ -25,7 +24,11 @@ public class GameController {
     public void playGame() {
         Circuit circuit = inputView.getInputCarNames();
         TryCount tryCount = inputView.getTryCount();
-        List<RacingResult> raceResults = racingService.race(circuit);
-        outputView.printResult(raceResults);
+        for (int i = 0; i < tryCount.getCount(); i++) {
+            List<RacingResult> raceResults = racingService.race(circuit);
+            outputView.printResult(raceResults);
+        }
+
+
     }
 }

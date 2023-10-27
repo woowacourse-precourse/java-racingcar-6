@@ -14,4 +14,5 @@ public class RacingService {
                 .map(RacingResult::new)
                 .toList();
     }
+
 }
