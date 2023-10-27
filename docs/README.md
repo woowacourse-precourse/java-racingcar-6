@@ -21,10 +21,10 @@
     반환값: int result (전진하면 1, 정지면 0)
 
 5. ```
-   runOneCycle(List<String> nameList)
-   기능: 한 차수를 실행함
+   getDistanceList(List<String> nameList, List<Integer> distanceList)
+   기능: 한 회차가 끝난 이후에 현재까지 이동거리를 구함
    매개변수: nameList (참가자 리스트)
-   반환값: List<Integer> distanceList (해당 회차에 움직인 참가자 리스트)
+   반환값: List<Integer> distanceList (현제 회차까지의 각 참가자별 이동거리 리스트)
 
 6. ```
    runAllCycle(List<String> nameList, int count)
