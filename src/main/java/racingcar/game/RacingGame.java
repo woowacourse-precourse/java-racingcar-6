@@ -3,6 +3,7 @@ package racingcar.game;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 import racingcar.collaborator.Race;
 import racingcar.collaborator.generic.RaceProgress;
 import racingcar.collaborator.generic.RacerProgress;
@@ -26,10 +27,10 @@ public class RacingGame {
                 .map(RacerProgress::mileage)
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("무조건 나오게 되어있는데 말이에요."));
-        List<String> winners = raceProgress.racerProgress().stream()
+        String winners = raceProgress.racerProgress().stream()
                 .filter(racerProgress -> Objects.equals(racerProgress.mileage(), biggestMileage))
                 .map(RacerProgress::name)
-                .toList();
+                .collect(Collectors.joining(","));
 
         Output.consoleLine("최종 우승자 : " + winners);
     }
