@@ -6,6 +6,8 @@ import java.util.List;
 
 public class User {
 
+    private static final int MAX_NAME_SIZE=5;
+
     public List<Car> nameForCar(String names) {
         List<String> carsName=separateNames(names);
         List<Car> cars=new ArrayList<>();
@@ -17,8 +19,8 @@ public class User {
         return 0;
     }
 
-    public boolean validateName(int name) {
-        return false;
+    public boolean validateName(String name) {
+        return name.length()<=MAX_NAME_SIZE;
     }
 
     public List<String> separateNames(String names) {
