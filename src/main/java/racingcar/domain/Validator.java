@@ -6,12 +6,12 @@ import java.util.Objects;
 
 import static racingcar.global.exception.ErrorMessage.*;
 
-public class CarNameValidator {
+public class Validator {
     private static final String COMMA = ",";
     private static final String NEW_LINE = "\n";
     private static final String TAB = "\t";
 
-    private CarNameValidator() {
+    private Validator() {
     }
 
     public static void validateNull(final String input) {
@@ -44,7 +44,18 @@ public class CarNameValidator {
         }
     }
 
+    public static void validateNumber(final String input) {
+        if (isInvalidNumber(input)) {
+            throw RacingCarException.of(CONTAIN_IMPROPER_LETTER);
+        }
+    }
+
     private static boolean hasWhiteSpace(final String input) {
         return input.chars().anyMatch(Character::isWhitespace);
+    }
+
+    private static boolean isInvalidNumber(final String input) {
+        return !input.chars()
+                .allMatch(Character::isDigit);
     }
 }

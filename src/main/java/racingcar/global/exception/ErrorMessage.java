@@ -6,8 +6,8 @@ public enum ErrorMessage {
     ENDS_WITH_COMMA("The input cannot ends with comma"),
     ENDS_WITH_NEW_LINE("The input cannot ends with new line"),
     CONTAIN_IMPROPER_LETTER("The input cannot contain improper letters."),
+    INVALID_NUMBER("The input length cannot be different from length configured by the game."),
 
-    INVALID_LENGTH("The input length cannot be different from length configured by the game."),
 
     DUPLICATED_NUMBER("The input cannot contain duplicated numbers."),
     EMPTY_NUMBER("The input cannot be empty."),

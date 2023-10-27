@@ -3,7 +3,7 @@ package racingcar.domain;
 import java.util.Arrays;
 import java.util.List;
 
-import static racingcar.domain.CarNameValidator.*;
+import static racingcar.domain.Validator.*;
 
 public class Cars {
     private static final String COMMA = ",";
