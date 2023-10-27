@@ -11,8 +11,6 @@ public class Application {
                     .build();
 
             game.play();
-        }catch (IllegalArgumentException e){
-            e.printStackTrace();
         }finally {
             Console.close();
         }
