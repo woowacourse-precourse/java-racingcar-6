@@ -13,4 +13,8 @@ public class Car {
         return name.getName();
     }
 
+    public void attemptForward(){
+        position.attemptForward();
+    }
+
 }
