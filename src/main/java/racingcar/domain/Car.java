@@ -8,8 +8,10 @@ public class Car {
         this.name = name;
     }
 
-    public void move() {
-
+    public void move(int randomNumber) {
+        if (4 <= randomNumber && randomNumber <= 9) {
+            distance++;
+        }
     }
 
     @Override
