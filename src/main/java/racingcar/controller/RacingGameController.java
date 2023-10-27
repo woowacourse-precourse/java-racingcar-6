@@ -15,11 +15,14 @@ public class RacingGameController {
         return new Cars(cars);
     }
 
-    public void run() {
+    private RacingGame initGame() {
         List<String> carNames = inputView.readCarNames();
         Cars cars = createCarsByCarNames(carNames);
         int attemptCount = inputView.readAttemptCount();
-        RacingGame racingGame = new RacingGame(cars, attemptCount);
+        return new RacingGame(cars, attemptCount);
+    }
 
+    public void run() {
+        RacingGame racingGame = initGame();
     }
 }
