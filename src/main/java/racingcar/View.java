@@ -10,7 +10,7 @@ public class View {
     public String[] inputCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String read = Console.readLine();
-        String[] names = read.split(DELIMITER);
+        String[] names = getNames(read);
         validateNameLength(names);
         return names;
     }
@@ -36,6 +36,14 @@ public class View {
         System.out.println(String.format(MESSAGE_WINNER_FORMAT, names));
     }
 
+    private String[] getNames(String s) {
+        String[] names = s.split(DELIMITER);
+        for (int i = 0; i < names.length; i++) {
+            names[i] = names[i].strip();
+        }
+        return names;
+    }
+
     private void validateIsNumber(String s) {
         try {
             Integer.parseInt(s);
@@ -46,8 +54,8 @@ public class View {
 
     private void validateNameLength(String[] names) {
         for(String name : names) {
-            if (name.length() > 5) {
-                throw new IllegalArgumentException("5자 이하만 입력할 수 있습니다.");
+            if (name.length() > 5 || name.length() == 0) {
+                throw new IllegalArgumentException("1자 이상 5자 이하만 입력할 수 있습니다.");
             }
         }
     }
