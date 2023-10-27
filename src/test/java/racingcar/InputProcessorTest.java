@@ -22,13 +22,13 @@ public class InputProcessorTest {
             String input = "aaa,bbb,ccc";
 
             //when
-            List<Car> result = inputProcessor.manipulateCarNameInput(input);
+            List<Player> result = inputProcessor.manipulateCarNameInput(input);
 
             //then
             assertThat(result).hasSize(3)
-                    .contains(Car.of("aaa"))
-                    .contains(Car.of("bbb"))
-                    .contains(Car.of("ccc"));
+                    .contains(Player.of("aaa"))
+                    .contains(Player.of("bbb"))
+                    .contains(Player.of("ccc"));
         }
 
         @Test

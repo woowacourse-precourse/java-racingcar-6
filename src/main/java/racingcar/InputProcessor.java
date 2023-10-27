@@ -8,20 +8,20 @@ import java.util.List;
 public class InputProcessor {
     public static final String CAR_NAMES_INPUT_REGEX = "^[^,]+(,[^,]+)*$";
 
-    public List<Car> readCarNamesInput() {
+    public List<Player> readCarNamesInput() {
         return manipulateCarNameInput(Console.readLine());
     }
 
-    public List<Car> manipulateCarNameInput(String input) {
+    public List<Player> manipulateCarNameInput(String input) {
         validateCarNameInput(input);
         return parseCarNameInputToList(input);
     }
 
-    private static List<Car> parseCarNameInputToList(String carNamesInput) {
+    private static List<Player> parseCarNameInputToList(String carNamesInput) {
         String[] carNames = carNamesInput.split(",");
 
         return Arrays.stream(carNames)
-                .map(Car::of)
+                .map(Player::of)
                 .toList();
     }
 

@@ -1,6 +1,5 @@
 package racingcar;
 
-import java.sql.PreparedStatement;
 import java.util.List;
 
 public class OutputProcessor {
@@ -16,18 +15,18 @@ public class OutputProcessor {
         System.out.println(REPETITION_INPUT_MESSAGE);
     }
 
-    public void printMoveResult(List<Car> cars) {
-        for (Car car : cars) {
-            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
+    public void printMoveResult(List<Player> players) {
+        for (Player player : players) {
+            System.out.println(player.getName() + " : " + "-".repeat(player.getPosition()));
         }
         System.out.println();
     }
 
-    public void printWinners(List<Car> winners) {
+    public void printWinners(List<Player> winners) {
         System.out.println("최종 우승자 : " + formatCarList(winners));
     }
 
-    private String formatCarList(List<Car> winners) {
+    private String formatCarList(List<Player> winners) {
         StringBuilder result = new StringBuilder();
 
         for (int index = 0; index < winners.size(); index++) {
@@ -39,7 +38,7 @@ public class OutputProcessor {
         return result.toString();
     }
 
-    private static boolean isLastIndex(List<Car> winners, int index) {
+    private static boolean isLastIndex(List<Player> winners, int index) {
         return index == winners.size() - 1;
     }
 }

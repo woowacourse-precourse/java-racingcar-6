@@ -2,18 +2,18 @@ package racingcar;
 
 import java.util.Objects;
 
-public class Car {
+public class Player {
     private String name;
     private Integer position;
 
-    private Car(String name, Integer position) {
+    private Player(String name, Integer position) {
         this.name = name;
         this.position = position;
     }
 
-    public static Car of(String name) {
+    public static Player of(String name) {
         validateCarName(name);
-        return new Car(name, 0);
+        return new Player(name, 0);
     }
 
     private static void validateCarName(String name) {
@@ -38,8 +38,8 @@ public class Car {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Car car = (Car) o;
-        return Objects.equals(name, car.name) && Objects.equals(position, car.position);
+        Player player = (Player) o;
+        return Objects.equals(name, player.name) && Objects.equals(position, player.position);
     }
 
     @Override
