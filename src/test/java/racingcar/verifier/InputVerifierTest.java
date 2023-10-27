@@ -18,6 +18,12 @@ public class InputVerifierTest {
         assertThrows(IllegalArgumentException.class, () -> InputVerifier.verifyName(",,,차"));
     }
 
+    @DisplayName("중복된 자동차 이름에 대한 테스트")
+    @Test
+    void checkDistinct() {
+        assertThrows(IllegalArgumentException.class, () -> InputVerifier.verifyName("붕붕이,붕붕이,붕붕이,봉봉이"));
+    }
+
     @DisplayName("아무런 입력도 주어지지 않았을 때 테스트")
     @Test
     void checkTotallyNull() {
