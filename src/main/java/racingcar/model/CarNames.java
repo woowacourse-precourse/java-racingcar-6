@@ -21,8 +21,11 @@ public class CarNames {
     private void verifyCarName(StringTokenizer stringTokenizer) {
         while(stringTokenizer.hasMoreTokens()) {
             String carName = stringTokenizer.nextToken();
-            if(carName.length() > 5)
+
+            if(carName.length() > 5) {
                 throw new IllegalArgumentException();
+            }
+
             carNames.add(carName);
         }
     }
