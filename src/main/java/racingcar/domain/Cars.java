@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -37,6 +39,13 @@ public class Cars {
         return cars.stream()
                 .distinct()
                 .count() != cars.size();
+    }
+
+    public void racing() {
+        for (final Car car : cars) {
+            final int fuel = Randoms.pickNumberInRange(0, 9); // TODO Interface 분리
+            car.moveForward(fuel);
+        }
     }
 
     public List<Car> getWinners() {
