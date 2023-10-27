@@ -25,4 +25,8 @@ public class Car {
     public String getName() {
         return name;
     }
+
+    public String getPositionString() {
+        return "-".repeat(position);
+    }
 }
