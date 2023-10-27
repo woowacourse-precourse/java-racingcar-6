@@ -14,7 +14,7 @@ public class RacingGame {
         tryNumber = new TryNumber();
     }
     public void start(){
-        InputCarNames();
+        InputCarNames();//자동차 이름 정리 다 됨.
     }
     public void InputCarNames(){
         String inputCarNames = inputView.InputCarNames();

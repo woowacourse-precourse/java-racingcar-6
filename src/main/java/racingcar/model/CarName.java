@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.StringTokenizer;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -44,9 +43,9 @@ public class CarName {
             if(c == ','){
                 cnt++;
             }
-            if(cnt != carList.size()-1){
-                throw new IllegalArgumentException("구분자는 자동차 이름 사이의 쉼표입니다.");
-            }
+        }
+        if(cnt != carList.size()-1){
+            throw new IllegalArgumentException("구분자는 자동차 이름 사이의 쉼표입니다.");
         }
     }
 }
