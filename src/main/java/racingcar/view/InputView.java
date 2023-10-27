@@ -7,23 +7,23 @@ import racingcar.validation.TryNumberValidation;
 public class InputView {
 
     PlayerValidation inputValidation;
-    public static String getPlayerInput() {
+    public static String [] getPlayerInput() {
         String input = Console.readLine();
-        splitWithComma(input);
-        return input;
+        String [] players = splitWithComma(input);
+        return players;
     }
 
     public static int getTryNumberInput() {
         String input = Console.readLine();
         new TryNumberValidation(input);
-        int parsedInput = Integer.parseInt(input);
-        return parsedInput;
+        return Integer.parseInt(input);
     }
 
-    private static void splitWithComma(String input) {
+    private static String [] splitWithComma(String input) {
         String[] splits = input.split(",");
         for (String split : splits) {
             new PlayerValidation(split);
         }
+        return splits;
     }
 }
