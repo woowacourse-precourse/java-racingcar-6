@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -25,6 +26,15 @@ public class Application {
             }
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("시도할 회수로 숫자를 입력해주세요.");
+        }
+
+        for (int i = 0; i < tryCount; i++) {
+            for (String carName : carMap.keySet()) {
+                int randomNumber = Randoms.pickNumberInRange(0, 9);
+//                if (randomNumber >= 4) {
+//                    carMap.put(carName, carMap.get(carName) + 1);
+//                }
+            }
         }
     }
 }

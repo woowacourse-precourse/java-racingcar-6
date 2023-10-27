@@ -16,9 +16,9 @@
     - [x] 0 이하 입력 불가
     - [x] 모든 잘못된 입력에 `IllegalArgumentException` 발생 후 애플리케이션 종료
 
-- [ ] 전진할 무작위 값 추출
-    - [ ] `Randoms.pickNumberInRange()` 활용
-    - [ ] 0에서 9 사이의 값만 가능
+- [x] 전진할 무작위 값 추출
+    - [x] `Randoms.pickNumberInRange()` 활용
+    - [x] 0에서 9 사이의 값만 가능
 
 - [ ] 무작위 값이 4 이상일 경우 +1만큼 전진
 
