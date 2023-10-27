@@ -126,4 +126,20 @@ public class Application {
     	return winners;
     }
     
+    //결과 출력
+    public static void printGameResult(List<String> carList, Map<String, Integer> carRacingRecord) {
+    	int maxRecord = 0;
+    	for(String carName : carList) {
+    		String racingRecord=getRacingRecord(carRacingRecord.get(carName));
+    		maxRecord = Math.max(maxRecord,racingRecord.length());
+    	}
+    	List<String> winners = getWinner(carRacingRecord,maxRecord);
+    	StringBuilder winnerName= new StringBuilder();
+    	for(int i=0;i<winners.size()-1;i++) {
+    		winnerName.append(winners.get(i)+", ");
+    	}
+    	winnerName.append(winners.get(winners.size()-1));
+    	System.out.println("최종 우승자 : "+winnerName.toString());
+    }
+    
 }
