@@ -20,10 +20,14 @@ public class RacingController {
 
     private void racing(RacingCars racingCars, int tryCount) {
         OutputView.printExecutionResultMessage();
-        while (tryCount > 0) {
+        while (isNotRacingFinished(tryCount)) {
             racingCars.move();
             OutputView.printResult(racingCars.getCarStatuses());
             tryCount--;
         }
+    }
+
+    private boolean isNotRacingFinished(int tryCount) {
+        return tryCount > 0;
     }
 }
