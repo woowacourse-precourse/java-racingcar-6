@@ -5,9 +5,11 @@ import racingcar.utils.Validator;
 
 public class Car {
     private final List<String> names;
+    private final int attempt;
 
-    public Car(List<String> names) {
-        Validator.validateCarName(names);
+    public Car(List<String> names, int attempt) {
         this.names = names;
+        this.attempt = attempt;
     }
+
 }
