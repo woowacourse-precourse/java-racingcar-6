@@ -16,6 +16,7 @@ class ApplicationTest extends NsTest {
     void 전진_정지() {
         assertRandomNumberInRangeTest(
             () -> {
+                // 이때의 "1"은 숫자가 아닌 결국 문자이기 때문에 "1"이라는 이름이라고 생각하기
                 run("pobi,woni", "1");
                 assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
             },
