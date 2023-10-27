@@ -16,7 +16,11 @@ public class Application {
         int moveCount = InputView.getMoveCount();
         List<Car> carList = CarListGenerator.getCarList(carStrings);
         Cars cars = new Cars(carList);
-        OutputView.printResult(cars, moveCount);
+        OutputView.printResultMessage();
+        for (int count = 0; count < moveCount; count++) {
+            cars.move();
+            OutputView.printCarsLocation(cars);
+        }
         OutputView.printWinner(cars.getWinnerList());
     }
 }
