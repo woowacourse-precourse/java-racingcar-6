@@ -79,7 +79,7 @@ class CarRaceJudgeTest {
 
     @DisplayName("우승자를 찾을 수 있다.")
     @Test
-    void findWinners() {
+    void findAllWinnerNames() {
         // given
         List<String> names = List.of("pobi", "jason");
         carRaceJudge.addCars(names);
