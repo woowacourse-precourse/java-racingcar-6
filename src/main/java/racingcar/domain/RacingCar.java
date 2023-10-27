@@ -14,7 +14,7 @@ public class RacingCar {
     public RacingCar(List<String> carNames) {
         validateCarNames(carNames);
         validateDuplicate(carNames);
-        validateRange(carNames);
+        validateLength(carNames);
 
         this.carNames = carNames;
     }
@@ -37,10 +37,10 @@ public class RacingCar {
         }
     }
 
-    public void validateRange(List<String> carNames) {
+    public void validateLength(List<String> carNames) {
         for (String carName : carNames) {
             if (carName.length() > 5) {
-                throw INVALID_RANGE.getException();
+                throw INVALID_LENGTH.getException();
             }
         }
     }
