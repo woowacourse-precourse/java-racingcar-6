@@ -29,6 +29,6 @@ public class ShowMessageTest {
 
         machines.showMessage();
 
-        assertThat(outForTest.toString()).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        assertThat(outForTest.toString().trim()).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 }
