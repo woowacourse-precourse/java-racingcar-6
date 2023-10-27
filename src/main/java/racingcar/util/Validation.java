@@ -1,19 +1,23 @@
 package racingcar.util;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import static racingcar.constant.Message.*;
 
 public class Validation {
 
-    public void validateCarNames(String input) {
+    public List<String> validateCarNames(String input) {
         String[] carNames = input.split(DELIMITER, -1);
 
         validateDelimiterType(carNames);
         validateNameLength(carNames);
         int carNameCount = carNames.length;
         validateDuplicateName(carNameCount, carNames);
+
+        return new ArrayList<>(Arrays.asList(carNames));
     }
 
     public void validateDelimiterType(String[] carNames) {
@@ -43,11 +47,12 @@ public class Validation {
         }
     }
 
-    public void validateGameRound(String input) {
+    public int validateGameRound(String input) {
         boolean result = input.chars().allMatch(Character::isDigit);
 
         if (!result) {
             throw new IllegalArgumentException(EXCEPTION_ROUND_TYPE);
         }
+        return Integer.parseInt(input);
     }
 }
