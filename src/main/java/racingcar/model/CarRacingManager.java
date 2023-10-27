@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import racingcar.exception.car_racing_manager.NotFoundCarException;
 import racingcar.exception.car_racing_manager.NotUniqueCarNameException;
 
 public class CarRacingManager {
@@ -41,15 +42,22 @@ public class CarRacingManager {
         return carPositionMap.get(car);
     }
 
+    public Set<Entry<Car, Position>> getCarPositionEntries() {
+        return Collections.unmodifiableSet(carPositionMap.entrySet());
+    }
+
     public void changePosition(final Car car, final Position newPosition) {
+        validateCarExist(car);
         carPositionMap.put(car, newPosition);
     }
 
-    public Map<Car, Position> getCarPositionMap() {
-        return Collections.unmodifiableMap(carPositionMap);
+    private void validateCarExist(final Car car) {
+        if (!isCarExist(car)) {
+            throw new NotFoundCarException(car.getName());
+        }
     }
 
-    public Set<Entry<Car, Position>> getCarPositionEntries() {
-        return Collections.unmodifiableSet(carPositionMap.entrySet());
+    private boolean isCarExist(final Car car) {
+        return carPositionMap.containsKey(car);
     }
 }
