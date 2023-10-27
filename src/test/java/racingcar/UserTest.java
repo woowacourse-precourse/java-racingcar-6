@@ -23,6 +23,17 @@ public class UserTest {
 
     }
 
+    @Test
+    void 입력_횟수만큼_주행_테스트() {
+        int attemptNumber = 5;
+        user.tryDriving(attemptNumber);
+        // 리스트 cars에 있는 각각의 Car 인스턴스가 길이가 5 이하인 주행거리를 가지고 있는지 확인
+        for (Car car : user.cars) {
+            assertThat(car.getDistanceDriven()).as("운이 나빠서 '-'가 포함되지 않았어요!").contains("-");
+            assertThat(car.getDistanceDriven()).hasSizeLessThanOrEqualTo(5);
+        }
+    }
+
     private class User {
         private List<Car> cars = new ArrayList<>();
         public void makeCars(String inputStr) {
@@ -33,6 +44,14 @@ public class UserTest {
                     cars.add(new Car(carName));
                 } else {
                     throw new IllegalArgumentException();
+                }
+            }
+        }
+
+        public void tryDriving(int attemptNum) {
+            for (int i = 0; i < attemptNum; i++) {
+                for (Car car : cars) {
+                    car.driving();
                 }
             }
         }
