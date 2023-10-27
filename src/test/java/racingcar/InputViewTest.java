@@ -1,7 +1,6 @@
 package racingcar;
 
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Car;
 import racingcar.view.InputView;
 
 import java.io.ByteArrayInputStream;
@@ -32,12 +31,12 @@ public class InputViewTest {
     @Test
     void 올바른_자동차이름_입력_테스트() {
         setSystemInToCustomInput("song, jone , jason");
-        assertThatNoException().isThrownBy(() -> inputView.getCarList());
+        assertThatNoException().isThrownBy(() -> inputView.getCarsFromUser());
     }
     @Test
     void 자동차이름_입력값_공백_예외처리_테스트() {
         setSystemInToCustomInput("song, , jason");
-        assertThatThrownBy(() -> inputView.getCarList()).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> inputView.getCarsFromUser()).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test

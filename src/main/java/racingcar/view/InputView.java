@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.Car;
+import racingcar.domain.Cars;
 import racingcar.domain.TrialNumber;
 
 import java.util.ArrayList;
@@ -13,14 +13,10 @@ public class InputView {
         return new TrialNumber(trialNumberInput);
     }
 
-    public List<Car> getCarList() {
+    public Cars getCarsFromUser() {
         OutputView.printCarNameInputText();
         List<String> carNames = splitInputByComma(Console.readLine());
-        List<Car> carList = new ArrayList<>();
-        for (String carName : carNames) {
-            carList.add(new Car(carName));
-        }
-        return carList;
+        return new Cars(carNames);
     }
 
     public List<String> splitInputByComma(String input) {
