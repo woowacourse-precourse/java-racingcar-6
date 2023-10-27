@@ -23,11 +23,16 @@ public class GameController {
             displayAllCarsPosition(cars);
         }
 
-        displayWinner(cars);
+        List<Car> winners = findWinners(cars);
     }
 
-    private void displayWinner(List<Car> cars) {
+    private List<Car> findWinners(List<Car> cars) {
+        List<Car> sortedCars = sortCarsByPosition(cars);
+        int maxPosition = sortedCars.get(0).getPosition();
 
+        return sortedCars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .collect(Collectors.toList());
     }
 
     private List<Car> sortCarsByPosition(List<Car> cars) {
