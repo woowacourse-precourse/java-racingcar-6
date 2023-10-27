@@ -20,4 +20,8 @@ public class Car {
         distance++;
     }
 
+    public CarDistanceMessage createCarDistanceMessage() {
+        return new CarDistanceMessage(name, distance);
+    }
+
 }
