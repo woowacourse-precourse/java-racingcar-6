@@ -7,6 +7,7 @@ public class InputView {
     public void printCarNameMessage() {
         System.out.println(CAR_NAME_MESSAGE);
     }
+
     public void printTryCountMessage() {
         System.out.println(TRY_COUNT_MESSAGE);
     }

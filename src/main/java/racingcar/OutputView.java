@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.List;
 import java.util.StringJoiner;
 
 public class OutputView {
@@ -12,17 +13,17 @@ public class OutputView {
         System.out.println(RESULT_MESSAGE);
     }
 
-    public void printFinalWinner(List<Car> winners) {
+    public void printFinalWinner(List<String> winners) {
         StringJoiner stringJoiner = new StringJoiner(DELIMITER);
-        for(Car winner : winners) {
-            stringJoiner.add(winner.getName());
+        for (String winner : winners) {
+            stringJoiner.add(winner);
         }
         System.out.println(FINAL_WINNER + stringJoiner);
     }
 
-    public void printProgressMessage(List<Car> players) {
-        for(Car player : players) {
-            System.out.println(player.getName() + COLON + player.getProgress());
+    public void printProgressMessage(List<String> cars, ProgressBoard progressBoard) {
+        for (String carName : cars) {
+            System.out.println(carName + COLON + progressBoard.progressOf(carName));
         }
     }
 }

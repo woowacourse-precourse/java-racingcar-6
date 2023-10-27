@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ProgressBoard {
-    private final HashMap<Car, String> SCORE_BOARD;
+    private final HashMap<String, String> SCORE_BOARD;
     private final String EMPTY_STRING = "";
     private final String MOVE_STRING = "-";
     private static ProgressBoard INSTANCE = new ProgressBoard();
@@ -17,14 +17,14 @@ public class ProgressBoard {
         return INSTANCE;
     }
 
-    public void registerCars(List<Car> cars) {
-        for (Car car : cars) {
-            this.SCORE_BOARD.put(car, EMPTY_STRING);
+    public void registerCars(List<String> cars) {
+        for (String carName : cars) {
+            this.SCORE_BOARD.put(carName, EMPTY_STRING);
         }
     }
 
-    public void moveForward(Car car) {
-        this.SCORE_BOARD.put(car, this.SCORE_BOARD.get(car) + MOVE_STRING);
+    public void moveForward(String carName) {
+        this.SCORE_BOARD.put(carName, this.SCORE_BOARD.get(carName) + MOVE_STRING);
     }
 
 
