@@ -37,8 +37,8 @@ class InputGenerateManagerImplTest {
     @Test
     void generateInputStringSplitWithComma() {
         //if
-        String rawString = "한놈,두식이,석삼,너구리";
-        String illegalRawString = "한놈한놈1,두식이,석삼,너구리";
+        String rawString = "한놈,두식이,석삼,너구리밥";
+        String illegalRawString = "한놈한놈21,두식이1,석삼,너구리";
         InputGenerateManagerImpl inputGenerateManager = new InputGenerateManagerImpl();
 
         //when
@@ -46,7 +46,7 @@ class InputGenerateManagerImplTest {
 
         //then
         Assertions.assertThat(processedStrings).size().isEqualTo(4);
-        Assertions.assertThat(processedStrings).contains("한놈", "두식이", "석삼", "너구리");
+        Assertions.assertThat(processedStrings).contains("한놈", "두식이", "석삼", "너구리밥");
         Assertions.assertThatThrownBy(() -> inputGenerateManager.generateInputStringSplitWithComma(illegalRawString))
                 .isInstanceOf(IllegalLengthException.class);
     }

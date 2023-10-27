@@ -14,27 +14,27 @@ public class InputGenerateManagerImpl implements InputGenerateManager {
     }
 
     @Override
-    public Integer generateInputStringToInt(String rawData) {
-        validateIsNumeric(rawData);
-        return Integer.valueOf(rawData);
+    public Integer generateInputStringToInt(String rawString) {
+        validateIsNumeric(rawString);
+        return Integer.valueOf(rawString);
     }
 
     @Override
-    public List<String> generateInputStringSplitWithComma(String rawData) {
-        String[] splitData = rawData.split(",");
+    public List<String> generateInputStringSplitWithComma(String rawString) {
+        String[] splitData = rawString.split(",");
         validateLength(splitData);
         return Arrays.asList(splitData);
     }
 
-    private static void validateIsNumeric(String rawData) {
-        if (!rawData.matches("\\d+")) {
+    private static void validateIsNumeric(String rawString) {
+        if (!rawString.matches("\\d+")) {
             throw new IllegalTypeException();
         }
     }
 
-    private static void validateLength(String[] splitData) {
-        for (String string : splitData) {
-            if(string.length() >= 5){
+    private static void validateLength(String[] splitString) {
+        for (String string : splitString) {
+            if(string.length() > 5){
                 throw new IllegalLengthException();
             }
         }
