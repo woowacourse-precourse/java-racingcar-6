@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class User {
@@ -17,8 +19,10 @@ public class User {
         return false;
     }
 
-    private List<String> separateNames(int names){
-        return null;
+    private List<String> separateNames(String names){
+        String[] temp=names.split(",");
+        List<String> cars=new ArrayList<>(Arrays.asList(temp));
+        return cars;
     }
 
 
