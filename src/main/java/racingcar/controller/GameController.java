@@ -49,8 +49,17 @@ public class GameController {
         return movement;
     }
 
-    public List<String> racingResult(List<String> carNames, List<Integer> movement) {
+    private List<String> racingResult(List<String> carNames, List<Integer> movement) {
         List<String> winner = new ArrayList<>();
+
+        List<Integer> winnerIndex = getWinnerIndex(movement);
+        for (int i = 0; i < winnerIndex.size(); i++) {
+            winner.add(carNames.get(winnerIndex.get(i)));
+        }
+        return winner;
+    }
+
+    private List<Integer> getWinnerIndex(List<Integer> movement) {
         List<Integer> winnerIndex = new ArrayList<>();
         int maxMove = 0;
         for (int i = 0; i < movement.size(); i++) {
@@ -63,10 +72,6 @@ public class GameController {
                 winnerIndex.add(i);
             }
         }
-        for (int i = 0; i < winnerIndex.size(); i++) {
-            winner.add(carNames.get(winnerIndex.get(i)));
-        }
-
-        return winner;
+        return winnerIndex;
     }
 }
