@@ -5,7 +5,7 @@ public class OutputView {
     private static final String ROTATE_COUNT = "시도할 회수는 몇회인가요?";
     private static final String GAME_RESULT = "실행 결과";
     private static final String WINNER = "최종 우승자 : ";
-    public void printStart(){
+    public void racingStart(){
         System.out.println(INPUT_CARNAME);
     }
 }
