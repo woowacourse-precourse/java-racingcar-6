@@ -1,13 +1,13 @@
 package racingcar.controller;
 
-import racingcar.view.MessagePrinter;
+import racingcar.view.UserInputValue;
 
 public class RaceController {
     public RaceController() {
     }
 
-    public void startGame() {
-        MessagePrinter.printStartMessage();
-        MessagePrinter.printCountMessage();
+    public void startRace() {
+        UserInputValue.inputCarName();
+        UserInputValue.inputMovementCount();
     }
 }
