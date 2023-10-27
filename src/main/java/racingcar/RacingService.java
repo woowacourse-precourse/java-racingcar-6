@@ -66,14 +66,14 @@ public class RacingService {
         racingRepository.moveCar(moveArray);
     }
 
-//    /**
-//     * 3-2. 차수별 이동결과 출력
-//     */
-//    void printTotalMove() {
-//        List<Car> carList = racingRepository.getCarList();
-//        for (Car car : carList) {
-//            System.out.printf("%s : %s \n", car.getName(), "-".repeat(car.getTotalMove()));
-//        }
-//        System.out.println();
-//    }
+    /**
+     * 3-2. 차수별 자동차 이동결과 출력
+     */
+    void printTotalMove() {
+        List<Car> carList = racingRepository.getCarList();
+        for (Car car : carList) {
+            System.out.printf("%s : %s \n", car.getName(), "-".repeat(car.getTotalMove()));
+        }
+        System.out.println();
+    }
 }

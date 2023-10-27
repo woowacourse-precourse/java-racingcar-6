@@ -22,7 +22,7 @@ public class RacingController {
         System.out.println("\n실행 결과");
         for (int phase = 0; phase < validCount; phase++){
             racingService.generateMove();
-            // racingService.printTotalMove();
+            racingService.printTotalMove();
         }
 
         // 4. todo 우승자 출력
