@@ -16,7 +16,7 @@ public class CarNameValidator {
 	}
 
 	public void validate() {
-		if (!isRightNamesString() || !isRightNameSize() ) {
+		if ( !isRightNamesString() || !isRightNameSize() || !isNotDuplicate() ) {
 			throw new IllegalArgumentException("Car Validation failed.");
 		}
 	}
@@ -28,5 +28,9 @@ public class CarNameValidator {
 	public boolean isRightNameSize() {
 		return carNameList.stream()
 				.allMatch(name -> !name.isEmpty() && name.length() <= Constants.NAME_SIZE);
+	}
+
+	public boolean isNotDuplicate() {
+		return carNameList.size() == carNameList.stream().distinct().count();
 	}
 }
