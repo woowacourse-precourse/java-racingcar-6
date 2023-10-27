@@ -39,7 +39,7 @@ public class RaceControllerImpl implements RaceController {
             System.out.println();
         }
 
-        raceService.filterWinner(participants);
-        console.displayWinner(participants);
+        List<Participant> winners = raceService.filterWinner(participants);
+        console.displayWinner(winners);
     }
 }
