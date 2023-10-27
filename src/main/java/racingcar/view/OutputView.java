@@ -11,6 +11,14 @@ public class OutputView {
         for(int i = 0; i < cars.getNames().size(); i++ ){
             System.out.print(cars.getNameByIndex(i));
             System.out.print(GameMessage.OUTPUT_COLON.getMessage());
+            displayForward(cars, i);
+        }
+        System.out.println();
+    }
+
+    public static void displayForward(Car cars, int i) {
+        for(int j = cars.getMileageByIndex(i); j > 0; j--){
+            System.out.print(GameMessage.OUTPUT_FORWARD.getMessage());
         }
         System.out.println();
     }
