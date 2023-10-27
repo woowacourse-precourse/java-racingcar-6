@@ -11,6 +11,7 @@ public class Application {
 
         String[] carArray = changeToCarArr();       // 자동차 이름 분리 저장할 배열
 
+        carRace(carArray);
 
     }
 
@@ -39,5 +40,11 @@ public class Application {
 
     public static String[] changeToCarArr() {
         return carString.split(",");
+    }
+
+    public static void carRace(String[] carArray) {
+        for (int i = 0; i < tryNum; i++) {
+
+        }
     }
 }

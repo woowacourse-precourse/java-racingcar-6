@@ -3,7 +3,9 @@ package study;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import racingcar.Application;
 
 public class StringTest {
 
@@ -46,6 +48,16 @@ public class StringTest {
         assertThatThrownBy(() -> input.charAt(5))
                 .isInstanceOf(StringIndexOutOfBoundsException.class)
                 .hasMessageContaining("String index out of range: 5");
+    }
+
+    @Test
+    public void checkCarLength_자동차_이름_길이확인(){
+        Application sol1 = new Application();
+        String input1 = "lee,hong,kimkim";
+
+        boolean checked = sol1.checkCarLength(input1);
+
+        assertThat(checked).isFalse();
     }
 
 }
