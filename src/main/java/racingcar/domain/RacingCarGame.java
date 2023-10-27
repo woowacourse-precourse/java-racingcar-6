@@ -7,7 +7,7 @@ public class RacingCarGame {
     private Input input;
     private Output output;
     private Referee referee;
-    private int moveCount;
+    private int remainMoveCount;
     private List<Car> carList;
 
     public RacingCarGame() {
@@ -39,11 +39,11 @@ public class RacingCarGame {
         for (Car car : carList) {
             car.moveOrStop();
         }
-        moveCount--;
+        remainMoveCount--;
     }
 
     private boolean isFinish() {
-        return (moveCount == 0);
+        return (remainMoveCount == 0);
     }
 
     private void getInput() {
@@ -52,7 +52,7 @@ public class RacingCarGame {
         carList = makeCarList(carNameList);
 
         output.printMoveCountInputRequest();
-        moveCount = input.getMoveCount();
+        remainMoveCount = input.getMoveCount();
     }
 
     private List<Car> makeCarList(List<String> carNames) {
