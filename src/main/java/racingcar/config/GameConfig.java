@@ -6,6 +6,9 @@ import racingcar.view.MessageReceiver;
 
 public class GameConfig {
 
+    private GameConfig() {
+    }
+
     public static GameManager buildGameManager() {
         MessagePrinter messagePrinter = new MessagePrinter();
         MessageReceiver messageReceiver = new MessageReceiver();
