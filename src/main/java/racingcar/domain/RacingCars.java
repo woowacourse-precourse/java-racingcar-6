@@ -8,4 +8,8 @@ public class RacingCars {
     public RacingCars(List<Car> cars) {
         this.cars = cars;
     }
+
+    public void move() {
+        cars.forEach(Car::move);
+    }
 }
