@@ -28,7 +28,7 @@
       - [x] `validateCarListInputLength` 메서드
         - [x] `validateCarNameLength` 메서드
     - 자동차 이름에 중복이 있다면 `IllegalArgumentException` 발생
-      - [ ] `validateCarListInputUnique` 메서드
+      - [x] `validateCarListInputUnique` 메서드
 
 ## 자동차 생성 기능
 - [ ] Car `생성자`

@@ -1,6 +1,8 @@
 package racingcar;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Application {
     public static void main(String[] args) {
@@ -28,6 +30,16 @@ public class Application {
     public static void validateCarNameLength(String name) {
         if (name.length() > 5) {
             throw new IllegalArgumentException();
+        }
+    }
+
+    public static void validateCarListInputUnique(List<String> inputList) {
+        Set<String> seen = new HashSet<>();
+        for (String name : inputList) {
+            if (seen.contains(name)) {
+                throw new IllegalArgumentException();
+            }
+            seen.add(name);
         }
     }
 }
