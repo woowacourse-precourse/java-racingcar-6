@@ -50,7 +50,7 @@
   - [x] 자동차의 현재 전진결과를 출력한다. -printCurrentCarResult()
     - [x] 자동차의 전진 상태값을 작대기(-)로 바꿔준다. -switchMovePositionToSlash()
 - [ ] 자동차들중 우승한 (가장 많이 전진한) 자동차의 이름을 출력한다. -findWinningCarsAndPrint()
-  - [ ] 자동차들 중 가장 멀리 나간 자동차를 구한다. -findWinningCars()
+  - [x] 자동차들 중 가장 멀리 나간 자동차를 구한다. -findWinningCars()
     - 가장 멀리 나간 자동차가 여러대 일수도 있다.
   - [ ] 해당 자동차의 이름을 출력한다. -printCarName()
     - [ ] 여러대인 경우 쉼표(,)를 이용해 구분한다. -splitByComma()
