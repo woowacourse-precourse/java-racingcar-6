@@ -9,7 +9,9 @@ public class RacingGame {
         List<String> racingCarNames = InputView.readRacingCarName();
 
         for (String name : racingCarNames) {
+            name = name.trim();
             Validator.validateUnderFiveLength(name);
+            Validator.validateIsBlank(name);
         }
     }
 }
