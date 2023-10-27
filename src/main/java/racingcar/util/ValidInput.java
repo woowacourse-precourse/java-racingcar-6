@@ -1,5 +1,7 @@
 package racingcar.util;
 
+import static racingcar.constant.NumberConst.MAX_CAR_NAME_LENGTH;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,7 +10,7 @@ public class ValidInput {
     public static void validCarNameLength(String carNames){
         List<String> carNameList = Arrays.stream(carNames.split(",")).toList();
         for (String carName : carNameList) {
-            if(carName.length() > 5){
+            if(carName.length() > MAX_CAR_NAME_LENGTH){
                 throw new IllegalArgumentException();
             }
         }

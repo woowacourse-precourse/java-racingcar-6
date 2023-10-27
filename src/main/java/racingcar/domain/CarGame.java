@@ -1,7 +1,8 @@
 package racingcar.domain;
 
+import static racingcar.constant.NumberConst.*;
+
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.Comparator;
 import java.util.List;
 import racingcar.util.ConvertUtil;
 
@@ -17,8 +18,8 @@ public class CarGame {
 
     public void movePosition(){
         for (Car car : cars) {
-            int randomNum = Randoms.pickNumberInRange(0, 9);
-            if(randomNum >=4){
+            int randomNum = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+            if(randomNum >=STANDARD_MOVING_NUMBER){
                 car.addPosition();
             }
         }
