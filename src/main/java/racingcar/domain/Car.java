@@ -4,6 +4,18 @@ public class Car {
     private String name;
     private Integer successMoveForwardCount;
 
+    private String moveForwardStatus;
+
+    public String getMoveForwardStatus() {
+        return moveForwardStatus;
+    }
+
+    public void setMoveForwardStatus(Integer tryRepetitionNumber) {
+        for (int i = 0; i < tryRepetitionNumber; i++) {
+            this.moveForwardStatus += "-";
+        }
+    }
+
     public String getName() {
         return name;
     }
