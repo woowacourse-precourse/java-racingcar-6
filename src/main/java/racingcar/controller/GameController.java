@@ -25,7 +25,7 @@ public class GameController {
 
     public void playGame() {
         Circuit circuit = setupRace();
-        TryCount tryCount = inputView.getTryCount();
+        TryCount tryCount = TryCount.of(inputView.getTryCount());
 
         runRace(tryCount, circuit);
         announceRaceWinners(circuit);
@@ -38,7 +38,7 @@ public class GameController {
     }
 
     private Circuit setupRace() {
-        return inputView.getInputCarNames();
+        return Circuit.fromCarNames(inputView.getInputCarNames());
     }
 
     private void raceOneRound(Circuit circuit) {

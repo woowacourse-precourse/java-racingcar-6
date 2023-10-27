@@ -18,18 +18,16 @@ public class InputView {
     private InputView() {
     }
 
-    public Circuit getInputCarNames() {
+    public List<String> getInputCarNames() {
         System.out.println(Message.INPUT_CARS.message);
         String input = Console.readLine();
-        List<String> convertCarNames = TypeConvertor.stringToIntegerList(input);
-        return Circuit.fromCarNames(convertCarNames);
+        return TypeConvertor.stringToIntegerList(input);
     }
 
-    public TryCount getTryCount() {
+    public Integer getTryCount() {
         System.out.println(Message.INPUT_MOVE_COUNT.message);
         String input = Console.readLine();
-        Integer convertTryCount = TypeConvertor.stringToInt(input);
-        return TryCount.of(convertTryCount);
+        return TypeConvertor.stringToInt(input);
     }
 
     private enum Message {
