@@ -15,6 +15,13 @@ public class Validator {
         return inputs;
     }
 
+    public static String isValidAttemptCount(String input) {
+        isEmpty(input);
+        isOneOrMore(input);
+        isInRangeOfInt(input);
+        return input;
+    }
+
     public static void isEmpty(String input) {
         if (input.trim().isEmpty()) {
             throw new IllegalArgumentException(ExceptionMessage.INPUT_VALUE);
