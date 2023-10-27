@@ -63,4 +63,8 @@ public class Cars {
         return this.cars;
     }
 
+    public void setCars(HashMap<String, Integer> cars) {
+        this.cars = cars;
+    }
+
 }
