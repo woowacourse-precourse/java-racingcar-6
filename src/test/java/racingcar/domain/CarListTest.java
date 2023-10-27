@@ -11,10 +11,12 @@ class CarListTest {
 
     @Test
     void stringToCarListTest() {
+        //given
         List<Car> testCarList = new ArrayList<>();
         testCarList.add(new Car("zizi"));
         testCarList.add(new Car("hoho"));
         testCarList.add(new Car("haha"));
+
         //when
         CarList carList = new CarList(testCarList);
 
@@ -32,8 +34,10 @@ class CarListTest {
         testCarList.add(new Car("hoho"));
         testCarList.add(new Car("haha"));
         CarList carList = new CarList(testCarList);
+
         //when
         String winner = carList.racingWinnerDecision();
+
         //then
         assertEquals(winner, "zizi");
     }
