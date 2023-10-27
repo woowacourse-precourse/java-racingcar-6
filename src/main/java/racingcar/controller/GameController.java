@@ -54,7 +54,6 @@ public class GameController {
     }
 
     private static List<Car> getCars(String cars){
-        cars.replaceAll(" ","");
         List<Car> convertCars = new ArrayList<>();
 
         for (String carName : cars.split(",")){

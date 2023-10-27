@@ -6,7 +6,7 @@ public class Name {
 
     public Name(final String name){
         validate(name);
-        this.value = name;
+        this.value = name.replaceAll(" ","");
     }
 
     public String getName(){
