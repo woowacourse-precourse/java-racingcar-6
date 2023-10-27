@@ -7,10 +7,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Cars {
+    public static final String DIVISION = ",";
     private final List<Car> racingCars;
 
     public Cars(String carNames) {
-        this.racingCars = Arrays.stream(carNames.split(","))
+        this.racingCars = Arrays.stream(carNames.split(DIVISION))
                 .map(Car::new)
                 .toList();
         validateCarsCount();
