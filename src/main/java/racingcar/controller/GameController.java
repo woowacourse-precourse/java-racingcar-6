@@ -22,5 +22,14 @@ public class GameController {
         String number = input.inputTryCount();
 
         CountException.validation(number);
+        gameInit(names, number);
+    }
+
+    private void gameInit(String[] names, String number) {
+        for (String name : names) {
+            carList.add(new Car(name));
+        }
+
+        this.tryCount = Integer.parseInt(number);
     }
 }
