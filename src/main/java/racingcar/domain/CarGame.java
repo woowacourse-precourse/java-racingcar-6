@@ -31,4 +31,12 @@ public class CarGame {
     private int findMaxPosition(){
         return cars.stream().map(Car::getPosition).max(Integer::compareTo).orElseThrow(IllegalArgumentException::new);
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public int getGameCount() {
+        return gameCount;
+    }
 }
