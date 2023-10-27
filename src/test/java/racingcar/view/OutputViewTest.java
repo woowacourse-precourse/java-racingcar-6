@@ -9,6 +9,7 @@ import java.io.PrintStream;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.CarDto;
 import racingcar.dto.CarsDto;
@@ -29,6 +30,7 @@ class OutputViewTest {
     }
 
     @Test
+    @DisplayName("자동차 위치 출력")
     void 차들_결과_출력() {
         // given
         CarDto carDtoA = new CarDto("a", 1);
@@ -49,6 +51,7 @@ class OutputViewTest {
     }
 
     @Test
+    @DisplayName("우승자 이름 출력")
     void 우승자_출력() {
         // given
         List<String> winnerName = List.of("a", "b", "c");

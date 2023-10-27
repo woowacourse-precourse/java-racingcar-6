@@ -10,6 +10,7 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class InputViewTest {
@@ -28,27 +29,31 @@ public class InputViewTest {
     }
 
     @Test
+    @DisplayName("자동차 이름 입력받기")
     void 차이름_입력() {
         // given
         systemIn("aa,bb");
 
         // when
-        inputView.enterCarNames();
+        String names = inputView.enterCarNames();
 
         // then
         assertThat(out.toString()).contains("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        assertThat(names).isEqualTo("aa,bb");
     }
 
     @Test
+    @DisplayName("시도 횟수 입력받기")
     void 시도_횟수_입력() {
         // given
         systemIn("5");
 
         // when
-        inputView.enterRotateNumber();
+        String number = inputView.enterRotateNumber();
 
         // then
         assertThat(out.toString()).contains("시도할 회수는 몇회인가요?");
+        assertThat(number).isEqualTo("5");
     }
 
     public static void systemIn(String input) {

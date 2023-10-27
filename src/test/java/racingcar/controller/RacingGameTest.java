@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.view.InputViewTest;
 
@@ -28,6 +29,7 @@ class RacingGameTest {
     }
 
     @Test
+    @DisplayName("반복 횟수가 숫자로 입력되어야 한다.")
     void 횟수_입력_예외() {
         // given
         InputViewTest.systemIn("a,b,c\nG");
