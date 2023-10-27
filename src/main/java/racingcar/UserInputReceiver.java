@@ -4,7 +4,7 @@ import java.util.List;
 
 public class UserInputReceiver {
 
-    public static List<String> receiveCarNameAndGetCarNameList(String rawInput) {
+    public static List<String> ReceiveCarNames(String rawInput) {
 
         List<String> split = List.of(rawInput.split(","));
 
