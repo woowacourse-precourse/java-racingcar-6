@@ -62,12 +62,12 @@ public class RacingGameInputController {
     }
 
     private static void validateNumberOfRounds(String userInput) {
-        validateNoneNegativeInteger(userInput);
+        validatePositiveInteger(userInput);
     }
 
-    private static void validateNoneNegativeInteger(String userInput) {
-        if (!userInput.matches("[0-9]+")) {
-            throw new IllegalArgumentException("음이 아닌 수를 입력하지 않았습니다.");
+    private static void validatePositiveInteger(String userInput) {
+        if (!userInput.matches("[1-9][0-9]+")) {
+            throw new IllegalArgumentException("양수를 입력하지 않았습니다.");
         }
     }
 
