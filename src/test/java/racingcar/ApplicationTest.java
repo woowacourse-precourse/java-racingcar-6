@@ -1,7 +1,13 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.util.List;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
+import racingcar.repository.CarRepository;
+import racingcar.vo.CarName;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -30,6 +36,25 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @DisplayName("자동차가 저장되는지 확인")
+    @Test
+    void 자동차가_저장되는지_확인() {
+        CarRepository carRepository = CarRepository.getInstance();
+        Car car1 = new Car(new CarName("test1"));
+        Car car2 = new Car(new CarName("test2"));
+
+        carRepository.save(car1);
+
+        List<Car> carList = carRepository.findAll();
+
+
+        Assertions.assertThat(carList).contains(car1);
+
+        Assertions.assertThat(carList).contains(car2);
+
+    }
+
 
     @Override
     public void runMain() {
