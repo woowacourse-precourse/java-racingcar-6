@@ -27,5 +27,9 @@ public class ProgressBoard {
         this.SCORE_BOARD.put(carName, this.SCORE_BOARD.get(carName) + MOVE_STRING);
     }
 
+    public String progressOf(String carName) {
+        return this.SCORE_BOARD.get(carName);
+    }
+
 
 }
