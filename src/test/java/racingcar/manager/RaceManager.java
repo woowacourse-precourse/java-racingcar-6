@@ -1,19 +1,15 @@
 package racingcar.manager;
 
-import java.util.List;
-
 public class RaceManager {
+    private InputManager inputManager = new InputManager();
 
-    public void startRace(){
+    public void startRace() {
 
     }
 
-    public List<String> generateCars(){
 
-        return null;
-    }
 
-    public void printWinner(){
+    public void printWinner() {
 
     }
 }

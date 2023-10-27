@@ -12,7 +12,7 @@ public class InputManager {
 
     public String inputTryCount() {
 
-        System.out.println();
-        return null;
+        System.out.println("시도할 회수는 몇회인가요?");
+        return Console.readLine();
     }
 }

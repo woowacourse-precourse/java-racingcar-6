@@ -1,9 +1,9 @@
 # 자동차 경주
 
 ## 💡 기능 목록
-- [ ] 자동자 이름 입력 받기 - **InputManager / inputCarNames()**
-    - [ ] 쉼표를 이용하여 구분하기 - **RaceManager / generateCars()**
-- [ ] 시도 횟수 입력 받기 - **InputManager / inputTryCount()**
+- [x] 자동자 이름 입력 받기 - **InputManager / inputCarNames()**
+    - [x] 쉼표를 이용하여 구분하기 - **CarFactory / generateCars()**
+- [x] 시도 횟수 입력 받기 - **InputManager / inputTryCount()**
 - [ ] 자동자 경주를 시작한다 - **RaceManager / startRace()**
   - [ ] 각 자동차 별로 0~9 사이 랜덤 숫자 생성 - **Car / generateRandomNumber()**
   - [ ] 4이상의 값인 경우 한칸 전진 - **CarService / isForward()**
