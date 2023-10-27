@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 @DisplayName("자동차 객체에 대해")
@@ -15,5 +16,13 @@ class CarTest {
     void validate_name_length(String name) {
         assertThatThrownBy(() -> new Car(name))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"pobi", "woni", "jun"})
+    @DisplayName("이름의 길이가 정상적이다.")
+    void correct_name_length(String name) {
+        assertThatCode(() -> new Car(name))
+                .doesNotThrowAnyException();
     }
 }
