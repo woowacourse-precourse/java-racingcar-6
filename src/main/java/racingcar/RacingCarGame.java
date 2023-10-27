@@ -8,6 +8,7 @@ public class RacingCarGame {
     OutputProcessor outputProcessor;
 
     List<Car> cars;
+    Integer repetition;
 
     public RacingCarGame() {
         cars = new ArrayList<>();
@@ -18,6 +19,7 @@ public class RacingCarGame {
     public void run() {
         outputProcessor.printCarNameInputMessage();
         this.cars = inputProcessor.getCarNameListInput();
-
+        outputProcessor.printRepetitionInputMessage();
+        this.repetition = inputProcessor.getRepetitionInput();
     }
 }
