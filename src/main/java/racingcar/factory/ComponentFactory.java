@@ -1,12 +1,14 @@
 package racingcar.factory;
 
 import racingcar.controller.RacingCarController;
+import racingcar.domain.RacingCars;
+import racingcar.domain.TryCount;
 import racingcar.io.InputManager;
 import racingcar.io.InputMapper;
 import racingcar.io.InputValidator;
 import racingcar.io.InputView;
 import racingcar.io.OutputView;
-import racingcar.repository.RacingCarsRepository;
+import racingcar.repository.DomainRepository;
 import racingcar.service.RacingCarService;
 
 public class ComponentFactory {
@@ -16,11 +18,15 @@ public class ComponentFactory {
     }
 
     private RacingCarService racingCarService() {
-        return new RacingCarService(racingCarsRepository());
+        return new RacingCarService(racingCarsRepository(), tryCountRepository());
     }
 
-    private RacingCarsRepository racingCarsRepository() {
-        return new RacingCarsRepository();
+    private DomainRepository<RacingCars> racingCarsRepository() {
+        return new DomainRepository<>();
+    }
+
+    private DomainRepository<TryCount> tryCountRepository() {
+        return new DomainRepository<>();
     }
 
     private InputManager inputManager() {
