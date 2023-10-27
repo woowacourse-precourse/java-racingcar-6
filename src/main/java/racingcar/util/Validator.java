@@ -2,6 +2,7 @@ package racingcar.util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class Validator {
 
@@ -33,6 +34,12 @@ public class Validator {
                 throw new IllegalArgumentException("중복되지 않는 자동차 이름을 입력해주세요.");
             }
             names.add(input);
+        }
+    }
+
+    public static void isOneOrMore(String input) {
+        if (!Pattern.matches("^[1-9]\\d*$", input)) {
+            throw new IllegalArgumentException("1이상의 숫자만 가능합니다.");
         }
     }
 }
