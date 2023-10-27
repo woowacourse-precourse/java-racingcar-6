@@ -2,13 +2,7 @@ package racingcar.domain;
 
 import java.util.regex.Pattern;
 
-public class Name {
-
-    private final String value;
-
-    private Name(final String name) {
-        this.value = name;
-    }
+public record Name(String value) {
 
     public String getValue() {
         return value;
@@ -17,23 +11,6 @@ public class Name {
     public static Name from(final String name) {
         NameValidator.validate(name);
         return new Name(name);
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Name name = (Name) o;
-        return value.equals(name.value);
-    }
-
-    @Override
-    public int hashCode() {
-        return value.hashCode();
     }
 
     private static class NameValidator {
