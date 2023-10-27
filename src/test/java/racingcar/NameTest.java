@@ -24,17 +24,4 @@ final class NameTest {
     void 자동차이름의_길이가_1이상_5이하일_경우_예외가_발생하지_않는다(String name) {
         assertDoesNotThrow(() -> new Name(name));
     }
-
-
-    record Name(String name) {
-        Name {
-            if (name.length() < 1) {
-                throw new IllegalArgumentException();
-            }
-            if (name.length() > 5) {
-                throw new IllegalArgumentException();
-            }
-        }
-    }
-
 }
