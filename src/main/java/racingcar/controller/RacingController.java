@@ -2,9 +2,9 @@ package racingcar.controller;
 
 import racingcar.domain.*;
 import racingcar.exception.CarValidator;
-import racingcar.exception.RacingValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
+import racingcar.vo.RoundCount;
 
 import java.util.List;
 
@@ -27,11 +27,10 @@ public class RacingController {
         Racing racing = new Racing(totalCarNamesList);
 
         String racingRoundCountFromUser = requestRacingRoundCountFromUser();
-        validateRacingRoundCount(racingRoundCountFromUser);
-        int totalRacingRoundCount = Parser.parseRacingRoundCount(racingRoundCountFromUser);
+        RoundCount roundCount = new RoundCount(racingRoundCountFromUser);
 
         outputView.displayExecutionResult();
-        runRace(totalRacingRoundCount, racing);
+        runRace(roundCount, racing);
         outputView.displayFinalWinners(judgement.determineWinners(racing));
     }
 
@@ -49,12 +48,8 @@ public class RacingController {
         CarValidator.validate(carNamesFromUser);
     }
 
-    private static void validateRacingRoundCount(String racingRoundCountFromUser) {
-        RacingValidator.validate(racingRoundCountFromUser);
-    }
-
-    private void runRace(int totalRound, Racing racing) {
-        for (int round = 0; round < totalRound; round++) {
+    private void runRace(RoundCount roundCount, Racing racing) {
+        for (int round = 0; round < roundCount.getCount(); round++) {
             racing.runOneRound();
             String racingState = racing.displayRaceState();
             outputView.displayRacingState(racingState);
