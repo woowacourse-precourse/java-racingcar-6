@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import java.util.Arrays;
@@ -24,5 +25,20 @@ class CarsTest {
         assertThatThrownBy(() -> new Cars(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("중복된 자동차 이름이 존재 합니다.");
+    }
+
+    @Test
+    void carsNameMatchesCarNames() {
+        // 준비
+        List<String> carNames = Arrays.asList("Car1", "Car2", "Car3");
+        Cars cars = new Cars(carNames);
+
+        // 실행
+        List<Car> result = cars.getCars();
+
+        // 단언
+        for (int i = 0; i < result.size(); i++) {
+            assertThat(result.get(i).getName()).isEqualTo(carNames.get(i));
+        }
     }
 }
