@@ -120,6 +120,32 @@ public class FeatureTest extends NsTest {
             assertThat(car.getDistance()).isEqualTo(2);
         }
     }
+    @Test
+    void distanceOutput_거리_별_출력_값_확인(){
+        //given
+        String carNamesInput = "lee,juho";
+        String attemptInput = "3";
+
+        //when
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run(carNamesInput,attemptInput);
+                },
+                STOP,MOVING_FORWARD,STOP,MOVING_FORWARD,MOVING_FORWARD,MOVING_FORWARD
+        );
+        List<Car> cars = Application.cars;
+
+        //then
+        for (int i = 0; i < cars.size(); i++) {
+            Car car = cars.get(i);
+            int distance = car.getDistance();
+            StringBuilder hyphen = new StringBuilder(car.getName() + " : ");
+            for (int j = 0; j < distance; j++) {
+                hyphen.append("-");
+            }
+            assertThat(output()).contains(hyphen.toString());
+        }
+    }
 
     @Override
     public void runMain() {
