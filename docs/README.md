@@ -74,3 +74,34 @@
 - validateAttemptCounts(): 사용자에게 입력받은 시도 횟수를 검증한다.
     - [x] 입력된 횟수가 `숫자`가 아닐 경우 에러 반환.
     - [x] 입력된 횟수가 `음수`일 경우 에러 반환.
+
+### RacingResult
+
+- List<RacingRoundResult> 타입을 가지는 일급 컬렉션.
+- addResult(): 매 회차 레이스 결과를 추가한다.
+- getFinalWinners(): 최종 레이스 결과의 우승자를 반환한다.
+    - [ ] 매 회차 기록이 누적되기 때문에 마지막 회차에서 승자를 찾는다.
+
+### RacingRoundResult
+
+- List<Car> 타입을 가지는 일급 컬렉션.
+- getWinners(): 해당 라운드의 레이스 우승자를 반환한다.
+    - [ ] 동점자가 있을 수 있기 때문에 최고 기록을 찾는다.
+    - [ ] 최고 기록과 같은 기록을 가진 자동차의 이름을 리스트로 반환한다.
+
+### RacingCarController
+
+- run(): 레이싱 게임을 시작한다.
+    - [ ] 사용자에게 자동차 이름을 입력 받는다.
+    - [ ] 사용자에게 시도 횟수를 입력 받는다.
+        - [ ] 사용자에게 입력받은 시도 횟수만큼 RacingCarService에 레이싱을 수행한다.
+        - [ ] 매 회차 레이싱 결과를 출력한다.
+    - [ ] 최종 승자를 출력한다.
+
+### RacingCarService
+
+- race(): 사용자가 입력한 자동차 이름과 시도 횟수를 바탕으로 레이스를 시작해 결과를 반환한다.
+    - [ ] Cars의 move()를 호출한다.
+    - [ ] RacingCarResult를 반환한다.
+- determineWinner(): 최종 승자를 반환한다.
+    - [ ] RacingResult의 최종 승자 리스트를 반환한다.
