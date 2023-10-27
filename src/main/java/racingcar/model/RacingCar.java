@@ -6,15 +6,18 @@ import java.util.List;
 public class RacingCar {
     private String racingCarName;
     private List<Boolean> racingCarMove;
+    private int moveCount;
 
     public RacingCar(final String racingCarName) {
         this.racingCarName = racingCarName;
         this.racingCarMove= new ArrayList<>();
+        this.moveCount = 0;
     }
 
     public void isRacingCarMove(final int randomNumber) {
         if (randomNumber > 3) {
             this.racingCarMove.add(true);
+            moveCount += 1;
         }
     }
 
@@ -39,6 +42,9 @@ public class RacingCar {
         return this.racingCarMove;
     }
 
+    public int getMoveCount() {
+        return this.moveCount;
+    }
     @Override
     public String toString() {
         String gameResult = makeGameResult();
