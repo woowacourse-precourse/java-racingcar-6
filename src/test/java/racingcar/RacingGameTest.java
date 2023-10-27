@@ -3,12 +3,13 @@ package racingcar;
 import static org.assertj.core.api.Assertions.*;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.io.ByteArrayInputStream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.RacingGame;
 
-public class RacingGameTest {
+class RacingGameTest {
     @Test
     @DisplayName("자동차에 이름을 부여한다.")
     void test1() {
@@ -26,5 +27,13 @@ public class RacingGameTest {
         int playCount = Integer.parseInt(Console.readLine());
 
         assertThat(playCount).isEqualTo(5);
+    }
+
+    @Test
+    @DisplayName("0에서 9까지의 무작위 숫자를 생성한다.")
+    void test3() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+
+        assertThat(randomNumber).isBetween(0, 9);
     }
 }
