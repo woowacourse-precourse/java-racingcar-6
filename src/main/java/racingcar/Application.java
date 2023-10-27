@@ -6,6 +6,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 public class Application {
@@ -32,6 +33,11 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputCarNames = Console.readLine();
         List<String> carNames = Arrays.asList(inputCarNames.split(","));
+
+        Set<String> carNameSet = Set.copyOf(carNames);
+        if(carNames.size()!=carNameSet.size()){
+            throw new IllegalArgumentException("동일한 이름의 자동차는 입력 할 수 없어요");
+        }
 
         if(carNames.isEmpty()){
             throw new IllegalArgumentException("경주를 위해서는 자동차는 최소 1대 이상 필요해요.");
