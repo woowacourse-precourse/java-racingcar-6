@@ -6,13 +6,13 @@ public class CarValidator {
 
     public void validateNameLength(String input) {
         if (input.length() > CAR_NAME_LENGTH) {
-            throw new IllegalArgumentException("이름이 5자 이하지 않습니다.");
+            throw new IllegalArgumentException("이름은 5글자 이하여야 합니다.");
         }
     }
 
     public void validateNameUsingCommas(String input) {
         if (input.matches(".*[^a-zA-Z0-9,\\s].*")) {
-            throw new IllegalArgumentException("쉼표 외 특수기호 사용 불가합니다.");
+            throw new IllegalArgumentException("입력값은 숫자, 영문, 쉼표로만 구성되어야합니다.");
         }
     }
 }

@@ -22,4 +22,14 @@ public class CarCreationTest {
             () -> carValidator.validateNameLength(unAcceptName));
     }
 
+    @Test
+    void 입력값이_숫자_영문_쉼표로만_구성되어있는가() {
+        String acceptName = "pobi,woni,jun";
+        String unAcceptName = "pobi,woni;jun";
+
+        assertDoesNotThrow(() -> carValidator.validateNameUsingCommas(acceptName));
+
+        assertThrows(IllegalArgumentException.class,
+            () -> carValidator.validateNameUsingCommas(unAcceptName));
+    }
 }
