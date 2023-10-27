@@ -7,12 +7,12 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.dto.request.CreateCarsRacing;
-import racingcar.domain.exception.DuplicateCarNameException;
-import racingcar.domain.exception.NoCarsException;
-import racingcar.domain.game.MoveResult;
-import racingcar.domain.game.RoundResult;
+import racingcar.domain.car.dto.response.CarRacingDto;
+import racingcar.domain.car.dto.response.CarsRacingDto;
 import racingcar.domain.move.MoveCommand;
 import racingcar.domain.move.MoveCommander;
+import racingcar.exception.DuplicateCarNameException;
+import racingcar.exception.NoCarsException;
 
 final class CarsTest {
 
@@ -21,14 +21,15 @@ final class CarsTest {
     void moveAllByGoCommand() {
         // given
         final CreateCarsRacing createCarsRacing = new CreateCarsRacing(List.of("a", "b", "c"));
-        final Cars cars = Cars.from(createCarsRacing);
+        final CarsRacing cars = CarsRacing.from(createCarsRacing);
         final MoveCommander go = new FixedMoveCommander(MoveCommand.GO);
 
         // when
-        final RoundResult roundResult = cars.moveAllBy(go);
-        final MoveResult first = roundResult.getAt(0);
-        final MoveResult second = roundResult.getAt(1);
-        final MoveResult third = roundResult.getAt(2);
+        cars.moveAllBy(go);
+        final CarsRacingDto dto = cars.toDto();
+        final CarRacingDto first = dto.carRacing().get(0);
+        final CarRacingDto second = dto.carRacing().get(1);
+        final CarRacingDto third = dto.carRacing().get(2);
 
         // then
         assertThat(first.carName())
@@ -52,14 +53,15 @@ final class CarsTest {
     void moveAllByStayCommand() {
         // given
         final CreateCarsRacing createCarsRacing = new CreateCarsRacing(List.of("a", "b", "c"));
-        final Cars cars = Cars.from(createCarsRacing);
+        final CarsRacing cars = CarsRacing.from(createCarsRacing);
         final MoveCommander stay = new FixedMoveCommander(MoveCommand.STAY);
 
         // when
-        final RoundResult roundResult = cars.moveAllBy(stay);
-        final MoveResult first = roundResult.getAt(0);
-        final MoveResult second = roundResult.getAt(1);
-        final MoveResult third = roundResult.getAt(2);
+        cars.moveAllBy(stay);
+        final CarsRacingDto dto = cars.toDto();
+        final CarRacingDto first = dto.carRacing().get(0);
+        final CarRacingDto second = dto.carRacing().get(1);
+        final CarRacingDto third = dto.carRacing().get(2);
 
         // then
         assertThat(first.carName())
@@ -89,7 +91,7 @@ final class CarsTest {
         final CreateCarsRacing createCarsRacing = new CreateCarsRacing(carNames);
 
         // when
-        final Cars cars = Cars.from(createCarsRacing);
+        final CarsRacing cars = CarsRacing.from(createCarsRacing);
 
         // then
         assertThat(createCarsRacing.carNames().size()).isEqualTo(3);

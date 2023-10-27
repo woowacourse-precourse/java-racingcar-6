@@ -4,7 +4,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.game.MoveResult;
+import racingcar.domain.car.dto.response.CarRacingDto;
 import racingcar.domain.move.MoveCommand;
 
 final class CarTest {
@@ -13,14 +13,15 @@ final class CarTest {
     void carNotMovedTest() {
         // given
         final String carName1 = "a";
-        final Car car = new Car(carName1);
+        final CarRacing car = new CarRacing(carName1);
 
         // when
-        final MoveResult moveResult = car.movedBy(MoveCommand.STAY);
+        car.moveBy(MoveCommand.STAY);
+        final CarRacingDto dto = car.toDto();
 
         // then
-        assertThat(moveResult.carName()).isEqualTo(carName1);
-        assertThat(moveResult.coordinate()).isEqualTo(0);
+        assertThat(dto.carName()).isEqualTo(carName1);
+        assertThat(dto.coordinate()).isEqualTo(0);
 
     }
 
@@ -29,15 +30,16 @@ final class CarTest {
     void carStayTest() {
         // given
         final String carName1 = "a";
-        final Car car = new Car(carName1);
+        final CarRacing car = new CarRacing(carName1);
         final int n = 100;
 
         // when
         // then
         for (int i = 1; i <= n; i++) {
-            final MoveResult moveResult = car.movedBy(MoveCommand.STAY);
-            assertThat(moveResult.carName()).isEqualTo(carName1);
-            assertThat(moveResult.coordinate()).isEqualTo(0);
+            car.moveBy(MoveCommand.STAY);
+            final CarRacingDto dto = car.toDto();
+            assertThat(dto.carName()).isEqualTo(carName1);
+            assertThat(dto.coordinate()).isEqualTo(0);
         }
 
     }
@@ -47,15 +49,16 @@ final class CarTest {
     void carMovedTest() {
         // given
         final String carName1 = "a";
-        final Car car = new Car(carName1);
+        final CarRacing car = new CarRacing(carName1);
         final int n = 100;
 
         // when
         // then
         for (int i = 1; i <= n; i++) {
-            final MoveResult moveResult = car.movedBy(MoveCommand.GO);
-            assertThat(moveResult.carName()).isEqualTo(carName1);
-            assertThat(moveResult.coordinate()).isEqualTo(i);
+            car.moveBy(MoveCommand.GO);
+            final CarRacingDto dto = car.toDto();
+            assertThat(dto.carName()).isEqualTo(carName1);
+            assertThat(dto.coordinate()).isEqualTo(i);
         }
 
     }
