@@ -1,7 +1,7 @@
 package racingcar.domain.car;
 
 import java.util.List;
-import racingcar.domain.game.WinnersResult;
+import racingcar.domain.game.CarsFinishedDto;
 import racingcar.domain.move.Coordinate;
 
 public final class CarsFinished extends Cars {
@@ -13,9 +13,9 @@ public final class CarsFinished extends Cars {
         return new CarsFinished(carsRacing.cars);
     }
 
-    public WinnersResult toWinnersResult() {
+    public CarsFinishedDto toWinnersResult() {
         final List<String> winnerNames = getWinnerNames();
-        return new WinnersResult(winnerNames);
+        return new CarsFinishedDto(winnerNames);
     }
 
     private List<String> getWinnerNames() {

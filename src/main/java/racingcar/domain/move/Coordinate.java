@@ -1,7 +1,7 @@
 package racingcar.domain.move;
 
 import java.util.Objects;
-import racingcar.domain.exception.InvalidCoordinateException;
+import racingcar.exception.InvalidCoordinateException;
 
 public final class Coordinate {
     private static final int MIN_COORDINATE = 0;

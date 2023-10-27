@@ -1,8 +1,8 @@
 package racingcar.domain.car.dto.request;
 
 import java.util.List;
-import racingcar.domain.exception.DuplicateCarNameException;
-import racingcar.domain.exception.NoCarsException;
+import racingcar.exception.DuplicateCarNameException;
+import racingcar.exception.NoCarsException;
 
 public record CreateCarsRacing(List<String> carNames) {
 

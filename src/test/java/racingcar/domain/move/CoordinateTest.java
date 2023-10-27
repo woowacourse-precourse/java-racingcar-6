@@ -5,7 +5,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.exception.InvalidCoordinateException;
+import racingcar.exception.InvalidCoordinateException;
 
 final class CoordinateTest {
     @DisplayName("Coordinate는 0 이상의 값을 가져야 한다")
