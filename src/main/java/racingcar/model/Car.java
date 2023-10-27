@@ -13,11 +13,12 @@ public class Car {
         this.name = name;
     }
 
-    public void move() {
+    public int move() {
         int random = Randoms.pickNumberInRange(0, 9);
         if (random >= 4) {
             moved++;
         }
+        return moved;
     }
 
     public MoveInfo info() {
