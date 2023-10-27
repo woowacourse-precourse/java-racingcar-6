@@ -1,7 +1,7 @@
 package racingcar.Model;
 
 public class Car {
-	private String name;
+	private final String name;
 	private int distance;
 
 	public Car(String name) {
@@ -23,6 +23,21 @@ public class Car {
 
 	public int compareDistance(Car other) {
 		return this.distance - other.distance;
+	}
+
+	public String makeDistanceGraph(String graphUnit) {
+
+		String graph = "";
+
+		for(int i = 0; i < distance; i++) {
+			graph += graphUnit;
+		}
+
+		return graph;
+	}
+
+	public String toString() {
+		return this.name;
 	}
 
 }
