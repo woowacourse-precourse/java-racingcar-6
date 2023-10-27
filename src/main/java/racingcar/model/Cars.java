@@ -24,7 +24,7 @@ public class Cars {
         return carMap;
     }
 
-    private void decideToMove() {
+    public void decideToMove() {
         cars.forEach((name, position) -> {
             if (Randoms.pickNumberInRange(1, 9) >= MIN_MOVE_NUMBER) {
                 cars.put(name, position + 1);
