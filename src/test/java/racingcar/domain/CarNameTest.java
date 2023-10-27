@@ -7,7 +7,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class CarTest {
+public class CarNameTest {
 
     @Test
     @DisplayName("자동차 이름 길이가 5보다 클 경우")
