@@ -66,4 +66,13 @@ class ValidatorTest {
                 isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("1이상의 숫자만 가능합니다.");
     }
+
+    @ParameterizedTest
+    @DisplayName("int 형 값의 범위 초과 예외 테스트")
+    @ValueSource(strings = {"2147483648", "92147483647"})
+    void invalidInputsTest5(String input) {
+        Assertions.assertThatThrownBy(() -> Validator.isInRangeOfInt(input)).
+                isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("int 데이터 타입 값 범위 내로 입력하세요.");
+    }
 }
