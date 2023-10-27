@@ -11,4 +11,12 @@ public class Car {
     void advance() {
         this.gauge++;
     }
+
+    String getName() {
+        return name;
+    }
+
+    int getGauge() {
+        return gauge;
+    }
 }
