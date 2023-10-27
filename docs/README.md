@@ -40,6 +40,7 @@
 
 - [x] TransferUtil
   - [x] String -> List<String>으로 변환 기능
+  - [x] String -> List<Car>으로 변환 기능
 
 ### MODEL
 - [ ] Car
