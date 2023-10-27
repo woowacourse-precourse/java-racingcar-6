@@ -1,8 +1,6 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.Circuit;
-import racingcar.domain.TryCount;
 import racingcar.util.TypeConvertor;
 
 import java.util.List;
