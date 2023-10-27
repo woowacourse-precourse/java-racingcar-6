@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
     public static void main(String[] args) {
@@ -60,5 +61,11 @@ public class Application {
     		carRacingRecord.put(carName, 0);
     	}
     	return carRacingRecord;
+    }
+    
+    //랜덤한 수 출력하기
+    public static int getRandomNumber() {
+    	int randomNumber = Randoms.pickNumberInRange(0,9);
+    	return randomNumber;
     }
 }
