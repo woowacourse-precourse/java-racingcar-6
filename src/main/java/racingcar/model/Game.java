@@ -9,4 +9,12 @@ public class Game {
     public Game(){
         carList = new ArrayList<>();
     }
+
+    public void addCar(Car car){
+        carList.add(car);
+    }
+
+    public List<Car> getCar(){
+        return carList;
+    }
 }
