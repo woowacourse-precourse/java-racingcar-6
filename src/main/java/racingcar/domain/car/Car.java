@@ -37,4 +37,8 @@ public class Car implements Comparable<Car> {
         return this.distance
                 .compareTo(o.distance);
     }
+
+    public String getNameValue() {
+        return name.value();
+    }
 }
