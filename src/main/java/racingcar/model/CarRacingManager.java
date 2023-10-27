@@ -2,7 +2,7 @@ package racingcar.model;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -18,27 +18,15 @@ public class CarRacingManager {
     }
 
     private void validateDuplicateName(final Map<Car, Position> carPositionMap) {
-        int distinctCount = countDistinctElement(carPositionMap);
-        if (isDuplicate(distinctCount, carPositionMap)) {
-            List<String> keyList = convertKeySetToStringList(carPositionMap);
-            throw new NotUniqueCarNameException(keyList);
-        }
-    }
+        Set<String> carNames = new HashSet<>();
 
-    private int countDistinctElement(final Map<Car, Position> carPositionMap) {
-        return (int) carPositionMap.keySet().stream()
-                .distinct()
-                .count();
-    }
-
-    private boolean isDuplicate(final int distinctCount, final Map<Car, Position> carPositionMap) {
-        return distinctCount < carPositionMap.size();
-    }
-
-    private List<String> convertKeySetToStringList(final Map<Car, Position> carPositionMap) {
-        return carPositionMap.keySet().stream()
+        carPositionMap.keySet().stream()
                 .map(Car::getName)
-                .toList();
+                .filter(name -> !carNames.add(name))
+                .findAny()
+                .ifPresent(duplicatedCarName -> {
+                    throw new NotUniqueCarNameException(duplicatedCarName);
+                });
     }
 
     public Set<Car> getCars() {
