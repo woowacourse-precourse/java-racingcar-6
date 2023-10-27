@@ -3,6 +3,7 @@ package racingcar;
 import action.Car;
 import action.CarGenerator;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.test.NsTest;
 
 import java.util.List;
@@ -24,8 +25,10 @@ class ApplicationTest extends NsTest {
         List<Car> carList = generator.makeCars();
 
         for (Car car : carList) {
-            int action = car.action();
-            if (action == MOVING_FORWARD) {
+            int pickNumber = Randoms.pickNumberInRange(0, 9);
+
+            if (pickNumber >= MOVING_FORWARD) {
+                car.moveForward();
                 assertThat(car.getStatus()).isEqualTo("-");
             } else {
                 assertThat(car.getStatus()).isEqualTo("");
@@ -43,9 +46,10 @@ class ApplicationTest extends NsTest {
     @Test
     void 주행_테스트() {
         Car car = new Car("test");
-        int action = car.action();
+        int pickNumber = Randoms.pickNumberInRange(0, 9);
 
-        if (action == MOVING_FORWARD) {
+        if (pickNumber >= MOVING_FORWARD) {
+            car.moveForward();
             assertThat(car.getStatus()).isEqualTo("-");
         } else {
             assertThat(car.getStatus()).isEqualTo("");
