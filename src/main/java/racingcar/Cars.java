@@ -9,4 +9,8 @@ public class Cars {
         cars = new ArrayList<>();
         names.forEach(name -> cars.add(new Car(name)));
     }
+
+    public void run(){
+        cars.forEach(Car::move);
+    }
 }
