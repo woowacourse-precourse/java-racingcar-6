@@ -13,9 +13,10 @@ public class RacingCarService {
     private final DomainRepository<TryCount> tryCountRepository;
     private final RandomNumberGenerator randomNumberGenerator;
 
-    public RacingCarService(final DomainRepository<RacingCars> racingCarsRepository,
-                            final DomainRepository<TryCount> tryCountRepository,
-                            final RandomNumberGenerator randomNumberGenerator) {
+    public RacingCarService(
+            final DomainRepository<RacingCars> racingCarsRepository,
+            final DomainRepository<TryCount> tryCountRepository,
+            final RandomNumberGenerator randomNumberGenerator) {
         this.racingCarsRepository = racingCarsRepository;
         this.tryCountRepository = tryCountRepository;
         this.randomNumberGenerator = randomNumberGenerator;
@@ -31,7 +32,7 @@ public class RacingCarService {
 
     public RacingCars move() {
         final RacingCars racingCars = racingCarsRepository.find();
-        final List<Integer> numbers = randomNumberGenerator.generate(racingCars.numOfElement());
+        final List<Integer> numbers = randomNumberGenerator.generateWithSize(racingCars.numOfElement());
         racingCars.moveByNumbers(numbers);
         return racingCars;
     }
