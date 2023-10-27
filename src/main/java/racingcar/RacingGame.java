@@ -11,7 +11,7 @@ import racingcar.model.LoopCount;
 
 public class RacingGame {
 
-    private static final int BOUND = 4;
+    private static final int BOUND = 4 - 1;
 
     private Map<Car, Integer> scoreBoard;
 
