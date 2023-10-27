@@ -4,7 +4,7 @@
 - 메세지 출력
 - 입력에서 ','를 기준으로 이름을 구분
 - 각 name에 대해서 글자 수를 확인하고 잘못된 값을 입력한 경우 Exception 발생
-- 중복되는 name에 대해서 Exception 발생
+- 중복되는 name에 대해서 Exception 발생 -> 삭제
 - hash 자료구조의 key값으로 각각의 name을 삽입
 
 ### 2. `get_number()`: 몇 번 이동할 것인지 결정
