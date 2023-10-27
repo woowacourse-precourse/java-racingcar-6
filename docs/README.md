@@ -40,7 +40,7 @@
 
 - member function
   - [x] : void validateRacingCarsName(String) : 입력받은 경주 자동차 이름의 유효성을 검사
-  - [ ] : void validateCount(String) : 입력받은 시도 횟수의 유효성을 검사
+  - [x] : void validateCount(String) : 입력받은 시도 횟수의 유효성을 검사
 
 ### RacingCars
 자동차 경주에 참가한 자동차 리스트를 저장해 놓은 클래스
