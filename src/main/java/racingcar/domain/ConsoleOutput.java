@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.List;
+
 public class ConsoleOutput implements Output {
     private StringBuilder stringBuilder;
 
@@ -31,5 +33,10 @@ public class ConsoleOutput implements Output {
     @Override
     public void printResultStartedMessage() {
         System.out.println("\n실행 결과");
+    }
+
+    @Override
+    public void printWinner(List<String> winnerNameList) {
+        System.out.println("최종 우승자 : " + String.join(", ", winnerNameList));
     }
 }

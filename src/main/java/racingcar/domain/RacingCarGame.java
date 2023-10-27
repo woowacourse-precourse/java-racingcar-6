@@ -23,10 +23,9 @@ public class RacingCarGame {
             moveCars();
             printCarsState();
         }
+
         List<String> winnerNameList = referee.getWinner(carList);
-        for (String name : winnerNameList) {
-            System.out.print(name + " "); //결과 확인용 임시 print
-        }
+        output.printWinner(winnerNameList);
     }
 
     private void printCarsState() {

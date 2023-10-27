@@ -18,4 +18,4 @@
 
 ### 3. 최종 우승자 출력
 - [x] 게임이 끝나고 최종 우승자 알아내기 - Referee #getWinner()
-- [ ] 최종 우승자 출력하기 - Output #printWinner()
+- [x] 최종 우승자 출력하기 - Output #printWinner()
