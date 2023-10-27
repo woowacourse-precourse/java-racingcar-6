@@ -14,6 +14,7 @@ public class Car {
     public String getName() {
         return this.name;
     }
+    public int getScore() {return this.score;}
 
     public String run(){
         final int randomInt = Randoms.pickNumberInRange(0,9);
