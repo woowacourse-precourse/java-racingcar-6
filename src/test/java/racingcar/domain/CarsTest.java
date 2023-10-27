@@ -28,7 +28,7 @@ class CarsTest {
         @ParameterizedTest
         @MethodSource("successCarNames")
         void string_자동차_이름_목록을_올바르게_입력(List<String> names) {
-            assertThatNoException().isThrownBy(() -> new Cars(names));
+            assertThatNoException().isThrownBy(() -> Cars.of(names));
         }
     }
 
@@ -51,7 +51,7 @@ class CarsTest {
         @ParameterizedTest
         @MethodSource("exceptionCarNames")
         void blank_자동차_이름_목록에_유효하지_않은_자동차_이름이_있으면_예외_발생(List<String> names) {
-            assertThatThrownBy(() -> new Cars(names))
+            assertThatThrownBy(() -> Cars.of(names))
                     .isInstanceOf(IllegalArgumentException.class);
         }
     }

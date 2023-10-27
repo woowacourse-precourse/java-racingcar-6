@@ -8,14 +8,18 @@ public class Cars {
     private static final String INVALID_INPUT_MESSAGE = "잘못된 입력입니다.";
     private final List<Car> cars;
 
-    public Cars(List<String> names) {
+    public static Cars of(List<String> names) {
+        return new Cars(names);
+    }
+
+    private Cars(List<String> names) {
         validate(names);
         cars = convertToCars(names);
     }
 
     private List<Car> convertToCars(List<String> names) {
         return names.stream()
-                .map(Car::new)
+                .map(Car::of)
                 .collect(Collectors.toList());
     }
 

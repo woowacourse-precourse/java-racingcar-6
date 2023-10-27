@@ -21,7 +21,7 @@ class CarTest {
         @ValueSource(strings = {"poby", "woni", "jun"})
         void string_자동차_이름을_올바르게_입력(String name) {
             assertThatNoException().isThrownBy(()
-                    -> new Car(name));
+                    -> Car.of(name));
         }
     }
     
@@ -32,7 +32,7 @@ class CarTest {
         @Test
         @DisplayName("자동차 이름이 빈 칸이면 예외 발생")
         void blank_자동차_이름이_빈_칸이면_예외_발생() {
-            assertThatThrownBy(() -> new Car(""))
+            assertThatThrownBy(() -> Car.of(""))
                     .isInstanceOf(IllegalArgumentException.class);
         }
     
@@ -40,7 +40,7 @@ class CarTest {
         @ParameterizedTest
         @ValueSource(strings = {"", "  ", "Hello ys"})
         void blank_자동차_이름에_공백이_포함되면_예외_발생(String name) {
-            assertThatThrownBy(() -> new Car(name))
+            assertThatThrownBy(() -> Car.of(name))
                     .isInstanceOf(IllegalArgumentException.class);
         }
     }
@@ -49,7 +49,7 @@ class CarTest {
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3, 4, 5})
     void increase_자동차_전진_횟수_n회_증가(int n) {
-        Car car = new Car("테스트차");
+        Car car = Car.of("테스트차");
 
         for (int i = 0; i < n; i++) {
             car = car.increaseForwardCount();
