@@ -1,6 +1,5 @@
 package racingcar;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Cars {
@@ -12,5 +11,17 @@ public class Cars {
 
     public Car get(int index) {
         return cars.get(index);
+    }
+
+    public void move() {
+        for (Car car : cars) {
+            car.moveIfSatisfy();
+        }
+    }
+
+    public void printCars() {
+        for (Car car : cars) {
+            System.out.println(car);
+        }
     }
 }
