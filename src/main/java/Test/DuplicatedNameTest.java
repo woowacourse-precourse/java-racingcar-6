@@ -1,23 +1,16 @@
 package Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import Model.RacingCar;
-import org.junit.jupiter.api.Test;
-import View.InputView;
 import Validator.Validator;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-
+import View.InputView;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import org.junit.jupiter.api.Test;
 
 public class DuplicatedNameTest {
 
     @Test
-    void 중복된_이름(){
+    void 중복된_이름() {
         InputView inputView = new InputView();
         String input = "test,test,test1";
         InputStream in = new ByteArrayInputStream(input.getBytes());

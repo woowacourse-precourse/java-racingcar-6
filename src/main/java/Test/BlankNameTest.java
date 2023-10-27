@@ -1,20 +1,18 @@
 package Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import org.junit.jupiter.api.Test;
-import View.InputView;
 import Validator.Validator;
-
+import View.InputView;
 import java.io.*;
+import org.junit.jupiter.api.Test;
 
 public class BlankNameTest {
 
     InputView inputView = new InputView();
 
     @Test
-    void 빈_입력(){
+    void 빈_입력() {
         String input = "\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
