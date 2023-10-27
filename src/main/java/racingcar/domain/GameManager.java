@@ -13,6 +13,10 @@ public class GameManager {
 
     private int attempts;
 
+    public void initGame(){
+        initRaceCars();
+        initAttempts();
+    }
     private void initRaceCars(){
         List<String> carNames = inputView.getCarNames();
         for(String carName: carNames){
