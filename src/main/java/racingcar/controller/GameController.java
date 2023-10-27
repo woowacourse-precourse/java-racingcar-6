@@ -3,7 +3,7 @@ package racingcar.controller;
 import racingcar.domain.car.CarMovement;
 import racingcar.domain.car.Cars;
 import racingcar.domain.car.carcomponent.carmove.CarMoveReader;
-import racingcar.domain.util.Generator;
+import racingcar.util.Generator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
