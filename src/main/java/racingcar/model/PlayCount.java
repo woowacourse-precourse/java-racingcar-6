@@ -29,7 +29,7 @@ public class PlayCount {
     }
 
     public boolean isPlayEnd() {
-        return count <= goal;
+        return count >= goal;
     }
 
     public int getCount() {
