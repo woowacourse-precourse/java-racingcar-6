@@ -14,4 +14,10 @@ public class InputView {
         carNameInputErrorException.checkUserInputValidate(input);
         return input;
     }
+
+    public String readTryCount() {
+        String input = Console.readLine();
+        tryCountInputErrorException.checkUserInputValidate(input);
+        return input;
+    }
 }

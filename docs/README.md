@@ -54,9 +54,9 @@
   - [ ] 가장 전진해있는 Car 객체 찾는 메소드
 
 ### VIEW
-- [ ] InputView (ErrorException으로 입력 값 검증)
-  - [ ] 자동차 이름 입력 받기 (Console.readLine() 사용)
-  - [ ] 시도 횟수 입력 받기 (Console.readLine() 사용)
+- [x] InputView (ErrorException으로 입력 값 검증)
+  - [x] 자동차 이름 입력 받기 (Console.readLine() 사용)
+  - [x] 시도 횟수 입력 받기 (Console.readLine() 사용)
 
 - [ ] OutputView
   - [ ] 자동차 이름 입력 문구 출력
