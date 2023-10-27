@@ -23,8 +23,8 @@ class CarRaceJudgeTest {
 
         // when
         carRaceJudge.addCars(names);
-        List<Car> findCars = carRepository.findAll();
-        boolean isSaved = findCars.containsAll(cars);
+        Cars findCars = carRepository.findCars();
+        boolean isSaved = findCars.cars().containsAll(cars);
 
         // then
         assertThat(isSaved).isTrue();

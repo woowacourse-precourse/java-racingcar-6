@@ -6,68 +6,40 @@ import racingcar.dto.MoveResult;
 
 public class CarRaceJudge {
 
-    private static final int START_POSITION = 0;
-    private static final int MIN_ADDITION_NUMBER = 2;
-
     private final CarRepository carRepository = CarRepository.getInstance();
 
     public void addCars(final List<String> carNames) {
-        carRepository.clearStore();
-        validate(carNames);
-        List<Car> cars = carNames.stream()
-                .map(name -> Car.of(name, START_POSITION))
-                .toList();
-        carRepository.saveAll(cars);
+        Cars cars = Cars.from(carNames);
+        carRepository.save(cars);
     }
 
     public void moveCars(final Supplier<Integer> randomNumberSupplier) {
-        List<Car> cars = carRepository.findAll();
-        for (Car car : cars) {
-            int randomNumber = randomNumberSupplier.get();
-            car.moveForward(randomNumber);
-        }
+        Cars cars = carRepository.findCars();
+        cars.moveForwardWithAllCars(randomNumberSupplier.get());
     }
 
     public List<MoveResult> createSingleMoveResults() {
-        List<Car> cars = carRepository.findAll();
-        return cars.stream()
+        Cars cars = carRepository.findCars();
+        return cars.cars()
+                .stream()
                 .map(MoveResult::createResultOf)
                 .toList();
     }
 
-    private void validate(final List<String> carNames) {
-        validateDuplicate(carNames);
-        validateCarCount(carNames);
-    }
-
-    private void validateDuplicate(final List<String> carNames) {
-        if (isDuplicates(carNames)) {
-            throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
-        }
-    }
-
-    private void validateCarCount(final List<String> carNames) {
-        if (carNames.size() < MIN_ADDITION_NUMBER) {
-            throw new IllegalArgumentException("자동차는 2대 이상 등록해야 합니다");
-        }
-    }
-
-    private boolean isDuplicates(final List<String> carNames) {
-        return carNames.size() != carNames.stream().distinct().count();
-    }
-
     public List<String> findWinners() {
-        List<Car> cars = carRepository.findAll();
+        Cars cars = carRepository.findCars();
         int winnerPosition = findWinnerPosition(cars);
 
-        return cars.stream()
+        return cars.cars()
+                .stream()
                 .filter(car -> car.isWinner(winnerPosition))
                 .map(Car::getName)
                 .toList();
     }
 
-    private int findWinnerPosition(final List<Car> cars) {
-        return cars.stream()
+    private int findWinnerPosition(final Cars cars) {
+        return cars.cars()
+                .stream()
                 .mapToInt(Car::getPosition)
                 .max()
                 .orElseThrow(() -> new IllegalArgumentException("우승자를 찾을 수 없습니다."));

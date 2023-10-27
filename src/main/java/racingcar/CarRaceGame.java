@@ -1,12 +1,11 @@
 package racingcar;
 
-import static racingcar.generator.MoveResultMessageGenerator.*;
+import static racingcar.generator.MoveResultMessageGenerator.generateMoveResultsMessage;
 import static racingcar.generator.RandomNumberGenerator.getGenerateSupplier;
 
 import java.util.List;
 import racingcar.domain.CarRaceJudge;
 import racingcar.dto.MoveResult;
-import racingcar.generator.MoveResultMessageGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
