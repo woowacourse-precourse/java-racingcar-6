@@ -10,6 +10,8 @@ import racingcar.view.OutputView;
 
 public class RacingController {
 
+    private static final int ZERO = 0;
+
     private final InputView inputView;
     private final OutputView outputView;
 
@@ -23,9 +25,10 @@ public class RacingController {
         int tryCount = getTryCount();
         NumberGenerator numberGenerator = new RandomNumberGenerator();
         outputView.printResultMessage();
-        while (tryCount-- > 0) {
-            play(cars, numberGenerator);
+        while (tryCount-- > ZERO) {
+            race(cars, numberGenerator);
         }
+        outputView.printWinners(cars.getWinnerNames());
     }
 
     private Cars getCars() {
@@ -40,7 +43,7 @@ public class RacingController {
         return Converter.convertStringToPositiveInt(count);
     }
 
-    private void play(final Cars cars, final NumberGenerator numberGenerator) {
+    private void race(final Cars cars, final NumberGenerator numberGenerator) {
         cars.moveAll(numberGenerator);
         cars.getCars()
                 .forEach(car -> outputView.printResult(RacingResultResponse.from(car)));
