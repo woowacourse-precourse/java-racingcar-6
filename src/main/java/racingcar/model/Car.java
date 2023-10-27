@@ -12,6 +12,10 @@ public class Car {
         if (randomNumber>=4) position++;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getPosition() {
         return position;
     }
