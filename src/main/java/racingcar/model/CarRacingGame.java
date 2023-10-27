@@ -70,7 +70,7 @@ public class CarRacingGame implements RacingGame {
                 .orElseThrow(NotExistPositionException::new);
     }
 
-    private List<String> calculateWinners(int maxPosition) {
+    private List<String> calculateWinners(final int maxPosition) {
         return carPositionMap.entrySet().stream()
                 .filter(entry -> entry.getValue().getPositionIndex() == maxPosition)
                 .map(entry -> entry.getKey().getName())
