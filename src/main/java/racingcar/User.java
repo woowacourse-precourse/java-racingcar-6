@@ -16,4 +16,16 @@ public class User {
             }
         }
     }
+
+    public void tryDriving(int attemptNum) {
+        for (int i = 0; i < attemptNum; i++) {
+            for (Car car : cars) {
+                car.driving();
+            }
+        }
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }
