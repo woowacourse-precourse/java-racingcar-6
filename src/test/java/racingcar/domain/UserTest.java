@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,5 +27,17 @@ class UserTest {
         //then
         Assertions.assertThat(originalCarsName).isEqualTo(newCarsName);
     }
+
+    @Test
+    @DisplayName("자동차에 이름을 부여한다.")
+    void 이름_부여(){
+        List<String> carsName=user.separateNames("car1,car2,car3,car4");
+        List<Car> cars=user.nameForCar("car1,car2,car3,car4");
+        for(int i=0;i<4;i++){
+            Assertions.assertThat(cars.get(i).getName().equals(carsName.get(i))).isEqualTo(true);
+        }
+    }
+
+
 
 }

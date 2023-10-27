@@ -26,4 +26,7 @@ public class Car {
         return null;
     }
 
+    public String getName(){
+        return name;
+    }
 }
