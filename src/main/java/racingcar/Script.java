@@ -12,13 +12,16 @@ public class Script {
     }
 
     public void guideResult() {
-        System.out.println("/n" + "실행 결과");
+        System.out.println();
+        System.out.println("실행 결과");
     }
 
-    public void showResult(List<String> names, List<StringBuilder> move) {
-        for (int index = 0; index < names.size(); index++) {
-            System.out.println(names.get(index) + " : " + move.get(index) + "/n");
+    public void showResult(List<String> cars, List<StringBuilder> move) {
+        for (int index = 0; index < cars.size(); index++) {
+            System.out.println(cars.get(index) + " : " + move.get(index));
         }
+
+        System.out.println();
     }
 
     public void showWinner(List<String> names){

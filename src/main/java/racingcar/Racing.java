@@ -8,22 +8,31 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Racing {
     private Script script;
-    private List<String> names;
-    private List<StringBuilder> move;
+    private MoveController moveController;
+    private List<String> cars;
+    private List<StringBuilder> moves;
 
     public Racing() {
         script = new Script();
-        move = new ArrayList<>();
+        moveController = new MoveController();
+
+        moves = new ArrayList<>();
+    }
+
+    private void initializeMoves() {
+        for (int i = 0; i < cars.size(); i++) {
+            moves.add(new StringBuilder());
+        }
     }
 
     private void inputCarName() {
         script.start();
-        names = Arrays.asList(readLine().split(","));
+        cars = Arrays.asList(readLine().split(","));
     }
 
     private boolean isNumber(String number) {
         for (int index = 0; index < number.length(); index++) {
-            if (number.charAt(index) < '0' && number.charAt(index) > '9') {
+            if (number.charAt(index) < '0' || number.charAt(index) > '9') {
                 return false;
             }
         }
@@ -37,7 +46,7 @@ public class Racing {
         String input = readLine();
         int tryNumber;
 
-        if (!isNumber(input)){
+        if (!isNumber(input)) {
             throw new IllegalArgumentException();
         }
 
@@ -46,13 +55,30 @@ public class Racing {
         return tryNumber;
     }
 
+    private void tryMove() {
+        for (StringBuilder move : moves) {
+            moveController.moveCar(move);
+        }
+    }
+
+    private void race(int tryNumber) {
+        for (int race = 0; race < tryNumber; race++) {
+            tryMove();
+            script.showResult(cars, moves);
+        }
+    }
+
     public void start() {
         int tryNumber;
 
         inputCarName();
         tryNumber = inputTryNumber();
 
+        initializeMoves();
+
         script.guideResult();
+
+        race(tryNumber);
     }
 
 }
