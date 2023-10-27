@@ -10,11 +10,11 @@ public class Name {
     private static final String NAME_NOT_OVER_MAX_LENGTH_MESSAGE = "자동차 이름은 5글자를 초과할 수 없습니다.";
     private static final int MAX_NAME_LENGTH = 5;
 
-    private final String name;
+    private final String value;
 
-    public Name(String name) {
-        nameValidation(name);
-        this.name = name;
+    public Name(String value) {
+        nameValidation(value);
+        this.value = value;
     }
 
     @Override
@@ -22,15 +22,15 @@ public class Name {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Name name1 = (Name) o;
-        return Objects.equals(name, name1.name);
+        return Objects.equals(value, name1.value);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(value);
     }
 
-    private static void nameValidation(String name) {
+    private void nameValidation(String name) {
         if(StringUtils.isBlank(name)) {
             throw new IllegalArgumentException(NAME_NOT_EMPTY_MESSAGE);
         }
