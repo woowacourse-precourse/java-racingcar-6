@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class Car {
+public class Car implements Comparable<Car> {
 
     private static final Integer MAX_NAME_LENGTH = 5;
 
@@ -44,5 +44,10 @@ public class Car {
         if (position != INIT_POSITION) {
             throw new IllegalArgumentException("[ERROR] 자동차의 시작 위치는 0입니다.");
         }
+    }
+
+    @Override
+    public int compareTo(Car that) {
+        return this.position - that.position;
     }
 }

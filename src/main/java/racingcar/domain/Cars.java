@@ -19,6 +19,8 @@ public class Cars {
         }
     }
 
+
+
     private List<Car> createCars(List<String> names, MovingStrategy movingStrategy) {
         return names.stream()
                 .map(name -> new Car(movingStrategy, name, 0))
