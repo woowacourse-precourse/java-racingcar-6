@@ -11,12 +11,11 @@ public class GameController {
 
     public GameController(
             Inputter inputter,
-            Printer printer,
-            RaceSimulator raceSimulator
+            Printer printer
             ) {
         this.inputter = inputter;
         this.printer = printer;
-        this.raceSimulator = raceSimulator;
+        this.raceSimulator = RaceSimulator.getRaceSimulator(printer);
     }
 
     public void startGame() {
