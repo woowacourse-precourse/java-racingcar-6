@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.constant.ExceptionMessage.*;
+
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
@@ -16,20 +18,20 @@ public class Application {
         // 자동차 이름 입력 관련 1차 유효성 검사
         if (nameInput.contains(",")) {
             if (nameInput.charAt(0) == ',' || nameInput.charAt(nameInput.length()-1) == ',') {
-                throw new IllegalArgumentException("Invalid name input format: " + nameInput);
+                throw new IllegalArgumentException(NAME_INPUT_FORMAT + nameInput);
             }
             if (nameInput.contains(",,")) {
-                throw new IllegalArgumentException("Invalid name input format: " + nameInput);
+                throw new IllegalArgumentException(NAME_INPUT_FORMAT + nameInput);
             }
         }
         // 자동차 이름 입력 관련 2차 유효성 검사
         Map<String, Integer> carList = new LinkedHashMap<>();
         for (String carName : nameInput.split(",")) {
             if (carName.length() > 5) {
-                throw new IllegalArgumentException("Not valid length: "+carName.length());
+                throw new IllegalArgumentException(NAME_LENGTH + carName.length());
             }
             if (carList.containsKey(carName)) {
-                throw new IllegalArgumentException("Duplicated car name: " + carName);
+                throw new IllegalArgumentException(NAME_DUPLICATED + carName);
             }
             carList.put(carName, 0);
         }
@@ -41,7 +43,7 @@ public class Application {
         try {
             count = Integer.parseInt(countInput);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Not Integer: " + countInput);
+            throw new IllegalArgumentException(NUMERIC + countInput);
         }
 
         // 자동차 경주 진행 단계
