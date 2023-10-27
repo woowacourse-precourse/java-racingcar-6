@@ -36,4 +36,8 @@ public class Car {
     public void move() {
         this.position += 1;
     }
+
+    public boolean isFrontOf(Car car) {
+        return this.position > car.position;
+    }
 }

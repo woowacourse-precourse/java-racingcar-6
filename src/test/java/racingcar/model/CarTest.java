@@ -9,6 +9,20 @@ import org.junit.jupiter.api.Test;
 
 class CarTest {
 
+    @DisplayName("더 앞에 있는지 테스트 :Car 객체가 다른 Car 보다 더 앞에 있으면 true, 그렇지 않으면 false 반환")
+    @Test
+    void isFrontOf() {
+        Car car = new Car("홍길동", 5);
+
+        boolean expectedTrue = car.isFrontOf(new Car("성춘향", 3));
+        boolean expectedFalse = car.isFrontOf(new Car("성춘향", 6));
+
+        assertAll(
+            () -> assertThat(expectedTrue).isTrue(),
+            () -> assertThat(expectedFalse).isFalse()
+        );
+    }
+
     @DisplayName("move 테스트 : 자동차의 position 이 한칸 전진한다.")
     @Test
     void move() {
