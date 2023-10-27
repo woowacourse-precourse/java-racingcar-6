@@ -60,4 +60,16 @@ public class RacingGame {
             throw new IllegalArgumentException("중복된 이름이 존재합니다.");
         }
     }
+
+    public String printCarName(List<Car> cars){
+        StringBuilder result=new StringBuilder();
+
+        for(Car car:cars){
+            result.append(" ").append(car.getNameValue()).append(",");
+        }
+        result.deleteCharAt(0);
+        result.deleteCharAt(result.length()-1);
+
+        return result.toString();
+    }
 }
