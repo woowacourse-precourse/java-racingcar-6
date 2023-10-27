@@ -12,6 +12,7 @@ public class Name {
 
     private Name(final String name) {
         validateNameLength(name);
+        validateHasBlank(name);
         this.name = name;
     }
 
@@ -24,7 +25,6 @@ public class Name {
         List<String> names = List.of(splitNames);
 
         return names.stream()
-                .map(String::trim)
                 .distinct()
                 .map(Name::from)
                 .collect(Collectors.toList());
@@ -32,6 +32,12 @@ public class Name {
 
     private void validateNameLength(final String name) {
         if (name.length() > MAXIMUM_LENGTH) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void validateHasBlank(final String name) {
+        if (name.contains(" ")) {
             throw new IllegalArgumentException();
         }
     }
