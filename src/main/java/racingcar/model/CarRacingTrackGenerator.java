@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import static racingcar.util.Constant.ONE_INDEX;
 import static racingcar.util.Constant.ZERO;
 
 import java.util.HashMap;
@@ -8,8 +9,6 @@ import java.util.Map;
 import java.util.stream.IntStream;
 
 public class CarRacingTrackGenerator implements RacingTrackGenerator<Car> {
-
-    private static final int ONE = 1;
 
     private final Map<Car, Position> map = new HashMap<>();
 
@@ -24,7 +23,7 @@ public class CarRacingTrackGenerator implements RacingTrackGenerator<Car> {
     }
 
     private void createPosition(final int playCount) {
-        IntStream.rangeClosed(ONE, playCount)
+        IntStream.rangeClosed(ONE_INDEX.getValue(), playCount)
               .forEach(Position::createWith);
     }
 }
