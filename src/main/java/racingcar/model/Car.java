@@ -9,13 +9,9 @@ public class Car implements Comparable<Car>, Model {
         this.name = name;
     }
 
-    public void move(Integer count) {
-        while (count > 0) {
-            int value = Randoms.pickNumberInRange(0, 9);
-            if (value >= 4) {
-                moved++;
-            }
-            count--;
+    public void moveOrStop() {
+        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            moved++;
         }
     }
 
