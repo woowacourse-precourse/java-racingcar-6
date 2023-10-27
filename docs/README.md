@@ -55,8 +55,9 @@
     - 자동차 이름을 입력받아 자동차 일급컬렉션 반환
     - 움직일 횟수를 입력받아 움직일 횟수 도메인 반환
 
-- RacingCarsRepository
-    - 자동차 일급 컬렉션 저장
+- DomainRepository
+    - 도메인 인스턴스 저장
+    - 도메인 인스턴스 조회
 
 - RacingCarService
     - 자동차 목록을 저장소에 저장
