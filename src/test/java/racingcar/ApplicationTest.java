@@ -61,6 +61,24 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 이동횟수_입력값검증() {
+        assertSimpleTest(() -> {
+            assertThatThrownBy(() -> validator.checkDigit("-1"))
+                    .isInstanceOf(IllegalArgumentException.class);
+        });
+
+        assertSimpleTest(() -> {
+            assertThatThrownBy(() -> validator.checkDigit("abc"))
+                    .isInstanceOf(IllegalArgumentException.class);
+        });
+
+        assertSimpleTest(() -> {
+            assertThatThrownBy(() -> validator.checkDigit("1.5"))
+                    .isInstanceOf(IllegalArgumentException.class);
+        });
+    }
+
+    @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
