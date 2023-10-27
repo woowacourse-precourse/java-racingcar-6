@@ -18,4 +18,12 @@ public class InputTest {
                 List.of("pobi", "jun")
         );
     }
+
+    @Test
+    @DisplayName("사용자의 입력이 숫자로 변경 되는가?")
+    void testConvertToInt() {
+        String input = "4";
+
+        assertThat(Converter.convertStringToInt(input)).isEqualTo(4);
+    }
 }
