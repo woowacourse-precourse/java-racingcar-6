@@ -19,7 +19,7 @@ class Cars {
     public static Cars from(List<String> names) {
         validate(names);
 
-        return new Cars(mapToCars(names));
+        return new Cars(mapToCar(names));
     }
 
     private static void validate(List<String> names) {
@@ -52,7 +52,7 @@ class Cars {
                 .count();
     }
 
-    private static List<Car> mapToCars(List<String> names) {
+    private static List<Car> mapToCar(List<String> names) {
         return names.stream()
                 .map(Car::from)
                 .toList();
