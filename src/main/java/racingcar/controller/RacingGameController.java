@@ -30,6 +30,7 @@ public class RacingGameController {
             racingGame.proceed();
             outputView.printGameState(racingGame.getCurrentState());
         }
+        outputView.printWinners(racingGame.getCurrentState());
     }
 
     public void run() {
