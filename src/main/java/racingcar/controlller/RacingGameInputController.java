@@ -1,7 +1,6 @@
 package racingcar.controlller;
 
 import static racingcar.constant.RacingGameConstants.MAX_CAR_NAME_LENGTH;
-import static racingcar.constant.RacingGameConstants.MIN_CAR_NAME_LENGTH;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
@@ -26,15 +25,26 @@ public class RacingGameInputController {
         validateCarNames(userInput);
     }
 
-    private static void validateCarNames(String userInput) {
-        List<String> carNames = parseWithComma(userInput);
-        carNames.forEach(RacingGameInputController::validateCarNameLength);
+    private static void validateCarNames(String carNames) {
+        validateCarNameLength(carNames);
+        validateDuplicateName(carNames);
     }
 
-    private static void validateCarNameLength(String carName) {
-        if (carName.isEmpty() || carName.length() > MAX_CAR_NAME_LENGTH) {
-            throw new IllegalArgumentException(
-                    "이름은 " + MIN_CAR_NAME_LENGTH + "자 이상 " + MAX_CAR_NAME_LENGTH + "자 이하여야 합니다.");
+    private static void validateCarNameLength(String carNames) {
+        parseWithComma(carNames).forEach(carName ->
+        {
+            if (carNames.isEmpty() || carName.length() > MAX_CAR_NAME_LENGTH) {
+                throw new IllegalArgumentException("");
+            }
+        });
+    }
+
+    private static void validateDuplicateName(String carNames) {
+        List<String> carNameList = parseWithComma(carNames);
+        if (carNameList.stream()
+                .distinct()
+                .count() != carNameList.size()) {
+            throw new IllegalArgumentException("중복된 이름이 있습니다.");
         }
     }
 
