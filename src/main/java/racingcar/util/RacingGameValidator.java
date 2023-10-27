@@ -25,6 +25,7 @@ public class RacingGameValidator {
         for (int i = 0; i < count; i++) {
             String name = carNames.get(i);
             validateCarNameEmpty(name);
+            validateCarNameLength(name);
             validateCarNameDuplicate(name, carNames);
         }
     }
@@ -33,6 +34,12 @@ public class RacingGameValidator {
     private static void validateCarNameEmpty(final String name) {
         if (name.equals("")) {
             throw new IllegalArgumentException();
+        }
+    }
+
+    private static void validateCarNameLength(final String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("자동차의 이름은 5자 이하만 가능합니다.");
         }
     }
 
