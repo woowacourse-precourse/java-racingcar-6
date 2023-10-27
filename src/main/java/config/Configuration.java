@@ -2,6 +2,7 @@ package config;
 
 import io.reader.StdReader;
 import io.writer.StdWriter;
+import number.RandomNumberPicker;
 import racingcar.component.ComponentWriter;
 import racingcar.controller.GameController;
 import racingcar.domain.move.RandomMoveCommander;
@@ -24,7 +25,9 @@ public final class Configuration {
         return new GameController(
                 inputView,
                 new OutputView(componentWriter),
-                new RandomMoveCommander()
+                new RandomMoveCommander(
+                        new RandomNumberPicker()
+                )
         );
     }
 }
