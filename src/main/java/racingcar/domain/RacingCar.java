@@ -1,6 +1,8 @@
 package racingcar.domain;
 
-public class RacingCar {
+import racingcar.domain.interfaces.Car;
+
+public class RacingCar implements Car {
 
     private final String name;
     private final int progress;

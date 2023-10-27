@@ -3,6 +3,7 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.collection.CarNames;
 import racingcar.domain.collection.RacingCars;
+import racingcar.domain.interfaces.CarFactory;
 import racingcar.domain.interfaces.Game;
 import racingcar.util.InputUtil;
 import racingcar.util.RacingGameConst;
@@ -15,13 +16,17 @@ import static racingcar.util.RacingGameConst.*;
 
 public class RacingGame implements Game {
 
+    private final CarFactory factory;
+
+    public RacingGame(CarFactory factory) {
+        this.factory = factory;
+    }
 
     @Override
     public void start() {
         int gameCount = createGameCount();
         CarNames carNames = createCarNames(gameCount);
         RacingCars racingCars = createRacingCars(carNames, gameCount);
-
     }
 
     public int createGameCount() {
