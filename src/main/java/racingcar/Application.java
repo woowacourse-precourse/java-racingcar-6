@@ -1,7 +1,9 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import camp.nextstep.edu.missionutils.Console;
 
@@ -49,5 +51,14 @@ public class Application {
     	checkNumberValidation(movingNumberStr);
     	int movingNumber = Integer.parseInt(movingNumberStr);
     	return movingNumber;
+    }
+    
+    //차 이름을 HashMap<차이름,전진횟수>에 넣기
+    public static Map<String, Integer> setCarRacingRecord(List<String> carList){
+    	Map<String,Integer> carRacingRecord = new HashMap<String,Integer>();
+    	for(String carName : carList) {
+    		carRacingRecord.put(carName, 0);
+    	}
+    	return carRacingRecord;
     }
 }
