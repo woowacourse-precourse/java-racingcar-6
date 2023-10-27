@@ -18,8 +18,15 @@ public class RacingCarService {
 
     private void createRacingCar() {
         System.out.println(START_GAME_MESSAGE);
-        String[] input_car = Console.readLine().split(",");
-        Arrays.stream(input_car).forEach(e -> cars.add(new RacingCar(e)));
+        Arrays.stream(Console.readLine().split(","))
+                .forEach(e -> cars.add(new RacingCar(e)));
+        lengthCheck();
+    }
+
+    private void lengthCheck() {
+        if (!cars.lengthCheck()) {
+            throw new IllegalArgumentException("5자 이하 이름의 자동차를 생성해주세요");
+        }
     }
 
     private void getInputCount() {
