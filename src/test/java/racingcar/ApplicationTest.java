@@ -88,6 +88,35 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void Car_GetName_테스트() {
+        Car car1 = new Car("pobi");
+        assertThat(car1.getName()).isEqualTo("pobi");
+    }
+
+    @Test
+    void Car_AddDistance_전진_테스트() {
+        Car car1 = new Car("pobi");
+        car1.addDistance(5, 4);
+        assertThat(car1.getDistance()).isEqualTo(1);
+        assertThat(car1.getDistanceLine()).isEqualTo("pobi : -");
+    }
+
+    @Test
+    void Car_AddDistance_정지_테스트() {
+        Car car1 = new Car("pobi");
+        car1.addDistance(3, 4);
+        assertThat(car1.getDistance()).isEqualTo(0);
+        assertThat(car1.getDistanceLine()).isEqualTo("pobi : ");
+    }
+
+    @Test
+    void Car_AddDistance_오류_테스트() {
+        Car car1 = new Car("pobi");
+        assertThatThrownBy(() -> car1.addDistance(10, 10))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
