@@ -9,4 +9,10 @@ public class InputView {
         String carsName = Console.readLine();
         return carsName;
     }
+
+    public static int inputAttemptNumber() {
+        System.out.println(InputMessage.ATTEMPT_INPUT.getMessage());
+        String attemptNumber = Console.readLine();
+        return Integer.parseInt(attemptNumber);
+    }
 }
