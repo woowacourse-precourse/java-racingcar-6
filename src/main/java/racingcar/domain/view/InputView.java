@@ -12,6 +12,10 @@ public class InputView {
     }
 
     public static String receiveUserInput() {
+        String userInput = Console.readLine();
+        if (userInput.length() > 5) {
+            throw new IllegalArgumentException();
+        }
         return Console.readLine();
     }
 
