@@ -29,5 +29,6 @@ public class Output {
             String formattedResult = String.format(RESULT_FORMAT, car.getName(), MOVEMENT.repeat(car.getMoveCount()));
             System.out.println(formattedResult);
         }
+        System.out.println();
     }
 }
