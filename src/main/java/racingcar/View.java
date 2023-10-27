@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
 
 public class View {
     private final String DELIMITER = ",";
@@ -16,6 +17,14 @@ public class View {
         String read = Console.readLine();
         validateIsNumber(read);
         return Integer.parseInt(read);
+    }
+
+    public void printCurrentResult(List<String> results) {
+        System.out.println("실행 결과");
+        for (String result : results) {
+            System.out.println(result);
+        }
+        System.out.println();
     }
 
     private void validateIsNumber(String s) {

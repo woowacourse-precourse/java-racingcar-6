@@ -22,6 +22,7 @@ public class RacingController {
     private void race(int count) {
         for (int i = 0; i < count; i++) {
             moveCars();
+            view.printCurrentResult(collectResults());
         }
     }
 
@@ -36,5 +37,13 @@ public class RacingController {
         for (Car car : cars) {
             car.move();
         }
+    }
+
+    private List<String> collectResults() {
+        List<String> results = new ArrayList<>();
+        for (Car car : cars) {
+            results.add(car.getCurrentResult());
+        }
+        return results;
     }
 }
