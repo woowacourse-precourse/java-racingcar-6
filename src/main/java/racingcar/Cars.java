@@ -18,6 +18,10 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
+    public List<Car> getCars() {
+        return this.cars;
+    }
+
     private void validate(final String carNames) {
         List<String> splitCarNames = new ArrayList<>(Arrays.asList(carNames.split(",")));
 
