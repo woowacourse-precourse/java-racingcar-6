@@ -1,7 +1,7 @@
 package racingcar.service;
 
-import static racingcar.utill.Converter.attemptStringToInt;
-import static racingcar.utill.Converter.stringToCarList;
+import static racingcar.utill.Converter.attemptStringToIntCovert;
+import static racingcar.utill.Converter.stringToCarListConvert;
 import static racingcar.view.RacingView.attemptNumberInputView;
 import static racingcar.view.RacingView.carNameInputView;
 import static racingcar.view.RacingView.winnerView;
@@ -13,9 +13,9 @@ public class CarRacingService {
 
     public void racingStart() {
         carNameInputView();
-        CarList carList = new CarList(stringToCarList(Console.readLine()));
+        CarList carList = new CarList(stringToCarListConvert(Console.readLine()));
         attemptNumberInputView();
-        racing(carList, attemptStringToInt((Console.readLine())));
+        racing(carList, attemptStringToIntCovert((Console.readLine())));
         winnerView(carList.racingWinnerDecision());
     }
 

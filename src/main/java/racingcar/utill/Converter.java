@@ -9,12 +9,12 @@ import racingcar.domain.Car;
 
 public class Converter {
 
-    public static int attemptStringToInt(String stringValue) {
+    public static int attemptStringToIntCovert(String stringValue) {
         attemptNumberValidation(stringValue);
         return Integer.parseInt(stringValue);
     }
 
-    public static List<Car> stringToCarList(String carNameString) {
+    public static List<Car> stringToCarListConvert(String carNameString) {
         List<Car> carList = new ArrayList<>();
         String[] split = carNameString.split(",", -1);
 
