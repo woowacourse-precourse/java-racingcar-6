@@ -1,4 +1,4 @@
-package racingcar.domain.car.dto.request;
+package racingcar.domain.car.dto.input;
 
 import java.util.List;
 import racingcar.exception.DuplicateCarNameException;
