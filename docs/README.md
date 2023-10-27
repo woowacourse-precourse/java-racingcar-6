@@ -44,7 +44,7 @@ UserInterface 객체의 start 메서드를 실행한다.
   - Cars
 
 - 생성자
-  - Cars를 초기화하는 생성자
+  - Cars를 외부에서 주입받는 생성자
 
 - 메서드
   - addCars(String input) 사용자의 입력을 받아 자동차를 추가한다.
