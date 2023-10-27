@@ -4,6 +4,7 @@ import static racingcar.utils.InputValidator.*;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.model.Car;
 
 public class RacingCarView implements CarView {
@@ -11,11 +12,11 @@ public class RacingCarView implements CarView {
     public String[] inputCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String cars = Console.readLine();
-        String[] splitedInputCars = cars.split(",");
+        String[] splitInputCars = cars.split(",");
 
-        carNameValidate(splitedInputCars);
+        carNameValidate(splitInputCars);
 
-        return splitedInputCars;
+        return splitInputCars;
     }
 
     @Override
@@ -38,7 +39,18 @@ public class RacingCarView implements CarView {
     }
 
     @Override
-    public void outputWinners() {
+    public void outputWinners(List<Car> cars) {
+        int maxOfDistance = cars.stream()
+                .map(Car::getDistance)
+                .mapToInt(car -> car)
+                .max()
+                .orElse(Integer.MIN_VALUE);
 
+        List<String> winners = cars.stream()
+                .filter(car -> car.getDistance() == maxOfDistance)
+                .map(Car::getName)
+                .toList();
+
+        System.out.println("최종 우승자 : " + String.join(", ",winners));
     }
 }

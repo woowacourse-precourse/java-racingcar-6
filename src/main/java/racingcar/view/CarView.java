@@ -7,5 +7,5 @@ public interface CarView {
     String[] inputCarNames();
     int inputGameCount();
     void outputRaceResult(List<Car> cars);
-    void outputWinners();
+    void outputWinners(List<Car> cars);
 }
