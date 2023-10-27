@@ -30,7 +30,7 @@ class RacingCarRaceTest {
         RacingCar racingCar = RacingCar.of("name");
 
         // when
-        int randomNumber = racingCar.getRandomNumber();
+        int randomNumber = racingCar.pickRandomNumber();
 
         // then
         assertThat(randomNumber).isGreaterThanOrEqualTo(0);
@@ -50,5 +50,27 @@ class RacingCarRaceTest {
         // then
         assertThat(racingCar1.getWinningPoint()).isEqualTo(0);
         assertThat(racingCar2.getWinningPoint()).isEqualTo(1);
+    }
+
+    @Test
+    void 경주에서의_최종_우승자를_결정합니다() {
+        // given
+        String[] carNames = new String[]{"pobi", "woni", "jun"};
+        int attemptCount = 5;
+        RacingCarRace racingCarRace = RacingCarRace.createRacingCarRace(carNames, attemptCount);
+        List<RacingCar> racingCars = racingCarRace.getRacingCars();
+
+        // when
+        RacingCar racingCar1 = racingCars.get(0);
+        RacingCar racingCar2 = racingCars.get(1);
+        RacingCar racingCar3 = racingCars.get(2);
+
+        racingCar1.move(9);
+        racingCar2.move(9);
+
+        // then
+        List<RacingCar> winners = racingCarRace.findWinners();
+        assertThat(winners.get(0)).isSameAs(racingCar1);
+        assertThat(winners.get(1)).isSameAs(racingCar2);
     }
 }

@@ -27,7 +27,7 @@ public final class RacingCarRace {
 
     public void runRace() {
         racingCars.forEach(racingCar -> {
-            int randomNumber = racingCar.getRandomNumber();
+            int randomNumber = racingCar.pickRandomNumber();
             racingCar.move(randomNumber);
         });
     }

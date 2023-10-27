@@ -40,11 +40,11 @@ public class MessagePrinter {
     public void printWinners(final RacingCarRace racingCarRace) {
         List<RacingCar> winners = racingCarRace.findWinners();
         StringBuilder result = new StringBuilder();
-        int maxWinnerSize = winners.size() - ONE;
+        int maxWinnerIdx = winners.size() - ONE;
 
         winners.forEach(winner -> {
             result.append(winner.getCarName());
-            if (winners.indexOf(winner) != maxWinnerSize) {
+            if (winners.indexOf(winner) != maxWinnerIdx) {
                 result.append(COMMA_BLANK);
             }
         });
