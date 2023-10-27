@@ -16,12 +16,14 @@ public class OutputView {
     public static void displayAttemptPrompt() {
         System.out.println(PROMPT_FOR_ATTEMPTS);
     }
-    public static void displayCurrentGameResult(List<String> carNames, List<String> gameResults) {
-        for (int i = 0; i < carNames.size(); i++) {
-            System.out.println(String.format("%s : %s", carNames.get(i), gameResults.get(i)));
-        }
+    public static void displayCurrentGameResult(String carName, String positionInDashes) {
+        System.out.println(String.format("%s : %s", carName, positionInDashes));
     }
-    public static void displayResultHeader() {
+    public static void displayFinishOnce() {
+        System.out.println();
+    }
+    public static void displayGameStartMessage() {
+        System.out.println();
         System.out.println(RESULT_HEADER);
     }
 
