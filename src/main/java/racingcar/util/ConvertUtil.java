@@ -16,4 +16,12 @@ public class ConvertUtil {
         return carList;
     }
 
+    public static String convertPositionToStr(int position){
+        String strPosition = "";
+        for(int i = 0;i<position;i++){
+            strPosition += "-";
+        }
+        return strPosition;
+    }
+
 }
