@@ -2,11 +2,11 @@ package racingcar;
 
 public class Car {
     private String name;
-    private String status;
+    private StringBuilder status;
 
     public Car(String name) {
         this.name = name;
-        this.status = "";
+        this.status = new StringBuilder();
     }
 
     public String getName() {
@@ -14,6 +14,6 @@ public class Car {
     }
 
     public String getStatus() {
-        return status;
+        return status.toString();
     }
 }
