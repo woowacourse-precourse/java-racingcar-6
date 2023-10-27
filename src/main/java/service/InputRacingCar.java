@@ -13,6 +13,7 @@ public class InputRacingCar {
         String input = Console.readLine();
         List<String> racingCarsNames = nameSeparator(input);
         checkLength(racingCarsNames);
+        checkName(racingCarsNames);
         RacingCars racingCars = new RacingCars(racingCarsNames);
         return racingCars;
     }
@@ -23,10 +24,20 @@ public class InputRacingCar {
         return racingCarsNames;
     }
 
-    public static void checkLength(List<String> racingCarsNames){
-        for(String name:racingCarsNames){
-            if(name.length()>5){
+    public static void checkLength(List<String> racingCarsNames) {
+        for (String name : racingCarsNames) {
+            System.out.println(name);
+            if (name.length() > 5) {
                 throw new IllegalArgumentException(ErrorMessage.INPUT_LENGTH_EXCEEDED_ERROR);
+            }
+        }
+    }
+
+    public static void checkName(List<String> racingCarsNames) {
+        for (String name : racingCarsNames) {
+            System.out.println(name);
+            if (name.contains(" ")) {
+                throw new IllegalArgumentException(ErrorMessage.EMPTY_NAME_ERROR);
             }
         }
     }
