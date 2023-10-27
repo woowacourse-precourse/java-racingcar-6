@@ -13,6 +13,10 @@ public class Car {
         location += LOCATION;
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         return name + " : " + location;
