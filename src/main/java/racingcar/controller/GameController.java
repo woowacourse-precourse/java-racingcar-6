@@ -38,7 +38,7 @@ public class GameController {
 
     private static void play(){
         for(Car car : cars){
-정            car.addAdvances(GeneratedRandomNumber.getNumber());
+            car.addAdvances(GeneratedRandomNumber.getNumber());
         }
 
         OutputView.resultPerAttempt(cars);
