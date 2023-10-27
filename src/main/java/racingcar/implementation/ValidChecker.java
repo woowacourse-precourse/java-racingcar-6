@@ -1,11 +1,29 @@
 package racingcar.implementation;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class ValidChecker {
+    public static boolean isAlphabetic(String car) {
+        for (int i = 0; i < car.length(); i++) {
+            if (!(97 <= car.charAt(i) && car.charAt(i) <= 122)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean isDuplicated(List<String> carList) {
+        Set<String> carSet = new HashSet<>();
+
+        for (String car : carList) {
+            if (carSet.contains(car)) {
+                return false;
+            } else {
+                carSet.add(car);
+            }
+        }
+        return true;
+    }
 
     public static ArrayList<String> carListCheck(String input) {
         ArrayList<String> carList = new ArrayList<>(Arrays.stream(input.split(",")).toList());
