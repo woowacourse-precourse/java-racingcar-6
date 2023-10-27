@@ -18,14 +18,14 @@ public class CarFactory {
     private static Matcher matcher;
 
     static {
-        carNamePattern = Pattern.compile("^[a-z]$");
+        carNamePattern = Pattern.compile("^[a-z]*$");
     }
 
     public static List<Car> createCars(String carNamesInput) {
 
         validateNullAndEmpty(carNamesInput);
 
-        String[] carNames = carNamesInput.replaceAll(" ", "").split(",");
+        String[] carNames = carNamesInput.replaceAll(" ", "").split(Constants.COMMAS);
         validateCarSize(carNames.length);
 
         List<Car> cars = new ArrayList<>();
@@ -58,8 +58,10 @@ public class CarFactory {
 
     private static void validateInputFormat(String input) {
 
-        matcher = carNamePattern.matcher(input);
-        if (!matcher.find()) {
+        Matcher matcher = carNamePattern.matcher(input);
+
+        boolean isValid = matcher.find();
+        if (!isValid) {
             throw new IllegalArgumentException(Constants.EXCEPTION_CAR_NAME_FORMAT_MESSAGE);
         }
     }
