@@ -10,27 +10,26 @@ public class GameService {
     private final RandomNumberGenerator randomNumberGenerator;
     private final OutputView outputView;
 
+    private final Referee referee;
+
     public GameService() {
         rule = new Rule();
         randomNumberGenerator = new RandomNumberGenerator();
         outputView = new OutputView();
+        referee = new Referee();
     }
 
-    public void playUntilTrialNumber(int trialNumber, CarsGenerateDto carsGenerateDto) {
-        Cars generatedCars = createCars(carsGenerateDto);
-
+    public void playUntilTrialNumber(int trialNumber, CarsGenerateDto generatedCars) {
+        Cars cars = Cars.generateCars(generatedCars);
         for (int i = 0; i < trialNumber; i++) {
-            moveCarsByRandomNumber(generatedCars);
-            outputView.showResult(carsGenerateDto.cars());
+            moveCarsByRandomNumber(cars);
+            outputView.showResult(cars.getCarsList());
         }
+        outputView.showWinner(referee, cars);
     }
 
     private void moveCarsByRandomNumber(Cars cars) {
         cars.moveCars(rule, randomNumberGenerator);
-    }
-
-    private Cars createCars(CarsGenerateDto carsGenerateDto) {
-        return new Cars(carsGenerateDto.cars(), carsGenerateDto.carsName());
     }
 }
 

@@ -12,14 +12,11 @@ public class GameController {
 
     private final GameService gameService;
 
-    private final Referee referee;
-
     private final OutputView outputView;
 
     public GameController() {
         inputController = new InputController();
         gameService = new GameService();
-        referee = new Referee();
         outputView = new OutputView();
     }
 
@@ -27,10 +24,9 @@ public class GameController {
         String[] carNames = inputController.inputCarNames();
         int trialNumber = inputController.inputTrialNumber();
 
-        CarsGenerateDto generatedCars = new CarsGenerateDto(new ArrayList<>(), carNames);
+        CarsGenerateDto generatedCars = new CarsGenerateDto(carNames);
         outputView.showResultMessage();
 
         gameService.playUntilTrialNumber(trialNumber, generatedCars);
-        outputView.showWinner(referee, generatedCars);
     }
 }
