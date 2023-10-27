@@ -6,6 +6,7 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.util.RacingGameUtil;
 import racingcar.view.InputManager;
+import racingcar.view.OutputManager;
 
 public class GameController {
     List<Car> cars = new ArrayList<>();
@@ -13,6 +14,11 @@ public class GameController {
         String carNames = getCarNameFromUser();
         makeCar(carNames);
         Integer gameCycleNumber = getGameCycleNumberFromUser();
+        playRacingGame(gameCycleNumber);
+    }
+
+    private void playRacingGame(Integer gameCycle) {
+        OutputManager.printGameStart();
     }
 
     private Integer getGameCycleNumberFromUser() {
