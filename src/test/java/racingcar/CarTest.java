@@ -17,7 +17,7 @@ final class CarTest {
 
     @Test
     void 동일한_이름을_가진_차는_동일한_객체로_인식한다() {
-        Name sameName = new Name("동일한이름");
+        String sameName = "동일한이름";
         Car car1 = new Car(sameName);
         Car car2 = new Car(sameName);
 
@@ -26,7 +26,7 @@ final class CarTest {
 
     @Test
     void 동일한_이름을_가진_차는_Hash_자료구조에서도_동일한_객체로_인식된다() {
-        Name sameName = new Name("동일한이름");
+        String sameName = "동일한이름";
         Car car1 = new Car(sameName);
         Car car2 = new Car(sameName);
         Set<Car> set = new HashSet<>();
