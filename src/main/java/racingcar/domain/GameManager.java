@@ -6,6 +6,7 @@ import java.util.List;
 public class GameManager {
 
     private final InputView inputView = new InputView();
+    private final OutputView outputView = new OutputView();
 
     private final RoundManager roundManager = new RoundManager();
 
@@ -27,5 +28,10 @@ public class GameManager {
 
     private void initAttempts(){
         attempts = inputView.getAttempts();
+    }
+
+    private void playSingeRound(){
+        roundManager.moveCarsInRound(cars);
+        outputView.printRoundResult(cars);
     }
 }
