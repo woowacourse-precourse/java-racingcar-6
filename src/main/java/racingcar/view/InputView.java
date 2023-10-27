@@ -5,8 +5,8 @@ import static racingcar.util.InputDataValidator.validateHasSpace;
 import static racingcar.util.InputDataValidator.validateInputSize;
 import static racingcar.util.InputDataValidator.validateIsInteger;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.common.Config;
@@ -25,7 +25,7 @@ public class InputView {
 
         validateInputSize(carList);
 
-        return carList;
+        return Collections.unmodifiableList(carList);
     }
 
     public Integer inputCountNumber() {
