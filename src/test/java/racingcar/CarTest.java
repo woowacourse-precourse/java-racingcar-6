@@ -23,4 +23,12 @@ class CarTest {
     void test2() {
         assertThatIllegalArgumentException().isThrownBy(() -> new Car("고민석입니다", 1));
     }
+
+    @Test
+    @DisplayName("숫자가 4이상이면 자동차는 전진한다.")
+    void test3() {
+        Car car = new Car("go", 1);
+        car.move(4);
+        assertThat(car.getPosition()).isEqualTo(2);
+    }
 }
