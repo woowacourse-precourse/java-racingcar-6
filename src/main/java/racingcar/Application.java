@@ -43,21 +43,45 @@ public class Application {
 
         List<Car> cars = createCars(carNames);
 
-        for (Car car : cars) {
-            System.out.print(car.getCarName() + " ");
-            System.out.println(car.getLocation());
-        }
+//        for (Car car : cars) {
+//            System.out.print(car.getCarName() + " ");
+//            System.out.println(car.getLocation());
+//        }
 
         repeatAttempts(attemptsNum, cars);
+//        for (Car car : cars) {
+//            System.out.print(car.getCarName() + " ");
+//            System.out.println(car.getLocation());
+//        }
+    }
+
+    private static void printCarStatus(final List<Car> cars) {
         for (Car car : cars) {
-            System.out.print(car.getCarName() + " ");
-            System.out.println(car.getLocation());
+            printCarName(car);
+            printCurrentLocation(car);
         }
+    }
+
+    private static void printCurrentLocation(final Car car) {
+        int location = car.getLocation();
+        StringBuilder locationStringBuilder = new StringBuilder();
+
+        for (int i = 0; i < location; i++) {
+            locationStringBuilder.append("-");
+        }
+
+        System.out.println(locationStringBuilder);
+    }
+
+    private static void printCarName(final Car car) {
+        System.out.print(car.getCarName() + " : ");
     }
 
     private static void repeatAttempts(final int attemptsNum, final List<Car> cars) {
         for (int i = 0; i < attemptsNum; i++) {
             moveCars(cars);
+            printCarStatus(cars);
+            System.out.println();
         }
     }
 
