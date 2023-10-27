@@ -4,22 +4,22 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static racingcar.util.ExceptionMessage.NOT_NUMERIC;
+
 public class TypeConvertor {
 
+    private static final String REGEX = ",";
+
     public static List<String> stringToIntegerList(String input) {
-        try {
-            return Arrays.stream(input.split(","))
-                    .collect(Collectors.toList());
-        } catch (Exception e) {
-            throw new IllegalArgumentException();
-        }
+        return Arrays.stream(input.split(REGEX))
+                .collect(Collectors.toList());
     }
 
     public static Integer stringToInt(String input) {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(NOT_NUMERIC.getMessage());
         }
     }
 
