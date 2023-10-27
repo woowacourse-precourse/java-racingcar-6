@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.function.BooleanSupplier;
 import java.util.function.IntSupplier;
 
-public class CarRandomMovingStrategy implements BooleanSupplier {
+class CarRandomMovingStrategy implements BooleanSupplier {
 
     private static final int RANDOM_MIN_NUMBER = 0;
     private static final int RANDOM_MAX_NUMBER = 9;

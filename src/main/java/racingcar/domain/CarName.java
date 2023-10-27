@@ -32,7 +32,7 @@ class CarName {
         return !name.isEmpty() && name.length() <= NAME_MAX_LENGTH;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 }

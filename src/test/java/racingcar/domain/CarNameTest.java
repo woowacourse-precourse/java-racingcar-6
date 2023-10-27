@@ -42,5 +42,4 @@ class CarNameTest {
             assertThat(actual).isEqualTo(expected);
         }
     }
-
 }

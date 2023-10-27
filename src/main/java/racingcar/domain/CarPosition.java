@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class CarPosition {
+class CarPosition {
 
     private static final int INITIAL_POSITION = 0;
 
