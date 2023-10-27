@@ -21,6 +21,7 @@ public class Game {
     }
 
     public void play(){
+        System.out.println("실행 결과");
         for(int round = 0; round < roundNumber; round++){
             playRound();
         }
@@ -45,6 +46,7 @@ public class Game {
             moveCar(car);
             System.out.println(car);
         }
+        System.out.println();
     }
 
     private void moveCar(Car car) {
@@ -65,6 +67,6 @@ public class Game {
                 .map(Entry::getKey)
                 .map(Car::getName)
                 .collect(Collectors.joining(","));
-        System.out.println(winner);
+        System.out.println("최종 우승자 : " + winner);
     }
 }
