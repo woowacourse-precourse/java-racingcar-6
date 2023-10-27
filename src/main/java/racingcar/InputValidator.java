@@ -30,4 +30,17 @@ public class InputValidator {
             }
         }
     }
+
+    public static void validateRoundNumber(String roundNumberString){
+        int roundNumber;
+        try{
+            roundNumber = Integer.parseInt(roundNumberString);
+        }catch (NumberFormatException e){
+            throw new IllegalArgumentException(ExceptionMessage.ROUND_NUMBER_MUST_BE_NUMBER);
+        }
+
+        if(roundNumber <= 0){
+            throw new IllegalArgumentException(ExceptionMessage.ROUND_NUMBER_MUST_POSITIVE);
+        }
+    }
 }
