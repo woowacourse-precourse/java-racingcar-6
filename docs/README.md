@@ -32,7 +32,9 @@
 ## 객체 설계
 
 - 사용자 UI를 구현하는 Input, Output 객체
-- 사용자가 입력한 자동차 이름 UserInputCarName
+- ~~사용자가 입력한 자동차 이름 UserInputCarName~~
+
+        Input 클래스에 static 변수로 저장하기로 변경(10.27) -> 중복되는 객체를 생성할 필요가 없다 
 - UserInputCarName을 가공하는 객체 UserInputCarNameFactory
 - 자동차 객체 Car
 - n 대의 Car을 List Collection 형태로 저장하는 객체 Cars
