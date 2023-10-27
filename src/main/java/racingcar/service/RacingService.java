@@ -11,15 +11,12 @@ public class RacingService {
     private static final int STANDARD = 4;
 
     public void race(CarGarage garage) {
-        for (Car car : garage.cars()) {
-            boolean isGo = checkRacingCondition();
-            if (isGo) {
-                car.goForward();
-            }
-        }
+        garage.cars().stream()
+                .filter(car -> isGo())
+                .forEach(Car::goForward);
     }
 
-    private boolean checkRacingCondition() {
+    private boolean isGo() {
         return Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE) >= STANDARD;
     }
 }
