@@ -7,7 +7,12 @@ import static racingcar.constants.MessageConstants.*;
 public class ExecutionView {
 
     private static final String EXECUTION_MESSAGE_FORMAT = "%s : %s";
+    private static final String WINNING_CAR_NAMES_MESSAGE = "최종 우승자 : %s";
     private static final String HYPHEN = "-";
+
+    public static void printWinningCarNames(String carNames){
+        System.out.println(String.format(WINNING_CAR_NAMES_MESSAGE, carNames));
+    }
 
     public static void printExecutionStartMessage(){
         System.out.println(EXECUTION_START_MESSAGE);

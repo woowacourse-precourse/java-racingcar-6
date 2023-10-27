@@ -4,7 +4,7 @@ import static racingcar.entity.car.SupportedMove.*;
 
 public class MoveCount {
 
-    private final int MOVE_VALUE = 4;
+    private static final int MOVE_VALUE = 4;
     private int moveCount;
 
     public MoveCount() {

@@ -1,10 +1,10 @@
 package racingcar.service;
 
 import racingcar.entity.car.RaceCars;
-import racingcar.util.Randoms;
 import racingcar.view.ExecutionView;
 
 public class RaceGameService {
+    private static final int START_NUMBER = 1;
     private RaceCars raceCars;
     private final int attemptCount;
 
@@ -16,15 +16,10 @@ public class RaceGameService {
     public void run(){
         ExecutionView.printExecutionStartMessage();
 
-        for (int i=0; i<attemptCount; i++){
-            raceCars.stream()
-                    .forEach(car -> car.controlMovement(Randoms.getNumber()));
-
-            raceCars.stream()
-                    .forEach(ExecutionView::printExecutionMessage);
-
+        for (int attemptNumber = START_NUMBER; attemptNumber <= attemptCount; attemptNumber++) {
+            raceCars.executeRace();
+            raceCars.printGameProgressMessages();
             ExecutionView.newLine();
         }
-        System.out.println("최종 우승자 : " + raceCars.victoryCarName());
     }
 }
