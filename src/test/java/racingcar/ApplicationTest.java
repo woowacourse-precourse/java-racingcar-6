@@ -5,12 +5,12 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static racingcar.validate.CountValidator.numberValidate;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.LinkedHashMap;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.validate.CountValidator;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -64,15 +64,13 @@ class ApplicationTest extends NsTest {
     @Test
     @DisplayName("시도 횟수 : 양의 정수가 아닌 정수 입력")
     void notPositiveNumber() {
-        CountValidator validator = new CountValidator();
-        assertThrows(IllegalArgumentException.class, () -> validator.numberValidate("-1"));
+        assertThrows(IllegalArgumentException.class, () -> numberValidate("-1"));
     }
 
     @Test
     @DisplayName("시도 횟수 : 숫자가 아닌 값 입력")
     void notNumberValidate() {
-        CountValidator validator = new CountValidator();
-        assertThrows(IllegalArgumentException.class, () -> validator.numberValidate("aaaa"));
+        assertThrows(IllegalArgumentException.class, () -> numberValidate("aaaa"));
     }
 
 
