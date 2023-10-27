@@ -21,13 +21,9 @@ public enum Message {
         return message;
     }
 
-    public String getDistance(Car car) {
+    public static String getDistance(Car car) {
         return DISTANCE.message.replace("name", car.getName())
                 .replace("distance", "-".repeat(car.getDistance()));
-    }
-
-    public String getWinner(List<String> winners) {
-        return WINNER.message + String.join(", ", winners);
     }
 
 }
