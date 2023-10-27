@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
-    private int gameTimes;
+    private int gameTurns;
     private List<Car> cars = new ArrayList<>();
 
     public void run() {
@@ -15,7 +15,7 @@ public class Game {
 
     }
 
-    public void inputGameTimes() {
+    public void inputGameTurns() {
 
     }
 
