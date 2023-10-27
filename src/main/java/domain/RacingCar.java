@@ -8,18 +8,13 @@ public class RacingCar {
 
     private String name;
     private String location;
-    private int randomNumber;
 
     public RacingCar(String name) {
         this.name = name;
         this.location = "";
     }
 
-    public void generateRandomNumber() {
-        this.randomNumber = RandomGenerator.generateNumber();
-    }
-
-    public boolean isMoveForward() {
+    public boolean isMoveForward(int randomNumber) {
         if (MOVE_FORWARD_MINIMUM <= randomNumber) {
             return true;
         }
