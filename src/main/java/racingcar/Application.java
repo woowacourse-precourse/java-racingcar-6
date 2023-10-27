@@ -44,7 +44,7 @@ public class Application {
         int maxDistance = -1;
         List<String> winCars = new ArrayList<>();
         for (String scorePerCarKey : scorePerCar.keySet()) {
-            String distance = scorePerCar.get(scorePerCarKey);//마지막에 각 키에 따른 밸류 길이 비교. 제일 긴 밸류 찾고 같으면 리스트에 넣고
+            String distance = scorePerCar.get(scorePerCarKey);//마지막에 각 키에 따른 밸류 길이 비교
             if (distance.length() > maxDistance) {
                 maxDistance = distance.length();
             }
