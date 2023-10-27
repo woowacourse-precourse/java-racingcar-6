@@ -161,3 +161,19 @@ Randoms.pickNumberInRange(0,9);
 - **Git의 커밋 단위는 앞 단계에서 `docs/README.md`에 정리한 기능 목록 단위**로 추가한다.
   - [커밋 메시지 컨벤션](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 가이드를 참고해 커밋 메시지를 작성한다.
 - 과제 진행 및 제출 방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고한다.
+
+## 🔨 기능 목록
+- [ ] 각 자동차에 이름을 부여할 수 있다. - inputName()
+    - [ ] 자동차 이름은 쉼표(,)를 기준으로 구분한다. - splitName()
+    - [ ] 이름은 5자 이하만 가능하다. - isValidNameLength()
+- [ ] 사용자는 몇 번의 이동을 할 것인지를 입력한다. - inputRaceTime()
+- [ ] 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다. - oneTimeRace
+    - [ ] 0에서 9 사이에서 무작위 값을 구한다. - makeRandomNumber()
+    - [ ] 전진하는 조건은 값이 4 이상일 경우이다. - goOrStop()
+- [ ] 진행 상태를 출력할 때 자동차 이름을 같이 출력한다. - printRaceProgress() 
+- [ ] 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. - printWinners()  
+    - [ ] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다. -splitCarsName()
+- [ ] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.  
+    - [ ] 자동차의 이름이 6글자 이상인 경우
+    - [ ] 자동차의 이름에 공백이 있는 경우
+    - [ ] 이동 횟수 입력시 숫자가 아닌 경우
