@@ -29,12 +29,4 @@ public class Car {
     private int getMoveCondition() {
         return Randoms.pickNumberInRange(0, 9);
     }
-
-    @Override
-    public String toString() {
-        return "Car{" +
-                "name='" + name + '\'' +
-                ", position=" + position +
-                '}';
-    }
 }
