@@ -10,8 +10,9 @@ import java.util.stream.Collectors;
 import racingcar.util.InputValidator;
 import racingcar.util.Validator;
 
-public class InputView {
+public class InputView implements View {
     private final InputValidator inputValidator = Validator.generateInputValidator();
+    InputView() {}
 
     public List<String> getUserInputName() {
         System.out.println(INPUT_CARS_NAME_MESSAGE);

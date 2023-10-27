@@ -1,4 +1,4 @@
 package racingcar.view;
 
-public class OutputView {
+public class OutputView implements View {
 }
