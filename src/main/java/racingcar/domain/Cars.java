@@ -13,6 +13,14 @@ public class Cars {
         carList = generateCarList(cars);
     }
 
+    public int size(){
+        return carList.size();
+    }
+
+    public void moveCarPosition(int index) {
+        carList.get(index).addPosition();
+    }
+
     private List<Car> generateCarList(String[] cars) {
         List<Car> carList = new ArrayList<>();
         for (String car : cars) {

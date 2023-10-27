@@ -2,11 +2,16 @@ package racingcar.domain;
 
 public class Car {
     private final String carName;
+    private int position = 0;
+
     public Car(String carName) {
         validateCarNameLength(carName);
         this.carName = carName;
     }
 
+    public void addPosition() {
+        position += 1;
+    }
 
     private void validateCarNameLength(String carName) {
         if (isCarNameLengthOverThan5(carName)){
