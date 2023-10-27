@@ -19,6 +19,6 @@ public class UserInputCarNameFactory {
     }
 
     private boolean isValid(String carName){
-        return true;
+        return carName.length()<=5;
     }
 }
