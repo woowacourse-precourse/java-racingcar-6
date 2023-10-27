@@ -1,34 +1,48 @@
 package racingcar;
 
+import static racingcar.validate.RacingListValidator.duplicateValidate;
+import static racingcar.validate.RacingListValidator.sizeValidate;
+
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class RacingList {
-
     private final LinkedHashMap<String, Integer> carList = new LinkedHashMap<>();
 
-    public void initData(String input) {
+    public void createData(String input) {
         String[] list = input.split(",");
         for (String s : list) {
             sizeValidate(s);
-            duplicateValidate(s);
+            duplicateValidate(carList, s);
             carList.put(s, 0);
         }
+    }
+
+    public void updateState() {
+        for (String strKey : carList.keySet()) {
+            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+                Integer i = carList.get(strKey);
+                i++;
+                carList.replace(strKey, i);
+            }
+        }
+    }
+
+    public List<String> returnWinners() {
+        return carList.entrySet()
+                .stream()
+                .filter(entry -> entry.getValue().equals(
+                        carList.values().stream().max(Integer::compareTo).orElse(null)
+                ))
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
     }
 
     public LinkedHashMap<String, Integer> getCarList() {
         return carList;
     }
 
-    public void sizeValidate(String input) {
-        int size = input.length();
-        if (size > 5) {
-            throw new IllegalArgumentException("이름의 길이가 5 이상입니다.");
-        }
-    }
-
-    public void duplicateValidate(String input) {
-        if (carList.containsKey(input)) {
-            throw new IllegalArgumentException("자동차 이름이 중복됩니다.");
-        }
-    }
 }
