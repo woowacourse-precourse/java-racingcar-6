@@ -22,4 +22,8 @@ public class PlayCount {
     public boolean isPlayEnd(final int number) {
         return count <= number;
     }
+
+    public int getCount() {
+        return count;
+    }
 }

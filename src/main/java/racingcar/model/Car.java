@@ -23,8 +23,16 @@ public class Car {
         }
     }
 
+    public boolean isWinner(final int gameCount) {
+        return gameCount == position;
+    }
+
     @Override
     public String toString() {
         return name.getName() + " : " + POSITION_MARK.repeat(position);
+    }
+
+    public String getName() {
+        return name.getName();
     }
 }

@@ -8,4 +8,5 @@ public interface OutputView {
     void askPlayCount();
     void printGameEnd();
     void printCarsStatus(List<String> cars);
+    void printWinners(List<String> winners);
 }

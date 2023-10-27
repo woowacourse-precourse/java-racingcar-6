@@ -32,4 +32,11 @@ public class Cars {
                 .map(Car::toString)
                 .collect(Collectors.toList());
     }
+
+    public List<String> collectWinners(final int gameCount) {
+        return cars.stream()
+                .filter(car -> car.isWinner(gameCount))
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
 }

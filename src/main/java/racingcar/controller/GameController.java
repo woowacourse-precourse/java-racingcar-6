@@ -33,6 +33,8 @@ public class GameController {
             round++;
             printCarsStatus();
         }
+
+        printWinners();
     }
 
     private void joinCars() {
@@ -48,5 +50,10 @@ public class GameController {
     private void printCarsStatus() {
         List<String> carsStatus = cars.eachStatus();
         outputView.printCarsStatus(carsStatus);
+    }
+
+    private void printWinners() {
+        List<String> winners = cars.collectWinners(playCount.getCount());
+        outputView.printWinners(winners);
     }
 }

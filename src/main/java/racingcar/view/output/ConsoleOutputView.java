@@ -27,4 +27,10 @@ public class ConsoleOutputView implements OutputView {
         }
         System.out.println();
     }
+
+    @Override
+    public void printWinners(final List<String> winners) {
+        String winnerNames = String.join(", ", winners);
+        System.out.print("최종 우승자 : " + winnerNames);
+    }
 }
