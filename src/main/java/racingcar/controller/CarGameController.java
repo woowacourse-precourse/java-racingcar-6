@@ -24,6 +24,7 @@ public class CarGameController {
         OutputView.printRequestCarNameMessage();
         String input = InputView.readCarName();
         List<String> carNameList= game.splitCarName(input);
+        validateNameLength(carNameList);
         OutputView.printRequestTryNumberMessage();
         int tryNumber = Integer.parseInt(InputView.readTryNumber());
         OutputView.printResultStartMessage();
@@ -38,7 +39,15 @@ public class CarGameController {
     }
 
 
+    public static void validateNameLength(List<String> carNameList){
+        for(int i = 0 ; i < carNameList.size();i++){
+            if(carNameList.get(i).length()>5){
+                throw new IllegalArgumentException();
+            }
+        }
 
+
+    }
 
 
 
