@@ -37,6 +37,16 @@ public class InputView {
         return numberOfTimes;
     }
 
+    public void printRaceResult(List<Car> cars) {
+
+        StringBuilder raceResult = new StringBuilder();
+
+        for (Car car : cars) {
+
+            raceResult.append(car.getCarName()).append(" : ").append(car.getCarStateMessage()).append("\n");
+        }
+    }
+
 
     private void validateCarNameLength(List<String> carNames) {
 
@@ -45,7 +55,6 @@ public class InputView {
             if (carName.length() > 5) {
 
                 throw new IllegalArgumentException("자동차 이름은 5글자 이하로만 가능합니다.");
-
             }
         }
     }
@@ -57,7 +66,6 @@ public class InputView {
         if (carNames.size() != numberOfCars) {
 
             throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
-
         }
     }
 
@@ -66,7 +74,6 @@ public class InputView {
         if (!number.chars().allMatch(Character::isDigit)) {
 
             throw new IllegalArgumentException("사용할 횟수는 숫자로만 가능합니다.");
-
         }
     }
 
@@ -75,7 +82,6 @@ public class InputView {
         if (numberOfTimes <= 0) {
 
             throw new IllegalArgumentException("사용할 횟수는 1 이상으로만 가능합니다.");
-
         }
     }
 }
