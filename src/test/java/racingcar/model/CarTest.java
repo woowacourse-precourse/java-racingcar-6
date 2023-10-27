@@ -56,31 +56,31 @@ class CarTest {
     }
 
     @Test
-    @DisplayName("ifImWinner 매개 변수 값과 다르면 공백 반환 확인")
+    @DisplayName("ifImWinner 매개 변수 값과 다르면 false 반환 확인")
     void testNotWinner() {
         //given
-        String winnerName;
+        boolean ifWinner;
         car.forwardCar(true);
 
         //when
-        winnerName = car.ifImWinner(2);
+        ifWinner = car.ifImWinner(2);
 
         //then
-        assertThat(winnerName).isEqualTo("");
+        assertThat(ifWinner).isFalse();
     }
 
     @Test
-    @DisplayName("ifImWinner 매개 변수 값과 같으면 반환 확인")
+    @DisplayName("ifImWinner 매개 변수 값과 같으면 true 반환 확인")
     void testWinner() {
         //given
-        String winnerName;
+        boolean ifWinner;
         car.forwardCar(true);
         car.forwardCar(true);
 
         //when
-        winnerName = car.ifImWinner(2);
+        ifWinner = car.ifImWinner(2);
 
         //then
-        assertThat(winnerName).isEqualTo(NAME);
+        assertThat(ifWinner).isTrue();
     }
 }

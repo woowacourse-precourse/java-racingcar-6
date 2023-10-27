@@ -18,13 +18,17 @@ public class Car {
         }
     }
 
-    public String ifImWinner(Integer maxCountingMove) {
+    public String getCarName() {
+        return this.carName;
+    }
+
+    public boolean ifImWinner(Integer maxCountingMove) {
 
         if (maxCountingMove != countingMove.length()) {
-            return "";
+            return false;
         }
 
-        return this.carName;
+        return true;
     }
 
     @Override
