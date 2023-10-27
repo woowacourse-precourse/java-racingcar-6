@@ -12,11 +12,27 @@
 
 ## 기능 목록
 
+### Cars
+
+- `List<Car>`를 가지고있는 일급 컬렉션.
+- move(): 자동차의 수 만큼 반복하여 자동차들을 전진시킨다.
+    - [ ] 각 자동차의 moveForward() 메서드를 호출하여 움직이게 한다.
+
 ### Car
 
-- move(): 플레이어의 수 만큼 반복하여 자동차를 전진시킨다.
-    - [ ] 0에서 9 사이의 무작위 값을 구한다.
-    - [ ] 값이 4 이상일 경우 한 칸 전진한다.
+- `자동차의 이름`, `Position`, `Engine`을 가지고있다.
+- moveForward(): 엔진에 시동을 걸어 움직인다.
+    - [ ] Engine 의 start() 메서드를 호출한다.
+    - [ ] 반환값이 `true` 라면 position 의 값을 `1` 증가시킨다.
+
+### CarEngine
+
+- 자동차가 움직일 수 있는지 없는지를 반환하는 start() 메서드가 정의된 인터페이스.
+
+### RandomCarEngine
+
+- start(): 자동차가 움직일 수 있는지 없는지를 반환한다.
+    - [ ] `Randoms.pickInRange()` 메서드로 0 ~ 9 사이의 숫자를 뽑아 `4` 이상인지 `boolean`으로 반환한다.
 
 ### RacingCarInputView
 
