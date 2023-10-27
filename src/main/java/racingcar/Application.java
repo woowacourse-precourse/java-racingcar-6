@@ -42,4 +42,12 @@ public class Application {
     	Validator.valdateMovingNumber(movingNumberStr);
     }
     
+    //차 이동횟수 입력받기
+    public static int inputMovingNumber() {
+    	System.out.println("시도할 횟수 몇회인가요?");
+    	String movingNumberStr = Console.readLine();
+    	checkNumberValidation(movingNumberStr);
+    	int movingNumber = Integer.parseInt(movingNumberStr);
+    	return movingNumber;
+    }
 }
