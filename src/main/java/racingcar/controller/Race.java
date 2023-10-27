@@ -1,7 +1,12 @@
 package racingcar.controller;
 
-public class Race {
-    public void start(){
+import racingcar.domain.CarNames;
+import racingcar.view.InputView;
 
+public class Race {
+    InputView inputView = new InputView();
+
+    public void runGame() {
+        CarNames carNames = CarNames.from(inputView.readCarNames());
     }
 }
