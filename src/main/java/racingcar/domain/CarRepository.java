@@ -21,4 +21,8 @@ public class CarRepository {
     public List<Car> findAll() {
         return Collections.unmodifiableList(carStore);
     }
+
+    public void clearStore() {
+        carStore.clear();
+    }
 }

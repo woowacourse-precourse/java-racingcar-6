@@ -16,6 +16,14 @@ public class Car {
         return new Car(Name.from(name), position);
     }
 
+    public String getName() {
+        return name.getName();
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
     public void moveForward(final int randomNumber) {
         if (randomNumber >= MOVEABLE_OFFSET) {
             position++;

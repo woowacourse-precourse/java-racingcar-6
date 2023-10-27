@@ -17,4 +17,10 @@ public class InputView {
                 .map(String::trim)
                 .toList();
     }
+
+    public static String inputRaceTryCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        return Console.readLine()
+                .trim();
+    }
 }
