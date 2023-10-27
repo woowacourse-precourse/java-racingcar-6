@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.CarNames;
 import racingcar.model.RacingCarGameService;
+import racingcar.model.TryCount;
 import racingcar.view.RacingCarGameView;
 
 public class RacingCarGameController {
@@ -17,6 +18,7 @@ public class RacingCarGameController {
     public void gameStart() {
         String input = racingCarGameView.inputCarNames();
         CarNames carNames = new CarNames(input);
-        int tryCount = racingCarGameView.inputTryCount();
+        int count = racingCarGameView.inputTryCount();
+        TryCount tryCount = new TryCount(count);
     }
 }

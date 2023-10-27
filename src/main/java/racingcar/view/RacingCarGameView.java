@@ -20,7 +20,7 @@ public class RacingCarGameView {
 
     public int inputTryCount() {
         System.out.println(TRY_COUNT);
-        int tryCount = Integer.parseInt(Console.readLine());
-        return tryCount;
+        int count = Integer.parseInt(Console.readLine());
+        return count;
     }
 }
