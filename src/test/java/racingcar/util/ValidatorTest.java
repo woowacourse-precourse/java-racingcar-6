@@ -75,4 +75,12 @@ class ValidatorTest {
                 isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("int 데이터 타입 값 범위 내로 입력하세요.");
     }
+
+    @ParameterizedTest
+    @DisplayName("시도할 횟수 입력 모든 유효성 성공 테스트")
+    @ValueSource(strings = {"2147483647", "1", "999", "10", "001"})
+    void validInputsTest2(String input) {
+        Assertions.assertThatCode(() -> Validator.isValidAttemptCount(input))
+                .doesNotThrowAnyException();
+    }
 }
