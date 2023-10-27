@@ -12,6 +12,7 @@ public class RacingCarController {
     public void startProgram() {
         List<RacingCar> carList = initCars(getCarName());
         int tryNumber = getTryNumber();
+        startRace(carList, tryNumber);
     }
 
     private List<String> getCarName() {
@@ -28,5 +29,17 @@ public class RacingCarController {
 
     private int getTryNumber() {
         return inputView.inputTryNumber();
+    }
+
+    private void startRace(List<RacingCar> carList, int tryNumber) {
+        for(; tryNumber > 0; tryNumber--) {
+            moveEachCar(carList);
+        }
+    }
+
+    private void moveEachCar(List<RacingCar> carList) {
+        for(RacingCar car : carList) {
+            car.moveCar();
+        }
     }
 }
