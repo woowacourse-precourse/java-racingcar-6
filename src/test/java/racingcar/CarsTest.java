@@ -26,7 +26,8 @@ public class CarsTest {
     @MethodSource("provideCarsTestArguments")
     void moveTest(List<Car> inputCars) {
         Cars cars = new Cars(inputCars);
-        List<Car> afterMoveCars = cars.move();
+        cars.move();
+        List<Car> afterMoveCars = cars.getReadOnlyCarList();
         Car afterMoveCar1 = afterMoveCars.get(0);
         assertThat(afterMoveCar1.getPosition()).isEqualTo(1);
         assertThat(afterMoveCar1.getName()).isEqualTo(inputCars.get(0).getName());
