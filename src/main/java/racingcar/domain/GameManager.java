@@ -22,7 +22,7 @@ public class GameManager {
         initRaceCars();
         initAttempts();
     }
-    public void startGame(){
+    public void run(){
         for(int i=0;i<attempts;i++){
             playSingeRound();
         }
