@@ -44,13 +44,21 @@
   - [ ] : void validateCount(String) : 입력받은 시도 횟수의 유효성을 검사
 
 ### RacingCars
-자동차 경주에 참가한 자동차 리스트를 저장해 놓는 클래스
+자동차 경주에 참가한 자동차 리스트를 저장해 놓은 클래스
 
 - member instance
-   - List <Car> racingCars : 자동차 경주에 참가한 자동차 리스트를 저장해 놓은 클래스
+   - RacingCarsList racingCarsList : 자동차 리스트를 저장해 놓은 클래스
 - member function
-   - [ ] RacingCars(String) : racingCars 초기화
+   - [ ] RacingCars(RacingCarList) : racingCarsList 초기화
    - [ ] List <String> getWinners() : 최종 우승자의 리스트를 반환
+
+### RacingCarsList
+입력받은 자동차 이름을 자동차 리스트로 변환하여 저장해 놓은 클래스
+
+- member instance
+  - List<RacingCar> racingCarsList : 자동차 경주에 참가한 자동차 리스트
+- member function
+  - [ ] void setRacingCarsList(String) : 입력받은 경주 자동차의 이름을 이용하여 자동차 리스트 초기화
 
 ### RacingCar
 자동차의 이름과 이동 거리를 저장해 놓는 클래스
