@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.function.IntFunction;
 import java.util.stream.Collectors;
 
 public class Game {
@@ -34,9 +35,9 @@ public class Game {
     }
 
     private void makeCars(String[] carNames) {
-        cars = (Car[]) Arrays.stream(carNames)
-                .map((name) -> new Car(name))
-                .toArray();
+        cars = Arrays.stream(carNames)
+                .map(Car::new)
+                .toArray(Car[]::new);
     }
 
     public void playRound(){
