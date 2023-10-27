@@ -23,7 +23,7 @@ public class UserInputReceiver {
     }
 
     private static void numberRangeValidate(int inputNumber) {
-        if(inputNumber <= 0 ){
+        if (inputNumber <= 0) {
             throw new IllegalArgumentException();
         }
     }
@@ -32,7 +32,7 @@ public class UserInputReceiver {
         int parsedInt;
         try {
             parsedInt = Integer.parseInt(rawInput);
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
 

@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
 
-    private String name;
+    private final String name;
     private int forwardDistanceBetweenStartLine = 0;
 
     public Car(String name) {
@@ -25,12 +25,12 @@ public class Car {
     }
 
     public void tryForwardByCondition(int randomNumber) {
-        if (randomNumber >= 4){
+        if (randomNumber >= 4) {
             forwardDistanceBetweenStartLine += 1;
         }
     }
-    
-    public void locationInfoVisualizing(){
+
+    public void locationInfoVisualizing() {
         StringBuilder info = new StringBuilder(name + " : ");
 
         for (int i = 0; i < forwardDistanceBetweenStartLine; i++) {

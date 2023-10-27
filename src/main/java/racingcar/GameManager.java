@@ -23,14 +23,14 @@ public class GameManager {
         System.out.println("최종 우승자 : " + winnerNames);
     }
 
-    private String findWinnerNames(List<Car> carList) {
+    public String findWinnerNames(List<Car> carList) {
+
+        StringJoiner winners = new StringJoiner(",");
 
         int maxScore = carList.stream()
                 .mapToInt(Car::getForwardDistanceBetweenStartLine)
                 .max()
                 .orElse(0);
-
-        StringJoiner winners = new StringJoiner(",");
 
         carList.stream()
                 .filter(car -> car.getForwardDistanceBetweenStartLine() == maxScore)
