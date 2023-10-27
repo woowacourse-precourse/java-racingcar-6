@@ -17,14 +17,16 @@ public class GameController {
     public void run() {
         getMessage.GameStartMessage();
         String namesOfRacingCars = putMessage.getPlayerInput();
-        if (validator.checkPlayerInput(namesOfRacingCars)) {
+        if (validator.checkPlayerInput(namesOfRacingCars)) {    // 일급 컬랙션 적용하면 예외처리부도 뗄 수 있음
             List<String> carNameList = gameUtility.splitByComma(namesOfRacingCars);
-            for (String carName : carNameList) {
-                racingCarList.add(new RacingCar(carName));
-            }
-
+            addRacingCar(carNameList);
         } else {
             throw new IllegalArgumentException();
+        }
+    }
+    public void addRacingCar(List<String> racingCarList){   // util에 있는게 좀 더 어울릴듯
+        for (String carName : racingCarList) {
+            this.racingCarList.add(new RacingCar(carName));
         }
     }
 }
