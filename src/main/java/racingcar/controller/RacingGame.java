@@ -6,6 +6,9 @@ import racingcar.view.OutputView;
 public class RacingGame {
     public void play() {
         OutputView.displayCarNames();
-        String names = InputView.askRacingCarNames();
+        String names = InputView.input();
+
+        OutputView.displayAttemptCount();
+        int attemptCount = Integer.parseInt(InputView.input());
     }
 }
