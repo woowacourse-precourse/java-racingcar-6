@@ -1,5 +1,7 @@
 package racingcar.dto;
 
+import racingcar.utilities.Parse;
+
 public class Rule {
 	public static void isStringBlank(String str) {
 		if (str.isBlank()) {
@@ -13,10 +15,30 @@ public class Rule {
 		}
 	}
 	
-	public static void isRuleCorrect(String[] str) {
-		for (int i=0; i<str.length; i++) {
-			isStringBlank(str[i]);
-			isUnderFive(str[i]);
+	public static void isCarNameRuleCorrect(String[] carNameStringArray) {
+		for (int i=0; i<carNameStringArray.length; i++) {
+			isStringBlank(carNameStringArray[i]);
+			isUnderFive(carNameStringArray[i]);
+		}
+	}
+	
+	public static void isRoundNumberRuleCorrect(String roundNumberString) {
+		isStringBlank(roundNumberString);
+		isStringNumber(roundNumberString);
+	}
+	
+	private static void isStringNumber(String str) {
+		int i=0;
+		while (i!=str.length()) {
+			char c = str.charAt(i);
+			isCharacterNumber(c);
+			i++;
+		}
+	}
+	
+	private static void isCharacterNumber(char c) {
+		if (!Character.isDigit(c)) {
+			throw new IllegalArgumentException("숫자가 아닙니다.");
 		}
 	}
 }

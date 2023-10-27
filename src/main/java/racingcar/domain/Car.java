@@ -1,10 +1,11 @@
 package racingcar.domain;
 
-import java.util.List;
-
 public class Car {
-	List<String> carName;
+	String carName;
 	int carLocation;
 	
-	
+	public Car(String carName, int carLocation) {
+		this.carName = carName;
+		this.carLocation = carLocation;
+	}
 }

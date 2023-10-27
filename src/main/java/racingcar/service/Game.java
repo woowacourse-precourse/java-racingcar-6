@@ -1,19 +1,31 @@
 package racingcar.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import racingcar.view.Input;
 import racingcar.view.Output;
+import racingcar.dto.CarListDTO;
 import racingcar.domain.Car;
 import racingcar.domain.Round;
 
 public class Game {
-	Car car;
+	List<Car> carList;
 	Round round;
 	
 	public void setGame() {
-		car = new Car();
-		round = new Round();
-		String[] cars = Input.requestCarName();
-		Input.requestRoundNumber(round);
+		generateCarList();
+		generateRound();
+	}
+	
+	private void generateCarList() {
+		String[] carStringArray = Input.requestCarName();
+		CarListDTO carListDTO = new CarListDTO();
+		carList = carListDTO.makeCarList(carStringArray);
+	}
+	
+	private void generateRound() {
+		int roundNumber = Input.requestRoundNumber();
+		System.out.println(roundNumber);
 	}
 	
 	public void startGame() {

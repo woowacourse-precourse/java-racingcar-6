@@ -1,41 +1,52 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.Car;
-import racingcar.domain.Round;
 import racingcar.utilities.Parse;
 import racingcar.dto.Rule;
 
 public class Input {
-	static final String splitter = ",";
+	static final String SPLITTER = ",";
 	
 	public static String[] requestCarName() {
 		Message.namingMessage();
-		String carNames = Console.readLine();
-		String[] cars = parseCarNames(carNames);
-		return cars;
+		return getCarNames();
+	}
+	
+	private static String[] getCarNames() {
+		try {
+			String carNames = Console.readLine();
+			String[] cars = parseCarNames(carNames);
+			return cars;
+		} catch(NullPointerException e) {
+			throw new IllegalArgumentException("유효한 수가 아닙니다.");
+		}
 	}
 	
 	private static String[] parseCarNames(String carNames) {
 		String[] cars;
+		Rule.isStringBlank(carNames);
+		cars = Parse.splitString(carNames, SPLITTER);
+		Rule.isCarNameRuleCorrect(cars);
+		return cars;
+	}
+	
+	public static int requestRoundNumber() {
+		Message.roundingMessage();
+		return getRoundNumber();
+	}
+	
+	private static int getRoundNumber() {
 		try {
-			Rule.isStringBlank(carNames);
-			cars = Parse.splitString(carNames, splitter);
-			// parse -> 몇개인지 확인 -> for (개수) {Car 만들어?} -> List<Car>
-			isRuleCorrect(cars);
-			return cars;
-		} catch (IllegalArgumentException e) {
-			throw e;
+			String roundNumberString = Console.readLine();
+			int roundNumber = parseRoundNumber(roundNumberString);
+			return roundNumber;
+		} catch(NumberFormatException e) {
+			throw new IllegalArgumentException("유효한 수가 아닙니다.");
 		}
 	}
 	
-	private static boolean isRuleCorrect(String[] cars) {
-		Rule.isRuleCorrect(cars);
-		return true;
-	}
-	
-	public static void requestRoundNumber(Round round) {
-		Message.roundingMessage();
-		
+	private static int parseRoundNumber(String roundNumberString) {
+		Rule.isRoundNumberRuleCorrect(roundNumberString);
+		return Parse.parseStringToInt(roundNumberString);
 	}
 }
