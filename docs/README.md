@@ -74,7 +74,7 @@ UserInterface 객체의 start 메서드를 실행한다.
   - List<Car> cars 자동차 리스트
 
 - 생성자
-  - cars를 ArrayList로 초기화하는 생성자
+  - cars를 외부에서 주입받는 생성자
 
 - 메서드
   - saveCars(String input) 사용자의 입력을 받아 car들을 리스트에 저장
