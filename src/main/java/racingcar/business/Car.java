@@ -9,4 +9,13 @@ public class Car {
         distance ++;
     }
 
+    private void backwardCar() {
+        if (!isDistanceZero()) {
+            distance --;
+        }
+    }
+
+    private boolean isDistanceZero() {
+        return distance.equals(0);
+    }
 }
