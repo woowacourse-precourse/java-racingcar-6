@@ -11,4 +11,12 @@ public class Validator {
             throw new IllegalArgumentException("중복이 존재합니다.");
         }
     }
+
+    public static void isValidLength(List<String> carNames) {
+        for (String name : carNames) {
+            if (name.length() > 5) {
+                throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+            }
+        }
+    }
 }

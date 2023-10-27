@@ -43,6 +43,7 @@ public class RacingGame {
 
     private void initializeCars(List<String> carNames) {
         Validator.isUnique(carNames);
+        Validator.isValidLength(carNames);
         for (String carName : carNames) {
             cars.add(carName);
         }
