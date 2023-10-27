@@ -1,12 +1,16 @@
 package racingcar.model;
 
 import java.util.Objects;
+import racingcar.validator.BasicValidator;
+import racingcar.validator.CarNameValidator;
 
 public class Name {
 
     private final String name;
+    private static final BasicValidator carNameValidator = new CarNameValidator();
 
     public Name(String name) {
+        carNameValidator.validate(name);
         this.name = name;
     }
 
