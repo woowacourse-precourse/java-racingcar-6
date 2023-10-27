@@ -1,7 +1,7 @@
 package racingcar.Console;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 
 public class Output {
@@ -20,7 +20,7 @@ public class Output {
         System.out.println(Constants.EXECUTION_RESULT_MESSAGE);
     }
 
-    public static void printExecutionResult(HashMap<String, Integer> carExecutionResult) {
+    public static void printExecutionResult(Map<String, Integer> carExecutionResult) {
         stringBuilder = new StringBuilder();
 
         for (Entry<String, Integer> entrySet : carExecutionResult.entrySet()) {
@@ -37,7 +37,7 @@ public class Output {
         System.out.println(stringBuilder);
     }
 
-    public static void printWinnerResult(List<String> winners) {
+    public static void printFinalResult(List<String> winners) {
         stringBuilder = new StringBuilder();
         stringBuilder.append(Constants.FINAL_WINNER_MESSAGE);
 
