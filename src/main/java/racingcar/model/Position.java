@@ -4,7 +4,6 @@ import static racingcar.util.Constant.NEXT_INDEX;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.NoSuchElementException;
 import racingcar.exception.position.NotExistPositionException;
 
 public class Position {
@@ -18,13 +17,7 @@ public class Position {
     }
 
     public static Position createWith(final int positionIndex) {
-        try {
-            return cache.get(positionIndex);
-        } catch (NoSuchElementException exception) {
-            Position position = new Position(positionIndex);
-            cache.put(positionIndex, position);
-            return position;
-        }
+        return cache.computeIfAbsent(positionIndex, position -> new Position(positionIndex));
     }
 
     public Position getNextPosition(final Position position) {
