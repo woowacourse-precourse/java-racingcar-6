@@ -62,6 +62,8 @@
 
 - RacingCars (자동차 일급컬렉션)
 
+- TryCount (움직일 횟수 도메인)
+
 ## 열거형 목록
 
 - ProgressMessage: 진행 메시지를 가진다
