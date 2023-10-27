@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
-import racingcar.dto.CarsGenerateDto;
 import racingcar.dto.WinnerCarResponse;
 
 public class Referee {
@@ -14,7 +13,7 @@ public class Referee {
     private static final String MULTI_WINNER_DELIMITER = ", ";
 
     public WinnerCarResponse judgeWinner(Cars generatedCars) {
-        int maxCount = findMaxPosition(generatedCars);
+        int maxCount = findMaxCarPosition(generatedCars);
 
         List<Car> carsList = generatedCars.getCarsList().stream()
                 .filter(x -> x.getCarPosition() == maxCount)
@@ -30,7 +29,7 @@ public class Referee {
                 .collect(Collectors.joining(MULTI_WINNER_DELIMITER));
     }
 
-    private int findMaxPosition(Cars cars) {
+    private int findMaxCarPosition(Cars cars) {
         List<Integer> list = cars.getCarsList().stream()
                 .map(Car::getCarPosition)
                 .sorted(Comparator.reverseOrder())

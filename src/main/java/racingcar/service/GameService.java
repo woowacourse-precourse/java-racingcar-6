@@ -7,20 +7,17 @@ import racingcar.view.OutputView;
 public class GameService {
 
     private final Rule rule;
-    private final RandomNumberGenerator randomNumberGenerator;
     private final OutputView outputView;
-
     private final Referee referee;
 
     public GameService() {
         rule = new Rule();
-        randomNumberGenerator = new RandomNumberGenerator();
         outputView = new OutputView();
         referee = new Referee();
     }
 
     public void playUntilTrialNumber(int trialNumber, CarsGenerateDto generatedCars) {
-        Cars cars = Cars.generateCars(generatedCars);
+        Cars cars = Cars.generate(generatedCars);
         for (int i = 0; i < trialNumber; i++) {
             moveCarsByRandomNumber(cars);
             outputView.showResult(cars.getCarsList());
@@ -29,7 +26,7 @@ public class GameService {
     }
 
     private void moveCarsByRandomNumber(Cars cars) {
-        cars.moveCars(rule, randomNumberGenerator);
+        cars.moveAll(rule);
     }
 }
 
