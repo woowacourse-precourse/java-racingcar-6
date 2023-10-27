@@ -35,7 +35,7 @@ public class RacingGameController extends GameController {
             doOneRound(carList);
             OutputView.printCurrentForwardState(carList);
         }
-        OutputView.printWinners(getWinners(carList));
+        OutputView.printWinners(pickWinners(carList));
 
         endGame();
     }
@@ -53,7 +53,7 @@ public class RacingGameController extends GameController {
         }
     }
 
-    private CarList getWinners(CarList carList) {
+    private CarList pickWinners(CarList carList) {
         Car winner1 = carList.getCarList().stream()
                 .max(Comparator.comparingInt(Car::getPosition)).get();
         List<Car> winnerList = carList.getCarList().stream()
