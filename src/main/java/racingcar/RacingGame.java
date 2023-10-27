@@ -14,16 +14,6 @@ public class RacingGame {
     public RacingGame(){
     }
 
-    public String[] splitNames(String names){
-        return names.split(COMMA);
-    }
-
-    public void checkAttemptCountIsInteger(String input){
-        if(!INTEGER.matcher(input).matches()){
-            throw new IllegalArgumentException("정수를 입력해야합니다.");
-        }
-    }
-
     public List<Car> inputCarNames(String input){
         List<String> names=Arrays.stream(splitNames(input))
                 .map(this::removeWhiteSpace)
@@ -36,13 +26,8 @@ public class RacingGame {
                 .collect(Collectors.toList());
     }
 
-    public int inputAttemptCount(String input){
-        checkAttemptCountIsInteger(input);
-        return toInt(input);
-    }
-
-    private int toInt(String input){
-        return Integer.parseInt(input);
+    private String[] splitNames(String names){
+        return names.split(COMMA);
     }
 
     private String removeWhiteSpace(String name){
@@ -55,6 +40,20 @@ public class RacingGame {
         if(names.size()!=uniqueName.size()){
             throw new IllegalArgumentException("중복된 이름이 존재합니다.");
         }
+    }
+
+    public int inputAttemptCount(String input){
+        checkAttemptCountIsInteger(input);
+        return toInt(input);
+    }
+
+    private void checkAttemptCountIsInteger(String input){
+        if(!INTEGER.matcher(input).matches()){
+            throw new IllegalArgumentException("정수를 입력해야합니다.");
+        }
+    }
+    private int toInt(String input){
+        return Integer.parseInt(input);
     }
 
     public String printCarName(List<Car> cars){
