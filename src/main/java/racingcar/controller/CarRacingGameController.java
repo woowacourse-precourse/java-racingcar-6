@@ -17,10 +17,14 @@ public class CarRacingGameController {
 
         Game game = carRacingGameService.getGame(cars, ConsoleIO.readGameSet());
 
-        playGame();
+        playGame(game);
     }
 
-    private void playGame() {
+    private void playGame(Game game) {
         ConsoleIO.printPlayResultMessage();
+
+        while (carRacingGameService.isContinue(game)) {
+            carRacingGameService.playSet(game);
+        }
     }
 }

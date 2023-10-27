@@ -71,4 +71,12 @@ public class CarRacingGameService {
             throw new IllegalArgumentException("1이상 99이하의 숫자만 입력이 가능합니다.");
         }
     }
+
+    public boolean isContinue(Game game) {
+        return game.isContinue();
+    }
+
+    public void playSet(Game game) {
+        game.playSet();
+    }
 }
