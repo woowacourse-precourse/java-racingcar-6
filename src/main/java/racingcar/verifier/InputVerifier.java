@@ -13,10 +13,10 @@ public class InputVerifier {
         checkDistinct(nameList);
     }
 
-    public static void verifyTry(String tryReamain) throws IllegalArgumentException {
-        checkEmpty(tryReamain);
-        checkNumeric(tryReamain);
-        checkNonPositive(tryReamain);
+    public static void verifyTry(String tryRemain) throws IllegalArgumentException {
+        checkEmpty(tryRemain);
+        checkNumeric(tryRemain);
+        checkNonPositive(tryRemain);
     }
 
     private static void checkLength(String name) {
