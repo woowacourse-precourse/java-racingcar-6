@@ -7,7 +7,7 @@ import java.util.List;
 public class InputView {
     private static final String DELIMITER = ",";
 
-    public List<String> getCarStrings() {
+    public static List<String> getCarStrings() {
         List<String> carStrings = new ArrayList<>();
         String input = Console.readLine();
         validateNullOrEmpty(input);
@@ -17,19 +17,19 @@ public class InputView {
         return carStrings;
     }
 
-    public int getMoveCount() {
+    public static int getMoveCount() {
         String input = Console.readLine();
         validateDigit(input);
         return Integer.parseInt(input);
     }
 
-    private void validateNullOrEmpty(String string) {
+    private static void validateNullOrEmpty(String string) {
         if (string == null || string.isEmpty()) {
             throw new IllegalArgumentException("[ERROR] 입력이 널이거나 빈 문자열입니다.");
         }
     }
 
-    private void validateDigit(String string) {
+    private static void validateDigit(String string) {
         validateNullOrEmpty(string);
         boolean isDigit = string.chars()
                 .allMatch(Character::isDigit);

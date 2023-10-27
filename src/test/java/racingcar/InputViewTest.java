@@ -17,8 +17,7 @@ class InputViewTest extends NsTest {
     private InputStream originalSystemIn;
 
     public static void main(String[] args) {
-        InputView inputView = new InputView();
-        inputView.getMoveCount();
+        InputView.getMoveCount();
     }
 
     @BeforeEach
@@ -37,9 +36,8 @@ class InputViewTest extends NsTest {
         //given
         InputStream inputStream = new ByteArrayInputStream("pobi, woni, jun".getBytes());
         System.setIn(inputStream);
-        InputView inputView = new InputView();
         //when
-        List<String> carStrings = inputView.getCarStrings();
+        List<String> carStrings = InputView.getCarStrings();
         //then
         assertThat(carStrings).containsExactly("pobi", "woni", "jun");
     }
@@ -49,10 +47,9 @@ class InputViewTest extends NsTest {
         //given
         InputStream inputStream = new ByteArrayInputStream("10".getBytes());
         System.setIn(inputStream);
-        InputView inputView = new InputView();
         //when
         //then
-        assertThat(inputView.getMoveCount()).isEqualTo(10);
+        assertThat(InputView.getMoveCount()).isEqualTo(10);
     }
 
     @Test
