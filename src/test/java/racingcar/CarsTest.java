@@ -10,6 +10,14 @@ import racingcar.model.Cars;
 public class CarsTest {
 
     @Test
+    void 정상_자동차_리스트_생성_테스트() {
+        // given & when
+        Cars cars = Cars.from("pobi,12a,현준");
+        // then
+        assertThat(cars.carsCount()).isEqualTo(3);
+    }
+
+    @Test
     void 같은_이름을_가진_자동차가_있으면_안된다() {
         // given & when
         Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {

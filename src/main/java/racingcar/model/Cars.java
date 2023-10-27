@@ -43,6 +43,10 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
+    public int carsCount() {
+        return cars.size();
+    }
+
     private void validateEachCarUnique(final List<Car> cars) {
         List<Car> uniqueCars = cars.stream()
                 .distinct()
