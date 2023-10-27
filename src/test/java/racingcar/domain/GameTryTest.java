@@ -10,22 +10,22 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static racingcar.exception.ExceptionMessage.GameTryCountException.CANNOT_MOVE_ANYMORE;
 import static racingcar.exception.ExceptionMessage.GameTryCountException.TRY_COUNT_MUST_BE_AT_LEAST_ONE;
 
-public class GameTryCountTest {
+public class GameTryTest {
     @Nested
     @DisplayName("GameTryCount 생성")
     class Construct {
         @Test
-        @DisplayName("게임 시도 횟수가 1번 미만이면 GameTryCount를 생성할 수 없다")
+        @DisplayName("게임 시도 횟수가 1번 미만이면 GameTry를 생성할 수 없다")
         void throwExceptionByInvalidTryCount() {
-            assertThatThrownBy(() -> GameTryCount.from(0))
+            assertThatThrownBy(() -> GameTry.from(0))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage(TRY_COUNT_MUST_BE_AT_LEAST_ONE.message);
         }
 
         @Test
-        @DisplayName("GameTryCount를 생성한다")
+        @DisplayName("GameTry를 생성한다")
         void success() {
-            assertDoesNotThrow(() -> GameTryCount.from(1));
+            assertDoesNotThrow(() -> GameTry.from(1));
         }
     }
 
@@ -36,11 +36,11 @@ public class GameTryCountTest {
         @DisplayName("남은 시도 횟수가 없다면 더이상 게임을 진행할 수 없다")
         void throwExceptionByCannotMoveAnymore() {
             // given
-            final GameTryCount gameTryCount = GameTryCount.from(1);
-            gameTryCount.proceed();
+            final GameTry gameTry = GameTry.from(1);
+            gameTry.proceed();
 
             // when - then
-            assertThatThrownBy(gameTryCount::proceed)
+            assertThatThrownBy(gameTry::proceed)
                     .isInstanceOf(IllegalStateException.class)
                     .hasMessage(CANNOT_MOVE_ANYMORE.message);
         }
@@ -49,13 +49,13 @@ public class GameTryCountTest {
         @DisplayName("게임을 진행한다 (남은 시도 횟수 - 1)")
         void success() {
             // given
-            final GameTryCount gameTryCount = GameTryCount.from(2);
+            final GameTry gameTry = GameTry.from(2);
 
             // when
-            gameTryCount.proceed();
+            gameTry.proceed();
 
             // then
-            assertThat(gameTryCount.getRemainingAttempts()).isEqualTo(1);
+            assertThat(gameTry.getRemainingAttempts()).isEqualTo(1);
         }
     }
 
@@ -63,13 +63,13 @@ public class GameTryCountTest {
     @DisplayName("게임 진행이 가능한지 확인한다")
     void isStillCanTry() {
         // given
-        final GameTryCount gameTryCount = GameTryCount.from(1);
+        final GameTry gameTry = GameTry.from(1);
 
         /* remain = 1 */
-        assertThat(gameTryCount.isStillCanTry()).isTrue();
+        assertThat(gameTry.isStillCanTry()).isTrue();
 
         /* proceed -> remain = 0 */
-        gameTryCount.proceed();
-        assertThat(gameTryCount.isStillCanTry()).isFalse();
+        gameTry.proceed();
+        assertThat(gameTry.isStillCanTry()).isFalse();
     }
 }

@@ -28,7 +28,7 @@ public class InputProcessor {
         return List.of(userInput.split(CAR_READ_SEPARATOR));
     }
 
-    public static int readGameTryCount() {
+    public static int readAttemptCount() {
         System.out.println("시도할 회수는 몇회인가요?");
 
         final String userInput = Console.readLine();

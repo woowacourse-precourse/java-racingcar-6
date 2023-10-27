@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static racingcar.exception.ExceptionMessage.InputException.GAME_TRY_COUNT_MUST_BE_NUMERIC;
 import static racingcar.exception.ExceptionMessage.InputException.INPUT_MUST_NOT_CONTAINS_SPACE;
 
-public class GameTryCountInputValidatorTest {
+public class GameTryInputValidatorTest {
     private final GameTryCountInputValidator sut = new GameTryCountInputValidator();
 
     @Test
