@@ -3,10 +3,16 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
-    public static String[] inputCarList(){
+
+    public static String[] inputCarList() {
         String input = Console.readLine();
         String[] result = input.split(",");
         return result;
+    }
+
+    public static String inputGameRound() {
+        String input = Console.readLine();
+        return input;
     }
 
 }
