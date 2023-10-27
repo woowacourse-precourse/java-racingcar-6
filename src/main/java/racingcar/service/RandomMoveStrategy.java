@@ -1,16 +1,16 @@
 package racingcar.service;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class RandomMoveStrategy implements MoveStrategy{
     private final int totalMoves;
+    private final RandomGenerator randomGenerator;
 
-    public RandomMoveStrategy(int totalMoves) {
+    public RandomMoveStrategy(int totalMoves, RandomGenerator randomGenerator) {
         this.totalMoves = totalMoves;
+        this.randomGenerator = randomGenerator;
     }
 
     @Override
@@ -21,7 +21,7 @@ public class RandomMoveStrategy implements MoveStrategy{
     }
 
     private Boolean decideMovement(){
-        int randomNumber = Randoms.pickNumberInRange(1,9);
+        int randomNumber = randomGenerator.generate();
         return randomNumber >= 4;
     }
 }
