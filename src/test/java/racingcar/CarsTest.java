@@ -5,8 +5,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.Arrays;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
+import racingcar.domain.Cars;
 
 class CarsTest extends NsTest {
     private static final int MOVING_FORWARD = 4;

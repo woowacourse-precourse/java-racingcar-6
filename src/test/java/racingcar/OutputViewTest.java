@@ -6,6 +6,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
+import racingcar.domain.Cars;
+import racingcar.domain.OutputView;
 
 class OutputViewTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
