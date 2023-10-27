@@ -19,8 +19,8 @@ public class Car {
         this.name = name;
     }
 
-    private void go() {
-        if(Randoms.pickNumberInRange(0, 9) >= 4) {
+    public void go(int movePoint) {
+        if(isMove(movePoint)) {
             distance++;
         }
     }
@@ -29,5 +29,9 @@ public class Car {
         if (name.length() > 5) {
             throw new IllegalArgumentException();
         }
+    }
+
+    private boolean isMove(int movePoint) {
+        return movePoint >= 4;
     }
 }
