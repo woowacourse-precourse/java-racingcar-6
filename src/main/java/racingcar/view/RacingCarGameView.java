@@ -8,7 +8,9 @@ public class RacingCarGameView {
 
     }
 
-    public void startView() {
+    public String inputCarNames() {
         System.out.println(START);
+
+        return null;
     }
 }
