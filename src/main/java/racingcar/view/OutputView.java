@@ -2,27 +2,40 @@ package racingcar.view;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.constant.GameMessage;
 import racingcar.domain.Car;
 import racingcar.domain.CarDto;
 
 public class OutputView {
+    private void printLn(String message) {
+        System.out.println(message);
+    }
 
-//    public static void printCarStatus(List<Car> cars) {
-//        for (Car car : cars) {
-//            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
-//        }
-//        System.out.println();
-//    }
+    private void print(String message) {
+        System.out.print(message);
+    }
 
-    public static void printCarStatus(List<CarDto> carStatus) {
-        for (CarDto status : carStatus) {
-            System.out.println(status.getDisplayStatus());
-        }
+    private void newLine() {
         System.out.println();
     }
 
-    public static void announceWinner(List<Car> winners) {
-        System.out.print("최종 우승자 : ");
-        System.out.println(winners.stream().map(Car::getName).collect(Collectors.joining(", ")));
+    public void requestCarNames() {
+        printLn(GameMessage.REQUEST_CAR_NAMES.getMessage());
+    }
+
+    public void requestRounds() {
+        printLn(GameMessage.REQUEST_ROUNDS.getMessage());
+    }
+
+    public void printCarStatus(List<CarDto> carStatus) {
+        for (CarDto status : carStatus) {
+            printLn(status.getDisplayStatus());
+        }
+        newLine();
+    }
+
+    public void announceWinner(List<Car> winners) {
+        print(GameMessage.FINAL_WINNER.getMessage());
+        printLn(winners.stream().map(Car::getName).collect(Collectors.joining(", ")));
     }
 }
