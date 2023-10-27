@@ -1,7 +1,10 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import racingcar.service.impl.InputConvertServiceImpl;
+import racingcar.service.impl.ValidateServiceImpl;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -29,6 +32,17 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void 마지막_글자가_쉼표_일때_예외_처리(){
+        String input = "kyh,";
+        ValidateServiceImpl validateService = new ValidateServiceImpl();
+        InputConvertServiceImpl inputConvertService = new InputConvertServiceImpl(validateService);
+
+        Assertions.assertThatThrownBy(()->inputConvertService.inputConvertCarPark(input))
+                .isInstanceOf(IllegalArgumentException.class);
+
     }
 
     @Override
