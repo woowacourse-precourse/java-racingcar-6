@@ -10,15 +10,22 @@ public class InputView {
 
     public List<String> inputNames() {
         System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
-        String names = Console.readLine();
-        validateBlank(names);
-        List<String> nameList = Arrays.stream(names
-                        .split(","))
+        String inputNames = Console.readLine();
+        validateBlank(inputNames);
+        List<String> nameList = Arrays.stream(
+                        inputNames.split(","))
                         .toList();
         validateNamesCount(nameList);
         validateNamesFormat(nameList);
 
         return nameList;
+    }
+
+    public Integer inputCountOfGameRound() {
+        System.out.print("시도할 회수는 몇회인가요?");
+        String inputCountOfGameRound = Console.readLine();
+
+        return Integer.parseInt(inputCountOfGameRound);
     }
 
     private void validateBlank(String input) {
