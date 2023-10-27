@@ -6,6 +6,7 @@ import racingcar.system.SystemConstant;
 
 public class InputVerifier {
     public static void verifyName(String names) throws IllegalArgumentException {
+        InputVerifier.checkEmpty(names);
         List<String> nameList = List.of(names.split(","));
         nameList.forEach(InputVerifier::checkLength);
         nameList.forEach(InputVerifier::checkNull);
@@ -18,6 +19,14 @@ public class InputVerifier {
     }
 
     private static void checkNull(String name) {
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException(ExceptionMessage.IS_NULL.getMessage());
+        }
+    }
 
+    private static void checkEmpty(String string) {
+        if (string.isEmpty()) {
+            throw new IllegalArgumentException(ExceptionMessage.IS_TOTALLY_NULL.getMessage());
+        }
     }
 }

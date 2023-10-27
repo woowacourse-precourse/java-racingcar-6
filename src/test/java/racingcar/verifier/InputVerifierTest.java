@@ -15,6 +15,12 @@ public class InputVerifierTest {
     @DisplayName("이름이 없는 자동차에 대한 테스트")
     @Test
     void checkNull() {
-        assertThrows(IllegalArgumentException.class, () -> InputVerifier.verifyName(",,"));
+        assertThrows(IllegalArgumentException.class, () -> InputVerifier.verifyName(",,,차"));
+    }
+
+    @DisplayName("아무런 입력도 주어지지 않았을 때 테스트")
+    @Test
+    void checkTotallyNull() {
+        assertThrows(IllegalArgumentException.class, () -> InputVerifier.verifyName(""));
     }
 }
