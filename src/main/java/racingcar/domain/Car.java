@@ -17,6 +17,15 @@ public class Car {
         }
     }
 
+    public int getPosition() {
+        final int copyPosition = position;
+        return copyPosition;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     private int getCondition() {
         return Randoms.pickNumberInRange(0, 9);
     }
