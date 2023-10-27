@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
 import racingcar.view.UserInput;
 
 public class Application {
@@ -23,6 +24,37 @@ public class Application {
     }
 }
 
+//자동차 Car 클래스 생성
+class Car {
+    String carName;
+    int count;
 
+    Car(String carName, int count) {
+        this.carName = carName;
+        this.count = count;
+    }
+}
 
+//각 시행 별 자동차들 관리하는 컨트롤 Service
+class CarService {
+    UserInput input;
+    ArrayList<Car> carList = new ArrayList<>();
+
+    CarService(UserInput input) {
+        this.input = input;
+        this.carList = changeUserInputToCarList(input);
+    }
+
+    //1) 입력받은 자동차 이름별 Car클래스 생성
+    public ArrayList<Car> changeUserInputToCarList(UserInput input) {
+        ArrayList<Car> list = new ArrayList<>();
+        String[] tmp = input.userInputCarName.split(",");
+        //각 자동차 이름별로 Car클래스 리스트에 담고 초기화
+        for (int i = 0; i < tmp.length; i++) {
+            list.add(new Car((tmp[i]), 0));
+        }
+        return list;
+    }
+
+}
 
