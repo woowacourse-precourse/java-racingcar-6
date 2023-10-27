@@ -18,12 +18,14 @@ public class GameManager {
         initRaceCars();
         initAttempts();
     }
-
-    public void StartGame(){
+    public void startGame(){
         for(int i=0;i<attempts;i++){
             playSingeRound();
         }
+        List<String> winnerCarNames = Referee.determineWinner(this.cars);
+        outputView.printWinners(winnerCarNames);
     }
+
     private void initRaceCars(){
         List<String> carNames = inputView.getCarNames();
         for(String carName: carNames){

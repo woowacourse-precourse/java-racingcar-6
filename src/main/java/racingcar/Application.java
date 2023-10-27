@@ -7,6 +7,6 @@ public class Application {
         // TODO: 프로그램 구현
         GameManager gm = new GameManager();
         gm.initGame();
-        gm.StartGame();
+        gm.startGame();
     }
 }
