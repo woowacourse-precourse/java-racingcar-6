@@ -7,8 +7,9 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class InputView {
-    private static final String RACING_CAR_NAME_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final int INITIAL_COUNT_VALUE = 0;
+    private static final String RACING_CAR_NAME_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String TRIAL_COUNT_INPUT_MESSAGE = "시도할 회수는 몇회안가요?";
 
     public Map<String, Integer> inputCarName() {
         System.out.println(RACING_CAR_NAME_INPUT_MESSAGE);
@@ -20,5 +21,10 @@ public class InputView {
                         (existingValue, newValue) -> existingValue,
                         HashMap::new
                 ));
+    }
+
+    public int inputTrialCount() {
+        System.out.println(TRIAL_COUNT_INPUT_MESSAGE);
+        return Integer.parseInt(Console.readLine());
     }
 }
