@@ -10,6 +10,7 @@ public class Car {
     private int moveCount;
 
     public Car(String name) {
+        name = name.trim();
         validateLength(name);
         validateLetter(name);
         this.name = name;
