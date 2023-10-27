@@ -7,14 +7,19 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Application {
-    private List<Car> transformStringToCarList(String cars){
+    private List<Car> transformStringToCarList(String cars) {
         List<Car> carList = new ArrayList<>();
         for (String carName : Arrays.stream(cars.split(",")).toList()) {
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+            }
+
             final Car car = new Car(carName);
             carList.add(car);
         }
         return carList;
     }
+
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
