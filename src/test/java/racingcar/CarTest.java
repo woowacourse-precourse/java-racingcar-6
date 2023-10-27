@@ -6,8 +6,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 final class CarTest {
+
+    @Test
+    void 이름이_null인_차는_인스턴스화_될때_에러가_발생한다() {
+        assertThrows(IllegalArgumentException.class, () -> new Car(null));
+    }
 
     @Test
     void 동일한_이름을_가진_차는_동일한_객체로_인식한다() {
@@ -32,5 +38,8 @@ final class CarTest {
     }
 
     record Car(Name name) {
+        Car {
+            if(name == null) throw new IllegalArgumentException();
+        }
     }
 }
