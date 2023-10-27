@@ -23,26 +23,26 @@ public class RaceCar {
 
     // TODO: 10/27/23 자동차의 이동을 제어해준다.
     public Boolean movementControlCar() {
-//        이동시 전진 카운터 증가.
-//        - [ ] 자동차가 전진을 한다. // RaceCar#moveForward
-//                - [ ] 이동은 출력은 "-" 으로 한다.
-//                - [ ] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다.
-//        - [ ] 자동차 멈춤(정지). //  RaceCar#pauseTemp
-//                - [ ] 멈춤은 아무런 출력을 하지 않는다.
-//                - [ ] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 미만일 경우이다.
+//        - [ ] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다.
+//      moveForward() 호출
+        moveForward();
+
+//        - [ ] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 미만일 경우이다.
+//      pauseTemp() 호출
+        pauseTemp();
+
         return true;
     }
 
-    // TODO: 10/27/23 자동차가 전진을 한다.  
-    private void moveForward() {
-//        - [ ] 이동은 출력은 "-" 으로 한다.
-//        - [ ] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다.
+    public void moveForward() {
+//        이동시 전진 카운터 증가.
+        cntMovementOfCar = cntMovementOfCar + 1;
     }
 
     // TODO: 10/27/23 자동차 멈춤(정지)
-    private void pauseTemp() {
+    public void pauseTemp() {
 //        - [ ] 멈춤은 아무런 출력을 하지 않는다.
-//        - [ ] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 미만일 경우이다.
+
     }
 
     @Override
