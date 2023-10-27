@@ -18,6 +18,7 @@ public class GameController {
         List<Car> cars = createCars(inputCarNames());
         int attemptCount = inputAttemptCount();
 
+        OutputView.printExecutionResultMessage();
         for (int i = 0; i < attemptCount; i++) {
             moveAllCarsForward(cars);
             displayAllCarsPosition(cars);

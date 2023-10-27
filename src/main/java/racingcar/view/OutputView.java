@@ -17,4 +17,8 @@ public class OutputView {
     public static void printCarPosition(String name, int position) {
         System.out.println(name + " : " + "-".repeat(position));
     }
+
+    public static void printExecutionResultMessage() {
+        System.out.println(Message.EXECUTION_RESULT_MESSAGE);
+    }
 }
