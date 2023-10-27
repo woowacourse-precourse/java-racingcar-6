@@ -8,7 +8,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGame {
-    public void play() {
+    public void setUp() {
         List<String> carNames = getCarNames();
         int attemptCount = getAttemptCount();
         Cars cars = initializeCars(carNames);
