@@ -10,10 +10,11 @@ public class Car {
         this.forwardCount = 0;
     }
 
-    public void moveForward(int value) {
+    public int moveForward(int value) {
         if (value >= 4) {
             forwardCount++;
         }
+        return forwardCount;
     }
 
     public int getLargerForwardCount(int maxForwardCount) {
@@ -22,5 +23,9 @@ public class Car {
 
     public boolean isSameAs(int forwardCount) {
         return this.forwardCount == forwardCount;
+    }
+
+    public String getName() {
+        return name;
     }
 }
