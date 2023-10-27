@@ -50,7 +50,7 @@
    - List<RacingCar> racingCars : 자동차 리스트
 - member function
    - [x] RacingCars(RacingCarsListMaker) : racingCars 초기화
-   - [ ] List <String> getWinners() : 최종 우승자의 리스트를 반환
+   - [x] List <String> getWinners() : 최종 우승자의 리스트를 반환
 
 ### RacingCarsListMaker
 입력받은 자동차 이름을 자동차 리스트로 변환하여 저장해 놓은 클래스
