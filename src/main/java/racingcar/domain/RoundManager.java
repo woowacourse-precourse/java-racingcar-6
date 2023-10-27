@@ -11,7 +11,7 @@ public class RoundManager {
         }
     }
 
-    public boolean shouldCarMove(){
+    private boolean shouldCarMove(){
         int randomValue = RandomNumberGenerator.randomNumGenerate();
         return randomValue >=4;
     }
