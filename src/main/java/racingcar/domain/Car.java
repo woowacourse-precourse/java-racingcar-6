@@ -10,15 +10,10 @@ public class Car {
         this.name = name;
     }
 
-    public void moveFoward() {
-        if (isMoveFoward()) {
+    public void moveFoward(int number) {
+        if (number > Constants.GO_FOWARD) {
             position++;
         }
-    }
-
-    public boolean isMoveFoward() {
-        int moveIndicator = Randoms.pickNumberInRange(Constants.MIN_RANDOM_NUM, Constants.MAX_RANDOM_NUM);
-        return moveIndicator > Constants.GO_FOWARD;
     }
 
     public String getName() {
