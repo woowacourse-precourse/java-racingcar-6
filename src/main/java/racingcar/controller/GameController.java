@@ -1,9 +1,7 @@
 package racingcar.controller;
 
 import java.util.ArrayList;
-import java.util.List;
-import racingcar.domain.Car;
-import racingcar.domain.Cars;
+import racingcar.dto.CarsGenerateDto;
 import racingcar.service.GameService;
 import racingcar.service.Referee;
 import racingcar.view.OutputView;
@@ -26,19 +24,13 @@ public class GameController {
     }
 
     public void play() {
-        int trialNumber = inputController.getTrialNumber();
-        List<Car> carList = new ArrayList<>();
-        Cars cars = new Cars(carList, inputController.inputCarNames());
+        String[] carNames = inputController.inputCarNames();
+        int trialNumber = inputController.inputTrialNumber();
+
+        CarsGenerateDto carsGenerateDto = new CarsGenerateDto(new ArrayList<>(), carNames);
         outputView.showResultMessage();
 
-        playUntilTrialNumber(trialNumber, cars);
-        outputView.showWinner(referee, cars);
-    }
-
-    private void playUntilTrialNumber(int trialNumber, Cars cars) {
-        for (int i = 0; i < trialNumber; i++) {
-            gameService.playOnce(cars);
-            outputView.showResult(cars.getCars());
-        }
+        gameService.playUntilTrialNumber(trialNumber, carsGenerateDto);
+        outputView.showWinner(referee, carsGenerateDto);
     }
 }
