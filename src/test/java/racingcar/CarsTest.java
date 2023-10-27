@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 final class CarsTest {
@@ -35,7 +36,10 @@ final class CarsTest {
         assertThrows(IllegalArgumentException.class, () -> Cars.create(input));
     }
 
-//    @Test
-//    void
+    @ParameterizedTest
+    @ValueSource(strings = {"a", "aaa", "aaaaa"})
+    void Cars_생성시_요구사항에_맞는_이름을_입력하면_예외가_던져지지_않는다(String target) {
+        assertDoesNotThrow(() -> Cars.create(target));
+    }
 
 }
