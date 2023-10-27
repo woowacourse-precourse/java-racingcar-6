@@ -10,6 +10,11 @@ public class Car {
         this.carName = carName;
     }
 
+    public Car(String carName, int moveDistance) {
+        this.carName = carName;
+        this.moveDistance = moveDistance;
+    }
+
     public String getName() {
         return carName;
     }
@@ -22,7 +27,7 @@ public class Car {
         moveDistance += calculateDistance(parameter);
     }
 
-    private int getRandomNumber() {
+    public int getRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
