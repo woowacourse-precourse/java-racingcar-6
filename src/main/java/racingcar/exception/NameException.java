@@ -4,14 +4,17 @@ import java.util.Arrays;
 
 abstract public class NameException {
 
+    public static final String NAME_MIN_LENGTH_AND_NOT_EMPTY = "이름은 최소 1글자 이상(공백 제외) 입력해 주세요.";
+
     public static void validation(String[] names) {
         nameNotExistValidation(names);
         nameLengthValidation(names);
+        nameNotEmptyValidation(names);
     }
 
     private static void nameNotExistValidation(String[] names) {
         if (names.length == 0) {
-            throw new IllegalArgumentException("이름은 1개 이상 입력해주세요.");
+            throw new IllegalArgumentException(NAME_MIN_LENGTH_AND_NOT_EMPTY);
         }
     }
 
@@ -32,7 +35,7 @@ abstract public class NameException {
                 .count();
 
         if (names.length != count) {
-            throw new IllegalArgumentException("이름은 공백 제외 최소 1글자 이상 입력하셔야 합니다.");
+            throw new IllegalArgumentException(NAME_MIN_LENGTH_AND_NOT_EMPTY);
         }
     }
 }
