@@ -41,8 +41,8 @@ public class InputMapper {
         }
     }
 
-    private static void checkPositiveNumber(int returning) {
-        if (returning <= 0) {
+    private static void checkPositiveNumber(int number) {
+        if (number <= 0) {
             throw new IllegalArgumentException(NOT_POSITIVE_NUMBER_MESSAGE);
         }
     }
