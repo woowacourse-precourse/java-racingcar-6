@@ -10,4 +10,8 @@ public class View {
     public String inputConsole(){
         return readLine();
     }
+
+    public void printCurrentCarResult(Car car){
+        System.out.println(car.getNameValue()+" : "+car.getCurrentPositionStatus());
+    }
 }

@@ -17,4 +17,8 @@ public class Car {
         position.attemptForward();
     }
 
+    public String getCurrentPositionStatus(){
+        return position.switchPositionToSlash();
+    }
+
 }
