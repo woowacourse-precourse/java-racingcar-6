@@ -14,17 +14,20 @@
 ### Constant
 #### 게임 진행 관련 상수 (GameConfig)
 - [x] 전진하는 기준
-    - 변수명 : MAXIMUM_CAR_NAME_LENGTH
+  - 변수명 : MAXIMUM_CAR_NAME_LENGTH
 - [x] 자동차 최대 입력 길이
-    - 변수명 : MINIMUM_NUMBER_FOR_FORWARD
-
+  - 변수명 : MINIMUM_NUMBER_FOR_FORWARD
+- [x] 랜덤 수의 MINIMUM 값
+  -변수명 : RANDOM_MINIMUM_RANGE
+- [x] 랜덤 수의 MAXIMUM 값
+  - 변수명 : RANDOM_MAXIMUM_RANGE
 #### 메시지 관련 상수 (Message)
 - [x] 사용자 입력 메시지
-    - 변수명 : CAR_NAME_INPUT_MESSAGE
+  - 변수명 : CAR_NAME_INPUT_MESSAGE
 - [x] 시도 횟수 입력 메시지
-    - 변수명 : ATTEMPT_COUNT_MESSAGE
+  - 변수명 : ATTEMPT_COUNT_MESSAGE
 - [x] 우승자 출력 메시지
-    - 변수명 : WINNER_MESSAGE
+  - 변수명 : WINNER_MESSAGE
 
 ### Controller
 - [ ] 최종 우승자를 반환하는 기능
