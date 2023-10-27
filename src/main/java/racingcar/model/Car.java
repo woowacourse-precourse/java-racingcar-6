@@ -17,6 +17,10 @@ public class Car {
         this.distance = mockedDistance;
     }
 
+    public int compareTo(Car otherCar) {
+        return this.distance - otherCar.distance;
+    }
+
     public void move(int movingCriteria) {
         if (movingCriteria >= 4) {
             goForward();
@@ -47,6 +51,14 @@ public class Car {
         return Objects.hash(carName, distance);
     }
 
+    @Override
+    public String toString() {
+        return "Car{" +
+                "carName='" + carName + '\'' +
+                ", distance=" + distance +
+                '}';
+    }
+
     public String getCarName() {
         return carName;
     }
@@ -54,6 +66,7 @@ public class Car {
     public int getDistance() {
         return distance;
     }
+
 
 
 }

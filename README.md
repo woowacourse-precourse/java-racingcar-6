@@ -62,7 +62,7 @@
 ## Skeleton Code
 - 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
   - Car - 자동차 (goForward())
-  - RacingCars.List<Car> - n대의 자동차 (move())
+  - RacingCars.List<Car> - n대의 자동차 (move()) (4)
   - 자동차 이름을 입력받는다 (inputCarNames, CarNamesValidator)
   - 콤마(,)를 기준으로 구분한다
 
@@ -74,10 +74,14 @@
 - 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다 (CarNamesValidator) (3)
   - 자동차 이름을 입력 받을 때 기준은 ',' (String.split(",")) 
   - 이름은 5자 이하만 가능하다
-    - [x]**예외** null, empty (isNullOrEmtpy())
-    - [x]**예외** 범위에서 벗어난 경우 (isOverTheLength) - 6자, 7자 ,, etc 
-    - [x]**예외** 이름인데 숫자로 입력된 경우(Regex 활용) (hasWrongCharacters) - 영문 이름으로 표현
-    - [x]**예외 처리** throw new IllegalArgumentException
+    - [x] **예외** null, empty (isNullOrEmtpy())
+    - [x] **예외** 범위에서 벗어난 경우 (isOverTheLength) - 6자, 7자 ,, etc 
+    - [x] **예외** 이름인데 숫자로 입력된 경우(Regex 활용) (hasWrongCharacters) - 영문 이름으로 표현
+    - [x] **예외 처리** throw new IllegalArgumentException
+
+- [x] RacingCars.List<Car> - n대의 자동차 (move()) (4)
+  - [x] 구성된 각각의 Car 객체들이 라운드 별로 진행되는지를 확인한다
+  - [x] 구성된 Car 객체 중 가장 많이 전진한 Car를 찾아야 한다
 
 - 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다 (RegisterRoundController)
   - 입력받은 이동 횟수 - RoundTotal
