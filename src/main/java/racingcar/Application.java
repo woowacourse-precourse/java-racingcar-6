@@ -1,5 +1,8 @@
 package racingcar;
 
+import static racingcar.constant.AllConstants.*;
+import static racingcar.constant.ExceptionMessage.*;
+
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
@@ -14,22 +17,23 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요(이름은 쉼표(,) 기준으로 구분");
         String nameInput = Console.readLine();
         // 자동차 이름 입력 관련 1차 유효성 검사
-        if (nameInput.contains(",")) {
-            if (nameInput.charAt(0) == ',' || nameInput.charAt(nameInput.length()-1) == ',') {
-                throw new IllegalArgumentException("Invalid name input format: " + nameInput);
+        if (nameInput.contains(DELIMETER)) {
+            if (nameInput.charAt(0) == DELIMETER.charAt(0)
+                    || nameInput.charAt(nameInput.length()-1) == DELIMETER.charAt(0)) {
+                throw new IllegalArgumentException(NAME_LENGTH_ZERO + nameInput);
             }
             if (nameInput.contains(",,")) {
-                throw new IllegalArgumentException("Invalid name input format: " + nameInput);
+                throw new IllegalArgumentException(NAME_LENGTH_ZERO + nameInput);
             }
         }
         // 자동차 이름 입력 관련 2차 유효성 검사
         Map<String, Integer> carList = new LinkedHashMap<>();
-        for (String carName : nameInput.split(",")) {
-            if (carName.length() > 5) {
-                throw new IllegalArgumentException("Not valid length: "+carName.length());
+        for (String carName : nameInput.split(DELIMETER)) {
+            if (carName.length() > NAME_LENGTH_MAX) {
+                throw new IllegalArgumentException(OVER_NAME_LENGTH + carName);
             }
             if (carList.containsKey(carName)) {
-                throw new IllegalArgumentException("Duplicated car name: " + carName);
+                throw new IllegalArgumentException(NAME_DUPLICATED + carName);
             }
             carList.put(carName, 0);
         }
@@ -41,7 +45,7 @@ public class Application {
         try {
             count = Integer.parseInt(countInput);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Not Integer: " + countInput);
+            throw new IllegalArgumentException(NUMERIC + countInput);
         }
 
         // 자동차 경주 진행 단계
@@ -49,10 +53,10 @@ public class Application {
         for (int i = 0; i < count; i++) {
             for (String carName : carList.keySet()) {
                 // 현재 자동차의 전진/정지 여부 결정
-                int randomNum = Randoms.pickNumberInRange(0,9);
+                int randomNum = Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX);
                 int moves = carList.get(carName);
-                if (randomNum >= 4) {
-                    moves++;
+                if (randomNum >= RANDOM_FOUR) {
+                    moves += MOVE_FORWARD;
                     carList.put(carName, moves);
                 }
                 // 해당 차수의 실행 결과 출력
