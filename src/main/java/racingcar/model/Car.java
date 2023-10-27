@@ -9,15 +9,15 @@ public final class Car {
         this.progress = progress;
     }
 
-    public static Car of(String name, int progress) {
-        return new Car(name, progress);
+    public static Car from(String name) {
+        return new Car(name, 0);
     }
 
     public Car move(int randomNumber) {
         if(isMoved(randomNumber)) {
             return new Car(this.name, this.progress + 1);
         }
-        return this;
+        return new Car(this.name, this.progress);
     }
 
     private boolean isMoved(int number) {
