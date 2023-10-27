@@ -1,5 +1,6 @@
 package racingcar;
 
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
@@ -9,24 +10,31 @@ public class RacingController {
     void launch() {
         // 1. 자동차 이름 입력 → 검증 → 저장(생성)
         String names = inputName();
-        List<String> validNameList = racingService.namesTest(names);
+        List<String> validNameList = racingService.testValidNames(names);
         racingService.generateCar(validNameList);
 
         // 2. 자동차 이동 회수(경주 차수) 값 입력, 검증, 저장
         String count = inputCount();
-        if (racingService.isValidCount(count)) {
-            // 3. todo 차수별 경주 실행 및 결과 출력
-            // 4. todo 우승자 출력
-        }
-    }
+        int validCount = racingService.testValidCount(count);
 
+        // 3. 차수별 경주 실행 및 이동 결과 출력
+        // Todo method refactor
+        System.out.println("\n실행 결과");
+        for (int phase = 0; phase < validCount; phase++){
+            racingService.generateMove();
+            // racingService.printTotalMove();
+        }
+
+        // 4. todo 우승자 출력
+
+    }
     /**
      * 1-1. 자동차 이름 입력
      *
      * @return 사용자 자동차 이름 입력값
      */
     String inputName() {
-        System.out.println("경주할 자동차 이름을 입력하세요.");
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         return Console.readLine();
     }
 
