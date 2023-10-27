@@ -20,7 +20,7 @@ public class Cars {
 
     public List<Car> moveAllCar() {
         for (int index = 0; index < cars.size(); index++) {
-            int randomNumber = generateRandomNumber();
+            int randomNumber = RandomNumberGenerator.generateNumber();
             moveCarIfBiggerThanThree(randomNumber, index);
         }
         return cars;
@@ -35,12 +35,6 @@ public class Cars {
     private void moveCar(int index) {
         Car car = cars.get(index);
         car.move();
-    }
-
-    private int generateRandomNumber() {
-        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
-        int number = randomNumberGenerator.generateNumber();
-        return number;
     }
 
     public Winners findWinner() {
