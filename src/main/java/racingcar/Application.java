@@ -10,12 +10,12 @@ public class Application {
         Car car = new Car();
         Validator validator = new Validator();
 
-        /*String inputCarNames = input.inputCarName();
+        /*String inputCarNames = input.carName();
         List<String> carNames = car.splitByComma(inputCarNames);
         System.out.println(inputCarNames);
         System.out.println(carNames);*/
 
-        String inputNumber = input.inputTryNumber();
+        String inputNumber = input.tryNumber();
         validator.isNumber(inputNumber);
     }
 }
