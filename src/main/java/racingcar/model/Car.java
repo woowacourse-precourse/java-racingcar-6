@@ -2,8 +2,8 @@ package racingcar.model;
 
 public class Car {
 
-    String carName = "";
-    int carFoward = 0;
+    public String carName = "";
+    public int carFoward = 0;
 
     public Car() {
     }
