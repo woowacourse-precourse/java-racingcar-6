@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.printer.GameGuidePrinter;
 
 public class GameService {
@@ -11,7 +12,12 @@ public class GameService {
 
     public void startGame() {
         gameGuidePrinter.getCarNameInputMessage();
-//        String carList = carNameInput();
+        String carList = carNameInput();
         gameGuidePrinter.getTryCountMessage();
+    }
+
+    private String carNameInput() {
+        String carList = Console.readLine();
+        return carList;
     }
 }
