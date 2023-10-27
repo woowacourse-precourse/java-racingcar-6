@@ -4,8 +4,10 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.model.CarName;
 import racingcar.model.Cars;
 import racingcar.model.Dice;
+import racingcar.model.DiceNumber;
 import racingcar.model.Game;
 import racingcar.model.WinnerList;
 
@@ -58,7 +60,8 @@ public class GameController {
 
     private static void winnerValid(Car c, int max, List<String> winnerName) {
         if (c.getDistance() == max) {
-            winnerName.add(c.getName());
+            CarName carName = c.getName();
+            winnerName.add(carName.getRawName());
         }
     }
 }
