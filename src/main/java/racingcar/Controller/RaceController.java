@@ -18,6 +18,7 @@ public class RaceController {
                 movePosition(car);
             printPosition(car);
         }
+        System.out.println("");
     }
 
 
@@ -34,6 +35,7 @@ public class RaceController {
         car.setCurrentPosition(position);
     }
     private void printPosition(Car car) {
+        System.out.println(car.getName()+" : "+car.getCurrentPosition());
     }
     public void setCarList(CarManager carManager) {
         this.carManager = carManager;

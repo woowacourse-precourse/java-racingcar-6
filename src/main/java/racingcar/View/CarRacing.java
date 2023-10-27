@@ -11,6 +11,7 @@ public class CarRacing {
         inputController.getNameOfCar();
         int raceTries=inputController.getRaceTries();
 
+        System.out.println("실행 결과");
         for (int i=0;i<raceTries;i++){
             raceController.raceStart();
         }
