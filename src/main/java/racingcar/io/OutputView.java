@@ -11,4 +11,8 @@ public class OutputView {
     public void printTryCountRequest() {
         System.out.println(ProgressMessage.TRY_COUNT_REQUEST.toValue());
     }
+
+    public void printResult() {
+        System.out.println(ProgressMessage.RESULT.toValue());
+    }
 }
