@@ -14,4 +14,8 @@ public class InputView {
     public static String receiveUserInput() {
         return Console.readLine();
     }
+
+    public static void printTryCount() {
+        System.out.println(RECEIVE_TRY_COUNT.getMessage());
+    }
 }
