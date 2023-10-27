@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 public interface Car {
     Car runAndReturnNewCar(Long randomNum);
