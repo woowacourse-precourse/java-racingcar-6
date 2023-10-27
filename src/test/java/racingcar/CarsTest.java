@@ -1,6 +1,8 @@
 package racingcar;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -10,28 +12,30 @@ final class CarsTest {
     void Cars는_하나_이상의_Car를_가지지_않는경우_예외를_던진다() {
         String input = ",";
 
-        assertThrows(IllegalArgumentException.class, () -> new Cars(input));
+        assertThrows(IllegalArgumentException.class, () -> Cars.create(input));
     }
 
     @Test
     void 사용자가_6자이상의_이름을_입력한경우_예외를_던진다(){
         String input = "여섯글자이상,다섯자이름,일";
 
-        assertThrows(IllegalArgumentException.class, () -> new Cars(input));
+        assertThrows(IllegalArgumentException.class, () -> Cars.create(input));
     }
 
-    @Test
-    void 사용자가_1자_미만의_이름을_입력한경우_예외를_던진다() {
-        String input = ",pobi,woni,jun";
-
-        assertThrows(IllegalArgumentException.class, () -> new Cars(input));
+    @ParameterizedTest
+    @ValueSource(strings = {",pobi,woni,jun", "pobi,,woni,jun", "pobi,woni,jun,", "pobi,woni,jun,,"})
+    void 사용자가_1자_미만의_이름을_입력한경우_예외를_던진다(String target) {
+        assertThrows(IllegalArgumentException.class, () -> Cars.create(target));
     }
 
     @Test
     void 중복되는_이름이_있는_경우_예외를_던진다() {
         String input = "pobi,pobi";
 
-        assertThrows(IllegalArgumentException.class, () -> new Cars(input));
+        assertThrows(IllegalArgumentException.class, () -> Cars.create(input));
     }
+
+//    @Test
+//    void
 
 }
