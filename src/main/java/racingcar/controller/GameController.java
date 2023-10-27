@@ -1,12 +1,12 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.constants.GameMessage;
 import racingcar.model.Car;
 import racingcar.utils.Converter;
 import racingcar.utils.Validator;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class GameController {
     public void startGame() {
@@ -23,8 +23,10 @@ public class GameController {
     }
 
     public void racing(Car cars){
+        OutputView.displayTitle();
         for(int i = 0; i < cars.getAttempt(); i ++) {
             cars.forward();
+            OutputView.displayRacingSituation(cars);
         }
     }
 }
