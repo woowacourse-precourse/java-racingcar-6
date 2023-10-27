@@ -31,4 +31,13 @@ public class GetInputTest {
 
         assertThat(receivedInput).isEqualTo(mockInput);
     }
+
+    @Test
+    public void getLap() {
+        Lap lap = new Lap();
+
+        String receivedInput = lap.getInput();
+
+        assertThat(receivedInput).isEqualTo(mockInput);
+    }
 }
