@@ -4,11 +4,14 @@ import static racingcar.ExceptionMessage.PLAY_COUNT_VALUE_EXCEPTION;
 
 public class PlayCount {
 
-    private final int count;
+    private static final int INITIAL_COUNT = 0;
+    private int count;
+    private final int goal;
 
-    private PlayCount(final String count) {
-        validateValue(count);
-        this.count = Integer.parseInt(count);
+    private PlayCount(final String goal) {
+        validateValue(goal);
+        this.count = INITIAL_COUNT;
+        this.goal = Integer.parseInt(goal);
     }
 
     public static PlayCount from(final String input) {
@@ -21,8 +24,12 @@ public class PlayCount {
         }
     }
 
-    public boolean isPlayEnd(final int number) {
-        return count <= number;
+    public void endOneRound() {
+        count++;
+    }
+
+    public boolean isPlayEnd() {
+        return count <= goal;
     }
 
     public int getCount() {

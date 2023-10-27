@@ -31,11 +31,10 @@ public class GameController {
 
         outputView.printGameEnd();
 
-        int round = 0;
-        while (!playCount.isPlayEnd(round)) {
+        while (!playCount.isPlayEnd()) {
             cars.racing(randomNumber);
-            round++;
             printCarsStatus();
+            playCount.endOneRound();
         }
 
         printWinners();
