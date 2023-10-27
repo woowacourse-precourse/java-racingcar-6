@@ -29,4 +29,7 @@ public class RacingGame {
         attemptCount--;
     }
 
+    public RacingGameState getCurrentState() {
+        return new RacingGameState(isEnd(), cars.cars());
+    }
 }
