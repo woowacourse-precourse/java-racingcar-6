@@ -12,4 +12,11 @@ public class Cars {
     public static Cars createCars(List<Car> cars) {
         return new Cars(cars);
     }
+
+    public void moveForward() {
+        cars.forEach(car -> {
+            car.attemptMovingForward();
+            car.printCar();
+        });
+    }
 }
