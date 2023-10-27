@@ -28,6 +28,8 @@
   - 변수명 : ATTEMPT_COUNT_MESSAGE
 - [x] 우승자 출력 메시지
   - 변수명 : WINNER_MESSAGE
+- [x] 실행 결과를 알리는 메시지
+  - 변수명 : EXECUTION_RESULT_MESSAGE
 
 ### Controller
 - [x] 최종 우승자를 반환하는 기능
@@ -49,6 +51,7 @@
 ### OutputView
 - [x] Car의 진행 상황을 출력한다.
 - [x] 최종 우승자를 출력한다.
+- [x] 실행 결과 메시지
 
 ## 예외사항
 - 자동차 이름은 5자 이하만 가능하다.
