@@ -16,14 +16,15 @@ public class OutputView {
     }
 
     public void printResult(List<String> carNames, int[] result) {
-        System.out.println("실행 결과");
         for (int i = 0; i < carNames.size(); i++) {
             String carName = carNames.get(i);
-            System.out.println(carName + " : ");
+            System.out.print(carName + " : ");
             for (int j = 0; j < result[i]; j++) {
                 System.out.print("-");
             }
+            System.out.println();
         }
+        System.out.println();
     }
 
 }
