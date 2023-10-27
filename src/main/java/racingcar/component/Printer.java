@@ -33,6 +33,7 @@ public class Printer {
         while (!winners.isEmpty()) {
             sb.append(", ").append(winners.poll().getName());
         }
+        sb.append("\n");
 
         System.out.println(sb);
     }
