@@ -59,4 +59,8 @@ public class Cars {
         }
     }
 
+    public HashMap<String, Integer> getCars() {
+        return this.cars;
+    }
+
 }
