@@ -8,11 +8,9 @@ import utils.RandomNumber;
 import java.util.*;
 
 public class Game {
-    User user;
     List<String> players;
 
     public Game() {
-        this.user = new User();
         this.players = User.playerInput();
     }
 
