@@ -25,7 +25,7 @@ public class Input {
     }
     public void validateName(String playerName){
         if (!(playerName.length()<=5)){
-            new IllegalArgumentException("플레이어의 이름은 5자 이하만 가능합니다.");
+            throw new IllegalArgumentException("플레이어의 이름은 5자 이하만 가능합니다.");
         }
     }
     public void inputRound(){
