@@ -1,9 +1,13 @@
 package racingcar.service.impl;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import racingcar.domain.CarPark;
 import racingcar.service.InputConvertService;
 import racingcar.service.ValidateService;
+import racingcar.vo.Car;
 
 public class InputConvertServiceImpl implements InputConvertService {
 
@@ -14,12 +18,13 @@ public class InputConvertServiceImpl implements InputConvertService {
     }
 
     @Override
-    public void inputConvertCarPark(String input) {
+    public CarPark inputConvertCarPark(String input) {
         validateService.validateInputLastCharEqualCommas(input);
         List<String> carNames = Arrays.asList(input.split(","));
-        for (String carName : carNames) {
-            validateService.validateNamesSizeLessThanFive(carName);
-        }
-
+        List<Car> carList = carNames.stream()
+                .peek(validateService::validateNamesSizeLessThanFive)
+                .map(carName -> new Car(carName, 0))
+                .collect(Collectors.toList());
+        return new CarPark(carList);
     }
 }

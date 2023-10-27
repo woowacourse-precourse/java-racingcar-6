@@ -1,6 +1,8 @@
 package racingcar.service;
 
+import racingcar.domain.CarPark;
+
 public interface InputConvertService {
 
-    void inputConvertCarPark(String input);
+    CarPark inputConvertCarPark(String input);
 }
