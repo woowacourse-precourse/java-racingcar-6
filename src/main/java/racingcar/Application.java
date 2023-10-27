@@ -6,5 +6,6 @@ public class Application {
         race.start();
         race.setTrial();
         race.running();
+        race.lastWinner();
     }
 }
