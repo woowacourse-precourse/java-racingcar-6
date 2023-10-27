@@ -18,8 +18,7 @@ public class Car {
     }
 
     public int getPosition() {
-        final int copyPosition = position;
-        return copyPosition;
+        return position;
     }
 
     public String getName() {
