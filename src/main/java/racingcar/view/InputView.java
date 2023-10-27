@@ -10,10 +10,15 @@ import static camp.nextstep.edu.missionutils.Console.*;
 
 public class InputView {
 
-    public List<String> inputNames(){
+    public String inputNames(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String names = readLine();
+        Validator.validateContainsComma(names);
         Validator.validateNames(names);
+        return names;
+    }
+
+    private List<String> mapToStringList(String names) {
         return Arrays.stream(names.split(","))
                 .collect(Collectors.toList());
     }
