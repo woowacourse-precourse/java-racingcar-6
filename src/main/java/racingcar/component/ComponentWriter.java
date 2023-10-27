@@ -1,7 +1,7 @@
 package racingcar.component;
 
-import common.Component;
 import io.writer.Writer;
+import racingcar.common.Component;
 
 public final class ComponentWriter {
     private final Writer writer;

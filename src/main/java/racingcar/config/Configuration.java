@@ -1,4 +1,4 @@
-package config;
+package racingcar.config;
 
 import io.reader.StdReader;
 import io.writer.StdWriter;

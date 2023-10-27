@@ -1,6 +1,6 @@
 package racingcar.component.in;
 
-import common.Component;
+import racingcar.common.Component;
 
 public final class NameComponent implements Component {
 
