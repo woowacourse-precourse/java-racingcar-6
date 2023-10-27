@@ -14,7 +14,7 @@ public class CarName {
         }
     }
 
-    public String getRawName(){
+    public String getRawName() {
         return carName;
     }
 }

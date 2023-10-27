@@ -8,6 +8,7 @@ public class GameView {
     private final GameController gameController;
     private final Cars cars;
     private final Game game;
+
     public GameView(GameController gameController, Cars cars, Game game) {
         this.gameController = gameController;
         this.cars = cars;

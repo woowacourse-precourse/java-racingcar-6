@@ -22,7 +22,8 @@ public class Car {
     public String getDistanceLine() {
         StringBuilder stringBuilder = new StringBuilder();
         return String.valueOf(
-                stringBuilder.append(getName().getRawName()).append(" : ").append("-".repeat(Math.max(0, this.distance.getDistance()))));
+                stringBuilder.append(getName().getRawName()).append(" : ")
+                        .append("-".repeat(Math.max(0, this.distance.getDistance()))));
     }
 
     public Distance getDistance() {

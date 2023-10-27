@@ -11,12 +11,19 @@ import racingcar.model.DiceNumber;
 import racingcar.model.Distance;
 import racingcar.model.Game;
 import racingcar.model.MaxRoundNumber;
-import racingcar.model.PresentRoundNumber;
 import racingcar.model.WinnerList;
 
 public class GameController {
 
     private final Integer MOVING_FORWARD_NUMBER = 4;
+
+    private static void winnerValid(Car c, int max, List<String> winnerName) {
+        Distance distance = c.getDistance();
+        if (distance.getDistance() == max) {
+            CarName carName = c.getName();
+            winnerName.add(carName.getRawName());
+        }
+    }
 
     public Game makeGame(String maxRound) {
         return new Game(maxRound);
@@ -65,13 +72,5 @@ public class GameController {
             winnerValid(c, max, winnerName);
         }
         return new WinnerList(winnerName);
-    }
-
-    private static void winnerValid(Car c, int max, List<String> winnerName) {
-        Distance distance = c.getDistance();
-        if (distance.getDistance() == max) {
-            CarName carName = c.getName();
-            winnerName.add(carName.getRawName());
-        }
     }
 }
