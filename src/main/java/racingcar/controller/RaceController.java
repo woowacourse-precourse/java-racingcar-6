@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.RacingCar;
 import racingcar.view.InputView;
 
 public class RaceController {
@@ -11,7 +12,10 @@ public class RaceController {
     }
 
     private void start(){
-        inputView.getCars();
+        RacingCar racingCar = new RacingCar();
+        racingCar.updateCars(inputView.getCars());
+        racingCar.updateRaceCount(inputView.getRaceCount());
+
 
     }
 }

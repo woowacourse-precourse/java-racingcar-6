@@ -9,22 +9,49 @@ import racingcar.message.ValidateErrorMessage;
 public class RacingCar {
 
     private List<String> cars = new ArrayList<>();
+    private int RaceCount;
 
     public void updateCars(String cars) {
-        List<String> convertedCars = convert(cars);
-        validateCars(convert(cars));
+        List<String> convertedCars = convertToList(cars);
+        validate(convertedCars);
         this.cars = convertedCars;
     }
 
-    private List<String> convert(String cars) {
+    public void updateRaceCount(String raceCount) {
+        validate(raceCount);
+        this.RaceCount = convertToInt(raceCount);
+    }
+
+    private List<String> convertToList(String cars) {
         return Arrays.stream(cars.split(","))
                 .map(String::trim)
                 .collect(Collectors.toList());
     }
 
-    private void validateCars(List<String> cars) {
-        cars.stream().filter(car -> car.length() > 5)
+    private void validate(List<String> cars) {
+        cars.stream()
+                .filter(car -> car.length() > 5)
                 .findFirst()
-                .ifPresent(s -> new IllegalArgumentException(ValidateErrorMessage.NAME_LENGTH_ERROR));
+                .ifPresent(car -> {
+                    throw new IllegalArgumentException(ValidateErrorMessage.NAME_LENGTH_ERROR);
+                });
+    }
+    private void validate(String raceCount) {
+        try {
+            Integer.parseInt(raceCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ValidateErrorMessage.COUNT_TYPE_ERROR);
+        }
+    }
+    private int convertToInt(String raceCount){
+        return Integer.parseInt(raceCount);
+    }
+
+    public List<String> getCars() {
+        return cars;
+    }
+
+    public int getRaceCount() {
+        return RaceCount;
     }
 }
