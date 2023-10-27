@@ -30,7 +30,7 @@ public class Controller {
     public void start() {
         List<Car> carNames = getCarNames();
         int attemptsNumber = getAttemptsNumber();
-        RacingGame racingGame = createTrack(carNames, attemptsNumber);
+        RacingGame racingGame = createTrack(carNames, attemptsNumber, new CarRacingTrackGenerator());
         outputView.printGameResultMessage();
         while (attemptsNumber-- > ZERO.getValue()) {
             play(racingGame);
@@ -66,8 +66,8 @@ public class Controller {
     }
 
 
-    private RacingGame createTrack(final List<Car> carNamesList, final int attemptsNumber) {
-        RacingTrackGenerator<Car> racingTrackGenerator = new CarRacingTrackGenerator();
+    private <T extends Vehicle> RacingGame createTrack(final List<T> carNamesList, final int attemptsNumber,
+                                                       final RacingTrackGenerator<T> racingTrackGenerator) {
         return racingTrackGenerator.create(carNamesList, attemptsNumber);
     }
 }
