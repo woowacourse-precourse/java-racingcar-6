@@ -24,15 +24,19 @@ public class OutputView {
         System.out.println(racingCar.getName() + " : " + CAR_LOCATION_POINTER.repeat(racingCar.getLocation()));
     }
 
+    public static void printGameResultMessage() {
+        System.out.println(GameMessage.GAME_RESULT.getMessage());
+    }
+
     public static void printResultMessage(List<RacingCar> winners) {
         StringBuilder sb = new StringBuilder();
-        sb.append(winners.get(0));
+        sb.append(winners.get(0).getName());
 
         for (int i = 1; i < winners.size(); i++) {
-            sb.append(WINNER_SEPERATOR).append(winners.get(i));
+            sb.append(WINNER_SEPERATOR).append(winners.get(i).getName());
         }
 
-        System.out.println(GameMessage.FINAL_WINNER+sb.toString());
+        System.out.println(GameMessage.FINAL_WINNER.getMessage()+sb);
     }
 
 
