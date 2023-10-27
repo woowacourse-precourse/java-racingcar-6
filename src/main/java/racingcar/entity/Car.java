@@ -16,6 +16,16 @@ class Car {
         return new Car(Name.from(name), Position.newInstance());
     }
 
+    public void move(MovePolicy movePolicy) {
+        if (movePolicy.movable()) {
+            position.increase();
+        }
+    }
+
+    public int getPosition() {
+        return position.getPosition();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -23,4 +23,14 @@ class PositionTest {
 
         assertThat(position.getPosition()).isEqualTo(0);
     }
+
+    @DisplayName("위치를 증가할 수 있다.")
+    @Test
+    void increase() {
+        Position position = Position.newInstance();
+
+        position.increase();
+
+        assertThat(position.getPosition()).isEqualTo(1);
+    }
 }

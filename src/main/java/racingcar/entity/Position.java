@@ -16,6 +16,10 @@ class Position {
         return new Position(INITIAL_POSITION);
     }
 
+    public void increase() {
+        position++;
+    }
+
     public int getPosition() {
         return position;
     }
