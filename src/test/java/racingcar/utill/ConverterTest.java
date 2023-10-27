@@ -10,7 +10,7 @@ import racingcar.domain.Car;
 class ConverterTest {
 
     @Test
-    void attemptStringToIntTest() {
+    void attemptStringToIntConvertTest() {
         //given
         String convertNumber = "13";
 
@@ -22,7 +22,7 @@ class ConverterTest {
     }
 
     @Test
-    void stringToCarList() {
+    void stringToCarListConvert() {
         //given
         String covertString = "hoho,hihi,haha";
         List<Car> carList = new ArrayList<>();
