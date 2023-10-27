@@ -1,10 +1,11 @@
 package racingcar.domain;
 
-import static racingcar.util.ExceptionMessage.CHECK_NUMBERS_LENGTH;
+import static racingcar.util.ExceptionMessage.CHECK_NAME_EMPTY;
+import static racingcar.util.ExceptionMessage.CHECK_NAME_LENGTH;
 
 public class CarName {
 
-    private static final int NAME_LENGTH = 5;
+    public static final int NAME_LENGTH = 5;
 
     private final String name;
 
@@ -14,8 +15,19 @@ public class CarName {
     }
 
     private void validateCarName(String name) {
+        checkEmpty(name);
+        checkLength(name);
+    }
+
+    private void checkEmpty(String name) {
+        if (name.trim().isEmpty()) {
+            throw new IllegalArgumentException(CHECK_NAME_EMPTY.getMessage());
+        }
+    }
+
+    private static void checkLength(String name) {
         if (name.length() > NAME_LENGTH) {
-            throw new IllegalArgumentException(CHECK_NUMBERS_LENGTH.getMessage());
+            throw new IllegalArgumentException(CHECK_NAME_LENGTH.getMessage());
         }
     }
 

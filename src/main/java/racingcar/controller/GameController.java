@@ -29,6 +29,5 @@ public class GameController {
             outputView.printRacingResult(raceResults);
         }
         outputView.printWinner(circuit.getWinners());
-
     }
 }
