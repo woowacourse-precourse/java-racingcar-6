@@ -21,13 +21,10 @@ public class Game {
         String moveNumber = User.moveNumberInput();
         System.out.println(moveNumber + "\n");
 
-        List<Player> playerObjects = new ArrayList<>();
-        for (String player : this.players) {
-            Player car = new Player(player);
-            playerObjects.add(car);
-        }
+        List<Player> playerObjectArray = Create.playerObjectArray(this.players);
+
         for (int move = 0; move < Integer.parseInt(moveNumber); move++) {
-            for (Player car : playerObjects) {
+            for (Player car : playerObjectArray) {
                 car.move(Create.randomNumber());
                 System.out.println(car.getPlayerName() + " : " + "-".repeat(car.getDist()));
             }
@@ -35,7 +32,7 @@ public class Game {
         }
         // HashMap의 입력 순서를 보장하기 위해서 LinkedHashMap 사용
         Map<String, Integer> playerAndDistMap = new LinkedHashMap<>();
-        for (Player car : playerObjects) {
+        for (Player car : playerObjectArray) {
             playerAndDistMap.put(car.getPlayerName(), car.getDist());
         }
         int maxDist = Collections.max(playerAndDistMap.values());
