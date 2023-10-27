@@ -27,4 +27,8 @@ public class Car {
         result.append("\n");
         return result.toString();
     }
+
+    public int getPosition() {
+        return this.position;
+    }
 }

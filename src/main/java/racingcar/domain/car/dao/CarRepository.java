@@ -32,7 +32,7 @@ public class CarRepository {
         ArrayList<Car> winners = new ArrayList<>();
         return carDatabase.values()
                 .stream()
-                .filter(car -> car.getPosition == maxPosition)
+                .filter(car -> car.getPosition() == maxPosition)
                 .toList();
     }
 }
