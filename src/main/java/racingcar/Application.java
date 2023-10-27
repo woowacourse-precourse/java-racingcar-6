@@ -18,4 +18,10 @@ public class Application {
             throw new IllegalArgumentException("자동차의 이름은 비어있을 수 없습니다.");
         }
     }
+
+    public static void validateCarInputLength(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
