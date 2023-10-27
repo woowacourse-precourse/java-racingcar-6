@@ -3,9 +3,10 @@ package racingcar.vo;
 import racingcar.exception.RoundCountValidator;
 
 public class RoundCount {
+
     private final int count;
 
-    public RoundCount(String count) {
+    public RoundCount(final String count) {
         RoundCountValidator.validate(count);
         this.count = Integer.parseInt(count);
     }
