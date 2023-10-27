@@ -6,12 +6,14 @@ import racingcar.io.Output;
 
 public class Race {
 
-    private List<String> racers;
+    private List<Racer> racers;
     private Integer numberOfRound;
 
     public void registerRacer() {
         Output.consoleLine("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        racers = Input.consoleStrings(",");
+        racers = Input.consoleStrings(",").stream()
+                .map(Racer::new)
+                .toList();
     }
 
     public void decideRound() {
@@ -19,8 +21,18 @@ public class Race {
         numberOfRound = Input.consoleNumber();
     }
 
-    public void run() {
-        Output.consoleLine("실행 결과");
+    public String run() {
+        StringBuilder sb = new StringBuilder();
+        while (0 < numberOfRound--) {
+            for (Racer racer : racers) {
+                racer.drive();
+            }
+            for (Racer racer : racers) {
+                sb.append(racer.getProgress());
+            }
+            sb.append(System.lineSeparator());
+        }
+        return sb.toString();
     }
 
 }
