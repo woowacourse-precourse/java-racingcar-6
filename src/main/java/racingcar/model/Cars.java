@@ -3,7 +3,7 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import racingcar.validator.InputValidator;
@@ -22,7 +22,7 @@ public class Cars {
     }
 
     private Map<Name, Integer> generateCars(String names) {
-        Map<Name, Integer> carMap = new HashMap<>();
+        Map<Name, Integer> carMap = new LinkedHashMap<>();
         String[] carNamesArray = names.split(",");
         for (String carName : carNamesArray) {
             carMap.put(new Name(carName), ZERO_POSITION);
