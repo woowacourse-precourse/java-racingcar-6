@@ -19,15 +19,7 @@ public class Name {
     }
 
     private void validate(final String name){
-        if(isEmpty(name)){
-            throw new IllegalArgumentException();
-        }
-
-        if(isDigit(name)){
-            throw new IllegalArgumentException();
-        }
-
-        if(isOverFiveLength(name)){
+        if(isEmpty(name) || isDigit(name) || isOverFiveLength(name)){
             throw new IllegalArgumentException();
         }
     }
