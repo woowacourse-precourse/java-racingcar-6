@@ -52,4 +52,28 @@ public class GameController {
         }
         return max;
     }
+
+    public List<Car> getWinners() {
+        List<Car> winners = new ArrayList<>();
+        int maxPosition = getMaxPosition();
+
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car);
+            }
+        }
+
+        return winners;
+    }
+
+    public List<String> getWinnersNames() {
+        List<String> winnersNames = new ArrayList<>();
+        List<Car> winners = getWinners();
+
+        for (Car car : winners) {
+            winnersNames.add(car.getName());
+        }
+
+        return winnersNames;
+    }
 }
