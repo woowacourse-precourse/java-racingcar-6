@@ -9,5 +9,11 @@ public final class Car {
         this.score = score;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public Integer getScore() {
+        return score;
+    }
 }
