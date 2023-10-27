@@ -20,8 +20,10 @@ public class Car {
         return currentPosition;
     }
 
-    public boolean moveIfRandomSuccess() {
-        return createRandomNumber() >= SUCCESS_NUMBER;
+    public void moveIfRandomSuccess() {
+        if (createRandomNumber() >= SUCCESS_NUMBER) {
+            currentPosition++;
+        }
     }
 
     public int createRandomNumber() {

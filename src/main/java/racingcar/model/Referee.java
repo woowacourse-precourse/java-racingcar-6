@@ -8,6 +8,7 @@ public class Referee {
     private int winnerStep;
 
     public void findWinnerStep(RacingCars cars) {
+
         for (Car car : cars.getAllCars()) {
             if (winnerStep < car.getCurrentPosition()) {
                 winnerStep = car.getCurrentPosition();
