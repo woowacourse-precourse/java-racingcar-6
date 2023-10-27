@@ -6,8 +6,8 @@ import java.util.List;
 public class ConverterUtil {
 
     public static List<String> covertStringToList(String str) {
-        List<String> list = Arrays.asList(str.split(","));
-        return list;
+        return Arrays.asList(str.split(","));
+
     }
 
 }
