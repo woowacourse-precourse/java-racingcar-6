@@ -5,14 +5,18 @@ import org.junit.jupiter.api.Test;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 final class CarTest {
 
     @Test
     void 이름이_null인_차는_인스턴스화_될때_에러가_발생한다() {
         assertThrows(IllegalArgumentException.class, () -> new Car(null));
+    }
+
+    @Test
+    void 요구사항에_맞는_이름으로_인스턴스화할시_예외가_발생하지_않는다() {
+        assertDoesNotThrow(() -> new Car("woowa"));
     }
 
     @Test
@@ -35,5 +39,15 @@ final class CarTest {
         set.add(car2);
 
         assertEquals(set.size(), 1);
+    }
+
+    @Test
+    void 자신의_현재상태를_출력형식에_맞는_String으로_반환한다() {
+        String expected = "woowa : --";
+        Car car = new Car("woowa");
+        car.move();
+        car.move();
+
+        assertEquals(expected, car.currentStatus());
     }
 }
