@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.config.GameConfig;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -45,7 +47,7 @@ public class Cars {
     }
 
     private void validateCarNamesLength(final String splitCarName) {
-        if(splitCarName.length() > 5){
+        if(splitCarName.length() > GameConfig.LIMIT_CAR_NAME_LENGTH){
             throw new IllegalArgumentException();
         }
     }

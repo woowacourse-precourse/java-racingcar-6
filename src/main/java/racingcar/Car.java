@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.config.GameConfig;
 
 public class Car {
 
@@ -26,7 +27,7 @@ public class Car {
 
     public void selectMove() {
         Integer randomNumber = Randoms.pickNumberInRange(0,9);
-        if(randomNumber >= 4){
+        if(randomNumber >= GameConfig.LEAST_MOVABLE_NUMBER){
             position++;
         }
     }
