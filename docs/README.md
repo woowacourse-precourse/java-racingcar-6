@@ -1,6 +1,6 @@
 ### 구현 기능 목록
 - [x] 경주할 자동차 이름 입력 받기 (inputCarName)
-  - [ ] 쉼표 기준으로 분리 (splitByComma)
+  - [x] 쉼표 기준으로 분리 (splitByComma)
 - [x] 시도할 회수 입력 받기 (inputTryNumber)
 - [ ] 차수별 자동차 전진 현황 출력 (nowRacing)
   - [ ] 0~3: 정차
@@ -9,5 +9,6 @@
   - [ ] 단독 우승 (winOnlyOne)
   - [ ] 여러 명 우승: 쉼표로 구분 (winManyCars)
 - [ ] 입력 값이 잘못된 경우 `IllegalArgumentException` 발생시킴
-  - [ ] 자동차 이름이 6자 이상일 경우 (isLengthOverFive)
+  - [x] 자동차 이름이 6자 이상일 경우 (isLengthOverFive)
   - [ ] 시도할 회수가 숫자가 아닐 경우 (isNumber)
+  - [ ] 띄어쓰기가 포함될 경우 (hasSpace)
