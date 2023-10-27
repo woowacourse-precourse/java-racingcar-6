@@ -32,7 +32,7 @@ public class CarNameValidator {
     }
 
     public void isNull(){
-        if (NAMES.size() == 0){
+        if (NAMES.size() == 1){
             throw new IllegalArgumentException(ERROR+NAME_NULL_ERROR_MESSAGE);
         }
     }
