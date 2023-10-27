@@ -9,6 +9,7 @@ public class Cars {
     private final List<Car> cars;
 
     public Cars(List<String> names, MovingStrategy movingStrategy) {
+        validateDuplicateName(names);
         this.cars = createCars(names, movingStrategy);
     }
 
@@ -16,6 +17,13 @@ public class Cars {
         return names.stream()
                 .map(name -> new Car(movingStrategy, name, 0))
                 .collect(Collectors.toList());
+    }
+
+    private void validateDuplicateName(List<String> names) {
+        if (names.stream()
+                .collect(Collectors.toSet()).size() != names.size()) {
+            throw new IllegalArgumentException();
+        }
     }
 
 
