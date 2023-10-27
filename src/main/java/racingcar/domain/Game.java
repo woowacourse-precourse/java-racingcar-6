@@ -3,12 +3,14 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
 public class Game {
     private int gameTurns;
     private List<Car> cars = new ArrayList<>();
+    private List<String> winners = new ArrayList<>();
 
     public void run() {
 
@@ -31,7 +33,7 @@ public class Game {
     }
 
     private void initCarList(String[] carNames) {
-        for(String carName : carNames) {
+        for (String carName : carNames) {
             cars.add(new Car(carName));
         }
     }
@@ -44,7 +46,7 @@ public class Game {
         }
     }
 
-    public void getWinners() {
+    public void findWinners() {
 
     }
 }
