@@ -30,24 +30,30 @@ public class RacingGameController extends GameController {
 
     @Override
     public void startGame() {
-        // 경주할 자동차 이름 입력 받기
         carList = RacingGameInputController.scanCarList();
-        // 시도할 회수 입력 받기
         numberOfRounds = RacingGameInputController.scanNumberOfRounds();
 
-        // n라운드 진행
-        OutputView.printResultMessage();    // 실행 결과
+        OutputView.printResultHeaderMessage();
         for (int i = 0; i < numberOfRounds; i++) {
-            // 한 라운드 진행
             doOneRound();
-            // 현재 자동차들의 전진 상태 출력
             OutputView.printCurrentForwardState(carList);
         }
-        // 최종 우승자 출력
         OutputView.printWinners(getWinners(carList));
 
-        // 게임 종료
         endGame();
+    }
+
+    private void doOneRound() {
+        for (Car car : carList.getCarList()) {
+            moveOrNot(car);
+        }
+    }
+
+    private void moveOrNot(Car car) {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        if (randomNumber >= 4) {
+            car.moveForward(1);
+        }
     }
 
     public CarList getWinners(CarList carList) {
@@ -63,16 +69,4 @@ public class RacingGameController extends GameController {
         isRunning = false;
     }
 
-    private void doOneRound() {
-        for (Car car : carList.getCarList()) {
-            moveOrNot(car);
-        }
-    }
-
-    private void moveOrNot(Car car) {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if (randomNumber >= 4) {
-            car.moveForward(1);
-        }
-    }
 }

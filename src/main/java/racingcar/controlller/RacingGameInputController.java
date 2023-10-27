@@ -28,8 +28,10 @@ public class RacingGameInputController {
 
     private static void validateNames(String userInput) {
         List<String> carNames = Arrays.stream(userInput.split(","))
-                .collect(Collectors.toList());
-        if (carNames.stream().filter(carName -> carName.length() <= MAX_CAR_NAME_LENGTH).count() != carNames.size()) {
+                .toList();
+        if (carNames.stream()
+                .filter(carName -> carName.length() <= MAX_CAR_NAME_LENGTH)
+                .count() != carNames.size()) {
             throw new IllegalArgumentException("이름은 " + MAX_CAR_NAME_LENGTH + "자 이하만 가능합니다.");
         }
     }

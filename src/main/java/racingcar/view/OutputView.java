@@ -4,7 +4,7 @@ import racingcar.model.Car;
 import racingcar.model.CarList;
 
 public class OutputView {
-    public static void printResultMessage() {
+    public static void printResultHeaderMessage() {
         System.out.println("실행 결과");
     }
 
@@ -23,10 +23,8 @@ public class OutputView {
     }
 
     public static String getForwardStateStringOfCar(Car car) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(car.getName()).append(" : ");
-        sb.append("-".repeat(car.getPosition()));
-        return sb.toString();
+        return car.getName() + " : "
+                + "-".repeat(car.getPosition());
     }
 
     // 최종 우승자 출력 하는 기능
