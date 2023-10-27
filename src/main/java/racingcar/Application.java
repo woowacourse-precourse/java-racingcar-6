@@ -49,10 +49,36 @@ public class Application {
 //        }
 
         repeatAttempts(attemptsNum, cars);
+        printWinners(cars);
 //        for (Car car : cars) {
 //            System.out.print(car.getCarName() + " ");
 //            System.out.println(car.getLocation());
 //        }
+    }
+
+    private static void printWinners(final List<Car> cars) {
+        List<String> winnerCarNames = getWinners(cars);
+        System.out.print("최종 우승자 : ");
+        System.out.println(String.join(", ", winnerCarNames));
+    }
+
+    private static List<String> getWinners(final List<Car> cars) {
+        int maxLocation = 0;
+        List<String> winnerCarNames = new ArrayList<>();
+
+        for (Car car : cars) {
+            int carLocation = car.getLocation();
+            if (maxLocation < carLocation) {
+                winnerCarNames.clear();
+                maxLocation = carLocation;
+                winnerCarNames.add(car.getCarName());
+            }
+            else if (maxLocation == carLocation) {
+                winnerCarNames.add(car.getCarName());
+            }
+        }
+
+        return winnerCarNames;
     }
 
     private static void printCarStatus(final List<Car> cars) {
