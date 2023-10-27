@@ -17,19 +17,19 @@ public class UserInput {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputStr = Console.readLine();
 
-        String[] carNamesArray = inputStr.split(",");
+        List<String> carNamesList = Arrays.asList(inputStr.split(","));
 
-        validateInput(carNamesArray);
+        validateInput(carNamesList);
 
-        return Arrays.asList(carNamesArray);
+        return carNamesList;
     }
 
-    private static void validateInput(String[] carNamesArray) {
-        checkEmpty(carNamesArray);
-        checkFormat(carNamesArray);
-        checkCarCount(carNamesArray);
-        checkLimit(carNamesArray);
-        checkSameName(carNamesArray);
+    private static void validateInput(List<String> carNamesList) {
+        checkEmpty(carNamesList);
+        checkFormat(carNamesList);
+        checkCarCount(carNamesList);
+        checkLimit(carNamesList);
+        checkSameName(carNamesList);
 
     }
 
