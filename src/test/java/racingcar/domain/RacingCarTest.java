@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
@@ -25,6 +26,19 @@ class RacingCarTest {
             car.moveForward();
         }
         assertEquals(car.getDistance(), EXPECTED_DISTANCE, ERROR_MARGIN);
+    }
+
+    @Test
+    void convertDistanceToString_현재이동거리_문자열_변환_테스트() {
+        RacingCar car = new RacingCar(TEST_CAR_NAME);
+        for (int i = 0; i < MOVE_TRY; i++) {
+            car.moveForward();
+        }
+
+        int distance = car.getDistance();
+        String result = car.convertDistanceToString();
+
+        assertThat(result.length()).isEqualTo(distance);
     }
 
 }
