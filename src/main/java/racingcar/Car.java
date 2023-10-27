@@ -23,6 +23,10 @@ public class Car {
         return String.format(RESULT_FORMAT, name, getDistance());
     }
 
+    public int compareTo(Car otherCar) {
+        return Integer.compare(moveCount, otherCar.moveCount);
+    }
+
     private String getDistance() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < moveCount; i++) {
