@@ -34,6 +34,12 @@ public class Cars {
         return carList;
     }
 
+    public List<Integer> getPositionList() {
+        List<Integer> positions = new ArrayList<>();
+        carList.forEach(car -> positions.add(car.getPosition()));
+        return positions;
+    }
+
     public Car get(int index) {
         return carList.get(index);
     }
