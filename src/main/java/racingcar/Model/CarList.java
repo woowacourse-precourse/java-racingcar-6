@@ -14,20 +14,26 @@ public class CarList {
 
 		String[] splitEnteredList = splitEnteredList(enteredList);
 
-		for (String eachEnteredList : splitEnteredList) {
-			this.carList.add(new Car(eachEnteredList.trim()));
+		for (String eachCarName : splitEnteredList) {
+			validateCarName(eachCarName);
+			this.carList.add(new Car(eachCarName.trim()));
 		}
 
+	}
+
+	private void validateCarName(String eachCarName) {
+		if (eachCarName.length() > 5) {
+			throw new IllegalArgumentException("5글자 이하의 이름만 입력해주세요.");
+		}
 	}
 
 	public void moveCarList() {
 
-		for(Car eachCar : carList) {
+		for (Car eachCar : carList) {
 			eachCar.move();
 		}
 
 	}
-
 
 	private String[] splitEnteredList(String enteredList) {
 		return enteredList.split(ENTERED_SEPARATOR);
