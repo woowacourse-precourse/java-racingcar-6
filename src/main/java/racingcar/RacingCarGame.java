@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class RacingCarGame {
@@ -26,7 +27,18 @@ public class RacingCarGame {
             outputProcessor.printMoveResult(cars);
         }
 
+        outputProcessor.printWinners(findWinners());
+    }
 
+    private List<Car> findWinners() {
+        Integer maxDistance = cars.stream()
+                .max(Comparator.comparingInt(Car::getPosition))
+                .get()
+                .getPosition();
+
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxDistance)
+                .toList();
     }
 
     private void initializeGame() {
@@ -43,6 +55,6 @@ public class RacingCarGame {
     }
 
     private boolean canMove() {
-        return Randoms.pickNumberInRange(0,9) > 4;
+        return Randoms.pickNumberInRange(0,9) >= 4;
     }
 }
