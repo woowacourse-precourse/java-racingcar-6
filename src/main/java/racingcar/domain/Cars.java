@@ -11,7 +11,7 @@ public class Cars implements Iterable<Car> {
 
     public Cars(String inputValue) {
         List<String> carsName = parsedCarsName(inputValue);
-        for(String carName : carsName) {
+        for (String carName : carsName) {
             Car car = new Car(carName);
             cars.add(car);
         }
@@ -20,12 +20,12 @@ public class Cars implements Iterable<Car> {
     public List<String> getWinnersName() {
         int maxMoveDistance = 0;
         List<String> winnersName = new ArrayList<>();
-        for(Car car : cars) {
-            if(car.getMoveDistance() > maxMoveDistance) {
+        for (Car car : cars) {
+            if (car.getMoveDistance() > maxMoveDistance) {
                 winnersName.clear();
                 maxMoveDistance = car.getMoveDistance();
                 winnersName.add(car.getName());
-            } else if(car.getMoveDistance() == maxMoveDistance) {
+            } else if (car.getMoveDistance() == maxMoveDistance) {
                 winnersName.add(car.getName());
             }
         }
