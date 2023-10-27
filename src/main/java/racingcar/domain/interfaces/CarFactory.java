@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface CarFactory {
 
-    public List<Car> createCars(int count);
+    public Cars createCars();
 }
