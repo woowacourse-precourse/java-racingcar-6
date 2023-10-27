@@ -6,6 +6,7 @@ public class Car {
     private int distance;
 
     private Car(String name) {
+        validateCarName(name);
         this.name = name;
     }
 
