@@ -12,11 +12,19 @@ public class Car {
         this.currentPosition = 0;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getCurrentPosition() {
+        return currentPosition;
+    }
+
     public boolean moveIfRandomSuccess() {
         return createRandomNumber() >= SUCCESS_NUMBER;
     }
 
-    public int createRandomNumber(){
-        return Randoms.pickNumberInRange(0,9);
+    public int createRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 }
