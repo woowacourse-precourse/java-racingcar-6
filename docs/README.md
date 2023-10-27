@@ -5,7 +5,7 @@
     - [x] 쉼표를 이용하여 구분하기 - **CarFactory / generateCars()**
 - [x] 시도 횟수 입력 받기 - **InputManager / inputTryCount()**
 - [x] 자동자 경주를 시작한다 - **RaceManager / startRace()**
-  - [ ] 각 자동차 별로 0~9 사이 랜덤 숫자 생성 - **Car / generateRandomNumber()**
+  - [x] 각 자동차 별로 0~9 사이 랜덤 숫자 생성 - **Car / generateRandomNumber()**
   - [ ] 4이상의 값인 경우 한칸 전진 - **CarService / ForwardOrStop()**
 - [x] 모든 시도가 끝난 후 가장 많이 이동한 자동차를 우승자로 선정 - **Referee / selectWinner()**
   - [x] 한 명인 경우 단독으로 출력 - **RaceManager / printWinner()**
