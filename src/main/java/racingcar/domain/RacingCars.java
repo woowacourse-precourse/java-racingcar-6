@@ -20,9 +20,13 @@ public final class RacingCars {
     }
 
     private void validate(final List<RacingCar> racingCars) {
-        if (racingCars.isEmpty()) {
+        if (racingCars.isEmpty() || isNotUnique(racingCars)) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_ELEMENT_SIZE.toValue());
         }
+    }
+
+    private boolean isNotUnique(final List<RacingCar> racingCars) {
+        return racingCars.size() != racingCars.stream().distinct().count();
     }
 
     public int numOfElement() {
