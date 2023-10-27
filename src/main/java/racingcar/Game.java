@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class Game {
     private final IO io = new IO();
@@ -24,23 +25,31 @@ public class Game {
     }
 
     public void logic(String[] nameArr, Map<String, Integer> nameMap, int number) {
-        int len = nameMap.size();
+        io.outputIntro();
         for (int i = 0; i < number; i++) {
-            for (int j = 0; j < len; j++) {
+            for (int j = 0; j < nameMap.size(); j++) {
                 judge(nameArr[j], nameMap);
             }
-            //output
+            io.outputStatus(nameArr, nameMap);
         }
+        io.outputResult(findMaxVal(nameMap), nameArr, nameMap);
     }
 
     public void judge(String name, Map<String, Integer> nameMap) {
         int random = Randoms.pickNumberInRange(0, 9);
         if (random >= 4) {
-            go(name, nameMap);
+            nameMap.replace(name, nameMap.get(name) + 1);
         }
     }
 
-    public void go(String name, Map<String, Integer> nameMap) {
-        nameMap.replace(name, nameMap.get(name) + 1);
+    public int findMaxVal(Map<String, Integer> map) {
+        Optional<Map.Entry<String, Integer>> maxEntry = map.entrySet().stream()
+                .max(Map.Entry.comparingByValue());
+        if (maxEntry.isPresent()) {
+            Map.Entry<String, Integer> entry = maxEntry.get();
+            return entry.getValue();
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 }
