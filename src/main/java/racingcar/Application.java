@@ -1,5 +1,6 @@
 package racingcar;
 
+import static racingcar.constant.AllConstants.*;
 import static racingcar.constant.ExceptionMessage.*;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -16,8 +17,9 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요(이름은 쉼표(,) 기준으로 구분");
         String nameInput = Console.readLine();
         // 자동차 이름 입력 관련 1차 유효성 검사
-        if (nameInput.contains(",")) {
-            if (nameInput.charAt(0) == ',' || nameInput.charAt(nameInput.length()-1) == ',') {
+        if (nameInput.contains(DELIMETER)) {
+            if (nameInput.charAt(0) == DELIMETER.charAt(0)
+                    || nameInput.charAt(nameInput.length()-1) == DELIMETER.charAt(0)) {
                 throw new IllegalArgumentException(NAME_INPUT_FORMAT + nameInput);
             }
             if (nameInput.contains(",,")) {
@@ -26,8 +28,8 @@ public class Application {
         }
         // 자동차 이름 입력 관련 2차 유효성 검사
         Map<String, Integer> carList = new LinkedHashMap<>();
-        for (String carName : nameInput.split(",")) {
-            if (carName.length() > 5) {
+        for (String carName : nameInput.split(DELIMETER)) {
+            if (carName.length() > NAME_LENGTH_MAX) {
                 throw new IllegalArgumentException(NAME_LENGTH + carName.length());
             }
             if (carList.containsKey(carName)) {
@@ -51,10 +53,10 @@ public class Application {
         for (int i = 0; i < count; i++) {
             for (String carName : carList.keySet()) {
                 // 현재 자동차의 전진/정지 여부 결정
-                int randomNum = Randoms.pickNumberInRange(0,9);
+                int randomNum = Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX);
                 int moves = carList.get(carName);
-                if (randomNum >= 4) {
-                    moves++;
+                if (randomNum >= RANDOM_FOUR) {
+                    moves += MOVE_FORWARD;
                     carList.put(carName, moves);
                 }
                 // 해당 차수의 실행 결과 출력
