@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class Cars {
@@ -33,6 +35,16 @@ public class Cars {
         }
     }
 
+    public Winners getWinnerList() {
+        List<String> winnerList = new ArrayList<>();
+        for (String name : cars.keySet()) {
+            if (isWinner(name)) {
+                winnerList.add(name);
+            }
+        }
+        return new Winners(winnerList);
+    }
+
     private void verifyCarNameLength(String name) {
         if (name.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_EXCESS_ERROR_MESSAGE);
@@ -44,5 +56,12 @@ public class Cars {
             return cars.put(name, (cars.getOrDefault(name, INITIAL_COUNT_VALUE) + PLUS_ONE));
         }
         return cars.get(name);
+    }
+
+    private boolean isWinner(String name) {
+        if (cars.get(name) == maxAdvanceCount) {
+            return true;
+        }
+        return false;
     }
 }
