@@ -25,8 +25,8 @@
       - [x] `validateCarListInputBlank` 메서드
         - [x] `validateCarInputBlank` 메서드
     - 자동차 이름 중 5자를 초과하는 이름이 있다면 `IllegalArgumentException` 발생
-      - [ ] `validateCarListInputLength` 메서드
-        - [ ] `validateCarInputLength` 메서드
+      - [x] `validateCarListInputLength` 메서드
+        - [x] `validateCarInputLength` 메서드
     - 자동차 이름에 중복이 있다면 `IllegalArgumentException` 발생
       - [ ] `validateCarListInputUnique` 메서드
 

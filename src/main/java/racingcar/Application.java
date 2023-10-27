@@ -19,6 +19,12 @@ public class Application {
         }
     }
 
+    public static void validateCarListInputLength(List<String> inputList) {
+        for (String name : inputList) {
+            validateCarInputLength(name);
+        }
+    }
+
     public static void validateCarInputLength(String name) {
         if (name.length() > 5) {
             throw new IllegalArgumentException();
