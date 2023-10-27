@@ -1,14 +1,13 @@
 package racingcar.impl;
 
 import racingcar.Game;
+import racingcar.Parser;
 import racingcar.RandomNumberProvider;
 import racingcar.UserInput;
 import racingcar.entity.Participant;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.function.DoubleToIntFunction;
 
 public class RacingGame implements Game {
     private UserInput userInput;
@@ -61,7 +60,7 @@ public class RacingGame implements Game {
 
     private void setParticipants() {
         participants = new ArrayList<>();
-        for(String name : userInput.inputUserNames()) {
+        for(String name : Parser.splitName(userInput.inputLine(), ",")) {
             participants.add(new Participant(name, 0));
         }
     }
@@ -73,6 +72,7 @@ public class RacingGame implements Game {
     @Override
     public void getResult() {
         List<Participant> winner = getWinner();
+        System.out.print("최종 우승자 : ");
         for(Participant participant : winner) {
             System.out.print(participant.getName());
         }

@@ -10,21 +10,11 @@ import java.util.List;
 
 public class UserInputImpl implements UserInput {
     @Override
-    public List<String> inputUserNames() {
-        String userInput = Console.readLine();
-        return parseName(userInput);
+    public String inputLine() {
+        return Console.readLine();
     }
 
-    private List<String> parseName(String userInput) {
-        String[] cutIntoComma = userInput.split(",");
-        List<String> nameList = new ArrayList<>(Arrays.asList(cutIntoComma));
-        try {
-            InputException.isValidName(nameList);
-        } catch (Exception e) {
-            throw new IllegalArgumentException();
-        }
-        return nameList;
-    }
+
 
     @Override
     public int inputAttemptNum() {
