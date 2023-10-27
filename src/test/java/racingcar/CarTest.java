@@ -31,12 +31,13 @@ public class CarTest {
     public class Car {
         private String carName;
         private String distanceDriven = "";
+
         public Car(String carName) {
             this.carName = carName;
         }
 
         public int createRandomNumber() {
-            return Randoms.pickNumberInRange(0,9);
+            return Randoms.pickNumberInRange(0, 9);
         }
 
         public void moveForward(int randomNum) {
