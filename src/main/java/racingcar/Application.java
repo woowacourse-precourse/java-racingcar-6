@@ -5,5 +5,7 @@ public class Application {
         Machines machines = new Machines();
 
         machines.showMessage();
+
+        machines.getInput();
     }
 }
