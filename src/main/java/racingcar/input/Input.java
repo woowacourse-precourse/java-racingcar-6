@@ -18,7 +18,7 @@ public class Input {
         return Console.readLine();
     }
 
-    public String inputAttemptCount() {
-        return Console.readLine();
+    public int inputAttemptCount() {
+        return Integer.parseInt(Console.readLine());
     }
 }
