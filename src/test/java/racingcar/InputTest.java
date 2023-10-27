@@ -10,6 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.constants.ErrorMessage;
 import racingcar.utils.Converter;
+import racingcar.utils.Validator;
 
 public class InputTest {
     @Test
@@ -22,6 +23,20 @@ public class InputTest {
                 List.of("pobi", "jun")
         );
     }
+
+    @Test
+    @DisplayName("자동차 명이 5글자 초과일 경우, 에러 문구를 발생하는가?")
+    void testErrorNot5CharLess() {
+        String input = "pobi,javaji";
+
+        List<String> names = Converter.convertStringToList(input);
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class, () -> Validator.validateCarName(names));
+
+        assertThat(exception.getMessage()).isEqualTo(ErrorMessage.ERROR_NAME_MUST_BE_5_CHARACTERS_LESS.getMessage());
+    }
+
 
     @Test
     @DisplayName("사용자의 입력이 숫자로 변경 되는가?")
