@@ -31,9 +31,9 @@ public class Application {
         for (int i = 0; i < tryCount; i++) {
             for (String carName : carMap.keySet()) {
                 int randomNumber = Randoms.pickNumberInRange(0, 9);
-//                if (randomNumber >= 4) {
-//                    carMap.put(carName, carMap.get(carName) + 1);
-//                }
+                if (randomNumber >= 4) {
+                    carMap.put(carName, carMap.get(carName) + 1);
+                }
             }
         }
     }
