@@ -38,7 +38,7 @@ public class Application {
         List<String> winner = new ArrayList<>();
 
         for (Car car : cars) {
-            final String carName = car.isMaxScore(maxScore);
+            final String carName = car.ifMaxScore(maxScore);
             if(!carName.isEmpty()){
                 winner.add(carName);
             }

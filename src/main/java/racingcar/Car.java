@@ -11,7 +11,7 @@ public class Car {
         this.score = 0;
     }
 
-    public String isMaxScore(int maxScore){
+    public String ifMaxScore(int maxScore){
         if(this.score == maxScore){
             return this.name;
         }
