@@ -17,8 +17,10 @@ public class RacingGame {
     }
 
     private void play(int attemptCount) {
+        OutputView.displayGameResultMessage();
         for (int attempt = 0; attempt < attemptCount; attempt++) {
             cars.moveAll();
+            OutputView.displayGameResult(cars.toString());
         }
     }
 
