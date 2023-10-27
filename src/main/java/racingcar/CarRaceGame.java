@@ -17,6 +17,12 @@ public class CarRaceGame {
         addRaceCars();
         int raceCount = inputRaceCount();
         moveCars(raceCount);
+        printWinner();
+    }
+
+    private void printWinner() {
+        List<String> winners = judge.findWinners();
+        OutputView.printWinners(winners);
     }
 
     private int inputRaceCount() {
@@ -47,6 +53,4 @@ public class CarRaceGame {
         String singleResult = MoveResultMessageGenerator.generateMoveResultsMessage(singleMoveResults);
         OutputView.printSingleResult(singleResult);
     }
-
-
 }

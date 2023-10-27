@@ -30,6 +30,10 @@ public class Car {
         }
     }
 
+    public boolean isWinner(final int winnerPosition) {
+        return position == winnerPosition;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) {

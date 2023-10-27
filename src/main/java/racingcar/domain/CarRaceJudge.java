@@ -55,4 +55,21 @@ public class CarRaceJudge {
     private boolean isDuplicates(final List<String> carNames) {
         return carNames.size() != carNames.stream().distinct().count();
     }
+
+    public List<String> findWinners() {
+        List<Car> cars = carRepository.findAll();
+        int winnerPosition = findWinnerPosition(cars);
+
+        return cars.stream()
+                .filter(car -> car.isWinner(winnerPosition))
+                .map(Car::getName)
+                .toList();
+    }
+
+    private int findWinnerPosition(final List<Car> cars) {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElseThrow(() -> new IllegalArgumentException("우승자를 찾을 수 없습니다."));
+    }
 }

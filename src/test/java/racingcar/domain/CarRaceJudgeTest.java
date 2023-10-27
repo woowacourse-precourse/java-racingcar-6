@@ -76,4 +76,19 @@ class CarRaceJudgeTest {
         // then
         assertThat(isStop).isTrue();
     }
+
+    @DisplayName("우승자를 찾을 수 있다.")
+    @Test
+    void findWinners() {
+        // given
+        List<String> names = List.of("pobi", "jason");
+        carRaceJudge.addCars(names);
+
+        // when
+        carRaceJudge.moveCars(() -> 4);
+        String winners = String.join(",", carRaceJudge.findWinners());
+
+        // then
+        assertThat(winners).isEqualTo("pobi,jason");
+    }
 }
