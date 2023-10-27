@@ -39,4 +39,7 @@ public class Service {
     public void showProgressOf(List<String> participants) {
         outputView.printProgressMessage(participants, progressBoard);
     }
+    public void printResultMessage() {
+        outputView.printResultMessage();
+    }
 }
