@@ -17,6 +17,22 @@ public class InputManager {
         return carList;
     }
 
+    public static int inputTryCnt() {
+        System.out.println("시도할 회수는 몇회인가요?");
+
+        Integer tryCntInput;
+        try {
+            tryCntInput = Integer.parseInt(Console.readLine());
+            if (tryCntInput < 0) {
+                throw new IllegalArgumentException("시도 횟수는 0 이상이어야 합니다.");
+            }
+        } catch(NumberFormatException e){
+            throw new IllegalArgumentException("시도 횟수는 정수형이어야 합니다.");
+        }
+
+        return tryCntInput;
+    }
+
     private static List<String> extractCarNames(String userInput) {
         List<String> nameList = Arrays.asList(userInput.split(","));
 
