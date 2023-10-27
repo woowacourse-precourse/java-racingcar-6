@@ -1,4 +1,4 @@
-package util;
+package util.inputreader;
 
 import camp.nextstep.edu.missionutils.Console;
 
