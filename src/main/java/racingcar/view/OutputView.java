@@ -8,6 +8,10 @@ public class OutputView {
         System.out.println(Config.START_MESSAGE);
     }
 
+    public static void inputCountMessage() {
+        System.out.println(Config.INPUT_COUNT_MESSAGE);
+    }
+
     public static void startRacingMessage() {
         System.out.println(Config.START_RACING_MESSAGE);
     }

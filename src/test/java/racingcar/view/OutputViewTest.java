@@ -32,6 +32,13 @@ class OutputViewTest {
     }
 
     @Test
+    @DisplayName("횟수 입력 메시지 출력")
+    void testInputCountMessage() {
+        OutputView.inputCountMessage();
+        Assertions.assertThat(outputStream.toString().trim()).isEqualTo(Config.INPUT_COUNT_MESSAGE);
+    }
+
+    @Test
     @DisplayName("레이스 시작 메시지 출력")
     void testStartRacingMessage() {
         OutputView.startRacingMessage();
