@@ -2,14 +2,12 @@
 # 기능 요구 사항
 
 ----
-- [ ] 랜덤값 생성하는 클래스
-    - [ ] camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()사용해서 랜덤 숫자 생성
-
 
 - [ ] n개의 자동차 이름을 받는 클래스
     - [ ] validation
         - [ ] 이름에 공백이 없는지
         - [ ] 이름 하나 당 5자 이하가 맞는지
+        - [ ] 이름이 두개 이상이 맞는지
       
 
 - [ ] 자동차 이동 횟수 받아오는 클래스
@@ -20,5 +18,9 @@
 - [ ] 자동차 클래스
     - [ ] 이름 받아오기
     - [ ] 랜덤 값 받아오기
+        - [ ] camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()사용해서 랜덤 숫자 생성
     - [ ] 랜덤 값이 4 이상일 때 전진
     - [ ] 랜덤 값이 4 미만일 때 멈춤
+
+
+- [ ] validation 클래스에 검증 코드 모으기
