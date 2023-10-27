@@ -9,6 +9,7 @@ public class WinCars {
     private static final String DELIMITER_WIN_CAR = ", ";
     private static final String WIN_CAR_MESSAGE = "최종 우승자 : ";
     private static final int FIRST_INDEX = 0;
+
     private final List<Car> winCars;
 
     public WinCars() {
