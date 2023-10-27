@@ -17,13 +17,11 @@ public class Inputter {
 
     public List<String> getNameInput() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String input = Console.readLine();
+        List<String> input = Arrays.stream(Console.readLine().split(",")).toList();
 
-        if (input.length() < 1) {
-            throw new IllegalArgumentException();
-        }
+        validateName(input);
 
-        return Arrays.stream(input.split(",")).toList();
+        return input;
     }
 
     public int getDuration() {
@@ -37,5 +35,16 @@ public class Inputter {
         }
 
         return duration;
+    }
+
+    private void validateName(List<String> names) {
+        if (names.size() < 1) {
+            throw new IllegalArgumentException();
+        }
+        for (String name : names) {
+            if (name.length() > 5) {
+                throw new IllegalArgumentException();
+            }
+        }
     }
 }
