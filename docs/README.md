@@ -98,11 +98,11 @@
    
 ## 🧪 도메인 테스트 - Domain
 
-- [ ]  📔 자동차그룹 - carGroupTest
+- [ ]  📔 자동차그룹 - CarGroupTest
    - [ ]  📝 자동차 그룹 생성하기 테스트
    - [ ]  📝 자동차 그룹의 크기 구하기 테스트
    - [ ]  📝 들어온 순서로 자동차 검색하기 테스트
-- [ ]  📔 자동차 - carTest
+- [ ]  📔 자동차 - CarTest
    - [ ]  📝 자동차 객체 생성하기 테스트
    - [ ]  📝 자동차 이름 조회하기 테스트
    - [ ]  📝 자동차 초기 위치 조회하기 테스트
@@ -125,12 +125,12 @@
 
 ## 🧪  검증 테스트- Validator
 
-- [ ]  📔 자동차 이름 검증 - carNameValidatorTest
+- [ ]  📔 자동차 이름 검증 - CarNameValidatorTest
    - [ ]  📝 통합 검증하기 테스트
    - [ ]  📝 자동차 이름 1글자 이상 5글자 이하인지 검증하기 테스트
    - [ ]  📝 자동차 이름에 공백이 들어가 있는지 검증하기 테스트
    - [ ]  📝 중복된 이름이 있는지 검증하기 테스트
-- [ ]  📔 시도 횟수 검증 - roundValidator Test
+- [ ]  📔 시도 횟수 검증 - RoundValidator Test
    - [ ]  📝 통합 검증하기 테스트
    - [ ]  📝 문자열이 아닌지 검증하기 테스트
    - [ ]  📝 실수가 아닌지 검증하기 테스트
@@ -150,7 +150,7 @@
 
 ## 🧪 게임 관리 테스트 - Controller
 
-- [ ]  📔 게임 관리 - gameControllerTest
+- [ ]  📔 게임 관리 - GameControllerTest
    - [ ]  📝 게임 시작 테스트 - startGame
       - 입력값에 따른 결과가 올바른지 테스트
 
@@ -169,10 +169,10 @@
 
 ## 🧪 비즈니스 로직 테스트 - Model
 
-- [ ]  📔 게임 모델 - gameModelTest
+- [ ]  📔 게임 모델 - GameModelTest
    - [ ]  📝 게임 한 판 진행하기 테스트
    - [ ]  📝 이동 여부 판단해주기 테스트
-- [ ]  📔 자동차 모델 - carModelTest
+- [ ]  📔 자동차 모델 - CarModelTest
    - [ ]  📝 자동차 이름에 대해 전처리 하기 테스트
    - [ ]  📝 `,`을 기준으로 자동차 이름 나누기 테스트
 - [ ]  📔 시도 횟수 모델 - NumberOfRoundModel
@@ -189,10 +189,10 @@
 
 ## 🧪 입출력 - View
 
-- [ ]  📔 사용자 입력 - inputViewTest
+- [ ]  📔 사용자 입력 - InputViewTest
    - [ ]  📝 자동차 이름 입력받기 테스트
    - [ ]  📝 시도할 횟수 입력받기 테스트
-- [ ]  📔 결과 출력 - outputViewTest
+- [ ]  📔 결과 출력 - OutputViewTest
    - [ ]  📝 차수 결과 출력하기 테스트
    - [ ]  📝 최종 우승자 출력하기 테스트
 
@@ -204,11 +204,13 @@
 ## 📦 문구 - Message
 
 - [ ]  📔 문구 - GamePrompt
-    - InputCarNamesMessage
+    - inputCarNamesMessage
     - inputRoundMessage
+    - outputResultMessage
+    - outputCarPositionMessage
     - outputFinalWinnerMessage
 - [ ]  📔 자동차 이름 예외 - CarNameExceptionPrompt
-    - LengthMessage
+    - lengthMessage
     - whiteSpaceMessage
     - duplicateMessage
 - [ ]  📔 시도 횟수 예외 - RoundExceptionPrompt
