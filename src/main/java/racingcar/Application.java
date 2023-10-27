@@ -1,8 +1,11 @@
 package racingcar;
 
+import view.InputView;
+import view.OutputView;
+
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        System.out.println("안녕하세요");
+
     }
 }
