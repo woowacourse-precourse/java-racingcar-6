@@ -29,6 +29,7 @@ public class GameController {
         for (int i = 0; i < attempts; i++) {
             cars.move();
 
+            List<String> carStatusList = cars.getCarStatusList();
         }
 
 
