@@ -22,8 +22,8 @@
 
 - `자동차의 이름`, `Position`, `Engine`을 가지고있다.
 - startEngine(): 엔진에 시동을 걸어 움직인다.
-    - [ ] Engine의 start() 메서드를 호출한다.
-    - [ ] 반환값이 `true` 라면 position의 값을 `1` 증가시킨다.
+    - [x] Engine의 start() 메서드를 호출한다.
+    - [x] 반환값이 `true` 라면 position의 값을 `1` 증가시킨다.
 
 ### Position
 
@@ -38,7 +38,7 @@
 ### RandomCarEngine
 
 - start(): 자동차가 움직일 수 있는지 없는지를 반환한다.
-    - [ ] `Randoms.pickInRange()` 메서드로 0 ~ 9 사이의 숫자를 뽑아 `4` 이상인지 `boolean`으로 반환한다.
+    - [x] `Randoms.pickInRange()` 메서드로 0 ~ 9 사이의 숫자를 뽑아 `4` 이상인지 `boolean`으로 반환한다.
 
 ### RacingCarInputView
 
