@@ -70,13 +70,14 @@ public class GameTest {
         carNameList.add("rook");
         locations.put("pobi", 1);
         locations.put("jun", 3);
-        locations.put("king", 0);
+        locations.put("king", 3);
         locations.put("rook", 2);
 
         List<String> winners = new ArrayList<>();
 
         winners = game.judgeWinner(carNameList,locations);
         Assertions.assertTrue(winners.get(0).equals("jun"));
+        Assertions.assertTrue(winners.get(1).equals("king"));
 
 
     }

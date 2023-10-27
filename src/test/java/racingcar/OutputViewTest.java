@@ -87,5 +87,24 @@ public class OutputViewTest {
                 + "rook : --\n");
     }
 
+    @Test
+    void 우승자_출력_테스트() {
+        List<String> winners = new ArrayList<>();
+        winners.add("pobi");
+        winners.add("jun");
+
+        OutputView.printFinalWinner(winners);
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setOut(printStream);
+
+        String capturedOutput = outputStream.toString();
+
+        Assertions.assertEquals("pobi, jun", capturedOutput);
+
+
+    }
+
 
 }
