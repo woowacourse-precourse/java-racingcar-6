@@ -1,9 +1,9 @@
-package racingcar.domain;
+package racingcar.domain.car;
 
-import static racingcar.domain.NameRule.ALPHABET_PATTERN;
-import static racingcar.domain.NameRule.LENGTH_IS_OVER_MAX;
-import static racingcar.domain.NameRule.MAX_LENGTH;
-import static racingcar.domain.NameRule.NOT_ALPHABETIC;
+import static racingcar.domain.car.NameRule.ALPHABET_PATTERN;
+import static racingcar.domain.car.NameRule.LENGTH_IS_OVER_MAX;
+import static racingcar.domain.car.NameRule.MAX_LENGTH;
+import static racingcar.domain.car.NameRule.NOT_ALPHABETIC;
 
 import java.util.Objects;
 

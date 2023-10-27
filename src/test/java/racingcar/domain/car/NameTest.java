@@ -1,8 +1,8 @@
-package racingcar.domain;
+package racingcar.domain.car;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.domain.NameRule.LENGTH_IS_OVER_MAX;
-import static racingcar.domain.NameRule.NOT_ALPHABETIC;
+import static racingcar.domain.car.NameRule.LENGTH_IS_OVER_MAX;
+import static racingcar.domain.car.NameRule.NOT_ALPHABETIC;
 
 import org.junit.jupiter.api.Test;
 

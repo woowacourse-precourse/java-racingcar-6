@@ -1,7 +1,7 @@
-package racingcar.domain;
+package racingcar.domain.car;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.domain.NameRule.NAME_DUPLICATED;
+import static racingcar.domain.car.NameRule.NAME_DUPLICATED;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;

@@ -1,18 +1,18 @@
-package racingcar.domain;
+package racingcar.domain.car;
 
 import java.util.Objects;
 
 public class Car {
     private final Name name;
-    private int distance;
+    private Distance distance;
 
     public Car(Name name) {
         this.name = name;
-        distance = 0;
+        this.distance = new Distance(0);
     }
 
     public void go() {
-        distance++;
+        distance = distance.add(1);
     }
 
     @Override
