@@ -15,6 +15,6 @@ public class GameController {
         OutputView.printRacingCountInputMessage();
         int racingCount = RacingCountController.makeRacingCount(InputView.inputRacingCount());
         OutputView.printRacingResultMessage();
-        RacingController.racingStart(racingCount);
+        RacingController.racingStart(cars, racingCount);
     }
 }
