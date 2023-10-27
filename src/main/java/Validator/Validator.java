@@ -14,6 +14,9 @@ public class Validator {
     private static final String DUPLICATED_NAME = "중복된 이름을 입력하였습니다.";
 
     public static void nameValidator(List<String> nameList){
+        if (nameList.size() == 0){
+            throw new IllegalArgumentException(NOTHING);
+        }
         for (String name : nameList){
             if (name.length() == 0){
                 throw new IllegalArgumentException(NOTHING);
@@ -37,5 +40,16 @@ public class Validator {
         } catch (NumberFormatException e){
             throw new IllegalArgumentException(NOT_NUMBER);
         }
+    }
+
+    public static String getMessage(String message){
+        try {
+            return Validator.class.getDeclaredField(message)
+                    .get(null)
+                    .toString();
+        } catch (IllegalAccessException | NoSuchFieldException e){
+            e.printStackTrace();
+        }
+        return "";
     }
 }

@@ -2,6 +2,7 @@ package View;
 
 import java.util.List;
 import Model.RacingCar;
+import Validator.Validator;
 
 public class OutputView {
     private static final String START = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -30,5 +31,16 @@ public class OutputView {
 
     public void printWinner(List<String> Winners){
         System.out.println(WINNER + String.join(", ", Winners));
+    }
+
+    public static String getMessage(String message){
+        try {
+            return OutputView.class.getDeclaredField(message)
+                    .get(null)
+                    .toString();
+        } catch (IllegalAccessException | NoSuchFieldException e){
+            e.printStackTrace();
+        }
+        return "";
     }
 }
