@@ -21,10 +21,10 @@ public class RacingCar {
      */
     private void validateNameLength(List<String> cars) {
         for (String car : cars) {
-            if (car.length() <= 5) {
-                throw new IllegalArgumentException("자동차 이름은 공백 포함 5글자를 초과할 수 없습니다.");
+            if (car.length() > 5) {
+                throw new IllegalArgumentException("자동차 이름은 공백 포함 5글자를 초과할 수 없습니다. 이름을 확인해주세요. 입력한 이름 : " + car);
             }
         }
     }
-    
+
 }
