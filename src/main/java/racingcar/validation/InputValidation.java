@@ -36,11 +36,11 @@ public class InputValidation {
 
     private static void validateNameLength(String input) {
         if(isNameLengthMoreThanFive(input)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
         }
 
         if(isNameLengthLessThanZero(input)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("이름을 입력하지 않았습니다");
         }
     }
 
