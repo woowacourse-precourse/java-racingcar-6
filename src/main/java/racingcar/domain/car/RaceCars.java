@@ -3,6 +3,7 @@ package racingcar.domain.car;
 import racingcar.util.Randoms;
 import racingcar.view.ExecutionView;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,6 +20,10 @@ public class RaceCars {
 
     public int size(){
         return cars.size();
+    }
+
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
     }
 
     //계산 로직
