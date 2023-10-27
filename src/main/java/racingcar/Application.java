@@ -33,4 +33,19 @@ public class Application {
     return numAttempts;
   }
 
+  private static int[] raceCars(String[] carNames, int numAttempts) {
+    int numCars = carNames.length;
+    int[] positions = new int[numCars];
+
+    for (int attempt = 1; attempt < numAttempts; attempt++) {
+      for (int i = 0; i < numCars; i++) {
+        int randomValue = Randoms.pickNumberInRange(0, 9);
+        if (randomValue >= 4) {
+          positions[i]++;
+        }
+      }
+    }
+    return positions;
+  }
+
 }
