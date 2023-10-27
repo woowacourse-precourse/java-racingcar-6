@@ -8,7 +8,6 @@ public class Generate {
 
     public Integer RandomNumber(){
         int randomNum = Randoms.pickNumberInRange(0,9);
-        System.out.println(randomNum);
         return randomNum;
     }
 }

@@ -1,5 +1,6 @@
 package racingcar;
 
+import racingcar.service.Car;
 import racingcar.service.Generate;
 
 public class Application {
