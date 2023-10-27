@@ -43,4 +43,23 @@ public class RacingGame {
             return 0;
         }
     }
+
+    public void getDistanceList(List<String> nameList,
+                                List<Integer> distanceList) { // 이전까지의 이동 거리에 이번 회차 이동 거리 더하기
+        System.out.println("실행 결과");
+        for (int i = 0; i < nameList.size(); i++) {
+            System.out.print(nameList.get(i) + " : ");
+            int ranNum = getRandomNum();
+            int move = forwardOrStop(ranNum);
+            for (int j = 0; j < distanceList.get(i); j++) {
+                System.out.print("-");
+            }
+            if (move == 1) {
+                System.out.print("-");
+                distanceList.set(i, distanceList.get(i) + 1);
+            }
+            System.out.println();
+        }
+    }
+    
 }
