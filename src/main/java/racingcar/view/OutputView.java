@@ -12,4 +12,8 @@ public class OutputView {
     public static void printInputNumberOfMovesMessage() {
         System.out.println(INPUT_NUMBERS_OF_MOVES_MESSAGE);
     }
+
+    public static void printCurrentLocation(String currentLocation) {
+        System.out.println(currentLocation);
+    }
 }
