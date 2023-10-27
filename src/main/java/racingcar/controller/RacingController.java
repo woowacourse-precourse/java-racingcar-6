@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.model.Car;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -16,6 +17,17 @@ public class RacingController {
         OutputView.printStartMessage();
         String [] players = InputView.getPlayerInput();
         OutputView.printTryNumberMessage();
+        List<String> cars = setPlayerName(players);
         int tryNumber = InputView.getTryNumberInput();
+
+        Car car = new Car(cars, tryNumber);
+    }
+
+    private List<String> setPlayerName(String [] players) {
+        List<String> cars = new ArrayList<>();
+        for (String player : players) {
+            cars.add(player);
+        }
+        return cars;
     }
 }
