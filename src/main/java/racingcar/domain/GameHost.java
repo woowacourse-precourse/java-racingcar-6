@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameHost {
+    JudgeStandard judgeStandard;
+
+    public GameHost() {
+        this.judgeStandard = new JudgeStandard();
+    }
+
     /**
      * 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다.
      *
@@ -16,7 +22,7 @@ public class GameHost {
 
         for (RaceCar raceCar : progressCarList) {
             // 전진 카운터가 입력한만큼있으면
-            if (raceCar.getCntMovementOfCar() == numOfWinCondition) {
+            if (judgeStandard.isVictoryCondition(raceCar, numOfWinCondition)) {
                 winRaceCarList.add(raceCar);
             }
         }
