@@ -15,4 +15,9 @@ public class Car {
     public int getPosition() {
         return position;
     }
+
+    public String getCarStatus() {
+        return name + " : " + "-".repeat(position);
+    }
+
 }
