@@ -10,6 +10,10 @@ public class Car {
         this.name = name;
     }
 
+    void go(int distance) {
+        moves += distance;
+    }
+
     private void validateNameLength(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException();
