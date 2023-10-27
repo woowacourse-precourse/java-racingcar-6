@@ -14,9 +14,11 @@ public class Race {
     private List<Car> cars = new ArrayList<>();
     private StringTokenizer st;
     private RaceValidator raceValidator = new RaceValidator();
+    private int moveTrialCount;
 
     public void start() {
         generateCar();
+        moveTrialCount = getMoveTrialCount();
     }
 
     private void generateCar() {
@@ -28,5 +30,11 @@ public class Race {
             raceValidator.validateCarname(carname);
             cars.add(new Car(carname));
         }
+    }
+
+    private int getMoveTrialCount() {
+        String input = Console.readLine();
+        raceValidator.validateMoveTrialCount(input);
+        return Integer.parseInt(input);
     }
 }
