@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Referee {
 
-    public List<String> determineWinner(List<Car> cars){
+    public static List<String> determineWinner(List<Car> cars){
         List<String> winners = new ArrayList<>();
         int maxDistance = findMaxDistance(cars);
         for(Car car : cars){
@@ -14,7 +14,7 @@ public class Referee {
         }
         return winners;
     }
-    private int findMaxDistance(List<Car> cars){
+    private static int findMaxDistance(List<Car> cars){
         int maxDistance = 0;
         for(Car car : cars){
             if(maxDistance< car.getTotalMovedDistance())
