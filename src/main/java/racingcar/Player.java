@@ -7,13 +7,13 @@ public class Player {
     public Player() {
     }
 
-    private String inputCarName() {
+    public String inputCarName() {
         String carName = Console.readLine();
         checkInputFormat(carName);
         return carName;
     }
 
-    private void checkInputFormat(String carName) {
+    public void checkInputFormat(String carName) {
         int lastStringIndex = carName.length() - 1;
 
         for (int i = 0; i < lastStringIndex; i++) {
