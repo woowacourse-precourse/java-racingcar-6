@@ -1,6 +1,6 @@
 package validator;
 
-import static constant.ExceptinoString.INVALID_ATTEMPT_MEESAGE;
+import static constant.ExceptionString.INVALID_ATTEMPT_MEESAGE;
 
 public class AttemptValidator {
     private AttemptValidator() {

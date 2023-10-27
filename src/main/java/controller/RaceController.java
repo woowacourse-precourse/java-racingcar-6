@@ -9,7 +9,6 @@ import domain.Car;
 import domain.Cars;
 import java.util.ArrayList;
 import java.util.List;
-import validator.NameValidator;
 import view.InputView;
 import view.OutputView;
 

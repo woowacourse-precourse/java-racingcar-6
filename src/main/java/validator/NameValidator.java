@@ -1,11 +1,10 @@
 package validator;
 
 import static constant.ConstantString.MAX_NAME_LENGTH;
-import static constant.ExceptinoString.DUPLICATE_NAME_MESSAGE;
-import static constant.ExceptinoString.EMPTY_NAME_MESSAGE;
-import static constant.ExceptinoString.MAX_LENGTH_EXCEEDED_MESSAGE;
+import static constant.ExceptionString.DUPLICATE_NAME_MESSAGE;
+import static constant.ExceptionString.EMPTY_NAME_MESSAGE;
+import static constant.ExceptionString.MAX_LENGTH_EXCEEDED_MESSAGE;
 
-import domain.Car;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
