@@ -94,6 +94,28 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 다중_우승자_출력() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "2");
+                    assertThat(output()).contains("pobi : --", "woni : --", "최종 우승자 : pobi,woni");
+                },
+                MOVING_FORWARD, MOVING_FORWARD , MOVING_FORWARD , MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 모두_전진이_불가능할경우_모두_출력() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "2");
+                    assertThat(output()).contains("pobi : ", "woni : ", "최종 우승자 : pobi,woni");
+                },
+                STOP, STOP , STOP , STOP
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
