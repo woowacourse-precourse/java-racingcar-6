@@ -5,37 +5,17 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 public class Game {
+    //TODO : 게임 진행 클래스 , 결과 도출 클래스 분리
     Player player = new Player();
-    List<String> palyerList =  player.setThePlayer();;
-    List<Integer> scoreList = player.setScore(palyerList);
-    List<String> topScorers = new ArrayList<>();
+    List<String> playerList =  player.setThePlayer();;
+    List<Integer> scoreList = player.setScore(playerList);
+    List<String> topScorerList = new ArrayList<>();
+    int topScore  = Integer.MIN_VALUE;
     int repetition = player.numOfGames(); //반복횟수
     public void playGame(){
-        //calculateScore();
         showResult();
-        findTopScore(palyerList, scoreList);
-        System.out.println("최종 우승자 : " + String.join(", ", topScorers));
-    }
-
-    private void calculateScore(){
-        for(int i=0; i< scoreList.size(); i++){
-            int score = ForB(scoreList.get(i));
-            scoreList.set(i,score);
-        }
-    }
-
-    private void findTopScore( List<String> palyerList,List<Integer> scoreList ){
-        int maxScore  = Integer.MIN_VALUE;
-        for (int i = 0; i < scoreList.size(); i++) {
-            int currentScore = scoreList.get(i);
-            if (currentScore > maxScore ) {
-                maxScore  = currentScore;
-                topScorers.clear();
-                topScorers.add(palyerList.get(i));
-            } else if (currentScore == maxScore) {
-                topScorers.add(palyerList.get(i));
-            }
-        }
+        findTopScore();
+        System.out.println("최종 우승자 : " + String.join(", ", topScorerList));
     }
     private void showResult(){
         for(int i=0; i<repetition; i++){
@@ -43,29 +23,43 @@ public class Game {
             resultOfGame();
         }
     }
-
+    private void calculateScore(){
+        for(int i=0; i< scoreList.size(); i++){
+            int score = ForB(scoreList.get(i));
+            scoreList.set(i,score);
+        }
+    }
     private void resultOfGame(){
         System.out.println("실행 결과");
-        for(int i=0; i<palyerList.size(); i++){
-            System.out.println(palyerList.get(i) +" : " + "- ".repeat(scoreList.get(i)));
+        for(int i = 0; i< playerList.size(); i++){
+            System.out.println(playerList.get(i) +" : " + "- ".repeat(scoreList.get(i)));
+        }
+    }
+    private void findTopScore(){
+
+        for (int i = 0; i < scoreList.size(); i++) {
+            int currentScore = scoreList.get(i);
+            updateTopScore(currentScore,i);
+        }
+    }
+    private void updateTopScore(int currentScore, int i){ //최고득점자 판별 메서드
+        if (currentScore > topScore ) {
+            topScore  = currentScore;
+            topScorerList.clear();
+            topScorerList.add(playerList.get(i));
+        } else if (currentScore == topScore) {
+            topScorerList.add(playerList.get(i));
         }
     }
     private int ForB(int input){
         int fb = Randoms.pickNumberInRange(0,9);
-        //System.out.println(fb);
+        System.out.println(fb); //test시 삭제할것
         if(fb>=4){
-            return forward(input);
+            return input+1;
         }
         else{
-            return backward(input);
+            return input;
         }
-    }
-
-    private int forward(int input){
-        return input+1;
-    }
-    private int backward(int input){
-        return input;
     }
 }
 

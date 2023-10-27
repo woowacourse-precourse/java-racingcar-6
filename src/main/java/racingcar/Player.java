@@ -8,19 +8,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Player {
-    //횟수 설정
-    public int  numOfGames() {
+    public int  numOfGames() { //게임 진행 횟수 설정
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
         return validation(input);
     }
-    //플레이어 설정
-    public List<String> setThePlayer(){
+    public List<String> setThePlayer(){   //플레이어 설정
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String player = Console.readLine();
         List<String> PlayerList = Arrays.stream(player.split(",")).map(String::trim).collect(Collectors.toList());
-        nameError(PlayerList);
-
+        nameError(PlayerList); //이름에 대한 예외 처리
         return PlayerList;
     }
     public List<Integer> setScore(List<String> playerList ){
