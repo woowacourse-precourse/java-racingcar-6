@@ -1,9 +1,6 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Cars {
@@ -20,6 +17,16 @@ public class Cars {
 
     public List<Car> getCars() {
         return this.cars;
+    }
+
+    public List<Car> getWinners(){
+        Integer maxPosition = Collections.max(cars.stream()
+                .map(Car::getPosition)
+                .collect(Collectors.toList()));
+
+        return cars.stream()
+                .filter(car -> car.isWinner(maxPosition))
+                .collect(Collectors.toList());
     }
 
     private void validate(final String carNames) {

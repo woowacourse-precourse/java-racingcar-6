@@ -16,8 +16,12 @@ public class Car {
         return this.carName;
     }
 
-    public Integer getPosition(){
+    public Integer getPosition() {
         return this.position;
+    }
+
+    public boolean isWinner(Integer maxPosition) {
+        return position == maxPosition;
     }
 
     private void selectMove() {
