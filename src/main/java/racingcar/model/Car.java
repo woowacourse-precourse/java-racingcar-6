@@ -15,7 +15,14 @@ public class Car {
             this.position += 1;
         }
     }
-
+    //차 이름과 포지션의 출력 형태를 String으로 보내주는 메소드
+    public String provideCarNameAndPositionState(){
+        String carNameAndPostionString = this.name + " : ";
+        for(int i = 0; i < position; i++){
+            carNameAndPostionString += "-";
+        }
+        return carNameAndPostionString;
+    }
     public int getPosition(){
         return this.position;
     }
