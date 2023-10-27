@@ -74,10 +74,10 @@
 - 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다 (CarNamesValidator)
   - 자동차 이름을 입력 받을 때 기준은 ',' (String.split(",")) (3)
   - 이름은 5자 이하만 가능하다
-    - **예외** null, empty (isNullOrEmtpy())
-    - **예외** 범위에서 벗어난 경우 (isOverTheLength) - 6자, 7자 ,, etc 
-    - **예외** 이름인데 숫자로 입력된 경우(Regex 활용) (hasWrongCharacters) "^(\w)+$"
-    - **예외 처리** throw new IllegalArgumentException
+    - [x]**예외** null, empty (isNullOrEmtpy())
+    - [x]**예외** 범위에서 벗어난 경우 (isOverTheLength) - 6자, 7자 ,, etc 
+    - [x]**예외** 이름인데 숫자로 입력된 경우(Regex 활용) (hasWrongCharacters) - 영문 이름으로 표현
+    - [x]**예외 처리** throw new IllegalArgumentException
 
 - 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다 (RegisterRoundController)
   - 입력받은 이동 횟수 - RoundTotal
