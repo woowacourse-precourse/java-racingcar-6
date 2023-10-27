@@ -20,6 +20,7 @@ public class OutputView {
             }
             System.out.println(messge);
         }
+        System.out.println();
     }
     public void printWinners(List<String> cars){
         System.out.println(makeGameResultMessage(cars));
