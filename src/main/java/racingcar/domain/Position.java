@@ -18,4 +18,8 @@ public class Position {
     public void increment() {
         position++;
     }
+
+    public int getPosition() {
+        return position;
+    }
 }
