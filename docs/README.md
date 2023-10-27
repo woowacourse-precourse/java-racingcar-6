@@ -32,10 +32,6 @@
         + static tryNumber 변수
 
 
-+ ProgressCheckService
-    + 매 시도 횟수 마다 상황을 체크하는 서비스
-
-
 + RandomNumberPickService
     + 0~9 사이에서 무작위 값을 뽑는 서비스
 
@@ -62,6 +58,10 @@
 
 + WinnerInfoPrintService
   + 우승 자동차의 이름을 출력하는 서비스
+
+
++ ProgressCheckService
+  + 매 시도 횟수 마다 상황을 체크하는 서비스
 
 
 
