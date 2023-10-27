@@ -118,7 +118,7 @@
     시도할 회수는 몇회인가요?
 
 __2. OutputView__
-- [ ] printResultText
+- [x] printResultText
 
 
     실행 결과
