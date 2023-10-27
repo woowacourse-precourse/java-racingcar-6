@@ -31,9 +31,28 @@ class GameBoardTest {
             List<Player> result = gameBoard.getCopyOfPlayerList();
 
             //then
-            for (Player player : result) {
-                assertThat(player.getPosition()).isEqualTo(1);
-            }
+            assertThat(result)
+                    .contains(Player.of("이요환", 1),
+                            Player.of("김동찬", 1),
+                            Player.of("김동식", 1));
         }
+    }
+
+    @Test
+    @DisplayName("가장 많이 이동한 사람의 이름을 모두 반환한다.")
+    void findWinnersTest() {
+        //given
+        List<Player> players = List.of(Player.of("이요환", 1),
+                Player.of("김동식", 0),
+                Player.of("김동찬", 1));
+        gameBoard = new GameBoard(players);
+
+        //when
+        List<Player> result = gameBoard.findWinners();
+
+        //then
+        assertThat(result)
+                .contains(Player.of("이요환", 1), Player.of("김동찬", 1))
+                .doesNotContain(Player.of("김동식", 0));
     }
 }
