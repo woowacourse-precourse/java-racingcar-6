@@ -32,6 +32,23 @@ public class Cars {
         }
     }
 
+    public String receiveResult() {
+        int maxForwardCount = getMaxForwardCount();
+
+        List<String> winnerNames = cars.stream()
+                .filter(car -> car.compare(maxForwardCount))
+                .map(Car::getName).toList();
+
+        return String.join(", ", winnerNames);
+    }
+
+    private int getMaxForwardCount() {
+        return cars.stream()
+                .map(Car::getForwardCount)
+                .max(Integer::compare)
+                .orElseThrow();
+    }
+
     private void conditionalMove(int index) {
         if (Randoms.pickNumberInRange() < RANDOM_NUMBER_LIMIT) {
             return;
