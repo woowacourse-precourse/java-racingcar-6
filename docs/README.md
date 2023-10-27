@@ -3,11 +3,18 @@
 
 ----
 ## class Stadium
-기능 목록
+
+차 목록 입력 받기
 ```
-void inputCars()
+String inputCars()
     경주할 차 목록을 입력받는다.
 ```
+```
+void saveInputCars()
+    입력받은 차 목록을 저장한다.
+```
+
+전진 횟수 입력 받기
 ```
 void inputTryCount()
     전진 횟수를 입력받는다. 
@@ -16,6 +23,8 @@ void inputTryCount()
 void goCars()
     모든 차를 전진한다.
 ```
+
+최종 승자 띄우기
 ```
 List findWinner()
     최종 승자를 찾는다.
