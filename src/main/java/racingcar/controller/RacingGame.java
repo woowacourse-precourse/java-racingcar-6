@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.model.CarRepository;
 import racingcar.view.InputView;
 
 import java.util.ArrayList;
@@ -7,12 +8,12 @@ import java.util.List;
 
 public class RacingGame {
     private final InputView inputView;
-    private List<String> cars;
+    private CarRepository carRepository;
     private int repeatCount;
 
     public RacingGame(List<String> cars, int repeatCount) {
         this.inputView = new InputView();
-        this.cars = cars;
+        carRepository = new CarRepository(cars);
         this.repeatCount = repeatCount;
     }
 
@@ -22,11 +23,11 @@ public class RacingGame {
 
     public void start() {
         setupGame();
-        System.out.println(cars + " " + repeatCount);
+        System.out.println(carRepository + " " + repeatCount);
     }
 
     public void setupGame() {
-        this.cars = inputView.getCarsName();
+        this.carRepository = new CarRepository(inputView.getCarsName());
         this.repeatCount = inputView.getRepeatCount();
     }
 
