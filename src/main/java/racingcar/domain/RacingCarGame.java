@@ -16,6 +16,19 @@ public class RacingCarGame {
 
     public void start() {
         getInput();
+        while (!isFinish()) {
+            moveCars();
+        }
+    }
+
+    private void moveCars() {
+        for (Car car: carList) {
+            car.moveOrStop();
+        }
+    }
+
+    private boolean isFinish() {
+        return (moveCount == 0);
     }
 
     private void getInput() {
