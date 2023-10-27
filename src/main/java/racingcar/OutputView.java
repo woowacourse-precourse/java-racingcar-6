@@ -16,6 +16,7 @@ public class OutputView {
         for (Car car : roundResult) {
             System.out.println(car.getName() + " : " + dashDraw(car.getPosition()));
         }
+        System.out.println();
     }
 
     public static void printWinner(String[] winners) {
