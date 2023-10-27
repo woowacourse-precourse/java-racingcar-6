@@ -14,7 +14,7 @@ public class RacingController {
 
         OutputView.displayResult();
         for (int i = 0; i < attempt; i++) {
-            cars.carsPickRandomNumber();
+            cars.applyRandomMovingCountIncrease();
             OutputView.displayCurrentRacingStatus(cars);
         }
         OutputView.displayFinalWinner(cars);

@@ -16,7 +16,7 @@ public class CarsTest {
         Cars cars = new Cars(names);
 
         //when
-        List<String> winner = cars.winner();
+        List<String> winner = cars.findWinners();
 
         //then
         assertThat(winner).isEqualTo(List.of("tree", "pine", "ant"));
@@ -31,7 +31,7 @@ public class CarsTest {
 
         //when
         cars.indexAt(1).increaseMovingCountIfGreater(4, 9);
-        List<String> winner = cars.winner();
+        List<String> winner = cars.findWinners();
 
         //then
         assertThat(winner).isEqualTo(List.of("pine"));

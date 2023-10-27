@@ -20,7 +20,7 @@ public class OutputView {
     }
 
     public static void displayFinalWinner(Cars cars) {
-        List<String> finalWinner = cars.winner();
+        List<String> finalWinner = cars.findWinners();
         System.out.print(FINAL_WINNER + SPACE + COLON + SPACE);
         System.out.println(String.join(COMMA, finalWinner));
     }

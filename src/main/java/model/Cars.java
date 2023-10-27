@@ -25,7 +25,7 @@ public class Cars {
         return cars.get(index);
     }
 
-    public List<String> winner() {
+    public List<String> findWinners() {
         List<String> winners = new ArrayList<>();
         cars.sort(Car::compareTo);
 
@@ -43,7 +43,7 @@ public class Cars {
         return winners;
     }
 
-    public void carsPickRandomNumber() {
+    public void applyRandomMovingCountIncrease() {
         for (Car car : cars) {
             int randomNumber = Randoms.pickNumberInRange(MIN_RANGE_NUMBER, MAX_RANGE_NUMBER);
             car.increaseMovingCountIfGreater(MINIMUM_NUMBER, randomNumber);
