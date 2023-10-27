@@ -6,9 +6,10 @@ import racingcar.util.Randoms;
 import racingcar.view.ExecutionView;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class RaceGameService {
-    private static final int START_NUMBER = 1;
+    private static final int START_NUMBER = 0;
     private RaceCars raceCars;
     private final int attemptCount;
     private ExecutionView executionView;
@@ -23,19 +24,21 @@ public class RaceGameService {
         executionView.printExecutionStartMessage();
         List<Car> cars = raceCars.getCars();
 
-        for (int attemptNumber = START_NUMBER; attemptNumber <= attemptCount; attemptNumber++) {
-            raceCars.executeRace(randomValue());
+        for (int attemptNumber = START_NUMBER; attemptNumber < attemptCount; attemptNumber++) {
+            raceCars.executeRace(randomValues());
             printGameProgressMessages(cars);
             executionView.newLine();
         }
     }
 
-    private void printGameProgressMessages(List<Car> cars){
+    private void printGameProgressMessages(List<Car> cars) {
         cars.stream().forEach(executionView::printExecutionMessage);
     }
 
-    private int randomValue(){
-        return Randoms.getNumber();
+    private int[] randomValues() {
+        return IntStream.range(START_NUMBER, raceCars.size())
+                .map(i -> Randoms.getNumber())
+                .toArray();
     }
 
 }

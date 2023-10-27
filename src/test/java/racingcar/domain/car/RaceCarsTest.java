@@ -62,7 +62,7 @@ public class RaceCarsTest{
                     //given
                     RaceCars raceCars = createRaceCars(new String[]{"haen"});
                     //when
-                    raceCars.executeRace(3);
+                    raceCars.executeRace(new int[]{1});
                     Car car = raceCars.getCars().get(0);
                     //then
                     assertThat(car.getMoveCount()).isZero();
@@ -71,7 +71,7 @@ public class RaceCarsTest{
                     //given
                     RaceCars raceCars = createRaceCars(new String[]{"haen"});
                     //when
-                    raceCars.executeRace(4);
+                    raceCars.executeRace(new int[]{4});
                     Car car = raceCars.getCars().get(0);
                     //then
                     assertThat(car.getMoveCount()).isOne();

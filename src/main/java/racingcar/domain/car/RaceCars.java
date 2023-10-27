@@ -1,14 +1,15 @@
 package racingcar.domain.car;
 
-
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static racingcar.constants.ErrorConstants.NOT_CONTAINS_CAR_ERROR_MESSAGE;
 
 public class RaceCars {
     private static final String JOIN_DELIMITER = ", ";
+    private static final int START_INDEX = 0;
     private final List<Car> cars;
 
     public RaceCars(List<Car> cars) {
@@ -41,8 +42,9 @@ public class RaceCars {
                 .orElseThrow(() -> new IllegalArgumentException(NOT_CONTAINS_CAR_ERROR_MESSAGE));
     }
 
-    public void executeRace(int controlValue){
-        cars.stream().forEach(car -> car.controlMovement(controlValue));
+    public void executeRace(int[] randoms){
+        IntStream.range(START_INDEX, randoms.length)
+                .forEach(index -> cars.get(index).controlMovement(randoms[index]));
     }
 
 }
