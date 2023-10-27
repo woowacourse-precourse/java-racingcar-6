@@ -10,10 +10,31 @@ public class Application {
         List<String> cars=inputCars();
         int tryOut=tryGameCount();
 
+        List<Integer> result=new ArrayList<>();
+        for(int i=0;i<cars.size();i++)
+            result.add(0);
+
+        System.out.println("\n실행 결과");
         for(int i=0;i<tryOut;i++){
             List<Integer> randomCondition=forwardCondition(cars.size());
-
+            addRandomCondition(result,randomCondition);
+            executionResult(cars,result);
+            System.out.println();
         }
+
+        //우승자 선정 및 출력
+
+    }
+    public static void executionResult(List<String> cars,List<Integer> result){
+        for(int i=0;i<cars.size();i++){
+            String outputResult=cars.get(i)+" : ";
+            outputResult+="-".repeat(result.get(i));
+            System.out.println(outputResult);
+        }
+    }
+    public static void addRandomCondition(List<Integer> result, List<Integer> condition){
+        for(int i=0;i<result.size();i++)
+            result.set(i,result.get(i)+condition.get(i));
 
     }
     public static List<String> inputCars(){
@@ -29,7 +50,6 @@ public class Application {
                 cars.add(checkCar[i]);
             else if (checkCar[i].length()>5)
                 throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능하다");
-
 
         }
         return cars;
@@ -58,8 +78,6 @@ public class Application {
                 randomNumber.add(1); //1: 전진 가능
             else if(repeatNumber<4)
                 randomNumber.add(0); //0: 전진 불가능
-
-
         }
 
         return randomNumber;
