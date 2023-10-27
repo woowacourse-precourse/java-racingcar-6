@@ -10,8 +10,8 @@ public class Application {
     private static List<Car> transformStringToCarList(String cars) {
         List<Car> carList = new ArrayList<>();
         for (String carName : Arrays.stream(cars.split(",")).toList()) {
-            if (carName.length() > 5) {
-                throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+            if (carName.length() > 5 || carName.isEmpty()) {
+                throw new IllegalArgumentException("이름은 1~5자로 입력해주세요.");
             }
 
             final Car car = new Car(carName);
@@ -39,11 +39,11 @@ public class Application {
 
         for (Car car : cars) {
             final String carName = car.ifMaxScore(maxScore);
-            if(!carName.isEmpty()){
+            if (!carName.isEmpty()) {
                 winner.add(carName);
             }
         }
-        String winnerFormat = String.format("최종 우승자 : %s",String.join(", ", winner));
+        String winnerFormat = String.format("최종 우승자 : %s", String.join(", ", winner));
         System.out.println(winnerFormat);
     }
 }
