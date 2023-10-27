@@ -5,8 +5,6 @@ import racingcar.util.Validation;
 import static racingcar.controller.GameController.cars;
 
 public class CarController {
-
-
     public static void makeCar(String inputCarNames) {
         String[] carNames = splitInputCarNames(inputCarNames);
         Validation.valiEmptySplitInputCarNames(carNames);

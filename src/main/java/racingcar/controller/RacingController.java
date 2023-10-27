@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
+import racingcar.view.OutputView;
 import java.util.List;
 
 public class RacingController {
@@ -14,6 +15,13 @@ public class RacingController {
     private static void executeRacingRound(List<Car> cars) {
         for (Car car : cars) {
             manageCarMovement(car, makeCarRandomNumber());
+        }
+        showRacingRoundResult(cars);
+    }
+
+    private static void showRacingRoundResult(List<Car> cars) {
+        for (Car car : cars) {
+            OutputView.printRacingRoundResult(car.getName(), car.getPosition());
         }
     }
 
