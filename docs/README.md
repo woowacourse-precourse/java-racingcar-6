@@ -29,7 +29,7 @@
 
 ## 3. 검증 클래스
 사용자의 입력을 검증하는 클래스이다.
-### 기능1) 길이 검증 `public void validateLength()`
+### 기능1) 길이 검증 `public boolean validateLength()`
 자동차 이름의 길이를 검증한다.
 ### 기능2) 중복 검증 `public void validateDuplicate()`
 자동차 이름 간의 중복 여부를 검증한다.

@@ -1,7 +1,12 @@
 package racingcar;
 
 public class Validate {
-    public void validateLength(){}
+    public boolean validateLength(String checkStr, int length){
+        if(checkStr.length() <= length){
+            return true;
+        }
+        return false;
+    }
     public void validateDuplicate(){}
     public void validateEmptySpace(){}
     public void validateDataType(){}
