@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatNoException;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -42,5 +43,19 @@ class CarTest {
             assertThatThrownBy(() -> new Car(name))
                     .isInstanceOf(IllegalArgumentException.class);
         }
+    }
+
+    @DisplayName("자동차 전진 횟수 n회 증가")
+    @ParameterizedTest
+    @ValueSource(ints = {1, 2, 3, 4, 5})
+    void increase_자동차_전진_횟수_n회_증가(int n) {
+        Car car = new Car("테스트차");
+
+        for (int i = 0; i < n; i++) {
+            car = car.increaseForwardCount();
+        }
+
+        String forwardTrail = car.receiveForwardTrail();
+        assertThat(forwardTrail.length()).isEqualTo(n);
     }
 }
