@@ -19,4 +19,14 @@ public class Inputter {
         String input = Console.readLine();
         return Arrays.stream(input.split(",")).toList();
     }
+
+    public int getDuration() {
+        int duration;
+        try {
+            duration = Integer.parseInt(Console.readLine());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+        return duration;
+    }
 }
