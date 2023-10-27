@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,5 +23,22 @@ public class RacingCarGame {
         this.cars = inputProcessor.readCarNamesInput();
         outputProcessor.printRepetitionInputMessage();
         this.repetition = inputProcessor.readRepetitionInput();
+
+        for (int repetitionCount = 0; repetitionCount < repetition; repetitionCount++) {
+            processTurn();
+            outputProcessor.printMoveResult(cars);
+        }
+
+
+    }
+
+    private void processTurn() {
+        cars.stream()
+                .filter(t -> canMove())
+                .forEach(Car::move);
+    }
+
+    private boolean canMove() {
+        return Randoms.pickNumberInRange(0,9) > 4;
     }
 }

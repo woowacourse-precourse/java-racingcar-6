@@ -22,6 +22,18 @@ public class Car {
         }
     }
 
+    public void move() {
+        position++;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getPosition() {
+        return position;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

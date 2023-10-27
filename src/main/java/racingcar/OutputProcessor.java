@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+
 public class OutputProcessor {
 
     public static final String CAR_NAME_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -11,5 +13,12 @@ public class OutputProcessor {
 
     public void printRepetitionInputMessage() {
         System.out.println(REPETITION_INPUT_MESSAGE);
+    }
+
+    public void printMoveResult(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
+        }
+        System.out.println();
     }
 }
