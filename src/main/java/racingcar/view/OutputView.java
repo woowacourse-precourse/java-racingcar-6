@@ -10,11 +10,11 @@ public class OutputView {
     public static final String GET_ATTEMPT_MESSAGE = "시도할 횟수는 몇회인가요?";
     public static final String RESULT_MESSAGE = "실행 결과";
 
-    public void printGetCarNames() {
+    public void printGetCarNamesMessage() {
         System.out.println(GET_CAR_NAMES_MESSAGE);
     }
 
-    public void printGetAttempt() {
+    public void printGetAttemptMessage() {
         System.out.println(GET_ATTEMPT_MESSAGE);
     }
 
