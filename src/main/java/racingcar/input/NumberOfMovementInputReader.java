@@ -4,10 +4,10 @@ import camp.nextstep.edu.missionutils.Console;
 
 /**
  * @author 민경수
- * @description user input reader
+ * @description number of movement input reader
  * @since 2023.10.27
  **********************************************************************************************************************/
-public class UserInputReader implements InputReader{
+public class NumberOfMovementInputReader implements InputReader{
 
     @Override
     public String readLine() {
