@@ -13,10 +13,6 @@ public class MainController {
 
     public void start() {
         init();
-        for (GameController gameController : gameControllerList) {
-            if (gameController.isRunning) {
-                gameController.run();
-            }
-        }
+        gameControllerList.forEach(GameController::run);
     }
 }
