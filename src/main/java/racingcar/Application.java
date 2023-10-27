@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.HashMap;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 
@@ -19,17 +20,39 @@ public class Application {
             }
         }
         
-        HashMap<String, Integer> scorePerCar = new HashMap<>();
+        HashMap<String, String> scorePerCar = new HashMap<>();
         for (String car : carArray) {
-            scorePerCar.put(car, 0);
+            scorePerCar.put(car, "");
         }
+        
         System.out.println("시도할 회수는 몇회인가요?");
+        int tryNum;
         try {
-            int tryNum = Integer.parseInt(Console.readLine());
+            tryNum = Integer.parseInt(Console.readLine());
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자를 입력해주세요!");
         }
-        
+    
+        for (int i = 0; i < tryNum; i++) {
+            moveOrStop(scorePerCar);
+            printResult(scorePerCar);
+        }
         
     }
+    
+    private static void moveOrStop(HashMap<String, String> scorePerCar) {
+        for (String scorePerCarKey : scorePerCar.keySet()) {
+            if(Randoms.pickNumberInRange(0, 9) >= 4){
+                scorePerCar.replace(scorePerCarKey, scorePerCar.get(scorePerCarKey) + "-");//전진
+            }
+        }
+    }
+    
+    private static void printResult(HashMap<String, String> scorePerCar) {
+        System.out.println("실행 결과");
+        for (String scorePerCarKey : scorePerCar.keySet()) {
+            System.out.println(scorePerCarKey + " : " + scorePerCar.get(scorePerCarKey));
+        }
+    }
+    
 }
