@@ -1,5 +1,6 @@
 package racingcar;
 
+import racingcar.entity.Cars;
 import racingcar.entity.MovePolicy;
 import racingcar.mapper.Delimiter;
 import racingcar.mapper.InputMapper;
@@ -17,6 +18,9 @@ class Controller {
 
     public void run() {
         List<String> names = readNames();
+        int tryCount = readTryCount();
+
+        race(tryCount, Cars.from(names));
     }
 
     private List<String> readNames() {
@@ -24,5 +28,14 @@ class Controller {
         String delimiterShape = Delimiter.NAME.getShape();
 
         return InputMapper.mapToNameList(InputView.readNames(delimiterName, delimiterShape));
+    }
+
+    private int readTryCount() {
+        return InputMapper.mapToPositiveNumber(InputView.readTryCount());
+    }
+
+    private void race(int tryCount, Cars cars) {
+        for (int i = 0; i < tryCount; i++) {
+        }
     }
 }

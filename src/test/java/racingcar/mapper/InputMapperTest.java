@@ -27,4 +27,28 @@ class InputMapperTest {
 
         assertThat(result).isEqualTo(expectedList);
     }
+
+    @DisplayName("주어진 입력값이 숫자 형식이 아닌 경우, 문자열을 양수로 변환할 수 없다.")
+    @Test
+    void mapToPositiveNumberWithNonNumberFormat() {
+        assertThatThrownBy(() -> InputMapper.mapToPositiveNumber("abc"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("숫자만 입력해주세요.");
+    }
+
+    @DisplayName("양수가 아닌 경우는 변환할 수 없다.")
+    @Test
+    void mapToPositiveNumberWithNonPositiveNumber() {
+        assertThatThrownBy(() -> InputMapper.mapToPositiveNumber("0"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("양수만 입력해주세요.");
+    }
+
+    @DisplayName("양수 형태의 문자열을 양수로 변환할 수 있다.")
+    @Test
+    void mapToPositiveNumber() {
+        int result = InputMapper.mapToPositiveNumber("123");
+
+        assertThat(result).isEqualTo(123);
+    }
 }

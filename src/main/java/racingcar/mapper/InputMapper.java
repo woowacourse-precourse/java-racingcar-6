@@ -5,15 +5,41 @@ import java.util.Objects;
 
 public class InputMapper {
 
+    private static final String INVALID_INPUT_MESSAGE = "유효하지 않은 입력값입니다.";
+    private static final String INVALID_NUMBER_FORMAT_MESSAGE = "숫자만 입력해주세요.";
+    public static final String NOT_POSITIVE_NUMBER_MESSAGE = "양수만 입력해주세요.";
+
     public static List<String> mapToNameList(String input) {
         checkInputNonNull(input);
 
         return List.of(input.split(Delimiter.NAME.getShape()));
     }
 
+    public static int mapToPositiveNumber(String input) {
+        checkInputNonNull(input);
+        int parsed = parseInt(input);
+        checkPositiveNumber(parsed);
+
+        return parsed;
+    }
+
     private static void checkInputNonNull(String input) {
         if (Objects.isNull(input)) {
-            throw new IllegalArgumentException("유효하지 않은 입력값입니다.");
+            throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
+        }
+    }
+
+    private static int parseInt(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(INVALID_NUMBER_FORMAT_MESSAGE);
+        }
+    }
+
+    private static void checkPositiveNumber(int returning) {
+        if (returning <= 0) {
+            throw new IllegalArgumentException(NOT_POSITIVE_NUMBER_MESSAGE);
         }
     }
 }
