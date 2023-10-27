@@ -18,7 +18,8 @@ public class MainController {
     }
 
     private Cars initCars() {
-        List<Car> carList = Converter.splitByDelimiter(InputView.inputString(ViewMessage.INPUT_CAR_NAME), ",")
+        String inputValue = InputView.inputString(ViewMessage.INPUT_CAR_NAME);
+        List<Car> carList = Converter.splitByDelimiter(inputValue, ",")
                 .stream()
                 .map(Car::new)
                 .toList();
