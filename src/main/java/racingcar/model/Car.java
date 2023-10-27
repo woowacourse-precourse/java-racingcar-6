@@ -22,9 +22,7 @@ public class Car {
         this.distance = distance;
     }
 
-    public void updateDistance(int randomNumber) {
-        if (randomNumber >= 4) {
-            distance++;
-        }
+    public void updateDistance() {
+        this.distance++;
     }
 }

@@ -8,15 +8,20 @@ public class CarFactory {
 
     private List<Car> store = new ArrayList<>();
 
+    public int getNumOfCars() {
+        return store.size();
+    }
+
     public void addCar(String name) {
         Car car = new Car(name);
         store.add(car);
     }
 
-    public void updateCarDistance() {
-        for (Car car : store) {
-            int randomNumber = RandomNumberCreator.makeRandomNumber();
-            car.updateDistance(randomNumber);
+    public void updateCarDistance(List<Integer> randomNumbers) {
+        for (int i = 0; i < randomNumbers.size(); i++) {
+            if (randomNumbers.get(i) >= 4) {
+                store.get(i).updateDistance();
+            }
         }
     }
 
