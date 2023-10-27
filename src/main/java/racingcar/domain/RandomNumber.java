@@ -4,16 +4,16 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class RandomNumber {
 
-    public static final int RANDOM_NUMBER_FROM = 0;
-    public static final int RANDOM_NUMBER_TO = 9;
-    public static final int MOVABLE_POINT = 4;
+    private static final int RANDOM_NUMBER_FROM = 0;
+    private static final int RANDOM_NUMBER_TO = 9;
+    private static final int MOVABLE_POINT = 4;
     private final Integer number;
 
     private RandomNumber(Integer number) {
         this.number = number;
     }
 
-    private static RandomNumber createRandomNumber() {
+    public static RandomNumber createRandomNumber() {
         return new RandomNumber(getRandomNumber());
     }
 
