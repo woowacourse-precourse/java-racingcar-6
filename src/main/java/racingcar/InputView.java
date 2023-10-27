@@ -1,17 +1,16 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-
 import java.util.List;
 
+import camp.nextstep.edu.missionutils.Console;
+
 public class InputView {
-    public static void inputCarNames() {
+    public static List<String> inputCarNames() {
         String inputCarNames = Console.readLine();
-        List<String> carNamesList = Validator.inputCarNames(inputCarNames);
+        return Validator.inputCarNames(inputCarNames);
     }
 
-    public static void inputNumber() {
-        int inputNumber = InputConvertor.toInt(Console.readLine());
-
+    public static int inputAttemptNumber() {
+        return InputConvertor.toInt(Console.readLine());
     }
 }
