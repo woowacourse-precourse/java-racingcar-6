@@ -1,9 +1,11 @@
 package racingcar.util;
 
+import racingcar.common.Config;
+
 public class InputDataValidator {
 
     public static void validateInputSize(String input) throws IllegalArgumentException {
-        if (input.length() > 5) {
+        if (input.length() > Config.MAX_NAME_SIZE) {
             throw new IllegalArgumentException();
         }
     }
