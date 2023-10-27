@@ -1,10 +1,10 @@
 ## 기능 목록
 
 1. 게임 준비
-- [ ] 경주 할 자동차 이름을 입력받는다. AskCarName#askCarName()
-  - [ ] 입력받은 값에 ','이 포함 되어 있는지 확인한다. AskCarName#checkCarName()
-  - [ ] 각 자동차의 이름을 ','를 기준으로 구분한다. AskCarName#splitCarName()
-  - [ ] 자동차의 이름은 5자 이하만 가능하다. AskCarName#validateLengthOfCarName()
+- [x] 경주 할 자동차 이름을 입력받는다. AskCarName#askCarName()
+  - [x] 입력받은 값에 ','이 포함 되어 있는지 확인한다. AskCarName#checkCarName()
+  - [x] 각 자동차의 이름을 ','를 기준으로 구분한다. AskCarName#splitCarName()
+  - [x] 자동차의 이름은 5자 이하만 가능하다. AskCarName#validateLengthOfCarName()
 
 - [ ] 플레이어에게 몇 번의 이동을 할 것인지를 입력받는다. AskHowManyPlayGame#askHowManyPlayGame()
   - [ ] 플레이어에게 입력받는 값이 숫자인지 검증한다. AskHowManyPlayGame#validateNumber()
