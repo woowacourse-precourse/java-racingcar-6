@@ -11,6 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class InputTest {
+    InputValidator validator = new InputValidator();
     @Test
     void split_메서드로_주어진_값을_구분() {
         RaceGame raceGame = new RaceGame();
@@ -23,13 +24,18 @@ public class InputTest {
 
     @Test
     void 이름에_대한_예외_처리() {
-        InputValidator validator = new InputValidator();
-
         List<String> test = new ArrayList<>();
         test.add("123");
         test.add("12345");
         test.add("123456");
 
         assertThrows(IllegalArgumentException.class, () -> validator.checkNameLength(test));
+    }
+
+    @Test
+    void 입력값_띄어쓰기_예외_확인(){
+        String test = "1 ,2,3";
+
+        assertThrows(IllegalArgumentException.class, () -> validator.checkInputForSpaces(test));
     }
 }
