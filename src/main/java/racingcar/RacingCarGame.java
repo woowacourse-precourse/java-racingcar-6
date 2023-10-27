@@ -3,6 +3,7 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 import game.Game;
+import util.RacingCarRandoms;
 import util.inputreader.RacingCarInputReader;
 import util.stringconverter.RacingCarConverter;
 
@@ -14,10 +15,13 @@ public class RacingCarGame implements Game {
 
     private final RacingCarConverter racingCarConverter;
 
+    private final RacingCarRandoms racingCarRandoms;
+
     public RacingCarGame() {
         this.players = new ArrayList<>();
         this.racingCarInputReader = new RacingCarInputReader();
         this.racingCarConverter = new RacingCarConverter();
+        this.racingCarRandoms = new RacingCarRandoms();
     }
 
     @Override
@@ -36,5 +40,16 @@ public class RacingCarGame implements Game {
 
     public void setTryCount(){
         this.tryCount = racingCarInputReader.inputTryCount();
+    }
+
+    public void movePlayers(){
+        this.players.forEach(player -> {
+            if(this.getRandomNumber() >= 4){
+                player.move();
+            }
+        });
+    }
+    public int getRandomNumber(){
+        return this.racingCarRandoms.getRandomNumber();
     }
 }
