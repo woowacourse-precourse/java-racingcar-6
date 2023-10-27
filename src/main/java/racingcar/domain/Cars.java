@@ -18,10 +18,6 @@ public class Cars {
         cars.add(car);
     }
 
-    public List<Car> getCars() {
-        return cars;
-    }
-
     public List<EachMoveResultDto> moveCarsAndCollectResults() {
         List<EachMoveResultDto> moveResults = new ArrayList<>();
         for (Car car : cars) {
@@ -42,11 +38,9 @@ public class Cars {
     }
 
     public List<GameWinnerDto> findWinnersDto() {
-        List<GameWinnerDto> gameWinnerDtos = new ArrayList<>();
-        for (Car winners : findWinners()) {
-            gameWinnerDtos.add(new GameWinnerDto(winners.getName()));
-        }
-        return gameWinnerDtos;
+        return findWinners().stream()
+                .map(car -> new GameWinnerDto(car.getName()))
+                .collect(Collectors.toList());
     }
 
     private List<Car> findWinners() {
