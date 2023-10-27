@@ -3,58 +3,32 @@ package racingcar.model;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import racingcar.exception.car_racing_game.NotUniqueCarNameException;
 import racingcar.exception.position.NotExistPositionException;
 
 public class CarRacingGame implements RacingGame {
 
-    private final Map<Car, Position> carPositionMap;
+    private final CarRacingManager carRacingManager;
 
-    public CarRacingGame(final Map<Car, Position> carPositionMap) {
-        validateDuplicateName(carPositionMap);
-        this.carPositionMap = carPositionMap;
-    }
-
-    private void validateDuplicateName(final Map<Car, Position> carPositionMap) {
-        int distinctCount = countDistinctElement(carPositionMap);
-        if (isDuplicate(distinctCount, carPositionMap)) {
-            List<String> keyList = convertKeySetToStringList(carPositionMap);
-            throw new NotUniqueCarNameException(keyList);
-        }
-    }
-
-    private int countDistinctElement(final Map<Car, Position> racingTrack) {
-        return (int) racingTrack.keySet().stream()
-                .distinct()
-                .count();
-    }
-
-    private boolean isDuplicate(final int distinctCount, final Map<Car, Position> racingTrack) {
-        return distinctCount < racingTrack.size();
-    }
-
-    private List<String> convertKeySetToStringList(final Map<Car, Position> racingTrack) {
-        return racingTrack.keySet().stream()
-                .map(Car::getName)
-                .toList();
+    public CarRacingGame(final CarRacingManager carRacingManager) {
+        this.carRacingManager = carRacingManager;
     }
 
     @Override
     public void move() {
-        carPositionMap.keySet().stream()
+        carRacingManager.getCars().stream()
                 .filter(Car::canMove)
                 .forEach(this::moveNextPosition);
     }
 
     private void moveNextPosition(final Car car) {
-        Position position = carPositionMap.get(car);
+        Position position = carRacingManager.getPosition(car);
         Position nextPosition = position.getNextPosition(position);
-        carPositionMap.put(car, nextPosition);
+        carRacingManager.changePosition(car, nextPosition);
     }
 
     @Override
     public Map<Vehicle, Position> getVehiclePositionMap() {
-        return Collections.unmodifiableMap(carPositionMap);
+        return Collections.unmodifiableMap(carRacingManager.getCarPositionMap());
     }
 
     @Override
@@ -64,14 +38,14 @@ public class CarRacingGame implements RacingGame {
     }
 
     private int getMaxPosition() {
-        return carPositionMap.values().stream()
+        return carRacingManager.getPositions().stream()
                 .mapToInt(Position::getPositionIndex)
                 .max()
                 .orElseThrow(NotExistPositionException::new);
     }
 
     private List<String> calculateWinners(final int maxPosition) {
-        return carPositionMap.entrySet().stream()
+        return carRacingManager.getCarPositionEntries().stream()
                 .filter(entry -> entry.getValue().getPositionIndex() == maxPosition)
                 .map(entry -> entry.getKey().getName())
                 .toList();
