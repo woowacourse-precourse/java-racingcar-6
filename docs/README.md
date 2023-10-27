@@ -123,8 +123,8 @@ __2. OutputView__
 
     실행 결과
 
-- [ ] printExecutionResult
-    - 게임 결과를 출력한다
+- [x] printExecutionResult
+    - 게임결과를 출력한다
 
 
     pobi : -
