@@ -9,7 +9,7 @@ public class Car {
     }
 
     public void moveFoward(int number) {
-        if (number > Constants.GO_FOWARD) {
+        if (number >= Constants.GO_FOWARD) {
             position++;
         }
     }
