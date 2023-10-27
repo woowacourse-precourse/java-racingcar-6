@@ -22,7 +22,7 @@ public final class MoveStatuses {
         return elements.size();
     }
 
-    public String toMessage() {
+    public String toResultMessage() {
         return elements.stream()
                 .map(element -> MOVE_EXPRESSION)
                 .collect(Collectors.joining());
