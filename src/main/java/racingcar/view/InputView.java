@@ -11,4 +11,9 @@ public class InputView {
         System.out.println(Message.CAR_NAME_INPUT_MESSAGE);
         return Console.readLine();
     }
+
+    public static String inputAttemptCount() {
+        System.out.println(Message.ATTEMPT_COUNT_MESSAGE);
+        return Console.readLine();
+    }
 }
