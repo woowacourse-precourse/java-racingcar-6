@@ -25,7 +25,8 @@ public class Cars {
         return victoryCarsName;
     }
 
-    private int getMaxPosition() {
+    // 테스트를 위해 public접근 제한자로 설정 해놓았습니다.
+    public int getMaxPosition() {
         List<Integer> carPositionList = new ArrayList<>();
         for (Car car : carList) {
             carPositionList.add(car.getPosition());
