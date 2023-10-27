@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
 
+import static racingcar.handler.ConstantsHandler.VALID_CAR_NAMES_LENGTH;
 import static racingcar.handler.ErrorHandler.*;
 
 public class RacingCar {
@@ -39,7 +40,7 @@ public class RacingCar {
 
     public void validateLength(List<String> carNames) {
         for (String carName : carNames) {
-            if (carName.length() > 5) {
+            if (carName.length() > VALID_CAR_NAMES_LENGTH) {
                 throw INVALID_LENGTH.getException();
             }
         }

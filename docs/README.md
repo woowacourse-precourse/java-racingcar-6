@@ -48,6 +48,8 @@
     - [x] ErrorHandler
         - Enum 클래스를 활용하여 프로그램에서 발생하는 에러 코드들을 관리하는 클래스
         - ErrorMessage와 함께 `IllegalArgumentException` 예외를 발생시키는 `getException` 메서드
+    - [x] ConstantsHandler
+        - 프로그램내의 상수들을 관리하는 클래스
 
 
 - [ ] service Package
