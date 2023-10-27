@@ -144,8 +144,9 @@ __1. EmptyValidator__
 
 ## controller
 __1. RacingController__
-- [ ] raceStart
-    - 뷰와 도메인 코드를 가져와 게임의 흐름대로 실행한다
+- [x] raceStart
+    1) executeRaces(시도횟수만큼 경주진행 및 뷰에 출력해준다)
+    - 뷰와 도메인 코드를 가져와 게임의 흐름대로 실행한다가
 
 
 
