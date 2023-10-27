@@ -60,4 +60,19 @@ public class RacingCarGame implements Game {
     public void printPlayersPosition(){
         this.players.forEach(RacingCarPlayer::printPosition);
     }
+
+    public void judgeWinners(){
+        int maxPosition = this.players.stream().mapToInt(RacingCarPlayer::getCurrentPosition).max().orElse(0);
+        this.players.forEach(player -> {
+            if(player.getCurrentPosition() == maxPosition){
+                this.winners.add(player);
+            }
+        });
+    }
+
+    public void printWinners(){
+        System.out.print("최종 우승자 : ");
+        System.out.println(this.racingCarFormatter.racingCarPlayersToString(this.winners));
+        System.out.println();
+    }
 }
