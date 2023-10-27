@@ -1,9 +1,9 @@
 package racingcar.domain;
 
 import domain.Car;
+import domain.Cars;
 
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -19,14 +19,14 @@ public class CarTest {
     @Test
     @DisplayName("자동차 이름이 공백인 경우")
     void car_name_blank_check() {
-        Assertions.assertThatThrownBy(() -> new Car("")).
-                isInstanceOf(IllegalArgumentException.class);
+        Assertions.assertThatThrownBy(() -> new Car(""))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    @Disabled
     @DisplayName("자동차 이름이 중복인 경우")
     void car_name_duplicate_check() {
-
+        Assertions.assertThatThrownBy(() -> new Cars("ab,cd,ab"))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
