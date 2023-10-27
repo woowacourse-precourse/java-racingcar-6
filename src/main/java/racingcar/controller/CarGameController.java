@@ -2,19 +2,19 @@ package racingcar.controller;
 
 import racingcar.domain.Cars;
 import racingcar.service.CarGameService;
-import racingcar.service.MessageService;
+import racingcar.view.OutputView;
 import racingcar.view.InputView;
 
 public class CarGameController {
 
     private final CarGameService carGameService;
-    private final MessageService messageService;
     private final InputView inputView;
+    private final OutputView outputView;
 
     public CarGameController() {
         this.carGameService = new CarGameService();
-        this.messageService = new MessageService();
         this.inputView = new InputView();
+        this.outputView = new OutputView();
     }
 
     public void start() {
@@ -27,25 +27,25 @@ public class CarGameController {
 
     private void showWinner(Cars cars) {
         String result = carGameService.receiveWinnerNames(cars);
-        messageService.printFinalWinner(result);
+        outputView.printFinalWinner(result);
     }
 
     private void executeGame(Cars cars, int attempt) {
-        messageService.printGameResult();
+        outputView.printGameResult();
 
         for (int iteration = 0; iteration < attempt; iteration++) {
             carGameService.repeatForward(cars);
-            messageService.printRank(cars);
+            outputView.printRank(cars);
         }
     }
 
     private int receiveAttempt() {
-        messageService.printAskAttempt();
+        outputView.printAskAttempt();
         return inputView.readAttempt();
     }
 
     private Cars receiveCars() {
-        messageService.printStartGame();
+        outputView.printStartGame();
         String inputCars = inputView.readCarNames();
         return carGameService.convertToList(inputCars);
     }
