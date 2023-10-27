@@ -1,13 +1,13 @@
 package racingcar.model;
 
 public class Dice {
-    Integer dice;
+    private final DiceNumber diceNumber;
 
-    public int getDice() {
-        return dice;
+    public Dice(int diceNumber) {
+        this.diceNumber = new DiceNumber(diceNumber);
     }
 
-    public Dice(int dice) {
-        this.dice = dice;
+    public DiceNumber getDiceNumber() {
+        return diceNumber;
     }
 }

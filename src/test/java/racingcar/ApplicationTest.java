@@ -12,6 +12,8 @@ import racingcar.controller.CarController;
 import racingcar.controller.GameController;
 import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.model.Dice;
+import racingcar.model.DiceNumber;
 import racingcar.model.Game;
 
 class ApplicationTest extends NsTest {
@@ -109,10 +111,8 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void Car_AddDistance_오류_테스트() {
-        Car car1 = new Car("pobi");
-        assertThatThrownBy(() -> car1.addDistance(10, 10))
-                .isInstanceOf(IllegalArgumentException.class);
+    void Dice_오류_테스트() {
+        assertThatThrownBy(() -> new Dice(10)).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Override
