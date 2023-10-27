@@ -47,3 +47,13 @@
 - [ ] 삼항 연산자 쓰지 않기
 - [ ] 메소드가 한 가지 일만 하도록 하기 (SRP)
 - [ ] JUnit5, AssertJ 사용해서 기능 목록 테스트하기
+
+## 배운거
+
+### io 테스트
+**System.in 입력 테스트**   
+사용자 입력을 테스트하는 방법을 배웠다.
+아래 코드를 이용해서 사용자 입력이 필요한 테스트를 수행할 수 있었다.
+```java
+System.setIn(new ByteArrayInputStream(input.getBytes()));
+```
