@@ -2,6 +2,8 @@ package racingcar.domain.game;
 
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
 
@@ -38,5 +40,45 @@ class RacingCarGameRunnerTest {
 
         //then
         assertThat(resultList).containsExactly("app", "cat", "dog", "egg");
+    }
+
+    @Test
+    public void 입력받은_이동_회수_음수_validation() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        //given
+        String input = "-1";
+
+        //when
+        RacingCarGameRunner runner = new RacingCarGameRunner();
+        Method validateInput = RacingCarGameRunner.class
+                .getDeclaredMethod("validateInput", String.class);
+        validateInput.setAccessible(true);
+
+        //then
+        assertThrows(InvocationTargetException.class, () -> validateInput.invoke(runner, input));
+        try {
+            validateInput.invoke(runner, input);
+        } catch (InvocationTargetException e) {
+            assertThat(e.getTargetException()).isInstanceOf(IllegalArgumentException.class);
+        }
+    }
+
+    @Test
+    public void 입력받은_이동_회수_숫자_아닌_경우_validation() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        //given
+        String input = "apple";
+
+        //when
+        RacingCarGameRunner runner = new RacingCarGameRunner();
+        Method validateInput = RacingCarGameRunner.class
+                .getDeclaredMethod("validateInput", String.class);
+        validateInput.setAccessible(true);
+
+        //then
+        assertThrows(InvocationTargetException.class, () -> validateInput.invoke(runner, input));
+        try {
+            validateInput.invoke(runner, input);
+        } catch (InvocationTargetException e) {
+            assertThat(e.getTargetException()).isInstanceOf(IllegalArgumentException.class);
+        }
     }
 }
