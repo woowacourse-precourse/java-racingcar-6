@@ -21,4 +21,9 @@ public class Car {
     private int generateRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
+
+    @Override
+    public String toString() {
+        return name + " : " + "-".repeat(distance);
+    }
 }

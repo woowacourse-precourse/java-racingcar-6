@@ -16,4 +16,14 @@ public class Cars {
             car.move();
         }
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Car car : cars) {
+            stringBuilder.append(car.toString());
+            stringBuilder.append("\n");
+        }
+        return stringBuilder.toString();
+    }
 }
