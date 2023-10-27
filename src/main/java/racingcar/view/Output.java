@@ -32,17 +32,8 @@ public class Output {
         int winScore = carService.getMaxScore(carsList);
         ArrayList<String> winnerName = carService.getWinnerName(carsList, winScore);
         System.out.print("최종 우승자 : ");
-
-        //1명일 때
-        if (winnerName.size() == 1) {
-            System.out.print(winnerName.get(0));
-        }
-        //여러 명일 떄
-        if (winnerName.size() >= 2) {
-            for (int i = 0; i < winnerName.size() - 1; i++) {
-                System.out.print(winnerName.get(i) + ", ");
-            }
-            System.out.println(winnerName.get(winnerName.size() - 1));
-        }
+        
+        String result = String.join(",", winnerName);
+        System.out.println(result);
     }
 }
