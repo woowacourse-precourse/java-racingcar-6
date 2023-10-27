@@ -51,6 +51,28 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 입력한_반복수만큼_순회() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,", "4");
+                    assertThat(output()).contains("pobi : ----", "woni : ----", "최종 우승자 : pobi,woni");
+                },
+                MOVING_FORWARD, MOVING_FORWARD , MOVING_FORWARD , MOVING_FORWARD , MOVING_FORWARD , MOVING_FORWARD , MOVING_FORWARD , MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 랜덤값_4가넘을경우_전진() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "2");
+                    assertThat(output()).contains("pobi : --", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP , MOVING_FORWARD , STOP
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
