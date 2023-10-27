@@ -3,6 +3,11 @@ package racingcar;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 출력을 담당하는 클래스
+ * 
+ * @author 김지환
+ */
 public class OutputImpl implements Output {
     private List<String> carNames;
     private Map<String, Integer> carPositions;

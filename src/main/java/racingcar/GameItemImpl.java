@@ -7,6 +7,11 @@ import java.util.Map;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+/**
+ * 게임에 필요한 위치정보, 차의 움직임, 우승자판별을 위한 메서드를 담은 클래스
+ * 
+ * @author 김지환
+ */
 public class GameItemImpl implements GameItem {
     private List<String> carNames;
     private Map<String, Integer> carPositions;

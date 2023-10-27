@@ -5,6 +5,11 @@ import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
 
+/**
+ * 입력을 담당하는 클래스
+ * 
+ * @author 김지환
+ */
 public class InputImpl implements Input {
     private static final int MAX_NAME_LENGTH = 5;
     
