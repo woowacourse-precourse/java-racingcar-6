@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 public class RacingGame {
 
-    private static final int MIN_NAME_SIZE = 1;
     private static final int MAX_NAME_SIZE = 5;
 
     private static final String startingPhrase = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
