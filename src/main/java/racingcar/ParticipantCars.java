@@ -9,4 +9,8 @@ public class ParticipantCars {
     public ParticipantCars(List<Car> participantCars) {
         this.participantCars = participantCars;
     }
+
+    public List<Car> getParticipantCars() {
+        return participantCars;
+    }
 }
