@@ -24,6 +24,12 @@ public class RacingCarController {
     public void run() {
         createRacingCars();
         createTryCount();
+        move();
+    }
+
+    private void move() {
+        TryCount tryCount = racingCarService.findTryCount();
+        final RacingCars racingCars = racingCarService.move();
     }
 
     private void createTryCount() {

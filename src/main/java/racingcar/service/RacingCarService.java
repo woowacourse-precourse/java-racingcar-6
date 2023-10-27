@@ -1,18 +1,23 @@
 package racingcar.service;
 
+import java.util.List;
 import racingcar.domain.RacingCars;
 import racingcar.domain.TryCount;
 import racingcar.repository.DomainRepository;
+import racingcar.utils.RandomNumberGenerator;
 
 public class RacingCarService {
 
     private final DomainRepository<RacingCars> racingCarsRepository;
     private final DomainRepository<TryCount> tryCountRepository;
+    private final RandomNumberGenerator randomNumberGenerator;
 
     public RacingCarService(final DomainRepository<RacingCars> racingCarsRepository,
-                            final DomainRepository<TryCount> tryCountRepository) {
+                            final DomainRepository<TryCount> tryCountRepository,
+                            final RandomNumberGenerator randomNumberGenerator) {
         this.racingCarsRepository = racingCarsRepository;
         this.tryCountRepository = tryCountRepository;
+        this.randomNumberGenerator = randomNumberGenerator;
     }
 
     public void saveRacingCars(final RacingCars racingCars) {
@@ -21,5 +26,16 @@ public class RacingCarService {
 
     public void saveTryCount(final TryCount tryCount) {
         tryCountRepository.save(tryCount);
+    }
+
+    public RacingCars move() {
+        final RacingCars racingCars = racingCarsRepository.find();
+        final List<Integer> numbers = randomNumberGenerator.generate(racingCars.numOfElement());
+        racingCars.moveByNumbers(numbers);
+        return racingCars;
+    }
+
+    public TryCount findTryCount() {
+        return tryCountRepository.find();
     }
 }

@@ -10,6 +10,7 @@ import racingcar.io.InputView;
 import racingcar.io.OutputView;
 import racingcar.repository.DomainRepository;
 import racingcar.service.RacingCarService;
+import racingcar.utils.RandomNumberGenerator;
 
 public class ComponentFactory {
 
@@ -18,7 +19,11 @@ public class ComponentFactory {
     }
 
     private RacingCarService racingCarService() {
-        return new RacingCarService(racingCarsRepository(), tryCountRepository());
+        return new RacingCarService(racingCarsRepository(), tryCountRepository(), randomNumberGenerator());
+    }
+
+    private RandomNumberGenerator randomNumberGenerator() {
+        return new RandomNumberGenerator();
     }
 
     private DomainRepository<RacingCars> racingCarsRepository() {
