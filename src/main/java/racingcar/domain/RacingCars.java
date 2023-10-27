@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.dto.CarStatusDto;
 
 public class RacingCars {
     private final List<Car> cars;
@@ -15,8 +16,8 @@ public class RacingCars {
     }
 
     public RacingResult createRacingResult() {
-        List<CarStatus> carStatuses = cars.stream()
-                .map(car -> new CarStatus(car.getName(), car.getPosition()))
+        List<CarStatusDto> carStatuses = cars.stream()
+                .map(car -> new CarStatusDto(car.getName(), car.getPosition()))
                 .collect(Collectors.toList());
         return new RacingResult(carStatuses);
     }
