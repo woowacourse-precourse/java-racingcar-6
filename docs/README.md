@@ -53,6 +53,9 @@
 - RacingCarsRepository
     - 자동차 일급 컬렉션 저장
 
+- RacingCarService
+    - 자동차 목록을 저장소에 저장
+
 - RacingCar (자동차 도메인)
 
 - RacingCars (자동차 일급컬렉션)
