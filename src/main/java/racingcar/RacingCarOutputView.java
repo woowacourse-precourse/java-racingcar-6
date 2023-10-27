@@ -2,7 +2,6 @@ package racingcar;
 
 
 public class RacingCarOutputView {
-
     public static final String RACING_EXECUTE_MESSAGE = "실행 결과";
     public static final String EACH_RACING_RESULT_FORMAT = "%s : %s";
     public static final String POSITION_PROGRESS = "-";
