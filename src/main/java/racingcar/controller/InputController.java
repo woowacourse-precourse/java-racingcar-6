@@ -20,21 +20,18 @@ public class InputController {
         return Console.readLine();
     }
 
+
     public String[] inputCarNames() {
+        inputView.showGameStartMessage();
         String[] carNames = readData().split(BLANK_DELIMITER);
         dataValidator.validateCarName(carNames);
         return carNames;
     }
 
     public int inputTrialNumber() {
+        inputView.showTrialNumberInputMessage();
         String trialNumber = readData();
         dataValidator.validateTrialNumber(trialNumber);
         return Integer.parseInt(trialNumber);
-    }
-
-    public int getTrialNumber() {
-        inputView.showGameStartMessage();
-        inputView.showTrialNumberInputMessage();
-        return inputTrialNumber();
     }
 }
