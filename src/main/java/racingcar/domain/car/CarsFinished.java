@@ -29,7 +29,7 @@ public final class CarsFinished extends Cars {
 
     private Coordinate getMaxCoordinate() {
         return cars.stream()
-                .max((c1, c2) -> c2.coordinate.subtractAsInt(c1.coordinate))
+                .max((c1, c2) -> c1.coordinate.subtractAsInt(c2.coordinate))
                 .get().coordinate;
     }
 }
