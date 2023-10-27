@@ -4,10 +4,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CarGenerator {
+public class CarFactory {
     private static final String COMMA = ",";
 
-    private CarGenerator() {
+    private CarFactory() {
     }
 
     public static List<Car> generateParticipationCarList(String input) {

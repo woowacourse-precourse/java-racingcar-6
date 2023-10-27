@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.domain.CarGenerator;
+import racingcar.domain.CarFactory;
 import racingcar.domain.RacingCars;
 import racingcar.util.Convertor;
 import racingcar.view.InputView;
@@ -11,7 +11,7 @@ public class RacingController {
     public void startGame() {
         OutputView.printCarNameInputMessage();
         String carNames = InputView.inputCarNames();
-        RacingCars racingCars = new RacingCars(CarGenerator.generateParticipationCarList(carNames));
+        RacingCars racingCars = new RacingCars(CarFactory.generateParticipationCarList(carNames));
         OutputView.printTryCountInputMessage();
         int tryCount = Convertor.convertStringToInt(InputView.inputTryCount());
         racing(racingCars, tryCount);
