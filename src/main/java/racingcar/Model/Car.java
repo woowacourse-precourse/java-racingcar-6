@@ -17,4 +17,8 @@ public class Car {
 		return this.name;
 	}
 
+	public void move() {
+		this.distance++;
+	}
+
 }
