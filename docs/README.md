@@ -6,7 +6,7 @@
     - [X] 잘못된 값이 들어올 경우 `IllegalArgumentException`을 발생시키고 종료시킨다.
 - [X] 몇 번 이동할 것인지 입력받는다. -InputView#askMoveCount()
     - [X] 잘못된 값이 들어올 경우 `IllegalArgumentException`을 발생시키고 종료시킨다.
-- [ ] 0에서 9사이의 무작위 숫자를 생성한다.
+- [ ] 0에서 9사이의 무작위 숫자를 생성한다. NumberGenerator#createRandomNumber()
 - [ ] 생성한 숫자가 4이상인지 확인한다.
     - [ ] 4이상이면 자동차를 전진시킨다.
 - [ ] 각 회차마다 각 자동차의 이름과 진행 상황을 출력한다.
