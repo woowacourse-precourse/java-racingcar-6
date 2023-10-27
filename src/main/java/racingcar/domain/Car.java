@@ -28,6 +28,10 @@ public class Car implements Comparable<Car> {
         return moved;
     }
 
+    public Boolean isWinner(Integer winnerPosition) {
+        return position == winnerPosition;
+    }
+
     public int getPosition() {
         return position;
     }
