@@ -1,5 +1,8 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import camp.nextstep.edu.missionutils.Console;
 
 public class Application {
@@ -16,6 +19,11 @@ public class Application {
     public static String inputCarName(){
     	String carNames = Console.readLine();
     	return carNames;
+    }
+    
+    //차 이름 유효성 검사
+    public static void checkCarNameValidation(String carName) {
+    	Validator.validateCarName(carName);
     }
     
 }
