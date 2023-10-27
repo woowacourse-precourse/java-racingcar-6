@@ -6,14 +6,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 class IOTest {
-
-    IO io;
+    private IO io;
 
     @BeforeEach
     void setUp() {
@@ -70,6 +73,46 @@ class IOTest {
         provideInput(input);
 
         assertThatIllegalArgumentException();
+    }
+
+    @Test
+    void outputStatus() {
+        Map<String, Integer> nameMap = new HashMap<>();
+        nameMap.put("pobi", 3);
+        nameMap.put("woni", 2);
+        nameMap.put("jun", 4);
+
+        String[] nameArr = {"pobi", "woni", "jun"};
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        io.outputStatus(nameArr, nameMap);
+
+        String expectedOutput = "pobi : ---\n" +
+                "woni : --\n" +
+                "jun : ----\n\n";
+
+        assertThat(outContent.toString()).isEqualTo(expectedOutput);
+    }
+
+    @Test
+    void outputResult() {
+        Map<String, Integer> nameMap = new HashMap<>();
+        nameMap.put("pobi", 3);
+        nameMap.put("woni", 3);
+        nameMap.put("jun", 2);
+
+        String[] nameArr = {"pobi", "woni", "jun"};
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        io.outputResult(3, nameArr, nameMap);
+
+        String expectedOutput = "최종 우승자 : pobi, woni\n";
+
+        assertThat(outContent.toString()).isEqualTo(expectedOutput);
     }
 
     @AfterEach
