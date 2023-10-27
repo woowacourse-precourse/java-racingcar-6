@@ -1,5 +1,7 @@
 package racingcar.configuration;
 
+import racingcar.domain.NumberGenerator;
+import racingcar.domain.RandomNumberGenerator;
 import racingcar.view.AttemptInput;
 import racingcar.view.Input;
 import racingcar.view.NamesInput;
@@ -12,5 +14,9 @@ public class AppConfig {
 
     public static Input getNamesInput() {
         return new NamesInput();
+    }
+
+    public static NumberGenerator getNumberGenerator() {
+        return new RandomNumberGenerator();
     }
 }
