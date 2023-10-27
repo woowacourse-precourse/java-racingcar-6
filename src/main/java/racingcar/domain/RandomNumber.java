@@ -5,7 +5,7 @@ import java.util.List;
 public class RandomNumber {
     private List<Integer> randomNumberList;
 
-    public List<Integer> getRandomNumber() {
+    public List<Integer> getRandomNumberList() {
         return randomNumberList;
     }
 
