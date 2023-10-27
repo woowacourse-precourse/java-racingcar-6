@@ -21,7 +21,9 @@ public class Application {
 
         System.out.println(inputCarName);
         System.out.println("시도할 회수는 몇회인가요?");
-        int tryNumberInt = Integer.parseInt(Console.readLine());
+        int tryNumber = inputTryNumber();
+        System.out.println(tryNumber);
+
         int go = Randoms.pickNumberInRange(0,9);
         System.out.println(go);
         if (go >= 4){
@@ -30,5 +32,20 @@ public class Application {
             System.out.println("jun : ");
         }
 
+
+
+    }
+
+
+    private static int inputTryNumber(){
+        try{
+            int tryNumberInt = Integer.parseInt(Console.readLine());
+            if (tryNumberInt <= 0) {
+                throw new IllegalArgumentException("양수를 입력하시오");
+            }
+            return tryNumberInt;
+        }catch (NumberFormatException e){
+            throw new IllegalArgumentException("숫자를 입력하시오");
+        }
     }
 }
