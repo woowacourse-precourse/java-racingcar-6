@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 import java.util.List;
 
-public class InputView {
+public class InOutputView {
     public List<String> inputCar(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String cars = Console.readLine();
@@ -21,5 +21,15 @@ public class InputView {
         }catch (Exception e){
             throw new IllegalArgumentException("숫자로 입력해주세요");
         }
+    }
+    public void printResult(){
+        System.out.println("실행 결과");
+    }
+
+    public void printCarsState(Cars cars){
+
+    }
+    public void printWinner(Cars cars){
+
     }
 }
