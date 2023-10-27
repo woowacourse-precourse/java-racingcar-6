@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -55,6 +56,36 @@ class Car {
 
         int size = output.length();
         return output.delete(size - 1, size);
+    }
+
+    public static void printFinalWinner(List<Car> carList) {
+        StringBuilder stringBuilder = new StringBuilder("최종 우승자 : ");
+
+        List<String> winner = findWinner(carList);
+        winner.stream().forEach(carName -> {
+            stringBuilder.append(carName).append(",");
+        });
+
+        int size = stringBuilder.length();
+        System.out.println(stringBuilder.delete(size - 1, size));
+    }
+
+    public static List<String> findWinner(List<Car> carList) {
+        int record = 0;
+        ArrayList<String> carNames = new ArrayList<>();
+
+        for (Car car : carList) {
+            if (record < car.location) {
+                record = car.location;
+                carNames.clear();
+
+                carNames.add(car.name);
+            } else if (record == car.location) {
+                carNames.add(car.name);
+            }
+        }
+
+        return carNames;
     }
 
 }

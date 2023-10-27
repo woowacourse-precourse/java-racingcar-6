@@ -3,8 +3,7 @@ package racingcar;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
-import static racingcar.Car.createCarList;
-import static racingcar.Car.moveCar;
+import static racingcar.Car.*;
 
 public class Application {
     public static void main(String[] args) {
@@ -14,6 +13,8 @@ public class Application {
         int repeatCount = inputNumberOfRepetitions();
         StringBuilder result = moveCar(carList , repeatCount);
         System.out.println(result);
+
+        printFinalWinner(carList);
     }
 
     public static int inputNumberOfRepetitions() {
