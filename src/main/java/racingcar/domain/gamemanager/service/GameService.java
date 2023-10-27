@@ -48,4 +48,7 @@ public class GameService {
         }
     }
 
+    public List<String> getWinner() {
+        carRepository.findCarWithMaxPosition();
+    }
 }

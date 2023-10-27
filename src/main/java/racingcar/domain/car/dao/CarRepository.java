@@ -22,4 +22,17 @@ public class CarRepository {
         return cars;
     }
 
+    public List<Car> findCarWithMaxPosition() {
+        int maxPosition = carDatabase.values()
+                .stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElseThrow();
+
+        ArrayList<Car> winners = new ArrayList<>();
+        return carDatabase.values()
+                .stream()
+                .filter(car -> car.getPosition == maxPosition)
+                .toList();
+    }
 }

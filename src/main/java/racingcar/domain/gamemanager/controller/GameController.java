@@ -26,5 +26,6 @@ public class GameController {
 
     public void endGame() {
         OutputView.printEndGame();
+        gameService.getWinner();
     }
 }
