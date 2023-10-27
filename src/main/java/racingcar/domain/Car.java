@@ -18,7 +18,7 @@ public class Car {
     }
 
     public String moveStop() {
-        return null;
+        return distance;
     }
 
     public List<Integer> located() {
