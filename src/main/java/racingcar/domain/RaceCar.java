@@ -7,14 +7,18 @@ public class RaceCar {
 
     // TODO: 10/27/23 생성자 생성
     public RaceCar() {
-
+        nameOfCar = "";
+        cntMovementOfCar = 0;
     }
 
     public RaceCar(String nameOfRaceCar) {
         // 이름은 5자 이하만 가능하다.
         // 생성자를 통해서 입력을 받는다.
-        nameOfCar = nameOfRaceCar;
-        cntMovementOfCar = 0;
+
+        if (nameOfRaceCar.length() >= 1 && nameOfRaceCar.length() <= 5) {
+            nameOfCar = nameOfRaceCar;
+            cntMovementOfCar = 0;
+        }
     }
 
     // TODO: 10/27/23 자동차의 이동을 제어해준다.
