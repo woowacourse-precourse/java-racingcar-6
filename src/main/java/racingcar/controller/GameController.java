@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
+import racingcar.model.GameResult;
 import racingcar.util.NumberGenrator;
 import racingcar.util.RandomNumberGenrator;
 import racingcar.util.TransferUtil;
@@ -26,6 +27,7 @@ public class GameController {
         for(int i = 0; i < tryCount; i++){
             playingGame(carList);
         }
+        GameResult gameResult = endGame(carList);
     }
 
     private void playingGame(List<Car> carList) {
@@ -35,5 +37,15 @@ public class GameController {
             outputView.printCarNameAndPosition(car.provideCarNameAndPositionState());
         });
         outputView.printNewLine();
+    }
+
+    private GameResult endGame(List<Car> carList) {
+        int winPosition = 0;
+        for(Car car : carList){
+            winPosition = Math.max(car.getPosition(), winPosition);
+        }
+        GameResult gameResult = new GameResult(winPosition);
+        gameResult.addCarList(carList);
+        return gameResult;
     }
 }
