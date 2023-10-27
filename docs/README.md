@@ -10,11 +10,11 @@
     - [ ] 이름 중복 불가
     - [ ] 모든 잘못된 입력에 `IllegalArgumentException` 발생 후 애플리케이션 종료
 
-- [ ] 시도할 횟수 입력
+- [x] 시도할 횟수 입력
     - [x] `Console.readLine()` 활용
-    - [ ] 숫자가 아닌 값 입력 불가
-    - [ ] 0 이하 입력 불가
-    - [ ] 모든 잘못된 입력에 `IllegalArgumentException` 발생 후 애플리케이션 종료
+    - [x] 숫자가 아닌 값 입력 불가
+    - [x] 0 이하 입력 불가
+    - [x] 모든 잘못된 입력에 `IllegalArgumentException` 발생 후 애플리케이션 종료
 
 - [ ] 전진할 무작위 값 추출
     - [ ] `Randoms.pickNumberInRange()` 활용
