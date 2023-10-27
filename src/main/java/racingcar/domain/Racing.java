@@ -3,13 +3,12 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-import static racingcar.constant.ConstantString.LINE;
-
 public class Racing {
 
     private static final int MIN_FORWARD_THRESHOLD = 4;
     private static final String COLON_SEPARATOR = " : ";
     private static final String HYPHEN = "-";
+    private static final String LINE = "\n";
 
     private final List<Car> cars;
 
