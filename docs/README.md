@@ -13,7 +13,7 @@
 - ✔️ 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용
 - ✔️ 올바른 값 입력 검증 (잘못된 값이 입력되면 **IllegalArgumentException()**)
 
-  - 입력한 값이 숫자인가
+  - 입력한 값이 양수인가
 
 #### 3. 전진 구현
 
