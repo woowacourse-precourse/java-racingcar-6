@@ -33,10 +33,10 @@
 - [x] Cars의 움직임 메소드
   - [x] 각 Car의 움직임 메소드 호출
 ## 5. 전체 움직임 작성
-- [ ] RacingGame
+- [x] RacingGame
   - [x] 단일 움직임 메소드
-  - [ ] 현재 상태에 대한 정보를 가지고 있는 클래스 RacingGameState 작성
-- [ ] 게임 진행 로직 RacingGameController에 추가
+  - [x] 현재 상태에 대한 정보를 가지고 있는 클래스 RacingGameState 작성
+- [x] 게임 진행 로직 RacingGameController에 추가
 ## 6. 게임 결과 출력
 - [ ] RacingGameState 인스턴스를 인자로 받아 Outputview에서 최종 우승자 출력
 
