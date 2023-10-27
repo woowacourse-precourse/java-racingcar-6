@@ -17,7 +17,7 @@ public class Cars {
         validateEndsWithComma(input);
 
         // Validate carName Length
-        List<String> carNames = Parser.parseInput(input);
+        List<String> carNames = Converter.parseInput(input);
         validateNameLength(carNames);
 
         // Construct Cars Entity
@@ -30,11 +30,19 @@ public class Cars {
     }
 
     // 경주할 자동차를 1회전 전진시킨다.
-    public static void playOneRotation() {
+    public void playOneRotation() {
+        racingCars.forEach(Car::play);
+    }
+
+    // 자동차들의 현재 주행 결과를 '이름 : dashes' 형태의 String List로 반환
+    public List<String> generateResults() {
+        return racingCars.stream()
+                .map(Car::generateResult)
+                .toList();
     }
 
 
-    private static List<Car> createCars(List<String> carNames) {
+    private List<Car> createCars(List<String> carNames) {
         return carNames.stream()
                 .map(Car::create)
                 .toList();
