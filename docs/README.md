@@ -43,9 +43,9 @@
     - [x] 0에서 9 사이의 무작위 값을 만든다. -Position.makeRandomValue()
     - [x] 해당 값이 4 이상의 값인지 판단한다. -Position.checkValueIsOverFour()  
     - [x] 자동차의 전진 상태값을 증가시킨다. -Position.moveForward()
-- [ ] 현재 자동차들의 전진 결과를 출력한다. -printCurrentCarsResult()
-  - 자동차들의 출력순서는 입력받은 순이다.
-  - [ ]자동차의 현재 전진결과를 출력한다. -printCurrentCarResult()
+- [x] 현재 자동차들의 전진 결과를 출력한다. -printCurrentCarsResult()
+  -  자동차들의 출력순서는 입력받은 순이다.
+  - [x] 자동차의 현재 전진결과를 출력한다. -printCurrentCarResult()
     - [x] 자동차의 전진 상태값을 작대기(-)로 바꿔준다. -switchMovePositionToSlash()
 - [ ] 자동차들중 우승한 (가장 많이 전진한) 자동차의 이름을 출력한다. -findWinningCarsAndPrint()
   - [ ] 자동차들 중 가장 멀리 나간 자동차를 구한다. -findWinningCars()
