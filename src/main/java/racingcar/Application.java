@@ -5,11 +5,10 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 public class Application {
     private static List<Car> transformStringToCarList(String cars) {
-        List<Car> carList = new ArrayList<Car>();
+        List<Car> carList = new ArrayList<>();
         for (String carName : Arrays.stream(cars.split(",")).toList()) {
             if (carName.length() > 5) {
                 throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
@@ -35,5 +34,16 @@ public class Application {
             maxScore = cars.stream().mapToInt(Car::run).max().orElse(0);
             System.out.println();
         }
+
+        List<String> winner = new ArrayList<>();
+
+        for (Car car : cars) {
+            final String carName = car.isMaxScore(maxScore);
+            if(!carName.isEmpty()){
+                winner.add(carName);
+            }
+        }
+        String winnerFormat = String.format("최종 우승자 : %s",String.join(", ", winner));
+        System.out.println(winnerFormat);
     }
 }
