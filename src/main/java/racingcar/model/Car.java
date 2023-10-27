@@ -1,2 +1,6 @@
-package racingcar.model;public class Car {
+package racingcar.model;
+
+public class Car {
+    String name;
+    String score;
 }
