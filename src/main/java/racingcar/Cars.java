@@ -15,4 +15,10 @@ public class Cars {
     public String getCarName() {
         return carName;
     }
+
+    public void move(MoveStatus moveStatus) {
+        if (moveStatus.canMove()) {
+            position++;
+        }
+    }
 }
