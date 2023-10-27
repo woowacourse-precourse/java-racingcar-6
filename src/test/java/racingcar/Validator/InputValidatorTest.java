@@ -1,11 +1,13 @@
 package racingcar.Validator;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.InputValidator;
 import racingcar.exception.DivisionCarNamesError;
 
+import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 @DisplayName("사용자의 입력 중")
@@ -19,4 +21,10 @@ class InputValidatorTest {
                 .isInstanceOf(DivisionCarNamesError.class);
     }
 
+    @Test
+    @DisplayName("정상적으로 입력한다.")
+    void input_correct() {
+        assertThatCode(() -> InputValidator.validateDivisionCarNames("pobi,woni,jun"))
+                .doesNotThrowAnyException();
+    }
 }
