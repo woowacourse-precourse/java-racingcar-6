@@ -16,5 +16,24 @@ public class RacingGame {
         this.carList = InputManager.inputCarList();
         int tryCnt = InputManager.inputTryCnt();
 
+        System.out.println("");
+        System.out.println("실행결과");
+        for(int round = 1; round <= tryCnt; round++) {
+            proceedRound();
+            printCarStates();
+        }
+
+    }
+
+    private void printCarStates() {
+        this.carList.stream()
+                .forEach(System.out::println);
+        System.out.println("");
+    }
+
+    private void proceedRound() {
+        this.carList.stream().forEach(element -> {
+            element.move();
+        });
     }
 }

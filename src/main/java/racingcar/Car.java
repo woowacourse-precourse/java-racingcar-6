@@ -13,12 +13,25 @@ public class Car {
         this.position = Car.defaultPosition;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder(this.name + " : ");
+        for(int i = 0; i < this.position; i++) {
+            builder.append('-');
+        }
+        return builder.toString();
+    }
+
     public void move() {
         int randNum = Randoms.pickNumberInRange(0, 9);
 
         if (randNum >= 4) {
             this.position++;
         }
+    }
+
+    public boolean isWinner(int farthestPosition) {
+        return this.position == farthestPosition;
     }
 
     public int getPosition() {
