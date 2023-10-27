@@ -78,21 +78,21 @@ class ApplicationTest extends NsTest {
 
     // 추가 - 박승찬
     // ================ RaceCar.class ================
-    @DisplayName("자동차의 이동을 제어해준다.")
+    @DisplayName("자동차가 전진을 한다.")
     @Test
-    public void movementControlCarTest() throws Exception {
+    public void moveForwardTest() throws Exception {
         // given
 
 
         // when
-        firstRaceCar.movementControlCar();
-        firstRaceCar.movementControlCar();
-        firstRaceCar.movementControlCar();
+        firstRaceCar.moveForward();
+        firstRaceCar.moveForward();
+        firstRaceCar.moveForward();
 
-        secondRaceCar.movementControlCar();
-        secondRaceCar.movementControlCar();
+        secondRaceCar.moveForward();
+        secondRaceCar.moveForward();
 
-        thirdRaceCar.movementControlCar();
+        thirdRaceCar.moveForward();
 
         Integer result_one = raceCarList.get(0).getCntMovementOfCar();
         Integer result_two = raceCarList.get(1).getCntMovementOfCar();
