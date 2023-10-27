@@ -24,7 +24,7 @@ public class GetInputTest {
     }
 
     @Test
-    public void shouldReadPredefinedInput() {
+    public void getMachineNames() {
         Machines machines = new Machines();
 
         String receivedInput = machines.getInput();
