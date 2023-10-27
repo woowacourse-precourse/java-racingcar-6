@@ -10,7 +10,7 @@ public class Car {
     }
 
     public void move() {
-        progress.move();
+        progress.up();
     }
 
     public String getNameToString() {

@@ -7,7 +7,7 @@ public class Progress {
         progress = 0;
     }
 
-    void move() {
+    void up() {
         progress++;
     }
 
