@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class carTest {
+class CarTest {
 
     @Test
     void car_객체_생성하기() {
