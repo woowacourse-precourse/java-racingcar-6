@@ -26,4 +26,10 @@ public class Player {
             throw new IllegalArgumentException("쉼표가 마지막에 나온 잘못된 입력입니다.");
         }
     }
+
+    public int inputMovingCount() {
+        String movingCount = Console.readLine();
+        checkMovingCountFormat(movingCount);
+        return Integer.parseInt(movingCount);
+    }
 }
