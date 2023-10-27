@@ -10,6 +10,12 @@ import racingcar.model.Name;
 public class NameTest {
 
     @Test
+    void 이름은_5자_이하만_가능하다_정상() {
+        // given & when
+        Name name = Name.from("john");
+    }
+
+    @Test
     void 이름은_5자_이하만_가능하다_예외() {
         // given & when
         Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
