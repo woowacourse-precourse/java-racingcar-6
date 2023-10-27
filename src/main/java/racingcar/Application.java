@@ -97,4 +97,12 @@ public class Application {
     	return racingRecord.toString();
     }
     
+    //전진이 된 차 기록 출력하기 
+    public static void printCarRacingRecord(List<String> carList, Map<String,Integer> carRacingRecord) {
+    	for(String carName : carList) {
+    		String racingRecord=getRacingRecord(carRacingRecord.get(carName));
+    		System.out.println(carName+" : "+racingRecord);
+    	}
+    }
+    
 }
