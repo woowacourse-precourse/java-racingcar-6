@@ -7,8 +7,8 @@ import java.util.List;
 
 public class Application {
 
-    private static int ASCIIZERO = 48;
-    private static int ASCIININE = 57;
+    private static int ASCII_ZERO = 48;
+    private static int ASCII_NINE = 57;
     private static int MOVE_NUMBER = 4;
 
     private static class Car {
@@ -215,7 +215,7 @@ public class Application {
     }
 
     private static boolean isNumber(final String splitAttemptsNum) {
-        if(ASCIIZERO > splitAttemptsNum.charAt(0) || ASCIININE < splitAttemptsNum.charAt(0)) {
+        if(ASCII_ZERO > splitAttemptsNum.charAt(0) || ASCII_NINE < splitAttemptsNum.charAt(0)) {
             return false;
         }
 
