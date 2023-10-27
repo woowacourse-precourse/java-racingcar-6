@@ -35,7 +35,7 @@
         - 길이가 5 초과일경우 IllegalArgumentException을 발생하고 애플리케이션을 종료시킨다.
   -[x] 각 이름들을 담은 자동차 객체를 만든다. 
 -[x] 자동차 객체들을 담은 객체를 만든다. -Cars()
--[ ] 사용자에게 이동을 시도할 횟수를 입력받는다. -inputAttemptCount()
+-[x] 사용자에게 이동을 시도할 횟수를 입력받는다. -inputAttemptCount()
   - [x] 입력값이 정수인지 확인한다. -checkAttemptCountIsInteger()
     - 정수가 아닌경우 IllegalArgumentException을 발생하고 애플리케이션을 종료시킨다.
 - [ ] 각 자동차들의 전진을 시도한다. -Cars.attemptForward()
