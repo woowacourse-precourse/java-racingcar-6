@@ -21,6 +21,14 @@ public class RacingCarGameRunner {
         validateInput(numberOfRoundInput);
         int numberOfRound = Integer.parseInt(numberOfRoundInput);
 
+        System.out.println();
+
+        for (int i = 0; i < numberOfRound; i++) {
+            cars.forEach(car -> {
+                car.attemptMovingForward();
+                car.printCar();
+            });
+        }
     }
 
     private String getPlayerInput(String message) {
