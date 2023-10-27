@@ -1,6 +1,6 @@
 package racingcar.validator;
 
-public class NumberOfRoundsBasicValidator implements BasicValidator {
+public class NumberOfRoundsInputValidator implements BasicValidator {
 
     @Override
     public void validate(String userInput) {
