@@ -17,10 +17,10 @@ public class GameService {
     }
 
     public void playUntilTrialNumber(int trialNumber, CarsGenerateDto carsGenerateDto) {
-        Cars cars = createCars(carsGenerateDto);
+        Cars generatedCars = createCars(carsGenerateDto);
 
         for (int i = 0; i < trialNumber; i++) {
-            moveCarsByRandomNumber(cars);
+            moveCarsByRandomNumber(generatedCars);
             outputView.showResult(carsGenerateDto.cars());
         }
     }
