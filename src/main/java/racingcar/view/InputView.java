@@ -6,7 +6,6 @@ import java.util.List;
 import racingcar.Validator;
 
 public class InputView {
-
     public List<String> askCarNames() {
         Validator validator = new Validator();
         String names = Console.readLine();
