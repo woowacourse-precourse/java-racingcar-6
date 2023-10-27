@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class RacingGameValidator {
 
-    public static void validateGameCount(String count) {
+    public static void validateGameCount(final String count) {
         try {
             Integer.parseInt(count);
         } catch (NumberFormatException e) {
@@ -55,5 +55,14 @@ public class RacingGameValidator {
         if (carNameSet.contains(name)) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public static void validateTrial(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+
     }
 }
