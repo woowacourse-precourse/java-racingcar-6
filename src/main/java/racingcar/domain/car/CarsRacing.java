@@ -1,8 +1,8 @@
 package racingcar.domain.car;
 
 import java.util.List;
-import racingcar.domain.car.dto.request.CreateCarsRacing;
-import racingcar.domain.car.dto.response.CarsRacingDto;
+import racingcar.domain.car.dto.input.CreateCarsRacing;
+import racingcar.domain.car.dto.output.CarsRacingDto;
 import racingcar.domain.move.MoveCommander;
 
 public final class CarsRacing extends Cars {
@@ -22,6 +22,10 @@ public final class CarsRacing extends Cars {
                 .toList();
 
         return new CarsRacing(cars);
+    }
+
+    public CarsFinished toFinished() {
+        return CarsFinished.from(this);
     }
 
     public CarsRacingDto toDto() {
