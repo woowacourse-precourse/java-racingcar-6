@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import java.util.List;
+import racingcar.domain.RacingResult;
 import racingcar.dto.CarStatusDto;
 
 public class OutputView {
@@ -12,8 +12,8 @@ public class OutputView {
     private OutputView() {
     }
 
-    public static void printResult(List<CarStatusDto> carStatuses) {
-        for (CarStatusDto carStatus : carStatuses) {
+    public static void printResult(RacingResult racingResult) {
+        for (CarStatusDto carStatus : racingResult.getCarStatuses()) {
             String movement = MOVE_EXPRESS.repeat(carStatus.position());
             System.out.printf("%s : %s\n", carStatus.name(), movement);
         }
