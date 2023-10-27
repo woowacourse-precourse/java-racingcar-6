@@ -20,4 +20,9 @@ public class InputView {
 
         return carNames;
     }
+
+    public int getMoveCount() {
+        int moveCount = Integer.parseInt(Console.readLine());
+        return moveCount;
+    }
 }

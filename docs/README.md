@@ -8,7 +8,7 @@
     - [x] 자동차 이름이 5자 이하가 아닌 경우
     - [x] 자동차 이름이 서로 중복인 경우
 - [x] 입력된 자동차 이름 개수만큼 자동차를 생성한다. - CarGenerator#createCar()
-- [ ] 사용자에게 이동 횟수를 입력받는다. - InputView#getMoveCount()
+- [x] 사용자에게 이동 횟수를 입력받는다. - InputView#getMoveCount()
   - [ ] 아래의 경우 `IllegalArgumentException` 발생 후 프로그램은 종료된다.
     - [ ] 입력된 값이 숫자가 아닌 경우
 - [ ] 입력된 이동 횟수만큼 경주를 진행한다. - Racing#racing()

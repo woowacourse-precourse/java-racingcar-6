@@ -23,5 +23,7 @@ public class GameController {
             Car car = CarGenerator.createCar(name);
             cars.add(car);
         }
+
+        int moveCount = inputView.getMoveCount();
     }
 }
