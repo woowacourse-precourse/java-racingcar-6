@@ -20,7 +20,7 @@ public class GameController {
 
             while(attempts!=0){
                 // 게임 시도
-                playAttempt();
+                play();
                 // 시도 횟수 감소
                 attempts--;
             }
@@ -36,7 +36,7 @@ public class GameController {
         return InputView.carsName();
     }
 
-    private static void playAttempt(){
+    private static void play(){
         for(Car car : cars){
             moveCar(car,GeneratedRandomNumber.getNumber());
         }
