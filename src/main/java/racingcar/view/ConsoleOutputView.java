@@ -2,8 +2,6 @@ package racingcar.view;
 
 import java.util.List;
 import racingcar.controller.dto.GameResultResponse;
-import racingcar.model.Position;
-import racingcar.model.Vehicle;
 
 public class ConsoleOutputView implements OutputView {
 
@@ -33,17 +31,17 @@ public class ConsoleOutputView implements OutputView {
     @Override
     public void printGameResult(final GameResultResponse gameResultResponse) {
         gameResultResponse.getResult().forEach((vehicle, position) -> {
-            System.out.println(makeResult(vehicle, position));
+            System.out.println(makeResult(vehicle.getName(), position.getPositionIndex()));
         });
         printNewLine();
     }
 
-    private void printNewLine() {
-        System.out.println();
+    private String makeResult(final String carName, final int positionIndex) {
+        return carName + COLON + HYPHEN.repeat(positionIndex);
     }
 
-    private String makeResult(final Vehicle vehicle, final Position position) {
-        return vehicle.getName() + COLON + HYPHEN.repeat(position.getPositionIndex());
+    private void printNewLine() {
+        System.out.println();
     }
 
     @Override
