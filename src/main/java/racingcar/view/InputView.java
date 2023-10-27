@@ -9,4 +9,8 @@ public class InputView {
         System.out.println(RaceMessage.CARS_INPUT_MESSAGE);
         return Console.readLine();
     }
+    public String getRaceCount(){
+        System.out.println(RaceMessage.RACE_COUNT_INPUT_MESSAGE);
+        return Console.readLine();
+    }
 }
