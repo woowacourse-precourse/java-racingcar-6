@@ -19,15 +19,6 @@ public class RacingController {
         OutputView.printStartMessage();
         String [] players = InputView.getPlayerInput();
         OutputView.printTryNumberMessage();
-        List<String> cars = setPlayerName(players);
         int tryNumber = InputView.getTryNumberInput();
-    }
-
-    private List<String> setPlayerName(String [] players) {
-        List<String> cars = new ArrayList<>();
-        for (String player : players) {
-            cars.add(player);
-        }
-        return cars;
     }
 }
