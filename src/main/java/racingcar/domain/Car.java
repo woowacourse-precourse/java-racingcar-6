@@ -13,7 +13,7 @@ public class Car {
     }
 
     private static void validateLength(String name) {
-        if(name.length() > NAME_LENGTH_LIMIT) throw new IllegalArgumentException();
+        if (name.length() > NAME_LENGTH_LIMIT) throw new IllegalArgumentException();
     }
 
     public void move() {
