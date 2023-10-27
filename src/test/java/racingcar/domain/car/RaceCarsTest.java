@@ -1,6 +1,5 @@
 package racingcar.domain.car;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Test;
@@ -12,7 +11,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
-class RaceCarsTest {
+public class RaceCarsTest{
 
     @Test
     @DisplayName("Collections.unmodifiableList()를 사용해서 꺼낸 리스트는 add, remove를 사용시 예외가 발생한다.")

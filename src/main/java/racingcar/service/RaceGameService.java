@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import racingcar.domain.car.RaceCars;
+import racingcar.util.Randoms;
 import racingcar.view.ExecutionView;
 
 public class RaceGameService {
@@ -17,7 +18,7 @@ public class RaceGameService {
         ExecutionView.printExecutionStartMessage();
 
         for (int attemptNumber = START_NUMBER; attemptNumber <= attemptCount; attemptNumber++) {
-            raceCars.executeRace();
+            raceCars.executeRace(Randoms.getNumber());
             raceCars.printGameProgressMessages();
             ExecutionView.newLine();
         }

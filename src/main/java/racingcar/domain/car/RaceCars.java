@@ -45,8 +45,8 @@ public class RaceCars {
                 .orElseThrow(() -> new IllegalArgumentException(NOT_CONTAINS_CAR_ERROR_MESSAGE));
     }
 
-    public void executeRace(){
-        cars.stream().forEach(car -> car.controlMovement(Randoms.getNumber()));
+    public void executeRace(int controlValue){
+        cars.stream().forEach(car -> car.controlMovement(controlValue));
     }
 
     //출력 로직
