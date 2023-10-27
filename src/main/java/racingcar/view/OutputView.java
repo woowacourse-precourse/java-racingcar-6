@@ -7,11 +7,11 @@ import racingcar.dto.CarsDto;
 
 public class OutputView {
 
-    private static final String RUN_RESULT = "%n실행 결과";
+    private static final String RUN_RESULT = "\n실행 결과";
     private static final String CAR_POSITION_FORMAT = "%s : ";
     private static final String POSITION_SIGNAL = "-";
-    private static final String NEWLINE = "%n";
-    private static final String FINAL_WINNER_FORMAT = "최종 우승자 : %s%n";
+    private static final String NEWLINE = "\n";
+    private static final String FINAL_WINNER_FORMAT = "최종 우승자 : %s\n";
     private static final String NAME_JOIN_SIGNAL = ", ";
 
     public void printRunResult() {
@@ -25,7 +25,7 @@ public class OutputView {
         System.out.printf(NEWLINE);
     }
 
-    private void printCarResult(CarDto carDto) {
+    private void printCarResult(final CarDto carDto) {
         String name = carDto.name();
         Integer position = carDto.position();
 
