@@ -2,6 +2,8 @@ package racingcar;
 
 public class RacingGame {
 
-    public static final int MIN_NAME_SIZE = 1;
-    public static final int MAX_NAME_SIZE = 5;
+    private static final int MIN_NAME_SIZE = 1;
+    private static final int MAX_NAME_SIZE = 5;
+
+
 }
