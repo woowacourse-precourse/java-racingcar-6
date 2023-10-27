@@ -6,10 +6,11 @@ public class Car {
     // Car Constructor
     private Car(final String input) {
 
+        this.name = input;
     }
 
     // Car Static Factory Method
-    public Car create(final String input) {
+    public static Car create(final String input) {
         return new Car(input);
     }
 }
