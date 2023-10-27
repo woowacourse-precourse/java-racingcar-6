@@ -24,6 +24,8 @@ public class GameController {
         outputView.askPlayCount();
         savePlayCount();
 
+        outputView.printGameEnd();
+
         int round = 0;
         while (!playCount.isPlayEnd(round)) {
             cars.racing();

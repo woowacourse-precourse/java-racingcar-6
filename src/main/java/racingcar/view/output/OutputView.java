@@ -4,4 +4,5 @@ public interface OutputView {
 
     void askCarNames();
     void askPlayCount();
+    void printGameEnd();
 }
