@@ -5,7 +5,7 @@ import static strings.Strings.LINE_BREAK;
 import static strings.Strings.WHITE_SPACE;
 
 import racingcar.component.Component;
-import racingcar.domain.game.CarsFinishedDto;
+import racingcar.domain.car.dto.output.CarsFinishedDto;
 
 public final class GameResultComponent implements Component {
 

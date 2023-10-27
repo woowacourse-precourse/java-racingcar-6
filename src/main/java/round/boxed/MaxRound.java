@@ -1,4 +1,4 @@
-package racingcar.domain.game.boxed;
+package round.boxed;
 
 import racingcar.exception.InvalidMaxRoundException;
 

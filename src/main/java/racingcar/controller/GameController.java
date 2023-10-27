@@ -1,12 +1,12 @@
 package racingcar.controller;
 
 import racingcar.domain.car.CarsRacing;
+import racingcar.domain.car.dto.output.CarsFinishedDto;
 import racingcar.domain.car.dto.output.CarsRacingDto;
-import racingcar.domain.game.CarsFinishedDto;
-import racingcar.domain.game.boxed.MaxRound;
 import racingcar.domain.move.MoveCommander;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
+import round.boxed.MaxRound;
 
 public final class GameController {
 

@@ -3,8 +3,8 @@ package racingcar.view;
 import racingcar.component.ComponentWriter;
 import racingcar.component.output.GameResultComponent;
 import racingcar.component.output.RoundResultComponent;
+import racingcar.domain.car.dto.output.CarsFinishedDto;
 import racingcar.domain.car.dto.output.CarsRacingDto;
-import racingcar.domain.game.CarsFinishedDto;
 
 public final class OutputView {
     private final ComponentWriter componentWriter;

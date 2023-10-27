@@ -1,7 +1,7 @@
 package racingcar.domain.car;
 
 import racingcar.domain.car.boxed.CarName;
-import racingcar.domain.move.Coordinate;
+import racingcar.domain.coordinate.Coordinate;
 
 public final class CarFinished extends Car {
 

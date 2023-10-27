@@ -6,8 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.car.CarRacing;
 import racingcar.domain.car.CarsRacing;
-import racingcar.domain.game.boxed.MaxRound;
 import racingcar.validator.InputValidator;
+import round.boxed.MaxRound;
 
 public final class InputParser {
 

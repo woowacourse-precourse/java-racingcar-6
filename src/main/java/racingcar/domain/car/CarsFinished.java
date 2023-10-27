@@ -1,8 +1,8 @@
 package racingcar.domain.car;
 
 import java.util.List;
-import racingcar.domain.game.CarsFinishedDto;
-import racingcar.domain.move.Coordinate;
+import racingcar.domain.car.dto.output.CarsFinishedDto;
+import racingcar.domain.coordinate.Coordinate;
 
 public final class CarsFinished extends Cars {
     private CarsFinished(final List<? extends Car> cars) {

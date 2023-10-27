@@ -5,8 +5,8 @@ import racingcar.component.ComponentWriter;
 import racingcar.component.input.MaxRoundComponent;
 import racingcar.component.input.NameComponent;
 import racingcar.domain.car.CarsRacing;
-import racingcar.domain.game.boxed.MaxRound;
 import racingcar.parser.InputParser;
+import round.boxed.MaxRound;
 
 public final class InputView {
     private final InputParser inputParser;

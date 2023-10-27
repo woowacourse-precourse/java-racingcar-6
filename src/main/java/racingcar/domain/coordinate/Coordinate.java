@@ -1,4 +1,4 @@
-package racingcar.domain.move;
+package racingcar.domain.coordinate;
 
 import java.util.Objects;
 import racingcar.exception.InvalidCoordinateException;
