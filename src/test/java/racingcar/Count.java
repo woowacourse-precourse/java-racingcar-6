@@ -16,6 +16,7 @@ final class Count {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
+        if(instance.times < 0) throw new IllegalArgumentException();
         return instance;
     }
 
