@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -14,6 +15,8 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
         int numberOfRaces = inputNumberOfRaces();
+
+        generateAction();
 
         System.out.println(carNamesList);
         System.out.println(carNamesList.size());
@@ -45,5 +48,10 @@ public class Application {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자를 입력하세요.");
         }
+    }
+
+    public static void generateAction() {
+        int randomNumber = Randoms.pickNumberInRange(0,9);
+        System.out.println(randomNumber);
     }
 }
