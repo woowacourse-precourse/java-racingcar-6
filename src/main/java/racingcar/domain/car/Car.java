@@ -20,7 +20,6 @@ public abstract class Car {
         this(new CarName(carName), Coordinate.zero());
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
