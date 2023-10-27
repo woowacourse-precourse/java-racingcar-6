@@ -7,8 +7,7 @@ import racingcar.domain.CarService;
 import racingcar.view.UserInput;
 
 public class GameController {
-
-    public UserInput input;
+    UserInput input;
     CarService carService;
 
     public GameController() {
@@ -40,15 +39,9 @@ public class GameController {
                 carService.setCurrentCar(flag, carsList.get(j));
             }
             //현재의 게임 객체들 상태 출력
-            carService.printCurrentCar(carsList);
+            carService.printCurrentCar(carsList); //(1) 출력 : 매번 횟수별로 현재 상태를 출력
         }
-        //모든 게임 완료된 상테에서 최종 우승자 가리기
-        int winScore = carService.getMaxScore(carsList);
-        ArrayList<String> winnerName = carService.getWinnerName(carsList, winScore);
-        System.out.println("이긴 사람");
-        for (int i = 0; i < winnerName.size(); i++) {
-            System.out.print(winnerName.get(i) + ", ");
-        }
+        //(2) 출력 : 최종 우승자 출력
+        carService.printFinalWinner(carsList);
     }
-
 }

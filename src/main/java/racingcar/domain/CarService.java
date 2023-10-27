@@ -42,6 +42,9 @@ public class CarService {
         }
     }
 
+    /**
+     * 결과 출력과 관련된 함수
+     */
     //++ 현재 상태를 출력하는 함수
     public void printCurrentCar(ArrayList<Car> list) {
         for (int i = 0; i < list.size(); i++) {
@@ -53,6 +56,29 @@ public class CarService {
         }
         System.out.println();
     }
+
+    //++최종 우승자를 출력하는 함수
+    public void printFinalWinner(ArrayList<Car> carsList) {
+        //모든 게임 완료된 상테에서 최종 우승자 가리기
+        int winScore = getMaxScore(carsList);
+        ArrayList<String> winnerName = getWinnerName(carsList, winScore);
+        System.out.print("최종 우승자 : ");
+
+        //1명일 때
+        if (winnerName.size() == 1) {
+            System.out.print(winnerName.get(0));
+        }
+        //여러 명일 떄
+        if (winnerName.size() >= 2) {
+            for (int i = 0; i < winnerName.size(); i++) {
+                if (i == winnerName.size() - 1) { //마지막에는 쉼표 제거
+                    System.out.print(winnerName.get(i));
+                }
+                System.out.print(winnerName.get(i) + ", ");
+            }
+        }
+    }
+
 
     /**
      * 최종 우승자 판별 기능
