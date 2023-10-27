@@ -28,5 +28,14 @@ public class Car {
         return randomNum >= MIN_MOVABLE_NUMBER;
     }
 
-    //TODO : @Override String toString()
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder(name);
+        sb.append(" : ");
+        for(int i = 0; i<location; i++){
+            sb.append("-");
+        }
+
+        return sb.toString();
+    }
 }
