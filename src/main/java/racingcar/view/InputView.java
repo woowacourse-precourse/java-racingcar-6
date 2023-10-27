@@ -1,12 +1,27 @@
 package racingcar.view;
 
+import racingcar.util.Parser;
+import racingcar.util.Validator;
+
+import static camp.nextstep.edu.missionutils.Console.readLine;
+
 public class InputView {
 
-    public static void inputCarNameMessage(){
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+    private final Validator validator = new Validator();
+    private final Parser parser = new Parser();
+
+
+    private void inputTrialNumber(){
+        OutputView.requestTrialNumberMessage();
+        String userInput = readLine();
+        validator.isValidTrialNumber(userInput);
     }
 
-    public static void inputTrialNumberMessage(){
-        System.out.println("시도할 회수는 몇회인가요?");
+    private void inputCarName(){
+        OutputView.requestCarNameMessage();
+        String userInput = readLine();
+        validator.isValidCarName(userInput);
     }
+
+
 }
