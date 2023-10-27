@@ -4,9 +4,9 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private final String name;
-    private String distance;
+    private int distance;
 
-    public Car(String name, String distance) {
+    public Car(String name, int distance) {
         this.name = name;
         this.distance = distance;
     }
@@ -14,7 +14,7 @@ public class Car {
     public void move() {
         int randomNumber = generateRandomNumber();
         if (randomNumber >= 4) {
-            distance += "-";
+            distance++;
         }
     }
 
