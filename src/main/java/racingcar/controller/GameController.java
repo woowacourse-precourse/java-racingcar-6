@@ -53,6 +53,8 @@ public class GameController {
         for (Car car : cars) {
             OutputView.printCarPosition(car.getName(), car.getPosition());
         }
+
+        OutputView.printNewLine();
     }
 
     private void moveAllCarsForward(List<Car> cars) {
