@@ -13,11 +13,11 @@ public enum Constants {
     private Constants(String value) {
         this.stringValue = value;
     }
-    
+
     public int getIntValue() {
         return intValue;
     }
-    
+
     public String getStringValue() {
         return stringValue;
     }
