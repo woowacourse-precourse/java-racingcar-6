@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.util.List;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
@@ -17,9 +18,14 @@ import racingcar.utils.InputValidate;
 
 class InputViewTest {
 
+    @AfterEach
+    void setUp() {
+        Console.close();
+    }
+
     @Test
     @DisplayName("Console readLine 테스트")
-    void consoleREadLineTest() {
+    void consoleReadLineTest() {
         String input = "입력 값 테스트";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
@@ -58,24 +64,40 @@ class InputViewTest {
     }
 
     @Test
-    @DisplayName("자동차 이름 입력 시 , 으로 분리 및 자동차 이름 5자 이하 인지 확인")
-    void carnameSplitAndNameSizeLimitTest() {
+    @DisplayName("자동차 이름 입력 시 정상처리 테스트")
+    void carNameInputSuccess() {
 
         String normal = "1,12,123,1234,12345";
+
+        // console.readLine() 에 테스트 입력 값 등록
+        System.setIn(new ByteArrayInputStream(normal.getBytes()));
+        List<Car> carNameList = InputView.getCarNames();
+        assertThat(carNameList.size()).isEqualTo(5);
+        assertThat(carNameList).isNotNull();
+    }
+
+    @Test
+    @DisplayName("자동차 이름 입력 시 공백이 포함되어 있는 경우 공백 제거")
+    void carnameSplitAndNameSizeLimitTest() {
+
         String emptyNormal = "12  3,1234 ,12345, ,";
-        String sizeError = "1,12,123456";
 
-        List<Car> carnameList1 = InputView.getCarNameList(normal);
-        assertThat(carnameList1.size()).isEqualTo(5);
-        assertThat(carnameList1).isNotNull();
+        // console.readLine() 에 테스트 입력 값 등록
+        System.setIn(new ByteArrayInputStream(emptyNormal.getBytes()));
+        List<Car> carNameList = InputView.getCarNames();
+        assertThat(carNameList.size()).isEqualTo(3);
+        assertThat(carNameList).isNotNull();
+    }
 
-        List<Car> carnameList2 = InputView.getCarNameList(emptyNormal);
-        assertThat(carnameList2.size()).isEqualTo(3);
-        assertThat(carnameList2).isNotNull();
+    @Test
+    @DisplayName("자동차 이름 입력 시 5글자 이상인 경우 예외 테스트")
+    void carNameOverSizeLimitTest() {
 
-        assertThrows(CarNameSizeLimitExceededException.class, () -> {
-            InputView.getCarNameList(sizeError);
-        });
+        String error = "12  3,1234 ,12345122, ,";
+
+        // console.readLine() 에 테스트 입력 값 등록
+        System.setIn(new ByteArrayInputStream(error.getBytes()));
+        assertThrows(CarNameSizeLimitExceededException.class, InputView::getCarNames);
     }
 
     @Test
@@ -110,16 +132,11 @@ class InputViewTest {
     @DisplayName("자동차 이름 중복 입력 시 예외 발생 테스트")
     void carNameDuplicateTest() {
 
-        String normal = "1,12,123,1234,12345";
         String error = "1,12,12345,1";
 
-        List<Car> carnameList1 = InputView.getCarNameList(normal);
-        assertThat(carnameList1.size()).isEqualTo(5);
-        assertThat(carnameList1).isNotNull();
-
-        assertThrows(CarNameDuplicateException.class, () -> {
-            InputView.getCarNameList(error);
-        });
+        // console.readLine() 에 테스트 입력 값 등록
+        System.setIn(new ByteArrayInputStream(error.getBytes()));
+        assertThrows(CarNameDuplicateException.class, InputView::getCarNames);
     }
 
 }

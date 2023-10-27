@@ -25,7 +25,7 @@ public class InputView {
         return getCarNameList(carNames);
     }
 
-    public static List<Car> getCarNameList(String carNames) {
+    private static List<Car> getCarNameList(String carNames) {
         String[] carNameArr = carNames.trim().split("\\s*,\\s*");
         InputValidate.checkLengthCarName(carNameArr);
         InputValidate.checkDuplicateCarName(carNameArr);
@@ -34,6 +34,4 @@ public class InputView {
                 .map(Car::new)
                 .toList();
     }
-
-
 }
