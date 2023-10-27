@@ -60,11 +60,16 @@ public class RacingGame {
         StringBuilder result = new StringBuilder();
 
         for (Car car : cars) {
-            result.append(" ").append(car.getNameValue()).append(",");
+            result.append(" ").append(car.getNameValue()).append(COMMA);
         }
-        result.deleteCharAt(0);
-        result.deleteCharAt(result.length() - 1);
+
+        trim(result);
 
         return result.toString();
+    }
+
+    private void trim(StringBuilder result) {
+        result.deleteCharAt(0);
+        result.deleteCharAt(result.length() - 1);
     }
 }
