@@ -1,11 +1,13 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 
 public class Car {
 
     private final String name;
-    private final Integer distance;
+    private Integer distance;
 
     public Car(String name, Integer distance){
         this.name = name;
@@ -13,15 +15,15 @@ public class Car {
     }
 
     public void move(){
-
+        this.distance += 1;
     }
 
     public boolean isMove(){
 
     }
 
-    public int makeRandomNum(){
-
+    public int makeRandomNumber(){
+        return Randoms.pickNumberInRange(0,9);
     }
 
     public ArrayList<String> findWinner(){
