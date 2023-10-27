@@ -4,6 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Validator {
+
+    public static String[] isValidName(String[] inputs) {
+        for (String input : inputs) {
+            isEmpty(input);
+            isLengthLessThanFive(input);
+        }
+        isDuplicateName(inputs);
+        return inputs;
+    }
+
     public static void isEmpty(String input) {
         if (input.trim().isEmpty()) {
             throw new IllegalArgumentException(ExceptionMessage.INPUT_VALUE);
