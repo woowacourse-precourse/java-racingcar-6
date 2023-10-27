@@ -10,7 +10,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 
 public class Utility {
-    public static Vector<String> resultName = new Vector<>();
+
     public static Integer race_number;
     public static Map<String, Integer> nameHash = new LinkedHashMap<String, Integer>();
     public static void get_name(){
@@ -60,7 +60,9 @@ public class Utility {
         }
         System.out.print("\n");
     }
+
     public static void printResult(){
+        Vector<String> resultName = new Vector<>();
         Integer Max = 0;
         for(Map.Entry<String, Integer> entry : nameHash.entrySet()){
             if(entry.getValue() > Max){
