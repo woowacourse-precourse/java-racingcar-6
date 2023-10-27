@@ -2,7 +2,7 @@ package racingcar.validator;
 
 import java.util.Arrays;
 
-public class CarNamesInputValidator implements BasicValidator {
+public class CarNamesInputValidator implements BasicValidator<String> {
 
     @Override
     public void validate(String input) {
