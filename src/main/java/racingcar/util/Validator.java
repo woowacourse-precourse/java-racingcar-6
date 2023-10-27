@@ -6,9 +6,8 @@ import java.util.regex.Pattern;
 
 public class Validator {
 
-    public static String[] isValidName(String[] inputs) {
+    public static String[] isValidCarName(String[] inputs) {
         for (String input : inputs) {
-            isEmpty(input);
             isLengthLessThanFive(input);
         }
         isDuplicateName(inputs);
@@ -23,7 +22,7 @@ public class Validator {
     }
 
     public static void isEmpty(String input) {
-        if (input.trim().isEmpty()) {
+        if (input == null || input.trim().isEmpty()) {
             throw new IllegalArgumentException(ExceptionMessage.INPUT_VALUE);
         }
     }
@@ -54,6 +53,17 @@ public class Validator {
         long number = Long.parseLong(input);
         if (number > Integer.MAX_VALUE) {
             throw new IllegalArgumentException("int 데이터 타입 값 범위 내로 입력하세요.");
+        }
+    }
+
+    public static void isValidInput(String input) {
+        isEmpty(input);
+        isValidName(input);
+    }
+
+    public static void isValidName(String input) {
+        if (!Pattern.matches("^[^,]+(,[^,]+)*$", input)) {
+            throw new IllegalArgumentException("유효하지 않은 이름입니다.");
         }
     }
 }
