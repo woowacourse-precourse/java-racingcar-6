@@ -3,7 +3,7 @@ package racingcar.controller;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
-import racingcar.verifier.InpurVerifier;
+import racingcar.verifier.InputVerifier;
 import racingcar.view.InputHandler;
 
 public class CarController {
@@ -14,7 +14,7 @@ public class CarController {
     }
 
     private void createCars(String userInput) {
-        InpurVerifier.verifyName(userInput);
+        InputVerifier.verifyName(userInput);
         List<String> separated = List.of(userInput.split(","));
         separated.forEach(i -> carList.add(new Car(i)));
     }

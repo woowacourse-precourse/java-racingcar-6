@@ -9,6 +9,12 @@ public class InputVerifierTest {
     @DisplayName("5자를 넘어가는 이름 입력에 대한 테스트")
     @Test
     void checkLonger() {
-        assertThrows(IllegalArgumentException.class, () -> InpurVerifier.verifyName("가나다라마,가나다라마바"));
+        assertThrows(IllegalArgumentException.class, () -> InputVerifier.verifyName("가나다라마,가나다라마바"));
+    }
+
+    @DisplayName("이름이 없는 자동차에 대한 테스트")
+    @Test
+    void checkNull() {
+        assertThrows(IllegalArgumentException.class, () -> InputVerifier.verifyName(",,"));
     }
 }
