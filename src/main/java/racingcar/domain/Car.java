@@ -1,11 +1,9 @@
 package racingcar.domain;
 
-import java.util.List;
-
 public class Car {
 
     private String name;
-    private List<String> position;
+    private int position;
 
     public Car(String name) {
         this.name = name;
@@ -15,7 +13,7 @@ public class Car {
         return name;
     }
 
-    public List<String> getPosition() {
+    public int getPosition() {
         return position;
     }
 }
