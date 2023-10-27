@@ -76,7 +76,6 @@ public class GameTest {
         List<String> winners = new ArrayList<>();
 
         winners = game.judgeWinner(carNameList,locations);
-
         Assertions.assertTrue(winners.get(0).equals("jun"));
 
 
