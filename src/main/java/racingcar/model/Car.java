@@ -2,7 +2,7 @@ package racingcar.model;
 
 public class Car {
 
-    private static int CAR_ADVANCE_NUMBER = 4;
+    private static final int CAR_ADVANCE_NUMBER = 4;
     private final Name name;
     private final Advance advance;
 
