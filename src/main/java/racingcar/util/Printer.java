@@ -3,6 +3,9 @@ package racingcar.util;
 import static racingcar.constant.Message.*;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.StringJoiner;
 
 public class Printer {
     public void printStartMessage() {
@@ -17,11 +20,11 @@ public class Printer {
         System.out.println(RACE_RESULT);
     }
 
-    public void printRoundResult(String[] carNames) {
-        Arrays.stream(carNames).forEach(System.out::println);
+    public void printRoundResult(Map.Entry<String, StringBuilder> scoreBoard) {
+        System.out.println(scoreBoard.getKey() + " : " + scoreBoard.getValue());
     }
 
-    public void printWinnersName(String[] carNames) {
-        Arrays.stream(carNames).forEach(System.out::println);
+    public void printWinnersNames(List<String> winnerNames) {
+        System.out.println(WINNER_NAME + String.join(DELIMITER, winnerNames));
     }
 }
