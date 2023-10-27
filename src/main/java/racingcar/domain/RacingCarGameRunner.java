@@ -10,12 +10,12 @@ public class RacingCarGameRunner {
     private final String GAME_START_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private final String NUMBER_OF_ROUND_MESSAGE = "시도할 회수는 몇회인가요?";
 
-    private List<Car> cars;
+    private Cars cars;
 
     public void run() {
         String carNameInput = getPlayerInput(GAME_START_MESSAGE);
         List<String> carNames = processCarNameInput(carNameInput);
-        cars = getEntry(carNames);
+        cars = Cars.createCars(getEntry(carNames));
 
         String numberOfRoundInput = getPlayerInput(NUMBER_OF_ROUND_MESSAGE);
         validateInput(numberOfRoundInput);
@@ -24,11 +24,10 @@ public class RacingCarGameRunner {
         System.out.println();
 
         for (int i = 0; i < numberOfRound; i++) {
-            cars.forEach(car -> {
-                car.attemptMovingForward();
-                car.printCar();
-            });
+            cars.moveForward();
         }
+
+
     }
 
     private String getPlayerInput(String message) {
