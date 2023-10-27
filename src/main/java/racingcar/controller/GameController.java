@@ -8,6 +8,7 @@ import racingcar.model.CarName;
 import racingcar.model.Cars;
 import racingcar.model.Dice;
 import racingcar.model.DiceNumber;
+import racingcar.model.Distance;
 import racingcar.model.Game;
 import racingcar.model.WinnerList;
 
@@ -40,7 +41,7 @@ public class GameController {
         StringBuilder stringBuilder = new StringBuilder();
         for (Car car : cars.getCars()) {
             DiceNumber diceNumber = rollDiceTen().getDiceNumber();
-            car.addDistance(diceNumber.getRawDiceNumber(), MOVING_FORWARD_NUMBER);
+            car.forward(diceNumber.getRawDiceNumber(), MOVING_FORWARD_NUMBER);
             stringBuilder.append(car.getDistanceLine()).append("\n");
         }
         return String.valueOf(stringBuilder);
@@ -50,7 +51,8 @@ public class GameController {
         int max = 0;
         List<String> winnerName = new ArrayList<>();
         for (Car c : cars.getCars()) {
-            max = Math.max(max, c.getDistance());
+            Distance distance = c.getDistance();
+            max = Math.max(max, distance.getDistance());
         }
         for (Car c : cars.getCars()) {
             winnerValid(c, max, winnerName);
@@ -59,7 +61,8 @@ public class GameController {
     }
 
     private static void winnerValid(Car c, int max, List<String> winnerName) {
-        if (c.getDistance() == max) {
+        Distance distance = c.getDistance();
+        if (distance.getDistance() == max) {
             CarName carName = c.getName();
             winnerName.add(carName.getRawName());
         }
