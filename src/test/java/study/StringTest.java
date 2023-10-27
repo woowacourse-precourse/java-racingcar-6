@@ -71,4 +71,5 @@ public class StringTest {
         assertThat(b1).isTrue();
         assertThat(b2).isFalse();
     }
+
 }
