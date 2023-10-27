@@ -2,6 +2,7 @@ package racingcar.model;
 
 public class Car {
     private String name;
+    private int location = 0;
 
     public Car(String name) {
         if (name == null) {
@@ -18,5 +19,15 @@ public class Car {
 
     public String getName() {
         return name;
+    }
+
+    public void goOrStop(int i) {
+        if(i>3) {
+            location++;
+        }
+    }
+
+    public int getLocation() {
+        return location;
     }
 }

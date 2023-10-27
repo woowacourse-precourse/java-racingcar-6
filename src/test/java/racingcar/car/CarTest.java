@@ -43,4 +43,20 @@ public class CarTest {
         }
     }
 
+    @Test
+    void 정지확인_3이하() {
+        Car car = new Car("tobi");
+        car.goOrStop(3);
+
+        assertThat(car.getLocation()).isEqualTo(0);
+    }
+
+    @Test
+    void 이동확인_4이상() {
+        Car car = new Car("tobi");
+        car.goOrStop(4);
+
+        assertThat(car.getLocation()).isEqualTo(1);
+    }
+
 }
