@@ -3,26 +3,24 @@ package racingcar.implementation;
 import java.util.*;
 
 public class ValidChecker {
-    public static boolean isAlphabetic(String car) {
+    public static void isAlphabetic(String car) {
         for (int i = 0; i < car.length(); i++) {
             if (!(97 <= car.charAt(i) && car.charAt(i) <= 122)) {
-                return false;
+                throw new IllegalArgumentException("알파벳 소문자가 아닌 값이 입력됐습니다.");
             }
         }
-        return true;
     }
 
-    public static boolean isDuplicated(List<String> carList) {
+    public static void isDuplicated(List<String> carList) {
         Set<String> carSet = new HashSet<>();
 
         for (String car : carList) {
             if (carSet.contains(car)) {
-                return false;
+                throw new IllegalArgumentException("중복된 자동차 이름이 입력됐습니다..");
             } else {
                 carSet.add(car);
             }
         }
-        return true;
     }
 
     public static ArrayList<String> carListCheck(String input) {
