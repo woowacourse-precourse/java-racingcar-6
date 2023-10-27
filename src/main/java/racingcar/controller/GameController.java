@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Car;
+import racingcar.exception.CountException;
 import racingcar.exception.NameException;
 import racingcar.view.PlayerInput;
 
@@ -15,7 +16,11 @@ public class GameController {
     public void start() {
         String nameInput = input.inputCarNames();
         String[] names = nameInput.split(",");
+
         NameException.validation(names);
-        input.inputTryCount();
+
+        String number = input.inputTryCount();
+
+        CountException.validation(number);
     }
 }
