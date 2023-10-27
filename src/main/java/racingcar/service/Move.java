@@ -7,21 +7,24 @@ import racingcar.domain.RandomNumberGenerator;
 
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Move {
     Car car = new Car();
 
     public void moveTheCar(LinkedHashMap<String, String> carList, List<Integer> randomNumberList) {
         int randomNumberListIndex = 0;
-        carList.forEach((key, value) -> {
+        for (Map.Entry<String, String> entry : carList.entrySet()) {
+            String key = entry.getKey();
             if (randomNumberList.get(randomNumberListIndex) >= 4) {
-                String moveValue = car.getCarList().get(key);
-                car.getCarList().put(key, moveValue + "-");
+                String moveValue = carList.get(key);
+                carList.put(key, moveValue + "-");
             }
-        });
+            randomNumberListIndex++;
+        }
     }
 
-    public void stopTheCar(String carname) {
+    public void stopTheCar(LinkedHashMap<String, String> carList, List<Integer> randomNumberList) {
         String moveValue = car.getCarList().get(carname);
         car.getCarList().put(carname, moveValue + "");
     }
