@@ -14,5 +14,6 @@ public class RacingCarController {
         outputView.printStartMessage();
         inputView.readRacingCarName();
         outputView.printRepeatNumberMessage();
+        inputView.readRepeatCount();
     }
 }

@@ -9,4 +9,9 @@ public class InputView {
         InputValidator.validateDelimiter(input);
         return input;
     }
+
+    public String readRepeatCount() {
+        String input = Console.readLine();
+        return input;
+    }
 }
