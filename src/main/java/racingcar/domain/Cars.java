@@ -7,22 +7,22 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import racingcar.util.EmptyValidator;
+import racingcar.util.BlankValidator;
 
 public class Cars {
     private static final String PLEASE_INPUT_CAR_NAME_LENGTH_5 = "의 이름 5자를 초과했습니다";
     private static final String PLEASE_INPUT_NOT_DUPLICATE_CAR_NAMES = "중복된 자동차 이름이 있습니다.";
     private static final int CAR_NAME_LENGTH_LIMIT = 5;
     private static final int CAR_INIT_COUNT = 0;
-    private final EmptyValidator emptyValidator;
+    private final BlankValidator blankValidator;
     private final HashMap<String, Integer> cars = new HashMap<>();
 
-    public Cars(EmptyValidator emptyValidator) {
-        this.emptyValidator = emptyValidator;
+    public Cars(BlankValidator blankValidator) {
+        this.blankValidator = blankValidator;
     }
 
     public void addCars(String carNames) {
-        emptyValidator.validateEmpty(carNames);
+        blankValidator.isEmpty(carNames);
 
         carNames = removeSpaces(carNames);
         List<String> carNameList = splitByComma(carNames);

@@ -2,16 +2,16 @@ package racingcar.controller;
 
 import racingcar.domain.Cars;
 import racingcar.domain.Racing;
-import racingcar.util.EmptyValidator;
+import racingcar.util.BlankValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingController {
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
-    EmptyValidator emptyValidator = new EmptyValidator();
-    Cars cars = new Cars(emptyValidator);
-    Racing racing = new Racing(cars, emptyValidator);
+    BlankValidator blankValidator = new BlankValidator();
+    Cars cars = new Cars(blankValidator);
+    Racing racing = new Racing(cars, blankValidator);
 
     public void raceStart() {
         cars.addCars(inputView.printCarNameRequest());

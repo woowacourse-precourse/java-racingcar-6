@@ -138,8 +138,8 @@ __2. OutputView__
     최종 우승자 : pobi, jun
 
 ## util
-__1. EmptyValidator__
--  [x] validateEmpty
+__1. BlankValidator__
+-  [x] isEmpty
     - Cars와 Racing에서 공통적으로 사용되는 빈값입력을 검증한다
 
 ## controller

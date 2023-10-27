@@ -3,24 +3,24 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.math.BigInteger;
 import java.util.HashMap;
-import racingcar.util.EmptyValidator;
+import racingcar.util.BlankValidator;
 
 public class Racing {
     private static final String PLEASE_NOT_INPUT_BETWEEN_NUMBER_BLANK = "숫자사이에 공백을 입력하지 마세요";
     private static final String PLEASE_INPUT_ONLY_NUMBER = "자연수만 입력해주세요";
     private static final String PLEASE_INPUT_CORRECT_RANGE = "숫자가 너무 크거나 작습니다";
     private static final String PLEASE_INPUT_NATURAL_NUMBER = "자연수를 입력해주세요";
-    private final EmptyValidator emptyValidator;
+    private final BlankValidator blankValidator;
     private final Cars cars;
     private long attempCount;
 
-    public Racing(Cars cars, EmptyValidator emptyValidator) {
+    public Racing(Cars cars, BlankValidator blankValidator) {
         this.cars = cars;
-        this.emptyValidator = emptyValidator;
+        this.blankValidator = blankValidator;
     }
 
     public void validateAttemptCount(String attemptCount) throws IllegalArgumentException {
-        emptyValidator.validateEmpty(attemptCount);
+        blankValidator.isEmpty(attemptCount);
 
         String trimmedCount = trimSpaces(attemptCount);
         checkForInternalSpaces(trimmedCount);
