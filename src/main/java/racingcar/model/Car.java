@@ -37,7 +37,7 @@ public class Car {
         return names.get(idx);
     }
 
-    public List<Integer> getMileage() {
-        return mileage;
+    public int getMileageByIndex(int idx) {
+        return mileage.get(idx);
     }
 }
