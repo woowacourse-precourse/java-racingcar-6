@@ -5,7 +5,7 @@
   - [x] 각 자동차에 이름을 부여할 수 있다.(자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다.)
     - CarGenerator 클래스에서 생성 후 Car 클래스에 저장
       - 문자열 분리 하는 ```splitStringByCommas()``` 메서드
-      - 분리된 문자열은 HashMap(carList)의 Key 값으로 넣어줘야 함 Value 초기값은 ''
+      - 분리된 문자열은 LinkedHashMap(carList)의 Key 값으로 넣어줘야 함 Value 초기값은 ''
   - [x] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다. domain
     - Random 값 추출하는 createRandomNumber() 메서드
       - moveTheCar 메서드
