@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class Cars {
@@ -17,5 +18,11 @@ public class Cars {
 
     public List<Car> getCars(){
         return cars;
+    }
+
+    public List<Car> findWiiningCars(){
+        return cars.stream()
+                .max(Comparator.comparingInt(Car::getPosition))
+                .stream().toList();
     }
 }

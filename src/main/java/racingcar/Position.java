@@ -38,4 +38,8 @@ public class Position {
     public String switchPositionToSlash(){
         return SLASH.repeat(position);
     }
+
+    public int getPosition(){
+        return position;
+    }
 }

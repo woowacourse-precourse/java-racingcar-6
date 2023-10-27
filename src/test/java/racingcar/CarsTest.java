@@ -11,16 +11,17 @@ public class CarsTest {
     @DisplayName("가장 멀리나간 자동차를 구하는 기능.")
     @Test
     void findWinningCars_가장_멀리나간_차들(){
-        Cars cars=new Cars(Arrays.asList(
-                new Car(new Name("pobi"),new Position(2)),
-                new Car(new Name("woni"),new Position(3)),
-                new Car(new Name("jun"),new Position(1)),
-                new Car(new Name("ski"),new Position(3))
-        ));
+        Car pobi= new Car(new Name("pobi"),new Position(2));
+        Car woni= new Car(new Name("woni"),new Position(3));
+        Car jun=  new Car(new Name("jun"),new Position(1));
+        Car ski= new Car(new Name("ski"),new Position(3));
+        Cars cars=new Cars(Arrays.asList(pobi,woni,jun,ski));
+        List<Car> expected=Arrays.asList(woni,ski);
 
         List<Car> winningCars=cars.findWiiningCars();
 
-        assertThat(winningCars).contains(new Car(new Name("ski"),new Position(3)),new Car(new Name("woni"),new Position(3)));
-        assertThat(winningCars).containsExactly(new Car(new Name("ski"),new Position(3)),new Car(new Name("woni"),new Position(3)));
+        for(int index=0;index<winningCars.size();index++){
+            assertThat(winningCars.get(index)).isEqualTo(expected.get(index));
+        }
     }
 }

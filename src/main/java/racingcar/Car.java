@@ -21,4 +21,8 @@ public class Car {
         return position.switchPositionToSlash();
     }
 
+    public int getPosition(){
+        return position.getPosition();
+    }
+
 }
