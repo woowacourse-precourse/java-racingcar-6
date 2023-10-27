@@ -37,12 +37,16 @@ public class CarNamesInputValidator implements InputValidator {
         }
     }
 
+    private void isCarNameLengthValid(String carName) {
+        if (carName.length() > 5 || carName.isEmpty()) {
+            throw new IllegalArgumentException("자동차 이름은 1자 이상, 5자 이하만 가능합니다.");
+        }
+    }
+
     private void isEachCarNameLengthValid(String input) {
         String[] carNames = input.split(",");
         for (String carName : carNames) {
-            if (carName.length() > 5 || carName.isEmpty()) {
-                throw new IllegalArgumentException("자동차 이름은 1자 이상, 5자 이하만 가능합니다.");
-            }
+            isCarNameLengthValid(carName);
         }
     }
 
