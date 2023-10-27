@@ -13,9 +13,18 @@ public class GameRound {
         this.currentRound = currentRound;
     }
 
+    public Boolean increaseCurrentRound() {
+        Boolean increased = isLeftRound();
+        if (increased) {
+            this.currentRound++;
+        }
+        return increased;
+    }
+
     public Boolean isLeftRound() {
         return currentRound < totalRound ? true : false;
     }
+
 
     private void validateTotalRound(int totalRound) {
         if (totalRound < MIN_ROUND_COUNT) {
