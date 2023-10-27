@@ -36,13 +36,20 @@
 ### GameBuilder
 
 역할 : 사용자의 입력을 처리하고, 게임 객체를 생성한다.
-- `GameBuilder getCarsName() throws IllegalArgumentException`
+- `GameBuilder getCarsName()`
   - 자동차의 이름을 입력받는다.
-- `GameBuilder getRoundNumber()throws IllegalArgumentException`
+- `GameBuilder getRoundNumber()`
   - 라운드 수를 입력받는다.
 - `Game build()`
   - 입력받은 정보들을 사용해 `Game` 객체를 생성한다.
 
+### InputValidator
+
+역할 : 사용자의 입력을 검증한다.
+- `void validateCarsName() throws IllegalArgumentException`
+  - 사용자가 입력한 자동차 이름을 검증한다.
+- `void validateRoundNumber() throws IllegalArgumentException`
+  - 사용자가 입력한 라운드 수를 검증한다.
 ### Car
 
 역할 : 각 자동차의 정보를 저장한다.<br>
