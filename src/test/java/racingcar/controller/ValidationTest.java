@@ -45,4 +45,19 @@ public class ValidationTest {
         String inputToken = "name4";
         assertThatCode(() -> sample.checkNameTokenDuplicated(inputToken, inputMap)).doesNotThrowAnyException();
     }
+
+    @Test
+    @DisplayName("입력된 시도횟수가 정수로 변환되면 정상 종료, 문자가 섞여 있으면 예외 처리")
+    void checkRoundsNumeric_test() {
+        assertThatIllegalArgumentException().isThrownBy(() -> sample.checkRoundsNumeric("5.0"));
+        assertThatIllegalArgumentException().isThrownBy(() -> sample.checkRoundsNumeric("5a"));
+        assertThatCode(() -> sample.checkRoundsNumeric("-5")).doesNotThrowAnyException();
+        assertThatCode(() -> sample.checkRoundsNumeric("5")).doesNotThrowAnyException();
+    }
+    @Test
+    @DisplayName("정수로 변환한 시도횟수가 0이거나 음수면 예외 처리, 양수면 정상 종료")
+    void checkRoundsZeroOrNegative_test() {
+        assertThatIllegalArgumentException().isThrownBy(() -> sample.checkRoundsZeroOrNegative(0));
+        assertThatCode(() -> sample.checkRoundsZeroOrNegative(5)).doesNotThrowAnyException();
+    }
 }

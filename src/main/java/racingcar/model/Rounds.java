@@ -14,7 +14,7 @@ public class Rounds {
     public int getRounds(String input) {
         validation.checkRoundsNumeric(input);
         int rounds = Integer.parseInt(input);
-        validation.checkRoundsZero(rounds);
+        validation.checkRoundsZeroOrNegative(rounds);
         return rounds;
     }
 }

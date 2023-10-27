@@ -42,8 +42,8 @@ public class Validation {
         }
     }
 
-    public void checkRoundsZero(int rounds) {
-        if (rounds == 0) {
+    public void checkRoundsZeroOrNegative(int rounds) {
+        if (rounds <= 0) {
             throw new IllegalArgumentException(ZERO_ROUNDS);
         }
     }
