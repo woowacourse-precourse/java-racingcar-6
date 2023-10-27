@@ -4,7 +4,8 @@ public class Name {
     private final String value;
     private static final int MAX_LENGTH = 5;
 
-    public Name(final String name){
+    public Name(String name){
+        name = removeSpace(name);
         validate(name);
         this.value = removeSpace(name);
     }
