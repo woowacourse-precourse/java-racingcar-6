@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.util.Validator;
 
 public class InputView {
 
@@ -29,11 +30,13 @@ public class InputView {
                 .map(String::trim)
                 .toList();
 
+        Validator.InputCarName(carNameList);
         return carNameList;
     }
 
     public int getRaceCount() {
         int raceCount = Integer.parseInt(Console.readLine());
+        Validator.InputRaceCount(Integer.toString(raceCount));
         return raceCount;
     }
 
