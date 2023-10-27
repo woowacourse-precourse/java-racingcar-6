@@ -3,7 +3,7 @@ package racingcar;
 import player.Player;
 import user.User;
 import utils.JoinComma;
-import utils.RandomNumber;
+import utils.Create;
 
 import java.util.*;
 
@@ -28,7 +28,7 @@ public class Game {
         }
         for (int move = 0; move < Integer.parseInt(moveNumber); move++) {
             for (Player car : playerObjects) {
-                car.move(RandomNumber.create());
+                car.move(Create.randomNumber());
                 System.out.println(car.getPlayerName() + " : " + "-".repeat(car.getDist()));
             }
             System.out.println();
