@@ -3,7 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class RacingGame {
-    String[] carNameList;
+    private String[] carNameList;
+    private Integer tryNumber;
 
     public void init(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -12,6 +13,13 @@ public class RacingGame {
         for(String s : carNameList){
             System.out.println(s);
         }
+    }
+
+    public void InputTryNumber(){
+        System.out.println("시도할 회수는 몇회인가요?");
+        tryNumber = Integer.parseInt(Console.readLine());
+        // test code
+        System.out.println("tryNumber = " + tryNumber);
     }
 
 }
