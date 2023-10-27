@@ -7,7 +7,7 @@ import java.util.List;
 public class InputView {
     MagicVariable magicVariable = new MagicVariable();
     public InputView() {}
-    public String getCarNames() {
+    public String getCarNameInput() {
         System.out.println(magicVariable.RACE_START_MESSAGE);
         String carNameInput = Console.readLine();
         String[] carNames = carNameInput.split(",");
