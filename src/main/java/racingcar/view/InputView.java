@@ -11,4 +11,8 @@ public class InputView {
         return new CarNames(consoleProvider.provide());
     }
 
+    public AttemptsNumber readAttemptsNumber() {
+        return new AttemptsNumber(consoleProvider.provide());
+    }
+
 }
