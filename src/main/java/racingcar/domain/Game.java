@@ -29,7 +29,7 @@ public class Game {
 
     }
 
-    public WinnersMessage getWinners() {
+    public WinnersMessage getWinnersMessage() {
         Integer farthest = getFarthestDistance();
         List<Car> winners = getWinners(farthest);
         return new WinnersMessage(winners);
