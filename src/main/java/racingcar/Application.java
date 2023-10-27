@@ -13,5 +13,18 @@ public class Application {
 
         Map<String, Integer> carMap = Stream.of(carNames.split(","))
                 .collect(Collectors.toMap(carName -> carName, score -> 0));
+        System.out.println(carMap);
+
+        System.out.println("시도할 회수는 몇회인가요?");
+
+        int tryCount = 0;
+        try {
+            tryCount = Integer.parseInt(Console.readLine());
+            if (tryCount < 1) {
+                throw new IllegalArgumentException("시도할 회수는 1회 이상이어야 합니다.");
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도할 회수로 숫자를 입력해주세요.");
+        }
     }
 }
