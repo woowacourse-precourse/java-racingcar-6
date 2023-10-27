@@ -10,8 +10,9 @@ public class InputValidator {
 
     public static void validateCarNames(String names) {
         validateDividedByComma(names);
-        validateNamesLength(names);
-        validateDuplicatedName(names);
+        String[] nameArray = names.split(",");
+        validateNamesLength(nameArray);
+        validateDuplicatedName(nameArray);
     }
 
     private static void validateDividedByComma(String names) {
@@ -20,15 +21,13 @@ public class InputValidator {
         }
     }
 
-    private static void validateNamesLength(String names) {
-        String[] nameArray = names.split(",");
+    private static void validateNamesLength(String[] nameArray) {
         if (nameArray.length < MIN_CARS_LENGTH) {
             throw new IllegalArgumentException(CARS_LENGTH_EXCEPTION_MESSAGE);
         }
     }
 
-    private static void validateDuplicatedName(String names) {
-        String[] nameArray = names.split(",");
+    private static void validateDuplicatedName(String[] nameArray) {
         if (Arrays.asList(nameArray).stream().distinct().count() != nameArray.length) {
             throw new IllegalArgumentException(DUPLICATED_NAME_EXCEPTION_MESSAGE);
         }
