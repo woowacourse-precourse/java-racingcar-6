@@ -19,12 +19,12 @@ public class Car {
         return this.progress.toString();
     }
 
-    public void setProgress(){
+    public void setProgress() {
         this.progress.append("-");
     }
 
-    public int generateRandomNumber(){
-        return Randoms.pickNumberInRange(0,9);
+    public int generateRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 
 }

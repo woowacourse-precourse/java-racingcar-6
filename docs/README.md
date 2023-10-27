@@ -9,8 +9,8 @@
 - [x] 우승자를 출력할 메소드 구현 - displayWinner()
 - [x] 각 자동차 별로 1회당 0 ~ 9 사이의 랜덤 숫자를 생성한다. - generateRandomNumber()
     - [x] 4 이상일 경우 한 번 진행시킨다. - moveCarIfRandomNumberIsFourOrHigher()
-- [ ] 게임을 진행할 컨트롤러를 생성한다.
-- [ ] 시도할 횟수가 끝나고 결과를 검사한다.
+- [ ] 레이스를 진행할 컨트롤러를 생성한다. - startRace()
+- [ ] 시도할 횟수가 끝나고 우승자를 검사한다. - findWinner()
 
 ## 기능 요구 사항
 
