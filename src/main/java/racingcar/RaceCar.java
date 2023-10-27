@@ -1,8 +1,7 @@
-package racingcar.race;
+package racingcar;
 
 import racingcar.configuration.AppConfig;
-import racingcar.model.CarName;
-import racingcar.util.MoveProbability;
+import racingcar.domain.MoveProbability;
 
 public class RaceCar {
 

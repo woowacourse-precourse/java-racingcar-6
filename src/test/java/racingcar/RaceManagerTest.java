@@ -1,4 +1,4 @@
-package racingcar.race;
+package racingcar;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;

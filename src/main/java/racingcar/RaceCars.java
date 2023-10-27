@@ -1,10 +1,9 @@
-package racingcar.race;
+package racingcar;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import racingcar.model.CarName;
 import racingcar.view.Input;
 
 public class RaceCars {

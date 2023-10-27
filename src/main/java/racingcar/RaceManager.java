@@ -1,7 +1,6 @@
-package racingcar.race;
+package racingcar;
 
 import racingcar.configuration.AppConfig;
-import racingcar.model.AttemptNumber;
 import racingcar.view.Output;
 
 public class RaceManager {

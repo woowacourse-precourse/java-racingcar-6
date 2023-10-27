@@ -1,7 +1,7 @@
 package racingcar.configuration;
 
-import racingcar.util.NumberGenerator;
-import racingcar.util.RandomNumberGenerator;
+import racingcar.domain.NumberGenerator;
+import racingcar.domain.RandomNumberGenerator;
 import racingcar.view.AttemptInput;
 import racingcar.view.Input;
 import racingcar.view.NamesInput;
