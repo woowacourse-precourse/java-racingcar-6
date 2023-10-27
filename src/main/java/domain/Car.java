@@ -18,7 +18,11 @@ public class Car {
 
     public void moveOrStop(int randomNumber) {
         if (randomNumber >= 4) {
-            count.plusForward();
+            count.plusCount();
         }
+    }
+
+    public int getCount() {
+        return count.getCount();
     }
 }
