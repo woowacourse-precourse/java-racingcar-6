@@ -18,4 +18,8 @@ public class RacingCarGame {
             carNameList.add(carNameArray[i]);
         }
     }
+
+    public List<String> getCarNameList() {
+        return carNameList;
+    }
 }
