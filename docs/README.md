@@ -6,12 +6,11 @@
     - CarGenerator 클래스에서 생성 후 Car 클래스에 저장
       - 문자열 분리 하는 ```splitStringByCommas()``` 메서드
       - 분리된 문자열은 HashMap(carList)의 Key 값으로 넣어줘야 함 Value 초기값은 ''
-    - [] n 개의 자동차에 대한 전진 기록 변수 필요 (Map에 자동차 이름을 Key값으로 저장) 
   - [] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다. domain
-    - Map에 저장된 각 자동차에 대해서 Random값 부여
+    - carList에 저장된 각 자동차에 대해서 Random값 부여
       - RandomNumber >= 4 일 때 Map['자동차이름'] + '-'
   - [] 멈추는 조건은 값이 4 미만인 경우
-    - Map에 저장된 각 자동차에 대해서 Random값 부여
+    - carList에 저장된 각 자동차에 대해서 Random값 부여
       - RandomNumber < 4 일 때 Map['자동차이름'] + ''
 
 - 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다.
