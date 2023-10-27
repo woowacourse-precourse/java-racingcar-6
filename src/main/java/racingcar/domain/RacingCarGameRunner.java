@@ -16,6 +16,7 @@ public class RacingCarGameRunner {
         String carNameInput = getPlayerInput(GAME_START_MESSAGE);
         List<String> carNames = processCarNameInput(carNameInput);
         cars = getEntry(carNames);
+        String numberOfRoundInput = getPlayerInput(NUMBER_OF_ROUND_MESSAGE);
 
     }
 
