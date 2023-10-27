@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 final class NameTest {
 
@@ -23,5 +22,13 @@ final class NameTest {
     @ValueSource(strings = {"a", "abc", "abcde"})
     void 자동차이름의_길이가_1이상_5이하일_경우_예외가_발생하지_않는다(String name) {
         assertDoesNotThrow(() -> new Name(name));
+    }
+
+    @Test
+    void 동일한_이름은_동일한_객체로_인식된다() {
+        Name name1 = new Name("동일한이름");
+        Name name2 = new Name("동일한이름");
+
+        assertEquals(name1, name2);
     }
 }
