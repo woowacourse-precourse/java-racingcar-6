@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Car;
+import racingcar.exception.NameException;
 import racingcar.view.PlayerInput;
 
 import java.util.ArrayList;
@@ -12,7 +13,9 @@ public class GameController {
     private int tryCount;
 
     public void start() {
-        input.inputCarNames();
+        String nameInput = input.inputCarNames();
+        String[] names = nameInput.split(",");
+        NameException.validation(names);
         input.inputTryCount();
     }
 }
