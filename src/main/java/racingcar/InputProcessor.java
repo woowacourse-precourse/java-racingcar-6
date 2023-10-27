@@ -10,9 +10,7 @@ public class InputProcessor {
 
     public List<Car> getCarNameListInput() {
         String carNamesInput = Console.readLine();
-
         validateCarNameInput(carNamesInput);
-
         return parseCarNameInputToList(carNamesInput);
     }
 
@@ -28,5 +26,32 @@ public class InputProcessor {
         if (!carNamesInput.matches(CAR_NAMES_INPUT_REGEX)) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public Integer getRepetitionInput() {
+        int repetition;
+
+        String repetitionInput = Console.readLine();
+        repetition = parseRepititionInput(repetitionInput);
+        validateRepititionInput(repetition);
+
+        return repetition;
+    }
+
+    private static void validateRepititionInput(int repetition) {
+        if (repetition < 1) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private static int parseRepititionInput(String repetitionInput) {
+        int repetition;
+        try {
+            repetition = Integer.parseInt(repetitionInput);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+
+        return repetition;
     }
 }
