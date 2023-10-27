@@ -7,7 +7,7 @@
       - 문자열 분리 하는 ```splitStringByCommas()``` 메서드
       - 분리된 문자열은 LinkedHashMap(carList)의 Key 값으로 넣어줘야 함 Value 초기값은 ''
   - [x] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다. service
-    - Random 값 추출하는 createRandomNumber() 메서드
+    - Random 값 추출하는 createRandomNumber() 메서드 (domain의 클래스로 관리)
       - moveTheCar 메서드
       - RandomNumber >= 4 일 때 Map['자동차이름'] + '-'
   - [x] 멈추는 조건은 값이 4 미만인 경우
