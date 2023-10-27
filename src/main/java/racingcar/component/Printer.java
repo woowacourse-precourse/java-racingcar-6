@@ -24,6 +24,19 @@ public class Printer {
         System.out.println();
     }
 
+    public void printWinner(List<Car> cars) {
+        StringBuilder sb = new StringBuilder();
+        Queue<Car> winners = getWinners(cars);
+
+        sb.append("최종 우승자 : ").append(winners.poll().getName());
+
+        while (!winners.isEmpty()) {
+            sb.append(", ").append(winners.poll().getName());
+        }
+
+        System.out.println(sb);
+    }
+
     private Queue<Car> getWinners(List<Car> cars) {
         int top;
         int i = 0;
