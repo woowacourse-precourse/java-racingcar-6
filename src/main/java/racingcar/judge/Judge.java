@@ -1,30 +1,23 @@
 package racingcar.judge;
 
-import racingcar.drive.Drive;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 public class Judge {
-
-    public List<String> getWinners(List<String> driverList, String input) {
-        int lapsToDrive = Integer.parseInt(input);
-        List<String> winners = new ArrayList<>();
+    public String calculateWinners(Map<String, String> driverMap) {
         int maxLaps = 0;
+        StringBuilder winners = new StringBuilder();
 
-        for (String driver : driverList) {
-            Drive drive = new Drive();
-            int lapsDriven = drive.lapsToDrive(input);
-
-            if (lapsDriven > maxLaps) {
-                maxLaps = lapsDriven;
-                winners.clear();
-                winners.add(driver);
-            } else if (lapsDriven == maxLaps) {
-                winners.add(driver);
+        for (String driverName : driverMap.keySet()) {
+            int laps = driverMap.get(driverName).length();
+            if (laps > maxLaps) {
+                maxLaps = laps;
+                winners = new StringBuilder(driverName);
+            } else if (laps == maxLaps) {
+                winners.append(", ").append(driverName);
             }
         }
 
-        return winners;
+        return winners.toString();
     }
 }
+
