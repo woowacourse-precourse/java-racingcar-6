@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -21,9 +24,22 @@ class InputViewTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"pobi", "woni", "jun"})
-    void 입력받은_자동차_이름을_CarName_객체로_반환하는지_테스트(String input) {
+    @ValueSource(strings = {"pobi,woni,jun", "gim,lee,park", "lee,jun,ho"})
+    void 입력받은_자동차_이름들을_CarNames_객체로_반환하는지_테스트(String input) {
         when(mockProvider.provide()).thenReturn(input);
-        assertEquals(new CarName(input), inputView.readCarName());
+
+        CarNames expectedCarNames = new CarNames(input);
+        CarNames actualCarNames = inputView.readCarNames();
+
+        assertEquals(expectedCarNames, actualCarNames);
+    }
+
+
+    @ParameterizedTest
+    @ValueSource(strings = {"pobi,woni,jun", "gim,lee,park", "lee,jun,ho"})
+    void 입력된_자동차_이름이_쉼표로_정상적으로_구분되는지_테스트(String input) {
+        when(mockProvider.provide()).thenReturn(input);
+        CarNames carNames = inputView.readCarNames();
+        assertEquals(input, carNames.formatNames());
     }
 }
