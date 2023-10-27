@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import racingcar.model.Car;
-import racingcar.model.CarList;
+import racingcar.model.Cars;
 
 public class OutputView {
     public static void printResultHeaderMessage() {
@@ -9,11 +9,11 @@ public class OutputView {
     }
 
     // 현재 자동차들의 전진 상태 출력 하는 기능
-    public static void printCurrentForwardState(CarList carList) {
+    public static void printCurrentForwardState(Cars carList) {
         System.out.println(getForwardStateStringOfCarList(carList));
     }
 
-    public static String getForwardStateStringOfCarList(CarList carList) {
+    public static String getForwardStateStringOfCarList(Cars carList) {
         StringBuilder sb = new StringBuilder();
         for (Car car : carList.getCarList()) {
             sb.append(getForwardStateStringOfCar(car));
@@ -28,11 +28,11 @@ public class OutputView {
     }
 
     // 최종 우승자 출력 하는 기능
-    public static void printWinners(CarList winners) {
+    public static void printWinners(Cars winners) {
         System.out.println(winnersToString(winners));
     }
 
-    private static String winnersToString(CarList winners) {
+    private static String winnersToString(Cars winners) {
         StringBuilder sb = new StringBuilder();
         sb.append("최종 우승자 : ");
         for (int i = 0; i < winners.size(); i++) {

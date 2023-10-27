@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Comparator;
 import java.util.List;
 import racingcar.model.Car;
-import racingcar.model.CarList;
+import racingcar.model.Cars;
 import racingcar.view.OutputView;
 
 public class RacingGameController extends GameController {
@@ -27,21 +27,21 @@ public class RacingGameController extends GameController {
 
     @Override
     public void startGame() {
-        CarList carList = RacingGameInputController.scanCarList();
+        Cars cars = RacingGameInputController.scanCarList();
         int numberOfRounds = RacingGameInputController.scanNumberOfRounds();
 
         OutputView.printResultHeaderMessage();
         for (int i = 0; i < numberOfRounds; i++) {
-            doOneRound(carList);
-            OutputView.printCurrentForwardState(carList);
+            doOneRound(cars);
+            OutputView.printCurrentForwardState(cars);
         }
-        OutputView.printWinners(pickWinners(carList));
+        OutputView.printWinners(pickWinners(cars));
 
         endGame();
     }
 
-    private void doOneRound(CarList carList) {
-        for (Car car : carList.getCarList()) {
+    private void doOneRound(Cars cars) {
+        for (Car car : cars.getCarList()) {
             moveOrNot(car);
         }
     }
@@ -53,13 +53,13 @@ public class RacingGameController extends GameController {
         }
     }
 
-    private CarList pickWinners(CarList carList) {
-        Car winner1 = carList.getCarList().stream()
+    private Cars pickWinners(Cars cars) {
+        Car winner1 = cars.getCarList().stream()
                 .max(Comparator.comparingInt(Car::getPosition)).get();
-        List<Car> winnerList = carList.getCarList().stream()
+        List<Car> winnerList = cars.getCarList().stream()
                 .filter(car -> car.getPosition() == winner1.getPosition())
                 .toList();
-        return new CarList(winnerList);
+        return new Cars(winnerList);
     }
 
     private void endGame() {

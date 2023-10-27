@@ -3,10 +3,10 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarList {
+public class Cars {
     private List<Car> carList;
 
-    public CarList(List<Car> carList) {
+    public Cars(List<Car> carList) {
         validateNull(carList);
         validateDuplicateName(carList);
         this.carList = carList;

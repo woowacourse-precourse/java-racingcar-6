@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.model.Car;
-import racingcar.model.CarList;
+import racingcar.model.Cars;
 import racingcar.view.InputView;
 
 // 프론트 엔드 역할을 할 컨트롤러
 public class RacingGameInputController {
     // 자동차 이름 입력 및 검증
-    public static CarList scanCarList() {
+    public static Cars scanCarList() {
         InputView.printEnterCarNames();
         String userInput = Console.readLine();
         validateCarList(userInput);
@@ -50,11 +50,11 @@ public class RacingGameInputController {
         }
     }
 
-    private static CarList createCarList(String userInput) {
+    private static Cars createCarList(String userInput) {
         List<Car> carList = new ArrayList<>();
         parseWithComma(userInput)
                 .forEach(name -> carList.add(new Car(name)));
-        return new CarList(carList);
+        return new Cars(carList);
     }
 
     private static List<String> parseWithComma(String userInput) {
