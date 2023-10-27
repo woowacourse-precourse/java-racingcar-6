@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Application {
@@ -15,27 +16,59 @@ public class Application {
             result.add(0);
 
         System.out.println("\n실행 결과");
+
         for(int i=0;i<tryOut;i++){
             List<Integer> randomCondition=forwardCondition(cars.size());
             addRandomCondition(result,randomCondition);
             executionResult(cars,result);
+
             System.out.println();
         }
 
-        //우승자 선정 및 출력
+        List<Integer> winner=winnerSelect(result);
+        winnerOutput(winner,cars);
 
+    }
+    public static void winnerOutput(List<Integer> winner,List<String> cars){
+        String outputs="최종 우승자 : ";
+
+        for(int i=0;i<winner.size();i++){
+
+            if(i!=0 && winner.get(i)==1 && winner.get(i-1)==1)
+                outputs+=", ";
+
+            if(winner.get(i)==1){
+                outputs+=cars.get(i);
+            }
+        }
+
+        System.out.print(outputs);
+    }
+    public static List<Integer> winnerSelect(List<Integer> result){
+        List<Integer> winner=new ArrayList<>();
+        int winnerPosition= Collections.max(result);
+
+        for(int i=0;i<result.size();i++){
+
+            if(result.get(i)==winnerPosition)
+                winner.add(1);
+            else if (result.get(i)!=winnerPosition)
+                winner.add(0);
+        }
+
+        return winner;
     }
     public static void executionResult(List<String> cars,List<Integer> result){
         for(int i=0;i<cars.size();i++){
             String outputResult=cars.get(i)+" : ";
             outputResult+="-".repeat(result.get(i));
+
             System.out.println(outputResult);
         }
     }
     public static void addRandomCondition(List<Integer> result, List<Integer> condition){
         for(int i=0;i<result.size();i++)
             result.set(i,result.get(i)+condition.get(i));
-
     }
     public static List<String> inputCars(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
