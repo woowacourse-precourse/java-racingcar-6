@@ -15,11 +15,12 @@ build/
 .sts4-cache
 
 ### IntelliJ IDEA ###
+*.class
+*.idea
 .idea
 *.iws
 *.iml
 *.ipr
-*.class
 out/
 
 ### NetBeans ###
