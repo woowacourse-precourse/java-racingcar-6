@@ -4,6 +4,7 @@ import static racingcar.generator.MoveResultMessageGenerator.generateMoveResults
 import static racingcar.generator.RandomNumberGenerator.getGenerateSupplier;
 
 import java.util.List;
+import racingcar.domain.CarRaceCountRule;
 import racingcar.domain.CarRaceJudge;
 import racingcar.dto.MoveResult;
 import racingcar.view.InputView;
