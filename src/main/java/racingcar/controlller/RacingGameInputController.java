@@ -26,7 +26,6 @@ public class RacingGameInputController {
         return new Cars(carList);
     }
 
-
     // 시도할 회수 입력
     public static Integer scanNumberOfRounds() {
         InputView.printEnterNumberOfRounds();

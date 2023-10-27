@@ -26,6 +26,7 @@ public class RacingGameController extends GameController {
     public void startGame() {
         cars = RacingGameInputController.scanCarList();
         numberOfRounds = RacingGameInputController.scanNumberOfRounds();
+
         OutputView.printResultHeaderMessage();
         for (int i = 0; i < numberOfRounds; i++) {
             doOneRound();
@@ -49,7 +50,7 @@ public class RacingGameController extends GameController {
         }
     }
 
-    public Cars pickWinners() {
+    private Cars pickWinners() {
         List<Car> winnerList = (cars.getCarList()).stream()
                 .filter(car -> (car.getPosition() == Collections.max(cars.getPositionList())))
                 .toList();
