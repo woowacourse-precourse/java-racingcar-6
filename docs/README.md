@@ -14,7 +14,7 @@
 
 ### InputView
 - [x] 경주할 자동차 이름을 입력 받는다. `List<String> readCarNames()`
-- [ ] 시도 횟수를 입력 받는다. `int readNumberOfAttempts()`
+- [x] 시도 횟수를 입력 받는다. `int readNumberOfAttempts()`
 
 ### OutputView
 - [ ] 실행 결과를 출력한다. `void printRacingResult()`

@@ -12,4 +12,9 @@ public class InputView {
         return Arrays.stream(input.split(","))
                 .toList();
     }
+
+    public static int readNumberOfAttempts() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        return Integer.parseInt(Console.readLine());
+    }
 }
