@@ -3,6 +3,8 @@ package racingcar;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 public class Game {
     Car[] cars;
@@ -49,5 +51,12 @@ public class Game {
         }
     }
 
-    //TODO : void printWinner()
+    public void printWinner(){
+        String winner = positions.entrySet().stream()
+                .filter(entry -> entry.getValue() == winnerPosition)
+                .map(Entry::getKey)
+                .map(Car::getName)
+                .collect(Collectors.joining(","));
+        System.out.println(winner);
+    }
 }
