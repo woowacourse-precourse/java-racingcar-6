@@ -45,20 +45,11 @@
 # MVC 적용 사항 정리
 - view
   - InputView.java
-    - readCarNames
-      - split -> 문자열 , 기준으로 쪼개기
-      - validate
-    - readTryCount
-      - validate
   - OutputView.java
-    - printCarState -> 각 단계의 차량 출력
-    - printWinners
 - controller
   - RacingGameController.java
-    - InputView 포함
-    - OutputView 포함
-    - RacingGame 포함
 - domain
   - Car.java
   - Cars.java
   - RacingGame.java
+  - RacingGameState.java
