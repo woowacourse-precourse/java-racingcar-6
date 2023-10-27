@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.constant.MoveStatus;
 
-public class MoveStatuses {
+public final class MoveStatuses {
 
     private static final String MOVE_EXPRESSION = "-";
     private final List<MoveStatus> elements;
