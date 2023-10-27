@@ -2,10 +2,9 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
-
 public class Car {
 
+    private static final String DASH = "-";
     private final String name;
     private Integer distance;
 
@@ -19,7 +18,7 @@ public class Car {
     }
 
     public void printMove() {
-        String dash = "-".repeat(this.distance);
+        String dash = DASH.repeat(this.distance);
         System.out.println(this.name + " : " + dash);
     }
 
