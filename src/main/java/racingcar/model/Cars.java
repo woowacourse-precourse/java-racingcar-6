@@ -17,6 +17,17 @@ public class Cars {
         }
     }
 
+    public List<String> getWinners() {
+        int maxDistance = getMaxDistance();
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (maxDistance == car.getDistance()) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
+
     public int getMaxDistance() {
         int maxDistance = 0;
         for (Car car : cars) {

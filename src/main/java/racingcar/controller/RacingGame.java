@@ -21,6 +21,12 @@ public class RacingGame {
             cars.moveAll();
             OutputView.displayGameResult(cars.toString());
         }
+        OutputView.displayWinners(getWinners());
+    }
+
+    private String getWinners() {
+        List<String> winners = cars.getWinners();
+        return String.join(", ", winners);
     }
 
     private List<String> getCarNames() {
