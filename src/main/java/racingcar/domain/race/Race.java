@@ -18,4 +18,8 @@ public class Race {
 
     private final List<Participant> participants;
     private final int raceCount;
+
+    public List<Participant> getParticipants() {
+        return participants;
+    }
 }
