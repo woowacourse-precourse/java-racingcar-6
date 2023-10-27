@@ -32,6 +32,9 @@
 - RacingCarController
     - 전체 프로그램 진행
 
+- ComponentFactory
+    - 전체 컴포넌트를 생성 및 조합하여 RacingCarController 생성
+
 - OutputView
     - 자동차 이름 입력 요청 메시지 출력
 
