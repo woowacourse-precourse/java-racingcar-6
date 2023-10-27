@@ -18,6 +18,12 @@ public class GameManager {
         initRaceCars();
         initAttempts();
     }
+
+    public void StartGame(){
+        for(int i=0;i<attempts;i++){
+            playSingeRound();
+        }
+    }
     private void initRaceCars(){
         List<String> carNames = inputView.getCarNames();
         for(String carName: carNames){
