@@ -10,9 +10,9 @@ public class InputView {
         this.inputValidator = inputValidator;
     }
 
-    public String readCarNames() {
+    public String readRacingCarNames() {
         final String input = Console.readLine();
-        inputValidator.validateCarNames(input);
+        inputValidator.validateRacingCarNames(input);
         return input;
     }
 }
