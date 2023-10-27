@@ -55,4 +55,7 @@ public final class CarGroup {
                 .collect(collectingAndThen(toList(), CarGroup::new));
     }
 
+    public List<Car> getCars() {
+        return new ArrayList<>(cars);
+    }
 }

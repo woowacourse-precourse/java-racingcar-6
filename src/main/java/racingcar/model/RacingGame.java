@@ -19,10 +19,10 @@ public class RacingGame {
         return new RacingGame(carGroup, tryCount);
     }
 
-    public MoveHistory playWith(MovementCondition movementCondition) {
+    public RaceTrackHistory playWith(MovementCondition movementCondition) {
         return Stream.iterate(carGroup, carGroup -> carGroup.move(movementCondition))
                 .skip(INITIAL_SKIP_COUNT)
                 .limit(tryCount.getCount())
-                .collect(collectingAndThen(toList(), MoveHistory::from));
+                .collect(collectingAndThen(toList(), RaceTrackHistory::from));
     }
 }

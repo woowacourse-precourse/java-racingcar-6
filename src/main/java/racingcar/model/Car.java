@@ -26,6 +26,14 @@ public final class Car {
         return new Car(name, position);
     }
 
+    public String getName() {
+        return name.getName();
+    }
+
+    public int getPosition() {
+        return position.getPosition();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

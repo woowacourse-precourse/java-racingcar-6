@@ -46,9 +46,14 @@ public class InputView {
     public TryCountDto readTryCount() {
         System.out.println(INPUT_TRY_COUNT_MESSAGE);
         String rawTryCount = Console.readLine();
+        printEmptyLine();
         validateTryCount(rawTryCount);
         int tryCount = convertToInt(rawTryCount);
         return new TryCountDto(tryCount);
+    }
+
+    private void printEmptyLine() {
+        System.out.println();
     }
 
     private void validateTryCount(String rawTryCount) {

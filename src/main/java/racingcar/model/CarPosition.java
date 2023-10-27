@@ -33,6 +33,10 @@ public final class CarPosition {
         return new CarPosition(position + MOVE_STEP);
     }
 
+    public int getPosition() {
+        return position;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
