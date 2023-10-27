@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.dao;
 
 import java.util.HashMap;
 import java.util.Map;
