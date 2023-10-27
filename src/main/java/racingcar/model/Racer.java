@@ -2,6 +2,7 @@ package racingcar.model;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Racer {
 
@@ -19,6 +20,12 @@ public class Racer {
     //TODO: 메서드 이름이 move 괜찮겠냐? 고민해보자
     public void play() {
         racer.forEach(Car::move);
+    }
+
+    //TODO: 이 메서드 별로 안이쁨
+    public String getWinner() {
+        Car winner = racer.stream().max(Car::compareTo).orElseThrow();
+        return racer.stream().filter(winner::equals).map(Car::getName).collect(Collectors.joining(","));
     }
 
     @Override

@@ -3,12 +3,12 @@ package racingcar.model;
 import racingcar.service.Accelerator;
 
 //TODO: 허무맹랑할 수 있는 이야기이지만, 자동차 경주에 말이 들어온다면?? 해당 경우도 한번 고민해보기
-public class Car {
+public class Car implements Comparable<Car> {
 
     private static final String MARK = "-";
 
     private final String name;
-    private int currentPosition;
+    private Integer currentPosition;
 
     public Car(String name) {
         validate(name);
@@ -20,6 +20,12 @@ public class Car {
         if (Accelerator.canMoveForward()) {
             currentPosition++;
         }
+    }
+
+
+    //TODO: 게터 지양
+    public String getName() {
+        return this.name;
     }
 
     @Override
@@ -35,5 +41,21 @@ public class Car {
         if (1 > value.length() || value.length() > 5) {
             throw new IllegalArgumentException();
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Car car)) {
+            return false;
+        }
+        return this.currentPosition.equals(car.currentPosition);
+    }
+
+    @Override
+    public int compareTo(Car car) {
+        return this.currentPosition - car.currentPosition;
     }
 }
