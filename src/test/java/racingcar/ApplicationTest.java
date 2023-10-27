@@ -24,6 +24,9 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
     private static String[] nameArr;
     private static List<RaceCar> raceCarList;
+    private static RaceCar firstRaceCar;
+    private static RaceCar secondRaceCar;
+    private static RaceCar thirdRaceCar;
 
     private GameProcess gameProcess;
     private CreateRandomNum createRandomNum;
@@ -47,6 +50,10 @@ class ApplicationTest extends NsTest {
         for (int i = 0; i < 3; i++) {
             raceCarList.add(new RaceCar(nameArr[i]));
         }
+
+        firstRaceCar = raceCarList.get(0);
+        secondRaceCar = raceCarList.get(1);
+        thirdRaceCar = raceCarList.get(2);
     }
 
 
@@ -78,14 +85,14 @@ class ApplicationTest extends NsTest {
 
 
         // when
-        raceCarList.get(0).movementControlCar();
-        raceCarList.get(0).movementControlCar();
-        raceCarList.get(0).movementControlCar();
+        firstRaceCar.movementControlCar();
+        firstRaceCar.movementControlCar();
+        firstRaceCar.movementControlCar();
 
-        raceCarList.get(1).movementControlCar();
-        raceCarList.get(1).movementControlCar();
+        secondRaceCar.movementControlCar();
+        secondRaceCar.movementControlCar();
 
-        raceCarList.get(2).movementControlCar();
+        thirdRaceCar.movementControlCar();
 
         Integer result_one = raceCarList.get(0).getCntMovementOfCar();
         Integer result_two = raceCarList.get(1).getCntMovementOfCar();
@@ -105,12 +112,14 @@ class ApplicationTest extends NsTest {
         List<RaceCar> winRaceCarList = new ArrayList<>();
 
         // when
-        raceCarList.get(0).movementControlCar();
-        raceCarList.get(0).movementControlCar();
-        raceCarList.get(0).movementControlCar();
-        raceCarList.get(1).movementControlCar();
-        raceCarList.get(1).movementControlCar();
-        raceCarList.get(2).movementControlCar();
+        firstRaceCar.movementControlCar();
+        firstRaceCar.movementControlCar();
+        firstRaceCar.movementControlCar();
+
+        secondRaceCar.movementControlCar();
+        secondRaceCar.movementControlCar();
+
+        thirdRaceCar.movementControlCar();
 
         winRaceCarList = gameHost.winRaceCar(raceCarList);
         String result = winRaceCarList.toString();
@@ -124,19 +133,17 @@ class ApplicationTest extends NsTest {
     @Test
     public void isVictoryConditionTest() throws Exception {
         // given
-        RaceCar firstCar = raceCarList.get(0);
-        RaceCar secondCar = raceCarList.get(1);
 
         // when
-        firstCar.movementControlCar();
-        firstCar.movementControlCar();
-        firstCar.movementControlCar();
+        firstRaceCar.movementControlCar();
+        firstRaceCar.movementControlCar();
+        firstRaceCar.movementControlCar();
 
-        secondCar.movementControlCar();
-        secondCar.movementControlCar();
+        secondRaceCar.movementControlCar();
+        secondRaceCar.movementControlCar();
 
-        boolean result_true = judgeStandard.isVictoryCondition(firstCar);
-        boolean result_false = judgeStandard.isVictoryCondition(secondCar);
+        boolean result_true = judgeStandard.isVictoryCondition(firstRaceCar);
+        boolean result_false = judgeStandard.isVictoryCondition(secondRaceCar);
 
         // then
         assertThat(result_true).isTrue();
