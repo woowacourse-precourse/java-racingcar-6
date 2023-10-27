@@ -10,7 +10,9 @@ public class InputView {
     private static final String READ_ATTEMPT_COUNT_ERROR_MESSAGE = "숫자만 입력해 주세요";
 
     private List<String> convertCarNames(String input) {
-        return Arrays.stream(input.split(",")).map(String::trim).toList();
+        return Arrays.stream(input.split(","))
+                .map(String::trim)
+                .toList();
     }
 
     public List<String> readCarNames() {

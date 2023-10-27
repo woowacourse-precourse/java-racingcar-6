@@ -13,7 +13,9 @@ public class RacingGameController {
     OutputView outputView = new OutputView();
 
     private Cars createCarsByCarNames(List<String> carNames) {
-        List<Car> cars = carNames.stream().map(Car::new).toList();
+        List<Car> cars = carNames.stream()
+                .map(Car::new)
+                .toList();
         return new Cars(cars);
     }
 

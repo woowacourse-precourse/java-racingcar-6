@@ -42,6 +42,9 @@ public class RacingGameState {
     public List<String> getWinnersName() {
         validateIsGameEnd();
         int maxDistance = getMaxDistance();
-        return cars.stream().filter(car -> car.isMaxDistance(maxDistance)).map(Car::getName).toList();
+        return cars.stream()
+                .filter(car -> car.isMaxDistance(maxDistance))
+                .map(Car::getName)
+                .toList();
     }
 }
