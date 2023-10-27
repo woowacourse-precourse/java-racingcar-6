@@ -38,7 +38,7 @@ public class Validator {
     }
 
     public static void isOneOrMore(String input) {
-        if (!Pattern.matches("^[1-9]\\d*$", input)) {
+        if (!Pattern.matches("^(0*[1-9][0-9]*)$", input)) {
             throw new IllegalArgumentException("1이상의 숫자만 가능합니다.");
         }
     }

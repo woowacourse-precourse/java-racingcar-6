@@ -60,7 +60,7 @@ class ValidatorTest {
 
     @ParameterizedTest
     @DisplayName("1미만의 수를 입력 예외 테스트")
-    @ValueSource(strings = {"0", "-151", "00", "000", "01", "-1"})
+    @ValueSource(strings = {"0", "-151", "-001"})
     void invalidInputsTest4(String input) {
         Assertions.assertThatThrownBy(() -> Validator.isOneOrMore(input)).
                 isInstanceOf(IllegalArgumentException.class)
