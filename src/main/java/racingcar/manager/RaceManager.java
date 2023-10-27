@@ -22,7 +22,7 @@ public class RaceManager {
         tryCount = 0;
     }
 
-    public void startRace() {
+    public void start() {
 
         cars = carFactory.generateCars();
         outputManager = new OutputManager(cars);
@@ -44,6 +44,4 @@ public class RaceManager {
             outputManager.printInterResult();
         }
     }
-
-
 }
