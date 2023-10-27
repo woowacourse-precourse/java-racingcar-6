@@ -8,6 +8,7 @@ import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.OutputView;
 
 class CarsTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -20,7 +21,7 @@ class CarsTest extends NsTest {
 
         Cars cars = new Cars(Arrays.asList(pobi, woni, jun));
         cars.move();
-        cars.printCars();
+        OutputView.printCarsLocation(cars);
     }
 
     @Test

@@ -18,7 +18,10 @@ class OutputViewTest extends NsTest {
         //given
         Cars cars = new Cars(Arrays.asList(new Car("pobi"), new Car("woni")));
         //when
-        OutputView.printResult(cars, 2);
+        for (int index = 0; index < 2; index++) {
+            cars.move();
+            OutputView.printCarsLocation(cars);
+        }
         //then
     }
 
@@ -27,7 +30,7 @@ class OutputViewTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     main(new String[]{});
-                    assertThat(output()).contains("실행 결과", "pobi : -", "woni : ", "pobi : --", "woni : -"); // output() 메서드의 trim() 적용됨을 유의
+                    assertThat(output()).contains("pobi : -", "woni : ", "pobi : --", "woni : -"); // output() 메서드의 trim() 적용됨을 유의
                 },
                 MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD
         );
