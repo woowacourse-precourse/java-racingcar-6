@@ -15,4 +15,16 @@ public class Car {
             this.position++;
         }
     }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        result.append(this.name);
+        result.append(" : ");
+        for (int i = 0; i < this.position; i++) {
+            result.append("-");
+        }
+        result.append("\n");
+        return result.toString();
+    }
 }
