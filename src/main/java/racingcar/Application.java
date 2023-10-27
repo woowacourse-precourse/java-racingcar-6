@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Application {
     public static void main(String[] args) {
@@ -66,21 +67,29 @@ public class Application {
         }
 
         for (int i = 0; i < repeat_count; i++) {
-            for (int j = 0; j < car_name_list.length; j++) {
-                int random_number = Randoms.pickNumberInRange(0, 9);
-                if (random_number < 4) {
-                    results[j] += "";
-                } else {
-                    results[j] += "-";
-                }
-            }
-            for (int k = 0; k < car_name_list.length; k++) {
-                String car_name = car_name_list[k];
-                String result = results[k];
-                System.out.println(car_name + " : " + result);
-            }
+            String[] racing_results = racing(car_name_list, results);
+            print_result(car_name_list, racing_results);
             System.out.println();
         }
     }
 
+    public static String[] racing(String[] car_name_list, String[] results) {
+        for (int j = 0; j < car_name_list.length; j++) {
+            int random_number = Randoms.pickNumberInRange(0, 9);
+            if (random_number < 4) {
+                results[j] += "";
+            } else {
+                results[j] += "-";
+            }
+        }
+        return results;
+    }
+
+    public static void print_result(String[] car_name_list, String[] results) {
+        for (int k = 0; k < car_name_list.length; k++) {
+            String car_name = car_name_list[k];
+            String result = results[k];
+            System.out.println(car_name + " : " + result);
+        }
+    }
 }
