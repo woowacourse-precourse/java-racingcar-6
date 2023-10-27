@@ -26,6 +26,22 @@ public record Cars(List<Car> cars) {
         return Collections.unmodifiableList(cars);
     }
 
+    public List<String> findWinners() {
+        int winnerPosition = findWinnerPosition();
+
+        return cars.stream()
+                .filter(car -> car.isWinner(winnerPosition))
+                .map(Car::getName)
+                .toList();
+    }
+
+    private int findWinnerPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElseThrow(() -> new IllegalArgumentException("우승자를 찾을 수 없습니다."));
+    }
+
     private static class CarsValidator {
 
         private static void validate(final List<String> carNames) {

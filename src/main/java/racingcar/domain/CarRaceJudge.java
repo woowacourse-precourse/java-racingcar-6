@@ -29,20 +29,6 @@ public class CarRaceJudge {
 
     public List<String> findWinners() {
         Cars findCars = carsRepository.findCars();
-        int winnerPosition = findWinnerPosition(findCars);
-
-        return findCars.cars()
-                .stream()
-                .filter(car -> car.isWinner(winnerPosition))
-                .map(Car::getName)
-                .toList();
-    }
-
-    private int findWinnerPosition(final Cars cars) {
-        return cars.cars()
-                .stream()
-                .mapToInt(Car::getPosition)
-                .max()
-                .orElseThrow(() -> new IllegalArgumentException("우승자를 찾을 수 없습니다."));
+        return findCars.findWinners();
     }
 }
