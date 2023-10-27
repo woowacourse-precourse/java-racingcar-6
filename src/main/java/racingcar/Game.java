@@ -29,4 +29,25 @@ public class Game {
                 .map((name) -> new Car(name))
                 .toArray();
     }
+
+    public void playRound(){
+        for(Car car : cars){
+            moveCar(car);
+            System.out.println(car);
+        }
+    }
+
+    private void moveCar(Car car) {
+        if(!car.tryMove()) {
+            return;
+        }
+
+        int nextPosition = positions.get(car) + 1;
+        positions.put(car, nextPosition);
+        if(winnerPosition < nextPosition){
+            winnerPosition = nextPosition;
+        }
+    }
+
+    //TODO : void printWinner()
 }
