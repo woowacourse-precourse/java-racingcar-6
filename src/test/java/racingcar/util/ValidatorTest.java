@@ -42,4 +42,19 @@ class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("중복되지 않는 자동차 이름을 입력해주세요.");
     }
+
+    private static Stream<Arguments> provideValidTestCases() {
+        return Stream.of(Arguments.of((Object) new String[]{"1", "2", "3"}),
+                Arguments.of((Object) new String[]{"woni", "pobi", "jun"}),
+                Arguments.of((Object) new String[]{"pobhi", "javji", "1w"}),
+                Arguments.of((Object) new String[]{"4ewr", "2qwe", "jpun"}));
+    }
+
+    @ParameterizedTest
+    @DisplayName("경주할 자동차 이름 입력 모든 유효성 성공 테스트")
+    @MethodSource("provideValidTestCases")
+    void validInputsTest(String[] inputs) {
+        Assertions.assertThatCode(() -> Validator.isValidName(inputs))
+                .doesNotThrowAnyException();
+    }
 }
