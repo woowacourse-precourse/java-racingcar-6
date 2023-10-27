@@ -1,5 +1,6 @@
 package racingcar.domain.gamemanager.service;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.dao.CarRepository;
 
