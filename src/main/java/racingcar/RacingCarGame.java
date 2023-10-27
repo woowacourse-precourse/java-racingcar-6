@@ -1,7 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.*;
 
@@ -35,5 +34,22 @@ public class RacingCarGame {
                 throw new IllegalArgumentException("차의 이름은 5글자 이하이어야 합니다.");
             }
         }
+    }
+
+    public long inputStartCount() {
+        String userCount = Console.readLine();
+        validateInputNotEmpty(userCount);
+        validateNotLong(userCount);
+
+        return Long.parseLong(userCount);
+    }
+
+    private void validateNotLong(String userCount) {
+        try {
+            Long.parseLong(userCount);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("숫자가 입력되어야 합니다.");
+        }
+
     }
 }
