@@ -6,6 +6,7 @@ public class InputView {
 
     public String readRacingCarName() {
         String input = Console.readLine();
+        InputValidator.validateDelimiter(input);
         return input;
     }
 }
