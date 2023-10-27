@@ -12,4 +12,6 @@ public class RacingCarController {
     public List<CarNameDto> splitCarName() {
         return service.carNameExtraction(inputView.getUserInput());
     }
+
+
 }

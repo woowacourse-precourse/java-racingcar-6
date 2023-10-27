@@ -6,8 +6,8 @@ import racingcar.dto.CarNameDto;
 
 public class RacingCarService {
 
-    public List<CarNameDto> carNameExtraction(String userInput) {
-        CarGenerator carGenerator = new CarGenerator(userInput);
+    public List<CarNameDto> carNameExtraction(String userInputCarNames) {
+        CarGenerator carGenerator = new CarGenerator(userInputCarNames);
         List<String> carNameList = carGenerator.generateCarNameList();
         return carNameList.stream()
                 .map(name -> {
@@ -16,5 +16,13 @@ public class RacingCarService {
                     return dto;
                 })
                 .collect(Collectors.toList());
+    }
+
+    public void moveCar(List<CarNameDto> carNameDtoList, String userInputTryNumber) {
+        List<String> carNameList = carNameDtoList.stream()
+                .map(CarNameDto::getCarName)
+                .toList();
+
+        MoveCar moveCar = new MoveCar(carNameList, userInputTryNumber);
     }
 }
