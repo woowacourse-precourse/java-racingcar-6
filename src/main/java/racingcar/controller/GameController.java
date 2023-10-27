@@ -55,7 +55,7 @@ public class GameController {
     }
 
     private void printWinners() {
-        List<String> winners = cars.collectWinners(playCount.getCount());
+        List<String> winners = cars.collectWinners();
         outputView.printWinners(winners);
     }
 }

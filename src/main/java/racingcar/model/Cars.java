@@ -7,11 +7,15 @@ import java.util.stream.Collectors;
 
 public class Cars {
 
+    private static final int DEFAULT_POSITION = 0;
+
     private final List<Car> cars;
+    private int highestPosition;
 
     private Cars(final List<Car> cars) {
         validateEachCarUnique(cars);
         this.cars = cars;
+        this.highestPosition = DEFAULT_POSITION;
     }
 
     private void validateEachCarUnique(final List<Car> cars) {
@@ -37,7 +41,12 @@ public class Cars {
         cars.forEach(car -> {
             int number = randomNumber.pickNumber();
             car.accelerate(number);
+            updateMaxPosition(car.getPosition());
         });
+    }
+
+    private void updateMaxPosition(final int position) {
+        highestPosition = Math.max(highestPosition, position);
     }
 
     public List<String> eachStatus() {
@@ -46,9 +55,9 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
-    public List<String> collectWinners(final int gameCount) {
+    public List<String> collectWinners() {
         return cars.stream()
-                .filter(car -> car.isWinner(gameCount))
+                .filter(car -> car.isWinner(highestPosition))
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }

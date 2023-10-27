@@ -60,4 +60,8 @@ public class Car {
     public String getName() {
         return name.getName();
     }
+
+    public int getPosition() {
+        return position;
+    }
 }
