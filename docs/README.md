@@ -18,9 +18,9 @@
 - [ ] 시도 횟수 입력 기능 구현
   - [ ] 시도 횟수 입력 문구 출력
     - [ ] "시도할 회수는 몇회인가요?" 출력
-  - [ ] 유저의 입력 받기
-    - [ ] `camp.nextstep.edu.missionutils.Console.readLine()`을 통해 사용자의 입력 받기
-  - [ ] 공백 제거
+  - [x] 유저의 입력 받기
+    - [x] `camp.nextstep.edu.missionutils.Console.readLine()`을 통해 사용자의 입력 받기
+  - [x] 공백 제거
   - [ ] 시도 횟수 예외 처리
     - [ ] 숫자가 아니면 예외처리 `IllegalArgumentException`
 
