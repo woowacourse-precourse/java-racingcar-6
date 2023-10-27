@@ -21,20 +21,28 @@ public class RaceGame {
         int gameRound = userInput.getGameRound();
 
         Map<String, StringBuilder> scoreBoard = new LinkedHashMap<>();
-        for (int i = 0; i < carNames.size(); i++) {
-            scoreBoard.put(carNames.get(i), new StringBuilder());
+        for (String carName : carNames) {
+            scoreBoard.put(carName, new StringBuilder());
         }
 
-        for (int i = 0; i < gameRound; i++) {
+        for (int j = 0; j < gameRound; j++) {
             for (Map.Entry<String, StringBuilder> pair : scoreBoard.entrySet()) {
                 if (engine.rollDice()) {
                     engine.moveForward(pair.getValue());
                 }
                 printer.printRoundResult(pair);
             }
+            System.out.println();
         }
 
-        int winPoint = Arrays.stream(forwardCount).max().getAsInt();
+        List<String> winningList = new ArrayList<>();
+        int winPoint = scoreBoard.values()
+                .stream()
+                .mapToInt(StringBuilder::length)
+                .max()
+                .orElse(0);
+        System.out.println(winPoint);
+
         scoreBoard.forEach((key, value) -> {
             if (value.length() == winPoint) {
                 winningList.add(key);
