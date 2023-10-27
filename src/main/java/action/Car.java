@@ -4,7 +4,7 @@ import action.Movable;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car implements Movable {
-    private final static int LENGTH = 5;
+
     private final static int START = 0;
     private final static int END = 9;
     private final static int MOVE_FORWARD = 4;
@@ -42,12 +42,5 @@ public class Car implements Movable {
             return MOVE_FORWARD;
         }
         return STOP;
-    }
-
-    public String printResult() {
-        StringBuilder result = new StringBuilder(carName + " : ");
-        result.append(status);
-
-        return result.toString();
     }
 }
