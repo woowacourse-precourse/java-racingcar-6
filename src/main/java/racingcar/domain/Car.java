@@ -1,16 +1,24 @@
 package racingcar.domain;
 
 public class Car {
-    private final String carName;
+    private final String name;
     private int position = 0;
 
     public Car(String carName) {
         validateCarNameLength(carName);
-        this.carName = carName;
+        this.name = carName;
     }
 
     public void addPosition() {
         position += 1;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 
     private void validateCarNameLength(String carName) {

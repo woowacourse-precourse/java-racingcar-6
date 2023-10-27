@@ -6,11 +6,31 @@ import java.util.HashSet;
 import java.util.List;
 
 public class Cars {
-    private final List<Car> carList;
+    private List<Car> carList = new ArrayList<>();
 
     public Cars(String[] cars) {
         validateCars(cars);
         carList = generateCarList(cars);
+    }
+
+
+    public List<String> getVictoryCarsName() {
+        List<String> victoryCarsName = new ArrayList<>();
+        int maxPosition = getMaxPosition();
+        for (Car car : carList) {
+            if (maxPosition == car.getPosition()) {
+                victoryCarsName.add(car.getName());
+            }
+        }
+        return victoryCarsName;
+    }
+
+    private int getMaxPosition() {
+        List<Integer> carPositionList = new ArrayList<>();
+        for (Car car : carList) {
+            carPositionList.add(car.getPosition());
+        }
+        return Collections.max(carPositionList);
     }
 
     public int size(){
