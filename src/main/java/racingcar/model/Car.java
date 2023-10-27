@@ -11,4 +11,8 @@ public class Car {
         this.location = location;
         this.isWinner = isWinner;
     }
+
+    public Car init(String carName) {
+        return new Car(Name.init(carName), Location.init(), IsWinner.init());
+    }
 }
