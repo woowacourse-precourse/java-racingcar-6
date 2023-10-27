@@ -12,6 +12,7 @@ public class Car {
 
     public Car(MovingStrategy movingStrategy, String name, int position) {
         validateNameLength(name);
+        validateNameBlank(name);
         validateInitPosition(position);
         this.movingStrategy = movingStrategy;
         this.name = name;
@@ -21,6 +22,12 @@ public class Car {
     private void validateNameLength(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("[ERROR] 입력할 수 있는 이름의 글자수는 최대 5입니다.");
+        }
+    }
+
+    private void validateNameBlank(String name) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("[ERROR] 공백을 입력할 수 없습니다.")
         }
     }
 
