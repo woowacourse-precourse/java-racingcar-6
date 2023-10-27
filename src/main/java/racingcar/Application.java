@@ -3,6 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.domain.Racing;
+import racingcar.domain.Referee;
 import racingcar.util.CarFactory;
 
 public class Application {
@@ -10,6 +12,16 @@ public class Application {
         List<String> carList = askCarName();
         List<Car> racingList = CarFactory.createCars(carList);
         int playRound = askPlayTurn();
+
+        Racing racing = new Racing(racingList);
+
+        System.out.println("실행 결과");
+        for (int round = 0; round < playRound; round++) {
+            racing.run();
+        }
+        Referee referee = new Referee();
+        String winners = referee.announcementWinners(racingList);
+        System.out.println("최종 우승자 : " + winners);
     }
 
     public static List<String> askCarName() {
@@ -29,9 +41,5 @@ public class Application {
 
     private static boolean isValidData(final String getTurn) {
         return getTurn.matches("[1-9]+");
-    }
-
-    public static void announcementWinners() {
-
     }
 }

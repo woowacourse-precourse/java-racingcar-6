@@ -17,7 +17,7 @@ class CarTest {
     @Test
     void forward() {
         car1.forward();
-        assertThat(car1.currentLocation()).isEqualTo(1);
+        assertThat(car1.currentLocation()).isEqualTo("ccc : -");
     }
 
     @Test
@@ -25,15 +25,14 @@ class CarTest {
         car1.forward();
         car1.forward();
         car1.forward();
-        assertThat(car1.currentLocation()).isEqualTo(3);
+        assertThat(car1.currentLocation()).isEqualTo("ccc : ---");
     }
 
     @Test
     public void testValidCarName() {
         String validName = "Car1";
         Car car = new Car(validName);
-        String carName = car.myCarName();
-        assertThat(validName).isEqualTo(carName);
+        assertThat(validName).isEqualTo(car.getName());
     }
 
     @Test
