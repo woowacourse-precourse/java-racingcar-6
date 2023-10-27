@@ -9,7 +9,7 @@ public class Car {
         this.name = name;
     }
 
-    private void forwardCar() {
+    private void forward() {
         distance ++;
     }
 
