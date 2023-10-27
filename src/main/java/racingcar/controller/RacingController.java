@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
 import racingcar.view.OutputView;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingController {
     public static void racingStart(List<Car> cars, int racingCount) {
@@ -34,5 +35,20 @@ public class RacingController {
         if (randomNumber >= 4) {
             car.moveCar();
         }
+    }
+
+    public static void showRacingWinner(List<Car> cars) {
+        List<String> winnerCars = computeRacingWinner(cars);
+    }
+
+    private static List<String> computeRacingWinner(List<Car> cars) {
+        int winnerPosition = computeRacingWinnerPosition(cars);
+        return cars.stream().filter(car -> car.getPosition() == winnerPosition)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
+
+    private static int computeRacingWinnerPosition(List<Car> cars) {
+        return cars.stream().mapToInt(Car::getPosition).max().orElse(0);
     }
 }
