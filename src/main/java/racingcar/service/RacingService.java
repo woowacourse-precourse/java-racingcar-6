@@ -1,7 +1,7 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.domain.Car;
+import racingcar.domain.car.Car;
 import racingcar.domain.CarGarage;
 
 public class RacingService {

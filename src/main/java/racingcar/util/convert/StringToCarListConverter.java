@@ -1,7 +1,7 @@
 package racingcar.util.convert;
 
-import racingcar.domain.Car;
-import racingcar.domain.Name;
+import racingcar.domain.car.Car;
+import racingcar.domain.car.Name;
 import racingcar.util.Validator;
 
 import java.util.ArrayList;

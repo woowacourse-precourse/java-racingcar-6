@@ -1,6 +1,6 @@
 package racingcar.util;
 
-import racingcar.domain.Car;
+import racingcar.domain.car.Car;
 import racingcar.domain.CarGarage;
 import racingcar.domain.Winner;
 

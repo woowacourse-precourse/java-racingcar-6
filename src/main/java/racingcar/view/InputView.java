@@ -2,7 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.util.convert.ConverterHolder;
-import racingcar.domain.Car;
+import racingcar.domain.car.Car;
 import racingcar.domain.CarGarage;
 import racingcar.domain.TryCount;
 

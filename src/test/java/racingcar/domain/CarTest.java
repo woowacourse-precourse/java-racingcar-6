@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 import org.junit.jupiter.api.Test;
+import racingcar.domain.car.Car;
+import racingcar.domain.car.Name;
 
 import static org.assertj.core.api.Assertions.*;
 
