@@ -33,8 +33,11 @@ public class Name {
      */
     private void validationName(String name) {
         // 이름이 0보다 커야 하고, 5보다 크면 안된다.
-        if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException();
+        if (name.length() < MIN_NAME_LENGTH) {
+            throw new IllegalArgumentException("이름 값이 없습니다.");
+        }
+        if (name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException("이름의 길이가 5보다 큽니다.");
         }
     }
 
