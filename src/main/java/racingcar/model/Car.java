@@ -11,8 +11,10 @@ public class Car {
         this.advance = new Advance();
     }
 
-    public void addAdvances(){
-        advance.add();
+    public void addAdvances(final int randomNumber){
+        if(randomNumber >= CAR_ADVANCE_NUMBER){
+            advance.add();
+        }
     }
 
     public String getCarName(){
@@ -21,9 +23,5 @@ public class Car {
 
     public int getCarAdvances(){
         return advance.getValue();
-    }
-
-    public static boolean isValidateAdvance(final int randomNumber){
-        return randomNumber >= CAR_ADVANCE_NUMBER;
     }
 }
