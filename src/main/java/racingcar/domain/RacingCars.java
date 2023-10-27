@@ -15,6 +15,13 @@ public class RacingCars {
         cars.forEach(Car::move);
     }
 
+    public String getWinner() {
+        return cars.stream()
+                .filter(car -> car.getPosition() == getMaxPosition())
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+    }
+
     private int getMaxPosition() {
         return cars.stream()
                 .mapToInt(Car::getPosition)
