@@ -11,6 +11,13 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
         String racingCar = Console.readLine();
         List<String> racingCarName = T.listConversion(racingCar);
+
+        System.out.println("시도할 회수는 몇회인가요?");
+        String gameNumString = Console.readLine();
+
+        if (!isValidNum(gameNumString)) {
+            throw new IllegalArgumentException("올바른 회수 입력이 아닙니다.");
+        }
     }
 
     public static List<String> listConversion(String racingCar) throws IllegalArgumentException {
@@ -19,17 +26,24 @@ public class Application {
 
         for (int i = 0; i < splitStr.length; i++) {
             racer.add(splitStr[i]);
-        }
 
-        if (!isValidName(racer))
-            throw new IllegalArgumentException("올바른 자동차 이름이 아닙니다.");
+            if (!isValidName(splitStr[i]))
+                throw new IllegalArgumentException("올바른 자동차 이름이 아닙니다.");
+        }
 
         return racer;
     }
 
-    private static boolean isValidName(List<String> racer) throws IllegalArgumentException {
-        for (int i = 0; i < racer.size(); i++) {
-            if (racer.get(i).length() > 5)
+    public static boolean isValidName(String splitStr) {
+        if (splitStr.length() > 5)
+                return false;
+
+        return true;
+    }
+
+    public static boolean isValidNum(String gameNumString) {
+        for (int i = 0; i < gameNumString.length(); i++) {
+            if (!Character.isDigit(gameNumString.charAt(i)))
                 return false;
         }
 
