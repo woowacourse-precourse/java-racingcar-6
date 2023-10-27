@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import java.util.ArrayList;
+import static racingcar.constant.MessageConst.*;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.util.ConvertUtil;
@@ -8,7 +8,7 @@ import racingcar.util.ConvertUtil;
 public class OutputView {
 
     public static void printResult(){
-        System.out.println("실행 결과");
+        System.out.println(MOVING_RESULT);
     }
 
     public static void printPosition(List<Car> cars){
@@ -20,7 +20,7 @@ public class OutputView {
     }
 
     public static void printWinner(List<Car> cars){
-        System.out.println("최종 우승자 : " + ConvertUtil.convertListCarToStr(cars));
+        System.out.println(FINAL_WINNERS + ConvertUtil.convertListCarToStr(cars));
     }
 
 }
