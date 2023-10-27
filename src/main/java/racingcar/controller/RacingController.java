@@ -14,6 +14,7 @@ public class RacingController {
     private static final int RANDOM_NUMBER_START = 0;
     private static final int RANDOM_NUMBER_END = 9;
     private static final int MIN_NUMBER = 4;
+    private static final String NUMBER_FORMAT_EXCEPTION = "숫자를 입력해야 합니다.";
 
     private final Output output = new Output();
     private final Input input = new Input();
@@ -25,7 +26,7 @@ public class RacingController {
         List<Car> cars = makeCars(carNames);
 
         output.showCountInputMessage();
-        int count = Integer.parseInt(input.readCount());
+        int count = toInteger(input.readCount());
 
         output.showResultMessage();
         for (int i = 0; i < count; i++) {
@@ -44,6 +45,14 @@ public class RacingController {
         return Arrays.stream(carNames.split(CAR_NAME_DELIMITER))
                 .map(Car::new)
                 .toList();
+    }
+
+    private int toInteger(String count) {
+        try {
+            return Integer.parseInt(count);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(NUMBER_FORMAT_EXCEPTION);
+        }
     }
 
     private boolean canMove() {
