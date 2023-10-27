@@ -115,4 +115,15 @@ public class Application {
 		}
     }
     
+    //저장된 Map에서 최댓값을 가지는 차 이름 가져오기
+    public static List<String> getWinner(Map<String, Integer> carRacingRecord, int maxRecord){
+    	List<String> winners = new ArrayList<>();
+    	for(String carName : carRacingRecord.keySet()) {
+    		if(carRacingRecord.get(carName)==maxRecord) {
+    			winners.add(carName);
+    		}
+    	}
+    	return winners;
+    }
+    
 }
