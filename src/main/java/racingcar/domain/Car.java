@@ -33,4 +33,13 @@ public class Car implements Comparable<Car> {
 
         return this.forwardCount - o.forwardCount;
     }
+
+    public String getState() {
+        StringBuilder state = new StringBuilder(name+" : ");
+
+        for (int count = 0; count < forwardCount; count++) {
+            state.append("-");
+        }
+        return state.toString();
+    }
 }

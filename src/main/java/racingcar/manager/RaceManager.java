@@ -37,6 +37,14 @@ public class RaceManager {
             for (Car car : cars) {
                 carService.ForwardOrStop(car);
             }
+            printInterResult();
+        }
+    }
+
+    private void printInterResult() {
+        System.out.println("\n실행 결과");
+        for (Car car : cars) {
+            System.out.println(car.getState());
         }
     }
 
@@ -45,8 +53,6 @@ public class RaceManager {
         List<String> winners = referee.selectWinner();
         String winnerMessage = String.join(", ", winners);
 
-        System.out.println("최종 우승자 : " + winnerMessage);
+        System.out.println("\n최종 우승자 : " + winnerMessage);
     }
-
-
 }
