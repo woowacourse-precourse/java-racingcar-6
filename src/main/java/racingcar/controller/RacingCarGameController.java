@@ -14,6 +14,6 @@ public class RacingCarGameController {
     }
 
     public void gameStart() {
-
+        racingCarGameView.inputCarNames();
     }
 }
