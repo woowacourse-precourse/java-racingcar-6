@@ -9,7 +9,6 @@ import static racingcar.view.RacingView.winnerView;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 import racingcar.domain.Car;
 import racingcar.domain.CarList;
 
@@ -36,12 +35,13 @@ public class CarRacingService {
 
     private List<Car> stringToCarList(String carNameString) {
         List<Car> carList = new ArrayList<>();
-        StringTokenizer splitCarToken = new StringTokenizer(carNameString, ",");
-        while (splitCarToken.hasMoreTokens()) {
-            String carName = splitCarToken.nextToken();
-            carNameValidation(carName);
-            carList.add(new Car(carName));
+        String[] split = carNameString.split(",", -1);
+
+        for (String a : split) {
+            carNameValidation(a);
+            carList.add(new Car(a));
         }
+
         return carList;
     }
 }
