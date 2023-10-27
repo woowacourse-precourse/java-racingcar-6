@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.view.UserInput;
 
 public class Application {
 
@@ -20,32 +21,8 @@ public class Application {
 
         return new UserInput(carName, gameCount);
     }
-
 }
 
-class UserInput {
-    String userInputCarName;
-    int gameCount;
 
-    UserInput(String userInputCarName, int gameCount) {
-        validateInput(userInputCarName);//여기서 확인 후 담기
-        this.userInputCarName = userInputCarName;
-        this.gameCount = gameCount;
-    }
 
-    //2) 사용자 입력에 대한 예외처리
-    static void validateInput(String carName) throws IllegalArgumentException {
-        //1) 각 이름 길이 5초과 시 예외
-        for (String x : carName.split(",")) {
-            if (x.length() > 5) {
-                throw new IllegalArgumentException("경주할 자동차 이름의 길이는 5이하여야 합니다.");
-            }
-        }
-        //2) 각 이름에 " " 공백 포함 시 예외
-        for (String x : carName.split(",")) {
-            if (x.contains(" ")) {
-                throw new IllegalArgumentException("경주할 자동차 이름에 공백이 포함되면 안됩니다.");
-            }
-        }
-    }
-}
+
