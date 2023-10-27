@@ -1,0 +1,18 @@
+구현할 기능 목록
+- [ ] 출력 : OutputView
+  - [ ] 라운드마다 자동차 이름과 위치를 함께 출력 : printCarLocation
+  - [ ] 우승자 출력 : printWinner
+    - [ ] 단독 우승자 출력 
+    - [ ] 공동 우승자 출력
+- [ ] 입력 : InputView
+  - [ ] 경주할 자동차 이름 입력 : getCars
+    - [ ] 자동차 이름은 쉼표를 기준으로 구분 
+    - [ ] 이름은 5자 이하만 가능 : 
+  - [ ] 라운드 횟수 입력 : getRounds
+- [ ] 게임 진행 : GameManager
+  - [ ] 0~9 사이 무작위 값을 생성 : createRandomNumber
+  - [ ] 무작위 값이 4 이상일 경우 전진 : moveIfSatisfy
+- [ ] 자동차 객체 : Car
+  - [ ] 인스턴스 변수 : 이름
+  - [ ] 인스턴스 변수 : 위치
+  - [ ] 메서드 : 전진
