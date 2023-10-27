@@ -1,7 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,13 +11,13 @@ import java.io.InputStream;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
-class GameTest {
+class IOTest {
 
-    Game game;
+    IO io;
 
     @BeforeEach
     void setUp() {
-        game = new Game();
+        io = new IO();
     }
 
     @Test
@@ -26,7 +25,7 @@ class GameTest {
         String input = "a,b,c";
         provideInput(input);
 
-        String[] nameArr = game.inputName();
+        String[] nameArr = io.inputName();
 
         assertThat(nameArr).containsExactly("a", "b", "c");
     }
@@ -52,7 +51,7 @@ class GameTest {
         String input = "6";
         provideInput(input);
 
-        int number = game.inputNumber();
+        int number = io.inputNumber();
 
         assertThat(number).isEqualTo(6);
     }
