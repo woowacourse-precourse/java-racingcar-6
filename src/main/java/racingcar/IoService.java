@@ -18,11 +18,9 @@ public class IoService {
     List<String> isNmaes = Arrays.asList(isName.split(","));
     return isNmaes;
     //디버깅 완료
-  }public boolean nameExceptionCheck(){
-
-
-    return false;
   }
+
+
   public String tryChoiceGameMsg(){
     System.out.println("시도할 회수는 몇회인가요?");
     String input = Console.readLine();
@@ -38,23 +36,18 @@ public class IoService {
     System.out.println("실행 결과");
   }
   public String isChampionMsg(String name){
-    String msg ="";
-    msg += "최종 우승자 : ";
-    msg += name;
-    // 명단에 공백을 붙여서 출력 해야 하는 느낌
-    return msg;
+    return "최종 우승자 : " + name;
   }
   public String isChampionsMsg(List<String> names){
-    String msg = "";
-    msg += "최종 우승자 :";
-    for(int i = 0; i < names.size();i++){
-      msg += " ";
-      for(int j = 0; j < 1; i++){
-        msg += names.get(i);
-        if (names.size()-1 != i){ msg += ",";}
+    // 학습 - StringBuilder
+    StringBuilder msg = new StringBuilder("최종 우승자 :");
+    for (int i = 0; i < names.size(); i++){
+      msg.append(" ").append(names.get(i));
+      if (i != names.size()-1){
+        msg.append(",");
       }
     }
-    return msg;
+    return msg.toString();
   }
 
 
