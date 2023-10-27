@@ -5,10 +5,10 @@ public class CarNameValidatorImpl implements CarNameValidator {
 
     @Override
     public boolean validate(String input) {
-        return isShorterThanOrEqualsToMaxLength(input);
+        return isShorterThanOrEqualToMaxLength(input);
     }
 
-    private boolean isShorterThanOrEqualsToMaxLength(String input) {
+    private boolean isShorterThanOrEqualToMaxLength(String input) {
         return input.length() <= MAX_LENGTH;
     }
 }
