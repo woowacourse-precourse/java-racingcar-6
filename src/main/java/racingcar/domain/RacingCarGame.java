@@ -1,8 +1,13 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RacingCarGame {
     private Input input;
     private Output output;
+    private int moveCount;
+    private List<Car> carList;
 
     public RacingCarGame() {
         this.input = new ConsoleInput();
@@ -10,10 +15,25 @@ public class RacingCarGame {
     }
 
     public void start() {
+        getInput();
+    }
+
+    private void getInput() {
         output.printCarNamesInputRequest();
-        input.getCarNames();
+        List<String> carNameList = input.getCarNames();
+        carList = makeCarList(carNameList);
 
         output.printMoveCountInputRequest();
-        input.getMoveCount();
+        moveCount = input.getMoveCount();
+    }
+
+    private List<Car> makeCarList(List<String> carNames) {
+        List<Car> carList = new ArrayList<>();
+
+        for (String carName : carNames) {
+            carList.add(new Car(carName));
+        }
+
+        return carList;
     }
 }

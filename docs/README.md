@@ -10,7 +10,7 @@
   - 이동횟수는 자연수 - InputValidator #validateMoveCount()
 
 ### 2. 자동차 경주 게임 진행
-- [ ] 각 자동차의 전진유무를 결정하는 메서드 구현 - Car #determineMove()
+- [x] 각 자동차의 전진유무를 결정하는 메서드 구현 - Car #isMove()
 - [ ] 각 자동차의 현재까지 이동상태를 알아내는 메서드 구현 - Car #getPath() 
 - [ ] 이동횟수만큼 다음을 반복
   - 각 자동차 전진/멈추기 수행 - Car #moveOrStop()
