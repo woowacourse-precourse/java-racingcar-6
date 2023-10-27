@@ -1,9 +1,9 @@
 package racingcar.view;
 
-import static racingcar.view.ViewConstant.ATTEMPT_NUMBER_INPUT;
-import static racingcar.view.ViewConstant.CAR_MOVE;
-import static racingcar.view.ViewConstant.CAR_NAME_INPUT;
-import static racingcar.view.ViewConstant.WINNER;
+import static racingcar.view.constant.ViewConstant.ATTEMPT_NUMBER_INPUT;
+import static racingcar.view.constant.ViewConstant.CAR_MOVE;
+import static racingcar.view.constant.ViewConstant.CAR_NAME_INPUT;
+import static racingcar.view.constant.ViewConstant.WINNER;
 
 public class RacingView {
 

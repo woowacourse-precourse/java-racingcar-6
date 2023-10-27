@@ -41,6 +41,4 @@ class CarListTest {
         //then
         assertEquals(winner, "zizi");
     }
-
-
 }

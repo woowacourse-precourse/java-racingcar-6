@@ -33,4 +33,5 @@ class ValidatorTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> attemptNumberValidation(minus));
         Assertions.assertThrows(IllegalArgumentException.class, () -> attemptNumberValidation(floatNumber));
     }
+
 }

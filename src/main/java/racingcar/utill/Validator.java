@@ -1,9 +1,10 @@
 package racingcar.utill;
 
-import static racingcar.utill.ExceptionConstant.ATTEMPT_NUMBER_EXCEPTION_MESSAGE;
-import static racingcar.utill.ExceptionConstant.CAR_NAME_EXCEPTION_MESSAGE;
-import static racingcar.utill.ValidatorConstant.CAR_NAME_MAX_SIZE;
-import static racingcar.utill.ValidatorConstant.NATURAL_NUMBER_PATTERN;
+import static racingcar.utill.constant.ExceptionConstant.ATTEMPT_NUMBER_EXCEPTION_MESSAGE;
+import static racingcar.utill.constant.ExceptionConstant.CAR_NAME_BLANK_EXCEPTION_MESSAGE;
+import static racingcar.utill.constant.ExceptionConstant.CAR_NAME_EXCEPTION_MESSAGE;
+import static racingcar.utill.constant.ValidatorConstant.CAR_NAME_MAX_SIZE;
+import static racingcar.utill.constant.ValidatorConstant.NATURAL_NUMBER_PATTERN;
 
 import java.util.regex.Matcher;
 
@@ -11,8 +12,9 @@ public class Validator {
 
     public static void carNameValidation(String carName) {
         if (carName.isEmpty()) {
-            throw new IllegalArgumentException(CAR_NAME_EXCEPTION_MESSAGE);
+            throw new IllegalArgumentException(CAR_NAME_BLANK_EXCEPTION_MESSAGE);
         }
+
         if (carName.length() > CAR_NAME_MAX_SIZE) {
             throw new IllegalArgumentException(CAR_NAME_EXCEPTION_MESSAGE);
         }

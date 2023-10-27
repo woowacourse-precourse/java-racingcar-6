@@ -1,9 +1,6 @@
-package racingcar.domain;
+package racingcar.utill.constant;
 
-public class DomainConstant {
-
+public class RandomNumberConstant {
     public static final int RANDOM_NUMBER_START_RANGE = 0;
     public static final int RANDOM_NUMBER_LAST_RANGE = 9;
-    public static final int CAR_MOVE_CONDITION = 4;
-
 }

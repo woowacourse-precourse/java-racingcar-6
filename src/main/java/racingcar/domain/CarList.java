@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 import racingcar.utill.RandomNumberGenerator;
 
 public class CarList {
-
     private final List<Car> carList;
 
     public CarList(List<Car> carList) {
@@ -24,12 +23,14 @@ public class CarList {
             String carName = car.getCarName();
             carMoveOrStopDecisionResultView(carName, carPosition);
         }
+
         newLine();
     }
 
     public String racingWinnerDecision() {
         Map<String, Integer> rankingMap = carList.stream()
                 .collect(Collectors.toMap(Car::getCarName, Car::getCarPosition));
+
         List<String> winnerList = findWinner(rankingMap);
         return (stringListToString(winnerList));
     }
@@ -37,11 +38,13 @@ public class CarList {
     private List<String> findWinner(Map<String, Integer> rankingMap) {
         List<String> winnerList = new ArrayList<>();
         Integer maxPosition = Collections.max(rankingMap.values());
+
         for (String carName : rankingMap.keySet()) {
             if (rankingMap.get(carName).equals(maxPosition)) {
                 winnerList.add(carName);
             }
         }
+
         return winnerList;
     }
 
