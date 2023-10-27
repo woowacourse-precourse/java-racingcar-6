@@ -13,6 +13,9 @@ public class Car {
 
     public void moveForward() {
         int num = getRandomNumber();
+        if (num >= 4) {
+            this.moves += 1;
+        }
     }
 
     private int getRandomNumber() {
