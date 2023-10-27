@@ -3,13 +3,21 @@ package racingcar.dto;
 import racingcar.domain.Car;
 
 public class CarDTO {
-	Car car;
+	Car car = new Car();
 	
-	public Car getCar() {
-		return car;
+	public String getCarName() {
+		return car.getCarName();
+	}
+	
+	public int getCarLocation() {
+		return car.getCarLocation();
 	}
 	
 	public void setCar(String carName, int carLocation) {
-		car = new Car(carName, carLocation);
+		car.setCar(carName, carLocation);
+	}
+	
+	public void setCarLocation(int carLocation) {
+		car.setCarLocation(carLocation);
 	}
 }

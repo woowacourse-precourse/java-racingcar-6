@@ -3,14 +3,13 @@ package racingcar.service;
 import java.util.List;
 import racingcar.view.Input;
 import racingcar.view.Output;
-import racingcar.domain.Car;
-import racingcar.domain.Round;
+import racingcar.dto.CarDTO;
 import racingcar.dto.CarListDTO;
 import racingcar.dto.RoundDTO;
 
 public class Game {
-	List<Car> carList;
-	Round round;
+	List<CarDTO> carList;
+	RoundDTO round;
 	
 	public void setGame() {
 		generateCarList();
@@ -25,8 +24,8 @@ public class Game {
 	
 	private void generateRound() {
 		int roundNumber = Input.requestRoundNumber();
-		RoundDTO roundDTO = new RoundDTO();
-		round = roundDTO.makeRound(roundNumber);
+		round = new RoundDTO();
+		round.setRound(roundNumber);
 	}
 	
 	public void startGame() {

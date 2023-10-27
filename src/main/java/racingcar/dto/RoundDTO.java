@@ -3,10 +3,13 @@ package racingcar.dto;
 import racingcar.domain.Round;
 
 public class RoundDTO {
-	Round round;
+	Round round = new Round();
 	
-	public Round makeRound(int roundNumber) {
-		round = new Round(roundNumber);
-		return round;
+	public void setRound(int roundNumber) {
+		round.setRoundNumber(roundNumber);
+	}
+	
+	public int getRoundNumber() {
+		return round.getRoundNumber();
 	}
 }
