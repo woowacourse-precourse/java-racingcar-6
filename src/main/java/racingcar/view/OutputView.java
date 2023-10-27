@@ -15,6 +15,10 @@ public class OutputView {
         System.out.println(carNameAndPosition);
     }
 
+    public void printWinnerMessage() {
+        MessageUtil.FINAL_WINNER_MESSAGE.messagePrint();
+    }
+
     public void printNewLine() {
         System.out.println();
     }
