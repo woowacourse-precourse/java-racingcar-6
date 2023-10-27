@@ -8,9 +8,7 @@ import racingcar.model.Cars;
 import racingcar.utils.Parser;
 import racingcar.view.InputView;
 
-// 프론트 엔드 역할을 할 컨트롤러
 public class RacingGameInputController {
-    // 자동차 이름 입력
     public static Cars scanCarList() {
         InputView.printEnterCarNames();
         String userInput = Console.readLine();
@@ -25,8 +23,7 @@ public class RacingGameInputController {
                 .forEach(name -> carList.add(new Car(name)));
         return new Cars(carList);
     }
-
-    // 시도할 회수 입력
+    
     public static Integer scanNumberOfRounds() {
         InputView.printEnterNumberOfRounds();
         String userInput = Console.readLine();
