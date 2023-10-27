@@ -1,6 +1,8 @@
 package racingcar.exception;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 abstract public class NameException {
 
@@ -10,6 +12,7 @@ abstract public class NameException {
         nameNotExistValidation(names);
         nameLengthValidation(names);
         nameNotEmptyValidation(names);
+        nameDuplicateValidation(names);
     }
 
     private static void nameNotExistValidation(String[] names) {
@@ -36,6 +39,18 @@ abstract public class NameException {
 
         if (names.length != count) {
             throw new IllegalArgumentException(NAME_MIN_LENGTH_AND_NOT_EMPTY);
+        }
+    }
+
+    private static void nameDuplicateValidation(String[] names) {
+        Set<String> set = new HashSet<>();
+
+        for (String name : names) {
+            set.add(name);
+        }
+
+        if (names.length != set.size()) {
+            throw new IllegalArgumentException("이름은 중복 없이 입력해 주세요.");
         }
     }
 }
