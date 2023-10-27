@@ -8,8 +8,8 @@ public class Car {
     private static final int MAX_RANDOM = 9;
     private static final int MIN_RANDOM = 0;
     private static final int SATISFY_FOR_MOVE = 4;
-    private String name;
-    private StringBuilder location;
+    private final String name;
+    private final StringBuilder location;
 
     public Car(String name) {
         validateCarName(name);
