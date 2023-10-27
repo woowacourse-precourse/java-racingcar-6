@@ -44,5 +44,4 @@ public record Name(String value) {
         Name name = (Name) o;
         return Objects.equals(value, name.value);
     }
-
 }
