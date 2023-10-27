@@ -9,6 +9,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class GameController {
 
@@ -23,13 +24,29 @@ public class GameController {
     }
 
     public void playGame() {
-        Circuit circuit = inputView.getInputCarNames();
+        Circuit circuit = setupRace();
+        runRace(circuit);
+        announceRaceWinners(circuit);
+    }
+
+    private Circuit setupRace() {
+        return inputView.getInputCarNames();
+    }
+
+    private void runRace(Circuit circuit) {
         TryCount tryCount = inputView.getTryCount();
-        for (int i = 0; i < tryCount.getCount(); i++) {
-            List<RacingResult> raceResults = racingService.race(circuit);
-            outputView.printRacingResult(raceResults);
-        }
+        IntStream.range(0, tryCount.getCount())
+                .forEach(round -> raceOneRound(circuit));
+    }
+
+    private void raceOneRound(Circuit circuit) {
+        List<RacingResult> raceResults = racingService.race(circuit);
+        outputView.printRacingResult(raceResults);
+    }
+
+    private void announceRaceWinners(Circuit circuit) {
         Winners winners = racingService.announceWinners(circuit);
         outputView.printWinner(winners);
     }
+
 }
