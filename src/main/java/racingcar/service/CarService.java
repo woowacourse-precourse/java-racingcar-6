@@ -17,4 +17,8 @@ public class CarService {
     private List<String> splitNames(String carNames) {
         return List.of(carNames.split(","));
     }
+
+    public List<Car> getAllCars() {
+        return track.getCars();
+    }
 }
