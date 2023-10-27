@@ -1,9 +1,9 @@
 ### 기능 목록
 
-- [ ] 사용자에게 경주할 자동차 이름을 입력받는다. - InputView#getCarNames()
-  - [ ] 아래의 경우 `IllegalArgumentException` 발생 후 프로그램은 종료된다.
-    - [ ] 숫자가 입력된 경우
-    - [ ] 쉼표(,) 외 특수문자가 입력된 경우
+- [x] 사용자에게 경주할 자동차 이름을 입력받는다. - InputView#getCarNames()
+  - [x] 아래의 경우 `IllegalArgumentException` 발생 후 프로그램은 종료된다.
+    - [x] 숫자가 입력된 경우
+    - [x] 쉼표(,) 외 특수문자가 입력된 경우
     - [ ] 자동차 이름이 5자 이하가 아닌 경우
     - [ ] 자동차 이름이 서로 중복인 경우
 - [ ] 입력된 자동차 이름 개수만큼 자동차를 생성한다. - CarGenerator#createCar()
