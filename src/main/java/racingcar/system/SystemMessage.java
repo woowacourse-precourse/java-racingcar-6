@@ -6,7 +6,6 @@ public enum SystemMessage {
     RACE_RESULT("\n실행 결과\n"),
     FINAL_WINNER("최종 우승자 : ");
 
-
     private final String message;
 
     SystemMessage(String message) {
