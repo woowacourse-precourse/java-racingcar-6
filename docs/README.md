@@ -85,13 +85,13 @@
 
 ## 📦 도메인 - Domain
 
-- [ ]  📔 자동차그룹 - carGroup
-   - [ ]  📝 생성자 - carGroup
+- [ ]  📔 자동차그룹 - CarGroup
+   - [ ]  📝 생성자 - CarGroup
    - [ ]  📝 자동차 그룹 생성하기 - of
    - [ ]  📝 자동차 그룹의 크기 구하기 - findSize
    - [ ]  📝 들어온 순서로 자동차 검색하기 - findCarByOrder
-- [ ]  📔 자동차 - car
-   - [ ]  📝 생성자 - car
+- [ ]  📔 자동차 - Car
+   - [ ]  📝 생성자 - Car
    - [ ]  📝 자동차 생성하기 - of
    - [ ]  📝 자동차 이름 조회하기 - findName
    - [ ]  📝 자동차 위치 조회하기 - findPostion
@@ -100,21 +100,21 @@
 
 ## 📦 검증 - Validator
 
-- [ ]  📔 자동차 이름 검증 - carNameValidator
+- [ ]  📔 자동차 이름 검증 - CarNameValidator
     - [ ]  📝통합 검증하기
     - [ ]  📝자동차 이름 1글자 이상 5글자 이하인지 검증하기 - isValidLength
     - [ ]  📝 자동차 이름에 공백이 들어가 있는지 검증하기 - hasWhiteSpace
     - [ ]  📝 중복된 이름이 있는지 검증하기 - hasDuplicateName
-- [ ]  📔 이동 횟수 검증 - roundValidator
+- [ ]  📔 이동 횟수 검증 - RoundValidator
     - [ ]  📝통합 검증하기
     - [ ]  📝 문자열이 아닌지 검증하기 - isNotString
     - [ ]  📝 실수가 아닌지 검증하기 - isNotRealNumber
     - [ ]  📝 `1`이상의 정수인지 검증하기 - isValidRange
-- [ ]  📔 자동차 이름 검증하는 기준값들 - carNameValidationCriteria
-- [ ]  📔 이동 횟수 검증하는 기준값들 - roundValidationCriteria
+- [ ]  📔 자동차 이름 검증하는 기준값들 - CarNameValidationCriteria
+- [ ]  📔 이동 횟수 검증하는 기준값들 - RoundValidationCriteria
 ## 📦 게임 관리 - Controller
 
-- [ ]  📔 게임 관리 - gameController
+- [ ]  📔 게임 관리 - GameController
     - [ ]  📝 게임 시작 - startGame
       - `자동차 이름 입력 받기` 호출하기
       - `자동차 이름에 대해 전처리 하기` 호출하기
@@ -126,10 +126,10 @@
 
 ## 📦 비즈니스 로직 - Model
 
-- [ ]  📔 게임 모델 - gameModel
+- [ ]  📔 게임 모델 - GameModel
    - [ ] 📝 게임 한 판 진행하기 - playGameRound
    - [ ] 📝 이동 여부 판단해주기 - detremineMove
-- [ ]  📔 자동차 모델 - carModel
+- [ ]  📔 자동차 모델 - CarModel
    - [ ]  🔤 자동차 이름 검증
    - [ ]  📝 자동차 이름에 대해 전처리 하기 - carNamePreProcess
    - [ ]  📝 `,`을 기준으로 자동차 이름 나누기 - divideCarNameByCriteria
@@ -139,29 +139,29 @@
 
 ## 📦 입출력 출력 - View
 
-- [ ]  📔 사용자 입력 - inputView
+- [ ]  📔 사용자 입력 - InputView
     - [ ]  📝 자동차 이름 입력받기 - inputCarNames
     - [ ]  📝 시도할 횟수 입력받기 - inputNumberOfRound
-- [ ]  📔 결과 출력 - outputView
+- [ ]  📔 결과 출력 - OutputView
     - [ ]  📝 차수 결과 출력하기 - outputRoundResult
     - [ ]  📝 최종 우승자 출력하기 - outputFinalWinner
 
 ## 📦 예외 처리 - Exception
 
-- [ ]  📔 사용자 정의 예외 - gameException
+- [ ]  📔 사용자 정의 예외 - GameException
     - [ ]  📝 예외 생성하기 - of
 
 ## 📦 문구 - Message
 
-- [ ]  📔 문구 - gamePrompt
+- [ ]  📔 문구 - GamePrompt
     - InputCarNamesMessage
     - inputRoundMessage
     - outputFinalWinnerMessage
-- [ ]  📔 자동차 이름 예외 - carNameExceptionPrompt
+- [ ]  📔 자동차 이름 예외 - CarNameExceptionPrompt
     - LengthMessage
     - whiteSpaceMessage
     - duplicateMessage
-- [ ]  📔 시도 횟수 예외 - roundExceptionPrompt
+- [ ]  📔 시도 횟수 예외 - RoundExceptionPrompt
     - stringPrompt
     - realNumberPrompt
     - rangePrompt
