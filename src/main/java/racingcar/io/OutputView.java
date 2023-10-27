@@ -2,6 +2,7 @@ package racingcar.io;
 
 import racingcar.constant.ProgressMessage;
 import racingcar.domain.RacingCars;
+import racingcar.domain.Winners;
 
 public class OutputView {
 
@@ -19,5 +20,9 @@ public class OutputView {
 
     public void printRacingCars(final RacingCars racingCars) {
         System.out.println(racingCars.toResultMessage());
+    }
+
+    public void printWinners(final Winners winners) {
+        System.out.println(winners.toResultMessage());
     }
 }
