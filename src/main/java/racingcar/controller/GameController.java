@@ -9,5 +9,6 @@ public class GameController {
     private final static NumberGenrator randomNUmberGenerator = new RandomNumberGenrator();
 
     public void start() {
+
     }
 }
