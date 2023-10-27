@@ -5,8 +5,8 @@
 ### Input
 
 #### Set the Entry List
-- [ ] n대의 자동차 이름을 저장한다. - lineUp()
-    - [ ] 각각의 자동차 이름은 쉼표(,)를 통해 구분한다. - `.spiit(",")`
+- [x] n대의 자동차 이름을 저장한다. - lineUp()
+    - [x] 각각의 자동차 이름은 쉼표(,)를 통해 구분한다. - `.spiit(",")`
     - [ ] 자동차 이름이 5자 이상이면 `IllegalArgumentException`
 
 #### Laps
