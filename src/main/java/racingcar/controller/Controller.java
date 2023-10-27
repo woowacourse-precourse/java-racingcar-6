@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import racingcar.controller.dto.GameResultResponse;
 import racingcar.model.Car;
+import racingcar.model.CarName;
 import racingcar.model.CarRacingTrackGenerator;
 import racingcar.model.Position;
 import racingcar.model.RacingGame;
@@ -53,7 +54,7 @@ public class Controller {
         String carNames = inputView.readLine();
         List<String> carNameList = Converter.splitWithComma(carNames);
         return carNameList.stream()
-                .map(Car::createWith)
+                .map(carName -> Car.createWith(new CarName(carName)))
                 .toList();
     }
 
