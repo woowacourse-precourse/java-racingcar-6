@@ -21,39 +21,36 @@ public class RacingCars implements Cars {
     }
 
     public void showResult() {
-        int maxProcess = findMaxProcess();
+        int maxProcess = findMaxProgress();
         List<String> maxProgressCarName = findMaxProgressCarName(maxProcess);
         String result = String.join(", ", maxProgressCarName);
         OutputUtil.printWithLine("최종 우승자 : " + result);
     }
 
-    private int findMaxProcess() {
+    private int findMaxProgress() {
         List<RacingCar> cars = getCars();
+        List<Integer> progressValues = new ArrayList<>();
         int max = -1;
         for (int i = 0; i < cars.size(); i++) {
             RacingCar racingCar = cars.get(i);
-            int progress = racingCar.getProgress();
-            max = Math.max(max, progress);
+            racingCar.putProgressAt(progressValues);
         }
-
-        return max;
+        return Collections.max(progressValues);
     }
 
     private List<String> findMaxProgressCarName(int maxProgress) {
         List<RacingCar> cars = getCars();
         List<String> result = new ArrayList<>();
         for (int i = 0; i < cars.size(); i++) {
-            addMaxCarName(maxProgress, cars, result, i);
+            putMaxProgressCarNameAt(maxProgress, cars.get(i), result);
         }
 
         return result;
     }
 
-    private static void addMaxCarName(int maxProgress, List<RacingCar> cars, List<String> result, int i) {
-        RacingCar racingCar = cars.get(i);
-        int progress = racingCar.getProgress();
-        if (progress == maxProgress) {
-            result.add(racingCar.getName());
+    private void putMaxProgressCarNameAt(int maxProgress, RacingCar car, List<String> result) {
+        if (car.isProgressEqualTo(maxProgress)) {
+            result.add(car.getName());
         }
     }
 

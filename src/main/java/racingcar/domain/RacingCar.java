@@ -4,7 +4,9 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.interfaces.Car;
 import racingcar.util.OutputUtil;
 
-public class RacingCar implements Car {
+import java.util.List;
+
+public class RacingCar {
 
     private final String name;
     private int progress;
@@ -31,8 +33,12 @@ public class RacingCar implements Car {
         printInfo();
     }
 
-    public int getProgress() {
-        return progress;
+    public boolean isProgressEqualTo(int otherValue) {
+        return progress == otherValue;
+    }
+
+    public void putProgressAt(List<Integer> list) {
+        list.add(progress);
     }
 
     public String getName() {
@@ -42,6 +48,4 @@ public class RacingCar implements Car {
     private int pickRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
-
-
 }
