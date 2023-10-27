@@ -6,13 +6,17 @@ import java.util.ArrayList;
 
 public class Control {
     public Control(String iterateNumber, ArrayList<String> nameList){
-        int iterate = Integer.parseInt(iterateNumber);
-        int[] carMove = new int[nameList.size()];
-        for(int i=0;i<iterate;i++){
-            carMoveCheck(carMove);
-            carMovePrint(carMove, nameList);
+        try{
+            int iterate = Integer.parseInt(iterateNumber);
+            int[] carMove = new int[nameList.size()];
+            for(int i=0;i<iterate;i++){
+                carMoveCheck(carMove);
+                carMovePrint(carMove, nameList);
+            }
+            winnerNamesPrint(carMove, nameList);
+        }catch(NumberFormatException){
+            throw new IllegalArgumentException("시도할 횟수의 입력이 잘못 되었습니다.");
         }
-        winnerNamesPrint(carMove, nameList);
     }
 
     private void carMoveCheck(int[] carMove){
