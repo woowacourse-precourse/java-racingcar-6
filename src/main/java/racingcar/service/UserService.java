@@ -10,8 +10,7 @@ public class UserService {
 
     public int inputTryNumber(String tryNumber) {
         try {
-            int number = Integer.parseInt(tryNumber);
-            return number;
+            return Integer.parseInt(tryNumber);
         } catch (NumberFormatException ex) {
             throw new IllegalArgumentException(MessageEnum.INVALID_INPUT_MESSAGE.getMessage());
         }
