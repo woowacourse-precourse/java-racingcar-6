@@ -1,6 +1,5 @@
 package featuretest;
 
-import Controller.InputHandler;
 import Model.RaceCarNames;
 import org.junit.jupiter.api.Test;
 
