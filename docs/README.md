@@ -1,6 +1,6 @@
 구현할 기능 목록
 - [x] 출력 : OutputView
-  - [x] 라운드마다 자동차 이름과 위치를 함께 출력 : printResult
+  - [x] 라운드마다 자동차 이름과 위치를 함께 출력 : printCarsLocation
   - [x] 우승자 출력 : printWinner
     - [x] 단독 우승자 출력 
     - [x] 공동 우승자 출력
