@@ -9,6 +9,7 @@ import java.util.List;
 public class InputView {
 
     private static final String ERR_NOT_NUMBER = "입력값이 숫자가 아닙니다.";
+    private static final String ONLY_NUMBER_REGEX = "^[1-9]+$";
 
     public List<Car> getCars() {
         String line = Console.readLine();
@@ -31,9 +32,7 @@ public class InputView {
     }
 
     private static void validateNumber(String line) {
-        for(char c : line.toCharArray()) {
-            if(!Character.isDigit(c))throw new IllegalArgumentException(ERR_NOT_NUMBER);
-        }
+        if(!line.matches(ONLY_NUMBER_REGEX)) throw new IllegalArgumentException(ERR_NOT_NUMBER);
     }
 
 }
