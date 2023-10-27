@@ -2,6 +2,10 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Application {
     public static void main(String[] args) {
@@ -13,18 +17,18 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         int tryCount = Integer.parseInt(Console.readLine());
 
-        Car[] carList = new Car[cars.length];
-        for (int i = 0; i < cars.length; i++) {
-            carList[i] = new Car(cars[i]);
-        }
+        Car[] carList = Arrays.stream(cars)
+                .map(Car::new)
+                .toArray(Car[]::new);
 
         for (int i = 0; i < tryCount; i++) {
-            for(Car car : carList){
-                if (decideMove()){
+            for (Car car : carList) {
+                if (decideMove()) {
                     car.moveForward();
                 }
                 System.out.println(car.toString());
             }
+            System.out.println();
         }
     }
 

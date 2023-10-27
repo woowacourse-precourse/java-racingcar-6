@@ -21,7 +21,7 @@ public class Car {
         return bar.toString();
     }
 
-    public int getCnt(){
+    public  int getCnt(){
         return cnt;
     }
     public String getName(){
