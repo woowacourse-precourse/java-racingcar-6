@@ -22,8 +22,6 @@ public class RacingGameValidator {
             final List<String> carNames,
             int count
     ) {
-        validateCarNameEnough(input, count);
-
         for (int i = 0; i < count; i++) {
             String name = carNames.get(i);
             validateCarNameEmpty(name);
@@ -31,15 +29,6 @@ public class RacingGameValidator {
         }
     }
 
-    public static void validateCarNameEnough(
-            final String input,
-            final int count
-    ) {
-        String[] names = input.split(",");
-        if (names.length != count) {
-            throw new IllegalArgumentException();
-        }
-    }
 
     private static void validateCarNameEmpty(final String name) {
         if (name.equals("")) {
@@ -52,8 +41,8 @@ public class RacingGameValidator {
             final List<String> carNames
     ) {
         Set<String> carNameSet = new HashSet<>(carNames);
-        if (carNameSet.contains(name)) {
-            throw new IllegalArgumentException();
+        if (carNameSet.size() != carNames.size()) {
+            throw new IllegalArgumentException("중복된 이름은 입력할 수 없습니다.");
         }
     }
 

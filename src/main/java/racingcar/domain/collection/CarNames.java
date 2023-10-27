@@ -15,6 +15,10 @@ public class CarNames {
         return new String(names.get(index));
     }
 
+    public int getCount() {
+        return names.size();
+    }
+
     public List<String> getNames() {
         return Collections.unmodifiableList(names);
     }

@@ -1,2 +1,4 @@
-package racingcar.domain.interfaces;public interface Cars {
+package racingcar.domain.interfaces;
+
+public interface Cars {
 }
