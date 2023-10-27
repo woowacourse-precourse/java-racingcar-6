@@ -26,6 +26,21 @@ public class Cars {
         return carList;
     }
 
+    public List<String> findWinners() {
+        int maxMove = 0;
+        Map<Integer, List<String>> moveMap = new HashMap<>();
+        for (Car car : cars) {
+            Integer key = car.getMoveCount();
+            if (key > maxMove) {
+                maxMove = key;
+            }
+            List<String> values = moveMap.getOrDefault(key, new ArrayList<String>());
+            values.add(car.getName());
+            moveMap.put(key, values);
+        }
+        return moveMap.get(maxMove);
+    }
+
     public List<Car> getCars() {
         return cars;
     }
