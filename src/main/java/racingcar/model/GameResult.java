@@ -5,9 +5,15 @@ import java.util.List;
 
 public class GameResult {
     private final List<Car> winnerCarList = new ArrayList<>();
-    private int winPosition = 0;
+    private final int winPosition;
 
-    public void findWinPositionFromCarList(List<Car> carList) {
-        carList.forEach(car -> this.winPosition = Math.max(car.getPosition(), this.winPosition));
+    public GameResult(int winPosition) {
+        this.winPosition = winPosition;
+    }
+
+    public void addCarList(List<Car> carList) {
+        carList.forEach(car -> {
+            if (car.getPosition() == this.winPosition) winnerCarList.add(car);
+        });
     }
 }

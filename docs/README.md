@@ -50,10 +50,10 @@
   - [x] 이름과 현재 위치를 출력할 메소드
   - [ ] 이름만 출력
 
-- [ ] GameResult
+- [x] GameResult
   - [x] 우승 객체를 담을 List<Car>, 가정 전진해 있는 winPosition 생성자
   - [x] winPosition 찾는 메소드
-  - [ ] winPosition에 있는 Car를 winnerCarList에 추가하는 메소드
+  - [x] winPosition에 있는 Car를 winnerCarList에 추가하는 메소드
 ### VIEW
 - [x] InputView (ErrorException으로 입력 값 검증)
   - [x] 자동차 이름 입력 받기 (Console.readLine() 사용)
