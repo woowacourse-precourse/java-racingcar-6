@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import racingcar.util.NumberGenerator;
 
@@ -24,5 +25,9 @@ public class Cars {
 
     public void moveAll(final NumberGenerator generator) {
         cars.forEach(car -> car.move(generator));
+    }
+
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
     }
 }

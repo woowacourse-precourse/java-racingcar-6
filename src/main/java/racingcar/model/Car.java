@@ -16,4 +16,12 @@ public class Car {
         int number = generator.generate();
         position.move(number);
     }
+
+    public String getName() {
+        return name.getName();
+    }
+
+    public int getPosition() {
+        return position.getPosition();
+    }
 }
