@@ -21,7 +21,7 @@ public class Car implements Vehicle {
     @Override
     public boolean canMove() {
         NumberGenerator numberGenerator = new RandomNumberGenerator();
-        return numberGenerator.generateNumber() >= FORWARD_THRESHOLD.getValue();
+        return numberGenerator.generate() >= FORWARD_THRESHOLD.getValue();
     }
 
     @Override

@@ -8,7 +8,7 @@ public class RandomNumberGenerator implements NumberGenerator {
     private static final int END_INCLUSIVE = 9;
 
     @Override
-    public int generateNumber() {
+    public int generate() {
         return Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
     }
 }
