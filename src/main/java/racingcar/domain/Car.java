@@ -7,4 +7,9 @@ public class Car {
     public Car(String carName) {
         this.carName = carName;
     }
+
+    @Override
+    public String toString() {
+        return carName;
+    }
 }
