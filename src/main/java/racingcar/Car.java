@@ -2,19 +2,20 @@ package racingcar;
 
 public class Car {
 
-    private String name;
+    private CarName name;
     private int distance;
     private GameRule rule;
 
-    public Car(GameRule rule, String name) {
+    public Car(GameRule rule, CarName name) {
         this.name = name;
         this.distance = 0;
         this.rule = rule;
     }
 
     public String getName() {
-        return this.name;
+        return this.name.toString();
     }
+
     public int getDistance() {
         return distance;
     }
@@ -23,5 +24,14 @@ public class Car {
         int randomNumber = RandomNumberGenerator.pickRandomNumber(rule);
         if (randomNumber >= 4)
             this.distance += randomNumber;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj.getClass() != Car.class) {
+            return false;
+        }
+        Car that = (Car) obj;
+        return (this.name.equals(that.name) && this.distance == that.distance);
     }
 }

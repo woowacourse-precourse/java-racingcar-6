@@ -1,29 +1,14 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Referee {
 
-    private List<Car> cars;
+    private CarRecord carRecord;
 
-    public Referee(List<Car> cars) {
-        this.cars = cars;
+    public Referee(CarRecord carRecord) {
+        this.carRecord = carRecord;
     }
 
     public String announceAllWinners() {
-        int maxDistance = 0;
-        List<String> winners = new ArrayList<>();
-        for (Car car : cars) {
-            if (maxDistance < car.getDistance())
-                maxDistance = car.getDistance();
-        }
-
-        for (Car car : cars) {
-            if (maxDistance == car.getDistance())
-                winners.add(car.getName());
-        }
-
-        return String.join(", ", winners);
+        return carRecord.getLeadingCarRecord().toString();
     }
 }

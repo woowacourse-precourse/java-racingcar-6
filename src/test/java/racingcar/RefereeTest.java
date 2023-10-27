@@ -2,35 +2,32 @@ package racingcar;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
+import racingcar.factories.CarFactory;
+import racingcar.factories.CarRecordFactory;
 
 public class RefereeTest {
 
+    String[] names;
     private static GameRule rule;
     private Referee referee;
-    private List<Car> cars;
+    private CarRecord carRecord;
     private static int laps;
     private static MockedStatic<RandomNumberGenerator> mocked;
 
     @BeforeEach
     private void setCarsAndReferee() {
-        cars = new ArrayList<>();
-        cars.add(new Car(rule, "Max"));
-        cars.add(new Car(rule, "Lando"));
-        cars.add(new Car(rule, "Lewis"));
-        cars.add(new Car(rule, "Oscar"));
-        cars.add(new Car(rule, "Alex"));
-        cars.add(new Car(rule, "Sainz"));
-        cars.add(new Car(rule, "Kevin"));
-        referee = new Referee(cars);
+        carRecord = CarRecordFactory.createEmptyCarRecord();
+        names = new String[] {"Max", "Lando", "Lewis", "Oscar", "Alex", "Sainz", "Kevin"};
+        for (int i = 0; i < names.length; i++) {
+            carRecord.register(CarFactory.car(rule, names[i]));
+        }
+        referee = new Referee(carRecord);
     }
 
     @BeforeAll
@@ -47,43 +44,52 @@ public class RefereeTest {
 
 
     /**
-     * 매 lap마다 각 자동차는 자신의 index만큼 앞으로 전진한다.
-     * 인덱스가 4 이상인 자동차만 앞으로 전진하게 되고 인덱스 값이 가장 큰 Kevin이 우승한다.
+     * 기존의 자동차들은 0만큼 움직이고 winner 자동차는 5만큼 움직인다.
+     * 승자는 winner 한 명이다.
      */
     @Test
     void 우승한_차량이_한_대() {
         // when
+        setDistance(3);
         for (int i = 0; i < laps; i++) {
-            for (int j = 0; j < cars.size(); j++) {
-                mocked.when(() -> RandomNumberGenerator.pickRandomNumber(rule))
-                        .thenReturn(j);
-                cars.get(j).moveForward();
-            }
+            carRecord.moveForwardAllCars();
         }
+        Car winner = getCarMovedFor(5, "Nick");
+        winner.moveForward();
+        carRecord.register(winner);
         // then
-        assertThat(referee.announceAllWinners()).isEqualTo("Kevin");
+        assertThat(referee.announceAllWinners()).isEqualTo(winner.getName());
     }
 
     /**
-     * 매 lap마다 각 자동차는 자신의 이름 길이 만큼 앞으로 전진한다.
-     * 이름이 4글자 이상인 자동차만 앞으로 전진하게 되고 이름이 5글자인 자동차들이 우승하게 된다.
+     * 기존 차량들은 5씩 laps회 만큼 이동한다.
+     * winners 자동차들은 9씩 laps회 만큼 이동한다.
      */
     @Test
     void 우승한_차량이_두_대_이상() {
         // when
+        setDistance(5);
         for (int i = 0; i < laps; i++) {
-            for (int j = 0; j < cars.size(); j++) {
-                mocked.when(() -> RandomNumberGenerator.pickRandomNumber(rule))
-                        .thenReturn(cars.get(j).getName().length());
-                cars.get(j).moveForward();
-            }
+            carRecord.moveForwardAllCars();
         }
+        CarRecord winners = CarRecordFactory.createEmptyCarRecord();
+        Car w1 = CarFactory.car(rule, "w1");
+        Car w2 = CarFactory.car(rule, "w2");
+        Car w3 = CarFactory.car(rule, "w3");
+        setDistance(9);
+        for (int i = 0; i < laps; i++) {
+            w1.moveForward();
+            w2.moveForward();
+            w3.moveForward();
+        }
+        winners.register(w1);
+        winners.register(w2);
+        winners.register(w3);
+        carRecord.register(w1);
+        carRecord.register(w2);
+        carRecord.register(w3);
         // then
-        String winners = cars.stream()
-                .filter(car -> car.getName().length() == 5)
-                .map(Car::getName)
-                .collect(Collectors.joining(", "));
-        assertThat(referee.announceAllWinners()).isEqualTo(winners);
+        assertThat(referee.announceAllWinners()).isEqualTo(winners.toString());
     }
 
     /**
@@ -91,23 +97,25 @@ public class RefereeTest {
      */
     @Test
     void 모든_차량이_동일한_거리_이동() {
-        mocked.when(() -> RandomNumberGenerator.pickRandomNumber(rule))
-                .thenReturn(7);
-        Referee referee = new Referee(cars);
         // when
-        moveForwardForGivenLaps();
+        setDistance(7);
+        for (int i = 0; i < laps; i++) {
+            carRecord.moveForwardAllCars();
+        }
         // then
-        String winners = cars.stream()
-                .map(Car::getName)
-                .collect(Collectors.joining(", "));
-        assertThat(referee.announceAllWinners()).isEqualTo(winners);
+        assertThat(referee.announceAllWinners()).isEqualTo(String.join(", ", names));
     }
 
-    void moveForwardForGivenLaps() {
-        for (int i = 0; i < this.laps; i++) {
-            for (int j = 0; j < this.cars.size(); j++) {
-                this.cars.get(j).moveForward();
-            }
-        }
+    Car getCarMovedFor(int distance, String name) {
+        Car car = CarFactory.car(rule, name);
+        mocked.when(() -> RandomNumberGenerator.pickRandomNumber(rule))
+                .thenReturn(distance);
+        car.moveForward();
+        return car;
+    }
+
+    void setDistance(int distance) {
+        mocked.when(() -> RandomNumberGenerator.pickRandomNumber(rule))
+                .thenReturn(distance);
     }
 }
