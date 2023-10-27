@@ -73,4 +73,21 @@ class CarTest {
 
         randoms.close();
     }
+
+    @Test
+    @DisplayName("isSameDistance() 가 같은 위치에 있는 Car가 입력으로 들어오면 true를 반환한다.")
+    void isSameDistanceReturnTrue_whenSameDistanceCarInput() {
+        // given
+        String name1 = "car1";
+        Car car1 = new Car(name1);
+
+        String name2 = "car2";
+        Car car2 = new Car(name2);
+
+        // when
+        boolean result = car1.isSameDistance(car2);
+
+        // then
+        assertThat(result).isTrue();
+    }
 }
