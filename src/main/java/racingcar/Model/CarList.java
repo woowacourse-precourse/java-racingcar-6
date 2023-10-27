@@ -20,6 +20,15 @@ public class CarList {
 
 	}
 
+	public void moveCarList() {
+
+		for(Car eachCar : carList) {
+			eachCar.move();
+		}
+
+	}
+
+
 	private String[] splitEnteredList(String enteredList) {
 		return enteredList.split(ENTERED_SEPARATOR);
 	}
