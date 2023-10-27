@@ -12,7 +12,7 @@ public class Application {
         String input = Console.readLine();
         String[] names = input.split(",");
         for (String name : names) {
-            if (name.length() <= 5){
+            if (name.length() <= 5) {
                 inputCarName.add(name);
             } else {
                 throw new IllegalArgumentException("5글자 이하만 입력하시오");
@@ -24,15 +24,19 @@ public class Application {
         int tryNumber = inputTryNumber();
         System.out.println(tryNumber);
 
-        int go = Randoms.pickNumberInRange(0,9);
-        System.out.println(go);
-        if (go >= 4){
-            System.out.println("pobi : ");
-            System.out.println("woni : ");
-            System.out.println("jun : ");
+        int[] scores = new int[inputCarName.size()];
+        for (int j = 0; j < tryNumber; j++) {
+            for (int i = 0; i < inputCarName.size(); i++) {
+                int go = Randoms.pickNumberInRange(0, 9);
+                if (go >= 4) {
+                    scores[i]++;
+                }
+            }
+            for (int i = 0; i < inputCarName.size(); i++) {
+                System.out.println(inputCarName.get(i)+ " : " + scores[i]);
+            }
+            System.out.println();
         }
-
-
 
     }
 
