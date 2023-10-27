@@ -2,12 +2,12 @@ package racingcar.validation;
 
 import racingcar.message.ErrorMessage;
 
-public class InputValidation {
+public class PlayerValidation {
 
     private static final int PLAYER_LENGTH = 5;
     public String input;
 
-    public InputValidation(String input) {
+    public PlayerValidation(String input) {
         validateBlank(input);
         validateLength(input);
         this.input = input;
