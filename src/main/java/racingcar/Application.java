@@ -2,6 +2,7 @@ package racingcar;
 
 public class Application {
     public static void main(String[] args) {
-        Game.run();
+        RacingGame racingGame = new RacingGame();
+        racingGame.run();
     }
 }
