@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Position {
 
-    private static final int STANDARD = 4;
+    private static final int MIN_MOVE_STANDARD = 4;
 
     private int position;
 
@@ -19,7 +19,7 @@ public class Position {
     }
 
     private boolean canMove(final int number) {
-        return number >= STANDARD;
+        return number >= MIN_MOVE_STANDARD;
     }
 
     @Override

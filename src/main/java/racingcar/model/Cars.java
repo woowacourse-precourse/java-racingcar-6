@@ -29,10 +29,7 @@ public class Cars {
 
     public List<String> getWinnerNames() {
         int maxPosition = getMaxPosition();
-        return cars.stream()
-                .filter(car -> car.getPosition() == maxPosition)
-                .map(Car::getName)
-                .toList();
+        return findWinners(maxPosition);
     }
 
     private int getMaxPosition() {
@@ -40,6 +37,13 @@ public class Cars {
                 .map(Car::getPosition)
                 .max(Integer::compareTo)
                 .orElse(INITIAL_POSITION);
+    }
+
+    private List<String> findWinners(int maxPosition) {
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .toList();
     }
 
     public List<Car> getCars() {
