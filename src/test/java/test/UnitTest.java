@@ -1,18 +1,25 @@
 package test;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.when;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.List;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import racingcar.domain.Car;
+import racingcar.domain.Constants;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -76,6 +83,28 @@ public class UnitTest {
             outputView.displayGameResult();
             assertThat(outputStream.toString()).isEqualTo(result);
         }
+    }
+
+    @Nested
+    class CarTest {
+
+        @Test
+        void moveFoward() {
+            Car car = new Car("test");
+            car.moveFoward(5);
+            assertEquals(1, car.getPosition());
+
+        }
+
+        @Test
+        void moveStop() {
+            Car car = new Car("test");
+            car.moveFoward(4);
+            assertEquals(0, car.getPosition());
+
+        }
+
+
     }
 
 }
