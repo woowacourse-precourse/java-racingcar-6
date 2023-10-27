@@ -11,9 +11,13 @@ public class GameItemImpl implements GameItem {
     private List<String> carNames;
     private Map<String, Integer> carPositions;
     
-    public GameItemImpl(List<String> input) {
-        this.carNames = input;
+    public GameItemImpl(List<String> carNames) {
+        this.carNames = carNames;
         this.carPositions = new HashMap<>();
+        setCarPosition();
+    }
+    
+    private void setCarPosition() {
         for (String name : carNames) {
             carPositions.put(name, 0);
         }
@@ -39,20 +43,26 @@ public class GameItemImpl implements GameItem {
 
     @Override
     public List<String> checkWinner() {
+        int maxPosition = getMaxPosition();
+        List<String> winners = getWinners(maxPosition);
+        return winners;
+    }
+
+    private int getMaxPosition() {
         int maxPosition = 0;
+        for (int position : carPositions.values()) {
+            maxPosition = Math.max(maxPosition, position);
+        }
+        return maxPosition;
+    }
+
+    private List<String> getWinners(int maxPosition) {
         List<String> winners = new ArrayList<>();
-        
         for (Map.Entry<String, Integer> entry : carPositions.entrySet()) {
-            int currentPosition = entry.getValue();
-            if (currentPosition > maxPosition) {
-                maxPosition = currentPosition;
-                winners.clear();
-                winners.add(entry.getKey());
-            } else if (currentPosition == maxPosition) {
+            if (entry.getValue() == maxPosition) {
                 winners.add(entry.getKey());
             }
         }
-        
         return winners;
     }
 
