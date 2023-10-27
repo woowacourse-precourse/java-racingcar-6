@@ -1,6 +1,7 @@
 package racingcar.io;
 
 import racingcar.domain.RacingCars;
+import racingcar.domain.TryCount;
 
 public class InputManager {
 
@@ -15,5 +16,10 @@ public class InputManager {
     public RacingCars readRacingCarNames() {
         final String input = inputView.readRacingCarNames();
         return inputMapper.toRacingCars(input);
+    }
+
+    public TryCount readTryCount() {
+        final String input = inputView.readTryCount();
+        return inputMapper.toTryCount(input);
     }
 }

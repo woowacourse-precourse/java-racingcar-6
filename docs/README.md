@@ -53,6 +53,7 @@
 
 - InputManager
     - 자동차 이름을 입력받아 자동차 일급컬렉션 반환
+    - 움직일 횟수를 입력받아 움직일 횟수 도메인 반환
 
 - RacingCarsRepository
     - 자동차 일급 컬렉션 저장
