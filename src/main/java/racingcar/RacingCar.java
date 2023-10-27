@@ -12,7 +12,7 @@ public final class RacingCar {
     private String currentLocation;
     private int winningPoint;
 
-    public RacingCar(final String carName, final String currentLocation, final int winningPoint) {
+    private RacingCar(final String carName, final String currentLocation, final int winningPoint) {
         this.carName = carName;
         this.currentLocation = currentLocation;
         this.winningPoint = winningPoint;
@@ -22,13 +22,15 @@ public final class RacingCar {
         return new RacingCar(carName, BLANK, ZERO_POINT);
     }
 
-    public void move() {
-        int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-
+    public void move(final int randomNumber) {
         if (randomNumber > MIN_MOVEMENT_CONDITION_NUMBER) {
             currentLocation += HYPHEN;
             winningPoint += ONE_POINT;
         }
+    }
+
+    public int getRandomNumber() {
+        return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
     }
 
     // getter

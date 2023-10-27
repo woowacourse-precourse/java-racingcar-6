@@ -1,5 +1,6 @@
 package racingcar;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -22,5 +23,18 @@ class RacingCarRaceTest {
 
         assertThat(racingCars.size()).isEqualTo(3);
         assertThat(racingCarRace.getAttemptCount()).isEqualTo(attemptCount);
+    }
+
+    @Test
+    void 숫자_0에서_9까지_랜덤으로_하나의_수를_반환() {
+        // given
+        RacingCar racingCar = RacingCar.of("name");
+
+        // when
+        int randomNumber = racingCar.getRandomNumber();
+
+        // then
+        assertThat(randomNumber).isGreaterThanOrEqualTo(0);
+        assertThat(randomNumber).isLessThanOrEqualTo(9);
     }
 }

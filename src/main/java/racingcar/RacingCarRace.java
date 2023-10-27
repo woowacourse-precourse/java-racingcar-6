@@ -26,7 +26,10 @@ public final class RacingCarRace {
     }
 
     public void runRace() {
-        racingCars.forEach(RacingCar::move);
+        racingCars.forEach(racingCar -> {
+            int randomNumber = racingCar.getRandomNumber();
+            racingCar.move(randomNumber);
+        });
     }
 
     public List<RacingCar> findWinners() {
