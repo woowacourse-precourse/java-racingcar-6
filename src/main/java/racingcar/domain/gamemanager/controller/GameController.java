@@ -23,14 +23,14 @@ public class GameController {
     public void receiveTryCount() {
         InputView.printTryCount();
         String userInput = InputView.receiveUserInput();
+        System.out.println();
         gameService.startGame(Integer.parseInt(userInput));
     }
 
     public void endGame() {
         OutputView.printEndGame();
         List<String> winners = gameService.getWinner();
-        for (String winner : winners) {
-            System.out.println(winner);
-        }
+        String result = String.join(", ", winners);
+        System.out.println(result);
     }
 }

@@ -38,13 +38,15 @@ public class GameService {
     }
 
     public void startGame(int tryCount) {
+        OutputView.printRoundResult();
         for (int i = 0; i < tryCount; i++) {
-            int randomNumber = Randoms.pickNumberInRange(0, 9);
+//            int randomNumber = Randoms.pickNumberInRange(0, 9);
             List<Car> findCars = carRepository.findAll();
 
-            findCars.forEach(car -> car.updatePosition(randomNumber));
-            OutputView.printRoundResult();
-            findCars.forEach(System.out::println);
+            findCars.forEach(car -> car.updatePosition(Randoms.pickNumberInRange(0, 9)));
+            findCars.forEach(System.out::print);
+            System.out.println();
+
         }
     }
 
