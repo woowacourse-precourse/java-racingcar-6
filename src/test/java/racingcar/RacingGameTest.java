@@ -3,8 +3,6 @@ package racingcar;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -41,10 +39,8 @@ public class RacingGameTest {
         RacingGame racingGame=new RacingGame();
         String names="pobi,woni,jun,james,timmy,ski";
         String[] splitName=names.split(",");
-        InputStream in=new ByteArrayInputStream(names.getBytes());
-        System.setIn(in);
 
-        List<Car> cars=racingGame.inputCarNames();
+        List<Car> cars=racingGame.inputCarNames(names);
 
         for(int index=0;index<cars.size();index++){
             assertThat(cars.get(index).getNameValue()).isEqualTo(splitName[index]);

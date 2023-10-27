@@ -20,7 +20,7 @@ public class Controller {
 
     private void generateCars(){
         view.printNameInputMessage();
-        cars=new Cars(racingGame.inputCarNames());
+        cars=new Cars(racingGame.inputCarNames(readFromConsole()));
     }
 
     private int setAttemptCount(){

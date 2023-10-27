@@ -9,13 +9,9 @@ import java.util.stream.Collectors;
 
 public class RacingGame {
     public static final String COMMA=",";
-
     private static final Pattern INTEGER=Pattern.compile("[0-9]+");
 
-    private final View view;
-
     public RacingGame(){
-        view=new View();
     }
 
     public String[] splitNames(String names){
@@ -28,8 +24,8 @@ public class RacingGame {
         }
     }
 
-    public List<Car> inputCarNames(){
-        List<String> names=Arrays.stream(splitNames(view.inputConsole()))
+    public List<Car> inputCarNames(String input){
+        List<String> names=Arrays.stream(splitNames(input))
                 .map(this::removeWhiteSpace)
                 .collect(Collectors.toList());
 
