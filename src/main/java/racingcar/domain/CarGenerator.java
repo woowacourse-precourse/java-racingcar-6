@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.car.Car;
 
 public class CarGenerator {
@@ -8,5 +9,10 @@ public class CarGenerator {
 
     public void createCarList() {
 
+    }
+
+    public String[] splitStringByCommas() {
+        String[] carList = Console.readLine().split(",");
+        return carList;
     }
 }
