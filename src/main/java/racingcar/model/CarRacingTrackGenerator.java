@@ -19,7 +19,7 @@ public class CarRacingTrackGenerator implements RacingTrackGenerator<Car> {
             map.put(car, initPosition);
         }
         createPosition(playCount);
-        return new CarRacingGame(map);
+        return CarRacingGame.createWith(new CarRacingManager(map));
     }
 
     private void createPosition(final int playCount) {

@@ -9,8 +9,12 @@ public class CarRacingGame implements RacingGame {
 
     private final CarRacingManager carRacingManager;
 
-    public CarRacingGame(final CarRacingManager carRacingManager) {
+    private CarRacingGame(final CarRacingManager carRacingManager) {
         this.carRacingManager = carRacingManager;
+    }
+
+    public static CarRacingGame createWith(final CarRacingManager carRacingManager) {
+        return new CarRacingGame(carRacingManager);
     }
 
     @Override
