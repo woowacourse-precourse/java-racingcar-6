@@ -15,7 +15,7 @@ public class GameController {
         gameService.readProgressCount();
     }
 
-    public void start() {
+    public void play() {
         init();
         gameService.progressGame();
         gameService.finishGame();
