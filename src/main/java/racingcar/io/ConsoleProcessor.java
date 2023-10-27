@@ -3,14 +3,20 @@ package racingcar.io;
 import static racingcar.io.ConsoleMessage.REQUEST_CAR_NAME;
 import static racingcar.io.ConsoleMessage.REQUEST_LOOP_COUNT;
 import static racingcar.io.ConsoleMessage.RESPONSE_LOOP_RESULT;
+import static racingcar.io.ConsoleMessage.RESPONSE_WINNER;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.text.MessageFormat;
+import java.util.List;
 
 public class ConsoleProcessor {
 
     public void closeConsole() {
         Console.close();
+    }
+
+    public void printNewLine() {
+        System.out.println();
     }
 
     public String[] getCarNames() {
@@ -33,7 +39,8 @@ public class ConsoleProcessor {
         System.out.println(MessageFormat.format("{0} : {1}", key, forwardAmount));
     }
 
-    public void printNewLine() {
-        System.out.println();
+    public void printWinners(final List<String> names) {
+        final String winners = String.join("-", names);
+        System.out.println(RESPONSE_WINNER.getMessage() + winners);
     }
 }
