@@ -54,7 +54,7 @@ public class CarNameValidator {
     }
 
     private static void validateCarNameIsBlank(String carName) {
-        if (carName.equals(BLANK) || carName.equals(EMPTY)) {
+        if (carName.equals(BLANK)) {
             throw new IllegalArgumentException(ErrorMessage.NOT_ALLOW_NAME_REPLACED_BLANK);
         }
     }
