@@ -6,7 +6,7 @@ import racingcar.domain.Car;
 
 public class CarListDTO {
 	static final int CAR_START_LOCATION = 0;
-	List<Car> carList = new ArrayList();
+	List<Car> carList = new ArrayList<Car>();
 	
 	public List<Car> makeCarList(String[] carStringArray) {
 		for (int i=0; i<carStringArray.length; i++) {

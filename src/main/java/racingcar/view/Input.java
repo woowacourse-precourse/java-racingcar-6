@@ -2,7 +2,6 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.utilities.Parse;
-import racingcar.dto.Rule;
 
 public class Input {
 	static final String SPLITTER = ",";
