@@ -20,9 +20,13 @@ public class InputValidator {
 
     private void checkCarNameLength(List<String> list) {
         for (String component : list) {
-            if (component.length() > 5) {
-                throw new IllegalArgumentException(CarNameInputErrorMessages.NAME_LENGTH_ERROR_MESSAGE.getMessage());
-            }
+            checkLengthIsOverFive(component);
+        }
+    }
+
+    private static void checkLengthIsOverFive(String component) {
+        if (component.length() > 5) {
+            throw new IllegalArgumentException(CarNameInputErrorMessages.NAME_LENGTH_ERROR_MESSAGE.getMessage());
         }
     }
 
