@@ -17,7 +17,7 @@ public class RacingGame {
 
 
     public void hostGame() {
-        final String[] carNames = consoleProcessor.registerCarNames();
+        final String[] carNames = consoleProcessor.getCarNames();
 
         Map<Car, Integer> scoreBoard = initScoreBoard(carNames);
         LoopCount loopCount = LoopCount.of(consoleProcessor.getLoopCount());

@@ -27,7 +27,7 @@ class ConsoleProcessorTest {
         systemIn("자동차1,자동차2,자동차3");
 
         // When
-        String[] result = consoleProcessor.registerCarNames();
+        String[] result = consoleProcessor.getCarNames();
 
         // Then
         assertThat(result)
