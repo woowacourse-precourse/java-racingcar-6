@@ -17,6 +17,14 @@ public class Cars {
         }
     }
 
+    public int getMaxDistance() {
+        int maxDistance = 0;
+        for (Car car : cars) {
+            maxDistance = Math.max(maxDistance, car.getDistance());
+        }
+        return maxDistance;
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();

@@ -18,6 +18,10 @@ public class Car {
         }
     }
 
+    public int getDistance() {
+        return distance;
+    }
+
     private int generateRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
