@@ -67,10 +67,34 @@ class CarService {
     }
 
     //3) 판별 결과에 따라 현재 상태 세팅
-    public void setCurrentCar(boolean flag, Car car){
-        if(flag){ //전진 상태일 때만
+    public void setCurrentCar(boolean flag, Car car) {
+        if (flag) { //전진 상태일 때만
             car.count++;//++처리
         }
         return;
     }
+
+    /**
+     * 최종 우승자 판별 기능
+     */
+    //4) 최종 우승자의 max Score 찾는 함수
+    public int getMaxScore(ArrayList<Car> list){
+        int max = 0;
+        for(int i=0; i<list.size(); i++){
+            max = Math.max(max, list.get(i).count);
+        }
+        return max;
+    }
+
+    //5) 최종 우승자 이름 리턴 함수
+    public ArrayList<String> getWinnerName(ArrayList<Car>list, int max){
+        ArrayList<String> winner = new ArrayList<>();
+        for(int i=0; i<list.size(); i++){
+            if(max == list.get(i).count){
+                winner.add(list.get(i).carName);
+            }
+        }
+        return winner;
+    }
+
 }
