@@ -34,17 +34,15 @@ public class Validation {
             throw new IllegalArgumentException(CAR_NAME_DUPLICATED + carNameToken);
         }
     }
-    public int roundsNumeric(String round) {
-        int temp;
+    public void checkRoundsNumeric(String round) {
         try {
-            temp = Integer.parseInt(round);
+            int temp = Integer.parseInt(round);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(NUMERIC_ROUNDS + round);
         }
-        return temp;
     }
 
-    public void roundsNumberZero(int rounds) {
+    public void checkRoundsZero(int rounds) {
         if (rounds == 0) {
             throw new IllegalArgumentException(ZERO_ROUNDS);
         }

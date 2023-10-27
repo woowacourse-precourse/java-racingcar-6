@@ -13,8 +13,9 @@ public class Car {
     }
 
     public Map<String, Integer> createCarNameList(String input) {
-        validation.checkNullNameInInput(input);
         Map<String, Integer> carNameList = new LinkedHashMap<>();
+
+        validation.checkNullNameInInput(input);
         for (String carName : input.split(DELIMETER)) {
             validation.checkNameTokenLengthOver(carName);
             validation.checkNameTokenDuplicated(carName, carNameList);
