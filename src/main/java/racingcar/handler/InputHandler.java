@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface InputHandler {
 
-    public List<String> inputCarName();
+    public List<String> inputCarNames();
 
     public int inputTryCount();
 }

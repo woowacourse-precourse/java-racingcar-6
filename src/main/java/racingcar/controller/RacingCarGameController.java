@@ -18,7 +18,7 @@ public class RacingCarGameController {
     }
 
     public RacingCar loadCarNames() {
-        List<String> carNames = inputHandler.inputCarName();
+        List<String> carNames = inputHandler.inputCarNames();
 
         return new RacingCar(carNames);
     }

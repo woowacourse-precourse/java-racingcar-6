@@ -5,21 +5,21 @@ import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import static racingcar.handler.ErrorHandler.DUPLICATE_NUMBER;
-import static racingcar.handler.ErrorHandler.INVALID_ENGLISH_KOREAN;
+import static racingcar.handler.ErrorHandler.*;
 
 public class RacingCar {
 
     private final List<String> carNames;
 
     public RacingCar(List<String> carNames) {
-        validateCarName(carNames);
+        validateCarNames(carNames);
         validateDuplicate(carNames);
+        validateRange(carNames);
 
         this.carNames = carNames;
     }
 
-    public void validateCarName(List<String> carNames) {
+    public void validateCarNames(List<String> carNames) {
         String regex = "^[a-z|A-Z|ㄱ-ㅎ|가-힣]+$";
 
         for (String carName : carNames) {
@@ -35,5 +35,17 @@ public class RacingCar {
         if (uniqueCarName.size() != carNames.size()) {
             throw DUPLICATE_NUMBER.getException();
         }
+    }
+
+    public void validateRange(List<String> carNames) {
+        for (String carName : carNames) {
+            if (carName.length() > 5) {
+                throw INVALID_RANGE.getException();
+            }
+        }
+    }
+
+    public List<String> getCarNames() {
+        return List.copyOf(carNames);
     }
 }

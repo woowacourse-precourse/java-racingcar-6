@@ -21,10 +21,10 @@
 - [ ] domain Package
     - [ ] RacingCar
         - 게임을 위해 입력한 자동차 이름에 대해서 유효성 검사와 값의 반환을 담당하는 일급 컬렉션
-        - 입력값이 영어와 한글인지 확인하는 (대문자와 소문자 영어, 한글만 가능하고 그 외의 숫자, 기호, 스페이스 바는 예외처리) `validateCarName` 메서드
+        - 입력값이 영어와 한글인지 확인하는 (대문자와 소문자 영어, 한글만 가능하고 그 외의 숫자, 기호, 스페이스 바는 예외처리) `validateCarNames` 메서드
         - 입력값에 중복된 값이 있는지 확인하는 `validateDuplicate` 메서드
         - 입력한 값이 5자리 이하인지 확인하는 `validateRange` 메서드
-        - 입력값을 꺼낼 수 있는 `getCarName` 메서드
+        - 입력값을 꺼낼 수 있는 `getCarNames` 메서드
     - [ ] TryCount
         - 시도할 회수에 대한 유효성 검사와 값의 반환을 담당하는 클래스
         - 입력값이 숫자가 맞는지 확인하는 `validate` 메서드
@@ -39,7 +39,7 @@
 - [x] handler Package
     - [x] InputHandler
         - view Package의 ConsoleInput의 확장성과 변경 용이성을 위한 인터페이스
-        - `inputCarName` 메서드의 추상화
+        - `inputCarNames` 메서드의 추상화
         - `inputTryCount` 메서드의 추상화
     - [x] OutputHandler
         - view Package의 ConsoleOutput의 확장성과 변경 용이성을 위한 인터페이스
@@ -60,7 +60,7 @@
 - [ ] view Package
     - [x] ConsoleInput
         - 입력을 담당하는 클래스
-        - 경주 할 자동차 이름을 입력받는다. 단, 이름은 쉼표(,) 기준으로 구분하는 `inputCarName` 메서드 구현
+        - 경주 할 자동차 이름을 입력받는다. 단, 이름은 쉼표(,) 기준으로 구분하는 `inputCarNames` 메서드 구현
         - 시도할 회수를 입력하는 `inputTryCount` 메서드 구현
         - string의 입력을 List로 변환하는 `stringToList` 메서드 구현
         - string의 입력을 int로 변환하는 `stringToInt` 메서드 구현
