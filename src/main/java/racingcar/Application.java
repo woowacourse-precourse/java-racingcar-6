@@ -9,6 +9,13 @@ public class Application {
         // TODO: 프로그램 구현
     }
 
+    public static void validateCarListInput(String input) {
+        List<String> inputList = List.of(input.split(",", -1));
+        validateCarListInputBlank(inputList);
+        validateCarListInputLength(inputList);
+        validateCarListInputUnique(inputList);
+    }
+
     public static void validateCarListInputBlank(List<String> inputList) {
         for (String name : inputList) {
             validateCarNameBlank(name);
