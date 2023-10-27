@@ -3,7 +3,7 @@ package racingcar.service;
 import java.util.Objects;
 
 public class Attempt {
-    private int value;
+    private final int value;
     public static final String MINUS_ATTEMPT_IS_NOT_PERMITTED = "시도 횟수는 양수로 입력하세요.";
 
     private Attempt(int value) {
