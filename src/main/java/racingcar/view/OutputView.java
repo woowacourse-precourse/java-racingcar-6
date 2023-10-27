@@ -10,19 +10,19 @@ public class OutputView {
 
     // 현재 자동차들의 전진 상태 출력 하는 기능
     public static void printCurrentForwardState(Cars carList) {
-        System.out.println(getForwardStateStringOfCarList(carList));
+        System.out.println(getForwardStateString(carList));
     }
 
-    public static String getForwardStateStringOfCarList(Cars carList) {
+    public static String getForwardStateString(Cars carList) {
         StringBuilder sb = new StringBuilder();
         for (Car car : carList.getCarList()) {
-            sb.append(getForwardStateStringOfCar(car));
+            sb.append(getForwardStateString(car));
             sb.append("\n");
         }
         return sb.toString();
     }
 
-    public static String getForwardStateStringOfCar(Car car) {
+    public static String getForwardStateString(Car car) {
         return car.getName() + " : "
                 + "-".repeat(car.getPosition());
     }
