@@ -65,6 +65,10 @@
     - String을 Integer로 변환하는 기능을 테스트한다.
     - 숫자로 변환할 수 없는 입력이 있을 때 발생하는 NumberFormatException을 잡아 IllegalArgumentException을 발생시킨다.
 
+## OutputView
+
+- 각 시도의 실행 결과를 출력하는 기능을 테스트한다.
+
 ## RacingCarName
 
 - 자동차 이름의 예외 발생을 테스트한다.
