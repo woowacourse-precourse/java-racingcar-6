@@ -21,5 +21,6 @@ public class Application {
         String iterateNumber = Console.readLine();
         ArrayList<String> nameList = carNameSplit(racingCarNames);
         Control control = new Control(iterateNumber, nameList);
+        control.executeRacing(nameList);
     }
 }
