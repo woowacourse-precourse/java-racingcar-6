@@ -1,9 +1,9 @@
 구현할 기능 목록
-- [ ] 출력 : OutputView
-  - [ ] 라운드마다 자동차 이름과 위치를 함께 출력 : printCarLocation
-  - [ ] 우승자 출력 : printWinner
-    - [ ] 단독 우승자 출력 
-    - [ ] 공동 우승자 출력
+- [x] 출력 : OutputView
+  - [x] 라운드마다 자동차 이름과 위치를 함께 출력 : printResult
+  - [x] 우승자 출력 : printWinner
+    - [x] 단독 우승자 출력 
+    - [x] 공동 우승자 출력
 - [x] 입력 : InputView
   - [x] 경주할 자동차들의 이름을 쉼표 기준으로 입력 : getCarStrings
   - [x] 이동 횟수 입력 : getMoveCount
