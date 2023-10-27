@@ -1,9 +1,8 @@
 package racingcar.view;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.domain.Car;
-import racingcar.domain.Cars;
+import racingcar.dto.CarsGenerateDto;
 import racingcar.service.Referee;
 
 public class OutputView {
@@ -24,7 +23,7 @@ public class OutputView {
         System.out.println();
     }
 
-    public void showWinner(Referee referee, Cars cars) {
-        System.out.println(FINAL_WINNER + DELIMITER + referee.getWinner(cars));
+    public void showWinner(Referee referee, CarsGenerateDto generatedCars) {
+        System.out.println(FINAL_WINNER + DELIMITER + referee.getWinnersCarName(generatedCars));
     }
 }
