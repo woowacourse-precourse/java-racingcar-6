@@ -10,7 +10,7 @@ class CarTest {
     @Test
     void moveForward() {
         //given
-        Car car = new Car();
+        Car car = new Car("test");
         int beforeMovementCount = car.getMovementCount();
         int commandNumber = 4;
 
@@ -26,7 +26,7 @@ class CarTest {
     @Test
     void cannotMoveForward() {
         //given
-        Car car = new Car();
+        Car car = new Car("test");
         int beforeMovementCount = car.getMovementCount();
         int commandNumber = 3;
 
