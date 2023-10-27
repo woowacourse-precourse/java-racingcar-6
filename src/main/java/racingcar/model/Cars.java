@@ -18,11 +18,6 @@ public class Cars {
         checkDuplicateCarName(cars, nameSet);
     }
 
-    public void addCar(Car car) {
-        validCarNames(List.of(car));
-        cars.add(car);
-    }
-
     private void checkDuplicateCarName(List<Car> cars, Set<String> nameSet) {
         for (Car car : cars) {
             String name = car.getName();
