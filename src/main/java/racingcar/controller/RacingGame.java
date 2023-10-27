@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.List;
 import racingcar.model.Cars;
 import racingcar.model.TryNumber;
 import racingcar.view.InputView;
@@ -13,6 +14,7 @@ public class RacingGame {
     public void play() {
         initialize();
         raceStart();
+        displayWinners();
     }
 
     private void initialize() {
@@ -28,6 +30,11 @@ public class RacingGame {
             OutputView.displayRoundResult(cars);
             count++;
         }
+    }
+
+    private void displayWinners() {
+        List<String> winners = cars.getWinners();
+        OutputView.displayWinners(winners);
     }
 
 }

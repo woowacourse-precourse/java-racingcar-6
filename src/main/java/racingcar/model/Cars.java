@@ -1,7 +1,10 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import racingcar.validator.InputValidator;
 
@@ -44,6 +47,21 @@ public class Cars {
             sb.append("\n");
         });
         return sb.toString();
+    }
+
+    public int getMaxPosition() {
+        return Collections.max(cars.values());
+    }
+
+    public List<String> getWinners() {
+        List<String> winners = new ArrayList<>();
+        int maxPosition = getMaxPosition();
+        cars.forEach((name, position) -> {
+            if (cars.get(name) == maxPosition) {
+                winners.add(name.getName());
+            }
+        });
+        return winners;
     }
 
 }
