@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Winners {
 
-    List<String> winners = new ArrayList<>();
+    private List<String> winners = new ArrayList<>();
 
     public Winners(List<String> winnerList) {
         for (String winner : winnerList) {

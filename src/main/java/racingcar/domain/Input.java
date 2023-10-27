@@ -12,13 +12,26 @@ public class Input {
     private static final int CAR_NAME_MAX_LENGTH = 5;
     private static final int CAR_NAME_MIN_LENGTH = 1;
 
-    String userInput;
+    private String userInput;
 
     public List<String> getCarNames() {
         userInput = Console.readLine();
         List<String> carNames = Arrays.asList(userInput.split(","));
         validateCarNames(carNames);
         return carNames;
+    }
+
+    public int getGameCount() {
+        userInput = Console.readLine();
+        int gameCount = Integer.parseInt(userInput);
+        validateGameCountNubmer(gameCount);
+        return gameCount;
+    }
+
+    private void validateGameCountNubmer(int gameCount) {
+        if (!(gameCount <= 2147483647 && gameCount >= 1)) {
+            throw new IllegalArgumentException("게임 가능 횟수는 1 ~ 2147483647 입니다.");
+        }
     }
 
     private void validateCarNames(List<String> carNames) {
@@ -39,10 +52,5 @@ public class Input {
         if(carNamesToSet.size()!= carNames.size()){
             throw new IllegalArgumentException("중복된 이름이 있습니다.");
         }
-    }
-
-    public int getGameCount() {
-        userInput = Console.readLine();
-        return Integer.parseInt(userInput);
     }
 }
