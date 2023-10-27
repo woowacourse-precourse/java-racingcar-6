@@ -2,8 +2,8 @@ package racingcar.domain;
 
 public class CarDistanceMessage {
 
-    public static final String SPLIT = " : ";
-    public static final String ROAD = "-";
+    private static final String SPLIT = " : ";
+    private static final String ROAD = "-";
     private final String name;
     private final Integer distance;
 
