@@ -4,7 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.utils.Validator;
 
 public class InputView {
-    private Validator validator = new Validator();
+    private final Validator validator = new Validator();
+
     public String carNameInput() {
         String carNames = Console.readLine();
         validator.validateCarNameInput(carNames);
