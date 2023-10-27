@@ -22,5 +22,11 @@ public class Game {
         validateNaturalNumber(COUNT);
 
         System.out.println();
+    private boolean canCarMoveForward(int number) {
+        final int MIN_FORWARD_COUNT = 4;
+
+        return number >= MIN_FORWARD_COUNT;
+    }
+
     }
 }
