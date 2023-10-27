@@ -7,6 +7,8 @@ import racingcar.view.OutputView;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class RacingGameService {
 
@@ -41,4 +43,31 @@ public class RacingGameService {
     private boolean canMoveForward() {
         return 4 <= Randoms.pickNumberInRange(0, 9);
     }
+
+    public String getWinningCar() {
+        int maxPosition = getMaxPosition(carList);
+        return findWinningCar(maxPosition,carList);
+    }
+
+    private String findWinningCar(int maxPosition, List<Car> carList) {
+        return getWinningCarNamesAsString(maxPosition, carList);
+    }
+
+    private String getWinningCarNamesAsString(int maxPosition, List<Car> carList) {
+        return carList.stream().filter(c -> c.getPosition() == maxPosition)
+                .map(c -> c.getName()).collect(Collectors.joining(", "));
+    }
+
+    private int getMaxPosition(List<Car> carList) {
+        int max = 0;
+        for (Car car : carList) {
+            int position = car.getPosition();
+            if(position > max){
+                max = position;
+            }
+        }
+        return max;
+    }
+
+
 }

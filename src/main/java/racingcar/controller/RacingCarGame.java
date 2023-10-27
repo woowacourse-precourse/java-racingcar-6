@@ -24,6 +24,7 @@ public class RacingCarGame {
         Validator.isInteger(attemptCount);
         int count = Integer.parseInt(attemptCount);
         racingGameService.playGame(count);
+        String winningCarNames = racingGameService.getWinningCar();
     }
 
     private String[] splitCarNames(String carNames) {
