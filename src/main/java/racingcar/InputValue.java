@@ -19,4 +19,9 @@ public class InputValue {
         return nameOfCars;
     }
 
+    public static int InputMovingCount() {
+        int carMovingCount = Integer.parseInt(Console.readLine());
+        validateMoveCountRange(moveCount);
+        return carMovingCount;
+    }
 }
