@@ -32,10 +32,10 @@ class ApplicationTest extends NsTest {
     @Test
     void 차_생성() {
         CarController carController = new CarController();
-        List<Car> cars = carController.makeCar("talal,sun");
+        Cars cars = carController.makeCar("talal,sun");
         assertSimpleTest(() -> {
-                    assertThat(cars.get(0).getName()).isEqualTo("talal");
-                    assertThat(cars.get(1).getName()).isEqualTo("sun");
+                    assertThat(cars.getCars().get(0).getName()).isEqualTo("talal");
+                    assertThat(cars.getCars().get(1).getName()).isEqualTo("sun");
                 }
         );
     }
