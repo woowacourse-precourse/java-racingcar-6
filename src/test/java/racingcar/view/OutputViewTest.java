@@ -30,4 +30,17 @@ public class OutputViewTest {
 
         assertEquals(expected, outputStream.toString());
     }
+
+    @DisplayName("시도할 회수 요청 메세지 출력 기능 테스트")
+    @Test
+    void testRequestNumberOfTryMessage() {
+        String expected = "시도할 회수는 몇회인가요?\n";
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+
+        outputView.requestNumberOfTryMessage();
+        System.setOut(System.out);
+
+        assertEquals(expected, outputStream.toString());
+    }
 }
