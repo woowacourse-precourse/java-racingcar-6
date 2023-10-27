@@ -25,18 +25,20 @@ public class GameController {
 
     public void playGame() {
         Circuit circuit = setupRace();
-        runRace(circuit);
+        TryCount tryCount = inputView.getTryCount();
+
+        runRace(tryCount, circuit);
         announceRaceWinners(circuit);
+    }
+
+    private void runRace(TryCount tryCount, Circuit circuit) {
+        outputView.printRoundHeader();
+        IntStream.range(0, tryCount.getCount())
+                .forEach(round -> raceOneRound(circuit));
     }
 
     private Circuit setupRace() {
         return inputView.getInputCarNames();
-    }
-
-    private void runRace(Circuit circuit) {
-        TryCount tryCount = inputView.getTryCount();
-        IntStream.range(0, tryCount.getCount())
-                .forEach(round -> raceOneRound(circuit));
     }
 
     private void raceOneRound(Circuit circuit) {

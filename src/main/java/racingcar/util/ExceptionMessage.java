@@ -10,8 +10,8 @@ public enum ExceptionMessage {
     private static final String ERROR = "[ERROR] %s";
     private final String message;
 
-    ExceptionMessage(String message) {
-        this.message = String.format(ERROR, message);
+    ExceptionMessage(String errorMessage) {
+        this.message = String.format(ERROR, errorMessage);
     }
 
     public String getMessage() {
