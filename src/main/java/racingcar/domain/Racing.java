@@ -13,12 +13,21 @@ public class Racing {
 
     private final List<Car> cars;
 
-    public Racing(List<Car> cars) {
-        this.cars = cars;
+    public Racing(List<String> carNamesList) {
+        this.cars = registerCars(carNamesList);
     }
 
     public List<Car> getCars() {
         return cars;
+    }
+
+    private List<Car> registerCars(List<String> carNamesList) {
+        List<Car> racingRegistrationList = new ArrayList<>();
+        for (String carName : carNamesList) {
+            Car carResister = new Car(carName);
+            racingRegistrationList.add(carResister);
+        }
+        return racingRegistrationList;
     }
 
     public void runOneRound() {
