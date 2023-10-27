@@ -35,4 +35,17 @@ public class RandomNumberTest {
         // then
         assertThat(car.isPositionEqualTo(1)).isFalse();
     }
+
+    @Test
+    void 기준점_이하면_이동하지_않는다() {
+        // given
+        Name name = Name.from("john");
+        Car car = Car.from(name);
+        RandomNumber randomNumber = new LowerRandomNumber();
+        int number = randomNumber.pickNumber();
+        // when
+        car.accelerate(number);
+        // then
+        assertThat(car.isPositionEqualTo(1)).isFalse();
+    }
 }
