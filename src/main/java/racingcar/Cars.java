@@ -14,4 +14,8 @@ public class Cars {
             car.attemptForward();
         }
     }
+
+    public List<Car> getCars(){
+        return cars;
+    }
 }

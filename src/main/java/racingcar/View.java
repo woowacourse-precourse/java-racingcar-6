@@ -11,6 +11,12 @@ public class View {
         return readLine();
     }
 
+    public void printCurrentCarsResult(Cars cars){
+        for(Car car:cars.getCars()){
+            printCurrentCarResult(car);
+        }
+    }
+
     public void printCurrentCarResult(Car car){
         System.out.println(car.getNameValue()+" : "+car.getCurrentPositionStatus());
     }
