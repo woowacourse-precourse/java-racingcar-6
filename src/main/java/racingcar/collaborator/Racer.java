@@ -1,6 +1,7 @@
 package racingcar.collaborator;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.collaborator.generic.RacerProgress;
 
 public class Racer {
 
@@ -18,8 +19,8 @@ public class Racer {
         }
     }
 
-    public Integer getProgress() {
-        return mileage;
+    public RacerProgress getProgress() {
+        return new RacerProgress(name, mileage);
     }
 
     public String getName() {
