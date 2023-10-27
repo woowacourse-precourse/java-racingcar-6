@@ -8,6 +8,6 @@
 - [] 우승자 목록 생성
   - [] 혼자 : 그냥 출력
   - [] 여러명 : 쉼표 구분 출력
-- [] 시도 횟수 입력
-  -[] 0이하일 시 IllegalArgumentException(0은 따로 처리 할지 확인)
-  -[] 정수가 아닐 시 IllegalArgumentException 
+- [x] 시도 횟수 입력
+  -[x] 0이하일 시 IllegalArgumentException(0은 따로 처리 할지 확인)
+  -[x] 정수가 아닐 시 IllegalArgumentException 
