@@ -1,7 +1,9 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class InputValidator {
     public boolean validateCarNames(String cars) throws IllegalArgumentException {
@@ -10,7 +12,20 @@ public class InputValidator {
             validateCarName(carName);
         }
 
+        if (hasDuplicatedName(carNameList)) {
+            throw new IllegalArgumentException("자동차 이름은 중복되면 안됩니다");
+        }
+
         return true;
+    }
+
+    private boolean hasDuplicatedName(List<String> carNameList) {
+        Set<String> set = new HashSet<>(carNameList);
+        if (set.size() != carNameList.size()) {
+            return true;
+        }
+
+        return false;
     }
 
     private static List<String> splitByDelimiter(String cars, String delimiter) {
