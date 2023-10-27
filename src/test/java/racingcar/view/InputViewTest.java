@@ -9,24 +9,39 @@ import racingcar.Application;
 
 public class InputViewTest extends NsTest {
     @Test
-    void 자동차_이름_잘못된_입력_대한_예외_처리() {
+    void 자동차_이름_입력에_대한_예외_처리() {
         //given
         String normalInput = "qwer,asdf,zxcv";
         String duplicatedInput = "asdf,zxcv,asdf";
         String sizeOverInput = "asdfasdf,zxcv,qwer";
         String specialCharactersInput = "aa-,(zxvc),^_^";
         //when
-        Throwable throwable1 = catchThrowable(() -> runException(normalInput));
-        Throwable throwable2 = catchThrowable(() -> runException(duplicatedInput));
-        Throwable throwable3 = catchThrowable(() -> runException(sizeOverInput));
-        Throwable throwable4 = catchThrowable(() -> runException(specialCharactersInput));
+        Throwable normal = catchThrowable(() -> runException(normalInput));
+        Throwable duplicated = catchThrowable(() -> runException(duplicatedInput));
+        Throwable sizeOver = catchThrowable(() -> runException(sizeOverInput));
+        Throwable specialCharacters = catchThrowable(() -> runException(specialCharactersInput));
         //then
-        assertThat(throwable1).doesNotThrowAnyException();
-        assertThat(throwable2).isInstanceOf(IllegalArgumentException.class);
-        assertThat(throwable3).isInstanceOf(IllegalArgumentException.class);
-        assertThat(throwable4).isInstanceOf(IllegalArgumentException.class);
+        assertThat(normal).doesNotThrowAnyException();
+        assertThat(duplicated).isInstanceOf(IllegalArgumentException.class);
+        assertThat(sizeOver).isInstanceOf(IllegalArgumentException.class);
+        assertThat(specialCharacters).isInstanceOf(IllegalArgumentException.class);
+    }
 
-
+    @Test
+    void 이동횟수_입력에_대한_예외_처리() {
+        //given
+        String carName = "carName";
+        String normalInput = "5";
+        String sizeOverInput = "10001";
+        String specialCharactersInput = "specialCharacters";
+        //when
+        Throwable normal = catchThrowable(() -> runException(normalInput, normalInput));
+        Throwable sizeOver = catchThrowable(() -> runException(normalInput, sizeOverInput));
+        Throwable specialCharacters = catchThrowable(() -> runException(normalInput, specialCharactersInput));
+        //then
+        assertThat(normal).doesNotThrowAnyException();
+        assertThat(sizeOver).isInstanceOf(IllegalArgumentException.class);
+        assertThat(specialCharacters).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Override
