@@ -10,7 +10,7 @@ public class InputView {
         System.out.println(INPUT_CARS_NAME_MESSAGE);
     }
 
-    public void printInputAttemptCountMessage() {
+    public void printInputTotalRoundMessage() {
         System.out.println(INPUT_ATTEMPT_COUNT_MESSAGE);
     }
     public String carsName() {
@@ -19,7 +19,7 @@ public class InputView {
     }
 
     public int totalRound() {
-        printInputAttemptCountMessage();
+        printInputTotalRoundMessage();
         String inputRound = Console.readLine();
         if(isNotNumeric(inputRound)) {
             throw new IllegalArgumentException();
