@@ -1,23 +1,23 @@
 ## 📄 기능 목록
 
-* 입력
-  * ```camp.nextstep.edu.missionutils.Console```의 ```readLine()```를 활용하여 구현
-  * 자동차 이름
-    * 자동차 이름은 쉼표(,)를 기준으로 구분
-    * 이름은 5자 이하만 가능하다.
-  * 이동 횟수
-  * 예외 처리
-    * ```IllegalArgumentException```
-* 게임 진행
-  * 입력 받은 이동 횟수를 반복
-* 전진
-  * 0에서 9 사이에서 무작위 값을 구하는 함수
-    * ```camp.nextstep.edu.missionutils.Randoms```의 ```pickNumberInRange()```를 사용하여 구현
-    * 4 이상 : 전진
-    * 4 미만 : 정지
+* 입력 ✅
+  * ```camp.nextstep.edu.missionutils.Console```의 ```readLine()```를 활용하여 구현 ✅
+  * 자동차 이름 ✅
+    * 자동차 이름은 쉼표(,)를 기준으로 구분 ✅
+    * 이름은 5자 이하만 가능하다. ✅
+  * 이동 횟수 ✅
+  * 예외 처리 ✅
+    * ```IllegalArgumentException``` ✅
+* 게임 진행 ✅
+  * 입력 받은 이동 횟수를 반복 ✅
+* 전진 ✅
+  * 0에서 9 사이에서 무작위 값을 구하는 함수 ✅
+    * ```camp.nextstep.edu.missionutils.Randoms```의 ```pickNumberInRange()```를 사용하여 구현 ✅
+    * 4 이상 : 전진 ✅
+    * 4 미만 : 정지 ✅
 * 출력
-  * 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
-  * 각 이동 차수별 실행 결과
+  * 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다. ✅
+  * 각 이동 차수별 실행 결과 ✅
     * ```agsl
       pobi : --
       woni : ----
