@@ -18,6 +18,7 @@
     2) printStart() : 시작 메세지 출력
     3) printPlayCount() : 게임 진행 횟수 입력 메세지 출력
     4) printWinner(String winners) : 게임 우승자 출력
+7. Size : 게임에 사용되는 경계값 모음 Enum
 
 프로젝트 진행 시 주의사항
 
