@@ -1,32 +1,40 @@
 package racingcar;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class RacingCarListTest {
+    TestUser testUser = new TestUser();
+    List<RacingCarCreator> racingCarsList = new ArrayList<>();
 
-    List<Car> cars  = new ArrayList<>();
-    TestUser user = new TestUser();
-    Car car = new Car();
-
-    class TestUser extends User{
-        @Override
-        public String inputCarCount() {
-            return "3";
+    class TestUser {
+        public String[] inputCarNames() {
+            return new String[] { "A", "B", "C" };
         }
-
     }
     @Test
     void getRacingCarList() {
-       int carCount = Integer.parseInt(user.inputCarCount());
-       for (int i = 0; i < carCount; i++) {
-           cars.add(car.createNewCar());
-       }
-       assertEquals(3, cars.size());
+        // given
+        String[] carNames = testUser.inputCarNames();
+
+        RacingCarCreator racingCarCreator1 = new RacingCarCreator(carNames[0]);
+        RacingCarCreator racingCarCreator2 = new RacingCarCreator(carNames[1]);
+        RacingCarCreator racingCarCreator3 = new RacingCarCreator(carNames[2]);
+
+        // when
+        for (int i = 0; i < carNames.length; i++) {
+            racingCarsList.add(new RacingCarCreator(carNames[i]));
+        }
+
+        // then
+        assertThat(racingCarsList.size()).isEqualTo(3);
+        assertThat(racingCarsList.get(0).getCarName()).isEqualTo("A");
+        assertThat(racingCarsList.get(1).getCarName()).isEqualTo("B");
+        assertThat(racingCarsList.get(2).getCarName()).isEqualTo("C");
+
+
     }
 }
