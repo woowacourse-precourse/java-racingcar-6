@@ -14,9 +14,9 @@ class PlayerTest {
         String commaNextCommaInput = "pobi,,jun";
         String commaLastInput = "pobi,jun,,";
 
-        Assertions.assertThatThrownBy(() -> player.checkInputFormat(commaNextCommaInput))
+        Assertions.assertThatThrownBy(() -> player.checkCarNameFormat(commaNextCommaInput))
                 .isInstanceOf(IllegalArgumentException.class);
-        Assertions.assertThatThrownBy(() -> player.checkInputFormat(commaLastInput))
+        Assertions.assertThatThrownBy(() -> player.checkCarNameFormat(commaLastInput))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 

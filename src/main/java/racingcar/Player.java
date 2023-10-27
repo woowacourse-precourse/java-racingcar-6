@@ -9,11 +9,11 @@ public class Player {
 
     public String inputCarName() {
         String carName = Console.readLine();
-        checkInputFormat(carName);
+        checkCarNameFormat(carName);
         return carName;
     }
 
-    public void checkInputFormat(String carName) {
+    public void checkCarNameFormat(String carName) {
         int lastStringIndex = carName.length() - 1;
 
         for (int i = 0; i < lastStringIndex; i++) {
@@ -33,7 +33,7 @@ public class Player {
         return Integer.parseInt(movingCount);
     }
 
-    private void checkMovingCountFormat(String movingCount) {
+    public void checkMovingCountFormat(String movingCount) {
         for (int i = 0; i < movingCount.length(); i++) {
             char oneCharacter = movingCount.charAt(i);
             if (Character.isDigit(oneCharacter) == false) {
