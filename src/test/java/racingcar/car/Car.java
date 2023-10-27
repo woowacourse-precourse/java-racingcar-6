@@ -7,7 +7,7 @@ public class Car {
         if (name == null) {
             throw new IllegalArgumentException("이름이 null이 될 수 없습니다!");
         }
-        if (name.length() > 5) {
+        if (name.length() > 5 || name.length() < 1) {
             throw new IllegalArgumentException("이름은 5자 이상이 될 수 없습니다!");
         }
         this.name = name;

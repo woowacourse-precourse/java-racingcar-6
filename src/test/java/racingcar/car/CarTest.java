@@ -10,9 +10,16 @@ public class CarTest {
         assertThatThrownBy(() -> new Car(null))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
     @Test
     void 자동차_생성_실패_길이가_5글자보다_큰_입력() {
         assertThatThrownBy(() -> new Car("aaaaaa"))
-               .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 자동차_생성_실패_빈_문자열_입력() {
+        assertThatThrownBy(() -> new Car(""))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
