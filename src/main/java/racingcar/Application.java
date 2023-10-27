@@ -30,14 +30,17 @@ public class Application {
     public static void startGame(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         List<String> names = Arrays.asList(readLine().split(","));
+        createListOfCars(names);
 
+        System.out.println("시도할 회수는 몇회인가요?");
+        times = Integer.valueOf(readLine());
+    }
+
+    public static void createListOfCars(List<String> names){
         listOfCars = new ArrayList<>();
         for(int i=0;i<names.size();i++){
             listOfCars.add(Arrays.asList(names.get(i),""));
         }
-
-        System.out.println("시도할 회수는 몇회인가요?");
-        times = Integer.valueOf(readLine());
     }
 
     public static boolean pickRandomNumber(){
