@@ -36,8 +36,8 @@
     - 생성하는 이유 : 테스트코드에서 난수를 테스트 하기 위해
     - [x] generate(int startInclude, int endExclude) : 난수를 생성한다
 
-- [ ] RandomNumberGenerator(구현체)
-    - [] 0 ~ 9 까지 랜덤한 난수를 생성한다.
+- [x] RandomNumberGenerator(구현체)
+    - [x] 0 ~ 9 까지 랜덤한 난수를 생성한다.
 
 ### 입출력 요구 사항
 
