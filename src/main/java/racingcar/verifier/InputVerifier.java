@@ -12,6 +12,10 @@ public class InputVerifier {
         nameList.forEach(InputVerifier::checkNull);
     }
 
+    public static void verifyTry(String tryReamain) throws IllegalArgumentException {
+        InputVerifier.checkEmpty(tryReamain);
+    }
+
     private static void checkLength(String name) {
         if (name.length() > SystemConstant.MAX_NAME_LENGTH.getValue()) {
             throw new IllegalArgumentException(ExceptionMessage.OUT_OF_RANGE.getMessage());

@@ -23,4 +23,10 @@ public class InputVerifierTest {
     void checkTotallyNull() {
         assertThrows(IllegalArgumentException.class, () -> InputVerifier.verifyName(""));
     }
+
+    @DisplayName("정수가 아닌 횟수가 입력될 때 테스트")
+    @Test
+    void checkNumeric() {
+        assertThrows(IllegalArgumentException.class, () -> InputVerifier.verifyTry("숫자아님"));
+    }
 }
