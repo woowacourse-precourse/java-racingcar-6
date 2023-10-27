@@ -6,14 +6,14 @@ import racingcar.message.ErrorMessage;
 public class InputView {
     public static String inputString(String message) {
         System.out.println(message);
-        String inputValue = Console.readLine();
+        String inputValue = Console.readLine().trim();
         validateBlank(inputValue);
         return inputValue;
     }
 
     public static int inputInteger(String message) {
         System.out.println(message);
-        String inputValue = Console.readLine();
+        String inputValue = Console.readLine().trim();
         validateBlank(inputValue);
         validateInteger(inputValue);
         return Integer.parseInt(inputValue);
