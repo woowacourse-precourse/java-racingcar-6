@@ -66,4 +66,14 @@ class GamePrintTest {
 		GamePrint.printRace(tmpList);
 		assertEquals("kim : -\nlee : --\npark : ---\n\n", output.toString());
 	}
+	
+	@Test
+	@DisplayName("게임 승자 출력 테스트")
+	void printWinnerTest() {
+		String[] tmpArray = {"kim", "lee", "park"};
+		List<String> winners = Arrays.asList(tmpArray);
+		
+		GamePrint.printWinner(winners);
+		assertEquals("최종 우승자 : kim, lee, park\n", output.toString());
+	}
 }
