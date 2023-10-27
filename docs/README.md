@@ -51,9 +51,9 @@
   - [ ] 이름만 출력
 
 - [ ] GameResult
-  - [ ] 우승 객체를 담을 List<Car> 생성자 
-  - [ ] 가장 전진해있는 Car 객체 찾는 메소드
-
+  - [x] 우승 객체를 담을 List<Car>, 가정 전진해 있는 winPosition 생성자
+  - [x] winPosition 찾는 메소드
+  - [ ] winPosition에 있는 Car를 winnerCarList에 추가하는 메소드
 ### VIEW
 - [x] InputView (ErrorException으로 입력 값 검증)
   - [x] 자동차 이름 입력 받기 (Console.readLine() 사용)
@@ -62,7 +62,7 @@
 - [ ] OutputView
   - [x] 자동차 이름 입력 문구 출력
   - [x] 시도 횟수 입력 문구 출력
-  - [ ] 실행 결과 출력
+  - [x] 실행 결과 출력
   - [ ] 최종 우승자 출력
   - [x] 개행 메소드
 
