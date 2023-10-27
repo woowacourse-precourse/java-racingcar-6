@@ -27,6 +27,8 @@ public class RacingGame {
         scoreBoard = initScoreBoard(carNames);
         final LoopCount loopCount = LoopCount.of(consoleProcessor.getLoopCount());
 
+        consoleProcessor.printRacingGameResult();
+
         for (int round = 0; round < loopCount.getValue(); round++) {
             playRound();
         }
@@ -37,9 +39,10 @@ public class RacingGame {
     private void playRound() {
         scoreBoard.forEach((key, value) -> {
             int count = regulateCount(Randoms.pickNumberInRange(0, 9));
+            consoleProcessor.printRoundScore(key.getName(), count);
             scoreBoard.put(key, value + count);
         });
-        System.out.println(scoreBoard);
+        consoleProcessor.printNewLine();
     }
 
     private int regulateCount(final int count) {
