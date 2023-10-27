@@ -47,7 +47,7 @@
 
 ## RacingCarGameService
 
-- 자동차의 전진 여부를 판단한다.
+- 자동차의 전진 여부를 판단한다.<br>(3 이하는 정지상태를 유지하고 4 이상은 전진한다.)
 
 ## RacingCarGameController
 
@@ -72,4 +72,4 @@
 
 ## RacingCarGameService
 
-- 자동차의 전진 여부를 테스트한다.
+- 자동차의 전진 여부를 테스트한다.<br>(3 이하는 정지상태를 유지하고 4 이상은 전진한다.)
