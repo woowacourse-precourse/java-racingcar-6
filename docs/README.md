@@ -127,7 +127,7 @@ __2. OutputView__
 
 ## util
 __1. EmptyValidator__
-- [ ] validateEmpty
+- [x] validateEmpty
     - Cars와 Racing에서 공통적으로 사용되는 빈값입력을 검증한다
 
 ## controller
