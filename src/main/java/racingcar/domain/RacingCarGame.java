@@ -16,15 +16,25 @@ public class RacingCarGame {
 
     public void start() {
         getInput();
+        output.printResultStartedMessage();
         while (!isFinish()) {
             moveCars();
+            printCarsState();
         }
+    }
+
+    private void printCarsState() {
+        for (Car car: carList) {
+            output.addCarState(car.getName(), car.getPath());
+        }
+        output.printCarsState();
     }
 
     private void moveCars() {
         for (Car car: carList) {
             car.moveOrStop();
         }
+        moveCount--;
     }
 
     private boolean isFinish() {

@@ -11,6 +11,10 @@ public class Car {
         this.move = 0;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void moveOrStop() {
         if (isMove()) {
             move++;
