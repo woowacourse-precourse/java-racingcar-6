@@ -80,7 +80,7 @@
 - List<RacingRoundResult> 타입을 가지는 일급 컬렉션.
 - addResult(): 매 회차 레이스 결과를 추가한다.
 - getFinalWinners(): 최종 레이스 결과의 우승자를 반환한다.
-    - [ ] 매 회차 기록이 누적되기 때문에 마지막 회차에서 승자를 찾는다.
+    - [x] 매 회차 기록이 누적되기 때문에 마지막 회차에서 승자를 찾는다.
 
 ### RacingRoundResult
 
