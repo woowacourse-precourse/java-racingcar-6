@@ -13,6 +13,7 @@ public class Name {
     private Name(final String name) {
         validateNameLength(name);
         validateHasNotBlank(name);
+        validateOnlyAlphabetAndNumber(name);
         this.name = name;
     }
 
@@ -41,7 +42,13 @@ public class Name {
             throw new IllegalArgumentException();
         }
     }
-    
+
+    private void validateOnlyAlphabetAndNumber(final String name) {
+        if (!name.matches("^[^a-zA-Z0-9]+$")) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     public String getName() {
         return name;
     }
