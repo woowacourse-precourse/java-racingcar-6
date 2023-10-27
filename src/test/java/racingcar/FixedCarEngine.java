@@ -7,7 +7,7 @@ public class FixedCarEngine implements CarEngine {
         this.canMove = canMove;
     }
 
-    public boolean start() {
+    public boolean isStart() {
         return canMove;
     }
 }

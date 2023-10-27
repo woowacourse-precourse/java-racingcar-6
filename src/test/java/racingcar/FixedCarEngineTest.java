@@ -11,7 +11,7 @@ public class FixedCarEngineTest {
     @CsvSource(value = {"true", "false"})
     void startTest(boolean move) {
         FixedCarEngine fixedCarEngine = new FixedCarEngine(move);
-        boolean canMove = fixedCarEngine.start();
+        boolean canMove = fixedCarEngine.isStart();
         assertThat(canMove).isEqualTo(move);
     }
 }

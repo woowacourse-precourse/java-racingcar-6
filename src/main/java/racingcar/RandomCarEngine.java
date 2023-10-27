@@ -9,7 +9,7 @@ public class RandomCarEngine implements CarEngine {
     public static final int MIN_START_ENGINE_NUMBER = 4;
 
     @Override
-    public boolean start() {
+    public boolean isStart() {
         return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER) >= MIN_START_ENGINE_NUMBER;
     }
 }
