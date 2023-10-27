@@ -1,12 +1,15 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.*;
 
 public class RacingCarGame {
 
-    HashMap<String, Integer> cars = new LinkedHashMap<>();
+    private HashMap<String, Integer> cars = new LinkedHashMap<>();
+    private static final int MOVE_50_PERCENT = 4;
+    static long count;
 
 
 
@@ -51,5 +54,42 @@ public class RacingCarGame {
             throw new IllegalArgumentException("숫자가 입력되어야 합니다.");
         }
 
+    }
+
+    public void play(long userCount) {
+        System.out.println("실행 결과");
+        for (int i = 0; i < userCount; i++) {
+            moveCars();
+            printCarStatus();
+        }
+    }
+
+    private void printCarStatus() {
+        for (Map.Entry<String, Integer> entry : cars.entrySet()) {
+            System.out.print(entry.getKey() + " : ");
+            for (int i = 0; i < entry.getValue(); i++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    private void moveCars() {
+        for (Map.Entry<String, Integer> entry : cars.entrySet()) {
+            if (canMove()) {
+                updateCarPosition(entry);
+            }
+        }
+    }
+
+    private void updateCarPosition(Map.Entry<String, Integer> entry) {
+        int update = cars.getOrDefault(entry.getKey(), entry.getValue() + 1) + 1;
+        cars.put(entry.getKey(), update);
+        count = Math.max(count, update);
+    }
+
+    private boolean canMove() {
+        return Randoms.pickNumberInRange(0, 9) >= MOVE_50_PERCENT;
     }
 }
