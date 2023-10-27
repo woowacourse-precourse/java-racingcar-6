@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
 
 public class Service {
     private final ProgressBoard progressBoard;
@@ -22,6 +23,9 @@ public class Service {
         inputView.printTryCountMessage();
         String input = Console.readLine();
         return input;
+    }
+    public void registerParticipants(List<String> participants) {
+        progressBoard.registerCars(participants);
     }
 
 }
