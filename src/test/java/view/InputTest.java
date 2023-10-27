@@ -1,8 +1,16 @@
 package view;
 
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.view.InputView;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.util.Scanner;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class InputTest {
     @Test
@@ -10,4 +18,21 @@ public class InputTest {
         InputView inputView = new InputView();
         assertThat(inputView.getUserInput()).isEqualTo("123");
     }
+
+
+    public class InputView {
+        public String getUserInput() {
+            InputStream in = generateUserInput("123");
+            System.setIn(in);
+            Scanner sc = new Scanner(System.in);
+
+            return sc.next();
+        }
+
+        public static InputStream generateUserInput(String input) {
+            return new ByteArrayInputStream(input.getBytes());
+        }
+    }
+
+
 }
