@@ -16,9 +16,10 @@
   - [x] 차량 이름 중복 검증
   - [x] Car 대수 검증 (1대 이상)
 ## 3. 이동 시도 횟수 입력
-- [ ] InputView
-  - [ ] readTryCount 메소드 작성
-    - [ ] 입력값 받기
+- [x] InputView
+  - [x] readAttemptCount 메소드 작성
+    - [x] 입력값 받기
+      - [x] 입력값 숫자 검증
 ## 4. RacingGame 객체 생성과 검증
 - [ ] RacingGame 객체 생성
   - [ ] 입력값 검증
