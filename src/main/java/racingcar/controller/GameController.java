@@ -26,10 +26,12 @@ public class GameController {
         String inputAttempts = gameView.inputAttempts();
         int attempts = inputHandler.convertAttemptsToInt(inputAttempts);
 
+        gameView.showRaceResult();
         for (int i = 0; i < attempts; i++) {
             cars.move();
 
             List<String> carStatusList = cars.getCarStatusList();
+            gameView.showCarStatus(carStatusList);
         }
 
 
