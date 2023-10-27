@@ -1,12 +1,12 @@
 package racingcar.domain;
 
 
+import static racingcar.exception.ErrorMessage.CANT_FIND_MAX_VALUE;
+
 import java.util.List;
-import racingcar.exception.ErrorMessage;
 import racingcar.exception.RacingGameException;
 
 public class Cars {
-
 
     private final List<Car> cars;
 
@@ -42,6 +42,7 @@ public class Cars {
         return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
-                .orElseThrow(() -> RacingGameException.of(ErrorMessage.CANT_FIND_MAX_VALUE));
+                .orElseThrow(() -> RacingGameException.of(CANT_FIND_MAX_VALUE));
     }
+
 }
