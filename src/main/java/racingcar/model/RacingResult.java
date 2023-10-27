@@ -10,7 +10,7 @@ public class RacingResult {
     private Map<String, Integer> result;
     private static int INITIAL_COUNT = 0;
 
-    public void RacingResult(CarNames carNames, TryCount tryCount) {
+    public RacingResult(CarNames carNames, TryCount tryCount) {
         this.tryCount = tryCount;
         result = new HashMap<>();
 
