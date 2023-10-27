@@ -10,5 +10,5 @@
   - [ ] 여러 명 우승: 쉼표로 구분 (winManyCars)
 - [ ] 입력 값이 잘못된 경우 `IllegalArgumentException` 발생시킴
   - [x] 자동차 이름이 6자 이상일 경우 (isLengthOverFive)
-  - [ ] 시도할 회수가 숫자가 아닐 경우 (isNumber)
+  - [x] 시도할 회수가 숫자가 아닐 경우 (isNumber)
   - [ ] 띄어쓰기가 포함될 경우 (hasSpace)
