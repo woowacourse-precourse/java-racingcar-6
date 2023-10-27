@@ -1,6 +1,4 @@
-package racingcar.domain;
-
-import static org.junit.jupiter.api.Assertions.*;
+package racingcar.util;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

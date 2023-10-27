@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import racingcar.validator.NameValidator;
 import racingcar.validator.Validator;
