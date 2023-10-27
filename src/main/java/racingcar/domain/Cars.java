@@ -11,7 +11,6 @@ public class Cars {
         this.cars = new ArrayList<>(cars);
     }
 
-
     public void move() {
         for (Car car : cars) {
             car.moveIfSatisfy();
