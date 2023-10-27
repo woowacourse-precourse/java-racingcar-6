@@ -22,4 +22,34 @@ public class GameController {
             raceHistory.add(roundResult);
         }
     }
+
+    public String getPositionString() {
+        StringBuilder positionString = new StringBuilder();
+        for (Car car : cars) {
+            positionString.append(car.getName())
+                    .append(" : ")
+                    .append("-".repeat(car.getPosition()))
+                    .append("\n");
+        }
+        return positionString.toString();
+    }
+
+    public List<String> getRaceHistory() {
+        return raceHistory;
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    private int getMaxPosition() {
+        int max = 0;
+        for (Car car : cars) {
+            int position = car.getPosition();
+            if (position > max) {
+                max = position;
+            }
+        }
+        return max;
+    }
 }
