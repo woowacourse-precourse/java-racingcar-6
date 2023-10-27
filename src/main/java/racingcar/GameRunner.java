@@ -2,18 +2,24 @@ package racingcar;
 
 import racingcar.dto.InputDTO;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class GameRunner {
 
-    public static void playGame() {
+    public static void playRacing() {
         InputDTO inputDTO = InputView.readUserInput();
 
         String[] names = inputDTO.names();
-        Racing racing = Racing.createRacing(names);
+        Cars cars = Cars.createCars(names);
 
-        int count = inputDTO.trialCount();
-        for (int i = 0; i < count; i++) {
-            racing.playRacing();
+        int trialCount = inputDTO.trialCount();
+        executeRacing(trialCount,  cars);
+    }
+
+    private static void executeRacing(int trialCount, Cars cars) {
+        for (int i = 0; i < trialCount; i++) {
+            cars.moveCars();
+            OutputView.printRacingStatus(cars.fetchRacingStatus());
         }
     }
 }

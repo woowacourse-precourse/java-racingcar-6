@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.dto.OutputDTO;
+
 public class Car {
     private final String name;
     private int moveCount = 0;
@@ -10,6 +12,10 @@ public class Car {
 
     public void increaseMoveCount() {
         moveCount++;
+    }
+
+    public OutputDTO toDTO() {
+        return new OutputDTO(name, moveCount);
     }
 
     public String getName() {
