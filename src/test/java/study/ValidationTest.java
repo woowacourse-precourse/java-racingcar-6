@@ -22,7 +22,5 @@ public class ValidationTest {
                 .isInstanceOf(IllegalArgumentException.class) // 여기서 YourExpectedException을 실제 사용하는 예외로 대체해야 합니다.
                 .hasMessageContaining("잘못된 입력입니다."); // 예외 메시지도 필요하다면 지정할 수 있습니다.
     }
-
-
 }
 

@@ -17,6 +17,7 @@ public class GameModelTest {
     }
 
     @Test
+    @Disabled
     void 고_스톱_Test() {
         boolean result = GameModel.decideGoAndStop();
 

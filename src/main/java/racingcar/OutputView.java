@@ -9,15 +9,15 @@ public class OutputView {
         System.out.println(Constants.START_MESSAGE);
     }
 
-    public void printAskTryNumber() {
+    public static void printAskTryNumber() {
         System.out.println(Constants.ASK_TRY_NUMBER);
     }
 
-    public void printResultMessage() {
+    public static void printResultMessage() {
         System.out.println(Constants.TRY_RESULT);
     }
 
-    public void printFinalWinner(ArrayList<String> winnerNames) {
+    public static void printFinalWinner(ArrayList<String> winnerNames) {
         System.out.print(Constants.FINAL_WINNER + " : ");
         for (String name : winnerNames) {
             System.out.print(name + ", ");
