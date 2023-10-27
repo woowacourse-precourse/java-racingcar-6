@@ -20,7 +20,6 @@ public class CarRaceJudge {
 
     public List<MoveResult> createSingleMoveResults() {
         Cars findCars = carsRepository.findCars();
-
         return findCars.cars()
                 .stream()
                 .map(MoveResult::createResultOf)

@@ -29,7 +29,6 @@ public record Cars(List<Car> cars) {
 
     public List<String> findWinners() {
         int winnerPosition = findWinnerPosition();
-
         return cars.stream()
                 .filter(car -> car.isWinner(winnerPosition))
                 .map(Car::getName)
