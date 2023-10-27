@@ -42,6 +42,7 @@ public class RacingGame {
     }
 
     private void initializeCars(List<String> carNames) {
+        Validator.isUnique(carNames);
         for (String carName : carNames) {
             cars.add(carName);
         }
