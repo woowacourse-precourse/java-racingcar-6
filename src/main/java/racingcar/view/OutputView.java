@@ -15,16 +15,18 @@ public class OutputView {
     public void printMessage(String output) {
         System.out.println(output);
     }
-    
-    public void printPlayResult(List<Map<String, String>> results) {
+
+    public void printPlayResultMessage() {
         System.out.println();
         System.out.println("실행 결과");
-        for(Map<String, String> result : results) {
-            System.out.printf("%s : %s%n", result.get("carName"),result.get("distance"));
+    }
+    public void printPlayResult(List<Map<String, String>> results) {
+        for (Map<String, String> result : results) {
+            System.out.printf("%s : %s%n", result.get("carName"), result.get("distance"));
         }
         System.out.println();
     }
-    
+
     public void printWinners(String winners) {
         System.out.printf("최종 우승자 : %s", winners);
     }

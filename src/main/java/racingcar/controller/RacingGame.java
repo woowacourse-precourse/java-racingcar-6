@@ -12,8 +12,6 @@ public class RacingGame {
     private final InputView inputView;
     private final RacingGameService racingGameService;
 
-    private boolean isGoal = false;
-
     public RacingGame() {
         this.outputView = new OutputView();
         this.inputView = new InputView();
@@ -40,6 +38,8 @@ public class RacingGame {
     }
 
     public void handlePlayRacingGame() {
+        outputView.printPlayResultMessage();
+        boolean isGoal = false;
         while (!isGoal) {
             List<Map<String, String>> results = racingGameService.getResultList();
             outputView.printPlayResult(results);
@@ -48,6 +48,7 @@ public class RacingGame {
     }
 
     public void handleWinners() {
+        racingGameService.addWinners();
         String winnerList = racingGameService.getWinners();
         outputView.printWinners(winnerList);
     }

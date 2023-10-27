@@ -44,17 +44,24 @@ public class RacingGameService {
         }
         return results;
     }
-    
+
     public boolean reaches() {
         for (Car car : cars.getCarList()) {
             if (car.getDistance().length() == attemps.getNumber()) {
-                winners.addWinner(car);
                 return true;
             }
         }
         return false;
     }
-    
+
+    public void addWinners() {
+        for (Car car : cars.getCarList()) {
+            if (car.getDistance().length() == attemps.getNumber()) {
+                winners.addWinner(car);
+            }
+        }
+    }
+
     public String getWinners() {
         return winners.getWinner().stream().map(car -> car.getName()).collect(Collectors.joining(","));
     }
