@@ -11,14 +11,20 @@ public class InputView {
     }
 
     public static String[] inputNames() {
+        return inputNames(Console.readLine());
+    }
+    public static String[] inputNames(String input) {
         System.out.println(INPUT_NAME);
-        return Console.readLine().split(",");
+        return input.split(",");
     }
 
     public static int inputRepeat() {
+        return inputRepeat(Console.readLine());
+    }
+    public static int inputRepeat(String input) {
         System.out.println(INPUT_REPEAT);
         try {
-            return Integer.parseInt(Console.readLine());
+            return Integer.parseInt(input);
         } catch (Exception e) {
             throw new IllegalArgumentException("[Error]: 잘못된 시도횟수 입력");
         }

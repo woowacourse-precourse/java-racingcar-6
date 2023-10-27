@@ -20,9 +20,9 @@
 
 ## InputView 클래스
 
-- [ ] inputNames: 각 이름이 ','에 의해 잘 나누어지는지
-- [ ] inputRepeat: 숫자로 잘 변환하여 반환하는지
-- [ ] inputRepeat: 변환할 수 없는 형태일 경우 에러를 발생시키는지
+- [x] inputNames: 각 이름이 ','에 의해 잘 나누어지는지
+- [x] inputRepeat: 숫자로 잘 변환하여 반환하는지
+- [x] inputRepeat: 변환할 수 없는 형태일 경우 에러를 발생시키는지
 - [ ] inputRepeat: 범위를 벗어나는 수일 경우 에러를 발생시키는지
 
 ## OutputView 클래스

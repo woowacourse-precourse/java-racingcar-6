@@ -17,7 +17,7 @@ public class CarTest {
     @Test
     @DisplayName("5자를 초과하는 이름이 사용될 시 에러가 발생하는지")
     public void nameFieldError() {
-        assertThatThrownBy(() -> { new Car("cookie"); })
+        assertThatThrownBy(() -> new Car("cookie"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
