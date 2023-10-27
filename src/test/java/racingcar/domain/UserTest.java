@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,8 +11,18 @@ class UserTest {
         final User user = new User();
         final String input = "pobi,woni,jun";
 
-        final String[] carsNameArray = user.splitCarsName(input);
+        user.splitCarsName(input);
 
-        assertThat(carsNameArray).contains("pobi", "woni", "jun");
+        assertThat(user.getCarsNameArray()).contains("pobi", "woni", "jun");
+    }
+
+    @Test
+    void 예외_자동차_이름_글자수_초과() {
+        final User user = new User();
+        final String input = "pobi,woni,goodjun";
+
+        assertThatThrownBy(() -> user.splitCarsName(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("이름이 5자를 초과하는 자동차가 있습니다.");
     }
 }
