@@ -71,4 +71,19 @@ public class OutputViewTest {
 
         assertEquals(expected, outputStream.toString());
     }
+
+    @DisplayName("차수별 실행 결과 메세지 출력 기능 테스트")
+    @Test
+    void testWinnerMessage() {
+        List<String> carList = new ArrayList<>();
+        carList.add("pobi");
+        carList.add("jun");
+
+        outputView.raceWinnerMessage(carList);
+        System.setOut(System.out);
+
+        String expected = "최종 우승자 : pobi, jun\n";
+
+        assertEquals(expected, outputStream.toString());
+    }
 }
