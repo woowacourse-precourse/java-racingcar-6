@@ -8,7 +8,55 @@ import org.junit.jupiter.api.Test;
 class CarTest {
 
     @Test
-    public void tryMoveTest1() throws Exception{
+    public void tryMove_return_false_when_0() throws Exception{
+        Car car = new Car("name");
+        assertRandomNumberInRangeTest(
+                ()-> {
+                    Assertions.assertThat(car.tryMove())
+                            .isFalse();
+                },
+                0
+        );
+    }
+
+    @Test
+    public void tryMove_return_false_when_3() throws Exception{
+        Car car = new Car("name");
+        assertRandomNumberInRangeTest(
+                ()-> {
+                    Assertions.assertThat(car.tryMove())
+                            .isFalse();
+                },
+                3
+        );
+    }
+
+    @Test
+    public void tryMove_return_true_when_4() throws Exception{
+        Car car = new Car("name");
+        assertRandomNumberInRangeTest(
+                ()-> {
+                    Assertions.assertThat(car.tryMove())
+                            .isTrue();
+                },
+                4
+        );
+    }
+
+    @Test
+    public void tryMove_return_true_when_9() throws Exception{
+        Car car = new Car("name");
+        assertRandomNumberInRangeTest(
+                ()-> {
+                    Assertions.assertThat(car.tryMove())
+                            .isTrue();
+                },
+                4
+        );
+    }
+
+    @Test
+    public void toStringTest1() throws Exception{
         assertRandomNumberInRangeTest(
                 ()-> Assertions.assertThat(moveCar("car", 3))
                             .isEqualTo("car : ---"),
@@ -17,7 +65,7 @@ class CarTest {
     }
 
     @Test
-    public void tryMoveTest2() throws Exception{
+    public void toStringTest2() throws Exception{
         assertRandomNumberInRangeTest(
                 ()-> Assertions.assertThat(moveCar("car", 5))
                         .isEqualTo("car : --"),
@@ -26,7 +74,7 @@ class CarTest {
     }
 
     @Test
-    public void tryMoveTest3() throws Exception{
+    public void toStringTest3() throws Exception{
         assertRandomNumberInRangeTest(
                 ()-> Assertions.assertThat(moveCar("car", 10))
                         .isEqualTo("car : "),
