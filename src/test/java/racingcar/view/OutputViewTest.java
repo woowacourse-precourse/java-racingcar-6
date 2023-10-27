@@ -6,10 +6,9 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static racingcar.view.OutputView.*;
 
 class OutputViewTest {
 
@@ -30,7 +29,7 @@ class OutputViewTest {
     public void 자동차_이름_프롬프트_출력() throws Exception {
         //given
         //when
-        OutputView.displayCarNamePrompt();
+        displayCarNamePrompt();
         //then
         assertEquals("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n", outContent.toString());
     }
@@ -39,7 +38,7 @@ class OutputViewTest {
     public void 게임_시도_횟수_프롬프트_출력() throws Exception {
         //given
         //when
-        OutputView.displayAttemptPrompt();
+        displayAttemptPrompt();
         //then
         assertEquals("시도할 회수는 몇회인가요?\n", outContent.toString());
     }
@@ -50,7 +49,7 @@ class OutputViewTest {
         String carName = "pobi";
         String positionInDashes = "-";
         //when
-        OutputView.displayCurrentGameResult(carName, positionInDashes);
+        displayCurrentGameResult(carName, positionInDashes);
         //then
         assertEquals("pobi : -\n", outContent.toString());
     }
@@ -59,7 +58,7 @@ class OutputViewTest {
     public void 결과_헤더_출력() throws Exception {
         //given
         //when
-        OutputView.displayResultHeader();
+        displayGameStartMessage();
         //then
         assertEquals("실행 결과\n", outContent.toString());
     }
@@ -69,7 +68,7 @@ class OutputViewTest {
         //given
         String name = "pobi";
         //when
-        OutputView.displayWinner(name);
+        displayWinner(name);
         //then
         assertEquals("최종 우승자 : pobi\n", outContent.toString());
     }
