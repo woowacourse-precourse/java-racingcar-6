@@ -1,10 +1,16 @@
 # 자동차 게임 구조 및 기능 명세
 
+## 프로젝트 기능
+경주할 자동차 이름 입력받기
+시도할 횟수 입력받기
+실행 결과 출력하기
+최종 우승자 출력하기
+
 ## 프로젝트 패키지 구조
 - baseball
     - Application (class)
     - controller - Controller
-    - presentation - Presentation, Message, Flag
+    - view - Message, Input, Output
     - domain - Car, Round, Rule
     - dto - Naming, Rounding
     - service -  Game
@@ -20,7 +26,8 @@
 - setGame :
   - 게임 생성 setGame
     - 경주할 자동차 이름 입력받기
-      - 출력 : '경주할 자동차 입력하세요' -> Presentation -> messageController -> namingMessage
+      - -> view -> Input requestCarName
+      - 출력 : '경주할 자동차 입력하세요' -> Presentation -> Output -> namingMessage
       - 입력 : Dto -> Naming -> Car -> Rule
     - 시도할 횟수 입력받기
       - 출력 : Presentation -> messageController -> roundingMessage
