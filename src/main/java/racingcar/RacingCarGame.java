@@ -9,12 +9,10 @@ import java.util.List;
 public class RacingCarGame {
     InputProcessor inputProcessor;
     OutputProcessor outputProcessor;
-
-    List<Car> cars;
+    GameBoard gameBoard;
     Integer repetition;
 
     public RacingCarGame() {
-        cars = new ArrayList<>();
         inputProcessor = new InputProcessor();
         outputProcessor = new OutputProcessor();
     }
@@ -23,38 +21,17 @@ public class RacingCarGame {
         initializeGame();
 
         for (int repetitionCount = 0; repetitionCount < repetition; repetitionCount++) {
-            processTurn();
-            outputProcessor.printMoveResult(cars);
+            gameBoard.processTurn();
+            outputProcessor.printMoveResult(gameBoard.getCopyOfPlayerList());
         }
 
-        outputProcessor.printWinners(findWinners());
-    }
-
-    private List<Car> findWinners() {
-        Integer maxDistance = cars.stream()
-                .max(Comparator.comparingInt(Car::getPosition))
-                .get()
-                .getPosition();
-
-        return cars.stream()
-                .filter(car -> car.getPosition() == maxDistance)
-                .toList();
+        outputProcessor.printWinners(gameBoard.findWinners());
     }
 
     private void initializeGame() {
         outputProcessor.printCarNameInputMessage();
-        this.cars = inputProcessor.readCarNamesInput();
+        this.gameBoard = new GameBoard(inputProcessor.readCarNamesInput());
         outputProcessor.printRepetitionInputMessage();
         this.repetition = inputProcessor.readRepetitionInput();
-    }
-
-    private void processTurn() {
-        cars.stream()
-                .filter(t -> canMove())
-                .forEach(Car::move);
-    }
-
-    private boolean canMove() {
-        return Randoms.pickNumberInRange(0,9) >= 4;
     }
 }
