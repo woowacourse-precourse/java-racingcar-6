@@ -1,5 +1,6 @@
 package racingcar.Controller;
 
+import java.util.stream.IntStream;
 import racingcar.Model.RacingCars;
 import racingcar.View.OutputView;
 
@@ -20,7 +21,10 @@ public class GameController {
 
     public void initiateGame() {
         OutputView.printPlayMessage();
-
+        IntStream.range(0, rounds).forEach(i -> {
+            racingCars.play();
+            OutputView.printNewLine();
+        });
     }
     public void displayWinners() {
 //        racingCars.showWinners();

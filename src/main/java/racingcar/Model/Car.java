@@ -27,4 +27,10 @@ public class Car {
     public boolean isWinner(int winDistance){
         return position == winDistance;
     }
+
+    @Override
+    public String toString() {
+        return name + " : "
+                + "-".repeat(Math.max(0, position));
+    }
 }

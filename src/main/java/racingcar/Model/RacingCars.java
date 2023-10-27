@@ -11,6 +11,11 @@ public class RacingCars {
         carNames.forEach(car -> CARS.add(new Car(car)));
     }
 
+    public void play(){
+        go();
+        OutputView.printRoundResult(CARS);
+    }
+
 //    public void showWinners(){
 //        OutputView.printWinner(new ArrayList<>(CARS.stream())
 //                .filter(car -> car.isWinner(Collections.max(getPosition())))
