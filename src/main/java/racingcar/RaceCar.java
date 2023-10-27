@@ -4,6 +4,8 @@ import racingcar.view.Output;
 
 public class RaceCar {
 
+    private static final String FIELD_SEPARATOR = " : ";
+
     private final CarName name;
     private final RacePosition position;
 
@@ -21,7 +23,7 @@ public class RaceCar {
     }
 
     public void printCurrentPositions() {
-        Output.printMessage(name + " : " + position.drawProcess());
+        Output.printMessage(name + FIELD_SEPARATOR + position.drawProcess());
     }
 
     @Override

@@ -8,6 +8,11 @@ import racingcar.domain.RandomNumberGenerator;
 
 public class RaceCars {
 
+    private static final int EQUAL = 0;
+    private static final int LESS_THAN = -1;
+    private static final int FIRST_ELEMENT_INDEX = 0;
+    private static final String SPLIT_DELIMITER = ",";
+
     private final List<RaceCar> raceCarList;
 
     public RaceCars(List<RaceCar> raceCarList) {
@@ -19,7 +24,7 @@ public class RaceCars {
     }
 
     private List<RaceCar> convertStringToList(String carNameStrings) {
-        List<String> splitList = new ArrayList<>(List.of(carNameStrings.split(",")));
+        List<String> splitList = new ArrayList<>(List.of(carNameStrings.split(SPLIT_DELIMITER)));
 
         return splitList.stream()
                 .map(name -> new RaceCar(new CarName(name)))
@@ -48,14 +53,14 @@ public class RaceCars {
 
     public List<RaceCar> getMaximumList() {
         List<RaceCar> maximumList = new ArrayList<>();
-        RaceCar firstCar = raceCarList.get(0);
+        RaceCar firstCar = raceCarList.get(FIRST_ELEMENT_INDEX);
 
         for (RaceCar raceCar : raceCarList) {
-            if (firstCar.compareTo(raceCar) == 0) {
+            if (firstCar.compareTo(raceCar) == EQUAL) {
                 maximumList.add(raceCar);
                 continue;
             }
-            if (firstCar.compareTo(raceCar) == -1) {
+            if (firstCar.compareTo(raceCar) == LESS_THAN) {
                 maximumList.clear();
                 firstCar = raceCar;
                 maximumList.add(raceCar);
@@ -67,6 +72,6 @@ public class RaceCars {
 
     @Override
     public String toString() {
-        return "raceCarList=" + raceCarList;
+        return raceCarList.toString();
     }
 }

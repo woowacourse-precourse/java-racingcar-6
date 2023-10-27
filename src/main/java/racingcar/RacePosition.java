@@ -18,9 +18,7 @@ public class RacePosition {
 
     @Override
     public String toString() {
-        return "RacePosition{" +
-                "currentPosition=" + currentPosition +
-                '}';
+        return String.valueOf(currentPosition);
     }
 
     public String drawProcess() {

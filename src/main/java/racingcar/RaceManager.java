@@ -6,6 +6,7 @@ import racingcar.view.Output;
 
 public class RaceManager {
 
+    private static final String RESULTS_DELIMITER = ", ";
     private static final String ASK_NAME_OF_CARS = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)  ";
     private static final String ASK_Attempt_TIMES = "시도할 회수는 몇회인가요?";
     private static final String RESULT_MESSAGE = "실행 결과";
@@ -45,7 +46,7 @@ public class RaceManager {
     private void printWinner() {
         StringBuilder builder = new StringBuilder();
         for (RaceCar car : carList.getMaximumList()) {
-            builder.append(car).append(", ");
+            builder.append(car).append(RESULTS_DELIMITER);
         }
 
         Output.printMessage(FINAL_WINNER_MESSAGE + builder);
