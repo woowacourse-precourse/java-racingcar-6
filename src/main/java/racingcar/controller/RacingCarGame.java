@@ -19,12 +19,12 @@ public class RacingCarGame {
     }
 
     public void run(){
+        Dice dice = Dice.getInstance();
         List<Car> carList = getCarList(inputView.inputNames());
         int tryNumber = inputView.inputTryNumber();
 
         for(int i=0; i<tryNumber; i++){
-            moveOrStay(carList);
-//            System.out.println();
+            moveOrStay(carList, dice);
             outputView.printResult(carList);
         }
         outputView.printWinner(carList);
@@ -37,9 +37,9 @@ public class RacingCarGame {
                 .collect(Collectors.toList());
     }
 
-    public void moveOrStay(List<Car> carList){
+    public void moveOrStay(List<Car> carList, Dice dice){
         carList.stream()
-                .forEach(car -> car.move(Dice.getRandomNumber()));
+                .forEach(car -> car.move(dice.getRandomNumber()));
     }
 }
 
