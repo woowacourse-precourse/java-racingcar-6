@@ -8,6 +8,7 @@ public class RacingService {
 
     /**
      * 1-2. 자동차 이름 검증
+     *
      * @param names 사용자의 자동차 이름들 입력값
      * @return 정제된 각 자동차의 이름 리스트
      * @throws IllegalArgumentException
@@ -28,9 +29,29 @@ public class RacingService {
 
     /**
      * 1-3. 자동차 객체 생성, 저장
+     *
      * @param validNameList 자동차 이름 리스트
      */
     void generateCar(List<String> validNameList) {
         validNameList.forEach(name -> racingRepository.addCar(new Car(name)));
+    }
+
+    /**
+     * 2- 2. 자동차 이동 회수 검증
+     *
+     * @param count 이동 회수
+     * @return 이동 회수 유효성 true / false
+     * @throws IllegalArgumentException
+     */
+    boolean isValidCount(String count) throws IllegalArgumentException {
+        try {
+            int validCount = Integer.parseInt(count);
+            if (validCount <= 0) {
+                throw new IllegalArgumentException();
+            }
+            return true;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
     }
 }
