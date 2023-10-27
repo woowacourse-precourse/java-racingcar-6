@@ -5,6 +5,7 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Result;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class Controller {
     private final List<Car> cars;
@@ -21,14 +22,15 @@ public class Controller {
 
     private void displayFinalResult() {
         Result result = new Result(cars);
-        System.out.println(result.getWinners());
+        OutputView.printlnConsoleMessage(result.getWinners());
     }
 
     private void runGame() {
         int attemptCount = InputView.inputAttemptCount();
-        System.out.println("실행 결과");
+        OutputView.printlnConsoleMessage("\n실행 결과");
         while (attemptCount-- > 0) {
             playRound();
+            OutputView.printlnNewLine();
         }
     }
 
@@ -36,9 +38,8 @@ public class Controller {
         for (Car car : cars) {
             car.move();
         }
-        System.out.println();
         for (Car car : cars) {
-            System.out.println(car.getRecord());
+            OutputView.printlnConsoleMessage(car.getRecord());
         }
     }
 

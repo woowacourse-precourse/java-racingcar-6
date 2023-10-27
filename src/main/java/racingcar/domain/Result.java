@@ -26,7 +26,7 @@ public class Result {
 
     public String getWinners() {
         StringBuilder winners = new StringBuilder();
-        winners.append(String.format("%n최종 우승자 : %s", ChampionNames.get(0)));
+        winners.append(String.format("최종 우승자 : %s", ChampionNames.get(0)));
         for (int i = 1; i < ChampionNames.size(); i++) {
             winners.append(String.format(", %s", ChampionNames.get(i)));
         }
