@@ -20,4 +20,14 @@ public class ConvertTest {
         assertThat(carNames.get(1)).isEqualTo("yong");
         assertThat(carNames.get(2)).isEqualTo("hyeon");
     }
+
+    @Test
+    @DisplayName("문자열을 받아 정수로 변환한다.")
+    void should_ConvertToInteger_When_ReceiveString() {
+        String inputValue = "5";
+
+        Integer attemptCount = Convert.stringToInteger(inputValue);
+
+        assertThat(attemptCount).isEqualTo(5);
+    }
 }
