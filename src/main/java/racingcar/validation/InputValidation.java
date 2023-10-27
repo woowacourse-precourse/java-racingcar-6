@@ -8,11 +8,11 @@ public class InputValidation {
     private static final String IS_NOT_RANGE_NAME_ERROR_MESSAGE = "5자리 이하가 아닙니다.";
 
     public static Map<String, Integer> checkedInputValidation(String carNames){
-        isNullCarName(carNames);
+        isNullText(carNames);
         return collectCarNames(carNames);
     }
 
-    public static void isNullCarName(String carNames){
+    public static void isNullText(String carNames){
         if(carNames.isBlank()){
             throw new IllegalArgumentException(IS_NULL_CAR_NAME_ERROR_MESSAGE);
         }
