@@ -17,6 +17,7 @@ public class Application {
         // TODO: 프로그램 구현
         input();
 
+        System.out.println("실행 결과");
         for (int i = 0; i < attempt; i++) {
             race();
         }
@@ -58,10 +59,32 @@ public class Application {
         for (Car car : cars) {
             int randomValue = Randoms.pickNumberInRange(0, 9);
             car.run(randomValue);
+            distanceOutput(car);
         }
+        System.out.println("");
     }
+    private static void distanceOutput(Car car){
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < car.getDistance(); i++) {
+            stringBuilder.append("-");
+        }
+        System.out.println(car.getName() +" : "+stringBuilder.toString());
+    }
+
     public static List<String> getWinners(){
         List<String> winnerList = new ArrayList<>();
+        int maxDistance = Integer.MIN_VALUE;
+        for (Car car : cars) {
+            int distance = car.getDistance();
+            if(distance > maxDistance){
+                maxDistance = distance;
+            }
+        }
+        for (Car car : cars) {
+            if(maxDistance == car.getDistance()){
+                winnerList.add(car.getName());
+            }
+        }
         return winnerList;
     }
 }
