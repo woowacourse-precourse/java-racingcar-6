@@ -17,8 +17,8 @@ public class RacingController {
         // 3. 차수별 경주 실행 및 이동 결과 출력
         printCarTotalMove(validCount);
 
-        // 4. todo 우승자 출력
-
+        // 4. 우승자 출력
+        printWinner();
     }
 
     void inputCarName() {
@@ -40,5 +40,11 @@ public class RacingController {
             racingService.generateMove();
             System.out.println(racingService.getCarTotalMove());
         }
+    }
+
+    void printWinner(){
+        int highScore = racingService.getHighScore();
+        List<String> winnerList = racingService.getWinner(highScore);
+        System.out.print("최종 우승자 : "+String.join(", ", winnerList));
     }
 }

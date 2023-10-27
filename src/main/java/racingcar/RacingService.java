@@ -78,4 +78,31 @@ public class RacingService {
         }
         return totalMove.toString();
     }
+
+    /**
+     * 4-1. 차 누적 거리 비교해 최고 점수를 리턴
+     *
+     * @return 경주의 최고점수
+     */
+    int getHighScore() {
+        int highScore = racingRepository.getCarList().stream()
+                .map(Car::getTotalMove)
+                .mapToInt(i -> i)
+                .max().orElse(0);
+        return highScore;
+    }
+
+    /**
+     * 4-2. 우승자 리스트를 리턴
+     *
+     * @param highScore 최고 점수
+     * @return 최고 점수의 차(우승자) 리스트
+     */
+    List<String> getWinner(int highScore) {
+        List<String> winnerList = racingRepository.getCarList().stream()
+                .filter(car -> car.getTotalMove() == highScore)
+                .map(Car::getName)
+                .toList();
+        return winnerList;
+    }
 }
