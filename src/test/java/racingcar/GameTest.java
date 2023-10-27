@@ -51,9 +51,6 @@ public class GameTest {
         LinkedHashMap<String,Integer> carLocations;
         car.createLocationMap(carNameList);
 
-        //carNameList를 moveForward에 전달하면 car 객체 내부에서 모든 차를 운전하는걸로
-        //이렇게 되면 car 객체 내에서 createCarNumber를 해야함..
-
         carLocations = car.moveForward(carNameList);
 
         for(int i = 0 ; i < carNameList.size(); i++){
@@ -61,16 +58,6 @@ public class GameTest {
         }
 
 
-
-
-
-
-
-        //car에서 locations 가지기
-        //game에서 locations 가지기
-
-        //게임시작
-        // carMap 갯수만큼 순회하면서 랜덤 숫자 생성하고 car에 move 신호 주기
 
     }
 

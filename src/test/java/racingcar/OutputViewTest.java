@@ -3,11 +3,15 @@ package racingcar;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.LinkedHashMap;
+import java.util.List;
 import org.assertj.core.api.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.model.Car;
+import racingcar.model.Game;
 import racingcar.view.OutputView;
 
 public class OutputViewTest {
@@ -55,9 +59,28 @@ public class OutputViewTest {
 
     }
 
+    @Test
+    void 게임_실행_결과_출력_테스트() {
 
+        LinkedHashMap<String,Integer> locations = new LinkedHashMap<>();
+        locations.put("pobi",1);
+        locations.put("jun",3);
+        locations.put("king",0);
+        locations.put("rook",2);
 
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setOut(printStream);
 
+        OutputView.printGameResultMessage(locations);
+
+        String capturedOutput = outputStream.toString();
+        String[] outputs = capturedOutput.split("\n");
+        Assertions.assertEquals(outputs[0],"pobi : -");
+        Assertions.assertEquals(outputs[1],"jun : ---");
+        Assertions.assertEquals(outputs[2],"king :");
+        Assertions.assertEquals(outputs[3],"rook : --");
+    }
 
 
 }
