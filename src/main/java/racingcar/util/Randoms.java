@@ -1,6 +1,8 @@
 package racingcar.util;
 
 public class Randoms {
+    private Randoms() {
+    }
 
     private static final int MIN_VALUE = 0;
     private static final int MAX_VALUE = 9;

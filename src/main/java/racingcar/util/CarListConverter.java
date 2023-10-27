@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 import static racingcar.constants.ErrorConstants.DUPLICATE_NAME_ERROR_MESSAGE;
 
 public class CarListConverter {
+    private CarListConverter() {
+    }
 
     public static List<Car> convertStringArrayToCarList(String[] names){
         List<Car> cars = Arrays.stream(names)

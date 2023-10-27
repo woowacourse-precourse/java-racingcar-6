@@ -3,6 +3,8 @@ package racingcar.util;
 import static racingcar.constants.ErrorConstants.NOT_DIGIT_ERROR_MESSAGE;
 
 public class Console {
+    private Console() {
+    }
 
     public static String[] requestNames() {
         return camp.nextstep.edu.missionutils.Console.readLine().split(",");
