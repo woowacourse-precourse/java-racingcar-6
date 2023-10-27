@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import static racingcar.ExceptionMessage.PLAY_COUNT_VALUE_EXCEPTION;
+
 public class PlayCount {
 
     private final int count;
@@ -15,7 +17,7 @@ public class PlayCount {
 
     private void validateValue(final String input) {
         if (!input.matches("[0-9]+")) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(PLAY_COUNT_VALUE_EXCEPTION.toString());
         }
     }
 
