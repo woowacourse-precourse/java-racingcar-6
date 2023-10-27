@@ -10,6 +10,7 @@ RacingCarGame을 실행시킴
 ### RacingCar
 각각의 자동차를 나타내는 클래스로 필드는 이름과 이동량
 생성자(이동량은 default:0)
+- plusDistance() : 이동량 증가
 
 ### RacingCarGame
 초기값을 입력받고 자동차를 만들고 게임 시작(필드로는 자동차 list,랜덤수생성기)
