@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CarTest {
 
@@ -14,6 +15,16 @@ class CarTest {
         Car otherCar = Car.from("pobi");
 
         assertThat(car).isEqualTo(otherCar);
+    }
+
+    @DisplayName("알 수 없는 자동차 이동 정책(null)으로 자동차를 이동할 수 없다.")
+    @Test
+    void moveWithNull() {
+        Car car = Car.from("pobi");
+
+        assertThatThrownBy(() -> car.move(null))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("알 수 없는 이동 정책입니다.");
     }
 
     @DisplayName("자동차가 이동할 수 있다면, 위치는 한 단계 증가한다.")

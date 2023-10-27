@@ -4,6 +4,8 @@ import java.util.Objects;
 
 class Car {
 
+    private static final String UNKNOWN_POLICY_MESSAGE = "알 수 없는 이동 정책입니다.";
+
     private final Name name;
     private final Position position;
 
@@ -16,9 +18,17 @@ class Car {
         return new Car(Name.from(name), Position.newInstance());
     }
 
-    public void move(MovePolicy movePolicy) {
-        if (movePolicy.movable()) {
+    public void move(MovePolicy policy) {
+        checkPolicyNonNull(policy);
+
+        if (policy.movable()) {
             position.increase();
+        }
+    }
+
+    private void checkPolicyNonNull(MovePolicy policy) {
+        if (Objects.isNull(policy)) {
+            throw new IllegalArgumentException(UNKNOWN_POLICY_MESSAGE);
         }
     }
 
