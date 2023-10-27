@@ -11,4 +11,5 @@ public class InputView {
     public static String readTryNumber() {
         return Console.readLine();
     }
+
 }

@@ -21,6 +21,7 @@ public class OutputView {
             System.out.print(carNameList.get(i) + " : ");
             printCarLocationMessage(locations.get(carNameList.get(i)));
         }
+        System.out.println();
     }
 
     public static void printCarLocationMessage(int carLocation) {
@@ -32,6 +33,7 @@ public class OutputView {
 
 
     public static void printFinalWinner(List<String> winners) {
+        System.out.print("최종 우승자 : ");
         for(int i = 0 ; i < winners.size(); i++){
             System.out.print(winners.get(i));
             if(i<winners.size()-1){
