@@ -5,11 +5,10 @@
     - Application (class)
     - controller - Controller
     - presentation - Presentation, Message, Flag
-    - domain - Car, Round, Game, Rule
-    - data
-    - config
-    - service
-    - utilities
+    - domain - Car, Round, Rule
+    - dto - Naming, Rounding
+    - service -  Game
+    - utilities - Parse, Compare
 
 ## 프로젝트 클래스 및 기능 구조
 ### baseball/Application
