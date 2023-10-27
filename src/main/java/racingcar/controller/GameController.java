@@ -14,7 +14,7 @@ public class GameController {
     public GameController() {}
 
     public void startGame() {
-        List<Car> cars = createCars(getInputNames());
+        List<Car> cars = createCars(inputCarNames());
         int attemptCount = inputAttemptCount();
 
     }
@@ -33,7 +33,7 @@ public class GameController {
                     .collect(Collectors.toList());
     }
 
-    private List<String> getInputNames() {
+    private List<String> inputCarNames() {
         String inputNames = InputView.inputCarNames();
 
         return Arrays.stream(inputNames.split(","))
