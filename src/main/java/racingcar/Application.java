@@ -78,5 +78,29 @@ public class Application {
             System.out.println();
         }
 
+        // 4. 우승자 출력
+        int max = 0;
+
+        for(int i=0; i < carNames.length; i++){
+            if(max <= movedCount[i].length()){
+                max = movedCount[i].length();
+            }
+        }
+
+        System.out.print("최종 우승자 : ");
+        int count =0;
+
+        for(int i=0; i < carNames.length; i++){
+
+            if(max == movedCount[i].length()){
+
+                if(count++ != 0){
+                    System.out.print(", ");
+                }
+
+                System.out.print(carNames[i]);
+            }
+        }
+
     }
 }
