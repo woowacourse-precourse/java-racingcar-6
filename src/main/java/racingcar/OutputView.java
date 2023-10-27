@@ -27,7 +27,7 @@ public class OutputView {
     public static void printWinner(Car... winners) {
         System.out.print(WINNER_MESSAGE);
         for (int index = 0; index < winners.length; index++) {
-            System.out.print(winners[index]);
+            System.out.print(winners[index].getName());
             if (index != winners.length - 1) {
                 System.out.print(WINNER_DELIMITER);
             }
