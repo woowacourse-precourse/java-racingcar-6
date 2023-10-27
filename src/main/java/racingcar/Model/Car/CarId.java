@@ -1,7 +1,7 @@
 package racingcar.Model.Car;
-public class Id {
+public class CarId {
     private Integer id;
-    public Id(Integer id) {
+    public CarId(Integer id) {
         this.id = id;
     }
 
@@ -10,5 +10,9 @@ public class Id {
             throw new IllegalArgumentException();
         }
         return null;
+    }
+
+    public Integer getId() {
+        return id;
     }
 }

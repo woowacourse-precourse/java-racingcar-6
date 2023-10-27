@@ -4,6 +4,6 @@ import racingcar.Model.CarRepository;
 
 public interface RaceController {
 
-    void process(String round, CarRepository carRepository);
+    void processRace(String round, CarRepository carRepository);
 
 }

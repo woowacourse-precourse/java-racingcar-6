@@ -6,6 +6,7 @@
 * 요구사항에 명시된 출력값 형태를 지킨다.
 * 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.
 * (추가목표) 명시되어 있지 않고 임의로 제한한 사항은 인터페이스나 AppConfig에 의존하게 설계한다.
+[] MainController의 process를 작성한다.
 [] 입력값을 받아 자동차 객체들을 생성한다. (Car.of / Car)
 [] 자동차들을 저장하는 객체를 생성한다. (Repository.save / Repository)
  - [] 내부에 id를 이용해 자동차의 갯수제한, 동명의 자동차도 구분할 수 있도록 한다. -> View로 결과를 뽑아내진 않음
