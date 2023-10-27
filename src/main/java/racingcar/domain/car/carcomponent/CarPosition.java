@@ -16,4 +16,8 @@ public class CarPosition {
         }
         return CarPositionCompareResult.SAME;
     }
+
+    public CarPosition move() {
+        return new CarPosition(position + 1);
+    }
 }
