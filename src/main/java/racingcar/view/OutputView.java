@@ -15,8 +15,9 @@ public class OutputView {
         System.out.println(carNameAndPosition);
     }
 
-    public void printWinnerMessage() {
+    public void printWinnerMessage(String winnerCarString) {
         MessageUtil.FINAL_WINNER_MESSAGE.messagePrint();
+        System.out.print(winnerCarString);
     }
 
     public void printNewLine() {

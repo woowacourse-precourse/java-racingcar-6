@@ -28,8 +28,7 @@ public class GameController {
             playingGame(carList);
         }
         GameResult gameResult = endGame(carList);
-        outputView.printWinnerMessage();
-
+        outputView.printWinnerMessage(gameResult.provideWinnderCarName());
     }
 
     private void playingGame(List<Car> carList) {
