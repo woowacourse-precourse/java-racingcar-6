@@ -23,8 +23,8 @@ public class InputValidator {
     }
 
     public List<String> validateCarsNameInput(String inputString) {
-        if (!isUsingCommaSeperator(inputString)) {
-            ExceptionMessages.WRONG_SEPERATOR.throwException();
+        if (inputString.length() > MAXIMUM_NUMBER && !isUsingCommaSeperator(inputString)) {
+            ExceptionMessages.WRONG_SEPERATOR_OR_RANGE.throwException();
         }
         List<String> convertedStringList = convertStringToStringList(inputString);
         if (!isOneToFive(convertedStringList)) {
