@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 public interface MoveStrategy {
-    boolean isMovable();
+    boolean isMovable(int randomNumber);
 }
 
 

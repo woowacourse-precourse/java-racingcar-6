@@ -1,15 +1,11 @@
 package racingcar.domain;
 
-public class RandomMoveStrategy implements MoveStrategy {
-    private static final int MOVE_THRESHOLD = 4;
-    private final int randomNumber;
+import racingcar.constant.MovementRule;
 
-    public RandomMoveStrategy(int randomNumber) {
-        this.randomNumber = randomNumber;
-    }
+public class RandomMoveStrategy implements MoveStrategy {
 
     @Override
-    public boolean isMovable() {
-        return randomNumber >= MOVE_THRESHOLD;
+    public boolean isMovable(int randomNumber) {
+        return randomNumber >= MovementRule.MOVE_THRESHOLD.getValue();
     }
 }
