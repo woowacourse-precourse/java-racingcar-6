@@ -1,29 +1,40 @@
 package racingcar.domain;
 
+import java.util.List;
+
 public class RacingCarGame {
     private int number;
-    private boolean gameState;
+    private boolean timeOver;
+    List<RacingCar> racingCarList;
 
-    public RacingCarGame(int number, boolean gameState){
+    public RacingCarGame(int number, boolean timeOver, List<RacingCar> racingCarList){
         this.number = number;
-        this.gameState = gameState;
+        this.timeOver = timeOver;
+        this.racingCarList = racingCarList;
     }
 
-    public int getNumber() {
-        return number;
-    }
-    public void moveRacingCar() {
-        this.number = this.number - 1;
+    public List<RacingCar> getRacingCarList() {
+        return racingCarList;
     }
 
-    public boolean isGameState() {
-        return gameState;
+    public boolean isTimeOver() {
+        return timeOver;
     }
 
-    public void setGameState(){
+    public void setTimeOver(){
         if(this.number==0){
-            this.gameState=false;
+            this.timeOver=false;
         }
+    }
+
+    public void setNumber(){
+        this.number -=1;
+    }
+
+    public void repeatMovingRacingCar(){
+        racingCarList.stream().forEach(RacingCar::moveRacingCar);
+        setNumber();
+        setTimeOver();
     }
 
 }

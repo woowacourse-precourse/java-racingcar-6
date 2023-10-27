@@ -4,6 +4,7 @@ import racingcar.domain.RacingCarGame;
 import racingcar.domain.RacingCar;
 import racingcar.validator.RacingCarValidator;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,16 +19,18 @@ public class RacingCarController {
     }
 
     private void racingCarGameStart() {
-        List<RacingCar> racingCarList = requestRacingCarNameList();
-        RacingCarGame racingCarGame = new RacingCarGame(requestAttemptNumberCovertStringToInteger(),true);
-        repeatMoveRacingCar(racingCarList, racingCarGame);
+        List<RacingCar> racingCar = requestRacingCarNameList();
+        RacingCarGame racingCarGame = new RacingCarGame(requestAttemptNumberCovertStringToInteger(),true,racingCar);
+        repeatMoveRacingCar(racingCarGame);
     }
 
-    private void repeatMoveRacingCar(List<RacingCar> racingCarList, RacingCarGame racingCarGame){
-        /** while문이 종료되면 입력된 이동만큼 반복한 것 **/
-        while(racingCarGame.isGameState()){
-            racingCarList.forEach(RacingCar::moveRacingCar);
-      }
+    private void repeatMoveRacingCar(RacingCarGame racingCarGame){
+        while(racingCarGame.isTimeOver()){
+            racingCarGame.repeatMovingRacingCar();
+            racingCarGame.getRacingCarList().forEach(v -> OutputView.printMoveRacingCar(v.getName(), v.getMove()));
+            System.out.println("");
+
+        }
     }
 
 
@@ -50,7 +53,7 @@ public class RacingCarController {
 
     private Integer requestAttemptNumberCovertStringToInteger(){
         String number = InputView.attemptNumberInput();
-        RacingCarValidator.attemptOnlyInputNumber(number);
+        RacingCarValidator.attemptInputOnlyNumberValidator(number);
         return Integer.parseInt(number);
     }
 

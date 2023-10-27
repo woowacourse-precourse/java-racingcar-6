@@ -3,7 +3,6 @@ package racingcar.controller;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.RacingCar;
 import java.util.List;
-import camp.nextstep.edu.missionutils.Randoms;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 

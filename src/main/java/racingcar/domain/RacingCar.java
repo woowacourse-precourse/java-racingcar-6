@@ -9,7 +9,6 @@ public class RacingCar {
         this.name = name;
         this.move = move;
     }
-    public RacingCar(){}
 
     public String getName() {
         return name;
@@ -24,13 +23,12 @@ public class RacingCar {
             this.move +=1;
         }
     }
-    /** True 이동o , False면 이동x  */
+
     public boolean shouldMoveGreaterThanRandomValue(){
         int randomNumber = Randoms.pickNumberInRange(0,9);
         if(randomNumber >=4){
             return true;
         }
         return false;
-
     }
 }
