@@ -29,6 +29,9 @@
 - Application
     - 클라이언트로서 전체 프로그램 시작
 
+- RacingCarController
+    - 전체 프로그램 진행
+
 - OutputView
     - 자동차 이름 입력 요청 메시지 출력
 
