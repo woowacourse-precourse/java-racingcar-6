@@ -5,6 +5,7 @@ import racingcar.constant.GameConfig;
 import racingcar.model.Car;
 import racingcar.validation.InputValidator;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,6 +22,13 @@ public class GameController {
 
         for (int i = 0; i < attemptCount; i++) {
             moveAllCarsForward(cars);
+            displayAllCarsPosition(cars);
+        }
+    }
+
+    private void displayAllCarsPosition(List<Car> cars) {
+        for (Car car : cars) {
+            OutputView.printCarPosition(car.getName(), car.getPosition());
         }
     }
 
