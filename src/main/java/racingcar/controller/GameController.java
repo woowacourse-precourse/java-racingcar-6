@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import racingcar.domain.Car;
 import racingcar.domain.CarService;
@@ -8,24 +7,14 @@ import racingcar.view.Output;
 import racingcar.view.UserInput;
 
 public class GameController {
-    UserInput input;
+    UserInput userInput;
     CarService carService;
     Output output;
 
     public GameController() {
-        input = inputUser();
-        carService = new CarService(input);
-    }
-
-    //사용자 입력 처리해서 객체로 갖고 있기
-    public UserInput inputUser() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String carName = Console.readLine();
-
-        System.out.println("시도할 회수는 몇회인가요?");
-        int gameCount = Integer.parseInt(Console.readLine());
-
-        return new UserInput(carName, gameCount);
+        userInput = new UserInput();
+        userInput.inputUser(userInput);//입력받고
+        carService = new CarService(userInput);
     }
 
     //전체 게임 횟수만큼 게임 반복 및 실행 start 기능

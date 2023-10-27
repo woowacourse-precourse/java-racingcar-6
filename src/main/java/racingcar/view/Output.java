@@ -32,8 +32,8 @@ public class Output {
         int winScore = carService.getMaxScore(carsList);
         ArrayList<String> winnerName = carService.getWinnerName(carsList, winScore);
         System.out.print("최종 우승자 : ");
-        
-        String result = String.join(",", winnerName);
+
+        String result = String.join(", ", winnerName);
         System.out.println(result);
     }
 }
