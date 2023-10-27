@@ -62,7 +62,7 @@
    - [x] Car(String) : name, moveDistance 초기화
    - [ ] String getName() : 자동차 이름 반환
    - [ ] int getMoveDistance() : 이동 거리 반환
-   - [ ] void move() : 전진 조건을 만족하면 전진
+   - [x] void move() : 전진 조건을 만족하면 전진
 
 ### InputView
 사용자로부터 입력받는 클래스
