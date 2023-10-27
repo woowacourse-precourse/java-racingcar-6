@@ -2,7 +2,7 @@ package action;
 
 public interface Movable {
 
-    int action();
+    void action();
 
     int createRandom();
 }
