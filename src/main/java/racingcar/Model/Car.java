@@ -29,7 +29,7 @@ public class Car {
 
 		int randomNumber = makeRandomNumber();
 
-		if (randomNumber > MOVE_DECISION_SIGN) {
+		if (randomNumber >= MOVE_DECISION_SIGN) {
 			this.distance++;
 		}
 
