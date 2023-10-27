@@ -14,23 +14,24 @@ public class CarRaceJudge {
     }
 
     public void moveCars(final Supplier<Integer> randomNumberSupplier) {
-        Cars cars = carRepository.findCars();
-        cars.moveForwardWithAllCars(randomNumberSupplier.get());
+        Cars findCars = carRepository.findCars();
+        findCars.moveForwardWithAllCars(randomNumberSupplier.get());
     }
 
     public List<MoveResult> createSingleMoveResults() {
-        Cars cars = carRepository.findCars();
-        return cars.cars()
+        Cars findCars = carRepository.findCars();
+
+        return findCars.cars()
                 .stream()
                 .map(MoveResult::createResultOf)
                 .toList();
     }
 
     public List<String> findWinners() {
-        Cars cars = carRepository.findCars();
-        int winnerPosition = findWinnerPosition(cars);
+        Cars findCars = carRepository.findCars();
+        int winnerPosition = findWinnerPosition(findCars);
 
-        return cars.cars()
+        return findCars.cars()
                 .stream()
                 .filter(car -> car.isWinner(winnerPosition))
                 .map(Car::getName)
