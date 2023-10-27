@@ -21,9 +21,15 @@
 ### Car
 
 - `자동차의 이름`, `Position`, `Engine`을 가지고있다.
-- moveForward(): 엔진에 시동을 걸어 움직인다.
-    - [ ] Engine 의 start() 메서드를 호출한다.
-    - [ ] 반환값이 `true` 라면 position 의 값을 `1` 증가시킨다.
+- startEngine(): 엔진에 시동을 걸어 움직인다.
+    - [ ] Engine의 start() 메서드를 호출한다.
+    - [ ] 반환값이 `true` 라면 position의 값을 `1` 증가시킨다.
+
+### Position
+
+- 자동차가 현재 몇 번째 위치에 있는지 `int` 타입으로 가지고있다.
+- moveForward(): Position의 value를 1 증가시킨다.
+- getValue(): Position이 가진 value를 반환한다.
 
 ### CarEngine
 
