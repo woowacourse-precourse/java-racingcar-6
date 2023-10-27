@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class RacingCar {
 
     private static final int THRESHOLD = 4;
+    private static final String DASH = "-";
 
     private String carName;
     private int distance;
@@ -19,6 +20,10 @@ public class RacingCar {
         if (number >= THRESHOLD) {
             this.distance++;
         }
+    }
+
+    public String convertDistanceToString() {
+        return DASH.repeat(distance);
     }
 
     public int getDistance() {
