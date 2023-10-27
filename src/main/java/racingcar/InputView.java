@@ -13,6 +13,12 @@ public class InputView {
         player.settingPlayerCarNameStore(carNames);
     }
 
+    public void inputPlayerTryNumber() {
+        String tryNumber = Console.readLine();
+        checkTryNumberException(tryNumber);
+        player.settingPlayerTryNumber(Integer.parseInt(tryNumber));
+    }
+
     private void checkCarNamesLoop(String[] carNames) {
         for (String carName : carNames) {
             checkCarNameException(carName);
@@ -24,5 +30,9 @@ public class InputView {
         gameException.validatePlayerCarNameBlank(carName);
         gameException.validatePlayerCarNameType(carName);
         gameException.validatePlayerCarNameOnlyLowerCase(carName);
+    }
+
+    private void checkTryNumberException(String tryNumber) {
+        gameException.validatePlayerTryNumberType(tryNumber);
     }
 }
