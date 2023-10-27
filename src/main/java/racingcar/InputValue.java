@@ -6,7 +6,7 @@ public class InputValue {
 
     public static int InputNumberOfCars() {
         int numberOfCars = Integer.parseInt(Console.readLine());
-        validateNumberOfCarsRange(numberOfCars);
+        InputValidation.validateNumberOfCarsRange(numberOfCars);
         return numberOfCars;
     }
 
