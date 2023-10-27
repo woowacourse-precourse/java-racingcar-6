@@ -1,6 +1,8 @@
 package racingcar;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.Arrays;
 import java.util.List;
@@ -80,6 +82,20 @@ public class ValidateInputTest {
         List<String> inputList = Arrays.asList("red", "green", "red");
 
         assertThatThrownBy(() -> Application.validateCarListInputUnique(inputList))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void validateCarListInput_유효성검사_성공_테스트() {
+        String input = "red,green,blue";
+
+        Application.validateCarListInput(input);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", " ", "red,", "red,yellow", "red,red,green"})
+    void validateCarListInput_유효성검사_실패_테스트(String input) {
+        assertThatThrownBy(() -> Application.validateCarListInput(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
