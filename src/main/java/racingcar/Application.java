@@ -7,10 +7,8 @@ import racingcar.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {
-        GameController gameController = new GameController(
-                InputView.getInstance(),
-                OutputView.getInstance(),
-                new RacingService());
+        DependencyConfig config = new DependencyConfig();
+        GameController gameController = config.gameController();
         gameController.playGame();
     }
 }
