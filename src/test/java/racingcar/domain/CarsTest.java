@@ -143,6 +143,22 @@ class CarsTest {
     }
 
     @Test
+    @DisplayName("자동차들 객체를 외부에서 객체 추가 보호해야한다.")
+    void 외부_추가_보호() {
+        // given
+        Cars beforeCars = Cars.from(List.of("a", "b", "c"));
+
+        // when
+        List<Car> carList = beforeCars.getCars();
+
+        // then
+        assertThatThrownBy(() -> carList.add(Car.from("d")))
+                .isInstanceOf(UnsupportedOperationException.class);
+
+
+    }
+
+    @Test
     @DisplayName("자동차들 객체 내부의 자동차 객체도 보호해야한다.")
     void 외부_변경_리스트_내부_변경_보호() {
         // given
