@@ -12,7 +12,7 @@ public class Cars {
     private static final int CAR_NAME_LENGTH_LIMIT = 5;
     private static final int CAR_INIT_COUNT = 0;
     private final EmptyValidator emptyValidator;
-    private HashMap<String, Integer> cars = new HashMap<>();
+    private final HashMap<String, Integer> cars = new HashMap<>();
 
     public Cars(EmptyValidator emptyValidator) {
         this.emptyValidator = emptyValidator;
@@ -63,8 +63,11 @@ public class Cars {
         return this.cars;
     }
 
-    public void setCars(HashMap<String, Integer> cars) {
-        this.cars = cars;
+    public void moveCar(String carName) {
+        Integer position = cars.get(carName);
+        if (position != null) {
+            cars.put(carName, position + 1);
+        }
     }
 
 }

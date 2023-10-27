@@ -69,16 +69,11 @@ public class Racing {
 
     public void race() {
         HashMap<String, Integer> carPositions = cars.getCars();
-        HashMap<String, Integer> updatedCarPositions = new HashMap<>();
-
         carPositions.forEach((car, position) -> {
-            int newPosition = position;
             if (isMovable()) {
-                newPosition += 1;
+                cars.moveCar(car);
             }
-            updatedCarPositions.put(car, newPosition);
         });
-        cars.setCars(updatedCarPositions);
     }
 
     private boolean isMovable() {
