@@ -23,7 +23,7 @@ class CarRaceJudgeTest {
 
         // when
         carRaceJudge.addCars(names);
-        Cars findCars = carsRepository.findCars();
+        ParticipatingCars findCars = carsRepository.findCars();
         boolean isSaved = findCars.cars().containsAll(cars);
 
         // then
@@ -86,7 +86,7 @@ class CarRaceJudgeTest {
 
         // when
         carRaceJudge.moveCars(() -> 4);
-        String winners = String.join(",", carRaceJudge.findWinners());
+        String winners = String.join(",", carRaceJudge.findAllWinnerNames());
 
         // then
         assertThat(winners).isEqualTo("pobi,jason");

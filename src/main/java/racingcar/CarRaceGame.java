@@ -40,7 +40,7 @@ public class CarRaceGame {
     }
 
     private void printWinner() {
-        List<String> winners = judge.findWinners();
+        List<String> winners = judge.findAllWinnerNames();
         OutputView.printWinners(winners);
     }
 

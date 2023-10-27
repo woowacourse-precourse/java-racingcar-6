@@ -4,14 +4,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Supplier;
 
-public record Cars(List<Car> cars) {
+public record ParticipatingCars(List<Car> cars) {
 
     private static final int START_POSITION = 0;
     private static final int MIN_ADDITION_NUMBER = 2;
 
-    public static Cars from(final List<String> carNames) {
+    public static ParticipatingCars from(final List<String> carNames) {
         CarsValidator.validate(carNames);
-        return new Cars(carNames.stream()
+        return new ParticipatingCars(carNames.stream()
                 .map(name -> Car.of(name, START_POSITION))
                 .toList());
     }
@@ -27,7 +27,7 @@ public record Cars(List<Car> cars) {
         return Collections.unmodifiableList(cars);
     }
 
-    public List<String> findWinners() {
+    public List<String> findAllWinnerNames() {
         int winnerPosition = findWinnerPosition();
         return cars.stream()
                 .filter(car -> car.isWinner(winnerPosition))

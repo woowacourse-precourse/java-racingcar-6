@@ -4,17 +4,17 @@ public class CarsRepository {
 
     private static final CarsRepository instance = new CarsRepository();
 
-    private Cars storedCars;
+    private ParticipatingCars storedCars;
 
     public static CarsRepository getInstance() {
         return instance;
     }
 
-    public void save(final Cars cars) {
-        storedCars = cars;
+    public void save(final ParticipatingCars participatingCars) {
+        storedCars = participatingCars;
     }
 
-    public Cars findCars() {
+    public ParticipatingCars findCars() {
         return storedCars;
     }
 }
