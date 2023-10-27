@@ -17,5 +17,11 @@ public class GameController {
     public void play() {
         outputView.displayStartMessage();
         carNames = inputView.getCarNames();
+
+        List<Car> cars = new ArrayList<>();
+        for (String name : carNames) {
+            Car car = CarGenerator.createCar(name);
+            cars.add(car);
+        }
     }
 }
