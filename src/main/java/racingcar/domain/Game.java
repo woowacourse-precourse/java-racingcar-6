@@ -57,4 +57,8 @@ public class Game {
             }
         }
     }
+
+    public String winnersToString() {
+        return "최종 우승자 : " + String.join(",", winners);
+    }
 }
