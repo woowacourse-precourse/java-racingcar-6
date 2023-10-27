@@ -1,7 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
@@ -13,15 +12,13 @@ import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class ApplicationTest extends NsTest {
-    private static final int MOVING_FORWARD = 4;
+    private static final int MOVING_FORWARD = 5;
     private static final int STOP = 3;
     private static final String CAR_NAMES = "pobi, woni, junki, minji, himin, ho  ,jayz";
-    private Car car;
     public GameConfig gameConfig;
     private Judgment judgment;
     private Race race;
