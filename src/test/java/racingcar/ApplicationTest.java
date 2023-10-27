@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.controller.CarController;
 import racingcar.controller.GameController;
 import racingcar.model.Car;
+import racingcar.model.CarName;
 import racingcar.model.Cars;
 import racingcar.model.Dice;
 import racingcar.model.DiceNumber;
@@ -36,8 +37,8 @@ class ApplicationTest extends NsTest {
         CarController carController = new CarController();
         Cars cars = carController.makeCar("talal,sun");
         assertSimpleTest(() -> {
-                    assertThat(cars.getCars().get(0).getName()).isEqualTo("talal");
-                    assertThat(cars.getCars().get(1).getName()).isEqualTo("sun");
+                    assertThat(cars.getCars().get(0).getName().getRawName()).isEqualTo("talal");
+                    assertThat(cars.getCars().get(1).getName().getRawName()).isEqualTo("sun");
                 }
         );
     }
@@ -90,8 +91,8 @@ class ApplicationTest extends NsTest {
 
     @Test
     void Car_GetName_테스트() {
-        Car car1 = new Car("pobi");
-        assertThat(car1.getName()).isEqualTo("pobi");
+        CarName carName = new Car("pobi").getName();
+        assertThat(carName.getRawName()).isEqualTo("pobi");
     }
 
     @Test
