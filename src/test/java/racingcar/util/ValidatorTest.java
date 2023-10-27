@@ -43,6 +43,15 @@ class ValidatorTest {
                 .hasMessage("중복되지 않는 자동차 이름을 입력해주세요.");
     }
 
+    @ParameterizedTest
+    @DisplayName("구분자를 잘못적어 입력한 예외 테스트")
+    @ValueSource(strings = {"gil,,,dong", ",", ",,", ",,,,,,", "gil,,dong", "gil,", ",gil"})
+    public void invalidInputsTest6(String input) {
+        Assertions.assertThatThrownBy(() -> Validator.isValidName(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("유효하지 않은 이름입니다.");
+    }
+
     private static Stream<Arguments> provideValidTestCases() {
         return Stream.of(Arguments.of((Object) new String[]{"1", "2", "3"}),
                 Arguments.of((Object) new String[]{"woni", "pobi", "jun"}),
@@ -54,7 +63,7 @@ class ValidatorTest {
     @DisplayName("경주할 자동차 이름 입력 모든 유효성 성공 테스트")
     @MethodSource("provideValidTestCases")
     void validInputsTest(String[] inputs) {
-        Assertions.assertThatCode(() -> Validator.isValidName(inputs))
+        Assertions.assertThatCode(() -> Validator.isValidCarName(inputs))
                 .doesNotThrowAnyException();
     }
 
