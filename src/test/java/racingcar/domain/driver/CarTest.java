@@ -22,4 +22,21 @@ class CarTest {
         Assertions.assertThat(afterMovementCount).isGreaterThan(beforeMovementCount);
     }
 
+    @DisplayName("자동차는 숫자가 명령숫자가 4보다 작을 경우 전진하지 않는다.")
+    @Test
+    void cannotMoveForward() {
+        //given
+        Car car = new Car();
+        int beforeMovementCount = car.getMovementCount();
+        int commandNumber = 3;
+
+        //when
+        car.moveForward(commandNumber);
+
+        //then
+        int afterMovementCount = car.getMovementCount();
+        Assertions.assertThat(afterMovementCount).isEqualTo(beforeMovementCount);
+
+    }
+
 }
