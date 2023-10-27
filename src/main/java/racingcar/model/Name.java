@@ -5,7 +5,6 @@ public class Name {
     private static final int MAX_LENGTH = 5;
 
     public Name(final String name){
-
         validate(name);
         this.value = name;
     }
@@ -34,9 +33,7 @@ public class Name {
 
     private boolean isDigit(final String name){
         for (int i = 0; i < name.length(); i++) {
-            if(Character.isDigit(name.charAt(i))){
-                return true;
-            }
+            if(Character.isDigit(name.charAt(i))) return true;
         }
 
         return false;
