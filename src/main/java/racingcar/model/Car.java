@@ -23,7 +23,7 @@ public class Car {
         return this.advance.getValue();
     }
 
-    public boolean isValidateAdvance(final int randomNumber){
+    public static boolean isValidateAdvance(final int randomNumber){
         return randomNumber >= CAR_ADVANCE_NUMBER;
     }
 }

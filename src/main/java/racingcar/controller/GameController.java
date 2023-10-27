@@ -38,13 +38,17 @@ public class GameController {
 
     private static void playAttempt(){
         for(Car car : cars){
-            if(car.isValidateAdvance(GeneratedRandomNumber.getNumber())){
-                car.addAdvances();
-            }
+            isValidateAdvance(car,GeneratedRandomNumber.getNumber());
         }
 
         OutputView.resultPerAttempt(cars);
         System.out.println();
+    }
+
+    private static void isValidateAdvance(final Car car, final int randomNumber){
+        if(car.isValidateAdvance(randomNumber)){
+            car.addAdvances();
+        }
     }
 
     private static void finishGame(){
@@ -53,7 +57,7 @@ public class GameController {
         OutputView.winner(findWinnerController.getWinners());
     }
 
-    private static List<Car> getCars(String cars){
+    private static List<Car> getCars(final String cars){
         List<Car> convertCars = new ArrayList<>();
 
         for (String carName : cars.split(",")){
