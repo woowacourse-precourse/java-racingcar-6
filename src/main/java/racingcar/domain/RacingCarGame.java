@@ -25,7 +25,12 @@ public class RacingCarGame {
             printCarsState();
         }
 
-        List<String> winnerNameList = referee.getWinner(carList);
+        printWinner();
+    }
+
+    private void printWinner() {
+        List<CarStateDto> carStateDtoList = CarStateDto.makeDto(carList);
+        List<String> winnerNameList = referee.getWinner(carStateDtoList);
         output.printWinner(winnerNameList);
     }
 
