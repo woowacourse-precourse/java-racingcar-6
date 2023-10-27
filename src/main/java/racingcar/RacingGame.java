@@ -44,10 +44,7 @@ public class RacingGame {
 
     private int regulateCount(final int count) {
         final int regulatedCount = count - BOUND;
-        if (regulatedCount >= 0) {
-            return regulatedCount;
-        }
-        return 0;
+        return Math.max(regulatedCount, 0);
     }
 
     private Map<Car, Integer> initScoreBoard(final String[] carNames) {
