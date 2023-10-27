@@ -6,28 +6,34 @@ import static racingcar.constant.ExceptionMessage.*;
 import java.util.Map;
 
 public class Validation {
-    public void NameLengthZero(String carName) {
-        int lastIndex = carName.length()-1;
+    public void nameLengthZero(String carName) {
         if (carName.contains(DELIMETER)) {
-            if (carName.charAt(0) == DELIMETER.charAt(0) || carName.charAt(lastIndex) == DELIMETER.charAt(0)) {
-                throw new IllegalArgumentException(NAME_LENGTH_ZERO + carName);
-            }
-            if (carName.contains(DELIMETER+DELIMETER)) {
-                throw new IllegalArgumentException(NAME_LENGTH_ZERO + carName);
-            }
+            findCommaFirstOrLast(carName);
+            continuousComma(carName);
         }
     }
-    public void OverNameLengthLimit(String carName) {
+    public void findCommaFirstOrLast(String carName) {
+        int lastIndex = carName.length()-1;
+        if (carName.charAt(0) == DELIMETER.charAt(0) || carName.charAt(lastIndex) == DELIMETER.charAt(0)) {
+            throw new IllegalArgumentException(NAME_LENGTH_ZERO + carName);
+        }
+    }
+    public void continuousComma(String carName) {
+        if (carName.contains(DELIMETER+DELIMETER)) {
+            throw new IllegalArgumentException(NAME_LENGTH_ZERO + carName);
+        }
+    }
+    public void overNameLengthLimit(String carName) {
         if (carName.length() > NAME_LENGTH_MAX) {
             throw new IllegalArgumentException(OVER_NAME_LIMIT + carName);
         }
     }
-    public void NameDuplicated(String carName, Map<String,Integer> carList) {
+    public void nameDuplicated(String carName, Map<String,Integer> carList) {
         if (carList.containsKey(carName)) {
             throw new IllegalArgumentException(NAME_DUPLICATED + carName);
         }
     }
-    public int RoundsNumeric(String round) {
+    public int roundsNumeric(String round) {
         int temp;
         try {
             temp = Integer.parseInt(round);

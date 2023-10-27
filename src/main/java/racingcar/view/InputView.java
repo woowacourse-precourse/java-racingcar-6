@@ -1,12 +1,9 @@
 package racingcar.view;
 
-import static racingcar.constant.AllConstants.*;
 import static racingcar.constant.ExceptionMessage.*;
 import static racingcar.constant.RaceIOMessage.*;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import racingcar.controller.Validation;
 
 public class InputView {
@@ -25,7 +22,7 @@ public class InputView {
         System.out.println(NUMBER_INPUT);
         String roundsInput = Console.readLine();
         validateInputBlank(roundsInput);
-        return validation.RoundsNumeric(roundsInput);
+        return validation.roundsNumeric(roundsInput);
     }
 
     public void validateInputBlank(String input) {
