@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import racingcar.domain.MoveProbability;
 import racingcar.domain.RandomNumberGenerator;
+import racingcar.view.Input;
 import racingcar.view.Output;
 
 public class RaceCars {
@@ -23,6 +24,10 @@ public class RaceCars {
 
     public RaceCars(String carNameStrings) {
         this.raceCarList = Collections.unmodifiableList(convertStringToList(carNameStrings));
+    }
+
+    public RaceCars(Input input) {
+        this.raceCarList = Collections.unmodifiableList(convertStringToList(input.readLine()));
     }
 
     private List<RaceCar> convertStringToList(String carNameStrings) {
