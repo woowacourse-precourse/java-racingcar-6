@@ -5,20 +5,24 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.Car;
+import racingcar.message.ErrorMessage;
 
 public class CarTest {
 
-
     @ParameterizedTest
-    @ValueSource(strings = {"a", "pobi", "a2", "abcd", "1234", "  abc   ",})
+    @ValueSource(strings = {"a", "pobi", "a2", "abcd", "1234"})
     void CarNameSuccessTest(String name) {
         Car car = new Car(name);
 
         Assertions.assertThat(car.getName()).isEqualTo(name);
     }
 
-    @Test
-    void CarNameFailTest() {
-
+    @ParameterizedTest
+    @ValueSource(strings = {"", "         ", "12345", "thisIsMoreThenFour"})
+    void CarNameFailTest(String name) {
+        Assertions.assertThatThrownBy(() -> {
+                    new Car(name);
+                }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ErrorMessage.INVALID_CAR_NAME);
     }
 }
