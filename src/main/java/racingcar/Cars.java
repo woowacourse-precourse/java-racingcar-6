@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Comparator;
 import java.util.List;
 
 public class Cars {
@@ -20,6 +21,18 @@ public class Cars {
             printScore(count);
             System.out.println();
         }
+    }
+
+    public List<String> getWinner() {
+        int winnerScore = carList.stream()
+                .map(Car::getMoveCount)
+                .max(Comparator.naturalOrder())
+                .get();
+
+        return carList.stream()
+                .filter(car -> car.getMoveCount() == winnerScore)
+                .map(Car::getName)
+                .toList();
     }
 
     private static void printScore(int count) {

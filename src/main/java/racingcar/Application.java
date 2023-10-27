@@ -23,6 +23,9 @@ public class Application {
             cars.calculateMoveCount();
             System.out.println();
         }
+
+        System.out.print("최종 우승자 : ");
+        System.out.println(String.join(", ", cars.getWinner()));
     }
 
     private static int readCount() {
