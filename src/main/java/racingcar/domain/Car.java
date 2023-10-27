@@ -24,4 +24,12 @@ public class Car {
         return new CarDistanceMessage(name, distance);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public Integer getDistance() {
+        return distance;
+    }
+
 }
