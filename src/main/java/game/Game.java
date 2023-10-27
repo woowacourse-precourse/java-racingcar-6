@@ -3,6 +3,7 @@ package game;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static exception.Validator.validateCarNameLength;
 import static exception.Validator.validateNaturalNumber;
+import static random.RandomNumber.pickRandomNumber;
 
 public class Game {
     public void start() {
@@ -34,4 +35,22 @@ public class Game {
     }
 
     }
+
+    private void getResult(String[] carNameList, int carNameLength, int[] result, StringBuilder sb, int i) {
+        for (int j = 0; j < carNameLength; j++) {
+            if (canCarMoveForward(pickRandomNumber())) {
+                result[j]++;
+            }
+        }
+
+        for (int k = 0; k < carNameLength; k++) {
+            sb.append(carNameList[k])
+                    .append(" : ")
+                    .append("-".repeat(result[k]))
+                    .append("\n");
+        }
+
+        if (i > 1) sb.append("\n");
+    }
 }
+
