@@ -29,4 +29,10 @@ public class InputVerifierTest {
     void checkNumeric() {
         assertThrows(IllegalArgumentException.class, () -> InputVerifier.verifyTry("숫자아님"));
     }
+
+    @DisplayName("양수가 아닌 입력에 대한 테스트")
+    @Test
+    void checkNonPositive() {
+        assertThrows(IllegalArgumentException.class, () -> InputVerifier.verifyTry("-1"));
+    }
 }
