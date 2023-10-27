@@ -28,8 +28,13 @@ public class RacingCarController {
     }
 
     private void move() {
+        outputView.printResult();
         TryCount tryCount = racingCarService.findTryCount();
-        final RacingCars racingCars = racingCarService.move();
+        while (tryCount.hasLeftCount()) {
+            final RacingCars racingCars = racingCarService.move();
+            outputView.printRacingCars(racingCars);
+            tryCount = tryCount.nextTryCount();
+        }
     }
 
     private void createTryCount() {
