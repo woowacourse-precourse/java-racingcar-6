@@ -25,6 +25,10 @@ public class Car {
         return position.equals(compare);
     }
 
+    public CarName getName() {
+        return name;
+    }
+
     public Position getPosition() {
         return position;
     }
