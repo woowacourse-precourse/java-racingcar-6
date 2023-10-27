@@ -9,9 +9,6 @@ public class Cars {
         this.cars = cars;
     }
 
-    public Car get(int index) {
-        return cars.get(index);
-    }
 
     public void move() {
         for (Car car : cars) {
