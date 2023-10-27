@@ -21,8 +21,7 @@ public class Cars {
         List<String> result = new ArrayList<>();
 
         for (Car car: carList) {
-            String positionString = "-".repeat(car.getPosition());
-            result.add(car.getName() + " : " + positionString);
+            result.add(car.getNameWithPosition());
         }
         return result;
     }

@@ -31,6 +31,11 @@ public class Car {
         }
     }
 
+    public String getNameWithPosition() {
+        String positionString = "-".repeat(position);
+        return name + " : " + positionString;
+    }
+
     public String getName() {
         return name;
     }
