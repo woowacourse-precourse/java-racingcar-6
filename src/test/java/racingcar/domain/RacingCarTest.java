@@ -15,6 +15,13 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 public class RacingCarTest {
 
+    private static Stream<Arguments> generateCarNames() {
+        return Stream.of(
+                Arguments.of(new RacingCar(List.of("pobi", "woni", "jun")), List.of("pobi", "woni", "jun")),
+                Arguments.of(new RacingCar(List.of("현대", "BMW", "테슬라")), List.of("현대", "BMW", "테슬라"))
+        );
+    }
+
     @DisplayName("자동차 이름이 영어와 한글이 아닌 경우 예외가 발생한다")
     @ParameterizedTest(name = "[{index}] input : {0} ")
     @ValueSource(strings = {"poB1,현대,woni", "pobi,현대1,woni"})
@@ -40,5 +47,12 @@ public class RacingCarTest {
         assertThatThrownBy(() -> new RacingCar(List.of(inputString.split(","))))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorHandler.INVALID_LENGTH.getException().getMessage());
+    }
+
+    @DisplayName("자동차 이름이 정상적으로 반환된다")
+    @ParameterizedTest(name = "[{index}] input : {0} ")
+    @MethodSource("generateCarNames")
+    void createCarNames(RacingCar racingCar, List<String> carNames) {
+        assertThat(racingCar.getCarNames()).isEqualTo(carNames);
     }
 }
