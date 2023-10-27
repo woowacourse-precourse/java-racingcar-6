@@ -37,4 +37,9 @@ public class View {
         }
         return hyphens.toString();
     }
+
+    public void printFinalWinners(List<String> winners) {
+        String finalWinnerResultForm = convertToFinalWinnerResultForm(winners);
+        System.out.println(finalWinnerResultForm);
+    }
 }
