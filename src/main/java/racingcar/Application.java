@@ -7,7 +7,9 @@ import racingcar.domain.Validator;
 public class Application {
     public static void main(String[] args) {
 
-        RacingGame racingGame = new RacingGame(new UI(), new Validator());
+        Validator validator = new Validator();
+        UI ui = new UI(validator);
+        RacingGame racingGame = new RacingGame(ui);
         racingGame.startGame();
         racingGame.runGame();
     }

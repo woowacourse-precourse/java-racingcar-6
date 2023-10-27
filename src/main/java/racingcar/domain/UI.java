@@ -3,10 +3,16 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class UI {
-    Validator validator = new Validator();
+
+    private Validator validator = null;
+
+    public UI(Validator validator) {
+        this.validator = validator;
+    }
 
     public List<Car> inputCarNames() {
 
@@ -17,13 +23,11 @@ public class UI {
 
         validator.carNamesInputValidator(carNamesString);
 
-        String[] eachCarNameString = carNamesString.split(",");
-
-        for (String s: eachCarNameString) {
+        Arrays.stream(carNamesString.split(",")).forEach(carName -> {
             Car car = new Car();
-            car.setName(s);
+            car.setName(carName);
             carList.add(car);
-        }
+        });
 
         return carList;
     }
@@ -41,13 +45,11 @@ public class UI {
     }
 
     public void showResult(List<Car> cars) {
-        for (Car car : cars) {
+        cars.forEach(car -> {
             System.out.print(car.getName() + " : ");
-            for (int i = 0; i < car.getPosition(); i++) {
-                System.out.print("-");
-            }
+            System.out.print("-".repeat(car.getPosition()));
             System.out.println();
-        }
+        });
         System.out.println();
     }
 

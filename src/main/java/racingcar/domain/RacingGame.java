@@ -3,7 +3,6 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class RacingGame {
@@ -11,7 +10,7 @@ public class RacingGame {
     private int maxRound = 0;
     private UI ui = null;
 
-    public RacingGame(UI ui, Validator validator) {
+    public RacingGame(UI ui) {
         this.ui = ui;
     }
 
@@ -26,11 +25,11 @@ public class RacingGame {
         System.out.println("실행 결과");
 
         for (int i = 0; i < maxRound; i++) {
-            round(cars);
-            ui.showResult(cars);
+            round(cars); // 라운드 진행
+            ui.showResult(cars); // 결과 표시
         }
 
-        ui.showFinalResult(cars);
+        ui.showFinalResult(cars); // 최종 결과 표시
     }
 
     public void round(List<Car> cars) {
