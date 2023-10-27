@@ -8,4 +8,16 @@ public class Car {
         this.name = name;
         this.score = score;
     }
+
+    public void addScore() {
+        this.score = score+"-";
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getScore() {
+        return score;
+    }
 }
