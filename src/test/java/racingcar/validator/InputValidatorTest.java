@@ -13,7 +13,7 @@ final class InputValidatorTest {
     void validateSuccess() {
         // given
         final String input1 = "a,b,c";
-        final String input2 = "a,b";
+        final String input2 = "pobi,pss";
         final InputValidator inputValidator = new InputValidator();
         // when
         // then
