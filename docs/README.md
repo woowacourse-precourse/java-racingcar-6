@@ -91,7 +91,13 @@
       - 자동차 데이터를 설정해준다
 
    2. Racing
-   - [ ] validateAttemptCount
+   - [x] validateAttemptCount
+     1) trimSpaces(앞뒤 공백을 제거)
+     2) checkForInternalSpaces(안제 공백이 있다면 예외 던짐)
+     3) convertToBigInteger(정수가 아닌 다른 문자가 있다면 예외던짐)
+     4) validateRange(Long타입 범위에 벗어나지 않는지 확인)
+     5) convertToLong(Long타입으로 변환)
+     6) validatePositive(자연수가 아니라면 예외던짐)
      - 사용자가 입력한 시도횟수를 받아 검증해서 데이터를 저장한다
    - [ ] race
      - 자동차 데이터를 가져와 랜덤 숫자를 생성해서 조건을 충족시키면 한칸 전진시킨다
