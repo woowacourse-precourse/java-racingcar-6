@@ -34,7 +34,7 @@ public class RacingCarGameController {
 
         for (int i = 0; i < movingCount; i++) {
             cars.forEach(car -> {
-                car.tryAddPosition();
+                car.tryAddMove();
                 car.carPositionPrint();
             });
             OutputView.println();

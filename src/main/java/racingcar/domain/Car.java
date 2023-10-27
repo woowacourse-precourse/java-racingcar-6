@@ -8,14 +8,11 @@ public class Car {
 
     private String name;
 
-    private String position;
-
-    private int distance;
+    private Move move;
 
     public Car(String name) {
         this.name = name;
-        this.position = "";
-        this.distance = 0;
+        this.move = new Move();
     }
 
     public String getName() {
@@ -23,23 +20,22 @@ public class Car {
     }
 
     public int getDistance() {
-        return distance;
+        return move.getDistance();
     }
 
-    public void tryAddPosition() {
+    public void tryAddMove() {
         int randomNumber = Randoms.pickNumberInRange(Config.BEGIN_RANGE, Config.END_RANGE);
         if (randomNumber >= Config.MOVING_FORWORD) {
-            this.position += "-";
-            this.distance++;
+            this.move.addMove();
         }
     }
 
     public void carPositionPrint() {
-        OutputView.racingCarResultPrint(this.name, this.position);
+        OutputView.racingCarResultPrint(this.name, this.move.getPosition());
     }
 
     public boolean carEqualsMaxDistance(int distance) {
-        return this.distance == distance;
+        return this.move.getDistance() == distance;
     }
 
 }
