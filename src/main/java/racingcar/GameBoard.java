@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GameBoard {
 
@@ -16,6 +17,14 @@ public class GameBoard {
         for(int i = 0 ; i < tryInput ; i++) {
             viewOneGame();
         }
+    }
+
+    public void viewGameWinner() {
+        String printWinnerCars = cars.getWinners().stream()
+                .map(Car::getCarName)
+                .collect(Collectors.joining(","));
+        System.out.print("최종 우승자 : ");
+        System.out.println(printWinnerCars);
     }
     public void viewOneGame() {
         List<Car> carList = cars.getCars();
