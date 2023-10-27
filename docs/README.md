@@ -36,20 +36,20 @@
 - String을 Integer로 변환한다.
     - 변환 과정에서 발생하는 NumberFormatException을 잡아 IllegalArgumentException을 발생시킨다.
 
-## RacingNumberGenerator
+## RandomNumberGenerator
 
 - 전진 조건에 사용될 숫자를 0에서 9 사이에서 무작위로 구한다.
 
-## RacingCar
+## RacingCarName
 
 - 자동차 이름의 유효성 검사를 한다.
     - 자동차 이름이 5자 이하인지 검사한다.
 
-## GameService
+## RacingCarGameService
 
 - 자동차의 전진 여부를 판단한다.
 
-## GameController
+## RacingCarGameController
 
 - 게임을 진행한다.
     - 입력받은 시도 횟수만큼 랜덤 숫자 발생과 전진 여부 판단을 진행한다.
@@ -65,11 +65,11 @@
     - String을 Integer로 변환하는 기능을 테스트한다.
     - 숫자로 변환할 수 없는 입력이 있을 때 발생하는 NumberFormatException을 잡아 IllegalArgumentException을 발생시킨다.
 
-## RacingCar
+## RacingCarName
 
 - 자동차 이름의 예외 발생을 테스트한다.
     - 자동차 이름이 5자를 넘어가면 IllegalArgumentException이 발생한다.
 
-## GameService
+## RacingCarGameService
 
 - 자동차의 전진 여부를 테스트한다.
