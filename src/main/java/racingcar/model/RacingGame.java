@@ -7,7 +7,7 @@ public interface RacingGame {
 
     void move();
 
-    Map<Vehicle, Position> getRacingTrack();
+    Map<Vehicle, Position> getVehiclePositionMap();
 
     List<String> getWinner();
 }
