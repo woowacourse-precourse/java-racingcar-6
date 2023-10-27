@@ -10,20 +10,20 @@ import java.util.stream.IntStream;
 
 public class CarRacingTrackGenerator implements RacingTrackGenerator<Car> {
 
-    private final Map<Car, Position> map = new HashMap<>();
-
     @Override
     public RacingGame create(final List<Car> vehicles, final int playCount) {
+        Map<Car, Position> map = new HashMap<>();
         Position initPosition = Position.createWith(ZERO.getValue());
+        createPosition(playCount);
+
         for (Car car : vehicles) {
             map.put(car, initPosition);
         }
-        createPosition(playCount);
         return CarRacingGame.createWith(new CarRacingManager(map));
     }
 
     private void createPosition(final int playCount) {
         IntStream.rangeClosed(ONE_INDEX.getValue(), playCount)
-              .forEach(Position::createWith);
+                .forEach(Position::createWith);
     }
 }
