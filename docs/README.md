@@ -65,6 +65,9 @@
 - RacingCarService
     - 자동차 목록을 저장소에 저장
     - 시도 횟수 저장소에 저장
+    - 이동 시도
+    - 시도 횟수 조회
+    - 우승자 확인
 
 - RandomNumberGenerator
     - 매개변수로 받은 숫자만큼 랜덤한 숫자를 생성

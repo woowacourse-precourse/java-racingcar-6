@@ -3,6 +3,7 @@ package racingcar.service;
 import java.util.List;
 import racingcar.domain.RacingCars;
 import racingcar.domain.TryCount;
+import racingcar.domain.Winners;
 import racingcar.repository.DomainRepository;
 import racingcar.utils.RandomNumberGenerator;
 
@@ -37,5 +38,10 @@ public class RacingCarService {
 
     public TryCount findTryCount() {
         return tryCountRepository.find();
+    }
+
+    public Winners checkWinners() {
+        final RacingCars racingCars = racingCarsRepository.find();
+        return racingCars.findWinners();
     }
 }
