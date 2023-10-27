@@ -20,7 +20,13 @@ public class GameController {
         int attemptCount = inputAttemptCount();
 
         for (int i = 0; i < attemptCount; i++) {
+            moveAllCarsForward(cars);
+        }
+    }
 
+    private void moveAllCarsForward(List<Car> cars) {
+        for (Car car : cars) {
+            moveForward(car);
         }
     }
 
