@@ -20,20 +20,20 @@ public class CarValidator {
 
 
     public static void validate(String input) {
-        validateBlankException(input);
-        validateNamesLengthGreaterThanFive(input);
+        validateCarNamesBlankException(input);
+        validateCarNamesLengthGreaterThanFive(input);
         validateCarNamesStartWithCommaException(input);
         validateCarNamesEndWithCommaException(input);
-        validateConsecutiveCommaException(input);
+        validateCarNamesConsecutiveCommaException(input);
     }
 
-    private static void validateBlankException(String input) {
+    private static void validateCarNamesBlankException(String input) {
         if (input == null || input.trim().isEmpty()) {
             throw new IllegalArgumentException(ERROR_BLANK);
         }
     }
 
-    private static void validateNamesLengthGreaterThanFive(String input) {
+    private static void validateCarNamesLengthGreaterThanFive(String input) {
         String[] splitList = input.split(REGEX_SEPARATOR);
 
         Arrays.stream(splitList)
@@ -55,7 +55,7 @@ public class CarValidator {
         }
     }
 
-    private static void validateConsecutiveCommaException(String input) {
+    private static void validateCarNamesConsecutiveCommaException(String input) {
         if (input.contains(CONSECUTIVE_SEPARATOR)) {
             throw new IllegalArgumentException(ERROR_CONSECUTIVE_COMMA);
         }
