@@ -5,7 +5,9 @@ import racingcar.Car;
 
 public interface Output {
 
-    void printStartText();
+    void printGuideTextForCarNames();
+
+    void printGuideTextForExecutionCount();
 
     void printExecutionResult(List<Car> carList);
 
