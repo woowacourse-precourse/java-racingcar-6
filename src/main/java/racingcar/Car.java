@@ -5,11 +5,19 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
 
     private final String carName;
-    private int position;
+    private Integer position;
 
     public Car(final String carName) {
         this.carName = carName;
         this.position = 0;
+    }
+
+    public String getCarName(){
+        return this.carName;
+    }
+
+    public Integer getPosition(){
+        return this.position;
     }
 
     private void selectMove() {
