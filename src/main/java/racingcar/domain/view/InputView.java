@@ -18,4 +18,8 @@ public class InputView {
     public static void printTryCount() {
         System.out.println(RECEIVE_TRY_COUNT.getMessage());
     }
+
+    public static void printGameEnd() {
+        System.out.println();
+    }
 }
