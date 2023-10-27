@@ -21,7 +21,7 @@ public class InputValue {
 
     public static int InputMovingCount() {
         int carMovingCount = Integer.parseInt(Console.readLine());
-        validateMoveCountRange(moveCount);
+        InputValidation.validateMoveCountRange(carMovingCount);
         return carMovingCount;
     }
 }

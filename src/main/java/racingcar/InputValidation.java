@@ -31,4 +31,10 @@ public class InputValidation {
             throw new IllegalArgumentException();
         }
     }
+
+    public static void validateMoveCountRange(int carMovingCount) {
+        if(carMovingCount < NumberConst.MOVING_MIN_COUNT && carMovingCount > NumberConst.MOVING_MAX_COUNT) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
