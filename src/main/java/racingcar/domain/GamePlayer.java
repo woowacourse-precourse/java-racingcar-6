@@ -31,8 +31,15 @@ public class GamePlayer {
     }
 
     public void moveCarsByCount(int count) {
+        for (int i = 0; i < count; i++) {
+            moveCars();
+            System.out.println();
+        }
+    }
+
+    private void moveCars() {
         for (Car car : cars) {
-            car.moveByCount(count);
+            car.move();
         }
     }
 
