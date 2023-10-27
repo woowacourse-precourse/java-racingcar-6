@@ -11,4 +11,12 @@ public class InputValidator {
             throw new IllegalArgumentException();
         }
     }
+
+    public static void validateNumericInput(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (Exception e) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
