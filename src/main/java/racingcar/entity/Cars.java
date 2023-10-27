@@ -40,13 +40,15 @@ class Cars {
     }
 
     private static void checkNamesDuplication(List<String> names) {
-        long uniqueSize = names.stream()
-                .distinct()
-                .count();
-
-        if (uniqueSize != names.size()) {
+        if (calculateUniqueSize(names) != names.size()) {
             throw new IllegalArgumentException(DUPLICATION_NAMES_MESSAGE);
         }
+    }
+
+    private static long calculateUniqueSize(List<String> names) {
+        return names.stream()
+                .distinct()
+                .count();
     }
 
     private static List<Car> mapToCars(List<String> names) {
