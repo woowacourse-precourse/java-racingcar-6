@@ -3,11 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class MoveStatus {
-    private static final int PICK_NUM_MIN = 0;
-    private static final int PICK_NUM_MAX = 9;
-    private static final int FORWARD_NUM = 4;
-
+    MagicVariable magicVariable = new MagicVariable();
     public boolean canMove() {
-        return Randoms.pickNumberInRange(PICK_NUM_MIN,PICK_NUM_MAX) >= FORWARD_NUM;
+        return Randoms.pickNumberInRange(magicVariable.PICK_NUM_MIN,magicVariable.PICK_NUM_MAX) >= magicVariable.FORWARD_NUM;
     }
 }
