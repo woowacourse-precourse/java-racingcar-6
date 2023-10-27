@@ -3,25 +3,25 @@ package racingcar.controller;
 import racingcar.model.Cars;
 import racingcar.model.PlayCount;
 import racingcar.view.input.InputView;
-import racingcar.view.output.AskView;
+import racingcar.view.output.OutputView;
 
 public class GameController {
 
-    private final AskView askView;
     private final InputView inputView;
+    private final OutputView outputView;
     private Cars cars;
     private PlayCount playCount;
 
-    public GameController(final AskView askView, final InputView inputView) {
-        this.askView = askView;
+    public GameController(final InputView inputView, final OutputView outputView) {
+        this.outputView = outputView;
         this.inputView = inputView;
     }
 
     public void play() {
-        askView.askCarNames();
+        outputView.askCarNames();
         joinCars();
         
-        askView.askPlayCount();
+        outputView.askPlayCount();
         savePlayCount();
 
         int round = 0;

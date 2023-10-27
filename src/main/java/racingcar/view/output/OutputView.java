@@ -1,6 +1,6 @@
 package racingcar.view.output;
 
-public interface AskView {
+public interface OutputView {
 
     void askCarNames();
     void askPlayCount();

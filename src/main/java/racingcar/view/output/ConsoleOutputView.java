@@ -1,6 +1,6 @@
 package racingcar.view.output;
 
-public class ConsoleAskView implements AskView {
+public class ConsoleOutputView implements OutputView {
 
     @Override
     public void askCarNames() {
