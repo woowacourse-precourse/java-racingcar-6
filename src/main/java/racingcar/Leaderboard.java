@@ -1,7 +1,8 @@
 package racingcar;
 
+import static java.util.Collections.max;
+
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,7 +13,7 @@ public class Leaderboard {
 
     static void makeCarInstanceList() {
         map = new LinkedHashMap<>();
-        for (String car : View.getCarList()) {
+        for (String car : Player.getCarList()) {
             Car carInstance = new Car(car);
             map.put(carInstance, carInstance.getDistanceTraveled());
         }
@@ -33,18 +34,14 @@ public class Leaderboard {
         }
     }
 
-    static String printResult() {
-        int maxValue = Collections.max(map.values()).length();
+    static void printResult() {
+        int maxValue = max(map.values()).length();
         List<String> Winner = new ArrayList<>();
-        StringBuilder result = new StringBuilder("최종 우승자 : ");
         for (Entry<Car, String> entry : map.entrySet()) {
             if (entry.getValue().length() == maxValue) {
                 Winner.add(entry.getKey().getCarName());
             }
         }
-        for (String s : Winner) {
-            result.append(s);
-        }
-        return result.toString();
+        System.out.println("최종 우승자 : " + String.join(", ", Winner));
     }
 }
