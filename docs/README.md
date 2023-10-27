@@ -4,7 +4,7 @@
 
 ## 기능 목록
 
-- [] 경주할 자동차 이름을 입력받는 기능 - Application.*receiveRaceCarNames*
+- [X] 경주할 자동차 이름을 입력받는 기능 - Application.*receiveRaceCarNames*
 - [] 시도할 회수를 입력받는 기능 - Application.*receiveTryCount*
 - [X] 자동차 각각의 이름을 알아내는 기능 - RaceCarNames.*parseCarNamesFromRaceCarInput*
 - [] 자동차가 총 몇대인지 알아내는 기능 - RaceCarNames.*calculateTotalCarCount*

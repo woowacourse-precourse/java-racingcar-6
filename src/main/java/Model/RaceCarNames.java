@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class RaceCarNames {
-    public String raceCarNames;
+    private String raceCarNames;
 
     public RaceCarNames(String raceCarNames) {
         this.raceCarNames = raceCarNames;
@@ -14,12 +14,7 @@ public class RaceCarNames {
         return Arrays.asList(raceCarNames.split(","));
     }
 
-    // test용 method
-    public boolean isRaceCarNamesEqual(String otherRaceCarNames) {
-        if (raceCarNames == null) {
-            return false;
-        }
-        return raceCarNames.equals(otherRaceCarNames);
+    public String getRaceCarNames() {
+        return raceCarNames;
     }
-
 }

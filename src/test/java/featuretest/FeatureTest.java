@@ -2,6 +2,7 @@ package featuretest;
 
 import Model.RaceCarNames;
 import org.junit.jupiter.api.Test;
+import racingcar.Application;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -16,15 +17,15 @@ public class FeatureTest {
 
     @Test
     void 경주_할_자동차_이름을_입력받기() {
-        InputHandler inputHandler = new InputHandler();
-
         String predInput = "TestRaceCar";
         InputStream inputStream = new ByteArrayInputStream(predInput.getBytes());
         System.setIn(inputStream);
-        inputHandler.receiveRaceCarNames();
         String realInput = "TestRaceCar";
 
-        assertThat(predInput).isEqualTo(realInput);
+        Application.receiveRaceCarNames();
+        RaceCarNames testObject = Application.getRaceCarNames();
+
+        assertThat(testObject.getRaceCarNames()).isEqualTo(realInput);
     }
 
     @Test
