@@ -9,8 +9,9 @@ public class RoundCountValidator {
     private static final String ERROR_BLANK = ERROR + "공백을 허용하지 않습니다.";
     private static final String ERROR_NON_NUMERIC = ERROR + "숫자를 입력해 주세요.";
     private static final String ERROR_NON_ZERO = ERROR + "1 이상인 양수를 입력해 주세요.";
-    private static final String ERROR_INT_OVERFLOW = ERROR + "입력 값은 최대 2,147,483,648 입니다.";
+    private static final String ERROR_INT_OVERFLOW = ERROR + "입력 값은 최대 " + MAX_INT_VALUE + "입니다.";
 
+    private RoundCountValidator() {}
 
     public static void validate(String input) {
         validateBlankException(input);
