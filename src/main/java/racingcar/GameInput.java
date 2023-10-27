@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 class GameInput {
-	protected static List<String> parseNames(String namesInput) throws IllegalArgumentException {
+	protected static List<Pair> parseNames(String namesInput) throws IllegalArgumentException {
 		List<String> names = Arrays.asList(namesInput.split(","));
 		
 		for (int i = 0; i < names.size(); i++) {
@@ -15,7 +15,14 @@ class GameInput {
 			}
 		}
 		
-		return names;
+		Pair[] tmpInformation = new Pair[names.size()];
+		for (int i = 0; i < tmpInformation.length; i++) {
+			tmpInformation[i] = new Pair();
+			tmpInformation[i].setName(names.get(i));
+			tmpInformation[i].setLocation(0);
+		}
+		
+		return Arrays.asList(tmpInformation);
 	}
 	
 	protected static String getNames() {
