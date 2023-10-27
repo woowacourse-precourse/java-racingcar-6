@@ -44,7 +44,7 @@ public class Name {
     }
 
     private void validateOnlyAlphabetAndNumber(final String name) {
-        if (!name.matches("^[a-zA-Z0-9]+$")) {
+        if (!name.matches("^[a-zA-Z0-9가-힣]+$")) {
             throw new IllegalArgumentException();
         }
     }
