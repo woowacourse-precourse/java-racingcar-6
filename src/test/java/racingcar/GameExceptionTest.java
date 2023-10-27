@@ -48,9 +48,41 @@ class GameExceptionTest {
 
     @Test
     void 자동차_이름_타입_예외_테스트2() {
-        String carName = "12";
+        String carName = "12a";
 
         Assertions.assertThatThrownBy(() -> gameException.validatePlayerCarNameType(carName))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 시도_회수_타입_예외_테스트1() {
+        String tryNumber = "1a";
+
+        Assertions.assertThatThrownBy(() -> gameException.validatePlayerTryNumberType(tryNumber))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 시도_회수_타입_예외_테스트2() {
+        String tryNumber = "a1";
+
+        Assertions.assertThatThrownBy(() -> gameException.validatePlayerTryNumberType(tryNumber))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 시도_회수_범위_예외_테스트1() {
+        String tryNumber = "0";
+
+        Assertions.assertThatThrownBy(() -> gameException.validatePlayerTryNumberType(tryNumber))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 시도_회수_범위_예외_테스트2() {
+        String tryNumber = "-1";
+
+        Assertions.assertThatThrownBy(() -> gameException.validatePlayerTryNumberType(tryNumber))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
