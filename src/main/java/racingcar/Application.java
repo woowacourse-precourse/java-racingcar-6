@@ -61,17 +61,22 @@ public class Application {
         // 3. 이동 로직 구현
         System.out.println("실행 결과");
 
-        String[] movedCount = {"","",""}; // 배열 대신 컬렉션으로 교체 하기, 초기화 방법고려
+        String[] movedCount = new String[carNames.length]; // 배열 대신 컬렉션으로 교체 하기, 초기화 방법고려
+
+        for (int i = 0; i < movedCount.length; i++) {
+            movedCount[i] = "";
+        }
+
         for(int i=0; i<roundCount; i++){
 
-            for(int j=0; j<3; j++){
+            for(int j=0; j<carNames.length; j++){
                 // 3도 상수로 변환하기
                 if(Randoms.pickNumberInRange(0,9) >= 4){
                     movedCount[j] += "-";
                 }
             }
 
-            for(int k=0; k<3; k++){
+            for(int k=0; k<carNames.length; k++){
                 System.out.println(carNames[k] + " : " + movedCount[k]);
             }
 
