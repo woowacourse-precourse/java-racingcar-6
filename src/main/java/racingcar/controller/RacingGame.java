@@ -8,10 +8,12 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGame {
+    private Cars cars = new Cars();
+
     public void setUp() {
         List<String> carNames = getCarNames();
         int attemptCount = getAttemptCount();
-        Cars cars = initializeCars(carNames);
+        initializeCars(carNames);
     }
 
     private List<String> getCarNames() {
@@ -26,12 +28,10 @@ public class RacingGame {
         return Integer.parseInt(input);
     }
 
-    private Cars initializeCars(List<String> carNames) {
-        Cars cars = new Cars();
+    private void initializeCars(List<String> carNames) {
         for (String carName : carNames) {
             cars.add(carName);
         }
-        return cars;
     }
 
     private List<String> parseNames(String names) {
