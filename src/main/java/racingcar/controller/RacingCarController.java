@@ -7,5 +7,6 @@ public class RacingCarController {
 
     public void run() {
         System.out.println(inputView.carName());
+        System.out.println(inputView.playNumber());
     }
 }
