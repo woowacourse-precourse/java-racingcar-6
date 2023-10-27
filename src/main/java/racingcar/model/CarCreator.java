@@ -4,17 +4,28 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CarCreator {
-    public List<String> createCarList(String inputItem){
+    public List<String> createCarList(String inputItem) {
         List<String> carNames = Arrays.asList(inputItem.split(","));
-        validateNameLength(carNames);
+        validateAll(carNames);
         return carNames;
     }
+    private void validateAll(List<String> carNames){
+        validateNameLength(carNames);
+        validateSize(carNames);
+    }
 
-    private void validateNameLength(List<String> carNames){
-        for (int i = 0; i < carNames.size(); i++){
-            if(carNames.get(i).length() > NumberEnum.MAX_LENGTH.getNumber() ){
+    private void validateNameLength(List<String> carNames) {
+        for (int i = 0; i < carNames.size(); i++) {
+            if (carNames.get(i).length() > NumberEnum.MAX_LENGTH.getNumber()) {
                 throw new IllegalArgumentException(MessageEnum.MAX_LENGTH_EXCEEDED.getMessage());
             }
         }
+    }
+
+    private void validateSize(List<String> carNames) {
+        if (carNames.size() < NumberEnum.MIN_SIZE.getNumber()) {
+            throw new IllegalArgumentException(MessageEnum.MIN_SIZE_VALIDATE_MESSAGE.getMessage());
+        }
+
     }
 }
