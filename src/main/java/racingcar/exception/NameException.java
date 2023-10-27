@@ -1,6 +1,7 @@
 package racingcar.exception;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -45,9 +46,7 @@ abstract public class NameException {
     private static void nameDuplicateValidation(String[] names) {
         Set<String> set = new HashSet<>();
 
-        for (String name : names) {
-            set.add(name);
-        }
+        Collections.addAll(set, names);
 
         if (names.length != set.size()) {
             throw new IllegalArgumentException("이름은 중복 없이 입력해 주세요.");

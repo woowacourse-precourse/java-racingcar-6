@@ -48,4 +48,15 @@ class NameExceptionTest {
         assertThatThrownBy(() -> NameException.validation(names))
                 .hasMessage("이름은 최소 1글자 이상(공백 제외) 입력해 주세요.");
     }
+
+    @Test
+    void 중복_이름() {
+        String input = "gogo,win,win";
+        String[] names = input.split(",");
+
+        assertThatThrownBy(() -> NameException.validation(names))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> NameException.validation(names))
+                .hasMessage("이름은 중복 없이 입력해 주세요.");
+    }
 }
