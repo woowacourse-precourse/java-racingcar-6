@@ -20,6 +20,9 @@ public class Cars {
     }
 
     public void racing() {
-
+        cars.forEach(car -> {
+            int number = RandomNumber.pickNumber();
+            car.accelerate(number);
+        });
     }
 }
