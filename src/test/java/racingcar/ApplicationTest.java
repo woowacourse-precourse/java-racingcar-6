@@ -4,12 +4,13 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.LinkedHashMap;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.validate.CountValidator;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -38,7 +39,7 @@ class ApplicationTest extends NsTest {
     @DisplayName("입력값 구분 후 데이터 초기화")
     void splitStringAndDataInit() {
         RacingList racingList = new RacingList();
-        racingList.initData("aaa,bbb,ccc");
+        racingList.createData("aaa,bbb,ccc");
         LinkedHashMap<String, Integer> compareValue = new LinkedHashMap<>();
         compareValue.put("aaa", 0);
         compareValue.put("bbb", 0);
@@ -50,14 +51,28 @@ class ApplicationTest extends NsTest {
     @DisplayName("자동차 입력 값 길이 제한 초과")
     void inputSizeValidate() {
         RacingList racingList = new RacingList();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> racingList.initData("aaa,bbb,cccccc"));
+        assertThrows(IllegalArgumentException.class, () -> racingList.createData("aaa,bbb,cccccc"));
     }
 
     @Test
     @DisplayName("자동차 이름 중복 입력")
     void inputDuplicateValidate() {
         RacingList racingList = new RacingList();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> racingList.initData("aaa,bbb,aaa"));
+        assertThrows(IllegalArgumentException.class, () -> racingList.createData("aaa,bbb,aaa"));
+    }
+
+    @Test
+    @DisplayName("시도 횟수 : 양의 정수가 아닌 정수 입력")
+    void notPositiveNumber() {
+        CountValidator validator = new CountValidator();
+        assertThrows(IllegalArgumentException.class, () -> validator.numberValidate("-1"));
+    }
+
+    @Test
+    @DisplayName("시도 횟수 : 숫자가 아닌 값 입력")
+    void notNumberValidate() {
+        CountValidator validator = new CountValidator();
+        assertThrows(IllegalArgumentException.class, () -> validator.numberValidate("aaaa"));
     }
 
 
