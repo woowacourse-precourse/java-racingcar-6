@@ -4,10 +4,11 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private final String name;
-    private int position = 0;
+    private final Round round;
 
     public Car(String name) {
         this.name = name;
+        this.round = new Round();
     }
 
     public int getRandomNumber() {
@@ -16,18 +17,11 @@ public class Car {
 
     public void move() {
         int randomNumber = getRandomNumber();
-        if (randomNumber >= 4) {
-            this.position++;
-        }
+        this.round.move(randomNumber);
     }
 
     public String getRecord() {
-        StringBuilder record = new StringBuilder();
-        record.append(String.format("%s : ", name));
-        for (int i = 0; i < position; i++) {
-            record.append('-');
-        }
-        return record.toString();
+        return this.round.getRecord(this.name);
     }
 
     public String getName() {
@@ -35,6 +29,6 @@ public class Car {
     }
 
     public int getPosition() {
-        return position;
+        return this.round.getPosition();
     }
 }
