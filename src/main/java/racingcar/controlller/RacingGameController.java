@@ -56,7 +56,7 @@ public class RacingGameController extends GameController {
         }
     }
 
-    public CarList getWinners(CarList carList) {
+    private CarList getWinners(CarList carList) {
         Car winner1 = carList.getCarList().stream()
                 .max(Comparator.comparingInt(Car::getPosition)).get();
         List<Car> winnerList = carList.getCarList().stream()
@@ -68,5 +68,4 @@ public class RacingGameController extends GameController {
     private void endGame() {
         isRunning = false;
     }
-
 }
