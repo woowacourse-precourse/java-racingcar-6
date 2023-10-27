@@ -38,4 +38,10 @@ public class RacingGame {
 
         return racingCars;
     }
+
+    public void checkValidCarName(String name) {
+        if(name.length() > MAX_NAME_SIZE) {
+            throw new IllegalArgumentException("이름은 5글자 이하여야 합니다.");
+        }
+    }
 }
