@@ -16,6 +16,7 @@ class GameInput {
 		}
 		
 		Pair[] tmpInformation = new Pair[names.size()];
+		
 		for (int i = 0; i < tmpInformation.length; i++) {
 			tmpInformation[i] = new Pair();
 			tmpInformation[i].setName(names.get(i));
