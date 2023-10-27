@@ -34,7 +34,10 @@ class ApplicationTest extends NsTest {
     @Test
     void 이름에_대한_예외_처리_이름_누락() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("   ,   "))
+                assertThatThrownBy(() -> runException("   ,   ", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
@@ -50,7 +53,7 @@ class ApplicationTest extends NsTest {
     @Test
     void 이름에_대한_예외_처리_space() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException(" "))
+                assertThatThrownBy(() -> runException(" ", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
@@ -58,7 +61,7 @@ class ApplicationTest extends NsTest {
     @Test
     void 이름에_대한_예외_처리_자동차_1대() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi"))
+                assertThatThrownBy(() -> runException("pobi", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
@@ -66,7 +69,7 @@ class ApplicationTest extends NsTest {
     @Test
     void 이름에_대한_예외_처리_쉼표_누락() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi javaji"))
+                assertThatThrownBy(() -> runException("pobi javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
