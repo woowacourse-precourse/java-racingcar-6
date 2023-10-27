@@ -14,7 +14,12 @@ public class RacingController {
 
     public void init() {
         OutputView.printNameInputDescription();
-        carService.createCars(InputView.inputCarNames());
+        try {
+            carService.createCars(InputView.inputCarNames());
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
 }
