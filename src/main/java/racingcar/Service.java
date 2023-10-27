@@ -27,5 +27,8 @@ public class Service {
     public void registerParticipants(List<String> participants) {
         progressBoard.registerCars(participants);
     }
+    public void moveForward(String carName) {
+        progressBoard.moveForward(carName);
+    }
 
 }
