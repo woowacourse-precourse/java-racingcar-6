@@ -8,13 +8,13 @@ public class CarGenerator {
 
     Car car = new Car();
 
-    public void createCarList() {
+    public HashMap<String,String> createCarList() {
         HashMap<String,String> carList = new HashMap<>();
         String [] cars = splitStringByCommas();
         for(String car : cars) {
             carList.put(car,"");
         }
-        car.setCarList(carList);
+        return carList;
     }
 
     public String[] splitStringByCommas() {
