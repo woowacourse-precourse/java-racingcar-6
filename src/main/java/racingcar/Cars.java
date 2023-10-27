@@ -24,7 +24,7 @@ public class Cars {
         return this.cars;
     }
 
-    public List<Car> getWinners(){
+    public List<Car> getWinners() {
         Integer maxPosition = Collections.max(cars.stream()
                 .map(Car::getPosition)
                 .collect(Collectors.toList()));

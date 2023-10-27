@@ -12,7 +12,7 @@ public class GameBoard {
         this.tryInput = tryInput;
     }
 
-    public void viewGamePlaying(){
+    public void viewGamePlaying() {
         System.out.println("실행 결과");
         for(int i = 0 ; i < tryInput ; i++) {
             viewOneGame();
