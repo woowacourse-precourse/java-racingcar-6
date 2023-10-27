@@ -8,24 +8,23 @@ import java.util.List;
 
 public class Cars {
     private final int MAX_CAR_NAME_LENGTH = 5;
-    private final List<String> cars;
+    private List<Car> cars = new ArrayList<>();
 
     public Cars(String inputValue) {
-        List<String> cars = parsedCarsName(inputValue);
-        isValidCarNameLength(cars);
-        this.cars = cars;
-    }
-
-    public List<String> getCars() {
-        List<String> clonedCars = new ArrayList<>(cars);
-        return Collections.unmodifiableList(clonedCars);
-    }
-
-    public int getDistanceMoved(int randomNumber) {
-        if (randomNumber >= 4) {
-            return 1;
+        List<String> carNames = parsedCarsName(inputValue);
+        isValidCarNameLength(carNames);
+        for(String carName : carNames) {
+            Car car = new Car(carName);
+            cars.add(car);
         }
-        return 0;
+    }
+
+    public List<String> getCarNames() {
+        List<String> carsName = new ArrayList<>();
+        for(Car car : cars) {
+            carsName.add(car.getName());
+        }
+        return carsName;
     }
 
     public void printMoveRecord(String carName, int moveRecord) {
@@ -45,9 +44,5 @@ public class Cars {
                 throw new IllegalArgumentException();
             }
         }
-    }
-
-    private int generateRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
     }
 }

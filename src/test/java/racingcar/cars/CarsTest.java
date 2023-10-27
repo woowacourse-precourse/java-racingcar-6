@@ -17,7 +17,7 @@ public class CarsTest {
 
         List<String> expectedList = Arrays.asList("tiger", "eagle", "bear");
 
-        Assertions.assertThat(cars.getCars()).isEqualTo(expectedList);
+        Assertions.assertThat(cars.getCarNames()).isEqualTo(expectedList);
     }
 
     @Test
@@ -28,22 +28,24 @@ public class CarsTest {
     }
 
     @Test
-    @DisplayName("무작위 값이 4이상일 경우 자동차가 한칸 전진")
+    @DisplayName("파라미터 값이 4이상일 경우 자동차가 한칸 전진")
     public void testCarMovesIfRandomNumberIsGreaterThanEqual4() {
-        Cars cars = new Cars("tiger,eagle,bear");
+        Car car = new Car("tiger");
 
-        int randomNumber = 5;
+        int parameter = 5;
+        car.move(parameter);
 
-        Assertions.assertThat(cars.getDistanceMoved(randomNumber)).isEqualTo(1);
+        Assertions.assertThat(car.getMoveDistance()).isEqualTo(1);
     }
 
     @Test
-    @DisplayName("무작위 값이 4미만일 경우 자동차가 이동하지 않음")
+    @DisplayName("파라미터 값이 4미만일 경우 자동차가 이동하지 않음")
     public void testCarMovesIfRandomNumberIsLessThen4() {
-        Cars cars = new Cars("tiger,eagle,bear");
+        Car car = new Car("tiger");
 
-        int randomNumber = 3;
+        int parameter = 3;
+        car.move(parameter);
 
-        Assertions.assertThat(cars.getDistanceMoved(randomNumber)).isEqualTo(0);
+        Assertions.assertThat(car.getMoveDistance()).isEqualTo(0);
     }
 }

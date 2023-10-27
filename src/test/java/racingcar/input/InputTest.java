@@ -42,7 +42,7 @@ public class InputTest {
     public void testMoveResult() {
         Cars cars = new Cars("tiger,eagle,bear");
 
-        String carName = cars.getCars().get(0).toString();
+        String carName = cars.getCarNames().get(0).toString();
         int moveRecord = 5;
 
         cars.printMoveRecord(carName, moveRecord);
