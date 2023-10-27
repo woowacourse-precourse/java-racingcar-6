@@ -8,9 +8,13 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import racingcar.model.InputValueValidator;
+
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
+
+    InputValueValidator validator = new InputValueValidator();
 
     @Test
     void 전진_정지() {
@@ -21,6 +25,39 @@ class ApplicationTest extends NsTest {
             },
             MOVING_FORWARD, STOP
         );
+    }
+
+    @Test
+    void 자동차이름_입력값검증() {
+        assertSimpleTest(() -> {
+            assertThatThrownBy(() -> validator.checkNameValidation(new String[]{"Hello,,World"}))
+                    .isInstanceOf(IllegalArgumentException.class);
+        });
+
+        assertSimpleTest(() -> {
+            assertThatThrownBy(() -> validator.checkNameValidation(new String[]{""}))
+                    .isInstanceOf(IllegalArgumentException.class);
+        });
+
+        assertSimpleTest(() -> {
+            assertThatThrownBy(() -> validator.checkNameValidation(new String[]{"Hello,World,"}))
+                    .isInstanceOf(IllegalArgumentException.class);
+        });
+
+        assertSimpleTest(() -> {
+            assertThatThrownBy(() -> validator.checkNameValidation(new String[]{"OverLength"}))
+                    .isInstanceOf(IllegalArgumentException.class);
+        });
+
+        assertSimpleTest(() -> {
+            assertThatThrownBy(() -> validator.checkNameValidation(new String[]{"한글여섯글자"}))
+                    .isInstanceOf(IllegalArgumentException.class);
+        });
+
+        assertSimpleTest(() -> {
+            assertThatThrownBy(() -> validator.checkNameValidation(new String[]{"^&#(*!"}))
+                    .isInstanceOf(IllegalArgumentException.class);
+        });
     }
 
     @Test
