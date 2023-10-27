@@ -1,19 +1,25 @@
 package racingcar.validator;
 
 import java.util.Arrays;
+import java.util.List;
 import racingcar.util.Constants;
 
 public class InputValidator {
     public static void validateNotInputComma(final String input) {
-        try {
-            input.split(",");
-        } catch (Exception e) {
+        if (input.length() > 5) {
+            validateContainsComma(input);
+        }
+    }
+
+    private static void validateContainsComma(String input) {
+        if (!input.contains(",")) {
             throw new IllegalArgumentException(Constants.WRONG_INPUT_COMMA_MESSAGE);
         }
     }
 
     public static void validateInputCarNameCharacter(final String input) {
         long countNotString = Arrays.stream(input.split(""))
+                .filter(str -> !",".equals(str) && !" ".equals(str))
                 .filter(str -> str.charAt(0) < 'A' || str.charAt(0) > 'z')
                 .count();
 
@@ -31,13 +37,18 @@ public class InputValidator {
     }
 
     public static void validateDuplicationCarNames(final String input) {
-        String[] carNames = input.split(",");
+        List<String> carNames = Arrays.stream(input.split(","))
+                .toList();
 
-        int uniqueCarNames = (int) Arrays.stream(carNames)
-                .distinct()
-                .count();
+        int countDuplicate = 0;
 
-        if (carNames.length != uniqueCarNames) {
+        for (String carName : carNames) {
+            countDuplicate = (int) carNames.stream()
+                    .filter(name -> name.equals(carName))
+                    .count();
+        }
+
+        if (countDuplicate > 0) {
             throw new IllegalArgumentException(Constants.WRONG_INPUT_CAR_NAME_DUPLICATION_MESSAGE);
         }
     }
