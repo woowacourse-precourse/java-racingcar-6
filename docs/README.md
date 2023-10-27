@@ -1,8 +1,8 @@
 # 🎯기능 목록
-- [ ]: 경주할 자동차 이름 입력 받기 -InputView#inputCar()\
+- [ ]: 경주할 자동차 이름 입력 받기 -InputView#inputCarNames()\
   - [ ]: 자동차 이름은 쉼표(,)를 기준으로 구분\
     - [ ]: 자동차 이름은 5자 이하만 가능\
-- [ ]: 시도할 횟수 입력 받기 -InputView#InputAttempts\
+- [ ]: 시도할 횟수 입력 받기 -InputView#InputTryCount\
   - [ ]: 시도 횟수는 숫자만 가능\
   - [ ]: 시도 횟수는 1이상만 가능\
 - [ ]: 자동차는 이름과 위치를 가지고 있음 -Car\
