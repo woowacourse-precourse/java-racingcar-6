@@ -8,6 +8,7 @@ public class RacingGame {
     public void start() {
         List<String> racingCarNames = InputView.readRacingCarName();
 
+        Validator.validateIsDuplicate(racingCarNames);
         for (String name : racingCarNames) {
             Validator.validateUnderFiveLength(name);
             Validator.validateIsBlank(name);
