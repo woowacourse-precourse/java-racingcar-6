@@ -11,10 +11,12 @@ public class Car {
         this.score = 0;
     }
 
-    public String getName() {
-        return this.name;
+    public String isMaxScore(int maxScore){
+        if(this.score == maxScore){
+            return this.name;
+        }
+        return "";
     }
-    public int getScore() {return this.score;}
 
     public int run(){
         final int randomInt = Randoms.pickNumberInRange(0,9);
