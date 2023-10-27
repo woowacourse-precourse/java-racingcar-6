@@ -4,14 +4,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.car.carcomponent.carmove.CarMoveCount;
 
-public class CarMoveCountTest {
+public class CarMovementReaderCountTest {
 
     @Test
     @DisplayName("CarMoveCount 객체에서 getMoveCount 로 값을 받아올 수 있다.")
     void carMoveCountGetTest() {
         CarMoveCount carMoveCount = new CarMoveCount(2);
-        assertThat(carMoveCount.getMoveCount()).isEqualTo(2);
+        assertThat(carMoveCount.moveCount()).isEqualTo(2);
     }
 
     @Test
@@ -19,7 +20,7 @@ public class CarMoveCountTest {
     void carMoveTest_true() {
         CarMoveCount carMoveCount = new CarMoveCount(0);
         CarMoveCount newCarMoveCount = carMoveCount.countMove(true);
-        assertThat(newCarMoveCount.getMoveCount()).isEqualTo(1);
+        assertThat(newCarMoveCount.moveCount()).isEqualTo(1);
     }
 
     @Test
@@ -27,6 +28,6 @@ public class CarMoveCountTest {
     void carMoveTest_false() {
         CarMoveCount carMoveCount = new CarMoveCount(0);
         CarMoveCount newCarMoveCount = carMoveCount.countMove(false);
-        assertThat(newCarMoveCount.getMoveCount()).isEqualTo(0);
+        assertThat(newCarMoveCount.moveCount()).isEqualTo(0);
     }
 }

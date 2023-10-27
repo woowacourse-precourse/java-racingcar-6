@@ -1,13 +1,13 @@
 package racingcar.domain.car;
 
 import java.util.function.Supplier;
-import racingcar.domain.car.carcomponent.TotalNumberToMove;
+import racingcar.domain.car.carcomponent.carmove.CarMoveReader;
 
 public class CarMovement {
     private final Cars cars;
-    private final TotalNumberToMove totalNumberToMove;
+    private final CarMoveReader totalNumberToMove;
 
-    public CarMovement(Cars cars, TotalNumberToMove totalNumberToMove) {
+    public CarMovement(Cars cars, CarMoveReader totalNumberToMove) {
         this.cars = cars;
         this.totalNumberToMove = totalNumberToMove;
     }

@@ -1,7 +1,7 @@
 package racingcar.domain.car;
 
-import racingcar.domain.car.carcomponent.CarPosition;
-import racingcar.domain.car.carcomponent.CarPositionCompareResult;
+import racingcar.domain.car.carcomponent.carposition.CarPosition;
+import racingcar.domain.car.carcomponent.carposition.CarPositionCompareResult;
 
 public class Car {
     private final String carName;
@@ -12,22 +12,21 @@ public class Car {
         this.carPosition = new CarPosition(0);
     }
 
-    public void move(boolean moveOrNot) {
+    protected void move(boolean moveOrNot) {
         if (moveOrNot) {
             this.carPosition = carPosition.move();
         }
     }
 
-    public CarPositionCompareResult comparePosition(Car otherCar) {
+    protected CarPositionCompareResult comparePosition(Car otherCar) {
         return this.carPosition.compare(otherCar.carPosition);
     }
 
-    public String getCarName() {
+    protected String getCarName() {
         return carName;
     }
 
-    @Override
-    public String toString() {
+    protected String makeMoveResultMessage() {
         return carName
                 + " : "
                 + carPosition.makePositionResultMessage();

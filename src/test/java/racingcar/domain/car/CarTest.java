@@ -4,7 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.car.carcomponent.CarPositionCompareResult;
+import racingcar.domain.car.carcomponent.carposition.CarPositionCompareResult;
 
 public class CarTest {
     private final String CAR1_NAME = "car1";

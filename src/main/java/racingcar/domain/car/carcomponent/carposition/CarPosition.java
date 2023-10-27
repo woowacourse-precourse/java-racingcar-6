@@ -1,4 +1,4 @@
-package racingcar.domain.car.carcomponent;
+package racingcar.domain.car.carcomponent.carposition;
 
 public class CarPosition {
     private final int position;
