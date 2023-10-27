@@ -45,7 +45,7 @@ public class AskCarName {
     }
 
     public boolean validateLengthOfCarName(String carName) {
-        if (carName.length() < 5) {
+        if (carName.length() < 5 && !carName.equals("")) {
             return true;
         } else {
             return false;
