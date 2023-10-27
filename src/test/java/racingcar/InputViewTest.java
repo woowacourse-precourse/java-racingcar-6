@@ -2,10 +2,24 @@ package racingcar;
 
 import java.io.ByteArrayInputStream;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.view.InputView;
 
 public class InputViewTest {
+    @Test
+    void 시도_횟수_입력_테스트() {
+
+        ByteArrayInputStream fakeInput = new ByteArrayInputStream("5".getBytes());
+        System.setIn(fakeInput);
+
+        String input = InputView.readTryNumber();
+
+        Assertions.assertTrue(input != null);
+
+    }
+
+
     @Test
     void 경기_참여_자동차_입력_테스트() {
 
@@ -19,19 +33,6 @@ public class InputViewTest {
             Assertions.assertTrue(inputs[i].length() <= 5);
             Assertions.assertTrue(inputs[i] != null);
         }
-
-    }
-
-
-    @Test
-    void 시도_횟수_입력_테스트() {
-
-        ByteArrayInputStream fakeInput = new ByteArrayInputStream("5".getBytes());
-        System.setIn(fakeInput);
-
-        String input = InputView.readTryNumber();
-
-        Assertions.assertTrue(input != null);
 
     }
 

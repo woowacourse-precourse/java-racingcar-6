@@ -84,7 +84,7 @@ public class OutputViewTest {
         Assertions.assertEquals(capturedOutput, "pobi : -\n"
                 + "jun : ---\n"
                 + "king : \n"
-                + "rook : --\n");
+                + "rook : --\n\n");
     }
 
     @Test
@@ -102,7 +102,7 @@ public class OutputViewTest {
 
         String capturedOutput = outputStream.toString();
 
-        Assertions.assertEquals("pobi, jun", capturedOutput);
+        Assertions.assertEquals("최종 우승자 : pobi, jun", capturedOutput);
 
 
     }
