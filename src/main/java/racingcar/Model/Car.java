@@ -13,6 +13,8 @@ public class Car {
 		return this.distance;
 	}
 
-
+	public String getName() {
+		return this.name;
+	}
 
 }
