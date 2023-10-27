@@ -8,28 +8,30 @@
 - [x] 자동차 이름 입력 메세지 출력 - printCarNameInputMessage()
 - [x] 자동차 이름 입력 - carNameInput() - Car
 	- [ ] 유효성 검사 - Validator
-- [ ] 자동차 이름 저장 - addCars(carNameInput()) - Cars
+- [x] 자동차 이름 저장 - addCars(carNameInput()) - Cars
 
 - [x] 시도할 횟수 입력 메세지 출력 - printNumberOfattempsInputMessage()
 - [x] 시도할 횟수 입력 - numberOfattempsInput()
 	- [ ] 유효성 검사
-- [ ] 시도한 횟수 저장 - saveCount(carNameInput()) - Attemps
+- [x] 시도한 횟수 저장 - saveCount(carNameInput()) - Attemps
 
-- [ ] 시도할 횟수가 될 때까지 loop
-	- [ ] 자동차의 수만큼 loop
-		- [ ] 각 자동차는 0~9 랜덤 숫자 생성 - NumberGenerator#generateRandomNumber() - Randoms 사용
-		- [ ] 생성한 수가 4 이상 이라면 현재 상황에 '-' 추가 - boolean overStandard(generateRandomNumber()) - STANDARD_NUMBER = 4
-			- [ ] 현재 상황에 '-' 추가 - forward() 
-				- [ ] 저장 car.setCurrent(car.getCurrent() + "-");
-		- [ ] 각 자동차의 이름 및 현재 상황 출력 - car.getName() + : + car.getDistance()
+- [x] 시도할 횟수가 될 때까지 loop
+	- [x] 실행결과 : 자동차의 수만큼 loop
+		- [x] 각 자동차는 0~9 랜덤 숫자 생성 - NumberGenerator#generateRandomNumber() - Randoms 사용
+		- [x] 생성한 수가 4 이상 이라면 현재 상황에 '-' 추가 - boolean overStandard(generateRandomNumber()) - STANDARD_NUMBER = 4
+			- [x] 현재 상황에 '-' 추가 - moveForward()
+		- [x] 현재 자동차의 정보 담기
+		- ~~[x] 각 자동차의 이름 및 현재 상황 출력 - car.getName() + : + car.getDistance()~~
+		- [x] 결과 리스트에 현재 자동차의 정보 담기
+	- [x] 결과 리스트 받아서 출력
+	- [x] 골라인에 도착하였는가? : 자동차의 수만큼 loop
+		- [x] 현재 자동차의 거리의 수가 시도할 회수와 같은게 있다면 멈춰
 
-- [ ] 최종 우승자 결과 계산
-	- [ ] 자동차의 수만큼 loop - 
-		- [ ] 현재 상황이 시도할 횟수와 같다면
-			- 우승자 목록에 추가 - Winners
-			- addWinner(winner); 
-			- List<String> winners
-- [ ] 최종 우승자 결과 출력 printWinners(List<String> winners) - join 함수 사용해보기
+- [x] 최종 우승자 결과 계산
+	- [x] 자동차의 수만큼 loop - 
+		- [x] 현재 거리가 시도할 횟수와 같다면 우승자 목록에 추가
+- ~~최종 우승자 결과 출력 printWinners(List<String> winners) - join 함수 사용해보기~~
+- [x] 최종 우승자 출력하기 - stream을 이용하여 쉽게 ,로 구분된 값을 가져올 수 있었다.
 
 ### 만들 객체들
 - [x] RacingGame (controller) - 출력과 입력 제어
@@ -38,7 +40,7 @@
 	- [x] Car - 자동차 - 이름, 진행상황, 전진하는 기능
 	- [x] Cars - 자동차 목록 - 자동차 목록 저장 기능
 	- [x] Winners - 우승자 목록 - 우승자들을 저장하는 기능
-	- [ ] Attemps - 시도할 횟수 저장 - 변수로 해도 될거 같긴한데 진짜 게임들을 생각해보면 나중에 게임 기록들을 남기니까 만들어 보기로 함
+	- [x] Attemps - 시도할 횟수 저장 - 변수로 해도 될거 같긴한데 진짜 게임들을 생각해보면 나중에 게임 기록들을 남기니까 만들어 보기로 함
 - view
 	- [x] InputView 입력값 가져오기 담당
 	- [x] OutputView 출력하기 담당
