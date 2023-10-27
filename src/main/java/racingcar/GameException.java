@@ -4,6 +4,7 @@ import java.util.regex.Pattern;
 
 public class GameException {
     private static final Pattern LOWER_CASE_PATTERN = Pattern.compile("^[a-z]*$");
+    private static final Pattern TRY_NUMBER_PATTERN = Pattern.compile("^[1-9]*$");
     private static final int MAX_CAR_NAME_LENGTH = 5;
 
     public void validatePlayerCarNameLengthRange(String carName) {
@@ -24,6 +25,11 @@ public class GameException {
     public void validatePlayerCarNameBlank(String carName) {
         if (carName.contains(" ") || carName.equals(""))
             throw new IllegalArgumentException("자동차 이름은 공백없이 입력해야 합니다.");
+    }
+
+    public void validatePlayerTryNumberType(String tryNumber) {
+        if (!TRY_NUMBER_PATTERN.matcher(tryNumber).matches())
+            throw new IllegalArgumentException();
     }
 
     private boolean isNumber(String carName) {
