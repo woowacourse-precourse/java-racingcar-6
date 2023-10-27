@@ -1,4 +1,4 @@
-package constants;
+package racingcar.constants;
 
 public enum ExceptionMessage {
     NONE_INPUT_CARS("자동차 이름은 공백이 될 수 없습니다."),
