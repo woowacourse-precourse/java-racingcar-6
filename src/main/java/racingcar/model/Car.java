@@ -40,11 +40,4 @@ public class Car {
     public void moveForward(int distance) {
         position += distance;
     }
-
-    public String getForwardStateString(Car car) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(car.name).append(" : ");
-        sb.append("-".repeat(position));
-        return sb.toString();
-    }
 }

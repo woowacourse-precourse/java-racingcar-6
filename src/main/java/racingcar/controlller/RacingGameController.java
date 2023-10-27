@@ -1,6 +1,8 @@
 package racingcar.controlller;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Comparator;
+import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.CarList;
 import racingcar.view.OutputView;
@@ -42,10 +44,19 @@ public class RacingGameController extends GameController {
             OutputView.printCurrentForwardState(carList);
         }
         // 최종 우승자 출력
-        OutputView.printWinners(carList.winnersToString());
+        OutputView.printWinners(getWinners(carList));
 
         // 게임 종료
         endGame();
+    }
+
+    public CarList getWinners(CarList carList) {
+        Car winner1 = carList.getCarList().stream()
+                .max(Comparator.comparingInt(Car::getPosition)).get();
+        List<Car> winnerList = carList.getCarList().stream()
+                .filter(car -> car.getPosition() == winner1.getPosition())
+                .toList();
+        return new CarList(winnerList);
     }
 
     private void endGame() {
