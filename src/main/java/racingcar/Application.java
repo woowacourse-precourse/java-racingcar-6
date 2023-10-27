@@ -14,6 +14,14 @@ public class Application {
                 .toList();
 
         Cars cars = new Cars(carList);
+
+        System.out.println("시도할 회수는 몇회인가요?");
+
+        int raceCount = readCount();
+    }
+
+    private static int readCount() {
+        return Integer.parseInt(Console.readLine());
     }
 
     private static String[] readNames() {
