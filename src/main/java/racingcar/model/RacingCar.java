@@ -38,6 +38,7 @@ public class RacingCar {
     public List<Boolean> getRacingCarMove() {
         return this.racingCarMove;
     }
+
     @Override
     public String toString() {
         String gameResult = makeGameResult();
