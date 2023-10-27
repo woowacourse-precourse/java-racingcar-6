@@ -29,4 +29,12 @@ public class View {
         }
         return resultForm.toString();
     }
+
+    private String convertMoveCountsToHyphens(long moveCount) {
+        StringBuilder hyphens = new StringBuilder();
+        while (moveCount-- > 0) {
+            hyphens.append("-");
+        }
+        return hyphens.toString();
+    }
 }
