@@ -14,4 +14,8 @@ public class ConsoleIO {
 
         return Console.readLine();
     }
+
+    public static void printPlayResultMessage() {
+        System.out.println("실행 결과");
+    }
 }

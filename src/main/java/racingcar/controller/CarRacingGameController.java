@@ -16,5 +16,11 @@ public class CarRacingGameController {
         Car cars = carRacingGameService.getCar(ConsoleIO.readCarName());
 
         Game game = carRacingGameService.getGame(cars, ConsoleIO.readGameSet());
+
+        playGame();
+    }
+
+    private void playGame() {
+        ConsoleIO.printPlayResultMessage();
     }
 }
