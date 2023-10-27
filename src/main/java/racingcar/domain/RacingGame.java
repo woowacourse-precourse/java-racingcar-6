@@ -23,6 +23,8 @@ public class RacingGame {
     }
 
     public List<String> findWinners() {
+        validateGameState();
+
         return findWinners(cars.findMostMovedCars());
     }
 
@@ -30,6 +32,12 @@ public class RacingGame {
         return mostMovedCars.stream()
                 .map(Car::getName)
                 .collect(Collectors.toList());
+    }
+
+    private void validateGameState() {
+        if (!isGameEnd()) {
+            throw new IllegalArgumentException("게임이 종료되지 않은 상태에서 우승자를 찾을 수 없습니다.");
+        }
     }
 
     public List<Car> getCars() {

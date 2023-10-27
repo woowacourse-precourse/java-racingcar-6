@@ -48,8 +48,19 @@ class RacingGameTest {
                 new Car("jun", 1));
         RacingGame racingGame = new RacingGame(cars, 1);
 
+        racingGame.race(() -> 3);
         List<String> winners = racingGame.findWinners();
 
         assertThat(winners).containsExactly("pobi", "woni");
+    }
+
+    @Test
+    @DisplayName("자동차 경주 게임이 끝나지 않은 상태에서 우승자를 찾으려 하면 예외가 발생한다.")
+    void validateGameState() {
+        assertThat(racingGame.isGameEnd()).isFalse();
+
+        assertThatThrownBy(() -> racingGame.findWinners())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("게임이 종료되지 않은 상태에서 우승자를 찾을 수 없습니다.");
     }
 }
