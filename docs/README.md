@@ -25,15 +25,17 @@
 
 - `increaseMovingCountIfGreater()` 임의의 수가 기준 숫자보다 크면 movingCount 증가시켜주는 메서드
 - `isSameMovingCount()` 다른 Car클래스와 같은 movingCount 갖고 있는지 판별 메서드
+- `currentRacingStatus()` 현재 자동차 경주 상태 출력
 - `compareTo()` 비교 오버라이드 메서드
-- `toString()` 이름과 movingCount만큼 "-" 반환 메서드
+- `toString()` 이름반환
 
 ### Cars
 
 `List<Car>`를 갖고있는 일급 컬렉션
 
-- `Cars()` 검증 후 값 설정하는 생성자 메서드
-- `winner()` 가장 높은 수의 플레이어 반환 메서드
+- `findWinners()` 가장 높은 수의 플레이어 반환 메서드
+- `applyRandomMovingCountIncrease()` 각 원소들에 임의의 수를 뽑고 movingCount증가 시키는 메서드
+- `getRacingStatusOfAllCars()` 각 Car의 현재 상태 반환 메서드
 
 ---
 
@@ -68,19 +70,10 @@
 
 ## validation
 
-### InputValidator
+### Validator
 
 검증 메서드 관련된 클래스
 
-- `validateNameLength()` 이름 길이 검증 메서드
 - `validateNumericInput()` 숫자 입력 검증 메서드
 
 ---
-
-## utils
-
-### RandomNumberGenerator
-
-임의의 숫자 생성 클래스
-
-- `generateRandomNumber()` 임의의 숫자 반환 메서드
