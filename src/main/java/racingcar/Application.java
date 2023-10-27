@@ -10,5 +10,7 @@ public class Application {
         machines.getInput();
 
         lap.showMessage();
+
+        lap.getInput();
     }
 }
