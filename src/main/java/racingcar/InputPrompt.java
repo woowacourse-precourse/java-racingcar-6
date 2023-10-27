@@ -17,6 +17,10 @@ public class InputPrompt {
         return CarRecordFactory.createCarRecord(rule, tokens);
     }
 
+    public NumberOfRepetitions readNumberOfRepetitions() {
+        return new NumberOfRepetitions(Console.readLine().trim());
+    }
+
     public void close() {
         Console.close();
     }
