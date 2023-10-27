@@ -16,10 +16,14 @@ public class InputView {
 
     public static List<String> getCarNameList() {
         System.out.println(START_INPUT_MESSAGE);
-        String input = Console.readLine();
+        String input = read();
         validateBlank(input);
 
         return Arrays.asList(input.split(DELIMITER));
+    }
+
+    private static String read() {
+        return Console.readLine();
     }
 
     private static void validateBlank(String input) {
