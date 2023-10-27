@@ -7,13 +7,16 @@ import racingcar.domain.Car;
 
 public class WinnerChecker {
     public static List<Car> findWinner(List<Car> carList) {
+        int maxProgress = getMaxProgress(carList);
         return carList.stream()
-                .filter(i ->
-                        i.getProgressToInt() == carList.stream()
-                                .mapToInt(Car::getProgressToInt)
-                                .max()
-                                .getAsInt())
+                .filter(i -> i.getProgressToInt() == maxProgress)
                 .collect(toList());
-        //TODO 2023 10 27 2중 스트림 간소화 필요함
+    }
+
+    private static int getMaxProgress(List<Car> carList) {
+        return carList.stream()
+                .mapToInt(Car::getProgressToInt)
+                .max()
+                .getAsInt();
     }
 }
