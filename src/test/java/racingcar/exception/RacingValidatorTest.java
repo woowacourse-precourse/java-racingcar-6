@@ -3,7 +3,6 @@ package racingcar.exception;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.assertj.core.api.Assertions.setAllowComparingPrivateFields;
 
 public class RacingValidatorTest {
 
@@ -56,7 +55,7 @@ public class RacingValidatorTest {
     }
 
     @Test
-    void 문자열_소수점을_숫자로_변환_예외() {
+    void 입력받은_레이싱_경기_횟수_소수점_예외() {
         String input = "6.2";
         assertThatThrownBy(() -> RacingValidator.validate(input))
                 .isInstanceOf(IllegalArgumentException.class);

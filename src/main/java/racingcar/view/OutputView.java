@@ -8,7 +8,7 @@ public class OutputView {
     private static final String EXECUTION_RESULT = "실행 결과" + LINE;
     private static final String FINAL_WINNER = "최종 우승자 : ";
 
-    public void displayRequestCarName() {
+    public void displayRequestCarNames() {
         System.out.print(REQUEST_CAR_NAME);
     }
 
@@ -16,11 +16,15 @@ public class OutputView {
         System.out.print(REQUEST_RACE_COUNT);
     }
 
-    public void displayExecutionResult(String message) {
-        System.out.print(EXECUTION_RESULT + message);
+    public void displayExecutionResult() {
+        System.out.print(EXECUTION_RESULT);
+    }
+
+    public void displayRacingState(String message) {
+        System.out.print(message + LINE + LINE);
     }
 
     public void displayFinalWinners(String message) {
-        System.out.println(FINAL_WINNER + message);
+        System.out.print(FINAL_WINNER + message);
     }
 }

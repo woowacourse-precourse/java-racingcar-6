@@ -4,11 +4,11 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
 
-    public String getCarNameFromUser() {
+    public String requestCarNameFromUser() {
         return Console.readLine();
     }
 
-    public String getRoundCountFromUser() {
+    public String requestRacingRoundCountFromUser() {
         return Console.readLine();
     }
 }
