@@ -30,3 +30,8 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Custom ###
+*.class
+*.jar
+*.project
