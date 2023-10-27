@@ -12,7 +12,7 @@ public class InputView {
 		return userInput().split(",");
 	}
 
-	private String userInput() {
+	public String userInput() {
 		return Console.readLine();
 	}
 }
