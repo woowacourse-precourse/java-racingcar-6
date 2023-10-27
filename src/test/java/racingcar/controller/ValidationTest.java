@@ -31,11 +31,11 @@ public class ValidationTest {
                .doesNotThrowAnyException();
     }
 
-    @Test
+    @ParameterizedTest
     @DisplayName("현재 이름 토큰이 이미 Map에 저장된 key이면 예외 발생")
-    void checkNameTokenDuplicated_exceptionTest() {
+    @ValueSource(strings = {"name1", "name2", "name3"})
+    void checkNameTokenDuplicated_exceptionTest(String inputToken) {
         Map<String, Integer> inputMap = Map.of("name1", 0, "name2", 0, "name3", 0);
-        String inputToken = "name1";
         assertThatIllegalArgumentException().isThrownBy(() -> sample.checkNameTokenDuplicated(inputToken, inputMap));
     }
     @Test
