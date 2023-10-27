@@ -7,7 +7,8 @@ public class InputView {
         this.consoleProvider = consoleProvider;
     }
 
-    public CarName readCarName() {
-        return new CarName(consoleProvider.provide());
+    public CarNames readCarNames() {
+        return new CarNames(consoleProvider.provide());
     }
+
 }
