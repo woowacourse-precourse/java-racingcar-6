@@ -1,6 +1,7 @@
 package racingcar.util;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -29,5 +30,14 @@ public class ConvertTest {
         Integer attemptCount = Convert.stringToInteger(inputValue);
 
         assertThat(attemptCount).isEqualTo(5);
+    }
+
+    @Test
+    @DisplayName("문자열을 정수로 변환하는 과정에서 NumberFormatException이 발생하면 IllegalArgumentException을 고의로 발생시킨다.")
+    void should_ThrowIllegalArgumentException_When_OccurNumberFormatException() {
+        String inputValue = "a";
+
+        assertThatThrownBy(() -> Convert.stringToInteger(inputValue))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
