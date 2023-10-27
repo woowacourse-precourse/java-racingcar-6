@@ -1,44 +1,54 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
-    
+
     private static final String INVALID_INPUT_MESSAGE = "잘못된 입력입니다.";
-    private static final String NAME_SEPARATOR = ",";
-    private final List<Car> cars = new ArrayList<>();
-    
-    public Cars(String names) {
+    private final List<Car> cars;
+
+    public Cars(List<String> names) {
         validate(names);
-        saveCars(names);
+        cars = convertToCars(names);
     }
-    
-    private void saveCars(String names) {
-        for (String name : names.split(NAME_SEPARATOR)) {
-            // TODO: 똑같은 이름의 Car가 이미 있으면 IllegalArgumentException
-            cars.add(new Car(name));
-        }
+
+    private List<Car> convertToCars(List<String> names) {
+        return names.stream()
+                .map(Car::new)
+                .collect(Collectors.toList());
     }
-    
-    private void validate(String names) {
-        checkBlank(names);
-        checkCommaString(names);
+
+    private void validate(List<String> names) {
+        checkDuplicate(names);
+        checkComma(names);
     }
-    
-    private void checkCommaString(String names) {
-        if (isCommaString(names)) {
+
+    private void checkComma(List<String> names) {
+        if (hasComma(names)) {
             throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
         }
     }
-    
-    private boolean isCommaString(String names) {
-        return names.matches("^,+");
+
+    private boolean hasComma(List<String> names) {
+        long count = names.stream()
+                .filter(name -> name.contains(","))
+                .count();
+
+        return count != 0;
     }
-    
-    private void checkBlank(String names) {
-        if (names == null || names.isEmpty()) {
+
+    private void checkDuplicate(List<String> names) {
+        if (hasDuplicate(names)) {
             throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
         }
+    }
+
+    private boolean hasDuplicate(List<String> names) {
+        long count = names.stream()
+                .distinct()
+                .count();
+
+        return names.size() != count;
     }
 }
