@@ -9,20 +9,8 @@ public class Car implements Comparable<Car>{
         this.length = length;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void setLength(int length) {
         this.length = length;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getLength() {
-        return length;
     }
 
     @Override
