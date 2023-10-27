@@ -2,20 +2,28 @@ package racingcar.Controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import racingcar.View.InputView;
 
 public class MoveRandomNumber {
     InputView inputView = new InputView();
 
-    //camp.nextstep.edu.missionutils에서 제공하는 Randoms API 사용하여 중복되지 않는 랜덤 수 저장
-    public List<Integer> generateRandomGameNumber() {
-        List<Integer> randomNumbers = new ArrayList<>();
-        for(int i = 0 ;  i < inputView.storeCarName().size() ; i++) {
-            int randomNumber = Randoms.pickNumberInRange(0, 9);
-            randomNumbers.set(i, randomNumber);
+    public List<Map<String,Integer>> generateRandomGameNumber() {
+        List< Map<String,Integer>> randomNumbersMap = new ArrayList<>();    // 맵을 저장할 리스트
+        Map<String,Integer> carCountMap = inputView.storeCarName();
+
+        for( int i = 0 ; i < inputView.askTryCount(); i++ ){
+            for(String key : carCountMap.keySet()){
+                carCountMap.put(key, Randoms.pickNumberInRange(0, 9));
+                randomNumbersMap.add(carCountMap);
+            }
         }
-        return randomNumbers;
+
+        return randomNumbersMap;
     }
+
+
 
 }
