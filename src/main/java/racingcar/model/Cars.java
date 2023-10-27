@@ -3,17 +3,21 @@ package racingcar.model;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 import racingcar.utils.Constraints;
 
 public class Cars {
-    private final List<String> carNames;
+    private final List<Car> cars;
 
     public Cars(List<String> carNames) {
         checkNameLength(carNames);
         checkDuplicate(carNames);
-        this.carNames = carNames;
+        this.cars = makeCarList(carNames);
     }
 
+    /**
+     * 자동차 이름 길이 검증
+     */
     private void checkNameLength(List<String> carNames) {
         carNames.stream()
                 .filter(carName -> carName.length() > Constraints.MAX_SIZE.getValue())
@@ -22,6 +26,9 @@ public class Cars {
                 });
     }
 
+    /**
+     * 중복된 자동차 이름 검증
+     */
     private void checkDuplicate(List<String> carNames) {
         Set<String> carNamesSet = new HashSet<>(carNames);
         if (carNames.size() != carNamesSet.size()) {
