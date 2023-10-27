@@ -9,7 +9,7 @@
 - [x] 자동차 이름의 입력값이 있는지 검증
 - [x] 자동차 이름이 5자가 넘어가는지 검증
 - [x] 자동차 이름에 공백이 포함되는지 검증
-- [ ] 자동차 이름이 중복되는지 검증
+- [x] 자동차 이름이 중복되는지 검증
 - [x] 이동할 횟수의 입력값이 있는지 검증
 - [x] 이동할 횟수를 숫자로 입력하였는지 검증
 - [x] 잘못된 값을 입력한 경우에는 `IllegalArgumentException`을 발생시킨 후 종료
@@ -29,7 +29,7 @@
 ## 클래스 설계
 
 ### `Model`
-- **InputProcess** : 입력값 받고 처리
+- **InputProcess** : 필요한 값 입력 받기
 - **RandomValueGenerator** : 무작위 값 생성
 
 ### `View`
@@ -42,4 +42,5 @@
 ### `Service`
 - **CarNameCheck** : 자동차 이름 입력값 검증
 - **RepeatNumberCheck** : 이동할 횟수 입력값 검증
+- **SaveInputValue** : 입력값 처리 후 저장
 - **FindWinner** : 게임 우승자 파악
