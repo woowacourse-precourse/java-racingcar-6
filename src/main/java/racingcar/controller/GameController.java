@@ -23,16 +23,11 @@ public class GameController {
         for (int i = 0; i < gameCycle; i++) {
             for (Car car : cars) {
                 int randNumber = Randoms.pickNumberInRange(0, 9);
-                race(car, randNumber);
+                car.go(randNumber);
             }
         }
     }
 
-    private void race(Car car, int randNumber) {
-        if (randNumber >= 4) {
-            car.go();
-        }
-    }
 
     private Integer getGameCycleNumberFromUser() {
         InputManager.requestGameCycleNumber();
