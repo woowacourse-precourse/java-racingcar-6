@@ -2,13 +2,12 @@ package racingcar.game.car.engin;
 
 import racingcar.game.enums.CarMove;
 import racingcar.game.inputgenerateManager.InputGenerateManager;
-import racingcar.game.inputgenerateManager.InputGenerateManagerImpl;
 
 public class CarEngineV1 implements CarEngine {
     private final InputGenerateManager inputGenerateManager;
 
     @Override
-    public CarMove accelerate() {
+    public CarMove operateEngine() {
         Integer moveOrStopCondition = inputGenerateManager.generateRandomInt();
         return movingForward(moveOrStopCondition);
     }
@@ -20,10 +19,6 @@ public class CarEngineV1 implements CarEngine {
             return CarMove.MOVING_FORWARD;
         }
         return CarMove.STOP;
-    }
-
-    public static CarEngine createCarEngine(){
-        return new CarEngineV1(InputGenerateManagerImpl.createInputGenerateManager());
     }
 
     public CarEngineV1(InputGenerateManager inputGenerateManager) {

@@ -1,8 +1,8 @@
 package racingcar.game.car.engin;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import racingcar.game.enums.CarMove;
@@ -19,7 +19,7 @@ class CarEngineV1Test {
         CarEngineV1 carEngine = new CarEngineV1(mockInputGenerateManager);
 
         //when
-        CarMove accelerate = carEngine.accelerate();
+        CarMove accelerate = carEngine.operateEngine();
 
         //then
         Assertions.assertThat(accelerate).isEqualTo(CarMove.MOVING_FORWARD);
@@ -33,7 +33,7 @@ class CarEngineV1Test {
         CarEngineV1 carEngine = new CarEngineV1(mockInputGenerateManager);
 
         //when
-        CarMove accelerate = carEngine.accelerate();
+        CarMove accelerate = carEngine.operateEngine();
 
         //then
         Assertions.assertThat(accelerate).isEqualTo(CarMove.STOP);
