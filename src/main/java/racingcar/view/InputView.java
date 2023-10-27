@@ -11,4 +11,9 @@ public class InputView {
         String inputValue = readLine();
         return Convert.stringToListUsingComma(inputValue);
     }
+
+    public Integer readAttemptCount() {
+        String inputValue = readLine();
+        return Convert.stringToInteger(inputValue);
+    }
 }
