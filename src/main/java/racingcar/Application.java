@@ -8,7 +8,7 @@ public class Application {
         // TODO: 프로그램 구현
         final GameService gameService = new GameService();
         final GameController gameController = new GameController(gameService);
-        gameController.play();
+        gameController.run();
 
     }
 }

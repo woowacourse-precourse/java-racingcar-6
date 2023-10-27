@@ -33,5 +33,9 @@ public class GameService {
         return cars;
     }
 
+    public void moveCarsByCount(GamePlayer gamePlayer, int count) {
+        gamePlayer.moveCarsByCount(count);
+    }
+
 
 }
