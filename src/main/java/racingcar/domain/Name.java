@@ -4,6 +4,7 @@ import static racingcar.util.ErrorMessage.*;
 
 public record Name(String value) {
 
+    private static final int MAX_NAME_LENGTH = 5;
     private static final String NUMBER_REGEX = "^[0-9]*$";
 
     public Name {
@@ -23,7 +24,7 @@ public record Name(String value) {
     }
 
     private void checkLength(String name) {
-        if (name.length() > 5) {
+        if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(LENGTH_ERROR.getMessage());
         }
     }

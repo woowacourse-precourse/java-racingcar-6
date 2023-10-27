@@ -6,6 +6,10 @@ import racingcar.domain.CarGarage;
 
 public class RacingService {
 
+    private static final int START_INCLUSIVE = 0;
+    private static final int END_INCLUSIVE = 9;
+    private static final int STANDARD = 4;
+
     public void race(CarGarage garage) {
         for (Car car : garage.cars()) {
             boolean isGo = checkRacingCondition();
@@ -16,6 +20,6 @@ public class RacingService {
     }
 
     private boolean checkRacingCondition() {
-        return Randoms.pickNumberInRange(0, 9) >= 4;
+        return Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE) >= STANDARD;
     }
 }

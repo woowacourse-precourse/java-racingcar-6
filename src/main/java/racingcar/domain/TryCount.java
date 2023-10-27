@@ -15,9 +15,13 @@ public record TryCount(int value) {
     }
 
     private void checkPositive(int count) {
-        if (count <= 0) {
+        if (isNotPositive(count)) {
             throw new IllegalArgumentException(NEGATIVE_NUMBER_ERROR.getMessage());
         }
+    }
+
+    private static boolean isNotPositive(int count) {
+        return count <= 0;
     }
 
     private void checkMax(int count) {
