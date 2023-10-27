@@ -18,6 +18,7 @@ public class RacingController {
             carService.createCars(InputView.inputCarNames());
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
+            throw e;
         }
 
     }
