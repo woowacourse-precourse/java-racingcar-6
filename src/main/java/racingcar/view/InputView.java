@@ -15,4 +15,9 @@ public class InputView {
                 .map(String::trim)
                 .toList();
     }
+
+    public static int readTryCount() {
+        System.out.println(MessageConstraints.TRY_COUNT_MESSAGE.getValue());
+        return Integer.parseInt(Console.readLine());
+    }
 }
