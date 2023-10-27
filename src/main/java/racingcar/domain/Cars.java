@@ -28,6 +28,11 @@ public class Cars {
         return sorted.get(sorted.size()-1).getPosition();
     }
 
+    public List<Car> findWinner(Integer winnerPosition) {
+        return cars.stream()
+                .filter(car -> car.isWinner(winnerPosition))
+                .collect(Collectors.toList());
+    }
 
 
 
