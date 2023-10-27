@@ -14,6 +14,7 @@ public class Application {
 
     public static int times;
     public static List<List<String>> listOfCars;
+    public static int max=0;
 
     public static void main(String[] args) {
         startGame();
@@ -23,6 +24,7 @@ public class Application {
             }
             printResult();
         }
+        System.out.println("최종 우승자 : "+findWinner());
     }
 
     public static void startGame(){
@@ -51,9 +53,29 @@ public class Application {
             if(pickRandomNumber()){
                 String location = car.get(1)+"-";
                 car.set(1,location);
+                checkOverMax(location.length());
             }
             System.out.println(car.get(0)+" : "+car.get(1));
         }
         System.out.println("");
+    }
+
+    public static void checkOverMax(int length){
+        if(length>=max){
+            max = length;
+        }
+    }
+
+    public static String findWinner(){
+        List<String> winners = new ArrayList<>();
+        for(List<String> car : listOfCars){
+            if(car.get(1).length() >= max){
+                winners.add(car.get(0));
+            }
+        }
+        if(winners.size()>=2){
+            return String.join(", ",winners);
+        }
+        return winners.get(0);
     }
 }
