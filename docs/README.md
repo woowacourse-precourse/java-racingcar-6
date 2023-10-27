@@ -6,21 +6,25 @@
 
 ✅ 이름을 통해 의미 드러나게 하기
 
-✅ 빌드 파일혹은 IDE 파일들은 Git 이그노어에 추가해서 제외하기
-
 ✅ Java에서 재공하는 API 사용하기
 
 ✅ MVC 패턴 적용하기
 
 ✅ 긍정 조건을 이용해 분기 처리하기
 
-✅ enum에 포맷적용하기
+✅ enum에 포맷 적용하기
 
 ✅ 팩토리 메서드 패턴 적용하기
 
 ✅ 접근 제어자 고민하기
 
 ✅ 입력값을 검증할 때 원하는 타입으로 변환해서 검증하지 말고 입력값 자체로 검증 해보기
+
+✅ 깃으로 관리할 자원에 대해 고려해보기
+
+✅ 일급 컬렉션에 대해 적용해보기
+
+✅ 깃 워크플로우 적용하기
 
 ---
 
@@ -78,6 +82,21 @@
 <br>     📦 패키지
 <br>         📔 클래스
 <br>             📝 메서드
+<br>             🔤 변수
+
+## 📦 도메인 - Domain
+
+- [ ]  📔 자동차그룹 - carGroup
+   - [ ]  🔤 자동차 그룹 - car_group
+   - [ ]  📝 자동차 그룹 생성하기 - of
+   - [ ]  📝 자동차 그룹의 크기 구하기 - findSize
+   - [ ]  📝 들어온 순서로 자동차 검색하기 - findCarByOrder
+- [ ]  📔 자동차 - car
+   - [ ]  🔤 자동차 - car
+   - [ ]  📝 자동차 생성하기 - of
+   - [ ]  📝 자동차 이름 조회하기 - findName
+   - [ ]  📝 자동차 위치 조회하기 - findPostion
+   - [ ]  📝 자동차의 위치 수정하기 - updatePosition
 
 
 ## 📦 검증 - Validator
@@ -90,7 +109,8 @@
     - [ ]  📝 문자열이 아닌지 검증하기 - isNotString
     - [ ]  📝 실수가 아닌지 검증하기 - isNotRealNumber
     - [ ]  📝 `1`이상의 정수인지 검증하기 - isValidRange
-
+- [ ]  📔 자동차 이름 검증하는 기준값들 - carNameValidationCriteria
+- [ ]  📔 이동 횟수 검증하는 기준값들 - roundValidationCriteria
 ## 📦 게임 관리 - Controller
 
 - [ ]  📔 게임 관리 - gameController
@@ -105,7 +125,6 @@
 
 - [ ]  📔 게임 진행 - gameModel
     - [ ]  📝 게임 한 판 진행하기 - playGameRound
-    - [ ]  📝 모든 자동차 조건에 따라 이동하기 - moveCars
     - [ ]  📝 이동 여부 판단해주기 - detremineMove
 
 ## 📦 결과 출력 - View
@@ -124,7 +143,7 @@
 
 ## 📦 문구 - Message
 
-- [ ]  📔 문구 - gamePromt
+- [ ]  📔 문구 - gamePrompt
     - InputCarNamesMessage
     - inputRoundMessage
     - outputFinalWinnerMessage
