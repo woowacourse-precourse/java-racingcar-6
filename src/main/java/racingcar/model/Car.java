@@ -2,7 +2,6 @@ package racingcar.model;
 
 import static racingcar.util.Constant.FORWARD_THRESHOLD;
 
-import java.util.Objects;
 import racingcar.util.NumberGenerator;
 
 public class Car implements Vehicle {
@@ -24,22 +23,5 @@ public class Car implements Vehicle {
 
     public String getName() {
         return carName.getName();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Car car = (Car) o;
-        return Objects.equals(carName, car.carName);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(carName);
     }
 }
