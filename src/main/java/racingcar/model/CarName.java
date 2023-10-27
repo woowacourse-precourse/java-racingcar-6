@@ -20,7 +20,7 @@ public class CarName {
     }
 
     private boolean isNameLengthValid(final String name) {
-        return name.length() < MAX_CAR_NAME_LENGTH.getValue();
+        return name.length() <= MAX_CAR_NAME_LENGTH.getValue();
     }
 
     public String getName() {
