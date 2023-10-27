@@ -64,6 +64,6 @@ public class CarTest {
     void carMoveResultMessageTest() {
         car_2.move(true);
         car_2.move(true);
-        Assertions.assertThat(car_2.toString()).isEqualTo(CAR2_NAME + " : --");
+        Assertions.assertThat(car_2.makeMoveResultMessage()).isEqualTo(CAR2_NAME + " : --");
     }
 }

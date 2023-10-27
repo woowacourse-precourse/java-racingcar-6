@@ -1,21 +1,26 @@
 # 기능목록
 
 ## Model
+-  ### CarComponent - Car, Cars 객체를 이루는 구성 요소
 - [x] 자동차의 위치를 저장하고 비교한다 - CarPosition
 - [x] 자동차의 위치를 1 증가시킨 객체를 반환한다 - CarPosition
 - [x] 자동차의 위치 비교 결과를 표현한 Enum - CarPositionCompareResult
 - [x] 자동차의 이동 횟수를 저장한다 - CarMoveCount
 - [x] 이동 여부에 따라 moveCount 를 증가한 객체를 반환한다 - CarMoveCount
 - [x] 시도할 횟수, CarMoveCount 해를 저장하고 CarMoveCount 와 비교한다 - TotalNumberToMove
-- [x] CarPosition 을 저장하고 비교한다 - Car
+-  ### Car - CarComponent 를 활용해 실제 Car 객체를 전진시키고, 우승자를 찾는 로직 보유
+- [x] CarPosition 을 가지고 비교한다 - Car
 - [x] 자동차의 이름을 저장하고 이동 결과를 출력한다 - Car
-- [x] 자동차를 전진한다 - Car, CarPosition
-- [x] 자동차들을 저장하고 전진을 명령한 후 결과를 반환한다. - Cars
-- [x] TotalNumberToMove 를 저장하고 이동 가능 여부를 반환한다. - Cars
+- [x] 자동차를 전진한다 - Car
+- [x] Car 를 가지고 전진을 명령한 후 결과를 String 으로 반환한다. - Cars
+- [ ] TotalNumberToMove 와 Cars 를 가지고 자동차의 이동 여부를 파악한다 - CarMovement
+- [ ] Cars 에 이동명령을 내리며 그 결과를 String 으로 반환한다 - CarMovement
 - [x] 자동자의 위치를 비교하며 우승자를 판단하고 우승자 메시지를 만든다 - WinCars
-- [x] 자동차들 중 우승자를 선별한다 - Cars
-- [ ] Car 를 생성한다 - Generator
-- [ ] TotalNumberToMove 를 생성한다 - Generator
+- [x] WinCar 객체를 통해 자동차들 중 우승자를 선별한다 - Cars
+- ### Util - 어플리케이션에 필요한 도메인 생성
+- [x] Car 를 생성한다 - Generator
+- [x] TotalNumberToMove 를 생성한다 - Generator
+- [x] Randoms 를 통해 자동차의 전진 여부를 Supplier 함수로 반환한다 - Generator
 ## View
 - [ ] 자동차 이름을 입력받는다 - InputView
 - [ ] 시도할 회수를 입력받는다 - InputView
