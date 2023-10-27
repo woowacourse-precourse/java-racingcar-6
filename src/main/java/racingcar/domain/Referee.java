@@ -1,7 +1,7 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Referee {
 
@@ -23,23 +23,15 @@ public class Referee {
     }
 
     private int calculateMaxDistance(List<Car> carList) {
-        int maxDistance = Integer.MIN_VALUE;
-        for (Car car : carList) {
-            int distance = car.distance();
-            if (distance > maxDistance) {
-                maxDistance = distance;
-            }
-        }
-        return maxDistance;
+        return carList.stream()
+                .mapToInt(Car::distance)
+                .max()
+                .orElse(Integer.MIN_VALUE);
     }
 
     private List<Car> findWinners(List<Car> carList, int maxDistance) {
-        List<Car> winners = new ArrayList<>();
-        for (Car car : carList) {
-            if (car.distance() == maxDistance) {
-                winners.add(car);
-            }
-        }
-        return winners;
+        return carList.stream()
+                .filter(car -> car.distance() == maxDistance)
+                .collect(Collectors.toList());
     }
 }
