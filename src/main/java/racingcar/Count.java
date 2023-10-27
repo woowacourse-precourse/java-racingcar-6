@@ -20,6 +20,10 @@ final class Count {
         return instance;
     }
 
+    boolean isEnd() {
+        return times == 0;
+    }
+
     void countDown() {
         times--;
     }
