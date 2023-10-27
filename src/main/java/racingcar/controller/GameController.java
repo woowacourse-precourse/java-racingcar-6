@@ -18,7 +18,7 @@ public class GameController {
         inputCarNameMessage.inputCarNameMessage();
         List<String> carNames = carCreator.createCarList(userService.inputItem());
         inputCarNameMessage.inputTryNumberMessage();
-        System.out.println(userService.inputTryNumber());
+        userService.inputTryNumber(userService.inputItem());
     }
 
 

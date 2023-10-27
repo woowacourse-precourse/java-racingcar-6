@@ -8,8 +8,7 @@ public class UserService {
         return Console.readLine();
     }
 
-    public int inputTryNumber() {
-        String tryNumber = inputItem();
+    public int inputTryNumber(String tryNumber) {
         try {
             int number = Integer.parseInt(tryNumber);
             return number;
