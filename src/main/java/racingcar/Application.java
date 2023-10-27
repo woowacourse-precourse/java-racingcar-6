@@ -1,6 +1,5 @@
 package racingcar;
 
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.Input;
 import racingcar.domain.Output;
@@ -22,8 +21,6 @@ public class Application {
 
         CarRacingGame carRacingGame = new CarRacingGame();
         carRacingGame.start(gameCount, cars);
-
         output.printWinner(cars);
     }
-
 }

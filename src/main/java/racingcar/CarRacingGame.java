@@ -12,7 +12,7 @@ public class CarRacingGame {
         Output output = new Output();
         for (int i = 0; i < gameCount; i++) {
             List<Car> moveResult = cars.moveAllCar();
-            output.printNameAndDistance(moveResult);
+            output.printMoveResult(moveResult);
         }
     }
 }

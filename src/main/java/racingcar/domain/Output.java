@@ -9,7 +9,7 @@ public class Output {
     }
 
     public void printInputGameCountMessage() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println("시도할 횟수는 몇 회인가요?");
     }
 
     public void printResultMessage() {
@@ -17,7 +17,7 @@ public class Output {
         System.out.println("실행 결과");
     }
 
-    public void printNameAndDistance(List<Car> moveResult) {
+    public void printMoveResult(List<Car> moveResult) {
         for (int i = 0; i < moveResult.size(); i++) {
             Car car = moveResult.get(i);
             System.out.println(car);

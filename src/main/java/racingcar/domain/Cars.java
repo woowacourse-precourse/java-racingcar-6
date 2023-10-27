@@ -21,11 +21,15 @@ public class Cars {
     public List<Car> moveAllCar() {
         for (int index = 0; index < cars.size(); index++) {
             int randomNumber = generateRandomNumber();
-            if (randomNumber > 3) {
-                moveCar(index);
-            }
+            moveCarIfBiggerThanThree(randomNumber, index);
         }
         return cars;
+    }
+
+    private void moveCarIfBiggerThanThree(int randomNumber, int index) {
+        if (randomNumber > 3) {
+            moveCar(index);
+        }
     }
 
     private void moveCar(int index) {
