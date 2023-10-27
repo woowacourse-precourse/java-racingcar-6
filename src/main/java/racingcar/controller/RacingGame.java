@@ -49,9 +49,8 @@ public class RacingGame {
 
         rotateCount = convertToInteger(rotateNumber);
     }
-    private List<Car> splitString(String carNames) {
+    private List<String> splitString(String carNames) {
         return Arrays.stream(carNames.split(CARS_SPLIT_STRING))
-                .map(Car::from)
                 .toList();
     }
 

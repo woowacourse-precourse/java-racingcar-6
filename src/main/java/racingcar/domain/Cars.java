@@ -14,9 +14,11 @@ public class Cars {
         this.cars = cars;
     }
 
-    public static Cars from(final List<Car> cars) {
+    public static Cars from(final List<String> nameList) {
 
-        return new Cars(cars);
+        return new Cars(nameList.stream()
+                .map(Car::from)
+                .toList());
     }
 
     public void go() {
