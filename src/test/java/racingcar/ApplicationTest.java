@@ -114,11 +114,35 @@ class ApplicationTest extends NsTest {
 
         winRaceCarList = gameHost.winRaceCar(raceCarList);
         String result = winRaceCarList.toString();
-        
+
         // then
         assertThat(result).isEqualTo(nameArr[0]);
     }
 
+    // ================ JudgeStandard.class ================
+    @DisplayName("자동차중에 전진을 한 숫작 5개이면 승리를 한것이다.")
+    @Test
+    public void isVictoryConditionTest() throws Exception {
+        // given
+        RaceCar firstCar = raceCarList.get(0);
+        RaceCar secondCar = raceCarList.get(1);
+
+        // when
+        firstCar.movementControlCar();
+        firstCar.movementControlCar();
+        firstCar.movementControlCar();
+
+        secondCar.movementControlCar();
+        secondCar.movementControlCar();
+
+        boolean result_true = judgeStandard.isVictoryCondition(firstCar);
+        boolean result_false = judgeStandard.isVictoryCondition(secondCar);
+
+        // then
+        assertThat(result_true).isTrue();
+        assertThat(result_false).isFalse();
+
+    }
 
     // 추가 완료 - 박승찬
 
