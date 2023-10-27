@@ -6,11 +6,15 @@ public class Name {
 
     public Name(final String name){
         validate(name);
-        this.value = name.replaceAll(" ","");
+        this.value = removeSpace(name);
     }
 
     public String getName(){
         return value;
+    }
+
+    private String removeSpace(final String name){
+        return name.replaceAll(" ","");
     }
 
     private void validate(final String name){
