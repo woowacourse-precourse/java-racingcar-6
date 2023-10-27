@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 public class Game {
     private int gameTurns;
@@ -20,7 +21,13 @@ public class Game {
     }
 
     private void checkValidCarNames(String input) {
-
+        StringTokenizer tokenizer = new StringTokenizer(input, ",");
+        while (tokenizer.hasMoreTokens()) {
+            String carName = tokenizer.nextToken();
+            if (carName.isEmpty() || carName.length() > 5) {
+                throw new IllegalArgumentException("Not valid input: car names");
+            }
+        }
     }
 
     private void initCarList(String[] carNames) {
@@ -33,7 +40,7 @@ public class Game {
         try {
             gameTurns = Integer.parseInt(Console.readLine().strip());
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Not valid input game turn number");
+            throw new IllegalArgumentException("Not valid input: game turn number");
         }
     }
 
