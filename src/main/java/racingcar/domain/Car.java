@@ -28,7 +28,7 @@ public class Car {
 
     public void tryAddMove() {
         int randomNumber = Randoms.pickNumberInRange(Config.BEGIN_RANGE, Config.END_RANGE);
-        if (randomNumber >= Config.MOVING_FORWORD) {
+        if (randomNumber >= Config.MOVING_FORWARD) {
             this.move.addMove();
         }
     }
