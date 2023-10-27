@@ -45,7 +45,7 @@ public class RaceManager {
         List<String> winners = selectWinner();
         String winnerMessage = String.join(", ", winners);
 
-        System.out.println();
+        System.out.println("최종 우승자 : "+winnerMessage);
     }
 
     public List<String> selectWinner() {
