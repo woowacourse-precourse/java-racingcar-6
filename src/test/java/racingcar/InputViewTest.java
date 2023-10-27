@@ -37,6 +37,6 @@ public class InputViewTest {
     @Test
     void 자동차이름_공백_제거_테스트() {
         List<String> inputViewList = inputView.splitInputByComma(" song , jone, jason ");
-        assertThat(inputViewList.get(0).length()).isEqualTo(6);
+        assertThat(inputViewList.get(0).length()).isEqualTo(4);
     }
 }

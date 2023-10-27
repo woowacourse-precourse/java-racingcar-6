@@ -8,6 +8,7 @@ import java.util.List;
 
 public class InputView {
     public List<Car> getCarList() {
+        OutputView.printCarNameText();
         List<String> carNames = splitInputByComma(Console.readLine());
         List<Car> carList = new ArrayList<>();
         for (String carName : carNames) {
