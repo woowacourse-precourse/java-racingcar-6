@@ -1,2 +1,5 @@
-package service;public class InputRacingCar {
+package service;
+
+public class InputRacingCar {
+
 }

@@ -4,7 +4,10 @@ import view.PrintMessage;
 
 public class Racing {
 
-    public void startRacing(){
+    public void startRacing() {
         PrintMessage.printStart();
+
     }
+
+
 }
