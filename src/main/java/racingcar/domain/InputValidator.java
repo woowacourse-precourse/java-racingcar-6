@@ -50,10 +50,14 @@ public class InputValidator {
         }
     }
 
-
     public void validateMoveCount(String moveCnt) {
         if (!moveCnt.matches("[0-9]+")) {
             throw new IllegalArgumentException("이동횟수는 자연수여야합니다.");
+        }
+
+        //입력을 자릿수 9 이내로 고정
+        if (moveCnt.length() > 9) {
+            throw new IllegalArgumentException("이동 횟수는 아홉 자릿수 이내여야 합니다.");
         }
 
         if (Integer.parseInt(moveCnt) == 0) {
