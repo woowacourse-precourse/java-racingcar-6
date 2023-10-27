@@ -9,6 +9,8 @@ public class Game {
     public void start() {
         String[] carNameList = getCarNameInput();
         final int ROUND = getRoundInput();
+
+        printResult(carNameList, ROUND);
     }
 
     private String[] getCarNameInput() {
@@ -34,6 +36,19 @@ public class Game {
         return number >= MIN_FORWARD_COUNT;
     }
 
+    private void printResult(String[] carNameList, int round) {
+        System.out.println("실행 결과");
+
+        final int CAR_NAME_LENGTH = carNameList.length;
+
+        int[] forwardCounts = new int[CAR_NAME_LENGTH];
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = round; i > 0; i--) {
+            getResult(carNameList, CAR_NAME_LENGTH, forwardCounts, sb, i);
+        }
+
+        System.out.print(sb);
     }
 
     private void getResult(String[] carNameList, int carNameLength, int[] result, StringBuilder sb, int i) {
