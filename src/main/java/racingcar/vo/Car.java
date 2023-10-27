@@ -13,7 +13,7 @@ public class Car {
         this.completedMoves = 0;
     }
 
-    public void move(){
+    public void incrementMoveCount(){
         this.completedMoves++;
     }
 

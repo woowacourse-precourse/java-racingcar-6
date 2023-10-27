@@ -8,7 +8,6 @@ import java.util.List;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
-import static org.junit.jupiter.api.Assertions.*;
 
 class CarTest {
 
@@ -23,19 +22,19 @@ class CarTest {
     void toChar_각_이동마다_올바른_결과를_출력하는지_확인한다() {
         Assertions.assertEquals("semin : ",car.toString());
 
-        car.move();
+        car.incrementMoveCount();
         Assertions.assertEquals("semin : -",car.toString());
 
-        car.move();
+        car.incrementMoveCount();
         Assertions.assertEquals("semin : -",car.toString());
 
-        car.move();
+        car.incrementMoveCount();
         Assertions.assertEquals("semin : --",car.toString());
 
-        car.move();
+        car.incrementMoveCount();
         Assertions.assertEquals("semin : ---",car.toString());
 
-        car.move();
+        car.incrementMoveCount();
         Assertions.assertEquals("semin : ---",car.toString());
     }
 
