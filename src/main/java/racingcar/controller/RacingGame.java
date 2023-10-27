@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.model.Cars;
@@ -43,6 +42,6 @@ public class RacingGame {
     }
 
     private List<String> parseNames(String names) {
-        return new ArrayList<>(Arrays.asList(names.split(",")));
+        return Arrays.asList(names.split(","));
     }
 }
