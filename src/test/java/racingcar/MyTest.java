@@ -8,12 +8,22 @@ import org.junit.jupiter.api.Test;
 
 public class MyTest {
     @Test
-    void 구분자_명확하게_분리하는지_확인(){
+    void 구분자_명확하게_분리하는지_확인_테스트(){
         RacingCarGame testToInputSplit = new RacingCarGame();
         String testInput = "t1, t2,t3,t4, t5,";
         testToInputSplit.splitCarNamesTest(testInput);
 
         assertThat(testToInputSplit.getCarNames()).contains("t1", "t2", "t3", "t4", "t5");
+    }
+
+    @Test
+    void 자동차_이름_예외처리_테스트() {
+        assertThatThrownBy(() -> {
+            RacingCarGame testCheckCarName = new RacingCarGame();
+            String[] inputTest = {"jung", "kim", "thisIsOverFive", "lee"};
+
+            testCheckCarName.checkCarNameTest(inputTest);
+        }).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test

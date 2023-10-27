@@ -196,6 +196,11 @@ public class RacingCarGame {
         splitCarNames(testCarNames);
     }
 
+    public void checkCarNameTest(String[] testInput) {
+        this.carNames = testInput;
+        checkCarName();
+    }
+
     public void checkMovementAmountTest(String movementAmountTest) {
         checkMovementAmount(movementAmountTest);
     }
