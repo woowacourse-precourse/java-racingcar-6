@@ -1,14 +1,13 @@
 package racingcar;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.view.InputView;
 
 import java.io.ByteArrayInputStream;
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.*;
 
 public class InputViewTest {
     private final InputView inputView = new InputView();
@@ -18,6 +17,11 @@ public class InputViewTest {
         inputView.closeConsole();
     }
 
+    @Test
+    void 자동차이름_올바른_입력_테스트() {
+        setSystemInToCustomInput("minjun, dahyeong , jason");
+        assertThatNoException().isThrownBy(() -> inputView.getCarList());
+    }
     @Test
     void 자동차이름_입력값_공백_예외처리_테스트() {
         setSystemInToCustomInput("minjun, , jason");
