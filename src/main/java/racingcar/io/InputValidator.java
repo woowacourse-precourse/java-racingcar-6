@@ -13,6 +13,6 @@ public class InputValidator {
     }
 
     private boolean hasInvalidDelimiterUsage(final String input) {
-        return input.matches(CAR_NAMES_REGEX);
+        return !input.matches(CAR_NAMES_REGEX);
     }
 }
