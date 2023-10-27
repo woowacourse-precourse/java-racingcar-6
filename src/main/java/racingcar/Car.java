@@ -21,4 +21,12 @@ public class Car {
     public String getCarName() {
         return carName;
     }
+
+    public void showPosition() {
+        System.out.print(carName + " : ");
+        for (int i=0; i < position; i++) {
+            System.out.print('-');
+        }
+        System.out.println();
+    }
 }
