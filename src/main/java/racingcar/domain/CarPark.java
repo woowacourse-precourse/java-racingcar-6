@@ -1,13 +1,11 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.vo.Car;
 
 public class CarPark {
-
-    List<Car> park;
+    private List<Car> park;
 
     public CarPark(List<Car> park) {
         this.park = park;
@@ -17,5 +15,13 @@ public class CarPark {
         return park.stream()
                 .map(Car::getName)
                 .collect(Collectors.toList());
+    }
+
+    public List<Car> getPark() {
+        return park;
+    }
+
+    public void UpdateCarParkState(List<Car> park) {
+        this.park = park;
     }
 }

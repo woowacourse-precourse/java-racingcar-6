@@ -1,5 +1,7 @@
 package racingcar.config;
 
+import racingcar.game.Game;
+import racingcar.game.impl.RacingGame;
 import racingcar.ioadapter.IoAdapter;
 import racingcar.ioadapter.impl.StandardIoAdapter;
 import racingcar.service.InputConvertService;
@@ -25,5 +27,9 @@ public class AppConfig {
 
     public InputConvertService inputConvertService() {
         return new InputConvertServiceImpl(validateService());
+    }
+
+    public Game game() {
+        return new RacingGame(racingService());
     }
 }

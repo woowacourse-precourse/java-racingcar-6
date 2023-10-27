@@ -16,4 +16,8 @@ public final class Car {
     public Integer getScore() {
         return score;
     }
+
+    public Car makeNewCar() {
+        return new Car(this.name, this.score + 1);
+    }
 }
