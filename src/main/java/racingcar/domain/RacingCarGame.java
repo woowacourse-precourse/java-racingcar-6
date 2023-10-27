@@ -63,7 +63,7 @@ public class RacingCarGame {
         List<Car> carList = new ArrayList<>();
 
         for (String carName : carNames) {
-            carList.add(new Car(carName));
+            carList.add(new Car(carName.strip()));
         }
 
         return carList;
