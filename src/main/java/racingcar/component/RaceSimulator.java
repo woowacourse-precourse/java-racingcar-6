@@ -24,6 +24,7 @@ public class RaceSimulator {
                 car.go();
             }
         }
+        printer.printCurrent(cars);
     }
 
     private boolean canGo() {
