@@ -1,12 +1,21 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.view.InputView;
 
 public class InputViewTest {
+
+
+    @AfterEach
+    void setUp() {
+        Console.close();
+    }
+
     @Test
     void 시도_횟수_입력_테스트() {
 
@@ -17,12 +26,12 @@ public class InputViewTest {
 
         Assertions.assertTrue(input != null);
 
+
     }
 
 
     @Test
     void 경기_참여_자동차_입력_테스트() {
-
         ByteArrayInputStream fakeInput = new ByteArrayInputStream("pobi,junhy,hello".getBytes());
         System.setIn(fakeInput);
 
