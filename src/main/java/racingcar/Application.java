@@ -26,4 +26,14 @@ public class Application {
     	Validator.validateCarName(carName);
     }
     
+    //입력받은 차 이름 분리하기(쉼표로 구분하기)
+    public static List<String> separateCarNameInput(String carNames){
+    	List<String> carList = new ArrayList<>();
+    	String[] carNamesArr = carNames.split(",");
+    	for(int i=0;i<carNamesArr.length;i++) {
+    		checkCarNameValidation(carNamesArr[i]);
+    		carList.add(carNamesArr[i]);
+    	}
+    	return carList;
+    }
 }
