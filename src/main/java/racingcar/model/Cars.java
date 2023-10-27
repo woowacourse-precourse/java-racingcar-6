@@ -11,16 +11,10 @@ import java.util.stream.Collectors;
 public class Cars {
     private final List<Car> cars;
 
-    public Cars(){
-        this.cars = userInputToCars(userInputToStringList());
+    public Cars(List<String> cars){
+        this.cars = userInputToCars(cars);
     }
 
-    private List<String> userInputToStringList() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        return Arrays.stream(Console.readLine().split(","))
-                .map(String::trim)
-                .collect(Collectors.toList());
-    }
 
     private List<Car> userInputToCars(List<String> userInput) {
         List<Car> carList = new ArrayList<>();
@@ -35,6 +29,5 @@ public class Cars {
     public List<Car> getCars() {
         return cars;
     }
-
 
 }
