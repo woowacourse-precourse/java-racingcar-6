@@ -19,4 +19,14 @@ public class View {
         String result = convertToResultForm(names, moveCounts);
         System.out.println(result);
     }
+
+    private String convertToResultForm(List<String> names, List<Long> moveCounts) {
+        StringBuilder resultForm = new StringBuilder();
+        for (int idx = 0; idx < names.size(); idx++) {
+            String name = names.get(idx);
+            long moveCount = moveCounts.get(idx);
+            resultForm.append(name).append(" : ").append(convertMoveCountsToHyphens(moveCount)).append("\n");
+        }
+        return resultForm.toString();
+    }
 }
