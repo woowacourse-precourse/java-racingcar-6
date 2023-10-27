@@ -10,7 +10,7 @@ public class Car {
         this.name=name;
     }
     void move(){
-        if(Randoms.pickNumberInRange(0,9)>4) ++position;
+        if(Randoms.pickNumberInRange(0,9)>=4) ++position;
     }
     int getPosition(){
         return position;

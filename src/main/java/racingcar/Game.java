@@ -30,7 +30,7 @@ public class Game {
                 .stream()
                 .filter(c->c.getPosition()==(user.getNumber()))
                 .toList()
-                .size()>1))return true;
+                .size()>=1))return true;
         else return false;
     }
     private void printPosition(){
@@ -41,7 +41,7 @@ public class Game {
         });
     }
     private void printResult(){
-        System.out.println("최종우승자 : "+
+        System.out.println("최종 우승자 : "+
                 cars.stream()
                         .filter(c->c.getPosition()==user.getNumber())
                         .map(c->c.getName())
