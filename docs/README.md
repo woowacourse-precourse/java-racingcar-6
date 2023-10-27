@@ -26,8 +26,8 @@
 
 ## 시도 횟수만큼 경주를 진행하는 기능
 - [ ] 시도 횟수만큼 경주 진행
-  - [ ] 자동차 한 대의 랜덤 넘버 생성
-    - [ ] `camp.nextstep.edu.missionutils.Randoms.pickNumberInRange()`로 랜덤 숫자 생성
+  - [x] 자동차 한 대의 랜덤 넘버 생성
+    - [x] `camp.nextstep.edu.missionutils.Randoms.pickNumberInRange()`로 랜덤 숫자 생성
   - [ ] 자동차 이동 거리 갱신
     - [ ] 4 이상이면 이동 거리 +1
     - [ ] 4 이하면 아무것도 안한다.
