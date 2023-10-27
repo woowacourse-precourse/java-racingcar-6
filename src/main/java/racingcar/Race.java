@@ -12,9 +12,12 @@ public class Race {
         }
     }
 
-    public void moveCars(){ // 자동차 랜덤 이동 함수
-        for( Car car : cars){
-            car.move(Randoms.pickNumberInRange(0,9));
+    public void moveCars(String carNames){ // 자동차 랜덤 이동 함수
+        for( Car car : cars) {
+            if (car.getName().equals(carNames)) {
+                car.move(Randoms.pickNumberInRange(0, 9));
+                break;
+            }
         }
     }
 

@@ -20,6 +20,7 @@ public class View {
         for(Car car  : cars){
             System.out.println(car);
         }
+        System.out.println();
     }
 
     public void printWinner(String winner){

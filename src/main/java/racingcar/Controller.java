@@ -14,6 +14,19 @@ public class Controller {
     }
 
     public void startRace(){
+        String carNameInput = raceView.printStartMeg();
+        String [] carNames = splitCarNames(carNameInput);
 
+        this.race = new Race(carNames);
+
+        int countNumber = raceView.printGoCount();
+        raceView.printResultMeg();
+
+        for(int i=0; i<countNumber; i++){
+            for(int j=0; j<carNames.length; j++){
+                race.moveCars(carNames[j]);
+            }
+            raceView.printRaceResult(race.getCars());
+        }
     }
 }
