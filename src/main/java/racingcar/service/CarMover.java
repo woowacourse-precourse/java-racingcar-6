@@ -14,6 +14,8 @@ public class CarMover {
     }
 
     private static boolean isMoving() {
-        return Randoms.pickNumberInRange(0, 9) >= SystemConstant.MOVE_STANDARD.getValue();
+        return Randoms.pickNumberInRange(
+                SystemConstant.MIN_RANDOM_CONSTANT.getValue(), SystemConstant.MAX_RANDOM_CONSTANT.getValue())
+                >= SystemConstant.MOVE_STANDARD.getValue();
     }
 }
