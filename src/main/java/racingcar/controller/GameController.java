@@ -12,7 +12,7 @@ public class GameController {
     GameUtils gameUtility = new GameUtils();
     InputValidation validator = new InputValidation();
 
-    List<RacingCar> racingCarList = new ArrayList<>();  // 추후 일급컬랙션 적용해보기
+    List<RacingCar> racingCarList = new ArrayList<>();  // 추후 일급 컬랙션 적용 해보기
 
     public void run() {
         getMessage.GameStartMessage();
@@ -20,7 +20,7 @@ public class GameController {
         if (validator.checkPlayerInput(namesOfRacingCars)) {
             List<String> carNameList = gameUtility.splitByComma(namesOfRacingCars);
             for (String carName : carNameList) {
-                racingCarList.add(RacingCar(carName));
+                racingCarList.add(new RacingCar(carName));
             }
 
         } else {
