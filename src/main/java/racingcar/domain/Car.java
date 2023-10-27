@@ -9,10 +9,8 @@ public class Car {
         this.position = 0;
     }
 
-    public void move(MoveStrategy strategy) {
-        if (strategy.isMovable()) {
+    public void move() {
             position++;
-        }
     }
 
     public CarDto toDto() {
