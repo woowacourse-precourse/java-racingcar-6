@@ -2,6 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import racingcar.domain.EachMoveResultDto;
+import racingcar.domain.GameWinnerDto;
 
 public class OutputView {
     private static final OutputView INSTANCE = new OutputView();
@@ -17,8 +18,17 @@ public class OutputView {
         System.out.println(Message.GAMERESULT.getMessage());
     }
 
-    public void displayGameWinner() {
-        System.out.println(Message.GAMEWINNER.getMessage());
+    public void displayGameWinner(List<GameWinnerDto> gameresult) {
+        System.out.print(Message.GAMEWINNER.getMessage());
+
+        StringBuilder winners = new StringBuilder();
+        for (GameWinnerDto car : gameresult) {
+            winners.append(car.getWinnerCar()).append(Message.REST.getMessage());
+        }
+
+        winners.setLength(winners.length() - 1);
+
+        System.out.println(winners.toString());
     }
 
     public void displayEachGameResult(List<EachMoveResultDto> moveResults) {
@@ -29,11 +39,13 @@ public class OutputView {
         }
     }
 
+
     enum Message {
         GAMERESULT("실행 결과"),
         GAMEWINNER("최종 우승자 : "),
         MOVEFOWARD("-"),
-        EACHGAMERESULT(" : ");
+        EACHGAMERESULT(" : "),
+        REST(",");
 
         private String message;
 
