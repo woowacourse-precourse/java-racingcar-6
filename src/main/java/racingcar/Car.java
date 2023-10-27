@@ -9,6 +9,10 @@ public class Car {
         this.currentPosition = 0;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void updatePosition() {
         currentPosition++;
     }
