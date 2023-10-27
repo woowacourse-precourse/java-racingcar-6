@@ -38,8 +38,12 @@ public class Cars {
         return carList.size();
     }
 
-    public void moveCarPosition(int index) {
-        carList.get(index).addPosition();
+    public void moveCars() {
+        for (Car car : carList) {
+            if (Utils.getRandomNumber() >= 4) {
+                car.addPosition();
+            }
+        }
     }
 
     private List<Car> generateCarList(String[] cars) {
