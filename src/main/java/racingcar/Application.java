@@ -76,4 +76,16 @@ public class Application {
     	}
     	return false;
     }
+    
+    //랜덤수를 통해 전진조건이 된 차 전진하기
+    public static Map<String, Integer> updateCarRacingRecord(List<String> carList, Map<String, Integer> carRacingRecord){
+    	for(String carName : carList) {
+			int randomNumber = getRandomNumber();
+			if(checkRandomNumber(randomNumber)) {
+				carRacingRecord.put(carName, carRacingRecord.get(carName)+1);
+			}
+		}
+    	return carRacingRecord;
+    }
+    
 }
