@@ -15,6 +15,7 @@
 - 요구 사항에 명시된 출력문 구성
 - 0번 이동시 어떻게 처리할 것인가? 
   - 우승자는 1명 이상이므로, IllegalArgumentException 예외처리
+- 문자나 공백 포함시, IllegalArgumentException 예외처리
     
 3. 이동 로직 구현
 - 0~9사이 랜덤 값이 4~9 일 때 경우 전진
