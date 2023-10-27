@@ -9,4 +9,8 @@ public class View {
     public static String getInput() {
         return readLine();
     }
+
+    public static void printMessage(PromptMessage message){
+        System.out.println(message.getMessage());
+    }
 }
