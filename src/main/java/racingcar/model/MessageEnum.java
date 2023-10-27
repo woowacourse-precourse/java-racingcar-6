@@ -5,6 +5,8 @@ public enum MessageEnum {
     INPUT_TRY_NUMBER_MESSAGE("시도할 회수는 몇회인가요?"),
     MIN_SIZE_VALIDATE_MESSAGE("최소 " + NumberEnum.MIN_SIZE.getNumber() +"대의 차는 입력해야 합니다."),
     DUPLICATION_VALIDATE_MESSAGE("중복되는 차량의 이름이 존재합니다."),
+    RESULT_MESSAGE("실행 결과"),
+    MOVEMENT("-"),
     INVALID_INPUT_MESSAGE("유효하지 않은 정보를 입력했습니다."),
     MAX_LENGTH_EXCEEDED("입력한 이름 중 길이가 " + NumberEnum.MAX_LENGTH.getNumber() + "가 넘는 이름이 있습니다.");
 
