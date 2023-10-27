@@ -1,34 +1,21 @@
 package racingcar.model;
 
 import static racingcar.util.Constant.FORWARD_THRESHOLD;
-import static racingcar.util.Constant.MAX_CAR_NAME_LENGTH;
 
 import java.util.Objects;
-import racingcar.exception.car.NotValidNameLengthException;
 import racingcar.util.NumberGenerator;
 import racingcar.util.RandomNumberGenerator;
 
 public class Car implements Vehicle {
 
-    private final String name;
+    private final CarName carName;
 
-    private Car(final String name) {
-        this.name = name;
+    private Car(final CarName carName) {
+        this.carName = carName;
     }
 
-    public static Car createWith(final String name) {
-        validateCarName(name);
-        return new Car(name);
-    }
-
-    private static void validateCarName(final String name) {
-        if (!isNameLengthValid(name)) {
-            throw new NotValidNameLengthException(name);
-        }
-    }
-
-    private static boolean isNameLengthValid(final String name) {
-        return name.length() < MAX_CAR_NAME_LENGTH.getValue();
+    public static Car createWith(final CarName carName) {
+        return new Car(carName);
     }
 
     @Override
@@ -39,7 +26,7 @@ public class Car implements Vehicle {
 
     @Override
     public String getName() {
-        return name;
+        return carName.getName();
     }
 
     @Override
@@ -51,11 +38,11 @@ public class Car implements Vehicle {
             return false;
         }
         Car car = (Car) o;
-        return Objects.equals(name, car.name);
+        return Objects.equals(carName, car.carName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(carName);
     }
 }
