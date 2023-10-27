@@ -28,7 +28,7 @@ public final class TryCount {
         return value > NONE_LEFT;
     }
 
-    public TryCount nextTryCount() {
+    public TryCount next() {
         return new TryCount(this);
     }
 }
