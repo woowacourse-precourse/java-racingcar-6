@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.configuration.AppConfig;
+import racingcar.domain.MoveProbability;
 import racingcar.view.Output;
 
 public class RaceCar {
@@ -15,7 +17,14 @@ public class RaceCar {
     }
 
     public void moveForward() {
-        position.moveForward();
+        if (canMoveForward()) {
+            position.moveForward();
+        }
+    }
+
+    private boolean canMoveForward() {
+        MoveProbability probability = MoveProbability.getInstance(AppConfig.getNumberGenerator());
+        return probability.canMoveForward();
     }
 
     public int compareTo(RaceCar other) {
