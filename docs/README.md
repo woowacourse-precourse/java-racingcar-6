@@ -23,6 +23,6 @@
 - View
     - InputView : 입력을 담당할 메서드를 담은 클래스
     - OutputView : 출력을 담당할 메서드를 담은 클래스
-- Control
+- Controller
     - RacingGame : 게임의 진행을 맡을 메서드를 담은 클래스
 - Validator : 예외 처리를 진행할 메서드를 담은 클래스
