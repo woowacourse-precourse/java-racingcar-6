@@ -28,14 +28,14 @@ public class Application {
                 throw new IllegalArgumentException("공백을 입력하지 마세요.");
             }
 
-            if (carName.length()>5){
+            if (carName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름을 5자 이하로 입력해 주세요.");
             }
         }
 
         // 이름에 공백 포함시 => 공백 제거
         for (int i = 0; i < carNames.length; i++) {
-            carNames[i]= carNames[i].trim();
+            carNames[i] = carNames[i].trim();
         }
 
         for (String carName : carNames) {
@@ -48,8 +48,11 @@ public class Application {
         int roundCount;
         try {
             roundCount = Integer.parseInt(userInput);
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자만 입력하세요.");
+        }
+        if(roundCount <= 0){
+            throw new IllegalArgumentException("1이상의 숫자를 입력하세요");
         }
 
 
