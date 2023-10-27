@@ -8,7 +8,7 @@ import racingcar.vo.CarName;
 public class CarFactoryService {
 
 
-    CarRepository carRepository;
+    CarRepository carRepository = CarRepository.getInstance();
 
     public void createCars(String[] cars) {
         Arrays.asList(cars).forEach(this::createCar);
@@ -17,6 +17,8 @@ public class CarFactoryService {
     public void createCar(String carName) {
         CarName name = new CarName(carName);
         Car car = new Car(name);
+
+        this.carRepository.save(car);
 
     }
 }
