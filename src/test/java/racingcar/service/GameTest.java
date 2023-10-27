@@ -13,8 +13,6 @@ import racingcar.domain.car.Generator;
 import racingcar.domain.car.Name;
 import racingcar.domain.car.RandomNumberGenerator;
 import racingcar.domain.car.Rule;
-import racingcar.service.Attempt;
-import racingcar.service.Game;
 
 public class GameTest {
     @Test
