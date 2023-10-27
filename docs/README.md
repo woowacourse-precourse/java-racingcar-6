@@ -13,15 +13,19 @@
   - [x] 경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
 - [x] printRequestTryCount(); 
   - [x] 시도할 회수는 몇회인가요?
+- [x] printGameResultMessage()
+  - [x] 실행결과를 출력하기 전 "실행결과" 메세지 출력
 - [x] printCarLocation(); 
   - [x] 각 이동후 자동차 이름과 전진한 현재위치를 출력한다. 
 - [x] printWinner(); 
   - [x] 모든 이동후 최종 우승자를 , 를 기준으로 출력한다.
 
+
 ## RacingCar
 
 - [x] RacingCar(String name){}
   - [x] 입력받은 자동차 이름으로 RacingCar 객체를 생성한다.
+  - [x] validator 를 통해 이름이 5글자를 초과하는지 검증한다.
 - [x] this.location = 0; 
   - [x] RacingCar 에는 현재 위치에 대한 정보가 담겨있다.
 - [x] getLocation(); 
@@ -34,21 +38,20 @@
 
 ## RacingGameController
 
-- makeCars()
-  - 경주에 참여할 차 이름을 입력받고 RacingCar 객체를 생성한다.
-- requestWantToMove();
-  - 몇번의 이동시도를 할것인지 입력받는다.
-- play()
-  - 유저가 원하는 이동시도 만큼 각 RacingCar 를 이동시킨다.
-- findWinner();
-  - 모든 이동 시도가 완료된후 각 RacingCar 의 위치를 확인하여 우승자를 뽑는다.
-- printResult();
-  - 우승자를 출력한다.
+-  makeCars()
+  -  경주에 참여할 차 이름을 입력받고 RacingCar 객체를 생성한다.
+-  inputTryCount();
+  -  몇번의 이동시도를 할것인지 입력받는다.
+-  moveCars()
+  -  모든 RacingCar 에게 1회 move 시도를 한다.
+-  findMaxLocation()
+  -  가장 멀리 이동한 RacingCar 의 위치를 찾는다.
+-  findWinner(int maxLocation);
+  -  모든 이동 시도가 완료된후 각 RacingCar 의 위치를 확인하여 우승자를 찾는다.
   
 ## Validator
-- ,를 기준으로 자동차 이름을 입력 받을때 5자 이하인지 검증.
-- 사용자가 잘못된 입력을 했을경우 IllegalArgumentException 발생후 종료한다.
+- [x] ,를 기준으로 자동차 이름을 입력 받을때 5자 이하인지 검증.
+- [x] 사용자가 잘못된 입력을 했을경우 IllegalArgumentException 발생후 종료한다.
 
 ## Converter
-- 유저에게 입력받은 자동차 이름들을 List<RacingCar> 로 바꿔준다.
-- 유저에게 입력받은 원하는 전진 횟수를 int 로 바꿔준다.
+- [x] 유저에게 입력받은 원하는 전진 횟수를 int 로 바꿔준다.
