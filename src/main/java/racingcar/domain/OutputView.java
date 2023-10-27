@@ -21,6 +21,10 @@ public class OutputView {
             System.out.println(messge);
         }
     }
+    public void printWinners(List<String> cars){
+        System.out.println(makeGameResultMessage(cars));
+    }
+
     private String makeGameResultMessage(List<String> cars){
         String message = WINNER_OUTPUT_MESSAGE;
         for(int i=0;i< cars.size()-1;i++){
