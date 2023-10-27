@@ -1,6 +1,7 @@
 package racingcar;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
 
@@ -8,11 +9,24 @@ public class Application {
     public static void main(String[] args) {
         
     	System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-    	String carNameInput = Console.readLine();
-    	String[] cars = carNameInput.split(",");
-    	for(int i = 0; i < cars.length; i++) {
-    		cars[i] = cars[i].trim();
-    	}
-    	System.out.println(Arrays.toString(cars));
+    	
+    	String carInput = Console.readLine();
+    	List<String> carList = inputToCarList(carInput);
+    	
     }
+    
+    public static List<String> inputToCarList(String carInput) {
+		String[] separate = carInput.split(",");
+    	List<String> carList = new ArrayList<>();
+    	
+    	for(int i = 0; i < separate.length; i++) {
+    		carList.add(separate[i].trim());
+    	}
+    	
+    	while(carList.remove(String.valueOf("")));
+    	
+		return carList;
+	}
 }
+
+	
