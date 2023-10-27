@@ -13,10 +13,15 @@ public class RacingGameController {
 
     public void gameStart() {
         getCarNameAndCheckValidation();
+        getTryCountAndCheckValidation();
     }
 
     private void getCarNameAndCheckValidation() {
         List<String> carNameList = carNameSplitService.splitCarNames(inputView.getCarNames());
         inputValidator.checkCarNameInputValidation(carNameList);
+    }
+
+    private void getTryCountAndCheckValidation() {
+        inputView.getTryCount();
     }
 }
