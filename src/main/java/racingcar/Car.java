@@ -22,6 +22,12 @@ public class Car {
         return carName;
     }
 
+    public int getCarPosition() {
+
+        return carPosition;
+
+    }
+
     public void determineCarState() {
 
         int randomNumber = Randoms.pickNumberInRange(0, 9);
