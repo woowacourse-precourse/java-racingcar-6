@@ -3,49 +3,30 @@ package racingcar.game.inputgenerateManager;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
-import racingcar.game.enums.NumberSize;
-import racingcar.game.exception.IllegalLengthException;
-import racingcar.game.exception.IllegalNullTypeException;
-import racingcar.game.exception.IllegalTypeException;
+import racingcar.game.enums.InputSize;
 
 public class InputGenerateManagerImpl implements InputGenerateManager {
+    private static final String COMMA_DELIMITER = ",";
     @Override
     public Integer generateRandomInt() {
-        return Randoms.pickNumberInRange(NumberSize.START_INCLUSIVE.getSize(), NumberSize.END_INCLUSIVE.getSize());
+        return Randoms.pickNumberInRange(InputSize.START_INCLUSIVE.getSize(), InputSize.END_INCLUSIVE.getSize());
     }
 
     @Override
     public Integer generateInputStringToInt(String rawString) {
-        validateIsNull(rawString);
-        validateIsNumeric(rawString);
+        InputValidator.validateIsBlank(rawString);
+        InputValidator.validateIsNumeric(rawString);
         return Integer.valueOf(rawString);
     }
 
     @Override
     public List<String> generateInputStringSplitWithComma(String rawString) {
-        validateIsNull(rawString);
-        String[] splitData = rawString.split(",");
-        validateLength(splitData);
+        InputValidator.validateIsBlank(rawString);
+        String[] splitData = rawString.split(COMMA_DELIMITER);
+        InputValidator.validateLength(splitData);
         return Arrays.asList(splitData);
     }
-
-    private static void validateIsNumeric(String rawString) {
-        if (!rawString.matches("\\d+")) {
-            throw new IllegalTypeException();
-        }
-    }
-
-    private static void validateLength(String[] splitString) {
-        for (String string : splitString) {
-            if(string.length() > 5){
-                throw new IllegalLengthException();
-            }
-        }
-    }
-
-    private static void validateIsNull(String rawString) {
-        if (rawString == null || rawString.equals("")) {
-            throw new IllegalNullTypeException();
-        }
+    public static InputGenerateManager createInputGenerateManager(){
+        return new InputGenerateManagerImpl();
     }
 }
