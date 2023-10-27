@@ -5,6 +5,7 @@ public enum ErrorMessage {
     NUMBER_FORMAT_ERROR(""),
     BLANK_ERROR("공백은 입력 불가능 합니다."),
     LENGTH_ERROR("5자 이하의 이름만 가능합니다."),
+    DUPLICATE_NAME_ERROR("중복되는 이름은 불가능 합니다."),
     ONLY_NUMERIC_ERROR("숫자만 입력 가능합니다."),
     NO_NUMERIC_ERROR("숫자는 입력 불가능 합니다."),
     NEGATIVE_NUMBER_ERROR("자연수만 입력 가능합니다."),

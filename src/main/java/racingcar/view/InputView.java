@@ -24,9 +24,8 @@ public class InputView {
     public CarGarage getCars() {
         System.out.println(INPUT_NAME_MESSAGE);
         String input = Console.readLine();
-        List<String> nameList = converter.convertToNameList(input);
-        List<Car> cars = converter.convertToCarList(nameList);
-        return new CarGarage(cars);
+        List<Car> carList = converter.convertToCarList(input);
+        return new CarGarage(carList);
     }
 
     public TryCount getTryCount() {
