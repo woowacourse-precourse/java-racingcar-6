@@ -36,6 +36,14 @@ public class InputValidator {
         return convertedStringList;
     }
 
+    public int validateTrialTimesInput(String inputString) {
+        isNumericCastable(inputString);
+        if (Integer.parseInt(inputString) < MINIMUM_NUMBER) {
+            ExceptionMessages.WRONG_RANGE_NUMBER.throwException();
+        }
+        return Integer.parseInt(inputString);
+    }
+
     private List<String> convertStringToStringList(String inputString) {
         List<String> carsNameList;
         carsNameList = Stream.of(inputString.split(",")).collect(Collectors.toList());
@@ -68,5 +76,13 @@ public class InputValidator {
         return stringList.stream()
                 .distinct()
                 .count() == stringList.size();
+    }
+
+    private void isNumericCastable(String inputString) {
+        try {
+            Integer.parseInt(inputString);
+        } catch (NumberFormatException e) {
+            ExceptionMessages.NOT_NUMBER.throwException();
+        }
     }
 }

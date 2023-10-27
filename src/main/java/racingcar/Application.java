@@ -19,5 +19,12 @@ public class Application {
         for (String inputString : inputStringList) {
             System.out.println("inputString = " + inputString);
         }
+
+        String userInputTrialTimes = inputView.askTrialTimes();
+        String preprocessedTrialTimes = inputValidator.preprocessInputString(userInputTrialTimes);
+        System.out.println("preprocessedTrialTimes = " + preprocessedTrialTimes);
+
+        int validTrialTimes = inputValidator.validateTrialTimesInput(preprocessedTrialTimes);
+        System.out.println("validTrialTimes = " + validTrialTimes);
     }
 }
