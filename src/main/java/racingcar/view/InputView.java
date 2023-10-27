@@ -19,7 +19,6 @@ public class InputView {
 
     public List<String> carNames() {
         String input = Console.readLine();
-        //, 나누기 테스트 해보기
         List<String> carNames = Arrays.stream(input.split(",")).toList();
         validateCarNames(carNames);
         return carNames;
@@ -37,6 +36,7 @@ public class InputView {
         Validator.stringToInteger(input);
         int moveCount = Integer.parseInt(input);
         Validator.integerInRange(moveCount, MIN_MOVE_COUNT, MAX_MOVE_COUNT);
+        System.out.println();
         return moveCount;
     }
 }

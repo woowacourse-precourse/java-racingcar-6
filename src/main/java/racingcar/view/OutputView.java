@@ -9,6 +9,10 @@ import racingcar.constant.GameMessage;
 public class OutputView {
     private final GameMessage gameMessage = new GameMessage();
 
+    public static void moveResult(String moveResultToString) {
+        System.out.println(moveResultToString);
+    }
+
     public void requestCarName() {
         System.out.println(gameMessage.REQUEST_CAR_NAME);
     }
@@ -16,4 +20,6 @@ public class OutputView {
     public void requestMoveCount() {
         System.out.println(gameMessage.REQUEST_MOVE_COUNT);
     }
+
+
 }
