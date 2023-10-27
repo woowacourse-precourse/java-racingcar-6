@@ -33,7 +33,13 @@ public class GameControllerTest {
                 Arguments.of(" ", "1"), // 이름 공백
                 Arguments.of("abc", "1"), // 이름 하나
                 Arguments.of("abc,abc", "1"), // 이름 중복
-                Arguments.of("abcdef", "1") // 이름 5자 초과
+                Arguments.of("abcdef", "1"), // 이름 5자 초과
+                // 라운드
+                Arguments.of("abc,def", "\n"), // 라운드 공백
+                Arguments.of("abc,def", " "), // 라운드 공백
+                Arguments.of("abc,def", "0"), // 라운드 0
+                Arguments.of("abc,def", "abc"), // 라운드 숫자가 아님
+                Arguments.of("abc,def", "-1") // 라운드 범위 벗어남
         );
     }
     private void command(final String... args) {
