@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Winners {
-    private final List<String> winnerList = new ArrayList<>();
-    
-    public void addWinner(String winner) {
-        winnerList.add(winner);
+    private final List<Car> winnerList = new ArrayList<>();
+
+    public void addWinner(Car winnerCar) {
+        winnerList.add(winnerCar);
     }
+
     
-    public List<String> getWinner() {
+    public List<Car> getWinner() {
         return winnerList;
     }
 }
