@@ -3,10 +3,16 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Console;
 
 public class ConsoleInput implements Input {
+    private InputValidator inputValidator;
+
+    public ConsoleInput() {
+        this.inputValidator = new InputValidator();
+    }
+
     @Override
     public void getCarNames() {
         String carNames = Console.readLine();
-        System.out.println(carNames);
+        inputValidator.validateCarNames(carNames);
     }
 
     @Override
