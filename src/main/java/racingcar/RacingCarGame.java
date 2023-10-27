@@ -18,6 +18,22 @@ public class RacingCarGame {
         finalWinners = new LinkedList<>();
     }
 
+    public String[] getCarNames() {
+        return this.carNames;
+    }
+
+    public CarInfo[] getCarArray() {
+        return this.carArray;
+    }
+
+    public int getMovementAmonut() {
+        return this.movementAmonut;
+    }
+
+    public Queue<String> getFinalWinners() {
+        return this.finalWinners;
+    }
+
     public void startGame(){
         inputCarNameMessage();
         inputCarInfo();
@@ -35,10 +51,19 @@ public class RacingCarGame {
 
     private void inputCarInfo(){
         String inputInfo = Console.readLine();
-        this.carNames = inputInfo.split(",", 0);
 
+        splitCarNames(inputInfo);
         checkCarName();
         createCarArray();
+    }
+
+    private void splitCarNames(String carNames) {
+        carNames = carNames.replaceAll(" ", "");
+        this.carNames = carNames.split(",", 0);
+    }
+
+    public void splitCarNamesTest(String testCarNames){
+        splitCarNames(testCarNames);
     }
 
     private void checkCarName(){
