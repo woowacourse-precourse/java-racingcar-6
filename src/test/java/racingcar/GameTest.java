@@ -11,11 +11,10 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class GameTest {
     private Game game;
-    private IO io;
 
     @BeforeEach
     void setUp() {
-        io = new IO();
+        IO io = new IO();
         game = new Game(io);
     }
 
