@@ -14,7 +14,6 @@ public class MainView {
     public MainView(CarController carController, GameController gameController) {
         this.carController = carController;
         this.gameController = gameController;
-        GameView gameView = new GameView(gameController, carSetting(), gameSetting());
     }
 
     private Cars carSetting() {
@@ -25,5 +24,10 @@ public class MainView {
     private Game gameSetting() {
         System.out.println("시도할 회수는 몇회인가요?");
         return gameController.makeGame(readLine());
+    }
+
+    public void run() {
+        GameView gameView = new GameView(gameController, carSetting(), gameSetting());
+        gameView.run();
     }
 }

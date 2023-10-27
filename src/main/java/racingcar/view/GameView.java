@@ -12,6 +12,9 @@ public class GameView {
         this.gameController = gameController;
         this.cars = cars;
         this.game = game;
+    }
+
+    public void run() {
         System.out.println("\n실행 결과");
         System.out.print(gameController.judge(cars, game));
         System.out.println("최종 우승자 : " + gameController.score(cars));
