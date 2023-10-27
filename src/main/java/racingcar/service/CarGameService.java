@@ -1,8 +1,9 @@
 package racingcar.service;
 
-import java.util.Map;
+import java.util.List;
+import racingcar.model.Car;
 
 public interface CarGameService {
     void makeAndStoreCar(String[] names);
-    Map<String, Integer> updateCar();
+    List<Car> updateCar();
 }
