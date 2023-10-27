@@ -19,7 +19,7 @@ public class RacingGameController {
         List<String> carNames = inputView.readCarNames();
         Cars cars = createCarsByCarNames(carNames);
         int attemptCount = inputView.readAttemptCount();
-
+        RacingGame racingGame = new RacingGame(cars, attemptCount);
 
     }
 }
