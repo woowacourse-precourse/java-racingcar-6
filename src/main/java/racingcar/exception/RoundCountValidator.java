@@ -1,6 +1,6 @@
 package racingcar.exception;
 
-public class RacingValidator {
+public class RoundCountValidator {
 
     private static final int MAX_INT_VALUE = 2_147_483_647;
     private static final int MIN_INT_VALUE = 1;
