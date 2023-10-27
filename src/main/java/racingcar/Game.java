@@ -10,6 +10,7 @@ public class Game {
 
     public void play() {
         readyGame();
+        startGame();
     }
 
     public void readyGame() {
@@ -28,7 +29,13 @@ public class Game {
     }
 
     public void startGame() {
-
+        while (gameRound-->0) {
+            for(Car car : cars) {
+                car.move();
+                car.printMove();
+            }
+            System.out.println();
+        }
     }
 
     public void endGame() {
@@ -36,7 +43,9 @@ public class Game {
     }
 
     public void printCarMove(){
-
+        for(Car car : cars) {
+            car.printMove();
+        }
     }
 
     public void printWinner(){
