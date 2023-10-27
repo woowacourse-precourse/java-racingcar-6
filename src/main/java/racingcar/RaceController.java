@@ -7,6 +7,7 @@ public class RaceController {
     ArrayList<Car> cars = new ArrayList<>();
     ArrayList<String> winners = new ArrayList<>();
     RaceView raceView = new RaceView();
+    ErrorHandler errorHandler = new ErrorHandler();
     int attempts;
 
     public void startRace() {
@@ -31,6 +32,7 @@ public class RaceController {
     public void initializeCars(String inputCar) {
         String[] inputCars = inputCar.split(",");
         for (String car : inputCars) {
+            errorHandler.checkErrorCarName(car);
             cars.add(new Car(car));
         }
     }
