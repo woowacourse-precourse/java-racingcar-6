@@ -37,4 +37,19 @@ public class ValidateInputTest {
         assertThatThrownBy(() -> Application.validateCarListInputBlank(inputList))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void validateCarInputLength_유효성검사_성공_테스트() {
+        String input = "abcde";
+
+        Application.validateCarInputLength(input);
+    }
+
+    @Test
+    void validateCarInputLength_유효성검사_실패_테스트() {
+        String input = "abcdef";
+
+        assertThatThrownBy(() -> Application.validateCarInputLength(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
