@@ -21,19 +21,6 @@ public class Name {
         this.name = name;
     }
 
-    public static Name from(final String name) {
-        return new Name(name);
-    }
-
-    public static List<Name> createCarNames(final String name) {
-        String[] splitNames = name.split(NAME_SPLITTER);
-        List<String> names = List.of(splitNames);
-
-        return names.stream()
-                .map(Name::from)
-                .collect(Collectors.toList());
-    }
-
     private void validateNameLength(final String name) {
         if (name.length() > MAXIMUM_LENGTH) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_EXCEPTION.toString());
@@ -50,6 +37,19 @@ public class Name {
         if (!name.matches("^[a-zA-Z0-9가-힣]+$")) {
             throw new IllegalArgumentException(CAR_NAMV_VALUE_EXCEPTION.toString());
         }
+    }
+
+    public static Name from(final String name) {
+        return new Name(name);
+    }
+
+    public static List<Name> createCarNames(final String name) {
+        String[] splitNames = name.split(NAME_SPLITTER);
+        List<String> names = List.of(splitNames);
+
+        return names.stream()
+                .map(Name::from)
+                .collect(Collectors.toList());
     }
 
     public String getName() {
