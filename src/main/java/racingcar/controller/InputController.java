@@ -23,9 +23,12 @@ public class InputController {
 
     public static int setNumber() {
 
-        int number = Integer.parseInt(Console.readLine());
+        try {
+            int number = Integer.parseInt(Console.readLine());
 
-        return number;
-
+            return number;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
     }
 }
