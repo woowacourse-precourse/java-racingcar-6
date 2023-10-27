@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.domain.RacingCarGameRunner;
+import racingcar.domain.game.RacingCarGameRunner;
 
 public class Application {
     public static void main(String[] args) {
