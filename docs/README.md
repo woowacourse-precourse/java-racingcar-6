@@ -8,8 +8,8 @@
 - [x] 이동 여부에 따라 moveCount 를 증가한 객체를 반환한다 - CarMoveCount
 - [x] 시도할 횟수, CarMoveCount 해를 저장하고 CarMoveCount 와 비교한다 - TotalNumberToMove
 - [x] CarPosition 을 저장하고 비교한다 - Car
-- [ ] 자동차의 이름을 저장하고 이동 결과를 출력한다 - Car
-- [ ] 자동차를 전진한다 - Car, CarPosition, CarMoveCount
+- [x] 자동차의 이름을 저장하고 이동 결과를 출력한다 - Car
+- [x] 자동차를 전진한다 - Car, CarPosition
 - [ ] TotalNumberToMove 를 저장하고 업데이트한다 - Cars
 - [ ] 자동차들을 저장한다 - Cars
 - [ ] 자동차에 전진을 명령한다 - Cars

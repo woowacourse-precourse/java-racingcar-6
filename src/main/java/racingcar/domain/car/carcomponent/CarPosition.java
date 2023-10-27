@@ -20,4 +20,8 @@ public class CarPosition {
     public CarPosition move() {
         return new CarPosition(position + 1);
     }
+
+    public String makePositionResultMessage() {
+        return "-".repeat(Math.max(0, position));
+    }
 }
