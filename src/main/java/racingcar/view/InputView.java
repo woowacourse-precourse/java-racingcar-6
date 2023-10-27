@@ -2,9 +2,10 @@ package racingcar.view;
 
 import io.reader.Reader;
 import racingcar.component.ComponentWriter;
-import racingcar.component.in.MaxRoundComponent;
-import racingcar.component.in.NameComponent;
+import racingcar.component.input.MaxRoundComponent;
+import racingcar.component.input.NameComponent;
 import racingcar.domain.car.CarsRacing;
+import racingcar.domain.game.boxed.MaxRound;
 import racingcar.parser.InputParser;
 
 public final class InputView {
@@ -27,7 +28,7 @@ public final class InputView {
         return inputParser.parseToCarsRacing(reader.readLine());
     }
 
-    public int inputMaxRound() {
+    public MaxRound inputMaxRound() {
         componentWriter.write(new MaxRoundComponent());
         return inputParser.parseToMaxRound(reader.readLine());
     }

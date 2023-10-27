@@ -1,8 +1,9 @@
 package racingcar.controller;
 
-import racingcar.domain.car.CarsFinished;
 import racingcar.domain.car.CarsRacing;
+import racingcar.domain.car.dto.output.CarsRacingDto;
 import racingcar.domain.game.CarsFinishedDto;
+import racingcar.domain.game.boxed.MaxRound;
 import racingcar.domain.move.MoveCommander;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -26,31 +27,31 @@ public final class GameController {
     public void run() {
         final CarsRacing cars = inputView.inputCarsRacing();
         playUntilMaxRound(cars);
-        showResult(cars);
+        showWinners(cars);
     }
 
 
     private void playUntilMaxRound(final CarsRacing cars) {
-        final int maxRound = inputView.inputMaxRound();
+        final MaxRound maxRound = inputView.inputMaxRound();
         _playUntilMaxRound(cars, 1, maxRound);
     }
 
     private void _playUntilMaxRound(
             final CarsRacing cars,
-            int currentRound,
-            final int maxRound
+            final int currentRound,
+            final MaxRound maxRound
     ) {
-        if (currentRound > maxRound) {
+        if (currentRound > maxRound.maxRound()) {
             return;
         }
         cars.moveAllBy(moveCommander);
+        final CarsRacingDto dto = cars.toDto();
+        outputView.printRoundResult(dto);
         _playUntilMaxRound(cars, currentRound + 1, maxRound);
     }
 
-    private void showResult(CarsRacing cars) {
-        final CarsFinishedDto dto = CarsFinished
-                .from(cars)
-                .toWinnersResult();
+    private void showWinners(CarsRacing cars) {
+        final CarsFinishedDto dto = cars.toFinished().toWinnersResult();
         outputView.printGameResult(dto);
     }
 }
