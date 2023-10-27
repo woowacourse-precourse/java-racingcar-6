@@ -24,6 +24,7 @@ public class Car {
     public void printCar() {
         printName();
         printPosition();
+        System.out.println();
     }
 
     private void printName() {
@@ -36,6 +37,5 @@ public class Car {
         for (int i = 0; i < currentPosition; i++) {
             System.out.print("-");
         }
-        System.out.println();
     }
 }
