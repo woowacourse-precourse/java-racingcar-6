@@ -7,6 +7,7 @@ import racingcar.domain.Car;
 import racingcar.domain.TryRemains;
 import racingcar.service.CarMover;
 import racingcar.service.WinnerChecker;
+import racingcar.verifier.InputVerifier;
 import racingcar.view.InputHandler;
 import racingcar.view.OutputHandler;
 
@@ -49,6 +50,7 @@ public class RaceController {
     }
 
     private void createTryRemains(String userInput) {
+        InputVerifier.verifyTry(userInput);
         tryRemains = new TryRemains(Integer.parseInt(userInput));
     }
 }
