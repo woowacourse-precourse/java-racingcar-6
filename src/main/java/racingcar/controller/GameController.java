@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.domain.Circuit;
 import racingcar.domain.TryCount;
 import racingcar.dto.RacingResult;
+import racingcar.dto.Winners;
 import racingcar.service.RacingService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -28,6 +29,7 @@ public class GameController {
             List<RacingResult> raceResults = racingService.race(circuit);
             outputView.printRacingResult(raceResults);
         }
-        outputView.printWinner(circuit.getWinners());
+        Winners winners = racingService.announceWinners(circuit);
+        outputView.printWinner(winners);
     }
 }

@@ -35,8 +35,8 @@ public class Circuit {
         return this.cars.size();
     }
 
-    public List<String> getWinners() {
-        int maxPosition = getMaxPosition();
+    public List<String> findTopPositionCarNames() {
+        int maxPosition = getTopPosition();
 
         return cars.stream()
                 .filter(car -> car.isWinner(maxPosition))
@@ -44,7 +44,7 @@ public class Circuit {
                 .collect(Collectors.toList());
     }
 
-    private int getMaxPosition() {
+    private int getTopPosition() {
         return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()

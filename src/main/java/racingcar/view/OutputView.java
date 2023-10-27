@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import racingcar.dto.RacingResult;
+import racingcar.dto.Winners;
 
 import java.util.List;
 
@@ -18,14 +19,14 @@ public class OutputView {
     public void printRacingResult(List<RacingResult> results) {
         System.out.println("실행 결과");
         results.forEach(result -> {
-            String name = result.getCarName();
-            String position = "-".repeat(result.getPosition());
+            String name = result.carName();
+            String position = "-".repeat(result.position());
             System.out.println(name + " : " + position);
         });
     }
 
-    public void printWinner(List<String> winners) {
-        String winnerNames = String.join(", ", winners);
+    public void printWinner(Winners winners) {
+        String winnerNames = String.join(", ", winners.names());
         System.out.println("최종 우승자 : " + winnerNames);
     }
 

@@ -3,6 +3,7 @@ package racingcar.service;
 import racingcar.domain.Car;
 import racingcar.domain.Circuit;
 import racingcar.dto.RacingResult;
+import racingcar.dto.Winners;
 import racingcar.util.RandomNumbersGenerator;
 
 import java.util.List;
@@ -17,7 +18,8 @@ public class RacingService {
                 .toList();
     }
 
-    public void announceWinners(Circuit circuit) {
-
+    public Winners announceWinners(Circuit circuit) {
+        List<String> winnerNames = circuit.findTopPositionCarNames();
+        return new Winners(winnerNames);
     }
 }
