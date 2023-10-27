@@ -104,5 +104,13 @@ public class RacingGame {
         winnerStr = winnerStr.substring(1);
         return winnerStr;
     }
-    
+
+    public void runGame() {
+        List<String> nameList = inputCarName();
+        int count = inputCountNum();
+        List<Integer> distanceList = runAllCycle(nameList, count);
+        List<String> winnerList = chooseWinner(nameList, distanceList);
+        String winnerStr = getWinnerNameString(winnerList);
+        System.out.println("최종 우승자 : " + winnerStr);
+    }
 }
