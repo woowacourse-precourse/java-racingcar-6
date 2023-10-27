@@ -4,7 +4,7 @@ import java.util.Objects;
 
 final class Count {
 
-    private long times;
+    private int times;
 
     private Count() {
     }
@@ -12,11 +12,11 @@ final class Count {
     static Count create(String input) {
         Count instance = new Count();
         try {
-            instance.times = Long.parseLong(input);
+            instance.times = Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
-        if(instance.times < 0) throw new IllegalArgumentException();
+        if(instance.times < 1) throw new IllegalArgumentException();
         return instance;
     }
 
