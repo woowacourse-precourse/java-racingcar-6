@@ -2,10 +2,13 @@ package racingcar.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.utils.Randoms;
 
 public class Cars {
 
     private static final String INVALID_INPUT_MESSAGE = "잘못된 입력입니다.";
+    private static final int RANDOM_NUMBER_LIMIT = 4;
+
     private final List<Car> cars;
 
     public static Cars of(List<String> names) {
@@ -15,6 +18,25 @@ public class Cars {
     private Cars(List<String> names) {
         validate(names);
         cars = convertToCars(names);
+    }
+
+    public void evaluateCondition() {
+        for (int index = 0; index < cars.size(); index++) {
+            conditionalMove(index);
+        }
+    }
+
+    private void conditionalMove(int index) {
+        if (Randoms.pickNumberInRange() < RANDOM_NUMBER_LIMIT) {
+            return;
+        }
+
+        Car targetCar = getCarByIndex(index).increaseForwardCount();
+        cars.set(index, targetCar);
+    }
+
+    private Car getCarByIndex(int index) {
+        return cars.get(index);
     }
 
     private List<Car> convertToCars(List<String> names) {
@@ -33,7 +55,6 @@ public class Cars {
             throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
         }
     }
-
 
     private void checkDuplicate(List<String> names) {
         if (hasDuplicate(names)) {
