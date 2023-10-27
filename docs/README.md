@@ -54,16 +54,18 @@
   - [x] 우승 객체를 담을 List<Car>, 가정 전진해 있는 winPosition 생성자
   - [x] winPosition 찾는 메소드
   - [x] winPosition에 있는 Car를 winnerCarList에 추가하는 메소드
+  - [x] 우승 차들 이름 String으로 제공하는 메소드
+
 ### VIEW
 - [x] InputView (ErrorException으로 입력 값 검증)
   - [x] 자동차 이름 입력 받기 (Console.readLine() 사용)
   - [x] 시도 횟수 입력 받기 (Console.readLine() 사용)
 
-- [ ] OutputView
+- [x] OutputView
   - [x] 자동차 이름 입력 문구 출력
   - [x] 시도 횟수 입력 문구 출력
   - [x] 실행 결과 출력
-  - [ ] 최종 우승자 출력
+  - [x] 최종 우승자 출력
   - [x] 개행 메소드
 
 ### CONTROLLER
@@ -73,14 +75,14 @@
     - [x] 검사 후 Car 객체 만들기
     - [x] 시도 회수 입력 받기
     - [x] 시도 회수 유효성 검사
-    - [ ] 시도 횟수 만큼 게임 진행 반복
-    - [ ] 게임 종료 메소드 실행
+    - [x] 시도 횟수 만큼 게임 진행 반복
+    - [x] 게임 종료 메소드 실행
 
   - [x] 게임 진행 (시도 회수 만큼 반복) 
     - [x] RandomGenerator를 사용해 각 시도 회수 만큼 자동차 전진
     - [x] OutputView로 자동차의 이름과 현재 위치 출력
 
-  - [ ] 게임 종료
-    - [ ] GameResult 객체 생성
-    - [ ] GameResult 안에서 각 Car의 위치를 계산해 객체에 우승 자동차 담기
+  - [x] 게임 종료
+    - [x] GameResult 객체 생성
+    - [x] GameResult 안에서 각 Car의 위치를 계산해 객체에 우승 자동차 담기
     - [ ] 우승 자동차 이름 출력

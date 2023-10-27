@@ -29,6 +29,10 @@ public class Car {
         return this.position;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
     private static boolean isCarMoveable(int moveCommand){
         return moveCommand >= CAR_MOVEABLE_VALUE;
     }
