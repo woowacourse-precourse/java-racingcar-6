@@ -2,28 +2,22 @@ package racingcar;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 final class CarsTest {
 
     @Test
     void Cars는_하나_이상의_Car를_가지지_않는경우_예외를_던진다() {
-        List<Car> cars = new ArrayList<>();
-        assertThrows(IllegalArgumentException.class, () -> new Cars(cars));
+        String input = ",";
+
+        assertThrows(IllegalArgumentException.class, () -> new Cars(input));
     }
 
-    class Cars {
+    @Test
+    void 사용자가_6자이상의_이름을_입력한경우_예외를_던진다(){
+        String input = "여섯글자이상,다섯자이름,일";
 
-        List<Car> cars = new ArrayList<>();
-
-        Cars(List<Car> cars) {
-            this.cars = cars;
-            if(cars.size() < 1) throw new IllegalArgumentException();
-        }
-
-
+        assertThrows(IllegalArgumentException.class, () -> new Cars(input));
     }
+
 }
