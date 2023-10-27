@@ -9,17 +9,29 @@ import racingcar.view.OutputView;
 
 public class RacingGame {
     public void play() {
+        List<String> carNames = getCarNames();
+        int attemptCount = getAttemptCount();
+        Cars cars = initializeCars(carNames);
+    }
+
+    private List<String> getCarNames() {
         OutputView.displayCarNames();
         String names = InputView.input();
+        return parseNames(names);
+    }
 
+    private int getAttemptCount() {
         OutputView.displayAttemptCount();
-        int attemptCount = Integer.parseInt(InputView.input());
-        List<String> carNames = parseNames(names);
+        String input = InputView.input();
+        return Integer.parseInt(input);
+    }
+
+    private Cars initializeCars(List<String> carNames) {
         Cars cars = new Cars();
         for (String carName : carNames) {
             cars.add(carName);
         }
-        System.out.println(cars);
+        return cars;
     }
 
     private List<String> parseNames(String names) {
