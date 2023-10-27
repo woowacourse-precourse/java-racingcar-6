@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import racingcar.view.UserInput;
 
@@ -45,7 +46,7 @@ class CarService {
         this.carList = changeUserInputToCarList(input);
     }
 
-    //1) 입력받은 자동차 이름별 Car클래스 생성
+    //1) 입력받은 자동차 이름별 Car클래스 생성 및 리스트에 담기
     public ArrayList<Car> changeUserInputToCarList(UserInput input) {
         ArrayList<Car> list = new ArrayList<>();
         String[] tmp = input.userInputCarName.split(",");
@@ -56,5 +57,13 @@ class CarService {
         return list;
     }
 
-}
+    //2) 경주할 각 자동차별 '랜덤값' 에 따라 전진-멈춤 조건 판별 기능
+    public boolean judgeRunOrStop(Car car) {
+        int random = Randoms.pickNumberInRange(0, 9);
+        if (random >= 4) {
+            return true;
+        }
+        return false;
+    }
 
+}
