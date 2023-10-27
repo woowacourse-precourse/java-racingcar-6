@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.constant.GameConfig;
 import racingcar.model.Car;
 import racingcar.validation.InputValidator;
 import racingcar.view.InputView;
@@ -17,6 +19,17 @@ public class GameController {
         List<Car> cars = createCars(inputCarNames());
         int attemptCount = inputAttemptCount();
 
+        for (int i = 0; i < attemptCount; i++) {
+
+        }
+    }
+
+    private void moveForward(Car car) {
+        int randomValue = Randoms.pickNumberInRange(GameConfig.RANDOM_MINIMUM_RANGE, GameConfig.RANDOM_MAXIMUM_RANGE);
+
+        if (randomValue >= GameConfig.MINIMUM_NUMBER_FOR_FORWARD) {
+            car.forward();
+        }
     }
 
     private int inputAttemptCount() {
