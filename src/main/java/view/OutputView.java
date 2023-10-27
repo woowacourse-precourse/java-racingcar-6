@@ -12,13 +12,9 @@ public class OutputView {
     }
 
     public static void displayWinners(ArrayList<String> winners){
-        System.out.print("최종 우승자: ");
-        if(winners.size() > 1){
-            for(String winner : winners){
-                System.out.print(winner + ", ");
-            }
-        } else if (winners.size() == 1) {
-            System.out.print(winners.get(0));
+        System.out.print("최종 우승자 : ");
+        if (!winners.isEmpty()) {
+            System.out.print(String.join(", ", winners));
         }
     }
 
