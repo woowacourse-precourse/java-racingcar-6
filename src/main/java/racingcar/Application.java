@@ -17,7 +17,7 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
         long number=Integer.parseInt(readLine());
-        if(number<0)
+        if(number<=0)
             throw new IllegalArgumentException("0이상이어야 합니다.");
 
         System.out.println("\n실행 결과");
