@@ -2,7 +2,7 @@
 
 ## 기능 목록
 - [ ] 자동차 이름 입력받기 - RaceBefore#carName()
-- [ ] 시도할 횟수 입력 받기 - RaceBefore#tryNumber()
+- [ ] 시도할 횟수 입력 받기
 - [ ] 게임 진행
   - [ ] 자동차에 무작위 값 할당하기 - RaceStart#allowNumber()
   - [ ] 4 이상일 경우 전진 - RaceStart#fowardOrStop()
