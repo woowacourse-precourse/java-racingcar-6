@@ -1,6 +1,7 @@
 package racingmodel;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,11 +20,20 @@ class GameChanger {
 
     void changeGame(LinkedHashMap<String, StringBuilder> car,
                     List<Integer> generatedNumbers) {
-        int i = 0;
+        Iterator temp = generatedNumbers.iterator();
+
         for (Map.Entry<String, StringBuilder> entry : car.entrySet()) {
-            if (changeStatus(generatedNumbers.get(i++)) == GoOrNot.GO) {
+            if (changeStatus(getNumber(temp)) == GoOrNot.GO) {
              car.put(entry.getKey(), entry.getValue().append("-"));
             }
+        }
+    }
+
+    int getNumber(Iterator<Integer> temp)
+    {
+        if(temp.hasNext())
+        {
+            return temp.next();
         }
     }
 
