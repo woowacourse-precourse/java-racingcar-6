@@ -17,8 +17,4 @@ public class RandomNumberGenerator {
         }
         return randomNumberList;
     }
-
-//    public void setRandomNumberValueToRandomNumber() {
-//        randomNumber.setRandomNumber(createRandomNumber());
-//    }
 }
