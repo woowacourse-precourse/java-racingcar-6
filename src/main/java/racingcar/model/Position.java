@@ -1,9 +1,10 @@
 package racingcar.model;
 
-import static racingcar.util.Constant.*;
+import static racingcar.util.Constant.NEXT_INDEX;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import racingcar.exception.position.NotFoundPositionException;
 
 public class Position {
@@ -17,9 +18,13 @@ public class Position {
     }
 
     public static Position createWith(final int positionIndex) {
-        Position position = new Position(positionIndex);
-        cache.put(positionIndex, position);
-        return position;
+        try {
+            return cache.get(positionIndex);
+        } catch (NoSuchElementException exception) {
+            Position position = new Position(positionIndex);
+            cache.put(positionIndex, position);
+            return position;
+        }
     }
 
     public Position getNextPosition(final Position position) {
