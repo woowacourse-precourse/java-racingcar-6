@@ -12,7 +12,7 @@ public class Car {
     }
 
     public void move() {
-        if (getCondition() >= MIN_MOVE_COND) {
+        if (getMoveCondition() >= MIN_MOVE_COND) {
             position++;
         }
     }
@@ -26,7 +26,7 @@ public class Car {
         return name;
     }
 
-    private int getCondition() {
+    private int getMoveCondition() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
