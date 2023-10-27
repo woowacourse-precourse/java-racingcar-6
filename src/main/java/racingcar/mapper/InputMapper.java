@@ -12,7 +12,7 @@ public class InputMapper {
     public static List<String> mapToNameList(String input) {
         checkInputNonNull(input);
 
-        return List.of(input.split(Delimiter.NAME.getShape()));
+        return List.of(input.split(getNameListDelimiter().getShape()));
     }
 
     public static int mapToPositiveNumber(String input) {
@@ -41,5 +41,9 @@ public class InputMapper {
         if (returning <= 0) {
             throw new IllegalArgumentException(NOT_POSITIVE_NUMBER_MESSAGE);
         }
+    }
+
+    public static Delimiter getNameListDelimiter() {
+        return Delimiter.NAME;
     }
 }

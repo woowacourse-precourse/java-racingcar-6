@@ -24,10 +24,9 @@ class Controller {
     }
 
     private List<String> readNames() {
-        String delimiterName = Delimiter.NAME.getName();
-        String delimiterShape = Delimiter.NAME.getShape();
+        Delimiter delimiter = InputMapper.getNameListDelimiter();
 
-        return InputMapper.mapToNameList(InputView.readNames(delimiterName, delimiterShape));
+        return InputMapper.mapToNameList(InputView.readNames(delimiter.getName(), delimiter.getShape()));
     }
 
     private int readTryCount() {
@@ -36,6 +35,7 @@ class Controller {
 
     private void race(int tryCount, Cars cars) {
         for (int i = 0; i < tryCount; i++) {
+
         }
     }
 }
