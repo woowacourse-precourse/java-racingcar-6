@@ -12,7 +12,7 @@ class Stadium {
         cars = new List<>();
     }
 
-    public void carsEnter(String line) throws IllegalArgumentException{
+    public void carsEnter(String line) throws IllegalArgumentException {
         carNames = Arrays.asList(line.split(","));
         for (String name : carNames) {
             validateName(name);
@@ -21,7 +21,7 @@ class Stadium {
     }
 
     private static void validateName(String string) throws IllegalArgumentException {
-        if(string.length()>5){
+        if (string.length() > 5) {
             throw new IllegalArgumentException();
         }
     }
@@ -31,7 +31,17 @@ class Stadium {
     }
 
     public void getStatus() {
+        for (Car car : cars) {
+            print(showCar(car));
+        }
+    }
 
+    public static String showCar(Car car){
+        String dash = "-".repeat(car.getPos());
+        return String.format("%s: %s",car.getName(), dash);
+    }
+    private static void print(String s) {
+        System.out.println(s);
     }
 
     public void winner() {
