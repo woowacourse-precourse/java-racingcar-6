@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,6 +16,14 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         input();
+
+        for (int i = 0; i < attempt; i++) {
+            race();
+        }
+
+        List<String> winnerList = getWinners();
+        String winners = String.join(",", winnerList);
+        System.out.println("최종 우승자 : "+winners);
     }
 
     // 자동차는 최소 1대, 자동차 이름은 최소 1글자 ~ 최대 5글자의 알파벳
@@ -43,5 +52,16 @@ public class Application {
         attempt = Integer.parseInt(inputAttempt);
 
         System.out.println("");
+    }
+
+    public static void race(){
+        for (Car car : cars) {
+            int randomValue = Randoms.pickNumberInRange(0, 9);
+            car.run(randomValue);
+        }
+    }
+    public static List<String> getWinners(){
+        List<String> winnerList = new ArrayList<>();
+        return winnerList;
     }
 }

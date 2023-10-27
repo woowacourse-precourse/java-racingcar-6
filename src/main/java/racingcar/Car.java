@@ -9,8 +9,10 @@ public final class Car {
         car.distance = 0;
         return car;
     }
-    public void run(){
-        this.distance ++;
+    public void run(int randomValue){
+        if(randomValue >= 4){
+            this.distance ++;
+        }
     }
     public String getName() {
         return name;
