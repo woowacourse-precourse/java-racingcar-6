@@ -22,7 +22,6 @@ public class Car implements Vehicle {
         return numberGenerator.generate() >= FORWARD_THRESHOLD.getValue();
     }
 
-    @Override
     public String getName() {
         return carName.getName();
     }
