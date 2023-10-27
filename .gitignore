@@ -6,6 +6,7 @@ build/
 !**/src/test/**
 
 ### STS ###
+*.class
 .apt_generated
 .classpath
 .factorypath
@@ -30,3 +31,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### etc ###
+.gitmessage.txt
