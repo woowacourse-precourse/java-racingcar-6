@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import racingcar.domain.MoveProbability;
 import racingcar.domain.RandomNumberGenerator;
+import racingcar.view.Output;
 
 public class RaceCars {
 
@@ -12,6 +13,7 @@ public class RaceCars {
     private static final int LESS_THAN = -1;
     private static final int FIRST_ELEMENT_INDEX = 0;
     private static final String SPLIT_DELIMITER = ",";
+    private static final String VERTICAL_WHITESPACE = "";
 
     private final List<RaceCar> raceCarList;
 
@@ -35,7 +37,7 @@ public class RaceCars {
         for (RaceCar car : raceCarList) {
             car.printCurrentPositions();
         }
-        System.out.println();
+        Output.printMessage(VERTICAL_WHITESPACE);
     }
 
     public void moveForwardEach() {
