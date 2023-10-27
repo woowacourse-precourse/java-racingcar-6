@@ -4,7 +4,7 @@ import racingcar.domain.util.OutputMessage;
 
 public class OutputView {
     public static void printEndGame() {
-        System.out.println(OutputMessage.PRINT_FINAL_WINNER.getMessage());
+        System.out.print(OutputMessage.PRINT_FINAL_WINNER.getMessage());
     }
 
     public static void printRoundResult() {

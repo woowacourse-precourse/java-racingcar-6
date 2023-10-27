@@ -31,6 +31,6 @@ public class GameController {
         OutputView.printEndGame();
         List<String> winners = gameService.getWinner();
         String result = String.join(", ", winners);
-        System.out.println(result);
+        System.out.print(result);
     }
 }

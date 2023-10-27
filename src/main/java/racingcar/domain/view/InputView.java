@@ -3,6 +3,9 @@ package racingcar.domain.view;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.util.InputMessage;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static racingcar.domain.util.InputMessage.*;
 
 public class InputView {
@@ -13,10 +16,17 @@ public class InputView {
 
     public static String receiveUserInput() {
         String userInput = Console.readLine();
-        if (userInput.length() > 5) {
-            throw new IllegalArgumentException();
+
+        List<String> lists = Arrays.stream(userInput.split(","))
+                .toList();
+
+        for (String list : lists) {
+            if (list.length() > 5) {
+                throw new IllegalArgumentException();
+            }
         }
-        return Console.readLine();
+
+        return userInput;
     }
 
     public static void printTryCount() {
