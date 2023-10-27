@@ -60,6 +60,16 @@ class ApplicationTest extends NsTest {
         assertThat(nameList).containsExactly("cbnu", "math","eng");
     }
 
+    @Test
+    void 횟수_숫자가_아닌_문자가_입력될떄_예외_처리(){
+        String input = "s";
+        ValidateServiceImpl validateService = new ValidateServiceImpl();
+        InputConvertServiceImpl inputConvertService = new InputConvertServiceImpl(validateService);
+
+        Assertions.assertThatThrownBy(()->inputConvertService.inputConvertRoundCount(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
