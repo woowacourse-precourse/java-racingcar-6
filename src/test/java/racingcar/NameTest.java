@@ -14,9 +14,17 @@ final class NameTest {
         assertThrows(IllegalArgumentException.class, () -> new Name(""));
     }
 
+    @Test
+    void 자동차이름의_길이가_5_초과일_경우_예외를_터트린다() {
+        assertThrows(IllegalArgumentException.class, () -> new Name("다섯글자이상"));
+    }
+
     record Name(String name) {
         Name {
             if (name.length() < 1) {
+                throw new IllegalArgumentException();
+            }
+            if (name.length() > 5) {
                 throw new IllegalArgumentException();
             }
         }
