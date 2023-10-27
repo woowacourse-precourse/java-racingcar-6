@@ -8,4 +8,11 @@ public class Car {
         this.name = name;
     }
 
+    public void moveForward(int randomNumber) {
+        if (randomNumber>=4) position++;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
 }
