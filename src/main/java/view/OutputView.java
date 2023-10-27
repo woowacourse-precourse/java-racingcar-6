@@ -1,5 +1,7 @@
 package view;
 
+import java.util.List;
+
 public class OutputView {
 
     private static final String carNamesMessage = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -12,4 +14,16 @@ public class OutputView {
     public void enterTryNumberMessage() {
         System.out.println(tryNumberMessage);
     }
+
+    public void printResult(List<String> carNames, int[] result) {
+        System.out.println("실행 결과");
+        for (int i = 0; i < carNames.size(); i++) {
+            String carName = carNames.get(i);
+            System.out.println(carName + " : ");
+            for (int j = 0; j < result[i]; j++) {
+                System.out.print("-");
+            }
+        }
+    }
+
 }
