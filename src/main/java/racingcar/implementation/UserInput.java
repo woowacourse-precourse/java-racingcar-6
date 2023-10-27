@@ -5,10 +5,16 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.*;
 
 public class UserInput {
+    public Scanner sc = new Scanner(System.in);
+    private ValidChecker checker;
+
+    public UserInput() {
+        checker = new ValidChecker();
+    }
 
     public List<String> getCarList() {
-        String input = Console.readLine();
-        List<String> carList = ValidChecker.carListCheck(input); // 5글자 이하에 대한 유효성 검사
+        String input = sc.next();
+        List<String> carList = checker.carListCheck(input);
 
         for (int i = 0; i < carList.size(); i++) {
             carList.set(i, carList.get(i).concat(" : "));
@@ -20,8 +26,8 @@ public class UserInput {
     public int getNumberOfTry() {
         int numberOfTry = 0;
 
-        String input = Console.readLine();
-        numberOfTry = ValidChecker.numberOfTryCheck(input);
+        String input = sc.next();
+        numberOfTry = checker.numberOfTryCheck(input);
 
         return numberOfTry;
     }
