@@ -16,7 +16,7 @@ public class InputView {
         return Console.readLine();
     }
 
-    public static String[] InputToArray(String input) throws IllegalArgumentException {
+    public static String[] inputToArray(String input) throws IllegalArgumentException {
         String[] carsName = input.split(",");
 
         if (!isNotDuplicate(carsName)) {

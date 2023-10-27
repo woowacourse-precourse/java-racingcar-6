@@ -18,7 +18,7 @@ public class MyTest {
 
         try {
             // 오류 유발 코드
-            InputView.InputToArray("");
+            InputView.inputToArray("");
 
         } catch (IllegalArgumentException e) {
             exceptionCatched = true;
@@ -32,7 +32,7 @@ public class MyTest {
 
         try {
             // 여기에 오류 유발 코드를 구현한다.
-            InputView.InputToArray("abcdef,agdwrh");
+            InputView.inputToArray("abcdef,agdwrh");
 
         } catch (IllegalArgumentException e) {
             exceptionCatched = true;
