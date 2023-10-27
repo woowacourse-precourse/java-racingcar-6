@@ -12,8 +12,14 @@ public class RacingGame {
 
     public void setUp() {
         List<String> carNames = getCarNames();
-        int attemptCount = getAttemptCount();
         initializeCars(carNames);
+        play(getAttemptCount());
+    }
+
+    private void play(int attemptCount) {
+        for (int attempt = 0; attempt < attemptCount; attempt++) {
+            cars.moveAll();
+        }
     }
 
     private List<String> getCarNames() {
