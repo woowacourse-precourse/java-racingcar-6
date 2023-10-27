@@ -4,7 +4,7 @@ import racingcar.constant.ErrorMessage;
 
 public class InputValidator {
 
-    private static final String CAR_NAMES_REGEX = "^[a-zA-Z]+(,[a-zA-Z]+)*$";
+    private static final String CAR_NAMES_REGEX = "^[ㄱ-ㅎ가-힣a-zA-Z0-9]+(,[ㄱ-ㅎ가-힣a-zA-Z0-9]+)*$";
     private static final String NUMERIC_REGEX = "^[0-9]+$";
 
     public void validateRacingCarNames(final String input) {
