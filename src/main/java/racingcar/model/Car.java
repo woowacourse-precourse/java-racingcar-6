@@ -1,8 +1,6 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Objects;
-import java.util.Random;
 import racingcar.util.MoveResolver;
 
 public class Car {

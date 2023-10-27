@@ -1,9 +1,7 @@
 package racingcar.model;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.OptionalInt;
-import java.util.stream.Collectors;
 import racingcar.util.MoveResolver;
 
 public class Game {
