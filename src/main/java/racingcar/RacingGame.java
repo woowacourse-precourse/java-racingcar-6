@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import racingcar.io.ConsoleProcessor;
@@ -33,7 +34,20 @@ public class RacingGame {
             playRound();
         }
 
+        List<String> winners = getWinners(scoreBoard);
+        consoleProcessor.printWinners(winners);
+
         consoleProcessor.closeConsole();
+    }
+
+    private List<String> getWinners(final Map<Car, Integer> scoreBoard) {
+        final int maxCount = scoreBoard.values().stream()
+                .max(Integer::compareTo)
+                .orElse(0);
+        return scoreBoard.entrySet().stream()
+                .filter(entry -> entry.getValue() >= maxCount)
+                .map(entry -> entry.getKey().getName())
+                .toList();
     }
 
     private void playRound() {
