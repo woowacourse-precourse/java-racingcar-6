@@ -88,4 +88,13 @@ public class Application {
     	return carRacingRecord;
     }
     
+    //전진 횟수 (-)으로 표시하기
+    public static String getRacingRecord(int recordNumber) {
+    	StringBuilder racingRecord = new StringBuilder();
+    	for(int i=0;i<recordNumber;i++) {
+    		racingRecord.append("-");
+    	}
+    	return racingRecord.toString();
+    }
+    
 }
