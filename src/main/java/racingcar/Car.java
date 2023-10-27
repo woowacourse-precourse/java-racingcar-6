@@ -30,8 +30,8 @@ public class Car {
         }
     }
 
-    public String getName() {
-        return name;
+    public int getMoveCount() {
+        return location.length();
     }
 
     @Override
