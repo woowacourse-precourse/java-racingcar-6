@@ -67,7 +67,7 @@ UserInterface 객체의 start 메서드를 실행한다.
 - 메서드
   - getName() 자동차의 이름을 리턴한다.
   - getLocation() 자동차의 현재위치를 리턴한다.
-  - increaseCarLocation() 자동차의 위치를 1증가시킨다
+  - increaseLocation() 자동차의 위치를 1증가시킨다
 
 ### Cars
 - 멤버변수
