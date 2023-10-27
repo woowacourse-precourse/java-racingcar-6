@@ -15,10 +15,16 @@ public class Cars {
             if (Randoms.pickNumberInRange(0, 9) >= 4) {
                 car.increaseMoveCount();
             }
+            int count = car.getMoveCount();
+            System.out.print(car.getName() + " " + ":" + " ");
+            printScore(count);
+            System.out.println();
         }
     }
 
-    public void printMoveCount() {
-        carList.forEach(car -> System.out.println(car.getMoveCount()));
+    private static void printScore(int count) {
+        for (int i = 0; i < count; i++) {
+            System.out.print("-");
+        }
     }
 }

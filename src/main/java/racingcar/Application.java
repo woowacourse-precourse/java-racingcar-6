@@ -21,9 +21,8 @@ public class Application {
         System.out.println("\n실행 결과");
         for (int i = 0; i < raceCount; i++) {
             cars.calculateMoveCount();
+            System.out.println();
         }
-
-        cars.printMoveCount();
     }
 
     private static int readCount() {
