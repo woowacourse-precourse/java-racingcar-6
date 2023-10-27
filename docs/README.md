@@ -37,7 +37,7 @@ UserInterface 객체의 start 메서드를 실행한다.
   - printRaceResult() 1회의 레이스 결과를 출력한다.
   - printFinalResult() 레이스의 최종 결과를 출력한다.
 
-## Logic Package
+## Service Package
 
 ### CarRaceLogic
 - 멤버변수
