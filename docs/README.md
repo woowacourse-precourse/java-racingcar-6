@@ -53,6 +53,34 @@
 - 협력
 - Car
 
+## InputMessage Object
+
+- 책임
+- 사용자 입력에 필요한 메시지를 알고 있어야 한다.
+- 사용자 입력에 필요한 메시지를 전달해 줄 수 있어야 한다.
+
+- 협력
+- InputView
+
+## OutputMessage Object
+
+- 책임
+- 게임 진행 중 필요한 메시지를 알고 있어야 한다.
+- 게임 진행 중 필요한 메시지를 전달해 줄 수 있어야 한다.
+
+- 협력
+- OutputView
+
+## ErrorMessage Object
+
+- 책임
+- 게임 진행 중 발생할 수 있는 예외 처리 메시지를 알고 있어야 한다.
+- 게임 진행 중 발생할 수 있는 예외 처리 메시지를 전달해 줄 수 있어야 한다.
+
+- 협력
+- InputView
+- OutputView
+
 # Layer
 
 ## Controller
