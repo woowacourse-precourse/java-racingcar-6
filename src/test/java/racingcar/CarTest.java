@@ -3,6 +3,7 @@ package racingcar;
 import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import racingcar.domain.Car;
@@ -15,5 +16,11 @@ class CarTest {
         Car car = new Car(name, position);
         assertThat(car.getName()).isEqualTo(name);
         assertThat(car.getPosition()).isEqualTo(position);
+    }
+
+    @Test
+    @DisplayName("실패 테스트 - 자동차 이름이 5글자를 초과한다.")
+    void test2() {
+        assertThatIllegalArgumentException().isThrownBy(() -> new Car("고민석입니다", 1));
     }
 }
