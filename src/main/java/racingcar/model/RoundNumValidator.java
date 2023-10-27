@@ -11,11 +11,15 @@ public class RoundNumValidator {
 	}
 
 	public void validate() {
-		if (!isNumber()) {
+		if (!isNumber() || !isPositiveNum()) {
 			throw new IllegalArgumentException();
 		}
 	}
 	public boolean isNumber() {
 		return Constants.roundNumPattern.matcher(roundInput).matches();
+	}
+
+	public boolean isPositiveNum() {
+		return Integer.parseInt(roundInput) > 0;
 	}
 }
