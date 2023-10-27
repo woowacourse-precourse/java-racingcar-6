@@ -35,6 +35,11 @@ public class ConsoleOutputView implements OutputView {
         gameResultResponse.getMap().forEach((vehicle, position) -> {
             System.out.println(makeResult(vehicle, position));
         });
+        printNewLine();
+    }
+
+    private void printNewLine() {
+        System.out.println();
     }
 
     private String makeResult(final Vehicle vehicle, final Position position) {
