@@ -30,16 +30,13 @@ public class Game {
             }
             System.out.println();
         }
-        // HashMap의 입력 순서를 보장하기 위해서 LinkedHashMap 사용
-        Map<String, Integer> playerAndDistMap = new LinkedHashMap<>();
-        for (Player car : playerObjectArray) {
-            playerAndDistMap.put(car.getPlayerName(), car.getDist());
-        }
-        int maxDist = Collections.max(playerAndDistMap.values());
 
+        Map<String, Integer> playerDistanceMap = Create.playerDistanceMapping(playerObjectArray);
+
+        int maxDist = Collections.max(playerDistanceMap.values());
         System.out.print("최종 우승자 : ");
         List<String> winners = new ArrayList<>();
-        for (Map.Entry<String, Integer> entry : playerAndDistMap.entrySet()) {
+        for (Map.Entry<String, Integer> entry : playerDistanceMap.entrySet()) {
             if (entry.getValue() == maxDist) {
                 winners.add(entry.getKey());
             }
