@@ -36,22 +36,22 @@ class InputViewTest {
         String inputBlank = "  ";
 
         assertThrows(IllegalArgumentException.class, () -> {
-            InputValidate.checkNullAndEmpty(inputNull);
+            InputValidate.validateCarNames(inputNull);
         });
         assertThrows(CarNameIncorrectException.class, () -> {
-            InputValidate.checkNullAndEmpty(inputNull);
+            InputValidate.validateCarNames(inputNull);
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            InputValidate.checkNullAndEmpty(inputEmpty);
+            InputValidate.validateCarNames(inputEmpty);
         });
         assertThrows(CarNameIncorrectException.class, () -> {
-            InputValidate.checkNullAndEmpty(inputEmpty);
+            InputValidate.validateCarNames(inputEmpty);
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            InputValidate.checkNullAndEmpty(inputBlank);
+            InputValidate.validateCarNames(inputBlank);
         });
         assertThrows(CarNameIncorrectException.class, () -> {
-            InputValidate.checkNullAndEmpty(inputBlank);
+            InputValidate.validateCarNames(inputBlank);
         });
 
     }
@@ -61,16 +61,16 @@ class InputViewTest {
     void carnameSplitAndNameSizeLimitTest() {
 
         String normal = "1,12,123,1234,12345";
-        String emptyError = "123,1234,12345, ,";
+        String emptyNormal = "12  3,1234 ,12345, ,";
         String sizeError = "1,12,123456";
 
-        List<Car> carnameList = InputView.getCarNameList(normal);
-        assertThat(carnameList.size()).isEqualTo(5);
-        assertThat(carnameList).isNotNull();
+        List<Car> carnameList1 = InputView.getCarNameList(normal);
+        assertThat(carnameList1.size()).isEqualTo(5);
+        assertThat(carnameList1).isNotNull();
 
-        assertThrows(CarNameIncorrectException.class, () -> {
-            InputView.getCarNameList(emptyError);
-        });
+        List<Car> carnameList2 = InputView.getCarNameList(emptyNormal);
+        assertThat(carnameList2.size()).isEqualTo(3);
+        assertThat(carnameList2).isNotNull();
 
         assertThrows(CarNameSizeLimitExceededException.class, () -> {
             InputView.getCarNameList(sizeError);
