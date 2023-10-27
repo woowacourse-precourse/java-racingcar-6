@@ -2,10 +2,8 @@ package racingcar.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.dto.CarStatusDto;
 
 public class RacingCars {
-    private static final String JOIN_SEPARATOR = ", ";
     private final List<Car> cars;
 
     public RacingCars(List<Car> cars) {
@@ -16,23 +14,10 @@ public class RacingCars {
         cars.forEach(Car::move);
     }
 
-    public String getWinner() {
-        return cars.stream()
-                .filter(car -> car.getPosition() == getMaxPosition())
-                .map(Car::getName)
-                .collect(Collectors.joining(JOIN_SEPARATOR));
-    }
-
-    public List<CarStatusDto> getCarStatuses() {
-        return cars.stream()
-                .map(car -> new CarStatusDto(car.getName(), car.getPosition()))
+    public RacingResult createRacingResult() {
+        List<CarStatus> carStatuses = cars.stream()
+                .map(car -> new CarStatus(car.getName(), car.getPosition()))
                 .collect(Collectors.toList());
-    }
-
-    private int getMaxPosition() {
-        return cars.stream()
-                .mapToInt(Car::getPosition)
-                .max()
-                .getAsInt();
+        return new RacingResult(carStatuses);
     }
 }
