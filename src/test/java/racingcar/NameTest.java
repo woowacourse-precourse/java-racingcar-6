@@ -100,6 +100,16 @@ public class NameTest {
     }
 
     @Test
+    void 키릴_문자는_입력되면_안_된다_예외() {
+        // given & when
+        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Name name = Name.from("Алекс");
+        });
+        // then
+        assertThat(exception.getMessage()).isEqualTo(CAR_NAMV_VALUE_EXCEPTION.toString());
+    }
+
+    @Test
     void 특수기호는_입력되면_안_된다() {
         // given & when
         Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
