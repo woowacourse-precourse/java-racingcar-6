@@ -29,10 +29,17 @@ public class RacingCar implements Car {
             progress++;
         }
         printInfo();
-
     }
 
-    public int pickRandomNumber() {
+    public int getProgress() {
+        return progress;
+    }
+
+    public String getName() {
+        return new String(name);
+    }
+
+    private int pickRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 

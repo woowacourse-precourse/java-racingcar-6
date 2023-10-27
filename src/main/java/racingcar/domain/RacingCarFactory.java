@@ -11,7 +11,7 @@ import racingcar.util.RacingGameValidator;
 import java.util.ArrayList;
 import java.util.List;
 
-import static racingcar.util.RacingGameConst.INITIAL_CAR_PROGRESS;
+import static racingcar.app.RacingGameConst.INITIAL_CAR_PROGRESS;
 
 public class RacingCarFactory implements CarFactory {
     @Override

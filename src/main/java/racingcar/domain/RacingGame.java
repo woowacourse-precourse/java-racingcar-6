@@ -21,6 +21,7 @@ public class RacingGame implements Game {
     public void start() {
         RacingCars cars = (RacingCars) factory.createCars();
         progressGameWith(cars);
+        showGameResult(cars);
     }
 
     private void progressGameWith(RacingCars cars) {
@@ -42,5 +43,9 @@ public class RacingGame implements Game {
     private void progressOneTrial(RacingCars cars) {
         List<RacingCar> currentStatus = cars.getCars();
         currentStatus.forEach(RacingCar::doTrial);
+    }
+
+    private void showGameResult(RacingCars cars) {
+        cars.showResult();
     }
 }
