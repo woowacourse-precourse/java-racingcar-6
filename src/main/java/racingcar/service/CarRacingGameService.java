@@ -76,7 +76,7 @@ public class CarRacingGameService {
         return game.isContinue();
     }
 
-    public void playSet(Game game) {
-        game.playSet();
+    public StringBuilder playSet(Game game) {
+        return game.playSet();
     }
 }

@@ -18,4 +18,8 @@ public class ConsoleIO {
     public static void printPlayResultMessage() {
         System.out.println("실행 결과");
     }
+
+    public static void printSetResult(StringBuilder setResult) {
+        System.out.println(setResult);
+    }
 }

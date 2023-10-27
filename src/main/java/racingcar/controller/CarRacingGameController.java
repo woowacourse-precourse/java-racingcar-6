@@ -24,7 +24,7 @@ public class CarRacingGameController {
         ConsoleIO.printPlayResultMessage();
 
         while (carRacingGameService.isContinue(game)) {
-            carRacingGameService.playSet(game);
+            ConsoleIO.printSetResult(carRacingGameService.playSet(game));
         }
     }
 }
