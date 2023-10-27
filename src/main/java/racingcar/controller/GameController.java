@@ -22,7 +22,10 @@ public class GameController {
         int tryCount = inputView.readTryCount();
         //시도 횟수만큼 각 Car에 랜덤 넘버로 움직인 후
         for(int i = 0; i < tryCount; i++){
-            carList.forEach(car -> car.moveOrStop(randomNUmberGenerator.generate()));
+            carList.forEach(car -> {
+                car.moveOrStop(randomNUmberGenerator.generate());
+                outputView.printCarNameAndPosition(car.provideCarNameAndPositionState());
+            });
         }
     }
 }

@@ -17,7 +17,6 @@ public class CarNameInputErrorException implements InputErrorException{
     @Override
     public void checkUserInputValidate(String checkString) {
         List<String> checkStringList = new TransferUtil().transferStringToListString(checkString);
-        System.out.println(checkStringList.size());
         if (isStringListEmpty(checkStringList)){
             throw new IllegalArgumentException(CAR_NAME_LIST_EMPTY_MESSAGE);
         }
@@ -39,7 +38,6 @@ public class CarNameInputErrorException implements InputErrorException{
 
     private static boolean isCarNameDuplicate(List<String> checkStringList){
         Set<String> stringSet = new HashSet<>(checkStringList);
-        System.out.println(stringSet.size());
         return stringSet.size() != checkStringList.size();
     }
 
