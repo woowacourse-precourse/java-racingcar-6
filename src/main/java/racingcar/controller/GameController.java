@@ -37,8 +37,8 @@ public class GameController {
     private String gameRoundPlay(Cars cars) {
         StringBuilder stringBuilder = new StringBuilder();
         for (Car car : cars.getCars()) {
-            Dice dice = rollDiceTen();
-            car.addDistance(dice.getDice(), MOVING_FORWARD_NUMBER);
+            DiceNumber diceNumber = rollDiceTen().getDiceNumber();
+            car.addDistance(diceNumber.getRawDiceNumber(), MOVING_FORWARD_NUMBER);
             stringBuilder.append(car.getDistanceLine()).append("\n");
         }
         return String.valueOf(stringBuilder);
