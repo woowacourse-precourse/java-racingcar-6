@@ -61,5 +61,17 @@ public class RacingGame {
             System.out.println();
         }
     }
-    
+
+    public List<Integer> runAllCycle(List<String> nameList, int count) {
+        List<Integer> distanceList = new ArrayList<>();
+        for (int i = 0; i < nameList.size(); i++) { // 처음 이동 거리는 모두 0
+            distanceList.add(0);
+        }
+        for (int j = 0; j < count; j++) {
+            getDistanceList(nameList, distanceList);
+            System.out.println();
+        }
+        return distanceList;
+    }
+
 }
