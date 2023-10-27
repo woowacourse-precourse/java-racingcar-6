@@ -4,65 +4,52 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 import racingcar.domain.CarDto;
-import racingcar.domain.MoveStrategy;
-import racingcar.domain.Player;
 import racingcar.domain.RandomMoveStrategy;
 import racingcar.domain.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Controller {
-    private List<Car> cars;
+    private Cars cars;
     private final RandomNumberGenerator randomNumberGenerator;
+    private final RandomMoveStrategy randomMoveStrategy;
     private final InputView inputView;
     private final OutputView outputView;
-    private final Player player;
 
-    public Controller(RandomNumberGenerator randomNumberGenerator, InputView inputView, OutputView outputView, Player player) {
+    public Controller(RandomNumberGenerator randomNumberGenerator, RandomMoveStrategy randomMoveStrategy, InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.randomNumberGenerator = randomNumberGenerator;
-        this.player = player;
+        this.randomMoveStrategy = randomMoveStrategy;
     }
 
     public void run() {
         initCars();
-        inputView.requestRounds();
-        int rounds = makeStringToNumber(player.getInput());
+        outputView.requestRounds();
+        int rounds = makeStringToNumber(inputView.getInput());
         playGame(rounds);
-        List<Car> winners = getWinners();
+        List<Car> winners = cars.getWinners();
         outputView.announceWinner(winners);
     }
 
     private void initCars() {
-        inputView.requestCarNames();
-        String names = player.getInput();
+        outputView.requestCarNames();
+        String names = inputView.getInput();
         validateNames(names);
-        cars = Arrays.stream(names.split(","))
+        List<Car> carList = Arrays.stream(names.split(","))
                 .map(Car::new)
                 .collect(Collectors.toList());
+        this.cars = new Cars(carList);
     }
 
     private void playGame(int rounds) {
         for (int i = 0; i < rounds; i++) {
-            playRound();
-            List<CarDto> carStatus = CarDto.from(cars);
+            cars.moveAll(randomNumberGenerator, randomMoveStrategy);
+            List<CarDto> carStatus = cars.getStatus();
             outputView.printCarStatus(carStatus);
         }
-    }
-
-    private void playRound() {
-        for (Car car : cars) {
-            int randomNumber = randomNumberGenerator.getNumber();
-            MoveStrategy strategy = new RandomMoveStrategy(randomNumber);
-            car.move(strategy);
-        }
-    }
-
-    private List<Car> getWinners() {
-        int maxPosition = cars.stream().mapToInt(Car::getPosition).max().orElse(0);
-        return cars.stream().filter(car -> car.getPosition() == maxPosition).collect(Collectors.toList());
     }
 
     private int makeStringToNumber(String input) {
@@ -78,5 +65,4 @@ public class Controller {
             }
         }
     }
-
 }
