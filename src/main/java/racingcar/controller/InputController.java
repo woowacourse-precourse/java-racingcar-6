@@ -10,12 +10,15 @@ public class InputController {
 
     public static List<String> setCars() {
 
-        String cars = Console.readLine();
-        List<String> carList = Arrays.asList(cars.split(","));
-        Validator.validateCarNames(carList);
+        try {
+            String cars = Console.readLine();
+            List<String> carList = Arrays.asList(cars.split(","));
+            Validator.validateCarNames(carList);
 
-        return carList;
-
+            return carList;
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public static int setNumber() {
