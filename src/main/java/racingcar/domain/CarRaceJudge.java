@@ -6,20 +6,20 @@ import racingcar.dto.MoveResult;
 
 public class CarRaceJudge {
 
-    private final CarRepository carRepository = CarRepository.getInstance();
+    private final CarsRepository carsRepository = CarsRepository.getInstance();
 
     public void addCars(final List<String> carNames) {
         Cars cars = Cars.from(carNames);
-        carRepository.save(cars);
+        carsRepository.save(cars);
     }
 
     public void moveCars(final Supplier<Integer> randomNumberSupplier) {
-        Cars findCars = carRepository.findCars();
+        Cars findCars = carsRepository.findCars();
         findCars.moveForwardWithAllCars(randomNumberSupplier.get());
     }
 
     public List<MoveResult> createSingleMoveResults() {
-        Cars findCars = carRepository.findCars();
+        Cars findCars = carsRepository.findCars();
 
         return findCars.cars()
                 .stream()
@@ -28,7 +28,7 @@ public class CarRaceJudge {
     }
 
     public List<String> findWinners() {
-        Cars findCars = carRepository.findCars();
+        Cars findCars = carsRepository.findCars();
         int winnerPosition = findWinnerPosition(findCars);
 
         return findCars.cars()

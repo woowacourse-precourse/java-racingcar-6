@@ -11,7 +11,7 @@ import racingcar.dto.MoveResult;
 class CarRaceJudgeTest {
 
     CarRaceJudge carRaceJudge = new CarRaceJudge();
-    CarRepository carRepository = CarRepository.getInstance();
+    CarsRepository carsRepository = CarsRepository.getInstance();
 
     @DisplayName("심판은 레이스할 자동차를 등록합니다.")
     @Test
@@ -23,7 +23,7 @@ class CarRaceJudgeTest {
 
         // when
         carRaceJudge.addCars(names);
-        Cars findCars = carRepository.findCars();
+        Cars findCars = carsRepository.findCars();
         boolean isSaved = findCars.cars().containsAll(cars);
 
         // then

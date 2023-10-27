@@ -1,12 +1,12 @@
 package racingcar.domain;
 
-public class CarRepository {
+public class CarsRepository {
 
-    private static final CarRepository instance = new CarRepository();
+    private static final CarsRepository instance = new CarsRepository();
 
     private Cars storedCars;
 
-    public static CarRepository getInstance() {
+    public static CarsRepository getInstance() {
         return instance;
     }
 
