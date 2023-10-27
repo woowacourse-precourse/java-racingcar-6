@@ -4,9 +4,12 @@ public class Validator {
 	
 	private static final String INVALID_CAR_NAME_LENGTH = "차 이름은 5자 미만입니다.";
 	private static final String INVALID_ENGLISH_CAR_NAME = "차 이름은 영어로 작성해 주십시오.";
+	private static final String INVALID_MOVING_NUMBER = "이동 횟수는 숫자로만 입력해주세";
 	
 	public static void validateCarName(String carName) {
 		validateCarNameLength(carName);
+		validateEnglishCarName(carName);
+		
 	}
 	
 	public static void validateEnglishCarName(String carName) {
@@ -22,4 +25,14 @@ public class Validator {
 			throw new IllegalArgumentException(INVALID_CAR_NAME_LENGTH);
 		}
 	}
+
+	public static void valdateMovingNumber(String movingNumberStr) {
+		try {
+			int movingNumber = Integer.parseInt(movingNumberStr);
+		}catch(NumberFormatException e) {
+			throw new IllegalArgumentException(INVALID_MOVING_NUMBER);
+		}
+	}
+
+	
 }

@@ -36,4 +36,10 @@ public class Application {
     	}
     	return carList;
     }
+    
+    //차 이동횟수 유효성 검사
+    public static void checkNumberValidation(String movingNumberStr) {
+    	Validator.valdateMovingNumber(movingNumberStr);
+    }
+    
 }
