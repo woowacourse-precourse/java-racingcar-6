@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class MoveRuleByMinimumScoreTest {
+class LimitScoreRacingRuleTest {
     private NumberGenerator getTargetNumber(int number) {
         return new RandomNumberGenerator() {
             @Override
@@ -21,9 +21,9 @@ class MoveRuleByMinimumScoreTest {
     void 숫자4_1_반환() {
         //given
         NumberGenerator numberGenerator = getTargetNumber(4);
-        MoveRule moveRule = new MoveRuleByMinimumScore(numberGenerator);
+        RacingRule racingRule = new LimitScoreRacingRule(numberGenerator);
         //when
-        int distance = moveRule.tryMove();
+        int distance = racingRule.tryMove();
         //then
         assertThat(distance).isEqualTo(1);
     }
@@ -33,9 +33,9 @@ class MoveRuleByMinimumScoreTest {
     void 숫자5_1_반환() {
         //given
         NumberGenerator numberGenerator = getTargetNumber(5);
-        MoveRule moveRule = new MoveRuleByMinimumScore(numberGenerator);
+        RacingRule racingRule = new LimitScoreRacingRule(numberGenerator);
         //when
-        int distance = moveRule.tryMove();
+        int distance = racingRule.tryMove();
         //then
         assertThat(distance).isEqualTo(1);
     }
@@ -45,9 +45,9 @@ class MoveRuleByMinimumScoreTest {
     void 숫자3_0_반환() {
         //given
         NumberGenerator numberGenerator = getTargetNumber(3);
-        MoveRule moveRule = new MoveRuleByMinimumScore(numberGenerator);
+        RacingRule racingRule = new LimitScoreRacingRule(numberGenerator);
         //when
-        int distance = moveRule.tryMove();
+        int distance = racingRule.tryMove();
         //then
         assertThat(distance).isZero();
     }
