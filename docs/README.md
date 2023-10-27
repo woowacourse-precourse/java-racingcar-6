@@ -25,10 +25,10 @@
 - [x] CarMoveReader 를 생성한다 - Generator
 - [x] Randoms 를 통해 자동차의 전진 여부를 Supplier 함수로 반환한다 - Generator
 ## View
-- [ ] 자동차 이름을 입력받는다 - InputView
-- [ ] 시도할 회수를 입력받는다 - InputView
-- [ ] 실행 결과를 출력한다 - OutputView
-- [ ] 최종 우승자를 출력한다 - OutputView
+- [x] 자동차 이름을 입력받는다 - InputView
+- [x] 시도할 회수를 입력받는다 - InputView
+- [x] 실행 결과를 출력한다 - OutputView
+- [x] 최종 우승자를 출력한다 - OutputView
 ## Controller
 - [ ] Generator 를 통해 Car, CarMoveReader, Cars 를 생성한다 - GameController
 - [ ] 자동차 전진여부 파악 후 전진을 명령한다
