@@ -2,7 +2,10 @@ package racingcar.domain;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,24 +23,18 @@ public class CarTest {
         car.move();
     }
 
-    @Test
-    void comparePosition_메소드_사용시_3번_움직였을때_인자로_2를_주면_3을_반환() {
-        assertThat(car.comparePosition(2)).isEqualTo(3);
+    @ParameterizedTest
+    @DisplayName("car가 3번 move()한 상태에서 comparablePosition을 주면 expect를 반환")
+    @CsvSource(value = {"1,3", "2,3", "5,5", "12,12"})
+    void comparePosition(int comparablePosition, int expect) {
+        assertThat(car.comparePosition(comparablePosition)).isEqualTo(expect);
     }
 
-    @Test
-    void comparePosition_메소드_사용시_3번_움직였을때_인자로_4를_주면_4를_반환() {
-        assertThat(car.comparePosition(4)).isEqualTo(4);
-    }
-
-    @Test
-    void isFurthestDistance_메소드_사용시_car가_3번_움직이고_인자로_3을_주었을때_true_반환() {
-        assertThat(car.isFurthestDistance(3)).isEqualTo(true);
-    }
-
-    @Test
-    void isFurthestDistance_메소드_사용시_car가_3번_움직이고_인자로_2를_주었을때_false_반환() {
-        assertThat(car.isFurthestDistance(2)).isEqualTo(false);
+    @ParameterizedTest
+    @DisplayName("car가 3번 move()한 상태에서 furtherDistance를 주면 boolean 반환")
+    @CsvSource(value = {"1,false", "2,false", "3, true"})
+    void isFurthestDistance(int furtherDistance, boolean result) {
+        assertThat(car.isFurthestDistance(furtherDistance)).isEqualTo(result);
     }
 
     @Test
