@@ -36,4 +36,28 @@ public class MyApplicationTest {
 
         assertTrue(isValid);
     }
+
+    @Test
+    void testForward() {
+        List<String> carNames = new ArrayList<>();
+        carNames.add("car1");
+        carNames.add("car2");
+
+        int gameNum = 5;
+
+        List<String>[] forwardResults = Application.forward(carNames, gameNum);
+
+        assertNotNull(forwardResults);
+        assertEquals(carNames.size(), forwardResults.length);
+
+        for (int i = 0; i < forwardResults.length; i++) {
+            List<String> forwardList = forwardResults[i];
+            assertNotNull(forwardList);
+            assertEquals(gameNum, forwardList.size());
+
+            for (String forward : forwardList) {
+                assertTrue(forward.matches("^-*$"));
+            }
+        }
+    }
 }

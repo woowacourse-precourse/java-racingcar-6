@@ -18,6 +18,10 @@ public class Application {
         if (!isValidNum(gameNumString)) {
             throw new IllegalArgumentException("올바른 회수 입력이 아닙니다.");
         }
+
+        int gameNum = Integer.valueOf(gameNumString);
+        List<String>[] makeDash = T.forward(racingCarName, gameNum);
+        T.printRacing(racingCarName, gameNum, makeDash);
     }
 
     public static List<String> listConversion(String racingCar) throws IllegalArgumentException {
@@ -32,6 +36,47 @@ public class Application {
         }
 
         return racer;
+    }
+
+    public static int randomNum() {
+        int randomNum = Randoms.pickNumberInRange(0, 9);
+        return randomNum;
+    }
+
+    public static String judgeForward() {
+        int judgeRandomNum = randomNum();
+
+        if (judgeRandomNum >= 4)
+            return "-";
+        else
+            return "";
+    }
+
+    public static List<String>[] forward(List<String> racingCarName, int gameNum) {
+        List<String>[] forwardNum = new ArrayList[racingCarName.size()];
+        String dashSum = "";
+
+        for (int i = 0; i < racingCarName.size(); i++) {
+            forwardNum[i] = new ArrayList<>();
+        }
+
+        for (int i = 0; i < racingCarName.size(); i++) {
+            dashSum = "";
+            for (int j = 0; j < gameNum; j++) {
+                dashSum += judgeForward();
+                forwardNum[i].add(dashSum);
+            }
+        }
+        return forwardNum;
+    }
+
+    public static void printRacing(List<String> racingCarName, int gameNum, List<String>[] makeDash) {
+        for (int i = 0; i < gameNum; i++) {
+            for (int j = 0; j < racingCarName.size(); j++) {
+                System.out.println(racingCarName.get(j) + " : " + makeDash[j].get(i));
+            }
+            System.out.println();
+        }
     }
 
     public static boolean isValidName(String splitStr) {
