@@ -3,7 +3,6 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
-import racingcar.domain.Car;
 
 public class InputView {
 
@@ -16,24 +15,24 @@ public class InputView {
         return INSTANCE;
     }
 
-    public List<String> displayCarNamePrompt() {
+    public void displayCarNamePrompt() {
         System.out.println(Message.CAR_NAME_INPUT.getMessage());
-        return CarNameInput();
     }
 
     public void displayRaceCountPrompt() {
         System.out.println(Message.RACE_COUNT.getMessage());
     }
 
-    private List<String> CarNameInput() {
+    public List<String> getCarNames() {
         String carNames = Console.readLine();
         List<String> carNameList = Arrays.stream(carNames.split(","))
                 .map(String::trim)
                 .toList();
+
         return carNameList;
     }
 
-    public int RaceCount() {
+    public int getRaceCount() {
         int raceCount = Integer.parseInt(Console.readLine());
         return raceCount;
     }
