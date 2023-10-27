@@ -18,7 +18,19 @@ public class InputViewTest {
     }
 
     @Test
-    void 자동차이름_올바른_입력_테스트() {
+    void 올바른_시도횟수_입력_테스트() {
+        setSystemInToCustomInput("5");
+        assertThatNoException().isThrownBy(() -> inputView.getTrialNumber());
+    }
+
+    @Test
+    void 시도쵯수_숫자아닌입력_예외처리_테스트() {
+        setSystemInToCustomInput("d");
+        assertThatThrownBy(() -> inputView.getTrialNumber()).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 올바른_자동차이름_입력_테스트() {
         setSystemInToCustomInput("song, jone , jason");
         assertThatNoException().isThrownBy(() -> inputView.getCarList());
     }
