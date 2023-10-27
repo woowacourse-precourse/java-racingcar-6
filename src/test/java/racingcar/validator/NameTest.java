@@ -4,6 +4,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.Name;
 
 public class NameTest {
     @DisplayName("이름이 객체에 잘 담기는지 확인.")
