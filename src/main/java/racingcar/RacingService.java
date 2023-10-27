@@ -9,7 +9,7 @@ public class RacingService {
     /**
      * 1-2. 사용자 입력값(자동차 이름) 검증
      *
-     * @param names 사용자의 자동차 이름들 입력값
+     * @param names 사용자의 자동차 이름 입력값
      * @return 유효한 자동차 이름 리스트
      * @throws IllegalArgumentException 공백, 길이 5 초과, 중복 이름일 시
      */
@@ -67,13 +67,11 @@ public class RacingService {
     }
 
     /**
-     * 3-2. 차수별 자동차 이동결과 출력
+     * 3-2. 차수별 자동차 이동 결과 출력
      */
     String getCarTotalMove() {
-        List<Car> carList = racingRepository.getCarList();
         StringBuilder totalMove = new StringBuilder();
-
-        for (Car car : carList) {
+        for (Car car : racingRepository.getCarList()) {
             totalMove.append(car.getName() + " : " + "-".repeat(car.getTotalMove()) + "\n");
         }
         return totalMove.toString();
