@@ -14,8 +14,15 @@ public class Car {
     }
 
     public void addDistance(int dice, int forward) {
+        validDice(dice, forward);
         if (dice >= forward) {
             distance++;
+        }
+    }
+
+    private void validDice(int dice, int forward) {
+        if (dice < 0 || dice > 9 || forward < 0 || forward > 9) {
+            throw new IllegalArgumentException();
         }
     }
 
