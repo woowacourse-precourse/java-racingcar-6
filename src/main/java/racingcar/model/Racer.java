@@ -25,7 +25,7 @@ public class Racer {
     //TODO: 이 메서드 별로 안이쁨
     public String getWinner() {
         Car winner = racer.stream().max(Car::compareTo).orElseThrow();
-        return racer.stream().filter(winner::equals).map(Car::getName).collect(Collectors.joining(","));
+        return racer.stream().filter(winner::equals).map(Car::getName).collect(Collectors.joining(SEPARATOR));
     }
 
     @Override
