@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import util.stringconverter.RacingCarConverter;
 
 public class RacingCarFormatter {
@@ -19,10 +20,14 @@ public class RacingCarFormatter {
     }
 
     public List<String> racingCarPlayersToListString(List<RacingCarPlayer> players) {
-        return players.stream().map(this::racingCarPlayerToString).collect(java.util.stream.Collectors.toList());
+        return players.stream().map(this::racingCarPlayerToString).collect(Collectors.toList());
     }
 
     public String racingCarPlayersToString(List<RacingCarPlayer> players) {
         return String.join(", ", this.racingCarPlayersToListString(players));
+    }
+
+    public List<RacingCarPlayer> listStringToListRacingCarPlayer(List<String> players){
+        return players.stream().map(this::racingCarPlayerFromString).collect(Collectors.toList());
     }
 }
