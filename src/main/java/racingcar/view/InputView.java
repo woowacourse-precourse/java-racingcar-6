@@ -6,8 +6,4 @@ public class InputView {
     public static String playerInput() {
         return Console.readLine();
     }
-
-    public static void closeScanner() {
-        Console.close();
-    }
 }
