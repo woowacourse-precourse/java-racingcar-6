@@ -38,4 +38,15 @@ class StadiumTest {
             Assertions.assertThat(nameList.get(i)).isEqualTo(cars.get(i).getName());
         }
     }
+
+    @Test
+    void saveTryCount_메서드_파라미터_입력_예외(){
+        Stadium stadium = new Stadium();
+        List<String> inputList = List.of("-4", "안녕");
+
+        for (String input : inputList) {
+            Assertions.assertThatThrownBy(() -> stadium.saveTryCount(input))
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
+    }
 }

@@ -16,9 +16,14 @@ void saveInputCars()
 
 전진 횟수 입력 받기
 ```
-void inputTryCount()
+String inputTryCount()
     전진 횟수를 입력받는다. 
 ```
+```
+void saveTryCount()
+    전진 횟수를 저장한다.
+```
+경기 진행
 ```
 void goCars()
     모든 차를 전진한다.
@@ -45,6 +50,7 @@ isRunnable()
 ```
 
 ## SnapShot
+경기 진행 중 기록을 남기는 스냅샷 기능
 ```
 void printSnapshot(int order)
     order번째 전진의 스냅샷을 출력한다.

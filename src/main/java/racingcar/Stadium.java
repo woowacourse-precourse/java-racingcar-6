@@ -3,11 +3,11 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Stadium {
     private final List<Car> cars = new ArrayList<>();
+    private int tryCount;
 
     public Stadium() {
     }
@@ -25,6 +25,25 @@ public class Stadium {
             }
             this.cars.add(new Car(name));
         }
+    }
+
+    String inputTryCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        return Console.readLine();
+    }
+
+    void saveTryCount(String inputNumber) {
+        int count;
+        try {
+            count = Integer.parseInt(inputNumber);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자만 입력해야 한다.");
+        }
+        if (count < 0) {
+            throw new IllegalArgumentException("음이 아닌 숫자만 입력해야 한다.");
+        }
+
+        this.tryCount = count;
     }
 
     public List<Car> getCars() {
