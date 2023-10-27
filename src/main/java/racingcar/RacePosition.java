@@ -2,6 +2,8 @@ package racingcar;
 
 public class RacePosition {
 
+    private static final String PROCESS_HYPHEN = "-";
+
     private int currentPosition;
 
     public RacePosition() {
@@ -22,6 +24,6 @@ public class RacePosition {
     }
 
     public String drawProcess() {
-        return "-".repeat(currentPosition);
+        return PROCESS_HYPHEN.repeat(currentPosition);
     }
 }
