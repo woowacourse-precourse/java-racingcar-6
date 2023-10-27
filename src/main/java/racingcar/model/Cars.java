@@ -8,21 +8,32 @@ import java.util.Set;
 public class Cars {
     private final List<Car> cars;
 
-    public Cars(List<Car> cars) {
-        List<String> nameList = new ArrayList<>();
-        cars.forEach(car -> nameList.add(car.getName()));
-        validCarNames(nameList);
-        this.cars = cars;
+    public Cars(final List<Car> cars) {
+        validCarNames(cars);
+        this.cars = new ArrayList<>(cars);
     }
 
-    private void validCarNames(List<String> nameList) {
-        Set<String> nameSet = new HashSet<>(nameList);
-        if (nameList.size() != nameSet.size()) {
-            throw new IllegalArgumentException();
+    private void validCarNames(List<Car> cars) {
+        Set<String> nameSet = new HashSet<>();
+        checkDuplicateCarName(cars, nameSet);
+    }
+
+    public void addCar(Car car) {
+        validCarNames(List.of(car));
+        cars.add(car);
+    }
+
+    private void checkDuplicateCarName(List<Car> cars, Set<String> nameSet) {
+        for (Car car : cars) {
+            String name = car.getName();
+            if (nameSet.contains(name)) {
+                throw new IllegalArgumentException();
+            }
+            nameSet.add(name);
         }
     }
 
     public List<Car> getCars() {
-        return cars;
+        return new ArrayList<>(cars);
     }
 }

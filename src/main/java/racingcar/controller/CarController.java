@@ -3,18 +3,25 @@ package racingcar.controller;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.model.Cars;
 
 public class CarController {
 
-    public List<Car> makeCar(String name) {
-        ArrayList<Car> cars = new ArrayList<>();
-        makeList(name, cars);
+    public Cars makeCar(String name) {
+        List<Car> carsList = makeList(name, new ArrayList<>());
+        return new Cars(carsList);
+    }
+
+    private List<Car> makeList(String names, List<Car> cars) {
+        for (String carName : names.split(",")) {
+            nameIsNotEmpty(cars, carName.trim());
+        }
         return cars;
     }
 
-    private void makeList(String name, ArrayList<Car> cars) {
-        for (String s : name.split(",")) {
-            Car car = new Car(s);
+    private void nameIsNotEmpty(List<Car> cars, String trimmedName) {
+        if (!trimmedName.isEmpty()) {
+            Car car = new Car(trimmedName);
             cars.add(car);
         }
     }
