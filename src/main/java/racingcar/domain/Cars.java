@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Supplier;
 
 public record Cars(List<Car> cars) {
 
@@ -15,9 +16,9 @@ public record Cars(List<Car> cars) {
                 .toList());
     }
 
-    public void moveForwardWithAllCars(final int randomNumber) {
+    public void moveForwardWithAllCars(final Supplier<Integer> randomNumberSupplier) {
         for (Car car : cars) {
-            car.moveForward(randomNumber);
+            car.moveForward(randomNumberSupplier.get());
         }
     }
 

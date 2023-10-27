@@ -15,7 +15,7 @@ public class CarRaceJudge {
 
     public void moveCars(final Supplier<Integer> randomNumberSupplier) {
         Cars findCars = carsRepository.findCars();
-        findCars.moveForwardWithAllCars(randomNumberSupplier.get());
+        findCars.moveForwardWithAllCars(randomNumberSupplier);
     }
 
     public List<MoveResult> createSingleMoveResults() {
