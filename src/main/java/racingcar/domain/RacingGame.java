@@ -24,4 +24,8 @@ public class RacingGame {
     public List<Car> findWinners() {
         return cars.findMostMovedCars();
     }
+
+    public List<Car> getCars() {
+        return cars.getCars();
+    }
 }
