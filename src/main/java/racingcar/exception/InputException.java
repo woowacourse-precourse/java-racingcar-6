@@ -20,7 +20,7 @@ public class InputException extends IllegalArgumentException {
     // 자동차 이름은 영어 대소문자, 한글만 입력 가능하다.
     public static void isValidInputFormat(String inputStr){
         if (!inputStr.matches("^[a-zA-Z가-힣,]+$")) {
-            throw new IllegalArgumentException("올바른 형식의 입력이 아닙니다.");
+            throw new IllegalArgumentException("올바른 형식의 입력이 아닙니다. ");
         }
     }
 
@@ -29,9 +29,20 @@ public class InputException extends IllegalArgumentException {
         Set<String> uniqueName = new HashSet<>();
         for (String name : carName) {
             if (!uniqueName.add(name)) {
-                throw new IllegalArgumentException(name + " -> 이름이 중복됩니다: ");
+                throw new IllegalArgumentException(name + " -> 이름이 중복됩니다. ");
             }
         }
     }
 
+    // 자동차가 한 대만 입력된 경우
+
+
+
+    // 횟수
+    // 숫자가 아닌 경우
+    public static void isNumber(int number){
+        if (!String.valueOf(number).matches("\\d+")) {
+            throw new IllegalArgumentException(number + " -> 숫자가 아닙니다. ");
+        }
+    }
 }

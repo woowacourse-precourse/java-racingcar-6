@@ -25,4 +25,15 @@ public class UserInput {
         InputException.sameName(carNamesArray);
     }
 
+    public static int inputGameCount(){
+
+        System.out.println("시도할 횟수는 몇회인가요?");
+
+        int count = Integer.parseInt(Console.readLine());
+
+        InputException.isNumber(count);
+
+        return count ;
+    }
+
 }
