@@ -17,5 +17,5 @@
   - 각 자동차의 현재까지 이동상태 출력 - Output #printCarsState()
 
 ### 3. 최종 우승자 출력
-- [ ] 게임이 끝나고 최종 우승자 알아내기 - Referee #getWinner()
+- [x] 게임이 끝나고 최종 우승자 알아내기 - Referee #getWinner()
 - [ ] 최종 우승자 출력하기 - Output #printWinner()
