@@ -10,10 +10,22 @@ public class Cars {
     }
 
     public void saveCars(String input) {
-        validateInput(input);
+        if (!validateInput(input)) {
+            throw new IllegalArgumentException();
+        }
         String[] parts = input.split(",");
         for (int i = 0; i < parts.length; i++) {
             cars.add(new Car(parts[i]));
         }
+    }
+
+    private boolean validateInput(String input) {
+        String[] parts = input.split(",");
+        for (String part : parts) {
+            if (part.length() > 5) {
+                return false;
+            }
+        }
+        return true;
     }
 }
