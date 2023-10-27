@@ -31,6 +31,27 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 시도_횟수에_대한_예외_처리() {
+        assertSimpleTest(() -> {
+            // 시도 횟수가 0인 경우
+            assertThatThrownBy(() -> runException("pobi,java", "0"))
+                    .isInstanceOf(IllegalArgumentException.class);
+
+            // 시도 횟수가 음수인 경우
+            assertThatThrownBy(() -> runException("pobi,java", "-1"))
+                    .isInstanceOf(IllegalArgumentException.class);
+
+            // 시도 횟수가 정수가 아닌 경우
+            assertThatThrownBy(() -> runException("pobi,java", "1.5"))
+                    .isInstanceOf(IllegalArgumentException.class);
+
+            // 시도 횟수가 숫자가 아닌 경우
+            assertThatThrownBy(() -> runException("pobi,java", "a"))
+                    .isInstanceOf(IllegalArgumentException.class);
+        });
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

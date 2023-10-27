@@ -22,16 +22,8 @@ public class RaceController {
 
     public void set() {
         cars = new Cars(InputView.carNames());
-
-        // printCarLists();
         start(InputView.attemptCount());
     }
-
-//    private void printCarLists() {
-//        cars.carsList.stream()
-//                .map(Car::getCarName)
-//                .forEach(System.out::println);
-//    }
 
     private void start(int attemptCount) {
         System.out.println(EXECUTION_RESULT);
