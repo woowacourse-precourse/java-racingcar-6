@@ -21,7 +21,7 @@
 - [x] 자동자의 위치를 비교하며 우승자를 판단하고 우승자 메시지를 만든다 - WinCars
 - [x] WinCar 객체를 통해 자동차들 중 우승자를 선별한다 - Cars
 - ### Util - 어플리케이션에 필요한 도메인 생성
-- [x] Car 를 생성한다 - Generator
+- [x] Cars 를 생성한다 - Generator
 - [x] CarMoveReader 를 생성한다 - Generator
 - [x] Randoms 를 통해 자동차의 전진 여부를 Supplier 함수로 반환한다 - Generator
 ## View
@@ -31,6 +31,6 @@
 - [x] 최종 우승자를 출력한다 - OutputView
 ## Controller
 - [ ] Generator 를 통해 Car, CarMoveReader, Cars 를 생성한다 - GameController
-- [ ] 자동차 전진여부 파악 후 전진을 명령한다
-- [ ] 전진할 때 마다 실행 결과를 출력한다
-- [ ] 최종 우승자를 출력한다
+- [ ] 자동차 전진여부 파악 후 전진을 명령한다 - GameController
+- [ ] 전진할 때 마다 실행 결과를 출력한다 - GameController
+- [ ] 최종 우승자를 출력한다 - GameController
