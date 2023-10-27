@@ -4,11 +4,11 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class CreateNumber {
 
-	public boolean make_number() {
+	public boolean makeRandomNumber() {
 		
 		int ran = Randoms.pickNumberInRange(1, 9);
 		
-		if(ran<=4&&ran>=1)
+		if(ran<5)
 			return false;
 		
 		return true;
@@ -17,7 +17,7 @@ public class CreateNumber {
 	
 	public String addString() {
 		
-		boolean a = make_number();
+		boolean a = makeRandomNumber();
 		
 		if(a == true)
 			return "-";
