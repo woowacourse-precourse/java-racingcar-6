@@ -24,8 +24,4 @@ public class RaceGameController {
 
     }
 
-    public static void main(String[] args) {
-        RaceGameController raceGameController = new RaceGameController();
-        raceGameController.start();
-    }
 }

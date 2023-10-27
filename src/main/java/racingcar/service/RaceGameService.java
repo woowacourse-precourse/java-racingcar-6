@@ -22,6 +22,9 @@ public class RaceGameService {
 
             raceCars.stream()
                     .forEach(ExecutionView::printExecutionMessage);
+
+            ExecutionView.newLine();
         }
+        System.out.println("최종 우승자 : " + raceCars.victoryCarName());
     }
 }
