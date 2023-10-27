@@ -24,8 +24,9 @@ RacingCarGame을 실행시킴
   - 반복문으로 입력받은 시도횟수만큼 play
     - play(): 1회차마다 
       - decideToGoOrStop() : 리스트에서 자동차를 꺼내서 전진할지말지
-        - 1회마다 RandomNumGenerator 이용해 랜덤 수 생성
-        - 전진할지 말지를 결정하고 이동량을 올려줌
+        - 1회마다 RandomNumGenerator의 generateNum() 이용해 랜덤 수 생성
+        - checkNum() : 랜덤수를 확인해서 전진할지 말지를 결정
+        - Go() : checkNum이 true라면 해당 자동차의 이동량을 1 증가
       - printCurrentResult() : 1회마다 현재의 이동량을 바꿔서을 이름과 함께 출력
   - printWinner() : 시도횟수가 종료되었을 시 
     - whoIsWinner() : 우승자 조회 (각각 이동량 비교)
@@ -33,10 +34,4 @@ RacingCarGame을 실행시킴
 
 ### RandomNumGenerator
 1~9사이의 무작위 숫자를 뽑아주는 역할
-
-1. 전진하는 조건 확인하는 함수
-2. 각 차수별 전진하는 조건을 확인하여 전진 혹은 멈추는 함수
-3. 실행결과를 출력하는 함수
-4. 우승자를 확인하는 함수
-5. 우승자를 출력하는 함수
-6. 자동차의 이름 입력이 잘못되었는지 확인하는 함수
+- generateNum() : 랜덤수 생성
