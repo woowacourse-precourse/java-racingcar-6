@@ -5,7 +5,7 @@ import racingcar.model.Car;
 
 public class View {
 
-    public void showResult(List<Car> carList) {
+    public static void showResult(List<Car> carList) {
         int count = 0;
 
         for (Car car : carList) {
@@ -18,7 +18,7 @@ public class View {
         }
     }
 
-    public void showPhase(List<Car> carList) {
+    public static void showPhase(List<Car> carList) {
         for (Car car : carList) {
             System.out.print(car.getName() + " : ");
             printDistance(car);

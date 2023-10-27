@@ -8,7 +8,6 @@ import racingcar.view.View;
 
 public class Application {
     public static void main(String[] args) {
-        View view = new View();
         Race race = makeRace();
 
         int number = askNumber();
@@ -17,11 +16,11 @@ public class Application {
         System.out.println("실행 결과");
         for (int count = 0; count < number; count++) {
             race.phase();
-            view.showPhase(race.getCarList());
+            View.showPhase(race.getCarList());
         }
 
         System.out.print("최종 우승자 : ");
-        view.showResult(race.checkWinner());
+        View.showResult(race.checkWinner());
     }
 
     private static int askNumber() {
