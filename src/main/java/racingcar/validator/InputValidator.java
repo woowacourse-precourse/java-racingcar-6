@@ -6,7 +6,7 @@ import racingcar.exception.InvalidMaxRoundInputException;
 
 public final class InputValidator {
 
-    private static final String CAR_NAMES_REGEX = "^(\\w,)+\\w$";
+    private static final String CAR_NAMES_REGEX = "^(\\w+,)+\\w+$";
     private static final String MAX_ROUND_REGEX = "^\\d$";
 
     public void validateCarNamesInput(final String input) {
