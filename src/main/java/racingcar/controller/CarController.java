@@ -16,4 +16,8 @@ public class CarController {
         List<String> separated = List.of(userInput.split(","));
         separated.forEach(i -> carList.add(new Car(i)));
     }
+
+    public List<Car> getCarList() {
+        return carList;
+    }
 }

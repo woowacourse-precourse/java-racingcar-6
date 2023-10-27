@@ -7,7 +7,11 @@ public class TryRemains {
         this.value = value;
     }
 
-    void doTry() {
+    public void doTry() {
         value--;
+    }
+
+    public boolean isZero() {
+        return value == 0;
     }
 }

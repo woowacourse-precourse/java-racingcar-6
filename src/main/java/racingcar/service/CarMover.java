@@ -6,7 +6,7 @@ import racingcar.domain.Car;
 
 public class CarMover {
 
-    static void move(List<Car> carList) {
+    public static void move(List<Car> carList) {
         carList.stream()
                 .filter(i -> isMoving())
                 .forEach(Car::move);
