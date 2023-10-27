@@ -23,7 +23,7 @@ public class Cars {
 
     private Map<Name, Integer> generateCars(String names) {
         Map<Name, Integer> carMap = new LinkedHashMap<>();
-        String[] carNamesArray = names.split(",");
+        String[] carNamesArray = names.replace(" ", "").split(",");
         for (String carName : carNamesArray) {
             carMap.put(new Name(carName), ZERO_POSITION);
         }
