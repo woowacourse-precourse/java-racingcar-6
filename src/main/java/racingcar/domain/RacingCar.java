@@ -2,12 +2,15 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.constant.ErrorMessage;
 import racingcar.constant.MoveStatus;
 
 public final class RacingCar {
 
     private static final int MAX_NAME_LENGTH = 5;
+    private static final String NAME_STATUS_DELIMITER = " : ";
+    private static final String MOVE_EXPRESSION = "-";
     private final String name;
     private final List<MoveStatus> moveStatuses;
 
@@ -27,5 +30,11 @@ public final class RacingCar {
         if (moveStatus.isMove()) {
             moveStatuses.add(moveStatus);
         }
+    }
+
+    public String toResultMessage() {
+        return name + NAME_STATUS_DELIMITER + moveStatuses.stream()
+                .map(status -> MOVE_EXPRESSION)
+                .collect(Collectors.joining());
     }
 }
