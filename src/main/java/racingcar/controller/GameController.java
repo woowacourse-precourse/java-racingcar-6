@@ -26,6 +26,10 @@ public class GameController {
         String inputAttempts = gameView.inputAttempts();
         int attempts = inputHandler.convertAttemptsToInt(inputAttempts);
 
+        for (int i = 0; i < attempts; i++) {
+            cars.move();
+
+        }
 
 
     }
