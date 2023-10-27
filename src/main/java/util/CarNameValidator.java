@@ -10,13 +10,13 @@ public class CarNameValidator {
 
     private static void checkSpaceInName(String name) {
         if (name.contains(" ")) {
-            new IllegalArgumentException();
+            throw new IllegalArgumentException();
         }
     }
 
     private static void checkNameLength(String name) {
         if (name.length() > CAR_NAME_LENGTH) {
-            new IllegalArgumentException();
+            throw new IllegalArgumentException();
         }
     }
 }
