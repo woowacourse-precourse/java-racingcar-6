@@ -1,9 +1,9 @@
 package racingcar.domain;
 
-public class Car {
+public class Car implements Comparable<Car> {
 
-    String name;
-    int forwardCount;
+    private String name;
+    private int forwardCount;
 
     public Car(String name) {
         this.name = name;
@@ -13,5 +13,15 @@ public class Car {
     public int generateRandomNumber(){
 
         return 0;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public int compareTo(Car o) {
+
+        return this.forwardCount - o.forwardCount;
     }
 }

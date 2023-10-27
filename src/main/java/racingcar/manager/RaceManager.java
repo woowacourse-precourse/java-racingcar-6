@@ -41,16 +41,12 @@ public class RaceManager {
     }
 
     public void printWinner() {
-
-        List<String> winners = selectWinner();
+        Referee referee = new Referee(cars);
+        List<String> winners = referee.selectWinner();
         String winnerMessage = String.join(", ", winners);
 
-        System.out.println("최종 우승자 : "+winnerMessage);
+        System.out.println("최종 우승자 : " + winnerMessage);
     }
 
-    public List<String> selectWinner() {
-
-        return null;
-    }
 
 }

@@ -7,9 +7,9 @@
 - [x] 자동자 경주를 시작한다 - **RaceManager / startRace()**
   - [ ] 각 자동차 별로 0~9 사이 랜덤 숫자 생성 - **Car / generateRandomNumber()**
   - [ ] 4이상의 값인 경우 한칸 전진 - **CarService / ForwardOrStop()**
-- [ ] 모든 시도가 끝난 후 가장 많이 이동한 자동차를 우승자로 선정 - **RaceManager / selectWinner()**
-  - [ ] 한 명인 경우 단독으로 출력 - **RaceManager / printWinner()**
-  - [ ] 공동 우승자의 경우 쉼표로 구분해서 동시에 출력 - **RaceManager / printWinner()**
+- [x] 모든 시도가 끝난 후 가장 많이 이동한 자동차를 우승자로 선정 - **Referee / selectWinner()**
+  - [x] 한 명인 경우 단독으로 출력 - **RaceManager / printWinner()**
+  - [x] 공동 우승자의 경우 쉼표로 구분해서 동시에 출력 - **RaceManager / printWinner()**
 
 ## ❌ 예외 처리
 ### 사용자 입력에서 예외가 발생한 경우 `IllegalArgumentException` 로 처리한다.
