@@ -9,6 +9,9 @@ public class MoveResultMessageGenerator {
     private static final String RESULT_FORMAT = "%s : %s\n";
     private static final String MOVEMENT_BAR = "-";
 
+    private MoveResultMessageGenerator() {
+    }
+
     public static String generateMoveResultsMessage(final List<MoveResult> moveResults) {
         return moveResults.stream()
                 .map(MoveResultMessageGenerator::createSingleMessage)
