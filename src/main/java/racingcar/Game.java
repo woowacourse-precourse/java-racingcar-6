@@ -7,7 +7,11 @@ import java.util.Map;
 import java.util.Optional;
 
 public class Game {
-    private final IO io = new IO();
+    private final IO io;
+
+    public Game(IO io) {
+        this.io = io;
+    }
 
     public void start() {
         String[] nameArr = io.inputName();
