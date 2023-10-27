@@ -8,4 +8,9 @@ public class Car {
             this.position++;
         }
     }
+
+    private boolean canMove() {
+        int power = runEngine();
+        return power >= 4;
+    }
 }
