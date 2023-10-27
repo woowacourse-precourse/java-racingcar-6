@@ -66,7 +66,7 @@ public class RacingGameInputController {
     }
 
     private static void validatePositiveInteger(String userInput) {
-        if (!userInput.matches("[1-9][0-9]+")) {
+        if (!userInput.matches("[1-9][0-9]*")) {
             throw new IllegalArgumentException("양수를 입력하지 않았습니다.");
         }
     }
