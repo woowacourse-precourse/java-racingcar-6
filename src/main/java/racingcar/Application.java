@@ -2,6 +2,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Application {
@@ -75,7 +76,7 @@ public class Application {
         String[] carNames = Console.readLine().split(",");
 
         if (!validateCarNames(carNames)) {
-            throw new IllegalArgumentException("자동차 이름의 길이가 5를 초과 했습니다.");
+            throw new IllegalArgumentException("잘못된 자동차 이름이 포함되어 있습니다.");
         }
 
         return carNames;
@@ -93,7 +94,7 @@ public class Application {
 
     private static boolean validateCarNames(final String[] carNames) {
         for (String carName : carNames) {
-            if (!validateCarNameLength(carName)) {
+            if (!validateCarNameLength(carName) || !checkSameCarName(carNames)) {
                 return false;
             }
         }
@@ -103,6 +104,15 @@ public class Application {
 
     private static boolean validateCarNameLength(final String carName) {
         if (carName.length() > 5) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private static boolean checkSameCarName(final String[] carNames) {
+        List<String> carNameList = Arrays.asList(carNames);
+        if(carNameList.size() != carNameList.stream().distinct().count()){
             return false;
         }
 
