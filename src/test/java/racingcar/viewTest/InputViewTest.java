@@ -1,5 +1,6 @@
 package racingcar.viewTest;
 
+import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,6 +21,7 @@ public class InputViewTest {
     @BeforeEach
     void setUp() {
         inputView = new InputView();
+        Console.close();
     }
 
     @Test
