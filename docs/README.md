@@ -4,7 +4,7 @@
 
 ### Car
 - [x] 자동차를 생성한다. `Car()`
-- [ ] 생성된 값이 4 이상인 경우 한 칸 전진한다. `void moveForward(int number)`
+- [x] 생성된 값이 4 이상인 경우 한 칸 전진한다. `void moveForward(int value)`
 
 ### RandomNumberGenerator 
 - [ ] 0~9 사이의 무작위 숫자를 생성한다. `int generate()`

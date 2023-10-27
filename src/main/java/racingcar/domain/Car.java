@@ -9,4 +9,10 @@ public class Car {
         this.name = name;
         this.forwardCount = 0;
     }
+
+    public void moveForward(int value) {
+        if (value >= 4) {
+            forwardCount++;
+        }
+    }
 }
