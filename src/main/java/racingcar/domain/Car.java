@@ -11,4 +11,7 @@ public class Car {
         this.name = carName;
     }
 
+    public void move() {
+        this.position++;
+    }
 }
