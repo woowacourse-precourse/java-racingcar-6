@@ -78,6 +78,7 @@ public class RacingGame {
             raceStart();
             subRotateCount();
         }
+
     }
 
     private void subRotateCount() {
@@ -99,4 +100,5 @@ public class RacingGame {
 
         Console.close();
     }
+
 }

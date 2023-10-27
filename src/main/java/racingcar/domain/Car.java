@@ -10,10 +10,8 @@ import racingcar.exception.RacingGameException;
 
 public class Car {
 
-
     private final String name;
     private Integer position;
-
 
     private Car(String name) {
         this.name = name;
@@ -30,6 +28,7 @@ public class Car {
         if (isWrongLength(name)) {
             throw RacingGameException.of(INVALID_NAME_LENGTH);
         }
+
     }
 
     private static boolean isWrongLength(String name) {
@@ -40,6 +39,7 @@ public class Car {
         if (isAbleToGo(randomNumber)) {
             position += CAR_ONE_STEP;
         }
+
     }
 
     private static boolean isAbleToGo(Integer randomNumber) {

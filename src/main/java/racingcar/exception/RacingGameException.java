@@ -9,4 +9,5 @@ public class RacingGameException extends IllegalArgumentException {
     public static RacingGameException of(ErrorMessage errorMessage) {
         return new RacingGameException(errorMessage);
     }
+
 }
