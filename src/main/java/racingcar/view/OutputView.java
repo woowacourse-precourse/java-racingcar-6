@@ -6,6 +6,7 @@ public class OutputView {
 
     public static final String CAR_NAME_FORMAT = "%s : ";
     public static final String POSITION_SYMBOL = "-";
+    public static final String FINAL_WINNER_RESULT_FORMAT = "최종 우승자 : %s";
 
     public static void printCarPosition(Car car) {
         String resultString = "";
@@ -25,6 +26,10 @@ public class OutputView {
 
     public static void printNewLine() {
         System.out.println();
+    }
+
+    public static void printWinningCar(String winningCarNames) {
+        System.out.printf(FINAL_WINNER_RESULT_FORMAT,winningCarNames);
     }
 }
 

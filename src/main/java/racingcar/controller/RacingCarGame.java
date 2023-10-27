@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.service.RacingGameService;
 import racingcar.validator.Validator;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingCarGame {
 
@@ -25,6 +26,7 @@ public class RacingCarGame {
         int count = Integer.parseInt(attemptCount);
         racingGameService.playGame(count);
         String winningCarNames = racingGameService.getWinningCar();
+        OutputView.printWinningCar(winningCarNames);
     }
 
     private String[] splitCarNames(String carNames) {
