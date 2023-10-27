@@ -45,12 +45,14 @@ class OutputViewTest {
         Assertions.assertThat(outputStream.toString().trim()).isEqualTo(Config.START_RACING_MESSAGE);
     }
 
-    /*@Test
+    @Test
     @DisplayName("각 차수별 결과 출력")
-    private void testEachCountResultMessage() {
-        OutputView.eachCountMessage();
-        Assertions.assertThat(outputStream.toString().trim()).isEqualTo("실행 결과");
-    }*/
+    private void testEachResultMessgaee() {
+        String result = "pobi : ----";
+
+        OutputView.eachResultMessgae(result);
+        Assertions.assertThat(outputStream.toString().trim()).isEqualTo(result);
+    }
 
     @Test
     @DisplayName("우승자 출력")
