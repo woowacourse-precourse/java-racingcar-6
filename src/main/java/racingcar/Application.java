@@ -27,9 +27,9 @@ public class Application {
                 boolean flag = carService.judgeRunOrStop();
                 //판별된 상태에 따른 상태 세팅
                 carService.setCurrentCar(flag, carsList.get(j));
-                //현재의 게임 객체들 상태 출력
-                carService.printCurrentCar(carsList);
             }
+            //현재의 게임 객체들 상태 출력
+            carService.printCurrentCar(carsList);
         }
         //모든 게임 완료된 상테에서 최종 우승자 가리기
         int winScore = carService.getMaxScore(carsList);
