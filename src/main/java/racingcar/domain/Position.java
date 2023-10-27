@@ -4,15 +4,18 @@ import java.util.Objects;
 
 public class Position {
 
+    private static final String INVALID_INPUT_MESSAGE = "음수는 입력할 수 없습니다.";
+    private static final int DEFAULT_POSITION = 0;
+
     private int value;
 
     public Position() {
-        this(0);
+        this(DEFAULT_POSITION);
     }
 
     public Position(int value) {
         if(value < 0) {
-            throw new IllegalArgumentException("음수는 입력할 수 없습니다.");
+            throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
         }
         this.value = value;
     }
