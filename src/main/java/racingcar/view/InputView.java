@@ -22,7 +22,7 @@ public class InputView {
     }
 
     private static List<String> splitNames(String line) {
-        return List.of(line.split(""));
+        return List.of(line.split(","));
     }
 
     public Attempt getAttempt() {
