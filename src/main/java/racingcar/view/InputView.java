@@ -15,19 +15,11 @@ public class InputView {
     public InputView() {
         validation = new Validation();
     }
-    public Map<String, Integer> inputCarName() {
+    public String inputCarName() {
         System.out.println(CAR_NAME_INPUT);
         String nameInput = Console.readLine();
         validateInputBlank(nameInput);
-        validation.NameLengthZero(nameInput);
-        // 자동차 이름 입력 관련 2차 유효성 검사
-        Map<String, Integer> carList = new LinkedHashMap<>();
-        for (String carName : nameInput.split(DELIMETER)) {
-            validation.OverNameLengthLimit(carName);
-            validation.NameDuplicated(carName, carList);
-            carList.put(carName, 0);
-        }
-        return carList;
+        return nameInput;
     }
     public int inputRounds() {
         System.out.println(NUMBER_INPUT);
