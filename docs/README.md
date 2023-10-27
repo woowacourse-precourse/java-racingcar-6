@@ -3,7 +3,7 @@
 ## 🛠 기능 목록
 
 ### GameController
-- [ ] 게임을 실행한다. `void run()`
+- [x] 게임을 실행한다. `void run()`
 - [ ] 게임의 초기값을 설정한다. `void initializeGame()`
   - 자동차 이름을 입력 받아, 자동차를 생성한다.
   - 시도 횟수를 입력 받는다.
