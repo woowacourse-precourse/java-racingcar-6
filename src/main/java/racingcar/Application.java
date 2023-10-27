@@ -23,6 +23,12 @@ public class Application {
         for (String car : carArray) {
             scorePerCar.put(car, 0);
         }
+        System.out.println("시도할 회수는 몇회인가요?");
+        try {
+            int tryNum = Integer.parseInt(Console.readLine());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력해주세요!");
+        }
         
         
     }
