@@ -1,7 +1,7 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.constants.Constants;
+import racingcar.utils.RandomGenerator;
 
 public class Car {
     private String name;
@@ -25,11 +25,7 @@ public class Car {
     }
 
     public void moveForward() {
-        if (generateRandomNumber() >= Constants.STANDARD_NUMBER.getIntValue())
+        if (new RandomGenerator().generateRandomNumber() >= Constants.STANDARD_NUMBER.getIntValue())
             distance.append("-");
-    }
-
-    private int generateRandomNumber() {
-        return Randoms.pickNumberInRange(Constants.MIN_NUMBER.getIntValue(), Constants.MAX_NUMBER.getIntValue());
     }
 }
