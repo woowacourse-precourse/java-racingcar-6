@@ -9,6 +9,7 @@ public class InputView {
     public List<String> getCarNames() {
         List<String> carNames = new ArrayList<>();
         String inputCarNames = Console.readLine();
+        InputValidation.containsNumber(inputCarNames);
         return carNames;
     }
 }
