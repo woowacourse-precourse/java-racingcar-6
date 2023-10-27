@@ -3,6 +3,8 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
 
+import java.util.List;
+
 public class RaceController {
     private static final int RANGE_START_NUMBER = 0;
     private static final int RANGE_END_NUMBER = 9;
@@ -23,5 +25,13 @@ public class RaceController {
         if (isMoved()) {
             car.addRecord();
         }
+    }
+
+    public String getNameAndRecord(List<Car> racingCars) {
+        StringBuilder result = new StringBuilder();
+        for (Car car : racingCars) {
+            result.append(car.getNameAndRecord());
+        }
+        return result.toString();
     }
 }
