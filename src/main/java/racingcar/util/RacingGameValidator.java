@@ -1,7 +1,8 @@
 package racingcar.util;
 
-import racingcar.domain.collection.CarName;
+import racingcar.domain.collection.CarNames;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -17,11 +18,27 @@ public class RacingGameValidator {
     }
 
     public static void validateCarName(
-            final String name,
-            final List<CarName> carNames
+            final String input,
+            final List<String> carNames,
+            int count
     ) {
-        validateCarNameEmpty(name);
-        validateCarNameDuplicate(name, carNames);
+        validateCarNameEnough(input, count);
+
+        for (int i = 0; i < count; i++) {
+            String name = carNames.get(i);
+            validateCarNameEmpty(name);
+            validateCarNameDuplicate(name, carNames);
+        }
+    }
+
+    public static void validateCarNameEnough(
+            final String input,
+            final int count
+    ) {
+        String[] names = input.split(",");
+        if (names.length != count) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private static void validateCarNameEmpty(final String name) {
@@ -32,9 +49,9 @@ public class RacingGameValidator {
 
     private static void validateCarNameDuplicate(
             final String name,
-            final List<CarName> carNames
+            final List<String> carNames
     ) {
-        Set<CarName> carNameSet = new HashSet<>(carNames);
+        Set<String> carNameSet = new HashSet<>(carNames);
         if (carNameSet.contains(name)) {
             throw new IllegalArgumentException();
         }

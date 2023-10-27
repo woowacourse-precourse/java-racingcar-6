@@ -1,2 +1,5 @@
-package racingcar.domain;public class RacingGameConst {
+package racingcar.util;
+
+public class RacingGameConst {
+    public static final int INITIAL_CAR_PROGRESS = 0;
 }

@@ -1,2 +1,6 @@
-package racingcar.domain.interfaces;public interface Game {
+package racingcar.domain.interfaces;
+
+public interface Game {
+
+    public void start();
 }
