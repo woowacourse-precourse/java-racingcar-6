@@ -16,7 +16,7 @@ public record Cars(List<Car> cars) {
                 .toList());
     }
 
-    public void moveForwardWithAllCars(final Supplier<Integer> randomNumberSupplier) {
+    public void moveAllForward(final Supplier<Integer> randomNumberSupplier) {
         for (Car car : cars) {
             car.moveForward(randomNumberSupplier.get());
         }

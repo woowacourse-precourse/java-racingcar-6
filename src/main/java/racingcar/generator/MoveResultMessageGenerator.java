@@ -12,7 +12,7 @@ public class MoveResultMessageGenerator {
     private MoveResultMessageGenerator() {
     }
 
-    public static String generateMoveResultsMessage(final List<MoveResult> moveResults) {
+    public static String generateMessage(final List<MoveResult> moveResults) {
         return moveResults.stream()
                 .map(MoveResultMessageGenerator::createSingleMessage)
                 .collect(Collectors.joining());

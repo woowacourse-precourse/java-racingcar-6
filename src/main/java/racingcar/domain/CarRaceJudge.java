@@ -15,14 +15,14 @@ public class CarRaceJudge {
 
     public void moveCars(final Supplier<Integer> randomNumberSupplier) {
         Cars findCars = carsRepository.findCars();
-        findCars.moveForwardWithAllCars(randomNumberSupplier);
+        findCars.moveAllForward(randomNumberSupplier);
     }
 
     public List<MoveResult> createSingleMoveResults() {
         Cars findCars = carsRepository.findCars();
         return findCars.cars()
                 .stream()
-                .map(MoveResult::createResultOf)
+                .map(MoveResult::createResultFrom)
                 .toList();
     }
 

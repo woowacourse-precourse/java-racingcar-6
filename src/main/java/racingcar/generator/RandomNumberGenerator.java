@@ -5,16 +5,16 @@ import java.util.function.Supplier;
 
 public class RandomNumberGenerator {
 
-    private static final Supplier<Integer> randomNumberSupplier = RandomNumberGenerator::generateRandomNumber;
+    private static final Supplier<Integer> supplier = RandomNumberGenerator::generateNumber;
 
     private RandomNumberGenerator() {
     }
 
-    public static int generateRandomNumber() {
+    public static int generateNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
     public static Supplier<Integer> getGenerateSupplier() {
-        return randomNumberSupplier;
+        return supplier;
     }
 }

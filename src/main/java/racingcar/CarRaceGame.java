@@ -1,6 +1,6 @@
 package racingcar;
 
-import static racingcar.generator.MoveResultMessageGenerator.generateMoveResultsMessage;
+import static racingcar.generator.MoveResultMessageGenerator.generateMessage;
 import static racingcar.generator.RandomNumberGenerator.getGenerateSupplier;
 
 import java.util.List;
@@ -46,7 +46,7 @@ public class CarRaceGame {
 
     private void printSingleMoveResult() {
         List<MoveResult> singleMoveResults = judge.createSingleMoveResults();
-        String singleResult = generateMoveResultsMessage(singleMoveResults);
+        String singleResult = generateMessage(singleMoveResults);
         OutputView.printSingleResult(singleResult);
     }
 }
