@@ -1,6 +1,6 @@
 package racingcar.entity;
 
-interface MovePolicy {
+public interface MovePolicy {
 
     boolean movable();
 }

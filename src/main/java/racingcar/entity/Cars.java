@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
-class Cars {
+public class Cars {
 
     private static final String UNKNOWN_NAMES_MESSAGE = "알 수 없는 목록입니다.";
     private static final String EMPTY_NAMES_MESSAGE = "적어도 하나의 이름이 필요합니다.";
