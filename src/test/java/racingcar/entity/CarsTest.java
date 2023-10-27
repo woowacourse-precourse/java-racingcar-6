@@ -15,7 +15,7 @@ class CarsTest {
     void create() {
         Cars cars = Cars.from(List.of("pobi", "lee"));
 
-        assertThat(cars.size()).isEqualTo(2);
+        assertThat(cars.describeAll().size()).isEqualTo(2);
     }
 
     @DisplayName("알 수 없는 이름 목록(null)으로 객체를 생성할 수 없다.")
@@ -40,5 +40,21 @@ class CarsTest {
         assertThatThrownBy(() -> Cars.from(List.of("lee", "pobi", "pobi")))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("중복된 이름은 허용되지 않습니다.");
+    }
+
+    @DisplayName("모든 자동차를 이동할 수 있다.")
+    @Test
+    void moveAll() {
+        Cars cars = Cars.from(List.of("pobi", "lee"));
+
+        cars.moveAll(() -> true);
+
+        List<CarDescription> result = cars.describeAll();
+        assertThat(result)
+                .hasSize(2)
+                .containsExactly(
+                        new CarDescription("pobi", 1),
+                        new CarDescription("lee", 1)
+                );
     }
 }

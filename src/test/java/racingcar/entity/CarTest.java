@@ -34,7 +34,7 @@ class CarTest {
 
         car.move(() -> true);
 
-        assertThat(car.getPosition()).isEqualTo(1);
+        assertThat(car.describeSelf().position()).isEqualTo(1);
     }
 
     @DisplayName("자동차가 이동하지 못한다면, 위치는 증가할 수 없다.")
@@ -44,6 +44,6 @@ class CarTest {
 
         car.move(() -> false);
 
-        assertThat(car.getPosition()).isEqualTo(0);
+        assertThat(car.describeSelf().position()).isEqualTo(0);
     }
 }

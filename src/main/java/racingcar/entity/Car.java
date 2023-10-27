@@ -32,8 +32,8 @@ class Car {
         }
     }
 
-    public int getPosition() {
-        return position.getPosition();
+    public CarDescription describeSelf() {
+        return new CarDescription(name.getName(), position.getPosition());
     }
 
     @Override

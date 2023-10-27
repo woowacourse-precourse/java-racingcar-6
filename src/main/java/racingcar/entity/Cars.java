@@ -57,7 +57,13 @@ class Cars {
                 .toList();
     }
 
-    public int size() {
-        return cars.size();
+    public void moveAll(MovePolicy policy) {
+        cars.forEach(car -> car.move(policy));
+    }
+
+    public List<CarDescription> describeAll() {
+        return cars.stream()
+                .map(Car::describeSelf)
+                .toList();
     }
 }
