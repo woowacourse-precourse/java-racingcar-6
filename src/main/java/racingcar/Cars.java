@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-class Cars {
+final class Cars {
 
     private final List<Car> cars = new ArrayList<>();
-    private static final String DELIMITER = ",";
 
     private Cars() {
     }

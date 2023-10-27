@@ -2,7 +2,7 @@ package racingcar;
 
 import java.util.Objects;
 
-class Car {
+final class Car {
 
     private final Name name;
     private int moveCount;
