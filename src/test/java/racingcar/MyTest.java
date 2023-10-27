@@ -52,4 +52,18 @@ public class MyTest {
                 4, 1, 1, 9, 0
         );
     }
+
+    @Test
+    void 우승자_결정을_위한_최대_전진_횟수_테스트() {
+        RacingCarGame testMaximumMovement = new RacingCarGame();
+        CarInfo[] testInput = new CarInfo[5];
+
+        for(int i = 0; i < 4; i++) {
+            testInput[i] = new CarInfo("T" + (char) i, i * 2);
+        }
+
+        testInput[4] = new CarInfo("T4", 6);
+
+        assertThat(testMaximumMovement.testGetMaximumMovement(testInput)).isEqualTo(6);
+    }
 }

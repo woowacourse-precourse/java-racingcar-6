@@ -192,8 +192,8 @@ public class RacingCarGame {
         return maximum;
     }
 
-    public void splitCarNamesTest(String testCarNames){
-        splitCarNames(testCarNames);
+    public void splitCarNamesTest(String testInput){
+        splitCarNames(testInput);
     }
 
     public void checkCarNameTest(String[] testInput) {
@@ -201,11 +201,16 @@ public class RacingCarGame {
         checkCarName();
     }
 
-    public void checkMovementAmountTest(String movementAmountTest) {
-        checkMovementAmount(movementAmountTest);
+    public void checkMovementAmountTest(String testInput) {
+        checkMovementAmount(testInput);
     }
 
     public boolean testDecideMoveOrNot() {
         return decideMoveOrNot();
+    }
+
+    public int testGetMaximumMovement(CarInfo[] testInput) {
+        this.carArray = testInput;
+        return getMaximumMovement();
     }
 }
