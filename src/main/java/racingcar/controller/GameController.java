@@ -27,10 +27,10 @@ public class GameController {
         String[] carNames = inputController.inputCarNames();
         int trialNumber = inputController.inputTrialNumber();
 
-        CarsGenerateDto carsGenerateDto = new CarsGenerateDto(new ArrayList<>(), carNames);
+        CarsGenerateDto generatedCars = new CarsGenerateDto(new ArrayList<>(), carNames);
         outputView.showResultMessage();
 
-        gameService.playUntilTrialNumber(trialNumber, carsGenerateDto);
-        outputView.showWinner(referee, carsGenerateDto);
+        gameService.playUntilTrialNumber(trialNumber, generatedCars);
+        outputView.showWinner(referee, generatedCars);
     }
 }
