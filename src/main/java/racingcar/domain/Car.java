@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.common.util.StatusEnum;
+
 public class Car {
 
     private final String carName;
@@ -21,5 +23,15 @@ public class Car {
 
     public String getCarName() {
         return carName;
+    }
+
+    public int getLocation() {
+        return location;
+    }
+
+    public void moveOrStop(StatusEnum statusEnum) {
+        if (statusEnum == StatusEnum.MOVE) {
+            location++;
+        }
     }
 }
