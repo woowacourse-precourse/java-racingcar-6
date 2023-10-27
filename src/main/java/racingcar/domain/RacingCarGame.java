@@ -1,7 +1,7 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.dto.CarStateDto;
 
 public class RacingCarGame {
@@ -53,19 +53,11 @@ public class RacingCarGame {
     private void getInput() {
         output.printCarNamesInputRequest();
         List<String> carNameList = input.getCarNames();
-        carList = makeCarList(carNameList);
+        carList = carNameList.stream()
+                .map(carName -> new Car(carName))
+                .collect(Collectors.toList());
 
         output.printMoveCountInputRequest();
         remainMoveCount = input.getMoveCount();
-    }
-
-    private List<Car> makeCarList(List<String> carNames) {
-        List<Car> carList = new ArrayList<>();
-
-        for (String carName : carNames) {
-            carList.add(new Car(carName.strip()));
-        }
-
-        return carList;
     }
 }
