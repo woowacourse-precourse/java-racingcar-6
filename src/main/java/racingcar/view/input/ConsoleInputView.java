@@ -8,4 +8,9 @@ public class ConsoleInputView implements InputView {
     public String receiveCarNames() {
         return Console.readLine();
     }
+
+    @Override
+    public String receivePlayCount() {
+        return Console.readLine();
+    }
 }
