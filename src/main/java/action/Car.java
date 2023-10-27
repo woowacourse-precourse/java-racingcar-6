@@ -14,8 +14,6 @@ public class Car implements Movable {
     private StringBuilder status;
 
     public Car(String carName) {
-        checkNameLength(carName);
-
         this.carName = carName;
         status = new StringBuilder();
     }
@@ -44,12 +42,6 @@ public class Car implements Movable {
             return MOVE_FORWARD;
         }
         return STOP;
-    }
-
-    public static void checkNameLength(String carName) throws IllegalArgumentException{
-        if(carName.length() > LENGTH) {
-            throw new IllegalArgumentException();
-        }
     }
 
     public String printResult() {
