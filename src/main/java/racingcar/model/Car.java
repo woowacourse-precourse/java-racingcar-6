@@ -14,7 +14,7 @@ public class Car {
         this.forwards = 0;
     }
 
-    private int createRandomeNumer() {
+    private int createRandomNumber() {
         return RandomUtil.createRandomNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
     }
 }
