@@ -2,9 +2,13 @@ package racingcar.domain;
 
 public class GameResult {
 
-    private String winner;
+    private String result;
 
-    public GameResult(String winner) {
-        this.winner = winner;
+    public GameResult(String result) {
+        this.result = result;
+    }
+
+    public String getResult() {
+        return result;
     }
 }
