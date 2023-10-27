@@ -1,6 +1,6 @@
 package racingcar.validator;
 
-public interface InputValidator {
+public interface BasicValidator {
 
     void validate(String userInput);
 }

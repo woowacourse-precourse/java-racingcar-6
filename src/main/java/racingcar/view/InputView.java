@@ -2,16 +2,16 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
-import racingcar.validator.InputValidator;
+import racingcar.validator.BasicValidator;
 
 public class InputView {
 
-    private final InputValidator carNamesInputValidator;
-    private final InputValidator numberOfRoundsInputValidator;
+    private final BasicValidator carNamesInputValidator;
+    private final BasicValidator numberOfRoundsInputValidator;
 
     public InputView(
-            InputValidator carNamesInputValidator,
-            InputValidator numberOfRoundsInputValidator
+            BasicValidator carNamesInputValidator,
+            BasicValidator numberOfRoundsInputValidator
     ) {
         this.carNamesInputValidator = carNamesInputValidator;
         this.numberOfRoundsInputValidator = numberOfRoundsInputValidator;
