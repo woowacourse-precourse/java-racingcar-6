@@ -9,7 +9,7 @@ public class Name {
     }
 
     private void validateName(String name) {
-        if (name.isEmpty() || name.length() > 5) {
+        if (name.isBlank() || name.length() > 5) {
             throw new IllegalArgumentException("이름은 1~5 글자여야 합니다.");
         }
     }
