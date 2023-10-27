@@ -26,6 +26,12 @@ public class RacingController {
 
         output.showCountInputMessage();
         String count = input.readCount();
+
+        for (Car car : cars) {
+            if (canMove()) {
+                car.move();
+            }
+        }
     }
 
     private List<Car> makeCars(String carNames) {
