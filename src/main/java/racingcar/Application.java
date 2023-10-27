@@ -6,7 +6,7 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
 
-        //1. 자동차 이름 입력
+        // 1. 자동차 이름 입력
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
         String userInput = Console.readLine();
@@ -33,7 +33,7 @@ public class Application {
             }
         }
 
-        //이름에 공백 포함시 => 공백 제거
+        // 이름에 공백 포함시 => 공백 제거
         for (int i = 0; i < carNames.length; i++) {
             carNames[i]= carNames[i].trim();
         }
@@ -41,5 +41,17 @@ public class Application {
         for (String carName : carNames) {
             System.out.print("\"" + carName + "\"");
         }
+
+        // 2. 시도 횟수 입력
+        System.out.println("시도할 회수는 몇회인가요?");
+        userInput = Console.readLine();
+        int roundCount;
+        try {
+            roundCount = Integer.parseInt(userInput);
+        } catch (NumberFormatException e){
+            throw new IllegalArgumentException("숫자만 입력하세요.");
+        }
+
+
     }
 }
