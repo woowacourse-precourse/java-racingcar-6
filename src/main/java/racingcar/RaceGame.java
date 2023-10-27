@@ -25,16 +25,14 @@ public class RaceGame {
             scoreBoard.put(carNames.get(i), new StringBuilder());
         }
 
-        int[] forwardCount = new int[carNames.size()];
         for (int i = 0; i < gameRound; i++) {
-            for (int j = 0; j < carNames.size(); j++) {
+            for (Map.Entry<String, StringBuilder> pair : scoreBoard.entrySet()) {
                 if (engine.rollDice()) {
-                    engine.moveForward(scoreBoard.get(carNames.get(j)));
-                    forwardCount[j]++; // 해당 자동차의 점수 올리기
+                    engine.moveForward(pair.getValue());
                 }
+                printer.printRoundResult(pair);
             }
         }
-        List<String> winningList = new ArrayList<>();
 
         int winPoint = Arrays.stream(forwardCount).max().getAsInt();
         scoreBoard.forEach((key, value) -> {
@@ -42,5 +40,6 @@ public class RaceGame {
                 winningList.add(key);
             }
         });
+        printer.printWinnersNames(winningList);
     }
 }
