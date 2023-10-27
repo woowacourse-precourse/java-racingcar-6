@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.validation.InputValidation;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -10,12 +12,7 @@ public class Car {
         return movingCars;
     }
 
-    public void inputCars(String carName){
-        Map<String, Integer> collectCars = new LinkedHashMap<>();
-        String[] cars = carName.split(",");
-        for (String car : cars) {
-            collectCars.put(car,0);
-        }
-        movingCars = collectCars;
+    public void inputCars(String carNames){
+        movingCars = InputValidation.checkedInputValidation(carNames);
     }
 }
