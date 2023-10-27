@@ -1,7 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class RacingGame {
 
@@ -12,7 +12,7 @@ public class RacingGame {
     private static final String resultPhrase = "실행 결과";
     private static final String winnerPhrase = "최종 우승자 : ";
 
-    HashMap<String, Integer> racingCars;
+    LinkedHashMap<String, Integer> racingCars;
     int attemptingNum;
 
     public void startGame() {
@@ -28,9 +28,9 @@ public class RacingGame {
         return input;
     }
 
-    public HashMap<String, Integer> addHashMapWithNames(String input) {
+    public LinkedHashMap<String, Integer> addHashMapWithNames(String input) {
         String[] names = input.split(",");
-        racingCars = new HashMap<>();
+        racingCars = new LinkedHashMap<>();
 
         for (String name : names) {
             name = name.trim();
