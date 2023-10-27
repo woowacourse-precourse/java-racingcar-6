@@ -53,5 +53,10 @@ public class Application {
     public static void generateAction() {
         int randomNumber = Randoms.pickNumberInRange(0,9);
         System.out.println(randomNumber);
+        int action = 0;
+        if (randomNumber >= 4) {
+            action++;
+        }
+        System.out.println(action);
     }
 }
