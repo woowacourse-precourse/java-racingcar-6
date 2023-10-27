@@ -15,4 +15,10 @@ public class InputView {
         inputValidator.validateRacingCarNames(input);
         return input;
     }
+
+    public String readTryCount() {
+        final String input = Console.readLine();
+        inputValidator.validateTryCount(input);
+        return input;
+    }
 }
