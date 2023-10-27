@@ -1,5 +1,6 @@
-package racingcar;
+package racingcar.race;
 
+import racingcar.CarName;
 import racingcar.configuration.AppConfig;
 import racingcar.util.MoveProbability;
 

@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import java.util.Iterator;
-import racingcar.RaceCar;
+import racingcar.race.RaceCar;
 
 public class Output {
     private static final String VERTICAL_WHITESPACE = "";

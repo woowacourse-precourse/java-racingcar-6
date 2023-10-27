@@ -1,9 +1,8 @@
-package racingcar.racecar;
+package racingcar.race;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.CarName;
-import racingcar.RaceCar;
 
 public class RaceCarTest {
 
