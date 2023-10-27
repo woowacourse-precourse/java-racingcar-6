@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
+import racingcar.validation.InputValidator;
 import racingcar.view.InputView;
 
 import java.util.ArrayList;
@@ -13,7 +14,17 @@ public class GameController {
     public GameController() {}
 
     public void startGame() {
-        List<String> names = getInputNames();
+        List<Car> cars = createCars(getInputNames());
+        int attemptCount = inputAttemptCount();
+
+    }
+
+    private int inputAttemptCount() {
+        String inputCount = InputView.inputAttemptCount();
+
+        InputValidator.validateNumericInput(inputCount);
+
+        return Integer.parseInt(inputCount);
     }
 
     private List<Car> createCars(List<String> names) {
