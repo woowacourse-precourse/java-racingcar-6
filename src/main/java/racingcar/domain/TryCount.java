@@ -29,13 +29,13 @@ public final class TryCount {
     }
 
     public TryCount next() {
-        validateValue();
+        validatePositive();
         return new TryCount(this);
     }
 
-    private void validateValue() {
+    private void validatePositive() {
         if (value <= NONE_LEFT) {
-            throw new IllegalStateException(ErrorMessage.INVALID_TRY_COUNT_VALUE.toValue());
+            throw new IllegalStateException(ErrorMessage.NO_LEFT_TRY_COUNT.toValue());
         }
     }
 }

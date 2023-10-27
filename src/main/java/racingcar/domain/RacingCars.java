@@ -79,6 +79,6 @@ public final class RacingCars {
         return elements.stream()
                 .map(RacingCar::moveDistance)
                 .max(Integer::compare)
-                .orElseThrow(() -> new IllegalStateException(ErrorMessage.INVALID_MAX_LOGIC.toValue()));
+                .orElseThrow(() -> new IllegalStateException(ErrorMessage.INVALID_MAX_CALCULATION.toValue()));
     }
 }
