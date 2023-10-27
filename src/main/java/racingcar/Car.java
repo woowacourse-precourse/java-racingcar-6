@@ -11,6 +11,11 @@ public class Car {
         this.name = name;
     }
 
+    public Car(String name, int forwardDistanceBetweenStartLine) {
+        this(name);
+        this.forwardDistanceBetweenStartLine = forwardDistanceBetweenStartLine;
+    }
+
     public String getName() {
         return name;
     }
