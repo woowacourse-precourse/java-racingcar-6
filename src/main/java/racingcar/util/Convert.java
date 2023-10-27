@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Convert {
 
-    public static List<String> stringToList(String inputValue) {
+    public static List<String> stringToListUsingComma(String inputValue) {
         return List.of(inputValue.split(","));
     }
 }

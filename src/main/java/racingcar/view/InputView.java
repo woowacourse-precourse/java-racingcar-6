@@ -9,6 +9,6 @@ public class InputView {
 
     public List<String> readCarNames() {
         String inputValue = readLine();
-        return Convert.stringToList(inputValue);
+        return Convert.stringToListUsingComma(inputValue);
     }
 }
