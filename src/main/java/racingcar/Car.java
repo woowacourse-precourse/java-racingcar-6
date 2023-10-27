@@ -24,7 +24,7 @@ public class Car {
         return position == maxPosition;
     }
 
-    private void selectMove() {
+    public void selectMove() {
         Integer randomNumber = Randoms.pickNumberInRange(0,9);
         if(randomNumber >= 4){
             position++;

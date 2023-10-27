@@ -29,11 +29,17 @@ public class GameBoard {
     public void viewOneGame() {
         List<Car> carList = cars.getCars();
         carList.stream()
-                .forEach(car -> printCarPlay(car));
+                .forEach(car -> carPlay(car));
+        System.out.println();
+    }
+
+    private void carPlay(Car car) {
+        car.selectMove();
+        printCarPlay(car);
     }
 
     private void printCarPlay(Car car) {
-        System.out.println(car.getCarName() + " : ");
+        System.out.print(car.getCarName() + " : ");
         for(int i = 0 ; i < car.getPosition() ; i++) {
             System.out.print("-");
         }
