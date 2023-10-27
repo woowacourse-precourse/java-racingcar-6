@@ -13,7 +13,7 @@ public class CarMover {
                 .forEach(Car::move);
     }
 
-    static boolean isMoving() {
+    private static boolean isMoving() {
         return Randoms.pickNumberInRange(0, 9) >= SystemConstant.MOVE_STANDARD.getValue();
     }
 }

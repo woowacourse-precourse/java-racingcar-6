@@ -48,7 +48,7 @@ public class InputVerifier {
     }
 
     private static void checkNonPositive(String tryRemain) {
-        if (Integer.parseInt(tryRemain) < 1) {
+        if (Integer.parseInt(tryRemain) < SystemConstant.POSITIVE_NUMBER.getValue()) {
             throw new IllegalArgumentException(ExceptionMessage.TRY_POSITIVE.getMessage());
         }
     }

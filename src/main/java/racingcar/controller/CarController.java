@@ -7,7 +7,7 @@ import racingcar.verifier.InputVerifier;
 import racingcar.view.InputHandler;
 
 public class CarController {
-    List<Car> carList = new ArrayList<>();
+    private final List<Car> carList = new ArrayList<>();
 
     public CarController() {
         createCars(InputHandler.inputCars());

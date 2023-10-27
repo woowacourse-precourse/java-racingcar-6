@@ -12,8 +12,8 @@ import racingcar.view.InputHandler;
 import racingcar.view.OutputHandler;
 
 public class RaceController {
-    TryRemains tryRemains;
-    List<Car> carList;
+    private final List<Car> carList;
+    private TryRemains tryRemains;
 
     public RaceController(List<Car> carList) {
         this.carList = carList;
