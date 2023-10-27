@@ -10,15 +10,12 @@
 - [x] CarPosition 을 저장하고 비교한다 - Car
 - [x] 자동차의 이름을 저장하고 이동 결과를 출력한다 - Car
 - [x] 자동차를 전진한다 - Car, CarPosition
-- [ ] 자동차들을 저장하고 전진을 명령한다 - Cars
-- [ ] TotalNumberToMove 를 저장하고 업데이트한다 - Cars
-- [ ] 자동차 전진 여부를 확인한다 - Cars, Car, CarMoveCount, TotalNumberToMove
+- [x] 자동차들을 저장하고 전진을 명령한 후 결과를 반환한다. - Cars
+- [x] TotalNumberToMove 를 저장하고 이동 가능 여부를 반환한다. - Cars
 - [x] 자동자의 위치를 비교하며 우승자를 판단하고 우승자 메시지를 만든다 - WinCars
-- [ ] 우승자를 선별한다 - Cars
+- [x] 자동차들 중 우승자를 선별한다 - Cars
 - [ ] Car 를 생성한다 - Generator
 - [ ] TotalNumberToMove 를 생성한다 - Generator
-- [ ] Cars 를 생성한다 - Generator
-- [ ] 이름을 쉼표 기준으로 자른다 - Util
 ## View
 - [ ] 자동차 이름을 입력받는다 - InputView
 - [ ] 시도할 회수를 입력받는다 - InputView
