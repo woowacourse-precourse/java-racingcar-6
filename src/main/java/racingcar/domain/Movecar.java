@@ -7,6 +7,7 @@ import java.util.List;
 public class Movecar {
     public void print(int usercount, List<String> carname) {
         int[] carmove = new int[carname.size()];
+        System.out.println("\n실행 결과");
         for (int i = 0; i < usercount; i++) {
             go_or_stop(carname, carmove);
         }
