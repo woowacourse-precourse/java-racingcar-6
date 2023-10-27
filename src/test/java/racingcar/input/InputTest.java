@@ -7,6 +7,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.cars.Car;
 import racingcar.cars.Cars;
 
 public class InputTest {
@@ -47,7 +48,35 @@ public class InputTest {
 
         cars.printMoveRecord(carName, moveRecord);
         String output = byteArrayOutputStream.toString();
-        Assertions.assertThat(output).isEqualTo("tiger : -----");
+        Assertions.assertThat(output.trim()).isEqualTo("tiger : -----");
+    }
+
+    @Test
+    @DisplayName("최종 결과 가장 많이 이동한 단독 우승자 출력")
+    public void testPrintSoloWinner() {
+        Cars cars = new Cars("lamb");
+
+        cars.addCar("tiger", 3);
+        cars.addCar("bear", 5);
+        cars.addCar("eagle", 4);
+
+        cars.printWinner();
+        String output = byteArrayOutputStream.toString();
+        Assertions.assertThat(output.trim()).isEqualTo("최종 우승자 : bear");
+    }
+
+    @Test
+    @DisplayName("최종 결과 가장 많이 이동한 공동 우승자 쉼표(,)로 구분하여 출력")
+    public void testPrintCoWinner() {
+        Cars cars = new Cars("lamb");
+
+        cars.addCar("tiger", 3);
+        cars.addCar("bear", 5);
+        cars.addCar("eagle", 5);
+
+        cars.printWinner();
+        String output = byteArrayOutputStream.toString();
+        Assertions.assertThat(output.trim()).isEqualTo("최종 우승자 : bear, eagle");
     }
 
     @AfterEach
