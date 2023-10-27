@@ -1,6 +1,6 @@
 package racingcar.component;
 
-public class Car {
+public class Car implements Comparable<Car>{
     private String name;
     private String progress;
 
@@ -19,5 +19,10 @@ public class Car {
 
     public void go() {
         this.progress += "-";
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return o.progress.length() - this.progress.length();
     }
 }
