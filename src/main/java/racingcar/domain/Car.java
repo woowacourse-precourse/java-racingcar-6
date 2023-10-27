@@ -6,11 +6,11 @@ public class Car {
     private Distance distance;
 
     public Name getName() {
-        return name;
+        return new Name(name.value());
     }
 
     public Distance getDistance() {
-        return distance;
+        return new Distance(distance.value());
     }
 
     public Car(final Name name) {
