@@ -25,7 +25,6 @@ public class InputRacingCar {
 
     public static void checkLength(List<String> racingCarsNames) {
         for (String name : racingCarsNames) {
-            System.out.println(name);
             if (name.length() > 5) {
                 throw new IllegalArgumentException(ErrorMessage.INPUT_LENGTH_EXCEEDED_ERROR);
             }
@@ -34,7 +33,6 @@ public class InputRacingCar {
 
     public static void checkName(List<String> racingCarsNames) {
         for (String name : racingCarsNames) {
-            System.out.println(name);
             if (name.contains(" ")) {
                 throw new IllegalArgumentException(ErrorMessage.EMPTY_NAME_ERROR);
             }
