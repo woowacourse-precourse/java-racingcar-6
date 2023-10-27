@@ -1,6 +1,7 @@
 package racingcar.system;
 
 public enum SystemConstant {
+    INITIAL_PROGRESS_NUMBER(0),
     MOVE_STANDARD(4),
     MAX_NAME_LENGTH(5),
     POSITIVE_NUMBER(1),

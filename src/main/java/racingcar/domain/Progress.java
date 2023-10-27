@@ -1,10 +1,12 @@
 package racingcar.domain;
 
+import racingcar.system.SystemConstant;
+
 public class Progress {
     private int progress;
 
     Progress() {
-        progress = 0;
+        progress = SystemConstant.INITIAL_PROGRESS_NUMBER.getValue();
     }
 
     void up() {
