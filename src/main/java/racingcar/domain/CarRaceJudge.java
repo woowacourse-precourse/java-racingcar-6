@@ -20,10 +20,10 @@ public class CarRaceJudge {
         carRepository.saveAll(cars);
     }
 
-    public void moveCars(final Supplier<Integer> randomNumberGenerator) {
+    public void moveCars(final Supplier<Integer> randomNumberSupplier) {
         List<Car> cars = carRepository.findAll();
         for (Car car : cars) {
-            int randomNumber = randomNumberGenerator.get();
+            int randomNumber = randomNumberSupplier.get();
             car.moveForward(randomNumber);
         }
     }
