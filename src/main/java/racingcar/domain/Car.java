@@ -3,12 +3,12 @@ package racingcar.domain;
 public class Car {
     String name;
     String currentPosition;
-
+    public Car(String name) {
+        this.name = name;
+        currentPosition="";
+    }
     public String getName() {
         return name;
-    }
-    public void setName(String name) {
-        this.name = name;
     }
     public String getCurrentPosition() {
         return currentPosition;
