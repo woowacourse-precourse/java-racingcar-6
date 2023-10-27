@@ -18,6 +18,7 @@ public class GameService {
         gameGuidePrinter.getCarNameInputMessage();
         String carList = carNameInput();
         String[] cars = groupCarsByName(carList);
+        List<Car> cars1 = createCar(cars);
         gameGuidePrinter.getTryCountMessage();
     }
 
@@ -29,5 +30,17 @@ public class GameService {
     private String[] groupCarsByName(String carList) {
         String[] cars = carList.split(",");
         return cars;
+    }
+
+    private List<Car> createCar(String[] cars) {
+        List<Car> cars1 = new ArrayList<>();
+
+        for (String carName : cars) {
+            Car car = new Car();
+            car.setName(carName);
+            cars1.add(car);
+        }
+
+        return cars1;
     }
 }
