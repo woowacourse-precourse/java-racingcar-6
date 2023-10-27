@@ -13,11 +13,11 @@ public class Car {
     }
 
     public Map<String, Integer> createCarNameList(String input) {
-        validation.NameLengthZero(input);
+        validation.nameLengthZero(input);
         Map<String, Integer> carNameList = new LinkedHashMap<>();
         for (String carName : input.split(DELIMETER)) {
-            validation.OverNameLengthLimit(carName);
-            validation.NameDuplicated(carName, carNameList);
+            validation.overNameLengthLimit(carName);
+            validation.nameDuplicated(carName, carNameList);
             carNameList.put(carName, 0);
         }
         return carNameList;
