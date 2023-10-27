@@ -9,10 +9,10 @@ public class CarManger {
 	private final List<Car> cars = new ArrayList<>();
 
 	public void managedCar(String[] carNames) {
-		if(carNames.length > 5) {
-			throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
-		}
 		for (String carName : carNames) {
+			if(carName.length() >= 5) {
+				throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+			}
 			Car car = new Car(carName);
 			cars.add(car);
 		}
