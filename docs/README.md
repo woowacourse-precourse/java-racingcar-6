@@ -47,6 +47,9 @@
 - InputMapper
     - 자동차 이름 입력값을 자동차 일급컬렉션으로 변환
 
+- InputManager
+    - 자동차 이름을 입력받아 자동차 일급컬렉션 반환
+
 - RacingCar (자동차 도메인)
 
 - RacingCars (자동차 일급컬렉션)
