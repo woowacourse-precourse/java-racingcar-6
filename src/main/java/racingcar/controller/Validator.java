@@ -2,29 +2,29 @@ package racingcar.controller;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class Validator {
-    public static void isUnique(List<String> carName) {
-        Set<String> unique = new HashSet<>(carName);
-        if (unique.size() != carName.size()) {
+    public static void validateNames(List<String> carNames) {
+        validateUnique(carNames);
+        validateLength(carNames);
+        validateBlank(carNames);
+    }
+
+    public static void validateUnique(List<String> carName) {
+        if (carName.size() != new HashSet<>(carName).size()) {
             throw new IllegalArgumentException("중복이 존재합니다.");
         }
     }
 
-    public static void isValidLength(List<String> carNames) {
-        for (String name : carNames) {
-            if (name.length() > 5) {
-                throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
-            }
+    public static void validateLength(List<String> carNames) {
+        if (carNames.stream().anyMatch(name -> name.length() > 5)) {
+            throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
         }
     }
 
-    public static void isBlankCarNames(List<String> carNames) {
-        for (String name : carNames) {
-            if (name.isBlank()) {
-                throw new IllegalArgumentException("공백만 입력할 수 없습니다.");
-            }
+    public static void validateBlank(List<String> carNames) {
+        if (carNames.stream().anyMatch(String::isBlank)) {
+            throw new IllegalArgumentException("공백만 입력할 수 있습니다.");
         }
     }
 }

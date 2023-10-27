@@ -42,9 +42,7 @@ public class RacingGame {
     }
 
     private void initializeCars(List<String> carNames) {
-        Validator.isUnique(carNames);
-        Validator.isValidLength(carNames);
-        Validator.isBlankCarNames(carNames);
+        Validator.validateNames(carNames);
         for (String carName : carNames) {
             cars.add(carName);
         }
