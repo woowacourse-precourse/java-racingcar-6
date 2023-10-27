@@ -1,9 +1,12 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 import racingcar.util.EmptyValidator;
 
 public class Cars {
@@ -68,6 +71,17 @@ public class Cars {
         if (position != null) {
             cars.put(carName, position + 1);
         }
+    }
+
+    public ArrayList<String> determineFinalWinner() {
+        int highestPosition = this.cars.values().stream()
+                .max(Integer::compareTo)
+                .orElse(-1);
+
+        return this.cars.entrySet().stream()
+                .filter(entry -> entry.getValue() == highestPosition)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
 }

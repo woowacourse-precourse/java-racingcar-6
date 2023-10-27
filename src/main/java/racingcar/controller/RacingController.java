@@ -18,7 +18,7 @@ public class RacingController {
         racing.validateAttemptCount(inputView.printAttemptCountRequest());
         outputView.printResultText();
         executeRaces();
-        outputView.printFinalWinner(cars.getCars());
+        outputView.printFinalWinner(cars.determineFinalWinner());
     }
 
     private void executeRaces() {
