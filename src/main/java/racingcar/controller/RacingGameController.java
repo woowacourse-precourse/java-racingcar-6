@@ -22,6 +22,6 @@ public class RacingGameController {
     }
 
     private void getTryCountAndCheckValidation() {
-        inputView.getTryCount();
+        inputValidator.checkTryCountInputValidation(inputView.getTryCount());
     }
 }
