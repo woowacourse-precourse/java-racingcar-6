@@ -13,12 +13,12 @@ public class ConsoleInput implements Input {
     @Override
     public List<Car> receiveCarNamesAndMakeList() {
         String input = Console.readLine();
-        validateInput(input);
+        validateInputCarName(input);
 
         return getCarList(input);
     }
 
-    private void validateInput(String input) {
+    private void validateInputCarName(String input) {
         checkForm(input);
         checkDuplication(input);
     }
@@ -52,6 +52,16 @@ public class ConsoleInput implements Input {
 
     @Override
     public int receiveTotalCountOfExecution() {
-        return 0;
+        String input = Console.readLine();
+        validateInputCount(input);
+
+        return Integer.valueOf(input);
+    }
+
+    private void validateInputCount(String input) {
+        //1 ~ 100사이의 숫자만 허용
+        if (!Pattern.matches("^([1-9]|[1-9][0-9]|100)$", input)) {
+            throw new IllegalArgumentException();
+        }
     }
 }
