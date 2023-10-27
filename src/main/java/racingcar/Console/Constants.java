@@ -10,4 +10,6 @@ public class Constants {
 
     static final String MOVE = "-";
     static final String COMMAS = ",";
+
+    public static final String EXCEPTION_CAR_NAME_SIZE_MESSAGE = "자동차 이름은 5자 이하여야 합니다.";
 }
