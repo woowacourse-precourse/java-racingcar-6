@@ -1,8 +1,8 @@
 package racingcar.domain;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.dto.CarStatusDto;
 
 public class RacingCars {
     private final List<Car> cars;
@@ -20,6 +20,12 @@ public class RacingCars {
                 .filter(car -> car.getPosition() == getMaxPosition())
                 .map(Car::getName)
                 .collect(Collectors.joining(", "));
+    }
+
+    public List<CarStatusDto> getCarStatuses() {
+        return cars.stream()
+                .map(car -> new CarStatusDto(car.getName(), car.getPosition()))
+                .collect(Collectors.toList());
     }
 
     private int getMaxPosition() {
