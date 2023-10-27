@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import racingcar.domain.*;
-import racingcar.exception.CarValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 import racingcar.vo.RoundCount;
@@ -22,9 +21,8 @@ public class RacingController {
 
     public void run() {
         String carNamesFromUser = requestCarNamesFromUser();
-        validateCarNames(carNamesFromUser);
-        List<String> totalCarNamesList = Parser.parseCarNames(carNamesFromUser);
-        Racing racing = new Racing(totalCarNamesList);
+        List<Car> carList = CarFactory.generateCarNameList(carNamesFromUser);
+        Racing racing = new Racing(carList);
 
         String racingRoundCountFromUser = requestRacingRoundCountFromUser();
         RoundCount roundCount = new RoundCount(racingRoundCountFromUser);
@@ -42,10 +40,6 @@ public class RacingController {
     private String requestRacingRoundCountFromUser() {
         outputView.displayRequestRaceCount();
         return inputView.requestRacingRoundCountFromUser();
-    }
-
-    private static void validateCarNames(String carNamesFromUser) {
-        CarValidator.validate(carNamesFromUser);
     }
 
     private void runRace(RoundCount roundCount, Racing racing) {
