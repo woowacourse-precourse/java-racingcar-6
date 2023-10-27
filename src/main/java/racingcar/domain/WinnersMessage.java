@@ -8,7 +8,12 @@ public class WinnersMessage {
     private final String message;
 
     public WinnersMessage(List<Car> winners) {
-        message = FINAL_WINNER_MESSAGE + String.join(", ");
+        List<String> names = getNames(winners);
+        message = FINAL_WINNER_MESSAGE + String.join(", ", names);
+    }
+
+    private static List<String> getNames(List<Car> winners) {
+        return winners.stream().map(Car::getName).toList();
     }
 
     @Override
