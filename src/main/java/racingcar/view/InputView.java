@@ -15,7 +15,7 @@ public class InputView {
     String input = "";
 
     public List<String> inputCars() {
-        List<String> carList = new ArrayList<>();
+        List<String> carList;
 
         input = readLine();
 
@@ -23,9 +23,7 @@ public class InputView {
 
         carList = Arrays.stream(input.split(Config.SPLIT_REGEXP)).collect(Collectors.toList());
 
-        for (String carName : carList) {
-            validateInputSize(carName);
-        }
+        validateInputSize(carList);
 
         return carList;
     }
