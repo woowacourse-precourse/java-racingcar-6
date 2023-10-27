@@ -52,4 +52,13 @@ class InputValidationTest {
         assertThatThrownBy(() -> InputValidation.validateCarNames(test))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 자동차_이름이_서로_중복되는_경우_예외_처리() {
+        List<String> test = new ArrayList<>();
+        test.add("tayo");
+        test.add("tayo");
+        assertThatThrownBy(() -> InputValidation.validateCarNames(test))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
