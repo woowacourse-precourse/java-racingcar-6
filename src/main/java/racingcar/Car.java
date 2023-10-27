@@ -2,9 +2,26 @@ package racingcar;
 
 public class Car {
     private String name;
-    private int position;
+    private String position;
+
+    public Car(String name) {
+        this.name = name;
+        this.position = "";
+    }
+
+    public String getName() {
+        return name;
+    }
 
     public void moveForward() {
-        position++;
+        this.position += "-";
+    }
+
+    public int getPositionLength() {
+        return position.length();
+    }
+
+    public String resultByRound() {
+        return name + " : " + position;
     }
 }
