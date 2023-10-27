@@ -2,6 +2,7 @@ package racingcar.controller;
 
 
 import racingcar.service.CarService;
+import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingController {
@@ -13,6 +14,7 @@ public class RacingController {
 
     public void init() {
         OutputView.printNameInputDescription();
+        String carNames = InputView.inputCarNames();
     }
 
 }
