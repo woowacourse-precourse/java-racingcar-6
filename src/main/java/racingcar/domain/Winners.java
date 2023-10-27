@@ -8,11 +8,11 @@ public final class Winners {
 
     private static final String MESSAGE_PREFIX = "최종 우승자 : ";
     private static final String WINNER_DELIMITER = ", ";
-    private final List<String> winnerNames;
+    private final List<String> names;
 
-    public Winners(final List<String> winnerNames) {
-        validate(winnerNames);
-        this.winnerNames = Collections.unmodifiableList(winnerNames);
+    public Winners(final List<String> names) {
+        validate(names);
+        this.names = Collections.unmodifiableList(names);
     }
 
     private void validate(final List<String> winnerNames) {
@@ -22,6 +22,6 @@ public final class Winners {
     }
 
     public String toResultMessage() {
-        return MESSAGE_PREFIX + String.join(WINNER_DELIMITER, winnerNames);
+        return MESSAGE_PREFIX + String.join(WINNER_DELIMITER, names);
     }
 }
