@@ -16,6 +16,10 @@ public class GameController {
 
     private void makeCar(String carNames) {
         List<String> carNameList = RacingGameUtil.splitCarNames(carNames);
+        for (String carName : carNameList) {
+            Car car = new Car(carName);
+            cars.add(car);
+        }
     }
 
     private String getCarNameFromUser() {
