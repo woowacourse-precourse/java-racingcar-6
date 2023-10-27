@@ -10,7 +10,9 @@ import java.util.stream.Collectors;
 
 public class InputView {
     private final static String CAR_NAME_SEPARATOR = ",";
-    private InputView() { }
+
+    private InputView() {
+    }
 
     public static List<String> inputCarName() {
         try {
@@ -19,11 +21,12 @@ public class InputView {
             InputValidation inputValidation = new InputValidation();
             inputValidation.carNameValidation(carName);
             return Arrays.stream(carName.split(CAR_NAME_SEPARATOR))
-                                        .collect(Collectors.toList());
+                    .collect(Collectors.toList());
         } catch (Exception e) {
             throw new IllegalArgumentException();
         }
     }
+
     public static int inputRound() {
         try {
             System.out.println(InfoMessage.ROUND_INPUT_MESSAGE.getMessage());
