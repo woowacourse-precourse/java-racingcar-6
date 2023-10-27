@@ -12,21 +12,21 @@ public class CarTest {
         // given
         String name = "pobi";
         // when
-        Car car = new Car(name);
+        Car car = new Car(new Name(name));
         // then
-        Assertions.assertThat(car.getName()).isEqualTo(name);
-        Assertions.assertThat(car.getPosition()).isEqualTo(0);
+        Assertions.assertThat(car.getName()).isEqualTo(new Name(name));
+        Assertions.assertThat(car.getDistance()).isEqualTo(Distance.zero());
     }
 
     @DisplayName("자동차의 이름이 5자를 초과하면 IllegalArgumentException이 발생한다.")
     @Test
-    void createCarTest2() {
+    void createCarExceptionTest() {
         // given
         String name = "waveofmymind";
         // when & then
-        Assertions.assertThatThrownBy(() -> new Car(name))
+        Assertions.assertThatThrownBy(() -> new Car(new Name(name)))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차 이름은 1자 이상, 5자 이하만 가능합니다.");
+                .hasMessageContaining("자동차 이름은 5자 이하만 가능합니다.");
     }
 }
 
