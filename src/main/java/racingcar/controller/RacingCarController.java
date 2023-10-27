@@ -2,12 +2,14 @@ package racingcar.controller;
 
 import racingcar.domain.RacingCar;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarController {
     InputView inputView = new InputView();
+    OutputView outputView = new OutputView();
 
     public void startProgram() {
         List<RacingCar> carList = initCars(getCarName());
@@ -32,14 +34,22 @@ public class RacingCarController {
     }
 
     private void startRace(List<RacingCar> carList, int tryNumber) {
+        outputView.outputExecutionResult();
         for(; tryNumber > 0; tryNumber--) {
             moveEachCar(carList);
+            printMoveResult(carList);
         }
     }
 
     private void moveEachCar(List<RacingCar> carList) {
         for(RacingCar car : carList) {
             car.moveCar();
+        }
+    }
+
+    private void printMoveResult(List<RacingCar> carList) {
+        for(RacingCar car : carList) {
+            outputView.outputMoveResult(car.getName(), car.getDashString());
         }
     }
 }
