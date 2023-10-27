@@ -29,6 +29,8 @@
 - `Car`
     - [x] Name과 Position을 갖는다.
     - [x] Position에 랜덤으로 나온 값을 넘겨줌
+가    - [x] 이름의 원래 값을 반환
+    - [x] 위치의 원래 값을 반환
 
 - `Cars`
     - [x] car를 List로 관리한다.
