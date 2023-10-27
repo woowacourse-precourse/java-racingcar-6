@@ -13,7 +13,7 @@ public class GameGuideTextPrintService {
         System.out.println("실행 결과");
     }
 
-    public void gmaeWinner() {
+    public void gameWinner() {
         System.out.print("최종 우승자 : ");
     }
 }
