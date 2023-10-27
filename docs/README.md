@@ -2,6 +2,7 @@
     1. 경주할 자동차 이름 입력 getCarNames 구현
        1. 이름은 5자 이하만 가능하다.
     2. 시도할 횟수 입력 getNumberOfAttempts
+        1. 숫자를 입력해야한다.
     3. 잘못된 값을 입력할 경우 IllegalArgumentException를 발생 시킨다.
 2. OutputView 구현하기
    1. 실행 결과를 출력하는 printGameResult 구현
