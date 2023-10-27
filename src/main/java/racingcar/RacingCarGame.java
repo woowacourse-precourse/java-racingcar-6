@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Car;
+import racingcar.model.Number;
 
 /**
  * 레이싱 게임 진행에 대한 기능을 담당
@@ -12,6 +13,10 @@ public class RacingCarGame {
      * 게임에 참여하는 자동차
      */
     private Car[] cars;
+    /**
+     * 전체 진행할 경기 라운드
+     */
+    private Number fullRound;
 
     /**
      * 게임을 시작하기 위해 필요한 정보를 받고, 저장한다.
@@ -19,6 +24,7 @@ public class RacingCarGame {
     public void ready() {
         String[] names = readUserNames();
         this.cars = createCars(names);
+        this.fullRound = readFullRound(); // 진행할 경기 수를 받아온다.
     }
 
     /**
@@ -48,5 +54,19 @@ public class RacingCarGame {
         }
 
         return cars;
+    }
+
+    /**
+     * 진행할 경기의 수를 사용자로부터 입력받는다.
+     *
+     * @return 경기의 수를 Number 자료형으로 반환한다.
+     */
+    private static Number readFullRound() {
+        System.out.println("시도할 회수는 몇회인가요?");
+
+        String inputRound = Console.readLine();
+        Number round = new Number(inputRound);
+
+        return round;
     }
 }
