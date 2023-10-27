@@ -21,6 +21,7 @@ public class ConsoleView {
             System.out.println(roundResult);
         }
 
-        System.out.println("\n최종 우승자: " + String.join(", ", race.getWinnersNames()));
+        System.out.print("최종 우승자 : ");
+        System.out.println(String.join(", ", race.getWinnersNames()));
     }
 }
