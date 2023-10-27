@@ -1,7 +1,10 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.io.ByteArrayInputStream;
+import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.gameLogic.User;
 import racingcar.views.OutputViewer;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -32,14 +35,30 @@ class ApplicationTest extends NsTest {
 //        );
 //    }
 
+    /*
+    아래부터 docs에 명시된 기능 1번부터 모든 테스트코드들입니다.
+     */
     @Test
     void 시작문구_출력함수_확인(){
         OutputViewer.printRequestCarNameMessage();
         assertThat(output()).contains("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
+    @Test
+    void 자동차_이름_입력_확인(){
+        User user = new User();
+        command("pobi, pobi,pobi ,po bi");
+        List<String> carNames = user.inputCarName();
+        assertThat(carNames).containsExactly("pobi", "pobi", "pobi", "po bi");
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
+    }
+
+    private void command(final String... args) {
+        final byte[] buf = String.join("\n", args).getBytes();
+        System.setIn(new ByteArrayInputStream(buf));
     }
 }
