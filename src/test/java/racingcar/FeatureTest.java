@@ -147,6 +147,41 @@ public class FeatureTest extends NsTest {
         }
     }
 
+    @Test
+    void getWinners_우승자가_한_명인_경우(){
+        //given
+        String carNamesInput = "lee,juho";
+        String attemptInput = "3";
+
+        //when
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run(carNamesInput,attemptInput);
+                },
+                STOP,MOVING_FORWARD,STOP,MOVING_FORWARD,MOVING_FORWARD,MOVING_FORWARD
+        );
+
+        //then
+        assertThat(output()).contains("최종 우승자 : juho");
+    }
+    @Test
+    void getWinners_우승자가_두_명인_경우(){
+        //given
+        String carNamesInput = "lee,juho";
+        String attemptInput = "3";
+
+        //when
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run(carNamesInput,attemptInput);
+                },
+                MOVING_FORWARD,MOVING_FORWARD,MOVING_FORWARD,MOVING_FORWARD,MOVING_FORWARD,MOVING_FORWARD
+        );
+
+        //then
+        assertThat(output()).contains("최종 우승자 : lee,juho");
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
