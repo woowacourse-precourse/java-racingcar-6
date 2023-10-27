@@ -8,14 +8,11 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Racing {
     private Script script;
-    private MoveController moveController;
     private List<String> cars;
     private List<StringBuilder> moves;
 
     public Racing() {
         script = new Script();
-        moveController = new MoveController();
-
         moves = new ArrayList<>();
     }
 
@@ -26,8 +23,8 @@ public class Racing {
     }
 
     private void checkNameLengthWithinFive() {
-        for (String car: cars) {
-            if(car.length() > 5){
+        for (String car : cars) {
+            if (car.length() > 5) {
                 throw new IllegalArgumentException();
             }
         }
@@ -70,7 +67,7 @@ public class Racing {
         return tryNumber;
     }
 
-    private void race(int tryNumber) {
+    private void race(MoveController moveController, int tryNumber) {
         for (int race = 0; race < tryNumber; race++) {
             moveController.tryMove(moves);
             script.showResult(cars, moves);
@@ -78,16 +75,17 @@ public class Racing {
     }
 
     public void start() {
+        MoveController moveController = new MoveController();
         int tryNumber;
 
         inputCarName();
         checkNameLengthWithinFive();
-
-        tryNumber = inputTryNumber();
         initializeMoves();
 
+        tryNumber = inputTryNumber();
+
         script.guideResult();
-        race(tryNumber);
+        race(moveController, tryNumber);
         script.showWinner(moveController.findWinner(cars, moves));
     }
 }

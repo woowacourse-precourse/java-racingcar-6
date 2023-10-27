@@ -24,7 +24,7 @@ public class Script {
         System.out.println();
     }
 
-    public void showWinner(List<String> names){
+    public void showWinner(List<String> names) {
         System.out.print("최종 우승자 : ");
         System.out.println(String.join(", ", names));
     }
