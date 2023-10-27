@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import static racingcar.domain.DomainConstant.CAR_MOVE_CONDITION;
-import static racingcar.view.RacingView.carMoveOrStopDecisionResultView;
 
 public class Car {
     private int position;
@@ -13,11 +12,11 @@ public class Car {
         position = 0;
     }
 
-    public void stopOrMoveDecision(int randomNumber) {
+    public int stopOrMoveDecision(int randomNumber) {
         if (randomNumber >= CAR_MOVE_CONDITION) {
             position++;
         }
-        carMoveOrStopDecisionResultView(carName, position);
+        return position;
     }
 
     public String getCarName() {
