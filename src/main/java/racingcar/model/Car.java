@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import static racingcar.Constant.RANDOM_MAXIMUM_NUMBER;
+
 import java.util.Objects;
 
 public class Car {
@@ -20,7 +22,7 @@ public class Car {
     }
 
     public void accelerate(final int number) {
-        if (number >= MINIMUM_ACCERATE_VALUE) {
+        if (number >= MINIMUM_ACCERATE_VALUE && number <= RANDOM_MAXIMUM_NUMBER.getValue()) {
             position++;
         }
     }

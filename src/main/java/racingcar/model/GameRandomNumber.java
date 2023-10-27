@@ -1,14 +1,14 @@
 package racingcar.model;
 
+import static racingcar.Constant.RANDOM_MAXIMUM_NUMBER;
+import static racingcar.Constant.RANDOM_MINIMUM_NUMBER;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class GameRandomNumber implements RandomNumber {
 
-    private static final int MINIMUM_VALUE = 0;
-    private static final int MAXIMUM_VALUE = 9;
-
     @Override
     public int pickNumber() {
-        return Randoms.pickNumberInRange(MINIMUM_VALUE, MAXIMUM_VALUE);
+        return Randoms.pickNumberInRange(RANDOM_MINIMUM_NUMBER.getValue(), RANDOM_MAXIMUM_NUMBER.getValue());
     }
 }

@@ -22,4 +22,17 @@ public class RandomNumberTest {
         // then
         assertThat(car.isPositionEqualTo(1)).isTrue();
     }
+
+    @Test
+    void 초과된_값이면_이동하지_않는다() {
+        // given
+        Name name = Name.from("john");
+        Car car = Car.from(name);
+        RandomNumber randomNumber = new HigherRandomNumber();
+        int number = randomNumber.pickNumber();
+        // when
+        car.accelerate(number);
+        // then
+        assertThat(car.isPositionEqualTo(1)).isFalse();
+    }
 }
