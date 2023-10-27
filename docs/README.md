@@ -26,9 +26,11 @@
 -[x] 사용자에게 자동차들의 이름을 입력받는다. -inputCarsName()
   - [x] 콘솔에서 사용자에게 이름들을 입력받는다. -inputNames()
   - [x] 입력받은 문자열을 쉼표(,)를 기준으로 나눠준다. -splitNames()
+  - [x] 이름에 공백이 포함되는 경우 공백을 지운다. -removeWhiteSpace()
+  - [ ] 입력받은 이름들중 중복이 있는지 확인한다. -checkHasDuplicates()
+    - 중복이 있는 경우 IllegalArgumentException을 발생하고 애플리케이션을 종료시킨다.
   - [x] 입력받은 이름을 담는 객체를 생성. Name()
     - [x] 이름의 적합성을 판단한다. -NameValidator.validateName()
-      - [x] 이름에 공백이 포함되는 경우 공백을 지운다. -NameValidator.removeWhiteSpace()
       - [x] 이름의 길이가 0,즉 비어있는지 확인한다. -NameValidator.checkNameIsEmpty()
         - 길이가 0일경우 IllegalArgumentException을 발생하고 애플리케이션을 종료시킨다.
       - [x] 각 이름들의 길이가 5 이하인지 확인한다. -NameValidator.checkNameCorrectRange()
@@ -68,6 +70,5 @@
 - View: 콘솔로 보여지는 입력 문구, 결과 출력에 관한 기능들을 가진 클래스 
   - inputNames():콘솔에서 사용자에게 이름들을 입력받는 기능
 - NameValidator:이름의 적합성을 판단하는 클래스
-  - removeWhiteSpace(): 이름의 존재하는 공백을 지우는 기능
   - checkNameIsEmpty(): 이름이 비어있는지 확인하는 기능
   - checkNameCorrectRange(): 이름이 미션에서 제한하는 범위(5자)를 넘었는지 확인하는 기능
