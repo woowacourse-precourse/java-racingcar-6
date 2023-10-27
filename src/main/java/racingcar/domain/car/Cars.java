@@ -12,7 +12,7 @@ public class Cars {
         this.cars = input;
     }
 
-    public static Cars from(List<Car> input) {
+    public static Cars asCars(List<Car> input) {
         return new Cars(input);
     }
 
