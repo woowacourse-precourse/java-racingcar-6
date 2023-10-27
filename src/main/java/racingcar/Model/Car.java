@@ -21,4 +21,8 @@ public class Car {
 		this.distance++;
 	}
 
+	public int compareDistance(Car other) {
+		return this.distance - other.distance;
+	}
+
 }
