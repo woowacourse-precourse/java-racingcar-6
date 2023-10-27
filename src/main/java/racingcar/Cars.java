@@ -9,17 +9,14 @@ class Cars {
     private final List<Car> cars = new ArrayList<>();
     private static final String DELIMITER = ",";
 
-    Cars(String input) {
-
-    }
-
     private Cars() {
     }
 
     static Cars create(String input) {
-        String[] names = input.split(DELIMITER);
+        String[] names = input.split(Constant.COMMA.value, -1);
         if (names.length < 1) throw new IllegalArgumentException();
 
+        System.out.println("size : " + names.length);
         // TODO : 메소드 분동
         if (names.length != Arrays.stream(names).distinct().count()) throw new IllegalArgumentException();
 
@@ -31,5 +28,15 @@ class Cars {
         return instance;
     }
 
+    enum Constant {
+        COMMA(","),
+        ;
+
+        String value;
+
+        Constant(String value) {
+            this.value = value;
+        }
+    }
 
 }
