@@ -3,10 +3,12 @@ package racingcar;
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
+import static racingcar.constant.Message.*;
+
 public class Validation {
 
     public void validateCarNames(String input) {
-        String[] carNames = input.split(",", -1);
+        String[] carNames = input.split(DELIMITER, -1);
 
         validateDelimiterType(carNames);
         validateNameLength(carNames);
@@ -16,26 +18,28 @@ public class Validation {
 
     public void validateDelimiterType(String[] carNames) {
         String regex = "[a-zA-Z]+";
+        boolean result = Arrays.stream(carNames).allMatch((carName) -> Pattern.matches(regex, carName));
 
-        for (String carName : carNames) {
-            if (!Pattern.matches(regex, carName)) {
-                throw new IllegalArgumentException("구분자는 쉼표(,)만 사용 가능 합니다.");
-            }
+        if (!result) {
+            throw new IllegalArgumentException(EXCEPTION_DELIMITER_TYPE);
         }
     }
 
     public void validateNameLength(String[] carNames) {
+        boolean result = Arrays.stream(carNames).anyMatch(this::inValidCarNameLength);
 
-        for (String carName : carNames) {
-            if (carName.length() > 5 || carName.length() < 1) {
-                throw new IllegalArgumentException("자동차의 이름은 1 ~ 5자 사이로 지어주세요");
-            }
+        if (!result) {
+            throw new IllegalArgumentException(EXCEPTION_INVALID_CAR_NAME_LENGTH);
         }
+    }
+
+    private boolean inValidCarNameLength(String input) {
+        return input.length() < NAME_MIN_LENGTH || input.length() > NAME_MAX_LENGTH;
     }
 
     public void validateDuplicateName(int carNameCount, String[] carNames) {
         if (Arrays.stream(carNames).distinct().count() != carNameCount) {
-            throw new IllegalArgumentException("중복된 자동차 이름은 사용할 수 없습니다.");
+            throw new IllegalArgumentException(EXCEPTION_DUPLICATE_CAR_NAME);
         }
     }
 
@@ -43,7 +47,7 @@ public class Validation {
         boolean result = input.chars().allMatch(Character::isDigit);
 
         if (!result) {
-            throw new IllegalArgumentException("숫자만 입력해주세요.");
+            throw new IllegalArgumentException(EXCEPTION_ROUND_TYPE);
         }
     }
 }
