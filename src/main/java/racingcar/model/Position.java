@@ -17,7 +17,7 @@ public class Position {
     }
 
     public static Position createWith(final int positionIndex) {
-        return cache.computeIfAbsent(positionIndex, position -> new Position(positionIndex));
+        return cache.computeIfAbsent(positionIndex, Position::new);
     }
 
     public Position getNextPosition(final Position position) {
