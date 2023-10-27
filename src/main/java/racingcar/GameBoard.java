@@ -22,7 +22,7 @@ public class GameBoard {
     public void viewGameWinner() {
         String printWinnerCars = cars.getWinners().stream()
                 .map(Car::getCarName)
-                .collect(Collectors.joining(","));
+                .collect(Collectors.joining(", "));
         System.out.print("최종 우승자 : ");
         System.out.println(printWinnerCars);
     }
