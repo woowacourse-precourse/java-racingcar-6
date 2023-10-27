@@ -3,6 +3,8 @@ package racingcar.View;
 import racingcar.Controller.InputController;
 import racingcar.Controller.RaceController;
 
+import java.util.List;
+
 public class CarRacing {
     public void run(){
         InputController inputController = new InputController();
@@ -15,5 +17,6 @@ public class CarRacing {
         for (int i=0;i<raceTries;i++){
             raceController.raceStart();
         }
+        List<String> winners=raceController.getWinner();
     }
 }
