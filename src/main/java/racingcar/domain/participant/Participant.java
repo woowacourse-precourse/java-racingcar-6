@@ -13,7 +13,7 @@ public class Participant {
     private final String carName;
     private int distance;
 
-    private String getCarName() {
+    public String getCarName() {
         return this.carName;
     }
 
