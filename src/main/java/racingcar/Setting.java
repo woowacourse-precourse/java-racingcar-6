@@ -18,4 +18,8 @@ public class Setting {
             this.cars.add(new Car(carName));
         }
     }
+
+    public void initializeRound(String round) {
+        this.round = Integer.parseInt(round);
+    }
 }
