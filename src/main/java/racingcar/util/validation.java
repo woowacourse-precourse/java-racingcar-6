@@ -7,4 +7,12 @@ public class validation {
             throw new IllegalArgumentException();
         }
     }
+
+    public static void checkTryNumber(String tryNum) throws IllegalArgumentException {
+        try {
+            Integer.parseInt(tryNum);
+        }catch (NumberFormatException ex) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
