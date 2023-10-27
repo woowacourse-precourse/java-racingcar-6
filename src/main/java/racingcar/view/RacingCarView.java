@@ -3,6 +3,8 @@ package racingcar.view;
 import static racingcar.utils.InputValidator.*;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
+import racingcar.model.Car;
 
 public class RacingCarView implements CarView {
     @Override
@@ -27,8 +29,12 @@ public class RacingCarView implements CarView {
     }
 
     @Override
-    public void outputRaceResult() {
-
+    public void outputRaceResult(List<Car> cars) {
+        for (Car car : cars) {
+            String graphicOfDistance = DistanceFormat.DISTANCE_FORMAT.repeat(car.getDistance());
+            System.out.println(car.getName() + " : " + graphicOfDistance);
+        }
+        System.out.println();
     }
 
     @Override
