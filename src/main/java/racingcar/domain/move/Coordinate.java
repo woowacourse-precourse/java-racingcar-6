@@ -1,8 +1,9 @@
 package racingcar.domain.move;
 
 import java.util.Objects;
+import racingcar.domain.exception.InvalidCoordinateException;
 
-public class Coordinate {
+public final class Coordinate {
     private static final int MIN_COORDINATE = 0;
     private int coordinate;
 
@@ -27,6 +28,14 @@ public class Coordinate {
 
     public int getCoordinate() {
         return coordinate;
+    }
+
+    public boolean isSameAs(final Coordinate other) {
+        return coordinate == other.getCoordinate();
+    }
+
+    public int subtractAsInt(final Coordinate other) {
+        return coordinate - other.getCoordinate();
     }
 
     @Override

@@ -1,4 +1,4 @@
-package racingcar.domain.car;
+package racingcar.domain.car.boxed;
 
 import java.util.List;
 import racingcar.domain.exception.CarNameContainsBannedCharacterException;

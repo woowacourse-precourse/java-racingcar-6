@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.car.boxed.CarName;
 import racingcar.domain.exception.CarNameContainsBannedCharacterException;
 import racingcar.domain.exception.InvalidCarNameLengthException;
 

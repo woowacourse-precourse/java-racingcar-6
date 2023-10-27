@@ -6,6 +6,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.car.dto.request.CreateCarsRacing;
 import racingcar.domain.exception.DuplicateCarNameException;
 import racingcar.domain.exception.NoCarsException;
 
@@ -21,13 +22,13 @@ final class CreateCarsTest {
         final List<String> carNames = List.of(carName1, carName2, carName3);
 
         // when
-        final CreateCars createCars = new CreateCars(carNames);
+        final CreateCarsRacing createCarsRacing = new CreateCarsRacing(carNames);
 
         // then
-        assertThat(createCars.carNames().size()).isEqualTo(3);
-        assertThat(createCars.carNames().get(0)).isEqualTo(carName1);
-        assertThat(createCars.carNames().get(1)).isEqualTo(carName2);
-        assertThat(createCars.carNames().get(2)).isEqualTo(carName3);
+        assertThat(createCarsRacing.carNames().size()).isEqualTo(3);
+        assertThat(createCarsRacing.carNames().get(0)).isEqualTo(carName1);
+        assertThat(createCarsRacing.carNames().get(1)).isEqualTo(carName2);
+        assertThat(createCarsRacing.carNames().get(2)).isEqualTo(carName3);
     }
 
     @DisplayName("입력된 차 이름이 하나도 없으면 생성하면 예외 발생")
@@ -39,7 +40,7 @@ final class CreateCarsTest {
         // when
         // then
         assertThatThrownBy(
-                () -> new CreateCars(carNames)
+                () -> new CreateCarsRacing(carNames)
         )
                 .isInstanceOf(NoCarsException.class)
                 .hasMessage(NoCarsException.NO_CARS_EXCEPTION_MESSAGE);
@@ -57,7 +58,7 @@ final class CreateCarsTest {
         // when
         // then
         assertThatThrownBy(
-                () -> new CreateCars(carNames)
+                () -> new CreateCarsRacing(carNames)
         )
                 .isInstanceOf(DuplicateCarNameException.class)
                 .hasMessage(DuplicateCarNameException.DUPLICATE_CAR_NAME_EXCEPTION_MESSAGE);
