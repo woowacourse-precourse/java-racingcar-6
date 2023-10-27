@@ -20,17 +20,17 @@ public class Application {
         if (nameInput.contains(DELIMETER)) {
             if (nameInput.charAt(0) == DELIMETER.charAt(0)
                     || nameInput.charAt(nameInput.length()-1) == DELIMETER.charAt(0)) {
-                throw new IllegalArgumentException(NAME_INPUT_FORMAT + nameInput);
+                throw new IllegalArgumentException(NAME_LENGTH_ZERO + nameInput);
             }
             if (nameInput.contains(",,")) {
-                throw new IllegalArgumentException(NAME_INPUT_FORMAT + nameInput);
+                throw new IllegalArgumentException(NAME_LENGTH_ZERO + nameInput);
             }
         }
         // 자동차 이름 입력 관련 2차 유효성 검사
         Map<String, Integer> carList = new LinkedHashMap<>();
         for (String carName : nameInput.split(DELIMETER)) {
             if (carName.length() > NAME_LENGTH_MAX) {
-                throw new IllegalArgumentException(NAME_LENGTH + carName.length());
+                throw new IllegalArgumentException(OVER_NAME_LENGTH + carName);
             }
             if (carList.containsKey(carName)) {
                 throw new IllegalArgumentException(NAME_DUPLICATED + carName);
