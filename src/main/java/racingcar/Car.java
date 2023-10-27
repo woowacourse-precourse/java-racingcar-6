@@ -10,4 +10,11 @@ public class Car {
     public void movingCar(){
         carPath += "-";
     }
+    public String getCarName(){
+        return carName;
+    }
+
+    public String getCarPath(){
+        return carPath;
+    }
 }
