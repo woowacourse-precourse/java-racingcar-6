@@ -2,19 +2,27 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 public class FeatureTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
+
+    // 테스트 후 필드 초기화
+    @AfterEach
+    public void afterEach() {
+        Application.cars = new ArrayList<>();
+        Application.attempt = 0;
+    }
+
     @Test
     void input_정상_케이스(){
         //given
@@ -70,6 +78,49 @@ public class FeatureTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+    @Test
+    void race_랜덤값_3_이하_시_거리_유지(){
+        //given
+        String carNamesInput = "lee,juho,test";
+        String attemptInput = "1";
+
+        //when
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run(carNamesInput,attemptInput);
+                },
+                0,1,2,3
+        );
+        List<Car> cars = Application.cars;
+
+        //then
+        for (int i = 0; i < cars.size(); i++) {
+            Car car = cars.get(i);
+            assertThat(car.getDistance()).isEqualTo(0);
+        }
+    }
+    @Test
+    void race_랜덤값_4_이상_시_거리_증가(){
+        //given
+        String carNamesInput = "lee,juho,test";
+        String attemptInput = "2";
+
+        //when
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run(carNamesInput,attemptInput);
+                },
+                4,5,6,7,8,9
+        );
+        List<Car> cars = Application.cars;
+
+        //then
+        for (int i = 0; i < cars.size(); i++) {
+            Car car = cars.get(i);
+            assertThat(car.getDistance()).isEqualTo(2);
+        }
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
