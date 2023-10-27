@@ -48,6 +48,14 @@ class ApplicationTest extends NsTest {
         				.isInstanceOf(IllegalArgumentException.class)
         );
     }
+    
+    @Test
+    void 시도_회수_예외_처리() {
+    	assertSimpleTest(() ->
+        		assertThatThrownBy(() -> runException("apple,grape", "123"))
+        				.isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 
     @Test
     void 공백_및_빈값_제거() {
