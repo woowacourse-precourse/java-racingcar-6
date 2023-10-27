@@ -3,8 +3,6 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import racingcar.domain.MoveProbability;
-import racingcar.domain.RandomNumberGenerator;
 import racingcar.view.Input;
 import racingcar.view.Output;
 
@@ -47,15 +45,8 @@ public class RaceCars {
 
     public void moveForwardEach() {
         for (RaceCar car : raceCarList) {
-            if (canMoveForward()) {
-                car.moveForward();
-            }
+            car.moveForward();
         }
-    }
-
-    private boolean canMoveForward() {
-        MoveProbability probability = MoveProbability.getInstance(new RandomNumberGenerator());
-        return probability.canMoveForward();
     }
 
     public List<RaceCar> getMaximumList() {
