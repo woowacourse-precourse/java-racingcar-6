@@ -31,6 +31,10 @@ class Stadium {
 
     }
 
+    public boolean forwardSuccessCheck(int randomNumber){
+        return (randomNumber>=4);
+    }
+
     public void getStatus() {
         for (Car car : cars) {
             print(showCar(car));
