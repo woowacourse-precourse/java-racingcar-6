@@ -20,5 +20,6 @@ public class GameController {
     public void receiveTryCount() {
         InputView.printTryCount();
         String userInput = InputView.receiveUserInput();
+        gameService.startGame(Integer.parseInt(userInput));
     }
 }
