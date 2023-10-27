@@ -23,9 +23,9 @@ public class Cars {
         return new Cars(cars);
     }
 
-    public void racing() {
+    public void racing(final RandomNumber randomNumber) {
         cars.forEach(car -> {
-            int number = RandomNumber.pickNumber();
+            int number = randomNumber.pickNumber();
             car.accelerate(number);
         });
     }

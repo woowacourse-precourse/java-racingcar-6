@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.Cars;
 import racingcar.model.PlayCount;
+import racingcar.model.RandomNumber;
 import racingcar.view.input.InputView;
 import racingcar.view.output.OutputView;
 import java.util.List;
@@ -10,12 +11,15 @@ public class GameController {
 
     private final InputView inputView;
     private final OutputView outputView;
+    private final RandomNumber randomNumber;
+
     private Cars cars;
     private PlayCount playCount;
 
-    public GameController(final InputView inputView, final OutputView outputView) {
+    public GameController(final InputView inputView, final OutputView outputView, final RandomNumber randomNumber) {
         this.outputView = outputView;
         this.inputView = inputView;
+        this.randomNumber = randomNumber;
     }
 
     public void play() {
@@ -29,7 +33,7 @@ public class GameController {
 
         int round = 0;
         while (!playCount.isPlayEnd(round)) {
-            cars.racing();
+            cars.racing(randomNumber);
             round++;
             printCarsStatus();
         }
