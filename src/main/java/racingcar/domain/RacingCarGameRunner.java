@@ -15,6 +15,7 @@ public class RacingCarGameRunner {
     public void run() {
         String carNameInput = getPlayerInput(GAME_START_MESSAGE);
         List<String> carNames = processCarNameInput(carNameInput);
+        cars = getEntry(carNames);
 
     }
 
@@ -28,5 +29,11 @@ public class RacingCarGameRunner {
         return tmpNameList.stream()
                 .filter(name -> !name.isBlank())
                 .toList();
+    }
+
+    private List<Car> getEntry(List<String> carNames) {
+        return carNames.stream()
+                .map(Car::new)
+                .collect(Collectors.toList());
     }
 }
