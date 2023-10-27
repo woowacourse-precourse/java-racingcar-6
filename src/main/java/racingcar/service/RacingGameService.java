@@ -43,7 +43,7 @@ public class RacingGameService {
         }
         return results;
     }
-
+    
     public boolean reaches() {
         for (Car car : cars.getCarList()) {
             if (car.getDistance().length() == attemps.getNumber())
