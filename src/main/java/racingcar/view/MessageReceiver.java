@@ -3,13 +3,13 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 
 import static racingcar.constant.NumberConstant.MAX_CAR_NAME_SIZE;
-import static racingcar.constant.TextConstant.DOT;
+import static racingcar.constant.TextConstant.COMMA;
 
 public class MessageReceiver {
 
     public String[] receiveCarNames() {
         String inputText = Console.readLine();
-        String[] carNames = inputText.split(DOT);
+        String[] carNames = inputText.split(COMMA);
         validateCarName(carNames);
 
         return carNames;
