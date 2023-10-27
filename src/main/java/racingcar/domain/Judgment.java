@@ -2,11 +2,11 @@ package racingcar.domain;
 
 public class Judgment {
 
-    public int createRandomNumber(){
+    public int createRandomNumber() {
         return 0;
     }
 
-    public boolean isNumberFourOrMore(){
+    public boolean isNumberFourOrMore() {
         return false;
     }
 }

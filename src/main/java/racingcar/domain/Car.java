@@ -1,19 +1,27 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Car {
 
-    public List<Integer> moveForward(){
+    private String name;
+    private String distance="";
 
+    public Car(String name){
+        this.name=name;
+    }
+
+    public String moveForward() {
+        distance+="-";
+        return distance;
+    }
+
+    public String moveStop() {
         return null;
     }
 
-    public void moveStop(){
-
-    }
-
-    public List<Integer> located(){
+    public List<Integer> located() {
 
         return null;
     }
