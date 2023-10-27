@@ -32,7 +32,7 @@ public class Validation {
     public void validateNameLength(String[] carNames) {
         boolean result = Arrays.stream(carNames).anyMatch(this::inValidCarNameLength);
 
-        if (!result) {
+        if (result) {
             throw new IllegalArgumentException(EXCEPTION_INVALID_CAR_NAME_LENGTH);
         }
     }
