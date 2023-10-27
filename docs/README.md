@@ -5,8 +5,8 @@
 ### 자동차 생성, 이름 부여
 - [ ] 사용자 입력에 따라 `N` 대의 자동차가 주어진다. - Application#askCarName()
   - [ ] 각 자동차는 이름이 부여된다. - Car#generateCar()
-  - [ ] 자동차는 이름을 기준으로 쉼표(,)로 구분한다. - Car#SplitCar()
-  - [ ] 자동차 이름은 최대 5자까지 제한된다. - Car#CarLengthCheck()
+  - [ ] 자동차는 이름을 기준으로 쉼표(,)로 구분한다.
+  - [ ] 자동차 이름은 최대 5자까지 제한된다. - Car#nameLengthCheck()
 
 ### 이동 횟수 입력 
 - [ ] 사용자가 이동 횟수를 입력할 수 있게 안내한다. - Application#askPlayTurn()
