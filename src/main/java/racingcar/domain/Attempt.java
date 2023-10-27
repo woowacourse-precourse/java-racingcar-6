@@ -12,4 +12,8 @@ public class Attempt {
         return count > 0;
     }
 
+    public void decrease() {
+        count--;
+    }
+
 }
