@@ -1,7 +1,8 @@
 package racingcar.model;
 
-import racingcar.constant.Rule;
 import racingcar.service.Accelerator;
+import racingcar.validation.CarValidator;
+import racingcar.validation.Validator;
 
 //TODO: 허무맹랑할 수 있는 이야기이지만, 자동차 경주에 말이 들어온다면?? 해당 경우도 한번 고민해보기
 public class Car implements Comparable<Car> {
@@ -23,6 +24,13 @@ public class Car implements Comparable<Car> {
         }
     }
 
+    private void validate(String value) {
+        //TODO: 다른 방식으로 구현체 가져오기
+        Validator carValidator = new CarValidator();
+        if (carValidator.support(Car.class)) {
+            carValidator.validate(value);
+        }
+    }
 
     //TODO: 게터 지양
     public String getName() {
@@ -32,16 +40,6 @@ public class Car implements Comparable<Car> {
     @Override
     public String toString() {
         return this.name + " : " + MARK.repeat(this.currentPosition);
-    }
-
-    private void validate(String value) {
-        validateLength(value);
-    }
-
-    private void validateLength(String value) {
-        if (Rule.MIN_LENGTH > value.length() || value.length() > Rule.MAX_LENGTH) {
-            throw new IllegalArgumentException();
-        }
     }
 
     @Override
