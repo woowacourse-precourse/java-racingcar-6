@@ -1,7 +1,17 @@
 package racingcar;
 
+/**
+ * main
+ */
 public class Application {
+    RacingController racingController = new RacingController();
+
+    void boot() {
+        racingController.launch();
+    }
+
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        Application app = new Application();
+        app.boot();
     }
 }
