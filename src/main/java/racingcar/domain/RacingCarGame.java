@@ -12,5 +12,8 @@ public class RacingCarGame {
     public void start() {
         output.printCarNamesInputRequest();
         input.getCarNames();
+
+        output.printMoveCountInputRequest();
+        input.getMoveCount();
     }
 }

@@ -8,4 +8,10 @@ public class ConsoleInput implements Input {
         String carNames = Console.readLine();
         System.out.println(carNames);
     }
+
+    @Override
+    public void getMoveCount() {
+        String moveCount = Console.readLine();
+        System.out.println(moveCount);
+    }
 }
