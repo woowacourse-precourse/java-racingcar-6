@@ -5,7 +5,9 @@ public enum NumberEnum {
     MAX_RANGE(9),
     REQUIREMENT_MOVE(4),
     MIN_SIZE(2),
-    MAX_LENGTH(5);
+    MAX_LENGTH(5),
+    ZERO(0),
+    MIN_TRY_NUMBER(1);
 
     private int Number;
 
