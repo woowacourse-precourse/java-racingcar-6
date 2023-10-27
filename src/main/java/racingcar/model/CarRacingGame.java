@@ -4,11 +4,15 @@ import java.util.ArrayList;
 
 public class CarRacingGame {
     private ArrayList<RacingCar> ParticipationConfirmedCarList = new ArrayList<>();
-
+    private int raceCount;
     private ArrayList<RacingCar> winners = new ArrayList<>();
 
     public CarRacingGame(ArrayList<RacingCar> racingCars) {
         this.ParticipationConfirmedCarList = racingCars;
+    }
+
+    public void setRaceCount(int raceCount) {
+        this.raceCount = raceCount;
     }
 
     public void insertIntoWinners (RacingCar racingCar) {

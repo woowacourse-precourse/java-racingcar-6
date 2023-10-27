@@ -11,7 +11,6 @@ import java.util.ArrayList;
 public class RacingGameController {
     RacingGameService racingGameService = new RacingGameService();
     InputView inputView = new InputView();
-    OutPutView outPutView = new OutPutView();
 
     public void start() {
         setRacingGame();
@@ -19,6 +18,7 @@ public class RacingGameController {
 
     private void setRacingGame() {
         String userEnteredApplicantCarList = inputView.enterCarName();
-        racingGameService.settingForRacingGame(userEnteredApplicantCarList);
+        int userEnteredRaceCount = Integer.parseInt(inputView.enterRaceCount());
+        racingGameService.settingForRacingGame(userEnteredApplicantCarList, userEnteredRaceCount);
     }
 }

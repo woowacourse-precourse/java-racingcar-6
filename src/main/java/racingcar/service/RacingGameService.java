@@ -12,9 +12,10 @@ import java.util.stream.Collectors;
 public class RacingGameService {
     private static final int DEFAULT_DISTANCE = 0;
 
-    public void settingForRacingGame(String userEnteredApplicantCarList) {
+    public void settingForRacingGame(String userEnteredApplicantCarList, int raceCount) {
         ArrayList<RacingCar> ParticipationConfirmedCarList = makeParticipationConfirmedCarList(userEnteredApplicantCarList);
-        new CarRacingGame(ParticipationConfirmedCarList);
+        CarRacingGame carRacingGame = new CarRacingGame(ParticipationConfirmedCarList);
+        carRacingGame.setRaceCount(raceCount);
     }
 
     private ArrayList<RacingCar> makeParticipationConfirmedCarList(String userEnteredApplicantCarList) {
@@ -22,4 +23,6 @@ public class RacingGameService {
                 .map(carName -> new RacingCar(carName.trim(), DEFAULT_DISTANCE))
                 .collect(Collectors.toList());
     }
+
+
 }
