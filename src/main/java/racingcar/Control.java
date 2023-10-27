@@ -12,6 +12,7 @@ public class Control {
             carMoveCheck(carMove);
             carMovePrint(carMove, nameList);
         }
+        winnerNamesPrint(carMove, nameList);
     }
 
     private void carMoveCheck(int[] carMove){
@@ -31,5 +32,24 @@ public class Control {
             System.out.println();
         }
         System.out.println();
+    }
+
+    private static void winnerNamesPrint(int[] carMove, ArrayList<String> nameList){
+        ArrayList<String> winnerNames = new ArrayList<>();
+        int max = Integer.MIN_VALUE;
+        for(int moveNumber : carMove){
+            max = Math.max(max, moveNumber);
+        }
+        System.out.print("최종 우승자 : ");
+        for(int i=0;i<nameList.size();i++){
+            if (max == carMove[i]){
+                winnerNames.add(nameList.get(i));
+            }
+        }
+        if (winnerNames.size() == 1) {
+            System.out.println(winnerNames.get(0));
+        }else{
+            System.out.println(String.join(", ", winnerNames));
+        }
     }
 }
