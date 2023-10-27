@@ -20,6 +20,7 @@ public class GameController {
     public void play() {
         askView.askCarNames();
         joinCars();
+        
         askView.askPlayCount();
         savePlayCount();
     }
