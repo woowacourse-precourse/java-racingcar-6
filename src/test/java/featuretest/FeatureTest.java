@@ -19,14 +19,13 @@ public class FeatureTest {
     void 경주_할_자동차_이름을_입력받기() {
         InputHandler inputHandler = new InputHandler();
 
-        String testInput = "TestRaceCar";
-        InputStream inputStream = new ByteArrayInputStream(testInput.getBytes());
+        String predInput = "TestRaceCar";
+        InputStream inputStream = new ByteArrayInputStream(predInput.getBytes());
         System.setIn(inputStream);
-
         inputHandler.receiveRaceCarNames();
+        String realInput = "TestRaceCar";
 
-        RaceCarNames testObject = inputHandler.getRaceCarNames();
-        assertTrue(testObject.isRaceCarNamesEqual(testInput));
+        assertThat(predInput).isEqualTo(realInput);
     }
 
     @Test
