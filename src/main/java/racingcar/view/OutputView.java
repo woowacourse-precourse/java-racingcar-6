@@ -1,15 +1,20 @@
 package racingcar.view;
 
+import racingcar.model.Car;
+
 import java.util.List;
 
 public class OutputView {
 
     public static void printResultText(){
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
     }
 
-    public static void printResult(String name, String score){
-        System.out.println(name +" : " + score);
+    public static void printResult(List<Car> carList){
+        for (Car car : carList) {
+            System.out.println(car.getName() +" : "+ car.getScore());
+        }
+        System.out.println();
     }
 
     public static void printWinner(List<String> winner){
