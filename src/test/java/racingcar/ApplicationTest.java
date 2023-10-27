@@ -141,14 +141,17 @@ class ApplicationTest extends NsTest {
         List<RaceCar> winRaceCarList = new ArrayList<>();
 
         // when
-        firstRaceCar.movementControlCar();
-        firstRaceCar.movementControlCar();
-        firstRaceCar.movementControlCar();
+        firstRaceCar.movementControlCar(4);
+        firstRaceCar.movementControlCar(5);
+        firstRaceCar.movementControlCar(6);
 
-        secondRaceCar.movementControlCar();
-        secondRaceCar.movementControlCar();
+        secondRaceCar.movementControlCar(7);
+        secondRaceCar.movementControlCar(8);
+        secondRaceCar.movementControlCar(1);
 
-        thirdRaceCar.movementControlCar();
+        thirdRaceCar.movementControlCar(2);
+        thirdRaceCar.movementControlCar(3);
+        thirdRaceCar.movementControlCar(4);
 
         winRaceCarList = gameHost.winRaceCar(raceCarList);
         String result = winRaceCarList.toString();
@@ -164,12 +167,13 @@ class ApplicationTest extends NsTest {
         // given
 
         // when
-        firstRaceCar.movementControlCar();
-        firstRaceCar.movementControlCar();
-        firstRaceCar.movementControlCar();
+        firstRaceCar.movementControlCar(4);
+        firstRaceCar.movementControlCar(5);
+        firstRaceCar.movementControlCar(6);
 
-        secondRaceCar.movementControlCar();
-        secondRaceCar.movementControlCar();
+        secondRaceCar.movementControlCar(7);
+        secondRaceCar.movementControlCar(8);
+        secondRaceCar.movementControlCar(1);
 
         boolean result_true = judgeStandard.isVictoryCondition(firstRaceCar);
         boolean result_false = judgeStandard.isVictoryCondition(secondRaceCar);
