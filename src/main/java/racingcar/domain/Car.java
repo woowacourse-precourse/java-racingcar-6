@@ -11,6 +11,10 @@ public class Car {
         this.totalMovedDistance = 0;
     }
 
+    public void move(){
+        totalMovedDistance+=1;
+    }
+
     public String getName() {
         return name;
     }
