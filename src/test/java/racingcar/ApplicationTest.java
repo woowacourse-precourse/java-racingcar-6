@@ -1,8 +1,11 @@
 package racingcar;
 
 import action.Car;
+import action.CarGenerator;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -15,8 +18,25 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
+    void 자동차_생성_주행_테스트() {
+        CarGenerator generator = new CarGenerator("car1,car2");
+        List<Car> carList = generator.makeCars();
+
+        for (Car car : carList) {
+            int action = car.action();
+            if(action == MOVING_FORWARD) {
+                assertThat(car.getStatus()).isEqualTo("-");
+            }
+            else {
+                assertThat(car.getStatus()).isEqualTo("");
+            }
+        }
+    }
+
+    @Test
     void 자동차_이름_길이_예외_처리() {
-        assertThatThrownBy(() -> Car.checkNameLength("applePie"))
+        CarGenerator generator = new CarGenerator("apple,applePie");
+        assertThatThrownBy(() -> generator.makeCars())
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
