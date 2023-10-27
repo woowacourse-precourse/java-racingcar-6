@@ -1,15 +1,15 @@
 package racingcar.car;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class Car {
-    private HashMap<String,String> carList;
+    private LinkedHashMap<String,String> carList;
 
-    public HashMap<String, String> getCarList() {
+    public LinkedHashMap<String, String> getCarList() {
         return carList;
     }
 
-    public void setCarList(HashMap<String, String> carList) {
+    public void setCarList(LinkedHashMap<String, String> carList) {
         this.carList = carList;
     }
 }
