@@ -19,4 +19,10 @@ public class OutputView {
     public void raceResultMessage() {
         System.out.println(RACE_RESULT_MESSAGE);
     }
+
+    public void raceResultByOrderMessage(List<CarDto> cars) {
+        for(CarDto car : cars) {
+            System.out.println(car.name + " : " + MOVEMENT.repeat(car.len));
+        }
+    }
 }
