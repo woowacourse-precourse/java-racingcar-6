@@ -25,8 +25,8 @@ public class Output {
     }
 
     public void printWinner(Cars cars) {
-        List<String> winners = cars.findWinner();
-        String winnerList = String.join(", ", winners);
+        Winners winners = cars.findWinner();
+        String winnerList = winners.makeWinnerList();
         System.out.println("최종 우승자 : " + winnerList);
     }
 }

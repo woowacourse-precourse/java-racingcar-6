@@ -39,13 +39,14 @@ public class Cars {
         return number;
     }
 
-    public List<String> findWinner() {
-        List<String> winners = new ArrayList<>();
+    public Winners findWinner() {
+        List<String> winnerList = new ArrayList<>();
         int furthestDistance = findFurthestDistance();
         for (Car car : cars) {
             if (car.getPosition() == furthestDistance)
-                winners.add(car.getName());
+                winnerList.add(car.getName());
         }
+        Winners winners = new Winners(winnerList);
         return winners;
     }
 
