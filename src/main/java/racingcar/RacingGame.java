@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import racingcar.io.ConsoleProcessor;
 import racingcar.model.Car;
+import racingcar.model.LoopCount;
 
 public class RacingGame {
 
@@ -19,8 +20,7 @@ public class RacingGame {
         final String[] carNames = consoleProcessor.registerCarNames();
 
         Map<Car, Integer> scoreBoard = initScoreBoard(carNames);
-
-        System.out.println(scoreBoard);
+        LoopCount loopCount = LoopCount.of(consoleProcessor.getLoopCount());
 
         consoleProcessor.closeConsole();
     }

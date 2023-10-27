@@ -12,8 +12,9 @@ public class ConsoleProcessor {
         return input.split(",");
     }
 
-    public void closeConsole() {
-        Console.close();
+    public String getLoopCount() {
+        System.out.println(REQUEST_LOOP_COUNT.getMessage());
+        return Console.readLine();
     }
 
 }

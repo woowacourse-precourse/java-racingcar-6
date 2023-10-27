@@ -16,15 +16,15 @@
         - [x] 이름이 같은 자동차여도 다른 자동차로 판단
 
     - [ ] 경주 횟수 입력
-        - [ ] 시도할 횟수 요청 메시지 출력
-            - [ ] 개행 출력
-        - [ ] 숫자인지 확인
-            - [ ] 숫자 아닌 값인 경우 `IllegalArgumentException`
-        - [ ] 양수인지 확인
-            - [ ] 음수인 경우 `IllegalArgumentException`
+        - [x] 시도할 횟수 요청 메시지 출력
+        - [x] 숫자인지 확인
+            - [x] 숫자 아닌 값인 경우 `IllegalArgumentException`
+        - [x] 양수인지 확인
+            - [x] 음수인 경우 `IllegalArgumentException`
 
     - [ ] 게임 실행
         - [ ] 실행 결과 메시지 출력
+            - [ ] 개행 출력
         - [ ] 각 자동차 이름 출력
         - [ ] 각 자동차 전진(-) 출력
         - [ ] 경주 1회 종료 시 개행 출력
@@ -51,9 +51,11 @@
 ## 배운거
 
 ### io 테스트
+
 **System.in 입력 테스트**   
 사용자 입력을 테스트하는 방법을 배웠다.
 아래 코드를 이용해서 사용자 입력이 필요한 테스트를 수행할 수 있었다.
+
 ```java
 System.setIn(new ByteArrayInputStream(input.getBytes()));
 ```
