@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -40,4 +42,28 @@ class GamePrintTest {
 		assertEquals("시도할 회수는 몇회인가요?\n", output.toString());
 	}
 
+	@Test
+	@DisplayName("게임 시작 출력 테스트")
+	void printStartTest() {
+		GamePrint.printStart();
+		assertEquals("\n실행 결과\n", output.toString());
+	}
+	
+	@Test
+	@DisplayName("레이싱 진행 과정 출력 테스트")
+	void printRaceTest() {
+		String[] nameArray = {"kim", "lee", "park"};
+		Pair[] tmpArray = new Pair[3];
+		
+		for (int i = 0; i < 3; i++) {
+			tmpArray[i] = new Pair();
+			tmpArray[i].setName(nameArray[i]);
+			tmpArray[i].setLocation(i + 1);
+		}
+		
+		List<Pair> tmpList = Arrays.asList(tmpArray);
+		
+		GamePrint.printRace(tmpList);
+		assertEquals("kim : -\nlee : --\npark : ---\n\n", output.toString());
+	}
 }

@@ -15,10 +15,24 @@ class GameInputTest {
 	@Test
 	@DisplayName("입력 문자열 파싱 테스트")
 	void parseNamesTest() {
-		String[] tmpArray = {"kim", "lee", "park", "choi", "jeong"};
-		List<String> tmpList = Arrays.asList(tmpArray);
-		assertThat(GameInput.parseNames("kim,lee,park,choi,jeong"))
-			.isEqualTo(tmpList);
+		String[] nameArray = {"kim", "lee", "park"};
+		Pair[] tmpArray = new Pair[3];
+		
+		for (int i = 0; i < 3; i++) {
+			tmpArray[i] = new Pair();
+			tmpArray[i].setName(nameArray[i]);
+			tmpArray[i].setLocation(0);
+		}
+		
+		List<Pair> tmpList = Arrays.asList(tmpArray);
+		List<Pair> testList = GameInput.parseNames("kim,lee,park");
+		
+		assertThat(testList.get(0).getName()).isEqualTo(tmpList.get(0).getName());
+		assertThat(testList.get(0).getLocation()).isEqualTo(tmpList.get(0).getLocation());
+		assertThat(testList.get(1).getName()).isEqualTo(tmpList.get(1).getName());
+		assertThat(testList.get(1).getLocation()).isEqualTo(tmpList.get(1).getLocation());
+		assertThat(testList.get(2).getName()).isEqualTo(tmpList.get(2).getName());
+		assertThat(testList.get(2).getLocation()).isEqualTo(tmpList.get(2).getLocation());
 	}
 	
 	@Test
