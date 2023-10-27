@@ -34,6 +34,17 @@ class InputViewTest {
         assertEquals(expectedCarNames, actualCarNames);
     }
 
+
+    @ParameterizedTest
+    @ValueSource(strings = {"1", "2"})
+    void 입력받은_시도_횟수가_AttemptsNumber를_반환하는지_테스트(String input) {
+        when(mockProvider.provide()).thenReturn(input);
+
+        AttemptsNumber expectedAttemptsNumber = new AttemptsNumber(input);
+        AttemptsNumber actualAttemptsNumber = inputView.readAttemptsNumber();
+
+        assertEquals(expectedAttemptsNumber, actualAttemptsNumber);
+    }
     @ParameterizedTest
     @ValueSource(strings = {"pobi,woni,jun", "gim,lee,park", "lee,jun,ho"})
     void CarNames객체의_내부_CarName_객체들이_예상대로_저장되는지_테스트(String input) {
