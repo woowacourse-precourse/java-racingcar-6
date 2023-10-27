@@ -12,5 +12,7 @@ public class RacingController {
     private void startGame() {
         OutputView.printStartMessage();
         InputView.getPlayerInput();
+        OutputView.printTryNumberMessage();
+        InputView.getTryNumberInput();
     }
 }
