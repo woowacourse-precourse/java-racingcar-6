@@ -9,9 +9,9 @@ import racingcar.view.OutputView;
 public class RacingController {
 
     public void startGame() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        OutputView.printCarNameInputMessage();
         String carNames = InputView.inputCarNames();
-        System.out.println("시도할 회수는 몇회인가요?");
+        OutputView.printTryCountInputMessage();
         RacingCars racingCars = new RacingCars(CarGenerator.generateParticipationCarList(carNames));
         racing(racingCars);
         OutputView.printWinner(racingCars.getWinner());
@@ -19,7 +19,7 @@ public class RacingController {
 
     private void racing(RacingCars racingCars) {
         int tryCount = Convertor.convertStringToInt(InputView.inputTryCount());
-        System.out.println("\n실행 결과");
+        OutputView.printExecutionResultMessage();
         while (tryCount > 0) {
             racingCars.move();
             OutputView.printResult(racingCars.getCarStatuses());
