@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import static org.assertj.core.api.Assertions.*;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -24,7 +26,7 @@ class CarTest {
         car.forwardCar(false);
 
         //then
-        Assertions.assertThat(car.carResult()).isEqualTo(0);
+        assertThat(car.carResult()).isEqualTo(0);
     }
 
     @Test
@@ -36,7 +38,7 @@ class CarTest {
         car.forwardCar(true);
 
         //then
-        Assertions.assertThat(car.carResult()).isEqualTo(1);
+        assertThat(car.carResult()).isEqualTo(1);
     }
 
     @Test
@@ -51,7 +53,7 @@ class CarTest {
         }
 
         //then
-        Assertions.assertThat(car.carResult()).isEqualTo(number);
+        assertThat(car.carResult()).isEqualTo(number);
     }
 
     @Test
@@ -65,7 +67,7 @@ class CarTest {
         winnerName = car.ifImWinner(2);
 
         //then
-        Assertions.assertThat(winnerName).isEqualTo("");
+        assertThat(winnerName).isEqualTo("");
     }
 
     @Test
@@ -80,6 +82,6 @@ class CarTest {
         winnerName = car.ifImWinner(2);
 
         //then
-        Assertions.assertThat(winnerName).isEqualTo(NAME);
+        assertThat(winnerName).isEqualTo(NAME);
     }
 }

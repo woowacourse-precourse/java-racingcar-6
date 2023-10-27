@@ -14,6 +14,7 @@ class InputDataValidatorTest {
     void testNameSizeOverFive() {
         List<String> stringList = new ArrayList<>();
         stringList.add("SizeOver");
+
         assertThatThrownBy(() -> validateInputSize(stringList))
                 .isInstanceOf(IllegalArgumentException.class);
     }

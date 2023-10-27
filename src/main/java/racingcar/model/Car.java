@@ -19,6 +19,7 @@ public class Car {
     }
 
     public String ifImWinner(Integer maxCountingMove) {
+
         if (maxCountingMove != countingMove.length()) {
             return "";
         }
