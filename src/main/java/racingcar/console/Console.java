@@ -1,13 +1,13 @@
 package racingcar.console;
 
+import racingcar.domain.participant.Participant;
+
 import java.util.List;
 
 public interface Console {
-    void displayAskForUserCarNameMessage();
-    String getPlayerCarName();
-    void displayAskForCount();
-    String getCount();
+    String getPlayerCarNames();
+    String getRaceCount();
     void displayResultText();
-    void displayResult(String carName, int distance);
-    void displayWinner(List<String> winners);
+    void displayState(String carName, int distance);
+    void displayWinner(List<Participant> winners);
 }
