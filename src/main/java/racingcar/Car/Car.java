@@ -2,17 +2,21 @@ package racingcar.Car;
 
 
 public class Car {
-    private String name;
+    private final String name;
+    private int position = 0;
 
-    public  Car (String name) {
+    public Car(String name) {
         this.name = name;
     }
 
     public String getName() {
         return name;
     }
+    public int getPosition() {
+        return position;
+    }
 
-    public String toString() {
-        return "Car{name='" + name + "'}";
+    public void move(int distance) {
+        this.position += distance;
     }
 }

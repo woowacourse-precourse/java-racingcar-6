@@ -1,7 +1,9 @@
 package racingcar;
 
 import racingcar.Car.Car;
+import racingcar.Car.CarMover;
 import racingcar.View.InputView;
+import racingcar.View.OutputView;
 import java.util.List;
 
 public class Race {
@@ -9,13 +11,12 @@ public class Race {
 
     public void init() {
         cars = InputView.promptCarNames();
+
     }
 
     public void play() {
-        System.out.println("생성된 자동차 이름:");
-        for (Car car : cars) {
-            System.out.println(car.getName());
-        }
+        CarMover.moveCars(cars);
+        OutputView.printCars(cars);
     }
 
 }
