@@ -13,6 +13,6 @@ public class Application {
 
         Utility.get_number();
         //System.out.println(Utility.race_number);
-        
+        Utility.process_race();
     }
 }
