@@ -7,7 +7,7 @@ public class RandomNumberGeneratorImpl implements RandomNumberGenerator {
     private final int MAXIMUM_VALUE = 9;
 
     @Override
-    public int generate(int startInclusive, int endInclusive) {
+    public int generate() {
         return Randoms.pickNumberInRange(MINIMUM_VALUE, MAXIMUM_VALUE);
     }
 }
