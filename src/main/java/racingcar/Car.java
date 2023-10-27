@@ -9,13 +9,13 @@ public class Car {
         position=0;
         this.name=name;
     }
-    public void move(){
+    void move(){
         if(Randoms.pickNumberInRange(0,9)>4) ++position;
     }
-    public int getPosition(){
+    int getPosition(){
         return position;
     }
-    public String getName(){
+    String getName(){
         return name;
     }
 }
