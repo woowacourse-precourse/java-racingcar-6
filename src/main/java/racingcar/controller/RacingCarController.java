@@ -36,7 +36,6 @@ public class RacingCarController {
 
     private List<RacingCar> requestRacingCarNameList(){
         List<RacingCar> racingCarList = racingCarNameConvertStringToArray(racingCarNameInput());
-        RacingCarValidator.racingCarNameLengthValidator(racingCarList);
         return racingCarList;
     }
 
@@ -48,12 +47,14 @@ public class RacingCarController {
     }
 
     private String racingCarNameInput(){
-        return InputView.racingCarNameInput();
+        String racingCars = InputView.racingCarNameInput();
+        RacingCarValidator.racingCarInputNameValidator(racingCars);
+        return racingCars;
     }
 
     private Integer requestAttemptNumberCovertStringToInteger(){
         String number = InputView.attemptNumberInput();
-        RacingCarValidator.attemptInputOnlyNumberValidator(number);
+        RacingCarValidator.attemptInputNumberValidator(number);
         return Integer.parseInt(number);
     }
 

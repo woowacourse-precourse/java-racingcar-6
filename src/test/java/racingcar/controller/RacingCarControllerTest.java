@@ -12,9 +12,8 @@ class RacingCarControllerTest {
     RacingCarController racingCarController = new RacingCarController();
 
     @Test
-    void 레이싱카_이름_입력() {
+    void 레이싱카_입력_리스트_생성_테스트() {
         String racingCar= "pobi,woni,jun";
-
         String expectedName1 = "pobi";
         String expectedName2 = "woni";
         String expectedName3 = "jun";
