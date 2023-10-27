@@ -24,7 +24,7 @@ class ValidatorTest {
     void invalidInputsTest2(String input) {
         Assertions.assertThatThrownBy(() -> Validator.isLengthLessThanFive(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("이름은 5자 이하만 가능합니다.");
+                .hasMessage(ExceptionMessage.INPUT_NAME_LENGTH_MAX_5);
     }
 
     private static Stream<Arguments> provideDuplicateTestCases() {
@@ -40,7 +40,7 @@ class ValidatorTest {
     public void invalidInputsTest3(String[] inputs) {
         Assertions.assertThatThrownBy(() -> Validator.isDuplicateName(inputs))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("중복되지 않는 자동차 이름을 입력해주세요.");
+                .hasMessage(ExceptionMessage.INPUT_NON_DUPLICATE_CAR_NAME);
     }
 
     @ParameterizedTest
@@ -49,7 +49,7 @@ class ValidatorTest {
     public void invalidInputsTest6(String input) {
         Assertions.assertThatThrownBy(() -> Validator.isValidName(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("유효하지 않은 이름입니다.");
+                .hasMessage(ExceptionMessage.NAME_NOT_VALID);
     }
 
     @ParameterizedTest
@@ -81,7 +81,7 @@ class ValidatorTest {
     void invalidInputsTest4(String input) {
         Assertions.assertThatThrownBy(() -> Validator.isOneOrMore(input)).
                 isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("1이상의 숫자만 가능합니다.");
+                .hasMessage(ExceptionMessage.INPUT_ONE_OR_HIGHER_REQUIRED);
     }
 
     @ParameterizedTest
@@ -90,7 +90,7 @@ class ValidatorTest {
     void invalidInputsTest5(String input) {
         Assertions.assertThatThrownBy(() -> Validator.isInRangeOfInt(input)).
                 isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("int 데이터 타입 값 범위 내로 입력하세요.");
+                .hasMessage(ExceptionMessage.INPUT_IN_INT_RANGE);
     }
 
     @ParameterizedTest

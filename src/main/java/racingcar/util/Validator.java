@@ -29,7 +29,7 @@ public class Validator {
 
     public static void isLengthLessThanFive(String input) {
         if (input.replaceAll("\\s", "").length() > 5) {
-            throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+            throw new IllegalArgumentException(ExceptionMessage.INPUT_NAME_LENGTH_MAX_5);
         }
     }
 
@@ -37,7 +37,7 @@ public class Validator {
         List<String> names = new ArrayList<>();
         for (String input : inputs) {
             if (names.contains(input)) {
-                throw new IllegalArgumentException("중복되지 않는 자동차 이름을 입력해주세요.");
+                throw new IllegalArgumentException(ExceptionMessage.INPUT_NON_DUPLICATE_CAR_NAME);
             }
             names.add(input);
         }
@@ -45,14 +45,14 @@ public class Validator {
 
     public static void isOneOrMore(String input) {
         if (!Pattern.matches("^(0*[1-9][0-9]*)$", input)) {
-            throw new IllegalArgumentException("1이상의 숫자만 가능합니다.");
+            throw new IllegalArgumentException(ExceptionMessage.INPUT_ONE_OR_HIGHER_REQUIRED);
         }
     }
 
     public static void isInRangeOfInt(String input) {
         long number = Long.parseLong(input);
         if (number > Integer.MAX_VALUE) {
-            throw new IllegalArgumentException("int 데이터 타입 값 범위 내로 입력하세요.");
+            throw new IllegalArgumentException(ExceptionMessage.INPUT_IN_INT_RANGE);
         }
     }
 
@@ -63,7 +63,7 @@ public class Validator {
 
     public static void isValidName(String input) {
         if (!Pattern.matches("^[^,]+(,[^,]+)*$", input)) {
-            throw new IllegalArgumentException("유효하지 않은 이름입니다.");
+            throw new IllegalArgumentException(ExceptionMessage.NAME_NOT_VALID);
         }
     }
 }
