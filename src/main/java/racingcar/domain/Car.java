@@ -11,4 +11,14 @@ public class Car {
     public void move() {
 
     }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder(name);
+        result.append(" : ");
+        for (int i = 0; i < distance; i++) {
+            result.append('-');
+        }
+        return result.toString();
+    }
 }
