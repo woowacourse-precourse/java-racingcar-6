@@ -5,7 +5,6 @@ import java.util.Set;
 
 public class CarNameValidator {
     private static final String COMMA = ",";
-    private static final String EMPTY = "";
     private static final String BLANK = " ";
     private static final String NOT_COMMA_AND_ALLOW_BLANK_BETWEEN_NAME = ".*[^,\\s^a-zA-Z0-9^[가-힣]*$].*";
     private static final String BLANK_IN_START = "^\\s.*";
