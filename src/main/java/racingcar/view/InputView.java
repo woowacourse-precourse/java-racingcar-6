@@ -23,7 +23,7 @@ public class InputView {
         return carNames;
     }
 
-    public int numberOfAttempsInput() {
+    public String numberOfAttempsInput() {
         try {
             String numberOfAttemps = Console.readLine();
             if (numberOfAttemps == null)
@@ -36,7 +36,7 @@ public class InputView {
             
             if (number < 1)
                 throw new IllegalArgumentException();
-            return number;
+            return Integer.toString(number);
         } catch (NumberFormatException nfe) {
             throw new IllegalArgumentException();
         }
