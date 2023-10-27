@@ -29,4 +29,17 @@ public class GamePlayer {
         }
         return names;
     }
+
+    public void moveCarsByCount(int count) {
+        for (Car car : cars) {
+            car.moveByCount(count);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "GamePlayer{" +
+                "cars=" + cars +
+                '}';
+    }
 }
