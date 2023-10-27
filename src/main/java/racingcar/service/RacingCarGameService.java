@@ -1,9 +1,7 @@
 package racingcar.service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 import racingcar.model.Car;
 import racingcar.model.CarFactory;
 import racingcar.utils.RandomNumberCreator;
@@ -24,9 +22,8 @@ public class RacingCarGameService implements CarGameService {
     }
 
     @Override
-    public List<Car> updateCar(List<Integer> randomNumbers) {
+    public void updateCar(List<Integer> randomNumbers) {
         factory.updateCarDistance(randomNumbers);
-        return factory.getNameAndDistance();
     }
 
     @Override
@@ -36,5 +33,10 @@ public class RacingCarGameService implements CarGameService {
             randomNumbers.add(RandomNumberCreator.makeRandomNumber());
         }
         return randomNumbers;
+    }
+
+    @Override
+    public List<Car> getDuplicatedCars() {
+        return factory.getNameAndDistance();
     }
 }
