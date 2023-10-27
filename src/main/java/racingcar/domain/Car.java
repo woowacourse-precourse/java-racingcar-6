@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.List;
+
 public class Car {
 
     private String name;
@@ -13,12 +15,19 @@ public class Car {
         position++;
     }
 
-    public int getPosition() {
+    public int comparePosition(int position) {
+        if (this.position > position) {
+            return this.position;
+        }
         return position;
     }
 
-    public String getName() {
-        return name;
+    public boolean isFurthestDistance(int furtherDistance) {
+        return this.position == furtherDistance;
+    }
+
+    public void registerOnWinnerList(List<String> winnerList) {
+        winnerList.add(this.name);
     }
 
 

@@ -19,7 +19,8 @@ public class Output {
 
     public void printNameAndDistance(List<Car> moveResult) {
         for (int i = 0; i < moveResult.size(); i++) {
-            System.out.println(moveResult.get(i).toString());
+            Car car = moveResult.get(i);
+            System.out.println(car);
         }
         System.out.println();
     }
