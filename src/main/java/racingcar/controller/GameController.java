@@ -34,6 +34,7 @@ public class GameController {
             gameView.showCarStatus(carStatusList);
         }
 
-
+        List<String> winnerList = cars.getWinnerList();
+        gameView.showWinnerList(winnerList);
     }
 }

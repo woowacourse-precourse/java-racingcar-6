@@ -29,4 +29,9 @@ public class GameView {
         }
         System.out.print("\n");
     }
+
+    public void showWinnerList(List<String> winnerList) {
+        String winners = String.join(",", winnerList);
+        System.out.println("최종 우승자: " + winners);
+    }
 }
