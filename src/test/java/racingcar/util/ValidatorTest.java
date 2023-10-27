@@ -52,6 +52,14 @@ class ValidatorTest {
                 .hasMessage("유효하지 않은 이름입니다.");
     }
 
+    @ParameterizedTest
+    @DisplayName("정상적인 문자열 입력 모든 유효성 성공 테스트")
+    @ValueSource(strings = {"pobi", "pobi,woni", "pobi,woni,jun", "pobi,John Doe,12345,woni"})
+    void validInputsTest3(String input) {
+        Assertions.assertThatCode(() -> Validator.isValidInput(input))
+                .doesNotThrowAnyException();
+    }
+
     private static Stream<Arguments> provideValidTestCases() {
         return Stream.of(Arguments.of((Object) new String[]{"1", "2", "3"}),
                 Arguments.of((Object) new String[]{"woni", "pobi", "jun"}),
