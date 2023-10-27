@@ -12,6 +12,9 @@ public class Car {
         this.rule = rule;
     }
 
+    public String getName() {
+        return this.name;
+    }
     public int getDistance() {
         return distance;
     }
