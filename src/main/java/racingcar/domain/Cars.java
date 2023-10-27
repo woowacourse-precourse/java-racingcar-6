@@ -1,9 +1,6 @@
 package racingcar.domain;
 
 
-import static racingcar.constant.RacingGameConstant.CARS_SPLIT_STRING;
-
-import java.util.Arrays;
 import java.util.List;
 import racingcar.exception.ErrorMessage;
 import racingcar.exception.RacingGameException;
@@ -17,12 +14,9 @@ public class Cars {
         this.cars = cars;
     }
 
-    public static Cars from(final String carNames) {
+    public static Cars from(final List<Car> cars) {
 
-        return new Cars(Arrays.stream(carNames.split(CARS_SPLIT_STRING))
-                .map(Car::from)
-                .toList());
-
+        return new Cars(cars);
     }
 
     public void go() {

@@ -1,10 +1,14 @@
 package racingcar.controller;
 
+import static racingcar.constant.RacingGameConstant.CARS_SPLIT_STRING;
 import static racingcar.constant.RacingGameConstant.REGEX;
 import static racingcar.constant.RacingGameConstant.ZERO;
 import static racingcar.exception.ErrorMessage.NOT_INTEGER;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
+import java.util.List;
+import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.dto.CarsDto;
 import racingcar.exception.RacingGameException;
@@ -37,13 +41,18 @@ public class RacingGame {
     private void generateCars() {
         final String carNames = inputView.enterCarNames();
 
-        cars = Cars.from(carNames);
+        cars = Cars.from(splitString(carNames));
     }
 
     private void askRotateNumber() {
         final String rotateNumber = inputView.enterRotateNumber();
 
         rotateCount = convertToInteger(rotateNumber);
+    }
+    private List<Car> splitString(String carNames) {
+        return Arrays.stream(carNames.split(CARS_SPLIT_STRING))
+                .map(Car::from)
+                .toList();
     }
 
     private Integer convertToInteger(String inputNumberString) {
