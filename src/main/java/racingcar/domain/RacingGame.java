@@ -20,4 +20,14 @@ public class RacingGame {
         }
     }
 
+    public boolean isEnd() { return attemptCount <= END_COUNT; }
+
+    public void proceed() {
+        if (isEnd()) {
+            return;
+        }
+        cars.moveCars();
+        attemptCount--;
+    }
+
 }
