@@ -52,7 +52,7 @@ class CarRaceJudgeTest {
         carRaceJudge.moveCars(() -> 4);
         boolean isMove = carRaceJudge.createSingleMoveResults()
                 .stream()
-                .map(MoveResult::getPosition)
+                .map(MoveResult::position)
                 .allMatch(number -> number == 1);
 
         // then
@@ -70,7 +70,7 @@ class CarRaceJudgeTest {
         carRaceJudge.moveCars(() -> 3);
         boolean isStop = carRaceJudge.createSingleMoveResults()
                 .stream()
-                .map(MoveResult::getPosition)
+                .map(MoveResult::position)
                 .allMatch(number -> number == 0);
 
         // then
