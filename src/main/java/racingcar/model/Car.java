@@ -2,14 +2,11 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Car implements Comparable<Car> {
+public class Car implements Comparable<Car>, Model {
     private final String name;
     private int moved;
-    private Car(String name) {
+    Car(String name) {
         this.name = name;
-    }
-    public static Car generateCar(String name) {
-        return new Car(name);
     }
 
     public void move(Integer count) {
