@@ -9,17 +9,17 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class ValidateInputTest {
     @Test
-    void validateCarInputBlank_유효성검사_성공_테스트() {
+    void validateCarNameBlank_유효성검사_성공_테스트() {
         String input = "red";
 
-        Application.validateCarInputBlank(input);
+        Application.validateCarNameBlank(input);
     }
 
     @Test
-    void validateCarInputBlank_유효성검사_실패_테스트() {
+    void validateCarNameBlank_유효성검사_실패_테스트() {
         String input = "";
 
-        assertThatThrownBy(() -> Application.validateCarInputBlank(input))
+        assertThatThrownBy(() -> Application.validateCarNameBlank(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -39,17 +39,17 @@ public class ValidateInputTest {
     }
 
     @Test
-    void validateCarInputLength_유효성검사_성공_테스트() {
+    void validateCarNameLength_유효성검사_성공_테스트() {
         String input = "abcde";
 
-        Application.validateCarInputLength(input);
+        Application.validateCarNameLength(input);
     }
 
     @Test
-    void validateCarInputLength_유효성검사_실패_테스트() {
+    void validateCarNameLength_유효성검사_실패_테스트() {
         String input = "abcdef";
 
-        assertThatThrownBy(() -> Application.validateCarInputLength(input))
+        assertThatThrownBy(() -> Application.validateCarNameLength(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 

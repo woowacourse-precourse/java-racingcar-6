@@ -23,10 +23,10 @@
   - 문자열을 인수로 받아 자동차 목록 입력 형식으로서 유효한지 검사한다.
     - 빈 문자열이라면 `IllegalArgumentException` 발생
       - [x] `validateCarListInputBlank` 메서드
-        - [x] `validateCarInputBlank` 메서드
+        - [x] `validateCarNameBlank` 메서드
     - 자동차 이름 중 5자를 초과하는 이름이 있다면 `IllegalArgumentException` 발생
       - [x] `validateCarListInputLength` 메서드
-        - [x] `validateCarInputLength` 메서드
+        - [x] `validateCarNameLength` 메서드
     - 자동차 이름에 중복이 있다면 `IllegalArgumentException` 발생
       - [ ] `validateCarListInputUnique` 메서드
 

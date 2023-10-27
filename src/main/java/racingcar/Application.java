@@ -9,11 +9,11 @@ public class Application {
 
     public static void validateCarListInputBlank(List<String> inputList) {
         for (String name : inputList) {
-            validateCarInputBlank(name);
+            validateCarNameBlank(name);
         }
     }
 
-    public static void validateCarInputBlank(String name) {
+    public static void validateCarNameBlank(String name) {
         if (name.isBlank()) {
             throw new IllegalArgumentException("자동차의 이름은 비어있을 수 없습니다.");
         }
@@ -21,11 +21,11 @@ public class Application {
 
     public static void validateCarListInputLength(List<String> inputList) {
         for (String name : inputList) {
-            validateCarInputLength(name);
+            validateCarNameLength(name);
         }
     }
 
-    public static void validateCarInputLength(String name) {
+    public static void validateCarNameLength(String name) {
         if (name.length() > 5) {
             throw new IllegalArgumentException();
         }
