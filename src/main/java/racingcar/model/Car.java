@@ -1,18 +1,20 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Car {
     public static final int MOVE_CONDITION = 4;
     public static final int CAR_NAME_LIMIT_SIZE = 5;
+    public static int carCondition;
 
-    private static ArrayList<String> cars = new ArrayList<>();
+    private static List<String> cars = new ArrayList<>();
 
-    public Car(ArrayList<String> car) {
+    public Car(List<String> car) {
         this.cars = car;
     }
 
-    public ArrayList<String> getInstance() {
+    public List<String> getInstance() {
         return this.cars;
     }
 }
