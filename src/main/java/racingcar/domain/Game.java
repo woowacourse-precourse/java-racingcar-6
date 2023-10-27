@@ -14,6 +14,16 @@ public class Game {
     }
 
     public void inputCarNames() {
+        String carNames = Console.readLine();
+        checkValidCarNames(carNames);
+        initCarList(carNames.split(","));
+    }
+
+    private void checkValidCarNames(String input) {
+
+    }
+
+    private void initCarList(String[] carNames) {
 
     }
 
