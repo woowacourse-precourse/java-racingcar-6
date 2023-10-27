@@ -1,13 +1,31 @@
 package racingcar.util;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Validator {
 
     private static final int MAX_CAR_NAME_LENGTH = 5;
 
+    private final Parser parser = new Parser();
 
+    private List<String> carNameList = new ArrayList<>();
+    public void isValidCarName(String input){
+        carNameList.clear();
+        carNameList = parser.parseCarNames(input);
+        checkEachCarNameLengthValid(carNameList);
+        checkDuplicateName(carNameList);
+
+    }
+
+
+    public void checkEachCarNameLengthValid(List<String> carNameList){
+        for(String carName : carNameList){
+            isValidNameLength(carName);
+        }
+
+    }
     //비어있지 않거나, 5이하일때
     public boolean isValidNameLength(String input){
         if (!input.isEmpty() && input.length() <= MAX_CAR_NAME_LENGTH) {
