@@ -7,9 +7,7 @@ import racingcar.validation.InputValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class GameController {
@@ -24,6 +22,18 @@ public class GameController {
             moveAllCarsForward(cars);
             displayAllCarsPosition(cars);
         }
+
+        displayWinner(cars);
+    }
+
+    private void displayWinner(List<Car> cars) {
+
+    }
+
+    private List<Car> sortCarsByPosition(List<Car> cars) {
+        return cars.stream()
+                .sorted(Comparator.comparingInt(Car::getPosition).reversed())
+                .collect(Collectors.toList());
     }
 
     private void displayAllCarsPosition(List<Car> cars) {
