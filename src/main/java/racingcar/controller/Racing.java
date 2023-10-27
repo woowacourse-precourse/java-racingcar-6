@@ -10,7 +10,7 @@ public class Racing {
 
     public void startRacing() {
         setRacingCar();
-
+        setTryRound();
     }
 
     public void setRacingCar() {
@@ -18,5 +18,7 @@ public class Racing {
         racingCars = InputRacingCar.setInputRacingCars();
     }
 
-
+    public void setTryRound() {
+        PrintMessage.printTryCount();
+    }
 }
