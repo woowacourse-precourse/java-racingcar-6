@@ -27,4 +27,11 @@ final class CarsTest {
         assertThrows(IllegalArgumentException.class, () -> new Cars(input));
     }
 
+    @Test
+    void 중복되는_이름이_있는_경우_예외를_던진다() {
+        String input = "pobi,pobi";
+
+        assertThrows(IllegalArgumentException.class, () -> new Cars(input));
+    }
+
 }
