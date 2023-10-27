@@ -8,20 +8,24 @@ public class Car {
 
     }
 
-    public Car(String name, int move) {
+    public Car(String name) {
         if (!nameLengthCheck(name)) {
-            throw new IllegalArgumentException("자동차 이름의 길이는 5를 초과할 수 없습니다.");
+            throw new IllegalArgumentException();
         }
         this.name = name;
-        this.move = move;
+        this.move = 0;
     }
 
-    public void Forward() {
+    public void forward() {
         this.move++;
     }
 
     public int currentLocation() {
         return this.move;
+    }
+
+    public String myCarName() {
+        return this.name;
     }
 
     public boolean nameLengthCheck(String name) {
