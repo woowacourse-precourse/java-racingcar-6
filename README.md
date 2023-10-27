@@ -3,8 +3,8 @@
 ## 🔍 진행 방식
 
 - 미션은 **기능 요구 사항, 프로그래밍 요구 사항, 과제 진행 요구 사항** 세 가지로 구성되어 있다.
-- 세 개의 요구 사항을 만족하기 위해 노력한다. 특히 기능을 구현하기 전에 기능 목록을 만들고, 기능 단위로 커밋 하는 방식으로 진행한다.
-- 기능 요구 사항에 기재되지 않은 내용은 스스로 판단하여 구현한다.
+- [ ] 세 개의 요구 사항을 만족하기 위해 노력한다. 특히 기능을 구현하기 전에 기능 목록을 만들고, 기능 단위로 커밋 하는 방식으로 진행한다.
+- [ ] **기능 요구 사항에 기재되지 않은 내용은 스스로 판단하여 구현한다**
 
 ## 📮 미션 제출 방법
 
@@ -20,144 +20,115 @@
 - 기능 구현을 완료한 뒤 아래 가이드에 따라 테스트를 실행했을 때 모든 테스트가 성공하는지 확인한다.
 - **테스트가 실패할 경우 0점으로 처리**되므로, 반드시 확인 후 제출한다.
 
-### 테스트 실행 가이드
-
-- 터미널에서 `java -version`을 실행하여 Java 버전이 17인지 확인한다.
-  Eclipse 또는 IntelliJ IDEA와 같은 IDE에서 Java 17로 실행되는지 확인한다.
-- 터미널에서 Mac 또는 Linux 사용자의 경우 `./gradlew clean test` 명령을 실행하고,
-  Windows 사용자의 경우 `gradlew.bat clean test` 또는 `./gradlew.bat clean test` 명령을 실행할 때 모든 테스트가 아래와 같이 통과하는지 확인한다.
-
-```
-BUILD SUCCESSFUL in 0s
-```
-
----
-
 ## 🚀 기능 요구 사항
 
-초간단 자동차 경주 게임을 구현한다.
+1주차 과제의 부족한 점을 보완하며 초간단 자동차 경주 게임을 구현한다.
+- [ ] Magic Number x
+- [ ] Object.equals(), Object.isNull()
+- [ ] Validator 위치 
+- [ ] Domain 관련 Naming 더 유의하기
+- [ ] MVC 패턴 With TDD 
 
 - 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
+  - 자동차 개수를 입력 받는 구간, Primitive type Range 도 확인해서 벗어나는 경우도 예외 검증 시 확인해보기 
+  
 - 각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
+  - 자동차는 이름 특성을 가지고 있다. 
+  - 출력시 자동차 이름도 같이 출력해야 한다 
+
 - 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다.
+  - 자동차 이름을 입력 받을 때 기준은 ','
+  - 이름은 5자 이하만 가능하다
+    - null, empty
+    - 범위에서 벗어난 경우 
+    - 이름인데 숫자로 입력된 경우(Regex 활용)
+
 - 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다.
+  - 자동차 이름을 입력 + 몇 번의 이동할 것인지 
 - 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다.
+  - 전진 조건은 무작위 수를 기준으로 진행된다
+  - 4 이상인 경우에만 전진한다 
+
 - 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다.
+  - 게임이 완료되면 우승자를 출력한다
+  - 단수, 복수의 우승자 모두 가능하다 
 - 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
+  - 복수의 우승자인 경우 쉼표를 이용해서 구분한다 
+
 - 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료되어야 한다.
+  - 예외 처리는 IllegalArgumentException을 발생시킨다
+  - 어플리케이션이 종료되도록 한다
 
-### 입출력 요구 사항
+## Skeleton Code
+- 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
+  - Car - 자동차 (goForward(), stop())
+  - RacingCars.List<Car> - n대의 자동차 (move())
+  - 자동차 이름을 입력받는다 (inputCarNames, CarNamesValidator)
+  - 콤마(,)를 기준으로 구분한다
 
-#### 입력
+- 각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다 (RegisterCarNamesController)
+  - 자동차는 이름 특성을 가지고 있다 (String carName)
+  - 출력시 자동차 이름도 같이 출력해야 한다 (RoundResultController)
 
-- 경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)
+- 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다 (CarNamesValidator)
+  - 자동차 이름을 입력 받을 때 기준은 ',' (String.split(","))
+  - 이름은 5자 이하만 가능하다
+    - **예외** null, empty (isNullOrEmtpy())
+    - **예외** 범위에서 벗어난 경우 (isOverTheLength) - 6자, 7자 ,, etc 
+    - **예외** 이름인데 숫자로 입력된 경우(Regex 활용) (hasWrongCharacters) "^(\w)+$"
+    - **예외 처리** throw new IllegalArgumentException
 
-```
-pobi,woni,jun
-```
+- 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다 (RegisterRoundController)
+  - 입력받은 이동 횟수 - RoundTotal
 
-- 시도할 회수
+- 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다. (1) 
+  - 전진 조건은 무작위 수를 기준으로 진행된다 (pickNumberInRange(0, 9))
+  - 4이상인 경우에만 전진한다
+    - 4이상이 경우 moveForward()
+    - 4보다 작은 경우 stop() 
 
-```
-5
-```
+- 라운드 별 자동차들의 전진 횟수를 주어진 형식에 맞게 출력한다 (RacingRoundController)
+  - 전진 횟수를 '-'로 표현한다
+    - 전진 횟수만큼 '-'를 연속적으로 출력한다 
+  - 등록되어 있는 자동차 전체를 출력한다 
 
-#### 출력
-
-- 각 차수별 실행 결과
-
-```
-pobi : --
-woni : ----
-jun : ---
-```
-
-- 단독 우승자 안내 문구
-
-```
-최종 우승자 : pobi
-```
-
-- 공동 우승자 안내 문구
-
-```
-최종 우승자 : pobi, jun
-```
-
-#### 실행 결과 예시
-
-```
-경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
-pobi,woni,jun
-시도할 회수는 몇회인가요?
-5
-
-실행 결과
-pobi : -
-woni : 
-jun : -
-
-pobi : --
-woni : -
-jun : --
-
-pobi : ---
-woni : --
-jun : ---
-
-pobi : ----
-woni : ---
-jun : ----
-
-pobi : -----
-woni : ----
-jun : -----
-
-최종 우승자 : pobi, jun
-```
-
----
-
+- 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다 (RacingResultController)
+  - 게임이 완료되면 우승자를 출력한다 showWinners()
+  - 단수, 복수의 우승자 모두 가능하다
+    - 단수의 우승자는 이름을 출력한다  
+    - 복수의 우승자인 경우 쉼표를 이용해서 구분한다 (String.join())
+    
 ## 🎯 프로그래밍 요구 사항
 
-- JDK 17 버전에서 실행 가능해야 한다. **JDK 17에서 정상적으로 동작하지 않을 경우 0점 처리한다.**
-- 프로그램 실행의 시작점은 `Application`의 `main()`이다.
-- `build.gradle` 파일을 변경할 수 없고, 외부 라이브러리를 사용하지 않는다.
-- [Java 코드 컨벤션](https://github.com/woowacourse/woowacourse-docs/tree/master/styleguide/java) 가이드를 준수하며 프로그래밍한다.
-- 프로그램 종료 시 `System.exit()`를 호출하지 않는다.
-- 프로그램 구현이 완료되면 `ApplicationTest`의 모든 테스트가 성공해야 한다. **테스트가 실패할 경우 0점 처리한다.**
-- 프로그래밍 요구 사항에서 달리 명시하지 않는 한 파일, 패키지 이름을 수정하거나 이동하지 않는다.
+- [x] JDK 17 버전에서 실행 가능해야 한다. **JDK 17에서 정상적으로 동작하지 않을 경우 0점 처리한다.**
+- [x] 프로그램 실행의 시작점은 `Application`의 `main()`이다.
+- [x] `build.gradle` 파일을 변경할 수 없고, 외부 라이브러리를 사용하지 않는다.
+- [] [Java 코드 컨벤션](https://github.com/woowacourse/woowacourse-docs/tree/master/styleguide/java) 가이드를 준수하며 프로그래밍한다.
+- [x] 프로그램 종료 시 `System.exit()`를 호출하지 않는다.
+- [ ] 프로그램 구현이 완료되면 `ApplicationTest`의 모든 테스트가 성공해야 한다. **테스트가 실패할 경우 0점 처리한다.**
+- [ ] 프로그래밍 요구 사항에서 달리 명시하지 않는 한 파일, 패키지 이름을 수정하거나 이동하지 않는다.
 
 ### 추가된 요구 사항
 
-- indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다.
+- [ ] indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다.
   - 예를 들어 while문 안에 if문이 있으면 들여쓰기는 2이다.
   - 힌트: indent(인덴트, 들여쓰기) depth를 줄이는 좋은 방법은 함수(또는 메서드)를 분리하면 된다.
-- 3항 연산자를 쓰지 않는다.
-- 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들어라.
-- JUnit 5와 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다.
+- [ ] 3항 연산자를 쓰지 않는다.
+- [ ] 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들어라.
+- [x] JUnit 5와 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다.
   - 테스트 도구 사용법이 익숙하지 않다면 `test/java/study`를 참고하여 학습한 후 테스트를 구현한다.
 
 ### 라이브러리
 
-- JDK에서 제공하는 Random 및 Scanner API 대신 `camp.nextstep.edu.missionutils`에서 제공하는 `Randoms` 및 `Console` API를 사용하여 구현해야 한다.
-    - Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
-    - 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
-
-#### 사용 예시
-
-- 0에서 9까지의 정수 중 한 개의 정수 반환
-
-```java
-Randoms.pickNumberInRange(0,9);
-```
-
----
+- [ ]JDK에서 제공하는 Random 및 Scanner API 대신 `camp.nextstep.edu.missionutils`에서 제공하는 `Randoms` 및 `Console` API를 사용하여 구현해야 한다.
+    - [ ] Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
+    - [ ] 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
 
 ## ✏️ 과제 진행 요구 사항
 
-- 미션은 [java-racingcar-6](https://github.com/woowacourse-precourse/java-racingcar-6) 저장소를 Fork & Clone해 시작한다.
-- **기능을 구현하기 전 `docs/README.md`에 구현할 기능 목록을 정리**해 추가한다.
-- **Git의 커밋 단위는 앞 단계에서 `docs/README.md`에 정리한 기능 목록 단위**로 추가한다.
+- [x] 미션은 [java-racingcar-6](https://github.com/woowacourse-precourse/java-racingcar-6) 저장소를 Fork & Clone해 시작한다.
+- [ ] **기능을 구현하기 전 `docs/README.md`에 구현할 기능 목록을 정리**해 추가한다.
+- [ ] **Git의 커밋 단위는 앞 단계에서 `docs/README.md`에 정리한 기능 목록 단위**로 추가한다.
   - [커밋 메시지 컨벤션](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 가이드를 참고해 커밋 메시지를 작성한다.
-- 과제 진행 및 제출 방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고한다.
+- [ ] 과제 진행 및 제출 방법은 [프리코스 과제 제출](https://githu
+- b.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고한다.
