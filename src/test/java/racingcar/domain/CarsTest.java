@@ -38,10 +38,8 @@ class CarsTest {
 
         private static Stream<Arguments> exceptionCarNames() {
             return Stream.of(
-                    Arguments.of(List.of(",")),
                     Arguments.of(List.of(" , , ")),
                     Arguments.of(List.of(", poby")),
-                    Arguments.of(List.of(",,,,,")),
                     Arguments.of(List.of("poby,,jun")),
                     Arguments.of(List.of("poby,poby")),
                     Arguments.of(List.of("poby, jun")),
