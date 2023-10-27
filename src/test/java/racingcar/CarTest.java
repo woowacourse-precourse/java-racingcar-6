@@ -36,10 +36,4 @@ final class CarTest {
 
         assertEquals(set.size(), 1);
     }
-
-    record Car(Name name) {
-        Car {
-            if(name == null) throw new IllegalArgumentException();
-        }
-    }
 }
