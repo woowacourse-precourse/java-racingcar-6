@@ -18,4 +18,13 @@ public class RacingGameTest {
 
         assertThat(racingGame.getCars().size()).isEqualTo(3);
     }
+
+    @Test
+    @DisplayName("플레이어에게 시도 횟수를 묻는다.")
+    void test2() {
+        System.setIn(new ByteArrayInputStream("5".getBytes()));
+        int playCount = Integer.parseInt(Console.readLine());
+
+        assertThat(playCount).isEqualTo(5);
+    }
 }
