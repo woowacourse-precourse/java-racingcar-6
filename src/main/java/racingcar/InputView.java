@@ -3,20 +3,21 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
-    Player player = new Player();
     GameException gameException = new GameException();
 
-    public void inputPlayerCarName() {
+    public String[] inputPlayerCarName() {
         String carName = Console.readLine();
         String[] carNames = carName.split(",");
         checkCarNamesLoop(carNames);
-        player.settingPlayerCarNameStore(carNames);
+
+        return carNames;
     }
 
-    public void inputPlayerTryNumber() {
+    public int inputPlayerTryNumber() {
         String tryNumber = Console.readLine();
         checkTryNumberException(tryNumber);
-        player.settingPlayerTryNumber(Integer.parseInt(tryNumber));
+
+        return Integer.parseInt(tryNumber);
     }
 
     private void checkCarNamesLoop(String[] carNames) {
