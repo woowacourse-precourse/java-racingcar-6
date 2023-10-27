@@ -1,6 +1,12 @@
 package racingcar.domain.car.carcomponent.carposition;
 
+import static racingcar.Constant.ONE;
+
+import racingcar.Constant;
+
 public class CarPosition {
+    private static final String RESULT_MESSAGE_COMPONENT = "-";
+
     private final int position;
 
     public CarPosition(int position) {
@@ -18,10 +24,10 @@ public class CarPosition {
     }
 
     public CarPosition move() {
-        return new CarPosition(position + 1);
+        return new CarPosition(position + ONE);
     }
 
     public String makePositionResultMessage() {
-        return "-".repeat(Math.max(0, position));
+        return RESULT_MESSAGE_COMPONENT.repeat(Math.max(Constant.ZERO, position));
     }
 }
