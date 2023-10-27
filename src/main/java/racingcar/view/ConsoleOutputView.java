@@ -25,6 +25,7 @@ public class ConsoleOutputView implements OutputView {
 
     @Override
     public void printGameResultMessage() {
+        printNewLine();
         System.out.println(GAME_RESULT_MESSAGE);
     }
 
