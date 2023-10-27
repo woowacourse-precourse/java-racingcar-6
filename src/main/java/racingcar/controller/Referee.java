@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.controller;
 
 public class Referee {
     public boolean whetherMoveForward(int result) {

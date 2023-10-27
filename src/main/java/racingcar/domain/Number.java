@@ -1,6 +1,4 @@
-package racingcar;
-
-import java.util.List;
+package racingcar.domain;
 
 public class Number {
     public Number generateRandomNumber() {
