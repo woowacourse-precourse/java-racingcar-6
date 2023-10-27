@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.io;
+
+import racingcar.model.Cars;
 
 public class InputMapper {
 

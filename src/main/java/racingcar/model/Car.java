@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import racingcar.constants.ErrorMessage;
 import racingcar.exception.CarNameLengthException;

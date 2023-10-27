@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.io;
 
 import racingcar.constants.ErrorMessage;
 import racingcar.constants.InputPattern;
