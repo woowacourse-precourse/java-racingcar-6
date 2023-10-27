@@ -1,4 +1,4 @@
-package racingcar.exception.car_racing_game;
+package racingcar.exception.car_racing_manager;
 
 import java.util.List;
 

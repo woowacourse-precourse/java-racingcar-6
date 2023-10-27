@@ -1,4 +1,4 @@
-package racingcar.exception.car;
+package racingcar.exception.car_name;
 
 import static racingcar.util.Constant.MAX_CAR_NAME_LENGTH;
 

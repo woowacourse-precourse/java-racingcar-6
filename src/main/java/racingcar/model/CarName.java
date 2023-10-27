@@ -2,7 +2,7 @@ package racingcar.model;
 
 import static racingcar.util.Constant.MAX_CAR_NAME_LENGTH;
 
-import racingcar.exception.car.NotValidNameLengthException;
+import racingcar.exception.car_name.NotValidNameLengthException;
 
 public class CarName {
 
