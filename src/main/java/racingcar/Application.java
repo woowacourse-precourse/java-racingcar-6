@@ -88,6 +88,7 @@ public class Application {
     public static void main(String[] args) {
         ArrayList<User> user = setCarName();
         int n = setTime();
+        System.err.println();
         race(user,n);
     }
 }
