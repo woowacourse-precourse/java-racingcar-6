@@ -18,4 +18,8 @@ public class OutputView {
     public void printNewLine() {
         System.out.println();
     }
+
+    public void printPlayingResult() {
+        MessageUtil.GAME_PLAYING_RESULT_MESSAGE.messagePrintln();
+    }
 }

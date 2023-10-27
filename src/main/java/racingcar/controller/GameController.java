@@ -20,12 +20,20 @@ public class GameController {
         List<Car> carList = transferUtil.transferStringToListCar(inputView.readCarNames());
         outputView.printTryCountInputMessage();
         int tryCount = inputView.readTryCount();
-        //시도 횟수만큼 각 Car에 랜덤 넘버로 움직인 후
+        outputView.printNewLine();
+        outputView.printPlayingResult();
+        //시도 횟수만큼 반복
         for(int i = 0; i < tryCount; i++){
-            carList.forEach(car -> {
-                car.moveOrStop(randomNUmberGenerator.generate());
-                outputView.printCarNameAndPosition(car.provideCarNameAndPositionState());
-            });
+            playingGame(carList);
         }
+    }
+
+    private void playingGame(List<Car> carList) {
+        //CarList의 각 Car에서 random수를 이용해 전진 후 OutputView로 이름과 현재 위치를 출력
+        carList.forEach(car -> {
+            car.moveOrStop(randomNUmberGenerator.generate());
+            outputView.printCarNameAndPosition(car.provideCarNameAndPositionState());
+        });
+        outputView.printNewLine();
     }
 }
