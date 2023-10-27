@@ -2,6 +2,8 @@ package racingcar.domain;
 
 public class GameRound {
 
+    private static final Integer MIN_ROUND_COUNT = 1;
+
     private final int totalRound;
     private int currentRound;
 
@@ -12,8 +14,9 @@ public class GameRound {
     }
 
     private void validateTotalRound(int totalRound) {
-        if (totalRound < 1) {
-            throw new IllegalArgumentException();
+        if (totalRound < MIN_ROUND_COUNT) {
+            throw new IllegalArgumentException("[ERROR] 게임 실행 회수 입력값은 1 이상이어야 합니다.");
         }
     }
+
 }
