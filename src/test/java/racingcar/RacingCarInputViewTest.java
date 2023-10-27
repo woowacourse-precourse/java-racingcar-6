@@ -11,6 +11,7 @@ import java.io.PrintStream;
 import java.util.List;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -29,6 +30,7 @@ public class RacingCarInputViewTest {
         return new ByteArrayInputStream(input.getBytes());
     }
 
+    @DisplayName("자동차의 이름을 쉼표(,) 기준으로 입력받는다.")
     @ParameterizedTest
     @MethodSource("provideInputCarNamesTestArguments")
     public void inputCarNamesTest(String names, List<String> expected) {
@@ -50,6 +52,7 @@ public class RacingCarInputViewTest {
         );
     }
 
+    @DisplayName("시도할 횟수를 입력받는다.")
     @ParameterizedTest
     @ValueSource(strings = {"0", "200000000"})
     void inputAttemptCountsTest(String attempt) {
