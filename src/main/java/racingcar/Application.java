@@ -105,4 +105,14 @@ public class Application {
     	}
     }
     
+    //횟수별 실행결과 출력하기
+    public static void printCarRacingResult(int movingNumber, List<String> carList, Map<String, Integer> carRacingRecord) {
+    	System.out.println("\n실행 결과");
+		for(int i=0;i < movingNumber;i++) {
+			updateCarRacingRecord(carList,carRacingRecord);
+			printCarRacingRecord(carList, carRacingRecord);
+			System.out.println();
+		}
+    }
+    
 }
