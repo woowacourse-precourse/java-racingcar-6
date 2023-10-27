@@ -2,7 +2,7 @@ package racingcar.domain.car;
 
 import static racingcar.domain.car.SupportedMove.*;
 
-public class MoveCount {
+public class MoveCount implements Comparable<MoveCount>{
 
     private static final int MOVE_VALUE = 4;
     private int moveCount;
@@ -21,5 +21,14 @@ public class MoveCount {
 
     public int getMoveCount() {
         return moveCount;
+    }
+
+    @Override
+    public int compareTo(MoveCount other) {
+        return this.moveCount - other.moveCount;
+    }
+
+    public boolean findSameMoveCount(MoveCount other) {
+        return this.moveCount == other.moveCount;
     }
 }

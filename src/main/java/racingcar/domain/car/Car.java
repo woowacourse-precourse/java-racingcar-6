@@ -1,6 +1,6 @@
 package racingcar.domain.car;
 
-public class Car {
+public class Car implements Comparable<Car>{
     private Name name;
     private MoveCount moveCount;
 
@@ -19,5 +19,14 @@ public class Car {
 
     public int getMoveCount() {
         return moveCount.getMoveCount();
+    }
+
+    @Override
+    public int compareTo(Car other) {
+        return moveCount.compareTo(other.moveCount);
+    }
+
+    public boolean findSameCar(Car other){
+        return moveCount.findSameMoveCount(other.moveCount);
     }
 }

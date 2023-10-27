@@ -13,7 +13,6 @@ import static racingcar.util.CarListConverter.*;
 public class RaceGameController {
 
     public void start(){
-
         List<Car> cars = convertStringArrayToCarList(requestCarNames());
         int attemptCount = requestAttemptCount();
 
@@ -23,7 +22,6 @@ public class RaceGameController {
         raceGameService.run();
 
         raceCars.printWinningCarNames();
-
     }
 
     private String[] requestCarNames() {

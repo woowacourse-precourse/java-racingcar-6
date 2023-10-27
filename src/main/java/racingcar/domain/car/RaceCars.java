@@ -5,9 +5,11 @@ import racingcar.view.ExecutionView;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
+import static racingcar.constants.ErrorConstants.NOT_CONTAINS_CAR_ERROR_MESSAGE;
 
 public class RaceCars {
+    private static final String JOIN_DELIMITER = ", ";
     //자료 구조
     private final List<Car> cars;
 
@@ -19,33 +21,32 @@ public class RaceCars {
         return cars.size();
     }
 
-    private Stream<Car> stream(){
-        return cars.stream();
-    }
-
     //계산 로직
     public String getWinningCarNames(){
-        int max = maxCarMovementCount();
-
-        return cars.stream()
-                .filter(car -> car.getMoveCount() == max)
-                .map(Car::getName)
-                .collect(Collectors.joining(", "));
+        final Car maxMovementCountCar = maxCarMovementCount();
+        return getSameCarsNames(maxMovementCountCar);
     }
 
-    private int maxCarMovementCount(){
+    private String getSameCarsNames(Car maxMovementCountCar) {
         return cars.stream()
-                .mapToInt(Car::getMoveCount)
-                .max().orElse(0);
+                .filter(maxMovementCountCar::findSameCar)
+                .map(Car::getName)
+                .collect(Collectors.joining(JOIN_DELIMITER));
+    }
+
+    private Car maxCarMovementCount(){
+        return cars.stream()
+                .max(Car::compareTo)
+                .orElseThrow(() -> new IllegalArgumentException(NOT_CONTAINS_CAR_ERROR_MESSAGE));
     }
 
     public void executeRace(){
-        stream().forEach(car -> car.controlMovement(Randoms.getNumber()));
+        cars.stream().forEach(car -> car.controlMovement(Randoms.getNumber()));
     }
 
     //출력 로직
     public void printGameProgressMessages(){
-        stream().forEach(ExecutionView::printExecutionMessage);
+        cars.stream().forEach(ExecutionView::printExecutionMessage);
     }
 
     public void printWinningCarNames(){
