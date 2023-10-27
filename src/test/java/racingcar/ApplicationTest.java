@@ -14,6 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class ApplicationTest extends NsTest {
+
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
@@ -24,10 +25,9 @@ class ApplicationTest extends NsTest {
 
         for (Car car : carList) {
             int action = car.action();
-            if(action == MOVING_FORWARD) {
+            if (action == MOVING_FORWARD) {
                 assertThat(car.getStatus()).isEqualTo("-");
-            }
-            else {
+            } else {
                 assertThat(car.getStatus()).isEqualTo("");
             }
         }
@@ -47,33 +47,19 @@ class ApplicationTest extends NsTest {
 
         if (action == MOVING_FORWARD) {
             assertThat(car.getStatus()).isEqualTo("-");
-        }
-        else {
+        } else {
             assertThat(car.getStatus()).isEqualTo("");
-        }
-    }
-
-    @Test
-    void 주행_결과_출력_테스트() {
-        Car car = new Car("car1");
-        int action = car.action();
-
-        if(action == MOVING_FORWARD) {
-            assertThat(car.printResult()).isEqualTo("car1 : -");
-        }
-        else {
-            assertThat(car.printResult()).isEqualTo("car1 : ");
         }
     }
 
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
