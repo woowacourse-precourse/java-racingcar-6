@@ -1,14 +1,11 @@
 package racingcar;
 
-import racingcar.view.MessagePrinter;
-import racingcar.view.MessageReceiver;
+import racingcar.config.GameConfig;
 
 public class Application {
 
     public static void main(String[] args) {
-        MessagePrinter messagePrinter = new MessagePrinter();
-        MessageReceiver messageReceiver = new MessageReceiver();
-        GameManager gameManager = new GameManager(messagePrinter, messageReceiver);
+        GameManager gameManager = GameConfig.buildGameManager();
         gameManager.startGame();
     }
 }

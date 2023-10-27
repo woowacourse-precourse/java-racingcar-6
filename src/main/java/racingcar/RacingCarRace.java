@@ -6,7 +6,7 @@ import java.util.List;
 import static java.util.stream.Collectors.*;
 import static racingcar.constant.NumberConstant.ZERO_POINT;
 
-public class RacingCarRace {
+public final class RacingCarRace {
 
     private final List<RacingCar> racingCars;
     private final int attemptCount;
