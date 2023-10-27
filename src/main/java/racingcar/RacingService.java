@@ -27,7 +27,7 @@ public class RacingService {
         if (isInvalidLength || isDuplicate || isInvalidName) {
             throw new IllegalArgumentException("유효하지 않은 이름을 입력했습니다.");
         }
-        return Arrays.stream(namesArr).toList();
+        return Arrays.stream(namesArr).map(String::trim).toList();
     }
 
     /**
@@ -48,7 +48,7 @@ public class RacingService {
      */
     int testValidCount(String count) throws IllegalArgumentException {
         try {
-            int validCount = Integer.parseInt(count);
+            int validCount = Integer.parseInt(count.trim());
             if (validCount <= 0) {
                 throw new IllegalArgumentException("시도할 회수는 1 이상이어야 합니다.");
             }
