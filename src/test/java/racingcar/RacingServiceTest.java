@@ -6,6 +6,7 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 
 public class RacingServiceTest {
 
@@ -27,14 +28,14 @@ public class RacingServiceTest {
     @DisplayName("우승자가 1명만 있는 경우 리스트에는 한 명만 있다.")
     @Test
     void getSingleWinnerTest() {
-        RacingService service = new RacingService();
         Car car1 = new Car("car1");
         Car car2 = new Car("car2");
         Car car3 = new Car("car3");
 
         car1.moveForward();
         List<Car> carList = List.of(car1, car2, car3);
-        List<Car> winner = service.getWinner(carList);
+        Cars cars = new Cars(carList);
+        List<Car> winner = cars.getWinnerList();
 
         assertThat(winner).containsExactly(car1);
     }
@@ -42,7 +43,6 @@ public class RacingServiceTest {
     @DisplayName("우승자가 2명이 있는 경우 리스트에는 2명만 있다.")
     @Test
     void getDoubleWinnerTest() {
-        RacingService service = new RacingService();
         Car car1 = new Car("car1");
         Car car2 = new Car("car2");
         Car car3 = new Car("car3");
@@ -50,7 +50,8 @@ public class RacingServiceTest {
         car1.moveForward();
         car2.moveForward();
         List<Car> carList = List.of(car1, car2, car3);
-        List<Car> winner = service.getWinner(carList);
+        Cars cars = new Cars(carList);
+        List<Car> winner = cars.getWinnerList();
 
         assertThat(winner).containsExactly(car1, car2);
     }
