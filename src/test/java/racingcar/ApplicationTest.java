@@ -14,7 +14,6 @@ import racingcar.model.Car;
 import racingcar.model.CarName;
 import racingcar.model.Cars;
 import racingcar.model.Dice;
-import racingcar.model.DiceNumber;
 import racingcar.model.Game;
 
 class ApplicationTest extends NsTest {
@@ -78,9 +77,9 @@ class ApplicationTest extends NsTest {
     @Test
     void 승자_집계() {
         Car car1 = new Car("pobi");
-        car1.addDistance(STOP, MOVING_FORWARD);
+        car1.forward(STOP, MOVING_FORWARD);
         Car car2 = new Car("bh");
-        car2.addDistance(MOVING_FORWARD, MOVING_FORWARD);
+        car2.forward(MOVING_FORWARD, MOVING_FORWARD);
 
         GameController gameController = new GameController();
 
@@ -98,16 +97,16 @@ class ApplicationTest extends NsTest {
     @Test
     void Car_AddDistance_전진_테스트() {
         Car car1 = new Car("pobi");
-        car1.addDistance(MOVING_FORWARD, MOVING_FORWARD);
-        assertThat(car1.getDistance()).isEqualTo(1);
+        car1.forward(MOVING_FORWARD, MOVING_FORWARD);
+        assertThat(car1.getDistance().getDistance()).isEqualTo(1);
         assertThat(car1.getDistanceLine()).isEqualTo("pobi : -");
     }
 
     @Test
     void Car_AddDistance_정지_테스트() {
         Car car1 = new Car("pobi");
-        car1.addDistance(STOP, MOVING_FORWARD);
-        assertThat(car1.getDistance()).isEqualTo(0);
+        car1.forward(STOP, MOVING_FORWARD);
+        assertThat(car1.getDistance().getDistance()).isEqualTo(0);
         assertThat(car1.getDistanceLine()).isEqualTo("pobi : ");
     }
 
