@@ -16,6 +16,13 @@ public class TryNumber {
         validateIsNaturalNumber(number);
     }
 
+    public boolean isOver(int count) {
+        if (tryNumber > count) {
+            return false;
+        }
+        return true;
+    }
+
     private void validateIsNumber(String number) {
         try {
             Integer.parseInt(number);

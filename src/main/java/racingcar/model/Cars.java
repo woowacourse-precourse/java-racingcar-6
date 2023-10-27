@@ -8,7 +8,10 @@ import racingcar.validator.InputValidator;
 public class Cars {
     private static final int ZERO_POSITION = 0;
     private static final int MIN_MOVE_NUMBER = 4;
-    Map<Name, Integer> cars;
+    private static final String NAME_POSITION_DIVIDER = " : ";
+    private static final String POSITION_STRING = "-";
+
+    private final Map<Name, Integer> cars;
 
     public Cars(String names) {
         InputValidator.validateCarNames(names);
@@ -30,6 +33,17 @@ public class Cars {
                 cars.put(name, position + 1);
             }
         });
+    }
+
+    public String generateRoundResultString() {
+        StringBuilder sb = new StringBuilder();
+        cars.forEach((name, position) -> {
+            sb.append(name.getName());
+            sb.append(NAME_POSITION_DIVIDER);
+            sb.append(POSITION_STRING.repeat(position));
+            sb.append("\n");
+        });
+        return sb.toString();
     }
 
 }
