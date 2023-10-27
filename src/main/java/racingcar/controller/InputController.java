@@ -25,7 +25,7 @@ public class InputController {
 
         try {
             int number = Integer.parseInt(Console.readLine());
-
+            Validator.validateAttempts(number);
             return number;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
