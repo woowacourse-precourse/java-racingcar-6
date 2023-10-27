@@ -1,9 +1,10 @@
 package racingcar.view;
 
-
-import static racingcar.constant.CarConstant.CAR_NAME_REGEX;
-import static racingcar.constant.CarConstant.MAX_CAR_SIZE;
-import static racingcar.constant.CarConstant.MIN_CAR_SIZE;
+import static racingcar.constant.CarConstant.MAX_MOVE_COUNT;
+import static racingcar.constant.CarConstant.MAX_NAME_SIZE;
+import static racingcar.constant.CarConstant.MIN_MOVE_COUNT;
+import static racingcar.constant.CarConstant.MIN_NAME_SIZE;
+import static racingcar.constant.CarConstant.NAME_REGEX;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
@@ -14,6 +15,7 @@ import racingcar.validator.Validator;
  *   사용자의 입력을 담당
  * */
 public class InputView {
+    private static final int SIZE_ZERO = 0;
 
     public List<String> carNames() {
         String input = Console.readLine();
@@ -24,9 +26,17 @@ public class InputView {
     }
 
     private void validateCarNames(List<String> carNames) {
-        Validator.stringsLengthInRange(carNames, MIN_CAR_SIZE, MAX_CAR_SIZE);
-        Validator.stringsContainsOnlyRegex(carNames, CAR_NAME_REGEX);
+        Validator.stringsSizeBiggerThan(SIZE_ZERO, carNames);
+        Validator.stringsLengthInRange(carNames, MIN_NAME_SIZE, MAX_NAME_SIZE);
+        Validator.stringsContainsOnlyRegex(carNames, NAME_REGEX);
         Validator.stringsNotDuplicated(carNames);
     }
-    //커밋하고 테스트 하고 체크리스트
+
+    public int moveCount() {
+        String input = Console.readLine();
+        Validator.stringToInteger(input);
+        int moveCount = Integer.parseInt(input);
+        Validator.integerInRange(moveCount, MIN_MOVE_COUNT, MAX_MOVE_COUNT);
+        return moveCount;
+    }
 }
