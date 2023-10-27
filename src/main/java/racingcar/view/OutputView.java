@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.domain.EachMoveResultDto;
 import racingcar.domain.GameWinnerDto;
 
@@ -21,22 +22,20 @@ public class OutputView {
     public void displayGameWinner(List<GameWinnerDto> gameresult) {
         System.out.print(Message.GAMEWINNER.getMessage());
 
-        StringBuilder winners = new StringBuilder();
-        for (GameWinnerDto car : gameresult) {
-            winners.append(car.getWinnerCar()).append(Message.REST.getMessage());
-        }
+        String winners = gameresult.stream()
+                .map(GameWinnerDto::getWinnerCar)
+                .collect(Collectors.joining(Message.REST.getMessage()));
 
-        winners.setLength(winners.length() - 1);
-
-        System.out.println(winners.toString());
+        System.out.println(winners);
     }
 
     public void displayEachGameResult(List<EachMoveResultDto> moveResults) {
         for (EachMoveResultDto moveResultDto : moveResults) {
-            System.out.println(
-                    moveResultDto.getCarName() + Message.EACHGAMERESULT.getMessage() + Message.MOVEFOWARD.getMessage()
-                            .repeat(moveResultDto.getPosition()));
+            System.out.println(moveResultDto.getCarName()
+                    + Message.EACHGAMERESULT.getMessage()
+                    + Message.MOVEFOWARD.getMessage().repeat(moveResultDto.getPosition()));
         }
+        System.out.println();
     }
 
 
