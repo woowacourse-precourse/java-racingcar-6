@@ -22,9 +22,15 @@ public class InputValidation {
         Map<String, Integer> collectCarName = new LinkedHashMap<>();
         String[] cars = carNames.split(",");
         for (String carName : cars) {
-            isChackedNameRange(carName);
+            isCheckedNameRange(carName);
             collectCarName.put(carName,0);
         }
         return collectCarName;
+    }
+
+    public static void isCheckedNameRange(String carName){
+        if(carName.length()>5){
+            throw new IllegalArgumentException(IS_NOT_RANGE_NAME_ERROR_MESSAGE);
+        }
     }
 }
