@@ -14,27 +14,25 @@ public class PrintImpl implements Print {
     
     @Override
     public void winner(List<String> winners) {
-        System.out.print("최종 우승자 : ");
-        for (String winner : winners) {
-            System.out.print(winner);
-            if(winners.indexOf(winner) < winners.size() - 1) {
-                System.out.print(", ");
-            }
-        }
+        String winnerNames = String.join(", ", winners);
+        System.out.println("최종 우승자 : " + winnerNames);
     }
 
     @Override
     public void printCarPositions() {
         for (String name : carNames) {
-            int currentPosition = carPositions.get(name);
-            System.out.print(name + " : ");
-            for (int i = 0; i < currentPosition; i++) {
-                System.out.print("-");
-            }
-            System.out.println();
+            printCarPosition(name, carPositions.get(name));
         }
         System.out.println();
         
+    }
+    
+    private void printCarPosition(String name, int position) {
+        System.out.print(name + " : ");
+        for (int i = 0; i < position; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 
 }

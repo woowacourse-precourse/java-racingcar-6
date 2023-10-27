@@ -20,7 +20,6 @@ public class RacingCarGameImpl implements RacingCarGame {
         gameItem.carMove(attemptsNumber, print);
         print.winner(gameItem.checkWinner());
         
-        
     }
 
 }

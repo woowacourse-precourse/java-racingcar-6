@@ -65,7 +65,7 @@ public class GameItemImpl implements GameItem {
         }
         return winners;
     }
-
+    
     @Override
     public Map<String, Integer> carPosition() {
         return carPositions;
