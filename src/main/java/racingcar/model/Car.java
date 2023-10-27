@@ -5,11 +5,11 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
 
     private final String carName;
-    private final int position;
+    private final int distance;
 
-    public Car(String carName, int position) {
+    public Car(String carName, int distance) {
         this.carName = carName;
-        this.position = position;
+        this.distance = distance;
     }
 
     private int generateRandomNumber() {
@@ -23,8 +23,16 @@ public class Car {
 
     public Car attemptMove() {
         if (isCarMoving()) {
-            return new Car(carName, position + 1);
+            return new Car(carName, distance + 1);
         }
-        return new Car(carName, position);
+        return new Car(carName, distance);
+    }
+
+    public String getCarName() {
+        return carName;
+    }
+
+    public int getDistance() {
+        return distance;
     }
 }
