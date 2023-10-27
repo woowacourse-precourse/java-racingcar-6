@@ -19,4 +19,10 @@ public class OutputView {
         }
         System.out.println(FINAL_WINNER + stringJoiner);
     }
+
+    public void printProgressMessage(List<Car> players) {
+        for(Car player : players) {
+            System.out.println(player.getName() + COLON + player.getProgress());
+        }
+    }
 }
