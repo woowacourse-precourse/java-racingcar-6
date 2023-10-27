@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static racingcar.view.NameConstraints.MAX_NAME_LENGTH;
+import static racingcar.domain.NameConstraints.MAX_NAME_LENGTH;
 
 public class Car {
 
