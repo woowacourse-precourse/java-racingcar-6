@@ -7,6 +7,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.cars.Cars;
 
 public class InputTest {
     private final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -28,12 +29,25 @@ public class InputTest {
     }
 
     @Test
-    @DisplayName("시도 횟수 입력 문구 테스트")
+    @DisplayName("시도 횟수 입력 문구 출력 테스트")
     public void testInputAttemptCountMessage() {
         input.printInputAttemptCountMessage();
         String output = byteArrayOutputStream.toString();
 
         Assertions.assertThat(output.trim()).isEqualTo("시도할 회수는 몇회인가요?");
+    }
+
+    @Test
+    @DisplayName("각 횟수별 전진 결과 출력 테스트")
+    public void testMoveResult() {
+        Cars cars = new Cars("tiger,eagle,bear");
+
+        String carName = cars.getCars().get(0).toString();
+        int moveRecord = 5;
+
+        cars.printMoveRecord(carName, moveRecord);
+        String output = byteArrayOutputStream.toString();
+        Assertions.assertThat(output).isEqualTo("tiger : -----");
     }
 
     @AfterEach
