@@ -11,25 +11,25 @@ public class CarGame {
     private List<Car> cars;
     private int gameCount;
 
-    public CarGame(String carNames, int gameCount){
+    public CarGame(String carNames, int gameCount) {
         cars = ConvertUtil.convertStrToListCar(carNames);
         this.gameCount = gameCount;
     }
 
-    public void movePosition(){
+    public void movePosition() {
         for (Car car : cars) {
             int randomNum = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-            if(randomNum >=STANDARD_MOVING_NUMBER){
+            if (randomNum >= STANDARD_MOVING_NUMBER) {
                 car.addPosition();
             }
         }
     }
 
-    public List<Car> findWinner(){
+    public List<Car> findWinner() {
         return cars.stream().filter(car -> car.getPosition() == findMaxPosition()).toList();
     }
 
-    private int findMaxPosition(){
+    private int findMaxPosition() {
         return cars.stream().map(Car::getPosition).max(Integer::compareTo).orElseThrow(IllegalArgumentException::new);
     }
 

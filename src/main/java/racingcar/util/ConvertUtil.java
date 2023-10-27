@@ -7,7 +7,7 @@ import racingcar.domain.Car;
 
 public class ConvertUtil {
 
-    public static List<Car> convertStrToListCar(String carNames){
+    public static List<Car> convertStrToListCar(String carNames) {
         List<Car> carList = new ArrayList<>();
         List<String> carNameList = Arrays.stream(carNames.split(",")).toList();
         for (String carName : carNameList) {
@@ -16,14 +16,14 @@ public class ConvertUtil {
         return carList;
     }
 
-    public static String convertListCarToStr(List<Car> cars){
+    public static String convertListCarToStr(List<Car> cars) {
         List<String> carNames = cars.stream().map(Car::getName).toList();
-        return String.join(", ",carNames);
+        return String.join(", ", carNames);
     }
 
-    public static String convertPositionToStr(int position){
+    public static String convertPositionToStr(int position) {
         String strPosition = "";
-        for(int i = 0;i<position;i++){
+        for (int i = 0; i < position; i++) {
             strPosition += "-";
         }
         return strPosition;

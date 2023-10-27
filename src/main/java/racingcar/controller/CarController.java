@@ -7,13 +7,13 @@ import racingcar.view.OutputView;
 
 public class CarController {
 
-    public void run(){
+    public void run() {
         String carNames = inputCarNames();
         int gameCount = inputGameCount();
-        CarGame carGame = new CarGame(carNames,gameCount);
+        CarGame carGame = new CarGame(carNames, gameCount);
 
         OutputView.printResult();
-        playMovingCar(carGame,gameCount);
+        playMovingCar(carGame, gameCount);
 
         OutputView.printWinner(carGame.findWinner());
     }
@@ -30,8 +30,8 @@ public class CarController {
         return Integer.parseInt(gameCountStr);
     }
 
-    private void playMovingCar(CarGame carGame,int gameCount) {
-        for(int i = 0; i< gameCount; i++){
+    private void playMovingCar(CarGame carGame, int gameCount) {
+        for (int i = 0; i < gameCount; i++) {
             carGame.movePosition();
             OutputView.printPosition(carGame.getCars());
         }
