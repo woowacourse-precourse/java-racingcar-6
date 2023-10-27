@@ -1,29 +1,28 @@
 package racingcar.domain;
 
 import java.util.Objects;
-import racingcar.constant.MoveStatus;
 
 public final class RacingCar {
 
     private static final String NAME_STATUS_DELIMITER = " : ";
     private final Name name;
-    private final MoveStatuses moveStatuses;
+    private MoveDistance moveDistance;
 
     public RacingCar(final Name name) {
         this.name = name;
-        this.moveStatuses = new MoveStatuses();
+        this.moveDistance = new MoveDistance();
     }
 
-    public void addMoveStatus(final MoveStatus moveStatus) {
-        moveStatuses.add(moveStatus);
+    public void move() {
+        this.moveDistance = moveDistance.next();
     }
 
     public String toResultMessage() {
-        return name.toValue() + NAME_STATUS_DELIMITER + moveStatuses.toResultMessage();
+        return name.toValue() + NAME_STATUS_DELIMITER + moveDistance.toResultMessage();
     }
 
     public int moveDistance() {
-        return moveStatuses.numOfElement();
+        return moveDistance.toValue();
     }
 
     public String toName() {

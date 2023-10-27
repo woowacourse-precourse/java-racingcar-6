@@ -42,7 +42,7 @@ public final class RacingCars {
         final RacingCar racingCar = elements.get(index);
         final MoveStatus moveStatus = checkMoveStatus(numbers.get(index));
         if (moveStatus.isMove()) {
-            racingCar.addMoveStatus(moveStatus);
+            racingCar.move();
         }
     }
 
