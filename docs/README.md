@@ -53,8 +53,4 @@
 ### Car
 
 역할 : 각 자동차의 정보를 저장한다.<br>
-- `boolean tryMove()`
-  - 전진을 시도한다.
-- `@Override String toString()`
-  - 해당 자동차의 라운드 실행 결과를 출력한다.
 
