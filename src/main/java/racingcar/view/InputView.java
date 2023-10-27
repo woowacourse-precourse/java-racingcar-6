@@ -13,8 +13,7 @@ public class InputView {
 
     public List<String> readNames() {
         System.out.println(INPUT_NAMES_MESSAGE);
-        return Arrays.stream(Console.readLine()
-                .split(CAR_NAME_SEPARATOR))
+        return Arrays.stream(Console.readLine().split(CAR_NAME_SEPARATOR))
                 .toList();
     }
 

@@ -51,8 +51,7 @@ public class Car {
     private void updateFarthestPosition() {
         positions.values()
                 .stream()
-                .filter(position -> position > farthestPosition)
-                .forEach(position -> farthestPosition = position);
+                .filter(position -> position > farthestPosition).forEach(position -> farthestPosition = position);
     }
 
     public List<String> getWinners() {

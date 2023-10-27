@@ -15,6 +15,7 @@ public class OutputView {
     public void printResultMessage() {
         System.out.println(RACE_RESULT_MESSAGE);
     }
+
     public void printRaceResult(RaceResultDTO raceResultDTO) {
         raceResultDTO.names()
                 .stream()

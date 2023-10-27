@@ -4,8 +4,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public enum CarState {
-    MOVING(true),
-    STOPPED(false);
+    MOVING(true), STOPPED(false);
 
     private static final String NOT_FOUNT_ERROR = "값을 찾을 수 없습니다.";
     private final boolean value;
