@@ -6,6 +6,6 @@ public class GameController {
 
     public void startGame() {
         InputView.printGameStart();
-        String userInput = InputView.receiveUserInput();
+        String carNames = InputView.receiveUserInput();
     }
 }
