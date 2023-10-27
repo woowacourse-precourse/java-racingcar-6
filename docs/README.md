@@ -84,3 +84,5 @@ UserInterface 객체의 start 메서드를 실행한다.
 - 메서드
   createRandomNumber() 난수를 생성해서 리턴한다.
 
+### CarRaceConstants
+- 애플리케이션을 유지보수하기 쉽게 출력할 문자열들과 상수를 저장한다.
