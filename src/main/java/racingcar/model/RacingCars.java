@@ -11,8 +11,11 @@ public class RacingCars {
         this.cars = new ArrayList<>();
     }
 
-    public void addCar(Car car) {
-        cars.add(car);
+    public void carCreator(List<String> inputCarNameList){
+        for(String carName : inputCarNameList){
+            Car car = new Car(carName);
+            cars.add(car);
+        }
     }
 
     public List<Car> getAllCars() {
