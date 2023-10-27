@@ -9,4 +9,8 @@ public class RacingCarNamesDto {
     public RacingCarNamesDto(List<String> racingCarNames) {
         this.racingCarNames = racingCarNames;
     }
+
+    public List<String> getRacingCarNames() {
+        return racingCarNames;
+    }
 }

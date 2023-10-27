@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.dto.request.RacingCarNamesDto;
+import racingcar.model.CarGroup;
 import racingcar.view.InputView;
 
 public class RacingGameController {
@@ -11,6 +12,12 @@ public class RacingGameController {
     }
 
     public void run() {
+        createCarGroup();
+
+    }
+
+    private CarGroup createCarGroup() {
         RacingCarNamesDto racingCarNamesDto = inputView.readRacingCarNames();
+        return CarGroup.from(racingCarNamesDto.getRacingCarNames());
     }
 }
