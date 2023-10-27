@@ -7,12 +7,4 @@ public record MoveResult(String name, int position) {
     public static MoveResult createResultFrom(final Car car) {
         return new MoveResult(car.getName(), car.getPosition());
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getPosition() {
-        return position;
-    }
 }

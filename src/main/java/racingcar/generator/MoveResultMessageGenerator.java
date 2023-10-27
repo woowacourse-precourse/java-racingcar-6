@@ -19,6 +19,6 @@ public class MoveResultMessageGenerator {
     }
 
     private static String createSingleMessage(final MoveResult moveResult) {
-        return String.format(RESULT_FORMAT, moveResult.getName(), MOVEMENT_BAR.repeat(moveResult.getPosition()));
+        return String.format(RESULT_FORMAT, moveResult.name(), MOVEMENT_BAR.repeat(moveResult.position()));
     }
 }

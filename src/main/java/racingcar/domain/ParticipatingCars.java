@@ -16,15 +16,15 @@ public record ParticipatingCars(List<Car> cars) {
                 .toList());
     }
 
+    @Override
+    public List<Car> cars() {
+        return Collections.unmodifiableList(cars);
+    }
+
     public void moveAllForward(final Supplier<Integer> randomNumberSupplier) {
         for (Car car : cars) {
             car.moveForward(randomNumberSupplier.get());
         }
-    }
-
-    @Override
-    public List<Car> cars() {
-        return Collections.unmodifiableList(cars);
     }
 
     public List<String> findAllWinnerNames() {
