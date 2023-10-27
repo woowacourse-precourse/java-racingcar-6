@@ -15,6 +15,7 @@ public class InputVerifier {
     public static void verifyTry(String tryReamain) throws IllegalArgumentException {
         checkEmpty(tryReamain);
         checkNumeric(tryReamain);
+        checkNonPositive(tryReamain);
     }
 
     private static void checkLength(String name) {
@@ -34,6 +35,12 @@ public class InputVerifier {
             Integer.parseInt(tryRemain);
         } catch (NumberFormatException exception) {
             throw new IllegalArgumentException(ExceptionMessage.TRY_NUMERAL.getMessage());
+        }
+    }
+
+    private static void checkNonPositive(String tryRemain) {
+        if (Integer.parseInt(tryRemain) < 1) {
+            throw new IllegalArgumentException(ExceptionMessage.TRY_POSITIVE.getMessage());
         }
     }
 
