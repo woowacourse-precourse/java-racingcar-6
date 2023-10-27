@@ -19,7 +19,7 @@ public class RacingCar {
     }
 
     public String makeGameResult() {
-        if (this.racingCarMove == null) {
+        if (this.racingCarMove.isEmpty()) {
             return "";
         }
         String gameResult = "";
@@ -31,6 +31,13 @@ public class RacingCar {
         return gameResult;
     }
 
+    public String getRacingCarName() {
+        return this.racingCarName;
+    }
+
+    public List<Boolean> getRacingCarMove() {
+        return this.racingCarMove;
+    }
     @Override
     public String toString() {
         String gameResult = makeGameResult();
