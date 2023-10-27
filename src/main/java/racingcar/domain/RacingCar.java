@@ -1,6 +1,10 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class RacingCar {
+
+    private static final int THRESHOLD = 4;
 
     private String carName;
     private int distance;
@@ -8,6 +12,13 @@ public class RacingCar {
     public RacingCar(String carName) {
         this.carName = carName;
         this.distance = 0;
+    }
+
+    public void moveForward() {
+        int number = Randoms.pickNumberInRange(0, 9);
+        if (number >= THRESHOLD) {
+            this.distance++;
+        }
     }
 
     public int getDistance() {
