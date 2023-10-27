@@ -9,7 +9,7 @@
 - Car 클래스
     - 멤버 변수로 자동차의 이름과 이동 거리를 가지는 클래스
         - 각 자동차에 이름을 부여할 수 있다.
-    - [ ] 전진/정지 메서드
+    - [x] 전진/정지 메서드
         - Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
         - 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다.
     - [x] `toString()` 메서드 재정의
