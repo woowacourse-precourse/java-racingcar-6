@@ -4,12 +4,17 @@ import java.util.Objects;
 
 final class Car {
 
-    private final Name name;
+    private Name name;
     private int moveCount;
 
-    Car(String name) {
-        this.name = new Name(name);
-        this.moveCount = 0;
+    private Car() {
+    }
+
+    static Car create(String name) {
+        Car instance = new Car();
+        instance.name = new Name(name);
+        instance.moveCount = 0;
+        return instance;
     }
 
     void move() {

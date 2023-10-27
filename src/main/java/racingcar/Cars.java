@@ -21,7 +21,7 @@ final class Cars {
 
         Cars instance = new Cars();
         instance.cars.addAll(Arrays.stream(names)
-                .map(Car::new)
+                .map(Car::create)
                 .toList());
 
         return instance;
