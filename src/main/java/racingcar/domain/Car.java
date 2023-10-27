@@ -20,4 +20,13 @@ public class Car {
             this.position++;
         }
     }
+
+    public String getRecord() {
+        StringBuilder record = new StringBuilder();
+        record.append(String.format("%s : ", name));
+        for (int i = 0; i < position; i++) {
+            record.append('-');
+        }
+        return record.toString();
+    }
 }
