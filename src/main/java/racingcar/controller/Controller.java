@@ -4,7 +4,6 @@ import static racingcar.util.Constant.ZERO;
 
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 import racingcar.controller.dto.GameResultResponse;
 import racingcar.model.Car;
 import racingcar.model.CarRacingTrackGenerator;
@@ -39,7 +38,7 @@ public class Controller {
 
     private void play(final RacingGame racingGame) {
         racingGame.move();
-        Map<Vehicle, Position> racingTrack = racingGame.getRacingTrack();
+        Map<Vehicle, Position> racingTrack = racingGame.getVehiclePositionMap();
         GameResultResponse gameResultResponse = GameResultResponse.from(racingTrack);
         outputView.printGameResult(gameResultResponse);
     }
@@ -55,7 +54,7 @@ public class Controller {
         List<String> carNameList = Converter.splitWithComma(carNames);
         return carNameList.stream()
                 .map(Car::createWith)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     private int getAttemptsNumber() {
