@@ -24,10 +24,10 @@
   - [ ] 구한 무작위 값이 4 이상이면 전진시킨다.
 - [ ] 우승자를 선출한다.(우승자는 여러 명일 수 있다.)
   - [ ] 가장 많이 전진한 자동차를 판별한다.
-- [ ] 사용자가 잘못된 값을 입력할 경우 ````IllegalArgumentException````을 발생시킨 후 애플리케이션은 종료되어야 한다.
-  - [ ] 각 자동차의 이름이 5자를 초과한 경우 `IllegalArgumentException`발생시킨다.
-  - [ ] 중복된 자동차의 이름이 존재하는 경우 `IllegalArgumentException`발생시킨다.
-  - [ ] 시도할 회수가 0보다 큰 정수가 아니라면 `IllegalArgumentException`발생시킨다.
+- [x] 사용자가 잘못된 값을 입력할 경우 ````IllegalArgumentException````을 발생시킨 후 애플리케이션은 종료되어야 한다.
+  - [x] 각 자동차의 이름이 5자를 초과한 경우 `IllegalArgumentException`발생시킨다.
+  - [x] 중복된 자동차의 이름이 존재하는 경우 `IllegalArgumentException`발생시킨다.
+  - [x] 시도할 회수가 0보다 큰 정수가 아니라면 `IllegalArgumentException`발생시킨다.
 
 ### 출력
 - [ ] 각 차수별 실행 결과를 출력한다.
