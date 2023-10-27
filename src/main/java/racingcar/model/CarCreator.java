@@ -9,9 +9,11 @@ public class CarCreator {
         validateAll(carNames);
         return carNames;
     }
-    private void validateAll(List<String> carNames){
+
+    private void validateAll(List<String> carNames) {
         validateNameLength(carNames);
         validateSize(carNames);
+        validateDuplicateCarName(carNames);
     }
 
     private void validateNameLength(List<String> carNames) {
@@ -26,6 +28,11 @@ public class CarCreator {
         if (carNames.size() < NumberEnum.MIN_SIZE.getNumber()) {
             throw new IllegalArgumentException(MessageEnum.MIN_SIZE_VALIDATE_MESSAGE.getMessage());
         }
+    }
 
+    private void validateDuplicateCarName(List<String> carNames){
+        if(carNames.size() != carNames.stream().distinct().count()){
+            throw new IllegalArgumentException(MessageEnum.DUPLICATION_VALIDATE_MESSAGE.getMessage());
+        }
     }
 }
