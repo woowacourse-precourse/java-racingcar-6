@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import java.util.Arrays;
 import java.util.StringTokenizer;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -11,21 +12,34 @@ public class CarName {
 
     public void carNamesToList(String inputCarNames){
         this.inputCarNames = inputCarNames;
-        StringTokenizer cars = new StringTokenizer(inputCarNames,",");
+        //StringTokenizer cars = new StringTokenizer(inputCarNames, "[^ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z0-9]");
+        String[] str = inputCarNames.split("[^ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z0-9]");
+        this.carList.addAll(Arrays.asList(str));
+        /*
         while(cars.hasMoreTokens()){
             this.carList.add(cars.nextToken());
         }
+         */
     }
     public void setClearCarList(){
+        isSeperatorNotComma(this.inputCarNames);
+        isWrongNameFormat(carList);
         isSameCarName(carList);
         isCarNameLengthOver5(carList);
-        isSeperatorNotComma(this.inputCarNames);
+
         this.clearCarList = carList;
     }
     public ArrayList<String> getClearCarList(){
         return clearCarList;
     }
 
+    public void isWrongNameFormat(ArrayList<String> carList) throws IllegalArgumentException{ //depth 줄이기
+        for(String car: carList){
+            if(!car.matches("^[a-zA-Z]+$")){
+                throw new IllegalArgumentException("자동차 이름은 알파벳이여야 합니다.");
+            }
+        }
+    }
     public void isSameCarName(ArrayList<String> carList) throws IllegalArgumentException{
         HashSet<String> set = new HashSet<>(carList);
         if(set.size() != carList.size()) {
@@ -33,8 +47,10 @@ public class CarName {
         }
     }
     public void isCarNameLengthOver5(ArrayList<String> carList) throws IllegalArgumentException{
-        if(carList.size() > 5){
-            throw new IllegalArgumentException("자동차 이름의 길이는 5 이하여야 합니다.");
+        for(String car: carList){
+            if(car.length() > 5){
+                throw new IllegalArgumentException("자동차 이름의 길이는 5 이하여야 합니다.");
+            }
         }
     }
     public void isSeperatorNotComma(String inputCarNames) throws IllegalArgumentException{
