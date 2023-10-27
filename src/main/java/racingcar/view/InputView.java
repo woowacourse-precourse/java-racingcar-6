@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import static java.lang.Integer.parseInt;
+import static racingcar.utils.Console.readLine;
 
 public class InputView {
 
@@ -14,9 +15,5 @@ public class InputView {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(e);
         }
-    }
-
-    public static String readLine() {
-        return camp.nextstep.edu.missionutils.Console.readLine();
     }
 }
