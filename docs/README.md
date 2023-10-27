@@ -6,13 +6,13 @@
 ## 기능 목록
 ### view package
  - outputView class
-   + [ ] 경주할 자동차 이름을 입력해야 함을 출력하는 기능 - printRacingCarName
-   + [ ] 경주 시도 횟수를 입력해야 함을 출력하는 기능 - printNumberOfRacing
-   + [ ] 경기 시도 횟수 만큼 실행결과를 출력하는 기능 - printRacingResult
-   + [ ] 최종 우승자를 출력하는 기능 - printRacingWinner
+   + [o] 경주할 자동차 이름을 입력해야 함을 출력하는 기능 - printRacingCarName
+   + [0] 경주 시도 횟수를 입력해야 함을 출력하는 기능 - printNumberOfRacing
+   + [0] 경기 시도 횟수 만큼 실행결과를 출력하는 기능 - printRacingResult
+   + [0] 최종 우승자를 출력하는 기능 - printRacingWinner
 - inputView class 
-   + [ ] 경주할 자동차 이름을 입력받는 기능 - inputRacingCarName
-   + [ ] 경주 시도 횟수를 입력받는 기능 - inputNumberOfMatch
+   + [0] 경주할 자동차 이름을 입력받는 기능 - inputRacingCarName
+   + [0] 경주 시도 횟수를 입력받는 기능 - inputNumberOfMatch
 
 ### model package
  - validateRacingValue class
