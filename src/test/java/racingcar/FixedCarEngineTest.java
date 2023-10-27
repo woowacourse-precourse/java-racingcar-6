@@ -2,16 +2,16 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 public class FixedCarEngineTest {
 
-    @Test
-    void startTest() {
-        FixedCarEngine fixedCarEngine = new FixedCarEngine();
+    @ParameterizedTest
+    @CsvSource(value = {"true", "false"})
+    void startTest(boolean move) {
+        FixedCarEngine fixedCarEngine = new FixedCarEngine(move);
         boolean canMove = fixedCarEngine.start();
-        boolean cantMove = fixedCarEngine.stop();
-        assertThat(canMove).isTrue();
-        assertThat(cantMove).isFalse();
+        assertThat(canMove).isEqualTo(move);
     }
 }
