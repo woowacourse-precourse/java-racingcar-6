@@ -7,10 +7,6 @@ import java.util.stream.Collectors;
 import racingcar.Utils;
 
 public record Cars(List<Car> carList) {
-    public Cars {
-
-    }
-
     public void moveRandomly() {
         carList.forEach(car -> {
             if (Utils.isTrueWithProbability60Percent()) {
