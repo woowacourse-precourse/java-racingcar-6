@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class IO {
     public String[] inputName() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        outputNameRequest();
         String name = Console.readLine();
         if (name.isBlank()) {
             throw new IllegalArgumentException();
@@ -18,13 +18,21 @@ public class IO {
     }
 
     public int inputNumber() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        outputNumberRequest();
         String number = Console.readLine();
         if (number.length() == 1 && Character.isDigit(number.charAt(0))) {
             return Integer.parseInt(number);
         } else {
             throw new IllegalArgumentException();
         }
+    }
+
+    public void outputNameRequest() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+    }
+
+    public void outputNumberRequest() {
+        System.out.println("시도할 회수는 몇회인가요?");
     }
 
     public void outputIntro() {
