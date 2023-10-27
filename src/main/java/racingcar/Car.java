@@ -2,11 +2,11 @@ package racingcar;
 
 public class Car {
     private final String name;
-    private int currentPosition;
+    private int position;
 
     public Car(String name) {
         this.name = name;
-        this.currentPosition = 0;
+        this.position = 0;
     }
 
     public String getName() {
@@ -14,11 +14,7 @@ public class Car {
     }
 
     public void updatePosition() {
-        currentPosition++;
-    }
-
-    public boolean isCarPassTheGoal(int round) {
-        return round == currentPosition;
+        position++;
     }
 
     public void printCarName() {
