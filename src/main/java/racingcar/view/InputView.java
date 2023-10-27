@@ -22,7 +22,9 @@ public class InputView {
         System.out.println(NUMBER_INPUT);
         String roundsInput = Console.readLine();
         validateInputBlank(roundsInput);
-        return validation.roundsNumeric(roundsInput);
+        int rounds = validation.roundsNumeric(roundsInput);
+        validation.roundsNumberZero(rounds);
+        return rounds;
     }
 
     public void validateInputBlank(String input) {
