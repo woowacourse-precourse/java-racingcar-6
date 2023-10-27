@@ -12,7 +12,7 @@ public class OutputView {
         return dashs;
     }
 
-    public static void RoundResult(ArrayList<Car> roundResult) {
+    public static void roundResult(ArrayList<Car> roundResult) {
         for (Car car : roundResult) {
             System.out.println(car.getName() + " : " + dashDraw(car.getPosition()));
         }

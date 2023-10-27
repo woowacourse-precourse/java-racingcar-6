@@ -16,7 +16,7 @@ public class RacingCars {
         }
     }
 
-    public ArrayList<Car> RoundResult() {
+    public ArrayList<Car> getRoundResult() {
         for (Car car : cars) {
             car.go();
         }
