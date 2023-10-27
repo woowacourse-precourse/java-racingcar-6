@@ -14,7 +14,7 @@ public class Application {
 
         Map<String, Integer> carMap = Stream.of(carNames.split(","))
                 .collect(Collectors.toMap(carName -> carName, score -> 0));
-        System.out.println(carMap);
+        //System.out.println(carMap);
 
         System.out.println("시도할 회수는 몇회인가요?");
 
@@ -31,10 +31,13 @@ public class Application {
         for (int i = 0; i < tryCount; i++) {
             for (String carName : carMap.keySet()) {
                 int randomNumber = Randoms.pickNumberInRange(0, 9);
+                //System.out.println("randomNumber : " + randomNumber);
                 if (randomNumber >= 4) {
                     carMap.put(carName, carMap.get(carName) + 1);
                 }
+                System.out.println(carName + " : " + "-".repeat(carMap.get(carName)));
             }
+            System.out.println();
         }
     }
 }
