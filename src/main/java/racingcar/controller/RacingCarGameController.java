@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.model.CarNames;
 import racingcar.model.RacingCarGameService;
 import racingcar.view.RacingCarGameView;
 
@@ -14,6 +15,7 @@ public class RacingCarGameController {
     }
 
     public void gameStart() {
-        racingCarGameView.inputCarNames();
+        String input = racingCarGameView.inputCarNames();
+        CarNames carNames = new CarNames(input);
     }
 }
