@@ -24,5 +24,14 @@ public class RacingResult {
         return Collections.unmodifiableMap(result);
     }
 
+    public void decreaseCount() {
+        tryCount.decreaseCount();
+    }
+
+    public void moveForward(String carName) {
+        result.put(carName, result.get(carName).intValue() + 1);
+    }
+
+
 
 }
