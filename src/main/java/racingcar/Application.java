@@ -17,7 +17,7 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
         long number=Integer.parseInt(readLine());
-        if(number==0)
+        if(number<0)
             throw new IllegalArgumentException("0이상이어야 합니다.");
 
         System.out.println("\n실행 결과");
@@ -62,11 +62,10 @@ public class Application {
             var entry = iter.next();
 
             int int_distance= Randoms.pickNumberInRange(0,9);
-            if(int_distance>3){//4이상일 경우 전진
-                cars_map.put(entry.getKey(),(int)cars_map.get(entry.getKey())+1);
+            if(int_distance>3) {//4이상일 경우 전진
+                cars_map.put(entry.getKey(), (int) cars_map.get(entry.getKey()) + 1);
             }
-            String str_distance="-".repeat(int_distance);
-            System.out.println(entry.getKey() + " : " + str_distance);
+            System.out.println(entry.getKey() + " : " +"-".repeat((int)cars_map.get(entry.getKey())));
         }
 
         System.out.println();
