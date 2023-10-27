@@ -9,7 +9,15 @@ public class GameBoard {
     List<Player> players;
 
     public GameBoard(List<Player> players) {
+        validateDuplication(players);
         this.players = players;
+    }
+
+    private static void validateDuplication(List<Player> players) {
+        long numberOfDistinctPlayer = players.stream().distinct().count();
+        if(players.size() != numberOfDistinctPlayer){
+            throw new IllegalArgumentException();
+        }
     }
 
     public void processTurn() {
