@@ -50,4 +50,21 @@ public class Input {
     private static boolean isLength1To(String raw, int length) {
         return raw.length() <= length;
     }
+
+    public static String inputRepetitions() {
+        String raw = Console.readLine();
+        checkRepetitionsError(raw);
+
+        return ret;
+    }
+
+    private static boolean isNumber(String rawInputArray) {
+        try {// 숫자형식으로 변환 시 예외 발생 여부
+            Integer.decode(rawInputArray);
+        } catch (NumberFormatException e) {
+            return true;
+        }
+        return false;
+    }
+
 }
