@@ -14,7 +14,7 @@ public class Name {
         }
     }
 
-    public void printName() {
-        System.out.println(name);
+    public void print() {
+        System.out.print(name);
     }
 }
