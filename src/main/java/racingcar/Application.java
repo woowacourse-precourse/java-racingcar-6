@@ -32,8 +32,9 @@ public class Application {
         for (int i = 0; i < splitStr.length; i++) {
             racer.add(splitStr[i]);
 
-            if (!isValidName(splitStr[i]))
+            if (!isValidName(splitStr[i])) {
                 throw new IllegalArgumentException("올바른 자동차 이름이 아닙니다.");
+            }
         }
 
         return racer;
@@ -41,16 +42,18 @@ public class Application {
 
     public static int randomNum() {
         int randomNum = Randoms.pickNumberInRange(0, 9);
+
         return randomNum;
     }
 
     public static String judgeForward() {
         int judgeRandomNum = randomNum();
 
-        if (judgeRandomNum >= 4)
+        if (judgeRandomNum >= 4) {
             return "-";
-        else
+        } else {
             return "";
+        }
     }
 
     public static List<String>[] forward(List<String> racingCarName, int gameNum) {
@@ -86,13 +89,15 @@ public class Application {
         List<String> winCarName = new ArrayList<>();
 
         for (int i = 0; i < racingCarName.size(); i++) {
-            if (makeDash[i].get(gameNum - 1).length() > max)
+            if (makeDash[i].get(gameNum - 1).length() > max) {
                 max = makeDash[i].get(gameNum - 1).length();
+            }
         }
 
         for (int i = 0; i < racingCarName.size(); i++) {
-            if (max == makeDash[i].get(gameNum - 1).length())
+            if (max == makeDash[i].get(gameNum - 1).length()) {
                 winCarName.add(String.valueOf(racingCarName.get(i)));
+            }
         }
 
         String result = String.join(", ", winCarName);
@@ -100,16 +105,18 @@ public class Application {
     }
 
     public static boolean isValidName(String splitStr) {
-        if (splitStr.length() > 5)
+        if (splitStr.length() > 5) {
             return false;
+        }
 
         return true;
     }
 
     public static boolean isValidNum(String gameNumString) {
         for (int i = 0; i < gameNumString.length(); i++) {
-            if (!Character.isDigit(gameNumString.charAt(i)))
+            if (!Character.isDigit(gameNumString.charAt(i))) {
                 return false;
+            }
         }
 
         return true;
