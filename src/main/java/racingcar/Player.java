@@ -32,4 +32,13 @@ public class Player {
         checkMovingCountFormat(movingCount);
         return Integer.parseInt(movingCount);
     }
+
+    private void checkMovingCountFormat(String movingCount) {
+        for (int i = 0; i < movingCount.length(); i++) {
+            char oneCharacter = movingCount.charAt(i);
+            if (Character.isDigit(oneCharacter) == false) {
+                throw new IllegalArgumentException("이동 횟수에 숫자가 아닌 다른 것이 입력된 잘못된 입력입니다.");
+            }
+        }
+    }
 }
