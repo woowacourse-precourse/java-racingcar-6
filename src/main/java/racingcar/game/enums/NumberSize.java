@@ -2,8 +2,7 @@ package racingcar.game.enums;
 
 public enum NumberSize {
     START_INCLUSIVE(0, "시작 숫자"),
-    END_INCLUSIVE(9, "끝 숫자"),
-    MAX_SIZE(3, "최대 크기");
+    END_INCLUSIVE(9, "끝 숫자");
 
     private final int size;
     private final String description;

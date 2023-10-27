@@ -1,11 +1,12 @@
 package racingcar.game.inputgenerateManager;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import racingcar.game.enums.NumberSize;
+import racingcar.game.exception.IllegalLengthException;
+import racingcar.game.exception.IllegalTypeException;
 
 class InputGenerateManagerImplTest {
 
@@ -15,7 +16,7 @@ class InputGenerateManagerImplTest {
         InputGenerateManagerImpl inputGenerateManager = new InputGenerateManagerImpl();
 
         //when
-        int generateRandomInt = inputGenerateManager.generateRandomInt();
+        Integer generateRandomInt = inputGenerateManager.generateRandomInt();
 
         //then
         Assertions.assertThat(generateRandomInt).isInstanceOf(Integer.class);
@@ -25,9 +26,28 @@ class InputGenerateManagerImplTest {
 
     @Test
     void generateInputStringToInt() {
+        String rawString = "thisSectionMustBeNumberString";
+
+        InputGenerateManagerImpl inputGenerateManager = new InputGenerateManagerImpl();
+
+        Assertions.assertThatThrownBy(() -> inputGenerateManager.generateInputStringToInt(rawString)).isInstanceOf(
+                IllegalTypeException.class);
     }
 
     @Test
     void generateInputStringSplitWithComma() {
+        //if
+        String rawString = "한놈,두식이,석삼,너구리";
+        String illegalRawString = "한놈한놈1,두식이,석삼,너구리";
+        InputGenerateManagerImpl inputGenerateManager = new InputGenerateManagerImpl();
+
+        //when
+        List<String> processedStrings = inputGenerateManager.generateInputStringSplitWithComma(rawString);
+
+        //then
+        Assertions.assertThat(processedStrings).size().isEqualTo(4);
+        Assertions.assertThat(processedStrings).contains("한놈", "두식이", "석삼", "너구리");
+        Assertions.assertThatThrownBy(() -> inputGenerateManager.generateInputStringSplitWithComma(illegalRawString))
+                .isInstanceOf(IllegalLengthException.class);
     }
 }
