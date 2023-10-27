@@ -1,7 +1,7 @@
 :white_check_mark: 기능 목록
 
-- [ ] 랜덤 정수 중 한개의 정수를 생성해주는 클래스. // NumbersGenerate
-  - [ ] 0에서 9까지의 정수 중 한 개의 정수 반환. // NumbersGenerate#createRandomNum();
+- [x] 랜덤 정수 중 한개의 정수를 생성해주는 클래스. // NumbersGenerate
+  - [x] 0에서 9까지의 정수 중 한 개의 정수 반환. // NumbersGenerate#createRandomNum();
 
 
 
