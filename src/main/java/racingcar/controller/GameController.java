@@ -10,6 +10,7 @@ import racingcar.util.Validator;
 public class GameController {
     private final Validator validator = Validator.getInstance();
     private Cars cars;
+    private int rounds;
 
     public void start() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -17,7 +18,9 @@ public class GameController {
         initCars(namesInput);
         System.out.println("시도할 회수는 몇회인가요?");
         String roundInput = Console.readLine();
-        setRound(roundInput);
+        System.out.println();
+        setRounds(roundInput);
+        runRounds(rounds);
     }
 
     private void initCars(String input) {
@@ -31,7 +34,23 @@ public class GameController {
         cars = new Cars(carList);
     }
 
-    private void setRound(String input) {
-        int round = validator.checkValidInputNumber(input);
+    private void setRounds(String input) {
+        rounds = validator.checkValidInputNumber(input);
+    }
+
+    private void runRounds(int rounds) {
+        System.out.println("실행 결과");
+        for (int i=1; i<=rounds; i++) {
+            cars.moveCars();
+            List<String> resultList = cars.getRoundResult();
+            printRoundResult(resultList);
+        }
+    }
+
+    private void printRoundResult(List<String> resultList) {
+        for (String result: resultList) {
+            System.out.println(result);
+        }
+            System.out.println();
     }
 }

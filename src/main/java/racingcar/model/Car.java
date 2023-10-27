@@ -1,13 +1,16 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Map;
+
 public class Car {
     private final String name;
-    private int positon;
+    protected int position;
 
     public Car(final String name) {
         validateName(name);
         this.name = name;
-        this.positon = 0;
+        this.position = 0;
     }
 
     private void validateName(String name) {
@@ -20,5 +23,19 @@ public class Car {
         if (trimmedName.isEmpty() || trimmedName.length() > 5) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public void move() {
+        if (Randoms.pickNumberInRange(0, 9) > 4) {
+            position++;
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 }
