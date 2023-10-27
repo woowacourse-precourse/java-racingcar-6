@@ -22,4 +22,8 @@ public class ConsoleIO {
     public static void printSetResult(StringBuilder setResult) {
         System.out.println(setResult);
     }
+
+    public static void printFinalResult(StringBuilder finalResult) {
+        System.out.println(finalResult);
+    }
 }

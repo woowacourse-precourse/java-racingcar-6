@@ -79,4 +79,21 @@ public class CarRacingGameService {
     public StringBuilder playSet(Game game) {
         return game.playSet();
     }
+
+    public StringBuilder getFinalResult(Game game) {
+        StringBuilder finalResult = new StringBuilder("최종 우승자 : ");
+
+        List<String> winner = game.getWinnerList();
+
+        finalResult.append(winner.get(0));
+
+        if (winner.size() > 1) {
+            for (int i = 1; i < winner.size(); i++) {
+                finalResult.append(", ").append(winner.get(i));
+            }
+        }
+
+        return finalResult;
+    }
+
 }
