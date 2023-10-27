@@ -1,6 +1,6 @@
 package racingcar.Controller;
 
-import racingcar.Model.Car;
+import racingcar.domain.Car;
 
 import java.util.List;
 
