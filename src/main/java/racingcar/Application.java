@@ -68,4 +68,12 @@ public class Application {
     	int randomNumber = Randoms.pickNumberInRange(0,9);
     	return randomNumber;
     }
+    
+    //랜덤 수가 4이상인지 판별하기
+    public static boolean checkRandomNumber(int randomNumber) {
+    	if(randomNumber >= 4) {
+    		return true;
+    	}
+    	return false;
+    }
 }
