@@ -2,16 +2,16 @@ package racingcar.model;
 
 
 public class GameRule {
-    private final int STANDARD_NAME_SIZE = 5;
+    private final static int STANDARD_NAME_SIZE = 5;
 
-    protected boolean isOkToUseCarName(String carName) {
+    public static boolean isOkToUseCarName(String carName) {
         if(carName.length() > STANDARD_NAME_SIZE) {
             throw new IllegalArgumentException("자동차 이름은 5글자 이하만 가능합니다!");
         }
         return true;
     }
 
-    protected boolean isOkToUseAttemptCount(int attemptCount) {
+    public static boolean isOkToUseAttemptCount(int attemptCount) {
         try{
             int count = attemptCount;
             return true;
