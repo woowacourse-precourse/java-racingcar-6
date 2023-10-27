@@ -11,4 +11,8 @@ final class CountTest {
         assertThrows(IllegalArgumentException.class, () -> Count.create("a"));
     }
 
+    @Test
+    void 시도_횟수가_음수일_경우_예외를_던진다() {
+        assertThrows(IllegalArgumentException.class, () -> Count.create("-1"));
+    }
 }
