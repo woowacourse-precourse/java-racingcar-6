@@ -19,4 +19,12 @@ public class Validator {
             }
         }
     }
+
+    public static void isBlankCarNames(List<String> carNames) {
+        for (String name : carNames) {
+            if (name.isBlank()) {
+                throw new IllegalArgumentException("공백만 입력할 수 없습니다.");
+            }
+        }
+    }
 }
