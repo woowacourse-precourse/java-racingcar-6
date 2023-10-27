@@ -21,6 +21,7 @@ public class Referee {
 
         for (Car car : cars.subList(1, cars.size())) {
             int compareState = currentWinner.compareTo(car);
+
             if (compareState < 0) {
                 winners.clear();
                 currentWinner = car;
