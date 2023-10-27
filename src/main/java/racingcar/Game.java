@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.function.IntFunction;
 import java.util.stream.Collectors;
 
 public class Game {
@@ -50,7 +49,7 @@ public class Game {
     }
 
     private void moveCar(Car car) {
-        if(!car.tryMove()) {
+        if(!car.isMove()) {
             return;
         }
 

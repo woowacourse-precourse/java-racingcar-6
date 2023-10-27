@@ -19,7 +19,7 @@ public class Car {
         return name;
     }
 
-    public boolean tryMove(){
+    public boolean isMove(){
         int randomNum = Randoms.pickNumberInRange(START_RANGE, END_RANGE);
         if(canGo(randomNum)){
             this.location++;
