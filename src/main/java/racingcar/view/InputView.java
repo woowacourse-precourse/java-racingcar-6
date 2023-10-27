@@ -14,7 +14,7 @@ public class InputView {
     }
 
     public List<Car> getCarList() {
-        OutputView.printCarNameText();
+        OutputView.printCarNameInputText();
         List<String> carNames = splitInputByComma(Console.readLine());
         List<Car> carList = new ArrayList<>();
         for (String carName : carNames) {
