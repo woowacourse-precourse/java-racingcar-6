@@ -28,4 +28,15 @@ public class Cars {
             throw new IllegalArgumentException("중복된 자동차 이름이 존재 합니다.");
         }
     }
+
+    /**
+     * 자동차 이름 배열 -> 자동차 객체 배열로 변경
+     */
+    private List<Car> makeCarList(List<String> carNames) {
+        return carNames.stream().map(Car::new).collect(Collectors.toList());
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }
