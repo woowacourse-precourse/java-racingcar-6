@@ -2,10 +2,7 @@ package service;
 
 import controller.Controller;
 
-import static camp.nextstep.edu.missionutils.Console.readLine;
-import static exception.Validator.validateCarNameLength;
-import static exception.Validator.validateNaturalNumber;
-import static random.RandomNumber.pickRandomNumber;
+import java.util.Arrays;
 
 import static repository.RandomNumber.pickRandomNumber;
 
@@ -37,9 +34,20 @@ public class RacingCarGame {
         }
 
         System.out.print(sb);
+        printWinner(carNameList, forwardCounts, CAR_NAME_LENGTH);
     }
 
-    private void getResult(String[] carNameList, int carNameLength, int[] result, StringBuilder sb, int i) {
+    private void printWinner(String[] carNameList, int[] forwardCounts, int carNameLength) {
+        StringBuilder sb = new StringBuilder();
+        final int MAX = Arrays.stream(forwardCounts).max().getAsInt();
+
+        for (int i = 0; i < carNameLength; i++) {
+            if (forwardCounts[i] == MAX) sb.append(carNameList[i] + ", ");
+        }
+
+        System.out.print("최종 우승자 : " + sb.substring(0, sb.length() - 2));
+    }
+
     private void getResult(String[] carNameList, int carNameLength, int[] forwardCounts, StringBuilder sb, int i) {
         for (int j = 0; j < carNameLength; j++) {
             if (canCarMoveForward(pickRandomNumber())) {
