@@ -5,10 +5,12 @@ import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.RacingGame;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingGameController {
 
     InputView inputView = new InputView();
+    OutputView outputView = new OutputView();
 
     private Cars createCarsByCarNames(List<String> carNames) {
         List<Car> cars = carNames.stream().map(Car::new).toList();
@@ -23,6 +25,7 @@ public class RacingGameController {
     }
 
     private void play(RacingGame racingGame) {
+        outputView.printGameResultMessage();
         while (!racingGame.isEnd()) {
             racingGame.proceed();
         }
