@@ -35,7 +35,6 @@ public class RacingCarGame {
         int maxMoveNumber = racingCarGameService.getMaxMoveNumber(carList);
         List<String> winnerNames = racingCarGameService.getWinnerNames(carList, maxMoveNumber);
         outputView.printWinner(winnerNames);
-
     }
 
     private List<String> mapToStringList(String names) {
