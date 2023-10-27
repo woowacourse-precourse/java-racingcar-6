@@ -12,7 +12,7 @@ public class Name {
 
     private Name(final String name) {
         validateNameLength(name);
-        validateHasBlank(name);
+        validateHasNotBlank(name);
         this.name = name;
     }
 
@@ -36,12 +36,12 @@ public class Name {
         }
     }
 
-    private void validateHasBlank(final String name) {
+    private void validateHasNotBlank(final String name) {
         if (name.contains(" ")) {
             throw new IllegalArgumentException();
         }
     }
-
+    
     public String getName() {
         return name;
     }
