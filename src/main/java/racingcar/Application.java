@@ -43,6 +43,9 @@ public class Application {
     public static void createListOfCars(List<String> names){
         listOfCars = new ArrayList<>();
         for(int i=0;i<names.size();i++){
+            if(names.get(i).length()>5){
+                throw new IllegalArgumentException();
+            }
             listOfCars.add(Arrays.asList(names.get(i),""));
         }
     }
