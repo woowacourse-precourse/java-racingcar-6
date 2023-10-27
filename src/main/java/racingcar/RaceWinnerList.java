@@ -14,7 +14,6 @@ public class RaceWinnerList {
 
     public RaceWinnerList(RaceCars carList) {
         winnerList = createWinnerList(carList);
-        System.out.println(winnerList);
     }
 
     private List<RaceCar> createWinnerList(RaceCars carList) {
