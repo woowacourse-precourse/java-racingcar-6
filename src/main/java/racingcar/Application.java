@@ -1,21 +1,13 @@
 package racingcar;
 
-import java.util.Arrays;
-import java.util.List;
-import racingcar.View.InputView;
+import racingcar.view.InputView;
 
 public class Application {
     public static void main(String[] args) {
-
-        String[] nameInput = InputView.readCarNames();
-
-        List<Car> carList = Arrays.stream(nameInput)
-                .map(Car::new)
-                .toList();
-
-        Cars cars = new Cars(carList);
-
+        String[] names = InputView.readCarNames();
         int count = InputView.readTrialCount();
+
+        Cars cars = Cars.createCars(names);
 
         System.out.println("\n실행 결과");
         for (int i = 0; i < count; i++) {

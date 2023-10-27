@@ -1,13 +1,22 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
 public class Cars {
     List<Car> carList;
 
-    public Cars(List<Car> carList) {
+    public static Cars createCars(String[] names) {
+        List<Car> carList = Arrays.stream(names)
+                .map(Car::new)
+                .toList();
+
+        return new Cars(carList);
+    }
+
+    private Cars(List<Car> carList) {
         this.carList = carList;
     }
 
