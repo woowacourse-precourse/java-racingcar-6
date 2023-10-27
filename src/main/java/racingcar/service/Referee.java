@@ -23,6 +23,13 @@ public class Referee {
         return new WinnerCarResponse(carsList);
     }
 
+    public String getWinnersCarName(Cars generatedCars) {
+        WinnerCarResponse winner = judgeWinner(generatedCars);
+        return winner.cars().stream()
+                .map(Car::getCarName)
+                .collect(Collectors.joining(MULTI_WINNER_DELIMITER));
+    }
+
     private int findMaxPosition(Cars cars) {
         List<Integer> list = cars.getCarsList().stream()
                 .map(Car::getCarPosition)
@@ -30,12 +37,5 @@ public class Referee {
                 .toList();
 
         return list.get(MAX_VALUE);
-    }
-
-    public String getWinnersCarName(Cars generatedCars) {
-        WinnerCarResponse winner = judgeWinner(generatedCars);
-        return winner.cars().stream()
-                .map(Car::getCarName)
-                .collect(Collectors.joining(MULTI_WINNER_DELIMITER));
     }
 }
