@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.constant;
 
 public class RacingGameConstants {
     public static final Integer MIN_CAR_NAME_LENGTH = 1;

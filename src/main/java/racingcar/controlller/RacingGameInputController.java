@@ -1,7 +1,7 @@
 package racingcar.controlller;
 
-import static racingcar.model.RacingGameConstants.MAX_CAR_NAME_LENGTH;
-import static racingcar.model.RacingGameConstants.MIN_CAR_NAME_LENGTH;
+import static racingcar.constant.RacingGameConstants.MAX_CAR_NAME_LENGTH;
+import static racingcar.constant.RacingGameConstants.MIN_CAR_NAME_LENGTH;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
