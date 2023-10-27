@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 class InputParserTest {
 
     @Test
-    void parseCarNames_쉼표가_없을_때() {
+    void 하나의_값_만_들어올_때() {
         String input = "pobi";
         List<String> expected = Arrays.asList("pobi");
         List<String> result = InputParser.parseCarNames(input);
@@ -17,7 +17,7 @@ class InputParserTest {
     }
 
     @Test
-    void parseCarNames_쉼표로_여러_분리가_있을_때() {
+    void 여러_정상_값이_있을_때() {
         String input = "pobi,woni,jun";
         List<String> expected = Arrays.asList("pobi", "woni", "jun");
         List<String> result = InputParser.parseCarNames(input);
@@ -25,31 +25,35 @@ class InputParserTest {
     }
 
     @Test
-    void parseCarNames_빈_문자열() {
+    void 빈_문자열_이_들어올_때() {
         String input = "";
-        assertThrows(IllegalArgumentException.class, () -> {
-            InputParser.parseCarNames(input);
-        });
+        List<String> expected = Arrays.asList("");
+        List<String> result = InputParser.parseCarNames(input);
+        assertEquals(expected, result);
     }
 
     @Test
-    void parseCarNames_빈_문자열_포함_목록() {
-        String input1 = ",pobi,jun";
-        assertThrows(IllegalArgumentException.class, () -> {
-            InputParser.parseCarNames(input1);
-        });
-        String input2 = "pobi, ,jun";
-        assertThrows(IllegalArgumentException.class, () -> {
-            InputParser.parseCarNames(input2);
-        });
+    void 첫_시작_컴마() {
+        String input = ",pobi,jun";
+        List<String> expected = Arrays.asList("", "pobi", "jun");
+        List<String> result = InputParser.parseCarNames(input);
+        assertEquals(expected, result);
     }
 
     @Test
-    void parseCarNames_연속_컴마() {
+    void 연속_컴마() {
         String input = "pobi,,jun,aa";
-        assertThrows(IllegalArgumentException.class, () -> {
-            InputParser.parseCarNames(input);
-        });
+        List<String> expected = Arrays.asList("pobi","","jun","aa");
+        List<String> result = InputParser.parseCarNames(input);
+        assertEquals(expected, result);
+    }
+
+    @Test
+    void 컴마_빈칸_컴마(){
+        String input = "pobi, ,jun";
+        List<String> expected = Arrays.asList("pobi", " ", "jun");
+        List<String> result = InputParser.parseCarNames(input);
+        assertEquals(expected, result);
     }
 
 }
