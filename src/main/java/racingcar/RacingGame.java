@@ -74,4 +74,13 @@ public class RacingGame {
         return distanceList;
     }
 
+    public int findMax(List<Integer> distanceList) {
+        int max = 0;
+        for (int i : distanceList) {
+            if (i > max) {
+                max = i;
+            }
+        }
+        return max;
+    }
 }
