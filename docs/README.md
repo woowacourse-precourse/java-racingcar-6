@@ -25,6 +25,7 @@
 - [ ] 전진 시도 난수 : car#forwardTryRandomNumber
 - [ ] 전진 성공 결과 누적 횟수 : car#successForwardCount
 
+
 ## 메서드
 - [ ] 시작알림 + 자동차 이름 입력 요청 메시지 프린트 : view#printprintAskRepetionNumber
 - [ ] 자동차 이름 입력 / 쉼표 (,) 구분 입력 받기 : view#printAskCarname
