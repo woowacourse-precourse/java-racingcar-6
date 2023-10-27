@@ -1,13 +1,16 @@
 package racingcar.model;
 
 import java.util.Objects;
+import racingcar.validator.LocationValidator;
 
 public class Location {
 
-    private final int location;
+    private final int value;
+    private static final LocationValidator locationValidator = new LocationValidator();
 
-    public Location(int location) {
-        this.location = location;
+    public Location(int value) {
+        locationValidator.validate(value);
+        this.value = value;
     }
 
     @Override
@@ -19,11 +22,11 @@ public class Location {
             return false;
         }
         Location location1 = (Location) o;
-        return location == location1.location;
+        return value == location1.value;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(location);
+        return Objects.hash(value);
     }
 }
