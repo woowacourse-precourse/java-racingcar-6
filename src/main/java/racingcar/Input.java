@@ -24,9 +24,9 @@ public class Input {
         return player;
     }
     public void validateName(String playerName){
-        if (!(playerName.length()<=5)){
+        if (!(playerName.length()<=5))
             throw new IllegalArgumentException("플레이어의 이름은 5자 이하만 가능합니다.");
-        }
+
     }
     public void inputRound(){
         System.out.println("시도할 회수는 몇회인가요?");
