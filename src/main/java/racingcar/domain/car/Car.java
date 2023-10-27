@@ -17,6 +17,14 @@ public class Car {
         this.movement = new CarMovement();
     }
 
+    public String name() {
+        return name.name();
+    }
+
+    public CarMovement movement() {
+        return movement;
+    }
+
     public void move() {
         int randomValue = generateRandomValue();
         if (randomValue >= CRITICAL_VALUE) {
@@ -26,6 +34,10 @@ public class Car {
 
     private int generateRandomValue() {
         return Randoms.pickNumberInRange(RANDOM_START_INCLUSIVE, RANDOM_END_INCLUSIVE);
+    }
+
+    public boolean isSameDistance(Car car) {
+        return movement.equals(car.movement);
     }
 
     @Override
