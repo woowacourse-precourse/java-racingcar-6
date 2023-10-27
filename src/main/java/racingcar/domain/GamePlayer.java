@@ -20,4 +20,13 @@ public class GamePlayer {
     public void printPlayerCars() {
         System.out.println(this.cars);
     }
+
+    //모든 이름을 리스트로 가져오는 것 중에 이름의 리스트를 클래스로 설정해주는것이 좋은가?
+    public List<String> getAllCarNames() {
+        List<String> names = new ArrayList<>();
+        for (Car car : cars) {
+            car.addNameToList(names);
+        }
+        return names;
+    }
 }
