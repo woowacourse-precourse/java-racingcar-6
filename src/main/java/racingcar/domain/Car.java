@@ -27,7 +27,7 @@ public class Car {
 
     private void validateNameBlank(String name) {
         if (name == null || name.isBlank()) {
-            throw new IllegalArgumentException("[ERROR] 공백을 입력할 수 없습니다.")
+            throw new IllegalArgumentException("[ERROR] 공백을 입력할 수 없습니다.");
         }
     }
 
