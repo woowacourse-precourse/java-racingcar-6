@@ -99,7 +99,8 @@
      5) convertToLong(Long타입으로 변환)
      6) validatePositive(자연수가 아니라면 예외던짐)
      - 사용자가 입력한 시도횟수를 받아 검증해서 데이터를 저장한다
-   - [ ] race
+   - [x] race
+     1) isMovable(랜덤숫자를 생성해 움직일지 결정해준다)
      - 자동차 데이터를 가져와 랜덤 숫자를 생성해서 조건을 충족시키면 한칸 전진시킨다
    - [ ] getAttempCount
      - 시도횟수를 보내준다

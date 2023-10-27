@@ -1,6 +1,8 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.math.BigInteger;
+import java.util.HashMap;
 import racingcar.util.EmptyValidator;
 
 public class Racing {
@@ -63,6 +65,24 @@ public class Racing {
         if (number <= 0) {
             throw new IllegalArgumentException(PLEASE_INPUT_NATURAL_NUMBER);
         }
+    }
+
+    public void race() {
+        HashMap<String, Integer> carPositions = cars.getCars();
+        HashMap<String, Integer> updatedCarPositions = new HashMap<>();
+
+        carPositions.forEach((car, position) -> {
+            int newPosition = position;
+            if (isMovable()) {
+                newPosition += 1;
+            }
+            updatedCarPositions.put(car, newPosition);
+        });
+        cars.setCars(updatedCarPositions);
+    }
+
+    private boolean isMovable() {
+        return Randoms.pickNumberInRange(0, 9) > 3;
     }
 
 }
