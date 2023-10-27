@@ -18,5 +18,10 @@ public class Service {
         String input = Console.readLine();
         return input;
     }
+    public String receiveTrialCount() {
+        inputView.printTryCountMessage();
+        String input = Console.readLine();
+        return input;
+    }
 
 }
