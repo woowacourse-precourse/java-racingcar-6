@@ -25,4 +25,12 @@ public class RacingService {
         }
         return Arrays.stream(namesArr).toList();
     }
+
+    /**
+     * 1-3. 자동차 객체 생성, 저장
+     * @param validNameList 자동차 이름 리스트
+     */
+    void generateCar(List<String> validNameList) {
+        validNameList.forEach(name -> racingRepository.addCar(new Car(name)));
+    }
 }
