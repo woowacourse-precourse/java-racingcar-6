@@ -18,8 +18,8 @@ public class RacingCarGame {
 
     public void run() {
         outputProcessor.printCarNameInputMessage();
-        this.cars = inputProcessor.getCarNameListInput();
+        this.cars = inputProcessor.readCarNamesInput();
         outputProcessor.printRepetitionInputMessage();
-        this.repetition = inputProcessor.getRepetitionInput();
+        this.repetition = inputProcessor.readRepetitionInput();
     }
 }

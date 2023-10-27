@@ -8,10 +8,13 @@ import java.util.List;
 public class InputProcessor {
     public static final String CAR_NAMES_INPUT_REGEX = "^[^,]+(,[^,]+)*$";
 
-    public List<Car> getCarNameListInput() {
-        String carNamesInput = Console.readLine();
-        validateCarNameInput(carNamesInput);
-        return parseCarNameInputToList(carNamesInput);
+    public List<Car> readCarNamesInput() {
+        return manipulateCarNameInput(Console.readLine());
+    }
+
+    public List<Car> manipulateCarNameInput(String input) {
+        validateCarNameInput(input);
+        return parseCarNameInputToList(input);
     }
 
     private static List<Car> parseCarNameInputToList(String carNamesInput) {
@@ -28,11 +31,12 @@ public class InputProcessor {
         }
     }
 
-    public Integer getRepetitionInput() {
-        int repetition;
+    public Integer readRepetitionInput() {
+        return manipulateRepetitionInput(Console.readLine());
+    }
 
-        String repetitionInput = Console.readLine();
-        repetition = parseRepititionInput(repetitionInput);
+    public Integer manipulateRepetitionInput(String input) {
+        int repetition = parseRepititionInput(input);
         validateRepititionInput(repetition);
 
         return repetition;
