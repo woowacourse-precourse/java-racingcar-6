@@ -27,7 +27,7 @@ public class RacingGame {
     }
 
     public List<Car> inputCarNames(){
-        return Arrays.stream(splitNames(view.inputNames()))
+        return Arrays.stream(splitNames(view.inputConsole()))
                 .map(name->new Car(new Name(name),new Position()))
                 .collect(Collectors.toList());
     }

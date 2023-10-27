@@ -7,7 +7,7 @@ public class View {
 
     }
 
-    public String inputNames(){
+    public String inputConsole(){
         return readLine();
     }
 }

@@ -17,6 +17,6 @@ public class ViewTest {
 
         View view=new View();
 
-        assertThat(view.inputNames()).isEqualTo(names);
+        assertThat(view.inputConsole()).isEqualTo(names);
     }
 }
