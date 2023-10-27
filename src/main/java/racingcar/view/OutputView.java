@@ -1,5 +1,8 @@
 package racingcar.view;
 
+import java.util.List;
+import racingcar.domain.EachMoveResultDto;
+
 public class OutputView {
     private static final OutputView INSTANCE = new OutputView();
 
@@ -18,9 +21,19 @@ public class OutputView {
         System.out.println(Message.GAMEWINNER.getMessage());
     }
 
+    public void displayEachGameResult(List<EachMoveResultDto> moveResults) {
+        for (EachMoveResultDto moveResultDto : moveResults) {
+            System.out.println(
+                    moveResultDto.getCarName() + Message.EACHGAMERESULT.getMessage() + Message.MOVEFOWARD.getMessage()
+                            .repeat(moveResultDto.getPosition()));
+        }
+    }
+
     enum Message {
         GAMERESULT("실행 결과"),
-        GAMEWINNER("최종 우승자 : ");
+        GAMEWINNER("최종 우승자 : "),
+        MOVEFOWARD("-"),
+        EACHGAMERESULT(" : ");
 
         private String message;
 
