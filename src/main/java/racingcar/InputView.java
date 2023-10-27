@@ -6,30 +6,27 @@ import java.util.List;
 
 public class InputView {
     MagicVariable magicVariable = new MagicVariable();
-    String userInput = Console.readLine();
-    public List<String> getCarNames() {
+    public InputView() {}
+    public String getCarNames() {
         System.out.println(magicVariable.RACE_START_MESSAGE);
-        String[] carNames = userInput.split(",");
+        String carNameInput = Console.readLine();
+        String[] carNames = carNameInput.split(",");
 
         for (String carName : carNames) {
-            if (carName.length() > 5 || !carName.matches(magicVariable.CAR_NAME_RULE)) {
+            if (!carName.matches(magicVariable.CAR_NAME_RULE)) {
                 throw new IllegalArgumentException(magicVariable.CAR_NAME_ERROR_MESSAGE);
             }
         }
 
-        return List.of(carNames);
+        return String.join(",", carNames);
     }
 
     public int getTryCount() {
         System.out.println(magicVariable.ASK_TRY_COUNT_MESSAGE);
-        try {
-            int tryCount = Integer.parseInt(userInput);
-            if (tryCount < 1) {
-                throw new IllegalArgumentException(magicVariable.TRY_COUNT_RANGE_ERROR_MESSAGE);
-            }
-            return tryCount;
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(magicVariable.TRY_COUNT_TYPE_ERROR_MESSAGE);
+        int tryCount = Integer.parseInt(Console.readLine());
+        if (tryCount <= magicVariable.PICK_NUM_MIN) {
+            throw new IllegalArgumentException(magicVariable.TRY_COUNT_RANGE_ERROR_MESSAGE);
         }
+        return tryCount;
     }
 }
