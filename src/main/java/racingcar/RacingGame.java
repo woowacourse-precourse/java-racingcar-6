@@ -27,4 +27,15 @@ public class RacingGame {
         String input = Console.readLine().trim();
         return input;
     }
+
+    public HashMap<String, Integer> addHashMapWithNames(String input) {
+        String[] names = input.split(",");
+        racingCars = new HashMap<>();
+        for (String name : names) {
+            name = name.trim();
+            racingCars.put(name, 0);
+        }
+
+        return racingCars;
+    }
 }
