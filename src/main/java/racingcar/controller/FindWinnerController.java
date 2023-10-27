@@ -30,9 +30,7 @@ public class FindWinnerController {
         Car winnerCar = cars.get(0);
 
         for (Car car : cars) {
-            if(car.getCarAdvances() == winnerCar.getCarAdvances()){
-                winnerCars.add(car.getCarName());
-            }
+            if(car.getCarAdvances() == winnerCar.getCarAdvances()) winnerCars.add(car.getCarName());
         }
     }
 }
