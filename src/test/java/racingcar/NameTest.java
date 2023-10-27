@@ -9,9 +9,9 @@ public class NameTest {
     @DisplayName("이름이 객체에 잘 담기는지 확인.")
     @Test
     void createTest_생성_테스트(){
-        String input="t N ame ";
+        String input="tName";
         Name name=new Name(input);
 
-        assertThat(name.getName()).isEqualTo("tName");
+        assertThat(name.getName()).isEqualTo(input);
     }
 }

@@ -5,16 +5,9 @@ import racingcar.NameConstant;
 public enum NameValidator {
     INSTANCE;
 
-    public String validateName(String name){
-        String nameWithoutWhiteSpace=removeWhiteSpace(name);
-        checkNameIsEmpty(nameWithoutWhiteSpace);
-        checkNameCorrectRange(nameWithoutWhiteSpace);
-
-        return nameWithoutWhiteSpace;
-    }
-
-    private String removeWhiteSpace(String name){
-        return name.replace(" ","");
+    public void validateName(String name){
+        checkNameIsEmpty(name);
+        checkNameCorrectRange(name);
     }
 
     private void checkNameIsEmpty(String name){

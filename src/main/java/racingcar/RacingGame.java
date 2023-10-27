@@ -29,7 +29,13 @@ public class RacingGame {
     }
 
     public List<Car> inputCarNames(){
-        return Arrays.stream(splitNames(view.inputConsole()))
+        List<String> names=Arrays.stream(splitNames(view.inputConsole()))
+                .map(this::removeWhiteSpace)
+                .collect(Collectors.toList());
+
+        checkHasDuplicates(names);
+
+        return names.stream()
                 .map(name->new Car(new Name(name),new Position()))
                 .collect(Collectors.toList());
     }
@@ -43,13 +49,15 @@ public class RacingGame {
         return Integer.parseInt(input);
     }
 
-    public void checkHasDuplicates(String[] names){
-        Set<String> uniqueName=new HashSet<>(List.of(names));
+    private String removeWhiteSpace(String name){
+        return name.replace(" ","");
+    }
 
-        if(names.length!=uniqueName.size()){
+    private void checkHasDuplicates(List<String> names){
+        Set<String> uniqueName=new HashSet<>(names);
+
+        if(names.size()!=uniqueName.size()){
             throw new IllegalArgumentException("중복된 이름이 존재합니다.");
         }
     }
-
-
 }

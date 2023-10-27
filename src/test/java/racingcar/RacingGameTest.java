@@ -59,15 +59,4 @@ public class RacingGameTest {
         assertThat(racingGame.inputAttemptCount(input)).isEqualTo(12345);
 
     }
-
-    @DisplayName("문자열 배열에 중복이 있는지 확인하고 있다면 Exception을 발생시키는 기능")
-    @Test
-    void checkHasDuplicates_중복_확인(){
-        RacingGame racingGame=new RacingGame();
-        String[] names={"pobi","woni","jun","ski","james","pobi"};
-
-        assertThatThrownBy(()->racingGame.checkHasDuplicates(names))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
 }

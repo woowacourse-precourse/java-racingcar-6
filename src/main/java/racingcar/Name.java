@@ -7,7 +7,9 @@ public class Name {
 
     public Name(String name){
         NameValidator validator=NameValidator.INSTANCE;
-        this.name=validator.validateName(name);
+        validator.validateName(name);
+
+        this.name=name;
     }
 
     public String getName(){
