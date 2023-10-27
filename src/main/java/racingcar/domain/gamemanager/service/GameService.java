@@ -4,6 +4,7 @@ import racingcar.domain.car.Car;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class GameService {
 
@@ -13,10 +14,11 @@ public class GameService {
         save();
     }
 
-    private void createCar(String carNames) {
+    private List<Car> createCar(String carNames) {
         ArrayList<Car> cars = new ArrayList<>();
         Arrays.stream(carNames.split(","))
-                .map(Car::new)
-                .toList();
+                .forEach(carName -> cars.add(new Car(carName)));
+
+        return cars;
     }
 }
