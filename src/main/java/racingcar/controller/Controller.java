@@ -17,5 +17,11 @@ public class Controller {
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
+        int attemptCount = InputView.inputAttemptCount();
+        while (attemptCount-- > 0) {
+            for (Car car : cars) {
+                car.move();
+            }
+        }
     }
 }
