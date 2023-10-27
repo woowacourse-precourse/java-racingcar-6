@@ -5,15 +5,15 @@ import java.util.Objects;
 class Car {
 
     private final Name name;
-    private final int position;
+    private final Position position;
 
-    private Car(Name name, int position) {
+    private Car(Name name, Position position) {
         this.name = name;
         this.position = position;
     }
 
     public static Car from(String name) {
-        return new Car(Name.from(name), 0);
+        return new Car(Name.from(name), Position.newInstance());
     }
 
     @Override
@@ -21,7 +21,7 @@ class Car {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return position == car.position && Objects.equals(name, car.name);
+        return Objects.equals(name, car.name) && Objects.equals(position, car.position);
     }
 
     @Override
