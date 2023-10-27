@@ -61,7 +61,7 @@
 
 ## Skeleton Code
 - 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
-  - Car - 자동차 (goForward(), stop())
+  - Car - 자동차 (goForward())
   - RacingCars.List<Car> - n대의 자동차 (move())
   - 자동차 이름을 입력받는다 (inputCarNames, CarNamesValidator)
   - 콤마(,)를 기준으로 구분한다
@@ -71,8 +71,8 @@
   - [x] 자동차는 움직인 횟수 특성을 가지고 있다 (int distance)
   - 출력시 자동차 이름도 같이 출력해야 한다 (RoundResultController)
 
-- 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다 (CarNamesValidator)
-  - 자동차 이름을 입력 받을 때 기준은 ',' (String.split(",")) (3)
+- 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다 (CarNamesValidator) (3)
+  - 자동차 이름을 입력 받을 때 기준은 ',' (String.split(",")) 
   - 이름은 5자 이하만 가능하다
     - [x]**예외** null, empty (isNullOrEmtpy())
     - [x]**예외** 범위에서 벗어난 경우 (isOverTheLength) - 6자, 7자 ,, etc 
