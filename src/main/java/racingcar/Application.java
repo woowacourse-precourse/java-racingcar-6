@@ -37,10 +37,9 @@ public class Application {
         }
 
         // 이름 중복시 => 예외처리
-        if( carNames.length > Arrays.stream(carNames).distinct().toArray().length){
+        if (carNames.length > Arrays.stream(carNames).distinct().toArray().length) {
             throw new IllegalArgumentException("중복되지 않은 이름을 입력해 주세요.");
         }
-
 
         // 이름 양 끝에 공백 포함시 => 공백 제거
         for (int i = 0; i < carNames.length; i++) {
@@ -62,7 +61,7 @@ public class Application {
             throw new IllegalArgumentException("숫자만 입력하세요.");
         }
 
-        if(roundCount <= 0){
+        if (roundCount <= 0) {
             throw new IllegalArgumentException("1이상의 숫자를 입력하세요.");
         }
 
@@ -75,16 +74,16 @@ public class Application {
             movedCount[i] = "";
         }
 
-        for(int i=0; i<roundCount; i++){
+        for (int i = 0; i < roundCount; i++) {
 
-            for(int j=0; j<carNames.length; j++){
+            for (int j = 0; j < carNames.length; j++) {
                 // 3도 상수로 변환하기
-                if(Randoms.pickNumberInRange(0,9) >= 4){
+                if (Randoms.pickNumberInRange(0, 9) >= 4) {
                     movedCount[j] += "-";
                 }
             }
 
-            for(int k=0; k<carNames.length; k++){
+            for (int k = 0; k < carNames.length; k++) {
                 System.out.println(carNames[k] + " : " + movedCount[k]);
             }
 
@@ -94,20 +93,20 @@ public class Application {
         // 4. 우승자 출력
         int max = 0;
 
-        for(int i=0; i < carNames.length; i++){
-            if(max <= movedCount[i].length()){
+        for (int i = 0; i < carNames.length; i++) {
+            if (max <= movedCount[i].length()) {
                 max = movedCount[i].length();
             }
         }
 
         System.out.print("최종 우승자 : ");
-        int count =0;
+        int count = 0;
 
-        for(int i=0; i < carNames.length; i++){
+        for (int i = 0; i < carNames.length; i++) {
 
-            if(max == movedCount[i].length()){
+            if (max == movedCount[i].length()) {
 
-                if(count++ != 0){
+                if (count++ != 0) {
                     System.out.print(", ");
                 }
 
