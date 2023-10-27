@@ -13,6 +13,6 @@ public class CarTest {
         Car car = new Car("붕붕이");
         car.move();
         car.move();
-        assertEquals(car.progress.get(), 2);
+        assertEquals(car.getProgressToInt(), 2);
     }
 }

@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
@@ -24,6 +23,6 @@ public class WinnerCheckerTest {
         carList.get(1).move();
         carList.get(2).move();
 
-        assertThat(WinnerChecker.findWinner(carList)).contains(car2,car3);
+        assertThat(WinnerChecker.findWinner(carList)).contains(car2, car3);
     }
 }
