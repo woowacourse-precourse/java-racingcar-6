@@ -7,7 +7,6 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.CarList;
 import racingcar.view.InputView;
@@ -48,7 +47,7 @@ public class RacingGameInputController {
 
     private static List<String> parseWithComma(String userInput) {
         return Arrays.stream(userInput.split(","))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     // 시도할 회수 입력 및 검증
