@@ -1,6 +1,6 @@
 package racingcar.validator;
 
-public class AttemptsInputValidator implements Validator{
+public class AttemptsInputValidator implements Validator {
 
     private static final int MIN_NUMBER = 0;
 
@@ -17,6 +17,7 @@ public class AttemptsInputValidator implements Validator{
             throw new IllegalArgumentException();
         }
     }
+
     private void throwIfNonPositive(int input) {
         if (input <= MIN_NUMBER) {
             throw new IllegalArgumentException();
