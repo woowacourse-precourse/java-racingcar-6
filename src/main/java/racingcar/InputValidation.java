@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.Arrays;
+
 public class InputValidation {
 
     public static void validateNumberOfCarsRange(int numberOfCars) {
@@ -20,6 +22,13 @@ public class InputValidation {
             if(name.length() < NumberConst.MIN_NAME_OF_CAR_LENGTH && name.length() > NumberConst.MAX_NAME_OF_CAR_LENGTH) {
                 throw new IllegalArgumentException();
             }
+        }
+    }
+
+    public static void validateDuplicateName(String[] nameOfCars) {
+        Object[] newNameOfCars = Arrays.stream(nameOfCars).distinct().toArray();
+        if(newNameOfCars.length != nameOfCars.length) {
+            throw new IllegalArgumentException();
         }
     }
 }
