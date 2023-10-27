@@ -3,7 +3,7 @@ package racingcar.domian;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import racingcar.domain.Car;
+import racingcar.domain.car.Car;
 
 import java.lang.reflect.Field;
 

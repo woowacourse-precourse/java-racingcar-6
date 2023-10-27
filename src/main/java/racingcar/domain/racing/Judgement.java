@@ -1,11 +1,13 @@
-package racingcar.domain;
+package racingcar.domain.racing;
+
+import racingcar.domain.car.Car;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Judgement {
 
-    public String determineWinners(Racing racing) {
+    public String determineWinners(final Racing racing) {
         List<Car> cars = racing.getCars();
         int maxForwardCount = calculateMaxForwardCount(cars);
 
@@ -15,7 +17,7 @@ public class Judgement {
                 .collect(Collectors.joining(", "));
     }
 
-    private int calculateMaxForwardCount(List<Car> cars) {
+    private int calculateMaxForwardCount(final List<Car> cars) {
         return cars.stream()
                 .mapToInt(Car::getForwardCount)
                 .max()
