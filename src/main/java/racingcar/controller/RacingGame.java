@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.model.Car;
 import racingcar.model.CarRepository;
 import racingcar.view.InputView;
 
@@ -7,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
+    public static final int MOVE_RULE = 4;
     private final InputView inputView;
     private CarRepository carRepository;
     private int repeatCount;
@@ -24,6 +27,28 @@ public class RacingGame {
     public void start() {
         setupGame();
         System.out.println(carRepository + " " + repeatCount);
+        play();
+    }
+
+    private void play() {
+        while (repeatCount-- > 0) {
+            OneRoundMove();
+            System.out.println(carRepository + " " + repeatCount);
+        }
+    }
+
+    private void OneRoundMove() {
+        List<Car> cars = carRepository.getCars();
+        for (Car car : cars) {
+            if (isMove()) {
+                car.moveForward();
+            }
+        }
+    }
+
+    private boolean isMove() {
+        int randomNum = Randoms.pickNumberInRange(0, 9);
+        return MOVE_RULE <= randomNum;
     }
 
     public void setupGame() {

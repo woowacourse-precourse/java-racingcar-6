@@ -13,6 +13,10 @@ public class CarRepository {
         }
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
     @Override
     public String toString() {
         return "CarRepository{" +

@@ -13,6 +13,18 @@ public class Car {
         this(name, 0);
     }
 
+    public void moveForward() {
+        forwardCount++;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getForwardCount() {
+        return forwardCount;
+    }
+
     @Override
     public String toString() {
         return "Car{" +
