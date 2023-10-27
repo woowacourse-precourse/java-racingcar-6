@@ -19,6 +19,15 @@ public class Car {
         this.position = position;
     }
 
+    public Boolean goForward() {
+        Boolean moved = movingStrategy.isCarMove();
+        if (moved) {
+            this.position++;
+        }
+
+        return moved;
+    }
+
     private void validateNameLength(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("[ERROR] 입력할 수 있는 이름의 글자수는 최대 5입니다.");
