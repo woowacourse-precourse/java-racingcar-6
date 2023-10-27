@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class InputView {
-    public List<String> getRacingCarName() {
+    public static List<String> readRacingCarName() {
         String racingCarName =  Console.readLine();
         return Arrays.asList(racingCarName.split(","));
     }
