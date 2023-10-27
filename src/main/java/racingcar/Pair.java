@@ -26,6 +26,6 @@ class Pair implements Comparable<Pair> {
 	
 	@Override
 	public int compareTo(final Pair p) {
-		return Integer.compare(location, p.location);
+		return Integer.compare(p.location, this.location);
 	}
 }

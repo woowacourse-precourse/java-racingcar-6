@@ -18,3 +18,9 @@
   - GamePrint 클래스에 레이스 시작 시 '실행 결과'를 출력하는 printStart 메소드를 추가한다.
   - GamePrint 클래스에 레이스의 각 회차 결과를 출력하는 printRace 메소드를 추가한다.
   - RaceGame 클래스의 playGame 메소드에서 printStart 메소드와 race 메소드를 추가적으로 호출한다.
+  
+  
+# 3. 게임 종료 및 승자를 정하는 기능
+  - Pair 클래스에 내림차순 정렬을 위한 비교연산을 하는 compareTo 메소드를 재정의한다.
+  - RaceGame 클래스에 승자를 구하는 getWinner 메소드를 추가한다.
+  - GamePrint 클래스에 승자를 출력하는 printWinner 메소드를 추가한다.
