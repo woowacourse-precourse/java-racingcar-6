@@ -23,6 +23,7 @@ public class OutputView {
 
     public void printRaceResult(List<CarDto> cars) {
         cars.forEach(car -> System.out.println(generateMessageOf(car)));
+        newLine();
     }
 
     private String generateMessageOf(CarDto car) {
