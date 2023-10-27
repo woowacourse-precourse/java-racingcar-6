@@ -37,4 +37,13 @@ public class InputValidation {
 
         return check.size() != carNames.size();
     }
+
+    public static void validateMoveCount(String input) throws IllegalArgumentException {
+        if (!input.matches("^[1-9]")) {
+            throw new IllegalArgumentException();
+        }
+        if (isEmpty(input)) {
+            throw new IllegalArgumentException();
+        }
+    }
 }

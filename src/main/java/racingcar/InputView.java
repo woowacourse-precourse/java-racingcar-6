@@ -22,7 +22,10 @@ public class InputView {
     }
 
     public int getMoveCount() {
-        int moveCount = Integer.parseInt(Console.readLine());
+        String inputMoveCount = Console.readLine();
+        InputValidation.validateMoveCount(inputMoveCount);
+        int moveCount = Integer.parseInt(inputMoveCount);
+
         return moveCount;
     }
 }
