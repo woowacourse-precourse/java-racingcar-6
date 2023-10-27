@@ -4,7 +4,8 @@ public class RacingController {
 
 
 
-    public void createRacingCars(String String) {
+    public void createRacingCars(String racingCarString) {
+        String[] Cars = racingCarString.split(",");
 
     }
 
