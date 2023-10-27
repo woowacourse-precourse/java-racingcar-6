@@ -77,6 +77,25 @@ public class Application {
             }
             System.out.println();
         }
+        printWinner(racingCarName, gameNum, makeDash);
+    }
+
+    public static void printWinner(List<String> racingCarName, int gameNum, List<String>[] makeDash) {
+        int max = Integer.MIN_VALUE;
+        List<String> winCarName = new ArrayList<>();
+
+        for (int i = 0; i < racingCarName.size(); i++) {
+            if (makeDash[i].get(gameNum - 1).length() > max)
+                max = makeDash[i].get(gameNum - 1).length();
+        }
+
+        for (int i = 0; i < racingCarName.size(); i++) {
+            if (max == makeDash[i].get(gameNum - 1).length())
+                winCarName.add(String.valueOf(racingCarName.get(i)));
+        }
+
+        String result = String.join(", ", winCarName);
+        System.out.println("최종 우승자 : " + result);
     }
 
     public static boolean isValidName(String splitStr) {
