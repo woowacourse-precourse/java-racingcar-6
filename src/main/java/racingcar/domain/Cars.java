@@ -14,14 +14,15 @@ public class Cars {
         this.cars = cars;
     }
 
-    public void moveCars(Rule rule, RandomNumberGenerator randomNumberGenerator) {
+    public void moveAll(Rule rule) {
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
         for (Car car : cars) {
             int randomNumber = randomNumberGenerator.generateRandomNumber();
             car.move(rule, randomNumber);
         }
     }
 
-    public static Cars generateCars(CarsGenerateDto carsGenerateDto) {
+    public static Cars generate(CarsGenerateDto carsGenerateDto) {
         List<Car> carList = new ArrayList<>();
         for (String carName : carsGenerateDto.carsName()) {
             carList.add(new Car(carName));

@@ -24,7 +24,7 @@ public class Car {
 
     public void move(Rule rule, int randomNumber) {
         if (rule.isMovingCondition(randomNumber)) {
-            position.increasePosition();
+            position.increase();
         }
     }
 
