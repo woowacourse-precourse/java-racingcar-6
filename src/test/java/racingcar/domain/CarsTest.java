@@ -48,6 +48,36 @@ class CarsTest {
     }
 
     @Test
+    @DisplayName("최대 위치 추출")
+    void 최대_위치_추출() {
+        // given
+        Cars cars = Cars.from("a,b,c,d,e");
+        int n = 10;
+
+        // when
+        while (n-- > 0) {
+            cars.go();
+        }
+
+        // then
+        Integer maxValue = cars.getCars()
+                .stream()
+                .max(Comparator.comparing(Car::getPosition)).get().getPosition();
+
+        List<String> winnerNameList = cars.findWinnerNameList();
+
+        List<Integer> list = cars.getCars()
+                .stream()
+                .filter(car -> winnerNameList.contains(car.getName()))
+                .map(Car::getPosition)
+                .distinct()
+                .toList();
+
+        assertThat(list.size()).isEqualTo(1);
+        assertThat(list.get(0)).isEqualTo(maxValue);
+    }
+
+    @Test
     @DisplayName("우승자 추출")
     void 우승자_이름_추출() {
         // given
