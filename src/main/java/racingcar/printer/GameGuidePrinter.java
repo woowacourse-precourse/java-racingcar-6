@@ -6,19 +6,19 @@ public class GameGuidePrinter {
     private static final String resultMessage = "실행 결과";
     private static final String finalWinnerMessage = "최종 우승자 : ";
 
-    public String getCarNameInputMessage() {
-        return carNameInputMessage;
+    public void getCarNameInputMessage() {
+        System.out.println(carNameInputMessage);
     }
 
-    public String getTryCountMessage() {
-        return tryCountMessage;
+    public void getTryCountMessage() {
+        System.out.println(tryCountMessage);
     }
 
-    public String getResultMessage() {
-        return resultMessage;
+    public void getResultMessage() {
+        System.out.println(resultMessage);
     }
 
-    public String getFinalWinnerMessage() {
-        return finalWinnerMessage;
+    public void getFinalWinnerMessage() {
+        System.out.println(finalWinnerMessage);
     }
 }
