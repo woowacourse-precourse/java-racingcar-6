@@ -14,13 +14,9 @@ public record CarGarage(List<Car> cars) {
     }
 
     private int getMaxPosition(List<Car> cars) {
-        int max = 0;
-        for (Car car : cars) {
-            int position = car.getPosition();
-            if (position > max) {
-                max = position;
-            }
-        }
-        return max;
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
     }
 }
