@@ -15,13 +15,17 @@ public class OutputHandler {
         int listSize = nameList.size();
         IntStream.range(0, listSize)
                 .forEach(i -> System.out.println(nameList.get(i) + " : "
-                        + IntStream.range(0, progressList.get(i))
-                        .mapToObj(j -> "-")
-                        .collect(joining())));
+                        + parseProgressBar(progressList.get(i))));
         System.out.println();
     }
 
     public static void printFinalWinner(String winnerListString) {
         System.out.print(SystemMessage.FINAL_WINNER.getMessage() + winnerListString);
+    }
+
+    private static String parseProgressBar(Integer progress) {
+        return IntStream.range(0, progress)
+                .mapToObj(i -> "-")
+                .collect(joining());
     }
 }
