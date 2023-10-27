@@ -23,6 +23,7 @@ public class RacingController {
         for (Car car : cars) {
             OutputView.printRacingRoundResult(car.getName(), car.getPosition());
         }
+        System.out.println();
     }
 
     private static int makeCarRandomNumber() {
