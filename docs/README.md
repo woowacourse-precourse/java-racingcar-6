@@ -10,15 +10,15 @@
     - [x] [Validation] 자동차 이름을 입력하지 않았을 경우, `IllegalArgumentException`을 발생 시킨 후 종료한다.
     - [x] [Validation] 자동차 이름이 5자를 초과할 경우, `IllegalArgumentException`을 발생 시킨 후 종료한다.
     - [x] [Validation] 자동차 이름이 중복일 경우, `IllegalArgumentException`을 발생 시킨 후 종료한다.
-- [ ] 시도할 회수를 입력 받는다.
-  - [ ] 시도 회수를 입력 받기 전, 안내 문구를 출력한다.
+- [x] 시도할 회수를 입력 받는다.
+  - [x] 시도 회수를 입력 받기 전, 안내 문구를 출력한다.
     ```
     시도할 회수는 몇회인가요?
     ```
-  - [ ] 사용자에게 시도 회수를 입력 받는다.
-    - [ ] [Validation] 시도 횟수를 입력하지 않았을 경우, `IllgalArgumentException`을 발생 시킨 후 종료한다.
-    - [ ] [Validation] 숫자가 아닌 값을 입력했을 경우, `IllegalArgumentException`을 발생 시킨 후 종료한다.
-    - [ ] [Validation] 1 이상의 값을 입력하지 않았을 경우, `IllegalArgumentException`을 발생 시킨 후 종료한다.
+  - [x] 사용자에게 시도 회수를 입력 받는다.
+    - [x] [Validation] 시도 횟수를 입력하지 않았을 경우, `IllgalArgumentException`을 발생 시킨 후 종료한다.
+    - [x] [Validation] 숫자가 아닌 값을 입력했을 경우, `IllegalArgumentException`을 발생 시킨 후 종료한다.
+    - [x] [Validation] 1 이상의 값을 입력하지 않았을 경우, `IllegalArgumentException`을 발생 시킨 후 종료한다.
 - [ ] 실행 결과를 출력한다.
   ```
     실행 결과
