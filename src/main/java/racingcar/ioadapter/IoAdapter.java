@@ -4,5 +4,7 @@ public interface IoAdapter {
 
     String inputStream();
 
-    String outputResult(String result);
+    void outputResult(String result);
+
+    void printMessage(String message);
 }

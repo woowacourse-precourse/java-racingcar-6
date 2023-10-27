@@ -8,6 +8,7 @@ import racingcar.domain.CarPark;
 import racingcar.service.InputConvertService;
 import racingcar.service.ValidateService;
 import racingcar.vo.Car;
+import racingcar.vo.RoundCount;
 
 public class InputConvertServiceImpl implements InputConvertService {
 
@@ -26,5 +27,15 @@ public class InputConvertServiceImpl implements InputConvertService {
                 .map(carName -> new Car(carName, 0))
                 .collect(Collectors.toList());
         return new CarPark(carList);
+    }
+
+    @Override
+    public RoundCount inputConvertRoundCount(String input) {
+        try {
+            Integer round = Integer.parseInt(input);
+            return new RoundCount(round);
+        } catch (Exception e) {
+            throw new IllegalArgumentException();
+        }
     }
 }

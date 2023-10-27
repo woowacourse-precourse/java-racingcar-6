@@ -13,7 +13,7 @@ public class ValidateServiceImpl implements ValidateService {
 
     @Override
     public void validateNamesSizeLessThanFive(String name) {
-        if (name.length() > 5) {
+        if (name.length() >= 5) {
             throw new IllegalArgumentException();
         }
     }

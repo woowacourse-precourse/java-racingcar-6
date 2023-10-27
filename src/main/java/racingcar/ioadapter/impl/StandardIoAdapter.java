@@ -6,12 +6,15 @@ import racingcar.ioadapter.IoAdapter;
 public class StandardIoAdapter implements IoAdapter {
     @Override
     public String inputStream() {
-        String inputStream = Console.readLine();
-        return inputStream;
+        return Console.readLine();
     }
 
     @Override
-    public String outputResult(String result) {
-        return null;
+    public void outputResult(String result) {
+    }
+
+    @Override
+    public void printMessage(String message) {
+        System.out.println(message);
     }
 }
