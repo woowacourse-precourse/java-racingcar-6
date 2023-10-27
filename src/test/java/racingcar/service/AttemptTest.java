@@ -1,9 +1,10 @@
-package racingcar.domain.game;
+package racingcar.service;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
+import racingcar.service.Attempt;
 
 class AttemptTest {
     @Test

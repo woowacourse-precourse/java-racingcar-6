@@ -1,4 +1,4 @@
-package racingcar.domain.game;
+package racingcar.service;
 
 import java.util.Objects;
 

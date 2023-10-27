@@ -1,4 +1,4 @@
-package racingcar.domain.game;
+package racingcar.service;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -13,6 +13,8 @@ import racingcar.domain.car.Generator;
 import racingcar.domain.car.Name;
 import racingcar.domain.car.RandomNumberGenerator;
 import racingcar.domain.car.Rule;
+import racingcar.service.Attempt;
+import racingcar.service.Game;
 
 public class GameTest {
     @Test
