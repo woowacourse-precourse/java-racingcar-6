@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.List;
 
@@ -11,6 +10,7 @@ public class Race {
         for (Car car : cars) {
             if (car.shouldCarMove()) {
                 car.forward += "-";
+                car.addForwardCount();
             }
             System.out.println(car.getName() + " : " + car.getForward());
         }

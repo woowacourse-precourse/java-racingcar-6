@@ -26,13 +26,14 @@ public class GameConfig {
 
         String[] split = carNames.split(",");
         for (String carName : split) {
-            if (1 > carName.length() || carName.length() > 5) {
+            String trimCarName = carName.trim();
+            if (1 > trimCarName.length() || trimCarName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 1글자 이상, 5글자 미만까지 가능합니다.");
-            } else if (checkCarName.contains(carName.trim())) {
+            } else if (checkCarName.contains(trimCarName)) {
                 throw new IllegalArgumentException("중복된 자동차 이름이 있습니다.");
             } else {
                 checkCarName.add(carName);
-                Car car = new Car(carName.trim());
+                Car car = new Car(trimCarName);
                 cars.add(car);
             }
         }

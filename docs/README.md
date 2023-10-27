@@ -14,7 +14,7 @@
   - [x] 최대값과 이동거리가 같은 자동차의 이름을 배열로 정리한다. Judgment#getWinners()
   - [x] 제일 많이 이동한 자동차가 우승한다. - Judgment#checkWinners()
   - [x] 누가 우승했는지 알려주고, 2인 이상일 경우 쉼표(,)를 이용하여 구분한다.
-- [] 사용자가 잘못된 값을 입력했을 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션이 종료된다.
+- [x] 사용자가 잘못된 값을 입력했을 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션이 종료된다.
 
 
 ## 기능 요구 사항

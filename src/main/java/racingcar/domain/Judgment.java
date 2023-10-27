@@ -12,7 +12,7 @@ public class Judgment {
         Map<String, Integer> records = new HashMap<>();
 
         for (Car car : cars) {
-            records.put(car.getName(), car.getForward().length());
+            records.put(car.getName(), car.getForwardCount());
         }
 
         return getWinners(records, findMaxForward(records));
