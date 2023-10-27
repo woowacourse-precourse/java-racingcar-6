@@ -17,7 +17,7 @@ public class Car {
         return new Car(id,carName);
     }
 
-    public void move(int distance){
+    public void move(int distance, boolean canMove){
 
     }
 

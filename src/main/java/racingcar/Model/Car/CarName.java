@@ -9,16 +9,15 @@ public class CarName {
     private String name;
 
     public CarName(String name) {
+        validateName(name);
         this.name = name;
     }
     private void validateName(String carName){
         Pattern pattern = Pattern.compile(AppConfig.CAR_NAME_FORMAT);
         Matcher matcher = pattern.matcher(carName);
-
         if (matcher.matches()){
             return;
         }
-
         throw new IllegalArgumentException();
     }
 

@@ -10,11 +10,11 @@ import racingcar.Model.CarRepository;
 public class MainController {
     private static RaceController raceController = AppConfig.raceControllerImplements();
 
-    public void process() {
+    public static void process() {
         String NameInput = Console.readLine();
-        String[] split = NameInput.split(AppConfig.INPUT_DELIMITER);
+        String[] split = NameInput.split(AppConfig.INPUT_DELIMITER, Integer.MAX_VALUE);
         int carQuantity = split.length;
-        CarId.validateOverflow(carQuantity);
+        CarId.validateRange(carQuantity);
 
         CarRepository carRepository = new CarRepository(new ArrayList<>());
         for(int i=1; i<=carQuantity; i++) {
@@ -23,6 +23,9 @@ public class MainController {
         }
 
         String roundInput = Console.readLine();
+        raceController.validateRoundInput(roundInput);
         raceController.processRace(roundInput, carRepository);
     }
+
+
 }

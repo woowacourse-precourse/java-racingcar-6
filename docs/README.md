@@ -10,9 +10,10 @@
 [] 입력값을 받아 자동차 객체들을 생성한다. (Car.of / Car)
 [] 자동차들을 저장하는 객체를 생성한다. (Repository.save / Repository)
  - [] 내부에 id를 이용해 자동차의 갯수제한, 동명의 자동차도 구분할 수 있도록 한다. -> View로 결과를 뽑아내진 않음
-[] 자동차이름은 ,를 구분자로 하여 생성한다. (MainController.collectParticipant / String[])                                                                                                                                                      
+[] 자동차이름은 ,를 구분자로 하여 생성한다. (MainController.process / String[])                                                                                                                                                      
  - [] 각 이름은 5자 이하의 영문이 오도록, 이름의 총 갯수는 int값의 양수 범위를 넘지 않도록 유효성 검사한다. (MainController / void)
 
+[] RaceController의 process를 작성한다.
 [] n번의 이동을 할지 입력 받는다. (RaceController.process / int)
  - [] n번에 대해 예외 처리를 한다. (RaceController)
 [] 입력받은 크기만큼 경주를 진행한다. (RaceController.process)
