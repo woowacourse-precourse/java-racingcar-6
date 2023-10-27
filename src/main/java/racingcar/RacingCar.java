@@ -1,16 +1,30 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.Car;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class RacingCar {
+    private List<Car> cars = new ArrayList<>();
+    private int playCount;
+
     public void playGame() {
+        startGame();
+        for (int i = 0; i < playCount; i++) {
+            playRound();
+        }
+        // endGame();
+    }
+
+    private void startGame() {
         List<String> carNames = getCarNames();
-        int num = getNumber();
-        System.out.println(carNames);
-        System.out.println(num);
+        playCount = getNumber();
+        for (String carName : carNames) {
+            cars.add(new Car(carName));
+        }
     }
 
     private List<String> getCarNames() {
@@ -24,5 +38,11 @@ public class RacingCar {
         System.out.println("시도할 회수는 몇회인가요?");
         String numStr = Console.readLine();
         return Integer.parseInt(numStr);
+    }
+
+    private void playRound() {
+        for (Car car : cars) {
+            car.moveForward();
+        }
     }
 }
