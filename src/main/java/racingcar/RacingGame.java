@@ -32,7 +32,7 @@ public class RacingGame {
                 .distinct().toList().size();
 
         if (names.size() != uniqueSize) {
-            throw new IllegalArgumentException("중복된 이름이 존재합니다.");
+            throw new IllegalArgumentException(ExceptionMessage.DUPLICATEDNAME.message());
         }
     }
 

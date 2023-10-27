@@ -1,6 +1,7 @@
 package racingcar.validator;
 
 import racingcar.Constants;
+import racingcar.ExceptionMessage;
 
 public enum NameValidator {
     INSTANCE;
@@ -12,13 +13,13 @@ public enum NameValidator {
 
     private void checkNameIsEmpty(String name) {
         if (name.length() == Constants.NAME_EMPTY_SIZE) {
-            throw new IllegalArgumentException("비어있는 이름이 들어왔습니다.");
+            throw new IllegalArgumentException(ExceptionMessage.EMPTYNAME.message());
         }
     }
 
     private void checkNameCorrectRange(String name) {
         if (name.length() > Constants.NAME_MAX_LENGTH) {
-            throw new IllegalArgumentException("이름이 5자를 초과했습니다. 초과이름: " + name);
+            throw new IllegalArgumentException(ExceptionMessage.EXPLODENAME.message());
         }
     }
 }
