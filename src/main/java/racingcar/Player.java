@@ -16,6 +16,18 @@ public class Player {
         return new Player(name, 0);
     }
 
+    public static Player of(String name, Integer position) {
+        validateCarName(name);
+        validatePositionRange(position);
+        return new Player(name, position);
+    }
+
+    private static void validatePositionRange(Integer position) {
+        if (position < 0) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     private static void validateCarName(String name) {
         if (name.isEmpty() || name.length() > 5) {
             throw new IllegalArgumentException();
