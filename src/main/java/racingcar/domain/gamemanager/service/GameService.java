@@ -3,6 +3,7 @@ package racingcar.domain.gamemanager.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.dao.CarRepository;
+import racingcar.domain.view.InputView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,4 +35,16 @@ public class GameService {
 
         return cars;
     }
+
+    public void startGame(int tryCount) {
+        for (int i = 0; i < tryCount; i++) {
+            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            List<Car> findCars = carRepository.findAll();
+
+            findCars.forEach(car -> car.updatePosition(randomNumber));
+
+            findCars.forEach(System.out::println);
+        }
+    }
+
 }
