@@ -11,13 +11,14 @@ public class InputFunction {
         String InputData = readLine();
         CheckFunction checkFunction = new CheckFunction();
         List<String> InputDataList = new java.util.ArrayList<>(List.of(InputData.split(",")));
-
-        if(checkFunction.isValidInputList(InputDataList))
-            InputDataList.set(0, "Error");
-
+        int NumberOfTime;
+        if(checkFunction.isValidInputList(InputDataList)) {
+            NumberOfTime = -1;
+            return new InputResult(InputDataList, NumberOfTime);
+        }
         System.out.println("시도할 회수는 몇회인가요?");
         String NumberOfTimeToString = readLine();
-        int NumberOfTime = checkFunction.isValidInputNumber(NumberOfTimeToString);
+        NumberOfTime = checkFunction.isValidInputNumber(NumberOfTimeToString);
         return new InputResult(InputDataList, NumberOfTime);
     }
 

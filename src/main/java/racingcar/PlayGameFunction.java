@@ -10,7 +10,7 @@ public class PlayGameFunction {
             RandomFunction randomFunction = new RandomFunction();
             randomFunction.CreateRandomFunction(UserRace, UserRace.size());
             PlayView playView = new PlayView();
-            playView.PlayResultView(UserRace, NumberOfTime, i);
+            playView.PlayResultView(UserRace, inputDataList, NumberOfTime, i);
         }
     }
 }

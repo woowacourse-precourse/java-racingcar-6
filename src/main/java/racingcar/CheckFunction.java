@@ -9,7 +9,7 @@ public class CheckFunction {
             isStringLengthCheck(inputData);
         } catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
-            return true;
+            throw e;
         }
         return false;
     }
@@ -29,7 +29,7 @@ public class CheckFunction {
             return numberOfTime;
         } catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
-            return -1;
+            throw e;
         }
     }
 
