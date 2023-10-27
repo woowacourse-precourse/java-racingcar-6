@@ -10,10 +10,14 @@ public class Car {
     }
 
     public void moveForward(int randomNumber) {
-        if (randomNumber >= START_MOVING_VALUE) {
+        if (isOkayToGoForward(randomNumber)) {
             this.raceDistance++;
             return;
         }
+    }
+
+    public boolean isOkayToGoForward(int randomNumber){
+        return randomNumber >= START_MOVING_VALUE;
     }
 
 
