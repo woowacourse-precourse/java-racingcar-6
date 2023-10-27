@@ -51,5 +51,6 @@ public class RacingCarController {
         for(RacingCar car : carList) {
             outputView.outputMoveResult(car.getName(), car.getDashString());
         }
+        outputView.outputBlank();
     }
 }
