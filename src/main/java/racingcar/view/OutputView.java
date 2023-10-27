@@ -11,12 +11,8 @@ public class OutputView {
     private static final String WINNERS_JOIN_DELIMITER = ", ";
     private static final String WINNER_EXPRESSION = "최종 우승자 : %s%n";
 
-    private String buildCarDistanceExpression(int carDistance) {
-        return DISTANCE_EXPRESSION_ELEMENT.repeat(carDistance);
-    }
-
     private String buildCarStateExpression(String carName, int carDistance) {
-        String carDistanceExpression = buildCarDistanceExpression(carDistance);
+        String carDistanceExpression = DISTANCE_EXPRESSION_ELEMENT.repeat(carDistance);
         return String.format(CAR_STATE_EXPRESSION, carName, carDistanceExpression);
     }
 
@@ -37,6 +33,7 @@ public class OutputView {
         for (int i = 0; i < racingGameState.getCarAmount(); i++) {
             String carName = racingGameState.getCarNameByIndex(i);
             int carDistance = racingGameState.getCarDistanceByIndex(i);
+
             String carStateExpression = buildCarStateExpression(carName, carDistance);
             sb.append(carStateExpression);
         }
