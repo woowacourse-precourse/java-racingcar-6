@@ -46,6 +46,8 @@ public class RacingCarGame implements Game {
 
     @Override
     public void end() {
+        this.judgeWinners();
+        this.printWinners();
     }
 
     public void setPlayers(){
