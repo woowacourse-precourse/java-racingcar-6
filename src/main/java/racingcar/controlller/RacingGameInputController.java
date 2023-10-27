@@ -28,8 +28,7 @@ public class RacingGameInputController {
     }
 
     private static void validateCarNames(String userInput) {
-        List<String> carNames = Arrays.stream(userInput.split(","))
-                .toList();
+        List<String> carNames = parseWithComma(userInput);
         carNames.forEach(RacingGameInputController::validateCarNameLength);
     }
 
@@ -42,12 +41,12 @@ public class RacingGameInputController {
 
     private static CarList createCarList(String userInput) {
         List<Car> carList = new ArrayList<>();
-        parseStringToCarNameList(userInput)
+        parseWithComma(userInput)
                 .forEach(name -> carList.add(new Car(name)));
         return new CarList(carList);
     }
 
-    private static List<String> parseStringToCarNameList(String userInput) {
+    private static List<String> parseWithComma(String userInput) {
         return Arrays.stream(userInput.split(","))
                 .collect(Collectors.toList());
     }
