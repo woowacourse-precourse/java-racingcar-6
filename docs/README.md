@@ -8,7 +8,7 @@
 ## 출력
 - [ ] 게임시작
   - [ ] 자동차 이름 입력 요청 : view#printAskCarname
-  - [ ] 전진 시도 횟수 : view#printprintAskRepetionNumber
+  - [ ] 전진 시도 횟수 : view#printAskRepetionNumber
 - [ ] 실행결과
   - [ ] 자동차별 전진 시도 결과 / 줄바꿈 : view#printProgressStatus
     - [ ] 전진 반복 시 줄바꿈으로 횟수 간 구분
