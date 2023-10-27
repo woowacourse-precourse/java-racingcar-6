@@ -1,4 +1,4 @@
-package racingcar.domain.exception;
+package racingcar.exception;
 
 public final class CarNameContainsBannedCharacterException extends IllegalArgumentException {
 
