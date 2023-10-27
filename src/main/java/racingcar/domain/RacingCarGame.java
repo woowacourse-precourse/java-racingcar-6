@@ -5,7 +5,7 @@ import java.util.List;
 public class RacingCarGame {
     private int number;
     private boolean timeOver;
-    List<RacingCar> racingCarList;
+    private List<RacingCar> racingCarList;
 
     public RacingCarGame(int number, boolean timeOver, List<RacingCar> racingCarList){
         this.number = number;
@@ -36,5 +36,21 @@ public class RacingCarGame {
         setNumber();
         setTimeOver();
     }
+
+
+    public String whoIsWinner() {
+        return racingCarList.stream()
+                .filter(car -> car.getMove() == winnerValue())
+                .map(RacingCar::getName)
+                .reduce((name1, name2 ) ->name1 + "," + name2)
+                .orElse("");
+    }
+    private Integer winnerValue(){
+        return racingCarList.stream()
+                .mapToInt(RacingCar::getMove)
+                .max()
+                .orElse(0);
+    }
+
 
 }

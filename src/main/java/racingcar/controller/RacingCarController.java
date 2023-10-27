@@ -5,7 +5,6 @@ import racingcar.domain.RacingCar;
 import racingcar.validator.RacingCarValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,10 +28,9 @@ public class RacingCarController {
             racingCarGame.repeatMovingRacingCar();
             racingCarGame.getRacingCarList().forEach(v -> OutputView.printMoveRacingCar(v.getName(), v.getMove()));
             System.out.println("");
-
         }
+        OutputView.printWinner(racingCarGame.whoIsWinner());
     }
-
 
     private List<RacingCar> requestRacingCarNameList(){
         List<RacingCar> racingCarList = racingCarNameConvertStringToArray(racingCarNameInput());
