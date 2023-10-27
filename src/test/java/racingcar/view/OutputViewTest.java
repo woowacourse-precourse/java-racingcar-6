@@ -47,12 +47,12 @@ class OutputViewTest {
     @Test
     public void 현재_게임_결과_출력() throws Exception {
         //given
-        List<String> carNames = Arrays.asList("pobi", "woni", "jun");
-        List<String> gameResults = Arrays.asList("-", "---", "--");
+        String carName = "pobi";
+        String positionInDashes = "-";
         //when
-        OutputView.displayCurrentGameResult(carNames, gameResults);
+        OutputView.displayCurrentGameResult(carName, positionInDashes);
         //then
-        assertEquals("pobi : -\nwoni : ---\njun : --\n", outContent.toString());
+        assertEquals("pobi : -\n", outContent.toString());
     }
 
     @Test
