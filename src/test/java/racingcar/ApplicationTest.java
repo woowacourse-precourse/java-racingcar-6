@@ -52,6 +52,27 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 쉼표로_끝났을경우_배제() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,", "2");
+                    assertThat(output()).contains("pobi : --", "woni : --", "최종 우승자 : pobi,woni");
+                },
+                MOVING_FORWARD, MOVING_FORWARD , MOVING_FORWARD , MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 잘못된_입력_예외발생_반복횟수에_문자열_입력() {
+        assertSimpleTest(
+                () -> {
+                    assertThatThrownBy(() -> runException("abcde,cc,abc", "wda"))
+                            .isInstanceOf(IllegalArgumentException.class);
+                }
+        );
+    }
+
+    @Test
     void 입력한_반복수만큼_순회() {
         assertRandomNumberInRangeTest(
                 () -> {
