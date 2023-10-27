@@ -1,13 +1,13 @@
 # 🚗 미션 - 자동차 경주
 
-## ✏️ 구현할 기능 목록
+## ✏️ 기능 목록
 - n대의 자동차 이름 입력
-    - [ ] 쉼표(,)를 기준으로 구분
-    - 예외처리 : `IllegalArgumentException` 발생 후 종료
+    - [x] 쉼표(,)를 기준으로 구분
+    - 잘못된 입력: `IllegalArgumentException` 발생 후 종료
       - [ ] 빈 문자열인 경우
       - [ ] 5자 이하가 아닌 경우
 - 몇 번의 이동할 것인지 입력
-    - 예외처리 : `IllegalArgumentException` 발생 후 종료
+    - 잘못된 입력: `IllegalArgumentException` 발생 후 종료
       - [ ] 빈 문자열인 경우
       - [ ] 양의 정수가 아닌 경우
 - 각 차수별 실행 결과 출력
