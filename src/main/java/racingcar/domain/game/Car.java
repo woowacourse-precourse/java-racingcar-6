@@ -2,16 +2,15 @@ package racingcar.domain.game;
 
 public class Car {
     private final String name;
-    private int position = 0;
+    private final int position = 0;
 
-    private Car(String name, int position) {
+    private Car(String name) {
         validateNumberLength(name);
         this.name = name;
-        this.position = position;
     }
 
-    public static Car of(String name, int position) {
-        return new Car(name, position);
+    public static Car of(String name) {
+        return new Car(name);
     }
 
     private void validateNumberLength(String name) {
