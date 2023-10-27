@@ -26,10 +26,14 @@ class InputGenerateManagerImplTest {
 
     @Test
     void generateInputStringToInt() {
+        //if
         String rawString = "thisSectionMustBeNumberString";
+        String nullString = "";
 
+        //when
         InputGenerateManagerImpl inputGenerateManager = new InputGenerateManagerImpl();
 
+        //then
         Assertions.assertThatThrownBy(() -> inputGenerateManager.generateInputStringToInt(rawString)).isInstanceOf(
                 IllegalTypeException.class);
     }

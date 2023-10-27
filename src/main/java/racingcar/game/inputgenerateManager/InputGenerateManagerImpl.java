@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import racingcar.game.enums.NumberSize;
 import racingcar.game.exception.IllegalLengthException;
+import racingcar.game.exception.IllegalNullTypeException;
 import racingcar.game.exception.IllegalTypeException;
 
 public class InputGenerateManagerImpl implements InputGenerateManager {
@@ -15,12 +16,14 @@ public class InputGenerateManagerImpl implements InputGenerateManager {
 
     @Override
     public Integer generateInputStringToInt(String rawString) {
+        validateIsNull(rawString);
         validateIsNumeric(rawString);
         return Integer.valueOf(rawString);
     }
 
     @Override
     public List<String> generateInputStringSplitWithComma(String rawString) {
+        validateIsNull(rawString);
         String[] splitData = rawString.split(",");
         validateLength(splitData);
         return Arrays.asList(splitData);
@@ -37,6 +40,12 @@ public class InputGenerateManagerImpl implements InputGenerateManager {
             if(string.length() > 5){
                 throw new IllegalLengthException();
             }
+        }
+    }
+
+    private static void validateIsNull(String rawString) {
+        if (rawString == null || rawString.equals("")) {
+            throw new IllegalNullTypeException();
         }
     }
 }
