@@ -25,7 +25,7 @@
 - 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
 - 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨다.
 
-# 추가 요구 사항
+# 추가한 요구 사항
 
 ## 시도 횟수
 
@@ -33,6 +33,10 @@
 
 - 0이면 경주를 진행하지 않은 것과 같다고 간주
 
-# 추가 고려 사항
+# TODO
 
 - 입력 상한 정하기 (이름, 시도 횟수)
+- 자동차 이름 예외 조건 정하기
+    - 공백으로 시작하거나 끝나면 (예외 or trim)
+    - 중복된 이름 (예외 or distinct)
+    - 공백으로만 구성된 이름 (예외 or filter)
