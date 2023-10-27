@@ -2,7 +2,7 @@ package racingcar.domain;
 
 public class Car {
 
-    public static final int MOVEABLE_OFFSET = 4;
+    private static final int MOVEABLE_OFFSET = 4;
 
     private final Name name;
     private int position;

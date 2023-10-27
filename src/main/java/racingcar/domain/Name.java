@@ -4,9 +4,6 @@ import java.util.regex.Pattern;
 
 public class Name {
 
-    private static final Pattern ALPHABET_CHECK = Pattern.compile("^[a-zA-Z]*$");
-    public static final int LIMIT_NAME_LENGTH = 5;
-
     private final String value;
 
     private Name(final String name) {
@@ -30,8 +27,8 @@ public class Name {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Name name1 = (Name) o;
-        return value.equals(name1.value);
+        Name name = (Name) o;
+        return value.equals(name.value);
     }
 
     @Override
@@ -40,6 +37,9 @@ public class Name {
     }
 
     private static class NameValidator {
+
+        private static final Pattern ALPHABET_CHECK = Pattern.compile("^[a-zA-Z]*$");
+        private static final int LIMIT_NAME_LENGTH = 5;
 
         private static void validate(final String name) {
             validateLength(name);
@@ -64,4 +64,3 @@ public class Name {
         }
     }
 }
-
