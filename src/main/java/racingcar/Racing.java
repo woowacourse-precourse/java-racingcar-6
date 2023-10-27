@@ -25,9 +25,24 @@ public class Racing {
         }
     }
 
+    private void checkNameLengthWithinFive() {
+        for (String car: cars) {
+            if(car.length() > 5){
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+
     private void inputCarName() {
         script.start();
-        cars = Arrays.asList(readLine().split(","));
+
+        String input = readLine();
+
+        if (input.indexOf(',') == -1) {
+            throw new IllegalArgumentException();
+        }
+
+        cars = Arrays.asList(input.split(","));
     }
 
     private boolean isNumber(String number) {
@@ -66,12 +81,12 @@ public class Racing {
         int tryNumber;
 
         inputCarName();
-        tryNumber = inputTryNumber();
+        checkNameLengthWithinFive();
 
+        tryNumber = inputTryNumber();
         initializeMoves();
 
         script.guideResult();
-
         race(tryNumber);
         script.showWinner(moveController.findWinner(cars, moves));
     }
