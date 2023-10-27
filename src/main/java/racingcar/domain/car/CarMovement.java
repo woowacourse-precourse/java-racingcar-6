@@ -5,21 +5,21 @@ import racingcar.domain.car.carcomponent.carmove.CarMoveReader;
 
 public class CarMovement {
     private final Cars cars;
-    private final CarMoveReader totalNumberToMove;
+    private final CarMoveReader carMoveReader;
 
-    public CarMovement(Cars cars, CarMoveReader totalNumberToMove) {
+    public CarMovement(Cars cars, CarMoveReader carMoveReader) {
         this.cars = cars;
-        this.totalNumberToMove = totalNumberToMove;
+        this.carMoveReader = carMoveReader;
     }
 
     public String moveCarsAndGetResult(Supplier<Boolean> moveOrNot) {
         String result = cars.moveCarAndGetResult(moveOrNot);
-        totalNumberToMove.moveCar();
+        carMoveReader.moveCar();
         return result;
     }
 
     public boolean isMovable() {
-        return this.totalNumberToMove.canMoveCar();
+        return this.carMoveReader.canMoveCar();
     }
 
     public String getWinner() {
