@@ -2,7 +2,7 @@ package racingcar;
 
 import racingcar.controller.RacingController;
 import racingcar.util.convert.ConverterHolder;
-import racingcar.util.convert.StringToCarListConverter;
+import racingcar.util.convert.StringToCarGarageConverter;
 import racingcar.util.convert.StringToTryCountConverter;
 import racingcar.service.RacingService;
 import racingcar.util.StringUtil;
@@ -22,7 +22,7 @@ public class AppConfig {
 
     private void setConverters() {
         ConverterHolder.setConverters(List.of(
-                new StringToCarListConverter(),
+                new StringToCarGarageConverter(),
                 new StringToTryCountConverter()
         ));
     }

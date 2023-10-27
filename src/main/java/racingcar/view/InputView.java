@@ -2,11 +2,8 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.util.convert.ConverterHolder;
-import racingcar.domain.car.Car;
 import racingcar.domain.CarGarage;
 import racingcar.domain.TryCount;
-
-import java.util.List;
 
 public class InputView {
 
@@ -16,8 +13,8 @@ public class InputView {
     public CarGarage getCars() {
         System.out.println(INPUT_NAME_MESSAGE);
         String input = Console.readLine();
-        List<Car> carList = ConverterHolder.convert(input, List.class);
-        return new CarGarage(carList);
+        return ConverterHolder.convert(input, CarGarage.class);
+
     }
 
     public TryCount getTryCount() {

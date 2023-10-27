@@ -1,5 +1,6 @@
 package racingcar.util.convert;
 
+import racingcar.domain.CarGarage;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.Name;
 import racingcar.util.Validator;
@@ -7,19 +8,20 @@ import racingcar.util.Validator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StringToCarListConverter implements Converter<String, List<Car>>{
+public class StringToCarGarageConverter implements Converter<String, CarGarage>{
 
     private static final String SPLIT_UNIT = ",";
 
     @Override
     public boolean supports(Object from, Class<?> to) {
-        return from.getClass() == String.class && to == List.class;
+        return from.getClass() == String.class && to == CarGarage.class;
     }
 
     @Override
-    public List<Car> convert(String target) {
+    public CarGarage convert(String target) {
         List<Name> nameList = convertToNameList(target);
-        return convertToCarList(nameList);
+        List<Car> cars = convertToCarList(nameList);
+        return new CarGarage(cars);
     }
 
     public List<Name> convertToNameList(String input) {
