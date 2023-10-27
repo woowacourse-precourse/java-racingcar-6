@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class FeatureTest {
 
     @Test
-    void 경주_할_자동차_이름을_입력받기 () {
+    void 경주_할_자동차_이름을_입력받기() {
         InputHandler inputHandler = new InputHandler();
 
         String testInput = "TestRaceCar";
