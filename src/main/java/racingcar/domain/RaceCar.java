@@ -22,16 +22,14 @@ public class RaceCar {
     }
 
     // TODO: 10/27/23 자동차의 이동을 제어해준다.
-    public Boolean movementControlCar() {
-//        - [ ] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다.
-//      moveForward() 호출
-        moveForward();
-
-//        - [ ] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 미만일 경우이다.
-//      pauseTemp() 호출
-        pauseTemp();
-
-        return true;
+    public Boolean movementControlCar(Integer ranNumOfSingleDigit) {
+        // 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다.
+        if (ranNumOfSingleDigit >= 4 && ranNumOfSingleDigit <= 9) {
+            // moveForward() 호출
+            moveForward();
+            return true;
+        }
+        return false;
     }
 
     public void moveForward() {
@@ -39,7 +37,7 @@ public class RaceCar {
         cntMovementOfCar = cntMovementOfCar + 1;
     }
 
-    // TODO: 10/27/23 자동차 멈춤(정지)
+    // TODO: 10/27/23 자동차 멈춤(정지), 나중에 추가할지 말지 생각
     public void pauseTemp() {
 //        - [ ] 멈춤은 아무런 출력을 하지 않는다.
 
