@@ -8,6 +8,6 @@ public class RacingGame {
     InputView inputView = new InputView();
     public void play() {
         outputView.racingStart();
-        String carNames = inputView.input();
+        String[] carNames = inputView.input().split(",");
     }
 }
