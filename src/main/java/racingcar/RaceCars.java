@@ -8,9 +8,6 @@ import racingcar.view.Input;
 
 public class RaceCars {
 
-    private static final int EQUAL = 0;
-    private static final int LESS_THAN = -1;
-    private static final int FIRST_ELEMENT_INDEX = 0;
     private static final String SPLIT_DELIMITER = ",";
 
     private final List<RaceCar> raceCarList;
@@ -43,25 +40,6 @@ public class RaceCars {
         for (RaceCar car : raceCarList) {
             car.moveForward();
         }
-    }
-
-    public List<RaceCar> getMaximumList() {
-        List<RaceCar> maximumList = new ArrayList<>();
-        RaceCar firstCar = raceCarList.get(FIRST_ELEMENT_INDEX);
-
-        for (RaceCar raceCar : raceCarList) {
-            if (firstCar.compareTo(raceCar) == EQUAL) {
-                maximumList.add(raceCar);
-                continue;
-            }
-            if (firstCar.compareTo(raceCar) == LESS_THAN) {
-                maximumList.clear();
-                firstCar = raceCar;
-                maximumList.add(raceCar);
-            }
-        }
-
-        return maximumList;
     }
 
     @Override
