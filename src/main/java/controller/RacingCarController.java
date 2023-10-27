@@ -13,26 +13,26 @@ public class RacingCarController {
     private static final int LIMIT_NAME_LENGTH = 5;
 
     public void extractName(String input) {
-        List<String> nameList = Arrays.asList(input.split(COMMA));
-        validateLimitNameLength(nameList);
-        Set<String> nameSet = validateDuplicateName(nameList);
+        List<String> carNameList = Arrays.asList(input.split(COMMA));
+        validateLimitNameLength(carNameList);
+        Set<String> carNameSet = validateDuplicateName(carNameList);
     }
 
-    private static void validateLimitNameLength(List<String> nameList) {
-        nameList.stream().forEach(name -> {
-            if (name.length() > LIMIT_NAME_LENGTH) {
+    private static void validateLimitNameLength(List<String> carNameList) {
+        carNameList.stream().forEach(carName -> {
+            if (carName.length() > LIMIT_NAME_LENGTH) {
                 throw new IllegalArgumentException(OVER_LIMIT_NAME_LENGTH);
             }
         });
     }
 
-    private Set<String> validateDuplicateName(List<String> nameList) {
-        Set<String> nameSet = new HashSet<>(nameList);
-        if (nameSet.size() != nameList.size()) {
+    private Set<String> validateDuplicateName(List<String> carNameList) {
+        Set<String> carNameSet = new HashSet<>(carNameList);
+        if (carNameSet.size() != carNameList.size()) {
             throw new IllegalArgumentException(DUPLICATED_NAME);
         }
 
-        return nameSet;
+        return carNameSet;
     }
 
 }
