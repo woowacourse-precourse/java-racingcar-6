@@ -11,7 +11,7 @@
   - [ ] 라운드 횟수 입력 : getRounds
 - [x] 게임 진행 : CarManager
   - [x] 0~9 사이 무작위 값을 생성 : createRandomNumber
-  - [x] 무작위 값이 4 이상일 경우 전진 : moveIfSatisfy
+  - [x] 무작위 값이 4 이상일 경우 전진. count만큼 반복 : moveIfSatisfy
 - [x] 자동차 객체 : Car
   - [x] 인스턴스 변수 : 이름
   - [x] 인스턴스 변수 : 위치
