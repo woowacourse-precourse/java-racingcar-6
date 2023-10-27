@@ -15,7 +15,7 @@ class CarTest {
     void validateCarName() {
         // given
         String carName = "liljay";
-        Car car = new Car();
+        Car car = Car.makeCar(carName);
 
         // when, then
         assertThatThrownBy(() -> car.validateCarName(carName))
@@ -26,8 +26,9 @@ class CarTest {
     @Test
     void moveCar() {
         // given
+        String carName = "pobi";
         int randomNumber = 4;
-        Car car = new Car();
+        Car car = Car.makeCar(carName);
 
         // when
         car.moveCar(randomNumber);
