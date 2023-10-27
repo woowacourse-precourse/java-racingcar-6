@@ -1,18 +1,13 @@
 package racingcar.domain;
 
 import java.util.List;
+import racingcar.dto.CarStateDto;
 
 public class ConsoleOutput implements Output {
     private static final String CAR_NAMES_INPUT_REQUEST = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String MOVE_COUNT_INPUT_REQUEST = "시도할 회수는 몇회인가요?";
     private static final String RESULT_STARTED_MESSAGE = "\n실행 결과";
     private static final String WINNER_IS = "최종 우승자 : ";
-
-    private StringBuilder stringBuilder;
-
-    public ConsoleOutput() {
-        this.stringBuilder = new StringBuilder();
-    }
 
     @Override
     public void printCarNamesInputRequest() {
@@ -25,16 +20,16 @@ public class ConsoleOutput implements Output {
     }
 
     @Override
-    public void addCarState(String name, int path) {
-        stringBuilder.append("%s : ".formatted(name));
-        stringBuilder.append("-".repeat(path));
-        stringBuilder.append("\n");
-    }
+    public void printCarsState(List<CarStateDto> carStateDtoList) {
+        StringBuilder stringBuilder = new StringBuilder();
 
-    @Override
-    public void printCarsState() {
+        for (CarStateDto dto: carStateDtoList) {
+            stringBuilder.append("%s : ".formatted(dto.getName()));
+            stringBuilder.append("-".repeat(dto.getPath()));
+            stringBuilder.append("\n");
+        }
+
         System.out.println(stringBuilder);
-        stringBuilder.setLength(0); //버퍼 비우기
     }
 
     @Override

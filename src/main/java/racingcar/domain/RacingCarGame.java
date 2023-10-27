@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.dto.CarStateDto;
 
 public class RacingCarGame {
     private Input input;
@@ -29,10 +30,8 @@ public class RacingCarGame {
     }
 
     private void printCarsState() {
-        for (Car car : carList) {
-            output.addCarState(car.getName(), car.getPath());
-        }
-        output.printCarsState();
+        List<CarStateDto> carStateDtoList = CarStateDto.makeDto(carList);
+        output.printCarsState(carStateDtoList);
     }
 
     private void moveCars() {
