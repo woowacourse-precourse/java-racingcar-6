@@ -28,6 +28,13 @@ public class Cars {
         return 0;
     }
 
+    public void printMoveRecord(String carName, int moveRecord) {
+        System.out.print(carName + " : ");
+        for (int repeatCount = 0; repeatCount < moveRecord; repeatCount++) {
+            System.out.print("-");
+        }
+    }
+
     private List<String> parsedCarsName(String inputValue) {
         return Arrays.asList(inputValue.split(","));
     }
