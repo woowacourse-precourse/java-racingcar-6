@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
-import racingcar.model.GameRandomNumber;
 import racingcar.model.Name;
 import racingcar.model.RandomNumber;
 
@@ -15,7 +14,7 @@ public class RandomNumberTest {
         // given
         Name name = Name.from("john");
         Car car = Car.from(name);
-        RandomNumber randomNumber = new GameRandomNumber();
+        RandomNumber randomNumber = new MovableRandomNumber();
         int number = randomNumber.pickNumber();
         // when
         car.accelerate(number);
