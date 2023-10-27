@@ -1,6 +1,7 @@
 package racingcar;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -14,9 +15,9 @@ class PlayerTest {
         String commaNextCommaInput = "pobi,,jun";
         String commaLastInput = "pobi,jun,,";
 
-        Assertions.assertThatThrownBy(() -> player.checkCarNameFormat(commaNextCommaInput))
+        assertThatThrownBy(() -> player.checkCarNameFormat(commaNextCommaInput))
                 .isInstanceOf(IllegalArgumentException.class);
-        Assertions.assertThatThrownBy(() -> player.checkCarNameFormat(commaLastInput))
+        assertThatThrownBy(() -> player.checkCarNameFormat(commaLastInput))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -26,9 +27,9 @@ class PlayerTest {
         String notNumber1 = "13qw3";
         String notNumber2 = "qwe";
 
-        Assertions.assertThatThrownBy(() -> player.checkMovingCountFormat(notNumber1))
+        assertThatThrownBy(() -> player.checkMovingCountFormat(notNumber1))
                 .isInstanceOf(IllegalArgumentException.class);
-        Assertions.assertThatThrownBy(() -> player.checkMovingCountFormat(notNumber1))
+        assertThatThrownBy(() -> player.checkMovingCountFormat(notNumber2))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
