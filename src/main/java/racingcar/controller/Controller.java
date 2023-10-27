@@ -3,6 +3,7 @@ package racingcar.controller;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.view.InputView;
 
 public class Controller {
     private final List<Car> cars;
@@ -12,5 +13,9 @@ public class Controller {
     }
 
     public void play() {
+        String[] carNames = InputView.inputCarName();
+        for (String carName : carNames) {
+            cars.add(new Car(carName));
+        }
     }
 }
