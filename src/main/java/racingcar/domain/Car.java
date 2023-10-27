@@ -2,6 +2,7 @@ package racingcar.domain;
 
 public class Car {
 
+    public static final int NAME_LENGTH_LIMIT = 5;
     private final String name;
     private Integer distance;
 
@@ -12,7 +13,7 @@ public class Car {
     }
 
     private static void validateLength(String name) {
-        if(name.length() > 5) throw new IllegalArgumentException();
+        if(name.length() > NAME_LENGTH_LIMIT) throw new IllegalArgumentException();
     }
 
     public void move() {
