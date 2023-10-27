@@ -16,12 +16,17 @@ public class CarNameValidator {
 	}
 
 	public void validate() {
-		if (!isRightNamesString()) {
-			throw new IllegalArgumentException("Validation failed.");
+		if (!isRightNamesString() || !isRightNameSize() ) {
+			throw new IllegalArgumentException("Car Validation failed.");
 		}
 	}
 
 	public boolean isRightNamesString() {
 		return Constants.namesStringPattern.matcher(carInput).matches();
+	}
+
+	public boolean isRightNameSize() {
+		return carNameList.stream()
+				.allMatch(name -> !name.isEmpty() && name.length() <= Constants.NAME_SIZE);
 	}
 }
