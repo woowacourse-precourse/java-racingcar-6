@@ -20,7 +20,8 @@ public class Cars {
 
     private void checkDuplicateCarName(List<Car> cars, Set<String> nameSet) {
         for (Car car : cars) {
-            String name = car.getName();
+            CarName carName = car.getName();
+            String name = carName.getRawName();
             if (nameSet.contains(name)) {
                 throw new IllegalArgumentException();
             }
