@@ -9,7 +9,7 @@ import java.util.List;
 public class CarRepository {
 
     private static Long CarId = 0L;
-    private HashMap<Long, Car> carDatabase;
+    private HashMap<Long, Car> carDatabase = new HashMap<>();
 
     public void save(Car car) {
         carDatabase.put(CarId, car);
