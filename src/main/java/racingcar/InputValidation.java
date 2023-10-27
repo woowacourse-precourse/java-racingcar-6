@@ -1,6 +1,8 @@
 package racingcar;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class InputValidation {
     private static final int MAX_LENGTH = 5;
@@ -24,5 +26,15 @@ public class InputValidation {
                 throw new IllegalArgumentException();
             }
         }
+        if (hasDuplicateNumber(carNames)) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private static boolean hasDuplicateNumber(List<String> carNames) {
+        Set<String> check = new HashSet<>();
+        check.addAll(carNames);
+
+        return check.size() != carNames.size();
     }
 }
