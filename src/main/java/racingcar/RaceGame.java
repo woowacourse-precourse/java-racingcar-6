@@ -10,13 +10,17 @@ class RaceGame {
 	private List<Pair> carsInformation;
 	private int trial;
 	
-	private void getInput() {
+	protected List<Pair> getNamesInput(){
 		GamePrint.printGetNames();
 		String namesInput = GameInput.getNames();
-		carsInformation = GameInput.parseNames(namesInput);
 		
+		return GameInput.parseNames(namesInput);
+	}
+	
+	protected int getTrialInput() {
 		GamePrint.printGetTrial();
-		trial = GameInput.getTrial();
+		
+		return GameInput.getTrial();
 	}
 	
 	private boolean moveForward() {
@@ -32,7 +36,7 @@ class RaceGame {
 		}
 	}
 	
-	private List<String> getWinner() {
+	protected List<String> getWinner(List<Pair> carsInformation) {
 		Collections.sort(carsInformation);
 		List<String> winners = new ArrayList<String>();
 		
@@ -58,9 +62,12 @@ class RaceGame {
 	}
 
 	protected void playGame() {
-		getInput();
+		carsInformation = getNamesInput();
+		trial = getTrialInput();
+		
 		GamePrint.printStart();
 		race();
-		GamePrint.printWinner(getWinner());
+		
+		GamePrint.printWinner(getWinner(this.carsInformation));
 	}
 }
