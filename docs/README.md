@@ -49,7 +49,7 @@
 - member instance
    - RacingCarsList racingCarsList : 자동차 리스트를 저장해 놓은 클래스
 - member function
-   - [ ] RacingCars(RacingCarList) : racingCarsList 초기화
+   - [x] RacingCars(RacingCarList) : racingCarsList 초기화
    - [ ] List <String> getWinners() : 최종 우승자의 리스트를 반환
 
 ### RacingCarsList
