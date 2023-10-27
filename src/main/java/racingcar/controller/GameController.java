@@ -5,7 +5,7 @@ import java.util.List;
 import racingcar.model.RacingCar;
 import racingcar.validator.InputValidation;
 import racingcar.view.*;
-import racingcar.controller.GameUtils;
+
 public class GameController {
     OutputView getMessage = new OutputView();
     InputView putMessage = new InputView();
