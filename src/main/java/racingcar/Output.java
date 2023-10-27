@@ -9,6 +9,10 @@ final class Output {
         System.out.println(OutputMessage.INPUT_NAMES.message);
     }
 
+    static void printInputCount() {
+        System.out.println(OutputMessage.INPUT_COUNT.message);
+    }
+
     static void printResult() {
         System.out.print(OutputMessage.RESULT.message);
     }
