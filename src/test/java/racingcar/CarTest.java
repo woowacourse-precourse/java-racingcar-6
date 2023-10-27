@@ -13,7 +13,7 @@ public class CarTest extends NsTest{
     private static final int STOP = 3;
 
     @Test
-    void 자동자의_이동거리를_문자열로_반환() {
+    void 자동차의_이동거리를_문자열로_반환() {
         Car car = new Car("test");
         int[] moves = {MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD};
         move_car(car, moves);
