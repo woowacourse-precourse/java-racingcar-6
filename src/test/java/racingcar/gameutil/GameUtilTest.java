@@ -7,14 +7,12 @@ import racingcar.GameUtil;
 
 class GameUtilTest {
 
-    GameUtil gameUtil = new GameUtil();
-
     @Test
     void splitByCommasTest() {
         // given
         String input = "pobi,woni,jun";
         // when
-        List<String> result = gameUtil.splitByCommas(input);
+        List<String> result = GameUtil.splitByCommas(input);
         // then
         Assertions.assertThat(result).containsExactly("pobi", "woni", "jun");
     }
@@ -24,7 +22,7 @@ class GameUtilTest {
         // given
         String input = "p,o,b,i";
         // when
-        List<String> result = gameUtil.splitByCommas(input);
+        List<String> result = GameUtil.splitByCommas(input);
         // then
         Assertions.assertThat(result).containsExactly("p", "o", "b", "i");
     }
