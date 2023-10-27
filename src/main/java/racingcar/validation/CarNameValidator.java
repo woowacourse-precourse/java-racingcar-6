@@ -14,11 +14,13 @@ public class CarNameValidator {
     public CarNameValidator(String carNameStrings) {
         this.CAR_NAME_STRINGS = carNameStrings;
         this.CAR_NAMES = Arrays.asList(carNameStrings.split(","));
-        validate();
     }
-    public void validate() {
+
+    public List<String> validate() {
         validateNull();
         validateBlank();
+        validateLength();
+        return this.CAR_NAMES;
     }
 
     public void validateNull() {
@@ -27,5 +29,11 @@ public class CarNameValidator {
 
     public void validateBlank() {
         CAR_NAMES.forEach(StringValidator::stringIsBlank);
+    }
+
+    public void validateLength() {
+        if (CAR_NAMES.stream().anyMatch(name -> name.length() > CarGameValue.CAR_NAME_MAX_LENGTH.getValue())) {
+            throw new IllegalArgumentException(String.format(ErrorMessage.INPUT_NAME_LENGTH_MESSAGE.getValue(), 5));
+        }
     }
 }
