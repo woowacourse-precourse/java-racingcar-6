@@ -3,6 +3,7 @@ package racingcar.game;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.strategy.MoveStrategy;
 
 public class Race {
     private static final int MINIMUM_NUMBER_OF_RACES = 1;
@@ -10,22 +11,29 @@ public class Race {
 
     private Cars cars;
     private Integer remainingRaces;
+    private MoveStrategy moveStrategy;
 
-    private Race(Cars cars, Integer numberOfRaces) {
+    private Race(Cars cars, Integer numberOfRaces, MoveStrategy moveStrategy) {
+        validateNumberOfRaces(numberOfRaces);
+
         this.cars = cars;
         this.remainingRaces = numberOfRaces;
+        this.moveStrategy = moveStrategy;
     }
 
-    public static Race of(Cars cars, Integer numberOfRaces) {
-        validateNumberOfRaces(numberOfRaces);
-        return new Race(cars, numberOfRaces);
+    public static Race of(Cars cars, Integer numberOfRaces, MoveStrategy moveStrategy) {
+        return new Race(cars, numberOfRaces, moveStrategy);
     }
 
     public void performRaceStep() {
         if (!hasRemainingRaces()) {
             throw new IllegalStateException();
         }
-        // TODO: 실제 레이싱 수행 로직 필요
+
+        cars.getCars().stream()
+                .filter(car -> moveStrategy.shouldMove())
+                .forEach(Car::moveForward);
+        
         remainingRaces--;
     }
 
