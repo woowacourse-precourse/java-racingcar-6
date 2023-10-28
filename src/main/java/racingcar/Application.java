@@ -10,11 +10,22 @@ public class Application {
         String userInput = inputCarName();
         int tryCount = inputTryCount();
 
-        HashMap<String, String> createUserCar = userCarInfoSave(userInput);
+        HashMap<String, String> userCarNameAndMoveStatus = userCarNameSave(userInput);
 
+        for (int i = 0; i < tryCount; i++) {
+            referee(userCarNameAndMoveStatus);
+            moveStatus(userCarNameAndMoveStatus);
+        }
     }
 
-    private static void referee(HashMap<String, String> createUserCar) {
+    private static void moveStatus(HashMap<String, String> referee) {
+        for (String userCarName : referee.keySet()) {
+            String userCarMoveResult = referee.get(userCarName);
+            System.out.println(userCarName + " : " + userCarMoveResult);
+        }
+    }
+
+    private static HashMap<String, String> referee(HashMap<String, String> createUserCar) {
         for (String key : createUserCar.keySet()) {
             String value = createUserCar.get(key);
             int random = randomNumber();
@@ -22,6 +33,7 @@ public class Application {
                 createUserCar.put(key, value + "-");
             }
         }
+        return createUserCar;
     }
 
     private static String inputCarName() {
@@ -30,7 +42,7 @@ public class Application {
         return inputCarName;
     }
 
-    private static HashMap<String, String> userCarInfoSave(String inputCarName) {
+    private static HashMap<String, String> userCarNameSave(String inputCarName) {
         HashMap<String, String> createUserCar = new HashMap<>();
         String[] userCarNameArr = inputCarName.split(",");
         for (String car : userCarNameArr) {
@@ -49,4 +61,5 @@ public class Application {
         int random = Randoms.pickNumberInRange(0, 9);
         return random;
     }
+
 }
