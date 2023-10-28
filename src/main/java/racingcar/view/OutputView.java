@@ -10,7 +10,7 @@ public class OutputView {
         System.out.println(message);
     }
 
-    public static void printResult(Cars cars) {
+    public static void printMovingResult(Cars cars) {
         System.out.println(cars);
     }
 
