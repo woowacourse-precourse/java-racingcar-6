@@ -24,4 +24,8 @@ public class Game {
 		return try_count;
 	}
 	
+	public static void gameStart(int tryCount, ArrayList<Car> car_list) {
+		System.out.println("실행 결과");
+	}
+	
 }

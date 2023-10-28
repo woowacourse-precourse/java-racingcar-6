@@ -9,6 +9,22 @@ public class Car {
 	Car(String name){
 		this.name = name;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Stack<String> getMovementStack() {
+		return movementStack;
+	}
+
+	public void setMovementStack(Stack<String> movementStack) {
+		this.movementStack = movementStack;
+	}
 	
 	
 	
