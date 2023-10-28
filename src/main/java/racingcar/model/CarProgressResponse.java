@@ -1,19 +1,10 @@
 package racingcar.model;
 
-public final class CarProgressResponse {
-    private final String name;
-    private final int result;
+import java.util.Objects;
 
-    public CarProgressResponse(String name, int result) {
-        this.name = name;
-        this.result = result;
-    }
+public record CarProgressResponse(String name, int result) {
 
-    public String getName() {
-        return name;
-    }
-
-    public int getResult() {
-        return result;
+    public CarProgressResponse {
+        Objects.requireNonNull(name, "차량 이름은 비어있을 수 없습니다");
     }
 }
