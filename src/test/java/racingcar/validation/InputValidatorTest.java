@@ -30,8 +30,8 @@ class InputValidatorTest {
     @Test
     @DisplayName("입력은 공백일 수 없다.")
     void testInputNotBlank() {
-        String input = "notBlank ";
-        assertThat(input).isNotBlank();
+        String input = " ";
+        assertThat(input).isBlank();
         assertThrows(IllegalArgumentException.class,
                 () -> inputValidator.validateInputBlank(input));
     }
@@ -39,8 +39,8 @@ class InputValidatorTest {
     @Test
     @DisplayName("입력은 비어있을 수 없다.")
     void testInputNotEmpty() {
-        String input = "notEmpty";
-        assertThat(input).isNotEmpty();
+        String input = "";
+        assertThat(input).isEmpty();
         assertThrows(IllegalArgumentException.class,
                 () -> inputValidator.validateInputEmpty(input));
     }
