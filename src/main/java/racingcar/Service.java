@@ -1,6 +1,9 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Service {
     CarRepository carRepository;
@@ -29,6 +32,28 @@ public class Service {
                 });
         CarsDto carsDto = new CarsDto(carDtoArrayList);
 
+        return carsDto;
+    }
+
+    public CarsDto getWinner() {
+        ArrayList<Car> garage = carRepository.findAll();
+        int winnerDistance = garage.stream()
+                .mapToInt(Car::getCurrentPosition)
+                .max()
+                .orElse(0);
+
+        ArrayList<Car> winners = (ArrayList<Car>) garage.stream()
+                .filter(car -> car.getCurrentPosition() == winnerDistance)
+                .collect(Collectors.toList());
+
+        ArrayList<CarDto> cars = new ArrayList<>();
+
+        winners.stream()
+                .forEach(car -> {
+                    cars.add(new CarDto(car.getName()));
+                });
+
+        CarsDto carsDto = new CarsDto(cars);
         return carsDto;
     }
 }

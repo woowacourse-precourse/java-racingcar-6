@@ -10,7 +10,7 @@ public class RacingGame {
     public void run() {
         controller.settingGame();
         controller.startGame();
-        controller.printFianlResult();
+        controller.printFinalResult();
     }
 
 

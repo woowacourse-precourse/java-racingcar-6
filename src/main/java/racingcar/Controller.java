@@ -66,7 +66,7 @@ public class Controller {
         return trialNumber;
     }
 
-    public void printFianlResult() {
-       //OutView.printWinner();
+    public void printFinalResult() {
+      OutView.printResultWinner(service.getWinner());
     }
 }
