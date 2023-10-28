@@ -4,7 +4,6 @@ import racingcar.domain.Car;
 import racingcar.util.GameUtil;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Set;
 
 public class InputException {
