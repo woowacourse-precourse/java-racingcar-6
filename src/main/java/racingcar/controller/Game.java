@@ -10,11 +10,14 @@ public class Game {
 
     public void start() {
         OutputView.askCarName();
-        RacingCars racingcars = TypeCasting.stringToRacingCars((InputView.askCarName()));
+        RacingCars racingcars = TypeCasting.stringToRacingCars(InputView.askCarName());
         final int playTime = TypeCasting.stringToInteger(InputView.askPlayTime());
         for (int i = 0; i < playTime; i++) {
-            Refree.simulate();
+            Refree.simulate(racingcars);
+            OutputView.showCurrentDistance(racingcars);
         }
-        OutputView.showResult();
+        RacingCars winners = Refree.calculateWinner(racingcars);
+        OutputView.showFinalWinner(winners);
+
     }
 }
