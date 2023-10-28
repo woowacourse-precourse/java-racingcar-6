@@ -30,4 +30,8 @@ public class Car {
         carPosition.clear();
     }
 
+    public void carMove(int move) {
+        this.carPosition.set(move, this.carPosition.get(move) + 1);
+    }
+
 }
