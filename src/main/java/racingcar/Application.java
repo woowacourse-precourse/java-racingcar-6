@@ -3,7 +3,10 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
@@ -22,22 +25,22 @@ public class Application {
         }
     }
 
-    private static void moveStatus(HashMap<String, String> referee) {
-        for (String userCarName : referee.keySet()) {
-            String userCarMoveResult = referee.get(userCarName);
+    private static void moveStatus(HashMap<String, String> carMoveStatus) {
+        for (String userCarName : carMoveStatus.keySet()) {
+            String userCarMoveResult = carMoveStatus.get(userCarName);
             System.out.println(userCarName + " : " + userCarMoveResult);
         }
         System.out.println();
     }
 
-    private static HashMap<String, String> referee(HashMap<String, String> createUserCar) {
-        for (String key : createUserCar.keySet()) {
-            String value = createUserCar.get(key);
+    private static HashMap<String, String> referee(HashMap<String, String> userCarName) {
+        for (String key : userCarName.keySet()) {
+            String value = userCarName.get(key);
             if (randomNumber() >= 4) {
-                createUserCar.put(key, value + "-");
+                userCarName.put(key, value + "-");
             }
         }
-        return createUserCar;
+        return userCarName;
     }
 
     private static HashMap<String, String> userCarNameSave(String inputCarName) {
@@ -64,6 +67,19 @@ public class Application {
     private static int randomNumber() {
         int random = Randoms.pickNumberInRange(0, 9);
         return random;
+    }
+
+    private static int mostMovingForwardLength(HashMap<String,String> carMoveStatus) {
+        List<Integer> forwardLength = new ArrayList<>();
+        for (String carCount : carMoveStatus.keySet()) {
+            forwardLength.add(Integer.parseInt(carCount));
+        }
+        return Collections.max(forwardLength);
+    }
+
+    private static void winner(HashMap<String,String> carMoveStatus) {
+
+        System.out.println("최종 우승자 : ");
     }
 
 }
