@@ -24,7 +24,7 @@ public class AppConfig {
         return new InputView();
     }
 
-    private OutputView outputView() {
+    public OutputView outputView() {
         return new OutputView();
     }
 }

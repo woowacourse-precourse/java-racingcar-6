@@ -21,6 +21,24 @@ public class OutputViewTest {
     }
 
     @Test
+    @DisplayName("자동차 입력 문구 출력 테스트")
+    public void testInputCarsMessage() {
+        outputView.printInputCarsNameMessage();
+        String output = byteArrayOutputStream.toString();
+
+        Assertions.assertThat(output.trim()).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+    }
+
+    @Test
+    @DisplayName("시도 횟수 입력 문구 출력 테스트")
+    public void testInputAttemptCountMessage() {
+        outputView.printInputTotalRoundMessage();
+        String output = byteArrayOutputStream.toString();
+
+        Assertions.assertThat(output.trim()).isEqualTo("시도할 회수는 몇회인가요?");
+    }
+
+    @Test
     @DisplayName("한 라운드 전진 결과 출력 테스트")
     public void testMoveResult() {
         Cars cars = new Cars("tiger,bear,eagle");
