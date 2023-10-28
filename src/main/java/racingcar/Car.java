@@ -1,20 +1,24 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Set;
 
 public class Car {
     private final HashMap<String, Integer> racingLineup;
+    private final ArrayList<String> winnerList;
 
     Car(String[] names) {
         this.racingLineup = new HashMap<>();
+        this.winnerList = new ArrayList<>();
         for (String name : names) {
             this.racingLineup.put(name, 0);
         }
     }
 
-    void moveCar(Car cars) {
+    void moveCar() {
         Set<String> carNames = this.racingLineup.keySet();
         for (String name : carNames) {
             increaseCarPosition(name);
@@ -41,5 +45,20 @@ public class Car {
         }
         System.out.println();
     }
+
+    ArrayList<String> whoIsWinner() {
+        int maxPosition = Collections.max(this.racingLineup.values());
+        for (String carName : this.racingLineup.keySet()) {
+            this.winnerList.add(findCar(carName, maxPosition));
+        }
+        return this.winnerList;
+    }
+    String findCar(String carName, Integer position) {
+        if(racingLineup.get(carName).equals(position)) {
+            return carName;
+        }
+        return null;
+    }
+
 
 }
