@@ -1,19 +1,29 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.config.Config;
 import racingcar.model.Car;
+import racingcar.utils.RandomUtil;
 import racingcar.utils.Validation;
 
 public class GameService {
+
+  private Config config;
+  private int minValue;
+  private int maxValue;
+  private int setValue;
   public Car[] car;
   public int tryNum;
+  public int forwardNum;
   Validation validation = new Validation();
 
-
-  public void startGame() {
-    getInputCar();
-    getInputTryNum();
+  public GameService(Config config) {
+    this.config = config;
+    this.maxValue = config.getMaxValue();
+    this.minValue = config.getMinValue();
+    this.setValue = config.getSetValue();
   }
+
 
 
   // 입력값을 받는다.
@@ -44,5 +54,23 @@ public class GameService {
     System.out.println("시도할 횟수는 몇회인가요?");
     tryNum = validation.isNumber(Console.readLine());
   }
+
+  public void carForward() {
+    for(int i=0;i<tryNum;i++) {
+      for(int j=0;j<car.length;j++) {
+        forwardNum = RandomUtil.getRandomNumber(minValue, maxValue);
+        if(forwardNum >= setValue) {
+          car[j].increaseForward();
+        }
+      }
+    }
+
+    System.out.println("최종결과");
+    for(Car c: car) {
+      System.out.println(c.getName() + " : " + c.getForward());
+    }
+  }
+
+
 
 }
