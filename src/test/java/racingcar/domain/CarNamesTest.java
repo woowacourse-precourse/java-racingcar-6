@@ -10,9 +10,10 @@ import racingcar.Car;
 
 public class CarNamesTest {
     @Test
-    @DisplayName("이름에 공백이 포함되면 예외가 발생한다.")
-    void createCarNamesByEmptySpace(){
-        assertThatThrownBy(() -> CarNames.from("a,b,c,d"))
+    @DisplayName("이름 리스트에 중복이 포함되면 예외가 발생한다.")
+    void createCarNamesByDuplicateElements(){
+        assertThatThrownBy(() -> CarNames.from("a,a,c,d"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
 }
