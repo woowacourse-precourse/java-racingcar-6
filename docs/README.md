@@ -9,7 +9,7 @@
       - ,로 구분자를 잡기 때문에 해당 문자는 들어가지 않을 것이다! 
       - 이름은 5자 이하여야 한다!
       - 오로지 공백인 경우? -> 이건 말이 되나?
-  - [ ] 2 이후 게임을 몇 번 진행할 지 입력을 받는다!  - ## InputView - inputGameCount
+  - [X] 2 이후 게임을 몇 번 진행할 지 입력을 받는다!  - ## InputView - inputGameCount
     - 게임 횟수 입력 시 생각해 볼 것!
       - 게임 횟수가 얼마나 될 지 제한이 없다! -> 최대한 범위를 넓게 잡는게 좋을 거 같다!(Long으로 진행)
       - 게임 횟수 처리는 InputView 에서 다른 쪽으로 넘겨주기! -> 테스트 진행에 용이!
@@ -27,7 +27,7 @@
       - [X] 자동차의 이름이 ,,로만 진행되어 이름이 나오지 않을 경우! ##Validator - isNoName,
       - [X] 자동차의 이름이 123,,23 의 경우로 진행되어 이름이 나오지 않을 경우! ##Validator - checkLengthEachName,
     - [ ] 게임 횟수 만큼 진행될 수 있게 진행 - 🚗 CarGameService
-      - [ ] 게임 횟수 입력시 잘못된 값 입력시 검증 과정 진행! ##Validator, ##CarGameService
+      - [X] 게임 횟수 입력시 잘못된 값 입력시 검증 과정 진행! ##Validator, ##CarGameService
         - 숫자인지 확인!
     - [ ] 게임 진행 - ## CarGameService - gameStart
       - [ ] 자동차의 이름마다 숫자 굴리기 - NumberGenerator 
