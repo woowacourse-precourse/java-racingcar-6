@@ -1,16 +1,12 @@
 package racingcar;
 
+import racingcar.domain.AskPlayer;
+import racingcar.domain.Cars;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
-    }
-
-
-    static void askPlayerName(){
-
-    }
-
-    static void askHowMuch(){
-
+        AskPlayer askPlayer = new AskPlayer();
+        Cars c = askPlayer.askName();
+        c.getCars();
     }
 }
