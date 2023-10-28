@@ -17,6 +17,7 @@ public class Application {
         GenCar();
         int Num = PutNum();
         RaceStart(Num);
+        ChooseChampion();
     }
 
     public static void GenCar(){
@@ -57,7 +58,7 @@ public class Application {
         }
     }
 
-    public static void RaceStart(int n){
+    public static void RaceStart(int n) {
         System.out.println("\n실행 결과");
         for(int i=0;i<n;i++)
         {
@@ -65,7 +66,7 @@ public class Application {
             System.out.println();
         }
     }
-    public static void CarMove(){
+    public static void CarMove() {
         for (String key : User.keySet()) {
             if(MoveOrStop())
             {
@@ -73,21 +74,35 @@ public class Application {
             }
             System.out.print(key + " : ");
             ShowMove(key);
-
         }
     }
-    public static boolean MoveOrStop()
-    {
+    public static boolean MoveOrStop() {
         return 4<=Randoms.pickNumberInRange(0,9);
     }
-    public static void ShowMove(String key)
-    {
+    public static void ShowMove(String key) {
         int i = User.get(key);
         for(int j=0;j<i;j++)
         {
             System.out.print("-");
         }
         System.out.println();
+    }
+    public static void ChooseChampion() {
+        int biggest=-1;
+        List<String> Winners = new ArrayList<>();
+        for (String key : User.keySet()) {
+            if (biggest<User.get(key)) {
+                biggest=User.get(key);
+            }
+        }
+        for (String key : User.keySet()) {
+            if(biggest==User.get(key))
+            {
+                Winners.add(key);
+            }
+        }
+        String result = String.join(", ",Winners);
+        System.out.println("최종 우승자 : " + result);
     }
 }
 
