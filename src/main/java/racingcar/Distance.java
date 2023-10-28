@@ -4,14 +4,22 @@ import java.util.Objects;
 
 public class Distance {
 
-    private final int distance;
+    private int value;
 
-    public Distance(int distance) {
-        this.distance = distance;
+    public Distance(int value) {
+        this.value = value;
     }
 
     public static Distance from(int distance) {
         return new Distance(distance);
+    }
+
+    public void increase() {
+        value++;
+    }
+
+    public int getValue() {
+        return value;
     }
 
     @Override
@@ -22,12 +30,12 @@ public class Distance {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Distance distance1 = (Distance) o;
-        return distance == distance1.distance;
+        Distance distance = (Distance) o;
+        return value == distance.value;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(distance);
+        return Objects.hash(value);
     }
 }
