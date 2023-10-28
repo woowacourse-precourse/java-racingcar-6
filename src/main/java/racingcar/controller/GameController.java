@@ -65,8 +65,15 @@ public class GameController {
     private Integer getGameCycleNumberFromUser() {
         InputManager.requestGameCycleNumber();
         Integer gameCycleNumber = Integer.valueOf(Console.readLine());
+        validationGameCycle(gameCycleNumber);
         System.out.println();
         return gameCycleNumber;
+    }
+
+    private void validationGameCycle(Integer gameCycleNumber) {
+        if (!Character.isDigit(gameCycleNumber)) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private List<Car> makeCar(String carNames) {

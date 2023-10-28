@@ -20,7 +20,7 @@ public class Car {
 
     public void go(int randNumber) {
         if (randNumber >= CAR_FORWARD_JUDGMENT_CRITERIA) {
-            this.position ++;
+            this.position++;
         }
     }
 
