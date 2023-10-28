@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class CarList {
 
-	private final String ENTERED_SEPARATOR = ",";
+	private final String ENTERED_LIST_SEPARATOR = ",";
 	private final List<Car> carList = new ArrayList<>();
 
 	public CarList(String enteredList) {
@@ -15,16 +15,22 @@ public class CarList {
 		String[] splitEnteredList = splitEnteredList(enteredList);
 
 		for (String eachCarName : splitEnteredList) {
+
 			validateCarName(eachCarName);
 			this.carList.add(new Car(eachCarName.trim()));
+
 		}
 
 	}
 
 	private void validateCarName(String eachCarName) {
-		if (eachCarName.length() > 5) {
+
+		final int LENGTH_LIMIT = 5;
+
+		if (eachCarName.length() > LENGTH_LIMIT) {
 			throw new IllegalArgumentException("5글자 이하의 이름만 입력해주세요.");
 		}
+
 	}
 
 	public void moveCarList() {
@@ -36,7 +42,7 @@ public class CarList {
 	}
 
 	private String[] splitEnteredList(String enteredList) {
-		return enteredList.split(ENTERED_SEPARATOR);
+		return enteredList.split(ENTERED_LIST_SEPARATOR);
 	}
 
 	public List<Car> findWinner() {
@@ -68,6 +74,7 @@ public class CarList {
 	}
 
 	private void addRemoveList(Set<Car> removeList, int referenceIndex, int comparableIndex) {
+
 		final int COMPARE_EQUAL_SIGN = 0;
 
 		if (carList.get(referenceIndex).compareDistance(carList.get(comparableIndex)) < COMPARE_EQUAL_SIGN) {
