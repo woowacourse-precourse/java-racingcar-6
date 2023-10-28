@@ -7,7 +7,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Cars {
 
-    private static List<Car> cars = new ArrayList<>();
+    private final List<Car> cars;
 
     public Cars(List<Car> cars) {
         this.cars = cars;
@@ -17,14 +17,25 @@ public class Cars {
         return Collections.unmodifiableList(cars);
     }
 
-    private void randomGenerator() {
+    private int randomGenerator() {
         int randomNumber = Randoms.pickNumberInRange(0,9);
-        if (randomNumber >= 4){
-            moveForward();
-        }
+        return randomNumber;
     }
 
     private void moveForward() {
-        cars.stream().forEach(car -> car.updatePosition());
+        cars.stream()
+                .filter(car -> randomGenerator() >= 4)
+                .forEach(car -> car.updatePosition());
     }
+
+    public void printPlayers() {
+        moveForward();
+        cars.stream()
+                .forEach(car -> {
+                    System.out.print(car.getName() + " : ");
+                    System.out.println(car.getPosition());
+                });
+        System.out.println();
+    }
+
 }

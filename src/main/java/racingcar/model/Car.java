@@ -3,12 +3,9 @@ public class Car {
 
     private final String name;
     private String position;
-    private final int count;
-
-    public Car(String name, String position, int count) {
+    public Car(String name, String position) {
         this.name = name;
         this.position = position;
-        this.count = count;
     }
 
     public String getName() {
@@ -17,10 +14,6 @@ public class Car {
 
     public String getPosition() {
         return position;
-    }
-
-    public int getCount() {
-        return count;
     }
 
     public void updatePosition() {

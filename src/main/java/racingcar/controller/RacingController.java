@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
+import racingcar.model.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -9,25 +10,33 @@ import java.util.List;
 
 public class RacingController {
 
+    private Cars cars;
     public void runGame() {
         startGame();
+        playGame();
     }
 
     private void startGame() {
         OutputView.printStartMessage();
         String [] players = InputView.getPlayerInput();
         OutputView.printTryNumberMessage();
-        List<String> cars = setPlayerName(players);
-        int tryNumber = InputView.getTryNumberInput();
 
-        Car car = new Car(cars, tryNumber);
-    }
-
-    private List<String> setPlayerName(String [] players) {
-        List<String> cars = new ArrayList<>();
+        List<Car> carList = new ArrayList<>();
         for (String player : players) {
-            cars.add(player);
+            Car car = new Car(player, "");
+            carList.add(car);
         }
-        return cars;
+        cars = new Cars(carList);
     }
+
+    private void playGame() {
+        int tryNumber = InputView.getTryNumberInput();
+        OutputView.printResultMessage();
+        while (tryNumber > 0) {
+            cars.printPlayers();
+            tryNumber--;
+        }
+    }
+
+
 }
