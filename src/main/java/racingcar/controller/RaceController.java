@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import java.util.stream.IntStream;
 import racingcar.domain.RaceAttempts;
 import racingcar.domain.RaceParticipants;
 import racingcar.domain.RaceWinners;
@@ -38,7 +39,13 @@ public class RaceController {
     private RaceWinners runRaceAndGetWinners(RaceParticipants raceParticipants, RaceAttempts raceAttempts) {
     }
 
+
     private void raceInProgress(int attempts, List<RacingCar> racingCarList) {
+        IntStream.range(0, attempts)
+                .forEach(attempt -> {
+                    racingCarList.forEach(RacingCar::moveOrStop);
+                    outputView.printRaceProgress(racingCarList);
+                });
     }
 
     private void displayRaceWinners(RaceWinners raceWinners) {
