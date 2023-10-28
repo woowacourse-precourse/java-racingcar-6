@@ -57,7 +57,7 @@
     - ','으로 나눠진 문자열을 검사한다.
     - ','으로 나눠진 문자열을 리스트 형태로 파싱한다.
   - 상호작용
-    - RacingController : 요청을 받으면 문자열 리스트를 제공한다.
+    - RacingController : 요청을 받으면 문자열 리스트를 제공한다.0
 - RoundCountInput
   - 역할 : 몇번 반복할지 숫자를 입력 받는다.
   - 책임 : 
@@ -136,3 +136,9 @@
 #### Controller
 - RacingController
   - 레이싱을 진행한다. -> public void playRacing()
+
+### 클래스 다이어그램
+지난주 리뷰에서 각 클래스의 관계도가 있는 코드는 구조를 파악하기 쉬워 코드 리뷰하기 수월했다. 나도 한번 만들어봤다.
+
+![java-racingcar-6-class-diagram.jpg](asset%2Fjava-racingcar-6-class-diagram.jpg)
+
