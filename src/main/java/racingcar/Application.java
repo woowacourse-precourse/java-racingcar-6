@@ -11,7 +11,7 @@ public class Application {
         int player_input_gameTRY = Game.gameTRYCount();
         //게임시작
         Game.gameStart(player_input_gameTRY, carListForGameReady);
-        //우승자
+        //우승자(엔딩)
         Game.gameWinner(carListForGameReady);
     }
 }
