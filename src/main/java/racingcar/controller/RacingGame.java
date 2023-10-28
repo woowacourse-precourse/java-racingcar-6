@@ -1,43 +1,53 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
+import racingcar.domain.strategy.MoveStrategy;
 import racingcar.domain.strategy.RandomMoveStrategy;
 import racingcar.util.InputValidator;
+import racingcar.view.InputView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
-    public void start() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String input = Console.readLine();
-        InputValidator.validateCarNames(input);
+    private final MoveStrategy moveStrategy;
 
-        System.out.println("시도할 회수는 몇회인가요?");
-        String round = Console.readLine();
-        InputValidator.validateRound(round);
+    public RacingGame() {
+        this.moveStrategy = new RandomMoveStrategy();
+    }
+
+    public void start() {
+        String carNamesInput = inputAndValidateCarNames();
+        String roundInput = inputAndValidateRound();
 
         System.out.println();
 
-        List<Car> cars = createCars(input);
+        List<Car> cars = createCars(carNamesInput);
 
         System.out.println("실행 결과");
 
-        RandomMoveStrategy randomMoveStrategy = new RandomMoveStrategy();
-
-        int roundCount = Integer.parseInt(round);
+        int roundCount = Integer.parseInt(roundInput);
         for (int currentRound = 0; currentRound < roundCount; currentRound++) {
-            for (Car car : cars) {
-                if (randomMoveStrategy.isAbleToMove())
-                    car.move();
-            }
+            move(cars);
             printProgress(cars);
         }
 
         System.out.print("최종 우승자 : " + getWinners(cars));
     }
 
+    private String inputAndValidateCarNames() {
+        String carNamesInput = InputView.inputCarNames();
+        InputValidator.validateCarNames(carNamesInput);
+
+        return carNamesInput;
+    }
+
+    private String inputAndValidateRound() {
+        String roundInput = InputView.inputRound();
+        InputValidator.validateRound(roundInput);
+
+        return roundInput;
+    }
 
     private List<Car> createCars(String input) {
         List<Car> cars = new ArrayList<>();
@@ -48,6 +58,13 @@ public class RacingGame {
         }
 
         return cars;
+    }
+
+    private void move(List<Car> cars) {
+        for (Car car : cars) {
+            if (moveStrategy.isAbleToMove())
+                car.move();
+        }
     }
 
     private void printProgress(List<Car> cars) {
