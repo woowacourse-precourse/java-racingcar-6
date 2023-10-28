@@ -29,11 +29,9 @@ public class CarService {
 
     public List<String> getWinner() {
         List<Car> carWithMaxPosition = carRepository.findCarWithMaxPosition();
-
-        ArrayList<String> winners = new ArrayList<>();
-        carWithMaxPosition.forEach(car -> winners.add(car.getName()));
-
-        return winners;
+        return carWithMaxPosition.stream()
+                .map(Car::getName)
+                .toList();
     }
 
     public List<Car> startRacingCar() {
