@@ -9,8 +9,10 @@ import java.util.StringTokenizer;
 public class ViewInput {
 
     private static StringTokenizer carsToken;
+    private static InputVerification inputVerification = new InputVerification();
 
     public List<String> getCarNames() {
+
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
         carsToken = new StringTokenizer(Console.readLine(), ",");
 
@@ -18,6 +20,8 @@ public class ViewInput {
         while(carsToken.hasMoreTokens()) {
             cars.add(carsToken.nextToken().trim());
         }
+
+        inputVerification.verifyCarNamesInput(cars);
 
         return cars;
     }
