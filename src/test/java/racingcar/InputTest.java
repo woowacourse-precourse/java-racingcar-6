@@ -63,5 +63,13 @@ public class InputTest {
         .isInstanceOf(IllegalArgumentException.class);
   }
 
+  @DisplayName("회수가 1보다 큰지 테스트")
+  @Test
+  void 회수_음수_테스트() {
+    String input = "-1";
+
+    assertThatThrownBy(() -> FrequencyValidator.isNegativeNumber(input))
+        .isInstanceOf(IllegalArgumentException.class);
+  }
 
 }
