@@ -35,6 +35,13 @@ public class Application {
         return Integer.parseInt(time);
     }
 
+    public static void timeIsNumber(String time) {
+        try {
+            Integer.parseInt(time);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력하십시오");
+        }
+    }
 
 
     public static void main(String[] args) {
