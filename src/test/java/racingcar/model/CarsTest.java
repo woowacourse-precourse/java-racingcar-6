@@ -97,7 +97,7 @@ public class CarsTest {
         Integer targetNumber  = 3 ;
 
         assertThat(Cars.comparePosition(givenCar).position()).isEqualTo(targetNumber);
-        assertThat(Cars.comparePosition(givenCar).state()).isEqualTo(ComparePositionState.SAME);
+        assertThat(Cars.comparePosition(givenCar).state()).isEqualTo(ComparePositionState.FRONT);
     }
     @Test
     @DisplayName("compare when given is SAME BACK")
@@ -125,7 +125,7 @@ public class CarsTest {
         Integer targetNumber  = 1 ;
 
         assertThat(Cars.comparePosition(givenCar).position()).isEqualTo(targetNumber);
-        assertThat(Cars.comparePosition(givenCar).state()).isEqualTo(ComparePositionState.SAME);
+        assertThat(Cars.comparePosition(givenCar).state()).isEqualTo(ComparePositionState.BACK);
     }
 
     @Test
@@ -155,6 +155,30 @@ public class CarsTest {
         assertThat(Cars.comparePosition(givenCar).position()).isEqualTo(targetNumber);
         assertThat(Cars.comparePosition(givenCar).state()).isEqualTo(ComparePositionState.BACK);
     }
+    @Test
+    @DisplayName("compare when given is SAME")
+    public void compareThreeCarSAMETest() {
 
+        Car car1 = new Car();
+        car1.moveCarByState(MovementState.MOVE);
+
+        Car car2 = new Car();
+        car2.moveCarByState(MovementState.MOVE);
+
+        Car car3 = new Car();
+        car3.moveCarByState(MovementState.MOVE);
+
+        Car givenCar = new Car();
+        givenCar.moveCarByState(MovementState.MOVE);
+
+        List<Car> cars = new ArrayList<>(Arrays.asList(car1,car2,car3));
+
+        Cars Cars = new Cars(cars);
+
+        Integer targetNumber  = 1 ;
+
+        assertThat(Cars.comparePosition(givenCar).position()).isEqualTo(targetNumber);
+        assertThat(Cars.comparePosition(givenCar).state()).isEqualTo(ComparePositionState.SAME);
+    }
 
 }
