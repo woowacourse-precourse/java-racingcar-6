@@ -14,11 +14,14 @@ public class Racing {
 
     public void race() {
         HashMap<String, Integer> carPositions = cars.getCars();
-        carPositions.forEach((car, position) -> {
-            if (isMovable(pickRandomNumber())) {
-                cars.moveCar(car);
-            }
-        });
+        carPositions.forEach(this::moveCarIfMovable);
+    }
+
+    private void moveCarIfMovable(String car, Integer position) {
+        int randomValue = pickRandomNumber();
+        if (isMovable(randomValue)) {
+            cars.moveCar(car);
+        }
     }
 
     private int pickRandomNumber() {
