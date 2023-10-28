@@ -1,6 +1,8 @@
 package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.validator.RoundValidator;
+import racingcar.view.InputView;
 
 public class GameUtil {
 
@@ -9,5 +11,10 @@ public class GameUtil {
 
     public static int getRandomNumber(){
         return Randoms.pickNumberInRange(MIN_NUM, MAX_NUM);
+    }
+
+    public static int setTryCount(){
+        RoundValidator roundValidator = new RoundValidator(InputView.getRound());
+        return Integer.parseInt(roundValidator.tryCount);
     }
 }
