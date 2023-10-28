@@ -15,7 +15,7 @@ public class Car {
 
     private void validateName(String name) {
         validateBlank(name);
-        validateSizeInRange(name);
+        validateNameLength(name);
     }
 
     private void validateBlank(String name) {
@@ -24,7 +24,7 @@ public class Car {
         }
     }
 
-    private void validateSizeInRange(String name) {
+    private void validateNameLength(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_CAR_NAME);
         }
