@@ -14,6 +14,13 @@ public class InputView {
 
     public List<String> getCarName() {
         String[] carNames = Console.readLine().split(SEPARATOR);
+        validateCarName(carNames);
         return List.of(carNames);
+    }
+
+    private void validateCarName(String[] carNames) {
+        userInputException.validateUniqueCarName(carNames);
+        userInputException.validateBlankCarName(carNames);
+        userInputException.validateCarNameLength(carNames);
     }
 }
