@@ -5,6 +5,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class RacingCarController {
@@ -39,6 +40,7 @@ public class RacingCarController {
             moveEachCar(carList);
             printMoveResult(carList);
         }
+        printRaceResult(carList);
     }
 
     private void moveEachCar(List<RacingCar> carList) {
@@ -52,5 +54,29 @@ public class RacingCarController {
             outputView.outputMoveResult(car.getName(), car.getDashString());
         }
         outputView.outputBlank();
+    }
+
+    private void printRaceResult(List<RacingCar> carList) {
+        List<String> maxMoveCarsName = getMaxMoveCarsName(carList, getMaxMoveNumber(carList));
+        outputView.outputRaceResult(maxMoveCarsName);
+    }
+
+    private int getMaxMoveNumber(List<RacingCar> carList) {
+        List<Integer> moveNumberList = new ArrayList<>();
+        for(RacingCar car : carList) {
+            moveNumberList.add(car.getMoveNumber());
+        }
+        moveNumberList.sort(Collections.reverseOrder());
+        return moveNumberList.get(0);
+    }
+
+    private List<String> getMaxMoveCarsName(List<RacingCar> carList, int max) {
+        List<String> maxMoveCarNameList = new ArrayList<>();
+        for(RacingCar car : carList) {
+            if(car.getMoveNumber() == max) {
+                maxMoveCarNameList.add(car.getName());
+            }
+        }
+        return maxMoveCarNameList;
     }
 }
