@@ -1,7 +1,7 @@
 package racingcar.domain.car;
 
 public class Car {
-    private Name name;
+    private final Name name;
     private final Engine engine;
     private int travelDistance;
 
@@ -15,6 +15,14 @@ public class Car {
         if(engine.isForward()){
             travelDistance += 1;
         }
+    }
+
+    public String getName() {
+        return name.getValue();
+    }
+
+    public int getTravelDistance() {
+        return travelDistance;
     }
 
 }
