@@ -1,6 +1,7 @@
 package application;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
+import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
@@ -39,6 +40,15 @@ class InputUtilExceptionTest extends NsTest {
                 assertThatThrownBy(() -> runException(input))
                         .isInstanceOf(IllegalArgumentException.class)
 
+        );
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"pobi,woni,jun", "12345,abcde,다섯글자야,!@#$%"})
+    void 정상_입력_값_테스트(String input) {
+        assertSimpleTest(() ->
+                assertThatCode(() ->
+                        runException(input)).doesNotThrowAnyException()
         );
     }
 
