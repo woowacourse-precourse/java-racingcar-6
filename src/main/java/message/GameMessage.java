@@ -13,9 +13,9 @@ public enum GameMessage {
     REGEX("[0-9]+"),
     newLine("\n");
 
-    private String message;
+    private final String message;
 
-    GameMessage(String message) {
+    GameMessage(final String message) {
         this.message = message;
     }
 
