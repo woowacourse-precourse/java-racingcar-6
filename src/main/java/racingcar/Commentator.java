@@ -18,18 +18,16 @@ public class Commentator {
 
     public static List<String> getWinners(Setting setting) {
         List<Car> cars = setting.getCars();
-
+        List<String> winnerList = new ArrayList<>();
         int maxDistance = 0;
+
         for (Car car : cars) {
             int carDistance = car.getForwardState().length();
             if (maxDistance < carDistance) {
                 maxDistance = carDistance;
-            }
-        }
-
-        List<String> winnerList = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.getForwardState().length() == maxDistance) {
+                winnerList.clear();
+                winnerList.add(car.getName());
+            } else if (maxDistance == carDistance){
                 winnerList.add(car.getName());
             }
         }
