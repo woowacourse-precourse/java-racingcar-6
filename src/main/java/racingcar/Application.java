@@ -64,6 +64,9 @@ public class Application {
         carList.stream().forEach(Car::moveForward);
     }
 
+    public static void printCarNameAndDistanceStringInCarList(final List<Car> carList) {
+    }
+
     public static List<Car> getCarListWithLongestDistance(final List<Car> carList) {
         final int longestDistance = getLongestDistanceFromCarList(carList);
         final List<Car> carListWithLongestDistance = filterCarListWithLongestDistance(carList, longestDistance);

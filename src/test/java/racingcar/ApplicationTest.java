@@ -171,6 +171,21 @@ class ApplicationTest extends NsTest {
         }
     }
 
+    @Test
+    void 모든_Car_목록의_경주_현황을_출력() {
+        final List<Car> carList = List.of(new Car("pobi"), new Car("woni"), new Car("jun"));
+
+        try (MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
+            mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
+                    .thenReturn(MOVING_FORWARD, MOVING_FORWARD, STOP);
+
+            Application.moveForward(carList);
+            Application.printCarNameAndDistanceStringInCarList(carList);
+
+            assertThat(output()).isEqualTo("pobi : -\nwoni : -\njun : ".trim());
+        }
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
