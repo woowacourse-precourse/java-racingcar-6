@@ -19,6 +19,9 @@ public class RacingCarGame {
 
   public RacingCarGame() {
     inputView = new InputView();
+    carNameParser = new CarNameParser();
+    carDistanceManager = new CarDistanceManager();
+    gameResultAnalyzer = new GameResultAnalyzer();
   }
 
   public static void runRacing(List<String> carNamesList, List<Integer> distance, int frequency) {
