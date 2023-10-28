@@ -3,6 +3,7 @@ package racingcar.controller;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.model.Judge;
 import racingcar.model.Round;
 
 public class GameController {
@@ -13,6 +14,7 @@ public class GameController {
     public GameController() {
         set();
         game();
+        judge();
     }
 
     public void set() {
@@ -33,8 +35,14 @@ public class GameController {
     public void game() {
 
         System.out.println("실행 결과");
+
         Round round = new Round(cars);
         round.playRound(roundNumber);
+    }
+
+    public void judge() {
+
+        Judge.determineWinners(cars);
     }
 
 }
