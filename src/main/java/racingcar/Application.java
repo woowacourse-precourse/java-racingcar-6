@@ -1,7 +1,8 @@
 package racingcar;
 
 import racingcar.domain.Car;
-import racingcar.util.Game;
+import racingcar.exception.InputException;
+import racingcar.util.GameUtil;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -12,40 +13,27 @@ public class Application {
     public static void main(String[] args) {
         InputView inputView = new InputView();
         OutputView outputView = new OutputView();
-        Game game = new Game();
+        GameUtil gameUtil = new GameUtil();
+        InputException inputException = new InputException();
+
         String cars = inputView.inputCars();
+        ArrayList<Car> carList = gameUtil.splitNameArrayList(cars); // 이름을 쉼표(,) 기준으로 나눠 리스트로 만듬
+        inputException.nameLengthOver(carList);
+        inputException.sameName(carList);
+
         int number = inputView.inputCount();
 
         outputView.gameResult();
-        String[] carName = cars.split(",");
-        List<Car> carList = new ArrayList<>();
 
-        for(int i=0;i< carName.length;i++){
-            carList.add(new Car(carName[i]));
-        }
-
-        int max = 0;
         for(int i=0;i<number;i++){
-            for(int j=0;j<carList.size();j++) {
-                int move = game.randomNumber();
-                if (move >= 4) {
-                    carList.get(j).go();
-                }
-                System.out.println(carList.get(j).getName() + " : " + "-".repeat(carList.get(j).getLocation()));
-                if(carList.get(j).getLocation()>max){
-                    max = carList.get(j).getLocation();
-                }
-            }
+            outputView.gameSituation(carList); // 게임 진행 상황
+            gameUtil.goAndStop(carList); // 자동차 가는지 멈추는지
+
             System.out.println();
         }
 
-        List<String> winnerList = new ArrayList<>();
-        for(int i=0;i<carList.size();i++){
-            if(carList.get(i).getLocation()==max){
-                winnerList.add(carList.get(i).getName());
-            }
-        }
-        String winner = String.join(", ", winnerList);
-        System.out.println("최종 우승자 : " + winner);
+        int max = gameUtil.winnerLocation(carList); // 우승자 위치
+        String winner = gameUtil.winner(carList, max);
+        outputView.winner(winner);
     }
 }
