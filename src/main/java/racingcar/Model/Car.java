@@ -16,7 +16,6 @@ public class Car {
 	}
 
 	public String getName() {
-
 		return this.name;
 	}
 
@@ -51,7 +50,10 @@ public class Car {
 	}
 
 	public String joinName(Car other) {
-		return this.name + ", " + other.name;
+
+		final String NAME_SEPARATOR = ", ";
+
+		return this.name + NAME_SEPARATOR + other.name;
 	}
 
 	public String toString() {
