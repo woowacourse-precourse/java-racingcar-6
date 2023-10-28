@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import org.junit.platform.commons.util.StringUtils;
 import racingcar.model.Car;
 import racingcar.type.MessageType;
 
@@ -20,9 +21,7 @@ public class RacingService {
     public void racing() {
         List<Car> cars = getAttendCars();
 
-        println(ASK_ATTEMPTS);
         int attempts = getAttemptsCount();
-        println(LINE_BREAK);
 
         int currentAttempts = 0;
         println(RESULT);
@@ -58,7 +57,31 @@ public class RacingService {
     }
 
     private int getAttemptsCount() {
-        return 0;
+        println(ASK_ATTEMPTS);
+        String inputCount = Console.readLine();
+        int attemptsCount = convertToAttemptsCount(inputCount);
+        println(LINE_BREAK);
+
+        return attemptsCount;
+    }
+
+    public int convertToAttemptsCount(String inputCount) {
+        if (StringUtils.isBlank(inputCount)) {
+            throw new IllegalArgumentException("Number of attempts cannot be empty or only whitespace.");
+        }
+
+        int attemptsCount;
+        try {
+            attemptsCount = Integer.parseInt(inputCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Input must be a valid numerical format.", e);
+        }
+
+        if(attemptsCount < 1) {
+            throw new IllegalArgumentException("Number of attempts must be a non-zero positive number.");
+        }
+
+        return attemptsCount;
     }
 
     private void printRacingResult(List<Car> cars) {

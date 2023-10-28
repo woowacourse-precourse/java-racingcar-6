@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RacingServiceTest {
@@ -32,5 +33,34 @@ public class RacingServiceTest {
     void 이름_입력_검증_실패_중복() {
         List<String> duplicationTarget = List.of("jon", "jon", "piter");
         assertThrows(IllegalArgumentException.class, () -> racingService.validationCarNames(duplicationTarget));
+    }
+
+    @Test
+    void 회수_입력_검증_성공() {
+        String input = "5";
+        int expected = 5;
+
+        assertThat(racingService.convertToAttemptsCount(input)).isEqualTo(expected);
+    }
+
+    @Test
+    void 회수_입력_검증_실패() {
+        String case1 = "  ";
+        String case2 = "abc";
+        String case3 = "0";
+        String case4 = "-1";
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            racingService.convertToAttemptsCount(case1);
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            racingService.convertToAttemptsCount(case2);
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            racingService.convertToAttemptsCount(case3);
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            racingService.convertToAttemptsCount(case4);
+        });
     }
 }
