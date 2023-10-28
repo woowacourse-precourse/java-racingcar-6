@@ -1,4 +1,4 @@
-package racingcar.RacingCar;
+package racingcar.racingCar;
 
 public class RacingCarGame {
     public void playGame(){
