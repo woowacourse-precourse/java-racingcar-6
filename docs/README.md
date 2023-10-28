@@ -4,6 +4,7 @@
     - [x] 자동차 이름은 쉼표(,)를 기준으로 구분한다.
     - [x] 자동차 이름은 5자 이하만 가능하다.
     - [x] 빈 값이 입력되면 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료된다.
+    - [ ] 중복된 자동차 이름이 입력되면 llegalArgumentException을 발생시킨 후 애플리케이션은 종료된다.
 - [x] 사용자는 몇 번의 이동을 할 것인지 입력한다.
     - [x] 빈 값이 입력되면 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료된다.
     - [x] 숫자 이외의 값이 입력되면 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료된다.
