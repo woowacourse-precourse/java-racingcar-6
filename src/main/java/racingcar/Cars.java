@@ -17,6 +17,10 @@ public class Cars {
         }
     }
 
+    public List<Car> getCarList() {
+        return this.carList;
+    }
+
     private boolean isForward(int randomNumber) {
         return randomNumber >= 4;
     }
