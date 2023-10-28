@@ -42,4 +42,12 @@ public final class Name {
     public int hashCode() {
         return Objects.hash(name);
     }
+
+    /**
+     * 자동차 이름을 반환한다.
+     */
+    @Override
+    public String toString() {
+        return name;
+    }
 }

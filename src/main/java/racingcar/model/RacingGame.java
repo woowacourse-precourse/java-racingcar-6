@@ -3,6 +3,7 @@ package racingcar.model;
 import racingcar.utils.RandomGenerator;
 
 import java.util.Objects;
+import java.util.StringJoiner;
 
 public class RacingGame {
     private final Cars cars;
@@ -24,19 +25,28 @@ public class RacingGame {
     }
 
     public static RacingGame ofWithCount(String names, int tryNo, int count) {
-        Cars newCars = Cars.of(names);
+        Cars newCars = Cars.ofWithCount(names, count);
         TryNumber newTryNumber = TryNumber.of(tryNo);
         Count newCount = Count.of(count);
         return new RacingGame(newCars, newTryNumber, newCount);
     }
 
     public RacingGame race(RandomGenerator randomNumber) {
-        cars.moves(randomNumber);
-        return new RacingGame(cars, tryNumber, count.countUp());
+        Cars newCars = cars.moves(randomNumber);
+        return new RacingGame(newCars, tryNumber, count.countUp());
+    }
+
+    public String ongoingCar() {
+        return cars.toString();
     }
 
     public boolean isEnd() {
         return count.isEnd(tryNumber);
+    }
+
+
+    public String winners() {
+        return cars.winners();
     }
 
     @Override
@@ -52,4 +62,10 @@ public class RacingGame {
         return Objects.hash(cars, tryNumber, count);
     }
 
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", RacingGame.class.getSimpleName() + "[", "]")
+                .add("cars=" + cars)
+                .toString();
+    }
 }

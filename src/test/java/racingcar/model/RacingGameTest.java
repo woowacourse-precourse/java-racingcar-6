@@ -18,7 +18,7 @@ class RacingGameTest {
     }
 
     @Test
-    @DisplayName("이동")
+    @DisplayName("이동 - 모두 한칸씩 이동")
     void race() {
         String names = "pobi,crong,honux";
         int tryNo = 5;

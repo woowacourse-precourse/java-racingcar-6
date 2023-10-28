@@ -28,6 +28,20 @@ public final class Car {
         }
         return this;
     }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public boolean isWinner(Position position) {
+        return this.position.equals(position);
+    }
+
+
+    public String getName() {
+        return name.toString();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -41,4 +55,12 @@ public final class Car {
         return Objects.hash(name, position);
     }
 
+    /**
+     * 자동차의 이름과 위치를 반환한다.
+     * ex) pobi : --
+     */
+    @Override
+    public String toString() {
+        return name + " : " + position;
+    }
 }

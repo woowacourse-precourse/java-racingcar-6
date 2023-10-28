@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.Objects;
+import java.util.StringJoiner;
 
 public final class Position {
     private final int position;
@@ -17,6 +18,14 @@ public final class Position {
         return new Position(position);
     }
 
+    public Position move() {
+        return new Position(position + 1);
+    }
+
+    public int compareTo(Position position) {
+        return Integer.compare(this.position, position.position);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -30,7 +39,12 @@ public final class Position {
         return Objects.hash(position);
     }
 
-    public Position move() {
-        return new Position(position + 1);
+    /*
+    * 자동차의 위치를 반환한다.
+    * "-"를 position 만큼 반복하여 반환한다.
+    */
+    @Override
+    public String toString() {
+        return "-".repeat(position);
     }
 }

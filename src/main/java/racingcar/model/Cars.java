@@ -5,6 +5,7 @@ import racingcar.utils.RandomGenerator;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.StringJoiner;
 
 public class Cars {
     private static final String REGEX = ",";
@@ -21,9 +22,39 @@ public class Cars {
         return new Cars(newCars);
     }
 
+    public static Cars ofWithCount(String names, int count) {
+        List<Car> newCars = Arrays.stream(names.split(REGEX))
+                .map(name -> Car.ofWithPosition(name, count))
+                .toList();
+        return new Cars(newCars);
+    }
 
-    public void moves(RandomGenerator randomNumber) {
-        cars.forEach(car -> car.move(randomNumber));
+
+    public Cars moves(RandomGenerator randomNumber) {
+        List<Car> newCars = cars.stream().map(car -> car.move(randomNumber)).toList();
+        return new Cars(newCars);
+    }
+
+
+    public String winners() {
+        Position position = getMaxPosition();
+        return getWinners(position);
+    }
+
+    private String getWinners(Position position) {
+        StringJoiner stringJoiner = new StringJoiner(",");
+        cars.stream()
+                .filter(car -> car.isWinner(position))
+                .forEach(car -> stringJoiner.add(car.getName()));
+
+        return stringJoiner.toString();
+    }
+
+    private Position getMaxPosition() {
+        return cars.stream()
+                .map(Car::getPosition)
+                .max(Position::compareTo)
+                .orElseThrow(() -> new IllegalArgumentException("최대 위치를 찾을 수 없습니다."));
     }
 
     @Override
@@ -37,5 +68,18 @@ public class Cars {
     @Override
     public int hashCode() {
         return Objects.hash(cars);
+    }
+
+    /*
+    * 자동차들의 이름과 위치를 반환한다.
+    * ex) pobi : --
+    *    crong : ---
+    *   honux : -
+     */
+    @Override
+    public String toString() {
+        StringJoiner stringJoiner = new StringJoiner("\n");
+        cars.forEach(car -> stringJoiner.add(car.toString()));
+        return stringJoiner.toString();
     }
 }
