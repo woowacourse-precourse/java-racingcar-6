@@ -20,4 +20,8 @@ public class Car {
     public void advancePosition() {
         this.position++;
     }
+
+    public void printStatus() {
+        System.out.println(this.name + " : " + "-".repeat(this.position));
+    }
 }

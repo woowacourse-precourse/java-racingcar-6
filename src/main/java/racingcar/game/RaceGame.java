@@ -22,8 +22,13 @@ public class RaceGame {
         gameView.displayUserInputRoundPrompt();
         round = InputUtils.promptForString();
 
+        System.out.println();
+
+        gameView.displayResultMessage();
         for (int i = 0; i < round; i++) {
             raceOneRound();
+            gameView.displayOneRoundResultMessage(cars);
+            System.out.println();
         }
     }
 
