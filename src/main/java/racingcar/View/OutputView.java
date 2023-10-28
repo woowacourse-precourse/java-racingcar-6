@@ -2,8 +2,6 @@ package racingcar.View;
 
 import java.util.List;
 
-import racingcar.Model.Cars;
-
 public class OutputView {
     
     public static void printCurrentStatus(List<String> carNames, List<Integer> carpositions) {
