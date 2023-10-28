@@ -14,6 +14,22 @@ public class RacingGame {
     private int howManyTries;
     private final Referee referee = new Referee();
 
+
+    private void startRacing(List<Car> cars) {
+        StringBuilder racingResult = new StringBuilder("\n실행 결과\n");
+        while (howManyTries > 0) {
+            for (Car car : cars) {
+                car.moveForwardOrStop();
+                racingResult
+                        .append(car)
+                        .append("\n");
+            }
+            racingResult.append("\n");
+            howManyTries--;
+        }
+        System.out.print(racingResult.toString());
+    }
+
     private List<Car> createCars(List<String> carNameList) {
         List<Car> cars = new ArrayList<>();
         for (String name : carNameList) {
