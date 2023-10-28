@@ -8,8 +8,9 @@ public class Cars {
 
     private final List<Car> elements = new ArrayList<>();
 
-    public Cars(List<Name> names) {
-        names.forEach(name -> elements.add(new Car(name)));
+    public Cars(Names names) {
+        names.getNames()
+                .forEach(name -> elements.add(new Car(name)));
     }
 
     public void race() {
@@ -22,12 +23,12 @@ public class Cars {
         return sb.toString();
     }
 
-    public List<Name> getWinner() {
+    public Names getWinner() {
         int max = calculateMaxPosition();
-        return elements.stream()
-                .filter(car -> car.isSamePosition(max))
-                .map(Car::getName)
-                .toList();
+        return new Names(elements.stream()
+                        .filter(car -> car.isSamePosition(max))
+                        .map(Car::getName)
+                        .toList());
     }
 
     private int calculateMaxPosition() {

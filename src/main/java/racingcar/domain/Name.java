@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import racingcar.constant.ExceptionMessage;
 
+import java.util.Objects;
+
 public class Name {
 
     private static final int MAX_LENGTH = 5;
@@ -17,6 +19,20 @@ public class Name {
             ExceptionMessage exceptionMessage = ExceptionMessage.TOO_LONG_NAME_LENGTH;
             throw new IllegalArgumentException(exceptionMessage.getMessage());
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Name name = (Name) obj;
+        return this.value.equals(name.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
     }
 
     @Override
