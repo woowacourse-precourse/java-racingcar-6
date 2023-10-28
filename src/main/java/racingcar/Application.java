@@ -22,7 +22,7 @@ public class Application {
 
         System.out.println("\n실행 결과");
 
-        winners(nLoop(cars_map,number));
+        winners(numberTimesLoop(cars_map,number));
 
     }
 
@@ -46,9 +46,9 @@ public class Application {
 
 
     //한번의 루프를 입력받은 수만큼 돌리기 위한 함수
-    public static LinkedHashMap nLoop(LinkedHashMap cars_map, long number){
+    public static LinkedHashMap numberTimesLoop(LinkedHashMap cars_map, long number){
         for(long i=0;i<number;i++){
-            oneLoop(cars_map);
+            oneTimeLoop(cars_map);
         }
 
         return cars_map;
@@ -56,7 +56,7 @@ public class Application {
 
 
     //자동차 전진 수 랜덤값 구하기
-    public static LinkedHashMap oneLoop(LinkedHashMap cars_map) {
+    public static LinkedHashMap oneTimeLoop(LinkedHashMap cars_map) {
         Iterator<Map.Entry<String, Integer>> iter = cars_map.entrySet().iterator();
         while (iter.hasNext()) {
             var entry = iter.next();

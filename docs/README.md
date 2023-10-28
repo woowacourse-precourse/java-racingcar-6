@@ -31,13 +31,13 @@
 >```
 
 > #### 출력 함수
->입력받은 횟수만큼 차수별 실행 결과 출력 nLoop
+>입력받은 횟수만큼 차수별 실행 결과 출력 numberTimesLoop
 > ```java
-> public static LinkedHashMap nLoop(LinkedHashMap cars_map, long number)
+> public static LinkedHashMap numberTimesLoop(LinkedHashMap cars_map, long number)
 >```
-> 횟수 한번의 carsDistance를 구하는 함수 oneLoop
+> 횟수 한번의 carsDistance를 구하는 함수 oneTimeLoop
 > ```java
-> public static LinkedHashMap oneLoop(LinkedHashMap cars_map)
+> public static LinkedHashMap oneTimeLoop(LinkedHashMap cars_map)
 >```
 > 우승자를 출력하는 함수 winners
 > ```java
