@@ -24,7 +24,11 @@ public class Racing {
 
     public List<String> getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요(이름은 쉼표(,) 기준으로 구분)");
-        carNames = Arrays.asList(Console.readLine().split(","));
+        String[] userInput = Console.readLine().split(",");
+        for (int i=0; i< userInput.length;i++){
+            userInput[i]=userInput[i].trim();
+        }
+        carNames = Arrays.asList(userInput);
         checkNameLength(carNames);
 
         return carNames;
