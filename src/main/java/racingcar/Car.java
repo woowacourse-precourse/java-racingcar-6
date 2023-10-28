@@ -20,4 +20,13 @@ public class Car {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         if (randomNumber >= 4) forwardState.append('-');
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public StringBuilder getForwardState() {
+        return forwardState;
+    }
+
 }

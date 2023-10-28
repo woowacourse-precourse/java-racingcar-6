@@ -28,4 +28,8 @@ public class Setting {
             car.tryForward();
         }
     }
+
+    public List<Car> getCars() {
+        return this.cars;
+    }
 }
