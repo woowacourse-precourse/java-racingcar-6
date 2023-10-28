@@ -49,7 +49,7 @@ public class Car {
 
     private void validateCarNameLength(String name) {
         final String errorMessage = String.format(LENGTH_ERROR_FORMAT, MAX_NAME_LENGTH);
-        if (name == null || name.length() >= MAX_NAME_LENGTH) {
+        if (name == null || name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(errorMessage);
         }
     }
