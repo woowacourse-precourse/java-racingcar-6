@@ -33,14 +33,14 @@ public class RaceServiceImpl implements RaceService {
     @Override
     public void validateCarName(String input) {
         for ( String carName : carNameParser.parse(input) ) {
-            if ( !inputValidator.carName().validate(carName) )
+            if ( !inputValidator.validateName(carName) )
                 throw new IllegalArgumentException();
         }
     }
 
     @Override
     public void validateRaceCount(String input) {
-        if (!inputValidator.raceCount().validate(input))
+        if (!inputValidator.validateRaceCount(input))
             throw new IllegalArgumentException();
     }
 

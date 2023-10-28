@@ -2,7 +2,7 @@ package racingcar.util.validator.raceCount;
 
 public class RaceCountValidatorImpl implements RaceCountValidator {
     @Override
-    public boolean validate(String input) {
+    public boolean validateRaceCount(String input) {
         return isNonNegative( parseInt(input) );
     }
 

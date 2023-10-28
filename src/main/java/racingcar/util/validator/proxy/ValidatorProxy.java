@@ -10,33 +10,19 @@ public class ValidatorProxy implements InputValidator {
     private CarNameValidator carNameValidator = null;
     private RaceCountValidator raceCountValidator = null;
 
-    private final int STRING_LENGTH = 1;
-
     @Override
-    @Deprecated
-    public boolean validate(String input) {
-        return defaultValidate(input);
-    }
-
-    @Override
-    public CarNameValidator carName() {
+    public boolean validateName(String input) {
         if (carNameValidator == null) {
             carNameValidator = getCarNameValidator();
         }
-        return carNameValidator;
+        return carNameValidator.validateName(input);
     }
 
     @Override
-    public RaceCountValidator raceCount() {
+    public boolean validateRaceCount(String input) {
         if (raceCountValidator == null) {
             raceCountValidator = getRaceCountValidator();
         }
-        return raceCountValidator;
-    }
-
-    private boolean defaultValidate(String input) {
-        if (input.length() == STRING_LENGTH)
-            return raceCountValidator.validate(input);
-        return carNameValidator.validate(input);
+        return raceCountValidator.validateRaceCount(input);
     }
 }
