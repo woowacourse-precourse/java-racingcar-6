@@ -54,7 +54,7 @@ public class ValidatorTest {
         }
 
         @ParameterizedTest
-        @ValueSource(strings = {"1","100"})
+        @ValueSource(strings = {"1", "100"})
         public void 정상_시도_회수_입력_검증(String input) {
             assertThatCode(() -> Validator.getValidatedAttemptCount(input))
                     .doesNotThrowAnyException();
