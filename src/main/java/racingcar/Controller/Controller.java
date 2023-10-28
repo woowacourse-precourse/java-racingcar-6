@@ -1,6 +1,7 @@
 package racingcar.Controller;
 
 import java.util.List;
+import racingcar.Domain.ProgressBoard;
 import racingcar.Service.Service;
 import racingcar.Utils.InputValidator;
 
@@ -9,9 +10,9 @@ public class Controller {
     private final Service service;
     private int tryCount;
 
-    public Controller() {
+    public Controller(Service service) {
         inputValidator = new InputValidator();
-        service = new Service();
+        this.service = service;
     }
 
     public void run() {
