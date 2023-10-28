@@ -7,6 +7,7 @@ public class CarNamesInputValidator implements BasicValidator<String> {
     @Override
     public void validate(String input) {
         isInputEmpty(input);
+        hasCommaAtStartOrEnd(input);
         hasLessThanTwoCarNames(input);
         hasDuplicateCarNames(input);
         hasSpecialCharacters(input);
@@ -25,6 +26,12 @@ public class CarNamesInputValidator implements BasicValidator<String> {
         }
     }
 
+    private void hasCommaAtStartOrEnd(String input) {
+        if (input.startsWith(",") || input.endsWith(",")) {
+            throw new IllegalArgumentException("자동차 이름은 쉼표로 시작하거나 끝날 수 없습니다.");
+        }
+    }
+
     private void hasDuplicateCarNames(String input) {
         if (isDuplicate(input)) {
             throw new IllegalArgumentException("중복된 자동차 이름이 있습니다.");
@@ -32,7 +39,7 @@ public class CarNamesInputValidator implements BasicValidator<String> {
     }
 
     private void hasSpecialCharacters(String input) {
-        if (!input.matches("^[a-zA-Z0-9\\s가-힣]*$")) {
+        if (!input.matches("^[a-zA-Z0-9\\s가-힣,]*$")) {
             throw new IllegalArgumentException("자동차 이름에는 특수문자가 포함될 수 없습니다.");
         }
     }
