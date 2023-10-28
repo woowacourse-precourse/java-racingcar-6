@@ -5,6 +5,7 @@ import java.util.List;
 import racingcar.domain.RacingPlayer;
 import racingcar.exception.InvalidCountException;
 import racingcar.exception.InvalidNameException;
+import racingcar.util.NumberPicker;
 
 public class RacingService {
     public void validateNames(List<String> racerList){
@@ -33,5 +34,14 @@ public class RacingService {
         }
 
         return players;
+    }
+
+    public void updateScoreIfNecessary(List<RacingPlayer> players){
+        NumberPicker numberPicker = new NumberPicker();
+
+        for (RacingPlayer player : players){
+            if(numberPicker.pickRandomNumber()>3)
+                player.setScore();
+        }
     }
 }
