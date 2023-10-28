@@ -10,6 +10,6 @@
 - [x] 시도 횟수 입력
   -[x] 0이하일 시 IllegalArgumentException(0은 따로 처리 할지 확인)
   -[x] 정수가 아닐 시 IllegalArgumentException
-- [] 레이스 진행
-  - [] 한 판 진행
-  - [] 최종 까지 진행
+- [x] 레이스 진행
+  - [x] 한 판 진행
+  - [x] 최종 까지 진행
