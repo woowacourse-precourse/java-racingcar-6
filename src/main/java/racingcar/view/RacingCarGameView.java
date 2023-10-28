@@ -56,15 +56,7 @@ public class RacingCarGameView {
         List<String> temp = winners.getWinners();
 
         System.out.print(FINAL_WINNER);
-
-        for (int i = 0; i < temp.size(); i++) {
-            System.out.print(temp.get(i));
-
-            if (i != temp.size() - 1) {
-                System.out.print(COMMA);
-            }
-        }
-
+        System.out.print(String.join(COMMA, temp));
         System.out.println();
     }
 }
