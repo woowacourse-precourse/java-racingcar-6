@@ -21,7 +21,8 @@ public class Validation {
     }
 
     public void validateDelimiterType(String[] carNames) {
-        String regex = "[a-zA-Z]+";
+        // 빈 문자열도 일단 넘기고, Length 에서 검수
+        String regex = "^[a-zA-Z]*$";
         boolean result = Arrays.stream(carNames).allMatch((carName) -> Pattern.matches(regex, carName));
 
         if (!result) {
