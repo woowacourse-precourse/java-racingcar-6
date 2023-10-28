@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,10 +35,5 @@ public class Application {
             }
             System.out.println();
         }
-
-        System.out.println("시도할 회수는 몇회인가요?");
-        String inputNumber = Console.readLine();
-        int attemptsNumber = Integer.parseInt(inputNumber);
-
     }
 }

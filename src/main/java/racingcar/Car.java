@@ -13,6 +13,6 @@ public class Car {
     }
 
     public String printCarName() {
-        return name + " : ";
+        return name + " : " + position;
     }
 }
