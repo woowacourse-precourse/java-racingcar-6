@@ -10,6 +10,9 @@ public class Car {
     private static final int MAX_NAME_LENGTH = 5;
     private static final String NAME_LENGTH_ERROR = "이름은 5자 이하여야 합니다.";
 
+    private static final String COLON = " : ";
+    private static final String FORWARD_SYMBOL = "-";
+
     public Car(String name){
         validateLength(name);
         this.name = name;
@@ -26,6 +29,10 @@ public class Car {
         if(generator.generate() > FORWARD_LOWER_INCLUSIVE){
             forwardCount++;
         }
+    }
+
+    public String toString(){
+        return name + COLON + FORWARD_SYMBOL.repeat(forwardCount);
     }
 
 }
