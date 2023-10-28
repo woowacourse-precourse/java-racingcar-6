@@ -19,12 +19,11 @@ public class Racingcar_Game {
                 if(checkNameLength(name)){
                     carName.add(name);
                     name="";
-                };
+                }
             }
             else name+=input.charAt(i);
         }
         carName.add(name);
-
         return carName;
     }
 
@@ -37,5 +36,26 @@ public class Racingcar_Game {
     public static boolean checkPush(){
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber >= 4;
+    }
+
+    public static void playGame(List<String> carName) {
+        System.out.print("시도할 회수는 몇회인가요?");
+        int gameCnt = Integer.parseInt(readLine());
+
+        List<String> gameList = new ArrayList<>();
+        for (int i = 0; i < carName.size(); i++) {
+            gameList.add("1");
+        }
+
+        for (int i = 0; i < gameCnt; i++) {
+            for (int j = 0; j < carName.size(); j++) {
+                if (checkPush()) {
+                    String car = gameList.get(j);
+                    car += ('-');
+                    gameList.set(j, car);
+                }
+            }
+            System.out.print(gameList);
+        }
     }
 }
