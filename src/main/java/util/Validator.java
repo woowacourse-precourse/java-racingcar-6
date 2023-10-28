@@ -7,10 +7,18 @@ public class Validator {
     private static final int MAX = 5;
 
     public void checkCarNamesInput(String input, List<String> carList) throws IllegalArgumentException{
-        checkEmpty(input);
-        checkLastIndex(input);
+        checkAllOfInput(input);
+        checkAllOfEachInput(carList);
+    }
+
+    private void checkAllOfEachInput(List<String> carList) {
         checkDuplicate(carList);
         checkEachSpaceAndLength(carList);
+    }
+
+    private void checkAllOfInput(String input) {
+        checkEmpty(input);
+        checkLastIndex(input);
     }
 
     private void checkEachSpaceAndLength(List<String> carList) {
