@@ -5,9 +5,9 @@
 - [x] (입력) 자동차 이름을 입력받는다. InputManager.inputCarName
 - [x] (예외) 자동차 이름은 5자 이하만 가능하다. InputManager.checkLimitCarName
 - [x] (입력) 시도 횟수를 입력받는다.  InputManager.inputRepeat
-- [] 전진 조건을 판별한다. Car.move
-    - [] 각 자동차는 0~9 사이의 무작위 값이 생성된다. Car.createRandomNumber
-    - [] 무작위 값이 4 이상일 경우 전진한다.
+- [x] 전진 조건을 판별한다. GameManager.checkMovePossible
+    - [x] 각 자동차는 0~9 사이의 무작위 값이 생성된다. GameManager.createRandomNumber
+    - [x] 무작위 값이 4 이상일 경우 전진한다. Car.move
 - [] 시도 횟수 종료 후, 우승자를 선정한다. GameManager.selectWinner
 
 ## 프로그래밍 요구사항

@@ -9,7 +9,7 @@ public class Car {
     }
 
     public void move(){
-
+        distance += 1;
     }
 
     public String getName() {
