@@ -40,7 +40,7 @@ public class GameController {
 
 	public List<Car> getCars() {
 		inputView.printNamesRequest();
-		String[] names = inputView.getInput().split(INPUT_DELIMITER.getValue());
+		String[] names = inputView.getInput().split(INPUT_DELIMITER.getValue(), -1);
 		List<Car> cars = new ArrayList<>();
 		for (String name : names) {
 			Car car = new Car(validateName(name).replaceAll(WHITE_SPACE_REGEX.getRegex(), ""));
