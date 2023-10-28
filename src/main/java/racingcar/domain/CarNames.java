@@ -60,4 +60,8 @@ public class CarNames {
             throw new IllegalArgumentException(NAMES_COUNT_ERROR_MESSAGE);
         }
     }
+
+    public List<CarName> getNames() {
+        return names;
+    }
 }
