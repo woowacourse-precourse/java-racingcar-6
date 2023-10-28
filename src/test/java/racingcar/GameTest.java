@@ -39,15 +39,15 @@ class GameTest {
 
         // when - then
         System.setIn(new ByteArrayInputStream(onlyCommas.getBytes()));
-        assertThatThrownBy(() -> Game.readCarNames())
+        assertThatThrownBy(Game::readCarNames)
             .isInstanceOf(IllegalArgumentException.class);
 
         System.setIn(new ByteArrayInputStream(badCommaPosition.getBytes()));
-        assertThatThrownBy(() -> Game.readCarNames())
+        assertThatThrownBy(Game::readCarNames)
             .isInstanceOf(IllegalArgumentException.class);
 
         System.setIn(new ByteArrayInputStream(sixLettersName.getBytes()));
-        assertThatThrownBy(() -> Game.readCarNames())
+        assertThatThrownBy(Game::readCarNames)
             .isInstanceOf(IllegalArgumentException.class);
     }
     @Test
