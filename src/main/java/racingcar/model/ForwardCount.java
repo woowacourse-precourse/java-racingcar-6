@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.view.OutputView;
+
 public class ForwardCount {
     private Integer counter;
 
@@ -11,6 +13,7 @@ public class ForwardCount {
         ++this.counter;
     }
 
-    public void printCountToProgressBar() {
+    public void printProgressBar() {
+        OutputView.printProgressAfterCarForward(this.counter);
     }
 }
