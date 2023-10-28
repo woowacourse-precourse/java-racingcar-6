@@ -1,10 +1,11 @@
-package racingcar.model;
+package racingcar.vo;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.Application;
 
 class TrialCountTest {
 
@@ -18,8 +19,8 @@ class TrialCountTest {
         Integer validCount = MIN_TRIAL;
 
         // when
-        TrialCount trialCount = assertDoesNotThrow(() -> {
-            return new TrialCount(validCount);
+        Application.TrialCount trialCount = assertDoesNotThrow(() -> {
+            return new Application.TrialCount(validCount);
         });
 
         // then
@@ -32,7 +33,7 @@ class TrialCountTest {
         Integer invalidCount = MIN_TRIAL - 1;
 
         try {
-            TrialCount trialCount = new TrialCount(invalidCount);
+            Application.TrialCount trialCount = new Application.TrialCount(invalidCount);
         } catch (IllegalArgumentException e) {
             assertEquals(SMALLER_THAN_MIN_NUMBER_MSG, e.getMessage());
         }

@@ -88,3 +88,8 @@
     - (InputView → Controller → Model)
 - Model에서 수행한 결과를 DTO형태로 받아 View에게 넘긴다.
     - (Model —(DTO) → OutputView)
+
+## 💡VO(Value Object)
+
+- TrialCount : 시도횟수에 대한 VO
+    - number 필드
