@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Paser {
+public class Parser {
     public int ParseInt(String input) {
         return Integer.parseInt(input);
     }
