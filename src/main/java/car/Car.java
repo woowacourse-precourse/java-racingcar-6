@@ -1,5 +1,7 @@
 package car;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
     private final String name;
     private int location; // 초기값 0
@@ -16,7 +18,12 @@ public class Car {
         return location;
     }
 
-    public void moveByGivenCondition(int randomValue){
+    public void move(){
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        this.moveByGivenCondition(randomNumber);
+    }
+
+    protected void moveByGivenCondition(int randomValue){
         this.moveByStrategy(() -> randomValue >= MOVING_STANDARD);
     }
 
