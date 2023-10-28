@@ -15,7 +15,7 @@ public class LeaderBoard {
         LinkedHashMap<String, Integer> currentPaceMap = paceComputer.createDefaultPaceMap(machines);
 
         for (int i = 0; i < Integer.parseInt(lap.getLap()); i++) {
-            paceComputer.updatePaceMap(currentPaceMap);
+            paceComputer.updatePaceMap(machines, currentPaceMap);
             paceMapValueList.addAll(currentPaceMap.values());
 
             currentPaceMap.forEach((machineName, driveSuccessNumber) ->

@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 public class PaceComputer {
     private static final int INITIAL_RANDOM_NUMBER = 0;
     private static final int LAST_RANDOM_NUMBER = 9;
+    private static final int HURDLE_NUMBER_TO_DRIVE = 4;
     private final List<Integer> randomNumberList = new ArrayList<>();
 
     public LinkedHashMap<String, Integer> createDefaultPaceMap(Machines machines) {
@@ -36,8 +37,13 @@ public class PaceComputer {
         return randomNumberList;
     }
 
-    public void updatePaceMap(LinkedHashMap<String, Integer> paceMap) {
-        paceMap.replaceAll((machineName, driveSuccessNumber) ->
-                generateRandomNumber(INITIAL_RANDOM_NUMBER, LAST_RANDOM_NUMBER));
+    public void updatePaceMap(Machines machines, LinkedHashMap<String, Integer> paceMap) {
+        paceMap.forEach((machineName, driveSuccessNumber) -> {
+            int randomNumber = generateRandomNumber(INITIAL_RANDOM_NUMBER, LAST_RANDOM_NUMBER);
+
+            if (randomNumber >= HURDLE_NUMBER_TO_DRIVE) {
+                paceMap.put(machineName, driveSuccessNumber + 1);
+            }
+        });
     }
 }
