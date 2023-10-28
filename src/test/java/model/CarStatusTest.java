@@ -19,6 +19,6 @@ public class CarStatusTest {
         carStatusDto.enrollCar("포르쉐");
         carStatusDto.enrollCar("K3");
         carStatusDto.increaseCarPosition("포르쉐");
-        Assertions.assertThat(carStatusDto.findByName("포르쉐").get()).isEqualTo(1);
+        Assertions.assertThat(carStatusDto.findByNamePosition("포르쉐").get()).isEqualTo(1);
     }
 }

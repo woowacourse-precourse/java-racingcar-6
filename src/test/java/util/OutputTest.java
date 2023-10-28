@@ -1,4 +1,4 @@
-package view;
+package util;
 
 import model.CarStatusDto;
 import org.assertj.core.api.Assertions;

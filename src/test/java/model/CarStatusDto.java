@@ -7,16 +7,16 @@ public class CarStatusDto {
     static Map<String,Car> cars = new HashMap();
 
     public void enrollCar(String carName) {
-        if(findByName1(carName).equals(Optional.empty())) {
+        if(findByNameObject(carName).equals(Optional.empty())) {
             cars.put(carName,new Car(carName,0));
         }
     }
 
-    public Optional<Integer> findByName(String name) {
+    public Optional<Integer> findByNamePosition(String name) {
         return Optional.ofNullable(cars.get(name).position);
     }
 
-    public Optional<Car> findByName1(String name) {
+    public Optional<Car> findByNameObject(String name) {
         return Optional.ofNullable(cars.get(name));
     }
 
@@ -26,7 +26,7 @@ public class CarStatusDto {
     }
 
     public void increaseCarPosition(String carName) {
-        findByName1(carName).get().position++;
+        findByNameObject(carName).get().position++;
     }
 
 
