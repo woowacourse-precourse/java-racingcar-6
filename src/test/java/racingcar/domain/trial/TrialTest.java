@@ -26,4 +26,13 @@ class TrialTest {
         Assertions.assertThatThrownBy(() -> BlankTrialValidator.validate(blankTrial))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("음수를 입력하면 예외가 발생한다.")
+    @Test
+    void getNegativeInteger() {
+        Integer negativeInteger = -1;
+
+        Assertions.assertThatThrownBy(() -> new Trial(negativeInteger))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
