@@ -27,7 +27,6 @@ public class CarTest {
         Assertions.assertEquals(1, car.getPosition());
     }
 
-
     @Test
     void 자동차_무작위_값_생성_테스트() {
         int carNumber = car.createRandomNumber();
@@ -41,8 +40,8 @@ public class CarTest {
     }
 
     @Test
-    void 자동차_위치_게터_테스트(){
-        Assertions.assertEquals(0,car.getPosition());
+    void 자동차_위치_게터_테스트() {
+        Assertions.assertEquals(0, car.getPosition());
     }
 
 
