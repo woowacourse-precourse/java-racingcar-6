@@ -3,7 +3,7 @@ package car;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import domain.Cars;
+import service.CarService;
 
 import exception.GameInputException;
 
@@ -18,9 +18,9 @@ public class CarTest {
         String[] carNames = {"a","b","c","d"};
         int[] distanceArr = {2,4,1,0};
 
-        Cars cars = new Cars();
-        cars.fill(carNames,distanceArr);
-        String winner = cars.getWinners();
+        CarService carService = CarService.getInstance();
+        carService.fill(carNames,distanceArr);
+        String winner = carService.getWinners();
 
         assertThat(winner).isEqualTo("b");
     }
