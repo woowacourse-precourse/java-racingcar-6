@@ -43,6 +43,10 @@ public class RacingCarList {
                 .toList();
     }
 
+    public int getRacingCarCount() {
+        return this.racingCars.size();
+    }
+
     private void validateNameList(List<String> names) {
         validateDistinctName(names);
         validateNameCount(names);
