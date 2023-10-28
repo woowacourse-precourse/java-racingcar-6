@@ -18,17 +18,27 @@ public class Game {
     public void run() {
         createCar();
         getRound();
+        play();
 
     }
 
     void play() {
+        System.out.println("실행 결과");
         while (round-- > 0) {
             roundProgress();
+            printProgress();
         }
     }
 
+    void printProgress() {
+        for (Car car : carRepository) {
+            System.out.println(car.getName() + " : " + "-".repeat(car.getStatus()));
+        }
+    }
+
+
     // 한 회차를 진행한다
-    private void roundProgress() {
+    void roundProgress() {
         for (Car car : carRepository) {
             if (Randoms.pickNumberInRange(0, 9) >= 4) { // 이기는 경우
                 car.go();
