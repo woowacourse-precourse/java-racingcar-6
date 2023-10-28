@@ -8,6 +8,11 @@ public class Car {
     private String name;
     private int currentStep;
 
+    public Car(final String name) {
+        this.name = name;
+        this.currentStep = 0;
+    }
+
     public void move() {
         currentStep+=1;
     }
