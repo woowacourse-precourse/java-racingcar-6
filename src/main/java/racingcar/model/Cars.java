@@ -1,7 +1,6 @@
 package racingcar.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Cars {
     List<Car> racingCars = new ArrayList<>();
@@ -10,10 +9,13 @@ public class Cars {
         racingCars.add(car);
     }
 
-    public void updateCarsPosition(boolean moveResult) {
-        for (Car car : racingCars) {
-            car.calculatePosition(moveResult);
-        }
+    public int getNumberOfCars() {
+        return racingCars.size();
     }
 
+    public void updateCarsPosition(List<Boolean> moveResult) {
+        for (int i = 0; i < racingCars.size(); i++) {
+            racingCars.get(i).calculatePosition(moveResult.get(i));
+        }
+    }
 }
