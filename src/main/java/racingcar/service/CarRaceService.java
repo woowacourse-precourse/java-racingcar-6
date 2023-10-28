@@ -6,7 +6,10 @@ import racingcar.util.Validator;
 
 public class CarRaceService {
 
+    private static final String INPUT_DELIMETER = ",";
+
     Validator validator = new Validator();
+
 
     private final static RaceService raceService = new RaceService();
 
@@ -17,7 +20,7 @@ public class CarRaceService {
     }
 
     public List<String> extractSeperator(String carInput) {
-        List<String> splitedName = List.of(carInput.split(","));
+        List<String> splitedName = List.of(carInput.split(INPUT_DELIMETER));
         validator.isRightCarNameInput(splitedName);
         return splitedName;
     }
