@@ -33,20 +33,20 @@ public class InputView {
     private void validateNumber(String number) {
         for (char token : number.toCharArray()) {
             if (!Character.isDigit(token)) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("[ERROR] 숫자 이외의 값을 입력할 수 없습니다.");
             }
         }
     }
 
     private void validateBlank(String input) {
         if (input == null || input.isBlank()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 공백을 입력할 수 없습니다.");
         }
     }
 
     private void validateNamesCount(List<String> nameList) {
         if (nameList.size() <= 1) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 이름은 최소 2개 이상 입력하셔야 합니다.");
         }
     }
 
@@ -59,7 +59,7 @@ public class InputView {
     private void validateNameFormat(String name) {
         for (char token : name.toCharArray()) {
             if (!Character.isLetter(token)) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("[ERROR] 이름에 글자 이외의 문자를 입력할 수 없습니다.");
             }
         }
     }
