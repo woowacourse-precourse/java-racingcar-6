@@ -6,11 +6,11 @@ import racingcar.utils.StringUtils;
 public class ViewController {
 
     public String[] createCar() {
-        String carNames = carNameInput();
+        String carNames = InputCarName();
         return StringUtils.splitCarNames(carNames);
     }
 
-    private String carNameInput() {
+    private String InputCarName() {
         String carList = Console.readLine();
         return carList;
     }
