@@ -3,12 +3,15 @@ package racingcar.inputview;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.io.ByteArrayInputStream;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.CarList;
+import racingcar.view.InputView;
 
 public class InputViewTest {
 
@@ -33,6 +36,16 @@ public class InputViewTest {
     void inputView_addCarNameLength_Test(String names) {
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> new CarList(names));
         assertThat(e.getMessage()).isEqualTo("차 이름은 다섯글자로 입력해주세요");
+    }
+
+    @Test
+    @DisplayName("InputView에서 게임을 진행할 횟수를 정상적으로 입력받는다.")
+    void inputView_runningGameNumber_Test() {
+        String testInput = "1";
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(testInput.getBytes());
+        System.setIn(inputStream);
+
+        Assertions.assertEquals(InputView.gameRunningNumber(), Integer.valueOf(1));
     }
 
 }
