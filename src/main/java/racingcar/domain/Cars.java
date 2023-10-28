@@ -31,9 +31,13 @@ public class Cars {
     }
 
     private void addWinners(List<String> winners, Car car) {
-        if (car.getPosition() == calculateMaxPosition()) {
+        if (isSamePosition(car)) {
             winners.add(car.getName());
         }
+    }
+
+    private boolean isSamePosition(Car car) {
+        return car.getPosition() == calculateMaxPosition();
     }
 
     private int calculateMaxPosition() {
