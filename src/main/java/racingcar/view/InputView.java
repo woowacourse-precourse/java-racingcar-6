@@ -9,7 +9,9 @@ public class InputView {
         return input;
     }
 
-    public static int askPlayTime() {
-        return 0;
+    public static String askPlayTime() {
+        String input = Console.readLine();
+        //        validatePlayTime(input);
+        return input;
     }
 }

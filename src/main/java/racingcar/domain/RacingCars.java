@@ -10,10 +10,6 @@ public class RacingCars {
         racingcars = new ArrayList<>();
     }
 
-    public static RacingCars stringToRacingCars(String cars) {
-        RacingCars result = new RacingCars();
-        return result;
-    }
 
     public void add(RacingCar racingcar) {
         racingcars.add(racingcar);

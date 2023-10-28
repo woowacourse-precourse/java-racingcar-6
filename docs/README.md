@@ -10,7 +10,7 @@
 ## InputView 사용자 입력
 
 - [x] 경주할 자동차의 이름을 입력 받는다.
-- [] 시도할 횟수를 입력 받는다.
+- [x] 시도할 횟수를 입력 받는다.
 - [] Inputvalidator를 통해 입력을 검증한다.
 - [] 잘못된 입력에 대해 IllegalArgumentException을 발생 시킨 후 종료한다.
 
@@ -34,8 +34,8 @@
 
 ## Game 게임, 시작점
 
-- [] 게임 시작점
-- [] 게임 진행 동안 객체들에게 지속적으로 요청한다.
+- [x] 게임 시작점
+- [x] 게임 진행 동안 객체들에게 지속적으로 요청한다.
 
 ## Refree 게임 진행
 
@@ -53,3 +53,7 @@
 ## RacingCars 자동차 배열
 
 - [x] 자동차들의 정보를 입력 된 순서대로 저장한다.
+
+## TypeCasting 형변환
+
+- [x] String to RacingCars, String to Integer 을 수행한다.
