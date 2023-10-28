@@ -18,32 +18,27 @@ public class CarManger {
 		}
 	}
 
-	public void moveCar() {
-		for (Car car : cars) {
-			int i = Randoms.pickNumberInRange(0, 9);
-			if(i >= 4) {
-				car.foward();
-			}
-			System.out.println(car.getName() + " : " + car.getHistory());
-		}
+
+	public void moveCars() {
+		cars.stream()
+			.filter(car -> Randoms.pickNumberInRange(0, 9) >= 4)
+			.forEach(Car::move);
 	}
 
 	public List<String> findWinner() {
 		List<String> winnerName = new ArrayList<>();
 		int maxMovingDistance = maxPositon();
-		for (Car car : cars) {
-			if(maxMovingDistance == car.getPosition()) {
-				winnerName.add(car.getName());
-			}
-		}
+		cars.stream()
+			.filter(car -> maxMovingDistance == car.getPosition())
+			.forEach(car -> winnerName.add(car.getName()));
 		return winnerName;
 	}
 
-	public int maxPositon() {
-		int maxMovingDistance = 0;
-		for (Car car : cars) {
-			maxMovingDistance = Math.max(maxMovingDistance, car.getPosition());
-		}
-		return maxMovingDistance;
+	private int maxPositon() {
+
+		return cars.stream()
+			.mapToInt(Car::getPosition)
+			.max()
+			.orElse(0);
 	}
 }
