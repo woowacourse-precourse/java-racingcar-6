@@ -8,4 +8,11 @@ public class InputManager {
         Validator.validateCarNames(input);
         return input;
     }
+
+    public int readNumberOfAttempts() {
+        String input = Console.readLine();
+        Validator.validateNumberOfAttempts(input);
+        int numberOfAttempts = Integer.parseInt(input);
+        return numberOfAttempts;
+    }
 }

@@ -9,4 +9,13 @@ class Validator {
             }
         }
     }
+
+    static void validateNumberOfAttempts(String input) {
+        if (!input.matches("[0-9]+")) {
+            throw new IllegalArgumentException("The number of attempts '" + input + "' should be an integer.");
+        }
+        if (Integer.parseInt(input) < 0) {
+            throw new IllegalArgumentException("The number of attempts '" + input + "' should be a positive integer.");
+        }
+    }
 }

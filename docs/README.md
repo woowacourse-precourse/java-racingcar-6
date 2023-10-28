@@ -18,8 +18,8 @@
 #### 입력
 - [x] 사용자로부터 경주할 자동차 이름을 입력받는다 - InputManager.readCarNames
     - [x] 사용자 입력으로 받은 자동차 이름이 5자 이하가 아닌 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션을 종료시킨다
-- [ ] 사용자로부터 전진 시도할 횟수를 입력받는다 - InputManager.readNumberOfAttempts
-    - [ ] 사용자 입력으로 받은 시도할 횟수가 숫자가 아닌 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션을 종료시킨다
+- [x] 사용자로부터 전진 시도할 횟수를 입력받는다 - InputManager.readNumberOfAttempts
+    - [x] 사용자 입력으로 받은 시도할 횟수가 숫자가 아닌 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션을 종료시킨다
     
 #### 출력
 - [ ] 게임 시작 시 "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"를 출력한다
