@@ -6,8 +6,8 @@ import java.util.List;
 
 public class Cars {
 
-    private static final List<String> CarNames = new ArrayList<>();
-    
+    public static final List<String> CarNames = new ArrayList<>();
+
     public void create(String[] cars) {
         CarNames.addAll(Arrays.asList(cars));
     }
