@@ -20,6 +20,11 @@ Cars
 - 우승자를 구할 수 있다. - O
   - 우승자는 한명이상일 수 있다. - O
 
+  
+RandomNumber
+- 0~9사이의 값을 생성한다.
+  - 0~9사이가 아니라면 IllegalArgumentException 를 발생시킨다.
+- 크기가 4이상인지 확인한다
 
 NumberGenerator
 - 0~9사이의 무작위 값을 구한다.
