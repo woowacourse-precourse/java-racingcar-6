@@ -45,4 +45,8 @@ public class Game {
     public List<RoundResult> getResults() {
         return Collections.unmodifiableList(results);
     }
+
+    public List<String> getWinner() {
+        return cars.getCarNamesByMaxPosition();
+    }
 }

@@ -47,4 +47,19 @@ public class Cars {
     public int getSize() {
         return cars.size();
     }
+
+    public List<String> getCarNamesByMaxPosition() {
+        int maxPosition = getMaxPosition();
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .toList();
+    }
+
+    private int getMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElseThrow(IllegalArgumentException::new);
+    }
 }
