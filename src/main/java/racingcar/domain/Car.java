@@ -24,10 +24,6 @@ public class Car {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder(name).append(" : ");
-        for (int i = 0; i < distance; i++) {
-            result.append('-');
-        }
-        return result.toString();
+        return name + " : " + "-".repeat(Math.max(0, distance));
     }
 }

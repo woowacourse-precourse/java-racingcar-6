@@ -82,6 +82,7 @@ public class Game {
 
     public void findWinners() {
         int maxDistance = -1;
+
         for (Car car : cars) {
             if (car.getDistance() > maxDistance) {
                 maxDistance = car.getDistance();
