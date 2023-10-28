@@ -6,6 +6,13 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class InputValidatorTest {
     @Test
+    void 자동차_이름을_입력하지_않았을_때_예외_발생() {
+        assertThatThrownBy(() -> InputValidator.validateCarNames(""))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름을 입력해주세요.");
+    }
+
+    @Test
     void 다섯_글자를_넘는_자동차_이름이_있을_때_예외_발생() {
         assertThatThrownBy(() -> InputValidator.validateCarNames("pobi,woni,yehyeok"))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -17,6 +24,13 @@ class InputValidatorTest {
         assertThatThrownBy(() -> InputValidator.validateCarNames("pobi,pobi"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("중복된 자동차 이름이 존재합니다.");
+    }
+
+    @Test
+    void round를_입력하지_않았을_때_예외_발생() {
+        assertThatThrownBy(() -> InputValidator.validateRound(""))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도할 회수를 입력해주세요.");
     }
 
     @Test
