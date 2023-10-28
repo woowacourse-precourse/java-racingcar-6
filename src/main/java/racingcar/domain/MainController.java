@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.Validator;
 
 public class MainController {
 
@@ -17,8 +18,11 @@ public class MainController {
     }
 
     private void setInput() {
+        Validator validator = new Validator();
+
         CARS = getCarNameInput();
-        //유효 테스트
+        validator.validatorForCar(CARS);
+
         ATTEMPT_COUNT = getAttemptCountInput();
         //유효 테스트
 
