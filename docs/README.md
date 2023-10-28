@@ -43,10 +43,9 @@ Model, Controller, View, Logic 에 대해 인터페이스를 먼저 구현한다
 4. addRound() - 라운드를 증가시킬 수 있도록 한다.
 5. checkMovable() - 사용자가 움직일 수 있는지를 확인한다.
 6. addWinCount() - 사용자의 점수를 올린다.
-7. getWinsCount() - 사용자의 승리 횟수를 가져온다.
-8. addWinsCount() - 사용자의 승리 횟수를 업데이트한다.
-9. getWinners() - 최종 승리자를 가져온다
-10. getPlayers() - 컨트롤러로 부터 플레이어를 가져온다.
+7. getWinCount() - 사용자의 승리 횟수를 가져온다.
+8. getWinners() - 최종 승리자를 가져온다 
+9. getPlayers() - 컨트롤러로 부터 플레이어를 가져온다.
 ## Utils
 1. generateRandomNumber() - 무작위 숫자를 생성할 수 있도록 한다.
 2. isIllegalPlayerInfo() - 사용자의 입력 문자열에 대해 에러처리를 하도록 한다. 
