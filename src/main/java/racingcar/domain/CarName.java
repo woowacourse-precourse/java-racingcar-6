@@ -2,51 +2,63 @@ package racingcar.domain;
 
 import racingcar.exception.RacingCarException;
 
-import java.util.List;
-
-import static racingcar.configuration.GameConfiguration.NAME_MAXIMUM_CONSTRAINT;
 import static racingcar.exception.ErrorMessage.*;
 
 public class CarName {
-    private static final String DELIMITER = ",";
+    private static final Integer NAME_LENGTH_CONSTRAINT = 5;
 
     private final String name;
 
+    // Private CarName Constructor
     private CarName(final String name) {
         validateEmpty(name);
         validateContainWhiteSpace(name);
-        validateEndsWithDelimiter(name);
+        validateExceedLength(name);
+
         this.name = name;
     }
 
+    // Static Factory Method
     public static CarName create(final String name) {
         return new CarName(name);
     }
 
-    public static void validateEmpty(final String input) {
-        if (input.isEmpty()) {
+    /**
+     * Exception Handling Method
+     */
+    private static void validateEmpty(final String name) {
+        if (name.isEmpty()) {
             throw RacingCarException.of(EMPTY);
         }
     }
 
-    public static void validateContainWhiteSpace(final String input) {
-        if (hasWhiteSpace(input)) {
+    private static void validateContainWhiteSpace(final String name) {
+        if (hasWhiteSpace(name)) {
             throw RacingCarException.of(CONTAIN_IMPROPER_LETTER);
         }
     }
 
-    public static void validateEndsWithDelimiter(final String input) {
-        if (input.endsWith(DELIMITER)) {
-            throw RacingCarException.of(ENDS_WITH_DELIMITER);
+    private static void validateExceedLength(final String name) {
+        if (isInValidLength(name)) {
+            throw RacingCarException.of(TOO_LONG_NAME);
         }
     }
 
-    private static boolean hasWhiteSpace(final String input) {
-        return input.chars().anyMatch(Character::isWhitespace);
+    /**
+     * Validation Condition
+     */
+    private static boolean hasWhiteSpace(final String name) {
+        return name.chars().anyMatch(Character::isWhitespace);
     }
 
-    private static boolean isInValidNameLength(final List<String> inputs) {
-        return inputs.stream()
-                .anyMatch(input -> input.length() > NAME_MAXIMUM_CONSTRAINT.getValue());
+    private static boolean isInValidLength(final String name) {
+        return name.length() > NAME_LENGTH_CONSTRAINT;
+    }
+
+    /**
+     * Getter
+     */
+    public String getName() {
+        return name;
     }
 }

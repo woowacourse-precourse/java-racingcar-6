@@ -37,7 +37,7 @@ public class Car {
 
     public String generateResult() {
         String dashes = visualizeScoreToDashes();
-        return String.format("%s : %s", name, dashes);
+        return String.format("%s : %s", name.getName(), dashes);
     }
 
     private String visualizeScoreToDashes() {
@@ -63,6 +63,6 @@ public class Car {
     }
 
     public String getName() {
-        return name;
+        return name.getName();
     }
 }

@@ -3,7 +3,7 @@ package racingcar.configuration;
 public enum GameConfiguration {
     // Constraint
     FORWARD_CONDITION(4),
-    NAME_MAXIMUM_CONSTRAINT(5),
+
     RANDOM_MINIMUM_CONSTRAINT(0),
     RANDOM_MAXIMUM_CONSTRAINT(9),
     ;

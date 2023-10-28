@@ -1,22 +1,18 @@
 package racingcar.domain;
 
 import racingcar.exception.RacingCarException;
-import racingcar.utility.Parser;
+import racingcar.parser.Parser;
 
 import java.util.List;
 
 import static racingcar.exception.ErrorMessage.SYSTEM_ERROR;
-import static racingcar.validator.ConstraintValidator.validateNameLength;
 
 public class Cars {
     private final List<Car> racingCars;
 
     // Car Constructor
     private Cars(final String input) {
-        
         List<String> carNames = Parser.parseCarNames(input);
-        validateNameLength(carNames);
-
         this.racingCars = createCars(carNames);
     }
 
