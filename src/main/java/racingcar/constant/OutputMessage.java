@@ -7,7 +7,9 @@ public enum OutputMessage {
     RACING_RESULT("%s : "),
     ROAD("-"),
     NEW_LINE("\n"),
-    RESULT_MESSAGE("실행 결과");
+    RESULT_MESSAGE("실행 결과"),
+    WINNER("최종 우승자 : %s"),
+    WINNER_DELIMITER(", ");
 
     private final String message;
 
