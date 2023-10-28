@@ -6,6 +6,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import racingcar.controller.RacingPlayerController;
+import racingcar.model.Player;
+import racingcar.model.RacingPlayer;
 import racingcar.view.ConsoleView;
 
 import java.io.ByteArrayOutputStream;
@@ -47,8 +50,8 @@ public class ConsoleViewTest {
     @ParameterizedTest
     @DisplayName("printRoundProgress() 함수 테스트")
     @MethodSource("provide_printRoundProgress_TestData")
-    void 진행상황_출력_테스트(String name, int winCount, String expectedOutput) {
-        consoleView.printRoundProgress(name, winCount);
+    void 진행상황_출력_테스트(List<Player> playerList, String expectedOutput) {
+        consoleView.printRoundProgress(playerList);
         assertThat(getOut()).isEqualTo(expectedOutput);
     }
 
@@ -62,9 +65,24 @@ public class ConsoleViewTest {
     }
     private static Stream<Arguments> provide_printRoundProgress_TestData() {
         return Stream.of(
-                Arguments.of("희종", 3, "희종 : ---"),
-                Arguments.of("희종", 0, "희종 :"),
-                Arguments.of("희종", 10, "희종 : ----------")
+                Arguments.of(
+                        Arrays.asList(
+                                new RacingPlayer("희종", 3)), "희종 : ---"),
+                Arguments.of(
+                        Arrays.asList(
+                                new RacingPlayer("희종", 0)
+                        ), "희종 :"),
+                Arguments.of(
+                        Arrays.asList(
+                                new RacingPlayer("희종", 1),
+                                new RacingPlayer("주현", 3)
+                        ), "희종 : -\n주현 : ---"),
+                Arguments.of(
+                        Arrays.asList(new RacingPlayer("희종", 10),
+                                new RacingPlayer("주현", 3),
+                                new RacingPlayer("희종", 10),
+                                new RacingPlayer("진우", 5)
+                        ), "희종 : ----------\n주현 : ---\n진우 : -----")
         );
     }
 }
