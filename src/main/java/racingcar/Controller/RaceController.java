@@ -44,6 +44,7 @@ public class RaceController {
         for (Car car : carList) {
             System.out.println(car.getName() + " : " + car.getDistance());
         }
+        ConsolePrint.printWinner(carList);
     }
 
 }

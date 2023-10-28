@@ -2,6 +2,7 @@ package racingcar.View;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.Model.Car;
 
 public class ConsolePrint {
@@ -29,6 +30,18 @@ public class ConsolePrint {
         for (int i = 0; i < car.getDistance(); i++) {
             System.out.print("-");
         }
+    }
+
+    public static void printWinner(List<Car> carList) {
+        int maxDistance = carList.get(0).getDistance();
+
+//        To check if there are multiple winners
+        List<String> winners = carList.stream()
+                .takeWhile(car -> car.getDistance() == maxDistance)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+
+        System.out.print("최종 우승자 : " + String.join(", ", winners));
     }
 
 }
