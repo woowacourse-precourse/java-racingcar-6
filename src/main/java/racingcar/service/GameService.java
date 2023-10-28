@@ -12,12 +12,7 @@ public class GameService {
         String carNames = Console.readLine();
         List<String> carNameList = new ArrayList<>();
 
-        for (String s : carNames.split(",")) {
-            if (s.contains(" ") || s.length() > 5 || carNameList.contains(s)) {
-                throw new IllegalArgumentException();
-            }
-            carNameList.add(s);
-        }
+        addValidCarName(carNames, carNameList);
 
         List<Car> carList = carNameList.stream().map(Car::new).toList();
         System.out.println("시도할 회수는 몇회인가요?");
@@ -34,5 +29,18 @@ public class GameService {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
+    }
+
+    private static void addValidCarName(String carNames, List<String> carNameList) {
+        for (String s : carNames.split(",")) {
+            if (checkNameValidation(carNameList, s)) {
+                throw new IllegalArgumentException();
+            }
+            carNameList.add(s);
+        }
+    }
+
+    private static boolean checkNameValidation(List<String> carNameList, String s) {
+        return s.contains(" ") || s.length() > 5 || carNameList.contains(s);
     }
 }
