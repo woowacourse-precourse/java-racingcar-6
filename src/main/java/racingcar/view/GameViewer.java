@@ -25,7 +25,6 @@ public class GameViewer {
         for (int i = 0; i < Integer.parseInt(tryCount); i++) {
             racingCarGameMachine.race();
             racingCarsStatusViewer();
-            System.out.println("\n");
         }
     }
 
@@ -34,6 +33,7 @@ public class GameViewer {
         for (RacingCar car : racingCars) {
             System.out.println(car);
         }
+        System.out.print("\n");
     }
 
     public void gameWinnerViewer() {
