@@ -1,5 +1,6 @@
 package racingcar.controller;
 import racingcar.view.InputView;
+
 public class GameController {
     private final InputView inputView;
 
@@ -16,4 +17,6 @@ public class GameController {
         String userCarNames = inputView.inputCarNames();
         String raceTimes = inputView.inputRaceTimes();
     }
+
+
 }
