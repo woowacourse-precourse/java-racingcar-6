@@ -2,8 +2,10 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Cars {
     private static final int MAX_CAR_NAME_LENGTH = 5;
@@ -21,12 +23,18 @@ public class Cars {
     private final Map<String, Integer> cars;
     private int maxAdvanceCount;
 
-    public Cars(Map<String, Integer> cars) {
-        for (String name : cars.keySet()) {
+    public Cars(List<String> carNameList) {
+        for (String name : carNameList) {
             verifyCarNameLength(name);
             verifyExistSpaceInCarName(name);
         }
-        this.cars = cars;
+        this.cars = carNameList.stream()
+                .collect(Collectors.toMap(
+                        key -> key,
+                        value -> INITIAL_COUNT_VALUE,
+                        (exitingValue, newValue) -> exitingValue,
+                        HashMap::new
+                ));
         this.maxAdvanceCount = INITIAL_MAX_ADVANCE_COUNT_VALUE;
     }
 
@@ -70,7 +78,7 @@ public class Cars {
 
     private int accumulate(int randomNumber, String name) {
         if (randomNumber == NUMBER_OF_ADVANCE) {
-            cars.put(name, (cars.getOrDefault(name, INITIAL_COUNT_VALUE) + PLUS_ONE));
+            cars.put(name, (cars.get(name) + PLUS_ONE));
         }
         return cars.get(name);
     }
