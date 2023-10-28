@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RacingGame {
 
@@ -56,5 +58,15 @@ public class RacingGame {
             maxPosition = Math.max(maxPosition, car.position);
         }
         return maxPosition;
+    }
+
+    private static List<String> findWinnerNames(Car[] cars, int maxPosition) {
+        List<String> winnerNames = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.position == maxPosition) {
+                winnerNames.add(car.name);
+            }
+        }
+        return winnerNames;
     }
 }
