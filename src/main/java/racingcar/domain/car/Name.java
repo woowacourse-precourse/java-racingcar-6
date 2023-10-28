@@ -6,7 +6,7 @@ import static racingcar.constants.ErrorConstants.*;
 
 public class Name {
     private static final int NAME_MAX_LENGTH = 5;
-    private String name;
+    private final String name;
 
     public Name(String name) {
         if (name.length() > NAME_MAX_LENGTH) {

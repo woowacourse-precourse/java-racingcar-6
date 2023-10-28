@@ -21,25 +21,28 @@ public class RaceGameService {
     }
 
     public void run(){
+        printRunMessage();
+        final List<Car> cars = raceCars.getCars();
+
+        IntStream.range(START_NUMBER, attemptCount)
+                .forEach(i -> executeRaceForCars(cars));
+    }
+
+    private void printRunMessage() {
         executionView.newLine();
         executionView.printExecutionStartMessage();
-        List<Car> cars = raceCars.getCars();
+    }
 
-        for (int attemptNumber = START_NUMBER; attemptNumber < attemptCount; attemptNumber++) {
-            raceCars.executeRace(randomValues());
-            printGameProgressMessages(cars);
-            executionView.newLine();
+    private void executeRaceForCars(List<Car> cars) {
+        for (Car car : cars) {
+            controlCarMovement(car, Randoms.getNumber());
+            executionView.printExecutionMessage(car);
         }
+        executionView.newLine();
     }
 
-    private void printGameProgressMessages(List<Car> cars) {
-        cars.stream().forEach(executionView::printExecutionMessage);
-    }
-
-    private int[] randomValues() {
-        return IntStream.range(START_NUMBER, raceCars.size())
-                .map(i -> Randoms.getNumber())
-                .toArray();
+    private void controlCarMovement(Car car, int controlValue) {
+        car.controlMovement(controlValue);
     }
 
 }
