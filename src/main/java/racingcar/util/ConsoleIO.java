@@ -1,22 +1,27 @@
 package racingcar.util;
 
+import static racingcar.constant.GameMessage.PLAY_RESULT_MESSAGE;
+import static racingcar.constant.GameMessage.REQUEST_INPUT_CAR_NAME_MESSAGE;
+import static racingcar.constant.GameMessage.REQUEST_INPUT_GAME_SET_MESSAGE;
+
 import camp.nextstep.edu.missionutils.Console;
 
 public class ConsoleIO {
     public static String readCarName() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(REQUEST_INPUT_CAR_NAME_MESSAGE);
 
         return Console.readLine();
     }
 
     public static String readGameSet() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(REQUEST_INPUT_GAME_SET_MESSAGE);
 
         return Console.readLine();
     }
 
     public static void printPlayResultMessage() {
-        System.out.println("실행 결과");
+        printNewLine();
+        System.out.println(PLAY_RESULT_MESSAGE);
     }
 
     public static void printSetResult(StringBuilder setResult) {
@@ -25,5 +30,9 @@ public class ConsoleIO {
 
     public static void printFinalResult(StringBuilder finalResult) {
         System.out.println(finalResult);
+    }
+
+    private static void printNewLine() {
+        System.out.println();
     }
 }

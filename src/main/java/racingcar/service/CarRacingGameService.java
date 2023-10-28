@@ -5,6 +5,7 @@ import static racingcar.constant.ExceptionMessage.CAR_NAME_INCLUDE_BLANK_EXCEPTI
 import static racingcar.constant.ExceptionMessage.CAR_NAME_OVER_LENGTH_EXCEPTION_MESSAGE;
 import static racingcar.constant.ExceptionMessage.SET_NOT_NUMBER_EXCEPTION_MESSAGE;
 import static racingcar.constant.ExceptionMessage.SET_RANGE_EXCEPTION_MESSAGE;
+import static racingcar.constant.GameMessage.FINAL_WINNER_MESSAGE;
 
 import java.util.HashSet;
 import java.util.List;
@@ -87,7 +88,7 @@ public class CarRacingGameService {
     }
 
     public StringBuilder getFinalResult(Game game) {
-        StringBuilder finalResult = new StringBuilder("최종 우승자 : ");
+        StringBuilder finalResult = new StringBuilder(FINAL_WINNER_MESSAGE);
 
         List<String> winner = game.getWinnerList();
 
