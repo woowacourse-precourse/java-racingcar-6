@@ -10,7 +10,7 @@ public class Start {
     public static void start() {
         List<Car> cars = readCarNames();
         int gameCount = readGameCount();
-        // TODO: game();
+        Game.game(cars, gameCount);
     }
 
     public static List<Car> readCarNames() {
