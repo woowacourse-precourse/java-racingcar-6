@@ -10,16 +10,20 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
+	private static final int MIN_TIMES = 1;
+	private static final int MAX_TIMES = 100;
+	private static final int MAX_CAR_NAME_LENGTH = 5;
+	
     public static void main(String[] args) {
         
     	System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     	String carInput = Console.readLine();
     	List<String> carList = inputToCarList(carInput);
-    	carListException(carList);
+    	validateCarList(carList);
     	
     	System.out.println("시도할 회수는 몇회인가요?");
     	String timesInput = Console.readLine();
-    	timesException(timesInput);
+    	validateTimes(timesInput);
     	
     	System.out.println("\n실행 결과");
     	List<Integer> results = new ArrayList<>();
@@ -84,12 +88,13 @@ public class Application {
     	}
 	}
 
-	public static void timesException(String timesInput) {
-		if(!timesInput.matches("\\d+") || Integer.valueOf(timesInput) < 1 || Integer.valueOf(timesInput) > 100)
-    		throw new IllegalArgumentException("1~100 사이의 정수로 설정해주세요.");
+	public static void validateTimes(String timesInput) {
+		int times = Integer.valueOf(timesInput);
+		if(!timesInput.matches("\\d+") || times < MIN_TIMES || times > MAX_TIMES)
+    		throw new IllegalArgumentException(MIN_TIMES+"~"+MAX_TIMES+" 사이의 정수로 설정해주세요.");
 	}
 
-	public static void carListException(List<String> carList) {
+	public static void validateCarList(List<String> carList) {
 		atLeastOneCar(carList);
     	limitFiveEach(carList);
     	distinctName(carList);
@@ -103,8 +108,8 @@ public class Application {
 
 	public static void limitFiveEach(List<String> carList) {
 		for(int i = 0; i < carList.size(); i++) {
-    		if(carList.get(i).length() > 5)
-    			throw new IllegalArgumentException("각 자동차의 이름은 5자 이하로 작성해주세요.");
+    		if(carList.get(i).length() > MAX_CAR_NAME_LENGTH)
+    			throw new IllegalArgumentException("각 자동차의 이름은 "+MAX_CAR_NAME_LENGTH+"자 이하로 작성해주세요.");
     	}
 	}
 
