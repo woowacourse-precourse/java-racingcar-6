@@ -1,5 +1,7 @@
 package car;
 
+import org.junit.platform.commons.util.StringUtils;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,6 +11,7 @@ public class Cars {
     private static final int CAR_NAME_LIMIT = 5;
     private static final String NAME_LENGTH_INVALID = "이름은 5자 이하만 가능하다.";
     private static final String SPLIT_DELIMITER = ",";
+    private static final String MUST_NOT_BLANK = "공백 입력은 불가능하다.";
 
     public Cars(String userInput) {
         this.carList = this.initByStringInput(userInput);
@@ -42,14 +45,22 @@ public class Cars {
         return Arrays.stream(carNames)
                 .map(String::trim) // 양옆 공백을 제거한다.
                 .map(carName -> {
-                    validateLength(carName);
+                    validateInput(carName);
                     return new Car(carName);
                 })
                 .toList();
     }
-
-    private void validateLength(String carName) {
-        if (carName.length() > CAR_NAME_LIMIT) {
+    private void validateInput(String userInput){
+        this.validateNotBlank(userInput);
+        this.validateLength(userInput);
+    }
+    private void validateNotBlank(String userInput){
+        if (StringUtils.isBlank(userInput)) {
+            throw new IllegalArgumentException(MUST_NOT_BLANK);
+        }
+    }
+    private void validateLength(String userInput) {
+        if (userInput.length() > CAR_NAME_LIMIT) {
             throw new IllegalArgumentException(NAME_LENGTH_INVALID);
         }
     }
