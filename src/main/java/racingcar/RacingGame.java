@@ -15,18 +15,33 @@ public class RacingGame {
     }
 
     public void startGame() {
+        List<Car> cars = getCarList();
+        int count = getCount();
+        System.out.println("실행 결과");
+        do {
+            printGameResult(cars);
+        } while (count-- > 1);
+        printGameWinner(cars);
+    }
+
+    private List<Car> getCarList() {
         String userInput = InputManager.getCarNamesFromPlayerInput();
         List<Car> cars = gameManager.createCarListFromPlayerInput(userInput);
+        return cars;
+    }
 
+    private int getCount() {
         String countInput = InputManager.getCountFromPlayerInput();
         int count = gameManager.createCountFromPlayerInput(countInput);
-        System.out.println("실행 결과");
+        return count;
+    }
 
-        do {
-            gameResultMaker.makeGameResult(cars);
-            gameResultView.printGameResult(cars);
-        } while (count-- > 1);
+    private void printGameResult(List<Car> cars) {
+        gameResultMaker.makeGameResult(cars);
+        gameResultView.printGameResult(cars);
+    }
 
+    private void printGameWinner(List<Car> cars) {
         List<String> gameWinner = Car.getRacingGameWinner(cars);
         gameResultView.printGameWinner(gameWinner);
     }
