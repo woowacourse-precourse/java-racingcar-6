@@ -41,4 +41,20 @@ public class ValidatorTest {
 	void checkNomalOperation2(String str) {
 		Validator.validateContainNumber(str);
 	}
+	
+	@DisplayName("숫자가 아닌 문자가 포함되어 있으면 예외처리한다.")
+	@ValueSource(strings = { "#12", "0s12" })
+	@ParameterizedTest
+	void checkNumberFormat(String str) {
+		assertThatThrownBy(() -> Validator.validateNumberFormat(str))
+				.isInstanceOf(IllegalArgumentException.class)
+						.hasMessageContaining(ErrorMessage.INPUT_LETTER_ERROR.getMessage());
+	}
+
+	@DisplayName("숫자만을 입력했을 떄 정상적으로 작동하는 지 확인한다.")
+	@ValueSource(strings = { "123", "456" })
+	@ParameterizedTest
+	void checkNomalOperation3(String str) {
+		Validator.validateNumberFormat(str);
+	}
 }	
