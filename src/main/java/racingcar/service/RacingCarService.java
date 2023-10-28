@@ -13,6 +13,7 @@ public final class RacingCarService {
     }
 
     private Cars prepareCars(List<String> inputCarNames) {
+    Cars prepareCars(List<String> inputCarNames) {
         List<Car> carList = inputCarNames.stream()
             .map(Car::from)
             .toList();
