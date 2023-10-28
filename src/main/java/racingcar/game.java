@@ -4,6 +4,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class game {
     car[] participate;
+    int try_number;
 
     String[] input_name(){ //자동차 이름 입력 후 분류
         String name_bundle;
@@ -21,5 +22,10 @@ public class game {
         for(int i = 0; i < names.length; i++){
             participate[i] = new car(names[i], 0);
         }
+    }
+
+    void input_trynumber(){ //시도 횟수 입력 후 변수 값 저장
+        System.out.println("시도할 회수는 몇회인가요?");
+        try_number = Integer.parseInt(readLine());
     }
 }
