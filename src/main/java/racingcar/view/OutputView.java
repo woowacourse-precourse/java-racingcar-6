@@ -7,4 +7,16 @@ public class OutputView {
     private static final String RESULT_MESSAGE = "실행 결과";
     private static final String WINNER_MESSAGE = "최종 우승자 : ";
     private static final String COUNT_SYMBOL = "-";
+
+    public static void printGameStartMessage() {
+        System.out.println(GAME_START_MESSAGE);
+    }
+
+    public static void printPromptMessage() {
+        System.out.println(PROMPT_MESSAGE);
+    }
+
+    public static void printResultMessage() {
+        System.out.println(RESULT_MESSAGE);
+    }
 }
