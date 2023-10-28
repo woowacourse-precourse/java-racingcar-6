@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.List;
+
 public class OutputView {
 
     private static final String INPUT_CARS_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -14,15 +16,14 @@ public class OutputView {
         System.out.println(INPUT_NUMBERS_OF_MOVES_MESSAGE);
     }
 
-    public static void printCurrentLocation(String currentLocation) {
-        System.out.println(currentLocation);
+    public static void printCurrentLocations(List<String> currentLocations) {
+        for (String currentLocation : currentLocations) {
+            System.out.println(currentLocation);
+        }
+        System.out.println();
     }
 
     public static void printWinnerNames(String winnerNames) {
         System.out.println(WINNER_MESSAGE + winnerNames);
-    }
-
-    public static void printBlankLine() {
-        System.out.println();
     }
 }

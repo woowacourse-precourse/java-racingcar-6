@@ -30,10 +30,7 @@ public class RacingCarGameController {
 
         for (int i = 0; i < numberOfMoves; i++) {
             List<String> currentLocations = cars.moveCars(RandomNumberGenerator.generate());
-            for (String currentLocation : currentLocations) {
-                OutputView.printCurrentLocation(currentLocation);
-            }
-            OutputView.printBlankLine();
+            OutputView.printCurrentLocations(currentLocations);
         }
 
         String winnerNamesOfCars = cars.getWinnerCars().stream()
