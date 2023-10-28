@@ -18,5 +18,7 @@
 - [✔] 무작위 값이 4 이상일 경우 앞으로 움직인다. - moveCar()
 - [✔] 위 과정을 시도할 횟수 동안 반복한다. - playRacing()
     - [✔] 각 차수별 실행 결과를 출력한다.
-- [] 게임이 끝나면 우승자를 알려준다. - determineWinner()
+- [] 게임이 끝나면 우승자를 알려준다. - showResult()
+    - [] 가장 앞에 있는 차를 찾는다. - findWinner()
+    - [] 우승자의 이름을 String 으로 반환한다. - determineWinner()
 - [] 우승자를 출력한다. - printRacingResult()

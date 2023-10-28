@@ -35,4 +35,27 @@ public class Game {
         return roundResult;
     }
 
+    public int findMaxPosition() {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+
+        return maxPosition;
+
+    }
+
+    public List<String> findWinner() {
+        List<String> winners = new ArrayList<>();
+        int maxPosition = findMaxPosition();
+
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+
+        return winners;
+    }
+
 }
