@@ -21,11 +21,15 @@ public class Car {
         }
     }
 
+    public void moveForward() {
+        this.position++;
+    }
+
     public int getPosition() {
         return this.position;
     }
 
-    public void moveForward() {
-        this.position++;
+    public String getName() {
+        return this.carName;
     }
 }
