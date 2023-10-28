@@ -10,5 +10,12 @@ public class Application {
         HashMap<String, Integer> userResult = new CarNameInput().inputCarName();
 
         int attemptTimes = new AttemptsInput().inputAttempts();
+
+        HashMap<String, Integer> userScore = new HashMap<>();
+
+        for (int i = 0; i < attemptTimes; i++) {
+            userScore = new RacingGame().playGame(userResult);
+        }
+
     }
 }
