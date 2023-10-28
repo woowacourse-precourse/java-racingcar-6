@@ -1,6 +1,9 @@
 package racingcar.domain;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -19,10 +22,22 @@ class MoveDistanceTest {
 
         // then
         final int after = result.toValue();
-        Assertions.assertThat(after).isEqualTo(before + 1);
+        assertThat(after).isEqualTo(before + 1);
     }
 
     @Test
+    @DisplayName("결과 메시지를 요청하면 이동 거리에 맞는 문자열을 반환하는가")
     void toResultMessage() {
+        // given
+        final MoveDistance before = new MoveDistance();
+        final MoveDistance after = before.next();
+        final int expectedDistance = after.toValue();
+        final String expected = IntStream.range(0, expectedDistance).mapToObj(i -> "-").collect(Collectors.joining());
+
+        // when
+        final String resultMessage = after.toResultMessage();
+
+        // then
+        assertThat(resultMessage).contains(expected);
     }
 }
