@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Console;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,7 @@ public class GameData {
         return carList;
     }
 
-    public void setCarList(int carNumber) {
+    public void createCarList(int carNumber) {
         this.carList = new ArrayList<>();
         for (int i = 0; i < carNumber; i++) {
             carList.add(new Car());
@@ -30,12 +32,21 @@ public class GameData {
         CarNamesInput = carNamesInput;
     }
 
+    public void setCarsName(String[] carNamesArray) {
+
+        for (int i = 0; i < carNamesArray.length; i++) {
+            Car car = carList.get(i);
+            car.setName(carNamesArray[i]);
+        }
+    }
+
     public Integer getTryRepetitionNumber() {
         return tryRepetitionNumber;
     }
 
-    public void setTryRepetitionNumber(Integer tryRepetitionNumber) {
-        this.tryRepetitionNumber = tryRepetitionNumber;
+    public void setTryRepetitionNumber() {
+        String repetitionNumberInput = Console.readLine();
+        this.tryRepetitionNumber = Integer.parseInt(repetitionNumberInput);
     }
 
     public List<Car> getWinnerList() {
