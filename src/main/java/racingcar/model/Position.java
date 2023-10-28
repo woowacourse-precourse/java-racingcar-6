@@ -13,6 +13,10 @@ public final class Position {
         return new Position(0);
     }
 
+    public static Position of(int position) {
+        return new Position(position);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -24,5 +28,9 @@ public final class Position {
     @Override
     public int hashCode() {
         return Objects.hash(position);
+    }
+
+    public Position move() {
+        return new Position(position + 1);
     }
 }
