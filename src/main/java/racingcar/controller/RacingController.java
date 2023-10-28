@@ -34,7 +34,7 @@ public class RacingController {
     private Cars getCars() {
         outputView.printCarNamesInputMessage();
         String carNames = inputView.readInput();
-        return Cars.createFromCarNames(Converter.convertCommaSeparatedStringToList(carNames));
+        return Cars.from(Converter.convertCommaSeparatedStringToList(carNames));
     }
 
     private int getTryCount() {

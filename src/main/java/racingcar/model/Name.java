@@ -9,18 +9,23 @@ public class Name {
 
     private final String name;
 
-    public Name(final String name) {
+    private Name(final String name) {
         validateName(name);
         this.name = name;
     }
 
-    private void validateName(final String name) {
+    public static Name from(final String name) {
+        validateName(name);
+        return new Name(name);
+    }
+
+    private static void validateName(final String name) {
         if (isInvalidName(name)) {
             throw new InvalidNameException();
         }
     }
 
-    private boolean isInvalidName(final String name) {
+    private static boolean isInvalidName(final String name) {
         return name.length() > MAX_NAME_LENGTH || name.isEmpty();
     }
 

@@ -15,10 +15,10 @@ public class Cars {
         this.cars = cars;
     }
 
-    public static Cars createFromCarNames(final List<String> carNames) {
+    public static Cars from(final List<String> carNames) {
         validateDuplicateNames(carNames);
         List<Car> cars = carNames.stream()
-                .map(carName -> new Car(new Name(carName), Position.createDefault()))
+                .map(Car::from)
                 .toList();
 
         return new Cars(cars);
