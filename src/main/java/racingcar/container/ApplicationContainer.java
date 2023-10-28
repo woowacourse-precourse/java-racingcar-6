@@ -120,7 +120,7 @@ public class ApplicationContainer {
     /* Log */
     private static void printLog(String className, String interfaceName) {
         System.out.println(
-                "the instance of " + className + " is successfully created as an implementation of " + interfaceName
+                "the instance of [" + className + "] is successfully created as an implementation of [" + interfaceName + "]"
         );
     }
 }
