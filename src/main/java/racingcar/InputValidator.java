@@ -28,4 +28,16 @@ public class InputValidator {
         }
         return carNames;
     }
+
+    public static int validateNumberOfAttempts(String input) {
+        if (!input.matches("\\d+")) {
+            throw new IllegalArgumentException("정수가 아닙니다.");
+        }
+
+        int number = Integer.parseInt(input);
+        if (number <= 0) {
+            throw new IllegalArgumentException("양의 정수가 아닙니다.");
+        }
+        return number;
+    }
 }
