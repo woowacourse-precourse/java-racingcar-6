@@ -12,8 +12,6 @@ import java.util.stream.Collectors;
 import net.bytebuddy.dynamic.scaffold.MethodGraph.Linked;
 
 public class Game {
-
-
     public List<String> splitCarName(String carName) {
         List<String> carNameList = new ArrayList<>();
         String[] carNames = carName.split(",");

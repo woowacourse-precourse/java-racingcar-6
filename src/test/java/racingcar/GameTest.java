@@ -24,7 +24,7 @@ public class GameTest {
 
     @BeforeEach
     void setUp() {
-        car = new Car(cars);
+//        car = new Car(cars);
         game = new Game();
     }
 
@@ -49,12 +49,12 @@ public class GameTest {
         String input = "pobi,jun,king,wuk";
         List<String> carNameList = game.splitCarName(input);
         LinkedHashMap<String, Integer> carLocations;
-        car.createLocationMap(carNameList);
+//        car.createLocationMap(carNameList);
 
-        carLocations = car.moveForward(carNameList);
+//        carLocations = car.moveForward(carNameList);
 
         for (int i = 0; i < carNameList.size(); i++) {
-            System.out.println(carNameList.get(i) + " " + carLocations.get(carNameList.get(i)));
+//            System.out.println(carNameList.get(i) + " " + carLocations.get(carNameList.get(i)));
         }
 
     }

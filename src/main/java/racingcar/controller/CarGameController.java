@@ -10,13 +10,9 @@ import racingcar.view.OutputView;
 
 public class CarGameController {
 
-    private Car car;
     private Game game;
-    private LinkedHashMap<String,Integer> locations;
 
     public CarGameController(){
-        this.locations = new LinkedHashMap<>();
-        this.car = new Car(locations);
         this.game = new Game();
     }
 
@@ -28,13 +24,10 @@ public class CarGameController {
         OutputView.printRequestTryNumberMessage();
         int tryNumber = Integer.parseInt(InputView.readTryNumber());
         OutputView.printResultStartMessage();
-        car.createLocationMap(carNameList);
-        for(int i = 0 ; i < tryNumber; i++){
-            locations = car.moveForward(carNameList);
-            OutputView.printGameResultMessage(carNameList,locations);
-        }
-        List<String>winners = game.judgeWinner(carNameList,locations);
-        OutputView.printFinalWinner(winners);
+
+
+
+
 
     }
 

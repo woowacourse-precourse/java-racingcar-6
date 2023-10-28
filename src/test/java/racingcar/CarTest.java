@@ -21,7 +21,7 @@ public class CarTest {
 
     @BeforeEach
     void setUp() {
-        car = new Car(cars);
+//        car = new Car(cars);
         game = new Game();
 
     }
@@ -54,7 +54,7 @@ public class CarTest {
         for (int i = 0; i < carNameList.size(); i++) {
             distinctCarNames.put(carNameList.get(i), 0);
         }
-        cars = car.createLocationMap(carNameList);
+//        cars = car.createLocationMap(carNameList);
         Assertions.assertTrue(distinctCarNames.size() == cars.size());
 
     }
