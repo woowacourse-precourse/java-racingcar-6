@@ -8,7 +8,7 @@ public class RandomDistanceGenerator {
     private static final int MAX_RANDOM_VALUE = 9;
     private static final int MOVE_LIMIT = 4;
 
-    public int generateRandomValue() {
+    private int generateRandomValue() {
         return Randoms.pickNumberInRange(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE);
     }
 
