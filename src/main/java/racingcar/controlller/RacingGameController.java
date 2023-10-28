@@ -21,15 +21,15 @@ public class RacingGameController {
     }
 
     public void startGame() {
-        Cars cars = IOController.scanCarList();
-        int numberOfRounds = IOController.scanNumberOfRounds();
+        Cars cars = InputController.scanCarList();
+        int numberOfRounds = InputController.scanNumberOfRounds();
 
-        IOController.printResultHeaderMessage();
+        OutputController.printResultHeaderMessage();
         for (int i = 0; i < numberOfRounds; i++) {
             playOneRound(cars);
-            IOController.printForwardStateMessage(cars);
+            OutputController.printForwardStateMessage(cars);
         }
-        IOController.printWinnersMessage(pickWinners(cars));
+        OutputController.printWinnersMessage(pickWinners(cars));
 
         endGame();
     }
