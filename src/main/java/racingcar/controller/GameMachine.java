@@ -1,29 +1,52 @@
 package racingcar.controller;
 
+import static racingcar.message.MessageConstants.LINE_BREAK;
+import static racingcar.message.MessageConstants.ZERO;
+
 import racingcar.domain.Cars;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class GameMachine {
-
     private final InputView inputView;
+    private final OutputView outputView;
 
     public GameMachine() {
         this.inputView = new InputView();
+        this.outputView = new OutputView();
     }
 
     public void start() {
-        Cars cars = inputView.inputCarName();
-        int tryCount = inputView.inputTryCount();
+        Cars cars = getCars();
+        int tryCount = getTryCount();
 
-        System.out.println();
-        System.out.println("실행 결과");
-        for (int i = 0; i < tryCount; i++) {
-            cars.move();
-            System.out.println(cars.statusMessage());
-            System.out.println();
-        }
-
-        System.out.printf("최종 우승자 : %s", cars.winnerCars());
+        runRaceAndPrintResult(cars, tryCount);
     }
 
+    public Cars getCars() {
+        try {
+            return inputView.inputCarName();
+        } catch (IllegalStateException e) {
+            return getCars();
+        }
+    }
+
+    public int getTryCount() {
+        try {
+            return inputView.inputTryCount();
+        } catch (IllegalStateException e) {
+            return getTryCount();
+        }
+    }
+
+    public void runRaceAndPrintResult(Cars cars, int tryCount) {
+        outputView.runResultMessage();
+
+        for (int i = ZERO; i < tryCount; i++) {
+            cars.move();
+            System.out.println(cars.statusMessage() + LINE_BREAK);
+        }
+
+        outputView.winnerCarsMessage(cars);
+    }
 }

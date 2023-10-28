@@ -1,5 +1,9 @@
 package racingcar.domain;
 
+import static racingcar.message.MessageConstants.DELIMITER;
+import static racingcar.message.MessageConstants.LINE_BREAK;
+import static racingcar.message.MessageConstants.ZERO;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,20 +21,20 @@ public class Cars {
     public String statusMessage() {
         return cars.stream()
                 .map(Car::forwardStatus)
-                .collect(Collectors.joining("\n"));
+                .collect(Collectors.joining(LINE_BREAK));
     }
 
     public String winnerCars() {
         return cars.stream()
                 .filter(car -> car.isSamePosition(getMaxPosition()))
                 .map(Car::getName)
-                .collect(Collectors.joining(", "));
+                .collect(Collectors.joining(DELIMITER));
     }
 
     private int getMaxPosition() {
         return cars.stream()
                 .map(Car::getPosition)
-                .reduce(0, Integer::max);
+                .reduce(ZERO, Integer::max);
     }
 
 }
