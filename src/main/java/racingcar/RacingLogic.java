@@ -3,27 +3,27 @@ package racingcar;
 import java.util.List;
 
 public class RacingLogic {
-    void repeatRaceAsTryTimes(List<Car> carList, int tryTime) {
+    static void repeatRaceAsTryTimes(List<Car> carList, int tryTime) {
 
     }
 
-    List<Integer> decideGoOrStopByRandoms() {
+    static List<Integer> decideGoOrStopByRandoms() {
         return null;
     }
 
-    List<Boolean> isGreaterThanOrEqualToFour(List<Integer> randomNumberList) {
+    static List<Boolean> isGreaterThanOrEqualToFour(List<Integer> randomNumberList) {
         return null;
     }
 
-    void saveRaceData(List<Car> carList, List<Boolean> goOrStopList) {
+    static void saveRaceData(List<Car> carList, List<Boolean> goOrStopList) {
 
     }
 
-    List<Integer> checkWinner(List<Car> carList) {
+    static List<Integer> checkWinner(List<Car> carList) {
         return null;
     }
 
-    void saveWinnerDate(List<Integer> winnerList) {
+    static void saveWinnerDate(List<Integer> winnerList) {
 
     }
 }
