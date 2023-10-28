@@ -5,7 +5,7 @@ import racingcar.value.Value;
 import racingcar.view.InputView;
 import racingcar.function.CheckNumber;
 import racingcar.function.GoStopRule;
-
+import racingcar.view.OutputView;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,11 +13,13 @@ import java.util.List;
 public class Controller {
     private final Value values;
     private final GoStopRule goStopRule;
-
+    private final OutputView outputView;
 
     public Controller() {
         this.values = new Value();
         this.goStopRule = new GoStopRule();
+        this.outputView = new OutputView();
+
     }
 
     public void run() {
@@ -48,6 +50,7 @@ public class Controller {
 
         for (int round = 0; round < roundOfGame; round++) {
             playRound(carPositions);
+            outputView.printRoundResult(values.getCarNames(), carPositions);
         }
     }
     private void playRound(List<Integer> carPositions) {
