@@ -3,13 +3,13 @@ package util.validator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.util.validator.carName.CarNameValidator;
-import racingcar.util.validator.carName.CarNameValidatorImpl;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static racingcar.container.ApplicationContainer.getInputValidator;
 
 public class CarNameValidatorTests {
-    private final CarNameValidator validator = new CarNameValidatorImpl();
+    private final CarNameValidator validator = getInputValidator().carName();
 
     @Test
     @DisplayName("입력값이 5글자를 초과한 경우 false 를 반환해야 한다")

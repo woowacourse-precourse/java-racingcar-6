@@ -3,13 +3,13 @@ package util.validator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.util.validator.raceCount.RaceCountValidator;
-import racingcar.util.validator.raceCount.RaceCountValidatorImpl;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static racingcar.container.ApplicationContainer.getInputValidator;
 
 public class RaceCountValidatorTests {
-    private final RaceCountValidator validator = new RaceCountValidatorImpl();
+    private final RaceCountValidator validator = getInputValidator().raceCount();
 
     @Test
     @DisplayName("입력값이 숫자가 아닌 경우 false 를 반환해야 한다")
