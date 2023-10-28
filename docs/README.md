@@ -6,7 +6,7 @@
 
 - [x] 자동차가 움직일지 결정하는 기능 - Car#canMove()
 - [x] 자동차가 움직인 거리를 변경하는 기능 - Car#move()
-- [ ] 자동차가 움직인 거리를 구하는 기능 - Car#getDistance()
+- [x] 자동차가 움직인 거리를 구하는 기능 - Car#getDistance()
 - [x] 자동차 이름을 받아오는 기능 - Car#getName()
 - [ ] 각 자동차의 움직인 거리를 출력하는 기능 - Printer#printDistance()
 

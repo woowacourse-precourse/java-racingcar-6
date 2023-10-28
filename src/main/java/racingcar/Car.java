@@ -21,7 +21,7 @@ public class Car {
     }
 
     public int getDistance() {
-        return 0;
+        return distance;
     }
 
     public String getName() {
