@@ -8,6 +8,7 @@ import java.util.List;
 public class CarOutputView {
 
     public void printResult() {
+        System.out.println();
         System.out.println(OutputMessage.PRINT_ROUND_RESULT.getMessage());
     }
 
@@ -17,7 +18,7 @@ public class CarOutputView {
     }
 
     public void printWinner(List<String> winners) {
-        System.out.println(OutputMessage.PRINT_FINAL_WINNER);
+        System.out.println(OutputMessage.PRINT_FINAL_WINNER.getMessage());
         System.out.println(String.join(", ", winners));
 
     }

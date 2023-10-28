@@ -10,7 +10,5 @@ public class Application {
         // FIX HERE!
         CarController gameController = new CarController();
         gameController.process();
-        gameController.receiveTryCount();
-        gameController.endGame();
     }
 }
