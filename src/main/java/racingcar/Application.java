@@ -16,10 +16,10 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         int numberOfRaces = inputNumberOfRaces();
 
+        List<Integer> raceResult = printCarRace(numberOfRaces, carNamesList);
 
-        System.out.println(carNamesList);
-
-        printCarRace(numberOfRaces, carNamesList);
+        List<String> winnerNameList = decideWinner(raceResult, carNamesList);
+        printWinner(winnerNameList);
     }
 
     public static List<String> inputCarNames() {
@@ -66,22 +66,50 @@ public class Application {
         return carActionList;
     }
 
-    public static void printCarRace(int numberOfRaces, List<String> carNamesList) {
+    public static List<Integer> printCarRace(int numberOfRaces, List<String> carNamesList) {
         int numberOfCars = carNamesList.size();
-        List<Integer> preActionList = new ArrayList<>(Collections.nCopies(numberOfCars, 0));
+        List<Integer> totalActionList = new ArrayList<>(Collections.nCopies(numberOfCars, 0));
 
         for (int j = 0; j < numberOfRaces; j++) {
             List<Integer> carActionList = recordCarAction(carNamesList);
 
-            for (int i = 0; i < carNamesList.size(); i++) {
+            for (int i = 0; i < numberOfCars; i++) {
                 String car = carNamesList.get(i);
-                int action = preActionList.get(i) + carActionList.get(i);
+                int action = totalActionList.get(i) + carActionList.get(i);
                 String dashes = "-".repeat(action);
                 System.out.println(car + " : " + dashes);
 
-                preActionList.set(i, action);
+                totalActionList.set(i, action);
             }
             System.out.println();
+        }
+        return totalActionList;
+    }
+
+    public static List<String> decideWinner(List<Integer> totalActionList, List<String> carNamesList) {
+        int maxDistance = Collections.max(totalActionList);
+        List<Integer> winnerIndexList = new ArrayList<>();
+        for (int i = 0; i < totalActionList.size(); i++) {
+            if (totalActionList.get(i) == maxDistance) {
+                winnerIndexList.add(i);
+            }
+        }
+        List<String> winnerNameList = new ArrayList<>();
+        for (int winnerIndex : winnerIndexList) {
+            String winnerName = carNamesList.get(winnerIndex);
+            winnerNameList.add(winnerName);
+        }
+        return winnerNameList;
+    }
+
+    public static void printWinner(List<String> winnerNameList) {
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < winnerNameList.size(); i++) {
+            String winnerName = String.valueOf(winnerNameList.get(i));
+            System.out.print(winnerName);
+            if (i + 1 < winnerNameList.size()) {
+                System.out.print(", ");
+            }
         }
     }
 }
