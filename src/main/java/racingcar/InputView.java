@@ -3,11 +3,13 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
-    GameException gameException = new GameException();
+    private final GameException gameException = new GameException();
+
+    private static final String SPLIT_COMMA = ",";
 
     public String[] inputPlayerCarName() {
         String carName = Console.readLine();
-        String[] carNames = carName.split(",");
+        String[] carNames = carName.split(SPLIT_COMMA);
         checkCarNamesLoop(carNames);
 
         return carNames;
