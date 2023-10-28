@@ -1,6 +1,6 @@
 package racingcar.validator;
 
-import racingcar.entity.Car;
+import racingcar.domain.Car;
 
 import java.util.HashSet;
 import java.util.List;
