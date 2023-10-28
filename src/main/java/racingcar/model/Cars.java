@@ -13,10 +13,9 @@ public class Cars {
         this.cars = cars;
     }
 
-    public void RandomMoveAll() {
-        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+    public void moveUsingRandomNumber(NumberGenerator numberGenerator) {
         for (Car car : this.cars) {
-            RandomNumber randomNumber = randomNumberGenerator.generate();
+            RandomNumber randomNumber = numberGenerator.generate();
             if (randomNumber.isGreaterThanFour()) {
                 car.move();
             }

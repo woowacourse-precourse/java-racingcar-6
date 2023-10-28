@@ -10,6 +10,8 @@ import static racingcar.view.OutputView.printBlank;
 import racingcar.dto.CarDto;
 import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.model.NumberGenerator;
+import racingcar.model.RandomNumberGenerator;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,7 +20,10 @@ import java.util.stream.Collectors;
 
 public class RacingGameController {
 
+    private final NumberGenerator numberGenerator;
+
     public RacingGameController() {
+         this.numberGenerator = new RandomNumberGenerator();
     }
 
     public void gameStart() {
@@ -32,7 +37,7 @@ public class RacingGameController {
 
         printResultMessage();
         for (int i = 0; i < trialCount; i++) {
-            players.RandomMoveAll();
+            players.moveUsingRandomNumber(numberGenerator);
             printRoundResult(players.toDtos());
             printBlank();
         }
