@@ -132,8 +132,8 @@ classDiagram
 - [ ] 경주 횟수 가져오기
 
 #### Input `InputView`
-- [ ] 차 이름 읽기
-- [ ] 경주 횟수 읽기
+- [x] 차 이름 읽기
+- [x] 경주 횟수 읽기
 
 #### Output `OutputView`
 - [ ] 게임 시작 콘솔 출력
