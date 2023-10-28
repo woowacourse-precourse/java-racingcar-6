@@ -18,4 +18,5 @@ public final class Message {
     public static final String EXCEPTION_ROUND_TYPE = "숫자만 입력해주세요.";
     public static final String EXCEPTION_INVALID_CAR_NAME_LENGTH = "자동차의 이름은 1 ~ 5자 사이로 지어주세요.";
     public static final String EXCEPTION_DUPLICATE_CAR_NAME = "중복된 자동차 이름은 사용할 수 없습니다";
+    public static final String EXCEPTION_CONTAIN_WHITESPACE = "자동차 이름은 공백을 포함할 수 없습니다.";
 }

@@ -12,6 +12,7 @@ public class Validation {
     public List<String> validateCarNames(String input) {
         String[] carNames = input.split(DELIMITER, -1);
 
+        validateWhiteSpace(carNames);
         validateDelimiterType(carNames);
         validateNameLength(carNames);
         int carNameCount = carNames.length;
@@ -20,8 +21,18 @@ public class Validation {
         return new ArrayList<>(Arrays.asList(carNames));
     }
 
+    public void validateWhiteSpace(String[] carNames) {
+        // stream 쓰기엔 가독성이 더 별로.. 정규식이 맞는거같다
+        String regex = ".*\\s+.*";
+        boolean result = Arrays.stream(carNames)
+                .anyMatch((carName) -> Pattern.matches(regex, carName));
+
+        if (result) {
+            throw new IllegalArgumentException(EXCEPTION_CONTAIN_WHITESPACE);
+        }
+    }
+
     public void validateDelimiterType(String[] carNames) {
-        // 빈 문자열도 일단 넘기고, Length 에서 검수
         String regex = "^[a-zA-Z]*$";
         boolean result = Arrays.stream(carNames).allMatch((carName) -> Pattern.matches(regex, carName));
 
