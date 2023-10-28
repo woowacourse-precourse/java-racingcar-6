@@ -19,7 +19,7 @@ import java.util.stream.Stream;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-public class ConSoleViewTest {
+public class ConsoleViewTest {
     private PrintStream standardOut;
     private OutputStream captor;
     private final ConsoleView consoleView = new ConsoleView();
