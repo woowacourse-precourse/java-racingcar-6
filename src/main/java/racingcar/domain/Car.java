@@ -23,7 +23,7 @@ public class Car {
 
     public Integer located() {
 
-        return 0;
+        return distance.length();
     }
 
     public String getName(){
