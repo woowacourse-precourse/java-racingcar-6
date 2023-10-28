@@ -2,10 +2,10 @@
 
 - [ ] 경주 게임을 시작한다. - RaceManager#startRace
   - [ ] 경주 게임을 준비한다. - RaceManager#prepareRace
-    - [ ] 자동차 이름을 입력받는다. - InputView#getCarNames
-    - [ ] 자동차 이름 입력을 검증한다. - InputValidator#validateCarNames
-      - [ ] 이름은 쉼표를 기준으로 구분한다. - InputValidator#checkCommaSeparatedNames
-      - [ ] 이름은 5자 이하만 가능하다. - InputValidator#checkNameLengthLimit
+    - [x] 자동차 이름을 입력받는다. - InputView#getCarNames
+    - [x] 자동차 이름 입력을 검증한다. - InputValidator#validateCarNames
+      - [x] 하나 이상의 이름이 입력되어야 한다. - InputValidator#checkAtLeastOneName
+      - [x] 이름은 5자 이하만 가능하다. - InputValidator#checkNameLengthLimit
     - [ ] 경주할 자동차를 생성한다. - RaceManager#generateRaceCarList
     - [ ] 몇 번의 이동을 할 것인지를 입력받는다. - inputView#getNumberOfAttempts
       - [ ] 시도할 횟수는 양의 정수이다. - inputValidator#validateNumberOfAttempts
