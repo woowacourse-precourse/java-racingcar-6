@@ -28,4 +28,6 @@
   - [X] 우승자 리스트 출력 기능
 
 ## Exception
-- [ ] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException 발생 기능
+- [x] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException 발생 기능
+  - [x] 경주 반복 회수가 0 이하일 경우 Exception 발생
+  - [X] 자동차 이름이 5자 이하가 아닐 경우 Exception 발생

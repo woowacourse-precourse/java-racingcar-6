@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.exception.ExceptionCheck;
 import racingcar.model.CarModel;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -22,7 +23,8 @@ public class RacingController {
 
     public void repeatNumberProcess() {
         OutputView.printRepeatNumberDemand();
-        this.repeatNumber = Integer.parseInt(InputView.inputRepeatNumber());
+        repeatNumber = Integer.parseInt(InputView.inputRepeatNumber());
+        ExceptionCheck.iterateNumberValidation(repeatNumber);
     }
 
     public void racingStart() {
