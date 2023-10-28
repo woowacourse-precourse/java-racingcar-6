@@ -24,7 +24,7 @@ public class Car {
 
     public void StopOrMove() {
         if (shouldMove()) {
-            distance.move();
+            move();
         }
     }
 
@@ -34,5 +34,9 @@ public class Car {
 
     public int getDistance() {
         return distance.getDistance();
+    }
+
+    public void move() {
+        distance.move();
     }
 }
