@@ -33,10 +33,8 @@
 
 ### 게임 횟수 입력 함수: `readGameCount()`
 * String 입력받기: 내장 함수 `readLine()`
-* String -> int 변환
-  * 예외 터지면 `IllegalArgumentException` 터뜨리기
 * 입력 검증: `validateGameCount(String input)`
-* 자연수 반환
+* 자연수로 변환 후 반환
 
 ### 사용자 입력 검증 함수 `validateCarNames(List<String> names)`
 * 인자: 검증이 필요한 이름들의 리스트
