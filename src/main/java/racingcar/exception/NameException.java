@@ -11,6 +11,7 @@ abstract public class NameException {
 
     public static void validation(String[] names) {
         nameNotExistValidation(names);
+        nameNumValidation(names);
         nameLengthValidation(names);
         nameNotEmptyValidation(names);
         nameDuplicateValidation(names);
@@ -19,6 +20,12 @@ abstract public class NameException {
     private static void nameNotExistValidation(String[] names) {
         if (names.length == 0) {
             throw new IllegalArgumentException(NAME_MIN_LENGTH_AND_NOT_EMPTY);
+        }
+    }
+
+    private static void nameNumValidation(String[] names) {
+        if (names.length > 10) {
+            throw new IllegalArgumentException("이름은 최대 10개까지만 가능합니다.");
         }
     }
 
