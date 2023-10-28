@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class RacingCar {
+public class RacingCar implements Racing {
     private String name;
     private int straightCount;
 
