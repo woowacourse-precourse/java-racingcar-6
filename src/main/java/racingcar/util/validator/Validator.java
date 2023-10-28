@@ -11,4 +11,10 @@ public class Validator {
 			throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH_ERROR.getMessage());
 		}
 	}
+	
+	public static void validateContainNumber(String carName) {
+		if (carName.matches(".*[0-9].*")) {
+			throw new IllegalArgumentException(ErrorMessage.CONTAIN_NUMBER_ERROR.getMessage());
+		}
+	}
 }
