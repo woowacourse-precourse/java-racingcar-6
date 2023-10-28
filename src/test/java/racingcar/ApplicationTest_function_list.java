@@ -27,7 +27,7 @@ class ApplicationTest_function_list extends NsTest {
                 "pobi,0,1,2,3,4,5,6,7,8,9,woni,jun",
                 "0,1,2,3,4,5,6,7,8,9,pobi,woni,jun");
 
-        for (int i = 0; i < testInputs.size() - 1; i++) {
+        for (int i = 0; i < testInputs.size(); i++) {
             final byte[] buf = String.join("\n", testInputs).getBytes();
             System.setIn(new ByteArrayInputStream(buf));
             assertThat(Input.inputCarName())
@@ -37,20 +37,18 @@ class ApplicationTest_function_list extends NsTest {
 
     @Test
     void 기능목록_테스트_입력_문자열_분할() {
-        //private method reflection 사용
+        // private method reflection 사용
         List<String> returnValue = List.of();
         try {
-            //reflection
+            // reflection
             Method rawToListMethod = Input.class.getDeclaredMethod("rawToList", String.class);
             rawToListMethod.setAccessible(true);
 
-            //메소드 입력값
-            String parameterString = "a,bb,ccc";
+            String parameterString = "a,bb,ccc";// 메소드 입력값
 
-            //실행
-            returnValue = (List<String>) rawToListMethod.invoke(Input.class, parameterString);
+            returnValue = (List<String>) rawToListMethod.invoke(Input.class, parameterString);// 실행
 
-        } catch (Exception e) { //메소드명 오류시 예외처리
+        } catch (Exception e) { // 메소드명 오류시 예외처리
             e.printStackTrace();
         }
         assertThat(returnValue).containsExactlyInAnyOrderElementsOf(List.of("a", "bb", "ccc"));
