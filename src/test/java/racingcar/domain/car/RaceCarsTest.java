@@ -14,6 +14,18 @@ import static org.assertj.core.api.Assertions.*;
 public class RaceCarsTest{
 
     @Test
+    @DisplayName("자동차의 개수를 얻을 수 있다.")
+    public void size() {
+        // given
+        String[] names = {"pobi", "haen", "jun"};
+        RaceCars raceCars = createRaceCars(names);
+        // when
+        int size = raceCars.size();
+        // then
+        assertThat(size).isEqualTo(3);
+    }
+
+    @Test
     @DisplayName("Collections.unmodifiableList()를 사용해서 꺼낸 리스트는 add, remove를 사용시 예외가 발생한다.")
     public void getCars() {
         // given

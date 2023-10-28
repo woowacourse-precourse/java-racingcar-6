@@ -1,4 +1,4 @@
-package racingcar.request;
+package racingcar.util;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;

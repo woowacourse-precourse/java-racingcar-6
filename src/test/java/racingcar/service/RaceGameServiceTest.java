@@ -21,7 +21,9 @@ class RaceGameServiceTest extends OutputTestSupport {
     public void RaceGameServiceTest() {
         // given
         String carName = "haen";
-        String result = "\n실행 결과\nhaen : -\n\nhaen : --\n\n";
+        String result = "\n실행 결과\n" +
+                "haen : -\n\n" +
+                "haen : --\n\n";
 
         RaceCars raceCars = new RaceCars(List.of(new Car(carName)));
         int attemptCount = 2;
@@ -31,9 +33,9 @@ class RaceGameServiceTest extends OutputTestSupport {
             BDDMockito.given(Randoms.getNumber()).willReturn(4);
             //when
             raceGameService.run();
-            //then
-            assertThat(getOutput()).isEqualTo(result);
         }
+        //then
+        assertThat(getOutput()).isEqualTo(result);
     }
 
 }
