@@ -4,8 +4,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.io.InputValidator;
 import racingcar.exception.DivisionCarNamesException;
+import racingcar.exception.InputNumericException;
+import racingcar.io.InputValidator;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -26,5 +27,13 @@ class InputValidatorTest {
     void input_correct() {
         assertThatCode(() -> InputValidator.validateDivisionCarNames("pobi,woni,jun"))
                 .doesNotThrowAnyException();
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"ㅂ5", "pob#i", "ju@n"})
+    @DisplayName("시도할 횟수가 숫자가 아니면 에러가 발생한다.")
+    void validate_attempt_count_numeric(String attemptCount) {
+        assertThatThrownBy(() -> InputValidator.validateNumeric(attemptCount))
+                .isInstanceOf(InputNumericException.class);
     }
 }
