@@ -22,6 +22,8 @@ public class Car {
     public int getCarPosition() {
         return carPosition;
     }
-    
-    // TODO: increaseCarPosition() 매서드 생성
+
+    public void increaseCarPosition() {
+        this.carPosition++;
+    }
 }
