@@ -11,7 +11,11 @@ public class Application {
         int attemptNum = getAttemptNumber();
 
         List<Car> cars = createCarObject(carNamesList);
+        for (int i = 0; i < attemptNum; i++) {
+            race(cars);
+        }
 
+        List<String> winnerList = calculateWinner(cars);
     }
 
     private static List<String> inputCarNamesByUser() {
@@ -40,6 +44,52 @@ public class Application {
         }
         return cars;
     }
+    private static void race(List<Car> cars) {
+        for (Car car : cars) {
+            int moveNum = generateRandomNumber();
+            if (canMove(moveNum)) {
+                car.move();
+            }
+        }
+        showCurrentPosition(cars);
+    }
 
+    private static int generateRandomNumber() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        return randomNumber;
+    }
+
+    private static boolean canMove(int generateNumber) {
+        if (generateNumber < 4) {
+            return false;
+        }
+        return true;
+    }
+    private static void showCurrentPosition(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.println(car.getName() + ":" + car.getPostringToString());
+        }
+        System.out.println();
+    }
+
+    private static List<String> calculateWinner(List<Car> cars) {
+        int maxPostion = calculateMaxPosition(cars);
+
+        List<String> winnerList = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPostion) {
+                winnerList.add(car.getName());
+            }
+        }
+        return winnerList;
+    }
+
+    private static int calculateMaxPosition(List<Car> cars) {
+        int maxPostion = 0;
+        for (Car car : cars) {
+            maxPostion = Math.max(maxPostion, car.getPosition());
+        }
+        return maxPostion;
+    }
 
 }
