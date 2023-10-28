@@ -1,5 +1,9 @@
 package racingcar.view;
 
+import racingcar.dto.CarDto;
+
+import java.util.List;
+
 public final class OutputView {
 
     private static final String RESULT_MESSAGE = "실행 결과";
@@ -9,5 +13,20 @@ public final class OutputView {
 
     public static void printResultMessage() {
         System.out.println(RESULT_MESSAGE);
+    }
+
+    public static void printResult(List<CarDto> carDtos) {
+
+        carDtos.stream()
+                .forEach(OutputView::printDtoInfo);
+    }
+
+    private static void printDtoInfo(CarDto carDto) {
+
+        System.out.print(carDto.getName() + COLON);
+        for(int i = 0; i< carDto.getPosition(); i++) {
+            System.out.print(HYPHEN);
+        }
+        System.out.println();
     }
 }
