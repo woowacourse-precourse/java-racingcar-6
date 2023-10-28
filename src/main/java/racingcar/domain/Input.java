@@ -29,8 +29,8 @@ public class Input {
     }
 
     private void validateGameCountNubmer(int gameCount) {
-        if (!(gameCount <= 2147483647 && gameCount >= 1)) {
-            throw new IllegalArgumentException("게임 가능 횟수는 1 ~ 2147483647 입니다.");
+        if (gameCount < 1) {
+            throw new IllegalArgumentException("게임 가능 횟수는 1 이상 입니다.");
         }
     }
 
