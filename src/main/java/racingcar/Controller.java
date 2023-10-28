@@ -5,6 +5,7 @@ import racingcar.entity.MovePolicy;
 import racingcar.mapper.Delimiter;
 import racingcar.mapper.InputMapper;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.List;
 
@@ -17,10 +18,10 @@ class Controller {
     }
 
     public void run() {
-        List<String> names = readNames();
+        Cars cars = Cars.from(readNames());
         int tryCount = readTryCount();
-
-        race(tryCount, Cars.from(names));
+        race(tryCount, cars);
+        showWinner(cars);
     }
 
     private List<String> readNames() {
@@ -34,8 +35,16 @@ class Controller {
     }
 
     private void race(int tryCount, Cars cars) {
-        for (int i = 0; i < tryCount; i++) {
+        OutputView.printResultHeader();
 
+        for (int i = 0; i < tryCount; i++) {
+            cars.moveAll(policy);
+
+            OutputView.printResult(cars.describeAll());
         }
+    }
+
+    private void showWinner(Cars cars) {
+        OutputView.printWinner(cars.findFrontCarsName());
     }
 }
