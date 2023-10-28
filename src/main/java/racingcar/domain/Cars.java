@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -42,8 +41,8 @@ public class Cars {
 
     private int getMaxLocationLength() {
         return carList.stream()
-                .max(Comparator.comparingInt(Car::getLocationLength))
-                .map(Car::getLocationLength)
-                .get();
+                .mapToInt(Car::getLocationLength)
+                .max()
+                .orElse(0);
     }
 }
