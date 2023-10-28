@@ -24,4 +24,18 @@ public class InputView {
         String userInput = Console.readLine();
         return Arrays.asList(userInput.split(SEPARATOR));
     }
+
+    public int inputNumberOfGameAttempts() {
+        String userInput = Console.readLine();
+        validateUserInputIsNumber(userInput);
+        return Integer.parseInt(userInput);
+    }
+
+    private void validateUserInputIsNumber(String userInput) {
+        try {
+            Integer.parseInt(userInput);
+        } catch (NumberFormatException numberFormatException) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
