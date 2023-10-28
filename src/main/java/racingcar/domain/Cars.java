@@ -13,6 +13,9 @@ public class Cars {
         carList = generateCarList(cars);
     }
 
+    public void printCarPosition() {
+        Output.printCarPosition(carList);
+    }
 
     public List<String> getVictoryCarsName() {
         List<String> victoryCarsName = new ArrayList<>();
