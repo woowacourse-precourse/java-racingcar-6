@@ -47,6 +47,22 @@ class ReadLineTest {
     }
 
     @Test
+    @DisplayName("정상 이름 입력(공백 포함)")
+    void readCarNames_namesWithSpaces() {
+        // given
+        String input = "jason   , bob";
+
+        // when
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        List<Car> cars = Start.readCarNames();
+        Console.close();
+
+        // then
+        assertThat(cars.get(0).getName()).isEqualTo("jason");
+        assertThat(cars.get(1).getName()).isEqualTo("bob");
+    }
+
+    @Test
     @DisplayName("비정상 이름 입력(쉼표만)")
     void readCarNames_onlyCommas() {
         // given
