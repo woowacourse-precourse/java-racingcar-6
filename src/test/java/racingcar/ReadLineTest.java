@@ -129,11 +129,7 @@ class ReadLineTest {
     }
 
     private static void checkGameCount(String input) {
-        // given
-        String illegal = input;
-
-        // when - then
-        System.setIn(new ByteArrayInputStream(illegal.getBytes()));
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
         assertThatThrownBy(Start::readGameCount)
             .isInstanceOf(IllegalArgumentException.class);
     }
