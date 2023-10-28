@@ -23,7 +23,7 @@
    1. 아무 내용도 없는지 검증
    2. 선택한 타입의 범위를 넘지 않는지 검증
    3. 양수인지 검증(0은 거르자)
-     - 공백이 있는지 검증 추가
+      - 공백이 있는지 검증 추가
 
 &nbsp;
 5. 게임 연산
@@ -79,12 +79,12 @@
 ## domain
    __1. CarNameManager__
    - [x] processCarNames
-     -[x] processInput
+     - [x] processInput
        1) removeSpaces
        - 공백을 모두 제거
        2) splitByComma
        - ","단위로 분리 후 리스트에 저장
-     -[x] validateCarNames
+     - [x] validateCarNames
         1) validateNameLength
          - 자동차 이름 길이를 검증
         2) validateUniqueNames
@@ -106,7 +106,7 @@
        - 위의 메소드 값과 같은 값의 자동차 이름을 추출
 
 __3. Racing__
--[x] race
+- [x] race
     - [x] pickRandomNumber
       - 0-9 랜덤 정수 반환
     - [x] isMovable
