@@ -29,4 +29,9 @@ public class UserInput {
 		}
 		return carList;
 	}
+
+	public int inputMoveCount() {
+		String moveCountString = Console.readLine();
+		return validator.validateMoveCount(moveCountString);
+	}
 }
