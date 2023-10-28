@@ -16,6 +16,13 @@ public class CarsFactory {
         return carNames;
     }
 
+    public void validateCarNames(List<String> carNames) {
+        checkCarNameValidity(carNames);
+        checkCarNameForBlank(carNames);
+        checkCarNamesLength(carNames);
+        checkCarNamesDuplicate(carNames);
+    }
+
     public List<Car> getCars() {
         return cars;
     }
