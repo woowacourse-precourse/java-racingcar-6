@@ -26,10 +26,10 @@ public class Referee {
         return Winner.size() > SINGLE;
     }
 
-    public String makeWinnerWithCommas(List<String> winners) {
-        String strWinners=winners.get(0);
+    public String makeWinnerWithCommas(List<Car> winners) {
+        String strWinners=winners.get(0).getName();
         winners.stream().filter(winner->winners.indexOf(winner)>0)
-                .forEach(winner->strWinners.concat(","+winner));
+                .forEach(winner->strWinners.concat(","+winner.getName()));
         return strWinners;
     }
 
