@@ -40,7 +40,7 @@ public class CarController {
 
         for (int i = 0 ;i <= maxLocation; i++) {
             Cars = maxLocationCheck(i);
-            if (Cars.size() > 0) {
+            if (!Cars.isEmpty()) {
                 winnerCars = Cars;
             }
         }
