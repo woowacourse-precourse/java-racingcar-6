@@ -10,12 +10,12 @@ import racingcar.util.BlankValidator;
 
 public class CarNameValidatorTest {
     BlankValidator blankValidator = new BlankValidator();
+    CarNameValidator carNameValidator = new CarNameValidator(blankValidator);
 
     @DisplayName("자동차이동름입력 - 정상입력")
     @Test
     void checkNormalCarNmaeInput(){
         String carName = "hong,kim,jun";
-        CarNameValidator carNameValidator = new CarNameValidator(blankValidator);
         assertDoesNotThrow(() -> carNameValidator.processCarNames(carName));
     }
 
@@ -23,7 +23,6 @@ public class CarNameValidatorTest {
     @Test
     void checklCarNmaeInputOverSize(){
         String carName = "hosdfsdng,kim,jun";
-        CarNameValidator carNameValidator = new CarNameValidator(blankValidator);
         assertThrows(IllegalArgumentException.class, () -> carNameValidator.processCarNames(carName));
     }
 
@@ -31,7 +30,6 @@ public class CarNameValidatorTest {
     @Test
     void checklCarNmaeInputDuplicate(){
         String carName = "kim,kim,jun";
-        CarNameValidator carNameValidator = new CarNameValidator(blankValidator);
         assertThrows(IllegalArgumentException.class, () -> carNameValidator.processCarNames(carName));
     }
 
