@@ -6,22 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.generator.NumberGenerator;
+import racingcar.util.FakeNumberGenerator;
 
 class RacingCarTest {
-    static class FakeNumberGenerator implements NumberGenerator {
-        private final int expectedNumber;
-
-        public FakeNumberGenerator(int expectedNumber) {
-            this.expectedNumber = expectedNumber;
-        }
-
-        @Override
-        public int generate() {
-            return expectedNumber;
-        }
-    }
-
     @Test
     @DisplayName("자동차 생성")
     void createRacingCar() {
