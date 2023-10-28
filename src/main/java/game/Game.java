@@ -38,7 +38,8 @@ public class Game {
 	
 	//최종우승자
 	public static void gameWinner(ArrayList<Car> car_list) {
-
+		String winner = CarService.rankTOPOfCarList(car_list);
+		System.out.println("최종 우승자 : "+winner);
 	}
 	
 }
