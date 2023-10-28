@@ -1,11 +1,10 @@
 package racingcar;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ResultView {
     public static void printCarPosition(Car car) {
-        System.out.println(car.resultByRound());
+        System.out.println(car.nameAndPosition());
     }
 
     public static void printLineBreak() {
