@@ -9,7 +9,7 @@ class MoveOpportunityTest {
     @Test
     public void MoveOpportunity_객체_생성_시_moveOpportunity가_0_이하면_예외를_발생시킨다() throws Exception {
         // given
-        int moveCount = -1;
+        int moveCount = 0;
 
         // when
         //then
