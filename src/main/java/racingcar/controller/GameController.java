@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.domain.Car;
 import racingcar.domain.CarList;
 import racingcar.domain.RandomNumber;
+import racingcar.validation.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -16,6 +17,7 @@ public class GameController {
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
     RandomNumber randomNumber = new RandomNumber();
+    Validator validator = new Validator();
     CarList carList = CarList.getInstance();
     private final int STANDARD_NUMBER = 4;
 
@@ -99,6 +101,9 @@ public class GameController {
 
     private void carsToList(String carNames) {
         String[] cars = carNames.split(",");
+        for (String car : cars) {
+            validator.valid(car);
+        }
         Arrays.stream(cars).forEach(car -> Car.setCar(car));
     }
 }
