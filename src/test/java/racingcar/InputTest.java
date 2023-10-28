@@ -30,5 +30,14 @@ public class InputTest {
         String inputCarNames = "우아, ,한,테크";
         // then
         assertThatThrownBy(() -> ValidationManager.validateCarNames(inputCarNames))
-                .isInstanceOf(IllegalArgumentException.class);    }
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    public void 테스트_유효한_시도횟수_입력() {
+        //given
+        String inputTryCount = "123";
+        //then
+        assertDoesNotThrow(() -> ValidationManager.validateTryCount(inputTryCount));
+    }
 }
