@@ -25,6 +25,12 @@ public class RacingCarController {
     private void startRacing() {
         Cars cars = inputManager.inputCarNames();
         int attemptCount = inputManager.inputAttemptCount();
-        racingCarService.startRacing(cars, attemptCount);
+        outputView.printAttemptCountMessage();
+
+        for (int i = 0; i < attemptCount; i++) {
+            racingCarService.startRacing(cars);
+            outputView.printGameResult(cars.statusCarsPosition());
+        }
+
     }
 }
