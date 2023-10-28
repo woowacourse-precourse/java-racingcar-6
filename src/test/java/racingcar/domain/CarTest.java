@@ -32,4 +32,13 @@ class CarTest {
         Car car = new Car("  pobi ");
         assertThat(car.getName()).isEqualTo("pobi");
     }
+
+    @DisplayName("무작위 값이 4이상일 경우 자동차가 전진한다.")
+    @CsvSource({"1,0", "2,0", "3,0", "4,1", "5,1",})
+    @ParameterizedTest
+    void move(int randomNumber, int expected) {
+        Car car = new Car("pobi");
+        car.move(randomNumber);
+        assertThat(car.getMoveCount()).isEqualTo(expected);
+    }
 }
