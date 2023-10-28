@@ -5,7 +5,7 @@ import racingcar.domain.participant.Participant;
 import java.util.List;
 
 public interface RaceService {
-    void validateCarName(String input);
+    void validateName(String input);
     void validateRaceCount(String input);
     List<Participant> parseToParticipantList(String input);
     void runRace(List<Participant> participants);

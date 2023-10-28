@@ -3,7 +3,7 @@ package racingcar.util.parser;
 import java.util.Arrays;
 import java.util.List;
 
-public class CarNameParserImpl implements CarNameParser {
+public class NameParserImpl implements NameParser {
     private final String DELIMITER = ",";
 
     @Override

@@ -10,10 +10,10 @@ import racingcar.service.RaceService;
 import racingcar.service.RaceServiceImpl;
 import racingcar.util.generator.RandomNumberGenerator;
 import racingcar.util.generator.RandomNumberGeneratorImpl;
-import racingcar.util.parser.CarNameParser;
-import racingcar.util.parser.CarNameParserImpl;
-import racingcar.util.validator.carName.CarNameValidator;
-import racingcar.util.validator.carName.CarNameValidatorImpl;
+import racingcar.util.parser.NameParser;
+import racingcar.util.parser.NameParserImpl;
+import racingcar.util.validator.Name.NameValidator;
+import racingcar.util.validator.Name.NameValidatorImpl;
 import racingcar.util.validator.proxy.InputValidator;
 import racingcar.util.validator.proxy.ValidatorProxy;
 import racingcar.util.validator.raceCount.RaceCountValidator;
@@ -34,8 +34,8 @@ public class ApplicationContainer {
 
     /* Util */
     private static RandomNumberGenerator randomNumberGenerator;
-    private static CarNameParser carNameParser;
-    private static CarNameValidator carNameValidator;
+    private static NameParser NameParser;
+    private static NameValidator NameValidator;
     private static RaceCountValidator raceCountValidator;
     private static InputValidator inputValidator;
 
@@ -60,7 +60,7 @@ public class ApplicationContainer {
         if (raceService == null) {
             raceService = new RaceServiceImpl(
                     getInputValidator(),
-                    getCarNameParser(),
+                    getNameParser(),
                     getParticipantFactory(),
                     getRandomNumberGenerator()
             );
@@ -85,20 +85,20 @@ public class ApplicationContainer {
         return randomNumberGenerator;
     }
 
-    public static CarNameParser getCarNameParser() {
-        if (carNameParser == null) {
-            carNameParser = new CarNameParserImpl();
-            printLog(carNameParser.getClass().toString(), CarNameParser.class.toString());
+    public static NameParser getNameParser() {
+        if (NameParser == null) {
+            NameParser = new NameParserImpl();
+            printLog(NameParser.getClass().toString(), NameParser.class.toString());
         }
-        return carNameParser;
+        return NameParser;
     }
 
-    public static CarNameValidator getCarNameValidator() {
-        if (carNameValidator == null) {
-            carNameValidator = new CarNameValidatorImpl();
-            printLog(carNameValidator.getClass().toString(), CarNameValidator.class.toString());
+    public static NameValidator getNameValidator() {
+        if (NameValidator == null) {
+            NameValidator = new NameValidatorImpl();
+            printLog(NameValidator.getClass().toString(), NameValidator.class.toString());
         }
-        return carNameValidator;
+        return NameValidator;
     }
 
     public static RaceCountValidator getRaceCountValidator() {

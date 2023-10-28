@@ -16,17 +16,17 @@ public class RaceControllerImpl implements RaceController {
 
     @Override
     public void run() {
-        String carNames;
+        String Names;
         String raceCount;
         List<Participant> participants;
 
-        carNames = console.getPlayerCarNames();
-        raceService.validateCarName(carNames);
+        Names = console.getPlayerNames();
+        raceService.validateName(Names);
 
         raceCount = console.getRaceCount();
         raceService.validateRaceCount(raceCount);
 
-        participants = raceService.parseToParticipantList(carNames);
+        participants = raceService.parseToParticipantList(Names);
 
         System.out.println();
         console.displayResultText();
@@ -34,7 +34,7 @@ public class RaceControllerImpl implements RaceController {
         for ( int i = 0; i < Integer.parseInt( raceCount ); i++ ) {
             raceService.runRace(participants);
             participants.forEach(
-                    p -> console.displayState(p.getCarName(), p.getDistance())
+                    p -> console.displayState(p.getName(), p.getDistance())
             );
             System.out.println();
         }

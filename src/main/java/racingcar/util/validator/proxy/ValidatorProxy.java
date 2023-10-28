@@ -1,21 +1,21 @@
 package racingcar.util.validator.proxy;
 
-import racingcar.util.validator.carName.CarNameValidator;
+import racingcar.util.validator.Name.NameValidator;
 import racingcar.util.validator.raceCount.RaceCountValidator;
 
-import static racingcar.container.ApplicationContainer.getCarNameValidator;
+import static racingcar.container.ApplicationContainer.getNameValidator;
 import static racingcar.container.ApplicationContainer.getRaceCountValidator;
 
 public class ValidatorProxy implements InputValidator {
-    private CarNameValidator carNameValidator = null;
+    private NameValidator NameValidator = null;
     private RaceCountValidator raceCountValidator = null;
 
     @Override
     public boolean validateName(String input) {
-        if (carNameValidator == null) {
-            carNameValidator = getCarNameValidator();
+        if (NameValidator == null) {
+            NameValidator = getNameValidator();
         }
-        return carNameValidator.validateName(input);
+        return NameValidator.validateName(input);
     }
 
     @Override

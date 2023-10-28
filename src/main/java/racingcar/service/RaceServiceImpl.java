@@ -3,7 +3,7 @@ package racingcar.service;
 import racingcar.domain.participant.Participant;
 import racingcar.domain.participant.ParticipantFactory;
 import racingcar.util.generator.RandomNumberGenerator;
-import racingcar.util.parser.CarNameParser;
+import racingcar.util.parser.NameParser;
 import racingcar.util.validator.proxy.InputValidator;
 
 import java.util.ArrayList;
@@ -12,18 +12,18 @@ import java.util.List;
 public class RaceServiceImpl implements RaceService {
     public RaceServiceImpl(
             InputValidator inputValidator,
-            CarNameParser carNameParser,
+            NameParser NameParser,
             ParticipantFactory participantFactory,
             RandomNumberGenerator randomNumberGenerator
     ) {
         this.inputValidator = inputValidator;
-        this.carNameParser = carNameParser;
+        this.NameParser = NameParser;
         this.participantFactory = participantFactory;
         this.randomNumberGenerator = randomNumberGenerator;
     }
 
     private final InputValidator inputValidator;
-    private final CarNameParser carNameParser;
+    private final NameParser NameParser;
     private final ParticipantFactory participantFactory;
     private final RandomNumberGenerator randomNumberGenerator;
 
@@ -31,9 +31,9 @@ public class RaceServiceImpl implements RaceService {
     private final int DEFAULT_MAX_DISTANCE = 0;
 
     @Override
-    public void validateCarName(String input) {
-        for ( String carName : carNameParser.parse(input) ) {
-            if ( !inputValidator.validateName(carName) )
+    public void validateName(String input) {
+        for ( String Name : NameParser.parse(input) ) {
+            if ( !inputValidator.validateName(Name) )
                 throw new IllegalArgumentException();
         }
     }
@@ -48,8 +48,8 @@ public class RaceServiceImpl implements RaceService {
     public List<Participant> parseToParticipantList(String input) {
         List<Participant> participants = new ArrayList<>();
 
-        for (String carName : carNameParser.parse(input)) {
-            participants.add(participantFactory.getParticipant(carName));
+        for (String Name : NameParser.parse(input)) {
+            participants.add(participantFactory.getParticipant(Name));
         }
 
         return participants;

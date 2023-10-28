@@ -24,7 +24,7 @@ public class ConsoleImpl implements Console {
     }
 
     @Override
-    public String getPlayerCarNames() {
+    public String getPlayerNames() {
         println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         return getPlayerInput();
     }
@@ -41,8 +41,8 @@ public class ConsoleImpl implements Console {
     }
 
     @Override
-    public void displayState(String carName, int distance) {
-        print(carName);
+    public void displayState(String Name, int distance) {
+        print(Name);
         print(" : ");
         for ( int i = 0; i < distance; i++ )
             print("-");
@@ -53,7 +53,7 @@ public class ConsoleImpl implements Console {
     public void displayWinner(List<Participant> winners) {
         print("최종 우승자 : ");
         for ( int i = 0; i < winners.size(); i++ ) {
-            print(winners.get(i).getCarName());
+            print(winners.get(i).getName());
             if ( i != winners.size() - 1 )
                 print(", ");
         }

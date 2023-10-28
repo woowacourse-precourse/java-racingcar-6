@@ -3,17 +3,17 @@ package util.parser;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static racingcar.container.ApplicationContainer.getCarNameParser;
+import static racingcar.container.ApplicationContainer.getNameParser;
 
-import racingcar.util.parser.CarNameParser;
+import racingcar.util.parser.NameParser;
 
 
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class CarNameParserTests {
-    private final CarNameParser carNameParser = getCarNameParser();
+public class NameParserTests {
+    private final NameParser NameParser = getNameParser();
 
     @Test
     @DisplayName("이름이 없는 경우에도 빈 문자열로 변환된다")
@@ -22,7 +22,7 @@ public class CarNameParserTests {
         String input = "첫번째,두번째,세번째,,다섯번째";
 
         // when
-        List<String> result = carNameParser.parse(input);
+        List<String> result = NameParser.parse(input);
 
         // then
         String[] expect = {"첫번째", "두번째", "세번째", "", "다섯번째"};
@@ -37,7 +37,7 @@ public class CarNameParserTests {
         String input = "첫번째,두번째,세번째,네번째,,";
 
         // when
-        List<String> result = carNameParser.parse(input);
+        List<String> result = NameParser.parse(input);
 
         // then
         String[] expect = {"첫번째", "두번째", "세번째", "네번째", "", ""};
