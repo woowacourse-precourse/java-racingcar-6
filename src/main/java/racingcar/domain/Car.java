@@ -12,7 +12,7 @@ public class Car implements Comparable<Car>{
     }
 
     public void move() {
-        int randomValue = Randoms.pickNumberInRange(1,9);
+        int randomValue = Randoms.pickNumberInRange(0,9);
         if (randomValue >= 4) {
             this.moveDistance += 1;
         }
