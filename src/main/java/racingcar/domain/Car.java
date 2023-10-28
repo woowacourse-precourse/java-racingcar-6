@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.RandomNumberGenerator;
+
 import java.util.Comparator;
 
 public class Car implements Comparable<Car> {
@@ -11,6 +13,13 @@ public class Car implements Comparable<Car> {
 
         this.name = new Name(name);
         this.position = new Position();
+    }
+
+    public void play() {
+        int randomNumber = RandomNumberGenerator.generateRandomNumber();
+        if(canMove(randomNumber)) {
+            position.move();
+        }
     }
 
     public boolean isSamePosition(Car other) {
