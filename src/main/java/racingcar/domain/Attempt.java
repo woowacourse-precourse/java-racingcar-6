@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static racingcar.constant.ExceptionMessage.BLANK_EXCEPTION;
+import static racingcar.constant.ExceptionMessage.NON_NUMBER_EXCEPTION;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.view.InputView;
@@ -28,6 +29,14 @@ public class Attempt {
     public void checkNonBlank(String input) {
         if (input.isBlank()) {
             throw new IllegalArgumentException(BLANK_EXCEPTION);
+        }
+    }
+
+    public void checkInteger(String input) {
+        try {
+            this.count = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(NON_NUMBER_EXCEPTION);
         }
     }
 
