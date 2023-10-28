@@ -1,64 +1,62 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 import racingcar.dto.output.CarInfo;
 import racingcar.dto.output.WinnerInfo;
 import racingcar.racing.MoveStrategy;
 
 public class RacingCars {
-    private final List<Car> carList;
+    private final List<Car> cars;
     private final MoveStrategy moveStrategy;
 
     public static RacingCars createCars(String[] names, MoveStrategy moveStrategy) {
-        List<Car> carList = Arrays.stream(names)
+        List<Car> cars = Arrays.stream(names)
                 .map(Car::new)
                 .toList();
-        return new RacingCars(carList, moveStrategy);
+        return new RacingCars(cars, moveStrategy);
     }
 
-    private RacingCars(List<Car> carList, MoveStrategy moveStrategy) {
-        this.carList = carList;
+    private RacingCars(List<Car> cars, MoveStrategy moveStrategy) {
+        this.cars = cars;
         this.moveStrategy = moveStrategy;
     }
 
     public void move() {
-        carList.forEach(this::tryToMoveCar);
+        cars.forEach(this::tryMoveCar);
     }
 
-    public List<CarInfo> getRoundResults() {
-        return carList.stream()
+    public List<CarInfo> roundResults() {
+        return cars.stream()
                 .map(Car::toCarInfo)
                 .toList();
     }
 
     public WinnerInfo getWinner() {
-        int winnerScore = findWinnerScore();
-
-        List<String> names = carList.stream()
-                .map(car -> car.getWinnerName(winnerScore))
-                .filter(Optional::isPresent)
-                .map(Optional::get)
-                .toList();
-
-        return Car.toWinnerInfo(names);
+        int winnerScore = determineWinnerScore();
+        return new WinnerInfo(getWinnerNames(winnerScore));
     }
 
-    private void tryToMoveCar(Car car) {
+    private void tryMoveCar(Car car) {
         if (moveStrategy.isMovable()) {
             car.increaseMoveCount();
         }
     }
 
-
-    private int findWinnerScore() {
+    private int determineWinnerScore() {
         int maxMoveCount = 0;
-        for (Car car : carList) {
+        for (Car car : cars) {
             maxMoveCount = car.updateMax(maxMoveCount);
         }
-
         return maxMoveCount;
+    }
+
+    private List<String> getWinnerNames(int winnerScore) {
+        List<String> winnerNames = new ArrayList<>();
+        for (Car car : cars) {
+            car.addWinnerToList(winnerScore, winnerNames);
+        }
+        return winnerNames;
     }
 }

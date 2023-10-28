@@ -1,9 +1,7 @@
 package racingcar;
 
 import java.util.List;
-import java.util.Optional;
 import racingcar.dto.output.CarInfo;
-import racingcar.dto.output.WinnerInfo;
 
 public class Car {
     private final String name;
@@ -21,15 +19,10 @@ public class Car {
         return new CarInfo(name, moveCount);
     }
 
-    public static WinnerInfo toWinnerInfo(List<String> names) {
-        return new WinnerInfo(names);
-    }
-
-    public Optional<String> getWinnerName(int winnerScore) {
+    public void addWinnerToList(int winnerScore, List<String> winnerNames) {
         if (this.moveCount == winnerScore) {
-            return Optional.of(name);
+            winnerNames.add(this.name);
         }
-        return Optional.empty();
     }
 
     public int updateMax(int currentMaxMoveCount) {
