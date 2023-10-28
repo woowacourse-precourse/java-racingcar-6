@@ -11,10 +11,13 @@ public class Application {
 
         int attemptTimes = new AttemptsInput().inputAttempts();
 
-        HashMap<String, Integer> userScore = new HashMap<>();
+        HashMap<String, Integer> userScore = new HashMap<String, Integer>();
+
+        System.out.println("\n실행 결과");
 
         for (int i = 0; i < attemptTimes; i++) {
             userScore = new RacingGame().playGame(userResult);
+            new GameResultPrinter().printResult(userScore);
         }
 
     }
