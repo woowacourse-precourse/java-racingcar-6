@@ -8,6 +8,7 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 import racingmodel.GameChanger;
 import racingmodel.MainModel;
+import racingmodel.Winners;
 
 public class ModelTest {
     @Test
@@ -20,6 +21,16 @@ public class ModelTest {
 
         GameChanger.getInstance().changeGame(testMap,testList);
         assertThat(testMap.get("pobi").toString()).isEqualTo("----");
+    }
+    @Test
+    void winnerTest()
+    {
+        LinkedHashMap<String, StringBuilder> testMap = new LinkedHashMap<>();
+        testMap.put("pobi",new StringBuilder("--"));
+//        testMap.put("woni",new StringBuilder("---"));
+        testMap.put("Ham",new StringBuilder("---"));
 
+        List<String> testList = Winners.judgeWinner(testMap);
+        assertThat(testList.get(0)).isEqualTo("Ham");
     }
 }
