@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 public class Referee {
 
-    private static final int SINGLE=1;
+    private static final int SINGLE = 1;
 
     public List<Car> decideWinner(List<Car> cars) {
         int maxDistance = findWinnerDistance(cars);
@@ -23,11 +23,14 @@ public class Referee {
     }
 
     public boolean isNumberOfWinnerTwoOrMore(List<Car> Winner) {
-        return Winner.size()>SINGLE;
+        return Winner.size() > SINGLE;
     }
 
     public String makeWinnerWithCommas(List<String> winners) {
-        return null;
+        String strWinners=winners.get(0);
+        winners.stream().filter(winner->winners.indexOf(winner)>0)
+                .forEach(winner->strWinners.concat(","+winner));
+        return strWinners;
     }
 
     public String announceWinner(String winners) {
