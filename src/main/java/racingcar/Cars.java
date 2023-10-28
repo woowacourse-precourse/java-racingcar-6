@@ -38,6 +38,10 @@ public class Cars {
         return new CurrentResult(car.getNameValue(), car.getCurrentPositionStatus());
     }
 
+    public ResultMessage findWinners() {
+        return new ResultMessage(findWiiningCars());
+    }
+
     public List<Car> findWiiningCars() {
         return cars.stream()
                 .max(Comparator.comparingInt(Car::getPosition))

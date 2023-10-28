@@ -53,14 +53,10 @@ public class Controller {
     }
 
     private void printWinners(Cars cars) {
-        view.printFinalWinnerMessage(getWinners(findWinningCars(cars)));
+        view.printFinalWinnerMessage(getResultMessage(cars));
     }
 
-    private String getWinners(List<Car> winningCars) {
-        return racingGame.printCarName(winningCars).getResultMessage();
-    }
-
-    private List<Car> findWinningCars(Cars cars) {
-        return cars.findWiiningCars();
+    private ResultMessage getResultMessage(Cars cars) {
+        return cars.findWinners();
     }
 }

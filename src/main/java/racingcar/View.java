@@ -35,8 +35,8 @@ public class View {
         System.out.println(Message.ATTEMPTRESULT.message());
     }
 
-    public void printFinalWinnerMessage(String result) {
+    public void printFinalWinnerMessage(ResultMessage result) {
         System.out.println();
-        System.out.print(Message.WINNERS.message() + result);
+        System.out.print(Message.WINNERS.message() + result.getResultMessage());
     }
 }
