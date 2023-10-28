@@ -12,7 +12,6 @@ public class Service {
     private final ProgressBoard progressBoard;
     private final InputView inputView;
     private final OutputView outputView;
-    private final NumberGenerator numberGenerator;
     private final int GO_NUMBER = 4;
     private List<String> cars;
 
@@ -20,7 +19,6 @@ public class Service {
         this.progressBoard = progressBoard;
         this.inputView = new InputView();
         this.outputView = new OutputView();
-        this.numberGenerator = new NumberGenerator();
     }
 
     public String receiveCars() {
@@ -81,7 +79,7 @@ public class Service {
     }
 
     private boolean isRandomNumOverFour() {
-        return NumberGenerator.getRandomNumber(0,9) >= GO_NUMBER;
+        return NumberGenerator.getRandomNumberFromZeroToNine() >= GO_NUMBER;
     }
 
     private int getMaxMove() {
