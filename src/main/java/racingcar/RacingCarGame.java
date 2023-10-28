@@ -2,6 +2,7 @@ package racingcar;
 
 import static racingcar.RacingCarMapper.toDtoList;
 
+import java.util.List;
 import racingcar.dto.MoveOpportunityCreateRequest;
 import racingcar.dto.RacingCarCreateRequest;
 
@@ -17,12 +18,13 @@ public class RacingCarGame {
 
     public void play() {
         RacingCarCreateRequest racingCarCreateRequest = view.inputRacingCarCreateRequest();
-        MoveOpportunityCreateRequest moveOpportunityCreateRequest = view.inputMoveOpportunityCreateRequest();
+        List<String> racingCarNames = racingCarCreateRequest.getRacingCarNames();
 
-        RacingCarRegistry racingCarRegistry = RacingCarRegistryMapper.toRacingCarRegistry(
-                actionNumberGenerator,
-                racingCarCreateRequest,
-                moveOpportunityCreateRequest);
+        MoveOpportunityCreateRequest moveOpportunityCreateRequest = view.inputMoveOpportunityCreateRequest();
+        MoveOpportunity moveOpportunity = new MoveOpportunity(moveOpportunityCreateRequest.getMoveOpportunity());
+
+        RacingCarRegistry racingCarRegistry
+                = new RacingCarRegistry(actionNumberGenerator, racingCarNames, moveOpportunity);
 
         view.printResultTitle();
 
