@@ -10,16 +10,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameController {
-    private static final GameController instance = new GameController();
+    private final InputView inputView;
+    private final OutputView outputView;
+
+    public GameController(InputView inputView, OutputView outputView) {
+        this.inputView = inputView;
+        this.outputView = outputView;
+    }
+
     private int totalRound;
     private Cars cars;
-
-    private GameController() {
-    }
-
-    public static GameController getInstance() {
-        return instance;
-    }
 
     public void run() {
         prepareGame();
@@ -33,7 +33,7 @@ public class GameController {
     }
 
     private void createCarsFromCarNamesUserInput() {
-        OutputView.askCarNames();
+        outputView.askCarNames();
         List<String> carNames = getCarNames();
         List<Car> carList = new ArrayList<>();
         for (String name : carNames) {
@@ -43,14 +43,12 @@ public class GameController {
     }
 
     private List<String> getCarNames() {
-        String input = InputView.readFromUser();
-        return Validator.validateCarNames(input);
+        return Validator.validateCarNames(inputView.readFromUser());
     }
 
     private void setTotalRoundFromUserInput() {
-        OutputView.askTotalRound();
-        String input = InputView.readFromUser();
-        totalRound = Validator.validateTotalRound(input);
+        outputView.askTotalRound();
+        totalRound = Validator.validateTotalRound(inputView.readFromUser());
     }
 
     private void play(Cars cars, int totalRound) {
@@ -59,10 +57,10 @@ public class GameController {
         }
     }
 
-    private static void processResult(Cars cars, int totalRound) {
+    private void processResult(Cars cars, int totalRound) {
         List<String> carNames = cars.provideCarNames();
         List<List<Integer>> roundScores = cars.provideAllCumulativeScoreList();
         List<String> winnerNames = cars.determineWinners();
-        OutputView.printResult(totalRound, carNames, roundScores, winnerNames);
+        outputView.printResult(totalRound, carNames, roundScores, winnerNames);
     }
 }
