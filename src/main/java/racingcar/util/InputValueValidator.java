@@ -10,4 +10,13 @@ public class InputValueValidator {
         Set<String> set = new HashSet<>(carNames);
         return set.size() == carNames.size();
     }
+
+    private boolean isNameLength(List<String> carNames) {
+        for (String carName : carNames) {
+            if (carName.length() > 5) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
