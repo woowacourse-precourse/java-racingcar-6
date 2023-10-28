@@ -53,6 +53,6 @@ public class Race {
             }
             Print.raceSituation(this);
         }
-        Print.winner(cars);
+        Print.winner(getWinner());
     }
 }
