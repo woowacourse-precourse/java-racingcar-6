@@ -1,18 +1,20 @@
-package domain;
+package service;
 
 import camp.nextstep.edu.missionutils.Randoms;
+
+import domain.Car;
 
 import message.GameMessage;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Cars {
+public class CarService {
 
     private final ArrayList<Car> carList;
     private final StringBuilder sb;
 
-    public Cars() {
+    private CarService() {
         carList = new ArrayList<>();
         sb = new StringBuilder();
     }
