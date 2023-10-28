@@ -5,6 +5,7 @@ import java.util.stream.IntStream;
 import racingcar.domain.RacingcarGame;
 import racingcar.domain.dto.CarDTO;
 import racingcar.domain.dto.InitDTO;
+import racingcar.view.EndScreen;
 import racingcar.view.InitScreen;
 import racingcar.view.RoundScreen;
 
@@ -33,5 +34,6 @@ public class GameController {
 
     private void end(){
         List<CarDTO> winners = game.end();
+        EndScreen.printWinner(winners);
     }
 }

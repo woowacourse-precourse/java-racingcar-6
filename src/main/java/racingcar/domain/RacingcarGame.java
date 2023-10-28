@@ -24,12 +24,11 @@ public class RacingcarGame {
         return racingCars.playRound();
     }
 
-    public List<CarDTO> end(){
-        List<CarDTO> winners = racingCars.getWinners();
-        return null;
-    }
-
     public boolean isEnd() {
         return round.isEnd();
+    }
+
+    public List<CarDTO> end(){
+        return racingCars.getWinners();
     }
 }
