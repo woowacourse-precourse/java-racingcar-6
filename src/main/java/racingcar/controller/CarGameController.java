@@ -34,7 +34,7 @@ public class CarGameController {
             movedCars = cars.moveAll();
             OutputView.printGameResultMessage(movedCars);
         }
-        game.judgeWinner(movedCars);
+        OutputView.printFinalWinner(game.judgeWinner(movedCars));
 
 
     }
