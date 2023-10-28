@@ -7,10 +7,10 @@ import game.*;
 public class Application {
     public static void main(String[] args) {
     	//게임준비
-        ArrayList<Car> carListForGameReady = Game.gameReady();
+        ArrayList<Car> GameReady = Game.gameReady();
         //게임시작
-        Game.gameStart(Game.gameTRYCount(), carListForGameReady);
+        Game.gameStart(Game.gameTRYCount(), GameReady);
         //우승자(엔딩)
-        Game.gameWinner(carListForGameReady);
+        Game.gameWinner(GameReady);
     }
 }
