@@ -65,4 +65,21 @@ public class CarTest {
 
     }
 
+    @Test
+    void getWinnersMessage_우승자_여러_명을_잘_추리는지_확인() {
+
+        List<Car> cars = new ArrayList<>();
+        cars.add(new Car("foo"));
+        cars.add(new Car("bar"));
+        cars.add(new Car("baz"));
+
+        cars.get(1).move();
+        cars.get(0).move();
+        WinnersMessage message = Car.getWinnersMessage(cars);
+        WinnersMessage expect = new WinnersMessage(List.of("foo", "bar"));
+
+        assertEquals(message.toString(), expect.toString());
+
+    }
+
 }
