@@ -1,6 +1,7 @@
 package racingcar;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,14 @@ public class BlankValidatorTest {
         String name = "car";
         BlankValidator blankValidator = new BlankValidator();
         assertDoesNotThrow(() -> blankValidator.isEmpty(name));
+    }
+
+    @DisplayName("공백 검증기 - 빈값 입력시 예외 발생")
+    @Test
+    void checkNullInput() {
+        String name = "";
+        BlankValidator blankValidator = new BlankValidator();
+        assertThrows(IllegalArgumentException.class, () -> blankValidator.isEmpty(name));
     }
 
 }
