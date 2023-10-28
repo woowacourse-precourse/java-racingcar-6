@@ -39,16 +39,9 @@ public class InputView {
             int repeatCnt = Integer.parseInt(input);
             if (repeatCnt <= MIN_REPEAT_CNT || MAX_REPEAT_CNT < repeatCnt)
                 throw new IllegalArgumentException(ERROR_INVALID_REPEAT_COUNT);
-
             return repeatCnt;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ERROR_INVALID_REPEAT_COUNT);
-        }
-    }
-
-    private void validateInput(String input) {
-        if (StringUtils.isBlank(input)) {
-            throw new IllegalArgumentException(ERROR_INVALID_CAR_NAME);
         }
     }
 
@@ -60,6 +53,12 @@ public class InputView {
 
     private boolean isCarNameInvalid(String carName) {
         return carName.length() > NAMES_MAX_LENGTH;
+    }
+
+    private void validateInput(String input) {
+        if (StringUtils.isBlank(input)) {
+            throw new IllegalArgumentException(ERROR_INVALID_CAR_NAME);
+        }
     }
 
 }

@@ -8,8 +8,9 @@ import racingcar.view.OutputView;
 
 import java.util.List;
 
+import static racingcar.constant.Constants.MOVE_RULE;
+
 public class RacingGame {
-    public static final int MOVE_RULE = 4;
     private final InputView inputView;
     private final OutputView outputView;
     private CarRepository carRepository;

@@ -17,13 +17,6 @@ public class CarRepository {
         return cars;
     }
 
-    @Override
-    public String toString() {
-        return "CarRepository{" +
-                "carRepository=" + cars +
-                '}';
-    }
-
     public List<String> getMaxCars() {
         List<String> maxCars = new ArrayList<>();
         int max = getMaxForwardCounts();
@@ -42,5 +35,12 @@ public class CarRepository {
                 .mapToInt(Car::getForwardCount)
                 .max()
                 .orElse(0);
+    }
+
+    @Override
+    public String toString() {
+        return "CarRepository{" +
+                "carRepository=" + cars +
+                '}';
     }
 }
