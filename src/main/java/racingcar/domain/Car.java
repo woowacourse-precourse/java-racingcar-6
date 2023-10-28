@@ -4,7 +4,8 @@ import racingcar.RandomNumberGenerator;
 
 public class Car {
 
-    private String name;
+    private final String name;
+
     private int position;
 
     public Car(String name) {
@@ -16,6 +17,10 @@ public class Car {
         if (RandomNumberGenerator.generateNumber() >= 4) {
             position++;
         }
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getPosition() {

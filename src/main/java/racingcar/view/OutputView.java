@@ -11,4 +11,9 @@ public class OutputView {
     public static void printAskGameRound(){
         System.out.println(ASK_GAME_ROUND_MESSAGE);
     }
+    public static void printGameStatus(RoundResponseDto roundResponseDto) {
+        String output = roundResponseDto.covertOutput();
+        System.out.println(output);
+    }
+
 }
