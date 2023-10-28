@@ -7,6 +7,10 @@ import java.util.HashMap;
 
 public class Application {
     public static void main(String[] args) {
+        racingGame();
+    }
+
+    private static void racingGame() {
         String userInput = inputCarName();
         int tryCount = inputTryCount();
 
@@ -23,23 +27,17 @@ public class Application {
             String userCarMoveResult = referee.get(userCarName);
             System.out.println(userCarName + " : " + userCarMoveResult);
         }
+        System.out.println();
     }
 
     private static HashMap<String, String> referee(HashMap<String, String> createUserCar) {
         for (String key : createUserCar.keySet()) {
             String value = createUserCar.get(key);
-            int random = randomNumber();
-            if (random >= 4) {
+            if (randomNumber() >= 4) {
                 createUserCar.put(key, value + "-");
             }
         }
         return createUserCar;
-    }
-
-    private static String inputCarName() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String inputCarName = Console.readLine();
-        return inputCarName;
     }
 
     private static HashMap<String, String> userCarNameSave(String inputCarName) {
@@ -49,6 +47,12 @@ public class Application {
             createUserCar.put(car, "");
         }
         return createUserCar;
+    }
+
+    private static String inputCarName() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String inputCarName = Console.readLine();
+        return inputCarName;
     }
 
     private static int inputTryCount() {
