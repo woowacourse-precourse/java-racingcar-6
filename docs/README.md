@@ -17,11 +17,12 @@
   - 자동차 이름
   - 전진 칸 수
   - getter, setter
+- Cars (DAO)
+  - List<String> 받아 List<Car> 멤버 변수 생성
+  - getter 
 - CarRace(DTO)
-  - 자동차 목록 생성
-    - List<String> -> List<Car>
   - 무작위 값을 통해 앞으로 전진
-  - List<Car> 단위로 전진 처리
+    - List<Car> 단위로 전진 처리
   - 우승자 계산
 
 ### View
