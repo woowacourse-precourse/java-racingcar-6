@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.application.RacingGame;
+import racingcar.domain.Car;
 
 public class RacingGameTest {
 
