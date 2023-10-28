@@ -1,7 +1,7 @@
 package player;
 
 public class Player {
-    int dist = 0;
+    private int distance = 0;
     private final String playerName;
 
     public Player(String playerName) {
@@ -13,10 +13,12 @@ public class Player {
     }
 
     public int getDist() {
-        return dist;
+        return distance;
     }
 
     public void move(int randomNumber) {
-        if (randomNumber >= 4) this.dist++;
+        if (randomNumber >= 4) {
+            this.distance++;
+        }
     }
 }
