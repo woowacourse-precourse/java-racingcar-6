@@ -9,9 +9,7 @@ public class Car {
         this.moveState = "";
     }
 
-    public void move(Integer moveCount) {
-        for (int i = 0; i < moveCount; i++) {
-            moveState += "-";
-        }
+    public void move() {
+        moveState += "-";
     }
 }
