@@ -23,6 +23,7 @@ public class InputView {
 
     public Integer inputCountOfGameRound() {
         System.out.print("시도할 회수는 몇회인가요?");
+        System.out.print("\n");
         String inputCountOfGameRound = Console.readLine();
         validateBlank(inputCountOfGameRound);
         validateNumber(inputCountOfGameRound);
