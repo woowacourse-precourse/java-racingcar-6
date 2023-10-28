@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,6 +12,11 @@ class CarTest {
 
     Car car1 = new Car("car1");
     Car car2 = new Car("car2");
+    @AfterEach
+    void setClear(){
+        car1.clear();;
+        car2.clear();
+    }
 
     @Test
     @DisplayName("자동차는 한칸씩 전진해야 한다.")
