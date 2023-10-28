@@ -17,15 +17,17 @@ public class RacingCarController {
         this.racingCarService = new RacingCarService();
     }
 
-    void run() {
+    public void run() {
         outputView.printRacingCarNamesMessage();
         startRacing();
     }
 
     private void startRacing() {
         Cars cars = inputManager.inputCarNames();
-        int attemptCount = inputManager.inputAttemptCount();
+
         outputView.printAttemptCountMessage();
+        int attemptCount = inputManager.inputAttemptCount();
+        outputView.printExecutionResultMessage();
 
         for (int i = 0; i < attemptCount; i++) {
             racingCarService.startRacing(cars);
