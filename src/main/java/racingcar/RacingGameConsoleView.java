@@ -3,9 +3,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import java.util.StringJoiner;
+import racingcar.dto.CreateRacingCarRequest;
 import racingcar.dto.MoveCountDto;
 import racingcar.dto.RacingCarDto;
-import racingcar.dto.RacingCarNameRegistryDto;
 
 public class RacingGameConsoleView {
 
@@ -21,9 +21,9 @@ public class RacingGameConsoleView {
         return new MoveCountDto(Console.readLine());
     }
 
-    public RacingCarNameRegistryDto inputRacingCarNames() {
+    public CreateRacingCarRequest inputRacingCarNames() {
         System.out.println(RACING_CAR_NAME_REQUEST_MESSAGE);
-        return new RacingCarNameRegistryDto(Console.readLine());
+        return new CreateRacingCarRequest(Console.readLine());
     }
 
     public void printResultTitle() {

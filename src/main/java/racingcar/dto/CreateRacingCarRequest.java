@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class RacingCarNameRegistryDto {
+public class CreateRacingCarRequest {
 
     private final List<String> racingCarNames = new ArrayList<>();
 
-    public RacingCarNameRegistryDto(String names) {
+    public CreateRacingCarRequest(String names) {
         racingCarNames.addAll(Arrays.asList(names.split(",")));
     }
 

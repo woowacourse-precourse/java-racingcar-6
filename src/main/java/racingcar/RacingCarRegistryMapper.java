@@ -1,17 +1,17 @@
 package racingcar;
 
 import java.util.List;
+import racingcar.dto.CreateRacingCarRequest;
 import racingcar.dto.MoveCountDto;
-import racingcar.dto.RacingCarNameRegistryDto;
 
 public class RacingCarRegistryMapper {
 
     public static RacingCarRegistry toRacingCarRegistry(
             ActionNumberGenerator actionNumberGenerator,
-            RacingCarNameRegistryDto racingCarNameRegistryDto,
+            CreateRacingCarRequest createRacingCarRequest,
             MoveCountDto moveCountDto) {
         MoveCount moveCount = new MoveCount(moveCountDto.getMoveCount());
-        List<String> racingCarNames = racingCarNameRegistryDto.getRacingCarNames();
+        List<String> racingCarNames = createRacingCarRequest.getRacingCarNames();
         return new RacingCarRegistry(actionNumberGenerator, racingCarNames, moveCount);
     }
 }

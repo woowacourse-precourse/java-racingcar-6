@@ -1,7 +1,7 @@
 package racingcar;
 
+import racingcar.dto.CreateRacingCarRequest;
 import racingcar.dto.MoveCountDto;
-import racingcar.dto.RacingCarNameRegistryDto;
 
 public class RacingCarGame {
 
@@ -12,12 +12,12 @@ public class RacingCarGame {
     }
 
     public void play() {
-        RacingCarNameRegistryDto racingCarNameRegistryDto = view.inputRacingCarNames();
+        CreateRacingCarRequest createRacingCarRequest = view.inputRacingCarNames();
         MoveCountDto moveCountDto = view.inputMoveCount();
 
         RacingCarRegistry racingCarRegistry = RacingCarRegistryMapper.toRacingCarRegistry(
                 new RandomActionNumberGenerator(),
-                racingCarNameRegistryDto,
+                createRacingCarRequest,
                 moveCountDto);
 
         view.printResultTitle();
