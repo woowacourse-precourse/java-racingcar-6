@@ -1,10 +1,10 @@
-package racingcar.domain;
+package racingcar.model.domain;
 
 public class Car {
     private String name;
     private int forward;
 
-    public void setName(String name) {
+    public Car(String name){
         this.name = name;
     }
 
