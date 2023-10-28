@@ -13,6 +13,7 @@ public class InputView {
             String carNamesRawData = Console.readLine();
 
             validateNull(carNamesRawData);
+            validateBlank(carNamesRawData);
 
             String[] splitCarNamesByComma = carNamesRawData.split(DELIMITER);
             return carNamesArrToList(splitCarNamesByComma);
@@ -23,6 +24,12 @@ public class InputView {
 
     private void validateNull(String data) {
         if (data == null) {
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_INPUT_EXCEPTION.getMessage());
+        }
+    }
+
+    private void validateBlank(String data) {
+        if (data.isBlank()) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_INPUT_EXCEPTION.getMessage());
         }
     }
