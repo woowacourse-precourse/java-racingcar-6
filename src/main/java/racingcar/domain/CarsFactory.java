@@ -4,6 +4,8 @@ import static racingcar.constant.ExceptionMessage.BLANK_EXCEPTION;
 import static racingcar.constant.ExceptionMessage.DUPLICATE_EXCEPTION;
 import static racingcar.constant.ExceptionMessage.INVALID_NAME_EXCEPTION;
 import static racingcar.constant.ExceptionMessage.LENGTH_EXCEPTION;
+import static racingcar.constant.GameNumber.NAME_EMPTY_LENGTH;
+import static racingcar.constant.GameNumber.NAME_MAXIMUM_LENGTH;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
@@ -61,7 +63,7 @@ public class CarsFactory {
 
     public void checkCarNamesLength(List<String> carNames) {
         for (String name : carNames) {
-            if (name.length() == 0 || name.length() > 5) {
+            if (name.length() == NAME_EMPTY_LENGTH || name.length() > NAME_MAXIMUM_LENGTH) {
                 throw new IllegalArgumentException(LENGTH_EXCEPTION);
             }
         }
