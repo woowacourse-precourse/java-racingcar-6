@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Objects;
 
 public class Car {
@@ -16,6 +17,21 @@ public class Car {
     public static Car of(String name) {
         validateName(name);
         return new Car(name);
+    }
+
+    public void move() {
+        if (canMove()) {
+           this.position++;
+        }
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    private boolean canMove() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        return randomNumber > 3;
     }
 
     private static void validateName(String name) {
