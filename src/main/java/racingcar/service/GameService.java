@@ -13,13 +13,17 @@ public class GameService {
 
         int tryNum = InteractService.getTryNum();
 
-        if (tryNum <= 0) {
-            throw new IllegalArgumentException();
-        }
+        checkPositive(tryNum);
 
         System.out.println("실행 결과");
         RacingService.racing(carList, tryNum);
         RacingService.findWinner(carList);
+    }
+
+    private static void checkPositive(int tryNum) {
+        if (tryNum <= 0) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private static void checkCarNameAndMakeCar(String carNames, List<Car> carList) {
