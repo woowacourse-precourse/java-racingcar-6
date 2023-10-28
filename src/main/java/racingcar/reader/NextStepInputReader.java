@@ -6,4 +6,9 @@ public class NextStepInputReader implements InputReader {
     public String readLine() {
         return Console.readLine();
     }
+
+    @Override
+    public void close() {
+        Console.close();
+    }
 }
