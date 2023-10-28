@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.config.GameConfig;
@@ -37,5 +38,9 @@ public class Cars {
             Car car = cars.get(i);
             car.moveForward(positions.get(i));
         }
+    }
+
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
     }
 }
