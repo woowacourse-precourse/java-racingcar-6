@@ -3,7 +3,6 @@ package racingcar.controller;
 import racingcar.model.Car;
 import racingcar.model.RacingCars;
 import racingcar.model.Referee;
-import racingcar.util.StringUtils;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -21,8 +20,8 @@ public class RaceGameController {
     public void startGame() {
         RacingCars racingCars = initializeGame();
 
-        inputView.printLoopSetMessage();
-        int inputLoop = StringUtils.parseInt(inputView.inputString());
+        outputView.printLoopSetMessage();
+        int inputLoop = inputView.inputLoopStringToInt();
 
         outputView.printFirstResultMessage();
         playGameMultipleTimes(racingCars, inputLoop);
@@ -36,9 +35,8 @@ public class RaceGameController {
     }
 
     private RacingCars initializeGame() {
-        inputView.printStartMessage();
-        String names = inputView.inputString();
-        List<String> carNames = StringUtils.splinter(names);
+        outputView.printStartMessage();
+        List<String> carNames = inputView.inputNamesStringToList();
         return new RacingCars(carNames);
     }
 
