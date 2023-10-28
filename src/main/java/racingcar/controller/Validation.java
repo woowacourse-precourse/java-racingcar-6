@@ -1,6 +1,8 @@
 package racingcar.controller;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Validation {
 
@@ -18,5 +20,12 @@ public class Validation {
         }
     }
 
+    public static void validateDuplicate(List<String> cars) {
+        Set<String> checkForDuplicates = new HashSet<>(cars);
+
+        if (checkForDuplicates.size() != cars.size()) {
+            throw new IllegalArgumentException();
+        }
+    }
 
 }
