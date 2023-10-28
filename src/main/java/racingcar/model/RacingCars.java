@@ -5,17 +5,18 @@ import java.util.Collections;
 import java.util.List;
 
 public class RacingCars {
-    private List<Car> cars;
+    private final List<Car> cars;
 
-    public RacingCars() {
-        this.cars = new ArrayList<>();
+    public RacingCars(List<String> inputCarNameList) {
+        this.cars = createCars(inputCarNameList);
     }
 
-    public void carCreator(List<String> inputCarNameList){
-        for(String carName : inputCarNameList){
-            Car car = new Car(carName);
-            cars.add(car);
+    private List<Car> createCars(List<String> carNames) {
+        List<Car> createdCars = new ArrayList<>();
+        for (String carName : carNames) {
+            createdCars.add(new Car(carName));
         }
+        return createdCars;
     }
 
     public List<Car> getAllCars() {
