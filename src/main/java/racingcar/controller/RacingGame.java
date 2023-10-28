@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Car;
+import racingcar.domain.Race;
 import racingcar.domain.strategy.MoveStrategy;
 import racingcar.domain.strategy.RandomMoveStrategy;
 import racingcar.util.InputValidator;
@@ -18,7 +19,7 @@ public class RacingGame {
 
     public void start() {
         String carNamesInput = inputAndValidateCarNames();
-        String roundInput = inputAndValidateRound();
+        int roundCount = inputAndValidateRound();
 
         System.out.println();
 
@@ -26,7 +27,6 @@ public class RacingGame {
 
         System.out.println("실행 결과");
 
-        int roundCount = Integer.parseInt(roundInput);
         for (int currentRound = 0; currentRound < roundCount; currentRound++) {
             move(cars);
             printProgress(cars);
@@ -42,11 +42,11 @@ public class RacingGame {
         return carNamesInput;
     }
 
-    private String inputAndValidateRound() {
+    private int inputAndValidateRound() {
         String roundInput = InputView.inputRound();
         InputValidator.validateRound(roundInput);
 
-        return roundInput;
+        return Integer.parseInt(roundInput);
     }
 
     private List<Car> createCars(String input) {
