@@ -36,6 +36,7 @@ public class RacingGame {
     }
 
     private static void printRacingGameResults(Car[] cars) {
+        System.out.println();
         System.out.println(RESULT_PHRASE);
         for (Car car : cars) {
             System.out.println(car.printResult());
