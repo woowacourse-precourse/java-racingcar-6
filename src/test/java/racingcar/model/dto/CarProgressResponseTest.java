@@ -1,9 +1,10 @@
-package racingcar.model;
+package racingcar.model.dto;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+import racingcar.model.dto.CarProgressResponse;
 
 class CarProgressResponseTest {
     private final int result = 3;

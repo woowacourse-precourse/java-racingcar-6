@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
-import racingcar.model.CarProgressResponse;
+import racingcar.model.dto.CarProgressResponse;
 import racingcar.model.Cars;
 import racingcar.model.GameResult;
 

@@ -2,6 +2,7 @@ package racingcar.model;
 
 import java.util.List;
 import java.util.Objects;
+import racingcar.model.dto.CarProgressResponse;
 
 public record GameResult(List<CarProgressResponse> progressResponses, List<String> winners) {
 

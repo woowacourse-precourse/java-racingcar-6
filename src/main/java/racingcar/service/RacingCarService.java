@@ -3,10 +3,10 @@ package racingcar.service;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.model.Car;
-import racingcar.model.CarProgressResponse;
+import racingcar.model.dto.CarProgressResponse;
 import racingcar.model.Cars;
 import racingcar.model.GameResult;
-import racingcar.random.RandomNumberProvider;
+import racingcar.service.random.RandomNumberProvider;
 
 public final class RacingCarService {
 
