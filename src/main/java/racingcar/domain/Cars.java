@@ -10,7 +10,8 @@ public record Cars(List<Car> cars) {
 
     public Cars(List<Car> cars) {
         this.cars = cars;
-        validate();
+        validateCarsAmount();
+        validateDuplicatedCarNames();
     }
 
     @Override
@@ -34,11 +35,6 @@ public record Cars(List<Car> cars) {
         if (carNameSet.size() != cars.size()) {
             throw new IllegalArgumentException(DUPLICATION_ERROR_MESSAGE);
         }
-    }
-
-    private void validate() {
-        validateCarsAmount();
-        validateDuplicatedCarNames();
     }
 
     public void moveCars() {

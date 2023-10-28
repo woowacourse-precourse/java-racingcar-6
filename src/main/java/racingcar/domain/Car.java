@@ -12,7 +12,8 @@ public class Car {
 
     public Car(String name) {
         this.name = name;
-        validate();
+        validateIsCarNameEmpty();
+        validateIsCarNameExceedingMaxLength();
     }
 
     public String getName() {
@@ -30,11 +31,6 @@ public class Car {
         if (name.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException(CAR_NAME_ERROR_MESSAGE);
         }
-    }
-
-    private void validate() {
-        validateIsCarNameEmpty();
-        validateIsCarNameExceedingMaxLength();
     }
 
     private boolean isMovable() {
