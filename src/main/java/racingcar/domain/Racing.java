@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static racingcar.util.ConstMessages.ATTEMPT_COUNT_MESSAGE;
-import static racingcar.util.ConstMessages.FINAL_WINNER_MESSAGE;
+import static racingcar.util.ConstMessages.*;
 import static racingcar.util.Validator.validateCarNames;
 import static racingcar.util.Validator.validateNumericInput;
 
@@ -19,7 +18,8 @@ public class Racing {
         this.carList = cars;
     }
 
-    public Racing registerCarList(){
+    public static Racing registerCarList(){
+        System.out.println(INPUT_NAME_MESSAGE);
         String names = Console.readLine();
         validateCarNames(names);
 
@@ -28,7 +28,7 @@ public class Racing {
         return new Racing(cars);
     }
 
-    private List<Car> makeCarList(String[] names){
+    private static List<Car> makeCarList(String[] names){
         List<Car> cars = new ArrayList<>();
         for(String name : names){
             cars.add(new Car(name));
@@ -74,11 +74,8 @@ public class Racing {
         return carList.stream()
                 .filter(car-> max <= car.getRaceDistance())
                 .map(Car::getName)
-                .collect(Collectors.joining(","));
+                .collect(Collectors.joining(", "));
     }
-
-
-
 
     private int getMaxAdvanceCount(){
         return carList.stream()
