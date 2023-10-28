@@ -1,6 +1,6 @@
 package racingcar.dto;
 
-import racingcar.view.constants.Message;
+import racingcar.view.constants.ConstantMessage;
 
 import java.util.List;
 
@@ -11,6 +11,6 @@ public record FinalResponse(
 
     public String toEntity() {
         String dividedNames = String.join(DELIMITER, winnerNames);
-        return String.format(Message.RESPONSE_WINNER_MESSAGE.getMessage(), dividedNames);
+        return String.format(ConstantMessage.RESPONSE_WINNER_MESSAGE.getMessage(), dividedNames);
     }
 }

@@ -7,7 +7,7 @@ import racingcar.dto.RoundResponses;
 import racingcar.parser.Parser;
 import racingcar.view.View;
 
-import static racingcar.view.constants.Message.RESPONSE_RESULT_MESSAGE;
+import static racingcar.view.constants.ConstantMessage.RESPONSE_RESULT_MESSAGE;
 
 public class Game {
     public static void start() {

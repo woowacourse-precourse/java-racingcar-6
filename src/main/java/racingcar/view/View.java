@@ -1,12 +1,12 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.view.constants.Message;
+import racingcar.view.constants.ConstantMessage;
 
 import java.util.List;
 
-import static racingcar.view.constants.Message.ASK_GAME_COUNT;
-import static racingcar.view.constants.Message.ASK_MULTIPLE_CAR_NAMES;
+import static racingcar.view.constants.ConstantMessage.ASK_GAME_COUNT;
+import static racingcar.view.constants.ConstantMessage.ASK_MULTIPLE_CAR_NAMES;
 
 public class View {
     public static String requestCarsName() {
@@ -21,7 +21,7 @@ public class View {
         return request;
     }
 
-    public static void printNotice(Message notice) {
+    public static void printNotice(ConstantMessage notice) {
         System.out.println(notice.getMessage());
     }
 
