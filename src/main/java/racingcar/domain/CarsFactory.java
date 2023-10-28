@@ -1,12 +1,14 @@
 package racingcar.domain;
 
 import static racingcar.constant.ExceptionMessage.BLANK_EXCEPTION;
+import static racingcar.constant.ExceptionMessage.DUPLICATE_EXCEPTION;
 import static racingcar.constant.ExceptionMessage.INVALID_NAME_EXCEPTION;
 import static racingcar.constant.ExceptionMessage.LENGTH_EXCEPTION;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 public class CarsFactory {
@@ -50,6 +52,16 @@ public class CarsFactory {
         for (String name : carNames) {
             if (name.length() == 0 || name.length() > 5) {
                 throw new IllegalArgumentException(LENGTH_EXCEPTION);
+            }
+        }
+    }
+
+    public void checkCarNamesDuplicate(List<String> carNames) {
+        HashSet<String> uniqueNames = new HashSet<>();
+
+        for (String name : carNames) {
+            if (!uniqueNames.add(name)) {
+                throw new IllegalArgumentException(DUPLICATE_EXCEPTION);
             }
         }
     }

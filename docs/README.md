@@ -7,7 +7,7 @@
         - [✔] 이름으로 빈 문자열이 들어왔을 경우 예외 발생 - checkCarNameValidity()
         - [✔] 자동차 이름에 공백 문자가 있을 경우 예외 발생 - checkCarNameForBlank()
         - [✔] 자동차 이름 길이가 0자이거나 6자 이상일 경우 예외 발생 - validateNameLength()
-        - [] 자동차 이름 중 중복된 이름이 있을 경우 예외 발생 - validateDuplicateName()
+        - [✔] 자동차 이름 중 중복된 이름이 있을 경우 예외 발생 - validateDuplicateName()
 - [] 시도 횟수를 입력받는다. - inputAttemptCount()
 - [] 입력받은 시도 횟수를 검증한다. - validateAttemptNumber()
     - [] 사용자가 공백을 입력했을 경우 예외 발생 - checkNonBlank
