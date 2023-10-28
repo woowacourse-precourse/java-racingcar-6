@@ -3,8 +3,12 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
 import java.util.LinkedHashMap;
+import java.util.Objects;
 import java.util.Arrays;
 
 
@@ -15,6 +19,30 @@ public class Application {
 
         System.out.println("실행 결과");
         executeAllRounds(carNameAndMovementCountMap, numberOfRounds);
+        selectFinalWinner(carNameAndMovementCountMap);
+    }
+
+    public static List<String> selectFinalWinner(Map<String, Integer> carNameAndMovementCountMap) {
+        List<String> winnerList = new ArrayList<>();
+
+        Integer maxMovementValue = carNameAndMovementCountMap.values()
+                .stream()
+                .max(Comparator.comparingInt(Integer::intValue))
+                .orElseThrow();
+
+        carNameAndMovementCountMap.forEach((carName, movementCount) -> {
+            if (Objects.equals(movementCount, maxMovementValue)) {
+                winnerList.add(carName);
+            }
+        });
+
+        printWinnerList(winnerList);
+        return winnerList;
+    }
+
+    private static void printWinnerList(List<String> winnerList) {
+        String result = String.join(", ", winnerList);
+        System.out.println("최종 우승자 : " + result);
     }
 
 
