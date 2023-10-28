@@ -7,6 +7,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.Turn;
 
 public class RacingCarTest {
 
@@ -40,5 +41,26 @@ public class RacingCarTest {
         List<String> carNames = List.of("jamiese", "risa", "jun");
         assertThatThrownBy(() -> new Cars(carNames))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 이동_시도_횟수_입력() {
+        Turn turn = new Turn("1");
+        assertThat(1).isEqualTo(turn.getCount());
+    }
+
+    @Test
+    void 이동_시도_횟수_입력_실패_문자열_처리() {
+        assertThatThrownBy(() -> new Turn("abc"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 이동_시도_횟수_입력_실패_공백_처리() {
+        List<String> blanks = List.of(" ", "");
+        for (String blank : blanks) {
+            assertThatThrownBy(() -> new Turn(blank))
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
     }
 }
