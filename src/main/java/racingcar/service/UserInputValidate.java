@@ -1,20 +1,40 @@
 package racingcar.service;
 
-import java.util.ArrayList;
+import static racingcar.constant.constantMessage.CAR_NAME_LENGTH_ERROR_MESSAGE;
+import static racingcar.constant.constantMessage.NEGATIVE_VALUE_ERROR_MESSAGE;
+import static racingcar.constant.constantMessage.Not_Integer_VALUE_ERROR_MESSAGE;
+
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.domain.Car;
+import racingcar.domain.Standard;
 
 public class UserInputValidate {
     public List<Car> validate(String[] names) {
-        List<Car> cars = new ArrayList<>();
-        for (String name : names) {
-            if (name.length() > 5) {
-                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
-            }
-            Car car = Car.createCar(name, new StringBuilder());
-            cars.add(car);
+        return Arrays.stream(names)
+                .peek(this::carNameValidate)
+                .map(name -> Car.createCar(name))
+                .collect(Collectors.toList());
+    }
+
+    private void carNameValidate(String name) {
+        if (name.length() > Standard.Five.getValue()) {
+            throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);
+        }
+    }
+
+    public int tryCountValidate(String moveCount) {
+        int mvCount;
+        try {
+            mvCount = Integer.parseInt(moveCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(Not_Integer_VALUE_ERROR_MESSAGE);
         }
 
-        return cars;
+        if (mvCount < 0) {
+            throw new IllegalArgumentException(NEGATIVE_VALUE_ERROR_MESSAGE);
+        }
+        return mvCount;
     }
 }
