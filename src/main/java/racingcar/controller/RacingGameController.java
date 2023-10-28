@@ -7,6 +7,7 @@ import java.util.List;
 import racingcar.dto.CarDto;
 import racingcar.model.Cars;
 import racingcar.model.RacingGame;
+import racingcar.model.Referee;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 import racingcar.vo.TrialCount;
@@ -23,9 +24,11 @@ public class RacingGameController {
 
     public void run() {
         Cars cars = getCarsFromInputView();
+        Referee referee = new Referee();
+
         TrialCount trialCount = getTrialCountFromInputView();
 
-        RacingGame racingGame = new RacingGame(cars);
+        RacingGame racingGame = new RacingGame(cars, referee);
         outputView.printResultMessage();
 
         for (int i = 0; i < trialCount.number(); i++) {

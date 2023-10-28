@@ -5,6 +5,7 @@ import java.util.List;
 import racingcar.exception.InputValidator;
 
 public class StringConverter {
+
     private static final String DELIMITER = ",";
 
     private StringConverter() {

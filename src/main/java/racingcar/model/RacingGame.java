@@ -7,9 +7,9 @@ public class RacingGame {
     private final Cars cars;
     private final Referee referee;
 
-    public RacingGame(final Cars cars) {
+    public RacingGame(final Cars cars, final Referee referee) {
         this.cars = cars;
-        this.referee = new Referee();
+        this.referee = referee;
     }
 
     public void runOneTerm() {
