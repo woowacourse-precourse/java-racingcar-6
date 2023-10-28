@@ -7,8 +7,6 @@ public class OutputView {
     private final InputView inputView;
     private final RandomGenerator randomGenerator;
 
-    private static final String RACING_RESULT = "실행 결과";
-
     public OutputView(InputView inputView, RandomGenerator randomGenerator) {
         this.inputView = inputView;
         this.randomGenerator = randomGenerator;
@@ -23,7 +21,7 @@ public class OutputView {
     }
 
     private void run(RacingGame racingGame) {
-        inputView.print(RACING_RESULT);
+        inputView.printRacing();
         while (!racingGame.isEnd()) {
             racingGame = racingGame.race(randomGenerator);
             inputView.print(racingGame.ongoingCar());
