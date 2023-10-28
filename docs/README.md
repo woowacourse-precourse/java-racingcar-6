@@ -3,10 +3,10 @@
 ## 기능 목록
 
 #### 자동차 이름 입력 기능
-- [ ] 경주할 자동차 이름 입력한다. #InputView inputCarName()
-  - [ ] 이름을 쉼표로 구분했는지 확인한다.
-  - [ ] 이름이 5자 이하인지 확인한다.
-  - [ ] 이름이 중복되었는지 확인한다.
+- [✅] 경주할 자동차 이름 입력한다. #InputView inputCarName()
+  - [✅] 이름을 쉼표로 구분했는지 확인한다. #InputException isContainComma()
+  - [✅] 이름이 5자 이하인지 확인한다. #InputException validateNameSize()
+  - [✅] 이름이 중복되었는지 확인한다. #InputException validateNameDuplication()
 
 #### 이동 횟수 입력 기능
 - [ ] 몇 번의 이동을 할 것인지를 입력한다. #InputView inputNumberOfMoves()
