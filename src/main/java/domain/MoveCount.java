@@ -1,19 +1,17 @@
 package domain;
 
-import static constant.ConstantString.INITIAL_COUNT;
-
 public class MoveCount {
-    private int count;
+    private int moveCount;
 
-    public MoveCount() {
-        this.count = INITIAL_COUNT;
+    public MoveCount(int moveCount) {
+        this.moveCount = moveCount;
     }
 
-    public void plusCount() {
-        this.count++;
+    public int getMoveCount() {
+        return this.moveCount;
     }
 
-    public int getCount() {
-        return this.count;
+    public void setMoveCount(int moveCount) {
+        this.moveCount = moveCount;
     }
 }
