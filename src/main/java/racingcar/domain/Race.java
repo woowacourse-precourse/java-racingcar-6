@@ -9,7 +9,7 @@ public class Race {
     private final List<Car> cars;
     private final MoveStrategy moveStrategy;
 
-    public Race (List<Car> cars, MoveStrategy moveStrategy) {
+    public Race(List<Car> cars, MoveStrategy moveStrategy) {
         this.cars = cars;
         this.moveStrategy = moveStrategy;
     }
@@ -26,21 +26,20 @@ public class Race {
         }
     }
 
-    public void printProgress() {
-        for (Car car : cars) {
-            System.out.println(car.getName() + " : " + generateProgressString(car));
-        }
-        System.out.println();
+    public List<Car> getCars() {
+        return new ArrayList<>(cars);
     }
 
-    private String generateProgressString(Car car) {
-        int position = car.getPosition();
+    public String getWinnerNamesToString() {
+        List<String> winnerNames = getWinners().stream()
+                .map(Car::getName)
+                .toList();
 
-        return "-".repeat(Math.max(0, position));
+        return String.join(",", winnerNames);
     }
 
-    public String getWinners() {
-        List<String> winners = new ArrayList<>();
+    public List<Car> getWinners() {
+        List<Car> winners = new ArrayList<>();
         int maxPosition = 0;
 
         for (Car car : cars) {
@@ -50,10 +49,10 @@ public class Race {
             }
 
             if (car.getPosition() == maxPosition) {
-                winners.add(car.getName());
+                winners.add(car);
             }
         }
 
-        return String.join(",", winners);
+        return winners;
     }
 }
