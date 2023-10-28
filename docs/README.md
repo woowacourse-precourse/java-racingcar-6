@@ -13,7 +13,7 @@
   - 자동차 이름, 위치 그리고 이동 메소드 포함
 - RaceCarList
   - Car 리스트를 감싸는 일급컬렉션
-- Util
+- RacingUtil
   - 유틸리티 클래스
 
 ## 자동차 입력 기능
@@ -49,7 +49,7 @@
   - 각 자동차를 랜덤한 확률로 움직인다.
 - [x] Car : `move` 메서드
   - int를 인수로 받아 4이상이라면 전진한다.
-- [ ] Util : `generateRandomPower` 메서드
+- [ ] RacingUtil : `generateRandomPower` 메서드
   - 랜덤 0~9 사이 무작위 수를 생성한다
 
 ## 각 수행 횟수에 결과 출력 기능
