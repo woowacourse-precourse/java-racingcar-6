@@ -3,6 +3,7 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingResult {
     public static final int FINAL_ROUND_INDEX = 1;
@@ -10,6 +11,12 @@ public class RacingResult {
 
     public void addResult(RacingRoundResult racingRoundResult) {
         this.racingRoundResults.add(racingRoundResult);
+    }
+
+    public List<RacingRoundResult> getRacingRoundResults() {
+        return this.racingRoundResults.stream()
+                .map(racingRoundResult -> new RacingRoundResult(racingRoundResult.getCars()))
+                .collect(Collectors.toUnmodifiableList());
     }
 
     public List<String> getFinalWinners() {
