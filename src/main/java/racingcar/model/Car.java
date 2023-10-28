@@ -32,7 +32,6 @@ public class Car {
 
 
     public LinkedHashMap<String, Integer> createLocationMap(List<String> carNameList) {
-        locations = new LinkedHashMap<>();
         for (int i = 0; i < carNameList.size(); i++) {
             locations.putIfAbsent(carNameList.get(i), 0);
         }
