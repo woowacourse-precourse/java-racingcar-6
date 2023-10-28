@@ -3,7 +3,7 @@ package racingcar.domain;
 public class GameNum {
     private int number = 0;
 
-    public void create(int number) {
+    public void init(int number) {
         this.number = number;
     }
 

@@ -6,21 +6,24 @@ import racingcar.domain.GameNum;
 
 public class InputService {
     private final Cars cars = new Cars();
+    private final GameNum gameNum = new GameNum();
     private final CheckService checkService = new CheckService();
     private final static String SEPARATOR = ",";
-    private GameNum gameNum = new GameNum();
 
-    public void carNames() {
-        String[] carArr = splitBySeparator(Console.readLine());
+    public String init() {
+        return Console.readLine();
+    }
+
+    public void carNames(String input) {
+        String[] carArr = splitBySeparator(input);
         if (checkService.cars(carArr)) {
             cars.create(carArr);
         }
     }
 
-    public void numOfAttempts() {
-        String s = Console.readLine();
-        if (checkService.nums(s)) {
-            gameNum.create(StringToInt(s));
+    public void numOfAttempts(String input) {
+        if (checkService.nums(input)) {
+            gameNum.init(StringToInt(input));
         }
     }
 

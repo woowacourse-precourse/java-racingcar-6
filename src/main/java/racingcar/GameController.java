@@ -1,20 +1,21 @@
 package racingcar;
 
-import racingcar.service.CheckService;
 import racingcar.service.InputService;
 import racingcar.service.MessageService;
 
 public class GameController {
     private final MessageService message = new MessageService();
-    private final CheckService checkService = new CheckService();
-
     private final InputService inputService = new InputService();
+    String input = "";
 
     public void start() {
         message.questionCarName();
+        input = inputService.init();
+        inputService.carNames(input);
 
         message.questionTryNum();
-        inputService.numOfAttempts();
+        input = inputService.init();
+        inputService.numOfAttempts(input);
 
         message.printResult();
         message.printWinner();
