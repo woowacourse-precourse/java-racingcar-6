@@ -25,27 +25,26 @@ public class Result {
     }
 
     public void printWinner(List<Car> carList){
-        int maxDistance = getMaxDistance(carList);
-        boolean jointWinner = false;
+        getSortCarList(carList);
         System.out.print("최종 우승자 : ");
-        for(int i = 0; i < carList.size(); i++){
-            if(jointWinner == true){
-                System.out.print(", ");
-            }
+        int maxDistance = carList.get(0).getDistance();
+        System.out.println(carList.get(0).getCarName());
+        for(int i = 1; i < carList.size(); i++){
             if(maxDistance == carList.get(i).getDistance()){
-                System.out.print(carList.get(i).getCarName());
-                jointWinner = true;
+                System.out.println(", ");
+                System.out.println(carList.get(i).getCarName());
+            }else{
+                break;
             }
         }
     }
 
-    public int getMaxDistance(List<Car> carList){
-        Car maxDistanceCar = Collections.max(carList, new Comparator<Car>() {
+    public void getSortCarList(List<Car> carList){
+        Collections.sort(carList, new Comparator<Car>() {
             @Override
             public int compare(Car car1, Car car2) {
-                return Integer.compare(car1.getDistance(), car2.getDistance());
+                return Integer.compare(car2.getDistance(), car1.getDistance());
             }
         });
-        return maxDistanceCar.getDistance();
     }
 }
