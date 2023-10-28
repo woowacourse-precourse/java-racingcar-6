@@ -23,8 +23,6 @@ class Controller {
         Cars cars = createCars();
 
         race(getRaceTimes(), cars);
-
-        showRaceResult(cars);
     }
 
     private Cars createCars() {
@@ -45,13 +43,15 @@ class Controller {
         printResultHeader();
 
         for (int times = 0; times < maxTimes; times++) {
-            cars.moveAll(policy);
-
-            printResult(cars.describeAll());
+            raceOneTimes(cars);
         }
+
+        printWinner(cars.findFrontCarsName());
     }
 
-    private void showRaceResult(Cars cars) {
-        printWinner(cars.findFrontCarsName());
+    private void raceOneTimes(Cars cars) {
+        cars.moveAll(policy);
+
+        printResult(cars.describeAll());
     }
 }
