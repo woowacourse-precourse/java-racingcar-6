@@ -25,9 +25,13 @@ public class Validator {
     }
 
     private static void checkBoundary(int time) {
-        if(time <=LEAST_NUMBER){
+        if(checkRightTIme(time)){
             throw new IllegalArgumentException(ErrorMessage.LOW_NUMBER.toString());
         }
+    }
+
+    private static boolean checkRightTIme(int time) {
+        return time <= LEAST_NUMBER;
     }
 
     private static String[] split(String input) {
@@ -41,8 +45,12 @@ public class Validator {
     }
 
     private static void checkNameLength(String name) {
-        if(name.length() > LIMIT_NUMBER){
+        if(checkRightLength(name)){
             throw new IllegalArgumentException(ErrorMessage.OVER_NAME_LENGTH.toString());
         }
+    }
+
+    private static boolean checkRightLength(String name) {
+        return name.length() > LIMIT_NUMBER;
     }
 }
