@@ -9,6 +9,14 @@ public class Car {
         position = 0;
     }
 
+    public void move() {
+        position++;
+    }
+
+    public void move(int power) {
+
+    }
+
     public String getName() {
         return name;
     }
