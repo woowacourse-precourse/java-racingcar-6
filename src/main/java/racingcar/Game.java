@@ -1,5 +1,9 @@
 package racingcar;
 
+import static racingcar.constant.StringConstant.EXECUTION_RESULT_TEXT;
+import static racingcar.constant.StringConstant.INPUT_CAR_NAMES_TEXT;
+import static racingcar.constant.StringConstant.INPUT_EXECUTION_COUNT_TEXT;
+
 import java.util.List;
 import racingcar.input.Input;
 import racingcar.output.Output;
@@ -23,20 +27,18 @@ public class Game {
     }
 
     private List<Car> getCars() {
-        output.printText("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        List<Car> carList = input.receiveCarNamesAndMakeList();
-        return carList;
+        output.printText(INPUT_CAR_NAMES_TEXT);
+        return input.receiveCarNamesAndMakeList();
     }
 
     private int getExecutionCount() {
-        output.printText("시도할 회수는 몇회인가요?");
-        int execution = input.receiveTotalCountOfExecution();
-        return execution;
+        output.printText(INPUT_EXECUTION_COUNT_TEXT);
+        return input.receiveTotalCountOfExecution();
     }
 
-    private void execution(int execution, List<Car> carList) {
-        output.printText("실행 결과");
-        for (int i = 0; i < execution; i++) {
+    private void execution(int executionCount, List<Car> carList) {
+        output.printText(EXECUTION_RESULT_TEXT);
+        for (int i = 0; i < executionCount; i++) {
             carList.forEach(Car::moveForward);
             output.printExecutionResult(carList);
         }
