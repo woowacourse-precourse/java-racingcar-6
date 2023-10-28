@@ -1,7 +1,10 @@
 package racingcar.service;
 
+import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.MoveRule;
+
+import java.util.List;
 
 public class CarService {
     private final Cars cars;
@@ -14,5 +17,10 @@ public class CarService {
 
     public void moveAllCarByRandom() {
         cars.getCars().forEach(car -> car.move(moveRule));
+    }
+
+    public List<String> findWinnersName() {
+        List<Car> winningCars = cars.getWinningCars();
+        return winningCars.stream().map(Car::getName).toList();
     }
 }
