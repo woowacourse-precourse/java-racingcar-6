@@ -12,18 +12,18 @@ public class InputView {
     }
 
     public static String[] inputNames() {
+        System.out.println(INPUT_NAME);
         return inputNames(Console.readLine());
     }
     public static String[] inputNames(String input) {
-        System.out.println(INPUT_NAME);
         return input.split(",");
     }
 
     public static RacingRepeat inputRepeat() {
+        System.out.println(INPUT_REPEAT);
         return inputRepeat(Console.readLine());
     }
     public static RacingRepeat inputRepeat(String input) {
-        System.out.println(INPUT_REPEAT);
         return new RacingRepeat(input);
     }
 }
