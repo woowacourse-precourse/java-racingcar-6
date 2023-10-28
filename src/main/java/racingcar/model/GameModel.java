@@ -12,10 +12,18 @@ public class GameModel {
 
         this.scoreBoard = initScoreBoard(names);
         this.raceTimes = Integer.parseInt(inputTimes);
+    }
 
+    public void racing() {
         for (Car car : scoreBoard) {
-            car.printcar();
+            car.move();
         }
+        this.raceTimes--;
+    }
+    
+
+    public boolean raceTimeRemain() {
+        return this.raceTimes != 0;
     }
 
     public ArrayList<Car> initScoreBoard(String[] names) {
@@ -35,4 +43,5 @@ public class GameModel {
             throw new IllegalArgumentException("자동차 이름을 입력하지 않았습니다.");
         }
     }
+
 }

@@ -9,6 +9,11 @@ public class GameController {
 
     public void runGame() {
         initGame();
+        
+        do {
+            processGame();
+        }
+        while (isRacing());
     }
 
 
@@ -21,5 +26,12 @@ public class GameController {
 
     }
 
+    public void processGame() {
+        gameModel.racing();
+    }
+
+    public boolean isRacing() {
+        return gameModel.raceTimeRemain();
+    }
 
 }
