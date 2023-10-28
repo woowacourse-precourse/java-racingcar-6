@@ -20,8 +20,6 @@ public class OutputView {
     }
 
     public static void printWinner(WinnerInfo winnerInfo) {
-        List<String> names = winnerInfo.names();
-        System.out.print("최종 우승자 : ");
-        System.out.println(String.join(",", names));
+        System.out.println(winnerInfo);
     }
 }
