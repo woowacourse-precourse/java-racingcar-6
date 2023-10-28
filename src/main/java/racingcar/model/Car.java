@@ -1,11 +1,16 @@
 package racingcar.model;
 
+import racingcar.utils.Validator;
+
 public class Car {
     private String carName;
     private int forwardSteps;
 
-    public Car(String carName){
-        this.carName =carName;
+    private final static Validator validator = new Validator();
+
+    public Car(String carName) {
+        validator.checkCarName(carName);
+        this.carName = carName;
         this.forwardSteps = 0;
     }
 
