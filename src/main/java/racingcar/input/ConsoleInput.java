@@ -1,7 +1,5 @@
 package racingcar.input;
 
-import static java.util.stream.Collectors.toList;
-
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
@@ -36,7 +34,7 @@ public class ConsoleInput implements Input {
         List<String> list = Arrays.asList(input.split(","));
         List<String> distinctList = list.stream()
                 .distinct()
-                .collect(toList());
+                .toList();
 
         if (list.size() != distinctList.size()) {
             throw new IllegalArgumentException();
@@ -44,10 +42,9 @@ public class ConsoleInput implements Input {
     }
 
     private List<Car> getCarList(String input) {
-        return Arrays.asList(input.split(","))
-                .stream()
-                .map(carName -> new Car(carName))
-                .collect(toList());
+        return Arrays.stream(input.split(","))
+                .map(Car::new)
+                .toList();
     }
 
     @Override
