@@ -47,8 +47,6 @@ public class FarCarsTest {
         Car car3 = new Car();
         car3.moveCarByState(MovementState.MOVE);
 
-        Car givenCar = new Car();
-        givenCar.moveCarByState(MovementState.MOVE);
 
         List<Car> cars = new ArrayList<>(Arrays.asList(car1,car2,car3));
 
@@ -58,4 +56,79 @@ public class FarCarsTest {
 
         assertThat(Cars.getTopPosition()).isEqualTo(targetNumber);
     }
+
+    @Test
+    @DisplayName("compare when given is 0,0,0")
+    public void compareThreeCarsAllZeroTest() {
+
+        Car car1 = new Car();
+
+        Car car2 = new Car();
+
+        Car car3 = new Car();
+
+        List<Car> cars = new ArrayList<>(Arrays.asList(car1,car2,car3));
+
+        Cars Cars = new Cars(cars);
+
+        Integer targetNumber  = 0 ;
+
+        assertThat(Cars.getTopPosition()).isEqualTo(targetNumber);
+    }
+    @Test
+    @DisplayName("compare when given is 1,2,2")
+    public void compareOneTwoTwoTest() {
+
+        Car car1 = new Car();
+        car1.moveCarByState(MovementState.MOVE);
+
+        Car car2 = new Car();
+        car2.moveCarByState(MovementState.MOVE);
+        car2.moveCarByState(MovementState.MOVE);
+
+        Car car3 = new Car();
+        car3.moveCarByState(MovementState.MOVE);
+        car3.moveCarByState(MovementState.MOVE);
+
+        List<Car> cars = new ArrayList<>(Arrays.asList(car1,car2,car3));
+
+        Cars Cars = new Cars(cars);
+
+        Integer targetNumber  = 2 ;
+
+        assertThat(Cars.getTopPosition()).isEqualTo(targetNumber);
+    }
+    @Test
+    @DisplayName("compare when given is 1,1,2")
+    public void compareOneOneTwoTest() {
+
+        Car car1 = new Car();
+        car1.moveCarByState(MovementState.MOVE);
+
+        Car car2 = new Car();
+        car2.moveCarByState(MovementState.MOVE);
+
+        Car car3 = new Car();
+        car3.moveCarByState(MovementState.MOVE);
+        car3.moveCarByState(MovementState.MOVE);
+
+        List<Car> cars = new ArrayList<>(Arrays.asList(car1,car2,car3));
+
+        Cars Cars = new Cars(cars);
+
+        Integer targetNumber  = 2 ;
+
+        assertThat(Cars.getTopPosition()).isEqualTo(targetNumber);
+    }
+    @Test
+    @DisplayName("compare when given is 1,1,2")
+    public void compareOnlySinge() {
+        Car car = new Car();
+        car.moveCarByState(MovementState.MOVE);
+        List<Car> cars = new ArrayList<>(Arrays.asList(car));
+        Cars Cars = new Cars(cars);
+        Integer targetNumber  = 1 ;
+        assertThat(Cars.getTopPosition()).isEqualTo(targetNumber);
+    }
+
 }
