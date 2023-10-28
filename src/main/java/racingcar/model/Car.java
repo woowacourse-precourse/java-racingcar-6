@@ -27,4 +27,8 @@ public class Car {
             throw new IllegalArgumentException("자동차 이름에는 알파벳과 숫자만 사용할 수 있습니다.");
         }
     }
+
+    public void move() {
+        this.position++;
+    }
 }

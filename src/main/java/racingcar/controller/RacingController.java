@@ -48,6 +48,7 @@ public class RacingController {
 
     public void play() {
         OutputView.printResultDescription();
+        carService.playRound();
     }
 
 }
