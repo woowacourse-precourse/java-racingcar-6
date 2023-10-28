@@ -9,4 +9,12 @@ public class namesManager {
         return Arrays.asList(namesString.split(","));
     }
 
+    boolean checkNameLength(String name) {
+        if (name.length() > 5) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 }
