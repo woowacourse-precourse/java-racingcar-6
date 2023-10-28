@@ -14,6 +14,14 @@ public class RacingGame {
     private int howManyTries;
     private final Referee referee = new Referee();
 
+    private List<Car> createCars(List<String> carNameList) {
+        List<Car> cars = new ArrayList<>();
+        for (String name : carNameList) {
+            cars.add(Car.createCarByName(name));
+        }
+        return cars;
+    }
+
     private List<String> mapToListAndValidateName(String carNames) {
         List<String> carNameList = splitToListBySeparator(carNames);
         checkIfExcessLengthOfName(carNameList);
