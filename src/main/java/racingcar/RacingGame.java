@@ -14,6 +14,14 @@ public class RacingGame {
         int count = racingGameManager.createCountFromPlayerInput(countInput);
 
         GameResultMaker gameResultMaker = new GameResultMaker();
-        gameResultMaker.makeGameResult(cars);
+        GameResultView gameResultView = new GameResultView();
+        System.out.println("실행 결과");
+
+        do {
+            gameResultMaker.makeGameResult(cars);
+            gameResultView.printGameResult(cars);
+        } while (count-- > 1);
+
+        gameResultMaker.makeGameWinner();
     }
 }
