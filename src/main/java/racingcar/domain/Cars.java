@@ -12,6 +12,16 @@ public class Cars {
         addCarInCars(carNameList);
     }
 
+    public void playRace() {
+        moveCars();
+    }
+
+    private void moveCars() {
+        for (Car car : cars) {
+            car.moveRandomly();
+        }
+    }
+
     private void addCarInCars(List<String> carNameList) {
         validateCarsMaximumNumber();
         for (String carName : carNameList) {
