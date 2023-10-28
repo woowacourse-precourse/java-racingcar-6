@@ -27,7 +27,7 @@ public class Car {
     }
 
     public void move(int power) {
-        if (power <= FOUR) {
+        if (power >= FOUR) {
             position++;
         }
     }
