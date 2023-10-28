@@ -17,14 +17,14 @@ class ValidatorTest {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("문자열숫자 정상적으로 숫자로 변환")
     void validateGameRoundSuccess() {
         String stringNumber = "5";
         assertEquals(5, validator.validateGameRound(stringNumber));
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("문자열 숫자가 아닌 문자가 들어오는 경우")
     void validateGameRoundFail() {
         assertThrows(IllegalArgumentException.class, () ->
                 validator.validateGameRound("test"));
