@@ -17,7 +17,7 @@ public class GameManager {
         this.output = output;
         this.factory = factory;
         this.winnerCheckSystem = new WinnerCheckSystem();
-        this.progressSystem = new GameProgressSystem(winnerCheckSystem,output);
+        this.progressSystem = new GameProgressSystem(output);
         // 우승체크 시스템 주입
     }
 
@@ -26,16 +26,11 @@ public class GameManager {
         int tryNum = input.readTryNum();
 
         List<Car> carList = factory.factory(stringNames);
-        winnerCheckSystem.setMaxLine(tryNum);
 
         for (int i = 0; i < tryNum; i++) {
             progressSystem.progress(carList);
-            if (progressSystem.endCheck()) {
-                break;
-            }
         }
-        List<Car> winners = winnerCheckSystem.getWinners();
-        List<String> winnerString = factory.getNames(winners);
+
         output.printMultiWinner(winnerString);
 
     }

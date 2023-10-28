@@ -6,23 +6,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WinnerCheckSystem {
-    private int MAX_LINE;
     private List<Car> winners = new ArrayList<>();
 
-    public void setMaxLine(final int line) {
-        this.MAX_LINE = line;
-    }
-
-    public List<Car> check(List<Car> cars) {
+    public List<Car> getWinners(List<Car> cars) {
+        int maxLine = maxLineCount(cars);
         for (Car car : cars) {
-            if (car.getCurrentStep() >= MAX_LINE) {
+            if (car.getCurrentStep() == maxLine) {
                 winners.add(car);
             }
         }
         return winners;
     }
 
-    public List<Car> getWinners() {
-        return winners;
+    public static int maxLineCount(List<Car> cars){
+        int maxLine = 0;
+        for (Car car : cars) {
+            maxLine = Math.max(maxLine, car.getCurrentStep());
+        }
+
+        return maxLine;
     }
 }
