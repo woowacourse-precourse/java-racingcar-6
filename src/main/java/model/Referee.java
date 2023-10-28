@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Referee {
-    private List<String> winner;
+    private List<String> winner = new ArrayList<>();
 
     public void competeCars(Cars cars) {
         List<Integer> scores = new ArrayList<>();
