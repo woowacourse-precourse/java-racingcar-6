@@ -3,7 +3,10 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.domain.CarDto;
 import racingcar.domain.CarManufacturer;
+import racingcar.domain.Judgement;
+import racingcar.domain.Winner;
 import racingcar.input.InputManager;
 import racingcar.output.OutputManager;
 
@@ -13,9 +16,14 @@ public class Application {
         final OutputManager om = new OutputManager();
         final InputManager im = new InputManager();
         final CarManufacturer carManufacturer = new CarManufacturer();
+        final Judgement judgement = new Judgement();
+
         List<Car> cars = createCars(om, im, carManufacturer);
         int attemptCount = createAttemptCount(om, im);
-        startRacing(cars, attemptCount);
+
+        startRacingDuringAttemptCount(cars, attemptCount, om);
+        List<Winner> winners = judgement.judgeGameResult(cars);
+        om.printGameResult(winners);
 
     }
 
@@ -23,9 +31,22 @@ public class Application {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    private static void startRacing(final List<Car> cars, final int attemptCount) {
+    private static void startRacingDuringAttemptCount(final List<Car> cars,
+                                                      final int attemptCount,
+                                                      final OutputManager om) {
+        om.printTitleOfGameResult();
         for (int i = 0; i < attemptCount; i++) {
+            startRacing(cars);
+            om.printResultOfTrial(cars.stream()
+                    .map(car -> new CarDto(car.getName(),
+                            car.getForwardCount()))
+                    .toList());
+        }
+    }
 
+    private static void startRacing(List<Car> cars) {
+        for (Car car : cars) {
+            car.forward(pickRandomNumber());
         }
     }
 
