@@ -8,12 +8,21 @@ public class Refree {
 
         for (int i = 0; i < racingcars.size(); i++) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
-            racingcars.get(i).move();
+            if (randomNumber >= 4) {
+                racingcars.get(i).move();
+            }
         }
 
     }
 
     public static RacingCars calculateWinner(RacingCars racingcars) {
-        return new RacingCars();
+        int farthest = racingcars.farthestDistance();
+        RacingCars result = new RacingCars();
+        for (int i = 0; i < racingcars.size(); i++) {
+            if (racingcars.get(i).getDistance() == farthest) {
+                result.add(racingcars.get(i));
+            }
+        }
+        return result;
     }
 }
