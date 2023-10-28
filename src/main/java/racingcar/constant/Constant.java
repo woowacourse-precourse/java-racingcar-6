@@ -11,8 +11,8 @@ public final class Constant {
 
     public static String INPUT_CAR_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     public static String INPUT_ROUND_MESSAGE = "시도할 회수는 몇회인가요?";
-    public static String RACE_RESULT = "실행 결과";
-    public static String WINNER_NAME = "최종 우승자 : ";
+    public static String RACE_RESULT_MESSAGE = "실행 결과";
+    public static String WINNER_NAME_MESSAGE = "최종 우승자 : ";
 
     public static final String EXCEPTION_DELIMITER_TYPE = "구분자는 쉼표(,)만 사용 가능합니다.";
     public static final String EXCEPTION_ROUND_TYPE = "숫자만 입력해주세요.";

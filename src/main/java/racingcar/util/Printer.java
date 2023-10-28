@@ -15,7 +15,7 @@ public class Printer {
     }
 
     public void printResultMessage() {
-        System.out.println(RACE_RESULT);
+        System.out.println(RACE_RESULT_MESSAGE);
     }
 
     public void printRoundResult(Map.Entry<String, StringBuilder> scoreBoard) {
@@ -23,6 +23,6 @@ public class Printer {
     }
 
     public void printWinnersNames(List<String> winnerNames) {
-        System.out.println(WINNER_NAME + String.join(DELIMITER + " ", winnerNames));
+        System.out.println(WINNER_NAME_MESSAGE + String.join(DELIMITER + " ", winnerNames));
     }
 }
