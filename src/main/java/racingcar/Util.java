@@ -7,9 +7,6 @@ import racingcar.model.Car;
 
 public final class Util {
 
-    private Util(){
-
-    }
     public static ArrayList<String> toArray(String cars){
         return new ArrayList<>(Arrays.asList(cars.split(",")));
     }
