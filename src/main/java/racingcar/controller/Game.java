@@ -33,6 +33,6 @@ public class Game {
         cars.playRound();
 
         RoundResponses roundResponses = cars.buildRoundResponses();
-        View.printRoundResults(roundResponses.toEntityList());
+        View.printRoundResults(roundResponses.toResponseList());
     }
 }

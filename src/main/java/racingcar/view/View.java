@@ -17,7 +17,7 @@ public class View {
     public static String requestRoundCount() {
         View.printNotice(ASK_GAME_COUNT);
         String request = Console.readLine();
-        System.out.println();
+        printNewLine();
         return request;
     }
 
@@ -25,10 +25,12 @@ public class View {
         System.out.println(notice.getMessage());
     }
 
-
     public static void printRoundResults(List<String> messages) {
         messages.forEach(System.out::println);
-        System.out.println();
+        printNewLine();
     }
 
+    private static void printNewLine() {
+        System.out.println();
+    }
 }

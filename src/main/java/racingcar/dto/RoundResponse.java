@@ -6,7 +6,7 @@ public record RoundResponse(
 ) {
     private static final String DASH = "-";
 
-    public String toEntity() {
+    public String toResponse() {
         String visualizedScore = DASH.repeat(score);
         return String.format("%s : %s", name, visualizedScore);
     }
