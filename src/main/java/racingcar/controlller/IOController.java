@@ -43,7 +43,7 @@ public class IOController {
         System.out.println(OutputView.WinnersMessage(cars));
     }
 
-    public static void printlnCurrentForwardStateMessage(Cars cars) {
+    public static void printForwardStateMessage(Cars cars) {
         System.out.println(OutputView.currentForwardStateMessage(cars));
     }
 

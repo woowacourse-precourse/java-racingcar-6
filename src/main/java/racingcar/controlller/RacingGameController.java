@@ -26,7 +26,7 @@ public class RacingGameController {
         IOController.printResultHeaderMessage();
         for (int i = 0; i < numberOfRounds; i++) {
             playOneRound(cars);
-            IOController.printlnCurrentForwardStateMessage(cars);
+            IOController.printForwardStateMessage(cars);
         }
         IOController.printWinnersMessage(pickWinners(cars));
 
