@@ -35,8 +35,8 @@ public class Umpire {
 			announcement.append(winners.get(i));
 			announcement.append(", ");
 		}
-		announcement.deleteCharAt(announcement.length()-1);
-		announcement.deleteCharAt(announcement.length()-1);
+		announcement.deleteCharAt(announcement.length() - 1);
+		announcement.deleteCharAt(announcement.length() - 1);
 
 		return announcement.toString();
 	}
