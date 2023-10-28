@@ -14,6 +14,8 @@ public class Cars {
     private static final int PLUS_ONE = 1;
     private static final int INITIAL_MAX_ADVANCE_COUNT_VALUE = 0;
     private static final String CAR_NAME_LENGTH_EXCESS_ERROR_MESSAGE = "자동차 이름의 길이가 5를 초과했습니다.";
+    private static final String EXIST_SPACE_IN_CAR_NAME_ERROR_MESSAGE = "자동차 이름에 공백이 존재합니다.";
+    private static final String SPACE = " ";
 
     /* 자동차 이름을 key(String)로 가지고 전진 횟수를 value(Integer)로 가진다. */
     private final Map<String, Integer> cars;
@@ -22,6 +24,7 @@ public class Cars {
     public Cars(Map<String, Integer> cars) {
         for (String name : cars.keySet()) {
             verifyCarNameLength(name);
+            verifyExistSpaceInCarName(name);
         }
         this.cars = cars;
         this.maxAdvanceCount = INITIAL_MAX_ADVANCE_COUNT_VALUE;
@@ -56,6 +59,12 @@ public class Cars {
     private void verifyCarNameLength(String name) {
         if (name.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_EXCESS_ERROR_MESSAGE);
+        }
+    }
+
+    private void verifyExistSpaceInCarName(String name) {
+        if (name.contains(SPACE)) {
+            throw new IllegalArgumentException(EXIST_SPACE_IN_CAR_NAME_ERROR_MESSAGE);
         }
     }
 
