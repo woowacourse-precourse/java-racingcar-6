@@ -25,4 +25,17 @@ class ServiceTest {
         Assertions.assertThat(progressBoard.getParticipants().size()).isEqualTo(3);
     }
 
+    @Test
+    void 자동차를_전진시킨다() {
+        List<String> cars = List.of("test1","test2","test3");
+        service.registerCars(cars);
+
+        progressBoard.moveForward("test1");
+        progressBoard.moveForward("test3");
+
+        Assertions.assertThat(progressBoard.progressOf("test1")).isEqualTo("-");
+        Assertions.assertThat(progressBoard.progressOf("test2")).isEqualTo("");
+        Assertions.assertThat(progressBoard.progressOf("test3")).isEqualTo("-");
+    }
+
 }
