@@ -8,14 +8,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Nested;
 import racingcar.model.CarName;
+
 @DisplayName("자동차 이름")
 public class myTest {
-    @Nested
+    CarName carName = new CarName();
     @DisplayName("입력 -> 자동차 리스트")
     @Test
     public void 자동차이름_세팅() {
         //given
-        CarName carName = new CarName();
         String input = ("pobi,woni,jun");
         ArrayList<String> result = new ArrayList<>();
         ArrayList<String> answer = new ArrayList<String>() {{
@@ -32,7 +32,6 @@ public class myTest {
             assertEquals(result.get(i), answer.get(i));
         }
     }
-    @Nested
     @DisplayName("예외처리-자동차이름")
     @Test
     public void 자동차이름_알파벳_아닐때() {
@@ -42,7 +41,6 @@ public class myTest {
         Throwable exception = assertThrows(IllegalArgumentException.class, carName::setClearCarList);
         assertEquals("자동차 이름은 알파벳이여야 합니다.", exception.getMessage());
     }
-    @Nested
     @DisplayName("예외처리-자동차이름 중복")
     @Test
     public void 중복_중복된_자동차_이름() {
@@ -52,7 +50,6 @@ public class myTest {
         Throwable exception = assertThrows(IllegalArgumentException.class, carName::setClearCarList);
         assertEquals("중복된 자동차 이름이 없어야 합니다.", exception.getMessage());
     }
-    @Nested
     @DisplayName("예외처리-자동차이름 길이 ")
     @Test
     public void 자동차_이름_6이상() {
