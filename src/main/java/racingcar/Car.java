@@ -21,7 +21,7 @@ public class Car {
         return position.length();
     }
 
-    public String resultByRound() {
+    public String nameAndPosition() {
         return name + " : " + position;
     }
 }
