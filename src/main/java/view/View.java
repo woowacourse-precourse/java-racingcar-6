@@ -5,8 +5,8 @@ import validator.Validator;
 
 public class View {
 
-    private static Validator validator = new Validator();
-    private String inputString;
+    private final Validator validator = new Validator();
+    private static String inputString;
 
     private void getString() {
         inputString = Console.readLine();

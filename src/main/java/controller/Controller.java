@@ -22,14 +22,14 @@ public class Controller {
     }
 
     public void startGame() {
-        for(int i = 0; i < userInput.playTime; i++) {
+        for (int i = 0; i < userInput.playTime; i++) {
             moveCars();
             gameManager.printCarsMove();
         }
     }
 
     public void moveCars() {
-        for(int idx = 0; idx < userInput.carCount; idx++) {
+        for (int idx = 0; idx < userInput.carCount; idx++) {
             gameManager.setRandomNum();
             gameManager.chkCarGoOrStop();
             gameManager.setCarsMove();

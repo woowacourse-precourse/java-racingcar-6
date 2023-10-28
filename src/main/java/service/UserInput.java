@@ -7,20 +7,21 @@ import java.util.LinkedHashMap;
 public class UserInput {
 
     public static View view = new View();
-    public LinkedHashMap<String, String> carNameAndPosList;
-    public int playTime;
-    public int carCount;
+    public static LinkedHashMap<String, String> carNameAndPosList;
+    public static int carCount;
+    public static int playTime;
 
     public void getCarsName() {
         String userInput = view.requestCarsName();
         String[] carsName = userInput.split(",");
 
-        for(String name : carsName) {
+        for (String name : carsName) {
             carNameAndPosList.put(name, "");
         }
+
+        carCount = carNameAndPosList.size();
     }
 
     public void getPlayTime() {
-
     }
 }
