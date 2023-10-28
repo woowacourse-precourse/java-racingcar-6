@@ -28,18 +28,18 @@ public class Car {
         return new CarDistanceMessage(name, distance);
     }
 
-    public String getName() {
+    private String getName() {
         return name;
     }
 
-    public Integer getDistance() {
+    private Integer getDistance() {
         return distance;
     }
 
     public static WinnersMessage getWinnersMessage(List<Car> cars) {
-        Integer farthest = getFarthestDistance();
+        Integer farthest = getFarthestDistance(cars);
         List<Car> winners = getWinners(cars, farthest);
-        return new WinnersMessage(winners);
+        return new WinnersMessage(getNames(winners));
     }
 
     private static List<Car> getWinners(List<Car> cars, Integer farthest) {
@@ -52,12 +52,16 @@ public class Car {
         return Collections.unmodifiableList(winners);
     }
 
-    private static Integer getFarthestDistance() {
+    private static Integer getFarthestDistance(List<Car> cars) {
         int farthest = 0;
         for (Car car : cars) {
             farthest = Math.max(farthest, car.getDistance());
         }
         return farthest;
+    }
+
+    private static List<String> getNames(List<Car> winners) {
+        return winners.stream().map(Car::getName).toList();
     }
 
 }
