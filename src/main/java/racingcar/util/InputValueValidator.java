@@ -1,5 +1,6 @@
 package racingcar.util;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -18,5 +19,9 @@ public class InputValueValidator {
             }
         }
         return true;
+    }
+
+    private List<String> converStringToList(String inputCarNames) {
+        return Arrays.asList(inputCarNames.split(","));
     }
 }
