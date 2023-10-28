@@ -25,8 +25,8 @@
     - [x] 자동차를 전진시킨다. Car#moveForward()
         - [x] 0에서 9사이의 무작위 값을 생성해야 한다. RandomGenerator#createNumber()
         - [x] 무작위 값이 4 이상일 때만 한 칸 전진해야 한다.
-    - [ ] 자동차를 출력한다. UserOutput#printCars()
-        - [ ] 자동차의 이름과 전진한 칸이 출력되어야 한다.
+    - [x] 자동차의 이동 결과를 출력한다. UserOutput#printResult()
+        - [x] 자동차의 이름과 전진한 칸이 출력되어야 한다.
 
 
 - [x] 우승자를 계산한다. Race#getWinners()
