@@ -1,7 +1,11 @@
-package racingcar.domain;
+package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.domain.Car;
+import racingcar.domain.Judgment;
+import racingcar.domain.NumberGenerator;
+import racingcar.domain.Referee;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
