@@ -36,6 +36,8 @@ public class InputView {
     }
 
     private static class InputValidation {
+        private InputValidation() {}
+
         private static void emptyInputValidation(String input) {
             if (input.length() == 0) {
                 throw new IllegalArgumentException("입력된 값이 없습니다.");
