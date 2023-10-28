@@ -8,7 +8,7 @@ public class Validator {
     public boolean isCarNameFromPlayerValidate(String carName) {
         String[] carNameArray = carName.split(",");
         for (int i = 0; i < carNameArray.length; i++) {
-            if (!(carNameArray[i].length() >= 1 && carNameArray[i].length() <= 5)) {
+            if (!(carNameArray[i].length() <= 5)) {
                 throw new IllegalArgumentException();
             }
         }

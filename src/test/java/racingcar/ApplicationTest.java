@@ -1,8 +1,13 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.assertj.core.util.Strings;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.model.Validator;
 import racingcar.view.InputView;
 
 import java.lang.annotation.Documented;
@@ -14,7 +19,11 @@ import static org.assertj.core.api.Assertions.*;
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
-
+    private Validator validator;
+    @BeforeEach
+    void setUp(){
+        validator = new Validator();
+    }
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
@@ -26,11 +35,12 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @Test
-    @DisplayName("이름에 대한 예외 처리")
-    void isCarNameFromPlayerValidate() {
+    @DisplayName("입력받은 자동차이름들이 콤마를 기준으로 5자이하가 아니면 IllegalArgumentException 발생시키기")
+    @ParameterizedTest
+    @ValueSource(strings = {"pobi,javaji", "pobiaa,woni,jun"})
+    void isCarNameFromPlayerValidate(String carName) {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                assertThatThrownBy(() -> validator.isCarNameFromPlayerValidate(carName))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
