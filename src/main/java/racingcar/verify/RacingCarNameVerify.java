@@ -11,9 +11,6 @@ public class RacingCarNameVerify {
     }
 
     public boolean verify() {
-        if (!Pattern.matches("^[a-zA-Z0-9]{1,5}(,[a-zA-Z0-9]{1,5})+", racingCarNameScanService.getRacingCarNames())){
-            return false;
-        }
-        return true;
+        return Pattern.matches("^\\w{1,5}(,\\w{1,5})+", racingCarNameScanService.getRacingCarNames());
     }
 }
