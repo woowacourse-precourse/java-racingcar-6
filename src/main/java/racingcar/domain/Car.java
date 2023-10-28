@@ -25,6 +25,10 @@ public class Car {
         this.position++;
     }
 
+    public boolean isMaxPosition(int maxPosition) {
+        return this.position == maxPosition;
+    }
+
     public void printStatus() {
         System.out.println(this.name + " : " + "-".repeat(this.position));
     }
