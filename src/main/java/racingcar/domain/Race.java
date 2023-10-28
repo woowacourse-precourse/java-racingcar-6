@@ -12,56 +12,51 @@ public class Race {
     Cars cars;
 
     private final RandomNumberGenerater randomNumberGenerater = new RandomNumberGenerater();
-    public int getTimes() {
-        return times;
-    }
 
-    public void setTimes(int times) {
+    public Race(Cars cars, int times) {
+        this.cars = cars;
         this.times = times;
+        this.count = 0;
     }
 
-    public int getCount() {
-        return count;
-    }
-    public void increaseCount(){
-        count++;
+    public Race() {
     }
 
-    public Cars getCars() {
-        return cars;
-    }
-
-    public boolean run(List<Car> carList) {
-        if (getCount() == getTimes()) {
-            return false;
-        }
-
+    public boolean run() {
+        if (isFinished()) return false;
         increaseCount();
+        play();
+        return true;
+    }
 
-        for (Car car : carList) {
+    public void play(){
+        for (Car car : cars.getCars()) {
             int randomNumber = randomNumberGenerater.generateNumber();
             if (randomNumber >= 4) {
                 car.increaseProcess();
             }
         }
-
-        return true;
     }
 
-    public List<Car> getWinner(List<Car> carList) {
-        int max = carList.stream()
+    public boolean isFinished(){
+        if(count == times) return true;
+        return false;
+    }
+
+    public void increaseCount(){
+        count++;
+    }
+
+    public List<String> findWinner() {
+        int max = cars.getCars()
+                .stream()
                 .mapToInt(Car::getProcess)
                 .max()
                 .getAsInt();
-        return carList.stream()
+        return cars.getCars()
+                .stream()
                 .filter(car -> car.getProcess() >= max)
+                .map(Car::getCarName)
                 .toList();
     }
-
-    public String getWinnersString(List<Car> winnerList) {
-        return winnerList.stream()
-                .map(Car::getCarName)
-                .collect(Collectors.joining(", "));
-    }
-
 }
