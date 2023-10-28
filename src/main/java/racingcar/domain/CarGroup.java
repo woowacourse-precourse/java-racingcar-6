@@ -28,4 +28,12 @@ public class CarGroup {
     public int size() {
         return this.carGroup.size();
     }
+
+    public void run(MoveCount moveCount) {
+        for (int i = 0; i < moveCount.get(); i++) {
+            for (Car car : carGroup) {
+                car.run();
+            }
+        }
+    }
 }
