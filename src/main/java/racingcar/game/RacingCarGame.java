@@ -10,6 +10,9 @@ public class RacingCarGame {
 
     public void play(List<String> carNames, int attemptCount) {
         makeCars(carNames);
+        for (int round = 0; round < attemptCount; round++) {
+
+        }
     }
 
     private void makeCars(List<String> carNames) {
