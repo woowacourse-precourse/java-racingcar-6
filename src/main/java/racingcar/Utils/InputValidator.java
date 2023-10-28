@@ -16,7 +16,7 @@ public class InputValidator {
     private final String ONLY_NUMBER_REGEX = "^[0-9]+$";
     private final String DELIMITER = ",";
 
-    public List<String> validateCarName(String input) {
+    public List<String> validateCarName(String input) throws IllegalArgumentException {
         List<String> cars = Arrays.stream(input.split(DELIMITER)).toList();
 
         if (!isProperCarNum(cars)) {
@@ -33,17 +33,16 @@ public class InputValidator {
         return cars;
     }
 
-    public int validateTryCount(String input) {
+    public int validateTryCount(String input) throws IllegalArgumentException {
         if (!isNumber(input)) {
             throw new IllegalArgumentException(InputException.NOT_NUMBER.getMessage());
         }
 
         int tryCount = Integer.parseInt(input);
 
-        if(! isProperTryCount(tryCount)) {
+        if (!isProperTryCount(tryCount)) {
             throw new IllegalArgumentException(InputException.EXCEED_TRY_COUNT.getMessage());
         }
-
         return tryCount;
     }
 
