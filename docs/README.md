@@ -6,11 +6,11 @@
 
 ## **도메인 (Domain)**
 
-- [ ]  레이싱 선수 모델 (**`RacingPlayer`**)
+- [x]  레이싱 선수 모델 (**`RacingPlayer`**)
 
 ## **예외 처리 클래스 (Exception)**
 
-- [ ]  잘못된 이름 예외 (**`InvalidNameException`**)
+- [x]  잘못된 이름 예외 (**`InvalidNameException`**)
 - [ ]  잘못된 횟수 예외 (**`InvalidCountException`**)
 
 ## **유틸리티 (Util)**
