@@ -42,7 +42,7 @@ public class OutputView {
         for (Car winner : winners) {
             outputBuilder.append(winner.getName()).append(", ");
         }
-        outputBuilder.replace(0, outputBuilder.length()-1, "");
+        outputBuilder.replace(outputBuilder.length()-2, outputBuilder.length(), "");
         return outputBuilder.toString();
     }
 
