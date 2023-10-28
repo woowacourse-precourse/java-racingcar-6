@@ -1,8 +1,7 @@
 package view;
 
 import model.Car;
-
-import java.util.List;
+import model.Cars;
 
 public class OutputView {
     private static final String RESULT_MESSAGE = "실행 결과";
@@ -11,7 +10,7 @@ public class OutputView {
         System.out.println(RESULT_MESSAGE);
     }
 
-    public static void printResult(List<Car> cars) {
+    public static void printResult(Cars cars) {
         for (Car car : cars) {
             System.out.print(car.getName());
             System.out.print(" : ");
