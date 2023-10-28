@@ -45,7 +45,11 @@
 ### ✔ 자동차 이름 입력 값 변경 기능
 - 자동차 이름 입력 값을 String ➡ List 로 변경한다.
   - [**convertStringToList**] 메시지 ➡ 자동차 이름 (String)
+  
+### ✔ 랜덤 숫자 발급 기능
+- 0~9 사이 랜덤 숫자를 발급한다.
+  - [makeRandomNumber]
 
 ---
 ## 📄클래스 다이어그램
-![racingCar](https://github.com/study-hub-inu/study-hub-server/assets/97587573/4529f316-3eb3-4516-ba56-d0db0e14a52d)
+![racingCar](https://github.com/study-hub-inu/study-hub-server/assets/97587573/f0560c3f-e81b-4465-aa97-3a89af40e1f7)
