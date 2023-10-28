@@ -19,4 +19,10 @@ public class RaceManager {
         }
         OutputView.showResult(raceCarList);
     }
+
+    private void generateRaceCarList(List<String> carNames) {
+        for (String carName : carNames) {
+            raceCarList.add(new Car(carName));
+        }
+    }
 }
