@@ -25,4 +25,12 @@ public class Cars {
                 .max(Comparator.comparingInt(Integer::intValue))
                 .orElseThrow(NoSuchElementException::new);
     }
+
+    private boolean isCoFastestCars() {
+        Set<Integer> carPositions = new HashSet<>();
+        for (Car car : racingCars) {
+            carPositions.add((Integer) car.provideCarStatus().get("position"));
+        }
+        return carPositions.size() != racingCars.size();
+    }
 }
