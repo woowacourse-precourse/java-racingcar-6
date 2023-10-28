@@ -3,8 +3,8 @@ package racingcar.domain;
 public class TryCount {
     private int tryCount = 0;
 
-    public TryCount(int tryCount) {
-        this.tryCount = tryCount;
+    public TryCount(String tryCount) {
+        this.tryCount = Integer.parseInt(tryCount);
     }
 
     public int getTryCount() {
