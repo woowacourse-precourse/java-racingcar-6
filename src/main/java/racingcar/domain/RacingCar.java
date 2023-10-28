@@ -24,6 +24,9 @@ public class RacingCar {
     public String getName() {
         return name;
     }
+    public int getMoveNumber() {
+        return moveNumber;
+    }
 
     public String getDashString() {
         return "-".repeat(moveNumber);
