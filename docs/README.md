@@ -29,7 +29,7 @@
             - [x] 1세트 경주 결과 기록후 해시맵 반환
                 - [x] 결과 기록 해시맵 - resultRacing HashMap<String, Integer>
                 - [x] 경주 이후 결과 해시맵에 기입. gameStart()
-    - InputOutput
+    - RacingRuleMaker
         - [ ] 각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
             - [ ] 자동차에 이름 부여
             - [ ] 전진하는 자동차를 출력시 이름도 같이 출력
