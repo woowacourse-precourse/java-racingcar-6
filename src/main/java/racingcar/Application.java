@@ -13,8 +13,8 @@ public class Application {
     }
 
     public static void receiveRaceCarNames() {
-        String input = Console.readLine();
-        raceCarNames = new RaceCarNames(input);
+        String raceCarNamesinput = Console.readLine();
+        raceCarNames = new RaceCarNames(raceCarNamesinput);
     }
 
     public static void receiveTryCount() {
