@@ -66,10 +66,10 @@ class InputExceptionTest {
     @ParameterizedTest
     @ValueSource(strings = {"one", "1zero", "t"})
     @DisplayName("자연수가 맞는지 확인하는 기능 예외 처리 테스트")
-    void isNaturalNumberTest(String input) {
+    void isNumberTest(String input) {
         // when
         Throwable throwable = catchThrowable(() -> {
-            InputException.isNaturalNumber(input);
+            InputException.isNumber(input);
         });
 
         // then
