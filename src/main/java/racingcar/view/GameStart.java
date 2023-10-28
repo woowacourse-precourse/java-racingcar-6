@@ -47,6 +47,14 @@ public class GameStart {
         gameProcess.inputNumberGameAttempts();
     }
 
+    /**
+     * 실행결과 출력 메서드
+     */
+    public void printMsgResultOfRun() {
+        System.out.println();
+        System.out.println("실행 결과");
+    }
+
     // TODO: 10/27/23 게임 시작.
     public void run() {
 //        게임 시작을 한다.

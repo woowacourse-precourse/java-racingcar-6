@@ -84,8 +84,10 @@
 
   - [x] 레이스 진행 시도할 횟수의 출력을 보여주는 기능 // GameStart#printInputNumOfTryCnt
 
-  - [ ] 전진하는 모든 차들의 자동차를 출력할 (자동차 이름을 같이 출력한다.) // GameStart#printSituationOfCarCurrent
+  - [x] 실행결과 출력 메서드 // GameStart#printMsgResultOfRun
 
+  - [ ] 전진하는 모든 차들의 자동차를 출력할 (자동차 이름을 같이 출력한다.) // GameStart#printSituationOfCarCurrent
+  
     - [ ] 전진은 "-"을 출력 ( pobi : - )
   
       ```
