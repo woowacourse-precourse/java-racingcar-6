@@ -7,9 +7,9 @@ import racingcar.vIew.InputView;
 import racingcar.vIew.OutputView;
 
 public class RacingCarController {
-    private static final String PLAY_GAME_STATUS = "PLAYING";
-    private static final String END_GAME_STATUS = "END";
 
+    private final InputView inputView = new InputView();
+    private final OutputView outputView = new OutputView();
     private final RacingCarService racingCarService = new RacingCarService();
     private final RacingCarValidateService racingCarValidateService = new RacingCarValidateService();
     private String carNames;
@@ -26,34 +26,34 @@ public class RacingCarController {
     }
 
     public void inputCarNames() {
-        carNames = InputView.inputCars();
+        carNames = inputView.inputCars();
         racingCarValidateService.validateInputCarName(carNames);
 
     }
 
     public void createCars() {
-        racingCarService.createCars(carNames);
+        racingCarService.generateCars(carNames);
     }
 
     public void inputNumberOfGame() {
-        numberOfGames = InputView.inputNumberOfGame();
+        numberOfGames = inputView.inputNumberOfGame();
         racingCarValidateService.validateInputNumberOfGame(numberOfGames);
     }
 
 
     public void gameResultMessage() {
-        OutputView.gameResultMessageOutput();
+        outputView.gameResultMessageOutput();
     }
 
     public void gameResult() {
         for (int i = 0; i < Integer.parseInt(numberOfGames); i++) {
-            OutputView.gameReslutOutput(racingCarService.judgeResult());
+            outputView.gameReslutOutput(racingCarService.judgeResult());
         }
     }
 
     public void gameWinnerResult() {
         winners = racingCarService.judgeWinners();
-        OutputView.WinnerOutput(winners);
+        outputView.WinnerOutput(winners);
     }
 
 }
