@@ -10,6 +10,11 @@ public class RacingCar {
     private Name name;
     private Position position;
 
+    public RacingCar(RacingCar racingCar) {
+        this.name = Name.of(racingCar.name);
+        this.position = Position.of(racingCar.position);
+    }
+
     public RacingCar(Name name) {
         this.name = name;
         this.position = Position.zero();

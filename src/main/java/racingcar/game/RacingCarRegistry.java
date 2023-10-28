@@ -30,9 +30,7 @@ public class RacingCarRegistry {
         List<RacingCar> racingResults = new ArrayList<>();
         for (RacingCar racingCar : racingCars) {
             racingCar.move(actionNumberGenerator.generate());
-            racingResults.add(new RacingCar(
-                    racingCar.getName(),
-                    racingCar.getPosition()));
+            racingResults.add(new RacingCar(racingCar));
         }
 
         return racingResults;

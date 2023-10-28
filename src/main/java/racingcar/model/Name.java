@@ -11,8 +11,13 @@ public class Name {
         this.name = name;
     }
 
+
     public static Name of(String name) {
         return new Name(name);
+    }
+
+    public static Name of(Name name) {
+        return new Name(name.name);
     }
 
     private void validateName(String name) {

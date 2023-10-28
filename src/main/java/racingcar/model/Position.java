@@ -15,6 +15,10 @@ public class Position implements Comparable<Position> {
         return new Position(position);
     }
 
+    public static Position of(Position position) {
+        return new Position(position.position);
+    }
+
     public static Position zero() {
         return ZERO;
     }
