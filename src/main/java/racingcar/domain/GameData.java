@@ -3,15 +3,19 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class GameData {
 
     private Integer tryRepetitionNumber;
-    private List<Car> winnerList;
-    private String CarNamesInput;
+    private List<String> winnerList;
     private List<Car> carList;
 
+    public List<String> getWinnerList() {
+        return winnerList;
+    }
 
     public List<Car> getCarList() {
         return carList;
@@ -22,14 +26,6 @@ public class GameData {
         for (int i = 0; i < carNumber; i++) {
             carList.add(new Car());
         }
-    }
-
-    public String getCarNamesInput() {
-        return CarNamesInput;
-    }
-
-    public void setCarNamesInput(String carNamesInput) {
-        CarNamesInput = carNamesInput;
     }
 
     public void setCarsName(String[] carNamesArray) {
@@ -46,14 +42,31 @@ public class GameData {
 
     public void setTryRepetitionNumber() {
         String repetitionNumberInput = Console.readLine();
+        System.out.println();
         this.tryRepetitionNumber = Integer.parseInt(repetitionNumberInput);
     }
 
-    public List<Car> getWinnerList() {
-        return winnerList;
+    public void sortCarListByRank() {
+        Comparator<Car> comparator = new Comparator<>() {
+            @Override
+            public int compare(Car o1, Car o2) {
+                return o2.getSuccessMoveForwardCount() - o1.getSuccessMoveForwardCount();
+            }
+        };
+
+        Collections.sort(this.carList, comparator);
     }
 
-    public void setWinnerList(List<Car> winnerList) {
-        this.winnerList = winnerList;
+    public void setWinnerList() {
+        this.winnerList = new ArrayList<>();
+        Car car1st = this.carList.get(0);
+        Integer moveForwardCount1st = car1st.getSuccessMoveForwardCount();
+
+        for (Car car : carList) {
+            if (car.getSuccessMoveForwardCount() == moveForwardCount1st) {
+
+                this.winnerList.add(car.getName());
+            }
+        }
     }
 }
