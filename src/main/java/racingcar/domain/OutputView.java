@@ -15,13 +15,8 @@ public class OutputView {
     }
 
     private void makeRoundResultMessage(Car car) {
-        String messge = "";
-        messge+= car.getName();
-        messge+=" : ";
-        for(int i = 0; i< car.getTotalMovedDistance(); i++){
-            messge += "-";
-        }
-        System.out.println(messge);
+        String message = car.getName() + " : " + "-".repeat(car.getTotalMovedDistance());
+        System.out.println(message);
     }
 
     public void printWinners(List<String> cars){
