@@ -12,6 +12,7 @@ public class Application {
         int num = Integer.parseInt(Console.readLine());
 
         Game game = new Game(cars, num);
+        game.checkCarName();
         game.startGame();
     }
 }
