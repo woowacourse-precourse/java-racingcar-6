@@ -6,4 +6,8 @@ public class Move {
     public Move(int move) {
         this.move = move;
     }
+
+    public void increaseMove() {
+        move++;
+    }
 }
