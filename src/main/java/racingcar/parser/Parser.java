@@ -31,7 +31,7 @@ public class Parser {
         return roundCount;
     }
 
-    private static int extractParse(String input) {
+    private static int extractParse(final String input) {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {

@@ -26,12 +26,13 @@ public class Car {
         }
     }
 
-    public RoundResponse generateRoundResponse() {
-        return new RoundResponse(name.getName(), score);
+
+    public boolean isSameScore(final Integer score) {
+        return Objects.equals(this.score, score);
     }
 
-    public boolean isSameScore(Integer score) {
-        return Objects.equals(this.score, score);
+    public RoundResponse generateRoundResponse() {
+        return new RoundResponse(name.getName(), score);
     }
 
     public String getName() {

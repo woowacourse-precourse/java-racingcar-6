@@ -22,7 +22,7 @@ public class Cars {
         return new Cars(input);
     }
 
-    private List<Car> createCars(List<String> carNames) {
+    private List<Car> createCars(final List<String> carNames) {
         return carNames.stream()
                 .map(Car::create)
                 .toList();

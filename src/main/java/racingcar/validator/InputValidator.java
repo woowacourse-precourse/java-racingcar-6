@@ -32,7 +32,7 @@ public class InputValidator {
     }
 
 
-    private static boolean isInvalidRoundCount(Integer roundCount) {
+    private static boolean isInvalidRoundCount(final Integer roundCount) {
         return roundCount < ROUND_COUNT_LOWER_BOUND;
     }
 
