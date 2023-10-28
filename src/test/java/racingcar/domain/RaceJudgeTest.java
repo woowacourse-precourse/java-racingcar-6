@@ -24,10 +24,12 @@ class RaceJudgeTest {
         // when
         raceJudge.addCars(names);
         Cars findCars = carsRepository.findCars();
-        boolean isSaved = findCars.cars().containsAll(cars);
+        List<String> savedNames = findCars.cars().stream()
+                .map(Car::getName)
+                .toList();
 
         // then
-        assertThat(isSaved).isTrue();
+        assertThat(savedNames).containsExactly("pobi", "jason");
     }
 
     @DisplayName("자동차 이름은 중복될 수 없습니다.")
