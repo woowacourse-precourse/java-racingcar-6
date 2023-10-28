@@ -1,8 +1,6 @@
 package racingcar.service.game;
 
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
-import racingcar.dto.CarInputDto;
 import racingcar.service.input.Input;
 import racingcar.service.input.InputView;
 
