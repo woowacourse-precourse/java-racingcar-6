@@ -4,48 +4,37 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import racingcar.dto.output.RoundResultDTO;
-import racingcar.dto.output.WinnerDTO;
+import racingcar.dto.output.CarInfo;
+import racingcar.dto.output.WinnerInfo;
+import racingcar.racing.MoveStrategy;
 
 public class RacingCars {
-    private static final int MIN_RANDOM_NUMBER = 0;
-    private static final int MAX_RANDOM_NUMBER = 9;
-    private static final int MOVABLE_THRESHOLD = 4;
-
     private final List<Car> carList;
+    private final MoveStrategy moveStrategy;
 
-    public static RacingCars createCars(String[] names) {
+    public static RacingCars createCars(String[] names, MoveStrategy moveStrategy) {
         List<Car> carList = Arrays.stream(names)
                 .map(Car::new)
                 .toList();
-        return new RacingCars(carList);
+        return new RacingCars(carList, moveStrategy);
     }
 
-    private RacingCars(List<Car> carList) {
+    private RacingCars(List<Car> carList, MoveStrategy moveStrategy) {
         this.carList = carList;
+        this.moveStrategy = moveStrategy;
     }
 
     public void move() {
         carList.forEach(this::tryToMoveCar);
     }
 
-    public List<RoundResultDTO> getRoundResults() {
+    public List<CarInfo> getRoundResults() {
         return carList.stream()
-                .map(Car::toDTO)
+                .map(Car::toCarInfo)
                 .toList();
     }
 
-    private void tryToMoveCar(Car car) {
-        if (isMovable()) {
-            car.increaseMoveCount();
-        }
-    }
-
-    private boolean isMovable() {
-        return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER) >= MOVABLE_THRESHOLD;
-    }
-
-    public WinnerDTO getWinner() {
+    public WinnerInfo getWinner() {
         int winnerScore = findWinnerScore();
 
         List<String> names = carList.stream()
@@ -54,8 +43,15 @@ public class RacingCars {
                 .map(Optional::get)
                 .toList();
 
-        return Car.toWinnerDTO(names);
+        return Car.toWinnerInfo(names);
     }
+
+    private void tryToMoveCar(Car car) {
+        if (moveStrategy.isMovable()) {
+            car.increaseMoveCount();
+        }
+    }
+
 
     private int findWinnerScore() {
         int maxMoveCount = 0;

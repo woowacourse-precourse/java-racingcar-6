@@ -2,8 +2,8 @@ package racingcar;
 
 import java.util.List;
 import java.util.Optional;
-import racingcar.dto.output.RoundResultDTO;
-import racingcar.dto.output.WinnerDTO;
+import racingcar.dto.output.CarInfo;
+import racingcar.dto.output.WinnerInfo;
 
 public class Car {
     private final String name;
@@ -17,12 +17,12 @@ public class Car {
         moveCount++;
     }
 
-    public RoundResultDTO toDTO() {
-        return new RoundResultDTO(name, moveCount);
+    public CarInfo toCarInfo() {
+        return new CarInfo(name, moveCount);
     }
 
-    public static WinnerDTO toWinnerDTO(List<String> names) {
-        return new WinnerDTO(names);
+    public static WinnerInfo toWinnerInfo(List<String> names) {
+        return new WinnerInfo(names);
     }
 
     public Optional<String> getWinnerName(int winnerScore) {
