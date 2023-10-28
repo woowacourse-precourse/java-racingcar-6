@@ -1,5 +1,6 @@
 package racingcar;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
@@ -34,5 +35,15 @@ class RacingCarTest {
         assertThrows(IllegalArgumentException.class, () -> {
             new RacingCar(name);
         });
+    }
+
+    @Test
+    @DisplayName("자신의 정보를 올바르게 변환한다")
+    public void checkInformation(){
+        String name = "abcde";
+        RacingCar racingCar = new RacingCar(name);
+        RacingCarInformation information = racingCar.getInformation();
+        assertThat(information.getName()).isEqualTo(name);
+        assertThat(information.getPosition()).isEqualTo(0);
     }
 }
