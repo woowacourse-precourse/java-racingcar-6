@@ -5,15 +5,11 @@ public class InputView {
 	final static String MESSAGE_ATTEMPT_COUNT = "시도할 회수는 몇회인가요?";
 
 	public static void printCarList() {
-
 		System.out.println(MESSAGE_CAR_LIST);
-
 	}
 
 	public static void printAttemptCount() {
-
 		System.out.println(MESSAGE_ATTEMPT_COUNT);
-
 	}
 
 }
