@@ -7,10 +7,12 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingGame {
+    public static final String ATTEMPTS_RESULT_MESSAGE = "\n실행 결과";
 
     User user = new User();
+    GameResult gameResult = new GameResult();
     private int attempts;
-    private Integer totalCars;
+    public Integer totalCars;
     private List<String> carsNameList;
     private final List<Integer> carsPositionList = new ArrayList<>();
     private static final int MIN_CAR_FORWARD_NUM = 4;
@@ -22,17 +24,15 @@ public class RacingGame {
         user.setCarsName();
         user.setAttempts();
         attempts = user.getAttempts();
-
         carsArrayToList(user.getCarsNameArray());
         setPositionList();
+        System.out.println(ATTEMPTS_RESULT_MESSAGE);
         startRaceAttempts();
-
-        System.out.println(carsNameList);
-        System.out.println(carsPositionList);
     }
 
     public void carsArrayToList(String[] array) {
         carsNameList = Arrays.asList(array);
+        gameResult.setCarsNameList(carsNameList);
     }
 
     public void setPositionList() {
@@ -45,6 +45,7 @@ public class RacingGame {
     public void startRaceAttempts() {
         for(int i = 0; i < attempts; i++) {
             singleRaceAttempt(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
+            gameResult.singleAttemptResult(carsPositionList);
         }
     }
 
