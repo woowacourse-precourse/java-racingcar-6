@@ -3,6 +3,7 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.View;
+import racingcar.model.GameResult;
 import racingcar.service.GameService;
 import racingcar.util.CarNamesSeperator;
 import racingcar.util.GameTimeParser;
@@ -17,13 +18,23 @@ public class GameController {
     public void run() {
         gameService.enrollCars(getCarNames());
         int gameTime = getGameTime();
-//
-//        for (int i = 0; i < gameTime; i++) {
-//            List<GameResult> gameResultList = gameService.runGame();
-//            for (GameResult gameResult : gameResultList) {
-//
-//            }
-//        }
+
+        View.outputEmptyLine();
+        View.ouputBeforeGameResult();
+
+        for (int i = 0; i < gameTime; i++) {
+            runRound();
+            View.outputEmptyLine();
+        }
+
+        View
+    }
+
+    private void runRound() {
+        List<GameResult> gameResultList = gameService.runGame();
+        for (GameResult gameResult : gameResultList) {
+            View.ouputGameResult(gameResult);
+        }
     }
 
     private List<String> getCarNames() {
