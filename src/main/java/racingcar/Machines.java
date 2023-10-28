@@ -2,22 +2,38 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
-public class Machines implements Showable, Gettable {
-    private static final String inputMachineNameInstruction = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
 
-    private String machineNames;
+public class Machines implements Showable, Gettable {
+    private static final int INPUT_LETTER_LIMIT = 5;
+    private static final String INPUT_MACHINE_NAME_INSTRUCTION = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+
+    private static List<String> machineNameList = new ArrayList<>();
 
     @Override
     public void showMessage() {
-        System.out.println(inputMachineNameInstruction);
+        System.out.println(INPUT_MACHINE_NAME_INSTRUCTION);
     }
 
     @Override
     public String getInput() {
-        return machineNames = readLine();
+        String machineNames = readLine();
+
+        machineNameList = Arrays.asList(machineNames.split(","));
+
+        Predicate<String> isWithinFiveLetters = str -> str.length() <= INPUT_LETTER_LIMIT;
+
+        if (machineNameList.stream().anyMatch(machineName -> !isWithinFiveLetters.test(machineName))) {
+            throw new IllegalArgumentException();
+        }
+
+        return machineNames;
     }
 
-    public String getMachineNames() {
-        return machineNames;
+    public List<String> getMachineNameList() {
+        return machineNameList;
     }
 }

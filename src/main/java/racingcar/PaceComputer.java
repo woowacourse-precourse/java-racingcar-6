@@ -15,7 +15,7 @@ public class PaceComputer {
     private final List<Integer> randomNumberList = new ArrayList<>();
 
     public LinkedHashMap<String, Integer> createDefaultPaceMap(Machines machines) {
-        List<String> machineNameList = Arrays.asList(machines.getMachineNames().split(","));
+        List<String> machineNameList = machines.getMachineNameList();
 
         return machineNameList.stream()
                 .collect(Collectors.toMap(
