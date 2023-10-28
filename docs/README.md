@@ -4,8 +4,8 @@
 
 - [📦&nbsp;&nbsp;패키지 구조](#패키지-구조)
 - [✨&nbsp;&nbsp;구현 목록](#구현-목록)
-- [🎨&nbsp;&nbsp;29명의 소중한 코드리뷰 적용기](#29명의-소중한-코드리뷰-적용기)
 - [🎨&nbsp;&nbsp;구현 간 고민했던 내용들](#구현-간-고민했던-내용들)
+- [🎨&nbsp;&nbsp;31명과 함께한 223개의 소중한 코드리뷰 적용기](#31명과-함께한-223개의-소중한-코드리뷰-적용기)
 
 ---
 
@@ -73,7 +73,7 @@
     </tr>
     <tr><td colspan="3"></td></tr>
     <tr>
-        <td rowspan="1"><b><b><img align="center" src="https://github.com/woowacourse-precourse/java-racingcar-6/assets/112257466/1cb95818-66f2-42b0-b03c-b7cc8cc27dad" width="19px">&nbsp;&nbsp;validator</b></td>
+        <td rowspan="1"><b><img align="center" src="https://github.com/woowacourse-precourse/java-racingcar-6/assets/112257466/1cb95818-66f2-42b0-b03c-b7cc8cc27dad" width="19px">&nbsp;&nbsp;validator</b></td>
         <td><b><img align="center" src="https://github.com/woowacourse-precourse/java-racingcar-6/assets/112257466/d3866f61-24f0-4bf2-a68c-1eb18596bf2f" height="32px">&nbsp;&nbsp;InputValidator</b></td>
         <td>Input Value에 대한 기본 유효성 검증을 진행하는 클래스</td>
     </tr>
@@ -172,27 +172,97 @@
 
 --------------------------------------------------------
 
-## 🎨&nbsp;&nbsp;29명의 소중한 코드리뷰 적용기
-
-<div align="center">
-<table>
-    <tr>
-        <th align="center">대분류</th>
-        <th align="center">질문</th>
-        <th align="center">Reviewers</th>
-    </tr>
-    <tr>
-        <td rowspan="4"><b><img align="center" src="https://github.com/woowacourse-precourse/java-racingcar-6/assets/112257466/9a2cdecd-2df4-4541-86ec-4e8fa1017643" height="32px">&nbsp;&nbsp;README.md</b></td>
-        <td>깔끔한 기능 구현 목록... 감탄하고 갑니다. 🤗<br>개발의 전체적인 과정을 볼 수 있는 것 같아 좋아요👀<br>리드미가 너무 보기 좋네요! 나중에 협업할 때도 되게 좋을 것 같습니다</td>
-        <td rowspan="4">@jcoding-play 외 9명</td>
-    </tr>
-</table>
-</div>
-
 ## 🎨&nbsp;&nbsp;구현 간 고민했던 내용들
 
-### 1️⃣&nbsp;&nbsp;&nbsp;View Layer <-> [MVC 패턴]("https://ko.wikipedia.org/wiki/%EB%AA%A8%EB%8D%B8-%EB%B7%B0-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC")에서 Model Layer와 Domain Layer의 관계
+### 1️⃣&nbsp;&nbsp;&nbsp;View Layer & [MVC 패턴]("https://ko.wikipedia.org/wiki/%EB%AA%A8%EB%8D%B8-%EB%B7%B0-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC")에서 Model Layer와 Domain Layer의 관계
 
 ### 1️⃣&nbsp;&nbsp;&nbsp;정적 팩토리 메소드의 장단점
 
 ### 1️⃣&nbsp;&nbsp;&nbsp;엇갈린 코드리뷰
+
+---------------------------------------------------------
+
+## 🎨&nbsp;&nbsp;31명과 함께한 223개의 소중한 코드리뷰 적용기
+
+- [1주차 숫자 야구 Pull Request](https://github.com/woowacourse-precourse/java-baseball-6/pull/1613) 는 많은 리뷰가 남겨져 있어 로드하는데
+  시간이 좀 걸립니다!<br>
+  (유니콘 414 에러가 뜨면서 PR창이 뜨지 않는다면 새로고침 해주세요!)
+- 지난 리뷰에서 아쉬웠다고 말씀 주신 부분을 아래와 같이 반영하고자 노력했습니다.
+
+<div align="center">
+<table>
+    <tr>
+        <th align="center">Type</th>
+        <th align="center">Review</th>
+        <th align="center">Reviewers</th>
+    </tr>
+    <tr><td colspan="3"></td></tr>
+    <tr>
+        <td rowspan="1"><b><img align="center" src="https://github.com/woowacourse-precourse/java-racingcar-6/assets/112257466/9a2cdecd-2df4-4541-86ec-4e8fa1017643" height="32px">&nbsp;&nbsp;README</b></td>
+        <td>어떤 객체가 위 기능들을 할당하는지도 같이 명시되어 있으면 좋을것 같아요!</td>
+        <td><b>@Gyu-won</b></td>
+    </tr>
+    <tr><td colspan="3"></td></tr>
+    <tr>
+        <td rowspan="12"><b><img align="center" src="https://github.com/woowacourse-precourse/java-racingcar-6/assets/112257466/d3866f61-24f0-4bf2-a68c-1eb18596bf2f" height="32px">&nbsp;&nbsp;코드 리뷰</b></td>
+        <td>1. 검증 메소드에서 <b>긍정 조건</b>을 사용하는게 가독성에 좋다.</td>
+        <td><b>@junseoparkk</b></td>
+    </tr>
+      <tr>
+        <td>2. 컨벤션이 없는 상황에서 <b>정적 팩토리 메소드 사용은 혼선</b>을 가져올 수 있다.</td>
+        <td><b>@OiKimiO</b></td>
+    </tr>
+      <tr>
+        <td>3. MVC 패턴에서 <b>모델에서 뷰의 정보를 알아서는 안된다</b>.</td>
+        <td><b>@oxdjww</b></td>
+    </tr>
+      <tr>
+        <td>4. 검증 메소드에서 <b>긍정 조건</b>을 사용하는게 가독성에 좋다.</td>
+        <td><b>@junseoparkk</b></td>
+    </tr>
+      <tr>
+        <td>5. 일부 <b>접근지정자가 세밀하게 조정되지 않았다</b>.</td>
+        <td><b>@U-Keun</b></td>
+    </tr>
+      <tr>
+        <td>6. Config 네이밍은 <b>설정 파일의 의미가 강하다.</b></td>
+        <td><b>@Mingyum-Kim</b></td>
+    </tr>
+      <tr>
+        <td><b>7. Flag 네이밍은 Boolean</b>의 의미가 강하다. 상수형은 다른 네이밍이 필요하다.</td>
+        <td><b>@cosyflower</b></td>
+    </tr>
+      <tr>
+        <td>8.일부 메소드 <b>순서 재배치</b>가 필요하다.</td>
+        <td><b>@jcoding-play</b></td>
+    </tr>
+    <tr>
+        <td>9. 커스텀 예외 선언은 <b>정적 팩토리 메소드보다, 직접 선언하는게 정확</b>하다.</td>
+        <td><b>@IMWoo94</b></td>
+    </tr>
+    <tr>
+        <td>10. Protected 생성자 vs Private 생성자</td>
+        <td><b>@IMWoo94</b></td>
+    </tr>
+    <tr>
+        <td>11. Open-Closed Principle vs YAGNI</td>
+        <td><b>@oxdjww</b></td>
+    </tr>
+    <tr>
+        <td>12. 입력을 기준으로 분기하는 내용은 검증(Validator)계층이 아니다.</td>
+        <td><b>@minnim1010</b></td>
+    </tr>
+    <tr><td colspan="3"></td></tr>
+    <tr>
+        <th colspan="3">Inhancement</th>
+    </tr>
+    <tr>
+        <td colspan="3">강화 2</td>
+    </tr>
+
+</table>
+</div>
+
+    <tr>
+        <td colspan="2">리드미에 기능 명세를 강화해서, Controller Code Flow를 따라갈 수 있도록 설계했습니다.<br>기능, 비기능 요구사항을 나누고 설계 방향에 대한 명시를 강화했습니다.<br>플로우 차트를 추가해, 직관적으로 코드 플로우를 눈으로 따라갈 수 있게 설계했습니다.</td>
+    </tr>
