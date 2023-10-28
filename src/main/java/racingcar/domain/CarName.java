@@ -31,4 +31,9 @@ public class CarName {
             ExceptionMessage.CAR_NAME_LIMIT_EXCEEDED.throwException();
         }
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
