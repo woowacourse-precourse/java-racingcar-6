@@ -9,6 +9,21 @@ import org.junit.jupiter.api.Test;
 
 class TrialCountTest {
 
+    @DisplayName("hasCount 테스트 : 시도 횟수가 더이상 남아있다면 true 를 반환한다.")
+    @Test
+    void hasCount() {
+        TrialCount trialCount1 = new TrialCount(1);
+        TrialCount trialCount2 = new TrialCount(0);
+
+        boolean expectedTrue = trialCount1.hasCount();
+        boolean expectedFalse = trialCount2.hasCount();
+
+        assertAll(
+                () -> assertThat(expectedTrue).isTrue(),
+                () -> assertThat(expectedFalse).isFalse()
+        );
+    }
+
     @DisplayName("hasNoCount 테스트 : 시도 횟수가 더이상 남아있지 않다면 true 를 반환한다.")
     @Test
     void hasNoCount() {

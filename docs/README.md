@@ -36,6 +36,7 @@ RandomNumber
 TrialCount
 - 시도횟수를 하나 감소시킨다. - O
 - 시도횟수가 더이상 남아있지 않는지 확인한다. - O
+- 시도횟수가 남아있는지 확인한다. - O
 
 
 NumberGenerator

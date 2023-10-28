@@ -17,4 +17,8 @@ public class TrialCount {
     public boolean hasNoCount() {
         return this.count == NO_COUNT;
     }
+
+    public boolean hasCount() {
+        return this.count != NO_COUNT;
+    }
 }
