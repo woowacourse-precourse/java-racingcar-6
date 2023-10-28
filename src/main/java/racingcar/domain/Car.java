@@ -9,4 +9,8 @@ public class Car {
         this.name = name;
         this.forwardNum = 0;
     }
+
+    public int getForwardNum(){
+        return this.forwardNum;
+    }
 }
