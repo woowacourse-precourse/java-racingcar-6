@@ -10,6 +10,10 @@ public class Car {
         this.forwardNum = 0;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
     public int getForwardNum(){
         return this.forwardNum;
     }
