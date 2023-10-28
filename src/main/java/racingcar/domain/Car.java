@@ -5,11 +5,13 @@ public class Car {
     private int moveDistance;
     private final int MAX_CAR_NAME_LENGTH = 5;
     private final int SUCCESS_MOVE_CRITERIA_VALUE = 4;
+    private final int INITIAL_DISTANCE_VALUE = 0;
     private final int WHEN_SUCCESS_MOVE_DISTANCE = 1;
     private final int WHEN_FAIL_MOVE_DISTANCE = 0;
 
     public Car(String name) {
         this.name = validCarName(name);
+        this.moveDistance = INITIAL_DISTANCE_VALUE;
     }
 
     public String getName() {
