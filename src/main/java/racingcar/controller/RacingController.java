@@ -19,9 +19,15 @@ public class RacingController {
     }
 
     private static void startGame() {
+        List<String> names = input.readCarNames();
+        int tryCount = input.readTryCount();
+
+        Cars cars = new Cars(names);
+        game = new RacingGame(cars, tryCount);
     }
 
     private static void playGame() {
+
     }
 
     private static void endGame(){
