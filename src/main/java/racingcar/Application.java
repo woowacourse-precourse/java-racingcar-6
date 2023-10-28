@@ -20,5 +20,9 @@ public class Application {
             String name = stringTokenizer.nextToken();
             memberStates.put(name, INIT_DISTANCE);
         }
+
+        System.out.println("시도할 회수는 몇회인가요?");
+        String tryInput = Console.readLine();
+        int tryCount = Integer.parseInt(tryInput);
     }
 }
