@@ -2,6 +2,7 @@ package Model;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class RaceCarNames {
     private String raceCarNames;
@@ -14,7 +15,20 @@ public class RaceCarNames {
         return Arrays.asList(raceCarNames.split(","));
     }
 
-    public String getRaceCarNames() {
-        return raceCarNames;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        RaceCarNames other = (RaceCarNames) obj;
+        return raceCarNames.equals(other.raceCarNames);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(raceCarNames);
     }
 }

@@ -20,12 +20,13 @@ public class FeatureTest {
         String predInput = "TestRaceCar";
         InputStream inputStream = new ByteArrayInputStream(predInput.getBytes());
         System.setIn(inputStream);
-        String realInput = "TestRaceCar";
 
         Application.receiveRaceCarNames();
-        RaceCarNames testObject = Application.getRaceCarNames();
 
-        assertThat(testObject.getRaceCarNames()).isEqualTo(realInput);
+        RaceCarNames predObject = Application.getRaceCarNames();
+        RaceCarNames actualObject = new RaceCarNames("TestRaceCar");
+
+        assertThat(predObject).isEqualTo(actualObject);
     }
 
     @Test
