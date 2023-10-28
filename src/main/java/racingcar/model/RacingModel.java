@@ -6,22 +6,16 @@ public class RacingModel {
     private int[] moving_distances;
     private int number_of_times;
 
-    // (기본 생성자로만 객체를 생성할 수 있게 만들었습니다)
-    public void setPlayers(String[] players) {
-        this.players = players;
-        setMoving_distance(); // palyers값이 들어오면 각 선수들의 이동거리 초기화
-    }
+    public RacingModel(String[] players, int number_of_times) {
 
-    private void setMoving_distance() { //
-        moving_distances = new int[this.players.length];
+        this.players = players;
+        this.number_of_times = number_of_times;
+        this.moving_distances = new int[players.length];
+
     }
 
     public void setMoving_distance(int[] moving_distance) {
         this.moving_distances = moving_distance;
-    }
-
-    public void setNumber_of_times(int times) {
-        this.number_of_times = times;
     }
 
     public String[] getPlayers() {
@@ -35,6 +29,5 @@ public class RacingModel {
     public int[] getMoving_distance() {
         return moving_distances;
     }
-
 
 }

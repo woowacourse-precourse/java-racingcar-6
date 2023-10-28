@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import static racingcar.controller.InputValidator.*;
+
 import racingcar.model.RacingModel;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -8,20 +10,30 @@ public class RacingController {
 
     private final InputView inputView;
     private final OutputView outputView;
-    private final RacingModel racingModel;
+    private RacingModel racingModel;
 
-    public RacingController(InputView inputView, OutputView outputView, RacingModel racingModel) {
-        this.inputView = inputView;
-        this.outputView = outputView;
-        this.racingModel = racingModel;
+    public RacingController() {
+        this.inputView = new InputView();
+        this.outputView = new OutputView();
     }
 
     public void startRacing() {
-        outputView.printStarting();
-        racingModel.setPlayers(inputView.inputPlayers());
-        outputView.printTimes();
-        racingModel.setNumber_of_times(inputView.inputTimes());
-        outputView.printRacing(racingModel);
+
+        racingSetting();
+
     }
+
+    private void racingSetting() { // 플레이어들의 이름과 횟수를 설정하는 함수
+
+        outputView.printStarting();
+        String[] players = nameValidation(inputView.inputPlayers());
+        outputView.printTimes();
+        int number = numberValidation(inputView.inputTimes());
+        outputView.printRacing(racingModel);
+
+        racingModel = new RacingModel(players, number);
+
+    }
+
 
 }
