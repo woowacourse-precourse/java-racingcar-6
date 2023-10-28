@@ -25,11 +25,15 @@ public class Cars {
     public List<String> getWinners() {
         List<String> winners = new ArrayList<>();
         for (Car car : cars) {
-            if (car.getPosition() == calculateMaxPosition()) {
-                winners.add(car.getName());
-            }
+            addWinners(winners, car);
         }
         return winners;
+    }
+
+    private void addWinners(List<String> winners, Car car) {
+        if (car.getPosition() == calculateMaxPosition()) {
+            winners.add(car.getName());
+        }
     }
 
     private int calculateMaxPosition() {
