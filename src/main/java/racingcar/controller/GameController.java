@@ -14,5 +14,11 @@ public class GameController {
     }
 
     public void start() {
+        initGame();
+    }
+
+    private void initGame() {
+        inputView.inputCarName();
+
     }
 }
