@@ -11,7 +11,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 class CarTest {
 
-    Car car;
+    private Car car;
 
     @BeforeEach
     void setUp() {
