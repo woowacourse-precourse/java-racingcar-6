@@ -17,32 +17,10 @@ public class Game {
             .toList();
     }
 
-    private int getMaxPosition() {
-        return participantCars.stream()
-            .mapToInt(Car::getPosition)
-            .max()
-            .orElse(0);
-    }
-
-    private List<Integer> getPositionByCar() {
-        return participantCars.stream()
-            .map(Car::getPosition)
-            .collect(Collectors.toList());
-    }
-
     public String getWinnerNames(List<Car> winners) {
         return winners.stream()
             .map(Car::getName)
             .collect(Collectors.joining(", "));
-    }
-
-    public boolean isCarMoveToForward() {
-        return new RandomNumber().getNumber() >= 4;
-    }
-
-    public String getPositionBarByCar(Car participantCar) {
-        return String.format("%s : %s", participantCar.getName(),
-            "-".repeat(participantCar.getPosition()));
     }
 
     public String getCurrentParticipantCarPosition() {
@@ -57,5 +35,21 @@ public class Game {
                 car.move();
             }
         }
+    }
+
+    private boolean isCarMoveToForward() {
+        return new RandomNumber().getNumber() >= 4;
+    }
+
+    private String getPositionBarByCar(Car participantCar) {
+        return String.format("%s : %s", participantCar.getName(),
+            "-".repeat(participantCar.getPosition()));
+    }
+
+    private int getMaxPosition() {
+        return participantCars.stream()
+            .mapToInt(Car::getPosition)
+            .max()
+            .orElse(0);
     }
 }
