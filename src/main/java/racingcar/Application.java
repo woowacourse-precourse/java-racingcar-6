@@ -22,7 +22,16 @@ public class Application {
         // 횟수 입력받기
         OutputView.outputTimes();
         String inputTimes = InputView.InputTimes();
+        // 횟수 예외상황 처리
         int times = HandleException.times(inputTimes);
+        
+        // 게임 진행
+        for (int i = 0; i < times; i++) { // 횟수만큼 반복
+            for (int j = 0; j < car.length; j++) {
+                car[j].changeLocation();
+            }
+            System.out.println();
+        }
         
     }
 }
