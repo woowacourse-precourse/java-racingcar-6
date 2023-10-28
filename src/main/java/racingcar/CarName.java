@@ -6,22 +6,21 @@ public class CarName {
     private final String name;
 
     private CarName(final String name) {
-        validate(name);
+        validateBlank(name);
+        validateLength(name);
         this.name = name;
     }
 
-    private void validate(final String name) {
-        if (isNullOrEmpty(name) || isExceedNumberOfLetters(name)) {
+    private void validateBlank(final String name) {
+        if (name == null || name.isBlank()) {
             throw new IllegalArgumentException();
         }
     }
 
-    private boolean isNullOrEmpty(final String name) {
-        return name == null || name.isBlank();
-    }
-
-    private boolean isExceedNumberOfLetters(final String name) {
-        return name.length() > ALLOWED_LETTERS;
+    private void validateLength(final String name) {
+        if (name.length() > ALLOWED_LETTERS) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public static CarName create(final String name) {
