@@ -1,18 +1,14 @@
 package racingcar.controlller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MainController {
-    private List<GameController> gameControllerList;
+    RacingGameController racingGameController;
 
     private void init() {
-        gameControllerList = new ArrayList<>();
-        gameControllerList.add(new RacingGameController(true));
+        racingGameController = new RacingGameController(true);
     }
 
     public void start() {
         init();
-        gameControllerList.forEach(GameController::run);
+        racingGameController.run();
     }
 }

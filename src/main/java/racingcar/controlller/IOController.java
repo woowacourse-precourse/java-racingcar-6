@@ -9,12 +9,12 @@ import racingcar.utils.Parser;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-public class RacingGameIOController {
+public class IOController {
     // Input
     public static Cars scanCarList() {
         System.out.println(InputView.enterCarNamesMessage());
         String userInput = Console.readLine();
-        RacingGameInputValidator.validateCarList(userInput);
+        InputValidator.validateCarList(userInput);
 
         return createCarList(userInput);
     }
@@ -29,7 +29,7 @@ public class RacingGameIOController {
     public static Integer scanNumberOfRounds() {
         System.out.println(InputView.enterNumberOfRoundsMessage());
         String userInput = Console.readLine();
-        RacingGameInputValidator.validateNumberOfRounds(userInput);
+        InputValidator.validateNumberOfRounds(userInput);
 
         return createNumberOfRounds(userInput);
     }

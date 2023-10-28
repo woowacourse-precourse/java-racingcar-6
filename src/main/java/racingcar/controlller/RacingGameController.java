@@ -6,30 +6,30 @@ import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 
-public class RacingGameController extends GameController {
+public class RacingGameController {
+    private boolean isRunning;
+
     public RacingGameController(boolean isRunning) {
-        super(isRunning);
+        this.isRunning = isRunning;
     }
 
-    @Override
     public void run() {
         while (isRunning) {
             startGame();
         }
     }
 
-    @Override
     public void startGame() {
-        Cars cars = RacingGameIOController.scanCarList();
-        int numberOfRounds = RacingGameIOController.scanNumberOfRounds();
+        Cars cars = IOController.scanCarList();
+        int numberOfRounds = IOController.scanNumberOfRounds();
 
-        RacingGameIOController.printResultHeaderMessage();
+        IOController.printResultHeaderMessage();
 
         for (int i = 0; i < numberOfRounds; i++) {
             doOneRound(cars);
-            RacingGameIOController.printlnCurrentForwardStateMessage(cars);
+            IOController.printlnCurrentForwardStateMessage(cars);
         }
-        RacingGameIOController.printWinnersMessage(pickWinners(cars));
+        IOController.printWinnersMessage(pickWinners(cars));
 
         endGame();
     }
