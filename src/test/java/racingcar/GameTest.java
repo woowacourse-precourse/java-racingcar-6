@@ -41,4 +41,23 @@ class GameTest {
         game.increaseRound();
         assertThat(game.getCurrentRound()).isEqualTo(initialRound + 1);
     }
+
+    @Test
+    void 게임_진행중_확인() {
+        Game game = new Game(Arrays.asList(new Car("test")), 5);
+        game.playOneRound();
+        game.playOneRound();
+        game.playOneRound();
+        assertThat(game.isGameOngoing()).isTrue();
+    }
+
+    @Test
+    void 게임_종료_확인() {
+        Game game = new Game(Arrays.asList(new Car("test")), 4);
+        game.playOneRound();
+        game.playOneRound();
+        game.playOneRound();
+        game.playOneRound();
+        assertThat(game.isGameOngoing()).isFalse();
+    }
 }
