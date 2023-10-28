@@ -2,6 +2,7 @@ package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
+import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -9,6 +10,10 @@ import java.util.List;
 import java.util.Set;
 
 public class GameUtil {
+    OutputView outputView;
+    public GameUtil(){
+        outputView = new OutputView();
+    }
     public int randomNumber(){
         return Randoms.pickNumberInRange(0,9);
     }
@@ -48,13 +53,35 @@ public class GameUtil {
         }
     }
 
-    public String winner(ArrayList<Car> carArrayList, int max){
-        List<String> winnerArrayList = new ArrayList<>();
+    public int maxLocation(ArrayList<Car> carArrayList){
+        int max = 0;
+        for(int i=0;i<carArrayList.size();i++){
+            if(carArrayList.get(i).getLocation()>max){
+                max  = carArrayList.get(i).getLocation();
+            }
+        }
+        return max;
+    }
+    public String winner(ArrayList<Car> carArrayList){
+        int max = maxLocation(carArrayList);
+        ArrayList<String> winnerArrayList = new ArrayList<>();
         for(int i=0;i<carArrayList.size();i++){
             if(carArrayList.get(i).getLocation()==max){
                 winnerArrayList.add(carArrayList.get(i).getName());
             }
         }
         return String.join(", ", winnerArrayList);
+    }
+    public void gamePlay(String carName, int count){
+        ArrayList<Car> carArrayList = splitNameArrayList(carName);
+
+        for(int i=0;i<count;i++) {
+            outputView.gameSituation(carArrayList);
+            goAndStop(carArrayList);
+            System.out.println();
+        }
+
+        String winner = winner(carArrayList);
+        outputView.winner(winner);
     }
 }
