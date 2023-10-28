@@ -39,4 +39,8 @@ public class TryCount {
         return value.chars()
             .allMatch(Character::isDigit);
     }
+
+    public int getTryCount() {
+        return tryCount;
+    }
 }
