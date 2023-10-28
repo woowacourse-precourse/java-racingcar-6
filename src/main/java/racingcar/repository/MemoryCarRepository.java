@@ -8,6 +8,11 @@ import racingcar.domain.Car;
 
 public class MemoryCarRepository implements CarRepository {
 
+    private static final MemoryCarRepository memoryCarRepository = new MemoryCarRepository();
+    public static MemoryCarRepository getInstance() {
+        return memoryCarRepository;
+    }
+
     private static Map<Long, Car> store=new HashMap<>();
     private static Long sequence=0L;
 
