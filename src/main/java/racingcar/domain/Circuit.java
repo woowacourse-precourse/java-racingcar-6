@@ -1,11 +1,14 @@
 package racingcar.domain;
 
+import racingcar.util.ExceptionMessage;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Circuit {
 
+    public static final int MIN_PLAYER = 2;
     private final List<Car> cars;
 
     private Circuit(List<Car> cars) {
@@ -13,10 +16,17 @@ public class Circuit {
     }
 
     public static Circuit fromCarNames(List<String> carNames) {
+        checkCarNameSize(carNames.size());
         List<Car> cars = carNames.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
         return new Circuit(cars);
+    }
+
+    private static void checkCarNameSize(int size) {
+        if (size < MIN_PLAYER) {
+            throw new IllegalArgumentException(ExceptionMessage.CHECK_CAR_NAME_SIZE.getMessage());
+        }
     }
 
     public List<Car> moveCars(List<Integer> randomNumbers) {
