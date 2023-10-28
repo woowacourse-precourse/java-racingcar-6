@@ -17,6 +17,16 @@ public class Controller {
     GameService gameService = new GameService();
 
     /**
+     * 게임 실행
+     */
+    public void run() {
+        getCarListByUserInput();
+        getTrialNumberByUserInput();
+        playGame();
+        endGame(cars.getCars());
+    }
+
+    /**
      * 자동차 이름을 입력 받기
      */
     private void getCarListByUserInput() {
