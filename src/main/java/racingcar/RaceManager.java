@@ -23,6 +23,7 @@ public class RaceManager {
     }
 
     private void runRace() {
+        OutputView.showResultTitle();
         for (int i = 0; i < attempts; i++) {
             runRaceRound();
         }

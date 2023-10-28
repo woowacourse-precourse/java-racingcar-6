@@ -12,6 +12,7 @@
 
   - [x] 주어진 횟수만큼 경주 게임을 수행한다. - RaceManager#runRace
     - [x] 한 차수의 경주 게임을 수행한다. - RaceManager#runRaceRound
+      - [x] 실행 결과 타이틀을 보여준다. - OutputView#showResultTitle
       - [x] 매 게임마다 자동차는 전진 조건에 부합하면 전진한다. - Car#moveOnRandomChance
         - [x] 전진 조건에 사용할 무작위 값을 생성한다. - Car#generateRandomNumber
         - [x] 전진인지 멈춤인지 판단한다. - Car#isForward
