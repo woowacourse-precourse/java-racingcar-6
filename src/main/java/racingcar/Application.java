@@ -10,9 +10,36 @@ import java.util.List;
 public class Application {
     public static void main(String[] args) {
         List<String> carNameList = inputCarNames();
-        System.out.println("carNameList = " + carNameList);
+        int numberOfMoves = inputNumberOfMoves();
+
+
     }
 
+    public static int inputNumberOfMoves() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String inputNumberOfMovesString = Console.readLine().trim();
+        return makeNumberOfMovesInteger(inputNumberOfMovesString);
+    }
+
+    private static int makeNumberOfMovesInteger(String inputNumberOfMovesString) {
+        return verifyIfIsValidNumber(inputNumberOfMovesString);
+    }
+
+    private static int verifyIfIsValidNumber(String inputNumberOfMovesString) {
+        int inputNumberOfMoves = 0;
+
+        try {
+            inputNumberOfMoves = Integer.parseInt(inputNumberOfMovesString);
+
+            if (inputNumberOfMoves < 1) {
+                throw new IllegalArgumentException("1 ~ 2147483647 사이의 유효한 숫자를 입력해 주세요.");
+            }
+
+            return inputNumberOfMoves;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("1 ~ 2147483647 사이의 유효한 숫자를 입력해 주세요.");
+        }
+    }
 
     public static List<String> inputCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -54,26 +81,3 @@ public class Application {
         carNameList.add(carNameTrim);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
