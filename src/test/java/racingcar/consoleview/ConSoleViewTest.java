@@ -1,4 +1,4 @@
-package racingcar.test;
+package racingcar.consoleview;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,6 +17,8 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
+
 public class ConSoleViewTest {
     private PrintStream standardOut;
     private OutputStream captor;
@@ -36,12 +38,21 @@ public class ConSoleViewTest {
         return captor.toString().trim();
     }
     @ParameterizedTest
-    @DisplayName("printWinner 함수 테스트")
+    @DisplayName("printWinner() 함수 테스트")
     @MethodSource("provide_printWinner_TestData")
     void 우승자에_따른_출력(List<String> winners, String expectedOutput) {
         consoleView.printWinner(new ArrayList<>(winners));
         assertThat(getOut()).isEqualTo(expectedOutput);
     }
+    @ParameterizedTest
+    @DisplayName("printRoundProgress() 함수 테스트")
+    @MethodSource("provide_printRoundProgress_TestData")
+    void 진행상황_테스트(String name, int winCount, String expectedOutput) {
+        consoleView.printRoundProgress("희종", 2);
+        assertThat(getOut()).isEqualTo("희종 : --");
+    }
+
+
     private static Stream<Arguments> provide_printWinner_TestData() {
         return Stream.of(
                 Arguments.of(Arrays.asList("희종"), "최종 우승자 : 희종"),
@@ -49,15 +60,6 @@ public class ConSoleViewTest {
                 Arguments.of(Arrays.asList("지환"), "최종 우승자 : 지환")
         );
     }
-
-    @ParameterizedTest
-    @DisplayName("printRoundProgress 함수 테스트")
-    @MethodSource("provide_printRoundProgress_TestData")
-    void 진행상황_테스트(String name, int winCount, String expectedOutput) {
-        consoleView.printRoundProgress("희종", 2);
-        assertThat(getOut()).isEqualTo("희종 : --");
-    }
-
     private static Stream<Arguments> provide_printRoundProgress_TestData() {
         return Stream.of(
                 Arguments.of("희종", 3, "희종 : ---"),

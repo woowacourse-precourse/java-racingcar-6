@@ -35,7 +35,9 @@ public class ConsoleView implements View{
         StringBuilder winner = new StringBuilder("최종 우승자 : ");
         for (int i=0; i< winnerList.size(); i++){
             winner.append(winnerList.get(i));
-            if (i == winnerList.size() -1 ) break;
+            if (i == winnerList.size() -1 ) {
+                break;
+            }
             winner.append(", ");
         }
         out(winner.toString());
