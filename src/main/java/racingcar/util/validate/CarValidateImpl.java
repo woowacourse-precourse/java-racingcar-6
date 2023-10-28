@@ -1,11 +1,5 @@
 package racingcar.util.validate;
-
-import static racingcar.util.Constants.BLANK;
-import static racingcar.util.Constants.MAX_LENGTH;
-import static racingcar.util.Constants.NULL;
-
-import java.util.Objects;
-import racingcar.message.ErrorMessages;
+import racingcar.exception.CustomException;
 
 public class CarValidateImpl implements CarValidate {
     public CarValidateImpl(String input) {
@@ -17,25 +11,20 @@ public class CarValidateImpl implements CarValidate {
     public static void createVaule(String input) {
         new CarValidateImpl(input);
     }
+
     @Override
     public void blankValidator(String input) {
-        if (input.contains(BLANK)) {
-            throw new IllegalArgumentException(ErrorMessages.INVALID_CAR_NAME_BLANK.getMessage());
-        }
+        CustomException.blankValidator(input);
     }
 
     @Override
     public void nullValidator(String input) {
-        if(Objects.equals(input, NULL)) {
-            throw new IllegalArgumentException(ErrorMessages.INVALID_CAR_NAME.getMessage());
-        }
+        CustomException.nullValidator(input);
     }
 
     @Override
     public void MaxLengthValidator(String input) {
-        if (input.length() > MAX_LENGTH) {
-            throw new IllegalArgumentException(ErrorMessages.INVALID_CAR_NAME.getMessage());
-        }
+        CustomException.MaxLengthValidator(input);
     }
 
 
