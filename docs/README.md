@@ -32,9 +32,9 @@ Model, Controller, View, Logic 에 대해 인터페이스를 먼저 구현한다
 4. printWinner() - 우승자를 출력할 수 있도록 한다.
 ## Controller
 플레이어 목록을 관리하는 기능을 제공한다.
-1. makePlayer() - 사용자를 생성할 수 있도록 한다.
+1. addPlayer() - 유저를 추가할 수 있도록 한다.
 2. removePlayer() - 특정 유저를 삭제한다.
-3. addPlayer() - 특정 유저를 추가한다.
+3. getPlayers() - 유저 목록을 가져올 수 있도록 한다.
 ## Logic
 게임 메인 로직을 관리한다.
 1. init() - 게임 유저, 게임 라운드 등 게임 기본설정을 초기화 한다. 
