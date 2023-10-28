@@ -1,8 +1,5 @@
 package racingcar.View;
 
-import java.util.List;
-
-import racingcar.Model.Car;
 import racingcar.Model.CarList;
 
 public class OutputView {
@@ -16,17 +13,17 @@ public class OutputView {
 
 	public static void printEachRound(CarList carList) {
 
-		for(int i = 0; i < carList.size(); i++) {
+		for (int i = 0; i < carList.size(); i++) {
 
 			System.out.println(carList.getEachCar(i) + " : " + carList.getEachCar(i).makeDistanceGraph(GRAPH_UNIT));
 
 		}
 
 		System.out.println();
-
 	}
 
-	public static void printWinner(List<Car> winnerList) {
+	public static void printWinner(String winnerList) {
 		System.out.println(WINNER_MESSAGE + winnerList);
 	}
+
 }
