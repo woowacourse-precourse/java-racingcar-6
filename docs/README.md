@@ -19,16 +19,17 @@
   - [ ] 3 실행 결과 출력 ## OutputView - printGameResult
   - [ ] 4 최종 우승자 출력 ## OutputView - printWinner
 
-- ### 🤔 Logic - CarGameService, InputService, JudgementService
-  - [ ] 자동차 이름 (,) 로 분리하는 작업 진행 - ## InputService - splitName
-    - [ ] 여기에서 확인! 자동차 이름의 길이가 5가 넘어가는 경우!
-  - [ ] 게임 횟수 만큼 진행될 수 있게 진행 - 🚗 CarGameService
-  - [ ] 게임 진행 - ## CarGameService - gameStart
-    - [ ] 자동차의 이름마다 숫자 굴리기 - NumberGenerator 
-      - [ ] 숫자가 4 이상인 경우 자동차가 전진을 기록한 변수 + 1
-    - [ ] 자동차들에 대한 정보를 저장 - 🚗 Car
-      - [ ] 이름, 전진 카운트, 현재 출력될 결과 모습 (매번 for 문으로 출력하지 않기 위해!)
-  - [ ] 게임이 끝나는 마지막 과정에서 우승자가 누군지 판별하는 곳 필요! - JudgementService
+- ### 🤔 Logic - GameController, CarGameService, InputService, JudgementService
+  - [ ] 전반적인 징검다리 역할 - 🎮 GameController
+    - [ ] 자동차 이름 (,) 로 분리하는 작업 진행 - ## InputService - splitName
+      - [ ] 여기에서 확인! 자동차 이름의 길이가 5가 넘어가는 경우!
+    - [ ] 게임 횟수 만큼 진행될 수 있게 진행 - 🚗 CarGameService
+    - [ ] 게임 진행 - ## CarGameService - gameStart
+      - [ ] 자동차의 이름마다 숫자 굴리기 - NumberGenerator 
+        - [ ] 숫자가 4 이상인 경우 자동차가 전진을 기록한 변수 + 1
+      - [ ] 자동차들에 대한 정보를 저장 - 🚗 Car
+        - [ ] 이름, 전진 카운트, 현재 출력될 결과 모습 (매번 for 문으로 출력하지 않기 위해!)
+    - [ ] 게임이 끝나는 마지막 과정에서 우승자가 누군지 판별하는 곳 필요! - JudgementService
 
 
 
