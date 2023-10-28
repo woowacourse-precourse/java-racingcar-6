@@ -15,6 +15,8 @@ public class CarNameValidator {
     private final static String NAME_NULL_ERROR_MESSAGE = "차 이름을 적어주세요.";
     private final static String NAME_RANGE_ERROR_MESSAGE = "차 이름은 1자 이상 5자 이하로 적어주세요.";
     private final static String NAME_DUPLICATE_ERROR_MESSAGE = "중복된 이름을 적으면 안 됩니다.";
+    private final static int MAX_LENGTH = 5;
+    private final static int MIN_LENGTH = 1;
 
     public CarNameValidator(String name){
         NAME = name;
@@ -39,7 +41,7 @@ public class CarNameValidator {
 
     public void isRangeOut(){
         for (String name : NAMES) {
-            if (name.length() > 5 || name.length() < 1){
+            if (name.length() > MAX_LENGTH || name.length() < MIN_LENGTH){
                 throw new IllegalArgumentException(ERROR+NAME_RANGE_ERROR_MESSAGE);
             }
         }

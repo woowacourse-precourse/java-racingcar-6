@@ -3,7 +3,7 @@ package racingcar.validator;
 public class RoundValidator {
 
     private final static String ERROR = "[ERROR]";
-    private static String NOT_NUMBER_ERROR_MESSAGE = "숫자를 입력해주세요.";
+    private final static String NOT_NUMBER_ERROR_MESSAGE = "숫자를 입력해주세요.";
     public static String tryCount;
 
     public RoundValidator(String input){
