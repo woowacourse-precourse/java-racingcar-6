@@ -7,7 +7,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.stream.IntStream;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -41,17 +40,18 @@ public class RaceDatasetTest {
     }
 
     @Test
-    public void updatePaceMap() {
+    public void updatePaceMapValues() {
         Machines machines = new Machines();
         Lap lap = new Lap();
         PaceComputer paceComputer = new PaceComputer();
+        LeaderBoard leaderBoard = new LeaderBoard();
 
         machines.getInput();
         lap.getInput();
 
-        LinkedHashMap<String, Integer> paceMap = paceComputer.updatePaceMap(machines, lap);
-        List<Integer> valuesInMap = new ArrayList<>(paceMap.values());
+        leaderBoard.showRace(machines, lap, paceComputer);
 
+        List<Integer> valuesInMap = leaderBoard.getPaceMapValueList();
         List<Integer> generatedNumbers = paceComputer.getRandomNumberList();
 
         assertThat(valuesInMap).isEqualTo(generatedNumbers);
