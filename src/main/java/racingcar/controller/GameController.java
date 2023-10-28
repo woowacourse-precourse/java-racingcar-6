@@ -24,17 +24,19 @@ public class GameController {
     /**
      * 역할 분리 for문 stream으로 수정
      */
-    public void startGame() {
+    public void run() {
         // 차이름, 횟수 입력받기
         List<String> tmp = inputView.inputCarName();
         for (int i = 0; i < tmp.size(); i++) {
             CarInputDto carInputDto = new CarInputDto(tmp.get(i));
             Car car = new Car(i, carInputDto.getName());
-
             carStore.saveCarInfo(car);
         }
         game = new Game(tmp.size(), inputView.inputRoundNumber());
+        startGame();
+    }
 
+    private void startGame() {
         // while 라운드 체크 하며, 게임 수행
         do {
             game.increaseCurrentRound();
