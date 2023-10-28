@@ -51,4 +51,16 @@ public class CarsTest {
 
         assertThat(cars.determineFinalWinner()).containsExactlyInAnyOrder("pobi", "woni");
     }
+
+    @Test
+    @DisplayName("가장 큰 값을 가진 자동차들이 우승자로 결정되어야 한다.")
+    void determineFinalWinnerTest() {
+        cars.addCars(Arrays.asList("pobi", "woni", "jun"));
+        cars.moveCar("pobi");
+        cars.moveCar("pobi");
+        cars.moveCar("jun");
+
+        assertThat(cars.determineFinalWinner()).containsExactlyInAnyOrder("pobi");
+    }
+
 }
