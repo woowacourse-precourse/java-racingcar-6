@@ -34,13 +34,6 @@ public class RacingCars {
         return winnerCars;
     }
 
-    public List<String> getCarNames() {
-        List<String> carNames = new ArrayList<>();
-        racingCars.stream()
-                .forEach(car -> carNames.add(car.getCarName()));
-        return carNames;
-    }
-
     private void validateRacingCars(List<Car> racingCars) {
         List<String> racingCarNames = racingCars.stream()
                 .map(racingCar -> racingCar.getCarName())
