@@ -5,6 +5,7 @@ import java.util.List;
 import racingcar.model.Car;
 import racingcar.util.Computer;
 import racingcar.util.User;
+import racingcar.view.Result;
 
 public class Race {
     User user = new User();
@@ -21,9 +22,12 @@ public class Race {
     public void goCycle(List<Car> carList, int cycle){
         for(int i = 0; i < cycle; i++) {
             goForward(carList);
-            printDistance(carList);
+            Result result = new Result();
+            result.printResult(carList);
         }
+        System.out.println();
     }
+
 
     public boolean checkForward(int randomNumber) {
         if (randomNumber >= 4) {
