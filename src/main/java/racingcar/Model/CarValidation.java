@@ -19,12 +19,11 @@ public class CarValidation {
     }
 
     private void isLengthValid() {
-        carNames.stream()
-                .filter(name -> name.length() > 5)
-                .findFirst()
-                .ifPresent(name -> {
-                    throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다: " + name);
-                });
+        boolean invalidNameFound = carNames.stream()
+                .anyMatch(name -> name.length() > Constants.valid_Length);
+        if (invalidNameFound) {
+            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+        }
     }
 
     private void isCorrectFormat(){
