@@ -27,6 +27,15 @@ public class CarList {
         return max;
     }
 
+    public List<Car> findWinners() {
+        List<Car> winners = new ArrayList<>();
+        int max = findMaxPosition();
+
+        return carList.stream()
+                .filter(car -> car.getPosition() == max)
+                .toList();
+    }
+
     public boolean contains(Car car) {
         return carList.contains(car);
     }

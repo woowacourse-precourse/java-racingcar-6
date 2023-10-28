@@ -59,7 +59,7 @@
   - RaceCarList 객체를 인수로 받아 현재 각 자동차들의 위치 출력
 
 ## 우승자 출력
-- [ ] RaceCarList : `findWinners` 메서드
+- [x] RaceCarList : `findWinners` 메서드
   - 가장 앞에있는 자동차를 찾아 Car 리스트 반환
   - [x] `findMaxPosition` 메서드
     - 가장 앞에있는 자동차의 위치를 반환
