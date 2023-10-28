@@ -18,6 +18,14 @@ public class Car implements Comparable<Car>{
         }
     }
 
+    public String showDistance() {
+        String distance = "";
+        for (int count = 0; count < moveDistance; count++) {
+            distance += "-";
+        }
+        return distance;
+    }
+
     public String getName() {
         return this.name;
     }
