@@ -31,7 +31,7 @@
       - [x] `validateCarListInputUnique` 메서드
 
 ## 자동차 생성 기능
-- [ ] Car `생성자`
+- [x] Car `생성자`
   - 자동차 이름을 인수로 받아 Car 객체 생성
 - [ ] RaceCarList `생성자`
   - 문자열 리스트 또는 Car 리스트를 인수로 받아 Car 리스트를 감싸는 객체 생성
