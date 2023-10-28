@@ -12,5 +12,6 @@ public class GameController {
         getMessage.GameStartMessage();
         String namesOfRacingCars = putMessage.getPlayerInput();
         RacingCarList car = new RacingCarList(namesOfRacingCars);
+        
     }
 }
