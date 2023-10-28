@@ -19,6 +19,7 @@ import static constant.MessgeList.STOP;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ApplicationTest extends NsTest {
     private Validator validator;
@@ -63,9 +64,9 @@ class ApplicationTest extends NsTest {
 
     @Test
     @DisplayName("random값이 0과 9사이의 숫자여야 한다.")
-    void isCarMovingForward(){
-        boolean result = movingCar.isCarMovingForward();
-        assertThat(result).;
+    void isRandomNumberInRange(){
+        int randomNumber = movingCar.generateRandomNumber();
+        assertEquals(randomNumber, 0,9);
     }
 
     @Override
