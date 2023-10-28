@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 
 public class RacingGame {
@@ -12,5 +14,10 @@ public class RacingGame {
             String carName = carNames[carNumber];
             Cars.add(new Car(carName));
         }
+    }
+
+    int makeRandomNumber() {
+        int randomNumber = Randoms.pickNumberInRange(0,9);
+        return (randomNumber);
     }
 }
