@@ -4,15 +4,17 @@ import java.util.ArrayList;
 import racingcar.exception.CarException;
 import racingcar.exception.TryException;
 import racingcar.model.Car;
+import racingcar.service.GameService;
 import racingcar.view.Input;
 import racingcar.view.Print;
 
-public class RacingCarController {
+public class GameController {
 
     private Input input = new Input();
     private Print print = new Print();
     private CarException carException = new CarException();
     private TryException tryException = new TryException();
+    private GameService gameService = new GameService();
 
     private ArrayList<Car> carList = new ArrayList<>();
 
@@ -32,9 +34,13 @@ public class RacingCarController {
 
     public void startGame() {
         int tryCount = gameSetting();
+        System.out.println();
+        print.message("실행 결과");
         for (int i=0; i<tryCount; i++) {
-
+            gameService.tryRacing(carList);
+            print.result(carList);
         }
+        print.message(gameService.getWinner(carList));
     }
 
 
