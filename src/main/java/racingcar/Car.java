@@ -15,4 +15,12 @@ public class Car {
     public String printCarName() {
         return name + " : " + position;
     }
+
+    public int getPositionLength() {
+        return position.length();
+    }
+
+    public String getName() {
+        return name;
+    }
 }

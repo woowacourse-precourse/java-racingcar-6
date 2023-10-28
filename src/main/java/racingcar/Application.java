@@ -6,6 +6,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Application {
     public static void main(String[] args) {
@@ -23,12 +24,13 @@ public class Application {
         String inputNumber = Console.readLine();
         int attemptsNumber = Integer.parseInt(inputNumber);
 
+        System.out.println();
+        System.out.println("실행 결과");
         for (int i = 0; i < attemptsNumber; i++) {
             racing(carList);
             System.out.println();
         }
     }
-
     private static void racing(List<Car> carList) {
         for (Car car : carList) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
@@ -37,5 +39,16 @@ public class Application {
             }
             System.out.println(car.printCarName());
         }
+    }
+    private static List<String> winners(List<Car> cars) {
+        int maxDistance = cars.stream()
+                .mapToInt(Car::getPositionLength)
+                .max()
+                .orElse(0);
+
+        return cars.stream()
+                .filter(car -> car.getPositionLength() == maxDistance)
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 }
