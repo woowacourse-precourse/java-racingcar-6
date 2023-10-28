@@ -2,7 +2,9 @@ package racingcar;
 
 public class Application {
     public static void main(String[] args) {
-        RacingGame racingGame = new RacingGame();
+
+        RacingGameConfig gameConfig = new RacingGameConfig();
+        RacingGame racingGame = gameConfig.initRacingGame();
         racingGame.startGame();
     }
 }
