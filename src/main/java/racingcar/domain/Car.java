@@ -28,7 +28,7 @@ public class Car {
         this.forwardNum++;
     }
 
-    public int initRandomNum(){
-        return Randoms.pickNumberInRange(0,9);
+    public void initRandomNum(){
+        this.randomNum = Randoms.pickNumberInRange(0,9);
     }
 }
