@@ -34,8 +34,8 @@ public class CarController {
         List<CarModel> winnerCars = new ArrayList<>();
         List<CarModel> Cars;
 
-        for (int i = 0 ;i <= maxLocation; maxLocation++) {
-            Cars = maxLocationCheck(maxLocation);
+        for (int i = 0 ;i <= maxLocation; i++) {
+            Cars = maxLocationCheck(i);
             if (Cars.size() > 0) {
                 winnerCars = Cars;
             }

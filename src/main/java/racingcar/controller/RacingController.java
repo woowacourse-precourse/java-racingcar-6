@@ -33,6 +33,6 @@ public class RacingController {
     }
 
     public void resultWinner() {
-        carController.winnerCheck(repeatNumber);
+        OutputView.printWinner(carController.winnerCheck(repeatNumber));
     }
 }
