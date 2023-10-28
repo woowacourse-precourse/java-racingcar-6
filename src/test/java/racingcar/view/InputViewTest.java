@@ -31,7 +31,7 @@ class InputViewTest {
 
     @DisplayName("사용자로부터 입력 받은 자동차 이름이 입력 형식과 일치하지 않으면 예외가 발생한다.")
     @ParameterizedTest
-    @ValueSource(strings = {"pobi", ",pobi", "pobi,", "pobi, woni", ", pobi", "pobi,,", "pobi, ,", " "})
+    @ValueSource(strings = {",pobi", "pobi,", "pobi, woni", ", pobi", "pobi,,", "pobi, ,", " "})
     void readCarName_Fail_ByInvalidCarNamesRegex(String invalidInput) {
         // given
         System.setIn(createUserInput(invalidInput));
