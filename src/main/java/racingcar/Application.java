@@ -8,6 +8,6 @@ public class Application {
         InputManager inputManager = new InputManager();
 
         System.out.println(inputManager.inputCarName());
-
+        System.out.println(inputManager.inputRepeat());
     }
 }

@@ -28,4 +28,16 @@ public class InputManager {
             throw new IllegalStateException();
         }
     }
+
+//    - [] (입력) 시도 횟수를 입력받는다.  InputManager.inputRepeat
+    public int inputRepeat(){
+        System.out.println(MassageManager.INPUT_REPEAT);
+        String readLine = Console.readLine();
+
+        try{
+            return Integer.parseInt(readLine);
+        }catch (IllegalStateException e){
+            throw new IllegalStateException();
+        }
+    }
 }
