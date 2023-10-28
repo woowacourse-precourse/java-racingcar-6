@@ -5,15 +5,15 @@ public class Car {
     private static final int MOVABLE_OFFSET = 4;
 
     private final CarName name;
-    private int position;
+    private final CarPosition position;
 
-    private Car(final CarName name, final int position) {
+    private Car(final CarName name, final CarPosition position) {
         this.name = name;
         this.position = position;
     }
 
-    public static Car of(final String name, final int position) {
-        return new Car(CarName.from(name), position);
+    public static Car of(final String name, final int positionValue) {
+        return new Car(CarName.from(name), new CarPosition(positionValue));
     }
 
     public String getName() {
@@ -21,17 +21,17 @@ public class Car {
     }
 
     public int getPosition() {
-        return position;
+        return position.getValue();
     }
 
     public void moveForward(final int randomNumber) {
         if (randomNumber >= MOVABLE_OFFSET) {
-            position++;
+            position.increase(1);
         }
     }
 
     public boolean isWinner(final int winnerPosition) {
-        return position == winnerPosition;
+        return position.isSame(winnerPosition);
     }
 
     @Override

@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.validator.InputTryCountValidator;
 
-class RaceTryRuleTest {
+class RaceCountRuleTest {
 
     @DisplayName("시도 횟수가 1미만, 10초과라면 예외가 발생합니다.")
     @ParameterizedTest
