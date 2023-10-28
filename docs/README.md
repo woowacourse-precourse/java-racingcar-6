@@ -1,11 +1,12 @@
 # 구현할 기능 목록
 
-## [ ] 자동차 입력 받아서 갯수만큼 자동차 객체 생성하기
-    [ ] RacingCar 도메인 정의하기 -> RacingCars
-    [ ] 입력값에 split(",") 호출해서 String 배열로 만들기 -> InputService.readInput()
-    [ ] 객체 생성 과정에서 입력값 체크하기 -> InputService.validateInput()
+## [] 자동차 입력 받아서 갯수만큼 자동차 객체 생성하기
+    [x] RacingCar 도메인 정의하기 -> RacingCars
+    [x] 입력값에 split(",") 호출해서 String 배열로 만들기 -> InputService.readInput()
+    [x] 객체 생성 과정에서 입력값 체크하기 -> InputService.validateInput()
+    [x] 입력값 서비스에 의존하여 자동차 객체 생성하기 -> GameService.createCars()
 
-## [ ] 시도 횟수 입력 받기
+## [x] 시도 횟수 입력 받기
 
 ## [ ] 각 객체에 대해서 랜덤한 수 받아서 추가하기
     [ ] 랜덤값이 전진에 적합한지 확인하기
