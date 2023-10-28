@@ -1,21 +1,24 @@
 package racingcar.controller;
+
+import racingcar.model.GameModel;
 import racingcar.view.InputView;
 
 public class GameController {
-    private final InputView inputView;
+    private InputView inputView;
+    private GameModel gameModel;
 
-    public GameController() {
-        this.inputView = new InputView();
-    }
-
-    public void runGame(){
+    public void runGame() {
         initGame();
     }
 
 
-    public void initGame(){
+    public void initGame() {
+        this.inputView = new InputView();
         String userCarNames = inputView.inputCarNames();
         String raceTimes = inputView.inputRaceTimes();
+
+        this.gameModel = new GameModel(userCarNames, raceTimes);
+
     }
 
 
