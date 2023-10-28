@@ -16,7 +16,7 @@ public class Validate {
         }
     }
 
-    public void CarNameLength(List<String> list) {
+    public static void CarNameLength(List<String> list) {
         for(String name: list) {
             if(name.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다.");
