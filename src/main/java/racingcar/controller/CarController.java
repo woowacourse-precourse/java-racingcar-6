@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
+import racingcar.domain.Name;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -26,7 +27,7 @@ public class CarController {
         }
     }
 
-    private List<String> readNames() {
+    private List<Name> readNames() {
         outputView.printNameMessage();
         return inputView.readNames();
     }

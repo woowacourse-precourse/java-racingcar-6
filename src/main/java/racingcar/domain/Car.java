@@ -9,10 +9,10 @@ public class Car {
     private static final int END_NUMBER = 9;
     private static final int MOVE_NUMBER = 4;
 
-    private final String name;
+    private final Name name;
     private int position;
 
-    public Car(String name) {
+    public Car(Name name) {
         this.name = name;
         this.position = 0;
     }
@@ -39,7 +39,7 @@ public class Car {
         return position;
     }
 
-    public String getName() {
+    public Name getName() {
         return name;
     }
 

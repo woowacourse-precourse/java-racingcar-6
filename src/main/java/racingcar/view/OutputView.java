@@ -2,6 +2,7 @@ package racingcar.view;
 
 import racingcar.constant.OutputMessage;
 import racingcar.domain.Cars;
+import racingcar.domain.Name;
 
 import java.util.List;
 
@@ -23,9 +24,12 @@ public class OutputView {
         System.out.println(OutputMessage.RESULT_MESSAGE.getMessage());
     }
 
-    public void printWinner(List<String> winner) {
+    public void printWinner(List<Name> winner) {
         OutputMessage winnerMessage = OutputMessage.WINNER;
-        String winnerNames = String.join(OutputMessage.WINNER_DELIMITER.getMessage(), winner);
+        List<String> names = winner.stream()
+                .map(Name::toString)
+                .toList();
+        String winnerNames = String.join(OutputMessage.WINNER_DELIMITER.getMessage(), names);
         System.out.printf(winnerMessage.getMessage(), winnerNames);
         System.out.println();
     }

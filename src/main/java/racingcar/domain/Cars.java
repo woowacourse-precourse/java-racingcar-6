@@ -8,7 +8,7 @@ public class Cars {
 
     private final List<Car> elements = new ArrayList<>();
 
-    public Cars(List<String> names) {
+    public Cars(List<Name> names) {
         names.forEach(name -> elements.add(new Car(name)));
     }
 
@@ -22,7 +22,7 @@ public class Cars {
         return sb.toString();
     }
 
-    public List<String> getWinner() {
+    public List<Name> getWinner() {
         int max = calculateMaxPosition();
         return elements.stream()
                 .filter(car -> car.isSamePosition(max))
