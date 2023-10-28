@@ -53,6 +53,13 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 이름_입력_예외() {
+        String[] test = {"예외가", "", "fddffd"};
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> Application.checkName(test));
+    }
+
+    @Test
     void 공백_입력_예외() {
         String test = "";
         Assertions.assertThrows(IllegalArgumentException.class,
