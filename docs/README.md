@@ -181,11 +181,11 @@
 ## 📦 입출력 출력 - View
 
 - [ ]  📔 사용자 입력 - InputView
-    - [ ]  📝 자동차 이름 입력받기 - inputCarNames
-    - [ ]  📝 시도할 횟수 입력받기 - inputNumberOfRound
+    - [ ]  📝 자동차 이름 입력받기 - getCarNames
+    - [ ]  📝 시도할 횟수 입력받기 - getNumberOfRound
 - [ ]  📔 결과 출력 - OutputView
-    - [ ]  📝 차수 결과 출력하기 - outputRoundResult
-    - [ ]  📝 최종 우승자 출력하기 - outputFinalWinner
+    - [ ]  📝 차수 결과 출력하기 - showRoundResult
+    - [ ]  📝 최종 우승자 출력하기 - showFinalWinner
 
 ## 🧪 입출력 - View
 
