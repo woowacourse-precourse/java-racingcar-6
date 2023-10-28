@@ -1,5 +1,6 @@
 package racingcar.View;
 
+import racingcar.Constants.InputExceptionConstants;
 import racingcar.Car.Car;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class InputView {
         for (String name : input.split(",")) {
             String trimmedName = name.trim();
 
-            if (trimmedName.isEmpty() || trimmedName.length() > 5) {
+            if (trimmedName.isEmpty() || trimmedName.length() > InputExceptionConstants.MAX_NAME_LENGTH) {
                 throw new IllegalArgumentException();
             }
 
@@ -37,7 +38,7 @@ public class InputView {
         System.out.println("시도할 회수는 몇회인가요?");
         try {
             int number = Integer.parseInt(Console.readLine());
-            if (number <= 0) {
+            if (number < InputExceptionConstants.MIN_TRIAL_COUNT) {
                 throw new IllegalArgumentException("시도할 회수는 1회 이상이어야 합니다.");
             }
             return number;
