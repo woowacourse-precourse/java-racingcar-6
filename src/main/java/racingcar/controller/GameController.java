@@ -1,17 +1,41 @@
 package racingcar.controller;
 
 import racingcar.domain.Car;
+import racingcar.domain.CarList;
+import racingcar.domain.RandomNumber;
 import racingcar.view.InputView;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class GameController {
 
     InputView inputView = new InputView();
+    RandomNumber randomNumber = new RandomNumber();
+    CarList carList = CarList.getInstance();
+
     int count; //시도할 횟수
 
     public void proceed() {
         init();
+        startRace();
+    }
+
+    private void startRace() {
+        for (int i = 0; i < count; i++) {
+            carRace();
+        }
+    }
+
+    private void carRace() {
+        List<Car> cars = carList.getCars();
+        for (Car car : cars) {
+            carAdvanceOrStop(car);
+        }
+    }
+
+    private void carAdvanceOrStop(Car car) {
+        
     }
 
     /**
