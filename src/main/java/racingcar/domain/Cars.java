@@ -25,12 +25,14 @@ public class Cars {
     public void addCars(String carNames) {
         blankValidator.isEmpty(carNames);
 
-        carNames = removeSpaces(carNames);
-        List<String> carNameList = splitByComma(carNames);
-
-        validateNameLength(carNameList);
-        validateUniqueNames(carNameList);
+        List<String> carNameList = processInput(carNames);
+        validateCarNames(carNameList);
         initializeCars(carNameList);
+    }
+
+    private List<String> processInput(String carNames) {
+        carNames = removeSpaces(carNames);
+        return splitByComma(carNames);
     }
 
     private String removeSpaces(String carNames) {
@@ -39,6 +41,11 @@ public class Cars {
 
     private List<String> splitByComma(String carNames) {
         return Arrays.asList(carNames.split(","));
+    }
+
+    private void validateCarNames(List<String> carNameList) {
+        validateNameLength(carNameList);
+        validateUniqueNames(carNameList);
     }
 
     private void validateNameLength(List<String> carNameList) {
@@ -75,14 +82,20 @@ public class Cars {
     }
 
     public ArrayList<String> determineFinalWinner() {
-        int highestPosition = this.cars.values().stream()
+        int highestPosition = getHighestPosition();
+        return getWinners(highestPosition);
+    }
+
+    private int getHighestPosition() {
+        return this.cars.values().stream()
                 .max(Integer::compareTo)
                 .orElse(-1);
+    }
 
+    private ArrayList<String> getWinners(int highestPosition) {
         return this.cars.entrySet().stream()
                 .filter(entry -> entry.getValue() == highestPosition)
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toCollection(ArrayList::new));
     }
-
 }
