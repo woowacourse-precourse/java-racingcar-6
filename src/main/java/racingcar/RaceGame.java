@@ -8,10 +8,10 @@ import racingcar.util.Printer;
 public class RaceGame {
     private final Printer printer = new Printer();
     private final RacePlay racePlay = new RacePlay();
-    private final RaceInfo raceInfo = new RaceInfo();
+    private final RacePreparation racePreparation = new RacePreparation();
 
     public void gameStart() {
-        RaceInfo gameInformation = raceInfo.getRaceInfo();
+        RacePreparation gameInformation = racePreparation.getRaceInfo();
         racePlay.playGame(gameInformation.getGameRound(), gameInformation.getScoreBoard());
 
         int winPoint = calculateForwardPoint(racePlay.getResultScore());

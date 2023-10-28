@@ -6,7 +6,7 @@ import java.util.Map;
 import racingcar.util.Printer;
 import racingcar.util.UserInput;
 
-public class RaceInfo {
+public class RacePreparation {
     private final Printer printer = new Printer();
     private final UserInput userInput = new UserInput();
 
@@ -14,13 +14,14 @@ public class RaceInfo {
     private int gameRound;
     private Map<String, StringBuilder> scoreBoard;
 
-    public RaceInfo getRaceInfo() {
+    public RacePreparation getRaceInfo() {
         this.carNames = inputCarNames();
         this.gameRound = inputGameRound();
         this.scoreBoard = makeScoreBoard();
 
         return this;
     }
+
     private List<String> inputCarNames() {
         printer.printStartMessage();
 
@@ -28,7 +29,7 @@ public class RaceInfo {
     }
 
     private int inputGameRound() {
-        printer.printResultMessage();
+        printer.printRequestRoundMessage();
 
         return userInput.getGameRound();
     }
