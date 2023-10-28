@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class Stadium {
     private final int carCount;
@@ -21,6 +22,12 @@ public class Stadium {
         this.cars = parkingCars;
     }
 
+    public void go() {
+        for (Car car : cars) {
+            car.go();
+        }
+    }
+
     public String getProgress() {
         StringBuilder sb = new StringBuilder();
         for (Car car : cars) {
@@ -30,19 +37,15 @@ public class Stadium {
     }
 
     public String getWinners() {
-        int maxDistance = 0;
-        StringBuilder sb = new StringBuilder();
-        for (Car car : cars) {
-            if (car.getDistance() > maxDistance) {
-                maxDistance = car.getDistance();
-                sb.setLength(0);
-                sb.append(car.getCarName());
-            }
-            if (car.getDistance() == maxDistance) {
-                sb.append(", ").append(car.getCarName());
-            }
-        }
-        return sb.toString();
+        int maxDistance = cars.stream()
+                .mapToInt(Car::getDistance)
+                .max()
+                .orElse(0);
+
+        return cars.stream()
+                .filter(car -> car.getDistance() == maxDistance)
+                .map(Car::getCarName)
+                .collect(Collectors.joining(", "));
     }
 
 }

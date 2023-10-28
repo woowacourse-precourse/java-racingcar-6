@@ -10,6 +10,6 @@ public class OutputView {
     }
 
     public void showWinner(String totalResult) {
-        System.out.println(totalResult);
+        System.out.println("최종 우승자 : " + totalResult);
     }
 }
