@@ -31,6 +31,3 @@
 
 ## Exception
 - [ ] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException 발생 기능
-## Random
-- [X] 0 ~ 9 사이의 무작위 정수 생성 기능
-  - **camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()**
