@@ -18,9 +18,9 @@ class CarTest {
     @Test
     void move_메서드는_랜덤한_숫자가_4이상이_나오면_position을_증가시킨다() {
         Car car = new Car("pobi");
-        IncreasePositionNumber increasePositionNumber = new IncreasePositionNumber();
+        NumberGenerator numberGenerator = new IncreasePositionNumber();
 
-        car.move(increasePositionNumber.generate());
+        car.move(numberGenerator.generate());
 
         assertEquals(car.getPosition(), 1);
     }
@@ -28,9 +28,9 @@ class CarTest {
     @Test
     void move_메서드는_랜덤한_숫자가_4이하가_나오면_position을_증가시키지_않는다() {
         Car car = new Car("woni");
-        NotIncreasePositionNumber notIncreasePositionNumber = new NotIncreasePositionNumber();
+        NumberGenerator numberGenerator = new NotIncreasePositionNumber();
 
-        car.move(notIncreasePositionNumber.generate());
+        car.move(numberGenerator.generate());
 
         assertEquals(car.getPosition(), 0);
     }
