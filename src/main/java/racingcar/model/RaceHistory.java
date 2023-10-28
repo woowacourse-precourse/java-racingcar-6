@@ -31,6 +31,7 @@ public class RaceHistory {
     }
 
     private CarGroup getFinalStage() {
+        validateEmpty(raceStages);
         int finalStageIndex = getFinalStageIndex();
         return raceStages.get(finalStageIndex);
     }
