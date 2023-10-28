@@ -19,11 +19,21 @@ public class CarNameValidatorTest {
         assertDoesNotThrow(() -> carNameValidator.processCarNames(carName));
     }
 
-    @DisplayName("자동차이동름입력 - 5자 초과입력시 예외발생")
+    @DisplayName("자동차이동름입력 - 5자 초과입력시 예외발")
     @Test
     void checklCarNmaeInputOverSize(){
         String carName = "hosdfsdng,kim,jun";
         CarNameValidator carNameValidator = new CarNameValidator(blankValidator);
         assertThrows(IllegalArgumentException.class, () -> carNameValidator.processCarNames(carName));
     }
+
+    @DisplayName("자동차이동름입력 - 중복된 이름입력시 예외발생")
+    @Test
+    void checklCarNmaeInputDuplicate(){
+        String carName = "kim,kim,jun";
+        CarNameValidator carNameValidator = new CarNameValidator(blankValidator);
+        assertThrows(IllegalArgumentException.class, () -> carNameValidator.processCarNames(carName));
+    }
+
+
 }
