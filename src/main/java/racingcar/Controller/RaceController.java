@@ -17,13 +17,13 @@ public class RaceController {
     public void RaceGamePlay() {
         startGameSet();
         int count = playCount();
+        System.out.println("");
         for (int i = 0; i < count; i++) {
-            // 각 객체마다 random값 비교
             playRace();
             outputView.outputResult(racingCars);
         }
-        outputView.outputWinner(racingCars);
-
+        String winner = raceService.winnerResult(racingCars);
+        outputView.outputWinner(winner);
     }
 
     private void playRace() {
