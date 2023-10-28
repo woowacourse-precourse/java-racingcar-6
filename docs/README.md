@@ -19,7 +19,7 @@
     3. 메서드
         1. moveRandom() : 무작위의 이동거리를 distance에 더한다.
         2. toString() : 출력할 내용을 설정한다.
-        3. equals() : 객체 간 비교를 이동한 거리로 하기 위해서 Comparable를 상속받아 오버라이딩한다.
+        3. compareTo() : 객체 간 비교를 이동한 거리로 하기 위해서 Comparable를 상속받아 오버라이딩한다.
 2. **RacingGame** : 경주 게임을 실행하는 클래스
     1. 필드
         1. ArrayList<Car> racingCars : 경주에 참가하는 Car를 저장하여 관리한다. ArrayList를 사용한 근거는 다음과 같다.
