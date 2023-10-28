@@ -18,17 +18,17 @@ public class RacingCars {
         this.cars = cars;
     }
 
-    private void validateSize(List<Car> cars) {
-        if (cars.size() < MIN_SIZE) {
-            throw new IllegalArgumentException(String.format(CARS_SIZE_EXCEPTION, MIN_SIZE));
-        }
-    }
-
     public static RacingCars from(String carNames) {
         List<Car> cars = Arrays.stream(carNames.split(CAR_NAME_DELIMITER))
                 .map(Car::new)
                 .toList();
         return new RacingCars(cars);
+    }
+
+    private void validateSize(List<Car> cars) {
+        if (cars.size() < MIN_SIZE) {
+            throw new IllegalArgumentException(String.format(CARS_SIZE_EXCEPTION, MIN_SIZE));
+        }
     }
 
     public List<Car> race() {
