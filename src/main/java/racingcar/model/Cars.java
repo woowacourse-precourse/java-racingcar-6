@@ -13,6 +13,16 @@ public class Cars {
         this.cars = cars;
     }
 
+    public void RandomMoveAll() {
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+        for (Car car : this.cars) {
+            RandomNumber randomNumber = randomNumberGenerator.generate();
+            if (randomNumber.isGreaterThanFour()) {
+                car.move();
+            }
+        }
+    }
+
     public List<Car> findWinner() {
 
         validateEmpty();

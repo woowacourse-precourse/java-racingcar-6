@@ -10,6 +10,10 @@ public class OutputView {
 
     private static final String RESULT_MESSAGE = "실행 결과";
 
+    public static void printBlank() {
+        System.out.println();
+    }
+
     public static void printResultMessage() {
         System.out.println(RESULT_MESSAGE);
     }
