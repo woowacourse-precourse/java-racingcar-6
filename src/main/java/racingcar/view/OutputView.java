@@ -16,4 +16,8 @@ public class OutputView {
     public void printRacingResult(Cars cars) {
         System.out.println(cars.getRacingResult());
     }
+
+    public void printResultMessage() {
+        System.out.println(OutputMessage.RESULT_MESSAGE.getMessage());
+    }
 }

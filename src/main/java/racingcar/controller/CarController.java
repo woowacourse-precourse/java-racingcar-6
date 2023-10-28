@@ -18,6 +18,7 @@ public class CarController {
     }
 
     private void startRacing(int tryCount) {
+        outputView.printResultMessage();
         for (int i = 0; i < tryCount; i++) {
             racingCarGame.race();
             outputView.printRacingResult(racingCarGame.getCars());

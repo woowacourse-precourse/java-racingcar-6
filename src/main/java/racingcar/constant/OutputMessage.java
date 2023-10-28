@@ -6,7 +6,8 @@ public enum OutputMessage {
     READ_TRY_COUNT("시도할 회수는 몇회인가요?"),
     RACING_RESULT("%s : "),
     ROAD("-"),
-    NEW_LINE("\n");
+    NEW_LINE("\n"),
+    RESULT_MESSAGE("실행 결과");
 
     private final String message;
 
