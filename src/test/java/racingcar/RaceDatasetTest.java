@@ -41,13 +41,15 @@ public class RaceDatasetTest {
     }
 
     @Test
-    public void updatePaceMapInOneLap() {
+    public void updatePaceMap() {
         Machines machines = new Machines();
+        Lap lap = new Lap();
         PaceComputer paceComputer = new PaceComputer();
 
         machines.getInput();
+        lap.getInput();
 
-        LinkedHashMap<String, Integer> paceMap = paceComputer.updatePaceMap(machines);
+        LinkedHashMap<String, Integer> paceMap = paceComputer.updatePaceMap(machines, lap);
         List<Integer> valuesInMap = new ArrayList<>(paceMap.values());
 
         List<Integer> generatedNumbers = paceComputer.getRandomNumberList();
