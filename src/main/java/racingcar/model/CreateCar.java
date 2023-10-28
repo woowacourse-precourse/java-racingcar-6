@@ -18,8 +18,8 @@ public class CreateCar {
         return cars;
     }
 
-    public String[] settingCar(String s){
-    String[] car = Console.readLine().split(",");
+    public String[] settingCar(String cars){
+    String[] car = cars.split(",");
     ValidCheck.namesize_check(car);
 
     return car;

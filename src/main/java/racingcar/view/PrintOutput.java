@@ -16,5 +16,6 @@ public class PrintOutput {
             System.out.print(car_list.get(i).getName() + " : ");
             printMove(car_list.get(i).getMove());
         }
+        System.out.println();
     }
 }
