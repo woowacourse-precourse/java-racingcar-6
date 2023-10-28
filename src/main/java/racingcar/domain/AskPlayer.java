@@ -6,6 +6,8 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import static java.lang.Integer.parseInt;
+
 public class AskPlayer {
     public Cars askName(){
         Cars cars = new Cars();
@@ -20,7 +22,14 @@ public class AskPlayer {
     }
 
     public int askHowMany(){
-        return 0;
+        String snum = Console.readLine();
+        int num = 0;
+        try {
+            num = parseInt(snum);
+        } catch(NumberFormatException e){
+            throw new IllegalArgumentException("잘못된 값을 입력하셨습니다. 프로그램이 종료됩니다.");
+        }
+        return num;
     }
 
 }
