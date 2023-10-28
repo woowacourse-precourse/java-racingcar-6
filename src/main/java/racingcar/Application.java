@@ -57,11 +57,24 @@ public class Application {
         return Randoms.pickNumberInRange(0, 9);
     }
 
+    public static void situationPrint(List<String> nameList, int[] goSituation, int i) {
+        goSituation[i] = situationSave(goSituation[i], random());
+        System.out.print(nameList.get(i) + " : ");
+        bar(goSituation[i]);
+    }
+
     public static int situationSave(int goSituation, int random) {
         if (random > 3) {
             goSituation++;
         }
         return goSituation;
+    }
+
+    public static void bar(int i) {
+        for (int j = 0; j < i; j++) {
+            System.out.print("-");
+        }
+        System.out.print("\n");
     }
 
 
