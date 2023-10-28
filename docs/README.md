@@ -73,7 +73,7 @@
 
 
 ## 테스트 코드
-### 자동차 경주 시작 단계(CarTest, InputTest, ValidationTest 클래스)
+### 자동차 경주 시작 단계(CarTest, RoundTest, InputTest, ValidationTest 클래스)
 * 자동차 이름 입력 기능 검증하기
   * 자동자 이름에 관한 잘못된 입력값에 대해 IllegalArgumentException이 발생하는지 확인
   * 입력된 문자열 내 쉼표(,) 유무에 관계없이 유효한 문자열 토큰(자동차 이름)이 Map에 정상적으로 저장되는지 확인
