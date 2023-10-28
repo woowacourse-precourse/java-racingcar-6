@@ -3,7 +3,6 @@ package racingcar.dto;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import racingcar.RacingCarRegistry;
 
 public class RacingCarNameRegistryDto {
 
@@ -17,7 +16,4 @@ public class RacingCarNameRegistryDto {
         return racingCarNames;
     }
 
-    public RacingCarRegistry toRacingCarRegistry() {
-        return new RacingCarRegistry(racingCarNames);
-    }
 }

@@ -5,11 +5,14 @@ import java.util.List;
 
 public class RacingCarRegistry {
 
-    private List<RacingCar> racingCars = new ArrayList<>();
+    private final List<RacingCar> racingCars = new ArrayList<>();
+    private final MoveCount moveCount;
 
-    public RacingCarRegistry(List<String> names) {
+    public RacingCarRegistry(List<String> names, MoveCount moveCount) {
         for (String name : names) {
             racingCars.add(new RacingCar(new Name(name), new Position()));
         }
+
+        this.moveCount = moveCount;
     }
 }

@@ -1,7 +1,5 @@
 package racingcar.dto;
 
-import racingcar.MoveCount;
-
 public class MoveCountDto {
 
     int moveCount;
@@ -14,7 +12,7 @@ public class MoveCountDto {
         }
     }
 
-    public MoveCount toMoveCount() {
-        return new MoveCount(moveCount);
+    public int getMoveCount() {
+        return moveCount;
     }
 }
