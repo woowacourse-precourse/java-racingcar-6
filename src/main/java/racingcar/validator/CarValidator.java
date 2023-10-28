@@ -6,6 +6,12 @@ public class CarValidator {
     private static final int MAX_CAR_NAME_LENGTH = 5;
     private static final String STRING_REGEX = "^[\\w]*$";
 
+    public static void checkCarNameLength(String carName) {
+        if (carName.length() > MAX_CAR_NAME_LENGTH || carName.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     public static void checkCarNameType(String carName) {
         if (!carName.matches(STRING_REGEX)) {
             throw new IllegalArgumentException();
