@@ -15,12 +15,14 @@ public class Application {
         view.printAskCarName();
         String carNames = controller.getCarNamesInput();
         String[] carNamesArray = carNames.split(","); // 메서드화 하기(split & []->List<Car>)
-        gameData.createCarList(carNamesArray.length);
+        int carQuantity = carNamesArray.length;
+        gameData.createCarList(carQuantity);
         gameData.setCarsName(carNamesArray);
 
         view.printAskTryRepetitionNumber();
         gameData.setTryRepetitionNumber();
-        for (int Repetition = 0; Repetition < gameData.getTryRepetitionNumber(); Repetition++) {
+        Integer repetitionNumber = gameData.getTryRepetitionNumber();
+        for (int repetition = 0; repetition < repetitionNumber; repetition++) {
 
             controller.MoveForward(gameData.getCarList());
             controller.setRacingProgressStatus(gameData.getCarList());
