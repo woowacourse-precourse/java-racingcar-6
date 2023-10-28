@@ -19,30 +19,33 @@ public class GameManager {
         massageManager = new MassageManager();
     }
 
-    private void checkMovePossible(Car car){
+    protected void checkMovePossible(Car car){
         int random = createRandomNumber();
         if(random >= 4){
             car.move();
         }
     }
 
-    private int createRandomNumber(){
+    protected int createRandomNumber(){
         return Randoms.pickNumberInRange(0,9);
     }
 
-    private void selectWinner(List<Car> cars){
+    protected List<String> selectWinner(List<Car> cars){
         Collections.sort(cars, Collections.reverseOrder());
         int maxDistance = cars.get(0).getDistance();
-        String output = MassageManager.FINAL_WINNER + cars.get(0).getName();
+
+        List<String> names = new ArrayList<>();
+        names.add(cars.get(0).getName());
 
         for (int i = 1; i<cars.size(); i++){
             if (maxDistance == cars.get(i).getDistance()){
-                output += ", " + cars.get(i).getName();
+                names.add(cars.get(i).getName());
             }else{
                 break;
             }
         }
-        System.out.println(output);
+
+        return names;
     }
 
     public void startGame(){
@@ -58,10 +61,10 @@ public class GameManager {
         }
 
         //우승자 결과
-        selectWinner(cars);
+        massageManager.showWinner(selectWinner(cars));
     }
 
-    private void startStage(){
+    protected void startStage(){
         for (int i = 0; i<cars.size(); i++){
             Car car = cars.get(i);
             checkMovePossible(car);
