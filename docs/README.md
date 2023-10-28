@@ -9,15 +9,15 @@
 - [ ] 게임을 완료한 후 우승자를 선별한다 - Roster.selectWinners
 
 #### 자동차
-- [ ] 자동차는 생성될 때 이름을 부여받는다 - Car(TString name)
-- [ ] 자동차는 전진한다 - Car.moveForward
-- [ ] 0에서 9 사이에서 무작위 값을 구한 후 값이 4 이상인지 알려준다 - Car.isMovable
-- [ ] 자동차가 이름을 알려준다 - Car.getName
-- [ ] 자동차가 전진한 거리를 알려준다 - Car.getDistance
+- [x] 자동차는 생성될 때 이름을 부여받는다 - Car(TString name)
+- [x] 자동차는 전진한다 - Car.moveForward
+- [x] 0에서 9 사이에서 무작위 값을 구한 후 값이 4 이상인지 알려준다 - Car.isMovable
+- [x] 자동차가 이름을 알려준다 - Car.getName
+- [x] 자동차가 전진한 거리를 알려준다 - Car.getDistance
 
 #### 입력
-- [ ] 사용자로부터 경주할 자동차 이름을 입력받는다 - InputManager.readCarNames
-    - [ ] 사용자 입력으로 받은 자동차 이름이 5자 이하가 아닌 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션을 종료시킨다
+- [x] 사용자로부터 경주할 자동차 이름을 입력받는다 - InputManager.readCarNames
+    - [x] 사용자 입력으로 받은 자동차 이름이 5자 이하가 아닌 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션을 종료시킨다
 - [ ] 사용자로부터 전진 시도할 횟수를 입력받는다 - InputManager.readNumberOfAttempts
     - [ ] 사용자 입력으로 받은 시도할 횟수가 숫자가 아닌 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션을 종료시킨다
     
