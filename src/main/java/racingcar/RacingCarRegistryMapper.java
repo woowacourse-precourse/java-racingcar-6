@@ -7,10 +7,11 @@ import racingcar.dto.RacingCarNameRegistryDto;
 public class RacingCarRegistryMapper {
 
     public static RacingCarRegistry toRacingCarRegistry(
+            ActionNumberGenerator actionNumberGenerator,
             RacingCarNameRegistryDto racingCarNameRegistryDto,
             MoveCountDto moveCountDto) {
         MoveCount moveCount = new MoveCount(moveCountDto.getMoveCount());
         List<String> racingCarNames = racingCarNameRegistryDto.getRacingCarNames();
-        return new RacingCarRegistry(racingCarNames, moveCount);
+        return new RacingCarRegistry(actionNumberGenerator, racingCarNames, moveCount);
     }
 }

@@ -3,7 +3,7 @@ package racingcar;
 public class Position {
 
     private static final int DEFAULT_POSITION = 0;
-    private final int position;
+    private int position;
 
     public Position(int position) {
         this.position = position;
@@ -11,5 +11,13 @@ public class Position {
 
     public Position() {
         this.position = DEFAULT_POSITION;
+    }
+
+    public void move() {
+        position++;
+    }
+
+    public int getPosition() {
+        return position;
     }
 }

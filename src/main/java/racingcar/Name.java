@@ -16,4 +16,9 @@ public class Name {
             throw new IllegalArgumentException("이름의 길이는 " + MAX_NAME_LENGTH + "를 넘을 수 없습니다.");
         }
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

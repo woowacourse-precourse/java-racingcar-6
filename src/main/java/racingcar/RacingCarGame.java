@@ -13,9 +13,17 @@ public class RacingCarGame {
 
     public void play() {
         RacingCarNameRegistryDto racingCarNameRegistryDto = view.inputRacingCarNames();
-        RacingCarRegistry racingCarRegistry = racingCarNameRegistryDto.toRacingCarRegistry();
-
         MoveCountDto moveCountDto = view.inputMoveCount();
-        MoveCount moveCount = moveCountDto.toMoveCount();
+
+        RacingCarRegistry racingCarRegistry = RacingCarRegistryMapper.toRacingCarRegistry(
+                new RandomActionNumberGenerator(),
+                racingCarNameRegistryDto,
+                moveCountDto);
+
+        view.printResultTitle();
+
+        do {
+            view.printResult(racingCarRegistry.move());
+        } while (!racingCarRegistry.isRacingOver());
     }
 }

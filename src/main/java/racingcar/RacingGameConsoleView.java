@@ -2,7 +2,9 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.dto.MoveCountDto;
+import racingcar.dto.RacingCarDto;
 import racingcar.dto.RacingCarNameRegistryDto;
+import racingcar.dto.RacingResultDto;
 
 public class RacingGameConsoleView {
 
@@ -23,6 +25,19 @@ public class RacingGameConsoleView {
     }
 
     public void printResultTitle() {
+        System.out.println();
         System.out.println(RACING_RESULT_TITLE_MESSAGE);
+    }
+
+    public void printResult(RacingResultDto racingResultDto) {
+        for (RacingCarDto racingCarDto : racingResultDto.getRacingCarDtos()) {
+            Name name = racingCarDto.getName();
+            Position position = racingCarDto.getPosition();
+            System.out.print(name);
+            System.out.print(" : ");
+            System.out.print("-".repeat(position.getPosition()));
+            System.out.println();
+        }
+        System.out.println();
     }
 }
