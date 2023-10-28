@@ -28,6 +28,10 @@ public class Car {
         return position;
     }
 
+    public String getName() {
+        return name;
+    }
+
     private int randomNumberGenerator() {
         return pickNumberInRange(Constants.START_INCLUSIVE, Constants.END_INCLUSIVE);
     }
