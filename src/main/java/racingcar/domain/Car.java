@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
     private String name;
     private int forwardNum;
@@ -26,5 +28,7 @@ public class Car {
         this.forwardNum++;
     }
 
-
+    public int initRandomNum(){
+        return Randoms.pickNumberInRange(0,9);
+    }
 }
