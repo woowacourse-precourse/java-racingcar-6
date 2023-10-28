@@ -10,7 +10,7 @@ public class ConsoleInputView implements InputView{
     }
 
     @Override
-    public String readRaceTimes() {
+    public String readRaceTime() {
         return Console.readLine();
     }
 }
