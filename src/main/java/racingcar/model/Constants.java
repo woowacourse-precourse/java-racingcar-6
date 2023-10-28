@@ -9,7 +9,7 @@ public class Constants {
     public static final int CAR_INIT_DISTANCE = 0;
     public static final int NAME_MAX_LENGTH = 5;
     public static final int NAME_MIN_LENGTH = 0;
-    public static final String PARSER_REGEX = ",";
+    public static final String PARSER_REGEX = "\\s*,\\s*";
     public static final String MATCH_REGEX = "(.*)";
 
 }
