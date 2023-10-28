@@ -30,6 +30,7 @@ public class InputView {
     }
 
     public int inputTryCount() {
-        return 0;
+        int tryCount = Integer.parseInt(Console.readLine());
+        return tryCount;
     }
 }
