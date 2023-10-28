@@ -17,5 +17,6 @@ public class Application {
 
         gameManager.checkMovePossible(cars.get(0));
         System.out.println(cars.get(0).getDistance());
+        gameManager.selectWinner(cars);
     }
 }

@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class Car {
+public class Car implements Comparable<Car>{
     private String name;
     private int distance = 0;
 
@@ -18,5 +18,15 @@ public class Car {
 
     public int getDistance() {
         return distance;
+    }
+
+    @Override
+    public int compareTo(Car car) {
+        if(car.distance < distance){
+            return 1;
+        } else if (car.distance > distance) {
+            return -1;
+        }
+        return 0;
     }
 }
