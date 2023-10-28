@@ -4,43 +4,52 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CarNames {
+    static final String BLANK_INPUT_EXCEPTION = "공백 입력입니다.";
+    static final String NAME_LENGTH_EXCEPTION = "이름 길이가 5를 초과합니다.";
+    static final String SAME_NAMES_EXCEPTION = "중복된 이름이 존재합니다.";
+
     List<String> splitNames(String in) {
         return Arrays.asList(in.split(",", -1));
     }
 
-    void checkBlankInput(String in) throws IllegalArgumentException {
+    public void validateCarNames(String in) {
         List<String> names = splitNames(in);
+        checkBlankInput(names);
+        checkNameLength(names);
+        checkSameNames(names);
+    }
+
+    private void checkBlankInput(List<String> names) throws IllegalArgumentException {
         names.stream().forEach(name -> {
             if (isBlankName(name)) {
-                throw new IllegalArgumentException("공백 입력입니다.");
+                throw new IllegalArgumentException(BLANK_INPUT_EXCEPTION);
             }
         });
     }
 
-    boolean isBlankName(String name) {
+    private boolean isBlankName(String name) {
         return name.trim().isEmpty();
     }
 
-    void checkNameLength(String in) throws IllegalArgumentException {
-        List<String> names = splitNames(in);
+    private void checkNameLength(List<String> names) throws IllegalArgumentException {
         names.stream().forEach(name -> {
             if (isLongName(name)) {
-                throw new IllegalArgumentException("이름 길이가 5를 초과합니다.");
+                throw new IllegalArgumentException(NAME_LENGTH_EXCEPTION);
             }
         });
     }
 
-    boolean isLongName(String name) {
+    private boolean isLongName(String name) {
         return name.length() > 5;
     }
 
-    void checkSameNames(String in) throws IllegalArgumentException {
-        if (hasDuplicateNames(splitNames(in))) {
-            throw new IllegalArgumentException("중복된 입력이 존재합니다.");
+    private void checkSameNames(List<String> names) throws IllegalArgumentException {
+        if (hasDuplicateNames(names)) {
+            throw new IllegalArgumentException(SAME_NAMES_EXCEPTION);
         }
     }
 
-    boolean hasDuplicateNames(List<String> names) {
+    private boolean hasDuplicateNames(List<String> names) {
         return names.size() != names.stream().distinct().count();
     }
 }
