@@ -15,4 +15,8 @@ public class Car {
         MoveCount count = MoveCount.initialMoveCount();
         return new Car(name, count);
     }
+
+    public void moveForward() {
+        moveCount.moveForward();
+    }
 }
