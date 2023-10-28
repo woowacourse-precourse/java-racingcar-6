@@ -30,4 +30,17 @@ public class Application {
         }
         return carNames;
     }
+
+    /**
+     * String[] 변환 된 유저의 차이름 입력에 " : " 기호 추가
+     * @param carName
+     * @return String[] carName
+     */
+    private static String[] setCarName(String[] carName){
+        int numberOfCar = carName.length;
+        for (int i = 0; i < numberOfCar; i++){
+            carName[i] += " : ";
+        }
+        return carName;
+    }
 }
