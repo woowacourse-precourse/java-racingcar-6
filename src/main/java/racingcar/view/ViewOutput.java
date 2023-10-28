@@ -5,7 +5,7 @@ import racingcar.Car;
 import java.util.List;
 
 public class ViewOutput {
-    private StringBuilder stringBuilder;
+    private StringBuilder stringBuilder = new StringBuilder();
 
     public void printRoundResult(List<Car> cars) {
         for(Car car : cars) {
