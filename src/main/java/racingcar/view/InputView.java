@@ -5,6 +5,7 @@ import static racingcar.model.constants.Phrase.GAME_TRIAL;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.dto.CarRequestDto;
+import racingcar.model.dto.GameRequestDto;
 
 public class InputView {
     public CarRequestDto setCarNames() {
@@ -12,8 +13,8 @@ public class InputView {
         return new CarRequestDto(Console.readLine());
     }
 
-    public static String setGameTrial() {
+    public GameRequestDto setGameTrial() {
         System.out.println(GAME_TRIAL.getPhrase());
-        return Console.readLine();
+        return new GameRequestDto(Console.readLine());
     }
 }

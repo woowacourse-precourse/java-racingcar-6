@@ -7,6 +7,7 @@ import java.io.InputStream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.dto.CarRequestDto;
+import racingcar.model.dto.GameRequestDto;
 
 class InputViewTest {
     private final InputView inputView = new InputView();
@@ -21,9 +22,9 @@ class InputViewTest {
             inputStream = new ByteArrayInputStream(carName.getBytes());
             System.setIn(inputStream);
 
-            CarRequestDto actualInput = inputView.setCarNames();
+            CarRequestDto carRequestDto = inputView.setCarNames();
 
-            assertThat(actualInput.getNames()).isEqualTo(new CarRequestDto(carName).getNames());
+            assertThat(carRequestDto.getNames()).isEqualTo(new CarRequestDto(carName).getNames());
         } catch (Exception ignored) {
         }
     }
@@ -37,9 +38,9 @@ class InputViewTest {
             inputStream = new ByteArrayInputStream(trial.getBytes());
             System.setIn(inputStream);
 
-            String actualInput = InputView.setGameTrial();
+            GameRequestDto gameRequestDto = inputView.setGameTrial();
 
-            assertThat(actualInput).isEqualTo(trial);
+            assertThat(gameRequestDto.getTrial()).isEqualTo(Integer.parseInt(trial));
         } catch (Exception ignored) {
         }
     }

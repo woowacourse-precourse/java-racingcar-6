@@ -12,7 +12,6 @@ class CarRequestDtoTest {
     @DisplayName("CarRequestDto 생성자를 테스트 합니다.")
     void CarRequestDto_생성자_확인() {
         String carName = "pobi,woni,jun";
-
         CarRequestDto carRequestDto = new CarRequestDto(carName);
 
         assertThat(carRequestDto).isNotNull();
@@ -21,7 +20,7 @@ class CarRequestDtoTest {
 
     @Test
     @DisplayName("Car 객체 생성을 테스트 합니다.")
-    void CarRequestDto_객체_생성() {
+    void Car_객체_생성() {
         String carName = "pobi,woni,jun";
         CarRequestDto carRequestDto = new CarRequestDto(carName);
 

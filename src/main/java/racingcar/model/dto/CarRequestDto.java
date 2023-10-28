@@ -1,5 +1,7 @@
 package racingcar.model.dto;
 
+import static racingcar.model.constants.Rule.DELIMITER;
+
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.domain.Car;
@@ -16,7 +18,7 @@ public class CarRequestDto {
     }
 
     public List<Car> toCar() {
-        String[] carNames = names.split(",");
+        String[] carNames = names.split(DELIMITER.getMessage());
         List<Car> cars = new ArrayList<>();
         for (String name : carNames) {
             cars.add(Car.from(name));

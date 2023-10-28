@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static racingcar.model.constants.Error.DUPLICATE;
 import static racingcar.model.constants.Error.LENGTH_INVALID;
 import static racingcar.model.constants.Error.NON_COMMA;
+import static racingcar.model.constants.Error.NUMBER_NOT_INTEGER;
+import static racingcar.model.constants.Error.NUMBER_RANGE_INVALID;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -21,10 +23,17 @@ class ValidatorTest {
     }
 
     @ParameterizedTest
-    @DisplayName("자동차 이름 입력에 콤마가 없을 때, 길이를 초과할 때, 중복이 있을 때 예외 발생을 테스트 합니다.")
+    @DisplayName("자동차 이름 입력에 콤마가 없을 때, 길이를 초과할 때, 중복이 있을 때 예외 발생을 통합 테스트 합니다.")
     @ValueSource(strings = {"pobi woni jun", "pobi123,woni,jun", "pobi,pobi,woni,jun"})
     void 자동차_이름_입력_통합_예외(String input) {
         assertThrows(IllegalArgumentException.class, () -> validator.validateCarName(input));
+    }
+
+    @ParameterizedTest
+    @DisplayName("시도 횟수가 정수가 아닐 때, 시도 횟수가 1보다 작을 때 예외 발생을 통합 테스트 합니다.")
+    @ValueSource(strings = {"3.5", "세번", "0", "-1"})
+    void 시도_횟수_입력_통합_예외(String input) {
+        assertThrows(IllegalArgumentException.class, () -> validator.validateTrial(input));
     }
 
     @Test
@@ -55,5 +64,25 @@ class ValidatorTest {
         assertThatThrownBy(() -> validator.validateCarName(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(DUPLICATE.getMessage());
+    }
+
+    @Test
+    @DisplayName("시도 횟수가 정수가 아닐 때 예외 발생을 테스트 합니다.")
+    void 시도_횟수_입력_정수_예외() {
+        String input = "3.5";
+
+        assertThatThrownBy(() -> validator.validateTrial(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(NUMBER_NOT_INTEGER.getMessage());
+    }
+
+    @Test
+    @DisplayName("시도 횟수가 1보다 작을 때 예외 발생을 테스트 합니다.")
+    void 시도_횟수_입력_범위_예외() {
+        String input = "0";
+
+        assertThatThrownBy(() -> validator.validateTrial(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(NUMBER_RANGE_INVALID.getMessage());
     }
 }

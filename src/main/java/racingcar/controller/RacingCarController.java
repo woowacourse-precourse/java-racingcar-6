@@ -1,8 +1,8 @@
 package racingcar.controller;
 
-import java.util.List;
-import racingcar.model.domain.Car;
+import racingcar.model.domain.Game;
 import racingcar.model.dto.CarRequestDto;
+import racingcar.model.dto.GameRequestDto;
 import racingcar.view.InputView;
 
 public class RacingCarController {
@@ -16,12 +16,12 @@ public class RacingCarController {
     }
 
     public void startGame() {
-        getCar();
-        InputView.setGameTrial();
+        Game game = getGame();
     }
 
-    private List<Car> getCar() {
+    private Game getGame() {
         CarRequestDto carRequestDto = inputView.setCarNames();
-        return carRequestDto.toCar();
+        GameRequestDto gameRequestDto = inputView.setGameTrial();
+        return gameRequestDto.toGame(carRequestDto.toCar());
     }
 }

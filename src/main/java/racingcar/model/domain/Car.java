@@ -2,7 +2,7 @@ package racingcar.model.domain;
 
 public class Car {
     private final String name;
-    private Integer location = 0;
+    private int location = 0;
 
     private Car(String name) {
         this.name = name;
@@ -16,7 +16,7 @@ public class Car {
         return name;
     }
 
-    public Integer getLocation() {
+    public int getLocation() {
         return location;
     }
 }
