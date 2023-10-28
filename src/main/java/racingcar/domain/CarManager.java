@@ -26,9 +26,9 @@ public class CarManager {
         LinkedHashMap<String, Integer> record=new LinkedHashMap<>();
 
         for (Car car : cars) {
-            if(!isMove()) continue;
+            if(isMove())
+                car.move(MOVE_DIST);
 
-            car.move(MOVE_DIST);
             record.put(car.getName(), car.getTotalDistance());
         }
 
