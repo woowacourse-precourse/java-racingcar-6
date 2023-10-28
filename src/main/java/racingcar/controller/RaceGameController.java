@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import java.util.stream.IntStream;
 import racingcar.model.Car;
 import racingcar.model.RacingCars;
 import racingcar.model.Referee;
