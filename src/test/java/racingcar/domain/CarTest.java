@@ -4,11 +4,20 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class CarTest {
+
+    Car car;
+
+    @BeforeEach
+    void setUp() {
+        car = new Car("pobi");
+    }
+
 
     @ParameterizedTest
     @ValueSource(strings = {"유선준준준준", "5글자가넘어요"})
@@ -18,7 +27,6 @@ class CarTest {
 
     @Test
     void move_메서드는_랜덤한_숫자가_4이상이_나오면_position을_증가시킨다() {
-        Car car = new Car("pobi");
         NumberGenerator numberGenerator = new IncreasePositionNumber();
 
         car.move(numberGenerator.generate());
@@ -28,7 +36,6 @@ class CarTest {
 
     @Test
     void move_메서드는_랜덤한_숫자가_4이하가_나오면_position을_증가시키지_않는다() {
-        Car car = new Car("woni");
         NumberGenerator numberGenerator = new NotIncreasePositionNumber();
 
         car.move(numberGenerator.generate());
@@ -38,8 +45,6 @@ class CarTest {
 
     @Test
     void isSamePosition_메서드는_자동차의_position이랑_같으면_true를_반환한다() {
-        Car car = new Car("pobi");
-
         car.move(5);
 
         assertTrue(car.isSamePosition(1));
@@ -47,8 +52,6 @@ class CarTest {
 
     @Test
     void comparePosition_메서드는_자동차의_position과_maxPosition을_비교하여_더_큰_값을_반환한다() {
-        Car car = new Car("pobi");
-
         car.move(5);
 
         assertEquals(car.comparePosition(5), 5);
