@@ -8,9 +8,7 @@ import static racingcar.constants.ExceptionMessageConstants.*;
 public class InputHandler {
 
     public List<String> convertNamesToNameList(String names) {
-        if (names == null || names.trim().isEmpty()) {
-            throw new IllegalArgumentException(NULL_NOT_ALLOWED);
-        }
+        validateNull(names);
 
         String[] nameArray = names.split(",");
         List<String> nameList = new ArrayList<>();
@@ -27,9 +25,7 @@ public class InputHandler {
     }
 
     public int convertAttemptsToInt(String inputAttempts) {
-        if (inputAttempts == null || inputAttempts.trim().isEmpty()) {
-            throw new IllegalArgumentException(NULL_NOT_ALLOWED);
-        }
+        validateNull(inputAttempts);
 
         try {
             return Integer.parseInt(inputAttempts);
@@ -38,10 +34,15 @@ public class InputHandler {
         }
     }
 
-    private void validateName(String trimName, List<String> nameList) {
-        if (trimName.isEmpty()) {
+    private void validateNull(String input) {
+        if (input == null || input.trim().isEmpty()) {
             throw new IllegalArgumentException(NULL_NOT_ALLOWED);
         }
+    }
+
+    private void validateName(String trimName, List<String> nameList) {
+        validateNull(trimName);
+
         if (nameList.contains(trimName)) {
             throw new IllegalArgumentException(DUPLICATE_NAME_NOT_ALLOWED);
         }
