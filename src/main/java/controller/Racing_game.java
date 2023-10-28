@@ -13,6 +13,7 @@ public class Racing_game {
     public Racing_game(){
         Output_view.GameStart();
         if(!setting_car_name()) return;
+        setting_game_matches();
     }
     public boolean setting_car_name(){
         carList = new ArrayList<Car>();
@@ -28,5 +29,9 @@ public class Racing_game {
 
         }
         return true;
+    }
+    public void setting_game_matches(){
+        Output_view.NumberOfGameMatches();
+        this.matches_count = Integer.parseInt(inputView.getInput("number"));
     }
 }
