@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class IllegalArgumentExceptionTest {
-    String mockInput = "abracadabra";
+    String mockInput = "abracadabra\nmagic";
     private final InputStream inOriginal = System.in;
 
     @BeforeEach
@@ -28,5 +28,12 @@ public class IllegalArgumentExceptionTest {
         Machines machines = new Machines();
 
         assertThatThrownBy(machines::getInput).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    public void lapAsANumber() {
+        Lap lap = new Lap();
+
+        assertThatThrownBy(lap::getInput).isInstanceOf(IllegalArgumentException.class);
     }
 }
