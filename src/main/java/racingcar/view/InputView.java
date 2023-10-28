@@ -14,13 +14,13 @@ public class InputView {
         return new InputView();
     }
 
-    public String readNames() {
+    public String readCarNames() {
         System.out.println(INPUT_NAME_MESSAGE);
         // 입력 요구사항에 대해선 이쪽에서 유효성 검사를 해야할듯함.
         return Console.readLine();
     }
 
-    public Integer readMoveNum() {
+    public Integer readTryNum() {
         System.out.println(INPUT_MOVE_NUM_MESSAGE);
         return Integer.parseInt(Console.readLine());
     }
