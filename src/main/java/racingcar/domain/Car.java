@@ -27,6 +27,10 @@ public class Car {
         return this.position == maxPosition;
     }
 
+    public int comparePosition(int maxPosition) {
+        return Math.max(maxPosition, position);
+    }
+
     private void validateNameLength(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차 이름 길이의 범위를 벗어났습니다.");

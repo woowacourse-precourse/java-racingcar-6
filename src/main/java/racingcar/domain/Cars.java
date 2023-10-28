@@ -43,7 +43,7 @@ public class Cars {
     private int calculateMaxPosition() {
         int maxPosition = Integer.MIN_VALUE;
         for (Car car : cars) {
-            maxPosition = Math.max(maxPosition, car.getPosition());
+            maxPosition = car.comparePosition(maxPosition);
         }
         return maxPosition;
     }
