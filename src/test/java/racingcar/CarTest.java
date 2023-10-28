@@ -35,10 +35,15 @@ public class CarTest {
     }
 
 
+    @Test
+    void 자동차_이름_게터_테스트() {
+        Assertions.assertEquals("testCar", car.getName());
+    }
 
-
-
-
+    @Test
+    void 자동차_위치_게터_테스트(){
+        Assertions.assertEquals(0,car.getPosition());
+    }
 
 
 }
