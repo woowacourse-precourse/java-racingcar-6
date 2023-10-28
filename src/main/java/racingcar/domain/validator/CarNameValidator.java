@@ -9,9 +9,7 @@ public class CarNameValidator implements InputValidator {
     @Override
     public void validate(String input) {
         check_null(input);
-
         List<String> trimmedInputs = StringManipulator.split(input);
-
         trimmedInputs.forEach(this::check_length);
     }
 
