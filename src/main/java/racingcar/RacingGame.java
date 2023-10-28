@@ -1,15 +1,9 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.ArrayList;
-import java.util.Random;
-
-import static java.lang.Integer.parseInt;
 
 public class RacingGame {
-    private ArrayList<Car> carList = new ArrayList<>();
+    private final ArrayList<Car> carList;
     private int gameNumber;
 
     public RacingGame(){
@@ -26,7 +20,6 @@ public class RacingGame {
             }
             gameNumber--;
         }
-
     }
 
 
