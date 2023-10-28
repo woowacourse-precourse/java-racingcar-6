@@ -22,7 +22,15 @@ public class Car {
 
     @Override
     public String toString() {
+        return this.name;
+    }
+
+    public String getStatus() {
         return this.name + " : "
                 + "-".repeat(Math.max(0, this.distance));
+    }
+
+    public int getDistance() {
+        return distance;
     }
 }
