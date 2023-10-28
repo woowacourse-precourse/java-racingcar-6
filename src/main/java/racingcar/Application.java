@@ -76,7 +76,7 @@ public class Application {
         else return false;
     }
 
-    private static void updateStatusOfRacing(Map<String, StringBuilder> statusOfRacing, String[] arrayCarNames) {
+    public static void updateStatusOfRacing(Map<String, StringBuilder> statusOfRacing, String[] arrayCarNames) {
         for(int i=0;i< statusOfRacing.size();i++){
             if(decideToForward()){
                 statusOfRacing.put(arrayCarNames[i],statusOfRacing.get(arrayCarNames[i]).append("-"));
