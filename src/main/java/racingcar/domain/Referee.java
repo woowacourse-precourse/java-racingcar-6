@@ -20,18 +20,24 @@ public class Referee {
 
         for (Car car : cars.subList(1, cars.size())) {
             int compareState = currentWinner.compareTo(car);
-            boolean isChangeWinner = compareState < 0;
-            boolean isAddWinner = compareState <= 0;
 
-            if (isChangeWinner) {
+            if (isChangeWinner(compareState)) {
                 winners.clear();
                 currentWinner = car;
             }
-            if (isAddWinner) {
+            if (isAddWinner(compareState)) {
                 winners.add(car.getName());
             }
         }
 
         return winners;
+    }
+
+    private boolean isAddWinner(int compareState) {
+        return compareState <= 0;
+    }
+
+    private boolean isChangeWinner(int compareState) {
+        return compareState < 0;
     }
 }
