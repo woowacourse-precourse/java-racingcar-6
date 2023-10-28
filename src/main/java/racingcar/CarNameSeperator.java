@@ -8,8 +8,10 @@ import java.util.StringTokenizer;
 public class CarNameSeperator {
 
     private static final String DILIMITER =",";
+    private static final String DOUBLE_DELIMITER = ",,";
 
     public List<String> seperateCarNames(final String input) {
+        validateNoName(input);
         StringTokenizer stringtokenizer = new StringTokenizer(input, DILIMITER);
         List<String> result = new ArrayList<>();
 
@@ -18,5 +20,11 @@ public class CarNameSeperator {
         }
 
         return result;
+    }
+
+    private void validateNoName(final String input) {
+        if (input.startsWith(DILIMITER) || input.endsWith(DILIMITER) || input.contains(DOUBLE_DELIMITER)) {
+            throw new IllegalArgumentException(ExceptionMessage.NAME_IS_BLANK.getMessage());
+        }
     }
 }
