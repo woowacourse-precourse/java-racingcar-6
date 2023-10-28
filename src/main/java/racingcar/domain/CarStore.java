@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
+import racingcar.dto.Car;
 import racingcar.repository.CarRepository;
 
 public class CarStore {

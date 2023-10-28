@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.dto.Car;
+
 /**
  * GameRound, GameCondition 나누기
  */

@@ -3,7 +3,7 @@ package racingcar.repository;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import racingcar.domain.Car;
+import racingcar.dto.Car;
 
 public class CarRepository {
     private static final CarRepository instance = new CarRepository();

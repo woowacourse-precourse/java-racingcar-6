@@ -1,10 +1,9 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.domain.Car;
 import racingcar.domain.CarMovement;
 import racingcar.domain.CarStore;
-import racingcar.dto.CarInputDto;
+import racingcar.dto.Car;
 import racingcar.view.InputVeiw;
 import racingcar.view.OutputView;
 
@@ -26,8 +25,7 @@ public class GameController {
         // 차이름, 횟수 입력받기
         List<String> tmp = inputView.inputCarName();
         for (int i = 0; i < tmp.size(); i++) {
-            CarInputDto carInputDto = new CarInputDto(tmp.get(i));
-            Car car = new Car(i, carInputDto.getName());
+            Car car = new Car(i, tmp.get(i), 0);
             carStore.saveCarInfo(car);
         }
         MAX_CAR_NUMBER = tmp.size();
@@ -59,8 +57,7 @@ public class GameController {
         for (int i = 0; i < MAX_CAR_NUMBER; i++) {
             Car currentRaceCar = carStore.getCarInfo(i);
             new CarMovement(currentRaceCar);
-
-            OutputView.printStatusOfRaceCar(currentRaceCar);
+            OutputView.printStatusOfRaceCar(carStore.getCarInfo(i));
         }
     }
 
