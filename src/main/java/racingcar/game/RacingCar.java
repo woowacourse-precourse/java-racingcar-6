@@ -6,6 +6,7 @@ import racingcar.model.Position;
 
 public class RacingCar {
 
+    private static final int MOVING_FORWARD = 4;
     private Name name;
     private Position position;
 
@@ -24,7 +25,7 @@ public class RacingCar {
      * @param actionNumber 를 기준으로 자동차를 움직일지 말지 판단한다. 4이상인 경우 움직임
      */
     public void move(int actionNumber) {
-        if (actionNumber < 4) {
+        if (actionNumber < MOVING_FORWARD) {
             return;
         }
 
