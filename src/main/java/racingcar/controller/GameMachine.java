@@ -22,6 +22,15 @@ public class GameMachine {
         System.out.println("시도할 회수는 몇회인가요?");
         int tryCount = Integer.parseInt(Console.readLine());
 
+        System.out.println();
+        System.out.println("실행 결과");
+        for (int i = 0; i < tryCount; i++) {
+            cars.move();
+            System.out.println(cars.statusMessage());
+            System.out.println();
+        }
+
+        
     }
 
     // 자동차 이름 부여해서 객체 생성
