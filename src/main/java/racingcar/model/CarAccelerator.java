@@ -41,7 +41,7 @@ public class CarAccelerator implements WrappedRandoms {
 
         @Override
         public int pickNumberInRange(int minimumOfRange, int maximumOfRange) {
-            return Randoms.pickNumberInRange(maximumOfRange, maximumOfRange);
+            return Randoms.pickNumberInRange(minimumOfRange, maximumOfRange);
         }
     }
 
