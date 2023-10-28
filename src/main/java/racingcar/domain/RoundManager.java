@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.system.SystemConstant;
+
 import java.util.List;
 
 public class RoundManager {
@@ -13,6 +15,6 @@ public class RoundManager {
 
     private boolean shouldCarMove(){
         int randomValue = RandomNumberGenerator.randomNumGenerate();
-        return randomValue >=4;
+        return randomValue >= SystemConstant.MIN_MOVE_THRESHOLD;
     }
 }
