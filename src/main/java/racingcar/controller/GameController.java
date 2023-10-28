@@ -29,5 +29,6 @@ public class GameController {
             OutputView.displayRacingSituation(cars);
         }
         cars.initWinners();
+        OutputView.displayWinner(cars);
     }
 }

@@ -53,4 +53,12 @@ public class Car {
         }
         System.out.println(winners);
     }
+
+    public int getWinnersSize() {
+        return winners.size();
+    }
+
+    public String getWinnersByIndex(int idx) {
+        return winners.get(idx);
+    }
 }

@@ -22,4 +22,20 @@ public class OutputView {
         }
         System.out.println();
     }
+
+    public static void displayWinner(Car cars) {
+        System.out.print(GameMessage.OUTPUT_WINNER_ANNOUNCEMENT.getMessage());
+        int size = cars.getWinnersSize();
+
+        if(size == 1) {
+            System.out.println(cars.getWinnersByIndex(0));
+            return;
+        }
+
+        for (int i = 1; i < size; i++) {
+            System.out.print(cars.getWinnersByIndex(i-1));
+            System.out.print(GameMessage.OUTPUT_DIVISION.getMessage());
+        }
+        System.out.println(cars.getWinnersByIndex(size-1));
+    }
 }
