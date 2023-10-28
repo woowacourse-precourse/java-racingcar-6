@@ -4,6 +4,7 @@ import static racingcar.constant.GameMessage.FINAL_WINNER;
 import static racingcar.constant.GameMessage.RACING_RESULT;
 
 import java.util.List;
+import racingcar.Utils;
 
 public class OutputView {
     public static void printResultMessage() {
@@ -14,15 +15,11 @@ public class OutputView {
         for (String result : roundResult) {
             System.out.println(result);
         }
-        printLineChanging();
+        Utils.printLineChanging();
     }
 
     public static void printFinalWinner(String result) {
         System.out.print(FINAL_WINNER);
         System.out.print(result);
-    }
-
-    public static void printLineChanging() {
-        System.out.println();
     }
 }

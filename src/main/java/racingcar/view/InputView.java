@@ -11,8 +11,4 @@ public class InputView {
     public static void printRequestAttempt() {
         System.out.println(REQUEST_ATTEMPT_COUNT);
     }
-
-    public static void printLineChanging() {
-        System.out.println();
-    }
 }

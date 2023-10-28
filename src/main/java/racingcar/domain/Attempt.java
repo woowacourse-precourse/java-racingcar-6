@@ -16,7 +16,7 @@ public class Attempt {
         InputView.printRequestAttempt();
         String attemptInput = Console.readLine();
         input(attemptInput);
-        InputView.printLineChanging();
+        Utils.printLineChanging();
     }
 
     public void input(String attemptInput) {
