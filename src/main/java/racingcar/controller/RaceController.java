@@ -17,7 +17,10 @@ public class RaceController {
         validator.checkNameValidation(carNames);
         String count = UserInputValue.inputMovementCount();
         validator.checkMovementCount(count);
+
         RaceTrack raceTrack = new RaceTrack(carNames);
         raceTrack.printCarNames();
+        // "-" 길이가 count가 될 때까지 '반복'한다
+        raceTrack.rankCar();
     }
 }
