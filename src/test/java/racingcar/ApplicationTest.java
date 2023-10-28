@@ -84,6 +84,11 @@ class ApplicationTest extends NsTest {
                 () -> Application.timeIsOver0(test));
     }
 
+    @Test
+    void random_test() {
+        assertThat(Application.random()).isBetween(0, 9);
+    }
+
 
 
     @Override
