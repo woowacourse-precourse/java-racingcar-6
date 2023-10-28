@@ -18,6 +18,10 @@ public class Car implements Comparable<Car>{
         }
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public boolean hasSameDistance(Car otherCar) {
         return this.moveDistance == otherCar.moveDistance;
     }
