@@ -28,7 +28,7 @@ class CarTest {
         String carName = "Car1";
 
         // when
-        Car car = new Car(carName);
+        car = new Car(carName);
 
         // then
         assertNotNull(car);
