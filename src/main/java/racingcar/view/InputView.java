@@ -13,6 +13,11 @@ public class InputView {
         return names;
     }
 
+    public int inputTryCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        return Integer.parseInt(readLine());
+    }
+
     public void isValidNameLength(String s) {
         if (s.length() > 5) {
             throw new IllegalArgumentException("[ERROR] 이름은 5글자 이하만 가능합니다.");
