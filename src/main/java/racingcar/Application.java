@@ -1,7 +1,11 @@
 package racingcar;
 
+import racingcar.domain.Cars;
+import racingcar.domain.RacingCarIOManager;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        RacingCarIOManager ioManager = new RacingCarIOManager();
+        Cars cars = new Cars(ioManager.readCarNames());
     }
 }
