@@ -13,7 +13,6 @@ public class RacingGameController {
     private CarController carController = new CarController();
     private Cars cars;
     private int attemptNumber;
-    private Referee referee;
     private List<String> winner;
 
     public void start() {
@@ -41,7 +40,7 @@ public class RacingGameController {
     }
 
     private void findWinner() {
-        referee = new Referee();
+        Referee referee = new Referee();
         referee.competeCars(cars);
         winner = referee.getWinner();
     }
