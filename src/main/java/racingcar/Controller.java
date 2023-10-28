@@ -28,7 +28,11 @@ public class Controller {
 
     private int setAttemptCount() {
         view.printAttemptCountInputMessage();
-        return new AttemptCount(readFromConsole()).getAttemptCount();
+        return creatAttemptCount(readFromConsole());
+    }
+
+    private int creatAttemptCount(String input) {
+        return new AttemptCount(input).getAttemptCount();
     }
 
     private String readFromConsole() {
