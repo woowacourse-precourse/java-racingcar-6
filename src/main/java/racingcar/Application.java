@@ -80,7 +80,7 @@ public class Application {
     }
 
     private static String getInput(String message) {
-        System.out.println("message");
+        System.out.println(message);
         String getData = Console.readLine();
         return getData;
     }
@@ -93,8 +93,8 @@ public class Application {
                 throw new IllegalArgumentException();
             }
 
-            if (carList.isEmpty()) {
-                throw new IllegalArgumentException("적어도 한 대 이상의 자동차 이름을 입력해야 합니다.");
+            if (car.isEmpty()) {
+                throw new IllegalArgumentException();
             }
         }
 
