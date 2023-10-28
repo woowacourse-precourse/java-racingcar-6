@@ -27,6 +27,7 @@ public class CarGameController {
         outputView.carNameMessage();
         String userInput = inputView.getInput();
         List<String> participant = parser.parseUserInputToList(userInput);
+        validator.validName(participant);
 
         outputView.numberMessage();
         String numberInput = inputView.getInput();

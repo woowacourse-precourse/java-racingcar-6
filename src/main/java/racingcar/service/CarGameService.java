@@ -20,7 +20,7 @@ public class CarGameService {
 
     public List<String> playGame(List<String> participants, int times) {
         enrollCar(participants);
-        while(times >= 0) {
+        while(times > 0) {
             round(participants);
             times--;
             outputView.carsStatus(carsDto.findAll());
