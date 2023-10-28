@@ -23,6 +23,7 @@ public class CarGameController {
     public void run() {
         outputView.carNameMessage();
         String userInput = inputView.getInput();
+
         List<String> participant = parser.parseUserInputToList(userInput);
 
         outputView.numberMessage();
