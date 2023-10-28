@@ -7,7 +7,7 @@ import java.util.List;
 
 public class OutputView {
 
-    String oneStep = "-";
+    private final String oneStep = "-";
     public void printGameResult(List<Car> carList){
         for(Car car : carList){
             String totalStep = oneStep.repeat(car.getStep());
