@@ -1,5 +1,9 @@
 package racingcar;
 
+import static racingcar.Converter.*;
+import static racingcar.GetTrialNumberValidator.*;
+import static racingcar.InputView.*;
+
 import java.util.ArrayList;
 import javax.xml.validation.Validator;
 
@@ -7,7 +11,9 @@ public class Controller {
 
     private static final Controller instance = new Controller();
 
+    private final Service service;
     private Controller() {
+        this.service = new Service();
     }
 
     public static Controller getInstance() {
@@ -20,13 +26,20 @@ public class Controller {
 
 
     private static ArrayList<String> getCarsName() {
-        String inputString = InputView.inputCarsName();
+        String inputString = inputCarsName();
         ArrayList<String> carNameArrayList = GetNameValidator.validateCarsName(inputString);
         return carNameArrayList;
     }
 
 
     private void saveCars(ArrayList<String> carsName) {
+        ArrayList<CarDto> cars = new ArrayList<>();
+
+        carsName.stream()
+                        .forEach((car)->cars.add(new CarDto(car)));
+
+        CarsDto carsDto = new CarsDto(cars);
+        service.saveCars(carsDto);
     }
 
     public void startGame() {
