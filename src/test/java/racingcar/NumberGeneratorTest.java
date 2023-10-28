@@ -8,7 +8,8 @@ class NumberGeneratorTest {
 
     @RepeatedTest(100)
     void 랜덤숫자_0부터_9_사이인지_확인() {
-        int randomNumber = NumberGenerator.createRandomNumber();
+        NumberGenerator numberGenerator = new NumberGenerator();
+        int randomNumber = numberGenerator.createRandomNumber();
         assertThat(randomNumber).isBetween(0, 9);
     }
 }
