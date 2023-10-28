@@ -9,7 +9,8 @@ import java.util.stream.Stream;
 public class InputView {
 
     public List<String> inputNames() {
-        System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
+        System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.print("\n");
         String inputNames = Console.readLine();
         validateBlank(inputNames);
         List<String> nameList = Arrays.stream(

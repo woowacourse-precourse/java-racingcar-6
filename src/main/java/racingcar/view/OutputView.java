@@ -27,11 +27,12 @@ public class OutputView {
         for (Car car : cars.getCars()) {
             drawCarPosition(car);
         }
-        System.out.println();
+        System.out.print("\n");
     }
 
     public void outputWinner(List<Car> winners) {
-        System.out.println(createWinnerMessage(winners));
+        System.out.print(createWinnerMessage(winners));
+        System.out.print("\n");
     }
 
 
