@@ -17,10 +17,12 @@ public class Race {
         System.out.println("시도할 회수는 몇회인가요?");
         int cycle = user.inputTryNumber();
         goCycle(carList, cycle);
+        Result result = new Result();
+        result.printWinner(carList);
     }
 
-    public void goCycle(List<Car> carList, int cycle){
-        for(int i = 0; i < cycle; i++) {
+    public void goCycle(List<Car> carList, int cycle) {
+        for (int i = 0; i < cycle; i++) {
             goForward(carList);
             Result result = new Result();
             result.printResult(carList);
@@ -37,7 +39,7 @@ public class Race {
     }
 
     public void goForward(List<Car> carList) {
-        for(int i = 0; i < carList.size(); i++) {
+        for (int i = 0; i < carList.size(); i++) {
             Car car = carList.get(i);
             if (checkForward(computer.getRandomNumber())) {
                 car.addDistance();
