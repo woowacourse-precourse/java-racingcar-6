@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.AttemptCountValidator;
 import racingcar.util.BlankValidator;
 
-public class CarNameValidatorTest {
+public class AttemptCountValidatorTest {
     BlankValidator blankValidator = new BlankValidator();
 
     @DisplayName("시도횟수 입력 - 정상입력")
