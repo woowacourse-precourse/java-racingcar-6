@@ -3,7 +3,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class Application {
@@ -19,8 +21,30 @@ public class Application {
 
         if(!checkNumber(number)) throw new IllegalArgumentException();
 
+        System.out.println();
+        System.out.println("실행 결과");
+
+        //데이터 가공
+        Map<String,StringBuilder> statusOfRacing = new HashMap<>();
+        String[] arrayCarNames = stringCarNames.split(",");
+        for(int i=0;i<arrayCarNames.length;i++){
+            statusOfRacing.put(arrayCarNames[i],new StringBuilder());
+        }
+
+        for(int i=0; i<Integer.valueOf(number);i++){
+            updateStatusOfRacing(statusOfRacing,arrayCarNames);
+
+            for(int j=0;j< statusOfRacing.size();j++){
+                System.out.println(arrayCarNames[j]+" : "+statusOfRacing.get(arrayCarNames[j]));
+            }
+            System.out.println();
+        }
+
+
 
     }
+
+
 
     public static boolean checkCarNames(String stringCarNames) {
 
@@ -52,5 +76,12 @@ public class Application {
         else return false;
     }
 
+    private static void updateStatusOfRacing(Map<String, StringBuilder> statusOfRacing, String[] arrayCarNames) {
+        for(int i=0;i< statusOfRacing.size();i++){
+            if(decideToForward()){
+                statusOfRacing.put(arrayCarNames[i],statusOfRacing.get(arrayCarNames[i]).append("-"));
+            }
+        }
+    }
 
 }
