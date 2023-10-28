@@ -45,6 +45,14 @@ class ApplicationTest extends NsTest {
         Assertions.assertLinesMatch(expected, cut);
     }
 
+    @Test
+    void 초과_입력_예외() {
+        String test = "여섯글자에용";
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> Application.nameLength(test));
+    }
+
+
 
 
     @Override
