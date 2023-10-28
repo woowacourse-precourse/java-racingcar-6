@@ -31,4 +31,19 @@ class CarTest {
             new Car(carName);
         });
     }
+
+    @Test
+    void accelerate() {
+        CarAccelerator carAccelerator = new CarAccelerator();
+        carAccelerator.setFakeRandoms();
+
+        Car car = new Car("pobi");
+        int beforeAccelerate = car.getTotalMovingDistance();
+
+        car.accelerate(carAccelerator);
+
+        int afterAccelerate = car.getTotalMovingDistance();
+
+        assertEquals(beforeAccelerate, afterAccelerate);
+    }
 }
