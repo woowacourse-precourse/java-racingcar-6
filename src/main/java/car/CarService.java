@@ -1,5 +1,7 @@
 package car;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Stack;
 
 import car.Car;
@@ -32,6 +34,26 @@ public class CarService {
 		
 		return sb.toString();
 	}
+	
+	//car객체의 forward 자원의 양을 기준으로 rank TOP 구하기
+	public static String rankTOPOfCarList(ArrayList<Car> car_list) {
+		StringBuilder rank = new StringBuilder();
+		if(car_list.size()>1) {
+			List<Car> car_list_sort = new ArrayList<Car>();
+			//stack 인스턴스변수 사이즈를 기준으로 오름차순 정렬
+			car_list_sort.sort((p1,p2) -> p1.movementStack.size() - p2.movementStack.size() );
+			//제일 큰 전진값 구하기
+			int top_forward = car_list_sort.get(car_list_sort.size()-1).getMovementStack().size();
+			for(Car c : car_list_sort) {
+				if(c.getMovementStack().size()==top_forward) rank.append(c.getName());
+				//공동우승자가 있을경우
+				else if(c.getMovementStack().size()==top_forward && !rank.isEmpty()) rank.append(", "+c.getName());
+			}
+		}else return car_list.get(0).getName(); //1개밖에 없을경우
+		
+		return rank.toString();
+	}
+	
 	
 	
 }

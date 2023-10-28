@@ -26,7 +26,7 @@ public class Game {
 	}
 	//게임 시작
 	public static void gameStart(int tryCount, ArrayList<Car> car_list) {
-		System.out.println("실행 결과");
+		System.out.println("\n실행 결과");
 		for(int i=1;i<=tryCount;i++) {
 			for(Car car : car_list) {
 				CarService.forward(car, Randoms.pickNumberInRange(0, 9));
@@ -34,6 +34,11 @@ public class Game {
 			}
 			System.out.println();
 		}
+	}
+	
+	//최종우승자
+	public static void gameWinner(ArrayList<Car> car_list) {
+
 	}
 	
 }
