@@ -21,4 +21,18 @@ class inputValidatorTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputCarName("pobi&apple&jun"));
         Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputCarName("pobi,apple,한글이름"));
     }
+
+    @Test
+    void 시도_횟수_입력에_숫자만_포함() {
+        Assertions.assertDoesNotThrow(() -> inputValidator.validateInputTryCount("123"));
+        Assertions.assertDoesNotThrow(() -> inputValidator.validateInputTryCount("103"));
+        Assertions.assertDoesNotThrow(() -> inputValidator.validateInputTryCount("1"));
+    }
+
+    @Test
+    void 시도_횟수_입력_예외처리() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputTryCount(" 123"));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputTryCount("0"));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputTryCount("012"));
+    }
 }
