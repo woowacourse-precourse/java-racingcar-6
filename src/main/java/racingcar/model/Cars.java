@@ -7,6 +7,7 @@ import racingcar.util.NumberGenerator;
 
 public class Cars {
 
+    private static final int ZERO = 0;
     private static final String DUPLICATE_CAR_NAMES_MESSAGE = "중복된 차 이름이 있습니다.";
 
     private final List<Car> cars;
@@ -51,7 +52,7 @@ public class Cars {
         return cars.stream()
                 .map(Car::getPosition)
                 .max(Integer::compareTo)
-                .orElse(0);
+                .orElse(ZERO);
     }
 
     private List<String> findWinners(int maxPosition) {
