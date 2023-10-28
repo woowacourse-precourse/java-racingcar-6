@@ -23,10 +23,14 @@ public class InputView {
     }
 
     public Integer inputMovement() {
-        System.out.println("시도할 회수는 몇회인가요?");
-        Integer movement = Integer.parseInt(Console.readLine());
-        validation.validateMovement(movement);
+        try {
+            System.out.println("시도할 회수는 몇회인가요?");
+            Integer movement = Integer.parseInt(Console.readLine());
+            validation.validateMovement(movement);
 
-        return movement;
+            return movement;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("문자열을 입력할 수 없습니다.");
+        }
     }
 }
