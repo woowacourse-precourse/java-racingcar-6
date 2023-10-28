@@ -18,6 +18,10 @@ public class Name {
         return new Name(carName);
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

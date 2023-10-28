@@ -11,4 +11,8 @@ public class IsWinner {
     public static IsWinner init() {
         return new IsWinner(false);
     }
+
+    public boolean isWinner() {
+        return isWinner;
+    }
 }

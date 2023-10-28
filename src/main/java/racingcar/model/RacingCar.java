@@ -19,4 +19,16 @@ public class RacingCar {
     public RacingCar move() {
         return new RacingCar(name, location.move(), isWinner);
     }
+
+    public String getName() {
+        return name.getName();
+    }
+
+    public int getLocation() {
+        return location.getLocation();
+    }
+
+    public boolean getIsWinner() {
+        return isWinner.isWinner();
+    }
 }

@@ -6,12 +6,12 @@ import racingcar.validator.LocationValidator;
 
 public class Location {
 
-    private final int value;
+    private final int location;
     private static final LocationValidator locationValidator = new LocationValidator();
 
-    public Location(int value) {
-        locationValidator.validate(value);
-        this.value = value;
+    public Location(int location) {
+        locationValidator.validate(location);
+        this.location = location;
     }
 
     public static Location init() {
@@ -20,14 +20,18 @@ public class Location {
 
     public Location move() {
         if (moveCondition()) {
-            return new Location(value + 1);
+            return new Location(location + 1);
         }
-        return new Location(value);
+        return new Location(location);
     }
 
     private boolean moveCondition() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber >= 4;
+    }
+
+    public int getLocation() {
+        return location;
     }
 
     @Override
@@ -39,11 +43,11 @@ public class Location {
             return false;
         }
         Location location1 = (Location) o;
-        return value == location1.value;
+        return location == location1.location;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(value);
+        return Objects.hash(location);
     }
 }
