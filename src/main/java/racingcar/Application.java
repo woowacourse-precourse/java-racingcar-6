@@ -8,8 +8,8 @@ import java.util.List;
 public class Application {
     public static void main(String[] args) {
         String userInput = inputCarName();
-        List<String> deleteComma = deleteComma(userInput);
-        System.out.println(deleteComma);
+        List<String> userCarList = deleteComma(userInput);
+
     }
 
     private static String inputCarName() {
@@ -34,5 +34,11 @@ public class Application {
     private static int randomNumber() {
         int random = Randoms.pickNumberInRange(0,9);
         return random;
+    }
+
+    private static void moveForward(int randomNumber) {
+        if (randomNumber >= 4) {
+
+        }
     }
 }
