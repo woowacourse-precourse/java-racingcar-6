@@ -34,7 +34,7 @@
       - [X] 자동차의 이름마다 숫자 굴리기 -  NumberGenerator - generate  
         - [X] 숫자가 4 이상인 경우 자동차가 전진을 기록한 변수 + 1  RaceService - raceRoundGameStart,  CarGameService - race 
       - [X] 자동차들에 대한 정보를 저장 - 🚗 Car
-      - [ ] 라운드별 결과 출력을 위한 서비스 - RaceService - raceRoundResult, RecordService - madeCarResult
+      - [X] 라운드별 결과 출력을 위한 서비스 - RaceService - raceRoundResult, RecordService - madeCarResult
     - [ ] 게임이 끝나는 마지막 과정에서 우승자가 누군지 판별하는 곳 필요! - JudgementService
 
 
