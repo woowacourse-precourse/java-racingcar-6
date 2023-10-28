@@ -26,4 +26,12 @@ public class Player {
     public String getStatus() {
         return name + DELIMITER + FORWARD.repeat(forward);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isWinner(int max) {
+        return max == forward;
+    }
 }
