@@ -25,8 +25,8 @@ public class RacingGame {
     public void run() {
         List<Car> cars = receiveCars();
         int tryCount = receiveTryCount();
-        List<Car> movedCars = receiveResult(cars, tryCount);
-        processResult(movedCars);
+
+        playCarRacing(cars, tryCount);
     }
 
     private List<Car> receiveCars() {
@@ -46,7 +46,7 @@ public class RacingGame {
         return tryCount;
     }
 
-    private List<Car> receiveResult(List<Car> cars, int tryCount) {
+    private void playCarRacing(List<Car> cars, int tryCount) {
         outputView.printResultMessage();
         for (int i = 0; i < tryCount; i++) {
             moveCars(cars);
@@ -56,7 +56,7 @@ public class RacingGame {
 
             outputView.printNewLine();
         }
-        return cars;
+        processResult(cars);
     }
 
     private void moveCars(List<Car> cars) {
