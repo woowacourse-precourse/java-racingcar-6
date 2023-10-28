@@ -46,7 +46,7 @@ public class Controller {
     }
 
     private String getWinners(List<Car> winningCars) {
-        return racingGame.printCarName(winningCars);
+        return racingGame.printCarName(winningCars).getResultMessage();
     }
 
     private List<Car> findWinningCars() {

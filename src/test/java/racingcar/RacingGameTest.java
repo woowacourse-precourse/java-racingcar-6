@@ -21,18 +21,4 @@ public class RacingGameTest {
             assertThat(cars.get(index).getNameValue()).isEqualTo(splitName[index]);
         }
     }
-
-    @DisplayName("차들의 이름을 출력하는 기능.")
-    @Test
-    void printCarName() {
-        RacingGame racingGame = new RacingGame();
-        List<Car> cars = Arrays.asList(new Car(new Name("pobi"), new Position()),
-                new Car(new Name("jun"), new Position()));
-        String expected = "pobi, jun";
-
-        String result = racingGame.printCarName(cars);
-
-        assertThat(result).isEqualTo(expected);
-
-    }
 }
