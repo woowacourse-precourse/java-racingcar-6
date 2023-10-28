@@ -12,9 +12,11 @@ import static java.lang.Integer.parseInt;
 
 
 public class Racing {
+    //필드
     List<String> carNames;
     List<Integer> carPoints = new ArrayList<>();
-    int roundCount;
+    List<String> winner;
+    //메소드
 
     private Racing() {
 
@@ -51,16 +53,17 @@ public class Racing {
     public int playRound() {
         getCarNames();
         initCarPoints();
-        this.roundCount = getRoundCount();
-        for(int i=0; i<this.roundCount;i++){
+        int roundCount = getRoundCount();
+        for (int i = 0; i < roundCount; i++) {
             getRanNUM();
             displayResult();
         }
+        displayWinner();
         return 0;
     }
 
     private List<Integer> initCarPoints() {
-        for(int i=0; i<carNames.size(); i++){
+        for (int i = 0; i < carNames.size(); i++) {
             carPoints.add(0);
         }
         return carPoints;
@@ -78,26 +81,33 @@ public class Racing {
     }
 
     private int displayResult() {
-        for (int i=0; i<carNames.size();i++){
-            System.out.print(carNames.get(i)+" : ");
-            for(int j=0; j<carPoints.get(i);j++) {
+        for (int i = 0; i < carNames.size(); i++) {
+            System.out.print(carNames.get(i) + " : ");
+            for (int j = 0; j < carPoints.get(i); j++) {
                 System.out.print("-");
             }
             System.out.println();
         }
         return 0;
     }
-    private String displayWinner(){
+
+    private List<String> displayWinner() {
         checkWinnerNum();
         System.out.print("최종 우승자 : ");
-
-        return ;
+        for (int i = 0; i < this.winner.size(); i++) {
+            System.out.print(this.winner.get(i));
+            if (this.winner.get(i+1) != null){
+                System.out.print(",");
+            }
+        }
+        return winner;
     }
-    private List<String> checkWinnerNum(){
-        List<String> winner = new ArrayList<String>();
+
+    private List<String> checkWinnerNum() {
+        winner = new ArrayList<String>();
         int maxPoint = Collections.max(carPoints);
-        for(int i=0; i<carNames.size(); i++){
-            if(carPoints.get(i)==maxPoint){
+        for (int i = 0; i < carNames.size(); i++) {
+            if (carPoints.get(i) == maxPoint) {
                 winner.add(carNames.get(i));
             }
         }
