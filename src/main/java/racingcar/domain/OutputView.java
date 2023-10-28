@@ -9,16 +9,21 @@ public class OutputView {
 
     public void printRoundResult(List<Car> cars){
         for(Car car : cars){
-            String messge = "";
-            messge+= car.getName();
-            messge+=" : ";
-            for(int i=0;i<car.getTotalMovedDistance();i++){
-                messge += "-";
-            }
-            System.out.println(messge);
+            makeRoundResultMessage(car);
         }
         System.out.println();
     }
+
+    private void makeRoundResultMessage(Car car) {
+        String messge = "";
+        messge+= car.getName();
+        messge+=" : ";
+        for(int i = 0; i< car.getTotalMovedDistance(); i++){
+            messge += "-";
+        }
+        System.out.println(messge);
+    }
+
     public void printWinners(List<String> cars){
         System.out.println(makeGameResultMessage(cars));
     }
