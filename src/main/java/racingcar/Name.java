@@ -6,6 +6,10 @@ public class Name {
 
     private String name;
 
+    public Name(Name name) {
+        this.name = name.name;
+    }
+
     public Name(String name) {
         validateName(name);
         this.name = name;

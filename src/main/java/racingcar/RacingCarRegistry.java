@@ -3,7 +3,6 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.dto.RacingCarDto;
 
 public class RacingCarRegistry {
 
@@ -26,16 +25,18 @@ public class RacingCarRegistry {
         return moveOpportunity.isZero();
     }
 
-    public List<RacingCarDto> move() {
+    public List<RacingCar> move() {
         moveOpportunity.move();
 
-        List<RacingCarDto> racingCarDtos = new ArrayList<>();
+        List<RacingCar> racingResults = new ArrayList<>();
         for (RacingCar racingCar : racingCars) {
             racingCar.move(actionNumberGenerator.generate());
-            racingCarDtos.add(new RacingCarDto(racingCar.getName(), racingCar.getPosition()));
+            racingResults.add(new RacingCar(
+                    new Name(racingCar.getName()),
+                    new Position(racingCar.getPosition())));
         }
 
-        return racingCarDtos;
+        return racingResults;
     }
 
     public List<RacingCar> calculateWinner() {

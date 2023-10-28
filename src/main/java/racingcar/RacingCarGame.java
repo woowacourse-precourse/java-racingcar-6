@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.RacingCarMapper.toDtoList;
+
 import racingcar.dto.MoveOpportunityCreateRequest;
 import racingcar.dto.RacingCarCreateRequest;
 
@@ -23,9 +25,9 @@ public class RacingCarGame {
         view.printResultTitle();
 
         do {
-            view.printResult(racingCarRegistry.move());
+            view.printResult(toDtoList(racingCarRegistry.move()));
         } while (!racingCarRegistry.isRacingOver());
 
-        view.printWinners(RacingCarMapper.toDtoList(racingCarRegistry.calculateWinner()));
+        view.printWinners(toDtoList(racingCarRegistry.calculateWinner()));
     }
 }
