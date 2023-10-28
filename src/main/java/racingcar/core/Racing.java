@@ -27,7 +27,7 @@ public class Racing {
         return carNames.stream().map(Car::new).toList();
     }
 
-    public void registerRaceCount() {
+    private void registerRaceCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         final String line = Console.readLine();
         int raceCount = StringUtils.parseInt(line);
@@ -41,7 +41,7 @@ public class Racing {
         }
     }
 
-    public void doRace() {
+    private void doRace() {
         validateCarsNotEmpty();
         System.out.println("\n실행 결과");
         for (int i = 0; i < raceCount; i++) {
@@ -63,10 +63,10 @@ public class Racing {
         }
     }
 
-    public void printWinner() {
+    private void printWinner() {
         validateCarsNotEmpty();
         final List<String> winnerNames = getWinners().stream().map(Car::getName).toList();
-        final String winnerNamesString = String.join(", ", winnerNames);
+        final String winnerNamesString = StringUtils.joinByComma(winnerNames);
         System.out.println(String.format("최종 우승자 : %s", winnerNamesString));
     }
 

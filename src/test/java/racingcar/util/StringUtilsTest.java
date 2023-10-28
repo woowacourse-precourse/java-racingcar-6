@@ -31,6 +31,22 @@ public class StringUtilsTest {
     }
 
     @Test
+    void joinByComma_메서드로_주어진_값을_연결() {
+        List<String> input = List.of("pobi", "woni", "jun");
+        String result = StringUtils.joinByComma(input);
+
+        assertThat(result).contains("pobi", "jun", "woni");
+        assertThat(result).isEqualTo("pobi, woni, jun");
+    }
+
+    @Test
+    void joinByComma_메서드에_null값은_예외_발생() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            StringUtils.joinByComma(null);
+        });
+    }
+
+    @Test
     void parseInt_메서드로_한자리수_문자열을_정수로_변환() {
         String input = "4";
         int result = StringUtils.parseInt(input);
