@@ -13,12 +13,11 @@ class CarFactoryTest {
     @Test
     void Given_CarNames_When_InitCars_Then_Cars() throws Exception {
         // Given
-        CarFactory carFactory = CarFactory.getInstance();
         List<String> carNames = List.of("edgar", "elmo", "kue");
 
         // When
-        List<Car> cars = carFactory.initCars(carNames);
-        String firstCarName = cars.get(0).getCarProfile().carName();
+        List<Car> cars = CarFactory.initCars(carNames);
+        String firstCarName = cars.get(0).getName();
 
         // Then
         assertThat(firstCarName).isEqualTo(carNames.get(0));
@@ -28,11 +27,10 @@ class CarFactoryTest {
     @Test
     void Given_EmptyCarName_When_InitCars_Then_ThrowException() throws Exception {
         // Given
-        CarFactory carFactory = CarFactory.getInstance();
         List<String> carNames = List.of("", "elmo", "kermit");
 
         // When & Then
-        assertThatThrownBy(() -> carFactory.initCars(carNames))
+        assertThatThrownBy(() -> CarFactory.initCars(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("유효하지 않은 자동차 이름입니다.");
     }
@@ -41,11 +39,10 @@ class CarFactoryTest {
     @Test
     void Given_SoLongCarName_When_InitCars_Then_ThrowException() throws Exception {
         // Given
-        CarFactory carFactory = CarFactory.getInstance();
         List<String> carNames = List.of("soLongLongName", "elmo", "kermit");
 
         // When & Then
-        assertThatThrownBy(() -> carFactory.initCars(carNames))
+        assertThatThrownBy(() -> CarFactory.initCars(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("유효하지 않은 자동차 이름입니다.");
     }
