@@ -18,4 +18,10 @@ public class CarOutputView {
         cars.forEach(System.out::print);
         System.out.println();
     }
+
+    public void printWinner(List<String> winners) {
+        System.out.println(OutputMessage.PRINT_FINAL_WINNER);
+        System.out.println(String.join(", ", winners));
+
+    }
 }

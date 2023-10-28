@@ -29,7 +29,6 @@ public class CarRepository {
                 .max()
                 .orElseThrow();
 
-        ArrayList<Car> winners = new ArrayList<>();
         return carDatabase.values()
                 .stream()
                 .filter(car -> car.getPosition() == maxPosition)

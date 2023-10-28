@@ -17,6 +17,12 @@ public class CarController {
     public void process() {
         saveCarsProcess();
         racingCarProcess();
+        announceResultProcess();
+    }
+
+    private void announceResultProcess() {
+        List<String> winner = carService.getWinner();
+        carOutputView.printWinner(winner);
     }
 
     private void racingCarProcess() {
@@ -45,10 +51,10 @@ public class CarController {
 //        carService.startGame(Integer.parseInt(userInput));
 //    }
 
-    public void endGame() {
-        CarOutputView.printEndGame();
-        List<String> winners = carService.getWinner();
-        String result = String.join(", ", winners);
-        System.out.print(result);
-    }
+//    public void endGame() {
+//        CarOutputView.printEndGame();
+//        List<String> winners = carService.getWinner();
+//        String result = String.join(", ", winners);
+//        System.out.print(result);
+//    }
 }
