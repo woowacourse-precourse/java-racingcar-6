@@ -1,22 +1,23 @@
 package racingcar.view;
 
+import static racingcar.exception.ErrorMessage.*;
+import static racingcar.view.constant.InputConstant.*;
+
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.exception.ErrorMessage;
-import racingcar.view.constant.InputConstant;
 
 public class InputView {
 	public void printNamesRequest() {
-		System.out.println(InputConstant.NAMES_REQUEST.getRequestMessage());
+		System.out.println(NAMES_REQUEST.getRequestMessage());
 	}
 
 	public void printRoundRequest() {
-		System.out.println(InputConstant.ROUND_REQUEST.getRequestMessage());
+		System.out.println(ROUND_REQUEST.getRequestMessage());
 	}
 
 	public String getInput() {
 		String input = Console.readLine();
 		if (input.isEmpty()) {
-			throw new IllegalArgumentException(ErrorMessage.EMPTY_ERROR.getMessage());
+			throw new IllegalArgumentException(EMPTY_ERROR.getMessage());
 		}
 		return input;
 	}
