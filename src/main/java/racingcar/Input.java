@@ -57,7 +57,7 @@ public class Input {
         return Integer.decode(raw);
     }
 
-    private static void checkRepetitionsError(String repetitions) {
+    private static void checkRepetitionsError(String repetitions) throws IllegalArgumentException  {
         if (isNull(repetitions)
                 || isBlank(repetitions)
                 || isNumber(repetitions)
