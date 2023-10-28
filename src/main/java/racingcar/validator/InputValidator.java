@@ -15,7 +15,8 @@ public class InputValidator {
         String[] names = carName.split(",");
 
         checkDuplicateCarName(names);
-        checkNameSizeOverTwo(names);
+        checkParticipantSizeUnderTwo(names);
+        checkNameSizeOverFive(names);
     }
 
     public void validateInputTryCount(String tryCount) {
@@ -34,9 +35,17 @@ public class InputValidator {
         }
     }
 
-    private void checkNameSizeOverTwo(String[] names) {
+    private void checkParticipantSizeUnderTwo(String[] names) {
         if (names.length < 2) {
             throw new IllegalArgumentException();
+        }
+    }
+
+    private void checkNameSizeOverFive(String[] names) {
+        for (String name : names) {
+            if (name.length() > 5) {
+                throw new IllegalArgumentException();
+            }
         }
     }
 }
