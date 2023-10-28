@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import static racingcar.constant.GameConstant.MINIMUM_DICE_VALUE;
+import static racingcar.constant.CarForwordConstant.MINIMUM_DICE_VALUE;
 
 public class Car {
     private final String name;

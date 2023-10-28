@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import java.util.List;
 
-import static racingcar.constant.GameResultConstant.EXECUTION_RESULT;
+import static racingcar.constant.GameResultMessageConstant.EXECUTION_RESULT;
 
 public class RaceManager {
 
