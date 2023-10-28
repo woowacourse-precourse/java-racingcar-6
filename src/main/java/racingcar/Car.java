@@ -22,7 +22,7 @@ public class Car {
     }
 
     public String showStatus(){
-        return getName()+" : "+getProgress();
+        return name+" : "+getProgress();
     }
 
     public void incrementForwardCount(){
