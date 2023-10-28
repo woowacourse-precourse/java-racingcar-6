@@ -10,10 +10,10 @@ public class GameService {
 
     public static void run() {
         List<String> carName = checkCarName(InteractService.getCarName());
+
         List<Car> carList = carName.stream().map(Car::new).collect(Collectors.toList());
 
         int tryNum = InteractService.getTryNum();
-        Exception.checkPositive(tryNum);
 
         InteractService.printResult(carList, tryNum);
     }

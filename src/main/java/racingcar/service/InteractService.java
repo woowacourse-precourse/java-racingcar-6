@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.exception.Exception;
 
 public class InteractService {
 
@@ -15,7 +16,7 @@ public class InteractService {
     public static Integer getTryNum() {
         System.out.println("시도할 회수는 몇회인가요?");
         try {
-            return Integer.parseInt(Console.readLine());
+            return Exception.checkPositive(Integer.parseInt(Console.readLine()));
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
