@@ -3,8 +3,11 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.model.Car;
 
@@ -24,9 +27,9 @@ class CarTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"beomsic", "beomseok", "kobeomseok", "testname"})
-    @DisplayName("자동차의 이름의 길이가 5글자 초과라면 생성하지 않고 예외를 호출한다.")
-    void init_CarNameLengthThan5_ThrownException(String carName) {
+    @MethodSource("carNameProvider")
+    @DisplayName("자동차의 이름 길이에 따른 예외처리 테스트")
+    void init_CarNameLengthThanLimit_ThrownException(String carName) {
         // given
         // when
         // then
@@ -41,8 +44,19 @@ class CarTest {
         String carName = "";
 
         // when
-
         // then
         assertThatThrownBy(() -> new Car(carName)).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    private static Stream<Arguments> carNameProvider() {
+        return Stream.of(
+                Arguments.of("beomsic"),
+                Arguments.of("beomseok"),
+                Arguments.of("kobeomseok"),
+                Arguments.of("testname"),
+                Arguments.of("123456"),
+                Arguments.of("12345678"),
+                Arguments.of("123456789")
+        );
     }
 }
