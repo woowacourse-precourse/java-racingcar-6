@@ -1,6 +1,7 @@
 package racingcar.View;
 
 import racingcar.Constants.InputExceptionConstants;
+import racingcar.Constants.InputPrompts;
 import racingcar.Car.Car;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
@@ -11,13 +12,13 @@ import java.util.HashSet;
 
 public class InputView {
     public static List<Car> promptCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(InputPrompts.PROMPT_CAR_NAMES);
         String input = Console.readLine();
 
         List<Car> carsList = new ArrayList<>();
         Set<String> carNamesSet = new HashSet<>();
 
-        for (String name : input.split(",")) {
+        for (String name : input.split(InputPrompts.SPLIT_DELIMITER)) {
             String trimmedName = name.trim();
 
             if (trimmedName.isEmpty() || trimmedName.length() > InputExceptionConstants.MAX_NAME_LENGTH) {
@@ -35,15 +36,15 @@ public class InputView {
     }
 
     public static int promptNumber(){
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(InputPrompts.PROMPT_TRIAL_COUNT);
         try {
             int number = Integer.parseInt(Console.readLine());
             if (number < InputExceptionConstants.MIN_TRIAL_COUNT) {
-                throw new IllegalArgumentException("시도할 회수는 1회 이상이어야 합니다.");
+                throw new IllegalArgumentException();
             }
             return number;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("유효한 숫자를 입력해주세요.", e);
+            throw new IllegalArgumentException();
         }
     }
 
