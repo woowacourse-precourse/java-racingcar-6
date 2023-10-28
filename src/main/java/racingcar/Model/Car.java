@@ -11,14 +11,6 @@ public class Car {
 		this.distance = 0;
 	}
 
-	public int getDistance() {
-		return this.distance;
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
 	private int makeRandomNumber() {
 		final int MIN_NUMBER = 0;
 		final int MAX_NUMBER = 9;
@@ -42,25 +34,11 @@ public class Car {
 	}
 
 	public String makeDistanceGraph(String graphUnit) {
-
-		String graph = "";
-
-		for (int i = 0; i < distance; i++) {
-			graph += graphUnit;
-		}
-
-		return graph;
-	}
-
-	public String joinName(Car other) {
-
-		final String NAME_SEPARATOR = ", ";
-
-		return this.name + NAME_SEPARATOR + other.name;
+		return graphUnit.repeat(distance);
 	}
 
 	public String toString() {
-		return this.name;
+		return name;
 	}
 
 }

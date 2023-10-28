@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Set;
 
 public class CarList {
-
 	private final String ENTERED_LIST_SEPARATOR = ",";
 	private final List<Car> carList = new ArrayList<>();
 
@@ -17,7 +16,7 @@ public class CarList {
 		for (String eachCarName : splitEnteredList) {
 
 			validateCarName(eachCarName);
-			this.carList.add(new Car(eachCarName.trim()));
+			carList.add(new Car(eachCarName.trim()));
 
 		}
 
@@ -47,23 +46,15 @@ public class CarList {
 
 	public String findWinner() {
 
-		final int INIT_INDEX = 0;
-
 		List<Car> winnerList = makeWinnerList();
 
-		String name = winnerList.get(INIT_INDEX).getName();
-
-		for (int i = 1; i < winnerList.size(); i++) {
-			name = winnerList.get(INIT_INDEX).joinName(winnerList.get(i));
-		}
-
-		return name;
+		return toStringWinner(winnerList);
 	}
 
 	private List<Car> makeWinnerList() {
 
 		Set<Car> removeList = makeRemoveList();
-		List<Car> winnerList = this.carList;
+		List<Car> winnerList = carList;
 
 		for (Car removedCar : removeList) {
 			winnerList.remove(removedCar);
@@ -90,17 +81,32 @@ public class CarList {
 
 	private void addRemoveList(Set<Car> removeList, int referenceIndex, int comparableIndex) {
 
-		if (decideRemove(referenceIndex, comparableIndex)) {
+		if (isRemovedCar(referenceIndex, comparableIndex)) {
 			removeList.add(carList.get(referenceIndex));
 		}
 
 	}
 
-	private boolean decideRemove(int referenceIndex, int comparableIndex) {
+	private boolean isRemovedCar(int referenceIndex, int comparableIndex) {
 
 		final int COMPARE_EQUAL_SIGN = 0;
 
 		return carList.get(referenceIndex).compareDistance(carList.get(comparableIndex)) < COMPARE_EQUAL_SIGN;
+	}
+
+	private String toStringWinner(List<Car> winnerList) {
+
+		final int INIT_INDEX = 0;
+
+		StringBuilder winner = new StringBuilder();
+
+		winner.append(winnerList.get(INIT_INDEX));
+
+		for (int i = 1; i < winnerList.size(); i++) {
+			winner.append(", ").append(winnerList.get(i));
+		}
+
+		return winner.toString();
 	}
 
 	public Car getEachCar(int index) {
