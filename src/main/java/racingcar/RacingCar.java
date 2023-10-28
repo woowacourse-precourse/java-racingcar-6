@@ -2,9 +2,13 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class RacingCar {
+public class RacingCar implements Comparable<RacingCar> {
     private String name;
     private Integer movedDistance;
+
+    public String getName() {
+        return name;
+    }
 
     public RacingCar(String name) {
         this.name = name;
@@ -29,5 +33,10 @@ public class RacingCar {
 
     public Integer getMovedDistance() {
         return movedDistance;
+    }
+
+    @Override
+    public int compareTo(RacingCar o) {
+        return o.movedDistance - movedDistance;
     }
 }

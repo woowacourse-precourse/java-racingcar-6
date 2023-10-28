@@ -3,7 +3,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class RacingCarGame {
 
@@ -48,6 +50,17 @@ public class RacingCarGame {
     }
 
     private void printWinners() {
-
+        System.out.print("최종 우승자 : ");
+        Collections.sort(racingCarList);
+        System.out.print(racingCarList.get(0).getName());
+        for (int i = 1; i < racingCarList.size(); i++) {
+            if (Objects.equals(racingCarList.get(i - 1).getMovedDistance(),
+                    racingCarList.get(i).getMovedDistance())) {
+                System.out.print(", " + racingCarList.get(i).getName());
+            } else {
+                break;
+            }
+        }
+        System.out.println();
     }
 }
