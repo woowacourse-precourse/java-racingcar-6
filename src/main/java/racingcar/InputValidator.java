@@ -33,6 +33,20 @@ public class InputValidator {
         return cars;
     }
 
+    public int validateTryCount(String input) {
+        if (!isNumber(input)) {
+            throw new IllegalArgumentException();
+        }
+
+        int tryCount = Integer.parseInt(input);
+
+        if(! isProperTryCount(tryCount)) {
+            throw new IllegalArgumentException();
+        }
+
+        return tryCount;
+    }
+
     private boolean isProperCarNames(List<String> cars) {
         for (String car : cars) {
             if (!isProperNameLength(car)) {
@@ -61,4 +75,11 @@ public class InputValidator {
         return cars.size() == cars.stream().distinct().toList().size();
     }
 
+    private boolean isNumber(String input) {
+        return input.matches(ONLY_NUMBER_REGEX);
+    }
+
+    private boolean isProperTryCount(int count) {
+        return count >= MIN_TRY_COUNT && count <= MAX_TRY_COUNT;
+    }
 }
