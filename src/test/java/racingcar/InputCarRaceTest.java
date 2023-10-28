@@ -14,6 +14,7 @@ public class InputCarRaceTest {
     private static final String 공백차이름 = "";
     private static String 차이름들;
     private static String 차이름;
+    private static String 사용자_이동_횟수 = "";
 
     private static void 공백을_입력하라(){
         차이름 = "";
@@ -40,8 +41,34 @@ public class InputCarRaceTest {
         차이름들 = sb.toString();
     }
 
+    public void 사용자_이동_횟수를_입력하라(){
+        this.사용자_이동_횟수 = "1000000";
+    }
+
+    public void 사용자_이동_횟수_예외를_입력하라(){
+        this.사용자_이동_횟수 = "ㄱ%12ㅍㄴ";
+    }
+
     static class InputCarRace{
         private static List<String> carNames = new ArrayList<>();
+        private static int moveCount = 0;
+
+        public static InputCarRace inputMove(String stringMoveCount){
+            validateOnlyNumber(stringMoveCount);
+            moveCount = Integer.parseInt(stringMoveCount);
+
+            return new InputCarRace();
+        }
+
+        private static void validateOnlyNumber(String stringMoveCount) {
+            if (isOnlyNumber(stringMoveCount)) {
+                throw new IllegalArgumentException("입력하신 내용엔 숫자외 값이 포함되었습니다.");
+            }
+        }
+
+        private static boolean isOnlyNumber(String stringMoveCount){
+            return !stringMoveCount.matches("[0-9]+");
+        }
 
         public static InputCarRace inputCarNames(String stringCarNames){
             StringTokenizer st = new StringTokenizer(stringCarNames,",");
@@ -132,6 +159,25 @@ public class InputCarRaceTest {
 
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> InputCarRace.validateWhiteSpace(차이름))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 사용자이름_입력_정상(){
+        사용자_이동_횟수를_입력하라();
+
+        InputCarRace.inputMove(사용자_이동_횟수);
+
+        assertThat(InputCarRace.moveCount).isGreaterThan(0);
+    }
+
+    @Test
+    void 사용자이름_입력_예외(){
+        사용자_이동_횟수_예외를_입력하라();
+
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> InputCarRace.inputMove(사용자_이동_횟수))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
