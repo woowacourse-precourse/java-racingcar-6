@@ -1,6 +1,9 @@
 package racingcar;
 
 public class RacingCarStatus {
+    private static final String DELIMITER = " : ";
+    private static final String POSITION_CHAR = "-";
+
     private final String name;
     private final int position;
 
@@ -19,5 +22,9 @@ public class RacingCarStatus {
 
     public int getPosition() {
         return position;
+    }
+
+    public String toString() {
+        return String.join(DELIMITER, name, POSITION_CHAR.repeat(position));
     }
 }
