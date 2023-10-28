@@ -42,8 +42,10 @@ class CarTest {
         Car car3 = new Car("h");
         car3.forward(2);
 
-        assertThat(List.of(car1.isLead(), car2.isLead(), car2.isLead()))
-                .isEqualTo(List.of(true, false, false));
+        assertThat(List.of(car1.getForwardCount(),
+                car2.getForwardCount(),
+                car2.getForwardCount()))
+                .isEqualTo(List.of(1, 0, 0));
     }
 
     @Test
@@ -58,8 +60,10 @@ class CarTest {
         Car car3 = new Car("h");
         car3.forward(4);
 
-        assertThat(List.of(car1.isLead(), car2.isLead(), car2.isLead()))
-                .isEqualTo(List.of(true, true, true));
+        assertThat(List.of(car1.getForwardCount(),
+                car2.getForwardCount(),
+                car2.getForwardCount()))
+                .isEqualTo(List.of(1, 1, 1));
     }
 
 }

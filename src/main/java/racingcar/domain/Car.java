@@ -4,7 +4,6 @@ import java.util.Objects;
 
 public class Car {
     private final String name;
-    private static int maxForwardCount = 0;
     private int forwardCount;
 
     public Car(String name) {
@@ -24,17 +23,10 @@ public class Car {
         if (isNumOverThree(number)) {
             forwardCount++;
         }
-        checkLeadCar();
     }
 
-    private void checkLeadCar() {
-        if (maxForwardCount < forwardCount) {
-            maxForwardCount = forwardCount;
-        }
-    }
-
-    public boolean isLead() {
-        if (maxForwardCount == forwardCount) {
+    public boolean isLead(Car other) {
+        if (this.forwardCount >= other.forwardCount) {
             return true;
         }
         return false;
