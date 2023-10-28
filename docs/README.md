@@ -2,21 +2,21 @@
 
 ## 기능 목록
 
-- [x] 각 자동차에 이름을 부여한다. -`CarName #inputCarName`
+- [x] **각 자동차에 이름을 부여한다.** -`CarName #inputCarName`
   - [x] 자동차 이름은 쉼표(,)를 기준으로 구분한다.
-  - [ ] **예외처리 : 이름은 5자 이하만 가능하다.**
-- [x] 사용자는 몇 번의 이동을 할 것인지 입력한다. -`RacingCount #inputRacingCount`
+  - [ ] 예외처리 : 이름은 5자 이하만 가능하다.
+- [x] **사용자는 몇 번의 이동을 할 것인지 입력한다.** -`RacingCount #inputRacingCount`
 
 
-- [ ] 사용자가 입력한 이동 횟수만큼 경주를 반복한다. -`Racing #racingMoveCount`
+- [ ] **사용자가 입력한 이동 횟수만큼 경주를 반복한다.** -`Racing #racingMoveCount`
   - [ ] 한 번 이동할 때마다 각 자동차의 이동횟수를 출력한다.
-- [x] 경주를 진행하는 자동차 개수만큼 반복한다. -`Car #racingCarCount`
-- [x] 0에서 9까지의 숫자 중 무작위 값을 구한다. -`Car #getRandomNumber`
-- [x] 만약 무작위 값이 4 이상이라면 1을 더한다. -`Car #goControlStatement`
+  - [x] **경주를 진행하는 자동차 개수만큼 반복한다.** -`Car #racingCarCount`
+    - [x] **0에서 9까지의 숫자 중 무작위 값을 구한다.** -`Car #getRandomNumber`
+    - [x] **만약 무작위 값이 4 이상이라면 해당 자동차에 1을 더한다.** -`Car #goControlStatement`
 
 
-- [ ] 가장 많이 전진한 차부터 내림차순 정렬한다. -`Referee #descendRangeCar`
-- [ ] 누가 우승했는지 알려준다. -`Referee #callWinnerCar`
+- [ ] **가장 많이 전진한 차부터 내림차순 정렬한다.** -`Referee #descendRangeCar`
+- [ ] **누가 우승했는지 알려준다.** -`Referee #callWinnerCar`
   - [ ] 가장 많이 전진한 차가 우승자다.
   - [ ] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
 
