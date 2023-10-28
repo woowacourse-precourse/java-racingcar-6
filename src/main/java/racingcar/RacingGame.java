@@ -39,13 +39,17 @@ public class RacingGame {
     public String printCarName(List<Car> cars) {
         StringBuilder result = new StringBuilder();
 
-        for (Car car : cars) {
-            result.append(Constants.WHITESPACE).append(car.getNameValue()).append(Constants.COMMA);
-        }
+        cars.stream().map(Car::getNameValue)
+                .forEach((name)->addResult(result,name));
+
 
         trim(result);
 
         return result.toString();
+    }
+
+    private void addResult(StringBuilder result,String name){
+        result.append(Constants.WHITESPACE).append(name).append(Constants.COMMA);
     }
 
     private void trim(StringBuilder result) {
