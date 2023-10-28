@@ -4,6 +4,8 @@ import java.util.Stack;
 
 import car.Car;
 public class CarService {
+	private static final int FORWARD_ON_FOUR = 4;
+	
 	// 쉼표(')가 포함된 문자열에서 객체 생성 및 리스트
 	public static ArrayList<Car> getCarListOfString(String str){
 		ArrayList<Car> car_list = new ArrayList<Car>();
@@ -15,7 +17,7 @@ public class CarService {
 	//0에서 9사이 숫자중 4가 나왔을경우 forward
 	public static void forward(Car car,int num) {
 		Stack<String> movementStack = car.getMovementStack();
-		if(num ==4) {
+		if(num ==FORWARD_ON_FOUR) {
 			movementStack.push("-");
 			car.setMovementStack(movementStack);
 		}
