@@ -8,17 +8,18 @@ public class Referee {
     public static List<String> determineWinner(List<Car> cars){
         List<String> winners = new ArrayList<>();
         int maxDistance = findMaxDistance(cars);
-        for(Car car : cars){
+        cars.forEach(car -> {
             if(car.getTotalMovedDistance() == maxDistance)
                 winners.add(car.getName());
-        }
+        });
         return winners;
     }
     private static int findMaxDistance(List<Car> cars){
         int maxDistance = 0;
         for(Car car : cars){
-            if(maxDistance< car.getTotalMovedDistance())
-                maxDistance = car.getTotalMovedDistance();
+            int carDistance= car.getTotalMovedDistance();
+            if(maxDistance< carDistance)
+                maxDistance = carDistance;
         }
         return maxDistance;
     }
