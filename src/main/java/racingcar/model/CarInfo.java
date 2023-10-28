@@ -33,5 +33,7 @@ public class CarInfo {
     public List<Integer> getCarStatus() {
         return carStatus;
     }
-
+    public List<String> getCarName() {
+        return carName;
+    }
 }
