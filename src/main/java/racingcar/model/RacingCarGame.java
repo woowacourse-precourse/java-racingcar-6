@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,6 +13,7 @@ public class RacingCarGame {
     private static final int MIN_RANDOM_NUMBER = 0;
     private static final int MAX_RANDOM_NUMBER = 9;
     private List<Car> cars;
+    private List<String> winners = new ArrayList<>();
 
     private RacingCarGame(List<Car> cars) {
         this.cars = cars;
@@ -59,5 +59,23 @@ public class RacingCarGame {
             int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
             car.moveForward(randomNumber);
         }
+    }
+
+    public List<String> getWinners() {
+        int maxPosition = getMaxPosition();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
+
+    private int getMaxPosition() {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+        return maxPosition;
     }
 }
