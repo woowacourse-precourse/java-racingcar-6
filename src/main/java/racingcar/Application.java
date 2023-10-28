@@ -38,7 +38,7 @@ public class Application {
             for (Car car : cars_list) {
                 car.carMoving();
                 car.printCurrentLocation();
-                
+                //check
             }
         }
 
