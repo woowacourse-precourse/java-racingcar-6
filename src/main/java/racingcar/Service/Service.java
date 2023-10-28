@@ -42,7 +42,7 @@ public class Service {
 
     public void executeOneGame() {
         for (String car : cars) {
-            if (canMoveForward()) {
+            if (isRandomNumOverFour()) {
                 moveForward(car);
             }
         }
@@ -52,7 +52,7 @@ public class Service {
         progressBoard.moveForward(carName);
     }
 
-    private boolean canMoveForward() {
+    private boolean isRandomNumOverFour() {
         return numberGenerator.getRandomNumber() >= GO_NUMBER;
     }
 
