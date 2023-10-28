@@ -1,12 +1,12 @@
-package racingcar;
+package racingcar.car;
 
-public class Car {
+public class CarInfo {
     String name;
     boolean isForward;
     int moveCount;
 
 
-    Car(String name){
+    public CarInfo(String name){
         this.name = name;
         this.isForward = false;
         this.moveCount = 0;
