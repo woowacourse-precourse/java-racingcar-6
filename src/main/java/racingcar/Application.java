@@ -23,6 +23,7 @@ public class Application {
             referee(userCarNameAndMoveStatus);
             moveStatus(userCarNameAndMoveStatus);
         }
+        winner(userCarNameAndMoveStatus);
     }
 
     private static void moveStatus(HashMap<String, String> carMoveStatus) {
@@ -72,14 +73,20 @@ public class Application {
     private static int mostMovingForwardLength(HashMap<String,String> carMoveStatus) {
         List<Integer> forwardLength = new ArrayList<>();
         for (String carCount : carMoveStatus.keySet()) {
-            forwardLength.add(Integer.parseInt(carCount));
+            forwardLength.add(carMoveStatus.get(carCount).length());
         }
         return Collections.max(forwardLength);
     }
 
     private static void winner(HashMap<String,String> carMoveStatus) {
+        int mostForwardLength = mostMovingForwardLength(carMoveStatus);
 
-        System.out.println("최종 우승자 : ");
+        String winner = "";
+        for (String userCarName : carMoveStatus.keySet()) {
+            if (carMoveStatus.get(userCarName).length() == mostForwardLength) {
+                winner += userCarName;
+            }
+        }
+        System.out.println("최종 우승자 : " + winner);
     }
-
 }
