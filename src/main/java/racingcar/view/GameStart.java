@@ -39,6 +39,14 @@ public class GameStart {
         gameProcess.inputNameOfRaceCar();
     }
 
+    /**
+     * 레이스 진행 시도할 횟수의 출력을 보여주는 기능
+     */
+    public void printInputNumOfTryCnt() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        gameProcess.inputNumberGameAttempts();
+    }
+
     // TODO: 10/27/23 게임 시작.
     public void run() {
 //        게임 시작을 한다.
