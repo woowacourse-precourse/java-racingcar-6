@@ -29,7 +29,7 @@
         - 입력값을 꺼낼 수 있는 `getCarNames` 메서드
     - [ ] TryCount
         - 시도할 회수에 대한 유효성 검사와 값의 반환을 담당하는 클래스
-        - user가 입력한 값이 0이상의 수 인지 확인하는 `validateRange` 메서드
+        - user가 입력한 값이 1 이상의 수 인지 확인하는 `validateRange` 메서드
         - 입력값을 꺼낼 수 있는 `getTryCount` 메서드
     - [ ] TargetNumber
         - 전진하는 조건이 되는 번호를 생성하고 전진 여부를 판단하는 클래스

@@ -17,4 +17,8 @@ public class TryCount {
             throw INVALID_RANGE.getException();
         }
     }
+
+    public int getTryCount() {
+        return tryCount;
+    }
 }
