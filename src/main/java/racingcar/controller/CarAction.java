@@ -34,4 +34,9 @@ public class CarAction {
         String carName = readLine();
         carNameList = CarNameJudgment.splitOf(carName);
     }
+
+    public void inputEpoch() {
+        String epoch = readLine();
+        CarObject.epoch = Integer.parseInt(epoch);
+    }
 }
