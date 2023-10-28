@@ -34,6 +34,14 @@ public class GameController {
 
         outputView.displayGetMoveCount();
         int moveCount = inputView.getMoveCount();
-        race.racing(cars, moveCount);
+
+        runRace(moveCount);
+    }
+
+    private void runRace(int moveCount) {
+        while (moveCount > 0) {
+            race.racing(cars);
+            moveCount--;
+        }
     }
 }

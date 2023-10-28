@@ -9,15 +9,12 @@ import java.util.List;
 public class Race {
     NumberGenerator numberGenerator = new NumberGenerator();
 
-    public void racing(List<Car> cars, int moveCount) {
-        while (moveCount > 0) {
-            List<Integer> randomNumbers = createNumber(cars.size());
-            int carCount = 0;
-            for (Car car : cars) {
-                car.move(randomNumbers.get(carCount));
-                carCount++;
-            }
-            moveCount--;
+    public void racing(List<Car> cars) {
+        List<Integer> randomNumbers = createNumber(cars.size());
+        int count = 0;
+        for (Car car : cars) {
+            car.move(randomNumbers.get(count));
+            count++;
         }
     }
 
