@@ -10,8 +10,8 @@ public class RacingcarService {
         for (Car car : carList) {
             Advance advance = getAdvance();
 
-            if(advance.isAdvance) {
-                car.updateResult(advance.advanceCount);
+            if(advance.getIsAdvance()) {
+                car.updateResult(advance.getAdvanceCount());
             }
         }
     }

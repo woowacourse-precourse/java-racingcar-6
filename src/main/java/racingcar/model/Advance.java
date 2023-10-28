@@ -1,8 +1,8 @@
 package racingcar.model;
 
 public class Advance {
-    boolean isAdvance;
-    int advanceCount;
+    private boolean isAdvance;
+    private int advanceCount;
 
     public Advance() {
     }
@@ -10,5 +10,13 @@ public class Advance {
     public Advance(boolean isAdvance, int advanceCount) {
         this.isAdvance = isAdvance;
         this.advanceCount = advanceCount;
+    }
+
+    public boolean getIsAdvance() {
+        return isAdvance;
+    }
+
+    public int getAdvanceCount() {
+        return advanceCount;
     }
 }

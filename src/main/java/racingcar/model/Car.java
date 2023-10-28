@@ -1,8 +1,8 @@
 package racingcar.model;
 
 public class Car {
-    String name;
-    int result;
+    private final String name;
+    private int result;
 
     public Car(String name, int result) {
         this.name = name;
@@ -11,5 +11,13 @@ public class Car {
 
     public void updateResult(int count){
         this.result = result + count;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getResult() {
+        return result;
     }
 }
