@@ -4,6 +4,7 @@ import racingcar.domain.Car;
 import racingcar.domain.CarList;
 import racingcar.domain.RandomNumber;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 public class GameController {
 
     InputView inputView = new InputView();
+    OutputView outputView = new OutputView();
     RandomNumber randomNumber = new RandomNumber();
     CarList carList = CarList.getInstance();
     private final int STANDARD_NUMBER = 4;
@@ -23,17 +25,28 @@ public class GameController {
     }
 
     private void startRace() {
+        String resultLog;
         for (int i = 0; i < count; i++) {
-            carRace();
-
+            resultLog = carRace();
+            outputView.printExecutionResult(resultLog);
         }
     }
 
-    private void carRace() {
+    private String carRace() {
         List<Car> cars = carList.getCars();
+        StringBuilder sb = new StringBuilder();
+
         for (Car car : cars) {
             carAdvanceOrStop(car);
+            makeLog(car, sb);
         }
+
+        return String.valueOf(sb);
+    }
+
+    private void makeLog(Car car, StringBuilder sb) {
+        String carNameAndLog = car.getCarNameAndLog();
+        sb.append(carNameAndLog + "\n");
     }
 
     private void carAdvanceOrStop(Car car) {
