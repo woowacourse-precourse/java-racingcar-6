@@ -23,4 +23,5 @@ public class Game {
 		Validate.inputPlayerDateIsNumValidate(String.valueOf(try_count));
 		return try_count;
 	}
+	
 }

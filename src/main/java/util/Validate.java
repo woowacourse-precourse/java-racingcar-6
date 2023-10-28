@@ -8,7 +8,7 @@ public class Validate {
 		String[] inputDate_arr = inputDate.split(",");
 		
 		//쉼표(,)가 없을경우
-		if(!inputDate.contains(",")) throw new IllegalArgumentException("게임을 위해 쉼표를 넣어주세요!");
+		if(!inputDate.contains(",")) throw new IllegalArgumentException("게임진행을 위해 쉼표를 넣어주세요!");
 		//이름 5자이하로 제한.
 		for(String s : inputDate_arr) if(s.length()>NAME_LIMIT) throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다!");
 		//숫자 포함하면 안됨.
