@@ -1,5 +1,6 @@
 package racingcar;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -7,20 +8,25 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class CarGeneratorTest {
+    private CarGenerator generator;
+    private String names;
+    List<String> nameList;
+
+    @BeforeEach
+    void setUp() {
+        generator = new CarGenerator();
+        names = "apple,pear,melon";
+        nameList = generator.splitNames(names);
+    }
+
     @Test
     void splitNames_메소드로_주어진_값을_구분() {
-        CarGenerator generator = new CarGenerator();
-        String names = "apple,pear,melon";
-        List<String> nameList = generator.splitNames(names);
 
         assertThat(nameList).containsExactly("apple", "pear", "melon");
     }
 
     @Test
     void createCars_메소드로_자동차_리스트를_생성() {
-        CarGenerator generator = new CarGenerator();
-        String names = "apple,pear,melon";
-        List<String> nameList = generator.splitNames(names);
         List<Car> carList = generator.createCars(nameList);
 
         assertThat(carList.size()).isEqualTo(nameList.size());
