@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.util.RacingGameUtil;
 import racingcar.view.InputManager;
@@ -25,6 +26,37 @@ public class GameController {
                 int randNumber = Randoms.pickNumberInRange(0, 9);
                 car.go(randNumber);
             }
+            printEachCycleResult(cars);
+        }
+        printResult(cars);
+    }
+
+    private void printResult(List<Car> cars) {
+        List<String> winnerNames = findWinnerName(cars);
+        OutputManager.printWinner(winnerNames.stream().collect(Collectors.joining(", ")));
+    }
+
+    private static List<String> findWinnerName(List<Car> cars) {
+        List<String> winnerNames = new ArrayList<>();
+        int maxPosition = 0;
+
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winnerNames.add(car.getName());
+                continue;
+            }
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+                winnerNames = new ArrayList<>();
+                winnerNames.add(car.getName());
+            }
+        }
+        return winnerNames;
+    }
+
+    private void printEachCycleResult(List<Car> cars) {
+        for (Car car : cars) {
+            OutputManager.printEachCycleResult(car.getName(), car.getPosition());
         }
     }
 
