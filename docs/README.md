@@ -36,7 +36,7 @@
     - void play()
     - void tryOnce()
     - void printWinners()
-- [ ] RacingCar
+- [x] RacingCar
     - String name
     - Integer movedDistance
         - 초기 값 0
