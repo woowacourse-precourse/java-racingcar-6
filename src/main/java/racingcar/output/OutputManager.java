@@ -1,6 +1,7 @@
 package racingcar.output;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.domain.CarDto;
 import racingcar.domain.Winner;
 
@@ -29,6 +30,10 @@ public class OutputManager {
     }
 
     public void printGameResult(List<Winner> winners) {
-        System.out.println("최종 우승자");
+        String winnerNames = winners.stream()
+                .map(Winner::name)
+                .collect(Collectors.joining(", "));
+
+        System.out.println("최종 우승자 : " + winnerNames);
     }
 }

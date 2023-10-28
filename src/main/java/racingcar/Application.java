@@ -23,6 +23,7 @@ public class Application {
 
         startRacingDuringAttemptCount(cars, attemptCount, om);
         List<Winner> winners = judgement.judgeGameResult(cars);
+        om.printGameResult(winners);
 
     }
 
