@@ -118,9 +118,9 @@
   - ','으로 나눠진 문자열을 검사한다.-> private void validate()
   - 만든 리스트를 제공한다. -> public List<String> getNameList()
 - RoundCountInput
-  - 숫자를 파싱한다. -> private void parseRoundCount(String userInput)
-  - 입력을 검사한다. -> private void validate()
-  - 파싱한 숫자를 제공한다. -> public int getRoundCount()
+  - 차수를 파싱한다. -> private int parseRoundCount(String userInput)
+  - 차수을 검사한다. -> private void validate()
+  - 파싱한 차수를 제공한다. -> public int getRoundCount()
 - RacingCar
   - 전진을 할 수 있다. -> private void moveForward()
   - 정지를 할 수 있다. -> private void stop()
