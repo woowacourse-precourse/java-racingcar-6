@@ -6,11 +6,15 @@ public class RandomNumber {
 
     private final int number;
 
-    RandomNumber(){
+    RandomNumber() {
         this.number = Randoms.pickNumberInRange(0, 9);
     }
 
-    public int getNumber(){
+    RandomNumber(int number) {
+        this.number = number;
+    }
+
+    public int getNumber() {
         return number;
     }
 }
