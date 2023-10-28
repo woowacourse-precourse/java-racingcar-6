@@ -1,5 +1,11 @@
 package racingcar.service;
 
+import static racingcar.constant.ExceptionMessage.CAR_NAME_DUPLICATE_EXCEPTION_MESSAGE;
+import static racingcar.constant.ExceptionMessage.CAR_NAME_INCLUDE_BLANK_EXCEPTION_MESSAGE;
+import static racingcar.constant.ExceptionMessage.CAR_NAME_OVER_LENGTH_EXCEPTION_MESSAGE;
+import static racingcar.constant.ExceptionMessage.SET_NOT_NUMBER_EXCEPTION_MESSAGE;
+import static racingcar.constant.ExceptionMessage.SET_RANGE_EXCEPTION_MESSAGE;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -25,14 +31,14 @@ public class CarRacingGameService {
         Set<String> inputCarNameSet = new HashSet<>(carNameInputList);
 
         if (inputCarNameSet.size() != carNameInputList.size()) {
-            throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
+            throw new IllegalArgumentException(CAR_NAME_DUPLICATE_EXCEPTION_MESSAGE);
         }
     }
 
     private void checkBlank(List<String> carNameInputList) {
         for (String inputCarName : carNameInputList) {
             if (inputCarName.contains(" ")) {
-                throw new IllegalArgumentException("자동차 이름은 공백을 포함할 수 없습니다.");
+                throw new IllegalArgumentException(CAR_NAME_INCLUDE_BLANK_EXCEPTION_MESSAGE);
             }
         }
     }
@@ -40,7 +46,7 @@ public class CarRacingGameService {
     private void checkNameLength(List<String> carNameInputList) {
         for (String inputCarName : carNameInputList) {
             if (inputCarName.length() > 5) {
-                throw new IllegalArgumentException("자동차 이름은 5자를 넘길 수 없습니다.");
+                throw new IllegalArgumentException(CAR_NAME_OVER_LENGTH_EXCEPTION_MESSAGE);
             }
         }
     }
@@ -60,7 +66,7 @@ public class CarRacingGameService {
         try {
             Integer.parseInt(gameSetInput);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자만 입력이 가능합니다.");
+            throw new IllegalArgumentException(SET_NOT_NUMBER_EXCEPTION_MESSAGE);
         }
     }
 
@@ -68,7 +74,7 @@ public class CarRacingGameService {
         int set = Integer.parseInt(gameSetInput);
 
         if (set < 1 || set > 99) {
-            throw new IllegalArgumentException("1이상 99이하의 숫자만 입력이 가능합니다.");
+            throw new IllegalArgumentException(SET_RANGE_EXCEPTION_MESSAGE);
         }
     }
 
