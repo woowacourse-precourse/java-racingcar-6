@@ -26,8 +26,8 @@ public class GameController {
             runRound();
             View.outputEmptyLine();
         }
-
-        View
+        List<String> winners = gameService.getWinners();
+        View.ouputGameWinner(winners);
     }
 
     private void runRound() {

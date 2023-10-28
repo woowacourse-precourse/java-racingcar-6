@@ -1,5 +1,8 @@
 package racingcar;
 
+import java.util.List;
+import java.util.StringJoiner;
+import java.util.stream.Collectors;
 import racingcar.model.GameResult;
 
 public class View {
@@ -22,11 +25,13 @@ public class View {
     }
 
     public static void ouputGameResult(GameResult gameResult) {
-        System.out.printf("%s : %s", gameResult.getName(), formDistance(gameResult.getPosition()));
+        System.out.printf("%s : %s\n", gameResult.getName(), formDistance(gameResult.getPosition()));
     }
 
-    public static void ouputGameWinner(String winners) {
-        
+    public static void ouputGameWinner(List<String> winners) {
+        System.out.print("최종 우승자 :");
+        String collect = winners.stream().collect(Collectors.joining(","," ",""));
+        System.out.print(collect);
     }
 
     private static String formDistance(int distance) {
