@@ -43,6 +43,8 @@ public class Racing {
         for (int i = 0; i < countNumber; i++) {
             raceOneStep();
         }
+
+        printerWinner();
     }
 
     public void raceOneStep(){
@@ -55,6 +57,17 @@ public class Racing {
 
     public void printRacingStatus(){
         System.out.println(this.toString());
+    }
+
+    public void printerWinner(){
+        int number = getMaxAdvanceCount();
+    }
+
+    private int getMaxAdvanceCount(){
+        return carList.stream().map(Car::getRaceDistance)
+                .mapToInt(i->i)
+                .max()
+                .getAsInt();
     }
 
 

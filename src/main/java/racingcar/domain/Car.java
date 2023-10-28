@@ -20,6 +20,9 @@ public class Car {
         return randomNumber >= START_MOVING_VALUE;
     }
 
+    public int getRaceDistance(){
+        return this.raceDistance;
+    }
 
     @Override
     public String toString() {
