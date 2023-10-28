@@ -40,7 +40,11 @@ public class RacingCarGame {
     }
 
     private void tryOnce() {
-
+        racingCarList.forEach(racingCar -> {
+            racingCar.tryMoving();
+            racingCar.printResult();
+        });
+        System.out.println();
     }
 
     private void printWinners() {

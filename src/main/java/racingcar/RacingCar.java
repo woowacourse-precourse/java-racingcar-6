@@ -20,7 +20,11 @@ public class RacingCar {
     }
 
     public void printResult() {
-
+        System.out.print(name + " : ");
+        for (int i = 0; i < movedDistance; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 
     public Integer getMovedDistance() {
