@@ -20,7 +20,6 @@ public class InputTest {
             InputStream in = generateUserInput("123");
             System.setIn(in);
             Scanner sc = new Scanner(System.in);
-
             return sc.next();
         }
 
