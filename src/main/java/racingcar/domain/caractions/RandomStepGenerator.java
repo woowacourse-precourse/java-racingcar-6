@@ -5,11 +5,10 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RandomStepGenerator {
-
     public int getStep() {
         int step;
         step = generateRandomStep();
-        if (isValidStep(step)){
+        if (isValidStep(step)) {
             return step;
         }
         return 0;
