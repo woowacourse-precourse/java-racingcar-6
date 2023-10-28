@@ -102,6 +102,19 @@ class RacingCarsTest {
     }
 
     @Test
+    @DisplayName("우승자를 요청하면 가장 많이 이동한 자동차 목록을 반환하는가")
     void findWinners() {
+        // given
+        final String firstWinner = "abc";
+        final String secondWinner = "def";
+        final RacingCars racingCars = new RacingCars(
+                List.of(new RacingCar(new Name(firstWinner)), new RacingCar(new Name(secondWinner))));
+        racingCars.moveByNumbers(List.of(4, 4));
+
+        // when
+        final Winners winners = racingCars.findWinners();
+
+        // then
+        assertThat(winners.toResultMessage()).contains(firstWinner, secondWinner);
     }
 }
