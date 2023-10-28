@@ -51,6 +51,8 @@ public class Car {
         for (String carName : this.racingLineup.keySet()) {
             this.winnerList.add(findCar(carName, maxPosition));
         }
+        winnerList.removeAll(Collections.singletonList(null));
+
         return this.winnerList;
     }
     String findCar(String carName, Integer position) {
@@ -59,6 +61,4 @@ public class Car {
         }
         return null;
     }
-
-
 }
