@@ -15,7 +15,7 @@
 2. OutPutView
    - appendRaceStatus() : 게임의 전체 진행 상태를 StringBuilder 저장하는 메서드
    - printRaceStatus() : 전체 진행 상태가 저장된 StringBuilder 출력하는 메서드
-   - printVictoryPlayer() : 우승자를 출력하는 메서드
+   - printVictoryPlayers() : 우승자를 출력하는 메서드
 
 ### Controller
 1. RacingController
