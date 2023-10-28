@@ -72,4 +72,16 @@ public class Application {
             return false;
         }
     }
+
+    /**
+     * 레이스 실행에 대한 결과를 출력
+     * @param setCarNames
+     */
+    private static void printRaceResult(String[] setCarNames){
+        System.out.println("실행 결과");
+        for (String s : setCarNames){
+            System.out.println(s);
+        }
+        System.out.println();
+    }
 }
