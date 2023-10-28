@@ -5,13 +5,13 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 import java.util.function.Predicate;
 
 public class Lap implements Showable, Gettable {
-    private static final String lapInstruction = "시도할 회수는 몇회인가요?";
+    private static final String LAP_INSTRUCTION = "시도할 회수는 몇회인가요?";
 
     private String lap;
 
     @Override
     public void showMessage() {
-        System.out.println(lapInstruction);
+        System.out.println(LAP_INSTRUCTION);
     }
 
     @Override
