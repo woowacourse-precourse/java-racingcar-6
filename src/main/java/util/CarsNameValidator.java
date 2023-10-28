@@ -12,14 +12,14 @@ public class CarsNameValidator {
 
     private static void checkEmptyCars(List<String> cars) {
         if (cars.isEmpty()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(CarsNameErrorMessage.EMPTY_CARS.getMessage());
         }
     }
 
     private static void checkDuplicateCars(List<String> cars) {
         Set<String> set = new HashSet<>(cars);
         if (set.size() != cars.size()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(CarsNameErrorMessage.DUPLICATE_CARS.getMessage());
         }
     }
 }
