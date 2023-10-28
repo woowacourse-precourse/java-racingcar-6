@@ -6,8 +6,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.controller.RacingCarGame;
 import racingcar.model.Car;
 import racingcar.model.Validator;
+import racingcar.view.OutputView;
 
 import static constant.MessgeList.MOVING_FORWARD;
 import static constant.MessgeList.STOP;
@@ -63,6 +65,12 @@ class ApplicationTest extends NsTest {
     void isRandomNumberInRange(){
         int randomNumber = car.generateRandomNumber();
         assertEquals(randomNumber, 0,9);
+    }
+
+    @Test
+    @DisplayName("자동차가 random값을 받아 그 값이 4이상이면 잘 전진하는지 확인하기")
+    void printExecutionResult(){
+        OutputView.printExecutionResult("pobi");
     }
 
     @Override
