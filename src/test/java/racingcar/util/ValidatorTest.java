@@ -10,16 +10,18 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 class ValidatorTest {
 
-    @ParameterizedTest(name = "입력값이 공백이면 예외 발생")
+    @ParameterizedTest(name = "입력값 : {0}")
     @ValueSource(strings = {"", "  "})
+    @DisplayName("입력값 공백 검증 예외 발생")
     void givenBlankInput_whenIsBlankInput_thenThrowError(String input) {
         assertThatThrownBy(() -> Validator.isBlankInput(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("값을 입력해 주세요.");
     }
 
-    @ParameterizedTest(name = "입력값이 정상적으로 주어지면 공백 예외가 발생하지 않음 : {0}")
+    @ParameterizedTest(name = "입력값 : {0}")
     @ValueSource(strings = {"pobi,woni,jun", "5"})
+    @DisplayName("입력값 공백 검증 통과")
     void givenInput_whenIsBlankInput_thenNoException(String input) {
         assertThatNoException().isThrownBy(() -> Validator.isBlankInput(input));
     }
@@ -32,8 +34,9 @@ class ValidatorTest {
                 .hasMessage("입력 값이 null 입니다.");
     }
 
-    @ParameterizedTest(name = "입력값이 정상적으로 주어지면 예외가 발생하지 않음 : {0}")
+    @ParameterizedTest(name = "입력값 : {0}")
     @ValueSource(strings = {"pobi,woni,jun", "5"})
+    @DisplayName("입력값 null 검증 통과")
     void givenInput_whenIsNullInput_thenNoException(String input) {
         assertThatNoException().isThrownBy(() -> Validator.isNullInput(input));
     }
