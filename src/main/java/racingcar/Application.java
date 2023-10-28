@@ -8,6 +8,8 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         List<String> carNamesList = inputCarNamesByUser();
+        int attemptNum = getAttemptNumber();
+
     }
 
     private static List<String> inputCarNamesByUser() {
@@ -21,5 +23,11 @@ public class Application {
             carNameList.add(carName);
         }
         return carNameList;
+    }
+
+    private static int getAttemptNumber() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        int inputNumber = Integer.parseInt(Console.readLine());
+        return inputNumber;
     }
 }
