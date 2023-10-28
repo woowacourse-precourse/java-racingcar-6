@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
+import racingcar.model.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -9,9 +10,11 @@ import java.util.List;
 
 public class RacingCarGame {
     private Car car;
+    private Validator validator;
 
     public RacingCarGame() {
         car = new Car();
+        validator = new Validator();
     }
 
     public List<String> splitCarNamesByComma() {
@@ -26,9 +29,18 @@ public class RacingCarGame {
     }
 
     public void moveCarForward() {
-        for (String car: splitCarNamesByComma()){
+        for (String car : splitCarNamesByComma()) {
             OutputView.printExecutionResult(car);
         }
     }
 
+    public void accumulateCarMoving() {
+        String attempt = InputView.getNumberFromPlayer();
+        int attemptNumber = Integer.parseInt(attempt);
+        if (validator.isNumberFromPlayerValidate(attempt)) {
+            for (int i = 0; i < attemptNumber; i++) {
+                moveCarForward();
+            }
+        }
+    }
 }
