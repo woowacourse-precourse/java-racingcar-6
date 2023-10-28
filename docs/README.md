@@ -44,6 +44,7 @@
 
 - 자동차 이름의 유효성 검사를 한다.
     - 자동차 이름이 5자 이하인지 검사한다.
+    - 자동차 이름이 공백이 아닌지 검사한다.
 
 ## RacingCarGameService
 
@@ -72,7 +73,7 @@
 ## RacingCarName
 
 - 자동차 이름의 예외 발생을 테스트한다.
-    - 자동차 이름이 5자를 넘어가면 IllegalArgumentException이 발생한다.
+    - 자동차 이름이 5자를 넘어가거나 공백이면 IllegalArgumentException이 발생한다.
 
 ## RacingCarGameService
 
