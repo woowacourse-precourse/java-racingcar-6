@@ -33,10 +33,8 @@ public class CarController {
     private void loopRacingCar(int tryCount) {
         carOutputView.printResult();
 
-        for (int i = 0; i < tryCount; i++) {
-            List<Car> cars = carService.startRacingCar();
-            carOutputView.printRoundResult(cars);
-        }
+        IntStream.range(0, tryCount)
+                .forEach(i -> carOutputView.printRoundResult(carService.startRacingCar()));
     }
 
     private void saveCarsProcess() {
