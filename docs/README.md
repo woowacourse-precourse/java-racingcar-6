@@ -20,7 +20,7 @@
 - 자동차 경주 게임의 주요 동작을 관리하는 클래스
   - [x] 자동차 경주 게임을 시작한다.
   - [x] RacingGameManager가 자동차(Car)와 시도 횟수를 입력받도록 명령한다.
-  - [ ] GameResultMaker가 자동차(Car)의 이동하도록 명령한다.
+  - [x] GameResultMaker가 자동차(Car)의 이동하도록 명령한다.
   - [ ] GameResultView가 게임 결과를 출력하도록 시킨다.
 
 2. Car
