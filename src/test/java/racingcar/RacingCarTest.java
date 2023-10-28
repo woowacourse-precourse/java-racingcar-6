@@ -13,4 +13,15 @@ public class RacingCarTest {
         RacingCar racingCar = new RacingCar(carName);
         assertThat(racingCar.name).isEqualTo(carName);
     }
+
+    @Test
+    void 랜덤수가_4이상인경우_전진(){
+        // Arrange
+        String carName = "phobi";
+        RacingCar racingCar = new RacingCar(carName);
+        // Action
+        racingCar.move(4);
+        // Assert
+        assertThat(racingCar.block.stream().count()).isEqualTo(1);
+    }
 }

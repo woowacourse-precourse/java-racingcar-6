@@ -11,7 +11,9 @@ public class RacingCar {
         this.name = name;
     }
 
-    public void goStraight(){
-        // 랜덤 숫자 생성 4이상 전진 3이하 정지
+    public void move(int number){
+        if (number >= 4) {
+            block.add("-");
+        }
     }
 }
