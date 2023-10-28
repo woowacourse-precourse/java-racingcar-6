@@ -1,6 +1,5 @@
 package racingcar.service;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import racingcar.domain.Car;
@@ -17,17 +16,14 @@ public class RacingService {
         }
     }
 
-    public static List<String> findWinner(List<Car> carList) {
+    public static void findWinner(List<Car> carList, List<String> winnerName) {
         int maxProgress = carList.stream().map(car -> car.getProgress().length()).max(Comparator.comparing(x -> x))
                 .orElse(0);
-
-        List<String> winnerName = new ArrayList<>();
 
         for (Car car : carList) {
             if (car.getProgress().length() == maxProgress) {
                 winnerName.add(car.getName());
             }
         }
-        return winnerName;
     }
 }

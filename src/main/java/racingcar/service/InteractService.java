@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 
@@ -23,6 +24,10 @@ public class InteractService {
     public static void printResult(List<Car> carList, int tryNum) {
         System.out.println("실행 결과");
         RacingService.racing(carList, tryNum);
-        System.out.println("최종 우승자 : " + String.join(", ", RacingService.findWinner(carList)));
+
+        List<String> winnerName = new ArrayList<>();
+        RacingService.findWinner(carList, winnerName);
+
+        System.out.println("최종 우승자 : " + String.join(", ", winnerName));
     }
 }
