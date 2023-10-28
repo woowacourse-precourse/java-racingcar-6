@@ -17,10 +17,12 @@
 
 ### View
 - GameView
-    - [ ] 경주할 자동차의 이름 입력받는 기능
+    - [x] 경주할 자동차의 이름 입력받는 기능
         - `camp.nextstep.edu.missionutils.Console`의 `readLine()` 활용
         - 입력에 대한 검증
-            - 이름이 5글자 이하인가?
+          1. 이름이 5글자 이하인가?
+          2. `의문점 : 이름에 공백을 포함하는가?`
+          3. `의문점 : 공백을 포함한다면 공백을 제외한 5글자인가?`
     - [ ] 시도할 횟수를 입력받는 기능
         - `camp.nextstep.edu.missionutils.Console`의 `readLine()` 활용
         - 입력에 문제가 없는지 검증
@@ -42,7 +44,7 @@
 
 ### Utility
 - InputDataExceptionHandler
-    - [ ] 입력받은 자동차 이름을 검증하는 기능
+    - [x] 입력받은 자동차 이름을 검증하는 기능
     - [ ] 입력받은 시도할 횟수를 검증하는 기능
 ---
 
