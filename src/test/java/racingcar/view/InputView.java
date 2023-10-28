@@ -8,4 +8,8 @@ public class InputView {
     public static String inputCarName() {
         return readLine();
     }
+
+    public static String inputRepeatNumber() {
+        return readLine();
+    }
 }

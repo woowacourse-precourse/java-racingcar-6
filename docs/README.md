@@ -17,7 +17,7 @@
   
 ## InputView
 ### Method
-- [ ] 이동 횟수 입력 기능
+- [X] 이동 횟수 입력 기능
 - [X] 자동차 이름 입력 기능
   - **camp.nextstep.edu.missionutils.Console의 readLine()**
 
