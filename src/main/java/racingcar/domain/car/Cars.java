@@ -37,16 +37,17 @@ public class Cars {
                 .forEach(Car::go);
     }
 
-    public List<Car> findWinner() {
-        Car maxCar = Collections.max(cars);
-        return cars.stream()
-                .filter(car -> maxCar.compareTo(car) == 0)
-                .toList();
-    }
-
     public List<String> getResults() {
         return cars.stream()
                 .map(Car::getResult)
+                .toList();
+    }
+
+    public List<String> findWinnerNames() {
+        Car maxCar = Collections.max(cars);
+        return cars.stream()
+                .filter(car -> maxCar.compareTo(car) == 0)
+                .map(Car::getNameValue)
                 .toList();
     }
 }

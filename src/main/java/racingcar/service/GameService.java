@@ -20,13 +20,18 @@ public class GameService {
         return new GameService(cars, attempt);
     }
 
+    public void moveCars() {
+        cars.moveCars();
+        count = count.plusOne();
+    }
+
     public void tryToOff() {
         if (satisfiedEndCondition()) {
             state = GameState.OFF;
         }
     }
 
-    public boolean satisfiedEndCondition() {
+    private boolean satisfiedEndCondition() {
         return attempt.getValue() == count.getValue();
     }
 
@@ -34,12 +39,11 @@ public class GameService {
         return state == GameState.OFF;
     }
 
-    public void moveCars() {
-        cars.moveCars();
-        count = count.plusOne();
-    }
-
     public List<String> getResults() {
         return cars.getResults();
+    }
+
+    public List<String> getWinnerNames() {
+        return cars.findWinnerNames();
     }
 }

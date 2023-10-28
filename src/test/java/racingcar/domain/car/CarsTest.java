@@ -37,11 +37,11 @@ class CarsTest {
         Cars cars = Cars.of(List.of(one, two, three), decider);
 
         //when
-        List<Car> winners = cars.findWinner();
+        List<String> winners = cars.findWinnerNames();
 
         //then
         assertEquals(1, winners.size());
-        assertTrue(winners.contains(three));
+        assertTrue(winners.contains("three"));
     }
     @Test
     void 공동_우승일_경우_우승자가_여러_명이다() {
@@ -57,11 +57,11 @@ class CarsTest {
         Cars cars = Cars.of(List.of(one, two, anotherTwo), decider);
 
         //when
-        List<Car> winners = cars.findWinner();
+        List<String> winners = cars.findWinnerNames();
 
         //then
         assertEquals(2, winners.size());
-        assertTrue(winners.contains(two));
-        assertTrue(winners.contains(anotherTwo));
+        assertTrue(winners.contains("two"));
+        assertTrue(winners.contains("Two"));
     }
 }

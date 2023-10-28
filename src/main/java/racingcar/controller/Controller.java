@@ -24,6 +24,12 @@ public class Controller {
         this.outputView = outputView;
     }
 
+    public void execute() {
+        setUp();
+        play();
+        end();
+    }
+
     private void setUp() {
         Cars cars = getCars();
         Attempt attempt = readAttempt();
@@ -32,10 +38,15 @@ public class Controller {
 
     private void play() {
         outputView.printResultMessage();
-        while (!gameService.satisfiedEndCondition()) {
+        while (!gameService.isOver()) {
             gameService.moveCars();
+            gameService.tryToOff();
             outputView.printResults(gameService.getResults());
         }
+    }
+
+    private void end() {
+        outputView.printWinners(gameService.getWinnerNames());
     }
 
     private Cars getCars() {

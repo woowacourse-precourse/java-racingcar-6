@@ -44,4 +44,8 @@ public class Car implements Comparable<Car> {
     public String getResult() {
         return ResultJoiner.join(name, distance);
     }
+
+    public String getNameValue() {
+        return name.value();
+    }
 }
