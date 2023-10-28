@@ -40,4 +40,11 @@ public class RacingCar {
         return position;
     }
 
+    public boolean isSamePosition(RacingCar racingCar) {
+        return position.equals(racingCar.position);
+    }
+
+    public int comparePosition(RacingCar racingCar) {
+        return position.compareTo(racingCar.position);
+    }
 }
