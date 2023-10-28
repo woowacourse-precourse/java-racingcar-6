@@ -2,10 +2,14 @@
 
 ## 기능 목록
 
-- [ ] 자동차 이름 입력
-  - [ ] 쉼표로 문자열 분리
+- [x] 자동차 이름 입력 - InputView inputStringSplitByComma()
+  - [x] 쉼표로 문자열 분리 - InputView splitByComma(String input)
+  - [x] 중복 이름 예외 처리 - InputView checkForDuplicateStrings(List<String> stringList)
+  - [x] 빈 이름 예외 처리 - InputView checkForEmptyString(List<String> stringList)
   - [ ] 길이 제한 확인
+
 - [ ] 몇 번 시도할 것인지 입력
+  - [ ] 잘못된 문자 입력 예외 처리
 - [ ] 입력한 시도 횟수(n)만큼, 자동차 진행 조건에 따라 이동
   - [ ] 0 ~ 9 사이의 무작위 값 생성
   - [ ] 4 이상인 경우 해당 자동차 이동
