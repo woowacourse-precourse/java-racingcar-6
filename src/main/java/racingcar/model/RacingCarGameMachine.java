@@ -10,13 +10,6 @@ import java.util.stream.Collectors;
 public class RacingCarGameMachine {
     private List<RacingCar> racingCars;
 
-    public void gamePlay(final List<String> carNames, final int tryCount){
-        readyToPlay(carNames);
-        for (int i = 0; i < tryCount; i++) {
-            race();
-        }
-    }
-
     public void readyToPlay(List<String> carNames) {
         this.racingCars = carNames.stream().map(RacingCar::new).collect(Collectors.toList());
     }
