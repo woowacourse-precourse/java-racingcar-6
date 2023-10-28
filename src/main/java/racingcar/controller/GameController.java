@@ -7,12 +7,13 @@ import racingcar.model.Racing;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-public class GameController {
+public final class GameController {
     public static void GameConsole() {
         List<Car> cars = InputView.getCarNames();
         int numberOfAttempts = InputView.getNumberOfAttempts();
 
-        List<String> winners = Racing.startRace(cars, numberOfAttempts);
+        Racing racing = new Racing(cars, numberOfAttempts);
+        List<String> winners = racing.startRace();
 
         OutputView.displayWinners(winners);
     }

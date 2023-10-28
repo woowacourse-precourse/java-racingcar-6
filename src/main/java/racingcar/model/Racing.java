@@ -4,17 +4,25 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.view.OutputView;
 
-public class Racing {
-    public static List<String> startRace(List<Car> cars, int numberOfAttempts) {
-        OutputView.displayResult();
-        for (int attempt = 0; attempt < numberOfAttempts; attempt++) {
-            makeCarMovements(cars);
-            OutputView.displayCarMovements(cars);
-        }
-        return announceWinners(cars);
+public final class Racing {
+    private final List<Car> cars;
+    private final int numberOfAttempts;
+
+    public Racing(List<Car> cars, int numberOfAttempts) {
+        this.cars = cars;
+        this.numberOfAttempts = numberOfAttempts;
     }
 
-    private static void makeCarMovements(List<Car> cars) {
+    public List<String> startRace() {
+        OutputView.displayResult();
+        for (int attempt = 0; attempt < numberOfAttempts; attempt++) {
+            makeCarMovements();
+            OutputView.displayCarMovements(cars);
+        }
+        return announceWinners();
+    }
+
+    private void makeCarMovements() {
         for (Car car : cars) {
             if (Randoms.pickNumberInRange(0, 9) >= 4) {
                 car.increasePosition();
@@ -22,7 +30,7 @@ public class Racing {
         }
     }
 
-    private static List<String> announceWinners(List<Car> cars) {
+    private List<String> announceWinners() {
         int maxPosition = cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
