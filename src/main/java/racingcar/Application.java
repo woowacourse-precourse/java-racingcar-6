@@ -16,7 +16,7 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         int numberOfRaces = inputNumberOfRaces();
 
-        generateAction();
+        recordCarAction(carNamesList);
 
         System.out.println(carNamesList);
         System.out.println(carNamesList.size());
@@ -50,13 +50,21 @@ public class Application {
         }
     }
 
-    public static void generateAction() {
+    public static int generateAction() {
         int randomNumber = Randoms.pickNumberInRange(0,9);
-        System.out.println(randomNumber);
         int action = 0;
         if (randomNumber >= 4) {
             action++;
         }
-        System.out.println(action);
+        return action;
     }
+
+    public static List<Integer> recordCarAction(List<String> carNamesList) {
+        List<Integer> carActionList = new ArrayList<>();
+        for (String car : carNamesList) {
+            carActionList.add(generateAction());
+        }
+        return carActionList;
+    }
+
 }
