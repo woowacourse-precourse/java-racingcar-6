@@ -18,4 +18,9 @@ public class GameView {
     public void printAttemptCountMessage() {
         System.out.println(ATTEMPT_COUNT_INPUT_MESSAGE);
     }
+
+    public String inputAttemptCount() {
+        String attemptCount = Console.readLine();
+        return attemptCount;
+    }
 }
