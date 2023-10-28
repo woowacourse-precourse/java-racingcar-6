@@ -54,12 +54,13 @@
 
 ### *[Class]*
 ```
-Application : 프로그램 시작 클래스
-RacingCarController : 게임 컨트롤러 및 게임 진행 클래스
-GameMessage : 사용자에게 출력될 메세지 상수 클래스
-(// ErrorMessage : 에러 메세지 출력 클래스) 
-Validator : 사용자 입력 검증 클래스 (에러 확인)
-InputView : 사용자 입력 받기 + 쉼표 기준으로 나눠서 리스트 저장 클래스
-OutputView : 실행 결과 출력 클래스 (횟수 당 출력)
-GameResultView : 최종 우승자 출력
+Application : 프로그램 시작
+GameMessage : 사용자에게 출력될 메세지 상수
+GameProgress : 자동차 전진 기능
+GameWinner : 게임 우승자 판별 기능
+InputConvertor : 사용자 입력값 형변환
+InputView : 자동차 이름, 시도 횟수 입력 받기
+OutputView : 사용자에게 게임 문구 출력
+RacingCarController : 게임 컨트롤러 및 게임 진행 
+Validator : 사용자 입력 길이 검증 (예외 처리)
 ```
