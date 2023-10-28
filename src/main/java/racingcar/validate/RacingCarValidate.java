@@ -7,5 +7,4 @@ public class RacingCarValidate {
             throw new IllegalArgumentException();
         }
     }
-
 }
