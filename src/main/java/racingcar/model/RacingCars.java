@@ -11,7 +11,7 @@ public class RacingCars {
         this.racingCarList = racingCarList;
     }
 
-    public RacingCars init(List<String> carNameList) {
+    public static RacingCars init(List<String> carNameList) {
         List<RacingCar> initRacingCarList = new ArrayList<>();
         for (String carName : carNameList) {
             initRacingCarList.add(RacingCar.init(carName));
