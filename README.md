@@ -177,3 +177,5 @@ Randoms.pickNumberInRange(0,9);
 - 예외 사항(IllegalArgumentException 발생)
   - 자동차 이름은 5자 이하 이어야 한다.
   - 잘못된 값을 입력하는 경우
+    - 쉼표가 없는 경우
+    - 시도 횟수에 숫자가 아닌 수가 오는 경우

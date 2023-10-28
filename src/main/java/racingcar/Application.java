@@ -17,7 +17,7 @@ public class Application {
             carNameHashMap.put(carNameArray[i],0);
         }
 
-        String askCount = inputView.gameStart();
+        String askCount = inputView.askCount();
         Integer count = Integer.parseInt(askCount);
 
         outputView.resultView(count,carNameHashMap);
