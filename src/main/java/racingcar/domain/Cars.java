@@ -25,8 +25,9 @@ public class Cars {
     }
 
     public String findWinnerCars() {
+        int maxLocationLength = getMaxLocationLength();
         return carList.stream()
-                .filter(car -> car.getLocationLength() == getMaxLocationLength())
+                .filter(car -> car.getLocationLength() == maxLocationLength)
                 .map(Car::getName)
                 .collect(Collectors.joining(WINNER_DELIMITER));
     }
