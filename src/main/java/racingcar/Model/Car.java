@@ -50,6 +50,10 @@ public class Car {
 		return graph;
 	}
 
+	public String joinName(Car other) {
+		return this.name + ", " + other.name;
+	}
+
 	public String toString() {
 		return this.name;
 	}
