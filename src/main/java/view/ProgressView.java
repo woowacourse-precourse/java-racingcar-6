@@ -5,6 +5,7 @@ import model.Cars;
 
 public class ProgressView {
     private static final String PROGRESS_RESULT_MESSAGE = "실행 결과";
+    private static final char DISTANCE_CHARACTER  = '-';
 
     public static void printProgressResultMessage() {
         System.out.println(PROGRESS_RESULT_MESSAGE);
@@ -14,8 +15,11 @@ public class ProgressView {
         for (Car car : cars) {
             System.out.print(car.getName());
             System.out.print(" : ");
-            System.out.print(car.getPosition());
+            for (int currentPosition = 0; currentPosition < car.getPosition(); currentPosition++) {
+                System.out.print(DISTANCE_CHARACTER);
+            }
             System.out.println();
         }
+        System.out.println();
     }
 }
