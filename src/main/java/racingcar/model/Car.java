@@ -1,17 +1,16 @@
 package racingcar.model;
 
-import static racingcar.exception.CarNameValidator.validateCarName;
+import racingcar.vo.CarName;
 
 public class Car {
 
     private static final Integer INIT_STEP = 0;
 
-    private final String name;
+    private final CarName carName;
     private Integer step;
 
-    public Car(final String name) {
-        validateCarName(name);
-        this.name = name;
+    public Car(final CarName carName) {
+        this.carName = carName;
         this.step = INIT_STEP;
     }
 
@@ -19,8 +18,8 @@ public class Car {
         this.step = Status.moveOrStop() + this.step;
     }
 
-    public String getName() {
-        return name;
+    public CarName getCarName() {
+        return carName;
     }
 
     public Integer getStep() {

@@ -2,7 +2,9 @@ package racingcar.util;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.exception.InputValidator;
+import racingcar.vo.CarName;
 
 public class StringConverter {
 
@@ -11,11 +13,11 @@ public class StringConverter {
     private StringConverter() {
     }
 
-    public static List<String> stringToListByDelimiter(String carNames) {
+    public static List<CarName> stringToCarNameListByDelimiter(String carNames) {
         InputValidator.validateInputCarNames(carNames);
         return Arrays.stream(carNames.split(DELIMITER))
-                .map(String::trim)
-                .toList();
+                .map(name -> new CarName(name))
+                .collect(Collectors.toList());
     }
 
     public static Integer stringToInteger(String trialCount) {

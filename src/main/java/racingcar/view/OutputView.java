@@ -2,6 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import racingcar.dto.CarDto;
+import racingcar.vo.CarName;
 
 public class OutputView {
 
@@ -29,13 +30,17 @@ public class OutputView {
     public void printResult(List<CarDto> carDtoList) {
         carDtoList.forEach(
                 carDto -> System.out.println(
-                        carDto.name() + SEPARATOR_COLON + STEP_CHARACTER.repeat(carDto.step())));
+                        carDto.carName().name() + SEPARATOR_COLON + STEP_CHARACTER.repeat(carDto.step())));
 
         System.out.print(LINE);
     }
 
-    public void printWinners(List<String> winners) {
-        String result = String.join(COMMA_SEPARATOR, winners);
+    public void printWinners(List<CarName> winnerNames) {
+        String result = "";
+        for (CarName winnerName : winnerNames) {
+            result = String.join(COMMA_SEPARATOR, winnerName.name());
+        }
+
         System.out.print(WINNER_INFO_MSG + SEPARATOR_COLON + result);
     }
 }

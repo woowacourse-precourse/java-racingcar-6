@@ -3,6 +3,7 @@ package racingcar.exception;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import racingcar.vo.CarName;
 
 public class CarNamesValidator {
 
@@ -12,7 +13,7 @@ public class CarNamesValidator {
     private CarNamesValidator() {
     }
 
-    public static void validateCarNames(List<String> carNames) {
+    public static void validateCarNames(List<CarName> carNames) {
         if (hasEmptyName(carNames)) {
             throw new IllegalArgumentException(EMPTY_CAR_NAME_MESSAGE);
         }
@@ -21,18 +22,18 @@ public class CarNamesValidator {
         }
     }
 
-    private static boolean hasEmptyName(List<String> carNames) {
-        for (String carName : carNames) {
-            if (carName.isEmpty()) {
+    private static boolean hasEmptyName(List<CarName> carNames) {
+        for (CarName carName : carNames) {
+            if (carName.name().isEmpty()) {
                 return true;
             }
         }
         return false;
     }
 
-    private static boolean hasDuplicate(List<String> carNames) {
-        Set<String> names = new HashSet<>();
-        for (String carName : carNames) {
+    private static boolean hasDuplicate(List<CarName> carNames) {
+        Set<CarName> names = new HashSet<>();
+        for (CarName carName : carNames) {
             if (names.contains(carName)) {
                 return true;
             }

@@ -2,14 +2,16 @@ package racingcar.model;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import racingcar.vo.CarName;
 
 public class Referee {
 
     private static final Integer START_POINT = 0;
 
-    private List<String> winnerNames;
+    private List<CarName> winnerNames;
 
-    public List<String> getWinnerNames() {
+    public List<CarName> getWinnerNames() {
         return winnerNames;
     }
 
@@ -17,16 +19,16 @@ public class Referee {
         List<Car> carList = cars.getCarList();
         Integer maxStep = getMaxStep(carList);
 
-        List<String> winners = getWinnerNames(carList, maxStep);
+        List<CarName> winners = getWinnerNames(carList, maxStep);
 
         this.winnerNames = Collections.unmodifiableList(winners);
     }
 
-    private List<String> getWinnerNames(List<Car> cars, Integer maxStep) {
+    private List<CarName> getWinnerNames(List<Car> cars, Integer maxStep) {
         return cars.stream()
                 .filter(car -> car.getStep() == maxStep)
-                .map(Car::getName)
-                .toList();
+                .map(car -> car.getCarName())
+                .collect(Collectors.toList());
     }
 
     private Integer getMaxStep(List<Car> cars) {

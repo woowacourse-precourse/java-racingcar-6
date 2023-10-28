@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.List;
+import racingcar.vo.CarName;
 
 public class RacingGame {
 
@@ -16,7 +17,7 @@ public class RacingGame {
         cars.move();
     }
 
-    public List<String> getWinners() {
+    public List<CarName> getWinners() {
         referee.decideWinner(cars);
         return referee.getWinnerNames();
     }
