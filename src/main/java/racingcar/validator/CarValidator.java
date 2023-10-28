@@ -2,6 +2,7 @@ package racingcar.validator;
 
 import racingcar.entity.Car;
 
+import java.util.HashSet;
 import java.util.List;
 
 public class CarValidator {
@@ -12,11 +13,20 @@ public class CarValidator {
     private static final String CAR_NAME_LENGTH_ERROR = "자동차의 이름은 1글자 이상 5글자 이하여야 합니다.";
     private static final String CAR_NAME_TYPE_ERROR = "자동차의 이름은 공백 없는 문자열이어야 합니다.";
     private static final String TRY_COUNT_ERROR = "시도 횟수는 0회 이상이어야 합니다.";
+    private static final String DUPLICATE_CAR_NAME_ERROR = "자동차의 이름은 중복될 수 없습니다.";
 
     public static void checkAllException(List<Car> carList){
         for(Car carName : carList){
             checkCarNameLength(carName.getCarName());
             checkCarNameType(carName.getCarName());
+            checkDuplicateCarName(carList);
+        }
+    }
+
+    public static void checkDuplicateCarName(List<Car> carList) {
+        HashSet<Car> carHashSet = new HashSet<>(carList);
+        if(carHashSet.size() != carList.size()){
+            throw new IllegalArgumentException(DUPLICATE_CAR_NAME_ERROR);
         }
     }
 
