@@ -13,7 +13,11 @@ public class Car {
         this.location++;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
     public int getLocation(){
-        return location;
+        return this.location;
     }
 }
