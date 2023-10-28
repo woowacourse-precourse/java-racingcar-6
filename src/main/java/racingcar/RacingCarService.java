@@ -8,8 +8,8 @@ public class RacingCarService {
 
     private List<Car> cars;
 
-    public RacingCarService(final CarNameSeperator carNameSeperator) {
-        this.carNameSeperator = carNameSeperator;
+    public RacingCarService() {
+        this.carNameSeperator = new CarNameSeperator();
     }
 
     public void saveCarName(final String input) {
