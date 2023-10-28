@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Referee {
     private List<String> winnerNameList;
-    private int winnerStep;
+    private int winnerDistance;
 
     public Referee() {
         winnerNameList = new ArrayList<>();
@@ -14,22 +14,21 @@ public class Referee {
 
     public void findWinnerDistance(RacingCars cars) {
         for (Car car : cars.getAllCars()) {
-            winnerStep = findMaxDistance(car.getCurrentPosition());
+            winnerDistance = findMaxDistance(car.getCurrentPosition());
         }
     }
 
-    public int findMaxDistance(int currentPosition) {
-        return Math.max(currentPosition, winnerStep);
+    private int findMaxDistance(int currentPosition) {
+        return Math.max(currentPosition, winnerDistance);
     }
 
     public List<String> winnerNameList(RacingCars cars) {
         for (Car car : cars.getAllCars()) {
-            if (winnerStep == car.getCurrentPosition()) {
+            if (winnerDistance == car.getCurrentPosition()) {
                 winnerNameList.add(car.getName());
             }
         }
         return Collections.unmodifiableList(winnerNameList);
     }
-
 
 }
