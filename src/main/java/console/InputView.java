@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
     private static final String NON_NUMERIC_INPUT = "숫자만 입력할 수 있다.";
-    public String getInput(){
+    public String getCarNames(){
         return Console.readLine();
     }
 
