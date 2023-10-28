@@ -1,6 +1,5 @@
 package racingcar;
 
-import racingcar.domain.ExceptionCheck;
 import racingcar.domain.GameController;
 import racingcar.domain.GameData;
 import racingcar.domain.View;
