@@ -11,7 +11,12 @@ public class Car {
 		this.carName = carName;
 		this.carLocation = 0;
 	}
-
+	
+	public Car(String carName, int carLocation) {
+		this.carName = carName;
+		this.carLocation = carLocation;
+	}
+	
 	public void move() {
 		carLocation++;
 	}
@@ -31,7 +36,7 @@ public class Car {
 	public String getCarName() {
 		return carName;
 	}
-
+	
 	public int getCarLocation() {
 		return carLocation;
 	}
