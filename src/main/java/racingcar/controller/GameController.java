@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.List;
 import racingcar.service.CarGameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -17,14 +18,14 @@ public class GameController {
     }
 
     public void start() {
-
         initGame();
+        List<String> carNames = carGameService.extractSeperator(inputView.inputCarName());
+
+
 
     }
 
     private void initGame() {
-        inputView.inputCarName();
         outputView.printInitGame();
-
     }
 }
