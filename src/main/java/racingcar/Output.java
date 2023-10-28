@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.HashMap;
+
 public class Output {
 
     public static void tellStartAndGetName(){
@@ -9,5 +11,15 @@ public class Output {
     public static void tellGroupName(String [] groupName){
         System.out.println(String.join(",",groupName));
         }
+
+   public static void tellCurrent(HashMap map,String [] groupCar){
+        for(String name : groupCar){
+            System.out.println(name+" : "+map.get(name));
+        }
+   }
+
     }
+
+
+
 
