@@ -1,7 +1,6 @@
 package racingcar.model;
 
 public class Advance {
-
     boolean isAdvance;
     int advanceCount;
 
