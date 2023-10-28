@@ -29,55 +29,58 @@
 ## Car
 - 자동차 객체 생성
     ```java
-    Car(String name);
+    Car(String name)
     ```
 - 전진 횟수 증가 기능
     ```java
-    void increaseForwardNum();
+    void increaseForwardNum()
     ```
 - 전진 횟수 조회 기능 
     ```java
-    int getForwardNum();
+    int getForwardNum()
     ```
 - 무작위 값을 조회하는 기능
     ```java
-    int getRandomNum();
+    int getRandomNum()
     ```
 - 자동차 이름을 조회하는 기능
     ```java
-    String getName();
+    String getName()
     ```
 - 무작위 값을 초기화하는 기능
   ```java
-  void initRandomNum();
+  void initRandomNum()
   ```
 
 ## Racing
 - 경주 게임 동작
     ```java
-    void run();
+    void run()
     ```
 - 입력한 차 이름에 대한 차 객체를 리스트에 담는 기능
     ```java
-    List<Car> toCarList(List<String> carNameList);
+    List<Car> toCarList(List<String> carNameList)
     ```
 - 전진할지 멈출지 판단하는 기능
     ```java
-    boolean isMove(Car car);
+    boolean isMove(Car car)
     ```
 - 전진하는 기능
     ```java
-    void modifyForwardNum(List<Car> carList);
+    void modifyForwardNum(List<Car> carList)
     ```
 - 누가 우승자인지 판단하는 기능
     ```java
-    List<String> findWinners(List<Car> carList);
+    List<String> findWinners(List<Car> carList)
     ```
 - 각 자동차마다 무작위 값 구하는 기능
     ```java
-    void initCarsRandomNum(List<Car> carList);
+    void initCarsRandomNum(List<Car> carList)
     ```
-
+- 가장 많이 전진한 횟수 구하는 기능
+    ```java
+    int findMaxValue(List<Car> carList)
+    ```
 ## Validator
 - 자동차 입력 구분은 ,로 하고 있는가
     ```java

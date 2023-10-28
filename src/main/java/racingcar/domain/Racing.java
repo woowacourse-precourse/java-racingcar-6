@@ -39,8 +39,20 @@ public class Racing {
                 winners.add(car.getName());
             }
         }
-        
+
         return winners;
+    }
+
+    private int findMaxValue(List<Car> carList){
+        int maxValue = carList.get(0).getForwardNum();
+
+        for (int i = 1; i < carList.size(); i++) {
+            if (maxValue < carList.get(i).getForwardNum()) {
+                maxValue = carList.get(i).getForwardNum();
+            }
+        }
+
+        return maxValue;
     }
 
     private void initCarsRandomNum(List<Car> carList){
