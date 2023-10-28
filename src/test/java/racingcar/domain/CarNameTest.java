@@ -20,4 +20,11 @@ public class CarNameTest {
         assertThatThrownBy(() -> new CarName(""))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    @DisplayName("이름이 5자를 초과하면 예외가 발생한다.")
+    void createCarNameByOverLength(){
+        assertThatThrownBy(() -> new CarName("abcdefg"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
