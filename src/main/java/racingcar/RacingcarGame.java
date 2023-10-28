@@ -11,6 +11,7 @@ public class RacingcarGame {
     private RacingCars cars;
 
     public RacingcarGame() {
+        this.cars = new RacingCars();
     }
 
     public void setCars(String[] carsName) {
