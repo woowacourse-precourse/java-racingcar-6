@@ -22,9 +22,13 @@ public class GameStatus {
 
     private void carsMoveForward() {
         for (Car car : this.cars.getCars()) {
-            if (4 <= Randoms.pickNumberInRange(0, 9)) {
+            if (4 <= returnRandomNumber()) {
                 car.moveForward();
             }
         }
+    }
+
+    private int returnRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 }
