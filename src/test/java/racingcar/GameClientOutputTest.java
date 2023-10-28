@@ -29,4 +29,20 @@ class GameClientOutputTest {
 
         assertThat(printedString).isEqualTo("최종 우승자 : abc, def, ghi");
     }
+
+    @Test
+    @DisplayName("횟수를 묻는 안내 문구를 정확하게 출력한다.")
+    public void printMove(){
+        gameClientOutput.printForAskingMoves();
+        String printedString = outputStream.toString().trim();
+        assertThat(printedString).isEqualTo("시도할 회수는 몇회인가요?");
+    }
+
+    @Test
+    @DisplayName("이름을 입력하는 안내 문구를 정확하게 출력한다.")
+    public void printName(){
+        gameClientOutput.printForAskingNames();
+        String printedString = outputStream.toString().trim();
+        assertThat(printedString).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+    }
 }
