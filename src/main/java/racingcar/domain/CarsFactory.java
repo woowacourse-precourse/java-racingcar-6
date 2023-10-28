@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import static racingcar.constant.ExceptionMessage.BLANK_EXCEPTION;
 import static racingcar.constant.ExceptionMessage.INVALID_NAME_EXCEPTION;
+import static racingcar.constant.ExceptionMessage.LENGTH_EXCEPTION;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
@@ -41,6 +42,14 @@ public class CarsFactory {
         for (String name : carNames) {
             if (name.contains(" ")) {
                 throw new IllegalArgumentException(BLANK_EXCEPTION);
+            }
+        }
+    }
+
+    public void checkCarNamesLength(List<String> carNames) {
+        for (String name : carNames) {
+            if (name.length() == 0 || name.length() > 5) {
+                throw new IllegalArgumentException(LENGTH_EXCEPTION);
             }
         }
     }
