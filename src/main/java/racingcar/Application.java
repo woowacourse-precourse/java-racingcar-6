@@ -30,4 +30,9 @@ public class Application {
         int tryCount = Integer.parseInt(Console.readLine());
         return tryCount;
     }
+
+    private static int randomNumber() {
+        int random = Randoms.pickNumberInRange(0,9);
+        return random;
+    }
 }
