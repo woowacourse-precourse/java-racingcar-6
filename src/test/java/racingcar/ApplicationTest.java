@@ -23,11 +23,11 @@ class ApplicationTest extends NsTest {
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
@@ -48,17 +48,17 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 초과_입력_예외() {
-        String test = "여섯글자에용";
-        Assertions.assertThrows(IllegalArgumentException.class,
-                () -> Application.nameLength(test));
-    }
-
-    @Test
     void 이름_입력_예외() {
         String[] test = {"예외가", "", "fddffd"};
         Assertions.assertThrows(IllegalArgumentException.class,
                 () -> Application.checkName(test));
+    }
+
+    @Test
+    void 초과_입력_예외() {
+        String test = "여섯글자에용";
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> Application.nameLength(test));
     }
 
     @Test
@@ -73,12 +73,14 @@ class ApplicationTest extends NsTest {
         String test = "1";
         Assertions.assertEquals(1, Application.integerTime(test));
     }
+
     @Test
     void 시간_숫자외_입력_예외() {
         String test = "5어시";
         Assertions.assertThrows(IllegalArgumentException.class,
                 () -> Application.timeIsNumber(test));
     }
+
     @Test
     void 시간_음수_입력_예외() {
         String test = "0";
@@ -143,6 +145,7 @@ class ApplicationTest extends NsTest {
         int[] victory = {1, 5, 8, 4, 6};
         Assertions.assertEquals(8, Application.max(victory));
     }
+
 
     @Override
     public void runMain() {
