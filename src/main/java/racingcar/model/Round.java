@@ -8,7 +8,7 @@ public class Round {
         round = Integer.parseInt(inputString);
     }
 
-    public boolean isRoundRemaining() {
+    public boolean isRoundRemains() {
         return round > 0;
     }
 
