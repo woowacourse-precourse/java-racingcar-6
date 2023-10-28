@@ -1,12 +1,20 @@
 package racingcar.view;
 
 import static racingcar.constant.AllPunctuationMarks.*;
+import static racingcar.constant.RaceIOMessage.RACE_FINISH;
 import static racingcar.constant.RaceIOMessage.RACE_RESULT;
+import static racingcar.constant.RaceIOMessage.RACE_START;
 import static racingcar.constant.RaceIOMessage.RACE_WINNER;
 
 import java.util.List;
 
 public class OutputView {
+    public void printRaceStart() {
+        System.out.println(RACE_START);
+    }
+    public void printRaceFinish() {
+        System.out.println(RACE_FINISH);
+    }
     public void printTotalResult() {
         System.out.println(RACE_RESULT);
     }

@@ -27,6 +27,7 @@ public class Racing {
     }
 
     public void play() {
+        startRace();
         Map<String, Integer> carNameList = car.createCarNameList(inputView.inputCarName());
         int counts = rounds.getRounds(inputView.inputRounds());
         outputView.printTotalResult();
@@ -37,6 +38,9 @@ public class Racing {
         finishRace();
     }
 
+    private void startRace() {
+        outputView.printRaceStart();
+    }
     private void playRound(Map<String, Integer> carNameList) {
         for (String carName : carNameList.keySet()) {
             int moves = carNameList.get(carName);
@@ -65,6 +69,7 @@ public class Racing {
     }
 
     private void finishRace() {
+        outputView.printRaceFinish();
         Console.close();
     }
 }
