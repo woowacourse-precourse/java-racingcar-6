@@ -13,10 +13,18 @@ public class CarService {
 
     private final ArrayList<Car> carList;
     private final StringBuilder sb;
+    private static CarService defaultCarService;
 
     private CarService() {
         carList = new ArrayList<>();
         sb = new StringBuilder();
+    }
+
+    public static CarService getInstance() {
+        if(defaultCarService == null) {
+            defaultCarService = new CarService();
+        }
+        return defaultCarService;
     }
 
     public void fill(String[] carNameArr,int[] distance) {
@@ -56,7 +64,7 @@ public class CarService {
     }
 
     private void buildBar(int distance) {
-        for(int i = 0; i < distance; i++) {
+        while(distance-- > 0) {
             sb.append(GameMessage.bar.getMessage());
         }
         sb.append(GameMessage.newLine.getMessage());
