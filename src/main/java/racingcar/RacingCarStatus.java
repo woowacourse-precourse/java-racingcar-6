@@ -1,16 +1,16 @@
 package racingcar;
 
-public class RacingCarInformation {
+public class RacingCarStatus {
     private String name;
     private int position;
 
-    private RacingCarInformation(String name, int position) {
+    private RacingCarStatus(String name, int position) {
         this.name = name;
         this.position = position;
     }
 
-    public static RacingCarInformation of(String name, int position) {
-        return new RacingCarInformation(name, position);
+    public static RacingCarStatus of(String name, int position) {
+        return new RacingCarStatus(name, position);
     }
 
     public String getName() {

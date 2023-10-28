@@ -42,7 +42,7 @@ class RacingCarTest {
     public void checkInformation(){
         String name = "abcde";
         RacingCar racingCar = new RacingCar(name);
-        RacingCarInformation information = racingCar.getInformation();
+        RacingCarStatus information = racingCar.getInformation();
         assertThat(information.getName()).isEqualTo(name);
         assertThat(information.getPosition()).isEqualTo(0);
     }

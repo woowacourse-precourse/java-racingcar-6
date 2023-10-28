@@ -15,8 +15,8 @@ public class RacingCar {
         this.name = name;
     }
 
-    public RacingCarInformation getInformation() {
-        return RacingCarInformation.of(name, position);
+    public RacingCarStatus getInformation() {
+        return RacingCarStatus.of(name, position);
     }
 
     public void checkAndMoveForward(int chosenNumber) {
