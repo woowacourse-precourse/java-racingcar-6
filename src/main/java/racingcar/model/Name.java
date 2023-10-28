@@ -2,6 +2,8 @@ package racingcar.model;
 
 import java.util.Objects;
 
+import static racingcar.utils.ErrorMessage.*;
+
 public final class Name {
     private final String name;
 
@@ -16,13 +18,13 @@ public final class Name {
 
     private static void checkValid(String name) {
         if (Objects.isNull(name)) {
-            throw new IllegalArgumentException("자동차 이름은 null 이 될 수 없다.");
+            throw new IllegalArgumentException(INVALID_CAR_NAME_NULL.getMessage());
         }
         if (name.isEmpty()) {
-            throw new IllegalArgumentException("자동차 이름은 공백이 될 수 없다.");
+            throw new IllegalArgumentException(INVALID_CAR_NAME_EMPTY.getMessage());
         }
         if (isOverNumberFive(name)) {
-            throw new IllegalArgumentException("자동차 이름은 5자를 초과할 수 없다.");
+            throw new IllegalArgumentException(INVALID_CAR_NAME.getMessage());
         }
     }
 

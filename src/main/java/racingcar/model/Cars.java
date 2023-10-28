@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.StringJoiner;
 
+import static racingcar.utils.ErrorMessage.CAN_NOT_FIND_MAX_POSITION;
+
 public class Cars {
     private static final String REGEX = ",";
     private final List<Car> cars;
@@ -54,7 +56,7 @@ public class Cars {
         return cars.stream()
                 .map(Car::getPosition)
                 .max(Position::compareTo)
-                .orElseThrow(() -> new IllegalArgumentException("최대 위치를 찾을 수 없습니다."));
+                .orElseThrow(() -> new IllegalArgumentException(CAN_NOT_FIND_MAX_POSITION.getMessage()));
     }
 
     @Override

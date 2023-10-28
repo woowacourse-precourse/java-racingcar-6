@@ -17,6 +17,10 @@ public final class Count {
         return new Count(count + 1);
     }
 
+    public boolean isEnd(TryNumber tryNumber) {
+        return TryNumber.of(count).equals(tryNumber);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -30,7 +34,4 @@ public final class Count {
         return Objects.hash(count);
     }
 
-    public boolean isEnd(TryNumber tryNumber) {
-        return TryNumber.of(count).equals(tryNumber);
-    }
 }

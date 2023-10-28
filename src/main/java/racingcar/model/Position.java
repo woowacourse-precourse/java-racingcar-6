@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import java.util.Objects;
-import java.util.StringJoiner;
 
 public final class Position {
     private final int position;
