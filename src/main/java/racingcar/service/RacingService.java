@@ -15,4 +15,20 @@ public class RacingService {
         this.cars = cars;
         this.times = times;
     }
+
+    public void gameProgress() {
+        outputView.gameStart();
+        for (int i = 0; i < times; i++) {
+            progressOnceTime();
+        }
+    }
+
+    private void progressOnceTime() {
+        for (Car car : cars) {
+            int randomValue = Randoms.pickNumberInRange(0, 9);
+            car.moveForward(randomValue);
+            outputView.gameProgress(car);
+        }
+        outputView.skipLine();
+    }
 }
