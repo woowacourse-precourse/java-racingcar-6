@@ -1,6 +1,8 @@
 package racingcar.model;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.constant.GameConfig;
@@ -32,5 +34,11 @@ public class Race {
 		}
 
 		OutputView.printNewLine();
+	}
+
+	private List<Car> sortCarsByPosition(List<Car> cars) {
+		return cars.stream()
+			.sorted(Comparator.comparingInt(Car::getPosition).reversed())
+			.collect(Collectors.toList());
 	}
 }
