@@ -10,16 +10,16 @@ class Car {
         position = 0;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String inputCarName) {
+        name = inputCarName;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public int getPosition() {
-        return this.position;
+        return position;
     }
 
     public void run() {
