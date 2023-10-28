@@ -24,7 +24,7 @@ Cars
 - 우승자를 구할 수 있다. - O
   - 우승자는 한명이상일 수 있다. - O
 - List<CarDto> 로 변환할 수 있다. - O
-- 모든 자동차 랜덤값에 따라 움직이기 -> O + 테스트 작성 고민해야됨
+- 모든 자동차 랜덤값에 따라 움직이기 -> O -> Car의 moveUsingRandomNumber()를 단순히 위임만 하고 있다. Car에서 단위테스트를 이미 하였다.
 
   
 RandomNumber
