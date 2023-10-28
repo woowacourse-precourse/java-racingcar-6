@@ -20,14 +20,14 @@
 - 자동차 경주 게임의 주요 동작을 관리하는 클래스
   - [x] 자동차 경주 게임을 시작한다.
   - [x] RacingGameManager가 자동차(Car)와 시도 횟수를 입력받도록 명령한다.
-  - [ ] RacingGameExecutor가 자동차(Car)를 이동하도록 명령한다.
-  - [ ] GameResultMaker가 자동차(Car)의 이동 결과를 반환하도록 명령한다.
+  - [ ] GameResultMaker가 자동차(Car)의 이동하도록 명령한다.
   - [ ] GameResultView가 게임 결과를 출력하도록 시킨다.
 
 2. Car
 
 - 자동차 경주 게임에 참여하는 차를 추상화한 클래스
   - [x] 필드로 이름(name)과 이동 횟수(movingCount)를 가진다.
+  - [x] movingCount를 증가시킨다.
 
 3. RacingGameManager
 
@@ -53,13 +53,13 @@
 
 5. GameResultMaker
 
-- RacingGameManager와 RacingGameExecutor가 협력하여 이동 결과를 반환하는 책임을 가진 클래스
+- RacingGameManager와 RacingGameExecutor가 협력하여 차(Car)가 이동하도록 만든다.
   - [x] List<Car>를 순회하면서, RacingGameExecutor가 이동시킨 결과로 Car의 이동 횟수(count)를 증가시킨다.
 
 6. GameResultView
 
 - 게임 실행 결과를 출력하는 책임을 가진 클래스
-  - [ ] GameResultMaker가 반환한 게임 결과를 가공하여, 레이스 결과를 출력한다.
+  - [ ] 시도할 횟수(이동 횟수)만큼 반복하여 레이스 결과를 출력한다.
     - GameResultMaker가 이동 횟수를 증가시킨경우 '-'를 추가하여, 결과를 출력한다.
   - [ ] 최종 우승자를 출력한다. 
     - List<Car>에서 가장 큰 이동 횟수(count)를 가진 Car를 선별하여, Car의 이름(name)을 출력한다.
