@@ -3,6 +3,10 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.Racing;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -43,6 +47,17 @@ class ApplicationTest extends NsTest {
             assertThat(car.getForwardNum()).isEqualTo(1);
         });
 
+    }
+
+    @Test
+    void 자동차_객체_리스트_추가_테스트(){
+        Racing racing = new Racing();
+        List<String> carNameList = new ArrayList<>(List.of("robin", "hood", "kyle"));
+        List<Car> carList= racing.toCarList(carNameList);
+
+        for (int i = 0; i < carList.size(); i++) {
+            assertThat(carList.get(i).getName()).isEqualTo(carNameList.get(i));
+        }
     }
 
     @Override
