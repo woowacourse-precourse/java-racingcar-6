@@ -11,17 +11,16 @@ public final class InputView {
     public static List<Car> getCarNames() {
         OutputView.displayInitCarNames();
         String input = Console.readLine();
-        validateNotEmpty(input);
         validateInputCharacters(input);
         List<Car> cars = parseCarNames(input);
-        validateCarNames(cars);
+        validateCarNameNotEmpty(cars);
+        validateCarNameLengths(cars);
         return cars;
     }
 
     public static int getNumberOfAttempts() {
         OutputView.displayInitNumberOfAttempts();
         String input = Console.readLine();
-        validateNotEmpty(input);
         validateInputCharacters(input);
         int numberOfAttempts = parseNumberOfAttempts(input);
         validateNumberOfAttempts(numberOfAttempts);
@@ -38,7 +37,18 @@ public final class InputView {
                 .collect(Collectors.toList());
     }
 
-    private static void validateCarNames(List<Car> cars) {
+    /**
+     * @param cars 자동차 이름을 입력하지 않거나 공백만 입력하면 예외 발생
+     */
+    private static void validateCarNameNotEmpty(List<Car> cars) {
+        for (Car car : cars) {
+            if (car.getName().isBlank()) {
+                throw new IllegalArgumentException("자동차 이름을 입력하세요.");
+            }
+        }
+    }
+
+    private static void validateCarNameLengths(List<Car> cars) {
         for (Car car : cars) {
             if (car.getName().length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
@@ -61,19 +71,10 @@ public final class InputView {
     }
 
     /**
-     * @param input 값을 입력하지 않거나 공백만 입력하면 예외 발생
-     */
-    private static void validateNotEmpty(String input) {
-        if (input.isBlank()) {
-            throw new IllegalArgumentException("값을 입력하세요.");
-        }
-    }
-
-    /**
      * @param input 영문 대소문자, 숫자, 쉼표, 공백, 한글 허용
      */
     private static void validateInputCharacters(String input) {
-        if (!input.matches("^[a-zA-Z0-9,\\s가-힣]*$")) {
+        if (!input.matches("^[a-zA-Z0-9,\\s가-힣ㄱ-ㅎㅏ-ㅣ]*$")) {
             throw new IllegalArgumentException("입력은 영문자, 한글, 숫자, 빈 칸, 또는 쉼표(,)만 가능합니다.");
         }
     }

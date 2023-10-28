@@ -16,8 +16,8 @@ public class GameController {
         OutputView.displayWinners(winners);
     }
 
-    public static List<String> startRace(List<Car> cars, int numberOfAttempts) {
-        System.out.println("실행 결과");
+    private static List<String> startRace(List<Car> cars, int numberOfAttempts) {
+        OutputView.displayResult();
         for (int attempt = 0; attempt < numberOfAttempts; attempt++) {
             makeCarMovements(cars);
             OutputView.displayCarMovements(cars);
@@ -28,7 +28,7 @@ public class GameController {
     private static void makeCarMovements(List<Car> cars) {
         for (Car car : cars) {
             if (Randoms.pickNumberInRange(0, 9) >= 4) {
-                car.incrementPosition();
+                car.increasePosition();
             }
         }
     }

@@ -14,7 +14,7 @@ public final class Car {
         this.position = position;
     }
 
-    public void incrementPosition() {
+    public void increasePosition() {
         this.position++;
     }
 
