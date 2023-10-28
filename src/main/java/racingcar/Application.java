@@ -57,6 +57,13 @@ public class Application {
         return Randoms.pickNumberInRange(0, 9);
     }
 
+    public static int situationSave(int goSituation, int random) {
+        if (random > 3) {
+            goSituation++;
+        }
+        return goSituation;
+    }
+
 
     public static void main(String[] args) {
 
@@ -68,6 +75,10 @@ public class Application {
         String time = Console.readLine();
         int realTime = integerTime(time);
         Console.close();
+
+        System.out.println("\n실행 결과");
+        int[] goSituation = new int[carName.size()];
+
 
 
 
