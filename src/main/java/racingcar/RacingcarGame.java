@@ -9,14 +9,20 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingcarGame {
+    private int trials;
     public RacingcarGame(){
 
     }
     public void start(){
         Cars racingCars = registerCars();
-        //registerNumOfTrials();
+        registerNumOfTrials();
+
+    }
 
 
+    private void registerNumOfTrials() {
+        System.out.println(REQUEST_NUM_OF_TRIALS);
+        this.trials = Integer.parseInt(Console.readLine());
     }
 
     private Cars registerCars() {
