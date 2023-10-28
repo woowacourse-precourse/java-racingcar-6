@@ -6,8 +6,21 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.dto.CarDto;
 
 class CarTest {
+
+    @DisplayName("CarDto로 변환 테스트 : 모든 필드값을 통해 CarDto로 변환한다.")
+    @Test
+    void toDto() {
+        Car car = new Car("홍길동", 5);
+
+        CarDto carDto = car.toDto();
+
+        assertThat(carDto).usingRecursiveComparison()
+                .comparingOnlyFields("name", "position")
+                .isEqualTo(new Car("홍길동", 5));
+    }
 
     @DisplayName("더 앞에 있는지 테스트 :Car 객체가 다른 Car 보다 더 앞에 있으면 true, 그렇지 않으면 false 반환")
     @Test

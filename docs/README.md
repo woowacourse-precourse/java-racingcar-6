@@ -14,6 +14,7 @@ Car
 - 다른 Car 객체가 주어졌을 때 더 앞에있는지 판단할 수 있다. - O
 - 자동차는 전진할 수 있다. - O
   - 자동자는 위치값을 가지고 있다. - O
+- CarDto 로 변환할 수 있다. - O
 
 
 Cars
@@ -26,14 +27,16 @@ RandomNumber
   - 0~9사이가 아니라면 IllegalArgumentException 를 발생시킨다. - O
 - 크기가 4이상인지 확인한다 - O
 
+
 NumberGenerator
-- 외부 라이브러리로 int 값을 가져온다. - 0
+- 외부 라이브러리로 int 값을 가져온다. - O
 
 
 InputView
 - 자동차 이름을 쉼표(,)를 기준으로 입력받는다. - O
 - 시도할 횟수를 입력받는다. - O
 - 잘못된 값을 입력하면 IllegalArgumentException 를 발생시킨다. - O
+
 
 OutputView
 - 최종 우승자를 출력한다.

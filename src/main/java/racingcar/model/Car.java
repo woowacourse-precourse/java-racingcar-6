@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import java.util.Objects;
+import racingcar.dto.CarDto;
 
 public class Car {
 
@@ -43,5 +43,9 @@ public class Car {
 
     public boolean isFrontOf(Car car) {
         return this.position > car.position;
+    }
+
+    public CarDto toDto() {
+        return new CarDto(this.name, this.position);
     }
 }
