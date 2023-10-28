@@ -7,10 +7,13 @@ import static racingcar.constants.ExceptionMessageConstants.*;
 
 public class InputHandler {
 
+    public static final int MAX_LENGTH = 5;
+    public static final String NAME_DELIMITER = ",";
+
     public List<String> convertNamesToNameList(String names) {
         validateNull(names);
 
-        String[] nameArray = names.split(",");
+        String[] nameArray = names.split(NAME_DELIMITER);
         List<String> nameList = new ArrayList<>();
 
         for (String name : nameArray) {
@@ -46,7 +49,7 @@ public class InputHandler {
         if (nameList.contains(trimName)) {
             throw new IllegalArgumentException(DUPLICATE_NAME_NOT_ALLOWED);
         }
-        if (trimName.length() > 5) {
+        if (trimName.length() > MAX_LENGTH) {
             throw new IllegalArgumentException(INVALID_NAME_LENGTH);
         }
     }
