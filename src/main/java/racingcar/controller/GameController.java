@@ -20,7 +20,7 @@ public class GameController {
 		int attemptCount = readAttemptCount();
 
 		OutputView.printExecutionResultMessage();
-		
+
 		for (int i = 0; i < attemptCount; i++) {
 			race.moveAllCarsForward();
 			race.displayAllCarsPosition();
@@ -41,7 +41,6 @@ public class GameController {
 		String inputNames = InputView.readCarNames();
 
 		return Arrays.stream(inputNames.split(CommonSymbol.SYMBOL_COMMA))
-			.peek(InputValidator::validateInputNameLength)
 			.collect(Collectors.toList());
 	}
 }
