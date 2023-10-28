@@ -3,14 +3,15 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
-  public static String inputCarName() {
+  public String inputCarName() {
     OutputView.printInputNameMessage();
     return Console.readLine();
   }
 
-  public static String inputFrequency() {
+  public int inputFrequency() {
     OutputView.printInputFrequencyMessage();
-    return Console.readLine();
+    String frequency = Console.readLine();
+    return Integer.parseInt(frequency);
   }
 
 }
