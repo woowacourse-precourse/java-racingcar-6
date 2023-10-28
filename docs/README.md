@@ -30,7 +30,7 @@
         - 숫자인지 확인!
     - [ ] 게임 진행 - ##RaceService ## CarGameService - gameStart
       - [X] 자동차의 이름마다 숫자 굴리기 - ## NumberGenerator - generate  
-        - [ ] 숫자가 4 이상인 경우 자동차가 전진을 기록한 변수 + 1
+        - [X] 숫자가 4 이상인 경우 자동차가 전진을 기록한 변수 + 1 ## RaceService - raceRoundGameStart ## CarGameService - race 
       - [ ] 자동차들에 대한 정보를 저장 - 🚗 Car
         - [ ] 이름, 전진 카운트, 현재 출력될 결과 모습 (매번 for 문으로 출력하지 않기 위해!)
     - [ ] 게임이 끝나는 마지막 과정에서 우승자가 누군지 판별하는 곳 필요! - JudgementService
