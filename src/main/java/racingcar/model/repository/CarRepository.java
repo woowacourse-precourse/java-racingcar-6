@@ -27,6 +27,7 @@ public class CarRepository {
             }
             OutputView.outputForward(car);
         });
+        System.out.println("");
     }
 
     public List<String> findAllMaxForward() {
@@ -39,6 +40,13 @@ public class CarRepository {
                 .filter(car -> car.getForward() == maxForward)
                 .map(Car::getName)
                 .collect(Collectors.toList());
+    }
+
+    public Car findByName(String name){
+        return cars.stream()
+                .filter(car -> car.getName().equals(name))
+                .findFirst()
+                .orElse(null);
     }
 
     public void validNameCheck(){
