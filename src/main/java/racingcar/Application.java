@@ -1,37 +1,38 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Application {
     public static void main(String[] args) {
-
+        Car car = new Car();
     }
 }
 
 class Game{
-    Car car = new Car();
+
     private int moveCount = User.NumberOfMove();
 }
 class User{
     static int NumberOfMove(){
-         String InputTry = readLine();
-         int moveCount = CheckException.CheckRightNumberOfMove(InputTry);
-         return moveCount;
+        String InputTry = readLine();
+        int moveCount = CheckException.CheckRightNumberOfMove(InputTry);
+        return moveCount;
     }
 }
 
 class Car{
-    List<String> CarNameList = new ArrayList<>();
+
+    Map<String,String> CarInformation = new HashMap<>();
     Car() {
         String CarName = readLine();
         for (String name : CarName.split(",")){
-            CarNameList.add(name.trim());
+            CarInformation.put(name.trim(),"");
         }
-        CheckException.CheckRightCarName(CarNameList);
+        CheckException.CheckRightCarName(CarInformation.keySet());
+        CarInformation.forEach((key, value) -> System.out.println("Key: " + key + ", Value: " + value));
     }
 
 
@@ -41,8 +42,8 @@ class Car{
 }
 
 class CheckException {
-    static void CheckRightCarName(List<String> CarNameList){
-        for (String name : CarNameList){
+    static void CheckRightCarName(Set<String> CarNameSet){
+        for (String name : CarNameSet){
             if (name.length() > 5) {
                 throw new IllegalArgumentException();
             }
@@ -59,4 +60,3 @@ class CheckException {
         }
     }
 }
-
