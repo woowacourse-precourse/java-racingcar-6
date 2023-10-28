@@ -1,10 +1,11 @@
 package racingcar.utils.validation;
 
 import java.util.List;
+import racingcar.utils.constant.Constant;
 
 public class InputValidation {
     private static void validateNameLength(String carName) {
-        if (carName.length() >= 6) {
+        if (carName.length() > Constant.NAME_MAX_LENGTH) {
             throw new IllegalArgumentException();
         }
     }
