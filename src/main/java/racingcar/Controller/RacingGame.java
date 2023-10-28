@@ -39,13 +39,13 @@ public class RacingGame {
         OutputView.printWinner(gameStatus.getMaxCarNames());
     }
 
-    private Cars createCars(String input) {
-        List<Car> carList = returnCarList(splitCarNames(input));
+    public Cars createCars(String input) {
+        List<Car> carList = getCarList(splitCarNames(input));
         Cars cars = new Cars(carList);
         return cars;
     }
 
-    private List<Car> returnCarList(List<Object> carNames) {
+    private List<Car> getCarList(List<Object> carNames) {
         List<Car> carList = new ArrayList<>();
         for (int i = 0; i < carNames.size(); i++) {
             carList.add(new Car(carNames.get(i).toString()));
