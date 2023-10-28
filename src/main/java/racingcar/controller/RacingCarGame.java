@@ -26,8 +26,8 @@ public class RacingCarGame {
     }
 
     public void moveCarForward() {
-        if (movingCar.isCarMovingForward() == true) {
-            OutputView.printExecutionResult();
+        for (String car: splitCarNamesByComma()){
+            OutputView.printExecutionResult(car, );
         }
     }
 }

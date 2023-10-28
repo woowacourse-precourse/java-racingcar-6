@@ -6,6 +6,7 @@ import racingcar.view.OutputView;
 import static constant.MessgeList.MOVING_FORWARD;
 
 public class MovingCar {
+    private int count;
     public MovingCar() {
     }
 
@@ -14,10 +15,11 @@ public class MovingCar {
         return randomNumber;
     }
 
-    public boolean isCarMovingForward() {
+    public void  moveCarForward() {
         int randomNumber = generateRandomNumber();
         if (randomNumber >= MOVING_FORWARD) {
-            return true;
+            count++;
+            return count;
         }
         return false;
     }
