@@ -19,6 +19,7 @@ public class RacingManager {
     public void race(List<RacingCar> racingCars) {
         for (int i = 0; i < lap; i++) {
             printResult(racingCars);
+            System.out.println();
         }
     }
 
