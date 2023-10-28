@@ -3,9 +3,10 @@ package racingcar;
 import java.util.List;
 
 public class Validator {
+    private final int MAX_NAME_LENGTH = 5;
     public boolean isValidCarNames(List<String> carNames) {
         for (String carName : carNames) {
-            if (carName.length() > 5) {
+            if (carName.length() > MAX_NAME_LENGTH) {
                 return false;
             }
         }
