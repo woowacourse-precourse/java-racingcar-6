@@ -16,11 +16,9 @@ public class CarFactory {
     }
 
     private static void validateUniqueNames(String[] nameArr) {
-        Set<String> nameSet = new HashSet<>();
-        for (String name : nameArr) {
-            if (!nameSet.add(name.trim())) {
-                throw new IllegalArgumentException("중복된 이름이 있습니다.");
-            }
+        Set<String> nameSet = new HashSet<>(Arrays.asList(nameArr));
+        if (nameArr.length != nameSet.size()) {
+            throw new IllegalArgumentException("중복된 이름이 있습니다.");
         }
     }
 
