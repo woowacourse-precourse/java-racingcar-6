@@ -24,4 +24,22 @@ public class Validator {
         }
     }
 
+    public void validationCount(String input){
+        validationCountIsZero(input);
+        validationCountnumeric(input);
+    }
+
+    private void validationCountnumeric(String input) {
+        try {
+            Integer.parseInt(input);
+        }catch (NumberFormatException e){
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void validationCountIsZero(String input) {
+        if(input.equals("0")){
+            throw new IllegalArgumentException();
+        }
+    }
 }
