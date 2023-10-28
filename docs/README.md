@@ -13,11 +13,12 @@
   - [x] 값이 4이상인지 확인후 전진하는지 확인한다 -- verifyNumber
   - [x] 플레이어들을 출발선에 세운다(변수를 0으로 선언한다) -- setPlayerResult
   - [x] 전진한다면 출발선에 세운 플레이어들을 한칸씩 전진시킨다 -- movePlayer
-  - [x] 변수 : recentRound(int), playerResult(arrayList<Integer>)
+  - [x] 변수 : recentRound(int), playerResult(arrayList<Integer>),goalPlayer(arrayList)
+  - [x] 우승자 찾기 -- goalPlayer
 - 결과출력 -- Output
-  - [ ] 실행결과는 매 라운드마다 유저이름 : 경기결과를 (-)의 개수로 출력한다 -- printRound
-  - [ ] 모든 라운드가 종료된 이후 최종 우승자를 출력한다 -- printGaolPlayer
-  - [ ] 변수 : goalPlayer(arrayList)
+  - [x] 실행결과는 매 라운드마다 유저이름 : 경기결과를 (-)의 개수로 출력한다 -- printRound
+  - [x] 모든 라운드가 종료된 이후 최종 우승자를 출력한다 -- printGaolPlayer
+  - [x] 변수 : 
 
 ## 추가요구사항
 - indent(인덴트, 들여쓰기) depth를 2까지만 구현해야한다. 
@@ -36,4 +37,5 @@
 - 지난주에는 코드를 모두 작성하고 테스트코드를 작성하였으나
 - 이번주에는 하나의 클래스 작성이후 해당 클래스 테스트코드로 작성하여 문제점 파악이 더욱 빨랐고, 앞으로도
 - 지난주보다는 커밋의 반복이 나아졌지만, 수정을 하다보면 한기능후 커밋이아닌 두기능수정하고 커밋을 한것같다. 고쳐보기
+- 에러가 0글자일때도 발생하는데 모든 에러를 컨트롤 할 수 있는 환경으로 만드는게 좋다는걸 알았다.
 - 
