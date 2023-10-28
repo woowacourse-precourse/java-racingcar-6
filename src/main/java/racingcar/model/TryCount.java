@@ -7,6 +7,7 @@ import java.util.Objects;
 public final class TryCount {
     private static final int MINIMUM_COUNT = 1;
     private static final int MAXIMUM_COUNT = 20;
+
     private final int count;
 
     private TryCount(int count) {

@@ -5,8 +5,9 @@ import static java.util.stream.Collectors.toList;
 
 import java.util.stream.Stream;
 
-public class RacingGame {
+public final class RacingGame {
     private static final int INITIAL_SKIP_COUNT = 1;
+
     private final CarGroup carGroup;
     private final TryCount tryCount;
 
@@ -15,14 +16,14 @@ public class RacingGame {
         this.tryCount = tryCount;
     }
 
-    public static RacingGame initialize(CarGroup carGroup, TryCount tryCount) {
+    public static RacingGame of(CarGroup carGroup, TryCount tryCount) {
         return new RacingGame(carGroup, tryCount);
     }
 
-    public RaceTrackHistory playWith(MovementCondition movementCondition) {
-        return Stream.iterate(carGroup, carGroup -> carGroup.move(movementCondition))
+    public RaceHistory playWith(MovementCondition movementCondition) {
+        return Stream.iterate(carGroup, carGroup -> carGroup.moveAll(movementCondition))
                 .skip(INITIAL_SKIP_COUNT)
                 .limit(tryCount.getCount())
-                .collect(collectingAndThen(toList(), RaceTrackHistory::from));
+                .collect(collectingAndThen(toList(), RaceHistory::from));
     }
 }

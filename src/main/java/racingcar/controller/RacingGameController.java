@@ -2,9 +2,12 @@ package racingcar.controller;
 
 import racingcar.dto.request.RacingCarNamesDto;
 import racingcar.dto.request.TryCountDto;
+import racingcar.dto.response.CarWinnersDto;
+import racingcar.dto.response.RaceHistoryDto;
 import racingcar.model.CarGroup;
+import racingcar.model.CarWinners;
 import racingcar.model.MovementCondition;
-import racingcar.model.RaceTrackHistory;
+import racingcar.model.RaceHistory;
 import racingcar.model.RacingGame;
 import racingcar.model.TryCount;
 import racingcar.view.InputView;
@@ -22,15 +25,21 @@ public class RacingGameController {
     }
 
     public void run() {
-        CarGroup carGroup = createCarGroup();
-        TryCount tryCount = createTryCount();
-        RacingGame racingGame = RacingGame.initialize(carGroup, tryCount);
-        RaceTrackHistory raceTrackHistory = racingGame.playWith(movementCondition);
-        printGameResult(raceTrackHistory);
+        RacingGame racingGame = createRacingGame();
+        RaceHistory raceHistory = play(racingGame);
+        printGameResultFrom(raceHistory);
+        printWinnersFrom(raceHistory);
     }
 
-    private void printGameResult(RaceTrackHistory raceTrackHistory) {
-        outputView.printGameResult(raceTrackHistory);
+    private RacingGame createRacingGame() {
+        CarGroup carGroup = createCarGroup();
+        TryCount tryCount = createTryCount();
+        return RacingGame.of(carGroup, tryCount);
+    }
+
+    private CarGroup createCarGroup() {
+        RacingCarNamesDto racingCarNamesDto = inputView.readRacingCarNames();
+        return CarGroup.from(racingCarNamesDto.getRacingCarNames());
     }
 
     private TryCount createTryCount() {
@@ -38,8 +47,22 @@ public class RacingGameController {
         return TryCount.from(tryCountDto.getTryCount());
     }
 
-    private CarGroup createCarGroup() {
-        RacingCarNamesDto racingCarNamesDto = inputView.readRacingCarNames();
-        return CarGroup.from(racingCarNamesDto.getRacingCarNames());
+    private RaceHistory play(RacingGame racingGame) {
+        return racingGame.playWith(movementCondition);
+    }
+
+    private void printGameResultFrom(RaceHistory raceHistory) {
+        RaceHistoryDto raceHistoryDto = RaceHistoryDto.from(raceHistory);
+        outputView.printGameResult(raceHistoryDto);
+    }
+
+    private void printWinnersFrom(RaceHistory raceHistory) {
+        CarWinners winners = raceHistory.findFinalStageWinners();
+        printWinners(winners);
+    }
+
+    private void printWinners(CarWinners winners) {
+        CarWinnersDto carWinnersDto = CarWinnersDto.from(winners);
+        outputView.printWinners(carWinnersDto);
     }
 }

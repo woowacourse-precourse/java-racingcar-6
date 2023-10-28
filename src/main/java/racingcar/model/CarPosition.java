@@ -4,9 +4,10 @@ import static racingcar.model.ExceptionMessage.POSITION_UNDER_LIMIT_FORMAT_MESSA
 
 import java.util.Objects;
 
-public final class CarPosition {
+public final class CarPosition implements Comparable<CarPosition> {
     private static final int MIN_POSITION = 0;
     private static final int MOVE_STEP = 1;
+    
     private final int position;
 
     private CarPosition(int position) {
@@ -35,6 +36,11 @@ public final class CarPosition {
 
     public int getPosition() {
         return position;
+    }
+
+    @Override
+    public int compareTo(CarPosition otherCarPosition) {
+        return Integer.compare(position, otherCarPosition.position);
     }
 
     @Override

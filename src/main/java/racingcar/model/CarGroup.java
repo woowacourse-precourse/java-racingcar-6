@@ -4,18 +4,13 @@ import static java.util.stream.Collectors.collectingAndThen;
 import static java.util.stream.Collectors.toList;
 import static racingcar.model.ExceptionMessage.DUPLICATE_CAR_GROUP_EXCEPTION_MESSAGE;
 import static racingcar.model.ExceptionMessage.EMPTY_CAR_GROUP_EXCEPTION_MESSAGE;
+import static racingcar.model.ExceptionMessage.EMPTY_WINNER_GROUP_EXCEPTION_MESSAGE;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public final class CarGroup {
+public class CarGroup {
     private final List<Car> cars;
-
-    public static CarGroup from(List<String> carNames) {
-        return carNames.stream()
-                .map(Car::from)
-                .collect(collectingAndThen(toList(), CarGroup::new));
-    }
 
     private CarGroup(List<Car> cars) {
         validate(cars);
@@ -49,7 +44,31 @@ public final class CarGroup {
                 .count() != cars.size();
     }
 
-    public CarGroup move(MovementCondition movementCondition) {
+    public static CarGroup from(List<String> carNames) {
+        return carNames.stream()
+                .map(Car::from)
+                .collect(collectingAndThen(toList(), CarGroup::new));
+    }
+
+    public CarWinners findWinners() {
+        CarPosition maxPosition = findMaxPosition();
+        return findCarsWithMaxPosition(maxPosition);
+    }
+
+    private CarPosition findMaxPosition() {
+        return cars.stream()
+                .map(Car::getPosition)
+                .max(CarPosition::compareTo)
+                .orElseThrow(() -> new IllegalArgumentException(EMPTY_WINNER_GROUP_EXCEPTION_MESSAGE));
+    }
+
+    private CarWinners findCarsWithMaxPosition(CarPosition maxPosition) {
+        return cars.stream()
+                .filter(car -> car.isSamePosition(maxPosition))
+                .collect(collectingAndThen(toList(), CarWinners::from));
+    }
+
+    public CarGroup moveAll(MovementCondition movementCondition) {
         return cars.stream()
                 .map(car -> car.move(movementCondition))
                 .collect(collectingAndThen(toList(), CarGroup::new));

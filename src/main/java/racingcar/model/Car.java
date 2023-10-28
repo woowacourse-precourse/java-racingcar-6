@@ -3,7 +3,6 @@ package racingcar.model;
 import java.util.Objects;
 
 public final class Car {
-
     private final CarName name;
     private final CarPosition position;
 
@@ -26,12 +25,16 @@ public final class Car {
         return new Car(name, position);
     }
 
-    public String getName() {
-        return name.getName();
+    public boolean isSamePosition(CarPosition maxPosition) {
+        return position.equals(maxPosition);
     }
 
-    public int getPosition() {
-        return position.getPosition();
+    public CarName getName() {
+        return name;
+    }
+
+    public CarPosition getPosition() {
+        return position;
     }
 
     @Override
