@@ -12,7 +12,7 @@ public class GameController {
     public void startGame() {
         String inputName = InputView.input(GameMessage.INSTRUCTIONS_ENTERING_CAR_NAME.getMessage());
         List<String> names = Converter.convertStringToList(inputName);
-        Validator.validateCarName(names);
+        validate(names);
 
         String inputNumber = InputView.input(GameMessage.INSTRUCTIONS_ENTERING_ATTEMPT_NUMBER.getMessage());
         int number = Converter.convertStringToInt(inputNumber);
@@ -30,5 +30,10 @@ public class GameController {
         }
         cars.initWinners();
         OutputView.displayWinner(cars);
+    }
+
+    private void validate(List<String> names) {
+        Validator.validateCarName(names);
+        Validator.validateNotDuplicate(names);
     }
 }
