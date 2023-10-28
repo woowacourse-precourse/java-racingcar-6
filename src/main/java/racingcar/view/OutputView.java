@@ -1,5 +1,8 @@
 package racingcar.view;
 
+import racingcar.model.RacingCar;
+import racingcar.model.RacingCars;
+
 public class OutputView {
 
     public void printAskingForCarNames() {
@@ -14,8 +17,15 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    private void printEachResult() {
+    public void printCarsLocation(RacingCars racingCars) {
+        for (RacingCar racingCar : racingCars.getRacingCarList()) {
+            printCarCurrentLocation(racingCar);
+        }
+        System.out.println();
+    }
 
+    private void printCarCurrentLocation(RacingCar racingCar) {
+        System.out.println(racingCar.getName() + " : " + "-".repeat(racingCar.getLocation()));
     }
 
     public void printWinners() {
