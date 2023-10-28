@@ -28,6 +28,7 @@ public class RaceServiceImpl implements RaceService {
     private final RandomNumberGenerator randomNumberGenerator;
 
     private final int STANDARD_VALUE = 4;
+    private final int DEFAULT_MAX_DISTANCE = 0;
 
     @Override
     public void validateCarName(String input) {
@@ -67,7 +68,7 @@ public class RaceServiceImpl implements RaceService {
         int maxDistance = participants.stream()
                 .map(Participant::getDistance)
                 .max(Integer::compareTo)
-                .orElse(0);
+                .orElse(DEFAULT_MAX_DISTANCE);
         return participants.stream().filter(p -> p.getDistance() == maxDistance).toList();
     }
 }
