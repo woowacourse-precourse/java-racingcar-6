@@ -1,27 +1,39 @@
 package controller;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
-import model.GroupOfCar;
-import model.Race;
+import java.util.ArrayList;
+import java.util.List;
 import view.InputView;
 import model.Car;
 import validator.InputValidator;
+import view.OutputView;
 
 public class Controller {
     private final InputValidator inputValidator = new InputValidator();
-    private final GroupOfCar groupOfCar = new GroupOfCar();
-
+    private int numOfAttempt;
+    private final List<Car> groupOfCar = new ArrayList<Car>();
     public void run() { //프로그램의 시작
         createCar(parseCarName(getCarNameByInput()));
-
+        startRace();
     }
 
     private void startRace() {
-        Race race = new Race(getNumOfAttemptByInput());
+        setNumOfAttemptByInput();
+        OutputView.printResultMessage();
+
     }
 
     private int getNumOfAttemptByInput() {
         return Integer.parseInt(readLine());
+    }
+
+    private int checkNumOfAttempt(String input){
+        try{
+            inputValidator.checkNumOfAttempt(input);
+            return Integer.parseInt(input);
+        } catch (IllegalArgumentException e){
+            throw e;
+        }
     }
 
     private void createCar(String[] carName) {
