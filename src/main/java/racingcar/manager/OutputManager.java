@@ -2,6 +2,7 @@ package racingcar.manager;
 
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.domain.Referee;
 
 public class OutputManager {
 

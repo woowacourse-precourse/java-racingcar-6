@@ -1,8 +1,7 @@
-package racingcar.manager;
+package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.domain.Car;
 
 public class Referee {
 
