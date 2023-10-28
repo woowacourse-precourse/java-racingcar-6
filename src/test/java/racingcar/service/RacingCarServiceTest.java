@@ -102,4 +102,20 @@ class RacingCarServiceTest {
         final int moveForwardNumber = 5;
         this.racingCarService = new RacingCarService(() -> moveForwardNumber);
     }
+
+    @Test
+    void race_성공() {
+        initMoveService();
+        GameResult gameResult = racingCarService.race(carNameList, racingTime);
+
+        assertAll(
+            () -> assertThat(gameResult.winners()).isEqualTo(carNameList),
+            () -> assertThat(gameResult.progressResponses().size()).isEqualTo(carNameList.size()),
+            () -> {
+                for (CarProgressResponse progressRespons : gameResult.progressResponses()) {
+                    assertThat(progressRespons.result()).isEqualTo(racingTime);
+                }
+            }
+        );
+    }
 }
