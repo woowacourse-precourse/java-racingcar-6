@@ -24,9 +24,9 @@ public class RacingGameController {
 
     public void run() {
         Cars cars = getCarsFromInputView();
-        Referee referee = new Referee();
-
         TrialCount trialCount = getTrialCountFromInputView();
+
+        Referee referee = new Referee();
 
         RacingGame racingGame = new RacingGame(cars, referee);
         outputView.printResultMessage();
