@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
     private String name;
     private int currentPosition;
-    private static final int SUCCESS_NUMBER = 4;
+    private static final int CAN_MOVE_NUMBER = 4;
 
     public Car(String name) {
         this.name = name;
@@ -21,7 +21,7 @@ public class Car {
     }
 
     public void moveIfRandomSuccess() {
-        if (createRandomNumber() >= SUCCESS_NUMBER) {
+        if (createRandomNumber() >= CAN_MOVE_NUMBER) {
             currentPosition++;
         }
     }
