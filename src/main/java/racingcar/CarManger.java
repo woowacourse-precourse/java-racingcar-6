@@ -47,4 +47,10 @@ public class CarManger {
 			.max()
 			.orElse(0);
 	}
+
+	public Map<String, StringBuilder> getPositionHistory() {
+		Map<String, StringBuilder> moveLog = new HashMap<>();
+		cars.forEach(car -> moveLog.put(car.getName(), car.getHistory()));
+		return moveLog;
+	}
 }
