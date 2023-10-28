@@ -3,6 +3,7 @@ package racingcar;
 import static racingcar.Constant.BLANK_CAR_NAME_MESSAGE;
 import static racingcar.Constant.BLANK_SPACE;
 import static racingcar.Constant.DUPLICATE_CAR_NAME_MESSAGE;
+import static racingcar.Constant.INVALID_NUMERIC_INPUT_MESSAGE;
 import static racingcar.Constant.MAX_CAR_NAME_LENGTH;
 import static racingcar.Constant.OVER_MAX_LENGTH_MESSAGE;
 
@@ -48,5 +49,13 @@ public class UserInputException {
     private boolean overMaxLength(String[] carNames) {
         return Arrays.stream(carNames)
                 .anyMatch(carName -> carName.length() > MAX_CAR_NAME_LENGTH);
+    }
+
+    public int isIntegerAttemptCount(String userInput) {
+        try {
+            return Integer.parseInt(userInput);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(INVALID_NUMERIC_INPUT_MESSAGE);
+        }
     }
 }
