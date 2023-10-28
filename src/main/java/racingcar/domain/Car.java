@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Car {
     private final String name;
-    private final int randomNumber;
+    private int randomNumber;
     private int round;
     private final int finalRound;
     private int moveResult;
@@ -20,7 +20,9 @@ public class Car {
         this.moveResult = moveResult;
         this.moveHistory = moveHistory;
     }
-
+    public String getName() {
+        return name;
+    }
     public int getRandomNumber() {
         return randomNumber;
     }
@@ -30,6 +32,10 @@ public class Car {
     public int getFinalRound() {
         return finalRound;
     }
+    public int getMoveResult() {
+        return moveResult;
+    }
+
     public void setRandomNumber(int randomNumber) {
         this.randomNumber = randomNumber;
     }
@@ -42,4 +48,12 @@ public class Car {
         this.round += 1;
     }
 
+    public String representationHistoryMove() {
+        StringBuilder history = new StringBuilder();
+
+        for (String move : moveHistory) {
+            history.append(move);
+        }
+        return history.toString();
+    }
 }

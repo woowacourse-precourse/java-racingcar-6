@@ -14,4 +14,7 @@ public class RacingView {
         System.out.println(racingMassage.getMessage());
     }
 
+    public void displayResultMessage(ResultMessage resultMessage) {
+        System.out.println(resultMessage.getValue());
+    }
 }

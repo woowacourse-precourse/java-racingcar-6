@@ -6,7 +6,6 @@ import static racingcar.domain.RacingConfig.MAX_NUMBER;
 import static racingcar.domain.RacingConfig.MIN_NUMBER;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.domain.Car;
 
 public class RacingModel {
@@ -15,6 +14,7 @@ public class RacingModel {
         do {
             generateRandomNumbers(cars);
             moveForwards(cars);
+            representationCars(cars);
         } while (cars.stream().allMatch(car -> car.getRound() < car.getFinalRound()));
     }
 
@@ -39,5 +39,16 @@ public class RacingModel {
             car.increaseMoveResult();
         }
         car.increaseRound();
+    }
+
+    private void representationCars(List<Car> cars){
+        for (Car car : cars) {
+            representation(car);
+        }
+    }
+
+    private void representation (Car car) {
+        String result = String.format("%s : %s",car.getName(),car.representationHistoryMove());
+        System.out.println(result);
     }
 }

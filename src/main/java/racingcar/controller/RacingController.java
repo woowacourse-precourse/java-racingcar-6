@@ -34,6 +34,8 @@ public class RacingController {
 
         List<Car> cars = generateCars(carNames,round);
 
+        racingView.displayResultMessage(ResultMessage.RACING_RESULT);
+
         racingModel.proceed(cars);
     }
 
