@@ -1,7 +1,9 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Cars {
     List<Car> cars ;
@@ -24,32 +26,26 @@ public class Cars {
     }
 
     public PairCompareResult comparePosition(Car givenCar) {
-        int topLank = 0 ;
-        List<ComparePositionState> csList  = new ArrayList<>();
-        for(Car car : cars) {
+        int topRank = 0;
+        Set<ComparePositionState> stateSet = new HashSet<>();
+
+        for (Car car : cars) {
             PairCompareResult compareResult = givenCar.comparePosition(car);
-            if(compareResult.state().equals(ComparePositionState.FRONT)) {
-                topLank = Integer.max(topLank,compareResult.position());
-                csList.add(ComparePositionState.FRONT);
-            }
-            if(compareResult.state().equals(ComparePositionState.SAME)) {
-                topLank = Integer.max(topLank,compareResult.position());
-                csList.add(ComparePositionState.SAME);
-            }
-            if(compareResult.state().equals(ComparePositionState.BACK)){
-                csList.add(ComparePositionState.BACK);
+            ComparePositionState state = compareResult.state();
+
+            stateSet.add(state);
+            if (state == ComparePositionState.FRONT || state == ComparePositionState.SAME) {
+                topRank = Integer.max(topRank, compareResult.position());
             }
         }
 
-        if(csList.contains(ComparePositionState.FRONT)) {
-            return new PairCompareResult(ComparePositionState.FRONT,topLank);
+        if (stateSet.contains(ComparePositionState.FRONT)) {
+            return new PairCompareResult(ComparePositionState.FRONT, topRank);
         }
-
-        if(csList.contains(ComparePositionState.BACK)){
-            return new PairCompareResult(ComparePositionState.BACK ,topLank);
+        if (stateSet.contains(ComparePositionState.BACK)) {
+            return new PairCompareResult(ComparePositionState.BACK, topRank);
         }
-
-        return new PairCompareResult(ComparePositionState.SAME,topLank);
+        return new PairCompareResult(ComparePositionState.SAME, topRank);
     }
 
     public List<Car> moveAll() {
