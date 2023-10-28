@@ -33,9 +33,9 @@ public class RacingGameExecutor {
         String carNamesInput = racingCarsReader.read();
 
         List<String> carNames = Arrays.asList(carNamesInput.split(ConstStandard.CRITERIA_SEPARATE));
-        carNames.forEach(String::trim);
 
-        return carNames;
+        return carNames.stream().map(String::trim)
+                .toList();
     }
 
     private Long receiveTrial() {
