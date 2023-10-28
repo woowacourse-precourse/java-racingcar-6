@@ -2,8 +2,8 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class CarMoveCount {
-    public final int inputCarMoveCount() {
+public class RacingCount {
+    public final int inputRacingCount() {
         int CarMoveCount = Integer.parseInt(Console.readLine());
         return CarMoveCount;
     }
