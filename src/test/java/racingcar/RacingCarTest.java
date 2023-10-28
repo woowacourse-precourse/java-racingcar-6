@@ -3,6 +3,7 @@ package racingcar;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 public class RacingCarTest {
     @Test
@@ -12,6 +13,15 @@ public class RacingCarTest {
         // Action, Assert
         RacingCar racingCar = new RacingCar(carName);
         assertThat(racingCar.name).isEqualTo(carName);
+    }
+
+    @Test
+    void 이름자리수가_5자_초과이면_예외처리한다(){
+        // Arrange
+        String carName = "javaji";
+        // Action, Assert
+        assertThatThrownBy(() -> new RacingCar(carName))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
