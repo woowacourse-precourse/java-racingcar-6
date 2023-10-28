@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import javax.xml.validation.Validator;
 
 public class Controller {
 
@@ -19,7 +20,9 @@ public class Controller {
 
 
     private static ArrayList<String> getCarsName() {
-        return null;
+        String inputString = InputView.inputCarsName();
+        ArrayList<String> carNameArrayList = GetNameValidator.validateCarsName(inputString);
+        return carNameArrayList;
     }
 
 
