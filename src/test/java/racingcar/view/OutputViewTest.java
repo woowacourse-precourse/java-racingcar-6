@@ -41,4 +41,10 @@ class OutputViewTest {
         outputView.promptCarNames();
         assertEquals("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n", outputMessage.toString());
     }
+
+    @Test
+    public void promptNumberOfGameAttempts() {
+        outputView.promptNumberOfGameAttempts();
+        assertEquals("시도할 회수는 몇회인가요?\n", outputMessage.toString());
+    }
 }
