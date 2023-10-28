@@ -7,12 +7,18 @@ import racingcar.view.OutputView;
 
 public class RacingController {
     private final CarService carService;
+    private int moveCount;
 
     public RacingController(CarService carService) {
         this.carService = carService;
     }
 
     public void init() {
+        inputCarNames();
+        inputMoveCount();
+    }
+
+    public void inputCarNames() {
         OutputView.printNameInputDescription();
         try {
             carService.createCars(InputView.inputCarNames());
@@ -20,6 +26,10 @@ public class RacingController {
             System.out.println(e.getMessage());
             throw e;
         }
+    }
+
+    public void inputMoveCount() {
+        OutputView.printMoveCountInputDescription();
 
     }
 
