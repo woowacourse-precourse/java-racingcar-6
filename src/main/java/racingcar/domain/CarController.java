@@ -23,30 +23,31 @@ public class CarController {
 // 1세트가 끝나면 해시맵 반환
 
     List<String> cars;
-    HashMap<String, Integer> racingResult = new HashMap<>();
-
 
     public CarController(List<String> cars) {
         this.cars = cars;
     }
 
+    public HashMap<String, Integer> racingResult = new HashMap<>();
+
     public HashMap<String, Integer> gameStart() {
-        int moveResult = 0;
         for (String car : cars) {
-            moveResult = isForward();
+            racingResult.put(car, racingResult.getOrDefault(car, 0) + isForward());
         }
-        return null;
+        return racingResult;
     }
 
     public int isForward() {
         int randomNumber = Randoms.pickNumberInRange(1, 9);
-        boolean goOrStop = isBiggerThanFour(randomNumber);
-        return 0;
+        return isBiggerThanFour(randomNumber);
     }
 
 
-    public boolean isBiggerThanFour(int number) {
-        return false;
+    public int isBiggerThanFour(int number) {
+        if (number >= 4) {
+            return 1;
+        }
+        return 0;
     }
 
 
