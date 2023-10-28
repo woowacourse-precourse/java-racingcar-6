@@ -49,7 +49,8 @@ Model, Controller, View, Logic 에 대해 인터페이스를 먼저 구현한다
 10. getPlayers() - 컨트롤러로 부터 플레이어를 가져온다.
 ## Utils
 1. generateRandomNumber() - 무작위 숫자를 생성할 수 있도록 한다.
-2. isIllegal() - 사용자의 입력값에 대해 에러처리를 하도록 한다. 
+2. isIllegalPlayerInfo() - 사용자의 입력 문자열에 대해 에러처리를 하도록 한다. 
+3. isValidRound() - 사용
 --- 
 # 고려사항 ( 고민했던 사항 )
 - 로직에서 Player별 승리 횟수를 조작하기 위해선 Controller를 통해 이루어져야 할까?
@@ -62,6 +63,7 @@ Model, Controller, View, Logic 에 대해 인터페이스를 먼저 구현한다
 # 추가 업데이트
 1. Logic - 10번 getPlayers() 추가 필요성 
 2. View - printRoundInfo() -> printRoundProgress() 수정
+3. 플레이어 리스트를 ArrayList를 오버라이딩 하여 사용한다. 
 
 
 
