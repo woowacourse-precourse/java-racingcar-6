@@ -16,10 +16,22 @@ class inputValidatorTest {
     }
 
     @Test
-    void 자동차_이름들이_비정상적으로_입력되어_예외발생() {
+    void 자동차_이름_앞에_공백있어_예외() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputCarName("pobi, apple"));
+    }
+
+    @Test
+    void 자동차_이름_사이에_콤마가_아닌_다른문자_예외() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputCarName("pobi&apple&jun"));
+    }
+
+    @Test
+    void 자동차_이름_한글이름_예외() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputCarName("한글이름"));
+    }
+
+    @Test
+    void 자동차_이름_5자이상_예외() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputCarName("pobiii"));
     }
 
@@ -31,8 +43,12 @@ class inputValidatorTest {
     }
 
     @Test
-    void 시도_횟수_입력_예외처리() {
+    void 시도_횟수_입력_앞에_공백있을_경우_예외() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputTryCount(" 123"));
+    }
+
+    @Test
+    void 시도_횟수_입력_앞에_0이_있을_경우_예외() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputTryCount("0"));
         Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputTryCount("012"));
     }
