@@ -91,6 +91,17 @@ public class Application {
         System.out.print("\n");
     }
 
+    public static String judgeChampion(int[] victory, List<String> name) {
+        List<String> vic = new ArrayList<>();
+        int max = max(victory);
+        for (int i = 0; i < victory.length; i++) {
+            if (victory[i] >= max) {
+                vic.add(name.get(i));
+            }
+        }
+        return String.join(", ", vic);
+    }
+
     public static int max(int[] num) {
         int max = num[0];
         for (int i = 1; i < num.length; i++) {
