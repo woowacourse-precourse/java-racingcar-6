@@ -11,7 +11,7 @@ import racingcar.model.Cars;
 import racingcar.model.GameResult;
 
 class RacingCarServiceTest {
-    private final int racingTime = 5;
+    private static final int racingTime = 5;
     private RacingCarService racingCarService;
     private final List<String> carNameList = List.of("car", "benz", "audi", "fox");
 
@@ -110,8 +110,8 @@ class RacingCarServiceTest {
             () -> assertThat(gameResult.winners()).isEqualTo(carNameList),
             () -> assertThat(gameResult.progressResponses().size()).isEqualTo(carNameList.size()),
             () -> {
-                for (CarProgressResponse progressRespons : gameResult.progressResponses()) {
-                    assertThat(progressRespons.result()).isEqualTo(racingTime);
+                for (CarProgressResponse progressResponse : gameResult.progressResponses()) {
+                    assertThat(progressResponse.result()).isEqualTo(racingTime);
                 }
             }
         );

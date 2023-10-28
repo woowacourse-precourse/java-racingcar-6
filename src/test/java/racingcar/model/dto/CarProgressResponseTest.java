@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.model.dto.CarProgressResponse;
 
 class CarProgressResponseTest {
-    private final int result = 3;
+    private static final int result = 3;
     @Test
     void constructor_성공() {
         final String name = "benz";
