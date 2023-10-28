@@ -3,24 +3,27 @@ package racingcar.view.outputview;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
+import racingcar.controller.RegisterCarNamesController;
+import racingcar.controller.RegisterRoundController;
 import racingcar.model.Car;
 import racingcar.model.RacingCars;
 import racingcar.model.Round;
 
 public class DisplayRoundOutputView implements OutputView {
     private static final String DASH = "-";
+    public static final String NAME_DASH_FORMAT = "%s : %s\n";
+    public static final String DISPLAY_START_MESSAGE = "실행 결과";
+    public static final int START_WITH_ZERO = 0;
 
     @Override
     public void print(Map<String, Object> model) {
-        System.out.println("실행 결과");
+        System.out.println(DISPLAY_START_MESSAGE);
 
-        Round round = (Round) model.get("round");
-        RacingCars racingCars = (RacingCars) model.get("racingCars");
+        Round round = (Round) model.get(RegisterRoundController.ROUND_KEY);
+        RacingCars racingCars = (RacingCars) model.get(RegisterCarNamesController.RACING_CARS_KEY);
 
         IntStream.range(0, round.getRound())
                 .forEach((num) -> displayRoundResult(racingCars));
-
-
     }
 
     private void displayRoundResult(RacingCars racingCars) {
@@ -37,12 +40,12 @@ public class DisplayRoundOutputView implements OutputView {
         String carName = car.getCarName();
         int distance = car.getDistance();
 
-        System.out.printf("%s : %s\n", carName, convertDistanceToDash(distance));
+        System.out.printf(NAME_DASH_FORMAT, carName, convertDistanceToDash(distance));
     }
 
     private String convertDistanceToDash(int distance) {
         StringBuilder stringBuilder = new StringBuilder();
-        IntStream.range(0, distance)
+        IntStream.range(START_WITH_ZERO, distance)
                 .forEach((num) -> stringBuilder.append(DASH));
         return stringBuilder.toString();
     }

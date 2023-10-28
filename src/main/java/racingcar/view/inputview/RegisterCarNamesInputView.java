@@ -8,17 +8,20 @@ import racingcar.exception.ErrorException;
 
 public class RegisterCarNamesInputView implements InputView<String> {
     public static final Pattern CAR_NAME_PATTERN = Pattern.compile("^([a-zA-Z],?)+$");
+    public static final String WHITE_SPACE_REGEX = " ";
+    public static final String TRIM_REGEX = "";
+    public static final int EMPTY_VALUE = 0;
 
     @Override
     public String input(Map<String, Object> model) {
-        String replacedLine = Console.readLine().replaceAll(" ", "");
+        String replacedLine = Console.readLine().replaceAll(WHITE_SPACE_REGEX, TRIM_REGEX);
         isNullOrEmpty(replacedLine);
         hasValidCharacters(replacedLine);
         return replacedLine;
     }
 
     private void isNullOrEmpty(String s) {
-        if (Objects.isNull(s) || Objects.equals(s.length(), 0)) {
+        if (Objects.isNull(s) || Objects.equals(s.length(), EMPTY_VALUE)) {
             throw new IllegalArgumentException(ErrorException.NOTHING_INPUT.getErrorDescription());
         }
     }

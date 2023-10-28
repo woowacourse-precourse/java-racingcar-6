@@ -6,9 +6,11 @@ import java.util.List;
 import racingcar.model.Car;
 
 public class StringToRacingCars {
+    public static final String COMMA = ",";
+
     public static List<Car> convert(String input) {
         List<Car> registeredCars = new ArrayList<>();
-        String[] splitedNames = input.split(",");
+        String[] splitedNames = input.split(COMMA);
 
         Arrays.stream(splitedNames)
                 .forEach(name -> registeredCars.add(new Car(name)));

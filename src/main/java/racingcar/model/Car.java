@@ -61,14 +61,6 @@ public class Car {
         return Objects.hash(carName, distance);
     }
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "carName='" + carName + '\'' +
-                ", distance=" + distance +
-                '}';
-    }
-
     public String getCarName() {
         return carName;
     }

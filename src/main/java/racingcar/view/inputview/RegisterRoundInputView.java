@@ -8,6 +8,7 @@ import racingcar.exception.ErrorException;
 
 public class RegisterRoundInputView implements InputView<String> {
     private static final Pattern NUMBER_PATTERN = Pattern.compile("^[0-9]+$");
+    public static final char ZERO = '0';
 
     private void validate(String inputRound) {
         hasValidCharacters(inputRound);
@@ -15,7 +16,7 @@ public class RegisterRoundInputView implements InputView<String> {
     }
 
     private void startsWithNonZero(String inputRound) {
-        if (Objects.equals(inputRound.charAt(0), '0')) {
+        if (Objects.equals(inputRound.charAt(0), ZERO)) {
             throw new IllegalArgumentException(ErrorException.START_WITH_ZERO.getErrorDescription());
         }
     }

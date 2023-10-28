@@ -15,21 +15,25 @@ import racingcar.view.outputview.RegisterCarNamesOutputView;
 import racingcar.view.outputview.RegisterRoundOutputView;
 
 public class RacingCarApplication {
+    public static final String REGISTER_CARS_PATH = "registerCars";
+    public static final String REGISTER_ROUND_PATH = "registerRound";
+    public static final String DISPLAY_ROUND_PATH = "displayRound";
+    public static final String RACING_RESULT_PATH = "racingResult";
     private final Map<String, Controller> controllerMap = new HashMap<>();
 
     public RacingCarApplication() {
-        controllerMap.put("registerCars", new RegisterCarNamesController(
+        controllerMap.put(REGISTER_CARS_PATH, new RegisterCarNamesController(
                 new RegisterCarNamesOutputView(),
                 new RegisterCarNamesInputView()
         ));
-        controllerMap.put("registerRound", new RegisterRoundController(
+        controllerMap.put(REGISTER_ROUND_PATH, new RegisterRoundController(
                 new RegisterRoundOutputView(),
                 new RegisterRoundInputView()
         ));
-        controllerMap.put("displayRound", new DisplayRoundController(
+        controllerMap.put(DISPLAY_ROUND_PATH, new DisplayRoundController(
                 new DisplayRoundOutputView()
         ));
-        controllerMap.put("racingResult", new RacingResultController(
+        controllerMap.put(RACING_RESULT_PATH, new RacingResultController(
                 new RacingResultOutputView()
         ));
     }
@@ -43,18 +47,18 @@ public class RacingCarApplication {
     }
 
     private void displayWinnerNames(Map<String, Object> model) {
-        controllerMap.get("racingResult").process(model);
+        controllerMap.get(RACING_RESULT_PATH).process(model);
     }
 
     private void displayStatus(Map<String, Object> model) {
-        controllerMap.get("displayRound").process(model);
+        controllerMap.get(DISPLAY_ROUND_PATH).process(model);
     }
 
     private void registerRound(Map<String, Object> model) {
-        controllerMap.get("registerRound").process(model);
+        controllerMap.get(REGISTER_ROUND_PATH).process(model);
     }
 
     private void registerCarNames(Map<String, Object> model) {
-        controllerMap.get("registerCars").process(model);
+        controllerMap.get(REGISTER_CARS_PATH).process(model);
     }
 }

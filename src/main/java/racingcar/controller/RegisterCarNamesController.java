@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import java.util.HashMap;
 import java.util.Map;
 import racingcar.model.RacingCars;
 import racingcar.system.converter.StringToRacingCars;
@@ -8,6 +7,7 @@ import racingcar.view.inputview.InputView;
 import racingcar.view.outputview.OutputView;
 
 public class RegisterCarNamesController extends AbstractController {
+    public static final String RACING_CARS_KEY = "racingCars";
     private final OutputView outputView;
     private final InputView inputView;
 
@@ -25,6 +25,6 @@ public class RegisterCarNamesController extends AbstractController {
         String input = (String) inputView.input(model);
         RacingCars racingCars = new RacingCars(StringToRacingCars.convert(input));
 
-        model.put("racingCars", racingCars);
+        model.put(RACING_CARS_KEY, racingCars);
     }
 }
