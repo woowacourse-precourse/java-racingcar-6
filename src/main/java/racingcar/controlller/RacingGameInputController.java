@@ -10,7 +10,7 @@ import racingcar.view.InputView;
 
 public class RacingGameInputController {
     public static Cars scanCarList() {
-        InputView.printEnterCarNames();
+        System.out.println(InputView.enterCarNames());
         String userInput = Console.readLine();
         RacingGameInputValidator.validateCarList(userInput);
 
@@ -23,9 +23,9 @@ public class RacingGameInputController {
                 .forEach(name -> carList.add(new Car(name)));
         return new Cars(carList);
     }
-    
+
     public static Integer scanNumberOfRounds() {
-        InputView.printEnterNumberOfRounds();
+        System.out.println(InputView.enterNumberOfRounds());
         String userInput = Console.readLine();
         RacingGameInputValidator.validateNumberOfRounds(userInput);
 
