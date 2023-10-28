@@ -20,6 +20,17 @@ public class RacingGame {
         System.out.println();
 
         List<Car> cars = createCars(input);
+
+        System.out.println("실행 결과");
+
+        int roundCount = Integer.parseInt(round);
+        for (int currentRound = 0; currentRound < roundCount; currentRound++) {
+            for (Car car : cars) {
+                car.move();
+            }
+            printProgress(cars);
+            System.out.println();
+        }
     }
 
     private List<Car> createCars(String input) {
@@ -31,5 +42,16 @@ public class RacingGame {
         }
 
         return cars;
+    }
+
+    private void printProgress(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.println(car.getName() + " : " + getProgress(car));
+        }
+        System.out.println();
+    }
+
+    private String getProgress(Car car) {
+        return "-".repeat(Math.max(0, car.getPosition()));
     }
 }
