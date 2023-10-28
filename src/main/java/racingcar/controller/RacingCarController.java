@@ -20,7 +20,7 @@ public class RacingCarController {
         outputView.printExecution();
         while (round.isContinue()) {
             racer.play();
-            outputView.printResult(racer);
+            outputView.printResult(racer.toString());
         }
         outputView.printFinalWinner(racer.getWinner());
     }
