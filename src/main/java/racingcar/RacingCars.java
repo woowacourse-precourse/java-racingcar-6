@@ -19,6 +19,14 @@ public class RacingCars {
         return participateCars;
     }
 
+    private long calculateMaxTotalMoveCount() {
+        long maxTotalMoveCount = 0;
+        for (Car car : this.cars) {
+            maxTotalMoveCount = Math.max(car.getTotalMoveCount(), maxTotalMoveCount);
+        }
+        return maxTotalMoveCount;
+    }
+
     public List<Car> doRace() {
         for (Car car : this.cars) {
             car.moveCar();
