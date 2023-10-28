@@ -1,5 +1,14 @@
 package racingcar.model;
 
+import static racingcar.constant.Constant.COLON;
+import static racingcar.constant.Constant.END_CONDITION;
+import static racingcar.constant.Constant.HYPHEN;
+import static racingcar.constant.Constant.INIT_MOVE;
+import static racingcar.constant.Constant.MAX_RANDOM_NUMBER;
+import static racingcar.constant.Constant.MIN_RANDOM_NUMBER;
+import static racingcar.constant.Constant.MOVABLE_RANDOM_NUMBER;
+import static racingcar.constant.Constant.NEW_LINE;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,11 +21,11 @@ public class Game {
     public Game(Car cars, String set) {
         this.cars = cars;
         this.remainingSet = Integer.parseInt(set);
-        maxMove = 0;
+        maxMove = INIT_MOVE;
     }
 
     public boolean isContinue() {
-        return remainingSet > 0;
+        return remainingSet > END_CONDITION;
     }
 
     public StringBuilder playSet() {
@@ -40,9 +49,9 @@ public class Game {
     }
 
     private boolean canGo() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
 
-        return randomNumber >= 4;
+        return randomNumber >= MOVABLE_RANDOM_NUMBER;
     }
 
     private void updateMaxMove(String carName) {
@@ -52,9 +61,9 @@ public class Game {
     }
 
     private StringBuilder getSetResult(String carName) {
-        StringBuilder setResult = new StringBuilder(carName).append(" : ");
+        StringBuilder setResult = new StringBuilder(carName).append(COLON);
 
-        setResult.append("-".repeat(cars.getMove(carName))).append("\n");
+        setResult.append(HYPHEN.repeat(cars.getMove(carName))).append(NEW_LINE);
 
         return setResult;
     }

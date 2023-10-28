@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import static racingcar.constant.Constant.SPLIT_REGEX;
 import static racingcar.constant.ExceptionMessage.CAR_NAME_DUPLICATE_EXCEPTION_MESSAGE;
 import static racingcar.constant.ExceptionMessage.CAR_NAME_INCLUDE_BLANK_EXCEPTION_MESSAGE;
 import static racingcar.constant.ExceptionMessage.CAR_NAME_OVER_LENGTH_EXCEPTION_MESSAGE;
@@ -15,7 +16,7 @@ import racingcar.model.Game;
 
 public class CarRacingGameService {
     public Car getCar(String carNameInput) {
-        List<String> carNameInputList = List.of(carNameInput.split(","));
+        List<String> carNameInputList = List.of(carNameInput.split(SPLIT_REGEX));
 
         validateCarNameInput(carNameInputList);
 

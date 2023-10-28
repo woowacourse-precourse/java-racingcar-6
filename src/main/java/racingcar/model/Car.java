@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import static racingcar.constant.Constant.INIT_MOVE;
+
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
@@ -11,7 +13,7 @@ public class Car {
 
     public Car(List<String> carNameInputList) {
         cars = carNameInputList.stream()
-                .collect(Collectors.toMap(Function.identity(), e -> 0, (oldValue, newValue) -> newValue,
+                .collect(Collectors.toMap(Function.identity(), e -> INIT_MOVE, (oldValue, newValue) -> newValue,
                         LinkedHashMap::new));
     }
 
