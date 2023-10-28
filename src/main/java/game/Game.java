@@ -30,7 +30,7 @@ public class Game {
 		for(int i=1;i<=tryCount;i++) {
 			for(Car car : car_list) {
 				CarService.forward(car, Randoms.pickNumberInRange(0, 9));
-				System.out.println(car.getName()+" : "+car.getMovementStack().toString());
+				System.out.println(car.getName()+" : "+CarService.outputCarMOVEMENT(car));
 			}
 		}
 	}
