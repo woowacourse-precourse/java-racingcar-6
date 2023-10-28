@@ -20,4 +20,21 @@ public class CarTest {
         assertDoesNotThrow(() -> new Car(name));
     }
 
+    @Test
+    void move_이동이_이루어졌는지_확인() {
+
+        Car car = new Car("foo");
+        CarDistanceMessage before = car.getCarDistanceMessage();
+
+        car.move();
+        CarDistanceMessage after = car.getCarDistanceMessage();
+        CarDistanceMessage expect = new CarDistanceMessage("foo", 1);
+
+        assertAll(
+                () -> assertNotEquals(before.toString(), after.toString()),
+                () -> assertEquals(after.toString(), expect.toString())
+        );
+
+    }
+
 }
