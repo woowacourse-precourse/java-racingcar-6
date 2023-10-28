@@ -26,8 +26,7 @@ public class GameController {
     public void play() {
         Cars cars = createCars();
         GameRound gameRound = createGameRound();
-
-        // 각 라운드 별 결과 출력
+        playAllGameRound(gameRound, cars);
 
         // 최종 우승자 출력
     }
@@ -46,6 +45,16 @@ public class GameController {
         GameRound gameRound = new GameRound(numberOfGameRound, 0);
 
         return gameRound;
+    }
+
+    private void playAllGameRound(GameRound gameRound, Cars cars) {
+        // 각 라운드 별 게임 진행 및 결과 출력
+        outputView.outputGameResultMessage();
+        while (gameRound.isLeftRound()) {
+            gameRound.increaseCurrentRound();
+            cars.raceAllCars();
+            outputView.outputCarsPosition(cars);
+        }
     }
 
 
