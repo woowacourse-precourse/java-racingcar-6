@@ -19,6 +19,16 @@ public class RacingGame {
 
     public Car[] getInput() {
         String[] carNames = Console.readLine().split(",");
+        Car[] cars = createCars(carNames);
+        return cars;
+    }
+
+    private static Car[] createCars(String[] carNames) {
+        Car[] cars = new Car[carNames.length];
+        for (int i = 0; i < carNames.length; i++) {
+            cars[i] = new Car(carNames[i].trim());
+        }
+        return cars;
     }
 
     public void getAttemptingNum() {
