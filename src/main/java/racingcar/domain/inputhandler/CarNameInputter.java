@@ -20,8 +20,8 @@ public class CarNameInputter {
     }
 
     public List<String> divineCarName(String carNames) {
-        List<String> carName = Arrays.asList(carNames.split(","));
-        return carName;
+        List<String> carNameList = Arrays.asList(carNames.split(","));
+        return carNameList;
     }
 
 }
