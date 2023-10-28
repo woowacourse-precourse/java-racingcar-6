@@ -10,4 +10,16 @@ public class RacingCar {
         this.distance = 0;
     }
 
+    void move() {
+        this.distance++;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getDistance() {
+        return this.distance;
+    }
+
 }
