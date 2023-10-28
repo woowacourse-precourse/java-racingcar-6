@@ -1,33 +1,51 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
-import racingcar.model.Car;
-import racingcar.service.RacingGame;
+import racingcar.service.CarService;
+import racingcar.service.RacingGameService;
 import racingcar.view.InputView;
-import racingcar.service.Exception;
+import racingcar.service.ExceptionService;
 import racingcar.view.OutputView;
 
 public class GameController {
 
-    private final RacingGame game = new RacingGame();
+    private ExceptionService exception;
+    private RacingGameService racingGame;
+
+    public GameController() {
+        exception = new ExceptionService();
+        racingGame = new RacingGameService();
+    }
+
+    /*
+    private final CarService carService = new CarService();
+    private final RacingGameService game = new RacingGameService();
+     */
 
     public void play() {
-        setCar();
+        String carName = InputView.inputCarName();
+        exception.checkCarName(carName);
         setRaceCount();
         startRace();
         showWinner();
     }
 
+    /*
+    private void inputCarName() {
+        ExceptionService.checkCarName(InputView.inputCarName());
+    }
+
+
     private void setCar() {
-        Exception.checkCarName(InputView.inputCarName());
         Car.carList = new ArrayList<>();
         for (String name : Exception.carNames) {
             Car.carList.add(new Car(name));
         }
     }
+     */
 
+    /*
     private void setRaceCount() {
-        game.setRaceCount(Exception.checkRaceCount(InputView.inputRaceCount()));
+        game.setRaceCount(ExceptionService.checkRaceCount(InputView.inputRaceCount()));
     }
 
     private void startRace() {
@@ -40,4 +58,5 @@ public class GameController {
         String winnerList = String.join(",", game.getWinnerList());
         OutputView.printWinner(winnerList);
     }
+     */
 }
