@@ -9,7 +9,7 @@
 - [x] 자동차의 이름을 입력받는다. UserInput#inputCarNames()
 
 
-- [x] 자동차에 이름을 부여한다. Race#setcarNames()
+- [x] 자동차에 이름을 부여한다. Race#setCarNames()
     - [x] 입력받은 모든 자동차의 이름을 쉼표(,)로 나누어 저장할 수 있어야 한다.
     - [ ] 이름이 5자 초과면 예외가 발생해야 한다. ExceptionChecker#checkNameLength5()
 
@@ -17,14 +17,14 @@
 - [x] 몇 번의 이동을 할 것인지 입력받는다. UserInput#inputRound()
 
 
-- [x] 총 몇 번의 이동을 할 것인지 설정한다. Round()
+- [x] 총 몇 번의 이동을 할 것인지 설정한다. Round()#Round()
     - [ ] 숫자가 아니라면 예외가 발생해야 한다. ExceptionChecker#isNumber()
 
 
-- [ ] 매 번 이동마다 각각의 자동차가 전진하거나 멈춘다. Game#
-    - [ ] 자동차를 전진시킨다. Car#moveForward()
-        - [ ] 0에서 9사이의 무작위 값을 생성해야 한다. Car#makeRandomNumber()
-        - [ ] 무작위 값이 4 이상일 때만 한 칸 전진해야 한다. Car#canMove()
+- [x] 매 번 이동마다 각각의 자동차가 전진하거나 멈춘다. Race#moveCars()
+    - [x] 자동차를 전진시킨다. Car#moveForward()
+        - [x] 0에서 9사이의 무작위 값을 생성해야 한다. RandomGenerator#createNumber()
+        - [x] 무작위 값이 4 이상일 때만 한 칸 전진해야 한다.
     - [ ] 자동차를 출력한다. UserOutput#printCars()
         - [ ] 자동차의 이름과 전진한 칸이 출력되어야 한다.
 
