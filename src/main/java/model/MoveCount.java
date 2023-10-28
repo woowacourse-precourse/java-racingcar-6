@@ -4,7 +4,7 @@ public class MoveCount {
 
     private static final int INITIAL_MOVE_COUNT = 0;
 
-    private final int moveCount;
+    private int moveCount;
 
     private MoveCount(final int count) {
         this.moveCount = count;
@@ -12,5 +12,13 @@ public class MoveCount {
 
     public static MoveCount initialMoveCount() {
         return new MoveCount(INITIAL_MOVE_COUNT);
+    }
+
+    public void moveForward() {
+        moveCount++;
+    }
+
+    public int getMoveCount() {
+        return moveCount;
     }
 }
