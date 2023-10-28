@@ -72,7 +72,7 @@ public class InputValidator {
     }
 
     private boolean isNaturalNumber(String moveCnt) {
-        if (!moveCnt.matches("[0-9]+")) {
+        if (moveCnt.matches("[0-9]+")) {
             return true;
         }
 
