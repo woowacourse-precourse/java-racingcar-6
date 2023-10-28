@@ -46,7 +46,7 @@ public class InputHandler {
         if (nameList.contains(trimName)) {
             throw new IllegalArgumentException(DUPLICATE_NAME_NOT_ALLOWED);
         }
-        if (trimName.length() >= 5) {
+        if (trimName.length() > 5) {
             throw new IllegalArgumentException(INVALID_NAME_LENGTH);
         }
     }
