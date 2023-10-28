@@ -129,8 +129,8 @@ public class Application {
         int[] goSituation = new int[carName.size()];
         int[] victory = situationRepeat(carName, goSituation, realTime);
 
-
-
+        String List_of_victory = judgeChampion(victory, carName);
+        System.out.println("최종 우승자 : " + List_of_victory);
 
 
     }
