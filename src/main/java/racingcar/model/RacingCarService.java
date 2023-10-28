@@ -1,28 +1,26 @@
 package racingcar.model;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import racingcar.dto.CarNameDto;
+import java.util.Map;
 
 public class RacingCarService {
 
-    public List<CarNameDto> carNameExtraction(String userInputCarNames) {
+    public List<String> splitCarName(String userInputCarNames) {
         CarGenerator carGenerator = new CarGenerator(userInputCarNames);
-        List<String> carNameList = carGenerator.generateCarNameList();
-        return carNameList.stream()
-                .map(name -> {
-                    CarNameDto dto = new CarNameDto();
-                    dto.setCarName(name);
-                    return dto;
-                })
-                .collect(Collectors.toList());
+        return carGenerator.generateCarNameList();
     }
 
-    public void moveCar(List<CarNameDto> carNameDtoList, String userInputTryNumber) {
-        List<String> carNameList = carNameDtoList.stream()
-                .map(CarNameDto::getCarName)
-                .toList();
+    public Map<String, List<Integer>> raceCar(String userInputCarNames, Integer tryNumber) {
+        List<String> carNameList = splitCarName(userInputCarNames);
+        RacingCarResult moveCarOnce = new RacingCarResult(carNameList, tryNumber);
+        return moveCarOnce.getCarPositionMap();
+    }
 
-        MoveCar moveCar = new MoveCar(carNameList, userInputTryNumber);
+    public Map<String, List<String>> translateResult(String userInputCarNames, String userInputTryNumber) {
+        InputValidator.validateNumber(userInputTryNumber);
+        int tryNumber = Integer.parseInt(userInputTryNumber);
+        RacingCarResultTranslator translator = new RacingCarResultTranslator(raceCar(userInputCarNames, tryNumber),
+                tryNumber);
+        return translator.translatePositionMap();
     }
 }

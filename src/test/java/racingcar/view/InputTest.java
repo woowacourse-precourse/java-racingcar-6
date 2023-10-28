@@ -6,14 +6,14 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import java.io.ByteArrayInputStream;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 import racingcar.controller.RacingCarController;
-import racingcar.dto.CarNameDto;
 import racingcar.model.CarGenerator;
+import racingcar.model.RacingCarService;
 
 public class InputTest {
-    RacingCarController racingCarController = new RacingCarController();
+    RacingCarService service = new RacingCarService();
+    RacingCarController controller = new RacingCarController();
 
     @Test
     void 사용자_입력에서_자동차_이름을_추출한다() {
@@ -21,10 +21,7 @@ public class InputTest {
         List<String> carNameList = Arrays.stream(userInput.split(",")).toList();
 
         System.setIn(new ByteArrayInputStream(userInput.getBytes()));
-        List<CarNameDto> carNameDtoList = racingCarController.splitCarName();
-        List<String> generatedCarNameList = carNameDtoList.stream()
-                .map(CarNameDto::getCarName)
-                .toList();
+        List<String> generatedCarNameList = service.splitCarName(userInput);
 
         assertThat(carNameList).isEqualTo(generatedCarNameList);
     }
@@ -45,10 +42,18 @@ public class InputTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
     @Test
-    void 자동차_이름은_5자_이하여야한다() {
+    void 자동차_이름은_5자_이하다() {
         String userInput = "ababab, c, d";
         CarGenerator carGenerator = new CarGenerator(userInput);
         assertThatThrownBy(carGenerator::generateCarNameList)
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 시도횟수는_정수다() {
+        String userInput = "a,b,c"+"\n"+"2.25";
+        System.setIn(new ByteArrayInputStream(userInput.getBytes()));
+        assertThatThrownBy(controller::racingCar)
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
