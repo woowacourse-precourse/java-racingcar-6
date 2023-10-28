@@ -38,9 +38,11 @@ public class Application {
         //valid
         List<Car> cars = userInputValidate.validate(names);
         // 이동 횟수 묻기
-        int moveCount = userInput.tryCount();
+        String moveCount = userInput.tryCount();
+        //valid
+        int validMoveCount = userInputValidate.tryCountValidate(moveCount);
         //play racing game
-        playRacingGame.play(moveCount, cars);
+        playRacingGame.play(validMoveCount, cars);
         //최종 결과
         printResult.printWinner(cars);
     }
