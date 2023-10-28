@@ -32,4 +32,8 @@ public class Setting {
     public List<Car> getCars() {
         return this.cars;
     }
+
+    public int getRound() {
+        return this.round;
+    }
 }

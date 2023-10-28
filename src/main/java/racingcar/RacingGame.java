@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.List;
+
 public class RacingGame {
 
     private Setting setting = new Setting();
@@ -16,5 +18,16 @@ public class RacingGame {
         setting.initializeRound(round);
     }
 
+    public void race() {
+        System.out.println("실행 결과");
 
+        for (int currentRound = 1; currentRound <= setting.getRound(); currentRound++) {
+            setting.tryCarsForward();
+            List<String> racingState = Commentator.getRacingState(setting);
+            for (String carState : racingState) {
+                System.out.println(carState);
+            }
+            System.out.println();
+        }
+    }
 }
