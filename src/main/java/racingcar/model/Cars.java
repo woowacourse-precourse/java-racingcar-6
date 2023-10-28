@@ -11,7 +11,6 @@ import static racingcar.util.StringUtils.splitByComma;
 public class Cars {
     private static final int START_INCLUSIVE = 0;
     private static final int END_INCLUSIVE = 9;
-    private static final int CAN_MOVE_STANDARD = 4;
 
     private final List<Car> cars = new ArrayList<>();
 
@@ -22,10 +21,10 @@ public class Cars {
         }
     }
 
-    // 차 들이 모두 움직이기 때문에 Cars에 넣음
+
     private void moveByRandomNumber() {
         for (Car car : cars) {
-            if()
+            car.goOrStop(getRandomNumber());
         }
     }
 

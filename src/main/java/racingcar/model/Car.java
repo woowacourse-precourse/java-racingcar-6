@@ -2,7 +2,8 @@ package racingcar.model;
 
 public class Car {
     private static final int MOVING_DISTANCE = 1;
-    private static final int STANDARD_MOVING = 4;
+
+    private static final int CAN_MOVE_STANDARD = 4;
 
     private final Name name;
     private final Position position;
@@ -14,7 +15,7 @@ public class Car {
 
 
     public void goOrStop(int number) {
-        if (number >= STANDARD_MOVING) {
+        if (number >= CAN_MOVE_STANDARD) {
             position.carMove(MOVING_DISTANCE);
         }
     }
