@@ -11,19 +11,19 @@ public class Game {
 
     public Game() {
         Output.printGameStartMessage();
-        this.players = User.playerInput();
+        this.players = User.playerNameInput();
     }
 
     public void play() {
         Output.printPlayersName(this.players);
 
         Output.printTryCountMessage();
-        String moveNumber = User.moveNumberInput();
-        Output.printTryCount(moveNumber);
+        String tryNumber = User.tryNumberInput();
+        Output.printTryCount(tryNumber);
 
         List<Player> playerObjectArray = Create.playerObjectArray(this.players);
 
-        playRounds(playerObjectArray, Integer.parseInt(moveNumber));
+        playRounds(playerObjectArray, Integer.parseInt(tryNumber));
 
         Map<String, Integer> playerDistanceMap = Create.playerDistanceMapping(playerObjectArray);
         int maxDistance = getMaxDistance(playerDistanceMap);
@@ -33,8 +33,8 @@ public class Game {
         Output.printFinalWinner(winners);
     }
 
-    private void playRounds(List<Player> playerObjects, int moveNumber) {
-        for (int round = 1; round <= moveNumber; round++) {
+    private void playRounds(List<Player> playerObjects, int tryNumber) {
+        for (int round = 1; round <= tryNumber; round++) {
             raceCars(playerObjects);
         }
     }
