@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class Cars {
@@ -10,13 +10,12 @@ public class Cars {
         this.cars = cars;
     }
 
-    public HashMap<String, String> initCarsMap() {
-        HashMap<String, String> carsMap = new HashMap<>();
+    public LinkedHashMap<String, String> initGameResult() {
+        LinkedHashMap<String, String> gameResult = new LinkedHashMap<>();
         for (String car : cars) {
-            carsMap.put(car, "");
+            gameResult.put(car, "");
         }
-        return carsMap;
+        return gameResult;
     }
-
 
 }
