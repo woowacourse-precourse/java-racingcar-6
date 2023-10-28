@@ -16,23 +16,36 @@ public class GameController {
     }
 
     public void startGame() {
-        String carNames = gameView.inputCarNames();
-        List<String> nameList = inputHandler.convertNamesToNameList(carNames);
-
-        String inputAttempts = gameView.inputAttempts();
-        int attempts = inputHandler.convertAttemptsToInt(inputAttempts);
+        List<String> nameList = getNameList();
+        int attempts = getAttempts();
 
         Cars cars = Cars.of(nameList);
 
         gameView.showRaceResult();
+        playGame(attempts, cars);
+
+        List<String> winnerList = cars.getWinnerList();
+        gameView.showWinnerList(winnerList);
+    }
+
+    private List<String> getNameList() {
+        String carNames = gameView.inputCarNames();
+        List<String> nameList = inputHandler.convertNamesToNameList(carNames);
+        return nameList;
+    }
+
+    private int getAttempts() {
+        String inputAttempts = gameView.inputAttempts();
+        int attempts = inputHandler.convertAttemptsToInt(inputAttempts);
+        return attempts;
+    }
+
+    private void playGame(int attempts, Cars cars) {
         for (int i = 0; i < attempts; i++) {
             cars.move();
 
             List<String> carStatusList = cars.getCarStatusList();
             gameView.showCarStatus(carStatusList);
         }
-
-        List<String> winnerList = cars.getWinnerList();
-        gameView.showWinnerList(winnerList);
     }
 }
