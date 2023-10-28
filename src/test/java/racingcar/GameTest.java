@@ -3,7 +3,6 @@ package racingcar;
 import static org.assertj.core.api.Assertions.*;
 
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,23 +12,21 @@ class GameTest {
     @Test
     @DisplayName("정상 이름 입력")
     void readCarNames_goodInputs() {
+        // given
         String inputA = "jason,bob";
         String inputB = "peter";
 
-        // inputA
-        InputStream in = new ByteArrayInputStream(inputA.getBytes());
-        System.setIn(in);
-        List<Car> cars = Game.readCarNames();
+        // when
+        System.setIn(new ByteArrayInputStream(inputA.getBytes()));
+        List<Car> carsA = Game.readCarNames();
 
-        assertThat(cars.get(0).getName()).isEqualTo("jason");
-        assertThat(cars.get(1).getName()).isEqualTo("bob");
+        System.setIn(new ByteArrayInputStream(inputB.getBytes()));
+        List<Car> carsB = Game.readCarNames();
 
-        // inputB
-        in = new ByteArrayInputStream(inputB.getBytes());
-        System.setIn(in);
-        cars = Game.readCarNames();
-
-        assertThat(cars.get(0).getName()).isEqualTo("peter");
+        // then
+        assertThat(carsA.get(0).getName()).isEqualTo("jason");
+        assertThat(carsA.get(1).getName()).isEqualTo("bob");
+        assertThat(carsB.get(0).getName()).isEqualTo("peter");
     }
 
     @Test
@@ -45,8 +42,7 @@ class GameTest {
     }
 
     private static void testBadInput(String input) {
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         assertThatThrownBy(() -> Game.readCarNames())
             .isInstanceOf(IllegalArgumentException.class);
