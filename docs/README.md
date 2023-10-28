@@ -29,7 +29,7 @@
 ## Car
 - 자동차 객체 생성
     ```java
-    Car(String name, int forwardNum);
+    Car(String name);
     ```
 - 전진 횟수 증가 기능
     ```java
