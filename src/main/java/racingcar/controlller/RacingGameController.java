@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Cars;
-import racingcar.view.OutputView;
 
 public class RacingGameController extends GameController {
     public RacingGameController(boolean isRunning) {
@@ -21,15 +20,16 @@ public class RacingGameController extends GameController {
 
     @Override
     public void startGame() {
-        Cars cars = RacingGameInputController.scanCarList();
-        int numberOfRounds = RacingGameInputController.scanNumberOfRounds();
+        Cars cars = RacingGameIOController.scanCarList();
+        int numberOfRounds = RacingGameIOController.scanNumberOfRounds();
 
-        OutputView.printResultHeaderMessage();
+        RacingGameIOController.printResultHeaderMessage();
+
         for (int i = 0; i < numberOfRounds; i++) {
             doOneRound(cars);
-            OutputView.printCurrentForwardState(cars);
+            RacingGameIOController.printlnCurrentForwardStateMessage(cars);
         }
-        OutputView.printWinners(pickWinners(cars));
+        RacingGameIOController.printWinnersMessage(pickWinners(cars));
 
         endGame();
     }

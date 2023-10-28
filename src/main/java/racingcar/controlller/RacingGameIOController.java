@@ -7,10 +7,12 @@ import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.utils.Parser;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
-public class RacingGameInputController {
+public class RacingGameIOController {
+    // Input
     public static Cars scanCarList() {
-        System.out.println(InputView.enterCarNames());
+        System.out.println(InputView.enterCarNamesMessage());
         String userInput = Console.readLine();
         RacingGameInputValidator.validateCarList(userInput);
 
@@ -25,7 +27,7 @@ public class RacingGameInputController {
     }
 
     public static Integer scanNumberOfRounds() {
-        System.out.println(InputView.enterNumberOfRounds());
+        System.out.println(InputView.enterNumberOfRoundsMessage());
         String userInput = Console.readLine();
         RacingGameInputValidator.validateNumberOfRounds(userInput);
 
@@ -34,5 +36,18 @@ public class RacingGameInputController {
 
     private static Integer createNumberOfRounds(String userInput) {
         return Integer.parseInt(userInput);
+    }
+
+    // Output
+    public static void printWinnersMessage(Cars cars) {
+        System.out.println(OutputView.WinnersMessage(cars));
+    }
+
+    public static void printlnCurrentForwardStateMessage(Cars cars) {
+        System.out.println(OutputView.currentForwardStateMessage(cars));
+    }
+
+    public static void printResultHeaderMessage() {
+        System.out.println(OutputView.resultHeaderMessage());
     }
 }
