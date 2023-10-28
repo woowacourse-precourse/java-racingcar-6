@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Collections;
 import java.util.List;
 import racingcar.constants.ExceptionMessage;
 
@@ -36,4 +37,9 @@ public class Cars {
     private boolean hasMinimumCarCount(final List<Car> cars) {
         return cars.size() < 2;
     }
+
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
+    }
+
 }
