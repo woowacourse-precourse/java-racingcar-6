@@ -7,50 +7,62 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingGame {
-    // 횟수 반복문으로 처리해서 전진 혹은 멈춤 하면서 map 갱신하기, 각 차수별 출력하기
-    // 우승자 출력은 따로 ㄱㄱ
 
     User user = new User();
     private int attempts;
     private Integer totalCars;
     private List<String> carsNameList;
     private final List<Integer> carsPositionList = new ArrayList<>();
+    private static final int MIN_CAR_FORWARD_NUM = 4;
+    private static final int MAX_CAR_FORWARD_NUM = 9;
+    private static final int MIN_RANDOM_NUM = 0;
+    private static final int MAX_RANDOM_NUM = 9;
 
     public void playGame() {
         user.setCarsName();
         user.setAttempts();
         attempts = user.getAttempts();
-        carsNameArrayToList(user.getCarsNameArray());
-        setCarPositionList();
+
+        carsArrayToList(user.getCarsNameArray());
+        setPositionList();
+        startRaceAttempts();
+
         System.out.println(carsNameList);
         System.out.println(carsPositionList);
     }
 
-    public void carsNameArrayToList(String[] array) {
+    public void carsArrayToList(String[] array) {
         carsNameList = Arrays.asList(array);
-        totalCars = carsNameList.size();
     }
 
-    public void setCarPositionList() {
+    public void setPositionList() {
+        totalCars = carsNameList.size();
         for (int i = 0; i < totalCars; i++) {
             carsPositionList.add(0);
         }
-        startRaceAttempts();
     }
 
     public void startRaceAttempts() {
         for(int i = 0; i < attempts; i++) {
-            singleRaceAttempt();
+            singleRaceAttempt(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
         }
     }
 
-    public void singleRaceAttempt() {
+    public void singleRaceAttempt(int min, int max) {
         for(int j = 0; j < totalCars; j++) {
-            int randomDigit = Randoms.pickNumberInRange(0, 9);
-            if(randomDigit >= 4 && randomDigit <= 9) {
+            int randomDigit = Randoms.pickNumberInRange(min, max);
+            if(randomDigit >= MIN_CAR_FORWARD_NUM && randomDigit <= MAX_CAR_FORWARD_NUM) {
                 int positionPlusOne = carsPositionList.get(j)+1;
                 carsPositionList.set(j, positionPlusOne);
             }
         }
+    }
+
+    public List<String> getCarsList() {
+        return carsNameList;
+    }
+
+    public List<Integer> getCarsPositionList() {
+        return carsPositionList;
     }
 }
