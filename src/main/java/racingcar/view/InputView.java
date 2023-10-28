@@ -9,4 +9,8 @@ public class InputView {
         System.out.println(ASK_CAR_NAME);
         return readLine();
     }
+    public static String askAttemptNumber(){
+        System.out.println(ASK_ATTEMPT_NUMBER);
+        return readLine();
+    }
 }
