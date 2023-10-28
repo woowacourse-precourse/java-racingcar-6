@@ -7,12 +7,11 @@ import view.InputView;
 import view.ProgressView;
 import view.ResultView;
 
-import javax.xml.transform.Result;
 import java.util.List;
 
 public class RacingGameController {
-    private Cars cars;
     private CarController carController = new CarController();
+    private Cars cars;
     private int attemptNumber;
     private Referee referee;
     private List<String> winner;
