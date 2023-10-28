@@ -1,16 +1,40 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 import java.util.List;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 public class RacingRoundResultTest {
+
+    @DisplayName("getCars()를 통해 얻어낸 읽기전용 리스트를 조작하려고 하면 에러가 발생한다.")
+    @Test
+    void getCarsManipulateFailTest() {
+        RacingRoundResult racingRoundResult = new RacingRoundResult(List.of(setCar("pobi", 3), setCar("woni", 3)));
+        List<Car> cars = racingRoundResult.getCars();
+        assertThatCode(() -> cars.add(new Car("jun", new FixedCarEngine(true), new Position(3))))
+                .isInstanceOf(UnsupportedOperationException.class);
+        assertThatCode(() -> cars.remove(0))
+                .isInstanceOf(UnsupportedOperationException.class);
+        assertThatCode(() -> cars.clear())
+                .isInstanceOf(UnsupportedOperationException.class);
+    }
+
+    @DisplayName("getCars()를 통해 얻어낸 읽기전용 리스트를 읽기만 하는 것은 에러를 발생시키지 않는다.")
+    @Test
+    void getCarsManipulateSuccessTest() {
+        RacingRoundResult racingRoundResult = new RacingRoundResult(List.of(setCar("pobi", 3), setCar("woni", 3)));
+        List<Car> cars = racingRoundResult.getCars();
+        assertThatCode(() -> cars.get(0))
+                .doesNotThrowAnyException();
+    }
 
     @DisplayName("라운드의 승자를 반환한다.")
     @ParameterizedTest
