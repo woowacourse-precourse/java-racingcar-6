@@ -20,7 +20,8 @@ public class RacingcarGameController {
 
     public void start() {
         inputView.readInputCarNameMessage();
-        String[] carsName = inputView.getCarsName();
-        racingcarGame.setCars(carsName);
+        racingcarGame.setCars(inputView.getCarsName());
+        inputView.readInputTryCountMessage();
+        racingcarGame.setTryCount(inputView.getTryCount());
     }
 }
