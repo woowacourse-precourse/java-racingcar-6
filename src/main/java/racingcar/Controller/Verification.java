@@ -10,4 +10,10 @@ public class Verification {
             }
         }
     }
+
+    public void verifyTryCnt(String input) {
+        if (input.matches("^[\\D]*$")) {
+            throw new IllegalArgumentException();
+        }
+    }
 }

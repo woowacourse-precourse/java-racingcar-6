@@ -7,11 +7,15 @@ import java.util.List;
 
 public class RacingGameController {
 
+    Verification verification = new Verification();
+
     public List<String> inputCarName() {
         String input = Console.readLine();
         List<String> carNames = new ArrayList<>();
 
         carNames.addAll(Arrays.asList(splitInput(input)));
+
+        verification.verifyCarName(carNames);
 
         return carNames;
     }
@@ -20,5 +24,13 @@ public class RacingGameController {
         String[] splitedInput = input.split(",");
 
         return splitedInput;
+    }
+
+    public int inputTryCnt() {
+        String input = Console.readLine();
+
+        verification.verifyTryCnt(input);
+
+        return Integer.parseInt(input);
     }
 }

@@ -2,11 +2,13 @@ package racingcar.Controller;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-class NameInputTest {
+class InputTest {
     RacingGameController rc = new RacingGameController();
     Verification verify = new Verification();
 
@@ -44,6 +46,26 @@ class NameInputTest {
         input.add("abc  "); // abc + 공백 2개
 
         assertThatThrownBy(() -> verify.verifyCarName(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+
+    @Test
+    void 실행_횟수_검증_성공() {
+        String input = "1";
+
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        int tryCnt = rc.inputTryCnt();
+
+        assertThat(tryCnt).isEqualTo(1);
+    }
+    @Test
+    void 실행_횟수_검증() {
+        String input = "a";
+
+        assertThatThrownBy(() -> verify.verifyTryCnt(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
