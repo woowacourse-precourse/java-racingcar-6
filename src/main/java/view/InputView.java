@@ -13,6 +13,7 @@ public class InputView {
     public static String inputAttemptNumber() {
         System.out.println(InputMessage.ATTEMPT_INPUT.getMessage());
         String attemptNumber = Console.readLine();
+        System.out.println();
         return attemptNumber;
     }
 }
