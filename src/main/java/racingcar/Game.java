@@ -16,4 +16,11 @@ public class Game {
             }
         }
     }
+
+    public static void printResult(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.println(car);
+        }
+        System.out.println();
+    }
 }
