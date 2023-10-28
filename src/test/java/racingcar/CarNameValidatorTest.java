@@ -26,4 +26,12 @@ public class CarNameValidatorTest {
         AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
         assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getValidatedAttemptCount(attempCount));
     }
+
+    @DisplayName("시도횟수 입력 - 음수int범위 초과")
+    @Test
+    void checkAttempOutOfRangeMinusInt() {
+        String attempCount = "-1231231241351351351325134123413431";
+        AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
+        assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getValidatedAttemptCount(attempCount));
+    }
 }
