@@ -9,12 +9,12 @@
   - [✅] 이름이 중복되었는지 확인한다. #InputException validateNameDuplication()
 
 #### 이동 횟수 입력 기능
-- [ ] 몇 번의 이동을 할 것인지를 입력한다. #InputView inputNumberOfMoves()
-  - [ ] 입력이 숫자인지 확인한다. - isValid()
+- [✅] 몇 번의 이동을 할 것인지를 입력한다. #InputView inputNumberOfMoves()
+  - [✅] 입력이 숫자인지 확인한다. - #InputException isNumber()
 
 #### 전진하는 조건을 만족을 확인하는 기능
-- [ ] 각 자동차마다 랜덤 값(0-9) 구한다. #RandomNumberGenerator generateRandomNumber()
-  - [ ] 랜덤 값이 4이상일 경우 전진한다. - isGreaterThanFour()
+- [✅] 각 자동차마다 랜덤 값(0-9) 구한다. #GenerateRandomNumber generateRandomNumber()
+- [ ] 랜덤 값이 4이상일 경우 전진한다.
 
 #### 실행 결과 출력 기능
 - [ ] 실행 결과를 출력한다. #Game - #OutputView printResult()
