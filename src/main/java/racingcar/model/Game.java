@@ -3,6 +3,7 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -19,22 +20,13 @@ public class Game {
         for (int i = 0; i < carNames.length; i++) {
             carNameList.add(carNames[i]);
         }
-
         return carNameList;
     }
 
+    public List<String> judgeWinner(List<Car> cars) {
 
-    public List<String> judgeWinner(List<String> carNameList, LinkedHashMap<String, Integer> locations) {
-
-        List<String> winners = new ArrayList<>();
-        int maxValue = Collections.max(locations.values());
-
-        for (int i = 0; i < carNameList.size(); i++) {
-            int value = locations.get(carNameList.get(i));
-            if (value == maxValue) {
-                winners.add(carNameList.get(i));
-            }
-        }
-        return winners;
+        int maxPosition = cars.stream().mapToInt(Car::getPosition).max().orElse(Integer.MIN_VALUE);
+        return cars.stream().filter(car -> car.getPosition() == maxPosition).map(Car::getName)
+                .collect(Collectors.toList());
     }
 }

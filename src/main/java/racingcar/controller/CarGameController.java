@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -20,6 +21,7 @@ public class CarGameController {
     }
 
     public void start() {
+        List<Car> movedCars = new ArrayList<>();
         OutputView.printRequestCarNameMessage();
         String input = InputView.readCarName();
         List<String> carNameList = game.splitCarName(input);
@@ -29,8 +31,10 @@ public class CarGameController {
         int tryNumber = Integer.parseInt(InputView.readTryNumber());
         OutputView.printResultStartMessage();
         while (tryNumber-- >= 0) {
-            OutputView.printGameResultMessage(cars.moveAll());
+            movedCars = cars.moveAll();
+            OutputView.printGameResultMessage(movedCars);
         }
+        game.judgeWinner(movedCars);
 
 
     }

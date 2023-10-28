@@ -12,7 +12,9 @@ import net.bytebuddy.dynamic.scaffold.MethodGraph.Linked;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.controller.CarGameController;
 import racingcar.model.Car;
+import racingcar.model.Cars;
 import racingcar.model.Game;
 
 public class GameTest {
@@ -75,10 +77,26 @@ public class GameTest {
 
         List<String> winners = new ArrayList<>();
 
-        winners = game.judgeWinner(carNameList,locations);
+//        winners = game.judgeWinner(carNameList,locations);
         Assertions.assertTrue(winners.get(0).equals("jun"));
         Assertions.assertTrue(winners.get(1).equals("king"));
 
+
+    }
+
+    @Test
+    void 게임_결과_판단_테스트(){
+        CarGameController carGameController = new CarGameController();
+        List<String>carNameList = new ArrayList<>();
+        carNameList.add("pobi");
+        carNameList.add("jun");
+        carNameList.add("king");
+        carNameList.add("mimi");
+        List<Car>cars = carGameController.createCars(carNameList);
+        List<String> winners;
+        winners = game.judgeWinner(cars);
+
+        Assertions.assertEquals(4,winners.size());
 
     }
 
