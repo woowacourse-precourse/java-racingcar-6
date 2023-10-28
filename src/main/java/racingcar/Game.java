@@ -71,6 +71,7 @@ public class Game {
     void createCar() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
+        validateName(input);
         String[] names = input.split(",");
         for (String name : names) {
             carRepository.add(new Car(name));
@@ -80,7 +81,19 @@ public class Game {
     // 시도할 횟수를 입력받는다
     void getRound() {
         System.out.println("시도할 회수는 몇회인가요?");
-        round = Integer.valueOf(Console.readLine());
+        String input = Console.readLine();
+        round = Integer.parseInt(input);
+    }
+
+    // 입력받은 자동차 이름 값 검증
+    private void validateName(String input) {
+        String[] names = input.split(",");
+        for (String name : names) {
+            if (name.length() > 5) {    // 이름은 5자 이하만 가능
+                throw new IllegalArgumentException();
+            }
+
+        }
     }
 
 }
