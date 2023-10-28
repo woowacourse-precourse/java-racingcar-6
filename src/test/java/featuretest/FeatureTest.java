@@ -15,7 +15,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class FeatureTest {
@@ -28,10 +27,10 @@ public class FeatureTest {
 
         Application.receiveRaceCarNames();
 
-        RaceCarNames predObject = Application.getRaceCarNames();
-        RaceCarNames actualObject = new RaceCarNames("TestRaceCar");
+        RaceCarNames actualObject = Application.getRaceCarNames();
+        RaceCarNames expectedObject = new RaceCarNames("TestRaceCar");
 
-        assertThat(predObject).isEqualTo(actualObject);
+        assertThat(actualObject).isEqualTo(expectedObject);
     }
 
     @Test
@@ -39,10 +38,10 @@ public class FeatureTest {
         String testInput = "TestCar1,TestCar2,TestCar3";
         RaceCarNames raceCarNames = new RaceCarNames(testInput);
 
-        List<String> predList = raceCarNames.parseCarNamesFromRaceCarInput();
-        List<String> actualList = Arrays.asList("TestCar1", "TestCar2", "TestCar3");
+        List<String> actualList = raceCarNames.parseCarNamesFromRaceCarInput();
+        List<String> expectedList = Arrays.asList("TestCar1", "TestCar2", "TestCar3");
 
-        assertThat(predList).isEqualTo(actualList);
+        assertThat(actualList).isEqualTo(expectedList);
     }
 
     @Test
@@ -53,10 +52,10 @@ public class FeatureTest {
 
         Application.receiveTryCount();
 
-        TryCount predObject = Application.getTryCount();
-        TryCount actualObject = new TryCount("5");
+        TryCount actualObject = Application.getTryCount();
+        TryCount expectedObject = new TryCount("5");
 
-        assertThat(predObject).isEqualTo(actualObject);
+        assertThat(actualObject).isEqualTo(expectedObject);
     }
 
     @ParameterizedTest
@@ -65,11 +64,11 @@ public class FeatureTest {
             "abcde, false",
             "53e1f, false"
     })
-    void 시도_회수가_숫자인지_확인(String testTryCount, boolean actualResult) {
+    void 시도_회수가_숫자인지_확인(String testTryCount, boolean expectedResult) {
         TryCount tryCount = new TryCount(testTryCount);
-        boolean predResult = tryCount.isTryCountNumeric();
+        boolean actualResult = tryCount.isTryCountNumeric();
 
-        assertThat(predResult).isEqualTo(actualResult);
+        assertThat(actualResult).isEqualTo(expectedResult);
     }
 
     @ParameterizedTest
@@ -78,11 +77,11 @@ public class FeatureTest {
             "myfantasticcar, false",
             "iamcar, false"
     })
-    void 자동차_이름이_5자_이하인지_확인(String testCarName, boolean actualResult) {
+    void 자동차_이름이_5자_이하인지_확인(String testCarName, boolean expectedResult) {
         CarName carName = new CarName(testCarName);
-        boolean predResult = carName.isNameUnder5Characters();
+        boolean actualResult = carName.isNameUnder5Characters();
 
-        assertThat(predResult).isEqualTo(actualResult);
+        assertThat(actualResult).isEqualTo(expectedResult);
     }
 
     @Test
