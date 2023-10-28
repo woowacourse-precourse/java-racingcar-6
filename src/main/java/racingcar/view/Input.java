@@ -18,8 +18,7 @@ public class Input {
         return cars;
     }
 
-    public static int inputNumberMove() {
-        String userInput = Console.readLine();
-        return Integer.parseInt(userInput);
+    public static String inputNumberMove() {
+        return Console.readLine();
     }
 }

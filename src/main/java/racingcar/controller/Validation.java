@@ -41,4 +41,10 @@ public class Validation {
         }
     }
 
+    public static void validateNumber(String inputNumber) {
+        if (!inputNumber.matches("[1-9]")) {
+            throw new IllegalArgumentException();
+        }
+    }
+
 }
