@@ -14,6 +14,7 @@ public class Race {
     }
 
     public void start() {
+        ResultView.printLineBreak();
         ResultView.printResultNotification();
         for (int i = 0; i < rounds; i++) {
             moveCars();
