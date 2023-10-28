@@ -2,10 +2,8 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.RaceResult;
-import racingcar.utils.InputParser;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -13,7 +11,6 @@ public class RaceController {
 
     private final InputView inputView;
     private final OutputView outputView;
-
 
     public RaceController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
@@ -32,8 +29,7 @@ public class RaceController {
 
     private Cars initializeCars() {
         List<String> carNames = inputView.inputCarNames();
-        List<Car> cars = InputParser.convertNamesToCars(carNames);
-        return new Cars(cars);
+        return Cars.fromNames(carNames);
     }
 
     private int initializeAttemptCount() {
