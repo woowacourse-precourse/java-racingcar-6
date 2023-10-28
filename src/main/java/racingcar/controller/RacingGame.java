@@ -1,7 +1,11 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.Car;
 import racingcar.util.InputValidator;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RacingGame {
     public void start() {
@@ -14,5 +18,18 @@ public class RacingGame {
         InputValidator.isValidRound(round);
 
         System.out.println();
+
+        List<Car> cars = createCars(input);
+    }
+
+    private List<Car> createCars(String input) {
+        List<Car> cars = new ArrayList<>();
+        for (int carIndex = 0; carIndex < input.split(",").length; carIndex++) {
+            Car car = new Car(input.split(",")[carIndex]);
+
+            cars.add(car);
+        }
+
+        return cars;
     }
 }
