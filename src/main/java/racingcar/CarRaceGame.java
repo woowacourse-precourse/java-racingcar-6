@@ -1,12 +1,11 @@
 package racingcar;
 
-import static racingcar.generator.MoveResultMessageGenerator.generateMessage;
-import static racingcar.generator.RandomNumberGenerator.getGenerateSupplier;
-
 import java.util.List;
-import racingcar.domain.CarRaceCountRule;
 import racingcar.domain.CarRaceJudge;
 import racingcar.dto.MoveResult;
+import racingcar.generator.MoveResultMessageGenerator;
+import racingcar.generator.RandomNumberGenerator;
+import racingcar.validator.InputTryCountValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -27,14 +26,14 @@ public class CarRaceGame {
     }
 
     private int inputRaceCount() {
-        String inputCount = InputView.inputRaceTryCount();
-        CarRaceCountRule.validateCount(inputCount);
-        return Integer.parseInt(inputCount);
+        String inputRaceCount = InputView.inputRaceCount();
+        InputTryCountValidator.validateCount(inputRaceCount);
+        return Integer.parseInt(inputRaceCount);
     }
 
     private void startMoveCars(final int raceCount) {
         for (int count = 0; count < raceCount; count++) {
-            judge.moveCars(getGenerateSupplier());
+            judge.moveCars(RandomNumberGenerator.getGenerateSupplier());
             printSingleMoveResult();
         }
     }
@@ -46,7 +45,7 @@ public class CarRaceGame {
 
     private void printSingleMoveResult() {
         List<MoveResult> singleMoveResults = judge.createSingleMoveResults();
-        String singleResult = generateMessage(singleMoveResults);
+        String singleResult = MoveResultMessageGenerator.generateMessage(singleMoveResults);
         OutputView.printSingleResult(singleResult);
     }
 }

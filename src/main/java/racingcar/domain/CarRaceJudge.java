@@ -9,17 +9,17 @@ public class CarRaceJudge {
     private final CarsRepository carsRepository = CarsRepository.getInstance();
 
     public void addCars(final List<String> carNames) {
-        ParticipatingCars cars = ParticipatingCars.from(carNames);
+        Cars cars = Cars.from(carNames);
         carsRepository.save(cars);
     }
 
     public void moveCars(final Supplier<Integer> randomNumberSupplier) {
-        ParticipatingCars cars = carsRepository.findCars();
+        Cars cars = carsRepository.findCars();
         cars.moveAllForward(randomNumberSupplier);
     }
 
     public List<MoveResult> createSingleMoveResults() {
-        ParticipatingCars cars = carsRepository.findCars();
+        Cars cars = carsRepository.findCars();
         return cars.cars()
                 .stream()
                 .map(MoveResult::createResultFrom)
@@ -27,7 +27,7 @@ public class CarRaceJudge {
     }
 
     public List<String> findAllWinnerNames() {
-        ParticipatingCars cars = carsRepository.findCars();
+        Cars cars = carsRepository.findCars();
         return cars.findAllWinnerNames();
     }
 }

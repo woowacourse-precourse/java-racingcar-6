@@ -23,7 +23,7 @@ class CarRaceJudgeTest {
 
         // when
         carRaceJudge.addCars(names);
-        ParticipatingCars findCars = carsRepository.findCars();
+        Cars findCars = carsRepository.findCars();
         boolean isSaved = findCars.cars().containsAll(cars);
 
         // then
