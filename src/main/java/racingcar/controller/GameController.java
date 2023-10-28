@@ -21,7 +21,6 @@ public class GameController {
 
         Cars cars = Cars.of(nameList);
 
-        gameView.showRaceResult();
         playGame(attempts, cars);
 
         List<String> winnerList = cars.getWinnerList();
@@ -41,6 +40,7 @@ public class GameController {
     }
 
     private void playGame(int attempts, Cars cars) {
+        gameView.showRaceResult();
         for (int i = 0; i < attempts; i++) {
             cars.move();
 
