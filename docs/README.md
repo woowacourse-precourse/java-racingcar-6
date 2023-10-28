@@ -1,7 +1,7 @@
 # 미션 - 자동차 경주
 
 ## 기능요구사항
-- [] 자동차 이름과 총 이동거리 클래스를 생성한다. Car.name, Car.distance
+- [x] 자동차 이름과 총 이동거리 클래스를 생성한다. Car.name, Car.distance
 - [] (입력) 자동차 이름을 입력받는다. InputManager.inputCarName
 - [] 자동차 이름은 5자 이하만 가능하다. InputManager.checkLimitCarName
 - [] (입력) 시도 횟수를 입력받는다.  InputManager.inputRepeat
