@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.platform.commons.util.StringUtils;
 import racingcar.model.Car;
 import racingcar.type.MessageType;
@@ -17,17 +18,22 @@ import static racingcar.util.TextUtil.*;
 public class RacingService {
 
     private static final int maxCarNameSize = 5;
+    private static final int minMoveConditions = 4;
+    private static final int minRandomValue = 0;
+    private static final int maxRandomValue = 9;
 
     public void racing() {
         List<Car> cars = getAttendCars();
 
         int attempts = getAttemptsCount();
 
+        Console.close();
+
+        printMessageFromType(RESULT);
+
         int currentAttempts = 0;
-        println(RESULT);
         while (currentAttempts < attempts) {
             printRacingResult(cars);
-            println(LINE_BREAK);
             currentAttempts++;
         }
 
@@ -35,7 +41,7 @@ public class RacingService {
     }
 
     private List<Car> getAttendCars() {
-        println(ASK_CAR_NAME);
+        printMessageFromType(ASK_CAR_NAME);
 
         String carNames = Console.readLine();
         List<String> carNameList = splitAndTrim(carNames, ",");
@@ -47,22 +53,25 @@ public class RacingService {
                 .collect(Collectors.toList());
     }
 
-    public void validationCarNames(List<String> carNameList) {
-        if (hasOverLengthCarNames(carNameList)) {
-            throw new IllegalArgumentException("Car names exceed the maximum length.");
-        }
-        if (hasDuplicates(carNameList)) {
-            throw new IllegalArgumentException("Car names contains duplicates.");
-        }
-    }
-
     private int getAttemptsCount() {
-        println(ASK_ATTEMPTS);
+        printMessageFromType(ASK_ATTEMPTS);
         String inputCount = Console.readLine();
         int attemptsCount = convertToAttemptsCount(inputCount);
-        println(LINE_BREAK);
-
+        printMessageFromType(LINE_BREAK);
         return attemptsCount;
+    }
+
+    private void printRacingResult(List<Car> cars) {
+        cars.forEach(car -> {
+            if(canMoveCar()){
+                car.go();
+            }
+            printMessage(car.getPositionMessage());
+        });
+        printMessageFromType(LINE_BREAK);
+    }
+
+    private void printWinner() {
     }
 
     public int convertToAttemptsCount(String inputCount) {
@@ -84,14 +93,24 @@ public class RacingService {
         return attemptsCount;
     }
 
-    private void printRacingResult(List<Car> cars) {
+    private boolean canMoveCar() {
+        return Randoms.pickNumberInRange(minRandomValue, maxRandomValue) >= minMoveConditions;
     }
 
-
-    private void printWinner() {
+    public void validationCarNames(List<String> carNameList) {
+        if (hasOverLengthCarNames(carNameList)) {
+            throw new IllegalArgumentException("Car names exceed the maximum length.");
+        }
+        if (hasDuplicates(carNameList)) {
+            throw new IllegalArgumentException("Car names contains duplicates.");
+        }
     }
 
-    private static void println(MessageType messageType) {
+    private static void printMessage(String message){
+        System.out.println(message);
+    }
+
+    private static void printMessageFromType(MessageType messageType) {
         System.out.println(messageType.getMessage());
     }
 
