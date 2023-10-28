@@ -1,5 +1,6 @@
 package domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 public class Race {
     private final List<Car> cars;
@@ -12,6 +13,12 @@ public class Race {
         for (int i = 0; i < numberOfTries; i++) {
             raceOnce();
             printRoundResult();
+        }
+    }
+
+    private void raceOnce() {
+        for (Car car : cars) {
+            car.moveForward(Randoms.pickNumberInRange(0, 9));
         }
     }
 }
