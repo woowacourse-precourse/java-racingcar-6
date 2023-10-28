@@ -34,4 +34,12 @@ public class CarNameValidatorTest {
         AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
         assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getValidatedAttemptCount(attempCount));
     }
+
+    @DisplayName("시도횟수 입력 - 숫자 외 포함")
+    @Test
+    void checkAttempNotInt() {
+        String attempCount = "!222A";
+        AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
+        assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getValidatedAttemptCount(attempCount));
+    }
 }
