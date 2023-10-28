@@ -190,4 +190,14 @@ class ApplicationTest extends NsTest {
     public void runMain() {
         Application.main(new String[]{});
     }
+
+    // TODO: 10/28/23 입력 검사 Test
+//  - [ ] 숫자을 포함하는가 검사
+//  - [ ] 공백입력 검사
+//  - [ ] 공백 포함 검사.
+//  - [ ] 특수기호 포함 검사
+//  - [x] 양수 입력 검사
+//  - [ ] 문자열 포함 검사
+//  - [ ] 특수문자 포함 검사
+//  - [x] 숫자 "0"인지 검사.
 }
