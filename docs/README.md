@@ -1,14 +1,17 @@
 # 자료구조 및 구현 기능 (미션 - 숫자 야구)
 
 ## 클래스 다이어그램
-```
-추가 예정
-```
+![class_diagram.png](image%2Fclass_diagram.png)
 
 ### 클래스 다이어그램 설명
-`추가 예정`
-
-- 
+- `GameContoller` : 게임 진행을 처리하는 클래스
+- `InputView` : 사용자의 입력을 처리하는 클래스
+- `InputValidator` : 사용자의 입력을 검증하는 클래스
+- `OutputView` : 콘솔 출력을 처리하는 클래스
+- `RaceStatus` : 경주 진행을 처리하는 클래스
+- `RacingCar` : 자동차의 상태를 처리하는 클래스
+- `RandomMoveGenerator` : 자동차의 전진 여부를 처리하는 클래스
+- `CheckWinner` : 우승자를 판단하는 클래스
 
 ## 구현 기능
 
