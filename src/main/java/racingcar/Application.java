@@ -4,6 +4,7 @@ import Model.Car;
 import Model.RaceCarNames;
 import Model.TryCount;
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +34,10 @@ public class Application {
 
     public static void playGame() {
         //
+    }
+
+    public static int generateRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 
     public static void receiveRaceCarNames() {
