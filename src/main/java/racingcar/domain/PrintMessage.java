@@ -11,4 +11,5 @@ public class PrintMessage {
     public static final String ONLY_SPLIT_COMMA = "차 이름은 쉽표로 구분해야합니다.";
     public static final String FIVE_OR_LESS = "차 이름은 5자 이하로 해야합니다.";
     public static final String NOT_DUPLICATE_NAME = "중복된 이름이 있습니다.";
+    public static final String ONLY_NATURAL_NUMBER = "자연수를 입력해야합니다.";
 }
