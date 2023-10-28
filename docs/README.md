@@ -2,12 +2,12 @@
 
 ## 입력(예외처리 필요)
 - [ ] 전진 반복 횟수 : gameController#repetitionNumber
-- [ ] 자동차 이름 : car#name
-  - [ ] 쉼표(,)로 구분
+- [x] 자동차 이름 : car#name
+  - [x] 쉼표(,)로 구분
 
 ## 출력
 - [ ] 게임시작
-  - [ ] 자동차 이름 입력 요청 : view#printAskCarname
+  - [x] 자동차 이름 입력 요청 : view#printAskCarname
   - [ ] 전진 시도 횟수 : view#printAskRepetionNumber
 - [ ] 실행결과
   - [ ] 자동차별 전진 시도 결과 / 줄바꿈 : view#printProgressStatus
@@ -20,10 +20,11 @@
       - [ ] 최종 우승자 : (이름1), (이름2), ...
 
 ## 객체, 변수
-- [ ] 전진 시도 횟수 : gameController#repetitionNumber
-- [ ] 자동차 이름 : car#name
+- [x] 전진 시도 횟수 : gameController#repetitionNumber
+- [x] 자동차 이름 : car#name
 - [ ] 전진 시도 난수 : car#forwardTryRandomNumber
 - [ ] 전진 성공 결과 누적 횟수 : car#successForwardCount
+- [x] 자동차 리스트 컬렉션 : gameData#successForwardCount
 
 
 ## 메서드
