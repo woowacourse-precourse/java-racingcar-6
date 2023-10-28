@@ -2,13 +2,11 @@ package racingcar.util;
 
 import java.util.Arrays;
 import java.util.List;
-import racingcar.exception.NonNumericFormatException;
 import racingcar.exception.NonPositiveIntException;
 
 public class Converter {
 
-    private static final int ZERO = 0;
-    private static final String NUMERIC_PATTERN = "\\d+";
+    private static final String POSITIVE_INTEGER_PATTERN = "^[1-9]\\d*$";
     private static final String COMMA = ",";
 
     public static List<String> convertCommaSeparatedStringToList(final String input) {
@@ -18,29 +16,21 @@ public class Converter {
     }
 
     public static int convertStringToPositiveInt(final String input) {
-        validateInputIsNumeric(input);
-        int value = parseInt(input);
-        validatePositiveInt(value);
-        return value;
+        validatePositiveInt(input);
+        return parseInt(input);
     }
 
     private static int parseInt(final String input) {
         return Integer.parseInt(input);
     }
 
-    private static void validatePositiveInt(final int value) {
-        if (value <= ZERO) {
+    private static void validatePositiveInt(final String input) {
+        if (!isPositiveNumeric(input)) {
             throw new NonPositiveIntException();
         }
     }
 
-    private static void validateInputIsNumeric(final String input) {
-        if (!isNumeric(input)) {
-            throw new NonNumericFormatException();
-        }
-    }
-
-    private static boolean isNumeric(final String input) {
-        return input.matches(NUMERIC_PATTERN);
+    private static boolean isPositiveNumeric(final String input) {
+        return input.matches(POSITIVE_INTEGER_PATTERN);
     }
 }
