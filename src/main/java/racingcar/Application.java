@@ -2,13 +2,15 @@ package racingcar;
 
 import racingcar.controller.GameController;
 import racingcar.domain.Car;
+import racingcar.view.OutputView;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
+        OutputView.askCarNames();
         List<String> carNames = GameController.getCarNames();
+        OutputView.askTotalRound();
         int totalRound = GameController.getTotalRound();
 
         List<Car> cars = new ArrayList<>();
@@ -20,5 +22,6 @@ public class Application {
             GameController.playRound(cars, totalRound);
         }
 
+        GameController.processResult(totalRound, carNames, cars);
     }
 }
