@@ -14,4 +14,8 @@ public class CarName {
     public boolean isCarNameEmpty() {
         return carName.isEmpty();
     }
+
+    public String getCarName() {
+        return carName;
+    }
 }

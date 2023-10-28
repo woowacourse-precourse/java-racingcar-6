@@ -15,9 +15,9 @@
 - [X] 랜덤 값을 생성하는 기능 - Application.*generateRandomNumber*
 - [X] 자동차의 이름이 유효한지 확인하는 기능 Car.*isNameValid*
 - [X] 메인 애플리케이션 게임 진행 기능 - Application.*startRacingGame*
-- [] 매회차 게임 진행 기능 - Application.*playGame*
+- [X] 매회차 게임 진행 기능 - Application.*playGame*
+- [X] 각 차수별 실행 결과를 출력하는 기능 - Application.*printCurrentRacingResult*
 - [] 우승자가 누구인지 판별하는 기능 - Application.*calculateWhoAreTheWinners*
-- [] 각 차수별 실행 결과를 출력하는 기능 - Application.*printCurrentRacingResult*
 - [] 우승자를 출력하는 기능 - Application.*printRaceWinners*
 
 ---

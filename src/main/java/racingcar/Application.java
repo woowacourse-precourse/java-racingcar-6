@@ -23,6 +23,7 @@ public class Application {
         receiveRaceCarNames();
         receiveTryCount();
 
+        System.out.println("\n실행 결과");
         int gameCycle = tryCount.getTryCount();
         for (int i = 1; i <= gameCycle; i++) {
             playGame();
@@ -74,12 +75,17 @@ public class Application {
         }
     }
 
-    public static void calculateWhoAreTheWinners() {
-        //
+    public static void printCurrentRacingResult() {
+        for (Car car : carList) {
+            car.printCarName();
+            System.out.print(" : ");
+            car.printCarPosition();
+        }
+        System.out.println();
     }
 
-    public static void printCurrentRacingResult() {
-        System.out.println("실행 결과");
+    public static void calculateWhoAreTheWinners() {
+        //
     }
 
     public static void printRaceWinners() {

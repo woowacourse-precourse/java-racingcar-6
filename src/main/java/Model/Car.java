@@ -1,7 +1,5 @@
 package Model;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class Car {
     private CarName carName;
     private CarPosition carPosition;
@@ -23,5 +21,17 @@ public class Car {
             return false;
         }
         return true;
+    }
+
+    public void printCarName() {
+        System.out.print(carName.getCarName());
+    }
+
+    public void printCarPosition() {
+        int position = carPosition.getCarPosition();
+        for (int i = 1; i <= position; i++) {
+            System.out.print('-');
+        }
+        System.out.println();
     }
 }
