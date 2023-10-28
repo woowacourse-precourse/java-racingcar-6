@@ -52,7 +52,7 @@ public class RacingGameController {
         List<Car> carList = new ArrayList<>();
 
         for (String name : names) {
-            carList.add(new Car(name, 0));
+            carList.add(new Car(name, 0, (min, max) -> max));
         }
 
         return new Cars(carList);
