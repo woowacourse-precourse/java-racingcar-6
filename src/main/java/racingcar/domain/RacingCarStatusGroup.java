@@ -19,4 +19,8 @@ public class RacingCarStatusGroup {
             }
         }
     }
+
+    public List<RacingCarStatus> getFinishCarList() {
+        return List.copyOf(racingCarStatusList);
+    }
 }

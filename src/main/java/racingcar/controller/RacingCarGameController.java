@@ -7,6 +7,7 @@ import racingcar.handler.OutputHandler;
 import racingcar.service.RacingCarGameService;
 
 import java.util.List;
+import java.util.Map;
 
 public class RacingCarGameController {
 
@@ -52,6 +53,7 @@ public class RacingCarGameController {
 
         for (int i = 0; i < tryCount.getTryCount(); i++) {
             racingCarGameService.racingCarGameProgress();
+            List<Map<String, String>> stageGameResult = racingCarGameService.racingCarGameResult();
         }
     }
 }

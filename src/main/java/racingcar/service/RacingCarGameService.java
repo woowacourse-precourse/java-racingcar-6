@@ -6,6 +6,7 @@ import racingcar.domain.RacingCarStatusGroup;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class RacingCarGameService {
 
@@ -23,5 +24,17 @@ public class RacingCarGameService {
 
     public void racingCarGameProgress() {
         racingCarStatusGroup.moveForward();
+    }
+
+    public List<Map<String, String>> racingCarGameResult() {
+        List<Map<String, String>> racingCarsInfo = new ArrayList<>();
+        List<RacingCarStatus> finishCarList = racingCarStatusGroup.getFinishCarList();
+
+        for (RacingCarStatus finishCar : finishCarList) {
+            Map<String, String> carInfos = finishCar.getCarStatus();
+            racingCarsInfo.add(carInfos);
+        }
+
+        return racingCarsInfo;
     }
 }
