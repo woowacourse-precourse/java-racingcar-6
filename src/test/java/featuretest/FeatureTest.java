@@ -1,5 +1,6 @@
 package featuretest;
 
+import Model.Car;
 import Model.CarName;
 import Model.RaceCarNames;
 import Model.TryCount;
@@ -82,5 +83,14 @@ public class FeatureTest {
         boolean predResult = carName.isNameUnder5Characters();
 
         assertThat(predResult).isEqualTo(actualResult);
+    }
+
+    @Test
+    void 자동차_이름이_공백인지_확인() {
+        CarName carName = new CarName("");
+        boolean actualResult = carName.isCarNameEmpty();
+        boolean expectedResult = true;
+
+        assertThat(actualResult).isEqualTo(expectedResult);
     }
 }

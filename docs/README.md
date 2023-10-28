@@ -9,7 +9,7 @@
 - [X] 자동차 각각의 이름을 알아내는 기능 - RaceCarNames.*parseCarNamesFromRaceCarInput*
 - [X] 회수가 숫자인지 아닌지 판단하는 기능 - TryCount.*isTryCountNumeric*
 - [X] 자동차 이름이 5자 이하인지 판단하는 기능 - CarName.*isNameUnder5Characters*
-- [] 자동차 이름이 공백인지 확인하는 기능 - CarName.*isCarNameEmpty*
+- [X] 자동차 이름이 공백인지 확인하는 기능 - CarName.*isCarNameEmpty*
 - [] 자동차를 전진시키는 기능 - CarPosition.*moveCarForward*
 - [] 랜덤 값을 생성하는 기능 - Application.*generateRandomNumber*
 - [] 우승자가 누구인지 판별하는 기능 - Application.*calculateWhoAreTheWinners*

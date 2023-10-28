@@ -10,4 +10,8 @@ public class CarName {
     public boolean isNameUnder5Characters() {
         return carName.length() <= 5;
     }
+
+    public boolean isCarNameEmpty() {
+        return carName.isEmpty();
+    }
 }
