@@ -13,11 +13,22 @@ class Car {
 }
 
 class Game {
-    String[] carNames;
+    List<Car> cars;
+    List<String> carNames;
     int carCount;
-    Game(String carName) {
-        carsNames = carName.split(",");
-        carCount = carsNames.length;
+    Game(String input) {
+        String[] tokens = input.split(",");
+        carNames = Arrays.asList(tokens);
+        carCount = this.carsNames.length;
+        initCar();
+    }
+    void initCar() {
+        cars = new ArrayList<Car>();
+        for (int i = 0; i < carCount; ++i) {
+            // 입력받은 이름을 기반으로 차례대로 차량 생성
+            car = new Car(carNames.get(i));
+            cars.add(car);
+        }
     }
 }
 
