@@ -12,13 +12,12 @@ public class View {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public void printProgressStatus(List<String> carNameList, List<String> carProgressStatus) {
+    public void printProgressStatus(List<Car> carList) {
 
-        int carIndex = carNameList.size();
-        for (int i = 0; i < carIndex; i++) {
-
-            System.out.println(carNameList.get(carIndex) + " : " + carProgressStatus.get(carIndex));
+        for (Car car : carList) {
+            System.out.println(car.getName() + " : " + car.getMoveForwardStatus());
         }
+
         System.out.println();
     }
 
