@@ -1,9 +1,16 @@
 package racingcar.model;
 
+import java.util.HashMap;
+
 public class Player {
 
-    // TODO: 자동차(플레이어)의 닉네임이 저장되는 기능 (비즈니스 로직)
-    public void register(String nickname) {
+    private final HashMap<String, Integer> player = new HashMap<>();
 
+    public void register(String nickname) {
+        player.put(nickname, 0);
+    }
+
+    public HashMap<String, Integer> getPlayer() {
+        return player;
     }
 }
