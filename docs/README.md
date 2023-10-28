@@ -1,18 +1,18 @@
 # 기능 구현 목록
 
 ## 입력(예외처리 필요)
-- [ ] 전진 반복 횟수 : gameController#repetitionNumber
+- [x] 전진 반복 횟수 : gameController#repetitionNumber
 - [x] 자동차 이름 : car#name
   - [x] 쉼표(,)로 구분
 
 ## 출력
-- [ ] 게임시작
+- [X] 게임시작
   - [x] 자동차 이름 입력 요청 : view#printAskCarname
-  - [ ] 전진 시도 횟수 : view#printAskRepetionNumber
+  - [x] 전진 시도 횟수 : view#printAskRepetionNumber
 - [ ] 실행결과
-  - [ ] 자동차별 전진 시도 결과 / 줄바꿈 : view#printProgressStatus
-    - [ ] 전진 반복 시 줄바꿈으로 횟수 간 구분
-    - [ ] (이름)v:v(전진시도결과)
+  - [x] 자동차별 전진 시도 결과 / 줄바꿈 : view#printProgressStatus
+    - [x] 전진 반복 시 줄바꿈으로 횟수 간 구분
+    - [x] (이름)v:v(전진시도결과)
   - [ ] 최종 우승자 출력 : view#printWinner
     - [ ] 1명
       - [ ] 최종 우승자 : (이름)
@@ -22,25 +22,25 @@
 ## 객체, 변수
 - [x] 전진 시도 횟수 : gameController#repetitionNumber
 - [x] 자동차 이름 : car#name
-- [ ] 전진 시도 난수 : car#forwardTryRandomNumber
-- [ ] 전진 성공 결과 누적 횟수 : car#successForwardCount
+- [x] 전진 시도 난수 : car#forwardTryRandomNumber
+- [x] 전진 성공 결과 누적 횟수 : car#successForwardCount
 - [x] 자동차 리스트 컬렉션 : gameData#successForwardCount
 
 
 ## 메서드
-- [ ] 시작알림 + 자동차 이름 입력 요청 메시지 프린트 : view#printprintAskRepetionNumber
-- [ ] 자동차 이름 입력 / 쉼표 (,) 구분 입력 받기 : view#printAskCarname
-  - [ ] 입력 나누기 : controller#splitCarNameInput
-  - [ ] 자동차 대수 변수 반환(List.length()로 가능할 듯)
-  - [ ] 자동차 대수 만큼 car 객체 생성
-  - [ ] 생성된 객체에 자동차 이름 바로 설정 : car#setCarName
-- [ ] 전진시도 반복횟수 입력 요청 프린트 : view#printProgressStatus
-- [ ] 반복 횟수 저장 : gameData#setRepeitionNumber
-- [ ] 반복 실시 : 반복횟수를 조건으로 해서 for loop 생성
-  - [ ] 전진시도 과정 숫자 생성(난수) : gameData#createForwardTryRandomNumber
-    - [ ] model 객체 별로 횟수 마다 실행
-  - [ ] 전진 조건 충족 여부 확인 : controller#verifyMoveForward
-  - [ ] 전진 결과 출력 : view#printRaceProgressStatus
+- [x] 시작알림 + 자동차 이름 입력 요청 메시지 프린트 : view#printAskCarname
+- [x] 자동차 이름 입력 / 쉼표 (,) 구분 입력 받기 : view#printAskCarname
+  - [x] 입력 나누기 : controller#splitCarNameInput
+  - [x] 자동차 대수 변수 반환(List.length()로 가능할 듯)
+  - [x] 자동차 대수 만큼 car 객체 생성
+  - [x] 생성된 객체에 자동차 이름 바로 설정 : car#setCarName
+- [x] 전진시도 반복횟수 입력 요청 프린트 : view#printprintAskRepetionNumber
+- [x] 반복 횟수 저장 : gameData#setRepeitionNumber
+- [x] 반복 실시 : 반복횟수를 조건으로 해서 for loop 생성
+  - [x] 전진시도 과정 숫자 생성(난수) : gameData#createForwardTryRandomNumber
+    - [x] model 객체 별로 횟수 마다 실행
+  - [x] 전진 조건 충족 여부 확인 : controller#verifyMoveForward
+  - [x] 전진 결과 출력 : view#printRaceProgressStatus
 - [ ] 입력값 검증 : verify(Input)
 
 - [ ] 최종 우승자 명수 별 객체 처리
