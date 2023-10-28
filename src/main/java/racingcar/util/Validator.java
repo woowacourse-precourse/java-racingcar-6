@@ -13,7 +13,7 @@ public class Validator {
         }
     }
 
-    public static void InputName(List<String> cars) {
+    public static void InputCarName(List<String> cars) {
         if (!InputNameLength(cars)) {
             throw new IllegalArgumentException("이름이 5자를 초과를 초과하지마세요");
         }
