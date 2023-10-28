@@ -8,11 +8,16 @@ import java.util.List;
 public class Application {
     public static void main(String[] args) {
         String userInput = inputCarName();
+        int tryCount = inputTryCount();
+        int randomNumber = randomNumber();
+
         List<String> userCarList = deleteComma(userInput);
+
 
     }
 
     private static String inputCarName() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputCarName = Console.readLine();
         return inputCarName;
     }
@@ -27,6 +32,7 @@ public class Application {
     }
 
     private static int inputTryCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
         int tryCount = Integer.parseInt(Console.readLine());
         return tryCount;
     }
@@ -36,9 +42,11 @@ public class Application {
         return random;
     }
 
-    private static void moveForward(int randomNumber) {
-        if (randomNumber >= 4) {
+    private static String moveForward() {
+        return "-";
+    }
 
-        }
+    private static String moveStop() {
+        return "";
     }
 }
