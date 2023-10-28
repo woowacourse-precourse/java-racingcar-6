@@ -1,9 +1,12 @@
 package racingcar.domain;
 
-import java.util.List;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Random {
-    public List<Integer> createNumber() {
-        return null;
+    private static final int MIN_RANGE = 0;
+    private static final int MAX_RANGE = 0;
+
+    public int createNumber() {
+        return Randoms.pickNumberInRange(MIN_RANGE, MAX_RANGE);
     }
 }
