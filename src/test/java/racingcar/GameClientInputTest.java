@@ -12,8 +12,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-class GameClientIOTest {
-    GameClientIO gameClientIO = new GameClientIO();
+class GameClientInputTest {
+    GameClientInput gameClientInput = new GameClientInput();
 
     public void setupInputStream(String inputString) {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(inputString.getBytes());
@@ -26,7 +26,7 @@ class GameClientIOTest {
         String inputString = "a,b,c,d,e";
         setupInputStream(inputString);
 
-        List<String> names = gameClientIO.getNames();
+        List<String> names = gameClientInput.getNames();
         assertThat(names).hasSameElementsAs(List.of("a", "b", "c", "d", "e"));
     }
 
@@ -36,7 +36,7 @@ class GameClientIOTest {
         String inputString = "123";
         setupInputStream(inputString);
 
-        int moves = gameClientIO.getTotalMoves();
+        int moves = gameClientInput.getTotalMoves();
         assertThat(moves).isEqualTo(123);
     }
 
@@ -45,7 +45,7 @@ class GameClientIOTest {
     @DisplayName("주어진 수가 범위 내에 존재하지 않으면 예외를 발생한다.")
     public void movesRangeException(String inputString) {
         setupInputStream(inputString);
-        assertThatThrownBy(gameClientIO::getTotalMoves)
+        assertThatThrownBy(gameClientInput::getTotalMoves)
                 .isInstanceOf(IllegalArgumentException.class);
     }
 

@@ -3,7 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
-public class GameClientIO {
+public class GameClientInput {
     private static final int MIN_TOTAL_MOVES = 1;
     private static final int MAX_TOTAL_MOVES = 1_000;
     private static final String DELIMITER = ",";
