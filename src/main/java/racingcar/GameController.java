@@ -53,7 +53,6 @@ public class GameController {
             List<Integer> forwardCounts = getForwardCounts(cars);
             List<String> carNames = getCarNames(cars);
             OutputView.printRacingResult(carNames, forwardCounts);
-            System.out.print("\n");
             numberOfAttempts--;
         }
     }

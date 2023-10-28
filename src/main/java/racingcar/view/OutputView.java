@@ -16,6 +16,7 @@ public class OutputView {
             }
             System.out.print("\n");
         }
+        System.out.print("\n");
     }
 
     public static void printWinners(List<String> winnerNames) {
