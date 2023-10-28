@@ -41,7 +41,6 @@ public class CarNames {
         return carNames;
     }
 
-
     private void validateDuplicate(List<CarName> carNames) {
         Set<CarName> seenNames = new HashSet<>();
 
@@ -56,8 +55,6 @@ public class CarNames {
             throw new IllegalArgumentException(DUPLICATE_ERROR_MESSAGE);
         }
     }
-
-
 
     private void validateEmpty(List<CarName> carNames){
         if(names.size() < MIN_NAMES_COUNT){
