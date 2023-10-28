@@ -14,6 +14,7 @@ public class Car {
     }
 
     public int movesForward(){
-        return distance++;
+        distance++;
+        return distance;
     }
 }
