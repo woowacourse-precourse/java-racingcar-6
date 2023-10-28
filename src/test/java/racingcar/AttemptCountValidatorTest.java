@@ -19,7 +19,7 @@ public class AttemptCountValidatorTest {
         assertDoesNotThrow(() -> attemptCountValidator.getAttemptCount(attempCount));
     }
 
-    @DisplayName("시도횟수 입력 - 양수int범위 초과")
+    @DisplayName("시도횟수 입력 - 양수int범위 초과시 예외발생")
     @Test
     void checkAttempOutOfRangePlusInt() {
         String attempCount = "1231231241351351351325134123413431";
@@ -27,7 +27,7 @@ public class AttemptCountValidatorTest {
         assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getAttemptCount(attempCount));
     }
 
-    @DisplayName("시도횟수 입력 - 음수int범위 초과")
+    @DisplayName("시도횟수 입력 - 음수int범위 초과시 예외발생")
     @Test
     void checkAttempOutOfRangeMinusInt() {
         String attempCount = "-1231231241351351351325134123413431";
@@ -35,7 +35,7 @@ public class AttemptCountValidatorTest {
         assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getAttemptCount(attempCount));
     }
 
-    @DisplayName("시도횟수 입력 - 숫자 외 포함")
+    @DisplayName("시도횟수 입력 - 숫자 외 포함시 예외발생")
     @Test
     void checkAttempNotInt() {
         String attempCount = "!222A";
@@ -43,7 +43,7 @@ public class AttemptCountValidatorTest {
         assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getAttemptCount(attempCount));
     }
 
-    @DisplayName("시도횟수 입력 - 소수")
+    @DisplayName("시도횟수 입력 - 소수입력시 예외발생")
     @Test
     void checkAttempdecimal() {
         String attempCount = "3.5";
@@ -51,7 +51,7 @@ public class AttemptCountValidatorTest {
         assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getAttemptCount(attempCount));
     }
 
-    @DisplayName("시도횟수 입력 - int범위 내 음수")
+    @DisplayName("시도횟수 입력 - int범위 내 음수입력시 예외발생")
     @Test
     void checkAttempMinus() {
         String attempCount = "-6";
@@ -59,7 +59,7 @@ public class AttemptCountValidatorTest {
         assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getAttemptCount(attempCount));
     }
 
-    @DisplayName("시도횟수 입력 - 0입력")
+    @DisplayName("시도횟수 입력 - 0입력시 예외발생")
     @Test
     void checkAttempZero() {
         String attempCount = "0";
@@ -67,7 +67,7 @@ public class AttemptCountValidatorTest {
         assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getAttemptCount(attempCount));
     }
 
-    @DisplayName("시도횟수 입력 - 숫자 사이 공백포함")
+    @DisplayName("시도횟수 입력 - 숫자 사이 공백포함시 예외발생")
     @Test
     void checkAttempInternalSpaces() {
         String attempCount = "1 4";
