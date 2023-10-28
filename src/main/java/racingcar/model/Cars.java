@@ -1,7 +1,10 @@
 package racingcar.model;
 
+import racingcar.dto.CarDto;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
 
@@ -43,5 +46,11 @@ public class Cars {
             }
         }
         return leadCars;
+    }
+
+    public List<CarDto> toDtos() {
+        return this.cars.stream()
+                .map(Car::toDto)
+                .collect(Collectors.toList());
     }
 }

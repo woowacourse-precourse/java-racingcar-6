@@ -20,6 +20,7 @@ Car
 Cars
 - 우승자를 구할 수 있다. - O
   - 우승자는 한명이상일 수 있다. - O
+- List<CarDto> 로 변환할 수 있다. - O
 
   
 RandomNumber
