@@ -14,13 +14,20 @@ public class Car {
         this.name = name;
     }
 
-    public void move(){
-        if(canGoFoward()){
+    public void move() {
+        if(canGoFoward()) {
             this.distance += 1;
         }
     }
 
-    private boolean canGoFoward(){
+    public String getName() {
+        return this.name;
+    }
+    public int getDistance() {
+        return this.distance;
+    }
+
+    private boolean canGoFoward() {
         return pickNumberInRange(MIN_NUM,MAX_NUM) >= 4;
     }
 }
