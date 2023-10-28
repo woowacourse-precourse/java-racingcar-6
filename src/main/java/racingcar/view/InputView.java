@@ -15,6 +15,7 @@ public class InputView {
         String names = readLine();
         Validator.validateContainsComma(names);
         Validator.validateNames(names);
+        Validator.validateDuplicateName(names);
         return names;
     }
 
