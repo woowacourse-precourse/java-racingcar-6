@@ -1,7 +1,10 @@
 package racingcar.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import javax.management.ImmutableDescriptor;
 
 public final class Cars {
     private final List<Car> cars;
@@ -10,11 +13,19 @@ public final class Cars {
         this.cars = cars;
     }
 
-    public static Cars from(List<String> names) {
-        List<Car> carList = names.stream()
-            .map(Car::from)
-            .collect(Collectors.toList());
-        return new Cars(carList);
+    public static Cars from(List<Car> cars) {
+        return new Cars(cars);
     }
 
+    public List<String> getWinner() {
+        int maxProgress = cars.stream()
+            .mapToInt(Car::getProgress)
+            .max()
+            .orElse(0);
+
+        return cars.stream()
+            .filter(car -> car.getProgress() == maxProgress)
+            .map(Car::getName)
+            .collect(Collectors.toList());
+    }
 }

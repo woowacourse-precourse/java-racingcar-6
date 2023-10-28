@@ -140,7 +140,7 @@ classDiagram
 - [x] 주어진 값에 따른 차 이동 여부 확인
 
 ### Cars Collection `Cars`
-- [ ] 경주 결과에 따른 우승자 결정
+- [x] 경주 결과에 따른 우승자 결정
 
 ### Game Result Management `GameResult`
 - [ ] 차의 진행 상황에 따른 결과 관리
