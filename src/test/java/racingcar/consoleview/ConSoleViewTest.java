@@ -24,6 +24,9 @@ public class ConSoleViewTest {
     private OutputStream captor;
     private final ConsoleView consoleView = new ConsoleView();
 
+    String getOut(){
+        return captor.toString().trim();
+    }
     @BeforeEach
     void init(){
         standardOut = System.out;
@@ -33,9 +36,6 @@ public class ConSoleViewTest {
     @AfterEach
     void backStandardStream() {
         System.setOut(standardOut);
-    }
-    String getOut(){
-        return captor.toString().trim();
     }
     @ParameterizedTest
     @DisplayName("printWinner() 함수 테스트")
@@ -47,7 +47,7 @@ public class ConSoleViewTest {
     @ParameterizedTest
     @DisplayName("printRoundProgress() 함수 테스트")
     @MethodSource("provide_printRoundProgress_TestData")
-    void 진행상황_테스트(String name, int winCount, String expectedOutput) {
+    void 진행상황_출력_테스트(String name, int winCount, String expectedOutput) {
         consoleView.printRoundProgress("희종", 2);
         assertThat(getOut()).isEqualTo("희종 : --");
     }
