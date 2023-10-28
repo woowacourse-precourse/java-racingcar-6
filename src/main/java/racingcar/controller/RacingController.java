@@ -28,9 +28,9 @@ public class RacingController {
         int trialNumber = inputview.readTrialNumber();
 
         preprocessInput(inputCars);
-         playEachRacing(trialNumber);
-        // StringBuilder winners = formatWinnersList();
-        // outputView.printWinners(winners.toString());
+        playEachRacing(trialNumber);
+        StringBuilder winners = formatWinnersList();
+        outputView.printWinners(winners.toString());
     }
 
     private void preprocessInput(String inputCars) {
@@ -46,5 +46,10 @@ public class RacingController {
             carRacingGame.eachCarRacing();
             outputView.printEachRacingResult(cars, cars.size());
         }
+    }
+
+    private StringBuilder formatWinnersList() {
+        List<String> winnersList = carRacingGame.getWinningCarNames();
+        return StringUtils.joinWithCommas(winnersList);
     }
 }
