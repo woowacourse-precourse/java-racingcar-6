@@ -7,11 +7,22 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class CarTest {
+    Car car1;
+    Car car2;
+    Car car3;
+    Car givenCar;
     Car car;
+    Car other ;
     @BeforeEach
-    void setUp(){
-        car = new Car();
+    void setUP(){
+        car1 = new Car("hel");
+        car2 = new Car("hll");
+        car3 = new Car("apple");
+        givenCar = new Car("given");
+        car = new Car("cn");
+        other = new Car("other");
     }
+
     @Test
     @DisplayName("stop")
     public void carMoveStopStateTest(){
@@ -42,7 +53,6 @@ class CarTest {
     @Test
     @DisplayName("compare in when both is same Position")
     public void carSamePositionTest(){
-        Car other = new Car();
         assertThat(car.isFront(other)).isFalse();
         assertThat(car.isSamePosition(other)).isTrue();
     }
@@ -50,15 +60,12 @@ class CarTest {
     @Test
     @DisplayName("compare one is over other  Position")
     public void carDiffPostionPlusTest(){
-        Car other = new Car();
         other.moveCarByState(MovementState.MOVE);
         assertThat(other.isFront(car)).isTrue();
     }
     @Test
     @DisplayName("compare two Cars  Position")
     public void carDiffPostionCompareTest() {
-
-        Car other = new Car();
         other.moveCarByState(MovementState.MOVE);
         other.moveCarByState(MovementState.MOVE);
 
@@ -67,15 +74,12 @@ class CarTest {
     @Test
     @DisplayName("compare two Cars  PositionSame")
     public void carDiffPostionSameCompareTest() {
-
-        Car other = new Car();
         assertThat(other.comparePosition(car).state()).isEqualTo(ComparePositionState.SAME);
     }
 
     @Test
     @DisplayName("compare two Cars  Position")
     public void carDiffPositionCompareWhenBackTest() {
-        Car other = new Car();
         other.moveCarByState(MovementState.MOVE);
         other.moveCarByState(MovementState.MOVE);
         assertThat(car.comparePosition(other).state()).isEqualTo(ComparePositionState.BACK);

@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,5 +50,37 @@ public class Cars {
         }
 
         return new PairCompareResult(ComparePositionState.SAME,topLank);
+    }
+
+    public List<Car> moveAll() {
+        List<Car> result = new ArrayList<>();
+        for(Car car:cars){
+            car.moveByRandom();
+            result.add(car);
+        }
+        return result;
+    }
+
+    public List<String> getWinnerNames(Integer topPosition) {
+        List<String> result = new ArrayList<>();
+        for(Car car:cars){
+            if(car.isWinner(topPosition)){
+                result.add(car.getName());
+            }
+        }
+        return result;
+    }
+    public static Cars buildCars(List<String> names){
+        List<Car> carList = new ArrayList<>();
+        for(String name : names) {
+            carList.add(new Car(name));
+        }
+        return new Cars(carList);
+    }
+    public int getSize(){
+        return cars.size();
+    }
+    public String getResult(int i) {
+        return cars.get(i).resultMessage();
     }
 }
