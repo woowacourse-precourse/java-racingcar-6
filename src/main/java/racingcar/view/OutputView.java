@@ -20,25 +20,36 @@ public class OutputView {
     public static void printResult(int totalRound, List<String> carNames, List<List<Integer>> roundScores, List<String> winnerNames) {
         System.out.println();
         System.out.println(RESULT_MESSAGE);
+        printTotalRoundResult(totalRound, carNames, roundScores);
+        printWinnerMessage(winnerNames);
+    }
 
-        //라운드 결과 출력
+    private static void printTotalRoundResult(int totalRound, List<String> carNames, List<List<Integer>> roundScores) {
+        String resultMessageFormat = createRoundResultMessageFormat(carNames);
+
+        for (int i = 0; i < totalRound; i++) {
+            printRoundResult(roundScores, i, resultMessageFormat);
+        }
+    }
+
+    private static String createRoundResultMessageFormat(List<String> carNames) {
         StringBuilder sb = new StringBuilder();
         for (String name : carNames) {
             sb.append(name + " : %s\n");
         }
-        String resultMessageFormat = sb.toString();
+        return sb.toString();
+    }
 
-
-        for (int i = 0; i < totalRound; i++) {
-            List<String> roundData = new ArrayList<>();
-            for (int j = 0; j < roundScores.size(); j++) {
-                String bars = "-".repeat(roundScores.get(j).get(i));
-                roundData.add(bars);
-            }
-            System.out.println(String.format(resultMessageFormat, roundData.toArray()));
+    private static void printRoundResult(List<List<Integer>> roundScores, int i, String resultMessageFormat) {
+        List<String> roundData = new ArrayList<>();
+        for (int j = 0; j < roundScores.size(); j++) {
+            String bars = "-".repeat(roundScores.get(j).get(i));
+            roundData.add(bars);
         }
+        System.out.println(String.format(resultMessageFormat, roundData.toArray()));
+    }
 
-        //최종 우승자 출력
+    private static void printWinnerMessage(List<String> winnerNames) {
         if (winnerNames.size() == 1) {
             String winnerMessage = String.format(WINNER_MESSAGE_FORMAT, winnerNames.toArray());
             System.out.println(winnerMessage);

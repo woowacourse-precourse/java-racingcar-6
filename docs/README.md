@@ -27,12 +27,12 @@
   - 뽑은 숫자가 4 이상이면 전진한다. (4 미만이면 멈춘다.)
     
 
-- [ ] 라운드 결과를 출력한다. 
-  - GameController#createResult() -> OutputView#printRoundResult()
+- [X] 라운드 결과를 출력한다. 
+  - GameController#processResult() -> OutputView#printRoundResult()
 
 
-- [ ] 게임을 완료한 후 최종 우승자를 출력한다.
-  - GameController#createResult() -> OutputView##printWinner()
+- [X] 게임을 완료한 후 최종 우승자를 출력한다.
+  - GameController#processResult() -> OutputView##printWinner()
   - 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
 
 ---
