@@ -21,4 +21,16 @@ public class CarListTest {
         assertTrue(resultList.contains(carList.get(1)));
         assertTrue(resultList.contains(carList.get(2)));
     }
+
+    @Test
+    void findMaxPosition_테스트() {
+        List<String> inputList = Arrays.asList("red", "green", "blue");
+        List<Car> carList = RacingUtil.createCarsFromNames(inputList);
+        carList.get(1).move();
+        carList.get(1).move();
+
+        CarList resultList = new CarList(carList);
+
+        assertEquals(2, resultList.findMaxPosition());
+    }
 }
