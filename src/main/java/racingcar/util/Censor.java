@@ -2,8 +2,11 @@ package racingcar.util;
 
 import static racingcar.util.constant.GameRule.MAX_NICKNAME_LENGTH;
 import static racingcar.util.messageContent.ExceptionMessageContent.NICKNAME_LENGTH_ERROR;
+import static racingcar.util.messageContent.ExceptionMessageContent.NICKNAME_UNIQUE_ERROR;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Censor {
 
@@ -20,14 +23,16 @@ public class Censor {
     private void checkLength(List<String> playerList) {
         boolean over = playerList.stream()
                 .anyMatch(nickname -> nickname.length() > MAX_NICKNAME_LENGTH.getValue());
-
         if (over) {
             throw new IllegalArgumentException(NICKNAME_LENGTH_ERROR.getContent());
         }
     }
 
     private void checkUniqueValue(List<String> playerList) {
-        // TODO: 자동자의 닉네임이 유니크한지를 검증한다.
+        Set<String> uniqueNicknames = new HashSet<>(playerList);
+        if (uniqueNicknames.size() != playerList.size()) {
+            throw new IllegalArgumentException(NICKNAME_UNIQUE_ERROR.getContent());
+        }
     }
 
     private void checkSpace(List<String> playerList) {
