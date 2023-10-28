@@ -1,8 +1,8 @@
 자동차 경주 미션 구현 목록
 
 1. InputValidator : 사용자의 입력을 검증
-    1) checkNames(String input) : 자동차의 이름 길이 검증
-    2) checkCount(String input) : 이동할 횟수 검증
+    1) convertNames(String input) : 자동차의 이름 길이 검증
+    2) convertCount(String input) : 이동할 횟수 검증
 2. InputView : 사용자의 입력을 받는 클래스
     1) getCarsName() : 경주에 참여하는 자동차들의 이름을 입력받음
     2) getPlayCount() : 이동할 횟수를 입력받음
@@ -15,9 +15,8 @@
     2) start() : 게임 시작
 6. OutputView : 화면에 게임을 출력하는 클래스
     1) printCarScores(List<Car> cars) : 각 자동차의 이동 결과 출력
-    2) printStart() : 시작 메세지 출력
-    3) printPlayCount() : 게임 진행 횟수 입력 메세지 출력
-    4) printWinner(String winners) : 게임 우승자 출력
+    2) printMessage(Message message) : 전달받은 메세지 출력
+    3) printWinner(String winners) : 게임 우승자 출력
 7. Size : 게임에 사용되는 경계값 모음 Enum
 8. Message : 게임에 사용되는 메세지 모음 Enum
 

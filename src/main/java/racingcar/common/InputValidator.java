@@ -22,13 +22,6 @@ public class InputValidator {
         throw new IllegalArgumentException();
     }
 
-    private String checkBoundary(String input) {
-        if (input.charAt(0) == ',' || input.charAt(input.length()-1) == ',') {
-            throw new IllegalArgumentException();
-        }
-        return input;
-    }
-
     private void checkConditions(String name) {
         if (name.length() > Size.CAR_NAME.getValue() || name.isEmpty()) {
             throw new IllegalArgumentException();
@@ -45,6 +38,13 @@ public class InputValidator {
 
     private List<String> getNameList(String input) {
         return List.of(checkBoundary(input).split(","));
+    }
+
+    private String checkBoundary(String input) {
+        if (input.charAt(0) == ',' || input.charAt(input.length()-1) == ',') {
+            throw new IllegalArgumentException();
+        }
+        return input;
     }
 
 }
