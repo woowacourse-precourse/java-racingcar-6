@@ -22,7 +22,7 @@ public class Game {
     }
 
     private static void validateNumberOfAttempts(int numberOfAttempts) {
-        if (numberOfAttempts <= GameConfig.ATTEMPTS_MIN_VALUE) {
+        if (numberOfAttempts < GameConfig.ATTEMPTS_MIN_VALUE) {
             throw new IllegalArgumentException();
         }
     }
