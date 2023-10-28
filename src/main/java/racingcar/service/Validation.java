@@ -15,6 +15,18 @@ public class Validation {
         }
     }
 
+    public void validateMovement(Integer movement) {
+        if (movement == null || String.valueOf(movement).trim().isEmpty()) {
+            throw new IllegalArgumentException("숫자를 입력해주세요.");
+        }
+
+        try {
+            Integer.parseInt(String.valueOf(movement));
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("문자열이 아닌 숫자를 입력해주세요.");
+        }
+    }
+
     private static Boolean isCarNameLengthValid(String carName) {
         return carName.length() <= 5;
     }

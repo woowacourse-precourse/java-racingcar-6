@@ -31,9 +31,9 @@ class ValidationTest {
                 .hasMessageContaining("5글자를 초과하는 이름은 입력할 수 없습니다.");
     }
 
-    @DisplayName("사용자가 자동차명에 숫자를 입력했을 때, 예외를 발생하는지")
+    @DisplayName("사용자가 숫자를 입력했을 때, 예외를 발생하는지")
     @ParameterizedTest
-    @ValueSource(strings = {"pob1", "12", "bbo32", "123,po31"})
+    @ValueSource(strings = {"pob1", "12", "bbo32", "123,pob1"})
     void validateUserInputNumber(String inputCarName) {
         // given & when & then
         assertThatThrownBy(
