@@ -40,9 +40,10 @@
 
   - [x] 경주할 자동차 이름을 입력하는 메서드 // GameProcess#inputNameOfRaceCar
     - [x] 입력받은 자동차의 이름으로 레이싱 자동차를 만든다.
-    - [x] 이름은 5자 이하 검사
+    - [x] 차동차 각각의 이름은 5자 이하 검사
     - [x] 한글 포함 검사
-
+    - [ ] 자동차 하나만 입력되면 안된다.
+    
   - [x] 입력받은 이름 문자열로 자동차를 만들어준다. // GameProcess#createRaceCars()
     
     - [x] 문자열 공백 검사
@@ -124,6 +125,8 @@
   - [x] 문자열 이름 , 다음에는 문자가 나와야한다. ( "sue,woo," )(금지) // ValidException#isValidCommaNextBlankCheck
   - [x] 공백 포함 검사. // ValidException#isValidIncludeBlank
   - [x] 0 입력 검사. // ValidException#isValidZeroCheck
+  - [ ] 운전하는 자동차 하나만 입력되면 안된다.
+  - [x] 자동차의 각각의 이름이 5자이하인지 확인.
 
 
 

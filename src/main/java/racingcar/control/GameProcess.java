@@ -31,11 +31,11 @@ public class GameProcess {
     public void inputNameOfRaceCar() {
         String inputStr = Utill.inputString();
 
-        // 이름은 5자 이하 검사
+        // 각각 자동차의 이름은 5자 이하 검사
         // 한글 포함 검사
         // 문자열 이름 "woo," 이렇게 ,다음은 문자열이 꼭나와야된다.
-        // TODO: 10/28/23 if문 메서드 추출 
-        if (ValidException.isValidFIveLessString(inputStr)
+        // TODO: 10/28/23 하나만 입력 금지.
+        if (ValidException.isValidCarEachNameFIveLessString(inputStr)
                 && ValidException.isValidIncludeKorean(inputStr)
                 && ValidException.isValidCommaNextBlankCheck(inputStr)) {
             nameLineOfRaceCar = inputStr;

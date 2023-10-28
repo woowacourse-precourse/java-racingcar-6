@@ -2,6 +2,9 @@ package racingcar.utill;
 
 import racingcar.string.ValidConstants;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -149,5 +152,21 @@ public class ValidException {
             return true;
         }
         throw new IllegalArgumentException(ValidConstants.MSG_COMMA_NEXT_BLANK());
+    }
+
+    /**
+     * 자동차의 각각의 이름이 5글자 이하인가 확인
+     *
+     * @param inputStr
+     * @return
+     */
+    public static boolean isValidCarEachNameFIveLessString(String inputStr) {
+        List<String> nameEachOfList = Arrays.stream(inputStr.split(",")).toList();
+        for (String name : nameEachOfList) {
+            if (isValidFIveLessString(name)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
