@@ -24,11 +24,6 @@ public class OutputView {
     }
 
     private String makeGameResultMessage(List<String> cars){
-        String message = WINNER_OUTPUT_MESSAGE;
-        for(int i=0;i< cars.size()-1;i++){
-            message += (cars.get(i) + DELIMITER);
-        }
-        message +=cars.get(cars.size()-1);
-        return message;
+        return WINNER_OUTPUT_MESSAGE + String.join(DELIMITER,cars);
     }
 }
