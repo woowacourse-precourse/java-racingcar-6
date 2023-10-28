@@ -19,7 +19,7 @@ public class RacingcarGameController {
     }
 
     public void start() {
-        inputView.readInputMessage();
+        inputView.readInputCarNameMessage();
         String[] carsName = inputView.getCarsName();
         racingcarGame.setCars(carsName);
     }
