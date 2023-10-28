@@ -16,7 +16,7 @@ public class ConsoleOutput implements OutputHandler {
 
     @Override
     public void printGameResultMessage() {
-
+        System.out.println("실행 결과");
     }
 
     @Override
