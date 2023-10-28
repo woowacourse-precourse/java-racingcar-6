@@ -3,15 +3,12 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.List;
-import java.util.OptionalInt;
 
 public class CarRace {
     private final static int MIN_NUMBER = 1;
     private final static int MAX_NUMBER = 9;
 
-    public CarRace() {}
-
-    public void playOneTurn(Cars cars) {
+    public void forwardOneTurn(Cars cars) {
         List<Car> raceCars = cars.getCars();
         raceCars.forEach(this::forwardRandomStep);
     }
