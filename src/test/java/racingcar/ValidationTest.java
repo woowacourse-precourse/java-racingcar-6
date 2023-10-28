@@ -1,6 +1,7 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,9 +9,9 @@ import org.junit.jupiter.api.Test;
 class ValidationTest {
 
     @Test
-    @DisplayName("사용자의 이름은 5글자 이하이다")
+    @DisplayName("자동차 이름 입력 검증")
     void hasIllegalName() {
-        //given
+        // given
         String legal = "a,bb,ccc,dddd,eeeee";
         String[] legals = legal.split(",");
 
@@ -27,11 +28,16 @@ class ValidationTest {
             System.out.println("s = " + s);
         }
 
-        //when
-        //then
-        assertThat(Validation.hasIllegalName(legals)).isFalse();
-        assertThat(Validation.hasIllegalName(illegals1)).isTrue();
-        assertThat(Validation.hasIllegalName(illegals2)).isTrue();
-        assertThat(Validation.hasIllegalName(illegals3)).isTrue();
+        // when then
+        Validation.validateCarNames(legals);
+
+        assertThatThrownBy(() -> Validation.validateCarNames(illegals1))
+            .isInstanceOf(IllegalArgumentException.class);
+
+        assertThatThrownBy(() -> Validation.validateCarNames(illegals2))
+            .isInstanceOf(IllegalArgumentException.class);
+
+        assertThatThrownBy(() -> Validation.validateCarNames(illegals3))
+            .isInstanceOf(IllegalArgumentException.class);
     }
 }
