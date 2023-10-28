@@ -22,4 +22,8 @@ public class OutputView {
 		
 		System.out.println(ProgressMessage.EXECUTION_RESULT.getMessage() + "\n" + strJoiner.toString());
 	}
+	
+	public void printWinner(String winner) {
+		System.out.printf(ProgressMessage.WINNER.getMessage(), winner);
+	}
 }
