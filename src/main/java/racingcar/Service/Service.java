@@ -1,8 +1,9 @@
-package racingcar;
+package racingcar.Service;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.Domain.ProgressBoard;
 import racingcar.Utils.NumberGenerator;
 import racingcar.View.InputView;
 import racingcar.View.OutputView;

@@ -2,7 +2,7 @@ package racingcar.View;
 
 import java.util.List;
 import java.util.StringJoiner;
-import racingcar.ProgressBoard;
+import racingcar.Domain.ProgressBoard;
 
 public class OutputView {
     private final String RESULT_MESSAGE = "실행 결과";

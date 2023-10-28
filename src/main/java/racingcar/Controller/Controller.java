@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.Controller;
 
 import java.util.List;
+import racingcar.Service.Service;
 import racingcar.Utils.InputValidator;
 
 public class Controller {
