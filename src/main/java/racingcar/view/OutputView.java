@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.dto.CarDto;
 import racingcar.vo.CarName;
 
@@ -36,11 +37,10 @@ public class OutputView {
     }
 
     public void printWinners(List<CarName> winnerNames) {
-        String result = "";
-        for (CarName winnerName : winnerNames) {
-            result = String.join(COMMA_SEPARATOR, winnerName.name());
-        }
-
+        String result = winnerNames.stream()
+                .map(CarName::name)
+                .collect(Collectors.joining(COMMA_SEPARATOR));
+        
         System.out.print(WINNER_INFO_MSG + SEPARATOR_COLON + result);
     }
 }
