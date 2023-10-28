@@ -5,6 +5,11 @@ import java.util.stream.Collectors;
 
 public class WinnerFinder {
 
+    public static List<String> findWinners(List<Car> cars) {
+        int maxMoveNum = getMaxMoveNum(cars);
+        return getWinnerNames(cars, maxMoveNum);
+    }
+
     public static int getMaxMoveNum(List<Car> cars) {
         return cars.stream()
                 .mapToInt(Car::getMoveNum)
