@@ -11,10 +11,13 @@ public class RaceGame {
     public void startGame(){
         consoleOutput.printInputCarName();
         String carsString = userInput();
-        List<String> cars = splitStringToList(carsString);
-        System.out.println(cars);
-        //입력값 예외 체크
+//        List<String> cars = splitStringToList(carsString);
+        //자동차 이름 예외 체크
         checkForException(carsString);
+        consoleOutput.printInputAttempts();
+        String attempts = userInput();
+        //시도할 횟수 예외 체크
+        checkForExceptionAttempts(attempts);
     }
     private String userInput(){
         String userData = Console.readLine();
@@ -33,12 +36,13 @@ public class RaceGame {
     private void checkForException(String carsString){
         InputValidator inputValidator = new InputValidator();
         List<String> cars = splitStringToList(carsString);
-        inputValidator.checkNameLength(cars);
-        //자동차 이름 띄어쓰기 검사
-        inputValidator.checkInputForSpaces(carsString);
-        //입력값 비었는지 검사
-        inputValidator.checkInputEmpty(carsString);
-        //자동차 이름 중복 검사
-        inputValidator.checkNameDuplicate(cars);
+        inputValidator.checkCarsName(cars);
+        inputValidator.checkInputValue(carsString);
+    }
+
+    private void checkForExceptionAttempts(String attempts){
+        InputValidator inputValidator = new InputValidator();
+        inputValidator.checkInputValue(attempts);
+        inputValidator.checkEttempts(attempts);
     }
 }
