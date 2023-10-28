@@ -3,9 +3,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcar.Model.Car.Car;
-import racingcar.Model.Car.CarId;
-import racingcar.Model.CarRepository;
+import racingcar.model.Car.Car;
+import racingcar.model.Car.CarId;
+import racingcar.model.CarRepository;
 
 public class test {
     @Test

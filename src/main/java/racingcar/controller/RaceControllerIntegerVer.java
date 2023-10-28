@@ -1,4 +1,4 @@
-package racingcar.Controller;
+package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
@@ -7,9 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import racingcar.Model.Car.Car;
-import racingcar.Model.CarRepository;
-import racingcar.View.View;
+import racingcar.model.Car.Car;
+import racingcar.model.CarRepository;
+import racingcar.view.View;
 
 public class RaceControllerIntegerVer implements RaceController {
 

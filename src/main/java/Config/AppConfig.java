@@ -1,7 +1,7 @@
 package Config;
 
-import racingcar.Controller.RaceController;
-import racingcar.Controller.RaceControllerIntegerVer;
+import racingcar.controller.RaceController;
+import racingcar.controller.RaceControllerIntegerVer;
 
 public class AppConfig {
     public static final String INPUT_NAME_DELIMITER = ",";

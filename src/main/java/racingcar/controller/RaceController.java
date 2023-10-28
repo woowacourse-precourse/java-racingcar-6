@@ -1,6 +1,6 @@
-package racingcar.Controller;
+package racingcar.controller;
 
-import racingcar.Model.CarRepository;
+import racingcar.model.CarRepository;
 
 public interface RaceController {
 

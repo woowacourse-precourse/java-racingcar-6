@@ -1,8 +1,8 @@
-package racingcar.Model;
+package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.Model.Car.Car;
+import racingcar.model.Car.Car;
 
 public class CarRepository {
 

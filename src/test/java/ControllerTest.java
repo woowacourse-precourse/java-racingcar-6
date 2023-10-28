@@ -1,16 +1,10 @@
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.Controller.RaceController;
-import racingcar.Controller.RaceControllerIntegerVer;
-import racingcar.Model.Car.Car;
-import racingcar.Model.CarRepository;
+import racingcar.controller.RaceController;
+import racingcar.controller.RaceControllerIntegerVer;
+import racingcar.model.Car.Car;
+import racingcar.model.CarRepository;
 
 public class ControllerTest {
 

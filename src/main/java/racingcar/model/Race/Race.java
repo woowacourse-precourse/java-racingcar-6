@@ -1,4 +1,4 @@
-package racingcar.Model.Race;
+package racingcar.model.Race;
 
 public class Race {
 

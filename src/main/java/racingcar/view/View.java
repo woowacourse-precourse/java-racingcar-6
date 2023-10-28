@@ -1,8 +1,8 @@
-package racingcar.View;
+package racingcar.view;
 
 import Config.AppConfig;
 import java.util.List;
-import racingcar.Model.Car.Car;
+import racingcar.model.Car.Car;
 
 public class View {
     private static final String GAME_START_MESSAGE =
