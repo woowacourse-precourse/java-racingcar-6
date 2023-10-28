@@ -11,6 +11,14 @@ public class Car {
         this.name = name;
     }
 
+    public Integer getDistance() {
+        return distance;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public void moveCar(Integer randomNumber) {
         if (randomNumber.intValue() >= FORWARD_DECISION_NUMBER) {
             forward();
