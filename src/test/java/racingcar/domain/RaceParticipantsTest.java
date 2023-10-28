@@ -27,7 +27,7 @@ class RaceParticipantsTest {
 
     @Nested
     @DisplayName("자동차 이름에 대한 예외 처리")
-    class RaceParticipangtsNameExceptionTest {
+    class RaceParticipantsNameExceptionTest {
         @Test
         @DisplayName("자동차 이름이 비어 있을 경우 예외 발생")
         void raceParticipantsNameEmpty() {
