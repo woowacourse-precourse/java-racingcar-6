@@ -31,4 +31,8 @@ public class RacingController {
             carController.carForward();
         }
     }
+
+    public void resultWinner() {
+        carController.winnerCheck(repeatNumber);
+    }
 }

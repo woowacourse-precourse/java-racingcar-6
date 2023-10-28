@@ -29,4 +29,28 @@ public class CarController {
     public boolean forwardCheck() {
         return Randoms.pickNumberInRange(0, 9) >= 4;
     }
+
+    public List<CarModel> winnerCheck(int maxLocation) {
+        List<CarModel> winnerCars = new ArrayList<>();
+        List<CarModel> Cars;
+
+        for (int i = 0 ;i <= maxLocation; maxLocation++) {
+            Cars = maxLocationCheck(maxLocation);
+            if (Cars.size() > 0) {
+                winnerCars = Cars;
+            }
+        }
+        return winnerCars;
+    }
+
+    public List<CarModel> maxLocationCheck(int maxLocation) {
+        List<CarModel> winnerCars = new ArrayList<>();
+
+        for ( CarModel carModel : carModelList) {
+            if (carModel.compareMaxLocation(maxLocation)) {
+                winnerCars.add(carModel);
+            }
+        }
+        return winnerCars;
+    }
 }
