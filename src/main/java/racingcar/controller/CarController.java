@@ -9,6 +9,7 @@ public class CarController {
 
     public void startGame() {
         String input = inputView.carInput();
-        System.out.println(validator.convertStringToList(input));
+        validator.convertStringToList(input);
+        inputView.roundInput();
     }
 }
