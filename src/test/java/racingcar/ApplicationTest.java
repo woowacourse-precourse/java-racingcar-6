@@ -131,6 +131,12 @@ class ApplicationTest extends NsTest {
         System.setOut(System.out);
     }
 
+    @Test
+    void judgeChampion_test() {
+        int[] victory = {2, 4, 4};
+        List<String> name = Arrays.asList("povi", "jagavi", "jokyo");
+        Assertions.assertEquals("jagavi, jokyo", Application.judgeChampion(victory, name));
+    }
 
 
 
