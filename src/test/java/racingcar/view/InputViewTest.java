@@ -7,10 +7,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.List;
+
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+
+import camp.nextstep.edu.missionutils.Console;
 
 public class InputViewTest {
     InputView inputView = new InputView();
+
+    @AfterEach
+    void tearDown() {
+        Console.close();
+    }
 
     @Test
     void 자동차_이름에_대한_입력을_쉼표_구분() {
