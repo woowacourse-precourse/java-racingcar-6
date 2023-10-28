@@ -8,8 +8,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.controller.CarController;
 import racingcar.model.Car;
-import racingcar.util.CarHandler;
-import racingcar.util.CarHandlerImpl;
+import racingcar.model.Cars;
+import racingcar.util.car.CarHandler;
+import racingcar.util.car.CarHandlerImpl;
 import racingcar.view.OutputView;
 
 class carTest {
@@ -113,6 +114,26 @@ class carTest {
 
         // then
         assertThat(output).isEqualTo("test : -");
+    }
+    @Test
+    public void 생성_성공() {
+        // given
+        String[] names = {"pobi", "woni", "wonii"};
+
+        // when
+        Cars cars = new Cars(names);
+
+        // then
+        assertThat(cars).isNotNull();
+    }
+    @Test
+    public void 중복_체크() {
+        // given
+        String[] names = {"pobi", "woni", "woni"};
+
+        // when
+        // then
+        assertThatThrownBy(() -> new Cars(names)).isInstanceOf(IllegalArgumentException.class);
     }
 
 }
