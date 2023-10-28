@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class Stadium {
-    private final int carCount;
     private final ArrayList<String> carNames;
     private ArrayList<Car> cars;
 
     public Stadium(ArrayList<String> carNames) {
         this.carNames = carNames;
-        this.carCount = carNames.size();
         setStadium();
     }
 

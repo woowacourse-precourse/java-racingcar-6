@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.exception.InputException;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -16,11 +17,16 @@ public class IoController {
 
     public ArrayList<String> raceCarNameInput() {
         ArrayList<String> carNames = inputView.carNameInput();
+        for (String carName : carNames) {
+            InputException.checkInputLength(carName);
+        }
         return carNames;
     }
 
     public int trialCountInput() {
-        return inputView.trialCountInput();
+        String trialCount =inputView.trialCountInput();
+        InputException.checkTrialCountValid(trialCount);
+        return Integer.parseInt(trialCount);
     }
 
     public void notifyExecutionResult() {
