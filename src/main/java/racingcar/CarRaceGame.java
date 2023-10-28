@@ -1,7 +1,7 @@
 package racingcar;
 
 import java.util.List;
-import racingcar.domain.CarRaceJudge;
+import racingcar.domain.RaceJudge;
 import racingcar.dto.MoveResult;
 import racingcar.generator.MoveResultMessageGenerator;
 import racingcar.generator.RandomNumberGenerator;
@@ -11,7 +11,7 @@ import racingcar.view.OutputView;
 
 public class CarRaceGame {
 
-    private final CarRaceJudge judge = new CarRaceJudge();
+    private final RaceJudge judge = new RaceJudge();
 
     public void startRace() {
         addRaceCars();

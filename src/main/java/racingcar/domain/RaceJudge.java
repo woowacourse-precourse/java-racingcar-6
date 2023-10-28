@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.function.Supplier;
 import racingcar.dto.MoveResult;
 
-public class CarRaceJudge {
+public class RaceJudge {
 
     private final CarsRepository carsRepository = CarsRepository.getInstance();
 

@@ -8,9 +8,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.MoveResult;
 
-class CarRaceJudgeTest {
+class RaceJudgeTest {
 
-    CarRaceJudge carRaceJudge = new CarRaceJudge();
+    RaceJudge raceJudge = new RaceJudge();
     CarsRepository carsRepository = CarsRepository.getInstance();
 
     @DisplayName("심판은 레이스할 자동차를 등록합니다.")
@@ -22,7 +22,7 @@ class CarRaceJudgeTest {
                 Car.of("jason", 0));
 
         // when
-        carRaceJudge.addCars(names);
+        raceJudge.addCars(names);
         Cars findCars = carsRepository.findCars();
         boolean isSaved = findCars.cars().containsAll(cars);
 
@@ -37,7 +37,7 @@ class CarRaceJudgeTest {
         List<String> names = List.of("pobi", "pobi");
 
         // when & then
-        assertThatIllegalArgumentException().isThrownBy(() -> carRaceJudge.addCars(names))
+        assertThatIllegalArgumentException().isThrownBy(() -> raceJudge.addCars(names))
                 .withMessageContaining("자동차 이름은 중복될 수 없습니다.");
     }
 
@@ -46,11 +46,11 @@ class CarRaceJudgeTest {
     void moveCars() {
         // given
         List<String> names = List.of("pobi", "jason");
-        carRaceJudge.addCars(names);
+        raceJudge.addCars(names);
 
         // when
-        carRaceJudge.moveCars(() -> 4);
-        boolean isMove = carRaceJudge.createSingleMoveResults()
+        raceJudge.moveCars(() -> 4);
+        boolean isMove = raceJudge.createSingleMoveResults()
                 .stream()
                 .map(MoveResult::position)
                 .allMatch(number -> number == 1);
@@ -64,11 +64,11 @@ class CarRaceJudgeTest {
     void moveCars_fail_notEnoughValue() {
         // given
         List<String> names = List.of("pobi", "jason");
-        carRaceJudge.addCars(names);
+        raceJudge.addCars(names);
 
         // when
-        carRaceJudge.moveCars(() -> 3);
-        boolean isStop = carRaceJudge.createSingleMoveResults()
+        raceJudge.moveCars(() -> 3);
+        boolean isStop = raceJudge.createSingleMoveResults()
                 .stream()
                 .map(MoveResult::position)
                 .allMatch(number -> number == 0);
@@ -82,11 +82,11 @@ class CarRaceJudgeTest {
     void findAllWinnerNames() {
         // given
         List<String> names = List.of("pobi", "jason");
-        carRaceJudge.addCars(names);
+        raceJudge.addCars(names);
 
         // when
-        carRaceJudge.moveCars(() -> 4);
-        String winners = String.join(",", carRaceJudge.findAllWinnerNames());
+        raceJudge.moveCars(() -> 4);
+        String winners = String.join(",", raceJudge.findAllWinnerNames());
 
         // then
         assertThat(winners).isEqualTo("pobi,jason");
