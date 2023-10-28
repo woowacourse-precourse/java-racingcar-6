@@ -31,7 +31,7 @@ public class CarNameValidator {
         return true;
     }
 
-    private boolean isNull(String carNames){
-        return !carNames.isEmpty();
+    private boolean isNull(String carNames) {
+        return carNames != null && !carNames.trim().isEmpty();
     }
 }
