@@ -15,6 +15,12 @@ public class Cars {
                 .toList();
     }
 
+    public void play() {
+
+        cars.stream()
+                .forEach(car -> car.play());
+    }
+
     public List<String> findWinners() {
         Car maxPositionCar = findMaxPositionCar();
         return findMaxPositionCarList(maxPositionCar);
