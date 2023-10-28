@@ -21,11 +21,13 @@ public class TryNumberValidator implements InputValidator {
 
     private int getIntValueFromInput(String input) {
         int intValueInput;
+
         try {
             intValueInput = Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(TryNumberException.INVALID_INTEGER_VALUE.getMessage());
         }
+
         return intValueInput;
     }
 
