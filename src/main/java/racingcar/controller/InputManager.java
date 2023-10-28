@@ -25,11 +25,10 @@ public class InputManager {
 
     private void checkLinitCarName(String name){
         if (name.length() > 5){
-            throw new IllegalStateException();
+            throw new IllegalArgumentException();
         }
     }
 
-//    - [] (입력) 시도 횟수를 입력받는다.  InputManager.inputRepeat
     public int inputRepeat(){
         System.out.println(MassageManager.INPUT_REPEAT);
         String readLine = Console.readLine();
