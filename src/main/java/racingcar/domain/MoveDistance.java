@@ -15,7 +15,7 @@ public final class MoveDistance {
         this.value = INITIAL_VALUE;
     }
 
-    public MoveDistance(final MoveDistance moveDistance) {
+    private MoveDistance(final MoveDistance moveDistance) {
         this.value = moveDistance.value + PLUS_UNIT;
     }
 

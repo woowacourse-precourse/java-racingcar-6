@@ -14,7 +14,7 @@ public final class TryCount {
         this.value = value;
     }
 
-    public TryCount(final TryCount tryCount) {
+    private TryCount(final TryCount tryCount) {
         this.value = tryCount.value - MINUS_UNIT;
     }
 
