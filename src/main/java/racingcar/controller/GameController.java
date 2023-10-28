@@ -1,9 +1,7 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
 import racingcar.dto.CarsGenerateDto;
 import racingcar.service.GameService;
-import racingcar.service.Referee;
 import racingcar.view.OutputView;
 
 public class GameController {
@@ -14,10 +12,10 @@ public class GameController {
 
     private final OutputView outputView;
 
-    public GameController() {
-        inputController = new InputController();
+    public GameController(final InputController inputController, final OutputView outputView) {
+        this.inputController = inputController;
+        this.outputView = outputView;
         gameService = new GameService();
-        outputView = new OutputView();
     }
 
     public void play() {
