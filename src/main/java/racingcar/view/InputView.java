@@ -19,7 +19,7 @@ public class InputView {
         return extractAndValidateRepeatCount(Console.readLine());
     }
 
-    private List<String> extractAndValidateCarNames(String input) {
+    public List<String> extractAndValidateCarNames(String input) {
         validateInput(input);
 
         String[] carNames = input.split(INPUT_SPLIT_STRING);
@@ -34,7 +34,7 @@ public class InputView {
         return validCarNames;
     }
 
-    private int extractAndValidateRepeatCount(String input) {
+    public int extractAndValidateRepeatCount(String input) {
         try {
             int repeatCnt = Integer.parseInt(input);
             if (repeatCnt <= MIN_REPEAT_CNT || MAX_REPEAT_CNT < repeatCnt)
@@ -45,17 +45,17 @@ public class InputView {
         }
     }
 
-    private void validateCarName(String carName) {
+    public void validateCarName(String carName) {
         if (isCarNameInvalid(carName)) {
             throw new IllegalArgumentException(ERROR_INVALID_CAR_NAME);
         }
     }
 
-    private boolean isCarNameInvalid(String carName) {
+    public boolean isCarNameInvalid(String carName) {
         return carName.length() > NAMES_MAX_LENGTH;
     }
 
-    private void validateInput(String input) {
+    public void validateInput(String input) {
         if (StringUtils.isBlank(input)) {
             throw new IllegalArgumentException(ERROR_INVALID_CAR_NAME);
         }
