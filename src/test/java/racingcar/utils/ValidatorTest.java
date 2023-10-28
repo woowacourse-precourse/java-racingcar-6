@@ -1,5 +1,6 @@
 package racingcar.utils;
 
+import org.assertj.core.api.AbstractIntegerAssert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -117,4 +118,24 @@ class ValidatorTest {
         assertThatIllegalArgumentException().isThrownBy(() -> Validator.validateCarNames("test,test,abc"));
     }
 
+    @DisplayName("게임 진행 총 횟수로 1 이상의 숫자를 입력하면 정상 처리")
+    @Test
+    void validateTotalRound1() {
+        assertThat(Validator.validateTotalRound("3")).isEqualTo(3);
+    }
+
+    @DisplayName("게임 진행 총 횟수 문자열 입력 시 예외 발생")
+    @Test
+    void validateTotalRound2() {
+        assertThatThrownBy(() -> Validator.validateTotalRound("a"))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> Validator.validateTotalRound("abc"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("게임 진행 총 횟수 0 입력 시 예외 발생")
+    @Test
+    void validateTotalRound3() {
+        assertThatIllegalArgumentException().isThrownBy(() -> Validator.validateTotalRound("0"));
+    }
 }

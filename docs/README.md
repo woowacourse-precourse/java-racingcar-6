@@ -3,18 +3,20 @@
   - InputView#readFromUser() -> GameController#getCarNames()
   - 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다.
   - 예외 처리 Validator#validateCarNames()
-    - 쉼표로 구분했을 때 
+    - 쉼표로 구분하기 전 
       - 쉼표(,)만 입력한 경우
+      - 공백을 입력한 경우
+    - 쉼표로 구분한 후
       - 이름이 없거나 공백
-      - 6자 이상
+      - 이름 하나가 6자 이상
       - 같은 이름이 있는 경우
       - 하나만 입력한 경우...? 예외 처리 (게임이니까 최소 두개 이상 입력해야 함)
 
 
-- [ ] 몇 번의 이동을 할 것인지 입력받는다.(게임 총 라운드 수)
-  - gameRounds : 게임 총 라운드 수 
+- [X] 몇 번의 이동을 할 것인지 입력받는다.(게임 총 라운드 수)
+  - totalRound : 게임 총 라운드 수 
   - InputView#readFromUser() -> GameController#getTotalRound()
-  - 예외 처리
+  - 예외 처리 Validator#validateTotalRound()
     - 0
     - 숫자가 아닌 값
 

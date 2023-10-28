@@ -11,4 +11,9 @@ public class GameController {
         String input = InputView.readFromUser();
         return Validator.validateCarNames(input);
     }
+
+    public static int getTotalRound() {
+        String input = InputView.readFromUser();
+        return Validator.validateTotalRound(input);
+    }
 }

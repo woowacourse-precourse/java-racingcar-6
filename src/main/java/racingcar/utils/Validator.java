@@ -18,6 +18,12 @@ public class Validator {
         return names;
     }
 
+    public static int validateTotalRound(String input) {
+        int totalRound = validateNumeric(input);
+        validateIfZero(totalRound);
+        return totalRound;
+    }
+
     private static void validateSize(List<String> names) {
         if (names.size() == 1) {
             throw new IllegalArgumentException("[ERROR] 게임 진행을 위해 자동차 이름을 최소 2개 이상 입력해주세요.");
@@ -54,5 +60,19 @@ public class Validator {
         }
     }
 
+    private static int validateNumeric(String input) {
+        int totalRound;
+        try {
+            totalRound = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("[ERROR] 게임을 진행할 총 횟수는 1 이상의 숫자로 입력해주세요.");
+        }
+        return totalRound;
+    }
 
+    private static void validateIfZero(int totalRound) {
+        if (totalRound == 0) {
+            throw new IllegalArgumentException("[ERROR] 게임을 진행할 총 횟수는 1 이상의 숫자로 입력해주세요.");
+        }
+    }
 }
