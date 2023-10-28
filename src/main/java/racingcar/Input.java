@@ -4,9 +4,10 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class Input {
 
-    static String getCarName() {
+    static String[] getCarName() {
         String carNameInput = Console.readLine();
-        return (carNameInput);
+        String[] carNames = carNameInput.split(",");
+        return (carNames);
     }
 
     static int getTryNumber() {
