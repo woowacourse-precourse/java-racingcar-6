@@ -11,8 +11,8 @@ public class DataInputOutput {
     static final String OUTPUT_RESULT_START = "실행 결과";
     static final String OUTPUT_RESULT_END = "최종 우승자";
 
-    private static List<Car> carList = new ArrayList<Car>();
-    private static int numTotalMoving;
+    protected List<Car> carList = new ArrayList<Car>();
+    private int numTotalMoving;
 
     public void userInputCarsInfo() {
         // Validate Here
@@ -21,14 +21,14 @@ public class DataInputOutput {
         while (tokenizer.hasMoreTokens()) {
             Car newCar = new Car();
             newCar.makeCar(tokenizer.nextToken());
-            carList.add(newCar);
+            this.carList.add(newCar);
         }
     }
 
     public void userInputMovingInfo() {
         String userInput = Console.readLine();
         //Validate Here
-        numTotalMoving = Integer.parseInt(userInput);
+        this.numTotalMoving = Integer.parseInt(userInput);
     }
 
     public void printSystemMessage(String whichMsg) {
@@ -43,7 +43,7 @@ public class DataInputOutput {
     public void printMovingResult() {
         Car currentCar;
 
-        for (Car car : carList) {
+        for (Car car : this.carList) {
             currentCar = car;
             System.out.println(currentCar.getCarName() + " : " + currentCar.getCarPath());
         }
@@ -56,5 +56,13 @@ public class DataInputOutput {
             return true;
         }
         return false;
+    }
+
+    public void setNumtotalMoving(int numberToChange){
+        this.numTotalMoving = numberToChange;
+    }
+
+    public int getNumTotalMoving(){
+        return this.numTotalMoving;
     }
 }

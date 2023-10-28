@@ -26,6 +26,10 @@
 자동차를 이동할 때마다 바뀐 경로를 출력한다.
 ### 기능5) 랜덤 숫자 생성 `public boolean makeRandomNumber()`
 이동 여부를 위한 랜덤 숫자를 생성한다. 4 이상의 숫자가 생성된 경우 `true`를 반환한다.
+### 기능6) 이동 횟수 Setter `public void setNumtotalMoving(int numberToChange)`
+이동 횟수를 수정한다.
+### 기능7) 이동 횟수 Getter `public int getNumTotalMoving()`
+이동 횟수를 받아온다.
 
 ## 3. 검증 클래스
 사용자의 입력을 검증하는 클래스이다.
