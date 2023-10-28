@@ -1,11 +1,10 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class CarFactory {
+
     public static List<Car> createCarsFromInput(String names) {
         String[] nameArr = splitNames(names);
         validateUniqueNames(nameArr);
@@ -13,7 +12,7 @@ public class CarFactory {
     }
 
     private static String[] splitNames(String names) {
-        return names.split(",");
+        return names.trim().split("\\s*,\\s*");
     }
 
     private static void validateUniqueNames(String[] nameArr) {
