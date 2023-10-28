@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 
 public class RaceGameService {
     private static final int START_NUMBER = 0;
-    private RaceCars raceCars;
+    private final RaceCars raceCars;
     private final int attemptCount;
     private ExecutionView executionView;
 

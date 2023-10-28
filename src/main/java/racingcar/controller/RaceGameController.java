@@ -13,7 +13,7 @@ import static racingcar.util.CarListConverter.*;
 
 public class RaceGameController {
 
-    private final GameStartEndView gameStartEndView;
+    private GameStartEndView gameStartEndView;
     private final RaceCars raceCars;
     private final int attemptCount;
 
