@@ -7,8 +7,8 @@ public class InputView {
     private static final String inputNumOfAttempt = "시도할 회수는 몇회인가요?";
     public static String printUserInputCarNameMessage() {
         System.out.println(inputCarName);
-        String carName = readLine();
-        return carName;
+        String input = readLine();
+        return input;
     }
 
     public static Integer printUserInputNumOfAttemptMessage() {
