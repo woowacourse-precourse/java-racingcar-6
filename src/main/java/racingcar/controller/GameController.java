@@ -4,6 +4,7 @@ import racingcar.domain.*;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameController {
@@ -22,9 +23,10 @@ public class GameController {
         Attempt attempt = receiveAttempt();
 
         Game game = new Game(cars);
-        simulate(attempt, game);
+        List<List<CarDistanceMessage>> progressResults = simulate(attempt, game);
 
-        sendResult(game);
+        sendProgressResults(progressResults);
+        sendWinners(game);
 
     }
 
@@ -38,16 +40,23 @@ public class GameController {
         return inputView.getAttempt();
     }
 
-    private void simulate(Attempt attempt, Game game) {
-        outputView.printResultMessage();
+    private List<List<CarDistanceMessage>> simulate(Attempt attempt, Game game) {
+        List<List<CarDistanceMessage>> progressResults = new ArrayList<>();
         while (attempt.isExist()) {
             attempt.decrease();
-            List<CarDistanceMessage> carDistanceMessages = game.forwardCars();
-            outputView.printCarDistanceMessages(carDistanceMessages);
+            progressResults.add(game.forwardCars());
+        }
+        return progressResults;
+    }
+
+    private void sendProgressResults(List<List<CarDistanceMessage>> results) {
+        outputView.printResultMessage();
+        for (List<CarDistanceMessage> messages : results) {
+            outputView.printCarDistanceMessages(messages);
         }
     }
 
-    private void sendResult(Game game) {
+    private void sendWinners(Game game) {
         WinnersMessage winnersMessage = game.getWinnersMessage();
         outputView.printWinnersMessage(winnersMessage);
     }
