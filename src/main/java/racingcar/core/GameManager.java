@@ -1,5 +1,7 @@
 package racingcar.core;
 
+import racingcar.core.io.Input;
+import racingcar.core.io.Output;
 import racingcar.domain.Car;
 import racingcar.domain.CarFactory;
 
@@ -10,15 +12,13 @@ public class GameManager {
     private final Output output;
     private final CarFactory factory;
     private final GameProgressSystem progressSystem;
-    private final WinnerCheckSystem winnerCheckSystem;
     private final GameAwards gameAwards;
 
-    public GameManager(final Input input, final Output output, final CarFactory factory, final GameProgressSystem progressSystem, final WinnerCheckSystem winnerCheckSystem, final GameAwards gameAwards) {
+    public GameManager(final Input input, final Output output, final CarFactory factory, final GameProgressSystem progressSystem, final GameAwards gameAwards) {
         this.input = input;
         this.output = output;
         this.factory = factory;
         this.progressSystem = progressSystem;
-        this.winnerCheckSystem = winnerCheckSystem;
         this.gameAwards = gameAwards;
     }
 

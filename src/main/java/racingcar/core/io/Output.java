@@ -1,4 +1,4 @@
-package racingcar.core;
+package racingcar.core.io;
 
 import racingcar.domain.Car;
 
