@@ -4,7 +4,6 @@ import racingcar.domain.car.Car;
 import racingcar.domain.car.RaceCars;
 import racingcar.util.Console;
 import racingcar.service.RaceGameService;
-import racingcar.view.ExecutionView;
 import racingcar.view.GameStartEndView;
 
 import java.util.List;
@@ -35,7 +34,7 @@ public class RaceGameController {
     }
 
     public void start(){
-        RaceGameService raceGameService = new RaceGameService(raceCars, attemptCount, new ExecutionView());
+        RaceGameService raceGameService = new RaceGameService(raceCars, attemptCount);
         raceGameService.run();
     }
 

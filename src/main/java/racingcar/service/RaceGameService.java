@@ -14,10 +14,10 @@ public class RaceGameService {
     private final int attemptCount;
     private ExecutionView executionView;
 
-    public RaceGameService(RaceCars raceCars, int attemptCount, ExecutionView executionView) {
+    public RaceGameService(RaceCars raceCars, int attemptCount) {
         this.raceCars = raceCars;
         this.attemptCount = attemptCount;
-        this.executionView = executionView;
+        this.executionView = new ExecutionView();
     }
 
     public void run(){
