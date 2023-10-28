@@ -84,6 +84,6 @@
 
 - member function
    - [x] void printResult(): 실행 결과 메시지 출력
-   - [x] void printMove(String, int) : 자동차의 이동 결과 출력
+   - [x] void printMove(Map<String, Integer) : 해당 회차의 실행 결과 출력
    - [x] void printFinalWinners(List <String>) : 최종 우승자 출력
 
