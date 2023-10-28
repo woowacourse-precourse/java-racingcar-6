@@ -1,8 +1,5 @@
 package racingcar.view;
 
-import racingcar.model.Car;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class PrintResult {
@@ -14,5 +11,4 @@ public class PrintResult {
             System.out.print(", " + winner_list.get(i));
         }
     }
-
 }

@@ -1,12 +1,10 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Console;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class CreateCar {
-    private List<Car> cars = new ArrayList<>();
+    private final List<Car> cars = new ArrayList<>();
 
     public List<Car> createCar(String string_cars){
         String[] car_name = settingCar(string_cars);
