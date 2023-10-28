@@ -23,6 +23,12 @@ public class Application {
         StringTokenizer stringTokenizer = new StringTokenizer(memberInput, ",");
         while (stringTokenizer.hasMoreTokens()) {
             String name = stringTokenizer.nextToken();
+            // * 이름 예외 처리
+            // 이름 5자 이하가 아닐 경우
+            if (name.length() > 5) {
+                throw new IllegalArgumentException();
+            }
+
             memberStates.put(name, INIT_DISTANCE);
         }
 
