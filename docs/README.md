@@ -1,17 +1,11 @@
 # 기능 목록 구현
 
 ## CarModel
-### Field
-- [X] 이름값 (5 자 이하)
-### Method
+- [X] 모델 객체의 이름값 설정 기능
 - [ ] 전진 기능
 - [ ] 정지 기능
 
 ## CarController
-### Field
-- [X] carModel 들을 담은 list
-- [X] racing 반복 회수
-### Method
 - [ ] 자동차들 전진하는 기능
   - 0 ~ 9 무작위 값 중 4 이상일 경우 전진
     - **camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()**
