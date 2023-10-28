@@ -14,22 +14,24 @@ public class DataInputOutput {
     private static List<Car> carList = new ArrayList<Car>();
     private static int numTotalMoving;
 
-    public void userInputCarsInfo(){
+    public void userInputCarsInfo() {
         // Validate Here
         StringTokenizer tokenizer = new StringTokenizer(Console.readLine(), ",");
         // Validate Here
-        while(tokenizer.hasMoreTokens()){
+        while (tokenizer.hasMoreTokens()) {
             Car newCar = new Car();
             newCar.makeCar(tokenizer.nextToken());
             carList.add(newCar);
         }
     }
-    public void userInputMovingInfo(){
+
+    public void userInputMovingInfo() {
         String userInput = Console.readLine();
         //Validate Here
         numTotalMoving = Integer.parseInt(userInput);
     }
-    public void printSystemMessage(String whichMsg){
+
+    public void printSystemMessage(String whichMsg) {
         switch (whichMsg) {
             case "START" -> System.out.println(INPUT_CAR_NAME_MSG);
             case "INPUT_MOVING" -> System.out.println(INPUT_MOVING_MSG);
@@ -37,7 +39,8 @@ public class DataInputOutput {
             case "OUTPUT_END" -> System.out.println(OUTPUT_RESULT_END);
         }
     }
-    public void printMovingResult(){
+
+    public void printMovingResult() {
         Car currentCar;
 
         for (Car car : carList) {
@@ -46,5 +49,12 @@ public class DataInputOutput {
         }
         System.out.println(" ");
     }
-    public void makeRandomNumber(){}
+
+    public boolean makeRandomNumber() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        if(randomNumber >= 4){
+            return true;
+        }
+        return false;
+    }
 }

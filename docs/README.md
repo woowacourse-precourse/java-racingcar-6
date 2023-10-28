@@ -24,8 +24,8 @@
 프로그램의 시작, 입력을 받기 위한 메세지, 우승자를 출력한다.
 ### 기능4) 이동 결과 출력 `public void printMovingResult()`
 자동차를 이동할 때마다 바뀐 경로를 출력한다.
-### 기능5) 랜덤 숫자 생성 `public void makeRandomNumber()`
-이동 여부를 위한 랜덤 숫자를 생성한다.
+### 기능5) 랜덤 숫자 생성 `public boolean makeRandomNumber()`
+이동 여부를 위한 랜덤 숫자를 생성한다. 4 이상의 숫자가 생성된 경우 `true`를 반환한다.
 
 ## 3. 검증 클래스
 사용자의 입력을 검증하는 클래스이다.
