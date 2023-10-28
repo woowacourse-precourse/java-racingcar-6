@@ -71,4 +71,17 @@ public class Validator {
             throw new IllegalArgumentException("{ERROR: 값이 비어있습니다.}");
         }
     }
+
+    public void checkTrialNumberInput(String input) throws IllegalArgumentException{
+        checkEmpty(input);
+        checkChar(input);
+    }
+
+    private void checkChar(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("[ERROR] 시도할 횟수는 숫자여야만 합니다.");
+        }
+    }
 }
