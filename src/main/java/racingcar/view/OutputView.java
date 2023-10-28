@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import racingcar.dto.CarDto;
-
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;

@@ -8,8 +8,11 @@ import static racingcar.view.OutputView.printWinner;
 import static racingcar.view.OutputView.printBlank;
 
 import racingcar.dto.CarDto;
-import racingcar.model.*;
-
+import racingcar.model.Car;
+import racingcar.model.Cars;
+import racingcar.model.NumberGenerator;
+import racingcar.model.RandomNumberGenerator;
+import racingcar.model.TrialCount;
 import java.util.List;
 import java.util.stream.Collectors;
 
