@@ -61,7 +61,7 @@ public class Input {
         if (isNull(repetitions)
                 || isBlank(repetitions)
                 || isNumber(repetitions)
-                || isaNaturalNumber(repetitions)) {
+                || isNaturalNumber(repetitions)) {
             throw new IllegalArgumentException();
         }
     }
@@ -75,9 +75,9 @@ public class Input {
         return false;
     }
 
-    private static boolean isaNaturalNumber(String repetitions) {
+    private static boolean isNaturalNumber(String repetitions) {
         if (isNumber(repetitions)) {
-            Integer num = Integer.decode(rawInputArray);
+            Integer num = Integer.decode(repetitions);
             if (num > 0 && num <= Integer.MAX_VALUE) {
                 return false;
             }
