@@ -1,7 +1,7 @@
 package racingcar.model;
 
-import racingcar.validation.RoundValidator;
 import racingcar.validation.Validator;
+import racingcar.validation.ValidatorFactory;
 
 public class Round {
 
@@ -24,7 +24,8 @@ public class Round {
     }
 
     private void validate(String value) {
-        Validator validator = new RoundValidator();
+        ValidatorFactory validatorFactory = ValidatorFactory.buildDefaultValidatorFactory();
+        Validator validator = validatorFactory.getValidator(this.getClass());
         validator.validate(value);
     }
 }

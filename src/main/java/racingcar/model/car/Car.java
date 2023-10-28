@@ -1,8 +1,8 @@
 package racingcar.model.car;
 
 import racingcar.service.Accelerator;
-import racingcar.validation.CarValidator;
 import racingcar.validation.Validator;
+import racingcar.validation.ValidatorFactory;
 
 import java.util.Comparator;
 
@@ -30,10 +30,9 @@ public class Car {
 
     private void validate(String value) {
         //TODO: 다른 방식으로 구현체 가져오기
-        Validator carValidator = new CarValidator();
-        if (carValidator.support(Car.class)) {
-            carValidator.validate(value);
-        }
+        ValidatorFactory validatorFactory = ValidatorFactory.buildDefaultValidatorFactory();
+        Validator validator = validatorFactory.getValidator(this.getClass());
+        validator.validate(value);
     }
 
     public int compareTo(Car car) {
