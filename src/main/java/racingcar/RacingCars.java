@@ -2,9 +2,10 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import racingcar.dto.output.RoundResultDTO;
+import racingcar.dto.output.WinnerDTO;
 
 public class RacingCars {
     private static final int MIN_RANDOM_NUMBER = 0;
@@ -44,19 +45,24 @@ public class RacingCars {
         return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER) >= MOVABLE_THRESHOLD;
     }
 
-    public List<String> getWinner() {
+    public WinnerDTO getWinner() {
         int winnerScore = findWinnerScore();
 
-        return carList.stream()
-                .filter(car -> car.getMoveCount() == winnerScore)
-                .map(Car::getName)
+        List<String> names = carList.stream()
+                .map(car -> car.getWinnerName(winnerScore))
+                .filter(Optional::isPresent)
+                .map(Optional::get)
                 .toList();
+
+        return Car.toWinnerDTO(names);
     }
 
     private int findWinnerScore() {
-        return carList.stream()
-                .map(Car::getMoveCount)
-                .max(Comparator.naturalOrder())
-                .orElseThrow(() -> new IllegalStateException("어떤 이유로 1등이 존재하지 않습니다."));
+        int maxMoveCount = 0;
+        for (Car car : carList) {
+            maxMoveCount = car.updateMax(maxMoveCount);
+        }
+
+        return maxMoveCount;
     }
 }

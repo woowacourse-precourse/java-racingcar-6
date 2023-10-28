@@ -3,6 +3,7 @@ package racingcar;
 import java.util.List;
 import racingcar.dto.input.InputDTO;
 import racingcar.dto.output.RoundResultDTO;
+import racingcar.dto.output.WinnerDTO;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -16,6 +17,9 @@ public class Racing {
 
         int trialCount = inputDTO.trialCount();
         executeRacing(trialCount, racingCars);
+
+        WinnerDTO winnerDTO = racingCars.getWinner();
+        OutputView.printWinner(winnerDTO);
     }
 
     private static void executeRacing(int trialCount, RacingCars racingCars) {
