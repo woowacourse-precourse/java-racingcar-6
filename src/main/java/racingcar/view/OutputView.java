@@ -1,16 +1,16 @@
 package racingcar.view;
 
+import static racingcar.constants.MessageConstant.ASK_ATTEMPT;
+import static racingcar.constants.MessageConstant.BLANK_STRING;
+import static racingcar.constants.MessageConstant.FINAL_WINNER;
+import static racingcar.constants.MessageConstant.GAME_RESULT;
+import static racingcar.constants.MessageConstant.PRINT_FINAL_WINNER_FORMAT;
+import static racingcar.constants.MessageConstant.PRINT_GAME_RESULT_FORMAT;
+import static racingcar.constants.MessageConstant.START_GAME;
+
 import racingcar.domain.Cars;
 
 public class OutputView {
-
-    private static final String START_GAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private static final String ASK_ATTEMPT = "시도할 회수는 몇회인가요?";
-    private static final String GAME_RESULT = "실행 결과";
-    private static final String FINAL_WINNER = "최종 우승자";
-    private static final String PRINT_GAME_RESULT_FORMAT = "\n%s";
-    private static final String PRINT_FINAL_WINNER_FORMAT = "%s : %s";
-    private static final String BLANK_STRING = "";
 
     public void printStartGame() {
         println(START_GAME);
