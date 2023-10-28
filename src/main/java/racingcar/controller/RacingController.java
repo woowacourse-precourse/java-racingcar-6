@@ -30,8 +30,20 @@ public class RacingController {
 
     private void inputMoveCount() {
         OutputView.printMoveCountInputDescription();
-        moveCount = InputView.inputMoveCount();
+        try {
+            moveCount = InputView.inputMoveCount();
+            validateCountRange(moveCount);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            throw e;
+        }
+
     }
 
+    private void validateCountRange(int moveCount) {
+        if (moveCount <= 0) {
+            throw new IllegalArgumentException("이동 횟수는 자연수여야 합니다.");
+        }
+    }
 
 }
