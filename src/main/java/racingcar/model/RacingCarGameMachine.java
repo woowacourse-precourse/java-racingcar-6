@@ -1,4 +1,4 @@
-package racingcar.controller;
+package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.RacingCar;
@@ -15,10 +15,6 @@ public class RacingCarGameMachine {
         for (int i = 0; i < tryCount; i++) {
             race();
         }
-        List<String> winners = winner();
-        for (String winner : winners) {
-            System.out.println(winner);
-        }
     }
 
     public void readyToPlay(List<String> carNames) {
@@ -29,7 +25,7 @@ public class RacingCarGameMachine {
         for (RacingCar car : this.racingCars) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
             car.isRacingCarMove(randomNumber);
-            System.out.print(car);
+            System.out.println(car);
         }
         System.out.print("\n");
     }

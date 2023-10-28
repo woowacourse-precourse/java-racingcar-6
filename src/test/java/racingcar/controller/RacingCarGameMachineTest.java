@@ -3,8 +3,8 @@ package racingcar.controller;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.RacingCar;
+import racingcar.model.RacingCarGameMachine;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
