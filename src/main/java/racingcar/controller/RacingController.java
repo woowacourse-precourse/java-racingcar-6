@@ -2,15 +2,14 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
+import racingcar.domain.RacingCars;
 import racingcar.view.Input;
 import racingcar.view.Output;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class RacingController {
 
-    private static final String CAR_NAME_DELIMITER = ",";
     private static final int RANDOM_NUMBER_START = 0;
     private static final int RANDOM_NUMBER_END = 9;
     private static final int MIN_NUMBER = 4;
@@ -22,29 +21,22 @@ public class RacingController {
     public void run() {
         output.showCarNamesInputMessage();
         String carNames = input.readCarNames();
-
-        List<Car> cars = makeCars(carNames);
+        RacingCars racingCars = RacingCars.from(carNames);
 
         output.showCountInputMessage();
         int count = toInteger(input.readCount());
 
         output.showResultMessage();
         for (int i = 0; i < count; i++) {
-            for (Car car : cars) {
+            for (Car car : racingCars.getCars()) {
                 if (canMove()) {
                     car.move();
                 }
             }
-            output.showResult(cars);
+            output.showResult(racingCars.getCars());
         }
 
-        output.showWinners(findWinners(cars));
-    }
-
-    private List<Car> makeCars(String carNames) {
-        return Arrays.stream(carNames.split(CAR_NAME_DELIMITER))
-                .map(Car::new)
-                .toList();
+        output.showWinners(findWinners(racingCars.getCars()));
     }
 
     private int toInteger(String count) {
