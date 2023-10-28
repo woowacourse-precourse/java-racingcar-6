@@ -1,7 +1,10 @@
 package racingcar.model;
 
 import racingcar.constants.ErrorMessage;
+import racingcar.constants.GameResultElement;
 import racingcar.exception.CarNameLengthException;
+
+import java.util.stream.IntStream;
 
 public class Car {
 
@@ -23,5 +26,16 @@ public class Car {
 
     public void movePosition() {
         this.position++;
+    }
+
+    public String statusCarPosition() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append(name).append(GameResultElement.COLON);
+        IntStream.range(0, position)
+                .forEach(i -> stringBuilder.append(GameResultElement.DASH));
+        stringBuilder.append(GameResultElement.ENTER);
+
+        return stringBuilder.toString();
     }
 }
