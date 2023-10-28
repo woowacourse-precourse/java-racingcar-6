@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
 import racingcar.view.enums.RacingMessage;
 import racingcar.view.enums.ResultMessage;
 
@@ -9,11 +10,8 @@ public class RacingView {
         return Console.readLine();
     }
 
-    public void DisplayMessage(RacingMessage racingMassage) {
+    public void displayMessage(RacingMessage racingMassage) {
         System.out.println(racingMassage.getMessage());
     }
 
-    public void DisplayResultMessage(ResultMessage resultMessage) {
-        System.out.println(resultMessage.getValue());
-    }
 }
