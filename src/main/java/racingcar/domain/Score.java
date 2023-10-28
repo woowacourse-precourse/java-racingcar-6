@@ -16,4 +16,8 @@ public class Score {
     public Long getScore() {
         return score;
     }
+
+    public void addScore(Long score) {
+        this.score += score;
+    }
 }
