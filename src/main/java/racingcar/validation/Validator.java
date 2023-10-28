@@ -1,7 +1,12 @@
 package racingcar.validation;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class Validator {
 
@@ -25,6 +30,15 @@ public class Validator {
     public static void validateMoreThanOneNumber(String str){
         if(!str.matches("^[1-9][0-9]*$")){
             throw new IllegalArgumentException("1이상의 숫자만 입력 해야합니다.");
+        }
+    }
+
+    public static void validateDuplicateName(String str){
+        List<String> names = Arrays.stream(str.split(","))
+                .collect(Collectors.toList());
+        Set<String> nonDuplicateNames = new HashSet<>(names);
+        if(nonDuplicateNames.size() != names.size()){
+            throw new IllegalArgumentException("동명이인이 존재합니다.");
         }
     }
 }
