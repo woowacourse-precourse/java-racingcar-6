@@ -3,6 +3,7 @@ package racingcar.game;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.utils.InputUtils;
+import racingcar.utils.RandomUtils;
 import racingcar.view.GameView;
 
 public class RaceGame {
@@ -20,5 +21,18 @@ public class RaceGame {
 
         gameView.displayUserInputRoundPrompt();
         round = InputUtils.promptForString();
+
+        for (int i = 0; i < round; i++) {
+            raceOneRound();
+        }
+    }
+
+    private void raceOneRound() {
+        for (Car car : cars) {
+            int randomNumber = RandomUtils.generateRandomNumber();
+            if (randomNumber >= 4) {
+                car.advancePosition();
+            }
+        }
     }
 }

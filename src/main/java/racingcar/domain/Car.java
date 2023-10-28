@@ -16,4 +16,8 @@ public class Car {
     public boolean isNameLengthValid() {
         return getName().length() <= 5;
     }
+
+    public void advancePosition() {
+        this.position++;
+    }
 }
