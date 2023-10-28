@@ -8,6 +8,6 @@ public class CarNameParserImpl implements CarNameParser {
 
     @Override
     public List<String> parse(String input) {
-        return Arrays.stream(input.split(DELIMITER)).toList();
+        return Arrays.stream(input.split(DELIMITER, -1)).toList();
     }
 }
