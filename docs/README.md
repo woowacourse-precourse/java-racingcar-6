@@ -5,7 +5,7 @@
 - [x] 전진 기능
 
 ## Controller
-- [ ] 자동차들 전진하는 기능
+- [X] 자동차들 전진하는 기능
   - [X] 0 ~ 9 무작위 값 중 4 이상인 경우를 판단하는 기능
     - **camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()**
 - [ ] 우승자 판별 기능

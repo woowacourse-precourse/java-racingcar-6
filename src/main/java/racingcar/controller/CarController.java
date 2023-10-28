@@ -15,6 +15,13 @@ public class CarController {
         }
     }
 
+    public void carForward() {
+        for ( CarModel carModel : carModelList) {
+            if (forwardCheck()) {
+                carModel.increaseLocation();
+            }
+        }
+    }
 
     public boolean forwardCheck() {
         return Randoms.pickNumberInRange(0, 9) >= 4;
