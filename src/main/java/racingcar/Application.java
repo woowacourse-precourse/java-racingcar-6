@@ -3,10 +3,13 @@ package racingcar;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.StringTokenizer;
 
 public class Application {
     private static final int INIT_DISTANCE = 0;
+    private static final int MOVING_FORWARD = 4;
 
     public static void main(String[] args) {
         // HashMap의 순서를 보장하기 위해 LinkedHashMap 사용
@@ -24,5 +27,25 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         String tryInput = Console.readLine();
         int tryCount = Integer.parseInt(tryInput);
+
+        System.out.println();
+        System.out.println("실행 결과");
+        // 게임 시작
+        for (int i = 0; i < tryCount; i++) {
+            // 한 게임씩 시작
+            for (String name : memberStates.keySet()) {
+
+                // 무작위 값 뽑기
+                int randomNumber = Randoms.pickNumberInRange(0, 9);
+
+                // 전진할 경우
+                if (randomNumber >= MOVING_FORWARD) {
+                    memberStates.replace(name, memberStates.get(name) + 1);
+                }
+
+            }
+            System.out.println();
+        }
     }
+
 }
