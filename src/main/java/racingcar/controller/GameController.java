@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.GameRound;
 import racingcar.domain.MovingStrategy;
@@ -27,7 +28,6 @@ public class GameController {
         Cars cars = createCars();
         GameRound gameRound = createGameRound();
         playAllGameRound(gameRound, cars);
-
         // 최종 우승자 출력
     }
 
@@ -55,6 +55,14 @@ public class GameController {
             cars.raceAllCars();
             outputView.outputCarsPosition(cars);
         }
+    }
+
+    private List<Car> findWinner(Cars cars) {
+        // 최종 우승자 출력 - 1. 우승자 찾기
+        Integer winnerPosition = cars.findWinnerPosition();
+        List<Car> winner = cars.findWinner(winnerPosition);
+
+        return winner;
     }
 
 
