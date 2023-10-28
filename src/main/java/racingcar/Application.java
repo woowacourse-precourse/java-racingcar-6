@@ -1,6 +1,6 @@
 package racingcar;
 
-import input.Car;
+import racingcar.input.Car;
 
 import java.util.List;
 
