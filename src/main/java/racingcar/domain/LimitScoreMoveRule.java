@@ -1,9 +1,9 @@
 package racingcar.domain;
 
-public class LimitScoreRacingRule implements RacingRule {
+public class LimitScoreMoveRule implements MoveRule {
     private final NumberGenerator numberGenerator;
 
-    public LimitScoreRacingRule(NumberGenerator numberGenerator) {
+    public LimitScoreMoveRule(NumberGenerator numberGenerator) {
         this.numberGenerator = numberGenerator;
     }
 
