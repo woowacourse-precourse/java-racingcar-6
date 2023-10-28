@@ -4,6 +4,7 @@ import racingcar.dto.CarDto;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class OutputView {
 
@@ -12,5 +13,20 @@ public class OutputView {
                 .map(c -> c.name())
                 .collect(Collectors.joining(", ", "최종 우승자 : ", ""));
         System.out.println(result);
+    }
+
+    public static void printRoundResult(List<CarDto> players) {
+        players.stream()
+                .forEach(c -> printRoundResultPlayer(c.name(), c.position()));
+    }
+
+    private static void printRoundResultPlayer(String name, int position) {
+        System.out.println(name + " : " + makeDash(position));
+    }
+
+    private static String makeDash(int position) {
+        return IntStream.range(0, position)
+                .mapToObj(i -> "-")
+                .collect(Collectors.joining(""));
     }
 }
