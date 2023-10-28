@@ -13,7 +13,7 @@ public class CarInputView {
         printGameStart();
         String carNames = Console.readLine();
         return Arrays.stream(carNames.split(","))
-                .filter(this::isValidCarNameLength)
+                .filter(this::checkValidCarNameLength)
                 .toList();
     }
 
@@ -22,7 +22,7 @@ public class CarInputView {
     }
 
 
-    private boolean isValidCarNameLength(String carName) {
+    private boolean checkValidCarNameLength(String carName) {
         if (carName.length() > 5) {
             throw new IllegalArgumentException();
         }
