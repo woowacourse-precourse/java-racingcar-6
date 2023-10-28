@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Car {
@@ -44,5 +45,9 @@ public class Car {
 
     public int movedLately(int index) {
         return moveAmount[index];
+    }
+
+    public int mostMovedAmount() {
+        return Arrays.stream(moveAmount).max().getAsInt();
     }
 }
