@@ -67,6 +67,21 @@ class ConsoleOutputTest {
         assertThat(getOutput()).contains("붕붕카 : " + "-".repeat(path));
     }
 
+    @ParameterizedTest
+    @CsvSource(value = {"붕붕카", "붕붕카#타요버스", "붕붕카#타요버스#무궁화호", "붕붕카#타요버스#무궁화호#설국열차"})
+    @DisplayName("최종 우승자 이름 출력")
+    void print_winner(String winners) {
+        //given
+        List<String> winnerNameList = new ArrayList<>();
+        winnerNameList.addAll(List.of(winners.split("#")));
+
+        //when
+        output.printWinner(winnerNameList);
+
+        //then
+        assertThat(getOutput()).contains(String.join(", ", winnerNameList));
+    }
+
     String getOutput() {
         return captor.toString();
     }
