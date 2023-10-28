@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
+    public static final int MIN_RANGE = 0;
+    public static final int MAX_RANGE = 9;
+    public static final int DEFAULT_POSITION = 0;
     private final List<Car> carList;
 
     private Cars(List<Car> carList) {
@@ -23,7 +26,7 @@ public class Cars {
 
     public void move() {
         for (Car car : carList) {
-            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            int randomNumber = Randoms.pickNumberInRange(MIN_RANGE, MAX_RANGE);
             car.moveForward(randomNumber);
         }
     }
@@ -47,6 +50,6 @@ public class Cars {
         return carList.stream()
                 .mapToInt(car -> car.getPosition())
                 .max()
-                .orElse(0);
+                .orElse(DEFAULT_POSITION);
     }
 }
