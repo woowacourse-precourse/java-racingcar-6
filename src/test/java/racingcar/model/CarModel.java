@@ -1,9 +1,9 @@
 package racingcar.model;
 
-public class carModel {
+public class CarModel {
     private final String name;
 
-    public carModel(String carName) {
+    public CarModel(String carName) {
         this.name = carName;
     }
 }
