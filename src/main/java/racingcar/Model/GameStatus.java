@@ -1,5 +1,6 @@
 package racingcar.Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -20,6 +21,27 @@ public class GameStatus {
 
     public List<Integer> getCarpositions() {
         return this.cars.getCarpositions();
+    }
+
+    private int getMaxCarPosition() {
+        int maxPosition = -1;
+        for (int position : getCarpositions()) {
+            if (position > maxPosition) {
+                maxPosition = position;
+            }
+        }
+        return maxPosition;
+    }
+
+    public List<String> getMaxCarNames() {
+        int maxPosition = getMaxCarPosition();
+        List<String> winner = new ArrayList<>();
+        for (Car car : cars.getCarList()) {
+            if (car.getPosition() == maxPosition) {
+                winner.add(car.getName());
+            }
+        }
+        return winner;
     }
 
     public void nextStatus() {
