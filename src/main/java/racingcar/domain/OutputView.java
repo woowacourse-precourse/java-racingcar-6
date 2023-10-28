@@ -32,7 +32,7 @@ public class OutputView {
     public static void printWinner(List<String> winnerList) {
         System.out.print(WINNER_MESSAGE);
         for (int index = 0; index < winnerList.size(); index++) {
-            System.out.println(winnerList.get(index));
+            System.out.print(winnerList.get(index));
             if (index != winnerList.size() - 1) {
                 System.out.print(WINNER_DELIMITER);
             }
