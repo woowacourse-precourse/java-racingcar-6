@@ -3,13 +3,13 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Console;
 
 public class TryNumberScanService {
-    public static int tryNumber = 0;
+    private String stringTryNumber = null;
 
     public void readTryNumber() {
-        tryNumber = stringToInt(Console.readLine());
+        stringTryNumber = Console.readLine();
     }
 
-    public int stringToInt(String stringTryNumber) {
-        return Integer.parseInt(stringTryNumber);
+    public String getStringTryNumber() {
+        return stringTryNumber;
     }
 }

@@ -11,7 +11,7 @@ public class ProgressCheckService {
 
     public void execute() {
         int count = 0;
-        while(count != TryNumberScanService.tryNumber) {
+        while(count != TryNumberStringToIntService.tryNumber) {
             RacingCarForwardService racingCarForwardService = new RacingCarForwardService(racingCarInformationDao);
             racingCarForwardService.forward();
 

@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import racingcar.service.TryNumberScanService;
+import racingcar.service.TryNumberStringToIntService;
 
 public class TryNumberScanServiceTest {
 
@@ -13,13 +14,7 @@ public class TryNumberScanServiceTest {
         String example = "5";
         System.setIn(new ByteArrayInputStream(example.getBytes()));
         tryNumberScanService.readTryNumber();
-        Assertions.assertThat(TryNumberScanService.tryNumber).isEqualTo(5);
+        Assertions.assertThat(tryNumberScanService.getStringTryNumber()).isEqualTo("5");
     }
 
-    @Test
-    void stringToInt() {
-        TryNumberScanService tryNumberScanService = new TryNumberScanService();
-        int example = tryNumberScanService.stringToInt("5");
-        Assertions.assertThat(example).isEqualTo(5);
-    }
 }
