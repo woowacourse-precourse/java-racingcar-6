@@ -19,11 +19,11 @@ public class Controller {
 
     private Cars generateCars() {
         view.printNameInputMessage();
-        return createCars(racingGame.inputCarNames(readFromConsole()));
+        return createCars(readFromConsole());
     }
 
-    private Cars createCars(List<Car> cars) {
-        return new Cars(cars);
+    private Cars createCars(String inputCars) {
+        return new Cars(inputCars);
     }
 
     private int setAttemptCount() {
