@@ -14,7 +14,9 @@
     - [ ] 이름이 5자 초과면 예외가 발생해야 한다. ExceptionChecker#checkNameLength5()
 
 
-- [ ] 몇 번의 이동을 할 것인지 입력받는다. UserInput#inputRound()
+- [x] 몇 번의 이동을 할 것인지 입력받는다. UserInput#inputRound()
+
+
 - [x] 레이스에서 총 몇 번의 이동을 할 것인지 설정한다. Race#setRound()
     - [ ] 숫자가 아니라면 예외가 발생해야 한다. ExceptionChecker#isNumber()
 
