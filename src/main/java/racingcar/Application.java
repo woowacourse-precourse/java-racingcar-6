@@ -25,7 +25,12 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
         String inputNumber = Console.readLine();
-        int attemptsNumber = Integer.parseInt(inputNumber);
+        int attemptsNumber;
+        try {
+            attemptsNumber = Integer.parseInt(inputNumber);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도할 횟수는 숫자만 가능합니다.");
+        }
 
         System.out.println();
         System.out.println("실행 결과");
@@ -37,6 +42,7 @@ public class Application {
         String winners = String.join(",", result);
         System.out.println("최종 우승자 : " + winners);
     }
+
     private static void racing(List<Car> carList) {
         for (Car car : carList) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
@@ -46,6 +52,7 @@ public class Application {
             System.out.println(car.printCarName());
         }
     }
+
     private static List<String> winners(List<Car> cars) {
         int maxDistance = cars.stream()
                 .mapToInt(Car::getPositionLength)
