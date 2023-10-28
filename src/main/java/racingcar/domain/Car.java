@@ -3,19 +3,24 @@ package racingcar.domain;
 public class Car {
 
     private String carName;
-    private StringBuilder record;
+    private int numberOfStep;
 
     public Car(String carName){
         this.carName = carName;
-        record = new StringBuilder();
     }
 
-    public void forward(){
-        record.append('-');
+    public void forward(int number){
+        if(number <= 4) return;
+
+        numberOfStep += 1;
     }
 
-    public String forwardRecord(){
-        return carName + ": " + record.toString();
+    public String getCarName(){
+        return carName;
+    }
+
+    public int getNowStep(){
+        return numberOfStep;
     }
 
 }

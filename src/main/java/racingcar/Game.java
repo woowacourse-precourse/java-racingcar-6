@@ -1,7 +1,10 @@
 package racingcar;
 
+import racingcar.domain.dto.RoundResult;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
+
+import java.util.List;
 
 public class Game {
 
@@ -22,8 +25,12 @@ public class Game {
 
         //라운드 입력
         int round = inputView.readRound();
+        for(int i=0; i<round; i++){
+            RoundResult roundResult = gameService.forward();
+            outputView.printRoundResult(roundResult);
+        }
 
-
+        List<String> winners = gameService.selectWinners();
 
     }
 
