@@ -5,6 +5,13 @@ import racingcar.model.Cars;
 import racingcar.model.GameResult;
 
 public final class RacingCarService {
+
+    private final RandomNumberProvider randomNumberProvider;
+
+    public RacingCarService(RandomNumberProvider randomNumberProvider) {
+        this.randomNumberProvider = randomNumberProvider;
+    }
+
     public GameResult race(List<String> inputCarNames, int raceTime) {
         Cars cars = prepareCars(inputCarNames);
         GameResult gameResult = determineRaceResult(startRace(cars, raceTime));
@@ -12,7 +19,6 @@ public final class RacingCarService {
 
     }
 
-    private Cars prepareCars(List<String> inputCarNames) {
     Cars prepareCars(List<String> inputCarNames) {
         List<Car> carList = inputCarNames.stream()
             .map(Car::from)
@@ -21,8 +27,15 @@ public final class RacingCarService {
         return Cars.from(carList);
     }
 
-    private Cars startRace(Cars cars, int raceTime) {
-        return null;
+    Cars startRace(Cars cars, int raceTime) {
+        for (int i = 0; i < raceTime; i++) {
+            List<Car> movedCars = cars.getCars().stream()
+                .map(car -> car.move(randomNumberProvider.getRandomNumber()))
+                .collect(Collectors.toList());
+            cars = Cars.from(movedCars);
+        }
+
+        return cars;
     }
 
     private GameResult determineRaceResult(Cars cars) {

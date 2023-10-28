@@ -86,11 +86,22 @@ classDiagram
     }
 
     class RacingCarService {
+        -RandomNumberProvier
         +race(List~String~, int) GameResult
         -prepareCars(List~String~) Cars
         -startRace(Cars, int) Cars
         -determineRaceResult(Cars) GameResult
     }
+
+    class RandomNumberProvier {
+        <<interface>>
+        #getRandomNumber() int
+    }
+
+    class DefaultRandomNumberProvider {
+        +getRandomNumber() int
+    }
+    
 
     RacingCarController --> InputHandler
     RacingCarController --> OutputView
@@ -99,9 +110,11 @@ classDiagram
     InputHandler --> Validator
     InputHandler --> InputView
     RacingCarService <.. Cars
+    RacingCarService --> RandomNumberProvier
     Cars -- Car
     GameResult --> CarProgressResponse
     ConsoleInputView ..|> InputView
+    DefaultRandomNumberProvider ..|> RandomNumberProvier
 ```
 
 <br>
@@ -153,7 +166,7 @@ classDiagram
 ### Racing Car Service `RacingCarService`
 - [x] 주어진 차 이름 및 경주 횟수로 경주 시작
 - [x] 차들의 초기 설정
-- [ ] 실제 경주 로직 실행
+- [x] 실제 경주 로직 실행
 - [ ] 경주 결과 결정
 
 ## 목표
