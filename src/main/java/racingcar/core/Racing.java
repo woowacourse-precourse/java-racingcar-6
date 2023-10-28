@@ -67,6 +67,7 @@ public class Racing {
 
     private List<Car> getWinners() {
         validateCarsNotEmpty();
+        validateRacingStarted();
         final int maxForwardCount = getMaxForwardCount();
         return cars.stream()
             .filter(car -> car.getForwardCount() == maxForwardCount)
@@ -75,5 +76,13 @@ public class Racing {
 
     private int getMaxForwardCount() {
         return cars.stream().map(Car::getForwardCount).max(Integer::compareTo).orElse(0);
+    }
+
+    private void validateRacingStarted() {
+        for (Car car : cars) {
+            if (car.getTrialCount() <= 0) {
+                throw new IllegalArgumentException("경주를 먼저 진행해야 합니다.");
+            }
+        }
     }
 }
