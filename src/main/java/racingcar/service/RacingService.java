@@ -29,6 +29,6 @@ public class RacingService {
             }
         }
 
-        System.out.println("최종 우승자 : " + String.join(",", winnerName));
+        System.out.println("최종 우승자 : " + String.join(", ", winnerName));
     }
 }
