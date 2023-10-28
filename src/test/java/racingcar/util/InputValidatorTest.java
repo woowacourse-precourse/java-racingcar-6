@@ -18,4 +18,11 @@ class InputValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("중복된 자동차 이름이 존재합니다.");
     }
+
+    @Test
+    void 시도_회수_숫자_검증() {
+        assertThatThrownBy(() -> InputValidator.isValidRound("a"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도할 회수는 숫자만 가능합니다.");
+    }
 }
