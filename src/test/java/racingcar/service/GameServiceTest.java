@@ -1,13 +1,16 @@
 package racingcar.service;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import racingcar.Application;
 import racingcar.domain.GamePlayer;
 
-public class GameServiceTest {
+public class GameServiceTest extends NsTest {
 
     @Test
     public void 자동차_이름으로_자동차와_플레이어_생성() {
@@ -15,12 +18,16 @@ public class GameServiceTest {
         List<String> names = new ArrayList(Arrays.asList("name1", "name2", "name3"));
         GameService gameService = new GameService();
         //when
-        GamePlayer gamePlayer = gameService.settingPlayer(names);
-        List<String> allCarNames = gamePlayer.getAllCarNames();
+        GamePlayer gamePlayer = gameService.initializePlayer(names);
+        gamePlayer.moveCarsByCount(1);
         //then
-        Assertions.assertThat(allCarNames.size()).isEqualTo(3);
-        Assertions.assertThat(allCarNames.get(0)).isEqualTo(names.get(0));
-        Assertions.assertThat(allCarNames.get(1)).isEqualTo(names.get(1));
-        Assertions.assertThat(allCarNames.get(2)).isEqualTo(names.get(2));
+        assertThat(output()).contains("name1", "name2", "name3");
+        assertThat(output()).doesNotContain("name4");
+    }
+
+
+    @Override
+    public void runMain() {
+        Application.main(new String[]{});
     }
 }
