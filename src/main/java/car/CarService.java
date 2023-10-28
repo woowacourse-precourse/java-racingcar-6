@@ -14,10 +14,10 @@ public class CarService {
 		return car_list;
 	}
 	
-	//0에서 9사이 숫자중 4가 나왔을경우 forward
+	//값이 4이상일 경우 전진
 	public static void forward(Car car,int num) {
 		Stack<String> movementStack = car.getMovementStack();
-		if(num ==FORWARD_ON_FOUR) {
+		if(num >=FORWARD_ON_FOUR) {
 			movementStack.push("-");
 			car.setMovementStack(movementStack);
 		}

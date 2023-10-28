@@ -32,6 +32,7 @@ public class Game {
 				CarService.forward(car, Randoms.pickNumberInRange(0, 9));
 				System.out.println(car.getName()+" : "+CarService.outputCarMOVEMENT(car));
 			}
+			System.out.println();
 		}
 	}
 	
