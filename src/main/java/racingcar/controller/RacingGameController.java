@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.service.CarNameSplitService;
+import racingcar.service.CarService;
 import racingcar.util.validator.InputValidator;
 import racingcar.view.InputView;
 
@@ -8,7 +8,7 @@ import java.util.List;
 
 public class RacingGameController {
     InputView inputView = new InputView();
-    CarNameSplitService carNameSplitService = new CarNameSplitService();
+    CarService carService = new CarService();
     InputValidator inputValidator = new InputValidator();
 
     public void gameStart() {
@@ -17,7 +17,7 @@ public class RacingGameController {
     }
 
     private void getCarNameAndCheckValidation() {
-        List<String> carNameList = carNameSplitService.splitCarNames(inputView.getCarNames());
+        List<String> carNameList = carService.splitCarNames(inputView.getCarNames());
         inputValidator.checkCarNameInputValidation(carNameList);
     }
 
