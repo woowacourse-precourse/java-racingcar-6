@@ -10,6 +10,7 @@ public class Validator {
     private static final String WRONG_LENGTH_ERROR_MESSAGE = "1~5글자인 자동차 이름만 입력 가능합니다.";
     private static final String SPACE = " ";
     private static final String SPACE_ERROR_MESSAGE = "자동차 이름에는 공백이 있으면 안됩니다.";
+    private static final String CAR_NAME_DUPLICATE_ERROR = "자동차 목록은 중복이 없어야 합니다.";
 
     public List<String> convertStringToList(String input) {
         ArrayList<String> carNames = new ArrayList<>(Arrays.asList(input.split(",")));
@@ -20,8 +21,9 @@ public class Validator {
     public void validate(List<String> carNames) {
         for (String carName : carNames) {
             isRightNameLength(carName);
-            hasSpace(carName);
+            isNotContainSpace(carName);
         }
+        isNotDuplicate(carNames);
     }
 
     public void isRightNameLength(String carName) {
@@ -30,9 +32,14 @@ public class Validator {
         }
     }
 
-    public void hasSpace(String carName) {
+    public void isNotContainSpace(String carName) {
         if (carName.contains(SPACE)) {
             throw new IllegalArgumentException(SPACE_ERROR_MESSAGE);
+        }
+    }
+    public void isNotDuplicate(List<String> carNames) {
+        if (carNames.size() != carNames.stream().distinct().count()) {
+            throw new IllegalArgumentException(CAR_NAME_DUPLICATE_ERROR);
         }
     }
 
