@@ -1,13 +1,13 @@
 package racingcar.service;
 
+import static racingcar.constants.MessageConstant.INPUT_SEPARATOR;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.Cars;
 
 public class CarGameService {
-
-    private static final String NAME_SEPARATOR = ",";
 
     public Cars convertToCars(String input) {
         List<String> carList = convertToList(input);
@@ -27,6 +27,6 @@ public class CarGameService {
     }
 
     private String[] splitBySeparator(String input) {
-        return input.split(NAME_SEPARATOR);
+        return input.split(INPUT_SEPARATOR);
     }
 }

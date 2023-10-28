@@ -1,14 +1,14 @@
 package racingcar.domain;
 
+import static racingcar.constants.MessageConstant.INVALID_INPUT_MESSAGE;
+import static racingcar.constants.MessageConstant.WINNER_NAME_SEPARATOR;
+import static racingcar.constants.NumberConstant.RANDOM_NUMBER_LIMIT;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.utils.Randoms;
 
 public class Cars {
-
-    private static final String INVALID_INPUT_MESSAGE = "잘못된 입력입니다.";
-    private static final String WINNER_NAME_SEPARATOR = ", ";
-    private static final int RANDOM_NUMBER_LIMIT = 4;
 
     private final List<Car> cars;
 
