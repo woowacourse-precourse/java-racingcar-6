@@ -15,7 +15,7 @@ public class ProgressView {
         for (Car car : cars) {
             System.out.print(car.getName());
             System.out.print(" : ");
-            for (int currentPosition = 0; currentPosition < car.getPosition(); currentPosition++) {
+            for (int i = 0; i < car.getPosition(); i++) {
                 System.out.print(DISTANCE_CHARACTER);
             }
             System.out.println();
