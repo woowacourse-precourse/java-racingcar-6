@@ -8,7 +8,7 @@ public class Engine {
     private final static int FORWARD_DISTANCE_VALUE = 3;
 
     public boolean isForward() {
-        return Randoms.pickNumberInRange(MAX_RANDOM_VALUE, MIN_RANDOM_VALUE) > FORWARD_DISTANCE_VALUE ;
+        return Randoms.pickNumberInRange(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE) > FORWARD_DISTANCE_VALUE ;
     }
 
 }
