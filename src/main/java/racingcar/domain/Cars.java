@@ -1,16 +1,22 @@
 package racingcar.domain;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
     private static final int MAX_NAME_SIZE = 5;
+
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
         validateNameSize(cars);
         validateDuplicatedName(cars);
         this.cars = cars;
+    }
+
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
     }
 
     private void validateDuplicatedName(List<Car> cars) {
