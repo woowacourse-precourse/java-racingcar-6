@@ -3,6 +3,7 @@ package racingcar.domain;
 import java.util.List;
 
 public class RacingGameState {
+    private static final int MIN_DISTANCE = 0;
     private static final String GAME_NOT_ENDED_ERROR_MESSAGE = "게임이 끝나지 않아 우승자를 뽑을 수 없습니다.";
 
     private final boolean isGameEnd;
@@ -32,7 +33,7 @@ public class RacingGameState {
     }
 
     private int getMaxDistance() {
-        int max = 0;
+        int max = MIN_DISTANCE;
         for (Car car : cars) {
             max = Math.max(max, car.getDistance());
         }

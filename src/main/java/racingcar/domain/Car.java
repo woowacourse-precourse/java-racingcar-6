@@ -4,11 +4,14 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.constant.IllegalArgumentExceptionType;
 
 public class Car {
+    private static final int INIT_DISTANCE = 0;
     private static final int MAX_CAR_NAME_LENGTH = 5;
     private static final int MOVING_FORWARD = 4;
+    private static final int MIN_MOVE_RANGE = 0;
+    private static final int MAX_MOVE_RANGE = 9;
 
     private final String name;
-    private int distance = 0;
+    private int distance = INIT_DISTANCE;
 
     public Car(String name) {
         this.name = name;
@@ -36,7 +39,7 @@ public class Car {
     }
 
     private boolean isMovable() {
-        return Randoms.pickNumberInRange(0, 9) >= MOVING_FORWARD;
+        return Randoms.pickNumberInRange(MIN_MOVE_RANGE, MAX_MOVE_RANGE) >= MOVING_FORWARD;
     }
 
     void attemptToMove() {
