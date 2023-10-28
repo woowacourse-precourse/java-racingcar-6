@@ -8,6 +8,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.RacingCar;
 
+import java.util.List;
+
 class CompareRaceTest {
 
     private CompareRace compareRace;
@@ -22,13 +24,15 @@ class CompareRaceTest {
     @ValueSource(ints = {1, 2, 3, 4, 5, 6, 7 ,8, 9})
     void moveCarsTest(Integer movement) {
         // given
-        String inputCarName = "pobi, woni";
-        RacingCar racingCar = RacingCar.fromInputCarName(inputCarName);
+        String inputCarName = "pobi,woni";
+        List<RacingCar> racingCars = RacingCar.fromInputCarName(inputCarName);
 
         // when
-        RacingCar winnerCarNames = compareRace.moveCars(racingCar, movement);
+        List<RacingCar> resultMoveCars = compareRace.moveCars(racingCars, movement);
 
         // then
-        assertTrue(winnerCarNames.isMoveCountLessThanOrEqualTo(movement));
+        for (RacingCar racingCar : resultMoveCars) {
+            assertTrue(racingCar.isMoveCountLessThanOrEqualTo(movement));
+        }
     }
 }

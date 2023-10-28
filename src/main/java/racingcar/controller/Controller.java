@@ -4,6 +4,8 @@ import racingcar.domain.RacingCar;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
+import java.util.List;
+
 public class Controller {
 
     private InputView inputView;
@@ -16,7 +18,7 @@ public class Controller {
     }
 
     public void run() {
-        RacingCar racingCar = inputView.inputCarName();
+        List<RacingCar> racingCars = inputView.inputCarName();
         Integer movement = inputView.inputMovement();
     }
 }
