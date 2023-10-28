@@ -111,7 +111,7 @@ public class ApplicationContainer {
 
     public static InputValidator getInputValidator() {
         if (inputValidator == null) {
-            inputValidator = new ValidatorProxy(getCarNameValidator(), getRaceCountValidator());
+            inputValidator = new ValidatorProxy();
             printLog(inputValidator.getClass().toString(), InputValidator.class.toString());
         }
         return inputValidator;
