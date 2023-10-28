@@ -48,7 +48,7 @@ public class Input {
     }
 
     private static boolean isLength1To(String raw, int length) {
-        return raw.length() <= length;
+        return raw.length() > length;
     }
 
     public static Integer inputRepetitions() {
