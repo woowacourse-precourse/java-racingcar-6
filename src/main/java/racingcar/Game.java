@@ -1,7 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.view.ViewInput;
 import racingcar.view.ViewOutput;
 
 import java.util.ArrayList;
@@ -24,6 +23,7 @@ public class Game {
     }
 
     public List<Car> playAllRounds(List<Car> cars, int numberOfRounds) {
+        System.out.println("실행 결과");
         for(int gameCount = 0; gameCount < numberOfRounds; gameCount++) {
             viewOutput.printRoundResult(playOneRound(cars));
         }
