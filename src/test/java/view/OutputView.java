@@ -10,7 +10,6 @@ public class OutputView {
     public String numberInputMessage() {
         return NUMBER_INPUT_MESSAGE;
     }
-
     public void carStatus(Map<String, Integer> cars) {
         cars.keySet().forEach(key -> {
             int intValue = cars.get(key);
@@ -24,5 +23,6 @@ public class OutputView {
                 .mapToObj(i -> "-")
                 .collect(Collectors.joining());
     }
+
 
 }
