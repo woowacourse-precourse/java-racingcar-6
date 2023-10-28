@@ -7,13 +7,13 @@ public enum OutputConstant {
 	WINNER("최종 우승자 : "),
 	WINNER_DELIMITER(", ");
 
-	private final String requestMessage;
+	private final String value;
 
 	OutputConstant(String value) {
-		this.requestMessage = value;
+		this.value = value;
 	}
 
-	public String getRequestMessage() {
-		return requestMessage;
+	public String getValue() {
+		return value;
 	}
 }
