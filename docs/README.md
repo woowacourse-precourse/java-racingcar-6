@@ -9,6 +9,7 @@
     - [x] 각 자동차는 0~9 사이의 무작위 값이 생성된다. GameManager.createRandomNumber
     - [x] 무작위 값이 4 이상일 경우 전진한다. Car.move
 - [x] 시도 횟수 종료 후, 우승자를 선정한다. GameManager.selectWinner
+- [x] racingcar 게임 시작 GameManager.startGame
 
 ## 프로그래밍 요구사항
 - [] 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료된다.
