@@ -5,6 +5,10 @@ import java.util.stream.Collectors;
 
 public class Referee {
     private ArrayList<Car> cars;
+
+    public Referee() {
+        this.cars = new ArrayList<>();
+    }
     public String getCarprogress() {
         StringBuilder sb = new StringBuilder();
         for (Car car : cars) {

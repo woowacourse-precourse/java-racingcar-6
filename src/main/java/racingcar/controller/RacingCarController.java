@@ -9,16 +9,17 @@ import java.util.stream.IntStream;
 
 public class RacingCarController {
     private final IoController ioController;
-    private Stadium stadium;
-    private Referee referee;
+    private final Stadium stadium;
+    private final Referee referee;
 
     public RacingCarController() {
         this.ioController = new IoController();
+        this.referee = new Referee();
+        this.stadium = new Stadium(ioController.raceCarNameInput());
     }
 
     public void raceSet() {
-        ArrayList<String> carNames = ioController.raceCarNameInput();
-        stadium = new Stadium(carNames);
+        stadium.setStadium();
         raceStart();
         raceEnd();
     }
@@ -37,7 +38,7 @@ public class RacingCarController {
 
     private void raceEnd() {
         referee.updateInfo(stadium.getCars());
-        String result = referee.getWinners();
-        ioController.notifyWinners(result);
+        String winners = referee.getWinners();
+        ioController.notifyWinners(winners);
     }
 }

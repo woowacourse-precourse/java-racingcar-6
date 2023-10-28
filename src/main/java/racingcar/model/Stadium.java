@@ -1,18 +1,16 @@
 package racingcar.model;
 
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 public class Stadium {
-    private final ArrayList<String> carNames;
+    private ArrayList<String> carNames;
     private ArrayList<Car> cars;
 
     public Stadium(ArrayList<String> carNames) {
         this.carNames = carNames;
-        setStadium();
     }
 
-    private void setStadium(){
+    public void setStadium(){
         ArrayList<Car> parkingCars = new ArrayList<>();
         for (String carName : carNames) {
             parkingCars.add(new Car(carName));
