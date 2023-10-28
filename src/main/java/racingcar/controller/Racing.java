@@ -29,7 +29,7 @@ public class Racing {
     public void play() {
         Map<String, Integer> carNameList = car.createCarNameList(inputView.inputCarName());
         int counts = rounds.getRounds(inputView.inputRounds());
-        outputView.printRoundResult();
+        outputView.printTotalResult();
         for (int i = 0; i < counts; i++) {
             playRound(carNameList);
         }

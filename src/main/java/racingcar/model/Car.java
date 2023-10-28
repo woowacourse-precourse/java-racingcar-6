@@ -14,7 +14,6 @@ public class Car {
 
     public Map<String, Integer> createCarNameList(String input) {
         Map<String, Integer> carNameList = new LinkedHashMap<>();
-
         validation.checkNullNameInInput(input);
         for (String carName : input.split(COMMA)) {
             validation.checkNameTokenLengthOver(carName);
