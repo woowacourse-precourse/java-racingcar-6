@@ -38,5 +38,7 @@ public class RaceGame {
         inputValidator.checkInputForSpaces(carsString);
         //입력값 비었는지 검사
         inputValidator.checkInputEmpty(carsString);
+        //자동차 이름 중복 검사
+        inputValidator.checkNameDuplicate(cars);
     }
 }

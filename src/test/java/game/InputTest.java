@@ -45,4 +45,14 @@ public class InputTest {
 
         assertThrows(IllegalArgumentException.class, () -> validator.checkInputEmpty(input));
     }
+
+    @Test
+    void 자동차_이름_중복(){
+        List<String> input = new ArrayList<>();
+        input.add("abc");
+        input.add("def");
+        input.add("abc");
+
+        assertThrows(IllegalArgumentException.class, () -> validator.checkNameDuplicate(input));
+    }
 }
