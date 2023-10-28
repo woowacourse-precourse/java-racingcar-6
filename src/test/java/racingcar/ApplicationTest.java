@@ -120,6 +120,16 @@ class ApplicationTest extends NsTest {
         Assertions.assertEquals(2, Application.situationSave(goSituation, i));
     }
 
+    @Test
+    void bar_test() {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+        int i = 4;
+        Application.bar(i);
+        String console = outputStream.toString();
+        Assertions.assertEquals("----\n", console);
+        System.setOut(System.out);
+    }
 
 
 
