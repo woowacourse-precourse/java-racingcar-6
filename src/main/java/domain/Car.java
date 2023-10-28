@@ -5,17 +5,17 @@ import static constant.ConstantString.MOVING_FORWARD;
 import validator.NameValidator;
 
 public class Car {
-    private final String carName;
+    private final Name carName;
     public final Count count;
 
     public Car(String carName) {
         NameValidator.validateCarName(carName);
-        this.carName = carName;
+        this.carName = new Name(carName);
         this.count = new Count();
     }
 
     public String getCarName() {
-        return carName;
+        return carName.getName();
     }
 
     public void moveOrStop(int randomNumber) {
