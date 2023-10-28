@@ -33,7 +33,10 @@ public class OutputManager {
         String winnerNames = winners.stream()
                 .map(Winner::name)
                 .collect(Collectors.joining(", "));
-
-        System.out.println("최종 우승자 : " + winnerNames);
+        String gameResult = new StringBuffer()
+                .append("최종 우승자 : ")
+                .append(winnerNames)
+                .toString();
+        System.out.println(gameResult);
     }
 }
