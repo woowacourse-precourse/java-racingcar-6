@@ -7,7 +7,7 @@
     - [ ] 쉼표를 기준으로 5자 이하만 가능 - 아닐 시 ``IllegalArgumentException``
     - 자동차 수는 무제한
 - [x] `시도할 회수는 몇회인가요?` 출력
-- [ ] readline으로 횟수 n 입력
+- [x] readline으로 횟수 n 입력
 
 ## 게임 실행
 
