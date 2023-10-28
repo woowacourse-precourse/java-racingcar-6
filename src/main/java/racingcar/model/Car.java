@@ -12,4 +12,12 @@ public class Car {
     public void move() {
         moveState += "-";
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getMoveState() {
+        return moveState;
+    }
 }
