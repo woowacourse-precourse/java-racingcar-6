@@ -28,7 +28,7 @@ public class GameController {
     private void tryRoundUntilRetryCount() {
         for (int i = 0; i < retryCount; i++) {
             moveCar();
-            displayCarPosition();
+            GameView.displayCurrentCarPosition(game.getCurrentParticipantCarPosition());
         }
     }
 
@@ -38,20 +38,5 @@ public class GameController {
                 car.move();
             }
         }
-    }
-
-    private void displayCarPosition() {
-        for (Car participantCar : participantCars) {
-            String positionBar = getPositionBarByCar(participantCar);
-
-            System.out.println(positionBar);
-        }
-    }
-
-    private static String getPositionBarByCar(Car participantCar) {
-        int position = participantCar.getPosition();
-        String positionBar = String.format("%s : %s", participantCar.getName(),
-            "-".repeat(position));
-        return positionBar;
     }
 }

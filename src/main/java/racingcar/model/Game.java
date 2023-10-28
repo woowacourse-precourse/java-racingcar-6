@@ -39,4 +39,15 @@ public class Game {
     public boolean isCarMoveToForward() {
         return new RandomNumber().getNumber() >= 4;
     }
+
+    public String getPositionBarByCar(Car participantCar) {
+        return String.format("%s : %s", participantCar.getName(),
+            "-".repeat(participantCar.getPosition()));
+    }
+
+    public String getCurrentParticipantCarPosition() {
+        return participantCars.stream()
+            .map(this::getPositionBarByCar)
+            .collect(Collectors.joining("\n"));
+    }
 }

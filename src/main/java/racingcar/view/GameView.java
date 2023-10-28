@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.List;
+
 public class GameView {
 
     public static void displayStartGame() {
@@ -16,5 +18,9 @@ public class GameView {
 
     public static void displayFinalWinner(String winner) {
         System.out.println("최종 우승자 : " + winner);
+    }
+
+    public static void displayCurrentCarPosition(String currentPariticipantCarPosition) {
+        System.out.println(currentPariticipantCarPosition);
     }
 }
