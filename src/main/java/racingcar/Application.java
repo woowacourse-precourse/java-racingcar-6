@@ -9,6 +9,20 @@ import java.util.stream.Collectors;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
+        printInputCarNameMessage();
+        final String carNames = readCarNames();
+        final List<String> carNameList = getCarNameListFromCarNames(carNames);
+        final List<Car> carList = getCarList(carNameList);
+        printInputTryCountMessage();
+        final int tryCount = readTryCount();
+        printNewLine();
+        printExecutionResult();
+        for(int i = 0; i < tryCount; i++) {
+            moveForward(carList);
+            printCarNameAndDistanceStringInCarList(carList);
+            printNewLine();
+        }
+        printWinnersFromCarList(carList);
         Console.close();
     }
 
