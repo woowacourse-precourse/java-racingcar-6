@@ -1,6 +1,4 @@
-package racingcar.domain.car;
-
-import racingcar.vo.car.Name;
+package racingcar.car;
 
 public class Car {
 

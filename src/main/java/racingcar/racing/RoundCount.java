@@ -1,6 +1,4 @@
-package racingcar.vo;
-
-import racingcar.exception.RoundCountValidator;
+package racingcar.racing;
 
 public class RoundCount {
 

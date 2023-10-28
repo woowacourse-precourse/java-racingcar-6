@@ -1,8 +1,8 @@
-package racingcar.domain.racing;
+package racingcar.racing;
 
-import racingcar.domain.car.Car;
-import racingcar.domain.car.Cars;
-import racingcar.domain.generator.NumberGenerator;
+import racingcar.car.Car;
+import racingcar.car.Cars;
+import racingcar.generator.NumberGenerator;
 
 import java.util.stream.Collectors;
 

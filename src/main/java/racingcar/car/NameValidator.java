@@ -1,9 +1,9 @@
-package racingcar.exception.car;
+package racingcar.car;
 
 
 import java.util.Arrays;
 
-import static racingcar.constant.Delimiter.*;
+import static racingcar.game.Delimiter.*;
 
 public class NameValidator {
 

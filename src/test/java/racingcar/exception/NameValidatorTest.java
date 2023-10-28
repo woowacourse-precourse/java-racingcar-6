@@ -2,7 +2,7 @@ package racingcar.exception;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcar.exception.car.NameValidator;
+import racingcar.car.NameValidator;
 
 public class NameValidatorTest {
 

@@ -1,4 +1,4 @@
-package racingcar.constant;
+package racingcar.game;
 
 public interface Delimiter {
 

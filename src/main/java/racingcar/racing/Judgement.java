@@ -1,11 +1,11 @@
-package racingcar.domain.racing;
+package racingcar.racing;
 
-import racingcar.domain.car.Car;
-import racingcar.domain.car.Cars;
+import racingcar.car.Car;
+import racingcar.car.Cars;
 
 import java.util.stream.Collectors;
 
-import static racingcar.constant.Delimiter.DELIMITER;
+import static racingcar.game.Delimiter.DELIMITER;
 
 public class Judgement {
 

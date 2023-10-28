@@ -1,6 +1,4 @@
-package racingcar.vo.car;
-
-import racingcar.exception.car.NameValidator;
+package racingcar.car;
 
 public class Name {
 

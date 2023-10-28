@@ -1,8 +1,8 @@
-package racingcar.domain.car;
+package racingcar.car;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import static racingcar.constant.Delimiter.REGEX_DELIMITER;
+import static racingcar.game.Delimiter.REGEX_DELIMITER;
 
 public class CarFactory {
 

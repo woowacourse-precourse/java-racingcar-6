@@ -1,6 +1,7 @@
 package racingcar.exception;
 
 import org.junit.jupiter.api.Test;
+import racingcar.racing.RoundCountValidator;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
