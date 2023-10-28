@@ -18,12 +18,19 @@ public class UserService {
         return userList;
     }
 
+    public void checkUser(User user){
+        if(user.getName().length() > 5){
+            throw new IllegalArgumentException("입력 문자열의 길이는 5 이하여야 합니다.");
+        }
+    }
+
     public List<User> userList(String[] userArr){
         List<User> userList = new ArrayList<>();
 
         for (String userName : userArr) {
             User user = new User();
             user.setName(userName);
+            checkUser(user);
             userList.add(user);
         }
 
