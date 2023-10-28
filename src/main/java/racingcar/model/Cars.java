@@ -28,4 +28,8 @@ public final class Cars {
             .map(Car::getName)
             .collect(Collectors.toList());
     }
+
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
+    }
 }
