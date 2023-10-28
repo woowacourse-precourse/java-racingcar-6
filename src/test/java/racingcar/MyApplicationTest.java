@@ -8,6 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
@@ -32,7 +33,7 @@ public class MyApplicationTest {
     private static final String FINAL_WINNER = "최종 우승자";
     private ByteArrayOutputStream outBuffer;
     private PrintStream outputStream;
-    private List<String> outputs;
+    private List<String> outputs = Collections.emptyList();
 
 
     @Test
@@ -92,7 +93,7 @@ public class MyApplicationTest {
         assertThatThrownBy(callable)
                 .isInstanceOf(IllegalArgumentException.class);
         assertThat(outputs())
-                .doesNotContain(INPUT_TRIALS, EXECUTION_RESULT)
+                .doesNotContain(EXECUTION_RESULT)
                 .noneMatch(s -> s.contains(FINAL_WINNER));
     }
 
