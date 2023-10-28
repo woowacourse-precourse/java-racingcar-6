@@ -43,9 +43,21 @@ public class Application {
                     memberStates.replace(name, memberStates.get(name) + 1);
                 }
 
+                // 각 차수별 실행 결과
+                System.out.println(name + " : " + changeDash(memberStates.get(name)));
             }
             System.out.println();
         }
     }
 
+    // 이동거리를 대쉬(-)로 변경
+    public static StringBuilder changeDash(int distance) {
+        StringBuilder stringBuilder = new StringBuilder();
+        String dash = "-";
+        for (int i = 0; i < distance; i++) {
+            stringBuilder.append(dash);
+        }
+
+        return stringBuilder;
+    }
 }
