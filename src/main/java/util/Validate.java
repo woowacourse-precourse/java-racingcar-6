@@ -19,8 +19,12 @@ public class Validate {
 	}
 	//입력값이 숫자가 맞는지 검사
 	public static void inputPlayerDateIsNumValidate(String inputDate) {
+		//입력값이 1이상인지
+		if(Integer.parseInt(inputDate)<1) throw new IllegalArgumentException("1이상의 숫자를 입력해주세요!");
+		
 		char[] word = inputDate.toCharArray();
 		for(char c : word) if(!Character.isDigit(c)) throw new IllegalArgumentException("숫자만 입력해주세요!");
+		
 	}
 	
 }

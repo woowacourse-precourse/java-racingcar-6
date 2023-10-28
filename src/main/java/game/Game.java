@@ -23,9 +23,12 @@ public class Game {
 		Validate.inputPlayerDateIsNumValidate(String.valueOf(try_count));
 		return try_count;
 	}
-	
+	//게임 시작
 	public static void gameStart(int tryCount, ArrayList<Car> car_list) {
 		System.out.println("실행 결과");
+		for(int i=1;i<=tryCount;i++) {
+			
+		}
 	}
 	
 }
