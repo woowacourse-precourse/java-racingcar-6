@@ -1,16 +1,20 @@
 package racingcar;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
-    public static List<String> inputCarNames() {
-        String inputCarNames = Console.readLine();
-        return Validator.inputCarNames(inputCarNames);
+
+    public static Map<String, String> CarNames() {
+        OutputView.printRequestCar();
+        Map<String, String> inputCarNamesMap = InputConvertor.toMap(Console.readLine());
+        return Validator.inputCarNames(inputCarNamesMap);
     }
 
-    public static int inputAttemptNumber() {
+    public static int AttemptNumber() {
+        OutputView.printRequestAttempt();
         return InputConvertor.toInt(Console.readLine());
     }
 }
