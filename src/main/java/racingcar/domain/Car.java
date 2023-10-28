@@ -5,6 +5,7 @@ public class Car {
     private String name;
 
     public Car(String name) {
+        this.position = 0;
         this.name =  name;
     }
 
