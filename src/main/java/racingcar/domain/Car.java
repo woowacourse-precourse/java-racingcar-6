@@ -7,6 +7,7 @@ import java.util.List;
 public class Car {
 
     public static final int NAME_LENGTH_LIMIT = 5;
+    public static final String ERR_NAME_IS_TOO_LONG = "자동차 이름의 길이는 %d자 이하여야 합니다.";
     private final String name;
     private Integer distance;
 
@@ -17,7 +18,12 @@ public class Car {
     }
 
     private static void validateLength(String name) {
-        if (name.length() > NAME_LENGTH_LIMIT) throw new IllegalArgumentException();
+        if (name.length() > NAME_LENGTH_LIMIT)
+            throw new IllegalArgumentException(getNameIsTooLongErrorMessage());
+    }
+
+    private static String getNameIsTooLongErrorMessage() {
+        return String.format(ERR_NAME_IS_TOO_LONG, NAME_LENGTH_LIMIT);
     }
 
     public void move() {
