@@ -3,7 +3,7 @@ package racingcar.util;
 import java.util.List;
 
 public class StringUtils {
-    private static final String NULL_ERROR_FORMAt = "입력값이 null 일 수 없습니다.";
+    private static final String NULL_ERROR_FORMAT = "입력값이 null 일 수 없습니다.";
     private static final String BLANK_ERROR_FORMAT = "입력값은 빈 값일 수 없습니다.";
     private static final String NUMBER_ERROR_FORMAT = "입력값이 숫자가 아닙니다.";
     private StringUtils() {
@@ -42,7 +42,7 @@ public class StringUtils {
 
     private static void validateNotNull(Object input) {
         if (input == null) {
-            throw new IllegalArgumentException(NULL_ERROR_FORMAt);
+            throw new IllegalArgumentException(NULL_ERROR_FORMAT);
         }
     }
 }

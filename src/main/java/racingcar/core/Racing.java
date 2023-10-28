@@ -1,6 +1,5 @@
 package racingcar.core;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.util.StringUtils;
 
@@ -9,28 +8,22 @@ public class Racing {
     private List<Car> cars;
     private int raceCount;
 
-    public void play() {
-        registerCars();
-        registerRaceCount();
-        doRace();
-        printWinner();
+    public void registerCarsByName(List<String> carNames) {
+        validateNotNull(carNames);
+        this.cars = createCars(carNames);
     }
 
-    public void registerCars() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        final String line = Console.readLine();
-        final List<String> carNames = StringUtils.splitByComma(line);
-        this.cars = createCars(carNames);
+    private void validateNotNull(Object input) {
+        if (input == null) {
+            throw new IllegalArgumentException("입력값은 null 일 수 없습니다.");
+        }
     }
 
     private List<Car> createCars(List<String> carNames) {
         return carNames.stream().map(Car::new).toList();
     }
 
-    private void registerRaceCount() {
-        System.out.println("시도할 회수는 몇회인가요?");
-        final String line = Console.readLine();
-        int raceCount = StringUtils.parseInt(line);
+    public void registerRaceCount(int raceCount) {
         validateRaceCount(raceCount);
         this.raceCount = raceCount;
     }
@@ -41,7 +34,7 @@ public class Racing {
         }
     }
 
-    private void doRace() {
+    public void doRace() {
         validateCarsNotEmpty();
         System.out.println("\n실행 결과");
         for (int i = 0; i < raceCount; i++) {
@@ -63,7 +56,7 @@ public class Racing {
         }
     }
 
-    private void printWinner() {
+    public void printWinner() {
         validateCarsNotEmpty();
         final List<String> winnerNames = getWinners().stream().map(Car::getName).toList();
         final String winnerNamesString = StringUtils.joinByComma(winnerNames);
