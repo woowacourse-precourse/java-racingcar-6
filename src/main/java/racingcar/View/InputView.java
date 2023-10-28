@@ -1,11 +1,11 @@
 package racingcar.View;
 
 public class InputView {
-    public String inputCarName() {
+    public static String getCarName() {
         return null;
     }
 
-    public Integer inputNumberOfRound() {
+    public static Integer getNumberOfRound() {
         return null;
     }
 }
