@@ -12,7 +12,7 @@ class Print {
     }
 
     static void resultString() {
-        System.out.println("실행 결과");
+        System.out.println("￦n실행 결과");
     }
 
     private static void carStatus(Car car) {
@@ -25,6 +25,7 @@ class Print {
         for (Car car : cars) {
             carStatus(car);
         }
+        System.out.print("\n");
     }
 
     static void winner(List<Car> winner) {
