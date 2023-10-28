@@ -18,29 +18,42 @@ public class Cars {
         return new ArrayList<>(carList);
     }
 
-    public List<String> getCarNames(){
+    public List<String> getCarNames() {
         return carList.stream().map(Car::getName).toList();
     }
 
-    public void moveForTest(){ // 테스트만을 위한 매서드가 존재해도 무방할까?
-        this.carList.forEach(Car::addLocation);
-    }
-
-    private List<Car> initByStringInput(String userInput){
-        String[] carNames = userInput.split(SPLIT_DELIMITER);
-        validateUserInput(carNames);
-        return Arrays.stream(carNames)
-                .map(String::trim) // 양옆 공백을 제거한다.
-                .map(Car::new)
+    public List<String> getWinnersNames() {
+        int maxLocation = carList.stream()
+                .mapToInt(Car::getLocation)
+                .max()
+                .orElse(0);
+        return carList.stream()
+                .filter(car -> car.getLocation() == maxLocation)
+                .map(Car::getName)
                 .toList();
     }
 
-    private void validateUserInput(String[] carNames){
-        Arrays.stream(carNames).forEach(this::validateLength);
+    public void move() {
+        this.carList.forEach(Car::move);
+    }
+
+    public void moveForTest() { // 테스트만을 위한 매서드가 존재해도 무방할까?
+        this.carList.forEach(Car::addLocation);
+    }
+
+    private List<Car> initByStringInput(String userInput) {
+        String[] carNames = userInput.split(SPLIT_DELIMITER);
+        return Arrays.stream(carNames)
+                .map(String::trim) // 양옆 공백을 제거한다.
+                .map(carName -> {
+                    validateLength(carName);
+                    return new Car(carName);
+                })
+                .toList();
     }
 
     private void validateLength(String carName) {
-        if (carName.length() > CAR_NAME_LIMIT){
+        if (carName.length() > CAR_NAME_LIMIT) {
             throw new IllegalArgumentException(NAME_LENGTH_INVALID);
         }
     }
