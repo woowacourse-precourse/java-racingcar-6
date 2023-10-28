@@ -27,7 +27,12 @@ public class InputException {
     public static void isNumber(String input) {
         for (char c : input.toCharArray()) {
             if (c < '0' || c > '9')
-                throw new IllegalArgumentException(PrintMessage.ONLY_NATURAL_NUMBER);
+                throw new IllegalArgumentException(PrintMessage.ONLY_NUMBER);
         }
+    }
+
+    public static void isNaturalNumber(int num) {
+        if (num < 1)
+            throw new IllegalArgumentException(PrintMessage.ONLY_NATURAL_NUMBER);
     }
 }
