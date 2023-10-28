@@ -36,6 +36,8 @@
   - String name
   - Integer movedDistance
     - 초기 값 0
+  - RacingCar(String name)
+    - 이름 5자 이하 검증
   - void tryMoving() // 랜덤값에 따라 movedDistance 증가 또는 유지
   - void printResult() // 각 차수별 실행결과 출력
   - Integer getMovedDistance()
