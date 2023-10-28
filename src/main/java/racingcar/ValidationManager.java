@@ -3,7 +3,9 @@ package racingcar;
 public class ValidationManager {
 
     public static void validateCarNames(String inputCarNames) {
-        validateCarNameLength(inputCarNames);
+        for (String carName : inputCarNames.split(",")) {
+            validateCarNameLength(carName);
+        }
     }
 
     private static void validateCarNameLength(String inputCarName) {
