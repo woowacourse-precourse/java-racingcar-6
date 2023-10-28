@@ -15,6 +15,7 @@ public class RacingGameController {
 
     private final OutputView outputView;
     private final InputView inputView;
+    private final Referee referee;
     private Cars cars;
     private TryCount tryCount;
 
@@ -42,6 +43,27 @@ public class RacingGameController {
     private void initGame() {
         initCars();
         initTryCount();
+        startRace();
+    }
+
+    private void startRace() {
+        outputView.informBeforeResult();
+        for (int i = 0; i < tryCount.getTryCount(); i++) {
+            moveCars();
+        }
+    }
+
+    private void moveCars() {
+        cars.actEachCar(this::moveCarByReferee);
+        List<MoveResult> moveResults = cars.getMoveResult();
+        outputView.informResult(moveResults);
+    }
+
+    private void moveCarByReferee(Car car) {
+        if (!referee.isSatisfiedCondition()) {
+            return;
+        }
+        car.moveForward();
     }
 
     private void initCars() {
