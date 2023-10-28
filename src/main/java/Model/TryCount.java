@@ -18,6 +18,10 @@ public class TryCount {
         return true;
     }
 
+    public int getTryCount() {
+        return Integer.parseInt(tryCount);
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

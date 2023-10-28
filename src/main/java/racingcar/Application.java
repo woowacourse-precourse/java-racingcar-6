@@ -3,14 +3,31 @@ package racingcar;
 import Model.RaceCarNames;
 import Model.TryCount;
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
     private static RaceCarNames raceCarNames;
     private static TryCount tryCount;
 
     public static void main(String[] args) {
+        startRacingGame();
+    }
 
+    public static void startRacingGame() {
+        receiveRaceCarNames();
+        receiveTryCount();
+
+        int gameCycle = tryCount.getTryCount();
+        for (int i = 1; i <= gameCycle; i++) {
+            playGame();
+            printCurrentRacingResult();
+        }
+
+        calculateWhoAreTheWinners();
+        printRaceWinners();
+    }
+
+    public static void playGame() {
+        //
     }
 
     public static void receiveRaceCarNames() {
