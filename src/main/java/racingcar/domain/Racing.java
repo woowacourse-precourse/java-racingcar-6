@@ -13,6 +13,7 @@ import static java.lang.Integer.parseInt;
 public class Racing {
     List<String> carNames;
     List<Integer> carPoints = new ArrayList<>();
+    int roundCount;
 
     private Racing() {
 
@@ -49,8 +50,12 @@ public class Racing {
     public int playRound() {
         getCarNames();
         initCarPoints();
-        getRoundCount();
-
+        this.roundCount = getRoundCount();
+        for(int i=0; i<this.roundCount;i++){
+            getRanNUM();
+            displayResult();
+        }
+        return 0;
     }
 
     private List<Integer> initCarPoints() {
@@ -71,8 +76,15 @@ public class Racing {
         return carPoints;
     }
 
-    private displayResult() {
-
+    private int displayResult() {
+        for (int i=0; i<carNames.size();i++){
+            System.out.print(carNames.get(i)+" : ");
+            for(int j=0; j<carPoints.get(i);j++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        return 0;
     }
 
 }
