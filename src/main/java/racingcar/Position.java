@@ -17,8 +17,8 @@ public class Position {
         this.position = DEFAULT_POSITION;
     }
 
-    public void move() {
-        position++;
+    public Position move() {
+        return new Position(position + 1);
     }
 
     public int getPosition() {

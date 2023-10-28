@@ -19,7 +19,7 @@ public class RacingCar {
             return;
         }
 
-        position.move();
+        position = position.move();
     }
 
     public Name getName() {

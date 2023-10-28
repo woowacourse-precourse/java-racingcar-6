@@ -8,7 +8,7 @@ public class RacingCarRegistry {
 
     private final ActionNumberGenerator actionNumberGenerator;
     private final List<RacingCar> racingCars = new ArrayList<>();
-    private final MoveOpportunity moveOpportunity;
+    private MoveOpportunity moveOpportunity;
 
     public RacingCarRegistry(ActionNumberGenerator actionNumberGenerator,
                              List<String> names,
@@ -26,7 +26,7 @@ public class RacingCarRegistry {
     }
 
     public List<RacingCar> move() {
-        moveOpportunity.move();
+        moveOpportunity = moveOpportunity.move();
 
         List<RacingCar> racingResults = new ArrayList<>();
         for (RacingCar racingCar : racingCars) {

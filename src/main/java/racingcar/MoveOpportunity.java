@@ -2,11 +2,11 @@ package racingcar;
 
 public class MoveOpportunity {
 
-    int moveCount;
+    private final int moveOpportunity;
 
-    public MoveOpportunity(int moveCount) {
-        validateMoveCount(moveCount);
-        this.moveCount = moveCount;
+    public MoveOpportunity(int moveOpportunity) {
+        validateMoveCount(moveOpportunity);
+        this.moveOpportunity = moveOpportunity;
     }
 
     private void validateMoveCount(int moveCount) {
@@ -16,14 +16,14 @@ public class MoveOpportunity {
     }
 
     public boolean isZero() {
-        return moveCount == 0;
+        return moveOpportunity == 0;
     }
 
-    public void move() {
-        if (moveCount == 0) {
+    public MoveOpportunity move() {
+        if (moveOpportunity == 0) {
             throw new IllegalStateException("더 이상 이동할 수 없습니다.");
         }
 
-        moveCount--;
+        return new MoveOpportunity(moveOpportunity - 1);
     }
 }
