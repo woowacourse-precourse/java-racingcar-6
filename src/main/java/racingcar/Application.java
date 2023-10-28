@@ -3,7 +3,10 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 
 public class Application {
 
@@ -32,10 +35,12 @@ public class Application {
                 if (num >= 4)
                     forward[k]++;
             }
-
             // 출력함수
             printRacing(names, forward);
         }
+
+        // 마지막 승자
+        winnerCheck(names, forward);
 
     }
 
@@ -47,6 +52,26 @@ public class Application {
             System.out.println("");
         }
         System.out.println("");
+    }
+
+    public static void winnerCheck(String[] names, int[] forward){
+        int length = forward.length;
+        int max = 0;
+        List<String> winners = new ArrayList<String>();
+
+
+        for(int i = 0; i < length; i++){
+            if(max < forward[i])
+                max = forward[i];
+        }
+
+        for(int i = 0; i < length; i++){
+            if(max == forward[i])
+                winners.add(names[i]);
+        }
+
+        System.out.print("최종 우승자 : ");
+        System.out.print(String.join(", ", winners));
     }
 
     public static void main(String[] args) {
