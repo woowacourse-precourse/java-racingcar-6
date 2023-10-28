@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import racingcar.view.OutputView;
 import java.util.ArrayList;
 
 public class Race {
@@ -17,7 +18,13 @@ public class Race {
         carNameList.forEach(carName -> carList.add(new Car(carName)));
     }
 
-    public void start(){
-        carList.forEach(Car::go);
+    public void start() {
+        for (int i = 0; i < round; i++) {
+            carList.forEach(Car::go);
+        }
+    }
+
+    public void printRace(){
+        OutputView.printRace(carList);
     }
 }
