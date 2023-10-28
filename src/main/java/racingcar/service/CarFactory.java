@@ -13,6 +13,8 @@ public class CarFactory {
         List<String> carNames = List.of(inputManager.inputCarNames().split(","));
         List<Car> cars = new ArrayList<>();
 
+        Validator.validateNumberOfCar(carNames);
+
         for (String carName : carNames) {
 
             Validator.validateCarName(carName);

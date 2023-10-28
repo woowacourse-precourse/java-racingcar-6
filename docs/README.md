@@ -14,4 +14,5 @@
 ## ❌ 예외 처리
 ### 사용자 입력에서 예외가 발생한 경우 `IllegalArgumentException` 로 처리한다.
   - [x] 자동차 입력에서 글자수가 5자가 넘는 경우 - **Validator / validateCarName()**
+  - [x] 레이스의 참여한 자동차가 1대 이하인 경우 - **Validator / validateNumberOfCar()**
   - [x] 시도 횟수를 숫자가 아닌 값을 넣은 경우 - **Validator / validateTryCount()**
