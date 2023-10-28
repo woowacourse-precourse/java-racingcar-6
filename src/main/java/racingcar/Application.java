@@ -7,7 +7,16 @@ public class Application {
         // TODO: 프로그램 구현
         CarController controller = new CarController();
 
-        controller.setRacing();
+        controller.welcome();
+
+        controller.registerRacer();
+
+        controller.setRacingCount();
+
         controller.startRacing();
+
+        controller.inRacing();
+
+        controller.endRacing();
     }
 }
