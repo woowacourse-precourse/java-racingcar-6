@@ -1,12 +1,11 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.view.OutputView;
 
 import static constant.MessgeList.MOVING_FORWARD;
 
-public class MovingCar {
-    public MovingCar() {
+public class Car {
+    public Car() {
     }
 
     public int generateRandomNumber() {

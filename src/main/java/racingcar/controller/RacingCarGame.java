@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.model.MovingCar;
+import racingcar.model.Car;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarGame {
-    private MovingCar movingCar;
+    private Car car;
 
     public RacingCarGame() {
-        movingCar = new MovingCar();
+        car = new Car();
     }
 
     public List<String> splitCarNamesByComma() {

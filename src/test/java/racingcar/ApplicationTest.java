@@ -1,17 +1,13 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
-import org.assertj.core.util.Strings;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.model.MovingCar;
+import racingcar.model.Car;
 import racingcar.model.Validator;
-import racingcar.view.InputView;
-
-import java.lang.annotation.Documented;
 
 import static constant.MessgeList.MOVING_FORWARD;
 import static constant.MessgeList.STOP;
@@ -23,12 +19,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ApplicationTest extends NsTest {
     private Validator validator;
-    private MovingCar movingCar;
+    private Car car;
 
     @BeforeEach
     void setUp() {
         validator = new Validator();
-        movingCar = new MovingCar();
+        car = new Car();
     }
 
     @Test
@@ -65,7 +61,7 @@ class ApplicationTest extends NsTest {
     @Test
     @DisplayName("random값이 0과 9사이의 숫자여야 한다.")
     void isRandomNumberInRange(){
-        int randomNumber = movingCar.generateRandomNumber();
+        int randomNumber = car.generateRandomNumber();
         assertEquals(randomNumber, 0,9);
     }
 

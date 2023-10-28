@@ -1,8 +1,7 @@
 package racingcar.view;
 
-import racingcar.model.MovingCar;
+import racingcar.model.Car;
 
-import java.rmi.MarshalledObject;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,9 +14,9 @@ public class OutputView {
     }
 
     public static void printExecutionResult(String carName) {
-        MovingCar movingCar = new MovingCar();
+        Car car = new Car();
         System.out.print(carName + " : ");
-        if (movingCar.isCarMoveForward()) {
+        if (car.isCarMoveForward()) {
             System.out.print("-");
         }
         System.out.println();
