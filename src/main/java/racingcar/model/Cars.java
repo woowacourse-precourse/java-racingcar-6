@@ -22,8 +22,13 @@ public class Cars {
 
     private List<Car> toCars(List<String> names) {
         return names.stream()
-                .map(name -> new Car(new Name(name), new Position()))
+                .map(Name::new)
+                .map(this::createCar)
                 .toList();
+    }
+
+    private Car createCar(Name name) {
+        return new Car(name, new Position());
     }
 
     public void attemptForward() {
