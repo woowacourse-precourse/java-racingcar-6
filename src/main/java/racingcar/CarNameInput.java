@@ -15,7 +15,7 @@ public class CarNameInput {
         return arrayToHashMap(user);
     }
 
-    private String[] detectErrorInUserInput(String userAnswer) {
+    public String[] detectErrorInUserInput(String userAnswer) {
 
         String[] user = userAnswer.split(",");
         for (String userName : user) {
