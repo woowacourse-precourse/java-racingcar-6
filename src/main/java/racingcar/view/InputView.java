@@ -21,7 +21,7 @@ public class InputView {
 
     public void validateName(List<String> names){
         if(!isAllFiveOrLess(names))
-            throw new IllegalArgumentException("String index out of range: 5");
+            throw new IllegalArgumentException("자동차 이름은 5자 이내로 입력해주세요.");
     }
 
     public boolean isAllFiveOrLess(List<String> names){
