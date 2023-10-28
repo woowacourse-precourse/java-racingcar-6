@@ -1,6 +1,5 @@
-package racingcar.domain;
+package racingcar.utility;
 
-import racingcar.global.GameConfig;
 import racingcar.global.exception.RacingCarException;
 
 import java.util.List;
@@ -9,12 +8,12 @@ import java.util.Objects;
 import static racingcar.global.GameConfig.NAME_MAXIMUM_CONSTRAINT;
 import static racingcar.global.exception.ErrorMessage.*;
 
-public class Validator {
+public class ConstraintValidator {
     private static final String COMMA = ",";
     private static final String NEW_LINE = "\n";
     private static final String TAB = "\t";
 
-    private Validator() {
+    private ConstraintValidator() {
     }
 
     public static void validateNull(final String input) {
@@ -68,7 +67,6 @@ public class Validator {
         return inputs.stream()
                 .anyMatch(input -> input.length() > NAME_MAXIMUM_CONSTRAINT.getValue());
     }
-
 
     private static boolean isInvalidNumber(final String input) {
         return !input.chars().allMatch(Character::isDigit);

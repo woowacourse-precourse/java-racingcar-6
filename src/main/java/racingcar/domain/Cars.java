@@ -1,8 +1,13 @@
 package racingcar.domain;
 
+import racingcar.global.exception.RacingCarException;
+import racingcar.utility.Parser;
+
+import java.util.Collections;
 import java.util.List;
 
-import static racingcar.domain.Validator.*;
+import static racingcar.global.exception.ErrorMessage.SYSTEM_ERROR;
+import static racingcar.utility.ConstraintValidator.*;
 
 public class Cars {
     private final List<Car> racingCars;
@@ -17,7 +22,7 @@ public class Cars {
         validateEndsWithComma(input);
 
         // Validate carName Length
-        List<String> carNames = Converter.parseInput(input);
+        List<String> carNames = Parser.parseCarNames(input);
         validateNameLength(carNames);
 
         // Construct Cars Entity
@@ -30,7 +35,7 @@ public class Cars {
     }
 
     // 경주할 자동차를 1회전 전진시킨다.
-    public void playOneRotation() {
+    public void playOneRound() {
         racingCars.forEach(Car::play);
     }
 
@@ -41,6 +46,21 @@ public class Cars {
                 .toList();
     }
 
+    public WinnerResult getWinnerCars() {
+        List<Car> cars = Collections.unmodifiableList(racingCars);
+        List<Car> winners = cars.stream()
+                .filter(car -> car.isSameScore(getMaxScore()))
+                .toList();
+        return WinnerResult.create(winners);
+    }
+
+
+    public Integer getMaxScore() {
+        return racingCars.stream()
+                .mapToInt(Car::getScore)
+                .max()
+                .orElseThrow(() -> RacingCarException.of(SYSTEM_ERROR));
+    }
 
     private List<Car> createCars(List<String> carNames) {
         return carNames.stream()

@@ -6,7 +6,8 @@ public enum Notice {
     ASK_GAME_COUNT("시도할 회수는 몇회인가요?"),
 
     // Response
-    RESPONSE_RESULT_MESSAGE("실행 결과");
+    RESPONSE_RESULT_MESSAGE("실행 결과"),
+    RESPONSE_WINNER_MESSAGE("최종 우승자 : ");
 
     private final String message;
 

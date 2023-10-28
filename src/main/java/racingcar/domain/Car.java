@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.Objects;
+
 import static racingcar.global.GameConfig.*;
 
 public class Car {
@@ -42,13 +44,25 @@ public class Car {
         return DASH.repeat(score);
     }
 
-
-    private boolean isForwardCondition(Integer referencePoint) {
+    private boolean isForwardCondition(final Integer referencePoint) {
         return referencePoint >= NAME_MAXIMUM_CONSTRAINT.getValue();
     }
 
     private Integer generateForwardCondition() {
         return Randoms.pickNumberInRange(
                 RANDOM_MINIMUM_CONSTRAINT.getValue(), RANDOM_MAXIMUM_CONSTRAINT.getValue());
+    }
+
+    public boolean isSameScore(Integer score) {
+        return Objects.equals(this.score, score);
+    }
+
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public String getName() {
+        return name;
     }
 }

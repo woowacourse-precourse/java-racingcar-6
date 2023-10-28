@@ -2,8 +2,9 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Cars;
-import racingcar.domain.Converter;
-import racingcar.domain.Validator;
+import racingcar.domain.WinnerResult;
+import racingcar.utility.ConstraintValidator;
+import racingcar.utility.Parser;
 import racingcar.view.View;
 
 import java.util.List;
@@ -28,18 +29,20 @@ public class Game {
         System.out.println();
 
         // 횟수 요청 예외처리
-        Validator.validateNumber(gameCountInput);
+        ConstraintValidator.validateNumber(gameCountInput);
 
         View.printNotice(RESPONSE_RESULT_MESSAGE);
 
-        int number = Converter.convertInputToInt(gameCountInput);
+        int roundCount = Parser.parseRoundCount(gameCountInput);
 
-        for (int i = 0; i < number; i++) {
-            cars.playOneRotation();
+        for (int i = 0; i < roundCount; i++) {
+            cars.playOneRound();
             List<String> results = cars.generateResults();
             View.printResultList(results);
         }
 
+        WinnerResult winnerResult = cars.getWinnerCars();
+        System.out.println("winnerResult.getWinnerNames() = " + winnerResult.getWinnerNames());
         Console.close();
     }
 }
