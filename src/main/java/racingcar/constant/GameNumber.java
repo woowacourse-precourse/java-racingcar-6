@@ -8,4 +8,5 @@ public class GameNumber {
     public static final Integer MOVE_NUMBER = 4;
     public static final Integer NAME_EMPTY_LENGTH = 0;
     public static final Integer NAME_MAXIMUM_LENGTH = 5;
+    public static final Integer STOP_ATTEMPT_NUMBER = 0;
 }

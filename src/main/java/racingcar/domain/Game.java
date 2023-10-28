@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.constant.GameNumber.STOP_ATTEMPT_NUMBER;
+
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.view.OutputView;
@@ -22,7 +24,7 @@ public class Game {
 
     public void playRacing() {
         OutputView.printResultMessage();
-        while (attemptNumber != 0) {
+        while (attemptNumber != STOP_ATTEMPT_NUMBER) {
             move.moveCar(cars);
             OutputView.printRoundResult(getRoundResult());
             attemptNumber--;
