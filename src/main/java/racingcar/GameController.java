@@ -39,8 +39,10 @@ public class GameController {
     }
 
     private void runRace(int moveCount) {
+        outputView.displayRaceMessage();
         while (moveCount > 0) {
             race.racing(cars);
+            outputView.displayRaceStatus(cars);
             moveCount--;
         }
     }
