@@ -26,6 +26,7 @@ public class Application {
         int times = HandleException.times(inputTimes);
         
         // 게임 진행
+        OutputView.outputResult();
         for (int i = 0; i < times; i++) { // 횟수만큼 반복
             for (int j = 0; j < car.length; j++) {
                 car[j].changeLocation();

@@ -8,4 +8,8 @@ public class OutputView {
     static void outputTimes() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
+    
+    static void outputResult() {
+        System.out.println("실행 결과");
+    }
 }
