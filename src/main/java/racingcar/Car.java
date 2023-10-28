@@ -33,4 +33,8 @@ public class Car {
             throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_DUPLICATION);
         }
     }
+
+    public void move(int index) {
+        moveAmount[index]++;
+    }
 }
