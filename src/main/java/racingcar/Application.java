@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -13,12 +14,21 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         List<String> cars = Arrays.stream(Console.readLine().split(","))
                         .toList();
+        if (cars.stream()
+                .map(String::length)
+                .max(Integer::compareTo).get() >= 5) {
+            throw new IllegalArgumentException("String index out of range: 5");
+        }
         System.out.println("시도할 회수는 몇회인가요?");
-        int round = Integer.parseInt(Console.readLine());
+        int round;
+        try {
+            round = Integer.parseInt(Console.readLine());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Input is not an integer");
+        }
 
         System.out.println("\n실행 결과");
         List<Integer> progress = new ArrayList<>(Collections.nCopies(cars.size(), 0));
-        System.out.println(progress);
         for (int i = 0; i < round; i++) {  // 라운드 시작
             for (int j = 0; j < cars.size(); j++) {  // 각 차의 주사위
                 int dice = Randoms.pickNumberInRange(0, 9);
