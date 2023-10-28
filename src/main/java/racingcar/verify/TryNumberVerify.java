@@ -12,6 +12,9 @@ public class TryNumberVerify {
     }
 
     public boolean verify() {
-        return Pattern.matches("^\\d+$", tryNumberScanService.getStringTryNumber());
+        if (!Pattern.matches("^\\d+$", tryNumberScanService.getStringTryNumber())) {
+            throw new IllegalArgumentException();
+        }
+        return true;
     }
 }

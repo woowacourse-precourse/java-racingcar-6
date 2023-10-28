@@ -11,6 +11,9 @@ public class RacingCarNameVerify {
     }
 
     public boolean verify() {
-        return Pattern.matches("^\\w{1,5}(,\\w{1,5})+", racingCarNameScanService.getRacingCarNames());
+        if (!Pattern.matches("^\\w{1,5}(,\\w{1,5})+", racingCarNameScanService.getRacingCarNames())) {
+            throw new IllegalArgumentException();
+        }
+        return true;
     }
 }
