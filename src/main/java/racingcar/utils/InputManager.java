@@ -31,19 +31,11 @@ public enum InputManager {
                 if(Integer.parseInt(input)<0)
                     throw new IllegalArgumentException();
                 return Integer.parseInt(input);
-            }catch (NumberFormatException e){
+            }catch (RuntimeException e){
                 throw new IllegalArgumentException();
             }
         }
     };
 
-
-
-
-    // TODO: 2023-10-27 오후 4:31  입력 상황에 맞게 입력 예외 처리
-    /*
-        사용자 이름 입력
-        시행 횟수 입력
-     */
     public abstract Object input();
 }
