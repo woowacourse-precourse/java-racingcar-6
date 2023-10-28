@@ -12,11 +12,7 @@ public class OutputView {
     private static final String SPLIT_DELIMITER = ", ";
     private static final String LOCATION_COUNTER = "-";
 
-    private OutputView() { // util class
-        throw new IllegalArgumentException();
-    }
-
-    public static void printRoundResult(Cars cars) {
+    public void printRoundResult(Cars cars) {
         System.out.println(ROUND_RESULT);
         for (Car car : cars.getCarList()) {
             printCarProgress(car);
@@ -24,7 +20,7 @@ public class OutputView {
         System.out.println();
     }
 
-    private static void printCarProgress(Car car) {
+    private void printCarProgress(Car car) {
         StringBuilder progress = new StringBuilder(car.getName() + PROGRESS_PREFIX);
         for (int i = 0; i < car.getLocation(); i++) {
             progress.append(LOCATION_COUNTER);
@@ -32,7 +28,7 @@ public class OutputView {
         System.out.println(progress);
     }
 
-    public static void printWinners(List<Car> winners) {
+    public void printWinners(List<Car> winners) {
         System.out.print(FINAL_WINNER);
         for (int i = 0; i < winners.size(); i++) {
             System.out.print(winners.get(i).getName());
@@ -40,7 +36,7 @@ public class OutputView {
         }
     }
 
-    private static void printDelimiterIfNotLast(List<Car> winners, int i) {
+    private void printDelimiterIfNotLast(List<Car> winners, int i) {
         if (i < winners.size() - 1) {
             System.out.print(SPLIT_DELIMITER);
         }
