@@ -36,6 +36,17 @@ public class Application {
         String tryInput = Console.readLine();
         int tryCount = Integer.parseInt(tryInput);
 
+        // * 시도 횟수 예외 처리
+        // 입력 값이 숫자가 아닌 경우
+        if (Character.isDigit(tryCount)) {
+            throw new IllegalArgumentException();
+        }
+
+        // 입력 값이 0 이하인 경우
+        if (tryCount <= 0) {
+            throw new IllegalArgumentException();
+        }
+
         System.out.println();
         System.out.println("실행 결과");
         // 게임 시작
