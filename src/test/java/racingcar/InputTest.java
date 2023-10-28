@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class InputTest {
   @DisplayName("자동자 이름 범위 테스트")
   @Test
   void 자동차_이름_범위_테스트() {
-    final List<String> input = Collections.singletonList("car1,qncj5224");
+    List<String> input = Arrays.asList("pobi", "qncj5224");
 
     assertThrows(IllegalArgumentException.class, () -> {
       CarNameValidator.isNameLengthValid(input);
@@ -28,9 +29,18 @@ public class InputTest {
   @DisplayName("자동자 이름 개수 테스트")
   @Test
   void 자동차_이름_개수_테스트() {
-    final List<String> input = Collections.singletonList("a");
+    List<String> input = List.of("pobi");
 
     assertThatThrownBy(() -> CarNameValidator.isNumberOfCarsValid(input))
+        .isInstanceOf(IllegalArgumentException.class);
+  }
+
+  @DisplayName("자동자 이름 중복 테스트")
+  @Test
+  void 자동차_이름_중복_테스트() {
+    List<String> input = Arrays.asList("pobi", "pobi");
+
+    assertThatThrownBy(() -> CarNameValidator.isNameDuplicate(input))
         .isInstanceOf(IllegalArgumentException.class);
   }
 
