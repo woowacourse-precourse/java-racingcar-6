@@ -22,4 +22,8 @@ public class Car {
         }
         return false;
     }
+
+    public String getName() {
+        return this.name;
+    }
 }
