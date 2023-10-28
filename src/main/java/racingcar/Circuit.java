@@ -31,4 +31,8 @@ public class Circuit {
                 .map(Car::getCarName)
                 .collect(Collectors.joining(", "));
     }
+
+    public void printCarsTrace() {
+        cars.forEach(car -> System.out.println(car.getCarStatus()));
+    }
 }
