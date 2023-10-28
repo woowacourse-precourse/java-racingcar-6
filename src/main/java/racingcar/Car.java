@@ -22,7 +22,7 @@ public final class Car {
     }
 
     private void validation(String name){
-        if(!Application.CARS_PATTERN.matcher(name).matches()){
+        if(!Util.CARS_PATTERN.matcher(name).matches()){
             throw new IllegalArgumentException("자동차 이름은 1글자에서 5글자 사이의 알파벳만 가능해요.");
         }
     }

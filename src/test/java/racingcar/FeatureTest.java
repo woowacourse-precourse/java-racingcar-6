@@ -1,97 +1,160 @@
 package racingcar;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
-import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
-import java.util.ArrayList;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
-import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import racingcar.Util.OutputMessage;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class FeatureTest extends NsTest {
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
+    Game game = new Game();
 
-    // 테스트 후 필드 초기화
-    @AfterEach
-    public void afterEach() {
-        Application.cars = new ArrayList<>();
-        Application.attempt = 0;
+    @BeforeAll
+    static void inputInitialize() {
+        StringBuilder inputBuilder = new StringBuilder();
+        // input_정상_케이스
+        inputBuilder.append("lee,juho,test");
+        inputBuilder.append("\n");
+        inputBuilder.append("3");
+
+        // input_자동차_5글자_이상_입력_시_예외_발생
+        inputBuilder.append("\n");
+        inputBuilder.append("lee,juho,testAbc");
+
+        // input_자동차_알파벳_제외_문자_입력_시_예외_발생
+        inputBuilder.append("\n");
+        inputBuilder.append("lee,juho,t12c");
+
+        // input_자동차_중복된_이름_입력_시_예외_발생
+        inputBuilder.append("\n");
+        inputBuilder.append("juho,juho,test");
+
+        // input_횟수_0회_입력_시_예외_발생
+        inputBuilder.append("\n");
+        inputBuilder.append("lee,juho,test");
+        inputBuilder.append("\n");
+        inputBuilder.append("0");
+
+        // input_횟수_문자_입력_시_예외_발생
+        inputBuilder.append("\n");
+        inputBuilder.append("lee,juho,test");
+        inputBuilder.append("\n");
+        inputBuilder.append("a");
+
+        InputStream testInput = new ByteArrayInputStream(inputBuilder.toString().getBytes());
+        System.setIn(testInput);
     }
 
     @Test
+    @Order(1)
     void input_정상_케이스(){
-        //given
-        String carNamesInput = "lee,juho,test";
-        List<String> carNameList = Arrays.asList(carNamesInput.split(","));
-        String attemptInput = "3";
-        //when
-        run(carNamesInput,attemptInput);
+        String carNames = "lee,juho,test";
+        String attempt = "3";
 
-        List<Car> cars = Application.cars;
-        int attempt = Application.attempt;
+        //given
+        List<String> carNameList = Arrays.asList(carNames.split(","));
+
+        //when
+        game.input();
+
         //then
-        assertThat(cars.size()).isEqualTo(3);
-        for (int i = 0; i < cars.size(); i++) {
-            Car car = cars.get(i);
+        assertThat(game.cars.size()).isEqualTo(3);
+
+        for (int i = 0; i < game.cars.size(); i++) {
+            Car car = game.cars.get(i);
             String carName = carNameList.get(i);
             assertThat(car.getName()).isEqualTo(carName);
         }
-        assertThat(Integer.parseInt(attemptInput)).isEqualTo(attempt);
+
+        assertThat(game.attempt).isEqualTo(Integer.parseInt(attempt));
     }
     @Test
+    @Order(2)
     void input_자동차_5글자_이상_입력_시_예외_발생(){
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("juho,leejuho,hello,test", "5"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
+        //given
+        String carNames = "lee,juho,testAbc";
+        String attempt = "3";
+
+        //when
+        //then
+        assertThatThrownBy(game::input)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(Util.OutputMessage.CAR_NAME_LENGTH_ERROR_MESSAGE.getMessage());
     }
     @Test
+    @Order(3)
     void input_자동차_알파벳_제외_문자_입력_시_예외_발생(){
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("juho,2juho,hello,test", "5"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
+        //given
+        String carNames = "lee,juho,t12c";
+        String attempt = "3";
+        //when
+        //then
+        assertThatThrownBy(game::input)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(Util.OutputMessage.CAR_NAME_LENGTH_ERROR_MESSAGE.getMessage());
     }
     @Test
+    @Order(4)
     void input_자동차_중복된_이름_입력_시_예외_발생(){
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("juho,juho,hello,test", "5"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
+        //given
+        String carNames = "juho,juho,test";
+        String attempt = "3";
+        //when
+        //then
+        assertThatThrownBy(game::input)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(OutputMessage.SAME_CAR_NAME_ERROR_MESSAGE.getMessage());
     }
     @Test
+    @Order(5)
     void input_횟수_0회_입력_시_예외_발생(){
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("juho,lee,hello,test", "0"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
+        //given
+        String carNames = "lee,juho,test";
+        String attempt = "0";
+        //when
+        //then
+        assertThatThrownBy(game::input)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(OutputMessage.ATTEMPT_VALUE_ERROR_MESSAGE.getMessage());
     }
     @Test
+    @Order(6)
     void input_횟수_문자_입력_시_예외_발생(){
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("juho,lee,hello,test", "a"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
+        //given
+        String carNames = "lee,juho,test";
+        String attempt = "a";
+        //when
+        //then
+        assertThatThrownBy(game::input)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(OutputMessage.ATTEMPT_VALUE_ERROR_MESSAGE.getMessage());
     }
     @Test
     void race_랜덤값_3_이하_시_거리_유지(){
         //given
-        String carNamesInput = "lee,juho,test";
-        String attemptInput = "1";
+        game.cars = Arrays.asList(new Car("lee"),
+                new Car("juho"));
+        game.attempt = 2;
 
         //when
         assertRandomNumberInRangeTest(
                 () -> {
-                    run(carNamesInput,attemptInput);
+                    game.race();
                 },
                 0,1,2,3
         );
-        List<Car> cars = Application.cars;
+        List<Car> cars = game.cars;
 
         //then
         for (int i = 0; i < cars.size(); i++) {
@@ -102,17 +165,21 @@ public class FeatureTest extends NsTest {
     @Test
     void race_랜덤값_4_이상_시_거리_증가(){
         //given
-        String carNamesInput = "lee,juho,test";
-        String attemptInput = "2";
+        game.cars = Arrays.asList(new Car("lee"),
+                new Car("juho"),
+                new Car("test"));
+        game.attempt = 2;
+        List<Car> cars = game.cars;
 
         //when
         assertRandomNumberInRangeTest(
                 () -> {
-                    run(carNamesInput,attemptInput);
+                    for (int i = 0; i < game.attempt; i++) {
+                        game.race();
+                    }
                 },
                 4,5,6,7,8,9
         );
-        List<Car> cars = Application.cars;
 
         //then
         for (int i = 0; i < cars.size(); i++) {
@@ -123,17 +190,21 @@ public class FeatureTest extends NsTest {
     @Test
     void distanceOutput_거리_별_출력_값_확인(){
         //given
-        String carNamesInput = "lee,juho";
-        String attemptInput = "3";
+        game.cars = Arrays.asList(new Car("lee"),
+                new Car("juho"),
+                new Car("test"));
+        List<Car> cars = game.cars;
+        for (int i = 0; i < cars.size(); i++) {
+            Car car = cars.get(i);
+            for (int j = 0; j < i; j++) {
+                car.run(4);
+            }
+        }
 
         //when
-        assertRandomNumberInRangeTest(
-                () -> {
-                    run(carNamesInput,attemptInput);
-                },
-                STOP,MOVING_FORWARD,STOP,MOVING_FORWARD,MOVING_FORWARD,MOVING_FORWARD
-        );
-        List<Car> cars = Application.cars;
+        for (Car car : cars) {
+            game.distanceOutput(car);
+        }
 
         //then
         for (int i = 0; i < cars.size(); i++) {
@@ -150,36 +221,33 @@ public class FeatureTest extends NsTest {
     @Test
     void getWinners_우승자가_한_명인_경우(){
         //given
-        String carNamesInput = "lee,juho";
-        String attemptInput = "3";
+        game.cars = Arrays.asList(new Car("lee"),
+                new Car("juho"));
+        game.cars.get(0).run(4);
+        game.cars.get(1).run(3);
 
         //when
-        assertRandomNumberInRangeTest(
-                () -> {
-                    run(carNamesInput,attemptInput);
-                },
-                STOP,MOVING_FORWARD,STOP,MOVING_FORWARD,MOVING_FORWARD,MOVING_FORWARD
-        );
+        List<String> winners = game.getWinners();
 
         //then
-        assertThat(output()).contains("최종 우승자 : juho");
+        assertThat(winners.size()).isEqualTo(1);
+        assertThat(winners.get(0)).isEqualTo("lee");
     }
     @Test
     void getWinners_우승자가_두_명인_경우(){
         //given
-        String carNamesInput = "lee,juho";
-        String attemptInput = "3";
+        game.cars = Arrays.asList(new Car("lee"),
+                new Car("juho"));
+        game.cars.get(0).run(4);
+        game.cars.get(1).run(4);
 
         //when
-        assertRandomNumberInRangeTest(
-                () -> {
-                    run(carNamesInput,attemptInput);
-                },
-                MOVING_FORWARD,MOVING_FORWARD,MOVING_FORWARD,MOVING_FORWARD,MOVING_FORWARD,MOVING_FORWARD
-        );
+        List<String> winners = game.getWinners();
 
         //then
-        assertThat(output()).contains("최종 우승자 : lee,juho");
+        assertThat(winners.size()).isEqualTo(2);
+        assertThat(winners.get(0)).isEqualTo("lee");
+        assertThat(winners.get(1)).isEqualTo("juho");
     }
 
     @Override
