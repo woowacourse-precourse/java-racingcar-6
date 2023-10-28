@@ -33,4 +33,11 @@ public class CarRacingGame {
             carRepository.updateIncreasedCarPosition(car);
         }
     }
+
+    public void saveCars(String[] carNames) {
+        for (String carName : carNames) {
+            carRepository.save(carName);
+        }
+    }
+
 }
