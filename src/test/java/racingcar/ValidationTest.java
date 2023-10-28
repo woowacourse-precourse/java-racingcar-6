@@ -29,7 +29,7 @@ class ValidationTest {
             System.out.println("s = " + s);
         }
 
-        // when then
+        // when - then
         Validation.validateCarNames(legals);
 
         assertThatThrownBy(() -> Validation.validateCarNames(illegals1))
@@ -51,7 +51,7 @@ class ValidationTest {
         String illegal2 = "-1";
         String illegal3 = "123a";
 
-        // when then
+        // when - then
         Validation.validateGameCount(legal);
 
         assertThatThrownBy(() -> Validation.validateGameCount(illegal1))

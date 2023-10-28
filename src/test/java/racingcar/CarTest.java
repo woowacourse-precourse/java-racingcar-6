@@ -13,16 +13,16 @@ class CarTest {
     @Test
     @DisplayName("move()와 toString()")
     void car_move_toString() {
-        //given
+        // given
         Car carA = new Car("car");
         Car carB = new Car("race");
 
-        //when
+        // when
         carA.move();
         carA.move();
         carA.move();
 
-        //then
+        // then
         assertThat(carA.toString()).isEqualTo("car : ---");
         assertThat(carB.toString()).isEqualTo("race : ");
     }
@@ -30,7 +30,7 @@ class CarTest {
     @Test
     @DisplayName("compareTo() 테스트")
     void car_compareTo() {
-        //given
+        // given
         Car carA = new Car("carA");
         Car carB = new Car("carB");
         Car carC = new Car("carC");
@@ -42,7 +42,7 @@ class CarTest {
         cars.add(carC);
         cars.add(carD);
 
-        //when
+        // when
         carA.move();
         carA.move();
         carB.move();
@@ -50,7 +50,7 @@ class CarTest {
         carB.move();
         carC.move();
 
-        //then
+        // then
         assertThat(Collections.max(cars)).isEqualTo(carB);
     }
 }
