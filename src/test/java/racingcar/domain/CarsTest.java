@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -43,5 +45,25 @@ class CarsTest {
 
         assertEquals(0, firstCar.getPosition());
         assertEquals(0, secondCar.getPosition());
+    }
+
+
+    @Test
+    public void testGetWinners() {
+        Car firstCar = new Car("pobi");
+        Car secondCar = new Car("woni");
+        Car thirdCar = new Car("jun");
+
+        Cars cars = new Cars(List.of(firstCar, secondCar, thirdCar));
+
+        firstCar.move(4);
+        secondCar.move(5);
+        thirdCar.move(2);
+
+        List<String> winners = cars.getWinners();
+
+        assertTrue(winners.contains("pobi"));
+        assertTrue(winners.contains("woni"));
+        assertFalse(winners.contains("jun"));
     }
 }
