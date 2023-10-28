@@ -1,4 +1,8 @@
-package racingcar;
+package racingcar.domain.car;
+
+import racingcar.constant.ConstantNumber;
+import racingcar.constant.ErrorMessage;
+import racingcar.domain.car.Car;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,14 +25,18 @@ public class CarList {
     // 자동차 이름이 널값인지 확인하기
     public static void isNull(String carName) throws IllegalArgumentException {
         if (carName.isEmpty()){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_NULL_ERROR.print());
         }
     }
 
     // 자동차 이름이 5자 이하인지 확인하기
     public static void isOverSizeCarName(String carName) throws IllegalArgumentException {
-        if (carName.length() > Constant.CAR_NAME_MAX_SIZE.value()){
-            throw new IllegalArgumentException();
+        if (carName.length() > ConstantNumber.CAR_NAME_MAX_SIZE.value()){
+            throw new IllegalArgumentException(ErrorMessage.CRA_NAME_OVER_SIZE_ERROR.print());
         }
+    }
+
+    public List<Car> getCarList() {
+        return carList;
     }
 }
