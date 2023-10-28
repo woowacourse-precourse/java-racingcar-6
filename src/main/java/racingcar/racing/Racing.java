@@ -2,7 +2,7 @@ package racingcar.racing;
 
 import racingcar.car.Car;
 import racingcar.car.Cars;
-import racingcar.generator.NumberGenerator;
+import racingcar.generator.RandomNumberGenerator;
 
 import java.util.stream.Collectors;
 
@@ -15,7 +15,7 @@ public record Racing(Cars cars) {
 
     public void runOneRound() {
         for (Car car : cars.cars()) {
-            int randomValue = NumberGenerator.generateRandomNumber();
+            int randomValue = RandomNumberGenerator.generateRandomNumber();
             if (randomValue >= MIN_FORWARD_THRESHOLD) {
                 car.forward();
             }
