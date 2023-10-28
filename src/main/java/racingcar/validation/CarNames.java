@@ -33,4 +33,14 @@ public class CarNames {
     boolean isLongName(String name) {
         return name.length() > 5;
     }
+
+    void checkSameNames(String in) throws IllegalArgumentException {
+        if (hasDuplicateNames(splitNames(in))) {
+            throw new IllegalArgumentException("중복된 입력이 존재합니다.");
+        }
+    }
+
+    boolean hasDuplicateNames(List<String> names) {
+        return names.size() != names.stream().distinct().count();
+    }
 }

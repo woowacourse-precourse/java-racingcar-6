@@ -38,4 +38,13 @@ public class ValidationTest {
                     .isInstanceOf(IllegalArgumentException.class);
         });
     }
+
+    @Test
+    void 같은_이름이_들어온_경우_예외처리() {
+        List<String> inputs = Arrays.asList("a,a,a", "pobi,crong,pobi", "*,!,!");
+        inputs.stream().forEach(input -> {
+            assertThatThrownBy(() -> new CarNames().checkSameNames(input))
+                    .isInstanceOf(IllegalArgumentException.class);
+        });
+    }
 }
