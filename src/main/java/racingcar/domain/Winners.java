@@ -34,4 +34,8 @@ public class Winners {
                 .filter(car -> car.getDistance() == maxDistance)
                 .collect(Collectors.toList());
     }
+
+    public List<Car> getWinningsCars() {
+        return winners;
+    }
 }
