@@ -30,14 +30,14 @@ public class InputViewTest extends NsTest {
     @Test
     void 이동횟수_입력에_대한_예외_처리() {
         //given
-        String carName = "carName";
+        String carName = "name";
         String normalInput = "5";
         String sizeOverInput = "10001";
         String specialCharactersInput = "specialCharacters";
         //when
-        Throwable normal = catchThrowable(() -> runException(normalInput, normalInput));
-        Throwable sizeOver = catchThrowable(() -> runException(normalInput, sizeOverInput));
-        Throwable specialCharacters = catchThrowable(() -> runException(normalInput, specialCharactersInput));
+        Throwable normal = catchThrowable(() -> runException(carName, normalInput));
+        Throwable sizeOver = catchThrowable(() -> runException(carName, sizeOverInput));
+        Throwable specialCharacters = catchThrowable(() -> runException(carName, specialCharactersInput));
         //then
         assertThat(normal).doesNotThrowAnyException();
         assertThat(sizeOver).isInstanceOf(IllegalArgumentException.class);
