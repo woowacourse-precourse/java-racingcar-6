@@ -12,6 +12,7 @@ import racingcar.view.OutputView;
 
 public class RacingCarGameController {
 
+    private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
     private Cars cars;
     private Player player;
 
@@ -28,7 +29,7 @@ public class RacingCarGameController {
         int numberOfMoves = Utils.convertStringToInt(InputView.inputNumberOfMoves());
 
         for (int i = 0; i < numberOfMoves; i++) {
-            List<String> currentLocations = cars.moveCars(RandomNumberGenerator.generate());
+            List<String> currentLocations = cars.moveCars(randomNumberGenerator);
             OutputView.printCurrentLocations(currentLocations);
         }
 

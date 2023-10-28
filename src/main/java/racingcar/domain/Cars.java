@@ -18,9 +18,9 @@ public class Cars {
         this.carList = carList;
     }
 
-    public List<String> moveCars(int randomNumber) {
+    public List<String> moveCars(RandomNumberGenerator randomNumberGenerator) {
         return carList.stream()
-                .map(car -> car.move(randomNumber))
+                .map(car -> car.move(randomNumberGenerator.generate()))
                 .collect(Collectors.toList());
     }
 
