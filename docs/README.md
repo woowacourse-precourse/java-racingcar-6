@@ -6,9 +6,10 @@
 - [x] 자동차 이름은 5자 이하 : validateCarNameLength(String carName)
   -[x] 잘못 입력 : IllegalArgumentException 발생 
 - [x] 우승자 목록 생성
-- [] 우승자 출력
-  - [] 혼자 : 그냥 출력
-  - [] 여러명 : 쉼표 구분 출력
+- [x] 우승자 출력 : 쉼표 구분 출력
 - [x] 시도 횟수 입력
   -[x] 0이하일 시 IllegalArgumentException(0은 따로 처리 할지 확인)
-  -[x] 정수가 아닐 시 IllegalArgumentException 
+  -[x] 정수가 아닐 시 IllegalArgumentException
+- [] 레이스 진행
+  - [] 한 판 진행
+  - [] 최종 까지 진행
