@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class OutputView {
@@ -7,6 +8,7 @@ public class OutputView {
     private final String INPUT_TIMES = "시도할 회수는 몇회인가요?";
     private final String PRINT_RESULT = "실행 결과";
     private final String PRINT_WINNER = "최종 우승자 : ";
+    private final String DELIMITER = ", ";
 
     public void inputNames() {
         System.out.println(INPUT_NAME);
@@ -23,7 +25,8 @@ public class OutputView {
     public void printPlayerStatus(String status) {
         System.out.println(status);
     }
-    public void printWinner(String[] players) {
-        System.out.println(PRINT_WINNER + String.join(",", players));
+    public void printWinner(ArrayList<String> players) {
+        System.out.println();
+        System.out.println(PRINT_WINNER + String.join(DELIMITER, players));
     }
 }
