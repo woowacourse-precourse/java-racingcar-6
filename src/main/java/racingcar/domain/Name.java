@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-record Name(
+public record Name(
         String value
 ) {
 
