@@ -28,6 +28,7 @@ public class RacingGame {
             OutputView.printCurrentStatus(gameStatus.getCarNames(), gameStatus.getCarpositions());
             gameStatus.nextStatus();
         }
+        OutputView.printWinner(gameStatus.getMaxCarNames());
     }
 
     private Cars createCars(String input) {
