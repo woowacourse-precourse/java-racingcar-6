@@ -11,7 +11,7 @@ class InputPatternTest {
 
     @Test
     @DisplayName("쉼표(,)로 구분해서 입력하지 않으면 true를 반환한다.")
-    void checkCarNamesPattern() {
+    void check_car_names_pattern() {
         //given
         //when
         boolean isNotMatch = InputPattern.isNotMatchCarNamesPattern("pobi/woni,jun");
