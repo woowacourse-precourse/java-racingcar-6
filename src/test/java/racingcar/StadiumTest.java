@@ -27,7 +27,7 @@ class StadiumTest {
         List<String> nameList = Arrays.asList(input.split(","));
         List<Car> cars = new ArrayList<>();
         for(String name : nameList){
-            cars.add(new Car(name));
+            cars.add(new Car(name, 0));
         }
 
         stadium.saveInputCars(input);

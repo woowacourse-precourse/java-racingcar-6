@@ -2,74 +2,69 @@
 기능 구현 목록 초안입니다.  
 
 ----
-## class Stadium
-
 차 목록 입력 받기
 ```
-String inputCars()
+Stadium.inputCars()
     경주할 차 목록을 입력받는다.
 ```
 ```
-void saveInputCars()
+Stadium.saveInputCars()
     입력받은 차 목록을 저장한다.
 ```
 
 전진 횟수 입력 받기
 ```
-String inputTryCount()
+Stadium.inputTryCount()
     전진 횟수를 입력받는다. 
 ```
 ```
-void saveTryCount()
+Stadium.saveTryCount()
     전진 횟수를 저장한다.
 ```
-경기 진행
+자동차 전진 기능
 ```
-void goCars()
+Stadium.runAllCars()
     모든 차를 전진한다.
+```
+```
+Car.run()
+    전진한다.
+```
+```
+Car.isRunnable()
+    전진 가능한지 확인한다.
 ```
 
 최종 승자 띄우기
 ```
-List findWinner()
+Stadium.findWinner()
     최종 승자를 찾는다.
 ```
 ```
-void printWinner()
+Stadium.printWinner()
     최종 승자를 출력한다.
 ```
-## class Car 
-기능 목록
-```
-void run()
-    전진한다.
-```
-```
-isRunnable()
-    전진 가능한지 확인한다.
-```
 
-## SnapShot
 경기 진행 중 기록을 남기는 스냅샷 기능
 ```
-void printSnapshot(int order)
+Snapshot.printSnapshot(int order)
     order번째 전진의 스냅샷을 출력한다.
 ```
 ```
-void setSnapshot(int order)
+Snapshot.setSnapshot(int order)
     order번째 전진의 스냅샷을 세팅한다.
 ```
 ```
-Map getSnapShot(int order)
+Snapshot.getSnapshot(int order)
     order번째 전진의 스냅샷을 가져온다.
 ```
 
-## class Util
+유틸
 ```
-int getRandomSingleDigit()
+Util.getRandomSingleDigit()
     랜덤으로 한 자리 숫자를 리턴한다.
 ```
 ```
-boolean getBooleanByNumber()
+Util.getBooleanByNumber()
     숫자 값에 따라 true/false를 생성한다.
 ```

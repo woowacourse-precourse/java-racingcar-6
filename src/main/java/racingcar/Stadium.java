@@ -23,7 +23,7 @@ public class Stadium {
             if(name.length() > 5) {
                 throw new IllegalArgumentException("각 자동차 이름은 5자 이하여야 한다.");
             }
-            this.cars.add(new Car(name));
+            this.cars.add(new Car(name, 0));
         }
     }
 
@@ -46,7 +46,15 @@ public class Stadium {
         this.tryCount = count;
     }
 
+    void runAllCars() {
+        this.cars.forEach(Car::run);
+    }
+
     public List<Car> getCars() {
         return cars;
+    }
+
+    public int getTryCount() {
+        return tryCount;
     }
 }
