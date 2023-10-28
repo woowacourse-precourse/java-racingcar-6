@@ -6,7 +6,7 @@ public class Validator {
 
 	private static final int LENGTH = 5;
 
-	public void validateOutOfLength(String carName) {
+	public static void validateOutOfLength(String carName) {
 		if (carName.length() > LENGTH) {
 			throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH_ERROR.getMessage());
 		}
