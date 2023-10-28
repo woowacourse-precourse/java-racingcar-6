@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.*;
+
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -20,18 +22,18 @@ public class Application {
             System.out.println("");
             l++;
         }
+
+        carRacing.announceWinner();
     }
 }
 
 class Event {
-    private String inputName;
-    private int movePoint;
     public int moveTimes;
     private int[] scoreBoard;
     private String[] players;
 
     void filterName() {
-        inputName = Console.readLine();
+        String inputName = Console.readLine();
         players = inputName.split(",");
 
         if ( !(inputName.contains(",")) ) {
@@ -59,10 +61,9 @@ class Event {
     }
 
     void moveForward() {
-
         int i = 0;
         while (i < players.length ) {
-            movePoint = Randoms.pickNumberInRange(0,9);
+            int movePoint = Randoms.pickNumberInRange(0, 9);
 
             if (movePoint >= 4) {
                 scoreBoard[i] = scoreBoard[i] + movePoint;
@@ -79,6 +80,36 @@ class Event {
             }
 
             System.out.print("\n");
+        }
+    }
+
+    void announceWinner() {
+        int maxValue = scoreBoard[0];
+        int maxIndex = 0;
+        ArrayList<String> addWinner = new ArrayList<>();
+
+        for (int i = 1; i < scoreBoard.length; i++) {
+            if (scoreBoard[i] > maxValue) {
+                maxValue = scoreBoard[i];
+                maxIndex = i;
+            }
+        }
+
+        for (int j = 0; j < scoreBoard.length; j++) {
+            if (scoreBoard[j] == scoreBoard[maxIndex]) {
+                addWinner.add(players[j]);
+            }
+        }
+
+        String[] winners = new String[addWinner.size()];
+        addWinner.toArray(winners);
+
+        System.out.print("최종 우승자 : " + winners[0]);
+
+        if (winners.length > 1) {
+            for (int k = 1; k < winners.length; k++) {
+                System.out.print(", " + winners[k]);
+            }
         }
     }
 
