@@ -4,15 +4,15 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private String name;
-    private String distance;
+    private String route;
 
     public Car(String name) {
         this.name = name;
-        this.distance = "";
+        this.route = "";
     }
 
     public void moveForward() {
-        distance += "-";
+        route += "-";
     }
 
     public boolean isMovable() {
@@ -27,7 +27,7 @@ public class Car {
         return this.name;
     }
 
-    public String getDistance() {
-        return this.distance;
+    public String getRoute() {
+        return this.route;
     }
 }

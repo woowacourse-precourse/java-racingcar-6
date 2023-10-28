@@ -13,7 +13,7 @@
 - [x] 자동차는 전진한다 - Car.moveForward
 - [x] 0에서 9 사이에서 무작위 값을 구한 후 값이 4 이상인지 알려준다 - Car.isMovable
 - [x] 자동차가 이름을 알려준다 - Car.getName
-- [x] 자동차가 전진한 거리를 알려준다 - Car.getDistance
+- [x] 자동차가 전진한 거리를 알려준다 - Car.getRoute
 
 #### 입력
 - [x] 사용자로부터 경주할 자동차 이름을 입력받는다 - InputManager.readCarNames
