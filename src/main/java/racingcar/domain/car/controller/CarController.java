@@ -14,9 +14,12 @@ public class CarController {
 
     public void process() {
         saveCarsProcess();
-        carInputView.printGameStart();
-        String carNames = CarInputView.receiveUserInput();
-        carService.saveCars(carNames);
+        loopRacingCarProcess();
+    }
+
+    private void loopRacingCarProcess() {
+        int tryCount = carInputView.getTryCount();
+        carService.loopCarRacing();
     }
 
     private void saveCarsProcess() {

@@ -13,32 +13,18 @@ public class CarService {
 
     private final CarRepository carRepository = new CarRepository();
 
-    public void saveCars(String carNames) {
-        List<Car> car = createCar(carNames);
-
-        saveCar(car);
+    public void saveCars(List<String> carNames) {
+        saveCar(createCars(carNames));
     }
 
     private void saveCar(List<Car> cars) {
         cars.forEach(carRepository::save);
     }
 
-    private List<Car> createCar(String carNames) {
-        ArrayList<Car> cars = new ArrayList<>();
-//
-//        List<String> lists = Arrays.stream(carNames.split(","))
-//                .toList();
-//
-//        for (String list : lists) {
-//            if (list.length() > 5) {
-//                throw new IllegalArgumentException();
-//            }
-//        }
-
-        Arrays.stream(carNames.split(","))
-                .forEach(carName -> cars.add(new Car(carName)));
-
-        return cars;
+    private List<Car> createCars(List<String> carNames) {
+        return carNames.stream()
+                .map(Car::new)
+                .toList();
     }
 
     public void startGame(int tryCount) {

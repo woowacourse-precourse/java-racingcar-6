@@ -9,9 +9,6 @@ import static racingcar.domain.util.InputMessage.*;
 
 public class CarInputView {
 
-    public static void printGameStart() {
-        System.out.println(RECEIVE_CAR_NAME.getMessage());
-    }
 
     public static String receiveUserInput() {
         String userInput = Console.readLine();
@@ -28,20 +25,24 @@ public class CarInputView {
         return userInput;
     }
 
-    public static void printTryCount() {
-        System.out.println(RECEIVE_TRY_COUNT.getMessage());
-    }
+
 
     public static void printGameEnd() {
         System.out.println();
     }
 
     public List<String> getCarNames() {
+        printGameStart();
         String carNames = Console.readLine();
         return Arrays.stream(carNames.split(","))
                 .filter(this::isValidCarNameLength)
                 .toList();
     }
+
+    private void printGameStart() {
+        System.out.println(RECEIVE_CAR_NAME.getMessage());
+    }
+
 
     private boolean isValidCarNameLength(String carName) {
         if (carName.length() > 5) {
@@ -49,5 +50,29 @@ public class CarInputView {
         }
 
         return true;
+    }
+
+    public int getTryCount() {
+        printTryCount();
+        String tryCount = Console.readLine();
+        checkIsDigit(tryCount);
+        return Integer.parseInt(tryCount);
+    }
+
+    private void checkIsDigit(String userInput) {
+        if (isDigit(userInput)) {
+            return;
+        }
+
+        throw new IllegalArgumentException();
+    }
+
+    private boolean isDigit(String userInput) {
+        return userInput.chars()
+                .allMatch(Character::isDigit);
+    }
+
+    private void printTryCount() {
+        System.out.println(RECEIVE_TRY_COUNT.getMessage());
     }
 }
