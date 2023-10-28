@@ -169,4 +169,19 @@ public class ValidException {
         }
         return false;
     }
+
+    /**
+     * 자동차의 이름을 입력할때 자동차 하나만 입력하면 안된다.
+     *
+     * @param inputStr
+     * @return
+     */
+    public static boolean isValidOneNameOfRaceCarCheck(String inputStr) {
+        List<String> nameOfCarList = Arrays.stream(inputStr.split(",")).toList();
+        Integer sizeNameOfCarList = nameOfCarList.size();
+        if (sizeNameOfCarList <= 1) {
+            throw new IllegalArgumentException(ValidConstants.MSG_COUNT_CAR_NAME_ONE());
+        }
+        return true;
+    }
 }

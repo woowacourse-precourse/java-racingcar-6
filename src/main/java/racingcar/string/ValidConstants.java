@@ -38,6 +38,10 @@ public class ValidConstants {
     }
 
     public static String MSG_COMMA_NEXT_BLANK() {
-        return "',' 다음에 문자가 업습니다.";
+        return "',' 다음에 문자가 없습니다.";
+    }
+
+    public static String MSG_COUNT_CAR_NAME_ONE() {
+        return "자동차들의 이름은 2개이상 적어 주세요.";
     }
 }
