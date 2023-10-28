@@ -23,6 +23,10 @@ public class Car {
 	private String convertCarLocationToMinusWords() {
 		StringBuilder strBuilder = new StringBuilder();
 
+		if (carLocation == 0) {
+			return " ";
+		}
+
 		IntStream.range(0, carLocation).forEach(x -> strBuilder.append("-"));
 
 		return strBuilder.toString();
