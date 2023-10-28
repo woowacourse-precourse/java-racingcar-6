@@ -8,6 +8,20 @@ import static org.assertj.core.api.Assertions.*;
 class CarTest {
 
     @Test
+    @DisplayName("자동차 정상 생성 테스트")
+    void createCarTest() {
+        String name = "kim";
+        assertThat(new Car(name).getName()).isEqualTo(name);
+    }
+
+    @Test
+    @DisplayName("자동차 생성 예외 테스트")
+    void createCarExceptionTest() {
+        String longName = "honggildong";
+        assertThatThrownBy(() -> new Car(longName)).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     @DisplayName("자동차 한칸 전진 테스트")
     void moveForwardTest() {
         Car carA = new Car("carA");
