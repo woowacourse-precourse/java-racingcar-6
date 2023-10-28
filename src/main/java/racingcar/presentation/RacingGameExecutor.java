@@ -20,23 +20,29 @@ public class RacingGameExecutor {
     }
 
     public void execute() {
-        String racingCarsNameInput = receiveRacingCars();
-        List<String> racingCarsNames = Arrays.asList(racingCarsNameInput.split(ConstStandard.CRITERIA_SEPARATE));
-        racingCarsNames.forEach(String::trim);
-
-        Long trial = Long.valueOf(receiveTrial());
+        List<String> racingCarsNames = receiveRacingCarNames();
+        Long trial = receiveTrial();
 
         RacingGame racingGame = new RacingGame(trial, racingCarsNames);
+
         racingGame.start();
     }
 
-    private String receiveRacingCars() {
+    private List<String> receiveRacingCarNames() {
         Printer.printLine(Command.ASK_CAR_NAMES.getMessage());
-        return racingCarsReader.read();
+        String carNamesInput = racingCarsReader.read();
+
+        List<String> carNames = Arrays.asList(carNamesInput.split(ConstStandard.CRITERIA_SEPARATE));
+        carNames.forEach(String::trim);
+
+        return carNames;
     }
 
-    private String receiveTrial() {
+    private Long receiveTrial() {
         Printer.printLine(Command.ASK_TRIAL.getMessage());
-        return trialReader.read();
+
+        String trialInput = trialReader.read();
+
+        return Long.valueOf(trialInput);
     }
 }
