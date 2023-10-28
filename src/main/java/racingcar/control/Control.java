@@ -63,4 +63,14 @@ public class Control {
                 .max().orElse(0);
     }
 
+    public static void printWinner(String[] list) {
+        List<String> winners = new ArrayList<>();
+        for (int i = 0; i < list.length; i++) {
+            // maxPosition인 int를 찾아 이와 같은 게 있으면 winner 리스트에 추가
+            if (carPositions.get(i) == maxPosition) {
+                winners.add(list[i]);
+            }
+        }
+        System.out.println("\n최종 우승자 : " + String.join(", ", winners));
+    }
 }
