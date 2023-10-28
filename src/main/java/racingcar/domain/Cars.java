@@ -14,6 +14,7 @@ public class Cars {
     private static final String PLEASE_INPUT_NOT_DUPLICATE_CAR_NAMES = "중복된 자동차 이름이 있습니다.";
     private static final int CAR_NAME_LENGTH_LIMIT = 5;
     private static final int CAR_INIT_COUNT = 0;
+    private static final int CAR_MOVE_DISTANCE = 1;
     private final BlankValidator blankValidator;
     private final HashMap<String, Integer> cars = new HashMap<>();
 
@@ -69,7 +70,7 @@ public class Cars {
     public void moveCar(String carName) {
         Integer position = cars.get(carName);
         if (position != null) {
-            cars.put(carName, position + 1);
+            cars.put(carName, position + CAR_MOVE_DISTANCE);
         }
     }
 
