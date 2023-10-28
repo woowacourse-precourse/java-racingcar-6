@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import static racingcar.view.CarRaceMessages.RACE_WINNERS;
 import static racingcar.view.CarRaceMessages.REQUEST_RACE_ROUNDS;
 import static racingcar.view.CarRaceMessages.START_RACE;
 
@@ -24,7 +25,7 @@ public class View {
         System.out.println();
     }
 
-    public void raceWinners() {
-        // TODO: 경기 우승자 결과 출력 구현
+    public void raceWinners(String winnersNames) {
+        System.out.println(RACE_WINNERS + winnersNames);
     }
 }
