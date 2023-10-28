@@ -7,6 +7,7 @@
   - [ ] 이름은 5자 이하인지 알 수 있다. checkNameLength()
 - [ ] 사용자는 몇 번의 이동을 할 것인지 입력할 수 있다. getRoundCount()
 - [ ] 입력한 이동 회수 만큼 라운드를 진행한다. 자동차는 4이상이면 전진한다. 이외의 경우 정지  playRound()
+  - [ ] 초기 점수를 0으로 초기화 한다. initCarPoints()
   - [ ] 각 라운드가 종료 후, 실행 결과를 출력한다.   displayResult()
   - [ ] 0~9에서 무작위 값을 추출할 수 있다. getRanNum()
 - [ ] 전체 라운드가 종료후 우승자를 출력한다. displayWinner()
