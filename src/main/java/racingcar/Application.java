@@ -20,5 +20,6 @@ public class Application {
             new GameResultPrinter().printResult(userScore);
         }
 
+        new WinnerPrinter().finalWinner(userScore);
     }
 }
