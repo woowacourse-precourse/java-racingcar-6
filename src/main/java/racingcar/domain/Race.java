@@ -1,6 +1,8 @@
 package racingcar.domain;
 
+import java.util.stream.IntStream;
 import racingcar.utils.validation.InputValidation;
+import racingcar.view.OutputView;
 
 public class Race {
     private Cars cars;
@@ -18,5 +20,14 @@ public class Race {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public void moveCars() {
+        cars.move();
+        OutputView.printResult(cars.getCars());
+    }
+
+    public void printRaceResult() {
+        IntStream.range(0, moveCount).forEach(i -> moveCars());
     }
 }

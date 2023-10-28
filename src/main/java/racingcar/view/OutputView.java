@@ -10,7 +10,12 @@ public class OutputView {
         System.out.println(Message.OUTPUT_MESSAGE);
     }
 
-    public static void printLocation(Car car) {
+    public static void printResult(List<Car> cars) {
+        cars.forEach(OutputView::printLocation);
+        System.out.println();
+    }
+
+    private static void printLocation(Car car) {
         System.out.print(car.getName() + Constant.RESULT_DELIMITER);
         System.out.println(Constant.CAR_LOCATION.repeat(car.getMoveCount()));
     }
