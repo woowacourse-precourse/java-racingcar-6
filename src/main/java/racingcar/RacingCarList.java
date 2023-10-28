@@ -29,6 +29,20 @@ public class RacingCarList {
                 .toList();
     }
 
+    public List<String> getWinners() {
+        List<RacingCarStatus> results = collectStatus();
+
+        int maxPosition = results.stream()
+                .mapToInt(RacingCarStatus::getPosition)
+                .max()
+                .orElse(0);
+
+        return results.stream()
+                .filter(result -> result.getPosition() == maxPosition)
+                .map(RacingCarStatus::getName)
+                .toList();
+    }
+
     private void validateNameList(List<String> names) {
         validateDistinctName(names);
         validateNameCount(names);
