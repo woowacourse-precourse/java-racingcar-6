@@ -3,6 +3,7 @@ package racingcar;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class CarTest {
     @Test
@@ -45,5 +46,14 @@ public class CarTest {
         car.move(power);
 
         assertEquals(0, car.getPosition());
+    }
+
+    @Test
+    void isMovablePower_테서트() {
+        String name = "red";
+        int power = 3;
+        Car car = new Car(name);
+
+        assertFalse(car.isMovablePower(power));
     }
 }
