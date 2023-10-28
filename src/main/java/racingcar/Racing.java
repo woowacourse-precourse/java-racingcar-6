@@ -6,13 +6,14 @@ import java.util.ArrayList;
 public class Racing {
     private int recentRound;
     private ArrayList<Integer> playerResult = new ArrayList<>();
-    Input input = new Input();
-    public void startRacing(){
-        setPlayerResult();
-        for (int i = 0; i < input.getRound(); i++) {
-            movePlayer(verifyNumber(selectNumber()),i);
-        }
+    Input input;
+    public Racing(Input input){
+        this.input = input;
+    }
 
+    //랜덤으로 뽑은 숫자를 검증하여 움직이는 코드
+    public void startRacing(int playerNumber){
+        movePlayer(verifyNumber(selectNumber()),playerNumber);
     }
     public int selectNumber(){
         int pickNumber=Randoms.pickNumberInRange(0,9);
