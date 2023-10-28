@@ -32,6 +32,8 @@ public class Application {
     }
 
     public static int integerTime(String time) {
+        timeIsNumber(time);
+        timeIsOver0(time);
         return Integer.parseInt(time);
     }
 
@@ -42,6 +44,13 @@ public class Application {
             throw new IllegalArgumentException("숫자를 입력하십시오");
         }
     }
+
+    public static void timeIsOver0(String time) {
+        if (Integer.parseInt(time) < 1) {
+            throw new IllegalArgumentException("1회 이상을 입력하십시오");
+        }
+    }
+
 
 
     public static void main(String[] args) {
