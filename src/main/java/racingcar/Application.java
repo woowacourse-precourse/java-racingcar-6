@@ -14,6 +14,30 @@ public class Application {
     }
 
     /**
+     * 전진한 결과, 유저의 차이름들, for구문의 i, 레이싱 회수를 받아서 결과값을 만들고 다른 메소드들을 호출함
+     * @param forwarded
+     * @param setCarNames
+     * @param i
+     * @param tries
+     */
+    private static void gameController(int[] forwarded, String[] setCarNames, int i, int tries) {
+        int length = setCarNames.length;
+
+        for (int j = 0; j < length; j++){
+            boolean move = isForwardPossible();
+            if (!move) continue;
+            setCarNames[j] += "-";
+            forwarded[j] += 1;
+        }
+
+        printRaceResult(setCarNames);
+
+        if (i == tries-1){
+            findWinners(forwarded, setCarNames);
+        }
+    }
+
+    /**
      *  user의 차이름 입력을 받아서 유효한 값인지 확인하고 String[]로 각 유저의 이름을 쪼개서 리턴
      * @param users
      * @return String[] carNames
