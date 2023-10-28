@@ -1,5 +1,8 @@
 package racingcar.input;
 
+import static racingcar.util.CountValidator.validateAttemptCountOverZero;
+import static racingcar.util.NameValidator.validateNameLengthBelowFive;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
@@ -11,26 +14,13 @@ public class InputManager {
         final List<String> nameList = Arrays
                 .stream(names.split(","))
                 .toList();
-        validateNames(nameList);
+        validateNameLengthBelowFive(nameList);
         return nameList;
     }
 
     public int inputAttemptCount() {
         final int numberOfAttempt = Integer.parseInt(Console.readLine());
-        validateAttemptCount(numberOfAttempt);
+        validateAttemptCountOverZero(numberOfAttempt);
         return numberOfAttempt;
-    }
-
-    private void validateAttemptCount(int numberOfAttempt) {
-        if (numberOfAttempt <= 0)
-            throw new IllegalArgumentException();
-    }
-
-    private void validateNames(List<String> nameList) {
-        for (String name : nameList) {
-            if (name.length() > 5) {
-                throw new IllegalArgumentException();
-            }
-        }
     }
 }
