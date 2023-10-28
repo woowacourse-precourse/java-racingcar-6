@@ -7,12 +7,12 @@ import racingcar.domain.Car;
 
 public class MemoryCarRepositoryTest {
 
-    private final CarRepository memoryCarRepository = new MemoryCarRepository();
+    private final CarRepository memoryCarRepository = MemoryCarRepository.getInstance();
 
     @Test
     public void 새로운멤버저장() {
         //given
-        String name = "Car1";
+        String name = "car1";
         final Car car = Car.create(name);
 
         //when
