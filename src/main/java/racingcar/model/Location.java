@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Objects;
 import racingcar.validator.LocationValidator;
 
@@ -15,6 +16,18 @@ public class Location {
 
     public static Location init() {
         return new Location(0);
+    }
+
+    public Location move() {
+        if (moveCondition()) {
+            return new Location(value + 1);
+        }
+        return new Location(value);
+    }
+
+    private boolean moveCondition() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        return randomNumber >= 4;
     }
 
     @Override
