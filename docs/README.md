@@ -1,6 +1,6 @@
 # 구현할 기능 목록
 ## 1. 게임 초기화 및 시작
-   * Controller, Service, Domain (Car, Cars, Game) 객체 생성
+   * Controller, Service, Domain (Car, Cars, Game, GameCount) 객체 생성
    * 게임을 시작하는 메서드 구현
    * 게임 진행을 위한 초기 설정을 수행하는 메서드 구현
 ## 2. 사용자 입력 안내 메시지 출력
@@ -26,3 +26,9 @@
 ## 6. 단위 테스트
    * 각 기능별로 단위 테스트를 작성하여 정상적으로 동작하는지 확인
    * 예외 상황에 대한 테스트를 포함하여 안정성을 높임
+
+## 구현 중 추가된 기능
+   * car dto 추가
+   * cardtos 일급컬렉션 추가 
+   * car 일급컬렉션 추가 
+   * winnersDto 일급컬렉션 추가
