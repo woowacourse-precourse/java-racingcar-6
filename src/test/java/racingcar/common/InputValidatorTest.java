@@ -12,7 +12,7 @@ class InputValidatorTest {
     void 자동차_이름_검증_실패_길이제한() {
         final String INPUT = "yujin,wonyoung,rei";
 
-        assertThatThrownBy(() -> inputValidator.checkNames(INPUT))
+        assertThatThrownBy(() -> inputValidator.convertNames(INPUT))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -20,7 +20,7 @@ class InputValidatorTest {
     void 자동차_이름_검증_실패_빈이름() {
         final String INPUT = "yujin,love,,,rei";
 
-        assertThatThrownBy(() -> inputValidator.checkNames(INPUT))
+        assertThatThrownBy(() -> inputValidator.convertNames(INPUT))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -29,9 +29,9 @@ class InputValidatorTest {
         final String INPUT = ",yujin,love,rei";
         final String INPUT2 = "yujin,love,rei,";
 
-        assertThatThrownBy(() -> inputValidator.checkNames(INPUT))
+        assertThatThrownBy(() -> inputValidator.convertNames(INPUT))
                 .isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> inputValidator.checkNames(INPUT2))
+        assertThatThrownBy(() -> inputValidator.convertNames(INPUT2))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -40,7 +40,7 @@ class InputValidatorTest {
         String input = "yujin,rei,young,a";
         String[] result = new String[]{"yujin", "rei", "young", "a"};
 
-        assertThat(inputValidator.checkNames(input))
+        assertThat(inputValidator.convertNames(input))
                 .containsExactly(result);
     }
 
@@ -49,7 +49,7 @@ class InputValidatorTest {
         String input = "rei_,rei,aha!";
         String[] result = new String[]{"rei_", "rei", "aha!"};
 
-        assertThat(inputValidator.checkNames(input))
+        assertThat(inputValidator.convertNames(input))
                 .containsExactly(result);
     }
 
@@ -58,7 +58,7 @@ class InputValidatorTest {
         String input = "yujin";
         String result = "yujin";
 
-        assertThat(inputValidator.checkNames(input))
+        assertThat(inputValidator.convertNames(input))
                 .containsExactly(result);
     }
 
@@ -66,7 +66,7 @@ class InputValidatorTest {
     void 이동_횟수_검증_실패_숫자가아님() {
         final String INPUT = "car";
 
-        assertThatThrownBy(() -> inputValidator.checkCount(INPUT))
+        assertThatThrownBy(() -> inputValidator.convertCount(INPUT))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -74,7 +74,7 @@ class InputValidatorTest {
     void 이동_횟수_검증_실패_0입력() {
         final String INPUT = "0";
 
-        assertThatThrownBy(() -> inputValidator.checkCount(INPUT))
+        assertThatThrownBy(() -> inputValidator.convertCount(INPUT))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -83,7 +83,7 @@ class InputValidatorTest {
         String input = "5";
         int result = Integer.parseInt(input);
 
-        assertThat(inputValidator.checkCount(input))
+        assertThat(inputValidator.convertCount(input))
                 .isEqualTo(result);
     }
 

@@ -15,15 +15,15 @@ public class OutputView {
     }
 
     public void printStart() {
-        System.out.println(Message.START);
+        System.out.println(Message.START.getMessage());
     }
 
     public void printPlayCount() {
-        System.out.println(Message.COUNT);
+        System.out.println(Message.COUNT.getMessage());
     }
 
     public void printWinner(List<String> winners) {
         System.out.println(Message.WINNER.getMessage() + String.join(", ", winners));
     }
-    
+
 }

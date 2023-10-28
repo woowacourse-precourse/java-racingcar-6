@@ -13,11 +13,11 @@ public class InputView {
     }
 
     public List<String> getCarsName() {
-        return inputValidator.checkNames(Console.readLine());
+        return inputValidator.convertNames(Console.readLine());
     }
 
     public int getPlayCount() {
-        return inputValidator.checkCount(Console.readLine());
+        return inputValidator.convertCount(Console.readLine());
     }
 
 }

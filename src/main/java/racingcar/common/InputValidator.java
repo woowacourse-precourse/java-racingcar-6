@@ -1,28 +1,23 @@
 package racingcar.common;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class InputValidator {
 
-    public List<String> checkNames(String input) {
+    public List<String> convertNames(String input) {
         String[] names = checkBoundary(input).split(",");
+
         for (String name : names) {
-            if (name.length() > Size.CAR_NAME.getValue() || name.isEmpty()) {
-                throw new IllegalArgumentException();
-            }
+            checkConditions(name);
         }
-        return new ArrayList<>(List.of(names));
+        return List.of(names);
     }
 
-    public int checkCount(String input) {
-        try {
-            int count = Integer.parseInt(input);
-            if (count > 0) {
-                return count;
-            }
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(e);
+    public int convertCount(String input) {
+        int count = changeInteger(input);
+
+        if (count > 0) {
+            return count;
         }
         throw new IllegalArgumentException();
     }
@@ -32,6 +27,20 @@ public class InputValidator {
             throw new IllegalArgumentException();
         }
         return input;
+    }
+
+    private void checkConditions(String name) {
+        if (name.length() > Size.CAR_NAME.getValue() || name.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private int changeInteger(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(e);
+        }
     }
 
 }
