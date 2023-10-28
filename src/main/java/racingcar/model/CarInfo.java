@@ -47,4 +47,9 @@ public class CarInfo {
         }
         return maxMoveList;
     }
+    public void initCarStatus() {
+        for(int i = 0; i < carName.size(); i++){
+            carStatus.add(0);
+        }
+    }
 }
