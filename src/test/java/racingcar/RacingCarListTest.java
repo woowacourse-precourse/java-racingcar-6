@@ -57,4 +57,21 @@ class RacingCarListTest {
             racingCarList.addRacingCarsByNames(names);
         }).isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    @DisplayName("각 자동차에 대한 수가 주어지면, 모든 자동차가 정상적으로 전진 또는 멈춘다.")
+    public void attemptToMoveAllRacingCars() {
+        List<String> names = List.of("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
+        RacingCarList racingCarList = new RacingCarList();
+        racingCarList.addRacingCarsByNames(names);
+
+        List<Integer> numbers = List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+        racingCarList.moveRacingCarsBasedOnGivenNumbers(numbers);
+
+        List<Integer> expected = List.of(0, 0, 0, 0, 1, 1, 1, 1, 1, 1);
+        List<Integer> positions = racingCarList.collectStatus().stream()
+                .map(RacingCarStatus::getPosition).toList();
+
+        assertThat(positions).hasSameElementsAs(expected);
+    }
 }
