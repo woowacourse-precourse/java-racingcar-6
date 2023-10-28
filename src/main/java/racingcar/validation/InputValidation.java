@@ -27,12 +27,12 @@ public class InputValidation {
     }
 
     public static void validateTimes(String timesStr) {
-        if (!isinRangeZeroToNine(timesStr)) {
+        if (!isContainsOnlyZeroToNine(timesStr)) {
             throw new IllegalArgumentException();
         }
     }
 
-    private static boolean isinRangeZeroToNine(String timesStr) {
+    private static boolean isContainsOnlyZeroToNine(String timesStr) {
         return Pattern.matches(REGEXP_PATTERN_ZERO_TO_NINE_NUMBER, timesStr);
     }
 }
