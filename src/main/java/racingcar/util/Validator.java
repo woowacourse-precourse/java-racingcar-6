@@ -7,6 +7,9 @@ public class Validator {
     private static final String BLANK_ERROR_MESSAGE = "값을 입력해 주세요.";
     private static final String NULL_ERROR_MESSAGE = "입력 값이 null 입니다.";
 
+    private Validator() {
+    }
+
     public static void isBlankInput(String input) {
         if (input.isBlank()) {
             throwError(BLANK_ERROR_MESSAGE);
