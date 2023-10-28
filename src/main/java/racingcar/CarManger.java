@@ -8,7 +8,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class CarManger {
 	private final List<Car> cars = new ArrayList<>();
 
-	public void managedCar(String[] carNames) {
+	public void createCars(String[] carNames) {
 		for (String carName : carNames) {
 			if(carName.length() >= 5) {
 				throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
