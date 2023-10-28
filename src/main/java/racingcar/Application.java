@@ -10,12 +10,18 @@ public class Application {
         Car car = new Car();
         Validator validator = new Validator();
 
-        /*String inputCarNames = input.carName();
+        String inputCarNames = input.carName();
         List<String> carNames = car.splitByComma(inputCarNames);
-        System.out.println(inputCarNames);
+        /*System.out.println(inputCarNames);
         System.out.println(carNames);*/
+
 
         String inputNumber = input.tryNumber();
         validator.isNumber(inputNumber);
+
+        int tryNumber = Integer.parseInt(inputNumber);
+
+
+        car.nowRacing(carNames, tryNumber);
     }
 }

@@ -2,9 +2,9 @@
 - [x] 경주할 자동차 이름 입력 받기 (inputCarName)
   - [x] 쉼표 기준으로 분리 (splitByComma)
 - [x] 시도할 회수 입력 받기 (inputTryNumber)
-- [ ] 차수별 자동차 전진 현황 출력 (nowRacing)
-  - [ ] 0~3: 정차
-  - [ ] 4~9: 한 칸 전진
+- [x] 차수별 자동차 전진 현황 출력 (nowRacing)
+  - [x] 0~3: 정차
+  - [x] 4~9: 한 칸 전진
 - [ ] 게임 완료 후 우승자 출력 (printWinner)
   - [ ] 단독 우승 (winOnlyOne)
   - [ ] 여러 명 우승: 쉼표로 구분 (winManyCars)
