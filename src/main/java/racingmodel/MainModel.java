@@ -50,22 +50,8 @@ public class MainModel {
 
     public List<String> getWinner()
     {
-        List<String> winners = new ArrayList<>();
-        int maxScore = 0;
-        for (Map.Entry<String, StringBuilder> entry : carName.entrySet()) {
-            String player = entry.getKey();
-            StringBuilder score = entry.getValue();
-            int length = score.length();
-            if (length > maxScore) {
-                maxScore = length;
-                winners.clear();
-                winners.add(player);
-            }
-            else if (length == maxScore) {
-                winners.add(player);
-            }
-        }
-        return winners;
+        return Winners.judgeWinner(carName);
     }
+
 
 }

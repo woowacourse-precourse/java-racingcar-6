@@ -35,6 +35,7 @@ class GameChanger {
         {
             return temp.next();
         }
+        return -1;
     }
 
     private GoOrNot changeStatus(int generatedNumber) {
