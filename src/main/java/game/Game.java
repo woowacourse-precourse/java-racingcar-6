@@ -12,6 +12,7 @@ public class Game {
 
     public Game(String participants, String frequency) {
         this.participants = stringToCarList(participants);
+        this.frequency = stringToInt(frequency);
     }
 
     public List<Car> stringToCarList(String data) {
@@ -24,4 +25,9 @@ public class Game {
         }
         return res;
     }
+
+    public int stringToInt(String data) {
+        return Integer.parseInt(data);
+    }
+
 }
