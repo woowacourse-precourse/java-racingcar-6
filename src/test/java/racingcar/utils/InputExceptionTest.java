@@ -62,4 +62,19 @@ class InputExceptionTest {
     static Stream<List<String>> parametersProvider() {
         return Stream.of(Arrays.asList("lion", "lion", "bird"));
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"one", "1zero", "t"})
+    @DisplayName("자연수가 맞는지 확인하는 기능 예외 처리 테스트")
+    void isNaturalNumberTest(String input) {
+        // when
+        Throwable throwable = catchThrowable(() -> {
+            InputException.isNaturalNumber(input);
+        });
+
+        // then
+        assertThat(throwable)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(PrintMessage.ONLY_NATURAL_NUMBER);
+    }
 }
