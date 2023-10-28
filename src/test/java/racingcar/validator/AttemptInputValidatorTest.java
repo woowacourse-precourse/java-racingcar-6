@@ -24,6 +24,6 @@ class AttemptInputValidatorTest {
         assertThrows(
                 IllegalArgumentException.class,
                 () -> validator.validate(input)
-        );
+        ).printStackTrace();
     }
 }
