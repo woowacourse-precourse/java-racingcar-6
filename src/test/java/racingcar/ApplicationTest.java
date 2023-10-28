@@ -7,31 +7,37 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.model.MovingCar;
 import racingcar.model.Validator;
 import racingcar.view.InputView;
 
 import java.lang.annotation.Documented;
+
+import static constant.MessgeList.MOVING_FORWARD;
+import static constant.MessgeList.STOP;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.*;
 
 class ApplicationTest extends NsTest {
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
     private Validator validator;
+    private MovingCar movingCar;
+
     @BeforeEach
-    void setUp(){
+    void setUp() {
         validator = new Validator();
+        movingCar = new MovingCar();
     }
+
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
@@ -48,12 +54,13 @@ class ApplicationTest extends NsTest {
     @DisplayName("입력받은 시도할 횟수가 숫자가 아니면 IllegalArgumentException 발생시키기")
     @ParameterizedTest
     @ValueSource(strings = {"a", "1.2"})
-    void isNumberFromPlayerValidate(String number){
+    void isNumberFromPlayerValidate(String number) {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> validator.isNumberFromPlayerValidate(number))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
 
     @Override
     public void runMain() {

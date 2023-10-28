@@ -5,4 +5,6 @@ public class MessgeList {
     public static final String INPUT_ATTEMPT_NUMBER_MESSAGE = "시도할 회수는 몇회인가요?";
     public static final String EXECUTION_RESULT_MESSAGE = "실행 결과";
     public static final String WINNER_MESSAGE = "최종 우승자 : ";
+    public static final int MOVING_FORWARD = 4;
+    public static final int STOP = 3;
 }
