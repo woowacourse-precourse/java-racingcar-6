@@ -6,9 +6,9 @@ public class Car {
     private String name;
     private int advanceCount;
 
-    public Car(String carNames, int i) {
+    public Car(String carNames) {
         this.name=carNames;
-        this.advanceCount=i;
+        this.advanceCount=0;
     }
 
     public String getName() {
@@ -17,5 +17,14 @@ public class Car {
 
     public int getAdvanceCount() {
         return advanceCount;
+    }
+
+    public int advance(){
+        return this.advanceCount++;
+    }
+
+    @Override
+    public String toString() {
+        return name + ": " + '-' * advanceCount  + "\n";
     }
 }
