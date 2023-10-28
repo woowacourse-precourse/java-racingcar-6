@@ -14,7 +14,7 @@ class InputValidationTest {
 
     @Test
     @DisplayName("자동차 이름이 5자 이하이면 입력값 반환")
-    void inputValidateOKTest() {
+    void carNameValidateOKTest() {
         // given
         List<String> input = Stream.of("pobi","woni","jun")
                 .collect(Collectors.toList());
@@ -26,7 +26,7 @@ class InputValidationTest {
 
     @Test
     @DisplayName("자동차 이름이 5자 초과이면 오류 반환")
-    void inputValidateFailTest() {
+    void carNameValidateFailTest() {
         // given
         List<String> input = Stream.of("pobipobi","woni","jun")
                 .collect(Collectors.toList());
@@ -35,4 +35,6 @@ class InputValidationTest {
             InputValidation.carNameValidate(input);
         });
     }
+
+
 }
