@@ -11,6 +11,7 @@ public final class RacingCars {
 
     private static final int START_INDEX = 0;
     private static final int MOVE_STANDARD = 4;
+    private static final int MIN_RACING_CAR_NUM = 2;
     private static final String NEW_LINE = "\n";
     private final List<RacingCar> elements;
 
@@ -20,7 +21,7 @@ public final class RacingCars {
     }
 
     private void validate(final List<RacingCar> racingCars) {
-        if (racingCars.isEmpty() || isNotUnique(racingCars)) {
+        if (racingCars.size() < MIN_RACING_CAR_NUM || isNotUnique(racingCars)) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_ELEMENT_SIZE.toValue());
         }
     }
