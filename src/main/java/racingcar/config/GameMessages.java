@@ -1,4 +1,15 @@
 package racingcar.config;
 
-public class GameMessages {
+public enum GameMessages {
+    ;
+
+
+    private final String message;
+    GameMessages(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
 }
