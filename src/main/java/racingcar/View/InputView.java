@@ -8,6 +8,6 @@ public class InputView {
     }
 
     public static String getNumberOfRound() {
-        return null;
+        return Console.readLine();
     }
 }
