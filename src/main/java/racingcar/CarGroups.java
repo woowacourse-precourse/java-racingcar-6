@@ -7,21 +7,23 @@ import java.util.List;
 public class CarGroups {
     List<Car> racingCars;
 
-    public CarGroups(List<Car> racingCars) {
-        validateCarSize(racingCars);
-        validateNameLength(racingCars);
-        this.racingCars = racingCars;
+    public CarGroups(List<String> carNames) {
+        validateCarSize(carNames);
+        validateNameLength(carNames);
+        this.racingCars = carNames.stream()
+                .map(Car::new)
+                .toList();
     }
 
-    private void validateCarSize(List<Car> racingCars) {
+    private void validateCarSize(List<String> racingCars) {
         if (racingCars.isEmpty()) {
             throw new IllegalArgumentException("자동차가 없습니다.");
         }
     }
 
-    private void validateNameLength(List<Car> racingCars) {
+    private void validateNameLength(List<String> racingCars) {
         boolean result = racingCars.stream()
-                .mapToLong(car -> car.getName().length())
+                .mapToInt(String::length)
                 .anyMatch(length -> length > 5);
         if (result) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
@@ -49,5 +51,15 @@ public class CarGroups {
                 .toList();
 
         return String.join(", ", winnerNames);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Car car : racingCars) {
+            sb.append(car.toString());
+            sb.append("\n");
+        }
+        return sb.toString();
     }
 }
