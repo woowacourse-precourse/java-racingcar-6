@@ -12,4 +12,9 @@ public class InputView {
         String names = readLine();
         return Arrays.asList(names.split(","));
     }
+
+    public static int inputTrialCount() {
+        String trialCount = readLine();
+        return Integer.parseInt(trialCount);
+    }
 }
