@@ -13,7 +13,7 @@ public class Referee {
 
         List<Car> winners = new ArrayList<>();
         for (Car car : cars) {
-            if (car.isSameAs(maxForwardCount)) {
+            if (car.isForwardCountSameAs(maxForwardCount)) {
                 winners.add(car);
             }
         }
