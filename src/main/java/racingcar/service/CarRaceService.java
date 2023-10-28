@@ -1,11 +1,10 @@
 package racingcar.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.util.Validator;
 
-public class CarGameService {
+public class CarRaceService {
 
     Validator validator = new Validator();
 

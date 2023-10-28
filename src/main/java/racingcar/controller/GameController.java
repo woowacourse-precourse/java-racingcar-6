@@ -3,7 +3,7 @@ package racingcar.controller;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
-import racingcar.service.CarGameService;
+import racingcar.service.CarRaceService;
 import racingcar.service.WinnerService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -12,13 +12,13 @@ public class GameController {
 
     private final InputView inputView;
     private final OutputView outputView;
-    private final CarGameService carGameService;
+    private final CarRaceService carRaceService;
     private final WinnerService winnerService;
 
     public GameController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
-        this.carGameService = new CarGameService();
+        this.carRaceService = new CarRaceService();
         this.winnerService = new WinnerService();
     }
 
@@ -42,22 +42,22 @@ public class GameController {
 
     private Integer getGameCount() {
         outputView.printBeforeInputGameCount();
-        return carGameService.convertGameCountToNumber(inputView.inputGameCount());
+        return carRaceService.convertGameCountToNumber(inputView.inputGameCount());
     }
 
     private List<String> initSetting() {
         outputView.printInitGame();
-        return carGameService.extractSeperator(inputView.inputCarName());
+        return carRaceService.extractSeperator(inputView.inputCarName());
     }
 
     private void roundGameProcess(Integer gameCount, List<Car> cars) {
         for (int count = 0; count < gameCount; count++) {
-            outputView.printRoundResult(carGameService.roundResult(cars));
+            outputView.printRoundResult(carRaceService.roundResult(cars));
         }
     }
 
     private void initCarInfo(List<String> carNames, List<Car> cars) {
-        carGameService.initCarInfo(carNames, cars);
+        carRaceService.initCarInfo(carNames, cars);
     }
 
 }
