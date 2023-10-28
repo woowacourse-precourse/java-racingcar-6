@@ -22,33 +22,8 @@ import racingcar.domain.RacingRoundResult;
 public class RacingCarOutputViewTest {
     private static final ByteArrayOutputStream OUTPUT = new ByteArrayOutputStream();
 
-    @BeforeEach
-    void setup() {
-        OUTPUT.reset();
-        System.setOut(new PrintStream(OUTPUT));
-    }
-
     private static Car setCar(String carName, boolean engineCanMove, int position) {
         return new Car(carName, new FixedCarEngine(engineCanMove), new Position(position));
-    }
-
-    @DisplayName("실행 결과 문자열을 출력한다.")
-    @Test
-    void printStartMessage() {
-        RacingCarOutputView racingCarOutputView = new RacingCarOutputView();
-        racingCarOutputView.printStartMessage();
-        assertThat(OUTPUT.toString()).isEqualTo("실행 결과\n");
-    }
-
-    @DisplayName("매 회차마다 자동차 경주의 결과를 출력한다.")
-    @ParameterizedTest
-    @MethodSource("providePrintEachRacingResultTestArguments")
-    void printEachRacingResult(RacingRoundResult racingRoundResult, String expectedMessage) {
-        RacingCarOutputView racingCarOutputView = new RacingCarOutputView();
-        RacingResult racingResult = new RacingResult();
-        racingResult.addResult(racingRoundResult);
-        racingCarOutputView.printEachRacingResult(racingResult);
-        assertThat(OUTPUT.toString()).isEqualTo(expectedMessage);
     }
 
     static Stream<Arguments> providePrintEachRacingResultTestArguments() {
@@ -72,17 +47,6 @@ public class RacingCarOutputViewTest {
         );
     }
 
-    @DisplayName("최종 우승자를 출력한다.")
-    @ParameterizedTest
-    @MethodSource("providePrintWinnerTestArguments")
-    void printWinnerTest(RacingRoundResult racingRoundResult, String expectedMessage) {
-        RacingCarOutputView racingCarOutputView = new RacingCarOutputView();
-        RacingResult racingResult = new RacingResult();
-        racingResult.addResult(racingRoundResult);
-        racingCarOutputView.printWinner(racingResult);
-        assertThat(OUTPUT.toString()).isEqualTo(expectedMessage);
-    }
-
     static Stream<Arguments> providePrintWinnerTestArguments() {
         return Stream.of(
                 arguments(new RacingRoundResult(List.of(
@@ -102,5 +66,41 @@ public class RacingCarOutputViewTest {
                         "최종 우승자 : pobi, woni, jun\n"
                 )
         );
+    }
+
+    @BeforeEach
+    void setup() {
+        OUTPUT.reset();
+        System.setOut(new PrintStream(OUTPUT));
+    }
+
+    @DisplayName("실행 결과 문자열을 출력한다.")
+    @Test
+    void printStartMessage() {
+        RacingCarOutputView racingCarOutputView = new RacingCarOutputView();
+        racingCarOutputView.printStartMessage();
+        assertThat(OUTPUT.toString()).isEqualTo("실행 결과\n");
+    }
+
+    @DisplayName("매 회차마다 자동차 경주의 결과를 출력한다.")
+    @ParameterizedTest
+    @MethodSource("providePrintEachRacingResultTestArguments")
+    void printEachRacingResult(RacingRoundResult racingRoundResult, String expectedMessage) {
+        RacingCarOutputView racingCarOutputView = new RacingCarOutputView();
+        RacingResult racingResult = new RacingResult();
+        racingResult.addResult(racingRoundResult);
+        racingCarOutputView.printEachRacingResult(racingResult);
+        assertThat(OUTPUT.toString()).isEqualTo(expectedMessage);
+    }
+
+    @DisplayName("최종 우승자를 출력한다.")
+    @ParameterizedTest
+    @MethodSource("providePrintWinnerTestArguments")
+    void printWinnerTest(RacingRoundResult racingRoundResult, String expectedMessage) {
+        RacingCarOutputView racingCarOutputView = new RacingCarOutputView();
+        RacingResult racingResult = new RacingResult();
+        racingResult.addResult(racingRoundResult);
+        racingCarOutputView.printWinner(racingResult);
+        assertThat(OUTPUT.toString()).isEqualTo(expectedMessage);
     }
 }

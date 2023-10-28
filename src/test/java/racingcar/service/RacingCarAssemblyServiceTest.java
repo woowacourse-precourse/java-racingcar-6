@@ -15,22 +15,6 @@ import racingcar.domain.FixedCarEngine;
 
 public class RacingCarAssemblyServiceTest {
 
-    @DisplayName("사용자가 입력한 자동차 이름으로 자동차객체를 생성한다.")
-    @ParameterizedTest
-    @MethodSource("provideAssembleTestArguments")
-    void assembleTest(List<String> inputNames, Cars expectedCars) {
-        RacingCarAssemblyService racingCarAssemblyService = new RacingCarAssemblyService();
-        Cars assembledCars = racingCarAssemblyService.assemble(inputNames, new FixedCarEngine(true));
-        List<Car> assembledCarList = assembledCars.getReadOnlyCarList();
-        List<Car> expectedCarList = expectedCars.getReadOnlyCarList();
-        for (int i = 0; i < assembledCarList.size(); i++) {
-            Car assembledCar = assembledCarList.get(i);
-            Car expectedCar = expectedCarList.get(i);
-            assertThat(assembledCar.getName()).isEqualTo(expectedCar.getName());
-            assertThat(assembledCar.getPosition()).isEqualTo(expectedCar.getPosition());
-        }
-    }
-
     static Stream<Arguments> provideAssembleTestArguments() {
         return Stream.of(
                 arguments(
@@ -51,5 +35,21 @@ public class RacingCarAssemblyServiceTest {
                         ))
                 )
         );
+    }
+
+    @DisplayName("사용자가 입력한 자동차 이름으로 자동차객체를 생성한다.")
+    @ParameterizedTest
+    @MethodSource("provideAssembleTestArguments")
+    void assembleTest(List<String> inputNames, Cars expectedCars) {
+        RacingCarAssemblyService racingCarAssemblyService = new RacingCarAssemblyService();
+        Cars assembledCars = racingCarAssemblyService.assemble(inputNames, new FixedCarEngine(true));
+        List<Car> assembledCarList = assembledCars.getReadOnlyCarList();
+        List<Car> expectedCarList = expectedCars.getReadOnlyCarList();
+        for (int i = 0; i < assembledCarList.size(); i++) {
+            Car assembledCar = assembledCarList.get(i);
+            Car expectedCar = expectedCarList.get(i);
+            assertThat(assembledCar.getName()).isEqualTo(expectedCar.getName());
+            assertThat(assembledCar.getPosition()).isEqualTo(expectedCar.getPosition());
+        }
     }
 }

@@ -14,6 +14,35 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 public class RacingRoundResultTest {
 
+    static Stream<Arguments> provideGetWinnerTestArguments() {
+        return Stream.of(
+                arguments(List.of(
+                        setCar("pobi", 3),
+                        setCar("woni", 2),
+                        setCar("jun", 1)
+                ), List.of("pobi")),
+                arguments(List.of(
+                        setCar("pobi", 3),
+                        setCar("woni", 3),
+                        setCar("jun", 1)
+                ), List.of("pobi", "woni")),
+                arguments(List.of(
+                        setCar("pobi", 1),
+                        setCar("woni", 2),
+                        setCar("jun", 2)
+                ), List.of("woni", "jun")),
+                arguments(List.of(
+                        setCar("pobi", 0),
+                        setCar("woni", 0),
+                        setCar("jun", 0)
+                ), List.of("pobi", "woni", "jun"))
+        );
+    }
+
+    private static Car setCar(String carName, int position) {
+        return new Car(carName, new FixedCarEngine(true), new Position(position));
+    }
+
     @DisplayName("getCars()를 통해 얻어낸 읽기전용 리스트를 조작하려고 하면 에러가 발생한다.")
     @Test
     void getCarsManipulateFailTest() {
@@ -43,34 +72,5 @@ public class RacingRoundResultTest {
         RacingRoundResult racingRoundResult = new RacingRoundResult(cars);
         List<String> winner = racingRoundResult.getWinners();
         assertThat(winner).isEqualTo(expectedWinnerName);
-    }
-
-    static Stream<Arguments> provideGetWinnerTestArguments() {
-        return Stream.of(
-                arguments(List.of(
-                        setCar("pobi", 3),
-                        setCar("woni", 2),
-                        setCar("jun", 1)
-                ), List.of("pobi")),
-                arguments(List.of(
-                        setCar("pobi", 3),
-                        setCar("woni", 3),
-                        setCar("jun", 1)
-                ), List.of("pobi", "woni")),
-                arguments(List.of(
-                        setCar("pobi", 1),
-                        setCar("woni", 2),
-                        setCar("jun", 2)
-                ), List.of("woni", "jun")),
-                arguments(List.of(
-                        setCar("pobi", 0),
-                        setCar("woni", 0),
-                        setCar("jun", 0)
-                ), List.of("pobi", "woni", "jun"))
-        );
-    }
-
-    private static Car setCar(String carName, int position) {
-        return new Car(carName, new FixedCarEngine(true), new Position(position));
     }
 }

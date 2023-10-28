@@ -13,6 +13,19 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 public class CarsTest {
 
+    static Stream<Arguments> provideCarsTestArguments() {
+        return Stream.of(
+                arguments(List.of(
+                        setCar("test1", true),
+                        setCar("test2", false)
+                ))
+        );
+    }
+
+    private static Car setCar(String carName, boolean engineCanMove) {
+        return new Car(carName, new FixedCarEngine(engineCanMove));
+    }
+
     @DisplayName("Cars를 생성한다.")
     @ParameterizedTest
     @MethodSource("provideCarsTestArguments")
@@ -34,18 +47,5 @@ public class CarsTest {
         Car afterMoveCar2 = afterMoveCars.get(1);
         assertThat(afterMoveCar2.getPosition()).isEqualTo(0);
         assertThat(afterMoveCars.get(1).getName()).isEqualTo(inputCars.get(1).getName());
-    }
-
-    static Stream<Arguments> provideCarsTestArguments() {
-        return Stream.of(
-                arguments(List.of(
-                        setCar("test1", true),
-                        setCar("test2", false)
-                ))
-        );
-    }
-
-    private static Car setCar(String carName, boolean engineCanMove) {
-        return new Car(carName, new FixedCarEngine(engineCanMove));
     }
 }

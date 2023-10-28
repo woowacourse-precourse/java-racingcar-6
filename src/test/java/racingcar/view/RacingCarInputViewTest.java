@@ -23,6 +23,19 @@ public class RacingCarInputViewTest {
 
     private final ByteArrayOutputStream OUTPUT = new ByteArrayOutputStream();
 
+    public static InputStream generateUserInput(String input) {
+        return new ByteArrayInputStream(input.getBytes());
+    }
+
+    static Stream<Arguments> provideInputCarNamesTestArguments() {
+        return Stream.of(
+                arguments("java,jigi", List.of("java", "jigi")),
+                arguments("java, wrong", List.of("java", " wrong")),
+                arguments("java,,jigi", List.of("java", "", "jigi")),
+                arguments("java#!@#$ ,jigi", List.of("java#!@#$ ", "jigi"))
+        );
+    }
+
     @BeforeEach
     public void setup() {
         System.setOut(new PrintStream(OUTPUT));
@@ -31,10 +44,6 @@ public class RacingCarInputViewTest {
     @AfterEach
     public void restore() {
         Console.close();
-    }
-
-    public static InputStream generateUserInput(String input) {
-        return new ByteArrayInputStream(input.getBytes());
     }
 
     @DisplayName("자동차의 이름을 쉼표(,) 기준으로 입력받는다.")
@@ -48,15 +57,6 @@ public class RacingCarInputViewTest {
             assertThat(carNames.get(i)).isEqualTo(expected.get(i));
         }
         assertThat(OUTPUT.toString()).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
-    }
-
-    static Stream<Arguments> provideInputCarNamesTestArguments() {
-        return Stream.of(
-                arguments("java,jigi", List.of("java", "jigi")),
-                arguments("java, wrong", List.of("java", " wrong")),
-                arguments("java,,jigi", List.of("java", "", "jigi")),
-                arguments("java#!@#$ ,jigi", List.of("java#!@#$ ", "jigi"))
-        );
     }
 
     @DisplayName("시도할 횟수를 입력받는다.")
