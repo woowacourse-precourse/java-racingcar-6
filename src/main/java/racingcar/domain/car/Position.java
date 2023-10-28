@@ -6,4 +6,8 @@ public class Position {
     public Position() {
         this.position = 0;
     }
+
+    public int getPosition() {
+        return position;
+    }
 }
