@@ -2,6 +2,8 @@ package racingcar.model;
 
 public class TrialCount {
 
+    private static final int NO_COUNT = 0;
+
     private int count;
 
     public TrialCount(int count) {
@@ -10,5 +12,9 @@ public class TrialCount {
 
     public void countDown() {
         this.count--;
+    }
+
+    public boolean hasNoCount() {
+        return this.count == NO_COUNT;
     }
 }
