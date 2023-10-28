@@ -16,9 +16,11 @@ public class Racing_game {
         if(!setting_car_name()) return;
         setting_game_matches();
         racing_start();
+        game_finish();
+
     }
     public boolean setting_car_name(){
-        carList = new ArrayList<Car>();
+        carList = new ArrayList<>();
         String[] car_names = inputView.getInput("text").split(",");
         for (String name : car_names) {
             if(name.length() > 5) {
@@ -48,5 +50,18 @@ public class Racing_game {
     public void move_car(Car car){
         if(Randoms.pickNumberInRange(0,9) >= 4){car.setCarState(car.getCarState() + 1);}
         Output_view.move_car(car.getCar(),car.getCarState());
+    }
+    private void game_finish() {
+        String winner = "";
+        int max_state = 0;
+        for(Car car : carList){
+            if(max_state < car.getCarState()){
+                winner = car.getCar();
+                max_state = car.getCarState();
+            } else if (max_state == car.getCarState()) {
+                winner = String.format("%s, %s", winner, car.getCar());
+            }
+        }
+        Output_view.ResultOfTheGame(winner);
     }
 }
