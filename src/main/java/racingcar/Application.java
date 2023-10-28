@@ -35,10 +35,8 @@ public class Application {
 
         // 결과
         printWinners(getWinners(cars));
-
     }
-
-    public static List <Car> makeCars(){
+    public static List <Car> makeCars() throws IllegalArgumentException{
 
         List<Car> cars = new ArrayList<>();
 
@@ -47,6 +45,11 @@ public class Application {
         // 입력받은 자동차 이름 cars에 저장
         String[] carNames = Console.readLine().split(",");
         for(String name : carNames){
+
+            // 예외처리
+            if(name.length() > 5){
+                throw new IllegalArgumentException();
+            }
             cars.add(new Car(name));
         }
 
