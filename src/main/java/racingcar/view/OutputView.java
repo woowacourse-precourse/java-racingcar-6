@@ -1,16 +1,13 @@
 package racingcar.view;
 
+import java.util.stream.Collectors;
 import racingcar.controller.CarController;
+import racingcar.model.Car;
 
 public class OutputView {
     public static String displayCarPosition(CarController controller) {
-        StringBuilder display = new StringBuilder();
-        display.append(controller.getCarName()).append(" : ");
-
-        for (int i = 0; i < controller.getCarPosition(); i++) {
-            display.append("-");
-        }
-
-        return display.toString();
+        return controller.getCars().stream()
+                .map(car -> car.getName() + " : " + "-".repeat(car.getPosition()) + System.lineSeparator())
+                .collect(Collectors.joining());
     }
 }

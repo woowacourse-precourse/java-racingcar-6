@@ -99,26 +99,25 @@ class carTest {
     }
 
     @Test
-    public void 자동차_전진_후_텍스트_출력() {
+    public void 결과_생성() {
         // given
-        int random = 5;
-        Car car = new Car("test");
-        CarHandler carHandler = new CarHandlerImpl(car);
-        CarController carController = new CarController(car, carHandler);
+        String names = "pobi,woni";
+        Cars carsModel = new Cars(names);
+        CarController controller = new CarController(carsModel.getCars());
+        String newLine = System.lineSeparator();
 
         // when
-        carController.moveCar(random);
-
-        String output = OutputView.displayCarPosition(carController);
-        System.out.println(output);  // This will print: "test : -"
+        String result = OutputView.displayCarPosition(controller);
 
         // then
-        assertThat(output).isEqualTo("test : -");
+        assertThat(result).isEqualTo("pobi : " + newLine + "woni : " + newLine);
     }
+
+
     @Test
     public void 생성_성공() {
         // given
-        String[] names = {"pobi", "woni", "wonii"};
+        String names = "pobi,woni";
 
         // when
         Cars cars = new Cars(names);
@@ -126,10 +125,11 @@ class carTest {
         // then
         assertThat(cars).isNotNull();
     }
+
     @Test
     public void 중복_체크() {
         // given
-        String[] names = {"pobi", "woni", "woni"};
+        String names = "pobi,woni,woni";
 
         // when
         // then
