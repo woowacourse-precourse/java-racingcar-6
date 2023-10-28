@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 public class RacingGame {
 
@@ -28,4 +29,12 @@ public class RacingGame {
             }
         }
     }
+
+     LinkedHashMap<String, Integer> getCurrentStatus() {
+         LinkedHashMap<String, Integer> currStatus = new LinkedHashMap<String, Integer>();
+         for (Car car : Cars) {
+             currStatus.put(car.getName(), car.getLocation());
+         }
+         return currStatus;
+     }
 }
