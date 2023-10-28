@@ -8,5 +8,6 @@ public class Application {
     public static void main(String[] args) {
         GameView gameView = new GameView();
         List<String> carNames = gameView.getCarNames();
+        int totalRounds = gameView.getTotalRounds();
     }
 }

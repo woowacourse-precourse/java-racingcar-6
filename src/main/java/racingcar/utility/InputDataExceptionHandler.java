@@ -12,4 +12,15 @@ public class InputDataExceptionHandler {
             }
         }
     }
+    public static void validateTotalRounds(String totalRounds) {
+        if(totalRounds.equals("0")) {
+            throw new IllegalArgumentException();
+        }
+        for(int i = 0; i < totalRounds.length(); i++) {
+            char isNum = totalRounds.charAt(i);
+            if(isNum < '0' || isNum > '9') {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
 }

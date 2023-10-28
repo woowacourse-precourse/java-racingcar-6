@@ -15,4 +15,13 @@ public class GameView {
 
         return carNames;
     }
+
+    public int getTotalRounds() {
+        System.out.println("시도할 횟수는 몇회인가요?");
+        String totalRounds = Console.readLine();
+
+        InputDataExceptionHandler.validateTotalRounds(totalRounds);
+
+        return Integer.parseInt(totalRounds);
+    }
 }
