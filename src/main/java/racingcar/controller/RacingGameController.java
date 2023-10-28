@@ -6,6 +6,10 @@ public class RacingGameController {
     CarService carService = new CarService();
 
     public void gameStart() {
-        carService.getCarNameAndTryCount();
+        int tryCount = carService.getCarNameAndTryCount();
+
+        for (int i = 0; i < tryCount; i++) {
+            carService.game();
+        }
     }
 }
