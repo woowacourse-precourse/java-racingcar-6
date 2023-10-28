@@ -20,10 +20,10 @@ public class Car {
             this.score = this.score+1;
         }
     }
-    private boolean randomNumCheck(int num){
+    public boolean randomNumCheck(int num){
         return num >= NumConstant.condition;
     }
-    private int pickRandomNum(){
+    public int pickRandomNum(){
         return Randoms.pickNumberInRange(NumConstant.start,NumConstant.end);
     }
     public Car(String name){

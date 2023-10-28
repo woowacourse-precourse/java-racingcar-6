@@ -23,7 +23,7 @@ public class Game {
         List<String> winner = winner(carList1,winnerScore);
         user.gameWinnerOutput(winner);
     }
-    private List<Car> OneRoundScore(List<Car> carList){
+    public List<Car> OneRoundScore(List<Car> carList){
         List<Car> update=new ArrayList<>();
         for(Car i:carList){
             i.oneStep();
@@ -31,7 +31,7 @@ public class Game {
         }
         return update;
     }
-    private int findMaxScore(List<Car> carList){
+    public int findMaxScore(List<Car> carList){
         int max=0;
         for(Car i : carList){
             if(max<i.getScore()){
@@ -40,7 +40,7 @@ public class Game {
         }
         return max;
     }
-    private List<String> winner(List<Car> carList,int maxScore){
+    public List<String> winner(List<Car> carList,int maxScore){
         List<String> winnerList = new ArrayList<>();
         for(Car i:carList){
             if (maxScore == i.getScore()){
