@@ -35,7 +35,7 @@ public class Car {
     private void validateNameLength(String name) {
         if (name.isEmpty() || name.length() > CAR_NAME_LENGTH_MAX) {
             throw new IllegalArgumentException(
-                    "이름은 " + CAR_NAME_LENGTH_MIN + "자 이상 " + CAR_NAME_LENGTH_MAX + "자 이하여야 합니다.");
+                    String.format("이름은 %d자 이상 %d자 이하여야 합니다.", CAR_NAME_LENGTH_MIN, CAR_NAME_LENGTH_MAX));
         }
     }
 
