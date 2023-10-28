@@ -13,4 +13,9 @@ public class InputView {
         return InputValidation.carNameValidate(
                 Arrays.stream(Console.readLine().split(",")).toList());
     }
+
+    public String userInputGameCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        return InputValidation.gameCountValidate(Console.readLine());
+    }
 }
