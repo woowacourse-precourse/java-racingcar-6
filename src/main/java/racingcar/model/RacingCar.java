@@ -27,7 +27,7 @@ public class RacingCar {
     }
 
     private boolean canMove() {
-        if(getMoveValue()> moveCondition){
+        if(getMoveValue()>= moveCondition){
             return true;
         }
         return false;
