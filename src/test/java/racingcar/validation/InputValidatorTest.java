@@ -2,6 +2,7 @@ package racingcar.validation;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,14 +30,18 @@ class InputValidatorTest {
     @Test
     @DisplayName("입력은 공백일 수 없다.")
     void testInputNotBlank() {
-        String input = "    ";
-        assertThat(input).isBlank();
+        String input = "notBlank ";
+        assertThat(input).isNotBlank();
+        assertThrows(IllegalArgumentException.class,
+                () -> inputValidator.validateInputBlank(input));
     }
 
     @Test
     @DisplayName("입력은 비어있을 수 없다.")
     void testInputNotEmpty() {
-        String input = "";
-        assertThat(input).isEmpty();
+        String input = "notEmpty";
+        assertThat(input).isNotEmpty();
+        assertThrows(IllegalArgumentException.class,
+                () -> inputValidator.validateInputEmpty(input));
     }
 }
