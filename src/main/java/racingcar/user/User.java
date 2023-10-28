@@ -12,6 +12,7 @@ public class User extends Validator{
         for(String i:carNames){
             carNameCheck(i);
         }
+        duplicatedNameCheck(carNames);
         return carNames;
     }
     public int gameRoundInput(){
