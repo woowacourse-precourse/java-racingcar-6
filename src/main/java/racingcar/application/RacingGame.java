@@ -5,7 +5,9 @@ import racingcar.domain.RacingCar;
 import racingcar.util.channel.Printer;
 import racingcar.util.constant.ConstVariable;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.StringJoiner;
 
 public class RacingGame {
@@ -42,10 +44,13 @@ public class RacingGame {
         StringJoiner winnerResult = new StringJoiner(ConstVariable.RESULT_WINNER_SEPARATOR);
         Long farthestDistance = race.getFarthestDistance();
 
-        List<RacingCar> winners = race.getRacingCars().stream()
-                .filter(car -> car.getDistance().equals(farthestDistance))
-                .toList();
-        winners.forEach(car -> winnerResult.add(car.getName()));
+        List<String> winners = new ArrayList<>();
+        for (RacingCar car : race.getRacingCars()) {
+            if (Objects.equals(car.getDistance(), farthestDistance)) {
+                winners.add(car.getName());
+            }
+        }
+        winners.forEach(winnerResult::add);
         Printer.printLine(ConstVariable.RESULT_WINNER_MESSAGE + winnerResult);
     }
 
