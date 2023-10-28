@@ -1,10 +1,9 @@
-package racingcar.util;
+package racingcar.util.validate;
 
 import static racingcar.util.Constants.BLANK;
 import static racingcar.util.Constants.MAX_LENGTH;
 import static racingcar.util.Constants.NULL;
 
-import java.util.Arrays;
 import java.util.Objects;
 import racingcar.message.ErrorMessages;
 
