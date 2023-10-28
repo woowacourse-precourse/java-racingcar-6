@@ -18,7 +18,7 @@ public class CarOutputView {
     }
 
     public void printWinner(List<String> winners) {
-        System.out.println(OutputMessage.PRINT_FINAL_WINNER.getMessage());
+        System.out.print(OutputMessage.PRINT_FINAL_WINNER.getMessage());
         System.out.println(String.join(", ", winners));
 
     }
