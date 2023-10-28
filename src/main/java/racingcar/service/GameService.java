@@ -41,4 +41,16 @@ public class GameService {
 	public boolean isForward() {
 		return getRandomNumber() >= FORWARD_POINT.getValue();
 	}
+
+	public List<Car> getWinners() {
+		Long maxPosition = gameRepository.getMaxForwardPosition();
+		List<Car> winners = new ArrayList<>();
+		List<Car> cars = gameRepository.findAll();
+		for (Car car : cars) {
+			if (car.getForwardCount().equals(maxPosition)) {
+				winners.add(car);
+			}
+		}
+		return winners;
+	}
 }
