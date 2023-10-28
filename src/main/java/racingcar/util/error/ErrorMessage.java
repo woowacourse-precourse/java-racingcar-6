@@ -1,4 +1,4 @@
-package racingcar.service.util.error;
+package racingcar.util.error;
 
 public enum ErrorMessage {
     NO_NUMBER("[ERROR] 숫자만 입력해주세요"),

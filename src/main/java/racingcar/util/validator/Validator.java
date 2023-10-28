@@ -1,6 +1,6 @@
-package racingcar.service.util.validator;
+package racingcar.util.validator;
 
-import racingcar.service.util.error.ErrorMessage;
+import racingcar.util.error.ErrorMessage;
 
 public class Validator {
     private static final int LIMIT_NUMBER = 5;
