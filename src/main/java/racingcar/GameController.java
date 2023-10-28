@@ -33,6 +33,12 @@ public class GameController {
         if (!(2 <= carNames.size() && carNames.size() <= 10)) {
             throw new IllegalArgumentException("[ERROR] 자동차는 2대 이상 10대 이하여야 합니다.");
         }
+        for (int i = 0; i < carNames.size(); i++) {
+            List<String> remainingCarNames = carNames.subList(i + 1, carNames.size());
+            if (remainingCarNames.contains(carNames.get(i))) {
+                throw new IllegalArgumentException("[ERROR] 중복되는 자동차 이름이 존재합니다.");
+            }
+        }
         return carNames.stream()
                 .map(Car::new)
                 .toList();
