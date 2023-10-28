@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Objects;
 
 public class Car {
@@ -13,6 +12,14 @@ public class Car {
         this.forwardCount = 0;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getForwardCount() {
+        return forwardCount;
+    }
+
     public void forward(final int number) {
         if (isNumOverThree(number)) {
             forwardCount++;
@@ -21,8 +28,9 @@ public class Car {
     }
 
     private void checkLeadCar() {
-        if (maxForwardCount < forwardCount)
+        if (maxForwardCount < forwardCount) {
             maxForwardCount = forwardCount;
+        }
     }
 
     public boolean isLead() {
