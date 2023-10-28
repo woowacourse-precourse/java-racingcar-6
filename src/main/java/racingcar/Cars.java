@@ -31,8 +31,14 @@ public class Cars {
         }
     }
 
-    public List<Car> getCars() {
-        return cars;
+    public List<CurrentResult> getCurrentCarsResult() {
+        return cars.stream()
+                .map(this::createCurrentResult)
+                .toList();
+    }
+
+    private CurrentResult createCurrentResult(Car car) {
+        return new CurrentResult(car.getNameValue(), car.getCurrentPositionStatus());
     }
 
     public List<Car> findWiiningCars() {

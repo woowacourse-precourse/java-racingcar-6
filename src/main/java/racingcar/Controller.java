@@ -44,8 +44,12 @@ public class Controller {
 
         for (int current = 0; current < count; current++) {
             cars.attemptForward();
-            view.printCurrentCarsResult(cars);
+            view.printCurrentCarsResult(getCurrentResult(cars));
         }
+    }
+
+    private List<CurrentResult> getCurrentResult(Cars cars) {
+        return cars.getCurrentCarsResult();
     }
 
     private void printWinners(Cars cars) {

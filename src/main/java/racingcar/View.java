@@ -2,6 +2,8 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
+import java.util.List;
+
 public class View {
     public View() {
 
@@ -11,15 +13,13 @@ public class View {
         return readLine();
     }
 
-    public void printCurrentCarsResult(Cars cars) {
-        for (Car car : cars.getCars()) {
-            printCurrentCarResult(car);
-        }
+    public void printCurrentCarsResult(List<CurrentResult> currentResult) {
+        currentResult.forEach(this::printCurrentCarResult);
         System.out.println();
     }
 
-    public void printCurrentCarResult(Car car) {
-        System.out.println(car.getNameValue() + " : " + car.getCurrentPositionStatus());
+    public void printCurrentCarResult(CurrentResult carResult) {
+        System.out.println(carResult.getName() + " : " + carResult.getForwardStatus());
     }
 
     public void printNameInputMessage() {
