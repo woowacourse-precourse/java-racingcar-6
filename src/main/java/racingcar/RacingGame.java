@@ -39,13 +39,4 @@ public class RacingGame {
     public ResultMessage printCarName(List<Car> cars) {
         return new ResultMessage(cars);
     }
-
-    private void addResult(StringBuilder result, String name) {
-        result.append(Constants.WHITESPACE).append(name).append(Constants.COMMA);
-    }
-
-    private void trim(StringBuilder result) {
-        result.deleteCharAt(0);
-        result.deleteCharAt(result.length() - 1);
-    }
 }
