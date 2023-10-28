@@ -33,7 +33,14 @@ public class Application {
     }
 
     public static void playGame() {
-        //
+        for (Car car : carList) {
+            int randomNumber = generateRandomNumber();
+            if (randomNumber >= 4) {
+                car.moveForward();
+            } else if (randomNumber < 4) {
+                //
+            }
+        }
     }
 
     public static int generateRandomNumber() {

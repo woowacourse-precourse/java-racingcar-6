@@ -11,6 +11,10 @@ public class Car {
         carPosition = new CarPosition(0);
     }
 
+    public void moveForward() {
+        carPosition.incrementPosition();
+    }
+
     public boolean isNameValid() {
         if (carName.isCarNameEmpty()) {
             return false;
