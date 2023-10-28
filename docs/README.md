@@ -5,9 +5,10 @@
 - [x] 자동차들을 생성한다. - CreateCarsService#createCars()
 - [x] 자동차들을 이동시킬 횟수를 입력한다. - InputView#inputTryNumber()
 	- [x] 입력값이 숫자가 아니면 예외처리한다. - Validator#validateNumberFormat()
-- [ ] 자동차들을 이동시킨다.
-	- [ ] 각 차별로 0부터 9까지의 무작위 값을 생성한다.
-	- [ ] 무작위 값이 4 이상일 경우 전진한다.
-- [ ] 시도 수만큼 자동차들의 이름과 위치를 출력한다.
+- [x] 자동차들을 이동시킨다. - MoveCarsService#moveCars()
+	- [x] 각 차별로 0부터 9까지의 무작위 값을 생성한다. NumberGenerator#generate()
+	- [x] 무작위 값이 4 이상일 경우 전진한다. - MoveCarsService#moveCar()
+- [x] 시도 수만큼 자동차들의 이름과 위치를 출력한다. - OutputView#printExecutionResult()
+- [ ] 우승자를 구한다.
 - [ ] 최종 우승한 자동차들을 출력한다.
 	- [ ] 우승한 자동차의 이름을 쉼표로 구분하여 출력한다.
