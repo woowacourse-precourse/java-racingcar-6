@@ -15,4 +15,17 @@ public class OutputView {
         }
         System.out.println(winnerName.get(winnerSize - 1));
     }
+    public static void printCarStatus(List<String> carName, List<Integer> carStatus) {
+        for(int i = 0; i < carName.size(); i++) {
+            int status = carStatus.get(i);
+            String name = carName.get(i);
+            System.out.print(name);
+            System.out.print(" : ");
+            for(int j = 0; j < status; j++){
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
 }
