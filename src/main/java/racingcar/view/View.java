@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import static racingcar.view.CarRaceMessages.RACE_RESULT_MESSAGE;
 import static racingcar.view.CarRaceMessages.RACE_WINNERS;
 import static racingcar.view.CarRaceMessages.REQUEST_RACE_ROUNDS;
 import static racingcar.view.CarRaceMessages.START_RACE;
@@ -19,6 +20,9 @@ public class View {
         return Console.readLine();
     }
 
+    public void raceResult() {
+        System.out.println("\n" + RACE_RESULT_MESSAGE);
+    }
 
     public void raceRoundResult(List<RacingCar> racingCars) {
         racingCars.forEach(System.out::println);
