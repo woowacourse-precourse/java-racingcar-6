@@ -14,6 +14,10 @@ public class InformationOfCar {
 		return carName;
 	}
 
+	public void setCarName(String carName) {
+		this.carName = carName;
+	}
+
 	public String getDistance() {
 		return distance;
 	}
