@@ -22,4 +22,8 @@ public class CarGenerator {
             cars.add(car);
         }
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }
