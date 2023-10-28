@@ -6,6 +6,7 @@ import racingcar.constant.ErrorMessage;
 public final class Name {
 
     private static final int MAX_NAME_LENGTH = 5;
+    private static final String BLANK = " ";
     private final String value;
 
     public Name(final String value) {
@@ -14,9 +15,13 @@ public final class Name {
     }
 
     private void validate(final String name) {
-        if (name.length() > MAX_NAME_LENGTH) {
+        if (isInvalidName(name)) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_CAR_NAME_LENGTH.toValue());
         }
+    }
+
+    private boolean isInvalidName(final String name) {
+        return name.length() > MAX_NAME_LENGTH || name.startsWith(BLANK) || name.endsWith(BLANK);
     }
 
     public String toValue() {
