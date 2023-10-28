@@ -31,7 +31,7 @@ NumberGenerator
 
 
 InputView
-- 자동차 이름을 쉼표(,)를 기준으로 입력받는다.
+- 자동차 이름을 쉼표(,)를 기준으로 입력받는다. - O
 - 시도할 횟수를 입력받는다.
 - 잘못된 값을 입력하면 IllegalArgumentException 를 발생시킨다.
 
