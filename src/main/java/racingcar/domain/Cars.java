@@ -14,4 +14,22 @@ public class Cars {
                 .map(name -> new Car(name))
                 .toList();
     }
+
+    public List<String> findWinners() {
+        Car maxPositionCar = findMaxPositionCar();
+        return findMaxPositionCarList(maxPositionCar);
+    }
+
+    private Car findMaxPositionCar() {
+        return cars.stream()
+                .max((car, other) -> car.compareTo(other))
+                .orElseThrow(() -> new IllegalArgumentException());
+    }
+
+    private List<String> findMaxPositionCarList(Car maxPositionCar) {
+        return cars.stream()
+                .filter(car -> maxPositionCar.isSamePosition(car))
+                .map(Car::getName)
+                .toList();
+    }
 }

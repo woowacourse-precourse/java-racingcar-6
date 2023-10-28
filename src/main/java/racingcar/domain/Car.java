@@ -1,6 +1,8 @@
 package racingcar.domain;
 
-public class Car {
+import java.util.Comparator;
+
+public class Car implements Comparable<Car> {
 
     private Name name;
     private Position position;
@@ -9,5 +11,18 @@ public class Car {
 
         this.name = new Name(name);
         this.position = new Position();
+    }
+
+    public boolean isSamePosition(Car other) {
+        return this.position.getPosition() == other.position.getPosition();
+    }
+
+    @Override
+    public int compareTo(Car other) {
+        return this.position.getPosition() - other.position.getPosition();
+    }
+
+    public String getName() {
+        return name.getName();
     }
 }

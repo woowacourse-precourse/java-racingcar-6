@@ -8,4 +8,8 @@ public class Position {
 
         position++;
     }
+
+    public int getPosition() {
+        return position;
+    }
 }
