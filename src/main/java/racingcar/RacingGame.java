@@ -30,4 +30,10 @@ public class RacingGame {
             System.out.println();
         }
     }
+
+    public void announceWinner() {
+        List<String> winnerList = Commentator.getWinners(setting);
+        String winners = String.join(", ", winnerList);
+        System.out.print("최종 우승자 : " + winners);
+    }
 }
