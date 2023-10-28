@@ -199,7 +199,8 @@
 ## 📦 예외 처리 - Exception
 
 - [ ]  📔 사용자 정의 예외 - GameException
-
+   - [ ]  📔 CarNameException
+   - [ ]  📔 RoundException
 ## 📦 문구 - Message
 
 - [ ]  📔 문구 - GamePrompt
