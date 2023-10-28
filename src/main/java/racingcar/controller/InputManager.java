@@ -17,8 +17,15 @@ public class InputManager {
 
         List<Car> cars = new ArrayList<Car>();
         for (int i = 0; i <names.size(); i++){
+            checkLinitCarName(names.get(i));
             cars.add(new Car(names.get(i)));
         }
         return cars;
+    }
+
+    private void checkLinitCarName(String name){
+        if (name.length() > 5){
+            throw new IllegalStateException();
+        }
     }
 }
