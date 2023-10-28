@@ -48,13 +48,13 @@ public class CarList {
 	public List<Car> findWinner() {
 
 		Set<Car> removeList = makeRemoveList();
-		List<Car> winningList = this.carList;
+		List<Car> winnerList = this.carList;
 
 		for (Car removedCar : removeList) {
-			winningList.remove(removedCar);
+			winnerList.remove(removedCar);
 		}
 
-		return winningList;
+		return winnerList;
 
 	}
 
