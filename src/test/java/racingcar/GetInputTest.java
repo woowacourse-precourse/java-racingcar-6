@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class GetInputTest {
-    String mockInput = "This is a mock message.";
+    String mockInput = "alpha,bravo,charlie\n5";
     private final InputStream inOriginal = System.in;
 
     @BeforeEach
@@ -24,20 +24,14 @@ public class GetInputTest {
     }
 
     @Test
-    public void getMachineNames() {
+    public void getMachineNamesThenLap() {
         Machines machines = new Machines();
-
-        String receivedInput = machines.getInput();
-
-        assertThat(receivedInput).isEqualTo(mockInput);
-    }
-
-    @Test
-    public void getLap() {
         Lap lap = new Lap();
 
-        String receivedInput = lap.getInput();
+        String machineNames = machines.getInput();
+        String lapNumber = lap.getInput();
 
-        assertThat(receivedInput).isEqualTo(mockInput);
+        assertThat(machineNames).isEqualTo("alpha,bravo,charlie");
+        assertThat(lapNumber).isEqualTo("5");
     }
 }
