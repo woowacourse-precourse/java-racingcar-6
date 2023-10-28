@@ -29,7 +29,7 @@
       - [X] 게임 횟수 입력시 잘못된 값 입력시 검증 과정 진행! ##Validator, ##CarGameService
         - 숫자인지 확인!
     - [ ] 게임 진행 - ##RaceService ## CarGameService - gameStart
-      - [ ] 자동차의 이름마다 숫자 굴리기 - NumberGenerator 
+      - [X] 자동차의 이름마다 숫자 굴리기 - ## NumberGenerator - generate  
         - [ ] 숫자가 4 이상인 경우 자동차가 전진을 기록한 변수 + 1
       - [ ] 자동차들에 대한 정보를 저장 - 🚗 Car
         - [ ] 이름, 전진 카운트, 현재 출력될 결과 모습 (매번 for 문으로 출력하지 않기 위해!)
