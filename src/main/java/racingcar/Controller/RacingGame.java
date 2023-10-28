@@ -18,10 +18,18 @@ public class RacingGame {
     private GameStatus gameStatus;
 
     public void run() {
+        gameSetting();
+        play();
+    }
+
+    private void gameSetting() {
         String carname = carNamesInput();
         Cars cars = createCars(carname);
         int playCount = playCountInput();
         gameStatus = new GameStatus(cars, playCount);
+    }
+
+    private void play() {
         OutputView.printStart();
         while (!gameStatus.isEnd()) {
             gameStatus.carsMoveForward();
