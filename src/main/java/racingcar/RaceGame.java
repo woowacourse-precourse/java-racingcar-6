@@ -30,6 +30,11 @@ public class RaceGame {
         }
     }
 
+    public int calculateForwardPoint(Map<String, StringBuilder> scoreResult) {
+
+        return scoreResult.values().stream().mapToInt(StringBuilder::length).max().orElse(0);
+    }
+
     public void gameStart() {
         printer.printStartMessage();
         List<String> carNames = userInput.getCarNames();
@@ -39,21 +44,12 @@ public class RaceGame {
         Map<String, StringBuilder> scoreBoard = makeScoreBoard(carNames);
 
         for (int j = 0; j < gameRound; j++) {
-            for (Map.Entry<String, StringBuilder> pair : scoreBoard.entrySet()) {
-                if (engine.rollDice()) {
-                    engine.moveForward(pair.getValue());
-                }
-                printer.printRoundResult(pair);
-            }
+            playOneRound(scoreBoard);
             System.out.println();
         }
 
         List<String> winningList = new ArrayList<>();
-        int winPoint = scoreBoard.values()
-                .stream()
-                .mapToInt(StringBuilder::length)
-                .max()
-                .orElse(0);
+        int winPoint = calculateForwardPoint(scoreBoard);
         System.out.println(winPoint);
 
         scoreBoard.forEach((key, value) -> {
