@@ -1,14 +1,16 @@
 package racingcar;
 
+import java.util.List;
+
 public class Validation {
 
-    public static void validateCarNames(String[] names) {
-        if (names.length == 0) {
+    public static void validateCarNames(List<String> names) {
+        if (names.isEmpty()) {
             throw new IllegalArgumentException();
         }
 
         for (String name : names) {
-            if (name.isEmpty() || name.length() > 5) {
+            if (name.isBlank() || name.length() > 5) {
                 throw new IllegalArgumentException();
             }
         }

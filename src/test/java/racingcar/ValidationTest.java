@@ -2,6 +2,8 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,16 +14,16 @@ class ValidationTest {
     void hasIllegalName() {
         // given
         String legal = "a,bb,ccc,dddd,eeeee";
-        String[] legals = legal.split(",");
+        List<String> legals = Arrays.asList(legal.split(","));
 
         String illegal1 = "a,bb,abcdef";
-        String[] illegals1 = illegal1.split(",");
+        List<String> illegals1 = Arrays.asList(illegal1.split(","));
 
         String illegal2 = ",a,b,c,";
-        String[] illegals2 = illegal2.split(",");
+        List<String> illegals2 = Arrays.asList(illegal2.split(","));
 
         String illegal3 = ",,,";
-        String[] illegals3 = illegal3.split(",");
+        List<String> illegals3 = Arrays.asList(illegal3.split(","));
 
         for (String s : illegals3) {
             System.out.println("s = " + s);
