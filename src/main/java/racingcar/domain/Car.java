@@ -12,4 +12,8 @@ public class Car {
         }
         this.name = name;
     }
+
+    public int movesForward(){
+        return distance++;
+    }
 }
