@@ -5,7 +5,6 @@ import racingcar.RacingCarRace;
 
 import java.util.List;
 
-import static racingcar.constant.NumberConstant.ONE;
 import static racingcar.constant.TextConstant.*;
 
 public class MessagePrinter {
@@ -38,17 +37,10 @@ public class MessagePrinter {
         System.out.println(BLANK);
     }
 
+
     public void printWinners(final RacingCarRace racingCarRace) {
         List<RacingCar> winners = racingCarRace.findWinners();
-        StringBuilder result = new StringBuilder();
-        int maxWinnerIdx = winners.size() - ONE;
-
-        for (RacingCar winner : winners) {
-            result.append(winner.getCarName());
-            if (winners.indexOf(winner) != maxWinnerIdx) {
-                result.append(COMMA_BLANK);
-            }
-        }
+        String result = RacingCar.getCarNames(winners);
 
         System.out.println(result);
     }

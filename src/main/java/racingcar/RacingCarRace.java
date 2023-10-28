@@ -1,11 +1,11 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static java.util.stream.Collectors.*;
 import static racingcar.constant.NumberConstant.ZERO_POINT;
+import static racingcar.constant.TextConstant.COMMA_BLANK;
 
 public final class RacingCarRace {
 
