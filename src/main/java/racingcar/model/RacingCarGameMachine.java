@@ -12,11 +12,12 @@ public class RacingCarGameMachine {
         this.racingCars = carNames.stream().map(RacingCar::new).toList();
     }
 
-    public void race() {
+    public List<RacingCar> race() {
         for (RacingCar car : this.racingCars) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
             car.isRacingCarMove(randomNumber);
         }
+        return this.racingCars;
     }
 
     public List<String> getWinner() {

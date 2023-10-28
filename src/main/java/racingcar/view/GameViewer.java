@@ -1,12 +1,9 @@
 package racingcar.view;
 
 import racingcar.model.RacingCar;
-import racingcar.model.RacingCarGameMachine;
-
 import java.util.List;
 
 public class GameViewer {
-    private RacingCarGameMachine racingCarGameMachine = new RacingCarGameMachine();
 
     public void startMessage() {
         System.out.println(GameMessage.START_MESSAGE.getStartMessage());
@@ -20,22 +17,13 @@ public class GameViewer {
         System.out.println("\n" + GameMessage.GAME_RESULT_MESSAGE.getGameResultMessage());
     }
 
-    public void racingResultViewer(List<String> carNames, String tryCount) {
-        racingCarGameMachine.readyToPlay(carNames);
-        for (int i = 0; i < Integer.parseInt(tryCount); i++) {
-            racingCarGameMachine.race();
-            racingCarsStatusViewer();
-        }
-    }
-
-    public void racingCarsStatusViewer() {
-        List<RacingCar> racingCars = racingCarGameMachine.getRacingCars();
+    public void racingCarsStatusViewer(List<RacingCar> racingCars) {
         racingCars.forEach(System.out::println);
         System.out.print("\n");
     }
 
-    public void gameWinnerViewer() {
-        String winners = String.join(", ", racingCarGameMachine.getWinner());
+    public void gameWinnerViewer(List<String> winner) {
+        String winners = String.join(", ", winner);
         System.out.println(GameMessage.WINNER_MESSAGE.getWinnerMessage(winners));
     }
 
