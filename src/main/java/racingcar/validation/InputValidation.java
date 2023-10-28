@@ -12,4 +12,13 @@ public class InputValidation {
         }
         return input;
     }
+
+    public static String gameCountValidate(String input) {
+        try {
+            Integer.parseInt(input);
+            return input;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("잘못된 입력입니다.");
+        }
+    }
 }
