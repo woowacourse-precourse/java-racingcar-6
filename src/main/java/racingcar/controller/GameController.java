@@ -15,4 +15,13 @@ public class GameController {
     }
 
 
+    public void play() {
+        // 경주 할 자동차 이름 입력 받기
+
+        // 게임 라운드 회수 입력 받기
+
+        // 각 라운드 별 결과 출력
+
+        // 최종 우승자 출력
+    }
 }
