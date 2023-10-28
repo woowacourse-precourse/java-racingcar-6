@@ -22,6 +22,7 @@ public class InputView {
         return carNamesList;
     }
 
+    //시도 횟수 입력 받음
     public int readNumberAttempts()
     {
         System.out.print("시도할 회수는 몇회인가요?");
