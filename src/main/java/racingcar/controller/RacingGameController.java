@@ -51,9 +51,10 @@ public class RacingGameController {
     private Cars initRacingCars(String carNames) {
         String[] names = carNames.split(",");
         List<Car> carList = new ArrayList<>();
+        RandomNumber randomNumber = new RandomNumber();
 
         for (String name : names) {
-            carList.add(new Car(name, 0, new RandomNumber()));
+            carList.add(new Car(name, 0, randomNumber));
         }
 
         return new Cars(carList);
