@@ -28,5 +28,6 @@ public class GameController {
             cars.forward();
             OutputView.displayRacingSituation(cars);
         }
+        cars.initWinners();
     }
 }

@@ -3,17 +3,20 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Car {
     private final List<String> names;
     private final int attempt;
     private List<Integer> mileage;
+    private List<String> winners;
 
     public Car(List<String> names, int attempt) {
         this.names = names;
         this.attempt = attempt;
         this.mileage = new ArrayList<>(Collections.nCopies(names.size(), 0));
+        this.winners = new ArrayList<>();
     }
 
     public void forward () {
@@ -39,5 +42,15 @@ public class Car {
 
     public int getMileageByIndex(int idx) {
         return mileage.get(idx);
+    }
+
+    public void initWinners() {
+        int maxNum = mileage.stream().max(Comparator.naturalOrder()).orElse(0);
+        for (int i = 0; i < mileage.size(); i++) {
+            if(mileage.get(i) == maxNum){
+                winners.add(names.get(i));
+            }
+        }
+        System.out.println(winners);
     }
 }
