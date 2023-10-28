@@ -1,16 +1,20 @@
 package racingcar.controller;
 
+import racingcar.domain.CarNameManager;
 import racingcar.domain.Cars;
 import racingcar.domain.Racing;
 import racingcar.util.BlankValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
+import java.util.List;
+
 public class RacingController {
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
     private final BlankValidator blankValidator = new BlankValidator();
-    private final Cars cars = new Cars(blankValidator);
+    private final CarNameManager carNameManager = new CarNameManager(blankValidator);
+    private final Cars cars = new Cars();
     private final Racing racing = new Racing(cars, blankValidator);
 
     public void raceStart() {
@@ -25,7 +29,8 @@ public class RacingController {
     }
 
     private void addCarsToRace() {
-        String carNames = inputView.printCarNameRequest();
+        String carNamesInput = inputView.printCarNameRequest();
+        List<String> carNames = carNameManager.processCarNames(carNamesInput);
         cars.addCars(carNames);
     }
 
@@ -47,6 +52,5 @@ public class RacingController {
         outputView.printResultText();
         outputView.printFinalWinner(cars.determineFinalWinner());
     }
-
-
 }
+

@@ -77,33 +77,38 @@
 ===
 
 ## domain
-   __1. Cars__
-   - [x] addCars(메소드 분리)
-     1) removeSpaces(공백을 모두 제거)
-     2) splitByComma(","단위로 분리 후 리스트에 저장)
-     3) validateNameLength(자동차 이름 길이를 검증)
-     4) validateUniqueNames(이름이 중복되지 않는지 검증)
-     5) initializeCars(검증된 데이터를 값(직진 거리)은 0인 해쉬맵으로 저장한다)
-      - 자동차 이름을 받아 검증해서 키값(직진 거리)은 0인 해쉬맵으로 저장한다
-   - [x] getCars
-      - 자동차 데이터를 보내준다
-   - [x] setCars
-      - 자동차 데이터를 설정해준다
+   __1. CarNameManager__
+   - processCarNames
+     -[x] processInput
+       1) removeSpaces(공백을 모두 제거)
+       2) splitByComma(","단위로 분리 후 리스트에 저장)
+     -[x] validateCarNames
+        1) validateNameLength(자동차 이름 길이를 검증)
+        2) validateUniqueNames(이름이 중복되지 않는지 검증)
+     
+   __2. Cars__
+   - [x] addCars(자동차 리스트를 받아옴)
+   - [x] initializeCars(해쉬맵을 사용하여 <자동차이름, 이동거리> 세팅)
+   - [x] getCars(자동차 데이터(해쉬맵) 게터)
+   - [x] moveCar(해당 자동차 이동거리 +1)
+   - [x] determineFinalWinner(자동차 데이터를 기반으로 우승자 선별)
+        1. getHighestPosition(가장 높은 값을 찾음)
+        2. getWinners(위의 메소드 값과 같은 값의 자동차 이름을 추출)
 
-   2. Racing
+   __3. Racing__
    - [x] validateAttemptCount
-     1) trimSpaces(앞뒤 공백을 제거)
-     2) checkForInternalSpaces(안제 공백이 있다면 예외 던짐)
-     3) convertToBigInteger(정수가 아닌 다른 문자가 있다면 예외던짐)
-     4) validateRange(Long타입 범위에 벗어나지 않는지 확인)
-     5) convertToLong(Long타입으로 변환)
-     6) validatePositive(자연수가 아니라면 예외던짐)
-     - 사용자가 입력한 시도횟수를 받아 검증해서 데이터를 저장한다
-   - [x] race
-     1) isMovable(랜덤숫자를 생성해 움직일지 결정해준다)
-     - 자동차 데이터를 가져와 랜덤 숫자를 생성해서 조건을 충족시키면 한칸 전진시킨다
-   - [x] getAttempCount
-     - 시도횟수를 보내준다가
+       1) trimSpaces(앞뒤 공백을 제거)
+       2) checkForInternalSpaces(안제 공백이 있다면 예외 던짐)
+       3) convertToBigInteger(정수가 아닌 다른 문자가 있다면 예외던짐)
+       4) validateRange(Long타입 범위에 벗어나지 않는지 확인)
+       5) convertToLong(Long타입으로 변환)
+       6) validatePositive(자연수가 아니라면 예외던짐)
+       - 사용자가 입력한 시도횟수를 받아 검증해서 데이터를 저장한다
+      - [x] race
+       1) isMovable(랜덤숫자를 생성해 움직일지 결정해준다)
+       - 자동차 데이터를 가져와 랜덤 숫자를 생성해서 조건을 충족시키면 한칸 전진시킨다
+      - [x] getAttempCount
+       - 시도횟수를 보내준다가
 
 ## view
    __1. InputView__
