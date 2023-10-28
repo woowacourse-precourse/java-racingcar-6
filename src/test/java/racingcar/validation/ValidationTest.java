@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static racingcar.validation.CarNames.BLANK_INPUT_EXCEPTION;
 import static racingcar.validation.CarNames.NAME_LENGTH_EXCEPTION;
 import static racingcar.validation.CarNames.SAME_NAMES_EXCEPTION;
+import static racingcar.validation.ExecutionNumber.NOT_A_NUMBER_EXCEPTION;
 
 import java.util.Arrays;
 import java.util.List;
@@ -58,6 +59,22 @@ public class ValidationTest {
                 carNames.validateCarNames(input);
             } catch (IllegalArgumentException e) {
                 Assertions.assertEquals(SAME_NAMES_EXCEPTION, e.getMessage());
+            }
+        });
+    }
+
+
+    private ExecutionNumber number = new ExecutionNumber();
+
+    @Test
+    void 시도횟수가_숫자가_아닌경우_예외처리() {
+        List<String> inputs = Arrays.asList("", "$@", "abc", "  ");
+        inputs.stream().forEach(input -> {
+            try {
+                number.validateExcutionNumber(input);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+                Assertions.assertEquals(NOT_A_NUMBER_EXCEPTION, e.getMessage());
             }
         });
     }
