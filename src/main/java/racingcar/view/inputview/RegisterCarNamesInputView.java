@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
-public class RegisterCarNamesInputView extends InputView<String> {
+public class RegisterCarNamesInputView implements InputView<String> {
     public static final Pattern CAR_NAME_PATTERN = Pattern.compile("^([a-zA-Z],?)+$");
 
     @Override
