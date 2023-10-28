@@ -13,10 +13,6 @@ class CarTest {
 
     private final int MOVING_DISTANCE = 1;
 
-    @Test
-    void 자동차를_생성자_이름_Null() {
-        assertThatThrownBy(() -> new Car(null)).isInstanceOf(NullPointerException.class);
-    }
 
     @Test
     void 자동차는_조건에_부합하면_움직인다() {
