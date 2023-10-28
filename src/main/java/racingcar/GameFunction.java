@@ -6,7 +6,7 @@ import java.util.List;
 
 public class GameFunction {
 
-    List<Car> makingCar (List<String> carNameList){
+    List<Car> makingCar(List<String> carNameList) {
         List<Car> carList = new ArrayList<>();
         for (String name : carNameList) {
             Car car = new Car(name);
@@ -36,7 +36,16 @@ public class GameFunction {
     }
 
 
+    void repeatGame(int turn, List<Car> carList) {
+        PrintFunction printFunction = new PrintFunction();
+        List<Boolean> carCanGo = randomGo(carList);
 
+        for (int i = 0; i < turn; i++) {
+            applyScore(carList, carCanGo);
+            printFunction.printScore(carList);
+        }
+
+    }
 
 
 }
