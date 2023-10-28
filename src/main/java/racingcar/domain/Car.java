@@ -1,8 +1,8 @@
 package racingcar.domain;
 
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
 
 public class Car {
     private LinkedHashMap<String, String> carList;
@@ -21,7 +21,7 @@ public class Car {
         });
     }
 
-    public List<String> getFinalWinner() {
+    public String getFinalWinner() {
         ArrayList<String> winnerList = new ArrayList<>();
         int maxValue = 0;
         for (String value : getCarList().values()) {
@@ -36,6 +36,8 @@ public class Car {
             }
         }
 
-        return winnerList;
+        String winners = String.join(", ", winnerList);
+
+        return winners;
     }
 }
