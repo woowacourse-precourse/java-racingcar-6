@@ -22,6 +22,7 @@ public class RacingGame {
             gameResultView.printGameResult(cars);
         } while (count-- > 1);
 
-        gameResultMaker.makeGameWinner();
+        List<String> gameWinner = Car.getRacingGameWinner(cars);
+        gameResultView.printGameWinner(gameWinner);
     }
 }
