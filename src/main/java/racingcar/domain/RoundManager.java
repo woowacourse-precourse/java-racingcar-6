@@ -7,10 +7,10 @@ import java.util.List;
 public class RoundManager {
 
     public void moveCarsInRound(List<Car> cars){
-        for(Car car : cars){
+        cars.forEach(car -> {
             if(shouldCarMove())
                 car.move();
-        }
+        });
     }
 
     private boolean shouldCarMove(){
