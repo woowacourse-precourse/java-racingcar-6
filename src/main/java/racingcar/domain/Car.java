@@ -4,19 +4,19 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.Objects;
 
-import static racingcar.global.GameConfig.*;
+import static racingcar.configuration.GameConfiguration.*;
 
 public class Car {
-    private static final Integer INITIAL_INTEGER = 0;
+    private static final Integer START_SCORE = 0;
     private static final String DASH = "-";
 
-    private final String name;
+    private final CarName name;
     private Integer score;
 
     // Car Constructor
-    private Car(String name) {
-        this.name = name;
-        this.score = INITIAL_INTEGER;
+    private Car(final String name) {
+        this.name = CarName.create(name);
+        this.score = START_SCORE;
     }
 
     // Car Static Factory Method

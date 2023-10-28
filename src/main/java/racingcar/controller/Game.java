@@ -3,13 +3,12 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Cars;
 import racingcar.domain.WinnerResult;
-import racingcar.utility.ConstraintValidator;
 import racingcar.utility.Parser;
 import racingcar.view.View;
 
 import java.util.List;
 
-import static racingcar.view.constants.Notice.RESPONSE_RESULT_MESSAGE;
+import static racingcar.view.constants.Message.RESPONSE_RESULT_MESSAGE;
 
 public class Game {
     public static void start() {
@@ -17,7 +16,6 @@ public class Game {
         Cars cars = Cars.create(carNamesRequest);
 
         String roundCountRequest = View.requestRoundCount();
-        ConstraintValidator.validateNumber(roundCountRequest);
 
         View.printNotice(RESPONSE_RESULT_MESSAGE);
         int roundCount = Parser.parseRoundCount(roundCountRequest);
@@ -33,8 +31,8 @@ public class Game {
             List<String> roundResults = cars.playOneRound();
             View.printRoundResults(roundResults);
         }
-        
-        WinnerResult winnerResult = cars.makeResult();
+
+        WinnerResult winnerResult = cars.createWinnerResult();
         View.printWinnerResult(winnerResult.getWinnerNames());
 
         Console.close();

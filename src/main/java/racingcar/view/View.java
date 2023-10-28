@@ -1,11 +1,11 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.view.constants.Notice;
+import racingcar.view.constants.Message;
 
 import java.util.List;
 
-import static racingcar.view.constants.Notice.*;
+import static racingcar.view.constants.Message.*;
 
 public class View {
     public static String requestCarNames() {
@@ -25,7 +25,7 @@ public class View {
         System.out.println(winnerMessage);
     }
 
-    public static void printNotice(Notice notice) {
+    public static void printNotice(Message notice) {
         System.out.println(notice.getMessage());
     }
 

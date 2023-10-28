@@ -1,16 +1,16 @@
-package racingcar.global;
+package racingcar.configuration;
 
-public enum GameConfig {
+public enum GameConfiguration {
     // Constraint
-    NAME_MAXIMUM_CONSTRAINT(5),
     FORWARD_CONDITION(4),
+    NAME_MAXIMUM_CONSTRAINT(5),
     RANDOM_MINIMUM_CONSTRAINT(0),
     RANDOM_MAXIMUM_CONSTRAINT(9),
     ;
 
     private final int value;
 
-    GameConfig(int value) {
+    GameConfiguration(int value) {
         this.value = value;
     }
 

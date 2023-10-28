@@ -1,15 +1,13 @@
-package racingcar.utility;
+package racingcar.validator;
 
-import racingcar.global.exception.RacingCarException;
+import racingcar.exception.RacingCarException;
 
 import java.util.List;
-import java.util.Objects;
 
-import static racingcar.global.GameConfig.NAME_MAXIMUM_CONSTRAINT;
-import static racingcar.global.exception.ErrorMessage.*;
+import static racingcar.configuration.GameConfiguration.NAME_MAXIMUM_CONSTRAINT;
+import static racingcar.exception.ErrorMessage.*;
 
 public class ConstraintValidator {
-    private static final Integer ZERO_LENGTH = 0;
     private static final String COMMA = ",";
     private static final String NEW_LINE = "\n";
     private static final String TAB = "\t";
@@ -17,14 +15,10 @@ public class ConstraintValidator {
     private ConstraintValidator() {
     }
 
-    public static void validateNull(final String input) {
-        if (isNull(input)) {
-            throw RacingCarException.of(NULL);
+    public static void validateEmpty(final String input) {
+        if (input.isEmpty()) {
+            throw RacingCarException.of(EMPTY);
         }
-    }
-
-    private static boolean isNull(final String input) {
-        return Objects.equals(input.length(), ZERO_LENGTH) || Objects.isNull(input);
     }
 
     public static void validateContainWhiteSpace(final String input) {
@@ -35,13 +29,13 @@ public class ConstraintValidator {
 
     public static void validateEndsWithComma(final String input) {
         if (input.endsWith(COMMA)) {
-            throw RacingCarException.of(ENDS_WITH_COMMA);
+            throw RacingCarException.of(ENDS_WITH_DELIMITER);
         }
     }
 
     public static void validateContainTab(final String input) {
         if (input.contains(TAB)) {
-            throw RacingCarException.of(ENDS_WITH_TAB);
+            throw RacingCarException.of(CONTAIN_TAB);
         }
     }
 

@@ -1,5 +1,7 @@
 package racingcar.utility;
 
+import racingcar.validator.ConstraintValidator;
+
 import java.util.Arrays;
 import java.util.List;
 

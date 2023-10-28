@@ -1,4 +1,4 @@
-package racingcar.global.exception;
+package racingcar.exception;
 
 import camp.nextstep.edu.missionutils.Console;
 

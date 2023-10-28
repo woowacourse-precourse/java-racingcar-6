@@ -1,25 +1,19 @@
 package racingcar.domain;
 
-import racingcar.global.exception.RacingCarException;
+import racingcar.exception.RacingCarException;
 import racingcar.utility.Parser;
 
-import java.util.Collections;
 import java.util.List;
 
-import static racingcar.global.exception.ErrorMessage.SYSTEM_ERROR;
-import static racingcar.utility.ConstraintValidator.*;
+import static racingcar.exception.ErrorMessage.SYSTEM_ERROR;
+import static racingcar.validator.ConstraintValidator.validateNameLength;
 
 public class Cars {
     private final List<Car> racingCars;
 
     // Car Constructor
     private Cars(final String input) {
-        validateNull(input);
-        validateContainTab(input);
-        validateContainNewLine(input);
-        validateContainWhiteSpace(input);
-        validateEndsWithComma(input);
-
+        
         List<String> carNames = Parser.parseCarNames(input);
         validateNameLength(carNames);
 
@@ -44,14 +38,16 @@ public class Cars {
                 .toList();
     }
 
-    public WinnerResult makeResult() {
-        List<Car> cars = Collections.unmodifiableList(racingCars);
-        List<Car> winners = cars.stream()
+    // 현재 진행 라운드를 바탕으로, WinnerResult 객체를 리턴한다.
+    public WinnerResult createWinnerResult() {
+        List<Car> winners = racingCars.stream()
                 .filter(car -> car.isSameScore(getMaxScore()))
                 .toList();
+
         return WinnerResult.create(winners);
     }
 
+    // List<Car> racingCars에서 가장 점수가 높은 자동차의 점수를 구한다.
     public Integer getMaxScore() {
         return racingCars.stream()
                 .mapToInt(Car::getScore)
@@ -59,6 +55,7 @@ public class Cars {
                 .orElseThrow(() -> RacingCarException.of(SYSTEM_ERROR));
     }
 
+    // 파싱된 이름들을 바탕으로 자동차를 생성하고 List에 담아 반환한다.
     private List<Car> createCars(List<String> carNames) {
         return carNames.stream()
                 .map(Car::create)
