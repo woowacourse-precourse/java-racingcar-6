@@ -17,7 +17,7 @@
 - [x] 몇 번의 이동을 할 것인지 입력받는다. UserInput#inputRound()
 
 
-- [x] 레이스에서 총 몇 번의 이동을 할 것인지 설정한다. Race#setRound()
+- [x] 총 몇 번의 이동을 할 것인지 설정한다. Round()
     - [ ] 숫자가 아니라면 예외가 발생해야 한다. ExceptionChecker#isNumber()
 
 
@@ -40,3 +40,8 @@
 ---
 
 ## 구현 기능 리스트 (구현하며 추가한 기능)
+
+- [x] 남은 이동이 있는지 확인한다. Round#isRoundRemaining()
+
+
+- [x] 이동 회수를 1회 줄인다. Round#subtractOneRound()

@@ -1,13 +1,18 @@
 package racingcar.model;
 
 public class Round {
-    private int totalRound;
-    private int nowRound;
+    private int round;
 
     public Round(String inputString) {
         // inputString에 대한 검사
-        totalRound = Integer.parseInt(inputString);
-        nowRound = 0;
+        round = Integer.parseInt(inputString);
     }
 
+    public boolean isRoundRemaining() {
+        return round > 0;
+    }
+
+    public void subtractOneRound() {
+        round -= 1;
+    }
 }
