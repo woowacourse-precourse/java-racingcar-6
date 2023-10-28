@@ -18,13 +18,15 @@ public class InputValidator {
     }
 
     private static void validateCarNameLength(String carNames) {
-        Parser.parseWithComma(carNames).forEach(carName ->
-        {
-            if (carName.length() < MIN_CAR_NAME_LENGTH || carName.length() > MAX_CAR_NAME_LENGTH) {
-                throw new IllegalArgumentException(
-                        "이름은 " + MIN_CAR_NAME_LENGTH + "자 이상 " + MAX_CAR_NAME_LENGTH + "자 이하여야 합니다.");
-            }
-        });
+        Parser.parseWithComma(carNames)
+                .forEach(InputValidator::validateEachCarNameLength);
+    }
+
+    private static void validateEachCarNameLength(String carName) {
+        if (carName.length() < MIN_CAR_NAME_LENGTH || carName.length() > MAX_CAR_NAME_LENGTH) {
+            throw new IllegalArgumentException(
+                    "이름은 " + MIN_CAR_NAME_LENGTH + "자 이상 " + MAX_CAR_NAME_LENGTH + "자 이하여야 합니다.");
+        }
     }
 
     private static void validateDuplicateName(String carNames) {
