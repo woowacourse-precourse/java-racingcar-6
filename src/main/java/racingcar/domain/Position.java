@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import java.util.Objects;
 
-public class Position {
+public class Position implements Comparable<Position> {
 
     private static final String INVALID_INPUT_MESSAGE = "음수는 입력할 수 없습니다.";
     private static final int DEFAULT_POSITION = 0;
@@ -28,6 +28,11 @@ public class Position {
         return new Position(this.value);
     }
 
+    public boolean isGreaterThen(Position position) {
+        if(compareTo(position) <= 0) return false;
+        return true;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -39,5 +44,10 @@ public class Position {
     @Override
     public int hashCode() {
         return Objects.hash(value);
+    }
+
+    @Override
+    public int compareTo(Position o) {
+        return this.value - o.value;
     }
 }
