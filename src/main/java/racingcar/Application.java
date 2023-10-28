@@ -8,6 +8,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 public class Application {
     public static void main(String[] args) {
         Car car = new Car();
+        car.displayCarInformation();
 
     }
 }
@@ -32,6 +33,7 @@ class Car{
         }
         CheckException.CheckRightCarName(CarInformation.keySet());
         RepeatCount = User.NumberOfMove();
+        this.WhichCarWillMove(CarInformation.keySet());
     }
     private int CreateRandomNumber() {
         return pickNumberInRange(0,9);
@@ -57,6 +59,9 @@ class Car{
         for (String CarName : CarNameSet){
             WriteForwardDistance(CarName);
         }
+    }
+    public void displayCarInformation() {
+        CarInformation.forEach((key, value) -> System.out.println("Key: " + key + ", Value: " + value));
     }
 }
 
