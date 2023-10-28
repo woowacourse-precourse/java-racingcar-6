@@ -103,23 +103,46 @@
     - 복수의 우승자인 경우 쉼표를 이용해서 구분한다 (String.join())
     
 ## Controller flow
-- RegisterCarNamesController
-  - [x] 자동차 이름을 입력 받는다
-  - [x] 자동차 이름이 조건에 맞는지 확인한다
-  - [x] RacingCars를 형성한다 
+- RegisterCarNamesController : 자동차 입력을 입력 받아 RacingCars를 형성한다 
+  - [x] OutputView - "경주할 자동차 이름을 입력하세요.(이름은..." 출력
+  - [x] inputView - 문자열을 입력 받고, 해당 문자열을 Controller에게 반환한다 
+    - [x] **예외** 문자열이 null 혹은 length()가 0 인 경우 
+    - [x] **예외** 영문자로 구성된 이름이 아닌 경우 
+    - [x] **예외 처리** throw new IllegalArgumentException 
+  - [x] Controller - 받은 문자열을 StringToCarList을 활용하여 RacingCars를 형성한다
+    - [x] StringToCarList - 문자열을 ',' 단위로 구분하고 List<Car>을 구성한다 
+      - [x] **예외** 5글자가 넘어가는 이름
+      - [x] **예외 처리** throw new IllegalArgumentException
+    - [x] 형성한 List<Car>를 RacingCars 생성자 인자로 전달한다
+      - [x] **예외** 이름이 중복된 경우
+      - [x] **예외 처리** throw new IllegalArgumentException
 
-- DisplayRoundController
-  - [x] 각 라운드 별 실행 결과를 출력한다
-  - [x] round 만큼 게임 결과를 출력한다
-    - [x] 자동차 이름을 출력해야 한다
-    - [x] 자동차가 움직인 횟수를 '-'로 반복해서 표현한다 
+- RegisterRoundController : 진행할 라운드 횟수를 입력받아 Round를 형성한다
+  - [x] OutputView - "시도할 회수는 몇회인가요?" 출력
+  - [x] inputView - 문자열을 입력 받고, 해당 문자열을 Controller에게 반환한다
+    - [x] **예외** 문자열이 숫자가 아닌 경우
+    - [x] **예외** 문자열이 '0'으로 시작하는 경우 ex) 015
+    - [x] **예외 처리** throw new IllegalArgumentException
+  - [x] Controller - 받은 문자열을 StringToRound를 활용하여 Round를 형성한다
+    - [x] **예외** 문자열이 범위를 벗어난 경우 ex) 0보다 이하 or Integer.MAX_VALUE 보다 큰 경우
+    - [x] **예외 처리** throw new IllegalArgumentException
 
-- 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다 (RacingResultController)
-  - [ ] 게임이 완료되면 우승자를 출력한다 showWinners()
-  - [ ] 단수, 복수의 우승자 모두 가능하다
-    - [ ] 단수의 우승자는 이름을 출력한다
-    - [ ] 복수의 우승자인 경우 쉼표를 이용해서 구분한다 (String.join())
+- DisplayRoundController : 라운드 별 RacingCars의 distance 상태를 표현한다
+  - [x] OutputView - "실행 결과"를 우선 출력하고 규칙에 따라 각 Car의 이름과 distance를 출력한다
+    - [x] model에서 RacingCars, Round 정보를 조회한다 
+    - [x] Round의 round 회수 만큼 동일한 규칙에 맞게 출력한다 (ex $name : --)
+      - [x] round마다 RacingCars를 구성하는 Car는 랜덤으로 생성되는 수를 전달받아 전진 여부를 결정한다
+      - [x] RacingCars를 구성하는 Car의 이름을 출력한다
+      - [x] Car의 distance 만큼 '-'를 반복해서 출력한다 
+      - [x] round 종료될 때까지 위의 순서를 반복한다 
 
+- RacingResultController : 라운드를 마치고 최종 우승자를 출력한다 
+  - [x] OutputView : "최종 우승자 :" 를 출력한다
+    - [x] : model로 부터 RacingCars 객체를 조회한다
+    - [x] : RacingCars의 우승자를 확인한다
+    - [x] : 우승자를 출력한다
+      - [x] : 혼자인 경우 이름을 출력한다
+      - [x] : 복수인 경우 이름 사이 ',' 를 출력한다
     
 ## 🎯 프로그래밍 요구 사항
 
