@@ -30,5 +30,14 @@ public class Game {
         }
     }
 
+    public void play() {
+        List<String> carNames = user.giveCarName();
+        Long repeat = user.numberOfRepeats();
+        List<Car> cars = createCars(carNames, repeat);
 
+        for (int round = 0; round < repeat; round++) {
+            eachRound(cars);
+            System.out.println();
+        }
+    }
 }
