@@ -51,15 +51,23 @@ public class Input {
         return raw.length() <= length;
     }
 
-    public static String inputRepetitions() {
+    public static Integer inputRepetitions() {
         String raw = Console.readLine();
         checkRepetitionsError(raw);
+        return Integer.decode(raw);
+    }
 
-        return ret;
+    private static void checkRepetitionsError(String repetitions) {
+        if (isNull(repetitions)
+                || isBlank(repetitions)
+                || isNumber(repetitions)
+                || isaNaturalNumber(repetitions)) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private static boolean isNumber(String rawInputArray) {
-        try {// 숫자형식으로 변환 시 예외 발생 여부
+        try {
             Integer.decode(rawInputArray);
         } catch (NumberFormatException e) {
             return true;
