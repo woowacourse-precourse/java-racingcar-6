@@ -13,7 +13,7 @@ public class RandomUtil {
         this.randoms = randoms;
     }
 
-    public int generateRandomNumber(){
+    public static int generateRandomNumber(){
         return Randoms.pickNumberInRange(MIN_RANGE, MAX_RANGE);
     }
 }
