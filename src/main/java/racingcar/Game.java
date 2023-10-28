@@ -6,6 +6,14 @@ import java.util.List;
 
 public class Game {
 
+    public static void game(List<Car> cars, int gameCount) {
+        for (int i = 0; i < gameCount; i++) {
+            moveCars(cars);
+            printResult(cars);
+        }
+        printWinners(cars);
+    }
+
     public static boolean isMovable() {
         return Randoms.pickNumberInRange(0, 9) >= 4;
     }
