@@ -1,16 +1,20 @@
-package racingcar.model;
+package racingcar.model.car;
 
 import racingcar.service.Accelerator;
 import racingcar.validation.CarValidator;
 import racingcar.validation.Validator;
 
+import java.util.Comparator;
+
 //TODO: 허무맹랑할 수 있는 이야기이지만, 자동차 경주에 말이 들어온다면?? 해당 경우도 한번 고민해보기
-public class Car implements Comparable<Car> {
+public class Car {
 
     private static final String MARK = "-";
+    //TODO: 어떻게 선언할까
+    private final Comparator<Car> comparator = new OrderByPosition();
 
-    private final String name;
-    private Integer currentPosition;
+    protected final String name;
+    protected Integer currentPosition;
 
     public Car(String name) {
         validate(name);
@@ -32,6 +36,10 @@ public class Car implements Comparable<Car> {
         }
     }
 
+    public int compareTo(Car car) {
+        return comparator.compare(this, car);
+    }
+
     //TODO: 게터 지양
     public String getName() {
         return this.name;
@@ -51,10 +59,5 @@ public class Car implements Comparable<Car> {
             return false;
         }
         return this.currentPosition.equals(car.currentPosition);
-    }
-
-    @Override
-    public int compareTo(Car car) {
-        return this.currentPosition - car.currentPosition;
     }
 }

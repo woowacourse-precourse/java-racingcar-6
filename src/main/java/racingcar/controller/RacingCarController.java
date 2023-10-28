@@ -22,6 +22,6 @@ public class RacingCarController {
             racer.play();
             outputView.printResult(racer.toString());
         }
-        outputView.printFinalWinner(racer.getWinner());
+        outputView.printFinalWinner(racer.winnerToString());
     }
 }

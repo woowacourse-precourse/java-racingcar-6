@@ -1,12 +1,12 @@
 package racingcar.model;
 
 import racingcar.constant.Rule;
+import racingcar.model.car.Car;
 import racingcar.validation.RacerValidator;
 import racingcar.validation.Validator;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Racer {
 
@@ -30,12 +30,24 @@ public class Racer {
         validator.validate(value);
     }
 
+    private List<Car> getWinner() {
+        Car first = racer.stream()
+                .max(Car::compareTo)
+                .orElseThrow(IllegalStateException::new);
+        return racer.stream()
+                .filter(car -> car.equals(first))
+                .toList();
+    }
+
     //TODO: 이 메서드 별로 안이쁨
-    public String getWinner() {
-        Car winner = racer.stream().max(Car::compareTo).orElseThrow();
-        return racer.stream().filter(winner::equals)
-                .map(Car::getName)
-                .collect(Collectors.joining(Rule.SEPARATOR));
+    public String winnerToString() {
+        List<Car> winner = getWinner();
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Car car : winner) {
+            stringBuilder.append(car.getName()).append(",");
+        }
+        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+        return stringBuilder.toString();
     }
 
     @Override

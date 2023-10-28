@@ -1,7 +1,7 @@
 package racingcar.validation;
 
 import racingcar.constant.Rule;
-import racingcar.model.Car;
+import racingcar.model.car.Car;
 
 public class CarValidator implements Validator {
     @Override
