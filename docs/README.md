@@ -20,10 +20,10 @@
     시도할 회수는 몇회인가요?
 &nbsp;
 4. 시도횟수를 입력 받는다
-    1. 아무 내용도 없는지 검증
-    2. 선택한 타입의 범위를 넘지 않는지 검증
-    3. 양수인지 검증(0은 거르자)
-      - 공백이 있는지 검증 추가
+   1. 아무 내용도 없는지 검증
+   2. 선택한 타입의 범위를 넘지 않는지 검증
+   3. 양수인지 검증(0은 거르자)
+     - 공백이 있는지 검증 추가
 
 &nbsp;
 5. 게임 연산
@@ -107,11 +107,11 @@
 
 __3. Racing__
 -[x] race
-    -[x] pickRandomNumber
+    - [x] pickRandomNumber
       - 0-9 랜덤 정수 반환
-    -[x] isMovable
+    - [x] isMovable
       - 4이상이면 true
-    -[x] getAttempCount
+    - [x] getAttempCount
       - 시도횟수 게터
 
     
@@ -170,14 +170,14 @@ __1. BlankValidator__
 ## controller
 __1. RacingController__
 - [x] raceStart(경주게임 시작)
-    -[x] setUpRace(경주 세팅)
+    - [x] setUpRace(경주 세팅)
       1) addCarsToRace
         - 사용자에게 자동차 이름 입력받음
       2) setAttemptCountForRace
         - 사용자에게 시도횟수 입력받음
--[x] runRace
+- [x] runRace
     - 시도횟수만큼 경주실행 후 결과 출력
--[x] printRaceResults
+- [x] printRaceResults
     - 우승자 출력
 
 
