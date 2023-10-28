@@ -21,8 +21,8 @@ public class RacingCar {
         return location;
     }
 
-    public void move() {
-        if (isMove()) {
+    public void move(boolean isMove) {
+        if (isMove) {
             this.location++;
         }
     }
