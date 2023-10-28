@@ -3,7 +3,6 @@ package racingcar.controller;
 import racingcar.model.Referee;
 import racingcar.model.Stadium;
 
-import java.util.ArrayList;
 import java.util.stream.IntStream;
 
 
