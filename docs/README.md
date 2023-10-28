@@ -5,10 +5,10 @@
 - [x] 각 자동차에 이름을 부여한다. -`CarName #inputCarName`
   - [x] 자동차 이름은 쉼표(,)를 기준으로 구분한다.
   - [ ] 이름은 5자 이하만 가능하다.
-- [ ] 사용자는 몇 번의 이동을 할 것인지 입력한다. -`CarMoveCount #inputCarMoveCount`
+- [x] 사용자는 몇 번의 이동을 할 것인지 입력한다. -`CarMoveCount #inputCarMoveCount`
 
 
-- [ ] 0에서 9 사이에서 무작위 값을 구한다. -`Game #getRandomNumber`
+- [x] 0에서 9 사이에서 무작위 값을 구한다. -`Game #getRandomNumber`
 - [ ] 만약 무작위 값이 4 이상이라면 전진한다. -`Game #goControlStatement`
 
 
