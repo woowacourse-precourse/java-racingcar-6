@@ -1,31 +1,31 @@
 package controller;
 
-import service.GameService;
+import service.CarService;
 
 import view.GameView;
 
 public class GameController {
 
     private final GameView gameView;
-    private final GameService gameService;
+    private final CarService carService;
 
     public GameController() {
         gameView = new GameView();
-        gameService = new GameService();
+        carService = CarService.getInstance();
     }
 
     public void raceSet(String[] names) {
         gameView.printResult();
-        gameService.fillNames(names);
+        carService.fill(names);
     }
 
     public void race(int count) {
-        String result = gameService.raceResult(count);
+        String result = carService.getResult(count);
         gameView.printResult(result);
     }
 
     public void raceResult() {
-        String winners = gameService.getWinners();
+        String winners = carService.getWinners();
         gameView.printWinners(winners);
     }
 
