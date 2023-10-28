@@ -4,24 +4,24 @@ public class Car {
     private final Name name;
     private final Position position;
 
-    public Car(Name name,Position position){
-        this.name=name;
-        this.position=position;
+    public Car(Name name, Position position) {
+        this.name = name;
+        this.position = position;
     }
 
-    public String getNameValue(){
+    public String getNameValue() {
         return name.getName();
     }
 
-    public void attemptForward(){
+    public void attemptForward() {
         position.attemptForward();
     }
 
-    public String getCurrentPositionStatus(){
-        return position.switchPositionToSlash();
+    public ForwardState getCurrentPositionStatus() {
+        return position.getForwardState();
     }
 
-    public int getPosition(){
+    public int getPosition() {
         return position.getPosition();
     }
 

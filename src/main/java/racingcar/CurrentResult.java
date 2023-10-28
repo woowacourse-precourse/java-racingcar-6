@@ -2,11 +2,11 @@ package racingcar;
 
 public class CurrentResult {
     private final String name;
-    private final String forwardStatus;
+    private final ForwardState forwardState;
 
-    public CurrentResult(String name, String forwardStatus) {
+    public CurrentResult(String name, ForwardState forwardState) {
         this.name = name;
-        this.forwardStatus = forwardStatus;
+        this.forwardState = forwardState;
     }
 
     public String getName() {
@@ -14,6 +14,6 @@ public class CurrentResult {
     }
 
     public String getForwardStatus() {
-        return forwardStatus;
+        return forwardState.getForwardState();
     }
 }
