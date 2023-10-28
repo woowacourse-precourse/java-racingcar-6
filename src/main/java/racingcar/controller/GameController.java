@@ -18,5 +18,8 @@ public class GameController {
             racingCarGame.playRound();
             OutputView.printPlayResult(racingCarGame.getCars());
         }
+
+        OutputView.printWinnerMessage();
+        OutputView.printWinner(racingCarGame.getWinners());
     }
 }
