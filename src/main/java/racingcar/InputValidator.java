@@ -10,7 +10,7 @@ public class InputValidator {
     }
 
     public static void validateCarName(String carName) {
-        String carNamePattern = "\"^[a-zA-Z가-힣]{1,5}$\"";
+        String carNamePattern = "^[a-zA-Z가-힣]{1,5}$";
         if (!carName.matches(carNamePattern)) {
             throw new IllegalArgumentException("자동차 이름은 1~5자의 한글, 영어 대소문자로 구성됩니다.");
         }
