@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 public class Cars implements Iterable<Car> {
     private final String CAR_NAME_SEPERATOR = ",";
-    private List<Car> cars = new ArrayList<>();
+    private final List<Car> cars = new ArrayList<>();
 
     public Cars(String inputValue) {
         List<String> carsName = parsedCarsName(inputValue);
@@ -18,22 +20,21 @@ public class Cars implements Iterable<Car> {
     }
 
     public List<String> getWinnersName() {
-        int maxMoveDistance = 0;
-        List<String> winnersName = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.getMoveDistance() > maxMoveDistance) {
-                winnersName.clear();
-                maxMoveDistance = car.getMoveDistance();
-                winnersName.add(car.getName());
-            } else if (car.getMoveDistance() == maxMoveDistance) {
-                winnersName.add(car.getName());
-            }
-        }
-        return winnersName;
+        return cars.stream()
+                .filter(car -> car.getMoveDistance() == maxMoveDistance())
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 
     private List<String> parsedCarsName(String inputValue) {
         return Arrays.asList(inputValue.split(CAR_NAME_SEPERATOR));
+    }
+
+    private int maxMoveDistance() {
+        return cars.stream()
+                .mapToInt(Car::getMoveDistance)
+                .max()
+                .orElseThrow(NoSuchElementException::new);
     }
 
     @Override
