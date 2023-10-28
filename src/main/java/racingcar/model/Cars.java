@@ -37,12 +37,8 @@ public class Cars {
 
     public List<CurrentResult> getCurrentCarsResult() {
         return cars.stream()
-                .map(this::createCurrentResult)
+                .map(Car::createCurrentResult)
                 .toList();
-    }
-
-    private CurrentResult createCurrentResult(Car car) {
-        return new CurrentResult(car.getNameValue(), car.getCurrentPositionStatus());
     }
 
     public ResultMessage findWinners() {
