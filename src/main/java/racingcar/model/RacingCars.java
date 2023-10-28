@@ -1,12 +1,20 @@
 package racingcar.model;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class RacingCars {
-    private final List<RacingCar> racingCars;
+    private final List<RacingCar> racingCars = new ArrayList<>();
 
-    public RacingCars(RacingCarsListMaker racingCarsListMaker) {
-        this.racingCars = racingCarsListMaker.getRacingCarsList();
+    public RacingCars(List<String> racingCarNames) {
+        setRacingCars(racingCarNames);
+    }
+
+    private void setRacingCars(List<String> racingCarsName) {
+        for (String racingCarName : racingCarsName) {
+            racingCars.add(new RacingCar(racingCarName));
+        }
     }
 
     public List<String> getWinners() {
@@ -27,5 +35,16 @@ public class RacingCars {
                 .filter(racingCar -> racingCar.getMoveDistance() == maxMoveDistance)
                 .map(RacingCar::getName)
                 .toList();
+    }
+
+    public void play() {
+        for (RacingCar racingCar : racingCars) {
+            racingCar.move();
+        }
+    }
+
+    public Map<String, Integer> makeResultMap() {
+        ResultMap resultMap = new ResultMap(racingCars);
+        return resultMap.getResultMap();
     }
 }
