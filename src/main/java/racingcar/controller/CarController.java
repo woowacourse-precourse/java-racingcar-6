@@ -12,9 +12,16 @@ public class CarController {
     private final InputView inputView = new InputView();
     private RacingCarGame racingCarGame;
 
-    public void start() {
+    public void run() {
         racingCarGame = new RacingCarGame(readNames());
-        racingCarGame.race(readTryCount());
+        startRacing(readTryCount());
+    }
+
+    private void startRacing(int tryCount) {
+        for (int i = 0; i < tryCount; i++) {
+            racingCarGame.race();
+            outputView.printRacingResult(racingCarGame.getCars());
+        }
     }
 
     private List<String> readNames() {

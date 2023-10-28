@@ -11,9 +11,11 @@ public class RacingCarGame {
         this.cars = new Cars(new ArrayList<>(names));
     }
 
-    public void race(int tryCount) {
-        for (int i = 0; i < tryCount; i++) {
-            cars.race();
-        }
+    public void race() {
+        cars.race();
+    }
+
+    public Cars getCars() {
+        return cars;
     }
 }
