@@ -13,7 +13,7 @@ public class Roster {
         }
     }
 
-    public void moveAll() {
+    public void moveAllCarsForward() {
         for (Car car : roster) {
             if (car.isMovable()) {
                 car.moveForward();
