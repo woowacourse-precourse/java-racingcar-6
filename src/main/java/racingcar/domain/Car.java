@@ -1,0 +1,58 @@
+package racingcar.domain;
+
+import java.util.Objects;
+
+public class Car {
+    private String name;
+    private int position;
+
+    private Car() {
+    }
+
+    private Car(String name) {
+        this.name = name;
+    }
+
+    public static Car of(String name) {
+        validateName(name);
+        return new Car(name);
+    }
+
+    private static void validateName(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name='" + name + '\'' +
+                ", position=" + position +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Car car = (Car) o;
+
+        if (position != car.position) {
+            return false;
+        }
+        return Objects.equals(name, car.name);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + position;
+        return result;
+    }
+}
