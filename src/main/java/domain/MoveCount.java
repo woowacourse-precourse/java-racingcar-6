@@ -2,10 +2,10 @@ package domain;
 
 import static constant.ConstantString.INITIAL_COUNT;
 
-public class Count {
+public class MoveCount {
     private int count;
 
-    public Count() {
+    public MoveCount() {
         this.count = INITIAL_COUNT;
     }
 
@@ -14,6 +14,6 @@ public class Count {
     }
 
     public int getCount() {
-        return count;
+        return this.count;
     }
 }

@@ -6,12 +6,12 @@ import validator.NameValidator;
 
 public class Car {
     private final Name carName;
-    public final Count count;
+    public final MoveCount moveCount;
 
     public Car(String carName) {
         NameValidator.validateCarName(carName);
         this.carName = new Name(carName);
-        this.count = new Count();
+        this.moveCount = new MoveCount();
     }
 
     public String getCarName() {
@@ -20,11 +20,11 @@ public class Car {
 
     public void moveOrStop(int randomNumber) {
         if (randomNumber >= MOVING_FORWARD) {
-            count.plusCount();
+            moveCount.plusCount();
         }
     }
 
     public int getCount() {
-        return count.getCount();
+        return moveCount.getCount();
     }
 }
