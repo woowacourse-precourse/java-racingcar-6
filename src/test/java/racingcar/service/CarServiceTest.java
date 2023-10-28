@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -34,14 +35,17 @@ class CarServiceTest {
     }
 
     @RepeatedTest(5)
-    @DisplayName("1회 테스트 시 모든 점수가 0 ~ 10 사이에서 나와야한다.")
+    @DisplayName("10회 테스트 시 모든 점수가 0 ~ 10 사이에서 나와야한다.")
     void 자동차_랜덤_경주_10회() {
         //given,when
         for (int i = 0; i < 10; i++) {
             service.moveAllCarByRandom();
         }
         List<Integer> list = cars.getCars().stream().map(e -> (int) e.getDistance()).toList();
+        if (list.isEmpty()) {
+            Assertions.fail();
+        }
         //then
-        assertThat(list).anySatisøπfy(e -> 0 <= e && e <= 10);
+        assertThat(list).allMatch(e -> 0 <= e && e <= 10);
     }
 }
