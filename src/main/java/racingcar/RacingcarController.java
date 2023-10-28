@@ -1,10 +1,9 @@
 package racingcar;
 
 public class RacingcarController {
-	
-	private Player player; 
+ 	private Player player;
 	
 	public void start() {
-		
+
 	}
 }
