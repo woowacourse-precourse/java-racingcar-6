@@ -24,8 +24,6 @@ public class Race {
             int randomNumber = numberGenerator.createRandomNumber();
             randomNumbers.add(randomNumber);
         }
-        System.out.println(randomNumbers);
-
         return randomNumbers;
     }
 }
