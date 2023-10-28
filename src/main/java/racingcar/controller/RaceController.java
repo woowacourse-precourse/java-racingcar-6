@@ -1,5 +1,10 @@
 package racingcar.controller;
 
+import java.util.List;
+import racingcar.domain.RaceAttempts;
+import racingcar.domain.RaceParticipants;
+import racingcar.domain.RaceWinners;
+import racingcar.domain.RacingCar;
 import racingcar.view.console.InputView;
 import racingcar.view.console.OutputView;
 
@@ -13,6 +18,25 @@ public class RaceController {
     }
 
     public void run() {
-        // TODO 구현 진행
+        RaceParticipants raceParticipants = setRaceParticipants();
+        RaceAttempts raceAttempts = setRaceAttempts();
+        RaceWinners raceWinners = runRaceAndGetWinners(raceParticipants, raceAttempts);
+        displayRaceWinners(raceWinners);
+    }
+
+    private RaceParticipants setRaceParticipants() {
+    }
+
+    private RaceAttempts setRaceAttempts() {
+    }
+
+    private RaceWinners runRaceAndGetWinners(RaceParticipants raceParticipants, RaceAttempts raceAttempts) {
+    }
+
+    private void raceInProgress(int attempts, List<RacingCar> racingCarList) {
+    }
+
+    private void displayRaceWinners(RaceWinners raceWinners) {
+        outputView.printRaceWinners(raceWinners.getWinners());
     }
 }
