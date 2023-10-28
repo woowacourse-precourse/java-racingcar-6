@@ -3,11 +3,16 @@ package racingcar;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.io.PrintStream;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.MockedStatic;
+import org.mockito.Mockito;
 import racingcar.factories.CarFactory;
 import racingcar.factories.CarRecordFactory;
 
@@ -93,6 +98,28 @@ public class IOTest {
             prompt.close();
         }
         System.setIn(stdIn);
+    }
+
+    @Test
+    void 모든_자동차가_동일한_이동거리를_한_번_이동_후_현재_상태_출력() {
+        // given
+        Race race = new Race(rule);
+        MockedStatic<RandomNumberGenerator> mocked = Mockito.mockStatic(RandomNumberGenerator.class);
+        mocked.when(() -> RandomNumberGenerator.pickRandomNumber(rule))
+                        .thenReturn(5);
+        rule.setNumberOfRepetitions(new NumberOfRepetitions("1"));
+        CarRecord racers = CarRecordFactory.createEmptyCarRecord();
+        racers.register(CarFactory.car(rule, "pobi"));
+        racers.register(CarFactory.car(rule, "woni"));
+        racers.register(CarFactory.car(rule, "jun"));
+        race.registerRacers(racers);
+        // when
+        PrintStream stdOut = System.out;
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(buffer));
+        race.start();
+        // then
+        Assertions.assertThat(buffer.toString()).isEqualTo("pobi : -\nwoni : -\njun : -\n");
     }
 
     void stdInWillRead(String input) {

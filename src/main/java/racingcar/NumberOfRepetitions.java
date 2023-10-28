@@ -24,6 +24,10 @@ public class NumberOfRepetitions {
         return Integer.parseInt(input);
     }
 
+    public int getN() {
+        return this.n;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj.getClass() != NumberOfRepetitions.class) {

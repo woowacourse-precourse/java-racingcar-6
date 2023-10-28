@@ -23,7 +23,7 @@ public class Car {
     public void moveForward() {
         int randomNumber = RandomNumberGenerator.pickRandomNumber(rule);
         if (randomNumber >= 4)
-            this.distance += randomNumber;
+            this.distance += 1;
     }
 
     @Override
