@@ -46,3 +46,8 @@
 - [x] Cars는 자동차들을 이동시킬 수 있다.
 - [x] Cars는 실행 결과에서 우승자를 판단할 수 있다.
 
+## 3-5. RacingGame 클래스
+- [x] RacingGame은 자동차들, 시도할 횟수, 실행한 횟수를 가진다.
+- [x] RacingGame은 게임을 생성할 수 있다.
+- [x] RacingGame은 게임을 실행할 수 있다.
+- [x] RacingGame은 게임이 끝났는지 판단할 수 있다.
