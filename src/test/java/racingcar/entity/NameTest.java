@@ -12,9 +12,8 @@ class NameTest {
     @Test
     void create() {
         Name name = Name.from("pobi");
-        Name otherName = Name.from("pobi");
 
-        assertThat(name).isEqualTo(otherName);
+        assertThat(name.getName()).isEqualTo("pobi");
     }
 
     @DisplayName("알 수 없는 이름(null)으로 객체를 생성할 수 없다.")

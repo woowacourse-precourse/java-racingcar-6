@@ -12,9 +12,8 @@ class CarTest {
     @Test
     void create() {
         Car car = Car.from("pobi");
-        Car otherCar = Car.from("pobi");
 
-        assertThat(car).isEqualTo(otherCar);
+        assertThat(car.describeSelf()).isEqualTo(new CarDescription("pobi", 0));
     }
 
     @DisplayName("알 수 없는 자동차 이동 정책(null)으로 자동차를 이동할 수 없다.")
