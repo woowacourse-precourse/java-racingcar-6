@@ -21,13 +21,17 @@ class User{
 
 class Car{
     Map<String,String> CarInformation = new HashMap<>();
-    Car() {
+    int RepeatCount;
+    public Car() {
+        init();
+    }
+    public void init(){
         String CarName = readLine();
         for (String name : CarName.split(",")){
             CarInformation.put(name.trim(),"");
         }
         CheckException.CheckRightCarName(CarInformation.keySet());
-        CarInformation.forEach((key, value) -> System.out.println("Key: " + key + ", Value: " + value));
+        RepeatCount = User.NumberOfMove();
     }
     private int CreateRandomNumber() {
         return pickNumberInRange(0,9);
@@ -39,13 +43,12 @@ class Car{
         return false;
     }
     private void WriteForwardDistance(String CarName){
-        int RepeatCount = User.NumberOfMove();
-        String tmp ="";
+        String distance ="";
         for (int i=0; i<RepeatCount; i++){
             int num = CreateRandomNumber();
             if (CheckGoOrStop(num)){
-                tmp += "-";
-                CarInformation.put(CarName,tmp);
+                distance += "-";
+                CarInformation.put(CarName,distance);
             }
         }
     }
