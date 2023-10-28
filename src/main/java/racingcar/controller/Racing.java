@@ -27,37 +27,34 @@ public class Racing {
     }
 
     public void play() {
-        startRace();
+        startRacing();
         Map<String, Integer> carNameList = car.createCarNameList(inputView.inputCarName());
         int counts = rounds.getRounds(inputView.inputRounds());
         outputView.printTotalResult();
-        for (int i = 0; i < counts; i++) {
-            playRound(carNameList);
-        }
+        playAllRounds(carNameList, counts);
         outputView.printWinnerList(getWinnerList(carNameList));
-        finishRace();
+        finishRacing();
     }
-
-    private void startRace() {
-        outputView.printRaceStart();
+    public void playAllRounds(Map<String, Integer> carNameList, int counts) {
+        for (int i = 0; i < counts; i++) {
+            playOneRound(carNameList);
+            outputView.printProgressOfAllCars(carNameList);
+        }
     }
-    private void playRound(Map<String, Integer> carNameList) {
+    public void playOneRound(Map<String, Integer> carNameList) {
         for (String carName : carNameList.keySet()) {
             int moves = carNameList.get(carName);
-            carNameList.put(carName, progressOrNot(moves));
-            outputView.printProgressOfCar(carName, carNameList.get(carName));
+            int randomNum = Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX);
+            carNameList.put(carName, progressOrNot(moves, randomNum));
         }
-        System.out.println();
     }
-    private Integer progressOrNot(int currentMoves) {
-        int randomNum = Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX);
+    public Integer progressOrNot(int currentMoves, int randomNum) {
         if (randomNum >= RANDOM_FOUR) {
             currentMoves += MOVE_FORWARD;
         }
         return currentMoves;
     }
-
-    private List<String> getWinnerList(Map<String, Integer> carNameList) {
+    public List<String> getWinnerList(Map<String, Integer> carNameList) {
         List<String> result = new ArrayList<>();
         Integer maxValue = Collections.max(carNameList.values());
         for (String carName : carNameList.keySet()) {
@@ -68,7 +65,10 @@ public class Racing {
         return result;
     }
 
-    private void finishRace() {
+    private void startRacing() {
+        outputView.printRaceStart();
+    }
+    private void finishRacing() {
         outputView.printRaceFinish();
         Console.close();
     }

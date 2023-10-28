@@ -7,6 +7,7 @@ import static racingcar.constant.RaceIOMessage.RACE_START;
 import static racingcar.constant.RaceIOMessage.RACE_WINNER;
 
 import java.util.List;
+import java.util.Map;
 
 public class OutputView {
     public void printRaceStart() {
@@ -18,7 +19,13 @@ public class OutputView {
     public void printTotalResult() {
         System.out.println(RACE_RESULT);
     }
-    public void printProgressOfCar(String carName, int moves) {
+    public void printProgressOfAllCars(Map<String, Integer> carNameList) {
+        for (String carName : carNameList.keySet()) {
+            printProgressOfOne(carName, carNameList.get(carName));
+        }
+        System.out.println();
+    }
+    private void printProgressOfOne(String carName, int moves) {
         System.out.println(convertProgressToString(carName, moves));
     }
     public String convertProgressToString(String carName, int moves) {
