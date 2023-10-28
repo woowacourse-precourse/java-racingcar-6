@@ -12,6 +12,10 @@ public class Cars {
         this.cars.addAll(createCarsFromNames(carNames));
     }
 
+    public void moveAllCars(Navigator navigator) {
+        cars.forEach(car -> car.move(navigator));
+    }
+
     public int getSize() {
         return cars.size();
     }
