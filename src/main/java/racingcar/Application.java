@@ -1,7 +1,12 @@
 package racingcar;
 
+import racingcar.domain.Random;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        Random random = new Random();
+
+        int result = random.makeRandomNum();
+        System.out.println(result);
     }
 }
