@@ -9,11 +9,21 @@ public class NamesManager {
         return Arrays.asList(namesString.split(","));
     }
 
-    public boolean checkNameLength(String name) {
+    public boolean checkNamesException(List<String> names){
+        for (String name : names){
+            if (wrongNameLength(name)){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean wrongNameLength(String name) {
         if (name.length() > 5) {
-            return false;
-        } else {
             return true;
+        } else {
+            return false;
         }
     }
 
