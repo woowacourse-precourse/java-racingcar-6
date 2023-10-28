@@ -35,7 +35,7 @@ public class CarService {
 		return sb.toString();
 	}
 	
-	//car객체의 forward 자원의 양을 기준으로 rank TOP 구하기
+	//car객체의 forward 자원의 양을 기준으로 rank TOP 구하기 (우승자 구하기)
 	public static String rankTOPOfCarList(ArrayList<Car> car_list) {
 		StringBuilder rank = new StringBuilder();
 		if(car_list.size()>1) {
