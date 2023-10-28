@@ -10,6 +10,7 @@ public class OutputView {
     }
 
     public static void printPlayResult() {
+        System.out.println();
         System.out.println("실행 결과");
     }
 
@@ -22,18 +23,19 @@ public class OutputView {
         for (Car car : carList) {
             printCarState(car);
         }
+        System.out.println();
     }
 
     private static void printCarState(Car car) {
-        System.out.println(car.getCar_name() + " : ");
+        System.out.print(car.getCar_name() + " : ");
         printDistance(car);
-        System.out.println();
     }
 
     private static void printDistance(Car car) {
         for(int i = 0; i < car.getLocation(); i++) {
             System.out.print("-");
         }
+        System.out.println();
     }
 
     public static void printWinner(List<String> carNameList) {
