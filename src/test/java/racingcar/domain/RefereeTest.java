@@ -51,6 +51,18 @@ class RefereeTest {
         Assertions.assertThat(isTwoOrMore).isEqualTo(true);
     }
 
+    @Test
+    @DisplayName("우승자가 두명 이상일 땐, 쉼표를 포함한 문자열로 구분된다.")
+    void 두명이상의_우승자_구분(){
+        //given
+        User user=new User();
+        List<Car> cars=user.nameForCar("carA,carB,carC");
 
+        //when
+        String strWinners=referee.makeWinnerWithCommas(cars);
+
+        //then
+        Assertions.assertThat(strWinners).isEqualTo("carA,carB,carC");
+    }
 
 }

@@ -27,9 +27,8 @@ public class Referee {
     }
 
     public String makeWinnerWithCommas(List<Car> winners) {
-        String strWinners=winners.get(0).getName();
-        winners.stream().filter(winner->winners.indexOf(winner)>0)
-                .forEach(winner->strWinners.concat(","+winner.getName()));
+        String strWinners;
+        strWinners=winners.stream().map(Car::getName).collect(Collectors.joining(","));
         return strWinners;
     }
 
