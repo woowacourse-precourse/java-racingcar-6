@@ -41,4 +41,14 @@ public class CarsTest {
         assertThat(carPositions.get("woni")).isEqualTo(0);
         assertThat(carPositions.get("jun")).isEqualTo(0);
     }
+
+    @DisplayName("값이 같다면, 해당 차량은 모두 우승자로 결정되어야 한다.")
+    @Test
+    void determineMultipleWinnersTest() {
+        cars.addCars(Arrays.asList("pobi", "woni", "jun"));
+        cars.moveCar("pobi");
+        cars.moveCar("woni");
+
+        assertThat(cars.determineFinalWinner()).containsExactlyInAnyOrder("pobi", "woni");
+    }
 }
