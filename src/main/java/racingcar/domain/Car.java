@@ -35,6 +35,10 @@ public class Car implements Comparable<Car> {
         return name.getName();
     }
 
+    public int getPosition() {
+        return position.getPosition();
+    }
+
     public boolean canMove(int randomNumber) {
         return randomNumber >= 4;
     }

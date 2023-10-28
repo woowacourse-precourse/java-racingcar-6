@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.dto.CarDto;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -36,6 +38,16 @@ public class Cars {
         return cars.stream()
                 .filter(car -> maxPositionCar.isSamePosition(car))
                 .map(Car::getName)
+                .toList();
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public List<CarDto> toDto() {
+        return cars.stream()
+                .map(car -> new CarDto(car.getName(), car.getPosition()))
                 .toList();
     }
 }
