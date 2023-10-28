@@ -17,9 +17,9 @@ public class RaceController {
         startRace(carNames, tryCount);
     }
 
-    public void startRace(CarNames carNames, TryCount tryCount){
+    private void startRace(CarNames carNames, TryCount tryCount) {
         outputView.printRaceResultMessage();
-        for(int i=0; i<tryCount.getTryCount(); i++){
+        for (int i = 0; i < tryCount.getTryCount(); i++) {
             // TODO: (1) 자동차 움직이기 (2) 각 자동차 결과 출력하기
         }
     }
