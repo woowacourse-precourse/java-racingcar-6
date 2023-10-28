@@ -1,8 +1,10 @@
-package racingcar;
+package racingcar.view;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.dto.CarDto;
+import racingcar.dto.CarsDto;
 
 public class OutView {
     private OutView() {

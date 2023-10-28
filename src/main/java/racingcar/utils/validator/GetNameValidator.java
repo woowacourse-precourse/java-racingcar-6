@@ -1,7 +1,7 @@
-package racingcar;
+package racingcar.utils.validator;
 
 
-import static racingcar.Converter.convertStringToList;
+import static racingcar.utils.Converter.convertStringToList;
 
 import java.util.ArrayList;
 

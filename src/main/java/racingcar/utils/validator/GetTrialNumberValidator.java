@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.utils.validator;
 
 public class GetTrialNumberValidator {
 

@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.dto;
 
 public class CarDto {
     private String carName;

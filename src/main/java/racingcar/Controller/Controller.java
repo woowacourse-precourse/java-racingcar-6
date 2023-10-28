@@ -1,10 +1,15 @@
-package racingcar;
+package racingcar.Controller;
 
-import static racingcar.Converter.*;
-import static racingcar.GetTrialNumberValidator.*;
-import static racingcar.InputView.*;
+import static racingcar.utils.Converter.*;
+import static racingcar.utils.validator.GetTrialNumberValidator.*;
+import static racingcar.view.InputView.*;
 
 import java.util.ArrayList;
+import racingcar.dto.CarDto;
+import racingcar.dto.CarsDto;
+import racingcar.service.Service;
+import racingcar.utils.validator.GetNameValidator;
+import racingcar.view.OutView;
 
 public class Controller {
 

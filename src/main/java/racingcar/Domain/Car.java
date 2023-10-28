@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.Domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
