@@ -18,7 +18,7 @@ public class RacingController {
         inputMoveCount();
     }
 
-    public void inputCarNames() {
+    private void inputCarNames() {
         OutputView.printNameInputDescription();
         try {
             carService.createCars(InputView.inputCarNames());
@@ -28,9 +28,10 @@ public class RacingController {
         }
     }
 
-    public void inputMoveCount() {
+    private void inputMoveCount() {
         OutputView.printMoveCountInputDescription();
         InputView.inputMoveCount();
     }
+
 
 }
