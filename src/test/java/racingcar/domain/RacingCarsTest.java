@@ -1,9 +1,9 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -49,11 +49,40 @@ class RacingCarsTest {
         final int result = racingCars.numOfElement();
 
         // then
-        Assertions.assertThat(result).isEqualTo(elements.size());
+        assertThat(result).isEqualTo(elements.size());
     }
 
-    @Test
-    void moveByNumbers() {
+    @Nested
+    @DisplayName("숫자에 따라 이동을 요청할 때")
+    class MoveByNumbers {
+
+        @Test
+        @DisplayName("4이상의 숫자인 경우 이동하는가")
+        void greaterThan4() {
+            // given
+            final RacingCars racingCars = new RacingCars(
+                    List.of(new RacingCar(new Name("abc")), new RacingCar(new Name("def"))));
+
+            // when
+            racingCars.moveByNumbers(List.of(4, 5));
+
+            // then
+            assertThat(racingCars.toResultMessage()).contains("-");
+        }
+
+        @Test
+        @DisplayName("4이상의 숫자인 경우 이동하는가")
+        void lessThan4() {
+            // given
+            final RacingCars racingCars = new RacingCars(
+                    List.of(new RacingCar(new Name("abc")), new RacingCar(new Name("def"))));
+
+            // when
+            racingCars.moveByNumbers(List.of(1, 2));
+
+            // then
+            assertThat(racingCars.toResultMessage()).doesNotContain("-");
+        }
     }
 
     @Test
