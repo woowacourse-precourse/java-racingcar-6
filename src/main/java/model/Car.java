@@ -19,4 +19,12 @@ public class Car {
     public void moveForward() {
         moveCount.moveForward();
     }
+
+    public String getNameValue() {
+        return name.getName();
+    }
+
+    public int getMoveCountValue() {
+        return moveCount.getMoveCount();
+    }
 }
