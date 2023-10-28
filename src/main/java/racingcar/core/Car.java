@@ -10,11 +10,13 @@ public class Car {
     private static final int FORWARD_THRESHOLD = 4;
     private final String name;
     private int forwardCount;
+    private int trialCount;
 
     public Car(String name) {
         validateCarName(name);
         this.name = name;
         this.forwardCount = 0;
+        this.trialCount = 0;
     }
 
     public String getName() {
@@ -25,10 +27,15 @@ public class Car {
         return this.forwardCount;
     }
 
+    public int getTrialCount() {
+        return this.trialCount;
+    }
+
     public void move() {
         if (RandomNumber.generateSingleDigit() >= FORWARD_THRESHOLD) {
             this.forwardCount++;
         }
+        this.trialCount++;
     }
 
     public String getCurrentStatusString() {

@@ -52,6 +52,7 @@ public class CarTest {
             car.move();
         }
         assertThat(car.getForwardCount()).isGreaterThan(0);
+        assertThat(car.getTrialCount()).isGreaterThan(0);
     }
 
     @Test
@@ -62,6 +63,7 @@ public class CarTest {
             car.move();
         }
         assertThat(car.getForwardCount()).isEqualTo(0);
+        assertThat(car.getTrialCount()).isGreaterThan(0);
     }
 
     @Test
