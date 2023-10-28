@@ -38,5 +38,16 @@ public class Validation {
         }
     }
 
+    public static void validateInteger(String numStr) {
+        if (!numStr.matches("^[0-9]+$")) {
+            throw new IllegalArgumentException("[ERROR] 숫자를 입력해 주세요.");
+        }
+    }
+
+    public static void validateRange(int numInt) {
+        if (numInt <= 0) {
+            throw new IllegalArgumentException("[ERROR] 0보다 큰 수를 입력해 주세요.")
+        }
+    }
 
 }

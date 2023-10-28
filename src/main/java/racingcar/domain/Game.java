@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Console;
+
 import java.util.List;
 
 public class Game {
@@ -19,11 +21,13 @@ public class Game {
     }
 
     private List<String> getCarName() {
-        return null;
+        CarName carName = new CarName(Console.readLine());
+        return carName.getCarNameStrList();
     }
 
     private int getNumberOfAttempts() {
-        return 0;
+        Attemp attemp = new Attemp(Console.readLine());
+        return attemp.getNumber();
     }
 
     private void play(List<String> carNameList) {
