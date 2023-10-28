@@ -48,14 +48,6 @@ public class Service {
         }
     }
 
-    private void moveForward(String carName) {
-        progressBoard.moveForward(carName);
-    }
-
-    private boolean isRandomNumOverFour() {
-        return numberGenerator.getRandomNumber() >= GO_NUMBER;
-    }
-
     public void showProgress() {
         outputView.printProgressMessage(cars, progressBoard);
     }
@@ -78,6 +70,18 @@ public class Service {
             }
         }
         return winners;
+    }
+
+    public void cleanProgressBoard() {
+        this.progressBoard.clear();
+    }
+
+    private void moveForward(String carName) {
+        progressBoard.moveForward(carName);
+    }
+
+    private boolean isRandomNumOverFour() {
+        return NumberGenerator.getRandomNumber(0,9) >= GO_NUMBER;
     }
 
     private int getMaxMove() {

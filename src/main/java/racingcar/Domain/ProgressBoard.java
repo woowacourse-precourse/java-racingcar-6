@@ -36,5 +36,8 @@ public class ProgressBoard {
         return this.SCORE_BOARD.get(carName);
     }
 
+    public void clear() {
+        this.SCORE_BOARD.clear();
+    }
 
 }

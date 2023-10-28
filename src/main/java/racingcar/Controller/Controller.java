@@ -49,6 +49,7 @@ public class Controller {
 
     private void endGame() {
         service.showFinalWinner();
+        service.cleanProgressBoard();
     }
 
 }
