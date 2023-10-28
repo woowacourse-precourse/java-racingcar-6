@@ -1,10 +1,9 @@
-package racingcar.domain.gamemanager.service;
+package racingcar.domain.car.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.dao.CarRepository;
-import racingcar.domain.view.InputView;
-import racingcar.domain.view.OutputView;
+import racingcar.domain.car.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.Arrays;

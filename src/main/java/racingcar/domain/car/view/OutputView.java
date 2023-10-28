@@ -1,4 +1,4 @@
-package racingcar.domain.view;
+package racingcar.domain.car.view;
 
 import racingcar.domain.util.OutputMessage;
 

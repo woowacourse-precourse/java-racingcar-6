@@ -1,8 +1,8 @@
 package racingcar;
 
 import racingcar.domain.car.dao.CarRepository;
-import racingcar.domain.gamemanager.controller.GameController;
-import racingcar.domain.gamemanager.service.GameService;
+import racingcar.domain.car.controller.GameController;
+import racingcar.domain.car.service.GameService;
 
 public class Application {
     public static void main(String[] args) {

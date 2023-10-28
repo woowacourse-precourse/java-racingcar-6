@@ -1,8 +1,8 @@
-package racingcar.domain.gamemanager.controller;
+package racingcar.domain.car.controller;
 
-import racingcar.domain.gamemanager.service.GameService;
-import racingcar.domain.view.InputView;
-import racingcar.domain.view.OutputView;
+import racingcar.domain.car.service.GameService;
+import racingcar.domain.car.view.InputView;
+import racingcar.domain.car.view.OutputView;
 
 import java.util.List;
 
