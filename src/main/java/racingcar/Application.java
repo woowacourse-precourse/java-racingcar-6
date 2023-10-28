@@ -16,19 +16,19 @@ public class Application {
         AskCarName askCarName = new AskCarName();
         AskHowManyPlayGame askHowManyPlayGame = new AskHowManyPlayGame();
         GameResult gameResult = new GameResult();
-        OutputCarName outputCarName = new OutputCarName();
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carName = Console.readLine();
         Map<String, Integer> point = askCarName.askCarName(carName);
         List<String> carNameList = Arrays.asList(carName.split(","));
+        OutputCarName outputCarName = new OutputCarName(carNameList, point);
 
         System.out.println("시도할 회수는 몇회인가요?");
         int howManyPlayGame = askHowManyPlayGame.askHowManyPlayGame(Console.readLine());
 
         System.out.println("\n실행 결과");
         for (int i = 0; i < howManyPlayGame; i++) {
-            outputCarName.outpuCarName(carNameList, point);
+            outputCarName.outpuCarName();
             System.out.println("");
         }
 
