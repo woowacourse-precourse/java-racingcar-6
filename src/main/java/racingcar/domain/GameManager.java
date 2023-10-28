@@ -11,11 +11,11 @@ public class GameManager {
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
     private final RoundManager roundManager = new RoundManager();
-    private final List<Car> cars;
+    private final List<Car> raceCars;
     private final int attempts;
 
     public GameManager(){
-        cars = initRaceCars();
+        raceCars = initRaceCars();
         attempts = initAttempts();
     }
 
@@ -31,7 +31,7 @@ public class GameManager {
         IntStream.range(0,attempts).forEach(i -> playSingeRound());
     }
     private void gameEnd() {
-        List<String> winnerCarNames = Referee.determineWinner(this.cars);
+        List<String> winnerCarNames = Referee.determineWinner(this.raceCars);
         outputView.printWinners(winnerCarNames);
     }
 
@@ -47,7 +47,7 @@ public class GameManager {
     }
 
     private void playSingeRound(){
-        roundManager.moveCarsInRound(cars);
-        outputView.printRoundResult(cars);
+        roundManager.moveCarsInRound(raceCars);
+        outputView.printRoundResult(raceCars);
     }
 }
