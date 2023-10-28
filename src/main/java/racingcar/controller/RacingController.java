@@ -1,21 +1,21 @@
 package racingcar.controller;
 
-import racingcar.domain.CarNameManager;
+import java.util.List;
+import racingcar.domain.AttemptCountValidator;
+import racingcar.domain.CarNameValidator;
 import racingcar.domain.Cars;
 import racingcar.domain.Racing;
 import racingcar.util.BlankValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.List;
-
 public class RacingController {
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
     private final BlankValidator blankValidator = new BlankValidator();
-    private final CarNameManager carNameManager = new CarNameManager(blankValidator);
+    private final CarNameValidator carNameValidator = new CarNameValidator(blankValidator);
     private final Cars cars = new Cars();
-    private final Racing racing = new Racing(cars, blankValidator);
+    private Racing racing;
 
     public void raceStart() {
         setUpRace();
@@ -30,13 +30,15 @@ public class RacingController {
 
     private void addCarsToRace() {
         String carNamesInput = inputView.printCarNameRequest();
-        List<String> carNames = carNameManager.processCarNames(carNamesInput);
+        List<String> carNames = carNameValidator.processCarNames(carNamesInput);
         cars.addCars(carNames);
     }
 
     private void setAttemptCountForRace() {
-        String attemptCount = inputView.printAttemptCountRequest();
-        racing.validateAttemptCount(attemptCount);
+        String attemptCountInput = inputView.printAttemptCountRequest();
+        AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
+        int attemptCount = attemptCountValidator.getValidatedAttemptCount(attemptCountInput);
+        racing = new Racing(cars, attemptCount);
         System.out.println();
     }
 
@@ -53,4 +55,5 @@ public class RacingController {
         outputView.printFinalWinner(cars.determineFinalWinner());
     }
 }
+
 

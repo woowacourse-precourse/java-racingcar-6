@@ -80,33 +80,52 @@
    __1. CarNameManager__
    - [x] processCarNames
      -[x] processInput
-       1) removeSpaces(공백을 모두 제거)
-       2) splitByComma(","단위로 분리 후 리스트에 저장)
+       1) removeSpaces
+       - 공백을 모두 제거
+       2) splitByComma
+       - ","단위로 분리 후 리스트에 저장
      -[x] validateCarNames
-        1) validateNameLength(자동차 이름 길이를 검증)
-        2) validateUniqueNames(이름이 중복되지 않는지 검증)
+        1) validateNameLength
+         - 자동차 이름 길이를 검증
+        2) validateUniqueNames
+         - 이름이 중복되지 않는지 검증
      
    __2. Cars__
-   - [x] addCars(자동차 리스트를 받아옴)
-   - [x] initializeCars(해쉬맵을 사용하여 <자동차이름, 이동거리> 세팅)
-   - [x] getCars(자동차 데이터(해쉬맵) 게터)
-   - [x] moveCar(해당 자동차 이동거리 +1)
+   - [x] addCars
+     - 자동차 리스트를 받아옴
+   - [x] initializeCars
+     - 해쉬맵을 사용하여 <자동차이름, 이동거리> 세팅
+   - [x] getCar
+     - 자동차 데이터(해쉬맵) 게터
+   - [x] moveCar
+     - 해당 자동차 이동거리 +1
    - [x] determineFinalWinner(자동차 데이터를 기반으로 우승자 선별)
-        1. getHighestPosition(가장 높은 값을 찾음)
-        2. getWinners(위의 메소드 값과 같은 값의 자동차 이름을 추출)
+        1. getHighestPosition
+        - 가장 높은 값을 찾음
+        2. getWinners
+       - 위의 메소드 값과 같은 값의 자동차 이름을 추출
 
    __3. Racing__
-   - [x] validateAttemptCount
-       - [x] trimSpaces(앞뒤 공백을 제거)
-       - [x] ensureNoInternalSpaces(안제 공백이 있다면 예외 던짐)
-       - [x] convertAndValidateToLong
-         1) convertToBigInteger(BigInteger로 변환)
-         2) ensureValidRange(Long타입의 범위에 맞는 수인지 검증)
-         3) ensurePositive(자연수인지 확인)
    -[x] race
-        -[x] pickRandomNumber(0-9 랜덤 정수 반환)
-        -[x] isMovable(4이상이면 true)
-   -[x] getAttempCount(시도횟수 게터)
+        -[x] pickRandomNumber
+          - 0-9 랜덤 정수 반환
+        -[x] isMovable
+          - 4이상이면 true
+   -[x] getAttempCount
+     - 시도횟수 게터
+
+    
+__4. AttemptCountValidator__
+- [x] validateAttemptCount
+    - [x] trimSpaces
+      - 앞뒤 공백을 제거
+    - [x] ensureNoInternalSpaces
+      - 숫자 안에 공백이 있다면 예외 던짐
+    - [x] convertToInt(int타입의 범위에 맞는 수인지 검증)
+        1) convertToBigInteger
+        - BigInteger로 변환하는 과정중에 정수 외의 타입이 있는지 확인
+        2) isNaturalNumber
+      - 자연수인지 검증
 
 ## view
    __1. InputView__
@@ -152,10 +171,14 @@ __1. BlankValidator__
 __1. RacingController__
 - [x] raceStart(경주게임 시작)
     -[x] setUpRace(경주 세팅)
-        1) addCarsToRace(사용자에게 자동차 이름 입력받음)
-        2) setAttemptCountForRace(사용자에게 시도횟수 입력받음)
-    -[x] runRace(시도횟수만큼 경주실행 후 결과 출력)
-    -[x] printRaceResults(우승자 출력)
+        1) addCarsToRace
+        - 사용자에게 자동차 이름 입력받음
+        2) setAttemptCountForRace
+        - 사용자에게 시도횟수 입력받음
+    -[x] runRace
+      - 시도횟수만큼 경주실행 후 결과 출력
+    -[x] printRaceResults
+      - 우승자 출력
 
 
 
