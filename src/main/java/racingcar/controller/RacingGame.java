@@ -49,7 +49,7 @@ public class RacingGame {
 
     public void handleWinners() {
         racingGameService.addWinners();
-        String winnerList = racingGameService.getWinners();
+        String winnerList = racingGameService.getWinnersNames();
         outputView.printWinners(winnerList);
     }
 }

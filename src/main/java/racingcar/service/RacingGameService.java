@@ -64,7 +64,7 @@ public class RacingGameService {
         }
     }
 
-    public String getWinners() {
+    public String getWinnersNames() {
         return winners.getWinner().stream().map(car -> car.getName())
                 .collect(Collectors.joining(Constants.SEPARATOR.getStringValue() + " "));
     }
