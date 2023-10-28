@@ -21,7 +21,7 @@ public class GameController {
 
 
         for (int i = 0; i < tryCount; i++) {
-//            moveCar(cars1);
+            moveCar(cars1);
             GameGuidePrinter.showCarNameAndPosition(cars1);
         }
     }
@@ -51,5 +51,11 @@ public class GameController {
     private int tryCountInput() {
         String tryCount = Console.readLine();
         return Integer.parseInt(tryCount);
+    }
+
+    private void moveCar(List<Car> cars) {
+        for (Car car : cars) {
+//            verification(car);
+        }
     }
 }
