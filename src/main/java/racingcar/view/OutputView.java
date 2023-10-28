@@ -14,6 +14,7 @@ public class OutputView {
 
     public void printWinner(List<Car> cars) {
         StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("최종 우승자 : ");
         for (int i = 0; i < cars.size(); i++) {
             if (i == cars.size() - 1) {
                 stringBuilder.append(cars.get(i).getName() + "\n");
