@@ -9,10 +9,10 @@ public class EntryPoint {
 
 	public EntryPoint() {
 		this.carList = new ArrayList<InformationOfCar>();
-		this.userInput = new UserInput();
+		this.userInput = new UserInput(carList);
 	}
 
 	public void startGame() {
-		carList = userInput.inputInformainOfCar(carList);
+		carList = userInput.inputInformationOfCar();
 	}
 }
