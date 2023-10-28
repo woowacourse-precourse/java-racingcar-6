@@ -11,11 +11,11 @@ public class InputValueValidator {
     // 자동차 이름 입력값 검증(쉼표 제외한 영어. 한글, 숫자, 기호 전부 가능케)
     public void checkNameValidation(String[] input) throws IllegalArgumentException {
         for (String name : input) {
-            verifyLength(name);
+            verifyNameValidation(name);
         }
     }
 
-    public void verifyLength(String value) throws IllegalArgumentException {
+    public void verifyNameValidation(String value) throws IllegalArgumentException {
         if (value.isBlank()) {
             throw new IllegalArgumentException("에러! 띄어쓰기는 언더스코어('_')를 활용해주세요.");
         }
@@ -28,7 +28,7 @@ public class InputValueValidator {
     }
 
     // 이동 횟수 입력값 검증
-    public void checkDigit(String value) throws IllegalArgumentException {
+    public void checkMovementCount(String value) throws IllegalArgumentException {
         try {
             int intValue = Integer.parseInt(value);
             if (intValue <= 0) {
