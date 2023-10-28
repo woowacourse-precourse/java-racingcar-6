@@ -10,8 +10,8 @@ public class MoveOpportunity {
     }
 
     private void validateMoveCount(int moveCount) {
-        if (moveCount <= 0) {
-            throw new IllegalArgumentException("시도 횟수는 1이상이여야 합니다.");
+        if (moveCount < 0) {
+            throw new IllegalArgumentException("시도 횟수는 0이상이여야 합니다.");
         }
     }
 
@@ -20,10 +20,6 @@ public class MoveOpportunity {
     }
 
     public MoveOpportunity move() {
-        if (moveOpportunity == 0) {
-            throw new IllegalStateException("더 이상 이동할 수 없습니다.");
-        }
-
         return new MoveOpportunity(moveOpportunity - 1);
     }
 }
