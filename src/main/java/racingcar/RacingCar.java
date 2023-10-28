@@ -5,10 +5,15 @@ public class RacingCar {
     private static final int MAX_NAME_LENGTH = 5;
 
     private final String name;
+    private int position = 0;
 
     public RacingCar(String name) {
         validateName(name);
         this.name = name;
+    }
+
+    public RacingCarInformation getInformation() {
+        return RacingCarInformation.of(name, position);
     }
 
     private void validateName(String name) {
