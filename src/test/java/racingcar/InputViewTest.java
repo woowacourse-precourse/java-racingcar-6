@@ -60,7 +60,6 @@ class InputViewTest {
                     .isInstanceOf(IllegalArgumentException.class);
         }
 
-
         @DisplayName("공백을 포함하지 않는 자동차 이름을 입력할 경우 정상적으로 입력된 이름을 반환합니다.")
         @Test
         void askCarName() {
@@ -71,6 +70,75 @@ class InputViewTest {
 
             //then
             Assertions.assertThat(inputView.inputCarNames()).isEqualTo("pobi,woni,jun");
+        }
+    }
+
+    @DisplayName("inputHowManyTry() 선언시 안내문구가 출력되고 입력받는다.")
+    @Nested
+    class InputHowManyTry extends IOTest {
+        @DisplayName("입력값은 1 이상부터 허용합니다. 1미만의 입력값은 예외가 발생합니다.")
+        @Test
+        void permitValueOverOne() {
+
+            //given
+            inputView();
+            systemIn("0");
+
+            //then
+            Assertions.assertThatThrownBy(() -> inputView.inputHowManyTry())
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
+
+        @DisplayName("입력값은 정수 외에 예외가 발생합니다.")
+        @Test
+        void permitOnlyNumber() {
+
+            //given
+            inputView();
+            systemIn("1.0");
+
+            //then
+            Assertions.assertThatThrownBy(() -> inputView.inputHowManyTry())
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
+
+        @DisplayName("입력값은 문자 값을 허용하지 않습니다.")
+        @Test
+        void noPermitString() {
+
+            //given
+            inputView();
+            systemIn("pobi,woni,jun");
+
+            //then
+            Assertions.assertThatThrownBy(() -> inputView.inputHowManyTry())
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
+
+        @DisplayName("입력값은 공백을 허용하지 않습니다.")
+        @Test
+        void noPermitCountBlank() {
+
+            //given
+            inputView();
+            systemIn("1 ");
+
+            //then
+            Assertions.assertThatThrownBy(() -> inputView.inputHowManyTry())
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
+
+
+        @DisplayName("1이상의 정수값이 입력되면 정수값을 반환합니다.")
+        @Test
+        void returnNumber() {
+
+            //given
+            inputView();
+            systemIn("1");
+
+            //then
+            Assertions.assertThat(inputView.inputHowManyTry()).isEqualTo(1);
         }
     }
 }
