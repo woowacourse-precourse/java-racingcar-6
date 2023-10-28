@@ -1,6 +1,11 @@
 package view;
 
+import controller.dto.MoveResult;
+import java.util.List;
+
 public class OutputView {
+
+    private static final String MOVING_CHARACTER = "-";
 
     public void askCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -12,5 +17,13 @@ public class OutputView {
 
     public void informBeforeResult() {
         System.out.println("실행 결과");
+    }
+
+    public void informResult(final List<MoveResult> moveResults) {
+        moveResults.forEach(result -> {
+            System.out.printf("%s : %s\n", result.carName(),
+                MOVING_CHARACTER.repeat(result.moveCount()));
+        });
+        System.out.println();
     }
 }
