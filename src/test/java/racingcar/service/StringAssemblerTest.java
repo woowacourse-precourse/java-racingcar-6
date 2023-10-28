@@ -6,7 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 
-public class RaceProgressStringAssemblerTest {
+public class StringAssemblerTest {
     @DisplayName("실행 결과 문자열 조립 테스트")
     @Test
     void assembleStringTest() {
@@ -15,6 +15,6 @@ public class RaceProgressStringAssemblerTest {
         car.move();
         car.move();
 
-        assertEquals(RaceProgessStringAssembler.assembleRaceProgress(car), "붕붕이 : --");
+        assertEquals(StringAssembler.assembleRaceProgress(car), "붕붕이 : --");
     }
 }
