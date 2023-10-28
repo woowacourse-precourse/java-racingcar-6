@@ -40,4 +40,21 @@ public class CarRacingGame {
         }
     }
 
+    public List<String> getWinningCarNames() {
+        List<String> winningCarNames = new ArrayList<>();
+        List<Car> cars = carRepository.findAll();
+        int highestPosition = 0;
+
+        for (Car car : cars) {
+            int carPosition = car.getCarPosition();
+            if (carPosition > highestPosition) {
+                highestPosition = carPosition;
+                winningCarNames.clear();
+                winningCarNames.add(car.getCarName());
+            } else if (carPosition == highestPosition) {
+                winningCarNames.add(car.getCarName());
+            }
+        }
+        return winningCarNames;
+    }
 }
