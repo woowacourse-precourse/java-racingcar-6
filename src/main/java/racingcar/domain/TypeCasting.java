@@ -1,14 +1,16 @@
 package racingcar.domain;
 
+import racingcar.view.validator.InputValidator;
+
 public class TypeCasting {
     public static RacingCars stringToRacingCars(String stringCars) {
-        // validate(cars);
-        RacingCars result = new RacingCars();
+        InputValidator.validateCarName(stringCars);
+        RacingCars racingcars = new RacingCars();
         String[] stringArrayCars = stringCars.split(",");
         for (String car : stringArrayCars) {
-            result.add(new RacingCar(car));
+            racingcars.add(new RacingCar(car));
         }
-        return result;
+        return racingcars;
     }
 
     public static int stringToInteger(String number) {
