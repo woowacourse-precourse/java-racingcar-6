@@ -70,7 +70,7 @@ public class Cars {
 
     private int accumulate(int randomNumber, String name) {
         if (randomNumber == NUMBER_OF_ADVANCE) {
-            return cars.put(name, (cars.getOrDefault(name, INITIAL_COUNT_VALUE) + PLUS_ONE));
+            cars.put(name, (cars.getOrDefault(name, INITIAL_COUNT_VALUE) + PLUS_ONE));
         }
         return cars.get(name);
     }
