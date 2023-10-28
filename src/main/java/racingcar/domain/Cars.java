@@ -43,4 +43,8 @@ public class Cars {
     public List<Car> getCars() {
         return Collections.unmodifiableList(cars);
     }
+
+    public int getSize() {
+        return cars.size();
+    }
 }
