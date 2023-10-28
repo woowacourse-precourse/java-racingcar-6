@@ -48,4 +48,12 @@ public class Control {
         }
     }
 
+    private void savingCarPositions(String[] list) {
+        carPositions = new ArrayList<>();
+        for (int i = 0; i < list.length; i++) {
+            // 일단 다 0을 채워놓기
+            carPositions.add(0);
+        }
+    }
+
 }
