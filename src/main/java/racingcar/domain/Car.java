@@ -15,9 +15,7 @@ public class Car {
     }
 
     public String forwardRecord(){
-        return record.toString();
+        return carName + ": " + record.toString();
     }
-
-
 
 }
