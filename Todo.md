@@ -7,9 +7,14 @@
 
 # 💠 각 클래스들 구성
 
+## 🧭 Setting
+- `List<String> carName` : 입력한 자동차의 이름을 저장하는 List
+- `int cycleNumber` : 사용자가 입력한 자동차 전진 횟수
+- `setting()` : 자동차 이름, 전진 횟수 입력받는 메서드
+- `getNames()` : i번째 자동차의 이름List를 가져오는 메서드
+- `getNumber()` : 전진 횟수를 가져오는 메서드
+
 ## 🥇 Racing
-- `int carNum` : 자동차 개수 저장하는 변수
-- `int cycleNum` : 사용자가 입력한 자동차 전진 횟수
 - for문 돌려서 횟수만큼 각 자동차들의 goStop() 진행하기
 - `whoIsWinner()` : 제일 멀리 간 자동차 판별, 출력
 
