@@ -11,7 +11,7 @@ public class Car {
 		this.history = new StringBuilder();
 	}
 
-	public void foward() {
+	public void move() {
 		position++;
 		history.append("-");
 	}
@@ -24,8 +24,8 @@ public class Car {
 		return position;
 	}
 
-	public String getHistory() {
-		return history.toString();
+	public StringBuilder getHistory() {
+		return history;
 	}
 
 }
