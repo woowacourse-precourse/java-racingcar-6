@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -43,6 +44,12 @@ public class Application {
 
     public static boolean checkNumber(String number){
         return number.matches("[0-9]+");
+    }
+
+    public static boolean decideToForward() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        if(randomNumber>=4) return true;
+        else return false;
     }
 
 
