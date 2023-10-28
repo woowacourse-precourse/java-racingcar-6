@@ -7,9 +7,11 @@ import java.util.List;
 public class Value {
     public List<String> carNames;
     int numberOfAttempts;
+    private List<String> winners;
 
     public Value() {
         this.carNames = new ArrayList<>();
+        this.winners = new ArrayList<>();
     }
 
     public void addCarNames(String[] names) {
@@ -27,5 +29,25 @@ public class Value {
 
     public int getNumberOfAttempts() {
         return numberOfAttempts;
+    }
+    public void determineWinners(List<Integer> carPositions) {
+        int maxPosition = findMaxPosition(carPositions);
+        for (int i = 0; i < carNames.size(); i++) {
+            if (carPositions.get(i) == maxPosition) {
+                winners.add(carNames.get(i));
+            }
+        }
+    }
+
+    private int findMaxPosition(List<Integer> carPositions) {
+        int max = 0;
+        for (int position : carPositions) {
+            max = Math.max(max, position);
+        }
+        return max;
+    }
+
+    public List<String> getWinners() {
+        return winners;
     }
 }
