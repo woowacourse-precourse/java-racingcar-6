@@ -84,6 +84,56 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 우승자_찾기_복수_테스트() {
+        Racing racing = new Racing();
+        Car car1 = new Car("robin");
+        Car car2 = new Car("hood");
+        Car car3 = new Car("kyle");
+
+        List<Car> carList = new ArrayList<>(List.of(car1, car2, car3));
+
+
+        assertRandomNumberInRangeTest(
+                () -> {
+                    for (int i = 0; i < 3; i++) {
+                        racing.initCarsRandomNum(carList);
+                        racing.modifyForwardNum(carList);
+                    }
+
+                    assertThat(racing.findWinners(carList)).containsExactly("hood", "kyle");
+                },
+                STOP, MOVING_FORWARD, STOP,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                STOP, STOP, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 단독_우승자_찾기_테스트() {
+        Racing racing = new Racing();
+        Car car1 = new Car("robin");
+        Car car2 = new Car("hood");
+        Car car3 = new Car("kyle");
+
+        List<Car> carList = new ArrayList<>(List.of(car1, car2, car3));
+
+
+        assertRandomNumberInRangeTest(
+                () -> {
+                    for (int i = 0; i < 3; i++) {
+                        racing.initCarsRandomNum(carList);
+                        racing.modifyForwardNum(carList);
+                    }
+
+                    assertThat(racing.findWinners(carList)).containsExactly("hood");
+                },
+                STOP, MOVING_FORWARD, STOP,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                STOP, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
