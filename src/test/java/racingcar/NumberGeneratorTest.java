@@ -2,15 +2,13 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 class NumberGeneratorTest {
 
-    @Test
+    @RepeatedTest(100)
     void 랜덤숫자_0부터_9_사이인지_확인() {
-        for (int i = 0; i < 10; i++) {
-            int randomNumber = NumberGenerator.createRandomNumber();
-            assertThat(randomNumber).isBetween(0, 9);
-        }
+        int randomNumber = NumberGenerator.createRandomNumber();
+        assertThat(randomNumber).isBetween(0, 9);
     }
 }
