@@ -3,6 +3,7 @@ package racingcar;
 import java.util.ArrayList;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
 
 public class Application {
@@ -21,6 +22,9 @@ public class Application {
         System.out.println("시도할 횟수는 몇 회인가요?");
         int N = Integer.parseInt(Console.readLine());
 
+        // 랜덤으로 각 차마다 주행
+        randomDrive(carList);
+
         // 주행 결과 출력
         System.out.println("실행 결과");
         for(int i=0; i<N; i++) {
@@ -32,6 +36,14 @@ public class Application {
                 System.out.println();
             }
         }
+    }
 
+    static void randomDrive(ArrayList<Car> carList) {
+        for(Car car : carList) {
+            int randomNum = Randoms.pickNumberInRange(0, 9);
+            if(randomNum >= 4) {
+                car.setCountPlus(randomNum);
+            }
+        }
     }
 }

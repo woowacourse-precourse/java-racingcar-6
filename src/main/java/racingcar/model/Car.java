@@ -17,7 +17,7 @@ public class Car {
 		return count;
 	}
 
-	private void setCountPlus(int num) {
+	public void setCountPlus(int num) {
 		this.count += num;
 	}
 }
