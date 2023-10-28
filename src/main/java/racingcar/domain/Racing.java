@@ -6,6 +6,7 @@ import racingcar.util.Validator;
 import java.util.ArrayList;
 import java.util.List;
 
+import static racingcar.util.ConstMessages.ATTEMPT_COUNT_MESSAGE;
 import static racingcar.util.Validator.validateCarNames;
 
 public class Racing {
@@ -29,6 +30,12 @@ public class Racing {
             cars.add(new Car(name));
         }
         return cars;
+    }
+
+    public void racingStart(){
+        System.out.println(ATTEMPT_COUNT_MESSAGE);
+
+
     }
 
 

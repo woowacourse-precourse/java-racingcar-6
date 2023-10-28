@@ -13,14 +13,12 @@ public class Validator {
     }
 
     public static void validateCarNames(String input) {
-        if (!(validateBlank(input) && validateNameLength(input))) {
+        if (!validateNameLength(input)) {
             throw new IllegalArgumentException("잘못된 값을 입력하셨습니다");
         }
     }
 
-    private static boolean validateBlank(String input) {
-        return !input.contains(" ");
-    }
+
 
     private static boolean validateNameLength(String input) {
         return Arrays.stream(input.split(","))
