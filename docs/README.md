@@ -11,9 +11,9 @@
 - [x] 사용자에게 이동 횟수를 입력받는다. - InputView#getMoveCount()
   - [x] 아래의 경우 `IllegalArgumentException` 발생 후 프로그램은 종료된다.
     - [x] 입력된 값이 숫자가 아닌 경우
-- [ ] 입력된 이동 횟수만큼 경주를 진행한다. - Racing#racing()
-  - [ ] 각 자동차별로 0부터 9까지 무작위 값을 생성한다. - NumberGenerator#createRandomNumber()
-  - [ ] 값이 4 이상인 경우 전진, 그렇지 않으면 멈춘다.- Judgment#moveOrStop()
+- [x] 입력된 이동 횟수만큼 경주를 진행한다. - Racing#racing()
+  - [x] 각 자동차별로 0부터 9까지 무작위 값을 생성한다. - NumberGenerator#createRandomNumber()
+  - [x] 값이 4 이상인 경우 전진, 그렇지 않으면 멈춘다.- Judgment#isMoveOrStop()
 - [ ] 각 회차별 경주 현황을 출력한다. - OutputView#displayRaceStatus()
 - [ ] 모든 회차가 끝나면 결과를 비교하여 최종 우승자를 가린다. - Referee#compareRaceStatus()
   - [ ] 누가 가장 많이 전진했는지 비교할 수 있다. 
