@@ -30,9 +30,6 @@ public class Application {
         {
             User.put(Name[i],0);
         }
-        for (String key : User.keySet()) {
-            System.out.println("KEY : " + key);
-        }
     }
     public static void CheckName(String s) {
         for(int i=0;i<UserNum;i++)
