@@ -45,6 +45,16 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @DisplayName("입력받은 시도할 횟수가 숫자가 아니면 IllegalArgumentException 발생시키기")
+    @ParameterizedTest
+    @ValueSource(strings = {"a", "1.2"})
+    void isNumberFromPlayerValidate(String number){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> validator.isNumberFromPlayerValidate(number))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
