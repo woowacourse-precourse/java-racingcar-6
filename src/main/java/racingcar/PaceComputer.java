@@ -27,10 +27,7 @@ public class PaceComputer {
     }
 
     private int generateRandomNumber(int initialNumber, int lastNumber){
-        int randomNumber = pickNumberInRange(initialNumber, lastNumber);
-        randomNumberList.add(randomNumber);
-
-        return randomNumber;
+        return pickNumberInRange(initialNumber, lastNumber);
     }
 
     public List<Integer> getRandomNumberList() {
@@ -44,6 +41,7 @@ public class PaceComputer {
             if (randomNumber >= HURDLE_NUMBER_TO_DRIVE) {
                 paceMap.put(machineName, driveSuccessNumber + 1);
             }
+            randomNumberList.add(paceMap.get(machineName));
         });
     }
 }
