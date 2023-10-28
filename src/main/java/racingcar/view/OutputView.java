@@ -20,6 +20,9 @@ public class OutputView {
         System.out.println(PRINT_RESULT);
     }
 
+    public void printPlayerStatus(String status) {
+        System.out.println(status);
+    }
     public void printWinner(String[] players) {
         System.out.println(PRINT_WINNER + String.join(",", players));
     }
