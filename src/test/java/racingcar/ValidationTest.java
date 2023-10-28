@@ -40,4 +40,26 @@ class ValidationTest {
         assertThatThrownBy(() -> Validation.validateCarNames(illegals3))
             .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    @DisplayName("게임 횟수 입력 검증")
+    void validateGameCount() {
+        // given
+        String legal = "12";
+        String illegal1 = "0";
+        String illegal2 = "-1";
+        String illegal3 = "123a";
+
+        // when then
+        Validation.validateGameCount(legal);
+
+        assertThatThrownBy(() -> Validation.validateGameCount(illegal1))
+            .isInstanceOf(IllegalArgumentException.class);
+
+        assertThatThrownBy(() -> Validation.validateGameCount(illegal2))
+            .isInstanceOf(IllegalArgumentException.class);
+
+        assertThatThrownBy(() -> Validation.validateGameCount(illegal3))
+            .isInstanceOf(IllegalArgumentException.class);
+    }
 }

@@ -13,4 +13,16 @@ public class Validation {
             }
         }
     }
+
+    public static void validateGameCount(String input) {
+        try {
+            int inputNum = Integer.parseInt(input);
+
+            if (inputNum <= 0) {
+                throw new IllegalArgumentException();
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
