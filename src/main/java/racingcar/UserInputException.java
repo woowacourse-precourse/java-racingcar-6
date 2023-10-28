@@ -1,5 +1,11 @@
 package racingcar;
 
+import static racingcar.Constant.BLANK_CAR_NAME_MESSAGE;
+import static racingcar.Constant.BLANK_SPACE;
+import static racingcar.Constant.DUPLICATE_CAR_NAME_MESSAGE;
+import static racingcar.Constant.MAX_CAR_NAME_LENGTH;
+import static racingcar.Constant.OVER_MAX_LENGTH_MESSAGE;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -8,7 +14,7 @@ public class UserInputException {
     public void validateUniqueCarName(String[] carNames) {
         // 자동차 이름 중복 검사
         if (duplicateCarName(carNames)) {
-            throw new IllegalArgumentException("자동차들의 이름 중 중복된 이름이 존재합니다. 게임이 종료됩니다.");
+            throw new IllegalArgumentException(DUPLICATE_CAR_NAME_MESSAGE);
         }
     }
 
@@ -23,24 +29,24 @@ public class UserInputException {
     public void validateBlankCarName(String[] carNames) {
         // 자동차 이름 공백 검사
         if (containsBlankName(carNames)) {
-            throw new IllegalArgumentException("자동차 이름에 공백이 포함되어 있습니다. 게임이 종료됩니다.");
+            throw new IllegalArgumentException(BLANK_CAR_NAME_MESSAGE);
         }
     }
 
     private boolean containsBlankName(String[] carNames) {
         return Arrays.stream(carNames)
-                .anyMatch(carName -> carName.contains(" "));
+                .anyMatch(carName -> carName.contains(BLANK_SPACE));
     }
 
     public void validateCarNameLength(String[] carNames) {
         // 자동차 이름 길이 검사
         if (overMaxLength(carNames)) {
-            throw new IllegalArgumentException("자동차 이름이 5자 이상입니다. 게임이 종료됩니다.");
+            throw new IllegalArgumentException(OVER_MAX_LENGTH_MESSAGE);
         }
     }
 
     private boolean overMaxLength(String[] carNames) {
         return Arrays.stream(carNames)
-                .anyMatch(carName -> carName.length() > 5);
+                .anyMatch(carName -> carName.length() > MAX_CAR_NAME_LENGTH);
     }
 }
