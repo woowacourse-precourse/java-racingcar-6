@@ -9,7 +9,7 @@ public class GameViewer {
     private RacingCarGameMachine racingCarGameMachine = new RacingCarGameMachine();
 
     public void startMessage() {
-        System.out.println(GameMessage.START_MESSAGE.getGameResultMessage());
+        System.out.println(GameMessage.START_MESSAGE.getStartMessage());
     }
 
     public void tryCountMessage() {
@@ -20,19 +20,25 @@ public class GameViewer {
         System.out.println("\n" + GameMessage.GAME_RESULT_MESSAGE.getGameResultMessage());
     }
 
-    public void racingCarsStatusViewer(List<String> carNames, int tryCount) {
-        racingCarGameMachine.gamePlay(carNames, tryCount);
-        List<RacingCar> racingCars = racingCarGameMachine.getRacingCars();
-
-        for (RacingCar car : racingCars) {
-            System.out.print(car);
+    public void racingResultViewer(List<String> carNames, String tryCount) {
+        racingCarGameMachine.readyToPlay(carNames);
+        for (int i = 0; i < Integer.parseInt(tryCount); i++) {
+            racingCarGameMachine.race();
+            racingCarsStatusViewer();
+            System.out.println("\n");
         }
-        System.out.println("\n");
+    }
+
+    public void racingCarsStatusViewer() {
+        List<RacingCar> racingCars = racingCarGameMachine.getRacingCars();
+        for (RacingCar car : racingCars) {
+            System.out.println(car);
+        }
     }
 
     public void gameWinnerViewer() {
         String winners = String.join(",", racingCarGameMachine.winner());
-        System.out.println(winners);
+        System.out.println(GameMessage.WINNER_MESSAGE.getWinnerMessage() + winners);
     }
 
 }
