@@ -32,7 +32,7 @@ public class Racing {
 
     private int checkNameLength(List<String> carNames) {
         for (int i = 0; i < carNames.size(); i++) {
-            if (carNames.get(i).length() > 5) {
+            if (carNames.get(i).length() > 6) {
                 throw new IllegalArgumentException("each racing car's name must be shorter than 6");
             }
         }
