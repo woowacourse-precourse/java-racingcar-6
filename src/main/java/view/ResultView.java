@@ -8,6 +8,6 @@ public class ResultView {
 
     public static void printResult(List<String> winner) {
         System.out.print(RESULT_MESSAGE);
-        System.out.println(String.join(STANDARD_DELIMITER, winner));
+        System.out.print(String.join(STANDARD_DELIMITER, winner));
     }
 }
