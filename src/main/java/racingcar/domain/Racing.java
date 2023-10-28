@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Racing {
-    public void run(){
-
-    }
-
     private List<Car> toCarList(List<String> carNameList){
         List<Car> carList = new ArrayList<>();
 
