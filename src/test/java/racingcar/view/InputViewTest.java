@@ -15,13 +15,13 @@ public class InputViewTest {
     @Test
     void 자동차_이름에_대한_입력을_쉼표_구분() {
         // given
-        String userInput = "Morning,Tico";
+        String userInput = "car,Tico";
         InputStream in = new ByteArrayInputStream(userInput.getBytes());
         System.setIn(in);
         // when
         List<String> carNameList = inputView.inputCarNames();
         // then
-        assertThat(carNameList).contains("Morning", "Tico");
+        assertThat(carNameList).contains("car", "Tico");
     }
 
     @Test
