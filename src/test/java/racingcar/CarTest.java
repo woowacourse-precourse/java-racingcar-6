@@ -25,7 +25,7 @@ public class CarTest {
 
     @Test
     void 자동차_최대_개수_예외처리_테스트() {
-        assertThatThrownBy(() -> new Cars(Arrays.asList("mj", "dh", "pobi", "jason"))).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> new Cars(Arrays.asList("mj", "dh", "pobi", "jason", "joon", "min", "song", "park", "son", "kim", "lee"))).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
