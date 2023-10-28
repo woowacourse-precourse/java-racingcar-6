@@ -11,6 +11,12 @@ public class Application {
         return List.of(carArray);
     }
 
+    public static void nameLength(String check) {
+        if (check.length() > 5) {
+            throw new IllegalArgumentException("이름은 5글자 이하로 작성해주세요");
+        }
+    }
+
 
     public static void main(String[] args) {
 
