@@ -48,8 +48,8 @@ public class ConSoleViewTest {
     @DisplayName("printRoundProgress() 함수 테스트")
     @MethodSource("provide_printRoundProgress_TestData")
     void 진행상황_출력_테스트(String name, int winCount, String expectedOutput) {
-        consoleView.printRoundProgress("희종", 2);
-        assertThat(getOut()).isEqualTo("희종 : --");
+        consoleView.printRoundProgress(name, winCount);
+        assertThat(getOut()).isEqualTo(expectedOutput);
     }
 
 
@@ -63,7 +63,7 @@ public class ConSoleViewTest {
     private static Stream<Arguments> provide_printRoundProgress_TestData() {
         return Stream.of(
                 Arguments.of("희종", 3, "희종 : ---"),
-                Arguments.of("희종", 0, "희종 : "),
+                Arguments.of("희종", 0, "희종 :"),
                 Arguments.of("희종", 10, "희종 : ----------")
         );
     }
