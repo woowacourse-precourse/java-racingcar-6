@@ -21,11 +21,7 @@ public class InputView {
         return Console.readLine();
     }
 
-    public Integer inputGameCount() {
-        try {
-            return Integer.parseInt(Console.readLine());
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자로 입력이 되어야 합니다!");
-        }
+    public String inputGameCount() {
+        return Console.readLine();
     }
 }

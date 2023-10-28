@@ -20,7 +20,9 @@ public class GameController {
     public void start() {
         outputView.printInitGame();
         List<String> carNames = carGameService.extractSeperator(inputView.inputCarName());
-        Integer gameCount = inputView.inputGameCount();
+        Long gameCount = carGameService.convertGameCountToNumber(inputView.inputGameCount());
+
+
 
 
     }

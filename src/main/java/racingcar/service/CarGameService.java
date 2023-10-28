@@ -10,8 +10,12 @@ public class CarGameService {
 
     public List<String> extractSeperator(String carInput) {
         List<String> splitedName= List.of(carInput.split(","));
-        System.out.println("splitedName = " + splitedName);
         validator.isRightCarNameInput(splitedName);
         return splitedName;
+    }
+
+    public Long convertGameCountToNumber(String carGameCount) {
+        validator.isRightInputGameCount(carGameCount);
+        return Long.parseLong(carGameCount);
     }
 }

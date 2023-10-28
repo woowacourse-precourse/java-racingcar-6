@@ -25,4 +25,12 @@ public class Validator {
     private boolean isRightRangeCarName(String carName) {
         return !carName.isEmpty() && carName.length() <= 5;
     }
+
+    public void isRightInputGameCount(String carGameCount) {
+        try{
+            Long.parseLong(carGameCount);
+        }catch (NumberFormatException e){
+            throw new IllegalArgumentException("게임 횟수는 숫자가 와야 합니다!");
+        }
+    }
 }
