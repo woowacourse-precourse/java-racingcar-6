@@ -23,24 +23,30 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
 
-        int trialCount = Integer.parseInt(Console.readLine());
+        int roundNumber = Integer.parseInt(Console.readLine());
 
         System.out.println();
         System.out.println("실행 결과");
 
-        while (trialCount>0){
-
-            for (String name : namesList){
-                if (new Car().engine()){
-                    leaderboard.board.put(name, leaderboard.board.get(name)+1);
-                }
-            }
+        while (roundNumber>0){
+            round(leaderboard);
 
             leaderboard.status();
-            trialCount--;
+
+            roundNumber--;
         }
 
         leaderboard.winner();
+    }
+
+    public static void round(Leaderboard leaderboard){
+        for (String name : leaderboard.board.keySet()){
+            int currentPlace = leaderboard.board.get(name);
+
+            if (new Car().engine()){
+                leaderboard.board.put(name, currentPlace+1);
+            }
+        }
     }
 
 }
