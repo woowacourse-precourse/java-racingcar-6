@@ -24,7 +24,7 @@ public class RacingGame {
         return new RacingGame(newCars, newTryNumber, newCount);
     }
 
-    public static RacingGame ofWithCount(String names, int tryNo, int count) {
+    static RacingGame ofWithCount(String names, int tryNo, int count) {
         Cars newCars = Cars.ofWithCount(names, count);
         TryNumber newTryNumber = TryNumber.of(tryNo);
         Count newCount = Count.of(count);
