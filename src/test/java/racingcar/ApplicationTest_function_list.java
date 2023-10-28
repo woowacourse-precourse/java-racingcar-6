@@ -15,10 +15,8 @@ class ApplicationTest_function_list extends NsTest {
 
     @Test
     void 기능목록_테스트_시작_문자열_출력() {
-        assertSimpleTest(() -> {
-            run("pobi,woni,jun", "1");
-            assertThat(output().split("\n")[0]).startsWith("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        });
+        Print.startString();
+        assertThat(output()).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
     @Test
