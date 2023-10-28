@@ -26,6 +26,7 @@ public class RacingCarGameController {
             // 시도횟수마다 결과 반환하는 메서드반환
             racingResult = racingCarGameService.continueGame(racingResult);
             // 결과 뿌리는 뷰 호출
+            tryCount.decreaseCount();
             racingCarGameView.printResult(racingResult);
         }
         Winners winners = new Winners(racingResult.getWinners());
