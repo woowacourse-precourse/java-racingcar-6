@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Car {
@@ -44,6 +45,13 @@ public class Car {
     }
 
     static List<Car> makeCarList(List<String> carNameList) {
-        return null;
+        List<Car> carList = new ArrayList<>();
+
+        for (String name : carNameList) {
+            Car car = new Car(name, new ArrayList<>(), 0, false);
+            carList.add(car);
+        }
+
+        return carList;
     }
 }
