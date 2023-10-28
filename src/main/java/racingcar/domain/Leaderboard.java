@@ -1,8 +1,6 @@
 package racingcar.domain;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Leaderboard {
 
@@ -26,6 +24,30 @@ public class Leaderboard {
         for (int i=0; i<n; i++){
             System.out.print("-");
         }
+    }
+    public void winner() {
+        List<String> names = new ArrayList<>(board.keySet());
+        Collections.sort(names, (name1, name2) -> (board.get(name2).compareTo(board.get(name1))));
+
+        String result="최종 우승자 : ";
+        int maxDistance = 0;
+
+        for (String name : board.keySet()){
+            if (maxDistance==0) {
+                maxDistance = board.get(name);
+                result=result+name;
+                continue;
+            }
+
+            if (maxDistance==board.get(name)){
+                result=result+(", "+name);
+            }
+            else {
+                break;
+            }
+        }
+
+        System.out.print(result);
     }
 
 }
