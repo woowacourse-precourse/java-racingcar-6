@@ -11,6 +11,7 @@ public class Racing {
     public void registerCarsByName(List<String> carNames) {
         validateNotNull(carNames);
         this.cars = createCars(carNames);
+        validateCarsNotEmpty();
     }
 
     private void validateNotNull(Object input) {
@@ -24,11 +25,11 @@ public class Racing {
     }
 
     public void registerRaceCount(int raceCount) {
-        validateRaceCount(raceCount);
         this.raceCount = raceCount;
+        validateRaceCount();
     }
 
-    private void validateRaceCount(int raceCount) {
+    private void validateRaceCount() {
         if (raceCount < 1) {
             throw new IllegalArgumentException("경주 횟수는 양수여야 합니다.");
         }
@@ -36,6 +37,7 @@ public class Racing {
 
     public void doRace() {
         validateCarsNotEmpty();
+        validateRaceCount();
         System.out.println("\n실행 결과");
         for (int i = 0; i < raceCount; i++) {
             doRaceOnce();
