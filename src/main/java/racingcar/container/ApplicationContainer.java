@@ -21,26 +21,26 @@ import racingcar.util.validator.raceCount.RaceCountValidatorImpl;
 
 public class ApplicationContainer {
     /* Console */
-    private Console console;
+    private static Console console;
 
     /* Controller */
-    private RaceController raceController;
+    private static RaceController raceController;
 
     /* Service */
-    private RaceService raceService;
+    private static RaceService raceService;
 
     /* Factory */
-    private ParticipantFactory participantFactory;
+    private static ParticipantFactory participantFactory;
 
     /* Util */
-    private RandomNumberGenerator randomNumberGenerator;
-    private CarNameParser carNameParser;
-    private CarNameValidator carNameValidator;
-    private RaceCountValidator raceCountValidator;
-    private InputValidator inputValidator;
+    private static RandomNumberGenerator randomNumberGenerator;
+    private static CarNameParser carNameParser;
+    private static CarNameValidator carNameValidator;
+    private static RaceCountValidator raceCountValidator;
+    private static InputValidator inputValidator;
 
     /* Getter */
-    public Console getConsole() {
+    public static Console getConsole() {
         if (console == null) {
             console = new ConsoleImpl();
             printLog(console.getClass().toString(), Console.class.toString());
@@ -48,7 +48,7 @@ public class ApplicationContainer {
         return console;
     }
 
-    public RaceController getRaceController() {
+    public static RaceController getRaceController() {
         if (raceController == null) {
             raceController = new RaceControllerImpl(getConsole(), getRaceService());
             printLog(raceController.getClass().toString(), RaceController.class.toString());
@@ -56,7 +56,7 @@ public class ApplicationContainer {
         return raceController;
     }
 
-    public RaceService getRaceService() {
+    public static RaceService getRaceService() {
         if (raceService == null) {
             raceService = new RaceServiceImpl(
                     getInputValidator(),
@@ -69,7 +69,7 @@ public class ApplicationContainer {
         return raceService;
     }
 
-    public ParticipantFactory getParticipantFactory() {
+    public static ParticipantFactory getParticipantFactory() {
         if (participantFactory == null) {
             participantFactory = new ParticipantFactoryImpl();
             printLog(participantFactory.getClass().toString(), ParticipantFactory.class.toString());
@@ -77,7 +77,7 @@ public class ApplicationContainer {
         return participantFactory;
     }
 
-    public RandomNumberGenerator getRandomNumberGenerator() {
+    public static RandomNumberGenerator getRandomNumberGenerator() {
         if (randomNumberGenerator == null) {
             randomNumberGenerator = new RandomNumberGeneratorImpl();
             printLog(randomNumberGenerator.getClass().toString(), RandomNumberGenerator.class.toString());
@@ -85,7 +85,7 @@ public class ApplicationContainer {
         return randomNumberGenerator;
     }
 
-    public CarNameParser getCarNameParser() {
+    public static CarNameParser getCarNameParser() {
         if (carNameParser == null) {
             carNameParser = new CarNameParserImpl();
             printLog(carNameParser.getClass().toString(), CarNameParser.class.toString());
@@ -93,7 +93,7 @@ public class ApplicationContainer {
         return carNameParser;
     }
 
-    public CarNameValidator getCarNameValidator() {
+    public static CarNameValidator getCarNameValidator() {
         if (carNameValidator == null) {
             carNameValidator = new CarNameValidatorImpl();
             printLog(carNameValidator.getClass().toString(), CarNameValidator.class.toString());
@@ -101,7 +101,7 @@ public class ApplicationContainer {
         return carNameValidator;
     }
 
-    public RaceCountValidator getRaceCountValidator() {
+    public static RaceCountValidator getRaceCountValidator() {
         if (raceCountValidator == null) {
             raceCountValidator = new RaceCountValidatorImpl();
             printLog(raceCountValidator.getClass().toString(), RaceCountValidator.class.toString());
@@ -109,7 +109,7 @@ public class ApplicationContainer {
         return raceCountValidator;
     }
 
-    public InputValidator getInputValidator() {
+    public static InputValidator getInputValidator() {
         if (inputValidator == null) {
             inputValidator = new ValidatorProxy(getCarNameValidator(), getRaceCountValidator());
             printLog(inputValidator.getClass().toString(), InputValidator.class.toString());
@@ -118,7 +118,7 @@ public class ApplicationContainer {
     }
 
     /* Log */
-    private void printLog(String className, String interfaceName) {
+    private static void printLog(String className, String interfaceName) {
         System.out.println(
                 "the instance of " + className + " is successfully created as an implementation of " + interfaceName
         );
