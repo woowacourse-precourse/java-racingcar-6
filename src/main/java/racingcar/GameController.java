@@ -21,6 +21,21 @@ public class GameController {
     public void askHowManyTimes() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
+
+    public int createRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
+
+    public boolean checkResult(int randInt) {
+        return randInt >= 4;
+    }
+    public void putDataToCarData(String carName, int count) {
+        carData.put(carName, carData.get(carName) + count);
+    }
+
+    public void printResultMessage() {
+        System.out.println("실행 결과");
+    }
     public void run() {
         printStartMessage();
         String[] carNamesArray = Console.readLine().split(",");
@@ -31,14 +46,14 @@ public class GameController {
 
         for (String carName : carData.keySet()) {
             for (int j = 0; j < count; j++) {
-                int randInt = Randoms.pickNumberInRange(0, 9);
-                if (randInt >= 4) {
-                    carData.put(carName, carData.get(carName) + 1);
+                int randInt = createRandomNumber();
+                if (checkResult(randInt)) {
+                    putDataToCarData(carName, 1);
                 }
             }
         }
 
-        System.out.println("실행 결과");
+        printResultMessage();
         for (Map.Entry<String, Integer> entry : carData.entrySet()) {
             System.out.print(entry.getKey() + " : ");
             for (int j = 0; j < entry.getValue(); j++) {
