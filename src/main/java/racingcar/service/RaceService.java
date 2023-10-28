@@ -3,12 +3,12 @@ package racingcar.service;
 
 import java.util.Arrays;
 import java.util.List;
-import racingcar.domain.Car;
+import racingcar.domain.Cars;
 
 public class RaceService {
     public void createCars(String carNamesInput) {
         List<String> carNames = validateCarNamesInput(carNamesInput);
-        List<Car> cars = carNames.stream().map(Car::new).toList();
+        Cars cars = new Cars(carNames);
     }
 
     public List<String> validateCarNamesInput(String carNamesInput) {
