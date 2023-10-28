@@ -11,7 +11,7 @@ public class UserInputValidator {
         for (String name : carNames) {
 
             if (name.length() > 5) {
-                throw new IllegalArgumentException("자동차 이름" + name + "은 허용 길이를 넘었습니다");
+                throw new IllegalArgumentException("자동차 이름" + name + "은 허용 길이 " + "5" + "글자를 넘었습니다");
             }
         }
         return true;
