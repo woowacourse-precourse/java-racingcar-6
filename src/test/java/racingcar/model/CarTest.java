@@ -36,4 +36,46 @@ class CarTest {
 
         assertThat(car).isEqualTo(Car.ofWithPosition("pobi", 0));
     }
+
+    @Test
+    @DisplayName("position값과 같을 시 위너로 판단하여 true를 반환한다.")
+    void isWinner() {
+        Car car = Car.ofWithPosition("pobi", 3);
+        Position position = Position.of(3);
+
+        assertThat(car.isWinner(position)).isTrue();
+    }
+
+    @Test
+    @DisplayName("position값과 다를 시 위너로 판단하여 false를 반환한다.")
+    void isWinnerFail() {
+        Car car = Car.ofWithPosition("pobi", 3);
+        Position position = Position.of(2);
+
+        assertThat(car.isWinner(position)).isFalse();
+    }
+
+    @Test
+    @DisplayName("자동차의 이름을 반환한다.")
+    void getName() {
+        Car car = Car.ofWithPosition("pobi", 3);
+
+        assertThat(car.getName()).isEqualTo("pobi");
+    }
+
+    @Test
+    @DisplayName("자동차의 위치를 반환한다.")
+    void getPosition() {
+        Car car = Car.ofWithPosition("pobi", 3);
+
+        assertThat(car.getPosition()).isEqualTo(Position.of(3));
+    }
+
+    @Test
+    @DisplayName("자동차의 이름과 위치를 반환한다.")
+    void toStringTest() {
+        Car car = Car.ofWithPosition("pobi", 3);
+
+        assertThat(car.toString()).isEqualTo("pobi : ---");
+    }
 }

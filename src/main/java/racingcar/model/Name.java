@@ -5,6 +5,7 @@ import java.util.Objects;
 import static racingcar.utils.ErrorMessage.*;
 
 public final class Name {
+    private static final int NUMBER_FIVE = 5;
     private final String name;
 
     private Name(String name) {
@@ -29,7 +30,7 @@ public final class Name {
     }
 
     private static boolean isOverNumberFive(String name) {
-        return name.length() > 5;
+        return name.length() > NUMBER_FIVE;
     }
 
     @Override
