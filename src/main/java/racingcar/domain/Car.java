@@ -15,14 +15,14 @@ public class Car {
         return name;
     }
 
+    public int getPath() {
+        return move;
+    }
+
     public void moveOrStop() {
         if (isMove()) {
             move++;
         }
-    }
-
-    public int getPath() {
-        return move;
     }
 
     private boolean isMove() {

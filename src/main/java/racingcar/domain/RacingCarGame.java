@@ -19,13 +19,16 @@ public class RacingCarGame {
 
     public void start() {
         getInput();
+        makeResult();
+        printWinner();
+    }
+
+    private void makeResult() {
         output.printResultStartedMessage();
         while (!isFinish()) {
             moveCars();
             printCarsState();
         }
-
-        printWinner();
     }
 
     private void printWinner() {
@@ -51,12 +54,20 @@ public class RacingCarGame {
     }
 
     private void getInput() {
+        getCarNamesInput();
+        getMoveCountInput();
+    }
+
+    private void getCarNamesInput() {
         output.printCarNamesInputRequest();
         List<String> carNameList = input.getCarNames();
+
         carList = carNameList.stream()
                 .map(carName -> new Car(carName))
                 .collect(Collectors.toList());
+    }
 
+    private void getMoveCountInput() {
         output.printMoveCountInputRequest();
         remainMoveCount = input.getMoveCount();
     }
