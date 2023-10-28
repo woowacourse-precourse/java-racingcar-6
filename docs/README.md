@@ -244,9 +244,26 @@
 📠 TEST
 =
 
-- [ ] 입력 테스트
-- [ ] 출력 테스트
-- [x] 입력값 유효성 테스트
-- [x] 난수 생성 테스트
-- [ ] 결과값 테스트
-- [ ] 메인 테스트
+- [x] 출력 테스트  
+  <img src="./assets/output_test.png">  
+  <br>
+
+- [x] 입력값 유효성 테스트  
+  <img src="./assets/validation_test.png">  
+  <br>
+
+- [x] 난수 생성 테스트  
+  <img src="./assets/random_test.png">  
+  <br>
+
+- [x] Repository 테스트  
+  <img src="./assets/respository_test.png">  
+  <br>
+
+- [x] 결과값 테스트  
+  <img src="./assets/controller_test.png">  
+  <br>
+
+- [x] 메인 테스트  
+  <img src="./assets/application_test.png">  
+  <br>
