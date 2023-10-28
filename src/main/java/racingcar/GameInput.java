@@ -38,7 +38,7 @@ public class GameInput {
     public void validateName(List<String> names) {
         for (String name : names) {
             if (name.length() > MAX_CAR_NAME_LENGTH) {
-                throw new IllegalArgumentException("carname length must be < " + MAX_CAR_NAME_LENGTH);
+                throw new IllegalArgumentException("Carname length must be < " + MAX_CAR_NAME_LENGTH);
             }
         }
     }
