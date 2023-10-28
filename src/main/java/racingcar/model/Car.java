@@ -17,13 +17,13 @@ public class Car {
         this.position = INIT_POSITION;
     }
 
-    public Car(String name, int position) {
+    public Car(final String name, final int position) {
         validateSize(name);
         this.name = name;
         this.position = position;
     }
 
-    private void validateSize(String name) {
+    private void validateSize(final String name) {
         if (name.length() > MAX_NAME_SIZE) {
             throw new IllegalArgumentException("이름 크기는 5이하여야 합니다.");
         }
