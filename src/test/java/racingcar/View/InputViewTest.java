@@ -5,12 +5,14 @@ import static racingcar.View.InputView.getCarName;
 import static racingcar.View.InputView.getNumberOfRound;
 
 import java.io.ByteArrayInputStream;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class InputViewTest {
 
     @Test
-    void inputCarName() {
+    @DisplayName("자동차 이름 입력 테스트")
+    void inputCarNameTest() {
         //given
         String testCarNames = "test1,test2,test3";
         System.setIn(new ByteArrayInputStream(testCarNames.getBytes()));
@@ -23,7 +25,8 @@ class InputViewTest {
     }
 
     @Test
-    void inputNumberOfRound() {
+    @DisplayName("라운드 횟수 입력 테스트")
+    void inputNumberOfRoundTest() {
         //given
         String testNumberOfRound = "5";
         System.setIn(new ByteArrayInputStream(testNumberOfRound.getBytes()));
