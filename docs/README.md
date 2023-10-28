@@ -128,7 +128,7 @@ classDiagram
 - [ ] 우승자 선언
 
 ### Input Handler `InputHandler`
-- [ ] 사용자 이름 가져오기
+- [x] 사용자 이름 가져오기
 - [ ] 경주 횟수 가져오기
 
 #### Input `InputView`
