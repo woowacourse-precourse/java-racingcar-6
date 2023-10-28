@@ -1,6 +1,8 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.AppConfig;
+import racingcar.validator.Validator;
 
 public class InputView {
 
@@ -12,6 +14,8 @@ public class InputView {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
+    AppConfig appConfig = new AppConfig();
+
     public String inputCarsName() {
         printInputCarsNameMessage();
         return Console.readLine();
@@ -20,22 +24,8 @@ public class InputView {
     public int inputTotalRound() {
         printInputTotalRoundMessage();
         String totalRound = Console.readLine();
-        validateTotalRound(totalRound);
+        Validator totalRoundValidatorValidator = appConfig.totalRoundValidator();
+        totalRoundValidatorValidator.validate(totalRound);
         return Integer.parseInt(totalRound);
-    }
-
-    private void validateTotalRound(String inputValue) {
-        if (isBlank(inputValue) || isNotNumeric(inputValue)) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    private boolean isNotNumeric(String inputValue) {
-        return !inputValue.chars()
-                .allMatch(Character::isDigit);
-    }
-
-    private boolean isBlank(String inputValue) {
-        return inputValue == null || inputValue.isBlank();
     }
 }

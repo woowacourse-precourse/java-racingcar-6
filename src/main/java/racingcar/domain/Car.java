@@ -1,7 +1,11 @@
 package racingcar.domain;
 
+import racingcar.AppConfig;
+import racingcar.validator.CarValidator;
+import racingcar.validator.Validator;
+
 public class Car {
-    private final int MAX_CAR_NAME_LENGTH = 5;
+    AppConfig appConfig = new AppConfig();
     private final int INITIAL_POSITION = 0;
     private final int SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE = 4;
     private final int WHEN_SUCCESS_MOVE_DISTANCE = 1;
@@ -10,7 +14,9 @@ public class Car {
     private int position;
 
     public Car(String name) {
-        this.name = validCarName(name);
+        Validator carValidator = appConfig.carValidator();
+        carValidator.validate(name);
+        this.name = name;
         this.position = INITIAL_POSITION;
     }
 
@@ -35,20 +41,5 @@ public class Car {
 
     private boolean isSkillSufficient(int drivingSkill) {
         return drivingSkill >= SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE;
-    }
-
-    private String validCarName(String name) {
-        if (isBlank(name) || isValidCarNameLength(name)) {
-            throw new IllegalArgumentException();
-        }
-        return name;
-    }
-
-    private boolean isBlank(String name) {
-        return name == null || name.isBlank();
-    }
-
-    private boolean isValidCarNameLength(String name) {
-        return name.length() > MAX_CAR_NAME_LENGTH;
     }
 }
