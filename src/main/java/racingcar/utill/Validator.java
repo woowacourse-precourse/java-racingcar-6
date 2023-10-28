@@ -15,31 +15,31 @@ public class Validator {
         carNames.stream().filter(name -> name.length() > 5 )
                 .findAny()
                 .ifPresent(name -> {
-                    throw new IllegalArgumentException();
+                    throw new IllegalArgumentException(ExceptionMessage.INVALID_CAR_NAME_LENGTH.getMessage());
                 });
     }
     private void validationCarNamesListLength(List<String> carNames){
         if(carNames.size() < 2){
-            throw  new IllegalArgumentException();
+            throw  new IllegalArgumentException(ExceptionMessage.INVALID_NUMBER_OF_CARS.getMessage());
         }
     }
 
     public void validationCount(String input){
         validationCountIsZero(input);
-        validationCountnumeric(input);
+        validationCountNumeric(input);
     }
 
-    private void validationCountnumeric(String input) {
+    private void validationCountNumeric(String input) {
         try {
             Integer.parseInt(input);
         }catch (NumberFormatException e){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ExceptionMessage.INVALID_NOT_NUMERIC.getMessage());
         }
     }
 
     private void validationCountIsZero(String input) {
         if(input.equals("0")){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ExceptionMessage.INVALID_NOT_NUMERIC.getMessage());
         }
     }
 }
