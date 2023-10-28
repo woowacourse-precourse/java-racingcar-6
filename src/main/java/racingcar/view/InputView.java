@@ -6,7 +6,8 @@ import racingcar.exception.InputException;
 public class InputView {
     OutputView outputView = new OutputView();
     InputException inputException = new InputException();
-    public String inputCars(){
+
+    public String inputCars() {
         outputView.inputCarsName();
         String carName = Console.readLine();
         inputException.sameName(carName);
@@ -14,7 +15,8 @@ public class InputView {
 
         return carName;
     }
-    public int inputCount(){
+
+    public int inputCount() {
         outputView.inputCount();
         return Integer.parseInt(Console.readLine());
     }
