@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Game {
@@ -28,7 +29,7 @@ public class Game {
     }
 
     public WinnersMessage getWinnersMessage() {
-        return Car.getWinnersMessage(cars);
+        return Car.getWinnersMessage(Collections.unmodifiableList(cars));
     }
 
 }
