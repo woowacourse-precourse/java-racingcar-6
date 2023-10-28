@@ -1,21 +1,21 @@
 ## 기능 목록
 
-1. 자동차 이름 입력 기능
+1. 자동차 이름 입력 기능 `Map<String, Integer> inputCarNames()`
    - 입력값 검증
       1. 공백 불가능
       2. 길이는 5자리 이하만 가능
       3. 중복 불가능
 
 
-2. 시도 횟수 입력 기능
+2. 시도 횟수 입력 기능 `int inputNumberOfRounds()`
     - 입력값 검증
       1. 숫자만 입력 가능
       2. 1 이상, 2147483647(MAX_INTEGER 값) 이하의 값만 가능
 
 
-3. 자동차 전진 기능
+3. 자동차 전진 기능 `Map<String, Integer> executeAllRounds(Map<String, Integer> carNameAndMovementCountMap, int numberOfRounds)`
    - 라운드 별 전진 결과 출력
 
 
-4. 게임 완료 후 우승자 선출 기능
+4. 게임 완료 후 우승자 선출 기능 `List<String> selectFinalWinner(Map<String, Integer> carNameAndMovementCountMap)`
    - 우승자 이름 출력

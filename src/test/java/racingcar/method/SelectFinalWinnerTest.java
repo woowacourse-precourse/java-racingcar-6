@@ -1,7 +1,8 @@
-package racingcar;
+package racingcar.method;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import racingcar.Application;
 
 import java.util.LinkedHashMap;
 

@@ -1,13 +1,13 @@
-package racingcar;
+package racingcar.method;
 
 import org.assertj.core.api.Assertions;
-import org.assertj.core.api.Condition;
 import org.junit.jupiter.api.Test;
+import racingcar.Application;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class ExecuteMovementTest {
+public class ExecuteAllRoundsTest {
 
     @Test
     void 랜덤값_확인() {

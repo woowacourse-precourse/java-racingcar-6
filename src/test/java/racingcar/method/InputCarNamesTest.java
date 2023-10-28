@@ -1,10 +1,12 @@
-package racingcar;
+package racingcar.method;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.Console;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import racingcar.Application;
 
 import java.io.ByteArrayInputStream;
 import java.util.Arrays;
@@ -18,7 +20,7 @@ public class InputCarNamesTest {
         String testInput = " Jun , Alex , David ";
         System.setIn(new ByteArrayInputStream(testInput.getBytes()));
 
-        assertThat(Application.inputCarNames()).containsKeys("Jun", "Alex", "David");
+        Assertions.assertThat(Application.inputCarNames()).containsKeys("Jun", "Alex", "David");
     }
 
     @Test

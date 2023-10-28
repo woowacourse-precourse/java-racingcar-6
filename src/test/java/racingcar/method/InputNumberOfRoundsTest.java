@@ -1,8 +1,9 @@
-package racingcar;
+package racingcar.method;
 
 import camp.nextstep.edu.missionutils.Console;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import racingcar.Application;
 
 import java.io.ByteArrayInputStream;
 
