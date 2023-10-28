@@ -22,6 +22,6 @@ class RacingCarInputReaderTest {
         List<RacingCar> result = makeRacingCarList(input);
 
         // then
-        result.forEach(value -> assertTrue(names.contains(value.name())));
+        result.forEach(value -> assertTrue(names.contains(value.getName())));
     }
 }
