@@ -5,11 +5,16 @@ import java.util.Objects;
 public class Position {
 
     private static final int MIN_MOVE_STANDARD = 4;
+    private static final int INITIAL_POSITION = 0;
 
     private int position;
 
-    public Position(final int position) {
+    private Position(final int position) {
         this.position = position;
+    }
+
+    public static Position createDefault() {
+        return new Position(INITIAL_POSITION);
     }
 
     public void move(final int number) {
