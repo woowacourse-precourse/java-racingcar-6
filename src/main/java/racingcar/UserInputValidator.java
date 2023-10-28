@@ -1,9 +1,9 @@
 package racingcar;
 
 public class UserInputValidator {
-    final String REGEXP_ONLY_NUM = "^[1-9][0-9]*$";
+    static final String REGEXP_ONLY_NUM = "^[1-9][0-9]*$";
 
-    public boolean carNameIsValid(String carName) {
+    public static boolean carNameIsValid(String carName) {
 
         String[] carNames = carName.replaceAll("\\s", "")
                 .split(",");
@@ -18,7 +18,7 @@ public class UserInputValidator {
     }
 
 
-    public boolean attemptCountIsValid(String attempt) {
+    public static boolean attemptCountIsValid(String attempt) {
 
         if (!attempt.matches(REGEXP_ONLY_NUM)) {
             throw new IllegalArgumentException("횟수는 숫자로만 입력해주세요");
