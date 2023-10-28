@@ -29,8 +29,6 @@ public class Race {
         remainingRaces--;
     }
 
-    // TODO: 현재 레이스 상태를 반환하는 메서드 필요
-
     public List<Car> determineWinners() {
         if (hasRemainingRaces()) {
             throw new IllegalStateException();
@@ -40,6 +38,10 @@ public class Race {
 
     public boolean hasRemainingRaces() {
         return remainingRaces > MINIMUM_REMAINING_RACES;
+    }
+
+    public Cars getCars() {
+        return cars;
     }
 
     private static void validateNumberOfRaces(Integer numberOfRaces) {

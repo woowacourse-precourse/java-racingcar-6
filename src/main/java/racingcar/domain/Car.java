@@ -25,6 +25,10 @@ public class Car implements Comparable<Car> {
         return name;
     }
 
+    public int getStep() {
+        return step;
+    }
+    
     @Override
     public int compareTo(Car car) {
         return Integer.compare(this.step, car.step);
@@ -46,4 +50,6 @@ public class Car implements Comparable<Car> {
     public int hashCode() {
         return Objects.hash(step);
     }
+
+
 }

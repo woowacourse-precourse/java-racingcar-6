@@ -12,12 +12,16 @@ public class RacingGame {
         List<String> carNames = Input.getCarNames();
         int totalRace = Input.getTotalRace();
 
-        Cars cars = createCars(carNames);
-        Race race = Race.of(cars, totalRace);
+        Cars initalCars = createCars(carNames);
+        Race race = Race.of(initalCars, totalRace);
+
+        Output.printResultMessage();
 
         while (race.hasRemainingRaces()) {
             race.performRaceStep();
-//            race.getRaceStatus();
+            
+            Cars cars = race.getCars();
+            Output.printCarStatus(cars);
         }
 
         List<Car> car = race.determineWinners();
