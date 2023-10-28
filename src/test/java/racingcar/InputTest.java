@@ -26,7 +26,7 @@ public class InputTest {
 
     @Test
     public void 테스트_공백포함() {
-        //given
+        // given
         String inputCarNames = "우아, ,한,테크";
         // then
         assertThatThrownBy(() -> ValidationManager.validateCarNames(inputCarNames))
@@ -35,9 +35,36 @@ public class InputTest {
 
     @Test
     public void 테스트_유효한_시도횟수_입력() {
-        //given
+        // given
         String inputTryCount = "123";
-        //then
+        // then
         assertDoesNotThrow(() -> ValidationManager.validateTryCount(inputTryCount));
+    }
+
+    @Test
+    public void 테스트_문자포함_시도횟수_입력() {
+        // given
+        String inputTryCount = "12,3";
+        // then
+        assertThatThrownBy(() -> ValidationManager.validateTryCount(inputTryCount))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    public void 테스트_0으로시작_시도횟수_입력() {
+        // given
+        String inputTryCount = "012";
+        // then
+        assertThatThrownBy(() -> ValidationManager.validateTryCount(inputTryCount))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    public void 테스트_비어있는_시도횟수_입력() {
+        // given
+        String inputTryCount = " ";
+        // then
+        assertThatThrownBy(() -> ValidationManager.validateTryCount(inputTryCount))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
