@@ -87,4 +87,18 @@ class CarTest {
         Assertions.assertThat(car1.located()).isEqualTo(distance);
     }
 
+    @Test
+    @DisplayName("자동차의 위치를 초기화한다.")
+    void 자동차_초기화(){
+        //given
+        car1.moveForward();
+        car1.moveForward();
+
+        //when
+        car1.clear();
+
+        //then
+        Assertions.assertThat(car1.located()).isEqualTo(0);
+    }
+
 }
