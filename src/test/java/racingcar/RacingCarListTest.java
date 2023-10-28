@@ -77,7 +77,7 @@ class RacingCarListTest {
 
     @Test
     @DisplayName("우승자를 올바르게 계산한다.")
-    public void calculateWinners(){
+    public void calculateWinners() {
         List<String> names = List.of("abc", "def", "ghi");
         RacingCarList racingCarList = new RacingCarList();
         racingCarList.addRacingCarsByNames(names);

@@ -12,7 +12,7 @@ class RandomNumberGeneratorTest {
     @ParameterizedTest
     @ValueSource(ints = {1, 5, 10})
     @DisplayName("주어진 크기만큼 랜덤 값을 생성한다.")
-    public void getRandomBySize(int size){
+    public void getRandomBySize(int size) {
         List<Integer> randomNumbers = RandomNumberGenerator.generateRandomNumbers(size);
         assertThat(randomNumbers).hasSize(size);
     }

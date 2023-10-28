@@ -12,7 +12,7 @@ public class GameClientOutput {
         System.out.println(INPUT_NAMES_MESSAGE);
     }
 
-    public void printForAskingMoves(){
+    public void printForAskingMoves() {
         System.out.println(INPUT_MOVES_MESSAGE);
     }
 
