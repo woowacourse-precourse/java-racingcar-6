@@ -24,7 +24,7 @@ public class Cars {
         return new Cars(newCars);
     }
 
-    public static Cars ofWithCount(String names, int count) {
+    static Cars ofWithCount(String names, int count) {
         List<Car> newCars = Arrays.stream(names.split(REGEX))
                 .map(name -> Car.ofWithPosition(name, count))
                 .toList();
@@ -46,7 +46,7 @@ public class Cars {
     }
 
     private String getWinners(Position position) {
-        StringJoiner stringJoiner = new StringJoiner(",");
+        StringJoiner stringJoiner = new StringJoiner(REGEX);
         cars.stream()
                 .filter(car -> car.isWinner(position))
                 .forEach(car -> stringJoiner.add(car.getName()));
