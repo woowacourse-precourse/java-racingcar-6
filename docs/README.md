@@ -64,6 +64,15 @@
    - [x] int getMoveDistance() : 이동 거리 반환
    - [x] void move() : 전진 조건을 만족하면 전진
 
+### ResultMap
+회차마다 실행 결과를 저장하는 클래스
+
+- member instance
+  - Map<String, Integer> resultMap : 회차마다 <자동차 이름, 이동 거리>를 저장
+- member function
+  - [ ] ResultMap(List<RacingCar>) : 자동차 리스트를 이용하여 resultMap 초기화
+  - [ ] getResultMap() : resultMap 반환
+
 ### InputView
 사용자로부터 입력받는 클래스
 
