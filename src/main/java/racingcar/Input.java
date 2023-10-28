@@ -51,10 +51,10 @@ public class Input {
         return raw.length() > length;
     }
 
-    static Integer inputRepetitions() {
+    static Long inputRepetitions() {
         String raw = Console.readLine();
         checkRepetitionsError(raw);
-        return Integer.decode(raw);
+        return Long.decode(raw);
     }
 
     private static void checkRepetitionsError(String repetitions) throws IllegalArgumentException  {
@@ -68,7 +68,7 @@ public class Input {
 
     private static boolean isNotNumber(String rawInputArray) {
         try {
-            Integer.decode(rawInputArray);
+            Long.decode(rawInputArray);
         } catch (NumberFormatException e) {
             return true;
         }
@@ -77,8 +77,8 @@ public class Input {
 
     private static boolean isNotNaturalNumber(String repetitions) {
         if (!isNotNumber(repetitions)) {
-            Integer num = Integer.decode(repetitions);
-            if (num > 0 && num <= Integer.MAX_VALUE) {
+            Long num = Long.decode(repetitions);
+            if (num > 0 && num <= Long.MAX_VALUE) {
                 return false;
             }
         }

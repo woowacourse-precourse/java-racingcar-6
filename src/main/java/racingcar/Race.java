@@ -45,7 +45,7 @@ public class Race {
         Print.startString();
         addCars(Input.inputCarName());
         Print.repetitionsString();
-        Integer repetitions = Input.inputRepetitions();
+        Long repetitions = Input.inputRepetitions();
         Print.resultString();
         for (int i = 0; i < repetitions; i++) {
             for (Car car : cars) {
