@@ -29,12 +29,12 @@ public class AttemptNumberInputterTest {
     }
 
     @Test
-    public void transformAttemptNumberToInt_withValidNumber_shouldReturnInteger() {
+    public void transformAttemptNumberToInt_유효한_인수_true반환() {
         assertEquals(123, inputter.transformAttemptNumberToInt("123"));
     }
 
     @Test
-    public void transformAttemptNumberToInt_withInvalidNumber_shouldThrowException() {
+    public void transformAttemptNumberToInt_유효하지않은_인수_false반환() {
         assertThrows(IllegalArgumentException.class, () -> {
             inputter.transformAttemptNumberToInt("12a");
         });
