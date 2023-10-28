@@ -45,23 +45,12 @@ public class Cars {
                 topScore = car.getCurrentScore();
                 winnerNames.clear();
                 winnerNames.add(car.getName());
+                continue;
             }
             if (topScore == car.getCurrentScore()) {
                 winnerNames.add(car.getName());
             }
         }
         return winnerNames;
-
-//        Map<String, Integer> winnerResult = new HashMap<>();
-//        for (Car car : cars) {
-//            winnerResult.put(car.getName(), car.getCurrentScore());
-//        }
-//
-//        int topScore = Collections.max(winnerResult.values());
-//
-//        return winnerResult.entrySet().stream()
-//                .filter(entry -> entry.getValue() == topScore)
-//                .map(Map.Entry::getKey)
-//                .toList();
     }
 }

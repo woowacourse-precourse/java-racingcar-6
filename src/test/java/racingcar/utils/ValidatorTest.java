@@ -9,62 +9,6 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.*;
 
 class ValidatorTest {
-    @Test
-    void split() {
-        String input = "";
-        String[] split = input.split(",");
-        System.out.println(split.length);  //1
-        System.out.println(split[0].length());  //0
-
-        String input2 = " ";
-        String[] split2 = input2.split(",");
-        System.out.println(split2.length);  //1
-        System.out.println(split2[0].length());  //1
-    }
-
-    @Test
-    void split1() {
-        String input = ",";
-        String[] split = input.split(",");
-        assertThat(split.length).isEqualTo(0);
-        assertThatThrownBy(() -> split[0].isBlank()).isInstanceOf(ArrayIndexOutOfBoundsException.class);
-    }
-
-    @Test
-    void split1_2() {
-        String input = ",,";
-        String[] split = input.split(",");
-        assertThat(split.length).isEqualTo(0);
-        assertThatThrownBy(() -> split[0].isBlank()).isInstanceOf(ArrayIndexOutOfBoundsException.class);
-    }
-
-    @Test
-    void split2() {
-        String input = "test,";
-        String[] split = input.split(",");  //"test"
-        assertThat(split.length).isEqualTo(1);
-        assertThatThrownBy(() -> split[1].isBlank()).isInstanceOf(ArrayIndexOutOfBoundsException.class);
-    }
-
-    @Test
-    void split3() {
-        String input = ",test";
-        String[] split = input.split(",");  //"", "test"
-        assertThat(split.length).isEqualTo(2);
-        assertThat(split[0].isBlank()).isTrue();
-        assertThat(split[1].isBlank()).isFalse();
-
-    }
-
-    @Test
-    void split4() {
-        String input = ",test,";
-        String[] split = input.split(",");  //"", "test"
-        assertThat(split.length).isEqualTo(2);
-        assertThat(split[0].isBlank()).isTrue();
-        assertThat(split[1].isBlank()).isFalse();
-    }
-
     @DisplayName("5자 이하의 이름을 쉼표로 구분하여 입력시 정상 처리 된다.")
     @Test
     void validateCarNames1() {
