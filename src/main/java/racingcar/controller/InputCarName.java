@@ -3,18 +3,18 @@ package racingcar.controller;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.Arrays;
 import racingcar.model.CarObject;
 
 public class InputCarName {
-    public CarObject inputCarName() {
+    public void inputCarName() {
         String carName = readLine();
-        CarObject.nameOf(Arrays.asList(carName.split(",")));
+
+        CarObject.nameOf();
 
         //자동차 이름 예외처리
-
-        return cars;
-    } //Car class instance return
+    }
 
     public void selectCarCondition() {
         do {
