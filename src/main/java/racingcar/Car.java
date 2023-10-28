@@ -6,9 +6,13 @@ public class Car {
 
     private int position;
 
-    public Car(final String name, final int position) {
+    private Car(final String name, final int position) {
         this.name = CarName.create(name);
         this.position = position;
+    }
+
+    public static Car withName(final String name) {
+        return new Car(name, 0);
     }
 
     public void move(final int speed) {

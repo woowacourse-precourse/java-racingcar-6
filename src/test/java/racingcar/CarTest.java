@@ -13,7 +13,7 @@ public class CarTest {
     @ValueSource(ints = {-1, 0, 1, 2, 3})
     @DisplayName("속력이 4 미만이면 자동차를 전진시킬 수 없다.")
     void isSpeedLessThenFour_Then_CarStop(final int speed) {
-        Car car = new Car("lsh", 0);
+        Car car = Car.withName("lsh");
         car.move(speed);
         assertThat(car.getPosition()).isEqualTo(0);
     }
@@ -21,7 +21,7 @@ public class CarTest {
     @Test
     @DisplayName("속력이 4 이상이면 자동차를 전진시킨다.")
     void isSpeedOverFour_Then_CarMove() {
-        Car car = new Car("lsh", 0);
+        Car car = Car.withName("lsh");
         car.move(4);
         assertThat(car.getPosition()).isEqualTo(1);
     }
