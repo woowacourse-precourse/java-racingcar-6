@@ -38,9 +38,9 @@
         - [ ] 모든 차량 관리
         - [ ] 각 라운드 별 전진 여부 결정
         - [ ] 우승자 뽑는 기능
-    - [ ] RandomDistanceGenerator
-        - [ ] 0-9 사이의 랜덤 값을 생성
-        - [ ] 랜덤 값이 4 이상일 경우 전진 여부 결정
+    - [X] RandomDistanceGenerator
+        - [X] 0-9 사이의 랜덤 값을 생성
+        - [X] 랜덤 값이 4 이상일 경우 랜덤 값 전달
     - [X] InputValidator
         - [X] 자동차 이름이 유효한지
             - [X] 5자 이하 인지
