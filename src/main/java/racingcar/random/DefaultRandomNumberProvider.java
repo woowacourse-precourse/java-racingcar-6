@@ -2,7 +2,7 @@ package racingcar.random;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class DefaultRandomNumber implements RandomNumberProvider{
+public class DefaultRandomNumberProvider implements RandomNumberProvider{
     private final static int startInclusive = 0;
     private final static int endInclusive = 9;
     
