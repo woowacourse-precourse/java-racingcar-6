@@ -21,7 +21,7 @@ public class Cars {
         return carList.stream().map(Car::getName).toList();
     }
     public void moveForTest(){ // 테스트만을 위한 매서드가 존재해도 무방할까?
-        this.carList.forEach(Car::move);
+        this.carList.forEach(Car::addLocation);
     }
 
     // TODO: 2023/10/28 VALIDATION 을 강화할 필요가 있을까? 고민을 좀 더 해봐야 함.

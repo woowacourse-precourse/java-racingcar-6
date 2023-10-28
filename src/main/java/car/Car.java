@@ -3,6 +3,7 @@ package car;
 public class Car {
     private final String name;
     private int location; // 초기값 0
+    private static final int MOVING_STANDARD = 4;
     public Car(String name) {
         this.name = name;
     }
@@ -14,23 +15,24 @@ public class Car {
     public int getLocation() {
         return location;
     }
-    public void move(){
+
+    public void moveByGivenCondition(int randomValue){
+        this.moveByStrategy(() -> randomValue >= MOVING_STANDARD);
+    }
+
+    protected void addLocation(){
         this.location++;
     }
 
-    public void moveByIntValue(int number) { // 변수명 바꿔야한다.
-        if (number >= 4){
-            move();
+    protected void moveByIntValue(int number) { // 변수명 바꿔야한다.
+        if (number >= MOVING_STANDARD){
+            addLocation();
         }
     }
 
-    public void moveByStrategy(MovingStrategy movingStrategy){
+    protected void moveByStrategy(MovingStrategy movingStrategy){
         if (movingStrategy.move()){
-            this.move();
+            this.addLocation();
         }
-    }
-
-    public void moveByGivenCondition(int randomValue){
-        this.moveByStrategy(() -> randomValue >= 4);
     }
 }
