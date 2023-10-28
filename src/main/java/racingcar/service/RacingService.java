@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.view.OutputView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RacingService {
@@ -30,5 +31,19 @@ public class RacingService {
             outputView.gameProgress(car);
         }
         outputView.skipLine();
+    }
+
+    public void gameResult() {
+        int max = 0;
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getCount() > max) {
+                max = car.getCount();
+                winners.clear();
+            }
+            if (max == car.getCount())
+                winners.add(car.getName());
+        }
+        outputView.gameResult(winners);
     }
 }
