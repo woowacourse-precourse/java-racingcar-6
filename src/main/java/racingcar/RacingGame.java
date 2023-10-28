@@ -23,7 +23,6 @@ public class RacingGame {
     }
 
     public void gameStart(RacingList racingList, Integer count) {
-        System.out.println("실행결과");
         for (int i = 0; i < count; i++) {
             racingList.updateState();
             outputView.printState(racingList);
