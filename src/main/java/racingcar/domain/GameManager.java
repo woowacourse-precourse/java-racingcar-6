@@ -19,10 +19,19 @@ public class GameManager {
     }
 
     public void run(){
+        gameStart();
+        gameRunning();
+        gameEnd();
+    }
+    private void gameStart() {
         outputView.printGameStartMessage();
+    }
+    private void gameRunning() {
         for(int i=0;i<attempts;i++){
             playSingeRound();
         }
+    }
+    private void gameEnd() {
         List<String> winnerCarNames = Referee.determineWinner(this.cars);
         outputView.printWinners(winnerCarNames);
     }
