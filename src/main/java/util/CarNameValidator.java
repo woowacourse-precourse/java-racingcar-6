@@ -2,6 +2,7 @@ package util;
 
 public class CarNameValidator {
     private static final int CAR_NAME_LENGTH = 5;
+    private static final String SPACE = " ";
 
     public static void checkValidCarName(String name) {
         checkSpaceInName(name);
@@ -9,7 +10,7 @@ public class CarNameValidator {
     }
 
     private static void checkSpaceInName(String name) {
-        if (name.contains(" ")) {
+        if (name.contains(SPACE)) {
             throw new IllegalArgumentException();
         }
     }
