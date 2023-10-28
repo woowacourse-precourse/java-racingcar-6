@@ -12,8 +12,25 @@ public class Application {
         final OutputManager om = new OutputManager();
         final InputManager im = new InputManager();
         final CarManufacturer carManufacturer = new CarManufacturer();
-        om.printStartGame();
-        List<Car> cars = carManufacturer.createCars(im.inputCarNames());
+        List<Car> cars = createCars(om, im, carManufacturer);
+        int attemptCount = createAttemptCount(om, im);
+        startRacing(cars, attemptCount);
+
+    }
+
+    private static void startRacing(List<Car> cars, int attemptCount) {
+        for (int i = 0; i < attemptCount; i++) {
+
+        }
+    }
+
+    private static int createAttemptCount(OutputManager om, InputManager im) {
         om.printNumberOfAttempts();
+        return im.inputAttemptCount();
+    }
+
+    private static List<Car> createCars(OutputManager om, InputManager im, CarManufacturer carManufacturer) {
+        om.printStartGame();
+        return carManufacturer.createCars(im.inputCarNames());
     }
 }

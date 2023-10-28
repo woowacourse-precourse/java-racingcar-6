@@ -7,7 +7,6 @@ import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -46,7 +45,7 @@ class InputManagerTest {
     @Test
     void 시도횟수_정상_입력() {
         provideInput("4");
-        assertThat(manager.inputNumberOfAttempt())
+        assertThat(manager.inputAttemptCount())
                 .isEqualTo(4);
     }
 
@@ -54,7 +53,7 @@ class InputManagerTest {
     @DisplayName("시도횟수가 0일 경우, 예외발생")
     void 시도횟수_비정상_입력_case0() {
         provideInput("0");
-        assertThatThrownBy(() -> manager.inputNumberOfAttempt())
+        assertThatThrownBy(() -> manager.inputAttemptCount())
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -62,7 +61,7 @@ class InputManagerTest {
     @DisplayName("시도횟수가 음수일 경우, 예외발생")
     void 시도횟수_비정상_입력_caseMinus() {
         provideInput("-1");
-        assertThatThrownBy(() -> manager.inputNumberOfAttempt())
+        assertThatThrownBy(() -> manager.inputAttemptCount())
                 .isInstanceOf(IllegalArgumentException.class);
     }
 

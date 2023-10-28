@@ -15,13 +15,13 @@ public class InputManager {
         return nameList;
     }
 
-    public int inputNumberOfAttempt() {
+    public int inputAttemptCount() {
         final int numberOfAttempt = Integer.parseInt(Console.readLine());
-        validateNumberOfAttempt(numberOfAttempt);
+        validateAttemptCount(numberOfAttempt);
         return numberOfAttempt;
     }
 
-    private void validateNumberOfAttempt(int numberOfAttempt) {
+    private void validateAttemptCount(int numberOfAttempt) {
         if (numberOfAttempt <= 0)
             throw new IllegalArgumentException();
     }

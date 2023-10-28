@@ -5,6 +5,9 @@ import java.util.stream.Collectors;
 
 public class CarManufacturer {
     public List<Car> createCars(List<String> carNames) {
-        return null;
+        return carNames
+                .stream()
+                .map(Car::new)
+                .collect(Collectors.toList());
     }
 }
