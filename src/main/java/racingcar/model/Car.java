@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Objects;
 
 public class Car {
     private Integer position;
@@ -20,5 +21,19 @@ public class Car {
             position++;
         }
         return  position;
+    }
+
+    public boolean isFront(Car otherCar) {
+        return this.position > otherCar.position ;
+    }
+
+    public boolean isSamePosition(Car other) {
+        return this.position.equals(other.position);
+    }
+
+    public ComparePositionState comparePosition(Car otherCar) {
+        if(isFront(otherCar)) return ComparePositionState.FRONT;
+        if(isSamePosition(otherCar)) return ComparePositionState.SAME;
+        return ComparePositionState.BACK;
     }
 }

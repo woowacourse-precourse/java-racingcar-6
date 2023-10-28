@@ -1,2 +1,5 @@
-package racingcar.model;public enum ComparePositionState {
+package racingcar.model;
+
+public enum ComparePositionState {
+    FRONT,BACK,SAME;
 }
