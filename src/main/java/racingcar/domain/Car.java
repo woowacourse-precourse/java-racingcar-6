@@ -10,7 +10,22 @@ public class Car {
     int currentPosition = 0;
     List<Integer> pickedNumbers = new ArrayList<>();
 
+    private Car(String name) {
+        this.name = name;
+    }
 
+
+    public static Car create(String name) {
+        return new Car(name);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
 
 
 }
