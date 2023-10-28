@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 public class InputValidator {
-    public static boolean isValidCarNames(String carNames) {
+    public static void validateCarNames(String carNames) {
         List<String> carNameList = Arrays.asList(carNames.split(","));
         Set<String> uniqueCarNames = new HashSet<>(carNameList);
 
@@ -17,15 +17,11 @@ public class InputValidator {
         if (carNameList.stream().anyMatch(carName -> carName.length() > 5)) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
-
-        return true;
     }
 
-    public static boolean isValidRound(String round) {
+    public static void validateRound(String round) {
         if (!round.matches("[0-9]+")) {
             throw new IllegalArgumentException("시도할 회수는 숫자만 가능합니다.");
         }
-
-        return true;
     }
 }
