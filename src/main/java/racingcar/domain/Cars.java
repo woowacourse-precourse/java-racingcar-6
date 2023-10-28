@@ -20,6 +20,13 @@ public class Cars {
         cars.forEach(Car::move);
     }
 
+    public int getMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .getAsInt();
+    }
+
     private void validateDuplicate(String newName) {
         cars.stream()
                 .map(Car::getName)
