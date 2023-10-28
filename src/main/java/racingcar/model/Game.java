@@ -32,6 +32,13 @@ public class Game {
     }
 
     public List<String> getWinnersList() {
-        return null;
+        carList.sort(null);
+
+        int maxMoveCount = carList.get(0).getMoveCount();
+
+        return carList.stream()
+                .takeWhile(car -> car.getMoveCount() == maxMoveCount)
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 }
