@@ -21,8 +21,8 @@
     - 숫자가 아닌 값
 
 
-- [ ] 자동차는 전진하거나 멈춘다. 
-  - Car#move() -> GameController#playRound()
+- [X] 자동차는 전진하거나 멈춘다. 
+  - Car#move() -> Car#play() -> GameController#playRound()
   - 0 ~ 9 의 랜덤 숫자를 뽑는다.
   - 뽑은 숫자가 4 이상이면 전진한다. (4 미만이면 멈춘다.)
     
