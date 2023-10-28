@@ -46,4 +46,8 @@ public class RacingController {
         }
     }
 
+    public void play() {
+        OutputView.printResultDescription();
+    }
+
 }
