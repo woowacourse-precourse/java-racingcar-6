@@ -7,20 +7,6 @@ import java.util.stream.Collectors;
 
 public class Application {
     public static void main(String[] args) {
-        InputView inputView = new InputView();
-        List<String> carNamesList = Collections.singletonList(inputView.getCarNameInput());
-        String carNamesInput = String.join(",", carNamesList);
-        String[] carNames = carNamesInput.split(",");
-        int tryCount = inputView.getTryCount();
-
-        List<Cars> cars = Arrays.stream(carNames)
-                .map(Cars::new)
-                .collect(Collectors.toList());
-
-        Race race = new Race(cars, tryCount);
-        ResultView resultView = new ResultView(cars);
-        race.startRace(resultView);
-
-        ResultView.printWinners(race.getWinners());
+        RunGame.runGame();
     }
 }
