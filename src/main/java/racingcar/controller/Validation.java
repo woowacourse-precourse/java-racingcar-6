@@ -21,7 +21,12 @@ public class Validation {
     }
 
     public static void validateDuplicate(List<String> cars) {
-        Set<String> checkForDuplicates = new HashSet<>(cars);
+        Set<String> checkForDuplicates = new HashSet<>();
+
+        for (String car : cars) {
+            String lowercase = car.toLowerCase();
+            checkForDuplicates.add(lowercase);
+        }
 
         if (checkForDuplicates.size() != cars.size()) {
             throw new IllegalArgumentException();
