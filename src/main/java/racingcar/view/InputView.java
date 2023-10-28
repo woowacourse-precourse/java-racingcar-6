@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
     public static String readCarName() {
-        return validateCarName(Console.readLine());
+        return validateNullCarName(Console.readLine());
     }
 
 
@@ -12,12 +12,18 @@ public class InputView {
         return Console.readLine();
     }
 
-    private static String validateCarName(String input) {
+    private static String validateNullCarName(String input) {
         if (input.equals("")) {
             throw new IllegalArgumentException();
         }
         return input;
     }
+
+
+
+
+
+
 
 
 }
