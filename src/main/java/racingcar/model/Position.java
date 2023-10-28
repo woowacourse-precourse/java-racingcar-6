@@ -2,7 +2,7 @@ package racingcar.model;
 
 import java.util.Objects;
 
-public final class Position {
+public final class Position implements Comparable<Position> {
     private final int position;
 
     private Position(int position) {
@@ -13,7 +13,7 @@ public final class Position {
         return new Position(0);
     }
 
-    public static Position of(int position) {
+    static Position of(int position) {
         return new Position(position);
     }
 
@@ -21,6 +21,7 @@ public final class Position {
         return new Position(position + 1);
     }
 
+    @Override
     public int compareTo(Position position) {
         return Integer.compare(this.position, position.position);
     }
