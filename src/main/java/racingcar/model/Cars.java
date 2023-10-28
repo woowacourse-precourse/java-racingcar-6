@@ -18,4 +18,11 @@ public class Cars {
             racingCars.get(i).calculatePosition(moveResult.get(i));
         }
     }
+
+    private int findHighestPosition() {
+        return racingCars.stream()
+                .map((car) -> (Integer) car.provideCarStatus().get("position"))
+                .max(Comparator.comparingInt(Integer::intValue))
+                .orElseThrow(NoSuchElementException::new);
+    }
 }
