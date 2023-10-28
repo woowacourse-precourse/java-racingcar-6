@@ -3,6 +3,7 @@ package game;
 import java.util.ArrayList;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import car.Car;
 import car.CarService;
 import util.Validate;
@@ -27,7 +28,10 @@ public class Game {
 	public static void gameStart(int tryCount, ArrayList<Car> car_list) {
 		System.out.println("실행 결과");
 		for(int i=1;i<=tryCount;i++) {
-			
+			for(Car car : car_list) {
+				CarService.forward(car, Randoms.pickNumberInRange(0, 9));
+				System.out.println(car.getName()+" : "+car.getMovementStack().toString());
+			}
 		}
 	}
 	

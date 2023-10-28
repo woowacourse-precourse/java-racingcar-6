@@ -23,5 +23,14 @@ public class CarService {
 		}
 	}
 	
+	//car객체의 movement 자원을 출력
+	public static String outputCarMOVEMENT(Car car) {
+		Stack<String> car_movement = car.getMovementStack();
+		StringBuilder sb = new StringBuilder();
+		for(String move : car_movement) sb.append(move);
+		
+		return sb.toString();
+	}
+	
 	
 }

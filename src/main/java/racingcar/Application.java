@@ -9,6 +9,7 @@ public class Application {
     	//게임준비
         ArrayList<Car> carListForGameReady = Game.gameReady();
         int player_input_gameTRY = Game.gameTRYCount();
-        
+        //게임시작
+        Game.gameStart(player_input_gameTRY, carListForGameReady);
     }
 }
