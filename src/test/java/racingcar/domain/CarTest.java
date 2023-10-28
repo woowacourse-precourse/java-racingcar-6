@@ -17,7 +17,7 @@ public class CarTest {
 
         // then
         Assertions.assertThat(car.getName()).isEqualTo(new Name(name));
-        Assertions.assertThat(car.getDistance()).isEqualTo(Distance.zero());
+        Assertions.assertThat(car.getDistance()).isEqualTo(Distance.ZERO);
     }
 
     @DisplayName("자동차의 이름이 5자를 초과하면 IllegalArgumentException이 발생한다.")
