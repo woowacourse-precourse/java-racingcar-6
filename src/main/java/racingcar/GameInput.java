@@ -7,30 +7,35 @@ import java.util.List;
 public class GameInput {
 
     private static final int MAX_CAR_NAME_LENGTH = 5;
+    private static final String MOVING_NUMBER_PATTERN = "^[1-9][0-9]*$";
 
-    public int receiveMovingNum(){
-        String movingNum = Console.readLine();
-        validateNumber(movingNum);
-        return Integer.parseInt(movingNum);
+
+    public String readInput() {
+        return Console.readLine();
     }
 
-    public List<String> receiveCarNames(){
-        List<String> names = splitByComma(Console.readLine());
+    public List<String> splitInput(String input, String delimiter) {
+        return Arrays.asList(input.split(delimiter));
+    }
+
+    public int convertToMovingNumber(String input) {
+        validateNumber(input);
+        return Integer.parseInt(input);
+    }
+
+    public List<String> convertToCarNameList(String input) {
+        List<String> names = splitInput(input, ",");
         validateName(names);
         return names;
     }
 
-    public List<String> splitByComma(String contents){
-        return Arrays.asList(contents.split(","));
-    }
-
-    public void validateNumber(String movingNum){
-        if (!movingNum.matches("^[1-9][0-9]*$")) {
-            throw new IllegalArgumentException("this num is not valid");
+    public void validateNumber(String movingNum) {
+        if (!movingNum.matches(MOVING_NUMBER_PATTERN)) {
+            throw new IllegalArgumentException("Input number is not valid");
         }
     }
 
-    public void validateName(List<String> names){
+    public void validateName(List<String> names) {
         for (String name : names) {
             if (name.length() > MAX_CAR_NAME_LENGTH) {
                 throw new IllegalArgumentException("carname length must be < " + MAX_CAR_NAME_LENGTH);
