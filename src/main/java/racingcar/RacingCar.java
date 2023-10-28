@@ -14,9 +14,18 @@ public class RacingCar {
         this.name = name;
     }
 
-    public void move(int number){
+    public String move(int number){
         if (number >= 4) {
             block.add("-");
         }
+        return name + " : " + printBlock();
+    }
+
+    private String printBlock(){
+        StringBuilder sb = new StringBuilder();
+        for (String s : block) {
+            sb.append(s);
+        }
+        return sb.toString();
     }
 }

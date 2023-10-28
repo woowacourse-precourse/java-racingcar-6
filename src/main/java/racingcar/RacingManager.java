@@ -16,11 +16,12 @@ public class RacingManager {
         this.lap = lap;
     }
 
-}
-    public void race(List<RacingCar> racingCars){
+    public void race(List<RacingCar> racingCars) {
         for (int i = 0; i < lap; i++) {
             for (RacingCar racingCar : racingCars) {
-                racingCar.move(Randoms.pickNumberInRange(0, 9));
+                System.out.println(racingCar.move(Randoms.pickNumberInRange(0, 9)));
             }
         }
     }
+
+}
