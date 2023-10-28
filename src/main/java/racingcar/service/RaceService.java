@@ -3,17 +3,20 @@ package racingcar.service;
 
 import java.util.Arrays;
 import java.util.List;
+import racingcar.domain.Car;
 
 public class RaceService {
     public void createCars(String carNamesInput) {
-        validateCarNamesInput(carNamesInput);
+        List<String> carNames = validateCarNamesInput(carNamesInput);
+        List<Car> cars = carNames.stream().map(Car::new).toList();
     }
 
-    public void validateCarNamesInput(String carNamesInput) {
+    public List<String> validateCarNamesInput(String carNamesInput) {
         validateEmptyInput(carNamesInput);
         validateNullInput(carNamesInput);
         List<String> carNames = Arrays.asList(carNamesInput.split(","));
         validateLengthInput(carNames);
+        return carNames;
     }
 
     private void validateEmptyInput(String carNamesInput) {
