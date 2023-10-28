@@ -24,7 +24,10 @@ public class Racingcar_Game {
             }
             else name+=input.charAt(i);
         }
-        carName.add(name);
+        if(checkNameLength(name)){
+            carName.add(name);
+            name="";
+        }
         return carName;
     }
 
