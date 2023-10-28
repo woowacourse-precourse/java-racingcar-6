@@ -29,8 +29,24 @@ public class InputView {
         return carNameList;
     }
 
+    private void negativeValidaition(int tryCount) throws IllegalArgumentException {
+        if (tryCount < 0) {
+            throw new IllegalArgumentException("시도 횟수는 0이상의 정수여야 합니다.");
+        }
+    }
+
+    private void tryCountValidaition(String userInput) throws IllegalArgumentException {
+        try {
+            int tryCount = Integer.parseInt(userInput);
+            negativeValidaition(tryCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도 횟수는 0이상의 정수여야 합니다.");
+        }
+    }
+
     public int inputTryCount() {
-        int tryCount = Integer.parseInt(Console.readLine());
-        return tryCount;
+        String userInput = Console.readLine();
+        tryCountValidaition(userInput);
+        return Integer.parseInt(userInput);
     }
 }
