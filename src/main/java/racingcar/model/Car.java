@@ -22,7 +22,7 @@ public class Car {
         }
     }
 
-    private void forward(){
+    public void forward(){
         if(generator.generate() > FORWARD_LOWER_INCLUSIVE){
             forwardCount++;
         }

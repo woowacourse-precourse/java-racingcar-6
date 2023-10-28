@@ -11,4 +11,10 @@ public class Cars {
                 .map(Car::new)
                 .toList();
     }
+
+    public void forward(){
+        for(Car car : cars){
+            car.forward();
+        }
+    }
 }
