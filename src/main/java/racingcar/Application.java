@@ -16,6 +16,7 @@ public class Application {
         }
 
         List<String> winnerList = calculateWinner(cars);
+        showWhoIsWinner(winnerList);
     }
 
     private static List<String> inputCarNamesByUser() {
@@ -90,6 +91,18 @@ public class Application {
             maxPostion = Math.max(maxPostion, car.getPosition());
         }
         return maxPostion;
+    }
+    private static void showWhoIsWinner(List<String> winnerList) {
+        StringBuilder winner = new StringBuilder();
+
+        for (String winnerName : winnerList) {
+            if (!winner.isEmpty()) {
+                winner.append(",");
+            }
+            winner.append(winnerName);
+        }
+        System.out.println("최종 우승자 : " + winner.toString());
+
     }
 
 }
