@@ -5,6 +5,7 @@ import racingcar.service.StringUtilService;
 import racingcar.service.ValidatorService;
 import racingcar.view.InputView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameController {
@@ -12,6 +13,17 @@ public class GameController {
 
 	private final InputView inputView = InputView.getInstance();
 	private StringUtilService stringUtilService = StringUtilService.getInstance();
+
+	public void setCarNameList(List<String> carNameList) {
+		this.carNameList = carNameList;
+	}
+
+	public void setInputCarRaceTimes(Integer inputCarRaceTimes) {
+		this.inputCarRaceTimes = inputCarRaceTimes;
+	}
+
+	private List<String> carNameList = new ArrayList<>();
+	private Integer inputCarRaceTimes = 0;
 
 	public void gameStart() {
 		printMenu();
@@ -22,10 +34,9 @@ public class GameController {
 		requestUserInput();
 	}
 
-	// @TODO: View로부터 받은 값을 저장하기
 	private void requestUserInput() {
-		this.validateCarNames(inputView.requestInputCarName());
-		this.validateCarRaceTimes(inputView.requestInputCarRaceTimes());
+		this.setCarNameList(this.validateCarNames(inputView.requestInputCarName()));
+		this.setInputCarRaceTimes(this.validateCarRaceTimes(inputView.requestInputCarRaceTimes()));
 	}
 
 	private List<String> validateCarNames(String inputCarName) throws IllegalArgumentException {
