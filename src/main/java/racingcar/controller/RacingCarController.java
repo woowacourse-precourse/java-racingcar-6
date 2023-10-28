@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import racingcar.model.RacingCar;
 import racingcar.model.RacingCars;
 import racingcar.validator.CarNamesInputValidator;
 import racingcar.validator.NumberOfRoundsInputValidator;
@@ -19,6 +20,12 @@ public class RacingCarController {
         outputView.printAskingForCarNames();
         List<String> carNames = inputView.askForCarNames();
         RacingCars racingCars = RacingCars.init(carNames);
+        for (int i = 0; i < 5; i++) {
+            racingCars = racingCars.move();
+            for (RacingCar racingCar : racingCars.getRacingCarList()) {
+                System.out.println(racingCar.getName() + " : " + "-".repeat(racingCar.getLocation()));
+            }
+        }
         outputView.printAskingForNumberOfRounds();
         inputView.askForNumberOfRounds();
         outputView.printResult();
