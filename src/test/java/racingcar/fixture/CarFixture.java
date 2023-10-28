@@ -6,7 +6,7 @@ import racingcar.model.Position;
 
 public class CarFixture {
 
-    public static Car createCar(final String name, final int position) {
-        return new Car(new Name(name), new Position(position));
+    public static Car createCar(final String name) {
+        return new Car(new Name(name), Position.createDefault());
     }
 }

@@ -19,7 +19,7 @@ class CarTest {
 
     @BeforeEach
     public void setUp() {
-        car = CarFixture.createCar("suv", 0);
+        car = CarFixture.createCar("suv");
     }
 
     @CsvSource({"4, 1", "5, 1", "9, 1"})

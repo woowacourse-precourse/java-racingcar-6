@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
@@ -16,7 +16,7 @@ class PositionTest {
     @ParameterizedTest
     void 매개변수로_들어온_값이_4이상이면_위치가_변한다(int number, int expected) {
         // given
-        Position position = new Position(0);
+        Position position = Position.createDefault();
 
         // when
         position.move(number);
@@ -29,7 +29,7 @@ class PositionTest {
     @ParameterizedTest
     void 매개변수로_들어온_값이_4미만이면_위치가_그대로이다(int number, int expected) {
         // given
-        Position position = new Position(0);
+        Position position = Position.createDefault();
 
         // when
         position.move(number);
@@ -41,8 +41,8 @@ class PositionTest {
     @Test
     void 이름이_같으면_같은_값으로_판단한다() {
         // given
-        Position result = new Position(0);
-        Position expected = new Position(0);
+        Position result = Position.createDefault();
+        Position expected = Position.createDefault();
 
         // when & then
         assertThat(result).isEqualTo(expected);
@@ -51,10 +51,14 @@ class PositionTest {
     @Test
     void 위치를_반환한다() {
         // given
-        int input = 4;
-        Position result = new Position(input);
+        int expected = 1;
+        Position position = Position.createDefault();
+        position.move(4);
+
+        // when
+        int result = position.getPosition();
 
         // when & then
-        assertThat(result.getPosition()).isEqualTo(input);
+        assertThat(result).isEqualTo(expected);
     }
 }
