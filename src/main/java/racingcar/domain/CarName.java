@@ -17,4 +17,21 @@ public final class CarName {
             throw new IllegalArgumentException("Error: 자동차의 이름은 5자 이하여야 합니다.");
         }
     }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (!(object instanceof CarName carName)) {
+            return false;
+        }
+
+        return name.equals(carName.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
 }
