@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.Utils;
 
 import java.util.Arrays;
 import java.util.List;
@@ -72,7 +72,7 @@ public class InputValidator {
     }
 
     private boolean hasDupCarName(List<String> cars) {
-        return cars.size() == cars.stream().distinct().toList().size();
+        return cars.size() != cars.stream().distinct().toList().size();
     }
 
     private boolean isNumber(String input) {
