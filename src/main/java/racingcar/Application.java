@@ -9,8 +9,8 @@ import java.util.List;
 public class Application {
     public static void main(String[] args) {
 
-        Output output = new Output();
-        Input input = new Input();
+        final Output output = new Output();
+        final Input input = new Input();
 
         output.printInputCarNameMessage();
         List<String> carNames = input.getCarNames();

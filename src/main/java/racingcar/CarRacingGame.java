@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CarRacingGame {
 
-    Output output;
+    private final Output output;
 
     public CarRacingGame(Output output) {
         this.output = output;

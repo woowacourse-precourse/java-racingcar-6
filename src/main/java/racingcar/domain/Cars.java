@@ -7,7 +7,7 @@ public class Cars {
 
     private static final int START_LINE = 0;
 
-    private List<Car> cars;
+    private final List<Car> cars;
 
     public Cars(List<String> carNames) {
         cars = new ArrayList<>(carNames.size());
