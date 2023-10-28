@@ -10,7 +10,8 @@ public class RacingController {
     private List<RacingCar> racingCars;
 
     public void run() {
-        makeCars();
+        OutputView.printRequestCarNames();
+        makeCars(InputView.carNamesInput());
         int tryCount = inputTryCount();
         OutputView.printGameResultMessage();
 
@@ -22,12 +23,11 @@ public class RacingController {
         OutputView.printResultMessage(findWinner(findMaxLocation()));
     }
 
-    public void makeCars() {
-        OutputView.printRequestCarNames();
+    public void makeCars(String carNames) {
+
         racingCars = new ArrayList<>();
 
-        String carNamesInput = InputView.carNamesInput();
-        String[] carNamesInputSplit = carNamesInput.split(",");
+        String[] carNamesInputSplit = carNames.split(",");
         for (String carName : carNamesInputSplit) {
             racingCars.add(new RacingCar(carName));
         }

@@ -38,16 +38,16 @@
 
 ## RacingGameController
 
--  makeCars()
-  -  경주에 참여할 차 이름을 입력받고 RacingCar 객체를 생성한다.
--  inputTryCount();
-  -  몇번의 이동시도를 할것인지 입력받는다.
--  moveCars()
-  -  모든 RacingCar 에게 1회 move 시도를 한다.
--  findMaxLocation()
-  -  가장 멀리 이동한 RacingCar 의 위치를 찾는다.
--  findWinner(int maxLocation);
-  -  모든 이동 시도가 완료된후 각 RacingCar 의 위치를 확인하여 우승자를 찾는다.
+- [x] makeCars(String userInput)
+  - [x] 경주에 참여할 차 이름을 입력받고 RacingCar 객체를 생성한다.
+- [x] inputTryCount();
+  - [x] 몇번의 이동시도를 할것인지 입력받는다.
+- [x] moveCars()
+  - [x] 모든 RacingCar 에게 1회 move 시도를 한다.
+- [x] findMaxLocation()
+  - [x] 가장 멀리 이동한 RacingCar 의 위치를 찾는다.
+- [x] findWinner(int maxLocation);
+  - [x] 모든 이동 시도가 완료된후 각 RacingCar 의 위치를 확인하여 우승자를 찾는다.
   
 ## Validator
 - [x] ,를 기준으로 자동차 이름을 입력 받을때 5자 이하인지 검증.
