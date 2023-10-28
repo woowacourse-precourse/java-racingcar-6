@@ -27,7 +27,7 @@ Ui
 
 InputReader
 
--[ ] 입력된 값을 읽는다.
+-[x] 입력된 값을 읽는다.
 - [ ] 입력을 종료시킨다.
 
 GameEngine
