@@ -42,11 +42,24 @@ public class Application {
     }
 
     public static void Try_Number() {
-        TryNumber = Integer.parseInt(readLine());
+        String Input_TryNumber = readLine();
+        if (isInteger(Input_TryNumber) == false) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public static boolean isInteger(String Input_TryNumber) {
+        try {
+            Integer.parseInt(Input_TryNumber);
+            return true;
+        } catch (NumberFormatException ex) {
+            return false;
+        }
     }
 
     public static void Result_Message() {
         System.out.println();
         System.out.println("실행 결과");
     }
+
 }
