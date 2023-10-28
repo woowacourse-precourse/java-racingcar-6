@@ -6,6 +6,7 @@ import racingcar.util.RandomNumberGenerator;
 import racingcar.util.validator.InputValidator;
 import racingcar.view.InputView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -47,5 +48,21 @@ public class CarService {
             }
         }
         return carRepository.carList;
+    }
+
+    public List<String> getGameWinner() {
+        List<String> winners = new ArrayList<>();
+        int max = 0;
+        for (Car car : carRepository.carList) {
+            if (car.getDistance() == max) {
+                winners.add(car.getName());
+            }
+            if (car.getDistance() > max) {
+                winners.clear();
+                winners.add(car.getName());
+                max = car.getDistance();
+            }
+        }
+        return winners;
     }
 }

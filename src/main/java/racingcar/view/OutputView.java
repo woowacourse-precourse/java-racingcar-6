@@ -6,12 +6,14 @@ import racingcar.util.messages.Messages;
 import java.util.List;
 
 public class OutputView {
+    StringBuilder sb;
+
     public void printGameResultTitle() {
         System.out.println(Messages.GAME_RESULT_TITLE.getMessage());
     }
 
     public void printCarPosition(List<Car> carList) {
-        StringBuilder sb = new StringBuilder();
+        sb = new StringBuilder();
         for (int i = 0; i < carList.size(); i++) {
             int distance = carList.get(i).getDistance();
             sb.append(carList.get(i).getName()).append(" : ");
@@ -25,5 +27,18 @@ public class OutputView {
 
     public void printEmptyLine() {
         System.out.println();
+    }
+
+    public void printWinners(List<String> winners) {
+        sb = new StringBuilder();
+        sb.append("최종 우승자 : ");
+        if (winners.size() > 1) {
+            for (int i = 0; i < winners.size(); i++) {
+                sb.append(winners.get(i)).append(", ");
+            }
+        } else {
+            sb.append(winners.get(0));
+        }
+        System.out.println(sb);
     }
 }

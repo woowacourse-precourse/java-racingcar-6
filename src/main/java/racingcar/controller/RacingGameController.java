@@ -10,6 +10,7 @@ public class RacingGameController {
     public void gameStart() {
         int tryCount = carService.getCarNameAndTryCount();
         printGameResult(tryCount);
+        printGameWinner();
     }
 
     private void printGameResult(int tryCount) {
@@ -18,5 +19,9 @@ public class RacingGameController {
         for (int i = 0; i < tryCount; i++) {
             outputView.printCarPosition(carService.game());
         }
+    }
+
+    private void printGameWinner() {
+        outputView.printWinners(carService.getGameWinner());
     }
 }
