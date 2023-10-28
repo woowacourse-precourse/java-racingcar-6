@@ -51,5 +51,5 @@
     - [x] 자동차의 이름을 반환한다. Car#getName()
 
 
-- [ ] 매 번 이동마다 자동차들의 정보를 반환한다. Race#getRoundResult()
+- [x] 매 번 이동마다 자동차들의 이동 거리를 반환한다. Race#getRoundResult()
     - [x] 자동차의 전진 거리를 반환한다. Car#getDistance()

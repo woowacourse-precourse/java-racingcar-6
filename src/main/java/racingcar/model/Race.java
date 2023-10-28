@@ -23,7 +23,7 @@ public class Race {
             carList.add(newCar);
         }
     }
-    
+
     public void moveCars() {
         for (Car car : carList) {
             int randomNumber = RandomGenerator.createNumber();
@@ -33,6 +33,12 @@ public class Race {
         }
     }
 
-
+    public List<Integer> getRoundResult() {
+        List<Integer> result = new ArrayList<>();
+        for (Car car : carList) {
+            result.add(car.getDistance());
+        }
+        return result;
+    }
 
 }
