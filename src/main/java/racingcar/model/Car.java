@@ -8,7 +8,7 @@ public class Car {
         this.carName = carName;
     }
 
-    public void go() {
+    public void drive() {
         Engine engine = new Engine();
         if (engine.getPower() >= 4) {
             distance += 1;

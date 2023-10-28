@@ -20,30 +20,14 @@ public class Stadium {
         this.cars = parkingCars;
     }
 
-    public void go() {
+    public void raceOnce() {
         for (Car car : cars) {
-            car.go();
+            car.drive();
         }
     }
 
-    public String getProgress() {
-        StringBuilder sb = new StringBuilder();
-        for (Car car : cars) {
-            sb.append(car.getTrace()).append("\n");
-        }
-        return sb.toString();
-    }
-
-    public String getWinners() {
-        int maxDistance = cars.stream()
-                .mapToInt(Car::getDistance)
-                .max()
-                .orElse(0);
-
-        return cars.stream()
-                .filter(car -> car.getDistance() == maxDistance)
-                .map(Car::getCarName)
-                .collect(Collectors.joining(", "));
+    public ArrayList<Car> getCars() {
+        return cars;
     }
 
 }

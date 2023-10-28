@@ -33,7 +33,7 @@ public class IoController {
         outputView.executionResult();
     }
 
-    public void notifyOneRoundCarResult(String result) {
+    public void notifyProgress(String result) {
         outputView.showResult(result);
     }
 
