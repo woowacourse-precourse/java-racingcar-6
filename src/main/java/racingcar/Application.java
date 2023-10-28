@@ -59,11 +59,12 @@ public class Application {
 
         // 2. 시도 횟수 입력
         System.out.println("시도할 회수는 몇회인가요?");
-        userInput = Console.readLine();
+
+        String userInput2 = Console.readLine();
         int roundCount;
 
         try {
-            roundCount = Integer.parseInt(userInput);
+            roundCount = Integer.parseInt(userInput2);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자만 입력하세요.");
         }
