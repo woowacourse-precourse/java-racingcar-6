@@ -5,6 +5,7 @@ import static racingcar.validation.CarNames.BLANK_INPUT_EXCEPTION;
 import static racingcar.validation.CarNames.NAME_LENGTH_EXCEPTION;
 import static racingcar.validation.CarNames.SAME_NAMES_EXCEPTION;
 import static racingcar.validation.ExecutionNumber.NOT_A_NUMBER_EXCEPTION;
+import static racingcar.validation.ExecutionNumber.NUMBER_RANGE_EXCEPTION;
 
 import java.util.Arrays;
 import java.util.List;
@@ -73,8 +74,19 @@ public class ValidationTest {
             try {
                 number.validateExcutionNumber(input);
             } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
                 Assertions.assertEquals(NOT_A_NUMBER_EXCEPTION, e.getMessage());
+            }
+        });
+    }
+
+    @Test
+    void 시도횟수의_숫자_범위가_잘못된_경우_예외처리() {
+        List<String> inputs = Arrays.asList("0", "-12");
+        inputs.stream().forEach(input -> {
+            try {
+                number.validateExcutionNumber(input);
+            } catch (IllegalArgumentException e) {
+                Assertions.assertEquals(NUMBER_RANGE_EXCEPTION, e.getMessage());
             }
         });
     }
