@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.domain.GameOption.CAR_NAME_DELIMITER;
+
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
@@ -19,7 +21,7 @@ public class MainController {
 
     private Cars initCars() {
         String inputValue = InputView.inputString(ViewMessage.INPUT_CAR_NAME);
-        List<Car> carList = Converter.splitByDelimiter(inputValue, ",")
+        List<Car> carList = Converter.splitByDelimiter(inputValue, CAR_NAME_DELIMITER)
                 .stream()
                 .map(Car::new)
                 .toList();

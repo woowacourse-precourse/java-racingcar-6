@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.domain.GameOption.CAR_POSITION_SIGN;
+
 import racingcar.message.ErrorMessage;
 
 public class Car {
@@ -48,6 +50,6 @@ public class Car {
 
     @Override
     public String toString() {
-        return name + " : " + "-".repeat(position);
+        return name + " : " + CAR_POSITION_SIGN.repeat(position);
     }
 }

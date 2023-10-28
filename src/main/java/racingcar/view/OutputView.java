@@ -1,10 +1,12 @@
 package racingcar.view;
 
+import static racingcar.message.ViewMessage.WINNER_RESULT_DELIMITER;
+import static racingcar.message.ViewMessage.WINNER_RESULT_FORMAT;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
-import racingcar.message.ViewMessage;
 
 public class OutputView {
 
@@ -19,7 +21,7 @@ public class OutputView {
     public static void printWinner(List<Car> winner) {
         String winnerStr = winner.stream()
                 .map(Car::getName)
-                .collect(Collectors.joining(", "));
-        System.out.printf(ViewMessage.WINNER_RESULT_FORMAT, winnerStr);
+                .collect(Collectors.joining(WINNER_RESULT_DELIMITER));
+        System.out.printf(WINNER_RESULT_FORMAT, winnerStr);
     }
 }

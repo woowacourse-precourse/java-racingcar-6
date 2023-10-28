@@ -6,4 +6,5 @@ public class ViewMessage {
     public static String INPUT_TRIAL_COUNT = "시도할 회수는 몇회인가요?";
     public static String GAME_RESULT = "실행 결과";
     public static String WINNER_RESULT_FORMAT = "최종 우승자 : %s";
+    public static String WINNER_RESULT_DELIMITER = ", ";
 }
