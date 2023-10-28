@@ -4,16 +4,16 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class CarAccelerator implements WrappedRandoms {
 
-    private static final int MINIMUM_RANGE_OF_RANDOM_NUMBER= 0;
-    private static final int MAXIMUM_RANGE_OF_RANDOM_NUMBER= 9;
-    private static final int ACCELERATE_CRITERION= 4;
+    private static final int MINIMUM_RANGE_OF_RANDOM_NUMBER = 0;
+    private static final int MAXIMUM_RANGE_OF_RANDOM_NUMBER = 9;
+    private static final int ACCELERATE_CRITERION = 4;
 
     private static WrappedRandoms INSTANCE;
-    private static final WrappedRandoms Randoms = new RealRandoms();
+    private static final WrappedRandoms SYSTEM_RANDOMS = new RealRandoms();
 
     public boolean shouldAccelerate() {
         if (INSTANCE.pickNumberInRange(MINIMUM_RANGE_OF_RANDOM_NUMBER,
-            MAXIMUM_RANGE_OF_RANDOM_NUMBER) >=ACCELERATE_CRITERION) {
+            MAXIMUM_RANGE_OF_RANDOM_NUMBER) >= ACCELERATE_CRITERION) {
             return true;
         }
 
@@ -21,11 +21,11 @@ public class CarAccelerator implements WrappedRandoms {
     }
 
     public static void setFakeRandoms() {
-        INSTANCE= new FakeRandoms();
+        INSTANCE = new FakeRandoms();
     }
 
     public static void rollback() {
-        INSTANCE= Randoms;
+        INSTANCE = SYSTEM_RANDOMS;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class CarAccelerator implements WrappedRandoms {
 
     private static final class FakeRandoms implements WrappedRandoms {
 
-        private static final int FAIL_NUMBER= 3;
+        private static final int FAIL_NUMBER = 3;
 
         @Override
         public int pickNumberInRange(int minimumOfRange, int maximumOfRange) {
