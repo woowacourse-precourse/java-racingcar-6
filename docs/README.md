@@ -106,11 +106,11 @@
   - [ ] 이름은 5자 이하 검사. // ValidException#isValidFIveLessString
   - [x] 한글 포함 검사. //  ValidException#isValidIncludeKorean
   - [ ] 숫자을 포함하는가 검사  // ValidException#isValidIncludeNum
-  - [ ] 공백 입력 검사 // ValidException#isValidBlankCheck
+  - [x] 공백 입력 검사 // ValidException#isValidBlankCheck
   - [ ] 양수 입력 검사 // ValidException#isValidPositiveCheck
   - [ ] 문자열 포함 검사  // ValidException#isValidIncludeString
   - [ ] 특수문자 포함 검사 // ValidException#isValidIncludeSpecialString
-  - [ ] 문자열 이름 , 다음에는 문자가 나와야한다.
+  - [ ] 문자열 이름 , 다음에는 문자가 나와야한다. ( "sue,woo," )(금지)
 
 
 

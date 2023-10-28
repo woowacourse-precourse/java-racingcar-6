@@ -17,7 +17,7 @@ public class ValidException {
      * @param str "one, two, three"
      * @return
      */
-    public static boolean isValidIncludeKorean(String str) {
+    public static Boolean isValidIncludeKorean(String str) {
         Pattern pattern = Pattern.compile("[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+");
         Matcher matcher = pattern.matcher(str);
 
@@ -32,9 +32,17 @@ public class ValidException {
 
     }
 
-    // TODO: 10/27/23 공백 입력 검사
-    public static void isValidBlankCheck() {
-
+    /**
+     * 공백 입력 검사
+     *
+     * @param str
+     * @return
+     */
+    public static Boolean isValidBlankCheck(String str) {
+        if (!str.equals("")) {
+            return true;
+        }
+        throw new IllegalArgumentException(ValidConstants.MSG_BLANK_STRING());
     }
 
     // TODO: 10/27/23 양수 입력 검사
