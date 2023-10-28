@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
+import racingcar.domain.strategy.RandomMoveStrategy;
 import racingcar.util.InputValidator;
 
 import java.util.ArrayList;
@@ -23,10 +24,14 @@ public class RacingGame {
 
         System.out.println("실행 결과");
 
+        RandomMoveStrategy randomMoveStrategy = new RandomMoveStrategy();
+
         int roundCount = Integer.parseInt(round);
         for (int currentRound = 0; currentRound < roundCount; currentRound++) {
             for (Car car : cars) {
-                car.move();
+
+                if (randomMoveStrategy.isAbleToMove())
+                    car.move();
             }
             printProgress(cars);
             System.out.println();
