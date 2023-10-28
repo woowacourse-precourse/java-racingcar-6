@@ -12,7 +12,7 @@ public class Game {
         this.input_trial = input_trial;
     }
 
-    public int increaseCurrentTrial() {
+    public void increaseCurrentTrial() {
         this.cuurent_trial += 1;
     }
 
