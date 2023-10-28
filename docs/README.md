@@ -1,8 +1,9 @@
 # 구현할 기능 목록
 
 ## 1. 자동차 입력 받아서 갯수만큼 자동차 객체 생성하기
-    - 입력값에 split(",") 호출해서 배열로
-    - 객체 생성 과정에서 입력값 체크하기
+    - RacingCar 도메인 정의하기 -> RacingCars
+    - 입력값에 split(",") 호출해서 String 배열로 만들기 -> InputService.readInput()
+    - 객체 생성 과정에서 입력값 체크하기 -> InputService.validateInput()
 
 ## 2. 시도 횟수 입력 받기
 
