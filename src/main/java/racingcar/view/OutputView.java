@@ -18,6 +18,9 @@ public class OutputView {
         this.outputBuilder = new StringBuilder();
     }
 
+    public void outputGameResultMessage() {
+        System.out.println(OUTPUT_GAME_RESULT_MESSAGE);
+    }
 
 
     public void outputCarsPosition(Cars cars) {
