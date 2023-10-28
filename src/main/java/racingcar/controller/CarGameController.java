@@ -36,8 +36,26 @@ public class CarGameController {
         }
         outputView.gameResultStatus(strList);
     }
+    public void endGame(){
+        String winner = winner();
+        outputView.gameWinner(winner);
+    }
     public boolean go(int num){
         if(num>=4)return true;
         else return false;
+    }
+    public String winner(){
+        int max=0;
+        String winner="";
+        for(Car car : racingCars.getCarList()){
+            if(car.getScore()>max){
+                max = car.getScore();
+                winner=car.getName();
+            }
+            else if(car.getScore()==max){
+                winner+=", " + car.getName();
+            }
+        }
+        return winner;
     }
 }
