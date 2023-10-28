@@ -34,11 +34,15 @@ public class GameView {
     }
 
     public void showWinnerList(List<String> winnerList) {
-        String winners = String.join(NAME_DELIMITER, winnerList);
+        String winners = getWinners(winnerList);
         System.out.println("최종 우승자 : " + winners);
     }
 
     private String getUserInput() {
         return Console.readLine();
+    }
+
+    private String getWinners(List<String> winnerList) {
+        return String.join(NAME_DELIMITER, winnerList);
     }
 }
