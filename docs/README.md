@@ -41,11 +41,13 @@
   * checkForward() 에서 true가 반환되면 실제도 자동차를 전진시켜준다.
 
 ### 출력
+* PrintResult()
+  * 결과를 출력을 위한 메서드를 구현한다.
 * printDistance()
   * Car객체가 담긴 List에서 각 자동차들의 거리를 출력해준다.
-* PrintResult()
-  * 거리 출력시 최대 거리를 기록한다.
-   * 거리 출력이 끝나면 기록된 최대거리와 같은 자동차의 이름을 출력한다.
+* printWinner()
+  * 우승자를 출력해주는 메서드를 구현한다. 
+  * 최대 거리를 구해 우승자를 가려낸다.
 
 ### 예외 처리 (IllegalArgumentException)
 * checkCarName() 
