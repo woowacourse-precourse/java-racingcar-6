@@ -10,9 +10,15 @@ public class Game {
     private static final InputValidator inputValidator = new InputValidator();
     private static final String TRIAL_NUMBER_MESSAGE = "시도할 회수는 몇회인가요?";
 
-    private final List<Car> cars = new ArrayList<>();
+    private final List<Car> cars;
+    private final GameManager gameManager;
 
     private int trialNumber;
+
+    public Game() {
+        cars = new ArrayList<>();
+        gameManager = new GameManager();
+    }
 
     public void start() {
         printMessage(START_MESSAGE);
@@ -20,6 +26,14 @@ public class Game {
 
         printMessage(TRIAL_NUMBER_MESSAGE);
         setTrialNumber();
+
+        progress();
+    }
+
+    private void progress() {
+        while (trialNumber-- > 0) {
+            moveCars();
+        }
     }
 
     private void printMessage(String message) {
@@ -35,9 +49,15 @@ public class Game {
         }
     }
 
-    private void setTrialNumber(){
+    private void setTrialNumber() {
         String input = Console.readLine();
         inputValidator.validTrialNumber(input);
         trialNumber = Integer.parseInt(input);
+    }
+
+    private void moveCars(){
+        for(Car car:cars){
+            gameManager.moveCar(car);
+        }
     }
 }
