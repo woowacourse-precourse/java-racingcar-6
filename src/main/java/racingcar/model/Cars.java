@@ -8,6 +8,7 @@ import racingcar.util.NumberGenerator;
 public class Cars {
 
     private static final int INITIAL_POSITION = 0;
+    private static final String DUPLICATE_CAR_NAMES_MESSAGE = "중복된 차 이름이 있습니다.";
 
     private final List<Car> cars;
 
@@ -16,11 +17,26 @@ public class Cars {
     }
 
     public static Cars createFromCarNames(final List<String> carsName) {
+        validateDuplicateNames(carsName);
         List<Car> cars = new ArrayList<>();
         for (final String carName : carsName) {
             cars.add(new Car(new Name(carName), new Position(INITIAL_POSITION)));
         }
         return new Cars(cars);
+    }
+
+    private static void validateDuplicateNames(final List<String> carNames) {
+        if (hasDuplicates(carNames)) {
+            throw new IllegalArgumentException(DUPLICATE_CAR_NAMES_MESSAGE);
+        }
+    }
+
+    private static boolean hasDuplicates(final List<String> carNames) {
+        long uniqueNamesCount = carNames.stream()
+                .distinct()
+                .count();
+
+        return uniqueNamesCount != carNames.size();
     }
 
     public void moveAll(final NumberGenerator generator) {
