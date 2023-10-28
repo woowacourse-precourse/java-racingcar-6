@@ -17,8 +17,8 @@ public class CarNameValidator {
     private final static String NAME_DUPLICATE_ERROR_MESSAGE = "중복된 이름을 적으면 안 됩니다.";
 
     public CarNameValidator(String name){
-        this.NAME = name;
-        this.NAMES = new ArrayList<>(Arrays.asList(name.split(",")));
+        NAME = name;
+        NAMES = new ArrayList<>(Arrays.asList(name.split(",")));
         isNull();
         isRangeOut();
         isNameError();

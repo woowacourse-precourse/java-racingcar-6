@@ -7,7 +7,7 @@ public class RoundValidator {
     public static String tryCount;
 
     public RoundValidator(String input){
-        this.tryCount = input;
+        tryCount = input;
         isNumError();
     }
     public void isNumError(){
