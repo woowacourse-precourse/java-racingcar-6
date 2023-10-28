@@ -44,12 +44,10 @@ class CarsTest {
                 new Car("woni", "--")));
 
         // when
-        final List<Car> winnerCars = cars.getWinnerCars();
-
+        final String winnerCars = cars.findWinnerCars();
 
         // then
-        Assertions.assertThat(winnerCars).hasSize(1)
-                .contains(new Car("pobi"));
+        Assertions.assertThat(winnerCars).isEqualTo("pobi");
     }
 
     @Test
@@ -60,11 +58,11 @@ class CarsTest {
                 new Car("woni", "--")));
 
         // when
-        final List<Car> winnerCars = cars.getWinnerCars();
+        final String winnerCars = cars.findWinnerCars();
 
         // then
         Assertions.assertThat(winnerCars).hasSize(2)
-                .contains(new Car("pobi"), new Car("jun"));
+                .contains("pobi, jun");
     }
 
     @Test
