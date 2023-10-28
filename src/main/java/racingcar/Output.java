@@ -14,4 +14,14 @@ public class Output {
     void printTryNumberInputRequest() {
         System.out.println(TRY_NUMBER_INPUT_REQUEST_MESSAGE);
     }
+
+    void printResultTitle() {
+        System.out.println(RESULT_TITLE);
+    }
+
+    void printRacingMap(ArrayList<Car> cars) {
+        for (Car car : cars) {
+            System.out.println(car.getName()+" : "+"-".repeat(car.getLocation()));
+        }
+    }
 }
