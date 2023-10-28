@@ -1,10 +1,10 @@
 # 기능 목록
 - [x] n대의 자동차이름을 입력한다. - InputView#inputCarNames()
-	- [x]  차의 이름의 길이가 5를 초과한다면 예외처리한다. Validator#validateOutOfLength()
-	- [x] 문자가 아닌 숫자가 포함된 경우 예외처리한다. Validator#validateContainNumber()
-- [x] 자동차들을 생성한다. CreateCarsService#createCars()
-- [x] 자동차들을 이동시킬 횟수를 입력한다.
-	- [x] 입력값이 숫자가 아니면 예외처리한다. 
+	- [x]  차의 이름의 길이가 5를 초과한다면 예외처리한다. - Validator#validateOutOfLength()
+	- [x] 문자가 아닌 숫자가 포함된 경우 예외처리한다. - Validator#validateContainNumber()
+- [x] 자동차들을 생성한다. - CreateCarsService#createCars()
+- [x] 자동차들을 이동시킬 횟수를 입력한다. - InputView#inputTryNumber()
+	- [x] 입력값이 숫자가 아니면 예외처리한다. - Validator#validateNumberFormat()
 - [ ] 자동차들을 이동시킨다.
 	- [ ] 각 차별로 0부터 9까지의 무작위 값을 생성한다.
 	- [ ] 무작위 값이 4 이상일 경우 전진한다.
