@@ -4,11 +4,9 @@ import java.util.List;
 
 public class Controller {
     private final View view;
-    private final RacingGame racingGame;
 
-    public Controller(View view, RacingGame racingGame) {
+    public Controller(View view) {
         this.view = view;
-        this.racingGame = racingGame;
     }
 
     public void start() {
