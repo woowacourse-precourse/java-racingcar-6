@@ -29,4 +29,28 @@ class CarTest {
         assertThat(carA.getPosition()).isEqualTo(noMove);
     }
 
+    @Test
+    @DisplayName("자동차 상태 출력 테스트")
+    void carNoForwardStatusTest() {
+        Car carA = new Car("carA");
+
+        carA.moveForward(0);
+
+        String expectStatus = "carA : ";
+
+        assertThat(carA.getCarStatus()).isEqualTo(expectStatus);
+    }
+
+    @Test
+    @DisplayName("자동차 전진 후 상태 출력 테스트")
+    void carForwardStatusTest() {
+        Car carA = new Car("carA");
+
+        carA.moveForward(5);
+
+        String expectStatus = "carA : -";
+
+        assertThat(carA.getCarStatus()).isEqualTo(expectStatus);
+    }
+
 }
