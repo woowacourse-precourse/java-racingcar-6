@@ -43,7 +43,7 @@ public class Application {
         }
         return carName;
     }
-    
+
     /**
      * 유저의 시도 횟수 입력을 받아서 유효한 값인지 확인하고 parseInt()를 사용해 int로 변환 후 리턴
      * @param tryCount
@@ -57,5 +57,19 @@ public class Application {
             throw new IllegalArgumentException("유효한 숫자를 입력하세요");
         }
         return tries;
+    }
+
+    /**
+     * 1~9까지 랜덤한 숫자를 생성해 4이상이면 전진 가능 true 리턴 아니면 false 리턴
+     * @return boolean
+     */
+    private static boolean isForwardPossible(){
+        int i = Randoms.pickNumberInRange(0,9);
+        if (i >= 4){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }
