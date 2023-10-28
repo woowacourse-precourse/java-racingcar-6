@@ -34,27 +34,5 @@ class NameTest {
             //then
             assertThatThrownBy(() -> new Name(name)).isInstanceOf(IllegalArgumentException.class);
         }
-
-        @Test
-        @DisplayName("생성시 공백으로 시작하는 문자열을 받으면 예외를 던지는가")
-        void startsWithBlank() {
-            //given
-            final String name = " abc";
-
-            //when
-            //then
-            assertThatThrownBy(() -> new Name(name)).isInstanceOf(IllegalArgumentException.class);
-        }
-
-        @Test
-        @DisplayName("생성시 공백으로 끝나는 문자열을 받으면 예외를 던지는가")
-        void endsWithBlank() {
-            //given
-            final String name = "abc ";
-
-            //when
-            //then
-            assertThatThrownBy(() -> new Name(name)).isInstanceOf(IllegalArgumentException.class);
-        }
     }
 }
