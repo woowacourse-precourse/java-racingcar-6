@@ -13,7 +13,6 @@ public class GameController {
     private final InputView inputView;
     private final OutputView outputView;
     private final CarGameService carGameService;
-
     private final WinnerService winnerService;
 
     public GameController(InputView inputView, OutputView outputView) {
@@ -24,13 +23,17 @@ public class GameController {
     }
 
     public void start() {
-        List<Car> cars = new ArrayList<>();
-        List<String> carNames = initSetting();
-        Integer gameCount = getGameCount();
-        initCarInfo(carNames, cars);
-        notifyBeforeResult();
-        roundGameProcess(gameCount, cars);
-        outputView.printWinners(winnerService.findWinners(cars));
+        try {
+            List<Car> cars = new ArrayList<>();
+            List<String> carNames = initSetting();
+            Integer gameCount = getGameCount();
+            initCarInfo(carNames, cars);
+            notifyBeforeResult();
+            roundGameProcess(gameCount, cars);
+            outputView.printWinners(winnerService.findWinners(cars));
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage());
+        }
     }
 
     private void notifyBeforeResult() {
@@ -44,12 +47,11 @@ public class GameController {
 
     private List<String> initSetting() {
         outputView.printInitGame();
-        List<String> carNames = carGameService.extractSeperator(inputView.inputCarName());
-        return carNames;
+        return carGameService.extractSeperator(inputView.inputCarName());
     }
 
     private void roundGameProcess(Integer gameCount, List<Car> cars) {
-        for(int count=0; count< gameCount; count++){
+        for (int count = 0; count < gameCount; count++) {
             outputView.printRoundResult(carGameService.roundResult(cars));
         }
     }

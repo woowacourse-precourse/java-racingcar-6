@@ -10,8 +10,8 @@ public class OutputView {
     }
 
     public static OutputView getInstance() {
-        if(instance==null){
-         instance= new OutputView();
+        if (instance == null) {
+            instance = new OutputView();
         }
         return instance;
     }
@@ -25,8 +25,8 @@ public class OutputView {
     }
 
     public void printRoundResult(List<String> carResults) {
-        for(int i =0; i<carResults.size(); i++){
-           System.out.println(carResults.get(i));
+        for (int i = 0; i < carResults.size(); i++) {
+            System.out.println(carResults.get(i));
         }
         System.out.println();
     }
@@ -36,7 +36,6 @@ public class OutputView {
     }
 
     public void printWinners(String winners) {
-
         System.out.println("최종 우승자 : " + winners);
     }
 }

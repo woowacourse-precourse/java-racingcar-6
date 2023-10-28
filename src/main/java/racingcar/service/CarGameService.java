@@ -18,7 +18,7 @@ public class CarGameService {
     }
 
     public List<String> extractSeperator(String carInput) {
-        List<String> splitedName= List.of(carInput.split(","));
+        List<String> splitedName = List.of(carInput.split(","));
         validator.isRightCarNameInput(splitedName);
         return splitedName;
     }
