@@ -16,7 +16,7 @@ import static org.mockito.BDDMockito.given;
 
 class GameTest {
 
-    public static MockedStatic<Randoms> randoms;
+    private static MockedStatic<Randoms> randoms;
 
     @BeforeAll
     public static void beforeAll() {
