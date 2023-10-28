@@ -24,4 +24,12 @@ public class Car {
         return carInform.makeRacingResult();
     }
 
+    public int getDashNum() {
+        return carInform.getDashLen();
+    }
+
+    public String getWinnerName() {
+        return carInform.getCarName();
+    }
+
 }

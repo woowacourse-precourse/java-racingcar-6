@@ -26,4 +26,22 @@ public class Cars {
         }
         return racingResult.toString();
     }
+
+    public String getWinner() {
+        String winners = "";
+        for (Car car : carList) {
+            if(car.getDashNum() == maxDash()) {
+                winners += car.getWinnerName();
+            }
+        }
+        return winners;
+    }
+
+    private int maxDash() {
+        int maxDash = Integer.MIN_VALUE;
+        for (Car car : carList) {
+            if (car.getDashNum() > maxDash) maxDash = car.getDashNum();
+        }
+        return maxDash;
+    }
 }

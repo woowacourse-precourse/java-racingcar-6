@@ -35,7 +35,11 @@ public class CarController {
             carService.tryRacing();
             outputView.printCarRacingStatus(carService.getRacingResult());
         }
+        endRacing();
     }
 
+    public void endRacing() {
+        outputView.printWinner(carService.getWinner());
+    }
 
 }

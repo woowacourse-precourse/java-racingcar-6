@@ -21,4 +21,12 @@ public class CarInform {
         return carName + " : " + dash;
     }
 
+    public int getDashLen() {
+        return dash.length();
+    }
+
+    public String getCarName() {
+        return carName;
+    }
+
 }
