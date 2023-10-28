@@ -1,10 +1,11 @@
 package model;
 
+import java.util.Iterator;
 import java.util.List;
 
 import util.RandomNumber;
 
-public class Cars {
+public class Cars implements Iterable<Car> {
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
@@ -18,5 +19,10 @@ public class Cars {
                 car.moveForward();
             }
         }
+    }
+
+    @Override
+    public Iterator<Car> iterator() {
+        return cars.iterator();
     }
 }
