@@ -1,7 +1,5 @@
 package racingcar;
 
-import java.util.List;
-
 public class Application {
     public static void main(String[] args) {
         // 차 목록, 시도 횟수 입력 받기
@@ -10,8 +8,11 @@ public class Application {
         stadium.saveTryCount(stadium.inputTryCount());
 
         // 경기 진행
-        for(int order=0; order< stadium.getTryCount(); order++){
+        Snapshot snapshot = new Snapshot(stadium.getTryCount());
+        for(int order = 1; order <= stadium.getTryCount(); order++){
             stadium.runAllCars();
+            snapshot.setSnapshot(order, stadium.getCars());
+            snapshot.printSnapshot(order);
         }
 
     }

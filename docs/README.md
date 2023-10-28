@@ -45,10 +45,14 @@ Stadium.printWinner()
     최종 승자를 출력한다.
 ```
 
-경기 진행 중 기록을 남기는 스냅샷 기능
+경기 중 진행기록을 남기는 스냅샷 기능
 ```
 Snapshot.printSnapshot(int order)
     order번째 전진의 스냅샷을 출력한다.
+```
+```
+Snapshot.numberToHyphen(int number)
+    number만큼의 하이픈 문자열을 리턴한다.
 ```
 ```
 Snapshot.setSnapshot(int order)
