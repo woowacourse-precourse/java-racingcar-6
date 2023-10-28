@@ -12,6 +12,7 @@ public class InputView {
 
     public List<String> readNames() {
         String input = Console.readLine();
+        validator.validateDelimiter(input);
         return List.of(input.split(SPLIT_REGEX));
     }
 
