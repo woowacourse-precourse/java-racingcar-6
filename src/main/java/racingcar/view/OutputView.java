@@ -21,6 +21,13 @@ public final class OutputView {
                 .forEach(OutputView::printDtoInfo);
     }
 
+    public static void printFinalWinner(List<String> winnerNames) {
+
+        System.out.print(FINAL_WINNER);
+        winnerNames.stream().forEach(System.out::print);
+        System.out.println('\n');
+    }
+
     private static void printDtoInfo(CarDto carDto) {
 
         System.out.print(carDto.getName() + COLON);
