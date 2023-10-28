@@ -86,7 +86,19 @@ class RacingCarsTest {
     }
 
     @Test
+    @DisplayName("결과 메시지를 요청하면 모든 자동차에 대한 결과 문자열을 반환하는가")
     void toResultMessage() {
+        // given
+        final String firstCarName = "abc";
+        final String secondCarName = "def";
+        final RacingCars racingCars = new RacingCars(
+                List.of(new RacingCar(new Name(firstCarName)), new RacingCar(new Name(secondCarName))));
+
+        // when
+        final String resultMessage = racingCars.toResultMessage();
+
+        //then
+        assertThat(resultMessage).contains(firstCarName, secondCarName);
     }
 
     @Test
