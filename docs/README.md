@@ -31,6 +31,7 @@
 - 변수
     - `int trial`
     - `List <Car> cars`
+    - `int done_trial`
 - 메서드
     - 경주 자동차 이름 입력받기
     - 시도횟수 입력받기
