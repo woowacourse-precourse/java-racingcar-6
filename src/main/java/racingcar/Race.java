@@ -40,4 +40,30 @@ public class Race {
     public List<Car> getCars() {
         return this.cars;
     }
+
+    public static String findWinners(List<Car> carList) {
+        int maxPositionLength = calculateMaxPositionLength(carList);
+        List<String> winners = getWinningCarNames(carList, maxPositionLength);
+        return String.join(", ", winners);
+    }
+
+    private static int calculateMaxPositionLength(List<Car> carList) {
+        int maxPositionLength = 0;
+        for (Car car : carList) {
+            if (car.getPositionLength() > maxPositionLength) {
+                maxPositionLength = car.getPositionLength();
+            }
+        }
+        return maxPositionLength;
+    }
+
+    private static List<String> getWinningCarNames(List<Car> carList, int maxPositionLength) {
+        List<String> winners = new ArrayList<>();
+        for (Car car : carList) {
+            if (car.isWinner(maxPositionLength)) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
 }
