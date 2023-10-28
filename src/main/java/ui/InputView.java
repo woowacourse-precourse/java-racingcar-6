@@ -12,4 +12,10 @@ public class InputView {
         validateCarNames(carNames);
         return carNames;
     }
+
+    public static int inputNumberOfTries() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = Console.readLine();
+        return Integer.parseInt(input);
+    }
 }
