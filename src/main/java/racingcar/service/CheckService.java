@@ -14,18 +14,19 @@ public class CheckService {
     }
 
     public boolean nums(String num) {
+        isTrim(num);
         isDigit(num);
         return true;
     }
 
-    private void isRange(String car) {
-        if (car.length() < NAME_LENGH_MIN || car.length() > NAME_LENGH_MAX) {
+    private void isRange(String string) {
+        if (string.length() < NAME_LENGH_MIN || string.length() > NAME_LENGH_MAX) {
             throw new IllegalArgumentException("이름은 1~5글자 사이여야 합니다.");
         }
     }
 
-    private void isTrim(String car) {
-        if (!car.equals(car.trim())) {
+    private void isTrim(String string) {
+        if (!string.equals(string.trim())) {
             throw new IllegalArgumentException("공백이 포함되어 있습니다.");
         }
     }
