@@ -4,21 +4,21 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ResultView {
-    public final List<Cars> cars;
+    public final List<Car> cars;
 
-    public ResultView(List<Cars> cars) {
+    public ResultView(List<Car> cars) {
         this.cars = cars;
     }
-    public  void printRace(List<Cars> cars) {
-        for (Cars car : cars) {
+    public  void printRace(List<Car> cars) {
+        for (Car car : cars) {
             System.out.println(car.getCarName() + " : " + "-".repeat(car.getPosition()));
         }
         System.out.println();
     }
 
-    public static void printWinners(List<Cars> winners) {
+    public static void printWinners(List<Car> winners) {
         String winnerNames = winners.stream()
-                .map(Cars::getCarName)
+                .map(Car::getCarName)
                 .collect(Collectors.joining(", "));
         System.out.println("최종 우승자 : " + winnerNames);
     }
