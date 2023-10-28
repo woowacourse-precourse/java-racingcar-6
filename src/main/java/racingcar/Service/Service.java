@@ -29,7 +29,7 @@ public class Service {
         return input;
     }
 
-    public String receiveTrialCount() {
+    public String receiveTryCount() {
         inputView.printTryCountMessage();
         String input = Console.readLine();
         return input;
