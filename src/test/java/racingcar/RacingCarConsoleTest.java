@@ -3,10 +3,17 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 public class RacingCarConsoleTest {
+
+    @AfterEach
+    void closeConsole() {
+        Console.close();
+    }
 
     @Test
     void 자동차_이름_입력받기_빈문자열_예외처리() {
@@ -28,6 +35,21 @@ public class RacingCarConsoleTest {
         Throwable result = catchThrowable(
                 () -> {
                     String input = "\n";
+                    System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+                    RacingCarConsole racingCarConsole = new RacingCarConsole();
+                    racingCarConsole.readCarNames();
+                }
+        );
+
+        assertThat(result).doesNotThrowAnyException();
+    }
+
+    @Test
+    void 자동차_이름_입력받기_정상_처리() {
+        Throwable result = catchThrowable(
+                () -> {
+                    String input = "홍길동,test,a맨\n";
                     System.setIn(new ByteArrayInputStream(input.getBytes()));
 
                     RacingCarConsole racingCarConsole = new RacingCarConsole();

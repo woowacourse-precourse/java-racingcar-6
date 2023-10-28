@@ -54,4 +54,16 @@ public class InputValidatorTest {
 
         assertThat(result).isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void validateCarNames_정상_처리() {
+        Throwable result = catchThrowable(
+                () -> {
+                    String carNames = "홍길동,test,a맨";
+                    InputValidator.validateCarNames(carNames);
+                }
+        );
+
+        assertThat(result).doesNotThrowAnyException();
+    }
 }
