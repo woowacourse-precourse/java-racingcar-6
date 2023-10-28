@@ -17,7 +17,7 @@ public class RacingCarAssemblyServiceTest {
     @MethodSource("provideAssembleTestArguments")
     void assembleTest(List<String> inputNames, Cars expectedCars) {
         RacingCarAssemblyService racingCarAssemblyService = new RacingCarAssemblyService();
-        Cars assembledCars = racingCarAssemblyService.assemble(inputNames);
+        Cars assembledCars = racingCarAssemblyService.assemble(inputNames, new FixedCarEngine(true));
         List<Car> assembledCarList = assembledCars.getReadOnlyCarList();
         List<Car> expectedCarList = expectedCars.getReadOnlyCarList();
         for (int i = 0; i < assembledCarList.size(); i++) {
@@ -33,18 +33,18 @@ public class RacingCarAssemblyServiceTest {
                 arguments(
                         List.of("pobi", "woni", "jun"),
                         new Cars(List.of(
-                                new Car("pobi", new RandomCarEngine()),
-                                new Car("woni", new RandomCarEngine()),
-                                new Car("jun", new RandomCarEngine())
+                                new Car("pobi", new FixedCarEngine(true)),
+                                new Car("woni", new FixedCarEngine(true)),
+                                new Car("jun", new FixedCarEngine(true))
                         )),
                         List.of("pobi", "woni"),
                         new Cars(List.of(
-                                new Car("pobi", new RandomCarEngine()),
-                                new Car("woni", new RandomCarEngine())
+                                new Car("pobi", new FixedCarEngine(true)),
+                                new Car("woni", new FixedCarEngine(true))
                         )),
                         List.of("pobi"),
                         new Cars(List.of(
-                                new Car("pobi", new RandomCarEngine())
+                                new Car("pobi", new FixedCarEngine(true))
                         ))
                 )
         );
