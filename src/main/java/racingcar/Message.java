@@ -48,6 +48,6 @@ public class Message {
     }
 
     public void printWinners() {
-        System.out.println("최종 우승자");
+        System.out.print("최종 우승자 : ");
     }
 }
