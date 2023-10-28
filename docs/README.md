@@ -29,11 +29,12 @@
 - member instance
   - RacingCars racingCars : 자동차 경주에 참가한 자동차 리스트를 저장해 놓은 클래스
   - int count : 시도 횟수
-- member function   
-  - [ ] CarRacing(RacingCars, int) : racingCars, count 초기화
-  - [ ] void race() : 자동차 경주 시도한 횟수만큼 진행
-  - [ ] void showMove(Car) : 차가 이동한 거리 출력
-  - [ ] void showFinalWinners() : 최종 우승자 출력
+- member function
+  - [x] void race() : 게임을 진행
+  - [x] void inputRaceCars() : 사용자로부터 자동차 이름 입력받아 유효성 검사 후 저장
+  - [x] void inputCount() : 사용자로부터 시도 횟수 입력받아 유효성 검사 후 저장
+  - [x] void playCountTimes() : 시도 횟수만큼 실행 결과 출력
+  - [x] void showFinalWinners() : 최종 우승자 출력
 
 ### InputValidator
 사용자에게 입력받은 경주 자동차 이름과 시도 횟수의 유효성을 검사하는 클래스
