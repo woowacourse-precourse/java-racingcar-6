@@ -27,10 +27,7 @@
 * String 입력받기: 내장 함수 `readLine()`
 * String 분리 및 리스트로 저장: 내장 함수 `split()`
 * String 리스트 검증: `validateCarNames(List<String> names)`
-  * 값이 `true`인 경우 예외 발생
-  * 값이 `false`인 경우
-    * `List<String>`을 바탕으로 `List<Car>` 생성
-    * 생성한 `List<Car>` 반환
+* `List<String>`을 바탕으로 `List<Car>` 생성 후 반환
 
 ### 게임 횟수 입력 함수: `readGameCount()`
 * String 입력받기: 내장 함수 `readLine()`
