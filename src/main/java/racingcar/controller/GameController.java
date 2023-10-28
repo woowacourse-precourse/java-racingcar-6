@@ -19,8 +19,8 @@ public class GameController {
 	}
 
 	public void startGame() {
-		List<Car> cars = createCars(inputCarNames());
-		int attemptCount = inputAttemptCount();
+		List<Car> cars = createCars(readCarNames());
+		int attemptCount = readAttemptCount();
 
 		OutputView.printExecutionResultMessage();
 		for (int i = 0; i < attemptCount; i++) {
@@ -75,8 +75,8 @@ public class GameController {
 		}
 	}
 
-	private int inputAttemptCount() {
-		String inputCount = InputView.inputAttemptCount();
+	private int readAttemptCount() {
+		String inputCount = InputView.readAttemptCount();
 
 		InputValidator.validateNumericInput(inputCount);
 
@@ -89,8 +89,8 @@ public class GameController {
 			.collect(Collectors.toList());
 	}
 
-	private List<String> inputCarNames() {
-		String inputNames = InputView.inputCarNames();
+	private List<String> readCarNames() {
+		String inputNames = InputView.readCarNames();
 
 		return Arrays.stream(inputNames.split(CommonSymbol.SYMBOL_COMMA))
 			.peek(InputValidator::validateInputNameLength)
