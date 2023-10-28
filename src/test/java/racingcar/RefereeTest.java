@@ -68,7 +68,7 @@ public class RefereeTest {
     @Test
     void 우승한_차량이_두_대_이상() {
         // when
-        setDistance(5);
+        setDistance(3);
         for (int i = 0; i < laps; i++) {
             carRecord.moveForwardAllCars();
         }
