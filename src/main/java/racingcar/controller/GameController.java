@@ -6,6 +6,7 @@ import racingcar.domain.car.dto.output.CarsRacingDto;
 import racingcar.domain.move.MoveCommander;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
+import round.boxed.CurrentRound;
 import round.boxed.MaxRound;
 
 public final class GameController {
@@ -30,24 +31,23 @@ public final class GameController {
         showWinners(cars);
     }
 
-
     private void playUntilMaxRound(final CarsRacing cars) {
         final MaxRound maxRound = inputView.inputMaxRound();
-        _playUntilMaxRound(cars, 1, maxRound);
+        playUntilMaxRoundRecursive(cars, CurrentRound.min(), maxRound);
     }
 
-    private void _playUntilMaxRound(
+    private void playUntilMaxRoundRecursive(
             final CarsRacing cars,
-            final int currentRound,
+            final CurrentRound currentRound,
             final MaxRound maxRound
     ) {
-        if (currentRound > maxRound.maxRound()) {
+        if (currentRound.isAfter(maxRound)) {
             return;
         }
         cars.moveAllBy(moveCommander);
         final CarsRacingDto dto = cars.toDto();
         outputView.printRoundResult(dto);
-        _playUntilMaxRound(cars, currentRound + 1, maxRound);
+        playUntilMaxRoundRecursive(cars, currentRound.nextRound(), maxRound);
     }
 
     private void showWinners(CarsRacing cars) {
