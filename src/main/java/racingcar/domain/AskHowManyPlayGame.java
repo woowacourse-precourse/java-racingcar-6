@@ -5,7 +5,7 @@ public class AskHowManyPlayGame {
         try {
             int result = Integer.parseInt(input);
 
-            if (result == 0 ) {
+            if (result <= 0 ) {
                 throw new IllegalArgumentException();
             } else {
                 return result;
