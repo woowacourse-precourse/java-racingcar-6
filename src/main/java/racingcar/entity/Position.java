@@ -4,7 +4,7 @@ import java.util.Objects;
 
 class Position {
 
-    public static final int INITIAL_POSITION = 0;
+    static final int INITIAL_POSITION = 0;
 
     private int position;
 
