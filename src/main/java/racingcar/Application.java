@@ -27,7 +27,7 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         List<Car> cars = makeCars();
-
+        int attemps = getAtteptsNum();
 
     }
 
@@ -47,7 +47,10 @@ public class Application {
     }
 
     public static int getAtteptsNum(){
-        int attemptsNum = 0;
+
+        System.out.println("시도할 회수는 몇회인가요?");
+        int attemptsNum = Integer.parseInt(Console.readLine());
+        System.out.println(attemptsNum);
 
         return attemptsNum;
     }
