@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.RacingCar;
 import racingcar.model.RacingCarGameMachine;
 import racingcar.model.ValidatePlayerInput;
-import racingcar.view.GameMessage;
 import racingcar.view.GameViewer;
 
 import java.util.List;
@@ -30,12 +29,13 @@ public class RacingGameController {
         racingCarGameMachine.readyToPlay(carNames);
         gameViewer.gameResultMessage();
         for (int i = 0; i < Integer.parseInt(tryCount); i++) {
-            List<RacingCar> result = racingCarGameMachine.race();
-            gameViewer.racingCarsStatusViewer(result);
+            racingCarGameMachine.race();
+            List<RacingCar> raceResult = racingCarGameMachine.getRacingCars();
+            gameViewer.racingCarsMoveStatus(raceResult);
         }
 
-        List<String> winner = racingCarGameMachine.getWinner();
-        gameViewer.gameWinnerViewer(winner);
+        List<String> winners = racingCarGameMachine.getWinner();
+        gameViewer.gameWinners(winners);
     }
 
     public String getInputLine() {

@@ -17,12 +17,12 @@ public class GameViewer {
         System.out.println("\n" + GameMessage.GAME_RESULT_MESSAGE.getGameResultMessage());
     }
 
-    public void racingCarsStatusViewer(List<RacingCar> racingCars) {
+    public void racingCarsMoveStatus(List<RacingCar> racingCars) {
         racingCars.forEach(System.out::println);
         System.out.print("\n");
     }
 
-    public void gameWinnerViewer(List<String> winner) {
+    public void gameWinners(List<String> winner) {
         String winners = String.join(", ", winner);
         System.out.println(GameMessage.WINNER_MESSAGE.getWinnerMessage(winners));
     }
