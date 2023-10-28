@@ -21,7 +21,7 @@ class Car {
     public void move(MovePolicy policy) {
         checkPolicyNonNull(policy);
 
-        if (policy.movable()) {
+        if (policy.isMovable()) {
             position.increase();
         }
     }
