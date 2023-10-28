@@ -76,11 +76,7 @@ public class MethodTest extends NsTest {
         // when, then
         assertThatThrownBy(() -> Application.inputRound())
                 .isInstanceOf(IllegalArgumentException.class);
-
     }
-
-
-
 
 
     @Override

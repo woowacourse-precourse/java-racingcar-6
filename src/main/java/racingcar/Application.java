@@ -14,7 +14,7 @@ public class Application {
   // 진행할 round 갯수
   static int round;
 
-  // 자동차 갯수
+  // 참가한 자동차 갯수
   static int n;
 
   // 각 자동차의 경주 상태
@@ -30,15 +30,14 @@ public class Application {
     carList = new ArrayList<>();
     carList = inputCar();
 
-    System.out.println("시도할 회수는 몇회인가요?");
-
     // 경기 진행 횟수 입력
+    System.out.println("시도할 회수는 몇회인가요?");
     round = inputRound();
 
+    // 참가한 자동차 갯수
     n = carList.size();
 
     // 경기 진행
-
     // 자동차 경로 초기화
     forwardArr = new int[n];
     lainList = new ArrayList<>();
@@ -53,8 +52,41 @@ public class Application {
       race();
     }
 
+    // 경기 종료 : 결과 발표
+    announcement();
+
+  }
 
 
+  // 경기 종료 : 결과 발표
+  public static void announcement() {
+
+    // 가장 큰 전진 정도를 찾기 위한 변수 maxNumber
+    int maxNumber = 0;
+
+    // 가장 큰 전진을 한 자동차의 이름을 담을 리스트 winnerList
+    List<String> winnerList = new ArrayList<>();
+
+    // 우승자 탐색
+    for(int i = 0; i < n; i++) {
+      // 현재 큰 값보다 큰 게 있다면 업데이트
+      if(maxNumber < forwardArr[i]) {
+        maxNumber = forwardArr[i];
+        winnerList = new ArrayList<>();
+        winnerList.add(carList.get(i));
+      }
+      // 현재 큰 값과 같다면 우승자 리스트에 추가 
+      else if(maxNumber == forwardArr[i]) {
+        winnerList.add(carList.get(i));
+      }
+    }
+
+    // 우승 메세지 출력
+    String message = "최종 우승자 : ";
+    for(int i = 0; i < winnerList.size(); i++) {
+      message += winnerList.get(i) + ", ";
+    }
+    System.out.println(message);
 
   }
 
@@ -71,7 +103,6 @@ public class Application {
     }
     System.out.println();
   }
-
 
 
   // 자동차 이름 입력
