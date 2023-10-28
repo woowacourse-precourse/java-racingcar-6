@@ -4,6 +4,8 @@
   - [ ] PlayerName, (미정) isWinner를 필드로 갖는다.
 - 플레이어 이동현황을 생성하는 기능
   - [x] Player를 받아서 PlayerMove 객체를 생성한다.
+- 게임을 진행한다.
+  - [ ] 게임을 초기화 한다: 플레이어별 이동현황을 초기화하고 게임 상태를 진행으로 바꾼다.
 
 - 랜덤 숫자를 생성하는 기능 [RandomNumberGenerator]
   - [x] 랜덤 숫자를 뽑는다. 
@@ -24,7 +26,8 @@
 - Game
 - Game에는 List<PlayerMove> 가 있고 GameStatus가 있어야할듯
     - List<PlayerMove>는 일급컬렉션화 하지 않아도 될까?
-  - game.init: player를 갖고 PlayerMove를 생성해야할듯
+  - [ ] game.init
+    - player를 갖고 PlayerMove를 생성해야할듯
     - 아니면 컨트롤러에서 PlayerMove를 생성해서 갖고와야하려나, 테스트를 위해
     - 어쨌든 여기서, 플레이어별로 PlayerMove(Player, 0)이 생성됨 
     - -> 리스트로 담겨서 Game이 갖고 있게됨
@@ -32,7 +35,7 @@
   - game.move(MoveFactory)
     - List<PlayerMove>를 데리고 move를 해야지 : PlayerMove.move(MoveFactory)
 - PlayerMove
-- [x]PlayerMove에는 Player와 Distance
+- [x] PlayerMove에는 Player와 Distance
   - PlayerMove.move(MoveFactory)
     - Distance++;
 - 컨트롤러에서는: List<PlayerMove> 를 갖고가서 출력하면 될듯?

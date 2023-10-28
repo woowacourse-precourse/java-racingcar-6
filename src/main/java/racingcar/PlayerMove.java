@@ -20,6 +20,12 @@ public class PlayerMove {
         return new PlayerMove(player, distance);
     }
 
+    public static PlayerMove fromTest() {
+        Player testPlayer = Player.from("test");
+        Distance initDistance = Distance.from(0);
+        return new PlayerMove(testPlayer, initDistance);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
