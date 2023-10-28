@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -7,9 +9,9 @@ import java.util.List;
 public class RacingCar {
     private static final String STATUS_FORMAT = " : ";
     private static final String PROGRESS = "-";
-
     private final Integer CAR_MOVEMENT = 0;
-
+    private final Integer START_NUMBER = 0;
+    private final Integer END_NUMBER = 9;
     private final String carName;
 
     private Integer carMovement;
@@ -39,5 +41,17 @@ public class RacingCar {
 
     public String carStatus() {
         return carName + STATUS_FORMAT + PROGRESS.repeat(carMovement);
+    }
+
+    public boolean hasHigherMovement(RacingCar otherRacingCar) {
+        return this.carMovement >= otherRacingCar.carMovement;
+    }
+
+    public boolean hasEqualMovement(RacingCar otherRacingCar) {
+        return this.carMovement.equals(otherRacingCar.carMovement);
+    }
+
+    public Integer getRandomNumber() {
+        return Randoms.pickNumberInRange(START_NUMBER, END_NUMBER);
     }
 }
