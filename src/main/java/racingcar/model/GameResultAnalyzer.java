@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameResultAnalyzer {
@@ -11,6 +12,18 @@ public class GameResultAnalyzer {
       }
     }
     return max;
+  }
+
+  public List<Integer> selectWinner(List<Integer> distance, int max) {
+    List<Integer> winners = new ArrayList<>();
+    for (Integer integer : distance) {
+      if (integer == max) {
+        winners.add(1);
+      } else {
+        winners.add(0);
+      }
+    }
+    return winners;
   }
 
 }
