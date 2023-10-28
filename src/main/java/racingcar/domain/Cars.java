@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 public class Cars implements Iterable<Car> {
-    private final String CAR_NAME_SEPERATOR = ",";
+    private static final String CAR_NAME_SEPARATOR = ",";
     private final List<Car> cars = new ArrayList<>();
 
     public Cars(String inputValue) {
@@ -21,16 +21,16 @@ public class Cars implements Iterable<Car> {
 
     public List<String> getWinnersName() {
         return cars.stream()
-                .filter(car -> car.getPosition() == maxMoveDistance())
+                .filter(car -> car.getPosition() == maxPosition())
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
 
     private List<String> parsedCarsName(String inputValue) {
-        return Arrays.asList(inputValue.split(CAR_NAME_SEPERATOR));
+        return Arrays.asList(inputValue.split(CAR_NAME_SEPARATOR));
     }
 
-    private int maxMoveDistance() {
+    private int maxPosition() {
         return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
