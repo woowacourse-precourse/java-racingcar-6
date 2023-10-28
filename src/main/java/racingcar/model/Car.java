@@ -12,7 +12,11 @@ public class Car {
         this.moveCount = 0;
     }
 
-    public void move(int randomValue) {}
+    public void move(int randomValue) {
+        if(randomValue >= 4) {
+            ++moveCount;
+        }
+    }
 
     @Override
     public String toString() {
