@@ -11,10 +11,6 @@ public class Car {
 		this.forwardCount = 0L;
 	}
 
-	public void moveForward() {
-		forwardCount++;
-	}
-
 	@Override
 	public boolean equals(Object o) {
 		if (this == o)
@@ -30,5 +26,17 @@ public class Car {
 	@Override
 	public int hashCode() {
 		return Objects.hashCode(name);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public Long getForwardCount() {
+		return forwardCount;
+	}
+
+	public void moveForward() {
+		forwardCount++;
 	}
 }
