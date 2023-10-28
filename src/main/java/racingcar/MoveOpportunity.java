@@ -1,10 +1,10 @@
 package racingcar;
 
-public class MoveCount {
+public class MoveOpportunity {
 
     int moveCount;
 
-    public MoveCount(int moveCount) {
+    public MoveOpportunity(int moveCount) {
         validateMoveCount(moveCount);
         this.moveCount = moveCount;
     }

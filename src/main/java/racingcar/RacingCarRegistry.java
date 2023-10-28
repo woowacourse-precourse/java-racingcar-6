@@ -9,25 +9,25 @@ public class RacingCarRegistry {
 
     private final ActionNumberGenerator actionNumberGenerator;
     private final List<RacingCar> racingCars = new ArrayList<>();
-    private final MoveCount moveCount;
+    private final MoveOpportunity moveOpportunity;
 
     public RacingCarRegistry(ActionNumberGenerator actionNumberGenerator,
                              List<String> names,
-                             MoveCount moveCount) {
+                             MoveOpportunity moveOpportunity) {
         this.actionNumberGenerator = actionNumberGenerator;
         for (String name : names) {
             racingCars.add(new RacingCar(new Name(name), new Position()));
         }
 
-        this.moveCount = moveCount;
+        this.moveOpportunity = moveOpportunity;
     }
 
     public boolean isRacingOver() {
-        return moveCount.isZero();
+        return moveOpportunity.isZero();
     }
 
     public List<RacingCarDto> move() {
-        moveCount.move();
+        moveOpportunity.move();
 
         List<RacingCarDto> racingCarDtos = new ArrayList<>();
         for (RacingCar racingCar : racingCars) {
