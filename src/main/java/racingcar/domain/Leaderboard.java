@@ -17,10 +17,14 @@ public class Leaderboard {
     public void status(){
         for (String name : board.keySet()){
             System.out.printf(name+" : ");
-            for (int d=0; d<board.get(name); d++){
-                System.out.printf("-");
-            }
+            distance(board.get(name));
             System.out.println();
+        }
+    }
+
+    public void distance(int n){
+        for (int i=0; i<n; i++){
+            System.out.print("-");
         }
     }
 
