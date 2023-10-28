@@ -1,17 +1,17 @@
 package racingcar;
 
 import java.util.List;
-import racingcar.dto.CreateMoveOpportunityRequest;
-import racingcar.dto.CreateRacingCarRequest;
+import racingcar.dto.MoveOpportunityCreateRequest;
+import racingcar.dto.RacingCarCreateRequest;
 
 public class RacingCarRegistryMapper {
 
     public static RacingCarRegistry toRacingCarRegistry(
             ActionNumberGenerator actionNumberGenerator,
-            CreateRacingCarRequest createRacingCarRequest,
-            CreateMoveOpportunityRequest createMoveOpportunityRequest) {
-        MoveOpportunity moveOpportunity = new MoveOpportunity(createMoveOpportunityRequest.getMoveOpportunity());
-        List<String> racingCarNames = createRacingCarRequest.getRacingCarNames();
+            RacingCarCreateRequest racingCarCreateRequest,
+            MoveOpportunityCreateRequest moveOpportunityCreateRequest) {
+        MoveOpportunity moveOpportunity = new MoveOpportunity(moveOpportunityCreateRequest.getMoveOpportunity());
+        List<String> racingCarNames = racingCarCreateRequest.getRacingCarNames();
         return new RacingCarRegistry(actionNumberGenerator, racingCarNames, moveOpportunity);
     }
 }

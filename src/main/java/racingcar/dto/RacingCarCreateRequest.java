@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CreateRacingCarRequest {
+public class RacingCarCreateRequest {
 
     private final List<String> racingCarNames = new ArrayList<>();
 
-    public CreateRacingCarRequest(String names) {
+    public RacingCarCreateRequest(String names) {
         racingCarNames.addAll(Arrays.asList(names.split(",")));
     }
 

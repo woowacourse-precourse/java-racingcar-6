@@ -1,7 +1,7 @@
 package racingcar;
 
-import racingcar.dto.CreateMoveOpportunityRequest;
-import racingcar.dto.CreateRacingCarRequest;
+import racingcar.dto.MoveOpportunityCreateRequest;
+import racingcar.dto.RacingCarCreateRequest;
 
 public class RacingCarGame {
 
@@ -12,13 +12,13 @@ public class RacingCarGame {
     }
 
     public void play() {
-        CreateRacingCarRequest createRacingCarRequest = view.inputRacingCarNames();
-        CreateMoveOpportunityRequest createMoveOpportunityRequest = view.inputMoveOpportunity();
+        RacingCarCreateRequest racingCarCreateRequest = view.inputRacingCarCreateRequest();
+        MoveOpportunityCreateRequest moveOpportunityCreateRequest = view.inputMoveOpportunityCreateRequest();
 
         RacingCarRegistry racingCarRegistry = RacingCarRegistryMapper.toRacingCarRegistry(
                 new RandomActionNumberGenerator(),
-                createRacingCarRequest,
-                createMoveOpportunityRequest);
+                racingCarCreateRequest,
+                moveOpportunityCreateRequest);
 
         view.printResultTitle();
 

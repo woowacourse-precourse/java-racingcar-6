@@ -1,10 +1,10 @@
 package racingcar.dto;
 
-public class CreateMoveOpportunityRequest {
+public class MoveOpportunityCreateRequest {
 
     int moveOpportunity;
 
-    public CreateMoveOpportunityRequest(String moveOpportunity) {
+    public MoveOpportunityCreateRequest(String moveOpportunity) {
         try {
             this.moveOpportunity = Integer.parseInt(moveOpportunity);
         } catch (NumberFormatException e) {

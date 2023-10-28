@@ -3,8 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import java.util.StringJoiner;
-import racingcar.dto.CreateMoveOpportunityRequest;
-import racingcar.dto.CreateRacingCarRequest;
+import racingcar.dto.MoveOpportunityCreateRequest;
+import racingcar.dto.RacingCarCreateRequest;
 import racingcar.dto.RacingCarDto;
 
 public class RacingGameConsoleView {
@@ -16,14 +16,14 @@ public class RacingGameConsoleView {
     private static final String RACING_RESULT_TITLE_MESSAGE = "실행 결과";
     private static final String RACING_WINNER_RESULT_MESSAGE = "최종 우승자 : ";
 
-    public CreateMoveOpportunityRequest inputMoveOpportunity() {
+    public MoveOpportunityCreateRequest inputMoveOpportunityCreateRequest() {
         System.out.println(MOVE_COUNT_REQUEST_MESSAGE);
-        return new CreateMoveOpportunityRequest(Console.readLine());
+        return new MoveOpportunityCreateRequest(Console.readLine());
     }
 
-    public CreateRacingCarRequest inputRacingCarNames() {
+    public RacingCarCreateRequest inputRacingCarCreateRequest() {
         System.out.println(RACING_CAR_NAME_REQUEST_MESSAGE);
-        return new CreateRacingCarRequest(Console.readLine());
+        return new RacingCarCreateRequest(Console.readLine());
     }
 
     public void printResultTitle() {
