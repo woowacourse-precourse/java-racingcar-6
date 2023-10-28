@@ -27,7 +27,7 @@ public class Output {
 
     public static void printCarStatus(Cars cars) {
         StringBuilder carStatus = new StringBuilder();
-        cars.getCars().forEach(car -> carStatus.append(car.getName())
+        cars.forEach(car -> carStatus.append(car.getName())
                 .append(" : ")
                 .append("-".repeat(car.getStep()))
                 .append("\n"));

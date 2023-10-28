@@ -1,10 +1,10 @@
 package racingcar.domain;
 
-import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import racingcar.utils.CustomCollections;
 
-public class Cars {
+public class Cars implements Iterable<Car> {
     private final List<Car> cars;
 
     private Cars(List<Car> cars) {
@@ -20,13 +20,14 @@ public class Cars {
         return CustomCollections.maxAll(cars);
     }
 
-    public List<Car> getCars() {
-        return Collections.unmodifiableList(cars);
-    }
-
     private static void validateNotEmpty(List<Car> cars) {
         if (cars.isEmpty()) {
             throw new IllegalArgumentException();
         }
+    }
+
+    @Override
+    public Iterator<Car> iterator() {
+        return cars.iterator();
     }
 }

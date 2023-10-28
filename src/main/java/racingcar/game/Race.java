@@ -30,10 +30,12 @@ public class Race {
             throw new IllegalStateException();
         }
 
-        cars.getCars().stream()
-                .filter(car -> moveStrategy.shouldMove())
-                .forEach(Car::moveForward);
-        
+        for (Car car : cars) {
+            if (moveStrategy.shouldMove()) {
+                car.moveForward();
+            }
+        }
+
         remainingRaces--;
     }
 
