@@ -3,7 +3,6 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
-import static java.util.Arrays.fill;
 
 public class Application {
     public static void main(String[] args) {
@@ -20,12 +19,18 @@ public class Application {
         System.out.println(TRY_COUNT);
         String tmp_count = Console.readLine();
         int count = Exceptions.ExceptCount(tmp_count);
+        System.out.println();
 
-        int[] Cars_Distance = new int[Cars.size()+1];
         System.out.println(RESULT);
+        int[] Cars_Distance = new int[Cars.size()+1];
         for(int i = 0; i < count; i++){
             Cars_Distance = Race.Racing(Cars,Cars_Distance);
         }
+
+        List<String> Winners = Winner.FindWinner(Cars,Cars_Distance);
+        System.out.print(WINNER);
+        System.out.print(String.join(", ",Winners));
+
 
     }
 }
