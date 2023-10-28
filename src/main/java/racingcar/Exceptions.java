@@ -19,7 +19,7 @@ public class Exceptions {
                 throw new IllegalArgumentException("자동차 이름은 공백일 수 없습니다.");
         }
     }
-    static int Count(String tmp_count) {
+    static int ExceptCount(String tmp_count) {
         int count;
         try {
             count = Integer.parseInt(tmp_count);
