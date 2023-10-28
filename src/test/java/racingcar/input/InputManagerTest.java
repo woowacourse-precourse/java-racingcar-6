@@ -43,6 +43,29 @@ class InputManagerTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 시도횟수_정상_입력() {
+        provideInput("4");
+        assertThat(manager.inputNumberOfAttempt())
+                .isEqualTo(4);
+    }
+
+    @Test
+    @DisplayName("시도횟수가 0일 경우, 예외발생")
+    void 시도횟수_비정상_입력_case0() {
+        provideInput("0");
+        assertThatThrownBy(() -> manager.inputNumberOfAttempt())
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("시도횟수가 음수일 경우, 예외발생")
+    void 시도횟수_비정상_입력_caseMinus() {
+        provideInput("-1");
+        assertThatThrownBy(() -> manager.inputNumberOfAttempt())
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
     void provideInput(String str) {
         ByteArrayInputStream testIn = new ByteArrayInputStream(str.getBytes());
         System.setIn(testIn);
