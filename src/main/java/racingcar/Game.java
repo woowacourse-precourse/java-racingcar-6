@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
@@ -8,9 +9,36 @@ public class Game {
 
     private List<Car> cars;
 
-    public void determineAndPrintWinners() {
+    public Game(InputView inputView) {
 
+        this.inputView = inputView;
+        this.cars = new ArrayList<>();
+    }
+
+    public void playGame() {
+
+        List<String> carNames = inputView.getCarNames();
         int numberOfMoves = inputView.getNumberOfMoves();
+
+        for (String carName : carNames) {
+
+            cars.add(new Car(carName));
+        }
+
+        for (int i = 0; i < numberOfMoves; i++) {
+
+            for (Car car : cars) {
+
+                car.determineCarState();
+            }
+
+            inputView.printRaceProgress(cars);
+        }
+
+        determineAndPrintWinners(numberOfMoves);
+    }
+
+    private void determineAndPrintWinners(int numberOfMoves) {
 
         StringBuilder winners = new StringBuilder();
 

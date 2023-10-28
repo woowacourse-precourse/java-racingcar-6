@@ -39,12 +39,12 @@ public class InputView {
 
     public void printRaceProgress(List<Car> cars) {
 
-        StringBuilder raceResult = new StringBuilder();
-
         for (Car car : cars) {
 
-            raceResult.append(car.getCarName()).append(" : ").append(car.getCarStateMessage()).append("\n");
+            System.out.println(car.getCarName() + " : " + car.getCarStateMessage());
         }
+
+        System.out.println();
     }
 
 
