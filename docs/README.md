@@ -10,8 +10,8 @@
   - [ ] 초기 점수를 0으로 초기화 한다. initCarPoints()
   - [ ] 각 라운드가 종료 후, 실행 결과를 출력한다.   displayResult()
   - [ ] 0~9에서 무작위 값을 추출할 수 있다. getRanNum()
-- [ ] 전체 라운드가 종료후 우승자를 출력한다. displayWinner()
-  - [ ] 우승자가 2명 이상이면, 쉼표로 구분하여 출력한다. checkWinnerNum()
+- [ ] 전체 라운드가 종료후 우승자를 출력한다.우승자가 2명 이상이면, 쉼표로 구분하여 출력한다. displayWinner()
+  - [ ] 우승자가 누구인지 확인한다. checkWinnerNum()
 - [ ] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.
 
 ## 🚀 기능 요구 사항
