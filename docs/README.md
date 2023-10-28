@@ -110,5 +110,5 @@
 ### RacingCarAssemblyService
 
 - assemble(): 사용자가 입력한 자동차 이름을 받아서 객체로 만든다.
-    - [ ] 사용자가 입력한 자동차의 이름을 String<List>로 받아서 Car로 변환한다.
-    - [ ] 변환한 Car를 List로 만들어 Cars를 생성하여 반환한다.
+    - [x] 사용자가 입력한 자동차의 이름을 String<List>로 받아서 Car로 변환한다.
+    - [x] 변환한 Car를 List로 만들어 Cars를 생성하여 반환한다.
