@@ -11,6 +11,12 @@ public class RacingRoundResult {
         this.cars = readOnlyCarList;
     }
 
+    public List<Car> getCars() {
+        return this.cars.stream()
+                .map(car -> new Car(car.getName(), car.getCarEngine(), new Position(car.getPosition())))
+                .collect(Collectors.toUnmodifiableList());
+    }
+
     public List<String> getWinners() {
         int maxPosition = cars.stream()
                 .mapToInt(Car::getPosition)
