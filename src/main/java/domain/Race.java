@@ -1,6 +1,8 @@
 package domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+
+import java.util.ArrayList;
 import java.util.List;
 public class Race {
     private final List<Car> cars;
@@ -40,5 +42,15 @@ public class Race {
             maxPosition = Math.max(maxPosition, car.getPosition());
         }
         return maxPosition;
+    }
+
+    private List<Car> filterWinners(int maxPosition) {
+        List<Car> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car);
+            }
+        }
+        return winners;
     }
 }
