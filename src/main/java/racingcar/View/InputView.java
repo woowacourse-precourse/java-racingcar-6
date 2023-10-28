@@ -18,10 +18,16 @@ public class InputView {
         List<Car> carsList = new ArrayList<>();
         Set<String> carNamesSet = new HashSet<>();
 
-        for (String name : input.split(Prompts.SPLIT_DELIMITER)) {
+        String[] names = input.split(Prompts.SPLIT_DELIMITER, -1);
+
+        for (String name : names) {
             String trimmedName = name.trim();
 
-            if (trimmedName.isEmpty() || trimmedName.length() > InputExceptionConstants.MAX_NAME_LENGTH) {
+            if (trimmedName.isEmpty()) {
+                throw new IllegalArgumentException();
+            }
+
+            if (trimmedName.length() > InputExceptionConstants.MAX_NAME_LENGTH) {
                 throw new IllegalArgumentException();
             }
 
