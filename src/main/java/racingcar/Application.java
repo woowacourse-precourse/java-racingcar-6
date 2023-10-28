@@ -18,8 +18,17 @@ public class Application {
     	System.out.println("시도할 회수는 몇회인가요?");
     	String timesInput = Console.readLine();
     	timesException(timesInput);
+    	
+    	List<Integer> results = new ArrayList<>();
+    	setCarsOnStart(carList, results);
 
     }
+    
+	public static void setCarsOnStart(List<String> carList, List<Integer> results) {
+		for(int i = 0; i < carList.size(); i++) {
+    		results.add(i, 0);
+    	}
+	}
 
 	public static void timesException(String timesInput) {
 		if(!timesInput.matches("\\d+") || Integer.valueOf(timesInput) < 1 || Integer.valueOf(timesInput) > 100)
