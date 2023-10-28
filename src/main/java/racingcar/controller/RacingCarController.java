@@ -17,7 +17,7 @@ public class RacingCarController {
         this.stadium = new Stadium(ioController.raceCarNameInput());
     }
 
-    public void raceSet() {
+    public void setRace() {
         stadium.setStadium();
         raceStart();
         raceEnd();
@@ -32,7 +32,7 @@ public class RacingCarController {
     private void race() {
         stadium.raceOnce();
         referee.updateInfo(stadium.getCars());
-        ioController.notifyProgress(referee.getCarprogress());
+        ioController.notifyProgress(referee.getCarProgress());
     }
 
     private void raceEnd() {

@@ -3,7 +3,7 @@ package racingcar.model;
 import java.util.ArrayList;
 
 public class Stadium {
-    private ArrayList<String> carNames;
+    private final ArrayList<String> carNames;
     private ArrayList<Car> cars;
 
     public Stadium(ArrayList<String> carNames) {

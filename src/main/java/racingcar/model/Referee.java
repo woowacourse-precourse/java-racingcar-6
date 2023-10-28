@@ -9,7 +9,7 @@ public class Referee {
     public Referee() {
         this.cars = new ArrayList<>();
     }
-    public String getCarprogress() {
+    public String getCarProgress() {
         StringBuilder sb = new StringBuilder();
         for (Car car : cars) {
             sb.append(car.getTrace()).append("\n");
