@@ -13,6 +13,15 @@ public class CarGameController {
     private OutputView outputView = new OutputView();
     private GameRunCnt runCnt = new GameRunCnt();
     private RacingCars racingCars;
+
+    public CarGameController(){
+        startGame();
+        outputView.gameResultMessage();
+        for(int i=0; i<runCnt.getRunNumber(); i++){
+            playGame();
+        }
+        endGame();
+    }
     public void startGame(){
         carName.setCarName(inputView.inputCarName());
         racingCars = new RacingCars(carName.getCarName());
