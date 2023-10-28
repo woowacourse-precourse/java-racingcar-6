@@ -16,8 +16,10 @@ public class PaceComputer {
     public LinkedHashMap<String, Integer> createDefaultPaceMap(Machines machines) {
         List<String> machineNameList = machines.getMachineNameList();
 
-        return machineNameList.stream()
-                .collect(Collectors.toMap(
+        return machineNameList
+                .stream()
+                .collect(Collectors
+                        .toMap(
                         machineName -> machineName,
                         driveSuccessNumber -> 0,
                         (oldVal, newVal) -> oldVal,

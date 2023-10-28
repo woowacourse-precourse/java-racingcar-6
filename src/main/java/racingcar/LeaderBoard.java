@@ -32,7 +32,8 @@ public class LeaderBoard {
     private void showResult(LinkedHashMap<String, Integer> paceMap) {
         int largestDriveNumber = paceMap.values().stream().max(Integer::compareTo).orElse(0);
 
-        String winners = paceMap.entrySet()
+        String winners = paceMap
+                .entrySet()
                 .stream()
                 .filter(driveSuccessNumber -> driveSuccessNumber.getValue().equals(largestDriveNumber))
                 .map(Map.Entry::getKey)
