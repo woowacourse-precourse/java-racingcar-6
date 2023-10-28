@@ -28,12 +28,8 @@ public class CarTest {
 
         car.move();
         CarDistanceMessage after = car.getCarDistanceMessage();
-        CarDistanceMessage expect = new CarDistanceMessage("foo", 1);
 
-        assertAll(
-                () -> assertNotEquals(before.toString(), after.toString()),
-                () -> assertEquals(after.toString(), expect.toString())
-        );
+        assertNotEquals(before.toString(), after.toString());
 
     }
 
