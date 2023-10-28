@@ -33,4 +33,22 @@ class RefereeTest {
         Assertions.assertThat(winner).isEqualTo(expectedWinner);
     }
 
+    @Test
+    @DisplayName("우승자가 두명 이상인지 판단할 수 있다.")
+    void 우승자_숫자_판단(){
+        //given
+        User user=new User();
+        List<Car> cars=user.nameForCar("carA,carB");
+        for(int i=0;i<2;i++){
+            cars.get(i).moveForward();
+            cars.get(i).moveForward();
+        }
+
+        //when
+        boolean isTwoOrMore=referee.isNumberOfWinnerTwoOrMore(referee.decideWinner(cars));
+
+        //then
+        Assertions.assertThat(isTwoOrMore).isEqualTo(true);
+    }
+
 }
