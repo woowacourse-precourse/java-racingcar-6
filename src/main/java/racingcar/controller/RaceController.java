@@ -30,16 +30,12 @@ public class RaceController {
     }
 
     private List<Car> initializeCars(){
-        String inputCarNames = inputView.inputCarNames();
-        List<String> carNames = InputParser.parseCarNames(inputCarNames);
-        InputValidator.validateCarNames(carNames);
+        List<String> carNames = inputView.inputCarNames();
         return InputParser.convertNamesToCars(carNames);
     }
 
     private int initializeAttemptCount(){
-        String inputAttemptCount = inputView.inputAttemptCount();
-        InputValidator.validateAttemptCount(inputAttemptCount);
-        return Integer.parseInt(inputAttemptCount);
+        return inputView.inputAttemptCount();
     }
 
     private void startRacingRounds(List<Car> cars, int attemptCount){
