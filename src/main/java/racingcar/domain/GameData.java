@@ -54,7 +54,7 @@ public class GameData {
             }
         };
 
-        Collections.sort(this.carList, comparator);
+        this.carList.sort(comparator);
     }
 
     public void setWinnerList() {
@@ -63,7 +63,8 @@ public class GameData {
         Integer moveForwardCount1st = car1st.getSuccessMoveForwardCount();
 
         for (Car car : carList) {
-            if (car.getSuccessMoveForwardCount() == moveForwardCount1st) {
+            Integer successMoveForwardCount = car.getSuccessMoveForwardCount();
+            if (successMoveForwardCount == moveForwardCount1st) {
 
                 this.winnerList.add(car.getName());
             }
