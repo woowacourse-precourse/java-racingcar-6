@@ -17,6 +17,18 @@ public class RacingGame {
         carList = inputValue.getCarsName();
         gameNumber = inputValue.getGameNumber();
     }
-    
+
+
+    public void start(){
+        while(gameNumber>0){
+            for(Car car:carList){
+                car.run();
+            }
+            gameNumber--;
+        }
+
+    }
+
+
 }
 
