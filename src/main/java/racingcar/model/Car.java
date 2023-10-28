@@ -5,24 +5,29 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
 
     private final int INITIAL_FORWARD_COUNT = 0;
-    private static String carName;
-    private static int forwardCount;
+    private String carName;
+    private int forwardCount;
 
     public Car(String carName) {
         this.carName = carName;
         this.forwardCount = INITIAL_FORWARD_COUNT;
     }
 
-    public static int getRandomNumber() {
+    public int getRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public static void forwardCar(int randomNumber) {
+    public void forwardCar(int randomNumber) {
         if (randomNumber >= 4) {
             forwardCount += 1;
         }
     }
 
+    public String getCarName() {
+        return carName;
+    }
 
-
+    public int getForwardCount() {
+        return forwardCount;
+    }
 }
