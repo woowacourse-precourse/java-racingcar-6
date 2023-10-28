@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import racingcar.domain.Cars;
+import racingcar.domain.GameRound;
 import racingcar.domain.MovingStrategy;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -22,13 +24,22 @@ public class GameController {
 
 
     public void play() {
-        // 경주 할 자동차 이름 입력 받기
+        Cars cars = createCars();
 
         // 게임 라운드 회수 입력 받기
+
 
         // 각 라운드 별 결과 출력
 
         // 최종 우승자 출력
+    }
+
+    private Cars createCars() {
+        // 경주 할 자동차 이름 입력 받기
+        List<String> names = inputView.inputNames();
+        Cars cars = new Cars(names, movingStrategy);
+
+        return cars;
     }
 
 
