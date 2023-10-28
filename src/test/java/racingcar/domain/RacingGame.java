@@ -13,7 +13,22 @@ public class RacingGame {
                 .toList();
     }
 
+    public RacingGame(List<Car> cars) {
+        this.cars = cars;
+    }
+
     public List<Car> getCars() {
         return cars;
+    }
+
+    public List<Car> findWinner() {
+        int maxPosition = cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .getAsInt();
+
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .toList();
     }
 }
