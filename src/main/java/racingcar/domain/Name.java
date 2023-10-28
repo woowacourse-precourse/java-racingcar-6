@@ -12,6 +12,8 @@ public class Name {
 
     private void validateName(String name) {
 
-        // TODO
+        if(name.length() > 5) {
+            throw new IllegalArgumentException();
+        }
     }
 }
