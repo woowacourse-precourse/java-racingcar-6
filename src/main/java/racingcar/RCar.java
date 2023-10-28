@@ -17,11 +17,16 @@ public class RCar {
     }
 
     public int getForwardCount() {
-        forwardCount = forwardCount + 1;
         return forwardCount;
     }
 
     public void updateforwardCount() {
+        forwardCount = forwardCount + 1;
+    }
 
+    public void forwardResult(){
+        int forwardCount = getForwardCount();
+        String dashes = "-".repeat(forwardCount);
+        System.out.println(getName() + " : " + dashes);
     }
 }

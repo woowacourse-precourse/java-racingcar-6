@@ -1,9 +1,10 @@
 package racingcar;
 
 public class Forward {
-    public void forwardCar(int number, RCar car){
-        
-        
-        //car.updateforwardCount();
+    public static void forwardCar(int number, RCar car){
+        if (number >= 4) {
+            car.updateforwardCount();
+        }
+        car.forwardResult();
     }
 }

@@ -9,16 +9,16 @@
 6. 우승자는 한 명 이상일 수 있으며 여려명인 경우 쉼표로 구분한다.
 
 # 기능 목록
-- [ ] 자동차 클래스 설계 : 이름, 전진 횟수 - RCar : name, forwardCount
-- [ ] 입력 처리
-    - [ ] 자동차 이름 입력받아 쉼표를 기준으로 자동차 분리해 자동차 객체 생성 - separateCar()
-    - [ ] 이동할 횟수 저장 - racingCount()
-- [ ] 전진 기능 구현
-    - [ ] 랜덤 숫자 생성 : 범위 0 ~ 9 - createRandomNumber()
-    - [ ] 랜덤 숫자 4 이상이면 전진 - forwardCar()
-    - [ ] 전진하면 자동차의 전진 횟수 업데이트 - updateforwardCount()
-- [ ] 전진 결과 출력 : 자동차 별로 전진 결과 화면 출력 - forwardResult()
-- [ ] 우승자 출력 : 전진 횟수가 가장 높은 자동차 우승, 여러 명인 경우 쉼표로 구분해 출력 - winner()
+- [v] 자동차 클래스 설계 : 이름, 전진 횟수 - RCar : name, forwardCount
+- [v] 입력 처리
+    - [v] 자동차 이름 입력받아 쉼표를 기준으로 자동차 분리해 자동차 객체 생성 - separateCar()
+    - [v] 이동할 횟수 저장 - racingCount()
+- [v] 전진 기능 구현
+    - [v] 랜덤 숫자 생성 : 범위 0 ~ 9 - createRandomNumber()
+    - [v] 랜덤 숫자 4 이상이면 전진 - forwardCar()
+    - [v] 전진하면 자동차의 전진 횟수 업데이트 - updateforwardCount()
+- [v] 전진 결과 출력 : 자동차 별로 전진 결과 화면 출력 - forwardResult()
+- [v] 우승자 출력 : 전진 횟수가 가장 높은 자동차 우승, 여러 명인 경우 쉼표로 구분해 출력 - findWinner()
 - [ ] 테스트 코드 작성
 
 
