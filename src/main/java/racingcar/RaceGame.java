@@ -21,6 +21,15 @@ public class RaceGame {
         return scoreBoard;
     }
 
+    public void playOneRound(Map<String, StringBuilder> scoreBoard) {
+        for (Map.Entry<String, StringBuilder> pair : scoreBoard.entrySet()) {
+            if (engine.rollDice()) {
+                engine.moveForward(pair.getValue());
+            }
+            printer.printRoundResult(pair);
+        }
+    }
+
     public void gameStart() {
         printer.printStartMessage();
         List<String> carNames = userInput.getCarNames();
