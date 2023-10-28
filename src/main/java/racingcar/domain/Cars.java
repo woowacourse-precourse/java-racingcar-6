@@ -32,7 +32,7 @@ public class Cars {
         }
     }
 
-    public List<String> selectWinnerNames() {
+    public List<String> receiveWinnerNames() {
         int maxMove = receiveMaxMove();
         return selectWinnerNames(maxMove);
     }

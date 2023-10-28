@@ -20,7 +20,7 @@ public class CarGameService {
     }
 
     public String receiveWinnerNames(final Cars cars) {
-        List<String> winnerNames = cars.selectWinnerNames();
+        List<String> winnerNames = cars.receiveWinnerNames();
         return joinWinnerNames(winnerNames);
     }
 
