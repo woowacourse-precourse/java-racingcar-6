@@ -1,15 +1,23 @@
 package service;
 
-import java.util.HashMap;
+import view.View;
+
+import java.util.LinkedHashMap;
 
 public class UserInput {
 
-    public HashMap<String, String> carNameAndPosList = new HashMap<>();
+    public static View view = new View();
+    public LinkedHashMap<String, String> carNameAndPosList;
     public int playTime;
     public int carCount;
 
     public void getCarsName() {
+        String userInput = view.requestCarsName();
+        String[] carsName = userInput.split(",");
 
+        for(String name : carsName) {
+            carNameAndPosList.put(name, "");
+        }
     }
 
     public void getPlayTime() {
