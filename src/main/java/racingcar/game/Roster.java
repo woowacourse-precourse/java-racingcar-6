@@ -12,4 +12,12 @@ public class Roster {
             roster.add(new Car(carName));
         }
     }
+
+    public void moveAll() {
+        for (Car car : roster) {
+            if (car.isMovable()) {
+                car.moveForward();
+            }
+        }
+    }
 }

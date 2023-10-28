@@ -5,7 +5,7 @@
 
 #### 자동차 목록
 - [x] 사용자로부터 입력받은 경주할 자동차 이름을 쉼표(,)를 기준으로 구분해서 목록을 만든다 - Roster(TString inputString)
-- [ ] 목록에 있는 자동차가 순서대로 전진 시도한다 - Roster.moveAll
+- [x] 목록에 있는 자동차가 순서대로 전진 시도한다 - Roster.moveAll
 - [ ] 게임을 완료한 후 우승자를 선별한다 - Roster.selectWinners
 
 #### 자동차
