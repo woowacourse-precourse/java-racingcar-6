@@ -45,3 +45,11 @@
 
 
 - [x] 이동 회수를 1회 줄인다. Round#subtractOneRound()
+
+
+- [ ] 레이스에 참여한 자동차들의 이름 리스트를 반환한다. Race#getCarNames()
+    - [x] 자동차의 이름을 반환한다. Car#getName()
+
+
+- [ ] 매 번 이동마다 자동차들의 정보를 반환한다. Race#getRoundResult()
+    - [x] 자동차의 전진 거리를 반환한다. Car#getDistance()

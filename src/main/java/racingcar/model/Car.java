@@ -12,6 +12,9 @@ public class Car {
         distance += 1;
     }
 
+    public String getName() {
+        return name;
+    }
     public int getDistance() {
         return distance;
     }
