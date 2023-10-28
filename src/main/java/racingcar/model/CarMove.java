@@ -10,13 +10,11 @@ public class CarMove {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber >= 4;
     }
-    public static void move(List<String> car_list, StringBuilder[] move_result){
+    public static void move(List<Car> car_list){
         for (int i = 0; i<car_list.size(); i++){
             if (moveCheck()){
-                move_result[i].append("-");
+                car_list.get(i).addMove();
             }
         }
-        PrintResult.printMove(car_list,move_result);
-        System.out.println();
     }
 }
