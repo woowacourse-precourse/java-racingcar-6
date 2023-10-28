@@ -26,8 +26,8 @@
 -  현재 경주 상황(자동차 이름, 경주 상황) 출력하기
 
 # 📚 클래스 설계
-## validation
-- NumberValidation : 주어진 입력이 올바른지 검증하는 객체
+## verification
+- InputVerification : 주어진 입력이 올바른지 검증하는 객체
   - checkAll() : 전체 검증을 실시하는 함수
   - checkNameLength() :  입력값의 길이가 5자 이하인지 검증하는 함수
   - checkNameDuplicate() : 입력값 중 중복된 값이 있는지 검증하는 함수
