@@ -10,6 +10,7 @@ public class ValidationManager {
     }
 
     public static void validateTryCount(String inputTryCount) {
+        validateInputEmpty(inputTryCount);
         validateTryCountIsNumeric(inputTryCount);
         validateTryCountStartWithZero(inputTryCount);
     }
