@@ -15,6 +15,7 @@ public class RaceController {
             carList.add(new Car(name));
         }
         System.out.println(carList);
+        int tryNum = Integer.parseInt(ConsolePrint.readTryNum());
 
 
     }
