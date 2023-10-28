@@ -3,12 +3,25 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    private String distance = "";
+    private final String name;
+    private StringBuilder distance = new StringBuilder();
+
+    public Car(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public StringBuilder getDistance() {
+        return distance;
+    }
 
     public void moveOnRandomChance() {
         int randomNumber = generateRandomNumber();
         if (isForward(randomNumber)) {
-            distance += "-";
+            distance.append("-");
         }
     }
 

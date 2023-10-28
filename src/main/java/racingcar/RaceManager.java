@@ -17,6 +17,6 @@ public class RaceManager {
         for (Car car : raceCarList) {
             car.moveOnRandomChance();
         }
-        // TODO: OutputView.showResult();
+        OutputView.showResult(raceCarList);
     }
 }
