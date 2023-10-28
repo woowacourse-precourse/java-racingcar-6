@@ -5,15 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class InputView {
-//    Car car = new Car();
+
 
     public List<String> askName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputName = Console.readLine();
         List<String> carNames = splitName(inputName);
-//        for (String carName : carNames) {
-//            car.setCar(carName);
-//        }
         return carNames;
     }
 
