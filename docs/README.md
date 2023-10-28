@@ -61,7 +61,7 @@
         - 끝에는 blank line을 하나 출력한다.
     - 최종 우승자를 출력하는 기능
 
-현
+
 5. RacingController
 
    경기 진행을 제어하는 클래스
