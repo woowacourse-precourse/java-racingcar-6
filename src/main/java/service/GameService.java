@@ -34,6 +34,7 @@ public class GameService {
         return Randoms.pickNumberInRange(START_NUMBER, END_NUMBER);
     }
 
-    public void save(Game game) {
+    public Long save(Game game) {
+        return gameRepository.save(game);
     }
 }
