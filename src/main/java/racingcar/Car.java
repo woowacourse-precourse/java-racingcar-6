@@ -13,7 +13,7 @@ public class Car {
         return name;
     }
 
-    private Integer getForwardCount() {
+    public Integer getForwardCount() {
         return forwardCount;
     }
 
