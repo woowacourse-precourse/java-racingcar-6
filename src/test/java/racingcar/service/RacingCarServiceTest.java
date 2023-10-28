@@ -1,22 +1,25 @@
 package racingcar.service;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
+import racingcar.model.CarProgressResponse;
 import racingcar.model.Cars;
+import racingcar.model.GameResult;
 import racingcar.model.RandomNumberProvider;
 
 class RacingCarServiceTest {
     private final int racingTime = 5;
-    private final int moveForwardNumber = 5;
-    private RacingCarService racingCarService = new RacingCarService(() -> moveForwardNumber);
+    private RacingCarService racingCarService;
     private final List<String> carNameList = List.of("car", "benz", "audi", "fox");
 
     @Test
     void prepareCars_결과_이름_동일() {
+        initMoveService();
         Cars cars = racingCarService.prepareCars(carNameList);
 
         List<Car> carList = cars.getCars();
@@ -24,19 +27,20 @@ class RacingCarServiceTest {
             .map(Car::getName)
             .toList();
 
-        assertThat(carNameList).isEqualTo(prepareCarNameList);
-        assertThat(carNameList.size()).isEqualTo(prepareCarNameList.size());
+        assertAll(
+            () -> assertThat(carNameList).isEqualTo(prepareCarNameList),
+            () -> assertThat(carNameList.size()).isEqualTo(prepareCarNameList.size())
+        );
     }
 
     @Test
     void startRace_전진() {
-
-        this.racingCarService = new RacingCarService(() -> moveForwardNumber);
+        initMoveService();
         Cars cars = racingCarService.prepareCars(carNameList);
 
         Cars startedRace = racingCarService.startRace(cars, racingTime);
         
-        Assertions.assertAll(
+        assertAll(
             () -> assertThat(startedRace.getWinner()).isEqualTo(carNameList),
             () -> assertThat(startedRace.getWinner().size()).isEqualTo(carNameList.size()),
             () -> {
@@ -46,17 +50,17 @@ class RacingCarServiceTest {
             }
         );
     }
+
+
     @Test
     void startRace_전진_못함() {
-        final int noMoveNumber = 2;
-        final int initialProgress = 0;
-
-        this.racingCarService = new RacingCarService(() -> noMoveNumber);
+        initNotMoveService();
         Cars cars = racingCarService.prepareCars(carNameList);
+        final int initialProgress = 0;
 
         Cars startedRace = racingCarService.startRace(cars, racingTime);
 
-        Assertions.assertAll(
+        assertAll(
             () -> assertThat(startedRace.getWinner()).isEqualTo(carNameList),
             () -> assertThat(startedRace.getWinner().size()).isEqualTo(carNameList.size()),
             () -> {
@@ -68,6 +72,34 @@ class RacingCarServiceTest {
     }
 
     @Test
-    void determineRaceResult() {
+    void determineRaceResult_전진() {
+        initMoveService();
+        List<Car> carList = carNameList.stream()
+            .map(Car::from)
+            .toList();
+
+        Cars cars = racingCarService.startRace(Cars.from(carList), racingTime);
+
+        GameResult gameResult = racingCarService.determineRaceResult(cars);
+
+        assertAll(
+            () -> assertThat(gameResult.winners()).isEqualTo(carNameList),
+            () -> assertThat(gameResult.progressResponses().size()).isEqualTo(carList.size()),
+            () -> {
+                for (CarProgressResponse progressRespons : gameResult.progressResponses()) {
+                    assertThat(progressRespons.result()).isEqualTo(racingTime);
+                }
+            }
+        );
+    }
+
+    private void initNotMoveService() {
+        final int noMoveNumber = 2;
+        this.racingCarService = new RacingCarService(() -> noMoveNumber);
+    }
+
+    private void initMoveService() {
+        final int moveForwardNumber = 5;
+        this.racingCarService = new RacingCarService(() -> moveForwardNumber);
     }
 }
