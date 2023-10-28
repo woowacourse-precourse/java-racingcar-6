@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.view.GameMessage;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +30,7 @@ public class RacingCar {
         String gameResult = "";
         for (int i = 0; i < this.racingCarMove.size(); i++) {
             if (this.racingCarMove.get(i).equals(true)) {
-                gameResult += "-";
+                gameResult += GameMessage.MOVE.getMoveMessage();
             }
         }
         return gameResult;
