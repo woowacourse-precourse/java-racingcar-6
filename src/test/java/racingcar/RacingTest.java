@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -62,5 +63,18 @@ public class RacingTest {
         boolean testResult=racing.verifyNumber(randomNumber);
         //then
         Assertions.assertEquals(testResult,testExpect);
+    }
+    @Test
+    @DisplayName("가장 큰 값을 가진 플레이어 찾기")
+    void 가장_멀리간_플레이어_확인(){
+        //given
+        racing.playerResult.add(1);
+        racing.playerResult.add(0);
+        racing.playerResult.add(1);
+        ArrayList<Integer> goalList = new ArrayList<>(Arrays.asList(0,2));
+        //when
+        ArrayList<Integer> test=racing.goalPlayer();
+        //then
+        Assertions.assertEquals(test,goalList);
     }
 }
