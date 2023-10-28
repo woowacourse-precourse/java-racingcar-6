@@ -21,15 +21,16 @@ class RacingCarTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"poni5", "woni5", "12345"})
+    @ValueSource(strings = {"po,", "w ,n", ",345"})
     void validate_쉼표포함_이름들을_받으면_예외를_반환한다(String name_comma) {
         assertThatThrownBy(() -> RacingCar.from(name_comma))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @Test
-    void validate_빈문자열을_받으면_예외를_반환한다() {
-        assertThatThrownBy(() -> RacingCar.from(""))
+    @ParameterizedTest
+    @ValueSource(strings = {"", " ", "        "})
+    void validate_빈문자열을_받으면_예외를_반환한다(String name_space) {
+        assertThatThrownBy(() -> RacingCar.from(name_space))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 

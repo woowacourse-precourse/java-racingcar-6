@@ -23,11 +23,11 @@ public class RacingCar {
     }
 
     private static boolean checkSymbol(String name) {
-        return !name.matches("(.*)"+Constants.NAME_PATTERN+"(.*)");
+        return !name.matches(Constants.MATCH_REGEX+Constants.PARSER_REGEX+Constants.MATCH_REGEX);
     }
 
     private static boolean checkNotEmpty(String name) {
-        return name.length() != Constants.NAME_MIN_LENGTH;
+        return name.trim().length() != Constants.NAME_MIN_LENGTH;
     }
 
     private static boolean checkLength(String name) {
