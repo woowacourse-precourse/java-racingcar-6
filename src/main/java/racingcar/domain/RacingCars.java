@@ -42,6 +42,18 @@ public class RacingCars {
         return Randoms.pickNumberInRange(RANDOM_NUMBER_START, RANDOM_NUMBER_END);
     }
 
+    public List<Car> findWinners() {
+        int maxMove = cars.stream()
+                .map(Car::getMoveCount)
+                .mapToInt(num -> num)
+                .max()
+                .orElseThrow();
+
+        return cars.stream()
+                .filter(car -> car.isMaxMove(maxMove))
+                .toList();
+    }
+
     public List<Car> getCars() {
         return cars;
     }

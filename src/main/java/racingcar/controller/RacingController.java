@@ -1,11 +1,8 @@
 package racingcar.controller;
 
-import racingcar.domain.Car;
 import racingcar.domain.RacingCars;
 import racingcar.view.Input;
 import racingcar.view.Output;
-
-import java.util.List;
 
 public class RacingController {
 
@@ -27,7 +24,7 @@ public class RacingController {
             output.showResult(racingCars.race());
         }
 
-        output.showWinners(findWinners(racingCars.getCars()));
+        output.showWinners(racingCars.findWinners());
     }
 
     private int toInteger(String count) {
@@ -36,17 +33,5 @@ public class RacingController {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(NUMBER_FORMAT_EXCEPTION);
         }
-    }
-
-    private List<Car> findWinners(List<Car> cars) {
-        int maxMove = cars.stream()
-                .map(Car::getMoveCount)
-                .mapToInt(num -> num)
-                .max()
-                .orElseThrow();
-
-        return cars.stream()
-                .filter(car -> car.isMaxMove(maxMove))
-                .toList();
     }
 }
