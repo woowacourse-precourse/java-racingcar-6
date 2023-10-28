@@ -8,6 +8,11 @@ public class TrialNumber {
         this.trialNumber = trialNumber;
     }
 
+    public void playTurnAsMuchAsTrialNumber(Cars cars) {
+        for (int trial = 0; trial < trialNumber; trial++) {
+            cars.playTurn();
+        }
+    }
     public int convertTrialNumberInputToInteger(String trialNumberInput) {
         validateTrialNumberNotInteger(trialNumberInput);
         return Integer.parseInt(trialNumberInput);
