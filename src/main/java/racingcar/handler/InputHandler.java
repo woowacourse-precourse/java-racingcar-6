@@ -18,7 +18,7 @@ public class InputHandler {
         for (String name : nameArray) {
             String trimName = name.trim();
 
-            validName(trimName, nameList);
+            validateName(trimName, nameList);
 
             nameList.add(trimName);
         }
@@ -38,7 +38,7 @@ public class InputHandler {
         }
     }
 
-    private void validName(String trimName, List<String> nameList) {
+    private void validateName(String trimName, List<String> nameList) {
         if (trimName.isEmpty()) {
             throw new IllegalArgumentException(NULL_NOT_ALLOWED);
         }
