@@ -1,4 +1,4 @@
-package application;
+package racingcar.application;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThatCode;
@@ -10,8 +10,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.Application;
 
-@DisplayName("입력 기능 예외 테스트")
-class InputUtilExceptionTest extends NsTest {
+@DisplayName("입력 기능 테스트")
+class InputTest extends NsTest {
 
     @ParameterizedTest
     @ValueSource(strings = {" ", "      ", "\n","\r\n", "\r"})
