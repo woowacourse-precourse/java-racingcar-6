@@ -10,9 +10,13 @@ public class GameController {
 
     GameModel gameModel = new GameModel();
     GameView gameView = new GameView();
-    Map<String, Integer> carData = new LinkedHashMap<>();
+    Map<String, Integer> carData;
 
-    public void insertCarToCarArray(String[] carNamesArray) {
+    public GameController() {
+        carData = new LinkedHashMap<>();
+    }
+
+    public void insertCarToCarArray(Map<String, Integer> carData, String[] carNamesArray) {
         for (String carName : carNamesArray) {
             carData.put(carName, 0);
         }
@@ -37,14 +41,14 @@ public class GameController {
         System.out.println("실행 결과");
     }
 
-    public int findMaxPosition() {
+    public int findMaxPosition(Map<String, Integer> carData) {
         return carData.values().stream().max(Integer::compare).orElse(0);
     }
 
-    public void carPrepare() {
+    public void carPrepare(Map<String, Integer> carData) {
         printStartMessage();
         String[] carNamesArray = Console.readLine().split(",");
-        insertCarToCarArray(carNamesArray);
+        insertCarToCarArray(carData, carNamesArray);
     }
 
     public void saveResult(Map<String, Integer>carData, int count) {
@@ -58,7 +62,7 @@ public class GameController {
         }
     }
 
-    public void printResult() {
+    public void printResult(Map<String, Integer> carData) {
         for (Map.Entry<String, Integer> entry : carData.entrySet()) {
             System.out.print(entry.getKey() + " : ");
             for (int j = 0; j < entry.getValue(); j++) {
@@ -68,19 +72,19 @@ public class GameController {
         }
     }
 
-    public void displayResult() {
+    public void displayGameResult(Map<String, Integer> carData) {
         printResultMessage();
-        printResult();
+        printResult(carData);
     }
 
-    public void playingGame() {
+    public void playingGame(Map<String, Integer> carData) {
         askHowManyTimes();
         int count = Integer.parseInt(Console.readLine());
         saveResult(carData, count);
     }
 
-    public void findWinner() {
-        int maxPosition = findMaxPosition();
+    public void findWinner(Map<String, Integer> carData) {
+        int maxPosition = findMaxPosition(carData);
         ArrayList<String> winners = new ArrayList<>();
 
         for (Map.Entry<String, Integer> entry : carData.entrySet()) {
@@ -92,10 +96,10 @@ public class GameController {
     }
     public void run() {
 
-        carPrepare();
-        playingGame();
-        displayResult();
-        findWinner();
+        carPrepare(carData);
+        playingGame(carData);
+        displayGameResult(carData);
+        findWinner(carData);
     }
 
     public void printWinner(ArrayList<String> winners) {
