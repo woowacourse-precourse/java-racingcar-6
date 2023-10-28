@@ -55,7 +55,16 @@ public class GameController {
 
     private void moveCar(List<Car> cars) {
         for (Car car : cars) {
-//            verification(car);
+            verification(car);
         }
     }
+
+    private void verification(Car car) {
+        int randomNumber = Randoms.pickNumberInRange(1, 9);
+
+        if (randomNumber > 4) {
+            car.move();
+        }
+    }
+
 }
