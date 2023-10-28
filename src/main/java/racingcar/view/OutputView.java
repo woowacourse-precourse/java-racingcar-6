@@ -9,6 +9,7 @@ public class OutputView {
     private static final String GAME_RESULT_MESSAGE = "실행 결과";
     private static final String DISTANCE = "-";
     private static final String COLON_WITH_SPACES = " : ";
+    private static final String WINNER_MESSAGE = "최종 우승자" + COLON_WITH_SPACES + "%s";
 
 
     private static OutputView outputView;
@@ -48,6 +49,11 @@ public class OutputView {
         }
 
         printNewEmptyLine();
+    }
+
+    public void printWinnersOfGame(List<String> winners) {
+        String winnerNames = String.join(", ", winners);
+        System.out.println(String.format(WINNER_MESSAGE, winnerNames));
     }
 
     private void printNewEmptyLine() {
