@@ -25,6 +25,10 @@ public class Name {
         return value.length() <= MAX_NAME_LENGTH && !value.isEmpty();
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public boolean equals(final Object value) {
         if (value == name) {
