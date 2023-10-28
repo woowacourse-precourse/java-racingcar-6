@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.List;
+import java.util.Optional;
 import racingcar.domain.Car;
 import racingcar.domain.Game;
 
@@ -15,7 +17,21 @@ public class OutputView {
     }
 
     /* 최종 우승자 출력 */
-    public static void printGameWinner(Game game) {
-        System.out.println("");
+    public static void printGameWinner(List<Car> listCar) {
+        System.out.print("최종 우승자 : ");
+        Optional<Integer> maxPosition = listCar.stream()
+                .map(Car::position)
+                .max(Integer::compareTo);
+
+        if (maxPosition.isPresent()) {
+            List<Car> carsWithMaxPosition = listCar.stream()
+                    .filter(car -> car.position().equals(maxPosition.get()))
+                    .toList();
+
+            for (Car car : carsWithMaxPosition) {
+                System.out.print(car.name() + ",");
+            }
+        }
+        System.out.println();
     }
 }

@@ -49,12 +49,7 @@ public class GameController {
 
 
         // 우승자 출력
-//        List<Car> listCar = carRepository.findByAll();
-//        for (int i = 0; i < listCar.size(); i++){
-//            CarOutputDto carOutputDto = new CarOutputDto(listCar.get(i));
-//
-//
-//        }
+        OutputView.printGameWinner(carRepository.findByAll());
     }
 
     /**
