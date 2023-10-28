@@ -29,6 +29,13 @@ public class RaceTrack {
             carRank[i] = carNames[i].length() - carStartLine[i];
             System.out.print(carNames[i] + "\n");
         }
+        System.out.println();
+    }
+
+    public void race(int count) {
+        do {
+            rankCar();
+        } while (!checkRaceCompletion(count));
     }
 
 //    public void printCarNames() {
@@ -59,5 +66,15 @@ public class RaceTrack {
             return true;
         }
         return false;
+    }
+
+    // carRank 배열의 요소 중 하나라도 인자 count의 값을 가지는지 확인하는 메소드
+    private boolean checkRaceCompletion(int count) {
+        for (int rank : carRank) {
+            if (rank >= count) {
+                return true; // 레이스 완료 조건 충족
+            }
+        }
+        return false; // 레이스 완료 조건 미충족
     }
 }

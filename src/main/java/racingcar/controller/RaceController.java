@@ -16,14 +16,14 @@ public class RaceController {
         String[] carNames = validator.changeArrayType(carName);
         validator.checkNameValidation(carNames);
         String count = UserInputValue.inputMovementCount();
+        int countNum = Integer.parseInt(count);
         validator.checkMovementCount(count);
 
         RaceTrack raceTrack = new RaceTrack(carNames);
         raceTrack.printCarNames();
         // "-" 길이가 count가 될 때까지 '반복'한다
-        raceTrack.rankCar();
-        /*
-        do { raceTrack.rankCar(); } while ( 길이 != count )
-        * */
+        raceTrack.race(countNum);
+
+
     }
 }
