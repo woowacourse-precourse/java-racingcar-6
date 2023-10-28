@@ -18,9 +18,11 @@ public class OutputTest {
         carStatusDto.enrollCar("포르쉐");
         carStatusDto.enrollCar("K3");
         OutputView outputView = new OutputView();
-
         outputView.carStatus(carStatusDto.findAll());
     }
+
+
+
 }
 
 

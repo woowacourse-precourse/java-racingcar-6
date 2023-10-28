@@ -12,4 +12,13 @@ public class CarStatusTest {
         carStatusDto.enrollCar("포르쉐");
         Assertions.assertThat(carStatusDto.findAll().size()).isEqualTo(2);
     }
+
+    @Test
+    void 자동차_한칸이동_테스트() {
+        CarStatusDto carStatusDto = new CarStatusDto();
+        carStatusDto.enrollCar("포르쉐");
+        carStatusDto.enrollCar("K3");
+        carStatusDto.increaseCarPosition("포르쉐");
+        Assertions.assertThat(carStatusDto.findByName("포르쉐").get()).isEqualTo(1);
+    }
 }
