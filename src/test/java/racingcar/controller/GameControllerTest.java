@@ -17,7 +17,7 @@ import racingcar.service.ValidatorServiceTest;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static org.junit.jupiter.api.Assertions.*;
 
-class GameContollerTest extends NsTest {
+class GameControllerTest extends NsTest {
 	private ValidatorServiceTest validatorServiceTest;
 
 	@BeforeEach
