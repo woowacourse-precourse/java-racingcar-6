@@ -11,9 +11,9 @@
 - [x] 플레이어에게 입력받은 값을 int형으로 반환한다. AskHowManyPlayGame#askHowManyPlayGame()
 
 2. 게임 진행
-- [ ] 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다. OutputCarName#outputCarName()
-- [ ] 0에서 9사이의 무작위 값을 생성한다. NumberGenerator#createRandomNumber()
-- [ ] 무작위 값이 4 이상이면 전진한다. NumberGenerator#checkMoreThanFour()
+- [x] 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다. OutputCarName#outputCarName()
+- [x] 0에서 9사이의 무작위 값을 생성한다. NumberGenerator#createRandomNumber()
+- [x] 무작위 값이 4 이상이면 전진한다. NumberGenerator#checkMoreThanFour()
 
 3. 게임 종료
 - [x] 우승자는 한 명 이상일 수 있다. GameResult#checkWinnerCar()
@@ -21,9 +21,10 @@
 - [x] 우승자가 여러 명일 경우 ','를 이용하여 구분한다.
 
 # 공통
-- [ ] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨다.
-- [ ] Random 값 추출은 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용한다.
+- [x] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨다.
+- [x] Random 값 추출은 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용한다.
 - [x] 사용자가 입력하는 값은 camp.nextstep.edu.missionutils.Console의 readLine()을 활용한다.
+- [ ] JUnit 5와 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다.
 
 
 ## 기능 요구사항

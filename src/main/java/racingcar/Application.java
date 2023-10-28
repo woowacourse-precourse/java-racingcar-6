@@ -1,13 +1,13 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import racingcar.domain.AskCarName;
 import racingcar.domain.AskHowManyPlayGame;
 import racingcar.domain.GameResult;
+import racingcar.domain.OutputCarName;
 
 public class Application {
     public static void main(String[] args) {
@@ -16,7 +16,7 @@ public class Application {
         AskCarName askCarName = new AskCarName();
         AskHowManyPlayGame askHowManyPlayGame = new AskHowManyPlayGame();
         GameResult gameResult = new GameResult();
-
+        OutputCarName outputCarName = new OutputCarName();
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carName = Console.readLine();
@@ -28,7 +28,8 @@ public class Application {
 
         System.out.println("\n실행 결과");
         for (int i = 0; i < howManyPlayGame; i++) {
-
+            outputCarName.outpuCarName(carNameList, point);
+            System.out.println("");
         }
 
         int winnerPoint = point.values().stream().mapToInt(i -> i).max().getAsInt();
