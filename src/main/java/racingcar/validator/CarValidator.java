@@ -1,10 +1,9 @@
-package racingcar;
+package racingcar.validator;
 
 public class CarValidator {
 
     private static final int CAR_NAME_LENGTH = 5;
 
-    // static 은 편의를 위해 작성한 것, 이후 삭제
     public static void validateNameLength(String input) {
         if (input.length() > CAR_NAME_LENGTH) {
             throw new IllegalArgumentException("이름은 5글자 이하여야 합니다.");
