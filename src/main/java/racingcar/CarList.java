@@ -9,6 +9,13 @@ public class CarList {
         this.carList = carList;
     }
 
+    public void moveRandomEachCars() {
+        for (Car car : carList) {
+            int power = RacingUtil.generateRandomPower();
+            car.move(power);
+        }
+    }
+
     public boolean contains(Car car) {
         return carList.contains(car);
     }
