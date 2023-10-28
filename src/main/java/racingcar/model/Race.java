@@ -36,6 +36,14 @@ public class Race {
 		OutputView.printNewLine();
 	}
 
+	public void displayWinnerNames() {
+		List<Car> winners = findWinners();
+
+		OutputView.printWinner(winners.stream()
+			.map(Car::getName)
+			.collect(Collectors.toList()));
+	}
+
 	public List<Car> findWinners() {
 		List<Car> sortedCars = sortCarsByPosition();
 		int maxPosition = sortedCars.get(0).getPosition();
