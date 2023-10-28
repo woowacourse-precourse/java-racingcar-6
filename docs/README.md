@@ -3,7 +3,7 @@
 
     - 이름은 ,를 기준으로 구분
         - split 함수로 문자열 구분
-        - string list에 자동차 이름 저장
+        - string 배열에 자동차 이름 저장
     - 이름은 다섯자 이하의 string type
         - exception 발생시키기
 
