@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Application {
     public static void main(String[] args) {
@@ -23,5 +24,17 @@ public class Application {
             }
             System.out.println();
         }
+    }
+
+    public static List<Car> decideWinners(List<Car> cars) {
+        return cars.stream().filter(car -> car.getDistance() == getMaxDistance(cars)).collect(Collectors.toList());
+    }
+
+    private static int getMaxDistance(List<Car> cars) {
+        int max = 0;
+        for (Car car : cars) {
+            max = Math.max(max, car.getDistance());
+        }
+        return max;
     }
 }
