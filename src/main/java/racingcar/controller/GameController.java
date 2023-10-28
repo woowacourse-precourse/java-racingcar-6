@@ -4,11 +4,12 @@ import racingcar.model.Race;
 import racingcar.view.OutputView;
 
 public class GameController {
-    InputController inputController = new InputController();;
+    InputController inputController;
     Race race;
 
     public GameController() {
-        this.race = new Race(inputController.carValidate(), inputController.roundValidate());
+        inputController = new InputController();;
+        race = new Race(inputController.carValidate(), inputController.roundValidate());
         play();
         printResult();
     }
@@ -18,6 +19,6 @@ public class GameController {
     }
 
     public void printResult(){
-        race.printRace();
+        OutputView.printRace(race.getCarList());
     }
 }

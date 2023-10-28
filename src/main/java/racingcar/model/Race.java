@@ -1,11 +1,10 @@
 package racingcar.model;
 
-import racingcar.view.OutputView;
 import java.util.ArrayList;
 
 public class Race {
-    private final ArrayList<String> carNameList;
     private final int round;
+    private final ArrayList<String> carNameList;
     private final  ArrayList<Car> carList = new ArrayList<>();
 
     public Race(ArrayList<String> carNameList, int round){
@@ -24,7 +23,7 @@ public class Race {
         }
     }
 
-    public void printRace(){
-        OutputView.printRace(carList);
+    public ArrayList<Car> getCarList(){
+        return this.carList;
     }
 }
