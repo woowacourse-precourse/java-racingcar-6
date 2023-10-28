@@ -25,9 +25,7 @@ public class GameController {
 
     public void play() {
         Cars cars = createCars();
-
-        // 게임 라운드 회수 입력 받기
-
+        GameRound gameRound = createGameRound();
 
         // 각 라운드 별 결과 출력
 
@@ -40,6 +38,14 @@ public class GameController {
         Cars cars = new Cars(names, movingStrategy);
 
         return cars;
+    }
+
+    private GameRound createGameRound() {
+        // 게임 라운드 회수 입력 받기
+        Integer numberOfGameRound = inputView.inputCountOfGameRound();
+        GameRound gameRound = new GameRound(numberOfGameRound, 0);
+
+        return gameRound;
     }
 
 
