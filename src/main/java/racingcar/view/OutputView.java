@@ -21,15 +21,18 @@ public class OutputView {
     public void printProgressOfCar(String carName, int moves) {
         System.out.println(convertProgressToString(carName, moves));
     }
-    private String convertProgressToString(String carName, int moves) {
+    public String convertProgressToString(String carName, int moves) {
         return carName + COLONS + PROGRESS.repeat(Math.max(0, moves));
     }
     public void printWinnerList(List<String> winnerName) {
+        System.out.println(convertWinnersToString(winnerName));
+    }
+    public String convertWinnersToString(List<String> winnerName) {
         StringBuilder winner = new StringBuilder(RACE_WINNER + winnerName.get(0));
         for (int i = 1; i < winnerName.size(); i++) {
             winner.append(COMMA+BLANK);
             winner.append(winnerName.get(i));
         }
-        System.out.println(winner);
+        return winner.toString();
     }
 }
