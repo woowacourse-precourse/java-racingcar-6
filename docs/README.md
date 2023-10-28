@@ -4,7 +4,8 @@
 - start: [java-racingcar-6](https://github.com/woowacourse-precourse/java-racingcar-6) 저장소를 Fork & Clone해 시작한다.
 ### 입출력
 #### 입력
-
+- 경주 할 자동차 이름
+  - 이 때, 입력받은 string을 구분하는 기준으로 ","을 통해 구분하여 List에 저장
 ```
 
 ```
