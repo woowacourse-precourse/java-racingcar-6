@@ -21,16 +21,21 @@ public class InputMapper {
 
     public static int mapToPositiveNumber(String input) {
         checkInputNonNull(input);
-        int parsed = parseInt(input);
-        checkPositiveNumber(parsed);
 
-        return parsed;
+        return parsePositiveInt(input);
     }
 
     private static void checkInputNonNull(String input) {
         if (Objects.isNull(input)) {
             throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
         }
+    }
+
+    private static int parsePositiveInt(String input) {
+        int parsed = parseInt(input);
+        checkPositiveNumber(parsed);
+
+        return parsed;
     }
 
     private static int parseInt(String input) {
