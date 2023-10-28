@@ -15,5 +15,13 @@ public class RacingCars {
         racingcars.add(racingcar);
     }
 
+    public int size() {
+        return racingcars.size();
+    }
+
+    public RacingCar get(int index) {
+        return racingcars.get(index);
+    }
+
 
 }
