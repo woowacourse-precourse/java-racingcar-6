@@ -1,7 +1,7 @@
 package racingcar.game;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import racingcar.circuit.Circuit;
 import racingcar.domain.car.Car;
 import racingcar.game.validate.EmptyCarNamesValidator;
 import racingcar.view.InputView;
@@ -11,21 +11,27 @@ public class RacingGame {
 
     private final InputView inputView;
     private final OutputView outputView;
-    private List<Car> cars;
+    private final Circuit circuit;
 
-    public RacingGame(InputView inputView, OutputView outputView) {
+    public RacingGame(InputView inputView, OutputView outputView, Circuit circuit) {
         this.inputView = inputView;
         this.outputView = outputView;
+        this.circuit = circuit;
     }
 
     public void start() {
-        receiveCarNames();
+        setUpCars();
     }
 
-    private void receiveCarNames() {
+    private void setUpCars() {
+        List<String> carNames = receiveCarNames();
+        carNames.stream().map(Car::new).forEach(circuit::addRacingCar);
+    }
+
+    private List<String> receiveCarNames() {
         outputView.inputCarsNames();
         List<String> carNames = inputView.getCarNames();
         EmptyCarNamesValidator.validate(carNames);
-        this.cars = carNames.stream().map(Car::new).collect(Collectors.toList());
+        return carNames;
     }
 }
