@@ -34,8 +34,8 @@ public class Car {
         return location.length();
     }
 
-    public String getName() {
-        return name;
+    public void printName() {
+        System.out.print(name);
     }
 
     @Override
