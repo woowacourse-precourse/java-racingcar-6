@@ -19,6 +19,7 @@ public class InputView {
     }
 
     public int InputTryNum(){
-        return 0;
+        String tryNum = Console.readLine();
+        return Integer.parseInt(tryNum);
     }
 }
