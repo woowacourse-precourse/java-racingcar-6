@@ -7,10 +7,18 @@ public class OutputView {
         System.out.println(OutputMessage.START_OF_RESULT.getMessage());
     }
 
-    public static void printResultMessageOfCarForward(String name, Integer forwardCount) {
-        String outputFormat = OutputMessage.RESULT_OF_CAR_FORWARD_FORMAT.getMessage();
-        String output = String.format(outputFormat, name, forwardCount);
-        System.out.println(output);
+    public static void printNameAfterCarForward(String name) {
+        String outputFormat = OutputMessage.FORMAT_OF_NAME_AFTER_CAR_FORWARD.getMessage();
+        String output = String.format(outputFormat, name);
+        System.out.print(output);
+    }
+
+    public static void printProgressAfterCarForward(Integer forwardCount) {
+        String outputFormat = OutputMessage.FORMAT_OF_PROGRESS_AFTER_CAR_FORWARD.getMessage();
+        String progressBar = OutputMessage.PROGRESS_BAR_OF_CAR_FORWARD.getMessage();
+
+        String output = String.format(outputFormat, progressBar.repeat(forwardCount));
+        System.out.print(output);
     }
 
     public static void printWinnerOfGameMessage(String lists) {
