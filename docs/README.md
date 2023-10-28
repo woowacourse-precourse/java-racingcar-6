@@ -151,7 +151,7 @@ classDiagram
 - [x] 경주 결과 가져오기
 
 ### Racing Car Service `RacingCarService`
-- [ ] 주어진 차 이름 및 경주 횟수로 경주 시작
+- [x] 주어진 차 이름 및 경주 횟수로 경주 시작
 - [ ] 차들의 초기 설정
 - [ ] 실제 경주 로직 실행
 - [ ] 경주 결과 결정
