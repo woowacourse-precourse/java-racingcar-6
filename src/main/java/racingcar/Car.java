@@ -17,7 +17,7 @@ public class Car {
     }
 
     public void move() {
-
+        distance++;
     }
 
     public int getDistance() {
