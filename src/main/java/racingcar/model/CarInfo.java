@@ -37,4 +37,14 @@ public class CarInfo {
     public int getMaxMove() {
         return Collections.max(carStatus);
     }
+    public List<Integer> getWinnerIndex() {
+        int maxMove = getMaxMove();
+        List<Integer> maxMoveList = new ArrayList<>();
+        for(int i = 0; i < carStatus.size(); i++) {
+            if(carStatus.get(i) == maxMove) {
+                maxMoveList.add(i);
+            }
+        }
+        return maxMoveList;
+    }
 }
