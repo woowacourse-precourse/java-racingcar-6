@@ -3,7 +3,6 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 
 public class OutputView {
-
     private OutputView() {}
 
     public static void print(String message) {
@@ -13,5 +12,4 @@ public class OutputView {
     public static void println(String message) {
         System.out.println(message);
     }
-
 }

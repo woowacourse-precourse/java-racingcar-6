@@ -3,7 +3,6 @@ package racingcar.controller;
 import racingcar.service.GameService;
 
 public class GameController {
-
     private final GameService gameService;
 
     public GameController(GameService gameService) {
@@ -20,5 +19,4 @@ public class GameController {
         gameService.progressGame();
         gameService.finishGame();
     }
-
 }

@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class InputView {
-
     private InputView() {}
 
     public static List<String> readCarNameList() {
@@ -83,5 +82,4 @@ public class InputView {
             }
         }
     }
-
 }

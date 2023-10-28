@@ -10,7 +10,6 @@ import java.util.*;
 import static racingcar.domain.Message.*;
 
 public class GameService {
-
     private int progressCount;
     private List<Car> carList = new ArrayList<>();
 
