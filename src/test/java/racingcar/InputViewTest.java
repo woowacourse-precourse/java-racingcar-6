@@ -32,7 +32,7 @@ class InputViewTest {
 
     @DisplayName("inputCarNames() 선언시 안내문구가 출력되고 입력받는다.")
     @Nested
-    class InputTest extends IOTest {
+    class InputCarNames extends IOTest {
 
         @DisplayName("입력은 공백을 허용하지 않는다. 공백이 포함되어 있을 경우 IllegalArgumentException 가 발생한다. ")
         @Test
