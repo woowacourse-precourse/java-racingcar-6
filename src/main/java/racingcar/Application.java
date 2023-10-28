@@ -27,7 +27,8 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         List<Car> cars = makeCars();
-        int attemps = getAtteptsNum();
+        int attempts = getAtteptsNum();
+        runningRace(cars, attempts);
 
     }
 
@@ -57,10 +58,22 @@ public class Application {
 
     public static void runningRace(List<Car> cars, int attemptsNum){
 
+        for(int attempt = 0; attempt<attemptsNum; attempt++){
+
+            for(Car car : cars){
+                car.tryMove(Randoms.pickNumberInRange(0, 9));
+                printRoundResult(car);
+            }
+            System.out.println();
+        }
     }
 
     public static void printRoundResult(Car car){
-
+        System.out.print(car.name+" : ");
+        for(int i = 0; i<car.position;i++){
+            System.out.print("-");
+        }
+        System.out.println();
     }
 
     public static List<Car> getWinners(List<Car> cars){
