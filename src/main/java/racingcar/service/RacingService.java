@@ -17,7 +17,7 @@ public class RacingService {
         }
     }
 
-    public static void findWinner(List<Car> carList) {
+    public static List<String> findWinner(List<Car> carList) {
         int maxProgress = carList.stream().map(car -> car.getProgress().length()).max(Comparator.comparing(x -> x))
                 .orElse(0);
 
@@ -28,7 +28,6 @@ public class RacingService {
                 winnerName.add(car.getName());
             }
         }
-
-        System.out.println("최종 우승자 : " + String.join(", ", winnerName));
+        return winnerName;
     }
 }

@@ -23,6 +23,6 @@ public class InteractService {
     public static void printResult(List<Car> carList, int tryNum) {
         System.out.println("실행 결과");
         RacingService.racing(carList, tryNum);
-        RacingService.findWinner(carList);
+        System.out.println("최종 우승자 : " + String.join(", ", RacingService.findWinner(carList)));
     }
 }
