@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class RacingCars {
@@ -16,5 +17,12 @@ public class RacingCars {
             participateCars.add(new Car(carName, new Engine()));
         }
         return participateCars;
+    }
+
+    public List<Car> doRace() {
+        for (Car car : this.cars) {
+            car.moveCar();
+        }
+        return Collections.unmodifiableList(cars);
     }
 }
