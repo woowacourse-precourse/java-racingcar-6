@@ -7,22 +7,15 @@ import static racingcar.message.MessageConstants.REGEX;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import racingcar.domain.Car;
-import racingcar.domain.Cars;
 
 public class InputView {
 
-    public Cars inputCarName() {
+    public List<String> inputCarName() {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
         String inputCarName = Console.readLine();
-
         String[] nameSplit = inputCarName.split(REGEX);
-        List<Car> carList = Arrays.stream(nameSplit)
-                .map(Car::new)
-                .collect(Collectors.toList());
-
-        return new Cars(carList);
+        
+        return Arrays.asList(nameSplit);
     }
 
     public int inputTryCount() {

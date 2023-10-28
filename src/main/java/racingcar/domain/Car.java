@@ -4,18 +4,20 @@ import static racingcar.message.MessageConstants.CAR_NAME_AND_POSITION_FORMAT;
 import static racingcar.message.MessageConstants.FIVE;
 import static racingcar.message.MessageConstants.FOUR;
 import static racingcar.message.MessageConstants.HYPHEN;
-import static racingcar.message.MessageConstants.NINE;
 import static racingcar.message.MessageConstants.ZERO;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class Car {
-    private String name;
+    private final String name;
     private int position;
 
     public Car(String name) {
         validationNameLength(name);
         this.name = name;
+    }
+
+    public Car(String name, int position) {
+        this.name = name;
+        this.position = position;
     }
 
     private void validationNameLength(String name) {
@@ -24,9 +26,8 @@ public class Car {
         }
     }
 
-    public void move() {
-        int value = Randoms.pickNumberInRange(ZERO, NINE);
-        if (value <= FOUR) {
+    public void move(int power) {
+        if (power <= FOUR) {
             position++;
         }
     }
