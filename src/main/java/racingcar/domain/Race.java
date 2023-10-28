@@ -21,6 +21,16 @@ public class Race {
         return racingCars;
     }
 
+    public Long getFarthestDistance() {
+        Long farthestDistance = 0L;
+        for (RacingCar car : racingCars) {
+            if (car.getDistance() > farthestDistance) {
+                farthestDistance = car.getDistance();
+            }
+        }
+        return farthestDistance;
+    }
+
     public void runCircuit() {
         for (RacingCar car : racingCars) {
             int movingValue = RandomNumberGenerator.generate();
