@@ -13,7 +13,7 @@ public class Car {
         this.forwardCount = INITIAL_FORWARD_COUNT;
     }
 
-    public int getRandomNumber() {
+    public int generateRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
@@ -21,6 +21,11 @@ public class Car {
         if (randomNumber >= 4) {
             forwardCount += 1;
         }
+    }
+
+    public void oneGameStart() {
+        int randomNumber = generateRandomNumber();
+        forwardCar(randomNumber);
     }
 
     public String getCarName() {
