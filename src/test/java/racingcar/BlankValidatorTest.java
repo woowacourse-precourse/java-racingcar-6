@@ -24,4 +24,12 @@ public class BlankValidatorTest {
         assertThrows(IllegalArgumentException.class, () -> blankValidator.isEmpty(name));
     }
 
+    @DisplayName("공백 검증기 - 띄어쓰기 입력시 예외 발생")
+    @Test
+    void checkSpaceInput() {
+        String name = "";
+        BlankValidator blankValidator = new BlankValidator();
+        assertThrows(IllegalArgumentException.class, () -> blankValidator.isEmpty(name));
+    }
+
 }
