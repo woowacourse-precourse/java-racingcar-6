@@ -3,16 +3,15 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
         String userInput = inputCarName();
         int tryCount = inputTryCount();
-        int randomNumber = randomNumber();
 
-        List<String> userCarList = deleteComma(userInput);
-
+        HashMap<String, String> createUserCar = userCarInfoSave(userInput);
 
     }
 
@@ -22,13 +21,13 @@ public class Application {
         return inputCarName;
     }
 
-    private static List<String> deleteComma(String inputCarName) {
-        List<String> userCarName = new ArrayList<>();
+    private static HashMap<String, String> userCarInfoSave(String inputCarName) {
+        HashMap<String, String> createUserCar = new HashMap<>();
         String[] userCarNameArr = inputCarName.split(",");
         for (String car : userCarNameArr) {
-            userCarName.add(car.replace(",", ""));
+            createUserCar.put(car, "");
         }
-        return userCarName;
+        return createUserCar;
     }
 
     private static int inputTryCount() {
@@ -38,7 +37,7 @@ public class Application {
     }
 
     private static int randomNumber() {
-        int random = Randoms.pickNumberInRange(0,9);
+        int random = Randoms.pickNumberInRange(0, 9);
         return random;
     }
 
