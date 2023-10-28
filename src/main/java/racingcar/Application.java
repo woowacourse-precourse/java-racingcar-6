@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Application {
     public static void main(String[] args) {
@@ -32,6 +33,19 @@ public class Application {
                 System.out.printf("%s : %s\n", cars.get(j), "-".repeat(carAt));
             }
             System.out.println();
+        }
+
+        // 우승자 출력
+        int maxMove = Collections.max(progress);
+        List<String> winner = IntStream.range(0, cars.size())
+                .filter(i -> progress.get(i) == maxMove)
+                .mapToObj(cars::get)
+                .toList();
+        System.out.print("최종 우승자 : ");
+        if (winner.size() == 1) {
+            System.out.println(winner.get(0));
+        } else {
+            System.out.println(String.join(", ", winner));
         }
 
         Console.close();
