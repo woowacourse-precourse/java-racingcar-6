@@ -8,10 +8,7 @@ import static racingcar.view.OutputView.printWinner;
 import static racingcar.view.OutputView.printBlank;
 
 import racingcar.dto.CarDto;
-import racingcar.model.Car;
-import racingcar.model.Cars;
-import racingcar.model.NumberGenerator;
-import racingcar.model.RandomNumberGenerator;
+import racingcar.model.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,7 +27,7 @@ public class RacingGameController {
 
         Cars players = participatePlayers();
 
-        race(players, inputTrialCount());
+        race(players, new TrialCount(inputTrialCount()));
 
         awardRacingCarGame(players);
     }
@@ -43,12 +40,15 @@ public class RacingGameController {
         return new Cars(cars);
     }
 
-    private void race(Cars players, int trialCount) {
+    private void race(Cars players, TrialCount trialCount) {
         printResultMessage();
-        for (int i = 0; i < trialCount; i++) {
+
+        while (trialCount.hasCount()) {
             players.moveUsingRandomNumber(numberGenerator);
             printRoundResult(players.toDtos());
             printBlank();
+
+            trialCount.countDown();
         }
     }
 
