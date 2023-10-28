@@ -4,18 +4,18 @@ import java.util.List;
 
 public class RacingCarStatusGroup {
 
-    private final List<RacingCars> racingCars;
+    private final List<RacingCarStatus> racingCarStatusList;
 
-    public RacingCarStatusGroup(List<RacingCars> racingCars) {
-        this.racingCars = racingCars;
+    public RacingCarStatusGroup(List<RacingCarStatus> racingCarStatusList) {
+        this.racingCarStatusList = racingCarStatusList;
     }
 
     public void moveForward() {
-        for (RacingCars racingCar : racingCars) {
+        for (RacingCarStatus racingCarStatus : racingCarStatusList) {
             RandomNumber randomNumber = new RandomNumber();
 
             if (randomNumber.isMovePossible()) {
-                racingCar.forWard();
+                racingCarStatus.forWard();
             }
         }
     }
