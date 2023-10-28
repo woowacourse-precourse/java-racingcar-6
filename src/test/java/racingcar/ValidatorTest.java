@@ -28,7 +28,6 @@ public class ValidatorTest {
                 .hasMessageContaining("1~5글자인 자동차 이름만 입력 가능합니다.");
     }
 
-
     @Test
     void 자동차이름_한글자미만_예외처리() {
         String input = "aaa,,ccc";
@@ -36,5 +35,14 @@ public class ValidatorTest {
         assertThatThrownBy(() -> validator.convertStringToList(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("1~5글자인 자동차 이름만 입력 가능합니다.");
+    }
+
+    @Test
+    void 자동차이름_공백_예외처리() {
+        String input = "aaa,b b,ccc";
+
+        assertThatThrownBy(() -> validator.convertStringToList(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름에는 공백이 있으면 안됩니다.");
     }
 }
