@@ -24,4 +24,8 @@ public class Race {
             racers.printCurrentPositions();
         }
     }
+
+    public String winners() {
+        return referee.announceAllWinners();
+    }
 }
