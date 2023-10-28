@@ -33,7 +33,9 @@ public class Input {
 
     private static void checkCarNameError(List<String> carNames) throws IllegalArgumentException {
         for (String carName : carNames) {
-            if (isNull(carName) || isBlank(carName) || isLength1To(carName, 5)) {
+            if (isNull(carName)
+                    || isBlank(carName)
+                    || isLength1To(carName, 5)) {
                 throw new IllegalArgumentException();
             }
         }
@@ -57,7 +59,7 @@ public class Input {
         return Long.decode(raw);
     }
 
-    private static void checkRepetitionsError(String repetitions) throws IllegalArgumentException  {
+    private static void checkRepetitionsError(String repetitions) throws IllegalArgumentException {
         if (isNull(repetitions)
                 || isBlank(repetitions)
                 || isNotNumber(repetitions)
