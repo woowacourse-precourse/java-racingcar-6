@@ -12,7 +12,7 @@ import racingcar.view.InputView;
 public class Attempt {
     private int count;
 
-    public void startMakeAttemptNumber() {
+    public void saveAttemptNumber() {
         InputView.printRequestAttempt();
         String attemptInput = Console.readLine();
         input(attemptInput);

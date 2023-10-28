@@ -14,7 +14,7 @@ public class Application {
         carsFactory.startCreateCars();
 
         Attempt attempt = new Attempt();
-        attempt.startMakeAttemptNumber();
+        attempt.saveAttemptNumber();
 
         Game game = new Game(carsFactory.getCars(), attempt.getCount());
         game.startRacing();
