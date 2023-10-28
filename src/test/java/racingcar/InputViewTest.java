@@ -26,7 +26,6 @@ public class InputViewTest {
 
         Assertions.assertTrue(input != null);
 
-
     }
 
 
@@ -42,7 +41,6 @@ public class InputViewTest {
             Assertions.assertTrue(inputs[i].length() <= 5);
             Assertions.assertTrue(inputs[i] != null);
         }
-
     }
 
 
