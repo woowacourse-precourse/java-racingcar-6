@@ -17,11 +17,11 @@
     ```
 
 ## InputView
-- 자동차 이름 입력받는 기능
+- 자동차 이름 입력 받는 기능
     ```java
-    String InputCarName();
+    List<String> InputCarName()
     ```
-- 시도횟수 입력받는 기능
+- 시도 횟수 입력 받는 기능
     ```java
     int InputTryNum()
     ```
