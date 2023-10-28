@@ -1,16 +1,24 @@
 package racingcar;
 
+import static racingcar.CliPrompt.ENTER_CAR_NAMES;
+import static racingcar.CliPrompt.NUMBER_OF_REPETITIONS;
+import static racingcar.CliPrompt.RACE_RESULT;
+import static racingcar.CliPrompt.WINNERS_ARE;
+
 public class Application {
+
+    private static final GameRule rule = new GameRule(5, 0, 9);
+    private static final InputPrompt prompt = new InputPrompt(rule);
+    private static final Race race = new Race(rule);
+    private static final CliOutput cliOutput = new CliOutput();
+
     public static void main(String[] args) throws IllegalArgumentException {
-        GameRule rule = new GameRule(5, 0, 9);
-        Race race = new Race(rule);
-        InputPrompt prompt = new InputPrompt(rule);
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        cliOutput.printPrompt(ENTER_CAR_NAMES);
         race.registerRacers(prompt.readCarNames());
-        System.out.println("시도할 회수는 몇회인가요?");
+        cliOutput.printPrompt(NUMBER_OF_REPETITIONS);
         rule.setNumberOfRepetitions(prompt.readNumberOfRepetitions());
-        System.out.println("\n실행 결과");
+        cliOutput.printPrompt(RACE_RESULT);
         race.start();
-        System.out.println("최종 우승자 : " + race.winners());
+        cliOutput.printMsgWithPrompt(WINNERS_ARE, race.winners());
     }
 }
