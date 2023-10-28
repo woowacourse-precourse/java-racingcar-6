@@ -9,7 +9,7 @@ import racingcar.model.Car;
 public final class InputView {
 
     public static List<Car> getCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,)로 구분)");
+        OutputView.displayInitCarNames();
         String input = Console.readLine();
         validateNotEmpty(input);
         validateInputCharacters(input);
@@ -19,7 +19,7 @@ public final class InputView {
     }
 
     public static int getNumberOfAttempts() {
-        System.out.println("시도할 회수는 몇 회인가요?");
+        OutputView.displayInitNumberOfAttempts();
         String input = Console.readLine();
         validateNotEmpty(input);
         validateInputCharacters(input);
