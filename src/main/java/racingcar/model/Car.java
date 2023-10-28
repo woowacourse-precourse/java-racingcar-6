@@ -1,11 +1,9 @@
 package racingcar.model;
 
 public class Car {
-    final String name;
     final Integer location;
 
-    Car(String name, Integer location){
-        this.name = name;
+    public Car(Integer location){
         this.location = location;
     }
 }
