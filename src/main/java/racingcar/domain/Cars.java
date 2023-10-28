@@ -20,6 +20,7 @@ public record Cars(List<Car> cars) {
 
     private Set<String> getCarNameSet() {
         List<String> carNames = cars.stream().map(Car::getName).toList();
+
         return Set.copyOf(carNames);
     }
 

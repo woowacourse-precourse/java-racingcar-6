@@ -13,6 +13,7 @@ public class OutputView {
 
     private String buildCarStateExpression(String carName, int carDistance) {
         String carDistanceExpression = DISTANCE_EXPRESSION_ELEMENT.repeat(carDistance);
+
         return String.format(CAR_STATE_EXPRESSION, carName, carDistanceExpression);
     }
 
@@ -30,6 +31,7 @@ public class OutputView {
 
     public void printGameState(RacingGameState racingGameState) {
         StringBuilder sb = new StringBuilder();
+
         for (int i = 0; i < racingGameState.getCarAmount(); i++) {
             String carName = racingGameState.getCarNameByIndex(i);
             int carDistance = racingGameState.getCarDistanceByIndex(i);
@@ -37,11 +39,13 @@ public class OutputView {
             String carStateExpression = buildCarStateExpression(carName, carDistance);
             sb.append(carStateExpression);
         }
+
         System.out.println(sb);
     }
 
     public void printWinners(RacingGameState racingGameState) {
         String winnerInformation = buildWinnerString(racingGameState);
+
         System.out.printf(WINNER_EXPRESSION, winnerInformation);
     }
 

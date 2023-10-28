@@ -19,6 +19,7 @@ public class InputView {
     public List<String> readCarNames() {
         System.out.println(READ_CAR_NAMES_INPUT_MESSAGE);
         String input = Console.readLine();
+
         return convertCarNames(input);
     }
 
@@ -33,6 +34,7 @@ public class InputView {
     public int readAttemptCount() {
         System.out.println(READ_ATTEMPT_COUNT_INPUT_MESSAGE);
         String input = Console.readLine();
+
         return parseInt(input);
     }
 }

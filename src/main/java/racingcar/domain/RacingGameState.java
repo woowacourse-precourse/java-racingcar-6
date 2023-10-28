@@ -18,11 +18,13 @@ public class RacingGameState {
 
     public String getCarNameByIndex(int i) {
         Car car = cars.get(i);
+
         return car.getName();
     }
 
     public int getCarDistanceByIndex(int i) {
         Car car = cars.get(i);
+
         return car.getDistance();
     }
 
@@ -37,12 +39,14 @@ public class RacingGameState {
         for (Car car : cars) {
             max = Math.max(max, car.getDistance());
         }
+
         return max;
     }
 
     public List<String> getWinnersName() {
         validateIsGameEnd();
         int maxDistance = getMaxDistance();
+
         return cars.stream()
                 .filter(car -> car.isMaxDistance(maxDistance))
                 .map(Car::getName)

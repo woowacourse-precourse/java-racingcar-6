@@ -8,7 +8,6 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGameController {
-
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
 
@@ -16,6 +15,7 @@ public class RacingGameController {
         List<Car> cars = carNames.stream()
                 .map(Car::new)
                 .toList();
+
         return new Cars(cars);
     }
 
@@ -23,6 +23,7 @@ public class RacingGameController {
         List<String> carNames = inputView.readCarNames();
         Cars cars = createCarsByCarNames(carNames);
         int attemptCount = inputView.readAttemptCount();
+
         return new RacingGame(cars, attemptCount);
     }
 
