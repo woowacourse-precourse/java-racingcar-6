@@ -1,11 +1,12 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import racingcar.io.InputView;
 import racingcar.io.OutputView;
 
-public class RacingController {
+public class RacingCarGame {
 
     private List<RacingCar> racingCars;
 
@@ -28,9 +29,8 @@ public class RacingController {
         racingCars = new ArrayList<>();
 
         String[] carNamesInputSplit = carNames.split(",");
-        for (String carName : carNamesInputSplit) {
-            racingCars.add(new RacingCar(carName));
-        }
+
+        racingCars =  Arrays.stream(carNamesInputSplit).map(RacingCar::new).toList();
 
     }
 
@@ -71,4 +71,7 @@ public class RacingController {
         return winners;
     }
 
+    public List<RacingCar> getRacingCars() {
+        return racingCars;
+    }
 }
