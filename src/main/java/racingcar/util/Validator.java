@@ -5,7 +5,7 @@ import java.util.List;
 public class Validator {
 
     public void isRightCarNameInput(List<String> splitedName) {
-        isNoname(splitedName);
+        isNoName(splitedName);
         checkLengthEachName(splitedName);
     }
 
@@ -17,7 +17,7 @@ public class Validator {
         }
     }
 
-    private void isNoname(List<String> splitedName) {
+    private void isNoName(List<String> splitedName) {
         if(splitedName.isEmpty()){
             throw new IllegalArgumentException("자동차 이름을 넣어주셔야 합니다! (이름1, 이름2, 이름3) 과 같은 형태로 넣어주셔야합니다!");
         }
