@@ -65,11 +65,26 @@ class InputExceptionTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"one", "1zero", "t"})
-    @DisplayName("자연수가 맞는지 확인하는 기능 예외 처리 테스트")
+    @DisplayName("숫자가 맞는지 확인하는 기능 예외 처리 테스트")
     void isNumberTest(String input) {
         // when
         Throwable throwable = catchThrowable(() -> {
             InputException.isNumber(input);
+        });
+
+        // then
+        assertThat(throwable)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(PrintMessage.ONLY_NUMBER);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0})
+    @DisplayName("자연수가 맞는지 확인하는 기능 예외 처리 테스트")
+    void isNaturalNumberTest(int num) {
+        // when
+        Throwable throwable = catchThrowable(() -> {
+            InputException.isNaturalNumber(num);
         });
 
         // then
