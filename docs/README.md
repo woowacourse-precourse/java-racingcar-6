@@ -71,6 +71,11 @@
 - 시도횟수에 대한 검증
     - 시도 횟수가 1보다 작은 경우 IllegalArgumentException을 던진다.
 
+## **💡 입력한 값(String)을 처리하기 쉽게 변환해주는 Converter**
+
+- 사용자가 입력한 자동차 이름을 List<String> 형태로 변환해주는 기능
+- 사용자가 입력한 시도횟수를 Integer로 변환해주는 기능
+
 ## 💡Controller
 
 - Model과 View 사이에 존재하여 두 계층간의 상호작용을 돕는다.
