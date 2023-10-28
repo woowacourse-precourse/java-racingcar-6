@@ -35,4 +35,13 @@ public class PaceComputer {
     public List<Integer> getRandomNumberList() {
         return randomNumberList;
     }
+
+    public LinkedHashMap<String, Integer> updatePaceMap(Machines machines) {
+        LinkedHashMap<String, Integer> paceMap = createDefaultPaceMap(machines);
+
+        paceMap.replaceAll((machineName, driveSuccessNumber) ->
+                generateRandomNumber(INITIAL_RANDOM_NUMBER, LAST_RANDOM_NUMBER));
+
+        return paceMap;
+    }
 }
