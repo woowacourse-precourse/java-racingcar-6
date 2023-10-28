@@ -1,7 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.RacingCars;
-import racingcar.domain.Refree;
+import racingcar.domain.Referee;
 import racingcar.domain.TypeCasting;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -15,10 +15,10 @@ public class Game {
         final int playTime = TypeCasting.stringToInteger(InputView.askPlayTime());
         OutputView.showResultMessage();
         for (int i = 0; i < playTime; i++) {
-            Refree.simulate(racingcars);
+            Referee.simulate(racingcars);
             OutputView.showCurrentDistance(racingcars);
         }
-        RacingCars winners = Refree.calculateWinner(racingcars);
+        RacingCars winners = Referee.calculateWinner(racingcars);
         OutputView.showFinalWinner(winners);
 
     }
