@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.domain;
+
+import racingcar.RandomNumberGenerator;
 
 public class Car {
 
@@ -10,7 +12,6 @@ public class Car {
         this.position = 0;
     }
 
-    // 이동 -> 네이밍을 어떻게 할까? -> move(),
     public void move() {
         if (RandomNumberGenerator.generateNumber() >= 4) {
             position++;
