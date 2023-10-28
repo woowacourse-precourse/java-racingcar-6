@@ -99,7 +99,7 @@ public class Application {
         // 4. 우승자 출력
         int max = 0;
 
-        for (int i = 0; i < carNames.length; i++) {
+        for (int i = 0; i < carNames.size(); i++) {
             if (max <= movedCount[i].length()) {
                 max = movedCount[i].length();
             }
@@ -108,7 +108,7 @@ public class Application {
         System.out.print("최종 우승자 : ");
         int count = 0;
 
-        for (int i = 0; i < carNames.length; i++) {
+        for (int i = 0; i < carNames.size(); i++) {
 
             if (max == movedCount[i].length()) {
 
@@ -116,7 +116,7 @@ public class Application {
                     System.out.print(", ");
                 }
 
-                System.out.print(carNames[i]);
+                System.out.print(carNames.get(i));
             }
         }
 
