@@ -42,8 +42,7 @@
 - OutputView : 메시지를 출력하는 객체
   - printInputNameMessage() : 자동차 이름 입력 메시지를 출력하는 함수
   - printInputCountMessage() : 시도 횟수 입력 메시지를 출력하는 함수
-  - printCarName() : 자동차의 이름을 출력하는 함수
-  - printRaceStatus() : 자동차의 현재 경주 상황을 출력하는 함수
+  - printCarResult : 자동차의 이름과 해당 자동차의 현재 경주 상황을 출력하는 함수
   - printWinner() : 우승자를 출력하는 함수
 
 ## domain
