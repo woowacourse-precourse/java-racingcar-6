@@ -16,7 +16,7 @@
 
 -[]자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다. Referee#announceWinner()
     -[]우승자를 판단해야 한다. Referee#decideWinner()
-    -[]우승자의 숫자를 구해야 한다. Referee#calculateNumberOfWinner();
+    -[]우승자의 숫자가 두명 이상인지 판단 한다. Referee#isNumberOfWinnerTwoOrMore();
     -[]우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.  Referee#makeWinnerWithCommas()
 
 -[]전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다. OutputView#printCar();

@@ -20,8 +20,8 @@ public class Referee {
         return maxDistance;
     }
 
-    public int calculateNumberOfWinner() {
-        return 0;
+    public boolean isNumberOfWinnerTwoOrMore() {
+        return false;
     }
 
     public String makeWinnerWithCommas(List<String> winners) {
