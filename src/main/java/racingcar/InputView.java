@@ -25,4 +25,10 @@ public class InputView {
             throw new IllegalArgumentException("숫자만 입력 가능합니다.");
         }
     }
+
+    private static void validatePositiveNumber(int number) {
+        if (number <= 0) {
+            throw new IllegalArgumentException("양수를 입력해주세요.");
+        }
+    }
 }
