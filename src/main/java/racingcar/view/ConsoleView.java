@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.model.Player;
 
 import java.util.List;
 
@@ -19,9 +20,12 @@ public class ConsoleView implements View{
         return Console.readLine();
     }
     @Override
-    public void printRoundProgress(String name, int winCount) {
-        String winStatus = drawWin(winCount);
-        out(name + " : " + winStatus);
+    public void printRoundProgress(List<Player> playerList) {
+        for (int i=0; i< playerList.size(); i++){
+            Player player = playerList.get(i);
+            String winStatus = drawWin(player.getWins());
+            out(player.getName() + " : " + winStatus);
+        }
     }
     private String drawWin(int winCount){
         StringBuilder winStatus = new StringBuilder();

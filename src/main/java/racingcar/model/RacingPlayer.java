@@ -8,6 +8,10 @@ public class RacingPlayer implements Player{
     public RacingPlayer(String name) {
         this.name = name;
     }
+    public RacingPlayer(String name, int score){
+        this.name = name;
+        this.score = score;
+    }
     @Override
     public void addWins() {
         this.score++;
