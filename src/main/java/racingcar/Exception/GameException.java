@@ -1,4 +1,4 @@
-package Exception;
+package racingcar.Exception;
 
 public class GameException extends RuntimeException {
 

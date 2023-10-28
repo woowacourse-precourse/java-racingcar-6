@@ -1,4 +1,4 @@
-package Message;
+package racingcar.Message;
 
 public enum RoundExceptionPrompt {
     STRINGPROMPT("문자열을 입력하셨습니다.\n시도 횟수는 정수만 입력 가능합니다.\n"),

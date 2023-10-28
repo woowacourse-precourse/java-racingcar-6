@@ -1,4 +1,4 @@
-package Message;
+package racingcar.Message;
 
 public enum CarNameExceptionPrompt {
 
