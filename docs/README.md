@@ -48,6 +48,11 @@
 
 ## 3-5. RacingGame 클래스
 - [x] RacingGame은 자동차들, 시도할 횟수, 실행한 횟수를 가진다.
-- [x] RacingGame은 게임을 생성할 수 있다.
+- [x] RacingGame은 게임을 생성할 수 있다. - 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다.
 - [x] RacingGame은 게임을 실행할 수 있다.
 - [x] RacingGame은 게임이 끝났는지 판단할 수 있다.
+
+# 4. 클래스 다이어그램
+<p align="center">
+  <img src="https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F8f9374ea-d950-4add-878f-648f2923ed06%2Fc5f3af34-9c41-4e09-aa12-47ee37d199da%2FUntitled.png?table=block&id=c7d0bcbb-3bea-43b6-b1c1-4122d16186cb&spaceId=8f9374ea-d950-4add-878f-648f2923ed06&width=1740&userId=2f121881-2289-461c-a96c-58cde2646312&cache=v2" alt="class" width="number" />
+</p>
