@@ -37,6 +37,14 @@ public class RaceController {
     }
 
     private RaceWinners runRaceAndGetWinners(RaceParticipants raceParticipants, RaceAttempts raceAttempts) {
+        outputView.printResultMessage();
+
+        int attempts = raceAttempts.getAttempts();
+        List<RacingCar> racingCarList = raceParticipants.getRacingCarList();
+
+        raceInProgress(attempts, racingCarList);
+
+        return RaceWinners.from(raceParticipants);
     }
 
 
