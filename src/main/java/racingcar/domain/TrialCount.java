@@ -12,4 +12,8 @@ public record TrialCount(int count) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_TRIAL_COUNT);
         }
     }
+
+    public boolean moreThen(int count) {
+        return this.count() > count;
+    }
 }

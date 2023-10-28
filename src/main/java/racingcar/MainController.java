@@ -34,9 +34,10 @@ public class MainController {
     private void proceedGame(Cars cars, TrialCount trialCount) {
         int moveCount  = 0;
         OutputView.printMessage(ViewMessage.GAME_RESULT);
-        while (moveCount++ < trialCount.count()) {
+        while (trialCount.moreThen(moveCount)) {
             cars.moveRandomly();
             OutputView.printResult(cars);
+            moveCount++;
         }
     }
 
