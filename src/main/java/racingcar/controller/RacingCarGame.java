@@ -17,6 +17,10 @@ public class RacingCarGame {
   private static GameResultAnalyzer gameResultAnalyzer;
   private static InputView inputView;
 
+  public RacingCarGame() {
+    inputView = new InputView();
+  }
+
   public static void runRacing(List<String> carNamesList, List<Integer> distance, int frequency) {
     CarDistanceManager distanceManager = new CarDistanceManager();
     for (int i = 0; i < frequency; i++) {
