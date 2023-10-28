@@ -7,10 +7,10 @@ public class Player {
     private final static Integer MAX = 9;
     private final static String DELIMITER = " : ";
     private final static String FORWARD = "-";
-    private String name;
+    private final String name;
     private Integer forward;
 
-    public Player(String name) {
+    public Player(final String name) {
         this.name = name;
         this.forward = 0;
     }
