@@ -38,4 +38,8 @@ public class Car {
 
         return stringBuilder.toString();
     }
+
+    public int getPosition() {
+        return position;
+    }
 }

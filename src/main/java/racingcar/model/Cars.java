@@ -2,6 +2,7 @@ package racingcar.model;
 
 import racingcar.constants.ErrorMessage;
 import racingcar.exception.CarsCountException;
+import racingcar.exception.NotFoundCarPositionException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,6 +31,13 @@ public class Cars {
                 .forEach(car -> stringBuilder.append(car.statusCarPosition()));
 
         return stringBuilder.toString();
+    }
+
+    private int findMaxCarPosition() {
+        return racingCars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElseThrow(() -> new NotFoundCarPositionException(ErrorMessage.NOT_FOUND_MAX_CAR_POSITION.getMessage()));
     }
 
     public List<Car> getRacingCars() {
