@@ -18,6 +18,23 @@ public class ConsoleOutput implements Output {
 
     @Override
     public void printWinner(List<Car> carList) {
+        int maxDistance = getMaxDistance(carList);
+        List<String> winners = getWinnersNameList(carList, maxDistance);
 
+        System.out.println(String.join(", ", winners));
+    }
+
+    private int getMaxDistance(List<Car> carList) {
+        return carList.stream()
+                .mapToInt(Car::getDistance)
+                .max()
+                .orElse(0);
+    }
+
+    private List<String> getWinnersNameList(List<Car> carList, int max) {
+        return carList.stream()
+                .filter(car -> (car.getDistance() == max))
+                .map(Car::getName)
+                .toList();
     }
 }
