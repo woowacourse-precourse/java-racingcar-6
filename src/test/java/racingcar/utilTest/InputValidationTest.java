@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.utilTest;
 
 import org.junit.jupiter.api.Test;
+import racingcar.util.InputValidation;
 
 import java.util.ArrayList;
 import java.util.List;

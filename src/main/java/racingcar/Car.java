@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.domain.Judgment;
+
 public class Car {
     private String name;
     private StringBuilder status;
