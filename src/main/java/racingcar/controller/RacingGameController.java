@@ -15,6 +15,7 @@ public class RacingGameController {
         String carNames = getInputLine();
         validatePlayerInput.validateContainSpace(carNames);
         validatePlayerInput.validateCarNameLength(carNames);
+        validatePlayerInput.validateDuplicateCarNames(carNames);
         List<String> names = validatePlayerInput.convertStringToListCarNames(carNames);
 
         gameViewer.tryCountMessage();
