@@ -9,5 +9,8 @@ public class RacingGame {
         RacingGameManager racingGameManager = new RacingGameManager(new ArrayList<>());
         String userInput = InputManager.getCarNamesFromPlayerInput();
         List<Car> cars = racingGameManager.createCarListFromPlayerInput(userInput);
+
+        String countInput = InputManager.getCountFromPlayerInput();
+        racingGameManager.createCountFromPlayerInput(countInput);
     }
 }
