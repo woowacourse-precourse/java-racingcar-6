@@ -6,9 +6,25 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class CarsTest {
+
+    private Car firstCar;
+    private Car secondCar;
+    private Car thirdCar;
+    private Cars cars;
+
+    @BeforeEach
+    void setup() {
+        List<String> carNames = List.of("pobi", "woni", "jun");
+        cars = Cars.from(carNames);
+
+        firstCar = cars.getCars().get(0);
+        secondCar = cars.getCars().get(1);
+        thirdCar = cars.getCars().get(2);
+    }
 
     @Test
     void Cars의_from_메서드는_올바른_값이_주어지면_Cars_객체를_생성한다() {
@@ -21,41 +37,27 @@ class CarsTest {
     void Cars의_move_메서드는_모든_자동차가_랜덤한_숫자를_뽑아_4이상이면_위치가_증가한다() {
         NumberGenerator numberGenerator = new IncreasePositionNumber();
 
-        Car firstCar = new Car("pobi");
-        Car secondCar = new Car("woni");
-
-        Cars cars = new Cars(List.of(firstCar, secondCar));
-
         cars.move(numberGenerator);
 
         assertEquals(1, firstCar.getPosition());
         assertEquals(1, secondCar.getPosition());
+        assertEquals(1, thirdCar.getPosition());
     }
 
     @Test
     void Cars의_move_메서드는_모든_자동차가_랜덤한_숫자를_뽑아_4보다_작으면_위치가_증가하지_않는다() {
         NumberGenerator numberGenerator = new NotIncreasePositionNumber();
 
-        Car firstCar = new Car("pobi");
-        Car secondCar = new Car("woni");
-
-        Cars cars = new Cars(List.of(firstCar, secondCar));
-
         cars.move(numberGenerator);
 
         assertEquals(0, firstCar.getPosition());
         assertEquals(0, secondCar.getPosition());
+        assertEquals(0, thirdCar.getPosition());
     }
 
 
     @Test
     void 각_자동차의_최대_위치를_계산해서_리스트에_넣고_리스트에_포함되어_있으면_true를_반환한다() {
-        Car firstCar = new Car("pobi");
-        Car secondCar = new Car("woni");
-        Car thirdCar = new Car("jun");
-
-        Cars cars = new Cars(List.of(firstCar, secondCar, thirdCar));
-
         firstCar.move(4);
         secondCar.move(5);
         thirdCar.move(2);
