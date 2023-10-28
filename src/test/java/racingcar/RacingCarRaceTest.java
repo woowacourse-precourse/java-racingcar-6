@@ -2,6 +2,7 @@ package racingcar;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
@@ -11,7 +12,7 @@ class RacingCarRaceTest {
     @Test
     void 자동차_이름_입력_시도_횟수_입력에_따른_경주_정보_생성() {
         // given
-        String[] carNames = new String[]{"pobi", "woni", "jun"};
+        List<String> carNames = Arrays.asList("pobi", "woni", "jun");
         int attemptCount = 5;
 
         // when
@@ -55,7 +56,7 @@ class RacingCarRaceTest {
     @Test
     void 경주에서의_최종_우승자를_결정합니다() {
         // given
-        String[] carNames = new String[]{"pobi", "woni", "jun"};
+        List<String> carNames = Arrays.asList("pobi", "woni", "jun");
         int attemptCount = 5;
         RacingCarRace racingCarRace = RacingCarRace.createRacingCarRace(carNames, attemptCount);
         List<RacingCar> racingCars = racingCarRace.getRacingCars();

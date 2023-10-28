@@ -7,6 +7,7 @@ import racingcar.RacingCar;
 import racingcar.RacingCarRace;
 
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -69,7 +70,7 @@ class MessagePrinterTest {
         @Override
         protected void runMain() {
             MessagePrinter messagePrinter = new MessagePrinter();
-            String[] carNames = new String[]{"pobi", "woni", "jun"};
+            List<String> carNames = Arrays.asList("pobi", "woni", "jun");
             int attemptCount = 5;
 
             RacingCarRace racingCarRace = RacingCarRace.createRacingCarRace(carNames, attemptCount);
@@ -93,7 +94,7 @@ class MessagePrinterTest {
         protected void runMain() {
             // given
             MessagePrinter messagePrinter = new MessagePrinter();
-            String[] carNames = new String[]{"pobi", "woni", "jun"};
+            List<String> carNames = Arrays.asList("pobi", "woni", "jun");
             int attemptCount = 5;
 
             RacingCarRace racingCarRace = RacingCarRace.createRacingCarRace(carNames, attemptCount);

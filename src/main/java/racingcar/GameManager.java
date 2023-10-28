@@ -4,6 +4,8 @@ import racingcar.view.MessagePrinter;
 import racingcar.view.MessageReceiver;
 
 
+import java.util.List;
+
 import static racingcar.constant.NumberConstant.*;
 
 public class GameManager {
@@ -24,7 +26,7 @@ public class GameManager {
 
     private RacingCarRace prepareGame() {
         messagePrinter.printCarNameInputMessage();
-        String[] carNames = messageReceiver.receiveCarNames();
+        List<String> carNames = messageReceiver.receiveCarNames();
         messagePrinter.printAttemptCountInputMessage();
         int attemptCount = messageReceiver.receiveAttemptCount();
 

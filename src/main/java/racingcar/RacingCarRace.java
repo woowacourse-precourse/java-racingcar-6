@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,20 +17,21 @@ public final class RacingCarRace {
         this.attemptCount = attemptCount;
     }
 
-    public static RacingCarRace createRacingCarRace(final String[] carNames, final int attemptCount) {
-        List<RacingCar> racingCars = Arrays
-                .stream(carNames)
-                .map(RacingCar::of)
-                .collect(toList());
+    public static RacingCarRace createRacingCarRace(final List<String> carNames, final int attemptCount) {
+        List<RacingCar> racingCars = new ArrayList<>();
+        for (String carName : carNames) {
+            RacingCar racingCar = RacingCar.of(carName);
+            racingCars.add(racingCar);
+        }
 
         return new RacingCarRace(racingCars, attemptCount);
     }
 
     public void runRace() {
-        racingCars.forEach(racingCar -> {
+        for (RacingCar racingCar : racingCars) {
             int randomNumber = racingCar.pickRandomNumber();
             racingCar.move(randomNumber);
-        });
+        }
     }
 
     public List<RacingCar> findWinners() {

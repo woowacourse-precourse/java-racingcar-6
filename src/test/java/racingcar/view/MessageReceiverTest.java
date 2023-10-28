@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -12,7 +14,7 @@ class MessageReceiverTest {
     @Nested
     class CarNamesReceiverTest extends NsTest {
 
-        private String[] carNames;
+        private List<String> carNames;
 
         @Test
         void 경주할_자동차_이름_입력() {
@@ -20,7 +22,7 @@ class MessageReceiverTest {
             run("pobi,woni,jun");
 
             // then
-            assertThat(carNames.length).isEqualTo(3);
+            assertThat(carNames.size()).isEqualTo(3);
         }
 
         @Test

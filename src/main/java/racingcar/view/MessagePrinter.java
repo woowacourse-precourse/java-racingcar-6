@@ -29,11 +29,12 @@ public class MessagePrinter {
     public void printExecutionResult(final RacingCarRace racingCarRace) {
         List<RacingCar> racingCars = racingCarRace.getRacingCars();
 
-        racingCars.forEach(racingCar -> {
+        for (RacingCar racingCar : racingCars) {
             String carName = racingCar.getCarName();
             String currentLocation = racingCar.getCurrentLocation();
             System.out.println(carName + COLON + currentLocation);
-        });
+        }
+
         System.out.println(BLANK);
     }
 
@@ -42,12 +43,12 @@ public class MessagePrinter {
         StringBuilder result = new StringBuilder();
         int maxWinnerIdx = winners.size() - ONE;
 
-        winners.forEach(winner -> {
+        for (RacingCar winner : winners) {
             result.append(winner.getCarName());
             if (winners.indexOf(winner) != maxWinnerIdx) {
                 result.append(COMMA_BLANK);
             }
-        });
+        }
 
         System.out.println(result);
     }
