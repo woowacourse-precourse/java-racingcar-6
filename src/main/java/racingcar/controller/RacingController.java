@@ -30,7 +30,7 @@ public class RacingController {
 
     private void inputMoveCount() {
         OutputView.printMoveCountInputDescription();
-        InputView.inputMoveCount();
+        moveCount = InputView.inputMoveCount();
     }
 
 
