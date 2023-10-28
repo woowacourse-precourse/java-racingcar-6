@@ -36,4 +36,11 @@ class InputValidatorTest {
         assertThatThrownBy(() -> InputValidator.validateNumeric(attemptCount))
                 .isInstanceOf(InputNumericException.class);
     }
+
+    @Test
+    @DisplayName("시도할 횟수를 정상적으로 입력한다.")
+    void input_attempt_count_correct() {
+        assertThatCode(() -> InputValidator.validateNumeric("5"))
+                .doesNotThrowAnyException();
+    }
 }
