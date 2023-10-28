@@ -1,8 +1,8 @@
 package racingcar;
 
-import static racingcar.constant.StringConstant.EXECUTION_RESULT_TEXT;
-import static racingcar.constant.StringConstant.INPUT_CAR_NAMES_TEXT;
-import static racingcar.constant.StringConstant.INPUT_EXECUTION_COUNT_TEXT;
+import static racingcar.constant.GuideTextConstant.EXECUTION_RESULT_TEXT;
+import static racingcar.constant.GuideTextConstant.INPUT_CAR_NAMES_GUIDE_TEXT;
+import static racingcar.constant.GuideTextConstant.INPUT_EXECUTION_COUNT_GUIDE_TEXT;
 
 import java.util.List;
 import racingcar.input.Input;
@@ -27,12 +27,12 @@ public class Game {
     }
 
     private List<Car> getCars() {
-        output.printText(INPUT_CAR_NAMES_TEXT);
+        output.printText(INPUT_CAR_NAMES_GUIDE_TEXT);
         return input.receiveCarNamesAndMakeList();
     }
 
     private int getExecutionCount() {
-        output.printText(INPUT_EXECUTION_COUNT_TEXT);
+        output.printText(INPUT_EXECUTION_COUNT_GUIDE_TEXT);
         return input.receiveTotalCountOfExecution();
     }
 
