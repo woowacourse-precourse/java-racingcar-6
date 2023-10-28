@@ -26,8 +26,21 @@ public class Car {
     private boolean isOverMoveNumber() {
         return pickRandomNumber() >= MOVE_NUMBER;
     }
+
     private int pickRandomNumber() {
         return Randoms.pickNumberInRange(START_NUMBER, END_NUMBER);
+    }
+
+    public boolean isSamePosition(int number) {
+        return position == number;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getRaceResult() {
