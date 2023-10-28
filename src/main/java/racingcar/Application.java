@@ -2,14 +2,31 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class Application {
+
+    public static Map<String, Integer> carDistanceMap(String carNameString) {
+
+        Map<String, Integer> carDistanceMap = new LinkedHashMap<>();
+
+        for (String carName : carNameString.split(",")) {
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException();
+            }
+            carDistanceMap.put(carName, 0);
+        }
+
+        return carDistanceMap;
+    }
+
     public static void main(String[] args) {
         System.out.println("경주할 자동차의 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
         String carNames = Console.readLine();
 
-        // 자동차 이름 파싱 후 저장
+        Map<String, Integer> carDistanceMap = carDistanceMap(carNames);
 
         System.out.println("시도할 회수는 몇회인가요?");
 
