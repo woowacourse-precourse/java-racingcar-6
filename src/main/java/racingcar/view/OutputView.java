@@ -6,8 +6,8 @@ import racingcar.model.Car;
 
 public class OutputView {
     public static String displayCarPosition(CarController controller) {
-        return controller.getCars().stream()
-                .map(car -> car.getName() + " : " + "-".repeat(car.getPosition()) + System.lineSeparator())
+        return controller.getCarDtos().stream()
+                .map(carDto -> carDto.getName() + " : " + "-".repeat(carDto.getPosition()) + System.lineSeparator())
                 .collect(Collectors.joining());
     }
 }
