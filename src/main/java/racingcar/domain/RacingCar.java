@@ -24,4 +24,22 @@ public class RacingCar {
             throw new InvalidInputException(ErrorMessage.INVALID_CAR_NAME_LENGTH);
         }
     }
+
+    public void moveOrStop() {
+        if (shouldMove()) {
+            position++;
+        }
+    }
+
+    public boolean shouldMove() {
+        return numberGenerator.generate() >= MIN_FORWARD_THRESHOLD;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
