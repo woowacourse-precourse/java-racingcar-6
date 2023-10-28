@@ -22,6 +22,11 @@ public class Game {
         return currentRound;
     }
 
+    public void playOneRound() {
+        moveAllCarsOnce();
+        increaseRound();
+    }
+
     public void moveAllCarsOnce() {
         for (Car car : cars) {
             car.move();
