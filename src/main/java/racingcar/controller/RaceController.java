@@ -1,11 +1,11 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
 import java.util.List;
-import racingcar.manager.RaceManager;
 import racingcar.model.Car;
+import racingcar.model.Cars;
 import racingcar.model.RaceResult;
 import racingcar.utils.InputParser;
-import racingcar.utils.InputValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -13,41 +13,47 @@ public class RaceController {
 
     private final InputView inputView;
     private final OutputView outputView;
-    private final RaceManager raceManager;
 
-    public RaceController(InputView inputView, OutputView outputView, RaceManager raceManager) {
+
+    public RaceController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
-        this.raceManager = raceManager;
     }
 
     public void startRace() {
-        List<Car> cars = initializeCars();
+        Cars cars = initializeCars();
         int attemptCount = initializeAttemptCount();
+
         outputView.printGameStartMessage();
-        startRacingRounds(cars, attemptCount);
 
+        List<RaceResult> raceResults = startRacingRounds(cars, attemptCount);
+        displayRaceResults(raceResults);
     }
 
-    private List<Car> initializeCars(){
+    private Cars initializeCars() {
         List<String> carNames = inputView.inputCarNames();
-        return InputParser.convertNamesToCars(carNames);
+        List<Car> cars = InputParser.convertNamesToCars(carNames);
+        return new Cars(cars);
     }
 
-    private int initializeAttemptCount(){
+    private int initializeAttemptCount() {
         return inputView.inputAttemptCount();
     }
 
-    private void startRacingRounds(List<Car> cars, int attemptCount){
-        RaceResult result = null;
-        while (attemptCount-- > 0) {
-            result = raceManager.playRound(cars);
+    private List<RaceResult> startRacingRounds(Cars cars, int attemptCount) {
+        List<RaceResult> raceResults = new ArrayList<>();
+        for (int i = 0; i < attemptCount; i++) {
+            cars = cars.playRound();
+            raceResults.add(new RaceResult(cars.toList()));
+        }
+        return raceResults;
+    }
+
+    private void displayRaceResults(List<RaceResult> raceResults) {
+        for (RaceResult result : raceResults) {
             outputView.printRaceRoundResult(result.carsToList());
         }
-
-        if(result != null) {
-            outputView.printWinner(result);
-        }
+        outputView.printWinner(raceResults.get(raceResults.size() - 1));
     }
 
 }
