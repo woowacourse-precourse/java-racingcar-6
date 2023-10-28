@@ -50,6 +50,45 @@ class ValidatePlayerInputTest {
                 .hasMessage("중복된 자동차 이름이 있습니다");
     }
 
+    @DisplayName("레이싱 자동차 이름이 한글이 경우에 대한 테스트")
+    @Test
+    void containKoreanCarName() {
+        //when
+        ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
+        //given
+        String playerInput = "수환,abc,qwer";
+        //then
+        assertThatThrownBy(() -> validatePlayerInput.validateAlphaCarName(playerInput))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("레이싱 자동차 이름은 영어만 허용됩니다");
+    }
+
+    @DisplayName("레이싱 자동차 이름에 숫자가 포함된 경우에 대한 테스트")
+    @Test
+    void containDigitCarName() {
+        //when
+        ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
+        //given
+        String playerInput = "pobi,pobi2,qwer";
+        //then
+        assertThatThrownBy(() -> validatePlayerInput.validateAlphaCarName(playerInput))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("레이싱 자동차 이름은 영어만 허용됩니다");
+    }
+
+    @DisplayName("레이싱 자동차 이름에 특수 기호가 포한된 경우에 대한 테스트")
+    @Test
+    void containSpecialSignInCarName() {
+        //when
+        ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
+        //given
+        String playerInput = "pobi,pobi@,qwer";
+        //then
+        assertThatThrownBy(() -> validatePlayerInput.validateAlphaCarName(playerInput))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("레이싱 자동차 이름은 영어만 허용됩니다");
+    }
+
     @DisplayName("레이싱 게임을 시도할 횟수 Input 값에 space가 포함될 경우 대한 테스트")
     @Test
     void containSpaceInTryCountTest() {

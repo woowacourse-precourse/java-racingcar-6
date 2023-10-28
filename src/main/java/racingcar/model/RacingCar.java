@@ -44,6 +44,7 @@ public class RacingCar {
     public int getMoveCount() {
         return this.moveCount;
     }
+
     @Override
     public String toString() {
         String gameResult = makeGameResult();
