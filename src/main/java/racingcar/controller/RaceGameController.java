@@ -18,11 +18,13 @@ public class RaceGameController {
     int numberOfAttempts=0;
 
     public void newGame(){
+        output.gameStartMessage();
         String[] cars = input.getCarNames();
         setCarList(cars);
 
+        output.getAttemptsMessage();
         numberOfAttempts = input.getNumberOfAttempts();
-        output.GameResultMessage();
+        output.gameResultMessage();
         for(int i=0; i<numberOfAttempts; i++){
             tryAllCarsOneStep();
             output.printGameResult(carList);
