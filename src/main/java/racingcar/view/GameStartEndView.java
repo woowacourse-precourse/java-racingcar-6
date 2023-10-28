@@ -5,7 +5,7 @@ import static racingcar.constants.MessageConstants.START_MESSAGE;
 
 public class GameStartEndView {
 
-    private static final String WINNING_CAR_NAMES_MESSAGE = "최종 우승자 : %s";
+    private static final String WINNING_CAR_NAMES_MESSAGE_FORMAT = "최종 우승자 : %s";
 
     public void printStartMessage(){
         System.out.println(START_MESSAGE);
@@ -16,7 +16,7 @@ public class GameStartEndView {
     }
 
     public void printWinningCarNames(String carNames){
-        System.out.println(String.format(WINNING_CAR_NAMES_MESSAGE, carNames));
+        System.out.println(String.format(WINNING_CAR_NAMES_MESSAGE_FORMAT, carNames));
     }
 
 }

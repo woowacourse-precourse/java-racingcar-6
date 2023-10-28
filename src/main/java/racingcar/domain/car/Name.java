@@ -5,10 +5,11 @@ import java.util.Objects;
 import static racingcar.constants.ErrorConstants.*;
 
 public class Name {
+    private static final int NAME_MAX_LENGTH = 5;
     private String name;
 
     public Name(String name) {
-        if (name.length() > 5) {
+        if (name.length() > NAME_MAX_LENGTH) {
             throw new IllegalArgumentException(CAR_NAME_ERROR_MESSAGE);
         }
         this.name = name;
