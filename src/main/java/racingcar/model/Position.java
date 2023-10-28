@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.dto.ForwardState;
 
 public class Position {
     private int position;

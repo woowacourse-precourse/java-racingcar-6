@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.view;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -8,6 +8,8 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.dto.CurrentResult;
+import racingcar.dto.ForwardState;
 
 public class ViewTest {
     @DisplayName("콘솔에서 사용자에게 이름들을 입력받는 기능")

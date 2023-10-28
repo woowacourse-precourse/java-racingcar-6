@@ -1,10 +1,11 @@
-package racingcar;
+package racingcar.model;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import racingcar.dto.ForwardState;
 
 public class PositionTest {
     @DisplayName("위치 값을 작대기(-)로 변환해주는 기능")

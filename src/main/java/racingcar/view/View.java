@@ -1,8 +1,11 @@
-package racingcar;
+package racingcar.view;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import java.util.List;
+import racingcar.Message;
+import racingcar.dto.CurrentResult;
+import racingcar.dto.ResultMessage;
 
 public class View {
     public View() {

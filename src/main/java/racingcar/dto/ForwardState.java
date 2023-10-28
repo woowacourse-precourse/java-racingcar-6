@@ -1,9 +1,8 @@
-package racingcar;
+package racingcar.dto;
 
 public class ForwardState {
     private static final String SLASH = "-";
     private final String forwardState;
-
 
     public ForwardState(int count) {
         this.forwardState = switchCountToSlash(count);

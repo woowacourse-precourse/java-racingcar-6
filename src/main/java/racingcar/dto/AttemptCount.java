@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.dto;
 
 import racingcar.validator.AttemptCountValidator;
 

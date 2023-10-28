@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.model;
+
+import racingcar.dto.ForwardState;
 
 public class Car {
     private final Name name;

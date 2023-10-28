@@ -1,7 +1,9 @@
-package racingcar;
+package racingcar.model;
 
 import java.util.Comparator;
 import java.util.List;
+import racingcar.dto.CurrentResult;
+import racingcar.dto.ResultMessage;
 import racingcar.validator.CarsValidator;
 
 public class Cars {

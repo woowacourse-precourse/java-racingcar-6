@@ -1,23 +1,24 @@
-package racingcar;
+package racingcar.dto;
 
 import java.util.List;
+import racingcar.Constants;
+import racingcar.model.Car;
 
 public class ResultMessage {
     private final String resultMessage;
 
-    public ResultMessage(List<Car> cars){
+    public ResultMessage(List<Car> cars) {
         StringBuilder result = new StringBuilder();
 
         cars.stream().map(Car::getNameValue)
-                .forEach((name)->addResult(result,name));
-
+                .forEach((name) -> addResult(result, name));
 
         trim(result);
 
-        resultMessage=result.toString();
+        resultMessage = result.toString();
     }
 
-    private void addResult(StringBuilder result,String name){
+    private void addResult(StringBuilder result, String name) {
         result.append(Constants.WHITESPACE).append(name).append(Constants.COMMA);
     }
 
@@ -26,7 +27,7 @@ public class ResultMessage {
         result.deleteCharAt(result.length() - 1);
     }
 
-    public String getResultMessage(){
+    public String getResultMessage() {
         return resultMessage;
     }
 }

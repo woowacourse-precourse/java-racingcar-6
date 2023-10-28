@@ -1,12 +1,14 @@
-package racingcar;
+package racingcar.dto;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import racingcar.model.Car;
+import racingcar.model.Name;
+import racingcar.model.Position;
 
 public class ResultMessageTest {
     @DisplayName("차들의 이름을 출력하는 기능.")
