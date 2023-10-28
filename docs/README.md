@@ -18,6 +18,7 @@
     -[]우승자를 판단해야 한다. Referee#decideWinner()
     -[]우승자의 숫자가 두명 이상인지 판단 한다. Referee#isNumberOfWinnerTwoOrMore();
     -[]우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.  Referee#makeWinnerWithCommas()
+    -[]우승자를 발표한다. Referee#announceWinner()
 
 -[]전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다. OutputView#printCar();
     -[] 자동차의 위치와 이름을 받는다. OutputView#CarState();
