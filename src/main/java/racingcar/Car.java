@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.utils.NumberGenerator;
+
 public class Car {
 
     private String name;
