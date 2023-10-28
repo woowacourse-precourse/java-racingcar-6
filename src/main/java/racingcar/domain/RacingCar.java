@@ -48,7 +48,7 @@ public class RacingCar {
     }
 
     public boolean hasHigherMovement(RacingCar otherRacingCar) {
-        return this.carMovement >= otherRacingCar.carMovement;
+        return this.carMovement > otherRacingCar.carMovement;
     }
 
     public boolean hasEqualMovement(RacingCar otherRacingCar) {
