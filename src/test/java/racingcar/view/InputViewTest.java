@@ -29,4 +29,24 @@ public class InputViewTest {
         //then
         assertThat(e.getMessage()).isEqualTo("자동차 이름은 5자 이내로 입력해주세요.");
     }
+
+    @Test
+    void 입력된_시도_횟수가_숫자가_아니면_예외() {
+        //given
+        String input = "다섯번";
+        //when
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> inputView.validateNumber(input));
+        //then
+        assertThat(e.getMessage()).isEqualTo("숫자를 입력하세요");
+    }
+
+    @Test
+    void 시도_횟수를_숫자로_변환() {
+        //given
+        String input = "5";
+        //when
+        int number = inputView.convertToNumber(input);
+        //then
+        assertThat(5).isEqualTo(number);
+    }
 }
