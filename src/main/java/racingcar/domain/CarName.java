@@ -2,15 +2,15 @@ package racingcar.domain;
 
 import java.util.regex.Pattern;
 
-public record Name(String value) {
+public record CarName(String value) {
 
     public String getValue() {
         return value;
     }
 
-    public static Name from(final String name) {
+    public static CarName from(final String name) {
         NameValidator.validate(name);
-        return new Name(name);
+        return new CarName(name);
     }
 
     private static class NameValidator {

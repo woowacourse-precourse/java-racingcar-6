@@ -4,16 +4,16 @@ public class Car {
 
     private static final int MOVABLE_OFFSET = 4;
 
-    private final Name name;
+    private final CarName name;
     private int position;
 
-    private Car(final Name name, final int position) {
+    private Car(final CarName name, final int position) {
         this.name = name;
         this.position = position;
     }
 
     public static Car of(final String name, final int position) {
-        return new Car(Name.from(name), position);
+        return new Car(CarName.from(name), position);
     }
 
     public String getName() {
