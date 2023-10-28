@@ -1,4 +1,4 @@
-package racingcar.output;
+package racingcar.ui.output;
 
 public class OutputProcessor {
     public void printInput(String input) {
