@@ -42,4 +42,8 @@ public class Car {
     public void setWinner(boolean winner) {
         isWinner = winner;
     }
+
+    List<Car> makeCarObject(List<String> carNameList) {
+        return null;
+    }
 }
