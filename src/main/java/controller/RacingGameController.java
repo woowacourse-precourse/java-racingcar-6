@@ -2,6 +2,7 @@ package controller;
 
 import controller.dto.CarNames;
 import controller.dto.MoveResult;
+import controller.dto.Winner;
 import java.util.List;
 import model.Car;
 import model.Cars;
@@ -38,12 +39,22 @@ public class RacingGameController {
 
     public void run() {
         initGame();
+        startRace();
+        decideWinner();
+    }
+
+    private void decideWinner() {
+        List<Winner> winners = cars.getWinners();
+
+        List<String> winnerNames = winners.stream()
+            .map(Winner::name)
+            .toList();
+        outputView.showWinners(winnerNames);
     }
 
     private void initGame() {
         initCars();
         initTryCount();
-        startRace();
     }
 
     private void startRace() {
