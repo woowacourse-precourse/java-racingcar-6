@@ -33,6 +33,11 @@ RandomNumber
 - 크기가 4이상인지 확인한다 - O
 
 
+TrialCount
+- 카운트를 하나 다운시킨다.
+- 카운트가 다 되었는지 확인한다.
+
+
 NumberGenerator
 - 외부 라이브러리로 int 값을 가져온다. - O
 
