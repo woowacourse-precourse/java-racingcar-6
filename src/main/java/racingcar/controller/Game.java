@@ -11,8 +11,9 @@ import static racingcar.view.OutputView.newLine;
 import static racingcar.view.OutputView.printAttempts;
 import static racingcar.view.OutputView.printWinners;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.CarManager;
 
@@ -31,13 +32,14 @@ public class Game {
         validateInput(input);
         String[] names = input.split(",");
 
-        List<Car> cars = new ArrayList<>();
-
-        for (String name : names) {
-            validateEmptyInput(name);
-            validateNameLength(name);
-            cars.add(new Car(name));
-        }
+        List<Car> cars = Arrays.stream(names)
+                .filter(name -> {
+                    validateEmptyInput(name);
+                    validateNameLength(name);
+                    return true;
+                })
+                .map(Car::new)
+                .collect(Collectors.toList());
 
         carManager = new CarManager(cars);
     }
