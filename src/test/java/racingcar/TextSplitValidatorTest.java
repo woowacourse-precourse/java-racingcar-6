@@ -14,7 +14,7 @@ public class TextSplitValidatorTest {
     @ValueSource(strings = {"non-separable-words"})
     @DisplayName("쉼표로 분할할 수 없는 이름이면 예외가 발생한다.")
     void canNotSplitByComma_Then_ExceptionOccurs(final String words) {
-        assertThatThrownBy(() -> TextSplitValidator.validate(words)
-        ).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> TextSplitValidator.validate(words))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
