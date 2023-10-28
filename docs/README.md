@@ -16,9 +16,9 @@
 - ### 🖥️ Output - Class : OutputView
   - [X] 1 초기 출력문 정의 -  OutputView - printInitGame
   - [X] 2 게임 횟수 입력하기 전 출력문 정의  OutputView - printBeforeInputGameCount
-  - [ ] 3 라운드별 실행 결과 출력  OutputView - printRoundResult
-    - 첫 라운드 시작 전 실행결과 출력
-    - 이후 라운드별 결과 출력
+  - [ ] 3 라운드별 실행 결과 출력 
+    - 첫 라운드 시작 전 실행결과 출력 - OutputView - notifyBeforeResult
+    - 이후 라운드별 결과 출력 OutputView - printRoundResult
   - [ ] 4 최종 우승자 출력  OutputView - printWinner
 
 - ### 🤔 Logic - GameController, CarGameService, InputService, JudgementService
