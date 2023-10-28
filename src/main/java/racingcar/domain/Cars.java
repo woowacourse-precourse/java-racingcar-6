@@ -1,9 +1,11 @@
 package racingcar.domain;
 
+import static racingcar.enums.ExceptionMessage.DUPLICATE_NAME_MESSAGE;
 import static racingcar.enums.ExceptionMessage.EXCEED_MAX_LENGTH_MESSAGE;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 
 public class Cars {
@@ -12,6 +14,7 @@ public class Cars {
 
     public Cars(List<Car> cars) {
         validateNameLength(cars);
+        validateDuplicateNumber(cars);
         this.cars = new ArrayList<>(cars);
     }
 
@@ -23,12 +26,25 @@ public class Cars {
         return Collections.unmodifiableList(cars);
     }
 
-    private void validateNameLength(List<Car> cars) {
+    private void validateNameLength(final List<Car> cars) {
         for (Car car : cars) {
             if (car.isExceedMaxLength()) {
                 throw new IllegalArgumentException(EXCEED_MAX_LENGTH_MESSAGE.getMessage());
             }
         }
+    }
+
+    private void validateDuplicateNumber(final List<Car> cars) {
+        if (hasDuplicateElements(cars)) {
+            throw new IllegalArgumentException(DUPLICATE_NAME_MESSAGE.getMessage());
+        }
+    }
+
+    private boolean hasDuplicateElements(final List<Car> cars) {
+        if (new HashSet<>(cars).size() != cars.size()) {
+            return true;
+        }
+        return false;
     }
 
 }
