@@ -4,29 +4,25 @@ import racingcar.domain.participant.Participant;
 import racingcar.domain.participant.ParticipantFactory;
 import racingcar.util.generator.RandomNumberGenerator;
 import racingcar.util.parser.CarNameParser;
-import racingcar.util.validator.CarNameValidator;
-import racingcar.util.validator.RaceCountValidator;
+import racingcar.util.validator.proxy.InputValidator;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RaceServiceImpl implements RaceService {
     public RaceServiceImpl(
-            CarNameValidator carNameValidator,
-            RaceCountValidator raceCountValidator,
+            InputValidator inputValidator,
             CarNameParser carNameParser,
             ParticipantFactory participantFactory,
             RandomNumberGenerator randomNumberGenerator
     ) {
-        this.carNameValidator = carNameValidator;
-        this.raceCountValidator = raceCountValidator;
+        this.inputValidator = inputValidator;
         this.carNameParser = carNameParser;
         this.participantFactory = participantFactory;
         this.randomNumberGenerator = randomNumberGenerator;
     }
 
-    private final CarNameValidator carNameValidator;
-    private final RaceCountValidator raceCountValidator;
+    private final InputValidator inputValidator;
     private final CarNameParser carNameParser;
     private final ParticipantFactory participantFactory;
     private final RandomNumberGenerator randomNumberGenerator;
@@ -36,14 +32,14 @@ public class RaceServiceImpl implements RaceService {
     @Override
     public void validateCarName(String input) {
         for ( String carName : carNameParser.parse(input) ) {
-            if ( !carNameValidator.validate(carName) )
+            if ( !inputValidator.carName().validate(carName) )
                 throw new IllegalArgumentException();
         }
     }
 
     @Override
     public void validateRaceCount(String input) {
-        if (!raceCountValidator.validate(input))
+        if (!inputValidator.raceCount().validate(input))
             throw new IllegalArgumentException();
     }
 

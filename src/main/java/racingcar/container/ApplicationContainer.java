@@ -14,10 +14,12 @@ import racingcar.util.generator.RandomNumberGenerator;
 import racingcar.util.generator.RandomNumberGeneratorImpl;
 import racingcar.util.parser.CarNameParser;
 import racingcar.util.parser.CarNameParserImpl;
-import racingcar.util.validator.CarNameValidator;
-import racingcar.util.validator.CarNameValidatorImpl;
-import racingcar.util.validator.RaceCountValidator;
-import racingcar.util.validator.RaceCountValidatorImpl;
+import racingcar.util.validator.carName.CarNameValidator;
+import racingcar.util.validator.carName.CarNameValidatorImpl;
+import racingcar.util.validator.proxy.InputValidator;
+import racingcar.util.validator.proxy.ValidatorProxy;
+import racingcar.util.validator.raceCount.RaceCountValidator;
+import racingcar.util.validator.raceCount.RaceCountValidatorImpl;
 
 public class ApplicationContainer {
     /* Console */
@@ -38,6 +40,7 @@ public class ApplicationContainer {
     private CarNameParser carNameParser;
     private CarNameValidator carNameValidator;
     private RaceCountValidator raceCountValidator;
+    private InputValidator inputValidator;
 
     /* Getter */
     public Console getConsole() {
@@ -59,8 +62,7 @@ public class ApplicationContainer {
     public RaceService getRaceService() {
         if ( raceService == null ) {
             raceService = new RaceServiceImpl(
-                    getCarNameValidator(),
-                    getRaceCountValidator(),
+                    getInputValidator(),
                     getCarNameParser(),
                     getParticipantFactory(),
                     getRandomNumberGenerator()
@@ -116,6 +118,14 @@ public class ApplicationContainer {
             printLog(raceCountValidator.getClass().toString(), RaceCountValidator.class.toString());
         }
         return raceCountValidator;
+    }
+
+    public InputValidator getInputValidator() {
+        if (inputValidator == null) {
+            inputValidator = new ValidatorProxy( getCarNameValidator(), getRaceCountValidator() );
+            printLog(inputValidator.getClass().toString(), InputValidator.class.toString());
+        }
+        return inputValidator;
     }
 
     /* Log */
