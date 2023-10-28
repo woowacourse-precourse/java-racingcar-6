@@ -1,5 +1,6 @@
 package racingcar.io;
 
+import racingcar.constants.GameResultElement;
 import racingcar.constants.ProgressMessage;
 
 public class OutputView {
@@ -14,5 +15,9 @@ public class OutputView {
 
     public void printGameResult(String result) {
         System.out.println(result);
+    }
+
+    public void printExecutionResultMessage(){
+        System.out.println(GameResultElement.ENTER.toString() + ProgressMessage.EXECUTION_RESULT);
     }
 }
