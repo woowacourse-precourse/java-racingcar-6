@@ -19,6 +19,9 @@ public class GameMachine {
 
         Cars cars = new Cars(createCar(inputCarName));
 
+        System.out.println("시도할 회수는 몇회인가요?");
+        int tryCount = Integer.parseInt(Console.readLine());
+
     }
 
     // 자동차 이름 부여해서 객체 생성
