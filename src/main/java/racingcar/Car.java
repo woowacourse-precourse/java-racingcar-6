@@ -23,4 +23,11 @@ public class Car {
             this.position++;
         }
     }
+
+    public String printResult() {
+        StringBuilder result = new StringBuilder();
+        result.append(name).append(" : ");
+        result.append("-".repeat(Math.max(0, position)));
+        return result.toString();
+    }
 }
