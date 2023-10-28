@@ -1,6 +1,6 @@
 package racingcar.validator;
 
-import racingcar.io.ErrorMessage;
+import racingcar.ErrorMessage;
 
 public class UserInputValidator {
 

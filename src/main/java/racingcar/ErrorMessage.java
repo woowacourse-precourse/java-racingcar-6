@@ -1,4 +1,4 @@
-package racingcar.io;
+package racingcar;
 
 public enum ErrorMessage {
     CAR_NAME_LENGTH_EXCEPTION("자동차 이름은 5글자 이하입니다.");
