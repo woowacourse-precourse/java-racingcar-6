@@ -1,16 +1,13 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 public class Input {
 
 
-    public static List<String> inputCarName(){
+    public static List<String> inputCarName() {
         String userInput = Console.readLine();
         List<String> cars = new ArrayList<>();
 
@@ -19,5 +16,10 @@ public class Input {
         }
 
         return cars;
+    }
+
+    public static int inputNumberMove() {
+        String userInput = Console.readLine();
+        return Integer.parseInt(userInput);
     }
 }
