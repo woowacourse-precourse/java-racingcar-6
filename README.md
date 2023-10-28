@@ -66,8 +66,8 @@
   - 자동차 이름을 입력받는다 (inputCarNames, CarNamesValidator)
   - 콤마(,)를 기준으로 구분한다
 
-- [x] 각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다 (RegisterCarNamesController) (1)
-  - [x] 자동차는 이름 특성을 가지고 있다 (String carName)
+- [x] 각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다 (RegisterCarNamesController) (5)
+  - [x] 자동차는 이름 특성을 가지고 있다 (String carName) (1)
   - [x] 자동차는 움직인 횟수 특성을 가지고 있다 (int distance)
   - 출력시 자동차 이름도 같이 출력해야 한다 (RoundResultController)
 
@@ -90,7 +90,6 @@
   - 전진 조건은 무작위 수를 기준으로 진행된다 (pickNumberInRange(0, 9))
   - [x] 4 이상인 경우에만 전진한다 (2)
     - [x] 4이상이 경우 moveForward(2)
-    - ~~4보다 작은 경우 stop()~~ 
 
 - 라운드 별 자동차들의 전진 횟수를 주어진 형식에 맞게 출력한다 (RacingRoundController)
   - 전진 횟수를 '-'로 표현한다
@@ -103,12 +102,19 @@
     - 단수의 우승자는 이름을 출력한다  
     - 복수의 우승자인 경우 쉼표를 이용해서 구분한다 (String.join())
     
+## Controller flow
+- RegisterCarNamesController
+  - [ ] 자동차 이름을 입력 받는다
+  - [ ] 자동차 이름이 조건에 맞는지 확인한다
+  - [ ] RacingCars를 형성한다 
+
+    
 ## 🎯 프로그래밍 요구 사항
 
 - [x] JDK 17 버전에서 실행 가능해야 한다. **JDK 17에서 정상적으로 동작하지 않을 경우 0점 처리한다.**
 - [x] 프로그램 실행의 시작점은 `Application`의 `main()`이다.
 - [x] `build.gradle` 파일을 변경할 수 없고, 외부 라이브러리를 사용하지 않는다.
-- [] [Java 코드 컨벤션](https://github.com/woowacourse/woowacourse-docs/tree/master/styleguide/java) 가이드를 준수하며 프로그래밍한다.
+- [ ] [Java 코드 컨벤션](https://github.com/woowacourse/woowacourse-docs/tree/master/styleguide/java) 가이드를 준수하며 프로그래밍한다.
 - [x] 프로그램 종료 시 `System.exit()`를 호출하지 않는다.
 - [ ] 프로그램 구현이 완료되면 `ApplicationTest`의 모든 테스트가 성공해야 한다. **테스트가 실패할 경우 0점 처리한다.**
 - [ ] 프로그래밍 요구 사항에서 달리 명시하지 않는 한 파일, 패키지 이름을 수정하거나 이동하지 않는다.
