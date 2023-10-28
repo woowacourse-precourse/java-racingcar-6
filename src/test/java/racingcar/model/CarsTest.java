@@ -1,9 +1,11 @@
 package racingcar.model;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.SoftAssertions.assertSoftly;
 
 import java.util.List;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
@@ -52,7 +54,7 @@ class CarsTest {
         assertSoftly(softly -> {
             cars.getCars()
                     .forEach(car -> {
-                        assertThat(car.getPosition()).isEqualTo(0);
+                        assertThat(car.getPosition()).isZero();
                     });
         });
     }
@@ -69,5 +71,13 @@ class CarsTest {
 
         // then
         assertThat(result).containsExactly("A");
+    }
+
+    @Test
+    void 중복된_자동차가_있으면_예외가_발생한다() {
+        // when & then
+        assertThatThrownBy(() -> Cars.createFromCarNames(List.of("A", "A", "A")))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("중복된 차 이름이 있습니다.");
     }
 }
