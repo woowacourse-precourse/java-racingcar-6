@@ -4,7 +4,7 @@
 - [x] 몇 번의 이동을 할 것인지 입력 받는 기능 -> InputView#getMoveCount()
 - [x] 0~9 사이에서 무작위 값을 구하는 기능 -> RandomNumber#randomNumber()
 - [x] 무작위 값 중 4 이상을 뽑은 자동차를 전진시키는 기능 -> RacingCarGameController#moveCarForward()
-- [ ] 우승자를 뽑는 기능(여러명이면 쉼표(,)로 구분)
+- [x] 우승자를 뽑는 기능(여러명이면 쉼표(,)로 구분) -> RacingCarGameController#findWinners()
 
 
 ## 예외 처리 기능
