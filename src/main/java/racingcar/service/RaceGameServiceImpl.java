@@ -17,7 +17,7 @@ public class RaceGameServiceImpl implements RaceGameService{
 
     private static void carMoveCheck(Car car, List<Integer> carPositions) {
         for (int i=0; i<carPositions.size(); i++) {
-            if (getRandomValue() > 4) {
+            if (getRandomValue() >= 4) {
                 car.carMove(i);
             }
         }
