@@ -1,6 +1,6 @@
-package racingcar.dto;
+package racingcar.dto.output;
 
-public record OutputDTO(String name, int moveCount) {
+public record RoundResultDTO(String name, int moveCount) {
 
     @Override
     public String toString() {

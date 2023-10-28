@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.dto.InputDTO;
+import racingcar.dto.input.InputDTO;
 
 public class InputView {
 

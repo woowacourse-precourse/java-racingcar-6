@@ -4,31 +4,31 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import racingcar.dto.OutputDTO;
+import racingcar.dto.output.RoundResultDTO;
 
-public class Cars {
+public class RacingCars {
     private static final int MIN_RANDOM_NUMBER = 0;
     private static final int MAX_RANDOM_NUMBER = 9;
     private static final int MOVABLE_THRESHOLD = 4;
 
     private final List<Car> carList;
 
-    public static Cars createCars(String[] names) {
+    public static RacingCars createCars(String[] names) {
         List<Car> carList = Arrays.stream(names)
                 .map(Car::new)
                 .toList();
-        return new Cars(carList);
+        return new RacingCars(carList);
     }
 
-    private Cars(List<Car> carList) {
+    private RacingCars(List<Car> carList) {
         this.carList = carList;
     }
 
-    public void moveCars() {
+    public void move() {
         carList.forEach(this::tryToMoveCar);
     }
 
-    public List<OutputDTO> fetchRacingStatus() {
+    public List<RoundResultDTO> getRoundResults() {
         return carList.stream()
                 .map(Car::toDTO)
                 .toList();

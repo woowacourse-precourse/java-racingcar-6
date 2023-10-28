@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.dto.OutputDTO;
+import racingcar.dto.output.RoundResultDTO;
 
 public class Car {
     private final String name;
@@ -14,8 +14,8 @@ public class Car {
         moveCount++;
     }
 
-    public OutputDTO toDTO() {
-        return new OutputDTO(name, moveCount);
+    public RoundResultDTO toDTO() {
+        return new RoundResultDTO(name, moveCount);
     }
 
     public String getName() {
