@@ -1,18 +1,18 @@
 package racingcar;
 
 import Model.Car;
+import Model.CarList;
 import Model.RaceCarNames;
 import Model.TryCount;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
     private static RaceCarNames raceCarNames;
     private static TryCount tryCount;
-    private static List<Car> carList;
+    private static CarList carList;
 
     public static void main(String[] args) {
         startRacingGame();
@@ -29,14 +29,13 @@ public class Application {
             playGame();
             printCurrentRacingResult();
         }
-
-        calculateWhoAreTheWinners();
     }
 
     public static void playGame() {
-        for (Car car : carList) {
+        for (int i = 0; i < carList.getSize(); i++) {
             int randomNumber = generateRandomNumber();
             if (randomNumber >= 4) {
+                Car car = carList.getCar(i);
                 car.moveForward();
             }
         }
@@ -50,14 +49,14 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String raceCarNamesInput = Console.readLine();
         raceCarNames = new RaceCarNames(raceCarNamesInput);
-        carList = new ArrayList<>();
+        carList = new CarList();
 
         List<String> carNameList = raceCarNames.parseCarNamesFromRaceCarInput();
         boolean carNamesValidFlag = true;
         for (String carName : carNameList) {
             Car car = new Car(carName);
             carNamesValidFlag &= car.isNameValid();
-            carList.add(car);
+            carList.addCar(car);
         }
 
         if (!carNamesValidFlag) {
@@ -76,7 +75,8 @@ public class Application {
     }
 
     public static void printCurrentRacingResult() {
-        for (Car car : carList) {
+        for (int i = 0; i < carList.getSize(); i++) {
+            Car car = carList.getCar(i);
             car.printCarName();
             System.out.print(" : ");
             car.printCarPosition();
@@ -84,12 +84,11 @@ public class Application {
         System.out.println();
     }
 
-    public static void calculateWhoAreTheWinners() {
-        //
-    }
-
     public static void printRaceWinners() {
-        System.out.println("최종 우승자 : ");
+        System.out.print("최종 우승자 : ");
+
+        CarList raceWinners = carList.calculateRaceWinners();
+        raceWinners.printCarNames();
     }
 
     // test용 코드

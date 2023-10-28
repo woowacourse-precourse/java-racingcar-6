@@ -34,4 +34,8 @@ public class Car {
         }
         System.out.println();
     }
+
+    public CarPosition getPosition() {
+        return carPosition;
+    }
 }

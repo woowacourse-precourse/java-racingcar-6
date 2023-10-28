@@ -17,8 +17,8 @@
 - [X] 메인 애플리케이션 게임 진행 기능 - Application.*startRacingGame*
 - [X] 매회차 게임 진행 기능 - Application.*playGame*
 - [X] 각 차수별 실행 결과를 출력하는 기능 - Application.*printCurrentRacingResult*
-- [] 우승자가 누구인지 판별하는 기능 - Application.*calculateWhoAreTheWinners*
-- [] 우승자를 출력하는 기능 - Application.*printRaceWinners*
+- [X] 우승자가 누구인지 판별하는 기능 - Application.*calculateWhoAreTheWinners*
+- [X] 우승자를 출력하는 기능 - Application.*printRaceWinners*
 
 ---
 
