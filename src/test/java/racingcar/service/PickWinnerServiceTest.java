@@ -35,6 +35,10 @@ public class PickWinnerServiceTest {
 						Arguments.of(
 								new Cars(List.of(new Car("car1", 1), new Car("car2", 2), new Car("car3", 2))),
 								"car2, car3"
+								),
+						Arguments.of(
+								new Cars(List.of(new Car("car1", 1), new Car("car2", 1), new Car("car3", 1))),
+								"car1, car2, car3"
 								)
 						);
 	}
