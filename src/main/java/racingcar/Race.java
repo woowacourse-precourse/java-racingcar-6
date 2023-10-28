@@ -5,9 +5,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Race {
-    private ArrayList<Car> gameCar = new ArrayList<>();
+    private ArrayList<Car> gameCar;
 
     public Race(String nameStr){
+        gameCar = new ArrayList<>();
         String[] nameArr = nameStr.split(",");
         for(String name : nameArr)
             this.gameCar.add(new Car(name));
@@ -28,16 +29,16 @@ public class Race {
 
     private String maxFinder(ArrayList<Integer> maxFindArr){
         int max = Collections.max(maxFindArr);
-        StringBuilder reStr = new StringBuilder();
+        String reStr = "";
 
         for (int i = 0; i < maxFindArr.size(); i++)
             if (maxFindArr.get(i) == max)
-                reStr.append(gameCar.get(i).getName()).append(",");
+                reStr += gameCar.get(i).getName() + ", ";
 
         if (reStr.length() > 0)
-            reStr.deleteCharAt(reStr.length() - 1);
+            reStr = reStr.substring(0,reStr.length() - 2);
 
-        return reStr.toString();
+        return reStr;
     }
     private void resultCar(){
         for (Car car : gameCar)
@@ -48,5 +49,9 @@ public class Race {
         for (Car car : gameCar)
             if (Randoms.pickNumberInRange(0,9) >= 4)
                 car.plusMove();
+    }
+
+    public ArrayList<Car> getGameCar(){
+        return gameCar;
     }
 }
