@@ -5,6 +5,8 @@ import java.util.stream.Collectors;
 
 public class Referee {
 
+    private static final int SINGLE=1;
+
     public List<Car> decideWinner(List<Car> cars) {
         int maxDistance = findWinnerDistance(cars);
         return cars.stream().filter(car -> car.located() == maxDistance).collect(Collectors.toList());
@@ -20,8 +22,8 @@ public class Referee {
         return maxDistance;
     }
 
-    public boolean isNumberOfWinnerTwoOrMore() {
-        return false;
+    public boolean isNumberOfWinnerTwoOrMore(List<Car> Winner) {
+        return Winner.size()>SINGLE;
     }
 
     public String makeWinnerWithCommas(List<String> winners) {
