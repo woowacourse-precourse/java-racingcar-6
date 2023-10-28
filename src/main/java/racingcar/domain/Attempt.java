@@ -6,6 +6,7 @@ import static racingcar.constant.ExceptionMessage.NON_NUMBER_EXCEPTION;
 import static racingcar.constant.ExceptionMessage.NON_POSITIVE_NUMBER_EXCEPTION;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.Utils;
 import racingcar.view.InputView;
 
 public class Attempt {
@@ -45,14 +46,14 @@ public class Attempt {
     }
 
     public void checkNonDecimal(String input) {
-        double number = Double.parseDouble(input);
+        double number = Utils.revertToDouble(input);
         if (number != (int) number) {
             throw new IllegalArgumentException(DECIMAL_EXCEPTION);
         }
     }
 
     public void checkPositiveNumber(String input) {
-        double number = Double.parseDouble(input);
+        double number = Utils.revertToDouble(input);
         if (number <= 0) {
             throw new IllegalArgumentException(NON_POSITIVE_NUMBER_EXCEPTION);
         }
