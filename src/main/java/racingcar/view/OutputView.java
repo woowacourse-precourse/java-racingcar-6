@@ -19,6 +19,7 @@ public final class OutputView {
 
         carDtos.stream()
                 .forEach(OutputView::printDtoInfo);
+        System.out.println();
     }
 
     public static void printFinalWinner(List<String> winnerNames) {
@@ -34,6 +35,6 @@ public final class OutputView {
         for(int i = 0; i< carDto.getPosition(); i++) {
             System.out.print(HYPHEN);
         }
-        System.out.println('\n');
+        System.out.println();
     }
 }
