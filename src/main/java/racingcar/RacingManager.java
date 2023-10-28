@@ -18,9 +18,13 @@ public class RacingManager {
 
     public void race(List<RacingCar> racingCars) {
         for (int i = 0; i < lap; i++) {
-            for (RacingCar racingCar : racingCars) {
-                System.out.println(racingCar.move(Randoms.pickNumberInRange(0, 9)));
-            }
+            printResult(racingCars);
+        }
+    }
+
+    private void printResult(List<RacingCar> racingCars) {
+        for (RacingCar racingCar : racingCars) {
+            System.out.println(racingCar.move(Randoms.pickNumberInRange(0, 9)));
         }
     }
 
