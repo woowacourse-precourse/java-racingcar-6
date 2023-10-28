@@ -12,7 +12,13 @@ public class InputView {
     }
 
     public static int getRacingRound() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        ResultView.printRoundQuestion();
+        int round = parseRoundNumber();
+        validatePositiveNumber(round);
+        return round;
+    }
+
+    private static int parseRoundNumber() {
         try {
             return Integer.parseInt(Console.readLine());
         } catch (NumberFormatException e) {
