@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import racingcar.model.Car;
 
-public class StringToRacingCars {
+public class StringToCarList {
     public static final String COMMA = ",";
 
     public static List<Car> convert(String input) {

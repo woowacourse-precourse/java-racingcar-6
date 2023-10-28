@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import java.util.Map;
 import racingcar.model.RacingCars;
-import racingcar.system.converter.StringToRacingCars;
+import racingcar.system.converter.StringToCarList;
 import racingcar.view.inputview.InputView;
 import racingcar.view.outputview.OutputView;
 
@@ -23,7 +23,7 @@ public class RegisterCarNamesController extends AbstractController {
         // 변환하는 과정도 controller 에서 진행
         // 변환된 것을 Model에 넣는다고 생각하기 -> InputView의 인터페이스 존폐 여부 결정하기
         String input = (String) inputView.input(model);
-        RacingCars racingCars = new RacingCars(StringToRacingCars.convert(input));
+        RacingCars racingCars = new RacingCars(StringToCarList.convert(input));
 
         model.put(RACING_CARS_KEY, racingCars);
     }
