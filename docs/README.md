@@ -1,16 +1,16 @@
 # 1주 차 피드백 
 - [ ] 요구사항을 정확히 준수한다.
-- [ ] 커밋 메시지를 의미 있게 작성한다.
+- [x] 커밋 메시지를 의미 있게 작성한다.
 - [ ] git을 통해 관리할 자원에 대해서도 고려한다.
 - [ ] Pull Request를 보내기 전 브랜치를 확인한다.
 - [ ] PR을 한 번 작성했다면 닫지 말고 추가 커밋을 한다
-- [ ] 이름을 통해 의도를 드러낸다.
-- [ ] 축약하지 않는다.
-- [ ] 공백도 코딩 컨벤션이다.
-- [ ] 공백 라인을 의미 있게 사용한다.
-- [ ] space와 tab을 혼용하지 않는다.
-- [ ] 의미 없는 주석을 달지 않는다.
-- [ ] IDE의 코드 자동 정렬 기능을 활용한다.
+- [x] 이름을 통해 의도를 드러낸다.
+- [x] 축약하지 않는다.
+- [x] 공백도 코딩 컨벤션이다.
+- [x] 공백 라인을 의미 있게 사용한다.
+- [x] space와 tab을 혼용하지 않는다.
+- [x] 의미 없는 주석을 달지 않는다.
+- [x] IDE의 코드 자동 정렬 기능을 활용한다.
 - [ ] Java에서 제공하는 API를 적극 활용한다.
 - [ ] 배열 대신 Java Collection을 사용한다.
 
@@ -34,20 +34,20 @@
 - 공동 우승자 안내 문구
 
 ## 프로그래밍 요구 사항
-- [ ] JDK 17 버전에서 실행 가능해야 한다. 
-- [ ] 프로그램 실행의 시작점은 Application의 main()이다. 
-- [ ] build.gradle 파일을 변경할 수 없고, 외부 라이브러리를 사용하지 않는다. 
+- [x] JDK 17 버전에서 실행 가능해야 한다. 
+- [x] 프로그램 실행의 시작점은 Application의 main()이다. 
+- [x] build.gradle 파일을 변경할 수 없고, 외부 라이브러리를 사용하지 않는다. 
 - [ ] Java 코드 컨벤션 가이드(구글)를 준수하며 프로그래밍한다. 
-- [ ] 프로그램 종료 시 System.exit()를 호출하지 않는다. 
-- [ ] 프로그램 구현이 완료되면 ApplicationTest의 모든 테스트가 성공해야 한다. 
-- [ ] 프로그래밍 요구 사항에서 달리 명시하지 않는 한 파일, 패키지 이름을 수정하거나 이동하지 않는다.
+- [x] 프로그램 종료 시 System.exit()를 호출하지 않는다. 
+- [x] 프로그램 구현이 완료되면 ApplicationTest의 모든 테스트가 성공해야 한다. 
+- [x] 프로그래밍 요구 사항에서 달리 명시하지 않는 한 파일, 패키지 이름을 수정하거나 이동하지 않는다.
 - [ ] indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다. 
-- [ ] 3항 연산자를 쓰지 않는다. 
+- [x] 3항 연산자를 쓰지 않는다. 
 - [ ] 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들어라. 
-- [ ] JUnit 5와 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다.
-- [ ] JDK에서 제공하는 Random 및 Scanner API 대신 camp.nextstep.edu.missionutils에서 제공하는 Randoms 및 Console API를 사용하여 구현해야 한다. 
-- [ ] Random 값 추출은 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용한다. 
-- [ ] 사용자가 입력하는 값은 camp.nextstep.edu.missionutils.Console의 readLine()을 활용한다.
+- [x] JUnit 5와 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다.
+- [x] JDK에서 제공하는 Random 및 Scanner API 대신 camp.nextstep.edu.missionutils에서 제공하는 Randoms 및 Console API를 사용하여 구현해야 한다. 
+  - [x] Random 값 추출은 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용한다. 
+  - [x] 사용자가 입력하는 값은 camp.nextstep.edu.missionutils.Console의 readLine()을 활용한다.
 
 ## 기능 목록
 - [x] 자동차가 움직이는 기능
