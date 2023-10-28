@@ -4,8 +4,8 @@ public class ValidationManager {
 
     public static void validateCarNames(String inputCarNames) {
         for (String carName : inputCarNames.split(",")) {
+            validateInputEmpty(carName);
             validateCarNameLength(carName);
-            validateCarNameEmpty(carName);
         }
     }
 
@@ -18,7 +18,7 @@ public class ValidationManager {
         if(!isValidCarNameLength(inputCarName)) throw new IllegalArgumentException();
     }
 
-    private static void validateCarNameEmpty(String inputCarName) {
+    private static void validateInputEmpty(String inputCarName) {
         if(isNullOrEmpty(inputCarName)) throw new IllegalArgumentException();
     }
 
