@@ -30,12 +30,12 @@ out/
 .vscode/
 
 ### .class ###
-/**/*.class
+*.class
 
 ### README.md ###
 /*.md
 
 ### test ###
-**/src/test/**
+src/test/**
 
 
