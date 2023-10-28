@@ -12,5 +12,6 @@ public class Application {
         racingCarController.extractName(View.input());
         View.printCycleInputMessage();
         racingCarController.startRacing(View.input());
+        racingCarController.showResult();
     }
 }

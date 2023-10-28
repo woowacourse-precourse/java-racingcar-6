@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import service.RacingCarService;
+import util.View;
 
 public class RacingCarController {
 
@@ -20,14 +21,19 @@ public class RacingCarController {
         validateLimitNameLength(carNameList);
         Set<String> carNameSet = validateDuplicateName(carNameList);
 
-        racingCarService.process(carNameSet);
+        racingCarService.generateRacingCar(carNameSet);
     }
 
     public void startRacing(String input) {
         validateIsNumeric(input);
         int cycle = changeInputToInt(input);
 
-        racingCarService.startRacing(cycle);
+        View.printRacingResultMessage();
+        View.printMessage(racingCarService.racing(cycle));
+    }
+
+    public void showResult() {
+        View.printMessage(racingCarService.judgeWinners());
     }
 
     private int changeInputToInt(String input) {
