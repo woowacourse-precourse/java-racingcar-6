@@ -4,27 +4,31 @@ public class Car {
 
 
     private String name;
-    private int advanceCount;
+    private int moveCount;
+
+    private final String distance;
+
+    public String getDistance() {
+        return distance;
+    }
 
     public Car(String carNames) {
         this.name=carNames;
-        this.advanceCount=0;
+        this.moveCount =0;
+        this.distance="";
     }
 
     public String getName() {
         return name;
     }
 
-    public int getAdvanceCount() {
-        return advanceCount;
+    public int getMoveCount() {
+        return moveCount;
     }
 
-    public int advance(){
-        return this.advanceCount++;
+    public int move(){
+        return this.moveCount++;
     }
 
-    @Override
-    public String toString() {
-        return name + ": " + '-' * advanceCount  + "\n";
-    }
+
 }
