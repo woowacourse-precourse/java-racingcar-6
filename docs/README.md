@@ -12,9 +12,11 @@
 
 ## [구현할 함수 목록]
 
-- 각 자동차에 이름 부여 - NameGenerator#inputCarName()
-- 전진하는 자동차에 대한 출력 - Print#carForwardPrint()
+- 각 자동차에 이름 부여 - NameGenerator#carNameGenerate()
+- 전진하는 자동차 정보 갱신 - Judgement#carForward()
+- 전진하지 않은 자동차 정보 갱신 - Judgement#carStop()
 - 자동차가 전진하기 위한 조건 - Judgement#carForwardCondition()
+- 횟수마다 진행결과 출력 - Print#currentCarPrint()
 - 어떤 자동차가 최종 우승을 했는지 출력 - Print#winnerCarPrint()
 
 ## [실행 결과 예시]
