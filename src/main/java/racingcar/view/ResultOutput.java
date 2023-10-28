@@ -9,17 +9,10 @@ public class ResultOutput {
         System.out.println("실행 결과");
     }
 
-    public void printRacing(String[] names, Integer[] positions) {
-        String[] positionResult = convertPositionResult(positions);
-
+    public void printRacing(String[] names, String[] locations) {
         for (int i=0; i < names.length; i++) {
-            System.out.printf("%s : %s%n", names[i], positionResult[i]);
+            System.out.printf("%s : %s%n", names[i], locations[i]);
         }
-    }
-
-    private String[] convertPositionResult(Integer[] positions) {
-        return Arrays.stream(positions)
-                .map("-"::repeat)
-                .toArray(String[]::new);
+        System.out.println();
     }
 }

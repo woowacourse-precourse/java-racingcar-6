@@ -2,21 +2,25 @@ package racingcar.domain;
 
 public class Car {
     private final String name;
-    private Integer position = 0;
+    private Integer location = 0;
 
     public Car(String name) {
         this.name = name;
     }
 
     public void moveForward(){
-        position += 1;
+        location += 1;
+    }
+
+    public String getLocationResult() {
+        return "-".repeat(location);
     }
 
     public String getName() {
         return name;
     }
 
-    public Integer getPosition() {
-        return position;
+    public Integer getLocation() {
+        return location;
     }
 }

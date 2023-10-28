@@ -8,13 +8,13 @@ class CarTest {
     @Test
     void 자동차_전진_확인(){
         Car car = new Car("test");
-        Integer position = car.getPosition();
+        Integer position = car.getLocation();
 
         for (int i=0; i < 3; i++) {
             car.moveForward();
         }
 
-        int result = car.getPosition();
+        int result = car.getLocation();
 
         assertThat(position).isEqualTo(0);
         assertThat(result).isEqualTo(3);
