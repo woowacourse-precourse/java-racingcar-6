@@ -14,6 +14,17 @@ class ValidationTest {
     void validateCarNames() {
     }
 
+    @DisplayName("자동차 이름에 공백이 포함되어 있을 경우 에러 반환")
+    @Test
+    void validateWhiteSpace() {
+        String inputWithSpace = "cat, do g, eagle, cow";
+        String[] carNames = inputWithSpace.split(",", -1);
+
+        assertThatThrownBy(() -> validation.validateWhiteSpace(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 공백을 포함할 수 없습니다.");
+    }
+
     @DisplayName("지정된 구분자가 아닐 경우 에러 반환")
     @Test
     void validateDelimiterType() {
