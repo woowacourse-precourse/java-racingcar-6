@@ -1,5 +1,7 @@
 package racingcar.verifier;
 
+import racingcar.system.ExceptionMessage;
+
 public class AttemptsNumVerifier implements Verifier{
 
     @Override
@@ -10,7 +12,7 @@ public class AttemptsNumVerifier implements Verifier{
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("입력된 값은 숫자가 아닙니다.");
+            throw new IllegalArgumentException(ExceptionMessage.NOT_NUMERIC);
         }
     }
 }
