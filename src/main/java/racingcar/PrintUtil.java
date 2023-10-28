@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.Map;
+
 import static racingcar.MessageConst.*;
 
 public class PrintUtil {
@@ -16,17 +18,17 @@ public class PrintUtil {
         System.out.println(MOVE_COUNT_INPUT_MESSAGE);
     }
 
-    public void printResultMsg() {
+    public static void printResultMsg() {
         System.out.println(RESULT_MESSAGE);
+    }
 
-        StringBuilder sb = new StringBuilder();
-        //결과값 구하는 로직 추가
+    public static void printGameResultMsg(Map<String, String> raceScore) {
+        raceScore.forEach((Key, Value) -> System.out.println(Key + " : " + Value));
+        System.out.println();
     }
 
     public static void printWinnerMsg() {
         System.out.println(WINNER_MESSAGE);
-
-        StringBuilder sb = new StringBuilder();
     }
 
 }
