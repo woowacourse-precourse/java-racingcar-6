@@ -18,36 +18,51 @@ public class RacingCarController {
     }
 
     private void initializeRacingGame() {
-        List<RacingCar> racingCar = racingCarNameConvertStringToArray(racingCarNameInput());
-        RacingCarGame racingCarGame = new RacingCarGame(requestAttemptNumberCovertStringToInteger(), racingCar);
-        executeRacingCarRound(racingCarGame);
+        List<RacingCar> racingCar = racingCarNameConvertStringToArray(requestRacingCarNameInput());
+        RacingCarGame racingCarGame = new RacingCarGame(requestnumberAttemptsCovertStringToInteger(), racingCar);
+        startRacingCarGame(racingCarGame);
     }
 
+    private void startRacingCarGame(RacingCarGame racingCarGame){
+        executeResult();
+        executeRacingCarRound(racingCarGame);
+        winningRacingCar(racingCarGame);
+    }
     private void executeRacingCarRound(RacingCarGame racingCarGame) {
-        OutputView.printResultMessage();
         do {
             racingCarGame.repeatMovingRacingCar();
-            racingCarGame.getRacingCarList().forEach(v -> OutputView.printMoveRacingCar(v.getName(), v.getMove()));
-            System.out.println();
+            printRacingCarRound(racingCarGame);
         }
         while (racingCarGame.isGameState());
+    }
+
+    private void printRacingCarRound(RacingCarGame racingCarGame){
+        racingCarGame.getRacingCarList().forEach(v -> OutputView.printMoveRacingCar(v.getName(), v.getMove()));
+        System.out.println();
+    }
+
+    private void executeResult(){
+        OutputView.printResultMessage();
+    }
+
+    private void winningRacingCar(RacingCarGame racingCarGame){
         OutputView.printWinner(racingCarGame.whoIsWinner());
     }
 
-    public List<RacingCar> racingCarNameConvertStringToArray(String racingCar) {
+    private List<RacingCar> racingCarNameConvertStringToArray(String racingCar) {
         List<RacingCar> racingCarList = Arrays.stream(racingCar.split(COMMA)).map(car -> new RacingCar(car, 0)).collect(Collectors.toList());
         return racingCarList;
     }
 
-    private String racingCarNameInput() {
+    private String requestRacingCarNameInput() {
         String racingCars = InputView.racingCarNameInput();
-        RacingCarValidator.racingCarInputNameValidator(racingCars);
+        RacingCarValidator.racingCarNameInputValidator(racingCars);
         return racingCars;
     }
 
-    private Integer requestAttemptNumberCovertStringToInteger() {
+    private Integer requestnumberAttemptsCovertStringToInteger() {
         String number = InputView.attemptNumberInput();
-        RacingCarValidator.attemptInputNumberValidator(number);
+        RacingCarValidator.numberAttemptsInputValidator(number);
         return Integer.parseInt(number);
     }
 

@@ -47,7 +47,7 @@ public class RacingCarValidatorTest {
     void 숫자_빈문자_입력_테스트() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() ->
-                        racingCarValidator.attemptNumberEmptyInputValidator(""))
+                        racingCarValidator.numberAttemptsEmptyInputValidator(""))
                         .isInstanceOf(IllegalArgumentException.class));
     }
 
@@ -56,7 +56,7 @@ public class RacingCarValidatorTest {
         String number = "f";
         assertSimpleTest(() ->
                 assertThatThrownBy(() ->
-                        racingCarValidator.attemptInputOnlyNumberValidator(number))
+                        racingCarValidator.numberAttemptsInputOnlyNumberValidator(number))
                         .isInstanceOf(IllegalArgumentException.class));
     }
 }

@@ -14,20 +14,18 @@ public class RacingCarValidator {
     private static final String ATTEMPT_NUMBER_INPUT_EMPTY_EXCEPTION_MESSAGE = "1 이상의 숫자를 입력해주세요";
     private static final String COMMA = ",";
     private static final Integer RACING_CAR_NAME_OVER_LENGTH=5;
-
     private static final Integer ZERO=0;
 
-
-    public static boolean racingCarInputNameValidator(String racingCars) {
+    public static boolean racingCarNameInputValidator(String racingCars) {
         return racingCarNameEmptyInputValidator(racingCars) &&
                 racingCarNameInputContainsSpaceValidator(racingCars) &&
                 racingCarNameLengthValidator(racingCars) &&
                 racingCarNameDuplicationValidator(racingCars);
     }
 
-    public static boolean attemptInputNumberValidator(String number) {
-        return attemptNumberEmptyInputValidator(number) &&
-                attemptInputOnlyNumberValidator(number);
+    public static boolean numberAttemptsInputValidator(String number) {
+        return numberAttemptsEmptyInputValidator(number) &&
+                numberAttemptsInputOnlyNumberValidator(number);
 
     }
 
@@ -74,7 +72,7 @@ public class RacingCarValidator {
     /**
      * 입력한 숫자가 문자인지 체크하는 예외
      */
-    public static boolean attemptInputOnlyNumberValidator(String number) {
+    public static boolean numberAttemptsInputOnlyNumberValidator(String number) {
         try {
             Integer.parseInt(number);
             return true;
@@ -86,7 +84,7 @@ public class RacingCarValidator {
     /**
      * 입력한 숫자가 공백인지 체크하는 예외
      */
-    public static boolean attemptNumberEmptyInputValidator(String number) {
+    public static boolean numberAttemptsEmptyInputValidator(String number) {
         if (number.length() == ZERO) {
             throw new IllegalArgumentException(ATTEMPT_NUMBER_INPUT_EMPTY_EXCEPTION_MESSAGE);
         }

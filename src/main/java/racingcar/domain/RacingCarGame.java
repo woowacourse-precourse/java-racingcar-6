@@ -3,6 +3,7 @@ package racingcar.domain;
 import java.util.List;
 
 public class RacingCarGame {
+    private static final String COMMA = ", ";
     private int number;
     private boolean gameState;
     private List<RacingCar> racingCarList;
@@ -37,16 +38,19 @@ public class RacingCarGame {
         gameSetCheck();
     }
 
-
     public String whoIsWinner() {
         return racingCarList.stream()
                 .filter(car -> car.getMove() == winnerValue())
                 .map(RacingCar::getName)
-                .reduce((name1, name2) -> name1 + "," + name2)
+                .reduce((name1, name2) -> name1 + COMMA + name2)
                 .orElse("");
     }
 
     private Integer winnerValue() {
-        return racingCarList.stream().mapToInt(RacingCar::getMove).max().orElse(0);
+        return racingCarList
+                .stream()
+                .mapToInt(RacingCar::getMove)
+                .max()
+                .orElse(0);
     }
 }

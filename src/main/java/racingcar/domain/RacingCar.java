@@ -20,16 +20,19 @@ public class RacingCar {
     }
 
     public void moveRacingCar() {
-        if (shouldMoveGreaterThanRandomValue()) {
+        if (randomValueIsGreaterThanFour()) {
             this.move += 1;
         }
     }
 
-    public boolean shouldMoveGreaterThanRandomValue() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if (randomNumber >= 4) {
+    private boolean randomValueIsGreaterThanFour() {
+        if ( randomValue() >= 4) {
             return true;
         }
         return false;
+    }
+
+    private Integer randomValue(){
+        return Randoms.pickNumberInRange(0, 9);
     }
 }

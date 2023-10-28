@@ -5,14 +5,15 @@ import java.util.stream.IntStream;
 public class OutputView {
     private static final String RESULT_MESSAGE = "실행 결과";
     private static final String HYPHEN = "-";
-    private static final String WINNER_MESSAGE = "최종 우승자 : ";
+    private static final String WINNER_MESSAGE = "최종 우승자 : %s";
+    private static final String RACING_CAR_NAME = "%s : ";
 
     public static void printResultMessage() {
         System.out.println(RESULT_MESSAGE);
     }
 
     public static void printMoveRacingCar(String name, int number) {
-        System.out.print(name + " : ");
+        System.out.print(String.format(RACING_CAR_NAME, name));
         IntStream.range(0, number).forEach(num -> {
             System.out.print(HYPHEN);
         });
@@ -20,7 +21,6 @@ public class OutputView {
     }
 
     public static void printWinner(String winner) {
-        System.out.print(WINNER_MESSAGE);
-        System.out.print(winner);
+        System.out.print(String.format(WINNER_MESSAGE, winner));
     }
 }
