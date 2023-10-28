@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.vaildator.InputValidator;
 import racingcar.view.InputView;
 
@@ -28,7 +29,6 @@ public class Cars {
     private List<Car> MakeCar(List<String> carNames) {
         return carNames.stream().map(Car::new).toList();
     }
-
 
 
 

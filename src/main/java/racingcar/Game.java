@@ -21,7 +21,9 @@ public class Game {
         gameService.makeCars(carNames);
 
         //라운드 입력
-        inputView.
+        int round = inputView.readRound();
+
+
 
     }
 

@@ -6,6 +6,7 @@ import racingcar.vaildator.InputValidator;
 import javax.xml.validation.Validator;
 
 import static racingcar.Constant.EXCEPTION_MESSAGE;
+import static racingcar.Constant.IS_NOT_POSITIVE_INTEGER;
 
 public class InputView {
 
@@ -26,6 +27,18 @@ public class InputView {
     }
 
 
+    public int readRound(){
+        System.out.println(READ_ROUND);
+
+        String input = Console.readLine();
+
+        if(InputValidator.isNotInteger(input)){
+            throw new IllegalArgumentException(IS_NOT_POSITIVE_INTEGER);
+        }
+
+
+        return Integer.parseInt(input);
+    }
 
 
 
