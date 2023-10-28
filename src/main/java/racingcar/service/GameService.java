@@ -1,8 +1,9 @@
 package racingcar.service;
 
+import java.util.List;
 import racingcar.domain.car.Cars;
 
-public class GameService implements Service {
+public class GameService {
     private final Cars cars;
     private final Attempt attempt;
     private Count count;
@@ -25,7 +26,7 @@ public class GameService implements Service {
         }
     }
 
-    private boolean satisfiedEndCondition() {
+    public boolean satisfiedEndCondition() {
         return attempt.getValue() == count.getValue();
     }
 
@@ -36,5 +37,9 @@ public class GameService implements Service {
     public void moveCars() {
         cars.moveCars();
         count = count.plusOne();
+    }
+
+    public List<String> getResults() {
+        return cars.getResults();
     }
 }

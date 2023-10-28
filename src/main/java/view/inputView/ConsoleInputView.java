@@ -7,6 +7,8 @@ import java.util.List;
 
 public class ConsoleInputView implements InputView {
     private static final String NOT_NUMBER_MESSAGE = "숫자를 입력하세요.";
+
+    @Override
     public List<String> readCarNames() {
         String input = Console.readLine();
         String[] carNames = input.split(",");
@@ -14,11 +16,11 @@ public class ConsoleInputView implements InputView {
                 .toList();
     }
 
+    @Override
     public int readAttempt() {
         String input = Console.readLine();
         try {
-            int attempt = Integer.parseInt(input);
-            return attempt;
+            return Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(NOT_NUMBER_MESSAGE);
         }
