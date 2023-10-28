@@ -1,5 +1,7 @@
 package racingcar;
 
+import static console.Printer.printWinners;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +26,8 @@ public class Application {
             }
             System.out.println();
         }
+        List<Car> winners = decideWinners(cars);
+        printWinners(winners);
     }
 
     public static List<Car> decideWinners(List<Car> cars) {
