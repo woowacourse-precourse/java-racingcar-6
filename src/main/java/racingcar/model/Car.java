@@ -21,7 +21,7 @@ public class Car {
     }
 
     public void go() {
-        this.position ++;
+        this.position++;
     }
 
     public String getPositionMessage() {
@@ -30,5 +30,13 @@ public class Car {
         sb.append(COLON.getMessage());
         sb.append(ADVANCE.getMessage().repeat(position));
         return sb.toString();
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getPosition() {
+        return this.position;
     }
 }

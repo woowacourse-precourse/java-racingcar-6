@@ -11,7 +11,7 @@ import static racingcar.util.TextUtil.*;
 class TextUtilTest {
 
     @Test
-    void 문자열_공백_제거_및_분리_검증(){
+    void 문자열_공백_제거_및_분리_검증() {
         String target = "  car1 , ca r2,car3  ,car4   ";
         List<String> expected = List.of("car1", "ca r2", "car3", "car4");
 
@@ -35,5 +35,12 @@ class TextUtilTest {
 
         assertThat(hasDuplicates(notDuplicationList)).isFalse();
         assertThat(hasDuplicates(duplicationList)).isTrue();
+    }
+
+    @Test
+    void 문자열_콤마_결합_검증() {
+        List<String> targetList = List.of("car1", "car2", "car3");
+        String expected = "car1, car2, car3";
+        assertThat(joinListWithComma(targetList)).isEqualTo(expected);
     }
 }

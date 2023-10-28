@@ -6,9 +6,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- *  @Class  : 문자열 유틸 클래스
- *  @since   : 2023/10/28
- *  @auther  : SYB
+ * @Class : 문자열 유틸 클래스
+ * @auther : SYB
+ * @since : 2023/10/28
  */
 public class TextUtil {
 
@@ -17,14 +17,18 @@ public class TextUtil {
                 .map(String::trim)
                 .collect(Collectors.toList());
     }
-    
+
     public static boolean isOverLength(String target, int maxLength) {
         return target.length() > maxLength;
     }
-    
+
     public static boolean hasDuplicates(List<String> list) {
         Set<String> set = list.stream().collect(Collectors.toSet());
         return set.size() != list.size();
     }
-    
+
+    public static String joinListWithComma(List<String> targetList) {
+        return String.join(", ", targetList);
+    }
+
 }

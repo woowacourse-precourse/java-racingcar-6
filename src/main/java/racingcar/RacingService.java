@@ -37,7 +37,7 @@ public class RacingService {
             currentAttempts++;
         }
 
-        printWinner();
+        printWinner(cars);
     }
 
     private List<Car> getAttendCars() {
@@ -63,7 +63,7 @@ public class RacingService {
 
     private void printRacingResult(List<Car> cars) {
         cars.forEach(car -> {
-            if(canMoveCar()){
+            if (canMoveCar()) {
                 car.go();
             }
             printMessage(car.getPositionMessage());
@@ -71,7 +71,22 @@ public class RacingService {
         printMessageFromType(LINE_BREAK);
     }
 
-    private void printWinner() {
+    private void printWinner(List<Car> cars) {
+        int maxPosition = getMaxPosition(cars);
+        List<String> winnerList = cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+        printMessage(FINAL_WINNER.getMessage() + joinListWithComma(winnerList));
+    }
+
+    public void validationCarNames(List<String> carNameList) {
+        if (hasOverLengthCarNames(carNameList)) {
+            throw new IllegalArgumentException("Car names exceed the maximum length.");
+        }
+        if (hasDuplicates(carNameList)) {
+            throw new IllegalArgumentException("Car names contains duplicates.");
+        }
     }
 
     public int convertToAttemptsCount(String inputCount) {
@@ -86,7 +101,7 @@ public class RacingService {
             throw new IllegalArgumentException("Input must be a valid numerical format.", e);
         }
 
-        if(attemptsCount < 1) {
+        if (attemptsCount < 1) {
             throw new IllegalArgumentException("Number of attempts must be a non-zero positive number.");
         }
 
@@ -97,16 +112,14 @@ public class RacingService {
         return Randoms.pickNumberInRange(minRandomValue, maxRandomValue) >= minMoveConditions;
     }
 
-    public void validationCarNames(List<String> carNameList) {
-        if (hasOverLengthCarNames(carNameList)) {
-            throw new IllegalArgumentException("Car names exceed the maximum length.");
-        }
-        if (hasDuplicates(carNameList)) {
-            throw new IllegalArgumentException("Car names contains duplicates.");
-        }
+    private int getMaxPosition(List<Car> cars) {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
     }
 
-    private static void printMessage(String message){
+    private static void printMessage(String message) {
         System.out.println(message);
     }
 
