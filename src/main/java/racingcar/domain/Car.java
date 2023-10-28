@@ -24,5 +24,8 @@ public class Car {
         car.log = log+"-";
     }
 
+    public String getCarNameAndLog() {
+        return carName + " : " + log;
+    }
 
 }
