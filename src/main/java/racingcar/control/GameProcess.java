@@ -7,7 +7,6 @@ import racingcar.utill.ValidException;
 import java.util.ArrayList;
 import java.util.List;
 
-// TODO: 10/27/23 레이싱 게임의 진행을 도와주는 게임진행 상항 클래스를 만든다.
 public class GameProcess {
     private List<RaceCar> raceCarOfCurrentList;
     private String nameLineOfRaceCar;
@@ -29,7 +28,10 @@ public class GameProcess {
 
         // 이름은 5자 이하 검사
         // 한글 포함 검사
-        if (inputStr.length() > 0 && inputStr.length() <= 5 && ValidException.isValidIncludeKorean(inputStr)) {
+        // 문자열 이름 "woo," 이렇게 ,다음은 문자열이 꼭나와야된다.
+        if (ValidException.isValidFIveLessString(inputStr)
+                && ValidException.isValidIncludeKorean(inputStr)
+                && ValidException.isValidCommaNextBlankCheck(inputStr)) {
             nameLineOfRaceCar = inputStr;
         }
     }
