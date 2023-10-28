@@ -22,10 +22,10 @@ public class OutputView {
         System.out.println(PRINT_RESULT);
     }
 
-    public void printPlayerStatus(String status) {
+    public void printPlayerStatus(final String status) {
         System.out.println(status);
     }
-    public void printWinner(ArrayList<String> players) {
+    public void printWinner(final ArrayList<String> players) {
         System.out.println();
         System.out.println(PRINT_WINNER + String.join(DELIMITER, players));
     }
