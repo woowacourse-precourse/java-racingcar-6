@@ -1,6 +1,6 @@
 package racingcar.constant;
 
 public class RacingGameConstants {
-    public static final Integer MIN_CAR_NAME_LENGTH = 1;
-    public static final Integer MAX_CAR_NAME_LENGTH = 5;
+    public static final Integer CAR_NAME_LENGTH_MIN = 1;
+    public static final Integer CAR_NAME_LENGTH_MAX = 5;
 }

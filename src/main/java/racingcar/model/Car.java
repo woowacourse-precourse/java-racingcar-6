@@ -1,7 +1,7 @@
 package racingcar.model;
 
-import static racingcar.constant.RacingGameConstants.MAX_CAR_NAME_LENGTH;
-import static racingcar.constant.RacingGameConstants.MIN_CAR_NAME_LENGTH;
+import static racingcar.constant.RacingGameConstants.CAR_NAME_LENGTH_MAX;
+import static racingcar.constant.RacingGameConstants.CAR_NAME_LENGTH_MIN;
 
 public class Car {
     private String name;
@@ -33,9 +33,9 @@ public class Car {
     }
 
     private void validateNameLength(String name) {
-        if (name.isEmpty() || name.length() > MAX_CAR_NAME_LENGTH) {
+        if (name.isEmpty() || name.length() > CAR_NAME_LENGTH_MAX) {
             throw new IllegalArgumentException(
-                    "이름은 " + MIN_CAR_NAME_LENGTH + "자 이상 " + MAX_CAR_NAME_LENGTH + "자 이하여야 합니다.");
+                    "이름은 " + CAR_NAME_LENGTH_MIN + "자 이상 " + CAR_NAME_LENGTH_MAX + "자 이하여야 합니다.");
         }
     }
 

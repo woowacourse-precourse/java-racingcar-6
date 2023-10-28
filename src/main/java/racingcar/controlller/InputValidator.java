@@ -1,7 +1,7 @@
 package racingcar.controlller;
 
-import static racingcar.constant.RacingGameConstants.MAX_CAR_NAME_LENGTH;
-import static racingcar.constant.RacingGameConstants.MIN_CAR_NAME_LENGTH;
+import static racingcar.constant.RacingGameConstants.CAR_NAME_LENGTH_MAX;
+import static racingcar.constant.RacingGameConstants.CAR_NAME_LENGTH_MIN;
 
 import java.util.List;
 import racingcar.utils.Parser;
@@ -23,9 +23,9 @@ public class InputValidator {
     }
 
     private static void validateEachCarNameLength(String carName) {
-        if (carName.length() < MIN_CAR_NAME_LENGTH || carName.length() > MAX_CAR_NAME_LENGTH) {
+        if (carName.length() < CAR_NAME_LENGTH_MIN || carName.length() > CAR_NAME_LENGTH_MAX) {
             throw new IllegalArgumentException(
-                    "이름은 " + MIN_CAR_NAME_LENGTH + "자 이상 " + MAX_CAR_NAME_LENGTH + "자 이하여야 합니다.");
+                    "이름은 " + CAR_NAME_LENGTH_MIN + "자 이상 " + CAR_NAME_LENGTH_MAX + "자 이하여야 합니다.");
         }
     }
 
