@@ -7,12 +7,21 @@ import java.util.List;
 
 public class RacingCars {
 
+    private static final int MIN_SIZE = 2;
     private static final String CAR_NAME_DELIMITER = ",";
+    private static final String CARS_SIZE_EXCEPTION = "최소 %d대 이상의 자동차가 있어야 합니다.";
 
     private final List<Car> cars;
 
     private RacingCars(List<Car> cars) {
+        validateSize(cars);
         this.cars = cars;
+    }
+
+    private void validateSize(List<Car> cars) {
+        if (cars.size() < MIN_SIZE) {
+            throw new IllegalArgumentException(String.format(CARS_SIZE_EXCEPTION, MIN_SIZE));
+        }
     }
 
     public static RacingCars from(String carNames) {
