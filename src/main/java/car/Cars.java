@@ -37,10 +37,6 @@ public class Cars {
         this.carList.forEach(Car::move);
     }
 
-    public void moveForTest() { // 테스트만을 위한 매서드가 존재해도 무방할까?
-        this.carList.forEach(Car::addLocation);
-    }
-
     private List<Car> initByStringInput(String userInput) {
         String[] carNames = userInput.split(SPLIT_DELIMITER);
         return Arrays.stream(carNames)

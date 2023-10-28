@@ -39,15 +39,4 @@ class CarsTest {
         String longNameInput = "helloWorld, SpringBoot, I_AM_IRON_MAN";
         assertThatThrownBy(() -> new Cars(longNameInput)).isInstanceOf(IllegalArgumentException.class);
     }
-
-    // TODO: 2023/10/28 이 테스트 매서드를 위해 쓸모없는 매서드가 Cars 에 남아도 괜찮은걸까?
-    @Test
-    @DisplayName("동작 검증만을 위한 테스트")
-    void carList_move_test() {
-        Cars cars = new Cars(NORMAL_INPUT);
-        cars.moveForTest();
-        for (Car car : cars.getCarList()) {
-            assertThat(car.getLocation()).isOne();
-        }
-    }
 }
