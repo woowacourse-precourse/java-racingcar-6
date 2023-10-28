@@ -11,4 +11,9 @@ public class GameResultView {
         }
         System.out.println();
     }
+
+    public void printGameWinner(List<String> gameWinner) {
+        String winnerNames = String.join(", ", gameWinner);
+        System.out.println("최종 우승자 : " + winnerNames);
+    }
 }
