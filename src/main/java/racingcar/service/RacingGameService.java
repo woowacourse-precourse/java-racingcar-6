@@ -1,7 +1,7 @@
 package racingcar.service;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
+import racingcar.util.NumberGenerator;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
@@ -11,7 +11,12 @@ import java.util.stream.Collectors;
 
 public class RacingGameService {
 
+    private final NumberGenerator randomNumberGenerator;
     private List<Car> carList = new ArrayList<>();
+
+    public RacingGameService(NumberGenerator randomNumberGenerator) {
+        this.randomNumberGenerator = randomNumberGenerator;
+    }
 
     public void init(String[] carNamesArr) {
         this.carList = mapToCarList(carNamesArr);
@@ -40,7 +45,7 @@ public class RacingGameService {
     }
 
     private boolean canMoveForward() {
-        return 4 <= Randoms.pickNumberInRange(0, 9);
+        return 4 <= randomNumberGenerator.generate();
     }
 
     public String getWinningCar() {
