@@ -1,7 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.Comparator;
+import java.util.ArrayList;
 
 public class Application {
     public static void main(String[] args) {
@@ -14,10 +14,16 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         String number = Console.readLine();
         int repeatTimes = Input.inputNumber(number);
+
+        System.out.println();
+        System.out.println("실행 결과");
         for (int i=0; i<repeatTimes; i++){
             cars.moveCar();
-            System.out.println();
         }
 
+        ArrayList<String> winnerList = cars.whoIsWinner();
+        System.out.print("최종 우승자 : ");
+        String winner = String.join(", ", winnerList);
+        System.out.println(winner);
     }
 }
