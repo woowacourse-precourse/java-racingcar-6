@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ConSoleViewTest {
     private PrintStream standardOut;
     private OutputStream captor;
-    private ConsoleView consoleView = new ConsoleView();
+    private final ConsoleView consoleView = new ConsoleView();
 
     @BeforeEach
     void init(){
