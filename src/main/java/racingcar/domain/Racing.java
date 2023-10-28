@@ -18,7 +18,7 @@ public class Racing {
     List<String> winner;
     //메소드
 
-    private Racing() {
+    public Racing() {
 
     }
 
@@ -94,10 +94,10 @@ public class Racing {
     private List<String> displayWinner() {
         checkWinnerNum();
         System.out.print("최종 우승자 : ");
-        for (int i = 0; i < this.winner.size(); i++) {
-            System.out.print(this.winner.get(i));
-            if (this.winner.get(i+1) != null){
-                System.out.print(",");
+        for (int i = 0; i < winner.size(); i++) {
+            System.out.print(winner.get(i));
+            if (i+1 < winner.size()){
+                System.out.print(", ");
             }
         }
         return winner;
