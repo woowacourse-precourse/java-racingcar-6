@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.control.GameProcess;
 import racingcar.domain.CreateRandomNum;
 import racingcar.domain.GameHost;
@@ -11,13 +13,14 @@ import racingcar.domain.JudgeStandard;
 import racingcar.domain.RaceCar;
 import racingcar.view.GameStart;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -55,7 +58,6 @@ class ApplicationTest extends NsTest {
         secondRaceCar = raceCarList.get(1);
         thirdRaceCar = raceCarList.get(2);
     }
-
 
     @Test
     void 전진_정지() {
