@@ -27,8 +27,9 @@ public class Application {
             view.printProgressStatus(gameData.getCarList());
         }
 
+        gameData.sortCarListByRank();
+        gameData.setWinnerList();
 
-
-
+        view.printWinner(gameData.getWinnerList());
     }
 }
