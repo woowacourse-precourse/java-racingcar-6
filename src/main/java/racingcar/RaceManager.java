@@ -33,4 +33,20 @@ public class RaceManager {
             raceCarList.add(new Car(carName));
         }
     }
+
+    private List<String> determineWinner() {
+        List<String> winners = new ArrayList<>();
+        int maxDistance = -1;
+        for (Car car : raceCarList) {
+            int carDistance = car.getDistance().length();
+            if (carDistance > maxDistance) {
+                maxDistance = carDistance;
+                winners.clear();
+            }
+            if (carDistance == maxDistance) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
 }
