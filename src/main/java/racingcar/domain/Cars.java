@@ -17,7 +17,7 @@ public class Cars {
         Output.printCarPosition(carList);
     }
 
-    public List<String> getVictoryCarsName() {
+    public List<String> getVictoryCarNames() {
         List<String> victoryCarsName = new ArrayList<>();
         int maxPosition = getMaxPosition();
         for (Car car : carList) {

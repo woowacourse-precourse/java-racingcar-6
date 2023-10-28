@@ -10,6 +10,10 @@ public class Output {
         System.out.println();
     }
 
+    public static void printResultMessage() {
+        System.out.println("실행 결과");
+    }
+
     public static void printCarInputMessage() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }

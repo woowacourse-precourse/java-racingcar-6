@@ -40,6 +40,6 @@ class CarsTest {
         cars.moveCar(0);
         cars.moveCar(1);
         List<String> resultCarlist = new ArrayList<>(Arrays.asList("벤츠", "아우디"));
-        assertThat(cars.getVictoryCarsName()).isEqualTo(resultCarlist);
+        assertThat(cars.getVictoryCarNames()).isEqualTo(resultCarlist);
     }
 }
