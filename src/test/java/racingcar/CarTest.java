@@ -12,10 +12,17 @@ import java.util.Arrays;
 
 public class CarTest {
     @Test
+    void 아무움직임없을떄_최종_우승자_판정_테스트() {
+        Cars cars = new Cars(Arrays.asList("mj", "dh", "pobi", "jason"));
+        assertThat(cars.getWinners().size()).isEqualTo(4);
+    }
+
+    @Test
     void 자동차_이동거리_갱신_테스트() {
         Car car = new Car("mj");
         assertThat(car.moveRandomly()).isIn(0, 1);
     }
+
     @Test
     void 자동차_최대_개수_예외처리_테스트() {
         assertThatThrownBy(() -> new Cars(Arrays.asList("mj", "dh", "pobi", "jason"))).isInstanceOf(IllegalArgumentException.class);
