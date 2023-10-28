@@ -2,9 +2,10 @@ package racingcar;
 
 public class Car {
     private String name;
+    StringBuilder position = new StringBuilder("");
 
-    public String getName() {
-        return name;
+    public StringBuilder move() {
+        return position.append("-");
     }
 
     public Car(String name) {
