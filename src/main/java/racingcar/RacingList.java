@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class RacingList {
+    private static final int MOVING_FORWARD = 4;
     private final LinkedHashMap<String, Integer> carList = new LinkedHashMap<>();
 
     public void createData(String input) {
@@ -23,7 +24,7 @@ public class RacingList {
 
     public void updateState() {
         for (String strKey : carList.keySet()) {
-            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            if (Randoms.pickNumberInRange(0, 9) >= MOVING_FORWARD) {
                 Integer i = carList.get(strKey);
                 i++;
                 carList.replace(strKey, i);
