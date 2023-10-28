@@ -20,7 +20,10 @@ public class Car {
 	}
 
 	private int makeRandomNumber() {
-		return Randoms.pickNumberInRange(0, 9);
+		final int MIN_NUMBER = 0;
+		final int MAX_NUMBER = 9;
+
+		return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
 	}
 
 	public void move() {
