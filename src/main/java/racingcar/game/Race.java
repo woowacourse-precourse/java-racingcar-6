@@ -1,5 +1,7 @@
 package racingcar.game;
 
+import java.util.List;
+import racingcar.domain.Car;
 import racingcar.domain.Cars;
 
 public class Race {
@@ -25,6 +27,15 @@ public class Race {
         }
         // TODO: 실제 레이싱 수행 로직 필요
         remainingRaces--;
+    }
+
+    // TODO: 현재 레이스 상태를 반환하는 메서드 필요
+
+    public List<Car> determineWinners() {
+        if (hasRemainingRaces()) {
+            throw new IllegalStateException();
+        }
+        return cars.getCarsWithMaxStep();
     }
 
     public boolean hasRemainingRaces() {
