@@ -44,7 +44,7 @@ public class RacingCars {
         hasDuplicatedNames(racingCarNames);
     }
 
-    private List<String> getCarNames() {
+    public List<String> getCarNames() {
         List<String> carNames = new ArrayList<>();
         racingCars.stream()
                 .forEach(car -> carNames.add(car.getCarName()));
