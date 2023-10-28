@@ -9,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 import racingcar.model.RacingCar;
+import racingcar.service.Circuit;
 
 public class CircuitTest {
 
