@@ -49,7 +49,7 @@
     ```
 - 무작위 값을 초기화하는 기능
   ```java
-  int initRandomNum();
+  void initRandomNum();
   ```
 
 ## RacingController
