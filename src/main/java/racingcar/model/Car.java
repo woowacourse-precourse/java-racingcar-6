@@ -4,8 +4,8 @@ import java.util.List;
 
 public class Car {
 
-    private List<String> name;
-    private int count;
+    private final List<String> name;
+    private final int count;
 
     public Car(List<String> name, int count) {
         this.name = name;
