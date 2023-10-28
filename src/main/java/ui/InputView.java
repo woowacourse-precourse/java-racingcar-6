@@ -2,6 +2,7 @@ package ui;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class InputView {
@@ -17,5 +18,9 @@ public class InputView {
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
         return Integer.parseInt(input);
+    }
+
+    private static List<String> splitByComma(String input) {
+        return Arrays.asList(input.split(","));
     }
 }
