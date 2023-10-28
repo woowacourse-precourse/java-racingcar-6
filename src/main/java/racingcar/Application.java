@@ -1,7 +1,9 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
@@ -51,6 +53,9 @@ public class Application {
         }
     }
 
+    public static int random() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
 
 
     public static void main(String[] args) {
@@ -63,6 +68,9 @@ public class Application {
         String time = Console.readLine();
         int realTime = integerTime(time);
         Console.close();
+
+
+
 
 
     }
