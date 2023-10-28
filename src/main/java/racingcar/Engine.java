@@ -14,7 +14,7 @@ public class Engine {
         return beforeScore.append("-");
     }
 
-    public boolean rollDice() {
+    public boolean isMovable() {
         return makeRandomNumber(DICE_MIN_RANGE, DICE_MAX_RANGE) >= FORWARD_ABLE_NUMBER;
     }
 }

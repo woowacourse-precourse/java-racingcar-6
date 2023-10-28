@@ -23,7 +23,7 @@ public class RaceGame {
 
     public void playOneRound(Map<String, StringBuilder> scoreBoard) {
         for (Map.Entry<String, StringBuilder> pair : scoreBoard.entrySet()) {
-            if (engine.rollDice()) {
+            if (engine.isMovable()) {
                 engine.moveForward(pair.getValue());
             }
             printer.printRoundResult(pair);
