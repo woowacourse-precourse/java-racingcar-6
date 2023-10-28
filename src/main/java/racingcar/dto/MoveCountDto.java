@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.dto;
+
+import racingcar.MoveCount;
 
 public class MoveCountDto {
 

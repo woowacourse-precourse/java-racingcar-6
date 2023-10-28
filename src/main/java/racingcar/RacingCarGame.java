@@ -1,5 +1,8 @@
 package racingcar;
 
+import racingcar.dto.MoveCountDto;
+import racingcar.dto.RacingCarNameRegistryDto;
+
 public class RacingCarGame {
 
     private final RacingGameConsoleView view;

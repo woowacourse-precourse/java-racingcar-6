@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.dto.MoveCountDto;
+import racingcar.dto.RacingCarNameRegistryDto;
 
 public class RacingGameConsoleView {
 

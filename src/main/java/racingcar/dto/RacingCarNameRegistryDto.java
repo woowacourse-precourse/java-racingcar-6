@@ -1,8 +1,9 @@
-package racingcar;
+package racingcar.dto;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.RacingCarRegistry;
 
 public class RacingCarNameRegistryDto {
 
