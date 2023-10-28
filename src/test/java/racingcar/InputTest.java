@@ -37,4 +37,15 @@ public class InputTest {
             input.setPlayerName(testName);
         });
     }
+    @Test
+    @DisplayName("플레이어이름 0글자 오류 검증")
+    void 입력한_이름_0글자_오류_확인(){
+        //given
+        String testName="";
+        //then
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            //when
+            input.setPlayerName(testName);
+        });
+    }
 }
