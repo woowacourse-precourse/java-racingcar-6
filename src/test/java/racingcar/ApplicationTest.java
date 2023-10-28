@@ -8,7 +8,6 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import racingcar.model.CarEngine;
 import racingcar.model.InputValueValidator;
 
 class ApplicationTest extends NsTest {

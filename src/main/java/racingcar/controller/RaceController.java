@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.InputValueValidator;
+import racingcar.model.RaceTrack;
 import racingcar.view.UserInputValue;
 
 public class RaceController {
@@ -16,5 +17,7 @@ public class RaceController {
         validator.checkNameValidation(carNames);
         String count = UserInputValue.inputMovementCount();
         validator.checkMovementCount(count);
+        RaceTrack raceTrack = new RaceTrack(carNames);
+        raceTrack.printCarNames();
     }
 }
