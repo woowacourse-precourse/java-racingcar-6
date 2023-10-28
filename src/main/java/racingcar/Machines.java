@@ -16,4 +16,8 @@ public class Machines implements Showable, Gettable {
     public String getInput() {
         return machineNames = readLine();
     }
+
+    public String getMachineNames() {
+        return machineNames;
+    }
 }
