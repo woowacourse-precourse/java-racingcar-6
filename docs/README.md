@@ -54,7 +54,7 @@
 5. GameResultMaker
 
 - RacingGameManager와 RacingGameExecutor가 협력하여 이동 결과를 반환하는 책임을 가진 클래스
-  - [ ] List<Car>를 순회하면서, RacingGameExecutor가 이동시킨 결과로 Car의 이동 횟수(count)를 증가시킨다.
+  - [x] List<Car>를 순회하면서, RacingGameExecutor가 이동시킨 결과로 Car의 이동 횟수(count)를 증가시킨다.
 
 6. GameResultView
 
