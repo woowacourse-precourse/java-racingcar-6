@@ -23,6 +23,16 @@ public class OutputViewTest extends NsTest {
 
 		assertThat(output()).contains("실행결과", "car1 :", "car2 :", "car3 :");
 	}
-
+	
+	@DisplayName("실행결과 메세지를 확인한다.")
+	@Test
+	void checkPrintWinner() {
+		OutputView outputView = new OutputView();
+		
+		outputView.printWinner("car1, car2, car3");
+		
+		assertThat(output()).contains("최종 우승자 : car1, car2, car3");
+	}
+	
 	@Override protected void runMain() {}
 }
