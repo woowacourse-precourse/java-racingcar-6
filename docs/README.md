@@ -171,26 +171,27 @@
 
 ### InputView
 - 입력과 입력에 대한 출력을 담당하는 클래스이다.
-- [ ] 이름 입력 질문을 출력하는 메서드
-- [ ] 라운드 입력 질문을 출력하는 메서드
-- [ ] 입력을 받아서 `문자열`로 반환하는 메서드
-    - 기본적으로 null 체크만 하도록 한다.
+- [x] 이름 입력 질문을 출력하는 메서드
+- [x] 라운드 입력 질문을 출력하는 메서드
+- [x] 입력을 받아서 `문자열`로 반환하는 메서드
+    - 기본적으로 빈 문자열 체크만 하도록 한다.
 
 ### OutputView
 - 출력을 담당하는 클래스이다.
-- [ ] `OutputConstant`를 활용하여 `System.out.println()`을 통해 출력을 한다.
+- [x] `OutputConstant`를 활용하여 `System.out.println()`을 통해 출력을 한다.
 
 ### InputConstant
-- [ ] NAMES_REQUEST : `경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)`
-- [ ] ROUND_REQUEST : `시도할 회수는 몇회인가요?`
+- [x] INPUT_DELIMITER : `,`
+- [x] NAMES_REQUEST : `경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)`
+- [x] ROUND_REQUEST : `시도할 회수는 몇회인가요?`
 
 ### OutputConstant
 - 출력에 필요한 상수들을 담은 Enum 클래스이다.
-- [ ] INPUT_DELIMITER : `,`
-- [ ] FORWARD_MARK : `-`
-- [ ] GAME_RESULT : `\n실행 결과\n`
-- [ ] WINNER : `최종 우승자 : `
-- [ ] WINNER_DELIMITER : `, `
+- [x] SEPERATOR : ` : `
+- [x] FORWARD_MARK : `-`
+- [x] GAME_RESULT : `\n실행 결과\n`
+- [x] WINNER : `최종 우승자 : `
+- [x] WINNER_DELIMITER : `, `
 
 <br>
 
