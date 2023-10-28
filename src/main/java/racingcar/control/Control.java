@@ -18,6 +18,16 @@ public class Control {
     // main 메서드인 playGame() 먼저 만들고 후에 이 클래스 내에서 나누기
     // Cars 입력받고 List에 넣어주는 메서드도 여기서 구현할 것
     // Winner 판별하는 메서드도 여기
+    public void playGame() {
+        startGame();
+        savingCarPositions(carNames);
+        raceProcess();
+        // 일단 winner 여기서 출력할거임 -> 나중에 바꿔도 됨
+
+        judgingWinner(carPositions);
+        // judging에서 결정한 거 winner에 넣어주고 다른 거랑 비교
+        printWinner(carNames);
+    }
 
     private void startGame() {
         // 차 이름 입력 받기
