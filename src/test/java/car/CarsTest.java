@@ -2,6 +2,8 @@ package car;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.List;
 
@@ -18,25 +20,26 @@ class CarsTest {
         assertThat(cars.getCarNames()).isEqualTo(List.of(USERNAME_ARRAY));
     }
 
-    @Test
-    void cars_init_with_spaces() {
-        String userInputWithBlank = "pobi, json, DK";
+    @ParameterizedTest
+    @DisplayName("유저의 입력에서 공백을 제거한다.")
+    @ValueSource(strings = {"pobi,     json,   DK", "pobi,          json, DK"})
+    void cars_init_with_spaces(String userInputWithBlank) {
         Cars cars = new Cars(userInputWithBlank);
         assertThat(cars.getCarList()).hasSize(3);
         assertThat(cars.getCarNames()).isEqualTo(List.of(USERNAME_ARRAY));
     }
 
-    @Test
-    void car_name_must_not_blank() {
-        String blankedOneInput = " ";
-        String blankExistsInNameArray = "json, pobi, DK,      ";
-        assertThatThrownBy(() -> new Cars(blankedOneInput)).isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> new Cars(blankExistsInNameArray)).isInstanceOf(IllegalArgumentException.class);
+    @ParameterizedTest
+    @DisplayName("공백만 입력하거나, 공백인 유닛이 있어선 안된다.")
+    @ValueSource(strings = {" ", ", ", "pobi, json, Dk,   "})
+    void car_name_must_not_blank(String invalidInput) {
+        assertThatThrownBy(() -> new Cars(invalidInput)).isInstanceOf(IllegalArgumentException.class);
     }
 
-    @Test
-    void invalid_name_length() {
-        String longNameInput = "helloWorld, SpringBoot, I_AM_IRON_MAN";
+    @ParameterizedTest
+    @DisplayName("이름이 5자를 초과해선 안된다.")
+    @ValueSource(strings = {"looooooong", "helloWorld", "SpringBoot", "I_AM_IRON_MAN"})
+    void invalid_name_length(String longNameInput) {
         assertThatThrownBy(() -> new Cars(longNameInput)).isInstanceOf(IllegalArgumentException.class);
     }
 }
