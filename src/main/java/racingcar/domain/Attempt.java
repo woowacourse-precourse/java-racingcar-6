@@ -17,6 +17,12 @@ public class Attempt {
         validateAttemptNumber(attemptInput);
     }
 
+    public void validateAttemptNumber(String number) {
+        checkNonBlank(number);
+        checkInteger(number);
+        checkPositiveNumber();
+    }
+
     public int getCount() {
         return count;
     }
