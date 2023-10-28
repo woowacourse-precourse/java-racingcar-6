@@ -10,7 +10,9 @@ public class Cars {
     Utils utils= new Utils();
 
     public Cars(String input) {
-
+        cars = Arrays.stream(utils.splitByDelimiter(input))
+                .map(Car::new)
+                .collect(Collectors.toList());
     }
 
     public List<Car> getCars() {
