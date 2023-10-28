@@ -3,7 +3,7 @@ package racingcar.entity;
 
 public class User {
     private String name;
-    private Integer score;
+    private Integer score = 0;
 
     public String getName(){
         return name;
