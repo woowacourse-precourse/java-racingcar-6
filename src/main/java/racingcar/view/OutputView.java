@@ -14,6 +14,6 @@ public class OutputView {
 
     public void printFinalWinner(ArrayList<String> finalWinner) {
         String winners = String.join(", ", finalWinner);
-        System.out.println("최종 우승자 : " + winners);
+        System.out.print("최종 우승자 : " + winners);
     }
 }
