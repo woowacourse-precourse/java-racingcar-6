@@ -33,7 +33,7 @@ InputReader
 GameEngine
 
 -[ ] 플레이어 생성한다
-    -[ ] 플레이어 이름이 6글자 이상이면, IllgalArugmentException 반환
+    -[ ] 플레이어 이름이 6글자 이상이면, IllegalArgumentException 반환
 - [ ] 플레이어가 전진하는지를 판단한다
     -[ ] NumberGenerator# 숫자 만드는 것을 부른다.
     -[ ] 숫자를 판단한다
