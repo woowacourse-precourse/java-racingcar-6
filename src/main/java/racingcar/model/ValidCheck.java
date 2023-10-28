@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 public class ValidCheck {
     public static void namesize_check(String[] car_list){

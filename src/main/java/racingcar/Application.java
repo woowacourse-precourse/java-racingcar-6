@@ -1,10 +1,14 @@
 package racingcar;
 
+import racingcar.model.CarMove;
+import racingcar.view.PrintInput;
+import racingcar.view.PrintResult;
+
 import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        CarInput car = new CarInput();
+        PrintInput car = new PrintInput();
         List<String> car_list = car.inputCar();
         StringBuilder[] move_result = new StringBuilder[car_list.size()];
         int numberOfGame = car.inputNumberOfMove();
