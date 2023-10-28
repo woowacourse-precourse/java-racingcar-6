@@ -2,10 +2,14 @@ package racingcar;
 
 public class Car {
     private String name;
-    private String status;
+    private int status;
 
     public Car(String name) {
         this.name = name;
-        status = "";
+        this.status = 0;
+    }
+
+    public void go() {
+        status ++;
     }
 }

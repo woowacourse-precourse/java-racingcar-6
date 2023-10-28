@@ -1,14 +1,15 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
 
-    private int round;
-    private List<Car> carRepository;
+    private int round;  // 남은 회차 수
+    private List<Car> carRepository;    // Car 저장소
 
     public Game() {
         carRepository = new ArrayList<>();
@@ -19,6 +20,22 @@ public class Game {
         getRound();
 
     }
+
+    void play() {
+        while (round-- > 0) {
+            roundProgress();
+        }
+    }
+
+    // 한 회차를 진행한다
+    private void roundProgress() {
+        for (Car car : carRepository) {
+            if (Randoms.pickNumberInRange(0, 9) >= 4) { // 이기는 경우
+                car.go();
+            }
+        }
+    }
+
 
     void createCar() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
