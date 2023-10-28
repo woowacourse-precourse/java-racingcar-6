@@ -21,18 +21,28 @@ public class RaceController {
         this.raceManager = raceManager;
     }
 
-    public void race() {
+    public void startRace() {
+        List<Car> cars = initializeCars();
+        int attemptCount = initializeAttemptCount();
+        outputView.printGameStartMessage();
+        startRacingRounds(cars, attemptCount);
+
+    }
+
+    private List<Car> initializeCars(){
         String inputCarNames = inputView.inputCarNames();
         List<String> carNames = InputParser.parseCarNames(inputCarNames);
         InputValidator.validateCarNames(carNames);
-        List<Car> cars = InputParser.convertNamesToCars(carNames);
+        return InputParser.convertNamesToCars(carNames);
+    }
 
+    private int initializeAttemptCount(){
         String inputAttemptCount = inputView.inputAttemptCount();
         InputValidator.validateAttemptCount(inputAttemptCount);
-        int attemptCount = Integer.parseInt(inputAttemptCount);
+        return Integer.parseInt(inputAttemptCount);
+    }
 
-        outputView.printGameStartMessage();
-
+    private void startRacingRounds(List<Car> cars, int attemptCount){
         RaceResult result = null;
         while (attemptCount-- > 0) {
             result = raceManager.playRound(cars);
@@ -42,7 +52,6 @@ public class RaceController {
         if(result != null) {
             outputView.printWinner(result);
         }
-
     }
 
 }
