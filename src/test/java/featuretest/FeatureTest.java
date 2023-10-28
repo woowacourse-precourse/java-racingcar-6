@@ -96,14 +96,14 @@ public class FeatureTest {
         assertThat(actualObj).isEqualTo(expectedObj);
     }
 
-//    @Test
-//    void 랜덤_값_생성() {
-//        Car actualObj = new Car();
-//        actualObj.generateRandomNumber();
-//
-//        boolean actualResult = actualObj.isRandomNumberInRange0to9();
-//        boolean expectedResult = true;
-//
-//        assertThat(actualResult).isEqualTo(expectedResult);
-//    }
+    @Test
+    void 랜덤_값_생성() {
+        Car actualObj = new Car("car1");
+        actualObj.generateRandomNumber();
+
+        boolean actualResult = actualObj.isRandomNumberInRange0to9();
+        boolean expectedResult = true;
+
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
 }
