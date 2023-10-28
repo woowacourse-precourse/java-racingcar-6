@@ -125,7 +125,7 @@ classDiagram
 ### Racing Car Controller `RacingCarController`
 - [x] 전체 게임의 실행
 - [x] 게임 시작
-- [ ] 우승자 선언
+- [x] 우승자 선언
 
 ### Input Handler `InputHandler`
 - [x] 사용자 이름 가져오기
