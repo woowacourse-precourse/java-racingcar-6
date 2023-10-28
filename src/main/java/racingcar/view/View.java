@@ -14,11 +14,16 @@ public class View {
         return splitNamesOfCars;
     }
 
-    public String getNumberOfAttempt() {
+    public int getNumberOfAttempts() {
         System.out.println("시도할 횟수는 몇회인가요?");
-        String attempt = Console.readLine();
+        String stringOfAttempts = Console.readLine();
 
-        return attempt;
+        try {
+            int intOfAttempts = Integer.parseInt(stringOfAttempts);
+            return intOfAttempts;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("입력값이 정수가 아닙니다.");
+        }
     }
 
     public void printResult(List<Car> carList) {
