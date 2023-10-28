@@ -1,7 +1,7 @@
 package game;
 
 import org.junit.jupiter.api.Test;
-import racingcar.RaceGame;
+import racingcar.GameInputHandler;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -19,8 +19,8 @@ public class OutputTest {
         try{
             System.setOut(printStream);
 
-            RaceGame raceGame = new RaceGame();
-            raceGame.startGame();
+            GameInputHandler gameInputHandler = new GameInputHandler();
+            gameInputHandler.startGame();
 
             String printedMessage = outputStream.toString();
 

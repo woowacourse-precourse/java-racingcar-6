@@ -2,7 +2,7 @@ package game;
 
 import org.junit.jupiter.api.Test;
 import racingcar.InputValidator;
-import racingcar.RaceGame;
+import racingcar.GameInputHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +14,9 @@ public class InputTest {
     InputValidator validator = new InputValidator();
     @Test
     void split_메서드로_주어진_값을_구분() {
-        RaceGame raceGame = new RaceGame();
+        GameInputHandler gameInputHandler = new GameInputHandler();
         String input = "1,2";
-        List<String> cars = raceGame.splitStringToList(input);
+        List<String> cars = gameInputHandler.splitStringToList(input);
 
         assertThat(cars).contains("2", "1");
         assertThat(cars).containsExactly("1", "2");
