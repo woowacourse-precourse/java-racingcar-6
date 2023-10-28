@@ -35,7 +35,7 @@ public class GameViewer {
     }
 
     public void gameWinnerViewer() {
-        String winners = String.join(",", racingCarGameMachine.getWinner());
+        String winners = String.join(", ", racingCarGameMachine.getWinner());
         System.out.println(GameMessage.WINNER_MESSAGE.getWinnerMessage(winners));
     }
 

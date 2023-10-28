@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.RacingCar;
 import racingcar.model.RacingCarGameMachine;
+import racingcar.view.GameMessage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -62,8 +63,11 @@ public class RacingCarGameMachineTest {
         jonhan.isRacingCarMove(6);
         //then
         List<String> winners = racingCarGameMachine.getWinner();
+        String joinString = String.join(", ", winners);
         assertThat(winners.get(0)).isEqualTo("namzi");
         assertThat(winners.size()).isEqualTo(1);
+        assertThat(GameMessage.WINNER_MESSAGE.getWinnerMessage(joinString))
+                .isEqualTo("최종 우승자 : namzi");
     }
 
     @DisplayName("winner가 1명이상 일 때 판단하는 테스트")
@@ -96,10 +100,14 @@ public class RacingCarGameMachineTest {
         jonhan.isRacingCarMove(2);
         jonhan.isRacingCarMove(4);
         jonhan.isRacingCarMove(6);
+
         //then
         List<String> winners = racingCarGameMachine.getWinner();
+        String joinString = String.join(", ", winners);
         assertThat(winners.get(0)).isEqualTo("namzi");
         assertThat(winners.get(1)).isEqualTo("jnam");
         assertThat(winners.size()).isEqualTo(2);
+        assertThat(GameMessage.WINNER_MESSAGE.getWinnerMessage(joinString))
+                .isEqualTo("최종 우승자 : namzi, jnam");
     }
 }
