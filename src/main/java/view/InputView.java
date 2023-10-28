@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
