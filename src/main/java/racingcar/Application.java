@@ -2,8 +2,11 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
+import java.util.HashMap;
+
 public class Application {
     static String InputCarName = "";
+    static HashMap<String, Integer> racingcar = new HashMap<>();
 
     public static void main(String[] args) {
         // TODO: 프로그램 구현
@@ -17,6 +20,18 @@ public class Application {
 
     public static void InputCarName() {
         InputCarName = readLine();
+        Exception_Handling();
     }
+
+    public static void Exception_Handling() {
+        String[] carArray = InputCarName.split(",");
+        for (int i = 0; i < carArray.length; i++) {
+            if (carArray[i].length() > 5) {
+                throw new IllegalArgumentException();
+            }
+            racingcar.put(carArray[i], 0);
+        }
+    }
+
 
 }
