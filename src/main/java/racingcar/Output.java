@@ -14,8 +14,15 @@ public class Output {
 
    public static void tellCurrent(HashMap map,String [] groupCar){
         for(String name : groupCar){
-            System.out.println(name+" : "+map.get(name));
+            showHowMuchGo((Integer)map.get(name));
         }
+   }
+   public static void showHowMuchGo(int howMuchGoNum){
+       String line = "";
+        for(int i = 0; i <howMuchGoNum; i++){
+            line+="-";
+        }
+        System.out.println(line);
    }
 
     }
