@@ -32,13 +32,23 @@ class GameTest {
     @Test
     @DisplayName("비정상 이름 입력")
     void readCarNames_badInputs() {
+        // given
         String onlyCommas = ",,,,";
         String badCommaPosition = ",lee,park,kim,";
         String sixLettersName = "joshua,josh";
 
-        testBadInput(onlyCommas);
-        testBadInput(badCommaPosition);
-        testBadInput(sixLettersName);
+        // when - then
+        System.setIn(new ByteArrayInputStream(onlyCommas.getBytes()));
+        assertThatThrownBy(() -> Game.readCarNames())
+            .isInstanceOf(IllegalArgumentException.class);
+
+        System.setIn(new ByteArrayInputStream(badCommaPosition.getBytes()));
+        assertThatThrownBy(() -> Game.readCarNames())
+            .isInstanceOf(IllegalArgumentException.class);
+
+        System.setIn(new ByteArrayInputStream(sixLettersName.getBytes()));
+        assertThatThrownBy(() -> Game.readCarNames())
+            .isInstanceOf(IllegalArgumentException.class);
     }
 
     private static void testBadInput(String input) {
