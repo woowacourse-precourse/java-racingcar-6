@@ -24,6 +24,7 @@ public class GameController {
             cars.add(car);
         }
 
+        outputView.displayGetMoveCount();
         int moveCount = inputView.getMoveCount();
     }
 }
