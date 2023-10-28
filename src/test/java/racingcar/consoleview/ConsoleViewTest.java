@@ -68,19 +68,16 @@ public class ConsoleViewTest {
                 Arguments.of(
                         Arrays.asList(
                                 new RacingPlayer("희종", 3))
-                        , "희종 : ---"
-                ),
+                        , "희종 : ---"),
                 Arguments.of(
                         Arrays.asList(
                                 new RacingPlayer("희종", 0))
-                        , "희종 :"
-                ),
+                        , "희종 :"),
                 Arguments.of(
                         Arrays.asList(
                                 new RacingPlayer("희종", 1),
                                 new RacingPlayer("주현", 3))
-                        , "희종 : -\n주현 : ---"
-                ),
+                        , "희종 : -\n주현 : ---"),
                 Arguments.of(
                         Arrays.asList(
                                 new RacingPlayer("희종", 10),
