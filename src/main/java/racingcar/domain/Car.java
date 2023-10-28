@@ -50,12 +50,12 @@ public class Car {
             return false;
         }
         Car car = (Car) o;
-        return Objects.equals(name, car.name) && Objects.equals(location, car.location);
+        return Objects.equals(name, car.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, location);
+        return Objects.hash(name);
     }
 
     private boolean isForward(int randomNumber) {

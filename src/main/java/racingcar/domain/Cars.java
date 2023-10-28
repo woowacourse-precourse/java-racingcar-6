@@ -29,12 +29,6 @@ public class Cars {
                 .collect(Collectors.toUnmodifiableList());
     }
 
-    public List<String> getNamesOfCars(List<Car> cars) {
-        return cars.stream()
-                .map(Car::getName)
-                .collect(Collectors.toList());
-    }
-
     private void validateName(List<Car> cars) {
         Set<Car> carSet = new HashSet<>(cars);
 
