@@ -11,7 +11,7 @@ class RacingCarTest {
         // given
         int actionNumber = 4;
         int initialPosition = 4;
-        RacingCar car = new RacingCar(new Name("test"), new Position(4));
+        RacingCar car = new RacingCar(Name.of("test"), Position.of(4));
 
         // when
         car.move(actionNumber);
@@ -25,7 +25,7 @@ class RacingCarTest {
         // given
         int actionNumber = 3;
         int initialPosition = 4;
-        RacingCar car = new RacingCar(new Name("test"), new Position(4));
+        RacingCar car = new RacingCar(Name.of("test"), Position.of(4));
 
         // when
         car.move(actionNumber);

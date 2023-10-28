@@ -16,7 +16,7 @@ class NameTest {
         // when
         //then
         Assertions.assertThatThrownBy(() -> {
-            new Name(name);
+            Name.of(name);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
