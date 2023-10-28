@@ -11,7 +11,7 @@
     - [ ] 0이라면?
 - [ ]  자동차 경주 게임 진행하는 기능이다. - `playGame(how many에서 받은 숫자, 자동차 객체를 요소로 갖고 있는 리스트)`
     - [x]  무작위 값을 구하는 기능이다. - `generateRandomNumber()`
-    - [ ]  전진할지 말지 선택하는 기능이다. - `play/isGo(무작위 값)`
+    - [x]  전진할지 말지 선택하는 기능이다. - `play/isGo(무작위 값)`
     - [ ]  사용자별로 경주를 진행한 값을 적용(update)하는 기능이다. - `play/updateData(자동차 객체 1개)`
     - updateData() 메소드에서 generateRandomNumber()와 isGo() 메소드를 호출해서 isGo() == true이면 값 업데이트하고 아니면 다음으로 넘어가고..
     - for문을 최대한 적게 써서 구현할 수 있을까?

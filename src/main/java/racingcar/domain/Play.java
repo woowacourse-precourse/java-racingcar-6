@@ -4,6 +4,8 @@ import java.util.List;
 
 public class Play {
     public boolean isGo(int randomNumber){
+        if (randomNumber >= 4)
+            return true;
         return false;
     }
 
