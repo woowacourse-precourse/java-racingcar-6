@@ -14,20 +14,37 @@ public class InputView {
 
     public String inputCarsName() {
         printInputCarsNameMessage();
-        return Console.readLine();
+        String carsName = Console.readLine();
+        validateNull(carsName);
+        return carsName;
     }
 
     public int inputTotalRound() {
         printInputTotalRoundMessage();
-        String inputRound = Console.readLine();
-        if (isNotNumeric(inputRound)) {
+        String totalRound = Console.readLine();
+        validateNull(totalRound);
+        validateNumeric(totalRound);
+        return Integer.parseInt(totalRound);
+    }
+
+    private void validateNull(String inputValue) {
+        if (isBlank(inputValue)) {
             throw new IllegalArgumentException();
         }
-        return Integer.parseInt(inputRound);
+    }
+
+    private void validateNumeric(String inputValue) {
+        if (isNotNumeric(inputValue)) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private boolean isNotNumeric(String inputValue) {
         return !inputValue.chars()
                 .allMatch(Character::isDigit);
+    }
+
+    private boolean isBlank(String inputValue) {
+        return inputValue == null || inputValue.isBlank();
     }
 }
