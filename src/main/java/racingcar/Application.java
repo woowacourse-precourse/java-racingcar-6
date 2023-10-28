@@ -21,6 +21,18 @@ public class Application {
         return carDistanceMap;
     }
 
+    public static Map<String, Integer> movingCar(Map<String, Integer> carDistanceMap) {
+
+        for (Map.Entry<String, Integer> carDistanceEntry : carDistanceMap.entrySet()) {
+
+            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+                carDistanceMap.put(carDistanceEntry.getKey(), carDistanceEntry.getValue() + 1);
+            }
+        }
+
+        return carDistanceMap;
+    }
+
     public static void main(String[] args) {
         System.out.println("경주할 자동차의 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
@@ -34,7 +46,12 @@ public class Application {
 
         System.out.println("실행 결과");
 
-        // 전진 시도 시행 (실행결과 출력)
+        for (int i = 0; i < repeatCount; i++) {
+
+            carDistanceMap = movingCar(carDistanceMap);
+
+            // 시행 결과 출력
+        }
 
         String winners = "sample_winners";
 
