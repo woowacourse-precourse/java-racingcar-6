@@ -39,8 +39,7 @@ public class Cars {
                 car.registerOnWinnerList(winnerList);
             }
         }
-        Winners winners = new Winners(winnerList);
-        return winners;
+        return new Winners(winnerList);
     }
 
     private int findFurthestDistance() {

@@ -12,8 +12,7 @@ public class Winners {
     }
 
     public String makeWinnerList() {
-        String winnerList = String.join(", ", winners);
-        return winnerList;
+        return String.join(", ", winners);
     }
 
 }
