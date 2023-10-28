@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.CarGroup;
 import racingcar.domain.CarManager;
+import racingcar.domain.MoveCount;
 import racingcar.util.RacingGuideMessage;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -20,6 +21,12 @@ public class Race {
 
     public void start() {
         CarGroup carGroup = carManager.createCarList(inputCarNames());
+        MoveCount moveCount = new MoveCount(inputMoveCount());
+    }
+
+    private String inputMoveCount() {
+        outputView.showMessage(RacingGuideMessage.INPUT_MOVE_COUNT);
+        return inputView.getUserInput();
     }
 
     private String inputCarNames() {
