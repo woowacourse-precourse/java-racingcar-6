@@ -19,8 +19,6 @@ public class Racer {
                 .toList();
     }
 
-    //TODO: 욘석 여기 었어도 돼겠니??!
-    //TODO: 메서드 이름이 move 괜찮겠냐? 고민해보자
     public void play() {
         racer.forEach(Car::move);
     }
@@ -41,13 +39,11 @@ public class Racer {
 
     //TODO: 이 메서드 별로 안이쁨
     public String winnerToString() {
-        List<Car> winner = getWinner();
-        StringBuilder stringBuilder = new StringBuilder();
-        for (Car car : winner) {
-            stringBuilder.append(car.getName()).append(",");
-        }
-        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-        return stringBuilder.toString();
+        List<String> winner = getWinner()
+                .stream()
+                .map(Car::getName)
+                .toList();
+        return String.join(Rule.SEPARATOR, winner);
     }
 
     @Override
