@@ -1,7 +1,6 @@
 package racingcar.model;
 
 public class Validator {
-    //콤마를 기준으로 이름이 1자 이상 5자 이하가 아닌 경우
     public Validator() {
     }
 
@@ -13,5 +12,14 @@ public class Validator {
             }
         }
         return true;
+    }
+
+    public boolean isNumberFromPlayerValidate(String number) {
+        try {
+            int attemptNumber = Integer.parseInt(number);
+            return true;
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException();
+        }
     }
 }
