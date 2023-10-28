@@ -6,7 +6,7 @@ import java.util.List;
 
 public class CarName {
     public final List<String> inputCarName() {
-        String inputCarNames = Console.readLine();
-        return Arrays.asList(inputCarNames.split(","));
+        String CarNames = Console.readLine();
+        return Arrays.asList(CarNames.split(","));
     }
 }
