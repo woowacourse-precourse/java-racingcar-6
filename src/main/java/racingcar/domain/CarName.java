@@ -7,14 +7,13 @@ import java.util.List;
 import java.util.Map;
 
 public class CarName {
-    public final List<String> inputCarName() {
+    public static List<String> inputCarName() {
         String CarNames = Console.readLine();
         return Arrays.asList(CarNames.split(","));
     }
 
     public final Map<String, Integer> getcarList() {
-        CarName carName = new CarName();
-        List<String> carList = carName.inputCarName();
+        List<String> carList = inputCarName();
         Map<String, Integer> carMap = new HashMap<>();
         carList.forEach((car)->{
             carMap.put(car, 0);

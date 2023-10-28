@@ -6,8 +6,8 @@ import java.util.Map;
 public class Car {
     public void racingCarCount() {
         CarName carName = new CarName();
-        Map<String, Integer> carNames = carName.getcarList();
-        carNames.forEach((key, value)->{
+        Map<String, Integer> carList = carName.getcarList();
+        carList.forEach((key, value)->{
             value += goControlStatement(getRandomNumber());
         });
     }
