@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -24,6 +25,13 @@ class CarsTest {
         firstCar = cars.getCars().get(0);
         secondCar = cars.getCars().get(1);
         thirdCar = cars.getCars().get(2);
+    }
+
+    @Test
+    void Cars_생성자는_중복된_자동차의_이름이_들어오면_IllegalArgumentException을_발생시킨_후_애플리케이션은_종료된다() {
+        List<String> cars = List.of("pobi", "woni", "pobi");
+
+        assertThatThrownBy(() -> Cars.from(cars)).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
