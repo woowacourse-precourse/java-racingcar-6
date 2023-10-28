@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import static constant.MessgeList.EXECUTION_RESULT_MESSAGE;
+import static constant.MessgeList.WINNER_MESSAGE;
 
 public class OutputView {
     public void printExecutionResultMessage(){
@@ -12,5 +13,8 @@ public class OutputView {
             System.out.print("-");
         }
         System.out.println();
+    }
+    public void printSoleWinner(String winner){
+        System.out.println(WINNER_MESSAGE+winner);
     }
 }
