@@ -19,4 +19,9 @@ public class OutputView {
         System.out.print(car.getName() + Constant.RESULT_DELIMITER);
         System.out.println(Constant.CAR_LOCATION.repeat(car.getMoveCount()));
     }
+
+    public static void printWinners(List<String> names) {
+        System.out.println(Message.FINAL_WINNERS + String.join(Constant.WINNER_DELIMITER, names));
+
+    }
 }

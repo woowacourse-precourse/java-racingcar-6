@@ -10,4 +10,5 @@ public class Constant {
     public static final String SPLIT_DELIMITER = ",";
     public static final String CAR_LOCATION = "-";
     public static final String RESULT_DELIMITER = " : ";
+    public static final String WINNER_DELIMITER = ", ";
 }

@@ -11,6 +11,6 @@ public class RacingController {
         String carNames = InputView.getInputCarName();
         String count = InputView.getInputCount();
         this.race = new Race(carNames, count);
-        race.printRaceResult();
+        race.printResults();
     }
 }

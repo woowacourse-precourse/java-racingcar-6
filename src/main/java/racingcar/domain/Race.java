@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.stream.IntStream;
+import javax.swing.Spring;
 import racingcar.utils.validation.InputValidation;
 import racingcar.view.OutputView;
 
@@ -22,12 +23,22 @@ public class Race {
         }
     }
 
-    public void moveCars() {
+    public void printResults() {
+        OutputView.printOutputMessage();
+        printRaceResult();
+        printWinners();
+    }
+
+    private void moveCars() {
         cars.move();
         OutputView.printResult(cars.getCars());
     }
 
-    public void printRaceResult() {
+    private void printRaceResult() {
         IntStream.range(0, moveCount).forEach(i -> moveCars());
+    }
+
+    private void printWinners() {
+        OutputView.printWinners(cars.getWinnerNames());
     }
 }

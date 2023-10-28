@@ -30,6 +30,21 @@ public class Cars {
         cars.forEach(Car::move);
     }
 
+    public int getMaxCount() {
+        return cars.stream()
+            .mapToInt(Car::getMoveCount)
+            .max()
+            .orElse(Constant.MIN_RANDOM_NUMBER);
+    }
+
+    public List<String> getWinnerNames() {
+        int maxCount = getMaxCount();
+        return cars.stream()
+            .filter(car -> car.getMoveCount() == maxCount)
+            .map(Car::getName)
+            .collect(Collectors.toList());
+    }
+
     public List<Car> getCars() {
         return this.cars;
     }
