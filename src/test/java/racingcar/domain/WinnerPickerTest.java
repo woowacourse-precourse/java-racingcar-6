@@ -37,7 +37,7 @@ class WinnerPickerTest {
         for (int forward = 0; forward < 3; forward++) {
             car3.forward();
         }
-        carList = Arrays.asList(car1, car2, car3);
+        carList = new ArrayList<>(Arrays.asList(car1, car2, car3));
         racingCars = new RacingCars(carList);
     }
 
