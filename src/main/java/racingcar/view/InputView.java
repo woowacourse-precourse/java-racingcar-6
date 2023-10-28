@@ -2,6 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.util.Constant;
+import racingcar.util.InputValidator;
 import racingcar.util.Message;
 
 import java.util.List;
@@ -12,12 +13,22 @@ public class InputView {
 		OutputView.printMessage(Message.INPUT_CAR_NAME_MESSAGE);
 		String userInput = Console.readLine();
 
-		return Arrays.asList(userInput.split(Constant.INPUT_NAME_DELIMITER));
+		List<String> carNames = Arrays.asList(userInput.split(Constant.INPUT_NAME_DELIMITER));
+		InputValidator inputValidator = new InputValidator();
+
+		for (String carName : carNames) {
+			inputValidator.isValidName(carName);
+		}
+
+		return carNames;
 	}
 
 	public static int inputTryNumber() {
 		OutputView.printMessage(Message.INPUT_TRY_NUMBER_MESSAGE);
 		String userInput = Console.readLine();
+
+		InputValidator inputValidator = new InputValidator();
+		inputValidator.isValidTryNumber(userInput);
 
 		return Integer.parseInt(userInput);
 	}
