@@ -31,6 +31,22 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 시도횟수에_대한_예외_처리_숫자가_아닌_값이_있는_경우() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi", "1번"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도횟수에_대한_예외_처리_값이_없는_경우() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi", null))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
