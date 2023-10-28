@@ -15,7 +15,7 @@ public class RacingCar {
         this.name = name;
     }
 
-    public RacingCarStatus getInformation() {
+    public RacingCarStatus getStatus() {
         return RacingCarStatus.of(name, position);
     }
 

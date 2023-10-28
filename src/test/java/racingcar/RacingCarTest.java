@@ -42,7 +42,7 @@ class RacingCarTest {
     public void checkInformation(){
         String name = "abcde";
         RacingCar racingCar = new RacingCar(name);
-        RacingCarStatus information = racingCar.getInformation();
+        RacingCarStatus information = racingCar.getStatus();
         assertThat(information.getName()).isEqualTo(name);
         assertThat(information.getPosition()).isEqualTo(0);
     }
@@ -52,9 +52,9 @@ class RacingCarTest {
     @DisplayName("4 미만의 수가 주어지면 움직이지 않는다")
     public void lowerNumberThanThresholdTest(int chosenNumber){
         RacingCar racingCar = new RacingCar("name");
-        int initialPosition = racingCar.getInformation().getPosition();
+        int initialPosition = racingCar.getStatus().getPosition();
         racingCar.checkAndMoveForward(chosenNumber);
-        int afterPosition = racingCar.getInformation().getPosition();
+        int afterPosition = racingCar.getStatus().getPosition();
 
         assertThat(initialPosition).isEqualTo(afterPosition);
     }
@@ -64,9 +64,9 @@ class RacingCarTest {
     @DisplayName("4 이상의 수가 주어지면 앞으로 움직인다")
     public void higherNumberThanThresholdTest(int chosenNumber){
         RacingCar racingCar = new RacingCar("name");
-        int initialPosition = racingCar.getInformation().getPosition();
+        int initialPosition = racingCar.getStatus().getPosition();
         racingCar.checkAndMoveForward(chosenNumber);
-        int afterPosition = racingCar.getInformation().getPosition();
+        int afterPosition = racingCar.getStatus().getPosition();
 
         assertThat(initialPosition + 1).isEqualTo(afterPosition);
     }
