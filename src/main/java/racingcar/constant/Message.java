@@ -8,5 +8,6 @@ public class Message {
     public static final String ENTER_TRY_COUNT = "시도할 회수는 몇회인가요?";
 
     public static final String RACE_RESULT_HEADER = "실행 결과";
+    
     public static final String RACE_WINNER_ANNOUNCEMENT = "최종 우승자";
 }
