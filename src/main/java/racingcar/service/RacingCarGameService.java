@@ -21,7 +21,7 @@ public class RacingCarGameService {
         racingCarStatusGroup = new RacingCarStatusGroup(racingCarStatusList);
     }
 
-    public void racingCarGameProgress(RacingCars racingCar) {
-
+    public void racingCarGameProgress() {
+        racingCarStatusGroup.moveForward();
     }
 }

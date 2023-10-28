@@ -13,7 +13,7 @@ import java.util.stream.Stream;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
-public class RacingCarTest {
+public class RacingCarsTest {
 
     private static Stream<Arguments> generateCarNames() {
         return Stream.of(
