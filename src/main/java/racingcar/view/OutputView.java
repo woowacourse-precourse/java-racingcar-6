@@ -20,4 +20,7 @@ public class OutputView {
         System.out.println(car.getCarName() + " : " + car.getPositionToString());
     }
 
+    public void printWinners(Cars cars) {
+        System.out.println(cars.WinnersToString());
+    }
 }

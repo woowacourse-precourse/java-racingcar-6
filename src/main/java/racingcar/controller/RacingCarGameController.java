@@ -18,14 +18,19 @@ public class RacingCarGameController {
     public void run() {
         Cars cars = Cars.makeCarList(inputView.readCarNames());
         moveCars(cars);
+        outputView.printWinners(cars);
     }
 
     private void moveCars(Cars cars) {
         int count = inputView.readMoveCount();
         outputView.printResultMessage();
         IntStream.rangeClosed(1, count).forEach(index -> {
-            cars.move();
-            outputView.printCarsPosition(cars);
+            moveCarProcess(cars);
         });
+    }
+
+    private void moveCarProcess(Cars cars){
+        cars.move();
+        outputView.printCarsPosition(cars);
     }
 }
