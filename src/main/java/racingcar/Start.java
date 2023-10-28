@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Game {
+public class Start {
 
     public static void start() {
         List<Car> cars = readCarNames();

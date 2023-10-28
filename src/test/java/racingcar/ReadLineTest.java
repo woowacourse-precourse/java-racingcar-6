@@ -24,7 +24,7 @@ class ReadLineTest {
 
         // when
         System.setIn(new ByteArrayInputStream(input.getBytes()));
-        List<Car> cars = Game.readCarNames();
+        List<Car> cars = Start.readCarNames();
 
         // then
         assertThat(cars.get(0).getName()).isEqualTo("jason");
@@ -39,7 +39,7 @@ class ReadLineTest {
 
         // when
         System.setIn(new ByteArrayInputStream(input.getBytes()));
-        List<Car> cars = Game.readCarNames();
+        List<Car> cars = Start.readCarNames();
         Console.close();
 
         // then
@@ -54,7 +54,7 @@ class ReadLineTest {
 
         // when - then
         System.setIn(new ByteArrayInputStream(onlyCommas.getBytes()));
-        assertThatThrownBy(Game::readCarNames)
+        assertThatThrownBy(Start::readCarNames)
             .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -66,7 +66,7 @@ class ReadLineTest {
 
         // when - then
         System.setIn(new ByteArrayInputStream(badCommaPosition.getBytes()));
-        assertThatThrownBy(Game::readCarNames)
+        assertThatThrownBy(Start::readCarNames)
             .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -78,7 +78,7 @@ class ReadLineTest {
 
         // when - then
         System.setIn(new ByteArrayInputStream(sixLettersName.getBytes()));
-        assertThatThrownBy(Game::readCarNames)
+        assertThatThrownBy(Start::readCarNames)
             .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -90,7 +90,7 @@ class ReadLineTest {
 
         // when - then
         System.setIn(new ByteArrayInputStream(legal.getBytes()));
-        int countLegal = Game.readGameCount();
+        int countLegal = Start.readGameCount();
         assertThat(countLegal).isEqualTo(1);
     }
 
@@ -118,7 +118,7 @@ class ReadLineTest {
 
         // when - then
         System.setIn(new ByteArrayInputStream(illegal.getBytes()));
-        assertThatThrownBy(Game::readGameCount)
+        assertThatThrownBy(Start::readGameCount)
             .isInstanceOf(IllegalArgumentException.class);
     }
 }
