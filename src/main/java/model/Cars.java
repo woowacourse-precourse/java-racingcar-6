@@ -1,12 +1,16 @@
 package model;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import utils.Utils;
 
 public class Cars {
     private List<Car> cars;
+    Utils utils= new Utils();
 
-    public Cars(List<Car> cars) {
-        this.cars = cars;
+    public Cars(String input) {
+
     }
 
     public List<Car> getCars() {
