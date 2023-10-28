@@ -1,0 +1,14 @@
+package racingcar.util;
+
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
+class InputValidatorTest {
+    @Test
+    void 자동차_이름_글자수_검증() {
+        assertThatThrownBy(() -> InputValidator.isValidCarNames("pobi,woni,yehyeok"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름은 5자 이하만 가능합니다.");
+    }
+}
