@@ -1,11 +1,17 @@
 package racingcar.service;
 
+import java.util.ArrayList;
 import java.util.List;
+import racingcar.domain.Car;
 import racingcar.util.Validator;
 
 public class CarGameService {
 
     Validator validator = new Validator();
+
+
+
+
 
 
     public List<String> extractSeperator(String carInput) {
@@ -14,8 +20,9 @@ public class CarGameService {
         return splitedName;
     }
 
-    public Long convertGameCountToNumber(String carGameCount) {
+    public Integer convertGameCountToNumber(String carGameCount) {
         validator.isRightInputGameCount(carGameCount);
-        return Long.parseLong(carGameCount);
+        return Integer.parseInt(carGameCount);
     }
+
 }

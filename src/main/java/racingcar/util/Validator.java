@@ -28,7 +28,7 @@ public class Validator {
 
     public void isRightInputGameCount(String carGameCount) {
         try{
-            Long.parseLong(carGameCount);
+            Integer.parseInt(carGameCount);
         }catch (NumberFormatException e){
             throw new IllegalArgumentException("게임 횟수는 숫자가 와야 합니다!");
         }
