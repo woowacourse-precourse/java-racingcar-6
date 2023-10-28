@@ -9,14 +9,14 @@ import java.util.List;
 import static racingcar.exception.ErrorMessage.CONTAIN_IMPROPER_LETTER;
 
 public class Parser {
-    private static final String COMMA = ",";
+    private static final String DELIMITER = ",";
 
     private Parser() {
     }
 
     public static List<String> parseCarNames(final String input) {
         InputValidator.validateEndsWithComma(input);
-        return Arrays.stream(input.split(COMMA))
+        return Arrays.stream(input.split(DELIMITER))
                 .toList();
     }
 
