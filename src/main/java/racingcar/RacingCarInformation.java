@@ -4,9 +4,6 @@ public class RacingCarInformation {
     private String name;
     private int position;
 
-    private RacingCarInformation() {
-    }
-
     private RacingCarInformation(String name, int position) {
         this.name = name;
         this.position = position;
