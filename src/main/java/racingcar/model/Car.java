@@ -20,5 +20,8 @@ public class Car {
         return Randoms.pickNumberInRange(0, 9);
     }
 
+    public String getRacingResult() {
+        return carInform.makeRacingResult();
+    }
 
 }

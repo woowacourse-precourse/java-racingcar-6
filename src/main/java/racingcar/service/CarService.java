@@ -33,4 +33,12 @@ public class CarService {
     private String[] splitCarNames(String carNames) {
         return carNames.split(",");
     }
+
+    public void tryRacing() {
+        cars.racingCar();
+    }
+
+    public String getRacingResult() {
+        return cars.getRacingResult();
+    }
 }

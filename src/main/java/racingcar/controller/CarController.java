@@ -23,16 +23,17 @@ public class CarController {
         String carNames = inputView.readCarNames();
         Integer tryNum = inputView.readTryNum();
         makeCars(carNames);
-        racingStart(tryNum);
+        racing(tryNum);
     }
 
     public void makeCars(String carNames) {
         carService.generateCarsInstance(carNames);
     }
 
-    public void racingStart(Integer tryNum) {
+    public void racing(Integer tryNum) {
         while(tryNum --> 0) {
-
+            carService.tryRacing();
+            outputView.printCarRacingStatus(carService.getRacingResult());
         }
     }
 

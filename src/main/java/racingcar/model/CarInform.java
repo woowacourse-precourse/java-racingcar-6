@@ -16,4 +16,9 @@ public class CarInform {
     public void plusDash() {
         dash += "-";
     }
+
+    public String makeRacingResult() {
+        return carName + " : " + dash;
+    }
+
 }
