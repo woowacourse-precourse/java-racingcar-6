@@ -1,7 +1,9 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Generator {
     public int generateRandomNum() {
-        return 0;
+        return Randoms.pickNumberInRange(1,9);
     }
 }

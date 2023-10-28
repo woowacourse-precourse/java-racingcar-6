@@ -2,11 +2,11 @@ package racingcar;
 
 import racingcar.domain.AskPlayer;
 import racingcar.domain.Cars;
+import racingcar.domain.Generator;
 
 public class Application {
     public static void main(String[] args) {
-        AskPlayer askPlayer = new AskPlayer();
-        int c = askPlayer.askHowMany();
-        System.out.println("check"+c);
+        Generator g = new Generator();
+        System.out.println(g.generateRandomNum());
     }
 }
