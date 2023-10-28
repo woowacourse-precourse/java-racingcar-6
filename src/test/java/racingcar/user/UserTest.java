@@ -51,5 +51,4 @@ class UserTest {
         assertThatThrownBy(user::carNameInput)
                 .isInstanceOf(IllegalArgumentException.class);
     }
-
 }
