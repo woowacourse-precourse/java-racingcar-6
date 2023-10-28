@@ -8,4 +8,9 @@ public class InputView {
         String carNames = Console.readLine();
         return carNames;
     }
+
+    public String inputTrialCount() {
+        String number = Console.readLine();
+        return number;
+    }
 }
