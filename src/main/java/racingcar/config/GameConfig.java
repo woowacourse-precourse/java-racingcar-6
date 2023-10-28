@@ -10,5 +10,6 @@ public abstract class GameConfig {
     public static final int MOVING_FORWARD = 4;
     public static final int MOVING_MIN_VALUE = 0;
     public static final int MOVING_MAX_VALUE = 9;
+    public static final String POSITION_VIEW_EXPRESSION = "-";
 
 }
