@@ -10,9 +10,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import racingcar.view.InputView;
 
 public class CarsFactory {
     private final List<Car> cars = new ArrayList<>();
+
+    public void startCreateCars() {
+        InputView.showRequestNames();
+        createCars();
+    }
+
+    public void createCars() {
+        List<String> carNames = inputCarNames();
+        carNames.forEach(name -> cars.add(new Car(name)));
+    }
 
     public List<String> inputCarNames() {
         String inputNames = Console.readLine();
