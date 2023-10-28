@@ -10,17 +10,17 @@ import racingcar.view.OutputView;
 
 public class CarGameController {
 
-    Car car;
-    Game game;
-    LinkedHashMap<String,Integer> locations;
+    private Car car;
+    private Game game;
+    private LinkedHashMap<String,Integer> locations;
 
     public CarGameController(){
+        this.locations = new LinkedHashMap<>();
         this.car = new Car(locations);
         this.game = new Game();
     }
 
     public void start(){
-        locations = new LinkedHashMap<>();
         OutputView.printRequestCarNameMessage();
         String input = InputView.readCarName();
         List<String> carNameList= game.splitCarName(input);
