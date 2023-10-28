@@ -20,12 +20,6 @@ public class Car {
         this.name = name;
     }
 
-    public Car(String name, String location) {
-        validateCarNameLength(name);
-        this.name = name;
-        this.location = location;
-    }
-
     public String move(int randomNumber) {
         if (isForward(randomNumber)) {
             location += FORWARD_MOVEMENT_INDICATOR;
