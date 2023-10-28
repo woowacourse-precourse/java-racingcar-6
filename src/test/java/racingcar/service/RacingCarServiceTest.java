@@ -4,13 +4,11 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 import racingcar.model.CarProgressResponse;
 import racingcar.model.Cars;
 import racingcar.model.GameResult;
-import racingcar.model.RandomNumberProvider;
 
 class RacingCarServiceTest {
     private final int racingTime = 5;

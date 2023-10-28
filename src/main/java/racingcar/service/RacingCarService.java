@@ -6,7 +6,7 @@ import racingcar.model.Car;
 import racingcar.model.CarProgressResponse;
 import racingcar.model.Cars;
 import racingcar.model.GameResult;
-import racingcar.model.RandomNumberProvider;
+import racingcar.random.RandomNumberProvider;
 
 public final class RacingCarService {
 
@@ -20,7 +20,6 @@ public final class RacingCarService {
         Cars cars = prepareCars(inputCarNames);
         GameResult gameResult = determineRaceResult(startRace(cars, raceTime));
         return gameResult;
-
     }
 
     Cars prepareCars(List<String> inputCarNames) {
@@ -41,7 +40,6 @@ public final class RacingCarService {
 
         return cars;
     }
-
 
     GameResult determineRaceResult(Cars cars) {
         List<CarProgressResponse> responseList = cars.getCars().stream()
