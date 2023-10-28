@@ -26,7 +26,7 @@
 * 모델
   * 자동차
     * 자동차의 움직임 (전진 또는 멈춤)   
-      **=> car.position, car.stop(), car.go()**  
+      **=> car.position, car.stop(), car.go()**
     * 각 자동차에 이름을 부여할 수 있다.   
       **=> car.name** 
   * 게임 컨디션

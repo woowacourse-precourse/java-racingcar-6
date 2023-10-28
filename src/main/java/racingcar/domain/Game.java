@@ -19,4 +19,8 @@ public class Game {
     public void increaseCurrentRound() {
         currentRound += 1;
     }
+
+    public boolean isMeetCondition(int number) {
+        return number >= 4;
+    }
 }
