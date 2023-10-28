@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.view.OutputView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,8 +14,13 @@ public class Cars {
         addCarInCars(carNameList);
     }
 
-    public void playRace() {
+    public void playTurn() {
         moveCars();
+        printResultOfTurn();
+    }
+
+    private void printResultOfTurn() {
+        OutputView.printFirstResultText();
     }
 
     private void moveCars() {
