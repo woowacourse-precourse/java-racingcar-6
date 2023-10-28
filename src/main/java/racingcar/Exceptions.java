@@ -19,5 +19,17 @@ public class Exceptions {
                 throw new IllegalArgumentException("자동차 이름은 공백일 수 없습니다.");
         }
     }
+    static int Count(String tmp_count) {
+        int count;
+        try {
+            count = Integer.parseInt(tmp_count);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("입력값은 정수이어야 합니다.");
+        }
+        if (count < 1)
+            throw new IllegalArgumentException("입력값은 1 이상이어야 합니다.");
 
-}
+        return count;
+    }
+        }
+
