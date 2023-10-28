@@ -1,5 +1,3 @@
-## 
-
 ## 🚗 자동차 게임 기능명세서
 
 - ### ⌨️ Input 관련 - Class : InputView, Validator 에서 예외 처리! 
@@ -19,9 +17,9 @@
   - [X] 3 라운드별 실행 결과 출력 
     - 첫 라운드 시작 전 실행결과 출력 - OutputView - notifyBeforeResult
     - 이후 라운드별 결과 출력 OutputView - printRoundResult
-  - [ ] 4 최종 우승자 출력  OutputView - printWinner
+  - [X] 4 최종 우승자 출력  OutputView - printWinner
 
-- ### 🤔 Logic - GameController, CarGameService, InputService, JudgementService
+- ### 🤔 Logic - GameController, CarGameService, InputService, WinnerService
   - [ ] 전반적인 징검다리 역할 - 🎮 GameController
     - [X] 자동차 이름 (,) 로 분리하는 작업 진행 -  CarGameService - extractSeperator
       - [X] 여기에서 확인! 자동차 이름의 길이가 5가 넘어가는 경우! Validator, InputTest
@@ -35,7 +33,7 @@
         - [X] 숫자가 4 이상인 경우 자동차가 전진을 기록한 변수 + 1  RaceService - raceRoundGameStart,  CarGameService - race 
       - [X] 자동차들에 대한 정보를 저장 - 🚗 Car
       - [X] 라운드별 결과 출력을 위한 서비스 - RaceService - raceRoundResult, RecordService - madeCarResult
-    - [ ] 게임이 끝나는 마지막 과정에서 우승자가 누군지 판별하는 곳 필요! - JudgementService
+    - [X] 게임이 끝나는 마지막 과정에서 우승자가 누군지 판별하는 곳 필요! - WinnerService
 
 
 
