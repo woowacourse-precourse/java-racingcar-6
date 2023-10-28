@@ -20,7 +20,7 @@ public class RaceGame {
         cars = InputUtils.promptForCar();
 
         gameView.displayUserInputRoundPrompt();
-        round = InputUtils.promptForString();
+        round = InputUtils.promptForInt();
 
         System.out.println();
 

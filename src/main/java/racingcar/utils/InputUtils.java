@@ -15,7 +15,7 @@ public class InputUtils {
         return cars;
     }
 
-    public static int promptForString() {
+    public static int promptForInt() {
         String round = Console.readLine();
         ValidationUtils.validateRound(round);
         return Integer.parseInt(round);
