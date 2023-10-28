@@ -1,5 +1,8 @@
 package racingcar;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Car {
     String name;
     int movingCount;
@@ -19,5 +22,17 @@ public class Car {
 
     public void increaseMovingCount() {
         this.movingCount++;
+    }
+
+    public static List<String> getRacingGameWinner(List<Car> carNames) {
+        int maxMovingCount = carNames.stream()
+                .mapToInt(Car::getMovingCount)
+                .max()
+                .orElse(0);
+
+        return carNames.stream()
+                .filter(car -> car.getMovingCount() == maxMovingCount)
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 }

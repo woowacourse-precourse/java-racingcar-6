@@ -29,7 +29,7 @@
 - 자동차 경주 게임에 참여하는 차를 추상화한 클래스
   - [x] 필드로 이름(name)과 이동 횟수(movingCount)를 가진다.
   - [x] movingCount를 증가시킨다.
-  - [ ] 최종 우승자를 반환한다.
+  - [x] 최종 우승자를 List로 반환한다.
 
 3. RacingGameManager
 
