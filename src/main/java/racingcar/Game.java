@@ -4,15 +4,17 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.PriorityQueue;
 
 public class Game {
 
     private int round;  // 남은 회차 수
-    private List<Car> carRepository;    // Car 저장소
+    private PriorityQueue<Car> carRepository;    // Car 저장소
 
     public Game() {
-        carRepository = new ArrayList<>();
+        carRepository = new PriorityQueue<>();
     }
 
     public void run() {
@@ -27,6 +29,19 @@ public class Game {
         while (round-- > 0) {
             roundProgress();
             printProgress();
+        }
+        printWinner();
+    }
+
+    // 우승자 안내 문구 출력
+    void printWinner() {
+        Car winner = carRepository.remove();
+        System.out.print("최종 우승자 : "+winner.getName());
+        for (Car car : carRepository) {
+            if (car.getStatus() == winner.getStatus())
+                System.out.println(", "+car.getName());
+            else
+                break;
         }
     }
 

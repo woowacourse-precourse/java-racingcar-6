@@ -1,6 +1,8 @@
 package racingcar;
 
-public class Car {
+import java.util.Comparator;
+
+public class Car implements Comparable<Car> {
     private String name;
     private int status;
 
@@ -18,6 +20,12 @@ public class Car {
     }
 
     public void go() {
-        status ++;
+        status++;
+    }
+
+
+    @Override
+    public int compareTo(Car o) {
+        return o.status - status;
     }
 }
