@@ -8,4 +8,9 @@ public class InputView {
         System.out.println(Message.INPUT_CAR_NAME);
         return Console.readLine();
     }
+
+    public static String getInputCount() {
+        System.out.println(Message.INPUT_MOVE_COUNT);
+        return Console.readLine();
+    }
 }
