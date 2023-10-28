@@ -20,8 +20,7 @@
 
 ### 게임 시작 함수 `start()`
 * 자동차 객체 생성 및 리스트화: `readCarNames()`
-* 시도할 횟수 입력: 내장 함수 `readLine()`
-  * 입력 검증: `validateGameCount(String input)`
+* 시도할 횟수 입력: `readGameCount()`
 * 게임 진행 함수 호출: `game(int count)`
 
 ### 자동차 이름 입력 함수 `readCarNames()`
@@ -32,6 +31,13 @@
   * 값이 `false`인 경우
     * `String[]`을 바탕으로 `List<Car>` 생성
     * 생성한 `List<Car>` 반환
+
+### 게임 횟수 입력 함수: `readGameCount()`
+* String 입력받기: 내장 함수 `readLine()`
+* String -> int 변환
+  * 예외 터지면 `IllegalArgumentException` 터뜨리기
+* 입력 검증: `validateGameCount(String input)`
+* 자연수 반환
 
 ### 사용자 입력 검증 함수 `validateCarNames(String[] names)`
 * 인자: 검증이 필요한 이름들의 배열
