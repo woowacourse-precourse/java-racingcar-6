@@ -72,4 +72,13 @@ public class InputTest {
         .isInstanceOf(IllegalArgumentException.class);
   }
 
+  @DisplayName("회수가 0인지 확인하는 테스트")
+  @Test
+  void 회수_0_테스트() {
+    String input = "0";
+
+    assertThatThrownBy(() -> FrequencyValidator.isNegativeNumber(input))
+        .isInstanceOf(IllegalArgumentException.class);
+  }
+
 }
