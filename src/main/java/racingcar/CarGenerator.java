@@ -11,6 +11,12 @@ public class CarGenerator {
     }
 
     public List<Car> createCars(List<String> nameList) {
-        return null;
+        int size = nameList.size();
+        Car[] cars = new Car[size];
+        for (int i = 0; i < size; i++) {
+            cars[i] = new Car(nameList.get(i));
+        }
+
+        return new ArrayList<>(Arrays.asList(cars));
     }
 }
