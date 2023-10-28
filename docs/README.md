@@ -145,8 +145,8 @@ classDiagram
 - [ ] 입력값이 숫자인지 확인
 
 ### Convertors `Convertor`
-- [ ] 쉼표로 분리
-- [ ] 문자열을 정수로 변환
+- [x] 쉼표로 분리
+- [x] 문자열을 정수로 변환
 
 ### Car Management `Car`
 - [x] 차 이동 (랜덤한 기준 또는 주어진 값에 따라)
