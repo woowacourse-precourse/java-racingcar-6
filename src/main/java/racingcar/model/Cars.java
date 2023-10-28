@@ -3,7 +3,9 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.OptionalInt;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Cars {
     List<Car> cars ;
@@ -12,32 +14,36 @@ public class Cars {
         this.cars = cars;
     }
     public Integer getTopPosition() {
-        int topPosition= 0 ;
-        for(Car car : cars) {
-            PairCompareResult cp = this.comparePosition(car);
-            if(cp.state().equals(ComparePositionState.FRONT)) {
-                topPosition = Integer.max(topPosition, cp.position());
-            }
-            if(cp.state().equals(ComparePositionState.SAME)) {
-                return cp.position();
-            }
+        OptionalInt samePosition = cars.stream()
+                .map(this::comparePosition)
+                .filter(cp -> cp.state() == ComparePositionState.SAME)
+                .mapToInt(PairCompareResult::position)
+                .findFirst();
+
+        if (samePosition.isPresent()) {
+            return samePosition.getAsInt();
         }
-        return topPosition;
+
+        return cars.stream()
+                .map(this::comparePosition)
+                .filter(cp -> cp.state() == ComparePositionState.FRONT)
+                .mapToInt(PairCompareResult::position)
+                .max()
+                .orElse(0);
     }
 
     public PairCompareResult comparePosition(Car givenCar) {
-        int topRank = 0;
-        Set<ComparePositionState> stateSet = new HashSet<>();
+        Set<ComparePositionState> stateSet = cars.stream()
+                .map(givenCar::comparePosition)
+                .map(PairCompareResult::state)
+                .collect(Collectors.toSet());
 
-        for (Car car : cars) {
-            PairCompareResult compareResult = givenCar.comparePosition(car);
-            ComparePositionState state = compareResult.state();
-
-            stateSet.add(state);
-            if (state == ComparePositionState.FRONT || state == ComparePositionState.SAME) {
-                topRank = Integer.max(topRank, compareResult.position());
-            }
-        }
+        int topRank = cars.stream()
+                .map(givenCar::comparePosition)
+                .filter(cp -> cp.state() == ComparePositionState.FRONT || cp.state() == ComparePositionState.SAME)
+                .mapToInt(PairCompareResult::position)
+                .max()
+                .orElse(0);
 
         if (stateSet.contains(ComparePositionState.FRONT)) {
             return new PairCompareResult(ComparePositionState.FRONT, topRank);
