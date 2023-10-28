@@ -8,11 +8,10 @@ public class RacingGame {
     private final RacingList racingList = new RacingList();
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
-    private Integer count;
 
     public void run() {
         createCarList();
-        count = inputView.inputCount();
+        Integer count = inputView.inputCount();
         gameStart(racingList, count);
         outputView.printResult(racingList.returnWinners());
     }
