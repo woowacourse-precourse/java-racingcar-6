@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Arrays;
 
@@ -27,6 +28,21 @@ public class GameTest {
                 Assertions.assertThat(
                     "i : -\nmy : -\nme : --"
                     ).isEqualTo(game.getRaceInfo());
+            },
+            1,2,3, 
+            4,5,6, 
+            1,2,4
+        );
+    }
+
+    @Test
+    void 자동차_경주_게임을_완료한_후_누가_우승했는지를_알려줌() {
+        assertRandomNumberInRangeTest(
+            () -> {
+                while(!game.isDone()) {
+                    game.step();
+                }
+                assertThat(game.getWinnersList()).contains("me");
             },
             1,2,3, 
             4,5,6, 

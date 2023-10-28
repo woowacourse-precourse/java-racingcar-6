@@ -26,4 +26,12 @@ public class Game {
         carList.forEach(car -> car.move(Randoms.pickNumberInRange(0, 9)));
         --tryCount;
     }
+
+    public boolean isDone() {
+        return tryCount == 0;
+    }
+
+    public List<String> getWinnersList() {
+        return null;
+    }
 }
