@@ -13,16 +13,13 @@ public class CarModel {
     public String getName() {
         return name;
     }
-    public void increaseLocation() {
-        this.location++;
+
+    public int getLocation() {
+        return location;
     }
 
-    public String carLocationState() {
-        StringBuilder result = new StringBuilder();
-
-        result.append(name).append(" : ");
-        result.append("-".repeat(Math.max(0, location)));
-        return result.toString();
+    public void increaseLocation() {
+        this.location++;
     }
 
     public boolean compareMaxLocation(int a) {

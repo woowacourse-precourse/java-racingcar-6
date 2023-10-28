@@ -25,7 +25,7 @@ public class CarController {
             if (forwardCheck()) {
                 carModel.increaseLocation();
             }
-            OutputView.printRacing(carModel.carLocationState());
+            OutputView.printRacing(carModel.getName(), carModel.getLocation());
         }
         System.out.println("");
     }

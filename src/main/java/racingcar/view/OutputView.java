@@ -23,9 +23,14 @@ public class OutputView {
         System.out.println(PRINT_RESULT);
     }
 
-    public static void printRacing(String racingState) {
-        System.out.println(racingState);
+    public static void printRacing(String carName, int location) {
+        StringBuilder result = new StringBuilder();
+
+        result.append(carName).append(" : ");
+        result.append("-".repeat(Math.max(0, location)));
+        System.out.println(result);
     }
+
 
     public static void printWinner(List<CarModel> winnerCars) {
         StringBuilder stringBuilder = new StringBuilder();
