@@ -1,11 +1,13 @@
-package racingcar.game;
+package racingcar.controller;
 
-import racingcar.car.Car;
-import racingcar.car.CarParser;
-import racingcar.car.Cars;
-import racingcar.racing.Judgement;
-import racingcar.racing.Racing;
-import racingcar.racing.RoundCount;
+import racingcar.domain.Car;
+import racingcar.domain.CarParser;
+import racingcar.domain.Cars;
+import racingcar.domain.Judgement;
+import racingcar.domain.Race;
+import racingcar.vo.RoundCount;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.List;
 
@@ -25,14 +27,14 @@ public class RacingController {
         String carNamesFromUser = requestCarNamesFromUser();
         List<Car> carLIst = CarParser.generateCarList(carNamesFromUser);
         Cars cars = new Cars(carLIst);
-        Racing racing = new Racing(cars);
+        Race race = new Race(cars);
 
         String racingRoundCountFromUser = requestRacingRoundCountFromUser();
         RoundCount roundCount = new RoundCount(racingRoundCountFromUser);
 
         outputView.displayExecutionResult();
-        runRace(roundCount, racing);
-        outputView.displayFinalWinners(judgement.determineWinners(racing));
+        runRace(roundCount, race);
+        outputView.displayFinalWinners(judgement.determineWinners(race));
     }
 
     private String requestCarNamesFromUser() {
@@ -45,10 +47,10 @@ public class RacingController {
         return inputView.requestRacingRoundCountFromUser();
     }
 
-    private void runRace(RoundCount roundCount, Racing racing) {
+    private void runRace(RoundCount roundCount, Race race) {
         for (int round = 0; round < roundCount.getCount(); round++) {
-            racing.runOneRound();
-            String racingState = racing.displayRaceState();
+            race.runOneRound();
+            String racingState = race.displayRaceState();
             outputView.displayRacingState(racingState);
         }
     }

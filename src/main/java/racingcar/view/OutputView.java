@@ -1,7 +1,7 @@
-package racingcar.game;
+package racingcar.view;
 
-import static racingcar.game.Constant.KOREAN_COMMA_BRACKET_DELIMITER;
-import static racingcar.game.Constant.LINE;
+import static racingcar.constant.Constant.KOREAN_COMMA_BRACKET_DELIMITER;
+import static racingcar.constant.Constant.LINE;
 
 public class OutputView {
 

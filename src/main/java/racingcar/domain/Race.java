@@ -1,16 +1,14 @@
-package racingcar.racing;
-
-import racingcar.car.Car;
-import racingcar.car.Cars;
-import racingcar.generator.RandomNumberGenerator;
+package racingcar.domain;
 
 import java.util.stream.Collectors;
 
-import static racingcar.game.Constant.*;
+import static racingcar.constant.Constant.*;
 
-public record Racing(Cars cars) {
+public record Race(Cars cars) {
 
     private static final int MIN_FORWARD_THRESHOLD = 4;
+    private static final String HYPHEN = "-"; // 각각의 차들이 달린 forwardCount 를 나타내는 hyphen
+    private static final String COLON_DELIMITER = " : "; // pobi : --, 에서 " : " 를 나타내는 상수
 
     public void runOneRound() {
         for (Car car : cars.cars()) {

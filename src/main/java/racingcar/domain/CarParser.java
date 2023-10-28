@@ -1,9 +1,9 @@
-package racingcar.car;
+package racingcar.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static racingcar.game.Constant.COMMA_REGEX_DELIMITER;
+import static racingcar.constant.Constant.COMMA_REGEX_DELIMITER;
 
 public class CarParser {
 

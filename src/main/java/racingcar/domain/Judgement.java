@@ -1,16 +1,13 @@
-package racingcar.racing;
-
-import racingcar.car.Car;
-import racingcar.car.Cars;
+package racingcar.domain;
 
 import java.util.stream.Collectors;
 
-import static racingcar.game.Constant.COMMA_DELIMITER;
+import static racingcar.constant.Constant.COMMA_DELIMITER;
 
 public class Judgement {
 
-    public String determineWinners(final Racing racing) {
-        Cars cars = racing.cars();
+    public String determineWinners(final Race race) {
+        Cars cars = race.cars();
         int maxForwardCount = calculateMaxForwardCount(cars);
 
         return cars.cars()

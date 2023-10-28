@@ -1,7 +1,7 @@
-package racingcar.racing;
+package racingcar.validator;
 
-import static racingcar.game.Constant.MAX_INT_VALUE;
-import static racingcar.game.Constant.MIN_INT_VALUE;
+import static racingcar.constant.Constant.MAX_INT_VALUE;
+import static racingcar.constant.Constant.MIN_INT_VALUE;
 
 public class RoundCountValidator {
 

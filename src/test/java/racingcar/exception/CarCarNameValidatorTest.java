@@ -2,14 +2,18 @@ package racingcar.exception;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcar.car.NameValidator;
+import racingcar.validator.CarNameValidator;
 
-public class NameValidatorTest {
+import java.util.List;
+
+import static racingcar.constant.Constant.COMMA_REGEX_DELIMITER;
+
+public class CarCarNameValidatorTest {
 
     @Test
     void 입력받은_차_이름_공백인_경우_예외() {
         String input = " ";
-        Assertions.assertThatThrownBy(() -> NameValidator.validate(input))
+        Assertions.assertThatThrownBy(() -> CarNameValidator.validate(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 자동차 이름은 공백을 허용하지 않습니다.");
     }
@@ -22,32 +26,40 @@ public class NameValidatorTest {
     @Test
     void 입력받은_차_이름_쉼표로_구분해_이름이_5글자_이상인_경우_예외() {
         String input = "pobi,woni,jun,sola.love"; // [pobi,woni,jun,sola.love]
-
-        Assertions.assertThatThrownBy(() -> NameValidator.validate(input))
+        Assertions.assertThatThrownBy(() -> CarNameValidator.validate(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 자동차 이름은 최대 5글자 입니다.");
     }
 
     @Test
     void 입력받은_차_이름_쉼표로_시작한_경우_예외() {
-        String input = ",pobi,woni,jun";
-        Assertions.assertThatThrownBy(() -> NameValidator.validate(input))
+        String input = ",pobi,woni,jun"; // 결과 = ["","pobi","jun"]
+        List<String> splitCarNames = splitCarNames(input);
+        Assertions.assertThatThrownBy(() -> splitCarNames.stream()
+                .forEach(CarNameValidator::validate))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 자동차 이름은 콤마(',')로 시작할 수 없습니다.");
+                .hasMessage("[ERROR] 자동차 이름은 공백을 허용하지 않습니다.");
     }
 
     @Test
-    void 입력받은_차_이름_쉼표로_끝나는_경우_예외() {
-        String input = "pobi,woni,jun,";
-        Assertions.assertThatThrownBy(() -> NameValidator.validate(input))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 자동차 이름은 콤마(',')로 끝날수 없습니다.");
+    void 입력받은_차_이름_쉼표로_끝나는_경우() {
+        /**
+         * Assertions.assertDoesNotThrow() - junit.jupiter 함수, 예외가 발생하지 않는 테스트용
+         */
+        String input = "pobi,woni,jun,"; // 결과 = ["pobi","woni","jun"]
+        List<String> splitCarNames = splitCarNames(input);
+        org.junit.jupiter.api.Assertions.assertDoesNotThrow(() -> splitCarNames.stream()
+                .forEach(name -> CarNameValidator.validate(name)));
+    }
+
+    List<String> splitCarNames(String carNames) {
+        return List.of(carNames.split(COMMA_REGEX_DELIMITER));
     }
 
     @Test
     void 입력받은_차_이름_쉼표가_연속된_경우_예외() {
         String input = "pobi,,woni,jun";
-        Assertions.assertThatThrownBy(() -> NameValidator.validate(input))
+        Assertions.assertThatThrownBy(() -> CarNameValidator.validate(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 자동차 이름은 연속된 콤마(',')을 허용하지 않습니다.");
     }
