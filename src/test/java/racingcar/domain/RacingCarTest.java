@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import racingcar.util.FakeNumberGenerator;
 
+@DisplayName("RacingCar 클래스")
 class RacingCarTest {
     @Test
     @DisplayName("자동차 생성")
