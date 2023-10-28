@@ -38,15 +38,18 @@ public class RacingCarRegistry {
     }
 
     public List<RacingCar> calculateWinner() {
+        int maxPosition = getMaxPosition();
+        return racingCars.stream()
+                .filter(rc -> rc.getPosition().getPosition() == maxPosition)
+                .collect(Collectors.toList());
+    }
+
+    private int getMaxPosition() {
         int maxPosition = 0;
         for (RacingCar racingCar : racingCars) {
             maxPosition = Math.max(maxPosition, racingCar.getPosition().getPosition());
         }
-
-        int finalMaxPosition = maxPosition;
-        return racingCars.stream()
-                .filter(rc -> rc.getPosition().getPosition() == finalMaxPosition)
-                .collect(Collectors.toList());
+        return maxPosition;
     }
 
 }
