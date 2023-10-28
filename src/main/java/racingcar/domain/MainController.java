@@ -11,14 +11,16 @@ public class MainController {
     public static List<String> CARS;
 
     public void gameStart() {
-        getAndSetInput();
+        setInput();
         System.out.println(ATTEMPT_COUNT);
         System.out.println(CARS);
     }
 
-    private void getAndSetInput() {
+    private void setInput() {
         CARS = getCarNameInput();
+        //유효 테스트
         ATTEMPT_COUNT = getAttemptCountInput();
+        //유효 테스트
 
     }
 
