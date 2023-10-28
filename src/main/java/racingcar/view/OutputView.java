@@ -9,6 +9,7 @@ public class OutputView {
     private static final String LINE_BREAK = System.lineSeparator();
 
     public static void printPlayResult() {
+        System.out.print(LINE_BREAK);
         System.out.println("실행 결과");
     }
 
