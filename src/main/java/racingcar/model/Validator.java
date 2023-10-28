@@ -9,7 +9,7 @@ public class Validator {
         String[] carNameArray = carName.split(",");
         for (int i = 0; i < carNameArray.length; i++) {
             if (!(carNameArray[i].length() >= 1 && carNameArray[i].length() <= 5)) {
-                return false;
+                throw new IllegalArgumentException();
             }
         }
         return true;
