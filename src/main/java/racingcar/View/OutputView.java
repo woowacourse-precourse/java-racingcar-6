@@ -1,7 +1,8 @@
-package racingcar;
+package racingcar.View;
 
 import java.util.List;
 import java.util.StringJoiner;
+import racingcar.ProgressBoard;
 
 public class OutputView {
     private final String RESULT_MESSAGE = "실행 결과";
@@ -25,5 +26,6 @@ public class OutputView {
         for (String carName : cars) {
             System.out.println(carName + COLON + progressBoard.progressOf(carName));
         }
+        System.out.println();
     }
 }
