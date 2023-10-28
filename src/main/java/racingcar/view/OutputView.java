@@ -8,7 +8,7 @@ public class OutputView {
         return "실행 결과";
     }
 
-    // 현재 자동차들의 전진 상태 출력 템플릿 생성
+    // 현재 자동차들의 전진 상태 출력 화면 템플릿 생성
     public static String currentForwardStateMessage(Cars carList) {
         return getForwardStateString(carList);
     }
@@ -27,7 +27,7 @@ public class OutputView {
                 + "-".repeat(car.getPosition());
     }
 
-    // 최종 우승자 출력 템플릿 생성
+    // 최종 우승자 출력 화면 템플릿 생성
     public static String WinnersMessage(Cars winners) {
         return winnersToString(winners);
     }
