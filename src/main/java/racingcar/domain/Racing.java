@@ -19,7 +19,7 @@ public class Racing {
     }
 
     private boolean isMove(Car car){
-
+        return car.getRandomNum() >= 4;
     }
 
     private void modifyForwardNum(List<Car> carList){
