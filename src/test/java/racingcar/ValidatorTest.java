@@ -45,4 +45,13 @@ public class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름에는 공백이 있으면 안됩니다.");
     }
+
+    @Test
+    void 자동차이름_중복_예외처리() {
+        String input = "aaa,bbb,aaa";
+
+        assertThatThrownBy(() -> validator.convertStringToList(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 목록은 중복이 없어야 합니다.");
+    }
 }
