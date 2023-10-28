@@ -20,12 +20,4 @@ public class Car {
     public void move() {
         position++;
     }
-
-    public String getPostringToString() {
-        StringBuilder stringPosition = new StringBuilder();
-        for (int i = 0; i < position; i++) {
-            stringPosition.append("-");
-        }
-        return stringPosition.toString();
-    }
 }
