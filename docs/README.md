@@ -10,14 +10,14 @@
    
 
 2. 이동횟수 (반복 횟수)
-   - repeatCount
+   - round
    - Console 입력
    - 예외처리: 1이상의 수
    - "시도할 회수는 몇회인가요?"
    
 3. 이동규칙 
    - moveRacingCar(playerName, randomNumber)
-   - 0~9 랜덤 값을 추출 (randomNumber, random 함수)
+   - 0~9 랜덤 값을 추출 (pickNumbers, random 함수)
    - 4이상인 경우에만 이동한다.
    - 4이상인 경우 현재위치(playerLocation)에서 전진하고
      playerName을 반환한다.
