@@ -4,10 +4,10 @@
 
 ## 기능 목록
 
-* [ ] 0-9사이 랜덤 값을 생성한다. - NumberGenerator#createRandomNumbers()
-* [ ] 자동차 객체를 생성한다. - CarGenerator#createCars()
-  * [ ] (전진일시)자동차 위치를 기록한다. - CarGenerator#setLocationCars()
-* [ ] 제일 멀리간 자동차들이 최종 우승자이다. - Referee#calculateCars()
+* [x] 0-9사이 랜덤 값을 생성한다. - NumberGenerator#createRandomNumbers()
+* [x] 자동차 객체를 생성한다. - CarGenerator#CarGenerator()
+* [x] (전진일시)자동차 위치를 기록한다. - Application#racing()
+* [x] 제일 멀리간 자동차들이 최종 우승자이다. - Referee#calculateCars()
 
 <br><br>
 

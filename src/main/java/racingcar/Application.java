@@ -3,6 +3,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.CarGenerator;
 import racingcar.domain.NumberGenerator;
+import racingcar.domain.Referee;
+
+import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
@@ -25,7 +28,13 @@ public class Application {
         }
 
         //winner
-
+        List<String> result = Referee.calculateCars(cars.getNames());
+        System.out.print("최종 우승자 : ");
+        for(int i=0;i<result.size();i++) {
+            System.out.print(result.get(i));
+            if(i!=result.size()-1)
+                System.out.print(", ");
+        }
     }
 
     public static void racing(CarGenerator cars, Integer[] randNums) {
