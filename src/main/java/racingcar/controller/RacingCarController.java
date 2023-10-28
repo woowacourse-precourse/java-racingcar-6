@@ -34,5 +34,6 @@ public class RacingCarController {
             outputView.printGameResult(cars.statusCarsPosition());
         }
 
+        outputView.printFinalWinners(cars.getFinalWinners());
     }
 }
