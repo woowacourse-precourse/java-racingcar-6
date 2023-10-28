@@ -23,5 +23,8 @@ public class UserInput {
     }
 
     public void getPlayTime() {
+        int userInput = view.requestPlayTime();
+
+        playTime = userInput;
     }
 }

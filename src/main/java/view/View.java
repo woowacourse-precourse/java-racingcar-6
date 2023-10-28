@@ -17,4 +17,10 @@ public class View {
         validator.getCarsNameValidationChk(inputString);
         return inputString;
     }
+
+    public int requestPlayTime() {
+        getString();
+        validator.getPlayTimeValidationChk(inputString);
+        return Integer.parseInt(inputString);
+    }
 }
