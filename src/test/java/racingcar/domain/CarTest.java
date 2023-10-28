@@ -48,7 +48,7 @@ class CarTest {
         car.moveForward();
 
         //then
-        assertThat(car.getMoveCount()).isEqualTo(expectedMoveCount);
+        assertThat(car.getPosition()).isEqualTo(expectedMoveCount);
     }
 
     @Test

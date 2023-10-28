@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Car {
 
-    private int moveCount;
+    private int position;
     private final String name;
 
     public Car(String name) {
@@ -14,7 +14,7 @@ public class Car {
     }
 
     public void moveForward() {
-        moveCount += 1;
+        position += 1;
     }
 
     public boolean isExceedMaxLength() {
@@ -41,7 +41,7 @@ public class Car {
         return Objects.hash(name);
     }
 
-    public int getMoveCount() {
-        return moveCount;
+    public int getPosition() {
+        return position;
     }
 }
