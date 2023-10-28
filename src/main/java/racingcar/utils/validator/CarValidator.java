@@ -23,7 +23,7 @@ public class CarValidator implements Validator<String>{
     }
 
     private void validateNameLength(final String value) {
-        if (!StringUtils.isLengthRange(value, START_LENGTH, END_LENGTH)) {
+        if (!StringUtils.isLengthInRange(value, START_LENGTH, END_LENGTH)) {
             throw new IllegalArgumentException();
         }
     }
