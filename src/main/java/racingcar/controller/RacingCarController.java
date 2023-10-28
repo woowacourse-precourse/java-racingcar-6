@@ -12,11 +12,15 @@ public class RacingCarController {
 
     public void playGame() {
         String carNames = carNameProcess();
-        racingCarService.createCar(carNames);
+        initGame(carNames);
     }
 
     private String carNameProcess() {
         outputView.printInputCarNameMessage();
         return inputView.inputCarName();
+    }
+
+    private void initGame(String carNames) {
+        racingCarService.createCar(carNames);
     }
 }
