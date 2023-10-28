@@ -28,12 +28,12 @@ public class InputService {
 
 
     public static Long convertToLong(String line) {
-        validateTurnNumber(line);
+        validateTimesIsNumber(line);
 
         return parseLong(line);
     }
 
-        private static void validateTurnNumber(String line) {
+        private static void validateTimesIsNumber(String line) {
             try {
                 parseLong(line);
             } catch (NumberFormatException e) {
