@@ -38,4 +38,17 @@ class ServiceTest {
         Assertions.assertThat(progressBoard.progressOf("test3")).isEqualTo("-");
     }
 
+    @Test
+    void 우승자를_선정한다() {
+        List<String> cars = List.of("test1","test2","test3");
+        service.registerCars(cars);
+
+        progressBoard.moveForward("test1");
+        progressBoard.moveForward("test1");
+        progressBoard.moveForward("test2");
+        progressBoard.moveForward("test2");
+
+        Assertions.assertThat(service.getWinners()).contains("test1","test2");
+    }
+
 }

@@ -69,7 +69,7 @@ public class Service {
         outputView.printFinalWinner(winners);
     }
 
-    private List<String> getWinners() {
+    public List<String> getWinners() {
         int maxMove = getMaxMove();
         List<String> winners = new ArrayList<>();
         for (String car : cars) {
