@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
     private String distance = "";
 
-    private void moveOnRandomChance() {
+    public void moveOnRandomChance() {
         int randomNumber = generateRandomNumber();
         if (isForward(randomNumber)) {
             distance += "-";
