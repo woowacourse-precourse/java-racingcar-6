@@ -20,8 +20,10 @@ public class ValidatorService {
 	public ValidationMsg validationCarName(String carName) {
 		if (carName == null) throw new IllegalArgumentException(String.valueOf(ValidationMsg.NULL_TYPE));
 		if (carName.isEmpty()) throw new IllegalArgumentException(String.valueOf(ValidationMsg.EMPTY_TYPE));
-		if (!this.isPassCarNameLength(carName)) throw new IllegalArgumentException(String.valueOf(ValidationMsg.CAR_NAME_OVER_FIVE));
-		if (this.isDuplicateUserInput(carName)) throw new IllegalArgumentException(String.valueOf(ValidationMsg.NOT_DUPLICATE_NAME));
+		if (!this.isPassCarNameLength(carName))
+			throw new IllegalArgumentException(String.valueOf(ValidationMsg.CAR_NAME_OVER_FIVE));
+		if (this.isDuplicateUserInput(carName))
+			throw new IllegalArgumentException(String.valueOf(ValidationMsg.NOT_DUPLICATE_NAME));
 
 		return ValidationMsg.PROPER_TYPE;
 	}
@@ -35,10 +37,10 @@ public class ValidatorService {
 	}
 	// 중복 입력된 값이 있는지 체크
 	public boolean isDuplicateUserInput(String userInput) {
-		String[] arrUserInput = userInput.split("");
+		String[] arrUserInput = userInput.split(",");
 		Set<String> userInputSet = new HashSet<>();
 		for (String userInputNum : arrUserInput) {
-			userInputSet.add(userInputNum);
+			userInputSet.add(userInputNum.trim());
 		}
 		return (arrUserInput.length != userInputSet.size());
 	}
