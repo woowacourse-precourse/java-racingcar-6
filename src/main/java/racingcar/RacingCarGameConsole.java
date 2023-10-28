@@ -7,6 +7,14 @@ public class RacingCarGameConsole {
     private Car car;
     private int carIndex = 0;
     private int numberOfCars = 0;
+    private int timesToTry = 0;
+
+    private void race() {
+        while (timesToTry > 0) {
+            tryMoving();
+            timesToTry--;
+        }
+    }
 
     private void tryMoving() {
         System.out.println("\n실행 결과");
