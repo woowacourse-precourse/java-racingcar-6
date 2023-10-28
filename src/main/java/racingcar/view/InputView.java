@@ -31,5 +31,23 @@ public class InputView {
         return true;
     }
 
+    public int insertAttemptCount(){
+        String input = Console.readLine();
+        validateNumber(input);
 
+        return convertToNumber(input);
+    }
+
+    public void validateNumber(String input){
+        if(!isNumber(input))
+            throw new IllegalArgumentException("숫자를 입력하세요");
+    }
+
+    public boolean isNumber(String input) {
+        return input.matches("^[0-9]*$");
+    }
+
+    public int convertToNumber(String input){
+        return Integer.parseInt(input);
+    }
 }
