@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Racing {
-    private List<Car> toCarList(List<String> carNameList){
+    public List<Car> toCarList(List<String> carNameList){
         List<Car> carList = new ArrayList<>();
 
         for (String carName : carNameList) {
@@ -18,7 +18,7 @@ public class Racing {
         return car.getRandomNum() >= 4;
     }
 
-    private void modifyForwardNum(List<Car> carList){
+    public void modifyForwardNum(List<Car> carList){
         for (Car car : carList) {
             if(isMove(car)){
                 car.increaseForwardNum();
@@ -26,7 +26,7 @@ public class Racing {
         }
     }
 
-    private List<String> findWinners(List<Car> carList){
+    public List<String> findWinners(List<Car> carList){
         List<String> winners = new ArrayList<>();
         int maxValue = findMaxValue(carList);
 
@@ -51,7 +51,7 @@ public class Racing {
         return maxValue;
     }
 
-    private void initCarsRandomNum(List<Car> carList){
+    public void initCarsRandomNum(List<Car> carList){
         for (Car car : carList) {
             car.initRandomNum();
         }
