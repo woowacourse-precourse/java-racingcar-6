@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
@@ -12,6 +13,7 @@ public class Application {
 
         List<Car> carList = new ArrayList<>();
         InputView.inputCars(carList);
+
         int times = InputView.inputTimes();
 
         int winnerPosition = startRacing(carList, times);
