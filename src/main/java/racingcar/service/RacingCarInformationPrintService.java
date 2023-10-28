@@ -3,10 +3,10 @@ package racingcar.service;
 import java.util.Map.Entry;
 import racingcar.dao.RacingCarInformationDao;
 
-public class RacingCarInfoPrintService {
+public class RacingCarInformationPrintService {
     private RacingCarInformationDao racingCarInformationDao;
 
-    public RacingCarInfoPrintService(RacingCarInformationDao racingCarInformationDao) {
+    public RacingCarInformationPrintService(RacingCarInformationDao racingCarInformationDao) {
         this.racingCarInformationDao = racingCarInformationDao;
     }
 

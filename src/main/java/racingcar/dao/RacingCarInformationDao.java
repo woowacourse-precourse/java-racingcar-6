@@ -1,26 +1,25 @@
 package racingcar.dao;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class RacingCarInformationDao {
-    private LinkedHashMap<String, Integer> racingCarInfoDao = new LinkedHashMap<>();
+    private LinkedHashMap<String, Integer> racingCarInformationDao = new LinkedHashMap<>();
 
 
     public void put(String name, int forward) {
-        racingCarInfoDao.put(name, forward);
+        racingCarInformationDao.put(name, forward);
     }
 
     public int get(String name) {
-        return racingCarInfoDao.get(name);
+        return racingCarInformationDao.get(name);
     }
 
     public int size() {
-        return racingCarInfoDao.size();
+        return racingCarInformationDao.size();
     }
 
     public Map<String, Integer> getAll() {
-        return racingCarInfoDao;
+        return racingCarInformationDao;
     }
 }

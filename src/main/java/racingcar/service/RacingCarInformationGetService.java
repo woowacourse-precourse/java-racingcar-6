@@ -2,10 +2,10 @@ package racingcar.service;
 
 import racingcar.dao.RacingCarInformationDao;
 
-public class RacingCarInfoGetService {
+public class RacingCarInformationGetService {
     private RacingCarInformationDao racingCarInformationDao;
 
-    public RacingCarInfoGetService(RacingCarInformationDao racingCarInformationDao) {
+    public RacingCarInformationGetService(RacingCarInformationDao racingCarInformationDao) {
         this.racingCarInformationDao = racingCarInformationDao;
     }
 

@@ -2,9 +2,9 @@ package study.serviceTest;
 
 import org.junit.jupiter.api.Test;
 import racingcar.dao.RacingCarInformationDao;
-import racingcar.service.RacingCarInfoPrintService;
+import racingcar.service.RacingCarInformationPrintService;
 
-public class RacingCarInfoPrintServiceTest {
+public class RacingCarInformationPrintServiceTest {
 
     @Test
     void printTest() {
@@ -13,7 +13,7 @@ public class RacingCarInfoPrintServiceTest {
         racingCarInformationDao.put("car2", 3);
         racingCarInformationDao.put("car3", 2);
 
-        RacingCarInfoPrintService racingCarInfoGetService = new RacingCarInfoPrintService(racingCarInformationDao);
+        RacingCarInformationPrintService racingCarInfoGetService = new RacingCarInformationPrintService(racingCarInformationDao);
         racingCarInfoGetService.print();
     }
 }

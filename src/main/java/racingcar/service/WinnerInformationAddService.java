@@ -5,11 +5,11 @@ import java.util.Map.Entry;
 import racingcar.dao.RacingCarInformationDao;
 import racingcar.dao.WinnerInformationDao;
 
-public class WinnerInfoAddService {
+public class WinnerInformationAddService {
     private WinnerInformationDao winnerInformationDao;
     private RacingCarInformationDao racingCarInformationDao;
 
-    public WinnerInfoAddService(WinnerInformationDao winnerInformationDao, RacingCarInformationDao racingCarInformationDao) {
+    public WinnerInformationAddService(WinnerInformationDao winnerInformationDao, RacingCarInformationDao racingCarInformationDao) {
         this.winnerInformationDao = winnerInformationDao;
         this.racingCarInformationDao = racingCarInformationDao;
     }
