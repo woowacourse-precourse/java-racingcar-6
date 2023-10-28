@@ -30,9 +30,7 @@ public class RacingGame {
         for (int currentRound = 1; currentRound <= setting.getRound(); currentRound++) {
             setting.tryCarsForward();
             List<String> racingState = Commentator.getRacingState(setting);
-            for (String carState : racingState) {
-                System.out.println(carState);
-            }
+            printRacingState(racingState);
             System.out.println();
         }
     }
@@ -41,5 +39,11 @@ public class RacingGame {
         List<String> winnerList = Commentator.getWinners(setting);
         String winners = String.join(", ", winnerList);
         System.out.print("최종 우승자 : " + winners);
+    }
+
+    private void printRacingState(List<String> racingState) {
+        for (String carState : racingState) {
+            System.out.println(carState);
+        }
     }
 }
