@@ -59,4 +59,15 @@ class NameExceptionTest {
         assertThatThrownBy(() -> NameException.validation(names))
                 .hasMessage("이름은 중복 없이 입력해 주세요.");
     }
+
+    @Test
+    void 이름_10개_초과() {
+        String input = "go, wow, in, sky, sea, stone, seek, void, zem, papa, gogo, view, key";
+        String[] names = input.split(",");
+
+        assertThatThrownBy(() -> NameException.validation(names))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> NameException.validation(names))
+                .hasMessage("이름은 최대 10개까지만 가능합니다.");
+    }
 }
