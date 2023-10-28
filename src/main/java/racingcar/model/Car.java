@@ -23,12 +23,7 @@ public class Car {
     }
 
     public boolean ifImWinner(Integer maxCountingMove) {
-
-        if (maxCountingMove != countingMove.length()) {
-            return false;
-        }
-
-        return true;
+        return maxCountingMove == countingMove.length();
     }
 
     @Override
