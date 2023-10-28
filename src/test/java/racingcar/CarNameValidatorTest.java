@@ -50,4 +50,12 @@ public class CarNameValidatorTest {
         AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
         assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getValidatedAttemptCount(attempCount));
     }
+
+    @DisplayName("시도횟수 입력 - int범위 내 음수")
+    @Test
+    void checkAttempMinus() {
+        String attempCount = "-6";
+        AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
+        assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getValidatedAttemptCount(attempCount));
+    }
 }
