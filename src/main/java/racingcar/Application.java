@@ -14,5 +14,9 @@ public class Application {
             this.car_name = car_name;
             this.current_location = 0;
         }
+
+        private void carMoving(){
+            
+        }
     }
 }
