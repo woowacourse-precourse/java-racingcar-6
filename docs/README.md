@@ -4,7 +4,7 @@
 - [x] 자동차 이름을 분리하는 기능 - CarGenerator#splitNames()
 - [x] 이름 배열을 받아 자동차를 생성하는 기능 - CarGenerator#createCars()
 
-- [ ] 자동차가 움직일지 결정하는 기능 - Car#canMove()
+- [x] 자동차가 움직일지 결정하는 기능 - Car#canMove()
 - [ ] 자동차가 움직인 거리를 변경하는 기능 - Car#move()
 - [ ] 자동차가 움직인 거리를 구하는 기능 - Car#getDistance()
 - [x] 자동차 이름을 받아오는 기능 - Car#getName()
