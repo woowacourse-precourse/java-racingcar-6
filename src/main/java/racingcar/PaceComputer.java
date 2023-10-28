@@ -26,22 +26,18 @@ public class PaceComputer {
                 ));
     }
 
-    private int generateRandomNumber(int initialNumber, int lastNumber){
-        return pickNumberInRange(initialNumber, lastNumber);
-    }
-
-    public List<Integer> getRandomNumberList() {
-        return randomNumberList;
-    }
-
-    public void updatePaceMap(Machines machines, LinkedHashMap<String, Integer> paceMap) {
+    public void updatePaceMap(LinkedHashMap<String, Integer> paceMap) {
         paceMap.forEach((machineName, driveSuccessNumber) -> {
-            int randomNumber = generateRandomNumber(INITIAL_RANDOM_NUMBER, LAST_RANDOM_NUMBER);
+            int randomNumber = pickNumberInRange(INITIAL_RANDOM_NUMBER, LAST_RANDOM_NUMBER);
 
             if (randomNumber >= HURDLE_NUMBER_TO_DRIVE) {
                 paceMap.put(machineName, driveSuccessNumber + 1);
             }
             randomNumberList.add(paceMap.get(machineName));
         });
+    }
+
+    public List<Integer> getRandomNumberList() {
+        return randomNumberList;
     }
 }
