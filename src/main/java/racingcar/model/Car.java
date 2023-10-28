@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.Objects;
+import racingcar.util.CarNameValidator;
 import racingcar.util.MoveResolver;
 
 public class Car {
@@ -9,6 +10,7 @@ public class Car {
     private int position = 0;
 
     public Car(String name) {
+        CarNameValidator.validate(name);
         this.name = Objects.requireNonNull(name);
     }
 
