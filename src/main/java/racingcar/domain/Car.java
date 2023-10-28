@@ -14,11 +14,11 @@ public class Car {
     private final String name;
     private final int move;
 
-    public static Car of(String name) {
+    public static Car of(final String name) {
         return new Car(name, 0);
     }
 
-    private Car(String name, int move) {
+    private Car(final String name, final int move) {
         validate(name);
         this.name = name;
         this.move = move;
@@ -40,33 +40,33 @@ public class Car {
         return MOVE_TRAIL_INDICATOR.repeat(move);
     }
 
-    public boolean compare(int forwardCount) {
+    public boolean compare(final int forwardCount) {
         return this.move == forwardCount;
     }
 
-    private void validate(String name) {
+    private void validate(final String name) {
         checkInput(name);
         checkLength(name);
     }
 
-    private void checkLength(String name) {
+    private void checkLength(final String name) {
         if (isCarNameLengthOutOfRange(name)) {
             throw new IllegalArgumentException(INVALID_CAR_NAME_MESSAGE);
         }
     }
 
-    private boolean isCarNameLengthOutOfRange(String name) {
+    private boolean isCarNameLengthOutOfRange(final String name) {
         int length = name.length();
         return length < MINIMUM_CAR_NAME_LENGTH || length > MAXIMUM_CAR_NAME_LENGTH;
     }
 
-    private void checkInput(String name) {
+    private void checkInput(final String name) {
         if (hasBlank(name)) {
             throw new IllegalArgumentException(INVALID_CAR_NAME_MESSAGE);
         }
     }
 
-    private boolean hasBlank(String name) {
+    private boolean hasBlank(final String name) {
         return StringUtils.containsWhitespace(name);
     }
 

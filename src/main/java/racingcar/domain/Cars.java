@@ -12,11 +12,11 @@ public class Cars {
 
     private final List<Car> cars;
 
-    public static Cars of(List<String> names) {
+    public static Cars of(final List<String> names) {
         return new Cars(names);
     }
 
-    private Cars(List<String> names) {
+    private Cars(final List<String> names) {
         validate(names);
         cars = convertToCars(names);
     }
@@ -39,11 +39,11 @@ public class Cars {
         return joinWinnerNames(winnerNames);
     }
 
-    private String joinWinnerNames(List<String> winnerNames) {
+    private String joinWinnerNames(final List<String> winnerNames) {
         return String.join(WINNER_NAME_SEPARATOR, winnerNames);
     }
 
-    private List<String> selectWinnerNames(int maxMove) {
+    private List<String> selectWinnerNames(final int maxMove) {
         return cars.stream()
                 .filter(car -> car.compare(maxMove))
                 .map(Car::getName)
@@ -57,7 +57,7 @@ public class Cars {
                 .orElseThrow();
     }
 
-    private void conditionalMove(int index) {
+    private void conditionalMove(final int index) {
         if (isRandomNumberNotInRange()) {
             return;
         }
@@ -66,7 +66,7 @@ public class Cars {
         moveForward(index, targetCar);
     }
 
-    private void moveForward(int index, Car targetCar) {
+    private void moveForward(final int index, final Car targetCar) {
         cars.set(index, targetCar);
     }
 
@@ -74,38 +74,38 @@ public class Cars {
         return Randoms.pickNumberInRange() < RANDOM_NUMBER_LIMIT;
     }
 
-    private Car getCarByIndex(int index) {
+    private Car getCarByIndex(final int index) {
         return cars.get(index);
     }
 
-    private List<Car> convertToCars(List<String> names) {
+    private List<Car> convertToCars(final List<String> names) {
         return names.stream()
                 .map(Car::of)
                 .collect(Collectors.toList());
     }
 
-    private void validate(List<String> names) {
+    private void validate(final List<String> names) {
         checkInput(names);
         checkDuplicate(names);
     }
 
-    private void checkInput(List<String> names) {
+    private void checkInput(final List<String> names) {
         if (names.isEmpty()) {
             throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
         }
     }
 
-    private void checkDuplicate(List<String> names) {
+    private void checkDuplicate(final List<String> names) {
         if (hasDuplicate(names)) {
             throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
         }
     }
 
-    private boolean hasDuplicate(List<String> names) {
+    private boolean hasDuplicate(final List<String> names) {
         return names.size() != countDuplicateNames(names);
     }
 
-    private long countDuplicateNames(List<String> names) {
+    private long countDuplicateNames(final List<String> names) {
         return names.stream()
                 .distinct()
                 .count();
