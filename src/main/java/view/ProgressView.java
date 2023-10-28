@@ -3,14 +3,14 @@ package view;
 import model.Car;
 import model.Cars;
 
-public class OutputView {
-    private static final String RESULT_MESSAGE = "실행 결과";
+public class ProgressView {
+    private static final String PROGRESS_RESULT_MESSAGE = "실행 결과";
 
-    public static void printResultMessage() {
-        System.out.println(RESULT_MESSAGE);
+    public static void printProgressResultMessage() {
+        System.out.println(PROGRESS_RESULT_MESSAGE);
     }
 
-    public static void printResult(Cars cars) {
+    public static void printProgress(Cars cars) {
         for (Car car : cars) {
             System.out.print(car.getName());
             System.out.print(" : ");

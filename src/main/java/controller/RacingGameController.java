@@ -3,6 +3,7 @@ package controller;
 import model.AttemptNumberConverter;
 import model.Cars;
 import view.InputView;
+import view.ProgressView;
 
 public class RacingGameController {
     private Cars cars;
@@ -25,8 +26,10 @@ public class RacingGameController {
     }
 
     private void repeatMove() {
+        ProgressView.printProgressResultMessage();
         for (int i = 0; i < attemptNumber; i++) {
             cars.moveAll();
+            ProgressView.printProgress(cars);
         }
     }
 }
