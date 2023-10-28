@@ -6,6 +6,11 @@ import racingcar.domain.Car;
 import racingcar.domain.Cars;
 
 public class OutputView {
+
+    public void printResultMessage() {
+        System.out.println("실행 결과");
+    }
+
     public void printMoveResult(Cars cars) {
         Collection<Car> carList = cars.getCars();
 
