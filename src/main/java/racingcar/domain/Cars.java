@@ -12,7 +12,6 @@ public class Cars {
         CarNames.addAll(Arrays.asList(cars));
     }
 
-
     public void reset() {
         CarNames.clear();
     }

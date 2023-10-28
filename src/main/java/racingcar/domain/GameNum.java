@@ -1,9 +1,9 @@
 package racingcar.domain;
 
 public class GameNum {
-    private int number;
+    private int number = 0;
 
-    public GameNum(int number) {
+    public void create(int number) {
         this.number = number;
     }
 
