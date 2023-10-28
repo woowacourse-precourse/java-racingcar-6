@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.service.domain.Car;
 import racingcar.service.dto.CarsAndTime;
+import racingcar.service.util.validator.Validator;
 
 public class InputView implements Input{
     @Override
@@ -15,11 +16,11 @@ public class InputView implements Input{
 
     private static int getTime() {
         String timeInput = Console.readLine();
-        return Integer.parseInt(timeInput);
+        return Validator.validateTime(timeInput);
     }
 
     private static String[] getCars() {
         String input = Console.readLine();
-        return input.split(",");
+        return Validator.validateCars(input);
     }
 }
