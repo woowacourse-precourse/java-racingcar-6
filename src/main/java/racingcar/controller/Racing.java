@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import static racingcar.constant.AllConstants.*;
-import static racingcar.constant.RaceIOMessage.RACE_RESULT;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
@@ -27,36 +26,39 @@ public class Racing {
     }
 
     public void play() {
-        // 자동차 경주 준비 및 진행 단계
         Map<String, Integer> carNameList = car.createCarNameList(inputView.inputCarName());
         int counts = rounds.getRounds(inputView.inputRounds());
-        System.out.println(RACE_RESULT);
+        outputView.printRoundResult();
         for (int i = 0; i < counts; i++) {
-            for (String carName : carNameList.keySet()) {
-                // 현재 자동차의 전진/정지 여부 결정
-                int randomNum = Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX);
-                int moves = carNameList.get(carName);
-                if (randomNum >= RANDOM_FOUR) {
-                    moves += MOVE_FORWARD;
-                    carNameList.put(carName, moves);
-                }
-                // 해당 차수의 실행 결과 출력
-                outputView.printRoundResult(carName, moves);
-            }
-            System.out.println();
+            playRound(carNameList);
         }
+        outputView.printWinnerList(getWinnerList(carNameList));
+    }
 
-        // 자동차 경주 종료 단계
-        // 가장 많이 전진한 자동차 명단 추리기
+    private void playRound(Map<String, Integer> carNameList) {
+        for (String carName : carNameList.keySet()) {
+            int moves = carNameList.get(carName);
+            carNameList.put(carName, progressOrNot(moves));
+            outputView.printProgressOfCar(carName, carNameList.get(carName));
+        }
+        System.out.println();
+    }
+    private Integer progressOrNot(int currentMoves) {
+        int randomNum = Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX);
+        if (randomNum >= RANDOM_FOUR) {
+            currentMoves += MOVE_FORWARD;
+        }
+        return currentMoves;
+    }
+
+    private List<String> getWinnerList(Map<String, Integer> carNameList) {
+        List<String> result = new ArrayList<>();
         Integer maxValue = Collections.max(carNameList.values());
-        List<String> winnerList = new ArrayList<>();
         for (String carName : carNameList.keySet()) {
             if (maxValue.equals(carNameList.get(carName))) {
-                winnerList.add(carName);
+                result.add(carName);
             }
         }
-
-        // 최종 우승자 출력
-        outputView.printWinnerList(winnerList);
+        return result;
     }
 }
