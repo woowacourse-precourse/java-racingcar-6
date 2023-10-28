@@ -12,16 +12,10 @@ public class Race {
     private List<Car> cars;
     private final DetermineWinner determineWinner = new DetermineWinner();
 
-    public boolean init() {
-        try {
-            cars = InputView.promptCarNames();
-            int repeatCount = InputView.promptNumber();
-            raceManager = new RaceManager(cars, repeatCount);
-            return true;
-        } catch (IllegalArgumentException e) {
-            System.out.println("잘못된 입력입니다: " + e.getMessage());
-            return false;
-        }
+    public void init() {
+        cars = InputView.promptCarNames();
+        int repeatCount = InputView.promptNumber();
+        raceManager = new RaceManager(cars, repeatCount);
     }
 
     public void play() {

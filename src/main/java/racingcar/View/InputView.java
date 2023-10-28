@@ -20,11 +20,11 @@ public class InputView {
             String trimmedName = name.trim();
 
             if (trimmedName.isEmpty() || trimmedName.length() > 5) {
-                throw new IllegalArgumentException("자동차 이름은 1자 이상 5자 이하 여야 한다.");
+                throw new IllegalArgumentException();
             }
 
             if (!carNamesSet.add(trimmedName)) {
-                throw new IllegalArgumentException("중복된 자동차 이름은 허용되지 않습니다: " + trimmedName);
+                throw new IllegalArgumentException();
             }
 
             carsList.add(new Car(trimmedName));
