@@ -18,9 +18,7 @@ public class Car {
     public String getTrace() {
         StringBuilder sb = new StringBuilder();
         sb.append(carName).append(" : ");
-        for (int i = 0; i < distance; i++) {
-            sb.append("-");
-        }
+        sb.append("-".repeat(Math.max(0, distance)));
         return sb.toString();
     }
 
