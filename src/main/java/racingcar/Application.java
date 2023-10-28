@@ -4,8 +4,10 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         OutputView.outputCar();
-        String carNames = InputView.InputCar();
+        String inputCar = InputView.InputCar();
         OutputView.outputTimes();
-        String times = InputView.InputTimes();
+        String inputTimes = InputView.InputTimes();
+        int times = HandleException.times(inputTimes);
+        
     }
 }
