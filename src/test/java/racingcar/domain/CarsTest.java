@@ -36,33 +36,18 @@ class CarsTest {
                 .contains("pobi : -", "woni : -", "jun : -");
     }
 
-    @Test
-    public void 우승자_한_명인_경우_테스트() {
+    @ParameterizedTest
+    @ValueSource(ints = {4, 5, 6, 7, 8, 9})
+    public void 우승자_테스트(int randomNumber) {
         // given
-        final Cars cars = new Cars(List.of(new Car("pobi", "---"),
-                new Car("jun", "--"),
-                new Car("woni", "--")));
+        final Cars cars = new Cars(List.of(new Car("pobi"), new Car("woni")));
 
         // when
-        final String winnerCars = cars.findWinnerCars();
+        cars.moveCars(randomNumber);
+        String winnerCars = cars.findWinnerCars();
 
         // then
-        Assertions.assertThat(winnerCars).isEqualTo("pobi");
-    }
-
-    @Test
-    public void 우승자_여러_명인_경우_테스트() {
-        // given
-        final Cars cars = new Cars(List.of(new Car("pobi", "---"),
-                new Car("jun", "---"),
-                new Car("woni", "--")));
-
-        // when
-        final String winnerCars = cars.findWinnerCars();
-
-        // then
-        Assertions.assertThat(winnerCars).hasSize(2)
-                .contains("pobi, jun");
+        Assertions.assertThat(winnerCars).isEqualTo("pobi, woni");
     }
 
     @Test
