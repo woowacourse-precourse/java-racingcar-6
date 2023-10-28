@@ -24,8 +24,7 @@ public class MainController {
         validator.validatorForCar(CARS);
 
         ATTEMPT_COUNT = getAttemptCountInput();
-        //유효 테스트
-
+        validator.validatorForAttemptCount(ATTEMPT_COUNT);
     }
 
     private int getAttemptCountInput() {
