@@ -19,6 +19,18 @@ public class Race {
         return new Race(cars, numberOfRaces);
     }
 
+    public void performRaceStep() {
+        if (!hasRemainingRaces()) {
+            throw new IllegalStateException();
+        }
+        // TODO: 실제 레이싱 수행 로직 필요
+        remainingRaces--;
+    }
+
+    public boolean hasRemainingRaces() {
+        return remainingRaces > MINIMUM_REMAINING_RACES;
+    }
+
     private static void validateNumberOfRaces(Integer numberOfRaces) {
         if (numberOfRaces < MINIMUM_NUMBER_OF_RACES) {
             throw new IllegalArgumentException();
