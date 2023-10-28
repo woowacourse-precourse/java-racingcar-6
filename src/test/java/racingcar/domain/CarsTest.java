@@ -69,4 +69,14 @@ class CarsTest {
         Assertions.assertThat(winnersName).hasSize(2)
                 .contains("pobi", "jun");
     }
+
+    @Test
+    public void 이름_중복_테스트() {
+        // given
+        final List<Car> cars = List.of(new Car("pobi"), new Car("woni"), new Car("pobi"));
+
+        // then
+        Assertions.assertThatThrownBy(() -> new Cars(cars))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
