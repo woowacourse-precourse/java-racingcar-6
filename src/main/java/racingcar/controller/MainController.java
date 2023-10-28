@@ -6,12 +6,11 @@ import racingcar.domain.RandomNumberGenerator;
 import racingcar.dto.CarDto;
 import racingcar.utils.CarToDtoConverter;
 import racingcar.utils.Converter;
-import racingcar.utils.StringToListConverter;
+import racingcar.utils.StringToCarListConverter;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class MainController {
     private final InputView inputView;
@@ -30,23 +29,15 @@ public class MainController {
     }
 
     private RacingGame initializeRacingGame() {
-        List<Car> cars = initializeCars(inputCarNames());
+        List<Car> cars = convertToCarList(inputView.inputCarNames());
         int raceCount = inputView.inputRaceCount();
 
         return new RacingGame(cars, raceCount);
     }
 
-    private List<String > inputCarNames() {
-        String inputCarNames = inputView.inputCarNames();
-
-        Converter<String, List<String>> converter = new StringToListConverter();
-        return converter.convert(inputCarNames);
-    }
-
-    private List<Car> initializeCars(List<String> carNames) {
-        return carNames.stream()
-                .map(Car::new)
-                .collect(Collectors.toList());
+    private List<Car> convertToCarList(String carNames) {
+        Converter<String, List<Car>> converter = new StringToCarListConverter();
+        return converter.convert(carNames);
     }
 
     private void play(RacingGame racingGame) {
