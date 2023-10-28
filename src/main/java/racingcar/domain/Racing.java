@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static java.lang.Integer.parseInt;
@@ -85,6 +86,22 @@ public class Racing {
             System.out.println();
         }
         return 0;
+    }
+    private String displayWinner(){
+        checkWinnerNum();
+        System.out.print("최종 우승자 : ");
+
+        return ;
+    }
+    private List<String> checkWinnerNum(){
+        List<String> winner = new ArrayList<String>();
+        int maxPoint = Collections.max(carPoints);
+        for(int i=0; i<carNames.size(); i++){
+            if(carPoints.get(i)==maxPoint){
+                winner.add(carNames.get(i));
+            }
+        }
+        return winner;
     }
 
 }
