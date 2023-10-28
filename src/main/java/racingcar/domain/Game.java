@@ -3,8 +3,8 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.StringTokenizer;
 
 public class Game {
     private int gameTurns;
@@ -13,8 +13,8 @@ public class Game {
 
     public void run() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String carNames = inputCarNames();
-        initCarList(carNames.split(","));
+        String[] carNames = inputCarNames();
+        initCarList(carNames);
         System.out.println("시도할 회수는 몇회인가요?");
         inputGameTurns();
         System.out.println("\n실행결과");
@@ -30,21 +30,21 @@ public class Game {
         System.out.println(winnersToString());
     }
 
-    public String inputCarNames() {
-        String carNames = Console.readLine();
+    public String[] inputCarNames() {
+        String[] carNames = Arrays.stream(Console.readLine().split(","))
+                                    .sequential()
+                                    .map(String::strip)
+                                    .toArray(String[]::new);
         checkValidCarNames(carNames);
         return carNames;
     }
 
-    private void checkValidCarNames(String input) {
-        StringTokenizer tokenizer = new StringTokenizer(input, ",");
-        while (tokenizer.hasMoreTokens()) {
-            String carName = tokenizer.nextToken().trim();
+    private void checkValidCarNames(String[] carNames) {
+        for (String carName : carNames) {
             if (carName.isBlank() || carName.length() > 5) {
                 throw new IllegalArgumentException("Not valid input: car names");
             }
         }
-        // TODO : StringTokenizer vs String.split()
     }
 
     private void initCarList(String[] carNames) {
@@ -54,8 +54,18 @@ public class Game {
     }
 
     public void inputGameTurns() {
+        String input = Console.readLine().strip();
+        checkValidGameTurns(input);
+        gameTurns = Integer.parseInt(input);
+    }
+
+    private void checkValidGameTurns(String input) {
         try {
-            gameTurns = Integer.parseInt(Console.readLine().strip());
+            int number = Integer.parseInt(input);
+
+            if (number < 0) {
+                throw new NumberFormatException();
+            }
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Not valid input: game turn number");
         }
@@ -63,7 +73,7 @@ public class Game {
 
     public void findWinners() {
         int maxDistance = -1;
-        for(Car car : cars) {
+        for (Car car : cars) {
             if (car.getDistance() > maxDistance) {
                 maxDistance = car.getDistance();
                 winners.clear();
