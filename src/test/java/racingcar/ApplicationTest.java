@@ -89,6 +89,16 @@ class ApplicationTest extends NsTest {
         assertThat(Application.random()).isBetween(0, 9);
     }
 
+    @Test
+    void situationRepeat_test() {
+        List<String> name = Arrays.asList("jokyo");
+        int[] goSituation = {0};
+        int time = 3;
+        int[][] Anser = {{0}, {1}, {2}, {3}};
+        assertThat(Application.situationRepeat(name, goSituation, time)).isIn((Object[]) Anser);
+    }
+
+
 
 
     @Override
