@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -25,7 +27,7 @@ public class InputViewTest {
         InputStream readLine = setReadLine("abc");
         System.setIn(readLine);
 
-        org.junit.jupiter.api.Assertions.assertThrows(IllegalArgumentException.class, inputView::inputTotalRound);
+        assertThrows(IllegalArgumentException.class, inputView::inputTotalRound);
     }
 
     private InputStream setReadLine(String readLine) {
