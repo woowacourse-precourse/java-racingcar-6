@@ -1,7 +1,7 @@
 # 기능 목록
-- [ ] n대의 자동차 이름을 쉼표를 기준으로 구분하여 입력한다.
-	- [ ] 차의 이름의 길이가 5를 초과한다면 예외처리한다. 
-	- [ ] name1,name2,name3...형태가 아닐 때 예외처리한다.
+- [x] n대의 자동차이름을 입력한다. - InputView#inputCarNames()
+	- [x]  차의 이름의 길이가 5를 초과한다면 예외처리한다. Validator#validateOutOfLength()
+	- [x] 문자가 아닌 숫자가 포함된 경우 예외처리한다. Validator#validateContainNumber()
 - [ ] 차들을 생성한다.
 - [ ] 차들을 이동시킬 횟수를 입력한다.
 	- [ ] 입력값이 숫자가 아니면 예외처리한다. 
