@@ -53,8 +53,4 @@ public class RacingCars {
                 .filter(car -> car.isMaxMove(maxMove))
                 .toList();
     }
-
-    public List<Car> getCars() {
-        return cars;
-    }
 }
