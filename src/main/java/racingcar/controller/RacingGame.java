@@ -4,28 +4,33 @@ import java.util.ArrayList;
 import racingcar.model.CarName;
 import racingcar.model.TryNumber;
 import racingcar.model.RandomNumber;
+import racingcar.model.Winner;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingGame {
     InputView inputView = new InputView();
+    OutputView outputView = new OutputView();
     CarName carName;
     TryNumber tryNumber;
     RandomNumber randomNumber;
+    Winner winner;
     private int[] ranking;
     private int tryNum;
     private ArrayList<String> cars = new ArrayList<>();
+    private ArrayList<String> winnerList = new ArrayList<>();
+
 
     public RacingGame(){
         carName = new CarName();
         tryNumber = new TryNumber();
         randomNumber = new RandomNumber();
+        winner = new Winner();
     }
     public void start(){
         InputCarNames();//자동차 이름 입력, 정리 다 됨.
         getTryNumber();//시도 횟수 입력
         onRacing(cars,tryNum);
-
-
 
     }
     public void InputCarNames(){
@@ -44,8 +49,10 @@ public class RacingGame {
         return ranking;
     }
     public void onRacing(ArrayList<String> cars, int tryNumber){
+        ranking = new int[cars.size()];
         for(int i = 0; i < tryNumber; i++){
             isForwarding(cars);
+            outputView.printCurrentRanking(getCurrentRanking(),cars);
 
         }
     }
@@ -59,7 +66,7 @@ public class RacingGame {
         return false;
     }
     public void isForwarding(ArrayList<String> cars){
-        ranking = new int[cars.size()];
+         //onRacing에서 호출 될때마다 ranking 초기화 되는 문제 해결-> static으로 지정-> 정수배열 포기
         for(int i = 0; i < cars.size(); i++){
             if(isGo()){
                 ranking[i]++;
