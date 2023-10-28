@@ -27,14 +27,9 @@ public class Game {
 
         Map<String, Integer> playerDistanceMap = Create.playerDistanceMapping(playerObjectArray);
 
-        int maxDist = Collections.max(playerDistanceMap.values());
+        int maxDistance = getMaxDistance(playerDistanceMap);
+        List<String> winners = findWinningPlayers(playerDistanceMap, maxDistance);
         System.out.print(GameMessage.FINAL_WINNER.message);
-        List<String> winners = new ArrayList<>();
-        for (Map.Entry<String, Integer> entry : playerDistanceMap.entrySet()) {
-            if (entry.getValue() == maxDist) {
-                winners.add(entry.getKey());
-            }
-        }
         System.out.print(JoinComma.winnerOutput(winners));
     }
 
@@ -50,5 +45,19 @@ public class Game {
             System.out.println(car.getPlayerName() + " : " + "-".repeat(car.getDist()));
         }
         System.out.println();
+    }
+
+    private int getMaxDistance(Map<String, Integer> playerDistanceMap) {
+        return Collections.max(playerDistanceMap.values());
+    }
+
+    private List<String> findWinningPlayers(Map<String, Integer> playerDistanceMap, int maxDistance) {
+        List<String> winners = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : playerDistanceMap.entrySet()) {
+            if (entry.getValue() == maxDistance) {
+                winners.add(entry.getKey());
+            }
+        }
+        return winners;
     }
 }
