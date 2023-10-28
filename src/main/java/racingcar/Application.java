@@ -1,80 +1,107 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
+import net.bytebuddy.implementation.bytecode.ShiftRight;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Character.getName;
+
 public class Application {
 
-    /*
-     참가자 목록: participants
-    참가자 이름: name
-    이동할 횟수: moves
-    이동할 거리: movementDistance
-    이동한 거리: distanceMoved
-    우승자: winner
-    이름을 입력 -> 횟수 입력 -> 출력
-    이름 배열의 인덱스와 거리배열의 인덱스를 같게 하고 이름, 거리를 횟수만큼 반복후 출력
-    */
-    // TODO: 프로그램 구현
-    // TODO: 들여쓰기 3이하
-    public static void main(String[] args) {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        // TODO: 프로그램 구현
+        // TODO: 들여쓰기 3이하
+        public static void main(String[] args) {
+                System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
 //                startGame();                  //TODO: 가시성을 위해 추후에 시작점이 될 함수
 
-        List<String> participants = new ArrayList<>();  //TODO: (임시)입력된 이름이 저장
-        participantsInput(participants);
-    }
-
-    public static void participantsInput(List<String> partInput) {      //명단 메소드
-        List<String> participants = new ArrayList<>();
-        String participantName = Console.readLine();
-//                try {
-        for (String name : participantName.split(",")) {
-            if (!participants.contains(name)) {      //TODO: 글자수5이하 조건
-                participants.add(name);
-            }
-            else {
-                System.out.println("중복된 이름이 있습니다. 입력입니다.");
-                throw new IllegalArgumentException();
-            }
-            if (name.length() > 5 || name.length() == 0) {
-                System.out.println("5글자이상의 이름이 있습니다.");
-                System.out.println(name.length());
-                throw new IllegalArgumentException();
-            }
-//                                if (isValidString(name)) {
-//                                        throw new IllegalArgumentException();
-//                                }
-            System.out.println(name);
+                List<String> participants = new ArrayList<>();  //TODO: (임시)입력된 이름이 저장
+                participantsInput(participants);
         }
-        System.out.println("participants" + participants);       //이름목록의 배열 제출x
-        System.out.println(participantName);            // 이름을,로 구분 제출x
+
+        public static void participantsInput(List<String> partInput) {      //명단 메소드
+                List<Car> participants = new ArrayList<>();
+                String participantInputName = Console.readLine();
+//                try {     //todo: try catch문 삭제
+                for (String name : participantInputName.split(",")) {
+                        if (!participants.contains(name)) {
+                                participants.add(new Car(name, 0));
+                        } else {
+                                System.out.println("중복된 이름이 있습니다. 입력입니다.");
+                                throw new IllegalArgumentException();
+                        }
+                        if (name.length() > 5 || name.length() == 0) {
+                                System.out.println("5글자이상의 이름이 있습니다.");
+                                System.out.println(name.length());
+                                throw new IllegalArgumentException();
+                        }       //                                유효성 검사
+                        System.out.println(name);
+                }
 
 //                } catch (IllegalArgumentException e) {
 //                        return;
 //                }
-    }
+                System.out.println("시도할 회수는 몇회인가요?");
+                String inputMoves = Console.readLine();
+                int intMove = Integer.parseInt(inputMoves);
+                // 사람 수만큼 돌게 해야함
 
-    public static void inputMoves(List<String> Participants) {       //이동할 거리 메소드
-        System.out.println("시도할 회수는 몇회인가요?");
-        String moves = Console.readLine();
-        // 사람 수만큼 돌게 해야함
-//                int movesToInt = moves
+                for (int i = 0; i < intMove; i++) {
+                        System.out.println(i+1 + "회차");
+                        for (Car car : participants) {
+                                car.move();
+                                System.out.println(car.getName() + " : " + car.getMoveStatus());
+                        }
+                        System.out.println();
+                }
+                int maxMove = 0;
+                List<String> winner = new ArrayList<>();
+                for (Car car : participants) {
+//                        maxMove = Math.max(maxMove, car.getMove());   //TODO 질문 왜 이건 안되고
+                        int carMove = car.getMove();
+                        if (carMove > maxMove) {
+                                maxMove = carMove;                      //TODO 얘를 추가하는게 무슨 상관?
+                                winner.clear();
+                                winner.add(car.getName());
+                        } else if (carMove == maxMove) {
+                                winner.add(car.getName());
+                        }
+                }
+                System.out.print("최종 우승자 : " + String.join(",",winner));          // 최종우승자 출력
 
 
-//                for (int i=0;i<moves;)
-
-    }
-
-    public static boolean isValidString(String value) {
-        for (char c : value.toCharArray()) {
-            if (!Character.isLetter(c)) {
-                return false;
-            }
         }
-        return true;
-    }
+}
+
+// Ming,Seo,Park,Bin,Seong
+class Car {
+        private String name;
+        private int move;
+
+        public Car(String name, int i) {
+                this.name = name;
+                this.move = 0;
+        }
+
+        public String getName() {
+                return name;
+        }
+
+        public int getMove() {
+                return move;
+        }
+
+        public String getMoveStatus (){
+                return "-".repeat(move);
+        }
+
+        public void move() {
+                int random = Randoms.pickNumberInRange(1, 9);
+                if (random >= 4) {
+                        move += 1;
+                }
+        }
 }
