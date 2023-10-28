@@ -3,7 +3,7 @@
 ## 기능
 - [x] 각 자동차에 이름을 부여하는 기능 - Car#Car()
 - [x] 자동차를 전진 시키는 기능 - Car#moveForward()
-- [x] 어떤 차가 우승했는지 계산하는 기능 Race#evaluate()
+- [x] 어떤 차가 우승했는지 계산하는 기능 - Race#evaluate()
 
 # 입출력 요구 사항
 
@@ -12,8 +12,8 @@
 - [x] 사용자가 몇 번의 이동을 할 것인지를 입력받는 기능. - Input#readMoveCount()
 
 ## 출력
-- [x] 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력하는 기능 -Output#printCar()
-- [ ] 우승자를 출력하는 기능 여러 명일 경우 쉼표(,)를 이용하여 구분. 
+- [x] 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력하는 기능 - Output#printCar()
+- [x] 우승자를 출력하는 기능 여러 명일 경우 쉼표(,)를 이용하여 구분. - Output#printWinners()
 
 ## 예외처리
 - [ ] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생

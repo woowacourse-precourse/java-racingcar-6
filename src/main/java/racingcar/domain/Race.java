@@ -39,6 +39,6 @@ public class Race {
                 winners.add(car.getName());
             }
         }
-        System.out.println(winners);
+        Output.printWinners(winners);
     }
 }
