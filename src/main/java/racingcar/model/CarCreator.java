@@ -9,11 +9,17 @@ public class CarCreator {
         return arrayToList(playerInput.split(","));
     }
 
-    public void validateCarName(List<String> carNameList) {
-        
+    public void validateCarNameList(List<String> carNameList) {
+        carNameList.forEach(this::validateCarName);
     }
 
     private List<String> arrayToList(String[] array) {
         return Arrays.asList(array);
+    }
+
+    private void validateCarName(String carName) {
+        if (carName.isEmpty() || carName.length() > 5) {
+            throw new IllegalArgumentException();
+        }
     }
 }

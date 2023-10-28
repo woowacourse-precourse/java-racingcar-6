@@ -45,13 +45,14 @@ public class CarCreatorTest {
     @MethodSource("carNameListProvider")
     public void 자동차이름_입력_유효성_체크(List<String> carNameList) {
         //then
-        assertThatThrownBy(() -> carCreator.validateCarName(carNameList))
+        assertThatThrownBy(() -> carCreator.validateCarNameList(carNameList))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     static Stream<Arguments> carNameListProvider() {
         return Stream.of(
                 Arguments.arguments(List.of("")),
+                Arguments.arguments(List.of("", "pobbi", "wonni")),
                 Arguments.arguments(List.of("pobbii", "wonni", "jun"))
         );
     }
