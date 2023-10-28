@@ -58,12 +58,15 @@ public class GameController {
         for (Car car : cars) {
             OutputManager.printEachCycleResult(car.getName(), car.getPosition());
         }
+        System.out.println();
     }
 
 
     private Integer getGameCycleNumberFromUser() {
         InputManager.requestGameCycleNumber();
-        return Integer.valueOf(Console.readLine());
+        Integer gameCycleNumber = Integer.valueOf(Console.readLine());
+        System.out.println();
+        return gameCycleNumber;
     }
 
     private List<Car> makeCar(String carNames) {
