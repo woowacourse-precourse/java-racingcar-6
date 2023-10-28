@@ -22,6 +22,10 @@ public class Game {
         return currentRound;
     }
 
+    public boolean isGameOngoing() {
+        return currentRound < attemptCount;
+    }
+
     public void playOneRound() {
         moveAllCarsOnce();
         increaseRound();
