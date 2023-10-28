@@ -1,6 +1,6 @@
-package racingcar.domain;
+package racingcar.domain.util;
 
-public class Jugement {
+public class Judgement {
     public boolean isMoving(int number) {
         return number >= 4;
     }

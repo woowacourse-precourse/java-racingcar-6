@@ -1,8 +1,8 @@
-package racingcar.domain;
+package racingcar.input;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class Input {
+public class InputProcessor {
     public String readInput() {
         return Console.readLine();
     }

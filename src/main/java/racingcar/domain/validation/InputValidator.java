@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.domain.validation;
 
 import java.util.Arrays;
 
