@@ -1,4 +1,4 @@
-# 자료구조 및 구현 기능 (미션 - 숫자 야구)
+# 자료구조 및 구현 기능 (미션 - 자동차 경주)
 
 ## 클래스 다이어그램
 ![class_diagram.png](image%2Fclass_diagram.png)
