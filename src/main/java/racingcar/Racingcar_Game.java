@@ -9,8 +9,9 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Racingcar_Game {
     public static List<String> userInput(){
-        List<String> carName = new ArrayList<>();
 
+        List<String> carName = new ArrayList<>();
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input=readLine();
         String name="";
 
@@ -39,7 +40,7 @@ public class Racingcar_Game {
     }
 
     public static void playGame(List<String> carName) {
-        System.out.print("시도할 회수는 몇회인가요?");
+        System.out.println("시도할 회수는 몇회인가요?");
         int gameCnt = Integer.parseInt(readLine());
 
         List<String> gameList = new ArrayList<>();
@@ -57,6 +58,7 @@ public class Racingcar_Game {
             }
             printProgress(carName,gameList);
         }
+        checkWinner(carName,gameList);
     }
 
     public static void printProgress(List<String> carName,List<String> gameList){
@@ -64,5 +66,36 @@ public class Racingcar_Game {
             System.out.println(carName.get(i)+" : "+gameList.get(i));
         }
         System.out.println();
+    }
+
+    public static void checkWinner(List<String> carName,List<String> gameList){
+        List<String> winnerList = new ArrayList<>();
+        int maxNum=0;
+
+        for(int i=0;i<carName.size();i++){
+            int progressLength =gameList.get(i).length();
+            if(maxNum<progressLength){
+                maxNum=progressLength;
+            }
+        }
+        for(int i=0;i<carName.size();i++){
+            int progressLength =gameList.get(i).length();
+            if(maxNum==progressLength){
+                winnerList.add(carName.get(i));
+            }
+        }
+        System.out.print("최종 우승자 : ");
+        if(winnerList.size()>1){
+            for(int i=0;i<winnerList.size();i++){
+                System.out.print(winnerList.get(i));
+                if(i!=(winnerList.size()-1)){
+                    System.out.print(", ");
+                }
+            }
+            return;
+        }
+        System.out.print(winnerList.get(0));
+
+
     }
 }
