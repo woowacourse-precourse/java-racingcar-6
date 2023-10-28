@@ -1,4 +1,8 @@
-# ⚾&nbsp;&nbsp;Precourse-Week2 Mission **[레이싱 카]**
+<div align="center">
+
+[![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=4&animation=fadeIn&height=230&section=header&text=우아한테크코스%20Precourse%202주차&desc=자동차%20경주%20게임%20(Racing%20Car)%20-%20변해빈&fontSize=40&fontAlign=50&fontAlignY=33&descSize=20&descAlign=50&descAlignY=55)](https://github.com/h-beeen/java-racingcar-6/blob/h-beeen/docs/README.md)
+
+</div>
 
 ## 💌&nbsp;&nbsp;목차
 
@@ -153,16 +157,16 @@
 
     * [Cars] buildRoundResponses 함수를 호출해 일급 컬렉션 멤버변수를 아래 과정을 통해 DTO로 변환한다.
     * [RoundResponses] stream 문법을 사용해 모든 List<Car>를 순회하며 List<RoundResponse>를 생성한다.
-    * [RoundResponse] 각 RoundResponse는 name과 score를 가지며, toEntity 편의 메소드로 <br>`이름 : --` 형태로 출력한다.
+    * [RoundResponse] 각 RoundResponse는 name과 score를 가지며, toResponse 편의 메소드로 <br>`이름 : --` 형태로 출력한다.
     * [RoundResponses] 레코드의 일급 컬렉션 멤버변수인 List<RoundResponse>를 순회하며 모든 자동차의 라운드 결과를 <br>`이름 : --` 형태의 `String`으로 리턴한다.
-    * [View] RoundResponses.toEntityList()를 통해 각 라운드 진행 현황을 사용자에게 출력한다.
+    * [View] RoundResponses.toResponseList()를 통해 각 라운드 진행 현황을 사용자에게 출력한다.
 
 <br>
 
 + [X] [Game] 모든 라운드 종료`(라운드 횟수 만큼 모든 자동차가 경주를 진행한 상황)`되었을 때
 
     * [Cars] buildFinalResponse 함수를 호출해 일급 컬렉션 멤버변수를 아래 과정을 통해 DTO로 변환한다.
-    * [FinalResponse] FinalResponse는 List<String> winnerNames 가지며, toEntity 편의 메소드로 <br>`최종 우승자 : 해빈, 햅, 빈빈`
+    * [FinalResponse] FinalResponse는 List<String> winnerNames 가지며, toResponse 편의 메소드로 <br>`최종 우승자 : 해빈, 햅, 빈빈`
       형태의 `String`으로
       리턴한다.
     * [View] FinalResponse.toEntity()를 통해 최종 우승자를 사용자에게 출력한다.
@@ -199,67 +203,71 @@
     <tr><td colspan="3"></td></tr>
     <tr>
         <td rowspan="1"><b><img align="center" src="https://github.com/woowacourse-precourse/java-racingcar-6/assets/112257466/9a2cdecd-2df4-4541-86ec-4e8fa1017643" height="32px">&nbsp;&nbsp;README</b></td>
-        <td>어떤 객체가 위 기능들을 할당하는지도 같이 명시되어 있으면 좋을것 같아요!</td>
+        <td>0x00. 어떤 객체가 기능들을 할당하는지도 같이 명시되어 있으면 좋을것 같아요!</td>
         <td><b>@Gyu-won</b></td>
     </tr>
     <tr><td colspan="3"></td></tr>
     <tr>
-        <td rowspan="12"><b><img align="center" src="https://github.com/woowacourse-precourse/java-racingcar-6/assets/112257466/d3866f61-24f0-4bf2-a68c-1eb18596bf2f" height="32px">&nbsp;&nbsp;코드 리뷰</b></td>
-        <td>1. 검증 메소드에서 <b>긍정 조건</b>을 사용하는게 가독성에 좋다.</td>
+        <td rowspan="15"><b><img align="center" src="https://github.com/woowacourse-precourse/java-racingcar-6/assets/112257466/d3866f61-24f0-4bf2-a68c-1eb18596bf2f" height="32px">&nbsp;&nbsp;코드 리뷰</b></td>
+        <td>0x01. 검증 메소드에서 <b>긍정 조건</b>을 사용하는게 가독성에 좋다.</td>
         <td><b>@junseoparkk</b></td>
     </tr>
       <tr>
-        <td>2. 컨벤션이 없는 상황에서 <b>정적 팩토리 메소드 사용은 혼선</b>을 가져올 수 있다.</td>
+        <td>0x02. 컨벤션이 없는 상황에서 <b>정적 팩토리 메소드 사용은 혼선</b>을 가져올 수 있다.</td>
         <td><b>@OiKimiO</b></td>
     </tr>
       <tr>
-        <td>3. MVC 패턴에서 <b>모델에서 뷰의 정보를 알아서는 안된다</b>.</td>
+        <td>0x03. MVC 패턴에서 <b>모델에서 뷰의 정보를 알아서는 안된다</b>.</td>
         <td><b>@oxdjww</b></td>
     </tr>
       <tr>
-        <td>4. 검증 메소드에서 <b>긍정 조건</b>을 사용하는게 가독성에 좋다.</td>
+        <td>0x04. 검증 메소드에서 <b>긍정 조건</b>을 사용하는게 가독성에 좋다.</td>
         <td><b>@junseoparkk</b></td>
     </tr>
       <tr>
-        <td>5. 일부 <b>접근지정자가 세밀하게 조정되지 않았다</b>.</td>
+        <td>0x05. 일부 <b>접근지정자가 세밀하게 조정되지 않았다</b>.</td>
         <td><b>@U-Keun</b></td>
     </tr>
       <tr>
-        <td>6. Config 네이밍은 <b>설정 파일의 의미가 강하다.</b></td>
+        <td>0x06. Config 네이밍은 <b>설정 파일의 의미가 강하다.</b></td>
         <td><b>@Mingyum-Kim</b></td>
     </tr>
       <tr>
-        <td><b>7. Flag 네이밍은 Boolean</b>의 의미가 강하다. 상수형은 다른 네이밍이 필요하다.</td>
+        <td><b>0x07. Flag 네이밍은 Boolean</b>의 의미가 강하다. 정수는 다른 네이밍이 필요하다.</td>
         <td><b>@cosyflower</b></td>
     </tr>
       <tr>
-        <td>8.일부 메소드 <b>순서 재배치</b>가 필요하다.</td>
+        <td>0x08.일부 메소드 <b>순서 재배치</b>가 필요하다.</td>
         <td><b>@jcoding-play</b></td>
     </tr>
     <tr>
-        <td>9. 커스텀 예외 선언은 <b>정적 팩토리 메소드보다, 직접 선언하는게 정확</b>하다.</td>
+        <td>0x09. 커스텀 예외 선언은 <b>정적 팩토리 메소드보다, 직접 선언하는게 정확</b>하다.</td>
         <td><b>@IMWoo94</b></td>
     </tr>
     <tr>
-        <td>10. Protected 생성자 vs Private 생성자</td>
+        <td>0x0a. Protected 생성자 vs Private 생성자</td>
         <td><b>@IMWoo94</b></td>
     </tr>
     <tr>
-        <td>11. Open-Closed Principle vs YAGNI</td>
+        <td>0x0b. Open-Closed Principle vs YAGNI</td>
         <td><b>@oxdjww</b></td>
     </tr>
     <tr>
-        <td>12. 입력을 기준으로 분기하는 내용은 검증(Validator)계층이 아니다.</td>
+        <td>0x0c. <b>조건에 따라 분기하는 것은 검증(Validator)계층</b>이 아니다.</td>
         <td><b>@minnim1010</b></td>
     </tr>
-    <tr><td colspan="3"></td></tr>
     <tr>
-        <th colspan="3">Inhancement</th>
+        <td>0x0d. <b>조건에 따라 분기하는 것은 검증(Validator)계층</b>이 아니다.</td>
+        <td><b>@minnim1010</b></td>
     </tr>
     <tr>
-        <td colspan="3">강화 2</td>
+        <td>0x0e. <b>조건에 따라 분기하는 것은 검증(Validator)계층</b>이 아니다.</td>
+        <td><b>@minnim1010</b></td>
     </tr>
-
+   <tr>
+        <td>0x0f. <b>조건에 따라 분기하는 것은 검증(Validator)계층</b>이 아니다.</td>
+        <td><b>@minnim1010</b></td>
+    </tr>
 </table>
 </div>
 
