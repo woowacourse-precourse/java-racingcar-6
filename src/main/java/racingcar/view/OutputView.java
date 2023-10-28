@@ -3,13 +3,12 @@ package racingcar.view;
 import java.util.List;
 
 public class OutputView {
-    private static final String RESULT_GUIDE_MESSAGE = "\n실행 결과";
     private static final String ONE_MOVE_SYMBOL = "-";
     private static final String ROUND_SEPARATOR = "\n";
     private static final String WINNERS_SEPARATOR = ", ";
 
     public void printResultGuideMessage() {
-        System.out.println(RESULT_GUIDE_MESSAGE);
+        System.out.println("\n실행 결과");
     }
 
     public void printMoveRecord(String carName, int moveRecord) {
