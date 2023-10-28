@@ -39,7 +39,7 @@ public class CarService {
         }
     }
 
-    public List<String> findWinner() {
+    public List<String> findWinners() {
         int maxPosition = findMaxPosition();
         for (Car car : track.getCars()) {
             checkAndSaveWinner(car, maxPosition);

@@ -9,5 +9,6 @@ public class Application {
         RacingController racingController = new RacingController(carService);
         racingController.init();
         racingController.play();
+        racingController.finish();
     }
 }

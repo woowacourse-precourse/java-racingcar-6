@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 
-import java.io.ObjectOutput;
 import racingcar.service.CarService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -53,6 +52,10 @@ public class RacingController {
             carService.playRound();
             OutputView.printRoundStatus(carService.getAllCars());
         }
+    }
+
+    public void finish() {
+        OutputView.printWinners(carService.findWinners());
     }
 
 }
