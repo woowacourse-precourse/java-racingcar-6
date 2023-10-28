@@ -4,7 +4,7 @@ import util.NameConstant;
 import java.util.regex.Pattern;
 
 public class CarNameInputValidator {
-    private final String REGEXP_PATTERN_SPACE_NO_CHAR = "^[^\\s]*$";
+    private final String REGEXP_PATTERN_SPACE_NO_CHAR = "^[^\\s]+$";
     public void validate(String input) {
         isNameBelowFiveLetters(input);
         isNameContainBlank(input);
@@ -18,7 +18,7 @@ public class CarNameInputValidator {
 
     public void isNameContainBlank(String input){
         if(!Pattern.matches(REGEXP_PATTERN_SPACE_NO_CHAR,input)){
-            throw new IllegalArgumentException("공백이 포함되어 있는 입력값입니다.");
+            throw new IllegalArgumentException("공백이 포함되어 있거나 빈 문자열입니다.");
         }
     }
 }
