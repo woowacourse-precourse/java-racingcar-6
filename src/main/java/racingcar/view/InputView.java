@@ -9,8 +9,8 @@ public class InputView {
     public static final String RACING_CAR_RUNNING_NUMBER_INFO = "시도할 회수는 몇회인가요?";
 
     public static void addCarName(String names) {
-        CarList.parsingCarNames(names);
-        System.out.println(CarList.parsingCarNames(names));
+        CarList carList = new CarList(Console.readLine());
+        System.out.println(carList.getCarNames());
     }
 
     public static int gameRunningNumber() {

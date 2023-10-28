@@ -16,7 +16,7 @@ public class CarList {
         this.carList = cars;
     }
 
-    public static List<Car> parsingCarNames(String name) {
+    private List<Car> parsingCarNames(String name) {
         return Arrays.stream(name.split(","))
                 .map(String::trim)
                 .map(Car::new)
