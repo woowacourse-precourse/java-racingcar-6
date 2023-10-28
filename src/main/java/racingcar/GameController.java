@@ -21,6 +21,9 @@ public class GameController {
         // 게임 초기 설정
         List<Car> cars = createCars();
         int numberOfAttempts = InputView.readNumberOfAttempts();
+        if (!(1 <= numberOfAttempts && numberOfAttempts <= 100)) {
+            throw new IllegalArgumentException("[ERROR] 시도 횟수는 1 이상 100 이하만 가능합니다.");
+        }
 
         // 게임 진행
         playRacing(cars, numberOfAttempts);
