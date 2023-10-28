@@ -1,6 +1,7 @@
 package racingcar.view.console;
 
 import java.util.List;
+import racingcar.domain.RacingCar;
 
 public class OutputView {
     private static final String RESULT_MESSAGE = "실행 결과";
@@ -11,7 +12,11 @@ public class OutputView {
         System.out.println(RESULT_MESSAGE);
     }
 
-    public void printRaceProgress() {
+    public void printRaceProgress(List<RacingCar> racingCarList) {
+        racingCarList.forEach(racingCar -> {
+            System.out.println(racingCar.getName() + " : " + "-".repeat(racingCar.getPosition()));
+        });
+        System.out.println();
     }
 
     public void println() {
