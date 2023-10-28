@@ -36,11 +36,13 @@ public class PaceComputer {
         return randomNumberList;
     }
 
-    public LinkedHashMap<String, Integer> updatePaceMap(Machines machines) {
+    public LinkedHashMap<String, Integer> updatePaceMap(Machines machines, Lap lap) {
         LinkedHashMap<String, Integer> paceMap = createDefaultPaceMap(machines);
 
-        paceMap.replaceAll((machineName, driveSuccessNumber) ->
-                generateRandomNumber(INITIAL_RANDOM_NUMBER, LAST_RANDOM_NUMBER));
+        for (int i = 0; i < Integer.parseInt(lap.getLap()); i++) {
+            paceMap.replaceAll((machineName, driveSuccessNumber) ->
+                    generateRandomNumber(INITIAL_RANDOM_NUMBER, LAST_RANDOM_NUMBER));
+        }
 
         return paceMap;
     }

@@ -16,4 +16,8 @@ public class Lap implements Showable, Gettable {
     public String getInput() {
         return lap = readLine();
     }
+
+    public String getLap() {
+        return lap;
+    }
 }
