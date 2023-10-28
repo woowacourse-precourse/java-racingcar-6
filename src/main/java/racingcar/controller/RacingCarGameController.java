@@ -33,9 +33,7 @@ public class RacingCarGameController {
             OutputView.printCurrentLocations(currentLocations);
         }
 
-        String winnerNamesOfCars = cars.getWinnerCars().stream()
-                .map(Car::getName)
-                .collect(Collectors.joining(", "));
+        String winnerNamesOfCars = cars.findWinnerCars();
 
         OutputView.printWinnerNames(winnerNamesOfCars);
     }

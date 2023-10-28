@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 public class Cars {
 
     private static final String CAR_NAME_DUPLICATION_EXCEPTION_MESSAGE = "중복된 이름을 입력하면 안 됩니다.";
+    private static final String WINNER_DELIMITER = ", ";
 
     private final List<Car> carList;
 
@@ -23,10 +24,11 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
-    public List<Car> getWinnerCars() {
+    public String findWinnerCars() {
         return carList.stream()
                 .filter(car -> car.getLocationLength() == getMaxLocationLength())
-                .collect(Collectors.toUnmodifiableList());
+                .map(Car::getName)
+                .collect(Collectors.joining(WINNER_DELIMITER));
     }
 
     private void validateName(List<Car> cars) {
