@@ -19,7 +19,7 @@ public class CarController {
 
     private void loopRacingCarProcess() {
         int tryCount = carInputView.getTryCount();
-        carService.loopCarRacing();
+        carService.startRacingCar();
     }
 
     private void saveCarsProcess() {

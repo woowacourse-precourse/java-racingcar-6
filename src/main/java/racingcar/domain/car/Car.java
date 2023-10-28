@@ -35,4 +35,15 @@ public class Car {
     public String getName() {
         return this.name;
     }
+
+    public Car race(int randomNumber) {
+        goAndStop(randomNumber);
+        return this;
+    }
+
+    private void goAndStop(int randomNumber) {
+        if (randomNumber > 3) {
+            this.position++;
+        }
+    }
 }

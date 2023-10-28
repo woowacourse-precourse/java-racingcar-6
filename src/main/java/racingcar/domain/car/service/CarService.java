@@ -33,7 +33,7 @@ public class CarService {
 //            int randomNumber = Randoms.pickNumberInRange(0, 9);
             List<Car> findCars = carRepository.findAll();
 
-            findCars.forEach(car -> car.updatePosition(Randoms.pickNumberInRange(0, 9)));
+            findCars.forEach(car -> car.updatePosition(getRandomNumber()));
             findCars.forEach(System.out::print);
             System.out.println();
 
@@ -47,5 +47,16 @@ public class CarService {
         carWithMaxPosition.forEach(car -> winners.add(car.getName()));
 
         return winners;
+    }
+
+    public List<Car> startRacingCar() {
+        return carRepository.findAll()
+                .stream()
+                .map(car -> car.race(getRandomNumber()))
+                .toList();
+    }
+
+    private static int getRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 }
