@@ -31,6 +31,7 @@ public class ProgressBoard {
     public Set<String> getParticipants() {
         return this.SCORE_BOARD.keySet();
     }
+
     public String progressOf(String carName) {
         return this.SCORE_BOARD.get(carName);
     }
