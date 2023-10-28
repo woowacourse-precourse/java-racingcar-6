@@ -9,6 +9,7 @@ public class RacingcarController {
     private static final RacingcarService racingcarService = new RacingcarService();
     private static final InputView inputView = InputView.getInstance();
     private String[] cars;
+    private int roundCount;
 
     public void run() {
         start();
@@ -22,6 +23,7 @@ public class RacingcarController {
                 throw new IllegalArgumentException("자동차 이름은 5글자 이하입니다.");
             }
         }
+        roundCount = Integer.parseInt(inputView.getRoundCount());
     }
 
     private Advance game(){
