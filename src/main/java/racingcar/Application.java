@@ -11,7 +11,7 @@ public class Application {
         Car car = new Car();
         Count count = new Count();
         List<String> names = car.carName(car.inputCar());
-        int num = count.inputCount();
+        int num = count.raceCount(count.inputCount());
         System.out.println(names.toString() + num);
     }
 }
