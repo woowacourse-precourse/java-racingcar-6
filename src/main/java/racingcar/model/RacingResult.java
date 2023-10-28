@@ -3,23 +3,15 @@ package racingcar.model;
 import java.util.*;
 
 public class RacingResult {
-
-    private TryCount tryCount;
     private Map<String, Integer> result;
     private static int INITIAL_DISTANCE = 0;
 
     public RacingResult(CarNames carNames, TryCount tryCount) {
-        this.tryCount = tryCount;
         result = new HashMap<>();
 
         for (String carName : carNames.getCarNames()) {
             result.put(carName, INITIAL_DISTANCE);
         }
-
-    }
-
-    public void decreaseCount() {
-        tryCount.decreaseCount();
     }
 
     public void moveForward(String carName) {
