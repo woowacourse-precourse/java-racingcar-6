@@ -14,5 +14,21 @@ public class Application {
         for(String name : input) {
             carList.add(new Car(name, 0));
         }
+
+        System.out.println("시도할 횟수는 몇 회인가요?");
+        int N = Integer.parseInt(Console.readLine());
+
+        // 주행 결과 출력
+        System.out.println("실행 결과");
+        for(int i=0; i<N; i++) {
+            for(Car car : carList) {
+                System.out.print(car.getName() + " : ");
+                for(int j=0; j<car.getCount(); j++) {
+                    System.out.print("-");
+                }
+                System.out.println();
+            }
+        }
+
     }
 }

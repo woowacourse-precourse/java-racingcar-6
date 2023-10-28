@@ -8,4 +8,16 @@ public class Car {
 		this.name = name;
 		this.count = count;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	private void setCountPlus(int num) {
+		this.count += num;
+	}
 }
