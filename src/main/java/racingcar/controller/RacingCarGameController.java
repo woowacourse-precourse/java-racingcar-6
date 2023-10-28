@@ -20,7 +20,7 @@ public class RacingCarGameController {
         OutputView.printInputCarsNameMessage();
         player = new Player(InputView.inputCarsNamesOfCars());
 
-        String[] namesOfCars = player.splitNamesOfCars();
+        List<String> namesOfCars = player.splitNamesOfCars();
         player.validateDuplicationName(namesOfCars);
 
         List<Car> carList = CarFactory.generateCar(namesOfCars);

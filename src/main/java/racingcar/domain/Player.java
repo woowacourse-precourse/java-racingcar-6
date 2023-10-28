@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Player {
 
@@ -12,16 +14,17 @@ public class Player {
         this.namesOfCars = namesOfCars;
     }
 
-    public String[] splitNamesOfCars() {
-        return namesOfCars.split(CAR_NAME_SEPARATOR);
+    public List<String> splitNamesOfCars() {
+        return Arrays.stream(namesOfCars.split(CAR_NAME_SEPARATOR))
+                .collect(Collectors.toList());
     }
 
-    public void validateDuplicationName(String[] namesOfCars) {
-        int count = (int) Arrays.stream(namesOfCars)
+    public void validateDuplicationName(List<String> namesOfCars) {
+        int count = (int) namesOfCars.stream()
                 .distinct()
                 .count();
 
-        if (count != namesOfCars.length) {
+        if (count != namesOfCars.size()) {
             throw new IllegalArgumentException("중복");
         }
     }
