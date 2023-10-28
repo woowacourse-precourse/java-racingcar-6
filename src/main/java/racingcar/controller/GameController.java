@@ -7,9 +7,12 @@ import racingcar.model.Round;
 
 public class GameController {
 
+    private List<Car> cars;
+    private int roundNumber;
+
     public GameController() {
         set();
-
+        game();
     }
 
     public void set() {
@@ -18,13 +21,21 @@ public class GameController {
         List<String> carNames = InputController.setCars();
 
         System.out.println("시도할 회수는 몇회인가요?");
-        int roundNumber = InputController.setRound();
+        roundNumber = InputController.setRound();
 
         // Car 객체 생성 및 자동차 이름 할당
-        List<Car> cars = new ArrayList<>();
+        cars = new ArrayList<>();
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
     }
 
+    public void game() {
+
+        System.out.println("실행 결과");
+        Round round = new Round(cars);
+        round.playRound(roundNumber);
+    }
+
 }
+
