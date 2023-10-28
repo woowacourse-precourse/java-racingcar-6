@@ -1,7 +1,10 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatNoException;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -15,9 +18,9 @@ class CarsTest {
 
     @Nested
     @DisplayName("자동차 이름 목록 생성")
-    class CreateCars {
+    class CarsSuccessTest {
 
-        private static Stream<Arguments> successCarNames() {
+        static Stream<Arguments> successCarNames() {
             return Stream.of(
                     Arguments.of(List.of("poby", "woni", "jun")),
                     Arguments.of(List.of("qm6", "cona", "k9", "motor"))
@@ -34,9 +37,9 @@ class CarsTest {
 
     @Nested
     @DisplayName("자동차 이름 목록 예외")
-    class ValidateCars {
+    class CarsValidateTest {
 
-        private static Stream<Arguments> exceptionCarNames() {
+        static Stream<Arguments> exceptionCarNames() {
             return Stream.of(
                     Arguments.of(List.of(" , , ")),
                     Arguments.of(List.of(", poby")),
@@ -53,6 +56,46 @@ class CarsTest {
         void blank_자동차_이름_목록에_유효하지_않은_자동차_이름이_있으면_예외_발생(List<String> names) {
             assertThatThrownBy(() -> Cars.of(names))
                     .isInstanceOf(IllegalArgumentException.class);
+        }
+    }
+
+    @Nested
+    @DisplayName("기능 테스트")
+    class CarsFunctionalTest {
+
+        static Stream<Arguments> successCarNames() {
+            return Stream.of(
+                    Arguments.of(List.of("poby", "woni", "jun")),
+                    Arguments.of(List.of("qm6", "cona", "k9", "motor"))
+            );
+        }
+
+        @DisplayName("현재 순위 정보를 정해진 형식의 문자열 리스트로 정상적으로 반환하는지 확인")
+        @ParameterizedTest
+        @MethodSource("successCarNames")
+        void list_현재_순위_정해진_형식의_문자열_리스트로_정상적으로_반환하는지_확인(List<String> names) {
+            List<String> currentRank = Cars.of(names)
+                    .receiveCurrentRank();
+
+            assertThat(currentRank.stream()
+                    .filter(name -> name.matches("(.*) : "))
+                    .count()
+            ).isEqualTo(
+                    names.size());
+        }
+
+        @DisplayName("최종 우승자 명단을 리스트로 정상적으로 반환하는지 확인")
+        @ParameterizedTest
+        @MethodSource("successCarNames")
+        void list_최종_우승자_명단을_리스트로_정상적으로_반환하는지_확인(List<String> names) {
+            List<String> winnerNames = Cars.of(names)
+                    .receiveWinnerNames();
+
+            assertAll(
+                    () -> assertThat(winnerNames.size())
+                            .isGreaterThan(0),
+                    () -> assertTrue(names.containsAll(winnerNames))
+            );
         }
     }
 }
