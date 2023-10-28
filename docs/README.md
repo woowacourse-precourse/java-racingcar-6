@@ -1,8 +1,8 @@
 # [ 구현 기능 목록 ]
-- [ ] 자동차 이름을 입력받는다. 
+- [X] 자동차 이름을 입력받는다. 
   - InputView#readFromUser() -> GameController#getCarNames()
   - 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다.
-  - 예외 처리 
+  - 예외 처리 Validator#validateCarNames()
     - 쉼표로 구분했을 때 
       - 쉼표(,)만 입력한 경우
       - 이름이 없거나 공백
