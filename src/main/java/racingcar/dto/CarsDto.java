@@ -1,9 +1,6 @@
 package racingcar.dto;
 
-
-
 import racingcar.model.Car;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -14,7 +11,7 @@ public class CarsDto {
 
     public void enrollCar(String carName) {
         if(findCarByName(carName).equals(Optional.empty())) {
-            cars.put(carName,new Car(carName,0));
+            cars.put(carName, new Car(carName, 0));
         }
     }
 
@@ -27,7 +24,8 @@ public class CarsDto {
     }
 
     public Map<String, Integer> findAll() {
-        return cars.entrySet().stream()
+        return cars.entrySet()
+                .stream()
                 .collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue().getPosition()));
     }
 
