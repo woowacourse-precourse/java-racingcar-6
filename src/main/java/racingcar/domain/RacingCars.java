@@ -8,7 +8,6 @@ import java.util.List;
 public class RacingCars {
 
     private static final String CAR_NAME_DELIMITER = ",";
-    private static final int MIN_NUMBER = 4;
 
     private final List<Car> cars;
 
@@ -25,15 +24,9 @@ public class RacingCars {
 
     public List<Car> race() {
         for (Car car : cars) {
-            if (canMove()) {
-                car.move();
-            }
+            car.move(NumberMaker.makeRandomNumber());
         }
         return cars;
-    }
-
-    private boolean canMove() {
-        return MIN_NUMBER <= NumberMaker.makeRandomNumber();
     }
 
     public List<Car> findWinners() {
