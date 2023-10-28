@@ -23,4 +23,9 @@ public class UserInputGameRound {
             throw new IllegalArgumentException("시도 횟수 0");
         }
     }
+
+    public static void run(){
+        String gameRound = inputGameRound();
+        checkIsZero(checkIsNumber(gameRound));
+    }
 }
