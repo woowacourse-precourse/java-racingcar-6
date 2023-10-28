@@ -1,8 +1,10 @@
 package util;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import racingcar.util.Validator;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -34,19 +36,25 @@ public class ValidatorTest {
 
     @Test
     void 여섯글자_입력() {
+        List<String> cars = new ArrayList<>();
+        cars.add("******");
         Validator validator = new Validator();
-        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> validator.validName("******"));
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> validator.validName(cars));
     }
 
     @Test
     void 다섯글자_입력() {
+        List<String> cars = new ArrayList<>();
+        cars.add("*****");
         Validator validator = new Validator();
-        validator.validName("*****");
+        validator.validName(cars);
     }
 
     @Test
     void 빈값_입력() {
+        List<String> cars = new ArrayList<>();
+        cars.add("");
         Validator validator = new Validator();
-        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> validator.validName(""));
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> validator.validName(cars));
     }
 }
