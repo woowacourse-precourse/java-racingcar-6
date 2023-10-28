@@ -62,14 +62,14 @@ class CarTest {
         other.moveCarByState(MovementState.MOVE);
         other.moveCarByState(MovementState.MOVE);
 
-        assertThat(other.comparePosition(car)).isEqualTo(ComparePositionState.FRONT);
+        assertThat(other.comparePosition(car).state()).isEqualTo(ComparePositionState.FRONT);
     }
     @Test
     @DisplayName("compare two Cars  PositionSame")
     public void carDiffPostionSameCompareTest() {
 
         Car other = new Car();
-        assertThat(other.comparePosition(car)).isEqualTo(ComparePositionState.SAME);
+        assertThat(other.comparePosition(car).state()).isEqualTo(ComparePositionState.SAME);
     }
 
     @Test
@@ -78,6 +78,6 @@ class CarTest {
         Car other = new Car();
         other.moveCarByState(MovementState.MOVE);
         other.moveCarByState(MovementState.MOVE);
-        assertThat(car.comparePosition(other)).isEqualTo(ComparePositionState.BACK);
+        assertThat(car.comparePosition(other).state()).isEqualTo(ComparePositionState.BACK);
     }
 }
