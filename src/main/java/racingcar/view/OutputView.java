@@ -31,7 +31,7 @@ public class OutputView {
                 carDto -> System.out.println(
                         carDto.name() + SEPARATOR_COLON + STEP_CHARACTER.repeat(carDto.step())));
 
-        System.out.println();
+        System.out.print(LINE);
     }
 
     public void printWinners(List<String> winners) {
