@@ -20,12 +20,18 @@ public class Parser {
         List<String> names = Arrays
                 .stream(input.split(DELIMITER))
                 .toList();
-        
+
         InputValidator.validateDuplicated(names);
         return names;
     }
 
     public static int parseRoundCount(final String input) {
+        int roundCount = extractParse(input);
+        InputValidator.validateRoundCount(roundCount);
+        return roundCount;
+    }
+
+    private static int extractParse(String input) {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {

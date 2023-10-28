@@ -2,13 +2,12 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Cars;
+import racingcar.dto.FinalResponse;
+import racingcar.dto.RoundResponses;
 import racingcar.parser.Parser;
 import racingcar.view.View;
 
-import java.util.List;
-
 import static racingcar.view.constants.Message.RESPONSE_RESULT_MESSAGE;
-import static racingcar.view.constants.Message.RESPONSE_WINNER_MESSAGE;
 
 public class Game {
     public static void start() {
@@ -19,17 +18,21 @@ public class Game {
         int roundCount = Parser.parseRoundCount(roundCountRequest);
 
         View.printNotice(RESPONSE_RESULT_MESSAGE);
+
         for (int i = 0; i < roundCount; i++) {
             playOneRound(cars);
         }
-        String winnerNames = cars.getWinnerNames();
-        System.out.println(String.format(RESPONSE_WINNER_MESSAGE.getMessage(), winnerNames));
+
+        FinalResponse finalResponse = cars.buildFinalResponse();
+        System.out.println(finalResponse.toEntity());
+
         Console.close();
     }
 
     private static void playOneRound(final Cars cars) {
         cars.playRound();
-        List<String> roundResults = cars.generateRoundResult();
-        View.printRoundResults(roundResults);
+        
+        RoundResponses roundResponses = cars.buildRoundResponse();
+        View.printRoundResults(roundResponses.toEntityList());
     }
 }

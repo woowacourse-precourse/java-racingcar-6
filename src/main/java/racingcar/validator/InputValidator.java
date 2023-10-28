@@ -4,10 +4,10 @@ import racingcar.exception.RacingCarException;
 
 import java.util.List;
 
-import static racingcar.exception.ErrorMessage.DUPLICATED;
-import static racingcar.exception.ErrorMessage.ENDS_WITH_DELIMITER;
+import static racingcar.exception.ErrorMessage.*;
 
 public class InputValidator {
+    private static final Integer ROUND_COUNT_LOWER_BOUND = 1;
     private static final String DELIMITER = ",";
 
     private InputValidator() {
@@ -23,6 +23,17 @@ public class InputValidator {
         if (isDuplicated(input)) {
             throw RacingCarException.of(DUPLICATED);
         }
+    }
+
+    public static void validateRoundCount(final Integer roundCount) {
+        if (isInvalidRoundCount(roundCount)) {
+            throw RacingCarException.of(CONTAIN_IMPROPER_LETTER);
+        }
+    }
+
+
+    private static boolean isInvalidRoundCount(Integer roundCount) {
+        return roundCount < ROUND_COUNT_LOWER_BOUND;
     }
 
     private static boolean isDuplicated(final List<String> input) {

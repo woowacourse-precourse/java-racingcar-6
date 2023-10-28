@@ -1,10 +1,11 @@
 package racingcar.domain;
 
+import racingcar.dto.RoundResponse;
+
 import java.util.Objects;
 
 public class Car {
     private static final Integer START_SCORE = 0;
-    private static final String DASH = "-";
 
     private final Name name;
     private Integer score;
@@ -25,12 +26,8 @@ public class Car {
         }
     }
 
-    public String generateScoreResponse() {
-        return String.format("%s : %s", name.getName(), visualizeScore());
-    }
-
-    private String visualizeScore() {
-        return DASH.repeat(score);
+    public RoundResponse generateRoundResponse() {
+        return new RoundResponse(name.getName(), score);
     }
 
     public boolean isSameScore(Integer score) {

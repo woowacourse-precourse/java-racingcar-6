@@ -25,6 +25,7 @@ public class View {
         System.out.println(notice.getMessage());
     }
 
+
     public static void printRoundResults(List<String> messages) {
         messages.forEach(System.out::println);
         System.out.println();

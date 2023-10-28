@@ -1,58 +1,51 @@
 package racingcar.domain;
 
+import racingcar.dto.FinalResponse;
+import racingcar.dto.RoundResponse;
+import racingcar.dto.RoundResponses;
 import racingcar.exception.RacingCarException;
 import racingcar.parser.Parser;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static racingcar.exception.ErrorMessage.SYSTEM_ERROR;
 
 public class Cars {
     private final List<Car> cars;
 
-    // Car Constructor
     private Cars(final String input) {
         List<String> carNames = Parser.parseCarNames(input);
         this.cars = createCars(carNames);
     }
 
-    // Static Factory Method
     public static Cars create(final String input) {
         return new Cars(input);
     }
 
-    /**
-     * Define Create Cars
-     */
     private List<Car> createCars(List<String> carNames) {
         return carNames.stream()
                 .map(Car::create)
                 .toList();
     }
 
-    /**
-     * Define Play One Round Function
-     */
     public void playRound() {
         cars.forEach(Car::move);
     }
 
 
-    /**
-     * Define to return Result
-     */
-    public List<String> generateRoundResult() {
-        return cars.stream()
-                .map(Car::generateScoreResponse)
+    public RoundResponses buildRoundResponse() {
+        List<RoundResponse> roundResponses = cars.stream()
+                .map(Car::generateRoundResponse)
                 .toList();
+        return new RoundResponses(roundResponses);
     }
 
-    public String getWinnerNames() {
-        return cars.stream()
+    public FinalResponse buildFinalResponse() {
+        List<String> winnerNames = cars.stream()
                 .filter(car -> car.isSameScore(getMaxScore()))
                 .map(Car::getName)
-                .collect(Collectors.joining(", "));
+                .toList();
+        return new FinalResponse(winnerNames);
     }
 
     private Integer getMaxScore() {
