@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 class CarRaceTest {
     private CarRace carRace;
-    private ArrayList<RacingCar> racingCars;
+    private List<RacingCar> racingCars;
 
     @BeforeEach
     public void setUp() {

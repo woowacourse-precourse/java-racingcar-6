@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -9,7 +8,7 @@ public class CarRace {
     private final int targetTurn;
     private final RandomDistanceGenerator randomDistanceGenerator;
 
-    public CarRace(ArrayList<RacingCar> racingCars, int targetTurn, RandomDistanceGenerator randomDistanceGenerator) {
+    public CarRace(List<RacingCar> racingCars, int targetTurn, RandomDistanceGenerator randomDistanceGenerator) {
         this.racingCars = racingCars;
         this.targetTurn = targetTurn;
         this.randomDistanceGenerator = randomDistanceGenerator;
