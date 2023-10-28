@@ -1,12 +1,10 @@
 package racingcar.view;
 
 import java.util.List;
-import java.util.stream.IntStream;
 import racingcar.controller.dto.RacingResultResponse;
 
 public class OutputView {
 
-    private static final int ZERO = 0;
     private static final String COLON = " : ";
     private static final String COMMA = ", ";
     private static final String HYPHEN = "-";
@@ -33,9 +31,7 @@ public class OutputView {
     }
 
     private void printPositionResult(final int count) {
-        IntStream.range(ZERO, count)
-                .forEach(each -> System.out.print(HYPHEN));
-        printNewLine();
+        System.out.println(HYPHEN.repeat(count));
     }
 
     public void printNewLine() {

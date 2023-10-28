@@ -1,11 +1,11 @@
 package racingcar.model;
 
 import java.util.Objects;
+import racingcar.exception.InvalidNameException;
 
 public class Name {
 
     private static final int MAX_NAME_LENGTH = 5;
-    private static final String INVALID_NAME_MESSAGE = "이름은 5자 이하여야 합니다.";
 
     private final String name;
 
@@ -15,9 +15,13 @@ public class Name {
     }
 
     private void validateName(final String name) {
-        if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException(INVALID_NAME_MESSAGE);
+        if (isInvalidName(name)) {
+            throw new InvalidNameException();
         }
+    }
+
+    private boolean isInvalidName(final String name) {
+        return name.length() > MAX_NAME_LENGTH || name.isEmpty();
     }
 
     @Override

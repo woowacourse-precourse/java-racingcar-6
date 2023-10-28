@@ -1,14 +1,13 @@
 package racingcar.model;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import racingcar.exception.DuplicateCarNamesException;
 import racingcar.util.NumberGenerator;
 
 public class Cars {
 
     private static final int ZERO = 0;
-    private static final String DUPLICATE_CAR_NAMES_MESSAGE = "중복된 차 이름이 있습니다.";
 
     private final List<Car> cars;
 
@@ -16,18 +15,18 @@ public class Cars {
         this.cars = cars;
     }
 
-    public static Cars createFromCarNames(final List<String> carsName) {
-        validateDuplicateNames(carsName);
-        List<Car> cars = new ArrayList<>();
-        for (final String carName : carsName) {
-            cars.add(new Car(new Name(carName), Position.createDefault()));
-        }
+    public static Cars createFromCarNames(final List<String> carNames) {
+        validateDuplicateNames(carNames);
+        List<Car> cars = carNames.stream()
+                .map(carName -> new Car(new Name(carName), Position.createDefault()))
+                .toList();
+
         return new Cars(cars);
     }
 
     private static void validateDuplicateNames(final List<String> carNames) {
         if (hasDuplicates(carNames)) {
-            throw new IllegalArgumentException(DUPLICATE_CAR_NAMES_MESSAGE);
+            throw new DuplicateCarNamesException();
         }
     }
 
@@ -55,7 +54,7 @@ public class Cars {
                 .orElse(ZERO);
     }
 
-    private List<String> findWinners(int maxPosition) {
+    private List<String> findWinners(final int maxPosition) {
         return cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::getName)

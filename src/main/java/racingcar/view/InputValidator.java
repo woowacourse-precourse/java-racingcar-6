@@ -1,12 +1,12 @@
 package racingcar.view;
 
-public class InputValidator {
+import racingcar.exception.EmptyInputException;
 
-    private static final String EMPTY_INPUT_MESSAGE = "입력이 비어 있습니다.";
+public class InputValidator {
 
     public void validateInput(final String input) {
         if (isInvalidInput(input)) {
-            throw new IllegalArgumentException(EMPTY_INPUT_MESSAGE);
+            throw new EmptyInputException();
         }
     }
 
