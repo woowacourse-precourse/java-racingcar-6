@@ -6,8 +6,13 @@ import java.util.List;
 public class RacingCars {
     List<RacingCar> racingcars;
 
-    RacingCars() {
+    public RacingCars() {
         racingcars = new ArrayList<>();
+    }
+
+    public static RacingCars stringToRacingCars(String cars) {
+        RacingCars result = new RacingCars();
+        return result;
     }
 
     public void add(RacingCar racingcar) {
