@@ -34,26 +34,24 @@ public class GameController {
 
     private void moveCar() {
         for (Car car : participantCars) {
-            if (isMoveToForward()) {
+            if (game.isCarMoveToForward()) {
                 car.move();
             }
         }
     }
 
-    private boolean isMoveToForward() {
-        return getRandomNumber() >= 4;
-    }
-
-    private int getRandomNumber() {
-        return new RandomNumber().getNumber();
-    }
-
     private void displayCarPosition() {
         for (Car participantCar : participantCars) {
-            int position = participantCar.getPosition();
-            String positionBar = participantCar.getName() + " : " + "-".repeat(position);
+            String positionBar = getPositionBarByCar(participantCar);
 
             System.out.println(positionBar);
         }
+    }
+
+    private static String getPositionBarByCar(Car participantCar) {
+        int position = participantCar.getPosition();
+        String positionBar = String.format("%s : %s", participantCar.getName(),
+            "-".repeat(position));
+        return positionBar;
     }
 }

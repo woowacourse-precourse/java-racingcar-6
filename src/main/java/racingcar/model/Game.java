@@ -35,4 +35,8 @@ public class Game {
             .map(Car::getName)
             .collect(Collectors.joining(", "));
     }
+
+    public boolean isCarMoveToForward() {
+        return new RandomNumber().getNumber() >= 4;
+    }
 }
