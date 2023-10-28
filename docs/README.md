@@ -16,3 +16,26 @@
 
 ## 게임 마무리
 - [ ] 움직인 거리에 많은 사람 출력(동점시 `,`를 기준으로 구분하여 출력)
+
+## 에러처리 - `IllegalArgumentException`
+- [ ] 이름이 5글자 이상일 때
+  - `abcde`
+  - `abc,abcde`
+- [ ] 시도할 회수가 숫자가 아닐 때
+
+## 클래스 설계
+- [ ] RacingCarGame
+  - Integer tryNumber
+  - `List<RacingCar> racingcarList`
+  - void requestCarNames()
+  - void requestTryNumber()
+  - void play()
+  - void tryOnce()
+  - void printWinners()
+- [ ] RacingCar
+  - String name
+  - Integer movedDistance
+    - 초기 값 0
+  - void tryMoving() // 랜덤값에 따라 movedDistance 증가 또는 유지
+  - void printResult() // 각 차수별 실행결과 출력
+  - Integer getMovedDistance()
