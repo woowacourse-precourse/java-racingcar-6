@@ -12,6 +12,8 @@ public class CarRacingGame {
     private static final int MIN_RANDOM_NUMBER = 0;
     private static final int MAX_RANDOM_NUMBER = 9;
 
+    private static final int BASE_RANDOM_NUMBER = 4;
+
     private final CarRepository carRepository;
 
     public CarRacingGame(){
@@ -26,5 +28,9 @@ public class CarRacingGame {
         }
     }
 
-    // TODO: moveCar() 구현
+    private void moveCar(Car car, int randomNumber) {
+        if (randomNumber >= BASE_RANDOM_NUMBER) {
+            carRepository.updateIncreasedCarPosition(car);
+        }
+    }
 }
