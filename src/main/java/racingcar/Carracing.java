@@ -25,9 +25,6 @@ public class Carracing {
             goStop(raceScore);
         }
         chooseWinner(raceScore);
-        //inputNumberOfCars
-        //movingCount
-        //carNameList
     }
 
     public static void goStop(Map<String, String> raceScore) {

@@ -7,10 +7,6 @@ import static racingcar.MessageConst.*;
 
 public class PrintUtil {
 
-    public static void printNumberOfCarsInputMsg() {
-        System.out.println(NUMBER_OF_CARS_INPUT_MESSAGE);
-    }
-
     public static void printNameOfCarInputMsg() {
         System.out.println(NAMES_OF_CARS_INPUT_MESSAGE);
     }
