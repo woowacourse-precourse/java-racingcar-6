@@ -46,11 +46,10 @@ class CarsTest {
         // when
         final List<Car> winnerCars = cars.getWinnerCars();
 
-        final List<String> winnersName = cars.getNamesOfCars(winnerCars);
 
         // then
-        Assertions.assertThat(winnersName).hasSize(1)
-                .contains("pobi");
+        Assertions.assertThat(winnerCars).hasSize(1)
+                .contains(new Car("pobi"));
     }
 
     @Test
@@ -63,11 +62,9 @@ class CarsTest {
         // when
         final List<Car> winnerCars = cars.getWinnerCars();
 
-        final List<String> winnersName = cars.getNamesOfCars(winnerCars);
-
         // then
-        Assertions.assertThat(winnersName).hasSize(2)
-                .contains("pobi", "jun");
+        Assertions.assertThat(winnerCars).hasSize(2)
+                .contains(new Car("pobi"), new Car("jun"));
     }
 
     @Test
