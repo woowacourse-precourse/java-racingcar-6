@@ -1,5 +1,7 @@
 package racingcar.Model;
 
+import java.util.List;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class GameStatus {
@@ -12,7 +14,15 @@ public class GameStatus {
         this.playCount = playCount;
     }
 
-    private void nextStatus() {
+    public List<String> getCarNames() {
+        return this.cars.getCarNames();
+    }
+
+    public List<Integer> getCarpositions() {
+        return this.cars.getCarpositions();
+    }
+
+    public void nextStatus() {
         this.currentPlayCount += 1;
     }
 
@@ -20,7 +30,7 @@ public class GameStatus {
         return this.currentPlayCount == this.playCount;
     }
 
-    private void carsMoveForward() {
+    public void carsMoveForward() {
         for (Car car : this.cars.getCars()) {
             if (4 <= returnRandomNumber()) {
                 car.moveForward();

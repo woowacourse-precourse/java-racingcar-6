@@ -7,6 +7,7 @@ import org.assertj.core.util.Arrays;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.View.InputView;
+import racingcar.View.OutputView;
 import racingcar.Validator;
 import racingcar.Model.Car;
 import racingcar.Model.Cars;
@@ -21,8 +22,11 @@ public class RacingGame {
         Cars cars = createCars(carname);
         int playCount = playCountInput();
         gameStatus = new GameStatus(cars, playCount);
-        while (gameStatus.isEnd()) {
-            
+        OutputView.printStart();
+        while (!gameStatus.isEnd()) {
+            gameStatus.carsMoveForward();
+            OutputView.printCurrentStatus(gameStatus.getCarNames(), gameStatus.getCarpositions());
+            gameStatus.nextStatus();
         }
     }
 
