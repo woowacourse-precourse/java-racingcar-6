@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Race {
@@ -9,8 +10,8 @@ public class Race {
 
     public Race(List<String> carNames, int moveCount) {
         cars = new ArrayList<>();
-        for (String carName : carNames) {
-            cars.add(new Car(carName));
+        for (String Name : carNames) {
+            cars.add(new Car(Name));
         }
         this.moveCount = moveCount;
     }
@@ -28,5 +29,16 @@ public class Race {
         for (int i = 0; i < moveCount; ++i) {
             moveCar();
         }
+    }
+
+    public void evaluate() {
+        List<String> winners = new ArrayList<>();
+        int maxMileage = Collections.max(cars).getMileage();
+        for (Car car : cars) {
+            if (car.getMileage() == maxMileage) {
+                winners.add(car.getName());
+            }
+        }
+        System.out.println(winners);
     }
 }

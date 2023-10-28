@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private final String name;
     private int mileage;
 
@@ -16,6 +16,11 @@ public class Car {
         if (number >= 4) {
             ++mileage;
         }
+    }
+
+    @Override
+    public int compareTo(Car car) {
+        return this.mileage - car.getMileage();
     }
 
     public String getName() {

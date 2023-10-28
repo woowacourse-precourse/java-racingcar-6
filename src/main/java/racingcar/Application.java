@@ -15,5 +15,6 @@ public class Application {
         int moveCount = Input.readMoveCount();
         Race race = new Race(carNames, moveCount);
         race.start();
+        race.evaluate();
     }
 }
