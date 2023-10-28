@@ -16,6 +16,16 @@ public class CarTest {
     }
 
     @Test
+    void move_테스트() {
+        String name = "red";
+        Car car = new Car(name);
+
+        car.move();
+
+        assertEquals(1, car.getPosition());
+    }
+
+    @Test
     void move_전진_성공_테스트() {
         String name = "red";
         int power = 5;
