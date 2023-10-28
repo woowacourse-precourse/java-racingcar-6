@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.stream.IntStream;
+
 public class Car {
 
 	private String carName;
@@ -14,6 +16,18 @@ public class Car {
 		carLocation++;
 	}
 
+	public String printCarStatus() {
+		return String.format("%s : %s", carName, convertCarLocationToMinusWords());
+	}
+
+	private String convertCarLocationToMinusWords() {
+		StringBuilder strBuilder = new StringBuilder();
+
+		IntStream.range(0, carLocation).forEach(x -> strBuilder.append("-"));
+
+		return strBuilder.toString();
+	}
+
 	public String getCarName() {
 		return carName;
 	}
@@ -21,5 +35,4 @@ public class Car {
 	public int getCarLocation() {
 		return carLocation;
 	}
-
 }
