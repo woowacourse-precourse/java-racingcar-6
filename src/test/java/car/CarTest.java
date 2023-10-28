@@ -23,6 +23,7 @@ public class CarTest {
         String winner = carService.getWinners();
 
         assertThat(winner).isEqualTo("b");
+        carService.close();
     }
 
     @Test
