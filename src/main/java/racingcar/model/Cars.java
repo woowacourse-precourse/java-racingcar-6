@@ -7,10 +7,13 @@ import java.util.ArrayList;
 
 public class Cars {
 
-    public static ArrayList<String> cars;
+    public static ArrayList<Car> cars = new ArrayList<Car>();
 
     public Cars(){
         CarNameValidator validator = new CarNameValidator(InputView.getCarName());
-        cars = validator.NAMES;
+        for (String Name:validator.NAMES){
+            Car car = new Car(Name);
+            cars.add(car);
+        }
     }
 }
