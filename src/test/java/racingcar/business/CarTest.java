@@ -42,4 +42,13 @@ class CarTest {
         assertThat(threeCar.getDistance()).isEqualTo(0);
     }
 
+    @Test
+    void 자동차에_부여된_숫자가_범위를_넘어서는_경우_예외_발생() {
+        Car exceptoinCar = new Car("exception");
+
+        assertThatThrownBy(() -> exceptoinCar.moveCar(10))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("입력된 숫자의 범위가 일치하지 않습니다.");
+    }
+
 }
