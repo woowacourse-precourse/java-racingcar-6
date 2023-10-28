@@ -33,6 +33,7 @@ public class RacingCarOutputView {
             String result = String.format(EACH_RACING_RESULT_FORMAT, carName, positionProgress);
             System.out.println(result);
         }
+        System.out.println();
     }
 
     private String convertPositionValue(int position) {
