@@ -21,6 +21,7 @@ public class RaceGameService {
     }
 
     public void run(){
+        executionView.newLine();
         executionView.printExecutionStartMessage();
         List<Car> cars = raceCars.getCars();
 
