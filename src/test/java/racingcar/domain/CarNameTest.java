@@ -16,14 +16,14 @@ public class CarNameTest {
 
     @Test
     @DisplayName("이름이 1자 이하라면 예외가 발생한다.")
-    void createCarNameByUnderLength(){
+    void createByUnderLength(){
         assertThatThrownBy(() -> new CarName(""))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     @DisplayName("이름이 5자를 초과하면 예외가 발생한다.")
-    void createCarNameByOverLength(){
+    void createByOverLength(){
         assertThatThrownBy(() -> new CarName("abcdefg"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
