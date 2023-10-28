@@ -52,6 +52,12 @@ class ApplicationTest extends NsTest {
                 () -> Application.nameLength(test));
     }
 
+    @Test
+    void 공백_입력_예외() {
+        String test = "";
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> Application.nameNull(test));
+    }
 
 
 
