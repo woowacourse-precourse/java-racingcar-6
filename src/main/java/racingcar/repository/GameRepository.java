@@ -3,15 +3,13 @@ package racingcar.repository;
 import java.util.List;
 
 import racingcar.domain.Car;
-import racingcar.dto.GameDto;
 
 public class GameRepository {
 	private List<Car> cars;
 	private Long maxForwardPosition = 0L;
 
-	public void saveGame(GameDto gameDto) {
-		cars = gameDto.cars();
-		maxForwardPosition = gameDto.roundCount();
+	public void saveGame(List<Car> cars) {
+		this.cars = cars;
 	}
 
 	public void moveForward(List<Car> forwardCars) {

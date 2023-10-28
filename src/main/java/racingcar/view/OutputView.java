@@ -11,15 +11,15 @@ public class OutputView {
 
 	public OutputView() {
 		this.gameResult = new StringBuilder();
-		gameResult.append(GAME_RESULT.getRequestMessage());
+		gameResult.append(GAME_RESULT.getValue());
 	}
 
 	public String getRoundResult(List<Car> cars) {
 		StringBuilder roundResult = new StringBuilder();
 		for (Car car : cars) {
-			roundResult.append(car.getName()).append(SEPERATOR.getRequestMessage());
+			roundResult.append(car.getName()).append(SEPERATOR.getValue());
 			for (int count = 0; count < car.getForwardCount(); count++) {
-				roundResult.append(FORWARD_MARK.getRequestMessage());
+				roundResult.append(FORWARD_MARK.getValue());
 			}
 			roundResult.append("\n");
 		}
@@ -32,10 +32,10 @@ public class OutputView {
 	}
 
 	public void printGameResult() {
-		System.out.println(gameResult);
+		System.out.print(gameResult);
 	}
 
 	public void printWinner(List<String> cars) {
-		System.out.println(String.join(WINNER_DELIMITER.getRequestMessage(), cars));
+		System.out.print(WINNER_RESULT.getValue() + String.join(WINNER_DELIMITER.getValue(), cars));
 	}
 }
