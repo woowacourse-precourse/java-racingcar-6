@@ -34,6 +34,6 @@ public final class OutputView {
         for(int i = 0; i< carDto.getPosition(); i++) {
             System.out.print(HYPHEN);
         }
-        System.out.println();
+        System.out.println('\n');
     }
 }
