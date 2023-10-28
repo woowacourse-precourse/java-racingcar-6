@@ -29,14 +29,15 @@ public class RacingGame {
         int roundCount = Integer.parseInt(round);
         for (int currentRound = 0; currentRound < roundCount; currentRound++) {
             for (Car car : cars) {
-
                 if (randomMoveStrategy.isAbleToMove())
                     car.move();
             }
             printProgress(cars);
-            System.out.println();
         }
+
+        System.out.print("최종 우승자 : " + getWinners(cars));
     }
+
 
     private List<Car> createCars(String input) {
         List<Car> cars = new ArrayList<>();
@@ -58,5 +59,23 @@ public class RacingGame {
 
     private String getProgress(Car car) {
         return "-".repeat(Math.max(0, car.getPosition()));
+    }
+
+    private String getWinners(List<Car> cars) {
+        List<String> winners = new ArrayList<>();
+        int maxPosition = 0;
+
+        for (Car car : cars) {
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+                winners.clear();
+            }
+
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+
+        return String.join(",", winners);
     }
 }
