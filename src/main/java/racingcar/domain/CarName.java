@@ -17,7 +17,6 @@ public class CarName {
         Map<String, Integer> carMap = new HashMap<>();
         carList.forEach((car)->{
             carMap.put(car, 0);
-            System.out.println(carMap);
         });
         return carMap;
     }

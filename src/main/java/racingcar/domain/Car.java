@@ -6,9 +6,10 @@ import java.util.Map;
 public class Car {
     public void racingCarCount() {
         CarName carName = new CarName();
-        Map<String, Integer> carList = carName.getcarList();
-        carList.forEach((key, value)->{
-            value += goControlStatement(getRandomNumber());
+        Map<String, Integer> carMap = carName.getcarList();
+        carMap.forEach((key, value)->{
+            int count = goControlStatement(getRandomNumber());
+            carMap.put(key, value + count);
         });
     }
 
