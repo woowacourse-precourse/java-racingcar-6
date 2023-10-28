@@ -20,6 +20,7 @@ public class OutView {
         for(CarDto carDto : carDtoList){
             System.out.printf("%s : %s \n", carDto.name(), DEFAULT_TRAVEL_LENGTH.repeat(carDto.travelDistance()));
         }
+        System.out.println();
     }
 
     public static void printFinalWinner(List<CarDto> carDtoList){
