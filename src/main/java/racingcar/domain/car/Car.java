@@ -6,9 +6,12 @@ public class Car implements Comparable<Car> {
     private final Name name;
     private Distance distance;
 
-    public Car(Name name) {
+    private Car(Name name) {
         this.name = name;
         this.distance = Distance.zero();
+    }
+    public static Car withName(Name name) {
+        return new Car(name);
     }
 
     public void go() {

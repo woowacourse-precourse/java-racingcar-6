@@ -19,7 +19,7 @@ public class GameServiceTest {
     void 시도_횟수보다_적게_이동시켰다면_게임을_종료하지_않는다() {
         //given
         Name name = new Name("car");
-        Car car = new Car(name);
+        Car car = Car.withName(name);
         Rule rule = new DecideRule();
         Generator generator = new RandomNumberGenerator();
         Decider decider = Decider.of(rule, generator);
@@ -38,7 +38,7 @@ public class GameServiceTest {
     void 시도_횟수만큼_시도했다면_게임을_종료한다() {
         //given
         Name name = new Name("car");
-        Car car = new Car(name);
+        Car car = Car.withName(name);
         Rule rule = new DecideRule();
         Generator generator = new RandomNumberGenerator();
         Decider decider = Decider.of(rule, generator);

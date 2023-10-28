@@ -14,8 +14,8 @@ class CarsTest {
     private final Decider decider = Decider.of(rule, generator);
     @Test
     void 중복_이름을_입력할_경우_예외_반환() {
-        Car car1 = new Car(new Name("first"));
-        Car car2 = new Car(new Name("first"));
+        Car car1 = Car.withName(new Name("first"));
+        Car car2 = Car.withName(new Name("first"));
 
         assertThatThrownBy(() -> Cars.of(List.of(car1, car2), decider))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -25,12 +25,12 @@ class CarsTest {
     @Test
     void 단독_우승일_경우_우승자가_하나다() {
         //given
-        Car one = new Car(new Name("one"));
+        Car one = Car.withName(new Name("one"));
         one.go();
-        Car two = new Car(new Name("two"));
+        Car two = Car.withName(new Name("two"));
         two.go();
         two.go();
-        Car three = new Car(new Name("three"));
+        Car three = Car.withName(new Name("three"));
         three.go();
         three.go();
         three.go();
@@ -46,12 +46,12 @@ class CarsTest {
     @Test
     void 공동_우승일_경우_우승자가_여러_명이다() {
         //given
-        Car one = new Car(new Name("one"));
+        Car one = Car.withName(new Name("one"));
         one.go();
-        Car two = new Car(new Name("two"));
+        Car two = Car.withName(new Name("two"));
         two.go();
         two.go();
-        Car anotherTwo = new Car(new Name("Two"));
+        Car anotherTwo = Car.withName(new Name("Two"));
         anotherTwo.go();
         anotherTwo.go();
         Cars cars = Cars.of(List.of(one, two, anotherTwo), decider);
