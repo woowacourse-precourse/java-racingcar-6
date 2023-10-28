@@ -11,6 +11,10 @@ class Print {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
+    static void resultString() {
+        System.out.println("실행 결과");
+    }
+
     private static void carStatus(Car car) {
         System.out.print(car.getName() + " : ");
         System.out.println("-".repeat(car.getPosition()));
