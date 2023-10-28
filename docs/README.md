@@ -56,7 +56,7 @@
 
 ## 각 수행 횟수에 결과 출력 기능
 - [ ] RaceView : `printRaceProgress` 메서드
-  - RaceCarList 객체를 인수로 받아 현재 각 자동차들의 위치 출력
+  - CarList 객체를 인수로 받아 현재 각 자동차들의 위치 출력
 
 ## 우승자 출력
 - [x] RaceCarList : `findWinners` 메서드
