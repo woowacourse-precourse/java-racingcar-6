@@ -24,6 +24,10 @@ public class Car {
         return this.raceDistance;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
     @Override
     public String toString() {
         return name+" : "+"-".repeat(raceDistance);

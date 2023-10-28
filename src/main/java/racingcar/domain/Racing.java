@@ -6,8 +6,10 @@ import racingcar.util.Validator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static racingcar.util.ConstMessages.ATTEMPT_COUNT_MESSAGE;
+import static racingcar.util.ConstMessages.FINAL_WINNER_MESSAGE;
 import static racingcar.util.Validator.validateCarNames;
 import static racingcar.util.Validator.validateNumericInput;
 
@@ -60,11 +62,27 @@ public class Racing {
     }
 
     public void printerWinner(){
-        int number = getMaxAdvanceCount();
+        StringBuilder sb = new StringBuilder();
+        sb.append(FINAL_WINNER_MESSAGE);
+        sb.append(getWinner());
+
+        System.out.println(sb.toString());
     }
 
+    public String getWinner(){
+        int max = getMaxAdvanceCount();
+        return carList.stream()
+                .filter(car-> max <= car.getRaceDistance())
+                .map(Car::getName)
+                .collect(Collectors.joining(","));
+    }
+
+
+
+
     private int getMaxAdvanceCount(){
-        return carList.stream().map(Car::getRaceDistance)
+        return carList.stream()
+                .map(Car::getRaceDistance)
                 .mapToInt(i->i)
                 .max()
                 .getAsInt();
