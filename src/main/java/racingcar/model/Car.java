@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import static racingcar.constant.AllConstants.DELIMETER;
+import static racingcar.constant.AllPunctuationMarks.COMMA;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -16,7 +16,7 @@ public class Car {
         Map<String, Integer> carNameList = new LinkedHashMap<>();
 
         validation.checkNullNameInInput(input);
-        for (String carName : input.split(DELIMETER)) {
+        for (String carName : input.split(COMMA)) {
             validation.checkNameTokenLengthOver(carName);
             validation.checkNameTokenDuplicated(carName, carNameList);
             carNameList.put(carName, 0);

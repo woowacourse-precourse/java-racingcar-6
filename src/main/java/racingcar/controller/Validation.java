@@ -1,13 +1,14 @@
 package racingcar.controller;
 
 import static racingcar.constant.AllConstants.*;
+import static racingcar.constant.AllPunctuationMarks.COMMA;
 import static racingcar.constant.ExceptionMessage.*;
 
 import java.util.Map;
 
 public class Validation {
     public void checkNullNameInInput(String carNameInput) {
-        if (carNameInput.contains(DELIMETER)) {
+        if (carNameInput.contains(COMMA)) {
             checkFirstOrLastComma(carNameInput);
             checkContinuousComma(carNameInput);
         }
@@ -15,17 +16,17 @@ public class Validation {
 
     private void checkFirstOrLastComma(String carNameInput) {
         int lastIndex = carNameInput.length()-1;
-        if (carNameInput.charAt(0) == DELIMETER.charAt(0) || carNameInput.charAt(lastIndex) == DELIMETER.charAt(0)) {
+        if (carNameInput.charAt(0) == COMMA.charAt(0) || carNameInput.charAt(lastIndex) == COMMA.charAt(0)) {
             throw new IllegalArgumentException(NULL_CAR_NAME + carNameInput);
         }
     }
     private void checkContinuousComma(String carNameInput) {
-        if (carNameInput.contains(DELIMETER+DELIMETER)) {
+        if (carNameInput.contains(COMMA + COMMA)) {
             throw new IllegalArgumentException(NULL_CAR_NAME + carNameInput);
         }
     }
     public void checkNameTokenLengthOver(String carNameToken) {
-        if (carNameToken.length() > NAME_LENGTH_MAX) {
+        if (carNameToken.length() > MAX_NAME_TOKEN_LENGTH) {
             throw new IllegalArgumentException(OVER_CAR_NAME_LIMIT + carNameToken);
         }
     }

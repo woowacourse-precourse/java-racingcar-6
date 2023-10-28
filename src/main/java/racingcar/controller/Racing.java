@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import static racingcar.constant.AllConstants.*;
+import static racingcar.constant.RaceIOMessage.RACE_RESULT;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
@@ -10,14 +11,17 @@ import java.util.Map;
 import racingcar.model.Car;
 import racingcar.model.Rounds;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class Racing {
     private final InputView inputView;
+    private final OutputView outputView;
     private final Car car;
     private final Rounds rounds;
 
     public Racing() {
         this.inputView = new InputView();
+        this.outputView = new OutputView();
         this.car = new Car();
         this.rounds = new Rounds();
     }
@@ -26,7 +30,7 @@ public class Racing {
         // 자동차 경주 준비 및 진행 단계
         Map<String, Integer> carNameList = car.createCarNameList(inputView.inputCarName());
         int counts = rounds.getRounds(inputView.inputRounds());
-        System.out.println("\n실행 결과");
+        System.out.println(RACE_RESULT);
         for (int i = 0; i < counts; i++) {
             for (String carName : carNameList.keySet()) {
                 // 현재 자동차의 전진/정지 여부 결정
@@ -37,11 +41,7 @@ public class Racing {
                     carNameList.put(carName, moves);
                 }
                 // 해당 차수의 실행 결과 출력
-                System.out.print(carName + " : ");
-                for (int j = 0; j < moves; j++) {
-                    System.out.print("-");
-                }
-                System.out.println();
+                outputView.printRoundResult(carName, moves);
             }
             System.out.println();
         }
@@ -55,15 +55,8 @@ public class Racing {
                 winnerList.add(carName);
             }
         }
+
         // 최종 우승자 출력
-        System.out.print("최종 우승자 : ");
-        for (int i = 0; i < winnerList.size(); i++) {
-            if (i == 0) {
-                System.out.print(winnerList.get(i));
-            }
-            else if (i > 0) {
-                System.out.print(", " + winnerList.get(i));
-            }
-        }
+        outputView.printWinnerList(winnerList);
     }
 }
