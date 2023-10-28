@@ -12,7 +12,7 @@ public class CarNameInputter {
     }
 
     private void printInputMessage() {
-        System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
     private String readCarNames() {
@@ -25,9 +25,9 @@ public class CarNameInputter {
     }
 
     public Boolean validateCarName(List<String> carNameList) {
-        for (int i = 0; i < carNameList.size(); i++) {
-            if (carNameList.get(i).length() > 5) {
-                return false;
+        for (String s : carNameList) {
+            if (s.length() > 5) {
+                throw new IllegalArgumentException("잘못된 인수를 입력하였습니다. " + s);
             }
         }
         return true;
