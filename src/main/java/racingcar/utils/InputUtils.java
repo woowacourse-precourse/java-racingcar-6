@@ -12,4 +12,8 @@ public class InputUtils {
                 .map(name -> new Car(name, 0))
                 .collect(Collectors.toList());
     }
+
+    public static int promptForInt() {
+        return Integer.parseInt(Console.readLine());
+    }
 }
