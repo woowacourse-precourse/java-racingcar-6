@@ -19,5 +19,10 @@ public class Car {
         carList.getCars().add(car);
     }
 
+    public void setLevelAndLog(Car car) {
+        car.level++;
+        car.log = log+"-";
+    }
+
 
 }
