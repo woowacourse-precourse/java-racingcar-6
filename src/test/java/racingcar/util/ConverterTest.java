@@ -1,13 +1,14 @@
 package racingcar.util;
 
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import racingcar.exception.NonPositiveIntException;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class ConverterTest {
 
@@ -30,16 +31,15 @@ class ConverterTest {
         int result = Converter.convertStringToPositiveInt(input);
 
         // when & then
-        assertEquals(expected, result);
+        assertThat(result).isEqualTo(expected);
     }
 
 
-    @CsvSource({"ABC, 숫자가 아닙니다.", "-1, 숫자가 아닙니다.", "0, 양의 정수가 아닙니다."})
+    @CsvSource({"ABC", "-1", "0"})
     @ParameterizedTest
-    void 문자열이_잘못된_값으로_들어오면_예외가_발생한다(String input, String expectedMessage) {
+    void 문자열이_잘못된_값으로_들어오면_예외가_발생한다(String input) {
         // then & then
         assertThatThrownBy(() -> Converter.convertStringToPositiveInt(input))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(expectedMessage);
+                .isInstanceOf(NonPositiveIntException.class);
     }
 }

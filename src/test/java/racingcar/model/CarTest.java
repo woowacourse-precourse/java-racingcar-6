@@ -24,7 +24,7 @@ class CarTest {
 
     @CsvSource({"4, 1", "5, 1", "9, 1"})
     @ParameterizedTest
-    void 랜덤값으로_생성된_값이_4이상이면_위치가_변한다(int number, int expected) {
+    void 랜덤값으로_생성된_값이_4이상이면_위치가_변한다(int number, int expectedPosition) {
         // given
         NumberGenerator numberGenerator = new StubNumberGenerator(number);
 
@@ -32,12 +32,12 @@ class CarTest {
         car.move(numberGenerator);
 
         // then
-        assertThat(car.getPosition()).isEqualTo(expected);
+        assertThat(car.getPosition()).isEqualTo(expectedPosition);
     }
 
     @CsvSource({"0, 0", "3, 0", "1, 0"})
     @ParameterizedTest
-    void 랜덤값으로_생성된_값이_4미만이면_위치가_그대로이다(int number, int expected) {
+    void 랜덤값으로_생성된_값이_4미만이면_위치가_그대로이다(int number, int expectedPosition) {
         // given
         NumberGenerator numberGenerator = new StubNumberGenerator(number);
 
@@ -45,6 +45,6 @@ class CarTest {
         car.move(numberGenerator);
 
         // then
-        assertThat(car.getPosition()).isEqualTo(expected);
+        assertThat(car.getPosition()).isEqualTo(expectedPosition);
     }
 }

@@ -14,7 +14,7 @@ class PositionTest {
 
     @CsvSource({"4, 1", "7, 1", "9, 1"})
     @ParameterizedTest
-    void 매개변수로_들어온_값이_4이상이면_위치가_변한다(int number, int expected) {
+    void 주어진_값이_4이상일_때_위치가_이동한다(int number, int expected) {
         // given
         Position position = Position.createDefault();
 
@@ -39,7 +39,7 @@ class PositionTest {
     }
 
     @Test
-    void 이름이_같으면_같은_값으로_판단한다() {
+    void 동일한_위치를_가진_Position_인스턴스는_동등하다() {
         // given
         Position result = Position.createDefault();
         Position expected = Position.createDefault();
@@ -49,7 +49,7 @@ class PositionTest {
     }
 
     @Test
-    void 위치를_반환한다() {
+    void 현재_위치를_반환한다() {
         // given
         int expected = 1;
         Position position = Position.createDefault();

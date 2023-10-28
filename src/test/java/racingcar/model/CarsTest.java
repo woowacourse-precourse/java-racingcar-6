@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
+import racingcar.exception.DuplicateCarNamesException;
 import racingcar.fixture.CarsFixture;
 import racingcar.helper.StubNumberGenerator;
 import racingcar.util.NumberGenerator;
@@ -25,7 +26,7 @@ class CarsTest {
     }
 
     @Test
-    void 랜덤값이_각각_4이상이면_차가_움직인다() {
+    void 주어진_랜덤값이_4이상이면_차량이_한_번씩_움직인다() {
         // given
         NumberGenerator numberGenerator = new StubNumberGenerator(5);
 
@@ -42,7 +43,7 @@ class CarsTest {
     }
 
     @Test
-    void 랜덤값이_각각_4미만이면_차가_그대로이다() {
+    void 주어진_랜덤값이_4미만이면_차량이_그대로_있다() {
         // given
         NumberGenerator numberGenerator = new StubNumberGenerator(3);
 
@@ -76,7 +77,6 @@ class CarsTest {
     void 중복된_자동차가_있으면_예외가_발생한다() {
         // when & then
         assertThatThrownBy(() -> Cars.createFromCarNames(List.of("A", "A", "A")))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("중복된 차 이름이 있습니다.");
+                .isInstanceOf(DuplicateCarNamesException.class);
     }
 }
