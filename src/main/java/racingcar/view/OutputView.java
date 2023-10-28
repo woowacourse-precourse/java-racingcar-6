@@ -3,10 +3,8 @@ package racingcar.view;
 import racingcar.domain.Car;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-
 public class OutputView {
-    public void gameResult(){
+    public void gameStart(){
         System.out.println("실행 결과");
     }
     public void inputCarsName(){

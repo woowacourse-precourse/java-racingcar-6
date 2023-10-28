@@ -8,8 +8,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class InputException {
-    GameUtil gameUtil = new GameUtil();
-    public void nameLengthOver(ArrayList<Car> carArrayList){
+    GameUtil gameUtil;
+    public InputException(){
+        gameUtil = new GameUtil();
+    }
+    public void nameLengthOver(String carName){
+        ArrayList<Car> carArrayList = gameUtil.splitNameArrayList(carName);
         for(int i=0;i<carArrayList.size();i++){
             String name = carArrayList.get(i).getName();
             try {
@@ -21,8 +25,8 @@ public class InputException {
             }
         }
     }
-
-    public void sameName(ArrayList<Car> carArrayList){
+    public void sameName(String carName){
+        ArrayList<Car> carArrayList = gameUtil.splitNameArrayList(carName);
         try {
             Set<String> nameSet = gameUtil.splitNameSet(carArrayList);
             if(nameSet.size() != carArrayList.size()){
