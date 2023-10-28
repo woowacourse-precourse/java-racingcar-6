@@ -21,7 +21,7 @@ public class InputController {
         }
     }
 
-    public static int setNumber() {
+    public static int setRound() {
 
         try {
             int number = Integer.parseInt(Console.readLine());
