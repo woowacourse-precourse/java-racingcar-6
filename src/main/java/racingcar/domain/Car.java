@@ -1,15 +1,17 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Car {
     CarName carName = new CarName();
-    int carCount = carName.inputCarName().size();
+    Map<String, Integer> carList = new HashMap<String, Integer>();
 
     public void racingCarCount() {
-        for (int i = 0; carCount < i; i++) {
-            goControlStatement(getRandomNumber());
-        }
+        carList.forEach((key, value)->{
+            value += goControlStatement(getRandomNumber());
+        });
     }
 
     public final int getRandomNumber() {
