@@ -17,7 +17,9 @@ public class Car {
         return count;
     }
 
-    public void moveForward() {
-        this.count++;
+    public void moveForward(int value) {
+        if (value >= 4) {
+            this.count++;
+        }
     }
 }
