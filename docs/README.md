@@ -57,13 +57,17 @@
     
     - [ ] 공백입력 검사
     
+    - [ ] 공백 포함 검사.
+    
     - [ ] 특수기호 포함 검사
     
-  - [ ] 숫자 입력 : 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다. // Utill#inputNum
-    - [ ] 공백 입력 검사
-    - [ ] 양수 입력 검사
-    - [ ] 문자열 포함 검사
-    - [ ] 특수문자 포함 검사
+  - [x] 숫자 입력 : 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다. // Utill#inputNum
+    - [x] 공백 입력 검사
+    - [x] 공백 포함 검사.
+    - [x] 양수 입력 검사
+    - [x] 문자열 포함 검사
+    - [x] 특수문자 포함 검사
+    - [x] 숫자 "0"인지 검사.
 
 
 
@@ -107,10 +111,13 @@
   - [x] 한글 포함 검사. //  ValidException#isValidIncludeKorean
   - [ ] 숫자을 포함하는가 검사  // ValidException#isValidIncludeNum
   - [x] 공백 입력 검사 // ValidException#isValidBlankCheck
-  - [ ] 양수 입력 검사 // ValidException#isValidPositiveCheck
-  - [ ] 문자열 포함 검사  // ValidException#isValidIncludeString
-  - [ ] 특수문자 포함 검사 // ValidException#isValidIncludeSpecialString
+  - [x] 양수 입력 검사 // ValidException#isValidPositiveCheck
+  - [x] 문자열 포함 검사  // ValidException#isValidIncludeString
+  - [x] 특수문자 포함 검사 // ValidException#isValidIncludeSpecialString
+  - [x] 문자열 포함 검사 (한글, 영어) // ValidException#isValidIncludeString
   - [ ] 문자열 이름 , 다음에는 문자가 나와야한다. ( "sue,woo," )(금지)
+  - [x] 공백 포함 검사. // ValidException#isValidIncludeBlank
+  - [x] 0 입력 검사. // ValidException#isValidZeroCheck
 
 
 
