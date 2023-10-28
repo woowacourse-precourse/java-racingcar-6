@@ -9,4 +9,10 @@ public class InputView {
         InputValidator.validateDivisionCarNames(carNames);
         return carNames;
     }
+
+    public String inputAttemptCount() {
+        String attemptCount = Console.readLine();
+        InputValidator.validateNumeric(attemptCount);
+        return attemptCount;
+    }
 }
