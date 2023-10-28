@@ -12,7 +12,7 @@ public interface RacingGameView {
 
     void printResultTitle();
 
-    void printResult(List<RacingCarDto> racingResultDtos);
+    void printResult(List<RacingCarDto> racingCarDtos);
 
     void printWinners(List<RacingCarDto> racingCarDtos);
 }

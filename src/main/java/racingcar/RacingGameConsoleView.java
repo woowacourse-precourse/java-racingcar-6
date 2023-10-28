@@ -31,8 +31,8 @@ public class RacingGameConsoleView implements RacingGameView {
         System.out.println(RACING_RESULT_TITLE_MESSAGE);
     }
 
-    public void printResult(List<RacingCarDto> racingResultDtos) {
-        for (RacingCarDto racingCarDto : racingResultDtos) {
+    public void printResult(List<RacingCarDto> racingCarDtos) {
+        for (RacingCarDto racingCarDto : racingCarDtos) {
             Name name = racingCarDto.getName();
             Position position = racingCarDto.getPosition();
             System.out.print(name);
