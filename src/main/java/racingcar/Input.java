@@ -60,13 +60,13 @@ public class Input {
     private static void checkRepetitionsError(String repetitions) throws IllegalArgumentException  {
         if (isNull(repetitions)
                 || isBlank(repetitions)
-                || isNumber(repetitions)
-                || isNaturalNumber(repetitions)) {
+                || isNotNumber(repetitions)
+                || isNotNaturalNumber(repetitions)) {
             throw new IllegalArgumentException();
         }
     }
 
-    private static boolean isNumber(String rawInputArray) {
+    private static boolean isNotNumber(String rawInputArray) {
         try {
             Integer.decode(rawInputArray);
         } catch (NumberFormatException e) {
@@ -75,8 +75,8 @@ public class Input {
         return false;
     }
 
-    private static boolean isNaturalNumber(String repetitions) {
-        if (isNumber(repetitions)) {
+    private static boolean isNotNaturalNumber(String repetitions) {
+        if (!isNotNumber(repetitions)) {
             Integer num = Integer.decode(repetitions);
             if (num > 0 && num <= Integer.MAX_VALUE) {
                 return false;
