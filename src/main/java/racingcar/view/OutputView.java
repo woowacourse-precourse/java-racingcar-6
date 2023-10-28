@@ -14,4 +14,8 @@ public class OutputView {
     public void printRequestCountMessage() {
         System.out.println(TRIAL_COUNT_INPUT_MSG);
     }
+
+    public void printResultMessage() {
+        System.out.println(RESULT_MSG);
+    }
 }
