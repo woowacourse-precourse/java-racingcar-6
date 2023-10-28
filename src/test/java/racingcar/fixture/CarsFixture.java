@@ -6,6 +6,6 @@ import racingcar.model.Cars;
 public class CarsFixture {
 
     public static Cars createCars(final List<String> carNames) {
-        return Cars.createFromCarNames(carNames);
+        return Cars.from(carNames);
     }
 }

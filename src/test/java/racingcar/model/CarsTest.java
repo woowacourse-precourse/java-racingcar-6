@@ -76,7 +76,7 @@ class CarsTest {
     @Test
     void 중복된_자동차가_있으면_예외가_발생한다() {
         // when & then
-        assertThatThrownBy(() -> Cars.createFromCarNames(List.of("A", "A", "A")))
+        assertThatThrownBy(() -> Cars.from(List.of("A", "A", "A")))
                 .isInstanceOf(DuplicateCarNamesException.class);
     }
 }

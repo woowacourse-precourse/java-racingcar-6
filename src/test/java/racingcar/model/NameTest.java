@@ -19,15 +19,15 @@ class NameTest {
     @ParameterizedTest
     void 이름이_5글자를_초과하면_예외가_발생한다(String input) {
         // when & then
-        assertThatThrownBy(() -> new Name(input))
+        assertThatThrownBy(() -> Name.from(input))
                 .isInstanceOf(InvalidNameException.class);
     }
 
     @Test
     void 동일한_이름을_가진_Name_인스턴스는_동등하다() {
         // given
-        Name result = new Name("abc");
-        Name expected = new Name("abc");
+        Name result = Name.from("abc");
+        Name expected = Name.from("abc");
 
         // when & then
         assertThat(result).isEqualTo(expected);
@@ -37,7 +37,7 @@ class NameTest {
     void 생성된_이름을_반환한다() {
         // given
         String input = "abc";
-        Name result = new Name(input);
+        Name result = Name.from(input);
 
         // when & then
         assertThat(result.getName()).isEqualTo(input);
