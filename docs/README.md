@@ -5,7 +5,9 @@
 - [x] 0~9 사이에서 무작위 값을 구하는 기능 -> RandomNumber#randomNumber()
 - [x] 무작위 값 중 4 이상을 뽑은 자동차를 전진시키는 기능 -> RacingCarGameController#moveCarForward()
 - [x] 우승자를 뽑는 기능(여러명이면 쉼표(,)로 구분) -> RacingCarGameController#findWinners()
-
+- [x] 실행 결과를 출력하는 기능 
+  -[x] 자동차 전진 결과를 출력하는 메서드 -> OutputView#printPositions()
+  -[x] 최종 우승자를 출력하는 메서드 -> OutputView#printWinners()
 
 ## 예외 처리 기능
 - [ ] 이름이 5자를 초과하면 예외 처리 후 종료
