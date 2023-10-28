@@ -2,6 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.validation.ValidateBlankNameFormat;
+import racingcar.validation.ValidateDuplicatedName;
 import racingcar.validation.ValidateNumberFormat;
 import racingcar.validation.ValidateStringLength;
 
@@ -22,6 +23,7 @@ public class InputView {
     private void validateInputValue(String value) {
         ValidateBlankNameFormat.validate(value);
         ValidateStringLength.validate(value);
+        ValidateDuplicatedName.validate(value);
     }
 
     private String[] splitCarsName(String carsName) {
