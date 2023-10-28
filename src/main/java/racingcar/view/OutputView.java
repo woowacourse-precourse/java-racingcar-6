@@ -13,4 +13,8 @@ public class OutputView {
         }
         sb.append("\n");
     }
+
+    public void printRaceStatus(StringBuilder sb) {
+        System.out.println(sb.toString());
+    }
 }
