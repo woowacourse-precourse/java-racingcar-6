@@ -11,10 +11,13 @@ public class Car {
     private static final int NAME_IS_EMPTY = 0;
     private static final int NAME_IS_ONE = 1;
 
-    public List<String> inputCar() {
+    public String inputCar() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        List<String> carNames = new ArrayList<>();
         String input = readLine();
+        return input;
+    }
+    public List<String> carName(String input) {
+        List<String> carNames = new ArrayList<>();
         for (String name: input.split(",")) {
             carNames.add(name);
         }

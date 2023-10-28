@@ -10,7 +10,7 @@ public class Application {
         // TODO: 프로그램 구현
         Car car = new Car();
         Count count = new Count();
-        List<String> names = car.inputCar();
+        List<String> names = car.carName(car.inputCar());
         int num = count.inputCount();
         System.out.println(names.toString() + num);
     }
