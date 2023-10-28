@@ -8,4 +8,12 @@ public class Car {
         this.carName = new CarName(carName);
         this.movingDistance = 0;
     }
+
+    public int moveRandomly() {
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+        if (randomNumberGenerator.getRandomNumber() >= 4) {
+            movingDistance++;
+        }
+        return movingDistance;
+    }
 }

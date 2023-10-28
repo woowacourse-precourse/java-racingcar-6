@@ -14,7 +14,7 @@ public class CarTest {
     @Test
     void 자동차_이동거리_갱신_테스트() {
         Car car = new Car("mj");
-        assertThat(car.moveRandomly()).isIn(1, 2);
+        assertThat(car.moveRandomly()).isIn(0, 1);
     }
     @Test
     void 자동차_최대_개수_예외처리_테스트() {
