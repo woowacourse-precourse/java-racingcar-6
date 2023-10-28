@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import racingcar.domain.generator.NumberGenerator;
+import racingcar.domain.generator.RandomNumberGenerator;
 import racingcar.exception.ErrorMessage;
 import racingcar.exception.InvalidInputException;
 
@@ -17,6 +18,10 @@ public class RacingCar {
         validateNameLength(name);
         this.name = name;
         this.numberGenerator = numberGenerator;
+    }
+
+    public RacingCar(String name) {
+        this(name, new RandomNumberGenerator());
     }
 
     private void validateNameLength(String name) {
