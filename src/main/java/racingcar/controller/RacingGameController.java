@@ -28,20 +28,31 @@ public class RacingGameController {
 
     public void gameStart() {
 
+        Cars players = participatePlayers();
+
+        race(players, inputTrialCount());
+
+        awardRacingCarGame(players);
+    }
+
+
+    private Cars participatePlayers() {
         List<Car> cars = inputNames().stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
-        Cars players = new Cars(cars);
+        return new Cars(cars);
+    }
 
-        int trialCount = inputTrialCount();
-
+    private void race(Cars players, int trialCount) {
         printResultMessage();
         for (int i = 0; i < trialCount; i++) {
             players.moveUsingRandomNumber(numberGenerator);
             printRoundResult(players.toDtos());
             printBlank();
         }
+    }
 
+    private void awardRacingCarGame(Cars players) {
         List<CarDto> winners = players.findWinner().stream()
                 .map(Car::toDto)
                 .collect(Collectors.toList());
