@@ -3,7 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.validation.ValidatorAttempts;
 
-public class InputView {
+public class View {
     ValidatorAttempts validator = new ValidatorAttempts();
 
     public String[] askForCarNames() {

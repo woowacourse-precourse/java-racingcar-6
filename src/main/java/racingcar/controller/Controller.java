@@ -2,11 +2,11 @@ package racingcar.controller;
 
 import racingcar.model.RacingGame;
 import racingcar.model.Settings;
-import racingcar.view.InputView;
+import racingcar.view.View;
 
 public class Controller {
     RacingGame racingGame = new RacingGame();
-    InputView inputView = new InputView();
+    View view = new View();
 
     public void startGame() {
         askAndGenerateCars();
@@ -15,12 +15,12 @@ public class Controller {
     }
 
     private void askAndGenerateCars() {
-        String[] cars = inputView.askForCarNames();
+        String[] cars = view.askForCarNames();
         racingGame.createAndAddCars(cars);
     }
 
     private void askAndSetAttempts() {
-        int attempts = inputView.askForAttempts();
+        int attempts = view.askForAttempts();
         Settings.setAttempts(attempts);
     }
 
