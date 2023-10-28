@@ -1,7 +1,5 @@
 package racingcar.view;
 
-import java.util.Arrays;
-
 public class ResultOutput {
 
     public void printResult() {
