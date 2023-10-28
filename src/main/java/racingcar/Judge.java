@@ -12,7 +12,7 @@ public class Judge {
     private Integer lowerBoundRandomNumber;
     private Integer upperBoundRandomNumber;
 
-    public Judge(Integer maxNameLength, Integer forwardCriterion, Integer lowerBoundRandomNumber, Integer upperBoundRandomNumber) {
+    public Judge(int maxNameLength, int forwardCriterion, int lowerBoundRandomNumber, int upperBoundRandomNumber) {
         this.maxNameLength = maxNameLength;
         this.forwardCriterion = forwardCriterion;
         this.lowerBoundRandomNumber = lowerBoundRandomNumber;
