@@ -6,7 +6,16 @@ import java.util.List;
 
 public class GameFunction {
 
-    List<Boolean> randomGo(List<String> carList) {
+    List<Car> makingCar (List<String> carNameList){
+        List<Car> carList = new ArrayList<>();
+        for (String name : carNameList) {
+            Car car = new Car(name);
+            carList.add(car);
+        }
+        return carList;
+    }
+
+    List<Boolean> randomGo(List<Car> carList) {
         int numberOfCar = carList.size();
         List<Boolean> carCanGo = new ArrayList<>();
         for (int i = 0; i < numberOfCar; i++) {
@@ -15,6 +24,8 @@ public class GameFunction {
         }
         return carCanGo;
     }
+
+
 
 
 }
