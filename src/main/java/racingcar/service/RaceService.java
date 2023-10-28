@@ -12,5 +12,9 @@ public class RaceService {
         }
     }
 
-
+    public void runRaceWithIteration(List<Car> cars, int iteration) {
+        for (int i = 0; i < iteration; i++) {
+            runRace(cars);
+        }
+    }
 }
