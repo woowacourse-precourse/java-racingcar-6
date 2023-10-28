@@ -16,7 +16,7 @@ public class CarsFactory {
     private final List<Car> cars = new ArrayList<>();
 
     public void startCreateCars() {
-        InputView.showRequestNames();
+        InputView.printRequestName();
         createCars();
     }
 

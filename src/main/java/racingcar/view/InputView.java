@@ -4,7 +4,7 @@ import static racingcar.constant.GameMessage.RACING_START;
 import static racingcar.constant.GameMessage.REQUEST_ATTEMPT_COUNT;
 
 public class InputView {
-    public static void showRequestNames() {
+    public static void printRequestName() {
         System.out.println(RACING_START);
     }
 
