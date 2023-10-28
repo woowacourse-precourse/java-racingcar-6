@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
