@@ -10,6 +10,15 @@ public class Input {
         String [] carName = getCarAllName.split(",");
         return carName;
         }
-    }
+
+        public static int getGameRoundNum(){
+        String GameRoundNum = Console.readLine();
+        return Integer.parseInt(GameRoundNum);
+        }
+
+
+
+}
+
 
 
