@@ -102,8 +102,8 @@ public class Application {
         int maxPosition = 0;
 
         for(Car car : cars){
-            if(maxPosition<car.position){
-                maxPosition = car.position;
+            if(maxPosition<car.getPosition()){
+                maxPosition = car.getPosition();
             }
         }
 
