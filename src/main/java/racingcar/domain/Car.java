@@ -7,6 +7,10 @@ public class Car {
     private final BooleanSupplier engine;
     private int position;
 
+    public Car(String name) {
+        this(name, new DefaultEngine());
+    }
+
     public Car(String name, BooleanSupplier engine) {
         validateName(name);
         this.name = name;
