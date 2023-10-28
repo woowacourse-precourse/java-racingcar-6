@@ -13,6 +13,9 @@ public class Application {
 
         if(!checkCarNames(stringCarNames)) throw new IllegalArgumentException();
 
+        System.out.println("시도할 회수는 몇회인가요?");
+        String number = Console.readLine();
+
 
     }
 
@@ -35,4 +38,5 @@ public class Application {
 
         return true;
     }
+
 }
