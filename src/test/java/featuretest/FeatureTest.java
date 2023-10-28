@@ -37,6 +37,6 @@ public class FeatureTest {
         List<String> predList = raceCarNames.parseCarNamesFromRaceCarInput();
         List<String> actualList = Arrays.asList("TestCar1", "TestCar2", "TestCar3");
 
-        assertThat(predList).containsAll(actualList);
+        assertThat(predList).isEqualTo(actualList);
     }
 }
