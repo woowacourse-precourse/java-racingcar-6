@@ -12,7 +12,7 @@ public class CarList {
         addCars(carNameArray);
     }
 
-    private void addCars(String[] carNameArray) {
+    protected void addCars(String[] carNameArray) {
         Arrays.stream(carNameArray)
                 .map(Car::new)
                 .forEach(carList::add);
