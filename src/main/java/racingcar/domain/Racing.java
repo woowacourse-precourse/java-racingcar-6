@@ -1,9 +1,9 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
-
 import java.util.Arrays;
 import java.util.List;
+import static java.lang.Integer.parseInt;
 
 public class Racing {
     private Racing(){
@@ -24,5 +24,9 @@ public class Racing {
         }
         return 0;
 
+    }
+    public int getRoundCount(){
+        System.out.println("시도할 회수를 입력하세요");
+        return parseInt(Console.readLine());
     }
 }
