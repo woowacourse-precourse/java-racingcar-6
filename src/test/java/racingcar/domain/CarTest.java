@@ -3,6 +3,9 @@ package racingcar.domain;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CarTest {
@@ -42,6 +45,21 @@ public class CarTest {
         Car car = new Car("foo");
         CarDistanceMessage message = car.getCarDistanceMessage();
         CarDistanceMessage expect = new CarDistanceMessage("foo", 0);
+
+        assertEquals(message.toString(), expect.toString());
+
+    }
+
+    @Test
+    void getWinnersMessage_우승자를_잘_추리는지_확인() {
+
+        List<Car> cars = new ArrayList<>();
+        cars.add(new Car("foo"));
+        cars.add(new Car("bar"));
+
+        cars.get(1).move();
+        WinnersMessage message = Car.getWinnersMessage(cars);
+        WinnersMessage expect = new WinnersMessage(List.of("bar"));
 
         assertEquals(message.toString(), expect.toString());
 
