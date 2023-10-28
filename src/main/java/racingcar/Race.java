@@ -2,7 +2,9 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Race {
     private final List<Car> cars;
@@ -17,19 +19,19 @@ public class Race {
         ResultView.printLineBreak();
         ResultView.printResultNotification();
         for (int i = 0; i < rounds; i++) {
-            moveCars();
+            moveCarsRandomly();
         }
     }
 
-    private void moveCars() {
+    private void moveCarsRandomly() {
         for (Car car : cars) {
-            moveCar(car);
+            moveCarRandomly(car);
             ResultView.printCarPosition(car);
         }
         ResultView.printLineBreak();
     }
 
-    private void moveCar(Car car) {
+    private void moveCarRandomly(Car car) {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
             car.moveForward();
         }
