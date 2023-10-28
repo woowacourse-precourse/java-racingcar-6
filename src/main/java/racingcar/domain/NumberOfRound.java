@@ -1,15 +1,10 @@
 package racingcar.domain;
 
-public class NumberOfRound {
-    private int value;
-
-    public NumberOfRound(int value) {
+public record NumberOfRound(
+        int value
+) {
+    public NumberOfRound {
         validate(value);
-        this.value = value;
-    }
-
-    public int getValue() {
-        return value;
     }
 
     public boolean hasRoundsLeft() {

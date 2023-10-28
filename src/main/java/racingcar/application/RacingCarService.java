@@ -19,7 +19,7 @@ public class RacingCarService {
 
         List<RoundHistory> gameHistories = new ArrayList<>();
 
-        for (int i = 0; i < numberOfRound.getValue(); i++) {
+        for (int i = 0; i < numberOfRound.value(); i++) {
             cars.moveAllCars(navigator);
             RoundHistory roundHistory = new RoundHistory(new NumberOfRound(i + 1), cars.getCurrentStatus());
             gameHistories.add(roundHistory);
