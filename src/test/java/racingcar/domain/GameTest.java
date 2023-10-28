@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -10,6 +9,8 @@ import org.mockito.Mockito;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.BDDMockito.given;
 
@@ -37,7 +38,7 @@ class GameTest {
         List<CarDistanceMessage> carDistanceMessages = game.forwardCars();
         List<String> messages = carDistanceMessages.stream().map(CarDistanceMessage::toString).toList();
 
-        Assertions.assertThat(messages).contains("foo : -", "bar : -");
+        assertThat(messages).contains("foo : -", "bar : -");
 
     }
 
@@ -51,7 +52,7 @@ class GameTest {
         WinnersMessage winnersMessage = game.getWinnersMessage();
 
         WinnersMessage expect = new WinnersMessage(List.of("foo"));
-        org.junit.jupiter.api.Assertions.assertEquals(winnersMessage.toString(), expect.toString());
+        assertEquals(winnersMessage.toString(), expect.toString());
 
     }
 
