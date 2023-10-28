@@ -6,7 +6,7 @@ public class GameResultMaker {
 
     public void makeGameResult(List<Car> carNames) {
         for (Car car : carNames) {
-            if (RacingGameExecutor.isCarMoved()) {
+            if (CarMotionController.isCarMoved()) {
                 car.increaseMovingCount();
             }
         }

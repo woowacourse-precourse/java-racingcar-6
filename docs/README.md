@@ -48,15 +48,15 @@
       - 숫자가 아닌 입력값(영어 및 한글)을 검증한다.
       - 공백을 검증한다.
 
-4. RacingGameExecutor
+4. CarMotionController
 
 - 게임에 참여하는 자동차(Car)가 이동(전진)하도록 만드는 책임을 가진 클래스
   - [x] 0에서 9 사이의 무작위 값을 뽑아, 그 수가 4 이상일 경우에 True, 아니라면 False를 반환한다.
 
 5. GameResultMaker
 
-- RacingGameManager와 RacingGameExecutor가 협력하여 차(Car)가 이동하도록 만든다.
-  - [x] List<Car>를 순회하면서, RacingGameExecutor가 이동시킨 결과로 Car의 이동 횟수(count)를 증가시킨다.
+- RacingGameManager와 CarMotionController가 협력하여 차(Car)가 이동한 결과를 반영한다. 
+  - [x] List<Car>를 순회하면서, CarMotionController가 이동시킨 결과로 Car의 이동 횟수(count)를 증가시킨다.
 
 6. GameResultView
 
