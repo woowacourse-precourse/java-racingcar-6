@@ -28,7 +28,7 @@
     - 5자가 초과될 경우
 - [x]  입력 수 예외처리 함수 (**`validateCount`**)
     - 숫자가 아닐 경우
-- [ ]  자동차 이름 저장 함수 (**`storeCarNames`**)
+- [x]  자동차 이름 저장 함수 (**`storeCarNames`**)
 - [ ]  점수 증가 확인 함수(**`updateScoreIfNecessary`**)
 - [ ]  최종 점수 확인 함수 (**`checkFinalScores`**)
 

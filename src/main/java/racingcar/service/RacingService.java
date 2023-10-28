@@ -1,6 +1,8 @@
 package racingcar.service;
 
+import java.util.ArrayList;
 import java.util.List;
+import racingcar.domain.RacingPlayer;
 import racingcar.exception.InvalidCountException;
 import racingcar.exception.InvalidNameException;
 
@@ -19,5 +21,17 @@ public class RacingService {
         } catch (NumberFormatException e) {
             throw new InvalidCountException("입력한 값이 숫자가 아닙니다.");
         }
+    }
+
+    public List<RacingPlayer> storeCarNames(List<String> racerList){
+        List<RacingPlayer> players = new ArrayList<>();
+        int id = 1;
+
+        for (String name : racerList) {
+            RacingPlayer player = new RacingPlayer(id++, name);
+            players.add(player);
+        }
+
+        return players;
     }
 }
