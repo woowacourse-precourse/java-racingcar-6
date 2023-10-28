@@ -2,24 +2,26 @@ package racingcar.controller;
 
 import racingcar.model.RacingGame;
 import racingcar.model.Settings;
+import racingcar.view.InputView;
 
 public class Controller {
     RacingGame racingGame = new RacingGame();
+    InputView inputView = new InputView();
 
-    public void requestStartGame() {
-        racingGame.startGame();
+    public void startGame() {
+        askAndGenerateCars();
+        askAndSetAttempts();
+        racingGame.playGame();
     }
 
-    public void requestCarGenerate(String[] cars) {
+    private void askAndGenerateCars() {
+        String[] cars = inputView.askForCarNames();
         racingGame.createAndAddCars(cars);
     }
 
-    public void requestSetAttempts(int attempts) {
+    private void askAndSetAttempts() {
+        int attempts = inputView.askForAttempts();
         Settings.setAttempts(attempts);
-    }
-
-    public void requestSetCarAmount(String[] cars) {
-        Settings.setCarAmount(cars.length);
     }
 
 }

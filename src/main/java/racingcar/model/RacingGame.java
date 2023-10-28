@@ -16,7 +16,7 @@ public class RacingGame {
         }
     }
 
-    public void startGame() {
+    public void playGame() {
         int round = 0;
         System.out.println("\n실행결과");
         do {

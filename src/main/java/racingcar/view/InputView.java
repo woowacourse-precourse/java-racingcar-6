@@ -1,26 +1,17 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.controller.Controller;
 import racingcar.model.validation.ValidatorAttempts;
 
 public class InputView {
-    Controller controller = new Controller();
     ValidatorAttempts validator = new ValidatorAttempts();
 
-    public void askForCarNames() {
-        String[] names = getCarNames();
-        controller.requestCarGenerate(names);
-        controller.requestSetCarAmount(names);
+    public String[] askForCarNames() {
+        return getCarNames();
     }
 
-    public void askForAttempts() {
-        int attempts = getAttempts();
-        controller.requestSetAttempts(attempts);
-    }
-
-    public void playGame() {
-        controller.requestStartGame();
+    public int askForAttempts() {
+        return getAttempts();
     }
 
     private String[] getCarNames() {
