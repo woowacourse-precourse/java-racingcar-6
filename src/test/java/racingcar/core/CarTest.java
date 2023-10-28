@@ -1,9 +1,12 @@
 package racingcar.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mockStatic;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
+import racingcar.util.RandomNumber;
 
 public class CarTest {
     @Test
@@ -42,20 +45,43 @@ public class CarTest {
     }
 
     @Test
-    void move_메서드_테스트() {
+    void move_메서드는_4이상의_수에서_움직임_테스트() {
         Car car = new Car("pobi");
-        for (int i = 0; i < 50000; i++) {
+        try (final MockedStatic<RandomNumber> mock = mockStatic(RandomNumber.class)) {
+            mock.when(RandomNumber::generateSingleDigit).thenReturn(4);
             car.move();
         }
         assertThat(car.getForwardCount()).isGreaterThan(0);
     }
 
     @Test
-    void getCurrentStatusString_메서드_테스트() {
+    void move_메서드는_4미만의_수에서_움직이지_않음_테스트() {
         Car car = new Car("pobi");
-        for (int i = 0; i < 50000; i++) {
+        try (final MockedStatic<RandomNumber> mock = mockStatic(RandomNumber.class)) {
+            mock.when(RandomNumber::generateSingleDigit).thenReturn(3);
+            car.move();
+        }
+        assertThat(car.getForwardCount()).isEqualTo(0);
+    }
+
+    @Test
+    void getCurrentStatusString_메서드는_차가_움직일_경우_언더스코어_추가_테스트() {
+        Car car = new Car("pobi");
+        try (final MockedStatic<RandomNumber> mock = mockStatic(RandomNumber.class)) {
+            mock.when(RandomNumber::generateSingleDigit).thenReturn(5);
             car.move();
         }
         assertThat(car.getCurrentStatusString()).contains("pobi", "-");
+    }
+
+    @Test
+    void getCurrentStatusString_메서드는_차가_움직이지_않을_경우_언더스코어_없음_테스트() {
+        Car car = new Car("pobi");
+        try (final MockedStatic<RandomNumber> mock = mockStatic(RandomNumber.class)) {
+            mock.when(RandomNumber::generateSingleDigit).thenReturn(2);
+            car.move();
+        }
+        assertThat(car.getCurrentStatusString()).contains("pobi");
+        assertThat(car.getCurrentStatusString()).doesNotContain("-");
     }
 }
