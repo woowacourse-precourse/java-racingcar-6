@@ -1,7 +1,9 @@
 package game;
 
 import controller.GameController;
+
 import exception.GameInputException;
+
 import view.InputView;
 
 public class RacingGame {
