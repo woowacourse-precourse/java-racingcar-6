@@ -38,9 +38,17 @@ public class Car {
     }
 
     private String validCarName(String name) {
-        if (name.length() > MAX_CAR_NAME_LENGTH) {
+        if (isBlank(name) || isValidCarNameLength(name)) {
             throw new IllegalArgumentException();
         }
         return name;
+    }
+
+    private boolean isBlank(String name) {
+        return name == null || name.isBlank();
+    }
+
+    private boolean isValidCarNameLength(String name) {
+        return name.length() > MAX_CAR_NAME_LENGTH;
     }
 }
