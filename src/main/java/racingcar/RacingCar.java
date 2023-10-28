@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
 import racingcar.input.Input;
+import racingcar.output.Output;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,15 +12,12 @@ import java.util.List;
 import static java.lang.Math.max;
 
 public class RacingCar {
-    private List<Car> cars = new ArrayList<>();
+    private final List<Car> cars = new ArrayList<>();
     private int round;
 
-    public void playGame() {
+    public void play() {
         startGame();
-        System.out.println("실행 결과");
-        for (int i = 0; i < round; i++) {
-            playRound();
-        }
+        playGame();
         endGame();
     }
 
@@ -28,6 +26,13 @@ public class RacingCar {
         round = getNumber();
         for (String carName : carNames) {
             cars.add(new Car(carName));
+        }
+    }
+
+    public void playGame() {
+        Output.printResult();
+        for (int i = 0; i < round; i++) {
+            playRound();
         }
     }
 
@@ -59,7 +64,7 @@ public class RacingCar {
     }
 
     private void endGame() {
-        System.out.print("최종 우승자 : ");
+        Output.printWinner();
         printWinner();
     }
 
