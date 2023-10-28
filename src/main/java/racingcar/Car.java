@@ -5,7 +5,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
     private String meter="";
     private String name;
-    public Car(String name){
+    public Car(String name) throws IllegalArgumentException {
+        if(name.length()>5) throw new IllegalArgumentException();
         this.name = name;
     }
 public void doRace(){
