@@ -3,7 +3,7 @@ package validator;
 import util.NameConstant;
 import java.util.regex.Pattern;
 
-public class CarNameInputValidator {
+public class InputValidator {
     private final String REGEXP_PATTERN_SPACE_NO_CHAR = "^[^\\s]+$";
     private final String REGEXP_PATTERN_ONLY_COMMA = "^,+$";
 
