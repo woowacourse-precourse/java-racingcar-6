@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
@@ -12,17 +13,23 @@ public class Game {
          * 3. 실행
          * 4. 실행 결과 표시
          */
-        List<String> carNameList = getCarName();
+        List<Car> carList = makeCar();
         int numberOfAttempts = getNumberOfAttempts();
         for (int count = 0; count < numberOfAttempts; count++) {
-            play(carNameList);
+            play(carList);
             showResult();
         }
     }
 
-    private List<String> getCarName() {
+    private List<Car> makeCar() {
         CarName carName = new CarName(Console.readLine());
-        return carName.getCarNameStrList();
+        List<String> carNameList = carName.getCarNameStrList();
+        List<Car> carList = new ArrayList<>();
+        for (int idx = 0; idx < carNameList.size(); idx++) {
+            Car car = new Car(carNameList.get(idx));
+            carList.add(car);
+        }
+        return carList;
     }
 
     private int getNumberOfAttempts() {
@@ -30,7 +37,8 @@ public class Game {
         return attemp.getNumber();
     }
 
-    private void play(List<String> carNameList) {
+    private void play(List<Car> carList) {
+
 
     }
 
