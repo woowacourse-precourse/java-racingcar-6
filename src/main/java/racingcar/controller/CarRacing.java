@@ -42,8 +42,8 @@ public class CarRacing {
     private void playCountTimes() {
         showResultMessage();
         for (int i = 0; i < count; ++i) {
-            racingCars.playForEachCount();
-            showResultForEachCount();
+            racingCars.play();
+            showResult();
         }
     }
 
@@ -51,7 +51,7 @@ public class CarRacing {
         OutputView.printResult();
     }
 
-    private void showResultForEachCount() {
+    private void showResult() {
         OutputView.printMove(racingCars.makeResultMap());
     }
 
