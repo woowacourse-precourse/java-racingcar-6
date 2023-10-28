@@ -28,12 +28,7 @@ public class RacingCarView {
     }
 
     public void printWinnerMessage(RaceResult raceResult) {
-        StringJoiner sj = new StringJoiner(", ");
-        for (Car car : raceResult.winners()) {
-            sj.add(car.getName());
-        }
-
-        System.out.println("최종 우승자 : " + sj);
+        System.out.println("최종 우승자 : " + raceResult.getWinnerNames());
     }
 
     private String getCarStatusLabel(Car car) {
