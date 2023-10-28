@@ -30,6 +30,9 @@ public class GameController {
 
     private List<Car> createCars() {
         List<String> carNames = InputView.readCarNames();
+        if (!(2 <= carNames.size() && carNames.size() <= 10)) {
+            throw new IllegalArgumentException("[ERROR] 자동차는 2대 이상 10대 이하여야 합니다.");
+        }
         return carNames.stream()
                 .map(Car::new)
                 .toList();
