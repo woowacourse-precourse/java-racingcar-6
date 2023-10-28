@@ -15,10 +15,11 @@ class CarsTest {
     void carStatusTest() {
         String expectKimStatus = "kim : ";
 
-        List<Car> carList = new ArrayList<>();
-        carList.add(new Car("kim"));
+        String nameKim = "kim";
+        List<String> nameList = new ArrayList<>();
+        nameList.add(nameKim);
 
-        Cars cars = new Cars(carList);
+        Cars cars = Cars.of(nameList);
         List<String> carStatusList = cars.getCarStatusList();
         String actualKimStatus = carStatusList.get(0);
 
@@ -28,10 +29,11 @@ class CarsTest {
     @Test
     @DisplayName("사용자 전진 상태 출력 테스트")
     void carForwardStatusTest() {
-        List<Car> carList = new ArrayList<>();
-        carList.add(new Car("kim"));
+        String nameKim = "kim";
+        List<String> nameList = new ArrayList<>();
+        nameList.add(nameKim);
 
-        Cars cars = new Cars(carList);
+        Cars cars = Cars.of(nameList);
         for (int i = 0; i < 1000; i++) {
             cars.move();
         }
@@ -45,12 +47,12 @@ class CarsTest {
     @Test
     @DisplayName("우승자 리스트 테스트")
     void winnerListTest() {
-        List<Car> carList = new ArrayList<>();
-        carList.add(new Car("kim"));
-        carList.add(new Car("lee"));
-        carList.add(new Car("park"));
+        List<String> nameList = new ArrayList<>();
+        String nameKim = "kim";
+        String nameLee = "lee";
+        String namePark = "park";
 
-        Cars cars = new Cars(carList);
+        Cars cars = Cars.of(nameList);
         for (int i = 0; i < 100; i++) {
             cars.move();
         }
