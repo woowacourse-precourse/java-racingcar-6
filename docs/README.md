@@ -23,7 +23,7 @@
 
 ### RacingService
 
-- [ ]  이름 예외처리 함수 (**`validateNames`**)
+- [x]  이름 예외처리 함수 (**`validateNames`**)
     - ,,혹은 ,  ,등 공백을 입력했을 경우
     - 5자가 초과될 경우
 - [ ]  입력 수 예외처리 함수 (**`validateCount`**)
