@@ -17,4 +17,10 @@ public class RacingView {
     public void displayResultMessage(ResultMessage resultMessage) {
         System.out.println(resultMessage.getValue());
     }
+
+    public void displayWinnerMessage(List<String> results) {
+        String formattingName = String.join(", ", results);
+        String result = String.format(ResultMessage.RACING_WINNER.getValue(), formattingName);
+        System.out.println(result);
+    }
 }

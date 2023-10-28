@@ -29,14 +29,12 @@ public class RacingController {
     private void play() {
 
         String[] carNames = readNameInput();
-
         int round = readRoundInput();
-
         List<Car> cars = generateCars(carNames,round);
 
         racingView.displayResultMessage(ResultMessage.RACING_RESULT);
-
-        racingModel.proceed(cars);
+        List<String> results = racingModel.proceed(cars);
+        racingView.displayWinnerMessage(results);
     }
 
     private String[] readNameInput() {
