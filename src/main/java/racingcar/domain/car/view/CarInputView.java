@@ -9,28 +9,6 @@ import static racingcar.domain.util.InputMessage.*;
 
 public class CarInputView {
 
-
-    public static String receiveUserInput() {
-        String userInput = Console.readLine();
-
-        List<String> lists = Arrays.stream(userInput.split(","))
-                .toList();
-
-        for (String list : lists) {
-            if (list.length() > 5) {
-                throw new IllegalArgumentException();
-            }
-        }
-
-        return userInput;
-    }
-
-
-
-    public static void printGameEnd() {
-        System.out.println();
-    }
-
     public List<String> getCarNames() {
         printGameStart();
         String carNames = Console.readLine();

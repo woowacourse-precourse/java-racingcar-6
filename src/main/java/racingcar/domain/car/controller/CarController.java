@@ -43,18 +43,4 @@ public class CarController {
         List<String> carNames = carInputView.getCarNames();
         carService.saveCars(carNames);
     }
-
-//    public void receiveTryCount() {
-//        CarInputView.printTryCount();
-//        String userInput = CarInputView.receiveUserInput();
-//        System.out.println();
-//        carService.startGame(Integer.parseInt(userInput));
-//    }
-
-//    public void endGame() {
-//        CarOutputView.printEndGame();
-//        List<String> winners = carService.getWinner();
-//        String result = String.join(", ", winners);
-//        System.out.print(result);
-//    }
 }
