@@ -10,7 +10,6 @@ public class CarStatusTest {
         carStatusDto.enrollCar("포르쉐");
         carStatusDto.enrollCar("K3");
         carStatusDto.enrollCar("포르쉐");
-
         Assertions.assertThat(carStatusDto.findAll().size()).isEqualTo(2);
     }
 }

@@ -17,9 +17,9 @@ public class OutputTest {
         CarStatusDto carStatusDto = new CarStatusDto();
         carStatusDto.enrollCar("포르쉐");
         carStatusDto.enrollCar("K3");
+        OutputView outputView = new OutputView();
 
-        Assertions.assertThat().isEqualTo("포르쉐 : --");
-        Assertions.assertThat().isEqualTo("K3 : --");
+        outputView.carStatus(carStatusDto.findAll());
     }
 }
 
