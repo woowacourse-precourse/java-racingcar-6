@@ -24,7 +24,7 @@ Cars
 RandomNumber
 - 0~9사이의 값을 생성한다. - O
   - 0~9사이가 아니라면 IllegalArgumentException 를 발생시킨다. - O
-- 크기가 4이상인지 확인한다
+- 크기가 4이상인지 확인한다 - O
 
 NumberGenerator
 - 0~9사이의 무작위 값을 구한다.
