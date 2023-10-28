@@ -18,12 +18,11 @@ public class Car {
         return name;
     }
 
-    public void go(){
+    public void validRacingCars(){
         if( Util.getRandomNum() >= 4){
             position++;
         }
     }
-
 
     @Override
     public String toString() {

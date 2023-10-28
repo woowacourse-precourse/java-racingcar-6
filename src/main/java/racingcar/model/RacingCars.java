@@ -26,6 +26,6 @@ public class RacingCars {
     }
 
     private void go(){
-        CARS.forEach(Car::go);
+        CARS.forEach(Car::validRacingCars);
     }
 }

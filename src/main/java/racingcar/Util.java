@@ -19,7 +19,7 @@ public final class Util {
         return racingCar.stream()
                 .mapToInt(Car::getPosition)
                 .max()
-                .orElseThrow(() -> new IllegalStateException("No cars to compare"));
+                .orElseThrow(() -> new IllegalStateException("무승부입니다!"));
     }
 }
 
