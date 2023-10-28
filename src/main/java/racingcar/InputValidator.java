@@ -14,4 +14,8 @@ public class InputValidator {
     public void checkInputForSpaces(String inputValue){
         if(inputValue.contains(" ")) throw new IllegalArgumentException("입력값에 띄어쓰기가 포함되어 있습니다.");
     }
+
+    public void checkInputEmpty(String inputValue){
+        if(inputValue.isEmpty()) throw new IllegalArgumentException("입력값이 비어있습니다.");
+    }
 }

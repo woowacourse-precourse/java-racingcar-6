@@ -24,18 +24,25 @@ public class InputTest {
 
     @Test
     void 이름에_대한_예외_처리() {
-        List<String> test = new ArrayList<>();
-        test.add("123");
-        test.add("12345");
-        test.add("123456");
+        List<String> input = new ArrayList<>();
+        input.add("123");
+        input.add("12345");
+        input.add("123456");
 
-        assertThrows(IllegalArgumentException.class, () -> validator.checkNameLength(test));
+        assertThrows(IllegalArgumentException.class, () -> validator.checkNameLength(input));
     }
 
     @Test
     void 입력값_띄어쓰기_예외_확인(){
-        String test = "1 ,2,3";
+        String input = "1 ,2,3";
 
-        assertThrows(IllegalArgumentException.class, () -> validator.checkInputForSpaces(test));
+        assertThrows(IllegalArgumentException.class, () -> validator.checkInputForSpaces(input));
+    }
+
+    @Test
+    void 입력값_Empty_예외(){
+        String input = "";
+
+        assertThrows(IllegalArgumentException.class, () -> validator.checkInputEmpty(input));
     }
 }

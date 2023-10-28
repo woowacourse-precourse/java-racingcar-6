@@ -13,7 +13,8 @@ public class RaceGame {
         String carsString = userInput();
         List<String> cars = splitStringToList(carsString);
         System.out.println(cars);
-        checkForException(cars);
+        //입력값 예외 체크
+        checkForException(carsString);
     }
     private String userInput(){
         String userData = Console.readLine();
@@ -29,8 +30,13 @@ public class RaceGame {
         return carList;
     }
 
-    private void checkForException(List<String> cars){
+    private void checkForException(String carsString){
         InputValidator inputValidator = new InputValidator();
+        List<String> cars = splitStringToList(carsString);
         inputValidator.checkNameLength(cars);
+        //자동차 이름 띄어쓰기 검사
+        inputValidator.checkInputForSpaces(carsString);
+        //입력값 비었는지 검사
+        inputValidator.checkInputEmpty(carsString);
     }
 }
