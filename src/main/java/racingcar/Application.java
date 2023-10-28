@@ -30,6 +30,9 @@ public class Application {
             racing(carList);
             System.out.println();
         }
+        List<String> result = winners(carList);
+        String winners = String.join(",", result);
+        System.out.println("최종 우승자 : " + winners);
     }
     private static void racing(List<Car> carList) {
         for (Car car : carList) {
