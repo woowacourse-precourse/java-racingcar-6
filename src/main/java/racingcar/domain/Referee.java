@@ -29,6 +29,7 @@ public class Referee {
                 .stream()
                 .filter(e -> e.getValue() == maxMoveCount)
                 .map(Entry::getKey)
+                .sorted()
                 .collect(Collectors.toList());
     }
 }
