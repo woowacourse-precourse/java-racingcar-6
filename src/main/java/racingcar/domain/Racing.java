@@ -6,11 +6,12 @@ import java.util.List;
 
 public class Racing {
 
-    private List<Car> cars = new ArrayList<>();
+    private List<Car> cars;
     private int count;
 
-    public void addCar(Car car){
-        cars.add(car);
+    public Racing(List<Car> cars, int count){
+        this.cars = cars;
+        this.count = count;
     }
 
     public void run(){
