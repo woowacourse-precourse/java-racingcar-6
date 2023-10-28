@@ -28,4 +28,8 @@ public class InputView {
         carNameValidition(carNameList);
         return carNameList;
     }
+
+    public int inputTryCount() {
+        return 0;
+    }
 }

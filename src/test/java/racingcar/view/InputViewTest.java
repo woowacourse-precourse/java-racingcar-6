@@ -2,6 +2,7 @@ package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -33,5 +34,17 @@ public class InputViewTest {
         assertThatThrownBy(() -> inputView.inputCarNames())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름은 5글자 이하여야 합니다.");
+    }
+
+    @Test
+    void 자동차가_이동할_시도_횟수_입력() {
+        // given
+        String userInput = "5";
+        InputStream in = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(in);
+        // when
+        int tryCount = inputView.inputTryCount();
+        // then
+        assertEquals(5, tryCount);
     }
 }
