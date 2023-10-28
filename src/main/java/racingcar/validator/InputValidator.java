@@ -13,11 +13,12 @@ public class InputValidator {
         }
 
         checkDuplicateCarName(carName);
+        checkNameSizeOverTwo(carName);
     }
 
     private void checkDuplicateCarName(String carName) {
         String[] names = carName.split(",");
-        checkNameSize(names);
+
 
         long nonDuplicateNameSize = Arrays.stream(names)
                 .distinct()
@@ -28,8 +29,9 @@ public class InputValidator {
         }
     }
 
-    private void checkNameSize(String[] carNames) {
-        if (carNames.length < 2) {
+    private void checkNameSizeOverTwo(String carName) {
+        String[] names = carName.split(",");
+        if (names.length < 2) {
             throw new IllegalArgumentException();
         }
     }
