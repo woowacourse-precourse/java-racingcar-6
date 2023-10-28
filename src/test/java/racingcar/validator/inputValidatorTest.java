@@ -11,15 +11,16 @@ class inputValidatorTest {
     @Test
     void 자동차_이름들이_정상적으로_입력() {
         Assertions.assertDoesNotThrow(() -> inputValidator.validateInputCarName("pobi,woni,jun"));
-        Assertions.assertDoesNotThrow(() -> inputValidator.validateInputCarName("pobi,lee dohyun,apple"));
-        Assertions.assertDoesNotThrow(() -> inputValidator.validateInputCarName("pobi lee,lee do hyun,apple"));
+        Assertions.assertDoesNotThrow(() -> inputValidator.validateInputCarName("pobi,lee d,apple"));
+        Assertions.assertDoesNotThrow(() -> inputValidator.validateInputCarName("pobi,lee,apple"));
     }
 
     @Test
     void 자동차_이름들이_비정상적으로_입력되어_예외발생() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputCarName("pobi, apple,jun"));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputCarName("pobi, apple"));
         Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputCarName("pobi&apple&jun"));
-        Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputCarName("pobi,apple,한글이름"));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputCarName("한글이름"));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputCarName("pobiii"));
     }
 
     @Test
