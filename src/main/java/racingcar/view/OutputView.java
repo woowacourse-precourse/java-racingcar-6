@@ -22,6 +22,8 @@ public class OutputView {
     }
 
     public static void printRaceWinner(List<String> winners) {
+        assert !winners.isEmpty();
+
         String listedWinners = String.join(Separator.OUTPUT_CAR_SEPARATOR, winners);
         System.out.println(Message.RACE_WINNER_ANNOUNCEMENT + Separator.KEY_VALUE_SEPARATOR + listedWinners);
     }
