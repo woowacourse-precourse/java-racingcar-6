@@ -36,4 +36,8 @@ public class Game {
     public void increaseRound() {
         currentRound++;
     }
+
+    public List<String> getWinners() {
+        return WinnerFinder.findWinners(cars);
+    }
 }
