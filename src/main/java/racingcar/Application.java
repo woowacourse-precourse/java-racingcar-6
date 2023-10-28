@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.CarManufacturer;
@@ -18,18 +19,23 @@ public class Application {
 
     }
 
-    private static void startRacing(List<Car> cars, int attemptCount) {
+    private static int pickRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
+
+    private static void startRacing(final List<Car> cars, final int attemptCount) {
         for (int i = 0; i < attemptCount; i++) {
 
         }
     }
 
-    private static int createAttemptCount(OutputManager om, InputManager im) {
+    private static int createAttemptCount(final OutputManager om, final InputManager im) {
         om.printNumberOfAttempts();
         return im.inputAttemptCount();
     }
 
-    private static List<Car> createCars(OutputManager om, InputManager im, CarManufacturer carManufacturer) {
+    private static List<Car> createCars(final OutputManager om, final InputManager im,
+                                        CarManufacturer carManufacturer) {
         om.printStartGame();
         return carManufacturer.createCars(im.inputCarNames());
     }

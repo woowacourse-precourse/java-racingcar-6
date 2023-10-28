@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CarManufacturer {
-    public List<Car> createCars(List<String> carNames) {
+    public List<Car> createCars(final List<String> carNames) {
         validateNameLengthBelowFive(carNames);
         return carNames
                 .stream()

@@ -5,6 +5,7 @@ import java.util.Objects;
 
 public class Car {
     private final String name;
+    private static int maxForwardCount = 0;
     private int forwardCount;
 
     public Car(String name) {
@@ -12,13 +13,26 @@ public class Car {
         this.forwardCount = 0;
     }
 
-    public void forward() {
-        int pickedNumber = Randoms.pickNumberInRange(0, 9);
-        if (isNumOverThree(pickedNumber))
+    public void forward(final int number) {
+        if (isNumOverThree(number)) {
             forwardCount++;
+        }
+        checkLeadCar();
     }
 
-    private boolean isNumOverThree(int number) {
+    private void checkLeadCar() {
+        if (maxForwardCount < forwardCount)
+            maxForwardCount = forwardCount;
+    }
+
+    public boolean isLead() {
+        if (maxForwardCount == forwardCount) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isNumOverThree(final int number) {
         return number > 3;
     }
 
