@@ -8,11 +8,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class RacingTest {
-    Racing racing = new Racing();;
+    Racing racing;
     @BeforeEach
     void setUp(){
-        racing.input.setPlayerName("pobi,woni,jun");
-        racing.input.setRound(5);
+        Input input = new Input();
+        input.setPlayerName("pobi,woni,jun");
+        input.setRound(5);
+        racing = new Racing(input);
     }
     @Test
     @DisplayName("레이싱 초기 세팅확인")
