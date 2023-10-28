@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCars {
-    List<RacingCar> racingcars;
+    public List<RacingCar> racingcars;
 
     public RacingCars() {
         racingcars = new ArrayList<>();
@@ -21,6 +21,14 @@ public class RacingCars {
 
     public RacingCar get(int index) {
         return racingcars.get(index);
+    }
+
+    public int farthestDistance() {
+        int result = 0;
+        for (RacingCar racingcar : racingcars) {
+            result = Math.max(result, racingcar.getDistance());
+        }
+        return result;
     }
 
 
