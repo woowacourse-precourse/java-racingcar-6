@@ -28,7 +28,8 @@ public class GameController {
         Cars cars = createCars();
         GameRound gameRound = createGameRound();
         playAllGameRound(gameRound, cars);
-        // 최종 우승자 출력
+        List<Car> winner = findWinner(cars);
+        showWinner(winner);
     }
 
     private Cars createCars() {
@@ -58,12 +59,14 @@ public class GameController {
     }
 
     private List<Car> findWinner(Cars cars) {
-        // 최종 우승자 출력 - 1. 우승자 찾기
         Integer winnerPosition = cars.findWinnerPosition();
         List<Car> winner = cars.findWinner(winnerPosition);
 
         return winner;
     }
 
+    private void showWinner(List<Car> winner) {
+        outputView.outputWinner(winner);
+    }
 
 }
