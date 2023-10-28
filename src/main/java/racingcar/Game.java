@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Collections;
 import java.util.List;
 
 public class Game {
@@ -22,5 +23,17 @@ public class Game {
             System.out.println(car);
         }
         System.out.println();
+    }
+
+    public static void printWinners(List<Car> cars) {
+        Car winner = Collections.max(cars);
+        int maxPosition = winner.getPosition();
+
+        List<String> winnerNames = cars.stream()
+            .filter(car -> car.getPosition() == maxPosition)
+            .map(Car::getName)
+            .toList();
+
+        System.out.println("최종 우승자 : " + String.join(", ", winnerNames));
     }
 }
