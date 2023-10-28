@@ -13,5 +13,7 @@ public class RacingGame {
             Validator.validateUnderFiveLength(name);
             Validator.validateIsBlank(name);
         }
+
+        Long tryCount = InputView.readTryCount();
     }
 }

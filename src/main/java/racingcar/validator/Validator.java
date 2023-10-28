@@ -25,4 +25,10 @@ public class Validator {
             throw new IllegalArgumentException("서로 다른 이름을 입력해야 합니다.");
         }
     }
+
+    public static void validateIsNumeric(String input) {
+        if (!input.chars().allMatch(Character::isDigit)) {
+            throw new IllegalArgumentException("숫자만 입력할 수 있습니다.");
+        }
+    }
 }
