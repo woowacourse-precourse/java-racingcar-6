@@ -9,3 +9,4 @@ out/
 *.iws
 *.ipr
 *.iml
+.gitmessage.txt
