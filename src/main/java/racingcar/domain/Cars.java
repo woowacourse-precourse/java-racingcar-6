@@ -20,4 +20,12 @@ public class Cars {
     public void move(NumberGenerator numberGenerator) {
         cars.forEach(car -> car.move(numberGenerator.generate()));
     }
+
+    private int calculateMaxPosition() {
+        int maxPosition = Integer.MIN_VALUE;
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+        return maxPosition;
+    }
 }
