@@ -14,7 +14,10 @@ public class Car {
     }
 
     public void move(int power) {
+    }
 
+    public boolean isMovablePower(int power) {
+        return power >= 4;
     }
 
     public String getName() {
