@@ -16,7 +16,11 @@ public class InteractService {
     public static Integer getTryNum() {
         System.out.println("시도할 회수는 몇회인가요?");
         try {
-            return Exception.checkPositive(Integer.parseInt(Console.readLine()));
+            int tryNum = Integer.parseInt(Console.readLine());
+
+            Exception.checkPositive(tryNum);
+
+            return tryNum;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
@@ -24,6 +28,7 @@ public class InteractService {
 
     public static void printResult(List<Car> carList, int tryNum) {
         System.out.println("실행 결과");
+
         RacingService.racing(carList, tryNum);
 
         List<String> winnerName = new ArrayList<>();

@@ -4,11 +4,10 @@ import java.util.List;
 
 public class Exception {
 
-    public static int checkPositive(int tryNum) {
+    public static void checkPositive(int tryNum) {
         if (tryNum <= 0) {
             throw new IllegalArgumentException();
         }
-        return tryNum;
     }
 
     public static boolean checkNameValidation(List<String> carNameList, String s) {
