@@ -7,7 +7,7 @@ public class InputView {
         return Console.readLine();
     }
 
-    public static Integer getNumberOfRound() {
+    public static String getNumberOfRound() {
         return null;
     }
 }
