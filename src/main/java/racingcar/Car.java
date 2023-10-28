@@ -2,7 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Car {
+public class Car implements Comparable<Car> {
     String name;
     int distance;
     final int STEP_PERCENTAGE = 4;  // 자동차가 이동할 확률 조정. 0~9까지 1씩 오를수록 10% 확률 감소.
@@ -27,5 +27,10 @@ public class Car {
         if(randomNumber >= STEP_PERCENTAGE) {
             distance = distance + 1;
         }
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return this.distance - o.distance;
     }
 }
