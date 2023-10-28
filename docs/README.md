@@ -11,30 +11,31 @@
 
 ## 자동차
 - [ ] 자동차 이름을 검증한다.
-    - 길이 5를 초과할 경우, `IllegalArgumentException`예외를 발생시킨다.
+  - 길이 5를 초과할 경우, `IllegalArgumentException`예외를 발생시킨다.
 - [ ] 자동차 전진 조건을 통해 자동차 전진 총 횟수를 갱신한다.
 - [ ] 자동차 이름, 자동차 전진 횟수를 사용해 출력 포멧에 맞춰 출력 문자열을 생성한다.
 
 ## 자동차 전진 조건
 - [ ] 0~9 사이의 무작위 값을 생성한다.
-    - Random 값 추출은`camp.nextstep.edu.missionutils.Randoms`의`pickNumberInRange()`를 활용한다.
+  - Random 값 추출은`camp.nextstep.edu.missionutils.Randoms`의`pickNumberInRange()`를 활용한다.
 - [ ] 전진 혹은 멈춤을 판별한다.
-    - 4~9 일 경우 전진
-    - 0~3 일 경우 멈춤
+  - 4~9 일 경우 전진
+  - 0~3 일 경우 멈춤
 
 ## 검증기
 - [ ] 입력 받은 자동차들의 이름을 검증한다.
-    - 쉼표(,) 기준으로 자동차 이름이 입력되지 않을 시, `IllegalArgumentException`예외를 발생시킨다.
+  - 복수개의 이름이 쉼표(,) 기준으로 자동차 이름이 입력되지 않을 시, `IllegalArgumentException`예외를 발생시킨다.
+  - 중복된 이름이 존재할 시, `IllegalArgumentException`예외를 발생시킨다.
 - [ ] 입력 받은 이동 횟수를 검증한다.
-    - 양수 외 값일 경우 `IllegalArgumentException`예외를 발생시킨다.
+  - 양수 외 값일 경우 `IllegalArgumentException`예외를 발생시킨다.
 
 ## 입력기
 - [ ] 자동차들의 이름을 입력 받는다.
   - 쉼표(,) 기준으로 여러 자동차 이름을 입력 받을 수 있다.
   - 사용자가 입력하는 값은`camp.nextstep.edu.missionutils.Console`의`readLine()`을 활용한다.
-    
 - [ ] 이동 횟수를 입력 받는다.
   - 사용자가 입력하는 값은`camp.nextstep.edu.missionutils.Console`의`readLine()`을 활용한다.
 
 ## 출력기
 - [ ] 콘솔로 요청 값을 출력한다.
+- [ ] 자동차 게임 진행에 필요한 메시지들을 콘솔로 출력한다.
