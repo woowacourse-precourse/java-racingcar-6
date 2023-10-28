@@ -14,18 +14,15 @@ public class Cars {
 
     // Car Constructor
     private Cars(final String input) {
-        // Validate Invalid String Input
         validateNull(input);
         validateContainTab(input);
         validateContainNewLine(input);
         validateContainWhiteSpace(input);
         validateEndsWithComma(input);
 
-        // Validate carName Length
         List<String> carNames = Parser.parseCarNames(input);
         validateNameLength(carNames);
 
-        // Construct Cars Entity
         this.racingCars = createCars(carNames);
     }
 
@@ -35,8 +32,9 @@ public class Cars {
     }
 
     // 경주할 자동차를 1회전 전진시킨다.
-    public void playOneRound() {
+    public List<String> playOneRound() {
         racingCars.forEach(Car::play);
+        return generateResults();
     }
 
     // 자동차들의 현재 주행 결과를 '이름 : dashes' 형태의 String List로 반환
@@ -46,14 +44,13 @@ public class Cars {
                 .toList();
     }
 
-    public WinnerResult getWinnerCars() {
+    public WinnerResult makeResult() {
         List<Car> cars = Collections.unmodifiableList(racingCars);
         List<Car> winners = cars.stream()
                 .filter(car -> car.isSameScore(getMaxScore()))
                 .toList();
         return WinnerResult.create(winners);
     }
-
 
     public Integer getMaxScore() {
         return racingCars.stream()

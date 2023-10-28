@@ -9,40 +9,34 @@ import racingcar.view.View;
 
 import java.util.List;
 
-import static racingcar.view.constants.Notice.*;
+import static racingcar.view.constants.Notice.RESPONSE_RESULT_MESSAGE;
 
 public class Game {
     public static void start() {
-        // 경주할 자동차 이름 요청 메세지 출력 (Controller -> View)
-        View.printNotice(ASK_MULTIPLE_CAR_NAMES);
+        String carNamesRequest = View.requestCarNames();
+        Cars cars = Cars.create(carNamesRequest);
 
-        // 사용자에게 자동차 이름 요청 (View -> Controller)
-        String carNamesInput = Console.readLine();
-
-        // 개별 Car를 담은 일급 컬렉션 Cars 생성 (Controller -> Domain)
-        Cars cars = Cars.create(carNamesInput);
-
-        // 시도할 횟수 요청 메세지 출력 (Controller -> View)
-        View.printNotice(ASK_GAME_COUNT);
-        // 사용자에게 시도할 횟수 요청 (View -> Controller)
-        String gameCountInput = Console.readLine();
-        System.out.println();
-
-        // 횟수 요청 예외처리
-        ConstraintValidator.validateNumber(gameCountInput);
+        String roundCountRequest = View.requestRoundCount();
+        ConstraintValidator.validateNumber(roundCountRequest);
 
         View.printNotice(RESPONSE_RESULT_MESSAGE);
+        int roundCount = Parser.parseRoundCount(roundCountRequest);
 
-        int roundCount = Parser.parseRoundCount(gameCountInput);
+        playRounds(cars, roundCount);
+    }
 
+    private static void playRounds(
+            final Cars cars,
+            final int roundCount
+    ) {
         for (int i = 0; i < roundCount; i++) {
-            cars.playOneRound();
-            List<String> results = cars.generateResults();
-            View.printResultList(results);
+            List<String> roundResults = cars.playOneRound();
+            View.printRoundResults(roundResults);
         }
+        
+        WinnerResult winnerResult = cars.makeResult();
+        View.printWinnerResult(winnerResult.getWinnerNames());
 
-        WinnerResult winnerResult = cars.getWinnerCars();
-        System.out.println("winnerResult.getWinnerNames() = " + winnerResult.getWinnerNames());
         Console.close();
     }
 }

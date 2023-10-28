@@ -7,7 +7,7 @@ public enum Notice {
 
     // Response
     RESPONSE_RESULT_MESSAGE("실행 결과"),
-    RESPONSE_WINNER_MESSAGE("최종 우승자 : ");
+    RESPONSE_WINNER_MESSAGE("최종 우승자 : %s");
 
     private final String message;
 

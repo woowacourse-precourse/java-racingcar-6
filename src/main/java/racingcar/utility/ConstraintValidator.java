@@ -9,6 +9,7 @@ import static racingcar.global.GameConfig.NAME_MAXIMUM_CONSTRAINT;
 import static racingcar.global.exception.ErrorMessage.*;
 
 public class ConstraintValidator {
+    private static final Integer ZERO_LENGTH = 0;
     private static final String COMMA = ",";
     private static final String NEW_LINE = "\n";
     private static final String TAB = "\t";
@@ -17,9 +18,13 @@ public class ConstraintValidator {
     }
 
     public static void validateNull(final String input) {
-        if (Objects.isNull(input)) {
+        if (isNull(input)) {
             throw RacingCarException.of(NULL);
         }
+    }
+
+    private static boolean isNull(final String input) {
+        return Objects.equals(input.length(), ZERO_LENGTH) || Objects.isNull(input);
     }
 
     public static void validateContainWhiteSpace(final String input) {
@@ -35,13 +40,13 @@ public class ConstraintValidator {
     }
 
     public static void validateContainTab(final String input) {
-        if (input.endsWith(TAB)) {
+        if (input.contains(TAB)) {
             throw RacingCarException.of(ENDS_WITH_TAB);
         }
     }
 
     public static void validateContainNewLine(final String input) {
-        if (input.endsWith(NEW_LINE)) {
+        if (input.contains(NEW_LINE)) {
             throw RacingCarException.of(ENDS_WITH_NEW_LINE);
         }
     }
@@ -57,7 +62,6 @@ public class ConstraintValidator {
             throw RacingCarException.of(TOO_LONG_INPUT);
         }
     }
-
 
     private static boolean hasWhiteSpace(final String input) {
         return input.chars().anyMatch(Character::isWhitespace);

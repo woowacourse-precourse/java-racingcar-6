@@ -45,7 +45,7 @@ public class Car {
     }
 
     private boolean isForwardCondition(final Integer referencePoint) {
-        return referencePoint >= NAME_MAXIMUM_CONSTRAINT.getValue();
+        return referencePoint >= FORWARD_CONDITION.getValue();
     }
 
     private Integer generateForwardCondition() {
