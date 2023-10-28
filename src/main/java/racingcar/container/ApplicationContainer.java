@@ -6,8 +6,6 @@ import racingcar.controller.RaceController;
 import racingcar.controller.RaceControllerImpl;
 import racingcar.domain.participant.ParticipantFactory;
 import racingcar.domain.participant.ParticipantFactoryImpl;
-import racingcar.domain.race.RaceFactory;
-import racingcar.domain.race.RaceFactoryImpl;
 import racingcar.service.RaceService;
 import racingcar.service.RaceServiceImpl;
 import racingcar.util.generator.RandomNumberGenerator;
@@ -33,7 +31,6 @@ public class ApplicationContainer {
 
     /* Factory */
     private ParticipantFactory participantFactory;
-    private RaceFactory raceFactory;
 
     /* Util */
     private RandomNumberGenerator randomNumberGenerator;
@@ -78,14 +75,6 @@ public class ApplicationContainer {
             printLog(participantFactory.getClass().toString(), ParticipantFactory.class.toString());
         }
         return participantFactory;
-    }
-
-    public RaceFactory getRaceFactory() {
-        if ( raceFactory == null ) {
-            raceFactory = new RaceFactoryImpl();
-            printLog(raceFactory.getClass().toString(), RaceFactory.class.toString());
-        }
-        return raceFactory;
     }
 
     public RandomNumberGenerator getRandomNumberGenerator() {
