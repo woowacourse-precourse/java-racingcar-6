@@ -1,8 +1,8 @@
 package racingcar.validator;
 
-public class RacingCountValidator {
+public class RoundValidator {
 
-    public static void validateRacingCount(String input) {
+    public static void validateRounds(String input) {
         if (!isContainOnlyPositiveInteger(input)) {
             throw new IllegalArgumentException(("경기 횟수는 1 이상의 양수로만 작성되어야합니다."));
         }

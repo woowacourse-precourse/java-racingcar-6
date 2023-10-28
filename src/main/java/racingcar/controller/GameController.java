@@ -6,12 +6,12 @@ import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.Game;
 import racingcar.validator.CarValidator;
-import racingcar.validator.RacingCountValidator;
+import racingcar.validator.RoundValidator;
 import racingcar.view.GameView;
 
 public class GameController {
 
-    private int retryCount;
+    private int rounds;
     private Game game;
     private final GameView gameView;
 
@@ -23,7 +23,7 @@ public class GameController {
         setupGame();
 
         gameView.displayResultMessage();
-        tryRoundUntilRetryCount();
+        playRounds();
 
         gameView.displayFinalWinner(game.getWinnerNames());
     }
@@ -33,15 +33,15 @@ public class GameController {
 
         this.game = new Game(setupParticipantCars());
 
-        this.retryCount = setupRetryCount();
+        this.rounds = setupRounds();
     }
 
-    private static int setupRetryCount() {
-        GameView.displayAskTryCount();
+    private static int setupRounds() {
+        GameView.displayAskRounds();
 
-        String tryCount = Console.readLine();
-        RacingCountValidator.validateRacingCount(tryCount);
-        return Integer.parseInt(tryCount);
+        String rounds = Console.readLine();
+        RoundValidator.validateRounds(rounds);
+        return Integer.parseInt(rounds);
     }
 
     private static List<Car> setupParticipantCars() {
@@ -56,8 +56,8 @@ public class GameController {
             .collect(Collectors.toList());
     }
 
-    private void tryRoundUntilRetryCount() {
-        for (int i = 0; i < retryCount; i++) {
+    private void playRounds() {
+        for (int i = 0; i < rounds; i++) {
             game.moveCar();
 
             gameView.displayCurrentCarPosition(game.getCurrentParticipantCarPosition());
