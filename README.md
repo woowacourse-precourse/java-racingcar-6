@@ -13,7 +13,7 @@
 - [x] 게임이 종료되었는지 확인하는 메소드가 있음
 - [x] 게임을 한번 시도하는 메소드가 있음
 
-- [ ] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException 발생
+- [x] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException 발생
 
 ---
 
