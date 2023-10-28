@@ -23,6 +23,6 @@ public class CarNamesValidator implements InputValidator<List<String>> {
     }
 
     private static boolean invalidLength(String name) {
-        return name.length() > MAX_LENGTH || name.length() == 1;
+        return name.length() > MAX_LENGTH || name.length() == 0;
     }
 }
