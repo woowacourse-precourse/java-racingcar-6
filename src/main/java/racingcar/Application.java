@@ -7,11 +7,13 @@ import java.util.HashMap;
 public class Application {
     static String InputCarName = "";
     static HashMap<String, Integer> racingcar = new HashMap<>();
+    static int TryNumber = 0;
 
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         StartMessage();
         InputCarName();
+        Try_Message();
     }
 
     public static void StartMessage() {
@@ -33,5 +35,9 @@ public class Application {
         }
     }
 
+    public static void Try_Message() {
+        System.out.println("시도할 회수는 몇회인가요?");
+    }
 
+    
 }
