@@ -42,7 +42,7 @@
 
     1. run() - 사용자의 인풋을 받아 인스턴스 생성 후 게임 진행
 
-    2. printResults() - 각 턴별 결과 출력
+~~2. printResults() - 각 턴별 결과 출력~~ < 삭제, Car 클래스의 printResult()로 대신함
 
     3. printWinners() - 게임 종료 후 우승자 출력
 

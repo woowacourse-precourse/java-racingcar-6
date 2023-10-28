@@ -10,6 +10,22 @@ public class Game {
     private Dice dice = new Dice(0, 9);
 
     private void run() {
+        getCarsInput();
+        getTurnsInput();
+        System.out.println("실행 결과");
+        for (int i = 0; i < turns; i++) {
+            for (Car car : cars) {
+                int number = dice.roll();
+                if (number >= 4) {
+                    car.move();
+                } else if (number < 4) {
+                    car.stay();
+                }
+                car.printResult();
+            }
+            System.out.println("");
+        }
+        printWinners();
     }
 
     private void getCarsInput(){
