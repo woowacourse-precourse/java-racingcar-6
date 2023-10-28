@@ -11,7 +11,7 @@ public class RacingGame {
     private static final String RESULT_PHRASE = "실행 결과";
     private static final String WINNER_PHRASE = "최종 우승자 : ";
 
-    int attemptingNum;
+    static int attemptingNum;
 
     public void startGame() {
         System.out.println(STARTING_PHRASE);
@@ -23,7 +23,7 @@ public class RacingGame {
         return cars;
     }
 
-    private static Car[] createCars(String[] carNames) {
+    public static Car[] createCars(String[] carNames) {
         Car[] cars = new Car[carNames.length];
         for (int i = 0; i < carNames.length; i++) {
             cars[i] = new Car(carNames[i].trim());
@@ -31,12 +31,12 @@ public class RacingGame {
         return cars;
     }
 
-    public void getAttemptingNum() {
+    public static void getAttemptingNum() {
         System.out.println(ATTEMPTING_PHRASE);
         attemptingNum = Integer.parseInt(Console.readLine());
     }
 
-    private static void moveCars(Car[] cars, int attemptingNum) {
+    public static void moveCars(Car[] cars, int attemptingNum) {
         for (int i = 0; i < attemptingNum; i++) {
             for (Car car : cars) {
                 car.move();
@@ -44,7 +44,7 @@ public class RacingGame {
         }
     }
 
-    private static void printRacingGameResults(Car[] cars) {
+    public static void printRacingGameResults(Car[] cars) {
         System.out.println();
         System.out.println(RESULT_PHRASE);
         for (Car car : cars) {
@@ -52,7 +52,7 @@ public class RacingGame {
         }
     }
 
-    private static int findMaxPosition(Car[] cars) {
+    public static int findMaxPosition(Car[] cars) {
         int maxPosition = 0;
         for (Car car : cars) {
             maxPosition = Math.max(maxPosition, car.position);
@@ -60,7 +60,7 @@ public class RacingGame {
         return maxPosition;
     }
 
-    private static List<String> findWinnerNames(Car[] cars, int maxPosition) {
+    public static List<String> findWinnerNames(Car[] cars, int maxPosition) {
         List<String> winnerNames = new ArrayList<>();
         for (Car car : cars) {
             if (car.position == maxPosition) {
@@ -70,11 +70,11 @@ public class RacingGame {
         return winnerNames;
     }
 
-    private static void printWinnerPhrase() {
+    public static void printWinnerPhrase() {
         System.out.print(WINNER_PHRASE);
     }
 
-    private static String findWinners(Car[] cars) {
+    public static String findWinners(Car[] cars) {
         int maxPosition = findMaxPosition(cars);
         List<String> winnerNames = findWinnerNames(cars, maxPosition);
         return String.join(", ", winnerNames);
