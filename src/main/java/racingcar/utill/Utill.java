@@ -1,4 +1,4 @@
-package racingcar.Utill;
+package racingcar.utill;
 
 // TODO: 10/27/23 모든 클래스에서 사용할 수 있는 메서드의 모음인 Utill 클래스 작성.
 public class Utill {
