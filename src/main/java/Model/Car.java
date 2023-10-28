@@ -9,13 +9,17 @@ public class Car {
 
     public Car(String name) {
         carName = new CarName(name);
+        carPosition = new CarPosition(0);
+    }
+
+    public boolean isNameValid() {
         if (carName.isCarNameEmpty()) {
-            throw new IllegalArgumentException();
+            return false;
         }
         if (!carName.isNameUnder5Characters()) {
-            throw new IllegalArgumentException();
+            return false;
         }
-        carPosition = new CarPosition(0);
+        return true;
     }
 
     public void generateRandomNumber() {

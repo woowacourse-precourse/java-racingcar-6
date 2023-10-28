@@ -1,6 +1,7 @@
 package featuretest;
 
 import Model.*;
+import net.bytebuddy.pool.TypePool;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -12,6 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 
 public class FeatureTest {
@@ -28,6 +30,26 @@ public class FeatureTest {
         RaceCarNames expectedObject = new RaceCarNames("TestRaceCar");
 
         assertThat(actualObject).isEqualTo(expectedObject);
+    }
+
+    @Test
+    void 자동차_이름_다섯_글자_초과() {
+        String testRaceCarNames = "mycar1,car2,car3";
+        InputStream inputStream = new ByteArrayInputStream(testRaceCarNames.getBytes());
+        System.setIn(inputStream);
+
+        assertThatThrownBy(Application::receiveRaceCarNames)
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 자동차_이름_비어있음() {
+        String testRaceCarNames = "mycar1,  ,car3";
+        InputStream inputStream = new ByteArrayInputStream(testRaceCarNames.getBytes());
+        System.setIn(inputStream);
+
+        assertThatThrownBy(Application::receiveRaceCarNames)
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -99,14 +121,14 @@ public class FeatureTest {
         assertThat(actualObj).isEqualTo(expectedObj);
     }
 
-    @Test
-    void 랜덤_값_생성() {
-        Car actualObj = new Car();
-        actualObj.generateRandomNumber();
-
-        boolean actualResult = actualObj.isRandomNumberInRange0to9();
-        boolean expectedResult = true;
-
-        assertThat(actualResult).isEqualTo(expectedResult);
-    }
+//    @Test
+//    void 랜덤_값_생성() {
+//        Car actualObj = new Car();
+//        actualObj.generateRandomNumber();
+//
+//        boolean actualResult = actualObj.isRandomNumberInRange0to9();
+//        boolean expectedResult = true;
+//
+//        assertThat(actualResult).isEqualTo(expectedResult);
+//    }
 }

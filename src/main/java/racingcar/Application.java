@@ -5,6 +5,7 @@ import Model.RaceCarNames;
 import Model.TryCount;
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
@@ -38,13 +39,24 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String raceCarNamesinput = Console.readLine();
         raceCarNames = new RaceCarNames(raceCarNamesinput);
+        carList = new ArrayList<>();
 
         List<String> carNameList = raceCarNames.parseCarNamesFromRaceCarInput();
+        boolean carNamesValidFlag = true;
         for (String carName : carNameList) {
             Car car = new Car(carName);
+            carNamesValidFlag &= car.isNameValid();
             carList.add(car);
         }
+
+        if (!carNamesValidFlag) {
+            throw new IllegalArgumentException();
+        }
     }
+
+
+
+
 
     public static void receiveTryCount() {
         System.out.println("시도할 회수는 몇회인가요?");
