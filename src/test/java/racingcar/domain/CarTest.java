@@ -73,8 +73,8 @@ public class CarTest {
         cars.add(new Car("bar"));
         cars.add(new Car("baz"));
 
-        cars.get(1).move();
         cars.get(0).move();
+        cars.get(1).move();
         WinnersMessage message = Car.getWinnersMessage(cars);
         WinnersMessage expect = new WinnersMessage(List.of("foo", "bar"));
 
