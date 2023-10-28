@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -25,7 +26,28 @@ public class Application {
     	setCarsOnStart(carList, results);
     	printTryAsRequest(carList, timesInput, results);
     	
+    	System.out.print("최종 우승자 : ");
+    	printWinners(carList, results);
     }
+
+	public static void printWinners(List<String> carList, List<Integer> results) {
+		int max = Collections.max(results);
+    	int index = results.indexOf(max);
+    	while(index != -1) {
+    		System.out.print(carList.get(index));
+    		index = findTie(carList, results, max, index);
+    	}
+	}
+
+	public static int findTie(List<String> carList, List<Integer> results, int max, int index) {
+		results.remove(index);
+		carList.remove(index);
+		index = results.indexOf(max);
+		
+		if(index != -1) 
+			System.out.print(", ");
+		return index;
+	}
 
 	public static void printTryAsRequest(List<String> carList, String timesInput, List<Integer> results) {
 		for(int j = 0; j < Integer.valueOf(timesInput); j++) {
