@@ -31,7 +31,7 @@ public class GameStatus {
     }
 
     public void carsMoveForward() {
-        for (Car car : this.cars.getCars()) {
+        for (Car car : this.cars.getCarList()) {
             if (4 <= returnRandomNumber()) {
                 car.moveForward();
             }
