@@ -9,21 +9,13 @@ public class GameController {
 
     private Integer TryMoveForwardRandomNumber;
 
-
-    public Integer getTryMoveForwardRandomNumber() {
-        return TryMoveForwardRandomNumber;
-    }
-
     public void generateTryMoveForwardRandomNumber() {
         this.TryMoveForwardRandomNumber = Randoms.pickNumberInRange(0,9);
     }
 
     public String getCarNamesInput() {
-
         return Console.readLine();
     }
-
-
 
     public void MoveForward(List<Car> carList) {
         for (Car car : carList) {
@@ -38,10 +30,5 @@ public class GameController {
         for (Car car : carList) {
             car.setMoveForwardStatus();
         }
-    }
-
-    public void setWinnerList(List<Car> winnerList) {
-
-
     }
 }
