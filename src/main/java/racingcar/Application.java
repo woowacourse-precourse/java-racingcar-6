@@ -27,7 +27,7 @@ public class Application {
         randomDrive(carList);
 
         // 주행 결과 출력
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
         for(int i=0; i<N; i++) {
             for(Car car : carList) {
                 System.out.print(car.getName() + " : ");
@@ -36,6 +36,7 @@ public class Application {
                 }
                 System.out.println();
             }
+            System.out.println();
         }
 
         // 경기 결과 출력
@@ -54,7 +55,7 @@ public class Application {
         for(Car winner : winnerList) {
             result = String.join(", ", winner.getName());
         }
-        System.out.println(result);
+        System.out.println("최종 우승자 : " + result);
     }
 
     static int getMaxDistance() {
