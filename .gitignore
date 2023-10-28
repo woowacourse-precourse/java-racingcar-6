@@ -1,6 +1,9 @@
 .gradle
-.idea
 build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+.idea
 out/
 *.class
 *.iws
