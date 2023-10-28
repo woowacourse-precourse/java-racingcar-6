@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import static racingcar.game.Delimiter.REGEX_DELIMITER;
 
-public class CarFactory {
+public class CarParser {
 
-    private CarFactory() {}
+    private CarParser() {}
 
     public static List<Car> generateCarList(final String carNames) {
         return splitCarNames(carNames).stream()

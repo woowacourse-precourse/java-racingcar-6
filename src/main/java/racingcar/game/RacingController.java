@@ -1,7 +1,7 @@
 package racingcar.game;
 
 import racingcar.car.Car;
-import racingcar.car.CarFactory;
+import racingcar.car.CarParser;
 import racingcar.car.Cars;
 import racingcar.racing.Judgement;
 import racingcar.racing.Racing;
@@ -23,7 +23,7 @@ public class RacingController {
 
     public void run() {
         String carNamesFromUser = requestCarNamesFromUser();
-        List<Car> carLIst = CarFactory.generateCarList(carNamesFromUser);
+        List<Car> carLIst = CarParser.generateCarList(carNamesFromUser);
         Cars cars = new Cars(carLIst);
         Racing racing = new Racing(cars);
 
