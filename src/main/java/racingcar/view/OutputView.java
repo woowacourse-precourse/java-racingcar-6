@@ -3,11 +3,15 @@ package racingcar.view;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 
+import java.util.List;
+
 public class OutputView {
 
     private static final String OUTPUT_GAME_RESULT_MESSAGE = "실행 결과";
 
     private static final String OUTPUT_CAR_POSITION_MESSAGE_FORMAT = "%s : %s";
+
+    private static final String OUTPUT_WINNER_MESSAGE = "최종 우승자 : ";
     private final StringBuilder outputBuilder;
 
     public OutputView() {
@@ -15,10 +19,28 @@ public class OutputView {
     }
 
 
+
     public void outputCarsPosition(Cars cars) {
         for (Car car : cars.getCars()) {
             drawCarPosition(car);
         }
+        System.out.println();
+    }
+
+    public void outputWinner(List<Car> winners) {
+        System.out.println(createWinnerMessage(winners));
+    }
+
+
+
+    private String createWinnerMessage(List<Car> winners) {
+        initOutputBuilder();
+        outputBuilder.append(OUTPUT_WINNER_MESSAGE);
+        for (Car winner : winners) {
+            outputBuilder.append(winner.getName()).append(", ");
+        }
+        outputBuilder.replace(0, outputBuilder.length()-1, "");
+        return outputBuilder.toString();
     }
 
     private void drawCarPosition(Car car) {
