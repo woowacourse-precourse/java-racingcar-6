@@ -18,6 +18,8 @@ public class Application {
         }
 
         System.out.println("시도할 회수는 몇회인가요?");
+        racingManager.setLap(Integer.parseInt(readLine()));
+
 
     }
 }
