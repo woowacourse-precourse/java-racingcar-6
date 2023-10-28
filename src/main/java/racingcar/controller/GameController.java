@@ -1,10 +1,9 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.domain.CarMovement;
 import racingcar.domain.CarStore;
-import racingcar.domain.Game;
 import racingcar.dto.CarInputDto;
 import racingcar.view.InputVeiw;
 import racingcar.view.OutputView;
@@ -16,10 +15,9 @@ public class GameController {
     private static final InputVeiw inputView = new InputVeiw();
     private static final CarStore carStore = CarStore.getInstance();
 
-    private Game game;
-
-    public GameController() {
-    }
+    private int MAX_CAR_NUMBER;
+    private int MAX_ROUND;
+    private int currentRound;
 
     /**
      * 역할 분리 for문 stream으로 수정
@@ -32,39 +30,46 @@ public class GameController {
             Car car = new Car(i, carInputDto.getName());
             carStore.saveCarInfo(car);
         }
-        game = new Game(tmp.size(), inputView.inputRoundNumber());
+        MAX_CAR_NUMBER = tmp.size();
+        MAX_ROUND = inputView.inputRoundNumber();
+
         startGame();
     }
 
     private void startGame() {
         // while 라운드 체크 하며, 게임 수행
         do {
-            game.increaseCurrentRound();
+            increaseCurrentRound();
 
             // 게임 수행
             startRound();
             System.out.println();
 
-        } while (game.getCurrentRound() < Game.MAX_ROUND);
+        } while (getCurrentRound() < MAX_ROUND);
 
         // 우승자 출력
         OutputView.printGameWinner(carStore.findAllCar());
     }
 
     /**
-     * 랜덤값 추출하는 역할 따로 분리 for문 stream으로 변경
+     * 랜덤값 추출하는 역할 따로 분리 for문 stream으로 변경 Game에게 go/stop에 대한 책임을 넘기기
      */
     private void startRound() {
         // 조건 충족시, raceCar 이동
-        for (int i = 0; i < Game.MAX_CAR_NUMBER; i++) {
+        for (int i = 0; i < MAX_CAR_NUMBER; i++) {
             Car currentRaceCar = carStore.getCarInfo(i);
-            if (game.isMeetCondition(Randoms.pickNumberInRange(0, 9))) {
-                Car driveRaceCar = currentRaceCar.drive();
-                carStore.saveCarInfo(driveRaceCar);
-            }
+            new CarMovement(currentRaceCar);
 
             OutputView.printStatusOfRaceCar(currentRaceCar);
         }
+    }
+
+    public void increaseCurrentRound() {
+        currentRound += 1;
+    }
+
+    public int getCurrentRound() {
+        return currentRound;
     }
 
 }

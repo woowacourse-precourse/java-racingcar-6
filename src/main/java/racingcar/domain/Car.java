@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import java.util.List;
-
 /**
  * dto 분리
  */
@@ -33,15 +31,4 @@ public class Car {
     public Integer position() {
         return position;
     }
-
-    public Car drive() {
-        return new Car(carId, carName, position+1);
-    }
-
-    public void stop() {
-
-    }
-
-
-
 }
