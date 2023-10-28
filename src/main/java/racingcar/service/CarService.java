@@ -10,6 +10,7 @@ public class CarService {
     private static final int MOVE_THRESHOLD = 4;
 
     private final Track track = new Track(new ArrayList<>());
+    private final List<String> winners = new ArrayList<>();
 
     public void createCars(String carNames) {
         for (String carName : splitNames(carNames)) {
@@ -35,6 +36,28 @@ public class CarService {
     private void moveCar(Car car, int randomNumber) {
         if (randomNumber >= MOVE_THRESHOLD) {
             car.move();
+        }
+    }
+
+    public List<String> findWinner() {
+        int maxPosition = findMaxPosition();
+        for (Car car : track.getCars()) {
+            checkAndSaveWinner(car, maxPosition);
+        }
+        return winners;
+    }
+
+    private int findMaxPosition() {
+        int maxPosition = 0;
+        for (Car car : track.getCars()) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+        return maxPosition;
+    }
+
+    private void checkAndSaveWinner(Car car, int maxPosition) {
+        if (car.getPosition() == maxPosition) {
+            winners.add(car.getName());
         }
     }
 }
