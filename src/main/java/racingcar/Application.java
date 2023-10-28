@@ -13,10 +13,12 @@ public class Application {
         Scanner scanner = new Scanner(System.in);
         String inputValue = scanner.nextLine();
 
-        String[] splitedValue = inputValue.split(",");  //자동차 이름 쉼표 기준으로 나누기
+        String[] splitedValue = inputValue.split(", ");  //자동차 이름 쉼표 기준으로 나누기
 
         int len = splitedValue.length;
 
+
+        System.out.println("시도할 횟수는 몇회인가요?");
         int n = scanner.nextInt();  //시행할 횟수
 
         int[] forward;
@@ -24,14 +26,25 @@ public class Application {
         int[] winner;
         winner = new int[100];
 
+        for(int i=0;i<len;i++){
+            forward[i]=0;
+        }
+
         for(int i=0;i<n;i++){
             for(int j=0;j<len;j++){
                 int r = Randoms.pickNumberInRange(1, 9);
-                forward[j]=0;
                 if(r>=4){
                     ++forward[j];
                 }
             }
+            for(int j=0;j<len;j++){
+                System.out.print(splitedValue[j] + " : ");
+                for(int k=0;k<forward[j];k++){
+                    System.out.print("-");
+                }
+                System.out.println(" ");
+            }
+            System.out.println(" ");
         }
 
         int max=forward[0];
@@ -48,6 +61,7 @@ public class Application {
                 winner[winner_index]=j;
             }
         }
+        System.out.print("최종 우승자 : ");
         for(int i=0;i<=winner_index;i++){
             if(i!=0){
                 System.out.print(", ");
