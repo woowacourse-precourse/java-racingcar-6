@@ -2,6 +2,7 @@
     -[] 자동차는 전진 할 수 있다. Car#moveForward()
     -[] 자동차는 멈출 수 있다. Car#moveStop()
 -[]자동차를 위치를 나타낸다.  Car#locate()
+-[]자동차의 위치를 초기화한다. Car#clear()
 
 -[]각 자동차에 이름을 부여할 수 있다. User#nameForCar()
     -[]자동차 이름은 쉼표(,)를 기준으로 구분한다. 
