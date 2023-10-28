@@ -1,16 +1,15 @@
 package racingcar.domain;
 
 import racingcar.core.NamesParser;
+import racingcar.core.Output;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CarFactory {
-    private final int count;
     private final NamesParser namesParser;
 
-    public CarFactory(final int count) {
-        this.count = count;
+    public CarFactory() {
         this.namesParser = new NamesParser();
     }
 
