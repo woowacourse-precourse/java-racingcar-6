@@ -18,14 +18,4 @@ public class Player {
         return Arrays.stream(namesOfCars.split(CAR_NAME_SEPARATOR))
                 .collect(Collectors.toList());
     }
-
-    public void validateDuplicationName(List<String> namesOfCars) {
-        int count = (int) namesOfCars.stream()
-                .distinct()
-                .count();
-
-        if (count != namesOfCars.size()) {
-            throw new IllegalArgumentException("중복");
-        }
-    }
 }
