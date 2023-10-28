@@ -56,4 +56,11 @@ public class Control {
         }
     }
 
+    // 위너 찾기 (Position 저장해놓은 list에서 최대값 찾아서 반환해주는 메서드)
+    private void judgingWinner(List<Integer> list) {
+        maxPosition = list.stream()
+                .mapToInt(Integer::intValue)
+                .max().orElse(0);
+    }
+
 }
