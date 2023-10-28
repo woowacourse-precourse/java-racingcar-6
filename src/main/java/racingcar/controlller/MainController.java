@@ -1,7 +1,7 @@
 package racingcar.controlller;
 
 public class MainController {
-    RacingGameController racingGameController;
+    private RacingGameController racingGameController;
 
     private void init() {
         racingGameController = new RacingGameController(true);
