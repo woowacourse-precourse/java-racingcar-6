@@ -8,7 +8,7 @@ public class Referee {
     private List<String> winnerNameList;
     private int winnerStep;
 
-    public Referee(){
+    public Referee() {
         winnerNameList = new ArrayList<>();
     }
 

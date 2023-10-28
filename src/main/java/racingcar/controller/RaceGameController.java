@@ -32,8 +32,8 @@ public class RaceGameController {
         referee.findWinnerDistance(racingCars);
 
         List<String> winnerNames = referee.winnerNameList(racingCars);
-//        outputView.printWinnerResultMessage(winnerNames);
-//        여기 리펙토링 시급
+        outputView.printWinnerResultMessage(winnerNames);
+
     }
 
     private RacingCars initializeGame() {

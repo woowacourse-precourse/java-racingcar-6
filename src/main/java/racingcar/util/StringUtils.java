@@ -9,6 +9,7 @@ public class StringUtils {
         return Arrays.stream(name.split(","))
                 .collect(Collectors.toList());
     }
+
     public static int parseInt(String str) {
         try {
             return Integer.parseInt(str);
