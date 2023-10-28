@@ -4,27 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingController {
-    View view;
+    InputView inputView;
+    OutputView outputView;
     List<Car> cars;
 
     RacingController() {
-        view = new View();
+        inputView = new InputView();
+        outputView = new OutputView();
         cars = new ArrayList<>();
     }
 
     public void play() {
-        String[] carNames = view.inputCarNames();
-        int tryCount = view.inputTryCount();
+        String[] carNames = inputView.inputCarNames();
+        int tryCount = inputView.inputTryCount();
         setupCars(carNames);
         race(tryCount);
         List<String> winners = findWinners();
-        view.printWinners(winners);
+        outputView.printWinners(winners);
     }
 
     private void race(int count) {
         for (int i = 0; i < count; i++) {
             moveCars();
-            view.printCurrentResult(collectResults());
+            outputView.printCurrentResult(collectResults());
         }
     }
 

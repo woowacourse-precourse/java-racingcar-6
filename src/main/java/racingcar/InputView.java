@@ -1,11 +1,9 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.List;
 
-public class View {
+public class InputView {
     private static final String DELIMITER = ",";
-    private static final String MESSAGE_WINNER_FORMAT = "최종 우승자 : %s";
 
     public String[] inputCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -21,19 +19,6 @@ public class View {
         System.out.println();
         validateIsNumber(read);
         return Integer.parseInt(read);
-    }
-
-    public void printCurrentResult(List<String> results) {
-        System.out.println("실행 결과");
-        for (String result : results) {
-            System.out.println(result);
-        }
-        System.out.println();
-    }
-
-    public void printWinners(List<String> winners) {
-        String names = String.join(DELIMITER, winners);
-        System.out.println(String.format(MESSAGE_WINNER_FORMAT, names));
     }
 
     private String[] getNames(String s) {
