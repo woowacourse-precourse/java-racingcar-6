@@ -21,15 +21,15 @@ public class Application {
             this.location = 0;
         }
 
-        private String getCarName() {
+        public String getCarName() {
             return this.carName;
         }
 
-        private void move() {
+        public void move() {
             this.location++;
         }
 
-        private int getLocation() {
+        public int getLocation() {
             return this.location;
         }
     }

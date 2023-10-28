@@ -87,6 +87,23 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 자동차_전진_기능_테스트() {
+        String[] carNames = new String[] {"car1", "car2"};
+
+        List<Car> cars = Application.createCars(carNames);
+        Application.moveCars(cars);
+        boolean valid = cars.stream()
+                .map(Car::getLocation)
+                .anyMatch(location -> location == 0 || location == 1);
+
+        assertAll(
+                () -> assertThat(cars).extracting("carName")
+                        .isEqualTo(Arrays.asList("car1", "car2")),
+                () -> assertThat(valid).isTrue()
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
