@@ -13,6 +13,7 @@ public class GameController {
     InputView inputView = new InputView();
     RandomNumber randomNumber = new RandomNumber();
     CarList carList = CarList.getInstance();
+    private final int STANDARD_NUMBER = 4;
 
     int count; //시도할 횟수
 
@@ -24,6 +25,7 @@ public class GameController {
     private void startRace() {
         for (int i = 0; i < count; i++) {
             carRace();
+
         }
     }
 
@@ -35,7 +37,14 @@ public class GameController {
     }
 
     private void carAdvanceOrStop(Car car) {
-        
+        int number = randomNumber.makeNumber();
+        if (checkNumber(number)) {
+            car.setLevelAndLog(car);
+        }
+    }
+
+    private boolean checkNumber(int number) {
+        return number >= STANDARD_NUMBER;
     }
 
     /**
