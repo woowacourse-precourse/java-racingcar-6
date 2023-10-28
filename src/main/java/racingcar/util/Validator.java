@@ -19,4 +19,8 @@ public class Validator {
         }
     }
 
+    public void validName(String input) {
+        return;
+    }
+
 }
