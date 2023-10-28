@@ -17,4 +17,8 @@ public class Car {
     public String getName() {
         return this.name;
     }
+
+    public Integer getForward() {
+        return this.forward;
+    }
 }
