@@ -67,20 +67,27 @@ public class ConsoleViewTest {
         return Stream.of(
                 Arguments.of(
                         Arrays.asList(
-                                new RacingPlayer("희종", 3)), "희종 : ---")
-                , Arguments.of(
+                                new RacingPlayer("희종", 3))
+                        , "희종 : ---"
+                ),
+                Arguments.of(
                         Arrays.asList(
                                 new RacingPlayer("희종", 0))
-                                , "희종 :")
-                , Arguments.of(
+                        , "희종 :"
+                ),
+                Arguments.of(
                         Arrays.asList(
                                 new RacingPlayer("희종", 1),
-                                new RacingPlayer("주현", 3)
-                                ), "희종 : -\n주현 : ---")
-                , Arguments.of(
-                        Arrays.asList(new RacingPlayer("희종", 10),
+                                new RacingPlayer("주현", 3))
+                        , "희종 : -\n주현 : ---"
+                ),
+                Arguments.of(
+                        Arrays.asList(
+                                new RacingPlayer("희종", 10),
                                 new RacingPlayer("주현", 3),
-                                new RacingPlayer("진우", 5)), "희종 : ----------\n주현 : ---\n진우 : -----")
+                                new RacingPlayer("진우", 5))
+                        , "희종 : ----------\n주현 : ---\n진우 : -----"
+                )
         );
     }
 }
