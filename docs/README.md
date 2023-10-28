@@ -75,4 +75,4 @@
 8. RacingGameConfig
 
 - RacingGame에 필요한 객체들을 모아 초기화 하는 책임을 가진 클래스
-  - [ ] RacingGame에 필요한 객체들을 모아 초기화한다.
+  - [x] RacingGame에 필요한 객체들을 모아 초기화한다.
