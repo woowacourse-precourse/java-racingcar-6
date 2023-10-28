@@ -15,4 +15,8 @@ public class Cars {
     public void reset() {
         CarNames.clear();
     }
+
+    public List<String> find() {
+        return CarNames;
+    }
 }

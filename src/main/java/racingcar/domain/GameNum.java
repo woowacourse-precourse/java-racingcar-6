@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 public class GameNum {
-    private int number = 0;
+    private static int number = 0;
 
     public void init(int number) {
         this.number = number;
@@ -9,5 +9,9 @@ public class GameNum {
 
     public void minus() {
         this.number--;
+    }
+
+    public int find() {
+        return number;
     }
 }
