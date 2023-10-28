@@ -16,8 +16,8 @@ public class Service {
     private final int GO_NUMBER = 4;
     private List<String> cars;
 
-    public Service() {
-        this.progressBoard = ProgressBoard.getInstance();
+    public Service(ProgressBoard progressBoard) {
+        this.progressBoard = progressBoard;
         this.inputView = new InputView();
         this.outputView = new OutputView();
         this.numberGenerator = new NumberGenerator();
