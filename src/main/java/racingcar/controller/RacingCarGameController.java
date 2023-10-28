@@ -23,6 +23,7 @@ public class RacingCarGameController {
     public void run() {
         RacingCar racingCar = loadCarNames();
         TryCount tryCount = loadTryCount();
+        generateRacingCarGroup(racingCar);
     }
 
     public RacingCar loadCarNames() {
@@ -37,5 +38,9 @@ public class RacingCarGameController {
         int tryCount = inputHandler.inputTryCount();
 
         return new TryCount(tryCount);
+    }
+
+    public void generateRacingCarGroup(RacingCar racingCar) {
+        racingCarGameService.generateRacingCarGroup(racingCar);
     }
 }
