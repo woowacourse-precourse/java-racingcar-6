@@ -40,11 +40,11 @@
   - moveCount() : 이동 횟수를 입력받는 함수
 
 - OutputView : 메시지를 출력하는 객체
-  - inputCarNameMessage() : 자동차 이름 입력 메시지를 출력하는 함수
-  - inputMoveCountMessage() : 시도 횟수 입력 메시지를 출력하는 함수
-  - carName() : 자동차의 이름을 출력하는 함수
-  - raceStatus() : 자동차의 현재 경주 상황을 출력하는 함수
-  - winner() : 우승자를 출력하는 함수
+  - printInputNameMessage() : 자동차 이름 입력 메시지를 출력하는 함수
+  - printInputCountMessage() : 시도 횟수 입력 메시지를 출력하는 함수
+  - printCarName() : 자동차의 이름을 출력하는 함수
+  - printRaceStatus() : 자동차의 현재 경주 상황을 출력하는 함수
+  - printWinner() : 우승자를 출력하는 함수
 
 ## domain
 - Car : 자동차 객체
