@@ -1,23 +1,38 @@
 package racingcar.model;
 
+import racingcar.model.Car;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Race {
-    private List<Car> cars;
+    private List<Car> carList;
 
-    public Race() {
-        cars = new ArrayList<>();
+    public Race(String inputCarNames) {
+        carList = new ArrayList<>();
+        setCarList(inputCarNames);
     }
 
-    public void setCarNames(String inputString) {
-        String[] splitInput = inputString.split(",");
-        List<String> carNames = new ArrayList<>(Arrays.asList(splitInput));
-        for (String carName : carNames) {
+    public void setCarList(String inputCarNames) {
+        String[] carNameArray = inputCarNames.split(",");
+        List<String> carNameList = new ArrayList<>(Arrays.asList(carNameArray));
+        for (String carName : carNameList) {
             // carName에 대한 예외 검사
             Car newCar = new Car(carName);
-            cars.add(newCar);
+            carList.add(newCar);
         }
     }
+    
+    public void moveCars() {
+        for (Car car : carList) {
+            int randomNumber = RandomGenerator.createNumber();
+            if (randomNumber > 4) {
+                car.moveForward();
+            }
+        }
+    }
+
+
+
 }
