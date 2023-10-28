@@ -8,13 +8,8 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
-
+        Car car = new Car();
     }
-}
-
-class Game{
-
 }
 
 class User{
@@ -26,14 +21,13 @@ class User{
 }
 
 class Car{
-
-    static void CreateCarName() {
+    List<String> CarNameList = new ArrayList<>();
+    Car() {
         String CarName = readLine();
-        List<String> CarNameList = new ArrayList<>();
-
         for (String name : CarName.split(",")){
             CarNameList.add(name.trim());
         }
+        CheckException.CheckRightCarName(CarNameList);
     }
 
 
