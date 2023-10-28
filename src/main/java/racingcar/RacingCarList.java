@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarList {
-    private List<RacingCarCreator> racingCarsList = new ArrayList<>();
+    private List<RacingCar> racingCarsList = new ArrayList<>();
     private final User user;
-    private final RacingCarCreator racingCarCreator;
+    private final RacingCar racingCar;
 
-    public RacingCarList(User user, RacingCarCreator racingCarCreator) {
+    public RacingCarList(User user, RacingCar racingCar) {
         this.user = user;
-        this.racingCarCreator = racingCarCreator;
+        this.racingCar = racingCar;
     }
 
-    public List<RacingCarCreator> getRacingCarList() {
+    public List<RacingCar> getRacingCarList() {
         enrollNewRacingCar();
         return racingCarsList;
     }
@@ -23,13 +23,13 @@ public class RacingCarList {
     }
 
     private void createNewRacingCar() {
-        String[] carNames = getCarNames();
+        String[] carNames = getCarNamesFromUser();
         for (String carName : carNames) {
-            racingCarsList.add(racingCarCreator.createNewCar(carName));
+            racingCarsList.add(racingCar.createNewCar(carName));
         }
     }
 
-    private String[] getCarNames() {
+    private String[] getCarNamesFromUser() {
         return user.inputCarNames();
     }
 }
