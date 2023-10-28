@@ -25,6 +25,7 @@ public class RacingGameService {
     public void start() {
         setCars();
         setRemainChange();
+        outputView.printResult();
         mainSequence();
     }
 
@@ -39,9 +40,7 @@ public class RacingGameService {
 
     private void movingSequence() {
         for (Car car : entry) {
-            if (moving.decide()) {
-                car.move();
-            }
+            moving.moveOrStop(car);
         }
     }
 

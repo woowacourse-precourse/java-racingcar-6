@@ -22,6 +22,10 @@ public class OutputView {
         System.out.println(Message.COUNT.getMessage());
     }
 
+    public void printResult() {
+        System.out.println("\n" + Message.RESULT.getMessage());
+    }
+
     public void printWinner(List<String> winners) {
         System.out.println(Message.WINNER.getMessage() + String.join(", ", winners));
     }
