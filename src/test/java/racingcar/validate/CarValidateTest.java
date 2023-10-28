@@ -1,5 +1,7 @@
 package racingcar.validate;
 
+import static org.assertj.core.api.Assertions.*;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +15,7 @@ class CarValidateTest {
         String carName = "";
 
         //when && then
-        Assertions.assertThatThrownBy(() -> RacingCarValidate.validateCarName(carName))
+        assertThatThrownBy(() -> RacingCarValidate.validateCarName(carName))
             .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -24,8 +26,7 @@ class CarValidateTest {
         String carName = "a".repeat(6);
 
         //when && then
-        Assertions.assertThatThrownBy(() -> RacingCarValidate.validateCarName(carName))
+        assertThatThrownBy(() -> RacingCarValidate.validateCarName(carName))
             .isInstanceOf(IllegalArgumentException.class);
     }
-
 }
