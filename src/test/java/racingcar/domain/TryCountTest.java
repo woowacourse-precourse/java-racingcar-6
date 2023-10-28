@@ -9,7 +9,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 public class TryCountTest {
 
-    @DisplayName("1 미만의 숫자가 입력되면 예외가 발생한다")
+    @DisplayName("1보다 작은 숫자가 입력되면 예외가 발생한다")
     @ParameterizedTest(name = "[{index}] input : {0}")
     @ValueSource(ints = {-1, 0})
     void createTryCountWithInvalidRange(int input) {
