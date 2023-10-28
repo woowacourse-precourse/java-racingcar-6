@@ -33,6 +33,7 @@ public class CustomCollections {
         List<T> candidates = new ArrayList<>();
 
         T max = i.next();
+        candidates.add(max);
 
         while (i.hasNext()) {
             T next = i.next();
