@@ -3,58 +3,90 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.ArrayList;
+import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.Arrays;
-import java.util.List;
+
 
 public class Application {
     public static void main(String[] args) {
-        List<String> carNameList = inputCarNames();
-        int numberOfMoves = inputNumberOfMoves();
+        Map<String, Integer> carNameAndMovementCountMap = inputCarNames();
+        int numberOfRounds = inputNumberOfRounds();
 
-
+        System.out.println("실행 결과");
+        executeAllRounds(carNameAndMovementCountMap, numberOfRounds);
     }
 
-    public static int inputNumberOfMoves() {
+
+    public static Map<String, Integer> executeAllRounds(Map<String, Integer> carNameAndMovementCountMap, int numberOfRounds) {
+        for (int i=0; i<numberOfRounds; i++) {
+            executeMovement(carNameAndMovementCountMap);
+        }
+        return carNameAndMovementCountMap;
+    }
+
+    private static void executeMovement(Map<String, Integer> carNameAndMovementCountMap) {
+        carNameAndMovementCountMap.forEach((carName, movementCount) -> {
+            if (Randoms.pickNumberInRange(0, 9) > 3) {
+                carNameAndMovementCountMap.put(carName, ++movementCount);
+            };
+            printResultAfterMovement(carName, movementCount);
+        });
+        System.out.println();
+    }
+
+    private static void printResultAfterMovement(String carName, Integer movementCount) {
+        System.out.print(carName + " : ");
+
+        for (int j=0; j<movementCount; j++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
+
+    public static int inputNumberOfRounds() {
         System.out.println("시도할 회수는 몇회인가요?");
-        String inputNumberOfMovesString = Console.readLine().trim();
-        return makeNumberOfMovesInteger(inputNumberOfMovesString);
+        String inputNumberOfRoundsString = Console.readLine().trim();
+        return makeNumberOfRoundsInteger(inputNumberOfRoundsString);
     }
 
-    private static int makeNumberOfMovesInteger(String inputNumberOfMovesString) {
-        return verifyIfIsValidNumber(inputNumberOfMovesString);
+    private static int makeNumberOfRoundsInteger(String inputNumberOfRoundsString) {
+        return verifyIfIsValidNumber(inputNumberOfRoundsString);
     }
 
-    private static int verifyIfIsValidNumber(String inputNumberOfMovesString) {
-        int inputNumberOfMoves = 0;
+    private static int verifyIfIsValidNumber(String inputNumberOfRoundsString) {
+        int inputNumberOfRounds = 0;
 
         try {
-            inputNumberOfMoves = Integer.parseInt(inputNumberOfMovesString);
+            inputNumberOfRounds = Integer.parseInt(inputNumberOfRoundsString);
 
-            if (inputNumberOfMoves < 1) {
+            if (inputNumberOfRounds < 1) {
                 throw new IllegalArgumentException("1 ~ 2147483647 사이의 유효한 숫자를 입력해 주세요.");
             }
-
-            return inputNumberOfMoves;
+            System.out.println();
+            return inputNumberOfRounds;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("1 ~ 2147483647 사이의 유효한 숫자를 입력해 주세요.");
         }
+
     }
 
-    public static List<String> inputCarNames() {
+
+    public static Map<String, Integer> inputCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputCarNamesString = Console.readLine().trim();
-        return makeCarNameList(inputCarNamesString);
+        return makeCarNameMap(inputCarNamesString);
     }
 
-    private static List<String> makeCarNameList(String inputCarNamesString) {
+    private static Map<String, Integer> makeCarNameMap(String inputCarNamesString) {
         verifyIfStartOrEndWithComma(inputCarNamesString);
 
-        List<String> carNameList = new ArrayList<>();
+        Map<String, Integer> carNameMap = new LinkedHashMap<>();
         Arrays.stream(inputCarNamesString.split(","))
-                .forEach(carName -> verifyCarName(carNameList, carName));
+                .forEach(carName -> verifyCarName(carNameMap, carName));
 
-        return carNameList;
+        return carNameMap;
     }
 
     private static void verifyIfStartOrEndWithComma(String inputCarNameString) {
@@ -63,7 +95,7 @@ public class Application {
         }
     }
 
-    private static void verifyCarName(List<String> carNameList, String carName) {
+    private static void verifyCarName(Map<String, Integer> carNameMap, String carName) {
         String carNameTrim = carName.trim();
 
         if (carNameTrim.isEmpty()) {
@@ -74,10 +106,10 @@ public class Application {
             throw new IllegalArgumentException("자동차 이름의 길이는 5자리 이하 이어야 합니다.");
         }
 
-        if (carNameList.contains(carNameTrim)) {
+        if (carNameMap.containsKey(carNameTrim)) {
             throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
         }
 
-        carNameList.add(carNameTrim);
+        carNameMap.put(carNameTrim, 0);
     }
 }

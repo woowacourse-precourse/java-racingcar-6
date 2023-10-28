@@ -8,7 +8,7 @@ import java.io.ByteArrayInputStream;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class InputNumberOfMovesTest {
+public class InputNumberOfRoundsTest {
 
     @Test
     void 정상_입력시_정수반환() {
@@ -17,7 +17,7 @@ public class InputNumberOfMovesTest {
         String testInput = "5";
         System.setIn(new ByteArrayInputStream(testInput.getBytes()));
 
-        Assertions.assertThat(Application.inputNumberOfMoves()).isEqualTo(5);
+        Assertions.assertThat(Application.inputNumberOfRounds()).isEqualTo(5);
     }
 
     @Test
@@ -47,7 +47,7 @@ public class InputNumberOfMovesTest {
         Console.close();
         System.setIn(new ByteArrayInputStream(testInput.getBytes()));
 
-        assertThatThrownBy(Application::inputNumberOfMoves)
+        assertThatThrownBy(Application::inputNumberOfRounds)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("1 ~ 2147483647 사이의 유효한 숫자를 입력해 주세요.");
     }

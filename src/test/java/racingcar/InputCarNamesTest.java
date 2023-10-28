@@ -18,7 +18,7 @@ public class InputCarNamesTest {
         String testInput = " Jun , Alex , David ";
         System.setIn(new ByteArrayInputStream(testInput.getBytes()));
 
-        assertThat(Application.inputCarNames()).containsAll(Arrays.asList("Jun", "Alex", "David"));
+        assertThat(Application.inputCarNames()).containsKeys("Jun", "Alex", "David");
     }
 
     @Test
