@@ -35,6 +35,8 @@ public class Racing {
     }
 
     private void initCarsRandomNum(List<Car> carList){
-
+        for (Car car : carList) {
+            car.initRandomNum();
+        }
     }
 }
