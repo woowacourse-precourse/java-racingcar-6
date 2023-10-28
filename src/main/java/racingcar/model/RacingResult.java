@@ -1,27 +1,21 @@
 package racingcar.model;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class RacingResult {
 
     private TryCount tryCount;
     private Map<String, Integer> result;
-    private static int INITIAL_COUNT = 0;
+    private static int INITIAL_DISTANCE = 0;
 
     public RacingResult(CarNames carNames, TryCount tryCount) {
         this.tryCount = tryCount;
         result = new HashMap<>();
 
         for (String carName : carNames.getCarNames()) {
-            result.put(carName, INITIAL_COUNT);
+            result.put(carName, INITIAL_DISTANCE);
         }
 
-    }
-
-    public Map<String, Integer> getResult() {
-        return Collections.unmodifiableMap(result);
     }
 
     public void decreaseCount() {
@@ -32,6 +26,19 @@ public class RacingResult {
         result.put(carName, result.get(carName).intValue() + 1);
     }
 
+    public Map<String, Integer> getResult() {
+        return Collections.unmodifiableMap(result);
+    }
+    public Set<String> getNames() {
+        return result.keySet();
+    }
 
+    public List<String> getWinners() {
+        int maxDistance = Collections.max(result.values());
+        Set<String> carNames = result.keySet();
 
+        return carNames.stream()
+                .filter(carName -> result.get(carName) == maxDistance)
+                .toList();
+    }
 }

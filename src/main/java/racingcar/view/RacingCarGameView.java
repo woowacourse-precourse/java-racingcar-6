@@ -2,7 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.RacingResult;
-
+import racingcar.model.Winners;
 import java.util.Map;
 
 public class RacingCarGameView {
@@ -40,6 +40,10 @@ public class RacingCarGameView {
             }
             System.out.println();
         }
+
+    }
+
+    public void printFinalResult(Winners winners) {
 
     }
 

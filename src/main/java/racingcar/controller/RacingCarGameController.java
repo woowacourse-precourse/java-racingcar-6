@@ -1,9 +1,6 @@
 package racingcar.controller;
 
-import racingcar.model.CarNames;
-import racingcar.model.RacingCarGameService;
-import racingcar.model.RacingResult;
-import racingcar.model.TryCount;
+import racingcar.model.*;
 import racingcar.view.RacingCarGameView;
 
 public class RacingCarGameController {
@@ -31,8 +28,8 @@ public class RacingCarGameController {
             // 결과 뿌리는 뷰 호출
             racingCarGameView.printResult(racingResult);
         }
-
-        // 마지막 반환 결과 가지고 우승자 판단
-
+        Winners winners = new Winners(racingResult.getWinners());
+        // 마지막 반환 결과 가지고 우승자 판단 후 출력
+        racingCarGameView.printFinalResult(winners);
     }
 }
