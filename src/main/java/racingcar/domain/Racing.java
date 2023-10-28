@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Racing {
@@ -8,7 +9,13 @@ public class Racing {
     }
 
     private List<Car> toCarList(List<String> carNameList){
+        List<Car> carList = new ArrayList<>();
 
+        for (String carName : carNameList) {
+            carList.add(new Car(carName));
+        }
+
+        return carList;
     }
 
     private boolean isMove(Car car){
