@@ -48,8 +48,8 @@ class ApplicationTest extends NsTest {
         public void toStringTest(){
             Car pobi = new Car("pobi");
             String result = "pobi : --";
-            pobi.moveForward(5);
-            pobi.moveForward(5);
+            pobi.moveAdvence(5);
+            pobi.moveAdvence(5);
 
             assertThat(pobi.toString()).isEqualTo(result);
         }

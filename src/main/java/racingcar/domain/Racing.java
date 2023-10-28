@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.util.Validator;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.List;
 
 import static racingcar.util.ConstMessages.ATTEMPT_COUNT_MESSAGE;
 import static racingcar.util.Validator.validateCarNames;
+import static racingcar.util.Validator.validateNumericInput;
 
 public class Racing {
     private final List<Car> carList;
@@ -34,9 +36,27 @@ public class Racing {
 
     public void racingStart(){
         System.out.println(ATTEMPT_COUNT_MESSAGE);
+        String countOfTry = Console.readLine();
+        validateNumericInput(countOfTry);
+        int countNumber = Integer.parseInt(countOfTry);
 
-
+        for (int i = 0; i < countNumber; i++) {
+            raceOneStep();
+        }
     }
+
+    public void raceOneStep(){
+        for(Car car: carList){
+            int randomNumber = Randoms.pickNumberInRange(0,9);
+            car.moveAdvance(randomNumber);
+        }
+        printRacingStatus();
+    }
+
+    public void printRacingStatus(){
+        System.out.println(this.toString());
+    }
+
 
 
     @Override

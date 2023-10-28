@@ -9,7 +9,7 @@ public class Car {
         this.name = name;
     }
 
-    public void moveForward(int randomNumber) {
+    public void moveAdvance(int randomNumber) {
         if (isOkayToGoForward(randomNumber)) {
             this.raceDistance++;
             return;

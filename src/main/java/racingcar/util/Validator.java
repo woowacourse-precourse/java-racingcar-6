@@ -19,7 +19,6 @@ public class Validator {
     }
 
 
-
     private static boolean validateNameLength(String input) {
         return Arrays.stream(input.split(","))
                 .map(String::length)
