@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import racingcar.common.Message;
 import racingcar.entity.Car;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -25,7 +26,7 @@ public class RacingGameService {
     public void start() {
         setCars();
         setRemainChange();
-        outputView.printResult();
+        outputView.printMessage(Message.RESULT);
         mainSequence();
     }
 
@@ -54,12 +55,12 @@ public class RacingGameService {
     }
 
     private void setCars() {
-        outputView.printStart();
+        outputView.printMessage(Message.START);
         inputView.getCarsName().forEach(name -> entry.add(new Car(name)));
     }
 
     private void setRemainChange() {
-        outputView.printPlayCount();
+        outputView.printMessage(Message.COUNT);
         remainChance = inputView.getPlayCount();
     }
 

@@ -5,12 +5,12 @@ import java.util.List;
 public class InputValidator {
 
     public List<String> convertNames(String input) {
-        String[] names = checkBoundary(input).split(",");
+        List<String> names = getNameList(input);
 
         for (String name : names) {
             checkConditions(name);
         }
-        return List.of(names);
+        return names;
     }
 
     public int convertCount(String input) {
@@ -41,6 +41,10 @@ public class InputValidator {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(e);
         }
+    }
+
+    private List<String> getNameList(String input) {
+        return List.of(checkBoundary(input).split(","));
     }
 
 }

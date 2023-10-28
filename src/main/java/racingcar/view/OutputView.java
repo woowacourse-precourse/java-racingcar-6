@@ -14,16 +14,8 @@ public class OutputView {
         System.out.println();
     }
 
-    public void printStart() {
-        System.out.println(Message.START.getMessage());
-    }
-
-    public void printPlayCount() {
-        System.out.println(Message.COUNT.getMessage());
-    }
-
-    public void printResult() {
-        System.out.println("\n" + Message.RESULT.getMessage());
+    public void printMessage(Message message) {
+        System.out.println(message.getMessage());
     }
 
     public void printWinner(List<String> winners) {
