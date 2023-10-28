@@ -8,4 +8,7 @@ public class Car {
         return Randoms.pickNumberInRange(0, 9);
     }
 
+    private boolean isForward(int randomNumber) {
+        return randomNumber >= 4;
+    }
 }
