@@ -21,4 +21,12 @@ public class Race {
             car.moveForward(Randoms.pickNumberInRange(0, 9));
         }
     }
+
+    private void printRoundResult() {
+        for (Car car : cars) {
+            car.printPosition();
+        }
+        System.out.println();
+    }
+
 }
