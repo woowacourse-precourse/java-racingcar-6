@@ -24,4 +24,8 @@ public class CarRepository {
                     garage.add(new Car(carDto.getCarName()));
                 });
     }
+
+    public ArrayList<Car> findAll() {
+        return garage;
+    }
 }

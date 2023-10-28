@@ -50,9 +50,12 @@ public class Controller {
     }
 
     private void runTrack() {
+        service.runOnce();
     }
 
     private void printEachTrackResult() {
+        CarsDto carsDto = service.getResultOfOneTrack();
+        OutView.printResultEachTrack(carsDto);
     }
 
 
@@ -64,6 +67,6 @@ public class Controller {
     }
 
     public void printFianlResult() {
-        OutView.printWinner();
+       //OutView.printWinner();
     }
 }
