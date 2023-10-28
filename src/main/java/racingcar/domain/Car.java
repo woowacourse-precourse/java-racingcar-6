@@ -28,4 +28,11 @@ public class Car {
         return carName + " : " + log;
     }
 
+    public int getLevel() {
+        return level;
+    }
+
+    public String getCarName() {
+        return carName;
+    }
 }
