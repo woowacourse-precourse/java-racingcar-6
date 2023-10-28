@@ -23,39 +23,40 @@ public class Application {
         System.out.println("시도할 횟수는 몇 회인가요?");
         int N = Integer.parseInt(Console.readLine());
 
-        // 랜덤으로 각 차마다 주행
-        randomDrive(carList);
 
         // 주행 결과 출력
         System.out.println("\n실행 결과");
+
+        // 랜덤으로 각 차마다 주행
         for(int i=0; i<N; i++) {
-            for(Car car : carList) {
-                System.out.print(car.getName() + " : ");
-                for(int j=0; j<car.getCount(); j++) {
-                    System.out.print("-");
-                }
-                System.out.println();
-            }
-            System.out.println();
+            randomDrive(carList);
+            // 주행 상황 출력
+            printDistance();
         }
 
         // 경기 결과 출력
         printResult();
     }
 
+    static void printDistance() {
+        for(Car car : carList) {
+            System.out.print(car.getName() + " : ");
+            for(int j=0; j<car.getCount(); j++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
     static void printWinner(int maxDistance) {
-        ArrayList<Car> winnerList = new ArrayList<>();
+        ArrayList<String> winnerList = new ArrayList<>();
         for(Car car : carList) {
             if(car.getCount() == maxDistance) {
-                winnerList.add(car);
+                winnerList.add(car.getName());
             }
         }
-
-        String result = null;
-        for(Car winner : winnerList) {
-            result = String.join(", ", winner.getName());
-        }
-        System.out.println("최종 우승자 : " + result);
+        System.out.println("최종 우승자 : " + String.join(", ", winnerList));
     }
 
     static int getMaxDistance() {
@@ -77,10 +78,11 @@ public class Application {
     }
 
     static void randomDrive(ArrayList<Car> carList) {
+
         for(Car car : carList) {
             int randomNum = Randoms.pickNumberInRange(0, 9);
             if(randomNum >= 4) {
-                car.setCountPlus(randomNum);
+                car.setCountPlus();
             }
         }
     }
