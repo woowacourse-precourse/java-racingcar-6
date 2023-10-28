@@ -10,7 +10,6 @@ public class RacingGame {
     private static final String RESULT_PHRASE = "실행 결과";
     private static final String WINNER_PHRASE = "최종 우승자 : ";
 
-    LinkedHashMap<String, Integer> racingCars;
     int attemptingNum;
 
     public void startGame() {
