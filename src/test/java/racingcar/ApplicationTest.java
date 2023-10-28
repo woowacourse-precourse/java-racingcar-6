@@ -138,7 +138,11 @@ class ApplicationTest extends NsTest {
         Assertions.assertEquals("jagavi, jokyo", Application.judgeChampion(victory, name));
     }
 
-
+    @Test
+    void max_test() {
+        int[] victory = {1, 5, 8, 4, 6};
+        Assertions.assertEquals(8, Application.max(victory));
+    }
 
     @Override
     public void runMain() {
