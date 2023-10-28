@@ -45,7 +45,6 @@ public class CarList {
 		return enteredList.split(ENTERED_LIST_SEPARATOR);
 	}
 
-
 	public String findWinner() {
 
 		final int INIT_INDEX = 0;
@@ -74,7 +73,6 @@ public class CarList {
 
 	}
 
-
 	private Set<Car> makeRemoveList() {
 
 		Set<Car> removeList = new HashSet<>();
@@ -92,12 +90,17 @@ public class CarList {
 
 	private void addRemoveList(Set<Car> removeList, int referenceIndex, int comparableIndex) {
 
-		final int COMPARE_EQUAL_SIGN = 0;
-
-		if (carList.get(referenceIndex).compareDistance(carList.get(comparableIndex)) < COMPARE_EQUAL_SIGN) {
+		if (decideRemove(referenceIndex, comparableIndex)) {
 			removeList.add(carList.get(referenceIndex));
 		}
 
+	}
+
+	private boolean decideRemove(int referenceIndex, int comparableIndex) {
+
+		final int COMPARE_EQUAL_SIGN = 0;
+
+		return carList.get(referenceIndex).compareDistance(carList.get(comparableIndex)) < COMPARE_EQUAL_SIGN;
 	}
 
 	public Car getEachCar(int index) {
