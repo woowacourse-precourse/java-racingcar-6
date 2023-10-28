@@ -22,7 +22,11 @@ public class Car {
         }
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public int getForwards() {
-        return forwards;
+        return this.forwards;
     }
 }
