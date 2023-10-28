@@ -2,7 +2,6 @@ package racingcar.controller;
 
 import racingcar.domain.Car;
 import racingcar.domain.Race;
-import racingcar.domain.strategy.MoveStrategy;
 import racingcar.domain.strategy.RandomMoveStrategy;
 import racingcar.util.InputValidator;
 import racingcar.view.InputView;
@@ -11,11 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
-    private final MoveStrategy moveStrategy;
-
-    public RacingGame() {
-        this.moveStrategy = new RandomMoveStrategy();
-    }
 
     public void start() {
         String carNamesInput = inputAndValidateCarNames();
@@ -27,12 +21,13 @@ public class RacingGame {
 
         System.out.println("실행 결과");
 
+        Race race = new Race(cars, new RandomMoveStrategy());
         for (int currentRound = 0; currentRound < roundCount; currentRound++) {
-            move(cars);
-            printProgress(cars);
+            race.oneRound();
+            race.printProgress();
         }
 
-        System.out.print("최종 우승자 : " + getWinners(cars));
+        System.out.print("최종 우승자 : " + race.getWinners());
     }
 
     private String inputAndValidateCarNames() {
@@ -58,41 +53,5 @@ public class RacingGame {
         }
 
         return cars;
-    }
-
-    private void move(List<Car> cars) {
-        for (Car car : cars) {
-            if (moveStrategy.isAbleToMove())
-                car.move();
-        }
-    }
-
-    private void printProgress(List<Car> cars) {
-        for (Car car : cars) {
-            System.out.println(car.getName() + " : " + getProgress(car));
-        }
-        System.out.println();
-    }
-
-    private String getProgress(Car car) {
-        return "-".repeat(Math.max(0, car.getPosition()));
-    }
-
-    private String getWinners(List<Car> cars) {
-        List<String> winners = new ArrayList<>();
-        int maxPosition = 0;
-
-        for (Car car : cars) {
-            if (car.getPosition() > maxPosition) {
-                maxPosition = car.getPosition();
-                winners.clear();
-            }
-
-            if (car.getPosition() == maxPosition) {
-                winners.add(car.getName());
-            }
-        }
-
-        return String.join(",", winners);
     }
 }
