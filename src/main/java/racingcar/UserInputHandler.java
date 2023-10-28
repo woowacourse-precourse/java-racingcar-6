@@ -21,7 +21,7 @@ public class UserInputHandler {
         return cars;
     }
 
-    private static void duplicateCarNames(String[] userInput) {
+    public void duplicateCarNames(String[] userInput) {
         for (int i = 0; i < userInput.length - 1; i++) {
             if (userInput[i].contains(userInput[i + 1])) {
                 throw new IllegalArgumentException("중복된 입력이 발생했습니다.");
@@ -29,13 +29,13 @@ public class UserInputHandler {
         }
     }
 
-    private static void validateInputNotEmpty(String userInput) {
+    public void validateInputNotEmpty(String userInput) {
         if (userInput.isEmpty()) {
             throw new IllegalArgumentException("입력이 없습니다.");
         }
     }
 
-    private void validateCarNames(String[] carNames) {
+    public void validateCarNames(String[] carNames) {
         for (String carName : carNames) {
             if (carName.length() > 5) {
                 throw new IllegalArgumentException("차의 이름은 5글자 이하이어야 합니다.");
@@ -59,6 +59,16 @@ public class UserInputHandler {
             throw new IllegalArgumentException("숫자가 입력되어야 합니다.");
         }
 
+    }
+
+    // 테스트를 위한 함수 코드
+    public List<String> getUserCarNames(String userInput) {
+        String[] carNames = userInput.split(",");
+        validateInputNotEmpty(userInput);
+        duplicateCarNames(carNames);
+        validateCarNames(carNames);
+
+        return Arrays.asList(carNames);
     }
 
 
