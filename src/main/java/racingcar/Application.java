@@ -1,6 +1,8 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
@@ -47,6 +49,25 @@ public class Application {
                 System.out.println(name + " : " + changeDash(memberStates.get(name)));
             }
             System.out.println();
+        }
+
+        // 최종 우승자 판별
+
+        // 최대 이동값 구하기
+        int maxNumber = 0;
+        List<String> winner = new ArrayList<>();
+        for (String name : memberStates.keySet()) {
+            if (memberStates.get(name) > maxNumber) {
+                maxNumber = memberStates.get(name);
+                winner.clear();
+                winner.add(name);
+            }
+            if (memberStates.get(name) == maxNumber) {
+                if (winner.contains(name)) {
+                    continue;
+                }
+                winner.add(name);
+            }
         }
     }
 
