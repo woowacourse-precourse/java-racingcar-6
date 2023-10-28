@@ -12,18 +12,22 @@ public class PlayerMove {
         this.distance = distance;
     }
 
-    public static PlayerMove from(Player player) {
+    public static PlayerMove init(Player player) {
         return new PlayerMove(player, Distance.from(0));
     }
 
-    public static PlayerMove from(Player player, Distance distance) {
+    public static PlayerMove init(Player player, Distance distance) {
         return new PlayerMove(player, distance);
     }
 
-    public static PlayerMove fromTest() {
-        Player testPlayer = Player.from("test");
-        Distance initDistance = Distance.from(0);
-        return new PlayerMove(testPlayer, initDistance);
+    public void move(boolean isMove) {
+        if (isMove) {
+            distance.increase();
+        }
+    }
+
+    public Distance getDistance() {
+        return distance;
     }
 
     @Override
@@ -36,11 +40,17 @@ public class PlayerMove {
         }
         PlayerMove that = (PlayerMove) o;
         return Objects.equals(player, that.player) && Objects.equals(distance,
-            that.distance);
+                that.distance);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(player, distance);
+    }
+
+    public static PlayerMove fromTest() {
+        Player testPlayer = Player.from("test");
+        Distance initDistance = Distance.from(0);
+        return new PlayerMove(testPlayer, initDistance);
     }
 }
