@@ -8,7 +8,8 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import org.assertj.core.api.Assert;
+import java.io.ByteArrayInputStream;
+import java.util.List;
 
 class ApplicationTest_function_list extends NsTest {
 
@@ -22,7 +23,17 @@ class ApplicationTest_function_list extends NsTest {
 
     @Test
     void 기능목록_테스트_자동차_이름_입력() {
+        List<String> testInputs = List.of(
+                "pobi,woni,jun,0,1,2,3,4,5,6,7,8,9",
+                "pobi,0,1,2,3,4,5,6,7,8,9,woni,jun",
+                "0,1,2,3,4,5,6,7,8,9,pobi,woni,jun");
 
+        for (int i = 0; i < testInputs.size() - 1; i++) {
+            final byte[] buf = String.join("\n", testInputs).getBytes();
+            System.setIn(new ByteArrayInputStream(buf));
+            assertThat(Input.inputCarName())
+                    .containsAll(List.of("pobi", "woni", "jun", "0", "5", "9"));
+        }
     }
 
     @Test
