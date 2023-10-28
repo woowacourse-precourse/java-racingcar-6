@@ -1,15 +1,17 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashMap;
+import racingcar.util.RandomNumberGenerator;
 
 public class Racing {
     private final Cars cars;
     private final long attempCount;
+    private final RandomNumberGenerator randomNumberGenerator;
 
-    public Racing(Cars cars, long attemptCount) {
+    public Racing(Cars cars, long attemptCount, RandomNumberGenerator randomNumberGenerator) {
         this.cars = cars;
         this.attempCount = attemptCount;
+        this.randomNumberGenerator = randomNumberGenerator;
     }
 
     public void race() {
@@ -25,7 +27,7 @@ public class Racing {
     }
 
     private int pickRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return randomNumberGenerator.generate();
     }
 
     private boolean isMovable(int randomValue) {

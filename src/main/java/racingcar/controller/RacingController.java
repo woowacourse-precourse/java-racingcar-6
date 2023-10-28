@@ -6,6 +6,8 @@ import racingcar.domain.CarNameValidator;
 import racingcar.domain.Cars;
 import racingcar.domain.Racing;
 import racingcar.util.BlankValidator;
+import racingcar.util.RacingNumberGenerator;
+import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -15,6 +17,7 @@ public class RacingController {
     private final BlankValidator blankValidator = new BlankValidator();
     private final CarNameValidator carNameValidator = new CarNameValidator(blankValidator);
     private final AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
+    private final RandomNumberGenerator randomNumberGenerator = new RacingNumberGenerator();
     private final Cars cars = new Cars();
     private Racing racing;
 
@@ -38,7 +41,7 @@ public class RacingController {
     private void setAttemptCountForRace() {
         String attemptCountInput = inputView.printAttemptCountRequest();
         int attemptCount = attemptCountValidator.getAttemptCount(attemptCountInput);
-        racing = new Racing(cars, attemptCount);
+        racing = new Racing(cars, attemptCount, randomNumberGenerator);
         outputView.printEnterLine();
     }
 
