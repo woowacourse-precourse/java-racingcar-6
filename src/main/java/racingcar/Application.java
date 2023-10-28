@@ -16,11 +16,10 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         int numberOfRaces = inputNumberOfRaces();
 
-        recordCarAction(carNamesList);
 
         System.out.println(carNamesList);
-        System.out.println(carNamesList.size());
-        System.out.println(numberOfRaces);
+
+        printCarRace(numberOfRaces, carNamesList);
     }
 
     public static List<String> inputCarNames() {
@@ -67,4 +66,22 @@ public class Application {
         return carActionList;
     }
 
+    public static void printCarRace(int numberOfRaces, List<String> carNamesList) {
+        int numberOfCars = carNamesList.size();
+        List<Integer> preActionList = new ArrayList<>(Collections.nCopies(numberOfCars, 0));
+
+        for (int j = 0; j < numberOfRaces; j++) {
+            List<Integer> carActionList = recordCarAction(carNamesList);
+
+            for (int i = 0; i < carNamesList.size(); i++) {
+                String car = carNamesList.get(i);
+                int action = preActionList.get(i) + carActionList.get(i);
+                String dashes = "-".repeat(action);
+                System.out.println(car + " : " + dashes);
+
+                preActionList.set(i, action);
+            }
+            System.out.println();
+        }
+    }
 }
