@@ -47,11 +47,13 @@
 자동차 경주에 참가한 자동차 리스트를 저장해 놓은 클래스
 
 - member instance
-   - List<RacingCar> racingCars : 자동차 리스트
+   - List<String> racingCars : 자동차 리스트
 - member function
-   - [x] RacingCars(RacingCarsListMaker) : racingCars 초기화
+   - [x] RacingCars(List<String>) : racingCars 초기화
    - [x] List <String> getWinners() : 최종 우승자의 리스트를 반환
-
+   - [ ] void play() : 자동차들 경주
+   - [ ] Map<String, Integer> makeResultMap() : 자동차 리스트를 가지고 출력에 사용될 map 생성
+  
 ### RacingCar
 자동차의 이름과 이동 거리를 저장해 놓는 클래스
 
