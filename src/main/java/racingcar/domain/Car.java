@@ -2,17 +2,19 @@ package racingcar.domain;
 
 public class Car {
     private String name;
-    private Integer successMoveForwardCount;
+    private Integer successMoveForwardCount = 0;
 
-    private String moveForwardStatus;
+    private String moveForwardStatus = "";
 
     public String getMoveForwardStatus() {
         return moveForwardStatus;
     }
 
-    public void setMoveForwardStatus(Integer tryRepetitionNumber) {
-        for (int i = 0; i < tryRepetitionNumber; i++) {
-            this.moveForwardStatus += "-";
+    public void setMoveForwardStatus() {
+        String moveForwardCountTemp = "";
+        for (int i = 0; i < this.successMoveForwardCount; i++) {
+            moveForwardCountTemp += "-";
+            this.moveForwardStatus = moveForwardCountTemp;
         }
     }
 
@@ -28,7 +30,7 @@ public class Car {
         return successMoveForwardCount;
     }
 
-    public void setSuccessMoveForwardCount(Integer successMoveForwardCount) {
-        this.successMoveForwardCount = successMoveForwardCount;
+    public void setSuccessMoveForwardCount() {
+        this.successMoveForwardCount++;
     }
 }
