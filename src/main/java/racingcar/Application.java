@@ -1,10 +1,28 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalArgumentException {
+        String names_cars_input;
+        String[] names_cars;
+        String attempts_input;
+        int attempts;
+        List<Car> cars_list;
+
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        names_cars_input = Console.readLine();
+        names_cars = names_cars_input.split(",");
         
+        System.out.println("시도할 회수는 몇회인가요?");
+        attempts_input = Console.readLine();
+        try {
+            attempts = Integer.parseInt(attempts_input);
+        } catch (Exception e) {
+            throw new IllegalArgumentException();
+        }
+
     }
 
 
@@ -40,4 +58,6 @@ public class Application {
             return car_name;
         }
     }
+
+
 }
