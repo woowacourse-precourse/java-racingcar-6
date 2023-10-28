@@ -11,7 +11,7 @@ public class Application {
     private static int ASCII_NINE = 57;
     private static int MOVE_NUMBER = 4;
 
-    private static class Car {
+    public static class Car {
 
         String carName;
         int location;
@@ -38,7 +38,7 @@ public class Application {
         playGame();
     }
 
-    private static void playGame() {
+    public static void playGame() {
         printInputCarNameMessage();
         String[] carNames = inputCarNames();
         printInputAttemptsNumMessage();
@@ -51,26 +51,26 @@ public class Application {
         printWinners(cars);
     }
 
-    private static void printInputCarNameMessage() {
+    public static void printInputCarNameMessage() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
-    private static void printInputAttemptsNumMessage() {
+    public static void printInputAttemptsNumMessage() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    private static void printExecuteResultMessage() {
+    public static void printExecuteResultMessage() {
         System.out.println();
         System.out.println("실행 결과");
     }
 
-    private static void printWinners(final List<Car> cars) {
+    public static void printWinners(final List<Car> cars) {
         List<String> winnerCarNames = getWinners(cars);
         System.out.print("최종 우승자 : ");
         System.out.println(String.join(", ", winnerCarNames));
     }
 
-    private static List<String> getWinners(final List<Car> cars) {
+    public static List<String> getWinners(final List<Car> cars) {
         int maxLocation = 0;
         List<String> winnerCarNames = new ArrayList<>();
 
@@ -89,14 +89,14 @@ public class Application {
         return winnerCarNames;
     }
 
-    private static void printCarStatus(final List<Car> cars) {
+    public static void printCarStatus(final List<Car> cars) {
         for (Car car : cars) {
             printCarName(car);
             printCurrentLocation(car);
         }
     }
 
-    private static void printCurrentLocation(final Car car) {
+    public static void printCurrentLocation(final Car car) {
         int location = car.getLocation();
         StringBuilder locationStringBuilder = new StringBuilder();
 
@@ -107,11 +107,11 @@ public class Application {
         System.out.println(locationStringBuilder);
     }
 
-    private static void printCarName(final Car car) {
+    public static void printCarName(final Car car) {
         System.out.print(car.getCarName() + " : ");
     }
 
-    private static void repeatAttempts(final int attemptsNum, final List<Car> cars) {
+    public static void repeatAttempts(final int attemptsNum, final List<Car> cars) {
         for (int i = 0; i < attemptsNum; i++) {
             moveCars(cars);
             printCarStatus(cars);
@@ -119,7 +119,7 @@ public class Application {
         }
     }
 
-    private static List<Car> createCars(final String[] carNames) {
+    public static List<Car> createCars(final String[] carNames) {
         List<Car> cars = new ArrayList<>();
 
         for (String carName : carNames) {
@@ -129,7 +129,7 @@ public class Application {
         return cars;
     }
 
-    private static void moveCars(final List<Car> cars) {
+    public static void moveCars(final List<Car> cars) {
         for (Car car : cars) {
             if (canMove()) {
                 car.move();
@@ -137,7 +137,7 @@ public class Application {
         }
     }
 
-    private static String[] inputCarNames() {
+    public static String[] inputCarNames() {
         String[] carNames = Console.readLine().split(",");
 
         if (!validateCarNames(carNames)) {
@@ -147,7 +147,7 @@ public class Application {
         return carNames;
     }
 
-    private static int inputAttemptsNum() {
+    public static int inputAttemptsNum() {
         String attemptsNum = Console.readLine();
 
         if (!validateAttemptsNum(attemptsNum)) {
@@ -157,7 +157,7 @@ public class Application {
         return Integer.parseInt(attemptsNum);
     }
 
-    private static boolean validateCarNames(final String[] carNames) {
+    public static boolean validateCarNames(final String[] carNames) {
         for (String carName : carNames) {
             if (!validateCarNameLength(carName) || !checkSameCarName(carNames)) {
                 return false;
@@ -167,7 +167,7 @@ public class Application {
         return true;
     }
 
-    private static boolean validateCarNameLength(final String carName) {
+    public static boolean validateCarNameLength(final String carName) {
         if (carName.length() > 5) {
             return false;
         }
@@ -175,7 +175,7 @@ public class Application {
         return true;
     }
 
-    private static boolean checkSameCarName(final String[] carNames) {
+    public static boolean checkSameCarName(final String[] carNames) {
         List<String> carNameList = Arrays.asList(carNames);
         if(carNameList.size() != carNameList.stream().distinct().count()){
             return false;
@@ -184,7 +184,7 @@ public class Application {
         return true;
     }
 
-    private static boolean validateAttemptsNum(final String attemptsNum) {
+    public static boolean validateAttemptsNum(final String attemptsNum) {
         if (!validateAttemptsNumIsNumber(attemptsNum) || !validateAttemptsNumIsZero(attemptsNum)) {
             return false;
         }
@@ -192,7 +192,7 @@ public class Application {
         return true;
     }
 
-    private static boolean validateAttemptsNumIsNumber(final String attemptsNum) {
+    public static boolean validateAttemptsNumIsNumber(final String attemptsNum) {
         String[] splitAttemptsNums = attemptsNum.split("");
 
         for (String splitAttemptsNum : splitAttemptsNums) {
@@ -204,7 +204,7 @@ public class Application {
         return true;
     }
 
-    private static boolean validateAttemptsNumIsZero(final String attemptsNum) {
+    public static boolean validateAttemptsNumIsZero(final String attemptsNum) {
         int intAttemptsNum = Integer.parseInt(attemptsNum);
 
         if (intAttemptsNum == 0) {
@@ -214,7 +214,7 @@ public class Application {
         return true;
     }
 
-    private static boolean isNumber(final String splitAttemptsNum) {
+    public static boolean isNumber(final String splitAttemptsNum) {
         if(ASCII_ZERO > splitAttemptsNum.charAt(0) || ASCII_NINE < splitAttemptsNum.charAt(0)) {
             return false;
         }
@@ -222,7 +222,7 @@ public class Application {
         return true;
     }
 
-    private static boolean canMove() {
+    public static boolean canMove() {
         int randomNum = Randoms.pickNumberInRange(0, 9);
 
         if (isInMoveRange(randomNum)) {
@@ -232,7 +232,7 @@ public class Application {
         return false;
     }
 
-    private static boolean isInMoveRange(final int randomNum) {
+    public static boolean isInMoveRange(final int randomNum) {
         if (randomNum >= MOVE_NUMBER) {
             return true;
         }

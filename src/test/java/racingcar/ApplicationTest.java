@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -29,6 +31,42 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"car1,car2,car3"})
+    void 차_이름_입_기능_검증_테스트(String inputCarNames) {
+        String[] carNames = inputCarNames.split(",");
+
+        boolean result = Application.validateCarNames(carNames);
+
+        assertThat(result).isTrue();
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"supercar,car1,car"})
+    void 차_이름_입력_예외_처리_테스트(String inputCarNames) {
+        String[] carNames = inputCarNames.split(",");
+
+        boolean result = Application.validateCarNames(carNames);
+
+        assertThat(result).isFalse();
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"4"})
+    void 시도_횟수_입력_테스트(String inputAttemptsNum) {
+        boolean result = Application.validateAttemptsNum(inputAttemptsNum);
+
+        assertThat(result).isTrue();
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"-1"})
+    void 시도_횟수_입력_예외_처리_테스트(String inputAttemptsNum) {
+        boolean result = Application.validateAttemptsNum(inputAttemptsNum);
+
+        assertThat(result).isFalse();
     }
 
     @Override
