@@ -1,11 +1,12 @@
 package racingcar.value;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Value {
     public List<String> carNames;
+    int numberOfAttempts;
 
     public Value() {
         this.carNames = new ArrayList<>();
@@ -15,5 +16,8 @@ public class Value {
         for (String name : names) {
             carNames.add(name);
         }
+    }
+    public void setNumberOfAttempts(int numberOfAttempts) {
+        this.numberOfAttempts = numberOfAttempts;
     }
 }

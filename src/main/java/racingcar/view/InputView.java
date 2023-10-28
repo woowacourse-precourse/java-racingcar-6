@@ -8,4 +8,10 @@ public class InputView {
         System.out.println("input car name.(name split , ");
         return Console.readLine();
     }
+
+    public static String inputNumberOfAttempts() {
+//        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println("how many attempt");
+        return Console.readLine();
+    }
 }
