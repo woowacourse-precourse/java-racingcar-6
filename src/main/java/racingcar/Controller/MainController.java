@@ -6,27 +6,28 @@ import java.util.ArrayList;
 import racingcar.Model.Car.Car;
 import racingcar.Model.Car.CarId;
 import racingcar.Model.CarRepository;
-import racingcar.View.RaceView;
+import racingcar.View.View;
 
 public class MainController {
     private static RaceController raceController = AppConfig.raceControllerImplements();
-
     public static void process() {
         String NameInput = Console.readLine();
         String[] split = NameInput.split(AppConfig.INPUT_DELIMITER, Integer.MAX_VALUE);
         int carQuantity = split.length;
         CarId.validateRange(carQuantity);
 
-        CarRepository carRepository = new CarRepository(new ArrayList<>());
+        CarRepository carRepository = new CarRepository(new ArrayList<Car>());
         for(int i=0; i<carQuantity; i++) {
             Car participantCar = Car.of(i, split[i]);
             carRepository.save(participantCar);
         }
 
+        View.processStartMessage();
         String roundInput = Console.readLine();
 
-        RaceView.processStartMessage();
         raceController.validateRoundInput(roundInput);
         raceController.processRace(roundInput, carRepository);
+
+        Console.close();
     }
 }

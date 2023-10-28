@@ -9,14 +9,14 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import racingcar.Model.Car.Car;
 import racingcar.Model.CarRepository;
-import racingcar.View.RaceView;
+import racingcar.View.View;
 
 public class RaceControllerIntegerVer implements RaceController {
 
     private static final int MOVE_CRITERIA = 4;
     private static final int MOVE_START_RANGE = 0;
     private static final int MOVE_END_RANGE = 9;
-    private static RaceView raceView;
+    private static View view = new View();
 
 
     @Override
@@ -28,41 +28,42 @@ public class RaceControllerIntegerVer implements RaceController {
         List<Car> winnerCarList = getWinnerList(rankingMap);
         List<String> winners = ConvertCarToString(winnerCarList);
 
-        raceView.printWinner(winners);
+        view.printWinner(winners);
     }
 
     private void raceRepeatByInput(String input, CarRepository carRepository) {
         int round = Integer.parseInt(input);
         int size = carRepository.size();
 
-        for (int i = 0; i < round - 1; i++) {
+        for (int i = 0; i < round; i++) {
             for (int j = 0; j < size; j++) {
                 Car car = carRepository.getCar(j);
 
                 int randomNumber = pickRandomNumber();
-                boolean canMove = randomNumber > MOVE_CRITERIA;
+                boolean canMove = randomNumber >= MOVE_CRITERIA;
                 car.move(randomNumber, canMove);
 
-                raceView.print(car, randomNumber);
+                view.print(car, randomNumber);
             }
             System.out.println();
         }
     }
 
-    private static Map PartitioningByRank(CarRepository carRepository) {
+    private static Map<Integer, List<Car>> PartitioningByRank(CarRepository carRepository) {
         HashMap<Integer, List<Car>> map = new HashMap<>();
         int size = carRepository.size();
         for (int i = 0; i < size; i++) {
             Car car = carRepository.getCar(i);
 
             int position = car.getPosition();
-            List<Car> samePositionList = map.getOrDefault(position, new ArrayList<>());
+            List<Car> samePositionList = map.getOrDefault(position, new ArrayList<Car>());
             samePositionList.add(car);
+            map.put(position, samePositionList);
         }
         return map;
     }
 
-    private static List getWinnerList(Map<Integer, List<Car>> rankMap) {
+    private static List<Car> getWinnerList(Map<Integer, List<Car>> rankMap) {
         return rankMap.keySet()
                 .stream()
                 .collect(Collectors.maxBy(Comparator.naturalOrder()))
@@ -72,14 +73,13 @@ public class RaceControllerIntegerVer implements RaceController {
 
     }
 
-    private static List ConvertCarToString(List<Car> winnerCarList) {
+    private static List<String> ConvertCarToString(List<Car> winnerCarList) {
         return winnerCarList
                 .stream()
                 .map(car -> car.getCarName().getName())
                 .toList();
 
     }
-
     private int pickRandomNumber() {
         return Randoms.pickNumberInRange(MOVE_START_RANGE, MOVE_END_RANGE);
     }

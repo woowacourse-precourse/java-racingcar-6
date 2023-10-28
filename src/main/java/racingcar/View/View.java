@@ -3,7 +3,7 @@ package racingcar.View;
 import java.util.List;
 import racingcar.Model.Car.Car;
 
-public class RaceView {
+public class View {
     private static final String ROUND_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String ROUND_START_MESSAGE = "실행 결과";
     private static final String DISTANCE_MARK = "-";
