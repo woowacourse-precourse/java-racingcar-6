@@ -1,7 +1,9 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -10,11 +12,15 @@ public class CarManger {
 
 	public void createCars(String[] carNames) {
 		for (String carName : carNames) {
-			if(carName.length() >= 5) {
-				throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
-			}
+			validName(carName);
 			Car car = new Car(carName);
 			cars.add(car);
+		}
+	}
+
+	private void validName(String carName) {
+		if(carName.length() >= 5) {
+			throw new IllegalArgumentException();
 		}
 	}
 
