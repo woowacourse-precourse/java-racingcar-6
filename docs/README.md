@@ -19,3 +19,7 @@
 
 #### 2차 수정
 - ArrayList -> HashMap
+
+#### 3차 수정
+- HashMap -> Class
+
