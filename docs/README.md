@@ -15,8 +15,7 @@
     - [✔] 사용자가 소수를 입력했을 경우 예외 발생 - checkNonDecimal()
     - [✔] 사용자가 0 이하의 수(음수 포함)를 입력했을 경우 예외 발생 - checkPositiveNumber()
 - [✔] 0에서 9사이의 무작위 값을 구한다. - createRandomNumber()
-- [] 무작위 값이 4 이상일 경우 '-'를 추가한다. - moveForward()
-- [] 무작위 값이 4 미만일 경우 아무것도 하지 않는다. - moveStop()
+- [✔] 무작위 값이 4 이상일 경우 앞으로 움직인다. - moveCar()
 - [] 위 과정을 시도할 횟수 동안 반복한다. - playRacing()
     - [] 각 차수별 실행 결과를 출력한다.
 - [] 게임이 끝나면 우승자를 알려준다. - determineWinner()
