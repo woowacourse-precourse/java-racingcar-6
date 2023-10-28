@@ -8,7 +8,6 @@ import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
 class ValidatePlayerInputTest {
 
@@ -36,6 +35,19 @@ class ValidatePlayerInputTest {
         assertThatThrownBy(() -> validatePlayerInput.validateCarNameLength(playerInput))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름 길이는 5이하 입니다");
+    }
+
+    @DisplayName("레이싱 자동차 이름이 중복될 경우에 대한 테스트")
+    @Test
+    void carNameDuplicatedTest() {
+        //when
+        ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
+        //given
+        String playerInput = "pobi,suark,pobi";
+        //then
+        assertThatThrownBy(() -> validatePlayerInput.validateDuplicateCarNames(playerInput))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("중복된 자동차 이름이 있습니다");
     }
 
     @DisplayName("레이싱 게임을 시도할 횟수 Input 값에 space가 포함될 경우 대한 테스트")

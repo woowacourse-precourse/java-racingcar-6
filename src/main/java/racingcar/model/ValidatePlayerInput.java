@@ -2,6 +2,8 @@ package racingcar.model;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class ValidatePlayerInput {
     public void validateContainSpace(String playerInput) {
@@ -17,6 +19,16 @@ public class ValidatePlayerInput {
             if (carName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름 길이는 5이하 입니다");
             }
+        }
+
+    }
+
+    public void validateDuplicateCarNames(String playerInput) {
+        String[] splitsPlayerInput = playerInput.split(",");
+
+        Set<String> dulplicateSet = Arrays.stream(splitsPlayerInput).collect(Collectors.toSet());
+        if (dulplicateSet.size() != splitsPlayerInput.length) {
+            throw new IllegalArgumentException("중복된 자동차 이름이 있습니다");
         }
     }
 
