@@ -62,7 +62,7 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
-    public int carsCount() {
-        return cars.size();
+    public boolean isCarsCountEqualTo(final int size) {
+        return cars.size() == size;
     }
 }

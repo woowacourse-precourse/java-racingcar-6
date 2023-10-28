@@ -14,7 +14,7 @@ public class CarsTest {
         // given & when
         Cars cars = Cars.from("pobi,12a,현준");
         // then
-        assertThat(cars.carsCount()).isEqualTo(3);
+        assertThat(cars.isCarsCountEqualTo(3)).isTrue();
     }
 
     @Test
