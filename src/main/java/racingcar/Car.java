@@ -18,12 +18,12 @@ public class Car {
         }
     }
 
-    private boolean canMove(int power) {
-        return power >= 4;
-    }
-
     private int startEngine() {
         return engine.generateRandomNumber();
+    }
+
+    private boolean canMove(int power) {
+        return power >= 4;
     }
 
     public long getTotalMoveCount() {
