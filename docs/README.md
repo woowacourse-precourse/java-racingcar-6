@@ -30,10 +30,9 @@
     - 횟수를 정해달라는 메시지 출력
     - 값을 입력 받는다
     - 입력받은 값 검증 진행
-    >> List<String>, int로 이 세팅값을 반환한다 -> 어케하누
+    - 자동차들의 이름을 가지고 점수판(Map<String, StringBuilder>)을 만든다
 
 2. 게임 진행
-    - 자동차들의 이름을 가지고 점수판(Map<String, StringBuilder>)을 만든다
     - 1에서 입력받은 횟수만큼 라운드를 진행한다 
     - 각자 주사위를 굴린 후, 4 이상인지 확인한다.
     - 각자의 점수판에 기록한다
@@ -47,22 +46,24 @@
 
 ## 구현 기능 목록
 
-### 게임 진행 기능
+### 게임 진행 관련 기능
 
-- RaceGame 클래스
+- RaceInfo 클래스
+  - 사전값 세팅
+    - 자동차 이름을 입력받는 기능
+    - 라운드 횟수를 입력받는 기능
+    - 점수판을 만드는 기능
 
-- 게임 진행 기능
-    - void gameStart()
-- 점수판을 세팅하는 기능 v
-    - Map<String, StringBuilder> makeScoreBoard(List<String> carName)
-- 지정된 횟수만큼 게임을 진행하는 기능
-    - 미완..
-- 한 판의 게임을 진행하는 기능 v
-    - void playOneRound(Map<String, StringBuilder> scoreBoard)
-- 게임 종료 후 점수판을 계산하는 기능 v
-    - int calculateForwardPoint(Map<String, StringBuilder> scoreBoard)
-- 우승자 명단을 반환하는 기능 v경
-    - List<String> findWinners(int maxPoint, Map<String, StringBuilder> scoreBoard)
+- RacePlay 클래스
+  - 게임 진행 과정
+    - 게임을 진행하는 기능
+    - 전진 가능한지 판별하는 기능
+    - 점수를 부여하는 기능
+
+- RaceResult 클래스
+  - 게임 종료 후 우승자 선발
+    - 가장 많은 전진 포인트를 계산하는 기능
+    - 우승자를 발표하는 기능
 
 ### 입력 기능
 
