@@ -1,7 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
-import racingcar.util.CarHandler;
+import racingcar.util.car.CarHandler;
 
 public class CarController {
     private final Car car;

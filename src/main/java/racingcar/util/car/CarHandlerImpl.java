@@ -1,4 +1,4 @@
-package racingcar.util;
+package racingcar.util.car;
 
 import racingcar.model.Car;
 
