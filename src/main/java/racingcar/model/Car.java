@@ -22,4 +22,12 @@ public class Car {
         return sb.toString();
     }
 
+    public int getDistance() {
+        return distance;
+    }
+
+    public String getCarName() {
+        return carName;
+    }
+
 }
