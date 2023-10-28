@@ -54,7 +54,7 @@
 ### View
 - inputView
   - 경주할 자동차 이름 입력 받음
-  - 
+  - 시도할 횟수 입력 받음
 - -outputView
 
 ### Controller
