@@ -5,15 +5,17 @@ public class CheckService {
     private final static int NAME_LENGH_MAX = 5;
     private final static int NAME_LENGH_MIN = 1;
 
-    public void cars(String[] cars) {
-        for (String car : cars) {
+    public boolean cars(String[] carsArr) {
+        for (String car : carsArr) {
             isTrim(car);
             isRange(car);
         }
+        return true;
     }
 
-    public void nums(String num) {
+    public boolean nums(String num) {
         isDigit(num);
+        return true;
     }
 
     private void isRange(String car) {
