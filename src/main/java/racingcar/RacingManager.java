@@ -33,17 +33,22 @@ public class RacingManager {
         int winnerBlockCount = 0;
         racingCarByBlockCount.put(winnerBlockCount, new ArrayList<>());
         for (RacingCar racingCar : racingCars) {
-            if (racingCar.blockCount > winnerBlockCount) {
-                racingCarByBlockCount.put(racingCar.blockCount, new ArrayList<>());
-                winnerBlockCount = racingCar.blockCount;
-            }
-            racingCarByBlockCount.get(racingCar.blockCount).add(racingCar);
+            winnerBlockCount = judgeWinnerAndBlockCount(racingCar, racingCarByBlockCount, winnerBlockCount);
         }
 
         List<String> racingCarName = racingCarByBlockCount.get(winnerBlockCount).stream().map(racingCar ->
                 racingCar.name
         ).toList();
         return stringListToString(racingCarName);
+    }
+
+    private int judgeWinnerAndBlockCount(RacingCar racingCar, Map<Integer, List<RacingCar>> racingCarByBlockCount, int winnerBlockCount) {
+        if (racingCar.blockCount > winnerBlockCount) {
+            racingCarByBlockCount.put(racingCar.blockCount, new ArrayList<>());
+            winnerBlockCount = racingCar.blockCount;
+        }
+        racingCarByBlockCount.get(racingCar.blockCount).add(racingCar);
+        return winnerBlockCount;
     }
 
     private String stringListToString(List<String> list) {
