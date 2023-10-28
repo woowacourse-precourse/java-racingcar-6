@@ -26,8 +26,8 @@ public class Application {
     }
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        inputCars = Console.readLine();
-        makeCars(inputCars);
+        List<Car> cars = makeCars();
+
 
     }
 
