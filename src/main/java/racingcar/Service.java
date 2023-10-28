@@ -3,6 +3,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.Utils.NumberGenerator;
+import racingcar.View.InputView;
+import racingcar.View.OutputView;
 
 public class Service {
     private final ProgressBoard progressBoard;
@@ -10,7 +13,7 @@ public class Service {
     private final OutputView outputView;
     private final NumberGenerator numberGenerator;
     private final int GO_NUMBER = 4;
-    private List<String> participants;
+    private List<String> cars;
 
     public Service() {
         this.progressBoard = ProgressBoard.getInstance();
@@ -19,7 +22,7 @@ public class Service {
         this.numberGenerator = new NumberGenerator();
     }
 
-    public String receiveParticipants() {
+    public String receiveCars() {
         inputView.printCarNameMessage();
         String input = Console.readLine();
         return input;
@@ -31,21 +34,29 @@ public class Service {
         return input;
     }
 
-    public void registerParticipants(List<String> participants) {
-        this.participants = participants;
-        progressBoard.registerCars(participants);
+    public void registerCars(List<String> cars) {
+        this.cars = cars;
+        progressBoard.registerCars(cars);
     }
 
-    public void moveForward(String carName) {
+    public void executeOneGame() {
+        for (String car : cars) {
+            if (canMoveForward()) {
+                moveForward(car);
+            }
+        }
+    }
+
+    private void moveForward(String carName) {
         progressBoard.moveForward(carName);
     }
 
-    public boolean canMoveForward() {
+    private boolean canMoveForward() {
         return numberGenerator.getRandomNumber() >= GO_NUMBER;
     }
 
-    public void showProgressOf() {
-        outputView.printProgressMessage(participants, progressBoard);
+    public void showProgress() {
+        outputView.printProgressMessage(cars, progressBoard);
     }
 
     public void printResultMessage() {
@@ -60,9 +71,9 @@ public class Service {
     private List<String> getWinners() {
         int maxMove = getMaxMove();
         List<String> winners = new ArrayList<>();
-        for (String participant : participants) {
-            if (progressBoard.progressOf(participant).length() == maxMove) {
-                winners.add(participant);
+        for (String car : cars) {
+            if (progressBoard.progressOf(car).length() == maxMove) {
+                winners.add(car);
             }
         }
         return winners;
