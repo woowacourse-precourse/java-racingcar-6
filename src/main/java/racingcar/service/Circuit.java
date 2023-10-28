@@ -34,5 +34,6 @@ public class Circuit {
 
     public void printCarsTrace() {
         cars.forEach(car -> System.out.println(car.getCarStatus()));
+        System.out.println();
     }
 }
