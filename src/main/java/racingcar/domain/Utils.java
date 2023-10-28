@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import javax.swing.plaf.TreeUI;
 
 public class Utils {
     public static boolean isNaturalNumber(String number) {

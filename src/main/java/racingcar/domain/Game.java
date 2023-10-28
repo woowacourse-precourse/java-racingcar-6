@@ -1,22 +1,28 @@
 package racingcar.domain;
 
-import java.util.List;
-
 public class Game {
 
-    public void racingGame() {
-        Output.printCarInputMessage();
-        String[] carArray = Input.getCars();
-        Output.printTryCountInputMessage();
-        int tryCount = Input.getTryCount();
+    private final Cars cars;
+    private final int tryCount;
 
-        System.out.println("실행 결과");
-        Cars cars = new Cars(carArray);
+    public Game(Cars cars, int tryCount) {
+        this.cars = cars;
+        this.tryCount = tryCount;
+    }
+
+    public void racingGame() {
         for (int i = 0; i < tryCount; i++) {
-            cars.moveCars();
+            moveCars();
             cars.printCarPosition();
         }
-        List<String> victoryCarsName = cars.getVictoryCarsName();
-        Output.printVictoryCarNames(victoryCarsName);
+        Output.printVictoryCarNames(cars.getVictoryCarsName());
+    }
+
+    private void moveCars() {
+        for (int i = 0; i < cars.size(); i++) {
+            if (Utils.getRandomNumber() >= 4) {
+                cars.moveCar(i);
+            }
+        }
     }
 }
