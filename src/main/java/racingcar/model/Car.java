@@ -3,8 +3,8 @@ package racingcar.model;
 import static racingcar.constants.ExceptionMessageConstants.*;
 
 public class Car {
-    public static final int MAX_LENGTH = 5;
-    public static final int MIN_NUMBER = 4;
+    private static final int MAX_LENGTH = 5;
+    private static final int MIN_NUMBER = 4;
     private final String name;
     private int position = 0;
 

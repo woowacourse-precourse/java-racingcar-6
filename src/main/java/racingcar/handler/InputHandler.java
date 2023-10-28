@@ -7,8 +7,8 @@ import static racingcar.constants.ExceptionMessageConstants.*;
 
 public class InputHandler {
 
-    public static final int MAX_LENGTH = 5;
-    public static final String NAME_DELIMITER = ",";
+    private static final int MAX_LENGTH = 5;
+    private static final String NAME_DELIMITER = ",";
 
     public List<String> convertNamesToNameList(String names) {
         validateNull(names);

@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
-    public static final int MIN_RANGE = 0;
-    public static final int MAX_RANGE = 9;
-    public static final int DEFAULT_POSITION = 0;
+    private static final int MIN_RANGE = 0;
+    private static final int MAX_RANGE = 9;
+    private static final int DEFAULT_POSITION = 0;
     private final List<Car> carList;
 
     private Cars(List<Car> carList) {
