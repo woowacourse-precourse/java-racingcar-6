@@ -16,32 +16,32 @@ public class NumberOfRoundTest {
         NumberOfRound numberOfRound = new NumberOfRound(value);
 
         // then
-        Assertions.assertThat(numberOfRound.hasRoundsLeft()).isTrue();
+        Assertions.assertThat(numberOfRound.value()).isEqualTo(value);
     }
 
-    @DisplayName("시도 횟수가 0이면 예외가 발생한다.")
+    @DisplayName("시도 횟수가 음수이면 예외가 발생한다.")
     @Test
     void createNumberOfRoundExceptionTestByZero() {
         // given
-        int value = 0;
+        int value = -1;
 
         // when & then
         Assertions.assertThatThrownBy(() -> new NumberOfRound(value))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("1 이상의 숫자만 입력 가능합니다.");
+                .hasMessage("0 이상의 숫자만 입력 가능합니다.");
     }
 
     @DisplayName("남은 시도 횟수가 없을 경우 hasRoundsLeft()는 false를 반환한다.")
     @Test
     void hasRoundsLeftFalseTest() {
         // given
-        int value = 1;
-        NumberOfRound numberOfRound = new NumberOfRound(value);
+        int currentRound = 1;
+        NumberOfRound numberOfRound = new NumberOfRound(currentRound);
 
         // when
-        numberOfRound.consumeRound();
+        NumberOfRound nextNumberOfRound = numberOfRound.consumeRound();
 
         // then
-        Assertions.assertThat(numberOfRound.hasRoundsLeft()).isFalse();
+        Assertions.assertThat(nextNumberOfRound.value()).isEqualTo(currentRound - 1);
     }
 }
