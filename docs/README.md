@@ -71,6 +71,8 @@
     - 전진을 할 수 있다.
     - 정지를 할 수 있다.
     - 전진을 할 조건이 필요하다.
+    - 라운드를 진행한다.
+    - 지금 음직인 거리를 알려준다.
   - 상호작용 :
     - CarMap : 요청을 받아라운드를 진행한다. 
 - CarMap
@@ -107,3 +109,30 @@
     - CarInput : 지역 변수로 생성하여 이름 리스트를 요청한다.
     - RoundCountInput : 지역 변수로 생성하여 정수형인 차수를 요청한다..
 
+### 메서드 기술
+각 객체의 책임에서 메서드를 도출한다.
+
+- CarInput
+  - ','으로 나눠진 문자열을 검사한다.-> private void validate()
+  - ','으로 나눠진 문자열을 리스트 형태로 파싱한다. -> public List<String> split(String line)
+- RoundCountInput
+  - 숫자인지 여부를 정규표현식을 이용해 검사한다. -> private void validate()
+  - 숫자를 파싱한다. -> parseRoundCount
+- RacingCar
+  - 전진을 할 수 있다. -> private void moveForward()
+  - 정지를 할 수 있다. -> private void stop()
+  - 전진을 할 조건이 필요하다. -> private boolean isMovable()
+  - 라운드를 진행한다. -> public void excuteRound()
+  - 지금 음직인 거리를 알려준다. -> public int getDistance()
+- CarMap
+  - 이름과 RacingCar를 받아 저장한다. -> public void add(String name)
+  - 각 자동차들이 라운드를 진행하게한다. -> public void excuteRound() 
+  - 우승한 자동차들의 리스트를 뽑아낸다. -> public List<String> getWinners()
+#### View
+- InputView
+  - 사용자 입력을 받는다. -> public static String readLine() 
+- OutputView
+  - 사용자에게 문구를 출력한다. -> public static void println(String message)
+#### Controller
+- RacingController
+  - 레이싱을 진행한다. -> public void playRacing()
