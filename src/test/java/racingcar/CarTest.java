@@ -34,7 +34,7 @@ class CarTest {
         Car carA = new Car("carA");
         Car carB = new Car("carB");
         Car carC = new Car("carC");
-        Car carD = new Car("carC");
+        Car carD = new Car("carD");
 
         List<Car> cars = new ArrayList<>();
         cars.add(carA);
