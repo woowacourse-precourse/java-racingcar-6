@@ -5,6 +5,7 @@ import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Judge;
 import racingcar.model.Round;
+import racingcar.view.SystemView;
 
 public class GameController {
 
@@ -19,10 +20,10 @@ public class GameController {
 
     public void set() {
 
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        SystemView.promptForCarNames();
         List<String> carNames = InputController.setCars();
 
-        System.out.println("시도할 회수는 몇회인가요?");
+        SystemView.promptForRoundNumber();
         roundNumber = InputController.setRound();
 
         // Car 객체 생성 및 자동차 이름 할당
@@ -34,7 +35,7 @@ public class GameController {
 
     public void game() {
 
-        System.out.println("실행 결과");
+        SystemView.displayGameResults();
 
         Round round = new Round(cars);
         round.playRound(roundNumber);
