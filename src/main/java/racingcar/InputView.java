@@ -1,12 +1,12 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.List;
-
 
 public class InputView {
     MagicVariable magicVariable = new MagicVariable();
+
     public InputView() {}
+
     public String getCarNameInput() {
         System.out.println(magicVariable.RACE_START_MESSAGE);
         String carNameInput = Console.readLine();
@@ -30,3 +30,4 @@ public class InputView {
         return tryCount;
     }
 }
+
