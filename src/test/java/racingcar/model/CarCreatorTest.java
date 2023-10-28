@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
 import java.util.stream.Stream;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -13,19 +12,12 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 public class CarCreatorTest {
 
-    private static CarCreator carCreator;
-
-    @BeforeAll
-    public static void setup() {
-        carCreator = new CarCreator();
-    }
-
     @ParameterizedTest
     @DisplayName("문자열을 , 기준으로 자릅니다")
     @MethodSource("playerInputAndExpectedListProvider")
     public void 문자열_쉼표_기준_자르기(String playerInput, List<String> expectedList) {
         //when
-        List<String> actualList = carCreator.splitPlayerInput(playerInput);
+        List<String> actualList = CarCreator.splitCarNamesString(playerInput);
 
         //then
         assertThat(actualList).isEqualTo(expectedList);
@@ -45,7 +37,7 @@ public class CarCreatorTest {
     @MethodSource("carNameListProvider")
     public void 자동차이름_입력_유효성_체크(List<String> carNameList) {
         //then
-        assertThatThrownBy(() -> carCreator.validateCarNameList(carNameList))
+        assertThatThrownBy(() -> CarCreator.validateCarNames(carNameList))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -63,7 +55,7 @@ public class CarCreatorTest {
     @MethodSource("carNameListProvider")
     public void 자동차들_생성(List<String> carNameList) {
         //when
-        List<Car> actualCarList = carCreator.createCars(carNameList);
+        List<Car> actualCarList = CarCreator.createCars(carNameList);
 
         //then
         List<String> actualCarNameList = actualCarList.stream()

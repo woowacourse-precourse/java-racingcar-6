@@ -5,31 +5,31 @@ import java.util.List;
 
 public class CarCreator {
 
-    public List<String> splitPlayerInput(String playerInput) {
-        return arrayToList(playerInput.split(","));
+    public static List<String> splitCarNamesString(String carNamesString) {
+        return arrayToList(carNamesString.split(","));
     }
 
-    public void validateCarNameList(List<String> carNameList) {
-        carNameList.forEach(this::validateCarName);
+    public static void validateCarNames(List<String> carNames) {
+        carNames.forEach(CarCreator::validateCarName);
     }
 
-    public List<Car> createCars(List<String> carNameList) {
-        return carNameList.stream()
-                .map(this::createCar)
+    public static List<Car> createCars(List<String> carNames) {
+        return carNames.stream()
+                .map(CarCreator::createCar)
                 .toList();
     }
 
-    private List<String> arrayToList(String[] array) {
+    private static List<String> arrayToList(String[] array) {
         return Arrays.asList(array);
     }
 
-    private void validateCarName(String carName) {
+    private static void validateCarName(String carName) {
         if (carName.isEmpty() || carName.length() > 5) {
             throw new IllegalArgumentException();
         }
     }
 
-    private Car createCar(String carName) {
+    private static Car createCar(String carName) {
         return new Car(carName);
     }
 }
