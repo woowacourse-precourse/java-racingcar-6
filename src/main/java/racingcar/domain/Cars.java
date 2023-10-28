@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
     private static final String DUPLICATE_ERROR_MESSAGE = "이미 존재하는 자동차 이름입니다.";
@@ -25,6 +26,13 @@ public class Cars {
                 .mapToInt(Car::getPosition)
                 .max()
                 .getAsInt();
+    }
+
+    public List<String> getCarNameListByPosition(int position) {
+        return cars.stream()
+                .filter(car -> car.getPosition() == position)
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 
     private void validateDuplicate(String newName) {
