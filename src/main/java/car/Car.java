@@ -8,6 +8,7 @@ public class Car {
 	
 	Car(String name){
 		this.name = name;
+		this.movementStack = new Stack<String>();
 	}
 
 	public String getName() {
