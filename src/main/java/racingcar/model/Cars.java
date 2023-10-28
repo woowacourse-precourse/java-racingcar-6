@@ -9,7 +9,8 @@ public class Cars {
 
     private final List<Car> cars = new ArrayList<>();
 
-    public Cars(String[] carNames) {
+    public Cars(String carNamesStr) {
+        String[] carNames = carNamesStr.split(",");
         CarsValidateImpl.createValue(carNames);
         addCarsToList(carNames);
     }
@@ -18,6 +19,9 @@ public class Cars {
         Arrays.stream(carNames)
                 .map(Car::new)
                 .forEach(cars::add);
+    }
+    public List<Car> getCars() {
+        return cars;
     }
 }
 
