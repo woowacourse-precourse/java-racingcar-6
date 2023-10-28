@@ -199,23 +199,31 @@
 
 ### RandomNumberGenerator
 - 난수 생성 역할을 하는 유틸 클래스이다.
-- [ ] 난수 생성 메서드
+- [x] 난수 생성 메서드
 
 ### NumberConstant
 - 매직넘버들을 상수로 처리한 Enum 클래스이다.
-- [ ] MIN_NUMBER : 0
-- [ ] MAX_NUMBER : 9
-- [ ] FORWARD_POINT : 4
+- [x] MIN_NUMBER : 0
+- [x] MAX_NUMBER : 9
+- [x] FORWARD_POINT : 4
+- [x] MIN_LENGTH : 1
+- [x] MAX_LENGTH : 5
+
+### InputRegex
+- 입력의 유효성 검증에 사용되는 정규표현식으로 이루어진 Enum 클래스이다.
+- [x] WHITE_SPACE_REGEX : 공백 여부 정규표현식
+- [x] LETTER_EXIST_REGEX : 공백 제외 문자 포함여부 판단 정규표현식
+- [x] LENGTH_RANGE_REGEX : 글자 길이 판단 정규표현식
 
 ### InputValidation
 - 입력의 유효성을 판단하는 클래스이다.
-- [ ] 이름 입력 유효성 판단 메서드
+- [x] 이름 입력 유효성 판단 메서드
     - 길이 판단
     - 공백 이외의 문자 존재 여부 판단
     - 중복 여부 판단
-- [ ] 라운드 입력 유효성 판단 메서드
+- [x] 라운드 입력 유효성 판단 메서드
     - 숫자 여부 판단
-- [ ] 유효하지 않은 입력의 경우 `IllegalArgumentException`
+- [x] 유효하지 않은 입력의 경우 `IllegalArgumentException`
 
 <br>
 
@@ -238,7 +246,7 @@
 
 - [ ] 입력 테스트
 - [ ] 출력 테스트
-- [ ] 입력값 유효성 테스트
-- [ ] 난수 생성 테스트
+- [x] 입력값 유효성 테스트
+- [x] 난수 생성 테스트
 - [ ] 결과값 테스트
 - [ ] 메인 테스트
