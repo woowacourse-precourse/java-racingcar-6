@@ -11,7 +11,7 @@ public class Validator {
             int result = Integer.parseInt(input);
             return result;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("숫자만 입력할 수 있습니다.");
         }
     }
 
@@ -30,7 +30,7 @@ public class Validator {
 
     private void validateEqualCarName(String carName1, String carName2) {
         if (carName1.equals(carName2)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("같은 이름의 자동차가 있습니다.");
         }
     }
 
@@ -43,13 +43,13 @@ public class Validator {
 
     private void validateNameLength(String name) {
         if (name.length() > 5) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다");
         }
     }
 
     private void validateEmptyName(String name) {
         if (name.length() < 1) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("이름이 없는 자동차가 있습니다.");
         }
     }
 }
