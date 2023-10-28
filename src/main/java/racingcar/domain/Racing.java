@@ -31,7 +31,16 @@ public class Racing {
     }
 
     private List<String> findWinners(List<Car> carList){
+        List<String> winners = new ArrayList<>();
+        int maxValue = findMaxValue(carList);
 
+        for(Car car : carList) {
+            if(car.getForwardNum() == maxValue){
+                winners.add(car.getName());
+            }
+        }
+        
+        return winners;
     }
 
     private void initCarsRandomNum(List<Car> carList){
