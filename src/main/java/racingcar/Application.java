@@ -59,6 +59,9 @@ public class Application {
         String tryCountInput = Console.readLine();
         tryCount = new TryCount(tryCountInput);
 
+        if (!tryCount.isTryCountNumeric()) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public static void calculateWhoAreTheWinners() {

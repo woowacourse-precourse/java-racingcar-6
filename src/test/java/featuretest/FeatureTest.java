@@ -77,39 +77,14 @@ public class FeatureTest {
         assertThat(actualObject).isEqualTo(expectedObject);
     }
 
-    @ParameterizedTest
-    @CsvSource({
-            "5, true",
-            "abcde, false",
-            "53e1f, false"
-    })
-    void 시도_회수가_숫자인지_확인(String testTryCount, boolean expectedResult) {
-        TryCount tryCount = new TryCount(testTryCount);
-        boolean actualResult = tryCount.isTryCountNumeric();
-
-        assertThat(actualResult).isEqualTo(expectedResult);
-    }
-
-    @ParameterizedTest
-    @CsvSource({
-            "mycar, true",
-            "myfantasticcar, false",
-            "iamcar, false"
-    })
-    void 자동차_이름이_5자_이하인지_확인(String testCarName, boolean expectedResult) {
-        CarName carName = new CarName(testCarName);
-        boolean actualResult = carName.isNameUnder5Characters();
-
-        assertThat(actualResult).isEqualTo(expectedResult);
-    }
-
     @Test
-    void 자동차_이름이_공백인지_확인() {
-        CarName carName = new CarName("");
-        boolean actualResult = carName.isCarNameEmpty();
-        boolean expectedResult = true;
+    void 시도_횟수_숫자_아님() {
+        String testTryCount = "car1";
+        InputStream inputStream = new ByteArrayInputStream(testTryCount.getBytes());
+        System.setIn(inputStream);
 
-        assertThat(actualResult).isEqualTo(expectedResult);
+        assertThatThrownBy(Application::receiveTryCount)
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
