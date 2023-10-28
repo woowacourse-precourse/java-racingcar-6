@@ -6,7 +6,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Application {
     public static void main(String[] args) {
@@ -25,15 +24,18 @@ public class Application {
         int attemptsNumber = Integer.parseInt(inputNumber);
 
         for (int i = 0; i < attemptsNumber; i++) {
-            for (Car car : carList) {
-                int randomNumber = Randoms.pickNumberInRange(0, 9);
-                if (randomNumber >= 4) {
-                    car.move();
-                }
-
-                System.out.println(car.printCarName());
-            }
+            racing(carList);
             System.out.println();
+        }
+    }
+
+    private static void racing(List<Car> carList) {
+        for (Car car : carList) {
+            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            if (randomNumber >= 4) {
+                car.move();
+            }
+            System.out.println(car.printCarName());
         }
     }
 }
