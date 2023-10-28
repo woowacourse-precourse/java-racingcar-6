@@ -12,7 +12,7 @@ public class RacingCar {
     }
 
     /**
-     * @param actionNumber 이 숫자를 기준으로 자동차를 움직일지 말지 판단한다. 4이상인 경우 움직임
+     * @param actionNumber 를 기준으로 자동차를 움직일지 말지 판단한다. 4이상인 경우 움직임
      */
     public void move(int actionNumber) {
         if (actionNumber < 4) {
@@ -29,4 +29,5 @@ public class RacingCar {
     public Position getPosition() {
         return position;
     }
+
 }

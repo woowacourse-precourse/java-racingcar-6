@@ -1,10 +1,11 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
+import java.util.StringJoiner;
 import racingcar.dto.MoveCountDto;
 import racingcar.dto.RacingCarDto;
 import racingcar.dto.RacingCarNameRegistryDto;
-import racingcar.dto.RacingResultDto;
 
 public class RacingGameConsoleView {
 
@@ -13,6 +14,7 @@ public class RacingGameConsoleView {
     private static final String MOVE_COUNT_REQUEST_MESSAGE =
             "시도할 회수는 몇회인가요?";
     private static final String RACING_RESULT_TITLE_MESSAGE = "실행 결과";
+    private static final String RACING_WINNER_RESULT_MESSAGE = "최종 우승자 : ";
 
     public MoveCountDto inputMoveCount() {
         System.out.println(MOVE_COUNT_REQUEST_MESSAGE);
@@ -29,8 +31,8 @@ public class RacingGameConsoleView {
         System.out.println(RACING_RESULT_TITLE_MESSAGE);
     }
 
-    public void printResult(RacingResultDto racingResultDto) {
-        for (RacingCarDto racingCarDto : racingResultDto.getRacingCarDtos()) {
+    public void printResult(List<RacingCarDto> racingResultDtos) {
+        for (RacingCarDto racingCarDto : racingResultDtos) {
             Name name = racingCarDto.getName();
             Position position = racingCarDto.getPosition();
             System.out.print(name);
@@ -39,5 +41,15 @@ public class RacingGameConsoleView {
             System.out.println();
         }
         System.out.println();
+    }
+
+    public void printWinners(List<RacingCarDto> racingCarDtos) {
+        StringJoiner stringJoiner = new StringJoiner(", ");
+        System.out.print(RACING_WINNER_RESULT_MESSAGE);
+        for (RacingCarDto racingCarDto : racingCarDtos) {
+            Name name = racingCarDto.getName();
+            stringJoiner.add(name.toString());
+        }
+        System.out.println(stringJoiner);
     }
 }

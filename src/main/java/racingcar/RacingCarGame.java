@@ -25,5 +25,7 @@ public class RacingCarGame {
         do {
             view.printResult(racingCarRegistry.move());
         } while (!racingCarRegistry.isRacingOver());
+
+        view.printWinners(RacingCarMapper.toDtoList(racingCarRegistry.calculateWinner()));
     }
 }

@@ -2,8 +2,8 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.dto.RacingCarDto;
-import racingcar.dto.RacingResultDto;
 
 public class RacingCarRegistry {
 
@@ -26,7 +26,7 @@ public class RacingCarRegistry {
         return moveCount.isZero();
     }
 
-    public RacingResultDto move() {
+    public List<RacingCarDto> move() {
         moveCount.move();
 
         List<RacingCarDto> racingCarDtos = new ArrayList<>();
@@ -35,6 +35,19 @@ public class RacingCarRegistry {
             racingCarDtos.add(new RacingCarDto(racingCar.getName(), racingCar.getPosition()));
         }
 
-        return new RacingResultDto(racingCarDtos);
+        return racingCarDtos;
     }
+
+    public List<RacingCar> calculateWinner() {
+        int maxPosition = 0;
+        for (RacingCar racingCar : racingCars) {
+            maxPosition = Math.max(maxPosition, racingCar.getPosition().getPosition());
+        }
+
+        int finalMaxPosition = maxPosition;
+        return racingCars.stream()
+                .filter(rc -> rc.getPosition().getPosition() == finalMaxPosition)
+                .collect(Collectors.toList());
+    }
+
 }
