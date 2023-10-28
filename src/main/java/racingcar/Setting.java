@@ -22,4 +22,10 @@ public class Setting {
     public void initializeRound(String round) {
         this.round = Integer.parseInt(round);
     }
+
+    public void tryCarsForward() {
+        for (Car car : this.cars) {
+            car.tryForward();
+        }
+    }
 }
