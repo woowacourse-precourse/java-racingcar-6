@@ -12,4 +12,16 @@ public class Car {
     public static Car createCar(String name) {
         return new Car(name);
     }
+
+    public void plusWinCount() {
+        this.winCount++;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getWinCount() {
+        return winCount;
+    }
 }
