@@ -4,19 +4,24 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.dto.CarsNameDto;
+import racingcar.domain.car.random_generator.TrueRandomMove;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class CarGeneratorTest {
+public class CarsTest {
 
-    CarGenerator carGenerator;
+    Cars cars;
 
     @BeforeEach
     void setUp() {
-        carGenerator = new CarGenerator(new RandomMove());
+        cars = new Cars(new TrueRandomMove());
+
+        String carNames = "다오,디지니,배찌";
+        CarsNameDto carsNameDto = new CarsNameDto(carNames);
+        cars.generateCars(carsNameDto);
     }
 
     @DisplayName("이름들 입력 시 Car 생성하는지 확인")
@@ -26,12 +31,7 @@ public class CarGeneratorTest {
         String expectedName2 = "디지니";
         String expectedName3 = "배찌";
 
-
-        String carNames = "다오,디지니,배찌";
-        CarsNameDto carsNameDto = new CarsNameDto(carNames);
-        carGenerator.generateCars(carsNameDto);
-
-        List<Car> cars = carGenerator.getCars();
+        List<Car> cars = this.cars.getCars();
 
         assertThat(cars.get(0).getName())
                 .isEqualTo(expectedName1);
@@ -40,4 +40,22 @@ public class CarGeneratorTest {
         assertThat(cars.get(2).getName())
                 .isEqualTo(expectedName3);
     }
+
+    @DisplayName("자동차들 움직이는 경우 실행 결과 잘 나오는지 확인")
+    @Test
+    void carExecutionResultAllCarsTest() {
+        String expectedResult = """
+                다오 : ---
+                디지니 : ---
+                배찌 : ---""";
+        int moveCount = 3;
+        for(int i = 0; i<moveCount; i++) {
+            cars.runRace();
+        }
+        String result = cars.generateExecutionResultAllCars();
+
+        assertThat(expectedResult)
+                .isEqualTo(result);
+    }
+
 }
