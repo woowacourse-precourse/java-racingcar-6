@@ -20,13 +20,13 @@ public class GameService {
     public void playGame() {
         int attemptNum = InputView.inputAttempt();
         OutputView.outputResult();
-        while (attemptNum == 0) {
+        while (attemptNum != 0) {
             carRepository.carForward();
             attemptNum--;
         }
     }
 
     public void resultGame() {
-        OutputView.outputWinner();
+        OutputView.outputWinner(carRepository.findAllMaxForward());
     }
 }
