@@ -19,11 +19,15 @@ public class RacingCarController {
         List<String> carNameList = Arrays.asList(input.split(COMMA));
         validateLimitNameLength(carNameList);
         Set<String> carNameSet = validateDuplicateName(carNameList);
+
+        racingCarService.process(carNameSet);
     }
 
     public void startRacing(String input) {
         validateIsNumeric(input);
         int cycle = changeInputToInt(input);
+
+        racingCarService.startRacing(cycle);
     }
 
     private int changeInputToInt(String input) {
