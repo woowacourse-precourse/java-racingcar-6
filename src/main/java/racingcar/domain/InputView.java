@@ -10,9 +10,12 @@ public class InputView {
     public static List<String> getCarStrings() {
         List<String> carStrings = new ArrayList<>();
         String input = Console.readLine();
-        validateNullOrEmpty(input);
+        if (input.endsWith(DELIMITER)) {
+            throw new IllegalArgumentException("[ERROR] 입력의 끝이 구분자로 끝날 수 없습니다.");
+        }
         for (String carName : input.split(DELIMITER)) {
-            carStrings.add(carName.trim());
+            validateNullOrEmpty(carName);
+            carStrings.add(carName);
         }
         return carStrings;
     }

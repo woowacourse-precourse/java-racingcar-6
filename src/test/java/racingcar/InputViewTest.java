@@ -40,7 +40,7 @@ class InputViewTest extends NsTest {
         //when
         List<String> carStrings = InputView.getCarStrings();
         //then
-        assertThat(carStrings).containsExactly("pobi", "woni", "jun");
+        assertThat(carStrings).containsExactly("pobi", " woni", " jun");
     }
 
     @Test
