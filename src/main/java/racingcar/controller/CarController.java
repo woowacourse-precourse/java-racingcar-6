@@ -30,7 +30,7 @@ public class CarController {
         System.out.println("");
     }
 
-    public boolean forwardCheck() {
+    private boolean forwardCheck() {
         return Randoms.pickNumberInRange(0, 9) >= 4;
     }
 
@@ -47,7 +47,7 @@ public class CarController {
         return winnerCars;
     }
 
-    public List<CarModel> maxLocationCheck(int maxLocation) {
+    private List<CarModel> maxLocationCheck(int maxLocation) {
         List<CarModel> winnerCars = new ArrayList<>();
 
         for ( CarModel carModel : carModelList) {
