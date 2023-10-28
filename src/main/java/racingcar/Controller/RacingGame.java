@@ -10,16 +10,19 @@ import racingcar.View.InputView;
 import racingcar.Validator;
 import racingcar.Model.Car;
 import racingcar.Model.Cars;
+import racingcar.Model.GameStatus;
 
 public class RacingGame {
     private Validator validator = new Validator();
+    private GameStatus gameStatus;
 
     public void run() {
         String carname = carNamesInput();
         Cars cars = createCars(carname);
         int playCount = playCountInput();
-        for (int i = 0; i < cars.getCars().size(); i++) {
-            System.out.println(cars.getCars().get(i).getName());
+        gameStatus = new GameStatus(cars, playCount);
+        while (gameStatus.isEnd()) {
+            
         }
     }
 

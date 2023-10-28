@@ -13,4 +13,8 @@ public class Cars {
         validator.validateCarsNames(cars);
         this.cars = cars;
     }
+
+    public List<Car> getCars() {
+        return this.cars;
+    }
 }
