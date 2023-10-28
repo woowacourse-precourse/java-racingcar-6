@@ -2,6 +2,8 @@ package racingcar.util;
 
 import org.assertj.core.api.ThrowableAssert;
 
+import java.util.List;
+
 public class Validator {
 
     public void validParseInt(String input) throws IllegalArgumentException {
@@ -19,10 +21,12 @@ public class Validator {
         }
     }
 
-    public void validName(String input) {
-        if(input.length() <= 0 || input.length() > 5) {
-            throw new IllegalArgumentException("이름은 1~5 크기로 입력해주세요.");
-        }
+    public void validName(List<String> carNames) {
+        carNames.forEach(name -> {
+            if (name.length() <= 0 || name.length() > 5) {
+                throw new IllegalArgumentException("이름은 1~5 크기로 입력해주세요.");
+            }
+        });
     }
 
 }
