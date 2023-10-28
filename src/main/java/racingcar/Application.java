@@ -1,12 +1,14 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        
     }
 
 
-    public class Car{
+    static class Car{
         String car_name;
         int current_location;
 
@@ -16,7 +18,15 @@ public class Application {
         }
 
         private void carMoving(){
-            
+            int rnd_num = Randoms.pickNumberInRange(0, 9);
+            if(rnd_num >= 4){
+                current_location +=1;
+            }
         }
+
+        private int getCurrentLocation(){
+            return current_location;
+        }
+
     }
 }
