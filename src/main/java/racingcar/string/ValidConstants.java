@@ -28,4 +28,8 @@ public class ValidConstants {
     public static String MSG_INCLUDE_SPECIAL_STRING() {
         return "문자열에 특수 문자가 포함되어 있습니다.";
     }
+
+    public static String MSG_INCLUDE_NUM() {
+        return "문자열에 숫자가 포함되어 있습니다.";
+    }
 }

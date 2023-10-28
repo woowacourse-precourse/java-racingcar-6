@@ -51,15 +51,15 @@
 
   
 
-- [ ] 모든 클래스에서 사용할 수 있는 메서드의 모음인 Utill 클래스 작성. // Utill
-  - [ ] 문자열 입력 :  이름은 5자 이하만 가능하다. // Utill#inputString
-    - [ ] 숫자을 포함하는가 검사 
+- [x] 모든 클래스에서 사용할 수 있는 메서드의 모음인 Utill 클래스 작성. // Utill
+  - [x] 문자열 입력 :  이름은 5자 이하만 가능하다. // Utill#inputString
+    - [x] 숫자을 포함하는가 검사 
     
-    - [ ] 공백입력 검사
+    - [x] 공백입력 검사
     
-    - [ ] 공백 포함 검사.
+    - [x] 공백 포함 검사.
     
-    - [ ] 특수기호 포함 검사
+    - [x] 특수기호 포함 검사
     
   - [x] 숫자 입력 : 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다. // Utill#inputNum
     - [x] 공백 입력 검사
@@ -109,7 +109,7 @@
 - [ ] 올바른 값을 확인하기 위한 검증 클래스를 만든다. ValidException
   - [ ] 이름은 5자 이하 검사. // ValidException#isValidFIveLessString
   - [x] 한글 포함 검사. //  ValidException#isValidIncludeKorean
-  - [ ] 숫자을 포함하는가 검사  // ValidException#isValidIncludeNum
+  - [x] 숫자을 포함하는가 검사  // ValidException#isValidIncludeNum
   - [x] 공백 입력 검사 // ValidException#isValidBlankCheck
   - [x] 양수 입력 검사 // ValidException#isValidPositiveCheck
   - [x] 문자열 포함 검사  // ValidException#isValidIncludeString

@@ -27,9 +27,20 @@ public class ValidException {
         return false;
     }
 
-    // TODO: 10/27/23 숫자을 포함하는가 검사
-    public static void isValidIncludeNum() {
+    /**
+     * 숫자를 포함하는 여부 검사.
+     *
+     * @param inputStr
+     */
+    public static void isValidIncludeNum(String inputStr) {
+        String regex = ".*[0-9].*"; // 숫자가 포함되어 있는지 확인하는 정규 표현식
 
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(inputStr);
+
+        if (matcher.matches()) {
+            throw new IllegalArgumentException(ValidConstants.MSG_INCLUDE_NUM());
+        }
     }
 
     /**
