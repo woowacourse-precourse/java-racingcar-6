@@ -3,8 +3,9 @@ package racingcar.domain;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class GameManager {
     private final InputView inputView = new InputView();
@@ -27,9 +28,7 @@ public class GameManager {
         outputView.printGameStartMessage();
     }
     private void gameRunning() {
-        for(int i=0;i<attempts;i++){
-            playSingeRound();
-        }
+        IntStream.range(0,attempts).forEach(i -> playSingeRound());
     }
     private void gameEnd() {
         List<String> winnerCarNames = Referee.determineWinner(this.cars);
@@ -37,13 +36,10 @@ public class GameManager {
     }
 
     private List<Car> initRaceCars(){
-        List<Car> cars = new ArrayList<>();
         List<String> carNames = inputView.getCarNames();
-        for(String carName: carNames){
-            Car car = new Car(carName);
-            cars.add(car);
-        }
-        return cars;
+        return carNames.stream()
+                .map(Car::new)
+                .collect(Collectors.toList());
     }
 
     private int initAttempts(){
