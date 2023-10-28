@@ -9,4 +9,12 @@ public class CarMoveJudgment {
             CarObject.carOnceMove = Randoms.pickNumberInRange(0, 9);
         } while (CarObject.carOnceMove <= CarObject.MOVE_CONDITION);
     }
+
+    public static boolean isNull() {
+        if(CarObject.carsSize == 0) {
+            return true;
+        }
+
+        return false;
+    }
 }

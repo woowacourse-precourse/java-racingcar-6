@@ -11,8 +11,14 @@ public class CarAction {
     public void carAction() {
         for (int i = 0; i < carNameList.size(); i++) {
             CarMoveJudgment.setCarOnceMoveDistance();
-            CarObject.nameOf(carNameList.get(i), CarObject.carOnceMove);
+            if(CarMoveJudgment.isNull()) {
+                CarObject.nameOf(carNameList.get(i), CarObject.carOnceMove);
+            } else {
+
+            }
         }
+
+        CarObject.carsSize = carNameList.size();
     }
 
     public void inputCarName() {
