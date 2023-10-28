@@ -20,7 +20,7 @@ public class RacingGame {
 
     public void run() {
         String[] names = preHandleNames();
-        int count = preHendleCount();
+        int count = preHandleCount();
         gameController.raceSet(names);
         gameController.race(count);
         gameController.raceResult();
@@ -33,7 +33,7 @@ public class RacingGame {
         return names;
     }
 
-    private int preHendleCount() {
+    private int preHandleCount() {
         String input = inputView.inputRaceCount();
         gameInputException.validateNumber(input);
         gameInputException.validateNumberZero(input);
