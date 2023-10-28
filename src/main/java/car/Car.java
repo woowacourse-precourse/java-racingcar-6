@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private final String name;
-    private int location; // 초기값 0
+    private int location;
     private static final int MOVING_STANDARD = 4;
     public Car(String name) {
         this.name = name;

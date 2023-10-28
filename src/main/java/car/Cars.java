@@ -17,7 +17,7 @@ public class Cars {
         this.carList = this.initByStringInput(userInput);
     }
 
-    public List<Car> getCarList() { // 테스트에서만 사용하는 것이라면 없애도 되지 않을까?
+    public List<Car> getCarList() {
         return new ArrayList<>(carList);
     }
 
@@ -43,7 +43,7 @@ public class Cars {
     private List<Car> initByStringInput(String userInput) {
         String[] carNames = userInput.split(SPLIT_DELIMITER);
         return Arrays.stream(carNames)
-                .map(String::trim) // 양옆 공백을 제거한다.
+                .map(String::trim)
                 .map(carName -> {
                     validateInput(carName);
                     return new Car(carName);

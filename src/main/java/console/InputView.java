@@ -9,7 +9,7 @@ public class InputView {
     }
 
     public int getNumericInput(){
-        String userInput = Console.readLine().trim(); // trim 해서 공백 제거
+        String userInput = Console.readLine().trim();
         try {
             return Integer.parseInt(userInput);
         } catch (NumberFormatException e){
