@@ -17,7 +17,7 @@ public class CarsTest {
         cars = new Cars();
     }
 
-    @DisplayName("자동차명 리스트가 입력되면 모든 자동차가 추가돼야한다.")
+    @DisplayName("자동차명 리스트가 입력되면 모든 자동차가 추가되어야한다.")
     @Test
     void addCarsTest() {
         cars.addCars(Arrays.asList("pobi", "woni", "jun"));
@@ -25,6 +25,19 @@ public class CarsTest {
 
         assertThat(carPositions).hasSize(3);
         assertThat(carPositions.get("pobi")).isEqualTo(0);
+        assertThat(carPositions.get("woni")).isEqualTo(0);
+        assertThat(carPositions.get("jun")).isEqualTo(0);
+    }
+
+    @DisplayName("특정 자동차를 이동시키면 값이 1증가해야 한다.")
+    @Test
+    void moveCarTest() {
+        cars.addCars(Arrays.asList("pobi", "woni", "jun"));
+        cars.moveCar("pobi");
+
+        HashMap<String, Integer> carPositions = cars.getCars();
+
+        assertThat(carPositions.get("pobi")).isEqualTo(1);
         assertThat(carPositions.get("woni")).isEqualTo(0);
         assertThat(carPositions.get("jun")).isEqualTo(0);
     }
