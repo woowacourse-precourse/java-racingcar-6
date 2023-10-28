@@ -29,7 +29,7 @@ public class RacingPlayer implements Player{
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        RacingPlayer player = (RacingPlayer) obj;
-        return Objects.equals(name, player.getName());
+        Player player = (Player) obj;
+        return name.equals(player.getName());
     }
 }
