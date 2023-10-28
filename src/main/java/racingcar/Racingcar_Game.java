@@ -44,7 +44,7 @@ public class Racingcar_Game {
 
         List<String> gameList = new ArrayList<>();
         for (int i = 0; i < carName.size(); i++) {
-            gameList.add("1");
+            gameList.add("");
         }
 
         for (int i = 0; i < gameCnt; i++) {
@@ -55,7 +55,14 @@ public class Racingcar_Game {
                     gameList.set(j, car);
                 }
             }
-            System.out.print(gameList);
+            printProgress(carName,gameList);
         }
+    }
+
+    public static void printProgress(List<String> carName,List<String> gameList){
+        for(int i=0;i<carName.size();i++){
+            System.out.println(carName.get(i)+" : "+gameList.get(i));
+        }
+        System.out.println();
     }
 }
