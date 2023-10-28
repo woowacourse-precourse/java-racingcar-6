@@ -1,7 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.LinkedHashMap;
 
 public class RacingGame {
 
@@ -33,6 +32,14 @@ public class RacingGame {
     public void getAttemptingNum() {
         System.out.println(ATTEMPTING_PHRASE);
         attemptingNum = Integer.parseInt(Console.readLine());
+    }
+
+    private static void moveCars(Car[] cars, int attemptingNum) {
+        for (int i = 0; i < attemptingNum; i++) {
+            for (Car car : cars) {
+                car.move();
+            }
+        }
     }
 
     private static void printRacingGameResults(Car[] cars) {
