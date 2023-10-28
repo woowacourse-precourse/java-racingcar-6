@@ -9,7 +9,7 @@ import static racingcar.view.constants.Message.ASK_GAME_COUNT;
 import static racingcar.view.constants.Message.ASK_MULTIPLE_CAR_NAMES;
 
 public class View {
-    public static String requestCarNames() {
+    public static String requestCarsName() {
         printNotice(ASK_MULTIPLE_CAR_NAMES);
         return Console.readLine();
     }

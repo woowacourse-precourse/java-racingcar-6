@@ -8,33 +8,28 @@ import racingcar.view.View;
 import java.util.List;
 
 import static racingcar.view.constants.Message.RESPONSE_RESULT_MESSAGE;
+import static racingcar.view.constants.Message.RESPONSE_WINNER_MESSAGE;
 
 public class Game {
     public static void start() {
-        String carNamesRequest = View.requestCarNames();
-        Cars cars = Cars.create(carNamesRequest);
+        String carsNameRequest = View.requestCarsName();
+        Cars cars = Cars.create(carsNameRequest);
 
         String roundCountRequest = View.requestRoundCount();
-
-        View.printNotice(RESPONSE_RESULT_MESSAGE);
         int roundCount = Parser.parseRoundCount(roundCountRequest);
 
-        playRounds(cars, roundCount);
+        View.printNotice(RESPONSE_RESULT_MESSAGE);
+        for (int i = 0; i < roundCount; i++) {
+            playOneRound(cars);
+        }
+        String winnerNames = cars.getWinnerNames();
+        System.out.println(String.format(RESPONSE_WINNER_MESSAGE.getMessage(), winnerNames));
+        Console.close();
     }
 
-    private static void playRounds(
-            final Cars cars,
-            final int roundCount
-    ) {
-        for (int i = 0; i < roundCount; i++) {
-            cars.playRound();
-            List<String> roundResults = cars.generateRoundResult();
-            View.printRoundResults(roundResults);
-        }
-
-        String winnerNames = cars.getWinnerNames();
-        System.out.println(winnerNames);
-
-        Console.close();
+    private static void playOneRound(final Cars cars) {
+        cars.playRound();
+        List<String> roundResults = cars.generateRoundResult();
+        View.printRoundResults(roundResults);
     }
 }

@@ -1,0 +1,27 @@
+package racingcar.domain;
+
+import camp.nextstep.edu.missionutils.Randoms;
+
+public class MovementCondition {
+    private static final Integer NUMBER_LOWER_BOUND_CONSTRAINT = 0;
+    private static final Integer NUMBER_UPPER_BOUND_CONSTRAINT = 9;
+    private static final Integer FORWARD_MOVEMENT_LOWER_BOUND_CONDITION = 4;
+
+    private final Integer condition;
+
+    private MovementCondition() {
+        this.condition = generateMovementCondition();
+    }
+
+    public static MovementCondition create() {
+        return new MovementCondition();
+    }
+
+    private Integer generateMovementCondition() {
+        return Randoms.pickNumberInRange(NUMBER_LOWER_BOUND_CONSTRAINT, NUMBER_UPPER_BOUND_CONSTRAINT);
+    }
+
+    public boolean movable() {
+        return condition >= FORWARD_MOVEMENT_LOWER_BOUND_CONDITION;
+    }
+}
