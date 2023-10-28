@@ -14,5 +14,6 @@ public class GameController {
 
     public void initGame(){
         String userCarNames = inputView.inputCarNames();
+        String raceTimes = inputView.inputRaceTimes();
     }
 }
