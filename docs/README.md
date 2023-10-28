@@ -27,9 +27,9 @@
       - [X] 여기에서 확인! 자동차 이름의 길이가 5가 넘어가는 경우! Validator, InputTest
       - [X] 자동차의 이름이 ,,로만 진행되어 이름이 나오지 않을 경우! Validator - isNoName,
       - [X] 자동차의 이름이 123,,23 의 경우로 진행되어 이름이 나오지 않을 경우! Validator - checkLengthEachName,
-    - [ ] 게임 횟수 만큼 진행될 수 있게 진행 - 🚗 CarGameService
-      - [X] 게임 횟수 입력시 잘못된 값 입력시 검증 과정 진행! Validator, CarGameService
-        - 숫자인지 확인!
+    - [ ] 게임 횟수 만큼 진행될 수 있게 진행 - GameController(이후 분리 고려)
+    - [X] 게임 횟수 입력시 잘못된 값 입력시 검증 과정 진행! Validator, CarGameService
+      - 숫자인지 확인!
     - [ ] 게임 진행 - RaceService,  CarGameService - gameStart
       - [X] 자동차의 이름마다 숫자 굴리기 -  NumberGenerator - generate  
         - [X] 숫자가 4 이상인 경우 자동차가 전진을 기록한 변수 + 1  RaceService - raceRoundGameStart,  CarGameService - race 
