@@ -26,7 +26,7 @@ public class RacingGame {
         String carname = carNamesInput();
         Cars cars = createCars(carname);
         int playCount = parsePlayCount(playCountInput());
-        gameStatus = new GameStatus(cars, playCount);
+        this.gameStatus = new GameStatus(cars, playCount);
     }
 
     private void play() {
@@ -39,7 +39,7 @@ public class RacingGame {
         OutputView.printWinner(gameStatus.getMaxCarNames());
     }
 
-    public Cars createCars(String input) {
+    private Cars createCars(String input) {
         List<Car> carList = createCarList(splitCarNames(input));
         Cars cars = new Cars(carList);
         return cars;
@@ -71,7 +71,7 @@ public class RacingGame {
         return input;
     }
 
-    public int parsePlayCount(String input) {
+    private int parsePlayCount(String input) {
         int playCount = validator.validatePlayCount(input);
         return playCount;
     }
