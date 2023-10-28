@@ -27,4 +27,13 @@ public class Car {
     private static boolean isOkayToMove(int randomNumber) {
         return randomNumber >= MOVABLE_CRITERIA;
     }
+
+
+    public int getMileageAsInt() {
+        return mileage.toString().length();
+    }
+
+    public String getName() {
+        return name;
+    }
 }
