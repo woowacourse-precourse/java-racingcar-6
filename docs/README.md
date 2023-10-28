@@ -19,7 +19,7 @@
     - 이후 라운드별 결과 출력 OutputView - printRoundResult
   - [X] 4 최종 우승자 출력  OutputView - printWinner
 
-- ### 🤔 Logic - GameController, CarGameService, InputService, WinnerService
+- ### 🤔 Logic - GameController, CarRaceService, WinnerService, RecordService
   - [X] 전반적인 징검다리 역할 - 🎮 GameController
     - [X] 자동차 이름 (,) 로 분리하는 작업 진행 -  CarGameService - extractSeperator
       - [X] 여기에서 확인! 자동차 이름의 길이가 5가 넘어가는 경우! Validator, InputTest
@@ -46,7 +46,7 @@
 ---
 ## 테스트 요구사항 처리
 - [ ] Junit5 or AssertJ를 활용하여 기능 명세서의 기능에 대한 테스트 진행!
-  - [ ] 자동차 이름 입력 부분 테스트!
+  - [X] 자동차 이름 입력 부분 테스트!
     - [X] 자동차 이름의 길이가 5를 넘어가는 경우
     - [X] 오로지 공백인 경우(",," 로 입력된 경우, "123,,23")
   - [X] 자동차 게임 횟수 입력 테스트!
