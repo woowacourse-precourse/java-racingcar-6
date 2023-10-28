@@ -14,10 +14,6 @@
 - 몇번의 이동을 할 것인지 입력할 수 있다. - inputTryCount()
 - 숫자가 아닐 경우, 에러를 발생시킨다. - validateTryCount()
 
-## 무작위 값 생성
-
-- 0에서 9사이에서 무작위 값을 생성한다. - createRandomNumbers()
-
 ## 자동차 전진 기능
 
 - 생성된 무작위 값이 4 이상일 경우를 판단할 수 있다. - isForward()
