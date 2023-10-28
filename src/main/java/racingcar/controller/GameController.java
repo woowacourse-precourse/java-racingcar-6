@@ -25,7 +25,10 @@ public class GameController {
 	}
 
 	public void run() {
+		inputView.printNamesRequest();
 		gameService.createGame(getCars());
+
+		inputView.printRoundRequest();
 		play(getRoundCount());
 	}
 
@@ -39,13 +42,12 @@ public class GameController {
 	}
 
 	public List<Car> getCars() {
-		inputView.printNamesRequest();
 		String[] names = inputView.getInput().split(INPUT_DELIMITER.getValue(), -1);
 		List<Car> cars = new ArrayList<>();
 		for (String name : names) {
 			Car car = new Car(validateName(name).replaceAll(WHITE_SPACE_REGEX.getRegex(), ""));
 			if (cars.contains(car)) {
-				throw new IllegalArgumentException(DUPLICATED_ERROR.getMessage());
+				throw new IllegalArgumentException("\"" + name + "\"" + DUPLICATED_ERROR.getMessage());
 			}
 			cars.add(car);
 		}
@@ -53,7 +55,6 @@ public class GameController {
 	}
 
 	public Long getRoundCount() {
-		inputView.printRoundRequest();
 		return validateNumber(inputView.getInput());
 	}
 }
