@@ -2,35 +2,40 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import static racingcar.InputValidation.*;
 import static racingcar.PrintUtil.*;
 
 public class InputValue {
+    public static int inputNumberOfCars, movingCount;
+    public static String[] carNameList;
+
     public static void InputSettingValue() {
         printNumberOfCarsInputMsg();
-        int inputNumberOfCars = InputNumberOfCars();
+        inputNumberOfCars = InputNumberOfCars();
 
         printNameOfCarInputMsg();
-        String[] carNameList = InputNameOfCars();
+        carNameList = InputNameOfCars();
 
         printMoveCountInputMsg();
-        int movingCount = InputMovingCount();
+        movingCount = InputMovingCount();
     }
 
     public static int InputNumberOfCars() {
         int numberOfCars = Integer.parseInt(Console.readLine());
-        InputValidation.validateNumberOfCarsRange(numberOfCars);
+        validateNumberOfCarsRange(numberOfCars);
         return numberOfCars;
     }
 
     public static String[] InputNameOfCars() {
         String userInputCarName = Console.readLine();
-        InputValidation.validateSeparator(userInputCarName);
+        validateInputCorrectSeparator(userInputCarName);
 
-        String[] nameOfCars = userInputCarName.split(MessageConst.STANDARD_SAPARATOR);
-        InputValidation.validateNameOfCarsRange(nameOfCars);
-        InputValidation.validateDuplicateName(nameOfCars);
+        String[] namesOfCars = userInputCarName.split(MessageConst.STANDARD_SAPARATOR);
+        validateInputEnoughNames(inputNumberOfCars, namesOfCars);
+        validateNameOfCarsRange(namesOfCars);
+        validateDuplicateName(namesOfCars);
 
-        return nameOfCars;
+        return namesOfCars;
     }
 
     public static int InputMovingCount() {

@@ -2,7 +2,9 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import static racingcar.NumberConst.*;
@@ -16,6 +18,13 @@ public class Carracing {
 
         InputSettingValue();
 
+        printResultMsg();
+
+        setInitStartPoint(carNameList);
+        for(int i=0; i<movingCount; i++) {
+            goStop(raceScore);
+        }
+        chooseWinner(raceScore);
         //inputNumberOfCars
         //movingCount
         //carNameList
@@ -42,5 +51,13 @@ public class Carracing {
         }
 
         return raceScore;
+    }
+
+    public static void chooseWinner(Map<String, String> raceScore) {
+        List<String> winner = new ArrayList<>(raceScore.keySet());
+
+        winner.sort((o1,o2) -> raceScore.get(o2).compareTo(raceScore.get(o1)));
+
+        printWinnerMsg(raceScore, winner);
     }
 }

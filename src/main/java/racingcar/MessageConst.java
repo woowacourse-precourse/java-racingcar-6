@@ -11,5 +11,5 @@ public final class MessageConst {
 
     public static final String RESULT_MESSAGE = "실행 결과";
 
-    public static final String WINNER_MESSAGE = "최종 우승자";
+    public static final String WINNER_MESSAGE = "최종 우승자 : ";
 }
