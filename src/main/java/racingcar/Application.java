@@ -1,5 +1,7 @@
 package racingcar;
 import java.util.*;
+import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
     public static class Car{
@@ -24,11 +26,22 @@ public class Application {
     }
     public static void main(String[] args) {
         // TODO: 프로그램 구현
+        inputCars = Console.readLine();
+        makeCars(inputCars);
+
     }
 
     public static List <Car> makeCars(){
 
         List<Car> cars = new ArrayList<>();
+
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+
+        // 입력받은 자동차 이름 cars에 저장
+        String[] carNames = Console.readLine().split(",");
+        for(String name : carNames){
+            cars.add(new Car(name));
+        }
 
         return cars;
     }
