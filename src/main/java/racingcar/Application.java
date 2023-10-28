@@ -26,9 +26,15 @@ public class Application {
     }
     public static void main(String[] args) {
         // TODO: 프로그램 구현
+        // 자동차 만들기
         List<Car> cars = makeCars();
+
+        // 자동차 경주 진행
         int attempts = getAtteptsNum();
         runningRace(cars, attempts);
+
+        // 결과
+        printWinners(getWinners(cars));
 
     }
 
@@ -51,13 +57,14 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
         int attemptsNum = Integer.parseInt(Console.readLine());
-        System.out.println(attemptsNum);
+        System.out.println();
 
         return attemptsNum;
     }
 
     public static void runningRace(List<Car> cars, int attemptsNum){
 
+        System.out.println("실행 결과");
         for(int attempt = 0; attempt<attemptsNum; attempt++){
 
             for(Car car : cars){
@@ -77,13 +84,28 @@ public class Application {
     }
 
     public static List<Car> getWinners(List<Car> cars){
+
         List<Car> winners = new ArrayList<>();
+
+        int maxPosition = getMaxPosition(cars);
+
+        for(Car car : cars){
+            if(car.position == maxPosition){
+                winners.add(car);
+            }
+        }
 
         return winners;
     }
 
     public static int getMaxPosition(List<Car> cars){
         int maxPosition = 0;
+
+        for(Car car : cars){
+            if(maxPosition<car.position){
+                maxPosition = car.position;
+            }
+        }
 
         return maxPosition;
     }
