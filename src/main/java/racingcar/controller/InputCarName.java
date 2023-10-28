@@ -10,10 +10,7 @@ import racingcar.model.CarObject;
 public class InputCarName {
     public void inputCarName() {
         String carName = readLine();
-
-        CarObject.nameOf();
-
-        //자동차 이름 예외처리
+        CarObject.nameOf(CarNameJudgment.splitOf(carName));
     }
 
     public void selectCarCondition() {
