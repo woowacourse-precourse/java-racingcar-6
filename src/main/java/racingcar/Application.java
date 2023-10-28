@@ -35,5 +35,9 @@ public class Application {
             }
             System.out.println();
         }
+
+        private String getCarName(){
+            return car_name;
+        }
     }
 }
