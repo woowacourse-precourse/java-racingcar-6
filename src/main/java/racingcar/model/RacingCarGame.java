@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,6 +11,8 @@ import java.util.Set;
 public class RacingCarGame {
 
     private static final int MAX_NAME_LENGTH = 5;
+    private static final int MIN_RANDOM_NUMBER = 0;
+    private static final int MAX_RANDOM_NUMBER = 9;
     private List<Car> cars;
 
     private RacingCarGame(List<Car> cars) {
@@ -43,6 +47,17 @@ public class RacingCarGame {
     private static void validateIsEmpty(String name) {
         if (name.isBlank()) {
             throw new IllegalArgumentException("자동차의 이름에 공백은 포함될 수 없습니다.");
+        }
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void playRound() {
+        for (Car car : cars) {
+            int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+            car.moveForward(randomNumber);
         }
     }
 }
