@@ -65,4 +65,19 @@ class CarTest {
         Assertions.assertThat(locate1).isEqualTo("--");
     }
 
+    @Test
+    @DisplayName("자동차가 현재 위치를 알려줄 수 있다.")
+    void 자동차_위치(){
+        //given
+        int distance=3;
+
+        //when
+        car1.moveForward();
+        car1.moveForward();
+        car1.moveForward();
+
+        //then
+        Assertions.assertThat(car1.located()).isEqualTo(distance);
+    }
+
 }
