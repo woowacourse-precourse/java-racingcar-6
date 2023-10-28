@@ -31,6 +31,8 @@ public class RaceController {
     }
 
     private RaceAttempts setRaceAttempts() {
+        int raceAttemptsInput = inputView.readRaceAttempts();
+        return new RaceAttempts(raceAttemptsInput);
     }
 
     private RaceWinners runRaceAndGetWinners(RaceParticipants raceParticipants, RaceAttempts raceAttempts) {
