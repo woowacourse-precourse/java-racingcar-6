@@ -14,6 +14,7 @@ public class Application {
         StartMessage();
         InputCarName();
         Try_Message();
+
     }
 
     public static void StartMessage() {
@@ -37,7 +38,10 @@ public class Application {
 
     public static void Try_Message() {
         System.out.println("시도할 회수는 몇회인가요?");
+        Try_Number();
     }
 
-    
+    public static void Try_Number() {
+        TryNumber = Integer.parseInt(readLine());
+    }
 }
