@@ -14,8 +14,7 @@ public class ValidateDuplicatedName {
     }
 
     private static void checkDupllicatedName(String[] cars) {
-        List<String> duplicatedNames = Arrays.stream(cars).distinct().toList();
-        if (!duplicatedNames.isEmpty()) {
+        if (cars.length != Arrays.stream(cars).distinct().count()) {
             throw new InvalidDuplicatedNamesException();
         }
     }
