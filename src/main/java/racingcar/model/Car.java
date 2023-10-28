@@ -24,7 +24,7 @@ public class Car {
     }
 
     private void moveForward(int randomNumber) {
-        if(randomNumber >= REFERENCE_VALUE_MOVING_FORWARD) {
+        if (randomNumber >= REFERENCE_VALUE_MOVING_FORWARD) {
             forwards += 1;
         }
     }
