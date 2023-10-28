@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class CarNamesTest {
+public class CarNamesCheckerTest {
     @Test
     public void testValidCarNames() {
         String validCarNames = "Car1,Car2,Car3";
