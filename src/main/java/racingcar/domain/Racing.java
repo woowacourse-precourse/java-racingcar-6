@@ -23,7 +23,11 @@ public class Racing {
     }
 
     private void modifyForwardNum(List<Car> carList){
-
+        for (Car car : carList) {
+            if(isMove(car)){
+                car.increaseForwardNum();
+            }
+        }
     }
 
     private List<String> findWinners(List<Car> carList){
