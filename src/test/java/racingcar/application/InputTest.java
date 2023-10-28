@@ -24,7 +24,7 @@ class InputTest extends NsTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"   ,  ", "pobi,   , jun"})
+    @ValueSource(strings = {"   ,  ", "pobi,   , jun", "pobi,,jun"})
     void 쉼표_기준_공백_입력_값_예외_테스트(String input) {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException(input))
