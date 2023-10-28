@@ -25,9 +25,7 @@ public class RacingCarGameMachine {
         for (RacingCar car : this.racingCars) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
             car.isRacingCarMove(randomNumber);
-            System.out.println(car);
         }
-        System.out.print("\n");
     }
 
     public List<String> winner() {
