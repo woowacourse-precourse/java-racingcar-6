@@ -74,4 +74,13 @@ class OutputViewTest {
             () -> outputView.printGameResultsPerAttempt(carNames, movingDistances)
         );
     }
+
+    @Test
+    public void printWinnersOfGame(){
+        List<String> winners = List.of("pobi", "woni", "jun");
+        String expectedWinnersMessage = "최종 우승자 : pobi, woni, jun\n";
+
+        outputView.printWinnersOfGame(winners);
+        assertEquals(expectedWinnersMessage, outputMessage.toString());
+    }
 }
