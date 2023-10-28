@@ -12,4 +12,9 @@ public class CarDto {
     public int getPosition() {
         return position;
     }
+
+    public CarDto(String name, int position) {
+        this.name = name;
+        this.position = position;
+    }
 }
