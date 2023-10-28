@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.TrialNumber;
+import racingcar.service.GameService;
 import racingcar.utils.Parser;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -13,6 +14,7 @@ import java.util.List;
 public class Controller {
     Cars cars;
     TrialNumber trialNumber;
+    GameService gameService = new GameService();
 
     /**
      * 자동차 이름을 입력 받기
@@ -50,5 +52,13 @@ public class Controller {
     private void playSingleGame(List<Car> cars) {
         cars.forEach(Car::move);
         OutputView.printResult(cars);
+    }
+
+    /**
+     * 모든 게임 종료 시 우승 자동차 선정
+     */
+    private void endGame(List<Car> cars) {
+        List<String> winnerName = gameService.getWinnerCars(cars);
+        OutputView.printWinner(winnerName);
     }
 }
