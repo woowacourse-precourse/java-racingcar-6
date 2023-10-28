@@ -4,13 +4,13 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
 
-    public String inputCarNames() {
+    public static String inputCarNames() {
         String carNames = Console.readLine();
         return carNames;
     }
 
-    public String inputTrialCount() {
-        String number = Console.readLine();
-        return number;
+    public static String inputTrialCount() {
+        String trialCount = Console.readLine();
+        return trialCount;
     }
 }
