@@ -19,6 +19,17 @@ public class RacingCars {
         return participateCars;
     }
 
+    public List<Car> findWinners() {
+        long maxTotalMoveCount = calculateMaxTotalMoveCount();
+        List<Car> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getTotalMoveCount() == maxTotalMoveCount) {
+                winners.add(car);
+            }
+        }
+        return Collections.unmodifiableList(winners);
+    }
+
     private long calculateMaxTotalMoveCount() {
         long maxTotalMoveCount = 0;
         for (Car car : this.cars) {
