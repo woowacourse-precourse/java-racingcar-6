@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -10,6 +11,11 @@ public class Cars {
 
     public Cars(List<String> carNames) {
         this.cars.addAll(createCarsFromNames(carNames));
+    }
+
+    public Map<Name, Distance> getCurrentStatus() {
+        return cars.stream()
+                .collect(Collectors.toMap(Car::getName, Car::getDistance));
     }
 
     public void moveAllCars(Navigator navigator) {
