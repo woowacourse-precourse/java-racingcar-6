@@ -22,13 +22,13 @@ public class ValidatorTest {
     @Test
     void InputName_Invalid_Name_Length() {
         List<String> cars = Arrays.asList("car123456", "car2", "car3");
-        assertThrows(IllegalArgumentException.class, () -> Validator.InputName(cars));
+        assertThrows(IllegalArgumentException.class, () -> Validator.InputCarName(cars));
     }
 
     @Test
     void InputName_Invalid_Name_Duplication() {
         List<String> cars = Arrays.asList("car", "car");
-        assertThrows(IllegalArgumentException.class, () -> Validator.InputName(cars));
+        assertThrows(IllegalArgumentException.class, () -> Validator.InputCarName(cars));
     }
 
 }
