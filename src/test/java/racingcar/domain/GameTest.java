@@ -50,8 +50,8 @@ class GameTest {
         Game game = new Game(cars);
 
         WinnersMessage winnersMessage = game.getWinnersMessage();
-
         WinnersMessage expect = new WinnersMessage(List.of("foo"));
+
         assertEquals(winnersMessage.toString(), expect.toString());
 
     }
