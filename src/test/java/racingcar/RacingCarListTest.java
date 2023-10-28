@@ -74,4 +74,18 @@ class RacingCarListTest {
 
         assertThat(positions).hasSameElementsAs(expected);
     }
+
+    @Test
+    @DisplayName("우승자를 올바르게 계산한다.")
+    public void calculateWinners(){
+        List<String> names = List.of("abc", "def", "ghi");
+        RacingCarList racingCarList = new RacingCarList();
+        racingCarList.addRacingCarsByNames(names);
+
+        List<Integer> numbers = List.of(0, 10, 10);
+        racingCarList.moveRacingCarsBasedOnGivenNumbers(numbers);
+
+        List<String> winners = racingCarList.getWinners();
+        assertThat(winners).hasSameElementsAs(List.of("def", "ghi"));
+    }
 }
