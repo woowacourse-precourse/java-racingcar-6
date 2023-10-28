@@ -3,9 +3,6 @@ package racingcar.domain;
 import java.util.List;
 
 public class OutputView {
-
-    private static final String EXECUTION_RESULT_MESSAGE = "실행 결과";
-
     private final String WINNER_OUTPUT_MESSAGE = "최종 우승자 : ";
 
     private final String DELIMITER = ", ";
