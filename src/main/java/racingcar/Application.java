@@ -84,4 +84,39 @@ public class Application {
         }
         System.out.println();
     }
+
+    /**
+     * 유저와 레이스 결과를 받아서 우승자가 누군지 판별하고 winners 리스트에 추가
+     * @param raceResult
+     * @param users
+     */
+    private static void findWinners(int[] raceResult, String[] users){
+        int length = raceResult.length;
+        int highestNumber = 0;
+        List<String> winners = new ArrayList<>(highestNumber);
+        for (int j = 0; j < length; j ++){
+            if (raceResult[j] > highestNumber) {
+                winners.clear();
+                highestNumber = raceResult[j];
+            }
+            if (raceResult[j] >= highestNumber) {
+                winners.add(users[j]);
+            }
+        }
+        printWinners(winners);
+    }
+
+    /**
+     * 받은 우승자 리스트를 출력
+     * @param winners
+     */
+    private static void printWinners(List<String> winners){
+        System.out.print("최종 우승자 : ");
+        for (int k = 0; k < winners.size(); k++) {
+            System.out.print(winners.get(k).replace(" : ", "").replace("-", ""));
+            if (k < winners.size() - 1) {
+                System.out.print(", ");
+            }
+        }
+    }
 }
