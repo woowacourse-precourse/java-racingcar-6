@@ -12,6 +12,9 @@ public class Application {
         String[] input = Console.readLine().split(",");
         ArrayList<Car> carList = new ArrayList<>();
         for(String name : input) {
+            if(name.length() > 5) {
+                throw new IllegalArgumentException("이름은 5자 이내로 작성해주세요.");
+            }
             carList.add(new Car(name, 0));
         }
 
