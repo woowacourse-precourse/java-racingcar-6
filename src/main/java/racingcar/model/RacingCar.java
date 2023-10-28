@@ -4,6 +4,7 @@ import racingcar.view.GameMessage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingCar {
     private String racingCarName;
@@ -24,15 +25,10 @@ public class RacingCar {
     }
 
     public String makeGameResult() {
-        if (this.racingCarMove.isEmpty()) {
-            return "";
-        }
-        String gameResult = "";
-        for (int i = 0; i < this.racingCarMove.size(); i++) {
-            if (this.racingCarMove.get(i).equals(true)) {
-                gameResult += GameMessage.MOVE.getMoveMessage();
-            }
-        }
+        String gameResult = this.racingCarMove.stream()
+                .filter(move -> move)
+                .map(move -> GameMessage.MOVE.getMoveMessage())
+                .collect(Collectors.joining());
         return gameResult;
     }
 
