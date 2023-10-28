@@ -12,7 +12,7 @@ public class Car {
         return carName;
     }
 
-    public void moveForward() {
+    public void plusMoveForward() {
         position++;
     }
 

@@ -16,7 +16,7 @@ class CarTest {
     @Test
     void 자동차_전진_테스트() {
         Car car = new Car("pobi");
-        car.moveForward();
+        car.plusMoveForward();
 
         Assertions.assertThat(1)
                 .isEqualTo(car.getPosition());
