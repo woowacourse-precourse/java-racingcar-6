@@ -11,6 +11,10 @@ public class CarAccelerator implements WrappedRandoms {
     private static WrappedRandoms INSTANCE;
     private static final WrappedRandoms SYSTEM_RANDOMS = new RealRandoms();
 
+    static {
+        INSTANCE = SYSTEM_RANDOMS;
+    }
+
     public boolean shouldAccelerate() {
         if (INSTANCE.pickNumberInRange(MINIMUM_RANGE_OF_RANDOM_NUMBER,
             MAXIMUM_RANGE_OF_RANDOM_NUMBER) >= ACCELERATE_CRITERION) {
