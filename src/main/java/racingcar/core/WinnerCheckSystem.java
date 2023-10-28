@@ -9,8 +9,8 @@ public class WinnerCheckSystem {
     private int MAX_LINE;
     private List<Car> winners = new ArrayList<>();
 
-    public WinnerCheckSystem(int line) {
-        MAX_LINE = line;
+    public void setMaxLine(final int line) {
+        this.MAX_LINE = line;
     }
 
     public List<Car> check(List<Car> cars) {
@@ -19,6 +19,10 @@ public class WinnerCheckSystem {
                 winners.add(car);
             }
         }
+        return winners;
+    }
+
+    public List<Car> getWinners() {
         return winners;
     }
 }

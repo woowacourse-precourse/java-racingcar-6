@@ -5,12 +5,13 @@ import racingcar.domain.Car;
 import java.util.List;
 
 public class GameProgressSystem {
+    private final WinnerCheckSystem winnerCheckSystem;
     private final Output output;
     private boolean endFlag = false;
 
-    public GameProgressSystem(final Output output) {
+    public GameProgressSystem(final WinnerCheckSystem winnerCheckSystem,final Output output) {
+        this.winnerCheckSystem = winnerCheckSystem;
         this.output = output;
-        // 우승체크시스템 넣어줘야함
     }
 
     public void progress(List<Car> cars){
@@ -19,7 +20,11 @@ public class GameProgressSystem {
         }
 
         // 우승체크시스템 미구현
+        List<Car> winner = winnerCheckSystem.check(cars);
 
+        if (winner.size() >= 1) {
+            endFlag = true;
+        }
         output.printResult(cars);
     }
 

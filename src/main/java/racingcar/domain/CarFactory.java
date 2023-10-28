@@ -23,4 +23,12 @@ public class CarFactory {
         }
         return res;
     }
+
+    public List<String> getNames(List<Car> winners){
+        List<String> res = new ArrayList<>();
+        for (Car winner : winners) {
+            res.add(winner.getName());
+        }
+        return res;
+    }
 }

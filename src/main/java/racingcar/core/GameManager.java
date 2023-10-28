@@ -10,12 +10,14 @@ public class GameManager {
     private final Output output;
     private final CarFactory factory;
     private final GameProgressSystem progressSystem;
+    private final WinnerCheckSystem winnerCheckSystem;
 
     public GameManager(final Input input, final Output output, final CarFactory factory) {
         this.input = input;
         this.output = output;
         this.factory = factory;
-        this.progressSystem = new GameProgressSystem(output);
+        this.winnerCheckSystem = new WinnerCheckSystem();
+        this.progressSystem = new GameProgressSystem(winnerCheckSystem,output);
         // 우승체크 시스템 주입
     }
 
@@ -24,17 +26,17 @@ public class GameManager {
         int tryNum = input.readTryNum();
 
         List<Car> carList = factory.factory(stringNames);
-        // 우승 체크에 tryNum
+        winnerCheckSystem.setMaxLine(tryNum);
 
-        do {
+        for (int i = 0; i < tryNum; i++) {
             progressSystem.progress(carList);
-        } while (progressSystem.endCheck());
-
-        /**
-         * 우승체크 시스템으로부터 우승 리스트 받음
-         * if len > 1 -> output.printSingleWinner(우승 리스트);
-         * else -> output.printMultiWinner(우승 리스트)
-         */
+            if (progressSystem.endCheck()) {
+                break;
+            }
+        }
+        List<Car> winners = winnerCheckSystem.getWinners();
+        List<String> winnerString = factory.getNames(winners);
+        output.printMultiWinner(winnerString);
 
     }
 
