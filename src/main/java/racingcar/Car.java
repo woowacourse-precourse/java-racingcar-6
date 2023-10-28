@@ -4,6 +4,11 @@ public class Car {
     private String name;
     private Integer forwardCount;
 
+    public Car(String name) {
+        this.name = name;
+        this.forwardCount = 0;
+    }
+
     private String getName() {
         return name;
     }
