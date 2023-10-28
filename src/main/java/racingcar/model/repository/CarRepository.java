@@ -8,8 +8,13 @@ import racingcar.model.domain.Car;
 
 public class CarRepository {
 
-    private Map<Long, Car> cars = new HashMap<>();
-    private Long sequence = 0L;
+    private Map<Long, Car> cars;
+    private Long sequence;
+
+    public CarRepository() {
+        this.cars = new HashMap<>();
+        this.sequence = 0L;
+    }
 
     public void save(Car car) {
         cars.put(++sequence, car);
