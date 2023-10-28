@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.RacingCars;
 import racingcar.view.Input;
@@ -10,9 +9,6 @@ import java.util.List;
 
 public class RacingController {
 
-    private static final int RANDOM_NUMBER_START = 0;
-    private static final int RANDOM_NUMBER_END = 9;
-    private static final int MIN_NUMBER = 4;
     private static final String NUMBER_FORMAT_EXCEPTION = "숫자를 입력해야 합니다.";
 
     private final Output output = new Output();
@@ -28,12 +24,7 @@ public class RacingController {
 
         output.showResultMessage();
         for (int i = 0; i < count; i++) {
-            for (Car car : racingCars.getCars()) {
-                if (canMove()) {
-                    car.move();
-                }
-            }
-            output.showResult(racingCars.getCars());
+            output.showResult(racingCars.race());
         }
 
         output.showWinners(findWinners(racingCars.getCars()));
@@ -45,14 +36,6 @@ public class RacingController {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(NUMBER_FORMAT_EXCEPTION);
         }
-    }
-
-    private boolean canMove() {
-        return MIN_NUMBER <= makeRandomNumber();
-    }
-
-    private int makeRandomNumber() {
-        return Randoms.pickNumberInRange(RANDOM_NUMBER_START, RANDOM_NUMBER_END);
     }
 
     private List<Car> findWinners(List<Car> cars) {
