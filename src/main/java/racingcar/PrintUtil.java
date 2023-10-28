@@ -9,7 +9,7 @@ public class PrintUtil {
     }
 
     public static void printNameOfCarInputMsg() {
-        System.out.println(NAME_OF_CAR_INPUT_MESSAGE);
+        System.out.println(NAMES_OF_CARS_INPUT_MESSAGE);
     }
 
     public static void printMoveCountInputMsg() {
