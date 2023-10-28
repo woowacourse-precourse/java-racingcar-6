@@ -12,7 +12,7 @@ public class CarTest {
         String carName = "test";
 
         //when
-        Car car = Car.create(carName);
+        Car car = new Car(carName);
 
         //then
         Assertions.assertThat(car.getName()).isEqualTo(carName);
@@ -23,7 +23,7 @@ public class CarTest {
         String carName = "test";
 
         //when
-        Car car = Car.create(carName);
+        Car car = new Car(carName);
 
         //then
         Assertions.assertThat(car.getDistance()).isEqualTo(0);
@@ -32,7 +32,7 @@ public class CarTest {
     void run_랜덤_숫자가_4_이상_시_거리_증가(){
         //given
         String carName = "test";
-        Car car = Car.create(carName);
+        Car car = new Car(carName);
         int preDistance = car.getDistance();
 
         //when
@@ -45,7 +45,7 @@ public class CarTest {
     void run_랜덤_숫자가_3_이하_시_거리_유지(){
         //given
         String carName = "test";
-        Car car = Car.create(carName);
+        Car car = new Car(carName);
         int preDistance = car.getDistance();
 
         //when
