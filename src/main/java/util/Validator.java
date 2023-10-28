@@ -43,13 +43,14 @@ public class Validator {
     }
 
     private void compareDuplicate(int i, List<String> carList) {
-        for (int j = 0; j < carList.size(); j++)
+        for (int j = i + 1; j < carList.size(); j++)
             checkEqual(carList.get(i), carList.get(j));
     }
 
     private void checkEqual(String carName1, String carName2) {
-        if(carName1.equals(carName2))
+        if(carName1.equals(carName2)) {
             throw new IllegalArgumentException("{ERROR: 동일한 이름의 자동차가 이미 존재합니다.}");
+        }
     }
 
     private void checkLastIndex(String input) {
