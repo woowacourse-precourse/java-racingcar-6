@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.dto.CarInputDto;
+import racingcar.dto.input.CarInputDto;
 
 public class Cars {
     private List<Car> carList;

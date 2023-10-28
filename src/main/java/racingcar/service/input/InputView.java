@@ -1,8 +1,8 @@
 package racingcar.service.input;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.dto.CarInputDto;
-import racingcar.dto.TimeInputDto;
+import racingcar.dto.input.CarInputDto;
+import racingcar.dto.input.TimeInputDto;
 import racingcar.util.validator.Validator;
 
 public class InputView implements Input{

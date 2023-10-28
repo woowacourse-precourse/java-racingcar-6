@@ -1,4 +1,4 @@
-package racingcar.dto;
+package racingcar.dto.input;
 
 public record TimeInputDto(int time) {
 }
