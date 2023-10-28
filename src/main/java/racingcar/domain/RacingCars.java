@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.utils.NumberMaker;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,8 +9,6 @@ public class RacingCars {
 
     private static final String CAR_NAME_DELIMITER = ",";
     private static final int MIN_NUMBER = 4;
-    private static final int RANDOM_NUMBER_START = 0;
-    private static final int RANDOM_NUMBER_END = 9;
 
     private final List<Car> cars;
 
@@ -35,11 +33,7 @@ public class RacingCars {
     }
 
     private boolean canMove() {
-        return MIN_NUMBER <= makeRandomNumber();
-    }
-
-    private int makeRandomNumber() {
-        return Randoms.pickNumberInRange(RANDOM_NUMBER_START, RANDOM_NUMBER_END);
+        return MIN_NUMBER <= NumberMaker.makeRandomNumber();
     }
 
     public List<Car> findWinners() {
