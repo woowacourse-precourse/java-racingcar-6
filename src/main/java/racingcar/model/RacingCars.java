@@ -6,11 +6,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingCars {
-    public static final int CAR_NAME_STANDARD_LENGTH = 5;
     private final List<Car> racingCars;
 
     public RacingCars(List<Car> racingCars) {
-        validate(racingCars);
+        validateRacingCars(racingCars);
         this.racingCars = racingCars;
     }
 
@@ -35,15 +34,6 @@ public class RacingCars {
         return winnerCars;
     }
 
-    private void validate(List<Car> racingCars) {
-        List<String> racingCarNames = racingCars.stream()
-                .map(racingCar -> racingCar.getCarName())
-                .collect(Collectors.toList());
-
-        isOverStandardLength(racingCarNames);
-        hasDuplicatedNames(racingCarNames);
-    }
-
     public List<String> getCarNames() {
         List<String> carNames = new ArrayList<>();
         racingCars.stream()
@@ -51,12 +41,12 @@ public class RacingCars {
         return carNames;
     }
 
-    private void isOverStandardLength(List<String> carNames) {
-        for (String carName : carNames) {
-            if (carName.length() > CAR_NAME_STANDARD_LENGTH) {
-                throw new IllegalArgumentException("5글자가 넘어갔습니다");
-            }
-        }
+    private void validateRacingCars(List<Car> racingCars) {
+        List<String> racingCarNames = racingCars.stream()
+                .map(racingCar -> racingCar.getCarName())
+                .collect(Collectors.toList());
+
+        hasDuplicatedNames(racingCarNames);
     }
 
     private void hasDuplicatedNames(List<String> carNames) {

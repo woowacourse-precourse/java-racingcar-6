@@ -4,10 +4,12 @@ import java.util.Objects;
 
 public class Car {
     public static final int DISTANCE_INIT_VALUE = 0;
+    public static final int CAR_NAME_STANDARD_LENGTH = 5;
     private final String carName;
     private int distance;
 
     public Car(String carName) {
+        validateName(carName);
         this.carName = carName;
         this.distance = DISTANCE_INIT_VALUE;
     }
@@ -27,11 +29,18 @@ public class Car {
         }
     }
 
-    private void goForward() {
-        distance++;
+    private void validateName(String carName) {
+        isOverStandardLength(carName);
     }
 
-    public void setDistanceForTest(int mockedDistanceValue) {
+    private void isOverStandardLength(String carName) {
+        if (carName.length() > CAR_NAME_STANDARD_LENGTH) {
+            throw new IllegalArgumentException("5글자가 넘어갔습니다");
+        }
+    }
+
+    private void goForward() {
+        distance++;
     }
 
     @Override
