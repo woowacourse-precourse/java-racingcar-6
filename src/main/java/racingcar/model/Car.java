@@ -37,4 +37,7 @@ public class Car {
                 .collect(Collectors.joining());
     }
 
+    public int getPosition(){
+        return this.position;
+    }
 }

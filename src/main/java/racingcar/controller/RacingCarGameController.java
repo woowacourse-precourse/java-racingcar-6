@@ -18,7 +18,6 @@ public class RacingCarGameController {
     public void run() {
         Cars cars = Cars.makeCarList(inputView.readCarNames());
         moveCars(cars);
-
     }
 
     private void moveCars(Cars cars) {

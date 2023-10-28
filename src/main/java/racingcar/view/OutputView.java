@@ -19,4 +19,5 @@ public class OutputView {
     private void printCarInformation(Car car) {
         System.out.println(car.getCarName() + " : " + car.getPositionToString());
     }
+
 }

@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,5 +23,10 @@ public class Cars {
 
     public List<Car> getCarList() {
         return carList;
+    }
+
+
+    private int getMaxPosition(){
+        return this.carList.stream().mapToInt(Car::getPosition).max().getAsInt();
     }
 }
