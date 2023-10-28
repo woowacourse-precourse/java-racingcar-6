@@ -42,7 +42,7 @@ public class Game {
     private void raceCars(List<Player> playerObjects) {
         for (Player car : playerObjects) {
             car.move(Create.randomNumber());
-            System.out.println(car.getPlayerName() + " : " + "-".repeat(car.getDist()));
+            Output.printRaceCar(car.getPlayerName(), car.getDist());
         }
         System.out.println();
     }
