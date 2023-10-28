@@ -4,6 +4,7 @@ import static racingcar.constant.ExceptionMessage.BLANK_EXCEPTION;
 import static racingcar.constant.ExceptionMessage.DUPLICATE_EXCEPTION;
 import static racingcar.constant.ExceptionMessage.INVALID_NAME_EXCEPTION;
 import static racingcar.constant.ExceptionMessage.LENGTH_EXCEPTION;
+import static racingcar.constant.GameMessage.DELIMITER;
 import static racingcar.constant.GameNumber.NAME_EMPTY_LENGTH;
 import static racingcar.constant.GameNumber.NAME_MAXIMUM_LENGTH;
 
@@ -29,7 +30,7 @@ public class CarsFactory {
 
     public List<String> inputCarNames() {
         String inputNames = Console.readLine();
-        List<String> carNames = Arrays.asList(inputNames.split(","));
+        List<String> carNames = Arrays.asList(inputNames.split(DELIMITER));
         validateCarNames(carNames);
 
         return carNames;

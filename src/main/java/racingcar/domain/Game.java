@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import static racingcar.constant.GameMessage.COLON;
+import static racingcar.constant.GameMessage.DASH;
+import static racingcar.constant.GameMessage.DELIMITER_WINNER;
 import static racingcar.constant.GameNumber.STOP_ATTEMPT_NUMBER;
 
 import java.util.ArrayList;
@@ -35,8 +38,8 @@ public class Game {
         List<String> roundResult = new ArrayList<>();
 
         for (Car car : cars) {
-            String moveDash = "-".repeat(car.getPosition());
-            roundResult.add(car.getName() + " : " + moveDash);
+            String moveDash = DASH.repeat(car.getPosition());
+            roundResult.add(car.getName() + COLON + moveDash);
         }
 
         return roundResult;
@@ -49,7 +52,7 @@ public class Game {
     public String listWinner() {
         List<String> winners = findWinner();
 
-        return String.join(",", winners);
+        return String.join(DELIMITER_WINNER, winners);
     }
 
     public int findMaxPosition() {
