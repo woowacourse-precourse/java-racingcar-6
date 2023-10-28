@@ -1,12 +1,13 @@
 package racingcar.model;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Cars {
 
-    private List<Car> cars;
+    private static List<Car> cars = new ArrayList<>();
 
     public Cars(List<Car> cars) {
         this.cars = cars;
@@ -18,5 +19,12 @@ public class Cars {
 
     private void randomGenerator() {
         int randomNumber = Randoms.pickNumberInRange(0,9);
+        if (randomNumber >= 4){
+            moveForward();
+        }
+    }
+
+    private void moveForward() {
+        cars.stream().forEach(car -> car.updatePosition());
     }
 }
