@@ -18,9 +18,17 @@ public class Game {
         return cars;
     }
 
+    public int getCurrentRound() {
+        return currentRound;
+    }
+
     public void moveAllCarsOnce() {
         for (Car car : cars) {
             car.move();
         }
+    }
+
+    public void increaseRound() {
+        currentRound++;
     }
 }
