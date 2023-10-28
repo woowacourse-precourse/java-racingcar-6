@@ -36,6 +36,15 @@ public class Race {
 		OutputView.printNewLine();
 	}
 
+	public List<Car> findWinners(List<Car> cars) {
+		List<Car> sortedCars = sortCarsByPosition(cars);
+		int maxPosition = sortedCars.get(0).getPosition();
+
+		return sortedCars.stream()
+			.filter(car -> car.getPosition() == maxPosition)
+			.collect(Collectors.toList());
+	}
+
 	private List<Car> sortCarsByPosition(List<Car> cars) {
 		return cars.stream()
 			.sorted(Comparator.comparingInt(Car::getPosition).reversed())
