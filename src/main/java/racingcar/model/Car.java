@@ -12,7 +12,13 @@ public class Car {
         return new Car(carName);
     }
 
-    public void getRandNum() {
-        int randNum = Randoms.pickNumberInRange(0, 9);
+    public void dashByRandNum() {
+        if(getRandNum() > 3) carInform.plusDash();
     }
+
+    public int getRandNum() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
+
+
 }
