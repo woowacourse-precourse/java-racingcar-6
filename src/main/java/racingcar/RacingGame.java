@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 public class RacingGame {
 	CarNameValidator carNameValidator = new CarNameValidator();
 	Car car = new Car();
+	Umpire umpire = new Umpire();
 	List<StringBuilder> steps = new ArrayList<>();
 
 	public RacingGame() {
@@ -21,6 +22,7 @@ public class RacingGame {
 		makeCarStepList(cars.length);
 		int tryCount = inputTryCount();
 		showTheResults(cars, tryCount);
+		String winners = umpire.decideTheWinners(cars,steps);
 	}
 
 	private String[] inputCarName() {
