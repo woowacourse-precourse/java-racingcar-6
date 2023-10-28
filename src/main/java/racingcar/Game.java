@@ -23,13 +23,7 @@ public class Game {
 
         List<Player> playerObjectArray = Create.playerObjectArray(this.players);
 
-        for (int move = 0; move < Integer.parseInt(moveNumber); move++) {
-            for (Player car : playerObjectArray) {
-                car.move(Create.randomNumber());
-                System.out.println(car.getPlayerName() + " : " + "-".repeat(car.getDist()));
-            }
-            System.out.println();
-        }
+        playRounds(playerObjectArray, Integer.parseInt(moveNumber));
 
         Map<String, Integer> playerDistanceMap = Create.playerDistanceMapping(playerObjectArray);
 
@@ -42,5 +36,19 @@ public class Game {
             }
         }
         System.out.print(JoinComma.winnerOutput(winners));
+    }
+
+    private void playRounds(List<Player> playerObjects, int moveNumber) {
+        for (int move = 0; move < moveNumber; move++) {
+            raceCars(playerObjects);
+        }
+    }
+
+    private void raceCars(List<Player> playerObjects) {
+        for (Player car : playerObjects) {
+            car.move(Create.randomNumber());
+            System.out.println(car.getPlayerName() + " : " + "-".repeat(car.getDist()));
+        }
+        System.out.println();
     }
 }
