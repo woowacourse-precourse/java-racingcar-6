@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import java.util.Comparator;
 import java.util.List;
 import racingcar.domain.Car;
 
@@ -13,5 +14,11 @@ public class RacingService {
             }
             System.out.println();
         }
+    }
+
+    public static void findWinner(List<Car> carList) {
+        Integer winnerProgress = carList.stream().map(car -> car.getProgress().length()).max(Comparator.comparing(x -> x))
+                .orElse(0);
+
     }
 }
