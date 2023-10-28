@@ -16,6 +16,12 @@ public class RacingCarList {
                 .forEach(racingCars::add);
     }
 
+    public List<RacingCarStatus> collectStatus() {
+        return racingCars.stream()
+                .map(RacingCar::getStatus)
+                .toList();
+    }
+
     private void validateNameList(List<String> names) {
         validateDistinctName(names);
         validateNameCount(names);
