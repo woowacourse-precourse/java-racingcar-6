@@ -15,10 +15,9 @@ class CarTest {
     void validateCarName() {
         // given
         String carName = "liljay";
-        Car car = Car.makeCar(carName);
 
         // when, then
-        assertThatThrownBy(() -> car.validateCarName(carName))
+        assertThatThrownBy(() -> Car.makeCar(carName))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
