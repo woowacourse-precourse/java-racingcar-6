@@ -9,6 +9,7 @@ public class Cars {
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
+        validateDuplicateCar(cars);
         this.cars = cars;
     }
 
@@ -46,6 +47,19 @@ public class Cars {
             maxPosition = car.comparePosition(maxPosition);
         }
         return maxPosition;
+    }
+
+    private void validateDuplicateCar(List<Car> cars) {
+        if (isDuplicateCar(cars)) {
+            throw new IllegalArgumentException("자동차 이름이 중복되었습니다.");
+        }
+    }
+
+    private boolean isDuplicateCar(List<Car> cars) {
+        long distinctCount = cars.stream()
+                .distinct()
+                .count();
+        return distinctCount != cars.size();
     }
 
     public List<Car> getCars() {
