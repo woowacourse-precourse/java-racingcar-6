@@ -1,7 +1,7 @@
 package racingcar.util;
 
 public class CarNameValidator {
-    final String regex = "^[a-zA-Z]+$";
+    private final String regex = "^[a-zA-Z]+$";
     String[] allCarNames;
     public boolean check(String carNames) {
         if(isNull(carNames) && isSize(carNames) && isString()){
@@ -16,15 +16,14 @@ public class CarNameValidator {
                 return false;
             }
         }
-
         return true;
     }
 
     private boolean isSize(String carNames) {
         allCarNames = carNames.split(",");
 
-        for(int index = 0; index < allCarNames.length; index++){
-            if(allCarNames[index].length() < 1 || allCarNames[index].length() > 5){
+        for (String allCarName : allCarNames) {
+            if (allCarName.isEmpty() || allCarName.length() > 5) {
                 return false;
             }
         }
