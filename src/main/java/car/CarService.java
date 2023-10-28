@@ -45,7 +45,8 @@ public class CarService {
 			//제일 큰 전진값 구하기
 			int top_forward = car_list_sort.get(car_list_sort.size()-1).getMovementStack().size();
 			for(Car c : car_list_sort) {
-				if(c.getMovementStack().size()==top_forward) rank.append(c.getName());
+				//우승자 한명일떄
+				if(c.getMovementStack().size()==top_forward && rank.isEmpty()) rank.append(c.getName());
 				//공동우승자가 있을경우
 				else if(c.getMovementStack().size()==top_forward && !rank.isEmpty()) rank.append(", "+c.getName());
 			}
