@@ -15,4 +15,13 @@ class CarTest {
         assertThat(pobisCar.getName()).isEqualTo(pobi);
     }
 
+    @Test
+    void 자동차에_4를_전달할_경우_distance_1_증가() {
+        Car fourCar = new Car("four");
+
+        fourCar.moveCar(4);
+
+        assertThat(fourCar.getDistance()).isEqualTo(1);
+    }
+
 }
