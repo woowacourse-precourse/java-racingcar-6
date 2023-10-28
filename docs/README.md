@@ -34,7 +34,7 @@
 
 [예시]
 
-```java
+```
 pobi,woni,jun
 ```
 
