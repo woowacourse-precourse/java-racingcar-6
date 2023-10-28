@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.GamePlayer;
+import racingcar.domain.GameRank;
 import racingcar.service.GameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -22,19 +23,23 @@ public class GameController {
     public void run() {
         GamePlayer gamePlayer = start();
         play(gamePlayer);
+        showWinner(gamePlayer);
+    }
+
+    private void showWinner(GamePlayer gamePlayer) {
+        GameRank gameRank = gameService.createGameRank(gamePlayer);
+        outputView.gameWinner(gameRank);
     }
 
     private void play(GamePlayer gamePlayer) {
         outputView.requestMoveCount();
         gameService.moveCarsByCount(gamePlayer, inputView.moveCount());
         System.out.println(gamePlayer);
-
     }
 
     private GamePlayer start() {
         outputView.requestCarName();
         GamePlayer gamePlayer = gameService.settingPlayer(inputView.carNames());
-        gamePlayer.printPlayerCars();
         return gamePlayer;
     }
 }

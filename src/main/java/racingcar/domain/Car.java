@@ -13,21 +13,23 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.view.OutputView;
 
-public class Car {
-
+public class Car implements Comparable<Car> {
 
     private String name;
-    private int moveCount;
+    private int moveDistance;
 
     public Car(String name) {
         this.name = name;
-        moveCount = MOVE_COUNT_INITIAL;
+        moveDistance = MOVE_COUNT_INITIAL;
+    }
+
+    public static int findBiggerRecord(int bestRecord, Car car) {
+        return Integer.max(bestRecord, car.moveDistance);
     }
 
     public void addNameToList(List<String> names) {
         names.add(name);
     }
-
 
     public void move() {
         int number = Randoms.pickNumberInRange(MIN_MOVE_CONDITION_NUMBER, MAX_MOVE_CONDITION_NUMBER);
@@ -37,7 +39,7 @@ public class Car {
 
     private String moveResultToString() {
         String result = name + " : ";
-        for (int i = 0; i < moveCount; i++) {
+        for (int i = 0; i < moveDistance; i++) {
             result += ("-");
         }
         return result;
@@ -45,15 +47,31 @@ public class Car {
 
     private void moveOrStop(int number) {
         if (number >= STANDARD_MOVE_CONDITION_NUMBER) {
-            moveCount++;
+            moveDistance++;
         }
+    }
+
+    @Override
+    public int compareTo(Car compareCar) {
+        return -Integer.compare(this.moveDistance, compareCar.moveDistance);
     }
 
     @Override
     public String toString() {
         return "Car{" +
                 "name='" + name + '\'' +
-                ", moveCount=" + moveCount +
+                ", moveCount=" + moveDistance +
                 '}';
+    }
+
+    public boolean isEqualRecord(int record) {
+        if (moveDistance == record) {
+            return true;
+        }
+        return false;
+    }
+
+    public String intoWinnersName(String winnersName) {
+        return winnersName += name;
     }
 }

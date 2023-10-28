@@ -5,13 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.GamePlayer;
+import racingcar.domain.GameRank;
+import racingcar.view.OutputView;
 
 /*
  *   racingCar게임의 기능들을 담당
  * */
 
 public class GameService {
-
 
     public GamePlayer settingPlayer(List<String> carNames) {
         GamePlayer gamePlayer = new GamePlayer();
@@ -34,8 +35,13 @@ public class GameService {
     }
 
     public void moveCarsByCount(GamePlayer gamePlayer, int count) {
+        OutputView.beforeMove();
         gamePlayer.moveCarsByCount(count);
     }
 
-
+    public GameRank createGameRank(GamePlayer gamePlayer) {
+        GameRank gameRank = gamePlayer.toGameRank();
+        gameRank.createGameWinners(gamePlayer.findBestRecord());
+        return gameRank;
+    }
 }
