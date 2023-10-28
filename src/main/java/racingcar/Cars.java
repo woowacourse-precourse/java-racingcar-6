@@ -24,11 +24,8 @@ public class Cars {
                 .toList();
     }
 
-
     public void attemptForward() {
-        for (Car car : cars) {
-            car.attemptForward();
-        }
+        cars.forEach(Car::attemptForward);
     }
 
     public List<CurrentResult> getCurrentCarsResult() {
