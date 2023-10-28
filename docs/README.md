@@ -16,7 +16,7 @@
 - ### 🖥️ Output - Class : OutputView
   - [X] 1 초기 출력문 정의 - ## OutputView - printInitGame
   - [X] 2 게임 횟수 입력하기 전 출력문 정의 ## OutputView - printBeforeInputGameCount
-  - [ ] 3 실행 결과 출력 ## OutputView - printGameResult
+  - [ ] 3 라운드별 실행 결과 출력 ## OutputView - printRoundResult
   - [ ] 4 최종 우승자 출력 ## OutputView - printWinner
 
 - ### 🤔 Logic - GameController, CarGameService, InputService, JudgementService
@@ -32,7 +32,7 @@
       - [X] 자동차의 이름마다 숫자 굴리기 - ## NumberGenerator - generate  
         - [X] 숫자가 4 이상인 경우 자동차가 전진을 기록한 변수 + 1 ## RaceService - raceRoundGameStart ## CarGameService - race 
       - [X] 자동차들에 대한 정보를 저장 - 🚗 Car
-        - [ ] 이름, 전진 카운트, 현재 출력될 결과 모습 (매번 for 문으로 출력하지 않기 위해!)
+        - [ ] 이름, 전진 카운트, 현재 출력될 결과 모습 (매번 for 문으로 출력하지 않기 위해!) ## RecordService
     - [ ] 게임이 끝나는 마지막 과정에서 우승자가 누군지 판별하는 곳 필요! - JudgementService
 
 
@@ -49,7 +49,7 @@
   - [ ] 자동차 이름 입력 부분 테스트!
     - [X] 자동차 이름의 길이가 5를 넘어가는 경우
     - [X] 오로지 공백인 경우(",," 로 입력된 경우, "123,,23")
-  - [ ] 자동차 게임 횟수 입력 테스트!
+  - [X] 자동차 게임 횟수 입력 테스트!
 
 
 ## 리팩토링 관련 요구사항 처리 
