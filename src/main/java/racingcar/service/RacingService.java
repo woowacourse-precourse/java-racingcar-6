@@ -18,13 +18,13 @@ public class RacingService {
     }
 
     public static void findWinner(List<Car> carList) {
-        int winnerProgress = carList.stream().map(car -> car.getProgress().length()).max(Comparator.comparing(x -> x))
+        int maxProgress = carList.stream().map(car -> car.getProgress().length()).max(Comparator.comparing(x -> x))
                 .orElse(0);
 
         List<String> winnerName = new ArrayList<>();
 
         for (Car car : carList) {
-            if (car.getProgress().length() == winnerProgress) {
+            if (car.getProgress().length() == maxProgress) {
                 winnerName.add(car.getName());
             }
         }
