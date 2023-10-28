@@ -18,11 +18,11 @@ public class InputView {
         }
     }
 
-    public int askMoveCount() {
-        String moveCount = Console.readLine();
+    public int askTryCount() {
+        String tryCount = Console.readLine();
         Validator validator = new Validator();
-        if (validator.isValidMoveCount(moveCount)) {
-            return Integer.parseInt(moveCount);
+        if (validator.isValidTryCount(tryCount)) {
+            return Integer.parseInt(tryCount);
         } else {
             throw new IllegalArgumentException();
         }

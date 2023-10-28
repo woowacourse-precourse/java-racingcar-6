@@ -22,7 +22,7 @@ class ValidatorTest {
     void 전진횟수_문자입력() {
         String inputMoveCount = "testInput";
         Validator validator = new Validator();
-        boolean isValid = validator.isValidMoveCount(inputMoveCount);
+        boolean isValid = validator.isValidTryCount(inputMoveCount);
         Assertions.assertThat(isValid).isEqualTo(Boolean.FALSE);
     }
 
@@ -30,7 +30,7 @@ class ValidatorTest {
     void 전진횟수_숫자입력() {
         String inputMoveCount = "123";
         Validator validator = new Validator();
-        boolean isValid = validator.isValidMoveCount(inputMoveCount);
+        boolean isValid = validator.isValidTryCount(inputMoveCount);
         Assertions.assertThat(isValid).isEqualTo(Boolean.TRUE);
     }
 }

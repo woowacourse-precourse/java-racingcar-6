@@ -41,8 +41,8 @@ public class RacingGame {
     }
 
     private int receiveTryCount() {
-        outputView.printMoveCountInputMessage();
-        int tryCount = inputView.askMoveCount();
+        outputView.printTryCountInputMessage();
+        int tryCount = inputView.askTryCount();
         return tryCount;
     }
 

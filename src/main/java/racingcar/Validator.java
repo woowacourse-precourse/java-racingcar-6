@@ -13,9 +13,9 @@ public class Validator {
         return true;
     }
 
-    public boolean isValidMoveCount(String moveCount) {
-        for (int i = 0; i < moveCount.length(); i++) {
-            if (!Character.isDigit(moveCount.charAt(i))) {
+    public boolean isValidTryCount(String tryCount) {
+        for (int i = 0; i < tryCount.length(); i++) {
+            if (!Character.isDigit(tryCount.charAt(i))) {
                 return false;
             }
         }

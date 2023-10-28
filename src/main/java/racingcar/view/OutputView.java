@@ -39,7 +39,7 @@ public class OutputView {
         System.out.println(INPUT_CAR_MESSAGE);
     }
 
-    public void printMoveCountInputMessage() {
+    public void printTryCountInputMessage() {
         System.out.println(INPUT_TRY_COUNT_MESSAGE);
     }
 
