@@ -2,16 +2,16 @@ package racingcar.domain;
 
 import java.util.List;
 
-public class RacingCarGroup {
+public class RacingCarStatusGroup {
 
-    private final List<RacingCar> racingCars;
+    private final List<RacingCars> racingCars;
 
-    public RacingCarGroup(List<RacingCar> racingCars) {
+    public RacingCarStatusGroup(List<RacingCars> racingCars) {
         this.racingCars = racingCars;
     }
 
     public void moveForward() {
-        for (RacingCar racingCar : racingCars) {
+        for (RacingCars racingCar : racingCars) {
             RandomNumber randomNumber = new RandomNumber();
 
             if (randomNumber.isMovePossible()) {

@@ -1,22 +1,22 @@
 package racingcar.service;
 
-import racingcar.domain.RacingCar;
-import racingcar.domain.RacingCarGroup;
+import racingcar.domain.RacingCars;
+import racingcar.domain.RacingCarStatusGroup;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarGameService {
 
-    private RacingCarGroup racingCarGroup;
-    private List<RacingCar> racingCarList = new ArrayList<>();
+    private RacingCarStatusGroup racingCarGroup;
+    private List<RacingCars> racingCarList = new ArrayList<>();
 
-    public void generateRacingCarGroup(RacingCar racingCar) {
+    public void generateRacingCarGroup(RacingCars racingCar) {
         racingCarList.add(racingCar);
-        racingCarGroup = new RacingCarGroup(racingCarList);
+        racingCarGroup = new RacingCarStatusGroup(racingCarList);
     }
 
-    public void racingCarGameProgress(RacingCar racingCar) {
+    public void racingCarGameProgress(RacingCars racingCar) {
 
     }
 }
