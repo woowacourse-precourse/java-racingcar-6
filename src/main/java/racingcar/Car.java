@@ -14,6 +14,10 @@ public class Car implements Comparable<Car> {
         return this.name;
     }
 
+    public int getPosition() {
+        return this.position;
+    }
+
     public void move() {
         position++;
     }
