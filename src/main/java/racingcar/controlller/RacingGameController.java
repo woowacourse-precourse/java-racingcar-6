@@ -8,9 +8,6 @@ import racingcar.model.Cars;
 import racingcar.view.OutputView;
 
 public class RacingGameController extends GameController {
-    private Cars cars;
-    private int numberOfRounds;
-
     public RacingGameController(boolean isRunning) {
         super(isRunning);
     }
@@ -24,20 +21,20 @@ public class RacingGameController extends GameController {
 
     @Override
     public void startGame() {
-        cars = RacingGameInputController.scanCarList();
-        numberOfRounds = RacingGameInputController.scanNumberOfRounds();
+        Cars cars = RacingGameInputController.scanCarList();
+        int numberOfRounds = RacingGameInputController.scanNumberOfRounds();
 
         OutputView.printResultHeaderMessage();
         for (int i = 0; i < numberOfRounds; i++) {
-            doOneRound();
+            doOneRound(cars);
             OutputView.printCurrentForwardState(cars);
         }
-        OutputView.printWinners(pickWinners());
+        OutputView.printWinners(pickWinners(cars));
 
         endGame();
     }
 
-    private void doOneRound() {
+    private void doOneRound(Cars cars) {
         for (Car car : cars.getCarList()) {
             moveOrNot(car);
         }
@@ -50,7 +47,7 @@ public class RacingGameController extends GameController {
         }
     }
 
-    private Cars pickWinners() {
+    private Cars pickWinners(Cars cars) {
         List<Car> winnerList = (cars.getCarList()).stream()
                 .filter(car -> (car.getPosition() == Collections.max(cars.getPositionList())))
                 .toList();
