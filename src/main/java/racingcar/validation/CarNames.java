@@ -11,13 +11,26 @@ public class CarNames {
     void checkBlankInput(String in) throws IllegalArgumentException {
         List<String> names = splitNames(in);
         names.stream().forEach(name -> {
-            if (isBlankString(name)) {
-                throw new IllegalArgumentException();
+            if (isBlankName(name)) {
+                throw new IllegalArgumentException("공백 입력입니다.");
             }
         });
     }
 
-    boolean isBlankString(String in) {
-        return in.trim().isEmpty();
+    boolean isBlankName(String name) {
+        return name.trim().isEmpty();
+    }
+
+    void checkNameLength(String in) throws IllegalArgumentException {
+        List<String> names = splitNames(in);
+        names.stream().forEach(name -> {
+            if (isLongName(name)) {
+                throw new IllegalArgumentException("이름 길이가 5를 초과합니다.");
+            }
+        });
+    }
+
+    boolean isLongName(String name) {
+        return name.length() > 5;
     }
 }

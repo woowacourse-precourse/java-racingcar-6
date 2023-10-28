@@ -29,4 +29,13 @@ public class ValidationTest {
                     .isInstanceOf(IllegalArgumentException.class);
         });
     }
+
+    @Test
+    void 이름_길이가_5이하가_아닌_경우_예외처리() {
+        List<String> inputs = Arrays.asList("12, 01-, 123210", "pobi,pororo,crong", "ham bur ger");
+        inputs.stream().forEach(input -> {
+            assertThatThrownBy(() -> new CarNames().checkNameLength(input))
+                    .isInstanceOf(IllegalArgumentException.class);
+        });
+    }
 }
