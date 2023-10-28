@@ -1,32 +1,31 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Car;
 import racingcar.type.MessageType;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static racingcar.type.MessageType.*;
+import static racingcar.util.TextUtil.*;
 
 /**
- * @Class : 자동차 경주 서비스
+ * @Class : 자동차 경주 서비스 클래스
  */
 public class RacingService {
 
-    /**
-     * @Method : 자동차 경주
-     */
-    public void racing() {
+    private static final int maxCarNameSize = 5;
 
-        println(ASK_CAR_NAME);
+    public void racing() {
         List<Car> cars = getAttendCars();
 
         println(ASK_ATTEMPTS);
         int attempts = getAttemptsCount();
         println(LINE_BREAK);
-        println(RESULT);
 
         int currentAttempts = 0;
-
+        println(RESULT);
         while (currentAttempts < attempts) {
             printRacingResult(cars);
             println(LINE_BREAK);
@@ -36,42 +35,45 @@ public class RacingService {
         printWinner();
     }
 
-
-    /**
-     * @Method : 참가 자동차 가져오기
-     */
     private List<Car> getAttendCars() {
-        return null;
+        println(ASK_CAR_NAME);
+
+        String carNames = Console.readLine();
+        List<String> carNameList = splitAndTrim(carNames, ",");
+
+        validationCarNames(carNameList);
+
+        return carNameList.stream()
+                .map(c -> new Car(c))
+                .collect(Collectors.toList());
     }
 
+    public void validationCarNames(List<String> carNameList) {
+        if (hasOverLengthCarNames(carNameList)) {
+            throw new IllegalArgumentException("Car names exceed the maximum length.");
+        }
+        if (hasDuplicates(carNameList)) {
+            throw new IllegalArgumentException("Car names contains duplicates.");
+        }
+    }
 
-    /**
-     * @Method : 시도 회수 가져오기
-     */
     private int getAttemptsCount() {
         return 0;
     }
 
-
-    /**
-     * @Method : 경주 결과 출력
-     */
     private void printRacingResult(List<Car> cars) {
     }
 
 
-    /**
-     * @Method : 우승자 출력
-     */
     private void printWinner() {
     }
 
-
-    /**
-     * @Method : 줄 바꿈 포함 출력
-     */
     private static void println(MessageType messageType) {
         System.out.println(messageType.getMessage());
+    }
+
+    private static boolean hasOverLengthCarNames(List<String> carNameList) {
+        return carNameList.stream().anyMatch(c -> isOverLength(c, maxCarNameSize));
     }
 
 }
