@@ -8,9 +8,11 @@ import racingcar.dto.RacingCarCreateRequest;
 public class RacingCarGame {
 
     private final RacingGameView view;
+    private final ActionNumberGenerator actionNumberGenerator;
 
-    public RacingCarGame(RacingGameView view) {
+    public RacingCarGame(RacingGameView view, ActionNumberGenerator actionNumberGenerator) {
         this.view = view;
+        this.actionNumberGenerator = actionNumberGenerator;
     }
 
     public void play() {
@@ -18,7 +20,7 @@ public class RacingCarGame {
         MoveOpportunityCreateRequest moveOpportunityCreateRequest = view.inputMoveOpportunityCreateRequest();
 
         RacingCarRegistry racingCarRegistry = RacingCarRegistryMapper.toRacingCarRegistry(
-                new RandomActionNumberGenerator(),
+                actionNumberGenerator,
                 racingCarCreateRequest,
                 moveOpportunityCreateRequest);
 
