@@ -10,7 +10,7 @@ import racingcar.Car;
 import racingcar.input.ConsoleInput;
 import racingcar.input.Input;
 
-class ConsoleOutputTest extends NsTest {
+class ConsoleOutputWinnerTest extends NsTest {
 
     Input consoleInput = new ConsoleInput();
     Output consoleOutput = new ConsoleOutput();
@@ -19,43 +19,51 @@ class ConsoleOutputTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
-    void 차수별_실행_결과_출력1() {
+    void 우승자_출력1() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    run("DY1,DY2", "1");
-                    //output()의 trim()때문에 뒷 공백 사라짐
-                    assertThat(output()).contains("DY1 : -\r\nDY2 :");
+                    run("DY1,DY2,DY3", "1");
+                    assertThat(output()).contains("DY1, DY3");
                 },
-                MOVING_FORWARD, STOP
+                MOVING_FORWARD, STOP, MOVING_FORWARD
         );
     }
 
     @Test
-    void 차수별_실행_결과_출력2() {
+    void 우승자_출력2() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    run("DY1,DY2", "2");
-                    assertThat(output()).contains(
-                            "DY1 : -\r\nDY2 : -",
-                            "DY1 : --\r\nDY2 : -"
-                    );
+                    run("DY1,DY2,DY3", "2");
+                    assertThat(output()).contains("DY1");
                 },
-                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, STOP
+                MOVING_FORWARD, STOP, MOVING_FORWARD,
+                MOVING_FORWARD, STOP, STOP
         );
     }
 
     @Test
-    void 차수별_실행_결과_출력3() {
+    void 우승자_출력3() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    run("DY1,DY2", "3");
-                    assertThat(output()).contains(
-                            "DY1 : -\r\nDY2 : ",
-                            "DY1 : --\r\nDY2 : ",
-                            "DY1 : ---\r\nDY2 :"
-                    );
+                    run("DY1,DY2,DY3", "3");
+                    assertThat(output()).contains("DY1, DY2, DY3");
                 },
-                MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD, STOP
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 우승자_출력4() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("DY1,DY2,DY3", "3");
+                    assertThat(output()).contains("DY1, DY2, DY3");
+                },
+                STOP, STOP, STOP,
+                STOP, STOP, STOP,
+                STOP, STOP, STOP
         );
     }
 
@@ -66,7 +74,8 @@ class ConsoleOutputTest extends NsTest {
 
         for (int i = 0; i < executionCount; i++) {
             carList.forEach(car -> car.moveForward());
-            consoleOutput.printExecutionResult(carList);
         }
+
+        consoleOutput.printWinner(carList);
     }
 }
