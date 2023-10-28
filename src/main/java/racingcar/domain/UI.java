@@ -8,7 +8,7 @@ import java.util.List;
 
 public class UI {
 
-    private Validator validator = null;
+    private final Validator validator;
 
     public UI(Validator validator) {
         this.validator = validator;
@@ -16,7 +16,7 @@ public class UI {
 
     public List<Car> inputCarNames() {
 
-        List<Car> carList = new ArrayList<Car>();
+        List<Car> carList = new ArrayList<>();
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNamesString = Console.readLine();
@@ -33,7 +33,7 @@ public class UI {
     }
 
     public int inputRounds() {
-        int maxRounds = 0;
+        int maxRounds;
 
         System.out.println("시도할 회수는 몇회인가요?");
         String maxRoundString = Console.readLine();
@@ -54,7 +54,7 @@ public class UI {
     }
 
     public void showFinalResult(List<Car> cars) {
-        List<String> winnerList = new ArrayList<String>();
+        List<String> winnerList = new ArrayList<>();
         int maxPosition = 0;
 
         for (Car car : cars) {

@@ -13,6 +13,9 @@ public class Validator {
         String[] carString = input.split(",");
         carList = Arrays.asList(carString);
 
+        /* 자동차가 하나일 경우 */
+        if (carList.size() < 2) throw new IllegalArgumentException("경주가 시작되려면 이름을 두 개 이상 적어주세요");
+
         for (String s : carList) {
             isProperLength(s);
         }

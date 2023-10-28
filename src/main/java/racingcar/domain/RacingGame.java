@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
-    private List<Car> cars = new ArrayList<Car>();
+    private List<Car> cars = new ArrayList<>();
     private int maxRound = 0;
-    private UI ui = null;
+    private final UI ui;
 
     public RacingGame(UI ui) {
         this.ui = ui;
