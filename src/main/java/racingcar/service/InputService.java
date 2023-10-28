@@ -1,7 +1,7 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.Cars;
+import racingcar.domain.Cars;
 
 public class InputService {
     private final Cars cars = new Cars();
