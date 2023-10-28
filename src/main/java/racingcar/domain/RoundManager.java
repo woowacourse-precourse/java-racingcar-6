@@ -6,7 +6,7 @@ import java.util.List;
 
 public class RoundManager {
 
-    public void moveCarsInRound(List<Car> cars){
+    public void moveCars(List<Car> cars){
         cars.forEach(car -> {
             if(shouldCarMove())
                 car.move();

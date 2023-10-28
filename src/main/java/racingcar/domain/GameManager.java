@@ -47,7 +47,7 @@ public class GameManager {
     }
 
     private void playSingeRound(){
-        roundManager.moveCarsInRound(raceCars);
+        roundManager.moveCars(raceCars);
         outputView.printRoundResult(raceCars);
     }
 }
