@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.RacingCarCreator;
+import racingcar.RacingCar;
 
 
 public class ValidatorTest {
-    List<RacingCarCreator> racingCarsList = new ArrayList<>();
+    List<RacingCar> racingCarsList = new ArrayList<>();
     String[] carNames;
 
     @BeforeEach
