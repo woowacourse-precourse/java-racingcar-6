@@ -8,6 +8,7 @@ public class RaceService {
 
     public void validateCarNamesInput(String carNamesInput) {
         validateEmptyInput(carNamesInput);
+        validateNullInput(carNamesInput);
     }
 
     private void validateEmptyInput(String carNamesInput) {
@@ -16,4 +17,9 @@ public class RaceService {
         }
     }
 
+    private void validateNullInput(String carNamesInput) {
+        if (carNamesInput == null) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
