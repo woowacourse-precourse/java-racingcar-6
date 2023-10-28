@@ -4,6 +4,7 @@ import java.util.List;
 import racingcar.circuit.Circuit;
 import racingcar.domain.car.Car;
 import racingcar.domain.trial.Trial;
+import racingcar.game.validate.BlankTrialValidator;
 import racingcar.game.validate.EmptyCarNamesValidator;
 import racingcar.game.validate.IntegerTrialValidator;
 import racingcar.view.InputView;
@@ -40,7 +41,8 @@ public class RacingGame {
 
     private Trial receiveTrial() {
         outputView.inputTrial();
-        Integer trial = IntegerTrialValidator.validate(inputView.getRacingTrial());
-        return new Trial(trial);
+        String racingTrial = inputView.getRacingTrial();
+        BlankTrialValidator.validate(racingTrial);
+        return new Trial(IntegerTrialValidator.validate(racingTrial));
     }
 }
