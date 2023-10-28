@@ -58,6 +58,7 @@ public class RacingCarOutputViewTest {
                         """
                                 pobi : -
                                 woni :\s
+                                                                
                                 """),
                 arguments(new RacingRoundResult(List.of(setCar("pobi", true, 2),
                                 setCar("woni", false, 4),
@@ -66,6 +67,7 @@ public class RacingCarOutputViewTest {
                                 pobi : --
                                 woni : ----
                                 jun : ---
+                                                                
                                 """)
         );
     }
