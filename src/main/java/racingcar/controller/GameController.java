@@ -24,6 +24,20 @@ public class GameController {
 		gameService = new GameService();
 	}
 
+	public void run() {
+		gameService.createGame(getCars());
+		play(getRoundCount());
+	}
+
+	public void play(Long roundCount) {
+		while (roundCount-- > 0) {
+			gameService.playRound();
+			outputView.stackRoundResult(outputView.getRoundResult(gameService.findAll()));
+		}
+		outputView.printGameResult();
+		outputView.printWinner(gameService.getWinners());
+	}
+
 	public List<Car> getCars() {
 		inputView.printNamesRequest();
 		String[] names = inputView.getInput().split(INPUT_DELIMITER.getValue());
