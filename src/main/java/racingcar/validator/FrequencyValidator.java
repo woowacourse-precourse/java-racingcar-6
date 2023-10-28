@@ -10,6 +10,10 @@ public class FrequencyValidator {
     }
   }
 
-
+  public void isNegativeNumber(String frequency) throws IllegalArgumentException {
+    if(Integer.parseInt(frequency) < 1) {
+      throw new IllegalArgumentException("1보다 큰 수를 입력해주세요.");
+    }
+  }
 
 }
