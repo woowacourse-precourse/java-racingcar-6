@@ -16,12 +16,20 @@ public class Race {
 
     public void setCarList(String inputCarNames) {
         String[] carNameArray = inputCarNames.split(",");
-        List<String> carNameList = new ArrayList<>(Arrays.asList(carNameArray));
-        for (String carName : carNameList) {
+        List<String> carNames = new ArrayList<>(Arrays.asList(carNameArray));
+        for (String carName : carNames) {
             // carName에 대한 예외 검사
             Car newCar = new Car(carName);
             carList.add(newCar);
         }
+    }
+
+    public List<String> getCarNames() {
+        List<String> carNames = new ArrayList<>();
+        for (Car car : carList) {
+            carNames.add(car.getName());
+        }
+        return carNames;
     }
 
     public void moveCars() {
