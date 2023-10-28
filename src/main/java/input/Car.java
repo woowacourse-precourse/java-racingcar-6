@@ -13,6 +13,15 @@ public class Car {
         for (String name: input.split(",")) {
             carNames.add(name);
         }
+        checkNameLength(carNames);
         return carNames;
+    }
+    public void checkNameLength(List<String> carNames) {
+        for (int i = 0; i < carNames.size(); i++) {
+            String name = carNames.get(i);
+            if (name.length() > 5 || name.length() < 1) {
+                throw new IllegalArgumentException();
+            }
+        }
     }
 }
