@@ -12,4 +12,11 @@ public class Validation {
         }
     }
 
+    public static void validateEmtpy(List<String> cars) {
+        if (cars.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+
 }
