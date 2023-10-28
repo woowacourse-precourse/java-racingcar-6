@@ -17,6 +17,13 @@ public class Car {
         }
     }
 
+    public void getPosition() {
+        String name = this.name;
+        String position = "-".repeat(this.moves);
+
+        System.out.printf("%s : %s\n", name, position);
+    }
+
     public String getName() {
         return this.name;
     }

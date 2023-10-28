@@ -29,10 +29,7 @@ public class RacingGame {
     private void playRound() {
         for (Car car : cars) {
             car.tryMove();
-            String name = car.getName();
-            String position = "-".repeat(car.getMoves());
-
-            System.out.printf("%s : %s\n", name, position);
+            car.getPosition();
         }
         System.out.println();
     }
