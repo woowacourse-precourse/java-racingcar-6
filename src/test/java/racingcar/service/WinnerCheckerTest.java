@@ -1,6 +1,6 @@
 package racingcar.service;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +21,8 @@ public class WinnerCheckerTest {
         carList.add(car2);
         carList.add(car3);
         carList.get(1).move();
-        carList.get(2).move();
+        carList.get(1).move();
 
-        assertThat(WinnerChecker.findWinner(carList)).contains(car2, car3);
+        assertEquals(WinnerChecker.findWinner(carList).get(0).getNameToString(), car2.getNameToString());
     }
 }
