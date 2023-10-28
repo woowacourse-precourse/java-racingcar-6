@@ -2,9 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
+
 import java.util.HashMap;
-import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
@@ -13,6 +12,16 @@ public class Application {
 
         HashMap<String, String> createUserCar = userCarInfoSave(userInput);
 
+    }
+
+    private static void referee(HashMap<String, String> createUserCar) {
+        for (String key : createUserCar.keySet()) {
+            String value = createUserCar.get(key);
+            int random = randomNumber();
+            if (random >= 4) {
+                createUserCar.put(key, value + "-");
+            }
+        }
     }
 
     private static String inputCarName() {
@@ -39,13 +48,5 @@ public class Application {
     private static int randomNumber() {
         int random = Randoms.pickNumberInRange(0, 9);
         return random;
-    }
-
-    private static String moveForward() {
-        return "-";
-    }
-
-    private static String moveStop() {
-        return "";
     }
 }
