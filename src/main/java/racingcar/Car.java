@@ -18,4 +18,13 @@ public class Car {
     public static Car createCarByName(String name) {
         return new Car(name);
     }
+
+    public void moveForwardOrStop() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        if (isOkayToMove(randomNumber)) mileage.append(ONE_MOVE);
+    }
+
+    private static boolean isOkayToMove(int randomNumber) {
+        return randomNumber >= MOVABLE_CRITERIA;
+    }
 }
