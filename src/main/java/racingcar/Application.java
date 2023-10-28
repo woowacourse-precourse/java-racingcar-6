@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+
 public class Application {
     public static void main(String[] args) {
         String Game_Start = Constants.GAME_START.toString();
@@ -7,6 +9,8 @@ public class Application {
         String TRY_COUNT = Constants.TRY_COUNT.toString();
 
         System.out.println(Game_Start);
+        List<String> Cars = RacingCars.generateCar();
+        System.out.println(Cars);
 
     }
 }
