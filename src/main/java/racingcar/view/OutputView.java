@@ -13,7 +13,7 @@ public class OutputView {
         System.out.println(getForwardStateString(carList));
     }
 
-    public static String getForwardStateString(Cars carList) {
+    private static String getForwardStateString(Cars carList) {
         StringBuilder sb = new StringBuilder();
         for (Car car : carList.getCarList()) {
             sb.append(getForwardStateString(car));
@@ -22,7 +22,7 @@ public class OutputView {
         return sb.toString();
     }
 
-    public static String getForwardStateString(Car car) {
+    private static String getForwardStateString(Car car) {
         return car.getName() + " : "
                 + "-".repeat(car.getPosition());
     }
