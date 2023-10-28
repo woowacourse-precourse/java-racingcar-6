@@ -20,4 +20,8 @@ public class Car {
             throw new CarNameLengthException(ErrorMessage.CAR_NAME_LENGTH_ERROR.getMessage());
         }
     }
+
+    public void movePosition() {
+        this.position++;
+    }
 }

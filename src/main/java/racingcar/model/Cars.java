@@ -23,5 +23,7 @@ public class Cars {
         }
     }
 
-
+    public List<Car> getRacingCars() {
+        return racingCars;
+    }
 }
