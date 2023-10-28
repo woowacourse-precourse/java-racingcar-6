@@ -13,13 +13,14 @@ public class OutputView {
     private static final String WINNER_SEPARATOR_MESSAGE = ", ";
 
     public void printResultMessage() {
+        System.out.println();
         System.out.println(RACE_RESULT_MESSAGE);
     }
 
     public void printRaceResult(RaceResultDTO raceResultDTO) {
         raceResultDTO.names()
                 .stream()
-                .forEach(name -> printNameAndPosition(name, raceResultDTO.position()));
+                .forEach(name -> printNameAndPosition(name, raceResultDTO.positions()));
         System.out.println();
     }
 
