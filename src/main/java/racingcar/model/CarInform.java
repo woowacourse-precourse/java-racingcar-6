@@ -12,4 +12,8 @@ public class CarInform {
     public static CarInform getInstance(String carName) {
         return new CarInform(carName);
     }
+
+    public void plusDash() {
+        dash += "-";
+    }
 }
