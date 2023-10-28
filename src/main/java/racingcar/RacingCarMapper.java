@@ -2,19 +2,19 @@ package racingcar;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.dto.RacingCarDto;
+import racingcar.dto.RacingCarResponse;
 
 public class RacingCarMapper {
     private RacingCarMapper() {
     }
 
-    public static List<RacingCarDto> toDtoList(List<RacingCar> racingCars) {
+    public static List<RacingCarResponse> toDtoList(List<RacingCar> racingCars) {
         return racingCars.stream()
                 .map(RacingCarMapper::toDto)
                 .collect(Collectors.toList());
     }
 
-    public static RacingCarDto toDto(RacingCar racingCar) {
-        return new RacingCarDto(racingCar.getName(), racingCar.getPosition());
+    public static RacingCarResponse toDto(RacingCar racingCar) {
+        return new RacingCarResponse(racingCar.getName(), racingCar.getPosition());
     }
 }

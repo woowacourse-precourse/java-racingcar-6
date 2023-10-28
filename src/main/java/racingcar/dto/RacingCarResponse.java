@@ -3,12 +3,12 @@ package racingcar.dto;
 import racingcar.Name;
 import racingcar.Position;
 
-public class RacingCarDto {
+public class RacingCarResponse {
 
     private Name name;
     private Position position;
 
-    public RacingCarDto(Name name, Position position) {
+    public RacingCarResponse(Name name, Position position) {
         this.name = name;
         this.position = position;
     }

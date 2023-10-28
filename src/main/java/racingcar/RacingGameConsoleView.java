@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.StringJoiner;
 import racingcar.dto.MoveOpportunityCreateRequest;
 import racingcar.dto.RacingCarCreateRequest;
-import racingcar.dto.RacingCarDto;
+import racingcar.dto.RacingCarResponse;
 
 public class RacingGameConsoleView implements RacingGameView {
 
@@ -31,10 +31,10 @@ public class RacingGameConsoleView implements RacingGameView {
         System.out.println(RACING_RESULT_TITLE_MESSAGE);
     }
 
-    public void printResult(List<RacingCarDto> racingCarDtos) {
-        for (RacingCarDto racingCarDto : racingCarDtos) {
-            Name name = racingCarDto.getName();
-            Position position = racingCarDto.getPosition();
+    public void printResult(List<RacingCarResponse> racingCarResponses) {
+        for (RacingCarResponse racingCarResponse : racingCarResponses) {
+            Name name = racingCarResponse.getName();
+            Position position = racingCarResponse.getPosition();
             System.out.print(name);
             System.out.print(" : ");
             System.out.print("-".repeat(position.getPosition()));
@@ -43,11 +43,11 @@ public class RacingGameConsoleView implements RacingGameView {
         System.out.println();
     }
 
-    public void printWinners(List<RacingCarDto> racingCarDtos) {
+    public void printWinners(List<RacingCarResponse> racingCarResponses) {
         StringJoiner stringJoiner = new StringJoiner(", ");
         System.out.print(RACING_WINNER_RESULT_MESSAGE);
-        for (RacingCarDto racingCarDto : racingCarDtos) {
-            Name name = racingCarDto.getName();
+        for (RacingCarResponse racingCarResponse : racingCarResponses) {
+            Name name = racingCarResponse.getName();
             stringJoiner.add(name.toString());
         }
         System.out.println(stringJoiner);

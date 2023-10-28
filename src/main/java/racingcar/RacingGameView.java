@@ -3,7 +3,7 @@ package racingcar;
 import java.util.List;
 import racingcar.dto.MoveOpportunityCreateRequest;
 import racingcar.dto.RacingCarCreateRequest;
-import racingcar.dto.RacingCarDto;
+import racingcar.dto.RacingCarResponse;
 
 public interface RacingGameView {
     MoveOpportunityCreateRequest inputMoveOpportunityCreateRequest();
@@ -12,7 +12,7 @@ public interface RacingGameView {
 
     void printResultTitle();
 
-    void printResult(List<RacingCarDto> racingCarDtos);
+    void printResult(List<RacingCarResponse> racingCarResponses);
 
-    void printWinners(List<RacingCarDto> racingCarDtos);
+    void printWinners(List<RacingCarResponse> racingCarResponses);
 }
