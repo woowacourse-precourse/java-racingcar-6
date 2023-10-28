@@ -40,7 +40,7 @@ public final class InputView {
 
     private static void validateCarNames(List<Car> cars) {
         for (Car car : cars) {
-            if (car.name().length() > 5) {
+            if (car.getName().length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
             }
         }
