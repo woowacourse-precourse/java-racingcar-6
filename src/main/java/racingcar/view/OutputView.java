@@ -8,4 +8,7 @@ public class OutputView {
     public void racingStart(){
         System.out.println(INPUT_CARNAME);
     }
+    public void rotateCount(){
+        System.out.println(ROTATE_COUNT);
+    }
 }

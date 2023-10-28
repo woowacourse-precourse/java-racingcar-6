@@ -1,13 +1,14 @@
 package racingcar.controller;
 
-import racingcar.view.InputView;
+import racingcar.view.CarName;
 import racingcar.view.OutputView;
 
 public class RacingGame {
     OutputView outputView = new OutputView();
-    InputView inputView = new InputView();
+    CarName carName = new CarName();
     public void play() {
         outputView.racingStart();
-        String[] carNames = inputView.input().split(",");
+        String[] carNames = carName.input().split(",");
+        outputView.rotateCount();
     }
 }
