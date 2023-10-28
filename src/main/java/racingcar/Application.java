@@ -14,7 +14,7 @@ public class Application {
         StartMessage();
         InputCarName();
         Try_Message();
-
+        Result_Message();
     }
 
     public static void StartMessage() {
@@ -43,5 +43,10 @@ public class Application {
 
     public static void Try_Number() {
         TryNumber = Integer.parseInt(readLine());
+    }
+
+    public static void Result_Message() {
+        System.out.println();
+        System.out.println("실행 결과");
     }
 }
