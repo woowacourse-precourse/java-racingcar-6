@@ -8,7 +8,15 @@ public class Application {
 
     public static List<String> nameCut(String name) {
         String[] carArray = name.split(",");
+        checkName(carArray);
         return List.of(carArray);
+    }
+
+    public static void checkName(String[] nameArray) {
+        for (String check : nameArray) {
+            nameLength(check);
+            nameNull(check);
+        }
     }
 
     public static void nameLength(String check) {
