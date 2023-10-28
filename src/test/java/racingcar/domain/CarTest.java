@@ -43,6 +43,7 @@ public class CarTest {
     void getCarDistanceMessage_메시지를_잘_생성하는지_확인() {
 
         Car car = new Car("foo");
+
         CarDistanceMessage message = car.getCarDistanceMessage();
         CarDistanceMessage expect = new CarDistanceMessage("foo", 0);
 
