@@ -8,7 +8,7 @@ public class InputValidator {
     private final String REGEXP_PATTERN_ONLY_COMMA = "^,+$";
 
 
-    public void validate(String input) {
+    public void checkCarNameValidate(String input) {
         isNameOnlyComma(input);
         String[] carNames = input.split(",");
         for(String name: carNames) {
