@@ -24,7 +24,7 @@ public class Car {
 
     public void moveCar(Integer randomNumber) {
 
-        if(isValidRangeNumber(randomNumber)) {
+        if(!isValidRangeNumber(randomNumber)) {
             throw new IllegalArgumentException("입력된 숫자의 범위가 일치하지 않습니다.");
         }
 
