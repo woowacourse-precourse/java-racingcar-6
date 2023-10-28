@@ -57,6 +57,20 @@ public class Application {
         return Randoms.pickNumberInRange(0, 9);
     }
 
+    public static int[] situationRepeat(List<String> nameList, int[] goSituation, int time) {
+        if (time == 0) {
+            return goSituation;
+        }
+
+        for (int i = 0; i < nameList.size(); i++) {
+            situationPrint(nameList, goSituation, i);
+        }
+        System.out.print("\n");
+
+        situationRepeat(nameList, goSituation, time - 1);
+        return goSituation;
+    }
+
     public static void situationPrint(List<String> nameList, int[] goSituation, int i) {
         goSituation[i] = situationSave(goSituation[i], random());
         System.out.print(nameList.get(i) + " : ");
@@ -91,7 +105,7 @@ public class Application {
 
         System.out.println("\n실행 결과");
         int[] goSituation = new int[carName.size()];
-
+        int[] victory = situationRepeat(carName, goSituation, realTime);
 
 
 
