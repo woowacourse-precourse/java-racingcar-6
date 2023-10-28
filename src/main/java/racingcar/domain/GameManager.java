@@ -7,9 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameManager {
-
-    private static final String EXECUTION_RESULT_MESSAGE = "실행 결과";
-
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
     private final RoundManager roundManager = new RoundManager();
@@ -22,7 +19,7 @@ public class GameManager {
     }
 
     public void run(){
-        System.out.println("\n"+EXECUTION_RESULT_MESSAGE);
+        outputView.printGameStartMessage();
         for(int i=0;i<attempts;i++){
             playSingeRound();
         }
