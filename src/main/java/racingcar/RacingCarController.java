@@ -14,10 +14,10 @@ public class RacingCarController {
 
     public void play() {
         outputView.printStartMessage();
-        String input = inputView.readRacingCarName();
-        racingCarService.saveCarName(input);
+        String carName = inputView.readRacingCarName();
+        racingCarService.saveCarName(carName);
         outputView.printRepeatNumberMessage();
-        inputView.readRepeatCount();
-
+        String repeatCount = inputView.readRepeatCount();
+        racingCarService.moveCar(repeatCount);
     }
 }
