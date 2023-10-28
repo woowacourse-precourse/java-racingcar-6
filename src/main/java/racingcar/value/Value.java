@@ -20,4 +20,12 @@ public class Value {
     public void setNumberOfAttempts(int numberOfAttempts) {
         this.numberOfAttempts = numberOfAttempts;
     }
+
+    public List<String> getCarNames() {
+        return carNames;
+    }
+
+    public int getNumberOfAttempts() {
+        return numberOfAttempts;
+    }
 }
