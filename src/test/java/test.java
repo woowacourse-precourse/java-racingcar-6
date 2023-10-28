@@ -1,13 +1,8 @@
 import Config.AppConfig;
-import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcar.Controller.RaceController;
-import racingcar.Controller.RaceControllerIntegerVer;
 import racingcar.Model.Car.Car;
 import racingcar.Model.Car.CarId;
 import racingcar.Model.CarRepository;
@@ -53,16 +48,14 @@ public class test {
 
     @Test
     public void 자동차이름_유효성검사() {
-        Integer a = 0;
-        Car car0 = Car.of(a + 1, "jhon");
-        Assertions.assertThatThrownBy(() -> Car.of(a + 1, "jhon1"))
+        Assertions.assertThatThrownBy(() -> Car.of(1, "jhon1"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     public void 자동차이름_유효성검사2() {
         String input = "jhon,jhonn,jhonnnnn";
-        String[] split = input.split(AppConfig.INPUT_DELIMITER);
+        String[] split = input.split(AppConfig.INPUT_NAME_DELIMITER);
         Assertions.assertThatThrownBy(() -> {
             for (int i = 0; i < split.length; i++) {
                 Car.of(i, split[i]);
@@ -71,9 +64,9 @@ public class test {
     }
 
     @Test
-    public void 예외테스트(){
-        String s = "33333333333";
-        Assertions.assertThatThrownBy(() -> Integer.parseInt(s))
-                .isInstanceOf(NumberFormatException.class);
+    public void 차이동중_오버플로_발생시_예외던지기(){
+        Car car = Car.of(0, "A");
+        car.move(Integer.MAX_VALUE,true);
+        Assertions.assertThatThrownBy(() -> car.move(3,true));
     }
 }
