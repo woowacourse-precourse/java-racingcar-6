@@ -57,7 +57,7 @@ public class InputView {
 
     private void validateNameFormat(String name) {
         for (char token : name.toCharArray()) {
-            if (Character.isLetter(token)) {
+            if (!Character.isLetter(token)) {
                 throw new IllegalArgumentException();
             }
         }
