@@ -10,12 +10,14 @@
 ## CarController
 ### Field
 - [X] carModel 들을 담은 list
+- [X] racing 반복 회수
 ### Method
 - [ ] 자동차들 전진하는 기능
   - 0 ~ 9 무작위 값 중 4 이상일 경우 전진
     - **camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()**
 - [ ] 우승자 판별 기능
 - [X] 자동차 리스트 생성 기능
+- [X] racing 반복 회수 설정 기능
   
 ## InputView
 ### Method
