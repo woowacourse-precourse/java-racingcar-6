@@ -11,4 +11,13 @@ public class CarInfo {
         this.isForward = false;
         this.moveCount = 0;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

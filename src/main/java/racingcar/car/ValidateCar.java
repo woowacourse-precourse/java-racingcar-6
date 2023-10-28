@@ -8,7 +8,13 @@ public class ValidateCar {
     private static final int START_LENGTH = 1;
     private static final int LAST_LENGTH = 5;
 
-    private void checkNameLength(List<CarInfo> carList){
+    public static void validator(List<CarInfo> carList) {
+        checkNameLength(carList);
+        checkDuplicateName(carList);
+        checkListNull(carList);
+    }
+
+    private static void checkNameLength(List<CarInfo> carList){
         for (CarInfo carName : carList) {
             if (carName.getName().length() > LAST_LENGTH || carName.getName().length() < START_LENGTH) {
                 throw new IllegalArgumentException("자동차 이름 길이 오류");
@@ -16,7 +22,7 @@ public class ValidateCar {
         }
     }
 
-    private void checkDuplicateName(List<CarInfo> carList){
+    private static void checkDuplicateName(List<CarInfo> carList){
         Set<String> duplicator = new HashSet<>();
 
         for (CarInfo car : carList) {
@@ -27,7 +33,7 @@ public class ValidateCar {
         }
     }
 
-    private void checkListNull(List<CarInfo> carList){
+    private static void checkListNull(List<CarInfo> carList){
         if (carList.isEmpty()) {
             throw new IllegalArgumentException("경주할 자동차 비존재 오류");
         }
