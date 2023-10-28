@@ -1,6 +1,8 @@
 package racingcar;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
     private List<Car> cars;
@@ -10,5 +12,15 @@ public class Cars {
 
     public void playRound() {
         this.cars.forEach(Car::playRound);
+    }
+
+    public List<Car> getWinners() {
+        int maxDistance = cars.stream()
+                .mapToInt(car -> car.getDistance())
+                .max()
+                .orElse(0);
+        return cars.stream()
+                .filter(car -> car.getDistance()==maxDistance)
+                .collect(Collectors.toList());
     }
 }

@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Random;
 
 public class Car {
-    private String name;
+    private final String name;
     private int distance;
 
     public Car(String name){
@@ -25,5 +25,9 @@ public class Car {
     private boolean isMoving() {
         int num = Randoms.pickNumberInRange(0,9);
         return num >= 4;
+    }
+
+    public int getDistance() {
+        return this.distance;
     }
 }

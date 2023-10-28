@@ -24,10 +24,12 @@ public class RacingcarGame {
         for(int i=0;i<rounds;i++){
             racingCars.playRound();
         }
+        // 차수 별 실행 결과
     }
 
     private void end(){
-
+        List<Car> winners = racingCars.getWinners();
+        // 우승자 출력
     }
     private int registerRounds() {
         System.out.println(REQUEST_NUM_OF_TRIALS);
