@@ -25,8 +25,11 @@ public class OutputView {
         System.out.println();
     }
 
-    public static void printCarLocationMessage(List<Car> cars) {
-
+    public static void printCarLocationMessage(int position) {
+        for(int i = 0 ; i < position; i++){
+            System.out.print("-");
+        }
+        System.out.println();
     }
 
 

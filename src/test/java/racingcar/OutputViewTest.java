@@ -78,7 +78,7 @@ public class OutputViewTest {
         PrintStream printStream = new PrintStream(outputStream);
         System.setOut(printStream);
 
-        OutputView.printGameResultMessage(carNameList, locations);
+//        OutputView.printGameResultMessage();
         String capturedOutput = outputStream.toString();
 
         Assertions.assertEquals(capturedOutput, "pobi : -\n"
