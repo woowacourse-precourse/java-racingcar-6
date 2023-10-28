@@ -32,15 +32,14 @@
     * `String[]`을 바탕으로 `List<Car>` 생성
     * 생성한 `List<Car>` 반환
 
-### 사용자 입력 검증 함수 `hasIllegalName(String[] names)`
+### 사용자 입력 검증 함수 `validateCarNames(String[] names)`
 * 인자: 검증이 필요한 이름들의 배열
-* 문자열 배열을 iterate 하면서, 하나라도 5글자 초과하는 문자열이 발견되면 `true`를 반환
+* 문자열 배열을 iterate 하면서, 하나라도 5글자 초과하는 문자열이 발견되면 예외 터뜨림
 * 루프가 끝나면 `false`를 반환
 
-### 사용자 입력 검증 함수 `isNaturalNumber(String input)`
+### 사용자 입력 검증 함수 `validateGameCount(String input)`
 * 인자: 사용자가 입력한 게임 횟수
-* 입력 문자열이 자연수인 경우 `true`를 반환
-* 입력 문자열이 자연수가 아니거나 다른 문자가 포함된 경우 `false`를 반환
+* 입력 문자열이 자연수가 아닌 경우 예외 터뜨림
 
 ### 게임 진행 함수 `game(int count)`
 * 인자: 게임 시도 횟수
