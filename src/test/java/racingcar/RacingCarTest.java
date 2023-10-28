@@ -24,18 +24,14 @@ class RacingCarTest {
     @ValueSource(strings = {"hellow", "helloworld", "m y n a", "meisaz", "1     "})
     public void createExceedingRacingCarName() {
         String name = "abcdef";
-        assertThrows(IllegalArgumentException.class, () -> {
-            new RacingCar(name);
-        });
+        assertThrows(IllegalArgumentException.class, () -> new RacingCar(name));
     }
 
     @Test
     @DisplayName("이름이 빈 문자열인 경우 예외가 발생한다")
     public void createEmptyRacingCarName() {
         String name = "";
-        assertThrows(IllegalArgumentException.class, () -> {
-            new RacingCar(name);
-        });
+        assertThrows(IllegalArgumentException.class, () -> new RacingCar(name));
     }
 
     @Test

@@ -31,9 +31,8 @@ class RacingCarListTest {
         List<String> names = List.of("abc", "def", "ghi", "abc");
 
         RacingCarList racingCarList = new RacingCarList();
-        assertThatThrownBy(() -> {
-            racingCarList.addRacingCarsByNames(names);
-        }).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> racingCarList.addRacingCarsByNames(names))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -42,9 +41,8 @@ class RacingCarListTest {
         List<String> names = List.of();
 
         RacingCarList racingCarList = new RacingCarList();
-        assertThatThrownBy(() -> {
-            racingCarList.addRacingCarsByNames(names);
-        }).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> racingCarList.addRacingCarsByNames(names))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -53,9 +51,8 @@ class RacingCarListTest {
         List<String> names = List.of("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11");
 
         RacingCarList racingCarList = new RacingCarList();
-        assertThatThrownBy(() -> {
-            racingCarList.addRacingCarsByNames(names);
-        }).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> racingCarList.addRacingCarsByNames(names))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
