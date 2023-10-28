@@ -36,6 +36,7 @@ public class IOController {
     public static void showRoundResult(Cars cars) {
         for(int i =0 ; i < cars.getSize();i++) {
             System.out.println(cars.getResult(i));
+            System.out.println("");
         }
     }
 
