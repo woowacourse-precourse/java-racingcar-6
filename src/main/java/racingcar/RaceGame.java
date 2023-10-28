@@ -9,25 +9,15 @@ import racingcar.util.UserInput;
 
 public class RaceGame {
     Printer printer = new Printer();
-    UserInput userInput = new UserInput();
-    Engine engine = new Engine();
+    RacePlay racePlay = new RacePlay();
+    RaceInfo raceInfo = new RaceInfo();
 
-    public Map<String, StringBuilder> makeScoreBoard(List<String> carNames) {
-        Map<String, StringBuilder> scoreBoard = new LinkedHashMap<>();
+    public void gameStart() {
+        RaceInfo gameInformation = raceInfo.getRaceInfo();
+        racePlay.playGame(gameInformation.getGameRound(), gameInformation.getScoreBoard());
 
-        for (String name : carNames) {
-            scoreBoard.put(name, new StringBuilder());
-        }
-        return scoreBoard;
-    }
-
-    public void playOneRound(Map<String, StringBuilder> scoreBoard) {
-        for (Map.Entry<String, StringBuilder> pair : scoreBoard.entrySet()) {
-            if (engine.isMovable()) {
-                engine.moveForward(pair.getValue());
-            }
-            printer.printRoundResult(pair);
-        }
+        int winPoint = calculateForwardPoint(racePlay.getResultScore());
+        printer.printWinnersNames(findWinners(winPoint, racePlay.getResultScore()));
     }
 
     public int calculateForwardPoint(Map<String, StringBuilder> scoreResult) {
@@ -44,24 +34,5 @@ public class RaceGame {
             }
         });
         return winnerList;
-    }
-
-    public void gameStart() {
-        printer.printStartMessage();
-        List<String> carNames = userInput.getCarNames();
-        printer.printRequestRoundMessage();
-        int gameRound = userInput.getGameRound();
-
-        Map<String, StringBuilder> scoreBoard = makeScoreBoard(carNames);
-
-        for (int j = 0; j < gameRound; j++) {
-            playOneRound(scoreBoard);
-            System.out.println();
-        }
-
-        int winPoint = calculateForwardPoint(scoreBoard);
-        System.out.println(winPoint);
-        List<String> winnerList = findWinners(winPoint, scoreBoard);
-        printer.printWinnersNames(winnerList);
     }
 }
