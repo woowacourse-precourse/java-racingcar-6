@@ -14,13 +14,16 @@ public class RacingcarController {
         this.inputView = inputView;
         this.outputView = outputView;
     }
-
-
+    
     public void play() {
         Cars cars = createCars();
         int totalRound = inputView.inputTotalRound();
         race(cars, totalRound);
         selectWinner(cars);
+    }
+
+    private Cars createCars() {
+        return new Cars(inputView.inputCarsName());
     }
 
     private void race(Cars cars, int totalRound) {
@@ -41,9 +44,5 @@ public class RacingcarController {
 
     private void selectWinner(Cars cars) {
         outputView.printWinners(cars.getWinnersName());
-    }
-
-    private Cars createCars() {
-        return new Cars(inputView.inputCarsName());
     }
 }
