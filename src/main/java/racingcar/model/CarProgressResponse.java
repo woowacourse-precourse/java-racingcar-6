@@ -8,4 +8,12 @@ public final class CarProgressResponse {
         this.name = name;
         this.result = result;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getResult() {
+        return result;
+    }
 }

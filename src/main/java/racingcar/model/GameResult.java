@@ -10,4 +10,12 @@ public final class GameResult {
         this.progressResponses = progressResponses;
         this.winners = winners;
     }
+
+    public List<CarProgressResponse> getProgressResponses() {
+        return progressResponses;
+    }
+
+    public List<String> getWinners() {
+        return winners;
+    }
 }

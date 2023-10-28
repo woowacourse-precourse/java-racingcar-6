@@ -143,12 +143,12 @@ classDiagram
 - [x] 경주 결과에 따른 우승자 결정
 
 ### Game Result Management `GameResult`
-- [ ] 차의 진행 상황에 따른 결과 관리
-- [ ] 우승자 정보 관리
+- [x] 차의 진행 상황에 따른 결과 관리
+- [x] 우승자 정보 관리
 
 ### Progress Response `CarProgressResponse`
-- [ ] 차 이름 가져오기
-- [ ] 경주 결과 가져오기
+- [x] 차 이름 가져오기
+- [x] 경주 결과 가져오기
 
 ### Racing Car Service `RacingCarService`
 - [ ] 주어진 차 이름 및 경주 횟수로 경주 시작
