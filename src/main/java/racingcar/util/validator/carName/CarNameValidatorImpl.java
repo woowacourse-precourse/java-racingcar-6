@@ -1,4 +1,4 @@
-package racingcar.util.validator;
+package racingcar.util.validator.carName;
 
 public class CarNameValidatorImpl implements CarNameValidator {
     private final int MAX_LENGTH = 5;

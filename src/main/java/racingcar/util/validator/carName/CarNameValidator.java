@@ -1,4 +1,4 @@
-package racingcar.util.validator;
+package racingcar.util.validator.carName;
 
 public interface CarNameValidator {
     boolean validate(String input);

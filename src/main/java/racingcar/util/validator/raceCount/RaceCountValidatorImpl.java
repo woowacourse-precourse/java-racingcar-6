@@ -1,4 +1,4 @@
-package racingcar.util.validator;
+package racingcar.util.validator.raceCount;
 
 public class RaceCountValidatorImpl implements RaceCountValidator {
     @Override

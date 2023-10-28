@@ -2,8 +2,8 @@ package util.validator;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.util.validator.RaceCountValidator;
-import racingcar.util.validator.RaceCountValidatorImpl;
+import racingcar.util.validator.raceCount.RaceCountValidator;
+import racingcar.util.validator.raceCount.RaceCountValidatorImpl;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
