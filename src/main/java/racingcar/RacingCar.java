@@ -6,6 +6,7 @@ import java.util.List;
 public class RacingCar {
     String name;
     List<String> block = new ArrayList<>();
+    int blockCount = 0;
 
     public RacingCar(String name) {
         if(name.length()>5){
@@ -17,6 +18,7 @@ public class RacingCar {
     public String move(int number){
         if (number >= 4) {
             block.add("-");
+            blockCount++;
         }
         return name + " : " + printBlock();
     }

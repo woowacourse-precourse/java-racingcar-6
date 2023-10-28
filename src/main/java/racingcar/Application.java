@@ -24,5 +24,8 @@ public class Application {
         System.out.println("실행 결과");
         racingManager.race(racingCars);
 
+        System.out.print("최종 우승자 : ");
+        System.out.println(racingManager.finalWinner(racingCars));
+
     }
 }
