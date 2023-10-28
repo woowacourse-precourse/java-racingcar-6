@@ -20,4 +20,8 @@ public class OutputView {
     public void printExecutionResultMessage(){
         System.out.println(GameResultElement.ENTER.toString() + ProgressMessage.EXECUTION_RESULT);
     }
+
+    public void printFinalWinners(String finalWinners) {
+        System.out.println(ProgressMessage.FINAL_WINNERS.toString() + GameResultElement.COLON + finalWinners);
+    }
 }
