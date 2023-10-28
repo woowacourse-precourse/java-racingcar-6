@@ -18,17 +18,17 @@ public class OutputManager {
     }
 
     public void printResultOfTrial(List<CarDto> carDtoList) {
+        StringBuffer result = new StringBuffer();
         for (CarDto carDto : carDtoList) {
-            StringBuffer result = new StringBuffer()
-                    .append(carDto.name())
+            result.append(carDto.name())
                     .append(" : ")
-                    .append("-".repeat(carDto.forwardCount()));
-            System.out.println(result);
+                    .append("-".repeat(carDto.forwardCount()))
+                    .append("\n");
         }
-        System.out.println();
+        System.out.println(result);
     }
 
     public void printGameResult(List<Winner> winners) {
-
+        System.out.println("최종 우승자");
     }
 }
