@@ -2,6 +2,7 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashMap;
 
 public class Application {
@@ -66,9 +67,14 @@ public class Application {
 
     public static void Repeat_Racing() {
         for (int i = 0; i < TryNumber; i++) {
-            
+            Match_game();
         }
     }
 
+    public static void Match_game() {
+        for (int i = 0; i < racingcar.size(); i++) {
+            int score = Randoms.pickNumberInRange(0, 9);
+        }
+    }
 
 }
