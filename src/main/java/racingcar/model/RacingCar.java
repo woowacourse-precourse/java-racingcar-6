@@ -1,15 +1,8 @@
 package racingcar.model;
 
 public class RacingCar {
-    private String carName;
-    private int currentPosition;
+    private String name;
     public RacingCar(String name){
-        this.carName = name;
-        this.currentPosition = 0;
+        this.name = name;
     }
-    public void moveFront(int distance){
-        this.currentPosition += distance;
-    }
-
-
 }
