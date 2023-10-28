@@ -8,12 +8,16 @@ import racingcar.domain.Car;
 
 public class InputUtils {
     public static List<Car> promptForCar() {
-        return Arrays.stream(Console.readLine().split(","))
+        List<Car> cars = Arrays.stream(Console.readLine().split(","))
                 .map(name -> new Car(name, 0))
                 .collect(Collectors.toList());
+        ValidationUtils.validateCars(cars);
+        return cars;
     }
 
-    public static int promptForInt() {
-        return Integer.parseInt(Console.readLine());
+    public static int promptForString() {
+        String round = Console.readLine();
+        ValidationUtils.validateRound(round);
+        return Integer.parseInt(round);
     }
 }

@@ -8,4 +8,12 @@ public class Car {
         this.name = name;
         this.position = position;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isNameLengthValid() {
+        return getName().length() <= 5;
+    }
 }

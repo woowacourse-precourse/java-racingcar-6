@@ -19,6 +19,6 @@ public class RaceGame {
         cars = InputUtils.promptForCar();
 
         gameView.displayUserInputRoundPrompt();
-        round = InputUtils.promptForInt();
+        round = InputUtils.promptForString();
     }
 }
