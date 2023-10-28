@@ -12,7 +12,7 @@ public class GameService {
         String carNames = Console.readLine();
         List<Car> carList = new ArrayList<>();
 
-        addValidCarName(carNames, carList);
+        checkCarNameAndMakeCar(carNames, carList);
 
         System.out.println("시도할 회수는 몇회인가요?");
         try {
@@ -30,7 +30,7 @@ public class GameService {
         }
     }
 
-    private static void addValidCarName(String carNames, List<Car> carList) {
+    private static void checkCarNameAndMakeCar(String carNames, List<Car> carList) {
         List<String> carNameList = new ArrayList<>();
 
         for (String s : carNames.split(",")) {
