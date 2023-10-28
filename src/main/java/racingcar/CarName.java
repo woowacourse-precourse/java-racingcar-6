@@ -2,6 +2,7 @@ package racingcar;
 
 public class CarName {
 
+    private static final int ALLOWED_LETTERS = 5;
     private final String name;
 
     private CarName(final String name) {
@@ -10,13 +11,17 @@ public class CarName {
     }
 
     private void validate(final String name) {
-        if (isNullOrEmpty(name)) {
+        if (isNullOrEmpty(name) || isExceedNumberOfLetters(name)) {
             throw new IllegalArgumentException();
         }
     }
 
     private boolean isNullOrEmpty(final String name) {
         return name == null || name.isBlank();
+    }
+
+    private boolean isExceedNumberOfLetters(final String name) {
+        return name.length() > ALLOWED_LETTERS;
     }
 
     public static CarName of(final String name) {
