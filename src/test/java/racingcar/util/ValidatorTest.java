@@ -34,14 +34,29 @@ public class ValidatorTest {
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage(ExceptionMessage.DUPLICATED.getMessage());
         }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"-123", "crong", "0"})
+        public void 입력된_값이_양의_정수인지_검증(String input) {
+            assertThatThrownBy(() -> Validator.getValidatedAttemptCount(input))
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessage(ExceptionMessage.NOT_POSITIVE_INTEGER.getMessage());
+        }
     }
 
     @Nested
     class validInputTest {
         @ParameterizedTest
         @ValueSource(strings = {"pobi,crong"})
-        public void 정상_입력_검증(String input) {
+        public void 정상_이름_입력_검증(String input) {
             assertThatCode(() -> Validator.getValidatedCarName(input))
+                    .doesNotThrowAnyException();
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"1","100"})
+        public void 정상_시도_회수_입력_검증(String input) {
+            assertThatCode(() -> Validator.getValidatedAttemptCount(input))
                     .doesNotThrowAnyException();
         }
     }
