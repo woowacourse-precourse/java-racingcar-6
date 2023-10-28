@@ -20,9 +20,7 @@ class Controller {
     }
 
     public void run() {
-        Cars cars = createCars();
-
-        race(getRaceTimes(), cars);
+        start(createCars());
     }
 
     private Cars createCars() {
@@ -35,11 +33,17 @@ class Controller {
         return InputMapper.mapToNameList(readNames(delimiter.getName(), delimiter.getShape()));
     }
 
+    private void start(Cars cars) {
+        int maxTimes = getRaceTimes();
+
+        race(cars, maxTimes);
+    }
+
     private int getRaceTimes() {
         return InputMapper.mapToPositiveNumber(readTimes());
     }
 
-    private void race(int maxTimes, Cars cars) {
+    private void race(Cars cars, int maxTimes) {
         printResultHeader();
 
         for (int times = 0; times < maxTimes; times++) {
