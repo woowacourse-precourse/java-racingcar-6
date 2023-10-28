@@ -11,4 +11,9 @@ public final class InputView {
         System.out.println(ASK_CAR_NAME_MESSAGE);
         return Console.readLine();
     }
+
+    public static String askPlayCount() {
+        System.out.println(ASK_PLAY_COUNT_MESSAGE);
+        return Console.readLine();
+    }
 }
