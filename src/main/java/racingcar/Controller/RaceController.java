@@ -14,17 +14,20 @@ public class RaceController {
 
     public void start() {
         String[] names = ConsolePrint.readCars().split(",");
+
         for (String name : names) {
             carList.add(new Car(name));
         }
+
         System.out.println(carList);
         int tryNum = Integer.parseInt(ConsolePrint.readTryNum());
         race(tryNum);
         findWinner();
-
     }
 
     void race(int tryNum) {
+        ConsolePrint.printOpening();
+
         for (int i = 0; i < tryNum; i++) {
             move();
             ConsolePrint.printRace(carList);
@@ -40,7 +43,9 @@ public class RaceController {
     }
 
     void findWinner() {
-        carList = carList.stream().sorted(new CarComparator()).collect(Collectors.toList());
+        carList = carList.stream()
+                .sorted(new CarComparator())
+                .collect(Collectors.toList());
         for (Car car : carList) {
             System.out.println(car.getName() + " : " + car.getDistance());
         }

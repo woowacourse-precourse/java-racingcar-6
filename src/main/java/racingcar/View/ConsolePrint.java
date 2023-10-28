@@ -17,19 +17,23 @@ public class ConsolePrint {
         return Console.readLine();
     }
 
-    public static void printRace(List<Car> carList) {
+    public static void printOpening() {
         System.out.println("\n실행 결과");
+    }
+
+    public static void printRace(List<Car> carList) {
         for (Car car : carList) {
             System.out.print(car.getName() + " : ");
             printDistance(car);
-            System.out.println();
         }
+        System.out.println();
     }
 
     public static void printDistance(Car car) {
         for (int i = 0; i < car.getDistance(); i++) {
             System.out.print("-");
         }
+        System.out.println();
     }
 
     public static void printWinner(List<Car> carList) {
