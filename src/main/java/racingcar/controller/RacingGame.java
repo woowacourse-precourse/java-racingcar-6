@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.util.InputValidator;
 
 public class RacingGame {
     public void start() {
@@ -8,5 +9,8 @@ public class RacingGame {
         String input = Console.readLine();
         System.out.println("시도할 회수는 몇회인가요?");
         String round = Console.readLine();
+
+        InputValidator.isValidCarNames(input);
+        InputValidator.isValidRound(round);
     }
 }
