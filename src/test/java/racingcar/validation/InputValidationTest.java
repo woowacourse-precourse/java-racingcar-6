@@ -19,7 +19,7 @@ class InputValidationTest {
         List<String> input = Stream.of("pobi","woni","jun")
                 .collect(Collectors.toList());
         // when
-        List<String> result = InputValidation.inputValidate(input);
+        List<String> result = InputValidation.carNameValidate(input);
         // then
         Assertions.assertThat(result).isEqualTo(input);
     }
@@ -32,7 +32,7 @@ class InputValidationTest {
                 .collect(Collectors.toList());
         // then
         assertThrows(IllegalArgumentException.class, () -> {
-            InputValidation.inputValidate(input);
+            InputValidation.carNameValidate(input);
         });
     }
 }
