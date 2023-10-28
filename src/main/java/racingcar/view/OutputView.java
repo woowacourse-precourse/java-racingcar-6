@@ -2,6 +2,8 @@ package racingcar.view;
 
 import racingcar.domain.Car;
 
+import java.util.List;
+
 import static racingcar.constant.OutputConstant.*;
 
 public class OutputView {
@@ -23,6 +25,17 @@ public class OutputView {
             System.out.print("-");
         }
         System.out.println();
+    }
+
+    public void gameResult(List<String> winners) {
+        System.out.print(GAME_RESULT.getOutput());
+        for (int i = 0; i < winners.size(); i++) {
+            if (winners.size() == i+1) {
+                System.out.println(winners.get(i));
+                return;
+            }
+            System.out.print(winners.get(i) + ", ");
+        }
     }
 
     public void skipLine() {
