@@ -11,19 +11,34 @@ import racingcar.util.GameResult;
 
 public class RacingGame {
     public void start() {
-        System.out.println(RacingGameConstants.INPUT_CAR_NAMES_MESSAGE);
-        String inputCarNames = Console.readLine();
-        System.out.println(RacingGameConstants.ATTEMPT_COUNT_MESSAGE);
-        int count = Integer.parseInt(Console.readLine());
-
+        String inputCarNames = getCarNamesFromUserInput();
+        int count = getAttemptCountFromUserInput();
         List<Car> cars = createCars(inputCarNames);
+        runRace(count, cars);
+    }
+
+    private String getCarNamesFromUserInput() {
+        System.out.println(RacingGameConstants.INPUT_CAR_NAMES_MESSAGE);
+        return Console.readLine();
+    }
+
+    private int getAttemptCountFromUserInput() {
+        System.out.println(RacingGameConstants.ATTEMPT_COUNT_MESSAGE);
+        return Integer.parseInt(Console.readLine());
+    }
+
+    private void runRace(int count, List<Car> cars) {
         System.out.println(RacingGameConstants.EXECUTION_RESULT_MESSAGE);
         for (int i = 0; i < count; i++) {
-            cars.forEach(car -> car.moveAccordingToInput(Randoms.pickNumberInRange(1, 9)));
+            moveCars(cars);
             GameResult.result(cars);
             System.out.println();
         }
         GameResult.finalResult(calculateWinners(cars));
+    }
+
+    private void moveCars(List<Car> cars) {
+        cars.forEach(car -> car.moveAccordingToInput(Randoms.pickNumberInRange(1, 9)));
     }
 
     public List<Car> createCars(String inputCarNames) {
@@ -34,14 +49,20 @@ public class RacingGame {
     }
 
     public List<String> calculateWinners(List<Car> cars) {
-        int maxCount = cars.stream()
-                .map(car -> car.getMovingCount())
-                .max(Integer::compareTo)
-                .orElseThrow();
+        return findWinners(cars, getMaxMovingCount(cars));
+    }
 
+    private static List<String> findWinners(List<Car> cars, int maxCount) {
         return cars.stream()
                 .filter(car -> car.getMovingCount() == maxCount)
                 .map(car -> car.getName())
                 .collect(Collectors.toList());
+    }
+
+    private Integer getMaxMovingCount(List<Car> cars) {
+        return cars.stream()
+                .map(car -> car.getMovingCount())
+                .max(Integer::compareTo)
+                .orElseThrow();
     }
 }
