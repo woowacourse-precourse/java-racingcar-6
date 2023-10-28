@@ -105,9 +105,15 @@ class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @DisplayName("같은 이름을 입력한 경우 예외 발생")
+    @DisplayName("이름을 하나만 입력한 경우 예외 발생")
     @Test
     void validateCarNames6() {
+        assertThatIllegalArgumentException().isThrownBy(() -> Validator.validateCarNames("test"));
+    }
+
+    @DisplayName("같은 이름을 입력한 경우 예외 발생")
+    @Test
+    void validateCarNames7() {
         assertThatIllegalArgumentException().isThrownBy(() -> Validator.validateCarNames("test,test,abc"));
     }
 

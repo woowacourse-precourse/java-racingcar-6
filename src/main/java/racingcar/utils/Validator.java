@@ -10,13 +10,18 @@ public class Validator {
     public static List<String> validateCarNames(String input) {
         validateBlank(input);
         validateStartsOrEndsWith(input);
-
         List<String> names = Arrays.asList(input.split(","));
+        validateSize(names);
         validateLength(names);
         validateDuplicate(names);
-
         //TODO 공백을 포함하여 문자열 길이를 계산하고 문자열을 비교해도 될까 (ex. "test" 와 " test")
         return names;
+    }
+
+    private static void validateSize(List<String> names) {
+        if (names.size() == 1) {
+            throw new IllegalArgumentException("[ERROR] 게임 진행을 위해 자동차 이름을 최소 2개 이상 입력해주세요.");
+        }
     }
 
     private static void validateBlank(String input) {
