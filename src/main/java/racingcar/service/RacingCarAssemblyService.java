@@ -1,7 +1,10 @@
-package racingcar;
+package racingcar.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.domain.Car;
+import racingcar.domain.CarEngine;
+import racingcar.domain.Cars;
 
 public class RacingCarAssemblyService {
 

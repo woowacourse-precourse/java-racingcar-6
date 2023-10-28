@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 public class Car {
     private final String name;
@@ -23,15 +23,15 @@ public class Car {
         }
     }
 
-    String getName() {
+    public String getName() {
         return this.name;
     }
 
-    CarEngine getCarEngine() {
+    public CarEngine getCarEngine() {
         return this.carEngine;
     }
 
-    int getPosition() {
+    public int getPosition() {
         return this.position.getValue();
     }
 }

@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
@@ -9,6 +9,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import racingcar.domain.Car;
+import racingcar.domain.Cars;
+import racingcar.domain.FixedCarEngine;
 
 public class RacingCarAssemblyServiceTest {
 

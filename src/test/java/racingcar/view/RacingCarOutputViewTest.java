@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
@@ -13,6 +13,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import racingcar.domain.Car;
+import racingcar.domain.FixedCarEngine;
+import racingcar.domain.Position;
+import racingcar.domain.RacingResult;
+import racingcar.domain.RacingRoundResult;
 
 public class RacingCarOutputViewTest {
     private static final ByteArrayOutputStream OUTPUT = new ByteArrayOutputStream();
