@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.view.GameView;
 
 public class Game {
 
@@ -14,7 +15,7 @@ public class Game {
     }
 
     public void playGame() {
-        System.out.println("실행결과");
+        GameView.displayResultMessage();
         tryRoundUntilRetryCount();
 
         displayWinner();
@@ -75,6 +76,6 @@ public class Game {
         }
 
         String winnerNames = String.join(", ", tempWinner);
-        System.out.println("최종 우승자 : " + winnerNames);
+        GameView.displayFinalWinner(winnerNames);
     }
 }
