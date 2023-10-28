@@ -5,6 +5,7 @@ import racingcar.domain.RaceAttempts;
 import racingcar.domain.RaceParticipants;
 import racingcar.domain.RaceWinners;
 import racingcar.domain.RacingCar;
+import racingcar.domain.generator.RandomNumberGenerator;
 import racingcar.view.console.InputView;
 import racingcar.view.console.OutputView;
 
@@ -25,6 +26,8 @@ public class RaceController {
     }
 
     private RaceParticipants setRaceParticipants() {
+        String carNamesInput = inputView.readCarNames();
+        return new RaceParticipants(carNamesInput, new RandomNumberGenerator());
     }
 
     private RaceAttempts setRaceAttempts() {
