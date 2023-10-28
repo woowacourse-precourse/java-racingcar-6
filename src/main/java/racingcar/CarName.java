@@ -24,7 +24,7 @@ public class CarName {
         return name.length() > ALLOWED_LETTERS;
     }
 
-    public static CarName of(final String name) {
+    public static CarName create(final String name) {
         return new CarName(name);
     }
 }

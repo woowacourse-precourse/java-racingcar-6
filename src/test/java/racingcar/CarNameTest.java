@@ -15,14 +15,14 @@ public class CarNameTest {
     @ValueSource(strings = {" ", "      "})
     @DisplayName("이름이 null이거나 빈 문자열이면 예외가 발생한다.")
     void isNameNullOrEmpty_Then_ExceptionOccurs(final String name) {
-        assertThatThrownBy(() -> CarName.of(name))
+        assertThatThrownBy(() -> CarName.create(name))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     @DisplayName("글자 수가 5개를 초과하면 예외가 발생한다.")
     void exceedFiveLetters_Then_ExceptionOccurs() {
-        assertThatThrownBy(() -> CarName.of("123456"))
+        assertThatThrownBy(() -> CarName.create("123456"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
