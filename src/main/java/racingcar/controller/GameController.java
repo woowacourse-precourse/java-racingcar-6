@@ -12,19 +12,21 @@ public class GameController {
     GameUtils gameUtility = new GameUtils();
     InputValidation validator = new InputValidation();
 
-    List<RacingCar> racingCarList = new ArrayList<>();  // 추후 일급컬랙션 적용해보기
+    List<RacingCar> racingCarList = new ArrayList<>();  // 추후 일급 컬랙션 적용 해보기
 
     public void run() {
         getMessage.GameStartMessage();
         String namesOfRacingCars = putMessage.getPlayerInput();
-        if (validator.checkPlayerInput(namesOfRacingCars)) {
+        if (validator.checkPlayerInput(namesOfRacingCars)) {    // 일급 컬랙션 적용하면 예외처리부도 뗄 수 있음
             List<String> carNameList = gameUtility.splitByComma(namesOfRacingCars);
-            for (String carName : carNameList) {
-                racingCarList.add(RacingCar(carName));
-            }
-
+            addRacingCar(carNameList);
         } else {
             throw new IllegalArgumentException();
+        }
+    }
+    public void addRacingCar(List<String> racingCarList){   // util에 있는게 좀 더 어울릴듯
+        for (String carName : racingCarList) {
+            this.racingCarList.add(new RacingCar(carName));
         }
     }
 }
