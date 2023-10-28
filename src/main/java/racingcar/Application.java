@@ -23,11 +23,23 @@ public class Application {
     	System.out.println("\n실행 결과");
     	List<Integer> results = new ArrayList<>();
     	setCarsOnStart(carList, results);
-    	for(int i = 0; i < results.size(); i++) {
+    	printTryAsRequest(carList, timesInput, results);
+    	
+    }
+
+	public static void printTryAsRequest(List<String> carList, String timesInput, List<Integer> results) {
+		for(int j = 0; j < Integer.valueOf(timesInput); j++) {
+    		playOnceEachCar(carList, results);
+    		System.out.println("");
+    	}
+	}
+
+	public static void playOnceEachCar(List<String> carList, List<Integer> results) {
+		for(int i = 0; i < results.size(); i++) {
 			goOrStopByRandomNum(results, i);
 			printCarAndGoTimes(carList, results, i);
 		}
-    }
+	}
 
 	public static void printCarAndGoTimes(List<String> carList, List<Integer> results, int i) {
 		System.out.print(carList.get(i)+" : ");
