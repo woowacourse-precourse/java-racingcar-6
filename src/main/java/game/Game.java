@@ -20,6 +20,7 @@ public class Game {
 		int try_count=0;
 		System.out.println("시도할 회수는 몇회인가요?");
 		try_count = Integer.parseInt(Console.readLine());
+		Validate.inputPlayerDateIsNumValidate(String.valueOf(try_count));
 		return try_count;
 	}
 }
