@@ -5,10 +5,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import racingcar.dto.CarStateDto;
 
 class ConsoleOutputTest {
     private OutputStream captor;
@@ -45,6 +50,21 @@ class ConsoleOutputTest {
     void print_result_started() {
         output.printResultStartedMessage();
         assertThat(getOutput()).contains("\n실행 결과");
+    }
+
+    @ParameterizedTest
+    @CsvSource(value = {"0", "1", "5", "10", "100", "1000"})
+    @DisplayName("자동차 이동상태 출력")
+    void print_car_state(int path) {
+        //given
+        List<CarStateDto> dtoList = new ArrayList<>();
+        dtoList.add(new CarStateDto("붕붕카", path));
+
+        //when
+        output.printCarsState(dtoList);
+
+        //then
+        assertThat(getOutput()).contains("붕붕카 : " + "-".repeat(path));
     }
 
     String getOutput() {
