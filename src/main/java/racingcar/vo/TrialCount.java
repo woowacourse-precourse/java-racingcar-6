@@ -2,16 +2,9 @@ package racingcar.vo;
 
 import racingcar.exception.TrialCountValidator;
 
-public class TrialCount {
+public record TrialCount(Integer number) {
 
-    private final Integer number;
-
-    public TrialCount(Integer number) {
+    public TrialCount {
         TrialCountValidator.validateTrialCount(number);
-        this.number = number;
-    }
-
-    public Integer getNumber() {
-        return number;
     }
 }

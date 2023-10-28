@@ -30,7 +30,7 @@ public class OutputView {
     public void printResult(List<CarDto> carDtoList) {
         carDtoList.forEach(
                 carDto -> System.out.println(
-                        carDto.getName() + SEPARATOR_COLON + STEP_CHARACTER.repeat(carDto.getStep())));
+                        carDto.name() + SEPARATOR_COLON + STEP_CHARACTER.repeat(carDto.step())));
 
         System.out.println();
     }

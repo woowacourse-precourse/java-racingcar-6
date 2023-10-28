@@ -28,7 +28,7 @@ public class RacingGameController {
         RacingGame racingGame = new RacingGame(cars);
         outputView.printResultMessage();
 
-        for (int i = 0; i < trialCount.getNumber(); i++) {
+        for (int i = 0; i < trialCount.number(); i++) {
             racingGame.runOneTerm();
             List<CarDto> carDtoList = CarDto.toDtoList(cars);
             outputView.printResult(carDtoList);

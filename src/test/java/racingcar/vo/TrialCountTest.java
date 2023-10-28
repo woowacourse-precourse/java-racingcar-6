@@ -23,7 +23,7 @@ class TrialCountTest {
         });
 
         // then
-        assertEquals(validCount, trialCount.getNumber());
+        assertEquals(validCount, trialCount.number());
     }
 
     @DisplayName("시도 횟수가 유효하지 않은 경우 객체가 생성되지 않고 예외가 발생한다.")
