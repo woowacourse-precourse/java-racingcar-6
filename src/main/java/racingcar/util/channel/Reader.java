@@ -1,4 +1,4 @@
-package racingcar.util.model;
+package racingcar.util.channel;
 
 public abstract class Reader {
 
