@@ -1,7 +1,11 @@
 package racingcar;
 
+import racingcar.game.GameService;
+import racingcar.game.GameServiceImpl;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        GameService gameService = new GameServiceImpl();
+        gameService.playGame();
     }
 }
