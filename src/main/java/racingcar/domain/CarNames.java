@@ -16,7 +16,7 @@ public class CarNames {
 
     private CarNames(List<CarName> carNames){
         validateDuplicate(carNames);
-        validateEmpty(carNames);
+        validateCounts(carNames);
         this.names = carNames;
     }
 
@@ -43,7 +43,6 @@ public class CarNames {
 
     private void validateDuplicate(List<CarName> carNames) {
         Set<CarName> seenNames = new HashSet<>();
-
         for (CarName name : carNames) {
             checkForDuplicate(name, seenNames);
             seenNames.add(name);
@@ -56,8 +55,8 @@ public class CarNames {
         }
     }
 
-    private void validateEmpty(List<CarName> carNames){
-        if(names.size() < MIN_NAMES_COUNT){
+    private void validateCounts(List<CarName> carNames){
+        if(carNames.size() < MIN_NAMES_COUNT){
             throw new IllegalArgumentException(NAMES_COUNT_ERROR_MESSAGE);
         }
     }
