@@ -17,4 +17,15 @@ public class User {
         }
         return carNames;
     }
+
+    public int NumberOfRepeats() {
+        System.out.println("시도할 횟수는 몇회인가요?");
+        String input = Console.readLine();
+        int number;
+        if (validation.isNumber(input)) {
+            number = Integer.parseInt(input);
+            return number;
+        }
+        throw new IllegalArgumentException("횟수 입력이 잘못되었습니다");
+    }
 }
