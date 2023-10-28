@@ -73,4 +73,10 @@ public class RacingGame {
     private static void printWinnerPhrase() {
         System.out.print(WINNER_PHRASE);
     }
+
+    private static String findWinners(Car[] cars) {
+        int maxPosition = findMaxPosition(cars);
+        List<String> winnerNames = findWinnerNames(cars, maxPosition);
+        return String.join(", ", winnerNames);
+    }
 }
