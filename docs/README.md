@@ -52,4 +52,4 @@
 
 ---
 ## 📄클래스 다이어그램
-![racingCar](https://github.com/study-hub-inu/study-hub-server/assets/97587573/464e08b2-5337-4123-9da8-0a3c4258b2bf)
+![racingCar](https://github.com/study-hub-inu/study-hub-server/assets/97587573/c8001107-44a1-41df-afef-46b22144719f)
