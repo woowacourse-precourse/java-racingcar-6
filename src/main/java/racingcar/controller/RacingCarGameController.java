@@ -6,6 +6,7 @@ import static racingcar.util.RandomNumber.randomNumber;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.view.InputView;
 public class RacingCarGameController {
@@ -36,6 +37,11 @@ public class RacingCarGameController {
             index++;
         }
 
+        List<Car> winners = findWinners();
+
+
+
+
     }
 
     private void moveCarForward() {
@@ -45,6 +51,17 @@ public class RacingCarGameController {
                 car.move();
             }
         }
+    }
+
+    private List<Car> findWinners() {
+        int maxPosition = cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(-1);
+
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .collect(Collectors.toList());
     }
 
 }
