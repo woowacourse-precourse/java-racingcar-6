@@ -16,18 +16,28 @@ public class RaceGame {
     }
 
     public void play() {
-        gameView.displayUserInputCarNamePrompt();
+        inputCarNames();
+        inputRound();
+        race();
+        displayResults();
+    }
+
+    private void inputCarNames() {
+        gameView.promptForCarNames();
         cars = InputUtils.promptForCar();
+    }
 
-        gameView.displayUserInputRoundPrompt();
+    private void inputRound() {
+        gameView.promptForRoundCount();
         round = InputUtils.promptForInt();
-
         System.out.println();
+    }
 
-        gameView.displayResultMessage();
+    private void race() {
+        gameView.displayExecutionResults();
         for (int i = 0; i < round; i++) {
             raceOneRound();
-            gameView.displayOneRoundResultMessage(cars);
+            gameView.displayRoundResults(cars);
             System.out.println();
         }
     }
@@ -39,5 +49,28 @@ public class RaceGame {
                 car.advancePosition();
             }
         }
+    }
+
+    private void displayResults() {
+        gameView.displayWinners(findWinners());
+    }
+
+    private List<String> findWinners() {
+        int maxPosition = findMaxPosition();
+        return findWinningCarNames(maxPosition);
+    }
+
+    private int findMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+    }
+
+    private List<String> findWinningCarNames(int maxPosition) {
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .toList();
     }
 }

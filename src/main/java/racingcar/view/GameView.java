@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
+import java.util.StringJoiner;
 import racingcar.domain.Car;
 
 public class GameView {
@@ -20,6 +21,13 @@ public class GameView {
         for (Car car : cars) {
             car.printStatus();
         }
+    }
+
+    public void displayWinners(List<String> winnerNames) {
+        System.out.print("최종 우승자 : ");
+        StringJoiner joiner = new StringJoiner(", ");
+        winnerNames.forEach(joiner::add);
+        System.out.print(joiner);
     }
 
     private void displayMessage(String message) {
