@@ -26,4 +26,10 @@ public class ValidateCar {
             }
         }
     }
+
+    private void checkListNull(List<CarInfo> carList){
+        if (carList.isEmpty()) {
+            throw new IllegalArgumentException("경주할 자동차 비존재 오류");
+        }
+    }
 }
