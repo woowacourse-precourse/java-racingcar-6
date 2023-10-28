@@ -33,4 +33,19 @@ public class CarListTest {
 
         assertEquals(2, resultList.findMaxPosition());
     }
+
+    @Test
+    void findWinners_테스트() {
+        List<String> inputList = Arrays.asList("red", "green", "blue");
+        List<Car> carList = RacingUtil.createCarsFromNames(inputList);
+        carList.get(1).move();
+        carList.get(2).move();
+
+        CarList resultList = new CarList(carList);
+        List<Car> winners = resultList.findWinners();
+
+        assertEquals(2, winners.size());
+        assertTrue(winners.contains(carList.get(1)));
+        assertTrue(winners.contains(carList.get(2)));
+    }
 }
