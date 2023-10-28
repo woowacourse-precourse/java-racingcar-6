@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static racingcar.constant.ExceptionMessage.BLANK_EXCEPTION;
 import static racingcar.constant.ExceptionMessage.INVALID_NAME_EXCEPTION;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -32,6 +33,14 @@ public class CarsFactory {
         for (String name : carNames) {
             if (name.isEmpty()) {
                 throw new IllegalArgumentException(INVALID_NAME_EXCEPTION);
+            }
+        }
+    }
+
+    public void checkCarNameForBlank(List<String> carNames) {
+        for (String name : carNames) {
+            if (name.contains(" ")) {
+                throw new IllegalArgumentException(BLANK_EXCEPTION);
             }
         }
     }
