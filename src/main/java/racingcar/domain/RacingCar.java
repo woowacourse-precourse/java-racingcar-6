@@ -21,6 +21,10 @@ public class RacingCar {
         this.carMovement = CAR_MOVEMENT;
     }
 
+    public String printCarName() {
+        return carName;
+    }
+
     public static List<RacingCar> fromInputCarName(String inputCarName) {
         List<String> carNames = Arrays.asList(inputCarName.split(","));
 
