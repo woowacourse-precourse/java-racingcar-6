@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -52,5 +53,25 @@ class OutputViewTest {
     public void printGameResult() {
         outputView.printGameResult();
         assertEquals("\n실행 결과\n", outputMessage.toString());
+    }
+
+    @Test
+    public void printGameResultsPerAttempt_success() {
+        List<String> carNames = List.of("pobi", "woni", "jun");
+        List<Integer> movingDistances = List.of(1, 2, 3);
+        String expectedGameResult = "pobi : -\nwoni : --\njun : ---\n\n";
+
+        outputView.printGameResultsPerAttempt(carNames, movingDistances);
+        assertEquals(expectedGameResult, outputMessage.toString());
+    }
+
+    @Test
+    public void printGameResultsPerAttempt_fail() {
+        List<String> carNames = List.of("pobi", "woni", "jun");
+        List<Integer> movingDistances = List.of(1, 2, 3, 4);
+
+        assertThrows(IllegalArgumentException.class,
+            () -> outputView.printGameResultsPerAttempt(carNames, movingDistances)
+        );
     }
 }
