@@ -13,4 +13,8 @@ public class RandomNumber {
     private int generateNumber() {
         return Randoms.pickNumberInRange(0,9);
     }
+
+    public boolean isMovePossible() {
+        return randomNumber >= 4;
+    }
 }
