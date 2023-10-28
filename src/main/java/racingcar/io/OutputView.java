@@ -11,4 +11,8 @@ public class OutputView {
     public void printAttemptCountMessage() {
         System.out.println(ProgressMessage.INPUT_ATTEMPT_COUNT);
     }
+
+    public void printGameResult(String result) {
+        System.out.println(result);
+    }
 }
