@@ -5,25 +5,32 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class RaceTrack {
 
     public String[] carNames;
+    public int[] carStartLine;
+    public int[] carRank;
 
     public RaceTrack(String[] carNames) {
         this.carNames = carNames;
+        this.carStartLine = new int[carNames.length];
+        this.carRank = new int[carNames.length];
     }
 
     // carNames 배열의 각 요소(자동차 이름)에 " : " 더하기
     public void printCarNames() {
         for (int i = 0; i < carNames.length; i++) {
             carNames[i] = carNames[i] + " : ";
+            carStartLine[i] = carNames[i].length();
         }
     }
 
+    // 이제 얘를 이동 회수만큼 반복시켜야 한다
     public void rankCar() {
         for (int i = 0; i < carNames.length; i++) {
             carNames[i] = carNames[i] + countMovement();
-            System.out.println(carNames[i]);
+            carRank[i] = carNames[i].length() - carStartLine[i];
+            System.out.print(carNames[i] + "\n");
         }
     }
-    // carNames 배열의 각 요소를 줄바꿈하여 출력하는 메서드
+
 //    public void printCarNames() {
 //        for (String carName : carNames) {
 //            String movement = countMovement();

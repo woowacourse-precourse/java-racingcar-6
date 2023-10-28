@@ -22,5 +22,8 @@ public class RaceController {
         raceTrack.printCarNames();
         // "-" 길이가 count가 될 때까지 '반복'한다
         raceTrack.rankCar();
+        /*
+        do { raceTrack.rankCar(); } while ( 길이 != count )
+        * */
     }
 }
