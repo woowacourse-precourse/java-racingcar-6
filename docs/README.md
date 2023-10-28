@@ -1,5 +1,9 @@
 # 🚗 자동차 경주 게임 기능 명세서 🏁
 
+> - 기능 명세서는 프로그램 실행 흐름에 따라 작성한다.
+> - 기능 구현은 주요 기능부터 먼저 구현한다.
+> - 경주는 2개 이상의 자동차가 참가해야 가능하므로 2개 이상의 이름을 입력해야 게임을 진행할 수 있다.
+
 
 ## 경주할 자동차들의 이름을 입력받는다.
 - [ ] 쉼표로 구분된 이름을 분리한다. - Registration#getCarName()
@@ -31,6 +35,12 @@
 ## 우승자를 알려준다.
   - [ ] 우승자 안내 문구를 출력한다. - MessageContainer#printWinners()
     - [ ] 공동 우승자는 쉼표로 구분하여 출력한다.
+
+
+## 안내 메시지를 출력한다
+- [ ] 자동차 이름 입력 안내 문구를 출력한다 - MessageContainer#enterCarNames()
+- [ ] 시도 횟수 입력 안내 문구를 출력한다 - MessageContainer#enterTotalRounds()
+- [ ] 실행 결과 문구를 출력한다 - MessageContainer#executionResult()
 
 
 ## `IllegalArgumentException`이 발생하면 애플리케이션을 종료한다.
