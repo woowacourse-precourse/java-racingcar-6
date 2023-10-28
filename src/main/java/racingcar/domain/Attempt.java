@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import static racingcar.constant.ExceptionMessage.BLANK_EXCEPTION;
 import static racingcar.constant.ExceptionMessage.NON_NUMBER_EXCEPTION;
-import static racingcar.constant.ExceptionMessage.NON_POSITIVE_NUMBER_EXCEPTION;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.view.InputView;
@@ -24,7 +23,6 @@ public class Attempt {
     public void validateAttemptNumber(String number) {
         checkNonBlank(number);
         checkInteger(number);
-        checkPositiveNumber();
     }
 
     public void checkNonBlank(String input) {
@@ -35,17 +33,12 @@ public class Attempt {
 
     public void checkInteger(String input) {
         try {
-            this.count = Integer.parseInt(input);
+            Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(NON_NUMBER_EXCEPTION);
         }
     }
 
-    public void checkPositiveNumber() {
-        if (count <= 0 || count != count) {
-            throw new IllegalArgumentException(NON_POSITIVE_NUMBER_EXCEPTION);
-        }
-    }
 
     public int getCount() {
         return count;
