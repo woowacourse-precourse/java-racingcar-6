@@ -22,5 +22,8 @@ public class Game {
                 .collect(Collectors.joining("\n"));
     }
 
-    public void step() {}
+    public void step() {
+        carList.forEach(car -> car.move(Randoms.pickNumberInRange(0, 9)));
+        --tryCount;
+    }
 }
