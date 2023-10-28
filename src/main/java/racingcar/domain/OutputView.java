@@ -24,7 +24,7 @@ public class OutputView {
 
     public static void printCarsLocation(Cars cars) {
         for (int index = 0; index < cars.size(); index++) {
-            System.out.println(cars.get(index));
+            cars.printCar(index);
         }
         System.out.println();
     }

@@ -19,8 +19,8 @@ public class Cars {
         }
     }
 
-    public Car get(int index) {
-        return cars.get(index);
+    public void printCar(int index) {
+        System.out.println(cars.get(index));
     }
 
     public int size() {
