@@ -11,6 +11,7 @@ import java.io.InputStream;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+// TODO: 10/29/23 입력 검사 확인
 public class InputNumberGameAttemp {
     private GameProcess gameProcess;
 
