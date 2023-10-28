@@ -30,7 +30,7 @@
 
 ### CarAccelerator ⚙️
 
-* [❌] `Randoms.pickNumberInRange()`를 활용하여 자동차가 전진하는 조건을 판단한다.
+* [✅] `Randoms.pickNumberInRange()`를 활용하여 자동차가 전진하는 조건을 판단한다.
   * 만약 자동차가 전진한다면 `true`, 그렇지 않다면 `false`를 반환한다.
 
 
