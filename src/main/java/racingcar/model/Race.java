@@ -1,28 +1,27 @@
 package racingcar.model;
 
+import static racingcar.constant.GameConfig.*;
+
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.constant.GameConfig;
 import racingcar.view.OutputView;
 
 public class Race {
 
-	private final List<Car> cars;
+	private List<Car> cars;
 
-	public Race(List<Car> cars) {
-		this.cars = cars;
+	public Race(List<String> carNames) {
+		setCarsFromNames(carNames);
 	}
 
 	public void moveAllCarsForward() {
-		int randomValue = 0;
-
 		for (Car car : cars) {
-			randomValue = Randoms.pickNumberInRange(GameConfig.RANDOM_MINIMUM_RANGE, GameConfig.RANDOM_MAXIMUM_RANGE);
+			int randomValue = Randoms.pickNumberInRange(RANDOM_MINIMUM_RANGE, RANDOM_MAXIMUM_RANGE);
 
-			if (randomValue >= GameConfig.MINIMUM_NUMBER_FOR_FORWARD) {
+			if (randomValue >= MINIMUM_NUMBER_FOR_FORWARD) {
 				car.forward();
 			}
 		}
@@ -56,6 +55,12 @@ public class Race {
 	private List<Car> sortCarsByPosition() {
 		return cars.stream()
 			.sorted(Comparator.comparingInt(Car::getPosition).reversed())
+			.collect(Collectors.toList());
+	}
+
+	private void setCarsFromNames(List<String> names) {
+		cars = names.stream()
+			.map(Car::new)
 			.collect(Collectors.toList());
 	}
 }
