@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class RacingCar {
+    private static final String STATUS_FORMAT = " : ";
+    private static final String PROGRESS = "-";
+
     private final Integer CAR_MOVEMENT = 0;
 
     private final String carName;
@@ -32,5 +35,9 @@ public class RacingCar {
 
     public void forward() {
         carMovement++;
+    }
+
+    public String carStatus() {
+        return carName + STATUS_FORMAT + PROGRESS.repeat(carMovement);
     }
 }

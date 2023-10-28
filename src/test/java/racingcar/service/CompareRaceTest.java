@@ -28,10 +28,10 @@ class CompareRaceTest {
         List<RacingCar> racingCars = RacingCar.fromInputCarName(inputCarName);
 
         // when
-        List<RacingCar> resultMoveCars = compareRace.moveCars(racingCars, movement);
+        compareRace.moveCars(racingCars, movement);
 
         // then
-        for (RacingCar racingCar : resultMoveCars) {
+        for (RacingCar racingCar : racingCars) {
             assertTrue(racingCar.isMoveCountLessThanOrEqualTo(movement));
         }
     }

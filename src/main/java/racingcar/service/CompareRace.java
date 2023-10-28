@@ -7,7 +7,10 @@ import java.util.List;
 
 public class CompareRace {
 
-    public List<RacingCar> moveCars(List<RacingCar> racingCars, Integer movement) {
+    private final Integer START_NUMBER = 0;
+    private final Integer END_NUMBER = 9;
+
+    public void moveCars(List<RacingCar> racingCars, Integer movement) {
         for (int i = 0; i < movement; i++) {
             Integer movementCondition = getRandomNumber();
 
@@ -17,11 +20,13 @@ public class CompareRace {
                 }
             }
         }
-
-        return racingCars;
     }
 
     private Integer getRandomNumber() {
-        return Randoms.pickNumberInRange(0,9);
+        return Randoms.pickNumberInRange(START_NUMBER, END_NUMBER);
+    }
+
+    public List<RacingCar> findWinnerCars(List<RacingCar> doneRacingCars) {
+        for
     }
 }
