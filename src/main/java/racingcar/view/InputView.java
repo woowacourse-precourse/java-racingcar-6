@@ -13,12 +13,12 @@ public class InputView {
     public void printInputTotalRoundMessage() {
         System.out.println(INPUT_ATTEMPT_COUNT_MESSAGE);
     }
-    public String carsName() {
+    public String inputCarsName() {
         printInputCarsNameMessage();
         return Console.readLine();
     }
 
-    public int totalRound() {
+    public int inputTotalRound() {
         printInputTotalRoundMessage();
         String inputRound = Console.readLine();
         if(isNotNumeric(inputRound)) {

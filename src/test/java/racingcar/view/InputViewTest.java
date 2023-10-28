@@ -44,7 +44,7 @@ public class InputViewTest {
         InputStream readLine = setReadLine("abc");
         System.setIn(readLine);
 
-        org.junit.jupiter.api.Assertions.assertThrows(IllegalArgumentException.class, inputView::totalRound);
+        org.junit.jupiter.api.Assertions.assertThrows(IllegalArgumentException.class, inputView::inputTotalRound);
     }
 
     private InputStream setReadLine(String readLine) {
