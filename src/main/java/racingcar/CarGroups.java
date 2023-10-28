@@ -10,6 +10,7 @@ public class CarGroups {
     public CarGroups(List<String> carNames) {
         validateCarSize(carNames);
         validateNameLength(carNames);
+        validateDuplicateName(carNames);
         this.racingCars = carNames.stream()
                 .map(Car::new)
                 .toList();
@@ -27,6 +28,15 @@ public class CarGroups {
                 .anyMatch(length -> length > 5);
         if (result) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+        }
+    }
+
+    private void validateDuplicateName(List<String> carNames) {
+        boolean result = carNames.stream()
+                .distinct()
+                .count() != carNames.size();
+        if (result) {
+            throw new IllegalArgumentException("중복된 이름이 있습니다.");
         }
     }
 
