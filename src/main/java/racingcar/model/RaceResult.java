@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -8,6 +9,10 @@ public class RaceResult {
 
     public RaceResult(List<Car> cars){
         this.cars = cars;
+    }
+
+    public List<Car> carsToList(){
+        return Collections.unmodifiableList(cars);
     }
 
     public List<String> getWinners(){
