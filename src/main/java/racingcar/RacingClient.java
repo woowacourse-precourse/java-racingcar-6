@@ -37,7 +37,6 @@ public class RacingClient {
         for (int i = 0; i < trialNumber; i++) {
             carGroups.go();
             System.out.println(carGroups);
-            System.out.println();
         }
 
         System.out.println("최종 우승자 : " + carGroups.getWinners());
