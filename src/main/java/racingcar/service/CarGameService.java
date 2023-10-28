@@ -9,24 +9,24 @@ public class CarGameService {
 
     private static final String NAME_SEPARATOR = ",";
 
-    public Cars convertToList(String inputCars) {
-        List<String> names = new ArrayList<>(getCarList(inputCars));
-        return Cars.of(names);
+    public Cars convertToCars(String input) {
+        List<String> carList = convertToList(input);
+        return Cars.of(new ArrayList<>(carList));
     }
 
-    public void repeatForward(Cars cars) {
-        cars.evaluateCondition();
+    public void applyMovingForward(Cars cars) {
+        cars.applyMovingForward();
     }
 
     public String receiveWinnerNames(Cars cars) {
-        return cars.receiveResult();
+        return cars.selectWinnerNames();
     }
 
-    private List<String> getCarList(String inputCars) {
-        return Arrays.asList(splitCars(inputCars));
+    private List<String> convertToList(String input) {
+        return Arrays.asList(splitBySeparator(input));
     }
 
-    private String[] splitCars(String inputCars) {
-        return inputCars.split(NAME_SEPARATOR);
+    private String[] splitBySeparator(String input) {
+        return input.split(NAME_SEPARATOR);
     }
 }

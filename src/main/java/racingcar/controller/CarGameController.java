@@ -34,7 +34,7 @@ public class CarGameController {
         outputView.printGameResult();
 
         for (int iteration = 0; iteration < attempt; iteration++) {
-            carGameService.repeatForward(cars);
+            carGameService.applyMovingForward(cars);
             outputView.printRank(cars);
         }
     }
@@ -46,7 +46,7 @@ public class CarGameController {
 
     private Cars receiveCars() {
         outputView.printStartGame();
-        String inputCars = inputView.readCarNames();
-        return carGameService.convertToList(inputCars);
+        String input = inputView.readCarNames();
+        return carGameService.convertToCars(input);
     }
 }

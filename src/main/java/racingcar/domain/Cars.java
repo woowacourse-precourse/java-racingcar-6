@@ -7,6 +7,7 @@ import racingcar.utils.Randoms;
 public class Cars {
 
     private static final String INVALID_INPUT_MESSAGE = "잘못된 입력입니다.";
+    private static final String WINNER_NAME_SEPARATOR = ", ";
     private static final int RANDOM_NUMBER_LIMIT = 4;
 
     private final List<Car> cars;
@@ -20,42 +21,57 @@ public class Cars {
         cars = convertToCars(names);
     }
 
-    public List<String> getCurrentState() {
+    public List<String> receiveCurrentRank() {
         return cars.stream()
                 .map(Car::toString)
                 .collect(Collectors.toList());
     }
 
-    public void evaluateCondition() {
+    public void applyMovingForward() {
         for (int index = 0; index < cars.size(); index++) {
             conditionalMove(index);
         }
     }
 
-    public String receiveResult() {
-        int maxForwardCount = getMaxForwardCount();
-
-        List<String> winnerNames = cars.stream()
-                .filter(car -> car.compare(maxForwardCount))
-                .map(Car::getName).toList();
-
-        return String.join(", ", winnerNames);
+    public String selectWinnerNames() {
+        int maxMove = receiveMaxMove();
+        List<String> winnerNames = selectWinnerNames(maxMove);
+        return joinWinnerNames(winnerNames);
     }
 
-    private int getMaxForwardCount() {
+    private String joinWinnerNames(List<String> winnerNames) {
+        return String.join(WINNER_NAME_SEPARATOR, winnerNames);
+    }
+
+    private List<String> selectWinnerNames(int maxMove) {
         return cars.stream()
-                .map(Car::getForwardCount)
+                .filter(car -> car.compare(maxMove))
+                .map(Car::getName)
+                .toList();
+    }
+
+    private int receiveMaxMove() {
+        return cars.stream()
+                .map(Car::getMove)
                 .max(Integer::compare)
                 .orElseThrow();
     }
 
     private void conditionalMove(int index) {
-        if (Randoms.pickNumberInRange() < RANDOM_NUMBER_LIMIT) {
+        if (isRandomNumberNotInRange()) {
             return;
         }
 
-        Car targetCar = getCarByIndex(index).increaseForwardCount();
+        Car targetCar = getCarByIndex(index).increaseMove();
+        moveForward(index, targetCar);
+    }
+
+    private void moveForward(int index, Car targetCar) {
         cars.set(index, targetCar);
+    }
+
+    private boolean isRandomNumberNotInRange() {
+        return Randoms.pickNumberInRange() < RANDOM_NUMBER_LIMIT;
     }
 
     private Car getCarByIndex(int index) {
@@ -86,10 +102,12 @@ public class Cars {
     }
 
     private boolean hasDuplicate(List<String> names) {
-        long count = names.stream()
+        return names.size() != countDuplicateNames(names);
+    }
+
+    private long countDuplicateNames(List<String> names) {
+        return names.stream()
                 .distinct()
                 .count();
-
-        return names.size() != count;
     }
 }
