@@ -37,8 +37,6 @@ public class Application {
             int randomNumber = generateRandomNumber();
             if (randomNumber >= 4) {
                 car.moveForward();
-            } else if (randomNumber < 4) {
-                //
             }
         }
     }
