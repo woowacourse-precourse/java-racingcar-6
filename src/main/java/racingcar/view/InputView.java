@@ -13,7 +13,7 @@ public class InputView {
                 .collect(Collectors.toList());
     }
 
-    private void carNameValidition(List<String> carNameList) throws IllegalArgumentException {
+    private void carNameValidaition(List<String> carNameList) throws IllegalArgumentException {
         carNameList.stream()
                 .filter(carName -> carName.length() > 5)
                 .findFirst()
@@ -25,7 +25,7 @@ public class InputView {
     public List<String> inputCarNames() {
         String userInput = Console.readLine();
         List<String> carNameList = splitCarNames(userInput);
-        carNameValidition(carNameList);
+        carNameValidaition(carNameList);
         return carNameList;
     }
 
