@@ -11,6 +11,10 @@ public class RacingCars {
         this.racingCars = racingCars;
     }
 
+    public Integer getMaxForwardDistance() {
+        return Collections.max(racingCars).getForwardDistance();
+    }
+
     public List<RacingCar> getRacingCars() {
         return Collections.unmodifiableList(racingCars);
     }
