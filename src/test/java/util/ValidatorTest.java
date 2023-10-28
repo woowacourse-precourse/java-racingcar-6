@@ -30,4 +30,10 @@ public class ValidatorTest {
         Validator validator = new Validator();
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> validator.validParseInt("*"));
     }
+
+    @Test
+    void 다섯글자이상_입력() {
+        Validator validator = new Validator();
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> validator.validName("*"));
+    }
 }
