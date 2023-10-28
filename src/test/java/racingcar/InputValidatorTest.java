@@ -22,7 +22,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void 빈_이름_예외_처리() {
+    void 차_이름_빈_입력_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> inputValidator.validCarNameLength(""))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -33,6 +33,28 @@ public class InputValidatorTest {
     void 길이_초과한_이름_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> inputValidator.validCarNameLength("pobipobi"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도횟수_정상_입력() {
+        assertThatCode(() -> inputValidator.validCarNameLength("6"))
+                .doesNotThrowAnyException();
+    }
+
+    @Test
+    void 숫자_외_입력_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> inputValidator.validTrialNumber("5a1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도횟수_빈_입력_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> inputValidator.validTrialNumber(" "))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
