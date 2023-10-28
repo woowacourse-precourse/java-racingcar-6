@@ -4,6 +4,7 @@ import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.constant.GameConfig;
+import racingcar.view.OutputView;
 
 public class Race {
 
@@ -13,7 +14,7 @@ public class Race {
 		this.cars = cars;
 	}
 
-	private void moveAllCarsForward(List<Car> cars) {
+	public void moveAllCarsForward(List<Car> cars) {
 		int randomValue = 0;
 
 		for (Car car : cars) {
@@ -23,5 +24,13 @@ public class Race {
 				car.forward();
 			}
 		}
+	}
+
+	public void displayAllCarsPosition(List<Car> cars) {
+		for (Car car : cars) {
+			OutputView.printCarPosition(car.getName(), car.getPosition());
+		}
+
+		OutputView.printNewLine();
 	}
 }
