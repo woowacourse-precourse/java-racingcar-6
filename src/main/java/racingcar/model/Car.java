@@ -16,8 +16,8 @@ public class Car {
     }
 
     public void moveForward(int randomNumber) {
-        if (randomNumber >= MIN_NUMBER) {
-            position++;
+        if (canMove(randomNumber)) {
+            move();
         }
     }
 
@@ -31,5 +31,13 @@ public class Car {
 
     public String getCarStatus() {
         return name + " : " + "-".repeat(position);
+    }
+
+    private boolean canMove(int randomNumber) {
+        return randomNumber >= MIN_NUMBER;
+    }
+
+    private void move() {
+        position++;
     }
 }
