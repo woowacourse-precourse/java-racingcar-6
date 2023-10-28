@@ -26,9 +26,4 @@ public class Output {
         String result = String.join(",", cars); // "pobi,jason"
         System.out.print(result);
     }
-
-
-
-
-
 }
