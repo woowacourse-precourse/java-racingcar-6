@@ -8,7 +8,7 @@ public class InputValueValidator {
         return result;
     }
 
-    // 자동차 이름 입력값 검증
+    // 자동차 이름 입력값 검증(쉼표 제외한 영어. 한글, 숫자, 기호 전부 가능케)
     public void checkNameValidation(String[] input) throws IllegalArgumentException {
         for (String name : input) {
             verifyLength(name);
@@ -16,8 +16,11 @@ public class InputValueValidator {
     }
 
     public void verifyLength(String value) throws IllegalArgumentException {
-        if(value.isEmpty()) {
-            throw new IllegalArgumentException("에러! 빈 칸이나 쉼표를 입력할 수 없습니다.");
+        if (value.isBlank()) {
+            throw new IllegalArgumentException("에러! 띄어쓰기는 언더스코어('_')를 활용해주세요.");
+        }
+        if (value.isEmpty() || value.contains(",")) {
+            throw new IllegalArgumentException("에러! 공백이나 쉼표를 입력할 수 없습니다.");
         }
         if(value.length() > 5) {
             throw new IllegalArgumentException("에러! 최대 다섯 글자까지만 입력해야 합니다.");

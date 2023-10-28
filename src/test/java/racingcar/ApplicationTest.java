@@ -58,6 +58,11 @@ class ApplicationTest extends NsTest {
             assertThatThrownBy(() -> validator.checkNameValidation(new String[]{"^&#(*!"}))
                     .isInstanceOf(IllegalArgumentException.class);
         });
+
+        assertSimpleTest(() -> {
+            assertThatThrownBy(() -> validator.checkNameValidation(new String[]{"     ", ""}))
+                    .isInstanceOf(IllegalArgumentException.class);
+        });
     }
 
     @Test
