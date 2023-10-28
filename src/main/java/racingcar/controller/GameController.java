@@ -19,8 +19,8 @@ public class GameController {
     RandomNumber randomNumber = new RandomNumber();
     Validator validator = new Validator();
     CarList carList = CarList.getInstance();
-    private final int STANDARD_NUMBER = 4;
 
+    private final int STANDARD_NUMBER = 4;
     int count; //시도할 횟수
 
     public void proceed() {
@@ -36,7 +36,7 @@ public class GameController {
         for (Car car : cars) {
             checkMaxCar(car, maxLevel, winners);
         }
-        outputView.printWinner(String.join(",",winners));
+        outputView.printWinner(String.join(",", winners));
     }
 
     private void checkMaxCar(Car car, int maxLevel, List<String> winners) {
