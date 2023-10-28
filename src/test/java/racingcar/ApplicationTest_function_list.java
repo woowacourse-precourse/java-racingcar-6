@@ -9,6 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.io.ByteArrayInputStream;
+import java.lang.reflect.Method;
 import java.util.List;
 
 class ApplicationTest_function_list extends NsTest {
@@ -36,6 +37,23 @@ class ApplicationTest_function_list extends NsTest {
 
     @Test
     void 기능목록_테스트_입력_문자열_분할() {
+        //private method reflection 사용
+        List<String> returnValue = List.of();
+        try {
+            //reflection
+            Method rawToListMethod = Input.class.getDeclaredMethod("rawToList", String.class);
+            rawToListMethod.setAccessible(true);
+
+            //메소드 입력값
+            String parameterString = "a,bb,ccc";
+
+            //실행
+            returnValue = (List<String>) rawToListMethod.invoke(Input.class, parameterString);
+
+        } catch (Exception e) { //메소드명 오류시 예외처리
+            e.printStackTrace();
+        }
+        assertThat(returnValue).containsExactlyInAnyOrderElementsOf(List.of("a", "bb", "ccc"));
 
     }
 
