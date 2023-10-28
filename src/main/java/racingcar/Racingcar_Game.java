@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,5 +32,10 @@ public class Racingcar_Game {
         if(name.length() > 5)
             throw new IllegalArgumentException("Name is too long");
         return true;
+    }
+
+    public static boolean checkPush(){
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        return randomNumber >= 4;
     }
 }
