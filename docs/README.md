@@ -74,6 +74,7 @@ classDiagram
     class Validator {
         + validParseInt()
         + validRangeNumber()
+        + validName()
     }
     
 ```
