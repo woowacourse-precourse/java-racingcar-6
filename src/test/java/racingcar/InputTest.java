@@ -44,4 +44,13 @@ public class InputTest {
         .isInstanceOf(IllegalArgumentException.class);
   }
 
+  @DisplayName("자동자 이름 공백 테스트")
+  @Test
+  void 자동차_이름_공백_테스트() {
+    List<String> input = Arrays.asList("pobi", " ");
+
+    assertThatThrownBy(() -> CarNameValidator.isNameValid(input))
+        .isInstanceOf(IllegalArgumentException.class);
+  }
+
 }
