@@ -33,7 +33,7 @@ public class Cars {
     }
 
 
-    public RoundResponses buildRoundResponse() {
+    public RoundResponses buildRoundResponses() {
         List<RoundResponse> roundResponses = cars.stream()
                 .map(Car::generateRoundResponse)
                 .toList();

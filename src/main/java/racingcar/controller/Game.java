@@ -31,8 +31,8 @@ public class Game {
 
     private static void playOneRound(final Cars cars) {
         cars.playRound();
-        
-        RoundResponses roundResponses = cars.buildRoundResponse();
+
+        RoundResponses roundResponses = cars.buildRoundResponses();
         View.printRoundResults(roundResponses.toEntityList());
     }
 }
