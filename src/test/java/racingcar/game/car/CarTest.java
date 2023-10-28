@@ -7,7 +7,7 @@ import org.mockito.Mockito;
 import racingcar.game.car.engin.CarEngineV1;
 import racingcar.game.inputgenerateManager.InputGenerateManager;
 
-class RacingCarTest {
+class CarTest {
 
     @Test
     void Car_객체_내부엔진이_각각_독립적인_객체인지_확인() {
@@ -20,11 +20,11 @@ class RacingCarTest {
 
         //when
         CarEngineV1 carEngineA = new CarEngineV1(moveForwardValue);
-        RacingCar carA = new RacingCar("carA",carEngineA);
+        Car carA = new Car("carA",carEngineA);
         carA.drive();
 
         CarEngineV1 carEngineB = new CarEngineV1(stopValue);
-        RacingCar carB = new RacingCar("carB",carEngineB);
+        Car carB = new Car("carB",carEngineB);
         carB.drive();
 
         //then

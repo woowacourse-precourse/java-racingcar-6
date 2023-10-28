@@ -3,7 +3,7 @@ package racingcar.game.car;
 import racingcar.game.car.engin.CarEngine;
 import racingcar.game.enums.CarMove;
 
-public class RacingCar {
+public class Car {
     private final CarEngine carEngine;
     private final String name;
     private Integer forwardCount;
@@ -15,11 +15,11 @@ public class RacingCar {
         }
     }
 
-    public static RacingCar createRacingCar(String racingCarName, CarEngine carEngine) {
-        return new RacingCar(racingCarName, carEngine);
+    public static Car createRacingCar(String racingCarName, CarEngine carEngine) {
+        return new Car(racingCarName, carEngine);
     }
 
-    public RacingCar(String racingCarName, CarEngine carEngine) {
+    public Car(String racingCarName, CarEngine carEngine) {
         this.name = racingCarName;
         this.carEngine = carEngine;
         this.forwardCount = 0;
@@ -29,7 +29,8 @@ public class RacingCar {
         return forwardCount;
     }
 
-    public String getName(){
-       return this.name;
+    public String getName() {
+        return this.name;
     }
+
 }

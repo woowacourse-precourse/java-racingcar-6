@@ -11,7 +11,7 @@ import racingcar.game.exception.IllegalRangeException;
 import racingcar.game.exception.IllegalTypeException;
 
 class InputGenerateManagerImplTest {
-
+    //TODO : 중복예외, 마지막 (,)이후 엔터시 예외
     @RepeatedTest(10)
     void 난수값이_지정된범위_내_생성되는지_확인() {
         //if

@@ -1,7 +1,7 @@
 package racingcar;
 
-import racingcar.game.RacingDirector;
-import racingcar.game.RacingSimulator;
+import racingcar.game.Director;
+import racingcar.game.Simulator;
 import racingcar.game.Rule;
 import racingcar.game.inputgenerateManager.InputGenerateManagerImpl;
 import racingcar.game.outputgeneratemanager.OutputGenerateManager;
@@ -11,9 +11,9 @@ public class Application {
         // TODO: 프로그램 구현
         Rule rule = new Rule();
         InputGenerateManagerImpl inputGenerateManager = new InputGenerateManagerImpl();
+        Simulator simulator = new Simulator(inputGenerateManager);
         OutputGenerateManager outputGenerateManager = new OutputGenerateManager(rule);
-        RacingSimulator racingSimulator = new RacingSimulator(inputGenerateManager);
-        RacingDirector racingDirector = new RacingDirector(inputGenerateManager,outputGenerateManager, racingSimulator);
-        racingDirector.startProcess();
+        Director director = new Director(inputGenerateManager,outputGenerateManager, simulator);
+        director.startProcess();
     }
 }
