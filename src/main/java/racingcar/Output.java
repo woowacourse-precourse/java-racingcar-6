@@ -9,10 +9,16 @@ public class Output {
             System.out.println(player.get(i)+" : "+"-".repeat(playerResult.get(i)));
         }
     }
-    public void goal(ArrayList<String> goalPlayer) {
+    public void goal(ArrayList<String> goalPlayer,ArrayList<Integer> goalNumber) {
         System.out.print("최종 우승자 : ");
-        for (int i = 0; i < goalPlayer.size(); i++) {
-            System.out.print(goalPlayer.get(i)+", ");
+        for (int i = 0; i < goalNumber.size(); i++) {
+            int goal=goalNumber.get(i);
+            if (i!=goalNumber.size()-1){
+                System.out.print(goalPlayer.get(goal)+", ");
+            } else if (i==goalNumber.size()-1) {
+                System.out.print(goalPlayer.get(goal));
+            }
+
         }
     }
 }
