@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import static racingcar.constant.AllConstants.*;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,6 +34,7 @@ public class Racing {
             playRound(carNameList);
         }
         outputView.printWinnerList(getWinnerList(carNameList));
+        finishRace();
     }
 
     private void playRound(Map<String, Integer> carNameList) {
@@ -60,5 +62,9 @@ public class Racing {
             }
         }
         return result;
+    }
+
+    private void finishRace() {
+        Console.close();
     }
 }
