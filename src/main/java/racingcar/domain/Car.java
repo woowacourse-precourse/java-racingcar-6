@@ -12,10 +12,13 @@ public class Car {
     }
 
     public void moveForward() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
-
-        if (randomNumber >= 4) {
+        if (generateRandomNumber() >= 4) {
             move.increaseMove();
         }
+    }
+
+    private int generateRandomNumber() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        return randomNumber;
     }
 }
