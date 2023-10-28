@@ -17,17 +17,20 @@ public class CarService {
         return new CarService();
     }
 
-    public void generateCarAndCarsInstanceFromCarNames(String carNames) {
+    public void generateCarsInstance(String carNames) {
+        cars = Cars.getInstance(generateCarInstanceByCarName(carNames));
+    }
+
+    private List<Car> generateCarInstanceByCarName(String carNames) {
+        // stream으로 바꿔보기
         List<Car> carList = new ArrayList<>();
         for (String carName : splitCarNames(carNames)) {
             carList.add(Car.getInstance(carName));
         }
-        cars = Cars.getInstance(carList);
+        return carList;
     }
 
     private String[] splitCarNames(String carNames) {
         return carNames.split(",");
     }
-
-
 }
