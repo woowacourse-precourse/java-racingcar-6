@@ -1,17 +1,23 @@
-package racingcar;
+package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import racingcar.model.Car;
+import racingcar.model.Game;
+import racingcar.model.RandomNumber;
 import racingcar.view.GameView;
 
-public class Game {
+public class GameController {
 
     private final List<Car> participantCars;
     private final int retryCount;
+    private final Game game;
 
-    public Game(List<Car> participantCars, int retryCount) {
+    public GameController(List<Car> participantCars, int retryCount, Game game) {
         this.participantCars = participantCars;
         this.retryCount = retryCount;
+        this.game = game;
     }
 
     public void playGame() {
@@ -36,22 +42,6 @@ public class Game {
         }
     }
 
-    private List<Car> determineWinner() {
-        int maxPosition = 0;
-        for (Car participantCar : participantCars) {
-            maxPosition = Math.max(maxPosition, participantCar.getPosition());
-        }
-
-        int finalMaxPosition = maxPosition;
-
-        List<Car> winners = participantCars.stream()
-            .filter(car -> car.getPosition() == finalMaxPosition)
-            .toList();
-
-        return winners;
-    }
-
-
     private boolean isMoveToForward() {
         return getRandomNumber() >= 4;
     }
@@ -63,19 +53,12 @@ public class Game {
     private void displayCarPosition() {
         for (Car participantCar : participantCars) {
             int position = participantCar.getPosition();
-            System.out.println(participantCar.getName() + " : " + "-".repeat(position) + "\n");
+            System.out.println(participantCar.getName() + " : " + "-".repeat(position));
         }
     }
 
     private void displayWinner() {
-        List<Car> winners = determineWinner();
-        List<String> tempWinner = new ArrayList<>();
-
-        for (Car winner : winners) {
-            tempWinner.add(winner.getName());
-        }
-
-        String winnerNames = String.join(", ", tempWinner);
-        GameView.displayFinalWinner(winnerNames);
+        List<Car> winners = game.getWinnerList();
+        GameView.displayFinalWinner(game.getWinnerNames(winners));
     }
 }
