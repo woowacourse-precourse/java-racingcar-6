@@ -15,4 +15,15 @@ public class ValidateCar {
             }
         }
     }
+
+    private void checkDuplicateName(List<CarInfo> carList){
+        Set<String> duplicator = new HashSet<>();
+
+        for (CarInfo car : carList) {
+            String carName = car.getName();
+            if (!duplicator.add(carName)) {
+                throw new IllegalArgumentException("자동차 이름 증복 오류");
+            }
+        }
+    }
 }
