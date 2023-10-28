@@ -39,7 +39,7 @@ public class Controller {
             gameService.play(game);
             OutputView.printState(game.getCarList());
         }
-        //위너 출력
+        OutputView.printWinner(gameService.getWinner(game));
     }
 
     private void saveCarNames(List<String> carNames) {
