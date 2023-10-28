@@ -1,8 +1,8 @@
 package racingcar.model;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class CarTest {
     @Test
@@ -21,5 +21,15 @@ public class CarTest {
         car.move();
 
         assertThat(car.getDistance()).isEqualTo(1);
+    }
+
+    @Test
+    void 최대거리True반환() {
+        TestNumberGenerator testGenerator = new TestNumberGenerator(6);
+        Car car = new Car("CarName", testGenerator);
+        car.move();
+
+        assertThat(car.isMaxDistance(1)).isEqualTo(true);
+        assertThat(car.isMaxDistance(2)).isEqualTo(false);
     }
 }
