@@ -12,4 +12,13 @@ public class Converter {
         return carsNameList;
     }
 
+    public static int convertStringToInt(String inputTrialNumber){
+        int trialNumber;
+        try{
+            trialNumber = Integer.parseInt(inputTrialNumber);
+        }catch (NumberFormatException exception){
+            throw new IllegalArgumentException("숫자를 입력해주세요");
+        }
+        return trialNumber;
+    }
 }

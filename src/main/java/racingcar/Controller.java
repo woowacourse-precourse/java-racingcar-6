@@ -5,7 +5,6 @@ import static racingcar.GetTrialNumberValidator.*;
 import static racingcar.InputView.*;
 
 import java.util.ArrayList;
-import javax.xml.validation.Validator;
 
 public class Controller {
 
@@ -58,7 +57,10 @@ public class Controller {
 
 
     private int getTrialNumber() {
-        return 0;
+        String inputString = inputTrialNumber();
+        int trialNumber = convertStringToInt(inputString);
+        validateNumberRange(trialNumber);
+        return trialNumber;
     }
 
     public void printFianlResult() {
