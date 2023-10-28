@@ -49,4 +49,19 @@ public class GameTest {
             1,2,4
         );
     }
+
+    @Test
+    void 우승자는_한_명_이상일_수_있음() {
+        assertRandomNumberInRangeTest(
+            () -> {
+                while(!game.isDone()) {
+                    game.step();
+                }
+                assertThat(game.getWinnersList()).contains("me", "my");
+            },
+            1,2,3, 
+            4,5,6, 
+            1,4,4
+        );
+    }
 }
