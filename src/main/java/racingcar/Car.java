@@ -12,18 +12,26 @@ public class Car {
     }
 
     public void moveCar() {
-        if (canMove()) {
+        int power = startEngine();
+        if (canMove(power)) {
             this.totalMoveCount++;
         }
     }
 
-    private boolean canMove() {
-        int power = startEngine();
+    private boolean canMove(int power) {
         return power >= 4;
     }
 
     private int startEngine() {
         return engine.generateRandomNumber();
+    }
+
+    public long getTotalMoveCount() {
+        return totalMoveCount;
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
