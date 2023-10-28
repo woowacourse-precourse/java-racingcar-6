@@ -10,22 +10,9 @@ public class Car {
         this.position = 0;
     }
 
-    public void updatePosition(int randomNumber) {
-        if (randomNumber > 3) {
-            this.position++;
-        }
-    }
-
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
-        result.append(this.name);
-        result.append(" : ");
-        for (int i = 0; i < this.position; i++) {
-            result.append("-");
-        }
-        result.append("\n");
-        return result.toString();
+        return this.name + " : " + "-".repeat(this.position) + "\n";
     }
 
     public int getPosition() {
