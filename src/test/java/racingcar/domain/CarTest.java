@@ -29,7 +29,10 @@ public class CarTest {
         car.move();
         CarDistanceMessage after = car.getCarDistanceMessage();
 
-        assertNotEquals(before.toString(), after.toString());
+        assertAll(
+                () -> assertNotEquals(before.toString(), after.toString()),
+                () -> Assertions.assertThat(after.toString()).contains("-")
+        );
 
     }
 
