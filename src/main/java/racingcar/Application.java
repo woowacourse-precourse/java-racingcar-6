@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
     public static void main(String[] args) {
@@ -21,8 +22,17 @@ public class Application {
     	
     	List<Integer> results = new ArrayList<>();
     	setCarsOnStart(carList, results);
-
+    	for(int i = 0; i < results.size(); i++) {
+			goOrStopByRandomNum(results, i);
+		}
     }
+    
+	public static void goOrStopByRandomNum(List<Integer> results, int i) {
+		int randomNum = Randoms.pickNumberInRange(0,9);
+		if(randomNum >= 4) {
+			results.set(i, results.get(i)+1);
+		}
+	}
     
 	public static void setCarsOnStart(List<String> carList, List<Integer> results) {
 		for(int i = 0; i < carList.size(); i++) {
