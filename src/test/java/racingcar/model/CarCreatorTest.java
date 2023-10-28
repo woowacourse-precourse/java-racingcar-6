@@ -60,22 +60,15 @@ public class CarCreatorTest {
 
     @ParameterizedTest
     @DisplayName("자동차 이름 List를 통해 자동차들을 생성")
-    @MethodSource("carNameListAndCarListProvider")
-    public void 자동차들_생성(List<String> carNameList, List<Car> expectedCarList) {
+    @MethodSource("carNameListProvider")
+    public void 자동차들_생성(List<String> carNameList) {
         //when
         List<Car> actualCarList = carCreator.createCars(carNameList);
 
         //then
-        assertThat(actualCarList).isEqualTo(expectedCarList);
+        List<String> actualCarNameList = actualCarList.stream()
+                .map(Car::getNameForTest).toList();
+
+        assertThat(actualCarNameList).isEqualTo(carNameList);
     }
-
-    static Stream<Arguments> carNameListAndCarListProvider() {
-        return Stream.of(
-                Arguments.arguments(List.of("pobbi"), new Car("pobbi")),
-                Arguments.arguments(List.of("pobbi", "wonni", "jun"),
-                        List.of(new Car("pobbi"), new Car("wonni"), new Car("jun")))
-        );
-    }
-
-
 }
