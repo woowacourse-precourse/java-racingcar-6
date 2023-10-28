@@ -19,9 +19,18 @@ public class CarNameInputter {
         return readLine();
     }
 
-    public List<String> divineCarName(String carNames) {
+    public List<String> splitCarNames(String carNames) {
         List<String> carNameList = Arrays.asList(carNames.split(","));
         return carNameList;
+    }
+
+    public Boolean validateCarName(List<String> carNameList) {
+        for (int i = 0; i < carNameList.size(); i++) {
+            if (carNameList.get(i).length() > 5) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
