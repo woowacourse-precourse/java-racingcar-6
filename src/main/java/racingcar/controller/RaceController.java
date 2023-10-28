@@ -18,12 +18,14 @@ public class RaceController {
         String count = UserInputValue.inputMovementCount();
         int countNum = Integer.parseInt(count);
         validator.checkMovementCount(count);
+        System.out.println();
+        System.out.println("실행 결과");
 
         RaceTrack raceTrack = new RaceTrack(carNames);
         raceTrack.printCarNames();
         // "-" 길이가 count가 될 때까지 '반복'한다
         raceTrack.race(countNum);
 
-
+        raceTrack.winRace(countNum);
     }
 }

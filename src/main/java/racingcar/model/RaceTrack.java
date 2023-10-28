@@ -32,25 +32,12 @@ public class RaceTrack {
         System.out.println();
     }
 
+    // 입력 횟수만큼 먼저 도달한 자동차 나올 때까지 반복
     public void race(int count) {
         do {
             rankCar();
         } while (!checkRaceCompletion(count));
     }
-
-//    public void printCarNames() {
-//        for (String carName : carNames) {
-//            String movement = countMovement();
-//            System.out.println(carName + " : " + movement);
-//        }
-//    }
-
-    /* while(요소들 중 어느 하나라도 작대기 길이 != count) {
-    result 초기값 => "자동차 이름 : "
-    result = result + countMovement()
-    sout(result)
-    }
-    */
 
     // 각 자동차의 전진 여부를 랜덤하게 반환하는 메서드
     private String countMovement() {
@@ -62,7 +49,7 @@ public class RaceTrack {
 
     public static boolean moveCar() {
         int drive = Randoms.pickNumberInRange(0,9);
-        if(drive >= 4) {
+        if (drive >= 4) {
             return true;
         }
         return false;
@@ -76,5 +63,23 @@ public class RaceTrack {
             }
         }
         return false; // 레이스 완료 조건 미충족
+    }
+
+    // 우승 관련 메소드
+    public void winRace(int count) {
+        StringBuilder win = new StringBuilder();
+        for (int i = 0; i < carNames.length; i++) {
+            if (carRank[i] == count) {
+                String modifiedName = carNames[i].substring(0, carNames[i].length() - (count + 3));
+                win.append(modifiedName).append(", ");
+            }
+        }
+
+        if (win.length() >= 2) {
+            win.delete(win.length() - 2, win.length());
+        }
+
+        String result = win.toString();
+        System.out.println("최종 우승자 : " + result);
     }
 }
