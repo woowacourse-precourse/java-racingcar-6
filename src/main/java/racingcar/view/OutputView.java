@@ -18,8 +18,8 @@ public class OutputView {
         System.out.println(racingResult);
     }
 
-    public void printWinner() {
-
+    public void printWinner(String racingWinner) {
+        System.out.println(WINNER_MESSAGE + racingWinner);
     }
 
 }
