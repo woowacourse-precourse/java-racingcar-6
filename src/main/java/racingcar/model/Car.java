@@ -6,10 +6,14 @@ import java.util.List;
 import racingcar.view.InputView;
 
 public class Car {
-    private List<String> name;
+    private static List<String> name;
 
     public Car() {
         name = splitCarNames();
+    }
+
+    public static List<String> getCarName() {
+        return name;
     }
 
     private static List<String> splitCarNames() {
