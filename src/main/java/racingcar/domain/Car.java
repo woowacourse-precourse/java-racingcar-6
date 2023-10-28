@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private CarName carName;
-    private int position;
+    private Position position;
     private static final int MIMIMUM_NUMBER = 1;
     private static final int MAXIMUM_NUMBER = 9;
     private static final int MOVING_STANDARD_NUMBER = 4;
@@ -16,8 +16,9 @@ public class Car {
 
     public void movePosition(){
         if(isAbleToMove()){
-            this.position++;
+            position = position.getIncreasedPosition();
         }
+        position = position.getPausedPosition();
     }
 
     private boolean isAbleToMove(){
