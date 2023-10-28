@@ -4,11 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 import racingcar.controller.Controller;
 import racingcar.controller.DisplayRoundController;
+import racingcar.controller.RacingResultController;
 import racingcar.controller.RegisterCarNamesController;
 import racingcar.controller.RegisterRoundController;
 import racingcar.view.inputview.RegisterCarNamesInputView;
 import racingcar.view.inputview.RegisterRoundInputView;
 import racingcar.view.outputview.DisplayRoundOutputView;
+import racingcar.view.outputview.RacingResultOutputView;
 import racingcar.view.outputview.RegisterCarNamesOutputView;
 import racingcar.view.outputview.RegisterRoundOutputView;
 
@@ -27,6 +29,9 @@ public class RacingCarApplication {
         controllerMap.put("displayRound", new DisplayRoundController(
                 new DisplayRoundOutputView()
         ));
+        controllerMap.put("racingResult", new RacingResultController(
+                new RacingResultOutputView()
+        ));
     }
 
     public void run() {
@@ -34,6 +39,11 @@ public class RacingCarApplication {
         registerCarNames(model);
         registerRound(model);
         displayStatus(model);
+        displayWinnerNames(model);
+    }
+
+    private void displayWinnerNames(Map<String, Object> model) {
+        controllerMap.get("racingResult").process(model);
     }
 
     private void displayStatus(Map<String, Object> model) {
