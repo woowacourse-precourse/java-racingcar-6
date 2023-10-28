@@ -7,10 +7,10 @@ import java.util.Objects;
 public final class CarPosition implements Comparable<CarPosition> {
     private static final int MIN_POSITION = 0;
     private static final int MOVE_STEP = 1;
-    
+
     private final int position;
 
-    private CarPosition(int position) {
+    CarPosition(int position) {
         validateMin(position);
         this.position = position;
     }
