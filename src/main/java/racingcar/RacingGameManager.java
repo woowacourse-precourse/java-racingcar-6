@@ -17,8 +17,13 @@ public class RacingGameManager {
         validateCarNames(carNames);
 
         return carList = Arrays.stream(carNames)
-                .map(carName -> new Car(carName.trim() , 0))
+                .map(carName -> new Car(carName.trim(), 0))
                 .collect(Collectors.toList());
+    }
+
+    public int createCountFromPlayerInput(String playerInput) {
+        validateCounts(playerInput);
+        return Integer.parseInt(playerInput);
     }
 
     private void validateCarNames(String[] carNames) {
@@ -49,6 +54,17 @@ public class RacingGameManager {
             if (carName.trim().isEmpty()) {
                 throw new IllegalArgumentException("공백은 입력될 수 없습니다. 자동차 경주 게임을 종료합니다.");
             }
+        }
+    }
+
+    private void validateCounts(String playerInput) {
+        try {
+            int count = Integer.parseInt(playerInput);
+            if (count < 1) {
+                throw new NumberFormatException();
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도 횟수는 1 이상의 정수여야 합니다. 자동차 경주 게임을 종료합니다.");
         }
     }
 }

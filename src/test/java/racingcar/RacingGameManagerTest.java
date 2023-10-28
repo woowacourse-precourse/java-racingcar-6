@@ -65,4 +65,36 @@ class RacingGameManagerTest {
         assertThat(carNames.get(0).getMovingCount()).isEqualTo(0);
         assertThat(carNames.get(1).getMovingCount()).isEqualTo(0);
     }
+
+    @Test
+    @DisplayName("시도 횟수가 조건에 맞다면, 예외를 발생시키지 않는다.")
+    void validateCounts_dontThrowException() {
+        String playerInput = "5";
+        RacingGameManager racingGameManager = new RacingGameManager(new ArrayList<>());
+
+        assertThatCode(() -> racingGameManager.createCountFromPlayerInput(playerInput))
+                .doesNotThrowAnyException();
+    }
+
+    @Test
+    @DisplayName("시도 횟수가 공백이라면, 예외를 발생시킨다.")
+    void validateCounts_ThrowException1() {
+        String playerInput = " ";
+        RacingGameManager racingGameManager = new RacingGameManager(new ArrayList<>());
+
+        assertThatThrownBy(() -> racingGameManager.createCountFromPlayerInput(playerInput))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도 횟수는 1 이상의 정수여야 합니다. 자동차 경주 게임을 종료합니다.");
+    }
+
+    @Test
+    @DisplayName("시도 횟수가 0이라면, 예외를 발생시킨다.")
+    void validateCounts_ThrowException2() {
+        String playerInput = "0";
+        RacingGameManager racingGameManager = new RacingGameManager(new ArrayList<>());
+
+        assertThatThrownBy(() -> racingGameManager.createCountFromPlayerInput(playerInput))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도 횟수는 1 이상의 정수여야 합니다. 자동차 경주 게임을 종료합니다.");
+    }
 }
