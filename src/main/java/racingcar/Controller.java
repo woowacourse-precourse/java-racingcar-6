@@ -5,7 +5,6 @@ import java.util.List;
 public class Controller {
     private final View view;
     private final RacingGame racingGame;
-    private Cars cars;
 
     public Controller(View view, RacingGame racingGame) {
         this.view = view;
@@ -13,14 +12,18 @@ public class Controller {
     }
 
     public void start() {
-        generateCars();
-        attemptForward(setAttemptCount());
-        printWinners();
+        Cars cars = generateCars();
+        attemptForward(cars, setAttemptCount());
+        printWinners(cars);
     }
 
-    private void generateCars() {
+    private Cars generateCars() {
         view.printNameInputMessage();
-        cars = new Cars(racingGame.inputCarNames(readFromConsole()));
+        return createCars(racingGame.inputCarNames(readFromConsole()));
+    }
+
+    private Cars createCars(List<Car> cars) {
+        return new Cars(cars);
     }
 
     private int setAttemptCount() {
@@ -32,7 +35,7 @@ public class Controller {
         return view.inputConsole();
     }
 
-    private void attemptForward(int count) {
+    private void attemptForward(Cars cars, int count) {
         view.printAttemptResultMessage();
 
         for (int current = 0; current < count; current++) {
@@ -41,15 +44,15 @@ public class Controller {
         }
     }
 
-    private void printWinners() {
-        view.printFinalWinnerMessage(getWinners(findWinningCars()));
+    private void printWinners(Cars cars) {
+        view.printFinalWinnerMessage(getWinners(findWinningCars(cars)));
     }
 
     private String getWinners(List<Car> winningCars) {
         return racingGame.printCarName(winningCars).getResultMessage();
     }
 
-    private List<Car> findWinningCars() {
+    private List<Car> findWinningCars(Cars cars) {
         return cars.findWiiningCars();
     }
 }
