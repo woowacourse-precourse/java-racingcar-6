@@ -10,6 +10,8 @@ import java.util.List;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import camp.nextstep.edu.missionutils.Console;
 
@@ -55,5 +57,18 @@ public class InputViewTest {
         int tryCount = inputView.inputTryCount();
         // then
         assertEquals(5, tryCount);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"-1", "2147483648", "가나다라"})
+    void 이동할_시도_횟수_입력이_0이상의_정수가_아니면_예외_발생(String input) {
+        // given
+        String userInput = input;
+        InputStream in = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(in);
+        //when & then
+        assertThatThrownBy(() -> inputView.inputTryCount())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도 횟수는 0이상의 정수여야 합니다.");
     }
 }
