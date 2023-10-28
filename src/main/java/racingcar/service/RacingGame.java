@@ -23,8 +23,8 @@ public class RacingGame {
         LinkedHashMap<String, String> carList = car.getCarList();
 
         System.out.println("시도할 회수는 몇회인가요?");
-        System.out.println();
         int numberOfAttempts = Integer.parseInt(Console.readLine());
+        System.out.println();
         int tryValue = 0;
 
         System.out.println("실행 결과");
