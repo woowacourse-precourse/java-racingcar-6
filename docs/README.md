@@ -17,6 +17,7 @@ classDiagram
     CarGameController ..> CarGameService
     CarGameController --> OutputView
     CarGameController --> InputView
+    CarGameController --> Validator
     
     CarGameService --> CarDto
     CarGameService --> Parser
@@ -31,7 +32,7 @@ classDiagram
     class CarGameController {
         + run()
     }
-    %% view
+    %% util
     class CarGameService {
         + playGame()
         - round()
@@ -69,12 +70,16 @@ classDiagram
         + parseUserInputToList()
         + ParseInt()
     }
+
+    class Validator {
+        + validParseInt()
+        + validRangeNumber()
+    }
     
 ```
 
     
 ### 주의사항
 
-- 정지 했을 때, 문자 값은 VO로 만드는 것이 좋다. 
 - TDD 지키자!
 
