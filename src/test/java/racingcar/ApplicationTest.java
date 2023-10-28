@@ -66,6 +66,12 @@ class ApplicationTest extends NsTest {
                 () -> Application.nameNull(test));
     }
 
+    @Test
+    void 시간_변환() {
+        String test = "1";
+        Assertions.assertEquals(1, Application.integerTime(test));
+    }
+
 
 
     @Override
