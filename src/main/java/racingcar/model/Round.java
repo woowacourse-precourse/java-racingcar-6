@@ -13,13 +13,14 @@ public class Round {
         this.round = Integer.parseInt(round);
     }
 
-    //TODO: 진행중인지 확인하는 것 뿐만 아니라 감소까지 함. 고쳐보자
-    public Boolean isContinue() {
-        if (round > 0) {
-            round--;
-            return true;
-        }
-        return false;
+    // TODO: 메서드 명이 좀 아쉬움, round를 바꿔볼까?
+    public Boolean hasRound() {
+        turn();
+        return round >= 0;
+    }
+
+    private void turn() {
+        round--;
     }
 
     private void validate(String value) {

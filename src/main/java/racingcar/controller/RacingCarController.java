@@ -18,7 +18,7 @@ public class RacingCarController {
         Racer racer = new Racer(inputView.readCars());
         Round round = new Round(inputView.readRound());
         outputView.printExecution();
-        while (round.isContinue()) {
+        while (round.hasRound()) {
             racer.play();
             outputView.printResult(racer.toString());
         }
