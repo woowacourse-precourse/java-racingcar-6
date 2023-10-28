@@ -69,4 +69,8 @@ public class RacingGame {
         }
         return winnerNames;
     }
+
+    private static void printWinnerPhrase() {
+        System.out.print(WINNER_PHRASE);
+    }
 }
