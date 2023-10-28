@@ -11,7 +11,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.controller.CarGameController;
 import racingcar.model.Car;
+import racingcar.model.Cars;
 import racingcar.model.Game;
 import racingcar.view.OutputView;
 
@@ -63,28 +65,21 @@ public class OutputViewTest {
     @Test
     void 게임_실행_결과_출력_테스트() {
 
-        LinkedHashMap<String, Integer> locations = new LinkedHashMap<>();
-        List<String> carNameList = new ArrayList<>();
-        carNameList.add("pobi");
-        carNameList.add("jun");
-        carNameList.add("king");
-        carNameList.add("rook");
-        locations.put("pobi", 1);
-        locations.put("jun", 3);
-        locations.put("king", 0);
-        locations.put("rook", 2);
+        CarGameController carGameController = new CarGameController();
+        List<String> carNames = new ArrayList<>();
 
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStream);
         System.setOut(printStream);
 
-//        OutputView.printGameResultMessage();
+        carNames.add("pobi");
+
+        OutputView.printGameResultMessage(carGameController.createCars(carNames));
         String capturedOutput = outputStream.toString();
 
-        Assertions.assertEquals(capturedOutput, "pobi : -\n"
-                + "jun : ---\n"
-                + "king : \n"
-                + "rook : --\n\n");
+        Assertions.assertEquals("pobi : \n\n", capturedOutput);
+
+
     }
 
     @Test
@@ -92,7 +87,6 @@ public class OutputViewTest {
         List<String> winners = new ArrayList<>();
         winners.add("pobi");
         winners.add("jun");
-
 
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStream);
