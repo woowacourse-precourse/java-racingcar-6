@@ -3,24 +3,31 @@ package mytest;
 import static org.assertj.core.api.Assertions. *;
 
 import java.util.LinkedHashMap;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcontroller.ValidationCallMan;
+import racingmodel.MainModel;
 import validation.ValidationMan;
 
 public class ValidationTest {
+    @AfterEach
+    void forFuture()
+    {
+        ValidationTemplete.after();
+    }
 
     @Test
     void checkException1()
     {
-        LinkedHashMap<String, StringBuilder> testMap = new LinkedHashMap<>();
-        testMap.put("pobi",new StringBuilder("-"));
-        testMap.put("woni", new StringBuilder("--"));
-        assertThatThrownBy(() -> {ValidationMan.getInstance().checkException(testMap,1);}).isInstanceOf(
-                IllegalArgumentException.class);
+        ValidationTemplete.setting("pobi,pobi");
+        assertThatThrownBy(() -> ValidationCallMan.callexExceptionCheckForCar(new MainModel())).isInstanceOf(IllegalArgumentException.class);
     }
     @Test
     void checkException2()
     {
-         assertThatThrownBy(() -> {ValidationMan.getInstance().checkException("Halllo");}).isInstanceOf(
-                 IllegalArgumentException.class);
+        ValidationTemplete.setting("Hellloo");
+        assertThatThrownBy(() -> ValidationCallMan.callexExceptionCheckForCar(new MainModel())).isInstanceOf(
+                IllegalArgumentException.class);
     }
 }

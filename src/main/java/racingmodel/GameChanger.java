@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-class GameChanger {
+public class GameChanger {
     private final static int GO_NUMBER = 4;
 
     private GameChanger() {
@@ -14,11 +14,11 @@ class GameChanger {
 
     private final static GameChanger singleChanger = new GameChanger();
 
-    static GameChanger getInstance() {
+    public static GameChanger getInstance() {
         return singleChanger;
     }
 
-    void changeGame(LinkedHashMap<String, StringBuilder> car,
+    public void changeGame(LinkedHashMap<String, StringBuilder> car,
                     List<Integer> generatedNumbers) {
         Iterator temp = generatedNumbers.iterator();
 
@@ -29,7 +29,7 @@ class GameChanger {
         }
     }
 
-    int getNumber(Iterator<Integer> temp)
+    private int getNumber(Iterator<Integer> temp)
     {
         if(temp.hasNext())
         {

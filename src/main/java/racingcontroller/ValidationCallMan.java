@@ -2,18 +2,18 @@ package racingcontroller;
 
 import racingmodel.MainModel;
 
-class ValidationCallMan {
+public class ValidationCallMan {
     private ValidationCallMan() {
     }
 
-    static void callexExceptionCheckForCar(MainModel model) throws IllegalArgumentException
+    public static void callexExceptionCheckForCar(MainModel model) throws IllegalArgumentException
     {
         if (!model.saveName(InputMan.inputCarName())) {
             throw new IllegalArgumentException();
         }
     }
 
-    static void callExceptionCheckForTimes(MainModel model, String times) throws IllegalArgumentException
+    public static void callExceptionCheckForTimes(MainModel model, String times) throws IllegalArgumentException
     {
         if(!model.exceptionCheck(times))
         {

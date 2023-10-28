@@ -28,7 +28,6 @@ public class MainController {
         ValidationCallMan.callExceptionCheckForTimes(model, times);
         view.speakResultStart();
         ;
-
         for (int i = 0; i < Integer.parseInt(times); i++) {
             model.changeStatus();
             view.speakResult(model.getCarName());
