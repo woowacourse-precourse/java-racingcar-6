@@ -28,7 +28,7 @@ class CompareRaceTest {
         List<RacingCar> racingCars = RacingCar.fromInputCarName(inputCarName);
 
         // when
-        compareRace.moveCars(racingCars, movement);
+        compareRace.moveCars(racingCars);
 
         // then
         for (RacingCar racingCar : racingCars) {

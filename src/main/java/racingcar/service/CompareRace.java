@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CompareRace {
 
-    public void moveCars(List<RacingCar> racingCars, Integer movement) {
+    public void moveCars(List<RacingCar> racingCars) {
         for (RacingCar racingCar : racingCars) {
             Integer randomNumber = racingCar.getRandomNumber();
 

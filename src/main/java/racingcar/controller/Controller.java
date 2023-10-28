@@ -16,7 +16,7 @@ public class Controller {
 
     private CompareRace compareRace;
 
-
+    private final Integer MIN_MOVEMENT = 0;
 
     public Controller() {
         inputView = new InputView();
@@ -39,8 +39,8 @@ public class Controller {
     }
 
     private List<RacingCar> race(List<RacingCar> racingCars, Integer movement) {
-        IntStream.range(0, movement).forEach(i -> {
-            compareRace.moveCars(racingCars, movement);
+        IntStream.range(MIN_MOVEMENT, movement).forEach(i -> {
+            compareRace.moveCars(racingCars);
             outputView.viewCarMovement(racingCars);
         });
 
