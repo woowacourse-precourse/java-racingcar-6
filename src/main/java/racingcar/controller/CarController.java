@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.CarModel;
@@ -14,4 +15,8 @@ public class CarController {
         }
     }
 
+
+    public boolean forwardCheck() {
+        return Randoms.pickNumberInRange(0, 9) >= 4;
+    }
 }
