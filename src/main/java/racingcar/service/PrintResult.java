@@ -1,32 +1,25 @@
 package racingcar.service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.domain.Car;
 
 public class PrintResult {
     public void printWinner(List<Car> cars) {
-        HashMap<Integer, List<String>> distanceToCarName = new HashMap<>(); //<distance, CarName>
-        int maxDistance = Integer.MIN_VALUE;
-        for (Car car : cars) {
-            int distance = car.getDistance().length();
-            maxDistance = Math.max(maxDistance, distance);
+        int maxDistance = getMaxDistance(cars);
 
-            if (!distanceToCarName.containsKey(distance)) {
-                distanceToCarName.put(distance, new ArrayList<>());
-            }
-            distanceToCarName.get(distance).add(car.getName());
-        }
-        StringBuilder winner = new StringBuilder();
-        for (String name : distanceToCarName.get(maxDistance)) {
-            winner.append(name).append(", ");
-        }
+        List<String> winners = cars.stream()
+                .filter(car -> car.getDistance().length() == maxDistance)
+                .map(Car::getName)
+                .collect(Collectors.toList());
 
-        if (winner.length() > 0) {
-            winner.setLength(winner.length() - 2);
-        }
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
+    }
 
-        System.out.println("최종 우승자 : " + winner.toString());
+    private int getMaxDistance(List<Car> cars) {
+        return cars.stream()
+                .mapToInt(car -> car.getDistance().length())
+                .max()
+                .orElse(0);
     }
 }
