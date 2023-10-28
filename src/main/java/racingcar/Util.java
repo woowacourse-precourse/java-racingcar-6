@@ -18,7 +18,7 @@ public final class Util {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public int getMaxPosition(ArrayList<Car> racingCar) {
+    public static int getMaxPosition(ArrayList<Car> racingCar) {
         return racingCar.stream()
                 .mapToInt(Car::getPosition)
                 .max()

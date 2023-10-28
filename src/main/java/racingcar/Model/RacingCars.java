@@ -1,8 +1,8 @@
 package racingcar.Model;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.stream.Collectors;
+import racingcar.Util;
 import racingcar.View.OutputView;
 
 public class RacingCars {
@@ -16,12 +16,14 @@ public class RacingCars {
         OutputView.printRoundResult(CARS);
     }
 
-//    public void showWinners(){
-//        OutputView.printWinner(new ArrayList<>(CARS.stream())
-//                .filter(car -> car.isWinner(Collections.max(getPosition())))
-//                .map(Car::getName))
-//                .collect(Collectors.toList());
-//    }
+    public void showWinners(){
+        int maxPosition = Util.getMaxPosition(CARS);
+        ArrayList<String> winners = CARS.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .collect(Collectors.toCollection(ArrayList::new));
+        OutputView.printWinner(winners);
+    }
 
     private void go(){
         CARS.forEach(Car::go);

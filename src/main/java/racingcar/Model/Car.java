@@ -3,7 +3,7 @@ package racingcar.Model;
 import racingcar.Util;
 
 public class Car {
-    private String name;
+    private final String name;
     private int position = 0;
 
     public Car(String name){
@@ -24,9 +24,6 @@ public class Car {
         }
     }
 
-    public boolean isWinner(int winDistance){
-        return position == winDistance;
-    }
 
     @Override
     public String toString() {

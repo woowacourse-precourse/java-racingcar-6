@@ -27,6 +27,6 @@ public class GameController {
         });
     }
     public void displayWinners() {
-//        racingCars.showWinners();
+        racingCars.showWinners();
     }
 }
