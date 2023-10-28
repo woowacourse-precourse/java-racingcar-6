@@ -4,12 +4,9 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 import model.GroupOfCar;
 import view.InputView;
 import model.Car;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import validator.InputValidator;
 
-public class CarRace {
+public class Controller {
     private final InputValidator inputValidator = new InputValidator();
     private final GroupOfCar groupOfCar = new GroupOfCar();
 
