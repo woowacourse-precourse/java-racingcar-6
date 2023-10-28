@@ -35,6 +35,17 @@ public class RaceGame {
         return scoreResult.values().stream().mapToInt(StringBuilder::length).max().orElse(0);
     }
 
+    public List<String> findWinners(int maxForwardPoint, Map<String, StringBuilder> scoreBoard) {
+        List<String> winnerList = new ArrayList<>();
+
+        scoreBoard.forEach((key, value) -> {
+            if (value.length() == maxForwardPoint) {
+                winnerList.add(key);
+            }
+        });
+        return winnerList;
+    }
+
     public void gameStart() {
         printer.printStartMessage();
         List<String> carNames = userInput.getCarNames();
@@ -48,15 +59,9 @@ public class RaceGame {
             System.out.println();
         }
 
-        List<String> winningList = new ArrayList<>();
         int winPoint = calculateForwardPoint(scoreBoard);
         System.out.println(winPoint);
-
-        scoreBoard.forEach((key, value) -> {
-            if (value.length() == winPoint) {
-                winningList.add(key);
-            }
-        });
-        printer.printWinnersNames(winningList);
+        List<String> winnerList = findWinners(winPoint, scoreBoard);
+        printer.printWinnersNames(winnerList);
     }
 }
