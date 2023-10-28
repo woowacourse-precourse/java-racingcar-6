@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import java.util.List;
+import racingcar.exception.InvalidCountException;
 import racingcar.exception.InvalidNameException;
 
 public class RacingService {
@@ -12,5 +13,11 @@ public class RacingService {
         }
     }
 
-
+    public void validateCount(String count){
+        try {
+            Integer.parseInt(count);
+        } catch (NumberFormatException e) {
+            throw new InvalidCountException("입력한 값이 숫자가 아닙니다.");
+        }
+    }
 }
