@@ -2,6 +2,7 @@ package racingcar.util;
 
 import static racingcar.util.constant.GameRule.MAX_NICKNAME_LENGTH;
 import static racingcar.util.messageContent.ExceptionMessageContent.NICKNAME_LENGTH_ERROR;
+import static racingcar.util.messageContent.ExceptionMessageContent.NICKNAME_SPACE_ERROR;
 import static racingcar.util.messageContent.ExceptionMessageContent.NICKNAME_UNIQUE_ERROR;
 
 import java.util.HashSet;
@@ -36,7 +37,11 @@ public class Censor {
     }
 
     private void checkSpace(List<String> playerList) {
-        // TODO: 입력한 자동차의 닉네임에 공백을 검증한다.
+        boolean includeSpace = playerList.stream()
+                .anyMatch(nickname -> nickname.contains(" "));
+        if (includeSpace) {
+            throw new IllegalArgumentException(NICKNAME_SPACE_ERROR.getContent());
+        }
     }
 
     private void checkEmptyValue(List<String> playerList) {
