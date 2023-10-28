@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Distance implements Comparable<Distance> {
     private final int value;
     private static final Distance INSTANCE_WITH_ZERO = new Distance(0);
+    private static final String MARK = "-";
     private Distance(int value) {
         this.value = value;
     }
@@ -37,5 +38,9 @@ public class Distance implements Comparable<Distance> {
     @Override
     public int compareTo(Distance o) {
         return Integer.compare(this.value, o.value);
+    }
+
+    public String visualize() {
+        return MARK.repeat(value);
     }
 }

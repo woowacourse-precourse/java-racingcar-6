@@ -43,4 +43,10 @@ public class Cars {
                 .filter(car -> maxCar.compareTo(car) == 0)
                 .toList();
     }
+
+    public List<String> getResults() {
+        return cars.stream()
+                .map(Car::getResult)
+                .toList();
+    }
 }

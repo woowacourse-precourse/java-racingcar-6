@@ -6,4 +6,8 @@ public class OutputViewImpl {
     public void printWinners(List<String> winners) {
         System.out.println(String.join(", ", winners));
     }
+
+    public void printResults(List<String> results) {
+        results.forEach(System.out::println);
+    }
 }
