@@ -63,4 +63,8 @@ public class InputException extends IllegalArgumentException {
             throw new IllegalArgumentException(number + " -> 숫자가 아닙니다. ");
         }
     }
+
+    // int 범위를 벗어난 경우
+
+    // 0이거나 음수일 경우
 }

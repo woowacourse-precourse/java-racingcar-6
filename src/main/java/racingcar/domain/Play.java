@@ -1,15 +1,57 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Play {
-    public static void playGame(){
+    public static void start(){
 
         List<String> carNames = UserInput.inputCarName();
         int gameCount = UserInput.inputGameCount();
 
-        System.out.println(carNames);
-        System.out.println(gameCount);
+        goAhead(carNames, gameCount);
 
     }
+
+    public static void goAhead(List<String> carNamesList, int gameCount) {
+
+        Map<String, Integer> carPositions = initCarPositions(carNamesList);
+
+        for (int i = 0; i < gameCount; i++) {
+            moveCars(carPositions);
+            printCarPositions(carPositions);
+            System.out.println();
+        }
+
+    }
+
+    public static Map<String, Integer> initCarPositions(List<String> carNamesList) {
+        Map<String, Integer> carPositions = new HashMap<>();
+        for (String carName : carNamesList) {
+            carPositions.put(carName, 0);
+        }
+        return carPositions;
+    }
+    public static void moveCars(Map<String, Integer> carPositions) {
+        for (String carName : carPositions.keySet()) {
+            int randomNum = Randoms.pickNumberInRange(0, 9);
+            if (randomNum >= 4) {
+                carPositions.put(carName, carPositions.get(carName) + 1);
+            }
+        }
+    }
+
+    public static void printCarPositions(Map<String, Integer> carPositions) {
+        for (String carName : carPositions.keySet()) {
+            System.out.print(carName + " : ");
+            for (int i = 0; i < carPositions.get(carName); i++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+    }
+
+
 }
