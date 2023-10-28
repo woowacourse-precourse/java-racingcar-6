@@ -2,9 +2,11 @@ package racingcar.util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.vo.CarName;
 
 class StringConverterTest {
 
@@ -15,11 +17,11 @@ class StringConverterTest {
     @Test
     void stringToListByDelimiter_test() {
         // given
-        String input = "Car1, Car2, Car3";
-        List<String> expectedList = List.of("Car1", "Car2", "Car3");
+        String input = "Car1,Car2,Car3";
+        List<CarName> expectedList = Arrays.asList(new CarName("Car1"), new CarName("Car2"), new CarName("Car3"));
 
         // when
-        List<String> result = StringConverter.stringToListByDelimiter(input);
+        List<CarName> result = StringConverter.stringToCarNameListByDelimiter(input);
 
         // then
         assertEquals(expectedList, result);

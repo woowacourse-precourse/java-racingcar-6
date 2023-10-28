@@ -16,7 +16,7 @@ public class StringConverter {
     public static List<CarName> stringToCarNameListByDelimiter(String carNames) {
         InputValidator.validateInputCarNames(carNames);
         return Arrays.stream(carNames.split(DELIMITER))
-                .map(name -> new CarName(name))
+                .map(name -> new CarName(name.trim()))
                 .collect(Collectors.toList());
     }
 
