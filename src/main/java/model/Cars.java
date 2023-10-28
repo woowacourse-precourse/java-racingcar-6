@@ -6,6 +6,7 @@ import java.util.List;
 import util.RandomNumber;
 
 public class Cars implements Iterable<Car> {
+    private static final int STANDARD_NUMBER = 4;
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
@@ -15,7 +16,7 @@ public class Cars implements Iterable<Car> {
     public void moveAll() {
         for (final Car car : cars) {
             int randomNumber = RandomNumber.generateRandomNumber();
-            if (randomNumber >= 4) {
+            if (randomNumber >= STANDARD_NUMBER) {
                 car.moveForward();
             }
         }
