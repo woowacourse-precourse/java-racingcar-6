@@ -3,9 +3,7 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import camp.nextstep.edu.missionutils.Randoms;
-import org.w3c.dom.ls.LSInput;
 import racingcar.util.validation;
 
 public class CarInfo {
@@ -35,5 +33,8 @@ public class CarInfo {
     }
     public List<String> getCarName() {
         return carName;
+    }
+    public int getMaxMove() {
+        return Collections.max(carStatus);
     }
 }
