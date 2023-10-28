@@ -3,17 +3,14 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Game;
-import racingcar.model.RandomNumber;
 import racingcar.view.GameView;
 
 public class GameController {
 
-    private final List<Car> participantCars;
     private final int retryCount;
     private final Game game;
 
-    public GameController(List<Car> participantCars, int retryCount, Game game) {
-        this.participantCars = participantCars;
+    public GameController(int retryCount, Game game) {
         this.retryCount = retryCount;
         this.game = game;
     }
@@ -27,16 +24,9 @@ public class GameController {
 
     private void tryRoundUntilRetryCount() {
         for (int i = 0; i < retryCount; i++) {
-            moveCar();
-            GameView.displayCurrentCarPosition(game.getCurrentParticipantCarPosition());
-        }
-    }
+            game.moveCar();
 
-    private void moveCar() {
-        for (Car car : participantCars) {
-            if (game.isCarMoveToForward()) {
-                car.move();
-            }
+            GameView.displayCurrentCarPosition(game.getCurrentParticipantCarPosition());
         }
     }
 }

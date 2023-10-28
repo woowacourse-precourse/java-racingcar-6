@@ -50,4 +50,12 @@ public class Game {
             .map(this::getPositionBarByCar)
             .collect(Collectors.joining("\n"));
     }
+
+    public void moveCar() {
+        for (Car car : participantCars) {
+            if (isCarMoveToForward()) {
+                car.move();
+            }
+        }
+    }
 }
