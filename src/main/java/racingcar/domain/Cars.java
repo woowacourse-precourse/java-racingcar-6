@@ -1,10 +1,9 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.OptionalInt;
 
 public class Cars {
     private final List<Car> cars;
@@ -27,8 +26,8 @@ public class Cars {
         return cars.size();
     }
 
-    public Map<String,Integer> getMoveCountMap() {
-        Map<String,Integer> moveCountMap = new HashMap<>();
+    public Map<String, Integer> getMoveCountMap() {
+        Map<String, Integer> moveCountMap = new LinkedHashMap<>();
         cars.forEach(car -> moveCountMap.put(car.getName(), car.getMoveCount()));
         return moveCountMap;
     }

@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -12,7 +12,7 @@ public class Referee {
     private int maxMoveCount;
 
     public Referee(Map<String, Integer> moveCountMap) {
-        this.moveCountMap = new HashMap<>(moveCountMap);
+        this.moveCountMap = new LinkedHashMap<>(moveCountMap);
         setMaxMoveCount();
     }
 
@@ -29,7 +29,6 @@ public class Referee {
                 .stream()
                 .filter(e -> e.getValue() == maxMoveCount)
                 .map(Entry::getKey)
-                .sorted()
                 .collect(Collectors.toList());
     }
 }
