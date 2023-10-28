@@ -1,6 +1,6 @@
 ## 기능 목록
 
-- [] 한 줄로 입력된 자동차 이름들을 분리해서 저장한다. : namesManager # separateNamesString()
+- [] 한 줄로 입력된 자동차 이름들을 분리한다. : namesManager # separateNamesString()
 
 - [] 자동차 이름이 5자 이하인지 확인한다. : namesManager # checkNameLength()
 
