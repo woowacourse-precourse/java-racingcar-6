@@ -16,26 +16,27 @@ public class ValidationMan {
 
     private final static int MAXNAMELENGTH = 5;
 
-    public void checkException(LinkedHashMap<String, StringBuilder> map, int userInputNum)
-            throws IllegalArgumentException {
+    public boolean checkException(LinkedHashMap<String, StringBuilder> map, int userInputNum)
+    {
         if (map.size() != userInputNum) {
-            throw new IllegalArgumentException("Duplicated Name");
+            return false;
         }
-        checkException(map);
+        return checkException(map);
     }
 
-    private void checkException(LinkedHashMap<String, StringBuilder> map)
-            throws IllegalArgumentException {
+    private boolean checkException(LinkedHashMap<String, StringBuilder> map) {
         for (Map.Entry<String, StringBuilder> entry : map.entrySet()) {
             if (entry.getKey().length() > MAXNAMELENGTH) {
-                throw new IllegalArgumentException("input within 5letters");
+                return false;
             }
         }
+        return true;
     }
 
-    public void checkException(String userTimes) throws IllegalArgumentException {
+    public boolean checkException(String userTimes){
         if (!userTimes.matches("\\d+")) {
-            throw new IllegalArgumentException();
+            return false;
         }
+        return true;
     }
 }

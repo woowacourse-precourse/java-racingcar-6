@@ -18,11 +18,11 @@ public class MainModel {
         return carName;
     }
 
-    public void saveName(String userCarName)
+    public boolean saveName(String userCarName)
     {
         String[] splitedName = cutName(userCarName);
         makeLinkedHashMap(splitedName);
-        ValidationMan.getInstance().checkException(carName, splitedName.length);
+        return ValidationMan.getInstance().checkException(carName, splitedName.length);
     }
 
     private String[] cutName(String userCarName)
@@ -38,9 +38,9 @@ public class MainModel {
         }
     }
 
-    public void exceptionCheck(String userTimes)
+    public boolean exceptionCheck(String userTimes)
     {
-        ValidationMan.getInstance().checkException(userTimes);
+        return ValidationMan.getInstance().checkException(userTimes);
     }
 
     public void changeStatus()

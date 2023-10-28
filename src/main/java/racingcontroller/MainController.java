@@ -20,13 +20,21 @@ public class MainController {
         leadGame();
     }
 
-    private void leadGame()
+    private void leadGame() throws IllegalArgumentException
     {
-        model.saveName(inputCarName());
+        if(!model.saveName(InputMan.inputCarName()))
+        {
+            throw new IllegalArgumentException();
+        }
         view.askForTimes();
 
-        String times = inputTimes();
-        model.exceptionCheck(times);
+        String times = InputMan.inputTimes();
+
+        if(!model.exceptionCheck(times))
+        {
+            throw new IllegalArgumentException();
+        }
+
         view.speakResultStart();;
 
         for(int i = 0; i < Integer.parseInt(times); i++)
@@ -35,16 +43,5 @@ public class MainController {
             view.speakResult(model.getCarName());
         }
         view.speakWinner(model.getWinner());
-    }
-
-
-    private String inputCarName()
-    {
-        return Console.readLine();
-    }
-
-    private String inputTimes()
-    {
-        return Console.readLine();
     }
 }
