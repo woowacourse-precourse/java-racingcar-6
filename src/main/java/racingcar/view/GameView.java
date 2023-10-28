@@ -8,14 +8,14 @@ public class GameView {
 
     private static final String NAME_DELIMITER = ", ";
 
-    public String inputCarNames() {
+    public String getCarNamesInput() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNames = getUserInput();
 
         return carNames;
     }
 
-    public String inputAttempts() {
+    public String getAttemptsInput() {
         System.out.println("시도할 횟수는 몇회인가요?");
         String attempts = getUserInput();
 

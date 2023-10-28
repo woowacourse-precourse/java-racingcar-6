@@ -28,13 +28,13 @@ public class GameController {
     }
 
     private List<String> getNameList() {
-        String carNames = gameView.inputCarNames();
+        String carNames = gameView.getCarNamesInput();
         List<String> nameList = inputHandler.convertNamesToNameList(carNames);
         return nameList;
     }
 
     private int getAttempts() {
-        String inputAttempts = gameView.inputAttempts();
+        String inputAttempts = gameView.getAttemptsInput();
         int attempts = inputHandler.convertAttemptsToInt(inputAttempts);
         return attempts;
     }
