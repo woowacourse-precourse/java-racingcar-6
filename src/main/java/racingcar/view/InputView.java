@@ -13,6 +13,13 @@ public class InputView {
         return carNames;
     }
 
+    public static int inputNumberOfMoves() {
+        String number = printAndInput(PrintMessage.INPUT_NUMBER_OF_ATTEMPTS);
+        InputException.isNumber(number);
+        InputException.isNaturalNumber(Integer.parseInt(number));
+        return Integer.parseInt(number);
+    }
+
     public static String printAndInput(String message) {
         System.out.print(message);
         return Console.readLine();
