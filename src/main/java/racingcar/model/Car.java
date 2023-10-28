@@ -7,7 +7,7 @@ import racingcar.utils.RandomNumberGenerator;
 public class Car {
     private final String name;
     private int distance = 0;
-    private NumberGenerator numberGenerator;
+    private final NumberGenerator numberGenerator;
 
     /**
      * 이름만 입력값으로 받으면 RandomNumberGenerator 이용
@@ -38,6 +38,13 @@ public class Car {
      */
     private boolean canMove() {
         return Constraints.FORWARD_STANDARD.getValue() <= numberGenerator.generateNumber();
+    }
+
+    /**
+     * 최종 우승자인지 판단
+     */
+    public boolean isMaxDistance(int maxDistance) {
+        return this.distance == maxDistance;
     }
 
     public String getName() {

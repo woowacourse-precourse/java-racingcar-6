@@ -1,20 +1,27 @@
 package racingcar.service;
 
+import racingcar.model.Car;
+
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.model.Car;
 
 public class GameService {
     /**
      * 우승 자동차 배열 반환
      */
     public List<String> getWinnerCars(List<Car> cars) {
-        List<String> carNames;
         int maxDistance = findMaxDistance(cars);
-        carNames = cars.stream()
-                .filter(car -> car.getDistance() == maxDistance).map(Car::getName)
+        return filterWinnerCars(cars, maxDistance);
+    }
+
+    /**
+     * 최대로 움직인 자동차 탐색
+     */
+    private List<String> filterWinnerCars(List<Car> cars, int maxDistance) {
+        return cars.stream()
+                .filter(car -> car.isMaxDistance(maxDistance))
+                .map(Car::getName)
                 .collect(Collectors.toList());
-        return carNames;
     }
 
     /**
