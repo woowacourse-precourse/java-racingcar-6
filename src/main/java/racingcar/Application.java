@@ -9,8 +9,24 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        //        GameController controller = new GameController();
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String userInput = readLine();
+        //        controller.checkCarName(userInput);
 
+        String[] carNames = checkCarName(userInput);
+        int numberOfCar = carNames.length;
+        System.out.println("시도할 횟수는 몇회인가요?");
+        String tryCount = readLine();
+        //        controller.checkTries(tryCount);
+
+        int tries = checkTries(tryCount);
+        String[] setCarNames = setCarName(carNames);
+        int[] forwarded = new int[numberOfCar];
+
+        for (int i = 0; i < tries; i++){
+            gameController(forwarded,setCarNames, i, tries);
+        }
     }
 
     /**
