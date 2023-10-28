@@ -15,14 +15,14 @@ public class Race {
         List<Car> carList = settingCar(user.inputCar());
         System.out.println("시도할 회수는 몇회인가요?");
         int cycle = user.inputTryNumber();
-//        for(int i = 0; i < cycle; i++) {
-//            goForward(carList);
-//            for(int j = 0; j < carList.size(); j++){
-//                System.out.print(carList.get(j).getCarName() + ":" + carList.get(j).getDistance());
-//                System.out.println();
-//            }
-//            System.out.println();
-//        }
+        goCycle(carList, cycle);
+    }
+
+    public void goCycle(List<Car> carList, int cycle){
+        for(int i = 0; i < cycle; i++) {
+            goForward(carList);
+            printDistance(carList);
+        }
     }
 
     public boolean checkForward(int randomNumber) {
