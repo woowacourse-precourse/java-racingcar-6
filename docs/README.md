@@ -123,8 +123,8 @@ classDiagram
 ## 기능 목록
 
 ### Racing Car Controller `RacingCarController`
-- [ ] 전체 게임의 실행
-- [ ] 게임 시작
+- [x] 전체 게임의 실행
+- [x] 게임 시작
 - [ ] 우승자 선언
 
 ### Input Handler `InputHandler`

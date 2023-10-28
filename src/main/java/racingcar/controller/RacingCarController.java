@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.List;
 import racingcar.handler.InputHandler;
 import racingcar.model.GameResult;
 import racingcar.service.RacingCarService;
@@ -19,5 +20,19 @@ public class RacingCarController {
     public void run() {
         GameResult gameResult = gameStart();
         winnerDeclaration(gameResult);
+    }
+
+    GameResult gameStart() {
+        outputView.printGameStartConsole();
+        List<String> carNames = inputHandler.handleCarNamesInput();
+
+        outputView.printRaceTimeInfoConsole();
+        int raceTime = inputHandler.handleRaceTimeInput();
+
+        return racingCarService.race(carNames, raceTime);
+    }
+
+    void winnerDeclaration(GameResult gameResult) {
+
     }
 }
