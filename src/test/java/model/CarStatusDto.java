@@ -19,4 +19,6 @@ public class CarStatusDto {
         return new ArrayList<>(cars.values());
     }
 
+    
+
 }
