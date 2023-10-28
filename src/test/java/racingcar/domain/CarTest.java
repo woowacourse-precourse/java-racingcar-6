@@ -3,6 +3,7 @@ package racingcar.domain;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -32,20 +33,31 @@ class CarTest {
     @ParameterizedTest
     @ValueSource(ints = {4, 5, 6, 7, 8, 9})
     void move_forward(int parameter) {
-        int before = car.getDistance();
         car.move(parameter);
-        assertThat(car.getDistance()).isEqualTo(before + 1);
+        assertThat(car.getDistance()).isEqualTo(1);
     }
 
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 3})
     void move_stop(int parameter) {
-        int before = car.getDistance();
         car.move(parameter);
-        assertThat(car.getDistance()).isEqualTo(before);
+        assertThat(car.getDistance()).isEqualTo(0);
     }
 
-    @Test
-    void testToString() {
+    @ParameterizedTest
+    @CsvSource(value = {"0,default,default : ", "1,default,default : -", "2,default,default : --"},
+                ignoreLeadingAndTrailingWhitespace = false)
+    void testToString(int distance, String name, String expected) {
+        int forwardNumber = 5;
+
+        for (int i = 0; i < distance; i++) {
+            car.move(forwardNumber);
+        }
+
+        assertThat(car.getDistance()).isEqualTo(distance);
+        assertThat(car.getName()).isEqualTo(name);
+
+        String result = car.toString();
+        assertThat(result).isEqualTo(expected);
     }
 }
