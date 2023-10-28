@@ -46,12 +46,17 @@ public class CarNames {
         Set<CarName> seenNames = new HashSet<>();
 
         for (CarName name : carNames) {
-            if (seenNames.contains(name)) {
-                throw new IllegalArgumentException(DUPLICATE_ERROR_MESSAGE);
-            }
+            checkForDuplicate(name, seenNames);
             seenNames.add(name);
         }
     }
+
+    private void checkForDuplicate(CarName name, Set<CarName> seenNames) {
+        if (seenNames.contains(name)) {
+            throw new IllegalArgumentException(DUPLICATE_ERROR_MESSAGE);
+        }
+    }
+
 
 
     private void validateEmpty(List<CarName> carNames){
