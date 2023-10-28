@@ -15,7 +15,7 @@ public class OutputView {
 
     public void displayRaceMessage() {
         System.out.println();
-        System.out.print("실행 결과");
+        System.out.println("실행 결과");
     }
 
     public void displayRaceStatus(List<Car> cars) {
