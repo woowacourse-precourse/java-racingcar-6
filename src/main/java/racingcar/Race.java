@@ -7,6 +7,10 @@ import java.util.List;
 public class Race {
     private List<Car> cars;
 
+    Race(){
+        cars = new ArrayList<>();
+    }
+
     private void addCar(String carName) {
         Car car = new Car();
         car.setName(carName);
@@ -35,5 +39,20 @@ public class Race {
                 .filter(car -> car.getPosition() == firstCarPosition)
                 .toList();
         return winner;
+    }
+
+    void play(){
+        Print.startString();
+        addCars(Input.inputCarName());
+        Print.repetitionsString();
+        Integer repetitions = Input.inputRepetitions();
+        Print.resultString();
+        for (int i = 0; i < repetitions; i++) {
+            for (Car car : cars) {
+                car.run();
+            }
+            Print.raceSituation(this);
+        }
+        Print.winner(cars);
     }
 }
