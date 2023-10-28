@@ -13,13 +13,11 @@ public class GameController {
     private final InputView inputView;
     private final OutputView outputView;
     private final CarGameService carGameService;
-    private final RaceService raceService;
 
     public GameController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.carGameService = new CarGameService();
-        this.raceService = new RaceService();
     }
 
     public void start() {
@@ -31,9 +29,9 @@ public class GameController {
         carGameService.initCarInfo(carNames, cars);
         outputView.notifyBeforeResult();
         for(int count=0; count<gameCount; count++){
-            List<String> roundResult = raceService.raceRoundResult(cars);
-            printRoundResult(roundResult);
+            printRoundResult(carGameService.roundResult(cars));
         }
+
 
 
     }

@@ -9,6 +9,8 @@ public class CarGameService {
 
     Validator validator = new Validator();
 
+    private final static RaceService raceService = new RaceService();
+
     public void initCarInfo(List<String> carNames, List<Car> cars) {
         for (String carName : carNames) {
             cars.add(new Car(carName));
@@ -26,4 +28,7 @@ public class CarGameService {
         return Integer.parseInt(carGameCount);
     }
 
+    public List<String> roundResult(List<Car> cars) {
+        return raceService.raceRoundResult(cars);
+    }
 }
