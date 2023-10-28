@@ -45,7 +45,23 @@ public class CarList {
 		return enteredList.split(ENTERED_LIST_SEPARATOR);
 	}
 
-	public List<Car> findWinner() {
+
+	public String findWinner() {
+
+		final int INIT_INDEX = 0;
+
+		List<Car> winnerList = makeWinnerList();
+
+		String name = winnerList.get(INIT_INDEX).getName();
+
+		for (int i = 1; i < winnerList.size(); i++) {
+			name = winnerList.get(INIT_INDEX).joinName(winnerList.get(i));
+		}
+
+		return name;
+	}
+
+	private List<Car> makeWinnerList() {
 
 		Set<Car> removeList = makeRemoveList();
 		List<Car> winnerList = this.carList;
@@ -57,6 +73,7 @@ public class CarList {
 		return winnerList;
 
 	}
+
 
 	private Set<Car> makeRemoveList() {
 
