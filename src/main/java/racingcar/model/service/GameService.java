@@ -17,6 +17,10 @@ public class GameService {
         names.forEach(name -> carRepository.save(name));
     }
 
+    public void nameCheck() {
+        carRepository.validNameCheck();
+    }
+
     public void playGame() {
         int attemptNum = InputView.inputAttempt();
         OutputView.outputResult();

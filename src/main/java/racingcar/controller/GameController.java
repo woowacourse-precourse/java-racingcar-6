@@ -11,6 +11,7 @@ public class GameController {
 
     public void run() {
         gameService.createCars();
+        gameService.nameCheck();
         gameService.playGame();
         gameService.resultGame();
     }
