@@ -13,7 +13,8 @@
     - inputTryCount() : 자동차 경주를 시도할 횟수를 입력받는 메서드 
 
 2. OutPutView
-    - printVictoryPlayer() : 실행결과 전체를 출력하는 메서드
+   - printRaceStatus() : 게임의 전체 진행 상태를 출력하는 메서드
+   - printVictoryPlayer() : 우승자를 출력하는 메서드
 
 ### Controller
 1. RacingController
