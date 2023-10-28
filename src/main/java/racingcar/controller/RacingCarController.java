@@ -1,8 +1,5 @@
 package racingcar.controller;
 
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 import racingcar.model.Car;
 import racingcar.model.Race;
 import racingcar.view.InputView;
