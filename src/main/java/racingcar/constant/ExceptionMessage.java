@@ -7,4 +7,5 @@ public class ExceptionMessage {
     public static final String DUPLICATE_EXCEPTION = "중복된 이름이 있습니다.";
     public static final String NON_NUMBER_EXCEPTION = "숫자를 입력해주세요.";
     public static final String DECIMAL_EXCEPTION = "소수를 입력하였습니다.";
+    public static final String NON_POSITIVE_NUMBER_EXCEPTION = "1이상의 정수를 입력해주세요.";
 }
