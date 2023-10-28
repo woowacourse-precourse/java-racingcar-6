@@ -19,14 +19,15 @@
   * `position`의 값을 비교하도록 구현
 
 ### 게임 시작 함수 `start()`
-* 자동차 객체 생성 및 리스트화: `readCars()`
+* 자동차 객체 생성 및 리스트화: `readCarNames()`
 * 시도할 횟수 입력: 내장 함수 `readLine()`
+  * 입력 검증: `validateGameCount(String input)`
 * 게임 진행 함수 호출: `game(int count)`
 
 ### 자동차 이름 입력 함수 `readCarNames()`
 * String 입력받기: 내장 함수 `readLine()`
 * String 분리 및 배열로 저장: 내장 함수 `split()`
-* String 배열 검증: `hasIllegalName(String[] names)`
+* String 배열 검증: `validateCarNames(String[] names)`
   * 값이 `true`인 경우 예외 발생
   * 값이 `false`인 경우
     * `String[]`을 바탕으로 `List<Car>` 생성
