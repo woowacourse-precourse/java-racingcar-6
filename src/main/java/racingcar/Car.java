@@ -1,6 +1,9 @@
 package racingcar;
 
 public class Car {
+    private String name;
+    private int distance;
+
     public boolean canMove() {
         return false;
     }
