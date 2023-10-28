@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.constant.OutputMessage;
 
 public class Car {
 
@@ -27,5 +28,14 @@ public class Car {
     }
     private int pickRandomNumber() {
         return Randoms.pickNumberInRange(START_NUMBER, END_NUMBER);
+    }
+
+    public String getRaceResult() {
+        StringBuilder sb = new StringBuilder();
+        OutputMessage resultMessage = OutputMessage.RACING_RESULT;
+        sb.append(String.format(resultMessage.getMessage(), name));
+        sb.append(OutputMessage.ROAD.getMessage().repeat(position));
+        sb.append(OutputMessage.NEW_LINE.getMessage());
+        return sb.toString();
     }
 }

@@ -14,4 +14,10 @@ public class Cars {
     public void race() {
         elements.forEach(Car::race);
     }
+
+    public String getRacingResult() {
+        StringBuilder sb = new StringBuilder();
+        elements.forEach(car -> sb.append(car.getRaceResult()));
+        return sb.toString();
+    }
 }

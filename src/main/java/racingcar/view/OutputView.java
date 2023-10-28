@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import racingcar.constant.OutputMessage;
+import racingcar.domain.Cars;
 
 public class OutputView {
 
@@ -9,6 +10,10 @@ public class OutputView {
     }
 
     public void printTryCountMessage() {
-        System.out.println(OutputMessage.READ_TRYCOUNT.getMessage());
+        System.out.println(OutputMessage.READ_TRY_COUNT.getMessage());
+    }
+
+    public void printRacingResult(Cars cars) {
+        System.out.println(cars.getRacingResult());
     }
 }
