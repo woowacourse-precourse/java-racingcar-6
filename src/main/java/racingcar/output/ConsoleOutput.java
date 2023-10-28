@@ -21,7 +21,7 @@ public class ConsoleOutput implements Output {
         int maxDistance = getMaxDistance(carList);
         List<String> winners = getWinnersNameList(carList, maxDistance);
 
-        System.out.println(String.join(", ", winners));
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 
     private int getMaxDistance(List<Car> carList) {
