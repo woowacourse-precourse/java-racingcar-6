@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import static racingcar.constant.GameMessage.FINAL_WINNER;
 import static racingcar.constant.GameMessage.RACING_RESULT;
 
 import java.util.List;
@@ -14,6 +15,11 @@ public class OutputView {
             System.out.println(result);
         }
         printLineChanging();
+    }
+
+    public static void printFinalWinner(String result) {
+        System.out.print(FINAL_WINNER);
+        System.out.print(result);
     }
 
     public static void printLineChanging() {

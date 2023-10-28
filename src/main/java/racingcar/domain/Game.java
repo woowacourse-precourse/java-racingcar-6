@@ -15,6 +15,11 @@ public class Game {
         move = new Movement();
     }
 
+    public void startRacing() {
+        playRacing();
+        showWinner();
+    }
+
     public void playRacing() {
         OutputView.printResultMessage();
         while (attemptNumber != 0) {
@@ -33,6 +38,16 @@ public class Game {
         }
 
         return roundResult;
+    }
+
+    public void showWinner() {
+        OutputView.printFinalWinner(listWinner());
+    }
+
+    public String listWinner() {
+        List<String> winners = findWinner();
+
+        return String.join(",", winners);
     }
 
     public int findMaxPosition() {
