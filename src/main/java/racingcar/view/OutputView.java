@@ -7,7 +7,7 @@ import racingcar.model.RaceResult;
 public class OutputView {
 
     public void printGameStartMessage() {
-        System.out.printf("\n실행 결과\n");
+        System.out.print("\n실행 결과\n");
     }
 
     public void printRaceRoundResult(List<Car> cars) {

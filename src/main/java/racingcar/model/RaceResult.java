@@ -5,17 +5,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RaceResult {
+
     private final List<Car> cars;
 
-    public RaceResult(List<Car> cars){
+    public RaceResult(List<Car> cars) {
         this.cars = cars;
     }
 
-    public List<Car> carsToList(){
+    public List<Car> carsToList() {
         return Collections.unmodifiableList(cars);
     }
 
-    public List<String> getWinners(){
+    public List<String> getWinners() {
         int maxDistance = getMaxDistance();
         return cars.stream()
             .filter(car -> car.getDistance() == maxDistance)
@@ -23,7 +24,7 @@ public class RaceResult {
             .collect(Collectors.toList());
     }
 
-    private int getMaxDistance(){
+    private int getMaxDistance() {
         return cars.stream()
             .mapToInt(Car::getDistance)
             .max()
