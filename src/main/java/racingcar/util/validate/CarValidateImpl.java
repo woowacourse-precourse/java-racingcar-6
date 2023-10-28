@@ -4,15 +4,19 @@ import static racingcar.util.Constants.BLANK;
 import static racingcar.util.Constants.MAX_LENGTH;
 import static racingcar.util.Constants.NULL;
 
+import java.util.Arrays;
 import java.util.Objects;
 import racingcar.message.ErrorMessages;
 
-public class ValidateImpl implements Validate{
-    public static void validateName(String input) {
-        ValidateImpl validateImpl = new ValidateImpl();
-        validateImpl.blankValidator(input);
-        validateImpl.nullValidator(input);
-        validateImpl.MaxLengthValidator(input);
+public class CarValidateImpl implements CarValidate {
+    public CarValidateImpl(String input) {
+        blankValidator(input);
+        nullValidator(input);
+        MaxLengthValidator(input);
+    }
+
+    public static void createVaule(String input) {
+        new CarValidateImpl(input);
     }
     @Override
     public void blankValidator(String input) {
@@ -34,4 +38,6 @@ public class ValidateImpl implements Validate{
             throw new IllegalArgumentException(ErrorMessages.INVALID_CAR_NAME.getMessage());
         }
     }
+
+
 }
