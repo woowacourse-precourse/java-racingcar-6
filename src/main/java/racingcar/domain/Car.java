@@ -42,6 +42,14 @@ public class Car {
         return new WinnersMessage(getNames(winners));
     }
 
+    private static Integer getFarthestDistance(List<Car> cars) {
+        int farthest = 0;
+        for (Car car : cars) {
+            farthest = Math.max(farthest, car.getDistance());
+        }
+        return farthest;
+    }
+
     private static List<Car> getWinners(List<Car> cars, Integer farthest) {
         List<Car> winners = new ArrayList<>();
         for (Car car : cars) {
@@ -50,14 +58,6 @@ public class Car {
             }
         }
         return Collections.unmodifiableList(winners);
-    }
-
-    private static Integer getFarthestDistance(List<Car> cars) {
-        int farthest = 0;
-        for (Car car : cars) {
-            farthest = Math.max(farthest, car.getDistance());
-        }
-        return farthest;
     }
 
     private static List<String> getNames(List<Car> winners) {
