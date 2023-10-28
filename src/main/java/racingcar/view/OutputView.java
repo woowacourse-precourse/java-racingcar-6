@@ -14,12 +14,12 @@ public class OutputView {
         System.out.print(noticeMessage.getMessage());
     }
 
-    public static void printOperateResult(List<LinkedHashMap<String, Integer>> operateResults) {
+    public static void printAttempts(List<LinkedHashMap<String, Integer>> attempts) {
         printNoticeMessage(OPERATE_RESULT);
         StringBuilder sb = new StringBuilder();
 
-        operateResults.forEach((operateResult) -> {
-            for (Entry<String, Integer> entry : operateResult.entrySet()) {
+        attempts.forEach((attempt) -> {
+            for (Entry<String, Integer> entry : attempt.entrySet()) {
                 String carName = entry.getKey();
                 Integer move = entry.getValue();
 
@@ -36,9 +36,9 @@ public class OutputView {
         System.out.print(sb);
     }
 
-    public static void printChampions(List<String> champions) {
+    public static void printWinners(List<String> winners) {
         printNoticeMessage(CHAMPION);
-        String result = String.join(", ", champions);
+        String result = String.join(", ", winners);
         System.out.println(result);
     }
 
