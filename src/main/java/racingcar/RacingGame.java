@@ -14,6 +14,21 @@ public class RacingGame {
     private int howManyTries;
     private final Referee referee = new Referee();
 
+    public void run() {
+        String carNames = getCarNamesWithCommaSeparated();
+        List<String> carNameList = mapToListAndValidateName(carNames);
+        List<Car> cars = createCars(carNameList);
+        howManyTries = getHowManyTries();
+        startRacing(cars);
+        List<Car> winners = referee.getWinners(cars);
+        printWinners(winners);
+    }
+
+    private void printWinners(List<Car> winners) {
+        String result = "최종 우승자 : " + winners.stream().map(Car::getName).collect(Collectors.joining(" ,"));
+        System.out.print(result);
+    }
+
 
     private void startRacing(List<Car> cars) {
         StringBuilder racingResult = new StringBuilder("\n실행 결과\n");
