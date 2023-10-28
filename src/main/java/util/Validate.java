@@ -16,8 +16,11 @@ public class Validate {
 			char[] word = s.toCharArray();
 			for(char c : word) if(Character.isDigit(c)) throw new IllegalArgumentException("이름에 숫자를 넣으면 안됩니다!");
 		}
-		
 	}
-	
+	//입력값이 숫자가 맞는지 검사
+	public static void inputPlayerDateIsNumValidate(String inputDate) {
+		char[] word = inputDate.toCharArray();
+		for(char c : word) if(!Character.isDigit(c)) throw new IllegalArgumentException("숫자만 입력해주세요!");
+	}
 	
 }
