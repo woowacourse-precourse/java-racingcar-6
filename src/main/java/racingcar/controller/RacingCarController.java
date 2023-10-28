@@ -33,6 +33,7 @@ public class RacingCarController {
     }
 
     void winnerDeclaration(GameResult gameResult) {
-
+        outputView.printResultConsole(gameResult.progressResponses());
+        outputView.printWinnerConsole(gameResult.winners());
     }
 }
