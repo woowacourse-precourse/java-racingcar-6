@@ -1,7 +1,5 @@
 package racingcar.controller;
 
-import static racingcar.util.messageContent.ExceptionMessageContent.NICKNAME_LENGTH_ERROR;
-
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.model.Player;
@@ -32,9 +30,7 @@ public class GameController {
     }
 
     private String validationNickname(String input) {
-        if (!censor.checkLength(input)) {
-            throw new IllegalArgumentException(NICKNAME_LENGTH_ERROR.getContent());
-        }
+        censor.checkInputForNickname(input);
         return input;
     }
 }

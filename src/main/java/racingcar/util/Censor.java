@@ -1,10 +1,41 @@
 package racingcar.util;
 
+import static racingcar.util.constant.GameRule.MAX_NICKNAME_LENGTH;
+import static racingcar.util.messageContent.ExceptionMessageContent.NICKNAME_LENGTH_ERROR;
+
+import java.util.List;
+
 public class Censor {
 
-    public boolean checkLength(String input) {
-        // TODO: 입력한 자동차의 닉네임이 5자를 초과하지 않는지 검증하는 기능
-        return true;
+    private final TypeTransducer typeTransducer = new TypeTransducer();
+
+    public void checkInputForNickname(String input) {
+        List<String> playerList = typeTransducer.strToList(input);
+        checkLength(playerList);
+        checkUniqueValue(playerList);
+        checkSpace(playerList);
+        checkEmptyValue(playerList);
+    }
+
+    private void checkLength(List<String> playerList) {
+        boolean over = playerList.stream()
+                .anyMatch(nickname -> nickname.length() > MAX_NICKNAME_LENGTH.getValue());
+
+        if (over) {
+            throw new IllegalArgumentException(NICKNAME_LENGTH_ERROR.getContent());
+        }
+    }
+
+    private void checkUniqueValue(List<String> playerList) {
+        // TODO: 자동자의 닉네임이 유니크한지를 검증한다.
+    }
+
+    private void checkSpace(List<String> playerList) {
+        // TODO: 입력한 자동차의 닉네임에 공백을 검증한다.
+    }
+
+    private void checkEmptyValue(List<String> playerList) {
+        // TODO: 아무런 입력값이 없는 경우를 검증한다.
     }
 
 }
