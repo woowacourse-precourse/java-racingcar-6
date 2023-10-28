@@ -2,6 +2,8 @@ package model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class GameManager {
@@ -13,7 +15,7 @@ public class GameManager {
     }
 
     //게임 로직
-    public boolean gameStart() {
+    public void gameStart() {
         int[] carMoveCount = new int[carName.size()];
 
         StringBuffer sb = new StringBuffer();
@@ -31,16 +33,37 @@ public class GameManager {
             sb.append("\n");
         }
 
-        System.out.println(sb);
+        List<Integer> winner = whoWin(carMoveCount);
 
-        return true;
+        sb.append("최종 우승자 : ").append(carName.get(winner.get(0)));
+
+        for(int i=1; i<winner.size(); i++) {
+            sb.append(", ").append(carName.get(winner.get(0)));
+        }
+
+        System.out.println(sb);
     }
 
     public boolean isMove() {
         int randomNum = Randoms.pickNumberInRange(0,9);
 
-        if(randomNum >= 4) return true;
-        return false;
+        return randomNum >= 4;
+    }
+
+    public List<Integer> whoWin(int[] carMoveCount) {
+        int[] copyArr = carMoveCount.clone();
+        Arrays.sort(copyArr);
+
+        int max = copyArr[copyArr.length-1];
+
+        List<Integer> winner = new ArrayList<>();
+        for(int i=0; i< carMoveCount.length; i++) {
+            if(carMoveCount[i] == max) {
+                winner.add(i);
+            }
+        }
+
+        return winner;
     }
 
 }
