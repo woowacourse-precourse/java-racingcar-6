@@ -8,6 +8,12 @@ public class Car {
     private final int number;
     private static final int CAR_NAME_LENGTH_MAX = 5;
 
+    public Car(String carNamesString) {
+        this.names = List.of(carNamesString.split(","));
+        number = names.size();
+        isCorrectName();
+        moveAmount = new int[number];
+    }
 
     private void isCorrectName() {
         for (String name : names) {
