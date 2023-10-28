@@ -7,7 +7,7 @@ public class Car {
     private static final int MAX_NAME_SIZE = 5;
 
     private String name;
-    private int position;
+    int position;
 
     public Car(String name) {
         checkValidCarName(name);
