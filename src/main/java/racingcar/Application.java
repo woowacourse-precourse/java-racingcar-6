@@ -13,51 +13,75 @@ public class Application {
     private final static String RESULT_MESSAGE = "\n실행 결과";
     private final static String WINNER_MESSAGE = "최종 우승자 : ";
 
-    private static List<String> racingGame(String[] cars, int time) {
-        List<String> winner = new ArrayList<>();
-        String[] progressArray = new String[cars.length];
-        Arrays.fill(progressArray, "");
-        int progressMax = 0;
 
-        for (int i=0; i<time; i++) {
-            for (int j=0; j<cars.length; j++) {
-                int randomNum = Randoms.pickNumberInRange(0, 9);
-                if (randomNum >= 4) {
-                    progressArray[j] += "-";
-                }
-
-                System.out.println(cars[j]+" : "+progressArray[j]);
-                if (progressArray[j].length() > progressMax) {
-                    progressMax = progressArray[j].length();
-                }
+    private static void racing(String[] cars, String[] progress) {
+        for (int j = 0; j < cars.length; j++) {
+            int randomNum = Randoms.pickNumberInRange(0, 9);
+            if (randomNum >= 4) {
+                progress[j] += "-";
             }
-            System.out.println();
+            System.out.println(cars[j] + " : " + progress[j]);
         }
+        System.out.println();
+    }
 
-        for (int i=0; i<progressArray.length; i++) {
-            if (progressArray[i].length() == progressMax) {
-                winner.add(cars[i]);
+    private static List<String> findWinner(String[] distance, String[] cars, int max) {
+        List<String> winners = new ArrayList<>();
+
+        for (int i = 0; i < distance.length; i++) {
+            if (distance[i].length() == max) {
+                winners.add(cars[i]);
             }
         }
-
-        return winner;
+        return winners;
     }
 
 
-    public static void main(String[] args) {
-        // TODO: 프로그램 구현
+    private static int findMaxDistance(String[] distance) {
+        int maxDistance = 0;
+
+        for (String d : distance) {
+            if (d.length() > maxDistance) {
+                maxDistance = d.length();
+            }
+        }
+        return maxDistance;
+    }
+
+    private static List<String> gameStart(String[] cars, int time) {
+        String[] progress = new String[cars.length];
+        Arrays.fill(progress, "");
+
+        for (int i = 0; i < time; i++) {
+            racing(cars, progress);
+        }
+        int maxDistance = findMaxDistance(progress);
+
+        return findWinner(progress, cars, maxDistance);
+    }
+
+    private static String[] setRacingCars() {
         System.out.println(INPUT_CARS_MESSAGE);
-        String[] cars = Console.readLine().split(",");
-        for (String car:cars) {
+        String[] racingCars = Console.readLine().split(",");
+        for (String car : racingCars) {
             if (car.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하로 작성해주세요.");
             }
         }
-        System.out.println(INPUT_RACING_TIME_MESSAGE);
-        int time = Integer.parseInt(Console.readLine());
+        return racingCars;
+    }
 
+    private static int setTime() {
+        System.out.println(INPUT_RACING_TIME_MESSAGE);
+
+        return Integer.parseInt(Console.readLine());
+    }
+
+    public static void main(String[] args) {
+        String[] cars = setRacingCars();
+        int time = setTime();
         System.out.println(RESULT_MESSAGE);
-        List<String> winners = racingGame(cars, time);
+        List<String> winners = gameStart(cars, time);
         System.out.println(WINNER_MESSAGE + String.join(",", winners));
     }
 }
