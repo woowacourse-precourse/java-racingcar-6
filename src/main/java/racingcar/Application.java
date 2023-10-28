@@ -3,6 +3,8 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
+import java.util.ArrayList;
+
 public class Application {
 	public static void main(String[] args) {
 		Game racingcar = new Game();
@@ -14,6 +16,7 @@ class Game {
 	private static String[] userArray;
 	private static int count;
 	private static int[] moveCount;
+	private static ArrayList<Integer> maxIndices = new ArrayList<>();
 
 	Game() {
 		this.setGameUsers();
@@ -77,8 +80,42 @@ class Game {
 		}
 	}
 
+	private void findWinnerIndex() {
+		int max = moveCount[0];
+
+		maxIndices.add(0);
+
+		for (int i = 1; i < moveCount.length; i++) {
+			if (moveCount[i] > max) {
+				max = moveCount[i];
+				maxIndices.clear();
+				maxIndices.add(i);
+			} else if (moveCount[i] == max) {
+				maxIndices.add(i);
+			}
+		}
+
+	}
+
+	private String pickWinner() {
+		String winner = "";
+
+		this.findWinnerIndex();
+		
+		for (int i = 0; i < maxIndices.size(); i++) {
+			if (i == maxIndices.size() - 1) {
+				winner += userArray[maxIndices.get(i)];
+			} else {
+				winner += userArray[maxIndices.get(i)] + ", ";
+			}
+		}
+
+		return winner;
+	}
+
 	public void processGame() {
 		this.forwardOrStop();
+		System.out.print("최종 우승자 : " + this.pickWinner());
 	}
 
 }
