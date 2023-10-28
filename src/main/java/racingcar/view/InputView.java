@@ -13,20 +13,43 @@ public class InputView {
         return splitCommaAndValidate(players);
     }
 
-    private void validate(String[] players) {
+    public int inputTimes() {
+        String times = Console.readLine();
+        validateNumber(times);
+        return isNaturalNumber(times);
+    }
+
+    private int isNaturalNumber(String times) {
+        int maxForward = Integer.parseInt(times);
+        if (maxForward == 0) {
+            throw new IllegalArgumentException(IS_NOT_NATURAL_NUMBER);
+        }
+        return maxForward;
+    }
+
+    private void validateNumber(String times) {
+        for (int i = 0; i < times.length(); i++) {
+            char num = times.charAt(i);
+            if (num < ZERO || NINE < num) {
+                throw new IllegalArgumentException(IS_NOT_NUMBER);
+            }
+        }
+    }
+
+    private void validateNames(String[] players) {
         nameLengthValidation(players);
     }
 
     private String[] splitCommaAndValidate(String players) {
         String[] separatedPlayers = players.split(",");
-        validate(separatedPlayers);
+        validateNames(separatedPlayers);
         return separatedPlayers;
     }
 
     private void nameLengthValidation(String[] players) {
         for (String player : players) {
             if (player.length() > 5) {
-                throw new IllegalArgumentException(LENGTHERROR);
+                throw new IllegalArgumentException(LENGTH_ERROR);
             }
         }
     }
