@@ -46,6 +46,12 @@
 
     3. printWinners() - 게임 종료 후 우승자 출력
 
+    ---- 추가 -----
+
+    4. getCarInput() - 자동차 이름 입력
+
+    5. getTurnsInput() - 게임 진행 횟수 입력
+
 ### 2. Car 클래스
 
 #### 필드: int 현재위치, String 이름 
