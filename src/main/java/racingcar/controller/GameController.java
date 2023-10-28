@@ -18,22 +18,22 @@ public class GameController {
 
     public void play() {
 
-        List<Car> cars = getCars();
-        Attempt attempt = getAttempt();
+        List<Car> cars = receiveCars();
+        Attempt attempt = receiveAttempt();
 
         Game game = new Game(cars);
         simulate(attempt, game);
 
-        printResult(game);
+        sendResult(game);
 
     }
 
-    private List<Car> getCars() {
+    private List<Car> receiveCars() {
         outputView.printGetCarNamesMessage();
         return inputView.getCars();
     }
 
-    private Attempt getAttempt() {
+    private Attempt receiveAttempt() {
         outputView.printGetAttemptMessage();
         return inputView.getAttempt();
     }
@@ -47,7 +47,7 @@ public class GameController {
         }
     }
 
-    private void printResult(Game game) {
+    private void sendResult(Game game) {
         WinnersMessage winnersMessage = game.getWinnersMessage();
         outputView.printWinnersMessage(winnersMessage);
     }
