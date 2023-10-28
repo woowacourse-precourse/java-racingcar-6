@@ -2,7 +2,6 @@ package racingcar;
 
 import player.Player;
 import user.User;
-import utils.JoinComma;
 import utils.Create;
 
 import java.util.*;
@@ -11,30 +10,31 @@ public class Game {
     List<String> players;
 
     public Game() {
+        Output.printGameStartMessage();
         this.players = User.playerInput();
     }
 
     public void play() {
-        System.out.println(GameMessage.GAME_START.message);
-        System.out.println(JoinComma.playerInput(this.players));
-        System.out.println(GameMessage.TRY_COUNT.message);
+        Output.printPlayersName(this.players);
+
+        Output.printTryCountMessage();
         String moveNumber = User.moveNumberInput();
-        System.out.println(moveNumber + "\n");
+        Output.printTryCount(moveNumber);
 
         List<Player> playerObjectArray = Create.playerObjectArray(this.players);
 
         playRounds(playerObjectArray, Integer.parseInt(moveNumber));
 
         Map<String, Integer> playerDistanceMap = Create.playerDistanceMapping(playerObjectArray);
-
         int maxDistance = getMaxDistance(playerDistanceMap);
-        List<String> winners = findWinningPlayers(playerDistanceMap, maxDistance);
-        System.out.print(GameMessage.FINAL_WINNER.message);
-        System.out.print(JoinComma.winnerOutput(winners));
+
+        List<String> winners = findFindWinner(playerDistanceMap, maxDistance);
+
+        Output.printFinalWinner(winners);
     }
 
     private void playRounds(List<Player> playerObjects, int moveNumber) {
-        for (int move = 0; move < moveNumber; move++) {
+        for (int round = 1; round <= moveNumber; round++) {
             raceCars(playerObjects);
         }
     }
@@ -51,7 +51,7 @@ public class Game {
         return Collections.max(playerDistanceMap.values());
     }
 
-    private List<String> findWinningPlayers(Map<String, Integer> playerDistanceMap, int maxDistance) {
+    private List<String> findFindWinner(Map<String, Integer> playerDistanceMap, int maxDistance) {
         List<String> winners = new ArrayList<>();
         for (Map.Entry<String, Integer> entry : playerDistanceMap.entrySet()) {
             if (entry.getValue() == maxDistance) {
