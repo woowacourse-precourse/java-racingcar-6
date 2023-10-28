@@ -23,6 +23,6 @@ public class Printer {
     }
 
     public void printWinnersNames(List<String> winnerNames) {
-        System.out.println(WINNER_NAME + String.join(DELIMITER, winnerNames));
+        System.out.println(WINNER_NAME + String.join(DELIMITER + " ", winnerNames));
     }
 }
