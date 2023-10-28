@@ -1,20 +1,21 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.List;
 
 public class GameController {
 
     private Integer TryMoveForwardRandomNumber;
-    private List<Car> carList;
+
 
     public Integer getTryMoveForwardRandomNumber() {
         return TryMoveForwardRandomNumber;
     }
 
-    public void setTryMoveForwardRandomNumber(Integer tryMoveForwardRandomNumber) {
-        TryMoveForwardRandomNumber = tryMoveForwardRandomNumber;
+    public void generateTryMoveForwardRandomNumber() {
+        this.TryMoveForwardRandomNumber = Randoms.pickNumberInRange(0,9);
     }
 
     public String getCarNamesInput() {
@@ -22,16 +23,21 @@ public class GameController {
         return Console.readLine();
     }
 
-    public void splitCarNameInput(String[] carNamesArray, List<Car> carList) {
 
-        for (int carIndex = 0; carIndex < carNamesArray.length; carIndex++) {
-            Car car = carList.get(carIndex);
-            car.setName(carNamesArray[carIndex]);
-            System.out.println("car.getName() = " + car.getName());
+
+    public void MoveForward(List<Car> carList) {
+        for (Car car : carList) {
+            this.generateTryMoveForwardRandomNumber();
+            if (this.TryMoveForwardRandomNumber > 3) {
+                car.setSuccessMoveForwardCount();
+            }
         }
     }
 
-    public void verifyMoveForward() {
+    public void setRacingProgressStatus(List<Car> carList) {
+        for (Car car : carList) {
+            car.setMoveForwardStatus();
+        }
     }
 
     public void setWinnerList(List<Car> winnerList) {
