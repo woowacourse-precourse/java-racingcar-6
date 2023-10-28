@@ -29,5 +29,13 @@ public class CarNameValidator {
     }
   }
 
+  public void isNameValid(String[] carNamesList) throws IllegalArgumentException {
+    for (String element : carNamesList) {
+      if (element != null && element.trim().isEmpty()) {
+        throw new IllegalArgumentException("공백을 입력하지 마세요.");
+      }
+    }
+  }
+
 
 }
