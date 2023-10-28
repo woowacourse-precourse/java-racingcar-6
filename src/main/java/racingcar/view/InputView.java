@@ -13,14 +13,20 @@ public class InputView {
 		return inputValue;
 	}
 
-	public int inputTryNUmber() {
+	public int inputTryNumber() {
 		String inputValue = Console.readLine();
-
+		
+		inputTryNumberValidate(inputValue);
+		
 		return Integer.parseInt(inputValue);
 	}
 
 	private void inputCarNamesValidate(String inputValue) {
 		Validator.validateContainNumber(inputValue);
 		Validator.validateOutOfLength(inputValue);
+	}
+	
+	private void inputTryNumberValidate(String inputValue) {
+		Validator.validateNumberFormat(inputValue);
 	}
 }
