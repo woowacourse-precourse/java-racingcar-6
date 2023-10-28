@@ -28,4 +28,12 @@ public class Validation {
         }
     }
 
+    public static void validateCharacters(List<String> cars) {
+        for (String car : cars) {
+            if (!car.matches("[a-zA-Z]")) {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+
 }
