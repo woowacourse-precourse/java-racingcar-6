@@ -26,4 +26,22 @@ public class Race {
     public ArrayList<Car> getCarList(){
         return this.carList;
     }
+
+    public ArrayList<String> getWinner(){
+        ArrayList<String> winnerList = new ArrayList<>();
+        int max = maxPosition(carList);
+        for (Car car : carList) {
+            if(car.getPosition()==max){
+                winnerList.add(car.getName());
+            }
+        }
+        return winnerList;
+    }
+
+    public int maxPosition(ArrayList<Car> carList){
+        return carList.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+    }
 }

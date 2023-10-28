@@ -8,17 +8,26 @@ public class GameController {
     Race race;
 
     public GameController() {
-        inputController = new InputController();;
-        race = new Race(inputController.carValidate(), inputController.roundValidate());
+        setInputController();
+        setRace();
         play();
         printResult();
+        printWinner();
     }
 
+    public void setInputController(){
+        inputController = new InputController();
+    }
+    public void setRace(){
+        race = new Race(inputController.carValidate(), inputController.roundValidate());
+    }
     public void play(){
         race.start();
     }
-
     public void printResult(){
         OutputView.printRace(race.getCarList());
+    }
+    public void printWinner(){
+        OutputView.printWinner(race.getWinner());
     }
 }

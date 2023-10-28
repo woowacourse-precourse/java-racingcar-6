@@ -17,7 +17,7 @@ public class CarNameValidator {
 
 	public void validate() {
 		if ( !isRightNamesString() || !isRightNameSize() || !isNotDuplicate() ) {
-			throw new IllegalArgumentException("Car Validation failed.");
+			throw new IllegalArgumentException();
 		}
 	}
 
