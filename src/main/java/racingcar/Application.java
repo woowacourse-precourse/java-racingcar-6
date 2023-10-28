@@ -9,9 +9,7 @@ import racingcar.domain.Player;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-
-        List<Player> players = new ArrayList<>();
-        inputNames().forEach(name -> players.add(new Player(name)));
+        List<Player> players = inputPlayers();
 
         int num = inputNumber();
 
@@ -43,7 +41,7 @@ public class Application {
         for (int i = 0; i < winner.size(); i++) {
             sb.append(winner.get(i).getName());
 
-            if(i < winner.size() - 1){
+            if (i < winner.size() - 1) {
                 sb.append(", ");
             }
         }
@@ -57,47 +55,44 @@ public class Application {
         int num = 0;
         try {
             num = Integer.parseInt(camp.nextstep.edu.missionutils.Console.readLine());
-
-            if(num < 0) {
-                throw new IllegalArgumentException("유효하지 않은 입력입니다, 1 이상의 자연수를 입력해 주세요");
-            }
         } catch (NumberFormatException ex) {
             throw new IllegalArgumentException("유효하지 않은 입력입니다, 1 이상의 자연수를 입력해 주세요");
         }
+
+        if (num <= 0) {
+            throw new IllegalArgumentException("유효하지 않은 입력입니다, 1 이상의 자연수를 입력해 주세요");
+        }
+
         return num;
     }
 
-    public static List<String> inputNames() {
+    public static List<Player> inputPlayers() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
-        List<String> names = new ArrayList<>();
-        String name;
+        List<Player> players = new ArrayList<>();
 
-        StringTokenizer st = new StringTokenizer(camp.nextstep.edu.missionutils.Console.readLine(), ",");
-        while (st.hasMoreElements()) {
-            name = st.nextToken();
-
-            names.add(name);
+        for (String name : camp.nextstep.edu.missionutils.Console.readLine().split(",")) {
+            if(validateName(name)){
+                players.add(new Player(name));
+            }
         }
 
-        try {
-            validateNames(names);
-        } catch (IllegalArgumentException ex) {
-            throw new IllegalArgumentException(ex);
-        }
-
-        return names;
+        return players;
     }
 
-    private static void validateNames(List<String> names) {
-        if (names.isEmpty()) {
+    private static boolean validateName(String name) {
+        if (name == null) {
             throw new IllegalArgumentException("유효하지 않은 입력입니다, 이름을 입력해주세요.");
         }
 
-        names.stream().forEach(name -> {
-            if (name.length() > 5) {
-                throw new IllegalArgumentException("유효하지 않은 입력입니다, 이름이 5글자가 넘습니다.");
-            }
-        });
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("유효하지 않은 입력입니다, 이름이 5글자가 넘습니다.");
+        }
+
+        if(name.contains(" ")){
+            throw new IllegalArgumentException("유효하지 않은 입력입니다, 이름에는 스페이스 바가 들어갈 수 없습니다.");
+        }
+
+        return true;
     }
 }
