@@ -1,12 +1,13 @@
 # 레이싱 게임
 
 ## 구현할 기능 목록
-- [ ] 자동차 이름을 분리하는 기능 - CarGenerator#splitNames()
-- [ ] 이름 배열을 받아 자동차를 생성하는 기능 - CarGenerator#createCars()
+- [x] 자동차 이름을 분리하는 기능 - CarGenerator#splitNames()
+- [x] 이름 배열을 받아 자동차를 생성하는 기능 - CarGenerator#createCars()
 
 - [ ] 자동차가 움직일지 결정하는 기능 - Car#canMove()
 - [ ] 자동차가 움직인 거리를 변경하는 기능 - Car#move()
 - [ ] 자동차가 움직인 거리를 구하는 기능 - Car#getDistance()
+- [ ] 자동차 이름을 받아오는 기능 - Car#getName()
 - [ ] 각 자동차의 움직인 거리를 출력하는 기능 - Printer#printDistance()
 
 - [ ] 가장 멀리 움직인 거리를 구하는 기능 - Referee#findMaxDistance()
