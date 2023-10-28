@@ -113,6 +113,14 @@ class ApplicationTest extends NsTest {
         System.setOut(System.out);
     }
 
+    @Test
+    void situationSave_test() {
+        int goSituation = 1;
+        int i = 4;
+        Assertions.assertEquals(2, Application.situationSave(goSituation, i));
+    }
+
+
 
 
 
