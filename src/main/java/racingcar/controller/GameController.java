@@ -1,8 +1,6 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.Game;
 import racingcar.model.RandomNumber;
@@ -24,7 +22,7 @@ public class GameController {
         GameView.displayResultMessage();
         tryRoundUntilRetryCount();
 
-        displayWinner();
+        GameView.displayFinalWinner(game.getWinnerNames(game.getWinnerList()));
     }
 
     private void tryRoundUntilRetryCount() {
@@ -53,12 +51,9 @@ public class GameController {
     private void displayCarPosition() {
         for (Car participantCar : participantCars) {
             int position = participantCar.getPosition();
-            System.out.println(participantCar.getName() + " : " + "-".repeat(position));
-        }
-    }
+            String positionBar = participantCar.getName() + " : " + "-".repeat(position);
 
-    private void displayWinner() {
-        List<Car> winners = game.getWinnerList();
-        GameView.displayFinalWinner(game.getWinnerNames(winners));
+            System.out.println(positionBar);
+        }
     }
 }
