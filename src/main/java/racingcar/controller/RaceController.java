@@ -8,5 +8,6 @@ public class RaceController {
 
     public void runGame() {
         CarNames carNames = CarNames.from(inputView.readCarNames());
+
     }
 }
