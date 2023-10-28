@@ -24,9 +24,8 @@ public class RacingGameController {
         int numberOfRounds = IOController.scanNumberOfRounds();
 
         IOController.printResultHeaderMessage();
-
         for (int i = 0; i < numberOfRounds; i++) {
-            doOneRound(cars);
+            playOneRound(cars);
             IOController.printlnCurrentForwardStateMessage(cars);
         }
         IOController.printWinnersMessage(pickWinners(cars));
@@ -34,7 +33,7 @@ public class RacingGameController {
         endGame();
     }
 
-    private void doOneRound(Cars cars) {
+    private void playOneRound(Cars cars) {
         for (Car car : cars.getCarList()) {
             moveOrNot(car);
         }
