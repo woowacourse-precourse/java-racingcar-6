@@ -6,9 +6,9 @@ public class Car implements Comparable<Car>{
     private String name;
     private Integer moveDistance;
 
-    public Car(String name) {
+    public Car(String name, Integer moveDistance) {
         this.name = name;
-        this.moveDistance = 0;
+        this.moveDistance = moveDistance;
     }
 
     public void move() {
