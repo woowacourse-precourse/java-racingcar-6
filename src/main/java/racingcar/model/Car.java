@@ -25,11 +25,6 @@ public class Car {
         return this.carPosition;
     }
 
-    public void clear() {
-        carName.clear();
-        carPosition.clear();
-    }
-
     public void carMove(int move) {
         this.carPosition.set(move, this.carPosition.get(move) + 1);
     }
