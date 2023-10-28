@@ -1,6 +1,5 @@
 package racingcar.service;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
@@ -12,20 +11,15 @@ public class GameService {
 
         checkCarNameAndMakeCar(InteractService.getCarName(), carList);
 
-        System.out.println("시도할 회수는 몇회인가요?");
-        try {
-            int tryNum = Integer.parseInt(Console.readLine());
+        int tryNum = InteractService.getTryNum();
 
-            if (tryNum <= 0) {
-                throw new IllegalArgumentException();
-            }
-
-            System.out.println("실행 결과");
-            RacingService.racing(carList, tryNum);
-            RacingService.findWinner(carList);
-        } catch (NumberFormatException e) {
+        if (tryNum <= 0) {
             throw new IllegalArgumentException();
         }
+
+        System.out.println("실행 결과");
+        RacingService.racing(carList, tryNum);
+        RacingService.findWinner(carList);
     }
 
     private static void checkCarNameAndMakeCar(String carNames, List<Car> carList) {
