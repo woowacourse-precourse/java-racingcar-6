@@ -1,5 +1,6 @@
 package util;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import racingcar.util.Validator;
 
@@ -32,8 +33,20 @@ public class ValidatorTest {
     }
 
     @Test
-    void 다섯글자이상_입력() {
+    void 여섯글자_입력() {
         Validator validator = new Validator();
-        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> validator.validName("*"));
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> validator.validName("******"));
+    }
+
+    @Test
+    void 다섯글자_입력() {
+        Validator validator = new Validator();
+        validator.validName("*****");
+    }
+
+    @Test
+    void 빈값_입력() {
+        Validator validator = new Validator();
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> validator.validName(""));
     }
 }
