@@ -1,8 +1,19 @@
 package racingcar.constant;
 
-public class GuideTextConstant {
+public enum GuideTextConstant {
 
-    public static final String INPUT_CAR_NAMES_GUIDE_TEXT = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    public static final String INPUT_EXECUTION_COUNT_GUIDE_TEXT = "시도할 회수는 몇회인가요?";
-    public static final String EXECUTION_RESULT_TEXT = "실행 결과";
+    INPUT_CAR_NAMES_GUIDE_TEXT("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"),
+    INPUT_EXECUTION_COUNT_GUIDE_TEXT("시도할 회수는 몇회인가요?"),
+    EXECUTION_RESULT_TEXT("실행 결과");
+
+    private final String name;
+
+    GuideTextConstant(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

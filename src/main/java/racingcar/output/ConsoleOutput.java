@@ -2,11 +2,12 @@ package racingcar.output;
 
 import java.util.List;
 import racingcar.Car;
+import racingcar.constant.GuideTextConstant;
 
 public class ConsoleOutput implements Output {
 
     @Override
-    public void printText(String text) {
+    public void printText(GuideTextConstant text) {
         System.out.println(text);
     }
 

@@ -1,9 +1,16 @@
 package racingcar.constant;
 
-public class RandomNumberConstant {
+public enum RandomNumberConstant {
 
-    public static final int MOVE_FORWARD = 4;
-    public static final int MINIMUM_PICK_RANDOM_NUMBER = 0;
-    public static final int MAXIMUM_PICK_RANDOM_NUMBER = 9;
+    MOVE_FORWARD(4), MINIMUM_PICK_RANDOM_NUMBER(0), MAXIMUM_PICK_RANDOM_NUMBER(9);
 
+    private final int number;
+
+    RandomNumberConstant(int number) {
+        this.number = number;
+    }
+
+    public int getNumber() {
+        return number;
+    }
 }

@@ -25,7 +25,9 @@ public class Car {
     }
 
     public void moveForward() {
-        if (Randoms.pickNumberInRange(MINIMUM_PICK_RANDOM_NUMBER, MAXIMUM_PICK_RANDOM_NUMBER) >= MOVE_FORWARD) {
+        if (Randoms.pickNumberInRange(
+                MINIMUM_PICK_RANDOM_NUMBER.getNumber(),
+                MAXIMUM_PICK_RANDOM_NUMBER.getNumber()) >= MOVE_FORWARD.getNumber()) {
             distance++;
         }
     }
