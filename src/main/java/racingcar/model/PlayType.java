@@ -10,7 +10,7 @@ public enum PlayType {
     ;
     private int result;
     private List<Integer> randomNumbers;
-    private static final String RANDOM_NUM_RANGE_EXCEPTION= "[ERROR] 임의의 숫자는 0-9사이의 수로 생성되어야 합니다.";
+
     private Function<Integer, Integer> expression;
 
     PlayType(int result, List<Integer> randomNumbers) {
@@ -23,7 +23,7 @@ public enum PlayType {
         return Arrays.stream(PlayType.values())
                 .filter(playType -> playType.hasType(number))
                 .findAny()
-                .orElseThrow(() -> new IllegalArgumentException(RANDOM_NUM_RANGE_EXCEPTION));
+                .orElseThrow(() -> new IllegalArgumentException(ExceptionMessages.RANDOM_NUM_RANGE_EXCEPTION));
     }
 
     private boolean hasType(int number) {
