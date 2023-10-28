@@ -19,16 +19,16 @@ public class OutputTest {
     }
 
     @Test
-    @DisplayName("최종 우승자가 1명일 때 출력되는 문자열 검증")
+    @DisplayName("최종 우승자가 1명일 때 실행 결과 예시대로 출력되는지 검증")
     void convertWinnersToString_onlyOne_test() {
         OutputView sample = new OutputView();
-        List<String> input = Arrays.asList("name1");
+        List<String> input = List.of("name1");
         String expected = "최종 우승자 : name1";
         assertThat(sample.convertWinnersToString(input)).isEqualTo(expected);
     }
 
     @Test
-    @DisplayName("최종 우승자가 여러 명일 때 출력되는 문자열 검증")
+    @DisplayName("최종 우승자가 여러 명일 때 실행 결과 예시대로 출력되는지 검증")
     void convertWinnersToString_manyPeople_test() {
         OutputView sample = new OutputView();
         List<String> input = Arrays.asList("name2", "name3", "name4");

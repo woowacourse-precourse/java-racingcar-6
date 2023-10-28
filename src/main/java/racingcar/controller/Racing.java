@@ -37,16 +37,17 @@ public class Racing {
     }
     public void playAllRounds(Map<String, Integer> carNameList, int counts) {
         for (int i = 0; i < counts; i++) {
-            playOneRound(carNameList);
-            outputView.printProgressOfAllCars(carNameList);
+            Map<String, Integer> oneRoundResult = playOneRound(carNameList);
+            outputView.printProgressOfAllCars(oneRoundResult);
         }
     }
-    public void playOneRound(Map<String, Integer> carNameList) {
+    public Map<String, Integer> playOneRound(Map<String, Integer> carNameList) {
         for (String carName : carNameList.keySet()) {
             int moves = carNameList.get(carName);
             int randomNum = Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX);
             carNameList.put(carName, progressOrNot(moves, randomNum));
         }
+        return carNameList;
     }
     public Integer progressOrNot(int currentMoves, int randomNum) {
         if (randomNum >= RANDOM_FOUR) {
