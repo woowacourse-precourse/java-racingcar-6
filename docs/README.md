@@ -107,7 +107,7 @@
 
 
 - [ ] 올바른 값을 확인하기 위한 검증 클래스를 만든다. ValidException
-  - [ ] 이름은 5자 이하 검사. // ValidException#isValidFIveLessString
+  - [x] 이름은 5자 이하 검사. // ValidException#isValidFIveLessString
   - [x] 한글 포함 검사. //  ValidException#isValidIncludeKorean
   - [x] 숫자을 포함하는가 검사  // ValidException#isValidIncludeNum
   - [x] 공백 입력 검사 // ValidException#isValidBlankCheck
@@ -115,7 +115,7 @@
   - [x] 문자열 포함 검사  // ValidException#isValidIncludeString
   - [x] 특수문자 포함 검사 // ValidException#isValidIncludeSpecialString
   - [x] 문자열 포함 검사 (한글, 영어) // ValidException#isValidIncludeString
-  - [ ] 문자열 이름 , 다음에는 문자가 나와야한다. ( "sue,woo," )(금지)
+  - [ ] 문자열 이름 , 다음에는 문자가 나와야한다. ( "sue,woo," )(금지) // ValidException#isValidCommaNextBlankCheck
   - [x] 공백 포함 검사. // ValidException#isValidIncludeBlank
   - [x] 0 입력 검사. // ValidException#isValidZeroCheck
 

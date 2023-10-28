@@ -6,10 +6,21 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ValidException {
-    // TODO: 10/27/23 이름은 5자 이하 검사.
-    public static void isValidFIveLessString(String str) {
-
+    /**
+     * 이름은 5자 이하 검사.
+     *
+     * @param str
+     */
+    public static Boolean isValidFIveLessString(String str) {
+        int length = str.length();
+        if (length > 0 && length <= 5) {
+            return true;
+        }
+        throw new IllegalArgumentException(ValidConstants.MSG_INPUT_STRING_LENGTH_CHECK());
     }
+
+    // TODO: 10/28/23 문자열 이름, 다음에는 문자가 나와야 한다. "sue,woo," 금지. isValidCommaNextBlankCheck
+
 
     /**
      * 한글 포함 검사

@@ -32,4 +32,8 @@ public class ValidConstants {
     public static String MSG_INCLUDE_NUM() {
         return "문자열에 숫자가 포함되어 있습니다.";
     }
+
+    public static String MSG_INPUT_STRING_LENGTH_CHECK() {
+        return "문자열의 길이가 조건에 맞지 않습니다.";
+    }
 }
