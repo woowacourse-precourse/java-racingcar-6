@@ -12,7 +12,7 @@ public class GameProgress {
                 carMove(carNamesMap, carName);
                 System.out.println(carName + " :" + carNamesMap.get(carName));
             }
-            OutputView.printWordSpacing();
+            OutputView.printEnter();
         }
     }
 
