@@ -1,14 +1,18 @@
 package racingcar.domain.game;
 
 public class Car {
-    private final CarName carName;
-    private final int position = 0;
+    protected final CarName carName;
+    protected int position = 0;
 
     protected Car(CarName carName) {
         this.carName = carName;
     }
 
-    public static Car of(CarName carName) {
+    public static Car from(CarName carName) {
         return new Car(carName);
+    }
+
+    public void moveOnce() {
+        position++;
     }
 }
