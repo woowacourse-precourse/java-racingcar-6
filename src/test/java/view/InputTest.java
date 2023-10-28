@@ -1,9 +1,6 @@
 package view;
 
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.view.InputView;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -19,7 +16,6 @@ public class InputTest {
         assertThat(inputView.getUserInput()).isEqualTo("123");
     }
 
-
     public class InputView {
         public String getUserInput() {
             InputStream in = generateUserInput("123");
@@ -33,6 +29,4 @@ public class InputTest {
             return new ByteArrayInputStream(input.getBytes());
         }
     }
-
-
 }

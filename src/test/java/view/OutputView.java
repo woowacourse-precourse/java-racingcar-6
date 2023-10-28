@@ -1,6 +1,8 @@
 package view;
 
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class OutputView {
 
@@ -12,8 +14,15 @@ public class OutputView {
     public void carStatus(Map<String, Integer> cars) {
         cars.keySet().forEach(key -> {
             int intValue = cars.get(key);
-            System.out.println(key + " : " + intValue);
+            String dash = intTodash(intValue);
+            System.out.println(key + " : " + dash);
         });
+    }
+
+    public String intTodash(int intValue) {
+        return IntStream.range(0, intValue)
+                .mapToObj(i -> "-")
+                .collect(Collectors.joining());
     }
 
 }

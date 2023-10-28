@@ -21,6 +21,20 @@ public class OutputTest {
         outputView.carStatus(carStatusDto.findAll());
     }
 
+    @Test
+    void 자동차_이동_출력() {
+        CarStatusDto carStatusDto = new CarStatusDto();
+        carStatusDto.enrollCar("포르쉐");
+        carStatusDto.enrollCar("K3");
+        carStatusDto.increaseCarPosition("포르쉐");
+        carStatusDto.increaseCarPosition("포르쉐");
+        carStatusDto.increaseCarPosition("K3");
+        OutputView outputView = new OutputView();
+        outputView.carStatus(carStatusDto.findAll());
+    }
+
+
+
 
 
 }
