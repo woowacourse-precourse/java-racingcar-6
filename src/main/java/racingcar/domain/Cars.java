@@ -12,7 +12,7 @@ public class Cars {
     public Cars(String carNames) {
         List<String> carList = splitCarNames(carNames);
         InputValidation.validateNameDuplicated(carList);
-        this.cars = createCar(carList);
+        this.cars = createCars(carList);
 
     }
 
@@ -20,9 +20,17 @@ public class Cars {
         return Arrays.asList(carNames.split(Constant.SPLIT_DELIMITER));
     }
 
-    private List<Car> createCar(List<String> carList) {
+    private List<Car> createCars(List<String> carList) {
         return carList.stream()
             .map(car -> new Car(car))
             .collect(Collectors.toList());
+    }
+
+    public void move() {
+        cars.forEach(Car::move);
+    }
+
+    public List<Car> getCars() {
+        return this.cars;
     }
 }
