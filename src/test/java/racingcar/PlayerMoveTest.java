@@ -3,6 +3,8 @@ package racingcar;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 public class PlayerMoveTest {
 
@@ -15,15 +17,16 @@ public class PlayerMoveTest {
         assertEquals(playerMove, PlayerMove.init(testPlayer, initDistance));
     }
 
-    @Test
-    void move는_이동여부에따라_이동거리를_증가시킨다() {
+    @ParameterizedTest
+    @CsvSource(value = {"true, 1", "false, 0"})
+    void move는_이동여부에_따라_이동거리를_증가시킨다(boolean isMove, int distance) {
         // given
         PlayerMove playerMove = PlayerMove.init(testPlayer, initDistance);
 
         // when
-        playerMove.move(true);
+        playerMove.move(isMove);
 
         // then
-        assertEquals(1, playerMove.getDistance().getValue());
+        assertEquals(distance, playerMove.getDistance().getValue());
     }
 }
