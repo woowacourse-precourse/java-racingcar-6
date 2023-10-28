@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import racingcar.Model.Car.Car;
 import racingcar.Model.Car.CarId;
 import racingcar.Model.CarRepository;
+import racingcar.View.RaceView;
 
 public class MainController {
     private static RaceController raceController = AppConfig.raceControllerImplements();
@@ -17,15 +18,15 @@ public class MainController {
         CarId.validateRange(carQuantity);
 
         CarRepository carRepository = new CarRepository(new ArrayList<>());
-        for(int i=1; i<=carQuantity; i++) {
-            Car participantCar = Car.of(i, split[i - 1]);
+        for(int i=0; i<carQuantity; i++) {
+            Car participantCar = Car.of(i, split[i]);
             carRepository.save(participantCar);
         }
 
         String roundInput = Console.readLine();
+
+        RaceView.processStartMessage();
         raceController.validateRoundInput(roundInput);
         raceController.processRace(roundInput, carRepository);
     }
-
-
 }

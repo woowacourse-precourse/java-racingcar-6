@@ -66,9 +66,9 @@ public class test {
     }
 
     @Test
-    public void 테스트(){
+    public void 예외테스트(){
         String s = "33333333333";
-        System.out.println(Integer.MAX_VALUE);
-        System.out.println(Integer.parseInt(s) > Integer.MAX_VALUE);
+        Assertions.assertThatThrownBy(() -> Integer.parseInt(s))
+                .isInstanceOf(NumberFormatException.class);
     }
 }

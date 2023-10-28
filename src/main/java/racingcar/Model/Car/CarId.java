@@ -1,6 +1,6 @@
 package racingcar.Model.Car;
 public class CarId {
-    private Integer id;
+    private final Integer id;
     public CarId(Integer id) {
         validateRange(id);
         this.id = id;

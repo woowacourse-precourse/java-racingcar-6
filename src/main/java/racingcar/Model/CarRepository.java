@@ -20,6 +20,10 @@ public class CarRepository {
         return carList.get(index);
     }
 
+    public int size() {
+        return carList.size();
+    }
+
     //테스트를 위한 getter
     public List getCarRepository(){
         return new ArrayList<>(carList);
