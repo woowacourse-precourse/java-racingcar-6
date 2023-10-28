@@ -21,4 +21,10 @@ public class Car {
     public int getRandomNum(){
         return this.randomNum;
     }
+
+    public void increaseForwardNum(){
+        this.forwardNum++;
+    }
+
+
 }
