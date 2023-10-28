@@ -17,6 +17,10 @@ public class Car {
         return location;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getCurrentLocation() {
         return location;
     }
