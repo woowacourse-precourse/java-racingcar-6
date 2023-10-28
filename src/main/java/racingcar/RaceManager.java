@@ -4,15 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RaceManager {
-    List<Car> raceCarList = new ArrayList<>();
+    private List<Car> raceCarList = new ArrayList<>();
     private int attempts = 0;
+
+    public void startRace() {
+        prepareRace();
+        runRace();
+        List<String> winners = determineWinner();
+        OutputView.showWinner(winners);
+    }
 
     private void prepareRace() {
         String input = InputView.getCarNames();
         List<String> carNames = InputValidator.validateCarNames(input);
         generateRaceCarList(carNames);
         input = InputView.getNumberOfAttempts();
-        InputValidator.validateNumberOfAttempts(input);
+        attempts = InputValidator.validateNumberOfAttempts(input);
     }
 
     private void runRace() {

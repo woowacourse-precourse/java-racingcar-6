@@ -1,6 +1,6 @@
 ### 구현할 기능 목록 
 
-- [ ] 경주 게임을 시작한다. - RaceManager#startRace
+- [x] 경주 게임을 시작한다. - RaceManager#startRace
   - [x] 경주 게임을 준비한다. - RaceManager#prepareRace
     - [x] 자동차 이름을 입력받는다. - InputView#getCarNames
     - [x] 자동차 이름 입력을 검증한다. - InputValidator#validateCarNames
@@ -17,6 +17,6 @@
         - [x] 전진인지 멈춤인지 판단한다. - Car#isForward
       - [x] 이동 결과를 보여준다. - OutputView#showResult
 
-  - [ ] 누가 우승했는지 판단한다. - RaceManager#determineWinner
-  - [ ] 우승자를 보여준다. - OutputView#showWinner
+  - [x] 누가 우승했는지 판단한다. - RaceManager#determineWinner
+  - [x] 우승자를 보여준다. - OutputView#showWinner
 
