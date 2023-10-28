@@ -194,7 +194,8 @@
    - [ ]  📝 시도할 횟수 입력받기 테스트
 - [ ]  📔 결과 출력 - OutputViewTest
    - [ ]  📝 차수 결과 출력하기 테스트
-   - [ ]  📝 최종 우승자 출력하기 테스트
+   - [ ]  📝 최종 우승자가 두명 이상 있을때 출력하기 - showFinalWinnerMoreThanTwo
+   - [ ]  📝 최종 우승자가 한 명일때 출력하기 - showFinalWinner
 
 ## 📦 예외 처리 - Exception
 
