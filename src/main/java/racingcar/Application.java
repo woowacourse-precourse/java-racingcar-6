@@ -35,8 +35,10 @@ public class Application {
         int intTryCount = Integer.parseInt(tryCount);
 
         RacingCountValidator.validateRacingCount(tryCount);
+
+        GameView gameView = new GameView();
         Game game = new Game(participantCars);
-        GameController gameController = new GameController(intTryCount, game);
+        GameController gameController = new GameController(intTryCount, game, gameView);
         gameController.playGame();
     }
 }
