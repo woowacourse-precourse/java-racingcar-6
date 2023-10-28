@@ -3,8 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcar.model.Car.Car;
-import racingcar.model.Car.CarId;
+import racingcar.model.car.Car;
+import racingcar.model.car.CarId;
 import racingcar.model.CarRepository;
 
 public class test {

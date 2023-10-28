@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import racingcar.model.Car.Car;
+import racingcar.model.car.Car;
 import racingcar.model.CarRepository;
 import racingcar.view.View;
 

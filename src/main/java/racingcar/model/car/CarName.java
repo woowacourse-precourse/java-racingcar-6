@@ -1,4 +1,4 @@
-package racingcar.model.Car;
+package racingcar.model.car;
 
 import Config.AppConfig;
 import java.util.regex.Matcher;

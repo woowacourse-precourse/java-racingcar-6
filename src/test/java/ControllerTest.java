@@ -3,7 +3,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.controller.RaceController;
 import racingcar.controller.RaceControllerIntegerVer;
-import racingcar.model.Car.Car;
+import racingcar.model.car.Car;
 import racingcar.model.CarRepository;
 
 public class ControllerTest {

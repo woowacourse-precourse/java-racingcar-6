@@ -1,4 +1,4 @@
-package racingcar.model.Race;
+package racingcar.model.race;
 
 public class Race {
 

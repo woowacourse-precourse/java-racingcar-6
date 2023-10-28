@@ -1,4 +1,4 @@
-package racingcar.model.Car;
+package racingcar.model.car;
 public class CarId {
     private final Integer id;
     public CarId(Integer id) {

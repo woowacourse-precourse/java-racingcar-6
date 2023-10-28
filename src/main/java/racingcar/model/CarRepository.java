@@ -2,7 +2,7 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.model.Car.Car;
+import racingcar.model.car.Car;
 
 public class CarRepository {
 

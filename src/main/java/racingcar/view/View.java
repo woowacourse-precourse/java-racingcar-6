@@ -2,7 +2,7 @@ package racingcar.view;
 
 import Config.AppConfig;
 import java.util.List;
-import racingcar.model.Car.Car;
+import racingcar.model.car.Car;
 
 public class View {
     private static final String GAME_START_MESSAGE =
@@ -21,7 +21,7 @@ public class View {
     public static void gameStartMessage() {
         System.out.println(GAME_START_MESSAGE);
     }
-    public static void processStartMessage() {
+    public static void raceStartMessage() {
         System.out.println(ROUND_COUNT_MESSAGE);
     }
 
