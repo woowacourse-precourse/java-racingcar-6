@@ -9,7 +9,7 @@ public class Car {
         this.forwardCount = 0;
     }
 
-    private String getName() {
+    public String getName() {
         return name;
     }
 
