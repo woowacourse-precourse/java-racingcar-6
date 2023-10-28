@@ -11,11 +11,16 @@ public class Validator {
     private static final String SPACE = " ";
     private static final String SPACE_ERROR_MESSAGE = "자동차 이름에는 공백이 있으면 안됩니다.";
     private static final String CAR_NAME_DUPLICATE_ERROR = "자동차 목록은 중복이 없어야 합니다.";
+    private static final String ROUND_NUMBER_WRONG_ERROR = "시도할 횟수는 숫자여야 합니다.";
 
     public List<String> convertStringToList(String input) {
         ArrayList<String> carNames = new ArrayList<>(Arrays.asList(input.split(",")));
         validate(carNames);
         return carNames;
+    }
+
+    public void convertStringToInt(String input) {
+        isInteger(input);
     }
 
     public void validate(List<String> carNames) {
@@ -40,6 +45,14 @@ public class Validator {
     public void isNotDuplicate(List<String> carNames) {
         if (carNames.size() != carNames.stream().distinct().count()) {
             throw new IllegalArgumentException(CAR_NAME_DUPLICATE_ERROR);
+        }
+    }
+
+    public void isInteger(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(ROUND_NUMBER_WRONG_ERROR);
         }
     }
 

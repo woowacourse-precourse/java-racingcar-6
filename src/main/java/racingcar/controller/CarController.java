@@ -10,6 +10,7 @@ public class CarController {
     public void startGame() {
         String input = inputView.carInput();
         validator.convertStringToList(input);
-        inputView.roundInput();
+        String roundNum = inputView.roundInput();
+        validator.convertStringToInt(roundNum);
     }
 }
