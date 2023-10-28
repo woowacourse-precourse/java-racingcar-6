@@ -49,6 +49,7 @@ public class CarCreatorTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+
     static Stream<Arguments> carNameListProvider() {
         return Stream.of(
                 Arguments.arguments(List.of("")),
@@ -56,4 +57,25 @@ public class CarCreatorTest {
                 Arguments.arguments(List.of("pobbii", "wonni", "jun"))
         );
     }
+
+    @ParameterizedTest
+    @DisplayName("자동차 이름 List를 통해 자동차들을 생성")
+    @MethodSource("carNameListAndCarListProvider")
+    public void 자동차들_생성(List<String> carNameList, List<Car> expectedCarList) {
+        //when
+        List<Car> actualCarList = carCreator.createCars(carNameList);
+
+        //then
+        assertThat(actualCarList).isEqualTo(expectedCarList);
+    }
+
+    static Stream<Arguments> carNameListAndCarListProvider() {
+        return Stream.of(
+                Arguments.arguments(List.of("pobbi"), new Car("pobbi")),
+                Arguments.arguments(List.of("pobbi", "wonni", "jun"),
+                        List.of(new Car("pobbi"), new Car("wonni"), new Car("jun")))
+        );
+    }
+
+
 }

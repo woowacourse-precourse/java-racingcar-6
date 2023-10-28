@@ -13,6 +13,10 @@ public class CarCreator {
         carNameList.forEach(this::validateCarName);
     }
 
+    public List<Car> createCars(List<String> carNameList) {
+        return null;
+    }
+
     private List<String> arrayToList(String[] array) {
         return Arrays.asList(array);
     }
