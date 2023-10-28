@@ -8,16 +8,12 @@ public class GameService {
 
     public static void run() {
         List<Car> carList = new ArrayList<>();
-
         checkCarNameAndMakeCar(InteractService.getCarName(), carList);
 
         int tryNum = InteractService.getTryNum();
-
         checkPositive(tryNum);
 
-        System.out.println("실행 결과");
-        RacingService.racing(carList, tryNum);
-        RacingService.findWinner(carList);
+        InteractService.printResult(carList, tryNum);
     }
 
     private static void checkPositive(int tryNum) {

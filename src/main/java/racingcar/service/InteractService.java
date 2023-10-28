@@ -1,6 +1,8 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
+import racingcar.domain.Car;
 
 public class InteractService {
 
@@ -16,5 +18,11 @@ public class InteractService {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public static void printResult(List<Car> carList, int tryNum) {
+        System.out.println("실행 결과");
+        RacingService.racing(carList, tryNum);
+        RacingService.findWinner(carList);
     }
 }
