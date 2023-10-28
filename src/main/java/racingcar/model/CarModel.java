@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import java.util.List;
+
 public class CarModel {
     private final String name;
     private int location;
@@ -9,8 +11,16 @@ public class CarModel {
         this.location = 0;
     }
 
-    public int increaseLocation() {
+    public void increaseLocation() {
         this.location++;
-        return this.location;
     }
+
+    public String carLocationState() {
+        StringBuilder result = new StringBuilder();
+
+        result.append(name).append(" : ");
+        result.append("-".repeat(Math.max(0, location)));
+        return result.toString();
+    }
+
 }

@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.CarModel;
+import racingcar.view.OutputView;
 
 public class CarController {
 
@@ -20,7 +21,9 @@ public class CarController {
             if (forwardCheck()) {
                 carModel.increaseLocation();
             }
+            OutputView.printRacing(carModel.carLocationState());
         }
+        System.out.println("");
     }
 
     public boolean forwardCheck() {

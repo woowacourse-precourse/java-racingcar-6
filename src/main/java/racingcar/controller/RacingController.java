@@ -25,7 +25,8 @@ public class RacingController {
         this.repeatNumber = Integer.parseInt(InputView.inputRepeatNumber());
     }
 
-    public void repeatCarForward() {
+    public void racingStart() {
+        OutputView.printResult();
         for (int i = 0; i < repeatNumber; i++) {
             carController.carForward();
         }
