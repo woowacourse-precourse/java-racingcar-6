@@ -28,5 +28,12 @@ public class Application {
             return current_location;
         }
 
+        private void printCurrentLocation(){
+            System.out.print(car_name + " : ");
+            for (int cnt; cnt < current_location; cnt++){
+                System.out.print("-");
+            }
+            System.out.println();
+        }
     }
 }
