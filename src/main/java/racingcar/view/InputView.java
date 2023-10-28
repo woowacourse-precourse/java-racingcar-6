@@ -5,13 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InputView {
+    private final String DELIMITER = ",";
+
     public List<String> getCarNames() {
         try {
             String carNamesRawData = Console.readLine();
 
             validateNull(carNamesRawData);
 
-            String[] splitCarNamesByComma = carNamesRawData.split(",");
+            String[] splitCarNamesByComma = carNamesRawData.split(DELIMITER);
             List<String> carNames = new ArrayList<>();
             for (int idx = 0; idx < splitCarNamesByComma.length; idx++) {
                 validateCarNameLength(splitCarNamesByComma[idx]);
