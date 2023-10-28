@@ -26,7 +26,7 @@ public class InputViewTest {
     @Test
     void 자동차_이름이_5글자보다_긴_경우_예외_발생() {
         // given
-        String userInput = "Morning,Tico";
+        String userInput = "Lamborghini,bugatti";
         InputStream in = new ByteArrayInputStream(userInput.getBytes());
         System.setIn(in);
         // when & then
