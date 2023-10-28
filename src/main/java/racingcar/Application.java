@@ -31,6 +31,10 @@ public class Application {
         }
     }
 
+    public static int integerTime(String time) {
+        return Integer.parseInt(time);
+    }
+
 
 
     public static void main(String[] args) {
@@ -41,6 +45,7 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
         String time = Console.readLine();
+        int realTime = integerTime(time);
         Console.close();
 
 
