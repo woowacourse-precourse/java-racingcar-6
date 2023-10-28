@@ -34,4 +34,9 @@ public class OutputView {
     public void notifyBeforeResult() {
         System.out.println("\n실행결과");
     }
+
+    public void printWinners(String winners) {
+
+        System.out.println("최종 우승자 : " + winners);
+    }
 }
