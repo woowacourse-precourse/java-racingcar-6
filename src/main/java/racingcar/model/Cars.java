@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import racingcar.constants.ErrorMessage;
+import racingcar.constants.GameResultElement;
 import racingcar.exception.CarsCountException;
 import racingcar.exception.NotFoundCarPositionException;
 
@@ -31,6 +32,14 @@ public class Cars {
                 .forEach(car -> stringBuilder.append(car.statusCarPosition()));
 
         return stringBuilder.toString();
+    }
+
+    public String getFinalWinners(){
+        List<String> winners = racingCars.stream()
+                .filter(car -> car.getPosition() == findMaxCarPosition())
+                .map(Car::getName)
+                .toList();
+        return String.join(GameResultElement.COMMA.getElement(), winners);
     }
 
     private int findMaxCarPosition() {

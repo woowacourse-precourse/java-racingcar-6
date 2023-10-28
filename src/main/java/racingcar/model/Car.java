@@ -39,6 +39,10 @@ public class Car {
         return stringBuilder.toString();
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getPosition() {
         return position;
     }
