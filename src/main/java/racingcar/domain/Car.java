@@ -13,7 +13,7 @@ public class Car {
         return new Car(name);
     }
 
-    public static void updatePosition(){
-
+    public void updatePosition(){
+        this.position++;
     }
 }

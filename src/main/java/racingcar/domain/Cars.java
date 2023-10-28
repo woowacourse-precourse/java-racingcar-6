@@ -21,4 +21,7 @@ public class Cars {
             carList.add(Car.of(carName));
         }
     }
+    public List<Car> getCarList(){
+        return this.carList;
+    }
 }
