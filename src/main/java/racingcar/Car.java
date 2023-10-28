@@ -18,7 +18,9 @@ public class Car {
         Set<String> carNames = this.racingLineup.keySet();
         for (String name : carNames) {
             increaseCarPosition(name);
+            printOutCarPosition(name);
         }
+        System.out.println();
     }
 
     boolean checkCarMove() {
@@ -30,6 +32,14 @@ public class Car {
         if (checkCarMove()) {
             this.racingLineup.put(name, this.racingLineup.get(name) + 1);
         }
+    }
+
+    void printOutCarPosition(String name) {
+        System.out.printf("%s : ",name);
+        for (int i=0; i<this.racingLineup.get(name); i++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 
 }
