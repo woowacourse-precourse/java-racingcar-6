@@ -3,6 +3,7 @@ package racingcar.game;
 import java.util.List;
 import racingcar.circuit.Circuit;
 import racingcar.domain.car.Car;
+import racingcar.domain.trial.Trial;
 import racingcar.game.validate.EmptyCarNamesValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -21,6 +22,7 @@ public class RacingGame {
 
     public void start() {
         setUpCars();
+        Trial trial = receiveTrial();
     }
 
     private void setUpCars() {
@@ -33,5 +35,11 @@ public class RacingGame {
         List<String> carNames = inputView.getCarNames();
         EmptyCarNamesValidator.validate(carNames);
         return carNames;
+    }
+
+    private Trial receiveTrial() {
+        outputView.inputTrial();
+        String trial = inputView.getRacingTrial();
+        return new Trial(Integer.valueOf(trial));
     }
 }
