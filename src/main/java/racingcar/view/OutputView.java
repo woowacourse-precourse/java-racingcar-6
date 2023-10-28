@@ -14,6 +14,6 @@ public class OutputView {
     }
 
     public void printWinner(String winner) {
-        System.out.println(winner);
+        System.out.println(WINNER + winner);
     }
 }
