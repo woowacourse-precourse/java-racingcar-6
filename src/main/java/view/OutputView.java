@@ -5,9 +5,6 @@ import domain.Car;
 import java.util.List;
 
 public class OutputView {
-    public static void printException(String message) {
-        System.out.println(message);
-    }
 
     public static void printPlayResult() {
         System.out.println();

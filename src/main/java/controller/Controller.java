@@ -56,13 +56,8 @@ public class Controller {
     }
 
     private String checkAllValidationOfCar(String input) {
-        try {
-            validator.checkCarNamesInput(input, parser.parseCarNames(input));
-            return input;
-        } catch (IllegalArgumentException e) {
-            OutputView.printException(e.getMessage());
-            return getCarNamesInput();
-        }
+        validator.checkCarNamesInput(input, parser.parseCarNames(input));
+        return input;
     }
 
     private List<Car> getCarList() {
@@ -79,14 +74,8 @@ public class Controller {
     }
 
     private String checkAllValidationOfTrial(String input) {
-        try {
-            validator.checkTrialNumberInput(input);
-            return input;
-        } catch(IllegalArgumentException e) {
-            OutputView.printException(e.getMessage());
-            return getTrialNumberByInput();
-        }
-
+        validator.checkTrialNumberInput(input);
+        return input;
     }
 
 }
