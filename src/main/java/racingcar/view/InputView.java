@@ -1,16 +1,15 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.RacingCars;
 
 public class InputView {
-    public RacingCars getCars() {
+    public static String askCarName() {
         String input = Console.readLine();
 //        validateCars(input);
-        return RacingCars.stringToRacingCars(input);
+        return input;
     }
 
-    public static int getPlayTime() {
+    public static int askPlayTime() {
         return 0;
     }
 }
