@@ -8,6 +8,9 @@ public class OutputView {
     private static final String ASK_ATTEMPT = "시도할 회수는 몇회인가요?";
     private static final String GAME_RESULT = "실행 결과";
     private static final String FINAL_WINNER = "최종 우승자";
+    private static final String PRINT_GAME_RESULT_FORMAT = "\n%s";
+    private static final String PRINT_FINAL_WINNER_FORMAT = "%s : %s";
+    private static final String BLANK_STRING = "";
 
     public void printStartGame() {
         println(START_GAME);
@@ -18,31 +21,29 @@ public class OutputView {
     }
 
     public void printGameResult() {
-        String message = String.format("\n%s", GAME_RESULT);
-        println(message);
+        println(String.format(PRINT_GAME_RESULT_FORMAT, GAME_RESULT));
     }
 
-    public void printFinalWinner(String winner) {
-        String message = String.format("%s : %s", FINAL_WINNER, winner);
-        print(message);
+    public void printFinalWinner(final String winner) {
+        print(String.format(PRINT_FINAL_WINNER_FORMAT, FINAL_WINNER, winner));
     }
 
-    public void printRank(Cars cars) {
+    public void printRank(final Cars cars) {
         for (String carInfo : cars.receiveCurrentRank()) {
             println(carInfo);
         }
         println();
     }
 
-    private void print(String message) {
+    private void print(final String message) {
         System.out.print(message);
     }
 
-    private void println(String message) {
+    private void println(final String message) {
         System.out.println(message);
     }
 
     private void println() {
-        println("");
+        println(BLANK_STRING);
     }
 }
