@@ -9,14 +9,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
+
 public class RacingCarGameController {
     private final InputView inputView;
+    private final OutputView outputView;
     private final List<Car> cars;
 
 
     public RacingCarGameController() {
-
         this.inputView = new InputView();
+        this.outputView = new OutputView();
         this.cars = new ArrayList<>();
     }
 
@@ -32,15 +35,17 @@ public class RacingCarGameController {
 
         int index = 0;
 
+        System.out.println();
+        System.out.println("실행 결과");
+
         while (index < moveCount) {
             moveCarForward();
+            outputView.printPositions(cars);
             index++;
         }
 
         List<Car> winners = findWinners();
-
-
-
+        outputView.printWinners(winners);
 
     }
 
