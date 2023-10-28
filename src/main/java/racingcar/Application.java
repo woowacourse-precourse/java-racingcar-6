@@ -27,7 +27,7 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         // 자동차 만들기
-        List<Car> cars = makeCars();
+        List<Car> cars = makeCars(inputCars());
 
         // 자동차 경주 진행
         int attempts = getAtteptsNum();
@@ -36,24 +36,37 @@ public class Application {
         // 결과
         printWinners(getWinners(cars));
     }
-    public static List <Car> makeCars() throws IllegalArgumentException{
+
+    public static String[] inputCars() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+
+        // 입력받은 자동차 이름 names에 저장
+        String[] carNames = Console.readLine().split(",");
+
+        return carNames;
+
+    }
+    public static List <Car> makeCars(String[] carNames){
 
         List<Car> cars = new ArrayList<>();
 
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
-        // 입력받은 자동차 이름 cars에 저장
-        String[] carNames = Console.readLine().split(",");
         for(String name : carNames){
 
             // 예외처리
-            if(name.length() > 5){
-                throw new IllegalArgumentException();
-            }
+            name = name.trim();
+            isException(name);
+
             cars.add(new Car(name));
         }
 
         return cars;
+    }
+
+    public static void isException(String name) throws IllegalArgumentException{
+        if(name.length() > 5){
+            throw new IllegalArgumentException();
+        }
     }
 
     public static int getAtteptsNum(){
