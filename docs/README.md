@@ -9,6 +9,6 @@
 	- [x] 각 차별로 0부터 9까지의 무작위 값을 생성한다. NumberGenerator#generate()
 	- [x] 무작위 값이 4 이상일 경우 전진한다. - MoveCarsService#moveCar()
 - [x] 시도 수만큼 자동차들의 이름과 위치를 출력한다. - OutputView#printExecutionResult()
-- [x] 우승자를 구한다. = PickWinnerService#pickWinner()
-- [x] 최종 우승한 자동차들을 출력한다. OutputView#printWinner()
-	- [ ] 우승한 자동차의 이름을 쉼표로 구분한다.
+- [x] 우승자를 구한다. - PickWinnerService#pickWinner()
+- [x] 최종 우승한 자동차들을 출력한다. - OutputView#printWinner()
+	- [x] 우승한 자동차의 이름을 쉼표로 구분한 메세지를 리턴한다.  - PickWinnerService#printWinner()
