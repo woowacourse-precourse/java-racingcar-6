@@ -7,6 +7,13 @@ import java.util.stream.Collectors;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
+    public List<String> inputCarNames() {
+        String userInput = Console.readLine();
+        List<String> carNameList = splitCarNames(userInput);
+        carNameValidaition(carNameList);
+        return carNameList;
+    }
+
     private List<String> splitCarNames(String userInput) {
         return Arrays.stream(userInput.split(","))
                 .map(String::trim)
@@ -22,17 +29,10 @@ public class InputView {
                 });
     }
 
-    public List<String> inputCarNames() {
+    public int inputTryCount() {
         String userInput = Console.readLine();
-        List<String> carNameList = splitCarNames(userInput);
-        carNameValidaition(carNameList);
-        return carNameList;
-    }
-
-    private void negativeValidaition(int tryCount) throws IllegalArgumentException {
-        if (tryCount < 0) {
-            throw new IllegalArgumentException("시도 횟수는 0이상의 정수여야 합니다.");
-        }
+        tryCountValidaition(userInput);
+        return Integer.parseInt(userInput);
     }
 
     private void tryCountValidaition(String userInput) throws IllegalArgumentException {
@@ -44,9 +44,9 @@ public class InputView {
         }
     }
 
-    public int inputTryCount() {
-        String userInput = Console.readLine();
-        tryCountValidaition(userInput);
-        return Integer.parseInt(userInput);
+    private void negativeValidaition(int tryCount) throws IllegalArgumentException {
+        if (tryCount < 0) {
+            throw new IllegalArgumentException("시도 횟수는 0이상의 정수여야 합니다.");
+        }
     }
 }
