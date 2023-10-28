@@ -2,7 +2,7 @@ package racingcar.domain.car.view;
 
 import racingcar.domain.util.OutputMessage;
 
-public class OutputView {
+public class CarOutputView {
     public static void printEndGame() {
         System.out.print(OutputMessage.PRINT_FINAL_WINNER.getMessage());
     }

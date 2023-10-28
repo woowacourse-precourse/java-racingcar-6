@@ -1,34 +1,34 @@
 package racingcar.domain.car.controller;
 
-import racingcar.domain.car.service.GameService;
-import racingcar.domain.car.view.InputView;
-import racingcar.domain.car.view.OutputView;
+import racingcar.domain.car.service.CarService;
+import racingcar.domain.car.view.CarInputView;
+import racingcar.domain.car.view.CarOutputView;
 
 import java.util.List;
 
-public class GameController {
+public class CarController {
 
-    private final GameService gameService;
+    private final CarService gameService;
 
-    public GameController(GameService gameService) {
+    public CarController(CarService gameService) {
         this.gameService = gameService;
     }
 
     public void startGame() {
-        InputView.printGameStart();
-        String carNames = InputView.receiveUserInput();
+        CarInputView.printGameStart();
+        String carNames = CarInputView.receiveUserInput();
         gameService.saveCars(carNames);
     }
 
     public void receiveTryCount() {
-        InputView.printTryCount();
-        String userInput = InputView.receiveUserInput();
+        CarInputView.printTryCount();
+        String userInput = CarInputView.receiveUserInput();
         System.out.println();
         gameService.startGame(Integer.parseInt(userInput));
     }
 
     public void endGame() {
-        OutputView.printEndGame();
+        CarOutputView.printEndGame();
         List<String> winners = gameService.getWinner();
         String result = String.join(", ", winners);
         System.out.print(result);

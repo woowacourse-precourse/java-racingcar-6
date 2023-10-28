@@ -3,17 +3,17 @@ package racingcar.domain.car.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.dao.CarRepository;
-import racingcar.domain.car.view.OutputView;
+import racingcar.domain.car.view.CarOutputView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class GameService {
+public class CarService {
 
     private final CarRepository carRepository;
 
-    public GameService(CarRepository carRepository) {
+    public CarService(CarRepository carRepository) {
         this.carRepository = carRepository;
     }
 
@@ -47,7 +47,7 @@ public class GameService {
     }
 
     public void startGame(int tryCount) {
-        OutputView.printRoundResult();
+        CarOutputView.printRoundResult();
         for (int i = 0; i < tryCount; i++) {
 //            int randomNumber = Randoms.pickNumberInRange(0, 9);
             List<Car> findCars = carRepository.findAll();
