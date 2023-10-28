@@ -1,6 +1,7 @@
 package racingcar.input;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
@@ -30,7 +31,7 @@ class InputManagerTest {
     @DisplayName("이름 정상 입력시 리스트 반환")
     void 이름_정상_입력() {
         provideInput("pobi,woni,jun");
-        assertThat(manager.inputNames())
+        assertThat(manager.inputCarNames())
                 .isEqualTo(List.of("pobi", "woni", "jun"));
     }
 
@@ -38,7 +39,7 @@ class InputManagerTest {
     @DisplayName("이름길이 초과시 예외발생")
     void 이름길이_초과시_예외발생() {
         provideInput("pobi,wonidd,jun");
-        Assertions.assertThatThrownBy(() -> manager.inputNames())
+        assertThatThrownBy(() -> manager.inputCarNames())
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
