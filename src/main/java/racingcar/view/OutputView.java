@@ -10,4 +10,8 @@ public class OutputView {
     public void printRequestCarNameMessage() {
         System.out.println(CAR_NAME_INPUT_MSG);
     }
+
+    public void printRequestCountMessage() {
+        System.out.println(TRIAL_COUNT_INPUT_MSG);
+    }
 }
