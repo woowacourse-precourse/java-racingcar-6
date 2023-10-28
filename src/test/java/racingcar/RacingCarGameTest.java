@@ -4,12 +4,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
+import racingcar.model.Number;
 import racingcar.util.TestUtil;
 
 class RacingCarGameTest extends NsTest {
@@ -79,6 +81,57 @@ class RacingCarGameTest extends NsTest {
         // when, then
         assertThatThrownBy(() -> {
             method.invoke(racingCarGame, (Object) name);
+        })
+                .isInstanceOf(InvocationTargetException.class)
+                .hasCauseInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("진행 횟수 입력 받기")
+    @Test
+    void readFullRound()
+            throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        // given
+        final String fullRound = "3";
+        final int fullRoundNum = Integer.parseInt(fullRound);
+        Method method = getAccessibleMethod("readFullRound");
+
+        // when
+        run(fullRound);
+        Number round = (Number) method.invoke(racingCarGame);
+
+        // then 정상적으로 처리되어 반환했는지 확인
+        assertThat(round.getNumber()).isEqualTo(fullRoundNum);
+    }
+
+    @DisplayName("잘못된 진행 횟수 입력 받기: 0")
+    @Test
+    void readFullRoundThrowCase1()
+            throws NoSuchMethodException {
+        // given
+        final String fullRound = "0";
+        Method method = getAccessibleMethod("readFullRound");
+
+        // when, then
+        run(fullRound);
+        assertThatThrownBy(() -> {
+            Number round = (Number) method.invoke(racingCarGame);
+        })
+                .isInstanceOf(InvocationTargetException.class)
+                .hasCauseInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("잘못된 진행 횟수 입력 받기: -1 (음수)")
+    @Test
+    void readFullRoundThrowCase2()
+            throws NoSuchMethodException, NoSuchFieldException {
+        // given
+        final String fullRound = "-1";
+        Method method = getAccessibleMethod("readFullRound");
+
+        // when, then
+        run(fullRound);
+        assertThatThrownBy(() -> {
+            Number round = (Number) method.invoke(racingCarGame);
         })
                 .isInstanceOf(InvocationTargetException.class)
                 .hasCauseInstanceOf(IllegalArgumentException.class);
