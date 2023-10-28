@@ -6,12 +6,12 @@
 
 ---
 
-- [ ] 자동차의 이름을 입력받는다. UserInput#inputCarNames()
-    - [ ] 입력받은 모든 자동차의 이름을 쉼표(,)로 나누어 저장할 수 있어야 한다. UserInput#splitInput()
+- [x] 자동차의 이름을 입력받는다. UserInput#inputCarNames()
+
+
+- [x] 자동차에 이름을 부여한다. Race#setcarNames()
+    - [x] 입력받은 모든 자동차의 이름을 쉼표(,)로 나누어 저장할 수 있어야 한다.
     - [ ] 이름이 5자 초과면 예외가 발생해야 한다. ExceptionChecker#checkNameLength5()
-
-
-- [ ] 자동차에 이름을 부여한다. Car#setName()
 
 
 - [ ] 몇 번의 이동을 할 것인지 입력받는다. UserInput#getMoveTimes()
