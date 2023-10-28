@@ -17,7 +17,6 @@ public class RacingGame {
         System.out.println("실행 결과");
         for (int i = 0; i < tryCount.getValue(); i++) {
             cars.move();
-            System.out.println(cars);
         }
         System.out.println(cars.getWinners());
     }

@@ -20,5 +20,7 @@ public class Application {
         int tryCount = Integer.parseInt(Console.readLine());
 
         RacingGame racingGame = new RacingGame(carNames, tryCount);
+        racingGame.start();
+
     }
 }
