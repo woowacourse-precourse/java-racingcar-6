@@ -1,4 +1,4 @@
-package racingcar.game.car;
+package racingcar.game.domain;
 
 public class Car implements Comparable<Car> {
     private final String name;

@@ -1,4 +1,4 @@
-package racingcar.game.car;
+package racingcar.game.domain;
 
 public interface CarEngine {
     boolean checkWorking();

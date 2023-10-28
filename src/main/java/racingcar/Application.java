@@ -1,8 +1,8 @@
 package racingcar;
 
 import racingcar.game.Game;
+import racingcar.game.Game.RacingCarGame;
 import racingcar.game.GameManager;
-import racingcar.game.car.RacingCarGame;
 
 public class Application {
     public static void main(String[] args) {

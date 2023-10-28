@@ -2,7 +2,7 @@ package racingcar.io;
 
 import java.util.Arrays;
 import java.util.List;
-import racingcar.constant.StringConstants;
+import racingcar.game.constant.StringConstants;
 
 public class Input {
     public static List<String> inputPlayers() throws PlayerNameFormatException {
