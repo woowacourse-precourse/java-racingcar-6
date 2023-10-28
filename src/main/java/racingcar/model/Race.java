@@ -16,7 +16,7 @@ public class Race {
 		this.cars = cars;
 	}
 
-	public void moveAllCarsForward(List<Car> cars) {
+	public void moveAllCarsForward() {
 		int randomValue = 0;
 
 		for (Car car : cars) {
@@ -28,7 +28,7 @@ public class Race {
 		}
 	}
 
-	public void displayAllCarsPosition(List<Car> cars) {
+	public void displayAllCarsPosition() {
 		for (Car car : cars) {
 			OutputView.printCarPosition(car.getName(), car.getPosition());
 		}
@@ -36,8 +36,8 @@ public class Race {
 		OutputView.printNewLine();
 	}
 
-	public List<Car> findWinners(List<Car> cars) {
-		List<Car> sortedCars = sortCarsByPosition(cars);
+	public List<Car> findWinners() {
+		List<Car> sortedCars = sortCarsByPosition();
 		int maxPosition = sortedCars.get(0).getPosition();
 
 		return sortedCars.stream()
@@ -45,7 +45,7 @@ public class Race {
 			.collect(Collectors.toList());
 	}
 
-	private List<Car> sortCarsByPosition(List<Car> cars) {
+	private List<Car> sortCarsByPosition() {
 		return cars.stream()
 			.sorted(Comparator.comparingInt(Car::getPosition).reversed())
 			.collect(Collectors.toList());
