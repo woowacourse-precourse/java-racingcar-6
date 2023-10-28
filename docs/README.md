@@ -11,7 +11,7 @@
 - [X] 자동차 이름이 5자 이하인지 판단하는 기능 - CarName.*isNameUnder5Characters*
 - [X] 자동차 이름이 공백인지 확인하는 기능 - CarName.*isCarNameEmpty*
 - [X] 자동차를 전진시키는 기능 - CarPosition.*moveCarForward*
-- [] 랜덤 값을 생성하는 기능 - Application.*generateRandomNumber*
+- [X] 랜덤 값을 생성하는 기능 - Application.*generateRandomNumber*
 - [] 우승자가 누구인지 판별하는 기능 - Application.*calculateWhoAreTheWinners*
 - [] 각 차수별 실행 결과를 출력하는 기능 - Application.*printCurrentRacingResult*
 - [] 우승자를 출력하는 기능 - Application.*printRaceWinners*
