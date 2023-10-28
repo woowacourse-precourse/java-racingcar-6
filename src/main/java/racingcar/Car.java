@@ -43,7 +43,7 @@ public class Car {
         isWinner = winner;
     }
 
-    List<Car> makeCarObject(List<String> carNameList) {
+    static List<Car> makeCarList(List<String> carNameList) {
         return null;
     }
 }
