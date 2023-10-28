@@ -30,4 +30,22 @@ public class Control {
         Validation.validateNumber(rounds);
     }
 
+    private void raceProcess() {
+        // round당 실행 시작
+        System.out.print("실행결과");
+
+        for (int i = 0; i < rounds; i++) {
+            System.out.println();
+            for (int j = 0; j < carNames.length; j++) {
+                // 랜덤으로 숫자 생성하면
+                int randomNumber = CarService.generateRandomNumber();
+                // 랜덤 넘버가 4이상이면 carPositions 리스트의 해당 위치(j)에 1씩 더해줌
+                if (randomNumber >= 4) {
+                    carPositions.set(j, carPositions.get(j) + 1);
+                }
+                OutputView.printRacingStatus(carNames[j], carPositions.get(j));
+            }
+        }
+    }
+
 }
