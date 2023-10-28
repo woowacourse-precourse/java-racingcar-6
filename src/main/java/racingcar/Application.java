@@ -14,11 +14,11 @@ public class Application {
 
 
         view.printAskCarName();
-        String carNames = controller.getCarNames();
-        String[] carNamesArray = carNames.split(",");
+        String carNames = controller.getCarNamesInput();
+        String[] carNamesArray = carNames.split(","); // 메서드화 하기(split & []->List<Car>)
         gameData.setCarList(carNamesArray.length);
 
-        controller.splitCarNameInput(carNamesArray, gameData.getCarList());
+        controller.splitCarNameInput(carNamesArray, gameData.getCarList());//gameData.getCarList() 리펙토링 고려해보기
 
     }
 }
