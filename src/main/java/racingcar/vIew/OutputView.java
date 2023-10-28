@@ -11,10 +11,10 @@ public class OutputView {
         System.out.println(gameResultOutputMessage);
     }
 
-    public static void gameReslutOutput(HashMap<String, String> gameResultMap) {
+    public static void gameReslutOutput(HashMap<String, String> gameResult) {
 
-        for (String car : gameResultMap.keySet()) {
-            System.out.println(car + " : " + gameResultMap.get(car));
+        for (String car : gameResult.keySet()) {
+            System.out.println(car + " : " + gameResult.get(car));
         }
         System.out.println();
 
