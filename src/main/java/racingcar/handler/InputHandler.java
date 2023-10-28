@@ -3,11 +3,13 @@ package racingcar.handler;
 import java.util.ArrayList;
 import java.util.List;
 
+import static racingcar.constants.ExceptionMessageConstants.*;
+
 public class InputHandler {
 
     public List<String> convertNamesToNameList(String names) {
         if (names == null || names.trim().isEmpty()) {
-            throw new IllegalArgumentException("입력값이 잘못되었습니다.");
+            throw new IllegalArgumentException(NULL_NOT_ALLOWED);
         }
 
         String[] nameArray = names.split(",");
@@ -26,25 +28,25 @@ public class InputHandler {
 
     public int convertAttemptsToInt(String inputAttempts) {
         if (inputAttempts == null || inputAttempts.trim().isEmpty()) {
-            throw new IllegalArgumentException("입력값이 잘못되었습니다.");
+            throw new IllegalArgumentException(NULL_NOT_ALLOWED);
         }
 
         try {
             return Integer.parseInt(inputAttempts);
         } catch (Exception e) {
-            throw new IllegalArgumentException("입력값이 잘못되었습니다.");
+            throw new IllegalArgumentException(INVALID_NUMBER_INPUT);
         }
     }
 
     private void validName(String trimName, List<String> nameList) {
         if (trimName.isEmpty()) {
-            throw new IllegalArgumentException("입력값이 잘못되었습니다.");
+            throw new IllegalArgumentException(NULL_NOT_ALLOWED);
         }
         if (nameList.contains(trimName)) {
-            throw new IllegalArgumentException("입력값이 잘못되었습니다.");
+            throw new IllegalArgumentException(DUPLICATE_NAME_NOT_ALLOWED);
         }
         if (trimName.length() >= 5) {
-            throw new IllegalArgumentException("입력값이 잘못되었습니다.");
+            throw new IllegalArgumentException(INVALID_NAME_LENGTH);
         }
     }
 }
