@@ -25,6 +25,20 @@ public class LeaderBoard {
 
             System.out.println();
         }
+
+        showResult(currentPaceMap);
+    }
+
+    private void showResult(LinkedHashMap<String, Integer> paceMap) {
+        int largestDriveNumber = paceMap.values().stream().max(Integer::compareTo).orElse(0);
+
+        String winners = paceMap.entrySet()
+                .stream()
+                .filter(driveSuccessNumber -> driveSuccessNumber.getValue().equals(largestDriveNumber))
+                .map(Map.Entry::getKey)
+                .collect(Collectors.joining(","));
+
+        System.out.print("최종 우승자 : " + winners);
     }
 
     private String convertPaceToGraphic(int driveSuccessNumber) {
