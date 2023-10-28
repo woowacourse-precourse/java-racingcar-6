@@ -23,6 +23,10 @@ public class Car {
         return number >= DIVISION_NUMBER;
     }
 
+    public boolean isSamePosition(int maxPosition) {
+        return this.position == maxPosition;
+    }
+
     private void validateNameLength(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차 이름 길이의 범위를 벗어났습니다.");
