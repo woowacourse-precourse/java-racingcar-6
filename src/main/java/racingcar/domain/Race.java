@@ -30,14 +30,6 @@ public class Race {
         return new ArrayList<>(cars);
     }
 
-    public String getWinnerNamesToString() {
-        List<String> winnerNames = getWinners().stream()
-                .map(Car::getName)
-                .toList();
-
-        return String.join(",", winnerNames);
-    }
-
     public List<Car> getWinners() {
         List<Car> winners = new ArrayList<>();
         int maxPosition = 0;

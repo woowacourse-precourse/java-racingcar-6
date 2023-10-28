@@ -25,7 +25,7 @@ public class RacingGame {
             OutputView.printProgress(race.getCars());
         }
 
-        OutputView.printRacingWinner(race.getWinnerNamesToString());
+        OutputView.printRacingWinner(race.getWinners());
     }
 
     private String inputAndValidateCarNames() {
