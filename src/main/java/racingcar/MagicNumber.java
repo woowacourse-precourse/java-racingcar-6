@@ -11,4 +11,8 @@ public enum MagicNumber {
     MagicNumber(int magicNumber) {
         this.magicNumber = magicNumber;
     }
+
+    public int getValue() {
+        return magicNumber;
+    }
 }
