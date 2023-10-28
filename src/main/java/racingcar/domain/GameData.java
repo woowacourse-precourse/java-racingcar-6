@@ -3,15 +3,16 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 public class GameData {
 
-    private Integer tryRepetitionNumber;
+    private Integer repetitionNumber;
     private List<String> winnerList;
     private List<Car> carList;
+
+
 
     public List<String> getWinnerList() {
         return winnerList;
@@ -36,14 +37,18 @@ public class GameData {
         }
     }
 
-    public Integer getTryRepetitionNumber() {
-        return tryRepetitionNumber;
+    public Integer getrepetitionNumber() {
+        return repetitionNumber;
     }
 
-    public void setTryRepetitionNumber() {
+    public String getrepetitionNumberInput() {
         String repetitionNumberInput = Console.readLine();
         System.out.println();
-        this.tryRepetitionNumber = Integer.parseInt(repetitionNumberInput);
+        return repetitionNumberInput;
+    }
+
+    public void changeRepetitionNumberType(String repetitionNumberInput) {
+        this.repetitionNumber = Integer.parseInt(repetitionNumberInput);
     }
 
     public void sortCarListByRank() {
