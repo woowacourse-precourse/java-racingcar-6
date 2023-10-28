@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import static racingcar.constants.MessageConstant.INPUT_SEPARATOR;
+import static racingcar.constants.MessageConstant.WINNER_NAME_SEPARATOR;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,7 +20,12 @@ public class CarGameService {
     }
 
     public String receiveWinnerNames(final Cars cars) {
-        return cars.selectWinnerNames();
+        List<String> winnerNames = cars.selectWinnerNames();
+        return joinWinnerNames(winnerNames);
+    }
+
+    private String joinWinnerNames(final List<String> winnerNames) {
+        return String.join(WINNER_NAME_SEPARATOR, winnerNames);
     }
 
     private List<String> convertToList(final String input) {

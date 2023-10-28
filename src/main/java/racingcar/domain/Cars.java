@@ -1,12 +1,11 @@
 package racingcar.domain;
 
 import static racingcar.constants.MessageConstant.INVALID_INPUT_MESSAGE;
-import static racingcar.constants.MessageConstant.WINNER_NAME_SEPARATOR;
 import static racingcar.constants.NumberConstant.RANDOM_NUMBER_LIMIT;
+import static racingcar.utils.Randoms.pickNumberInRange;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.utils.Randoms;
 
 public class Cars {
 
@@ -33,14 +32,9 @@ public class Cars {
         }
     }
 
-    public String selectWinnerNames() {
+    public List<String> selectWinnerNames() {
         int maxMove = receiveMaxMove();
-        List<String> winnerNames = selectWinnerNames(maxMove);
-        return joinWinnerNames(winnerNames);
-    }
-
-    private String joinWinnerNames(final List<String> winnerNames) {
-        return String.join(WINNER_NAME_SEPARATOR, winnerNames);
+        return selectWinnerNames(maxMove);
     }
 
     private List<String> selectWinnerNames(final int maxMove) {
@@ -62,7 +56,7 @@ public class Cars {
             return;
         }
 
-        Car targetCar = getCarByIndex(index).increaseMove();
+        Car targetCar = getByIndex(index).increaseMove();
         moveForward(index, targetCar);
     }
 
@@ -71,10 +65,10 @@ public class Cars {
     }
 
     private boolean isRandomNumberNotInRange() {
-        return Randoms.pickNumberInRange() < RANDOM_NUMBER_LIMIT;
+        return pickNumberInRange() < RANDOM_NUMBER_LIMIT;
     }
 
-    private Car getCarByIndex(final int index) {
+    private Car getByIndex(final int index) {
         return cars.get(index);
     }
 
