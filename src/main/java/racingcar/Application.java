@@ -72,6 +72,7 @@ public class Application {
                 User.put(key , User.get(key)+1);
             }
             System.out.print(key + " : ");
+            ShowMove(key);
 
         }
     }
@@ -79,6 +80,14 @@ public class Application {
     {
         return 4<=Randoms.pickNumberInRange(0,9);
     }
-
+    public static void ShowMove(String key)
+    {
+        int i = User.get(key);
+        for(int j=0;j<i;j++)
+        {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
 }
 
