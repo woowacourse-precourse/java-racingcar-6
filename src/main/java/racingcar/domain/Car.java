@@ -17,4 +17,7 @@ public class Car {
     public int getLocation(){
         return this.location;
     }
+    public String toString(){
+        return this.name + " : " + "-".repeat(this.location);
+    }
 }
