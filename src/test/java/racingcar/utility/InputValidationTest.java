@@ -57,6 +57,18 @@ class InputValidationTest {
 	}
 
 	@Test
+	void 라운드_입력이_음수일_경우() {
+		String input = "-3";
+		numberException(input, NEGATIVE_ERROR.getMessage());
+	}
+
+	@Test
+	void 라운드_입력이_0일_경우() {
+		String input = "0";
+		assertThat(Long.parseLong(input)).isEqualTo(validateNumber(input));
+	}
+
+	@Test
 	void 라운드_숫자_정상입력() {
 		String input = "5";
 		assertThat(Long.parseLong(input)).isEqualTo(validateNumber(input));

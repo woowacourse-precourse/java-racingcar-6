@@ -16,7 +16,11 @@ public class InputValidation {
 
 	public static Long validateNumber(String input) {
 		try {
-			return Long.parseLong(input);
+			long roundCount = Long.parseLong(input);
+			if (roundCount < 0) {
+				throw new IllegalArgumentException("\"" + input + "\"" + NEGATIVE_ERROR.getMessage());
+			}
+			return roundCount;
 		} catch (NumberFormatException e) {
 			throw new IllegalArgumentException("\"" + input + "\"" + NUMBER_ERROR.getMessage());
 		}
