@@ -16,15 +16,16 @@ public class RacingCarView {
     }
 
     public void printResultMessage(List<Car> cars) {
-        StringBuilder sb = new StringBuilder();
+        StringJoiner sj = new StringJoiner("\n");
 
-        sb.append("실행 결과\n");
+        sj.add("실행 결과");
+
         for (Car car : cars) {
-            sb.append(getCarStatusLabel(car));
+            sj.add(getCarStatusLabel(car));
         }
-        sb.append('\n');
+        sj.add("");
 
-        System.out.println(sb);
+        System.out.println(sj);
     }
 
     public void printWinnerMessage(RaceResult raceResult) {
