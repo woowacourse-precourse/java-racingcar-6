@@ -33,4 +33,12 @@ class GameTest {
         assertThat(car2.getMoveNum()).isEqualTo(1);
         assertThat(car3.getMoveNum()).isEqualTo(0);
     }
+
+    @Test
+    void 라운드_증가_확인() {
+        Game game = new Game(Arrays.asList(new Car("test")), 5);
+        int initialRound = game.getCurrentRound();
+        game.increaseRound();
+        assertThat(game.getCurrentRound()).isEqualTo(initialRound + 1);
+    }
 }
