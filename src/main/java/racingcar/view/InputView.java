@@ -7,11 +7,11 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
 	public void printNamesRequest() {
-		System.out.println(NAMES_REQUEST.getRequestMessage());
+		System.out.println(NAMES_REQUEST.getValue());
 	}
 
 	public void printRoundRequest() {
-		System.out.println(ROUND_REQUEST.getRequestMessage());
+		System.out.println(ROUND_REQUEST.getValue());
 	}
 
 	public String getInput() {
