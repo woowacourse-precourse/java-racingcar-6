@@ -14,7 +14,9 @@ public class CarCreator {
     }
 
     public List<Car> createCars(List<String> carNameList) {
-        return null;
+        return carNameList.stream()
+                .map(this::createCar)
+                .toList();
     }
 
     private List<String> arrayToList(String[] array) {
@@ -25,5 +27,9 @@ public class CarCreator {
         if (carName.isEmpty() || carName.length() > 5) {
             throw new IllegalArgumentException();
         }
+    }
+
+    private Car createCar(String carName) {
+        return new Car(carName);
     }
 }
