@@ -24,20 +24,23 @@ public class CarNames {
         return new CarNames(generateCarNames(input));
     }
 
-    public static List<CarName> generateCarNames(String input){
-        String[] names = splitByDelimiter(input);
+    public static List<CarName> generateCarNames(String input) {
+        List<String> names = splitByDelimiter(input);
         return createCarNames(names);
     }
 
-    public static String[] splitByDelimiter(String input) {
-        return input.split(NAME_DELIMITER);
+    public static List<String> splitByDelimiter(String input) {
+        return Arrays.asList(input.split(NAME_DELIMITER));
     }
 
-    public static List<CarName> createCarNames(String[] names){
-        return Arrays.stream(names)
-                .map(CarName::new)
-                .collect(Collectors.toList());
+    public static List<CarName> createCarNames(List<String> names) {
+        List<CarName> carNames = new ArrayList<>();
+        for(String name : names) {
+            carNames.add(new CarName(name));
+        }
+        return carNames;
     }
+
 
     private void validateDuplicate(List<CarName> carNames) {
         Set<CarName> seenNames = new HashSet<>();
