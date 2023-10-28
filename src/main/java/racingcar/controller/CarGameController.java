@@ -45,8 +45,6 @@ public class CarGameController {
                 throw new IllegalArgumentException();
             }
         }
-
-
     }
 
 
