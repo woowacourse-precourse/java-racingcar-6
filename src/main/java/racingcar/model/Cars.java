@@ -26,7 +26,7 @@ public class Cars {
 
     public void move() {
         for (Car car : carList) {
-            int randomNumber = Randoms.pickNumberInRange(MIN_RANGE, MAX_RANGE);
+            int randomNumber = getRandomNumber();
             car.moveForward(randomNumber);
         }
     }
@@ -41,9 +41,13 @@ public class Cars {
         int maxPosition = getMaxPosition();
 
         return carList.stream()
-                .filter(car -> car.getPosition()==maxPosition)
+                .filter(car -> car.getPosition() == maxPosition)
                 .map(car -> car.getName())
                 .toList();
+    }
+
+    private int getRandomNumber() {
+        return Randoms.pickNumberInRange(MIN_RANGE, MAX_RANGE);
     }
 
     private int getMaxPosition() {
