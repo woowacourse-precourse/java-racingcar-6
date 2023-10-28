@@ -12,7 +12,7 @@ class Print {
     }
 
     static void resultString() {
-        System.out.println("￦n실행 결과");
+        System.out.println("\n실행 결과");
     }
 
     private static void carStatus(Car car) {
