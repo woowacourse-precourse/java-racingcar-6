@@ -12,6 +12,13 @@ public class RaceController {
         setRace();
     }
 
+    public void play() {
+
+        for(int i = 0; i < playCount; i++) {
+            cars.play();
+        }
+    }
+
     private void setRace() {
         cars = setCar();
         playCount = setPlayCount();
