@@ -14,6 +14,7 @@ public class Move {
     }
 
     public void printProgress(List<String> carNameList, int move){
+
         int[] position = new int[carNameList.size()];
         System.out.println(position[0] + " " + position[1] + " " + position[2]);
         for(int i = 0; i < move; i++){
@@ -30,11 +31,15 @@ public class Move {
             System.out.println();
         }
         System.out.print("최종 우승자 : ");
+        int[] num = new int[position.length];
         for(int i = 0; i < position.length; i++){
             if(position[i] == Arrays.stream(position).max().getAsInt()){
+                if(i != 0){
+                    System.out.print(",");
+                }
                 System.out.print(carNameList.get(i));
+                num[i] = 1;
             }
-            System.out.print(", ");
         }
     }
 
