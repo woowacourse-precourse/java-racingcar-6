@@ -31,6 +31,7 @@ public class RacingGame {
         InputCarNames();//자동차 이름 입력, 정리 다 됨.
         getTryNumber();//시도 횟수 입력
         onRacing(cars,tryNum);
+        setWinner(ranking, cars);
 
     }
     public void InputCarNames(){
@@ -56,6 +57,11 @@ public class RacingGame {
 
         }
     }
+    public void setWinner(int[] ranking, ArrayList<String> cars){
+        winner.decideWinner(ranking, cars);
+        outputView.printWinner(winner.getWinnerList());
+    }
+
     public boolean isGo(){
         int go = 0;
         randomNumber.generateRandomNumber();

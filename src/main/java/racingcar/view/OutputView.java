@@ -15,4 +15,10 @@ public class OutputView {
             System.out.print('-');
         }
     }
+    public void printWinner(ArrayList<String> winnerList){
+        String winner = String.join(", ",winnerList);
+        System.out.print("최종 우승자 : ");
+        System.out.println(winner);
+
+    }
 }
