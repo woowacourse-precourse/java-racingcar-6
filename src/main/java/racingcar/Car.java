@@ -10,4 +10,9 @@ public class Car {
     void moveForward() {
         distance++;
     }
+
+    void stop() {
+
+    }
+
 }
