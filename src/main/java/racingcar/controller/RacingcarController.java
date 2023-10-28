@@ -7,12 +7,18 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingcarController {
-    InputView inputView = new InputView();
-    OutputView outputView = new OutputView();
+    InputView inputView;
+    OutputView outputView;
+
+    public RacingcarController(InputView inputView, OutputView outputView) {
+        this.inputView = inputView;
+        this.outputView = outputView;
+    }
+
 
     public void play() {
         Cars cars = createCars();
-        int totalRound = inputView.totalRound();
+        int totalRound = inputView.inputTotalRound();
         race(cars, totalRound);
         selectWinner(cars);
     }
@@ -38,6 +44,6 @@ public class RacingcarController {
     }
 
     private Cars createCars() {
-        return new Cars(inputView.carsName());
+        return new Cars(inputView.inputCarsName());
     }
 }
