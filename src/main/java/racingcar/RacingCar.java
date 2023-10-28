@@ -7,23 +7,24 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static java.lang.Math.max;
+
 public class RacingCar {
     private List<Car> cars = new ArrayList<>();
-    private int playCount;
+    private int round;
 
     public void playGame() {
         startGame();
         System.out.println("실행 결과");
-        for (int i = 0; i < playCount; i++) {
+        for (int i = 0; i < round; i++) {
             playRound();
-            printRoundResult();
         }
-        // endGame();
+        endGame();
     }
 
     private void startGame() {
         List<String> carNames = getCarNames();
-        playCount = getNumber();
+        round = getNumber();
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
@@ -46,6 +47,7 @@ public class RacingCar {
         for (Car car : cars) {
             car.moveForward();
         }
+        printRoundResult();
     }
 
     private void printRoundResult() {
@@ -53,5 +55,28 @@ public class RacingCar {
             car.printMoves();
         }
         System.out.println();
+    }
+
+    private void endGame() {
+        System.out.print("최종 우승자 : ");
+        printWinner();
+    }
+
+    private int getMaxMoves() {
+        int maxMoves = 0;
+        for (Car car : cars) {
+            maxMoves = max(maxMoves, car.getMoves());
+        }
+        return maxMoves;
+    }
+
+    private void printWinner() {
+        List<String> winner = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getMoves() == getMaxMoves()) {
+                winner.add(car.getName());
+            }
+        }
+        System.out.println(String.join(", ", winner));
     }
 }
