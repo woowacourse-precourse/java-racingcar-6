@@ -21,4 +21,12 @@ public class OutputView {
         System.out.println(OUTPUT_RESULT_MESSAGE);
     }
 
+    public static void printEnter() {
+        System.out.println();
+    }
+
+    public static void printGameWinner(List<String> winner) {
+        String result = String.join(",", winner);
+        System.out.println(OUTPUT_WINNER_MESSAGE + result);
+    }
 }
