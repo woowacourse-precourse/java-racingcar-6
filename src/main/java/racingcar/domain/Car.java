@@ -15,20 +15,31 @@ public class Car {
     private final CarName name;
     private Integer score;
 
-    // Car Constructor
+    /**
+     * Define Constructor
+     */
     private Car(final String name) {
         this.name = CarName.create(name);
         this.score = START_SCORE;
     }
 
-    // Car Static Factory Method
+    // Static Factory Method
     public static Car create(final String name) {
         return new Car(name);
     }
 
+
+    /**
+     * Define Moving Function
+     */
     public void move() {
         Integer precondition = generatePrecondition();
         moveByCondition(precondition);
+    }
+
+    private Integer generatePrecondition() {
+        return Randoms.pickNumberInRange(
+                RANDOM_MINIMUM_CONSTRAINT.getValue(), RANDOM_MAXIMUM_CONSTRAINT.getValue());
     }
 
     private void moveByCondition(Integer precondition) {
@@ -37,34 +48,40 @@ public class Car {
         }
     }
 
-    public String generateRoundResult() {
-        String dashes = convertScoreToDashes();
-        return String.format("%s : %s", name.getName(), dashes);
-    }
-
-    private String convertScoreToDashes() {
-        return DASH.repeat(score);
-    }
-
     private boolean isForwardCondition(final Integer referencePoint) {
         return referencePoint >= FORWARD_BOUNDARY_CONDITION;
     }
 
-    private Integer generatePrecondition() {
-        return Randoms.pickNumberInRange(
-                RANDOM_MINIMUM_CONSTRAINT.getValue(), RANDOM_MAXIMUM_CONSTRAINT.getValue());
+
+    /**
+     * Visualize Round Result Function
+     */
+    public String generateScoreResponse() {
+        return String.format("%s : %s", name.getName(), visualizeScore());
     }
 
+    private String visualizeScore() {
+        return DASH.repeat(score);
+    }
+
+
+    /**
+     * Utility Method
+     */
     public boolean isSameScore(Integer score) {
         return Objects.equals(this.score, score);
     }
 
 
+    /**
+     * Getter Method
+     */
+    public String getName() {
+        return name.getName();
+    }
+
     public Integer getScore() {
         return score;
     }
 
-    public String getName() {
-        return name.getName();
-    }
 }

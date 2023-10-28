@@ -5,7 +5,8 @@ import racingcar.view.constants.Message;
 
 import java.util.List;
 
-import static racingcar.view.constants.Message.*;
+import static racingcar.view.constants.Message.ASK_GAME_COUNT;
+import static racingcar.view.constants.Message.ASK_MULTIPLE_CAR_NAMES;
 
 public class View {
     public static String requestCarNames() {
@@ -18,12 +19,6 @@ public class View {
         String request = Console.readLine();
         System.out.println();
         return request;
-    }
-
-    public static void printWinnerNames(List<String> winnerNames) {
-        String names = String.join(", ", winnerNames);
-        String winnerMessage = String.format(RESPONSE_WINNER_MESSAGE.getMessage(), names);
-        System.out.println(winnerMessage);
     }
 
     public static void printNotice(Message notice) {

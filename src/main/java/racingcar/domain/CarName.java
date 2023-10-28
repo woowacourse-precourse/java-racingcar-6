@@ -9,7 +9,9 @@ public class CarName {
 
     private final String name;
 
-    // Private CarName Constructor
+    /**
+     * Define Constructor
+     */
     private CarName(final String name) {
         validateEmpty(name);
         validateContainWhiteSpace(name);
@@ -23,8 +25,9 @@ public class CarName {
         return new CarName(name);
     }
 
+
     /**
-     * Exception Handling Method
+     * Validate Empty
      */
     private static void validateEmpty(final String name) {
         if (name.isEmpty()) {
@@ -32,31 +35,36 @@ public class CarName {
         }
     }
 
+
+    /**
+     * Validate Contain WhiteSpace
+     */
     private static void validateContainWhiteSpace(final String name) {
         if (hasWhiteSpace(name)) {
             throw RacingCarException.of(CONTAIN_IMPROPER_LETTER);
         }
     }
 
-    private static void validateExceedLength(final String name) {
-        if (isInValidLength(name)) {
-            throw RacingCarException.of(TOO_LONG_NAME);
-        }
-    }
-
-    /**
-     * Validation Condition
-     */
     private static boolean hasWhiteSpace(final String name) {
         return name.chars().anyMatch(Character::isWhitespace);
     }
 
-    private static boolean isInValidLength(final String name) {
+
+    /**
+     * Validate Exceed Length
+     */
+    private static void validateExceedLength(final String name) {
+        if (isExceedLength(name)) {
+            throw RacingCarException.of(TOO_LONG_NAME);
+        }
+    }
+
+    private static boolean isExceedLength(final String name) {
         return name.length() > NAME_LENGTH_CONSTRAINT;
     }
 
     /**
-     * Getter
+     * Getter Method
      */
     public String getName() {
         return name;

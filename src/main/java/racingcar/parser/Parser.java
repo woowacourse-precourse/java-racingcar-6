@@ -16,8 +16,13 @@ public class Parser {
 
     public static List<String> parseCarNames(final String input) {
         InputValidator.validateEndsWithComma(input);
-        return Arrays.stream(input.split(DELIMITER))
+
+        List<String> names = Arrays
+                .stream(input.split(DELIMITER))
                 .toList();
+        
+        InputValidator.validateDuplicated(names);
+        return names;
     }
 
     public static int parseRoundCount(final String input) {

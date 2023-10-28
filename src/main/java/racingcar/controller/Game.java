@@ -28,12 +28,12 @@ public class Game {
     ) {
         for (int i = 0; i < roundCount; i++) {
             cars.playRound();
-            List<String> roundResults = cars.generateResults();
+            List<String> roundResults = cars.generateRoundResult();
             View.printRoundResults(roundResults);
         }
 
-        List<String> winnerNames = cars.getWinnerNames();
-        View.printWinnerNames(winnerNames);
+        String winnerNames = cars.getWinnerNames();
+        System.out.println(winnerNames);
 
         Console.close();
     }
