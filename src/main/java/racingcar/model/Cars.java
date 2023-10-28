@@ -7,8 +7,7 @@ public class Cars {
     private List<Car> carList;
 
     public Cars(List<Car> carList) {
-        validateNull(carList);
-        validateDuplicateName(carList);
+        validateCarList(carList);
         this.carList = carList;
     }
 
@@ -28,6 +27,11 @@ public class Cars {
 
     public int size() {
         return carList.size();
+    }
+
+    private void validateCarList(List<Car> carList) {
+        validateNull(carList);
+        validateDuplicateName(carList);
     }
 
     private void validateNull(List<Car> carList) {
