@@ -1,6 +1,7 @@
 package racingcar;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,5 +17,13 @@ public class CarNameValidatorTest {
         String carName = "hong,kim,jun";
         CarNameValidator carNameValidator = new CarNameValidator(blankValidator);
         assertDoesNotThrow(() -> carNameValidator.processCarNames(carName));
+    }
+
+    @DisplayName("자동차이동름입력 - 5자 초과입력시 예외발생")
+    @Test
+    void checklCarNmaeInputOverSize(){
+        String carName = "hosdfsdng,kim,jun";
+        CarNameValidator carNameValidator = new CarNameValidator(blankValidator);
+        assertThrows(IllegalArgumentException.class, () -> carNameValidator.processCarNames(carName));
     }
 }
