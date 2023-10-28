@@ -17,7 +17,7 @@ class CarsTest {
 
     @DisplayName("자동차 목록은 한 번 설정 추가하거나 제거할 수 없다.")
     @Test
-    void testCarListImmutability() {
+    void carListImmutability_test() {
         // given
         List<String> carNames = List.of("Car1", "Car2", "Car3");
         cars = new Cars(carNames);
