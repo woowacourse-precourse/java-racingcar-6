@@ -16,4 +16,8 @@ public class Cars {
                 .map(Car::new)
                 .collect(Collectors.toList()));
     }
+
+    public void move(NumberGenerator numberGenerator) {
+        cars.forEach(car -> car.move(numberGenerator.generate()));
+    }
 }
