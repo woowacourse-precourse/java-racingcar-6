@@ -41,7 +41,7 @@ public class ValidationManager {
 
     private static boolean isNumeric(String inputTryCount) {
         for (int i = 0; i < inputTryCount.length(); i++) {
-            if(!Character.isDigit(inputTryCount.indexOf(i))) return false;
+            if(!Character.isDigit(inputTryCount.charAt(i))) return false;
         }
         return true;
     }
