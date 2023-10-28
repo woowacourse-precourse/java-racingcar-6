@@ -19,4 +19,9 @@ public class GameClientOutput {
         System.out.print(WINNERS_MESSAGE);
         System.out.println(String.join(", ", winners));
     }
+
+    public void printRacingStatus(List<RacingCarStatus> statuses) {
+        statuses.forEach(System.out::println);
+        System.out.println();
+    }
 }
