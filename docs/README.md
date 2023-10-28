@@ -46,11 +46,23 @@
 
 ### 명사(상수/변수) 키워드
 
-- 이동 횟수 (자동차가 움직인 횟수)
-    - moveCount
+- 이동 횟수 (자동차가 움직인 횟수 = 자동차의 위치)
+    - position
+    - moveCount -> position으로 수정
+      - 만약 뒤로가는 규칙 추가 시 의미가 모호해짐
+    - Car 클래스에 포함됨
 - 자동차들
-    - Cars : List<String>
+    - cars : List<Car>
+    - 자동차와 이동횟수는 1대 1로 매칭되는 객체
+      - 따라서 하나의 오브젝트로 관리하는 것이 편리
+- 자동차
+  - Car : Object
+    - name : String
+      - 자동차의 이름
+    - position : int
+      - 이동 횟수
 - 시도 횟수
+  - tryCount : int
 
 ### 동사(메소드) 키워드
 
