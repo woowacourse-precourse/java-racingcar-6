@@ -44,7 +44,7 @@ public class RefereeTest {
 
 
     /**
-     * 기존의 자동차들은 0만큼 움직이고 winner 자동차는 5만큼 움직인다.
+     * 기존의 자동차들은 0만큼 움직이고 winner 자동차는 전진한다.
      * 승자는 winner 한 명이다.
      */
     @Test
@@ -62,8 +62,8 @@ public class RefereeTest {
     }
 
     /**
-     * 기존 차량들은 5씩 laps회 만큼 이동한다.
-     * winners 자동차들은 9씩 laps회 만큼 이동한다.
+     * 기존 차량들은 laps회동안 이동하지 않는다.
+     * winners 자동차들은 1씩 laps회 만큼 이동한다.
      */
     @Test
     void 우승한_차량이_두_대_이상() {
@@ -93,7 +93,7 @@ public class RefereeTest {
     }
 
     /**
-     * 모든 자동차들이 동일한 거리를 laps회 전진한다.
+     * 모든 자동차들이 동일한 거리를 이동한다.
      */
     @Test
     void 모든_차량이_동일한_거리_이동() {
