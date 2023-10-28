@@ -15,6 +15,50 @@ public class RaceServiceTest {
     private static final int THREE_TIMES = 3;
     private RaceService raceService = new RaceService();
 
+    @Nested
+    class 우승자_구하기 {
+        @Test
+        void 우승자_구하기_한명인_경우() {
+            List<Car> cars = List.of(
+                    new Car("pobi"),
+                    new Car("woni"),
+                    new Car("java")
+            );
+
+            assertRandomNumberInRangeTest(
+                    () -> {
+                        raceService.runRaceWithIteration(cars, THREE_TIMES);
+                        List<Car> winners = raceService.getWinner(cars);
+                        assertThat(winners.size()).isEqualTo(1);
+                        assertThat(winners.get(0).getName()).isEqualTo("pobi");
+                    },
+                    MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD,
+                    STOP, MOVING_FORWARD
+            );
+        }
+
+        @Test
+        void 우승자_구하기_두명인_경우() {
+            List<Car> cars = List.of(
+                    new Car("pobi"),
+                    new Car("woni"),
+                    new Car("java")
+            );
+            List<Car> predictedWinners = List.of(cars.get(0), cars.get(2));
+
+            assertRandomNumberInRangeTest(
+                    () -> {
+                        raceService.runRaceWithIteration(cars, THREE_TIMES);
+                        List<Car> winners = raceService.getWinner(cars);
+                        assertThat(winners.size()).isEqualTo(2);
+                        assertThat(winners.containsAll(predictedWinners)).isTrue();
+                    },
+                    MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD,
+                    MOVING_FORWARD, STOP, MOVING_FORWARD
+            );
+        }
+    }
+
     @Test
     void 랜덤_번호_가져오기() {
         assertRandomNumberInRangeTest(
