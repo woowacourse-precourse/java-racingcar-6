@@ -34,4 +34,11 @@ public class Race {
         return filterWinners(maxPosition);
     }
 
+    private int findMaxPosition() {
+        int maxPosition = -1;
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+        return maxPosition;
+    }
 }
