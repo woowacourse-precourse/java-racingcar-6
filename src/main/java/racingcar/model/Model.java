@@ -1,9 +1,8 @@
 package racingcar.model;
 
-import racingcar.model.Car;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import java.util.ArrayList;
-import camp.nextstep.edu.missionutils.Randoms;
 
 public class Model {
     public List<Car> MakeCarList(String[] namesOfCars){
@@ -24,6 +23,14 @@ public class Model {
             if(randomNum >= 4) {
                 currentCar.increaseDistance();
             }
+        }
+    }
+
+    public void racing(List<Car> carList, int times){
+        for(int i = 0 ; i < times ; i++) {
+            racingForOneTurn(carList);
+
+
         }
     }
 }

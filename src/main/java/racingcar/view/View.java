@@ -1,6 +1,9 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
+import racingcar.model.Car;
+
 
 public class View {
     public String[] getNamesOfCars() {
@@ -16,5 +19,24 @@ public class View {
         String attempt = Console.readLine();
 
         return attempt;
+    }
+
+    public void printResult(List<Car> carList) {
+        for (Car currentCar : carList) {
+            String name = currentCar.getName();
+            int distance = currentCar.getDistance();
+            String stringOfDistance  = getStringOfDistance(distance);
+
+            System.out.println(name + " : " + stringOfDistance);
+        }
+    }
+
+    public String getStringOfDistance(int distance){
+        String stringOfDistance = "";
+        for (int i = 0 ; i < distance ; i++) {
+            stringOfDistance += '-';
+        }
+
+        return stringOfDistance;
     }
 }
