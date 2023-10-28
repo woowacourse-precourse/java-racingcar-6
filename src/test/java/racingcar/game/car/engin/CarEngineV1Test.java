@@ -12,7 +12,7 @@ import racingcar.game.inputgenerateManager.InputGenerateManagerImpl;
 class CarEngineV1Test {
 
     @Test
-    void accelerateMovingForward() {
+    void 난수값이_4이상일때_MOVING_FORWARD_반환() {
         //if
         InputGenerateManager mockInputGenerateManager = Mockito.mock(InputGenerateManager.class);
         Mockito.when(mockInputGenerateManager.generateRandomInt()).thenReturn(4);
@@ -26,7 +26,7 @@ class CarEngineV1Test {
     }
 
     @Test
-    void accelerateStop() {
+    void 난수값이_3이하일때_STOP_반환() {
         //if
         InputGenerateManager mockInputGenerateManager = Mockito.mock(InputGenerateManager.class);
         Mockito.when(mockInputGenerateManager.generateRandomInt()).thenReturn(3);

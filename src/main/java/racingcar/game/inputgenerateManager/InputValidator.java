@@ -1,6 +1,5 @@
 package racingcar.game.inputgenerateManager;
 
-import java.util.IllegalFormatException;
 import racingcar.game.enums.InputSize;
 import racingcar.game.exception.IllegalBlankException;
 import racingcar.game.exception.IllegalLengthException;

@@ -1,5 +1,6 @@
 package racingcar.game.car;
 
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -9,7 +10,7 @@ import racingcar.game.inputgenerateManager.InputGenerateManager;
 class RacingCarTest {
 
     @Test
-    void drive() {
+    void Car_객체_내부엔진이_각각_독립적인_객체인지_확인() {
         //if
         InputGenerateManager moveForwardValue = Mockito.mock(InputGenerateManager.class);
         Mockito.when(moveForwardValue.generateRandomInt()).thenReturn(4);
@@ -19,11 +20,11 @@ class RacingCarTest {
 
         //when
         CarEngineV1 carEngineA = new CarEngineV1(moveForwardValue);
-        RacingCar carA = new RacingCar(carEngineA);
+        RacingCar carA = new RacingCar("carA",carEngineA);
         carA.drive();
 
         CarEngineV1 carEngineB = new CarEngineV1(stopValue);
-        RacingCar carB = new RacingCar(carEngineB);
+        RacingCar carB = new RacingCar("carB",carEngineB);
         carB.drive();
 
         //then
@@ -31,4 +32,5 @@ class RacingCarTest {
         Assertions.assertThat(carB.getForwardCount()).isEqualTo(0);
         Assertions.assertThat(carEngineA).isNotEqualTo(carEngineB);
     }
+
 }
