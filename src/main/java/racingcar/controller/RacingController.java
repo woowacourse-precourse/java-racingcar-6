@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,4 +26,7 @@ public class RacingController {
         this.repeatNumber = Integer.parseInt(InputView.inputRepeatNumber());
     }
 
+    public boolean checkForward() {
+        return Randoms.pickNumberInRange(1, 9) >= 4;
+    }
 }
