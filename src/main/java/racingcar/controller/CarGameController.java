@@ -19,5 +19,25 @@ public class CarGameController {
         runCnt.gameRunNumber(inputView.inputGameNumber());
 
     }
-
+    public void playGame(){
+        List<String> strList = new ArrayList<>();
+        for(int i=0; i<racingCars.size(); i++) {
+            RandomNumber randomNumber = new RandomNumber();
+            Car car = racingCars.getCar(i);
+            if(go(randomNumber.getRandomNumber())){
+                car.score();
+            }
+            String str = car.getName() + " : ";
+            for(int j=0; j<car.getScore(); j++){
+                str+="-";
+            }
+            str+="\n";
+            strList.add(str);
+        }
+        outputView.gameResultStatus(strList);
+    }
+    public boolean go(int num){
+        if(num>=4)return true;
+        else return false;
+    }
 }
