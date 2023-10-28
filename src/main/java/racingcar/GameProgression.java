@@ -8,12 +8,13 @@ public class GameProgression {
     //TODO: 게임 진행 후 회당 결과 출력 및 점수 업데이트
     //TODO: findTopScore(), updateTopScore(), printResult()
     Player player = new Player();
+    NumberOfGames numberOfGames = new NumberOfGames();
     private final int minNum = 0;
     private final int maxNum = 9;
     private final int isForward = 4;
-    int repetition = player.numOfGames();
     List<String> playerList = player.setThePlayer();
     List<Integer> scoreList = player.setScore(playerList);
+    int repetition = numberOfGames.numOfGames();
     public void resultsPerGame(){
         for(int i=0; i<repetition; i++){
             calculateScore();

@@ -40,7 +40,7 @@ public class GameResult {
     }
 
     private void printResult() {
-        System.out.println("최고 득점자: " + String.join(", ", topScorerList) + " (점수: " + topScore + ")");
+        System.out.println("최종 우승자 : " + String.join(", ", topScorerList));
     }
 
 }
