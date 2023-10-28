@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import racingcar.AppConfig;
-import racingcar.validator.CarValidator;
 import racingcar.validator.Validator;
 
 public class Car {
