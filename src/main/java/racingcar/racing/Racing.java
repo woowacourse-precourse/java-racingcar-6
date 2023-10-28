@@ -6,12 +6,11 @@ import racingcar.generator.RandomNumberGenerator;
 
 import java.util.stream.Collectors;
 
+import static racingcar.game.Constant.*;
+
 public record Racing(Cars cars) {
 
     private static final int MIN_FORWARD_THRESHOLD = 4;
-    private static final String COLON_DELIMITER = " : ";
-    private static final String HYPHEN = "-";
-    private static final String LINE = "\n";
 
     public void runOneRound() {
         for (Car car : cars.cars()) {

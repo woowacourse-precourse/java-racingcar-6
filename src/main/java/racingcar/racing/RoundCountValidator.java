@@ -1,9 +1,9 @@
 package racingcar.racing;
 
-public class RoundCountValidator {
+import static racingcar.game.Constant.MAX_INT_VALUE;
+import static racingcar.game.Constant.MIN_INT_VALUE;
 
-    private static final int MAX_INT_VALUE = 2_147_483_647;
-    private static final int MIN_INT_VALUE = 1;
+public class RoundCountValidator {
 
     private static final String ERROR = "[ERROR] ";
     private static final String ERROR_BLANK = ERROR + "공백을 허용하지 않습니다.";

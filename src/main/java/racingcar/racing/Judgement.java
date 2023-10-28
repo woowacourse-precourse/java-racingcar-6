@@ -5,7 +5,7 @@ import racingcar.car.Cars;
 
 import java.util.stream.Collectors;
 
-import static racingcar.game.Delimiter.DELIMITER;
+import static racingcar.game.Constant.COMMA_DELIMITER;
 
 public class Judgement {
 
@@ -17,7 +17,7 @@ public class Judgement {
                 .stream()
                 .filter(car -> car.getForwardCount() == maxForwardCount)
                 .map(Car::getName)
-                .collect(Collectors.joining(DELIMITER + " "));
+                .collect(Collectors.joining(COMMA_DELIMITER + " "));
     }
 
     private int calculateMaxForwardCount(final Cars cars) {

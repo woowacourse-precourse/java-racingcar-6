@@ -2,7 +2,8 @@ package racingcar.car;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import static racingcar.game.Delimiter.REGEX_DELIMITER;
+
+import static racingcar.game.Constant.COMMA_REGEX_DELIMITER;
 
 public class CarParser {
 
@@ -15,6 +16,6 @@ public class CarParser {
     }
 
     private static List<String> splitCarNames(String carNames) {
-        return List.of(carNames.split(REGEX_DELIMITER));
+        return List.of(carNames.split(COMMA_REGEX_DELIMITER));
     }
 }
