@@ -22,7 +22,7 @@ public class Validator {
         }
     }
 
-    public static void validateOverOneNumber(String str){
+    public static void validateMoreThanOneNumber(String str){
         if(!str.matches("^[1-9][0-9]*$")){
             throw new IllegalArgumentException("1이상의 숫자만 입력 해야합니다.");
         }
