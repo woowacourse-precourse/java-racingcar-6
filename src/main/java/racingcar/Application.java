@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.*;
 
 public class Application {
     public static void main(String[] args) throws IllegalArgumentException {
@@ -9,8 +10,11 @@ public class Application {
         String[] names_cars;
         String attempts_input;
         int attempts;
-        List<Car> cars_list;
+        int winners_location = 0;
+        List<Car> cars_list = new ArrayList<Car>();
+        int attempts_cnt = 0;
 
+        //1
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         names_cars_input = Console.readLine();
         names_cars = names_cars_input.split(",");
@@ -21,6 +25,21 @@ public class Application {
             attempts = Integer.parseInt(attempts_input);
         } catch (Exception e) {
             throw new IllegalArgumentException();
+        }
+
+        //2
+        for (String cars_name : names_cars) {
+            cars_list.add(new Car(cars_name));
+        }
+
+        //4
+        while(attempts_cnt < attempts){
+            //3-1, 3-2
+            for (Car car : cars_list) {
+                car.carMoving();
+                car.printCurrentLocation();
+                
+            }
         }
 
     }
