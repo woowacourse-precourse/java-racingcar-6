@@ -1,6 +1,6 @@
 package racingcar.Validator;
 
-public class numberValidator {
+public class NumberValidator {
 
     private final static String INVALID_TYPE_MESSAGE = "숫자로 이루어진 값을 입력해주세요";
     private final static String INVALID_RANGE_NUMBER_MESSAGE = "0보다 작은 값을 입력해주세요";
