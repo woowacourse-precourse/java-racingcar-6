@@ -34,10 +34,31 @@ public class InputTest {
         }).isInstanceOf(IllegalArgumentException.class);
     }
     @Test
-    void 이름에_대한_예외처리_빈_이름() {
+    void 회수에_대한_예외처리_음수() {
         Car car = new Car();
         assertThatThrownBy(() -> {
-            car.carName("pobi,,wooni");
+            car.carName("-2");
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
+    @Test
+    void 회수에_대한_예외처리_제로() {
+        Car car = new Car();
+        assertThatThrownBy(() -> {
+            car.carName("0");
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
+    @Test
+    void 회수에_대한_예외처리_문자() {
+        Car car = new Car();
+        assertThatThrownBy(() -> {
+            car.carName("l");
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
+    @Test
+    void 회수에_대한_예외처리_공백() {
+        Car car = new Car();
+        assertThatThrownBy(() -> {
+            car.carName("");
         }).isInstanceOf(IllegalArgumentException.class);
     }
 }
