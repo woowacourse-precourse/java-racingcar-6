@@ -28,11 +28,14 @@ public class Referee {
 
     public String makeWinnerWithCommas(List<Car> winners) {
         String strWinners;
-        strWinners=winners.stream().map(Car::getName).collect(Collectors.joining(","));
+        strWinners = winners.stream().map(Car::getName).collect(Collectors.joining(","));
         return strWinners;
     }
 
-    public String announceWinner(String winners) {
-        return null;
+    public String announceWinner(List<Car> winners) {
+        if (isNumberOfWinnerTwoOrMore(winners)) {
+            return makeWinnerWithCommas(winners);
+        }
+        return winners.get(0).getName();
     }
 }
