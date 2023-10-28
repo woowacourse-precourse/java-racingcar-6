@@ -2,6 +2,9 @@ package racingcar.view;
 
 import racingcar.handler.OutputHandler;
 
+import java.util.List;
+import java.util.Map;
+
 public class ConsoleOutput implements OutputHandler {
 
     @Override
@@ -16,12 +19,19 @@ public class ConsoleOutput implements OutputHandler {
 
     @Override
     public void printGameResultMessage() {
+        System.out.println();
         System.out.println("실행 결과");
     }
 
     @Override
-    public void printGameProgress() {
+    public void printGameProgress(List<Map<String, String>> stageGameResults) {
+        for (Map<String, String> stageGameResult : stageGameResults) {
+            String carName = stageGameResult.get("carName");
+            String position = stageGameResult.get("position");
+            System.out.println(carName + " : " + position);
+        }
 
+        System.out.println();
     }
 
     @Override

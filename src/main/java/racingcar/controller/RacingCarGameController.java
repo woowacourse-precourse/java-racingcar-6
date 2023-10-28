@@ -53,7 +53,8 @@ public class RacingCarGameController {
 
         for (int i = 0; i < tryCount.getTryCount(); i++) {
             racingCarGameService.racingCarGameProgress();
-            List<Map<String, String>> stageGameResult = racingCarGameService.racingCarGameResult();
+            List<Map<String, String>> stageGameResults = racingCarGameService.racingCarGameResult();
+            outputHandler.printGameProgress(stageGameResults);
         }
     }
 }

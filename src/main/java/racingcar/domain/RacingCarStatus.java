@@ -19,7 +19,8 @@ public class RacingCarStatus {
 
     public Map<String, String> getCarStatus() {
         String dash = "-".repeat(position);
-        carStatus.put(carName, dash);
+        carStatus.put("carName", carName);
+        carStatus.put("position", dash);
 
         return carStatus;
     }

@@ -1,5 +1,8 @@
 package racingcar.handler;
 
+import java.util.List;
+import java.util.Map;
+
 public interface OutputHandler {
 
     public void printInputCarNameMessage();
@@ -8,7 +11,7 @@ public interface OutputHandler {
 
     public void printGameResultMessage();
 
-    public void printGameProgress();
+    public void printGameProgress(List<Map<String, String>> stageGameResults);
 
     public void printFinalWinners();
 }
