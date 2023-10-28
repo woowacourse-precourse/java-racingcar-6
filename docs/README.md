@@ -30,7 +30,7 @@
     - [ ] 게임 횟수 만큼 진행될 수 있게 진행 - GameController(이후 분리 고려)
     - [X] 게임 횟수 입력시 잘못된 값 입력시 검증 과정 진행! Validator, CarGameService
       - 숫자인지 확인!
-    - [ ] 게임 진행 - RaceService,  CarGameService - gameStart
+    - [ ] 게임 진행 - GameController - start
       - [X] 자동차의 이름마다 숫자 굴리기 -  NumberGenerator - generate  
         - [X] 숫자가 4 이상인 경우 자동차가 전진을 기록한 변수 + 1  RaceService - raceRoundGameStart,  CarGameService - race 
       - [X] 자동차들에 대한 정보를 저장 - 🚗 Car
@@ -41,8 +41,8 @@
 
 
 - ### ❌ Error (Case 매번 추가하기!) - Validator 에서 check , IllegalArgumentException 발생시키기!
-  - [ ] 자동차 이름의 길이가 5를 넘어가는 경우
-  - [ ] 오로지 공백인 경우(",," 로 입력된 경우, "123,,23")
+  - [X] 자동차 이름의 길이가 5를 넘어가는 경우
+  - [X] 오로지 공백인 경우(",," 로 입력된 경우, "123,,23")
 
 
 ---
