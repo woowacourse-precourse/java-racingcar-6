@@ -37,7 +37,7 @@ public class RacingController {
     private void setAttemptCountForRace() {
         String attemptCountInput = inputView.printAttemptCountRequest();
         AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
-        int attemptCount = attemptCountValidator.getValidatedAttemptCount(attemptCountInput);
+        int attemptCount = attemptCountValidator.getAttemptCount(attemptCountInput);
         racing = new Racing(cars, attemptCount);
         System.out.println();
     }

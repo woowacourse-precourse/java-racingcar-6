@@ -13,7 +13,7 @@ public class AttemptCountValidator {
         this.blankValidator = blankValidator;
     }
 
-    public int getValidatedAttemptCount(String attemptCountInput) {
+    public int getAttemptCount(String attemptCountInput) {
         blankValidator.isEmpty(attemptCountInput);
         String trimmedCount = attemptCountInput.trim();
         ensureNoInternalSpaces(trimmedCount);

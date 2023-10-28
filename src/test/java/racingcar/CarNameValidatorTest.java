@@ -16,7 +16,7 @@ public class CarNameValidatorTest {
     void checkAttempNoramInt() {
         String attempCount = "21";
         AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
-        assertDoesNotThrow(() -> attemptCountValidator.getValidatedAttemptCount(attempCount));
+        assertDoesNotThrow(() -> attemptCountValidator.getAttemptCount(attempCount));
     }
 
     @DisplayName("시도횟수 입력 - 양수int범위 초과")
@@ -24,7 +24,7 @@ public class CarNameValidatorTest {
     void checkAttempOutOfRangePlusInt() {
         String attempCount = "1231231241351351351325134123413431";
         AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
-        assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getValidatedAttemptCount(attempCount));
+        assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getAttemptCount(attempCount));
     }
 
     @DisplayName("시도횟수 입력 - 음수int범위 초과")
@@ -32,7 +32,7 @@ public class CarNameValidatorTest {
     void checkAttempOutOfRangeMinusInt() {
         String attempCount = "-1231231241351351351325134123413431";
         AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
-        assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getValidatedAttemptCount(attempCount));
+        assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getAttemptCount(attempCount));
     }
 
     @DisplayName("시도횟수 입력 - 숫자 외 포함")
@@ -40,7 +40,7 @@ public class CarNameValidatorTest {
     void checkAttempNotInt() {
         String attempCount = "!222A";
         AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
-        assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getValidatedAttemptCount(attempCount));
+        assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getAttemptCount(attempCount));
     }
 
     @DisplayName("시도횟수 입력 - 소수")
@@ -48,7 +48,7 @@ public class CarNameValidatorTest {
     void checkAttempdecimal() {
         String attempCount = "3.5";
         AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
-        assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getValidatedAttemptCount(attempCount));
+        assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getAttemptCount(attempCount));
     }
 
     @DisplayName("시도횟수 입력 - int범위 내 음수")
@@ -56,7 +56,7 @@ public class CarNameValidatorTest {
     void checkAttempMinus() {
         String attempCount = "-6";
         AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
-        assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getValidatedAttemptCount(attempCount));
+        assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getAttemptCount(attempCount));
     }
 
     @DisplayName("시도횟수 입력 - 0입력")
@@ -64,7 +64,7 @@ public class CarNameValidatorTest {
     void checkAttempZero() {
         String attempCount = "0";
         AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
-        assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getValidatedAttemptCount(attempCount));
+        assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getAttemptCount(attempCount));
     }
 
     @DisplayName("시도횟수 입력 - 숫자 사이 공백포함")
@@ -72,6 +72,6 @@ public class CarNameValidatorTest {
     void checkAttempInternalSpaces() {
         String attempCount = "1 4";
         AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
-        assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getValidatedAttemptCount(attempCount));
+        assertThrows(IllegalArgumentException.class, () -> attemptCountValidator.getAttemptCount(attempCount));
     }
 }
