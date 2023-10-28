@@ -16,6 +16,8 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         String number = Console.readLine();
 
+        if(!checkNumber(number)) throw new IllegalArgumentException();
+
 
     }
 
@@ -38,5 +40,10 @@ public class Application {
 
         return true;
     }
+
+    public static boolean checkNumber(String number){
+        return number.matches("[0-9]+");
+    }
+
 
 }
