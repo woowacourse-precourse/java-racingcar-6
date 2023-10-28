@@ -1,7 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -12,18 +12,11 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class InputTest {
-    Input input;
-    InputStream cleanInputStream;
-
-    @BeforeEach
-    void setUp() {
-        input = new Input();
-        cleanInputStream = System.in;
-    }
+    Input input = new Input();
 
     @AfterEach
     void clearSystemIn() {
-        System.setIn(cleanInputStream);
+        Console.close();
     }
 
     @Test
