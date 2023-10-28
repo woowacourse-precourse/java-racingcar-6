@@ -8,28 +8,26 @@ import java.util.List;
 
 public class CarController {
 
-    private final CarService gameService;
-
-    public CarController(CarService gameService) {
-        this.gameService = gameService;
-    }
+    private final CarInputView carInputView = new CarInputView();
+    private final CarOutputView carOutputView = new CarOutputView();
+    private final CarService carService = new CarService();
 
     public void startGame() {
         CarInputView.printGameStart();
         String carNames = CarInputView.receiveUserInput();
-        gameService.saveCars(carNames);
+        carService.saveCars(carNames);
     }
 
     public void receiveTryCount() {
         CarInputView.printTryCount();
         String userInput = CarInputView.receiveUserInput();
         System.out.println();
-        gameService.startGame(Integer.parseInt(userInput));
+        carService.startGame(Integer.parseInt(userInput));
     }
 
     public void endGame() {
         CarOutputView.printEndGame();
-        List<String> winners = gameService.getWinner();
+        List<String> winners = carService.getWinner();
         String result = String.join(", ", winners);
         System.out.print(result);
     }

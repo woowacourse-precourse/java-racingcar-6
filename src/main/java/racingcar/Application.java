@@ -8,7 +8,7 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         // FIX HERE!
-        CarController gameController = new CarController(new CarService(new CarRepository()));
+        CarController gameController = new CarController();
         gameController.startGame();
         gameController.receiveTryCount();
         gameController.endGame();
