@@ -3,14 +3,6 @@ package constant;
 import domain.Car;
 
 public class ConstantString {
-    public static int MAX_NAME_LENGTH = 5;
-    public static int MIN_NUMBER_RANGE = 1;
-    public static int MAX_NUMBER_RANGE = 9;
-    public static int MOVING_FORWARD = 4;
-    public static int MIN_ATTEMPTS = 1;
-    public static int DEFAULT_MAX_COUNT = 0;
-    public static int INITIAL_MOVE_COUNT = 0;
-
     public static String DELIMITER = ",";
     public static String HYPHEN = "-";
     public static String WINNER_DELIMITER = ", ";

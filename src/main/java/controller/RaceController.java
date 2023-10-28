@@ -1,9 +1,11 @@
 package controller;
 
-import static constant.ConstantString.DEFAULT_MAX_COUNT;
+
+import static constant.ConstantNumber.DEFAULT_MAX_COUNT;
+import static constant.ConstantNumber.MAX_NUMBER_RANGE;
+import static constant.ConstantNumber.MIN_NUMBER_RANGE;
 import static constant.ConstantString.EXECUTION_RESULT;
-import static constant.ConstantString.MAX_NUMBER_RANGE;
-import static constant.ConstantString.MIN_NUMBER_RANGE;
+
 
 import camp.nextstep.edu.missionutils.Randoms;
 import domain.Car;
@@ -42,12 +44,12 @@ public class RaceController {
     }
 
     private int getRandomNumber() {
-        return Randoms.pickNumberInRange(MIN_NUMBER_RANGE, MAX_NUMBER_RANGE);
+        return Randoms.pickNumberInRange(MIN_NUMBER_RANGE.getValue(), MAX_NUMBER_RANGE.getValue());
     }
 
     private List<String> findWinners() {
         List<String> winnerList = new ArrayList<>();
-        int maxCount = DEFAULT_MAX_COUNT;
+        int maxCount = DEFAULT_MAX_COUNT.getValue();
 
         for (Car car : cars.getCarsList()) {
             int count = car.getCount();

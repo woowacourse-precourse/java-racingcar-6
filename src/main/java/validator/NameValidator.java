@@ -1,6 +1,6 @@
 package validator;
 
-import static constant.ConstantString.MAX_NAME_LENGTH;
+import static constant.ConstantNumber.MAX_NAME_LENGTH;
 import static constant.ExceptionString.DUPLICATE_NAME_MESSAGE;
 import static constant.ExceptionString.EMPTY_NAME_MESSAGE;
 import static constant.ExceptionString.MAX_LENGTH_EXCEEDED_MESSAGE;
@@ -25,7 +25,7 @@ public class NameValidator {
     }
 
     private static void isNameLengthExceeded(String name) throws IllegalArgumentException {
-        if (name.length() > MAX_NAME_LENGTH) {
+        if (name.length() > MAX_NAME_LENGTH.getValue()) {
             throw new IllegalArgumentException(MAX_LENGTH_EXCEEDED_MESSAGE);
         }
     }

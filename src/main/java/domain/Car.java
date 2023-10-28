@@ -1,7 +1,9 @@
 package domain;
 
-import static constant.ConstantString.MOVING_FORWARD;
-import static constant.ConstantString.INITIAL_MOVE_COUNT;
+
+import static constant.ConstantNumber.INITIAL_MOVE_COUNT;
+import static constant.ConstantNumber.MOVE_DISTANCE;
+import static constant.ConstantNumber.MOVING_FORWARD;
 
 import validator.NameValidator;
 
@@ -12,7 +14,7 @@ public class Car {
     public Car(String carName) {
         NameValidator.validateCarName(carName);
         this.carName = new Name(carName);
-        this.moveCount = new MoveCount(INITIAL_MOVE_COUNT);
+        this.moveCount = new MoveCount(INITIAL_MOVE_COUNT.getValue());
     }
 
     public String getCarName() {
@@ -20,9 +22,9 @@ public class Car {
     }
 
     public void moveOrStop(int randomNumber) {
-        if (randomNumber >= MOVING_FORWARD) {
+        if (randomNumber >= MOVING_FORWARD.getValue()) {
             int currentMoveCount = moveCount.getMoveCount();
-            moveCount.setMoveCount(currentMoveCount + 1);
+            moveCount.setMoveCount(currentMoveCount + MOVE_DISTANCE.getValue());
         }
     }
 
