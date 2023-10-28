@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.io.ByteArrayInputStream;
 import org.junit.jupiter.api.Test;
 
-class ConsoleInputvvViewTest {
+class ConsoleInputViewTest {
     @Test
     void getUserInput() {
         // 가짜 입력 스트림 생성

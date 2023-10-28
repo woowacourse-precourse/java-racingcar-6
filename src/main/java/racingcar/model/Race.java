@@ -8,7 +8,7 @@ public class Race {
     private ArrayList<String> carNames;
     private ArrayList<Integer> carGoingCount;
 
-    public void initialize(ArrayList<String> carNames) { //매개변수는 이 메서드에서만 유효함
+    public void initialize(ArrayList<String> carNames) {     //매개변수는 이 메서드에서만 유효함
         this.carNames = carNames;   //Race 내부 다른 메서드에서도 사용할 수 있도록 멤버 변수에 할당
         /*
          * arraylist 에서 set 메서드로 접근하기 위해 실시하는 초기화
@@ -35,7 +35,7 @@ public class Race {
         }
     }
 
-    public String Winners() {
+    public String winners() {
         int maxCount = 0;
         for (int i = 0; i < carGoingCount.size(); i++) {
             maxCount = Math.max(maxCount, carGoingCount.get(i));

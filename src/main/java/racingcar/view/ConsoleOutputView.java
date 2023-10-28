@@ -3,19 +3,19 @@ package racingcar.view;
 import java.util.ArrayList;
 
 public class ConsoleOutputView {
-    public String showInputCarNamesPrompt() {
+    public static String showInputCarNamesPrompt() {
         return "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     }
 
-    public String showInputTryNumberPrompt() {
+    public static String showInputTryNumberPrompt() {
         return "시도할 회수는 몇회인가요?";
     }
 
-    public String showExecutionResultsHeader() {
+    public static String showExecutionResultsHeader() {
         return "실행 결과";
     }
 
-    public String showExecutionResults(ArrayList<String> carNames, ArrayList<Integer> carGoingCount) {
+    public static String showExecutionResults(ArrayList<String> carNames, ArrayList<Integer> carGoingCount) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < carNames.size(); i++) {
             result.append(carNames.get(i)).append(" : ");
@@ -27,7 +27,7 @@ public class ConsoleOutputView {
         return result.toString();
     }
 
-    public String showWinner(String winners) {
+    public static String showWinner(String winners) {
         return "최종 우승자 : " + winners;
     }
 }

@@ -50,7 +50,7 @@ public class RaceTest {
         for (int i = 0; i < carGoingCount.size(); i++) {
             race.getCarGoingCount().set(i, carGoingCount.get(i));
         }
-        String winners = race.Winners();
+        String winners = race.winners();
 
         // getWinners 메서드가 예상대로 동작하는지 확인
         assertEquals("Car2, Car3", winners);
