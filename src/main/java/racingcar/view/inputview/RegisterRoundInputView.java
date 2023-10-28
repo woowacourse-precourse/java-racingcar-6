@@ -4,15 +4,10 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Map;
 import java.util.Objects;
 import java.util.regex.Pattern;
+import racingcar.exception.ErrorException;
 
 public class RegisterRoundInputView implements InputView<String> {
     private static final Pattern NUMBER_PATTERN = Pattern.compile("^[0-9]+$");
-    @Override
-    public String input(Map<String, Object> model) {
-        String line = Console.readLine();
-        validate(line);
-        return line;
-    }
 
     private void validate(String inputRound) {
         hasValidCharacters(inputRound);
@@ -21,13 +16,20 @@ public class RegisterRoundInputView implements InputView<String> {
 
     private void startsWithNonZero(String inputRound) {
         if (Objects.equals(inputRound.charAt(0), '0')) {
-            throw new IllegalArgumentException("0으로 시작하는 수를 입력했습니다");
+            throw new IllegalArgumentException(ErrorException.START_WITH_ZERO.getErrorDescription());
         }
     }
 
     private void hasValidCharacters(String inputRound) {
         if (!NUMBER_PATTERN.matcher(inputRound).matches()) {
-            throw new IllegalArgumentException("숫자를 입력해주세요");
+            throw new IllegalArgumentException(ErrorException.NOT_NUMBER.getErrorDescription());
         }
+    }
+
+    @Override
+    public String input(Map<String, Object> model) {
+        String line = Console.readLine();
+        validate(line);
+        return line;
     }
 }

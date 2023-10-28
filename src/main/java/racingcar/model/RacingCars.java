@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.exception.ErrorException;
 
 public class RacingCars {
     private final List<Car> racingCars;
@@ -44,7 +45,7 @@ public class RacingCars {
 
     private void hasDuplicatedNames(List<String> carNames) {
         if (carNames.size() != carNames.stream().distinct().count()) {
-            throw new IllegalArgumentException("중복된 이름이 존재합니다");
+            throw new IllegalArgumentException(ErrorException.DUPLICATED_NAMES.getErrorDescription());
         }
     }
 

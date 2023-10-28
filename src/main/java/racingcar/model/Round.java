@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.exception.ErrorException;
+
 public class Round {
     private final int round;
 
@@ -10,7 +12,7 @@ public class Round {
 
     private void validate(int round) {
         if (round > Integer.MAX_VALUE || round <= 0) {
-            throw new IllegalArgumentException("범위에서 벗어난 수입니다");
+            throw new IllegalArgumentException(ErrorException.OUT_OF_RANGE.getErrorDescription());
         }
     }
 

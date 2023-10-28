@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.Objects;
+import racingcar.exception.ErrorException;
 
 public class Car {
     public static final int DISTANCE_INIT_VALUE = 0;
@@ -35,7 +36,7 @@ public class Car {
 
     private void isOverStandardLength(String carName) {
         if (carName.length() > CAR_NAME_STANDARD_LENGTH) {
-            throw new IllegalArgumentException("5글자가 넘어갔습니다");
+            throw new IllegalArgumentException(ErrorException.OVER_STANDARD_LENGTH.getErrorDescription());
         }
     }
 
