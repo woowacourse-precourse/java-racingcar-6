@@ -37,4 +37,12 @@ public class Car {
     public void move(int index) {
         moveAmount[index]++;
     }
+
+    public String name(int index) {
+        return names.get(index);
+    }
+
+    public int movedLately(int index) {
+        return moveAmount[index];
+    }
 }
