@@ -1,15 +1,15 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class namesManager {
+public class NamesManager {
 
-    List<String> separateNamesString(String namesString){
+    public List<String> separateNamesString(String namesString){
         return Arrays.asList(namesString.split(","));
     }
 
-    boolean checkNameLength(String name) {
+    public boolean checkNameLength(String name) {
         if (name.length() > 5) {
             return false;
         } else {
