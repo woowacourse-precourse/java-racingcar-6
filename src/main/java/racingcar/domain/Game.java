@@ -12,22 +12,23 @@ public class Game {
     private List<String> winners = new ArrayList<>();
 
     public void run() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        Logs.inputCarNames();
         String[] carNames = inputCarNames();
         initCarList(carNames);
-        System.out.println("시도할 회수는 몇회인가요?");
+        Logs.inputGameTurns();
         inputGameTurns();
-        System.out.println("\n실행결과");
+        Logs.newLine();
+        Logs.getGameResult();
         for (int i = 0; i < gameTurns; i++) {
             for (Car car : cars) {
                 int randomNumber = RandomMaker.makeRandomNumber();
                 car.move(randomNumber);
-                System.out.println(car);
+                Logs.car(car);
             }
-            System.out.println();
+            Logs.newLine();
         }
         findWinners();
-        System.out.println(winnersToString());
+        Logs.string(winnersToString());
     }
 
     public String[] inputCarNames() {
