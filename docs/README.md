@@ -27,7 +27,7 @@
 2. Car
 
 - 자동차 경주 게임에 참여하는 차를 추상화한 클래스
-  - [ ]  필드로 이름(name)과 이동 횟수(count)를 가진다.
+  - [x] 필드로 이름(name)과 이동 횟수(movingCount)를 가진다.
 
 3. RacingGameManager
 
