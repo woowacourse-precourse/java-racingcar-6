@@ -20,7 +20,7 @@ public class CarService {
     }
 
     public List<String> findWinnersName() {
-        List<Car> winningCars = cars.getWinningCars();
+        List<Car> winningCars = cars.getWinningCars().getCars();
         return winningCars.stream().map(Car::getName).toList();
     }
 }

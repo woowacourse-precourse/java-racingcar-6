@@ -21,11 +21,14 @@ public class Cars {
         return Collections.unmodifiableList(cars);
     }
 
-    public List<Car> getWinningCars() {
+    public Cars getWinningCars() {
         int maxDistance = findMaxDistance();
 
-        return cars.stream().filter(car -> car.getDistance() == maxDistance)
+        List<Car> winningCars = this.cars.stream()
+                .filter(car -> car.getDistance() == maxDistance)
                 .toList();
+
+        return new Cars(winningCars);
     }
 
     private int findMaxDistance() {

@@ -76,8 +76,8 @@ class CarsTest {
         moveCar(c2, 2);
         moveCar(c3, 1);
         //then
-        Assertions.assertThat(cars.getWinningCars()).hasSize(1);
-        Assertions.assertThat(cars.getWinningCars().get(0)).isEqualTo(c1);
+        Assertions.assertThat(cars.getWinningCars().getCars()).hasSize(1);
+        Assertions.assertThat(cars.getWinningCars().getCars().get(0)).isEqualTo(c1);
     }
 
     @Test
@@ -94,8 +94,8 @@ class CarsTest {
         moveCar(c2, 3);
         moveCar(c3, 2);
         //then
-        Assertions.assertThat(cars.getWinningCars()).hasSize(2);
-        Assertions.assertThat(cars.getWinningCars()).isEqualTo(List.of(c1, c2));
+        Assertions.assertThat(cars.getWinningCars().getCars()).hasSize(2);
+        Assertions.assertThat(cars.getWinningCars().getCars()).isEqualTo(List.of(c1, c2));
     }
 
     @Test
@@ -108,8 +108,8 @@ class CarsTest {
         Car c3 = new Car("다");
         Cars cars = new Cars(List.of(c1, c2, c3));
         //then
-        Assertions.assertThat(cars.getWinningCars()).hasSize(3);
-        Assertions.assertThat(cars.getWinningCars()).isEqualTo(List.of(c1, c2, c3));
+        Assertions.assertThat(cars.getWinningCars().getCars()).hasSize(3);
+        Assertions.assertThat(cars.getWinningCars().getCars()).isEqualTo(List.of(c1, c2, c3));
     }
 
     private void moveCar(Car c1, int distance) {
