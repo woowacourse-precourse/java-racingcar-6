@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import static racingcar.model.ExceptionMessage.EMPTY_RACE_HISTORY_EXCEPTION_MESSAGE;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +11,14 @@ public class RaceHistory {
     private final List<CarGroup> raceStages;
 
     private RaceHistory(List<CarGroup> raceStages) {
+        validateEmpty(raceStages);
         this.raceStages = new ArrayList<>(raceStages);
+    }
+
+    private void validateEmpty(List<CarGroup> raceStages) {
+        if (raceStages.isEmpty()) {
+            throw new IllegalArgumentException(EMPTY_RACE_HISTORY_EXCEPTION_MESSAGE);
+        }
     }
 
     public static RaceHistory from(List<CarGroup> raceRounds) {

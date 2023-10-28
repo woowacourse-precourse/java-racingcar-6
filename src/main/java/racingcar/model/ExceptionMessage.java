@@ -9,6 +9,7 @@ public final class ExceptionMessage {
     public static final String NUMBER_FORMAT_EXCEPTION_MESSAGE = "숫자로 변환 가능한 문자만 가능합니다.";
     public static final String TRY_COUNT_RANGE_EXCEPTION_MESSAGE = "시도 횟수는 %d 이상 %d 이하의 정수만 가능합니다.";
     public static final String EMPTY_WINNER_GROUP_EXCEPTION_MESSAGE = "우승자를 찾기 위한 자동차 그룹이 비어있습니다.";
+    public static final String EMPTY_RACE_HISTORY_EXCEPTION_MESSAGE = "경주 기록이 없습니다.";
 
     private ExceptionMessage() {
     }
