@@ -29,10 +29,10 @@ public class OutputView {
         System.out.println();
     }
 
-    public static void printWinner(List<Car> winnerList) {
+    public static void printWinner(List<String> winnerList) {
         System.out.print(WINNER_MESSAGE);
         for (int index = 0; index < winnerList.size(); index++) {
-            winnerList.get(index).printName();
+            System.out.println(winnerList.get(index));
             if (index != winnerList.size() - 1) {
                 System.out.print(WINNER_DELIMITER);
             }

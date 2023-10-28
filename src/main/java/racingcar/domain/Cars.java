@@ -1,7 +1,9 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.OptionalInt;
 
 public class Cars {
@@ -25,13 +27,9 @@ public class Cars {
         return cars.size();
     }
 
-    public List<Car> getWinnerList() {
-        OptionalInt maxOptional = cars.stream()
-                .mapToInt(Car::getMoveCount)
-                .max();
-        int max = maxOptional.orElse(0);
-        return cars.stream()
-                .filter(car -> car.getMoveCount() == max)
-                .toList();
+    public Map<String,Integer> getMoveCountMap() {
+        Map<String,Integer> moveCountMap = new HashMap<>();
+        cars.forEach(car -> moveCountMap.put(car.getName(), car.getMoveCount()));
+        return moveCountMap;
     }
 }

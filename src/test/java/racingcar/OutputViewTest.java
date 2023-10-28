@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.OutputView;
+import racingcar.domain.Referee;
 
 class OutputViewTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -39,8 +40,10 @@ class OutputViewTest extends NsTest {
     @Test
     void printWinner() {
         //given
+        Cars cars = new Cars(Arrays.asList(new Car("pobi"), new Car("jun")));
+        Referee referee = new Referee(cars.getMoveCountMap());
         //when
-        OutputView.printWinner(Arrays.asList(new Car("pobi"), new Car("jun")));
+        OutputView.printWinner(referee.getWinnerList());
         //then
         assertThat(output()).contains("최종 우승자 : pobi, jun");
     }
