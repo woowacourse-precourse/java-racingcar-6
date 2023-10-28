@@ -2,20 +2,12 @@ package racingcar.domain;
 
 public class Car {
 
-
-    private String name;
+    private final String name;
     private int moveCount;
 
-    private final String distance;
-
-    public String getDistance() {
-        return distance;
-    }
-
     public Car(String carNames) {
-        this.name=carNames;
-        this.moveCount =0;
-        this.distance="";
+        this.name = carNames;
+        this.moveCount = 0;
     }
 
     public String getName() {
@@ -26,8 +18,8 @@ public class Car {
         return moveCount;
     }
 
-    public int move(){
-        return this.moveCount++;
+    public void move() {
+        this.moveCount++;
     }
 
 
