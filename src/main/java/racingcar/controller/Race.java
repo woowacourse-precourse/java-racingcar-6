@@ -22,7 +22,7 @@ public class Race {
     public void start() {
         CarGroup carGroup = carManager.createCarList(inputCarNames());
         MoveCount moveCount = new MoveCount(inputMoveCount());
-        carGroup.run(moveCount);
+        outputView.renderRace(carGroup, moveCount);
     }
 
     private String inputMoveCount() {

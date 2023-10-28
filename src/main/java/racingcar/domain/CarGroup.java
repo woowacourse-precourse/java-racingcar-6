@@ -26,14 +26,14 @@ public class CarGroup {
     }
 
     public int size() {
-        return this.carGroup.size();
+        return carGroup.size();
     }
 
-    public void run(MoveCount moveCount) {
-        for (int i = 0; i < moveCount.get(); i++) {
-            for (Car car : carGroup) {
-                car.run();
-            }
-        }
+    public List<Car> getCarGroup() {
+        return carGroup;
+    }
+
+    public void run() {
+        carGroup.forEach(Car::run);
     }
 }
