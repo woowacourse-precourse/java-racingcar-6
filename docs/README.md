@@ -29,6 +29,8 @@
         - [x] `validateCarNameLength` 메서드
     - 자동차 이름에 중복이 있다면 `IllegalArgumentException` 발생
       - [x] `validateCarListInputUnique` 메서드
+- [ ] RacingUtil : `createCarsFromNames` 메서드
+  - 자동차 이름 리스트를 인수로 받아 Car 객체 리스트를 만들어 반환한다.
 
 ## 자동차 생성 기능
 - [x] Car `생성자`
