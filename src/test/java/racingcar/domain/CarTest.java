@@ -10,10 +10,10 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CarTest {
 
-    @DisplayName("자동차 이름이 5자를 초과하면 예외가 발생한다.")
-    @CsvSource({"abcdef", "abcdefg", "abcdefgh"})
+    @DisplayName("자동차 이름이 1~5글자가 아닐 경우 예외가 발생한다.")
+    @CsvSource({"abcdef", "abcdefg", "abcdefgh", "''"})
     @ParameterizedTest
-    void longNameEx(String name) {
+    void invalidNameLengthEx(String name) {
         assertThatThrownBy(() -> new Car(name))
                 .isInstanceOf(IllegalArgumentException.class);
     }
