@@ -8,7 +8,6 @@ import racingcar.util.constant.ConstVariable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.StringJoiner;
 
 public class RacingGame {
     private final Race race;
@@ -32,26 +31,23 @@ public class RacingGame {
 
     private void viewCircuitResult(Race race) {
         for (RacingCar car : race.getRacingCars()) {
-            StringJoiner carResult = new StringJoiner(ConstVariable.RESULT_SEPARATOR);
-            carResult.add(car.getName());
-            carResult.add(ConstVariable.RESULT_MOVEMENT.repeat(car.getDistance().intValue()));
+            String distanceStatus = ConstVariable.RESULT_MOVEMENT.repeat(car.getDistance().intValue());
+            String circuitResult = String.join(ConstVariable.RESULT_SEPARATOR, car.getName(), distanceStatus);
 
-            Printer.printLine(carResult.toString());
+            Printer.printLine(circuitResult);
         }
     }
 
     private void viewWinners(Race race) {
-        StringJoiner winnerResult = new StringJoiner(ConstVariable.RESULT_WINNER_SEPARATOR);
         Long farthestDistance = race.getFarthestDistance();
-
         List<String> winners = new ArrayList<>();
         for (RacingCar car : race.getRacingCars()) {
             if (Objects.equals(car.getDistance(), farthestDistance)) {
                 winners.add(car.getName());
             }
         }
-        winners.forEach(winnerResult::add);
-        Printer.printLine(ConstVariable.RESULT_WINNER_MESSAGE + winnerResult);
+        String winnersResult = String.join(ConstVariable.RESULT_WINNER_SEPARATOR, winners);
+        Printer.printLine(ConstVariable.RESULT_WINNER_MESSAGE + winnersResult);
     }
 
 }
