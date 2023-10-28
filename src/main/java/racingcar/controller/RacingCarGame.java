@@ -27,7 +27,8 @@ public class RacingCarGame {
 
     public void moveCarForward() {
         for (String car: splitCarNamesByComma()){
-            OutputView.printExecutionResult(car, );
+            OutputView.printExecutionResult(car);
         }
     }
+
 }
