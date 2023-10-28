@@ -1,6 +1,6 @@
 package racingcar.constant;
 
-public final class Message {
+public final class Constant {
     public static final String DELIMITER = ",";
 
     public static final int NAME_MIN_LENGTH = 1;
