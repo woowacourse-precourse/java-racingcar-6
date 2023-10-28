@@ -44,7 +44,7 @@ public class Game {
         System.out.println(message);
     }
 
-    private void printNewLine(){
+    private void printNewLine() {
         printMessage("");
     }
 
@@ -63,8 +63,8 @@ public class Game {
         trialNumber = Integer.parseInt(input);
     }
 
-    private void moveCars(){
-        for(Car car:cars){
+    private void moveCars() {
+        for (Car car : cars) {
             gameManager.moveCar(car);
         }
     }
