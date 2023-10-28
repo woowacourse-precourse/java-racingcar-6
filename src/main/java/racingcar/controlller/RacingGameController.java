@@ -3,6 +3,7 @@ package racingcar.controlller;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Collections;
 import java.util.List;
+import racingcar.constant.RacingGameConstants;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 
@@ -41,7 +42,7 @@ public class RacingGameController {
 
     private void moveOrNot(Car car) {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if (randomNumber >= 4) {
+        if (randomNumber >= RacingGameConstants.MOVE_THRESHOLD) {
             car.moveOneStep();
         }
     }
