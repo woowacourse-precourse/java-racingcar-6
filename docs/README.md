@@ -46,25 +46,26 @@
 
 ### 아이디어
 - "pobi,woni,jun" 형식의 입력을 String.split() 을 이용해 나누면 좋을 것 같다.
-- 지난주 과제 코드리뷰에서 정규표현식을 이용해 입력을 검사하는 방법을 배웠다. 차수를 입력받을때 이용해보자.
 - 자동차의 위치를 저장할때 Map을 이용하면 좋을 것 같다. 다만 일반 Map 구현체는 순서를 저장하지 않으므로 LinkedHashMap 을 이용해야겠다.
 
 ### 객체 분리
 #### Model
 - CarInput
-  - 역할 : 자동차 목록 입력을 저장하고 다른 형식으로 변환한다. 
+  - 역할 : 자동차 목록 입력을 리스트 형식으로 만들어 저장한다. 
   - 책임 : 
+    - ','으로 나눠진 문자열을 리스트 형태로 파싱해 저장한다.
     - ','으로 나눠진 문자열을 검사한다.
-    - ','으로 나눠진 문자열을 리스트 형태로 파싱한다.
+    - 만든 리스트를 제공한다.
   - 상호작용
     - RacingController : 요청을 받으면 문자열 리스트를 제공한다.
 - RoundCountInput
   - 역할 : 몇번 반복할지 숫자를 입력 받는다.
   - 책임 : 
-    - 숫자인지 여부를 정규표현식을 이용해 검사한다.
     - 숫자를 파싱한다.
+    - 입력을 검사한다.
+    - 파싱한 숫자를 제공한다.
   - 상호작용
-    - RacingController : 요청을 받으면 차수를 제공한정다.
+    - RacingController : 요청을 받으면 차수를 제공한다.
 - RacingCar
   - 역할 : 각 턴마다 전진 또는 정지하며 위치를 가지고 있다.
   - 책임 : 
@@ -107,17 +108,19 @@
     - OutputView : static 메서드를 이용해 출력을 요청한다.
     - InputView : static 메서드를 이용해 입력을 요청한다.
     - CarInput : 지역 변수로 생성하여 이름 리스트를 요청한다.
-    - RoundCountInput : 지역 변수로 생성하여 정수형인 차수를 요청한다..
+    - RoundCountInput : 지역 변수로 생성하여 정수형인 차수를 요청한다.
 
 ### 메서드 기술
 각 객체의 책임에서 메서드를 도출한다.
 
 - CarInput
+  - ','으로 나눠진 문자열을 리스트 형태로 파싱한다. -> private List<String> split(String userInput)
   - ','으로 나눠진 문자열을 검사한다.-> private void validate()
-  - ','으로 나눠진 문자열을 리스트 형태로 파싱한다. -> public List<String> split(String line)
+  - 만든 리스트를 제공한다. -> public List<String> getNameList()
 - RoundCountInput
-  - 숫자인지 여부를 정규표현식을 이용해 검사한다. -> private void validate()
-  - 숫자를 파싱한다. -> parseRoundCount
+  - 숫자를 파싱한다. -> private void parseRoundCount(String userInput)
+  - 입력을 검사한다. -> private void validate()
+  - 파싱한 숫자를 제공한다. -> public int getRoundCount()
 - RacingCar
   - 전진을 할 수 있다. -> private void moveForward()
   - 정지를 할 수 있다. -> private void stop()
@@ -140,4 +143,4 @@
 ### 클래스 다이어그램
 지난주 리뷰에서 각 클래스의 관계도가 있는 코드는 구조를 파악하기 쉬워 코드 리뷰하기 수월했다. 나도 한번 만들어봤다.
 
-![java-racingcar-6-class-diagram.jpg](asset%2Fjava-racingcar-6-class-diagram.jpg)
+![class-diagram-java-racingcar-6.jpg](asset%2Fclass-diagram-java-racingcar-6.jpg)
