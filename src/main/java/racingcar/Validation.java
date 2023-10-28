@@ -2,18 +2,15 @@ package racingcar;
 
 public class Validation {
 
-    public static boolean hasIllegalName(String[] names) {
-
+    public static void validateCarNames(String[] names) {
         if (names.length == 0) {
-            return true;
+            throw new IllegalArgumentException();
         }
 
         for (String name : names) {
             if (name.isEmpty() || name.length() > 5) {
-                return true;
+                throw new IllegalArgumentException();
             }
         }
-
-        return false;
     }
 }
