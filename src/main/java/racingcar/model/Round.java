@@ -2,7 +2,7 @@ package racingcar.model;
 
 public class Round {
     private int round;
-    Round(){
+    public Round(){
         this.round = 0;
     }
 
