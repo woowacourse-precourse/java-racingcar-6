@@ -13,7 +13,7 @@ class RacingCarValidateTest {
         String carName = "";
 
         //when && then
-        Assertions.assertThatThrownBy(() -> RacingCarValidate.validateNameLength(carName))
+        Assertions.assertThatThrownBy(() -> RacingCarValidate.validateCarName(carName))
             .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -24,7 +24,7 @@ class RacingCarValidateTest {
         String carName = "a".repeat(6);
 
         //when && then
-        Assertions.assertThatThrownBy(() -> RacingCarValidate.validateNameLength(carName))
+        Assertions.assertThatThrownBy(() -> RacingCarValidate.validateCarName(carName))
             .isInstanceOf(IllegalArgumentException.class);
     }
 
