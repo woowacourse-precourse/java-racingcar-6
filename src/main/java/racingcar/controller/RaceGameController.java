@@ -13,22 +13,15 @@ import static racingcar.util.CarListConverter.*;
 
 public class RaceGameController {
 
-    private GameStartEndView gameStartEndView;
+    private final GameStartEndView gameStartEndView;
+    private final RaceCars raceCars;
+    private final int attemptCount;
 
-    public RaceGameController(GameStartEndView gameStartEndView) {
-        this.gameStartEndView = gameStartEndView;
-    }
-
-    public void start(){
+    public RaceGameController() {
+        this.gameStartEndView = new GameStartEndView();
         List<Car> cars = convertStringArrayToCarList(requestCarNames());
-        int attemptCount = requestAttemptCount();
-
-        RaceCars raceCars = new RaceCars(cars);
-
-        RaceGameService raceGameService = new RaceGameService(raceCars, attemptCount, new ExecutionView());
-        raceGameService.run();
-
-        gameStartEndView.printWinningCarNames(raceCars.getWinningCarNames());
+        this.attemptCount = requestAttemptCount();
+        this.raceCars = new RaceCars(cars);
     }
 
     private String[] requestCarNames() {
@@ -39,6 +32,15 @@ public class RaceGameController {
     private int requestAttemptCount(){
         gameStartEndView.printAttemptCountMessage();
         return Console.getNumberOfMovementAttempts();
+    }
+
+    public void start(){
+        RaceGameService raceGameService = new RaceGameService(raceCars, attemptCount, new ExecutionView());
+        raceGameService.run();
+    }
+
+    public void printWinningCarNames(){
+        gameStartEndView.printWinningCarNames(raceCars.getWinningCarNames());
     }
 
 }
