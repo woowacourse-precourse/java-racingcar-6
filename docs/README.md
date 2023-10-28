@@ -56,39 +56,48 @@
 - 진행이 끝난 후 최종 우승자 출력
 
 # MVC 패턴으로 분류하기  
-## [model]  
-CarList
-- n대의 자동차 이름을 입력받는다. [inputCarName]
+## [View]
 
-PlayFrequency
-- 몇 회를 실행할 것인지 입력받는다. [inputFrequency]
-    
-## [view]
-[View]  
-InputView
-- 자동차 이름을 입력 받는 멘트를 출력한다. [setCarName]
-- 몇 회를 실행할 것인지 멘트를 출력한다. [setFrequency]
+### InputView.java
+- 자동차 이름을 입력 받는다.       (inputCarName)  
+- 시도회수를 입력받는다.          (inputFrequency)
 
-OutputView
-- 게임 시작 멘트를 출력한다. [printGameStart]
-- 최초 실행시 실행 결과를 출력한다. [printFristResultMessage]
-- random을 n번 실행 시킨 후 결과를 출력한다. [printResult]
-- 최종 우승자를 출력한다.[printWinner]  
+### OutputView.java   
+- 자동차 입력문을 출력한다.       (printInputNameMessage)   
+- 시도회수 입력문을 출력          (printInputFrequencyMessage)  
+- 최초 실행시 출력문          (printFirstResultMessage)  
+- selectAction을 실행시마다 결과 출력    (printResultMessage)  
+- 우승자를 출력한다.         (printWinner)
 
-## [controller]
-RacingCarGame
-- random을 돌려 전진 혹은 정지를 정한다 [selectAction]
-- 최종 우승자를 뽑는다. [selectWinner]  
-  
-## [validator]  
-FrequencyValidator
-- 시도할 회수에서 숫자가 아닌 수를 입력했을 경우 [isCorrectFrequencyNumber]
-- 0이하의 숫자일 경우 [isNegativeNumber]
 
-CarNameValidator
-- 사용자가 자동차 입력을 할 때 공백을 입력했을 경우 [isInputBlank]
-- 쉼표로 구분하지 않고 공백만 있을 경우 [isCommaPresent] => 차가 한대일 경우랑 똑같지 않나?
-- 차가 한 대 일 경우 [isNumberOfCars]
-- 자동차 이름이 중복일 경우 [isNameDuplicated]
-- 5자 이상인 경우 [isNameLengthValid]
-- 쉼표로 끝이 났을 경우  [isNameValid]
+## [Model]
+
+### CarDistanceManager.java  
+- 자동차 진행거리 배열 생성          (carDistance)  
+- 랜덤 값 추출            (createRandomNumber)  
+- 전진 혹은 정지             (selectAction)
+
+### GameResultAnalyzer.java  
+- 최대 값을 찾는다.          (findMaxDistance)  
+- 우승자를 선별한다.         (selectWinner)
+
+## [Controller]
+
+### CarNameParser.java  
+- 입력받은 문자열을 split          (carNameToArray)  
+- 배열을 리스트로 변환         (carNameToList)
+
+### RacingCarGame.java  
+- 게임을 frequency번 진행         (runRacing)  
+- 게임 총괄            (racingCarGame)
+
+## [Validator]
+### FrequencyValidator.java  
+- 회수 입력시 숫자를 입력했는지 확인      (isCorrectFrequencyNumber)  
+- 회수 입력시 0이하의 숫자를 입력했을 경우   (isNegativeNumber)
+
+## CarNameValidator.java  
+- 이름을 5자 초과입력         (isNameLengthValid)  
+- 중복된 이름 확인            (isNameDuplicate)  
+- 이름을 하나만 입력했을 경우      (isNumberOfCarsValid)  
+- 공백을 입력했을 경우         (isNameVaild)
