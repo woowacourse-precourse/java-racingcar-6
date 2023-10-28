@@ -1,0 +1,33 @@
+package racingcar.car;
+
+import camp.nextstep.edu.missionutils.Randoms;
+
+public class Car {
+    private final String name;
+    private int score;
+
+    public int getScore() {
+        return score;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void oneStep(){
+        int randomNum = pickRandomNum();
+        if(randomNumCheck(randomNum)){
+            this.score = this.score+1;
+        }
+    }
+    private boolean randomNumCheck(int num){
+        return num >= NumConstant.condition;
+    }
+    private int pickRandomNum(){
+        return Randoms.pickNumberInRange(NumConstant.start,NumConstant.end);
+    }
+    public Car(String name){
+        this.name = name;
+        this.score = 0;
+    }
+}
