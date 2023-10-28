@@ -99,4 +99,4 @@
 
 ## 💡DTO(Data-Transfer-Object)
 
-- CarDto : RacingGame에서 리턴받은 Cars를 DTO로 변환 후 리스트 형태로 리턴하는 메소드를 가진다.
+- CarDto : Cars를 DTO로 변환 후 리스트 형태로 리턴하는 메소드를 가진다.
