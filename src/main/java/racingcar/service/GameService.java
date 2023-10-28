@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import racingcar.domain.Car;
-import racingcar.dto.GameDto;
 import racingcar.repository.GameRepository;
 
 public class GameService {
@@ -17,14 +16,12 @@ public class GameService {
 		gameRepository = new GameRepository();
 	}
 
-	public void createGame(GameDto gameDto) {
-		gameRepository.saveGame(gameDto);
+	public void createGame(List<Car> cars) {
+		gameRepository.saveGame(cars);
 	}
 
-	public void playGame(Long roundCount) {
-		while (roundCount-- > 0) {
-			playRound();
-		}
+	public List<Car> findAll() {
+		return gameRepository.findAll();
 	}
 
 	public void playRound() {
@@ -42,13 +39,13 @@ public class GameService {
 		return getRandomNumber() >= FORWARD_POINT.getValue();
 	}
 
-	public List<Car> getWinners() {
+	public List<String> getWinners() {
 		Long maxPosition = gameRepository.getMaxForwardPosition();
-		List<Car> winners = new ArrayList<>();
+		List<String> winners = new ArrayList<>();
 		List<Car> cars = gameRepository.findAll();
 		for (Car car : cars) {
 			if (car.getForwardCount().equals(maxPosition)) {
-				winners.add(car);
+				winners.add(car.getName());
 			}
 		}
 		return winners;
