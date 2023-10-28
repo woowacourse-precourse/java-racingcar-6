@@ -17,6 +17,13 @@ public class Application {
         }
     }
 
+    public static void nameNull(String check) {
+        if (check.isEmpty()) {
+            throw new IllegalArgumentException("공백은 이름이 될 수 없습니다");
+        }
+    }
+
+
 
     public static void main(String[] args) {
 
