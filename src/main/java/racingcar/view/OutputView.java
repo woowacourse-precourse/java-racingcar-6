@@ -6,6 +6,7 @@ import racingcar.model.Cars;
 public class OutputView {
 
     private final String START_PRINT_RESULT_MESSAGE = "실행결과";
+    private final String WINNERS_MESSAGE = "최종 우승자 : ";
 
     public void printResultMessage() {
         System.out.println(START_PRINT_RESULT_MESSAGE);
@@ -21,6 +22,6 @@ public class OutputView {
     }
 
     public void printWinners(Cars cars) {
-        System.out.println(cars.WinnersToString());
+        System.out.println(WINNERS_MESSAGE + cars.WinnersToString());
     }
 }
