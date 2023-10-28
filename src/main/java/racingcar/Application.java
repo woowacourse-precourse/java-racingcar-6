@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.*;
 
@@ -15,6 +16,7 @@ public class Application {
     public static void game_start(){
         GenCar();
         int Num = PutNum();
+        RaceStart(Num);
     }
 
     public static void GenCar(){
@@ -54,5 +56,29 @@ public class Application {
             throw new IllegalArgumentException();
         }
     }
+
+    public static void RaceStart(int n){
+        System.out.println("\n실행 결과");
+        for(int i=0;i<n;i++)
+        {
+            CarMove();
+            System.out.println();
+        }
+    }
+    public static void CarMove(){
+        for (String key : User.keySet()) {
+            if(MoveOrStop())
+            {
+                User.put(key , User.get(key)+1);
+            }
+            System.out.print(key + " : ");
+
+        }
+    }
+    public static boolean MoveOrStop()
+    {
+        return 4<=Randoms.pickNumberInRange(0,9);
+    }
+
 }
 
