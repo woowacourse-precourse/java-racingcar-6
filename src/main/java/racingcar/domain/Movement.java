@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static racingcar.constant.GameNumber.MOVE_NUMBER;
 import static racingcar.constant.GameNumber.RANDOM_NUMBER_MAXIMUM;
 import static racingcar.constant.GameNumber.RANDOM_NUMBER_MINIMUM;
 
@@ -12,7 +13,7 @@ public class Movement {
     }
 
     public boolean isMoveForward() {
-        return createRandomNumber() >= 4;
+        return createRandomNumber() >= MOVE_NUMBER;
     }
 
     public void moveCar(List<Car> cars) {
