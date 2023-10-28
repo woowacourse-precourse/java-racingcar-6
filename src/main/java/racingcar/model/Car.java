@@ -2,7 +2,6 @@ package racingcar.model;
 
 import racingcar.utils.RandomGenerator;
 
-import java.util.Calendar;
 import java.util.Objects;
 
 public final class Car {
@@ -23,6 +22,12 @@ public final class Car {
         return new Car(Name.of(name), Position.of(position));
     }
 
+    public Car move(RandomGenerator randomGenerator) {
+        if (randomGenerator.getRandomNumber() >= MOVE_CONDITION) {
+            return new Car(name, position.move());
+        }
+        return this;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -36,10 +41,4 @@ public final class Car {
         return Objects.hash(name, position);
     }
 
-    public Car move(RandomGenerator randomGenerator) {
-        if (randomGenerator.getRandomNumber() >= MOVE_CONDITION) {
-            return new Car(name, position.move());
-        }
-        return this;
-    }
 }

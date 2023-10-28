@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.utils.RandomGenerator;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -17,6 +19,11 @@ public class Cars {
                 .map(Car::of)
                 .toList();
         return new Cars(newCars);
+    }
+
+
+    public void moves(RandomGenerator randomNumber) {
+        cars.forEach(car -> car.move(randomNumber));
     }
 
     @Override
