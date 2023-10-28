@@ -8,6 +8,12 @@ import java.util.stream.IntStream;
 
 public class OutputView {
 
+    private static final String RESULT_MESSAGE = "실행 결과";
+
+    public static void printResultMessage() {
+        System.out.println(RESULT_MESSAGE);
+    }
+
     public static void printWinner(List<CarDto> winners) {
         String result = winners.stream()
                 .map(c -> c.name())
