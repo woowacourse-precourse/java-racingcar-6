@@ -8,13 +8,14 @@
 - [ ]: 자동차는 이름과 위치를 가지고 있음 -Car\
   - [ ]: 자동차 이름과 현재 위치를 출력 -Car#toString()\
   - [ ]: 자동차는 전진 또는 멈출 수 있음 -Car#move()\
+  - [ ]: 자동차 이름 5자 이하 한번 더 확인
 - [ ]: 경주 자동차 목록을 가지고 있음 -Race
-  - [ ]: 경주 진행 상황을 반환 -Race#showStanding\
+  - [ ]: 경주 진행 -Race#process\
     - [ ]: 경주 진행 상황 출력 -OutputView#printStanding\
-  - [ ]: 게임을 진행한 후 우승자를 알려주기 -Race#winners()\
+  - [ ]: 게임을 진행한 후 우승자들을 알려주기 -Race#winners()\
     - [ ]: 우승자가 여러명일 경우 쉼표(,)로 구분하여 출력 -OutputView#printResult()\ 
 - [ ]: 0에서 9 사이에서 무작위 값을 반환 -NumberGenerator#generateRandomNumbers()\
-  
+- [ ]: 자동차 경주를 진행하는 역할 -RaceController
 
 # 🚀 기능 요구 사항
 초간단 자동차 경주 게임을 구현한다.
