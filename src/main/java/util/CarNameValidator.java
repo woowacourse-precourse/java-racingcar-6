@@ -11,13 +11,13 @@ public class CarNameValidator {
 
     private static void checkSpaceInName(String name) {
         if (name.contains(SPACE)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(CarNameErrorMessage.SPACE_IN_NAME.getMessage());
         }
     }
 
     private static void checkNameLength(String name) {
         if (name.length() > CAR_NAME_LENGTH) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(CarNameErrorMessage.NAME_LENGTH.getMessage());
         }
     }
 }
