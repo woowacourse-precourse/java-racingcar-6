@@ -12,13 +12,23 @@ public class Application {
         GameController controller = new GameController();
         GameData gameData = new GameData();
 
-
         view.printAskCarName();
         String carNames = controller.getCarNamesInput();
         String[] carNamesArray = carNames.split(","); // 메서드화 하기(split & []->List<Car>)
-        gameData.setCarList(carNamesArray.length);
+        gameData.createCarList(carNamesArray.length);
+        gameData.setCarsName(carNamesArray);
 
-        controller.splitCarNameInput(carNamesArray, gameData.getCarList());//gameData.getCarList() 리펙토링 고려해보기
+        view.printAskTryRepetitionNumber();
+        gameData.setTryRepetitionNumber();
+        for (int Repetition = 0; Repetition < gameData.getTryRepetitionNumber(); Repetition++) {
+
+            controller.MoveForward(gameData.getCarList());
+            controller.setRacingProgressStatus(gameData.getCarList());
+            view.printProgressStatus(gameData.getCarList());
+        }
+
+
+
 
     }
 }
