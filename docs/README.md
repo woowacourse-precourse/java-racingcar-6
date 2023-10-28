@@ -27,11 +27,11 @@
         - 입력값에 중복된 값이 있는지 확인하는 `validateDuplicate` 메서드
         - 입력한 값이 5자리 이하인지 확인하는 `validateRange` 메서드
         - 입력값을 꺼낼 수 있는 `getCarNames` 메서드
-    - [ ] TryCount
+    - [x] TryCount
         - 시도할 회수에 대한 유효성 검사와 값의 반환을 담당하는 클래스
         - user가 입력한 값이 1 이상의 수 인지 확인하는 `validateRange` 메서드
         - 입력값을 꺼낼 수 있는 `getTryCount` 메서드
-    - [ ] TargetNumber
+    - [ ] RandomNumber
         - 전진하는 조건이 되는 번호를 생성하고 전진 여부를 판단하는 클래스
         - 전진하는 조건이 되는 번호를 생성하는 `generateNumber` 메서드
         - 전진이 가능한지 판단하는 `isMovePossible` 메서드
