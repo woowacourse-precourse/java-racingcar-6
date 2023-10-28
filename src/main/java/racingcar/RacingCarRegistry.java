@@ -7,16 +7,14 @@ import java.util.stream.Collectors;
 public class RacingCarRegistry {
 
     private final ActionNumberGenerator actionNumberGenerator;
-    private final List<RacingCar> racingCars = new ArrayList<>();
+    private final List<RacingCar> racingCars;
     private MoveOpportunity moveOpportunity;
 
     public RacingCarRegistry(ActionNumberGenerator actionNumberGenerator,
-                             List<String> names,
+                             List<RacingCar> racingCars,
                              MoveOpportunity moveOpportunity) {
         this.actionNumberGenerator = actionNumberGenerator;
-        for (String name : names) {
-            racingCars.add(new RacingCar(new Name(name), new Position()));
-        }
+        this.racingCars = racingCars;
 
         this.moveOpportunity = moveOpportunity;
     }
@@ -32,8 +30,8 @@ public class RacingCarRegistry {
         for (RacingCar racingCar : racingCars) {
             racingCar.move(actionNumberGenerator.generate());
             racingResults.add(new RacingCar(
-                    new Name(racingCar.getName()),
-                    new Position(racingCar.getPosition())));
+                    racingCar.getName(),
+                    racingCar.getPosition()));
         }
 
         return racingResults;

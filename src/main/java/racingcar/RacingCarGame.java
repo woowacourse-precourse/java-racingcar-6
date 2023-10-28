@@ -18,13 +18,15 @@ public class RacingCarGame {
 
     public void play() {
         RacingCarCreateRequest racingCarCreateRequest = view.inputRacingCarCreateRequest();
-        List<String> racingCarNames = racingCarCreateRequest.getRacingCarNames();
+        List<RacingCar> racingCars = racingCarCreateRequest.getRacingCarNames().stream()
+                .map(name -> new RacingCar(Name.of(name)))
+                .toList();
 
         MoveOpportunityCreateRequest moveOpportunityCreateRequest = view.inputMoveOpportunityCreateRequest();
         MoveOpportunity moveOpportunity = new MoveOpportunity(moveOpportunityCreateRequest.getMoveOpportunity());
 
         RacingCarRegistry racingCarRegistry
-                = new RacingCarRegistry(actionNumberGenerator, racingCarNames, moveOpportunity);
+                = new RacingCarRegistry(actionNumberGenerator, racingCars, moveOpportunity);
 
         view.printResultTitle();
 

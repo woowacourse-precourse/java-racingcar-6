@@ -6,13 +6,13 @@ public class Name {
 
     private final String name;
 
-    public Name(Name name) {
-        this.name = name.name;
-    }
-
-    public Name(String name) {
+    private Name(String name) {
         validateName(name);
         this.name = name;
+    }
+
+    public static Name of(String name) {
+        return new Name(name);
     }
 
     private void validateName(String name) {
