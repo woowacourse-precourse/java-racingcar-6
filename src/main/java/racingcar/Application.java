@@ -15,6 +15,7 @@ public class Application {
         InputCarName();
         Try_Message();
         Result_Message();
+        Repeat_Racing();
     }
 
     public static void StartMessage() {
@@ -46,6 +47,7 @@ public class Application {
         if (isInteger(Input_TryNumber) == false) {
             throw new IllegalArgumentException();
         }
+        TryNumber = Integer.parseInt(Input_TryNumber);
     }
 
     public static boolean isInteger(String Input_TryNumber) {
@@ -61,5 +63,12 @@ public class Application {
         System.out.println();
         System.out.println("실행 결과");
     }
+
+    public static void Repeat_Racing() {
+        for (int i = 0; i < TryNumber; i++) {
+            
+        }
+    }
+
 
 }
