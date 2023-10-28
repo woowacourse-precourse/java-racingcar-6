@@ -1,9 +1,9 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.constant.IllegalArgumentExceptionType;
 
 public class Car {
-    private static final String CAR_NAME_ERROR_MESSAGE = "차량 이름의 길이 제한은 1~5입니다.";
     private static final int MAX_CAR_NAME_LENGTH = 5;
     private static final int MOVING_FORWARD = 4;
 
@@ -19,17 +19,19 @@ public class Car {
     public String getName() {
         return name;
     }
+
     public int getDistance() { return distance; }
+
     public boolean isMaxDistance(int maxDistance) { return distance == maxDistance; }
 
     private void validateIsCarNameEmpty() {
         if (name.isEmpty()) {
-            throw new IllegalArgumentException(CAR_NAME_ERROR_MESSAGE);
+            IllegalArgumentExceptionType.CAR_NAME_MIN_LENGTH_ERROR_MESSAGE.throwException();
         }
     }
     private void validateIsCarNameExceedingMaxLength() {
         if (name.length() > MAX_CAR_NAME_LENGTH) {
-            throw new IllegalArgumentException(CAR_NAME_ERROR_MESSAGE);
+            IllegalArgumentExceptionType.CAR_NAME_MAX_LENGTH_ERROR_MESSAGE.throwException();
         }
     }
 

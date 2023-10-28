@@ -3,10 +3,9 @@ package racingcar.domain;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
+import racingcar.constant.IllegalArgumentExceptionType;
 
 public record Cars(List<Car> cars) {
-    private static final String EMPTY_CARS_ERROR_MESSAGE = "차량은 한 대 이상이어야 합니다.";
-    private static final String DUPLICATION_ERROR_MESSAGE = "차량 이름이 중복되었습니다.";
 
     public Cars(List<Car> cars) {
         this.cars = cars;
@@ -26,14 +25,14 @@ public record Cars(List<Car> cars) {
 
     private void validateCarsAmount() {
         if (cars.isEmpty()) {
-            throw new IllegalArgumentException(EMPTY_CARS_ERROR_MESSAGE);
+            IllegalArgumentExceptionType.EMPTY_CARS_ERROR_MESSAGE.throwException();
         }
     }
 
     private void validateDuplicatedCarNames() {
         Set<String> carNameSet = getCarNameSet();
         if (carNameSet.size() != cars.size()) {
-            throw new IllegalArgumentException(DUPLICATION_ERROR_MESSAGE);
+            IllegalArgumentExceptionType.DUPLICATED_CARS_ERROR_MESSAGE.throwException();
         }
     }
 

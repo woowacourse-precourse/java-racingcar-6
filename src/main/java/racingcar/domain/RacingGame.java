@@ -1,8 +1,9 @@
 package racingcar.domain;
 
+import racingcar.constant.IllegalArgumentExceptionType;
+
 public class RacingGame {
     private static final int END_COUNT = 0;
-    private static final String ATTEMPT_COUNT_INIT_ERROR_MESSAGE = "최소 1회의 시도 횟수를 입력해 주세요.";
 
     private final Cars cars;
     private int attemptCount;
@@ -15,7 +16,7 @@ public class RacingGame {
 
     private void validateMinAttemptCount() {
         if (isEnd()) {
-            throw new IllegalArgumentException(ATTEMPT_COUNT_INIT_ERROR_MESSAGE);
+            IllegalArgumentExceptionType.ATTEMPT_COUNT_INIT_ERROR_MESSAGE.throwException();
         }
     }
 
