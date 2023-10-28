@@ -8,6 +8,7 @@
     1. game try number input validator 구현
        1. 잘못된 값이 입력된 경우 IllegalArgumentException을 발생
           1. Integer으로 파싱이 안되는 경우 
+          2. 0이하의 값을 가진 경우
 3. 게임 전진 구현
    1. 자동차 별로 0부터 9 사이의 난수 생성
    2. 난수가 4 이상인 경우 한 칸 전진

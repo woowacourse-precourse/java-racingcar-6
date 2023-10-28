@@ -1,6 +1,8 @@
 package racingcar.input;
 
+import static racingcar.input.RacingCarInputValidator.isInputPlayNumberValidated;
 import static racingcar.input.RacingCarInputValidator.isInputRacingCarsValidated;
+import static racingcar.printer.RacingCarPrinter.askHowManyNumberToPlay;
 import static racingcar.printer.RacingCarPrinter.askRacingCars;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -28,5 +30,14 @@ public class RacingCarInputReader {
                 .collect(Collectors.toMap(
                         RacingCar::name,
                         racingCar -> racingCar));
+    }
+
+    public static int getPlayNumberFromConsole() {
+        askHowManyNumberToPlay();
+        String input = Console.readLine();
+        if (!isInputPlayNumberValidated(input)) {
+            throw new IllegalArgumentException("시도할 회수를 다시 입력해주세요.");
+        }
+        return Integer.parseInt(input);
     }
 }
