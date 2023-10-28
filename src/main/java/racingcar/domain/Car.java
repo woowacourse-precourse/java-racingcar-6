@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.view.OutputView;
+
 public class Car {
     private CarName carName;
     private int movingDistance;
@@ -7,6 +9,11 @@ public class Car {
     public Car(String carName) {
         this.carName = new CarName(carName);
         this.movingDistance = 0;
+    }
+
+    public void printPresentMovingDistance() {
+        carName.printCarName();
+        OutputView.printMovingDistanceOnTurnResult(movingDistance);
     }
 
     public int moveRandomly() {

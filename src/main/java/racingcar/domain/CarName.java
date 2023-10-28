@@ -1,11 +1,18 @@
 package racingcar.domain;
 
+import racingcar.view.OutputView;
+
 public class CarName {
     String carName;
+
     public CarName(String carName) {
         validateCarNameLengthExceed(carName);
         validateCarNameLengthZero(carName);
         this.carName = carName;
+    }
+
+    public void printCarName() {
+        OutputView.printCarNameOnTurnResult(carName);
     }
 
     private void validateCarNameLengthExceed(String carName) {
