@@ -23,4 +23,10 @@ public class Validate {
             }
         }
     }
+
+    public static void CarNameIsOne(List<String> list) {
+        if(list.size() == 1) {
+            throw new IllegalArgumentException("자동차 이름은 2개 이상 입력해야 합니다.");
+        }
+    }
 }
