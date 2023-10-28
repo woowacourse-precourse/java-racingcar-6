@@ -140,7 +140,7 @@ jun : ---
   1. [X] 사용자 입력 시 사용되는 출력 문자열
 
 - ### <strong>[OutputMessage]</strong>
-  1. [ ] 결과 출력 시 사용되는 출력 문자열
+  1. [X] 결과 출력 시 사용되는 출력 문자열
 
 - ### <strong>[ErrorMessage]</strong>
   1. [ ] 잘못된 입력 시 사용되는 출력 문자열
