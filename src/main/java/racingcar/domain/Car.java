@@ -12,4 +12,14 @@ public class Car {
     public String getName() {
         return name;
     }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public void moveOrStop(int num) {
+        if (num >= 4) {
+            distance+=1;
+        }
+    }
 }

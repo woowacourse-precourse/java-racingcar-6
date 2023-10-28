@@ -23,5 +23,6 @@ public class RacingcarGameController {
         racingcarGame.setCars(inputView.getCarsName());
         inputView.readInputTryCountMessage();
         racingcarGame.setTryCount(inputView.getTryCount());
+        racingcarGame.raceStart();
     }
 }
