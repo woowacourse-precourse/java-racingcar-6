@@ -60,6 +60,30 @@ class ApplicationTest extends NsTest {
         }
     }
 
+    @Test
+    void 자동차_객체_전진_테스트(){
+        Racing racing = new Racing();
+        Car car1 = new Car("robin");
+        Car car2 = new Car("hood");
+        Car car3 = new Car("kyle");
+
+        List<Car> carList = new ArrayList<>(List.of(car1, car2, car3));
+        assertRandomNumberInRangeTest(
+                () -> {
+                    for (int i = 0; i < 3; i++) {
+                        racing.initCarsRandomNum(carList);
+                        racing.modifyForwardNum(carList);
+                    }
+                    assertThat(car1.getForwardNum()).isEqualTo(1);
+                    assertThat(car2.getForwardNum()).isEqualTo(3);
+                    assertThat(car3.getForwardNum()).isEqualTo(1);
+                },
+                STOP, MOVING_FORWARD, STOP,
+                MOVING_FORWARD, MOVING_FORWARD, STOP,
+                STOP, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
