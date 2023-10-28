@@ -22,7 +22,8 @@ public class RacingGame {
 		makeCarStepList(cars.length);
 		int tryCount = inputTryCount();
 		showTheResults(cars, tryCount);
-		String winners = umpire.decideTheWinners(cars,steps);
+		String winners = umpire.decideTheWinners(cars, steps);
+		announceTheWinners(winners);
 	}
 
 	private String[] inputCarName() {
@@ -61,5 +62,9 @@ public class RacingGame {
 			}
 			System.out.println();
 		}
+	}
+
+	private void announceTheWinners(String winners) {
+		System.out.println("최종 우승자 : " + winners);
 	}
 }
