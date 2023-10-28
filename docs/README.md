@@ -7,7 +7,7 @@
 - [ ] 전진 기능
 - [ ] 정지 기능
 
-## CarManager
+## CarController
 ### Field
 - [X] carModel 들을 담은 list
 ### Method
