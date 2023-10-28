@@ -26,6 +26,7 @@ public class Controller {
             System.out.println("");
 
         }
+        System.out.println("최종 우승자 : " + outputView.selectWinner(carNames, forwardCountList));
 
     }
 
