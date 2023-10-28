@@ -18,12 +18,14 @@ public class RacingCarGame {
     }
 
     public List<String> splitCarNamesByComma() {
-        String carName = InputView.getCarNameFromPlayer();
-        String[] carNameArray = carName.split(",");
-
         List<String> carNameList = new ArrayList<>();
-        for (int i = 0; i < carNameArray.length; i++) {
-            carNameList.add(carNameArray[i]);
+
+        String carName = InputView.getCarNameFromPlayer();
+        if (validator.isCarNameFromPlayerValidate(carName)) {
+            String[] carNameArray = carName.split(",");
+            for (int i = 0; i < carNameArray.length; i++) {
+                carNameList.add(carNameArray[i]);
+            }
         }
         return carNameList;
     }
