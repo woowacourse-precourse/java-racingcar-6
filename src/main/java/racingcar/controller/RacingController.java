@@ -9,24 +9,19 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingController {
-    private List<CarModel> carModelList = new ArrayList<>();
+
+    private CarController carController;
     private int repeatNumber;
 
-    public void inputCarNames() {
+    public void carNamesProcess() {
         OutputView.printCarNameDemand();
         List<String> carList = Arrays.asList(InputView.inputCarName().split(","));
 
-        for (String s : carList) {
-            this.carModelList.add(new CarModel(s));
-        }
+        this.carController = new CarController(carList);
     }
 
-    public void inputRepeatNumber() {
+    public void repeatNumberProcess() {
         OutputView.printRepeatNumberDemand();
         this.repeatNumber = Integer.parseInt(InputView.inputRepeatNumber());
-    }
-
-    public boolean checkForward() {
-        return Randoms.pickNumberInRange(1, 9) >= 4;
     }
 }
