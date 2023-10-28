@@ -16,6 +16,13 @@ public class RacingCarList {
                 .forEach(racingCars::add);
     }
 
+    public void moveRacingCarsBasedOnGivenNumbers(List<Integer> randomNumbers) {
+        for (int i = 0; i < racingCars.size(); i++) {
+            int chosenNumber = randomNumbers.get(i);
+            racingCars.get(i).checkAndMoveForward(chosenNumber);
+        }
+    }
+
     public List<RacingCarStatus> collectStatus() {
         return racingCars.stream()
                 .map(RacingCar::getStatus)
