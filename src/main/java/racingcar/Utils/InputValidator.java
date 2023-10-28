@@ -20,28 +20,28 @@ public class InputValidator {
         List<String> cars = Arrays.stream(input.split(DELIMITER)).toList();
 
         if (!isProperCarNum(cars)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(InputException.EXCEED_CAR_NUM.getMessage());
         }
 
         if (hasDupCarName(cars)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(InputException.DUPLICATE_CAR_NAME.getMessage());
         }
 
         if (!isProperCarNames(cars)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(InputException.WRONG_CAR_NAME_PATTERN.getMessage());
         }
         return cars;
     }
 
     public int validateTryCount(String input) {
         if (!isNumber(input)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(InputException.NOT_NUMBER.getMessage());
         }
 
         int tryCount = Integer.parseInt(input);
 
         if(! isProperTryCount(tryCount)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(InputException.EXCEED_TRY_COUNT.getMessage());
         }
 
         return tryCount;
