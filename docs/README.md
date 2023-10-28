@@ -52,14 +52,14 @@
   void initRandomNum();
   ```
 
-## RacingController
+## Racing
 - 경주 게임 동작
     ```java
     void run();
     ```
 - 입력한 차 이름에 대한 차 객체를 리스트에 담는 기능
     ```java
-    List<Car> toCarList(String carNames);
+    List<Car> toCarList(List<String> carNameList);
     ```
 - 전진할지 멈출지 판단하는 기능
     ```java
@@ -72,6 +72,10 @@
 - 누가 우승자인지 판단하는 기능
     ```java
     List<String> findWinners(List<Car> carList);
+    ```
+- 각 자동차마다 무작위 값 구하는 기능
+    ```java
+    void initCarsRandomNum(List<Car> carList);
     ```
 
 ## Validator
