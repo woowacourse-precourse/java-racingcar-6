@@ -3,15 +3,13 @@ package racingcar.controller;
 import racingcar.model.RacingCarList;
 import racingcar.view.*;
 
+import static racingcar.view.OutputView.*;
+import static racingcar.view.InputView.*;
 public class GameController {
-    OutputView getMessage = new OutputView();
-    InputView putMessage = new InputView();
-    GameUtils gameUtility = new GameUtils();
-
     public void run() {
-        getMessage.GameStartMessage();
-        String namesOfRacingCars = putMessage.getPlayerInput();
+        String namesOfRacingCars = getPlayerInput();
         RacingCarList car = new RacingCarList(namesOfRacingCars);
-        
+        int tryAttempt = getPlayerAttempts();
+        //GameProcess 클래스를 만들어서 관리할것.
     }
 }
