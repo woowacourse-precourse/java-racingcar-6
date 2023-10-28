@@ -13,7 +13,11 @@ public final class RacingCarService {
     }
 
     private Cars prepareCars(List<String> inputCarNames) {
-        return null;
+        List<Car> carList = inputCarNames.stream()
+            .map(Car::from)
+            .toList();
+
+        return Cars.from(carList);
     }
 
     private Cars startRace(Cars cars, int raceTime) {
