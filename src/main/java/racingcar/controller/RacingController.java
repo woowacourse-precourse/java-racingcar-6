@@ -14,6 +14,7 @@ public class RacingController {
     private final OutputView outputView = new OutputView();
     private final BlankValidator blankValidator = new BlankValidator();
     private final CarNameValidator carNameValidator = new CarNameValidator(blankValidator);
+    private final AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
     private final Cars cars = new Cars();
     private Racing racing;
 
@@ -36,7 +37,6 @@ public class RacingController {
 
     private void setAttemptCountForRace() {
         String attemptCountInput = inputView.printAttemptCountRequest();
-        AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
         int attemptCount = attemptCountValidator.getAttemptCount(attemptCountInput);
         racing = new Racing(cars, attemptCount);
         outputView.printEnterLine();
