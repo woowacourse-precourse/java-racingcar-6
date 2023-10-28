@@ -64,9 +64,11 @@ public class FeatureTest {
             "abcde, false",
             "53e1f, false"
     })
-    void 시도_회수가_숫자인지_확인(String tryCountInput, boolean actualResult) {
-        TryCount tryCount = new TryCount(tryCountInput);
-        assertThat(tryCount.isTryCountNumeric()).isEqualTo(actualResult);
+    void 시도_회수가_숫자인지_확인(String testTryCount, boolean actualResult) {
+        TryCount tryCount = new TryCount(testTryCount);
+        boolean predResult = tryCount.isTryCountNumeric();
+
+        assertThat(predResult).isEqualTo(actualResult);
     }
 
     @ParameterizedTest
