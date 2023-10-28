@@ -8,7 +8,7 @@ public class RoundView {
     public static void printRoundResults(List<Car> cars) {
 
         for (Car car : cars) {
-            System.out.println(car.getName() + ": " + generatePositionString(car.getPosition()));
+            System.out.println(car.getName() + " : " + generatePositionString(car.getPosition()));
         }
         System.out.println();
     }
