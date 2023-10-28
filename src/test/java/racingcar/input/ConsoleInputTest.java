@@ -44,5 +44,34 @@ class ConsoleInputTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 5자 이하여야 합니다.");
     }
+    
+    @DisplayName("자동차 전진 시도 횟수를 입력받는다.")
+    @Test
+    void inputMovementForwardCount() {
+        //given
+        String movementForwardCountInput = "5";
+        InputStream in = new ByteArrayInputStream(movementForwardCountInput.getBytes());
+        System.setIn(in);
+    
+        //when
+        int movementForwardCount = input.inputMovementForwardCount();
+
+        //then
+        assertThat(movementForwardCount).isEqualTo(Integer.parseInt(movementForwardCountInput));
+    }
+
+    @DisplayName("숫자가 아닌 자동차 전진 시도 횟수 입력 시 예외가 발생한다.")
+    @Test
+    void inputNonValidatedMovementForwardCount() {
+        //given
+        String movementForwardCountInput = "aa";
+        InputStream in = new ByteArrayInputStream(movementForwardCountInput.getBytes());
+        System.setIn(in);
+
+        //when //then
+        assertThatThrownBy(input::inputMovementForwardCount)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("숫자만 입력 가능합니다.");
+    }
 
 }
