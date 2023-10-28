@@ -1,10 +1,7 @@
 package racingcar.controller;
 
-import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.util.GameUtil;
-import racingcar.validator.RoundValidator;
-import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
@@ -14,6 +11,13 @@ public class GameController {
 
     public GameController(){
         gameSet();
+        System.out.println("");
+        OutputView.playMessage();
+        for(int i=0; i<tryCount; i++) {
+            cars.move();
+            cars.carsState();
+            System.out.println("");
+        }
     }
 
     public void gameSet(){
