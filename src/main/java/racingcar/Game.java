@@ -7,6 +7,12 @@ import java.util.List;
 
 public class Game {
 
+    public static void start() {
+        List<Car> cars = readCarNames();
+        int gameCount = readGameCount();
+        // TODO: game();
+    }
+
     public static List<Car> readCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
