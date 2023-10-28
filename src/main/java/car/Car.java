@@ -23,7 +23,7 @@ public class Car {
         return Randoms.pickNumberInRange(0,9);
     }
 
-    public void move() {
+    public void movingForward() {
         int randomNumber = getRandomNumber();
         if (randomNumber >= 4){
             distance++;
