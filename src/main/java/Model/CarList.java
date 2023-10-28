@@ -1,5 +1,7 @@
 package Model;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,20 +12,18 @@ public class CarList {
         carList = new ArrayList<>();
     }
 
-    public CarList(List<Car> carList) {
-        this.carList = carList;
-    }
-
     public void addCar(Car car) {
         carList.add(car);
     }
 
-    public int getSize() {
-        return carList.size();
-    }
-
-    public Car getCar(int idx) {
-        return carList.get(idx);
+    public void playGame() {
+        for (int i = 0; i < carList.size(); i++) {
+            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            if (randomNumber >= 4) {
+                Car car = carList.get(i);
+                car.moveForward();
+            }
+        }
     }
 
     public CarList calculateRaceWinners() {
@@ -47,6 +47,15 @@ public class CarList {
         }
 
         return raceWinners;
+    }
+
+    public void printCarPositions() {
+        for (Car car : carList) {
+            car.printCarName();
+            System.out.print(" : ");
+            car.printCarPosition();
+        }
+        System.out.println();
     }
 
     public void printCarNames() {

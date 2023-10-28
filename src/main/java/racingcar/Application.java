@@ -5,7 +5,6 @@ import Model.CarList;
 import Model.RaceCarNames;
 import Model.TryCount;
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.List;
 
@@ -26,23 +25,9 @@ public class Application {
         System.out.println("\n실행 결과");
         int gameCycle = tryCount.getTryCount();
         for (int i = 1; i <= gameCycle; i++) {
-            playGame();
-            printCurrentRacingResult();
+            carList.playGame();
+            carList.printCarPositions();
         }
-    }
-
-    public static void playGame() {
-        for (int i = 0; i < carList.getSize(); i++) {
-            int randomNumber = generateRandomNumber();
-            if (randomNumber >= 4) {
-                Car car = carList.getCar(i);
-                car.moveForward();
-            }
-        }
-    }
-
-    public static int generateRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
     }
 
     public static void receiveRaceCarNames() {
@@ -72,16 +57,6 @@ public class Application {
         if (!tryCount.isTryCountNumeric()) {
             throw new IllegalArgumentException();
         }
-    }
-
-    public static void printCurrentRacingResult() {
-        for (int i = 0; i < carList.getSize(); i++) {
-            Car car = carList.getCar(i);
-            car.printCarName();
-            System.out.print(" : ");
-            car.printCarPosition();
-        }
-        System.out.println();
     }
 
     public static void printRaceWinners() {
