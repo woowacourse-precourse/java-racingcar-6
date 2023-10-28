@@ -42,10 +42,6 @@ public class RaceInfo {
         return scoreBoard;
     }
 
-    public List<String> getCarNames() {
-        return carNames;
-    }
-
     public int getGameRound() {
         return gameRound;
     }
