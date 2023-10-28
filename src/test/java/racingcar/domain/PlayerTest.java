@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +14,7 @@ class PlayerTest {
         Player player = new Player("pobi,woni,jun");
 
         // when
-        String[] strings = player.splitNamesOfCars();
+        List<String> strings = player.splitNamesOfCars();
 
         // then
         assertThat(strings).contains("pobi", "woni", "jun");
@@ -25,7 +26,7 @@ class PlayerTest {
         Player player = new Player("pobi");
 
         // when
-        String[] strings = player.splitNamesOfCars();
+        List<String> strings = player.splitNamesOfCars();
 
         // then
         assertThat(strings).contains("pobi");
@@ -37,7 +38,7 @@ class PlayerTest {
         Player player = new Player("pobi,woni,pobi");
 
         // when
-        String[] namesOfCars = player.splitNamesOfCars();
+        List<String> namesOfCars = player.splitNamesOfCars();
 
         // then
         Assertions.assertThatThrownBy(() -> player.validateDuplicationName(namesOfCars))

@@ -9,7 +9,7 @@ class CarFactoryTest {
     @Test
     public void 자동차_변환_테스트() {
         // given
-        String[] namesOfCars = {"pobi", "woni"};
+        List<String> namesOfCars = List.of("pobi", "woni");
 
         // when
         List<Car> cars = CarFactory.generateCar(namesOfCars);
