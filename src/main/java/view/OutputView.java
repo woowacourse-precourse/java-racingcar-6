@@ -1,14 +1,14 @@
 package view;
 
 public class OutputView {
-    private static final String resultMessage = "실행 결과";
-    private static final String winnerMessage = "최종 우승자 : ";
+    private static final String RESULT_MESSAGE = "실행 결과";
+    private static final String WINNER_MESSAGE = "최종 우승자 : ";
     public static void printResultMessage() {
-        System.out.println(resultMessage);
+        System.out.println(RESULT_MESSAGE);
     }
 
     public static void printWinnerMessage() {
-        System.out.print(winnerMessage);
+        System.out.print(WINNER_MESSAGE);
     }
 
 }
