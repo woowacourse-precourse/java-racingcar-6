@@ -51,7 +51,7 @@ public class Application {
             System.out.println();
         }
 
-        // 최종 우승자 판별
+        // 최종 우승자 결정
 
         // 최대 이동값 구하기
         int maxNumber = 0;
@@ -69,6 +69,9 @@ public class Application {
                 winner.add(name);
             }
         }
+        // 결과 출력
+        String result = String.join(",", winner);
+        System.out.println("최종 우승자 : " + result);
     }
 
     // 이동거리를 대쉬(-)로 변경
