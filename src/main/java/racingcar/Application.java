@@ -25,7 +25,11 @@ public class Application {
     public static List<String> askCarName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String getCar = Console.readLine();
-        return List.of(getCar.split(","));
+        List<String> splitAnswerName = List.of(getCar.split(","));
+        if (!nameLengthCheck(splitAnswerName)) {
+            throw new IllegalArgumentException("유효하지않은 입력입니다.");
+        }
+        return splitAnswerName;
     }
 
     public static int askPlayTurn() {
@@ -39,5 +43,9 @@ public class Application {
 
     private static boolean isValidData(final String getTurn) {
         return getTurn.matches("[0-9]+");
+    }
+
+    private static boolean nameLengthCheck(List<String> name) {
+        return name.stream().allMatch(n -> n.length() <= 5);
     }
 }

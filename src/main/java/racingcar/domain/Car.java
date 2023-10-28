@@ -7,9 +7,6 @@ public class Car implements Comparator {
     private int moveDistance;
 
     public Car(String name) {
-        if (!nameLengthCheck(name)) {
-            throw new IllegalArgumentException();
-        }
         this.name = name;
         this.moveDistance = 0;
     }
@@ -20,10 +17,6 @@ public class Car implements Comparator {
 
     public String currentLocation() {
         return name + " : " + "-".repeat(Math.max(0, moveDistance));
-    }
-
-    private boolean nameLengthCheck(String name) {
-        return name.length() <= 5;
     }
 
     @Override
