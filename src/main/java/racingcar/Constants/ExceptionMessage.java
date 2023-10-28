@@ -12,5 +12,7 @@ public enum ExceptionMessage {
         this.exceptionMassage = exceptionMessage;
     }
 
-
+    public void throwexception(){
+        throw new IllegalArgumentException(exceptionMassage);
+    }
 }

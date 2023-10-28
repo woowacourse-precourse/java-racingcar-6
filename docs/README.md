@@ -72,7 +72,7 @@
 ### ExceptionMessage
 > 잘못된 값을 입력 받았을 때 출력할 에러 메세지가 선언 돼있는 enum 클래스
 - [x] 예외 메세지를 받을 ExceptionMassage 생성자
-- [ ] throwexception메서드를 통해 메세지를 담아서 예외를 던지는 메서드
+- [x] throwexception메서드를 통해 메세지를 담아서 예외를 던지는 메서드
 ## Util
 ### Util
 > 자동차의 전진 여부를 정해주는 클래스
