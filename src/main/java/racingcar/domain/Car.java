@@ -1,5 +1,9 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Car {
 
     public static final int NAME_LENGTH_LIMIT = 5;
@@ -30,6 +34,30 @@ public class Car {
 
     public Integer getDistance() {
         return distance;
+    }
+
+    public static WinnersMessage getWinnersMessage(List<Car> cars) {
+        Integer farthest = getFarthestDistance();
+        List<Car> winners = getWinners(cars, farthest);
+        return new WinnersMessage(winners);
+    }
+
+    private static List<Car> getWinners(List<Car> cars, Integer farthest) {
+        List<Car> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getDistance().equals(farthest)) {
+                winners.add(car);
+            }
+        }
+        return Collections.unmodifiableList(winners);
+    }
+
+    private static Integer getFarthestDistance() {
+        int farthest = 0;
+        for (Car car : cars) {
+            farthest = Math.max(farthest, car.getDistance());
+        }
+        return farthest;
     }
 
 }

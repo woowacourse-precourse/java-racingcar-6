@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Game {
@@ -29,27 +28,7 @@ public class Game {
     }
 
     public WinnersMessage getWinnersMessage() {
-        Integer farthest = getFarthestDistance();
-        List<Car> winners = getWinners(farthest);
-        return new WinnersMessage(winners);
-    }
-
-    private Integer getFarthestDistance() {
-        int farthest = 0;
-        for (Car car : cars) {
-            farthest = Math.max(farthest, car.getDistance());
-        }
-        return farthest;
-    }
-
-    private List<Car> getWinners(Integer farthest) {
-        List<Car> winners = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.getDistance().equals(farthest)) {
-                winners.add(car);
-            }
-        }
-        return Collections.unmodifiableList(winners);
+        return Car.getWinnersMessage(cars);
     }
 
 }
