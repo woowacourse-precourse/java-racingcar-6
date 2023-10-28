@@ -39,7 +39,8 @@ public class UserInput {
         System.out.println("시도할 횟수는 몇회인가요?");
         int count = Integer.parseInt(Console.readLine());
 
-        InputException.isNumber(count);
+        InputException.isNotNumber(count);
+        InputException.isNotPositiveNumber(count);
 
         return count ;
     }

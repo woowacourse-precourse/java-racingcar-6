@@ -58,13 +58,16 @@ public class InputException extends IllegalArgumentException {
 
     // 횟수
     // 숫자가 아닌 경우
-    public static void isNumber(int number){
+    public static void isNotNumber(int number){
         if (!String.valueOf(number).matches("\\d+")) {
-            throw new IllegalArgumentException(number + " -> 숫자가 아닙니다. ");
+            throw new IllegalArgumentException(number + " -> 숫자만 입력해주세요.");
         }
     }
 
-    // int 범위를 벗어난 경우
-
     // 0이거나 음수일 경우
+    public static void isNotPositiveNumber(int count){
+        if(count <= 0){
+            throw new IllegalArgumentException(count + " -> 양의 정수만 입력해주세요. ");
+        }
+    }
 }
