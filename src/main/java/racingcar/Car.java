@@ -16,4 +16,11 @@ public class Car {
         this.name = name;
         this.position = 0;
     }
+
+    public void move() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        if (randomNumber >= 4) {
+            this.position++;
+        }
+    }
 }
