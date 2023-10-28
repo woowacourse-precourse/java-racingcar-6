@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import camp.nextstep.edu.missionutils.Console;
 
-public class Input {
+class Input {
     static List<String> inputCarName() {
         String raw = Console.readLine();
 
