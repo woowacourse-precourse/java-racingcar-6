@@ -20,8 +20,9 @@ public class View {
         return request;
     }
 
-    public static void printWinnerResult(String winnerNames) {
-        String winnerMessage = String.format(RESPONSE_WINNER_MESSAGE.getMessage(), winnerNames);
+    public static void printWinnerNames(List<String> winnerNames) {
+        String names = String.join(", ", winnerNames);
+        String winnerMessage = String.format(RESPONSE_WINNER_MESSAGE.getMessage(), names);
         System.out.println(winnerMessage);
     }
 

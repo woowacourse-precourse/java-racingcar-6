@@ -2,7 +2,6 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Cars;
-import racingcar.domain.WinnerResult;
 import racingcar.parser.Parser;
 import racingcar.view.View;
 
@@ -28,12 +27,13 @@ public class Game {
             final int roundCount
     ) {
         for (int i = 0; i < roundCount; i++) {
-            List<String> roundResults = cars.playOneRound();
+            cars.playRound();
+            List<String> roundResults = cars.generateResults();
             View.printRoundResults(roundResults);
         }
 
-        WinnerResult winnerResult = cars.createWinnerResult();
-        View.printWinnerResult(winnerResult.getWinnerNames());
+        List<String> winnerNames = cars.getWinnerNames();
+        View.printWinnerNames(winnerNames);
 
         Console.close();
     }
