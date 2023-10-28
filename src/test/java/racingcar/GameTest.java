@@ -50,11 +50,25 @@ class GameTest {
         assertThatThrownBy(() -> Game.readCarNames())
             .isInstanceOf(IllegalArgumentException.class);
     }
+    @Test
+    @DisplayName("게임 횟수 입력")
+    void readGameCount() {
+        // given
+        String legal = "1";
+        String illegal1 = "-1";
+        String illegal2 = "a123";
 
-    private static void testBadInput(String input) {
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        // when - then
+        System.setIn(new ByteArrayInputStream(legal.getBytes()));
+        int countLegal = Game.readGameCount();
+        assertThat(countLegal).isEqualTo(1);
 
-        assertThatThrownBy(() -> Game.readCarNames())
+        System.setIn(new ByteArrayInputStream(illegal1.getBytes()));
+        assertThatThrownBy(Game::readGameCount)
+            .isInstanceOf(IllegalArgumentException.class);
+
+        System.setIn(new ByteArrayInputStream(illegal2.getBytes()));
+        assertThatThrownBy(Game::readGameCount)
             .isInstanceOf(IllegalArgumentException.class);
     }
 }

@@ -20,4 +20,12 @@ public class Game {
         }
         return cars;
     }
+
+    public static int readGameCount() {
+        String input = Console.readLine();
+        Console.close();
+
+        Validation.validateGameCount(input);
+        return Integer.parseInt(input);
+    }
 }
