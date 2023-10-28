@@ -11,6 +11,6 @@ public class Round {
         this.runningRound += 1;
     }
     public boolean isEnd(){
-        return this.totalRound < this.runningRound;
+        return this.totalRound > this.runningRound;
     }
 }
