@@ -16,16 +16,9 @@ public class Car {
     }
 
     public void moveForward() {
-        moveForward(createRandomNumber());
-    }
-
-    private int createRandomNumber() {
-        return RandomUtil.createRandomNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-    }
-
-    private void moveForward(int randomNumber) {
+        int randomNumber = RandomUtil.createRandomNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
         if (randomNumber >= REFERENCE_VALUE_MOVING_FORWARD) {
-            forwards += 1;
+            this.forwards++;
         }
     }
 }
