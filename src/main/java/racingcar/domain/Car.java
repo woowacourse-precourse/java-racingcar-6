@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import racingcar.dto.CarDto;
-
 public class Car {
 
     private final String name;
@@ -26,9 +24,5 @@ public class Car {
         if (randomNumber >= 4) {
             distance++;
         }
-    }
-
-    public CarDto convertCarDto() {
-        return CarDto.convertCarDto(name, distance);
     }
 }
