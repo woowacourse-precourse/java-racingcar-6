@@ -27,4 +27,20 @@ class InputViewTest {
         } catch (Exception ignored) {
         }
     }
+
+    @Test
+    @DisplayName("'시도할 회수는 몇회인가요?' 출력 및, 시도 횟수 입력을 테스트 합니다.")
+    void 게임_시도_횟수_문구_출력_및_시도_횟수_입력() {
+        String trial = "5";
+
+        try {
+            inputStream = new ByteArrayInputStream(trial.getBytes());
+            System.setIn(inputStream);
+
+            String actualInput = InputView.setGameTrial();
+
+            assertThat(actualInput).isEqualTo(trial);
+        } catch (Exception ignored) {
+        }
+    }
 }

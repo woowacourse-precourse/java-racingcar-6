@@ -17,6 +17,7 @@ public class RacingCarController {
 
     public void startGame() {
         getCar();
+        InputView.setGameTrial();
     }
 
     private List<Car> getCar() {
