@@ -61,6 +61,12 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    @DisplayName("random값이 0과 9사이의 숫자여야 한다.")
+    void isCarMovingForward(){
+        boolean result = movingCar.isCarMovingForward();
+        assertThat(result).;
+    }
 
     @Override
     public void runMain() {

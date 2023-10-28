@@ -8,9 +8,13 @@ public class MovingCar {
     public MovingCar() {
     }
 
-    public boolean movingForward() {
-        int random = Randoms.pickNumberInRange(0, 9);
-        if (random >= MOVING_FORWARD) {
+    public int generateRandomNumber(){
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        return randomNumber;
+    }
+    public boolean isCarMovingForward() {
+        int randomNumber = generateRandomNumber();
+        if (randomNumber >= MOVING_FORWARD) {
             return true;
         }
         return false;
