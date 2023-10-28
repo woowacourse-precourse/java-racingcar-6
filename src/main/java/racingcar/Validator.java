@@ -20,6 +20,12 @@ public class Validator {
         validateCarsNamesLength(cars);
     }
 
+    public void validatelastInputCommas(String input) {
+        if (input.charAt(input.length() - 1) == ',') {
+            throw new IllegalArgumentException("이름이 없는 자동차가 있습니다.");
+        }
+    }
+
     private void validateCarsNamesDuplicate(List<Car> cars) {
         for (int i = 0; i < cars.size() - 1; i++) {
             for (int j = i + 1; j < cars.size(); j++) {

@@ -61,6 +61,7 @@ public class RacingGame {
     private String carNamesInput() {
         InputView.requestCarNames();
         String input = Console.readLine();
+        validator.validatelastInputCommas(input);
         return input;
     }
 
