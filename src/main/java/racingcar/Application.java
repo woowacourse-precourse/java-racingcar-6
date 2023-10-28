@@ -1,12 +1,16 @@
 package racingcar;
 
+import Model.Car;
 import Model.RaceCarNames;
 import Model.TryCount;
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.List;
+
 public class Application {
     private static RaceCarNames raceCarNames;
     private static TryCount tryCount;
+    private static List<Car> carList;
 
     public static void main(String[] args) {
         startRacingGame();
@@ -34,6 +38,12 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String raceCarNamesinput = Console.readLine();
         raceCarNames = new RaceCarNames(raceCarNamesinput);
+
+        List<String> carNameList = raceCarNames.parseCarNamesFromRaceCarInput();
+        for (String carName : carNameList) {
+            Car car = new Car(carName);
+            carList.add(car);
+        }
     }
 
     public static void receiveTryCount() {
