@@ -1,16 +1,19 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.StringTokenizer;
 
 public class Game {
     Message message = new Message();
     private static ArrayList<Car> cars;
+    private static ArrayList<String> winners;
     private Integer gameRound;
 
     public void play() {
         readyGame();
         startGame();
+        endGame();
     }
 
     public void readyGame() {
@@ -30,6 +33,7 @@ public class Game {
 
     public void startGame() {
         while (gameRound-->0) {
+            message.printResult();
             for(Car car : cars) {
                 car.move();
                 car.printMove();
@@ -39,7 +43,9 @@ public class Game {
     }
 
     public void endGame() {
-
+        message.printWinners();
+        findWinner();
+        printWinner();
     }
 
     public void printCarMove(){
@@ -49,10 +55,21 @@ public class Game {
     }
 
     public void printWinner(){
-
+        System.out.println(String.join(", ", winners));
     }
-    public ArrayList<String> findWinner(){
-        ArrayList<String> winners = new ArrayList<>();
-        return winners;
+    public void findWinner(){
+        winners = new ArrayList<>();
+        cars.sort(new Comparator<Car>() {
+            @Override
+            public int compare(Car car1, Car car2) {
+                return car2.getDistance() - car1.getDistance();
+            }
+        });
+
+        int longDistance = cars.get(0).getDistance();
+        for(Car car : cars){
+            if(car.getDistance() == longDistance) winners.add(car.getName());
+            else break;
+        }
     }
 }
