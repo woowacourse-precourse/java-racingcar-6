@@ -25,11 +25,11 @@
 
 ### 자동차 이름 입력 함수 `readCarNames()`
 * String 입력받기: 내장 함수 `readLine()`
-* String 분리 및 배열로 저장: 내장 함수 `split()`
-* String 배열 검증: `validateCarNames(String[] names)`
+* String 분리 및 리스트로 저장: 내장 함수 `split()`
+* String 리스트 검증: `validateCarNames(List<String> names)`
   * 값이 `true`인 경우 예외 발생
   * 값이 `false`인 경우
-    * `String[]`을 바탕으로 `List<Car>` 생성
+    * `List<String>`을 바탕으로 `List<Car>` 생성
     * 생성한 `List<Car>` 반환
 
 ### 게임 횟수 입력 함수: `readGameCount()`
@@ -39,9 +39,9 @@
 * 입력 검증: `validateGameCount(String input)`
 * 자연수 반환
 
-### 사용자 입력 검증 함수 `validateCarNames(String[] names)`
-* 인자: 검증이 필요한 이름들의 배열
-* 문자열 배열을 iterate 하면서, 하나라도 5글자 초과하는 문자열이 발견되면 예외 터뜨림
+### 사용자 입력 검증 함수 `validateCarNames(List<String> names)`
+* 인자: 검증이 필요한 이름들의 리스트
+* 문자열 리스트를 iterate 하면서, 하나라도 5글자 초과하는 문자열이 발견되면 예외 터뜨림
 * 루프가 끝나면 `false`를 반환
 
 ### 사용자 입력 검증 함수 `validateGameCount(String input)`
