@@ -17,10 +17,6 @@ public class OutputView {
         System.out.println(PRINT_RESULT_HEADER);
     }
 
-    private static void printPadding() {
-        System.out.println();
-    }
-
     public static void printResult(List<CarDescription> carDescriptions) {
         carDescriptions.forEach(OutputView::printResultEach);
         printPadding();
@@ -28,6 +24,10 @@ public class OutputView {
 
     private static void printResultEach(CarDescription carDescription) {
         System.out.format(PRINT_RESULT_FORMAT, carDescription.name(), POSITION_SHAPE.repeat(carDescription.position()));
+    }
+
+    private static void printPadding() {
+        System.out.println();
     }
 
     public static void printWinner(List<String> winnerNames) {

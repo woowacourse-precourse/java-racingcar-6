@@ -15,12 +15,6 @@ public class InputMapper {
         return List.of(input.split(getNameListDelimiter().getShape()));
     }
 
-    private static void checkInputNonNull(String input) {
-        if (Objects.isNull(input)) {
-            throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
-        }
-    }
-
     public static Delimiter getNameListDelimiter() {
         return Delimiter.NAME;
     }
@@ -31,6 +25,12 @@ public class InputMapper {
         checkPositiveNumber(parsed);
 
         return parsed;
+    }
+
+    private static void checkInputNonNull(String input) {
+        if (Objects.isNull(input)) {
+            throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
+        }
     }
 
     private static int parseInt(String input) {
