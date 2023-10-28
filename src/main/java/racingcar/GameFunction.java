@@ -25,6 +25,17 @@ public class GameFunction {
         return carCanGo;
     }
 
+    void applyScore(List<Car> carList, List<Boolean> carCanGo) {
+        for (int j = 0; j < carList.size(); j++) {
+            Boolean go = carCanGo.get(j);
+            Car car = carList.get(j);
+            if (go) {
+                car.gainScore();
+            }
+        }
+    }
+
+
 
 
 
