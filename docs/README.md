@@ -35,8 +35,8 @@
 ## 자동차 생성 기능
 - [x] Car `생성자`
   - 자동차 이름을 인수로 받아 Car 객체 생성
-- [ ] RaceCarList `생성자`
-  - 문자열 리스트 또는 Car 리스트를 인수로 받아 Car 리스트를 감싸는 객체 생성
+- [x] CarList `생성자`
+  - Car 리스트를 인수로 받아 Car 리스트를 감싸는 객체 생성
 
 ## 시도 횟수 입력 기능
 - [ ] RaceView : `getAttemptInput` 메서드
