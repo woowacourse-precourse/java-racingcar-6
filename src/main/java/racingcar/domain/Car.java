@@ -6,7 +6,6 @@ public class Car {
     private int level;
     private String log;
 
-
     private Car(String carName, int level, String log) {
         this.carName = carName;
         this.level = level;
@@ -21,7 +20,7 @@ public class Car {
 
     public void setLevelAndLog(Car car) {
         car.level++;
-        car.log = log+"-";
+        car.log = log + "-";
     }
 
     public String getCarNameAndLog() {
