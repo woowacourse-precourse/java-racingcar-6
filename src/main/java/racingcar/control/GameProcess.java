@@ -1,5 +1,6 @@
 package racingcar.control;
 
+import racingcar.domain.GameHost;
 import racingcar.utill.Utill;
 import racingcar.domain.RaceCar;
 import racingcar.utill.ValidException;
@@ -12,12 +13,16 @@ public class GameProcess {
     private String nameLineOfRaceCar;
     private List<String> nameSplitList;
     private Integer cntTryRace;
+    private List<RaceCar> raceCarOfWinnerList;
+    private GameHost gameHost;
 
     public GameProcess() {
         raceCarOfCurrentList = new ArrayList<>();
         nameLineOfRaceCar = "";
         nameSplitList = new ArrayList<>();
         cntTryRace = 0;
+        raceCarOfWinnerList = new ArrayList<>();
+        gameHost = new GameHost();
     }
 
     /**
@@ -72,9 +77,49 @@ public class GameProcess {
         cntTryRace = Utill.inputNum();
     }
 
-    // TODO: 10/27/23 레이싱게임의 최종 승자를 알려준다.
-    public List<RaceCar> knowFinalWinner() {
+    /**
+     * 레이싱게임의 최종 승자를 알려준다.
+     *
+     * @return
+     */
+    public String knowFinalWinner() {
+        RaceCar raceCar = null;
+        String nameOfRaceCar = null;
+        String[] raceCarOfWinnerArr = null;
+
         // 레이싱게임의 최종 승자를 알려준다.
-        return null;
+        raceCarOfWinnerList = gameHost.winRaceCar(raceCarOfCurrentList, cntTryRace);
+        int sizeOfWinnerList = raceCarOfWinnerList.size();
+
+        if (sizeOfWinnerList == 1) {
+            raceCar = raceCarOfWinnerList.get(0);
+            nameOfRaceCar = raceCar.toString();
+        }
+        if (sizeOfWinnerList >= 1) {
+            raceCarOfWinnerArr = makeNameArrFromCarList(raceCarOfCurrentList);
+            nameOfRaceCar = String.join(" ,", raceCarOfWinnerArr);
+        }
+        return nameOfRaceCar;
+    }
+
+    /**
+     * CarList에 있는 각각의 Car 이름을 Arr으로 만들어 반환한다.
+     *
+     * @param raceCarList
+     * @return
+     */
+    private String[] makeNameArrFromCarList(List<RaceCar> raceCarList) {
+        Integer sizeOfRaceCarList = raceCarList.size();
+        String[] arrOfStr = new String[sizeOfRaceCarList];
+        RaceCar raceCar = null;
+        String name = "";
+
+        for (int index = 0; index < sizeOfRaceCarList; index++) {
+            raceCar = raceCarList.get(index);
+            name = raceCar.toString();
+            arrOfStr[index] = name;
+        }
+
+        return arrOfStr;
     }
 }

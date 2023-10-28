@@ -44,10 +44,16 @@
     - [x] 한글 포함 검사
 
   - [x] 입력받은 이름 문자열로 자동차를 만들어준다. // GameProcess#createRaceCars()
+    
     - [x] 문자열 공백 검사
     
   - [x] 게임을 시도할 회수를 입력하는 메서드 // GameProcess#inputNumberGameAttempts
-  - [ ] 레이싱게임의 최종 승자를 알려준다. // GameProcess#knowFinalWinner
+
+  - [x] 레이싱게임의 최종 승자를 알려준다. // GameProcess#knowFinalWinner
+
+    gameHost의 메서드로 해결
+
+    레이싱게임의 최종 승자를 문자열로 반환하는 메서드.
 
   
 
