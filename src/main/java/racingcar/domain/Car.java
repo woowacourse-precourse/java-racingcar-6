@@ -12,6 +12,10 @@ public class Car {
         return name;
     }
 
+    public int getDistance() {
+        return distance;
+    }
+
     public int move() {
         distance += 1;
         return distance;

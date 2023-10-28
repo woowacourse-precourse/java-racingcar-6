@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import racingcar.domain.Car;
 import racingcar.repository.CarRepository;
 import racingcar.util.RandomNumberGenerator;
 import racingcar.util.validator.InputValidator;
@@ -39,11 +40,12 @@ public class CarService {
         return Arrays.stream(carNames.split(",")).toList();
     }
 
-    public void game() {
+    public List<Car> game() {
         for (int i = 0; i < carRepository.carList.size(); i++) {
             if (randomNumberGenerator.pickRandomNumber() >= 4) {
                 carRepository.moveForward(carRepository.carList.get(i));
             }
         }
+        return carRepository.carList;
     }
 }
