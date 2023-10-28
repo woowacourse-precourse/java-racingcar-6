@@ -12,6 +12,8 @@ public class OutputView {
     private static final String SEPARATOR_COLON = " : ";
 
     private static final String STEP_CHARACTER = "-";
+    private static final String WINNER_INFO_MSG = "최종 우승자" + SEPARATOR_COLON;
+    private static final String COMMA_SEPARATOR = ", ";
 
     public void printRequestCarNameMessage() {
         System.out.println(CAR_NAME_INPUT_MSG);
@@ -31,5 +33,11 @@ public class OutputView {
                         carDto.getName() + SEPARATOR_COLON + STEP_CHARACTER.repeat(carDto.getStep())));
 
         System.out.println();
+    }
+
+    public void printWinners(List<String> winners) {
+        System.out.print(WINNER_INFO_MSG);
+        String result = String.join(COMMA_SEPARATOR, winners);
+        System.out.println(result);
     }
 }

@@ -33,6 +33,9 @@ public class RacingGameController {
             List<CarDto> carDtoList = CarDto.toDtoList(cars);
             outputView.printResult(carDtoList);
         }
+
+        List<String> winners = racingGame.getWinners();
+        outputView.printWinners(winners);
     }
 
     private Cars getCarsFromInputView() {

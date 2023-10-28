@@ -16,7 +16,7 @@ public class RacingGame {
         cars.move();
     }
 
-    public List<String> getWinners(final Cars cars) {
+    public List<String> getWinners() {
         referee.decideWinner(cars);
         return referee.getWinnerNames();
     }
