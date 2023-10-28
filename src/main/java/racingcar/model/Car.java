@@ -3,6 +3,7 @@ package racingcar.model;
 public class Car {
 
     private static final int MAXIMUM_NAME_LENGTH = 5;
+    private static final int MOVING_DISTANCE_PER_ACCELERATE = 1;
     private static final String EMPTY_NAME = "";
     private static final String ERROR_MESSAGE = "[ERROR] ";
     private static final String ERROR_EMPTY_NAME = "자동차의 이름이 존재하지 않습니다.";
@@ -16,6 +17,12 @@ public class Car {
         validateNameLength(name);
         this.name = name;
         this.totalMovingDistance = 0;
+    }
+
+    public void accelerate(CarAccelerator carAccelerator) {
+        if (carAccelerator.shouldAccelerate()) {
+            totalMovingDistance += MOVING_DISTANCE_PER_ACCELERATE;
+        }
     }
 
     private void validateEmptyName(String name) {
