@@ -1,5 +1,9 @@
 package racingcar.model;
 
+import static racingcar.exception.InputErrorCode.INVALID_CAR_NAME_SIZE;
+
+import racingcar.exception.InputException;
+
 public class Car {
 
     private final String name;
@@ -14,7 +18,9 @@ public class Car {
     }
 
     private void validate() {
-        if(name.length() > 5) throw new IllegalArgumentException("자동차 이름은 5글자 초과할 수 없다.");
+        if (name.length() > 5) {
+            throw new InputException(INVALID_CAR_NAME_SIZE);
+        }
     }
 
 }

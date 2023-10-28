@@ -3,6 +3,7 @@ package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.exception.InputErrorCode.INVALID_CAR_NAME_SIZE;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -18,7 +19,7 @@ class CarsGeneratorTest {
     void 자동차_이름이_5글자가_넘는다면_예외를_던진다(final String carNames) {
         assertThatThrownBy(() -> carsGenerator.generate(carNames))
             .isInstanceOf(IllegalArgumentException.class)
-            .hasMessageContaining("자동차 이름은 5글자 초과할 수 없다.");
+            .hasMessageContaining(INVALID_CAR_NAME_SIZE.getMessage());
     }
 
     @Test
