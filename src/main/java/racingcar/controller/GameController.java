@@ -18,14 +18,11 @@ public class GameController {
     }
 
     public void start() {
-        initGame();
-        List<String> carNames = carGameService.extractSeperator(inputView.inputCarName());
-
-
-
-    }
-
-    private void initGame() {
         outputView.printInitGame();
+        List<String> carNames = carGameService.extractSeperator(inputView.inputCarName());
+        Integer gameCount = inputView.inputGameCount();
+
+
     }
+
 }
