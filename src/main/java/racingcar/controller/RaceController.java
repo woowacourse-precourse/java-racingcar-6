@@ -11,4 +11,8 @@ public class RaceController {
         this.inputView = inputView;
         this.outputView = outputView;
     }
+
+    public void run() {
+        // TODO 구현 진행
+    }
 }
