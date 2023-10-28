@@ -1,8 +1,8 @@
 package util;
 
 public enum CarNameErrorMessage {
-    SPACE_IN_NAME("이름에 스페이스가 포함되어서는 안됩니다."),
-    NAME_LENGTH("이름이 5글자를 초과해서는 안됩니다.");
+    SPACE_IN_NAME("이름에 스페이스가 포함되어있습니다."),
+    NAME_LENGTH("이름이 5글자를 초과했습니다.");
 
     private final String message;
 
