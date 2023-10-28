@@ -52,6 +52,8 @@ public class Controller {
             playRound(carPositions);
             outputView.printRoundResult(values.getCarNames(), carPositions);
         }
+        values.determineWinners(carPositions);
+        outputView.printWinners(values.getWinners());
     }
     private void playRound(List<Integer> carPositions) {
         for (int i = 0; i < carPositions.size(); i++) {
