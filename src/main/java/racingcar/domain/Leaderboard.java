@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Leaderboard {
 
-    Map<String, Integer> board = new HashMap<String, Integer>();
+    public Map<String, Integer> board = new LinkedHashMap<String, Integer>();
 
     public Leaderboard(List<String> names) {
         for (String name : names){
@@ -18,6 +18,7 @@ public class Leaderboard {
             distance(board.get(name));
             System.out.println();
         }
+        System.out.println();
     }
 
     public void distance(int n){
@@ -26,24 +27,21 @@ public class Leaderboard {
         }
     }
     public void winner() {
-        List<String> names = new ArrayList<>(board.keySet());
-        Collections.sort(names, (name1, name2) -> (board.get(name2).compareTo(board.get(name1))));
-
         String result="최종 우승자 : ";
-        int maxDistance = 0;
+        int maxDistance = Collections.max(board.values());
+        int numberOfWinners = 0;
 
         for (String name : board.keySet()){
-            if (maxDistance==0) {
-                maxDistance = board.get(name);
-                result=result+name;
-                continue;
-            }
 
-            if (maxDistance==board.get(name)){
-                result=result+(", "+name);
-            }
-            else {
-                break;
+            if (maxDistance==board.get(name)) {
+
+                if (numberOfWinners == 0) {
+                    result = result + name;
+                } else {
+                    result = result + (", " + name);
+                }
+
+                numberOfWinners++;
             }
         }
 
