@@ -19,6 +19,13 @@ public class RacingGame {
     }
 
     public void run() {
+        List<Car> cars = receiveCars();
+        int tryCount = receiveTryCount();
+        List<Car> movedCars = receiveResult(cars, tryCount);
+        processResult(movedCars);
+    }
+
+    private List<Car> receiveCars() {
         outputView.printCarInputMessage();
         final List<String> carNames = inputView.askCarNames();
 
@@ -26,10 +33,16 @@ public class RacingGame {
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
+        return cars;
+    }
 
+    private int receiveTryCount() {
         outputView.printMoveCountInputMessage();
-        final int tryCount = inputView.askMoveCount();
+        int tryCount = inputView.askMoveCount();
+        return tryCount;
+    }
 
+    private List<Car> receiveResult(List<Car> cars, int tryCount) {
         outputView.printResultMessage();
         for (int i = 0; i < tryCount; i++) {
             moveCars(cars);
@@ -39,9 +52,7 @@ public class RacingGame {
 
             outputView.printNewLine();
         }
-
-        List<Car> winners = referee.getWinner(cars);
-        outputView.printWinner(winners);
+        return cars;
     }
 
     private void moveCars(List<Car> cars) {
@@ -50,5 +61,10 @@ public class RacingGame {
                 car.move();
             }
         }
+    }
+
+    private void processResult(List<Car> cars) {
+        List<Car> winners = referee.getWinner(cars);
+        outputView.printWinner(winners);
     }
 }
