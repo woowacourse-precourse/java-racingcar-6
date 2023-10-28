@@ -1,11 +1,9 @@
 package racingcar.domain;
 
-public class Car implements Racing {
+public class Car {
 
     private String name;
     private int straightCount;
-
-    private int age;
 
     private Car(String name, int straightCount) {
         this.name = name;
@@ -27,7 +25,6 @@ public class Car implements Racing {
         return straightCount;
     }
 
-    @Override
     public void moveStraight(int randomValue) {
         if (randomValue >= 4) {
             straightCount++;
