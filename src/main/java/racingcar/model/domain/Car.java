@@ -4,7 +4,7 @@ public class Car {
     private String name;
     private int forward;
 
-    public Car(String name){
+    public Car(String name) {
         this.name = name;
     }
 
