@@ -1,8 +1,11 @@
 package racingcar;
 
+import racingcar.domain.ExceptionCheck;
 import racingcar.domain.GameController;
 import racingcar.domain.GameData;
 import racingcar.domain.View;
+
+import static racingcar.domain.ExceptionCheck.*;
 
 public class Application {
     public static void main(String[] args) {
@@ -12,16 +15,21 @@ public class Application {
         GameController controller = new GameController();
         GameData gameData = new GameData();
 
+
         view.printAskCarName();
-        String carNames = controller.getCarNamesInput();
-        String[] carNamesArray = carNames.split(","); // 메서드화 하기(split & []->List<Car>)
-        int carQuantity = carNamesArray.length;
+        String carsName = controller.getCarNamesInput();
+        String[] carsNameArray = carsName.split(",");
+        isCarNameInputLengthValidate(carsNameArray);
+        int carQuantity = carsNameArray.length;
         gameData.createCarList(carQuantity);
-        gameData.setCarsName(carNamesArray);
+        gameData.setCarsName(carsNameArray);
 
         view.printAskTryRepetitionNumber();
-        gameData.setTryRepetitionNumber();
-        Integer repetitionNumber = gameData.getTryRepetitionNumber();
+        String repetitionNumberInput = gameData.getrepetitionNumberInput();
+        isRepetitionNumberInputTypeValidate(repetitionNumberInput);
+        isRepetitionNumberInputRangeValidate(repetitionNumberInput);
+        gameData.changeRepetitionNumberType(repetitionNumberInput);
+        Integer repetitionNumber = gameData.getrepetitionNumber();
         for (int repetition = 0; repetition < repetitionNumber; repetition++) {
 
             controller.MoveForward(gameData.getCarList());
