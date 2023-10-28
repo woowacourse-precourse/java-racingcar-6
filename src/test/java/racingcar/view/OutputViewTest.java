@@ -10,6 +10,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.Car;
+import racingcar.Game;
+import racingcar.TestNumberGenerator;
 
 class OutputViewTest {
 
@@ -24,6 +27,20 @@ class OutputViewTest {
     @AfterEach
     public void restoreStreams() {
         System.setOut(originalOut);
+    }
+
+    @Test
+    void 자동차_이동_결과_출력테스트() {
+        Car car1 = new Car("pobi", new TestNumberGenerator(4));
+        Car car2 = new Car("woni", new TestNumberGenerator(1));
+        Car car3 = new Car("jun", new TestNumberGenerator(3));
+        List<Car> cars = Arrays.asList(car1, car2, car3);
+        Game game = new Game(cars, 5);
+        game.moveAllCarsOnce();
+        OutputView.printResult(game.getCars());
+
+        String expectedOutput = "pobi : -\n" + "woni : \n" + "jun : \n\n";
+        assertThat(outContent.toString()).isEqualTo(expectedOutput);
     }
 
     @Test
