@@ -9,4 +9,9 @@ public class GameView {
         System.out.println(MessageConstants.GAME_START_GUIDE);
         return Console.readLine();
     }
+
+    public String inputTryCount() {
+        System.out.println(MessageConstants.TRY_COUNT_GUIDE);
+        return Console.readLine();
+    }
 }
