@@ -3,12 +3,12 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.constant.IllegalArgumentExceptionType;
 
 public class InputView {
     private static final String CAR_NAMES_SPLITTING_REGEX = ",";
     private static final String READ_CAR_NAMES_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String READ_ATTEMPT_COUNT_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
-    private static final String READ_ATTEMPT_COUNT_ERROR_MESSAGE = "숫자만 입력해 주세요";
 
     private List<String> convertCarNames(String input) {
         return Arrays.stream(input.split(CAR_NAMES_SPLITTING_REGEX))
@@ -27,7 +27,10 @@ public class InputView {
         try {
             return Integer.parseInt(string);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(READ_ATTEMPT_COUNT_ERROR_MESSAGE);
+            // IDE 리턴 문법 오류 회피를 위한 에러 발생 별도 처리
+            throw new IllegalArgumentException(
+                    IllegalArgumentExceptionType.READ_ATTEMPT_COUNT_ERROR_MESSAGE.getMessage()
+            );
         }
     }
 
