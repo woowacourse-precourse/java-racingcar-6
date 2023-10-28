@@ -44,4 +44,13 @@ class CarTest {
 
         assertTrue(car.isSamePosition(1));
     }
+
+    @Test
+    void comparePosition_메서드는_자동차의_position과_maxPosition을_비교하여_더_큰_값을_반환한다() {
+        Car car = new Car("pobi");
+
+        car.move(5);
+
+        assertEquals(car.comparePosition(5), 5);
+    }
 }
