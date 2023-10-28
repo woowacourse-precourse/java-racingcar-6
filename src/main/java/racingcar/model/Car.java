@@ -12,13 +12,13 @@ public class Car {
         this.position = 0;
     }
 
-    public Integer move(){
+    public Boolean move(){
         int randomValue = generateRandomValue();
         if(randomValue >= 4){
             this.position++; // 1칸 전진
-            return randomValue;
+            return true; // 전진을 의미
         }else{
-            return 0;
+            return false; // 멈춤을 의미
         }
     }
     private Integer generateRandomValue(){
