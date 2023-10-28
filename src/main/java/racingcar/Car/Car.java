@@ -1,9 +1,9 @@
 package racingcar.Car;
 
-import racingcar.Constants.CarDefaultValues;
+import racingcar.Constants.CarConstants;
 public class Car {
     private final String name;
-    private int position = CarDefaultValues.START_POSITION;
+    private int position = CarConstants.START_POSITION;
 
     public Car(String name) {
         this.name = name;
