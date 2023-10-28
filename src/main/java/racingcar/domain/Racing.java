@@ -19,27 +19,32 @@ public class Racing {
         this.blankValidator = blankValidator;
     }
 
-    public void validateAttemptCount(String attemptCount) throws IllegalArgumentException {
+    public void validateAttemptCount(String attemptCount) {
         blankValidator.isEmpty(attemptCount);
-
         String trimmedCount = trimSpaces(attemptCount);
-        checkForInternalSpaces(trimmedCount);
-        long convertedCount = convertToLong(trimmedCount);
-        validatePositive(convertedCount);
-        this.attempCount = convertedCount;
+        ensureNoInternalSpaces(trimmedCount);
+        this.attempCount = convertAndValidateToLong(trimmedCount);
     }
 
     private String trimSpaces(String input) {
         return input.trim();
     }
 
-    private void checkForInternalSpaces(String input) throws IllegalArgumentException {
+    private void ensureNoInternalSpaces(String input) {
         if (input.contains(" ")) {
             throw new IllegalArgumentException(PLEASE_NOT_INPUT_BETWEEN_NUMBER_BLANK);
         }
     }
 
-    private BigInteger convertToBigInteger(String input) throws IllegalArgumentException {
+    private long convertAndValidateToLong(String input) {
+        BigInteger bigIntValue = convertToBigInteger(input);
+        ensureValidRange(bigIntValue);
+        long convertedValue = bigIntValue.longValue();
+        ensurePositive(convertedValue);
+        return convertedValue;
+    }
+
+    private BigInteger convertToBigInteger(String input) {
         try {
             return new BigInteger(input);
         } catch (NumberFormatException e) {
@@ -47,21 +52,14 @@ public class Racing {
         }
     }
 
-    private void validateRange(BigInteger bigIntValue) throws IllegalArgumentException {
+    private void ensureValidRange(BigInteger bigIntValue) {
         if (bigIntValue.compareTo(BigInteger.valueOf(Long.MAX_VALUE)) > 0
                 || bigIntValue.compareTo(BigInteger.valueOf(Long.MIN_VALUE)) < 0) {
             throw new IllegalArgumentException(PLEASE_INPUT_CORRECT_RANGE);
         }
     }
 
-    private long convertToLong(String input) throws IllegalArgumentException {
-        BigInteger bigIntValue = convertToBigInteger(input);
-        validateRange(bigIntValue);
-        return bigIntValue.longValue();
-    }
-
-
-    private void validatePositive(long number) throws IllegalArgumentException {
+    private void ensurePositive(long number) {
         if (number <= 0) {
             throw new IllegalArgumentException(PLEASE_INPUT_NATURAL_NUMBER);
         }
@@ -70,18 +68,22 @@ public class Racing {
     public void race() {
         HashMap<String, Integer> carPositions = cars.getCars();
         carPositions.forEach((car, position) -> {
-            if (isMovable()) {
+            if (isMovable(pickRandomNumber())) {
                 cars.moveCar(car);
             }
         });
     }
 
-    private boolean isMovable() {
-        return Randoms.pickNumberInRange(0, 9) > 3;
+    private int pickRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
+
+    private boolean isMovable(int randomValue) {
+        return randomValue > 3;
     }
 
     public long getAttempCount() {
         return attempCount;
     }
-
 }
+

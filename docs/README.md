@@ -78,7 +78,7 @@
 
 ## domain
    __1. CarNameManager__
-   - processCarNames
+   - [x] processCarNames
      -[x] processInput
        1) removeSpaces(공백을 모두 제거)
        2) splitByComma(","단위로 분리 후 리스트에 저장)
@@ -97,18 +97,16 @@
 
    __3. Racing__
    - [x] validateAttemptCount
-       1) trimSpaces(앞뒤 공백을 제거)
-       2) checkForInternalSpaces(안제 공백이 있다면 예외 던짐)
-       3) convertToBigInteger(정수가 아닌 다른 문자가 있다면 예외던짐)
-       4) validateRange(Long타입 범위에 벗어나지 않는지 확인)
-       5) convertToLong(Long타입으로 변환)
-       6) validatePositive(자연수가 아니라면 예외던짐)
-       - 사용자가 입력한 시도횟수를 받아 검증해서 데이터를 저장한다
-      - [x] race
-       1) isMovable(랜덤숫자를 생성해 움직일지 결정해준다)
-       - 자동차 데이터를 가져와 랜덤 숫자를 생성해서 조건을 충족시키면 한칸 전진시킨다
-      - [x] getAttempCount
-       - 시도횟수를 보내준다가
+       - [x] trimSpaces(앞뒤 공백을 제거)
+       - [x] ensureNoInternalSpaces(안제 공백이 있다면 예외 던짐)
+       - [x] convertAndValidateToLong
+         1) convertToBigInteger(BigInteger로 변환)
+         2) ensureValidRange(Long타입의 범위에 맞는 수인지 검증)
+         3) ensurePositive(자연수인지 확인)
+   -[x] race
+        -[x] pickRandomNumber(0-9 랜덤 정수 반환)
+        -[x] isMovable(4이상이면 true)
+   -[x] getAttempCount(시도횟수 게터)
 
 ## view
    __1. InputView__
@@ -131,16 +129,19 @@ __2. OutputView__
 - [x] printExecutionResult
     - 게임결과를 출력한다
 
-
-    pobi : -
-    woni :
-    jun : -
+```
+pobi : -
+woni :
+jun : -
+```
+    
 
 - [x] printFinalWinner
     - 데이터를 넘겨받아 최종 우승자를 출력한다
 
-
-    최종 우승자 : pobi, jun
+```
+최종 우승자 : pobi, jun
+```
 
 ## util
 __1. BlankValidator__
@@ -149,9 +150,12 @@ __1. BlankValidator__
 
 ## controller
 __1. RacingController__
-- [x] raceStart
-    1) executeRaces(시도횟수만큼 경주진행 및 뷰에 출력해준다)
-    - 뷰와 도메인 코드를 가져와 게임의 흐름대로 실행한다가
+- [x] raceStart(경주게임 시작)
+    -[x] setUpRace(경주 세팅)
+        1) addCarsToRace(사용자에게 자동차 이름 입력받음)
+        2) setAttemptCountForRace(사용자에게 시도횟수 입력받음)
+    -[x] runRace(시도횟수만큼 경주실행 후 결과 출력)
+    -[x] printRaceResults(우승자 출력)
 
 
 
