@@ -33,4 +33,13 @@ class CarTest {
         assertThat(fiveCar.getDistance()).isEqualTo(1);
     }
 
+    @Test
+    void 자동차에_4미만의_값을_전달할_경우_distance_증가하지_않음() {
+        Car threeCar = new Car("three");
+
+        threeCar.moveCar(3);
+
+        assertThat(threeCar.getDistance()).isEqualTo(0);
+    }
+
 }
