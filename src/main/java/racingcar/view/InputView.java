@@ -3,12 +3,13 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
+    OutputView outputView = new OutputView();
     public String inputCars(){
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
+        outputView.inputCarsName();
         return Console.readLine();
     }
-    public int inputNumber(){
-        System.out.println("시도할 회수는 몇회인가요?");
+    public int inputCount(){
+        outputView.inputCount();
         return Integer.parseInt(Console.readLine());
     }
 }
