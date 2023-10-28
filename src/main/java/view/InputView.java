@@ -23,6 +23,7 @@ public class InputView {
         System.out.println(ATTEMPTS_FROM_USER_INPUT);
         String input = Console.readLine();
         validateNumericInput(input);
+        System.out.println();
         return Integer.parseInt(input);
     }
 }

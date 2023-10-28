@@ -9,7 +9,6 @@ public class Cars {
     private final List<Car> cars;
     private static final int MIN_RANGE_NUMBER = 1;
     private static final int MAX_RANGE_NUMBER = 9;
-    private static final int MINIMUM_NUMBER = 4;
 
     public Cars(String[] names) {
         List<Car> carList = new ArrayList<>();
@@ -43,10 +42,10 @@ public class Cars {
         return winners;
     }
 
-    public void applyRandomMovingCountIncrease() {
+    public void updateMovingCounts(int minimumNumber) {
         for (Car car : cars) {
             int randomNumber = Randoms.pickNumberInRange(MIN_RANGE_NUMBER, MAX_RANGE_NUMBER);
-            car.increaseMovingCountIfGreater(MINIMUM_NUMBER, randomNumber);
+            car.increaseMovingCountIfGreater(minimumNumber, randomNumber);
         }
     }
 
