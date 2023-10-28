@@ -1,6 +1,7 @@
 package racingcar;
 
 public class Car {
+    private static final String DISTANCE_ICON = "-";
     private final String name;
     private int distance;
 
@@ -30,5 +31,14 @@ public class Car {
 
     public int getDistance() {
         return distance;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString(){
+        return name + " : " + DISTANCE_ICON.repeat(distance);
     }
 }
