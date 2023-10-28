@@ -27,7 +27,6 @@ public class InputView {
         System.out.println(COUNT_MESSAGE);
         String input = Console.readLine();
         validator.validationCount(input);
-        int count = Integer.parseInt(input);
-        return count;
+        return Integer.parseInt(input);
     }
 }
