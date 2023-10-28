@@ -11,14 +11,19 @@ public class Game {
     private List<Car> cars = new ArrayList<>();
     private List<String> winners = new ArrayList<>();
 
-    public void run() {
+    public void init() {
         Logs.inputCarNames();
         String[] carNames = inputCarNames();
         initCarList(carNames);
+
         Logs.inputGameTurns();
         inputGameTurns();
         Logs.newLine();
+    }
+
+    public void run() {
         Logs.getGameResult();
+
         for (int i = 0; i < gameTurns; i++) {
             for (Car car : cars) {
                 int randomNumber = RandomMaker.makeRandomNumber();
@@ -27,6 +32,9 @@ public class Game {
             }
             Logs.newLine();
         }
+    }
+
+    public void finish() {
         findWinners();
         Logs.string(winnersToString());
     }

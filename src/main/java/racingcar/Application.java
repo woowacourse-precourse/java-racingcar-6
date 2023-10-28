@@ -8,7 +8,9 @@ public class Application {
         // TODO: 프로그램 구현
         try {
             Game game = new Game();
+            game.init();
             game.run();
+            game.finish();
         } finally {
             Console.close();
         }
