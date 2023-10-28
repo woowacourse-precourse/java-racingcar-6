@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class RacingGame {
 
-    ArrayList Cars = new ArrayList<Car>();
+    ArrayList<Car> Cars = new ArrayList<Car>();
 
     public void createCars(String[] carNames) {
         for (int carNumber = 0; carNumber < carNames.length; carNumber++)
@@ -19,5 +19,13 @@ public class RacingGame {
     int makeRandomNumber() {
         int randomNumber = Randoms.pickNumberInRange(0,9);
         return (randomNumber);
+    }
+
+    void moveCars() {
+        for (Car car : Cars) {
+            if (makeRandomNumber() >= 4) {
+                car.moveForward();
+            }
+        }
     }
 }
