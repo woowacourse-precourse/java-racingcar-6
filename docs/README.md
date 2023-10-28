@@ -5,7 +5,8 @@
 - [x] 쉼표 기준 자동차 이름 구분 : splitCarNames(String input)
 - [x] 자동차 이름은 5자 이하 : validateCarNameLength(String carName)
   -[x] 잘못 입력 : IllegalArgumentException 발생 
-- [] 우승자 목록 생성
+- [x] 우승자 목록 생성
+- [] 우승자 출력
   - [] 혼자 : 그냥 출력
   - [] 여러명 : 쉼표 구분 출력
 - [x] 시도 횟수 입력
