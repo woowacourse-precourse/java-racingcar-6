@@ -36,5 +36,25 @@ class InputValidationTest {
         });
     }
 
+    @Test
+    @DisplayName("시도할 횟수는 Int형이어야한다")
+    void gameCountValidateOKTest() {
+        // given
+        String count ="5";
+        // when
+        String countValidate = InputValidation.gameCountValidate(count);
+        // then
+        Assertions.assertThat(countValidate).isEqualTo(count);
+    }
 
+    @Test
+    @DisplayName("시도할 횟수가 Int형이 아니면 오류를 반환")
+    void gameCountValidateFailTest() {
+        // given
+        String count="망";
+        // then
+        assertThrows(IllegalArgumentException.class, () -> {
+            InputValidation.gameCountValidate(count);
+        });
+    }
 }
