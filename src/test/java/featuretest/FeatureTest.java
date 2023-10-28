@@ -1,6 +1,7 @@
 package featuretest;
 
 import Model.RaceCarNames;
+import Model.TryCount;
 import org.junit.jupiter.api.Test;
 import racingcar.Application;
 
@@ -38,5 +39,19 @@ public class FeatureTest {
         List<String> actualList = Arrays.asList("TestCar1", "TestCar2", "TestCar3");
 
         assertThat(predList).isEqualTo(actualList);
+    }
+
+    @Test
+    void 시도할_회수_입력받기() {
+        String predInput = "5";
+        InputStream inputStream = new ByteArrayInputStream(predInput.getBytes());
+        System.setIn(inputStream);
+
+        Application.receiveTryCount();
+
+        TryCount predObject = Application.getTryCount();
+        TryCount actualObject = new TryCount("5");
+
+        assertThat(predObject).isEqualTo(actualObject);
     }
 }
