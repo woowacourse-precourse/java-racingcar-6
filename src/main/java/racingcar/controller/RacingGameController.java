@@ -12,17 +12,21 @@ public class RacingGameController {
 
     public void play() {
         gameViewer.startMessage();
-        String carNames = Console.readLine();
+        String carNames = getInputLine();
         validatePlayerInput.validateContainSpace(carNames);
         validatePlayerInput.validateCarNameLength(carNames);
         List<String> names = validatePlayerInput.convertStringToListCarNames(carNames);
 
         gameViewer.tryCountMessage();
-        String tryCount = Console.readLine();
+        String tryCount = getInputLine();
         validatePlayerInput.validatePlayerTryCountInput(tryCount);
 
         gameViewer.gameResultMessage();
         gameViewer.racingResultViewer(names, tryCount);
         gameViewer.gameWinnerViewer();
+    }
+
+    public String getInputLine() {
+        return Console.readLine();
     }
 }

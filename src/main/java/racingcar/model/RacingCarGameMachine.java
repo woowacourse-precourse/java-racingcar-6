@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.model.RacingCar;
 
 import java.util.Collections;
 import java.util.List;
@@ -11,7 +10,7 @@ public class RacingCarGameMachine {
     private List<RacingCar> racingCars;
 
     public void readyToPlay(List<String> carNames) {
-        this.racingCars = carNames.stream().map(RacingCar::new).collect(Collectors.toList());
+        this.racingCars = carNames.stream().map(RacingCar::new).toList();
     }
 
     public void race() {
@@ -21,13 +20,14 @@ public class RacingCarGameMachine {
         }
     }
 
-    public List<String> winner() {
+    public List<String> getWinner() {
         List<Integer> carsMoveCounts = this.racingCars.stream()
-                .map(RacingCar::getMoveCount).collect(Collectors.toList());
+                .map(RacingCar::getMoveCount).toList();
         int maxMove = Collections.max(carsMoveCounts);
         List<String> winners = this.racingCars.stream().filter(car -> car.getMoveCount() == maxMove)
-                .map(car -> car.getRacingCarName())
-                .collect(Collectors.toList());
+                .map(RacingCar::getRacingCarName)
+                .toList();
+
         return winners;
     }
 

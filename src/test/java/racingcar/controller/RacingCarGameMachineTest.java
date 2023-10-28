@@ -61,7 +61,7 @@ public class RacingCarGameMachineTest {
         jonhan.isRacingCarMove(4);
         jonhan.isRacingCarMove(6);
         //then
-        List<String> winners = racingCarGameMachine.winner();
+        List<String> winners = racingCarGameMachine.getWinner();
         assertThat(winners.get(0)).isEqualTo("namzi");
         assertThat(winners.size()).isEqualTo(1);
     }
@@ -97,7 +97,7 @@ public class RacingCarGameMachineTest {
         jonhan.isRacingCarMove(4);
         jonhan.isRacingCarMove(6);
         //then
-        List<String> winners = racingCarGameMachine.winner();
+        List<String> winners = racingCarGameMachine.getWinner();
         assertThat(winners.get(0)).isEqualTo("namzi");
         assertThat(winners.get(1)).isEqualTo("jnam");
         assertThat(winners.size()).isEqualTo(2);

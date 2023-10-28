@@ -2,7 +2,6 @@ package racingcar.model;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ValidatePlayerInput {
     public void validateContainSpace(String playerInput) {
@@ -22,7 +21,7 @@ public class ValidatePlayerInput {
     }
 
     public void validatePlayerTryCountInput(String playerInput) {
-        List<Character> inputStream = playerInput.chars().mapToObj(c -> (char) c).collect(Collectors.toList());
+        List<Character> inputStream = playerInput.chars().mapToObj(c -> (char) c).toList();
 
         inputStream.forEach(c -> {
             if (!Character.isDigit(c)) {

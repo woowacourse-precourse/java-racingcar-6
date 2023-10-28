@@ -29,6 +29,7 @@ public class RacingCar {
                 .filter(move -> move)
                 .map(move -> GameMessage.MOVE.getMoveMessage())
                 .collect(Collectors.joining());
+
         return gameResult;
     }
 

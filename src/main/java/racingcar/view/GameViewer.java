@@ -30,14 +30,12 @@ public class GameViewer {
 
     public void racingCarsStatusViewer() {
         List<RacingCar> racingCars = racingCarGameMachine.getRacingCars();
-        for (RacingCar car : racingCars) {
-            System.out.println(car);
-        }
+        racingCars.forEach(System.out::println);
         System.out.print("\n");
     }
 
     public void gameWinnerViewer() {
-        String winners = String.join(",", racingCarGameMachine.winner());
+        String winners = String.join(",", racingCarGameMachine.getWinner());
         System.out.println(GameMessage.WINNER_MESSAGE.getWinnerMessage() + winners);
     }
 
