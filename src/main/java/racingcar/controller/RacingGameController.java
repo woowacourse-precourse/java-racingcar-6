@@ -4,6 +4,7 @@ import static racingcar.util.StringConverter.stringToInteger;
 import static racingcar.util.StringConverter.stringToListByDelimiter;
 
 import java.util.List;
+import racingcar.dto.CarDto;
 import racingcar.model.Cars;
 import racingcar.model.RacingGame;
 import racingcar.view.InputView;
@@ -22,11 +23,16 @@ public class RacingGameController {
 
     public void run() {
         Cars cars = getCarsFromInputView();
-        TrialCount trial = getTrialCountFromInputView();
+        TrialCount trialCount = getTrialCountFromInputView();
 
         RacingGame racingGame = new RacingGame(cars);
         outputView.printResultMessage();
-        
+
+        for (int i = 0; i < trialCount.getNumber(); i++) {
+            racingGame.runOneTerm();
+            List<CarDto> carDtoList = CarDto.toDtoList(cars);
+            outputView.printResult(carDtoList);
+        }
     }
 
     private Cars getCarsFromInputView() {
