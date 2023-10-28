@@ -17,7 +17,7 @@
 
 **NumberPicker**
 
-- [ ]  자동차 숫자 뽑기 함수 (**`pickRandomNumber`**)
+- [x]  자동차 숫자 뽑기 함수 (**`pickRandomNumber`**)
 
 ## **서비스 (Service)**
 
