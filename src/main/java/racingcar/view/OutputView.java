@@ -14,9 +14,11 @@ public class OutputView {
     private static final String DELIMITER = " : ";
     private static final String FINAL_WINNER = "최종 우승자";
 
+    private static final String RESULT = "실행 결과";
+
     public void showResultMessage() {
         System.out.println();
-        System.out.println("실행 결과");
+        System.out.println(RESULT);
     }
 
     public void showResult(List<Car> cars) {
