@@ -5,12 +5,12 @@ public class Position {
     private static final Position ZERO = new Position(0);
     private int position;
 
-    public Position(Position position) {
-        this.position = position.position;
+    private Position(int position) {
+        this.position = position;
     }
 
-    public Position(int position) {
-        this.position = position;
+    public static Position of(int position) {
+        return new Position(position);
     }
 
     public static Position zero() {
