@@ -19,7 +19,7 @@ public class Application {
         Cars cars = new Cars(carNames);
         output.printResultMessage();
 
-        CarRacingGame carRacingGame = new CarRacingGame();
+        CarRacingGame carRacingGame = new CarRacingGame(output);
         carRacingGame.start(gameCount, cars);
         output.printWinner(cars);
     }

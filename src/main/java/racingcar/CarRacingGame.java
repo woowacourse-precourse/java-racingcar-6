@@ -8,8 +8,13 @@ import java.util.List;
 
 public class CarRacingGame {
 
+    Output output;
+
+    public CarRacingGame(Output output) {
+        this.output = output;
+    }
+
     public void start(int gameCount, Cars cars) {
-        Output output = new Output();
         for (int i = 0; i < gameCount; i++) {
             List<Car> moveResult = cars.moveAllCar();
             output.printMoveResult(moveResult);
