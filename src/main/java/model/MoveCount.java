@@ -21,4 +21,8 @@ public class MoveCount {
     public int getMoveCount() {
         return moveCount;
     }
+
+    public boolean hasSameValue(final int countValue) {
+        return moveCount == countValue;
+    }
 }

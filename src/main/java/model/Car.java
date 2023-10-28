@@ -27,4 +27,8 @@ public class Car {
     public int getMoveCountValue() {
         return moveCount.getMoveCount();
     }
+
+    public boolean hasSameMoveCount(final int count) {
+        return moveCount.hasSameValue(count);
+    }
 }
