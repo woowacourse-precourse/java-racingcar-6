@@ -7,6 +7,16 @@ import java.util.regex.Pattern;
 
 public class PlayerName {
 
+    private final String playerName;
+
+    public PlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
+    public static PlayerName from(String playerName) {
+        return new PlayerName(playerName);
+    }
+
     public void validateLength(String rawName) {
         if (isLengthOverFive(rawName)) {
             throw new IllegalArgumentException("[ERROR] 이름은 5자 이하로 입력해야 합니다.");

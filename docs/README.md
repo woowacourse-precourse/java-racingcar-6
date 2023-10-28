@@ -1,9 +1,13 @@
 ## 기능 구현 목록
-- 랜덤 숫자를 생성하는 기능
+- 플레이어를 생성하는 기능
+  - [x] 이름 리스트를 받아서 Player 객체를 생성한다.
+  - [ ] PlayerName, (미정) isWinner를 필드로 갖는다.
+
+- 랜덤 숫자를 생성하는 기능 [RandomNumberGenerator]
   - [x] 랜덤 숫자를 뽑는다. 
     - 컨트롤러에서 객체를 생성해서 전진 여부 객체 생성 때 넣어주기
     - (그냥 안에서 생성하면 테스트가 어려워진다.)
-- 전진 여부를 배정하는 기능
+- 전진 여부를 배정하는 기능 [MoveFactory]
   - [x] 랜덤 숫자가 4이상인지 판단한다.
   - [x] 위의 뽑힌 랜덤 숫자에 의해 전진 여부를 반환한다.
 
@@ -12,6 +16,26 @@
     - [ ] 배정받은 전진 여부에 따라 이동한다.
     - [ ] 이동한 결과를 플레이어별로 반영한다.
     - [ ] 한 이동당 한 번씩 이동결과를 출력한다.
+
+---
+- 필요한 객체들과 메소드를 생각해보자
+- Game
+- Game에는 List<PlayerMove> 가 있고 GameStatus가 있어야할듯
+    - List<PlayerMove>는 일급컬렉션화 하지 않아도 될까?
+  - game.init: player를 갖고 PlayerMove를 생성해야할듯
+    - 아니면 컨트롤러에서 PlayerMove를 생성해서 갖고와야하려나, 테스트를 위해
+    - 어쨌든 여기서, 플레이어별로 PlayerMove(Player, 0)이 생성됨 
+    - -> 리스트로 담겨서 Game이 갖고 있게됨
+    - GameStatus는 뭐 PLAYING 이렇게 초기화하고
+  - game.move(MoveFactory)
+    - List<PlayerMove>를 데리고 move를 해야지 : PlayerMove.move(MoveFactory)
+- PlayerMove
+- PlayerMove에는 Player와 Distance
+  - PlayerMove.move(MoveFactory)
+    - Distance++;
+- 컨트롤러에서는: List<PlayerMove> 를 갖고가서 출력하면 될듯?
+  - 아니면 responseDto로 만들어 갖고가서 출력하든지
+---
   - 게임 승리 판단
     - [ ] 입력한 시도 횟수와 이동 결과 횟수가 같으면 우승자가 된다.
     - [ ] 게임 상태를 종료로 바꾼다.
