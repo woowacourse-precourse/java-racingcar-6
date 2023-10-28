@@ -24,6 +24,9 @@ public class InputCarNameValidator {
         if (isStartComma(carNames)) {
             throw new IllegalStateException("쉼표(,)로 시작하면 안됩니다.");
         }
+        if (isBlankCarName(carNames)) {
+            throw new IllegalStateException("자동차는 이름이 있어야합니다.");
+        }
     }
 
     public boolean isCorrectCarLength(String carNames) {
@@ -53,6 +56,15 @@ public class InputCarNameValidator {
 
     public boolean isStartComma(String carNames) {
         return carNames.charAt(FIRST_CAR_NAME_INDEX) == COMMA;
+    }
 
+    public boolean isBlankCarName(String carNames) {
+        List<String> cars = ConverterUtil.covertStringToList(carNames);
+        for (String car : cars) {
+            if (car.isBlank()) {
+                return true;
+            }
+        }
+        return false;
     }
 }
