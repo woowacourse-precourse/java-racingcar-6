@@ -7,9 +7,9 @@ import racingcar.dto.RacingCarCreateRequest;
 
 public class RacingCarGame {
 
-    private final RacingGameConsoleView view;
+    private final RacingGameView view;
 
-    public RacingCarGame(RacingGameConsoleView view) {
+    public RacingCarGame(RacingGameView view) {
         this.view = view;
     }
 
