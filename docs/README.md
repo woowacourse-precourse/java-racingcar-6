@@ -31,7 +31,7 @@
 ## View
   - InputView - 입력
   - OutputView - 출력
-  - InputUtil 일반적인 입력 예외 처리
+  - racingcar.view.console.util.InputUtil 일반적인 입력 예외 처리
 
 ## Controller
   - RacingController - 레이싱 게임 진행
