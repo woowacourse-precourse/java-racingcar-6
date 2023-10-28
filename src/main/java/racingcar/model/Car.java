@@ -9,8 +9,8 @@ import java.util.List;
 public class Car {
     private final List<String> names;
     private final int attempt;
-    private List<Integer> mileage;
-    private List<String> winners;
+    private final List<Integer> mileage;
+    private final List<String> winners;
 
     public Car(List<String> names, int attempt) {
         this.names = names;

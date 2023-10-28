@@ -22,7 +22,7 @@ public class GameController {
         racing(cars);
     }
 
-    public void racing(Car cars){
+    private void racing(Car cars){
         OutputView.displayTitle();
         for(int i = 0; i < cars.getAttempt(); i ++) {
             cars.forward();
