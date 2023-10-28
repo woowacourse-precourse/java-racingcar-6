@@ -49,6 +49,11 @@ public class RacingCarGameConsole {
         System.out.println();
     }
 
+    private void printResult() {
+        setWinnerCarNames();
+        System.out.print("\n최종 우승자 : " + String.join(", ", winnerCarNames));
+    }
+
     private void setWinnerCarNames() {
         mostMovedAmount = car.mostMovedAmount();
         carIndex = 0;
