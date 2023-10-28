@@ -80,6 +80,8 @@
 
 - [ ] 사용자 화면을 보여주는 클래스. // GameStart
 
+  - [x] 경주할 자동차 이름을 입력하는 출력을 보여주는 기능  // GameStart#printInputNameOfRaceCar
+
   - [ ] 전진하는 모든 차들의 자동차를 출력할 (자동차 이름을 같이 출력한다.) // GameStart#printSituationOfCarCurrent
 
     - [ ] 전진은 "-"을 출력 ( pobi : - )
