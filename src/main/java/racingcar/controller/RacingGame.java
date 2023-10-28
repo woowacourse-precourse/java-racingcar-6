@@ -12,5 +12,7 @@ public class RacingGame {
 
         InputValidator.isValidCarNames(input);
         InputValidator.isValidRound(round);
+
+        System.out.println();
     }
 }
