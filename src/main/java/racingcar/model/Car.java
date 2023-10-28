@@ -9,9 +9,7 @@ public class Car {
     private int position = 0;
 
     public Car(String name) {
-        if (name.length() > MAX_LENGTH) {
-            throw new IllegalArgumentException(INVALID_NAME_LENGTH);
-        }
+        validateNameLength(name);
         this.name = name;
     }
 
@@ -31,6 +29,12 @@ public class Car {
 
     public String getCarStatus() {
         return name + " : " + "-".repeat(position);
+    }
+
+    private void validateNameLength(String name) {
+        if (name.length() > MAX_LENGTH) {
+            throw new IllegalArgumentException(INVALID_NAME_LENGTH);
+        }
     }
 
     private boolean canMove(int randomNumber) {
