@@ -10,6 +10,8 @@ public class Application {
         List<String> carNamesList = inputCarNamesByUser();
         int attemptNum = getAttemptNumber();
 
+        List<Car> cars = createCarObject(carNamesList);
+
     }
 
     private static List<String> inputCarNamesByUser() {
@@ -30,4 +32,14 @@ public class Application {
         int inputNumber = Integer.parseInt(Console.readLine());
         return inputNumber;
     }
+
+    private static List<Car> createCarObject(List<String> carNamesList) {
+        List<Car> cars = new ArrayList<>();
+        for (String carName : carNamesList) {
+            cars.add(new Car(carName));
+        }
+        return cars;
+    }
+
+
 }
