@@ -47,4 +47,10 @@ class OutputViewTest {
         outputView.promptNumberOfGameAttempts();
         assertEquals("시도할 회수는 몇회인가요?\n", outputMessage.toString());
     }
+
+    @Test
+    public void printGameResult() {
+        outputView.printGameResult();
+        assertEquals("\n실행 결과\n", outputMessage.toString());
+    }
 }
