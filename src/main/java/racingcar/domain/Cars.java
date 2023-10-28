@@ -11,30 +11,24 @@ public class Cars {
 
     public Cars(List<String> carNames) {
         cars = new ArrayList<>(carNames.size());
-        for (int index = 0; index < carNames.size(); index++) {
-            String carName = carNames.get(index);
+        for (String carName : carNames) {
             Car car = new Car(carName);
             cars.add(car);
         }
     }
 
     public List<Car> moveAllCar() {
-        for (int index = 0; index < cars.size(); index++) {
+        for (Car car : cars) {
             int randomNumber = RandomNumberGenerator.generateNumber();
-            moveCarIfBiggerThanThree(randomNumber, index);
+            moveCarIfBiggerThanThree(randomNumber, car);
         }
         return cars;
     }
 
-    private void moveCarIfBiggerThanThree(int randomNumber, int index) {
+    private void moveCarIfBiggerThanThree(int randomNumber, Car car) {
         if (randomNumber > 3) {
-            moveCar(index);
+            car.move();
         }
-    }
-
-    private void moveCar(int index) {
-        Car car = cars.get(index);
-        car.move();
     }
 
     public Winners findWinner() {

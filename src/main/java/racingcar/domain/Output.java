@@ -5,8 +5,7 @@ import java.util.List;
 public class Output {
 
     public void printMoveResult(List<Car> moveResult) {
-        for (int i = 0; i < moveResult.size(); i++) {
-            Car car = moveResult.get(i);
+        for (Car car : moveResult) {
             System.out.println(car);
         }
         System.out.println();
