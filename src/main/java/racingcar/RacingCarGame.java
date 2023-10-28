@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
 import racingcar.model.Number;
 
@@ -9,6 +10,10 @@ import racingcar.model.Number;
  */
 public class RacingCarGame {
 
+    /**
+     * 전진하는 기준이다. 해당 숫자 이상일 경우 전진한다.
+     */
+    private final static int WINNING_CRITERIA = 4;
     /**
      * 게임에 참여하는 자동차
      */
@@ -25,6 +30,61 @@ public class RacingCarGame {
         String[] names = readUserNames();
         this.cars = createCars(names);
         this.fullRound = readFullRound(); // 진행할 경기 수를 받아온다.
+    }
+
+    /**
+     * 게임을 시작한다.
+     */
+    public void play() {
+        checkReady(); // 시작에 필요한 내용이 있는지 확인
+
+        System.out.println("\n실행 결과");
+        // 라운드 수 만큼 반복
+        for (int i = 0; i < fullRound.getNumber(); i++) {
+            oneRound();
+        }
+
+        // TODO: 결과 표시
+    }
+
+    /**
+     * 한 라운드를 진행한다.
+     */
+    private void oneRound() {
+        for (Car car :
+                cars) {
+            int random = Randoms.pickNumberInRange(0, 9); // 랜덤 수를 가져온다.
+            if (random >= WINNING_CRITERIA) { // 기준 이상의 값일 경우 전진한다.
+                car.increaseAdvance();
+            }
+
+            printCarInfo(car); // 해당 차의 상태 정보를 출력한다.
+        }
+
+        System.out.println();
+    }
+
+    private void printCarInfo(Car car) {
+        System.out.print(car.getName() + " : "); // 차 이름 출력
+
+        // 전진 횟수만큼 반복하여 표시
+        for (int i = 0; i < car.getAdvance(); i++) {
+            System.out.print("-");
+        }
+
+        System.out.println();
+    }
+
+    /**
+     * 게임을 시작할 수 있는지 확인한다.
+     */
+    private void checkReady() {
+        if (cars == null) {
+            throw new RuntimeException("자동차가 없습니다.");
+        }
+        if (fullRound == null) {
+            throw new RuntimeException("경기 수가 없습니다.");
+        }
     }
 
     /**
