@@ -27,7 +27,9 @@ public class RacingController {
     }
 
     private static void playGame() {
-
+        String gameStatus = game.makeStatus();
+        output.printResultTitle();
+        output.printResult(gameStatus);
     }
 
     private static void endGame(){
