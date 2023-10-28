@@ -20,9 +20,9 @@ public class OutputView {
 
     }
 
-    public static void WinnerOutput(List<String> winnerList) {
+    public static void WinnerOutput(List<String> winnerResult) {
         System.out.print(WinngerOutputMessage);
-        String winners = String.join(",", winnerList);
+        String winners = String.join(", ", winnerResult);
         System.out.print(winners);
 
     }
