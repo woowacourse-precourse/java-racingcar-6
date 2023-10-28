@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class InitDTO {
     private final List<String> carNames;
     private final int rounds;
-    private static final String NAME_SEPERATOR = ",";
+    private static final String NAME_SEPARATOR = ",";
     private static final int MAX_SIZE_NAME = 5;
 
     public InitDTO(String carNames, String rounds){
@@ -36,7 +36,7 @@ public class InitDTO {
     }
 
     public List<String> toStringList(String text){
-        List<String> carNames = Arrays.asList(text.split(NAME_SEPERATOR));
+        List<String> carNames = Arrays.asList(text.split(NAME_SEPARATOR));
         validateNames(carNames);
         return carNames;
     }

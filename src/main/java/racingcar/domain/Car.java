@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Random;
+import racingcar.domain.dto.CarDTO;
 
 public class Car {
     private final String name;
@@ -12,10 +13,11 @@ public class Car {
         this.distance = 0;
     }
 
-    public void playRound() {
+    public CarDTO playRound() {
         if(isMoving()){
             move();
         }
+        return CarDTO.from(this);
     }
 
     private void move() {
@@ -29,5 +31,9 @@ public class Car {
 
     public int getDistance() {
         return this.distance;
+    }
+
+    public String getName() {
+        return name;
     }
 }
