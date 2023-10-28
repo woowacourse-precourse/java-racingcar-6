@@ -11,4 +11,9 @@ public class InputView {
         String input = Console.readLine();
         return List.of(input.split(SPLIT_REGEX));
     }
+
+    public int readTryCount() {
+        String input = Console.readLine();
+        return Integer.parseInt(input);
+    }
 }
