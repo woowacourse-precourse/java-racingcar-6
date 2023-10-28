@@ -7,7 +7,6 @@ import racingcar.domain.Car;
 import racingcar.domain.Cars;
 
 public class GameMachine {
-    private final List<Car> carList = new ArrayList<>();
 
     public GameMachine() {
 
@@ -30,11 +29,12 @@ public class GameMachine {
             System.out.println();
         }
 
-        
+        System.out.printf("최종 우승자 : %s", cars.winnerCars());
     }
 
     // 자동차 이름 부여해서 객체 생성
     public List<Car> createCar(String inputCarName) {
+        List<Car> carList = new ArrayList<>();
         String[] nameSplit = inputCarName.split(",");
 
         for (String name : nameSplit) {

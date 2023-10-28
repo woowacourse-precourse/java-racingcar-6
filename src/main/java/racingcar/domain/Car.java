@@ -28,4 +28,16 @@ public class Car {
     public String forwardStatus() {
         return String.format("%s : ", name) + "-".repeat(Math.max(0, position));
     }
+
+    public boolean isSamePosition(int maxPosition) {
+        return position >= maxPosition;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
