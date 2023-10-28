@@ -16,6 +16,14 @@ public class Car {
         return new Car(name, 0);
     }
 
+    public void proceed() {
+        this.position++;
+    }
+
+    public void stop() {
+        // do nothing
+    }
+    
     public String getName() {
         return name;
     }

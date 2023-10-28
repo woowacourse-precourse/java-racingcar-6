@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 
@@ -23,5 +24,31 @@ public class CarTest {
         }
     }
 
+    @DisplayName("자동차 전진 시 position이 1증가한다")
+    @Test
+    void proceedTest() {
+        // given
+        Car car = Car.forName("name");
+        int prevPosition = car.getPosition();
 
+        // when
+        car.proceed();
+        int afterPosition = car.getPosition();
+
+        assertEquals(prevPosition + 1, afterPosition);
+    }
+
+    @DisplayName("자동차 정지 시 position이 변하지 않는다")
+    @Test
+    void stopTest() {
+        // given
+        Car car = Car.forName("name");
+        int prevPosition = car.getPosition();
+
+        // when
+        car.stop();
+        int afterPosition = car.getPosition();
+
+        assertEquals(prevPosition, afterPosition);
+    }
 }
