@@ -16,6 +16,10 @@ public class Cars {
         cars.add(Car.getNewCar(name));
     }
 
+    public void move() {
+        cars.forEach(Car::move);
+    }
+
     private void validateDuplicate(String newName) {
         cars.stream()
                 .map(Car::getName)
