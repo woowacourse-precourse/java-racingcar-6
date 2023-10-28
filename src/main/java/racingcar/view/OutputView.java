@@ -2,6 +2,7 @@ package racingcar.view;
 
 import racingcar.model.Car;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,7 +27,7 @@ public class OutputView {
         System.out.println(WINNER_MESSAGE + winner);
     }
 
-    public static void printJointWinner(List<String> winners) {
-        System.out.println(WINNER_MESSAGE + winners.stream().map(String::valueOf).collect(Collectors.joining(", ")));
+    public static void printJointWinner(String[] winners) {
+        System.out.println(WINNER_MESSAGE + Arrays.stream(winners).map(String::valueOf).collect(Collectors.joining(", ")));
     }
 }

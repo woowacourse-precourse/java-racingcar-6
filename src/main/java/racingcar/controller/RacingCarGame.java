@@ -6,15 +6,19 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class RacingCarGame {
     private Car car;
     private Validator validator;
+    private int[] count;
 
     public RacingCarGame() {
         car = new Car();
         validator = new Validator();
+        count = new int[splitCarNamesByComma().size()];
     }
 
     public List<String> splitCarNamesByComma() {
@@ -31,8 +35,9 @@ public class RacingCarGame {
     }
 
     public void moveCarForward() {
-        for (String car : splitCarNamesByComma()) {
-            OutputView.printExecutionResult(car);
+        for (int i = 0; i < splitCarNamesByComma().size(); i++) {
+            OutputView.printExecutionResult(splitCarNamesByComma().get(i));
+            count[i]++;
         }
     }
 
@@ -43,6 +48,25 @@ public class RacingCarGame {
             for (int i = 0; i < attemptNumber; i++) {
                 moveCarForward();
             }
+        }
+    }
+
+    public void compareCarsAndGetWinner() {
+        int max = Arrays.stream(count).max().getAsInt();
+        IntStream maxIndex = IntStream.range(0, count.length).filter(i -> count[i] == max);
+        List<String> carNameList = splitCarNamesByComma();
+
+        if (maxIndex.count() == 1) {
+            int maxIndexNumber = Integer.parseInt(maxIndex.toString());
+            String winner = carNameList.get(maxIndexNumber);
+            OutputView.printSoleWinner(winner);
+        } else {
+            int[] maxIndexNumberArray = maxIndex.toArray();
+            String[] winners = new String[maxIndexNumberArray.length];
+            for (int i = 0; i < maxIndexNumberArray.length; i++) {
+                winners[i] = carNameList.get(i);
+            }
+            OutputView.printJointWinner(winners);
         }
     }
 }
