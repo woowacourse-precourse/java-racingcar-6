@@ -11,7 +11,7 @@
 - [x] 각 자동차의 움직인 거리를 출력하는 기능 - Printer#printDistance()
 
 - [x] 가장 멀리 움직인 거리를 구하는 기능 - Referee#findMaxDistance()
-- [ ] 우승자를 구하는 기능 - Referee#findWinner()
+- [x] 우승자를 구하는 기능 - Referee#findWinner()
 - [ ] 우승자를 출력하는 기능 - Printer#printWinner()
 
 - [ ] 입력값이 올바른 이름 형식인지 확인하는 기능 - Validation#validNames()

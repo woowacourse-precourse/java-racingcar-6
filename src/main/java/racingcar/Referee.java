@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Referee {
@@ -16,6 +17,12 @@ public class Referee {
     }
 
     public List<Car> findWinner(List<Car> carList, int max) {
-        return null;
+        List<Car> winnerList = new ArrayList<>();
+        for (Car car : carList) {
+            if (car.getDistance() == max) {
+                winnerList.add(car);
+            }
+        }
+        return winnerList;
     }
 }
