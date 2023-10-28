@@ -1,9 +1,6 @@
 package featuretest;
 
-import Model.Car;
-import Model.CarName;
-import Model.RaceCarNames;
-import Model.TryCount;
+import Model.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -91,5 +88,14 @@ public class FeatureTest {
         boolean expectedResult = true;
 
         assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
+    @Test
+    void 자동차_전진() {
+        CarPosition actualObj = new CarPosition(3);
+        actualObj.moveCarForward();
+        CarPosition expectedObj = new CarPosition(4);
+
+        assertThat(actualObj).isEqualTo(expectedObj);
     }
 }
