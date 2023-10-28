@@ -21,4 +21,8 @@ public class Car {
             this.forwards++;
         }
     }
+
+    public int getForwards() {
+        return forwards;
+    }
 }
