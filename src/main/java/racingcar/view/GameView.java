@@ -14,4 +14,8 @@ public class GameView {
         System.out.println(MessageConstants.TRY_COUNT_GUIDE);
         return Console.readLine();
     }
+
+    public void printGameLog(StringBuilder gameLog) {
+        System.out.println(gameLog);
+    }
 }
