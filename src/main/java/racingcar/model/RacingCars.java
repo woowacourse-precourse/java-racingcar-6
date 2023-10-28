@@ -18,4 +18,17 @@ public class RacingCars {
         }
         return new RacingCars(initRacingCarList);
     }
+
+    public RacingCars move() {
+        List<RacingCar> movedRacingCarList = new ArrayList<>();
+        for (RacingCar racingCar : racingCarList) {
+            RacingCar movedCar = racingCar.move();
+            movedRacingCarList.add(movedCar);
+        }
+        return new RacingCars(movedRacingCarList);
+    }
+
+    public List<RacingCar> getRacingCarList() {
+        return racingCarList;
+    }
 }

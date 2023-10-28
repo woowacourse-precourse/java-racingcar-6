@@ -15,4 +15,8 @@ public class RacingCar {
     public static RacingCar init(String carName) {
         return new RacingCar(Name.init(carName), Location.init(), IsWinner.init());
     }
+
+    public RacingCar move() {
+        return new RacingCar(name, location.move(), isWinner);
+    }
 }
