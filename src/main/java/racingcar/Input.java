@@ -7,7 +7,7 @@ public class Input {
         return Console.readLine();
     }
 
-    public long inputMoveCounts() {
+    public long inputAttemptCounts() {
         return Long.parseLong(Console.readLine());
     }
 }
