@@ -105,14 +105,14 @@
         2. getWinners
        - 위의 메소드 값과 같은 값의 자동차 이름을 추출
 
-   __3. Racing__
-   -[x] race
-        -[x] pickRandomNumber
-          - 0-9 랜덤 정수 반환
-        -[x] isMovable
-          - 4이상이면 true
-   -[x] getAttempCount
-     - 시도횟수 게터
+__3. Racing__
+-[x] race
+    -[x] pickRandomNumber
+      - 0-9 랜덤 정수 반환
+    -[x] isMovable
+      - 4이상이면 true
+    -[x] getAttempCount
+      - 시도횟수 게터
 
     
 __4. AttemptCountValidator__
@@ -171,14 +171,14 @@ __1. BlankValidator__
 __1. RacingController__
 - [x] raceStart(경주게임 시작)
     -[x] setUpRace(경주 세팅)
-        1) addCarsToRace
+      1) addCarsToRace
         - 사용자에게 자동차 이름 입력받음
-        2) setAttemptCountForRace
+      2) setAttemptCountForRace
         - 사용자에게 시도횟수 입력받음
-    -[x] runRace
-      - 시도횟수만큼 경주실행 후 결과 출력
-    -[x] printRaceResults
-      - 우승자 출력
+-[x] runRace
+    - 시도횟수만큼 경주실행 후 결과 출력
+-[x] printRaceResults
+    - 우승자 출력
 
 
 
