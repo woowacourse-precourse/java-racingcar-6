@@ -8,12 +8,16 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Application {
     public static void main(String[] args) {
-        Car car = new Car();
+
     }
 }
 
+class Game{
+    Car car = new Car();
+    private int moveCount = User.NumberOfMove();
+}
 class User{
-    private int NumberOfMove(){
+    static int NumberOfMove(){
          String InputTry = readLine();
          int moveCount = CheckException.CheckRightNumberOfMove(InputTry);
          return moveCount;
