@@ -5,18 +5,18 @@ import racingcar.model.Settings;
 import racingcar.view.View;
 
 public class Controller {
-    RacingGame racingGame = new RacingGame();
+    RacingGame game = new RacingGame();
     View view = new View();
 
     public void startGame() {
         askAndGenerateCars();
         askAndSetAttempts();
-        racingGame.playGame();
+        game.playGame();
     }
 
     private void askAndGenerateCars() {
         String[] cars = view.askForCarNames();
-        racingGame.createAndAddCars(cars);
+        game.createAndAddCars(cars);
     }
 
     private void askAndSetAttempts() {
