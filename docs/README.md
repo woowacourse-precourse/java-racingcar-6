@@ -47,7 +47,7 @@
 ## 게임 진행 기능
 - [ ] RaceCarList : `moveRandomEachCars` 메서드
   - 각 자동차를 랜덤한 확률로 움직인다.
-- [ ] Car : `move` 메서드
+- [x] Car : `move` 메서드
   - int를 인수로 받아 4이상이라면 전진한다.
 - [ ] Util : `generateRandomPower` 메서드
   - 랜덤 0~9 사이 무작위 수를 생성한다

@@ -14,6 +14,9 @@ public class Car {
     }
 
     public void move(int power) {
+        if (isMovablePower(power)) {
+            move();
+        }
     }
 
     public boolean isMovablePower(int power) {
