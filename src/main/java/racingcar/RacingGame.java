@@ -50,4 +50,11 @@ public class RacingGame {
         }
     }
 
+    private static int findMaxPosition(Car[] cars) {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.position);
+        }
+        return maxPosition;
+    }
 }
