@@ -6,7 +6,9 @@ import racingcar.domain.RandomNumber;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class GameController {
@@ -22,6 +24,30 @@ public class GameController {
     public void proceed() {
         init();
         startRace();
+        Winner();
+    }
+
+    private void Winner() {
+        List<Car> cars = carList.getCars();
+        List<String> winners = new ArrayList<>();
+        int maxLevel = maxNum(cars);
+        for (Car car : cars) {
+            checkMaxCar(car, maxLevel, winners);
+        }
+        outputView.printWinner(String.join(",",winners));
+    }
+
+    private void checkMaxCar(Car car, int maxLevel, List<String> winners) {
+        if (car.getLevel() == maxLevel) {
+            winners.add(car.getCarName());
+        }
+    }
+
+    private int maxNum(List<Car> cars) {
+        Comparator<Car> comparator = ((o1, o2) -> o2.getLevel() - o1.getLevel());
+        cars.sort(comparator);
+
+        return cars.get(0).getLevel();
     }
 
     private void startRace() {
