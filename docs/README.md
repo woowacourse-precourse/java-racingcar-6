@@ -199,7 +199,6 @@
 ## 📦 예외 처리 - Exception
 
 - [ ]  📔 사용자 정의 예외 - GameException
-    - [ ]  📝 예외 생성하기 - of
 
 ## 📦 문구 - Message
 
