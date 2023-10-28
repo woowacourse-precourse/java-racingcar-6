@@ -4,6 +4,9 @@ public class RacingCar {
     private static final int MIN_NAME_LENGTH = 1;
     private static final int MAX_NAME_LENGTH = 5;
 
+    private static final int VELOCITY = 1;
+    private static final int MIN_THRESHOLD = 4;
+
     private final String name;
     private int position = 0;
 
@@ -14,6 +17,20 @@ public class RacingCar {
 
     public RacingCarInformation getInformation() {
         return RacingCarInformation.of(name, position);
+    }
+
+    public void checkAndMoveForward(int chosenNumber) {
+        if (checkMoveForwardCondition(chosenNumber)) {
+            moveForward();
+        }
+    }
+
+    private boolean checkMoveForwardCondition(int chosenNumber) {
+        return chosenNumber >= MIN_THRESHOLD;
+    }
+
+    private void moveForward() {
+        this.position += VELOCITY;
     }
 
     private void validateName(String name) {
