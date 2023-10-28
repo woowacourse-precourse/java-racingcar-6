@@ -26,15 +26,25 @@ public class Cars implements Iterable<Car> {
                 .collect(Collectors.toList());
     }
 
-    private List<String> parsedCarsName(String inputValue) {
-        return Arrays.asList(inputValue.split(CAR_NAME_SEPARATOR));
-    }
-
     private int maxPosition() {
         return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
                 .orElseThrow(NoSuchElementException::new);
+    }
+
+    private List<String> parsedCarsName(String carsName) {
+        String[] splitCarsName = splitCarsName(carsName);
+        return stringArrayToStringList(splitCarsName);
+
+    }
+
+    private String[] splitCarsName(String inputValue) {
+        return inputValue.split(CAR_NAME_SEPARATOR);
+    }
+
+    private List<String> stringArrayToStringList(String[] strings) {
+        return Arrays.asList(strings);
     }
 
     @Override
