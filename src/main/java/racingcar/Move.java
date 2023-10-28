@@ -3,10 +3,12 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Move {
+    List<Integer> num = new ArrayList<>();
     public int getMove(){
         System.out.println("시도할 회수는 몇회인가요?");
         int move = Integer.parseInt(Console.readLine());
@@ -31,14 +33,14 @@ public class Move {
             System.out.println();
         }
         System.out.print("최종 우승자 : ");
-        int[] num = new int[position.length];
         for(int i = 0; i < position.length; i++){
+            num.add(0);
             if(position[i] == Arrays.stream(position).max().getAsInt()){
-                if(i != 0){
-                    System.out.print(",");
+                if(num.contains(1)){
+                    System.out.print(", ");
                 }
+                num.set(i, 1);
                 System.out.print(carNameList.get(i));
-                num[i] = 1;
             }
         }
     }
