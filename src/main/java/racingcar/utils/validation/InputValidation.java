@@ -4,13 +4,13 @@ import java.util.List;
 import racingcar.utils.constant.Constant;
 
 public class InputValidation {
-    private static void validateNameLength(String carName) {
+    public static void validateNameLength(String carName) {
         if (carName.length() > Constant.NAME_MAX_LENGTH) {
             throw new IllegalArgumentException();
         }
     }
 
-    private static void validateNameDuplicated(List<String> carNames) {
+    public static void validateNameDuplicated(List<String> carNames) {
         long distinctLength = carNames.stream().distinct().count();
         if (carNames.size() != distinctLength) {
             throw new IllegalArgumentException();
