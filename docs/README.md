@@ -6,7 +6,7 @@
     incrementForwardCount() : 1칸 전진
 
 ## RacingGame
-    players : 자동차 목록
+    cars : 자동차 목록
     turn : 시도 횟수
     
     play() : 게임의 과정을 총괄
