@@ -1,8 +1,10 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import net.bytebuddy.dynamic.scaffold.MethodGraph;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class Game {
     private LinkedList<Car> cars = new LinkedList<>();
@@ -52,4 +54,22 @@ public class Game {
         }
         turns = Integer.parseInt(number);
     }
+
+    private void printWinners(){
+        int max = 0;
+        LinkedList<String> winners = new LinkedList<>();
+        for (Car car : cars){
+            if (car.getPosition() >= max){
+               max = car.getPosition();
+            }
+        }
+
+        for (Car car: cars){
+            if (car.getPosition == max){
+                winners.add(car.getName());
+            }
+            System.out.println("최종 우승자 : " + String.join(",", winners));
+        }
+    }
+
 }
