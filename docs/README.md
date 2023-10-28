@@ -22,12 +22,14 @@
   - [x] RacingGameManager가 자동차(Car)와 시도 횟수를 입력받도록 명령한다.
   - [x] GameResultMaker가 자동차(Car)의 이동하도록 명령한다.
   - [ ] GameResultView가 게임 결과를 출력하도록 시킨다.
+  - [ ] GameResultView가 최종 우승자를 출력하도록 시킨다.
 
 2. Car
 
 - 자동차 경주 게임에 참여하는 차를 추상화한 클래스
   - [x] 필드로 이름(name)과 이동 횟수(movingCount)를 가진다.
   - [x] movingCount를 증가시킨다.
+  - [ ] 최종 우승자를 반환한다.
 
 3. RacingGameManager
 
@@ -61,9 +63,8 @@
 - 게임 실행 결과를 출력하는 책임을 가진 클래스
   - [x] 라운드 별 레이스 결과를 출력한다.
     - GameResultMaker가 이동 횟수를 증가시킨경우 '-'를 추가하여, 결과를 출력한다.
-  - [ ] 최종 우승자를 출력한다. 
-    - List<Car>에서 가장 큰 이동 횟수(count)를 가진 Car를 선별하여, Car의 이름(name)을 출력한다.
-    - 이 때, 우승자가 여러 명일 경우 쉼표(,)로 구분하여 출력한다.
+  - [ ] 최종 우승자를 출력한다.
+    - 우승자가 여러 명일 경우 쉼표(,)로 구분하여 출력한다.
 
 7. InputManager
 
