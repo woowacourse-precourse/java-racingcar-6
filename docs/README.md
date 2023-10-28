@@ -13,68 +13,63 @@
 
 ```mermaid
 classDiagram
-    Application ..> GameController
+    Application ..> CarGameController
+    CarGameController ..> CarGameService
+    CarGameController --> OutputView
+    CarGameController --> InputView
     
-    GameController --> InputView
-    GameController --> OutputView
-    GameController --> GameService
-    
-    GameController --> DtoManger
-    DtoManger --> Dto
-    DtoManger --> CarStatusVo
+    CarGameService --> CarDto
+    CarGameService --> Parser
+    CarGameService --> RandomMove
+
+    CarDto --> Car
     
     class Application {
-        
+        + run()
     }
     %% controller 
-    class GameController {
-        - GameService
-        - InputView
-        - OuputView
-        + run() void
-        - initGame() void
+    class CarGameController {
+        + run()
     }
     %% view
+    class CarGameService {
+        + playGame()
+        - round()
+        - enrollCar()
+        - MoveCar()
+        - getWinningCar()
+    }
+    
+    class CarDto {
+        + enrollCar()
+        + findCarByName()
+        + findAll()
+        + increaseCarPosition()
+    }
+    
     class InputView {
-        + getUserInput()
+        + getInput()
     }
     
     class OutputView {
-        
-    }
-    %% service
-    class GameService {
-        
-    }
-    %% dto
-    class Dto {
-        
-    }
-    
-    class CarVo {
-        - String name;
-        - int position;
-        + equals(String name) void
-        + getCar(String name) void
+        + winnerMessage()
     }
     
     class Car {
-        - String name;
-        - int position;
+        - carName : String
+        - position : int
+        - getPosition()
     }
-    %% model
-    class RandomMoveStop {
-        
-    }
-    
-    %% util
-    class DtoManger {
-        
+
+    class RandomMove {
+        + isMove()
     }
     
-    class Validator {
-        
+    class Parser {
+        + parseUserInputToList()
+        + ParseInt()
     }
+    
 ```
 
     
@@ -82,7 +77,4 @@ classDiagram
 
 - 정지 했을 때, 문자 값은 VO로 만드는 것이 좋다. 
 - TDD 지키자!
-
-    
-
 
