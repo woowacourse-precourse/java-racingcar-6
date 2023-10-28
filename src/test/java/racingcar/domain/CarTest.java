@@ -27,11 +27,21 @@ class CarTest {
     @Test
     @DisplayName("이동한 거리가 3과 같으면 성공")
     void 거리_3_성공_테스트() {
+        MoveRule moveRule = createMoveRule(3);
         //given
         Car car = new Car("test");
         //when
-        car.move(3);
+        car.move(moveRule);
         //then
         assertThat(car.getDistance()).isEqualTo(3);
+    }
+
+    private MoveRule createMoveRule(int generateNumber) {
+        return new MoveRule() {
+            @Override
+            public int tryMove() {
+                return generateNumber;
+            }
+        };
     }
 }

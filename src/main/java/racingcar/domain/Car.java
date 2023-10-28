@@ -9,15 +9,15 @@ public class Car {
         distance = 0;
     }
 
-    public void move(int moveDistance) {
-        distance += moveDistance;
+    public void move(MoveRule moveRule) {
+        distance += moveRule.tryMove();
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 
-    int getDistance() {
+    public int getDistance() {
         return distance;
     }
 }
