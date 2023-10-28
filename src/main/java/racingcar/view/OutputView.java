@@ -13,7 +13,8 @@ public class OutputView {
     }
 
     public void printCarsPosition(Cars cars) {
-        cars.getCarList().stream().forEach(this::printCarInformation);
+        cars.getCarList()
+                .forEach(this::printCarInformation);
         System.out.println();
     }
 

@@ -25,16 +25,17 @@ public class Cars {
         return carList;
     }
 
-    private int getMaxPosition(){
+    private int getMaxPosition() {
         return this.carList.stream().mapToInt(Car::getPosition).max().getAsInt();
     }
 
-    private List<Car> getWinners(){
+    private List<Car> getWinners() {
         return this.carList.stream()
                 .filter(car -> car.getPosition() == getMaxPosition())
                 .collect(Collectors.toList());
     }
-    public String WinnersToString(){
+
+    public String WinnersToString() {
         return getWinners().stream().map(Car::getCarName).collect(Collectors.joining(", "));
     }
 

@@ -29,7 +29,7 @@ public class RacingCarGameController {
         });
     }
 
-    private void moveCarProcess(Cars cars){
+    private void moveCarProcess(Cars cars) {
         cars.move();
         outputView.printCarsPosition(cars);
     }

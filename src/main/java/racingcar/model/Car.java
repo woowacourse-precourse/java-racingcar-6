@@ -27,17 +27,17 @@ public class Car {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public String getCarName() {
-        return carName;
-    }
-
     public String getPositionToString() {
         return IntStream.rangeClosed(0, this.position)
                 .mapToObj(i -> "-")
                 .collect(Collectors.joining());
     }
 
-    public int getPosition(){
+    public String getCarName() {
+        return carName;
+    }
+
+    public int getPosition() {
         return this.position;
     }
 }
