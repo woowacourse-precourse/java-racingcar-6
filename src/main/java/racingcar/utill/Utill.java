@@ -19,4 +19,6 @@ public class Utill {
 //        - [ ] 특수문자 포함 검사
         return null;
     }
+
+    // TODO: 10/28/23 배열을 리스트로 변환 
 }

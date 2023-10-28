@@ -43,8 +43,8 @@
     - [x] 이름은 5자 이하 검사
     - [x] 한글 포함 검사
 
-  - [ ] 입력받은 이름 문자열로 자동차를 만들어준다. // GameProcess#createRaceCars()
-    - [ ] 문자열 공백 검사
+  - [x] 입력받은 이름 문자열로 자동차를 만들어준다. // GameProcess#createRaceCars()
+    - [x] 문자열 공백 검사
     
   - [ ] 게임을 시도할 회수를 입력하는 메서드 // GameProcess#inputNumberGameAttempts
   - [ ] 레이싱게임의 최종 승자를 알려준다. // GameProcess#knowFinalWinner
@@ -110,6 +110,7 @@
   - [ ] 양수 입력 검사 // ValidException#isValidPositiveCheck
   - [ ] 문자열 포함 검사  // ValidException#isValidIncludeString
   - [ ] 특수문자 포함 검사 // ValidException#isValidIncludeSpecialString
+  - [ ] 문자열 이름 , 다음에는 문자가 나와야한다.
 
 
 
