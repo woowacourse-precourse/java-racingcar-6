@@ -12,11 +12,13 @@ public class GameProcess {
     private List<RaceCar> raceCarOfCurrentList;
     private String nameLineOfRaceCar;
     private List<String> nameSplitList;
+    private Integer cntTryRace;
 
     public GameProcess() {
         raceCarOfCurrentList = new ArrayList<>();
         nameLineOfRaceCar = "";
         nameSplitList = new ArrayList<>();
+        cntTryRace = 0;
     }
 
     /**
@@ -59,9 +61,12 @@ public class GameProcess {
         }
     }
 
-    // TODO: 10/27/23 게임을 시도할 회수를 입력하는 메서드
+    /**
+     * 게임을 시도할 회수를 입력하는 메서드
+     */
     public void inputNumberGameAttempts() {
         // 게임을 시도할 회수를 입력하는 메서드
+        cntTryRace = Utill.inputNum();
     }
 
     // TODO: 10/27/23 레이싱게임의 최종 승자를 알려준다.
