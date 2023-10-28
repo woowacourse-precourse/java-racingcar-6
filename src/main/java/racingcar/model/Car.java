@@ -9,12 +9,16 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Car {
-    private LinkedHashMap<String, Integer> cars;
+    private final LinkedHashMap<String, Integer> cars;
 
     public Car(List<String> carNameInputList) {
         cars = carNameInputList.stream()
                 .collect(Collectors.toMap(Function.identity(), e -> INIT_MOVE, (oldValue, newValue) -> newValue,
                         LinkedHashMap::new));
+    }
+
+    public LinkedHashMap<String, Integer> getCars() {
+        return cars;
     }
 
     public Set<String> getCarNameSet() {

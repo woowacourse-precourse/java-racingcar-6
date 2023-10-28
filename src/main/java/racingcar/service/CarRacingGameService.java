@@ -6,11 +6,12 @@ import static racingcar.constant.ExceptionMessage.CAR_NAME_INCLUDE_BLANK_EXCEPTI
 import static racingcar.constant.ExceptionMessage.CAR_NAME_OVER_LENGTH_EXCEPTION_MESSAGE;
 import static racingcar.constant.ExceptionMessage.SET_NOT_NUMBER_EXCEPTION_MESSAGE;
 import static racingcar.constant.ExceptionMessage.SET_RANGE_EXCEPTION_MESSAGE;
-import static racingcar.constant.GameMessage.FINAL_WINNER_MESSAGE;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import racingcar.dto.FinalResultDto;
+import racingcar.dto.SetResultDto;
 import racingcar.model.Car;
 import racingcar.model.Game;
 
@@ -23,13 +24,13 @@ public class CarRacingGameService {
         return new Car(carNameInputList);
     }
 
-    private void validateCarNameInput(List<String> carNameInputList) {
+    private static void validateCarNameInput(List<String> carNameInputList) {
         checkDuplicateName(carNameInputList);
         checkBlank(carNameInputList);
         checkNameLength(carNameInputList);
     }
 
-    private void checkDuplicateName(List<String> carNameInputList) {
+    private static void checkDuplicateName(List<String> carNameInputList) {
         Set<String> inputCarNameSet = new HashSet<>(carNameInputList);
 
         if (inputCarNameSet.size() != carNameInputList.size()) {
@@ -37,7 +38,7 @@ public class CarRacingGameService {
         }
     }
 
-    private void checkBlank(List<String> carNameInputList) {
+    private static void checkBlank(List<String> carNameInputList) {
         for (String inputCarName : carNameInputList) {
             if (inputCarName.contains(" ")) {
                 throw new IllegalArgumentException(CAR_NAME_INCLUDE_BLANK_EXCEPTION_MESSAGE);
@@ -45,7 +46,7 @@ public class CarRacingGameService {
         }
     }
 
-    private void checkNameLength(List<String> carNameInputList) {
+    private static void checkNameLength(List<String> carNameInputList) {
         for (String inputCarName : carNameInputList) {
             if (inputCarName.length() > 5) {
                 throw new IllegalArgumentException(CAR_NAME_OVER_LENGTH_EXCEPTION_MESSAGE);
@@ -59,12 +60,12 @@ public class CarRacingGameService {
         return new Game(cars, gameSetInput);
     }
 
-    private void validateGameSetInput(String gameSetInput) {
+    public static void validateGameSetInput(String gameSetInput) {
         isNumber(gameSetInput);
         checkRange(gameSetInput);
     }
 
-    private void isNumber(String gameSetInput) {
+    private static void isNumber(String gameSetInput) {
         try {
             Integer.parseInt(gameSetInput);
         } catch (NumberFormatException e) {
@@ -72,7 +73,7 @@ public class CarRacingGameService {
         }
     }
 
-    private void checkRange(String gameSetInput) {
+    private static void checkRange(String gameSetInput) {
         int set = Integer.parseInt(gameSetInput);
 
         if (set < 1 || set > 99) {
@@ -84,24 +85,13 @@ public class CarRacingGameService {
         return game.isContinue();
     }
 
-    public StringBuilder playSet(Game game) {
-        return game.playSet();
+    public SetResultDto playSet(Game game) {
+        game.playSet();
+
+        return new SetResultDto(game.getCars());
     }
 
-    public StringBuilder getFinalResult(Game game) {
-        StringBuilder finalResult = new StringBuilder(FINAL_WINNER_MESSAGE);
-
-        List<String> winner = game.getWinnerList();
-
-        finalResult.append(winner.get(0));
-
-        if (winner.size() > 1) {
-            for (int i = 1; i < winner.size(); i++) {
-                finalResult.append(", ").append(winner.get(i));
-            }
-        }
-
-        return finalResult;
+    public FinalResultDto getFinalResult(Game game) {
+        return new FinalResultDto(game.getWinnerList());
     }
-
 }
