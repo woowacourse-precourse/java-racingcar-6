@@ -27,7 +27,7 @@ RandomNumber
 - 크기가 4이상인지 확인한다 - O
 
 NumberGenerator
-- 0~9사이의 무작위 값을 구한다.
+- 외부 라이브러리로 int 값을 가져온다. - 0
 
 
 InputView
