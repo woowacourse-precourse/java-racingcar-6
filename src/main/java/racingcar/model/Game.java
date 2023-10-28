@@ -1,16 +1,18 @@
 package racingcar.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalInt;
+import java.util.stream.Collectors;
 import racingcar.util.MoveResolver;
 
 public class Game {
     private final int MOVING_DISTANCE = 1;
     private final MoveResolver moveResolver = new MoveResolver();
-    private final List<Car> cars;
+    private List<Car> cars = new ArrayList<>();
 
-    public Game(List<Car> cars) {
-        this.cars = cars;
+    public void addCar(Car car) {
+        cars.add(car);
     }
 
     public void playRound() {
@@ -23,6 +25,12 @@ public class Game {
         int maxPosition = getMaxPosition();
         return cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
+                .toList();
+    }
+
+    public List<GameResult> generateGameResultList() {
+        return cars.stream()
+                .map(Car::generateGameResult)
                 .toList();
     }
 

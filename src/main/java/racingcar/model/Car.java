@@ -27,4 +27,8 @@ public class Car {
             position += distance;
         };
     }
+
+    public GameResult generateGameResult() {
+        return new GameResult(this.getName(),this.getPosition());
+    }
 }
