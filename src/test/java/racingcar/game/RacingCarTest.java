@@ -1,8 +1,10 @@
-package racingcar;
+package racingcar.game;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
+import racingcar.model.Name;
+import racingcar.model.Position;
 
 class RacingCarTest {
 

@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.actionnumber;
 
 public interface ActionNumberGenerator {
 

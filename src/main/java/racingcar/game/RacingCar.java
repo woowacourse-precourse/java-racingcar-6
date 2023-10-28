@@ -1,5 +1,8 @@
-package racingcar;
+package racingcar.game;
 
+
+import racingcar.model.Name;
+import racingcar.model.Position;
 
 public class RacingCar {
 

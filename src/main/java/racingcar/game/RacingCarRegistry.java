@@ -1,8 +1,9 @@
-package racingcar;
+package racingcar.game;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.actionnumber.ActionNumberGenerator;
 
 public class RacingCarRegistry {
 

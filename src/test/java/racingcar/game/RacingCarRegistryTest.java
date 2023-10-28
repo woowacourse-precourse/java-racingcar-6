@@ -1,10 +1,13 @@
-package racingcar;
+package racingcar.game;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.mock.ListActionNumberGenerator;
+import racingcar.model.Name;
+import racingcar.model.Position;
 
 class RacingCarRegistryTest {
 

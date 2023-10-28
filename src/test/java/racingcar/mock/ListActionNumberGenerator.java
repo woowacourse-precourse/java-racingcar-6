@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.mock;
 
 import java.util.List;
+import racingcar.actionnumber.ActionNumberGenerator;
 
 public class ListActionNumberGenerator implements ActionNumberGenerator {
     private List<Integer> actionNumbers;

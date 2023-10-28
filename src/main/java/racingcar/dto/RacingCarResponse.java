@@ -1,7 +1,7 @@
 package racingcar.dto;
 
-import racingcar.Name;
-import racingcar.Position;
+import racingcar.model.Name;
+import racingcar.model.Position;
 
 public class RacingCarResponse {
 

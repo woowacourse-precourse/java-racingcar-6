@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
@@ -6,6 +6,8 @@ import java.util.StringJoiner;
 import racingcar.dto.MoveOpportunityCreateRequest;
 import racingcar.dto.RacingCarCreateRequest;
 import racingcar.dto.RacingCarResponse;
+import racingcar.model.Name;
+import racingcar.model.Position;
 
 public class RacingGameConsoleView implements RacingGameView {
 
