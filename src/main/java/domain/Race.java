@@ -29,4 +29,9 @@ public class Race {
         System.out.println();
     }
 
+    public List<Car> findWinners() {
+        int maxPosition = findMaxPosition();
+        return filterWinners(maxPosition);
+    }
+
 }
