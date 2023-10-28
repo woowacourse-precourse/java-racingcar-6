@@ -7,4 +7,8 @@ public class InputView {
         return Console.readLine();
     }
     
+    static String InputTimes() {
+        return Console.readLine();
+    }
+    
 }

@@ -6,5 +6,6 @@ public class Application {
         OutputView.outputCar();
         String carNames = InputView.InputCar();
         OutputView.outputTimes();
+        String times = InputView.InputTimes();
     }
 }
