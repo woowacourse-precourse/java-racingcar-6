@@ -15,4 +15,8 @@ public class RacingCarNameRegistryDto {
     public List<String> getRacingCarNames() {
         return racingCarNames;
     }
+
+    public RacingCarRegistry toRacingCarRegistry() {
+        return new RacingCarRegistry(racingCarNames);
+    }
 }
