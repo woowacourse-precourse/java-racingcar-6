@@ -17,22 +17,10 @@ public class OutputView {
     }
 
     public void GameResultMessage() {
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
     }
 
-    public void printWinner(List<Car> carList){
-        int maxStep = carList.get(0).getStep();
-        for (Car car : carList) {
-            if (car.getStep() > maxStep) {
-                maxStep = car.getStep();
-            }
-        }
-        List<Car> winnerList = new ArrayList<>();
-        for (Car car : carList) {
-            if (car.getStep() == maxStep) {
-                winnerList.add(car);
-            }
-        }
+    public void printWinner(List<Car> winnerList){
         System.out.print("최종 우승자 : ");
         for(int i=0;i<winnerList.size();i++){
             if(i != winnerList.size() -1){

@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.Car;
+import racingcar.Winner;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -12,6 +13,8 @@ public class RaceGameController {
     InputView input = new InputView();
     OutputView output = new OutputView();
     List<Car> carList = new ArrayList<>();
+    Winner winner = new Winner();
+
     int numberOfAttempts=0;
 
     public void newGame(){
@@ -24,7 +27,7 @@ public class RaceGameController {
             tryAllCarsOneStep();
             output.printGameResult(carList);
         }
-        output.printWinner(carList);
+        output.printWinner(winner.setWinnerList(carList));
     }
 
     private void tryAllCarsOneStep() {
