@@ -7,4 +7,8 @@ public class Cars {
     public Cars(List<Car> cars) {
         this.cars = cars;
     }
+
+    public void playRound() {
+        this.cars.forEach(Car::playRound);
+    }
 }

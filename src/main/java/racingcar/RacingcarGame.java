@@ -9,20 +9,29 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingcarGame {
-    private int trials;
-    public RacingcarGame(){
+    private Cars racingCars;
+    private int rounds;
+    public void execute(){
+        start();
+        play();
+        end();
+    }
+    private void start(){
+        this.racingCars = registerCars();
+        this.rounds = registerRounds();
+    }
+    private void play(){
+        for(int i=0;i<rounds;i++){
+            racingCars.playRound();
+        }
+    }
+
+    private void end(){
 
     }
-    public void start(){
-        Cars racingCars = registerCars();
-        registerNumOfTrials();
-
-    }
-
-
-    private void registerNumOfTrials() {
+    private int registerRounds() {
         System.out.println(REQUEST_NUM_OF_TRIALS);
-        this.trials = Integer.parseInt(Console.readLine());
+        return Integer.parseInt(Console.readLine());
     }
 
     private Cars registerCars() {
