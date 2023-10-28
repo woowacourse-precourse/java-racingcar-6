@@ -13,6 +13,18 @@ public class RacingCarGameConsole {
     private int timesToTry = 0;
     private int mostMovedAmount = 0;
 
+    public void run() {
+        set();
+        race();
+        printResult();
+    }
+
+    private void set() {
+        car = new Car(InputView.carName());
+        numberOfCars = car.numberOf();
+        timesToTry = InputView.timesToTry();
+    }
+
     private void race() {
         while (timesToTry > 0) {
             tryMoving();

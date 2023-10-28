@@ -50,4 +50,8 @@ public class Car {
     public int mostMovedAmount() {
         return Arrays.stream(moveAmount).max().getAsInt();
     }
+
+    public int numberOf() {
+        return number;
+    }
 }
