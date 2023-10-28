@@ -1,6 +1,8 @@
 package model;
 
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 public class Cars {
 
@@ -16,5 +18,9 @@ public class Cars {
             .toList();
 
         return new Cars(cars);
+    }
+
+    public void actEachCar(final Consumer<Car> action) {
+        cars.forEach(action);
     }
 }
