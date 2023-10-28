@@ -24,15 +24,15 @@
         - depth를 3이 넘지 않도록 구현 (최대한 함수를 분리)
 
 - 기능 목록
-    - [ ] 주어진 횟수(세트수) 동안 n대의 자동차는 전진 또는 멈출 수 있다. - carControler() 
-      - [ ] n대의 자동차 - cars[]
-      - [ ] 전진 혹은 멈추는 조건 확인 - isForward
-        - [ ] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다. isForward()
-          - [ ] 0~9 사이의 무작위값 구현 - makeRandomNumbers()
-          - [ ] 4를 기준으로 전진 조건 확인 - isBiggerThanFour()
-      - [ ] 1세트 경주 결과 기록후 해시맵 반환
-        - [ ] 결과 기록 해시맵 - resultRacing HashMap<String, Integer>
-        - [ ] 경주 이후 결과 해시맵에 기입. gameStart()
+    - [x] 주어진 횟수(세트수) 동안 n대의 자동차는 전진 또는 멈출 수 있다. - CarControler
+      - [x] n대의 자동차 - cars[]
+      - [x] 전진 혹은 멈추는 조건 확인 - isForward
+        - [x] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다. isForward()
+          - [x] 0~9 사이의 무작위값 구현 - makeRandomNumbers()
+          - [x] 4를 기준으로 전진 조건 확인 - isBiggerThanFour()
+      - [x] 1세트 경주 결과 기록후 해시맵 반환
+        - [x] 결과 기록 해시맵 - resultRacing HashMap<String, Integer>
+        - [x] 경주 이후 결과 해시맵에 기입. gameStart()
 
     - [ ] 각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
         - [ ] 자동차에 이름 부여
