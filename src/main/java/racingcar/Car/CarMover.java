@@ -11,6 +11,9 @@ public class CarMover {
             if(distance<4){
                 distance = 0;
             }
+            if(distance>=4){
+                distance = 1;
+            }
             car.move(distance);
         }
 
