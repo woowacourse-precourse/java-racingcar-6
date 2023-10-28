@@ -5,5 +5,7 @@ public class Application {
 
         // TODO: 프로그램 구현
         Setting setting = new Setting();
+        Racing racing = new Racing(setting);
+        racing.play();
     }
 }

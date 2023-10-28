@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -7,7 +8,7 @@ import java.util.StringTokenizer;
 import static camp.nextstep.edu.missionutils.Console.*;
 
 public class Setting {
-    List<String> carName = new ArrayList<String>();
+    List<Car> cars = new ArrayList<>();
     int cycleNumber;
 
     public Setting(){
@@ -34,7 +35,7 @@ public class Setting {
         while(st.hasMoreTokens()){
             String name = st.nextToken();
             validateName(name);
-            carName.add(name);
+            cars.add(new Car(name));
         }
     }
 
@@ -44,8 +45,8 @@ public class Setting {
         }
     }
 
-    public List<String> getNames(){
-        return carName;
+    public List<Car> getCars(){
+        return cars;
     }
     public int getNumber(){
         return cycleNumber;
