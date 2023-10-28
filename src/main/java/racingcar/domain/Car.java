@@ -11,7 +11,7 @@ public class Car {
         this.progress = "";
     }
 
-    public void checkForward() {
+    public void forward() {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
             this.progress += "-";
         }
