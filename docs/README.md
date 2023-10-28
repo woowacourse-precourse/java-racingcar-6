@@ -56,8 +56,8 @@
 - [ ] service Package
     - [ ] RacingCarGameService
         - 자동차 경주 게임에 대한 비즈니스 로직을 담당하는 클래스
-        - 자동차 경주 게임의 각 차수별 진행을 담당하는 `RacingCarGameProgress` 메서드
-        - 자동차 경주 게임의 최종 우승자를 반환하는 `RacingCarGameResult` 메서드
+        - 자동차 경주 게임의 각 차수별 진행을 담당하는 `racingCarGameProgress` 메서드
+        - 자동차 경주 게임의 최종 우승자를 반환하는 `racingCarGameResult` 메서드
 
 
 - [ ] view Package

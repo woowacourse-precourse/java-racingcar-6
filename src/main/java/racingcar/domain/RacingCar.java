@@ -11,6 +11,7 @@ import static racingcar.handler.ErrorHandler.*;
 public class RacingCar {
 
     private final List<String> carNames;
+    private int position = 0;
 
     public RacingCar(List<String> carNames) {
         validateCarNames(carNames);
@@ -44,6 +45,10 @@ public class RacingCar {
                 throw INVALID_LENGTH.getException();
             }
         }
+    }
+
+    public void forWard() {
+        this.position++;
     }
 
     public List<String> getCarNames() {

@@ -4,6 +4,7 @@ import racingcar.domain.RacingCar;
 import racingcar.domain.TryCount;
 import racingcar.handler.InputHandler;
 import racingcar.handler.OutputHandler;
+import racingcar.service.RacingCarGameService;
 
 import java.util.List;
 
@@ -11,10 +12,12 @@ public class RacingCarGameController {
 
     private final InputHandler inputHandler;
     private final OutputHandler outputHandler;
+    private final RacingCarGameService racingCarGameService;
 
-    public RacingCarGameController(InputHandler inputHandler, OutputHandler outputHandler) {
+    public RacingCarGameController(InputHandler inputHandler, OutputHandler outputHandler, RacingCarGameService racingCarGameService) {
         this.inputHandler = inputHandler;
         this.outputHandler = outputHandler;
+        this.racingCarGameService = racingCarGameService;
     }
 
     public void run() {
