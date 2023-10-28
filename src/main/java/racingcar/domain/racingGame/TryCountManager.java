@@ -25,8 +25,16 @@ public class TryCountManager {
     }
 
     private int inputTryCount() {
-        return Integer.parseInt(Console.readLine());
+        String input = Console.readLine();
+        if(isNumeric(input)) return Integer.parseInt(input);
+
+        throw new IllegalArgumentException("숫자만 입력 가능합니다.");
     }
+
+    public boolean isNumeric(String str) {
+        return str.chars().allMatch(Character::isDigit);
+    }
+
 
     private void printAskTryCount() {
         System.out.println("시도할 회수는 몇회인가요?");

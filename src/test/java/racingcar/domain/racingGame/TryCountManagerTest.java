@@ -22,4 +22,18 @@ class TryCountManagerTest extends IOTest {
         //then
         assertThat(output()).contains("시도할 회수는 몇회인가요?", message.repeat(tryCount));
     }
+
+    @Test
+    void 숫자가_아닌_입력을_받으면_예외_발생() {
+        //given
+        TryCountManager tryCountManager = new TryCountManager();
+
+        //when
+        command("3번");
+
+        //then
+        assertThatThrownBy(() -> tryCountManager.makeTryCount())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("숫자만 입력 가능합니다.");
+    }
 }
