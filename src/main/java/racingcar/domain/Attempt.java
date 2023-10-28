@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static racingcar.constant.ExceptionMessage.BLANK_EXCEPTION;
+import static racingcar.constant.ExceptionMessage.DECIMAL_EXCEPTION;
 import static racingcar.constant.ExceptionMessage.NON_NUMBER_EXCEPTION;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -39,6 +40,12 @@ public class Attempt {
         }
     }
 
+    public void checkNonDecimal(String input) {
+        double number = Double.parseDouble(input);
+        if (number != (int) number) {
+            throw new IllegalArgumentException(DECIMAL_EXCEPTION);
+        }
+    }
 
     public int getCount() {
         return count;
