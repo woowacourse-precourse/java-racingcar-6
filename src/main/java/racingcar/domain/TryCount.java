@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static racingcar.handler.ConstantsHandler.MIN_NUMBER;
 import static racingcar.handler.ErrorHandler.INVALID_RANGE;
 
 public class TryCount {
@@ -13,7 +14,7 @@ public class TryCount {
     }
 
     public void validateRange(int tryCount) {
-        if (tryCount < 1) {
+        if (tryCount < MIN_NUMBER) {
             throw INVALID_RANGE.getException();
         }
     }
