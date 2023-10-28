@@ -27,6 +27,10 @@ public class CarService {
         return defaultCarService;
     }
 
+    public void close() {
+        defaultCarService = null;
+    }
+
     public void fill(String[] carNameArr,int[] distance) {
         int i = 0;
         for(String name : carNameArr) {
@@ -73,7 +77,7 @@ public class CarService {
     public String getWinners() {
         Collections.sort(carList);
         int  winDistance = carList.get(0).getDistance();
-        ArrayList<String> winnerList = makeWinnerList( winDistance);
+        ArrayList<String> winnerList = makeWinnerList(winDistance);
         return String.join(", ",winnerList);
     }
 
