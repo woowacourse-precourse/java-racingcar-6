@@ -8,8 +8,17 @@ import java.util.List;
 public class Cars {
     private final List<Car> carList;
 
-    public Cars(List<Car> carList) {
+    private Cars(List<Car> carList) {
         this.carList = carList;
+    }
+
+    public static Cars of(List<String> carNames) {
+        List<Car> cars = new ArrayList<>();
+        for (String carName : carNames) {
+            cars.add(new Car(carName));
+        }
+
+        return new Cars(cars);
     }
 
     public void move() {
