@@ -6,6 +6,7 @@ import racingcar.Service.Service;
 import racingcar.Utils.InputValidator;
 
 public class Controller {
+    private final int ZERO = 0;
     private final InputValidator inputValidator;
     private final Service service;
     private int tryCount;
@@ -22,17 +23,24 @@ public class Controller {
     }
 
     private void initGame() {
+        receiveCarNames();
+        receiveTryCount();
+    }
+
+    private void receiveTryCount() {
+        String inputTryCount = service.receiveTryCount();
+        tryCount = inputValidator.validateTryCount(inputTryCount);
+    }
+
+    private void receiveCarNames() {
         String inputCars = service.receiveCars();
         List<String> cars = inputValidator.validateCarName(inputCars);
         service.registerCars(cars);
-
-        String inputTryCount = service.receiveTrialCount();
-        tryCount = inputValidator.validateTryCount(inputTryCount);
     }
 
     private void startGame() {
         service.printResultMessage();
-        while (tryCount > 0) {
+        while (tryCount > ZERO) {
             service.executeOneGame();
             service.showProgress();
             tryCount--;
