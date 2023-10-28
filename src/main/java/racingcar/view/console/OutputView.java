@@ -19,10 +19,6 @@ public class OutputView {
         System.out.println();
     }
 
-    public void println() {
-        System.out.println();
-    }
-
     public void printRaceWinners(List<String> raceWinners) {
         System.out.println(WINNERS_MESSAGE + String.join(", ", raceWinners));
     }
