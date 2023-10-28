@@ -1,10 +1,12 @@
 package racingcar.domain.car.controller;
 
+import racingcar.domain.car.Car;
 import racingcar.domain.car.service.CarService;
 import racingcar.domain.car.view.CarInputView;
 import racingcar.domain.car.view.CarOutputView;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class CarController {
 
@@ -14,12 +16,21 @@ public class CarController {
 
     public void process() {
         saveCarsProcess();
-        loopRacingCarProcess();
+        racingCarProcess();
     }
 
-    private void loopRacingCarProcess() {
+    private void racingCarProcess() {
         int tryCount = carInputView.getTryCount();
-        carService.startRacingCar();
+        loopRacingCar(tryCount);
+    }
+
+    private void loopRacingCar(int tryCount) {
+        carOutputView.printResult();
+
+        for (int i = 0; i < tryCount; i++) {
+            List<Car> cars = carService.startRacingCar();
+            carOutputView.printRoundResult(cars);
+        }
     }
 
     private void saveCarsProcess() {
@@ -27,12 +38,12 @@ public class CarController {
         carService.saveCars(carNames);
     }
 
-    public void receiveTryCount() {
-        CarInputView.printTryCount();
-        String userInput = CarInputView.receiveUserInput();
-        System.out.println();
-        carService.startGame(Integer.parseInt(userInput));
-    }
+//    public void receiveTryCount() {
+//        CarInputView.printTryCount();
+//        String userInput = CarInputView.receiveUserInput();
+//        System.out.println();
+//        carService.startGame(Integer.parseInt(userInput));
+//    }
 
     public void endGame() {
         CarOutputView.printEndGame();

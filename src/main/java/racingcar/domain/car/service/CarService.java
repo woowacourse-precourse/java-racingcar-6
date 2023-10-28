@@ -27,18 +27,18 @@ public class CarService {
                 .toList();
     }
 
-    public void startGame(int tryCount) {
-        CarOutputView.printRoundResult();
-        for (int i = 0; i < tryCount; i++) {
-//            int randomNumber = Randoms.pickNumberInRange(0, 9);
-            List<Car> findCars = carRepository.findAll();
-
-            findCars.forEach(car -> car.updatePosition(getRandomNumber()));
-            findCars.forEach(System.out::print);
-            System.out.println();
-
-        }
-    }
+//    public void startGame(int tryCount) {
+//        CarOutputView.printResult();
+//        for (int i = 0; i < tryCount; i++) {
+////            int randomNumber = Randoms.pickNumberInRange(0, 9);
+//            List<Car> findCars = carRepository.findAll();
+//
+//            findCars.forEach(car -> car.updatePosition(getRandomNumber()));
+//            findCars.forEach(System.out::print);
+//            System.out.println();
+//
+//        }
+//    }
 
     public List<String> getWinner() {
         List<Car> carWithMaxPosition = carRepository.findCarWithMaxPosition();
