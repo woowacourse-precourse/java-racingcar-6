@@ -33,7 +33,8 @@ InputReader
 GameEngine
 
 -[ ] 플레이어 생성한다
-    -[ ] 플레이어 이름이 6글자 이상이면, IllegalArgumentException 반환
+    -[ ] GameEngineValidator를 통해 입력값을 검증한다.
+    - [ ] 플레이어를 생성한다.
 - [ ] 플레이어가 전진하는지를 판단한다
     -[ ] NumberGenerator# 숫자 만드는 것을 부른다.
     -[ ] 숫자를 판단한다
@@ -41,6 +42,11 @@ GameEngine
     - [ ] 4부터 9까지는 전진
 -[ ] 우승자를 반환한다
     -[ ] 동점일경우, 플레이어 입력 순서대로 정렬한다.
+
+GameEngineValidator
+
+- [ ] 입력값이 널이면 예외를 반환한다.
+- [ ] 리스트에 있는 값이 6글자 이상이면, Ill
 
 NumberGenerator
 
