@@ -18,6 +18,12 @@ class ValidatorTest {
                 .hasMessage("값을 입력해 주세요.");
     }
 
+    @ParameterizedTest(name = "입력값이 정상적으로 주어지면 공백 예외가 발생하지 않음 : {0}")
+    @ValueSource(strings = {"pobi,woni,jun", "5"})
+    void givenInput_whenIsBlankInput_thenNoException(String input) {
+        assertThatNoException().isThrownBy(() -> Validator.isBlankInput(input));
+    }
+
     @Test
     @DisplayName("입력값이 null이면 예외 발생")
     void givenNull_whenIsNullInput_thenThrowError() {
