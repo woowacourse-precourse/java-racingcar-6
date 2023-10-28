@@ -65,4 +65,34 @@ class RefereeTest {
         Assertions.assertThat(strWinners).isEqualTo("carA,carB,carC");
     }
 
+    @Test
+    @DisplayName("우승자가 1명일 때, 발표할 수 있다.")
+    void 우승자_발표_1(){
+        //given
+        User user=new User();
+        List<Car> winner=user.nameForCar("carA");
+
+        //when
+        String singleWinner=referee.announceWinner(winner);
+
+        //then
+        Assertions.assertThat(singleWinner).isEqualTo("carA");
+    }
+
+    @Test
+    @DisplayName("우승자가 2명 이상일 때, 발표할 수 있다.")
+    void 우승자_발표_2(){
+        //given
+        User user=new User();
+        List<Car> winner=user.nameForCar("carA,carB,carC,carD");
+
+        //when
+        String winners=referee.announceWinner(winner);
+
+        //then
+        Assertions.assertThat(winners).isEqualTo("carA,carB,carC,carD");
+    }
+
+
+
 }
