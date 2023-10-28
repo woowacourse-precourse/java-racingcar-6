@@ -4,7 +4,7 @@ import java.util.Objects;
 import javax.naming.Name;
 
 public class CarName {
-    private final String name;
+    private String name;
     private static final int MIN_LENGTH = 1;
     private static final int MAX_LENGTH = 5;
     private static final String SPACE_INCLUDED_ERROR_MESSAGE = "이름에 공백이 포함될 수 없습니다.";

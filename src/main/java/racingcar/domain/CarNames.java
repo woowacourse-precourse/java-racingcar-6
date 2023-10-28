@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class CarNames {
-    private final List<CarName> names;
+    private List<CarName> names;
     private static final String DUPLICATE_ERROR_MESSAGE = "중복된 이름을 입력할 수 없습니다.";
     private static final String NAMES_COUNT_ERROR_MESSAGE = "이름을 최소 2개이상 입력해주세요.";
     private static final String NAME_DELIMITER = ",";
