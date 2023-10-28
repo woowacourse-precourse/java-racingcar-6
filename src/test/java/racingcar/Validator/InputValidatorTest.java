@@ -23,8 +23,8 @@ class InputValidatorTest {
     }
 
     @Test
-    @DisplayName("정상적으로 입력한다.")
-    void input_correct() {
+    @DisplayName("자동차 이름들을 정상적으로 입력한다.")
+    void input_car_names_correct() {
         assertThatCode(() -> InputValidator.validateDivisionCarNames("pobi,woni,jun"))
                 .doesNotThrowAnyException();
     }
