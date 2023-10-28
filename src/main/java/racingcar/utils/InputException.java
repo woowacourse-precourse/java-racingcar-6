@@ -24,9 +24,9 @@ public class InputException {
             throw new IllegalArgumentException(PrintMessage.NOT_DUPLICATE_NAME);
     }
 
-    public static void isNaturalNumber(String input) {
+    public static void isNumber(String input) {
         for (char c : input.toCharArray()) {
-            if (c < '1' || c > '9')
+            if (c < '0' || c > '9')
                 throw new IllegalArgumentException(PrintMessage.ONLY_NATURAL_NUMBER);
         }
     }
