@@ -1,6 +1,10 @@
 package racingcar.domain;
 
 public final class CarName {
+    private static final int MAX_LENGTH = 5;
+    private static final String LENGTH_EXCEPTION_MESSAGE =
+            String.format("Error: 자동차의 이름은 %d자 이하여야 합니다.", MAX_LENGTH);
+
     private final String name;
 
     public CarName(String name) {
@@ -14,7 +18,7 @@ public final class CarName {
 
     private void validateLength() {
         if (name.length() > 5) {
-            throw new IllegalArgumentException("Error: 자동차의 이름은 5자 이하여야 합니다.");
+            throw new IllegalArgumentException(LENGTH_EXCEPTION_MESSAGE);
         }
     }
 
