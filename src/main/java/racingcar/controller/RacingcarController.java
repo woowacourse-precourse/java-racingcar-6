@@ -35,7 +35,7 @@ public class RacingcarController {
         for (Car car : cars) {
             Driver driver = new Driver();
             driver.drive(car);
-            outputView.printMoveRecord(car.getName(), car.getMoveDistance());
+            outputView.printMoveRecord(car.getName(), car.getPosition());
         }
     }
 

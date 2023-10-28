@@ -21,7 +21,7 @@ public class Cars implements Iterable<Car> {
 
     public List<String> getWinnersName() {
         return cars.stream()
-                .filter(car -> car.getMoveDistance() == maxMoveDistance())
+                .filter(car -> car.getPosition() == maxMoveDistance())
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
@@ -32,7 +32,7 @@ public class Cars implements Iterable<Car> {
 
     private int maxMoveDistance() {
         return cars.stream()
-                .mapToInt(Car::getMoveDistance)
+                .mapToInt(Car::getPosition)
                 .max()
                 .orElseThrow(NoSuchElementException::new);
     }

@@ -28,7 +28,7 @@ public class OutputViewTest {
 
         for (Car car : cars) {
             car.move(drivingSkill++);
-            outputView.printMoveRecord(car.getName(), car.getMoveDistance());
+            outputView.printMoveRecord(car.getName(), car.getPosition());
         }
 
         String output = byteArrayOutputStream.toString();
