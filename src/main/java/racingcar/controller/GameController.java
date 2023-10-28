@@ -25,7 +25,7 @@ public class GameController {
         gameView.displayResultMessage();
         tryRoundUntilRetryCount();
 
-        gameView.displayFinalWinner(game.getWinnerNames(game.getWinnerList()));
+        gameView.displayFinalWinner(game.getWinnerNames());
     }
 
     private void setupGame() {

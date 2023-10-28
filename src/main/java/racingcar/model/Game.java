@@ -11,14 +11,8 @@ public class Game {
         this.participantCars = participantCars;
     }
 
-    public List<Car> getWinnerList() {
-        return participantCars.stream()
-            .filter(car -> car.getPosition() == getMaxPosition())
-            .toList();
-    }
-
-    public String getWinnerNames(List<Car> winners) {
-        return winners.stream()
+    public String getWinnerNames() {
+        return getWinnerList().stream()
             .map(Car::getName)
             .collect(Collectors.joining(", "));
     }
@@ -35,6 +29,12 @@ public class Game {
                 car.move();
             }
         }
+    }
+
+    private List<Car> getWinnerList() {
+        return participantCars.stream()
+            .filter(car -> car.getPosition() == getMaxPosition())
+            .toList();
     }
 
     private boolean isCarMoveToForward() {
