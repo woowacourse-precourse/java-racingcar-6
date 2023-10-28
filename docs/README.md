@@ -2,6 +2,8 @@
 - 플레이어를 생성하는 기능
   - [x] 이름 리스트를 받아서 Player 객체를 생성한다.
   - [ ] PlayerName, (미정) isWinner를 필드로 갖는다.
+- 플레이어 이동현황을 생성하는 기능
+  - [x] Player를 받아서 PlayerMove 객체를 생성한다.
 
 - 랜덤 숫자를 생성하는 기능 [RandomNumberGenerator]
   - [x] 랜덤 숫자를 뽑는다. 
@@ -30,7 +32,7 @@
   - game.move(MoveFactory)
     - List<PlayerMove>를 데리고 move를 해야지 : PlayerMove.move(MoveFactory)
 - PlayerMove
-- PlayerMove에는 Player와 Distance
+- [x]PlayerMove에는 Player와 Distance
   - PlayerMove.move(MoveFactory)
     - Distance++;
 - 컨트롤러에서는: List<PlayerMove> 를 갖고가서 출력하면 될듯?
