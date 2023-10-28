@@ -17,4 +17,10 @@ public class UserInputGameRound {
         }
         return Integer.parseInt(gameRound);
     }
+
+    private static void checkIsZero(int num){
+        if(num == 0){
+            throw new IllegalArgumentException("시도 횟수 0");
+        }
+    }
 }
