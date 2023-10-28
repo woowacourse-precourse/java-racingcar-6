@@ -9,6 +9,10 @@ public class CarCreator {
         return arrayToList(playerInput.split(","));
     }
 
+    public void validateCarName(List<String> carNameList) {
+        
+    }
+
     private List<String> arrayToList(String[] array) {
         return Arrays.asList(array);
     }

@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -34,7 +35,24 @@ public class CarCreatorTest {
         return Stream.of(
                 Arguments.arguments("", List.of("")),
                 Arguments.arguments("pobbi", List.of("pobbi")),
-                Arguments.arguments("pobbi,wonni,jun", List.of("pobbi", "wonni", "jun"))
+                Arguments.arguments("pobbi,wonni,jun", List.of("pobbi", "wonni", "jun")),
+                Arguments.arguments("pobbii,wonni,jun", List.of("pobbii", "wonni", "jun"))
+        );
+    }
+
+    @ParameterizedTest
+    @DisplayName("자동차 이름 입력이 올바르지 않으면 오류 발생")
+    @MethodSource("carNameListProvider")
+    public void 자동차이름_입력_유효성_체크(List<String> carNameList) {
+        //then
+        assertThatThrownBy(() -> carCreator.validateCarName(carNameList))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    static Stream<Arguments> carNameListProvider() {
+        return Stream.of(
+                Arguments.arguments(List.of("")),
+                Arguments.arguments(List.of("pobbii", "wonni", "jun"))
         );
     }
 }
