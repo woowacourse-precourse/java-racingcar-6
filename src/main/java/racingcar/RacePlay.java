@@ -9,7 +9,7 @@ import java.util.Map;
 import racingcar.util.Printer;
 
 public class RacePlay {
-    private Printer printer = new Printer();
+    private final Printer printer = new Printer();
     private Map<String, StringBuilder> resultScore;
 
     public void playGame(int gameRound, Map<String, StringBuilder> scoreBoard) {

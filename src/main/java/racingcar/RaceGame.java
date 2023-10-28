@@ -6,9 +6,9 @@ import java.util.Map;
 import racingcar.util.Printer;
 
 public class RaceGame {
-    Printer printer = new Printer();
-    RacePlay racePlay = new RacePlay();
-    RaceInfo raceInfo = new RaceInfo();
+    private final Printer printer = new Printer();
+    private final RacePlay racePlay = new RacePlay();
+    private final RaceInfo raceInfo = new RaceInfo();
 
     public void gameStart() {
         RaceInfo gameInformation = raceInfo.getRaceInfo();
