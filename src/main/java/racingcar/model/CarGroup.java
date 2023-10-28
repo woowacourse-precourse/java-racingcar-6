@@ -12,7 +12,7 @@ import java.util.List;
 public class CarGroup {
     private final List<Car> cars;
 
-    private CarGroup(List<Car> cars) {
+    CarGroup(List<Car> cars) {
         validate(cars);
         this.cars = new ArrayList<>(cars);
     }
