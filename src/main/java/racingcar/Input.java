@@ -8,4 +8,10 @@ public class Input {
         String carNameInput = Console.readLine();
         return (carNameInput);
     }
+
+    static int getTryNumber() {
+        String tryNumberInput = Console.readLine();
+        int tryNumber = Integer.parseInt(tryNumberInput);
+        return (tryNumber);
+    }
 }
