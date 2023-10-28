@@ -115,7 +115,7 @@
   - [x] 문자열 포함 검사  // ValidException#isValidIncludeString
   - [x] 특수문자 포함 검사 // ValidException#isValidIncludeSpecialString
   - [x] 문자열 포함 검사 (한글, 영어) // ValidException#isValidIncludeString
-  - [ ] 문자열 이름 , 다음에는 문자가 나와야한다. ( "sue,woo," )(금지) // ValidException#isValidCommaNextBlankCheck
+  - [x] 문자열 이름 , 다음에는 문자가 나와야한다. ( "sue,woo," )(금지) // ValidException#isValidCommaNextBlankCheck
   - [x] 공백 포함 검사. // ValidException#isValidIncludeBlank
   - [x] 0 입력 검사. // ValidException#isValidZeroCheck
 

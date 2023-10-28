@@ -36,4 +36,8 @@ public class ValidConstants {
     public static String MSG_INPUT_STRING_LENGTH_CHECK() {
         return "문자열의 길이가 조건에 맞지 않습니다.";
     }
+
+    public static String MSG_COMMA_NEXT_BLANK() {
+        return "',' 다음에 문자가 업습니다.";
+    }
 }

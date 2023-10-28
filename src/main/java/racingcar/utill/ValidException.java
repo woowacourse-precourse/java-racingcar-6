@@ -135,4 +135,19 @@ public class ValidException {
             throw new IllegalArgumentException(ValidConstants.MSG_ZERO_NUM());
         }
     }
+
+    /**
+     * 문자열 이름 , 다음에는 문자가 나와야한다.
+     * "woo," , 다음에 문자열이 입력되는가.
+     *
+     * @param inputStr
+     * @return
+     */
+    public static boolean isValidCommaNextBlankCheck(String inputStr) {
+        int length = inputStr.length();
+        if (inputStr.charAt(length - 1) != ',') {
+            return true;
+        }
+        throw new IllegalArgumentException(ValidConstants.MSG_COMMA_NEXT_BLANK());
+    }
 }
