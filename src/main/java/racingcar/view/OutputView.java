@@ -1,7 +1,7 @@
-package racingcar.View;
+package racingcar.view;
 
 import java.util.ArrayList;
-import racingcar.Model.Car;
+import racingcar.model.Car;
 
 public class OutputView {
     public static void printPlayMessage() {

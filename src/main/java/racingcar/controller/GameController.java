@@ -1,8 +1,8 @@
-package racingcar.Controller;
+package racingcar.controller;
 
 import java.util.stream.IntStream;
-import racingcar.Model.RacingCars;
-import racingcar.View.OutputView;
+import racingcar.model.RacingCars;
+import racingcar.view.OutputView;
 
 public class GameController {
     private int rounds;

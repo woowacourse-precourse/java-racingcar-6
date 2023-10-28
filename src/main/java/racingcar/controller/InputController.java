@@ -1,8 +1,8 @@
-package racingcar.Controller;
+package racingcar.controller;
 
-import racingcar.Model.CarValidation;
-import racingcar.Model.RacingCars;
-import racingcar.View.InputView;
+import racingcar.model.CarValidation;
+import racingcar.model.RacingCars;
+import racingcar.view.InputView;
 
 public class InputController {
 

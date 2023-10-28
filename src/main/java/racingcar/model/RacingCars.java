@@ -1,9 +1,9 @@
-package racingcar.Model;
+package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 import racingcar.Util;
-import racingcar.View.OutputView;
+import racingcar.view.OutputView;
 
 public class RacingCars {
     private final ArrayList<Car> CARS = new ArrayList<>();

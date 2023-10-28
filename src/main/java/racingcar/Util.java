@@ -3,7 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
-import racingcar.Model.Car;
+import racingcar.model.Car;
 
 public final class Util {
 
