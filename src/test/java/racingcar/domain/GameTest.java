@@ -41,4 +41,18 @@ class GameTest {
 
     }
 
+    @Test
+    void getWinnersMessage_메시지_반환() {
+
+        List<Car> cars = List.of(new Car("foo"), new Car("bar"));
+        cars.get(0).move();
+        Game game = new Game(cars);
+
+        WinnersMessage winnersMessage = game.getWinnersMessage();
+
+        WinnersMessage expect = new WinnersMessage(List.of("foo"));
+        org.junit.jupiter.api.Assertions.assertEquals(winnersMessage.toString(), expect.toString());
+
+    }
+
 }
