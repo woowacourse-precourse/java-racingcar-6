@@ -49,8 +49,10 @@ public class RacingController {
 
     public void play() {
         OutputView.printResultDescription();
-        carService.playRound();
-        OutputView.printRoundStatus(carService.getAllCars());
+        for (int i = 0; i < moveCount; i++) {
+            carService.playRound();
+            OutputView.printRoundStatus(carService.getAllCars());
+        }
     }
 
 }

@@ -24,5 +24,6 @@ public class OutputView {
         for (Car car : cars) {
             System.out.println(car);
         }
+        System.out.println();
     }
 }
