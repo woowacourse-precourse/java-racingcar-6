@@ -9,7 +9,7 @@ public class Application {
         // TODO: 프로그램 구현
         // FIX HERE!
         CarController gameController = new CarController();
-        gameController.startGame();
+        gameController.process();
         gameController.receiveTryCount();
         gameController.endGame();
     }

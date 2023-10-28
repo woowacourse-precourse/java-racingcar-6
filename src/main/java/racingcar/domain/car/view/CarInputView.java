@@ -35,4 +35,19 @@ public class CarInputView {
     public static void printGameEnd() {
         System.out.println();
     }
+
+    public List<String> getCarNames() {
+        String carNames = Console.readLine();
+        return Arrays.stream(carNames.split(","))
+                .filter(this::isValidCarNameLength)
+                .toList();
+    }
+
+    private boolean isValidCarNameLength(String carName) {
+        if (carName.length() > 5) {
+            throw new IllegalArgumentException();
+        }
+
+        return true;
+    }
 }

@@ -12,9 +12,15 @@ public class CarController {
     private final CarOutputView carOutputView = new CarOutputView();
     private final CarService carService = new CarService();
 
-    public void startGame() {
-        CarInputView.printGameStart();
+    public void process() {
+        saveCarsProcess();
+        carInputView.printGameStart();
         String carNames = CarInputView.receiveUserInput();
+        carService.saveCars(carNames);
+    }
+
+    private void saveCarsProcess() {
+        List<String> carNames = carInputView.getCarNames();
         carService.saveCars(carNames);
     }
 
