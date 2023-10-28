@@ -1,7 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +18,11 @@ class Game{
 }
 
 class User{
-
+    private int NumberOfMove(){
+         String InputTry = readLine();
+         int moveCount = CheckException.CheckRightNumberOfMove(InputTry);
+         return moveCount;
+    }
 }
 
 class Car{
@@ -46,6 +48,16 @@ class CheckException {
             if (name.length() > 5) {
                 throw new IllegalArgumentException();
             }
+        }
+    }
+
+    static int CheckRightNumberOfMove(String move){
+        try{
+            int number = Integer.parseInt(move);
+            return number;
+        }
+        catch (NumberFormatException e){
+            throw new IllegalArgumentException();
         }
     }
 }
