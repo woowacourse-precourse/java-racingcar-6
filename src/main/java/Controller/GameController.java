@@ -3,41 +3,53 @@ package Controller;
 import Model.GameData;
 import View.GameBoard;
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
-import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class GameController {
 
-    private static GameData gameData;
+    private static GameData gameData = new GameData();
     private static GameBoard gameBoard = new GameBoard();
+    private static Validation validation = new Validation();
 
     public int getUserInput() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        SaveData(Console.readLine().split(","));
-        System.out.println("시도할 회수는 몇회인가요?");
+        SaveData(Console.readLine());
+        System.out.println("시도할 횟수는 몇회인가요?");
         return Integer.parseInt(Console.readLine());
     }
 
-    public void SaveData(String[] cars) {
-        gameData = new GameData(cars);
+    private void SaveData(String cars) {
+        for(String s : cars.split(",")) {
+            validation.validation_check(s);
+            gameData.addData(s);
+        }
     }
 
     public void decideToMove() {
-        int n = gameData.getCarCount();
-        int[] move = new int[n];
-        for(int i=0; i<n; i++) {
-            if(pickNumberInRange(0, 9) >= 4)
-                move[i] = 1;
+        for(String car : gameData.getCarList()) {
+            int move = 0;
+            if(Randoms.pickNumberInRange(0,9) >= 4)
+                move = 1;
+            gameBoard.showGameResult(car, gameData.moveForward(car, move));
         }
-        gameBoard.showGameResult(gameData.getCars(),
-                gameData.getTotalDistance(move));
+        System.out.println();
     }
 
     public void findWinner() {
-        int n = gameData.getCarCount();
-        String[] cars = gameData.getCars();
-        int[] distance = gameData.getCarDistance();
+        Map<String, Integer> cars = gameData.getResult();
 
-        gameBoard.showWinner(cars);
+        List<String> winner = new ArrayList<>();
+        int max = -1;
+        for(String car : cars.keySet()) {
+            if(max <= cars.get(car)) {
+                max = cars.get(car);
+                winner.add(car);
+            }
+        }
+        gameBoard.showWinner(winner);
     }
 }

@@ -1,33 +1,34 @@
 package Model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class GameData {
 
-    private String[] cars;
-    private int[] carDistance;
-    private int carCount;
+    private Map<String, Integer> cars = new HashMap<>();
 
-    public GameData(String[] input) {
-        this.cars = input;
-        this.carCount = input.length;
-        this.carDistance = new int[carCount];
+    public void addData(String name) {
+        cars.put(name, 0);
     }
 
-    public int[] getTotalDistance(int[] distance) {
-        for(int i=0; i<carCount; i++) {
-            this.carDistance[i] += distance[i];
-        }
-        return carDistance;
+    public List<String> getCarList() {
+        return new ArrayList<>(cars.keySet());
     }
 
-    public int getCarCount() {
-        return carCount;
-    }
-
-    public String[] getCars() {
+    public Map<String, Integer> getResult() {
+        List<String> keyset = new ArrayList<>(cars.keySet());
+        keyset.sort(((o1, o2) -> cars.get(o2).compareTo(cars.get(o1))));
         return cars;
     }
 
-    public int[] getCarDistance() {
-        return carDistance;
+    public int moveForward(String name, int move) {
+        cars.put(name, cars.get(name)+move);
+        return cars.get(name);
+    }
+
+    public boolean ContainsData(String name) {
+        return cars.containsKey(name);
     }
 }
