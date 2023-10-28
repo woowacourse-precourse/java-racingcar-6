@@ -4,14 +4,12 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
-import java.util.Random;
-import racingcar.model.Car;
+import racingcar.model.CarObject;
 
 public class InputCarName {
-
-    public Car inputCarName() {
+    public CarObject inputCarName() {
         String carName = readLine();
-        Car cars = new Car(Arrays.asList(carName.split(",")));
+        CarObject.nameOf(Arrays.asList(carName.split(",")));
 
         //자동차 이름 예외처리
 
@@ -20,7 +18,7 @@ public class InputCarName {
 
     public void selectCarCondition() {
         do {
-            Car.carCondition = Randoms.pickNumberInRange(0, 9);
-        } while (Car.carCondition <= Car.MOVE_CONDITION);
+            CarObject.carCondition = Randoms.pickNumberInRange(0, 9);
+        } while (CarObject.carCondition <= CarObject.MOVE_CONDITION);
     }
 }

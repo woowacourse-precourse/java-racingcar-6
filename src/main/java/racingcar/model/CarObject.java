@@ -3,18 +3,17 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Car {
+public class CarObject {
     public static final int MOVE_CONDITION = 4;
     public static final int CAR_NAME_LIMIT_SIZE = 5;
     public static int carCondition;
+    private static List<String> cars;
 
-    private static List<String> cars = new ArrayList<>();
-
-    public Car(List<String> car) {
+    private CarObject(List<String> car) {
         this.cars = car;
     }
 
-    public List<String> getInstance() {
-        return this.cars;
+    public static CarObject nameOf(List<String> cars) {
+        return new CarObject(cars);
     }
 }
