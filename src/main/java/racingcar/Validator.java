@@ -6,6 +6,15 @@ import racingcar.Model.Car;
 
 public class Validator {
 
+    public int validatePlayCount(String input) {
+        try {
+            int result = Integer.parseInt(input);
+            return result;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     public void validateCarsNames(List<Car> cars) {
         validateCarsNamesDuplicate(cars);
         validateCarsNamesLength(cars);
