@@ -1,10 +1,10 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -19,6 +19,20 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
  */
 public class MethodTest extends NsTest {
 
+    private static final int MOVING_FORWARD = 4;
+    private static final int STOP = 3;
+
+
+    @Test
+    void 결과_발표_테스트_공동우승() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "2");
+                    assertThat(output()).contains("pobi : --", "woni : --", "최종 우승자 : pobi, woni");
+                },
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
 
     @Test
     void 자동차_이름_입력_테스트() {

@@ -75,7 +75,7 @@ public class Application {
         winnerList = new ArrayList<>();
         winnerList.add(carList.get(i));
       }
-      // 현재 큰 값과 같다면 우승자 리스트에 추가 
+      // 현재 큰 값과 같다면 우승자 리스트에 추가
       else if(maxNumber == forwardArr[i]) {
         winnerList.add(carList.get(i));
       }
