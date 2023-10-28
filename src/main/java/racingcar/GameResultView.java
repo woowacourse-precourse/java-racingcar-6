@@ -4,6 +4,10 @@ import java.util.List;
 
 public class GameResultView {
 
+    public void printConsole() {
+        System.out.println("실행 결과");
+    }
+
     public void printGameResult(List<Car> carNames) {
         for (Car car : carNames) {
             String movingDistance = "-".repeat(car.getMovingCount());

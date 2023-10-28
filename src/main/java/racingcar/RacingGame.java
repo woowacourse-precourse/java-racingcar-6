@@ -17,7 +17,7 @@ public class RacingGame {
     public void startGame() {
         List<Car> cars = getCarList();
         int count = getCount();
-        System.out.println("실행 결과");
+        gameResultView.printConsole();
         do {
             printGameResult(cars);
         } while (count-- > 1);
