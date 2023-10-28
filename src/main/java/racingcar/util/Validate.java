@@ -29,4 +29,10 @@ public class Validate {
             throw new IllegalArgumentException("자동차 이름은 2개 이상 입력해야 합니다.");
         }
     }
+
+    public static void InputStringNotContainsComma(String input) {
+        if(input.contains(",")) {
+            throw new IllegalArgumentException("자동차 이름을 구분짓는 구분자는 쉼표(\",\")를 입력해야 합니다.");
+        }
+    }
 }
