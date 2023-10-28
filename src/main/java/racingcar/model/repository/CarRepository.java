@@ -35,7 +35,7 @@ public class CarRepository {
 
         return cars.stream()
                 .filter(car -> car.getForward() == maxForward)
-                .map(Car :: getName)
+                .map(Car::getName)
                 .collect(Collectors.toList());
     }
 }
