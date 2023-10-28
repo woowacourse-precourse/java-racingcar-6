@@ -20,6 +20,20 @@ public class Cars {
         printResultOfTurn();
     }
 
+    public List<Car> getWinners() {
+        List<Car> winners = new ArrayList<>();
+        cars.sort(Comparator.reverseOrder());
+        Car firstWinner = cars.get(0);
+        for (Car car : cars) {
+            if (car.compareTo(firstWinner) == 0) {
+                winners.add(car);
+                continue;
+            }
+            break;
+        }
+        return winners;
+    }
+
     private void printResultOfTurn() {
         OutputView.printFirstResultText();
         for (Car car : cars) {

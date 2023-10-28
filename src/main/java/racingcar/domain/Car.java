@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import racingcar.view.OutputView;
 
-public class Car {
+public class Car implements Comparable<Car>{
     private CarName carName;
     private int movingDistance;
 
@@ -22,5 +22,10 @@ public class Car {
             movingDistance++;
         }
         return movingDistance;
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return o.movingDistance - this.movingDistance;
     }
 }
