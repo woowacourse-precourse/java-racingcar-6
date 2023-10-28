@@ -14,5 +14,6 @@ public class RacingCarController {
         OutputView.printEnter();
         OutputView.printGameResult();
         GameProgress.racing(carNamesMap, attemptNumber);
+        GameWinner.getWinner(carNamesMap);
     }
 }
