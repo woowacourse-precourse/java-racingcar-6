@@ -19,4 +19,10 @@ public class InputHandler {
         inputValidator.validateCarName(carNames);
         return inputConvertor.splitByComma(carNames);
     }
+
+    public int handleRaceTimeInput() {
+        String raceTime = inputView.readRaceTime();
+        inputValidator.validateNumericInput(raceTime);
+        return inputConvertor.convertToInt(raceTime);
+    }
 }

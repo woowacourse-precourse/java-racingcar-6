@@ -129,7 +129,7 @@ classDiagram
 
 ### Input Handler `InputHandler`
 - [x] 사용자 이름 가져오기
-- [ ] 경주 횟수 가져오기
+- [x] 경주 횟수 가져오기
 
 #### Input `InputView`
 - [x] 차 이름 읽기
