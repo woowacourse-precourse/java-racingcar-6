@@ -1,5 +1,6 @@
 package featuretest;
 
+import Model.CarName;
 import Model.RaceCarNames;
 import Model.TryCount;
 import org.junit.jupiter.api.Test;
@@ -66,5 +67,18 @@ public class FeatureTest {
     void 시도_회수가_숫자인지_확인(String tryCountInput, boolean actualResult) {
         TryCount tryCount = new TryCount(tryCountInput);
         assertThat(tryCount.isTryCountNumeric()).isEqualTo(actualResult);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "mycar, true",
+            "myfantasticcar, false",
+            "iamcar, false"
+    })
+    void 자동차_이름이_5자_이하인지_확인(String testCarName, boolean actualResult) {
+        CarName carName = new CarName(testCarName);
+        boolean predResult = carName.isNameUnder5Characters();
+
+        assertThat(predResult).isEqualTo(actualResult);
     }
 }
