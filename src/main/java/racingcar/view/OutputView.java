@@ -1,10 +1,14 @@
 package racingcar.view;
 
+import java.util.List;
+
 public class OutputView {
 
     private static final String PROMPT_CAR_NAMES_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String PROMPT_NUMBER_OF_GAME_ATTEMPTS_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String GAME_RESULT_MESSAGE = "실행 결과";
+    private static final String DISTANCE = "-";
+    private static final String COLON_WITH_SPACES = " : ";
 
 
     private static OutputView outputView;
@@ -32,7 +36,28 @@ public class OutputView {
         System.out.println(GAME_RESULT_MESSAGE);
     }
 
+    public void printGameResultsPerAttempt(List<String> carNames, List<Integer> movingDistances) {
+        validateSizeOfCarNamesAndMovingDistances(carNames, movingDistances);
+        int size = carNames.size();
+
+        for (int iterator = 0; iterator < size; iterator++) {
+            String carName = carNames.get(iterator);
+            String movingDistance = DISTANCE.repeat(movingDistances.get(iterator));
+
+            System.out.println(carName + COLON_WITH_SPACES + movingDistance);
+        }
+
+        printNewEmptyLine();
+    }
+
     private void printNewEmptyLine() {
         System.out.println();
+    }
+
+    private void validateSizeOfCarNamesAndMovingDistances(List<String> carNames,
+        List<Integer> movingDistances) {
+        if (carNames.size() != movingDistances.size()) {
+            throw new IllegalArgumentException();
+        }
     }
 }
