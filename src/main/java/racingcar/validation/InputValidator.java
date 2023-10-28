@@ -29,11 +29,11 @@ public class InputValidator {
     }
 
     private boolean isEmpty(String input) {
-        return !(input.isEmpty());
+        return input.isEmpty();
     }
 
     private boolean isBlank(String input) {
-        return !input.isBlank();
+        return input.isBlank();
     }
 
     private boolean isMatchNumber(String tryCount) {
