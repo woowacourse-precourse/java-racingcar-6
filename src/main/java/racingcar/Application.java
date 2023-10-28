@@ -14,4 +14,8 @@ public class Application {
         String inputCarName = Console.readLine();
     }
 
+    private static int inputTryCount() {
+        int tryCount = Integer.parseInt(Console.readLine());
+        return tryCount;
+    }
 }
