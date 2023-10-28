@@ -4,6 +4,7 @@ import racingcar.model.Car;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Race {
@@ -49,4 +50,19 @@ public class Race {
         return result;
     }
 
+    public List<String> getWinners() {
+        List<String> winners = new ArrayList<>();
+        int maxDistance = getMaxDistance();
+        for (Car car : carList) {
+            if (car.getDistance() == maxDistance) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
+
+    private int getMaxDistance() {
+        List<Integer> result = getRoundResult();
+        return Collections.max(result);
+    }
 }

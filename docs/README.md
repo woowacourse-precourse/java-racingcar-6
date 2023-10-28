@@ -29,9 +29,9 @@
         - [ ] 자동차의 이름과 전진한 칸이 출력되어야 한다.
 
 
-- [ ] 우승자를 계산한다. Race#setWinner()
-    - [ ] 가장 멀리 간 자동차를 우승자로 저장해야 한다. Race#compareCars()
-    - [ ] 동점인 경우 여러 명을 저장해야 한다.
+- [x] 우승자를 계산한다. Race#getWinners()
+    - [x] 가장 멀리 간 자동차를 우승자로 저장해야 한다. Race#getMaxDistance()
+    - [x] 동점인 경우 여러 명을 저장해야 한다.
 
 
 - [ ] 우승자를 출력한다. UserOutput#printWinners()
