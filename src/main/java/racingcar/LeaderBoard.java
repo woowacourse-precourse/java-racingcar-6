@@ -9,14 +9,14 @@ import java.util.stream.Collectors;
 public class LeaderBoard {
     private final List<Integer> paceMapValueList = new ArrayList<>();
 
-    public void showRace(Machines machines, Lap lap, PaceComputer paceComputer) {
+    public void showRace(Machines machines, RaceLap raceLap, PaceComputer paceComputer) {
 
         System.out.println();
         System.out.println("실행 결과");
 
         LinkedHashMap<String, Integer> currentPaceMap = paceComputer.createDefaultPaceMap(machines);
 
-        for (int i = 0; i < Integer.parseInt(lap.getLap()); i++) {
+        for (int i = 0; i < Integer.parseInt(raceLap.getRaceLapNumber()); i++) {
             paceComputer.updatePaceMap(currentPaceMap);
             paceMapValueList.addAll(currentPaceMap.values());
 

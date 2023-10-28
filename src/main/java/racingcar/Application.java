@@ -5,17 +5,17 @@ import camp.nextstep.edu.missionutils.Console;
 public class Application {
     public static void main(String[] args) {
         Machines machines = new Machines();
-        Lap lap = new Lap();
+        RaceLap raceLap = new RaceLap();
         PaceComputer paceComputer = new PaceComputer();
         LeaderBoard leaderBoard = new LeaderBoard();
 
         machines.showMessage();
         machines.getInput();
 
-        lap.showMessage();
-        lap.getInput();
+        raceLap.showMessage();
+        raceLap.getInput();
 
-        leaderBoard.showRace(machines, lap, paceComputer);
+        leaderBoard.showRace(machines, raceLap, paceComputer);
 
         Console.close();
     }

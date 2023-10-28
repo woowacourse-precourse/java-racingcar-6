@@ -4,19 +4,19 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import java.util.function.Predicate;
 
-public class Lap implements Showable, Gettable {
-    private static final String LAP_INSTRUCTION = "시도할 회수는 몇회인가요?";
+public class RaceLap implements Showable, Gettable {
+    private static final String RACE_LAP_INSTRUCTION = "시도할 회수는 몇회인가요?";
 
-    private String lap;
+    private String raceLapNumber;
 
     @Override
     public void showMessage() {
-        System.out.println(LAP_INSTRUCTION);
+        System.out.println(RACE_LAP_INSTRUCTION);
     }
 
     @Override
     public String getInput() {
-        lap = readLine();
+        raceLapNumber = readLine();
 
         Predicate<String> isNumeric = str -> {
             try {
@@ -27,14 +27,14 @@ public class Lap implements Showable, Gettable {
             }
         };
 
-        if (!isNumeric.test(lap)) {
+        if (!isNumeric.test(raceLapNumber)) {
             throw new IllegalArgumentException();
         }
 
-        return lap;
+        return raceLapNumber;
     }
 
-    public String getLap() {
-        return lap;
+    public String getRaceLapNumber() {
+        return raceLapNumber;
     }
 }

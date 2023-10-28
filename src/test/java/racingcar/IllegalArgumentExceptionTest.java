@@ -32,8 +32,8 @@ public class IllegalArgumentExceptionTest {
 
     @Test
     public void lapAsANumber() {
-        Lap lap = new Lap();
+        RaceLap raceLap = new RaceLap();
 
-        assertThatThrownBy(lap::getInput).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(raceLap::getInput).isInstanceOf(IllegalArgumentException.class);
     }
 }

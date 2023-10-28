@@ -34,9 +34,9 @@ public class ShowMessageTest {
 
     @Test
     public void lapInstructionMessage() {
-        Lap lap = new Lap();
+        RaceLap raceLap = new RaceLap();
 
-        lap.showMessage();
+        raceLap.showMessage();
 
         assertThat(outForTest.toString().trim()).isEqualTo("시도할 회수는 몇회인가요?");
     }

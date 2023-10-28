@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
@@ -42,14 +41,14 @@ public class RaceDatasetTest {
     @Test
     public void updatePaceMapValues() {
         Machines machines = new Machines();
-        Lap lap = new Lap();
+        RaceLap raceLap = new RaceLap();
         PaceComputer paceComputer = new PaceComputer();
         LeaderBoard leaderBoard = new LeaderBoard();
 
         machines.getInput();
-        lap.getInput();
+        raceLap.getInput();
 
-        leaderBoard.showRace(machines, lap, paceComputer);
+        leaderBoard.showRace(machines, raceLap, paceComputer);
 
         List<Integer> valuesInMap = leaderBoard.getPaceMapValueList();
         List<Integer> generatedNumbers = paceComputer.getRandomNumberList();

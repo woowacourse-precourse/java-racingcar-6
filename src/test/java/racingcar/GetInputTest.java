@@ -26,10 +26,10 @@ public class GetInputTest {
     @Test
     public void getMachineNamesThenLap() {
         Machines machines = new Machines();
-        Lap lap = new Lap();
+        RaceLap raceLap = new RaceLap();
 
         String machineNames = machines.getInput();
-        String lapNumber = lap.getInput();
+        String lapNumber = raceLap.getInput();
 
         assertThat(machineNames).isEqualTo("alpha,bravo,charlie");
         assertThat(lapNumber).isEqualTo("5");
