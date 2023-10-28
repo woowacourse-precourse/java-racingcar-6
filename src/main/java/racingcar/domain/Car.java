@@ -4,7 +4,11 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private static final String LENGTH_ERROR_MESSAGE = "자동차 이름은 5글자 이하만 가능합니다.";
-    private String name;
+    private static final int MAX_NAME_LENGTH = 5;
+    private static final int MIN_DICE_VALUE = 0;
+    private static final int MAX_DICE_VALUE = 9;
+    private static final int STANDARD_VALUE = 4;
+    private final String name;
     private int position = 0;
 
 
@@ -26,19 +30,19 @@ public class Car {
     }
 
     public void move() {
-        if(canMove()){
+        if (canMove()) {
             position += 1;
         }
     }
 
     private void validateLength(String name) {
-        if(name.length() > 5){
+        if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(LENGTH_ERROR_MESSAGE);
         }
     }
 
     private boolean canMove() {
-        int value = Randoms.pickNumberInRange(0, 9);
-        return value >= 4;
+        int value = Randoms.pickNumberInRange(MIN_DICE_VALUE, MAX_DICE_VALUE);
+        return value >= STANDARD_VALUE;
     }
 }
