@@ -22,7 +22,7 @@ public final class RacingCars {
 
     private void validate(final List<RacingCar> racingCars) {
         if (racingCars.size() < MIN_RACING_CAR_NUM || isNotUnique(racingCars)) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_ELEMENT_SIZE.toValue());
+            throw new IllegalArgumentException(ErrorMessage.INVALID_RACING_CARS_NAME.toValue());
         }
     }
 
