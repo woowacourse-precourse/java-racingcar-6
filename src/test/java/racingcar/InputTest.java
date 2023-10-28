@@ -1,5 +1,6 @@
 package racingcar;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -19,7 +20,8 @@ public class InputTest {
         // given
         String inputCarNames = "우아,하아안,테크으으으으,코스으으으으";
         // then
-        assertThrows(IllegalArgumentException.class, () -> ValidationManager.validateCarNames(inputCarNames));
+        assertThatThrownBy(() -> ValidationManager.validateCarNames(inputCarNames))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -27,6 +29,6 @@ public class InputTest {
         //given
         String inputCarNames = "우아, ,한,테크";
         // then
-        assertThrows(IllegalArgumentException.class, () -> ValidationManager.validateCarNames(inputCarNames));
-    }
+        assertThatThrownBy(() -> ValidationManager.validateCarNames(inputCarNames))
+                .isInstanceOf(IllegalArgumentException.class);    }
 }
