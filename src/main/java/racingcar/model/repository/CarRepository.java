@@ -8,6 +8,8 @@ import racingcar.model.domain.Car;
 import racingcar.view.OutputView;
 
 public class CarRepository {
+    private final int NAME_LENGTH = 5;
+    private final int FORWARD_CONDITION =4;
     List<Car> cars;
 
     public CarRepository() {
@@ -20,7 +22,7 @@ public class CarRepository {
 
     public void carForward() {
         cars.forEach(car -> {
-            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            if (Randoms.pickNumberInRange(0, 9) >= FORWARD_CONDITION) {
                 car.setForward(car.getForward() + 1);
             }
             OutputView.outputForward(car);
@@ -37,5 +39,14 @@ public class CarRepository {
                 .filter(car -> car.getForward() == maxForward)
                 .map(Car::getName)
                 .collect(Collectors.toList());
+    }
+
+    public void validNameCheck(){
+        cars.forEach(car -> {
+            if(car.getName().length() > NAME_LENGTH)
+            {
+                throw new IllegalArgumentException("이름은 5자 이하여야 합니다");
+            }
+        });
     }
 }
