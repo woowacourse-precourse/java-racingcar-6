@@ -18,6 +18,7 @@
   - 입력받은 시도횟수를 정수타입으로 반환
 - GameView: 게임진행관련 입출력
 - GameController: 게임의 진행, 종료 
+- ExceptionMessageConstants: 예외 관련 메시지 상수를 갖는 클래스
 
 
 
