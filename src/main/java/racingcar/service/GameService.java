@@ -2,14 +2,15 @@ package racingcar.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.exception.Exception;
 
 public class GameService {
 
     public static void run() {
-        List<Car> carList = new ArrayList<>();
-        checkCarNameAndMakeCar(InteractService.getCarName(), carList);
+        List<String> carName = checkCarName(InteractService.getCarName());
+        List<Car> carList = carName.stream().map(Car::new).collect(Collectors.toList());
 
         int tryNum = InteractService.getTryNum();
         Exception.checkPositive(tryNum);
@@ -17,7 +18,7 @@ public class GameService {
         InteractService.printResult(carList, tryNum);
     }
 
-    private static void checkCarNameAndMakeCar(String carNames, List<Car> carList) {
+    private static List<String> checkCarName(String carNames) {
         List<String> carNameList = new ArrayList<>();
 
         for (String s : carNames.split(",")) {
@@ -25,8 +26,8 @@ public class GameService {
                 throw new IllegalArgumentException();
             }
             carNameList.add(s);
-            carList.add(new Car(s));
         }
+        return carNameList;
     }
 
 
