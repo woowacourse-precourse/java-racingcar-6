@@ -20,7 +20,7 @@ public class Output {
         String winnerList = cars.stream()
                 .map(Car::getName)
                 .map(Name::toString)
-                .collect(Collectors.joining(", ", "최종 우승자: ", ""));
+                .collect(Collectors.joining(", ", "최종 우승자 : ", ""));
 
         System.out.print(winnerList);
     }
