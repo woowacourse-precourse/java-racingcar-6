@@ -10,9 +10,8 @@ public class Cars {
         cars.add(new Car(name));
     }
 
-    public void getCars() {
-        for (Car c: cars){
-            System.out.println(c);
-        }
+    public List<Car> getCars() {
+        return cars;
     }
+
 }
