@@ -96,6 +96,7 @@
 
 - TrialCount : 시도횟수에 대한 VO
     - number 필드
+      w
 
 ## 💡DTO(Data-Transfer-Object)
 

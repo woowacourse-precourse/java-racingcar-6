@@ -16,7 +16,7 @@ public class Car {
     }
 
     public void move() {
-        this.step = Status.move() + this.step;
+        this.step = Status.moveOrStop() + this.step;
     }
 
     public String getName() {

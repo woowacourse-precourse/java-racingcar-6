@@ -16,7 +16,7 @@ public enum Status {
         this.forward = forward;
     }
 
-    public static Integer move() {
+    public static Integer moveOrStop() {
         Integer randomNumber = Randoms.pickNumberInRange(FIRST_NUMBER, LAST_NUMBER);
         if (randomNumber >= THRESHOLD) {
             return GO.getForward();
