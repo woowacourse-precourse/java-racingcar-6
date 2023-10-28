@@ -24,4 +24,8 @@ public class Car {
     public String nameAndPosition() {
         return name + " : " + position;
     }
+
+    public boolean isWinner(int maxPositionLength) {
+        return getPositionLength() == maxPositionLength;
+    }
 }
