@@ -35,8 +35,15 @@ class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-
-
-
+    @Test
+    void 동명이인이_존재하지_않으면_예외가_터지지_않는다(){
+        assertDoesNotThrow(
+                ()->Validator.validateDuplicateName("pobi,dobi,sobi"));
+    }
+    @Test
+    void 동명이인이_존재하면_예외가_터진다(){
+        assertThatThrownBy(()->Validator.validateDuplicateName("pobi,dobi,pobi"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 
 }
