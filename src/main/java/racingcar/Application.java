@@ -20,12 +20,22 @@ public class Application {
     	String timesInput = Console.readLine();
     	timesException(timesInput);
     	
+    	System.out.println("\n실행 결과");
     	List<Integer> results = new ArrayList<>();
     	setCarsOnStart(carList, results);
     	for(int i = 0; i < results.size(); i++) {
 			goOrStopByRandomNum(results, i);
+			printCarAndGoTimes(carList, results, i);
 		}
     }
+
+	public static void printCarAndGoTimes(List<String> carList, List<Integer> results, int i) {
+		System.out.print(carList.get(i)+" : ");
+		for(int k = 0; k < results.get(i); k++) {
+			System.out.print("-");
+		}
+		System.out.println("");
+	}
     
 	public static void goOrStopByRandomNum(List<Integer> results, int i) {
 		int randomNum = Randoms.pickNumberInRange(0,9);
