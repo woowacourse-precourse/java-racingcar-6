@@ -17,9 +17,13 @@ public class Game {
         carRepository = new PriorityQueue<>();
     }
 
+    // 메인 흐름
     public void run() {
+        // 조건들을 입력받는다.
         createCar();
         getRound();
+
+        // 동작
         play();
 
     }
@@ -45,6 +49,7 @@ public class Game {
         }
     }
 
+    // 게임 진행 출력
     void printProgress() {
         for (Car car : carRepository) {
             System.out.println(car.getName() + " : " + "-".repeat(car.getStatus()));
@@ -62,6 +67,7 @@ public class Game {
     }
 
 
+    // 자동차 이름을 입력받는다
     void createCar() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
@@ -71,6 +77,7 @@ public class Game {
         }
     }
 
+    // 시도할 횟수를 입력받는다
     void getRound() {
         System.out.println("시도할 회수는 몇회인가요?");
         round = Integer.valueOf(Console.readLine());
