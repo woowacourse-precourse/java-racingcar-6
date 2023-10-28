@@ -1,11 +1,12 @@
-package racingcar.domain;
+package racingcar.domain.car;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.domain.car.Name;
 
 public class NameTest {
     @DisplayName("이름에 공백이 있다면 예외가 발생해야 한다.")
@@ -38,5 +39,17 @@ public class NameTest {
     void 올바른_이름_테스트(String name) {
         //when, then
         assertDoesNotThrow(() -> new Name(name));
+    }
+
+    @Test
+    void 이름_반환_테스트() {
+        //given
+        Name name = new Name("jun");
+
+        //when
+        String target = name.toString();
+
+        //then
+        assertThat(target).isEqualTo("jun");
     }
 }
