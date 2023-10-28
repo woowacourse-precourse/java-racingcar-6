@@ -33,7 +33,9 @@ public class Cars {
 
 
     public Cars moves(RandomGenerator randomNumber) {
-        List<Car> newCars = cars.stream().map(car -> car.move(randomNumber)).toList();
+        List<Car> newCars = cars.stream()
+                .map(car -> car.move(randomNumber))
+                .toList();
         return new Cars(newCars);
     }
 
