@@ -61,7 +61,7 @@
     </tr>
     <tr><td colspan="3"></td></tr>
     <tr>
-        <td rowspan="2"><b><b><img align="center" src="https://github.com/woowacourse-precourse/java-racingcar-6/assets/112257466/1de269e3-5ceb-4e91-b9a9-922e81bc0e6a" width="20px">&nbsp;&nbsp;exception</b></td>
+        <td rowspan="2"><b><b><img align="center" src="https://github.com/woowacourse-precourse/java-racingcar-6/assets/112257466/9a2cdecd-2df4-4541-86ec-4e8fa1017643" width="20px">&nbsp;&nbsp;exception</b></td>
         <td><b><img align="center" src="https://github.com/woowacourse-precourse/java-racingcar-6/assets/112257466/b8e837c7-bc6a-4bbc-a4c3-267ec11da553" height="32px">&nbsp;&nbsp;ErrorMessage</b></td>
         <td>예외를 던질 때 사용되는 에러 메세지 Enum 클래스</td>
     </tr>
@@ -233,7 +233,7 @@
         <td><b>@Mingyum-Kim</b></td>
     </tr>
       <tr>
-        <td><b>0x07. Flag 네이밍은 Boolean</b>의 의미가 강하다. 정수는 다른 네이밍이 필요하다.</td>
+        <td>0x07. <b>Flag 네이밍은 Boolean</b>의 의미가 강하다. 정수는 다른 네이밍이 필요하다.</td>
         <td><b>@cosyflower</b></td>
     </tr>
       <tr>
@@ -271,6 +271,40 @@
 </table>
 </div>
 
-    <tr>
-        <td colspan="2">리드미에 기능 명세를 강화해서, Controller Code Flow를 따라갈 수 있도록 설계했습니다.<br>기능, 비기능 요구사항을 나누고 설계 방향에 대한 명시를 강화했습니다.<br>플로우 차트를 추가해, 직관적으로 코드 플로우를 눈으로 따라갈 수 있게 설계했습니다.</td>
-    </tr>
+#### 🌱 0x01
+
+> 리드미에 기능 명세를 강화해서, Controller Code Flow를 따라갈 수 있도록 설계했습니다.<br/>
+> 기능, 비기능 요구사항을 나누고 설계 방향에 대한 명시를 강화했습니다.<br/>
+> 플로우 차트를 추가해, 직관적으로 코드 플로우를 눈으로 따라갈 수 있게 설계했습니다.<br/>
+
+#### 🌱 0x02
+
+> private 생성자 + 정적 팩토리 메소드 조합으로 명백한 의도가 표현되도록 노력했습니다.<br/>
+> 메소드 명 자체가 해당 생성자의 의미를 직관적으로 담을 수 있도록 다음 표를 참고했습니다. <br/>
+
+|   메소드명   |               역할               |
+|:--------:|:------------------------------:|
+|   from   |     하나의 매개변수를 받아서 인스턴스를 생성     |
+|    of    |    여러개의 매개변수를 받아서 인스턴스를 생성     |
+| instance | 인스턴스를 반환하지만 동일한 인스턴스임을 보장하지 않음 |
+|  create  |        매번 새로운 인스턴스를 반환         |
+| getXxxx  | 호출하는 클래스와 다른 타입의 인스턴스를 반환할때 사용 |
+| newXxxx  |  getXxxx와 같으나 매번 새로운 인스턴스를 반환  |
+
+출처 : [Static Factory Method 네이밍 컨벤션](https://multifrontgarden.tistory.com/255), Effective java
+
+#### 🌱 0x03
+
+> 모델에서 View를 호출하지 않고, View ↔️ Controller ↔️ Domain(Model) 의존 구조로 설계했습니다. <br/>
+> Domain 에서 Controller로 출력할 데이터를 DTO를 통해 전달하고 <br/>View에서는 DTO의 Response를 단순 출력하는 방식으로 설계했습니다.
+
+#### 🌱 0x04
+
+> 예외처리 메소드에서 사용할 검증 메소드(boolean)의 포스트컨디션에 따라, 긍정문으로 작성했습니다.
+> isInvalidRoundCount, isExceedLength와 같이 직관적으로 해석되도록 정의했습니다.
+
+#### 🌱 0x05
+
+> 기존에 상속과 다형성을 목표로 제한하지 않았던 protected 생성자에 대해 리뷰를 받았습니다.
+> 상속과 다형성으로 개발되지 않은 클래스의 생성 제한을 위해 private 생성자를 사용했습니다.
+> 기본적으로 Singletone 패턴을 활용하지는 않았기 때문에, Static Factory 메소드로 객체를 생성합니다.
