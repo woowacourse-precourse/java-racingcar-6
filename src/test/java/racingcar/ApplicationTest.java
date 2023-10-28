@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -96,6 +98,19 @@ class ApplicationTest extends NsTest {
         int time = 3;
         int[][] Anser = {{0}, {1}, {2}, {3}};
         assertThat(Application.situationRepeat(name, goSituation, time)).isIn((Object[]) Anser);
+    }
+
+    @Test
+    void situationPrint_test() {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+        List<String> name = Arrays.asList("povi", "jokyo");
+        int[] goSituation = {1, 2};
+        int i = 1;
+        Application.situationPrint(name, goSituation, i);
+        String console = outputStream.toString();
+        assertThat(console).isIn("jokyo : --\n", "jokyo : ---\n");
+        System.setOut(System.out);
     }
 
 
