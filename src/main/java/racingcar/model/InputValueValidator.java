@@ -3,7 +3,11 @@ package racingcar.model;
 public class InputValueValidator {
 
     // 자동차 입력값을 배열로 변환
-    public String[] changeArrayType (String input) {
+    // WARNING : 입력값의 마지막 인덱스가 쉼표면 거르지 못함
+    public String[] changeArrayType (String input) throws IllegalArgumentException {
+        if(input.charAt(input.length() - 1) == ',') {
+            throw new IllegalArgumentException("에러! 최소 한 글자 이상은 입력해야 합니다.");
+        }
         String[] result = input.split(",");
         return result;
     }
@@ -16,11 +20,11 @@ public class InputValueValidator {
     }
 
     public void verifyNameValidation(String value) throws IllegalArgumentException {
-        if (value.isBlank()) {
-            throw new IllegalArgumentException("에러! 띄어쓰기는 언더스코어('_')를 활용해주세요.");
+        if (value.contains(" ")) {
+            throw new IllegalArgumentException("에러! 공백 대신 언더스코어('_') 등의 기호를 활용해주세요.");
         }
-        if (value.isEmpty() || value.contains(",")) {
-            throw new IllegalArgumentException("에러! 공백이나 쉼표를 입력할 수 없습니다.");
+        if (value.isEmpty()) {
+            throw new IllegalArgumentException("에러! 최소 한 글자 이상은 입력해야 합니다.");
         }
         if(value.length() > 5) {
             throw new IllegalArgumentException("에러! 최대 다섯 글자까지만 입력해야 합니다.");
