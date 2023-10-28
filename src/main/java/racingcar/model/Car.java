@@ -10,6 +10,6 @@ public class Car {
     }
 
     public void printcar() {
-        System.out.println(this.carName + "의 점수" + this.moveDistance);
+        System.out.println(this.carName.trim() + "의 점수" + this.moveDistance);
     }
 }
