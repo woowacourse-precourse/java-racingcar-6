@@ -11,7 +11,7 @@
 ## **예외 처리 클래스 (Exception)**
 
 - [x]  잘못된 이름 예외 (**`InvalidNameException`**)
-- [ ]  잘못된 횟수 예외 (**`InvalidCountException`**)
+- [x]  잘못된 횟수 예외 (**`InvalidCountException`**)
 
 ## **유틸리티 (Util)**
 
