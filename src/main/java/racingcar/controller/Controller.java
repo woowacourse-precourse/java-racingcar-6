@@ -10,6 +10,11 @@ public class Controller {
 
     private OutputView outputView;
 
+    public Controller() {
+        inputView = new InputView();
+        outputView = new OutputView();
+    }
+
     public void run() {
         RacingCar racingCar = inputView.inputCarName();
         Integer movement = inputView.inputMovement();

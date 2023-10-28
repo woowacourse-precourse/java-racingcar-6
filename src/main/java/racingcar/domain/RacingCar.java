@@ -2,15 +2,13 @@ package racingcar.domain;
 
 import java.util.List;
 
-public class RacingCar {
+public class RacingCar extends Car{
     private final Integer CAR_MOVEMENT = 0;
-
-    private List<String> carNames;
 
     private Integer carMovement;
 
     public RacingCar(List<String> carNames) {
-        this.carNames = carNames;
+        super(carNames);
         this.carMovement = CAR_MOVEMENT;
     }
 
