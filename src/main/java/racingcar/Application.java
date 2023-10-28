@@ -29,6 +29,7 @@ public class Application {
         for (int i = 0; i < times; i++) { // 횟수만큼 반복
             for (int j = 0; j < car.length; j++) {
                 car[j].changeLocation();
+                car[j].printLocation();
             }
             System.out.println();
         }

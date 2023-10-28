@@ -18,4 +18,11 @@ public class Car {
         }
     }
     
+    void printLocation() {
+        System.out.print(this.name + " : ");
+        for(int i = 0; i < this.location; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
 }
