@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.List;
+import java.util.StringJoiner;
 import racingcar.domain.Car;
 import racingcar.domain.CarGroup;
 import racingcar.domain.MoveCount;
@@ -31,5 +33,14 @@ public class OutputView {
         for (Car car : carGroup.getCarGroup()) {
             System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
         }
+    }
+
+    public void showWinners(List<Car> winners) {
+        StringJoiner sj = new StringJoiner(", ");
+        for (Car car : winners) {
+            sj.add(car.getName());
+        }
+        System.out.println();
+        System.out.println("최종 우승자 : " + sj);
     }
 }

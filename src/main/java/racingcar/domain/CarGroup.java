@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import racingcar.util.ErrorMessage;
 
@@ -35,5 +36,16 @@ public class CarGroup {
 
     public void run() {
         carGroup.forEach(Car::run);
+    }
+
+    public List<Car> getWinners() {
+        int maxPosition = carGroup.stream()
+                .max(Comparator.comparingInt(Car::getPosition))
+                .get()
+                .getPosition();
+
+        return carGroup.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .toList();
     }
 }

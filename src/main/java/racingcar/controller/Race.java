@@ -23,6 +23,7 @@ public class Race {
         CarGroup carGroup = carManager.createCarList(inputCarNames());
         MoveCount moveCount = new MoveCount(inputMoveCount());
         outputView.renderRace(carGroup, moveCount);
+        outputView.showWinners(carGroup.getWinners());
     }
 
     private String inputMoveCount() {
