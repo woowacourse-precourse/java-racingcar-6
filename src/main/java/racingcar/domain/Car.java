@@ -13,4 +13,8 @@ public class Car {
     public int getForwardNum(){
         return this.forwardNum;
     }
+
+    public int getRandomNum(){
+        return this.randomNum;
+    }
 }
