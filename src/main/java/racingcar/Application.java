@@ -43,4 +43,19 @@ public class Application {
         }
         return carName;
     }
+    
+    /**
+     * 유저의 시도 횟수 입력을 받아서 유효한 값인지 확인하고 parseInt()를 사용해 int로 변환 후 리턴
+     * @param tryCount
+     * @return int tries
+     */
+    private static int checkTries(String tryCount){
+        int tries = 0;
+        try {
+            tries = parseInt(tryCount);
+        } catch (Exception e){
+            throw new IllegalArgumentException("유효한 숫자를 입력하세요");
+        }
+        return tries;
+    }
 }
