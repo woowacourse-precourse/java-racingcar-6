@@ -1,5 +1,8 @@
 package racingcar.view;
 
+import org.junit.platform.commons.util.StringUtils;
+import org.mockito.internal.util.StringUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +21,11 @@ public class UserOutput {
             stringBuilder.append("\n");
         }
         String result = stringBuilder.toString();
+        System.out.println(result);
+    }
+
+    public static void printWinners(List<String> winners) {
+        String result = String.join(", ", winners);
         System.out.println(result);
     }
 
