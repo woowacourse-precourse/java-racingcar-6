@@ -11,19 +11,13 @@ public class RacingCarInputView {
 
     public List<String> inputCarNames() {
         System.out.println(INPUT_CAR_NAMES_MESSAGE);
-        String names = readLineAndClose();
+        String names = Console.readLine();
         return Arrays.stream(names.split(DELIMITER))
                 .toList();
     }
 
     public String inputAttemptCounts() {
         System.out.println(INPUT_ATTEMPT_COUNTS_MESSAGE);
-        return readLineAndClose();
-    }
-
-    private String readLineAndClose() {
-        String names = Console.readLine();
-        Console.close();
-        return names;
+        return Console.readLine();
     }
 }
