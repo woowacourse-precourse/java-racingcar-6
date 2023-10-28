@@ -2,6 +2,7 @@ package racingcar.view;
 
 import java.util.LinkedHashMap;
 import java.util.List;
+import racingcar.model.Car;
 
 public class OutputView {
     public static void printRequestCarNameMessage() {
@@ -16,27 +17,24 @@ public class OutputView {
         System.out.println("\n실행 결과");
     }
 
-    public static void printGameResultMessage(List<String> carNameList, LinkedHashMap<String, Integer> locations) {
-        for (int i = 0; i < locations.size(); i++) {
-            System.out.print(carNameList.get(i) + " : ");
-            printCarLocationMessage(locations.get(carNameList.get(i)));
+    public static void printGameResultMessage(List<Car> cars) {
+        for(Car car : cars){
+            System.out.print(car.getName() + " : ");
+            printCarLocationMessage(car.getPosition());
         }
         System.out.println();
     }
 
-    public static void printCarLocationMessage(int carLocation) {
-        for (int i = 0; i < carLocation; i++) {
-            System.out.print("-");
-        }
-        System.out.println();
+    public static void printCarLocationMessage(List<Car> cars) {
+
     }
 
 
     public static void printFinalWinner(List<String> winners) {
         System.out.print("최종 우승자 : ");
-        for(int i = 0 ; i < winners.size(); i++){
+        for (int i = 0; i < winners.size(); i++) {
             System.out.print(winners.get(i));
-            if(i<winners.size()-1){
+            if (i < winners.size() - 1) {
                 System.out.print(", ");
             }
         }

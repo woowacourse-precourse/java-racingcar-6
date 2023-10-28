@@ -29,6 +29,10 @@ public class CarGameController {
         int tryNumber = Integer.parseInt(InputView.readTryNumber());
         OutputView.printResultStartMessage();
 
+        while (tryNumber-- >= 0) {
+            OutputView.printCarLocationMessage(cars.moveAll());
+        }
+
 
     }
 
