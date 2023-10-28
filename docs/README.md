@@ -10,7 +10,7 @@
 - [x] 자동차 이름을 받아오는 기능 - Car#getName()
 - [x] 각 자동차의 움직인 거리를 출력하는 기능 - Printer#printDistance()
 
-- [ ] 가장 멀리 움직인 거리를 구하는 기능 - Referee#findMaxDistance()
+- [x] 가장 멀리 움직인 거리를 구하는 기능 - Referee#findMaxDistance()
 - [ ] 우승자를 구하는 기능 - Referee#findWinner()
 - [ ] 우승자를 출력하는 기능 - Printer#printWinner()
 
