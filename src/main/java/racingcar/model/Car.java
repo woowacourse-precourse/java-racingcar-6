@@ -41,6 +41,13 @@ public class Car {
         this.position += 1;
     }
 
+    public void moveUsingRandomNumber(NumberGenerator numberGenerator) {
+        RandomNumber randomNumber = numberGenerator.generate();
+        if (randomNumber.isGreaterThanFour()) {
+            move();
+        }
+    }
+
     public boolean isFrontOf(Car car) {
         return this.position > car.position;
     }

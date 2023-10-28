@@ -7,8 +7,26 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.CarDto;
+import racingcar.fixture.FixtureNumberGenerator;
 
 class CarTest {
+
+    @DisplayName("랜덤값에 따른 move 테스트 : 4이상이면 전진, 4보다 작으면 전진하지 않는다.")
+    @Test
+    void moveUsingRandomNumber() {
+        Car car = new Car("홍길동", 5);
+
+        car.moveUsingRandomNumber(new FixtureNumberGenerator(4));
+
+        assertThat(car).usingRecursiveComparison()
+                .comparingOnlyFields("position")
+                .isEqualTo(new Car("홍길동", 6));
+
+        car.moveUsingRandomNumber(new FixtureNumberGenerator(3));
+        assertThat(car).usingRecursiveComparison()
+                .comparingOnlyFields("position")
+                .isEqualTo(new Car("홍길동", 6));
+    }
 
     @DisplayName("CarDto로 변환 테스트 : 모든 필드값을 통해 CarDto로 변환한다.")
     @Test
