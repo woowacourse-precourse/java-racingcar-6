@@ -12,15 +12,12 @@ public class CarTest {
         String name = "123456789";
         Assertions.assertThatThrownBy(() -> new Car(name))
                 .isInstanceOf(IllegalArgumentException.class);
-
     }
 
     @Test
     void Car_다섯자_이하_이름으로_생성() {
         String name = "12345";
-        assertDoesNotThrow(
-                () -> new Car(name)
-        );
+        assertDoesNotThrow(() -> new Car(name));
     }
 
 }
