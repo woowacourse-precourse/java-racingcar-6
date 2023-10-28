@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Refree {
+public class Referee {
 
     public static void simulate(RacingCars racingcars) {
 
