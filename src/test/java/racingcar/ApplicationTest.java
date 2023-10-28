@@ -71,6 +71,18 @@ class ApplicationTest extends NsTest {
         String test = "1";
         Assertions.assertEquals(1, Application.integerTime(test));
     }
+    @Test
+    void 시간_숫자외_입력_예외() {
+        String test = "5어시";
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> Application.timeIsNumber(test));
+    }
+    @Test
+    void 시간_음수_입력_예외() {
+        String test = "0";
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> Application.timeIsOver0(test));
+    }
 
 
 
