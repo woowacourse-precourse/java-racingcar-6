@@ -48,9 +48,9 @@ public class Cars {
     }
 
     private void addCarInCars(List<String> carNameList) {
-        validateCarsMaximumNumber();
         for (String carName : carNameList) {
             cars.add(new Car(carName));
+            validateCarsMaximumNumber();
         }
     }
 
