@@ -36,14 +36,18 @@ public class GameController {
     public void printResultMessage() {
         System.out.println("실행 결과");
     }
-    public void run() {
+
+    public int findMaxPosition() {
+        return carData.values().stream().max(Integer::compare).orElse(0);
+    }
+
+    public void carPrepare() {
         printStartMessage();
         String[] carNamesArray = Console.readLine().split(",");
         insertCarToCarArray(carNamesArray);
+    }
 
-        askHowManyTimes();
-        int count = Integer.parseInt(Console.readLine());
-
+    public void saveResult(Map<String, Integer>carData, int count) {
         for (String carName : carData.keySet()) {
             for (int j = 0; j < count; j++) {
                 int randInt = createRandomNumber();
@@ -52,8 +56,9 @@ public class GameController {
                 }
             }
         }
+    }
 
-        printResultMessage();
+    public void printResult() {
         for (Map.Entry<String, Integer> entry : carData.entrySet()) {
             System.out.print(entry.getKey() + " : ");
             for (int j = 0; j < entry.getValue(); j++) {
@@ -61,19 +66,39 @@ public class GameController {
             }
             System.out.println();
         }
+    }
 
-        // 최대값 찾기
-        int maxPosition = carData.values().stream().max(Integer::compare).orElse(0);
+    public void displayResult() {
+        printResultMessage();
+        printResult();
+    }
 
-        // 최대값과 일치하는 자동차 이름 찾기
+    public void playingGame() {
+        askHowManyTimes();
+        int count = Integer.parseInt(Console.readLine());
+        saveResult(carData, count);
+    }
+
+    public void findWinner() {
+        int maxPosition = findMaxPosition();
         ArrayList<String> winners = new ArrayList<>();
+
         for (Map.Entry<String, Integer> entry : carData.entrySet()) {
             if (entry.getValue().equals(maxPosition)) {
                 winners.add(entry.getKey());
             }
         }
+        printWinner(winners);
+    }
+    public void run() {
 
-        // 우승자 출력
+        carPrepare();
+        playingGame();
+        displayResult();
+        findWinner();
+    }
+
+    public void printWinner(ArrayList<String> winners) {
         System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 
