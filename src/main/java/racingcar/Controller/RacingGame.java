@@ -25,7 +25,7 @@ public class RacingGame {
     private void gameSetting() {
         String carname = carNamesInput();
         Cars cars = createCars(carname);
-        int playCount = playCountInput();
+        int playCount = parsePlayCount(playCountInput());
         gameStatus = new GameStatus(cars, playCount);
     }
 
@@ -40,12 +40,12 @@ public class RacingGame {
     }
 
     public Cars createCars(String input) {
-        List<Car> carList = getCarList(splitCarNames(input));
+        List<Car> carList = createCarList(splitCarNames(input));
         Cars cars = new Cars(carList);
         return cars;
     }
 
-    private List<Car> getCarList(List<Object> carNames) {
+    private List<Car> createCarList(List<Object> carNames) {
         List<Car> carList = new ArrayList<>();
         for (int i = 0; i < carNames.size(); i++) {
             carList.add(new Car(carNames.get(i).toString()));
@@ -54,6 +54,7 @@ public class RacingGame {
     }
 
     private List<Object> splitCarNames(String input) {
+        validator.validatelastInputCommas(input);
         List<Object> carNames = Arrays.asList(input.split(","));
         return carNames;
     }
@@ -61,13 +62,16 @@ public class RacingGame {
     private String carNamesInput() {
         InputView.requestCarNames();
         String input = Console.readLine();
-        validator.validatelastInputCommas(input);
         return input;
     }
 
-    private int playCountInput() {
+    private String playCountInput() {
         InputView.requestPlayCount();
         String input = Console.readLine();
+        return input;
+    }
+
+    public int parsePlayCount(String input) {
         int playCount = validator.validatePlayCount(input);
         return playCount;
     }
