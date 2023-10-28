@@ -96,3 +96,7 @@
 
 - TrialCount : 시도횟수에 대한 VO
     - number 필드
+
+## 💡DTO(Data-Transfer-Object)
+
+- CarDto : RacingGame에서 리턴받은 Cars를 DTO로 변환 후 리스트 형태로 리턴하는 메소드를 가진다.
