@@ -24,6 +24,8 @@ public class GameService {
             if (tryNum <= 0) {
                 throw new IllegalArgumentException();
             }
+            System.out.println("실행 결과");
+            RacingService.racing(carList, tryNum);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
