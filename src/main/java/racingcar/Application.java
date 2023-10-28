@@ -1,6 +1,9 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
+
+import java.util.Arrays;
 
 public class Application {
 
@@ -15,13 +18,45 @@ public class Application {
         return Integer.parseInt(Console.readLine());
     }
 
+    public static void startRacing(String[] names, int times){
+        // 자동차의 수
+        int number = names.length;
+        // 자동차별 전진 횟수 저장
+        int[] forward = new int[number];
+        Arrays.fill(forward, 0);
+
+        for(int i = 0; i < times; i++) {
+            for (int k = 0; k < number; k++) {
+                int num = Randoms.pickNumberInRange(0, 9);
+                if (num >= 4)
+                    forward[k]++;
+            }
+
+            // 출력함수
+            printRacing(names, forward);
+        }
+
+    }
+
+    public static void printRacing(String[] names, int[] forward){
+        for(int i = 0; i < names.length; i++){
+            System.out.print(names[i] + " : "); // 이름
+            for(int k = 0; k < forward[i]; k++)
+                System.out.print("-");
+            System.out.println("");
+        }
+        System.out.println("");
+    }
+
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+
         String names[] = inputCarNames();
         int times = inputNumber();
 
-        for(String s : names)
-            System.out.println(s);
+        startRacing(names, times);
+//
+//        for(String s : names)
+//            System.out.println(s);
 
     }
 }
