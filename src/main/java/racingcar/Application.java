@@ -1,8 +1,6 @@
 package racingcar;
 
-import racingcar.core.GameManager;
-import racingcar.core.Input;
-import racingcar.core.Output;
+import racingcar.core.*;
 import racingcar.domain.Car;
 import racingcar.domain.CarFactory;
 
@@ -12,7 +10,10 @@ public class Application {
         Input input = new Input();
         Output output = new Output();
         CarFactory factory = new CarFactory();
-        GameManager gameManager = new GameManager(input,output,factory);
+        GameProgressSystem progressSystem = new GameProgressSystem();
+        WinnerCheckSystem winnerCheckSystem = new WinnerCheckSystem();
+        GameAwards gameAwards = new GameAwards(winnerCheckSystem);
+        GameManager gameManager = new GameManager(input,output,factory,progressSystem,winnerCheckSystem,gameAwards);
 
         gameManager.play();
     }

@@ -11,14 +11,15 @@ public class GameManager {
     private final CarFactory factory;
     private final GameProgressSystem progressSystem;
     private final WinnerCheckSystem winnerCheckSystem;
+    private final GameAwards gameAwards;
 
-    public GameManager(final Input input, final Output output, final CarFactory factory) {
+    public GameManager(final Input input, final Output output, final CarFactory factory, final GameProgressSystem progressSystem, final WinnerCheckSystem winnerCheckSystem, final GameAwards gameAwards) {
         this.input = input;
         this.output = output;
         this.factory = factory;
-        this.winnerCheckSystem = new WinnerCheckSystem();
-        this.progressSystem = new GameProgressSystem(output);
-        // 우승체크 시스템 주입
+        this.progressSystem = progressSystem;
+        this.winnerCheckSystem = winnerCheckSystem;
+        this.gameAwards = gameAwards;
     }
 
     public void play(){
@@ -28,10 +29,12 @@ public class GameManager {
         List<Car> carList = factory.factory(stringNames);
 
         for (int i = 0; i < tryNum; i++) {
-            progressSystem.progress(carList);
+            List<Car> progressedCar = progressSystem.progress(carList);
+            output.printResult(progressedCar);
         }
 
-        output.printMultiWinner(winnerString);
+        List<String> awardsList = gameAwards.awards(carList);
+        output.printWinner(awardsList);
 
     }
 

@@ -5,16 +5,13 @@ import racingcar.domain.Car;
 import java.util.List;
 
 public class GameProgressSystem {
-    private final Output output;
-
-    public GameProgressSystem(final Output output) {
-        this.output = output;
+    public GameProgressSystem() {
     }
 
-    public void progress(List<Car> cars){
+    public List<Car> progress(List<Car> cars){
         for (Car car : cars) {
             car.tryMove();
         }
-        output.printResult(cars);
+        return cars;
     }
 }
