@@ -115,7 +115,7 @@ jun : ---
 ### ** View
 
 - ### <strong>[InputView]</strong>
-  1. [ ] 사용자 입력 문구 출력
+  1. [X] 사용자 입력 문구 출력
 
 - ### <strong>[OutputView]</strong>
   1. [ ] 결과 출력 문구 출력
