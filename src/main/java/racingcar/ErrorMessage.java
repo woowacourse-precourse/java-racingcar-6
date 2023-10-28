@@ -1,7 +1,8 @@
 package racingcar;
 
 public enum ErrorMessage {
-    CAR_NAME_LENGTH_EXCEPTION("자동차 이름은 5글자 이하입니다.");
+    CAR_NAME_LENGTH_EXCEPTION("자동차 이름은 5글자 이하입니다."),
+    IS_NOT_NUMBER("숫자만 입력 가능합니다.");
 
     private final String message;
 

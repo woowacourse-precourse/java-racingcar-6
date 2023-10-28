@@ -9,7 +9,7 @@ public class Converter {
         try {
             return Integer.parseInt(s);
         } catch (Exception e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.IS_NOT_NUMBER.getMessage());
         }
 
     }
