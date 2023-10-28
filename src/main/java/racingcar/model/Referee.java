@@ -12,12 +12,14 @@ public class Referee {
         winnerNameList = new ArrayList<>();
     }
 
-    public void findWinnerStep(RacingCars cars) {
+    public void findWinnerDistance(RacingCars cars) {
         for (Car car : cars.getAllCars()) {
-            if (winnerStep < car.getCurrentPosition()) {
-                winnerStep = car.getCurrentPosition();
-            }
+            winnerStep = findMaxDistance(car.getCurrentPosition());
         }
+    }
+
+    public int findMaxDistance(int currentPosition) {
+        return Math.max(currentPosition, winnerStep);
     }
 
     public List<String> winnerNameList(RacingCars cars) {

@@ -37,7 +37,7 @@ public class RaceGameController {
         for(int i = 0 ; i < loop; i++){
             playingGame(racingCars);
         }
-        referee.findWinnerStep(racingCars);
+        referee.findWinnerDistance(racingCars);
         // --를 통한 분한
         List<String> nameList = referee.winnerNameList(racingCars);
         if(nameList.size()==1){
