@@ -1,36 +1,17 @@
 package racingcar.domain;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Referee {
-    public String announcementWinners(List<Car> carList) {
-        List<Car> winners = selectionWinners(carList);
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < winners.size(); i++) {
-            sb.append(winners.get(i).getName());
-            if (i < winners.size() - 1) {
-                sb.append(", ");
-            }
-        }
-        return sb.toString();
+    public void announcementWinners(List<Car> carList) {
+        // TODO: 10/28/23 아래 로직은 getName을 통해, 외부에서 Car 객체에 접근하고 또 다른 비즈니스 로직을 수행하고있음 내부에서 수행해야함.
+        System.out.println("최종 우승자 : ");
     }
 
-    private List<Car> selectionWinners(List<Car> carList) {
-        int maxDistance = calculateMaxDistance(carList);
-        return findWinners(carList, maxDistance);
-    }
+    // TODO: 10/28/23 selectionWinners()
 
-    private int calculateMaxDistance(List<Car> carList) {
-        return carList.stream()
-                .mapToInt(Car::distance)
-                .max()
-                .orElse(Integer.MIN_VALUE);
-    }
+    // TODO: 10/28/23 calculateMaxDistance()
 
-    private List<Car> findWinners(List<Car> carList, int maxDistance) {
-        return carList.stream()
-                .filter(car -> car.distance() == maxDistance)
-                .collect(Collectors.toList());
-    }
+    // TODO: 10/28/23 findWinners()
+
 }

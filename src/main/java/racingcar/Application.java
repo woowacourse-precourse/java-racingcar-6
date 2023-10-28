@@ -19,8 +19,7 @@ public class Application {
         IntStream.range(0, playRound).forEach(i -> racing.run());
 
         Referee referee = new Referee();
-        String winners = referee.announcementWinners(racingList);
-        System.out.println("최종 우승자 : " + winners);
+        referee.announcementWinners(racingList);
     }
 
     public static List<String> askCarName() {

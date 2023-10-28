@@ -1,6 +1,8 @@
 package racingcar.domain;
 
-public class Car {
+import java.util.Comparator;
+
+public class Car implements Comparator {
     private final String name;
     private int moveDistance;
 
@@ -12,10 +14,6 @@ public class Car {
         this.moveDistance = 0;
     }
 
-    public String getName() {
-        return this.name;
-    }
-
     public void forward() {
         moveDistance++;
     }
@@ -24,11 +22,15 @@ public class Car {
         return name + " : " + "-".repeat(Math.max(0, moveDistance));
     }
 
-    public int distance() {
-        return moveDistance;
-    }
-
     private boolean nameLengthCheck(String name) {
         return name.length() <= 5;
+    }
+
+    @Override
+    public int compare(final Object o1, final Object o2) {
+        if (o1 instanceof Car car1 && o2 instanceof Car car2) {
+            return Integer.compare(car2.moveDistance, car1.moveDistance);
+        }
+        return 0;
     }
 }
