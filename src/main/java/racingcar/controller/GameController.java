@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.service.CarGameService;
-import racingcar.service.RaceService;
+import racingcar.service.WinnerService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -14,30 +14,48 @@ public class GameController {
     private final OutputView outputView;
     private final CarGameService carGameService;
 
+    private final WinnerService winnerService;
+
     public GameController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.carGameService = new CarGameService();
+        this.winnerService = new WinnerService();
     }
 
     public void start() {
-        outputView.printInitGame();
-        List<String> carNames = carGameService.extractSeperator(inputView.inputCarName());
-        outputView.printBeforeInputGameCount();
-        Integer gameCount = carGameService.convertGameCountToNumber(inputView.inputGameCount());
         List<Car> cars = new ArrayList<>();
-        carGameService.initCarInfo(carNames, cars);
-        outputView.notifyBeforeResult();
-        for(int count=0; count<gameCount; count++){
-            printRoundResult(carGameService.roundResult(cars));
-        }
-
-
-
+        List<String> carNames = initSetting();
+        Integer gameCount = getGameCount();
+        initCarInfo(carNames, cars);
+        notifyBeforeResult();
+        roundGameProcess(gameCount, cars);
+        outputView.printWinners(winnerService.findWinners(cars));
     }
 
-    private void printRoundResult(List<String> result) {
-        outputView.printRoundResult(result);
+    private void notifyBeforeResult() {
+        outputView.notifyBeforeResult();
+    }
+
+    private Integer getGameCount() {
+        outputView.printBeforeInputGameCount();
+        return carGameService.convertGameCountToNumber(inputView.inputGameCount());
+    }
+
+    private List<String> initSetting() {
+        outputView.printInitGame();
+        List<String> carNames = carGameService.extractSeperator(inputView.inputCarName());
+        return carNames;
+    }
+
+    private void roundGameProcess(Integer gameCount, List<Car> cars) {
+        for(int count=0; count< gameCount; count++){
+            outputView.printRoundResult(carGameService.roundResult(cars));
+        }
+    }
+
+    private void initCarInfo(List<String> carNames, List<Car> cars) {
+        carGameService.initCarInfo(carNames, cars);
     }
 
 }
