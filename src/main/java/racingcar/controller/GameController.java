@@ -31,8 +31,7 @@ public class GameController {
     private void setupGame() {
         gameView.displayStartGame();
 
-        List<Car> participantCars = setupParticipantCars();
-        this.game = new Game(participantCars);
+        this.game = new Game(setupParticipantCars());
 
         this.retryCount = setupRetryCount();
     }
