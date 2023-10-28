@@ -45,4 +45,12 @@ class GameClientOutputTest {
         String printedString = outputStream.toString().trim();
         assertThat(printedString).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
+
+    @Test
+    @DisplayName("실행 결과 문구를 정확하게 출력한다.")
+    public void printResultMessage(){
+        gameClientOutput.printResultMessage();
+        String printedString = outputStream.toString().trim();
+        assertThat(printedString).isEqualTo("실행 결과");
+    }
 }
