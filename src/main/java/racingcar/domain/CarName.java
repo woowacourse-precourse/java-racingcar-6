@@ -24,8 +24,8 @@ public class CarName {
     }
 
     private void validateEmptySpaceInclude(String name){
-        if(name.contains(SPACE_INCLUDED_ERROR_MESSAGE)){
-            throw new IllegalArgumentException("이름에 공백이 포함될 수 없습니다.");
+        if(name.contains(" ")){
+            throw new IllegalArgumentException(SPACE_INCLUDED_ERROR_MESSAGE);
         }
     }
 
