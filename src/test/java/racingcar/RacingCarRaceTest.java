@@ -63,7 +63,6 @@ class RacingCarRaceTest {
         // when
         RacingCar racingCar1 = racingCars.get(0);
         RacingCar racingCar2 = racingCars.get(1);
-        RacingCar racingCar3 = racingCars.get(2);
 
         racingCar1.move(9);
         racingCar2.move(9);
