@@ -7,9 +7,19 @@ public class InputView {
 
     public String readCarNames() {
         String carNames = Console.readLine();
-        Validator.isBlankInput(carNames);
-        Validator.isNullInput(carNames);
+        validate(carNames);
         return carNames;
+    }
+
+    public String readTrialNumber() {
+        String trialNumber = Console.readLine();
+        validate(trialNumber);
+        return trialNumber;
+    }
+
+    private void validate(final String input) {
+        Validator.isBlankInput(input);
+        Validator.isNullInput(input);
     }
 
 }
