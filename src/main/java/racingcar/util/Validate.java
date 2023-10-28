@@ -41,4 +41,12 @@ public class Validate {
             throw new IllegalArgumentException("문자를 입력해주세요");
         }
     }
+
+    public int MoveIsNumericAndReturnInteger(String move) {
+        try {
+            return Integer.parseInt(move);
+        } catch(NumberFormatException exception) {
+            throw new IllegalArgumentException("Invalid input. Please enter a positive number.");
+        }
+    }
 }
