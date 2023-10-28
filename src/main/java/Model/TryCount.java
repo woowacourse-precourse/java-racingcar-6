@@ -9,6 +9,15 @@ public class TryCount {
         this.tryCount = tryCount;
     }
 
+    public boolean isTryCountNumeric() {
+        try {
+            Integer.parseInt(tryCount);
+        } catch(Exception e) {
+            return false;
+        }
+        return true;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

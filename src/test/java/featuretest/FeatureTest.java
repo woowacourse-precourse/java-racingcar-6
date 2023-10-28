@@ -3,6 +3,8 @@ package featuretest;
 import Model.RaceCarNames;
 import Model.TryCount;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import racingcar.Application;
 
 import java.io.ByteArrayInputStream;
@@ -53,5 +55,16 @@ public class FeatureTest {
         TryCount actualObject = new TryCount("5");
 
         assertThat(predObject).isEqualTo(actualObject);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "5, true",
+            "abcde, false",
+            "53e1f, false"
+    })
+    void 시도_회수가_숫자인지_확인(String tryCountInput, boolean actualResult) {
+        TryCount tryCount = new TryCount(tryCountInput);
+        assertThat(tryCount.isTryCountNumeric()).isEqualTo(actualResult);
     }
 }
