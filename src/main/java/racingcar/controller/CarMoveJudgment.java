@@ -4,11 +4,9 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.CarObject;
 
 public class CarMoveJudgment {
-    public static int result() {
-        int moveNum;
+    public static void setCarOnceMoveDistance() {
         do {
-            moveNum = Randoms.pickNumberInRange(0, 9);
-        } while (moveNum <= CarObject.MOVE_CONDITION);
-        return moveNum;
+            CarObject.carOnceMove = Randoms.pickNumberInRange(0, 9);
+        } while (CarObject.carOnceMove <= CarObject.MOVE_CONDITION);
     }
 }
