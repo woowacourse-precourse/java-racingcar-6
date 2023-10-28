@@ -17,17 +17,6 @@ class CarTest {
     }
 
     @Test
-    @DisplayName("고정된 값을 주고 차가 움직임을 보는 테스트")
-    void moveTest_FIXED_VALUE() {
-        int failValue = 3;
-        int successValue = 4;
-        car.moveByIntValue(failValue);
-        assertThat(car.getLocation()).isZero();
-        car.moveByIntValue(successValue);
-        assertThat(car.getLocation()).isOne();
-    }
-
-    @Test
     @DisplayName("익명 클래스를 활용한 오버라이드로 움직일지를 더 유연하게 판별하기")
     void move_by_strategy() {
         car.moveByStrategy(() -> false);

@@ -31,12 +31,6 @@ public class Car {
         this.location++;
     }
 
-    protected void moveByIntValue(int number) { // 변수명 바꿔야한다.
-        if (number >= MOVING_STANDARD){
-            addLocation();
-        }
-    }
-
     protected void moveByStrategy(MovingStrategy movingStrategy){
         if (movingStrategy.move()){
             this.addLocation();
