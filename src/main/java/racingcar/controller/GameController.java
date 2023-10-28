@@ -26,9 +26,11 @@ public class GameController {
 
     private void startRace() {
         String resultLog;
+
+        outputView.printExecutionResult();
         for (int i = 0; i < count; i++) {
             resultLog = carRace();
-            outputView.printExecutionResult(resultLog);
+            outputView.printCarRacingResult(resultLog);
         }
     }
 
