@@ -1,15 +1,15 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
+import java.util.stream.IntStream;
 import racingcar.model.Car;
 import racingcar.model.RacingCars;
 import racingcar.model.Referee;
+import racingcar.util.StringUtils;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
+
 public class RaceGameController {
     private final InputView inputView;
     private final OutputView outputView;
@@ -23,10 +23,10 @@ public class RaceGameController {
         RacingCars racingCars = initializeGame();
 
         inputView.printLoopSetMessage();
-        int loop = Integer.parseInt(Console.readLine());
+        int inputLoop = StringUtils.parseInt(inputView.inputString());
 
         outputView.printFirstResultMessage();
-        playGameMultipleTimes(racingCars, loop);
+        playGameMultipleTimes(racingCars, inputLoop);
 
         Referee referee = new Referee();
         referee.findWinnerDistance(racingCars);
@@ -38,13 +38,13 @@ public class RaceGameController {
 
     private RacingCars initializeGame() {
         inputView.printStartMessage();
-        String names = Console.readLine();
-        List<String> carNames = splinter(names);
+        String names = inputView.inputString();
+        List<String> carNames = StringUtils.splinter(names);
         return new RacingCars(carNames);
     }
 
-    private void playGameMultipleTimes(RacingCars racingCars, int loop) {
-        for (int i = 0; i < loop; i++) {
+    private void playGameMultipleTimes(RacingCars racingCars, int inputLoop) {
+        for (int i = 0; i < inputLoop; i++) {
             playingGame(racingCars);
         }
     }
@@ -57,8 +57,4 @@ public class RaceGameController {
         outputView.printSpaceMessage();
     }
 
-    private List<String> splinter(String name) {
-        return Arrays.stream(name.split(","))
-                .collect(Collectors.toList());
-    }
 }
