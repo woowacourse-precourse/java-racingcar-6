@@ -8,7 +8,7 @@ class CarTest {
 
 
     @Test
-    void increaseMovingCountTest() {
+    void increaseMovingCount_메서드로_전진횟수_증가() {
         Car car = new Car();
 
         int initialMovingCount = car.getMovingCount();
@@ -22,16 +22,20 @@ class CarTest {
     }
 
     @Test
-    void toStringTest() {
+    void toString_메서드로_차량이름출력() {
         Car car = new Car();
-
-        String result = car.toString();
-        assertThat(result).isEqualTo("null");
-
         car.setName("woowa");
 
-        result = car.toString();
+        String result = car.toString();
         assertThat(result).isEqualTo("woowa");
+
+    }
+
+    @Test
+    void toString_메서드_사용시_자동차의_이름이_없는경우() {
+        Car car = new Car();
+        String result = car.toString();
+        assertThat(result).isEqualTo("null");
 
     }
 
