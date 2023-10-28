@@ -1,11 +1,8 @@
 package util;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import racingcar.util.Validator;
 
-import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ValidatorTest {
@@ -28,8 +25,9 @@ public class ValidatorTest {
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> validator.validParseInt("asbw"));
     }
 
+    @Test
     void 특수문자_입력() {
         Validator validator = new Validator();
-        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> validator.validParseInt("asbw"));
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> validator.validParseInt("*"));
     }
 }
