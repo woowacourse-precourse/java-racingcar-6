@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class InputValidator {
     private static final String MOVE_COUNT_NATURAL_NUMBER_REQUIRED = "이동횟수는 자연수여야합니다.";
@@ -42,12 +43,16 @@ public class InputValidator {
 
     private List<String> splitByDelimiter(String cars, String delimiter) {
         List<String> nameList = new ArrayList<>(List.of(cars.split(delimiter)));
+        List<String> trimedNameList = nameList.stream()
+                .map(name -> name.strip())
+                .collect(Collectors.toList());
+
         //split 함수의 경우 "효림,현진,"일 때 마지막 공백을 무시하므로 직접 공백 하나를 추가함
         if (cars.length() > 0 && cars.charAt(cars.length() - 1) == ',') {
-            nameList.add("");
+            trimedNameList.add("");
         }
 
-        return nameList;
+        return trimedNameList;
     }
 
     private void validateCarName(String carName) {
