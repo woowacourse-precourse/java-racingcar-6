@@ -20,7 +20,9 @@ public class Validator {
     }
 
     public void validName(String input) {
-        return;
+        if(input.length() <= 0 || input.length() > 5) {
+            throw new IllegalArgumentException("이름은 1~5 크기로 입력해주세요.");
+        }
     }
 
 }
