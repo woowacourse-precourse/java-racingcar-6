@@ -3,6 +3,7 @@ package racingcar;
 import java.util.List;
 import java.util.Arrays;
 import java.util.StringJoiner;
+import camp.nextstep.edu.missionutils.Randoms;
 
 class Stadium {
     int first_pos;
@@ -31,8 +32,16 @@ class Stadium {
 
     }
 
-    public boolean forwardSuccessCheck(int randomNumber){
-        return (randomNumber>=4);
+    public static int tryMove(Car car) {
+        int number = Randoms.pickNumberInRange(0, 9);
+        if (forwardSuccessCheck(number)) {
+            car.setPos(car.getPos() + 1);
+        }
+        return car.getPos();
+    }
+
+    public static boolean forwardSuccessCheck(int randomNumber) {
+        return (randomNumber >= 4);
     }
 
     public void getStatus() {
@@ -52,8 +61,8 @@ class Stadium {
 
     public String winner() {
         StringJoiner stringjoiner = new StringJoiner(",");
-        for (Car car:cars){
-            if(car.getPos()==first_pos){
+        for (Car car : cars) {
+            if (car.getPos() == first_pos) {
                 stringjoiner.add(car.getName());
             }
         }
