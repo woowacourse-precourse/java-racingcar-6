@@ -16,10 +16,15 @@ public class Application {
     	carListException(carList);
     	
     	System.out.println("시도할 회수는 몇회인가요?");
-    	String timeInput = Console.readLine();
-    	
-    	
+    	String timesInput = Console.readLine();
+    	timesException(timesInput);
+
     }
+
+	public static void timesException(String timesInput) {
+		if(!timesInput.matches("\\d+") || Integer.valueOf(timesInput) < 1 || Integer.valueOf(timesInput) > 100)
+    		throw new IllegalArgumentException("1~100 사이의 정수로 설정해주세요.");
+	}
 
 	public static void carListException(List<String> carList) {
 		atLeastOneCar(carList);
