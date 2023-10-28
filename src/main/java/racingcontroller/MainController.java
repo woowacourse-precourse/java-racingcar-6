@@ -5,6 +5,7 @@ import java.util.LinkedHashMap;
 import racingmodel.MainModel;
 import racingview.MainView;
 import racingview.Viewable;
+import validation.ValidationMan;
 
 public class MainController {
     private Viewable view = null;
@@ -20,25 +21,15 @@ public class MainController {
         leadGame();
     }
 
-    private void leadGame() throws IllegalArgumentException
-    {
-        if(!model.saveName(InputMan.inputCarName()))
-        {
-            throw new IllegalArgumentException();
-        }
+    private void leadGame() throws IllegalArgumentException {
+        ValidationCallMan.callexExceptionCheckForCar(model);
         view.askForTimes();
-
         String times = InputMan.inputTimes();
+        ValidationCallMan.callExceptionCheckForTimes(model, times);
+        view.speakResultStart();
+        ;
 
-        if(!model.exceptionCheck(times))
-        {
-            throw new IllegalArgumentException();
-        }
-
-        view.speakResultStart();;
-
-        for(int i = 0; i < Integer.parseInt(times); i++)
-        {
+        for (int i = 0; i < Integer.parseInt(times); i++) {
             model.changeStatus();
             view.speakResult(model.getCarName());
         }
