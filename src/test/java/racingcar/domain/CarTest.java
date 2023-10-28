@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -33,5 +34,14 @@ class CarTest {
         car.move(numberGenerator.generate());
 
         assertEquals(car.getPosition(), 0);
+    }
+
+    @Test
+    void isSamePosition_메서드는_자동차의_position이랑_같으면_true를_반환한다() {
+        Car car = new Car("pobi");
+
+        car.move(5);
+
+        assertTrue(car.isSamePosition(1));
     }
 }
