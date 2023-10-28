@@ -22,6 +22,7 @@ class InputValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(InputException.WRONG_CAR_NAME_PATTERN.getMessage());
     }
+
     @Test
     void 자동차_이름이_1자_미만이면_예외가_발생한다() {
         String input = "test1,test2, ";
@@ -52,5 +53,19 @@ class InputValidatorTest {
         Assertions.assertThatThrownBy(() -> inputValidator.validateCarName(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(InputException.EXCEED_CAR_NUM.getMessage());
+    }
+
+    @Test
+    void 시도할_횟수에_숫자가_아닌_입력이라면_예외가_발생한다() {
+        String input = "abc";
+        Assertions.assertThatThrownBy(() -> inputValidator.validateTryCount(input))
+                .isInstanceOf(IllegalArgumentException.class).hasMessage(InputException.NOT_NUMBER.getMessage());
+    }
+    @Test
+    void 시도할_횟수는_1부터_100까지의_자연수만_가능하다() {
+        String input = "101";
+        Assertions.assertThatThrownBy(() -> inputValidator.validateTryCount(input))
+                .isInstanceOf(IllegalArgumentException.class).hasMessage(InputException.EXCEED_TRY_COUNT.getMessage());
+
     }
 }
