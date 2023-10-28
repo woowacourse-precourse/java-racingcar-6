@@ -45,7 +45,7 @@ public class Judge {
         return true;
     }
 
-    private boolean isEffectiveInputTurn(Optional<String> input){
+    public boolean isEffectiveInputTurn(Optional<String> input){
         String inputTurn = input.orElse("null");
         checkTypeIsInteger(inputTurn);
         return checkExistBetweenLowerBoundAndUpperBound(inputTurn);
