@@ -15,6 +15,6 @@ public class Application {
         race.playGame(time);
 
         System.out.print(Output.WINNER.getText());
-        System.out.println(race.checkWinner());
+        System.out.println(race.findWinner());
     }
 }

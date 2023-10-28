@@ -5,23 +5,26 @@ public class Car {
     private String name;
     private int move;
 
-    public Car(String name){
-        this.name = nameLengthCheck(name);
+    public Car(String name) {
+        this.name = validateNameLength(name);
         this.move = 0;
     }
-    private String nameLengthCheck(String name){
-        if(name.length() >= 5)
-            throw new IllegalArgumentException();
-        return name;
-    }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
-    public int getMove(){
+
+    public int getMove() {
         return this.move;
     }
-    public void plusMove(){
+
+    public void plusMove() {
         this.move++;
+    }
+
+    private String validateNameLength(String name) {
+        if (name.length() > 5)
+            throw new IllegalArgumentException();
+        return name;
     }
 }

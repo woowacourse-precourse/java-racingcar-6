@@ -2,56 +2,75 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Race {
-    private ArrayList<Car> gameCar;
+    private List<Car> gameCar;
 
-    public Race(String nameStr){
+    public Race(String nameStr) {
         gameCar = new ArrayList<>();
         String[] nameArr = nameStr.split(",");
-        for(String name : nameArr)
-            this.gameCar.add(new Car(name));
+        for (String name : nameArr)
+            gameCar.add(new Car(name));
     }
-    public void playGame(String timeStr) throws IllegalArgumentException{
-        int time = Integer.parseInt(timeStr);
-        for (int i = 0; i < time; i++) {
-            moveCar();
-            resultCar();
+
+    public void playGame(String roundsStr) {
+        int rounds = parseRounds(roundsStr);
+
+        for (int i = 0; i < rounds; i++) {
+            moveCars();
+            displayResults();
         }
     }
-    public String checkWinner(){
-        ArrayList<Integer> maxFindArr = new ArrayList<>();
-        for (Car car : gameCar)
-            maxFindArr.add(car.getMove());
-        return maxFinder(maxFindArr);
+
+    public String findWinner() {
+        int maxMoveValue = findMaxValue();
+        List<String> maxMoveNames = findMaxNames(maxMoveValue);
+        return String.join(", ", maxMoveNames);
     }
 
-    private String maxFinder(ArrayList<Integer> maxFindArr){
-        int max = Collections.max(maxFindArr);
-        String reStr = "";
-
-        for (int i = 0; i < maxFindArr.size(); i++)
-            if (maxFindArr.get(i) == max)
-                reStr += gameCar.get(i).getName() + ", ";
-
-        if (reStr.length() > 0)
-            reStr = reStr.substring(0,reStr.length() - 2);
-
-        return reStr;
+    private int parseRounds(String roundsStr) {
+        try {
+            return Integer.parseInt(roundsStr);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
     }
-    private void resultCar(){
+
+    private int findMaxValue() {
+        return gameCar
+                .stream()
+                .mapToInt(Car::getMove)
+                .max()
+                .orElse(0);
+    }
+
+    private List<String> findMaxNames(int maxMoveValue) {
+        return gameCar
+                .stream()
+                .filter(car -> car.getMove() == maxMoveValue)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
+
+    private void displayResults() {
         for (Car car : gameCar)
             System.out.println(car.getName() + " : " + "-".repeat(car.getMove()));
         System.out.println("");
     }
-    private void moveCar(){
+
+    private void moveCars() {
         for (Car car : gameCar)
-            if (Randoms.pickNumberInRange(0,9) >= 4)
+            if (randomNumber() >= 4)
                 car.plusMove();
     }
 
-    public ArrayList<Car> getGameCar(){
+    private int randomNumber() {
+        return Randoms.pickNumberInRange(0,9);
+    }
+
+    public List<Car> getGameCar() {
         return gameCar;
     }
 }
