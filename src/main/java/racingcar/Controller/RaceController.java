@@ -14,11 +14,11 @@ public class RaceController {
     RaceService raceService = new RaceService();
     List<Car> racingCars;
 
-    public void RaceGamePlay(){
+    public void RaceGamePlay() {
         startGameSet();
-        int count =  playCount();
-        for(int i=0;i < count;i++){
-           // 각 객체마다 random값 비교
+        int count = playCount();
+        for (int i = 0; i < count; i++) {
+            // 각 객체마다 random값 비교
             playRace();
             outputView.outputResult(racingCars);
         }
@@ -27,9 +27,9 @@ public class RaceController {
     }
 
     private void playRace() {
-        for(Car car : racingCars){
-            if(raceService.RandomNum() >= 4){
-                car.setLocation(car.getLocation()+1);
+        for (Car car : racingCars) {
+            if (raceService.RandomNum() >= 4) {
+                car.setLocation(car.getLocation() + 1);
             }
         }
     }
@@ -41,8 +41,8 @@ public class RaceController {
     private void startGameSet() {
         List<String> carNames = inputView.inputCarName();
         racingCars = new ArrayList<>();
-        for (String carName : carNames){
-            racingCars.add(new Car(carName,0));
+        for (String carName : carNames) {
+            racingCars.add(new Car(carName, 0));
         }
     }
 }
