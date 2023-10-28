@@ -49,6 +49,7 @@ pobi,woni,jun
 
 - [ ] 시도 횟수 입력 구현
     - [ ] 자동차를 몇 번 이동시킬 것인지 입력
+    - [ ] 잘못된 입력의 경우 `IllegalArgumentException` 발생 후 애플리케이션 종료
 
 [예시]
 
