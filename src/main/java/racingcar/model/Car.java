@@ -31,4 +31,17 @@ public class Car {
     public void move() {
         this.position++;
     }
+
+    @Override
+    public String toString() {
+        return this.name + " : " + "-".repeat(this.position);
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
 }
