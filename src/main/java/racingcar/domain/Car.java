@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Car {
 
-    int id;
+    Long id;
     String name;
     int currentPosition = 0;
     List<Integer> pickedNumbers = new ArrayList<>();
@@ -14,12 +14,11 @@ public class Car {
         this.name = name;
     }
 
-
     public static Car create(String name) {
         return new Car(name);
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -27,5 +26,7 @@ public class Car {
         return name;
     }
 
-
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

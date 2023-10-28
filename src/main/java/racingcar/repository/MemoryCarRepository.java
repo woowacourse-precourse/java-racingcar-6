@@ -19,6 +19,7 @@ public class MemoryCarRepository implements CarRepository {
     @Override
     public Car save(Car car) {
         store.put(++sequence, car);
+        car.setId(sequence);
         return car;
     }
 
