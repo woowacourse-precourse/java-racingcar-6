@@ -1,9 +1,9 @@
-package vo;
+package racingcar.vo;
 
 import racingcar.exception.TrialCountValidator;
 
 public class TrialCount {
-    
+
     private final Integer number;
 
     public TrialCount(Integer number) {
