@@ -23,6 +23,12 @@ public class RacingGame {
         return new RacingGame(playerMoves, gameStatus);
     }
 
+    public void move(MoveFactory moveFactory) {
+        playerMoves.forEach(
+            playerMove -> playerMove.move(moveFactory.isMove())
+        );
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
