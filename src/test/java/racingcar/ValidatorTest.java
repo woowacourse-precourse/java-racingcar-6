@@ -54,4 +54,13 @@ public class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 목록은 중복이 없어야 합니다.");
     }
+
+    @Test
+    void 시도횟수_숫자_아닌_경우_예외처리() {
+        String input = "a";
+
+        assertThatThrownBy(() -> validator.convertStringToInt(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도할 횟수는 숫자여야 합니다.");
+    }
 }
