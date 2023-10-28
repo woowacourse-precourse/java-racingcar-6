@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import racingcar.view.OutputView;
-
 import java.util.List;
 
 public enum Message {
@@ -10,7 +8,7 @@ public enum Message {
     EXECUTION_RESULT("실행 결과"),
     GAME_TOTAL_RESULT("최종 우승자 : ");
 
-    private String message;
+    private final String message;
 
     Message(String message) {
         this.message = message;
@@ -27,7 +25,7 @@ public enum Message {
     public String getWinnerMessage(List<String> winnerCarNameList) {
         StringBuilder sb = new StringBuilder();
         sb.append(this.message);
-        winnerCarNameList.stream().forEach(name -> sb.append(name));
+        winnerCarNameList.forEach(sb::append);
         sb.append("\n");
 
         return sb.toString();

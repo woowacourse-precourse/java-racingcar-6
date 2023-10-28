@@ -1,7 +1,6 @@
 package racingcar.service;
 
 import racingcar.domain.Car;
-import racingcar.domain.Message;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -11,15 +10,14 @@ import static racingcar.domain.Message.*;
 
 public class GameService {
     private int progressCount;
-    private List<Car> carList = new ArrayList<>();
+    private final List<Car> carList = new ArrayList<>();
 
     public GameService() {
     }
 
     public void readCarNameList() {
         OutputView.println(READ_CAR_NAME.getMessage());
-        InputView.readCarNameList()
-                        .forEach(carName -> carList.add(new Car(carName)));
+        InputView.readCarNameList().forEach(carName -> carList.add(new Car(carName)));
     }
 
     public void readProgressCount() {
@@ -28,16 +26,21 @@ public class GameService {
     }
 
     public void progressGame() {
-        OutputView.print(EXECUTION_RESULT.getProgressMessage(runCars()));
+        OutputView.print(EXECUTION_RESULT.getProgressMessage(runCarMessage()));
     }
 
-    private StringBuilder runCars() {
+    private StringBuilder runCarMessage() {
         StringBuilder carNameAndAdvanceMarkMessage = new StringBuilder();
-
         int checkCount = 0;
         while(checkCount != progressCount) {
             checkCount++;
-            carList.stream().forEach(car -> carNameAndAdvanceMarkMessage.append(car.getName() + " : " + car.getAdvanceCountMark()).append("\n"));
+            carList.forEach(
+                    car -> carNameAndAdvanceMarkMessage
+                            .append(car.getName())
+                            .append(" : ")
+                            .append(car.getAdvanceCountMark())
+                            .append("\n")
+            );
             carNameAndAdvanceMarkMessage.append("\n");
         }
 
@@ -51,7 +54,6 @@ public class GameService {
 
     private List<String> getWinnerCarNameList() {
         List<String> result = new ArrayList<>();
-
         int max = -1;
         for (Car car : carList) {
             if (car.getAdvanceCount() > max) {

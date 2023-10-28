@@ -3,9 +3,9 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    private String name;
+    private final String name;
     private int advanceCount;
-    private StringBuilder advanceCountMark;
+    private final StringBuilder advanceCountMark;
 
     public Car(String name) {
         this.name = name;

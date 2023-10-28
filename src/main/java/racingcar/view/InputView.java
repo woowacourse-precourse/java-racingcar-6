@@ -50,8 +50,8 @@ public class InputView {
 
         private static void checkCarNameRangeValidation(String input) {
             String[] split = input.split(",");
-            long overRangeNameCount = Arrays.asList(split).stream()
-                    .filter(name -> name.length() > 5 || name.length() < 0)
+            long overRangeNameCount = Arrays.stream(split)
+                    .filter(name -> name.length() > 5)
                     .count();
 
             if (overRangeNameCount > 0) {
@@ -69,14 +69,14 @@ public class InputView {
         }
 
         private static void checkProgressCountMinValidation(String input) {
-            Long inputNumber = Long.parseLong(input);
+            long inputNumber = Long.parseLong(input);
             if (inputNumber < 1) {
                 throw new IllegalArgumentException("입력된 값이 1보다 작을 수 없습니다.");
             }
         }
 
         private static void checkProgressCountMaxValueValidation(String input) {
-            Long inputNumber = Long.parseLong(input);
+            long inputNumber = Long.parseLong(input);
             if (inputNumber > Integer.MAX_VALUE) {
                 throw new IllegalArgumentException("입력된 값이 " + Integer.MAX_VALUE + "보다 클 수 없습니다.");
             }
