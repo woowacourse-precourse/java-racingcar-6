@@ -5,48 +5,26 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 import racingcar.domain.Player;
+import racingcar.domain.RacingCar;
 
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        List<Player> players = inputPlayers();
+        // 경기할 자동차 이름을 입력받고, 경기를 진행할 RacingCar 객체 생성
+        RacingCar racingCar = new RacingCar(inputPlayers());
 
+        // 시행 횟수를 입력 받는다
         int num = inputNumber();
 
-        int max = Integer.MIN_VALUE;
-
+        // 경기 실행
         System.out.println("실행 결과");
         for (int i = 0; i < num; i++) {
-            for (Player player : players) {
-                player.run();
-
-                if (player.getRunCount() > max) {
-                    max = player.getRunCount();
-                }
-
-                player.print();
-            }
+            racingCar.run();
             System.out.println();
         }
 
-        List<Player> winner = new ArrayList<>();
-        for (Player player : players) {
-            if (player.getRunCount() == max) {
-                winner.add(player);
-            }
-        }
-
-        StringBuilder sb = new StringBuilder();
-        sb.append("최종 우승자 : ");
-        for (int i = 0; i < winner.size(); i++) {
-            sb.append(winner.get(i).getName());
-
-            if (i < winner.size() - 1) {
-                sb.append(", ");
-            }
-        }
-
-        System.out.println(sb);
+        // 최종 우승자 출력
+        racingCar.printWinner();
     }
 
     private static int inputNumber() {
@@ -70,8 +48,11 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
         List<Player> players = new ArrayList<>();
-
-        for (String name : camp.nextstep.edu.missionutils.Console.readLine().split(",")) {
+        /*
+        * 이름을 "," 를 기준으로 나눠 반복해서 처리
+        * */
+        for (String name : camp.nextstep.edu.missionutils.Console.readLine().split(",", -1)) {
+            // 이름이 조건에 맞으면, player List에 추가
             if(validateName(name)){
                 players.add(new Player(name));
             }
@@ -81,8 +62,8 @@ public class Application {
     }
 
     private static boolean validateName(String name) {
-        if (name == null) {
-            throw new IllegalArgumentException("유효하지 않은 입력입니다, 이름을 입력해주세요.");
+        if (name == null || name.length() == 0) {
+            throw new IllegalArgumentException("유효하지 않은 입력입니다, 이름이 비어있습니다.");
         }
 
         if (name.length() > 5) {
