@@ -2,8 +2,8 @@ package racingcar.game;
 
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.domain.CarFactory;
 import racingcar.domain.Cars;
-import racingcar.domain.Name;
 import racingcar.strategy.MoveStrategy;
 import racingcar.strategy.RandomMoveStrategy;
 import racingcar.view.Input;
@@ -16,7 +16,7 @@ public class RacingGame {
         List<String> carNames = Input.getCarNames();
         int totalRace = Input.getTotalRace();
 
-        Cars initalCars = createCars(carNames);
+        Cars initalCars = CarFactory.createCars(carNames);
         Race race = Race.of(initalCars, totalRace, moveStrategy);
 
         Output.printResultMessage();
@@ -30,14 +30,5 @@ public class RacingGame {
 
         List<Car> car = race.determineWinners();
         Output.printWinnersName(car);
-    }
-
-    private Cars createCars(List<String> carNames) {
-        List<Car> cars = carNames.stream()
-                .map(Name::from)
-                .map(Car::from)
-                .toList();
-
-        return Cars.from(cars);
     }
 }
