@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import static racingcar.constant.Message.*;
+import static racingcar.constant.Constant.*;
 
 public class Validation {
 

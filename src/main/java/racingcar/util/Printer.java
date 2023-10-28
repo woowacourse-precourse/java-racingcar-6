@@ -1,6 +1,6 @@
 package racingcar.util;
 
-import static racingcar.constant.Message.*;
+import static racingcar.constant.Constant.*;
 
 import java.util.List;
 import java.util.Map;

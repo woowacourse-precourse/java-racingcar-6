@@ -1,11 +1,9 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import racingcar.util.Printer;
-import racingcar.util.UserInput;
 
 public class RaceGame {
     Printer printer = new Printer();
