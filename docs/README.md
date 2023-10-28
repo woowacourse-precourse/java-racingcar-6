@@ -14,7 +14,7 @@
       - [ ] 게임 횟수가 얼마나 될 지 제한이 없다! -> 최대한 범위를 넓게 잡는게 좋을 거 같다!
 
 - ### 🖥️ Output - Class : OutputView
-  - [ ] 1 초기 출력문 정의 - ## OutputView - printInitGame
+  - [X] 1 초기 출력문 정의 - ## OutputView - printInitGame
   - [ ] 2 게임 횟수 입력하기 전 출력문 정의 ## OutputView - printBeforeInputGameCount
   - [ ] 3 실행 결과 출력 ## OutputView - printGameResult
   - [ ] 4 최종 우승자 출력 ## OutputView - printWinner
