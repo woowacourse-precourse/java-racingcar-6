@@ -27,9 +27,16 @@ public class RacingController {
         String inputCars = inputview.readInputCars();
         int trialNumber = inputview.readTrialNumber();
 
-        // preprocessInput(inputCars);
+        preprocessInput(inputCars);
         // playEachRacing(trialNumber);
         // StringBuilder winners = formatWinnersList();
         // outputView.printWinners(winners.toString());
+    }
+
+    private void preprocessInput(String inputCars) {
+        String[] carArray = StringUtils.splitByComma(inputCars);
+        InputValidator.checkValidStringLength(carArray);
+
+        carRacingGame.saveCars(carArray);
     }
 }
