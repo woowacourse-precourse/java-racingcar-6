@@ -8,7 +8,13 @@ public class RacingGame {
 
     private Setting setting = new Setting();
 
-    public void setUp() {
+    public void run() {
+        setUp();
+        race();
+        announceWinner();
+    }
+
+    private void setUp() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNames = Console.readLine();
         setting.initializeCars(carNames);
@@ -18,7 +24,7 @@ public class RacingGame {
         setting.initializeRound(round);
     }
 
-    public void race() {
+    private void race() {
         System.out.println("실행 결과");
 
         for (int currentRound = 1; currentRound <= setting.getRound(); currentRound++) {
@@ -31,7 +37,7 @@ public class RacingGame {
         }
     }
 
-    public void announceWinner() {
+    private void announceWinner() {
         List<String> winnerList = Commentator.getWinners(setting);
         String winners = String.join(", ", winnerList);
         System.out.print("최종 우승자 : " + winners);
