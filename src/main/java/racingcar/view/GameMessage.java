@@ -25,8 +25,8 @@ public enum GameMessage {
         return GAME_RESULT_MESSAGE.name;
     }
 
-    public String getWinnerMessage() {
-        return WINNER_MESSAGE.name;
+    public String getWinnerMessage(String winners) {
+        return WINNER_MESSAGE.name + winners;
     }
 
     public String getMoveMessage() {

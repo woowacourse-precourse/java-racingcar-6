@@ -40,7 +40,8 @@ public class GameMessageTest {
     void getWinnerMessage() {
         //given
         String winnerMessage = "최종 우승자 : ";
+        String winner = "suhwpark";
         //then
-        assertThat(GameMessage.WINNER_MESSAGE.getWinnerMessage()).isEqualTo(winnerMessage);
+        assertThat(GameMessage.WINNER_MESSAGE.getWinnerMessage(winner)).isEqualTo(winnerMessage + winner);
     }
 }
