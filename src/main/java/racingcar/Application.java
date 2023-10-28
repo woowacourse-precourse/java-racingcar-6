@@ -8,8 +8,40 @@ import racingcar.model.Car;
 
 public class Application {
     static ArrayList<Car> carList;
+    static int cycle;
     public static void main(String[] args) {
         // TODO: 프로그램 구현
+
+        // 자동차 이름 입력
+        getInputCarName();
+
+        // 횟수 입력
+        getInputCycle();
+
+        // 주행 결과 출력
+        printOneRace();
+
+        // 경기 결과 출력
+        printResult();
+    }
+
+    static void printOneRace() {
+        System.out.println("\n실행 결과");
+
+        for(int i=0; i<cycle; i++) {
+            // 랜덤으로 각 차마다 주행
+            randomDrive(carList);
+            // 주행 상황 출력
+            printDistance();
+        }
+    }
+
+    static void getInputCycle() {
+        System.out.println("시도할 횟수는 몇 회인가요?");
+        cycle = Integer.parseInt(Console.readLine());
+    }
+
+    static void getInputCarName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] input = Console.readLine().split(",");
         carList = new ArrayList<>();
@@ -19,23 +51,6 @@ public class Application {
             }
             carList.add(new Car(name, 0));
         }
-
-        System.out.println("시도할 횟수는 몇 회인가요?");
-        int N = Integer.parseInt(Console.readLine());
-
-
-        // 주행 결과 출력
-        System.out.println("\n실행 결과");
-
-        // 랜덤으로 각 차마다 주행
-        for(int i=0; i<N; i++) {
-            randomDrive(carList);
-            // 주행 상황 출력
-            printDistance();
-        }
-
-        // 경기 결과 출력
-        printResult();
     }
 
     static void printDistance() {
