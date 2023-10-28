@@ -51,7 +51,7 @@ public class Input {
         return raw.length() > length;
     }
 
-    public static Integer inputRepetitions() {
+    static Integer inputRepetitions() {
         String raw = Console.readLine();
         checkRepetitionsError(raw);
         return Integer.decode(raw);
