@@ -31,8 +31,4 @@ public class PlayCount {
     public boolean isPlayEnd() {
         return count >= goal;
     }
-
-    public int getCount() {
-        return count;
-    }
 }
