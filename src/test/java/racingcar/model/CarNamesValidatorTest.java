@@ -29,11 +29,11 @@ public class CarNamesValidatorTest {
 
     private static Stream<Arguments> generateUnvalidNames() {
         return Stream.of(
-                Arguments.of(""),
+                Arguments.of("a,b,b,bb"),
                 Arguments.of("sun,kingking"),
                 Arguments.of("pobils,sun hun"),
                 Arguments.of("SayLoud,a1bcChocolate"),
-                Arguments.of("한국이름,입력,방지")
+                Arguments.of("hon,hon,ab")
         );
     }
 

@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import java.util.Objects;
-
 public class Round {
     private final int round;
 

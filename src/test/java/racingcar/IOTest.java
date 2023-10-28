@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -27,6 +28,7 @@ public class IOTest {
         System.setOut(standardOut);
         System.out.println(output());
         captor.reset();
+        Console.close();
     }
 
     protected InputStream generateInputStream(String input) {

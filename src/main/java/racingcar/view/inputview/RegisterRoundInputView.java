@@ -5,12 +5,13 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
-public class RegisterRoundInputView implements InputView<String> {
+public class RegisterRoundInputView extends InputView<String> {
     private static final Pattern NUMBER_PATTERN = Pattern.compile("^[0-9]+$");
     @Override
     public String input(Map<String, Object> model) {
         String line = Console.readLine();
         validate(line);
+        closeScanner();
         return line;
     }
 

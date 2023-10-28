@@ -23,8 +23,8 @@ public class RegisterCarNamesControllerTest extends IOTest {
 
     private static Stream<Arguments> generateCarNames() {
         return Stream.of(
-                Arguments.of("pobi, woni, jun")
-//                Arguments.of("pobi,woni,jun")
+                Arguments.of("pobi, woni, jun"),
+                Arguments.of("pobi,woni,jun")
         );
     }
 
