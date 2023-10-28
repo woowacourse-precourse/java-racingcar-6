@@ -10,7 +10,9 @@ public class CarModel {
         this.name = carName;
         this.location = 0;
     }
-
+    public String getName() {
+        return name;
+    }
     public void increaseLocation() {
         this.location++;
     }
@@ -26,4 +28,5 @@ public class CarModel {
     public boolean compareMaxLocation(int a) {
         return this.location >= a;
     }
+
 }
