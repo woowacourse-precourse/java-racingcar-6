@@ -15,4 +15,8 @@ public class GameController {
     public void game(List<User> users){
         gameService.gameStart(users);
     }
+
+    public List<User> winner(List<User> users){
+        return gameService.winner(users);
+    }
 }

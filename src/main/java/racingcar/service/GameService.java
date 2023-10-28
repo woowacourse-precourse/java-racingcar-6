@@ -2,7 +2,10 @@ package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalInt;
+import java.util.stream.Collectors;
 import racingcar.entity.User;
 
 public class GameService {
@@ -28,6 +31,21 @@ public class GameService {
             int score = user.getScore();
             user.setScore(score + randomScore());
         });
+    }
+
+    public List<User> winner(List<User> users){
+        OptionalInt maxScore = users.stream()
+                .mapToInt(User::getScore)
+                .max();
+
+        List<User> winners = users.stream()
+                .filter(user -> user.getScore() == maxScore.orElse(-1))
+                .collect(Collectors.toList());
+
+        return winners;
+
+
+
     }
 
 }
