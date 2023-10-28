@@ -3,6 +3,8 @@ package racingcar.model;
 import static racingcar.constant.RacingGameConstants.CAR_NAME_LENGTH_MAX;
 import static racingcar.constant.RacingGameConstants.CAR_NAME_LENGTH_MIN;
 
+import racingcar.constant.RacingGameConstants;
+
 public class Car {
     private String name;
     private int position;
@@ -40,6 +42,6 @@ public class Car {
     }
 
     public void moveOneStep() {
-        position++;
+        position += RacingGameConstants.MOVE_STEP_SIZE;
     }
 }
