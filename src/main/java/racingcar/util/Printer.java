@@ -2,10 +2,8 @@ package racingcar.util;
 
 import static racingcar.constant.Message.*;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.StringJoiner;
 
 public class Printer {
     public void printStartMessage() {
