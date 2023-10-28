@@ -15,7 +15,8 @@ public class Car {
         return new Car(name);
     }
 
-
-
+    public void move() {
+        this.forwardMoveCount++;
+    }
 
 }
