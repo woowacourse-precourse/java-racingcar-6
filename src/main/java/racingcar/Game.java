@@ -15,5 +15,20 @@ public class Game {
         return cars;
     }
 
+    public void printDash(Long totalMovements) {
+        for (int i = 0; i < totalMovements; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
+    public void eachRound(List<Car> cars) {
+        for (Car car : cars) {
+            car.moveForward();
+            System.out.print(car.carName + ": ");
+            printDash(car.getTotalMovements());
+        }
+    }
+
 
 }
