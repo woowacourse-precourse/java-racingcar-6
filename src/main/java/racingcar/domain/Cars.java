@@ -10,4 +10,8 @@ public class Cars {
     public Cars(List<String> names) {
         names.forEach(name -> elements.add(new Car(name)));
     }
+
+    public void race() {
+        elements.forEach(Car::race);
+    }
 }
