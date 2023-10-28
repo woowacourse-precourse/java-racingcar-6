@@ -8,4 +8,8 @@ public class CarComponent {
         this.name = name;
         this.distance = distance;
     }
+
+    public void addDistance(int distance) {
+        this.distance += distance;
+    }
 }

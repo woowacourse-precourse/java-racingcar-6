@@ -1,8 +1,6 @@
 package racingcar.model;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class CarObject {
     public static final int MOVE_CONDITION = 4;
@@ -15,11 +13,13 @@ public class CarObject {
         cars.add(component);
     }
 
-    public static CarObject nameOf(String name, Integer distance) {
+    public static CarObject nameOf(String name, int distance) {
         return new CarObject(new CarComponent(name, distance));
     }
 
-    public static List<CarComponent> getCars() {
-        return Collections.unmodifiableList(cars);
+    public static void updateCarDistance(ArrayList<Integer> distance) {
+        for(int i = 0; i < carsSize; i++) {
+            cars.get(i).addDistance(distance.get(i));
+        }
     }
 }
