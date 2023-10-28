@@ -17,7 +17,7 @@ public class GameController {
         TryMoveForwardRandomNumber = tryMoveForwardRandomNumber;
     }
 
-    public String getCarNames() {
+    public String getCarNamesInput() {
 
         return Console.readLine();
     }
