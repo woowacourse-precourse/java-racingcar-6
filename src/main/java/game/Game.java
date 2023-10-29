@@ -26,7 +26,7 @@ public class Game {
 
         List<String> winners = getWinners(participants, maxDistance);
 
-        System.out.println("최종 우승자 : " + String.join(", ", winners));
+        printWinners(winners);
     }
 
     public void moveCarsForward(List<Car> participants) {
@@ -60,6 +60,11 @@ public class Game {
             }
         }
         return winners;
+    }
+
+
+    public void printWinners(List<String> winners) {
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 
     public List<Car> stringToCarList(String data) {
