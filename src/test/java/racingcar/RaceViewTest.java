@@ -5,24 +5,29 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import java.io.*;
+import java.util.Arrays;
+import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RaceViewTest {
     private RaceView view;
     private InputStream originalIn;
+    private PrintStream originalOut;
 
     @BeforeEach
     void setUp() {
         view = new RaceView();
         originalIn = System.in;
+        originalOut = System.out;
     }
 
     @AfterEach
     void restoreIn() {
         System.setIn(originalIn);
+        System.setOut(originalOut);
         Console.close();
     }
 
@@ -44,5 +49,17 @@ public class RaceViewTest {
         String result = view.getAttemptInput();
 
         assertEquals(input, result);
+    }
+
+    @Test
+    void printWinners_테스트() {
+        List<String> input = Arrays.asList("red", "green", "blue");
+        List<Car> carList = RacingUtil.createCarsFromNames(input);
+        OutputStream stream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(stream));
+
+        view.printWinners(carList);
+
+        assertThat(stream.toString()).contains("최종 우승자", "red", "green", "blue");
     }
 }
