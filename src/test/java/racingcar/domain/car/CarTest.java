@@ -37,4 +37,20 @@ class CarTest {
         assertThat(car.getForwardCount()).isEqualTo(1L);
     }
 
+    @DisplayName("선택된 난수가 0~3 사이의 숫자라면 차는 전진 하지 않는다.")
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, 2, 3})
+    void moveForwardForNumberLessThan4(int randomDigit) {
+        // given
+        RandomNumberPicker randomNumberPicker = new FakeRandomNumberPicker(randomDigit);
+
+        Car car = Car.nameOf(CarName.from("haero"));
+
+        // when
+        car.moveForward(randomNumberPicker);
+
+        // then
+        assertThat(car.getForwardCount()).isEqualTo(0L);
+    }
+
 }
