@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Objects;
+
 public class Car {
     private CarName carName;
     private CarPosition carPosition;
@@ -37,5 +39,26 @@ public class Car {
 
     public CarPosition getPosition() {
         return carPosition;
+    }
+
+
+    /**
+     * 테스트용 메서드
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Car other = (Car) obj;
+        return carName.equals(other.carName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(carName);
     }
 }

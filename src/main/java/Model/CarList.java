@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class CarList {
     private List<Car> carList;
@@ -66,5 +67,13 @@ public class CarList {
                 System.out.print(", ");
             }
         }
+    }
+
+
+    /**
+     * 테스트용 메서드
+     */
+    public List<Car> getCarList() {
+        return carList;
     }
 }

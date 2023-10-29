@@ -66,9 +66,14 @@ public class Application {
         raceWinners.printCarNames();
     }
 
-    // test용 코드
-    public static RaceCarNames getRaceCarNames() {
-        return raceCarNames;
+
+
+
+    /**
+     * 테스트용 메서드
+     */
+    public static CarList getCarList() {
+        return carList;
     }
 
     public static TryCount getTryCount() {
