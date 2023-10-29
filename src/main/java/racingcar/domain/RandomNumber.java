@@ -3,6 +3,7 @@ package racingcar.domain;
 import java.util.List;
 
 public class RandomNumber {
+
     private List<Integer> randomNumberList;
 
     public List<Integer> getRandomNumberList() {
