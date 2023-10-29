@@ -24,4 +24,10 @@ public class CarNameValidator {
             throw new IllegalArgumentException("이름은 비어있지 않아야 합니다.");
         }
     }
+
+    private static void validateLengthForEachName(String carName) {
+        if (carName.length() > 5) {
+            throw new IllegalArgumentException("이름의 길이는 5 이하이어야 합니다.");
+        }
+    }
 }
