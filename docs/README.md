@@ -46,6 +46,55 @@ for(int i = 0; i < MAX_LENGTH; i++) {
 ```
 A : 추상적인 변수명 보다는 의미가 드러나도록 짓는 것이 좋을 것 같아요!
 
+```java
+import static utils.Console.print;
+```
+A: 자바 코딩 컨벤션을 살펴보시면 static import는 사용하지 않는다고 적혀있습니다!
+확인해보세용 https://newwisdom.tistory.com/m/96
+
+```java
+Game.java
+```
+A :Game 클래스가 너무 많은 일을 하고 있습니다. 게임 로직, 사용자 입력, 결과 출력, 랜덤 숫자 생성, 스트라이크/볼 판단 등의 기능들이 한 클래스에 들어가있는데요.
+SRP원칙 위반으로 보입니다.
+
+기능 별로 클래스를 분리할 수 있으면 좋을 것 같아요
+
+```java
+    private void setScoreBoard(){
+        StringBuilder userNumber=this.getUserNumber();
+        StringBuilder computerNumber=this.getComputerNumber();
+        ...
+    }
+```
+A: 이 부분은 딱히 get으로 받지 않아도 되지 않을까요?
+
+```java
+for(int i = 0; i < MAX_LENGTH ; i++) {
+            String userSubNum = userNumber.substring(i , i+1);
+            if(computerNumber.indexOf(userSubNum) > -1) {
+                if(computerNumber.substring(i, i+1).equals(userSubNum)) {
+                    this.scoreBoard[1]++;
+                } else {
+                    this.scoreBoard[0]++;
+                }
+            }
+        }
+```
+
+A: 이 코드를 처음보는 사람이 봤을 때에 이 코드의 의미를 한눈에 파악하기는 어려워보입니다.
+조금더 메소드를 분리해서 더 읽기 쉬운 코드를 만들 수 있으면 좋을 것 같습니다
+
+```java
+public class Console {
+    Console() {
+    }
+}
+```
+A:유틸리티 클래스에 생성자를 package-private 보다는 private으로 아예 잠궈주시면 좋을 것 같습니다! https://rules.sonarsource.com/java/RSPEC-1118/
+
+
+
 ---
 
 ## Git Commit Convention
