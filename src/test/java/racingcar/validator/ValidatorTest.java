@@ -20,7 +20,7 @@ class ValidatorTest {
         String[] carNameArr = {"david","pobi","hwanyeong"};
         assertThatThrownBy(()->Validator.inputCarNames(carNameArr))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("이름은 1~5자만 가능합니다.");
+                .hasMessage("[ERROR] 이름은 1~5자만 가능합니다.");
     }
 
     @Test
@@ -28,7 +28,7 @@ class ValidatorTest {
         String[] carNameArr = {"pobi","pobi","hwan"};
         assertThatThrownBy(()->Validator.inputCarNames(carNameArr))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("중복된 이름이 있습니다.");
+                .hasMessage("[ERROR] 중복된 이름이 있습니다.");
     }
 
     @Test
@@ -36,14 +36,14 @@ class ValidatorTest {
         String[] carNameArr = {"lucy","po bi","hwan"," "};
         assertThatThrownBy(()->Validator.inputCarNames(carNameArr))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("이름에 공백이 존재합니다.");
+                .hasMessage("[ERROR] 이름에 공백이 존재합니다.");
     }
 
     @Test
     void 입력받은_횟수가_정수가_아닐_경우() {
         assertThatThrownBy(() -> Validator.isInteger("a"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("정수만 입력 가능합니다.");
+                .hasMessage("[ERROR] 정수만 입력 가능합니다.");
     }
 
     @Test
