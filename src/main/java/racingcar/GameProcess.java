@@ -45,14 +45,14 @@ public class GameProcess {
 	}
 
 	private void makeFinalString(int maxDistance, ArrayList<InformationOfCar> carList) {
-		String result = carList.get(0).getCarName();
+		StringBuilder result = new StringBuilder(carList.get(0).getCarName());
 		for (int i = 1; i < carList.size()-1; i++) {
 			InformationOfCar car = carList.get(i);
 			if (car.getDistance().length() == maxDistance) {
-				result += ", " + car.getCarName();
+				result.append(", ").append(car.getCarName());
 			}
 		}
-		printGenerator.printResult(result);
+		printGenerator.printResult(result.toString());
 	}
 
 }
