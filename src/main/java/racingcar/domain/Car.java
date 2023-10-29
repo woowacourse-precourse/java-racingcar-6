@@ -3,7 +3,7 @@ package racingcar.domain;
 import racingcar.util.RandomNumber;
 import racingcar.util.RandomNumber.MoveOrder;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private final String name;
     private int distance;
     private static final String BASH = "-";
@@ -25,6 +25,11 @@ public class Car {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public int compareTo(Car other) {
+        return this.distance - other.distance;
     }
 
     @Override
