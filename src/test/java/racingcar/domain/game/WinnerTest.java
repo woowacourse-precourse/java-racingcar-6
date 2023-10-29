@@ -15,12 +15,12 @@ public class WinnerTest {
         String name = "jun,pobi,woni";
         Cars cars = new Cars(name);
         List<Integer> numbers = List.of(5,0,0);
-        List<Integer> number2 = List.of(6,9,8);
+        List<Integer> numbers2 = List.of(6,9,8);
 
         //when
         Round round = new Round(numbers, cars);
         round.race();
-        Round round2 = new Round(numbers, cars);
+        Round round2 = new Round(numbers2, cars);
         round2.race();
 
         Winner winner = new Winner(cars);
