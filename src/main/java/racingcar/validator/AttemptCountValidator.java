@@ -23,6 +23,10 @@ public enum AttemptCountValidator {
     }
 
     private AttemptCount createAttemptCount(String input) {
-        return new AttemptCount(input);
+        return new AttemptCount(toInt(input));
+    }
+
+    private int toInt(String input) {
+        return Integer.parseInt(input);
     }
 }
