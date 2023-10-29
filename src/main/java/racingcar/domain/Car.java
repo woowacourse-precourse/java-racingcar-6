@@ -24,18 +24,18 @@ public class Car {
         return new Car(name);
     }
 
-    private static void validate(String name) {
+    private static void validate(final String name) {
         if (isWrongLength(name)) {
             throw RacingGameException.of(INVALID_NAME_LENGTH);
         }
 
     }
 
-    private static boolean isWrongLength(String name) {
+    private static boolean isWrongLength(final String name) {
         return name.isBlank() || name.length() > CAR_LIMIT_NAME_LENGTH;
     }
 
-    public void go(final Integer randomNumber) {
+    public void go(Integer randomNumber) {
         if (isAbleToGo(randomNumber)) {
             position += CAR_ONE_STEP;
         }

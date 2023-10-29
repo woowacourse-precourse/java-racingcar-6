@@ -13,7 +13,7 @@ public class RacingGame {
     private final InputView inputView;
     private final OutputView outputView;
 
-    public RacingGame(InputView inputView, OutputView outputView) {
+    public RacingGame(final InputView inputView, final OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
     }

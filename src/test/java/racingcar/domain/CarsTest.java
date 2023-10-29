@@ -155,7 +155,6 @@ class CarsTest {
         assertThatThrownBy(() -> carList.add(Car.from("d")))
                 .isInstanceOf(UnsupportedOperationException.class);
 
-
     }
 
     @Test
