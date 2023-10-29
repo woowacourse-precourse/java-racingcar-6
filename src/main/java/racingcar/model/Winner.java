@@ -9,9 +9,13 @@ public class Winner {
 
     public void decideWinner(int[] ranking, ArrayList<String> cars) {
         for (int idx = 0; idx < ranking.length; idx++) {
-            if (ranking[idx] == Arrays.stream(ranking).max().getAsInt()) {
-                addToWinnerList(cars, idx);
-            }
+            validateWinner(ranking, cars, idx);
+        }
+    }
+
+    public void validateWinner(int[] ranking, ArrayList<String> cars, int idx) {
+        if (ranking[idx] == Arrays.stream(ranking).max().getAsInt()) {
+            addToWinnerList(cars, idx);
         }
     }
 

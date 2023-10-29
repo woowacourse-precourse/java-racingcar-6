@@ -31,7 +31,7 @@ public class RacingGame {
         InputCarNames();
         getTryNumber();
         onRacing(cars, tryNum);
-        setWinner(ranking, cars);
+        showWinner(ranking, cars);
 
     }
 
@@ -61,7 +61,7 @@ public class RacingGame {
         }
     }
 
-    public void setWinner(int[] ranking, ArrayList<String> cars) {
+    public void showWinner(int[] ranking, ArrayList<String> cars) {
         winner.decideWinner(ranking, cars);
         outputView.printWinner(winner.getWinnerList());
     }
