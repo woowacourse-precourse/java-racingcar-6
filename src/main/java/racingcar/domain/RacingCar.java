@@ -7,7 +7,7 @@ import java.util.List;
 
 public class RacingCar {
     ExceptionCase exception = new ExceptionCase();
-    public String input(){
+    public String nameInput(){
         return Console.readLine();
     }
 
@@ -20,6 +20,9 @@ public class RacingCar {
         return racers;
     }
 
-
+    public int attemptInput() {
+        String attempt = Console.readLine();
+        return Integer.parseInt(attempt);
+    }
 
 }

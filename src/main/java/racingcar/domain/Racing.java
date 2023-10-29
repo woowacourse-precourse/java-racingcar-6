@@ -1,17 +1,26 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Console;
+
 public class Racing {
 
-    public int getNumberForForward() {
-        NumberGenerator numberGenerator = new NumberGenerator();
-        return numberGenerator.createRandomNumber();
+    NumberGenerator numberGenerator = new NumberGenerator();
+
+    public String moveForward(int RandomNumber) {
+        String count = "";
+        if(RandomNumber > 3){
+             count += "-";
+        }
+        return count;
     }
 
-    public String moveForward(int number) {
+    public String moveResult(int attemptInput) {
         String result = "";
-        if(number>3) {
-            return result += "_";
+        for(int i=0; i<attemptInput; i++) {
+            int randomNumber = numberGenerator.createRandomNumber();
+            result += moveForward(randomNumber);
         }
         return result;
     }
+
 }
