@@ -22,4 +22,17 @@ public class GameTest {
 		// then
 		assertThat(result).doesNotContain(" ");
 	}
+
+	@DisplayName("사용자 이름 5자 이상일 경우 예외 발생")
+	@Test
+	void userNameLengthTest() {
+		// given
+		final String[] userInput = { "user1", "username5", "user3" };
+
+		// then
+		assertThatThrownBy(() -> {
+			// when
+			game.checkUsername(userInput);
+		}).isInstanceOf(IllegalArgumentException.class);
+	}
 }
