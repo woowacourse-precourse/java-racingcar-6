@@ -19,15 +19,18 @@ public class OutputView {
 
     public void printRaceResult(RaceResultDTO raceResultDTO) {
         raceResultDTO.names()
-                .stream()
                 .forEach(name -> printNameAndPosition(name, raceResultDTO.positions()));
         System.out.println();
     }
 
     private void printNameAndPosition(String name, Map<String, Integer> positions) {
-        System.out.print(name);
+        printName(name);
         System.out.print(NAME_POSITION_SEPARATOR_MESSAGE);
         printPosition(positions.get(name));
+    }
+
+    private void printName(String name) {
+        System.out.print(name);
     }
 
     private void printPosition(int position) {
