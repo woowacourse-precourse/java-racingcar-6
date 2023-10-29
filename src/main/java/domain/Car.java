@@ -25,4 +25,7 @@ public class Car {
         return RandomGenerator.generateNumber() >= 4;
     }
 
+    private void move() {
+        position += "-"; // 'this' 생략
+    }
 }
