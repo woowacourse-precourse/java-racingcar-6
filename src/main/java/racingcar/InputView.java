@@ -8,7 +8,9 @@ public class InputView {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String cars = Console.readLine();
         validHasInput(cars);
-        return makeInputArray(cars);
+        String[] arrayCars = makeInputArray(cars);
+        validInputLength(arrayCars);
+        return arrayCars;
     }
 
     static String[] makeInputArray(String cars){
@@ -46,6 +48,14 @@ public class InputView {
     static void validDelimiter(String cars){
         if(!cars.contains(",")){
             throw new IllegalArgumentException();
+        }
+    }
+
+    static void validInputLength(String[] cars){
+        for(String car:cars){
+            if(car.length() > 5){
+                throw new IllegalArgumentException();
+            }
         }
     }
 }
