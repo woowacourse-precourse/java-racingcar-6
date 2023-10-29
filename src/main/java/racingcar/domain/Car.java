@@ -19,7 +19,7 @@ public class Car {
     public void move() {
         int randomNumber = randomNumberGenerator();
 
-        if (isMoreThanFour(randomNumber)) {
+        if (isMoreThanForwardCondition(randomNumber)) {
             position++;
         }
     }
@@ -36,7 +36,7 @@ public class Car {
         return pickNumberInRange(Constants.START_INCLUSIVE, Constants.END_INCLUSIVE);
     }
 
-    private boolean isMoreThanFour(final int pickedNumber) {
-        return pickedNumber >= 4;
+    private boolean isMoreThanForwardCondition(final int pickedNumber) {
+        return pickedNumber >= Constants.MIN_NUMBER_FORWARD_CONDITION;
     }
 }
