@@ -6,14 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
-    List<Car> carList;
-    public List<Car> createCars(String name){
-        String names = askCarName();
-        String[] nameArr = name.split(",");
-        List<Car> cars = new ArrayList<>();
+    private List<Car> carList;
+    public List<Car> createCarList(){
+        String[] nameArr = askCarName().split(",");
+        carList = new ArrayList<>();
         for(int i = 0; i < nameArr.length; i++){
-            cars.add(new Car(nameArr[i]));
+            carList.add(new Car(nameArr[i]));
         }
-        return cars;
+        return carList;
     }
 }
