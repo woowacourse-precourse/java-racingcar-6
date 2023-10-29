@@ -1,7 +1,10 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,8 +18,11 @@ public class Application {
         String carNames = inputCarNames();
         int trialTimes = inputTrialTimes();
         List<String> carNameList = parseCarNamesToList(carNames);
-        
-        
+        List<Integer> moveCountList = new ArrayList<>(Collections.nCopies(carNameList.size(), 0));
+
+        for (int i = 0; i < trialTimes; i++) {
+            moveForward(moveCountList);
+        }
 
     }
 
@@ -35,4 +41,21 @@ public class Application {
                 .collect(Collectors.toList());
     }
 
+    private static void moveForward(List<Integer> moveCountList) {
+        for (int i = 0; i < moveCountList.size(); i++) {
+            moveOrNot(moveCountList, i);
+        }
+    }
+
+    private static void moveOrNot(List<Integer> moveCountList, int i) {
+        int random = Randoms.pickNumberInRange(0, 9);
+        if (random >= 4) {
+            move(moveCountList, i);
+        }
+    }
+
+    private static void move(List<Integer> moveCountList, int i) {
+        Integer currentValue = moveCountList.get(i);
+        moveCountList.set(i, currentValue + 1);
+    }
 }
