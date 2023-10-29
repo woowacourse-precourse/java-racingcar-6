@@ -30,7 +30,8 @@ public class RacingCarController {
     outputView.printStartRaceGame();
     raceGame.race(raceResults -> {
       List<CarPositionResult> results = raceResults.stream()
-          .map(result -> new CarPositionResult(result.carName(), result.position())).toList();
+          .map(result -> new CarPositionResult(result.carName(), result.position()))
+          .toList();
       outputView.printCarPositionResults(results);
     });
 

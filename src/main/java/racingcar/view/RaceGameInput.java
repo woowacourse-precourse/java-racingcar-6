@@ -35,7 +35,9 @@ public record RaceGameInput(List<String> carNames, int round) {
 
   private static void isDistinct(String input) {
     String[] carNames = input.split(DELIMITER);
-    int distinctCount = (int) Stream.of(carNames).distinct().count();
+    int distinctCount = (int) Stream.of(carNames)
+        .distinct()
+        .count();
     if (distinctCount != carNames.length) {
       throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
     }
