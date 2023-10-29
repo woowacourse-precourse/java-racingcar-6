@@ -1,10 +1,6 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import static racingcar.constant.NumberConstant.CAN_FORWARD_NUMBER;
-import static racingcar.constant.NumberConstant.MAX_RANDOM_NUMBER;
-import static racingcar.constant.NumberConstant.MIN_RANDOM_NUMBER;
 
 public class Car {
     private final String name;
@@ -16,10 +12,11 @@ public class Car {
     }
 
     public void go() {
-        int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-        if (randomNumber >= CAN_FORWARD_NUMBER) {
-            position++;
-        }
+        position++;
+    }
+
+    public boolean canGo(int number) {
+        return number >= CAN_FORWARD_NUMBER;
     }
 
     public boolean isWinner(int winnerPosition) {
