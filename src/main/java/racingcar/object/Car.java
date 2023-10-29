@@ -2,6 +2,7 @@ package racingcar.object;
 
 public class Car {
     private String name;
+
     private String moveForward;
 
     public Car(String name, String moveForward) {

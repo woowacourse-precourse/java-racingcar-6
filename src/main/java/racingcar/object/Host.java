@@ -7,6 +7,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Host {
     private List<Car> cars = new ArrayList<>();
+
     private Integer attemptCount = 0;
 
     public void inputCars() {
