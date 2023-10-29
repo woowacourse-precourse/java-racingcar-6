@@ -1,17 +1,20 @@
 package racingcar.domain;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Winners {
 
-    private final List<String> winners;
+    private final List<Winner> winners;
 
-    public Winners(List<String> winnerList) {
+    public Winners(List<Winner> winnerList) {
         winners = winnerList;
     }
 
     public String makeWinnerList() {
-        return String.join(", ", winners);
+        return winners.stream()
+                .map(Winner::toString)
+                .collect(Collectors.joining(", "));
     }
 
 }

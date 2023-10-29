@@ -30,6 +30,10 @@ public class Car {
         carName.writeOnWinnerList(winnerList);
     }
 
+    public Winner recognizeAsWinner() {
+        return carName.registerAsWinner();
+    }
+
 
     @Override
     public String toString() {

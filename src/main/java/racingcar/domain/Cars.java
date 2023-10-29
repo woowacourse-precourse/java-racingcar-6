@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,14 +34,16 @@ public class Cars {
     }
 
     public Winners findWinner() {
-        List<String> winnerList = new ArrayList<>();
         int furthestDistance = findFurthestDistance();
-        for (Car car : cars) {
-            if (car.isFurthestDistance(furthestDistance)) {
-                car.registerOnWinnerList(winnerList);
-            }
-        }
+        List<Winner> winnerList = getWinnersByCheckDistance(furthestDistance);
         return new Winners(winnerList);
+    }
+
+    private List<Winner> getWinnersByCheckDistance(int furthestDistance) {
+        return cars.stream()
+                .filter(car -> car.isFurthestDistance(furthestDistance))
+                .map(car -> car.recognizeAsWinner())
+                .collect(Collectors.toList());
     }
 
     private int findFurthestDistance() {

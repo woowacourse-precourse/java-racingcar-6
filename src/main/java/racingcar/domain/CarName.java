@@ -28,6 +28,10 @@ public class CarName {
         return carName + " : ";
     }
 
+    public Winner registerAsWinner() {
+        return new Winner(carName);
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof CarName) {
