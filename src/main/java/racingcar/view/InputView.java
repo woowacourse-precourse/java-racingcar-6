@@ -10,4 +10,8 @@ public class InputView {
         String inputCarName = Console.readLine();
         return List.of(inputCarName.split(","));
     }
+    public Integer inputTryCount(){
+        System.out.println("시도할 회수는 몇회인가요?");
+        return Integer.valueOf(Console.readLine());
+    }
 }
