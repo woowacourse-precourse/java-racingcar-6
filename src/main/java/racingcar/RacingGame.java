@@ -10,14 +10,12 @@ public class RacingGame {
     StringBuilder sb;
 
     public RacingGame() {
-        sb = new StringBuilder();
-        sb.append("\n실행 결과\n");
-        
         retrieveCarList();
         retrieveCount();
+        sb = new StringBuilder();
+    }
 
-        carNameList = carList.getCarNameList();
-
+    public void startRacingGame() {
         for (int i=0; i<count; i++) {
             for (String carName : carNameList) {
                 checkMoving(carName);
@@ -32,6 +30,7 @@ public class RacingGame {
 
     private void retrieveCarList() {
         carList = new CarList();
+        carNameList = carList.getCarNameList();
     }
 
     private void retrieveCount() {
