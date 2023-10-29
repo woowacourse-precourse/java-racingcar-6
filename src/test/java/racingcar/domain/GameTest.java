@@ -18,14 +18,14 @@ class GameTest {
         List<Car> cars = List.of(new Car("foo"), new Car("bar"));
         Game game = new Game(cars);
 
-        try (MockedStatic<RandomNumber> randomNumber = mockStatic(RandomNumber.class)) {
-            given(RandomNumber.createRandomNumber()).willReturn(new RandomNumber(4));
+        MockedStatic<RandomNumber> randomNumber = mockStatic(RandomNumber.class);
+        given(RandomNumber.createRandomNumber()).willReturn(new RandomNumber(4));
 
-            List<CarDistanceMessage> carDistanceMessages = game.forwardCars();
-            List<String> messages = carDistanceMessages.stream().map(CarDistanceMessage::toString).toList();
+        List<CarDistanceMessage> carDistanceMessages = game.forwardCars();
+        List<String> messages = carDistanceMessages.stream().map(CarDistanceMessage::toString).toList();
 
-            assertThat(messages).contains("foo : -", "bar : -");
-        }
+        assertThat(messages).contains("foo : -", "bar : -");
+        randomNumber.close();
 
     }
 
