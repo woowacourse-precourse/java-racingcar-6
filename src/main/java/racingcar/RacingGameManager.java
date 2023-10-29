@@ -1,48 +1,32 @@
 package racingcar;
-
-import camp.nextstep.edu.missionutils.Console;
-
-import java.util.List;
 import java.util.stream.IntStream;
 
-import static racingcar.RacingGameController.createRacingCars;
+import static racingcar.service.RacingGameService.createRacingCars;
 
+import racingcar.controller.RacingGameController;
+import racingcar.service.RacingGameService;
 import racingcar.model.Cars;
 import racingcar.view.RacingGameView;
 public class RacingGameManager {
-    private final RacingGameView racingGameView = new RacingGameView();
+    private final RacingGameView view;
+    private final RacingGameService service;
+    private final RacingGameController controller;
+
     public RacingGameManager(){
-
+        this.view = new RacingGameView();
+        this.service = new RacingGameService();
+        this.controller = new RacingGameController();
     }
-
     public void play(){
-        Cars userCars = createCars();
-        Integer repeat = repeatCount();
-        racingGameView.printExecutionMessage();
-        IntStream.range(0, repeat).forEach(j -> {
+        view.printGameStartMessage();
+        Cars userCars = createRacingCars(controller.getInputCarNames());
+        view.printRepeatCountMessage();
+        view.printExecutionMessage();
+        IntStream.range(0, controller.getInputRepeatCount()).forEach(j -> {
             IntStream.range(0, userCars.getCarsLength()).mapToObj(i ->
-                    userCars.getCars().get(i)).forEach(RacingGameController::randomNumber);
-            displayGameProcessing(userCars);
+                    userCars.getCars().get(i)).forEach(service::randomNumber);
+            view.printGameProcessingMessage(userCars);
         });
-        displayGameResult(userCars);
-    }
-
-    public Cars createCars(){
-        racingGameView.printGameStartMessage();
-        return createRacingCars();
-    }
-
-    public Integer repeatCount(){
-        racingGameView.printRepeatCountMessage();
-        return Integer.parseInt(Console.readLine().trim());
-    }
-
-    public void displayGameProcessing(Cars cars){
-        racingGameView.printGameProcessingMessage(cars);
-    }
-
-    public void displayGameResult(Cars cars){
-        List<String> winners = RacingGameController.getWinner(cars);
-        racingGameView.printGameResultMessage(winners);
+        view.printGameResultMessage(service.getWinner(userCars));
     }
 }
