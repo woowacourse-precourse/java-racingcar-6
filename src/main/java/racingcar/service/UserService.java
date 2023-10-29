@@ -18,19 +18,20 @@ public class UserService {
         }
     }
 
-    private void validateMinTryNumber(String tryNumber){
-        if(Integer.parseInt(tryNumber) < NumberEnum.MIN_TRY_NUMBER.getNumber()){
+    private void validateMinTryNumber(String tryNumber) {
+        if (Integer.parseInt(tryNumber) < NumberEnum.MIN_TRY_NUMBER.getNumber()) {
             throw new IllegalArgumentException(MessageEnum.UNDER_MIN_TRY_NUMBER.getMessage());
         }
     }
 
-    private void validateInvalidInputNumber(String tryNumber){
-        if(Integer.parseInt(tryNumber) < NumberEnum.ZERO.getNumber()){
+    private void validateInvalidInputNumber(String tryNumber) {
+        if (Integer.parseInt(tryNumber) < NumberEnum.ZERO.getNumber()) {
             throw new IllegalArgumentException(MessageEnum.INVALID_INPUT_MESSAGE.getMessage());
         }
 
     }
-    private void validateAll(String tryNumber){
+
+    private void validateAll(String tryNumber) {
         validateInvalidInputNumber(tryNumber);
         validateMinTryNumber(tryNumber);
     }
