@@ -42,7 +42,7 @@ public class Validate {
         try {
             return Integer.parseInt(move);
         } catch(NumberFormatException exception) {
-            throw new IllegalArgumentException("Invalid input. Please enter a positive number.");
+            throw new IllegalArgumentException("시도할 횟수는 숫자여야 합니다.");
         }
     }
 }
