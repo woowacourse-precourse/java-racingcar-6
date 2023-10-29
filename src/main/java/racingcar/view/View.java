@@ -10,6 +10,13 @@ public class View {
         String namesOfCars  = Console.readLine();
 
         String[] splitNamesOfCars = namesOfCars.split(",");
+
+        for (String name : splitNamesOfCars) {
+            if (name.length()>5) {
+                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+            }
+        }
+
         return splitNamesOfCars;
     }
 
