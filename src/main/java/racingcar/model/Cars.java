@@ -2,7 +2,6 @@ package racingcar.model;
 
 import java.util.Comparator;
 import java.util.List;
-import racingcar.dto.CarState;
 import racingcar.dto.CarsState;
 import racingcar.validator.CarsValidator;
 
@@ -14,10 +13,7 @@ public class Cars {
     }
 
     public Cars(String inputCars) {
-        CarsValidator validator = CarsValidator.INSTANCE;
-        List<String> names = validator.validate(inputCars);
-
-        cars = toCars(names);
+        cars = toCars(CarsValidator.INSTANCE.validate(inputCars));
     }
 
     private List<Car> toCars(List<String> names) {
@@ -40,11 +36,9 @@ public class Cars {
     }
 
     public CarsState getCarsState() {
-        List<CarState> carsState = cars.stream()
+        return new CarsState(cars.stream()
                 .map(Car::getCarState)
-                .toList();
-
-        return new CarsState(carsState);
+                .toList());
     }
 
     public List<Car> findWinningCars() {

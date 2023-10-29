@@ -12,22 +12,22 @@ public enum NameValidator {
     }
 
     private void checkNameIsEmpty(String name) {
-        if (isEmpty(name)) {
+        if (isEmpty(name.length())) {
             throw new IllegalArgumentException(ExceptionMessage.EMPTY_NAME.message());
         }
     }
 
-    private boolean isEmpty(String name) {
-        return name.length() < NameConstants.LOW_BOUND.getValue();
+    private boolean isEmpty(int nameLength) {
+        return nameLength < NameConstants.LOW_BOUND.getValue();
     }
 
     private void checkNameCorrectRange(String name) {
-        if (isRangeOver(name)) {
+        if (isRangeOver(name.length())) {
             throw new IllegalArgumentException(ExceptionMessage.EXPLODE_NAME.message());
         }
     }
 
-    private boolean isRangeOver(String name) {
-        return name.length() > NameConstants.HIGH_BOUND.getValue();
+    private boolean isRangeOver(int nameLength) {
+        return nameLength > NameConstants.HIGH_BOUND.getValue();
     }
 }

@@ -13,7 +13,8 @@ public class Winners {
     private String createWinner(List<Car> winnersCar) {
         StringBuilder winners = new StringBuilder();
 
-        winnersCar.stream().map(Car::getNameValue)
+        winnersCar.stream()
+                .map(Car::getNameValue)
                 .forEach((name) -> addResult(winners, name));
         trim(winners);
 

@@ -9,6 +9,7 @@ public enum AttemptCountValidator {
 
     public AttemptCount validate(String input) {
         checkAttemptCountIsInteger(input);
+
         return createAttemptCount(input);
     }
 

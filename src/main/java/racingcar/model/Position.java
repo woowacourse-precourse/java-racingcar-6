@@ -25,8 +25,7 @@ public class Position {
     }
 
     private int makeRandomValue() {
-        return Randoms.pickNumberInRange(VALUE_LOW_BOUND.getValue(),
-                VALUE_HIGH_BOUND.getValue());
+        return Randoms.pickNumberInRange(VALUE_LOW_BOUND.getValue(), VALUE_HIGH_BOUND.getValue());
     }
 
     private boolean checkValueIsOverFour(int value) {

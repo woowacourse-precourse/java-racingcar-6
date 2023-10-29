@@ -12,7 +12,6 @@ public enum CarsValidator {
         List<String> names = Arrays.stream(splitNames(target))
                 .map(this::removeWhiteSpace)
                 .toList();
-
         checkHasDuplicates(names);
 
         return names;
@@ -28,7 +27,8 @@ public enum CarsValidator {
 
     private void checkHasDuplicates(List<String> names) {
         int uniqueSize = names.stream()
-                .distinct().toList().size();
+                .distinct()
+                .toList().size();
 
         if (isDuplicate(names.size(), uniqueSize)) {
             throw new IllegalArgumentException(ExceptionMessage.DUPLICATED_NAME.message());

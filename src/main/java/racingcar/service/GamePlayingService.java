@@ -14,8 +14,7 @@ public class GamePlayingService {
     }
 
     public AttemptCount createAttemptCount(String input) {
-        AttemptCountValidator validator = AttemptCountValidator.INSTANCE;
-        return validator.validate(input);
+        return AttemptCountValidator.INSTANCE.validate(input);
     }
 
     public CarsState tryForward(Cars cars) {
