@@ -4,8 +4,8 @@
 - [x] 0에서 9 사이에서 무작위 값을 생성하는 기능 NumberGenerator#creatRandomNumber
 - [x] n대의 자동차의 이름을 입력받는 기능(쉼표 기준으로 구분한다.) User#initCarList
   - [] 이름이 5자 이하인지 확인하는 기능(예외[])
-- [] 전진/ 멈춤을 판단하는 기능 User#decideMove
-    - [] 전진하는 기능 Car#moveGo
+- [x] 전진/ 멈춤을 판단하는 기능 User#decideMove
+    - [] 전진하는 기능 Car#moveGo boolean 으로 해서 go/stop을 판별하자
     - [] 멈추는 기능 Car#moveStop
 - [] 사용자가 몇번의 이동을 할 것인지 입력받는 기능(예외[])
 - [] 최종 우승자를 판정하는 기능 Judgement#compareCar
