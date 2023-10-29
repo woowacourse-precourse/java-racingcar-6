@@ -14,10 +14,11 @@ public class Play {
                 int randomNum = generator.generateRandomNum();
                 if (judgment.isGo(randomNum)){
                     c.distance += randomNum;
+                    for (int i = 0; i<randomNum; i++){
+                        len += "-";
+                    }
                 }
-                for (int i = 0; i<randomNum; i++){
-                    len += "-";
-                }
+
 
 
                 System.out.println(c.name+" : "+len);
