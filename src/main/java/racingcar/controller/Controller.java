@@ -5,6 +5,7 @@ import racingcar.dto.AttemptCount;
 import racingcar.dto.CurrentResult;
 import racingcar.dto.ResultMessage;
 import racingcar.model.Cars;
+import racingcar.validator.AttemptCountValidator;
 import racingcar.view.View;
 
 public class Controller {
@@ -35,7 +36,9 @@ public class Controller {
     }
 
     private int creatAttemptCount(String input) {
-        return new AttemptCount(input).getAttemptCount();
+        AttemptCountValidator validator = AttemptCountValidator.INSTANCE;
+        AttemptCount attemptCount = validator.validate(input);
+        return attemptCount.getAttemptCount();
     }
 
     private String readFromConsole() {

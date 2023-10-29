@@ -1,14 +1,9 @@
 package racingcar.dto;
 
-import racingcar.validator.AttemptCountValidator;
-
 public class AttemptCount {
     private final int attemptCount;
 
     public AttemptCount(String input) {
-        AttemptCountValidator validator = AttemptCountValidator.INSTANCE;
-        validator.validate(input);
-
         attemptCount = toInt(input);
     }
 
