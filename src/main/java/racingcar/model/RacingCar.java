@@ -1,6 +1,7 @@
 package racingcar.model;
 
 public class RacingCar {
+    private static final String PROGRESS_BAR = "-";
     private String name;
     private int distance;
 
@@ -21,6 +22,6 @@ public class RacingCar {
     }
 
     public String getDistanceAsBar() {
-        return "-".repeat(this.distance);
+        return PROGRESS_BAR.repeat(this.distance);
     }
 }
