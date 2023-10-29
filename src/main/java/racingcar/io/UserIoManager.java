@@ -2,6 +2,7 @@ package racingcar.io;
 
 import java.util.List;
 import racingcar.domain.car.Cars;
+import racingcar.domain.judge.WinnerCars;
 import racingcar.io.input.ConsoleReader;
 import racingcar.io.output.ConsoleWriter;
 
@@ -32,6 +33,10 @@ public class UserIoManager {
             this.isFirstMoveResultNotification = false;
         }
         consoleWriter.printMoveResult(cars);
+    }
+
+    public void notifyWinner(WinnerCars winnerCars) {
+        consoleWriter.printWinnerResult(winnerCars);
     }
 
 }

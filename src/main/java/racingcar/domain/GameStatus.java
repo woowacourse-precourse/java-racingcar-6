@@ -9,4 +9,8 @@ public enum GameStatus {
         return this == IN_PROGRESS;
     }
 
+    public boolean isEnd() {
+        return this == END;
+    }
+
 }

@@ -40,4 +40,8 @@ public class RacingGame {
         return this.cars;
     }
 
+    public boolean isEnd() {
+        return this.gameStatus.isEnd();
+    }
+
 }
