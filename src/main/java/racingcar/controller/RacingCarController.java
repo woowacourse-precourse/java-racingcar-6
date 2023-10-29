@@ -21,6 +21,6 @@ public class RacingCarController {
         }
 
         List<Car> winners = CarRace.calculatWinner(cars);
-
+        OutputView.printWinners(winners);
     }
 }

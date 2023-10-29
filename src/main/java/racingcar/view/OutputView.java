@@ -25,4 +25,12 @@ public class OutputView {
         }
         System.out.println();
     }
+
+    public static void printWinners(List<Car> winners) {
+        System.out.print(WINNERPRINTMESSAGE.getMessage());
+
+        List<String> winnerNames = winners.stream().map(Car::getName).toList();
+        System.out.println(String.join(", ",winnerNames));
+    }
+
 }
