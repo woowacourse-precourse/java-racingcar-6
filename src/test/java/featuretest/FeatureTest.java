@@ -46,6 +46,17 @@ public class FeatureTest {
     }
 
     @Test
+    void 자동차_이름_비어있는지_확인() {
+        String testCarName = "";
+        CarName carName = new CarName(testCarName);
+
+        boolean actualResult = carName.isCarNameEmpty();
+        boolean expectedResult = true;
+
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
+    @Test
     void 자동차_이름_입력받고_자동차리스트_객체에_저장() {
         String testInput = "car1,car2,car3";
         InputStream inputStream = new ByteArrayInputStream(testInput.getBytes());
