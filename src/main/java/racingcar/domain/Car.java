@@ -1,11 +1,11 @@
 package racingcar.domain;
 
 public class Car {
-    private final LicensePlate licensePlate;
+    private final String name;
     private int driveCount;
 
-    public Car(LicensePlate licensePlate) {
-        this.licensePlate = licensePlate;
+    public Car(String name) {
+        this.name = name;
         this.driveCount = 0;
     }
 
@@ -14,6 +14,6 @@ public class Car {
     }
 
     public CarStatus getStatus() {
-        return new CarStatus(licensePlate.getName(), driveCount);
+        return new CarStatus(name, driveCount);
     }
 }
