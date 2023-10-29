@@ -23,7 +23,7 @@ public class RacingGame implements GameInterface{
 
     @Override
     public void play() {
-        Cars cars = Cars.of(input.getCarInput());
+        Cars cars = getCars();
         int time = getTime();
         competing(time, cars);
         resulting(cars);
@@ -45,6 +45,10 @@ public class RacingGame implements GameInterface{
 
     private static boolean isCounting(int time) {
         return time > END_TIME;
+    }
+
+    private Cars getCars() {
+        return Cars.of(input.getCarInput());
     }
 
     private int getTime() {
