@@ -14,8 +14,11 @@ public class Car {
     private int position;
 
     public Car(String name) {
-        this.name = name;
+        isNotNull(name);
+        String trimName = trimName(name);
+        checkNameLength(trimName);
 
+        this.name = name;
     }
 
     public String getName() {
