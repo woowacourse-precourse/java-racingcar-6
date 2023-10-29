@@ -31,4 +31,12 @@ public class ValidatorTest {
                         validator.validateUserInputIsCorrectFormat(wrongInput));
         Assertions.assertEquals("이름이 너무 깁니다!",exception.getMessage());
     }
+    @Test
+    void 중복된_이름이_있으면_에러가_발생한다(){
+        String wrongInput = "pobby,crong,pobbi,pobby";
+        IllegalArgumentException exception =
+                Assertions.assertThrows(IllegalArgumentException.class,()->
+                        validator.validateUserInputIsCorrectFormat(wrongInput));
+        Assertions.assertEquals("중복된 이름이 있습니다!",exception.getMessage());
+    }
 }
