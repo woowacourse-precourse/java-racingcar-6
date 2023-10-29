@@ -80,6 +80,29 @@ class RacingServiceTest {
         );
     }
 
+    @ParameterizedTest
+    @MethodSource("전진횟수와_다수의_우승자_설정")
+    void 다수의_우승자_결정하기(List<String> carNames, List<Integer> forwardCounts, List<String> winners) {
+        // given
+        List<Car> savedCars = 경주차_저장하기(carNames);
+        for(int i = 0; i < savedCars.size(); i++) {
+            특정_횟수만큼_전진하기(savedCars.get(i), forwardCounts.get(i));
+        }
+
+        // when
+        WinnersDto winnersDto = racingService.findWinners();
+
+        // then
+        assertThat(winnersDto.getNames()).containsAll(winners);
+    }
+
+    static Stream<Arguments> 전진횟수와_다수의_우승자_설정() {
+        return Stream.of(
+            Arguments.arguments(List.of("jong", "meoru"), List.of(5, 5), List.of("jong", "meoru")),
+            Arguments.arguments(List.of("gari", "meoru", "zzol"), List.of(2, 2, 1), List.of("gari", "meoru"))
+        );
+    }
+
     private List<Car> 경주차_저장하기(List<String> carNames) {
         List<Car> savedCars = new ArrayList<>();
         for(String name: carNames) {
