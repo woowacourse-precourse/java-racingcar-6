@@ -16,11 +16,15 @@ public class Car {
         this.position = 0;
     }
 
-    public void move() {
+    public void go() {
         int randomNumber = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
         if (randomNumber >= CAN_FORWARD_NUMBER) {
             position++;
         }
+    }
+
+    public boolean isWinner(int winnerPosition) {
+        return this.position == winnerPosition;
     }
 
     public String getName() {

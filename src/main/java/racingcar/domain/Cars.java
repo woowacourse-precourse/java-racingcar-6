@@ -16,6 +16,28 @@ public class Cars {
         }
     }
 
+    public List<String> getWinner() {
+        List<String> winner = new ArrayList<>();
+        int winnerPosition = getWinnerPosition();
+
+        for (Car car : cars) {
+            if (car.isWinner(winnerPosition)) {
+                winner.add(car.getName());
+            }
+        }
+        return winner;
+    }
+
+    private int getWinnerPosition() {
+        int winnerPosition = 0;
+        for (Car car : cars) {
+            if (winnerPosition < car.getPosition()) {
+                winnerPosition = car.getPosition();
+            }
+        }
+        return winnerPosition;
+    }
+
     public List<Car> getCars() {
         return cars;
     }
