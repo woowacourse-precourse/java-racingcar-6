@@ -2,10 +2,11 @@ package racingcar.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import controller.CarFactory;
+import domain.CarFactory;
 import domain.Car;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.support.StubCarEngine;
 
 public class CarFactoryTest {
 
@@ -14,7 +15,7 @@ public class CarFactoryTest {
         // given
         final String 첫번째_차_이름 = "차_이름1";
         final String 두번째_차_이름 = "차_이름2";
-        final CarFactory carFactory = new CarFactory();
+        final CarFactory carFactory = new CarFactory(new StubCarEngine());
 
         // when
         final List<Car> cars = carFactory.generateCars(List.of(첫번째_차_이름, 두번째_차_이름));

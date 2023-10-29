@@ -1,12 +1,14 @@
 package controller;
 
+import domain.CarFactory;
 import domain.Race;
+import infra.RandomCarEngine;
 import java.util.List;
 import view.View;
 
 public class Controller {
 
-    private final CarFactory carFactory = new CarFactory();
+    private final CarFactory carFactory = new CarFactory(new RandomCarEngine());
 
     public void run() {
         final List<String> carNames = View.renderAndReadName();
