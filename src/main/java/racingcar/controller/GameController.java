@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import racingcar.domain.Car;
@@ -15,9 +14,8 @@ public class GameController {
     private static final int RANDOM_NUMBER_MIN = 0;
     private static final int RANDOM_NUMBER_MAX = 9;
 
-
-    private UserInput userInput = new UserInput();
-    private Output output = new Output();
+    private final UserInput userInput = new UserInput();
+    private final Output output = new Output();
 
     private List<Car> carList;
     private int gameCount;
@@ -48,27 +46,24 @@ public class GameController {
     }
 
     private void doStep() {
-        for (Car car : carList) {
-            //전진, 멈춤 판별
-            car.runOrStop(generateRandomNumber());
-        }
+        carList.forEach(car -> car.runOrStop(generateRandomNumber()));
     }
 
     //5) 최종 우승자 이름 리턴 함수
     private List<String> getWinnerName(List<Car> carList) {
         int winScore = getMaxScore(carList);
 
-        List<String> winner = new ArrayList<>();
-        for (int i = 0; i < carList.size(); i++) {
-            if (winScore == carList.get(i).getCount()) {
-                winner.add(carList.get(i).getCarName());
-            }
-        }
-        return winner;
+        return carList.stream()
+                .filter(car -> winScore == car.getCount())
+                .map(Car::getCarName)
+                .toList();
     }
 
     private int getMaxScore(List<Car> carList) {
-        return carList.stream().max(Comparator.comparing(Car::getCount)).get().getCount();
+        return carList.stream()
+                .max(Comparator.comparing(Car::getCount))
+                .get()
+                .getCount();
     }
 
     private int generateRandomNumber() {
