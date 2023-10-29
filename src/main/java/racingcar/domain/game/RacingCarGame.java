@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import racingcar.domain.car.Cars;
-import racingcar.dto.CarDto;
 import racingcar.utils.NumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -48,10 +47,12 @@ public class RacingCarGame {
     }
 
     private void raceByRoundNumber(int roundNumber, Cars cars) {
+        outputView.printResultMessage();
         for (int i = 0; i < roundNumber; i++) {
             List<Integer> numbers = generateNumbers(cars.size());
             Round round = generateRound(numbers, cars);
             round.race();
+            outputView.printRoundResult(round.getResult());
         }
     }
 

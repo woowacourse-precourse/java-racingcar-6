@@ -8,6 +8,7 @@ import racingcar.dto.CarDto;
 public class ConsoleOutputView implements OutputView{
     private static final String REQUEST_CAR_NAMES_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분";
     private static final String REQUEST_GAME_ROUND_MESSAGE = "시도할 회수는 몇회인가요?";
+    private static final String RESULT_MESSAGE = "실행 결과";
     private static final String ROUND_RESULT = "%s : %s";
     private static final String DISTANCE_SYMBOL = "-";
     private static final String NEW_LINE = "\n";
@@ -33,6 +34,11 @@ public class ConsoleOutputView implements OutputView{
     }
 
     @Override
+    public void printResultMessage() {
+        System.out.println(NEW_LINE + RESULT_MESSAGE);
+    }
+
+    @Override
     public void printRoundResult(List<CarDto> result) {
         for (int i = 0; i < result.size(); i++) {
             CarDto car = result.get(i);
@@ -40,6 +46,7 @@ public class ConsoleOutputView implements OutputView{
             String position = generatePositionWithSymbol(car.position());
             System.out.printf(ROUND_RESULT + NEW_LINE, name, position);
         }
+        System.out.println();
     }
 
     @Override
