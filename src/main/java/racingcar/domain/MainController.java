@@ -8,13 +8,18 @@ import racingcar.Validator;
 
 public class MainController {
 
+    CarGame carGame = new CarGame();
     public static int ATTEMPT_COUNT = 0;
     public static List<String> CARS;
 
     public void gameStart() {
         setInput();
-        System.out.println(ATTEMPT_COUNT);
-        System.out.println(CARS);
+        carGame.CarGame(CARS);
+
+        for (int i = ATTEMPT_COUNT; i >= 1; i--) {
+            //랜덤값 생성
+            //중간 결과 출력
+        }
     }
 
     private void setInput() {
