@@ -2,13 +2,8 @@ package study;
 
 import org.junit.jupiter.api.Test;
 import racingcar.util.Car;
-import racingcar.viewer.Output_Viewer;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CarTest {
     @Test

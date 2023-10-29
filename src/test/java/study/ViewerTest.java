@@ -1,6 +1,5 @@
 package study;
 
-import static camp.nextstep.edu.missionutils.Console.readLine;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
