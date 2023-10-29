@@ -7,7 +7,6 @@ import java.util.Collections;
 import java.util.List;
 import racingcar.controller.GameController;
 import racingcar.model.Car;
-import racingcar.view.OutputView;
 
 public class RacingGame {
 

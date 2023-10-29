@@ -1,7 +1,5 @@
 package racingcar.controller;
 
-import java.util.List;
-import racingcar.model.Car;
 import racingcar.service.RacingGame;
 import racingcar.view.InputView;
 import racingcar.service.Exception;

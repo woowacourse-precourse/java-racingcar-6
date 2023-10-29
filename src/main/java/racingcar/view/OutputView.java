@@ -1,8 +1,5 @@
 package racingcar.view;
 
-import java.util.List;
-import racingcar.model.Car;
-
 public class OutputView {
 
     public static void printRaceResultMessage() {
@@ -18,7 +15,7 @@ public class OutputView {
         System.out.println();
     }
 
-   public static void markRaceEnd() {
+    public static void markRaceEnd() {
         System.out.println();
     }
 
