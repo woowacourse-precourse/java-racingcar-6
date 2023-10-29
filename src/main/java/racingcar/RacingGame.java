@@ -26,6 +26,13 @@ public class RacingGame {
         targetAttempts = getTargetAttempts();
         validateTargetAttempts(targetAttempts);
 
+        run();
+    }
+
+    private void run() {
+        for (int attempts = 0; attempts < targetAttempts; attempts++) {
+            printProgress();
+        }
     }
 
     private List<Car> getCars(List<String> names) {
@@ -69,5 +76,20 @@ public class RacingGame {
         if (targetAttempts < MIN_TARGET_ATTEMPS) {
             throw new IllegalArgumentException("시도 횟수는 최소 " + MIN_TARGET_ATTEMPS + "이상이어야 합니다");
         }
+    }
+
+    private void printProgress() {
+        for (Car car : cars) {
+            printProgressOfCar(car);
+        }
+        System.out.println();
+    }
+
+    private void printProgressOfCar(Car car) {
+        System.out.print(car.getName() + " : ");
+        for (int count = 0; count < car.getMoveCount(); count++) {
+            System.out.print('-');
+        }
+        System.out.println();
     }
 }
