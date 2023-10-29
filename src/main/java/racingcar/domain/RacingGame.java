@@ -34,7 +34,17 @@ public class RacingGame {
 
     public void play(String input) {
 
+        int rounds = Integer.parseInt(input);
 
+        for (int round = 0; round < rounds; round++) {
+            for (Car car : cars) {
+                car.move();
+            }
+            for (Car car : cars) {
+                car.display();
+            }
+            System.out.println();
+        }
     }
 
 
