@@ -1,6 +1,6 @@
 package racingcar.domain.validator;
 
-import racingcar.domain.StringManipulator;
+import racingcar.util.StringManipulator;
 import racingcar.domain.validator.exception.CarNameException;
 
 import java.util.List;
