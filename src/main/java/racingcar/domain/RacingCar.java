@@ -1,8 +1,10 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class RacingCar {
     private final String username;
-    private final String currentLocation;
+    private String currentLocation;
 
     public RacingCar(String username) {
         this.username = username;
@@ -20,14 +22,16 @@ public class RacingCar {
     public String getCurrentLocation() {
         return currentLocation;
     }
-}
 
-/**
- * List<Integer> computer = new ArrayList<>();
- * while (computer.size() < 3) {
- * int randomNumber = Randoms.pickNumberInRange(0, 9);
- * if (!computer.contains(randomNumber)) {
- * computer.add(randomNumber);
- * }
- * }
- */
+    public int pickRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
+
+    public boolean isMoreThanFour(int pickNumber) {
+        return pickNumber >= 4;
+    }
+
+    public void moveForwardOneSpace(String go) {
+        this.currentLocation += go;
+    }
+}
