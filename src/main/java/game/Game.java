@@ -9,6 +9,7 @@ import java.util.List;
 
 import static constants.RacingCarConstants.NUMBER_OF_ATTEMPTS_MESSAGE;
 import static constants.RacingCarConstants.PARTICIPANTS_INPUT_MESSAGE;
+import static validate.InputValidation.validateNumericInput;
 
 public class Game {
 
@@ -53,6 +54,7 @@ public class Game {
     }
 
     private int stringToInt(String data) {
+        validateNumericInput(data);
         return Integer.parseInt(data);
     }
 
