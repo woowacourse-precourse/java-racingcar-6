@@ -10,9 +10,9 @@
 
 <type>(<scope>): <subject>
 
-<body>
+# <body>
 
-<footer>
+# <footer>
 
 
 # 아래는 커밋 컨벤션입니다.
