@@ -21,7 +21,9 @@ public class Car {
         }
     }
 
-    public String printResult(int round) {
-        return name + " : " + "-".repeat(movingLog.get(round));
+    public void moveOrNot(int randomNumber) {
+        if(randomNumber >= 4) {
+            meter++;
+        }
     }
 }

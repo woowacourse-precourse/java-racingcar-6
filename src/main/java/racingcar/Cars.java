@@ -1,8 +1,9 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Cars {
@@ -25,16 +26,16 @@ public class Cars {
         }
     }
 
-    public void play(int round) {
-        System.out.println();
+    public ArrayList<Car> getCars() {
+        return cars;
+    }
+
+    public Map<String, Integer> getResultOfRound() {
+        HashMap<String, Integer> result = new HashMap<>();
         for(Car car : cars) {
-            int number = Randoms.pickNumberInRange(0, 9);
-            if(number >= 4) {
-                car.meter++;
-            }
-            car.movingLog.put(round, car.meter);
-            System.out.println(car.printResult(round));
+            result.put(car.name, car.meter);
         }
+        return result;
     }
 
     public int findMaxScore() {
