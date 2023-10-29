@@ -20,7 +20,7 @@ public class InputValidator {
             Integer.parseInt(moveCount);
             return true;
         }catch(Exception e){
-            throw new IllegalArgumentException("Input Error: not numeric");
+            return false;
         }
     }
     // 유효성 검사: 이동 횟수가 1이상인지
