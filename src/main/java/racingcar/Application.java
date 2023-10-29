@@ -7,7 +7,7 @@ public class Application {
         // TODO: 프로그램 구현
 
         RacingController gameController = new RacingController();
-        gameController.setGame();
+        gameController.run();
 
     }
 }

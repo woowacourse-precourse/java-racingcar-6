@@ -1,52 +1,37 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.Car;
 import racingcar.domain.Game;
+import racingcar.service.CarService;
 import racingcar.service.GameService;
-import racingcar.utils.RandomUtils;
-import racingcar.validator.CarNameValidator;
-import racingcar.validator.RoundCountValidator;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 
 public class RacingController {
 
-    private Car[] car;
-    private Game game;
-    private List<String> carsName = new ArrayList<>();
-    private StringBuilder[] builder;
     private final GameService gameService = new GameService();
+    private final CarService carService = new CarService();
 
-
-    private int carCount;
-
-
-    public void setGame() {
+    public void run() {
         initGame();
         gameStart();
     }
 
     public void initGame() {
-        initInputCarName();
-        initGameRound();
+        initInputCarAndRound();
         initCar();
-        initStringBuilder();
+        initBuilder();
     }
 
-    public void initInputCarName() {
+    public void initInputCarAndRound() {
         String carName = inputCarName();
-        CarNameValidator carNameValidator = new CarNameValidator();
+        int carCount = this.carService.initInputCarName(carName);
 
-        for (String word : carName.split(",")) {
-            if(carNameValidator.validateInputCarName(word)) {
-                carsName.add(word);
-            }
-        }
-        carCount = carsName.size();
+        String inputRound = inputGameRound();
+        int round = this.gameService.initGameRound(inputRound);
+
+        this.gameService.initGame(carCount,round);
     }
 
     public String inputCarName() {
@@ -54,65 +39,31 @@ public class RacingController {
         return Console.readLine();
     }
 
-    public void initGameRound() {
-        String inputRound = inputGameRound();
-        game = gameService.initGameRound(inputRound, carCount);
-    }
-
-
     public String inputGameRound() {
         System.out.println("게임 횟수 입력: ");
         return Console.readLine();
     }
 
     public void initCar() {
-        int carsCount = game.getCarsCount();
-        car = new Car[carsCount];
-
-        for (int i=0; i<carsCount; i++) {
-            car[i] = new Car(carsName.get(i),0);
-        }
+        this.carService.initCar();
     }
 
-    public void initStringBuilder() {
-        builder = new StringBuilder[carCount];
-        for (int stringBuilderIndex = 0; stringBuilderIndex < carCount; stringBuilderIndex++) {
-            builder[stringBuilderIndex] = new StringBuilder(carsName.get(stringBuilderIndex)).append(" : ");
-        }
+    public void initBuilder() {
+        this.carService.initBuilder();
     }
 
     public void gameStart() {
-        int roundCount = game.getRoundCount();
+
+        int roundCount = this.gameService.setGameRound();
 
         for (int roundIndex = 0; roundIndex < roundCount; roundIndex++) {
-            updateCarPosition();
+            this.carService.updateCarPosition();
         }
         getWinner();
     }
 
-    public void updateCarPosition() {
-        for (int carIndex = 0; carIndex < carCount ; carIndex++) {
-            String position = RandomUtils.detarminPostionByRandomNumber();
-            if(car[carIndex].increasePosition(position)) {
-                stringBuilderToCarPosition(carIndex);
-            };
-        }
-        showGameStatus();
-    }
-
-    public void stringBuilderToCarPosition(int carIndex) {
-        builder[carIndex].append("-");
-    }
-
-    public void showGameStatus() {
-        for (int i = 0; i < carCount; i++) {
-            System.out.println(builder[i].toString());
-        }
-        System.out.println();
-    }
-
     public void getWinner() {
-        List<String> winner = this.gameService.getWinner(carCount, car);
+        List<String> winner = this.carService.getWinner();
         System.out.print("최종 우승자 : ");
         showWinner(winner);
     }
