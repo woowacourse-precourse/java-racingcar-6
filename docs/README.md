@@ -7,7 +7,7 @@
 #### Set the Entry List
 - [x] n대의 자동차 이름을 저장한다. - registering()
     - [x] 각각의 자동차 이름은 쉼표(,)를 통해 구분한다. - `.spiit(",")`
-    - [ ] 자동차 이름이 5자 이상이면 `IllegalArgumentException`
+    - [x] 자동차 이름이 5자 이상이면 `IllegalArgumentException`
 
 #### Laps
 - [ ] n대의 자동차가 몇 번의 이동을 할 것인지 입력한다. - setLaps()
