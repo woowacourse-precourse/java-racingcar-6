@@ -77,10 +77,6 @@ public class Application {
     public static int inputNumberOfRounds() {
         System.out.println("시도할 회수는 몇회인가요?");
         String inputNumberOfRoundsString = Console.readLine().trim();
-        return makeNumberOfRoundsInteger(inputNumberOfRoundsString);
-    }
-
-    private static int makeNumberOfRoundsInteger(String inputNumberOfRoundsString) {
         return verifyIfIsValidNumber(inputNumberOfRoundsString);
     }
 
@@ -98,7 +94,6 @@ public class Application {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("1 ~ 2147483647 사이의 유효한 숫자를 입력해 주세요.");
         }
-
     }
 
 
