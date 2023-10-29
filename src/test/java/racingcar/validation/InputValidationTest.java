@@ -158,4 +158,18 @@ class InputValidationTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(RANGE_MESSAGE);
     }
+
+    @Test
+    @DisplayName("시도할 횟수 입력에 대해 모든 검증을 하는 테스트")
+    void validateAttemptInputTest() {
+        // given
+        InputValidation inputValidation = new InputValidation();
+
+        // when
+        String input = "1";
+
+        // then
+        assertThatCode(() -> inputValidation.validateAttemptInput(input))
+                .doesNotThrowAnyException();
+    }
 }
