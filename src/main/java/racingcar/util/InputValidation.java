@@ -42,7 +42,7 @@ public class InputValidation {
     }
 
     public static void validateMoveCount(String input) throws IllegalArgumentException {
-        if (!input.matches("^[1-9]")) {
+        if (!input.matches("^[1-9]\\d*$")) {
             throw new IllegalArgumentException();
         }
         if (isEmpty(input)) {
