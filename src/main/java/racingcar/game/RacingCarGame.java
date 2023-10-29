@@ -1,6 +1,6 @@
 package racingcar.game;
 
-import racingcar.domain.Computer;
+import racingcar.domain.Racing;
 import racingcar.view.InputView;
 
 import java.util.List;
@@ -9,15 +9,15 @@ public class RacingCarGame {
 
     private static final int MINIMUM_MOVES_NUMBER = 1;
 
-    private final Computer computer;
+    private final Racing racing;
 
     public RacingCarGame() {
-        computer = new Computer();
+        racing = new Racing();
     }
 
     public void play() {
         List<String> carsName = InputView.enterCarsName();
-        computer.generateCars(carsName);
+        racing.generateCars(carsName);
 
         int movesNumber = InputView.enterMovesNumber();
         validateMovesNumber(movesNumber);

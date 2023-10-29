@@ -3,13 +3,13 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Computer {
+public class Racing {
 
     private static final int MAXIMUM_CAR_NAME_LENGTH = 5;
 
     private final List<Car> cars;
 
-    public Computer() {
+    public Racing() {
         cars = new ArrayList<>();
     }
 
