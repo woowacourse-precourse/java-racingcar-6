@@ -23,4 +23,23 @@ public class RacingController {
         outputView.printRoundNumMessage();
         return carList;
     }
+
+    public void game() {
+        ArrayList<String> carNameList = start();
+        int totalRoundNum = inputView.readRoundNum();
+
+        Round round = new Round();
+
+        for (String carName : carNameList) {
+            Car car = new Car(carName,0);
+            carList.add(car);
+        }
+        int numberOfCars = carList.size();
+
+        ArrayList<StringBuilder> carStringBuilders = outputView.makeStringBuilders(numberOfCars);
+        for(int i=0; i<carList.size(); i++) {
+            Car nowCar = carList.get(i);
+            outputView.appendDefaultString(i, nowCar.getName(), carStringBuilders);
+        }
+    }
 }
