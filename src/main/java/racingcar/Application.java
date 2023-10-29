@@ -18,6 +18,8 @@ class raceDecisionMaker {
     }
 }
 
+// 승자를 판단하는 클래스
+
 // 게임에 필요한 값들을 입력받는 클래스
 class gameMaker {
     List <String> carNames;
@@ -71,11 +73,17 @@ class Car {
         this.name = name;
         position = 0;
     }
+    void move(boolean go) {
+        if (go) {
+            position += 1;
+        }
+    }
 }
 
 class Game {
     List<Car> cars;
     int totalRounds;
+    raceDecisionMaker decision;
 
     Game(List<Car> cars, int totalRounds) {
         this.cars = cars;
@@ -84,8 +92,27 @@ class Game {
 
     void play() {
         for (int i = 0; i < totalRounds; ++i) {
-
+            driveCars();
+            printCars();
         }
+    }
+    void driveCars() {
+        for (Car car : cars) {
+            boolean go = decision.raceDecision();
+            car.move(go);
+        }
+    }
+    void printCars() {
+        for (Car car : cars) {
+            printCar(car);
+        }
+        System.out.print("\n");
+    }
+    // 해당 차의 이동현황을 출력
+    void printCar(Car car) {
+        String printString = car.name + " : ";
+        printString += "-".repeat(car.position);
+        System.out.println(printString);
     }
 
 }
@@ -94,5 +121,6 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         gameMaker maker = new gameMaker();
+
     }
 }
