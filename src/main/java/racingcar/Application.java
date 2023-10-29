@@ -11,9 +11,10 @@ public class Application {
         CarMovement carMovement = new CarMovement();
         ResultOutput resultOutput = new ResultOutput();
 
-        List<Object> racingData = userInput.inputRacingData();
-        List<boolean[]> moveResults = carMovement.getCarMoveCount(racingData);
-        resultOutput.getRacingResult(racingData, moveResults);
+        String[] carNames = userInput.getCarNames();
+        int tryNumber = userInput.getTryNumber();
+
+        List<Boolean> carMoveResult = carMovement.getCarMoveResult(carNames.length);
 
 
     }

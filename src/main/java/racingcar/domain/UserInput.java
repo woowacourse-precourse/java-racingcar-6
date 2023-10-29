@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserInput {
-    private String[] getCarNames() {
+    public String[] getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputCarNames = Console.readLine();
         String[] carNames = inputCarNames.split(",");
@@ -22,7 +22,7 @@ public class UserInput {
         return carNames;
     }
 
-    private int getTryNumber() {
+    public int getTryNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
         try {
             int tryNumber = Integer.parseInt(Console.readLine());
@@ -32,12 +32,4 @@ public class UserInput {
         }
     }
 
-    public List<Object> inputRacingData() {
-        List<Object> racingData = new ArrayList<>();
-        String[] carNames = getCarNames();
-        int tryNumber = getTryNumber();
-        racingData.add(carNames);
-        racingData.add(tryNumber);
-        return racingData;
-    }
 }
