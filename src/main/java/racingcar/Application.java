@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class Application {
@@ -33,9 +34,9 @@ public class Application {
         System.out.println(RESULT_MESSAGE);
 
         for (int i = 0; i < tryTime; i++) {
-            for (int j = 0; j < cars.length; j++) {
-                cars[j].forward(setForwardStep());
-                cars[j].printForwardState();
+            for (Car car : cars) {
+                car.forward(setForwardStep());
+                car.printForwardState();
             }
             System.out.println();
 
@@ -57,12 +58,9 @@ public class Application {
     }
 
     public static int findWinnerForward(Car[] cars) {
-        Arrays.sort(cars, (c1, c2) -> {
-            return Integer.compare(c1.getForwardCount(), c2.getForwardCount());
-        });
+        Arrays.sort(cars, Comparator.comparingInt(Car::getForwardCount));
 
-        int winnerForward = cars[cars.length-1].getForwardCount();
-        return winnerForward;
+        return cars[cars.length-1].getForwardCount();
     }
 
     public static List<String> makeWinnerList(Car[] cars) {
@@ -70,9 +68,9 @@ public class Application {
         int max = findWinnerForward(cars);
         List<String> winners = new ArrayList<>();
 
-        for (int i = 0; i < cars.length; i++) {
-            if (cars[i].getForwardCount() == max) {
-                winners.add(cars[i].getName());
+        for (Car car : cars) {
+            if (car.getForwardCount() == max) {
+                winners.add(car.getName());
             }
         }
         return winners;
