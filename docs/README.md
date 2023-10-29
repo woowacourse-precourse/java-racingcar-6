@@ -9,7 +9,7 @@
 
 
 - [x] **사용자가 입력한 이동 횟수만큼 경주를 반복한다.** -`Racing #racingMoveCount`
-  - [x] 한 번 이동할 때마다 각 자동차의 이동횟수를 출력한다.
+  - [x] **한 번 이동할 때마다 각 자동차의 이동횟수를 출력한다.** -`Racing #printRacingCar`
   - [x] **경주를 진행하는 자동차 개수만큼 반복한다.** -`Car #racingCarCount`
     - [x] **0에서 9까지의 숫자 중 무작위 값을 구한다.** -`Car #getRandomNumber`
     - [x] **만약 무작위 값이 4 이상이라면 해당 자동차에 1을 더한다.** -`Car #goControlStatement`
