@@ -9,15 +9,15 @@ public class Name {
     private final String name;
 
     public Name(String name) {
-        validateName(name);
+        validate(name);
         this.name = name;
     }
 
-    private void validateName(String name) {
-        validateNameLength(name);
+    private void validate(String name) {
+        validateLength(name);
     }
 
-    private void validateNameLength(String name) {
+    private void validateLength(String name) {
         if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(NAME_LENGTH_EXCEPTION_MESSAGE);
         }
