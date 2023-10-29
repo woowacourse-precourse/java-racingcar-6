@@ -14,7 +14,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 public class FunctionTest {
     private static final Car VALID_CAR = new Car("a");
     private static final RacingCarGameConsole VALID_RACINGCARGAMECONSOLE
-            = new RacingCarGameConsole(VALID_CAR, 1);
+            = new RacingCarGameConsole(VALID_CAR, 2);
 
     @Test
     void Car_생성자로_주어진_값을_구분() {
@@ -70,6 +70,18 @@ public class FunctionTest {
         String output = VALID_RACINGCARGAMECONSOLE.carMovement(3);
 
         assertThat(output).isEqualTo(expected);
+    }
+
+    @Test
+    void 승자를_출력() {
+        Car car = new Car("a,b,c");
+        RacingCarGameConsole racingCarGameConsole = new RacingCarGameConsole(car, 5);
+        racingCarGameConsole.race();
+        OutputView outputView = new OutputView(car);
+
+        String result = outputView.result();
+
+        assertThat(result).containsAnyOf("a", "b", "c").contains("최종 우승자 :");
     }
 
 }
