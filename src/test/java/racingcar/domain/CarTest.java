@@ -204,4 +204,17 @@ class CarTest {
         });
     }
 
+    @Test
+    void checkInputStringLastLetterContainsCommas_입력값_마지막글자_쉼표_테스트() {
+        final String cars = "포비1,포비2,";
+        T.setStringCarList(cars);
+
+        //then
+        assertThrows(IllegalArgumentException.class, () -> {
+            //when
+            T.checkInputStringLastLetterContainsCommas();
+        });
+    }
+
+
 }
