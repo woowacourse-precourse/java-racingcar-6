@@ -14,6 +14,7 @@ import static racingcar.PrintUtil.*;
 public class Carracing {
 
     public static Map<String, String> raceScore;
+
     public static void startRacing() {
 
         InputSettingValue();
@@ -21,7 +22,7 @@ public class Carracing {
         printResultMsg();
 
         setInitStartPoint(carNameList);
-        for(int i=0; i<movingCount; i++) {
+        for (int i = 0; i < movingCount; i++) {
             goStop(raceScore);
         }
         chooseWinner(raceScore);
@@ -29,7 +30,7 @@ public class Carracing {
 
     public static void goStop(Map<String, String> raceScore) {
 
-        for(int i=0; i<carNameList.length; i++){
+        for (int i = 0; i < carNameList.length; i++) {
             int randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE_NUMBER, FINAL_INCLUSIVE_NUMBER);
 
             if (randomNumber >= STANDARD_MOVING_NUMBER) {
@@ -43,7 +44,7 @@ public class Carracing {
 
         raceScore = new LinkedHashMap<>();
 
-        for(int i=0; i<carNameList.length; i++) {
+        for (int i = 0; i < carNameList.length; i++) {
             raceScore.put(carNameList[i], "");
         }
 
@@ -53,7 +54,7 @@ public class Carracing {
     public static void chooseWinner(Map<String, String> raceScore) {
         List<String> winner = new ArrayList<>(raceScore.keySet());
 
-        winner.sort((o1,o2) -> raceScore.get(o2).compareTo(raceScore.get(o1)));
+        winner.sort((o1, o2) -> raceScore.get(o2).compareTo(raceScore.get(o1)));
 
         printWinnerMsg(raceScore, winner);
     }

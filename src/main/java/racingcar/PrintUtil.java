@@ -30,8 +30,8 @@ public class PrintUtil {
 
         String winnerScore = raceScore.get(winner.get(0));
         System.out.print(winner.get(0));
-        for(int i=1; i<winner.size(); i++) {
-            if(winnerScore.equals(raceScore.get(winner.get(i)))) {
+        for (int i = 1; i < winner.size(); i++) {
+            if (winnerScore.equals(raceScore.get(winner.get(i)))) {
                 System.out.print(", ");
                 System.out.print(winner.get(i));
             }
