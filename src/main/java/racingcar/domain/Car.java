@@ -1,7 +1,10 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Car {
-    private String carName;
+    private final String carName;
     private int position;
 
     public Car(String carName, int position) {
@@ -9,17 +12,12 @@ public class Car {
         this.position = position;
     }
 
-    public void increasePosition(String position) {
+    public boolean increasePosition(String position) {
         if(position.equals("STRAIGHT")) {
             this.position++;
+            return true;
         }
+        return false;
     }
 
-    public String getCarName() {
-        return carName;
-    }
-
-    public int getPosition() {
-        return position;
-    }
 }

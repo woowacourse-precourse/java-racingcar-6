@@ -9,6 +9,9 @@ import racingcar.validator.RoundCountValidator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 public class GameController {
@@ -16,16 +19,21 @@ public class GameController {
     private Game game;
     private Car[] car;
     private List<String> carsName = new ArrayList<>();
+    private int carCount;
+    private StringBuilder[] builder;
 
+
+    public void setGame() {
+        initGame();
+        gameStart();
+    }
 
     public void initGame() {
         initInputCarName();
         initGameRound();
         initCar();
-        gameStart();
+        initStringBuilder();
     }
-
-
 
     public void initInputCarName() {
         String carName = inputCarName();
@@ -36,6 +44,7 @@ public class GameController {
                 carsName.add(word);
             }
         }
+        carCount = carsName.size();
     }
 
     public String inputCarName() {
@@ -48,7 +57,7 @@ public class GameController {
         String inputRound = inputGameRound();
         if(roundCountValidator.validateInputGameRound(inputRound)) {
             int round = Integer.parseInt(inputRound);
-            game = new Game(carsName.size(), round);
+            game = new Game(carCount, round);
         }
     }
 
@@ -66,20 +75,33 @@ public class GameController {
         }
     }
 
-    public void gameStart() {
-        int roundCount = game.getRoundCount();
-        int carCount = carsName.size();
-        
-        for (int roundIndex = 0; roundIndex <roundCount ; roundIndex++) {
-            updateCarPosition(carCount);
+    public void initStringBuilder() {
+        builder = new StringBuilder[carCount];
+        for (int stringBuilderIndex = 0; stringBuilderIndex < carCount; stringBuilderIndex++) {
+            builder[stringBuilderIndex] = new StringBuilder(carsName.get(stringBuilderIndex)).append(" : ");
         }
     }
 
-    public void updateCarPosition(int carCount) {
-        for (int carIndex = 0; carIndex < carCount ; carIndex++) {
-            String position = RandomUtils.detarminPostionByRandomNumber();
-            car[carIndex].increasePosition(position);
+    public void gameStart() {
+        int roundCount = game.getRoundCount();
+
+        for (int roundIndex = 0; roundIndex < roundCount; roundIndex++) {
+            updateCarPosition();
         }
+    }
+
+    public void updateCarPosition() {
+        for (int carIndex = 0; carIndex < carCount; carIndex++) {
+            String position = RandomUtils.detarminPostionByRandomNumber();
+            if (car[carIndex].increasePosition(position)) {
+                stringBuilderToCarPosition(carIndex);
+            }
+            ;
+        }
+    }
+
+    public void stringBuilderToCarPosition(int carIndex) {
+        builder[carIndex].append("-");
     }
 
 
