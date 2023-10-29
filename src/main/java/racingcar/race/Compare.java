@@ -1,5 +1,6 @@
 package racingcar.race;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Compare {
@@ -21,5 +22,15 @@ public class Compare {
             }
         }
         return count;
+    }
+    public List<Integer> findMaxIndex(List<Integer> position) {
+        int max = saveMaxPosition(position);
+        List<Integer> index = new ArrayList<>();
+        for (int i = 0; i < position.size(); i++) {
+            if (position.get(i) == max) {
+                index.add(i);
+            }
+        }
+        return index;
     }
 }
