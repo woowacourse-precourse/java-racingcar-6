@@ -8,6 +8,7 @@ import racingcar.model.Car;
 import racingcar.validator.CarValidator;
 import racingcar.validator.InputValidator;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class CarGame {
     private InputView inputView;
@@ -20,6 +21,7 @@ public class CarGame {
         String inputCarName = getCarNamesInput();
         List<Car> carList = getCarList(splitCarNames(inputCarName));
         String inputTryNumber = getTryNumberInput();
+        getCarsScoreList(inputTryNumber, carList);
     }
 
     private String getCarNamesInput() {
@@ -72,6 +74,24 @@ public class CarGame {
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return getTryNumberInput();
+        }
+    }
+
+    private void getCarMove(int moveCount) {
+        for (int i = 0; i < moveCount; i++) {
+            OutputView.printMove();
+        }
+    }
+
+    private void getCarsScoreList(String inputTryNumber, List<Car> carList) {
+        for (int i = 0; i < Integer.parseInt(inputTryNumber); i++) {
+            OutputView.printResultMessage();
+            for (Car car: carList) {
+                OutputView.printCarName(car.getName());
+                getCarMove(car.getMoveCount());
+                OutputView.printNewLine();
+            }
+            OutputView.printNewLine();
         }
     }
 }
