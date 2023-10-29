@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Application {
@@ -28,16 +29,16 @@ public class Application {
 
     public static void findCarListError(String[] carList) {
         Set<String> uniqueCar = new HashSet<>();
-        for (int i = 0; i < carList.length; i++) {
-            if (carList[i].length() > 5 || carList[i] == "" || !uniqueCar.add(carList[i])) {
+        for (String s : carList) {
+            if (s.length() > 5 || s.equals("") || !uniqueCar.add(s)) {
                 throw new IllegalArgumentException();
             }
         }
     }
 
-    public static String findinputCarError() {
+    public static String findInputCarError() {
         String inputCar = Console.readLine();
-        if (inputCar == "" || inputCar.contains(" ")) {
+        if (Objects.equals(inputCar, "") || inputCar.contains(" ")) {
             throw new IllegalArgumentException();
         }
         if (!inputCar.contains(",") || inputCar.matches(",*")) {
@@ -49,7 +50,7 @@ public class Application {
 
     public static String[] makeCarList() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String inputCar = findinputCarError();
+        String inputCar = findInputCarError();
 
         String[] carList = inputCar.split(",");
         findCarListError(carList);

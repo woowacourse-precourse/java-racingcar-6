@@ -10,7 +10,7 @@ public class RacingGame {
     private static int[] gameResultCount;
     private static int carListLength;
     private static int winCount;
-    private static ArrayList<String> winningCarList = new ArrayList<>();
+    private static final ArrayList<String> winningCarList = new ArrayList<>();
 
     public static void printWinningCar() {
         System.out.print("최종 우승자 : ");
