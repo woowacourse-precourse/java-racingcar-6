@@ -8,6 +8,7 @@ import racingcar.model.RaceManager;
 import racingcar.view.View;
 import racingcar.view.constant.Prompt;
 import racingcar.view.constant.Result;
+import racingcar.view.constant.Winner;
 
 public class Game {
 
@@ -26,6 +27,7 @@ public class Game {
         startRace(cars, numberOfMove);
 
         List<String> winnerList = RaceManager.decideWinner(cars);
+        View.printMessage(Winner.announcement(winnerList));
     }
 
     private static void startRace(List<Car> cars, int numberOfMove) {
@@ -33,7 +35,7 @@ public class Game {
             List<MoveResultDto> moveResultDtos = cars.stream()
                     .map(Car::move)
                     .toList();
-            View.printMessage(new Result(moveResultDtos));
+            View.printMessage(Result.announcement(moveResultDtos));
         }
     }
 }

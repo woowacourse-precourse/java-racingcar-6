@@ -5,14 +5,14 @@ public enum Prompt implements Message {
     NUMBER_OF_MOVE_INPUT("시도할 회수는 몇회인가요?"),
     RACE_RESULT("\n실행 결과");
 
-    private final String message;
+    private final String prompt;
 
-    Prompt(String message) {
-        this.message = message;
+    Prompt(String prompt) {
+        this.prompt = prompt;
     }
 
     @Override
     public String getMessage() {
-        return this.message;
+        return prompt;
     }
 }

@@ -1,16 +1,21 @@
 package racingcar.view.constant;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.dto.MoveResultDto;
 
 public class Result implements Message {
 
-    private final String message;
+    private final String result;
 
-    public Result(List<MoveResultDto> moveResultDtos) {
-        message = moveResultDtos.stream()
+    private Result(List<MoveResultDto> moveResultDtos) {
+        result = moveResultDtos.stream()
                 .map(this::createResult)
-                .toString();
+                .collect(Collectors.joining());
+    }
+
+    public static Result announcement(List<MoveResultDto> moveResultDtos) {
+        return new Result(moveResultDtos);
     }
 
     private String createResult(MoveResultDto moveResultDto) {
@@ -20,6 +25,6 @@ public class Result implements Message {
 
     @Override
     public String getMessage() {
-        return this.message;
+        return result;
     }
 }
