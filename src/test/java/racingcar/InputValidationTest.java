@@ -16,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class InputValidationTest {
     private InputValidation inputValidation;
+
     @BeforeEach
     void setUp() {
         inputValidation = new InputValidation();
@@ -38,6 +39,13 @@ class InputValidationTest {
     @Test
     void 자동차_이름_중복에_대한_예외_처리() {
         assertThatThrownBy(() -> inputValidation.validateDuplicateName(new String[]{"pobi", "pobi", "jun"}))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0, 101, 77775555})
+    void 이동_횟수에_대한_예외_처리(int count) {
+        assertThatThrownBy(() -> inputValidation.validateMoveCountRange(count))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
