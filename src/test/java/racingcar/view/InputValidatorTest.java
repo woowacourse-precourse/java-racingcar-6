@@ -41,4 +41,15 @@ class InputValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @DisplayName("음수 시도 횟수 값으로 인해 예외가 발생한다.")
+    @Test
+    void checkPositiveValue() {
+        //given
+        final int value = -1;
+
+        //when & then
+        assertThatThrownBy(() -> InputValidator.checkPositiveValue(value))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
 }
