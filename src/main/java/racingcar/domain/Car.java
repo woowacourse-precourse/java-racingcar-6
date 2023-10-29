@@ -18,4 +18,10 @@ public class Car {
     public int getCount() {
         return count;
     }
+
+    public void move(int random) {
+        if (random >= RANDOM_VALUE_LIMIT) {
+            count++;
+        }
+    }
 }

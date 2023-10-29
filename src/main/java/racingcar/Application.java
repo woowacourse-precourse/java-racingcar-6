@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.Race;
 
 public class Application {
 
@@ -12,5 +13,9 @@ public class Application {
         int attemptCount = Integer.parseInt(Console.readLine());
         System.out.println();
 
+        Race race = new Race(carNames, attemptCount);
+
+        System.out.println("실행 결과");
+        race.racing();
     }
 }

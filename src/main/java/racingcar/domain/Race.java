@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +15,13 @@ public class Race {
         validate(carNames);
         addToCarList(carNames);
         this.attemptCount = attemptCount;
+    }
+
+    public void racing() {
+        for (int i = 0; i < attemptCount; i++) {
+            round();
+            System.out.println();
+        }
     }
 
     private static void validate(String carNames) {
@@ -37,4 +46,23 @@ public class Race {
             carList.add(new Car(carName));
         }
     }
+
+    private void round() {
+        for (Car car : carList) {
+            int random = Randoms.pickNumberInRange(0, 9);
+            car.move(random);
+        }
+        printRaceResultByRound();
+    }
+
+    private void printRaceResultByRound() {
+        for (Car car : carList) {
+            System.out.print(car.getName() + " : ");
+            for (int i = 0; i < car.getCount(); i++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+    }
+
 }
