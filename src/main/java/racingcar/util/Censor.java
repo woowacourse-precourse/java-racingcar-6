@@ -14,11 +14,17 @@ public class Censor {
     private final TypeTransducer typeTransducer = new TypeTransducer();
 
     public void checkInputForNickname(String input) {
-        checkValidInput(input);
+        checkComma(input);
         List<String> playerList = typeTransducer.strToList(input);
         checkLength(playerList);
         checkUniqueValue(playerList);
         checkSpace(playerList);
+    }
+
+    private void checkComma(String input) {
+        if (input.endsWith(",")) {
+            throw new IllegalArgumentException(NICKNAME_SPACE_ERROR.getContent());
+        }
     }
 
     private void checkLength(List<String> playerList) {
@@ -44,9 +50,4 @@ public class Censor {
             throw new IllegalArgumentException(NICKNAME_SPACE_ERROR.getContent());
         }
     }
-
-    private void checkValidInput(String input) {
-        // TODO: 사용자가 콤마(,)만 입력하거나 닉네임 뒤에 콤마(,)로 끝나는 경우 예외처리
-    }
-
 }
