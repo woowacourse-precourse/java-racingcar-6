@@ -37,7 +37,7 @@
 * 자동차 전진 기능 구현 ❌
 * 랜덤한 숫자 생성 기능 구현 ❌
 * 이동 후 실행 결과 출력 ❌
-* 생성자로 Information class name 초기화 ❌
+* 생성자로 Information class name 초기화 ✅
 
 ### Information
 클래스 변수 : String name, long destination
