@@ -21,6 +21,15 @@ class InputViewTest extends NsTest {
         Assertions.assertThat(inputView.getCarNames())
                 .isEqualTo(answer);
     }
+
+    @Test
+    @DisplayName("유저에게 입력받은 시도 횟수가 잘 들어오는지 테스트한다.")
+    void readAttempts() {
+        super.run("4");
+        Assertions.assertThat(inputView.getAttempts())
+                .isEqualTo(4);
+    }
+
     @Override
     protected void runMain() {
 
