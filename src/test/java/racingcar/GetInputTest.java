@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class GetInputTest {
-    String mockInput = "alpha,bravo,charlie\n5";
+    String mockInput = "alpha,bravo,charm\n5";
     private final InputStream inOriginal = System.in;
 
     @BeforeEach
@@ -31,7 +31,7 @@ public class GetInputTest {
         String machineNames = machines.getInput();
         String lapNumber = raceLap.getInput();
 
-        assertThat(machineNames).isEqualTo("alpha,bravo,charlie");
+        assertThat(machineNames).isEqualTo("alpha,bravo,charm");
         assertThat(lapNumber).isEqualTo("5");
     }
 }

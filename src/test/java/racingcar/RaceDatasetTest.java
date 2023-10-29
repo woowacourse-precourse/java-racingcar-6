@@ -12,7 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class RaceDatasetTest {
-    String mockInput = "alpha,bravo,charlie\n5";
+    String mockInput = "alpha,bravo,charm\n5";
     private final InputStream inOriginal = System.in;
 
     @BeforeEach
@@ -35,7 +35,7 @@ public class RaceDatasetTest {
 
         LinkedHashMap<String, Integer> testMap = paceComputer.createDefaultPaceMap(machines);
 
-        assertThat(testMap.keySet()).containsExactly("alpha", "bravo", "charlie");
+        assertThat(testMap.keySet()).containsExactly("alpha", "bravo", "charm");
         assertThat(testMap.values()).containsExactly(0, 0, 0);
     }
 
