@@ -16,15 +16,10 @@ public class Player {
     public void getCarNames() {
         System.out.println(ASK_CAR_NAME);
         String names = Console.readLine();
-        try {
             cars = splitString(names);
             for (int i = 0; i < cars.length; i++) {
                 checkNames(cars[i]);
             }
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
-
     }
 
     public String[] splitString(String str) {
@@ -34,11 +29,7 @@ public class Player {
     public void getRounds() {
         System.out.println(GET_ROUNDS);
         String tmp = Console.readLine();
-        try {
-            checkRounds(tmp);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
+        checkRounds(tmp);
     }
 
     public void checkNames(String name) throws IllegalArgumentException {
