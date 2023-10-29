@@ -1,13 +1,11 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.PositionConstant;
 import racingcar.dto.ForwardState;
 
 public class Position {
     private int position;
-    private static final int FORWARD_THRESHOLD = 4;
-    public static final int VALUE_LOW_BOUND = 0;
-    public static final int VALUE_HIGH_BOUND = 9;
 
     public Position() {
         position = 0;
@@ -24,11 +22,12 @@ public class Position {
     }
 
     private int makeRandomValue() {
-        return Randoms.pickNumberInRange(VALUE_LOW_BOUND, VALUE_HIGH_BOUND);
+        return Randoms.pickNumberInRange(PositionConstant.VALUE_LOW_BOUND.getValue(),
+                PositionConstant.VALUE_HIGH_BOUND.getValue());
     }
 
     private boolean checkValueIsOverFour(int value) {
-        return value >= FORWARD_THRESHOLD;
+        return value >= PositionConstant.FORWARD_THRESHOLD.getValue();
     }
 
     private void moveForward() {
