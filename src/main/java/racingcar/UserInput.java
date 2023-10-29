@@ -28,6 +28,8 @@ public class UserInput {
             if(name.length() > 5) {
                 throw new IllegalArgumentException();
             }
+            carNames.set(i, name);
+
 
         }
     }

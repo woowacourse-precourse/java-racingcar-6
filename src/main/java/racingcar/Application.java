@@ -13,8 +13,7 @@ public class Application {
 
         UserInput userInput = new UserInput();
         userInput.receiveUserInput();
-//        RacingCarGame.play(userInput.carNames, userInput.tries);
-        List<Integer> distance = new ArrayList<>();
+        RacingCarGame.play(userInput.carNames, userInput.tries);
 
     }
 
