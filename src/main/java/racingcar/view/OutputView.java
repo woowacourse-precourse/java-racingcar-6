@@ -1,5 +1,8 @@
 package racingcar.view;
 
+import java.util.List;
+import racingcar.domain.Car;
+
 public class OutputView {
 
     private OutputView() {
@@ -13,22 +16,24 @@ public class OutputView {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public static void printResult(){
+    public static void printResult() {
         System.out.println("실행 결과");
     }
 
-    public static void printCarsMove(String name, int postion){
+    public static void printCarsMove(String name, int postion) {
         StringBuilder carString = new StringBuilder();
         carString.append(name);
-        carString.append(":");
+        carString.append(" : ");
         for (int i = 0; i < postion; i++) {
-            carString.append(" -");
+            carString.append("-");
         }
         System.out.println(carString);
     }
 
 
-    public static void printWinner(String s) {
-        System.out.println("최종 우승자 :" +" "+s);
+    public static void printFindWinner(String winners) {
+        System.out.println("최종 우승자 :" + " " + winners);
     }
+
+
 }
