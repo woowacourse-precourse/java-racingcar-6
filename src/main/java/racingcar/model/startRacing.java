@@ -34,5 +34,36 @@ public class startRacing {
         System.out.println();
     }
 
+    public Integer whoIsWinner(HashMap<String, Integer> carNameHashMap) {
+        int maxValue = 0;
+        for (Map.Entry<String, Integer> entry : carNameHashMap.entrySet()) {
+            int value = entry.getValue();
+            if (value > maxValue) {
+                maxValue = value;
+            }
+        }
+        return maxValue;
+    }
 
+    public List<String> isAJointWinner(HashMap<String, Integer> carNameHashMap) {
+        int winnerPoint = whoIsWinner(carNameHashMap);
+        List<String> maxKey = new ArrayList<>();
+
+        for (Map.Entry<String, Integer> entry : carNameHashMap.entrySet()) {
+            int value = entry.getValue();
+            if (value == winnerPoint) {
+                maxKey.add(entry.getKey());
+            }
+        }
+        return maxKey;
+    }
+
+    public String realWinner(HashMap<String, Integer> carNameHashMap) {
+        List<String> maxKey = isAJointWinner(carNameHashMap);
+        String winner = "";
+        if (!maxKey.isEmpty()) {
+            winner = String.join(", ", maxKey);
+        }
+        return winner;
+    }
 }
