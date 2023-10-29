@@ -1,8 +1,8 @@
 package racingcar.controller;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import racingcar.domain.Car;
 import racingcar.domain.Vehicle;
@@ -18,20 +18,31 @@ public class RacingGameController {
     private Integer attemptNumber;
 
     public RacingGameController() {
+        registeredCars = new LinkedList<>();
         initGame();
     }
 
     public void initGame() {
-        registeredCars = makeCarList();
+        makeCarList();
         attemptNumber = Integer.parseInt(InputView.inputAttemptNumber());
     }
 
-    private List<Vehicle> makeCarList() {
+    public void startGame() {
+        do {
+            doAdvanceOrStop();
+        } while (attemptNumber > ATTEMPT_END_NUMBER);
+    }
+
+    private void makeCarList() {
+        int listIndex = 0;
         String carNames = InputView.inputCarNames();
-        return Arrays.stream(carNames.split(","))
+        String[] carNameArray = Arrays.stream(carNames.split(","))
                 .map(carName -> carName.trim())
-                .map(carName -> new Car(carName))
-                .collect(Collectors.toList());
+                .toArray(String[]::new);
+
+        for(String carName: carNameArray) {
+            registeredCars.add(new Car(carName, listIndex++));
+        }
     }
 
     public void isAdvanceOrStop() {
