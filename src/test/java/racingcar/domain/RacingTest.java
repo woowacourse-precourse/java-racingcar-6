@@ -1,15 +1,21 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.MockedStatic;
+import org.mockito.MockedStatic.Verification;
+import org.mockito.Mockito;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.anyInt;
 
 @DisplayName("Racing 도메인 테스트")
 class RacingTest {
@@ -46,14 +52,47 @@ class RacingTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {-1, 0})
-    void 이동_횟수_검증(int inputMovesNumber) throws Exception {
+    @ValueSource(ints = {4, 9})
+    void 자동차_전진(int randomNumber) {
         // given
         Racing racing = new Racing();
+        racing.generateCars(List.of("Car A"));
 
-        // when & then
-        assertThatThrownBy(() -> racing.updateMovesNumber(inputMovesNumber))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("이동 횟수는 1회 이상이어야 합니다.");
+        // when
+        Executable executable = randomNumberMockTest(randomNumber, () -> {
+            racing.runRace();
+            List<Car> cars = racing.getCars();
+            assertThat(cars.get(0).getForwardStep()).isEqualTo(1);
+        });
+
+        // then
+        Assertions.assertDoesNotThrow(executable);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0})
+    void 자동차_정지(int randomNumber) {
+        // given
+        Racing racing = new Racing();
+        racing.generateCars(List.of("Car A"));
+
+        // when
+        Executable executable = randomNumberMockTest(randomNumber, () -> {
+            racing.runRace();
+            List<Car> cars = racing.getCars();
+            assertThat(cars.get(0).getForwardStep()).isEqualTo(0);
+        });
+
+        // then
+        Assertions.assertDoesNotThrow(executable);
+    }
+
+    private Executable randomNumberMockTest(int randomNumber, Executable executable) {
+        return () -> {
+            try (MockedStatic<Randoms> mockRandoms = Mockito.mockStatic(Randoms.class)) {
+                Verification verification = () -> Randoms.pickNumberInRange(anyInt(), anyInt());
+                mockRandoms.when(verification).thenReturn(randomNumber);
+            }
+        };
     }
 }
