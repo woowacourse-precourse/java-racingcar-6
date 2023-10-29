@@ -11,11 +11,10 @@ public class RacingCarController {
         carRacing.addCar(InputView.promptForCarNames());
 
         OutView.printNumberOfAttempts();
-        int NumberOfMatches = InputView.promptNumberOfAttempts();
+        carRacing.addNumberOfRace(InputView.promptNumberOfAttempts());
 
-        for (int i = 0; i <= NumberOfMatches; i++) {
-            OutView.printRaceResults(carRacing.progress());
-        }
+        OutView.printResults();
+        OutView.printRaceResults(carRacing.start());
 
         OutView.printFinalWinner(carRacing.getWinner());
 

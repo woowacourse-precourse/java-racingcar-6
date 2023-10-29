@@ -3,6 +3,7 @@ package racingcar.view;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.dto.CarDto;
+import racingcar.dto.RaceConditionDto;
 
 public class OutView {
 
@@ -16,11 +17,11 @@ public class OutView {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public static void printRaceResults(List<CarDto> carDtoList) {
-        for(CarDto carDto : carDtoList){
-            System.out.printf("%s : %s \n", carDto.name(), DEFAULT_TRAVEL_LENGTH.repeat(carDto.travelDistance()));
+    public static void printRaceResults(RaceConditionDto raceConditionDto) {
+        List<List<CarDto>> lists = raceConditionDto.raceCondition();
+        for(List<CarDto> carDtoList : lists){
+            printCarDtoList(carDtoList);
         }
-        System.out.println();
     }
 
     public static void printFinalWinner(List<CarDto> carDtoList){
@@ -32,5 +33,12 @@ public class OutView {
 
     public static void printResults() {
         System.out.println("실행 결과");
+    }
+
+    private static void printCarDtoList(List<CarDto> carDtoList) {
+        for(CarDto carDto : carDtoList){
+            System.out.printf("%s : %s \n", carDto.name(), DEFAULT_TRAVEL_LENGTH.repeat(carDto.travelDistance()));
+        }
+        System.out.println();
     }
 }

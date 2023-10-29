@@ -1,10 +1,12 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.Racing;
 import racingcar.domain.car.Car;
 import racingcar.dto.CarDto;
+import racingcar.dto.RaceConditionDto;
 
 public class CarRacingImp implements CarRacing{
     private Racing racing;
@@ -22,9 +24,12 @@ public class CarRacingImp implements CarRacing{
     }
 
     @Override
-    public List<CarDto> progress() {
-        racing.start();
-        return racing.getAllCarDistances();
+    public RaceConditionDto start() {
+        List<List<CarDto>> raceCondition = new ArrayList<>();
+        for (int i = 0; i < numberOfRace; i++) {
+            raceCondition.add(progress());
+        }
+        return new RaceConditionDto(raceCondition);
     }
 
     @Override
@@ -40,6 +45,11 @@ public class CarRacingImp implements CarRacing{
 
     private void initializeRace(List<Car> cars){
         this.racing = new Racing(cars);
+    }
+
+    private List<CarDto> progress() {
+        racing.start();
+        return racing.getAllCarDistances();
     }
 
 }
