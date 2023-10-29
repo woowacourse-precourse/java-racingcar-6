@@ -29,7 +29,10 @@ public class InputView {
         Messages.GAME_TURN_INPUT_ANNOUNCEMENT.print();
         String input = readLine();
         try {
-            return Long.parseLong(input);
+            Long inputNum = Long.parseLong(input);
+            if (inputNum <= 0)
+                throw new IllegalArgumentException(Messages.ILLEGAL_NUMBER_RANGE_ANNOUNCEMENT.getMessage());
+            return inputNum;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(Messages.ILLEGAL_NUMBER_ANNOUNCEMENT.getMessage());
         }

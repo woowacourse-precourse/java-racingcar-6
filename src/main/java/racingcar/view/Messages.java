@@ -9,7 +9,8 @@ public enum Messages {
     GAME_RESULT_ANNOUNCEMENT("실행 결과\n"),
     WINNER_ANNOUNCEMENT("최종 우승자 : "),
     ILLEGAL_NAME_ANNOUNCEMENT("이름 형식이 잘못되었습니다\n"),
-    ILLEGAL_NUMBER_ANNOUNCEMENT("숫자 형식이 아닙니다\n");
+    ILLEGAL_NUMBER_ANNOUNCEMENT("숫자 형식이 아닙니다\n"),
+    ILLEGAL_NUMBER_RANGE_ANNOUNCEMENT("0이상의 수를 입력해주세요\n");
 
 
     
