@@ -4,9 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.constant.StringError;
 import racingcar.domain.Car;
-import racingcar.domain.Validator;
 import racingcar.view.UserInput;
 import racingcar.view.UserOutput;
 
@@ -48,11 +46,7 @@ public class RacingGame {
         String[] carNames = input.split(",");
 
         for (String name : carNames) {
-            if (Validator.isValidCarName(name)) {
-                throw new IllegalArgumentException(StringError.CAR_NAME_TOO_LONG);
-            }
-            Car car = new Car(name);
-            cars.add(car);
+            cars.add(new Car(name));
         }
     }
 

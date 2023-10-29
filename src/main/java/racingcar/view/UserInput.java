@@ -16,6 +16,10 @@ public class UserInput {
         if (Validator.isEmpty(carNames)) {
             throw new IllegalArgumentException(StringError.REQUIRED_CAR_NAME);
         }
+        if (Validator.isValidCarName(carNames)) {
+            throw new IllegalArgumentException(StringError.CAR_NAME_TOO_LONG);
+        }
+
         return carNames;
     }
 
