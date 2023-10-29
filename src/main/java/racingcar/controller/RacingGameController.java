@@ -10,6 +10,7 @@ import racingcar.vo.Car;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class RacingGameController {
     private final MoveStrategy moveStrategy;
@@ -25,34 +26,42 @@ public class RacingGameController {
         this.winnerService = winnerService;
     }
 
-    public void racingGame() {
-        List<Car> racingCars = new ArrayList<>();
-
+    public void runRacingGame() {
         String carNameUserInput = InputView.askCarNames();
-        String triesCountUserInput = InputView.askTriesCount();
-
         List<String> carNames = carNameValidator.validateAndGetCarNames(carNameUserInput);
+        String triesCountUserInput = InputView.askTriesCount();
         int triesCount = triesCountValidator.validateAndGetTriesCount(triesCountUserInput);
+        List<Car> racingCars = initializeRacingCars(carNames, triesCount);
+        displayCarMovements(triesCount, racingCars);
+        displayWinners(racingCars);
+    }
 
+    private List<Car> initializeRacingCars(List<String> carNames, int triesCount) {
+        List<Car> racingCars = new ArrayList<>();
         for (String carName : carNames) {
             List<Boolean> movementFlags = moveStrategy.createMovementFlags(triesCount);
             racingCars.add(new Car(carName, movementFlags));
         }
+        return racingCars;
+    }
 
+    private void displayCarMovements(int triesCount, List<Car> racingCars) {
         OutputView.printNewLine();
         OutputView.printResultMessage();
+        IntStream.range(0, triesCount)
+                .forEach(moveIndex -> executeOneMove(racingCars));
+    }
 
-        // 메서드로 만들어서 stream 처리
-        for (int completeMoves = 0; completeMoves < triesCount; completeMoves++) {
-            for (Car car : racingCars) {
-                car.incrementMoveCount();
-                OutputView.printMovements(car);
-            }
-            OutputView.printNewLine();
+    private static void executeOneMove(List<Car> racingCars) {
+        for (Car car : racingCars) {
+            car.incrementMoveCount();
+            OutputView.printMovements(car);
         }
+        OutputView.printNewLine();
+    }
 
+    private void displayWinners(List<Car> racingCars) {
         List<Car> winners = winnerService.findWinners(racingCars);
         OutputView.printWinners(winners); //winner 객체로 뺄 지 고민 해보기
     }
-
 }

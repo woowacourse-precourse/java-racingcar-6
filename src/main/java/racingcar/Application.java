@@ -11,7 +11,7 @@ import racingcar.validator.TriesCountValidator;
 public class Application {
     public static void main(String[] args) {
         RacingGameController racingGameController = initializeGameController();
-        racingGameController.racingGame();
+        racingGameController.runRacingGame();
     }
 
     private static RacingGameController initializeGameController() {

@@ -53,7 +53,6 @@ public class CarNameValidator {
     }
 
     private List<String> splitCarNames(String userInput){
-        userInput = removeWhiteSpace(userInput);
         return List.of(userInput.split(CAR_NAME_SEPARATOR.getValue()));
     }
 
