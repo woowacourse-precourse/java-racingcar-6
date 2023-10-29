@@ -26,6 +26,9 @@ public class Application {
 
         System.out.println(NumberTryAlert);
         int number = Integer.parseInt(readLine());
+
+        InitalcarSetting(carNames);
+        playGame(number);
     }
 
     private void CarNameValidate(String[] carNames){
@@ -40,6 +43,19 @@ public class Application {
         carStatus = new HashMap<>();
         for(String carName : carNames){
             carStatus.put(carName,"");
+        }
+    }
+    private void playGame(int number){
+        for(int i =0; i<number; i++){
+            MoveCar();
+        }
+    }
+    private void MoveCar(){
+        for(String carName: carStatus.keySet()){
+            int rand = Randoms.pickNumberInRange(0,9);
+            if(rand>=4){
+               carStatus.put(carName,carStatus.get(carName)+"-");
+            }
         }
     }
 }
