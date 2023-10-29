@@ -22,7 +22,7 @@ public class OutputView {
         carString.append(name);
         carString.append(":");
         for (int i = 0; i < postion; i++) {
-            carString.append(" - ");
+            carString.append(" -");
         }
         System.out.println(carString);
     }
