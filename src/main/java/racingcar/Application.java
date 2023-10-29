@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.Map;
 
@@ -13,15 +14,31 @@ public class Application {
 
     public static void main(String[] args) {
 
-        startRacing();
         inputCarNames();
-        inputTryCount();
+        createCar();
+        inputCarNames();
+        startRacing();
     }
 
     public static void startRacing() {
 
-        inputCarNames();
-        createCar();
+        for (int i = 0; i < tryCount ; i++) {
+
+            checkRandomNumberAndUpdateCarScore();
+
+        }
+    }
+
+    public static void checkRandomNumberAndUpdateCarScore() {
+
+        for (String carName : carNameList) {
+
+            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            if (randomNumber >= 4) {
+                Car car = carInfo.get(carName);
+                car.plusScore();
+            }
+        }
     }
 
     public static void inputCarNames() {
@@ -57,5 +74,4 @@ public class Application {
 
         tryCount = Integer.parseInt(Console.readLine());
     }
-
 }
