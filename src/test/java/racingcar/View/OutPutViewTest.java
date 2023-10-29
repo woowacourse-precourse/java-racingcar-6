@@ -17,10 +17,10 @@ class OutPutViewTest {
     @DisplayName("라운드 결과 출력 테스트")
     void showRoundResultTest() {
         //given
-        List<String> carList = List.of("car1", "cae2", "car3");
+        List<String> carList = List.of("car1", "car2", "car3");
         String expectedOutput = "car1 : \n"
-                + "cae2 : \n"
-                + "car3 : ";
+                + "car2 : \n"
+                + "car3 :";
         PrintStream standardOut = System.out;
         ByteArrayOutputStream captor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(captor));
