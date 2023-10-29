@@ -27,6 +27,10 @@ public class Application {
             if (carName.isBlank()) {
                 throw new IllegalArgumentException("이름을 입력해주세요.");
             }
+
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException("이름은 공백 포함 5자 이하여야 합니다.");
+            }
         }
     }
 }
