@@ -28,4 +28,11 @@ public class CarTest {
 
         assertThat(carObj.getCarName()).doesNotContainAnyWhitespaces();
     }
+
+    @Test
+    void 랜덤수_정상적인지_확인() {
+        Car carObj = new Car("vega");
+
+        assertThat(carObj.getRandomNumber()).isBetween(0, 9);
+    }
 }
