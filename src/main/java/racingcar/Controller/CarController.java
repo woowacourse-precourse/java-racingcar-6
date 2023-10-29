@@ -1,17 +1,21 @@
 package racingcar.Controller;
 
+import java.util.ArrayList;
 import racingcar.Model.CarModel;
 
 public class CarController {
 
-    private final CarModel car;
+    ArrayList<CarModel> carModelList;
 
-    public CarController(CarModel car) {
+    public void setCarModels(String[] carList){
 
-        this.car = car;
+        for(String carName : carList){
+
+            carModelList.add(new CarModel(carName));
+        }
     }
 
-    public void goFoward(){
+    public void goFoward(CarModel car){
 
         car.goForwardDistance();
     }
