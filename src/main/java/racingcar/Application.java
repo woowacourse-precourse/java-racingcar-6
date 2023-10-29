@@ -32,6 +32,15 @@ public class Application {
 			data[i] = new PlayerInfo(st.nextToken(), 0);
 			i++;
 		}
+		run();
+	}
+	
+	public void run() {
+		for (int i=0; i<tryNumber; i++) move();
+	}
+	
+	public void move() {
+		
 	}
     public static void main(String[] args) {
     	Application game = new Application();
