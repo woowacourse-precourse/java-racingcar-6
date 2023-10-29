@@ -2,6 +2,7 @@ package racingcar.view;
 
 import static racingcar.view.ConsoleInputValidator.validateCarNames;
 import static racingcar.view.ConsoleInputValidator.validateInputString;
+import static racingcar.view.ConsoleInputValidator.validatePlayNumber;
 
 import java.util.Arrays;
 import java.util.List;
@@ -29,6 +30,16 @@ public class ConsoleInput {
 
         return carNames;
 
+    }
+
+    public static int inputPlayNumber() {
+        String inputString = readValidLine();
+        validateInputString(inputString);
+
+        int inputNumber = Integer.parseInt(inputString);
+        validatePlayNumber(inputNumber);
+
+        return inputNumber;
     }
 
     private static List<String> convertStringToCarNameList(String inputString) {

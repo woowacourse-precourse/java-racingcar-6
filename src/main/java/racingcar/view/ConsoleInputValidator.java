@@ -56,4 +56,21 @@ public class ConsoleInputValidator {
             throw ILLEGAL_ARGUMENT_EXCEPTION;
         }
     }
+
+    public static void validatePlayNumber(int inputNumber) {
+        validatePlayNumberNotZero(inputNumber);
+        validatePlayNumberNotNegative(inputNumber);
+    }
+
+    private static void validatePlayNumberNotZero(int playNumber) {
+        if (playNumber == 0) {
+            throw ILLEGAL_ARGUMENT_EXCEPTION;
+        }
+    }
+
+    private static void validatePlayNumberNotNegative(int playNumber) {
+        if (playNumber < 0) {
+            throw ILLEGAL_ARGUMENT_EXCEPTION;
+        }
+    }
 }
