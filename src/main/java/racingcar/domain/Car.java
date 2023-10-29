@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import racingcar.dto.CarDto;
 import racingcar.resource.CarGameValue;
 import racingcar.util.RandomUtil;
 
@@ -24,5 +25,9 @@ public class Car {
                 CarGameValue.CAR_MOVE_MAX_NUMBER.getValue()
         );
         return randomNumber >= CarGameValue.CAR_MOVE_MORE_THAN_NUMBER.getValue();
+    }
+
+    public CarDto toDto() {
+        return new CarDto(this.name, this.position);
     }
 }

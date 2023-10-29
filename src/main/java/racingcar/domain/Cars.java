@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.dto.CarDto;
+import racingcar.dto.CarsDto;
 import racingcar.validation.CarNameValidator;
 import racingcar.validation.StringValidator;
 
@@ -19,5 +21,13 @@ public class Cars {
         StringValidator.stringIsBlank(carNameStrings);
         CarNameValidator carNameValidator = new CarNameValidator(carNameStrings);
         return new Cars(carNameValidator.validate());
+    }
+
+    public CarsDto toDto() {
+        List<CarDto> carDtos = new ArrayList<>();
+        for (Car car : this.cars) {
+            carDtos.add(car.toDto());
+        }
+        return new CarsDto(carDtos);
     }
 }
