@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -11,6 +12,8 @@ public class OutputView {
     private static final String TRIAL_INPUT_GUIDE = "시도할 회수는 몇회인가요?";
     private static final String RESULT_GUIDE = "실행 결과";
     private static final String HYPHEN = "-";
+    private static final String WINNERS_GUIDE = "최종 우승자";
+    private static final String COMMA_DELIMITER = ", ";
 
     public void printNamesGuide() {
         System.out.println(NAMES_INPUT_GUIDE);
@@ -35,6 +38,14 @@ public class OutputView {
 
     private String replaceTo(final int position) {
         return HYPHEN.repeat(position);
+    }
+
+    public void printWinnersName(List<String> winnersName) {
+        System.out.println(String.join(" : ", WINNERS_GUIDE, divideByComma(winnersName)));
+    }
+
+    private String divideByComma(List<String> winnersName) {
+        return String.join(COMMA_DELIMITER, winnersName);
     }
 
 }
