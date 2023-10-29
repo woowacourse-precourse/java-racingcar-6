@@ -21,4 +21,15 @@ class CarTest {
         Assertions.assertThat(car.getDistance()).isEqualTo(0);
     }
 
+    @ParameterizedTest
+    @ValueSource(ints = {4,5,6,7,8,9})
+    void 랜덤변수_4이상(int randNum){
+        // when
+        car.move(randNum);
+
+        // then
+        Assertions.assertThat(car.getDistance()).isEqualTo(1);
+    }
+
+
 }
