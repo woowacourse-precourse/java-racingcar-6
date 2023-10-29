@@ -4,10 +4,12 @@ import static racingcar.view.InitialInputs.readCarNames;
 import static racingcar.view.InitialInputs.readExcecutionNumber;
 import static racingcar.view.RacingProcess.showOneRound;
 import static racingcar.view.RacingProcess.showText;
+import static racingcar.view.Winners.showWinners;
 
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.service.JudgeResult;
 
 public class GameManager {
     private List<Car> cars = new ArrayList<>();
@@ -16,6 +18,7 @@ public class GameManager {
     public GameManager() {
         set();
         play();
+        result();
     }
 
     private void set() {
@@ -36,5 +39,9 @@ public class GameManager {
         for (Car car : cars) {
             car.updateDistance();
         }
+    }
+
+    private void result() {
+        showWinners(JudgeResult.getWinners(cars));
     }
 }
