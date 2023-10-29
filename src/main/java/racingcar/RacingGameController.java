@@ -1,8 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.exception.IllegalNameEmptyException;
-import racingcar.exception.IllegalNameLengthException;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 
@@ -13,36 +11,24 @@ import java.util.Objects;
 
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
+import racingcar.validator.InputValidator;
 
 public class RacingGameController {
     private static final Integer RANDOM_START = 0;
-    private static final Integer LIMIT_NAME_LENGTH = 5;
     private static final Integer RANDOM_END = 9;
     private static final Integer RANDOM_BOUNDARY = 4;
     public static Cars createRacingCars() {
-        String[] carNames = Console.readLine().trim().split(",");
-        validateCarNamesIsEmpty(carNames);
-        List<Car> cars = Arrays.stream(carNames)
+        String[] carNamesList = Console.readLine().trim().split(",");
+        InputValidator.validateCarNamesIsEmpty(carNamesList);
+        List<Car> cars = Arrays.stream(carNamesList)
                 .map((carName)->{
-                    validateNameLength(carName);
+                    InputValidator.validateNameLength(carName);
                     return new Car(carName);
                 })
                 .toList();
 
         return new Cars(cars);
     }
-    private static void validateNameLength(String carName) {
-        if (carName.length() > LIMIT_NAME_LENGTH) {
-            throw new IllegalNameLengthException();
-        }
-    }
-
-    private static void validateCarNamesIsEmpty(String[] carNames) {
-        if (carNames.length == 0) {
-            throw new IllegalNameEmptyException();
-        }
-    }
-
     public static List<String> getWinner(Cars cars) {
         Integer maxPosition = getMaxPosition(cars);
         List<String> returnCarList=new ArrayList<>();
