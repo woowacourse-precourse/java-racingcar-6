@@ -1,4 +1,4 @@
 package racingcar.domain.dto;
 
-public record WinnerDto(String Name) {
+public record WinnerDto(String name) {
 }
