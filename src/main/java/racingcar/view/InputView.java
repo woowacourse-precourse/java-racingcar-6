@@ -14,8 +14,8 @@ public class InputView {
         try {
             String carNamesRawData = Console.readLine();
 
-            validateNull(carNamesRawData);
-            validateBlank(carNamesRawData);
+            validateNull(carNamesRawData, ErrorMessage.CAR_NAME_INPUT_EXCEPTION.getMessage());
+            validateBlank(carNamesRawData, ErrorMessage.CAR_NAME_INPUT_EXCEPTION.getMessage());
 
             String[] splitCarNamesByComma = carNamesRawData.split(DELIMITER);
             return carNamesArrToList(splitCarNamesByComma);
@@ -24,15 +24,15 @@ public class InputView {
         }
     }
 
-    private void validateNull(String data) {
+    private void validateNull(String data, String errorMessage) {
         if (data == null) {
-            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_INPUT_EXCEPTION.getMessage());
+            throw new IllegalArgumentException(errorMessage);
         }
     }
 
-    private void validateBlank(String data) {
+    private void validateBlank(String data, String errorMessage) {
         if (data.isBlank()) {
-            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_INPUT_EXCEPTION.getMessage());
+            throw new IllegalArgumentException(errorMessage);
         }
     }
 
