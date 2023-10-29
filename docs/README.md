@@ -1,9 +1,9 @@
 # 기능 구현 목록
 [x] 자동차는 전진 또는 멈출 수 있다. - Car#move()
 [x] 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다. - Car#showCarPosition()
-[ ] 자동차에 부여할 이름을 입력받는다. - Judgement#getNamesFromUser()
-[ ] 입력받은 자동차 이름들을 분할한다. - Judgement#separateCarNames()
-[ ] 자동차에 부여할 이름이 유효한지 확인한다. - Judgement#checkNameIsValid()
+[x] 자동차에 부여할 이름을 입력받는다. - Judgement#getNamesFromUser()
+[x] 입력받은 자동차 이름들을 분할한다. - Judgement#separateCarNames()
+[x] 자동차에 부여할 이름이 유효한지 확인한다. - Judgement#checkNameIsValid()
 [ ] 자동차 경주를 시도할 횟수를 입력받는다. - Judgement#getPlayCountFromUser();
 [ ] 자동차 경주를 시도할 횟수가 유요한지 확인하다. -Judgement#checkPalyCount();
 [ ] 우승자를 출력한다. - Judgement# printWinners()
