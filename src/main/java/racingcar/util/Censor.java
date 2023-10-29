@@ -4,6 +4,7 @@ import static racingcar.util.constant.GameRule.MAX_NICKNAME_LENGTH;
 import static racingcar.util.messageContent.ExceptionMessageContent.NICKNAME_LENGTH_ERROR;
 import static racingcar.util.messageContent.ExceptionMessageContent.NICKNAME_SPACE_ERROR;
 import static racingcar.util.messageContent.ExceptionMessageContent.NICKNAME_UNIQUE_ERROR;
+import static racingcar.util.messageContent.ExceptionMessageContent.NOT_INTEGER_ERROR;
 
 import java.util.HashSet;
 import java.util.List;
@@ -21,7 +22,8 @@ public class Censor {
     }
 
     public void checkInputForGameTime(String input) {
-        // TODO: 시도한 회수를 검증하는 로직 수행
+        commonValid(input);
+        checkInteger(input);
     }
 
     private void commonValid(String input) {
@@ -50,6 +52,13 @@ public class Censor {
         Set<String> uniqueNicknames = new HashSet<>(playerList);
         if (uniqueNicknames.size() != playerList.size()) {
             throw new IllegalArgumentException(NICKNAME_UNIQUE_ERROR.getContent());
+        }
+    }
+
+    private void checkInteger(String input) {
+        boolean integerNumber = input.matches("-?\\d+");
+        if (!integerNumber) {
+            throw new IllegalArgumentException(NOT_INTEGER_ERROR.getContent());
         }
     }
 }
