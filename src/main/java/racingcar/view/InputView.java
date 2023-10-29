@@ -4,15 +4,21 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
 
+    private final InputValidator inputValidator;
+
+    private InputView(final InputValidator inputValidator) {
+        this.inputValidator = inputValidator;
+    }
+
     public String readRacingCarName() {
         String input = Console.readLine();
-        InputValidator.validateDelimiter(input);
+        inputValidator.validateDelimiter(input);
         return input;
     }
 
     public String readRepeatCount() {
         String input = Console.readLine();
-        InputValidator.validateNumber(input);
+        inputValidator.validateNumber(input);
         return input;
     }
 }
