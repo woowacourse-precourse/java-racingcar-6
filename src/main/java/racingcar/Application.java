@@ -21,17 +21,21 @@ public class Application {
         race.racingCarInit(cars);
         System.out.println("시도할 회수는 몇회인가요?");
         int gameCount = Integer.parseInt(in.readLine());
+        System.out.println();
         System.out.println("실행 결과");
         race.raceStart(gameCount);
+        System.out.println(racingCars);
         int max = racingCarsMaxValue();
         String winners = whoWinner(max);
         System.out.println("최종 우승자 : " + winners);
     }
-    public static void racingCarNameCheck(String[] cars){
-        for(int i=0; i<cars.length; i++){
-            if(cars[i].length() > 5) throw new IllegalArgumentException("자동차의 이름은 5자 이하로 입력해주세요");
+
+    public static void racingCarNameCheck(String[] cars) {
+        for (int i = 0; i < cars.length; i++) {
+            if (cars[i].length() > 5) throw new IllegalArgumentException("자동차의 이름은 5자 이하로 입력해주세요");
         }
     }
+
     public static String whoWinner(int max) {
         ArrayList<String> resRacing = new ArrayList<>();
         String winners = "";
@@ -51,9 +55,5 @@ public class Application {
             max = Math.max(max, car.getValue());
         }
         return max;
-    }
-
-    public static int moveCountInit() {
-        return Randoms.pickNumberInRange(0, 9);
     }
 }

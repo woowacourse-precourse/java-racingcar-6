@@ -22,9 +22,13 @@ public class Race {
         while (gameCount-- > 0) {
             for (Map.Entry<String, Integer> car : this.racingCars.entrySet()) {
                 int moveCount = moveCountInit();
+
                 String move = concatMove("-", moveCount);
                 System.out.println(String.format("%s : %s", car.getKey(), move));
-                car.setValue(car.getValue() + moveCount);
+                if (moveCount >= 4) {
+                    car.setValue(car.getValue() + moveCount);
+                }
+
             }
             System.out.println();
         }
