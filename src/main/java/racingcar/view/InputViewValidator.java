@@ -5,12 +5,12 @@ import java.util.Set;
 
 public class InputViewValidator {
 
-    private static final InputViewValidator inputViewValidator = new InputViewValidator();
+    private static final InputViewValidator INSTANCE = new InputViewValidator();
 
     private InputViewValidator() {};
 
     public static InputViewValidator getInstance(){
-        return inputViewValidator;
+        return INSTANCE;
     }
 
     public void validateCarNames(String carNames){
