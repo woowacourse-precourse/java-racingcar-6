@@ -9,10 +9,10 @@ public class RandomNumbersGenerator {
     private Integer maximumOfRange;
     private Integer numberOfNumbers;
 
-    public RandomNumbersGenerator(Configurations configurations) {
-        this.minimumOfRange = configurations.getMinimumOfRange();
-        this.maximumOfRange = configurations.getMaximumOfRange();
-        this.numberOfNumbers = configurations.getNumberOfNumbers();
+    public RandomNumbersGenerator(Integer minimumOfRange, Integer maximumOfRange, Integer numberOfNumbers) {
+        this.minimumOfRange = minimumOfRange;
+        this.maximumOfRange = maximumOfRange;
+        this.numberOfNumbers = numberOfNumbers;
     }
 
     public List<Integer> generate() {
