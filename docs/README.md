@@ -35,13 +35,9 @@
 ### RacingGame
 자동차 경주 게임과 관련된 기능을 관리하는 클래스
 
-- member instance
-   - List<String> racingCars : 자동차 리스트
-- member function
-   - [x] RacingCars(List<String>) : racingCars 초기화
-   - [x] List <String> getWinners() : 최종 우승자의 리스트를 반환
-   - [x] void play() : 자동차들 경주
-   - [x] Map<String, Integer> makeResultMap() : 자동차 리스트를 가지고 출력에 사용될 map 생성
+- [x] 해당 회차의 자동차 경주 실행 
+- [x] 해당 회차의 결과 반환
+- [x] 최종 우승자 반환
   
 ### Car
 자동차의 정보 저장 및 전진하는 클래스
