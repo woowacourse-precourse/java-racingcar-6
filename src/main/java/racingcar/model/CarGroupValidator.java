@@ -11,6 +11,7 @@ public class CarGroupValidator {
 
     public static void validate(List<String> names) {
         validateCarCount(names);
+        validateDuplicate(names);
     }
 
     private static void validateCarCount(List<String> names) {
