@@ -19,19 +19,19 @@ public class Game {
     }
 
     public void play() {
-        List<Car> carList = getCars();
-        int executionCount = getExecutionCount();
+        List<Car> carList = getCarListFromInput();
+        int executionCount = getExecutionCountFromInput();
 
         execution(executionCount, carList);
         printWinner(carList);
     }
 
-    private List<Car> getCars() {
+    private List<Car> getCarListFromInput() {
         output.printText(INPUT_CAR_NAMES_GUIDE_TEXT);
         return input.receiveCarNamesAndMakeList();
     }
 
-    private int getExecutionCount() {
+    private int getExecutionCountFromInput() {
         output.printText(INPUT_EXECUTION_COUNT_GUIDE_TEXT);
         return input.receiveTotalCountOfExecution();
     }
