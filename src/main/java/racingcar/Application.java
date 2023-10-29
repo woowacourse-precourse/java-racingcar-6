@@ -19,15 +19,7 @@ public class Application {
         return Arrays.asList(userInput.split(","));
     }
 
-    public static void main(String[] args) {
-        // TODO: 프로그램 구 현
-
-        // 1. 자동차 이름 입력
-        Car car = Car.getInstance(createCarNames(getInput("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")));
-
-
-        // 2. 시도 횟수 입력
-        String userInput = getInput("시도할 회수는 몇회인가요?");
+    private static int checkPositiveNumber(String userInput){
         int roundCount;
 
         try {
@@ -39,6 +31,20 @@ public class Application {
         if (roundCount <= 0) {
             throw new IllegalArgumentException("1이상의 숫자를 입력하세요.");
         }
+        return roundCount;
+    }
+
+    public static void main(String[] args) {
+        // TODO: 프로그램 구 현
+
+        // 1. 자동차 이름 입력
+        Car car = Car.getInstance(createCarNames(getInput("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")));
+
+
+        // 2. 시도 횟수 입력
+        String userInput = getInput("시도할 회수는 몇회인가요?");
+
+        int roundCount = Application.checkPositiveNumber(userInput);
 
         // 3. 이동 로직 구현
         System.out.println("실행 결과");
