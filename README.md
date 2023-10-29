@@ -114,6 +114,15 @@ woni : ----
 jun : -----
 
 최종 우승자 : pobi, jun
+
+##기능목록 정리
+[ ] 경주 할 자동차 이름 입력받기 (이름은 쉼표(,) 기준으로 구분) -> Input#getCarName()
+[ ] 시도할 회수 입력받기 -> Input#getCountYouWantTry()
+[ ] Car에 입력받은 이름들을 순차적으로 매칭 -> Calculate#MappingNameAndCar()
+[ ] 입력받은 회수만큼 0~9 사이의 무작위 값을 구한 뒤 4이상이면 해당 자동차 전진 -> Calculate#setCarPosition()
+[ ] 현재 자동차 위치 출력 -> OutPut#printCarPosition()
+[ ] 최종 우승자 출력 -> Output#printFinalCar()
+
 ```
 
 ---
