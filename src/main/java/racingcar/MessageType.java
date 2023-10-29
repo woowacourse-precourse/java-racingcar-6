@@ -5,7 +5,7 @@ public enum MessageType{
     INPUT_CAR_RACING_COUNT_PRINT("시도할 회수는 몇회인가요?"),
 
     OUPUT_RACE_RESULT_PRINT("실행 결과"),
-    OUPUT_IMPLEMENTATION_RESULT_PRINT("%s :");
+    OUPUT_IMPLEMENTATION_RESULT_PRINT("%s : %s");
 
     private final String value;
 
