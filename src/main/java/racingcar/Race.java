@@ -61,18 +61,25 @@ public class Race {
     }
 
     private void play() {
+
         System.out.println();
         System.out.println(PLAY_OUTPUT);
+
         for (int i = 0; i < gameCount; i++) {
-            for (Car car : cars) {
-                car.printCarName();
-                int randomNumber = NumberGenerator.createRandomNumber();
-                compareNumberAndMove(car, randomNumber);
-                car.printForwardCount();
-            }
-            System.out.println();
+            playAllCars();
         }
+
         printResult();
+    }
+
+    private void playAllCars() {
+        for (Car car : cars) {
+            car.printCarName();
+            int randomNumber = NumberGenerator.createRandomNumber();
+            compareNumberAndMove(car, randomNumber);
+            car.printForwardState();
+        }
+        System.out.println();
     }
 
     private void printResult() {

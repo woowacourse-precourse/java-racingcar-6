@@ -29,7 +29,7 @@ public class Car {
         System.out.print(name + COLON);
     }
 
-    public void printForwardCount() {
+    public void printForwardState() {
         System.out.println(DASH.repeat(forwardCount));
     }
 
