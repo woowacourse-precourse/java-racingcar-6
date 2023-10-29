@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
-리import java.util.stream.Collectors;
+import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.CarDto;
 import racingcar.domain.CarsDto;
@@ -31,18 +31,22 @@ public class OutputView {
         this.isFirstTime = false;
     }
 
-    public void printWinner(List<String> winnerList) {
-        if (winnerList.size() > 1) {
-            String winners = winnerList.stream().collect(Collectors.joining(", "));
-            System.out.println(Constants.GAME_WINNER_MESSAGE + winners);
-            return;
-        }
+    public void printWinner(final List<Car> winnerList) {
+        printMultipleWinners(winnerList);
 
-        String winner = winnerList.get(0);
+        String winner = winnerList.get(0).getName();
         System.out.println(Constants.GAME_WINNER_MESSAGE + winner);
     }
 
-    private String converterPosition(final int position) {
-        return "-".repeat(position);
+    private void printMultipleWinners(final List<Car> winnerList) {
+        if (winnerList.size() > 1) {
+            return;
+        }
+
+        String winners = winnerList.stream()
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+
+        System.out.println(Constants.GAME_WINNER_MESSAGE + winners);
     }
 }
