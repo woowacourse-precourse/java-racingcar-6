@@ -3,6 +3,7 @@ package racingcar.model;
 import racingcar.constant.RacingGameConstants;
 import racingcar.exception.NullException;
 import racingcar.exception.car.name.LengthException;
+import racingcar.utils.RandomGenerator;
 
 public class Car {
     private String name;
@@ -40,7 +41,16 @@ public class Car {
         }
     }
 
+    public void TryToMove() {
+        int randomNumber = RandomGenerator
+                .generateRandomIntInRange(RacingGameConstants.MOVE_ENERGY_MIN, RacingGameConstants.MOVE_ENERGY_MAX);
+
+        if(randomNumber >= RacingGameConstants.ENERGY_THRESHOLD_TO_MOVE) {
+            moveOneStep();
+        }
+    }
+
     public void moveOneStep() {
-        position += RacingGameConstants.MOVE_STEP_SIZE;
+        position++;
     }
 }

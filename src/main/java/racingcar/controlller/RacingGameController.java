@@ -2,11 +2,9 @@ package racingcar.controlller;
 
 import java.util.Collections;
 import java.util.List;
-import racingcar.constant.RacingGameConstants;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.Round;
-import racingcar.utils.RandomGenerator;
 
 public class RacingGameController {
     private boolean isRunning;
@@ -41,18 +39,10 @@ public class RacingGameController {
 
     private void playOneRound() {
         for (Car car : cars.getCarList()) {
-            moveOrNot(car);
+            car.TryToMove();
         }
         OutputController.printForwardStateMessage(cars);
         round.plusOne();
-    }
-
-    private void moveOrNot(Car car) {
-        int randomNumber = RandomGenerator
-                .generateRandomIntInRange(RacingGameConstants.MOVE_ENERGY_MIN, RacingGameConstants.MOVE_ENERGY_MAX);
-        if (randomNumber >= RacingGameConstants.ENERGY_THRESHOLD_TO_MOVE) {
-            car.moveOneStep();
-        }
     }
 
     private Cars pickWinners() {
