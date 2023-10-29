@@ -1,6 +1,6 @@
-package racingcar;
+package racingcar.util;
 
-import racingcar.constant.Message;
+import racingcar.Entity.Car;
 import racingcar.constant.SymbolType;
 
 import java.util.ArrayList;
@@ -14,8 +14,8 @@ public class Parsing {
         StringTokenizer carTokenizer = new StringTokenizer(input, SymbolType.DELIMITER_SPLIT_CARS.getValue());
 
         while (carTokenizer.hasMoreTokens()){
-            String temp = carTokenizer.nextToken();
-            carList.add(new Car(temp));
+            String carName = carTokenizer.nextToken();
+            carList.add(new Car(carName,0));
         }
         return carList;
     }
