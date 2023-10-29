@@ -38,4 +38,12 @@ public class RaceGameController {
         OutputView.printLine();
     }
 
+    // 가장 많이 전진한 자동차 객체를 반환
+    private Car getMaxForwardCountCar() {
+        Car maxForwardCar = carList.stream()
+                .max(Comparator.comparingInt(Car::getForwardCount))
+                .get();
+        return maxForwardCar;
+    }
+
 }
