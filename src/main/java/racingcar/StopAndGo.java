@@ -10,6 +10,8 @@ public class StopAndGo {
 
     void stopAndGo(){
         List<String> racingCarList = racingCar.inputRacingCar();
+        racingNumber.inputRacingNumber();
+
         int racingCarSize = racingCarList.size();
         List<Integer> racingCarScore = new ArrayList<>();
 
