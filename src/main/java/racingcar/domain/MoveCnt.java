@@ -7,9 +7,14 @@ public class MoveCnt {
 
     public MoveCnt() {
     }
+
     public MoveCnt(String moveCnt) {
         validateMoveCnt(moveCnt);
         this.moveCnt = Integer.parseInt(moveCnt);
+    }
+
+    public int getMoveCnt() {
+        return moveCnt;
     }
 
     public void validateMoveCnt(String str) {
@@ -19,7 +24,7 @@ public class MoveCnt {
         if (isNotNumber(str)) { // 숫자 아니면 예외 발생
             throw new IllegalArgumentException(ErrorMessage.MOVE_CNT_NOT_NUMBER_ERR_MESSAGE);
         }
-        if(Integer.parseInt(str) < 0) { // 음수이면 예외 발생
+        if (Integer.parseInt(str) < 0) { // 음수이면 예외 발생
             throw new IllegalArgumentException(ErrorMessage.MOVE_CNT_NEGATIVE_ERR_MESSAGE);
         }
     }
