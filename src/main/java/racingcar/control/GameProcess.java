@@ -99,10 +99,11 @@ public class GameProcess {
         if (sizeOfWinnerList == 1) {
             raceCar = raceCarOfWinnerList.get(0);
             nameOfWinnerRaceCar = raceCar.toString();
-        }
-        if (sizeOfWinnerList >= 1) {
-            raceCarOfWinnerArr = makeNameArrFromCarList(raceCarOfCurrentList);
-            nameOfWinnerRaceCar = String.join(" ,", raceCarOfWinnerArr);
+        } else if (sizeOfWinnerList >= 1) {
+            raceCarOfWinnerArr = makeNameArrFromCarList(raceCarOfWinnerList);
+            nameOfWinnerRaceCar = String.join(", ", raceCarOfWinnerArr);
+        } else if (sizeOfWinnerList == 0) {
+            nameOfWinnerRaceCar = String.join(", ", nameSplitList);
         }
         return nameOfWinnerRaceCar;
     }

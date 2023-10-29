@@ -27,7 +27,6 @@ public class GameHost {
                 winRaceCarList.add(raceCar);
             }
         }
-
         return winRaceCarList;
     }
 
