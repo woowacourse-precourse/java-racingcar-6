@@ -25,8 +25,7 @@ public class Car {
             score++;
         }
     }
-
-
+    
     public boolean isSameScore(final Integer score) {
         return Objects.equals(this.score, score);
     }

@@ -18,27 +18,31 @@ public class Game {
         String roundCountRequest = View.requestRoundCount();
         int roundCount = Parser.parseRoundCount(roundCountRequest);
 
-        play(cars, roundCount);
+        proceedRounds(cars, roundCount);
         publishFinalResult(cars);
+
         Console.close();
+    }
+
+    private static void proceedRounds(
+            final Cars cars,
+            final int roundCount
+    ) {
+        View.printConstantMessage(ROUND_RESULT_MESSAGE);
+        range(0, roundCount)
+                .mapToObj(round -> cars)
+                .forEach(Game::proceedOneRound);
+    }
+
+    private static void proceedOneRound(final Cars cars) {
+        cars.playOneRound();
+
+        RoundResponses roundResponses = cars.buildRoundResponses();
+        View.printListWithNewLine(roundResponses.toResponseList());
     }
 
     private static void publishFinalResult(Cars cars) {
         FinalResponse finalResponse = cars.buildFinalResponse();
         System.out.println(finalResponse.toResponse());
-    }
-
-    private static void play(Cars cars, int roundCount) {
-        View.printConstantMessage(ROUND_RESULT_MESSAGE);
-        range(0, roundCount)
-                .mapToObj(round -> cars)
-                .forEach(Game::executeOneRound);
-    }
-
-    private static void executeOneRound(final Cars cars) {
-        cars.moveAll();
-
-        RoundResponses roundResponses = cars.buildRoundResponses();
-        View.printListWithNewLine(roundResponses.toResponseList());
     }
 }
