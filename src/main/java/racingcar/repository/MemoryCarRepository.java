@@ -24,13 +24,13 @@ public class MemoryCarRepository implements CarRepository {
     }
 
     @Override
-    public Optional<Car> findById(Long id) {
-        return Optional.empty();
+    public Car findById(Long id) {
+        return null;
     }
 
     @Override
-    public Optional<Car> findByName(String name) {
-        return Optional.empty();
+    public Car findByName(String name) {
+        return null;
     }
 
     @Override
