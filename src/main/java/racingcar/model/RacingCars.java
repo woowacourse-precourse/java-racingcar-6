@@ -7,26 +7,37 @@ import racingcar.Util;
 import racingcar.view.OutputView;
 
 public class RacingCars {
-    private final List<Car> CARS = new ArrayList<>();
+
+    private final List<Car> cars = new ArrayList<>();
+
     public RacingCars(List<String> carNames) {
-        carNames.forEach(car -> CARS.add(new Car(car)));
+        carNames.forEach(name -> cars.add(new Car(name)));
     }
 
     public void play() {
         advanceCar();
-        OutputView.printRoundResult(CARS);
+        OutputView.printRoundResult(getCarStatus());
     }
 
     public void showWinners() {
-        int maxPosition = Util.getMaxPosition(CARS);
-        ArrayList<String> winners = CARS.stream()
-                .filter(car -> car.getPosition() == maxPosition)
-                .map(Car::getName)
-                .collect(Collectors.toCollection(ArrayList::new));
+        List<String> winners = getWinners();
         OutputView.printWinner(winners);
     }
 
+
+    private List<String> getWinners() {
+        int maxPosition = Util.getMaxPosition(cars);
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
+
+    private List<Car> getCarStatus() {
+        return new ArrayList<>(cars);
+    }
+
     private void advanceCar() {
-        CARS.forEach(Car::validRacingCars);
+        cars.forEach(Car::validRacingCars);
     }
 }
