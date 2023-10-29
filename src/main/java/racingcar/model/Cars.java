@@ -26,6 +26,12 @@ public class Cars {
         }
     }
 
+    public void attemptToMoveCars(CarAccelerator carAccelerator) {
+        for (Car car : cars) {
+            car.accelerate(carAccelerator);
+        }
+    }
+
     public List<Car> getCars() {
         return Collections.unmodifiableList(cars);
     }
