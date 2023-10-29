@@ -1,8 +1,7 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class RacingCar {
+    private final int MOVE_THRESHOLD = 4;
     private final String name;
     private int forwardCount;
 
@@ -12,8 +11,8 @@ public class RacingCar {
         this.forwardCount = 0;
     }
 
-    public void move() {
-        if (canForward()) {
+    public void move(int movementWeight) {
+        if (movementWeight >= MOVE_THRESHOLD) {
             forwardCount++;
         }
     }
@@ -24,11 +23,6 @@ public class RacingCar {
 
     public int getForwardCount() {
         return forwardCount;
-    }
-
-    private boolean canForward() {
-        int randNum = Randoms.pickNumberInRange(1, 9);
-        return randNum >= 4;
     }
 
     private void validateCarName(String name) {
