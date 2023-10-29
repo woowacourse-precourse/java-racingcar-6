@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
@@ -29,5 +30,15 @@ class InputViewTest {
         String carNamesInput = "pobi,woni,jun";
         String[] splitNames = InputView.splitCarNames(carNamesInput);
         assertThat(splitNames).containsExactly("pobi", "woni", "jun");
+    }
+
+    @Test
+    void 자동차이름_입력받아서_리스트에_담는_통합테스트() {
+        String input = "pobi,woni,jun";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        List<String> carNames = InputView.getCarNames();
+
+        assertThat(carNames).containsExactly("pobi", "woni", "jun");
     }
 }
