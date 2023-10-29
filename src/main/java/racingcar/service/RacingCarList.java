@@ -22,4 +22,12 @@ public class RacingCarList {
         }
     }
 
+    public static List<String> generateAllRacingCarsStatusList(List<RacingCar> racingCars) {
+        List<String> carStatus = new ArrayList<>();
+        for (RacingCar racingCar : racingCars) {
+            carStatus.add(racingCar.getCarName() + " : " + racingCar.convertDistanceToString());
+        }
+        return carStatus;
+    }
+
 }
