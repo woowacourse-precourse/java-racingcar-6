@@ -11,4 +11,8 @@ public class Cars {
     public Cars(CarList<Car> cars){
         this.cars = cars;
     }
+
+    public CarList<Car> getCars(){
+        return cars;
+    }
 }
