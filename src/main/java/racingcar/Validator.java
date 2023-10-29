@@ -29,18 +29,19 @@ public class Validator {
         }
     }
 
-    public static int checkPositiveNumber(String userInput) {
-        int roundCount;
+    public static String checkPositiveNumber(String userInput) {
 
         try {
-            roundCount = Integer.parseInt(userInput);
+
+            if (Integer.parseInt(userInput) <= 0) {
+                throw new IllegalArgumentException("1이상의 숫자를 입력하세요.");
+            }
+
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자만 입력하세요.");
         }
 
-        if (roundCount <= 0) {
-            throw new IllegalArgumentException("1이상의 숫자를 입력하세요.");
-        }
-        return roundCount;
+        return userInput;
     }
+
 }

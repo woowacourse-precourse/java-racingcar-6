@@ -16,7 +16,6 @@ public class Application {
     }
 
 
-
     private static int calculateMaxDistance(Car car) {
         int maxDistance = 0;
 
@@ -47,6 +46,12 @@ public class Application {
             }
         }
     }
+
+    private static int createRoundCount(String userInput) {
+        Validator.checkPositiveNumber(userInput);
+        return Integer.parseInt(userInput);
+    }
+
     public static void main(String[] args) {
         // TODO: 프로그램 구 현
 
@@ -54,7 +59,7 @@ public class Application {
         Car car = Car.getInstance(createCarNames(getInput("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")));
 
         car.initializeMovedCount();
-        car.move(Validator.checkPositiveNumber(getInput("시도할 회수는 몇회인가요?")));
+        car.move(Application.createRoundCount(getInput("시도할 회수는 몇회인가요?")));
 
         Application.findWinner(car, Application.calculateMaxDistance(car));
 
