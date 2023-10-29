@@ -1,13 +1,11 @@
 package racingcar.controller;
 
-import racingcar.model.Car;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-import java.util.ArrayList;
-import java.util.List;
+
+import static racingcar.controller.CarController.cars;
 
 public class GameController {
-    public static List<Car> cars = new ArrayList<>();
 
     public void play() {
         OutputView.printCarNameInputMessage();

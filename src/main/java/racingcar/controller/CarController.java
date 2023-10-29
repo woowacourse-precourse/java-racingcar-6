@@ -2,9 +2,13 @@ package racingcar.controller;
 
 import racingcar.model.Car;
 import racingcar.util.Validation;
-import static racingcar.controller.GameController.cars;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CarController {
+
+    public static List<Car> cars = new ArrayList<>();
+
     public static void makeCar(String inputCarNames) {
         String[] carNames = splitInputCarNames(inputCarNames);
         Validation.valiEmptySplitInputCarNames(carNames);
