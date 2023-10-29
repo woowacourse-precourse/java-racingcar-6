@@ -5,6 +5,15 @@ import racingcar.Model.Car;
 
 public class CarComparator implements Comparator<Car> {
 
+    private static final CarComparator instace = new CarComparator();
+
+    private CarComparator() {
+
+    }
+
+    public static CarComparator getInstance() {
+        return instace;
+    }
 
     //DESC order
     @Override

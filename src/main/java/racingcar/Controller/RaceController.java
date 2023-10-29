@@ -6,20 +6,24 @@ import java.util.stream.Collectors;
 import racingcar.CarComparator;
 import racingcar.CarList;
 import racingcar.Model.Car;
+import racingcar.TryNumber;
 import racingcar.View.ConsolePrint;
 
 public class RaceController {
 
     private CarList carList;
 
+    private TryNumber tryNumber;
+
     public void start() {
         carList = new CarList(ConsolePrint.readCars().split(","));
 
 //        System.out.println(carList);
-        int tryNum = Integer.parseInt(ConsolePrint.readTryNum());
-        race(tryNum);
+        tryNumber = new TryNumber(ConsolePrint.readTryNum());
+        race(tryNumber.getTryNum());
         findWinner();
     }
+
 
     void race(int tryNum) {
         ConsolePrint.printOpening();
@@ -40,11 +44,11 @@ public class RaceController {
 
     void findWinner() {
         List<Car> sorted = carList.getCarList().stream()
-                .sorted(new CarComparator())
+                .sorted(CarComparator.getInstance())
                 .collect(Collectors.toList());
-        for (Car car : sorted) {
-            System.out.println(car.getName() + " : " + car.getDistance());
-        }
+//        for (Car car : sorted) {
+//            System.out.println(car.getName() + " : " + car.getDistance());
+//        }
         ConsolePrint.printWinner(sorted);
     }
 
