@@ -21,7 +21,7 @@ public class InputView {
     public Integer inputTryCount() {
         System.out.println(INPUT_TRY_COUNT);
         String input = Console.readLine();
-        //todo 입력값 검증
+        InputValidator.validatePositiveIntegerType(input);
         return parseInteger(input);
     }
 }
