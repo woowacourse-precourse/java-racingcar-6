@@ -18,4 +18,14 @@ class ValidationNumberTest {
         });
         assertThat(lengthException.getMessage()).isEqualTo(ExceptionMessages.EMPTY.getExceptionMessage());
     }
+
+    @ParameterizedTest
+    @DisplayName("입력문자열이 숫자가 아닌지 테스트한다.")
+    @ValueSource(strings = { "a", "1a", "a123", "14e8", "1e1" })
+    void validateIsNumber(String inputString) {
+        IllegalArgumentException lengthException = assertThrows(IllegalArgumentException.class, () -> {
+            ValidationNumber.validateIsNumber(inputString);
+        });
+        assertThat(lengthException.getMessage()).isEqualTo(ExceptionMessages.NOT_NUMBER.getExceptionMessage());
+    }
 }
