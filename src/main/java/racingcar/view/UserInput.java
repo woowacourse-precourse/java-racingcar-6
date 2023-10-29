@@ -1,6 +1,8 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserInput {
     static String userInputCarName;
@@ -44,15 +46,18 @@ public class UserInput {
         validateDuplicate(names);
     }
 
-    // -이름 중복될 경우
+    // -이름 중복될 경우 - abc, ab,
     private void validateDuplicate(String[] names) {
         //3) 이름이 중복될 경우 예외
-        String tmp = "";
+        Map<String, Integer> map = new HashMap<>();
+
         for (String x : names) {
-            if (tmp.contains(x)) {
-                throw new IllegalArgumentException("경주할 자동차 이름이 중복되면 안됩니다.");
-            }
-            tmp += x; //생각해보니까. 포함되는 문자열이 생길 수 도 있으니 다시 작성하자. :TODO
+            map.put(x, map.getOrDefault(x, 0) + 1);
+        }
+
+        for (String key : map.keySet()) {
+            if (map.get(key) > 1)
+                throw new IllegalArgumentException("경주할 자동차 이름은 중복되면 안됩니다.");
         }
     }
 
@@ -88,15 +93,17 @@ public class UserInput {
 
     private void validateNotNumber(String gameCount) throws IllegalArgumentException {
         for (char ch : gameCount.toCharArray()) {
-            if (!Character.isDigit(ch))
+            if (!Character.isDigit(ch)) {
                 throw new IllegalArgumentException("게임 실행 횟수는 숫자만 입력해야 합니다.");
+            }
         }
     }
 
     private void validateOutOfRange(String gameCount) throws IllegalArgumentException {
         int num = Integer.parseInt(gameCount);
-        if (num <= 0)
+        if (num <= 0) {
             throw new IllegalArgumentException("게임 실행 횟수는 양수만 입력해야 합니다.");
+        }
     }
 
 }
