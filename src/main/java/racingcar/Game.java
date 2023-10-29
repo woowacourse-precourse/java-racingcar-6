@@ -11,10 +11,18 @@ public class Game {
 	Round round;
 	List<Car> racingCars;
 	int roundCount;
+
+	Game(Round round, List<Car> racingCars){
+		this.round = round;
+		this.racingCars = racingCars;
+	}
 	public void run(){
 		setRacingCars();
 		setRoundCount();
 		for(int i = 0; i < roundCount; i++){
+			if(i == 0){
+				OutputView.printRoundStart();
+			}
 			round.runRound(racingCars);
 		}
 		Car winner = findWinner();
@@ -34,8 +42,9 @@ public class Game {
 	}
 
 	private Car findWinner(){
-		Car winner = new Car("name");
-		return winner;
+		Car winnerCar = racingCars.get(0);
+		for(Car currentCar : racingCars){
+		}
 	}
 
 	private void validateCarNamesInput(String input){
