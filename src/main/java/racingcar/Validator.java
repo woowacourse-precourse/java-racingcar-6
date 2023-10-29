@@ -35,7 +35,20 @@ public class Validator {
         throw new IllegalArgumentException("중복된 이름이 있습니다!");
     }
     public void validateUserInputIsCorrectCount(String userInput){
-
+        validateUserInputIsInteger(userInput);
+        Integer count = Integer.parseInt(userInput);
+        validateIntegerIsPositiveInteger(count);
     }
-
+    private void validateUserInputIsInteger(String userInput){
+        try{
+            Integer.parseInt(userInput);
+        }catch (NumberFormatException e){
+            throw new IllegalArgumentException("양의 정수를 입력해주세요!");
+        }
+    }
+    private void validateIntegerIsPositiveInteger(Integer count){
+        if (count<=0){
+            throw new IllegalArgumentException("양의 정수를 입력해주세요!");
+        }
+    }
 }
