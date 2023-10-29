@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import racingcar.view.View;
 
 public class Model {
-    public List<Car> MakeCarList(String[] namesOfCars){
+    public List<Car> makeCarList(String[] namesOfCars){
         List<Car> carList = new ArrayList<>();
 
         for (String nameOfCar : namesOfCars) {
@@ -32,8 +32,34 @@ public class Model {
 
         for(int i = 0 ; i < times ; i++) {
             racingForOneTurn(carList);
-
             view.printResult(carList);
         }
+
+        List<String> winnerList = getWinnerList(carList);
+        view.printWinner(winnerList);
+    }
+
+    public List<String> getWinnerList(List<Car> carList) {
+        List<String> winnerList = new ArrayList<>();
+        int maxDistance = 0;
+
+        for (Car currentCar : carList) {
+            int currentDistance = currentCar.getDistance();
+
+            if(maxDistance < currentDistance) {
+                maxDistance = currentDistance;
+
+                winnerList.clear();
+
+                String currentName = currentCar.getName();
+                winnerList.add(currentName);
+            }
+            else if (maxDistance == currentDistance) {
+                String currentName = currentCar.getName();
+                winnerList.add(currentName);
+            }
+        }
+
+        return winnerList;
     }
 }

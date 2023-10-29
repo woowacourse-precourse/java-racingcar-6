@@ -33,6 +33,7 @@ public class View {
 
             System.out.println(name + " : " + stringOfDistance);
         }
+        System.out.println();
     }
 
     public String getStringOfDistance(int distance){
@@ -42,5 +43,19 @@ public class View {
         }
 
         return stringOfDistance;
+    }
+
+    public void printWinner(List<String> winnerList) {
+        System.out.print("최종 우승자 : ");
+
+        StringBuilder result = new StringBuilder();
+        for (String winner : winnerList) {
+            if (result.length() > 0) {
+                result.append(", ");
+            }
+            result.append(winner);
+        }
+
+        System.out.println(result);
     }
 }
