@@ -11,7 +11,7 @@ public class GameService {
     private static final int RANDOM_NUMBER_RANGE_START = 0;
     private static final int RANDOM_NUMBER_RANGE_END = 9;
     private static final int CONDITION_CAR_MOVEMENT_NUMBER = 4;
-    private int carGameWinner = 0;
+    private int gameWinnerPosition = 0;
 
     public void move(Car car) {
         moveForward(car);
@@ -37,7 +37,7 @@ public class GameService {
     public List<String> findGameWinner(List<Car> carInfos) {
         List<String> gameWinners = new ArrayList<>();
         for (Car carInfo : carInfos) {
-            if (carGameWinner == carInfo.getPosition()) {
+            if (gameWinnerPosition == carInfo.getPosition()) {
                 gameWinners.add(carInfo.getCarName());
             }
         }
@@ -45,8 +45,8 @@ public class GameService {
     }
 
     private void findMaxPosition(Car carInfo) {
-        if (carGameWinner < carInfo.getPosition()) {
-            carGameWinner = carInfo.getPosition();
+        if (gameWinnerPosition < carInfo.getPosition()) {
+            gameWinnerPosition = carInfo.getPosition();
         }
     }
 
