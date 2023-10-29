@@ -22,7 +22,7 @@ public class GameController {
 
     private void playGame(){
         RoundScreen.startMessage();
-        while (game.isEnd()) {
+        while (!game.isEnd()) {
            playRound();
         }
 
