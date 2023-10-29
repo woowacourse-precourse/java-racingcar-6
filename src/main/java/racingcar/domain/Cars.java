@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import racingcar.validation.CarNameValidator;
 import racingcar.validation.StringValidator;
+import racingcar.view.OutPutView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,6 +21,18 @@ public class Cars {
         StringValidator.stringIsBlank(carNameStrings);
         CarNameValidator carNameValidator = new CarNameValidator(carNameStrings);
         return new Cars(carNameValidator.validate());
+    }
+
+    public void carsMove() {
+        this.cars.forEach(Car::move);
+        carsResult();
+    }
+
+    public void carsResult() {
+        OutPutView.resultNameAndAdvanceView(new ArrayList<>(cars.stream()
+                .map(Car::result)
+                .toList()
+        ));
     }
 
     public List<String> getWinner() {

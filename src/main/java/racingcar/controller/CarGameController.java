@@ -14,4 +14,8 @@ public class CarGameController {
         this.cars = carGameManager.carNamesSet();
         this.roundNumber = carGameManager.roundNumberSet();
     }
+
+    public void start() {
+        carGameManager.carGameStart(this.cars, this.roundNumber);
+    }
 }

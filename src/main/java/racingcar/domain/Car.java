@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import racingcar.resource.CarGameValue;
+import racingcar.util.LetterUtil;
 import racingcar.util.RandomUtil;
 
 public class Car {
@@ -24,6 +25,10 @@ public class Car {
         if (moveCheck()) {
             this.position++;
         }
+    }
+
+    public String result() {
+        return this.name + " : " + LetterUtil.sameLetterPaste("-", this.position);
     }
 
     public boolean isWinner(int winnerPosition) {
