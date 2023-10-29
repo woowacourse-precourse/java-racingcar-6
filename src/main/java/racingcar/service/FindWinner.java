@@ -1,6 +1,5 @@
 package racingcar.service;
 
-import racingcar.domain.Car;
 import racingcar.domain.FindMaxMove;
 
 import java.util.ArrayList;

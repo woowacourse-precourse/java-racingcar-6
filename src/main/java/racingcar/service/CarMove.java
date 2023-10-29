@@ -1,10 +1,8 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.domain.Car;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class CarMove {

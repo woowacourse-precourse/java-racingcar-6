@@ -1,9 +1,7 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
 
 public class CreateCarList {
     private final HashMap<String,Integer> cars = new LinkedHashMap<>();

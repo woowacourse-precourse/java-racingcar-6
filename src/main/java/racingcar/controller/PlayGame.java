@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import racingcar.domain.*;
 import racingcar.service.CarMove;
 import racingcar.service.FindWinner;
 import racingcar.service.SettingCar;

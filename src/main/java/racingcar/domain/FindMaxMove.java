@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import java.util.HashMap;
-import java.util.List;
 
 public class FindMaxMove {
     public static int findMaxMove(HashMap<String,Integer> car_list){
