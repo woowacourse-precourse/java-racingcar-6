@@ -16,8 +16,10 @@ public class OutputView {
 		for (int i = 0; i < forwardCount; i++) {
 			result.append("-");
 		}
-
 		System.out.println(result);
 	}
-	public static void printWinner(Car winner){}
+	public static void printWinner(List<String> winners){
+		String winnerList = String.join(", ", winners);
+		System.out.println("최종 우승자 : " + winnerList);
+	}
 }

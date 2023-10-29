@@ -10,5 +10,7 @@ public class Round {
 			car.goForwardOrNot();
 			OutputView.printRoundResult(car.getName(), car.getForwardCount());
 		}
+		System.out.println("");
+
 	}
 }

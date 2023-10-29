@@ -25,8 +25,8 @@ public class Game {
 			}
 			round.runRound(racingCars);
 		}
-		Car winner = findWinner();
-		OutputView.printWinner(winner);
+		List<String> winners = findWinner();
+		OutputView.printWinner(winners);
 
 	}
 
@@ -41,10 +41,22 @@ public class Game {
 		this.roundCount = Integer.parseInt(input);
 	}
 
-	private Car findWinner(){
-		Car winnerCar = racingCars.get(0);
-		for(Car currentCar : racingCars){
+	private List<String> findWinner(){
+		List<String> winners = new ArrayList<>();
+		int maxForwardCount = -1;
+
+		for(Car car : racingCars){
+			if(car.getForwardCount() > maxForwardCount){
+				winners.clear();
+				winners.add(car.getName());
+				maxForwardCount = car.getForwardCount();
+				continue;
+			}
+			if(car.getForwardCount() == maxForwardCount){
+				winners.add(car.getName());
+			}
 		}
+		return winners;
 	}
 
 	private void validateCarNamesInput(String input){
