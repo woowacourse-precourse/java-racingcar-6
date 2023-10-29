@@ -14,7 +14,7 @@ public class ResultOutput {
         System.out.println();
     }
 
-    public void printResult(String winners) {
-        System.out.println("최종 우승자 : " + winners);
+    public void printResult(String winnerNames) {
+        System.out.println("최종 우승자 : " + winnerNames);
     }
 }

@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Car;
+import racingcar.domain.Winner;
 import racingcar.exception.CountException;
 import racingcar.exception.NameException;
 import racingcar.service.GameService;
@@ -46,11 +47,26 @@ public class GameController {
 
         while (count < tryCount) {
             carMove();
-            String[] names = getCarNames();
-            String[] locations = getCarLocations();
+            String[] names = convertCarNames();
+            String[] locations = convertCarLocationResults();
             output.printRacing(names, locations);
             count += 1;
         }
+
+        gameEnd();
+    }
+
+    private void gameEnd() {
+        Integer[] locations = convertCarLocations();
+        Integer winnerLocation = service.getWinnerLocation(locations);
+
+        Winner winner = new Winner(winnerLocation);
+
+        winner.judgeRacingWinner(carList);
+
+        String winnerNames = winner.getWinners();
+
+        output.printResult(winnerNames);
     }
 
     private void carMove() {
@@ -61,15 +77,21 @@ public class GameController {
         }
     }
 
-    private String[] getCarNames() {
+    private String[] convertCarNames() {
         return carList.stream()
                 .map(Car::getName)
                 .toArray(String[]::new);
     }
 
-    private String[] getCarLocations() {
+    private String[] convertCarLocationResults() {
         return carList.stream()
                 .map(Car::getLocationResult)
                 .toArray(String[]::new);
+    }
+
+    private Integer[] convertCarLocations() {
+        return carList.stream()
+                .map(Car::getLocation)
+                .toArray(Integer[]::new);
     }
 }
