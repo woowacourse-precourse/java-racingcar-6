@@ -12,6 +12,7 @@ public class CheckValidation {
         if (carNameArr.length > Integer.MAX_VALUE) {
             throw new IllegalArgumentException("입력 개수 오류");
         }
+
         for (String carName : carNameArr) {
             if (carName.contains(" ")) {
                 throw new IllegalArgumentException("공백 입력 오류");
@@ -28,10 +29,10 @@ public class CheckValidation {
         return carNameList;
     }
 
-    public static int checkIfIntAndReturnIntForm(String input){
-        try{
+    public static int checkIfIntAndReturnIntForm(String input) {
+        try {
             return Integer.parseInt(input);
-        } catch (IllegalArgumentException exception){
+        } catch (IllegalArgumentException exception) {
             throw new IllegalArgumentException("입력 오류");
         }
     }

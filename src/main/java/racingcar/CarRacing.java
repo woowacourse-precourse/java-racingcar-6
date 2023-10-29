@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
+
 public class CarRacing {
     private static ArrayList<String> carNameList;
     private static int countTrial;
@@ -24,24 +25,26 @@ public class CarRacing {
         while (tmpCountTrial < countTrial) {
             boolean ifMoved = createRandomNumberAndMoveCar();
             // 하나라도 움직인 차가 있다면 tmpCount 횟수 증가
-            if (ifMoved == true){
+            if (ifMoved == true) {
                 tmpCountTrial++;
             }
             printRacingCar();
         }
     }
 
-    public static void printWinner(){
+    public static void printWinner() {
         ArrayList<String> winner = new ArrayList<>();
 
-        for (Entry<String, Integer> e : carMoveMap.entrySet()){
+        for (Entry<String, Integer> e : carMoveMap.entrySet()) {
             String key = e.getKey();
             int value = e.getValue();
+
             if (value == countTrial) {
                 winner.add(key);
             }
         }
-        System.out.println("최종 우승자 : "+ String.join(", ", winner));
+
+        System.out.println("최종 우승자 : " + String.join(", ", winner));
     }
 
     public static void initCarMoveToZero() {
@@ -56,18 +59,21 @@ public class CarRacing {
         for (Entry<String, Integer> m : carMoveMap.entrySet()) {
             String key = m.getKey();
             int value = m.getValue();
+
             if (Randoms.pickNumberInRange(0, 9) >= 4) {
                 carMoveMap.replace(key, value + 1);
                 ifMoved = true;
             }
         }
+
         return ifMoved;
     }
 
-    public static void printRacingCar(){
+    public static void printRacingCar() {
         for (Entry<String, Integer> e : carMoveMap.entrySet()) {
             String key = e.getKey();
             int value = e.getValue();
+
             System.out.print(key + " : ");
             for (int i = 0; i < value; i++) {
                 System.out.print("-");
