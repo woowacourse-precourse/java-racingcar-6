@@ -18,6 +18,7 @@ public class RacingController {
         view.startPrintTryResult();
         for (Integer i = 0; i < tryCount; i++) {
             cars.forEach(car -> car.randomGoForward());
+            view.showRacingProgress(cars);
         }
     }
 }

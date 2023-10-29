@@ -11,6 +11,8 @@ import racingcar.validator.InputValidator;
 public class RacingView {
 
     private static final String CAR_NAME_SEPARATOR = ",";
+    private static final String RACING_PROGRESS_FORMAT = "%s : %s";
+    private static final String RACING_PROGRESS_BAR = "-";
 
     public List<Car> inputCarNames() {
         System.out.println(RacingMessage.INPUT_CAR_NAME);
@@ -27,5 +29,17 @@ public class RacingView {
 
     public void startPrintTryResult() {
         System.out.println(RacingMessage.TRY_RESULT);
+    }
+
+    public void showRacingProgress(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.println(getRacingProgress(car.getName(), car.getMoveCount()));
+        }
+        System.out.println();
+    }
+
+    private String getRacingProgress(String carName, Integer moveCount) {
+        return String.format(RACING_PROGRESS_FORMAT, carName,
+            RACING_PROGRESS_BAR.repeat(moveCount));
     }
 }

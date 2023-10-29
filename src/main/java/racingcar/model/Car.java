@@ -8,7 +8,8 @@ public class Car {
     private static final Integer MIN_RANGE_NUMBER = 0;
     private static final Integer MAX_RANGE_NUMBER = 9;
     private static final Integer FORWARD_STANDARD_NUMBER = 4;
-    
+    private static final String RACING_PROGRESS_BAR = "-";
+
     private final String name;
     private Integer moveCount;
 
@@ -22,6 +23,14 @@ public class Car {
         if (isGoForward()) {
             moveCount++;
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getMoveCount() {
+        return moveCount;
     }
 
     private Boolean isGoForward() {
