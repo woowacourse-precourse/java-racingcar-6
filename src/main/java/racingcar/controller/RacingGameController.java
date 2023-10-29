@@ -26,7 +26,6 @@ public class RacingGameController {
     public void run() {
         Cars cars = getCarsFromInputView();
         TryNumber tryNumber = getTryNumberFromInputView();
-        
         RacingGame racingGame = gameSet(cars);
         gameStart(cars, tryNumber, racingGame);
 
