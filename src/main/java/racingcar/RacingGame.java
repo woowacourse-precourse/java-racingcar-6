@@ -33,7 +33,7 @@ public class RacingGame {
                 eachCarPickRandomNumber(carName);
                 printProgress(carName);
             }
-
+            System.out.println();
         }
     }
 
@@ -43,7 +43,7 @@ public class RacingGame {
         for(int i = 0; i<valueOfCar; i++){
             System.out.print("-");
         }
-        System.out.println("\n");
+        System.out.println();
     }
 
     public void eachCarPickRandomNumber(String carName){
