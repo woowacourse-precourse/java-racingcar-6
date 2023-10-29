@@ -16,9 +16,6 @@ public class CarValidator {
     private static final String ONLY_HAS_CHARACTER_OR_NUMBER = "^[a-zA-Z0-9가-힣]*$";
 
     public static void validateCarNameList(List<String> carNames) {
-        validateNameElementHasCharacterOrNumber(carNames);
-        validateNameElementLengthMinOne(carNames);
-        validateNameElementLengthMaxFive(carNames);
         duplicatedCarNameInNameListThrowException(carNames);
     }
 
@@ -26,18 +23,6 @@ public class CarValidator {
         unlessHasCharacterOrNumberThrowException(carName);
         lengthUnderOneThrowException(carName);
         lengthOverFiveThrowException(carName);
-    }
-
-    private static void validateNameElementHasCharacterOrNumber(List<String> names) {
-        names.forEach(CarValidator::unlessHasCharacterOrNumberThrowException);
-    }
-
-    private static void validateNameElementLengthMinOne(List<String> names) {
-        names.forEach(CarValidator::lengthUnderOneThrowException);
-    }
-
-    private static void validateNameElementLengthMaxFive(List<String> names) {
-        names.forEach(CarValidator::lengthOverFiveThrowException);
     }
 
     private static void duplicatedCarNameInNameListThrowException(List<String> names) {
