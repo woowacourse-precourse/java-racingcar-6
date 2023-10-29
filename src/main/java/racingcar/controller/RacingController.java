@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import java.util.List;
+import racingcar.model.Car;
 import racingcar.view.RacingView;
 
 public class RacingController {
@@ -11,6 +13,6 @@ public class RacingController {
     }
 
     public void run() {
-        view.inputCarNames();
+        List<Car> cars = view.inputCarNames();
     }
 }
