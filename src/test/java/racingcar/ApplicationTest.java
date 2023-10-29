@@ -82,6 +82,32 @@ class ApplicationTest extends NsTest {
         assertThat(num).isBetween(0, 9);
     }
 
+    @Test
+    void 값_비교_후_전진() {
+        //given
+        Car car = new Car("car");
+        int num = 4;
+
+        //when
+        Application.forwardOrStop(car, num);
+
+        //then
+        assertThat(car.getMove()).isEqualTo(1);
+    }
+
+    @Test
+    void 값_비교_후_정지() {
+        //given
+        Car car = new Car("car");
+        int num = 3;
+
+        //when
+        Application.forwardOrStop(car, num);
+
+        //then
+        assertThat(car.getMove()).isEqualTo(0);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
