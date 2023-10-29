@@ -2,9 +2,13 @@ package racingcar;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.util.Validation;
+
+import static org.junit.jupiter.api.AssertionsKt.assertDoesNotThrow;
+import static racingcar.constant.Constant.*;
 
 class ValidationTest {
     Validation validation = new Validation();
@@ -12,6 +16,25 @@ class ValidationTest {
     @DisplayName("자동차명에 대한 통합 검증 테스트")
     @Test
     void validateCarNames() {
+        //given
+        String containSpace = "cat,do g,cow,eagle";
+        String containBlankName = "cat,,dog,cow,eagle";
+        String overLengthName = "cat,rabbit,dog,cow";
+        String duplicatedName = "rat,dog,cow,dog,cat";
+        //when
+        //then
+        assertThatThrownBy(() -> validation.validateCarNames(containSpace))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(EXCEPTION_CONTAIN_WHITESPACE);
+        assertThatThrownBy(() -> validation.validateCarNames(containBlankName))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(EXCEPTION_INVALID_CAR_NAME_LENGTH);
+        assertThatThrownBy(() -> validation.validateCarNames(overLengthName))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(EXCEPTION_INVALID_CAR_NAME_LENGTH);
+        assertThatThrownBy(() -> validation.validateCarNames(duplicatedName))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(EXCEPTION_DUPLICATE_CAR_NAME);
     }
 
     @DisplayName("자동차 이름에 공백이 포함되어 있을 경우 에러 반환")
@@ -22,7 +45,7 @@ class ValidationTest {
 
         assertThatThrownBy(() -> validation.validateWhiteSpace(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차 이름은 공백을 포함할 수 없습니다.");
+                .hasMessage(EXCEPTION_CONTAIN_WHITESPACE);
     }
 
     @DisplayName("지정된 구분자가 아닐 경우 에러 반환")
@@ -33,7 +56,7 @@ class ValidationTest {
 
         assertThatThrownBy(() -> validation.validateDelimiterType(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("구분자는 쉼표(,)만 사용 가능 합니다.");
+                .hasMessage(EXCEPTION_DELIMITER_TYPE);
     }
 
     @DisplayName("자동차의 이름이 5자를 넘을 경우 에러 반환 테스트")
@@ -44,7 +67,7 @@ class ValidationTest {
 
         assertThatThrownBy(() -> validation.validateNameLength(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차의 이름은 1 ~ 5자 사이로 지어주세요");
+                .hasMessage(EXCEPTION_INVALID_CAR_NAME_LENGTH);
     }
 
     @DisplayName("자동차의 이름 중 빈칸이 있다면 에러 반환 테스트")
@@ -55,7 +78,7 @@ class ValidationTest {
 
         assertThatThrownBy(() -> validation.validateNameLength(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차의 이름은 1 ~ 5자 사이로 지어주세요");
+                .hasMessage(EXCEPTION_INVALID_CAR_NAME_LENGTH);
     }
 
     @DisplayName("중복된 이름이 있다면 에러 반환")
@@ -66,7 +89,7 @@ class ValidationTest {
 
         assertThatThrownBy(() -> validation.validateDuplicateName(carNames.length, carNames))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("중복된 자동차 이름은 사용할 수 없습니다.");
+                .hasMessage(EXCEPTION_DUPLICATE_CAR_NAME);
     }
 
     @DisplayName("횟수가 숫자가 아닐 경우 에러 반환")
@@ -76,6 +99,6 @@ class ValidationTest {
 
         assertThatThrownBy(() -> validation.validateGameRound(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("숫자만 입력해주세요.");
+                .hasMessage(EXCEPTION_ROUND_TYPE);
     }
 }
