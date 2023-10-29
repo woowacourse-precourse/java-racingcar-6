@@ -20,12 +20,37 @@ public class Controller {
     private void startCarRace() {
         setNumOfAttemptByInput();
         OutputView.printResultMessage();
-
+        carMoveStage();
+        resultOfRace();
     }
 
-    private void carMoveForward() {
+    private void resultOfRace() {
+        String winner = findWinner(findMaxDistance());
+        OutputView.printWinnerMessage(winner);
+    }
+
+    private String findWinner(int maxDistance){
+        List<String> winners = new ArrayList<>();
+        for(Car car : this.groupOfCar) {
+            if(car.getDistance() == maxDistance) {
+                winners.add(car.getName());
+            }
+        }
+        return String.join(",",winners);
+    }
+
+    private int findMaxDistance() {
+        int max = Integer.MIN_VALUE;
+        for(Car car : this.groupOfCar) {
+            max = Math.max(max,car.getDistance());
+        }
+        return max;
+    }
+
+    private void carMoveStage() {
         for(int i=0; i<this.numOfAttempt; i++) {
-            canCarMove();
+            CarMove();
+            System.out.println(); //회차간 구분
         }
     }
 
