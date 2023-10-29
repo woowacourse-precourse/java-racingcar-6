@@ -11,8 +11,12 @@ public class RacingCar {
     }
 
     private void validationCarName(String name) {
-        if (name.isEmpty() || name.length() > 5) {
+        if (!isValidName(name)) {
             throw new IllegalArgumentException("차량 이름은 1~5의 글자 수만 허용 됩니다.");
         }
+    }
+
+    private boolean isValidName(String name) {
+        return name.isEmpty() || name.length() > 5;
     }
 }
