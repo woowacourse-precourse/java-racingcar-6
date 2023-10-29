@@ -1,7 +1,6 @@
 package model;
 
 import controller.dto.MoveResult;
-import controller.dto.Winner;
 import java.util.Comparator;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -30,19 +29,26 @@ public class Cars {
 
     public List<MoveResult> getMoveResult() {
         return cars.stream()
-            .map(MoveResult::from)
+            .map(Car::toDto)
             .collect(Collectors.toList());
     }
 
-    public List<Car> findWinners() {
-        Car winnerCar = cars.stream()
+    public List<String> getWinnerNames() {
+        List<Car> winners = getWinners();
+        return winners.stream()
+            .map(Car::getNameValue)
+            .collect(Collectors.toList());
+    }
+
+    private List<Car> getWinners() {
+        Car maxMoveCar = cars.stream()
             .max(Comparator.comparing(Car::getMoveCountValue))
             .orElseThrow(NoSuchElementException::new);
 
-        return findOtherWinners(winnerCar.getMoveCountValue());
+        return findSameMoveCountCars(maxMoveCar.getMoveCountValue());
     }
 
-    private List<Car> findOtherWinners(final int moveCount) {
+    private List<Car> findSameMoveCountCars(final int moveCount) {
         return cars.stream()
             .filter(car -> car.hasSameMoveCount(moveCount))
             .collect(Collectors.toList());
