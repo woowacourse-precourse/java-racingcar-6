@@ -2,16 +2,34 @@ package racingcar.vo;
 
 import racingcar.validator.RoundCountValidator;
 
-public class RoundCount {
+public final class RoundCount {
 
-    private final int count;
+    private final int value;
 
     public RoundCount(final String count) {
         RoundCountValidator.validate(count);
-        this.count = Integer.parseInt(count);
+        this.value = Integer.parseInt(count);
     }
 
-    public int getCount() {
-        return count;
+    public int getValue() {
+        return value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        RoundCount roundCount = (RoundCount) o;
+        return value == roundCount.value;
+    }
+
+    @Override
+    public int hashCode() {
+        return value;
     }
 }
