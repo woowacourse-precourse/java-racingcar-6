@@ -25,9 +25,6 @@ public class CarRace {
 
     private static boolean willMoveForward() {
         int RandomNum = Randoms.pickNumberInRange(0, 9);
-        if (RandomNum >= 4) {
-            return true;
-        }
-        return false;
+        return RandomNum >= 4;
     }
 }
