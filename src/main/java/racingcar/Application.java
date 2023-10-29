@@ -45,7 +45,6 @@ public class Application {
             cars[i] = new Car(carNames.get(i));
         }
 
-        // TODO: 실행 결과 처리
         // 실행 결과 처리
         System.out.println();
         System.out.println(RESULT_MESSAGE);
@@ -59,9 +58,12 @@ public class Application {
 
         }
 
-        // TODO: 우승자 발표 처리
-        System.out.print(WINNER_MESSAGE);
+        // 우승 자동차 판정 처리
+        List<String> winners = findWinner(cars);
 
+        // 우승자 출력 처리
+        System.out.print(WINNER_MESSAGE);
+        printWinner(winners);
     }
 
     public static boolean isNumberInteger(String input) {
@@ -97,5 +99,27 @@ public class Application {
             return 1;
         }
         return 0;
+    }
+
+    public static List<String> findWinner(Car[] cars) {
+        List<String> winners = new ArrayList<>();
+
+        Arrays.sort(cars, (c1, c2) -> {
+            return Integer.compare(c1.getForwardCount(), c2.getForwardCount());
+        });
+
+        int max = cars[cars.length-1].getForwardCount();
+
+        for (int i = 0; i < cars.length; i++) {
+            if (cars[i].getForwardCount() == max) {
+                winners.add(cars[i].getName());
+            }
+        }
+        return winners;
+    }
+
+    public static void printWinner(List<String> winners) {
+        String result = String.join(", ", winners);
+        System.out.println(result);
     }
 }
