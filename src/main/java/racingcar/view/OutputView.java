@@ -23,8 +23,8 @@ public class OutputView {
 
     }
 
-    public void printWinner(String winner){
-        System.out.printf(GAME_WINNER_FORMAT, winner);
+    public void printWinner(List<String> winners){
+        System.out.printf(GAME_WINNER_FORMAT, String.join(",", winners));
     }
 
 }
