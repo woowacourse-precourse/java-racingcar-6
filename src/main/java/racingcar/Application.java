@@ -39,9 +39,11 @@ public class Application {
                 controller.generateMoveForwardRandomNumber();
                 Integer moveForwardRandomNumber = controller.getMoveForwardRandomNumber();
                 controller.MoveForward(car, moveForwardRandomNumber);
+                Integer successMoveForwardCount = car.getSuccessMoveForwardCount();
+                String moveForwardStatus = car.makeMoveForwardStatus(successMoveForwardCount);
+                car.setMoveForwardStatus(moveForwardStatus);
             }
 
-            controller.setRacingProgressStatus(carList);
             view.printProgressStatus(carList);
         }
         gameData.sortCarListByRank(carList);
