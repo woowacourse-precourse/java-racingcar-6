@@ -5,6 +5,7 @@ import racingcar.model.Game;
 import racingcar.model.Move;
 import racingcar.model.Name;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.*;
 
@@ -13,6 +14,7 @@ public class GameController {
     private final Name carName = new Name();
     private final Move move = new Move();
     private final Attempt attemptNum = new Attempt();
+    private final OutputView outputView = new OutputView();
     HashMap<Object, String> distance = new HashMap<Object, String>();
     public void start() {
         List<String> player = Arrays.asList(inputView.name().split(","));
@@ -20,10 +22,10 @@ public class GameController {
         String attemptsNum = inputView.attemptsNum();
         attemptNum.isValid(attemptsNum);
         for (Object playerName : player){
-            distance.put(playerName,"");
+            this.distance.put(playerName,"");
         }
         for (int i = 0; i < Integer.parseInt(attemptsNum); i++) {
-            playGame(player, distance);
+            playGame(player, this.distance);
         }
     }
 
@@ -37,5 +39,10 @@ public class GameController {
                 distance.put(playerName,a);
             }
         }
+        showResult();
+    }
+
+    public void showResult() {
+        outputView.result(this.distance);
     }
 }
