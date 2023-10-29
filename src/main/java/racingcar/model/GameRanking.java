@@ -2,10 +2,11 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.Collections;
 import java.util.Map;
 
 public class GameRanking {
-    private Map<RacingCar, String> participants;
+    private final Map<RacingCar, String> participants;
 
     public GameRanking(Map<RacingCar, String> participants) {
         this.participants = participants;
@@ -16,7 +17,7 @@ public class GameRanking {
             participants.replace(racingCar,participants.get(racingCar)
                     + racingCar.apply((Randoms.pickNumberInRange(0,9))).getOutput());
         }
-        return participants;
+        return Collections.unmodifiableMap(participants);
     }
 
 
