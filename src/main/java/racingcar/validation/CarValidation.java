@@ -2,6 +2,7 @@ package racingcar.validation;
 
 import static racingcar.constant.MessageConst.DUPLICATE_MESSAGE;
 import static racingcar.constant.MessageConst.LENGTH_MESSAGE;
+import static racingcar.constant.MessageConst.SPACE_MESSAGE;
 
 import java.util.HashSet;
 import java.util.List;
@@ -27,5 +28,16 @@ public class CarValidation {
         if (set.size() < carNames.size()) {
             throw new IllegalArgumentException(DUPLICATE_MESSAGE);
         }
+    }
+
+    public void validateCarNameSpace(List<String> carNames) {
+        if (hasCarNamesWithSpace(carNames)) {
+            throw new IllegalArgumentException(SPACE_MESSAGE);
+        }
+    }
+
+    private boolean hasCarNamesWithSpace(List<String> carNames) {
+        return carNames.stream()
+                .anyMatch(carName -> carName.contains(" "));
     }
 }
