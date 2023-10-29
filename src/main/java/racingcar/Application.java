@@ -7,7 +7,8 @@ import java.util.Map;
 public class Application {
 
     static String[] carNameList;
-    static Map<String, Integer> carInfo;
+    static Map<String, Car> carInfo;
+    static int maxScore;
 
     public static void main(String[] args) {
 
@@ -18,6 +19,7 @@ public class Application {
     public static void startRacing() {
 
         inputCarNames();
+        createCar();
     }
 
     public static void inputCarNames() {
@@ -44,7 +46,8 @@ public class Application {
     public static void createCar() {
 
         for (String carName : carNameList) {
-            carInfo.put(carName, 0);
+
+            carInfo.put(carName, new Car(carName));
         }
     }
 }
