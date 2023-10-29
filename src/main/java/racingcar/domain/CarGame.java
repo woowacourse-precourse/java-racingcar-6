@@ -1,6 +1,8 @@
 package racingcar.domain;
 
-import static racingcar.constant.NumberConst.*;
+import static racingcar.constant.NumberConst.MAX_RANDOM_NUMBER;
+import static racingcar.constant.NumberConst.MIN_RANDOM_NUMBER;
+import static racingcar.constant.NumberConst.STANDARD_MOVING_NUMBER;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
@@ -37,7 +39,4 @@ public class CarGame {
         return cars;
     }
 
-    public int getGameCount() {
-        return gameCount;
-    }
 }
