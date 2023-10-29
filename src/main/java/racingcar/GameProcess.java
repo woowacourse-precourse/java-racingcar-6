@@ -20,7 +20,7 @@ public class GameProcess {
 			System.out.println();
 		}
 		int maxDistance = calculateMaxDistance(carList);
-		makeFinalString(maxDistance, carList);
+		printFinalString(maxDistance, carList);
 	}
 
 	private void moveOrNot(InformationOfCar car) {
@@ -40,7 +40,7 @@ public class GameProcess {
 		return carList.get(0).getDistance().length();
 	}
 
-	private void makeFinalString(int maxDistance, ArrayList<InformationOfCar> carList) {
+	private void printFinalString(int maxDistance, ArrayList<InformationOfCar> carList) {
 		StringBuilder result = new StringBuilder(carList.get(0).getCarName());
 		for (int i = 1; i < carList.size()-1; i++) {
 			InformationOfCar car = carList.get(i);
