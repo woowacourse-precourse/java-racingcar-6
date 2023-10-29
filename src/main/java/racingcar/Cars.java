@@ -7,23 +7,20 @@ import java.util.List;
 final class Cars {
 
     private final List<Car> cars = new ArrayList<>();
+    private final Roulette roulette;
 
-    private Cars() {
-    }
+    Cars(Roulette roulette, String inputNames) {
+        this.roulette = roulette;
 
-    static Cars create(String input, Roulette roulette) {
-        String[] names = input.split(Constant.COMMA.value, -1);
+        String[] names = inputNames.split(Constant.COMMA.value, -1);
         validateNames(names);
 
-        Cars instance = new Cars();
-        instance.cars.addAll(Arrays.stream(names)
-                .map(Car::create)
+        cars.addAll(Arrays.stream(names)
+                .map(Car::new)
                 .toList());
-
-        return instance;
     }
 
-    private static void validateNames(String[] names) {
+    private void validateNames(String[] names) {
         var uniqueNameCount = Arrays.stream(names).distinct().count();
         if (names.length < 1 || names.length != uniqueNameCount) throw new IllegalArgumentException();
     }
