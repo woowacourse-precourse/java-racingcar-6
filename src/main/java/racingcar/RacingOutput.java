@@ -4,36 +4,30 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class RacingOutput {
-    private BufferedWriter bw;
-
-    RacingOutput()
-    {
-        bw = new BufferedWriter(new OutputStreamWriter(System.out));
-    }
-
     public void putNameInputStatement() throws IOException
     {
-        bw.write("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
+        System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
     }
 
     public void putTryInputStatement() throws IOException
     {
-        bw.write("시도할 회수는 몇회인가요?");
+        System.out.print("시도할 회수는 몇회인가요?\n");
     }
 
     public void putResultStatement() throws IOException
     {
-        bw.write("실행 결과");
+        System.out.print("실행 결과\n");
     }
 
     public void putResultOfEachCar(int cnt) throws IOException
     {
         for (int i = 0 ; i<cnt; i++)
         {
-            bw.write("-");
+            System.out.print("-");
         }
     }
 
@@ -41,11 +35,11 @@ public class RacingOutput {
     {
         for (int i = 0 ; i<n ; i++)
         {
-            bw.write(carNames.get(i) + " : ");
+            System.out.print(carNames.get(i) + " : ");
             putResultOfEachCar(carDis.get(i));
-            bw.write("\n");
+            System.out.print("\n");
         }
-        bw.write("\n");
+        System.out.print("\n");
     }
 
     public List<String> getResultOfWinner(int n, List<String> carName, List<Integer> carDis) throws IOException
@@ -53,13 +47,13 @@ public class RacingOutput {
         if (n==0)    return new ArrayList<>();
 
         int biggestDis = carDis.get(0);
-        List<String> winnerList = List.of(carName.get(0));
+        List<String> winnerList = new ArrayList<>(Collections.nCopies(1, carName.get(0)));
 
         for (int i = 1 ; i<n ; i++)
         {
             if (carDis.get(i) > biggestDis)
             {
-                winnerList = List.of(carName.get(i));
+                winnerList = new ArrayList<>(Collections.nCopies(1, carName.get(i)));
                 biggestDis = carDis.get(i);
             }
             else if (carDis.get(i) == biggestDis)
@@ -73,14 +67,9 @@ public class RacingOutput {
 
     public void putResultOfWinner(List<String> winnerNames) throws IOException
     {
-        bw.write("최종 우승자 : ");
+        System.out.print("최종 우승자 : ");
         String winners = String.join(", ", winnerNames);
-        bw.write(winners);
+        System.out.print(winners + '\n');
     }
 
-    public void closeOutput() throws IOException
-    {
-        bw.flush();
-        bw.close();
-    }
 }

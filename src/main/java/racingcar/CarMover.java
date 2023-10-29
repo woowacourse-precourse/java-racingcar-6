@@ -24,7 +24,7 @@ public class CarMover {
         return whetherMoveOrNot;
     }
 
-    public List<Integer> moveEveryCar(int n, List<Integer> carList, List<Boolean> whetherMoveOrNot)
+    public void moveEveryCar(int n, List<Integer> carList, List<Boolean> whetherMoveOrNot)
     {
         for (int i = 0 ; i<n ; i++)
         {
@@ -33,6 +33,5 @@ public class CarMover {
                 carList.set(i, carList.get(i) + 1);
             }
         }
-        return carList;
     }
 }
