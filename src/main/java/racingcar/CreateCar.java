@@ -23,5 +23,4 @@ public class CreateCar {
         int carCount = carName.length;
         return carCount;
     }
-
 }
