@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.util.UserUtil;
 import racingcar.validation.CarNameValidator;
+import racingcar.validation.GameCountValidator;
 
 public class GameService {
 
@@ -15,6 +16,7 @@ public class GameService {
     private final List<Car> carList;
 
     CarNameValidator carNameValidator = new CarNameValidator();
+    GameCountValidator gameCountValidator = new GameCountValidator();
 
     public GameService() {
         carList = new ArrayList<>();
@@ -26,6 +28,11 @@ public class GameService {
         carNameValidator.validateCarName(userInputList);
         userInputList.stream()
                 .forEach(carName -> carList.add(Car.nameFrom(carName)));
+    }
+
+    public void getGameCount() {
+        String userInput = UserUtil.getUserInput();
+        gameCountValidator.validateGameCount(userInput);
     }
 
     private List<String> convertStrToList(String userInput) {
