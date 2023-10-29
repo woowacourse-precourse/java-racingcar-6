@@ -25,8 +25,7 @@ public class Car {
 
     private void initPositions() {
         positions = new HashMap<>();
-        names.stream()
-                .forEach(name -> positions.put(name, START_POSITION));
+        names.forEach(name -> positions.put(name, START_POSITION));
     }
 
     public RaceResultDTO oneCarRace() {
@@ -36,9 +35,11 @@ public class Car {
     }
 
     private void moveCars() {
-        names.stream()
-                .forEach(name -> positions.replace(name, positions.get(name) + getStep()));
+        names.forEach(name -> updatePosition(name, getPosition(name) + getStep()));
+    }
 
+    private int getPosition(String name) {
+        return positions.get(name);
     }
 
     private int getStep() {
@@ -46,6 +47,10 @@ public class Car {
             return MOVING;
         }
         return STOPPED;
+    }
+
+    private void updatePosition(String name, int position) {
+        positions.replace(name, position);
     }
 
     private void updateFarthestPosition() {
@@ -57,7 +62,7 @@ public class Car {
 
     public List<String> getWinners() {
         return names.stream()
-                .filter(name -> positions.get(name) == farthestPosition)
+                .filter(name -> getPosition(name) == farthestPosition)
                 .collect(Collectors.toList());
     }
 }
