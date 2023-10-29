@@ -8,4 +8,8 @@ public class Validator {
             throw new IllegalArgumentException("잘못된 입력값 입니다.");
         }
     }
+
+    public Boolean validateNameInputContainsComma(String input){
+        return input.contains(",");
+    }
 }

@@ -53,8 +53,8 @@
 - ❌ validateNameInput  메서드 구현
   - ❌ 입력한 자동차들의 이름이 규칙에 맞게 잘 입력 됐는지 검증
   - 만족하지 않으면 <mark>IllegalArgumentException</mark> 예외 발생
-- ❌ validateNameInputContainsComma  메서드 구현
-  - ❌ 입력한 자동차들의 이름이 컴마를 포함 하였는지 검증
+- ✅ validateNameInputContainsComma  메서드 구현
+  - ✅ 입력한 자동차들의 이름이 컴마를 포함 하였는지 검증
 - ❌ validateNameLength  메서드 구현
   - ❌ 입력한 자동차의 이름이 5자리 이하 인지 검증
 
