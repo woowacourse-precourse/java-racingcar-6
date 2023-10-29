@@ -4,19 +4,14 @@ import static racingcar.Validation.isNotNumber;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 
 public class InputView {
-    private static ArrayList<String> splitCarName(String input) {
-        String[] stringList = input.split(",");
-        ArrayList<String> result = new ArrayList<>(Arrays.asList(stringList));
-        return result;
-    }
+
 
     public ArrayList<String> getCarsName() {
         String carsName = Console.readLine();
-        return splitCarName(carsName);
+        return Utils.splitCarName(carsName);
     }
 
     public String getTryNumber() {

@@ -17,7 +17,7 @@ public class RacingGame {
         OutputView.printStartMessage();
     }
 
-    public ArrayList<Cars> insertPlayer() {
+    private ArrayList<Cars> insertPlayer() {
         ArrayList<Cars> players = new ArrayList<>();
         ArrayList<String> cars = inputView.getCarsName();
         for (String car : cars) {
