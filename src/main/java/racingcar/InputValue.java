@@ -25,7 +25,7 @@ public class InputValue {
 
 
     public int getGameNumber(){
-        System.out.println(GameMessage.REQUEST_ENTER_GAME_NUMBER);
+        System.out.println(GameMessage.REQUEST_ENTER_GAME_NUMBER_MESSAGE);
         String gameNumber = Console.readLine();
         if(checkGameNumberInput(gameNumber))
             return parseInt(gameNumber);

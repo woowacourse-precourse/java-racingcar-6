@@ -24,4 +24,11 @@ public class Car {
         System.out.println();
     }
 
+    public String getCarName(){
+        return carName;
+    }
+    public int getDistance(){
+        return distance;
+    }
+
 }
