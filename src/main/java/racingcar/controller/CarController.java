@@ -6,8 +6,7 @@ import racingcar.model.Validator;
 import java.util.Arrays;
 import java.util.List;
 
-public class InputController {
-
+public class CarController {
     public static List<String> setCars() {
 
         try {
@@ -17,18 +16,6 @@ public class InputController {
 
             return carList;
         } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    public static int setRound() {
-
-        try {
-            int number = Integer.parseInt(Console.readLine());
-            Validator.validateAttempts(number);
-
-            return number;
-        } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
     }

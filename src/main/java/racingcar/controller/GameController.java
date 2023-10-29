@@ -21,10 +21,10 @@ public class GameController {
     public void set() {
 
         SystemView.promptForCarNames();
-        List<String> carNames = InputController.setCars();
+        List<String> carNames = CarController.setCars();
 
         SystemView.promptForRoundNumber();
-        roundNumber = InputController.setRound();
+        roundNumber = RoundController.setRound();
 
         cars = new ArrayList<>();
         for (String carName : carNames) {
