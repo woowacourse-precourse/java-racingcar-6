@@ -31,7 +31,7 @@
 ## Controller
 
 ### GameController
-- start => 이름 입력, 이름 조건 검증
+- start => 이름 입력, 시도 횟수 입력, 이름 조건 검증
 - playGame => 게임 실행 반복
 - showResult => 결과 도출
 
