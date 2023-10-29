@@ -43,5 +43,15 @@ public class InputViewTest {
         }
     }
 
+    @Test
+    void 자동차_입력_검증_테스트() {
+        ByteArrayInputStream fakeInput = new ByteArrayInputStream("\n".getBytes());
+        System.setIn(fakeInput);
+
+        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            InputView.readCarName();
+        });
+    }
+
 
 }
