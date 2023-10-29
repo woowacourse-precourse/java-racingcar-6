@@ -8,6 +8,9 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
@@ -32,10 +35,26 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 횟수에_대한_예외_처리() {
-        String inputNumber = "가";
+    void 숫자가_아닌_문자에_대한_예외_처리() {
+        String input = "가";
         Validator validator = new Validator();
-        assertThatThrownBy(() -> validator.validateMoveCount(inputNumber))
+        assertThatThrownBy(() -> validator.validateMoveCount(input))
+            .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 음수에_대한_예외_처리() {
+        String input = "-1";
+        Validator validator = new Validator();
+        assertThatThrownBy(() -> validator.validateMoveCount(input))
+            .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void _0에_대한_예외_처리() {
+        String input = "0";
+        Validator validator = new Validator();
+        assertThatThrownBy(() -> validator.validateMoveCount(input))
             .isInstanceOf(IllegalArgumentException.class);
     }
 
