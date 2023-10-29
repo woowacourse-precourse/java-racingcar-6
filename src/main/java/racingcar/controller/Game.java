@@ -12,7 +12,7 @@ public class Game {
         OutputView.askCarName();
         RacingCars racingcars = TypeCasting.stringToRacingCars(InputView.askCarName());
         OutputView.askPlayTime();
-        final int playTime = TypeCasting.stringToInteger(InputView.askPlayTime());
+        final int playTime = Integer.parseInt(InputView.askPlayTime());
         OutputView.showResultMessage();
         for (int i = 0; i < playTime; i++) {
             Referee.simulate(racingcars);

@@ -11,7 +11,6 @@ public class InputView {
     }
 
     public static String askPlayTime() {
-
         String input = Console.readLine();
         InputValidator.validatePlayTime(input);
         return input;

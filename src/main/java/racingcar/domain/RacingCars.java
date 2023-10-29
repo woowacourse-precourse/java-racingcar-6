@@ -27,11 +27,11 @@ public class RacingCars {
     }
 
     public int farthestDistance() {
-        int result = 0;
+        int farthest = 0;
         for (RacingCar racingcar : racingcars) {
-            result = Math.max(result, racingcar.getDistance());
+            farthest = Math.max(farthest, racingcar.getDistance());
         }
-        return result;
+        return farthest;
     }
 
 

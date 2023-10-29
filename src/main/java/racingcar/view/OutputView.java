@@ -18,7 +18,6 @@ public class OutputView {
     }
 
     public static void showCurrentDistance(RacingCars racingcars) {
-
         for (int i = 0; i < racingcars.size(); i++) {
             System.out.print(racingcars.get(i).getName() + " : ");
 
