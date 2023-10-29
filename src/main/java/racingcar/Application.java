@@ -2,18 +2,12 @@ package racingcar;
 
 import static constant.Constant.ATTEMPTS_NUMBER_REQUEST_MESSAGE;
 import static constant.Constant.CAR_NAME_REQUEST_MESSAGE;
-import static constant.Constant.MAXIMUM_RANGE;
-import static constant.Constant.MINIMUM_RANGE;
-import static constant.Constant.MOVE_CRITERIA;
-import static constant.Constant.MOVE_SYMBOL;
 import static constant.Constant.RUN_RESULT_START_MESSAGE;
-import static constant.Constant.STOP_SYMBOL;
 import static constant.Constant.WINNER_RESULT_MESSAGE;
 
 import basis.Converter;
 import basis.MovingStatus;
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -34,7 +28,7 @@ public class Application {
 
         for (int i = 0; i < attemptsNumber; i++) {
             for (Entry<String, String> element : carNameHashMap.entrySet()) {
-                int randomNumber = Randoms.pickNumberInRange(MINIMUM_RANGE, MAXIMUM_RANGE);
+                int randomNumber = movingStatus.getRandomNumber();
                 String move = movingStatus.checkDecidingMove(randomNumber);
                 String originalValue = element.getValue();
                 String newValue = originalValue + move;
