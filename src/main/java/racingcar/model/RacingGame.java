@@ -18,6 +18,10 @@ public class RacingGame {
     }
 
     public List<Car> getStatus(){
-        return cars.getStatus();
+        return cars.getCars();
+    }
+
+    public List<String> judge(){
+        return judgeWinner.judge(cars.getCars());
     }
 }

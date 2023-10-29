@@ -33,10 +33,9 @@ public class RacingController {
 
     }
 
-
-
     private static void endGame() {
-
+        List<String> winner = game.judge();
+        output.printWinner(winner);
     }
 
 

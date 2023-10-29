@@ -18,7 +18,7 @@ public class Cars {
         }
     }
 
-    public List<Car> getStatus() {
+    public List<Car> getCars() {
         return cars;
     }
 }
