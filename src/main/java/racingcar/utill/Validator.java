@@ -9,9 +9,9 @@ import static racingcar.utill.constant.ValidatorConstant.NATURAL_NUMBER_PATTERN;
 import java.util.regex.Matcher;
 
 public class Validator {
-
+    
     public static void carNameValidation(String carName) {
-        if (carName.isEmpty()) {
+        if (carName.isBlank()) {
             throw new IllegalArgumentException(CAR_NAME_BLANK_EXCEPTION_MESSAGE);
         }
 
