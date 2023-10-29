@@ -24,7 +24,8 @@ public class Application {
         isCarNameInputLengthValidate(carsNameArray);
         int carQuantity = carsNameArray.length;
         gameData.createCarList(carQuantity);
-        gameData.setCarsName(carsNameArray, gameData.getCarList());
+        List<Car> carList = gameData.getCarList();
+        gameData.setCarsName(carsNameArray, carList);
 
         view.printAskTryRepetitionNumber();
         String repetitionNumberInput = gameData.getRepetitionNumberInput();
@@ -34,24 +35,20 @@ public class Application {
         Integer repetitionNumber = gameData.getRepetitionNumber();
         for (int repetition = 0; repetition < repetitionNumber; repetition++) {
 
-            List<Car> carListBeforeRacing = gameData.getCarList();
-            for (Car car : carListBeforeRacing) {
+            for (Car car : carList) {
                 controller.generateMoveForwardRandomNumber();
                 Integer moveForwardRandomNumber = controller.getMoveForwardRandomNumber();
                 controller.MoveForward(car, moveForwardRandomNumber);
             }
 
-            List<Car> carListAfterMove = gameData.getCarList();
-            controller.setRacingProgressStatus(carListAfterMove);
-            view.printProgressStatus(carListAfterMove);
+            controller.setRacingProgressStatus(carList);
+            view.printProgressStatus(carList);
         }
-        List<Car> carListAfterRacing = gameData.getCarList();
-        gameData.sortCarListByRank(carListAfterRacing);
+        gameData.sortCarListByRank(carList);
 
         gameData.createWinnerList();
         List<String> winnerList = gameData.getWinnerList();
-        List<Car> carListAfterSorting = gameData.getCarList();
-        gameData.pickWinners(winnerList, carListAfterSorting);
+        gameData.pickWinners(winnerList, carList);
 
         view.printWinner(gameData.getWinnerList());
     }
