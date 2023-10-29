@@ -26,6 +26,6 @@ public class RaceController {
         // "-" 길이가 count가 될 때까지 '반복'한다
         raceTrack.race(countNum);
 
-        raceTrack.winRace(countNum);
+//        raceTrack.winRace(countNum);
     }
 }

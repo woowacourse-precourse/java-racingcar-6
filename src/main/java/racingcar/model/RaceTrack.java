@@ -4,9 +4,9 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class RaceTrack {
 
-    public String[] carNames;
-    public int[] carStartLine;
-    public int[] carRank;
+    public String[] carNames; // 자동차 이름 배열
+    public int[] carStartLine; // 자동차들 출발선 배열
+    public int[] carRank; // 자동차들 전진 횟수 배열 = 업데이트된 이름 길이 = 출발선 인덱스
 
     public RaceTrack(String[] carNames) {
         this.carNames = carNames;
@@ -34,9 +34,11 @@ public class RaceTrack {
 
     // 입력 횟수만큼 먼저 도달한 자동차 나올 때까지 반복
     public void race(int count) {
+        int rounds = 0;
         do {
             rankCar();
-        } while (!checkRaceCompletion(count));
+            rounds++;
+        } while (rounds < count);
     }
 
     // 각 자동차의 전진 여부를 랜덤하게 반환하는 메서드
