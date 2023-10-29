@@ -13,6 +13,10 @@ import java.util.stream.IntStream;
 
 class GameEngineTest {
     private static final int MAX_SIZE = 5;
+    private static final int NUMBER_GENERATOR_START_INCLUSIVE = 0;
+    private static final int NUMBER_GENERATOR_END_INCLUSIVE = 9;
+    private static final int ADD_SCORE_POINT = 4;
+    private static final Long PLUS_SCORE = 1L;
 
     private static String[] 점수_생성이_안되는_케이스() {
         return new String[]{" ".repeat(MAX_SIZE + 1), "123456789"};
@@ -21,6 +25,19 @@ class GameEngineTest {
     private static String[] 점수_생성이_되는_케이스() {
         return new String[]{" ".repeat(MAX_SIZE), "12345"};
     }
+
+    private static String[] 시도한_횟수값이_마이너스이거나_숫자가_아니거나_null_경우() {
+        return new String[]{" ".repeat(MAX_SIZE), null, "qwe", "ㅁㄴㅇ", "ㅃ", "Q", "★", "-123", "-123456789", "-1", "1-1"};
+    }
+
+    private static int[] 점수가_그대로인_경우() {
+        return IntStream.range(NUMBER_GENERATOR_START_INCLUSIVE, ADD_SCORE_POINT).toArray();
+    }
+
+    private static int[] 점수가_업데이트가_되는_경우() {
+        return IntStream.range(ADD_SCORE_POINT, NUMBER_GENERATOR_END_INCLUSIVE + 1).toArray();
+    }
+
 
     @Test
     void 플레이어이름이_null이면_예외를_던진다() {
@@ -54,6 +71,31 @@ class GameEngineTest {
         List<Score> resultWinners = new GameEngine(playerNames, new ScoreUpdater(new ReturnGenerator()), new GameEngineValidator()).getWinners();
         Assertions.assertThat(resultWinners.stream().map(Score::getName).toList()).containsSequence(expectWinners.stream().map(Score::getName).toList());
         Assertions.assertThat(resultWinners.stream().map(Score::getScore).toList()).containsSequence(expectWinners.stream().map(Score::getScore).toList());
+    }
+
+    @ParameterizedTest
+    @MethodSource("점수가_그대로인_경우")
+    void 숫자가_0_3까지는_전진하지않는다(int numberGeneratorReturnValue) {
+        Long expect = 0L;
+        GameEngine gameEngine = new GameEngine("", new ScoreUpdater(new ReturnGenerator(numberGeneratorReturnValue)), new GameEngineValidator());
+        gameEngine.run("1");
+        Assertions.assertThat(gameEngine.getWinners().get(0).getScore()).isEqualTo(expect);
+    }
+
+    @ParameterizedTest
+    @MethodSource("점수가_업데이트가_되는_경우")
+    void 숫자가_4_9까지는_점수가오른다(int numberGeneratorReturnValue) {
+        Long expect = 1L;
+        GameEngine gameEngine = new GameEngine("", new ScoreUpdater(new ReturnGenerator(numberGeneratorReturnValue)), new GameEngineValidator());
+        gameEngine.run("1");
+        Assertions.assertThat(gameEngine.getWinners().get(0).getScore()).isEqualTo(expect);
+    }
+
+    @ParameterizedTest
+    @MethodSource("시도한_횟수값이_마이너스이거나_숫자가_아니거나_null_경우")
+    void 시도한_횟수값이_마이너스이거나_숫자가_아니거나_null이면_예외를_던진다(String readLine) {
+        Assertions.assertThatCode(() -> new GameEngine("", new ScoreUpdater(new ReturnGenerator()), new GameEngineValidator()).run(readLine))
+                .isExactlyInstanceOf(IllegalArgumentException.class);
     }
 
 
