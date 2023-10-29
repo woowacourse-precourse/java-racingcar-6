@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
+import racingcar.Error;
 
 public class Cars {
     private List<Car> carList = new ArrayList<>();
@@ -60,7 +61,7 @@ public class Cars {
 
     private void validateCars(String[] cars) {
         if (Utils.hasDuplicateMember(cars)) {
-            throw new IllegalArgumentException("중복된 자동차 이름을 입력하였습니다.");
+            throw new IllegalArgumentException(Error.DUPLICATE_CAR_NAME_ERROR.getMessage());
         }
     }
 }

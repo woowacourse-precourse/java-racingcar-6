@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.Error;
+
 public class TryCount {
 
     private final int tryCount;
@@ -15,7 +17,7 @@ public class TryCount {
 
     private void validateTryCount(String tryCount) {
         if (!Utils.isNaturalNumber(tryCount)) {
-            throw new IllegalArgumentException("시도할 회수는 자연수만 가능합니다.");
+            throw new IllegalArgumentException(Error.INVALID_TRY_COUNT_ERROR.getMessage());
         }
     }
 }

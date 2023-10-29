@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.Error;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -23,7 +25,7 @@ public class Car {
 
     private void validateCarNameLength(String carName) {
         if (!isStringLengthInRange(carName)) {
-            throw new IllegalArgumentException("자동차의 이름은 이름은 1자 이상 5자 이하만 가능합니다.");
+            throw new IllegalArgumentException(Error.CAR_NAME_LENGTH_ERROR.getMessage());
         }
     }
 
