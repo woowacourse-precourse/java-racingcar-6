@@ -3,7 +3,7 @@ import camp.nextstep.edu.missionutils.*;
 import java.util.List;
 
 public class RacingInput {
-    private List<String> getNameOfCars() throws IllegalArgumentException
+    public List<String> getNameOfCars() throws IllegalArgumentException
     {
         String carNames = Console.readLine();
         List<String> nameOfEachCars = List.of(carNames.split(","));
@@ -20,12 +20,12 @@ public class RacingInput {
         return nameOfEachCars;
     }
 
-    private long getCountOfTries() throws IllegalArgumentException
+    public int getCountOfTries() throws IllegalArgumentException
     {
-        long cnt = 0;
+        int cnt = 0;
         try
         {
-            cnt = Long.parseLong(Console.readLine());
+            cnt = Integer.parseInt(Console.readLine());
         }
         catch (NumberFormatException e)
         {

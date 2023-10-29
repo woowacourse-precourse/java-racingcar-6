@@ -5,7 +5,7 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class CarMover {
-    private List<Boolean> decideToMoveCars(int n)
+    public List<Boolean> decideToMoveCars(int n)
     {
         List<Boolean> whetherMoveOrNot = new ArrayList<>();
         for (int i = 0 ; i<n ; i++)
@@ -24,7 +24,7 @@ public class CarMover {
         return whetherMoveOrNot;
     }
 
-    private List<Integer> moveEveryCar(int n, List<Integer> carList, List<Boolean> whetherMoveOrNot)
+    public List<Integer> moveEveryCar(int n, List<Integer> carList, List<Boolean> whetherMoveOrNot)
     {
         for (int i = 0 ; i<n ; i++)
         {

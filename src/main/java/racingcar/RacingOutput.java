@@ -37,7 +37,7 @@ public class RacingOutput {
         }
     }
 
-    public void putResultOfMovement(int n, List<Integer> carNames, List<Integer> carDis) throws IOException
+    public void putResultOfMovement(int n, List<String> carNames, List<Integer> carDis) throws IOException
     {
         for (int i = 0 ; i<n ; i++)
         {
@@ -78,7 +78,7 @@ public class RacingOutput {
         bw.write(winners);
     }
 
-    public void closeInput() throws IOException
+    public void closeOutput() throws IOException
     {
         bw.flush();
         bw.close();
