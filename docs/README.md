@@ -21,11 +21,13 @@
         - [x] 모든 플레이어에게 이동 여부를 배정한다.
         - [x] 배정받은 이동 여부에 따라 이동한다.
         - [x] 이동을 거리에 반영한다.
-        - [ ] 한 이동당 한 번씩 이동결과를 출력한다.
+        - [x] 한 이동당 한 번씩 이동결과를 출력한다.
 
 - 게임 승리 판단
     - [ ] 입력한 시도 횟수만큼 플레이어별 이동의 반복이 끝나면 게임은 멈춘다.
     - [x] 가장 이동한 거리가 가장 먼 사람이 우승자가 된다.
+    - [ ] 우승자를 출력한다.
+        - PlayerMoveList에 메시지를 보내서 isWinner가 true인 Player이 PlayerName을 반환하는 스트림이든 그런 걸로!
 
 ## 예외 처리
 
@@ -57,8 +59,13 @@
 
 # 필요한 객체들과 메소드를 생각해보자(추후 삭제)
 
--  [ ] 컨트롤러에서는: PlayerMoveList를 갖고가서 출력하면 될듯?
-    - [ ] 아니면 responseDto로 만들어 갖고가서 출력하든지
+-  [x] 컨트롤러에서는: 각 이동마다 PlayerMoveList를 갖고가서 출력하면 될듯?
+    - [x] 아니면 responseDto로 만들어 갖고가서 출력하든지
+    - 결과 출력에서 필요한 건 플레이어별 <playerName, distance>이 담긴 리스트? [현지, 1], [포비, 0]
+    - PlayerName = PlayerMove.getPlayer.getPlayerName.getValue()
+    - Distance = PlayerMove.getDistance.getValue()
+- 얘는 최종에 반복 끝났을 때 필요함
+    - isWinner = PlayerMove.getPlayer.getIsWinner();
 
 ## 보완할 점
 

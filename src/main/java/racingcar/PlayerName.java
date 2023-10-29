@@ -14,10 +14,10 @@ import java.util.regex.Pattern;
 public class PlayerName {
 
     private static final Pattern PLAYER_NAMES_PATTERN = Pattern.compile(PLAYER_NAMES_FORMAT);
-    private final String playerName;
+    private final String value;
 
-    public PlayerName(String playerName) {
-        this.playerName = playerName;
+    public PlayerName(String value) {
+        this.value = value;
     }
 
     public static PlayerName from(String playerName) {
@@ -48,5 +48,9 @@ public class PlayerName {
 
     private static List<String> convertNames(String rawNames) {
         return Arrays.asList(rawNames.split(PLAYER_NAMES_DELIMITER));
+    }
+
+    public String getValue() {
+        return value;
     }
 }

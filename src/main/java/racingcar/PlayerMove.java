@@ -40,6 +40,10 @@ public class PlayerMove {
         return distance;
     }
 
+    public Player getPlayer() {
+        return player;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
