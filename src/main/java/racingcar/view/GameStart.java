@@ -23,11 +23,13 @@ public class GameStart {
      */
     public void printSituationOfCarCurrentOneCycle() {
         makeMapOfCurrentRace();
+        String nameOfRaceCar = "";
+        String moveStateStrOfRaceCar = "";
 
         for (Map.Entry<RaceCar, String> entry : raceCarMapOfCurrent.entrySet()) {
-            String nameOfRaceCar = entry.getKey().toString();
-            String state = entry.getValue();
-            System.out.println(nameOfRaceCar + " : " + state);
+            nameOfRaceCar = entry.getKey().toString();
+            moveStateStrOfRaceCar = entry.getValue();
+            System.out.println(nameOfRaceCar + " : " + moveStateStrOfRaceCar);
         }
     }
 
@@ -44,7 +46,8 @@ public class GameStart {
      * 우승자가 여러명일경우 쉼표(,)를 이용하여 구분한다.
      */
     public void printWinnerOfRaceGame() {
-        System.out.println("최종 우승자 : " + gameProcess.knowFinalWinner());
+        String carOfWinnerFinal = gameProcess.knowFinalWinner();
+        System.out.println("최종 우승자 : " + carOfWinnerFinal);
     }
 
     /**
