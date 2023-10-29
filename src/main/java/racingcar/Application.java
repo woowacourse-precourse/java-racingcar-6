@@ -22,7 +22,7 @@ public class Application {
         return randomNum;
     }
 
-    private static void printEachScore(int[] raceAccumulations){
+    private static void printEachCarScore(int[] raceAccumulations){
         for (int index=0; index<raceAccumulations.length; index++){
             int substitutionNum = raceAccumulations[index];
             for (int printNum=0; printNum<substitutionNum; printNum++){
@@ -51,7 +51,8 @@ public class Application {
     private static void printEachRace(int[] raceAccumulations, String[]carArray){
         for (int index=0; index<carArray.length; index++){
             System.out.print(carArray[index]+" : ");
-            printEachScore(raceAccumulations);
+            printEachCarScore(raceAccumulations);
+            System.out.println();
         }
         System.out.println();
     }
