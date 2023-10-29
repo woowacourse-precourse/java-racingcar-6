@@ -1,5 +1,6 @@
 package racingcar.Validator;
 
+import static racingcar.Message.RoundExceptionPrompt.REALNUMBERPROMPT;
 import static racingcar.Message.RoundExceptionPrompt.STRINGPROMPT;
 
 import racingcar.Exception.GameException;
@@ -14,6 +15,9 @@ public class RoundValidator {
     }
 
     public static void isNotRealNumber(String round) {
+        if (round.contains(".")) {
+            throw new RoundException(REALNUMBERPROMPT.getMessage(round));
+        }
     }
 
     public static void isValidRange(String round) {
