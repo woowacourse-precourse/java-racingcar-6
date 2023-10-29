@@ -20,7 +20,7 @@ class GameDataTest {
     @Test
     void 자동차_컬렉션_생성() {
         int carsNumber = 4;
-        gameData.createCarList(4);
+        gameData.createCarList(carsNumber);
         List<Car> carList = gameData.getCarList();
 
         Assertions.assertThat(carList.size()).isEqualTo(4);
