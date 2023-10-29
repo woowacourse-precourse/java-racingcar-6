@@ -1,6 +1,5 @@
 package racingcar.validator;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.regex.Pattern;
 
 public class InputValidator {
