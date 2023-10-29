@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Parser {
 
-    public int parseNumTrial(String numTrialInput) {
-        return Integer.parseInt(numTrialInput);
+    public int parseNumGames(String numGamesInput) {
+        return Integer.parseInt(numGamesInput);
     }
 
     public List<String> parseCarNames(String carNamesInput) {

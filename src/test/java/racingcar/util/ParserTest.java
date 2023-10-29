@@ -13,7 +13,7 @@ public class ParserTest extends NsTest{
 
     @Test
     void 횟수_숫자_반환() {
-        int numTrial = parser.parseNumTrial("5");
+        int numTrial = parser.parseNumGames("5");
         assertThat(numTrial).isEqualTo(5);
     }
 
