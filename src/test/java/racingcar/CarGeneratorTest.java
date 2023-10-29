@@ -21,7 +21,6 @@ class CarGeneratorTest {
 
     @Test
     void splitNames_메소드로_주어진_값을_구분() {
-
         assertThat(nameList).containsExactly("apple", "pear", "melon");
     }
 

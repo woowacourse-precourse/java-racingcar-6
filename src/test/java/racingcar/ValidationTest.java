@@ -39,12 +39,12 @@ class ValidationTest {
     void validNumber_메소드에_전달된_값이_올바른_숫자인지_확인() {
         assertThat(Validation.validNumber("1")).as("숫자에 대한 반환값").isEqualTo(true);
         assertThat(Validation.validNumber("123")).as("큰 숫자에 대한 반환값").isEqualTo(true);
+
         assertThat(Validation.validNumber("abc")).as("문자에 대한 반환값").isEqualTo(false);
         assertThat(Validation.validNumber("1a")).as("숫자와 문자 조합에 대한 반환값").isEqualTo(false);
         assertThat(Validation.validNumber("1 2")).as("공백이 포함된 숫자에 대한 반환값").isEqualTo(false);
         assertThat(Validation.validNumber("!1")).as("특수기호가 포함된 숫자에 대한 반환값").isEqualTo(false);
         assertThat(Validation.validNumber("001")).as("0이 포함된 입력에 대한 반환값").isEqualTo(true);
         assertThat(Validation.validNumber("0")).as("0회 입력에 대한 반환값").isEqualTo(false);
-
     }
 }

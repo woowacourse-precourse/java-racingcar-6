@@ -58,6 +58,7 @@ class PrinterTest {
     void printWinner_메소드에_전달된_우승자들의_이름을_출력() {
         carList.remove(2);
         printer.printWinner(carList);
+
         String expectMessage = "apple, pear";
         assertThat(expectMessage).isEqualTo(outputMessage.toString());
     }
