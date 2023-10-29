@@ -9,11 +9,14 @@ public class RacingCar {
     public int games;
     public RacingCar(){
         getUser();
+        for (String player : members){
+            System.out.println(player);
+        }
     }
 
     public void getUser(){
         players = new Player();
         members = players.getMember(Console.readLine());
-        players.printMembers();
+//        players.printMembers();
     }
 }
