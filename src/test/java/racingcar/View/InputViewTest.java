@@ -27,8 +27,8 @@ class InputViewTest {
 
     @Test
     void 자동차이름_입력_후_리스트변환() {
-        systemIn("정연,유주,동현");
-        List<String> expect = Arrays.asList("정연", "유주", "동현");
+        systemIn("jung,yuju,dong");
+        List<String> expect = Arrays.asList("jung", "yuju", "dong");
         List<String> result = inputView.inputCarName();
         assertThat(result).isEqualTo(expect);
 

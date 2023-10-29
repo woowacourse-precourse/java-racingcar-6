@@ -13,13 +13,13 @@ class OutputViewTest {
     @BeforeEach
     void setOutputView() {
         outputView = new OutputView();
-        car = new Car("정연", 4);
+        car = new Car("jung", 4);
     }
 
     @Test
     void 일회_사이클_출력화면() {
         String result = outputView.carResult(car);
-        assertThat(result).isEqualTo("정연 : ----");
+        assertThat(result).isEqualTo("jung : ----");
     }
 
 }

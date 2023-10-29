@@ -9,6 +9,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.Service.RaceService.EXCEED_ERROR_MESSAGE;
 
 
 class RaceServiceTest {
@@ -23,34 +24,34 @@ class RaceServiceTest {
 
     @Test
     void 레이스_최종_단일_우승자_확인() {
-        carList.add(new Car("정연", 5));
-        carList.add(new Car("유주", 4));
-        carList.add(new Car("동현", 3));
+        carList.add(new Car("jung", 5));
+        carList.add(new Car("yuju", 4));
+        carList.add(new Car("dong", 3));
         String result = raceService.winnerResult(carList);
-        assertThat(result).isEqualTo("정연");
+        assertThat(result).isEqualTo("jung");
     }
 
     @Test
     void 레이스_최종_공동_우승자_확인() {
-        carList.add(new Car("정연", 5));
-        carList.add(new Car("유주", 5));
-        carList.add(new Car("동현", 3));
+        carList.add(new Car("jung", 5));
+        carList.add(new Car("yuju", 5));
+        carList.add(new Car("dong", 3));
         String result = raceService.winnerResult(carList);
-        assertThat(result).isEqualTo("정연, 유주");
+        assertThat(result).isEqualTo("jung, yuju");
     }
 
     @Test
     void 입력받은_자동차_이름_검증() {
-        assertThat(raceService.isSplitValue("정연,유주,동현")).isTrue();
-        assertThat(raceService.CountOfNameSpelling("정연,유주,동현")).isTrue();
-        assertThat(raceService.CountOfNameSpelling("정연정연정연,유주,동현")).isFalse();
+        assertThat(raceService.isSplitValue("jung,yuju,dong")).isTrue();
+        assertThat(raceService.CountOfNameSpelling("jung,yuju,dong")).isTrue();
+        assertThat(raceService.CountOfNameSpelling("jungyeon,yuju,dong")).isFalse();
     }
 
     @Test
     void 이름입력시_최대_이름_글자수_이상일때() {
-        assertThatThrownBy(() -> raceService.checkCarNamesValidation("빅정정정정정연,유주,동현"))
+        assertThatThrownBy(() -> raceService.checkCarNamesValidation("jungyeon,yuju,dong"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("최대 이름 글자수를 초과하였습니다.");
+                .hasMessageContaining(EXCEED_ERROR_MESSAGE);
     }
 
 }

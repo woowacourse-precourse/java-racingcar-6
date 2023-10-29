@@ -10,7 +10,7 @@ import java.util.List;
 
 public class RaceService {
     private static final String DISTINGUISH_ERROR_MESSAGE = "이름을 쉼표(,)로 구분할 수 없습니다.";
-    private static final String EXCEED_ERROR_MESSAGE = "최대 이름 글자수를 초과하였습니다.";
+    static final String EXCEED_ERROR_MESSAGE = "최대 이름 글자수를 초과하였습니다.";
     private static final int MAX_SPELLING_COUNT = 5;
 
     public void checkCarNamesValidation(String inputCarNames) {
