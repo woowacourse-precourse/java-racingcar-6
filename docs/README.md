@@ -11,7 +11,6 @@
 - [X] 자동차 이름이 5자 이하인지 판단하는 기능 - CarName.*isNameUnder5Characters*
 - [X] 자동차 이름이 공백인지 확인하는 기능 - CarName.*isCarNameEmpty*
 - [X] 자동차를 전진시키는 기능 - Car.*moveForward*
-- [X] 자동차의 이름이 유효한지 확인하는 기능 Car.*isNameValid*
 - [X] 메인 애플리케이션 게임 진행 기능 - Application.*startRacingGame*
 - [X] 매회차 게임 진행 기능 - Application.*playGame*
 - [X] 각 차수별 실행 결과를 출력하는 기능 - Application.*printCurrentRacingResult*
