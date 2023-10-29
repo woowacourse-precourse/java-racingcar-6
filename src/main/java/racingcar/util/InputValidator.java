@@ -34,10 +34,17 @@ public class InputValidator {
     // 자동차 이름들이 문자인지 검사
     private static void isValidType(List<String> inputList) {
         for (int i = 0; i < inputList.size(); i++) {
-            try {
-                Double.parseDouble(inputList.get(i));
+            String word = inputList.get(i);
+            isLetter(word);
+        }
+    }
+
+    // 자동차 이름에 숫자가 포함되는지 검사
+    private static void isLetter(String word) {
+        for (int i = 0; i < word.length(); i++) {
+            char digit = word.charAt(i);
+            if (Character.isDigit(digit) == true) {
                 throw new IllegalArgumentException();
-            } catch (NumberFormatException e) {
             }
         }
     }
