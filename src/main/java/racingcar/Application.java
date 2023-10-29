@@ -32,17 +32,16 @@ public class Application {
             System.out.println("시도할 횟수는 몇회인가요?");
             int attempts=Integer.parseInt(Console.readLine());
 
+            System.out.println("실행 결과");
             for (int i=0;i<attempts;i++) {
                 //해당 자동차 배열에 횟수만큼 랜덤 숫자 지정,
                 moveCars(carCount,progress);
-//                printProgress(carNameArray,progress);
+                printProgress(carNameArray,progress);
             }
 
 
 
     //입력된 자동차 이름으로 Car 객체 생성
-
-
 
 
 
@@ -72,6 +71,13 @@ public class Application {
                 progress[j]++;
             }
         }
+    }
+    // 전진 출력
+    private static void printProgress(String[] carNameArray,int[] progress){
+        for(int i=0;i<carNameArray.length;i++){
+            System.out.println(carNameArray[i]+":"+"-".repeat(progress[i]));
+        }
+        System.out.println("");
     }
 
 
