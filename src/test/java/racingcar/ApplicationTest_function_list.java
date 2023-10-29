@@ -10,6 +10,7 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.ByteArrayInputStream;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,7 +19,6 @@ import java.util.List;
 class ApplicationTest_function_list extends NsTest {
 
     void testPrivateMethod(Class<?> testClass, String testMethodName, List<List<Object>> testCase) {
-
         for (List<Object> input : testCase) {
             // private method reflection 사용
             Object returnValue = new Object();
@@ -111,7 +111,21 @@ class ApplicationTest_function_list extends NsTest {
 
     @Test
     void 기능목록_테스트_자동차_이름_저장() {
-
+        try {
+            List<List<String>> testCase = Arrays.asList(
+                    Arrays.asList("pobi", "pobi"),
+                    Arrays.asList("woni", "woni"),
+                    Arrays.asList("jun", "jun"));
+            for (List<String> input : testCase) {
+                Car car = new Car();
+                car.setName(input.get(0));
+                Field privateField = car.getClass().getDeclaredField("name");
+                privateField.setAccessible(true);
+                assertThat(privateField.get(car)).isEqualTo(input.get(1));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
