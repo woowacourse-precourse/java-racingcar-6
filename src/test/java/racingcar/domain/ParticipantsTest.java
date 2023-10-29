@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.*;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -55,5 +56,17 @@ class ParticipantsTest {
 
         assertThatIllegalArgumentException()
                 .isThrownBy(() -> participants.raceNTimes(attemptCount));
+    }
+
+    @Test
+    void 우승자_목록을_가져올_수_있다() {
+        Car car1 = new Car("car1", () -> true);
+        Car car2 = new Car("car2", () -> false);
+        Car car3 = new Car("car3", () -> true);
+        Participants participants = new Participants(List.of(car1, car2, car3));
+        participants.raceNTimes(10);
+
+        List<Car> winners = participants.getWinners();
+        assertThat(winners).contains(car1, car3).doesNotContain(car2);
     }
 }
