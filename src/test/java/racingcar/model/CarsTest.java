@@ -6,8 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
-
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class CarsTest {
     private final List<String> carNames = Arrays.asList("benz", "audi", "fox", "tesla");
 

@@ -7,7 +7,8 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.List;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 import racingcar.handler.InputConvertor;
 import racingcar.handler.InputHandler;
@@ -18,7 +19,7 @@ import racingcar.service.RacingCarService;
 import racingcar.service.random.RandomNumberProvider;
 import racingcar.view.OutputView;
 import racingcar.view.input.InputView;
-
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class RacingCarControllerTest {
     private final String inputCarNames = "pobi,woni,jun";
     private final String inputRaceTime = "3";

@@ -4,12 +4,14 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 import racingcar.model.dto.CarProgressResponse;
 import racingcar.model.Cars;
 import racingcar.model.GameResult;
-
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class RacingCarServiceTest {
     private static final int racingTime = 5;
     private RacingCarService racingCarService;

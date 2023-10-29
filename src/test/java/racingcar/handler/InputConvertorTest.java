@@ -1,13 +1,15 @@
 package racingcar.handler;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 public class InputConvertorTest {
     private final InputConvertor inputConvertor = new InputConvertor();
 

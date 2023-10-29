@@ -3,9 +3,11 @@ package racingcar.model.dto;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 import racingcar.model.dto.CarProgressResponse;
-
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class CarProgressResponseTest {
     private static final int result = 3;
     @Test

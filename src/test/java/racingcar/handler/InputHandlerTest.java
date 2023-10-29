@@ -2,9 +2,11 @@ package racingcar.handler;
 
 import java.util.List;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 import racingcar.view.input.InputView;
-
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class InputHandlerTest {
     private final String inputCarNames = "pobi,woni,jun";
     private final String inputRaceTime = "3";
