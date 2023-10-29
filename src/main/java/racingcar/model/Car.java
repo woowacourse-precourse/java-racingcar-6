@@ -1,25 +1,41 @@
 package racingcar.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Car {
 
-    List<String> name;
-    List<Integer> move;
+    static List<String> names = new ArrayList<>();
+    static List<Integer> moves = new ArrayList<>();
 
     public Car() {
 
     }
 
-    public Car(List<String> name) {
-        this.name = name;
+    public Car(List<String> names) {
+        this.names = names;
+        for (int i = 0; i < names.size(); i++) {
+            this.moves.add(0);
+        }
     }
 
-    public List<Integer> getMove() {
-        return move;
+    public static List<Integer> getMoves() {
+        return moves;
     }
 
-    public List<String> getName() {
-        return name;
+    public static List<String> getNames() {
+        return names;
+    }
+
+    public int getSize() {
+        return names.size();
+    }
+
+    public void increaseMove(int index) {
+        moves.set(index, moves.get(index) + 1);
+    }
+
+    public void addCarNames(List<String> names) {
+        this.names.addAll(names);
     }
 }

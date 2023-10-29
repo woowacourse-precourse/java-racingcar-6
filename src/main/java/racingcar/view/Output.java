@@ -1,5 +1,9 @@
 package racingcar.view;
 
+import java.util.Collections;
+import java.util.List;
+import racingcar.model.Car;
+
 public class Output {
 
     public static void printStartMessage() {
@@ -14,7 +18,24 @@ public class Output {
         System.out.println("\n실행 결과");
     }
 
+    public static void printRacing() {
+        List<String> str = Car.getNames();
+        for (int i = 0; i < str.size(); i++) {
+            System.out.print(str.get(i) + " : ");
+            if (Car.getMoves().size() != 0) {
+                for (int j = 0; j < Car.getMoves().get(i); j++) {
+                    System.out.print("-");
+                }
+            }
+            System.out.println();
+        }
+    }
+
     public static void printWinners() {
-        System.out.println();
+        List<Integer> winnerMove = Car.getMoves();
+        int winner = Collections.max(winnerMove);
+        int index = winnerMove.indexOf(winner);
+        String name = Car.getNames().get(index);
+        System.out.println("최종 우승자 : " + name);
     }
 }
