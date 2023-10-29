@@ -6,7 +6,7 @@ import racingcar.domain.Winner;
 
 import java.util.List;
 
-public class StringUtil {
+public class StringFormatter {
 
     private static final String CAR_NAME_POSITION_FORMAT = "%s : %s";
     private static final String POSITION_DELIMITER = "-";

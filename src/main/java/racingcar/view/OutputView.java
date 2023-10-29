@@ -2,16 +2,16 @@ package racingcar.view;
 
 import racingcar.domain.CarGarage;
 import racingcar.domain.Winner;
-import racingcar.util.StringUtil;
+import racingcar.util.StringFormatter;
 
 public class OutputView {
 
     private static final String RESULT_MESSAGE = "실행 결과";
 
-    private final StringUtil stringUtil;
+    private final StringFormatter stringFormatter;
 
-    public OutputView(StringUtil stringUtil) {
-        this.stringUtil = stringUtil;
+    public OutputView(StringFormatter stringFormatter) {
+        this.stringFormatter = stringFormatter;
     }
 
     public void printResultMessage() {
@@ -19,12 +19,12 @@ public class OutputView {
     }
 
     public void printRaceResult(CarGarage cars) {
-        String result = stringUtil.makeRaceResult(cars);
+        String result = stringFormatter.makeRaceResult(cars);
         System.out.println(result);
     }
 
     public void printWinner(Winner winner) {
-        String result = stringUtil.makeWinnerResult(winner);
+        String result = stringFormatter.makeWinnerResult(winner);
         System.out.println(result);
     }
 }

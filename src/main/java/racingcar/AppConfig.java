@@ -5,7 +5,7 @@ import racingcar.util.convert.ConverterHolder;
 import racingcar.util.convert.StringToCarGarageConverter;
 import racingcar.util.convert.StringToTryCountConverter;
 import racingcar.service.RacingService;
-import racingcar.util.StringUtil;
+import racingcar.util.StringFormatter;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -32,7 +32,7 @@ public class AppConfig {
     }
 
     private OutputView outputView() {
-        return new OutputView(new StringUtil());
+        return new OutputView(new StringFormatter());
     }
 
     private RacingService racingService() {
