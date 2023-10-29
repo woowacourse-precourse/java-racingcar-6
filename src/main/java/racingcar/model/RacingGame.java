@@ -1,65 +1,50 @@
 package racingcar.model;
 
-import java.util.ArrayList;
-import java.util.List;
-import racingcar.model.validation.ValidatorCars;
-
+import static racingcar.model.Settings.ATTEMPT_MAX;
+import static racingcar.model.Settings.CAR_AMOUNT;
 
 public class RacingGame {
-    private List<Car> cars = new ArrayList<>();
-    ValidatorCars validator = new ValidatorCars();
+    private final CarManager manager;
 
-    public void createAndAddCars(String[] names) {
-        for (String name : names) {
-            validator.isValid(name);
-            cars.add(new Car(name));
-        }
+    public RacingGame(CarManager manager) {
+        this.manager = manager;
     }
 
     public void playGame() {
         int round = 0;
-        System.out.println("\n실행결과");
         do {
-            playRound();
+            proceedRound();
             round++;
-        } while (round < Settings.ATTEMPT_COUNT);
-        System.out.printf("최종 우승자 : %s\n", getWinners());
+        } while (round < ATTEMPT_MAX);
     }
 
-    private void playRound() {
-        for (Car car : cars) {
+    private void proceedRound() {
+        for (int index = 0; index < CAR_AMOUNT; index++) {
+            Car car = manager.getCarFromIndex(index);
+
             car.tryMove();
             car.getPosition();
         }
         System.out.println();
     }
 
-    private String getWinners() {
+    public String getWinners() {
         StringBuilder winners = new StringBuilder();
-        int biggest = biggestMoves();
+        int biggest = manager.getBiggestMove();
 
-        for (Car car : cars) {
+        for (int index = 0; index < CAR_AMOUNT; index++) {
+            Car car = manager.getCarFromIndex(index);
+
             if (car.getMoves() == biggest) {
                 winners.append(car.getName());
                 winners.append(", ");
             }
         }
-        cutStringEnd(winners);
+        cutStringTail(winners);
         return winners.toString();
     }
 
-    private int biggestMoves() {
-        int biggest = 0;
-
-        for (Car car : cars) {
-            if (biggest < car.getMoves()) {
-                biggest = car.getMoves();
-            }
-        }
-        return biggest;
-    }
-
-    private void cutStringEnd(StringBuilder winners) {
+    private void cutStringTail(StringBuilder winners) {
         int length = winners.length();
         winners.delete(length - 2, length);
     }

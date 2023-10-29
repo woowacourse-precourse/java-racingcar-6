@@ -14,6 +14,14 @@ public class View {
         return getAttempts();
     }
 
+    public void displayResult() {
+        System.out.println("\n실행결과");
+    }
+
+    public void displayWinners(String winners) {
+        System.out.printf("최종 우승자 : %s\n", winners);
+    }
+
     private String[] getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();

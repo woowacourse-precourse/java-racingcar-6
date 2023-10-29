@@ -1,22 +1,29 @@
 package racingcar.controller;
 
+import racingcar.model.CarManager;
 import racingcar.model.RacingGame;
 import racingcar.model.Settings;
 import racingcar.view.View;
 
 public class Controller {
-    RacingGame game = new RacingGame();
+    CarManager manager = new CarManager();
+    RacingGame game = new RacingGame(manager);
     View view = new View();
 
     public void startGame() {
         askAndGenerateCars();
         askAndSetAttempts();
+
+        view.displayResult();
         game.playGame();
+
+        String winners = game.getWinners();
+        view.displayWinners(winners);
     }
 
     private void askAndGenerateCars() {
         String[] cars = view.askForCarNames();
-        game.createAndAddCars(cars);
+        manager.createAndAddCars(cars);
     }
 
     private void askAndSetAttempts() {
