@@ -1,16 +1,10 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-
 public class RacingCarGame {
-    InputProcessor inputProcessor;
-    OutputProcessor outputProcessor;
-    GameBoard gameBoard;
-    Integer repetition;
+    private final InputProcessor inputProcessor;
+    private final OutputProcessor outputProcessor;
+    private GameBoard gameBoard;
+    private Integer repetition;
 
     public RacingCarGame() {
         inputProcessor = new InputProcessor();
@@ -19,13 +13,8 @@ public class RacingCarGame {
 
     public void run() {
         initializeGame();
-
-        for (int repetitionCount = 0; repetitionCount < repetition; repetitionCount++) {
-            gameBoard.processTurn();
-            outputProcessor.printMoveResult(gameBoard.getCopyOfPlayerList());
-        }
-
-        outputProcessor.printWinners(gameBoard.findWinners());
+        executeGame();
+        showGameResult();
     }
 
     private void initializeGame() {
@@ -33,5 +22,16 @@ public class RacingCarGame {
         this.gameBoard = new GameBoard(inputProcessor.readCarNamesInput());
         outputProcessor.printRepetitionInputMessage();
         this.repetition = inputProcessor.readRepetitionInput();
+    }
+
+    private void executeGame() {
+        for (int repetitionCount = 0; repetitionCount < repetition; repetitionCount++) {
+            gameBoard.processTurn();
+            outputProcessor.printMoveResult(gameBoard.getCopyOfPlayerList());
+        }
+    }
+
+    private void showGameResult() {
+        outputProcessor.printWinners(gameBoard.findWinners());
     }
 }
