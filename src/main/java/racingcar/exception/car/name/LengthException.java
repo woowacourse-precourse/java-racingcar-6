@@ -4,7 +4,8 @@ import static racingcar.constant.RacingGameConstants.CAR_NAME_LENGTH_MAX;
 import static racingcar.constant.RacingGameConstants.CAR_NAME_LENGTH_MIN;
 
 public class LengthException extends IllegalArgumentException{
+    public static final String LengthExceptionMessage = String.format("이름은 %d자 이상 %d자 이하여야 합니다.", CAR_NAME_LENGTH_MIN, CAR_NAME_LENGTH_MAX);
     public LengthException() {
-        super(String.format("이름은 %d자 이상 %d자 이하여야 합니다.", CAR_NAME_LENGTH_MIN, CAR_NAME_LENGTH_MAX));
+        super(LengthExceptionMessage);
     }
 }
