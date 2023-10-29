@@ -18,6 +18,9 @@ public class Converter {
         try {
             String[] parts = tokenizeByComma(Name);
             for (String part : parts) {
+                if (part.isBlank()) {
+                    throw new IllegalArgumentException("[ERROR] 이름이 존재하지 않습니다. 게임을 종료합니다.");
+                }
                 hashMap.put(part, "");
                 UserInputValidator.checkNameLength(part);
             }
