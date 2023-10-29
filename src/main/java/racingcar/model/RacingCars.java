@@ -40,13 +40,13 @@ public final class RacingCars {
 
     private static void validateNameNotBlank(String name) {
         if (StringUtils.isBlank(name)) {
-            throw new IllegalArgumentException(BLANK_CAR_NAME.getMessage());
+            throw new IllegalArgumentException(BLANK_CAR_NAME.toString());
         }
     }
 
     private static void validateNameLength(String name) {
         if (name.length() > CAR_NAME_LENGTH_LIMIT) {
-            throw new IllegalArgumentException(EXCEEDED_LIMIT_CAR_LENGTH.getMessage());
+            throw new IllegalArgumentException(EXCEEDED_LIMIT_CAR_LENGTH.toString());
         }
     }
 

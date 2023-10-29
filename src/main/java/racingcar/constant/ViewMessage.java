@@ -11,6 +11,8 @@ public enum ViewMessage {
         this.text = text;
     }
 
+
+    @Override
     public String toString() {
         return text;
     }

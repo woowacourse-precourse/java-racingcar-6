@@ -20,7 +20,7 @@ public final class MovingCount {
     private void validateInputIsDigit(String input) {
         Matcher matcher = IS_NUMBER.matcher(input);
         if (!matcher.matches()) {
-            throw new IllegalArgumentException(EXCEEDED_LIMIT_CAR_LENGTH.getMessage());
+            throw new IllegalArgumentException(EXCEEDED_LIMIT_CAR_LENGTH.toString());
         }
     }
 
