@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import racingcar.dto.CarDto;
 import racingcar.entity.Car;
 import racingcar.entity.Game;
 import racingcar.repository.CarRepository;
@@ -23,5 +24,10 @@ public class CarService {
     public void go(String carName) {
         Car car = carRepository.findByName(carName);
         car.plusScore();
+    }
+
+    public CarDto getCartInfo(String carName) {
+        Car car = carRepository.findByName(carName);
+        return new CarDto(car.getName(), car.getScore());
     }
 }

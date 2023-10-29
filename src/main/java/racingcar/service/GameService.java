@@ -17,12 +17,13 @@ public class GameService {
         this.carService = carService;
     }
 
-    public void initGame(String nameInput, Integer playCount) {
+    public Game initGame(String nameInput, Integer playCount) {
         Game game = gameRepository.save(playCount);
         List<String> nameList = Arrays.stream(nameInput.split(",")).toList();
         for (String name : nameList) {
             game.addCar(carService.carCreate(name));
         }
+        return game;
     }
 
     public void processGame(Game game) {
@@ -30,6 +31,7 @@ public class GameService {
             goOrStop(game,carName);
         }
     }
+
 
     private void goOrStop(Game game, String carName) {
         if (game.carGoOrStop()) carService.go(carName);
