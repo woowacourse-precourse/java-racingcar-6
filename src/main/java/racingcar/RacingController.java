@@ -49,10 +49,8 @@ public class RacingController {
             CarStatus carStatus = calculation.judgeCarMoveOrStop(randomNumber);
             car.setMoveCount(carStatus);
             car.setNowMoveTrace(carStatus);
-
-            consolePrint.racingTryResult(car,carStatus);
         }
-        System.out.println();
 
+        consolePrint.racingTryResult(cars);
     }
 }
