@@ -1,4 +1,4 @@
-package racingcar.service;
+package racingcar.utils;
 
 import org.junit.platform.commons.util.StringUtils;
 

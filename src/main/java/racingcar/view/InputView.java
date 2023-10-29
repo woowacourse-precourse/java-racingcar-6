@@ -2,8 +2,8 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.RacingCar;
-import racingcar.service.CarNameValidation;
-import racingcar.service.MovementValidation;
+import racingcar.utils.CarNameValidation;
+import racingcar.utils.MovementValidation;
 
 import java.util.List;
 
