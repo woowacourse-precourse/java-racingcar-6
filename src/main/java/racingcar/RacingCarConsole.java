@@ -31,4 +31,9 @@ public class RacingCarConsole {
             throw new IllegalArgumentException("시도 회수는 숫자로 입력해주세요.");
         }
     }
+
+    public static void printCarRacingProgressState(List<Car> cars) {
+        cars.forEach(System.out::println);
+        System.out.println();
+    }
 }

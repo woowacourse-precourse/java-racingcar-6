@@ -12,4 +12,10 @@ public class Car {
     public void moveForward() {
         location++;
     }
+
+    @Override
+    public String toString() {
+        String currentLocation = "-".repeat(location);
+        return name + " : " + currentLocation;
+    }
 }
