@@ -44,4 +44,18 @@ public class IOService {
 
         System.out.println(stringBuilder.toString());
     }
+
+    public int scanCnt(){
+        int cnt = 0;
+        String input = Console.readLine();
+
+        try{
+            cnt = Integer.parseInt(input);
+        }catch (NumberFormatException e){
+            throw new IllegalArgumentException("숫자를 입력해야합니다.");
+        }
+
+
+        return cnt;
+    }
 }
