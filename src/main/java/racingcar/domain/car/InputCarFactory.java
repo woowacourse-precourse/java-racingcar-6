@@ -15,9 +15,22 @@ public class InputCarFactory implements CarFactory {
     }
 
     private List<Car> convertNamesToCars(String[] carNames) {
+        validateDuplicateNames(carNames);
         return Arrays.stream(carNames)
                 .map(name -> new Car(name.trim(), new RandomMovement()))
                 .collect(Collectors.toList());
+    }
+
+    private void validateDuplicateNames(String[] carNames) {
+        if (uniqueNameCount(carNames) != carNames.length) {
+            throw new IllegalArgumentException("자동차 이름에 중복이 있습니다.");
+        }
+    }
+
+    private long uniqueNameCount(String[] carNames) {
+        return Arrays.stream(carNames)
+                .distinct()
+                .count();
     }
 
     private void printMakeCarMessage() {

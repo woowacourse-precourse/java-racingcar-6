@@ -14,6 +14,7 @@ public class IOTest {
 
     @BeforeEach
     protected final void init() {
+        Console.close();
         standardOut = System.out;
         captor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(captor));
