@@ -1,13 +1,24 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Map;
 
 public class Game {
     Cars carList;
     int tryChance;
+    Map<String, Integer> gameResult;
 
     public Game(Cars cars) {
         this.carList = cars;
+    }
+
+    public int getChanceNumber() {
+        return tryChance;
+    }
+
+    public Map<String, Integer> getGameResult() {
+        return gameResult;
     }
 
     public void settingChance() {
@@ -16,15 +27,10 @@ public class Game {
     }
 
     public void running() {
-        int round = 1;
-        while(round <= tryChance) {
-            carList.play(round);
-            round++;
+        for(Car car : carList.getCars()) {
+            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            car.moveOrNot(randomNumber);
         }
-
-        System.out.println();
-        int maxNumber = carList.findMaxScore();
-
-        System.out.println("최종 우승자 : " + carList.findWinners(maxNumber));
+        gameResult = carList.getResultOfRound();
     }
 }
