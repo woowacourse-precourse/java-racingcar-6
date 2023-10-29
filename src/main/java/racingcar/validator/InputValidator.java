@@ -46,17 +46,20 @@ public class InputValidator {
         List<String> carNames = Arrays.stream(input.split(","))
                 .toList();
 
-        int countDuplicate = 0;
+        if (hasDuplicationCarNames(carNames)) {
+            throw new IllegalArgumentException(Constants.WRONG_INPUT_CAR_NAME_DUPLICATION_MESSAGE);
+        }
+    }
+
+    private static boolean hasDuplicationCarNames(final List<String> carNames) {
+        long count = 0;
 
         for (String carName : carNames) {
-            countDuplicate = (int) carNames.stream()
+            count = carNames.stream()
                     .filter(name -> name.equals(carName))
                     .count();
         }
-
-        if (countDuplicate > 1) {
-            throw new IllegalArgumentException(Constants.WRONG_INPUT_CAR_NAME_DUPLICATION_MESSAGE);
-        }
+        return count > 1;
     }
 
     public static void validateInputTryCountCharacter(final String input) {
