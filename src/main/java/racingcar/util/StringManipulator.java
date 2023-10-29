@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.util;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,6 +14,6 @@ public class StringManipulator {
     public static String join(List<String> parts) {
         return parts.stream()
                 .map(String::trim)
-                .collect(Collectors.joining(","));
+                .collect(Collectors.joining(", "));
     }
 }
