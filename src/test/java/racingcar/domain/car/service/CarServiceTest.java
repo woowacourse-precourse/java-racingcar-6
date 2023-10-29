@@ -57,5 +57,31 @@ class CarServiceTest {
         }
     }
 
+    @Nested
+    @DisplayName("자동차 경주 테스트")
+    class RacingCarTest {
 
+        @Test
+        @DisplayName("레이싱 경주 후 성공적으로 Car List를 반환해야 한다")
+        public void 레이싱_경주_후_성공적으로_Car_List를_반환해야_한다() {
+            CarRepository carRepository = mock(CarRepository.class);
+            CarService carService = new CarService(carRepository);
+            Car car = mock(Car.class);
+            Car otherCar = mock(Car.class);
+
+            when(carRepository.findAll()).thenReturn(List.of(car, otherCar));
+            when(car.race(anyInt())).thenReturn(car);
+            when(otherCar.race(anyInt())).thenReturn(otherCar);
+
+            List<Car> cars = carService.startRacingCar();
+
+            verify(carRepository, times(1)).findAll();
+            verify(car, times(1)).race(anyInt());
+            verify(otherCar, times(1)).race(anyInt());
+
+            assertThat(cars.size()).isEqualTo(2);
+            assertThat(cars.get(0)).isEqualTo(car);
+            assertThat(cars.get(1)).isEqualTo(otherCar);
+        }
+    }
 }
