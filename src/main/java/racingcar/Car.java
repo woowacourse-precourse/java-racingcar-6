@@ -21,7 +21,7 @@ public record Car(String name, int location) {
         return new Car(name, location);
     }
 
-    public int getRandomNumber() {
+    private int getRandomNumber() {
         return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
     }
 
