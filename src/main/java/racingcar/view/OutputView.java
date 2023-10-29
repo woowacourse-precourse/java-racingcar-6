@@ -1,20 +1,20 @@
 package racingcar.view;
 
 import racingcar.domain.RacingCars;
-import racingcar.view.constants.Messages;
+import racingcar.view.constants.Strings;
 
 public class OutputView {
 
     public static void askCarName() {
-        System.out.println(Messages.ASK_CAR_NAME.getMessage());
+        System.out.println(Strings.ASK_CAR_NAME.getMessage());
     }
 
     public static void askPlayTime() {
-        System.out.println(Messages.ASK_PLAY_TIME.getMessage());
+        System.out.println(Strings.ASK_PLAY_TIME.getMessage());
     }
 
     public static void showResultMessage() {
-        System.out.println(Messages.RESULT.getMessage());
+        System.out.println(Strings.RESULT.getMessage());
     }
 
     public static void showCurrentDistance(RacingCars racingcars) {
@@ -30,7 +30,7 @@ public class OutputView {
     }
 
     public static void showFinalWinner(RacingCars winners) {
-        System.out.print(Messages.FINAL_WINNER.getMessage());
+        System.out.print(Strings.FINAL_WINNER.getMessage());
         for (int i = 0; i < winners.size(); i++) {
             System.out.print(winners.get(i).getName());
             if (i + 1 < winners.size()) {

@@ -11,7 +11,6 @@ public class RacingCar {
     }
 
     void move() {
-
         this.distance++;
     }
 

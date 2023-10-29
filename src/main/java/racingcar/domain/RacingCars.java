@@ -4,35 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCars {
-    public List<RacingCar> racingcars;
+    public List<RacingCar> racingCars;
 
-    public RacingCars() {
-
-        racingcars = new ArrayList<>();
+    RacingCars() {
+        racingCars = new ArrayList<>();
     }
 
 
-    public void add(RacingCar racingcar) {
-
-        racingcars.add(racingcar);
+    public void add(RacingCar racingCar) {
+        racingCars.add(racingCar);
     }
 
     public int size() {
-        return racingcars.size();
+        return racingCars.size();
     }
 
     public RacingCar get(int index) {
-
-        return racingcars.get(index);
+        return racingCars.get(index);
     }
 
     public int farthestDistance() {
         int farthest = 0;
-        for (RacingCar racingcar : racingcars) {
-            farthest = Math.max(farthest, racingcar.getDistance());
+        for (RacingCar racingCar : racingCars) {
+            farthest = Math.max(farthest, racingCar.getDistance());
         }
         return farthest;
     }
-
-
 }

@@ -7,7 +7,6 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Game {
-
     public void start() {
         OutputView.askCarName();
         RacingCars racingcars = TypeCasting.stringToRacingCars(InputView.askCarName());
@@ -20,6 +19,5 @@ public class Game {
         }
         RacingCars winners = Referee.calculateWinner(racingcars);
         OutputView.showFinalWinner(winners);
-
     }
 }
