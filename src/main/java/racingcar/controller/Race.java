@@ -2,13 +2,15 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Race {
-    private final List<Car> cars = new ArrayList<>();
+    private final ArrayList<Car> carList = new ArrayList<>();
+    private Cars cars;
+
     private int moveCnt;
     public void run() {
         OutputView.printRacingStart();
@@ -17,7 +19,7 @@ public class Race {
         moveCnt = getMoveCount();
         OutputView.printResult();
         while(moveCnt > 0){
-            for (Car car : cars) {
+            for (Car car : carList) {
                 car.move();
                 OutputView.printCarsMove(car.getName(), car.getPosition());
             }
@@ -26,12 +28,12 @@ public class Race {
         }
 
         int currentMaxPostion = 0;
-        for (Car car : cars) {
+        for (Car car : carList) {
             currentMaxPostion = Math.max(currentMaxPostion,car.getPosition());
         }
 
         List<Car> currentWinner = new ArrayList<>();
-        for (Car car : cars) {
+        for (Car car : carList) {
             if(car.getPosition() == currentMaxPostion){
                 currentWinner.add(car);
             }
@@ -59,8 +61,9 @@ public class Race {
         String[] carNames = input.split(",");
         for (String carName : carNames) {
             Car car = new Car(carName);
-            cars.add(car);
+            carList.add(car);
         }
+        cars = new Cars(carList);
     }
 
 
