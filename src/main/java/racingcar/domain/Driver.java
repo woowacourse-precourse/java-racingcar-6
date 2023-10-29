@@ -5,16 +5,11 @@ import static racingcar.utils.Constants.MIN_STRENGTH;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Accelerator {
-    public boolean press() {
+public class Driver {
+    public int pressAccelerator() {
         int pressStrength = Randoms.pickNumberInRange(MIN_STRENGTH, MAX_STRENGTH);
-        return canGo(pressStrength);
+        return pressStrength;
     }
 
-    public boolean canGo(int strength) {
-        if (strength >= 4) {
-            return true;
-        }
-        return false;
-    }
+
 }
