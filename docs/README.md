@@ -34,6 +34,7 @@ GameEngine
 -[x] 점수를 생성한다
     -[x] GameEngineValidator# 플레이어 이름을 검증한다.
     - [x] 점수를 생성한다.
+    - [x] 플레이어이름은 한번만 생성할 수 있다.
 - [x] 플레이어가 전진하는지를 판단한다
     - [x] GameEngineValidator# 음수이거나 숫자가아닌지 검증한다.
     - [x] ScoreUpdater#점수를 업데이트한다
