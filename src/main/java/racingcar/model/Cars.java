@@ -42,7 +42,7 @@ public class Cars {
                 .orElseThrow(NoSuchElementException::new);
     }
 
-    private boolean isCoFastestCars() {
+    public boolean isCoFastestCars() {
         Set<Integer> carPositions = new HashSet<>();
         for (Car car : racingCars) {
             carPositions.add((Integer) car.provideCarStatus().get("position"));
