@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,16 +9,20 @@ public class NameParser {
         return Arrays.asList(inputNames.split(","));
     }
 
-    public void carNameLengthUnderFive(String carName) {
-        if (carName.length() > 5) {
-            throw new IllegalArgumentException("이름이 5글자를 넘어갈 수 없습니다.");
+    public void carNameLengthUnderFive(List<String> carNameList) {
+        for (String carName:carNameList) {
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException("이름이 5글자를 넘어갈 수 없습니다.");
+            }
         }
     }
 
-    public void setCar(List<String> carNameList) {
+    public List<Car> setCar(List<String> carNameList) {
+        List<Car> carList = new ArrayList<>();
         for (String carName : carNameList) {
-            carNameLengthUnderFive(carName);
-            Car car = new Car(carName, 0);
+            Car newCar = new Car(carName, 0);
+            carList.add(newCar);
         }
+        return carList;
     }
 }

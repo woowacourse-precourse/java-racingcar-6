@@ -3,13 +3,17 @@ package racingcar.controller;
 import static racingcar.view.InputView.readCarName;
 
 import java.util.List;
+import racingcar.model.Car;
 import racingcar.model.NameParser;
 
 public class RacingController {
-    private final NameParser nameParser = new NameParser();
+    private NameParser nameParser = new NameParser();
+    private Car car;
 
     public void start() {
         List<String> carList = nameParser.parseCarName(readCarName());
-        nameParser.setCar(carList);
+        nameParser.carNameLengthUnderFive(carList);
+
+         nameParser.setCar(carList);
     }
 }
