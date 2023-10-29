@@ -1,8 +1,10 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Cars {
     private final List<Car> cars;
@@ -11,27 +13,26 @@ public class Cars {
         this.cars = cars;
     }
 
-    public static Cars createCarsFrom(List<Car> cars) {
-        return new Cars(cars);
+    public static Cars from(List<String> carNames) {
+        return new Cars(createCar(carNames));
     }
 
-    public void startRound() {
+    private static List<Car> createCar(List<String> names) {
+        List<Car> cars = new ArrayList<>();
+        for (String carName : names) {
+            cars.add(Car.createCar(carName));
+        }
+        return cars;
+    }
+
+
+    public void startRace() {
         for (Car car : cars) {
             car.go();
         }
     }
 
-    private List<Car> findWinners(int fastestCar) {
-        return cars.stream().filter(car -> car.isWinner(fastestCar))
-                .collect(Collectors.toList());
-    }
-
-    public List<Car> findFinalWinners() {
-        int fastestCar = findFastestCar();
-        return findWinners(fastestCar);
-    }
-
-    private int findFastestCar() {
+    public int findFastestCar() {
         List<Integer> carRanks = cars.stream()
                 .sorted(Comparator.comparing(Car::getPosition).reversed())
                 .map(Car::getPosition)
@@ -39,5 +40,7 @@ public class Cars {
         return carRanks.get(0);
     }
 
-
+    public Stream<Car> stream() {
+        return cars.stream();
+    }
 }

@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.validation.InputValidation;
 
 import java.util.Arrays;
 import java.util.List;
@@ -24,17 +23,9 @@ public class InputView {
     }
 
     public static int inputRound() {
-        try {
             System.out.println(ROUND_INPUT_MESSAGE);
             String inputRound = Console.readLine();
-            int round = Integer.parseInt(inputRound);
-            InputValidation inputValidation = new InputValidation();
-            inputValidation.roundValidation(round);
-            return round;
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
-        }
-
+            return Integer.parseInt(inputRound);
     }
 
 

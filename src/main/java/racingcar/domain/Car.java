@@ -2,10 +2,6 @@ package racingcar.domain;
 
 
 import racingcar.utils.GameRules;
-import racingcar.validation.InputValidation;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Car {
     private final String name;
@@ -16,23 +12,27 @@ public class Car {
         this.position = GameRules.START_POSITION.getValue();
     }
 
-    public static List<Car> createCarFrom(List<String> name) {
-        InputValidation inputValidation = new InputValidation();
-        List<Car> cars = new ArrayList<>();
-        for (String carName : name) {
-            inputValidation.carNameValidation(carName);
-            cars.add(createCar(carName));
-        }
-        return cars;
+    public static Car createCar(String name) {
+        isNotNull(name);
+        isOverSize(name);
+        return new Car(name);
     }
 
-    private static Car createCar(String name) {
-        return new Car(name);
+    private static void isNotNull(final String carName) {
+        if (carName.trim().isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private static void isOverSize(final String carName) {
+        if (carName.length() > 5) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public void go() {
         int randomNumber = NumberGenerator.generateNumber();
-        if (randomNumber > GameRules.GO_CONDITION.getValue()) {
+        if (randomNumber >= GameRules.GO_CONDITION.getValue()) {
             this.position++;
         }
     }
