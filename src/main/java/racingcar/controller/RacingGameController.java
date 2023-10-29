@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.View.InputView;
 import racingcar.View.OutPutView;
 import racingcar.dto.GameResultDto;
+import racingcar.model.RacingCar;
 import racingcar.service.RacingGameService;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class RacingGameController {
     public void start() {
         int raceCount = settingRacingGameAndGetRaceCount();
         startRacingGame(raceCount);
+        finishRacingGame();
     }
 
     private int settingRacingGameAndGetRaceCount() {
@@ -31,5 +33,10 @@ public class RacingGameController {
             outPutView.midGameResultMessage(gameResultDtoList);
             System.out.println();
         }
+    }
+
+    private void finishRacingGame() {
+        ArrayList<RacingCar> winnerNameList = racingGameService.findWinnerByMaxDistance();
+        outPutView.winnerAnnouncementMessage(winnerNameList);
     }
 }

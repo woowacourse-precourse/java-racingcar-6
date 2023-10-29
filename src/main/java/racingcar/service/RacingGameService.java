@@ -51,4 +51,30 @@ public class RacingGameService {
         }
         return gameResultDtoList;
     }
+
+    public ArrayList<RacingCar> findWinnerByMaxDistance() {
+        ArrayList<RacingCar> participationConfirmedCarList = carRacingGame.getParticipationConfirmedCarList();
+        int maxDistance = findMaxDistance(participationConfirmedCarList);
+        return findWinnerName(participationConfirmedCarList, maxDistance);
+    }
+
+    private int findMaxDistance(ArrayList<RacingCar> participationConfirmedCarList) {
+        int[] distanceSortArray = new int[participationConfirmedCarList.size()];
+
+        int i = 0;
+        for (RacingCar racingCar : participationConfirmedCarList) {
+            distanceSortArray[i] = racingCar.getDistance();
+            i ++;
+        }
+        return Arrays.stream(distanceSortArray).max().getAsInt();
+    }
+
+    private ArrayList<RacingCar> findWinnerName(ArrayList<RacingCar> participationConfirmedCarList, int maxDistance) {
+        for (RacingCar racingCar : participationConfirmedCarList) {
+            if (racingCar.getDistance() == maxDistance) {
+                carRacingGame.insertIntoWinners(racingCar);
+            }
+        }
+        return carRacingGame.getWinners();
+    }
 }
