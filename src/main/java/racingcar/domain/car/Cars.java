@@ -12,8 +12,8 @@ public class Cars {
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
-        validateCarsIsNotEmpty();
         this.cars = cars;
+        validateCarsIsNotEmpty();
     }
 
     public String moveCarAndGetResult(Supplier<Boolean> moveOrNot) {
