@@ -1,8 +1,9 @@
 package racingcar;
+
 import camp.nextstep.edu.missionutils.Console;
+
 /**
  * F1 - 44 ~ 78 Lap Round -> Lap
- *
  */
 public class RacingRound {
     public int attemptCount() {
@@ -10,11 +11,6 @@ public class RacingRound {
         int attemptCount = Integer.parseInt(Console.readLine());
         return attemptCount;
     }
-
-
-
-
-
 
 
 }

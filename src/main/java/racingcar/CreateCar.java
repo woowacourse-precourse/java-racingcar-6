@@ -1,5 +1,8 @@
 package racingcar;
+
 import camp.nextstep.edu.missionutils.Console;
+
+import java.util.Map;
 
 public class CreateCar {
 
@@ -19,6 +22,13 @@ public class CreateCar {
         return carCount;
     }
 
+    public Map<String, Integer> raceState(String[] carName) {
+        Map<String, Integer> raceState = null;
+        for (int i = 0; i < carName.length; i++) {
+            raceState.put(carName[i], 0);
+        }
+        return raceState;
+    }
 
 
 

@@ -2,7 +2,18 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.Map;
+
 public class Racing {
+
+    CreateCar createCar = new CreateCar();
+    int carCount = createCar.carCount(createCar.carName(createCar.input()));
+    String[] carName = createCar.carName(createCar.input());
+
+    RacingRound racingRound = new RacingRound();
+    int attemptCount = racingRound.attemptCount();
+
+    Forward forward = new Forward();
 
     // 입력 받기
     public String input() {
@@ -14,16 +25,8 @@ public class Racing {
     // 실행 결과
     public String racing() {
         System.out.println("실행 결과");
-        CreateCar createCar = new CreateCar();
-        int carCount = createCar.carCount(createCar.carName(createCar.input()));
-        String[] carName = createCar.carName(createCar.input());
-
-        RacingRound racingRound = new RacingRound();
-        int attemptCount = racingRound.attemptCount();
-
         for (int i = 0; i < attemptCount; i++) {
             for (int j = 0; j < carCount; j++) {
-                Forward forward = new Forward();
                 if (forward.canForward()) {
                     System.out.println(carName[j] + " : " + "-");
                 } else {
@@ -34,31 +37,19 @@ public class Racing {
         }
         return null;
     }
-    // 우승자 출력
-    public String winner() {
-        System.out.println("최종 우승자: pobi");
-        return null;
+
+    // TODO: 경주 상태  나타내기
+    public Map<String, Integer> state(String[] carName) {
+        Map<String, Integer> raceState = null;
+        for (int i = 0; i < carName.length; i++) {
+            raceState.put(carName[i], 0);
+        }
+        return raceState;
     }
 
-//    public void result() {
-//        System.out.println("실행 결과");
-//        CreateCar createCar = new CreateCar();
-//        int carCount = createCar.carCount(createCar.carName(createCar.input()));
-//        String[] carName = createCar.carName(createCar.input());
+
+    // TODO:  우승자 출력
 //
-//        RacingRound racingRound = new RacingRound();
-//        int attemptCount = racingRound.attemptCount();
-//
-//        for (int i = 0; i < attemptCount; i++) {
-//            for (int j = 0; j < carCount; j++) {
-//                Forward forward = new Forward();
-//                if (forward.canForward()) {
-//                    System.out.println(carName[j] + " : " + "-");
-//                } else {
-//                    System.out.println(carName[j] + " : " + "");
-//                }
-//            }
-//            System.out.println();
-//        }
-//    }
+
+
 }
