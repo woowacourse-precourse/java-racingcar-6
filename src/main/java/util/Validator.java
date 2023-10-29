@@ -6,6 +6,7 @@ import java.util.stream.Stream;
 import racingcar.model.Car;
 
 public class Validator {
+    private static final String CAR_SEPARATOR = ",";
     private static final int INITIAL_POSITION = 0;
     private static final int MAX_CAR_NAME_LENGTH = 5;
     private static final int MIN_CAR_LIST_SIZE = 2;
@@ -18,7 +19,7 @@ public class Validator {
      */
     public static List<Car> parseCarNames(String input) {
         validateInputCharacters(input);
-        List<Car> cars = Stream.of(input.split(","))
+        List<Car> cars = Stream.of(input.split(CAR_SEPARATOR))
                 .map(name -> new Car(name.strip(), INITIAL_POSITION))
                 .toList();
         validateCarNameNotEmpty(cars);
