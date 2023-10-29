@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class UserInput {
 
-    private ArrayList<String> carsName = new ArrayList<>();
+    private final ArrayList<String> carsName = new ArrayList<>();
     private int carCount;
     private int playTime;
 
