@@ -1,7 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import org.mockito.internal.matchers.Null;
 
 public class InputView {
 
@@ -13,6 +12,7 @@ public class InputView {
     }
 
     String[] makeInputArray(String cars){
+        validDelimiter(cars);
         return cars.split(",");
     }
 
@@ -23,7 +23,6 @@ public class InputView {
         int number = validNumber(stringNumber);
         return number;
     }
-
 
     void validHasInput(String input){
         if(input == null){
@@ -44,5 +43,9 @@ public class InputView {
         return number;
     }
 
-
+    void validDelimiter(String cars){
+        if(!cars.contains(",")){
+            throw new IllegalArgumentException();
+        }
+    }
 }
