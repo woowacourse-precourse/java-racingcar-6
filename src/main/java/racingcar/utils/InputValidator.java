@@ -21,6 +21,7 @@ public class InputValidator {
         checkNameLength(carNames);
         checkNameIsDuplicated(carNames);
         checkNameIsDuplicated(carNames);
+        checkNameIsExist(carNames);
         checkSeparator(carInput);
     }
 
@@ -32,7 +33,7 @@ public class InputValidator {
 
     public static void checkSeparator(String carInput) {
         String c = DELETE_STRING_AND_SPACE_REG_EXP.matcher(carInput).replaceAll("");
-        if (INVALID_SEPARATOR_REG_EXP.matcher(c).matches()) {
+        if (!INVALID_SEPARATOR_REG_EXP.matcher(c).matches()) {
             throw new IllegalArgumentException(INVALID_SEPARATOR);
         }
     }
@@ -50,7 +51,7 @@ public class InputValidator {
     }
 
     public static void checkTryNumberIsInteger(String tryNumber) {
-        if (NOT_INTEGER_REG_EXP.matcher(tryNumber).matches()) {
+        if (!NOT_INTEGER_REG_EXP.matcher(tryNumber).matches()) {
             throw new IllegalArgumentException(NOT_INTEGER);
         }
     }
