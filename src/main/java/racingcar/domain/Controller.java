@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static racingcar.view.InputView.inputAttemptsCount;
+import static racingcar.view.OutputView.displayResult;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Collections;
@@ -25,8 +26,7 @@ public class Controller {
         }
     }
 
-    public static void validateInputAttemptsCount() {
-        String inputAttemptsCount = inputAttemptsCount();
+    public static void validateInputAttemptsCount(String inputAttemptsCount) {
         if (!Validator.isNonNumericInput(inputAttemptsCount)) {
             throw new IllegalArgumentException();
         }
@@ -43,5 +43,13 @@ public class Controller {
             move = true;
         }
         return move;
+    }
+
+    public static void playRace(String inputAttemptsCount) {
+        int raceCount = Integer.parseInt(inputAttemptsCount);
+        for (int i = 0; i < raceCount; i++) {
+            displayResult();
+            System.out.println();
+        }
     }
 }
