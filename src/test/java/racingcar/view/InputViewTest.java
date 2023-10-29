@@ -1,7 +1,5 @@
 package racingcar.view;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.io.ByteArrayInputStream;
 import java.util.List;
 import org.assertj.core.api.Assertions;
@@ -16,7 +14,7 @@ class InputViewTest {
         String inputString = "pobi,woni,jun";
         // when
         System.setIn(new ByteArrayInputStream(inputString.getBytes()));
-        List<String> carNames = inputView.inputCarNames();
+        List<String> carNames = inputView.inputCarNameStrings();
         // then
         Assertions.assertThat(carNames).containsExactly("pobi", "woni", "jun");
     }
