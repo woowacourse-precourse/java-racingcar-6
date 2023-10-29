@@ -43,14 +43,13 @@ class CarNameValidatorTest {
     @DisplayName("자동차 이름에 중복이 있는지 검증 테스트")
     void hasDuplicateNameTest() {
         String testCarName1 = "test1";
-        String testCarName2 = "test1";
+        String testCarName2 = "test2";
 
         List<String> testCarGroup1 = List.of(testCarName1, testCarName1);
-        List<String> duplicateCarNames1 = List.of(testCarName1, testCarName2);
+        List<String> duplicateCarNames1 = List.of(testCarName1);
 
         List<String> testCarGroup2 = List.of(testCarName1, testCarName1, testCarName2, testCarName2);
         List<String> duplicateCarNames2 = List.of(testCarName1, testCarName2);
-
 
         Assertions.assertThatThrownBy(() -> hasDuplicateName(testCarGroup1))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -59,6 +58,5 @@ class CarNameValidatorTest {
         Assertions.assertThatThrownBy(() -> hasDuplicateName(testCarGroup2))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(DUPLICATEMESSAGE.getMessage(duplicateCarNames2.toString()));
-
     }
 }
