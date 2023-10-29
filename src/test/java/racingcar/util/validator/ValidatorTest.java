@@ -18,7 +18,7 @@ public class ValidatorTest {
 				.isInstanceOf(IllegalArgumentException.class)
 						.hasMessageContaining(ErrorMessage.CAR_NAME_LENGTH_ERROR.getMessage());
 	}
-
+	
 	@DisplayName(",로 구분된 이름의 길이가 5이하일때 정삭적으로 작동하는 지 확인한다.")
 	@ValueSource(strings = { "naan,jjaa", "jjaa" })
 	@ParameterizedTest

@@ -11,11 +11,13 @@ public class CarTest {
 	@Test
 	void checkPrintCarStatusMethodPrintMessage() {
 		Car car = new Car("pobi");
+		String carStatusMessage = "";
+		
 		car.move();
 		car.move();
-
-		String carStatusMessage = car.printCarStatus();
-
+		
+		carStatusMessage = car.printCarStatus();
+		
 		assertThat(carStatusMessage).isEqualTo("pobi : --");
 	}
 }

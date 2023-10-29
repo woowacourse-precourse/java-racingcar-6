@@ -11,7 +11,7 @@ import racingcar.service.CreateCarsService;
 
 public class OutputViewTest extends NsTest {
 
-	@DisplayName("실행결과 메세지를 확인한다.")
+	@DisplayName("현재 자동차들의 위치 상황의 메세지 출력을 확인한다.")
 	@Test
 	void checkPrintExecutionResult() {
 		OutputView outputView = new OutputView();
@@ -24,7 +24,7 @@ public class OutputViewTest extends NsTest {
 		assertThat(output()).contains("car1 :", "car2 :", "car3 :");
 	}
 	
-	@DisplayName("실행결과 메세지를 확인한다.")
+	@DisplayName("최종우승자 메세지 출력을 확인한다.")
 	@Test
 	void checkPrintWinner() {
 		OutputView outputView = new OutputView();

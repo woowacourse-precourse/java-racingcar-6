@@ -8,8 +8,7 @@ import racingcar.domain.Car;
 import racingcar.domain.Cars;
 
 public class CreateCarsServiceTest {
-	
-	
+
 	@DisplayName(", 구분으로 자동차의 이름들을 가진 Cars객체인지 확인한다.")
 	@ValueSource(strings = { "car1,car2,car3"})
 	@ParameterizedTest
