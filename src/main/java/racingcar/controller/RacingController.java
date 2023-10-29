@@ -23,6 +23,28 @@ public class RacingController {
         return carNames;
     }
 
+    private int inputTryingTime() {
+        racingView.printReceiveNumber();
+        String answer = Console.readLine();
+        validateCarTrying(answer);
+
+        return Integer.parseInt(answer);
+    }
+
+    private void validateCarTrying(String answer) {
+        if (!isAnswerDigit(answer) || !isAnswerPositiveNumber(answer)) {
+            throw new IllegalArgumentException(ExceptionMessage.NOT_NATURAL_NUMBER);
+        }
+    }
+
+    private boolean isAnswerDigit(String answer) {
+        return answer.chars().allMatch(Character::isDigit);
+    }
+
+    private boolean isAnswerPositiveNumber(String answer) {
+        return Integer.parseInt(answer) > 0;
+    }
+
     private void validateCarNames(List<String> carNames) {
         if (!isFiveCharactersOrLess(carNames)) {
             throw new IllegalArgumentException(ExceptionMessage.NOT_MORE_THAN_FIVE);
