@@ -17,7 +17,7 @@ public class Exception {
         carNames = Arrays.asList(inputValue.split(","));
         for (String name : carNames) {
             checkNoName(name);
-            checkblank(name);
+            checkBlank(name);
             checkLength(name);
         }
 
@@ -28,6 +28,7 @@ public class Exception {
     public static String checkRaceCount(String inputValue) throws IllegalArgumentException {
         checkEmpty(inputValue);
         checkInteger(inputValue);
+        checkZero(inputValue);
         return inputValue;
     }
 
@@ -43,7 +44,7 @@ public class Exception {
         }
     }
 
-    private static void checkblank(String inputValue) {
+    private static void checkBlank(String inputValue) {
         if (inputValue.contains(BLANK)) {
             throw new IllegalArgumentException("잘못된 값 입력 : 자동차 이름에는 공백이 들어갈 수 없습니다.");
         }
@@ -67,6 +68,12 @@ public class Exception {
             Integer.parseInt(inputValue);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("잘못된 값 입력 : 숫자만 입력 가능합니다.");
+        }
+    }
+
+    private static void checkZero(String inputValue) {
+        if (inputValue.equals("0")) {
+            throw new IllegalArgumentException("잘못된 값 입력 : 1 이상의 값을 입력해주세요.");
         }
     }
 }
