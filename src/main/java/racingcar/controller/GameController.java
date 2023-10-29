@@ -24,9 +24,10 @@ public class GameController {
 
         Game game = new Game(cars);
         List<List<CarDistanceMessage>> carDistanceMessages = simulate(attempt, game);
+        WinnersMessage winnersMessage = game.getWinnersMessage();
 
         sendCarDistanceMessages(carDistanceMessages);
-        sendWinners(game);
+        sendWinners(winnersMessage);
 
     }
 
@@ -56,8 +57,7 @@ public class GameController {
         }
     }
 
-    private void sendWinners(Game game) {
-        WinnersMessage winnersMessage = game.getWinnersMessage();
+    private void sendWinners(WinnersMessage winnersMessage) {
         outputView.printWinnersMessage(winnersMessage);
     }
 
