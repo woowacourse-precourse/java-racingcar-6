@@ -1,11 +1,13 @@
 package racingcar.controller;
 
+import java.util.List;
 import racingcar.domain.Cars;
 import racingcar.domain.CarsGenerator;
 import racingcar.domain.Messenger;
 import racingcar.domain.Round;
 import racingcar.domain.strategy.CarMovementStrategy;
 import racingcar.domain.strategy.MoveForwardOnceRandomlyStrategy;
+import racingcar.utility.Convertor;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -29,7 +31,12 @@ public class RacingGame implements Game {
 
     @Override
     public void run() {
+        String requestCarNamesMessage = messenger.getRequestCarNames();
+        outputView.print(requestCarNamesMessage);
 
+        String namesString = inputView.input();
+        List<String> names = Convertor.split(namesString, Messenger.CAR_NAMES_DELIMITER);
+        cars = carsGenerator.generateCarsFromNames(names);
     }
 
 }
