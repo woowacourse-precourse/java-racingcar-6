@@ -27,4 +27,16 @@ public class OutputView {
             maxPosition = Math.max(maxPosition, car.getPosition());
         }
     }
+
+    public static void printWinner() {
+        judgeWinner();
+        List<String> winners = new ArrayList<>();
+        for (Car car : Cars.cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+
+        System.out.println("\n최종 우승자 : " + String.join(", ", winners));
+    }
 }
