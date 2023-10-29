@@ -56,10 +56,17 @@ public class Cars {
         return maxPlayers;
     }
 
-    public void printWinner() {
-        List<String> winner = getMaxPlayer();
+    private void individualWinner(List<String> winner) {
         winner.stream()
                 .forEach(System.out::println);
     }
+
+
+    public void printWinner() {
+        List<String> winner = getMaxPlayer();
+        individualWinner(winner);
+    }
+
+
 
 }
