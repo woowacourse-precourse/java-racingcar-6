@@ -16,7 +16,7 @@
 --- 
 
 1. Randoms.pickNumberInRange(0,9) 이용해서 0~9사이 무작위 값 구하기
-2. 구한 값이 4이상이면 전진 "-", 아니면 유지 ""
+2. 구한 값이 4이상이면 true 반환, 아니면 false 반환
 
 
 ## 💁🏻‍♀️️ Input Class
