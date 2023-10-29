@@ -5,7 +5,7 @@ public class Validator {
 
     }
 
-    private static boolean isValidCarName(String name) {
-        return false;
+    public static boolean isValidCarName(String name) {
+        return name.length() >= 1 && name.length() <= 5;
     }
 }
