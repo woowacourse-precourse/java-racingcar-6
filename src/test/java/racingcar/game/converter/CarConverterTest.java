@@ -13,22 +13,28 @@ class CarConverterTest {
     @DisplayName("5 자릿수 이하의 입력이 쉼표로 구분 될시 정상적인 자동차 객체의 리스트를 생성해야 한다")
     void inputToListOfCars_Normal() {
 
-        assertThat(CarConverter.inputToListOfCars("a,ab,abc,abcd,abcde")).map(car -> car.getName())
+        assertThat(CarConverter.inputToListOfCars("a,ab,abc,abcd,abcde"))
+                .map(car -> car.getName())
                 .isEqualTo(List.of("a", "ab", "abc", "abcd", "abcde"));
 
-        assertThat(CarConverter.inputToListOfCars("a,a,a,a,a,a,a,a")).map(car -> car.getName())
+        assertThat(CarConverter.inputToListOfCars("a,a,a,a,a,a,a,a"))
+                .map(car -> car.getName())
                 .isEqualTo(List.of("a", "a", "a", "a", "a", "a", "a", "a"));
 
-        assertThat(CarConverter.inputToListOfCars("가나다라마,하하하하하,호호호호호,히히히히히")).map(car -> car.getName())
+        assertThat(CarConverter.inputToListOfCars("가나다라마,하하하하하,호호호호호,히히히히히"))
+                .map(car -> car.getName())
                 .isEqualTo(List.of("가나다라마", "하하하하하", "호호호호호", "히히히히히"));
 
-        assertThat(CarConverter.inputToListOfCars("🚗🚗🚗🚗🚗,⚓⚓⚓⚓⚓,🌎🌎🌎🌎🌎")).map(car -> car.getName())
+        assertThat(CarConverter.inputToListOfCars("🚗🚗🚗🚗🚗,⚓⚓⚓⚓⚓,🌎🌎🌎🌎🌎"))
+                .map(car -> car.getName())
                 .isEqualTo(List.of("🚗🚗🚗🚗🚗", "⚓⚓⚓⚓⚓", "🌎🌎🌎🌎🌎"));
 
-        assertThat(CarConverter.inputToListOfCars("")).map(car -> car.getName())
+        assertThat(CarConverter.inputToListOfCars(""))
+                .map(car -> car.getName())
                 .isEqualTo(List.of(""));
 
-        assertThat(CarConverter.inputToListOfCars(",,,,,")).map(car -> car.getName())
+        assertThat(CarConverter.inputToListOfCars(",,,,,"))
+                .map(car -> car.getName())
                 .isEqualTo(List.of("", "", "", "", "", ""));
 
     }
@@ -43,8 +49,8 @@ class CarConverterTest {
                 .isInstanceOf(IllegalArgumentException.class);
 
         assertThatThrownBy(
-                () -> CarConverter.inputToListOfCars("ㅁㄴㅇㄻㄴㅇㄹ,여긴 ㅇㅅㅇ 하는 사람 없어서 좋네요,aaaaaa"))
-                .isInstanceOf(IllegalArgumentException.class);
+                () -> CarConverter.inputToListOfCars("ㅁㄴㅇㄻㄴㅇㄹ,여긴 ㅇㅅㅇ 하는 사람 없어서 좋네요,aaaaaa")
+        ).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -61,6 +67,9 @@ class CarConverterTest {
 
         assertThat(CarConverter.inputToTryCount("99999999"))
                 .isEqualTo(99999999);
+
+        assertThat(CarConverter.inputToTryCount("2147483647"))
+                .isEqualTo(2147483647);
     }
 
     @Test
@@ -70,6 +79,9 @@ class CarConverterTest {
                 .isInstanceOf(IllegalArgumentException.class);
 
         assertThatThrownBy(() -> CarConverter.inputToTryCount("1.08"))
+                .isInstanceOf(IllegalArgumentException.class);
+
+        assertThatThrownBy(() -> CarConverter.inputToTryCount("2147483648"))
                 .isInstanceOf(IllegalArgumentException.class);
 
         assertThatThrownBy(() -> CarConverter.inputToTryCount("1 백"))
