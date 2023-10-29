@@ -50,4 +50,8 @@ public class CarStatus implements Comparable<CarStatus> {
     public String getCarName() {
         return carName.getCarName();
     }
+
+    public int getPosition() {
+        return position.getPosition();
+    }
 }
