@@ -32,11 +32,12 @@ public class Utils {
         }
     }
 
-    public void duplicateCarName(Cars cars) {
-        boolean duplicationName = cars.getCars().stream()
-                .map(Car::getName)
+    public void duplicateCarName(String input) {
+
+        boolean duplicationName = Arrays.stream(input.split(","))
                 .distinct()
-                .count() != cars.getCars().size();
+                .count() != input.split(",").length;
+
         if (duplicationName) {
             throw new IllegalArgumentException(DUPLICATION_NAME);
         }
