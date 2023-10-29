@@ -56,6 +56,8 @@ public class Application {
             }
         }
 
+        //6
+        System.out.println("최종 우승자 : " + String.join(", ", winners_names));
     }
 
 

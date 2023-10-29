@@ -2,6 +2,7 @@ package study;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import java.util.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -46,6 +47,13 @@ public class StringTest {
         assertThatThrownBy(() -> input.charAt(5))
                 .isInstanceOf(StringIndexOutOfBoundsException.class)
                 .hasMessageContaining("String index out of range: 5");
+    }
+
+    @Test
+    void test_normal(){
+        List<String> members = Arrays.asList("pobi");
+        String result = String.join(",", members);
+        assertThat(result).isEqualTo("pobi");
     }
 
 }
