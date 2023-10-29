@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class CarDtoMapper {
+    private CarDtoMapper() {
+    }
+
     public static List<Car> mapToCar(CarDto carDto) {
         String carNamesWithCommas = carDto.carNamesWithCommas();
         String[] trimAndSplitCarNames = CarDtoParser.trimAndSplit(carNamesWithCommas);

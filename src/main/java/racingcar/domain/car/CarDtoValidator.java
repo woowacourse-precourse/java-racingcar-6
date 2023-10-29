@@ -31,7 +31,8 @@ public final class CarDtoValidator {
     }
 
     // 자동차 이름에 대해 여러 함수를 apply
-    static void applyValidationsOverCarName(String carName, Function<String, Void>[] functions)
+    @SafeVarargs
+    static void applyValidationsOverCarName(String carName, Function<String, Void>... functions)
             throws IllegalArgumentException {
         for (Function<String, Void> function : functions) {
             function.apply(carName);
