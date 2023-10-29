@@ -6,10 +6,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class OutputView {
+    private final String WINNER_CARS = "최종 우승자 : ";
+    private final String JOIN_STANDARD = ", ";
+
     public void resultRace(List<RacingCar> winnerCarNames) {
-        System.out.println("최종 우승자 : " + winnerCarNames.stream()
+        System.out.println(WINNER_CARS + winnerCarNames.stream()
                 .map(RacingCar::printCarName)
-                .collect(Collectors.joining(", ")));
+                .collect(Collectors.joining(JOIN_STANDARD)));
     }
 
     public void viewCarMovement(List<RacingCar> racingCars) {
