@@ -75,6 +75,23 @@ class PrintUtilTest {
         );
     }
 
+    private static String generateWinnerReuslt(Map<String, String> result, List<String> winner) {
+
+        StringBuilder gameWinner = new StringBuilder();
+
+        gameWinner.append(WINNER_MESSAGE);
+
+        String winnerScore = result.get(winner.get(0));
+        gameWinner.append(winner.get(0));
+        for (int i = 1; i < winner.size(); i++) {
+            if (winnerScore.equals(result.get(winner.get(i)))) {
+                gameWinner.append(", ").append(winner.get(i));
+            }
+        }
+
+        return gameWinner.toString();
+    }
+
     private static Stream<Arguments> provideWinner() {
         return Stream.of(
                 Arguments.of(new LinkedHashMap<String, String>() {{
