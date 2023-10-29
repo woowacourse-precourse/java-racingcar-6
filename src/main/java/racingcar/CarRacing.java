@@ -4,41 +4,40 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class CarRacing {
-    private final List<Car> cars;
+    private final List<Car> carList;
     private final int iterationNumBer;
 
-    public CarRacing(List<Car> cars, int iterationNumBer) {
-        this.cars = cars;
+    public CarRacing(List<Car> carList, int iterationNumBer) {
+        this.carList = carList;
         this.iterationNumBer = iterationNumBer;
     }
 
-    public List<CarRacingResult> start() {
+    public CarRacingResult start() {
         System.out.println();
         for (int stepNumber = 0; stepNumber < iterationNumBer; stepNumber++) {
             progressOneStep();
-            RacingCarConsole.printCarRacingProgressState(cars);
+            RacingCarConsole.printProgressState(carList);
         }
 
-        List<CarRacingResult> championCars = getCarRacingResult();
-        return championCars;
+        CarRacingResult carRacingResult = getCarRacingResult();
+        return carRacingResult;
     }
 
-    private List<CarRacingResult> getCarRacingResult() {
-        Integer maxLocation = cars.stream()
+    private CarRacingResult getCarRacingResult() {
+        Integer maxLocation = carList.stream()
                 .map(Car::getLocation)
                 .max(Integer::compare)
                 .get();
 
-        List<CarRacingResult> championCars = cars.stream()
+        List<Car> championCarList = carList.stream()
                 .filter(car -> car.getLocation() == maxLocation)
-                .map(Car::convertToCarRacingResult)
                 .toList();
 
-        return championCars;
+        return new CarRacingResult(championCarList);
     }
 
     private void progressOneStep() {
-        for (Car car : cars) {
+        for (Car car : carList) {
             if (isCarMoveForward()) {
                 car.moveForward();
             }

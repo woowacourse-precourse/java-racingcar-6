@@ -32,17 +32,12 @@ public class RacingCarConsole {
         }
     }
 
-    public static void printCarRacingProgressState(List<Car> cars) {
-        cars.forEach(System.out::println);
+    public static void printProgressState(List<Car> carList) {
+        carList.forEach(System.out::println);
         System.out.println();
     }
 
-    public static void printChampionCars(List<CarRacingResult> championCars) {
-        List<String> championCarsName = championCars.stream().map(CarRacingResult::getName).toList();
-        String championCarsMessage = championCarsName.stream()
-                .reduce((carNames, carName) -> carNames + ", " + carName)
-                .get();
-
-        System.out.println("최종 우승자 : " + championCarsMessage);
+    public static void printCarRacingResult(CarRacingResult carRacingResult) {
+        System.out.println(carRacingResult);
     }
 }

@@ -9,10 +9,6 @@ public class Car {
         location = 0;
     }
 
-    public static CarRacingResult convertToCarRacingResult(Car car) {
-        return new CarRacingResult(car.name, car.location);
-    }
-
     public void moveForward() {
         location++;
     }
@@ -25,5 +21,9 @@ public class Car {
 
     public int getLocation() {
         return location;
+    }
+
+    public String getName() {
+        return name;
     }
 }

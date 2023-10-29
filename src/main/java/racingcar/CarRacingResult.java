@@ -1,15 +1,24 @@
 package racingcar;
 
-public class CarRacingResult {
-    private final String name;
-    private final int location;
+import java.util.List;
 
-    public CarRacingResult(String name, int location) {
-        this.name = name;
-        this.location = location;
+public class CarRacingResult {
+    private final List<Car> championCarList;
+
+    public CarRacingResult(List<Car> championCarList) {
+        this.championCarList = championCarList;
     }
 
-    public String getName() {
-        return name;
+    @Override
+    public String toString() {
+        List<String> championCarsName = championCarList.stream()
+                .map(Car::getName)
+                .toList();
+
+        String championCarsMessage = championCarsName.stream()
+                .reduce((carNames, carName) -> carNames + ", " + carName)
+                .get();
+
+        return "최종 우승자 : " + championCarsMessage;
     }
 }

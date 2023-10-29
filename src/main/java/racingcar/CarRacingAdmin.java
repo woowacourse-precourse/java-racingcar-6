@@ -12,8 +12,8 @@ public class CarRacingAdmin {
         InputValidator.validateIterationNumBer(iterationNumBer);
 
         CarRacing carRacing = new CarRacing(cars, iterationNumBer);
-        List<CarRacingResult> championCars = carRacing.start();
-        RacingCarConsole.printChampionCars(championCars);
+        CarRacingResult carRacingResult = carRacing.start();
+        RacingCarConsole.printCarRacingResult(carRacingResult);
     }
 
     private List<Car> getReadyCars(String carNames) {
@@ -23,10 +23,10 @@ public class CarRacingAdmin {
             InputValidator.validateCarName(carName);
         }
 
-        List<Car> cars = Arrays.stream(carNameArray)
+        List<Car> carList = Arrays.stream(carNameArray)
                 .map(Car::new)
                 .toList();
 
-        return cars;
+        return carList;
     }
 }
