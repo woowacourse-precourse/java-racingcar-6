@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 //- RacingRuleMaker
 //        - [ ] 각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
 //            - [ ] 자동차에 이름 부여 - namingCar()
@@ -10,6 +13,15 @@ package racingcar.domain;
 //            - [ ] 몇번의 이동을 할것인가 입력 (주어진 횟수(게임세트수)) int roundCount
 public class RacingRuleMaker {
 
+    public List<String> cars = new ArrayList<>();
+    public int roundCount;
+    public RacingRuleMaker () {
+
+    }
+    public List<String> namingCar(String carsInput) {
+
+        return null;
+    }
 
 
 }
