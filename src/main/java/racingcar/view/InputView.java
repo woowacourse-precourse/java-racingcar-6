@@ -2,7 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.converter.InputConverter;
-import racingcar.domain.game.Cars;
+import racingcar.domain.game.car.Cars;
 import racingcar.util.InputValidator;
 
 public class InputView {
@@ -19,12 +19,12 @@ public class InputView {
     public Cars getCarsFromUserInput() {
         System.out.println(INPUT_CAR_NAMES_MESSSAGE);
         String input = readLine();
-        inputValidator.validatePlayerNamesFormat(input);
+        inputValidator.validateInputFormat(input);
         inputValidator.validateNonEmpty(input);
         return inputConverter.convertStringToCars(input);
     }
 
-    public int getAllRoundFromUserInput() {
+    public int getTrialFromUserInput() {
         System.out.println(INPUT_ALL_ROUND_MESSAGE);
         String input = readLine();
         inputValidator.validateNumericString(input);
