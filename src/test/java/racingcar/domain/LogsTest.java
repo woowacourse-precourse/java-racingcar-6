@@ -13,7 +13,6 @@ import static org.mockito.Mockito.when;
 
 class LogsTest {
     private OutputStream captor;
-    private Car car;
 
     @BeforeEach
     void setUp() {
@@ -53,7 +52,7 @@ class LogsTest {
     void car() {
         String log = "myCar : -------";
 
-        car = mock(Car.class);
+        Car car = mock(Car.class);
         when(car.toString()).thenReturn(log);
 
         Logs.car(car);
