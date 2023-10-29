@@ -14,5 +14,13 @@ public class CheckMoveStop {
                 carName.put(car, carName.get(car) + 1);
             }
         }
+        printMove(carName);
+    }
+
+    private void printMove(HashMap<String, Integer> carName) {
+        for (String car : carName.keySet()) {
+            System.out.println(car + " : " + "-".repeat(carName.get(car)));
+        }
+        System.out.println();
     }
 }
