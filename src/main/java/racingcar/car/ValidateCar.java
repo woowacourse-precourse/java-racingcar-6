@@ -1,13 +1,12 @@
 package racingcar.car;
 
+import racingcar.Constant;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class ValidateCar {
-    private static final int START_LENGTH = 1;
-    private static final int LAST_LENGTH = 5;
-
     public static void validator(List<CarInfo> carList) {
         checkNameLength(carList);
         checkDuplicateName(carList);
@@ -16,7 +15,7 @@ public class ValidateCar {
 
     private static void checkNameLength(List<CarInfo> carList){
         for (CarInfo carName : carList) {
-            if (carName.getName().length() > LAST_LENGTH || carName.getName().length() < START_LENGTH) {
+            if (carName.getName().length() > Constant.CAR_NAME_LAST_LENGTH || carName.getName().length() < Constant.CAR_NAME_START_LENGTH) {
                 throw new IllegalArgumentException("자동차 이름 길이 오류");
             }
         }

@@ -1,6 +1,7 @@
 package racingcar.game;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.Constant;
 
 public class UserInputGameRound {
     public static int getGameRound() {
@@ -31,13 +32,13 @@ public class UserInputGameRound {
     private static void validateDigit(char digit) {
         int num = digit - '0';
 
-        if (num < 0 || num > 9) {
+        if (num < Constant.MIN_VALUE || num > Constant.MAX_VALUE) {
             throw new IllegalArgumentException("0부터 9까지의 숫자를 입력해주세요.");
         }
     }
 
     private static void checkIsZero(int num){
-        if(num == 0){
+        if(num == Constant.MIN_VALUE){
             throw new IllegalArgumentException("시도 횟수 0");
         }
     }
