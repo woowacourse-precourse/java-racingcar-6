@@ -21,11 +21,7 @@ public class Game {
 
         for (int i = 0; i < frequency; i++){
             moveCarsForward(participants);
-
-            for (Car participant : participants) {
-                System.out.println(participant.getName() + " : " + "-".repeat(participant.getDistance()));
-            }
-            System.out.println();
+            printCarsDistance(participants);
         }
 
         for (Car participant : participants) {
@@ -41,6 +37,14 @@ public class Game {
             car.movingForward();
         }
     }
+
+    public void printCarsDistance(List<Car> participants) {
+        for (Car participant : participants) {
+            System.out.println(participant.getName() + " : " + "-".repeat(participant.getDistance()));
+        }
+        System.out.println();
+    }
+
 
     public List<Car> stringToCarList(String data) {
         List<Car> res = new ArrayList<>();
