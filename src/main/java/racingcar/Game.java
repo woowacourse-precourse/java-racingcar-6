@@ -19,6 +19,7 @@ public class Game {
         validator.toNumber(inputNumber);
 
         int tryNumber = validator.toNumber(inputNumber);
+        validator.isZero(tryNumber);
 
         List<String> carMove = car.racingResult(carNames, tryNumber);
         List<Integer> carMoveDistance = car.countCarMove(carMove);
