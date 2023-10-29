@@ -26,10 +26,6 @@ public class Game {
     }
 
     public void playOneRound() {
-        moveAllCarsOnce();
-    }
-
-    public void moveAllCarsOnce() {
         for (Car car : cars) {
             car.move();
         }
