@@ -24,30 +24,56 @@ public class RacingCarController {
     }
 
     public void play() {
-        List<String> racingCarNames = getValidatedRacingCarNames();
-        List<RacingCar> racingCars = createRacingCars(racingCarNames);
+        List<RacingCar> racingCars = setupRacingCars();
         int tryCount = getValidatedTryCount();
 
         // 게임 시작 로직
     }
 
-    private List<String> getValidatedRacingCarNames() {
-        String input = inputView.receiveRacingCarNamesInput();
-        String[] racingCarNames = preprocessor.splitInputByComma(input);
-        List<String> racingCarNamesList = new ArrayList<>();
+    private List<RacingCar> setupRacingCars() {
+        List<String> racingCarNames = getValidatedRacingCarNames();
+        return createRacingCars(racingCarNames);
+    }
 
+    private List<String> getValidatedRacingCarNames() {
+        String input = receiveRacingCarNamesInput();
+        return processAndValidateRacingCarNames(input);
+    }
+
+    private String receiveRacingCarNamesInput() {
+        return inputView.receiveRacingCarNamesInput();
+    }
+
+    private List<String> processAndValidateRacingCarNames(String input) {
+        String[] racingCarNames = splitInputByComma(input);
+        return validateAndCollectRacingCarNames(racingCarNames);
+    }
+
+    private String[] splitInputByComma(String input) {
+        return preprocessor.splitInputByComma(input);
+    }
+
+    private List<String> validateAndCollectRacingCarNames(String[] racingCarNames) {
+        List<String> racingCarNamesList = new ArrayList<>();
         for (String racingCarName : racingCarNames) {
-            racingCarName = preprocessor.trimInput(racingCarName);
+            racingCarName = trimInput(racingCarName);
             racingCarNameValidator.validate(racingCarName);
             racingCarNamesList.add(racingCarName);
         }
-
         return racingCarNamesList;
     }
 
+    private String trimInput(String input) {
+        return preprocessor.trimInput(input);
+    }
+
     private int getValidatedTryCount() {
-        String input = preprocessor.trimInput(inputView.receiveTryCountInput());
+        String input = trimInput(receiveTryCountInput());
         return tryCountValidator.validateAndConvert(input);
+    }
+
+    private String receiveTryCountInput() {
+        return inputView.receiveTryCountInput();
     }
 
     private List<RacingCar> createRacingCars(List<String> racingCarNames) {
