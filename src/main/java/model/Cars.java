@@ -16,6 +16,8 @@ public class Cars {
     }
 
     public static Cars from(final List<String> values) {
+        validateDuplicate(values);
+
         List<Car> cars = values.stream()
             .map(Car::from)
             .toList();
@@ -40,6 +42,16 @@ public class Cars {
             .collect(Collectors.toList());
     }
 
+    private static void validateDuplicate(final List<String> values) {
+        long distinctSize = values.stream()
+            .distinct()
+            .count();
+
+        if (distinctSize != values.size()) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     private List<Car> getWinners() {
         Car maxMoveCar = cars.stream()
             .max(Comparator.comparing(Car::getMoveCountValue))
@@ -51,13 +63,6 @@ public class Cars {
     private List<Car> findSameMoveCountCars(final int moveCount) {
         return cars.stream()
             .filter(car -> car.hasSameMoveCount(moveCount))
-            .collect(Collectors.toList());
-    }
-
-    public List<Winner> getWinners() {
-        List<Car> winners = findWinners();
-        return winners.stream()
-            .map(Winner::from)
             .collect(Collectors.toList());
     }
 }
