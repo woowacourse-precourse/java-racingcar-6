@@ -1,5 +1,7 @@
 package util.formatter;
 
+import static racingcar.Constants.COMMA;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.model.RacingCarPlayerModel;
@@ -25,7 +27,7 @@ public class RacingCarFormatter extends Formatter {
     }
 
     public String formatListRacingCarPlayersToString(List<RacingCarPlayerModel> players) {
-        return String.join(", ", this.formatListRacingCarPlayersToListString(players));
+        return String.join(COMMA, this.formatListRacingCarPlayersToListString(players));
     }
 
     public List<RacingCarPlayerModel> formatListStringToListRacingCarPlayer(List<String> players){

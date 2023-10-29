@@ -1,11 +1,12 @@
 package racingcar.view;
 
+import static racingcar.Constants.MOVE;
+
 import java.util.List;
 import java.util.stream.IntStream;
 import racingcar.model.RacingCarPlayerModel;
 
 public class RacingCarPlayerView {
-    private static final String MOVE = "-";
     public void printPlayerPosition(RacingCarPlayerModel racingCarPlayer){
         System.out.print(racingCarPlayer.getCarName() + " : ");
         IntStream.range(0, racingCarPlayer.getCurrentPosition())

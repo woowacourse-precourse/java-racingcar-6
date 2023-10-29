@@ -1,10 +1,11 @@
 package util;
 
+import static racingcar.Constants.MAX_RANDOM_NUMBER;
+import static racingcar.Constants.MIN_RANDOM_NUMBER;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingCarRandoms{
-    private static final int MIN_RANDOM_NUMBER = 0;
-    private static final int MAX_RANDOM_NUMBER = 9;
     public static int getRandomNumber(){
         return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
     }

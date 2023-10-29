@@ -1,13 +1,14 @@
 package util.inputreader;
 
+import static racingcar.Constants.BLANK;
+import static racingcar.Constants.COMMA;
+import static racingcar.Constants.MIN_TRY_COUNT;
+import static racingcar.Constants.PLAYER_NAME_MAX_LENGTH;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
 public class RacingCarInputReader implements InputReader {
-    private static final int PLAYER_NAME_MAX_LENGTH = 5;
-    private static final int MIN_TRY_COUNT = 1;
-    private static final String BLANK = " ";
-    private static final String COMMA = ",";
     public String inputPlayers() throws IllegalArgumentException{
         String players =  this.readStringInput();
         if(!isInputPlayerValid(players)){
