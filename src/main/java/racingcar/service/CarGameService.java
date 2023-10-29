@@ -1,7 +1,6 @@
 package racingcar.service;
 
 import racingcar.domain.CarStatus;
-import racingcar.domain.Cars;
 import racingcar.domain.CarStatusGroup;
 
 import java.util.ArrayList;
@@ -13,9 +12,9 @@ public class CarGameService {
     private CarStatusGroup carStatusGroup;
     private List<CarStatus> carStatusList = new ArrayList<>();
 
-    public void generateRacingCarGroup(Cars cars) {
-        for (String carName : cars.getCarNames()) {
-            CarStatus carStatus = new CarStatus(carName);
+    public void generateRacingCarGroup(List<String> carNames) {
+        for (String carName : carNames) {
+            CarStatus carStatus = CarStatus.create(carName);
             carStatusList.add(carStatus);
         }
 

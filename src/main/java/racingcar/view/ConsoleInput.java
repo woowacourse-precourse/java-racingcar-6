@@ -2,7 +2,6 @@ package racingcar.view;
 
 import racingcar.handler.InputHandler;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;

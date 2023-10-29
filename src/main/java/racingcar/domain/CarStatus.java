@@ -1,44 +1,52 @@
 package racingcar.domain;
 
+import racingcar.domain.wrapper.CarName;
+import racingcar.domain.wrapper.CarPosition;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class CarStatus implements Comparable<CarStatus> {
 
-    private final String carName;
     private final Map<String, String> carStatus = new HashMap<>();
-    private int position = 0;
+    private final CarName carName;
+    private final CarPosition position;
 
-    public CarStatus(String carName) {
-        this.carName = carName;
+    private CarStatus(final String carName) {
+        this.carName = CarName.create(carName);
+        this.position = CarPosition.create();
+    }
+
+    public static CarStatus create(final String carName) {
+        return new CarStatus(carName);
     }
 
     public void forWard() {
-        this.position++;
+        position.addPosition();
     }
 
     public Map<String, String> getCarStatus() {
-        String dash = "-".repeat(position);
-        carStatus.put("carName", carName);
+        String dash = "-".repeat(position.getPosition());
+        carStatus.put("carName", carName.getCarName());
         carStatus.put("position", dash);
 
         return carStatus;
     }
 
-    public String getCarName() {
-        return carName;
-    }
-
-    public int getPosition() {
-        return position;
-    }
-
     public boolean isSamePosition(CarStatus otherCar) {
-        return position == otherCar.getPosition();
+        return position.getPosition() == otherCar.position.getPosition();
     }
 
     @Override
     public int compareTo(CarStatus otherCar) {
-        return position - otherCar.getPosition();
+        return position.getPosition() - otherCar.position.getPosition();
+    }
+
+    public String getCarName() {
+        return carName.getCarName();
+    }
+
+    public int getPosition() {
+        return position.getPosition();
     }
 }
