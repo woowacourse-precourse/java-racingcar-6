@@ -1,5 +1,7 @@
 package racingcar.utill;
 
+import java.util.List;
+
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Utill {
@@ -66,7 +68,7 @@ public class Utill {
      * @param regex  string을 배열로 만드는 기준
      * @return
      */
-    public static String[] makeArrFromString(String string, String regex) {
+    public static String[] makeSplitArrFromString(String string, String regex) {
         return string.split(regex);
     }
 
@@ -79,6 +81,10 @@ public class Utill {
 
     public static void print(String str) {
         System.out.println(str);
+    }
+
+    public static <T> List<T> makeListFromArr(T[] arr) {
+        return List.of(arr);
     }
 
     // TODO: 10/28/23 배열을 리스트로 변환
