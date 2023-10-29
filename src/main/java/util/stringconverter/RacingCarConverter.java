@@ -1,15 +1,15 @@
 package util.stringconverter;
 
-import racingcar.RacingCarPlayer;
+import racingcar.model.RacingCarPlayerModel;
 
-public class RacingCarConverter implements StringConverter<RacingCarPlayer> {
+public class RacingCarConverter implements StringConverter<RacingCarPlayerModel> {
     @Override
-    public String toString(RacingCarPlayer object) {
+    public String toString(RacingCarPlayerModel object) {
         return object.getCarName();
     }
 
     @Override
-    public RacingCarPlayer fromString(String string) {
-        return new RacingCarPlayer(string, 0);
+    public RacingCarPlayerModel fromString(String string) {
+        return new RacingCarPlayerModel(string);
     }
 }
