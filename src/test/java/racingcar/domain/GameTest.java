@@ -93,6 +93,15 @@ class GameTest {
 
     @Test
     void inputGameTurns_Exception_NegativeNumber() {
+        String input = "-1";
+
+        try (MockedStatic<Console> mockedStatic = mockStatic(Console.class)) {
+            when(Console.readLine()).thenReturn(input);
+            assertThatThrownBy(() -> game.inputGameTurns())
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessageContaining("Not valid input: game turn number");
+            mockedStatic.verify(Console::readLine, times(1));
+        }
     }
 
     @Test
