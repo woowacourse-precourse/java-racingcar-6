@@ -10,4 +10,15 @@ public class InputViewValidator {
         return inputViewValidator;
     }
 
+    public boolean validateCarNames(String carNames){
+
+        if(isCarNameEmpty(carNames)){
+            throw new IllegalArgumentException("[ERROR] : 차 이름이 빈 값일 수 없습니다");
+        }
+    }
+
+    public boolean isCarNameEmpty(String carNames) {
+        return carNames.equals("");
+    }
+
 }
