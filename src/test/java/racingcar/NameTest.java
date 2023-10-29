@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static racingcar.ExceptionMessage.CAR_NAME_BLANK_EXCEPTION;
 import static racingcar.ExceptionMessage.CAR_NAME_LENGTH_EXCEPTION;
-import static racingcar.ExceptionMessage.CAR_NAMV_VALUE_EXCEPTION;
+import static racingcar.ExceptionMessage.CAR_NAME_VALUE_EXCEPTION;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -65,6 +65,6 @@ public class NameTest {
             Name name = Name.from(value);
         })
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(CAR_NAMV_VALUE_EXCEPTION.getMessage());
+                .hasMessage(CAR_NAME_VALUE_EXCEPTION.getMessage());
     }
 }
