@@ -11,11 +11,12 @@ import racingcar.model.TryNumber;
 @DisplayName("시도횟수 테스트")
 public class TryNumberTest {
     TryNumber tryNumber = new TryNumber();
+    private static final String expectedMessage = "1이상의 정수를 입력해주세요.";
 
     @DisplayName("예외처리")
     @Nested
     class Exception {
-        @DisplayName("한글입력")
+        @DisplayName("한글 입력")
         @Test
         void KoreanInputTesting() {
 
@@ -23,10 +24,10 @@ public class TryNumberTest {
 
             Throwable exception = assertThrows(IllegalArgumentException.class,
                     () -> tryNumber.setClearTryNumber(trynumber));
-            assertEquals("시도할 회수는 1보다 큰 자연수여야 합니다.", exception.getMessage());
+            assertEquals(expectedMessage, exception.getMessage());
         }
 
-        @DisplayName("영어입력")
+        @DisplayName("영어 입력")
         @Test
         void EnglishInputTesting() {
             TryNumber tryNumber = new TryNumber();
@@ -34,10 +35,10 @@ public class TryNumberTest {
 
             Throwable exception = assertThrows(IllegalArgumentException.class,
                     () -> tryNumber.setClearTryNumber(trynumber));
-            assertEquals("시도할 회수는 1보다 큰 자연수여야 합니다.", exception.getMessage());
+            assertEquals(expectedMessage, exception.getMessage());
         }
 
-        @DisplayName("특수문자입력")
+        @DisplayName("특수문자 입력")
         @Test
         void signInputTesting() {
             TryNumber tryNumber = new TryNumber();
@@ -45,7 +46,18 @@ public class TryNumberTest {
 
             Throwable exception = assertThrows(IllegalArgumentException.class,
                     () -> tryNumber.setClearTryNumber(trynumber));
-            assertEquals("시도할 회수는 1보다 큰 자연수여야 합니다.", exception.getMessage());
+            assertEquals(expectedMessage, exception.getMessage());
+        }
+
+        @DisplayName("0 입력")
+        @Test
+        void zeroInputTesting() {
+            TryNumber tryNumber = new TryNumber();
+            String trynumber = "0";
+
+            Throwable exception = assertThrows(IllegalArgumentException.class,
+                    () -> tryNumber.setClearTryNumber(trynumber));
+            assertEquals(expectedMessage, exception.getMessage());
         }
     }
 

@@ -5,7 +5,8 @@ public class TryNumber {
     private String clearTryNumber;
 
     public void setClearTryNumber(String tryNumber) {
-        isNoDigits(tryNumber);
+        isNumeric(tryNumber);
+        isDigits(tryNumber);
         this.clearTryNumber = tryNumber;
     }
 
@@ -13,9 +14,17 @@ public class TryNumber {
         return Integer.parseInt(this.clearTryNumber);
     }
 
-    public void isNoDigits(String tryNumber) throws IllegalArgumentException {
-        if (!tryNumber.matches("[1-9]+")) {
-            throw new IllegalArgumentException("시도할 회수는 1보다 큰 자연수여야 합니다.");
+    public void isNumeric(String tryNumber) throws IllegalArgumentException {
+        for (int i = 0; i < tryNumber.length(); i++) {
+            if (!Character.isDigit(tryNumber.charAt(i))) {
+                throw new IllegalArgumentException("1이상의 정수를 입력해주세요.");
+            }
+        }
+    }
+
+    public void isDigits(String tryNumber) throws IllegalArgumentException {
+        if (Integer.parseInt(tryNumber) <= 0) {
+            throw new IllegalArgumentException("1이상의 정수를 입력해주세요.");
         }
 
     }
