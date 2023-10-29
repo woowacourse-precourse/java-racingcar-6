@@ -14,21 +14,21 @@ public class CarNameValidatorTest {
 
     @DisplayName("자동차이동름입력 - 정상입력")
     @Test
-    void checkNormalCarNmaeInput(){
+    void checkNormalCarNmaeInput() {
         String carName = "hong,kim,jun";
         assertDoesNotThrow(() -> carNameValidator.processCarNames(carName));
     }
 
     @DisplayName("자동차이동름입력 - 5자 초과입력시 예외발생")
     @Test
-    void checklCarNmaeInputOverSize(){
+    void checklCarNmaeInputOverSize() {
         String carName = "hosdfsdng,kim,jun";
         assertThrows(IllegalArgumentException.class, () -> carNameValidator.processCarNames(carName));
     }
 
     @DisplayName("자동차이동름입력 - 중복된 이름입력시 예외발생")
     @Test
-    void checklCarNmaeInputDuplicate(){
+    void checklCarNmaeInputDuplicate() {
         String carName = "kim,kim,jun";
         assertThrows(IllegalArgumentException.class, () -> carNameValidator.processCarNames(carName));
     }

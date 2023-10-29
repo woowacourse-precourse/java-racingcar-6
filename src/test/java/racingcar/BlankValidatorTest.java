@@ -9,6 +9,7 @@ import racingcar.util.BlankValidator;
 
 public class BlankValidatorTest {
     BlankValidator blankValidator = new BlankValidator();
+
     @DisplayName("공백 검증기 - 정상입력")
     @Test
     void checkNotEmpty() {
