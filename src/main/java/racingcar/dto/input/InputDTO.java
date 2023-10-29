@@ -1,4 +1,6 @@
 package racingcar.dto.input;
 
-public record InputDTO(String [] names, int trialCount) {
+import racingcar.common.type.TrialCount;
+
+public record InputDTO(String [] names, TrialCount trialCount) {
 }
