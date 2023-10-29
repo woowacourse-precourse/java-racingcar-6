@@ -1,5 +1,8 @@
 package racingcar.manager;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Validator {
 
     public int validateGameRound(String input2) throws IllegalArgumentException {
@@ -24,6 +27,11 @@ public class Validator {
     }
 
     public void validateCarNamesDuplicated(String[] cars) {
-        throw new IllegalArgumentException("중복된 자동차 이름이 존재합니다.");
+        Set<String> uniqueCars = new HashSet<>();
+        for (String car: cars){
+            if (!uniqueCars.add(car)) {
+                throw new IllegalArgumentException("중복된 자동차 이름이 존재합니다: " + car);
+            }
+        }
     }
 }

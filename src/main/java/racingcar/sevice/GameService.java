@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.controller.dto.GameResultDto;
 import racingcar.domain.Car;
+import racingcar.manager.Validator;
 
 public class GameService {
 
@@ -11,11 +12,14 @@ public class GameService {
     }
 
     public List<Car> registerCarListFromInput(String[] input) {
+        validator.validateCarNamesDuplicated(input);
         List<Car> carList = new ArrayList<>();
         for (String s : input) {
+            validator.validateCarName(s);
             Car car = new Car(s);
             carList.add(car);
         }
+
         return carList;
     }
 
