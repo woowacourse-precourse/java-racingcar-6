@@ -10,7 +10,9 @@ public class InputUtil {
         List<String> results = new ArrayList<>();
 
         while(st.hasMoreTokens()){
-            results.add(st.nextToken());
+            String temp = st.nextToken();
+            if(temp.length()>5) throw new IllegalArgumentException("이름은 5자 이하만 가능합니다!");
+            results.add(temp);
         }
 
         return results;
