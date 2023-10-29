@@ -2,13 +2,13 @@ package racingcar.controller;
 
 import java.util.List;
 
-import racingcar.converter.RacingConverter;
+import racingcar.util.RacingConverter;
 import racingcar.domain.Car;
 import racingcar.dto.RacingResult;
 import racingcar.factory.CarFactory;
-import racingcar.service.RacingService;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
+import racingcar.application.RacingService;
+import racingcar.ui.InputView;
+import racingcar.ui.OutputView;
 
 public class RacingController {
     private final InputView inputView;

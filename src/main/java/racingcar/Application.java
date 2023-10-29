@@ -2,13 +2,13 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.controller.RacingController;
-import racingcar.converter.RacingConverter;
+import racingcar.util.RacingConverter;
 import racingcar.factory.CarFactory;
 import racingcar.generator.RandomNumberGenerator;
-import racingcar.service.RacingService;
+import racingcar.application.RacingService;
 import racingcar.validator.InputValidator;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
+import racingcar.ui.InputView;
+import racingcar.ui.OutputView;
 
 public class Application {
     public static void main(String[] args) {

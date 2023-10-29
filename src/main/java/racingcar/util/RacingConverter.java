@@ -1,4 +1,4 @@
-package racingcar.converter;
+package racingcar.util;
 
 import java.util.List;
 

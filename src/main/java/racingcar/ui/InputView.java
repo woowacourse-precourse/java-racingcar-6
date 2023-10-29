@@ -1,4 +1,4 @@
-package racingcar.view;
+package racingcar.ui;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.validator.InputValidator;
