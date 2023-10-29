@@ -79,36 +79,12 @@ public class RacingGame {
         GameController.markRaceEnd();
     }
 
-
-    /*
-
-    private void printCarPosition() {
-        for (Car car : Car.carList) {
-            OutputView.printCarPosition(car.getName(), car.getPosition());
-        }
-        OutputView.divideRace();
-    }
-
-    public void selectWinner() {
-        //List<String> winnerList = new ArrayList<>();
-        Collections.sort(Car.carList, Collections.reverseOrder());
-        /*
-        for (Car e : Car.carList) {
-            System.out.println(e.getName() + e.getPosition());
-        }
-
-
-        for (Car car : Car.carList) {
-            if (Car.carList.get(0).getPosition() == car.getPosition()) {
-                //List<String> winnerList = new ArrayList<>();
+    public void setWinnerList() {
+        Collections.sort(carList, Collections.reverseOrder());
+        for (Car car : carList) {
+            if (carList.get(0).getPosition() == car.getPosition()) {
                 winnerList.add(car.getName());
             }
         }
-        /*
-        for (String e : winnerList) {
-            System.out.println(e);
-        }
-
     }
-     */
 }

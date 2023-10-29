@@ -31,9 +31,8 @@ public class GameController {
         String testedRaceCount = exception.checkRaceCount(raceCount);
         racingGame.setRaceCount(testedRaceCount);
         racingGame.startRace();
+        racingGame.setWinnerList();
 
-
-        //startRace();
         //showWinner();
     }
 
@@ -45,37 +44,12 @@ public class GameController {
         OutputView.markRaceEnd();
     }
 
-    /*
-    public void startGame() {
-        if (racingGame.startRace()) {
 
-        }
-     */
+
+
+
 
     /*
-    private void inputCarName() {
-        ExceptionService.checkCarName(InputView.inputCarName());
-    }
-
-
-    private void setCar() {
-        Car.carList = new ArrayList<>();
-        for (String name : Exception.carNames) {
-            Car.carList.add(new Car(name));
-        }
-    }
-     */
-
-    /*
-    private void setRaceCount() {
-        game.setRaceCount(ExceptionService.checkRaceCount(InputView.inputRaceCount()));
-    }
-
-    private void startRace() {
-        OutputView.printRaceResultMessage();
-        game.startRaceCount();
-    }
-
     private void showWinner() {
         game.selectWinner();
         String winnerList = String.join(",", game.getWinnerList());
