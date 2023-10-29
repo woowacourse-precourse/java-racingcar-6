@@ -24,13 +24,14 @@ public class CarMover {
         return whetherMoveOrNot;
     }
 
-    public void moveEveryCar(int n, List<Integer> carList, List<Boolean> whetherMoveOrNot)
+    public void moveEveryCar(int n, List<Car> carList, List<Boolean> whetherMoveOrNot)
     {
         for (int i = 0 ; i<n ; i++)
         {
+            Car car = carList.get(i);
             if (whetherMoveOrNot.get(i))
             {
-                carList.set(i, carList.get(i) + 1);
+                car.setDistance(car.getDistance() + 1);
             }
         }
     }

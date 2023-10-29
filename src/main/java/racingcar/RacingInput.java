@@ -1,23 +1,29 @@
 package racingcar;
 import camp.nextstep.edu.missionutils.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class RacingInput {
-    public List<String> getNameOfCars() throws IllegalArgumentException
+    public List<Car> getNameOfCars() throws IllegalArgumentException
     {
         String carNames = Console.readLine();
         List<String> nameOfEachCars = List.of(carNames.split(","));
+        List<Car> carList = new ArrayList<>();
 
-        int n = nameOfEachCars.size();
         for (String carName : nameOfEachCars)
         {
             if (carName.length() > 5)
             {
                 throw new IllegalArgumentException("차의 이름이 5 초과입니다");
             }
+            else
+            {
+                carList.add(new Car(carName));
+            }
         }
 
-        return nameOfEachCars;
+        return carList;
     }
 
     public int getCountOfTries() throws IllegalArgumentException

@@ -20,21 +20,20 @@ public class Racing {
 
     public void startRacing() throws IOException, IllegalArgumentException {
         ro.putNameInputStatement();
-        List<String> carNames = ri.getNameOfCars();
-        int n = carNames.size();
+        List<Car> carList = ri.getNameOfCars();
+        int n = carList.size();
 
         ro.putTryInputStatement();
         int tries = ri.getCountOfTries();
 
         ro.putResultStatement();
-        List<Integer> carDis = new ArrayList<>(Collections.nCopies(n, 0));
         for (int i = 0; i < tries; i++) {
             List<Boolean> whetherMoveOrNot = cm.decideToMoveCars(n);
-            cm.moveEveryCar(n, carDis, whetherMoveOrNot);
-            ro.putResultOfMovement(n, carNames, carDis);
+            cm.moveEveryCar(n, carList, whetherMoveOrNot);
+            ro.putResultOfMovement(carList);
         }
 
-        List<String> winnerList = ro.getResultOfWinner(n, carNames, carDis);
+        List<String> winnerList = ro.getResultOfWinner(carList);
         ro.putResultOfWinner(winnerList);
     }
 }

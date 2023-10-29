@@ -31,34 +31,35 @@ public class RacingOutput {
         }
     }
 
-    public void putResultOfMovement(int n, List<String> carNames, List<Integer> carDis) throws IOException
+    public void putResultOfMovement(List<Car> carList) throws IOException
     {
-        for (int i = 0 ; i<n ; i++)
+        for (Car car : carList)
         {
-            System.out.print(carNames.get(i) + " : ");
-            putResultOfEachCar(carDis.get(i));
+            System.out.print(car.getName() + " : ");
+            putResultOfEachCar(car.getDistance());
             System.out.print("\n");
         }
         System.out.print("\n");
     }
 
-    public List<String> getResultOfWinner(int n, List<String> carName, List<Integer> carDis) throws IOException
+    public List<String> getResultOfWinner(List<Car> carList) throws IOException
     {
-        if (n==0)    return new ArrayList<>();
+        if (carList.size()==0)    return new ArrayList<>();
 
-        int biggestDis = carDis.get(0);
-        List<String> winnerList = new ArrayList<>(Collections.nCopies(1, carName.get(0)));
+        int biggestDis = -1;
+        List<String> winnerList = new ArrayList<>();
 
-        for (int i = 1 ; i<n ; i++)
+        for (Car car : carList)
         {
-            if (carDis.get(i) > biggestDis)
+            if (car.getDistance() > biggestDis)
             {
-                winnerList = new ArrayList<>(Collections.nCopies(1, carName.get(i)));
-                biggestDis = carDis.get(i);
+                winnerList = new ArrayList<>();
+                winnerList.add(car.getName());
+                biggestDis = car.getDistance();
             }
-            else if (carDis.get(i) == biggestDis)
+            else if (car.getDistance() == biggestDis)
             {
-                winnerList.add(carName.get(i));
+                winnerList.add(car.getName());
             }
         }
 
