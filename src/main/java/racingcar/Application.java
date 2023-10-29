@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
     public static void main(String[] args) {
@@ -29,5 +30,13 @@ public class Application {
                 throw new IllegalArgumentException();
             }
         }
+    }
+
+    public String go(){
+        int random = Randoms.pickNumberInRange(0, 9);
+        if (random >= 4) {
+            return "true";
+        }
+        return "false";
     }
 }

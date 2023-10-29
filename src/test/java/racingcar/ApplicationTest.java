@@ -13,6 +13,14 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
+    void 전진_조건(){
+        Application application = new Application();
+        String go = application.go();
+
+        assertThat(go).isEqualTo("false");
+    }
+
+    @Test
     void 이름_분류(){
         Application application = new Application();
         String input = "pobi,crong,woni";
