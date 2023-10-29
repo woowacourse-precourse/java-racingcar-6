@@ -45,4 +45,21 @@ public class Cars {
             car.printStatus();
         }
     }
+
+    public List<Car> getWinners() {
+        List<Car> winnerList = new ArrayList<>();
+        int maxPosition = -1; // 초기 최대 position 값을 가장 작은 값으로 설정
+
+        for (Car car : cars) {
+            int currentPosition = car.getPosition();
+            if (currentPosition > maxPosition) {
+                winnerList.clear(); // 현재 최대 position 값을 가진 Car들을 지우고
+                winnerList.add(car); // 현재 Car를 추가
+                maxPosition = currentPosition; // 현재 position 값을 최대로 업데이트
+            } else if (currentPosition == maxPosition) {
+                winnerList.add(car); // 현재 Car를 추가 (동일한 최대 position)
+            }
+        }
+        return winnerList;
+    }
 }
