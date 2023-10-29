@@ -1,7 +1,5 @@
 package controller;
 
-
-import static constant.ConstantNumber.DEFAULT_MAX_MOVE_COUNT;
 import static constant.ConstantNumber.MAX_NUMBER_RANGE;
 import static constant.ConstantNumber.MIN_NUMBER_RANGE;
 import static constant.ConstantString.EXECUTION_RESULT;
@@ -31,24 +29,13 @@ public class RaceController {
 
     private void race(int attemptCount) {
         for (int i = attemptCount; i > 0; i--) {
-            decideForwardMovement();
+            cars.MoveCars();
             OutputView.printProcess(cars.getCarsList());
         }
     }
 
-    private void decideForwardMovement() {
-        cars.getCarsList()
-                .forEach(car -> {
-                    car.moveOrStop(getRandomNumber());
-                });
-    }
-
-    private int getRandomNumber() {
-        return Randoms.pickNumberInRange(MIN_NUMBER_RANGE.getValue(), MAX_NUMBER_RANGE.getValue());
-    }
-
     private List<String> findWinners() {
-        int maxCount = findMaxMoveCount();
+        int maxCount = cars.findMaxMoveCount();
 
         return cars.getCarsList().stream()
                 .filter(car -> car.getMoveCount() == maxCount)
@@ -56,15 +43,7 @@ public class RaceController {
                 .collect(Collectors.toList());
     }
 
-    private int findMaxMoveCount() {
-        int maxMoveCount = DEFAULT_MAX_MOVE_COUNT.getValue();
-
-        for (Car car : cars.getCarsList()) {
-            int moveCount = car.getMoveCount();
-            if (moveCount > maxMoveCount) {
-                maxMoveCount = moveCount;
-            }
-        }
-        return maxMoveCount;
+    public static int getRandomNumber() {
+        return Randoms.pickNumberInRange(MIN_NUMBER_RANGE.getValue(), MAX_NUMBER_RANGE.getValue());
     }
 }

@@ -1,7 +1,9 @@
 package domain;
 
+import static constant.ConstantNumber.DEFAULT_MAX_MOVE_COUNT;
 import static constant.ConstantString.DELIMITER;
 
+import controller.RaceController;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -21,6 +23,25 @@ public class Cars {
         return Arrays.stream(carNames.split(DELIMITER))
                 .map(String::trim)
                 .collect(Collectors.toList());
+    }
+
+    public int findMaxMoveCount() {
+        int maxMoveCount = DEFAULT_MAX_MOVE_COUNT.getValue();
+
+        for (Car car : carsList) {
+            int moveCount = car.getMoveCount();
+            if (moveCount > maxMoveCount) {
+                maxMoveCount = moveCount;
+            }
+        }
+        return maxMoveCount;
+    }
+
+    public void MoveCars() {
+        for (Car car : carsList) {
+            int randomNumber = RaceController.getRandomNumber();
+            car.moveOrStop(randomNumber);
+        }
     }
 
     public List<Car> getCarsList() {
