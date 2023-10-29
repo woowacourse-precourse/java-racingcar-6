@@ -7,11 +7,12 @@ public class CarNamesInputValidator {
     public void validate(String userInput) {
         isNotEmpty(userInput);
         containsDelimiter(userInput);
+        isEachCarNameLengthInAppropriateRange(userInput);
     }
 
     private void isNotEmpty(String userInput) {
         if (userInput.isEmpty()) {
-            throw new IllegalArgumentException(ErrorMessage.INPUT_CAR_NAMES_EMPTY);
+            throw new IllegalArgumentException(ErrorMessage.INPUT_CAR_NAME_EMPTY);
         }
     }
 
@@ -21,13 +22,16 @@ public class CarNamesInputValidator {
         }
     }
 
-    private void isEachCarNameLengthUnderLimitLength(String userInput) {
+    private void isEachCarNameLengthInAppropriateRange(String userInput) {
         String[] carNames = userInput.split(Constant.INPUT_CAR_NAMES_DELIMITER);
         String trimmedCarName;
         for (String carName : carNames) {
             trimmedCarName = carName.trim();
             if (trimmedCarName.length() > Constant.CAR_NAME_MAX_LENGTH) {
                 throw new IllegalArgumentException(ErrorMessage.INPUT_CAR_NAME_LENGTH_EXCEEDS_LIMIT);
+            }
+            if (trimmedCarName.isEmpty()) {
+                throw new IllegalArgumentException(ErrorMessage.INPUT_CAR_NAME_EMPTY);
             }
         }
     }
