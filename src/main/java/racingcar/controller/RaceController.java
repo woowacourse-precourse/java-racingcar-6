@@ -18,7 +18,7 @@ public class RaceController {
         TryCount tryCount = new TryCount(inputView.readTryCount());
         Cars cars = Cars.from(carNames);
         startRace(cars, tryCount);
-        printWinners();
+        printWinners(cars);
     }
 
     private void startRace(Cars cars, TryCount tryCount) {
@@ -29,7 +29,7 @@ public class RaceController {
         }
     }
 
-    private void printWinners(){
-        // TODO: 우승자들 출력
+    private void printWinners(Cars cars){
+
     }
 }

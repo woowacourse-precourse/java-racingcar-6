@@ -7,6 +7,8 @@ import racingcar.domain.Position;
 
 public class OutputView {
     private static final String RACE_RESULT_MESSAGE = "실행 결과";
+    private static final String CAR_NAME_TAG = " : ";
+    private static final String PROGRESS_BAR = "-";
 
     public void printRaceResultMessage(){
         System.out.println(RACE_RESULT_MESSAGE);
@@ -22,9 +24,9 @@ public class OutputView {
     }
 
     private void printCarStatus(CarName carName, Position position){
-        System.out.print(carName.getName() + ":");
+        System.out.print(carName.getName() + CAR_NAME_TAG);
         for(int i=0; i<position.getPosition(); i++){
-            System.out.print("-");
+            System.out.print(PROGRESS_BAR);
         }
         System.out.println();
     }
