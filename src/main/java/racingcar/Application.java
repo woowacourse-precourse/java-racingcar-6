@@ -21,5 +21,12 @@ public class Application {
             Car car = new Car(carNameList.get(i), 0);
             carList.add(car);
         }
+
+        for (Car car : carList) {
+            String carName = car.getName();
+            if (carName.isBlank()) {
+                throw new IllegalArgumentException("이름을 입력해주세요.");
+            }
+        }
     }
 }
