@@ -11,4 +11,10 @@ public class InputView {
         InputValidator.validateRacingCarNames(racingCarNames);
         return racingCarNames;
     }
+
+    public static int inputMoveCount() {
+        OutputView.printInputMoveCountMessage();
+        String moveCountInput = Console.readLine();
+        return Integer.parseInt(moveCountInput);
+    }
 }
