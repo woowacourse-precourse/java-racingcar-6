@@ -33,25 +33,25 @@ public class CarGameController {
         finalWinners();
     }
 
-    public CarNames loadCarNames() {
+    private CarNames loadCarNames() {
         outputHandler.printInputCarNameMessage();
         List<String> carNames = inputHandler.inputCarNames();
 
         return CarNames.create(carNames);
     }
 
-    public TryCount loadTryCount() {
+    private TryCount loadTryCount() {
         outputHandler.printInputTryCountMessage();
         String tryCount = inputHandler.inputTryCount();
 
         return TryCount.create(tryCount);
     }
 
-    public void generateStatusGroup(CarNames carNames) {
-        carGameService.generateRacingCarGroup(carNames);
+    private void generateStatusGroup(CarNames carNames) {
+        carGameService.generateStatusGroup(carNames);
     }
 
-    public void playGame(TryCount tryCount) {
+    private void playGame(TryCount tryCount) {
         outputHandler.printGameResultMessage();
 
         for (int i = 0; i < tryCount.getTryCount(); i++) {
@@ -61,7 +61,7 @@ public class CarGameController {
         }
     }
 
-    public void finalWinners() {
+    private void finalWinners() {
         String winners = carGameService.getWinnerNames();
         outputHandler.printFinalWinners(winners);
     }

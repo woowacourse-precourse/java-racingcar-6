@@ -13,7 +13,7 @@ public class CarGameService {
     private CarStatusGroup carStatusGroup;
     private List<CarStatus> carStatusList = new ArrayList<>();
 
-    public void generateRacingCarGroup(CarNames carNames) {
+    public void generateStatusGroup(CarNames carNames) {
         for (String carName : carNames.getCarNames()) {
             CarStatus carStatus = CarStatus.create(carName);
             carStatusList.add(carStatus);
