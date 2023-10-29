@@ -18,6 +18,7 @@ public class InputView {
     public int playNumber(){
         System.out.println(INPUT_PLAY_NUMBER);
         String questionAnswer = Console.readLine();
+        System.out.println();
         return inputValidation.checkedInputNumberValidation(questionAnswer);
     }
 }
