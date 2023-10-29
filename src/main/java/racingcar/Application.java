@@ -28,10 +28,7 @@ public class Application {
 
         String[] strCars = input.split(",");
 
-        List<String> carList = Arrays.stream(strCars)
-                .map(String::strip)
-                .filter(strCar->strCar.length()<=5)
-                .toList();
+        List<String> carList = Arrays.stream(strCars).map(String::strip).filter(strCar -> strCar.length() <= 5).toList();
 
         if (strCars.length != carList.size()) {
             throw new IllegalArgumentException();
@@ -39,6 +36,15 @@ public class Application {
 
         Map<String, String> carDistanceMap = carList.stream().collect(toMap(Object::toString, data -> ""));
 
-        carDistanceMap.forEach((k, v) -> System.out.println(k + ":" + v));
+
+        input = Console.readLine();
+        int count = 0;
+
+        try {
+            count = Integer.parseInt(input);
+        } catch (NumberFormatException ex) {
+            throw new IllegalArgumentException();
+        }
+        
     }
 }

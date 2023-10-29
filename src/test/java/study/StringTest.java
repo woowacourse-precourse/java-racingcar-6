@@ -99,4 +99,15 @@ public class StringTest {
         assertThat(result).isEqualTo(expected);
     }
 
+    @Test
+    void parseInt_문자열이_정수인지_확인() {
+        String input1 = "10";
+        String input2 = "1o";
+
+        assertThat(Integer.parseInt(input1)).isEqualTo(10);
+        
+        assertThatThrownBy(() -> Integer.parseInt(input2))
+                .isInstanceOf(NumberFormatException.class);
+    }
+
 }
