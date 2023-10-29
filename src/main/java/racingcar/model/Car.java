@@ -1,4 +1,4 @@
-package racingcar.model.domain;
+package racingcar.model;
 
 public class Car {
 
@@ -15,6 +15,10 @@ public class Car {
 
     public int getLocation() {
         return location;
+    }
+
+    public boolean isLocationEqual(int location) {
+        return getLocation() == location;
     }
 
     public int move(int forwardCount) {
