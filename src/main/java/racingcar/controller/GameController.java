@@ -26,10 +26,9 @@ public class GameController {
         SystemView.promptForRoundNumber();
         roundNumber = InputController.setRound();
 
-        // Car 객체 생성 및 자동차 이름 할당
         cars = new ArrayList<>();
         for (String carName : carNames) {
-            cars.add(new Car(carName));
+            cars.add(Car.nameOf(carName));
         }
     }
 
@@ -37,7 +36,7 @@ public class GameController {
 
         SystemView.displayGameResults();
 
-        Round round = new Round(cars);
+        Round round = Round.carsOf(cars);
         round.playRound(roundNumber);
     }
 

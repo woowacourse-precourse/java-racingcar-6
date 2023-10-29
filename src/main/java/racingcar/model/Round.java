@@ -7,8 +7,12 @@ import java.util.List;
 public class Round {
     private List<Car> cars;
 
-    public Round(List<Car> cars) {
+    private Round(List<Car> cars) {
         this.cars = cars;
+    }
+
+    public static Round carsOf(List<Car> cars) {
+        return new Round(cars);
     }
 
     public void playRound(int numAttempts) {
