@@ -12,10 +12,11 @@ public class RacingCarController {
 
     public void run() {
         Output.inputCarName();
-        Input.getCarName(); //pobi,woni,jun
+
+        cars = new Cars(Input.getCarName()); // pobi,woni,jun
 
         Output.printNumber_of_attempts(); // 시도할 횟수는 몇회?
-        Input.getNumber_of_attemps();
+        tryCount = new TryCount(Input.getNumber_of_attemps());
 
         //경주 실행
         race();
@@ -25,10 +26,11 @@ public class RacingCarController {
     }
 
     private void race() {
+
         Output.printExecutionResult(); // 실행 결과
 
         int nowTrialCnt = 0;
-        while(tryCount.isSame(nowTrialCnt++)){
+        while(!tryCount.isSame(nowTrialCnt++)){
             cars.moveByRandomNumber();
             Output.printCarScore(cars.getCars());
         }
