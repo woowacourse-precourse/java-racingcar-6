@@ -1,5 +1,9 @@
 package racingcar.config;
 
+import static racingcar.constant.DefaultValidatorConstant.DEFAULT_CAR_NAME_DUPLICATION_POLICY;
+import static racingcar.constant.DefaultValidatorConstant.DEFAULT_MAX_CAR;
+import static racingcar.constant.DefaultValidatorConstant.DEFAULT_MAX_EXECUTION_COUNT;
+
 import racingcar.Game;
 import racingcar.input.ConsoleInput;
 import racingcar.input.Input;
@@ -21,7 +25,12 @@ public class Configuration {
         return new ConsoleOutput();
     }
 
+    //Validator 커스텀 가능
     public static Validator validator() {
-        return new Validator();
+        Validator validator = new Validator();
+        validator.setMaxCar(DEFAULT_MAX_CAR);
+        validator.setMaxExecutionCount(DEFAULT_MAX_EXECUTION_COUNT);
+        validator.setAllowCarNameDuplication(DEFAULT_CAR_NAME_DUPLICATION_POLICY);
+        return validator;
     }
 }
