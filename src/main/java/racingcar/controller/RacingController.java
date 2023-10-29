@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 레이싱을 진행시키는 클래스다.
+ * RacingController는 레이싱을 진행시키는 클래스다.
  *
  * @author haiseong
  */
