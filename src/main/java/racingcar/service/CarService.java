@@ -54,4 +54,8 @@ public class CarService {
                 .filter(car -> car.getScore() == highestScore)
                 .toList();
     }
+
+    public StringBuilder formatOutput(StringBuilder winner) {
+        return winner.delete(winner.length() - 2, winner.length());
+    }
 }
