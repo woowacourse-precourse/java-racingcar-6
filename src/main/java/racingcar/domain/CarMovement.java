@@ -13,14 +13,13 @@ public class CarMovement {
         return randomNumberPerCar;
     }
 
-    public List<Boolean> getCarMoveResult(int numberOfCars) {
+    public List<Boolean> getBoolResult(int numberOfCars) {
         List<Integer> randomNumberPerCar = getRandomNumberPerCar(numberOfCars);
         List<Boolean> carMoveResult = new ArrayList<>();
-
         for (int i = 0; i < numberOfCars; i++) {
-            carMoveResult.add(i, false);
+            carMoveResult.add(false);
             if (randomNumberPerCar.get(i) >= 4) {
-                carMoveResult.add(i, true);
+                carMoveResult.set(i, true);
             }
         }
         return carMoveResult;
