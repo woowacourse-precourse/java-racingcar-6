@@ -8,6 +8,7 @@ public class Car {
     public void drive() {
         int randomNumber = createRandomNumber();
         judgeRandomNumber(randomNumber);
+        printCarStatus();
     }
 
     public int createRandomNumber() {
@@ -20,5 +21,8 @@ public class Car {
         }
     }
 
+    public void printCarStatus() {
+        System.out.println(carName + " : " + status);
+    }
 
 }
