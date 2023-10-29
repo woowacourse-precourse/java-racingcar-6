@@ -39,4 +39,11 @@ public class Race {
         }
         System.out.println();
     }
+    public List<Integer> savePositionInList() {
+        List<Integer> position = new ArrayList<>();
+        for (Car car : cars) {
+            position.add(car.getPosition());
+        }
+        return position;
+    }
 }

@@ -19,5 +19,6 @@ public class Application {
             race.goFoward();
             race.printRace();
         }
+        System.out.println(race.savePositionInList().toString());
     }
 }
