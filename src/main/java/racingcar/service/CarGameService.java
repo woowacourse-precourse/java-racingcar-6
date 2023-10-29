@@ -3,7 +3,6 @@ package racingcar.service;
 import static racingcar.constants.MessageConstant.INPUT_SEPARATOR;
 import static racingcar.constants.MessageConstant.WINNER_NAME_SEPARATOR;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.Cars;
@@ -11,8 +10,10 @@ import racingcar.domain.Cars;
 public class CarGameService {
 
     public Cars convertToCars(final String input) {
-        List<String> carList = convertToList(input);
-        return Cars.of(new ArrayList<>(carList));
+        List<String> names = Arrays.stream(splitBySeparator(input))
+                .toList();
+
+        return Cars.of(names);
     }
 
     public void applyMovingForward(final Cars cars) {
@@ -26,10 +27,6 @@ public class CarGameService {
 
     private String joinWinnerNames(final List<String> winnerNames) {
         return String.join(WINNER_NAME_SEPARATOR, winnerNames);
-    }
-
-    private List<String> convertToList(final String input) {
-        return Arrays.asList(splitBySeparator(input));
     }
 
     private String[] splitBySeparator(final String input) {
