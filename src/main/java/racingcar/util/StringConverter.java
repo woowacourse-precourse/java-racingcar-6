@@ -19,8 +19,8 @@ public class StringConverter {
                 .toList();
     }
 
-    public static Integer stringToInteger(String TryNumber) {
-        InputValidator.validateInputTryNumber(TryNumber);
-        return Integer.parseInt(TryNumber);
+    public static Integer stringToInteger(String tryNumber) {
+        InputValidator.validateInputTryNumber(tryNumber);
+        return Integer.parseInt(tryNumber);
     }
 }

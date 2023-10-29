@@ -10,7 +10,7 @@ public class InputView {
     }
 
     public static String inputTryNumber() {
-        String TryNumber = Console.readLine();
-        return TryNumber;
+        String tryNumber = Console.readLine();
+        return tryNumber;
     }
 }
