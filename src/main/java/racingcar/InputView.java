@@ -23,4 +23,15 @@ public class InputView {
         userInputException.validateBlankCarName(carNames);
         userInputException.validateCarNameLength(carNames);
     }
+
+    public int getAttemptCount() {
+        String userInput = Console.readLine();
+        return validateAttemptCount(userInput);
+    }
+
+    private int validateAttemptCount(String userInput) {
+        int attemptCount = userInputException.isIntegerAttemptCount(userInput);
+        userInputException.validateAttemptCountRange(attemptCount);
+        return attemptCount;
+    }
 }
