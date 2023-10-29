@@ -45,6 +45,10 @@ public class RacingGame implements Game {
         String roundCountString = inputView.input();
         int roundCount = Convertor.parseInt(roundCountString);
         round = new Round(roundCount);
+
+
+        String playResultMessage = messenger.getPlayResultMessage();
+        outputView.print(playResultMessage);
     }
 
 }
