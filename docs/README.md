@@ -6,7 +6,7 @@
 - setCarName
 - getCarName
 - addProgress
-- 
+- getProgress
 ### - Input
 - inputCarNames (경주할 자동차의 이름을 입력받기)
   - 경주할 자동차의 이름들을 한줄로 입력받는 method
