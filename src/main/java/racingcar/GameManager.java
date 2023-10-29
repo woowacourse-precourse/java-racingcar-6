@@ -51,8 +51,6 @@ public class GameManager {
     }
 
     public String makeWinnerResult() {
-        List<String> winners = new ArrayList<>();
-
         int maxLocation = findMaxLocation(cars);
         List<String> winnerNames = findWinnerNames(cars, maxLocation);
 
