@@ -35,4 +35,12 @@ public class CarTest {
 
         assertThat(carObj.getRandomNumber()).isBetween(0, 9);
     }
+
+    @Test
+    void 자동차_운행_전진멈춤확인() {
+        Car carObj = new Car("vega");
+
+        carObj.runCar();
+        assertThat(carObj.getForwardCount()).isEqualTo(1);
+    }
 }
