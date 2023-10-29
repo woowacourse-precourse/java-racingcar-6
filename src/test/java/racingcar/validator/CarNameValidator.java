@@ -19,6 +19,11 @@ public class CarNameValidator {
         }
     }
 
+    public static void validateForEachName(String carName) {
+        validateEmptyForEachName(carName);
+        validateLengthForEachName(carName);
+    }
+
     private static void validateEmptyForEachName(String carName) {
         if (carName.isEmpty()) {
             throw new IllegalArgumentException("이름은 비어있지 않아야 합니다.");
