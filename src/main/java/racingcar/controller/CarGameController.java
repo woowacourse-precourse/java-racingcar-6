@@ -13,10 +13,10 @@ public class CarGameController {
     private final InputView inputView;
     private final OutputView outputView;
 
-    public CarGameController() {
-        this.carGameService = new CarGameService();
-        this.inputView = new InputView();
-        this.outputView = new OutputView();
+    public CarGameController(CarGameService carGameService, InputView inputView, OutputView outputView) {
+        this.carGameService = carGameService;
+        this.inputView = inputView;
+        this.outputView = outputView;
     }
 
     public void start() {
