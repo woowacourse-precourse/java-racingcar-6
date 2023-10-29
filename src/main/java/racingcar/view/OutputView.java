@@ -27,6 +27,13 @@ public class OutputView {
     }
 
     public void printWinner(List<String> winnerList) {
-        
+        String winnerMsg = "최종 우승자 : ";
+        for(int i = 0; i < winnerList.size(); i++) {
+            winnerMsg += winnerList.get(i) + ", ";
+        }
+        if (winnerMsg.endsWith(", ")) {
+            winnerMsg = winnerMsg.substring(0, winnerMsg.length() - 2);
+        }
+        System.out.println(winnerMsg);
     }
 }
