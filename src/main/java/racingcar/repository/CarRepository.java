@@ -33,7 +33,7 @@ public class CarRepository {
                 });
     }
 
-    public void runAllCars(){
+    public void runAllCars() {
         garage.stream()
                 .forEach(car -> car.runTrack());
     }
@@ -53,6 +53,11 @@ public class CarRepository {
                     carDtoArrayList.add(mappingDomainToDto(car));
                 });
         return carDtoArrayList;
+    }
+
+    // 테스트를 위한 메서드
+    public void initRepository(){
+        garage = new ArrayList<>();
     }
 
 
