@@ -10,13 +10,13 @@ public class Cars {
     private static final String SIZE_ERROR_MESSAGE = "자동차는 1대 이상이여야 합니다.";
 
     private final List<Car> cars;
-    private final RandomNumberGenerator generator;
+    private final RandomNumberGenerator randomNumberGenerator;
 
 
     public Cars(final String names) {
         validateSize(names);
         this.cars = new ArrayList<>(convertToCars(names));
-        this.generator = new RandomNumberGenerator();
+        this.randomNumberGenerator = new RandomNumberGenerator();
     }
 
     private void validateSize(final String names) {
@@ -30,5 +30,12 @@ public class Cars {
                 .map(Car::new)
                 .toList();
     }
+
+    public void move() {
+        for (Car car : cars) {
+            car.move(randomNumberGenerator.generate());
+        }
+    }
+
 
 }
