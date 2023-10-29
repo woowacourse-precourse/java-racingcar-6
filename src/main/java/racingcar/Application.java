@@ -2,7 +2,10 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Application {
@@ -16,6 +19,23 @@ public class Application {
             play(racingCars);
             System.out.println();
         }
+
+        printWinner(racingCars);
+    }
+
+    private static void printWinner(Map<String, Integer> racingCars) {
+        System.out.println("최종 우승자 : " + parseWinner(racingCars));
+    }
+
+    public static String parseWinner(Map<String, Integer> racingCars) {
+        List<String> winners = new ArrayList<>();
+        int maxValue = Collections.max(racingCars.values());
+        for (Map.Entry<String, Integer> entry : racingCars.entrySet()) {
+            if (entry.getValue() == maxValue) {
+                winners.add(entry.getKey());
+            }
+        }
+        return String.join(", ", winners);
     }
 
     private static void play(Map<String, Integer> racingCars) {
@@ -59,7 +79,7 @@ public class Application {
     }
 
     public static Map<String, Integer> validateCarName(String input) {
-        Map<String, Integer> racingCars = new HashMap<>();
+        Map<String, Integer> racingCars = new LinkedHashMap<>();
         String[] cars = input.split(",");
         for (String car : cars) {
             if (car.length() > 5) {
