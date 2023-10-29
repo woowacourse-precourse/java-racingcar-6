@@ -28,4 +28,8 @@ public class Cars {
         }
         return true;
     }
+
+    public int size() {
+        return this.cars.size();
+    }
 }
