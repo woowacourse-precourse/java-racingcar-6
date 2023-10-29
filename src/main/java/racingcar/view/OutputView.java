@@ -1,5 +1,8 @@
 package racingcar.view;
 
+import racingcar.domain.RacingCars;
+import racingcar.domain.Winner;
+
 import java.util.stream.IntStream;
 
 public class OutputView {
@@ -12,15 +15,19 @@ public class OutputView {
         System.out.println(RESULT_MESSAGE);
     }
 
-    public static void printMoveRacingCar(String name, int number) {
-        System.out.print(String.format(RACING_CAR_NAME, name));
-        IntStream.range(0, number).forEach(num -> {
-            System.out.print(HYPHEN);
-        });
-        System.out.println();
+    public static void printMoveRacingCar(RacingCars racingCars) {
+
+        racingCars.getRacingCars().stream().forEach(v -> {
+                    System.out.print(String.format(RACING_CAR_NAME,v.getName()));
+                    IntStream.range(0, v.getMove()).forEach(num -> {
+                        System.out.print(HYPHEN);
+                    });
+                    System.out.println();
+                }
+        );
     }
 
-    public static void printWinner(String winner) {
-        System.out.print(String.format(WINNER_MESSAGE, winner));
+    public static void printWinner(Winner winner) {
+        System.out.print(String.format(WINNER_MESSAGE, winner.getWinnerRacingCar()));
     }
 }

@@ -12,11 +12,8 @@ public class InputView {
         return Console.readLine();
     }
 
-
     public static String attemptNumberInput() {
         System.out.println(ATTEMPT_NUMBER_INPUT_MESSAGE);
         return Console.readLine();
     }
-
-
 }

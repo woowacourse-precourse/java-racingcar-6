@@ -1,62 +1,76 @@
 package racingcar.validator;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
-import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 public class RacingCarValidatorTest {
-    private final RacingCarValidator racingCarValidator = new RacingCarValidator();
 
-    @Test
-    void 자동차_이름_5글자_체크_테스트() {
-        String racingCars = "pobi,huni,junbin";
-        assertSimpleTest(() ->
-                assertThatThrownBy(() ->
-                        racingCarValidator.racingCarNameLengthValidator(racingCars))
-                        .isInstanceOf(IllegalArgumentException.class));
+    @Order(3)
+    @ParameterizedTest
+    @ValueSource(strings = {"pobi,crong,honuxxx",
+            "pobiiiiiiiiii,crong,honux",
+            "thelongestnameintheword"})
+    void 자동차_이름_5글자_체크_테스트(String input) {
+        assertThatIllegalArgumentException().isThrownBy(()->
+                RacingCarValidator.racingCarNameLengthValidator(input)
+                );
     }
 
-    @Test
-    void 자동차_이름_중복_테스트() {
-        String racingCars = "pobi,huni,pobi";
-        assertSimpleTest(() ->
-                assertThatThrownBy(() ->
-                        racingCarValidator.racingCarNameDuplicationValidator(racingCars))
-                        .isInstanceOf(IllegalArgumentException.class));
+    @Order(3)
+    @ParameterizedTest
+    @ValueSource(strings = {"pobi,pobi,wendi",
+            "juni,crong,juni",
+            "jun,hun,hun"})
+    void 자동차_이름_중복_테스트(String input) {
+        assertThatIllegalArgumentException().isThrownBy(()->
+                RacingCarValidator.racingCarNameDuplicationValidator(input)
+        );
     }
 
-    @Test
-    void 자동차_이름_공백_테스트() {
-        String racingCars = "pobi,hun i,p obi";
-        assertSimpleTest(() ->
-                assertThatThrownBy(() ->
-                        racingCarValidator.racingCarNameInputContainsSpaceValidator(racingCars))
-                        .isInstanceOf(IllegalArgumentException.class));
+    @Order(3)
+    @ParameterizedTest
+    @ValueSource(strings = {"pobi,cro ng,hon x",
+            "po d,crong,honux",
+            "th d"})
+    void 자동차_이름_공백_테스트(String input) {
+        assertThatIllegalArgumentException().isThrownBy(()->
+                RacingCarValidator.racingCarNameInputContainsSpaceValidator(input)
+        );
     }
 
-    @Test
-    void 자동차_이름_빈문자_입력_테스트() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() ->
-                        racingCarValidator.racingCarNameEmptyInputValidator(""))
-                        .isInstanceOf(IllegalArgumentException.class));
+    @Order(3)
+    @ParameterizedTest
+    @ValueSource(strings = {"",
+            "",
+            ""})
+    void 자동차_이름_빈문자_입력_테스트(String input) {
+        assertThatIllegalArgumentException().isThrownBy(()->
+                RacingCarValidator.racingCarNameEmptyInputValidator(input)
+        );
     }
 
-    @Test
-    void 숫자_빈문자_입력_테스트() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() ->
-                        racingCarValidator.numberAttemptsEmptyInputValidator(""))
-                        .isInstanceOf(IllegalArgumentException.class));
+    @Order(3)
+    @ParameterizedTest
+    @ValueSource(strings = {"",
+            "",
+            ""})
+    void 숫자_빈문자_입력_테스트(String input) {
+        assertThatIllegalArgumentException().isThrownBy(()->
+                RacingCarValidator.numberAttemptsEmptyInputValidator(input)
+        );
     }
 
-    @Test
-    void 숫자_입력_체크_테스트() {
-        String number = "f";
-        assertSimpleTest(() ->
-                assertThatThrownBy(() ->
-                        racingCarValidator.numberAttemptsInputOnlyNumberValidator(number))
-                        .isInstanceOf(IllegalArgumentException.class));
+    @Order(3)
+    @ParameterizedTest
+    @ValueSource(strings = {"f",
+            "bfb",
+            "e"})
+    void 숫자_입력_체크_테스트(String input) {
+        assertThatIllegalArgumentException().isThrownBy(()->
+                RacingCarValidator.numberAttemptsInputOnlyNumberValidator(input)
+        );
     }
 }
