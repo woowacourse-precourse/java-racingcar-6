@@ -3,27 +3,27 @@ package racingcar.domain;
 import java.util.Arrays;
 import java.util.List;
 
-public class RacingGame {
-    private final List<Car> cars;
+public class RacingGameDemo {
+    private final List<CarDemo> cars;
 
-    public RacingGame(String carNames) {
+    public RacingGameDemo(String carNames) {
         List<String> members = Arrays.asList(carNames.split(","));
         this.cars = members.stream()
-                .map(member -> new Car(member, 0))
+                .map(member -> new CarDemo(member))
                 .toList();
     }
 
-    public RacingGame(List<Car> cars) {
+    public RacingGameDemo(List<CarDemo> cars) {
         this.cars = cars;
     }
 
-    public List<Car> getCars() {
+    public List<CarDemo> getCars() {
         return cars;
     }
 
-    public List<Car> findWinner() {
+    public List<CarDemo> findWinner() {
         int maxPosition = cars.stream()
-                .mapToInt(Car::getPosition)
+                .mapToInt(CarDemo::getPosition)
                 .max()
                 .getAsInt();
 

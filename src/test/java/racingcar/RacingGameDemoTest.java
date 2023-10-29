@@ -12,10 +12,10 @@ import java.util.regex.Pattern;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Car;
-import racingcar.domain.RacingGame;
+import racingcar.domain.CarDemo;
+import racingcar.domain.RacingGameDemo;
 
-class RacingGameTest {
+class RacingGameDemoTest {
     @AfterEach
     void restoreSystemIn() {
         Console.close();
@@ -26,9 +26,9 @@ class RacingGameTest {
     void test1() {
         System.setIn(new ByteArrayInputStream("pobi,go,kim".getBytes()));
         String carNames = Console.readLine();
-        RacingGame racingGame = new RacingGame(carNames);
+        RacingGameDemo racingGameDemo = new RacingGameDemo(carNames);
 
-        assertThat(racingGame.getCars().size()).isEqualTo(3);
+        assertThat(racingGameDemo.getCars().size()).isEqualTo(3);
     }
 
     @Test
@@ -51,13 +51,13 @@ class RacingGameTest {
     @Test
     @DisplayName("우승자를 결정한다.")
     void test4() {
-        Car car1 = new Car("go", 5);
-        Car car2 = new Car("kim", 1);
-        Car car3 = new Car("lee", 3);
-        List<Car> cars = List.of(car1, car2, car3);
+        CarDemo car1 = new CarDemo("go");
+        CarDemo car2 = new CarDemo("kim");
+        CarDemo car3 = new CarDemo("lee");
+        List<CarDemo> cars = List.of(car1, car2, car3);
 
-        RacingGame racingGame = new RacingGame(cars);
-        List<Car> winners = racingGame.findWinner();
+        RacingGameDemo racingGameDemo = new RacingGameDemo(cars);
+        List<CarDemo> winners = racingGameDemo.findWinner();
 
         assertThat(winners.size()).isEqualTo(1);
         assertThat(winners.get(0)).isSameAs(car1);
@@ -77,7 +77,7 @@ class RacingGameTest {
         System.setIn(new ByteArrayInputStream("가나다라마바사".getBytes()));
         String carName = Console.readLine();
 
-        assertThatIllegalArgumentException().isThrownBy(() -> new Car(carName, 0));
+        assertThatIllegalArgumentException().isThrownBy(() -> new CarDemo(carName));
     }
 
     @Test

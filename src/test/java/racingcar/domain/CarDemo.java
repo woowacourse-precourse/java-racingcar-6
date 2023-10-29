@@ -1,15 +1,15 @@
 package racingcar.domain;
 
-public class Car {
+public class CarDemo {
     private final String name;
     private int position;
 
-    public Car(String name, int position) {
+    public CarDemo(String name) {
         if(name.length() > 5) {
             throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다.");
         }
         this.name = name;
-        this.position = position;
+        this.position = 0;
     }
 
     public String getName() {
