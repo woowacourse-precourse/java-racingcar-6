@@ -1,12 +1,13 @@
 ## 자동차 경주 기능 목록
 
 - [ ] 주어진 횟수 만큼 자동차 전진 또는 멈춤 수행 - RacingcarGame#run()
-- [ ] 각 자동차에 이름을 부여 - Car#createName()
-  - [ ] 자동차 이름은 쉼표(,)를 기준으로 구분 및 5자 이하 검증 - Car#validateName()
+- [x] 각 자동차에 이름을 부여 - Car#createName()
+  - [x] 자동차 이름이 5자 이하 검증 - Car#validateName()
+  - [x] 자동차 이름을 쉼표(,)를 기준으로 구분 및 문자열 리스트 변환 - Car#splitToName() 
 - [ ] 사용자가 이동할 횟수 입력 - Player#moveOnInput()
-- [ ] 0에서 9사이 무작위 값을 구한다. - Utils#createRandomNumber()
-  - [ ] 0에서 9사이 무작위 값을 검증 - Utils#isNumberRange()
-  - [ ] 무작위 값이 4 이상일 경우 전진 - Car#moveToGo()
+- [x] 0에서 9사이 무작위 값을 구한다. - Utils#randomNumberGenerator()
+  - [x] 0에서 9사이 무작위 값을 검증 - Utils#isNumberRange()
+  - [x] 무작위 값이 4 이상일 경우 전진 - Car#moveToGo()
 - [ ] 자동차 경주 게임을 완료한 후 누가 우승했는지 알린다. - OutputView#printToResult()
   - [ ] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분 - OutputView#winnersToMulti()
 - [ ] 사용자가 잘못된 값을 입력한 경우 `IllegalArgumentException` 발생 - ExceptionMessage
