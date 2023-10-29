@@ -61,8 +61,16 @@ class ApplicationTest extends NsTest {
     @Test
     void 이름_알파벳_이외_문자_예외_처리() {
         List<String> input = List.of("abd", "qAz", "aq1");
-        
+
         assertThatThrownBy(() -> Validation.validateCharacters(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 시도_횟수_예외_처리() {
+        String input = "1 ";
+
+        assertThatThrownBy(() -> Validation.validateNumber(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
