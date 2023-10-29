@@ -29,6 +29,7 @@ public class Application {
 
         InitalcarSetting(carNames);
         playGame(number);
+        winner();
     }
 
     private void CarNameValidate(String[] carNames){
@@ -57,5 +58,24 @@ public class Application {
                carStatus.put(carName,carStatus.get(carName)+"-");
             }
         }
+    }
+
+    private void winner() {
+        int max = 0;
+        String winners ="";
+        for(String carMoves : carStatus.values()){
+          if(max< carMoves.length()){
+              max = carMoves.length();
+          }
+        }
+        for(String carName : carStatus.keySet()){
+          if(carStatus.get(carName).length()==max){
+            if(!winners.isEmpty()){
+               winners += ",";
+            }
+            winners +=carName;
+          }
+        }
+        System.out.println("최종 우승자 : " + winners);
     }
 }
