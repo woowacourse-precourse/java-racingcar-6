@@ -21,7 +21,7 @@ public class SelfApplicationTest {
         assertThatThrownBy(() -> {
             new Cars(carList);
         }).isInstanceOf(IllegalArgumentException.class)
-        .hasMessage("자동차 이름은 5글자 이하여야 합니다");
+                .hasMessage("자동차 이름은 5글자 이하여야 합니다");
     }
 
     @Test
@@ -33,7 +33,7 @@ public class SelfApplicationTest {
         assertThatThrownBy(() -> {
             new Cars(carList);
         }).isInstanceOf(IllegalArgumentException.class)
-        .hasMessage("같은 이름의 자동차가 있습니다.");
+                .hasMessage("같은 이름의 자동차가 있습니다.");
     }
 
     @Test
@@ -43,7 +43,7 @@ public class SelfApplicationTest {
         assertThatThrownBy(() -> {
             validator.validatePlayCount(input);
         }).isInstanceOf(IllegalArgumentException.class)
-        .hasMessage("숫자만 입력할 수 있습니다.");
+                .hasMessage("숫자만 입력할 수 있습니다.");
     }
 
     @Test
@@ -55,7 +55,7 @@ public class SelfApplicationTest {
         assertThatThrownBy(() -> {
             new Cars(carList);
         }).isInstanceOf(IllegalArgumentException.class)
-        .hasMessage("이름에 공백이 포함된 자동차가 있습니다.");
+                .hasMessage("이름에 공백이 포함된 자동차가 있습니다.");
     }
 
     @Test
@@ -65,6 +65,6 @@ public class SelfApplicationTest {
         assertThatThrownBy(() -> {
             validator.validateEmptyCarNames(input);
         }).isInstanceOf(IllegalArgumentException.class)
-        .hasMessage("이름이 없는 자동차가 있습니다.");
+                .hasMessage("이름이 없는 자동차가 있습니다.");
     }
 }

@@ -26,7 +26,7 @@ public class Validator {
         validateLastInputCommas(input);
         validateStartInputCommas(input);
     }
-    
+
     private void validateLastInputCommas(String input) {
         if (input.charAt(input.length() - 1) == ',') {
             throw new IllegalArgumentException("이름이 없는 자동차가 있습니다.");
