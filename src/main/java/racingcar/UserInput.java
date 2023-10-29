@@ -23,6 +23,7 @@ public class UserInput {
     public static int getTrialNumber() {
         int trialNumber = Integer.parseInt(Console.readLine());
 
+
         return trialNumber;
     }
 

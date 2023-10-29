@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Application {
     public static void main(String[] args) {
@@ -15,9 +16,14 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
         trialNumber = UserInput.getTrialNumber();
+        System.out.println();
 
         System.out.println("실행 결과");
-
+        for (int i = 0; i < trialNumber; i++) {
+            Map<String, List<String>> raceResult;
+            raceResult = Race.doRace(carNamesArrayList);
+            Race.showRace(raceResult);
+        }
 
 
 
