@@ -1,9 +1,7 @@
 package racingcar.Model;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.Util.CarMovement;
 
 public class Cars {
@@ -19,5 +17,15 @@ public class Cars {
         }
     }
 
+    public void racingOne(){
+        for (Car car : cars){
+            moveCar(car);
+        }
+    }
 
+    private void moveCar(Car car){
+        if(CarMovement.movingStatus()){
+            car.forwardCarPosition();
+        }
+    }
 }
