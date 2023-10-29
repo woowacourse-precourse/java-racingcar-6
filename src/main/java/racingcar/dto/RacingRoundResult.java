@@ -1,8 +1,7 @@
-package racingcar.domain;
+package racingcar.dto;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.dto.CarInfo;
 
 public class RacingRoundResult {
     public static final String NOT_AVAILABLE_CAR_LIST_EXCEPTION = "올바르지 않은 자동차 리스트입니다.";

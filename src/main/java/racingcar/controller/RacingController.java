@@ -1,7 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.domain.RacingResult;
+import racingcar.dto.RacingResult;
 import racingcar.service.RacingCarService;
 import racingcar.view.RacingCarInputValidator;
 import racingcar.view.RacingCarInputView;

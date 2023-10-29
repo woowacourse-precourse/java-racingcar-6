@@ -5,9 +5,9 @@ import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.CarEngine;
 import racingcar.domain.Cars;
-import racingcar.domain.RacingResult;
-import racingcar.domain.RacingRoundResult;
 import racingcar.dto.CarInfo;
+import racingcar.dto.RacingResult;
+import racingcar.dto.RacingRoundResult;
 
 public class RacingCarService {
     private final RacingCarAssemblyService racingCarAssemblyService;

@@ -2,9 +2,9 @@ package racingcar.view;
 
 
 import java.util.List;
-import racingcar.domain.RacingResult;
-import racingcar.domain.RacingRoundResult;
 import racingcar.dto.CarInfo;
+import racingcar.dto.RacingResult;
+import racingcar.dto.RacingRoundResult;
 
 public class RacingCarOutputView {
     public static final String RACING_EXECUTE_MESSAGE = "실행 결과";
