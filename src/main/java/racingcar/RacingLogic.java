@@ -15,7 +15,6 @@ public class RacingLogic {
             repeatTimes++;
         }
         List<String> winnerList = checkWinner(carList);
-        saveWinnerData(carList, winnerList);
         InputAndOutput.outputRaceWinner(carList);
     }
 
@@ -65,12 +64,5 @@ public class RacingLogic {
             }
         }
         return winnerList;
-    }
-
-    static void saveWinnerData(List<Car> carList, List<Integer> winnerList) {
-        for (int index : winnerList) {
-            Car car = carList.get(index);
-            car.setWinner(true);
-        }
     }
 }
