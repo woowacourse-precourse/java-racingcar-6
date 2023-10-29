@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.constant.ErrorMessage.*;
 
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
@@ -26,6 +27,11 @@ public class InputValidatorTest {
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessage(CAR_NAME_LENGTH_ERROR.getMessage());
     }
+    @Test
+    public void 자동차_이름은_공백을_포함하면_제거하고_5글자를_판단한다() {
+        final String carName = "abcde ,a b c d e, abc d e, abc     de";
+        inputValidator.validateCarName(carName);
+    }
 
     @Test
     public void 숫자가_아닌_값을_입력하는_경우_예외_발생() {
@@ -39,5 +45,11 @@ public class InputValidatorTest {
         assertThatThrownBy(() -> inputValidator.validateNumericInput(""))
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessage(EMPTY_STRING_ERROR.getMessage());
+    }
+    @Test
+    public void 숫자_입력이_1보다_작은_경우_예외_발생() {
+        assertThatThrownBy(() -> inputValidator.validateNumericInput("0"))
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessage(INVALID_RANGE_ERROR.getMessage());
     }
 }
