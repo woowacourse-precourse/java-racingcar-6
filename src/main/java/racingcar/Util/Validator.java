@@ -39,6 +39,13 @@ public class Validator {
         }
     }
 
+    public int validationTrialNumber(String trialNumber){
+        trialNumber = trialNumber.replaceAll(" ", "");
+        validationTrialEmpty(trialNumber);
+        validationTrialNumberOverflow(trialNumber);
+        return validationTrialType(trialNumber);
+    }
+
     private void validationTrialEmpty(String trialNumber){
         if(trialNumber.isEmpty()){
             ExceptionMessage.NONE_INPUT.throwexception();
