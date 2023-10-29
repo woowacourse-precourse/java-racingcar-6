@@ -36,13 +36,26 @@ class CarNameValidatorTest {
     @Test
     void validateAlphanumericAndCommaCarNameWithInvalidCarName() {
         // given
-        String invalidCarName = "sully^^";
+        String invalidCarName = "siu^^";
 
         // when
         // then
         assertThatThrownBy(() -> new CarNameValidator(invalidCarName))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 영숫자와 콤마로만 구성되어야 합니다.");
+    }
+
+    @DisplayName("validateCarNameLength()로 자동차 이름의 길이가 0에서 5글자가 아니라면 예외가 발생한다.")
+    @Test
+    void validateCarNameLengthWithInvalidLength() {
+        // given
+        String invalidCarName = "romero";
+
+        // when
+        // then
+        assertThatThrownBy(() -> new CarNameValidator(invalidCarName))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 5글자 이하여야 합니다.");
     }
 
 }
