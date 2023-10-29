@@ -33,7 +33,7 @@ public enum GameElements { // 싱글톤 패턴 말고 다른 방법 생각, reco
         tryCount = tryCountByUser;
     }
 
-    public void insertCarMap() {
+    public void carMapSetting() {
         for (String carName : carNameList) {
             carMap.put(carName, 0);
         }

@@ -12,7 +12,7 @@ public class GameManager {
     public void gameSetting() {
         Output.printInputCarMessage();
         gameElements.carNamesSetting(input.getCarNameList());
-        gameElements.insertCarMap();
+        gameElements.carMapSetting();
 
         Output.printInputTryCountMessage();
         gameElements.tryCountSetting(input.getTryCount());
