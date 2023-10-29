@@ -33,6 +33,7 @@ public class Race {
     private void tryOneRound() {
         for (Car car : carList) {
             car.goOrStop();
+            car.printNameAndCount();
         }
     }
 }
