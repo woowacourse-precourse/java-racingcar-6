@@ -7,9 +7,10 @@ public class RacingCar {
     private static final Integer END_NUMBER = 9;
     private static final Integer MOVE_COUNT_INITIAL_NUMBER = 0;
     private static final Integer MAX_NAME_LENGTH = 5;
+    private static final Integer MIN_MOVE_NUMBER = 4;
 
     private final String name;
-    private final Integer moveCount;
+    private Integer moveCount;
 
     public RacingCar(String name) {
         validateNameLength(name);
@@ -25,5 +26,11 @@ public class RacingCar {
 
     private Integer generateRandomNumber() {
         return Randoms.pickNumberInRange(START_NUMBER, END_NUMBER);
+    }
+
+    private void moveOrStop() {
+        if(generateRandomNumber() >= MIN_MOVE_NUMBER) {
+            this.moveCount++;
+        }
     }
 }
