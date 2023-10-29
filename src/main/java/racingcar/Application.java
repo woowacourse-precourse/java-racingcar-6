@@ -21,8 +21,8 @@ public class Application {
 
         for (int i = 0; i < car.names.size(); i++) {
 
-            if (maxDistance <= car.movedCount.get(i).length()) {
-                maxDistance = car.movedCount.get(i).length();
+            if (maxDistance <= car.movedDistances.get(i).length()) {
+                maxDistance = car.movedDistances.get(i).length();
             }
 
         }
@@ -36,7 +36,7 @@ public class Application {
 
         for (int i = 0; i < car.names.size(); i++) {
 
-            if (maxDistance == car.movedCount.get(i).length()) {
+            if (maxDistance == car.movedDistances.get(i).length()) {
 
                 if (count++ != 0) {
                     System.out.print(", ");

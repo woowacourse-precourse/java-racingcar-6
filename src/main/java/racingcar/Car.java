@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Car {
 
-    public List<String> movedCount;
+    public List<String> movedDistances;
     public List<String> names;
 
     public Car(List<String> names) {
@@ -18,7 +18,7 @@ public class Car {
     }
 
     private void initializeMovedCount() {
-        movedCount = new ArrayList<>(Collections.nCopies(this.names.size(), ""));
+        movedDistances = new ArrayList<>(Collections.nCopies(this.names.size(), ""));
     }
 
     private void validateCarNames(List<String> carNames) {
@@ -44,17 +44,17 @@ public class Car {
 
     private void moveRandomly() {
 
-        for (int j = 0; j < movedCount.size(); j++) {
+        for (int j = 0; j < movedDistances.size(); j++) {
 
             if (Randoms.pickNumberInRange(0, 9) >= 4) {
-                movedCount.set(j, movedCount.get(j) + "-");
+                movedDistances.set(j, movedDistances.get(j) + "-");
             }
         }
     }
 
     private void printDistances() {
         for (int k = 0; k < names.size(); k++) {
-            System.out.println(names.get(k) + " : " + movedCount.get(k));
+            System.out.println(names.get(k) + " : " + movedDistances.get(k));
             System.out.println();
         }
     }
