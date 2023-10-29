@@ -9,8 +9,8 @@ public class InputView {
 
     public static Map<String, String> CarNames() {
         OutputView.printRequestCar();
-        Map<String, String> inputCarNamesMap = InputConvertor.toMap(Console.readLine());
-        return Validator.inputCarNames(inputCarNamesMap);
+        Map<String, String> racingCars = InputConvertor.toMap(Console.readLine());
+        return Validator.inputCarNames(racingCars);
     }
 
     public static int AttemptNumber() {
