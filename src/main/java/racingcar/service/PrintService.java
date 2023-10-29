@@ -43,7 +43,7 @@ public class PrintService {
             winnerNames[i] = winners.get(i).getName();
 
         System.out.printf("%s", WINNER_MESSAGE);
-        System.out.printf("%s", String.join(CAR_JOIN_DELIMITER, winnerNames));
+        System.out.printf("%s", String.join(CARS_SPLIT_JOIN_DELIMITER, winnerNames));
         System.out.println();
     }
 }

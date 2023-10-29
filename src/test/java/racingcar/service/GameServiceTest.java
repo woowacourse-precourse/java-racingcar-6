@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static racingcar.domain.StringConstant.CAR_JOIN_DELIMITER;
+import static racingcar.domain.StringConstant.CARS_SPLIT_JOIN_DELIMITER;
 
 class GameServiceTest {
     static List<RacingCar> racingCars1;
@@ -29,7 +29,7 @@ class GameServiceTest {
     @Test
     void createRacingCars_입력값에_맞는_개수와_이름으로_RacingCar_리스트_생성() {
         // GIVEN, WHEN
-        ByteArrayInputStream in = new ByteArrayInputStream(String.join(CAR_JOIN_DELIMITER, names).getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream(String.join(CARS_SPLIT_JOIN_DELIMITER, names).getBytes());
         System.setIn(in);
 
         List<RacingCar> racingCars2 = GameService.createRacingCars();
