@@ -21,8 +21,7 @@ public class OutputView {
     }
 
     private void setWinnerCarNames() {
-        int carIndex = 0;
-        while (carIndex < numberOfCars) {
+        for (int carIndex = 0; carIndex < numberOfCars; carIndex++) {
             addToListIfWinner(carIndex);
             carIndex++;
         }

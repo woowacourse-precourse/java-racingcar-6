@@ -1,17 +1,13 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
-import java.util.List;
 
 public class RacingCarGameConsole {
     private final Car car;
-    private final List<String> winnerCarNames = new ArrayList<>();
     private static final int MOVE_JUDGE_INTEGER = 4;
     private final int numberOfCars;
     private final int timesToTry;
     private int carIndex = 0;
-    private int mostMovedAmount = 0;
 
     public RacingCarGameConsole(Car car, int timesToTry) {
         this.car = car;
@@ -27,7 +23,7 @@ public class RacingCarGameConsole {
     }
 
     public void race() {
-        for (int i = 0; i < timesToTry; i++) {
+        for (int moveTry = 0; moveTry < timesToTry; moveTry++) {
             tryMoving();
         }
     }
