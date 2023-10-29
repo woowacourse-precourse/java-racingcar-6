@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import racingcar.dto.Progress;
 import racingcar.service.RaceService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -35,16 +36,15 @@ public class RaceController {
 
 
     private void raceWholeRound(int tryCount) {
+        outputView.printResultHeader();
         while (tryCount-- > 0) {
-            //TODO: raceService.경주차 이동()을 통해 HashMap의 값 갱신 및 DTO 반환
-
-            //TODO: outputView에 DTO를 전달하여 라운드 진행 상황을 출력
+            List<Progress> progressList = raceService.moveCar();
+            outputView.printProgress(progressList);
         }
     }
 
     private void printFinalWinner() {
-        //TODO: raceService.getResult()를 통해 최종 우승자 결과를 전달받음 List<String>
-
-        //TODO: outputView.printResult()를 통해 최종 우승자 결과를 출력
+        List<String> winners = raceService.getWinner();
+        outputView.printWinners(winners);
     }
 }
