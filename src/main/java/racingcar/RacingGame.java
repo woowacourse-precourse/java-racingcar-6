@@ -29,12 +29,13 @@ public class RacingGame {
         printMessage(PROCESS_RESULT);
         for(int i = 0; i<attemptNumber; i++){
             for(int j = 0; j<carNumber; j++){
-                printProgress(j);
+                eachCarPickRandomNumber(j);
             }
+            printProgress();
         }
     }
 
-    public void printProgress(int indexJ){
+    public void printProgress(){
         int randomNumber = player.getRandomNumber();
         String carName = player.getCarName(indexJ);
         if (randomNumber >= 4){
@@ -42,8 +43,12 @@ public class RacingGame {
             cars.put(carName,updateCarValue);
         }
         System.out.printf("%s : ", carName);
+    }
+
+    public void eachCarPickRandomNumber(int indexJ){
 
     }
+
     public void printMessage(String message){
         System.out.println(message);
     }
