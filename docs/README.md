@@ -1,7 +1,7 @@
 ## 🌠 기능 목록 설계
 
 
-- [ ] 사용자 입력을 받는다. `InputView`
+- [x] 사용자 입력을 받는다. `InputView`
   - [x] 경주 할 자동차 이름을 받는다.
   - [x] 자동차의 이동 횟수를 입력 받는다.
 
@@ -21,7 +21,7 @@
   - [x] 양수인가? 확인한다.
 
 
-- [ ] 게임에 필요한 문구를 출력한다. `OutputView`
+- [x] 게임에 필요한 문구를 출력한다. `OutputView`
   - [x] 자동차 이름 입력 받을 때 필요한 문구를 출력한다.
   - [x] 시도할 회수 입력 받을 때 필요한 문구를 출력한다.
   - [x] 실행 결과 안내 문구를 출력한다.
@@ -62,11 +62,11 @@
     - [x] 게임 시작 시 입력 받은 이름 순으로 반환한다.
 
 
-- [ ] 게임을 관리한다. `RacingCarGameController`
+- [x] 게임을 관리한다. `RacingCarGameController`
 
 
-- [ ] 애플리케이션을 관리한다. `Application`
-  - [ ] IllegalArgumentException이 발생한 경우 애플리케이션을 종료한다.
+- [x] 애플리케이션을 관리한다. `Application`
+  - [x] IllegalArgumentException이 발생한 경우 애플리케이션을 종료한다.
 
 ---
 
