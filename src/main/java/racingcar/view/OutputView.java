@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.List;
+
 public class OutputView {
 
     private static final String DISTANCE_STRING_VALUE = "-";
@@ -24,5 +26,15 @@ public class OutputView {
 
     public void printBlankLine() {
         System.out.println(BLANK_LINE);
+    }
+
+    public void printWinners(List<String> winnersName) {
+        System.out.print("최종 우승자 : ");
+        System.out.print(winnersName.get(0));
+
+        for (int index = 1; index < winnersName.size(); index++){
+            System.out.print(", ");
+            System.out.print(winnersName.get(index));
+        }
     }
 }
