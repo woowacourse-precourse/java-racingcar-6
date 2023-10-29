@@ -19,23 +19,20 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         int count = Integer.parseInt(Console.readLine());
 
-        System.out.println("실행 결과");
-        for (int i = 0; i < count; i++) {
-            for (int j = 0; j < carPresentPoint.length; j++) {
-                if (Randoms.pickNumberInRange(0, 9) >= MOVING_FORWARD) carPresentPoint[j] += 1;
-            }
-
-            for (int j = 0; j < carName.length; j++) {
-                System.out.println(carName[j] + " : " + "-".repeat(carPresentPoint[j]));
-            }
-            System.out.println("");
-        }
+        resultOfExecution(count, carPresentPoint, carName);
 
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < carPresentPoint.length; i++) {
             max = Math.max(max, carPresentPoint[i]);
         }
 
+        String answer = getWinner(carName, carPresentPoint, max);
+        answer = answer.substring(0, answer.length() - 2);
+
+        System.out.println("최종 우승자 : " + answer);
+    }
+
+    private static String getWinner(String[] carName, int[] carPresentPoint, int max) {
         String answer = "";
         for (int i = 0; i < carName.length; i++) {
             if (carPresentPoint[i] == max) {
@@ -43,8 +40,28 @@ public class Application {
                 answer += ", ";
             }
         }
-        answer = answer.substring(0, answer.length() - 2);
+        return answer;
+    }
 
-        System.out.println("최종 우승자 : " + answer);
+    private static void resultOfExecution(int count, int[] carPresentPoint, String[] carName) {
+        System.out.println("실행 결과");
+        for (int i = 0; i < count; i++) {
+            goOrStop(carPresentPoint);
+
+            outputOfExecution(carPresentPoint, carName);
+        }
+    }
+
+    private static void outputOfExecution(int[] carPresentPoint, String[] carName) {
+        for (int j = 0; j < carName.length; j++) {
+            System.out.println(carName[j] + " : " + "-".repeat(carPresentPoint[j]));
+        }
+        System.out.println("");
+    }
+
+    private static void goOrStop(int[] carPresentPoint) {
+        for (int j = 0; j < carPresentPoint.length; j++) {
+            if (Randoms.pickNumberInRange(0, 9) >= MOVING_FORWARD) carPresentPoint[j] += 1;
+        }
     }
 }
