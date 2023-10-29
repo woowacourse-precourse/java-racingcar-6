@@ -20,6 +20,7 @@ public class Player {
 
         if (randomNumber < 4) return false;
         forward++;
+        Distance.DISTANCE.update(forward);
         return true;
     }
 
@@ -31,7 +32,7 @@ public class Player {
         return name;
     }
 
-    public boolean isWinner(int max) {
-        return max == forward;
+    public boolean isWinner() {
+        return Distance.DISTANCE.getMaxDist() == forward;
     }
 }
