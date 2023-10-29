@@ -1,7 +1,7 @@
 package racingcar.model;
 
 public class RacingCar {
-    private String name;
+    private final String name;
     private int move;
 
     public RacingCar(String name) {
