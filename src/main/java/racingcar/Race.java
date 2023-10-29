@@ -14,6 +14,12 @@ public class Race {
     }
 
     public void start() {
-        return;
+        setCarInstance();
+    }
+
+    private void setCarInstance() {
+        for (String carName : carNameList) {
+            carList.add(new Car(carName));
+        }
     }
 }
