@@ -28,11 +28,12 @@ public class Application {
             car.moveForward(list.get(0),users);
             System.out.println(users.get(list.get(0)));
         }
-        List<String> str = new ArrayList<>();
+        List<String> str2 = new ArrayList<>();
         Judgement judgement = new Judgement();
-        str = judgement.compareDistance(users,list);
-        System.out.println(str);
+        str2 = judgement.compareDistance(users,list);
+        System.out.println(str2);
         Referee referee = new Referee();
-        referee.printWinner(str);
+        referee.printWinner(str2);
+        System.out.println(user.inputGameCount());
     }
 }

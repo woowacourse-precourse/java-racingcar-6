@@ -13,6 +13,14 @@ public class User {
         }
         return false;
     }
+    public int inputGameCount(){
+        String userInput = Console.readLine();
+        int GameCount = Integer.parseInt(userInput);
+        if(GameCount <= 0){
+            throw new IllegalArgumentException();
+        }
+        return GameCount;
+    }
     public List<String> initCarList(){
         String userInput = Console.readLine();
         List<String> nameList = Arrays.asList(userInput.split(","));

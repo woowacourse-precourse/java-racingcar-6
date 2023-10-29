@@ -3,11 +3,11 @@
 ## 기능 목록
 - [x] 0에서 9 사이에서 무작위 값을 생성하는 기능 NumberGenerator#creatRandomNumber
 - [x] n대의 자동차의 이름을 입력받는 기능(쉼표 기준으로 구분한다.) User#initCarList
-  - [x] 이름이 5자 이하인지 확인하는 기능(예외[x])
+  - [x] 이름이 5자 이하인지 확인하는 기능(예외o)
 - [x] 자동차 이름을 입력받고 객체를 생성하는 기능 User#initUser 
 - [x] 전진/ 멈춤을 판단하는 기능 User#decideMove
     - [x] 전진하는 기능 Car#moveForward
-- [] 사용자가 몇번의 이동을 할 것인지 입력받는 기능(예외[])
+- [x] 사용자가 몇번의 이동을 할 것인지 입력받는 기능(예외o) User.inputGameCount
 - [x] 최종 우승자를 판정하는 기능 Judgement#compareDistance
     - [x] 누가 우승했는지 알려주는 기능 Referee#isWinner
       - [x] 우승자가 여러명일 경우 쉼표를 이용하여 구분해주는 기능
