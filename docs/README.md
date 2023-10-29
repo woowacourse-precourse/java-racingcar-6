@@ -48,7 +48,7 @@
 4. Service
    - 전달받은 이름으로 자동차 생성 요청
    - 랜덤 값을 바탕으로 자동차 Distance 갱신 후, 맵에 담아서 전달
-   - 랜덤 숫자 생성 로직 분리시키기 []
+   - 랜덤 숫자 생성 로직 분리시키기
 5. Utils
     - Validator (유효성 검사)
     - RandomNumberCreator (랜덤 숫자 생성기)

@@ -3,6 +3,7 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.service.CarGameService;
+import racingcar.utils.RandomNumberCreator;
 import racingcar.view.RacingCarView;
 
 public class GameController {
@@ -15,11 +16,13 @@ public class GameController {
 
     public void gameRun() {
         String[] carNames = RacingCarView.inputCarNames();
+        int numOfCars = carNames.length;
         int gameCount = RacingCarView.inputGameCount();
 
         carGameService.makeAndStoreCar(carNames);
         for (int i = 0; i < gameCount; i++) {
-            List<Car> playingCars = gameStart();
+            List<Integer> randomNumbers = RandomNumberCreator.makeRandomNumbers(numOfCars);
+            List<Car> playingCars = gameStart(randomNumbers);
             if (i == 0) {
                 System.out.println("\n실행 결과");
             }
@@ -31,8 +34,7 @@ public class GameController {
         RacingCarView.outputWinners(finalPlayingCars);
     }
 
-    private List<Car> gameStart() {
-        List<Integer> randomNumbers = carGameService.makeRandomNumbers();
+    private List<Car> gameStart(List<Integer> randomNumbers) {
         carGameService.updateCar(randomNumbers);
         return carGameService.getDuplicatedCars();
     }

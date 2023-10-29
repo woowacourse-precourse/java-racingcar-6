@@ -2,15 +2,10 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.utils.RandomNumberCreator;
 
 public class CarFactory {
 
     private List<Car> store = new ArrayList<>();
-
-    public int getNumOfCars() {
-        return store.size();
-    }
 
     public void addCar(String name) {
         Car car = new Car(name);
