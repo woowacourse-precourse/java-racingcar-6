@@ -5,4 +5,15 @@ public class Validator {
     public int validateGameRound(String input2) throws IllegalArgumentException {
         return Integer.parseInt(input2);
     }
+
+    public void validateCar(String carName) {
+        validateCarNameLength(carName);
+    }
+
+    private void validateCarNameLength(String carName) {
+        if (carName.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름의 길이 5보다 큽니다.");
+        }
+    }
+
 }
