@@ -10,15 +10,17 @@ public class InputView {
     public String inputCarsName(){
         System.out.println(INPUT_CARS_NAME);
         String s = Console.readLine();
-        Console.close();
         return s;
     }
 
     public String inputRacingCount(){
         System.out.println(INPUT_RACING_COUNT_NAME);
         String s=Console.readLine();
-        Console.close();
         return s;
+    }
+
+    public void close(){
+        Console.close();
     }
 
 }

@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Console;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.*;
 import racingcar.model.Car;
@@ -28,6 +29,8 @@ public class ValidCarsTest {
         }
 
         Assertions.assertThat(carNames).containsExactly("pobi","woni","jun");
+
+        Console.close();
     }
 
     @Test
@@ -45,6 +48,8 @@ public class ValidCarsTest {
         }
 
         Assertions.assertThat(carNames).containsExactly("pobi");
+
+        Console.close();
     }
 
     @Test
@@ -57,6 +62,8 @@ public class ValidCarsTest {
         assertThatThrownBy(() -> validCars.getValidCars())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름의 길이가 5보다 깁니다");
+
+        Console.close();
     }
 
     @Test
@@ -69,7 +76,10 @@ public class ValidCarsTest {
         assertThatThrownBy(() -> validCars.getValidCars())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름의 길이가 5보다 깁니다");
+
+        Console.close();
     }
+
 
 
 }

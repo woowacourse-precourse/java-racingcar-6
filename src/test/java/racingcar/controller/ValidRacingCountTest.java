@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Console;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import racingcar.model.RemainRacingCount;
@@ -20,6 +21,8 @@ public class ValidRacingCountTest {
 
         RemainRacingCount r=validRacingCount.getValidRacingCount();
         Assertions.assertThat(r.getRemainRacingCount()).isEqualTo(12);
+
+        Console.close();
     }
 
     @Test
@@ -32,6 +35,8 @@ public class ValidRacingCountTest {
         assertThatThrownBy(() -> validRacingCount.getValidRacingCount())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자연수가 아닌 입력입니다");
+
+        Console.close();
     }
 
     @Test
@@ -44,6 +49,8 @@ public class ValidRacingCountTest {
         assertThatThrownBy(() -> validRacingCount.getValidRacingCount())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("정수가 아닌 입력입니다");
+
+        Console.close();
     }
 
     @Test
@@ -56,6 +63,8 @@ public class ValidRacingCountTest {
         assertThatThrownBy(() -> validRacingCount.getValidRacingCount())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자연수가 아닌 입력입니다");
+
+        Console.close();
     }
 
     @Test
@@ -68,6 +77,8 @@ public class ValidRacingCountTest {
         assertThatThrownBy(() -> validRacingCount.getValidRacingCount())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("정수가 아닌 입력입니다");
+
+        Console.close();
     }
 
 }
