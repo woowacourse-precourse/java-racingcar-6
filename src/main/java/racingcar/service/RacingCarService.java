@@ -1,32 +1,21 @@
 package racingcar.service;
 
 import racingcar.domain.RacingCar;
+import racingcar.util.parsing.Parsing;
 
 import java.util.ArrayList;
 
 import static camp.nextstep.edu.missionutils.Console.*;
+import static racingcar.util.parsing.Parsing.*;
 import static racingcar.util.validate.InputValidate.*;
 
 public class RacingCarService {
 
     public ArrayList<RacingCar> initRacingCarMembers() {
         String input = readLine();
+        validateNameFormat(input);
         String[] strings = parsingMembersByComma(input);
         return parsingMembersByRacingCar(strings);
-    }
-
-    private String[] parsingMembersByComma(String input) {
-        return input.split(",");
-    }
-
-    private ArrayList<RacingCar> parsingMembersByRacingCar(String[] input) {
-        ArrayList<RacingCar> racingCars = new ArrayList<>();
-
-        for (String player : input) {
-            RacingCar racingCar = new RacingCar(player);
-            racingCars.add(racingCar);
-        }
-        return racingCars;
     }
 
     public int initNumberOfAttempts() {
@@ -46,11 +35,6 @@ public class RacingCarService {
     }
 
     public void getRaceResult(ArrayList<RacingCar> racingCars) {
-        /**
-         * pobi : -
-         * woni :
-         * jun : -
-         */
         for (RacingCar racingCar : racingCars) {
             printResult(racingCar);
         }
@@ -67,6 +51,10 @@ public class RacingCarService {
         int maxDistance = findMaxDistance(racingCars);
         findWinners(racingCars, finalWinners, maxDistance);
 
+        printWinners(finalWinners);
+    }
+
+    private void printWinners(ArrayList<String> finalWinners) {
         String winners = String.join(", ", finalWinners);
         System.out.println("최종 우승자 : " + winners);
     }
