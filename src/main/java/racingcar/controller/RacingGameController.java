@@ -20,10 +20,7 @@ public class RacingGameController {
     }
 
     public void run() {
-        Cars racingCars = setUpRacingCars();
-        long movingCount = ioManager.readMovingCount();
-
-        RacingGame racingGame = RacingGame.newGame(racingCars, movingCount);
+        RacingGame racingGame = setUpNewGame();
 
         while (racingGame.isInProgress()) {
             racingGame.moveOnce(this.randomNumberPicker);
@@ -31,6 +28,12 @@ public class RacingGameController {
         }
 
         notifyWinner(racingGame);
+    }
+
+    private RacingGame setUpNewGame() {
+        Cars racingCars = setUpRacingCars();
+        long movingCount = ioManager.readMovingCount();
+        return RacingGame.newGame(racingCars, movingCount);
     }
 
     private Cars setUpRacingCars() {
