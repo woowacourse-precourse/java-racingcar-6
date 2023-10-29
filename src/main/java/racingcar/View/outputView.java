@@ -8,4 +8,10 @@ public class outputView {
         return "-".repeat(Math.max(0, input));
     }
 
+    public static void displayPlayResult(ArrayList<Car> cars){
+        for(Car car: cars){
+            System.out.println(car.getName()+":"+generateDashes(car.getCount()));
+        }
+    }
+
 }

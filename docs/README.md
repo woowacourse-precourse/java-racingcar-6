@@ -24,9 +24,9 @@
 - ✅ displayPlayCountMessage  메서드 구현
   - ✅ 플레이어 시도 회수 입력 안내 메시지 <a>시도할 회수는 몇회인가요?</a> 출력
 
-## ❌ 게임 실행 결과 메시지 출력 기능
-- ❌ displayPlayResult  메서드 구현
-  - ❌ 실행 결과 출력 <br><a>ex)<br> pobi : - <br>woni :<br>jun : -</a>
+## ✅ 게임 실행 결과 메시지 출력 기능
+- ✅ displayPlayResult  메서드 구현
+  - ✅ 실행 결과 출력 <br><a>ex)<br> pobi : - <br>woni :<br>jun : -</a>
 
 ## ❌ 게임 우승자 출력 메시지 출력 기능
 - ❌ displayWinner  메서드 구현
