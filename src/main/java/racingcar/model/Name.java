@@ -23,19 +23,19 @@ public class Name {
 
     private void validateNameLength(final String name) {
         if (name.length() > MAXIMUM_LENGTH) {
-            throw new IllegalArgumentException(CAR_NAME_LENGTH_EXCEPTION.toString());
+            throw new IllegalArgumentException(CAR_NAME_LENGTH_EXCEPTION.getMessage());
         }
     }
 
     private void validateHasNotBlank(final String name) {
         if (name.contains(" ")) {
-            throw new IllegalArgumentException(CAR_NAME_BLANK_EXCEPTION.toString());
+            throw new IllegalArgumentException(CAR_NAME_BLANK_EXCEPTION.getMessage());
         }
     }
 
     private void validateValidValue(final String name) {
         if (!name.matches("^[a-zA-Z0-9가-힣]+$")) {
-            throw new IllegalArgumentException(CAR_NAMV_VALUE_EXCEPTION.toString());
+            throw new IllegalArgumentException(CAR_NAMV_VALUE_EXCEPTION.getMessage());
         }
     }
 

@@ -24,7 +24,7 @@ public class Cars {
                 .toList();
 
         if (uniqueCars.size() != cars.size()) {
-            throw new IllegalArgumentException(CAR_NAME_DUPLICATE_EXCEPTION.toString());
+            throw new IllegalArgumentException(CAR_NAME_DUPLICATE_EXCEPTION.getMessage());
         }
     }
 

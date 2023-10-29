@@ -16,7 +16,7 @@ public class PlayCount {
 
     private void validateValue(final String input) {
         if (!input.matches("[0-9]+")) {
-            throw new IllegalArgumentException(PLAY_COUNT_VALUE_EXCEPTION.toString());
+            throw new IllegalArgumentException(PLAY_COUNT_VALUE_EXCEPTION.getMessage());
         }
     }
 
