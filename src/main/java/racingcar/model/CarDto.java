@@ -19,6 +19,6 @@ public class CarDto {
     }
 
     public int getPosition() {
-        return this.getPosition();
+        return this.position;
     }
 }
