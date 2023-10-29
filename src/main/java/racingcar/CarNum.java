@@ -3,7 +3,7 @@ package racingcar;
 public class CarNum {
     int num;
 
-    CarNum(int num) {
-        this.num = num;
+    CarNum(String[] carNameParsing) {
+        this.num = carNameParsing.length;
     }
 }
