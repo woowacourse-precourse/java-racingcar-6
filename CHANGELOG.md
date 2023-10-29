@@ -1,0 +1,3 @@
+- feat(carname): 사용자로부터 자동차이름을 입력받는 기능 구현
+- docs(README): docs/README.md 구현할 기능 목록 작성
+- feat: setup precourse racingcar project
