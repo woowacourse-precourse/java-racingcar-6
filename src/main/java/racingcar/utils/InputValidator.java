@@ -24,24 +24,16 @@ public class InputValidator {
 
 
     public static void validateAttemptCount(String attemptCount) {
-        validateAllDigits(attemptCount);
-        validatePositiveCount(attemptCount);
-    }
-
-    private static void validateDigit(char ch) {
-        if (!Character.isDigit(ch)) {
-            throw new IllegalArgumentException(NON_INTEGER_MESSAGE);
+        try {
+            int parsedCount = Integer.parseInt(attemptCount);
+            validatePositiveCount(parsedCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(NON_INTEGER_MESSAGE, e);
         }
     }
 
-    private static void validateAllDigits(String attemptCount) {
-        for (char ch : attemptCount.toCharArray()) {
-            validateDigit(ch);
-        }
-    }
 
-    private static void validatePositiveCount(String attemptCount) {
-        int parsedCount = Integer.parseInt(attemptCount);
+    private static void validatePositiveCount(int parsedCount) {
         if (parsedCount <= 0) {
             throw new IllegalArgumentException(NON_POSITIVE_MESSAGE);
         }
