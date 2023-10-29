@@ -24,4 +24,7 @@ public class RacingGameService {
         return carList;
     }
 
+    public List<String> getWinners(List<Car> carList) {
+        return game.getWinners(carList);
+    }
 }
