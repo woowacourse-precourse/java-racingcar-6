@@ -21,10 +21,10 @@ public class CarList {
     }
 
     public boolean checkCarName(){
-        return this.isLengthTwoMore() && this.isEnglishName();
+        return this.hasAtLeastTwoItems() && this.isEnglishName();
     }
 
-    public boolean isLengthTwoMore(){
+    public boolean hasAtLeastTwoItems(){
         return this.carList.size() >= 2;
     }
 
