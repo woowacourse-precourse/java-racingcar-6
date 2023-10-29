@@ -21,6 +21,7 @@ class InputValidatorTest {
         carNames = "waCar,waCar";
         try {
            inputValidator = new InputValidator(carNames);
+           inputValidator.hasDuplicatedName();
            fail("중복된 자동차 이름이 없습니다.");
         } catch (IllegalArgumentException e) {
             assertThat(DUPLICATE_CAR_NAME.getMessage()).isEqualTo(e.getMessage());
@@ -45,15 +46,17 @@ class InputValidatorTest {
     @DisplayName("자동차 이름은 5글자를 초과할 수 없습니다.")
     public void 자동차_이름_길이_테스트() {
         carNames = "c  a \t r Len 7  , super";
-        assertThrows(IllegalArgumentException.class, () -> new InputValidator(carNames)
+        inputValidator = new InputValidator(carNames);
+        assertThrows(IllegalArgumentException.class, () -> inputValidator.validateCarNameLength()
         , "자동차 이름 중 5글자 초과한 자동차가 없습니다.");
     }
 
     @Test
     @DisplayName("자동차 이름으로 공백을 사용할 수 없습니다.")
     public void 자동차_이름_공백_테스트() {
-        carNames = "    , super,power, h    i , h `d , '\t ";
-        assertThrows(IllegalArgumentException.class, () -> new InputValidator(carNames)
+        carNames = "   \t , super,power, h    i , h `d ";
+        inputValidator = new InputValidator(carNames);
+        assertThrows(IllegalArgumentException.class, () -> inputValidator.validateEmptyCarName()
         , "모든 자동차 이름이 정상적으로 입력되었습니다.");
     }
 
