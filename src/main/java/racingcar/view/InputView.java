@@ -14,7 +14,7 @@ public class InputView {
     private static final String DELIMITER = ",";
 
 
-    public void inputCarName(){
+    public List<String> inputCarName(){
         System.out.println(CAR_INPUT);
         String carName = Console.readLine();
 
@@ -22,6 +22,8 @@ public class InputView {
 
         CarNameValidator.checkLength(carNameList);
         CarNameValidator.checkDuplicated(carNameList);
+
+        return carNameList;
     }
 
     public List<String> splitCarName(String carName){
@@ -32,11 +34,13 @@ public class InputView {
         return carNameList;
     }
 
-    public void inputCount(){
+    public int inputCount(){
         System.out.println(COUNT_INPUT);
         String count = Console.readLine();
 
         int countNumber = CountValidator.checkNumber(count);
         CountValidator.checkNegativeNumber(countNumber);
+
+        return countNumber;
     }
 }
