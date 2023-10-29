@@ -3,13 +3,17 @@ package racingcar.view;
 import racingcar.control.GameProcess;
 import racingcar.domain.RaceCar;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class GameStart {
     GameProcess gameProcess;
+    Map<RaceCar, String> raceCarStringMap;
 
     public GameStart() {
         gameProcess = new GameProcess();
+        raceCarStringMap = new LinkedHashMap<>();
     }
 
     /**
@@ -19,12 +23,12 @@ public class GameStart {
      * woni : ---
      */
     public void printSituationOfCarCurrent() {
-        Map<RaceCar, String> raceCarStringMap = gameProcess.makeMsgOfCurrentRace();
+        raceCarStringMap = gameProcess.makeMsgOfCurrentRace();
 
         for (Map.Entry<RaceCar, String> entry : raceCarStringMap.entrySet()) {
-            String raceCar = entry.getKey().toString();
+            String nameOfRaceCar = entry.getKey().toString();
             String state = entry.getValue();
-            System.out.println(raceCar + " : " + state);
+            System.out.println(nameOfRaceCar + " : " + state);
         }
     }
 
