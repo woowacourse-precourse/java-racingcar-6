@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import racingcar.dto.CarState;
-import racingcar.dto.ForwardState;
 
 public class Car {
     private final Name name;
@@ -24,7 +23,7 @@ public class Car {
         return new CarState(getNameValue(), getForwardState());
     }
 
-    private ForwardState getForwardState() {
+    private String getForwardState() {
         return position.getForwardState();
     }
 

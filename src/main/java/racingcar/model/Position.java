@@ -6,7 +6,6 @@ import static racingcar.constants.PositionConstant.VALUE_HIGH_BOUND;
 import static racingcar.constants.PositionConstant.VALUE_LOW_BOUND;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.dto.ForwardState;
 
 public class Position {
     private int position;
@@ -38,8 +37,8 @@ public class Position {
         position += 1;
     }
 
-    public ForwardState getForwardState() {
-        return new ForwardState(switchCountToSlash());
+    public String getForwardState() {
+        return switchCountToSlash();
     }
 
     private String switchCountToSlash() {

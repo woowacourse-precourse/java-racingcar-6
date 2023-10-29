@@ -22,7 +22,7 @@ public class View {
     }
 
     public void printCurrentCarResult(CarState carResult) {
-        System.out.println(carResult.name() + " : " + carResult.forwardState().forwardState());
+        System.out.println(carResult.name() + " : " + carResult.forwardState());
     }
 
     public void printNameInputMessage() {

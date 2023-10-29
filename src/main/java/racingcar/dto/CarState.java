@@ -1,4 +1,4 @@
 package racingcar.dto;
 
-public record CarState(String name, ForwardState forwardState) {
+public record CarState(String name, String forwardState) {
 }
