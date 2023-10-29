@@ -1,6 +1,5 @@
 package mytest;
 
-import controller.RacingGame;
 import org.junit.jupiter.api.Test;
 import repository.CarListRepository;
 
@@ -8,8 +7,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-public class ForwardMovementTest {
+public class RepositoryTest {
     @Test
     void repository_테스트() {
         HashMap<String, Integer> carListTestHash = new LinkedHashMap<>();

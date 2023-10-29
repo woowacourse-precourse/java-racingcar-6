@@ -1,7 +1,7 @@
 package controller;
 
 import repository.CarListRepository;
-import service.RandomMovementDecider;
+import service.RaceWinnerDecider;
 import view.InputView;
 import view.OutputView;
 
@@ -22,6 +22,7 @@ public class RacingGame {
                 OutputView.displayRaceResult(carListRepository.carList);
             }
         }
+        OutputView.displayWinners(RaceWinnerDecider.decideWinner(carListRepository.carList));
     }
 
 }

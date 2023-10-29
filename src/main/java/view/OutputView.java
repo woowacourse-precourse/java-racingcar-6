@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 public class OutputView {
     public static void displayPlayResult(){
-
         System.out.println("\n실행 결과");
     }
     public static void displayRaceResult(HashMap<String, Integer> raceResult){
