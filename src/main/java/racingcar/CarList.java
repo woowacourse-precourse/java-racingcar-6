@@ -5,8 +5,8 @@ import java.util.Map;
 
 public class CarList {
 
-    User user;
-    Map<String, Integer> carList;
+    private final User user;
+    private final Map<String, Integer> carList;
 
     public CarList() {
         user = new User();
