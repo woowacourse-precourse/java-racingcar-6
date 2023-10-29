@@ -12,7 +12,7 @@ public class RacingCar {
     }
 
     public void moveCar() {
-        if(isMoreThanFour()) {
+        if (isMoreThanFour()) {
             moveNumber++;
         }
     }
@@ -24,6 +24,7 @@ public class RacingCar {
     public String getName() {
         return name;
     }
+
     public int getMoveNumber() {
         return moveNumber;
     }

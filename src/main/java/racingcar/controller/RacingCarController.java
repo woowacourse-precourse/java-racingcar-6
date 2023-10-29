@@ -34,14 +34,14 @@ public class RacingCarController {
 
     private void printMoveResult(RacingCars racingCars) {
         outputView.outputExecutionResult();
-        for(int tryNumber = getTryNumber(); tryNumber > 0; tryNumber--) {
+        for (int tryNumber = getTryNumber(); tryNumber > 0; tryNumber--) {
             racingCars.moveCars();
             printMoveString(racingCars);
         }
     }
 
     private void printMoveString(RacingCars racingCars) {
-        for(RacingCar car : racingCars.getCarList()) {
+        for (RacingCar car : racingCars.getCarList()) {
             outputView.outputMoveResult(car.getName(), car.getDashString());
         }
         outputView.outputBlank();

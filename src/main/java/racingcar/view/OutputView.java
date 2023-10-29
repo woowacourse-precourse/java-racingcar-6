@@ -15,9 +15,11 @@ public class OutputView {
     public void outputMoveResult(String name, String dash) {
         System.out.printf(OUTPUT_MOVE_RESULT, name, dash);
     }
+
     public void outputBlank() {
         System.out.printf(OUTPUT_BLANK);
     }
+
     public void outputRaceResult(List<String> names) {
         System.out.printf(OUTPUT_RACE_RESULT, String.join(", ", names));
     }

@@ -1,6 +1,5 @@
 package racingcar.validation;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.PatternSyntaxException;
 import java.util.stream.Collectors;
@@ -14,7 +13,7 @@ public class InputValidation {
     }
 
     private static void validateInputFormat(String input) {
-        if(!isSeparateByComma(input)) {
+        if (!isSeparateByComma(input)) {
             throw new IllegalArgumentException("올바르게 구분되지 않았습니다.");
         }
     }
@@ -22,24 +21,24 @@ public class InputValidation {
     private static boolean isSeparateByComma(String input) {
         try {
             input.split(",");
-        } catch(PatternSyntaxException e) {
+        } catch (PatternSyntaxException e) {
             return false;
         }
         return true;
     }
 
     private static void validateEachName(String input) {
-        for(String s : input.split(",")) {
+        for (String s : input.split(",")) {
             validateNameLength(s);
         }
     }
 
     private static void validateNameLength(String input) {
-        if(isNameLengthMoreThanFive(input)) {
+        if (isNameLengthMoreThanFive(input)) {
             throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
         }
 
-        if(isNameLengthLessThanZero(input)) {
+        if (isNameLengthLessThanZero(input)) {
             throw new IllegalArgumentException("이름을 입력하지 않았습니다");
         }
     }
@@ -57,7 +56,7 @@ public class InputValidation {
     }
 
     public static int validateInputNumber(String input) {
-        if(!isNumber(input)) {
+        if (!isNumber(input)) {
             throw new IllegalArgumentException("숫자를 입력하지 않았습니다.");
         }
         return Integer.parseInt(input);

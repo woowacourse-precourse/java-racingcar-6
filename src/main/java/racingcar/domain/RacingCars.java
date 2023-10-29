@@ -9,13 +9,13 @@ public class RacingCars {
 
     public RacingCars(List<String> nameList) {
         carList = new ArrayList<>();
-        for(String name : nameList) {
+        for (String name : nameList) {
             carList.add(new RacingCar(name));
         }
     }
 
     public void moveCars() {
-        for(RacingCar car : carList) {
+        for (RacingCar car : carList) {
             car.moveCar();
         }
     }
@@ -25,10 +25,9 @@ public class RacingCars {
     }
 
     public List<String> getMaxMoveCarsName() {
-
         List<String> maxMoveCarNameList = new ArrayList<>();
-        for(RacingCar car : carList) {
-            if(car.getMoveNumber() == getMaxMoveNumber()) {
+        for (RacingCar car : carList) {
+            if (car.getMoveNumber() == getMaxMoveNumber()) {
                 maxMoveCarNameList.add(car.getName());
             }
         }
@@ -37,7 +36,7 @@ public class RacingCars {
 
     private int getMaxMoveNumber() {
         List<Integer> moveNumberList = new ArrayList<>();
-        for(RacingCar car : carList) {
+        for (RacingCar car : carList) {
             moveNumberList.add(car.getMoveNumber());
         }
         moveNumberList.sort(Collections.reverseOrder());
