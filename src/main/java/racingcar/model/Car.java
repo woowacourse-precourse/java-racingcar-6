@@ -7,11 +7,11 @@ public class Car {
     private static final int MAXIMUM_NUMBER = 9;
     private static final int MOVING_CONDITION = 4;
 
-    private final String name;
+    private final CarName name;
     private int position;
 
     public Car(String name) {
-        this.name = name;
+        this.name = new CarName(name);
         this.position = MINIMUM_NUMBER;
     }
 
