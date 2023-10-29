@@ -3,6 +3,8 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static java.lang.Integer.parseInt;
 
+import java.util.List;
+
 public class Application {
     public static void main(String[] args) {
 
@@ -57,5 +59,23 @@ public class Application {
             throw new IllegalArgumentException("숫자를 입력하세요");
         }
         return tries;
+    }
+
+    /**
+     * Car 클라스를 가지고 있는 list를 for each로 나누고
+     * Car 클래스 안에 있는 메소드 사용
+     * @param cars
+     * @param tries
+     */
+    public static void runRace(List<Car> cars, int tries){
+        for (int i = 0; i < tries; i++) {
+            System.out.println("실행 결과 : " + i);
+            for (Car car : cars){
+                boolean canMove = car.canMove();
+                car.move(canMove);
+                System.out.println(car.display());
+            }
+            System.out.println();
+        }
     }
 }
