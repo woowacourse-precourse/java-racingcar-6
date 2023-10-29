@@ -26,7 +26,7 @@ public class Application {
         for (int index=0; index<raceAccumulations.length; index++){
             int substitutionNum = raceAccumulations[index];
             for (int printNum=0; printNum<substitutionNum; printNum++){
-                System.out.println("-");
+                System.out.print("-");
             }
         }
     }
