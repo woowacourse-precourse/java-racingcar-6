@@ -12,26 +12,31 @@ public class Judgement {
         this.cars = cars;
         findMaxDistance();
         judgeWinners();
+        printWinners();
     }
 
     public void findMaxDistance() {
-        for(int i=0; i<cars.size(); i++) {
+        for (int i = 0; i < cars.size(); i++) {
             int distance = (cars.get(i)).status.length();
-            if( distance > maxDistance) {
+            if (distance > maxDistance) {
                 maxDistance = distance;
             }
         }
     }
 
     public void judgeWinners() {
-        for(int i=0; i<cars.size(); i++) {
+        for (int i = 0; i < cars.size(); i++) {
             int distance = (cars.get(i)).status.length();
-            if( distance == maxDistance) {
+            if (distance == maxDistance) {
                 String carName = (cars.get(i)).carName;
                 winners.add(carName);
             }
         }
     }
 
-
+    public void printWinners() {
+        System.out.printf("최종 우승자 : ");
+        String result = String.join(", ", winners);
+        System.out.printf(result);
+    }
 }
