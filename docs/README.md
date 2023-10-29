@@ -38,11 +38,11 @@
     * goForward()
       * position++
     * getPosition()
-  * DriveCount
-    * driveCount
+  * RoundCount
+    * roundCount
     * validateBiggerThanZero()
       * 0보다 큰 수 
-    * getDriveCount()
+    * getRoundCount()
 
 * Domain
   * Driver
@@ -62,7 +62,7 @@
     * getMaxPositionCars()
     * addCar()
   * Racing
-    * DriveCount
+    * roundCount
     * Cars
     * race() 
     * getWinners()
@@ -77,7 +77,7 @@
 * View
   * InputView
     * inputCarNames()
-    * inputTryCount()
+    * inputRoundCount()
   * OutputView
     * printMoveResult()
     * printWinners()
