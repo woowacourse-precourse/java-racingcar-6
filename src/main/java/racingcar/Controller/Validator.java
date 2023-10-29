@@ -15,56 +15,58 @@ public class Validator {
     private final static String ERR_NUM_IS_BELOW_ONE = "실행횟수에 1이상의 숫자를 입력하세요.";
     private Set<String> carNameSet;
 
-    public Validator(){
+    public Validator() {
         this.carNameSet = new HashSet<>();
     }
-    public void validCarName(String carName){
+
+    public void validCarName(String carName) {
         validNameMaxLength(carName);
         validNameIsContainSpace(carName);
         validNameIsUnique(carName);
         validNameStringIsEmpty(carName);
     }
-    private void validNameMaxLength(String carName){
-        if(carName.length() > MAX_CAR_NAME_LENGTH){
+
+    private void validNameMaxLength(String carName) {
+        if (carName.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException(ERR_NAME_LENGTH);
         }
     }
 
-    private void validNameIsUnique(String carName){
-        if(carNameSet.contains(carName)){
+    private void validNameIsUnique(String carName) {
+        if (carNameSet.contains(carName)) {
             throw new IllegalArgumentException(ERR_NAME_ALREADY_USED);
         }
         carNameSet.add(carName);
     }
 
-    private void validNameIsContainSpace(String carName){
-        for(char spell : carName.toCharArray()){
-            if (Character.isWhitespace(spell)){
+    private void validNameIsContainSpace(String carName) {
+        for (char spell : carName.toCharArray()) {
+            if (Character.isWhitespace(spell)) {
                 throw new IllegalArgumentException(ERR_NAME_SPACE_CHAR);
             }
         }
     }
 
-    private  void validNameStringIsEmpty(String carName){
-        if(carName.isEmpty()){
+    private void validNameStringIsEmpty(String carName) {
+        if (carName.isEmpty()) {
             throw new IllegalArgumentException((ERR_NAME_IS_EMPTY));
         }
     }
 
-    public void validListIsEmpty(List<String> carNameList){
-        if(carNameList.isEmpty()){
+    public void validListIsEmpty(List<String> carNameList) {
+        if (carNameList.isEmpty()) {
             throw new IllegalArgumentException(ERR_LIST_IS_EMPTY);
-       }
+        }
     }
 
-    public int getValidNumber(String tryString){
-        try{
+    public int getValidNumber(String tryString) {
+        try {
             int intValue = Integer.parseInt(tryString);
             if (intValue < 1) {
                 throw new IllegalArgumentException(ERR_NUM_IS_BELOW_ONE);
             }
             return intValue;
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ERR_NUM_IS_NOT_NUM);
         }
 
