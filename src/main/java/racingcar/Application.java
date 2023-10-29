@@ -9,6 +9,10 @@ class Car {
         this.move = 0;
     }
 
+    public void forward() {
+        this.move += 1;
+    }
+
     public String getName() {
         return name;
     }
