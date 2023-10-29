@@ -3,7 +3,6 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 
 public class Car {
@@ -11,7 +10,7 @@ public class Car {
     private static Car car;
     public List<String> movedCount;
     public List<String> names;  // Car는 Application에서만 단 한번만 생성 되기 때문에, 다른 곳에서 호출될 수 없음
-   
+
 
     private Car(List<String> names) {
         this.names = names;
@@ -22,7 +21,7 @@ public class Car {
     public static Car getInstance(List<String> names) {
         if (car == null) {
             car = new Car(names);
-            validate(car.names);
+            validateCarNames(car.names);
             trimCarNames(car.names);
             return car;
         }
@@ -33,34 +32,10 @@ public class Car {
         movedCount = new ArrayList<>(Collections.nCopies(car.names.size(), ""));
     }
 
-    private static void validate(List<String> carNames) {
-        checkCarCount(carNames);
-        checkBlankAndLength(carNames);
-        checkDuplication(carNames);
-    }
-
-    private static void checkCarCount(List<String> carNames) {
-        if (carNames.size() < 2) {
-            throw new IllegalArgumentException("2대 이상의 자동차 이름을 입력해 주세요.");
-        }
-    }
-
-    private static void checkBlankAndLength(List<String> carNames) {
-        for (String carName : carNames) {
-            if (carName.isBlank()) {
-                throw new IllegalArgumentException("공백을 입력하지 마세요.");
-            }
-
-            if (carName.length() > 5) {
-                throw new IllegalArgumentException("자동차 이름을 5자 이하로 입력해 주세요.");
-            }
-        }
-    }
-
-    private static void checkDuplication(List<String> carNames) {
-        if (carNames.size() > new HashSet<>(carNames).size()) {
-            throw new IllegalArgumentException("중복되지 않은 이름을 입력해 주세요.");
-        }
+    private static void validateCarNames(List<String> carNames) {
+        Validator.checkCarCount(carNames);
+        Validator.checkBlankAndLength(carNames);
+        Validator.checkDuplication(carNames);
     }
 
     private static void trimCarNames(List<String> carNames) {
@@ -69,7 +44,7 @@ public class Car {
         }
     }
 
-    public void move(int roundCount){
+    public void move(int roundCount) {
         System.out.println("실행 결과");
 
         for (int i = 0; i < roundCount; i++) {
