@@ -36,6 +36,10 @@ public class RacingGame {
 
         System.out.println("시도할 회수는 몇 회인가요?");
         String rounds = Console.readLine();
+
+        if(Validator.isNotNumber(rounds)){
+            throw new IllegalArgumentException("숫자만 입력해야 합니다.");
+        }
         game.play(rounds);
 
         System.out.printf("최종 우승자 : %s", game.getWinners());
@@ -56,11 +60,11 @@ public class RacingGame {
         }
     }
 
-    private void play(String input) {
+    private void play(String round) {
 
-        int rounds = Integer.parseInt(input);
+        int rounds = Integer.parseInt(round);
 
-        for (int round = 0; round < rounds; round++) {
+        for (int i = 0; i < rounds; i++) {
             playRound();
         }
     }
