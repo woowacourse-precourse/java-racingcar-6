@@ -34,6 +34,10 @@ public class RacingSystem {
         }
     }
 
+    private void printWinners() {
+        System.out.println("최종 우승자 : " + winners.toString());
+    }
+
     private void getWinner(String name, int position) {
         if(position == cnt) {
             winners.addWinner(name);
