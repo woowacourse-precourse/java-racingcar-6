@@ -3,15 +3,14 @@ package racingcar.controller;
 import static racingcar.utils.Validator.isNumber;
 import static racingcar.utils.Validator.isValidNameFormat;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import racingcar.domain.Car;
+import racingcar.domain.RacingFinalResult;
+import racingcar.domain.RacingRoundResult;
 import racingcar.model.RacingModel;
 import racingcar.utils.Validator;
 import racingcar.view.RacingView;
 import racingcar.view.enums.RacingMessage;
-import racingcar.view.enums.ResultMessage;
 
 public class RacingController {
     private RacingModel racingModel;
@@ -27,25 +26,24 @@ public class RacingController {
         String[] carNames = readCarNames();
         int round = readRoundNumber();
 
-        List<Car> cars = racingModel.generateCars(carNames,round);
-        List<String> results = racingModel.proceed(cars);
-
-        racingView.displayResult(results);
+        RacingFinalResult racingResults = racingModel.proceed(carNames, round);
+        displayResult(racingResults);
+        displayWinner(racingResults);
     }
 
     private String[] readCarNames() {
-        racingView.displayMessage(RacingMessage.ASK_FOR_CAR_NAME);
+        racingView.displayRacingMessage(RacingMessage.ASK_FOR_CAR_NAME);
         String inputName = racingView.readInput();
-        return processCarNames(inputName);
+        return parseCarNames(inputName);
     }
 
     private int readRoundNumber() {
-        racingView.displayMessage(RacingMessage.ASK_FOR_ROUNDS);
+        racingView.displayRacingMessage(RacingMessage.ASK_FOR_ROUNDS);
         String inputRound = racingView.readInput();
-        return processRoundNumber(inputRound);
+        return parseRoundNumber(inputRound);
     }
 
-    private String[] processCarNames(String inputName) {
+    private String[] parseCarNames(String inputName) {
         isValidNameFormat(inputName);
         return Arrays.stream(inputName.split(","))
                 .map(String::trim)
@@ -54,9 +52,17 @@ public class RacingController {
                 .toArray(String[]::new);
     }
 
-    private int processRoundNumber(String inputNumber) {
+    private int parseRoundNumber(String inputNumber) {
         isNumber(inputNumber);
         return Integer.parseInt(inputNumber);
     }
 
+    private void displayResult(RacingFinalResult roundResults){
+        racingView.displayRacingMessage(RacingMessage.RACING_RESULT);
+        racingView.displayResults(roundResults.getRoundResults());
+    }
+
+    private void displayWinner(RacingFinalResult racingResults) {
+        racingView.displayWinnerMessage(racingResults.getWinnersName());
+    }
 }
