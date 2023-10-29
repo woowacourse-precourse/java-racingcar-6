@@ -25,5 +25,4 @@ public class CarGenerator {
     public String inputCarList() {
         return Console.readLine();
     }
-
 }
