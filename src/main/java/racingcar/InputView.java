@@ -10,25 +10,33 @@ public class InputView {
 
     public InputView() {}
 
+    private void carNameDuplicateException(String[] carNames, Set<String> uniqueNames) {
+        if (uniqueNames.size() != carNames.length) {
+            throw new IllegalArgumentException(magicVariable.CAR_DUPLICATE_ERROR_MESSAGE);
+        }
+    }
+
+    private void carNameRullException(String carName) {
+        if (!carName.matches(magicVariable.CAR_NAME_RULE)) {
+            throw new IllegalArgumentException(magicVariable.CAR_NAME_ERROR_MESSAGE);
+        }
+    }
+
+    public void checkCarNameExceptions(String[] carNames) {
+        Set<String> uniqueNames = new HashSet<>(Arrays.asList(carNames));
+        carNameDuplicateException(carNames, uniqueNames);
+
+        for (String carName : carNames) {
+            carNameRullException(carName);
+        }
+    }
+
     public String getCarNameInput() {
         System.out.println(magicVariable.RACE_START_MESSAGE);
         String carNameInput = Console.readLine();
         String[] carNames = carNameInput.split(",");
         checkCarNameExceptions(carNames);
         return String.join(",", carNames);
-    }
-
-    public void checkCarNameExceptions(String[] carNames) {
-        Set<String> uniqueNames = new HashSet<>(Arrays.asList(carNames));
-        if (uniqueNames.size() != carNames.length) {
-            throw new IllegalArgumentException(magicVariable.CAR_DUPLICATE_ERROR_MESSAGE);
-        }
-
-        for (String carName : carNames) {
-            if (!carName.matches(magicVariable.CAR_NAME_RULE)) {
-                throw new IllegalArgumentException(magicVariable.CAR_NAME_ERROR_MESSAGE);
-            }
-        }
     }
 
     public int getTryCount() {
