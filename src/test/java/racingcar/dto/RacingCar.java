@@ -8,4 +8,8 @@ public class RacingCar {
         this.name = name;
         distance = 0;
     }
+
+    public void moveForword() {
+        distance += 1;
+    }
 }
