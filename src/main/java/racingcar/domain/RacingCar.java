@@ -1,10 +1,11 @@
 package racingcar.domain;
 
+import racingcar.constant.ProgressMessage;
+
 import java.util.Objects;
 
 public final class RacingCar {
 
-    private static final String NAME_STATUS_DELIMITER = " : ";
     private final Name name;
     private MoveDistance moveDistance;
 
@@ -18,7 +19,9 @@ public final class RacingCar {
     }
 
     public String toResultMessage() {
-        return name.toValue() + NAME_STATUS_DELIMITER + moveDistance.toResultMessage();
+        return name.toValue()
+                + ProgressMessage.NAME_STATUS_DELIMITER.toValue()
+                + moveDistance.toResultMessage();
     }
 
     public int moveDistance() {

@@ -1,14 +1,14 @@
 package racingcar.domain;
 
+import racingcar.constant.Delimiter;
 import racingcar.constant.ErrorMessage;
+import racingcar.constant.ProgressMessage;
 
 import java.util.Collections;
 import java.util.List;
 
 public final class Winners {
 
-    private static final String MESSAGE_PREFIX = "최종 우승자 : ";
-    private static final String WINNER_DELIMITER = ", ";
     private final List<String> names;
 
     public Winners(final List<String> names) {
@@ -23,6 +23,7 @@ public final class Winners {
     }
 
     public String toResultMessage() {
-        return MESSAGE_PREFIX + String.join(WINNER_DELIMITER, names);
+        return ProgressMessage.WINNERS_MESSAGE_PREFIX.toValue()
+                + String.join(Delimiter.WINNERS_DIVIDER.toExpression(), names);
     }
 }

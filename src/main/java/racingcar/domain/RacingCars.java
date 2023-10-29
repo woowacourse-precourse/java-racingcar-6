@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import racingcar.constant.ErrorMessage;
 import racingcar.constant.MoveStatus;
+import racingcar.constant.ProgressMessage;
 
 import java.util.Collections;
 import java.util.List;
@@ -12,7 +13,6 @@ public final class RacingCars {
 
     private static final int START_INDEX = 0;
     private static final int MIN_RACING_CAR_NUM = 2;
-    private static final String NEW_LINE = "\n";
     private final List<RacingCar> elements;
 
     public RacingCars(final List<RacingCar> elements) {
@@ -47,10 +47,12 @@ public final class RacingCars {
     }
 
     public String toResultMessage() {
+        final String newLine = ProgressMessage.NEW_LINE.toValue();
+
         return elements.stream()
                         .map(RacingCar::toResultMessage)
-                        .collect(Collectors.joining(NEW_LINE))
-                + NEW_LINE;
+                        .collect(Collectors.joining(newLine))
+                + newLine;
     }
 
     public Winners findWinners() {
