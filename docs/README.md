@@ -1,5 +1,4 @@
 ## 구현할 게임의 로직
-----
 
 ```
 1. 게임 시작 시 '경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)' [출력]
@@ -20,7 +19,7 @@
 5. 최종 우승자를 출력한다. [출력]
 ```
 
-## 진행 과정
+## 세부 진행 과정
 
 ```
 1. 사전값을 세팅
@@ -46,34 +45,38 @@
 
 ## 구현 기능 목록
 
+----
+
 ### 게임 진행 관련 기능
 
 - RaceInfo 클래스
-  - 사전값 세팅
-    - 자동차 이름을 입력받는 기능
-    - 라운드 횟수를 입력받는 기능
-    - 점수판을 만드는 기능
+    - 사전값 세팅
+        - [x] 점수판을 만드는 기능
+            - Map<String, StringBuilder> makeScoreBoard(List<String> carNames)
 
-- RacePlay 클래스
-  - 게임 진행 과정
-    - 게임을 진행하는 기능
-    - 전진 가능한지 판별하는 기능
-    - 점수를 부여하는 기능
+- RaceProcess 클래스
+    - 게임 진행 과정
+        - [x] 한 판의 게임을 진행하는 기능
+            - void oneRound(Map<String, StringBuilder> scoreBoard)
+        - [x] 전진 가능한지 판별하는 기능
+            - int isMovable()
 
 - RaceResult 클래스
-  - 게임 종료 후 우승자 선발
-    - 가장 많은 전진 포인트를 계산하는 기능
-    - 우승자를 발표하는 기능
+    - 게임 종료 후 우승자 선발
+        - [x] 가장 많은 전진 포인트를 계산하는 기능
+            - int calculateForwardPoint(Map<String, StringBuilder> scoreResult)
+        - [x] 우승자를 발표하는 기능
+            - List<String> findWinners(int maxPoint, Map<String, StringBuilder> scoreResult)
 
 ### 입력 기능
 
 - UserInput 클래스
 
-- 유저로부터 입력받는 기능 v
+- [x] 유저로부터 입력받는 기능
     - String getUserInput()
-- 자동차 이름을 입력받아 검증 후 필요 타입으로 반환하는 기능 v
-    - List<String> getCarNames() v
-- 게임 진행 횟수를 입력받아 검증 후 필요 타입으로 반환하는 기능
+- [x] 자동차 이름을 입력받아 검증 후 필요 타입으로 반환하는 기능 v
+    - List<String> getCarNames()
+- [x] 게임 진행 횟수를 입력받아 검증 후 필요 타입으로 반환하는 기능
     - int getGameRound
 
 ### 검증 기능
@@ -82,42 +85,31 @@
 
 - 자동차 이름, 입력받은 횟수에 대한 검증
 
-- 자동차 이름에 대한 통합 검증 v
+- 자동차 이름에 대한 통합 검증
     - List<String> validateCarNames(String input)
-    - 자동차 이름에 공백이 포함된 경우 v
+    - [x] 자동차 이름에 공백이 포함된 경우
         - void validateWhiteSpace(String[] carNames)
-    - 자동차들의 구분자가 지정된 구분자(',')가 아닐 경우 v
+    - [x] 자동차들의 구분자가 지정된 구분자(',')가 아닐 경우
         - void validateDelimiterType(String[] carNames)
-    - 자동차의 이름이 1 ~ 5자 사이가 아닐 경우 v
+    - [x] 자동차의 이름이 1 ~ 5자 사이가 아닐 경우
         - void validateNameLength(String[] carNames)
-    - 중복된 자동차 이름이 있을 경우 v
+    - [x] 중복된 자동차 이름이 있을 경우
         - void validateDuplicateName(int carNameCount, String[] carNames) {
-- 입력받은 횟수에 대한 검증 v
-    - 입력받은 횟수가 숫자가 아닐 경우 v
+- 입력받은 횟수에 대한 검증
+    - [x] 입력받은 횟수가 숫자가 아닐 경우
         - public int validateGameRound(String input) {
 
 ### 출력 기능
 
 - Printer 클래스
 
-- 자동차 이름 요구 메시지 출력 v
+- [x] 자동차 이름 요구 메시지 출력
     - void printStartMessage()
-- 시도 횟수 요청 메시지 출력 v
+- [x] 시도 횟수 요청 메시지 출력
     - void printRequestRoundMessage()
-- 실행 결과 메시지 출력 v
+- [x] 실행 결과 메시지 출력
     - void printResultMessage()
-- 하나의 라운드 결과값 출력 v
+- [x] 하나의 라운드 결과값 출력
     - void printRoundResult(Map.Entry<String, StringBuilder> scoreBoard)
-- 최종 우승자 출력 v
+- [x] 최종 우승자 출력
     - void printWinnersNames(List<String> winnerNames)
-
-### 자동차 전진 관련 기능
-
-- Engine 클래스
-
-- 0 ~ 9 사이를 반환하는 기능 v
-    - int makeRandomNumber(int min, int max)
-- 굴린 주사위가 4 이상인지 판별하는 기능 v
-    - boolean isMovable()
-- 전진하는 기능 v
-    - StringBuilder moveForward(StringBuilder beforeScore)
