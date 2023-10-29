@@ -3,7 +3,6 @@ package racingcar;
 import Controller.GameController;
 import Model.CarList;
 import Model.TryCount;
-import View.GameView;
 
 public class Application {
     public static void main(String[] args) {
