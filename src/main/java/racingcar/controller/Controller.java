@@ -37,7 +37,7 @@ public class Controller {
     }
 
     private int getCount(AttemptCount attemptCount) {
-        return attemptCount.getAttemptCount();
+        return attemptCount.attemptCount();
     }
 
     private void attemptForward(Cars cars, int count) {

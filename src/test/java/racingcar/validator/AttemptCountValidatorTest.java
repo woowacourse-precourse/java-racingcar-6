@@ -13,7 +13,7 @@ public class AttemptCountValidatorTest {
         AttemptCountValidator validator = AttemptCountValidator.INSTANCE;
         String input = "12345";
 
-        assertThat(validator.validate(input).getAttemptCount()).isEqualTo(12345);
+        assertThat(validator.validate(input).attemptCount()).isEqualTo(12345);
     }
 
     @DisplayName("입력 문자열이 정수로 이루어져 있는지 확인하는 기능.")

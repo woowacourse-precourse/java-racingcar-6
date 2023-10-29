@@ -19,6 +19,6 @@ public class PositionTest {
         ForwardState forwardState = position.getForwardState();
 
         //then
-        assertThat(forwardState.getForwardState()).isEqualTo(expected);
+        assertThat(forwardState.forwardState()).isEqualTo(expected);
     }
 }

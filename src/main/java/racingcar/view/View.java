@@ -17,12 +17,12 @@ public class View {
     }
 
     public void printCurrentCarsResult(CarsState carsState) {
-        carsState.getCarsState().forEach(this::printCurrentCarResult);
+        carsState.carsState().forEach(this::printCurrentCarResult);
         System.out.println();
     }
 
     public void printCurrentCarResult(CarState carResult) {
-        System.out.println(carResult.getName() + " : " + carResult.getForwardStatus());
+        System.out.println(carResult.name() + " : " + carResult.forwardState().forwardState());
     }
 
     public void printNameInputMessage() {
