@@ -18,4 +18,8 @@ public class Cars {
             throw new IllegalArgumentException(MINIMUM_CARS_ERROR_MESSAGE);
         }
     }
+
+    public void moveAll() {
+        cars.forEach(Car::move);
+    }
 }

@@ -9,9 +9,11 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.driver.Driver;
 import racingcar.domain.driver.RandomDriver;
+import racingcar.mock.TrueDriver;
 
 class CarsTest {
     private final Driver driver = new RandomDriver();
+    private final Driver trueDriver = new TrueDriver();
     @Test
     void Cars_생성_성공_테스트() {
         // given
@@ -32,5 +34,19 @@ class CarsTest {
         assertThatThrownBy(() -> new Cars(givenCars))
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessage("자동차는 2대 이상이어야 합니다.");
+    }
+
+    @Test
+    void moveAll() {
+        // given
+        Car pobi = new Car(new CarName("pobi"), trueDriver);
+        Car woni = new Car(new CarName("woni"), trueDriver);
+        List<Car> givenCars = List.of(pobi, woni);
+        Cars cars = new Cars(givenCars);
+        // when
+        cars.moveAll();
+        // then
+        assertThat(pobi.getPosition()).isEqualTo(1);
+        assertThat(woni.getPosition()).isEqualTo(1);
     }
 }
