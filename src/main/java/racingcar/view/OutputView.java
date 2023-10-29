@@ -29,7 +29,7 @@ public class OutputView {
 
     public void printCarStatus(List<CarDto> carStatus) {
         for (CarDto status : carStatus) {
-            printLn(status.getDisplayStatus());
+            printLn(status.getStatus());
         }
         newLine();
     }
