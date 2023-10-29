@@ -50,10 +50,7 @@ public class Game {
         int maxDistance = 0;
 
         for (Car car : participants) {
-            int distance = car.getDistance();
-            if (distance > maxDistance){
-                maxDistance = distance;
-            }
+            maxDistance = Math.max(maxDistance, car.getDistance());
         }
         return maxDistance;
     }
