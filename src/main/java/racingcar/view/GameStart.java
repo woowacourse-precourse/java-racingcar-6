@@ -21,7 +21,7 @@ public class GameStart {
      * pobi : ----
      * woni : ---
      */
-    public void printSituationOfCarCurrentOneCycle() {
+    public void printSituationOfRaceProcessOneCycle() {
         makeMapOfCurrentRace();
         String nameOfRaceCar = "";
         String moveStateStrOfRaceCar = "";
@@ -54,11 +54,11 @@ public class GameStart {
      * 게임 진행 상황을 보여준다.
      * 시도할 회수만큼 게임 진행 상황을 출력한다.
      */
-    public void showPrsocessOfRaceGame() {
+    public void printAllProcessOfRaceGame() {
         Integer cntTryRace = gameProcess.getCntTryRace();
         for (int i = 0; i < cntTryRace; i++) {
             gameProcess.moveOfRaceCar();
-            printSituationOfCarCurrentOneCycle();
+            printSituationOfRaceProcessOneCycle();
             printNewLine();
         }
     }
@@ -102,7 +102,7 @@ public class GameStart {
         printInputNameOfRaceCar();
         printInputNumOfTryCnt();
         printMsgResultOfRun();
-        showPrsocessOfRaceGame();
+        printAllProcessOfRaceGame();
         printWinnerOfRaceGame();
     }
 }
