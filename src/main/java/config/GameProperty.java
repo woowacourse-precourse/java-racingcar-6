@@ -20,7 +20,7 @@ public class GameProperty {
 
     private final static int MAX_CARNAME_LENGTH = (Integer) properties.get("MAX.CARNAME.LENGTH");
     private final static int MIN_CARNAME_LENGTH = (Integer) properties.get("MIN.CARNAME.LENGTH");
-    private final static String REG_CARNAME = (String) properties.get("CARNAME.CONDITION");
+    private final static String CARNAME_REG_CONDITION = (String) properties.get("CARNAME.REG.CONDITION");
 
     private final static int MIN_MOVE_FOR_RANGE = (Integer) properties.get("MIN.RANDOM.RANGE");
     private final static int MAX_MOVE_FOR_RANGE = (Integer) properties.get("MAX.RANDOM.RANGE");
@@ -31,7 +31,7 @@ public class GameProperty {
 
         carNameCondition.put("MAX_LENGTH", MAX_CARNAME_LENGTH);
         carNameCondition.put("MIN_LENGTH", MIN_CARNAME_LENGTH);
-        carNameCondition.put("REG_CARNAME", REG_CARNAME);
+        carNameCondition.put("CARNAME_REG_CONDITION", CARNAME_REG_CONDITION);
 
         return carNameCondition;
     }
