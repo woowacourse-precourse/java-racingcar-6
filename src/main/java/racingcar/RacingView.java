@@ -3,7 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Map;
 
 public class RacingView {
     public String getCarListInput() {
@@ -18,17 +18,16 @@ public class RacingView {
         System.out.println("실행 결과");
     }
 
-    public void printWinners(List<Car> winners) {
-        String winnerNames = winners.stream().map(Car::getName)
-                .collect(Collectors.joining(", "));
+    public void printWinners(List<String> winners) {
+        String winnerNames = String.join(", ", winners);
         System.out.printf("최종 우승자 : %s\n", winnerNames);
     }
 
-    public void printProgress(List<Car> carList) {
+    public void printProgress(Map<String, Integer> status) {
         StringBuilder sb = new StringBuilder();
-        for (Car car : carList) {
-            String name = car.getName();
-            String progress = "-".repeat(car.getPosition());
+        for (Map.Entry<String, Integer> carStatus : status.entrySet()) {
+            String name = carStatus.getKey();
+            String progress = "-".repeat(carStatus.getValue());
             sb.append(String.format("%s : %s%n", name, progress));
         }
         sb.append('\n');
