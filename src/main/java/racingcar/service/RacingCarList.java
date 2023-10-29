@@ -16,4 +16,10 @@ public class RacingCarList {
         return racingCars;
     }
 
+    public static void moveAllRacingCarsForward(List<RacingCar> racingCars) {
+        for (RacingCar racingCar : racingCars) {
+            racingCar.moveForward();
+        }
+    }
+
 }
