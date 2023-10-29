@@ -12,8 +12,9 @@ public class Game {
     final String SEPARATOR_CAR_NAME = ",";
     final String MESSAGE_START = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n";
     final String MESSAGE_ASK_TRY = "시도할 회수는 몇회인가요?\n";
-    List<Car> carList;
-    int roundNumber;
+    final String MESSAGE_RACE_RESULT = "실행 결과\n";
+    public List<Car> carList;
+    public int roundNumber;
 
     public Game() {
         this.carList = new ArrayList<Car>();
@@ -26,6 +27,9 @@ public class Game {
 
         System.out.print(MESSAGE_ASK_TRY);
         inputRoundNumber();
+        
+        System.out.print(MESSAGE_RACE_RESULT);
+        proceedEachRound();
     }
 
     public void inputCarsName() {
@@ -58,6 +62,16 @@ public class Game {
     private void createCarList(List<String> carNameList) {
         for (String carName : carNameList) {
             carList.add(new Car(carName));
+        }
+    }
+
+    public void proceedEachRound() {
+        for (int i = 0; i < roundNumber; i++) {
+            for (Car car : carList) {
+                car.runCar();
+            }
+
+            System.out.println();
         }
     }
 
@@ -94,7 +108,7 @@ public class Game {
 
         int resultNumber = Integer.parseInt(inputNumber);
 
-        if (resultNumber < 0) {
+        if (resultNumber <= 0) {
             throw new IllegalArgumentException("0보다 큰 수를 입력해주세요");
         }
 
