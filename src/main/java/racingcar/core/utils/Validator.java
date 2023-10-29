@@ -1,4 +1,4 @@
-package racingcar.core.io;
+package racingcar.core.utils;
 
 import java.util.List;
 

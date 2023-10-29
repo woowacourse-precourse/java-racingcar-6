@@ -2,9 +2,9 @@ package racingcar;
 
 import racingcar.core.*;
 import racingcar.core.io.Input;
-import racingcar.core.io.NamesParser;
+import racingcar.core.utils.NamesParser;
 import racingcar.core.io.Output;
-import racingcar.core.io.Validator;
+import racingcar.core.utils.Validator;
 import racingcar.domain.CarFactory;
 
 public class Application {

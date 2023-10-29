@@ -5,6 +5,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.core.utils.NamesParser;
+import racingcar.core.utils.Validator;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -94,6 +96,17 @@ class InputTest {
     void 반복_횟수에_공백을_입력한_경우() throws Exception {
         // given
         String userInput = " ";
+        InputStream in = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(in);
+        //when and then
+        assertThatThrownBy(() -> input.readTryNum())
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+    @Test
+    @DisplayName("반복 횟수에 음수를 입력한 경우")
+    void 반복_횟수에_음수를_입력한_경우() throws Exception {
+        // given
+        String userInput = "-1";
         InputStream in = new ByteArrayInputStream(userInput.getBytes());
         System.setIn(in);
         //when and then
