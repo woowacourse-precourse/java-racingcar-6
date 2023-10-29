@@ -22,7 +22,9 @@ public class CarRaceService {
 
     public void moveCars() {
         for (int i = 0; i < cars.size(); i++) {
-//            if ()
+            if (shouldMoveForward()) {
+                cars.moveCar(i);
+            }
         }
     }
 
