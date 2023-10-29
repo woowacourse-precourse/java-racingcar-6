@@ -19,7 +19,6 @@ public class startRacing {
                 carNameHashMap.put(key, carNameHashMap.get(key) + 1);
             }
         }
-
     }
 
 
