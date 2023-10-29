@@ -1,4 +1,4 @@
-package racingcar.controller;
+package racingcar.Entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static racingcar.exception.LengthException.validateLength;
 
-public class InputParticipantes {
+public class Participantes {
     public static List<String> InputParticipantes(){
         String str = readLine();
         List<String> participantes = new ArrayList<String>();

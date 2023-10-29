@@ -1,10 +1,10 @@
 package racingcar;
 
-import racingcar.controller.InputTries;
+import racingcar.Input.InputTries;
 
 import java.util.List;
 
-import static racingcar.controller.InputParticipantes.InputParticipantes;
+import static racingcar.Entity.Participantes.InputParticipantes;
 
 
 public class Application {
