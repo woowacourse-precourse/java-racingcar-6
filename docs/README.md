@@ -13,9 +13,7 @@
 
 ## 클래스별 기능
 
-### Constant
-
-#### 게임 진행 관련 상수 (GameConfig)
+### 게임 진행 관련 상수 (GameConfig)
 
 - [x] 전진하는 기준
     - 변수명 : MAXIMUM_CAR_NAME_LENGTH
@@ -26,7 +24,7 @@
 - [x] 랜덤 수의 MAXIMUM 값
     - 변수명 : RANDOM_MAXIMUM_RANGE
 
-#### 메시지 관련 상수 (Message)
+### 메시지 관련 상수 (Message)
 
 - [x] 사용자 입력 메시지
     - 변수명 : CAR_NAME_INPUT_MESSAGE
@@ -37,7 +35,7 @@
 - [x] 실행 결과를 알리는 메시지
     - 변수명 : EXECUTION_RESULT_MESSAGE
 
-#### 기호 관련 상수 (CommonSymbol)
+### 기호 관련 상수 (CommonSymbol)
 
 - [x] " : " 기호
     - 변수명 : SYMBOL_COLON_SPACE
@@ -89,3 +87,17 @@
 
 - camp.nextstep.edu.missionutils.Console의 readLine()
 - camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()
+
+## Test
+
+### InputValidator
+
+#### validateInputNameLength
+
+- [ ] 설정된 값보다 긴 문자열이 들어오면 IllegalArgumentException 발생
+- [ ] 설정된 값 범위 안에 들어온다면 통과
+
+#### readAttemptCount
+
+- [ ] 숫자가 아닌 값이 들어오면 IllegalArgumentException 발생
+- [ ] 숫자가 들어오면 통과
