@@ -92,6 +92,8 @@ class RacingTest {
             try (MockedStatic<Randoms> mockRandoms = Mockito.mockStatic(Randoms.class)) {
                 Verification verification = () -> Randoms.pickNumberInRange(anyInt(), anyInt());
                 mockRandoms.when(verification).thenReturn(randomNumber);
+
+                executable.execute();
             }
         };
     }
