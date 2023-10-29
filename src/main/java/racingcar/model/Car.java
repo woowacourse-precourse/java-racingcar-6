@@ -11,25 +11,27 @@ public class Car {
         this.moves = 0;
     }
 
-    public void tryMove() {
-        if (canMove()) {
-            moves++;
-        }
-    }
-
-    public void getPosition() {
-        String name = this.name;
-        String position = "-".repeat(this.moves);
-
-        System.out.printf("%s : %s\n", name, position);
-    }
-
+    // TODO: Getter 제거, 다른 방법 모색
     public String getName() {
         return this.name;
     }
 
     public int getMoves() {
         return this.moves;
+    }
+
+    public void tryMove() {
+        if (canMove()) {
+            moves++;
+        }
+    }
+
+    // TODO: 출력은 View를 통해서만
+    public void getPosition() {
+        String name = this.name;
+        String position = "-".repeat(this.moves);
+        
+        System.out.printf("%s : %s\n", name, position);
     }
 
     private boolean canMove() {

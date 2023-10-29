@@ -14,7 +14,7 @@ public class Controller {
         askAndSetAttempts();
 
         View.displayResult();
-        game.playGame();
+        game.playRace();
 
         String winners = game.getWinners();
         View.displayWinners(winners);

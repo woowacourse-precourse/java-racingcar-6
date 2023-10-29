@@ -10,23 +10,6 @@ public class RacingGame {
         this.manager = manager;
     }
 
-    public void playGame() {
-        int round = 0;
-        do {
-            proceedRound();
-            round++;
-        } while (round < ATTEMPT_MAX);
-    }
-
-    private void proceedRound() {
-        for (int index = 0; index < CAR_AMOUNT; index++) {
-            Car car = manager.getCarFromIndex(index);
-
-            car.tryMove();
-            car.getPosition();
-        }
-        System.out.println();
-    }
 
     public String getWinners() {
         StringBuilder winners = new StringBuilder();
@@ -42,6 +25,25 @@ public class RacingGame {
         }
         cutStringTail(winners);
         return winners.toString();
+    }
+
+    public void playRace() {
+        int round = 0;
+        do {
+            playRound();
+            round++;
+        } while (round < ATTEMPT_MAX);
+    }
+
+    // TODO: 처리결과 View로 넘기기(직접출력 x)
+    private void playRound() {
+        for (int index = 0; index < CAR_AMOUNT; index++) {
+            Car car = manager.getCarFromIndex(index);
+
+            car.tryMove();
+            car.getPosition();
+        }
+        System.out.println();
     }
 
     private void cutStringTail(StringBuilder winners) {
