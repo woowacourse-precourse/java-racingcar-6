@@ -1,8 +1,10 @@
-package racingcar;
+package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.Constants;
+import racingcar.model.Car;
 
 public class CarController {
     private final List<Car> cars;
