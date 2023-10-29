@@ -31,7 +31,7 @@ public class Validator {
         return true;
     }
 
-    public ArrayList<String> validateNameInput(String input) {
+    public static ArrayList<String> validateNameInput(String input) {
         ArrayList<String> CarNames = validateNameInputContainsComma(input);
         if (!validateNameLength(CarNames)) {
             throw new IllegalArgumentException("잘못된 입력값 입니다.");
