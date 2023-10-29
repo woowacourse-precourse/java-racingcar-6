@@ -13,4 +13,11 @@ public class Car {
     public void move() {
         this.state++;
     }
+
+    public String currentStatus() {
+        return this.name +
+                " : " +
+                "-".repeat(this.state);
+    }
+
 }
