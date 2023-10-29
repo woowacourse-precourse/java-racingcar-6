@@ -1,12 +1,12 @@
-package racingcar.Controller;
+package racingcar.controller;
 
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.Model.Car;
-import racingcar.Model.CarListService;
-import racingcar.View.InputView;
-import racingcar.View.OutputView;
+import racingcar.model.Car;
+import racingcar.model.CarListService;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class GameController {
 	CarListService carListService = new CarListService();

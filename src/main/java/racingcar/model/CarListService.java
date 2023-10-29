@@ -1,4 +1,4 @@
-package racingcar.Model;
+package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -17,7 +17,6 @@ public class CarListService {
 		for (String eachCarName : splitEnteredList) {
 
 			Car car = new Car(eachCarName);
-			car.validateName();
 			CAR_LIST.add(car);
 
 		}

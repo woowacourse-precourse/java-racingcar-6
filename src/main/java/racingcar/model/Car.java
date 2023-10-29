@@ -1,18 +1,22 @@
-package racingcar.Model;
+package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
 
-	private final String name;
+	private final String NAME;
 	private int distance;
 
-	public Car(String name) {
-		this.name = name.trim();
+	public Car(String inputName) {
+
+		String name = inputName.trim();
+
+		validateName(name);
+		this.NAME = name;
 		this.distance = 0;
 	}
 
-	public void validateName() {
+	public void validateName(String name) {
 
 		final int MAX_NAME_LENGTH = 5;
 
@@ -47,7 +51,7 @@ public class Car {
 	}
 
 	public String getStatus(String graphUnit) {
-		return name + " : " + makeDistanceGraph(graphUnit);
+		return NAME + " : " + makeDistanceGraph(graphUnit);
 	}
 
 	private String makeDistanceGraph(String graphUnit) {
@@ -55,7 +59,7 @@ public class Car {
 	}
 
 	public String toString() {
-		return name;
+		return NAME;
 	}
 
 }

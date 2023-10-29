@@ -1,8 +1,8 @@
-package racingcar.View;
+package racingcar.view;
 
 import java.util.List;
 
-import racingcar.Model.Car;
+import racingcar.model.Car;
 
 public class OutputView {
 	final static String GRAPH_UNIT = "-";
