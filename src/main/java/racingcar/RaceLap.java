@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 
 public class RaceLap implements Showable, Gettable {
     private static final String RACE_LAP_INSTRUCTION = "시도할 회수는 몇회인가요?";
-
+    private static final String ILLEGALARGUMENTEXCEPTION_INSTRUCTION = "Please type numbers.";
     private String raceLapNumber;
 
     @Override
@@ -28,7 +28,7 @@ public class RaceLap implements Showable, Gettable {
         };
 
         if (!isNumeric.test(raceLapNumber)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ILLEGALARGUMENTEXCEPTION_INSTRUCTION);
         }
 
         return raceLapNumber;
