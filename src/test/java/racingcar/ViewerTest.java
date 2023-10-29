@@ -27,5 +27,21 @@ public class ViewerTest {
         }
     }
 
+    @Nested
+    class 시도_회수_입력 extends NsTest {
+        @Test
+        void 시도_횟수가_숫자가_아닌_경우_예외() {
+            final String input = "a";
 
+            assertSimpleTest(() ->
+                    assertThatThrownBy(() -> runException(input))
+                            .isInstanceOf(IllegalArgumentException.class)
+                            .hasMessage("시도 횟수는 숫자여야 합니다."));
+        }
+
+        @Override
+        protected void runMain() {
+            viewer.inputTryCount();
+        }
+    }
 }
