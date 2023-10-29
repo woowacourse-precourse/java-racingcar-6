@@ -50,6 +50,10 @@ public class Application {
         }
     }
 
+    public static void validateAttemptInput(String input) {
+        validatePositiveNumber(input);
+    }
+
     public static void validateNumber(String input) {
         try {
             Integer.parseInt(input);
