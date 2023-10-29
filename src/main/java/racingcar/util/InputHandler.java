@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.Cars;
 
 public class InputHandler {
 

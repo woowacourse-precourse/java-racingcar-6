@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.util;
 
 import java.util.Objects;
+import racingcar.domain.Car;
 
 public class InputValidator {
     public void nameNonInputValidate(int carsSize, String firstElementName) {

@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Cars;
+import racingcar.util.InputValidator;
 
 public class InputTest {
     InputValidator validator = new InputValidator();

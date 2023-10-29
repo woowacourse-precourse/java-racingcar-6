@@ -1,9 +1,11 @@
-package racingcar;
+package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.util.InputValidator;
+import racingcar.view.View;
 
 public class Cars {
     private static final int FIRST_IDX = 0;
