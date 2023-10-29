@@ -8,11 +8,11 @@ import java.util.Map;
 
 public class GameStart {
     GameProcess gameProcess;
-    Map<RaceCar, String> raceCarStringMap;
+    Map<RaceCar, String> raceCarMapOfCurrent;
 
     public GameStart() {
         gameProcess = new GameProcess();
-        raceCarStringMap = new LinkedHashMap<>();
+        raceCarMapOfCurrent = new LinkedHashMap<>();
     }
 
     /**
@@ -22,13 +22,20 @@ public class GameStart {
      * woni : ---
      */
     public void printSituationOfCarCurrentOneCycle() {
-        raceCarStringMap = gameProcess.makeMapOfCurrentRace();
+        makeMapOfCurrentRace();
 
-        for (Map.Entry<RaceCar, String> entry : raceCarStringMap.entrySet()) {
+        for (Map.Entry<RaceCar, String> entry : raceCarMapOfCurrent.entrySet()) {
             String nameOfRaceCar = entry.getKey().toString();
             String state = entry.getValue();
             System.out.println(nameOfRaceCar + " : " + state);
         }
+    }
+
+    /**
+     * 현재 레이스 자동차들의 Map을 만들어준다.
+     */
+    private void makeMapOfCurrentRace() {
+        raceCarMapOfCurrent = gameProcess.makeMapOfCurrentRace();
     }
 
     /**
