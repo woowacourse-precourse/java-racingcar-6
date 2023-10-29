@@ -172,4 +172,19 @@ class InputValidationTest {
         assertThatCode(() -> inputValidation.validateAttemptInput(input))
                 .doesNotThrowAnyException();
     }
+
+    @Test
+    @DisplayName("시도할 횟수 입력값이 빈값인지 검증 하는 테스트")
+    void validateInputEmptyTest() {
+        // given
+        InputValidation inputValidation = new InputValidation();
+
+        // when
+        String input = "";
+
+        // then
+        assertThatThrownBy(() -> inputValidation.validateInputEmpty(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(EMPTY_MESSAGE);
+    }
 }
