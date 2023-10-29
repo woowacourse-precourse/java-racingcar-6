@@ -6,8 +6,8 @@ public enum ConstantMessage {
     ASK_GAME_COUNT("시도할 회수는 몇회인가요?"),
 
     // Response
-    RESPONSE_RESULT_MESSAGE("실행 결과"),
-    RESPONSE_WINNER_MESSAGE("최종 우승자 : %s");
+    ROUND_RESULT_MESSAGE("실행 결과"),
+    FINAL_WINNER_MESSAGE("최종 우승자 : %s");
 
     private final String message;
 

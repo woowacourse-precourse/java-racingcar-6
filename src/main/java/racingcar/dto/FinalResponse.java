@@ -11,6 +11,6 @@ public record FinalResponse(
 
     public String toResponse() {
         String dividedNames = String.join(DELIMITER, winnerNames);
-        return String.format(ConstantMessage.RESPONSE_WINNER_MESSAGE.getMessage(), dividedNames);
+        return String.format(ConstantMessage.FINAL_WINNER_MESSAGE.getMessage(), dividedNames);
     }
 }

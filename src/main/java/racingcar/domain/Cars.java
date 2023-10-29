@@ -28,7 +28,7 @@ public class Cars {
                 .toList();
     }
 
-    public void playRound() {
+    public void moveAll() {
         cars.forEach(Car::move);
     }
 
