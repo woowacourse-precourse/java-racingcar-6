@@ -8,12 +8,14 @@ public class Application {
 
     static String[] carNameList;
     static Map<String, Car> carInfo;
+    static int tryCount;
     static int maxScore;
 
     public static void main(String[] args) {
 
         startRacing();
         inputCarNames();
+        inputTryCount();
     }
 
     public static void startRacing() {
@@ -50,4 +52,10 @@ public class Application {
             carInfo.put(carName, new Car(carName));
         }
     }
+
+    public static void inputTryCount() {
+
+        tryCount = Integer.parseInt(Console.readLine());
+    }
+
 }
