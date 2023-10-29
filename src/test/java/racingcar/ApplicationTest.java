@@ -64,6 +64,24 @@ class ApplicationTest extends NsTest {
         assertThat(names).isEqualTo(new ArrayList<>(Arrays.asList("123","abc","ABC")));
     }
 
+    @Test
+    void 이름_작성_기준_예외처리(){
+        // 이름 길이 예외처리
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("123456,ABC,abc", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+        // 이름이 없을 경우 예외처리
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("123,,abc", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+        // 이름에 제어문자가 포함된 경우 예외처리
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException((char)(0) + "23", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
     @Override
     public void runMain() {
         Application.main(new String[]{});
