@@ -1,5 +1,6 @@
 package study.serviceTest;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -13,8 +14,10 @@ public class TryNumberScanServiceTest {
         TryNumberScanService tryNumberScanService = new TryNumberScanService();
         String example = "5";
         System.setIn(new ByteArrayInputStream(example.getBytes()));
+        Console.close();
         tryNumberScanService.readTryNumber();
         Assertions.assertThat(tryNumberScanService.getStringTryNumber()).isEqualTo("5");
+
     }
 
 }

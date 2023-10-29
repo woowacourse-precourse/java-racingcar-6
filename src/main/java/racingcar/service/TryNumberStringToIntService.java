@@ -1,5 +1,7 @@
 package racingcar.service;
 
+import racingcar.verify.TryNumberVerify;
+
 public class TryNumberStringToIntService {
     public static int tryNumber = 0;
     private TryNumberScanService tryNumberScanService;
@@ -9,7 +11,11 @@ public class TryNumberStringToIntService {
     }
 
     public int stringToInt(String stringTryNumber) {
-        return Integer.parseInt(stringTryNumber);
+        TryNumberVerify tryNumberVerify = new TryNumberVerify(tryNumberScanService);
+        if (tryNumberVerify.verify()) {
+            return Integer.parseInt(stringTryNumber);
+        }
+        return 0;
     }
 
     public void execute() {

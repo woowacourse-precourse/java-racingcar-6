@@ -14,11 +14,12 @@ public class RacingCarNameAddService {
     }
 
     public void add() {
-        String names = racingCarNameScanService.getRacingCarNames();
-        String[] carNames = names.split(",");
-
         RacingCarNameVerify racingCarNameVerify = new RacingCarNameVerify(racingCarNameScanService);
+
         if (racingCarNameVerify.verify()) {
+            String names = racingCarNameScanService.getRacingCarNames();
+            String[] carNames = names.split(",");
+
             for(String carName : carNames) {
                 racingCarInformationDao.put(carName, 0);
             }

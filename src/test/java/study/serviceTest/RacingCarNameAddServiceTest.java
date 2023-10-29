@@ -1,5 +1,6 @@
 package study.serviceTest;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -16,6 +17,7 @@ public class RacingCarNameAddServiceTest {
 
         String example = "cars1,cars2";    // 사용자가 입력한 값을 "cars" 라고 하자.
         System.setIn(new ByteArrayInputStream(example.getBytes()));
+        Console.close();
         racingCarNameScanService.readRacingCarNames();
 
         RacingCarNameAddService racingCarNameAddService = new RacingCarNameAddService(racingCarNameScanService, racingCarInformationDao);
