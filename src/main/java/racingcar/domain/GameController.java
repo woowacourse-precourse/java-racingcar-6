@@ -7,22 +7,23 @@ import java.util.List;
 
 public class GameController {
 
-    private Integer TryMoveForwardRandomNumber;
+    private Integer moveForwardRandomNumber;
 
-    public void generateTryMoveForwardRandomNumber() {
-        this.TryMoveForwardRandomNumber = Randoms.pickNumberInRange(0,9);
+    public Integer getMoveForwardRandomNumber() {
+        return moveForwardRandomNumber;
+    }
+
+    public void generateMoveForwardRandomNumber() {
+        this.moveForwardRandomNumber = Randoms.pickNumberInRange(0,9);
     }
 
     public String getCarNamesInput() {
         return Console.readLine();
     }
 
-    public void MoveForward(List<Car> carList) {
-        for (Car car : carList) {
-            this.generateTryMoveForwardRandomNumber();
-            if (this.TryMoveForwardRandomNumber > 3) {
-                car.increaseSuccessMoveForwardCount();
-            }
+    public void MoveForward(Car car, Integer moveForwardRandomNumber) {
+        if (moveForwardRandomNumber > 3) {
+            car.increaseSuccessMoveForwardCount();
         }
     }
 
