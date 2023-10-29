@@ -70,9 +70,9 @@ public class Application {
                     for (int r = 0; r < rounds; r++){
                             int random = Randoms.pickNumberInRange(0, 9);
                             if (random >= 4){
-                                location[n][r] = 1;
+                                location[n - 1][r - 1] = 1;
                             }
-                            location[n][r] = 0;
+                            location[n - 1][r - 1] = 0;
                     }
             }
             return location;
