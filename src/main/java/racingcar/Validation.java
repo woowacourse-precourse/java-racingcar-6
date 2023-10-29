@@ -37,4 +37,10 @@ public class Validation {
             throw new IllegalArgumentException("0 이상의 횟수를 입력해야 합니다.");
         }
     }
+
+    public static void nullInEnd(String input) {
+        if (input.charAt(input.length()-1) == ',') {
+            throw new IllegalArgumentException("마지막 자동차 이름이 비었습니다.");
+        }
+    }
 }
