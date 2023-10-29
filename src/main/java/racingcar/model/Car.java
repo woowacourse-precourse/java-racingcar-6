@@ -21,8 +21,9 @@ public class Car {
         this.movedCount = 0;
     }
 
-    public void move() {
+    public Result move() {
         if(canMove()) movedCount++;
+        return new Result(name, movedCount);
     }
 
     public String getName() {
