@@ -12,4 +12,9 @@ public class InputViewTestConstant {
         public static final String EXCEED_LENGTH_TEST = "pobbii,woni,jun";
         public static final String DUPLICATE_CAR_NAMES_TEST = "pobi, woni, pobi, jun";
     }
+
+    public class MovementTimeTest {
+        public static final String SUCCESSFUL_MOVEMENT_TIME = "10";
+        public static final String INVALID_TYPE_MOVEMENT_TIME = "12a";
+    }
 }

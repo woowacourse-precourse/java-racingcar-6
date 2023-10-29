@@ -10,6 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import racingcar.constant.InputViewTestConstant.CarNameTest;
+import racingcar.constant.InputViewTestConstant.MovementTimeTest;
 
 @DisplayName("자동차 경주 입력 테스트")
 class InputViewTest {
@@ -62,6 +63,47 @@ class InputViewTest {
         protected void runMain() {
             InputView inputView = new InputView();
             System.out.println(inputView.getCarNames().toString());
+        }
+
+        @Nested
+        @DisplayName("이동할 횟수 입력 테스트")
+        class InputMovementTime extends NsTest {
+            @Test
+            @DisplayName("정상 작동")
+            void success() {
+                assertSimpleTest(
+                        () -> {
+                            run(MovementTimeTest.SUCCESSFUL_MOVEMENT_TIME);
+                            assertThat(output()).isEqualTo(MovementTimeTest.SUCCESSFUL_MOVEMENT_TIME);
+                        }
+                );
+            }
+
+            @Nested
+            @DisplayName("예외 테스트")
+            class ExceptionTest {
+                @Test
+                @DisplayName("빈 값 테스트")
+                void blankExceptionTest() {
+                    assertSimpleTest(() ->
+                            assertThatThrownBy(() -> runException(BLANK_VALUE))
+                                    .isInstanceOf(IllegalArgumentException.class));
+                }
+
+                @Test
+                @DisplayName("숫자가 아닌 값 테스트")
+                void invalidTypeTest() {
+                    assertSimpleTest(() ->
+                            assertThatThrownBy(() -> runException(MovementTimeTest.INVALID_TYPE_MOVEMENT_TIME))
+                                    .isInstanceOf(IllegalArgumentException.class));
+                }
+            }
+
+            @Override
+            protected void runMain() {
+                InputView inputView = new InputView();
+                System.out.println(inputView.getMovementTime());
+            }
         }
     }
 }
