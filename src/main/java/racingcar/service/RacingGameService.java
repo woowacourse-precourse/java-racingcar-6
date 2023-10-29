@@ -19,4 +19,9 @@ public class RacingGameService {
         return cars.createRacingCars(carName);
     }
 
+    public List<Car> move(List<Car> carList) {
+        cars.moveCars();
+        return carList;
+    }
+
 }
