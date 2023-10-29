@@ -23,23 +23,7 @@ public class RacingGame {
         return new CurrentResultMap().getCurrentResultMap(cars);
     }
 
-    public List<String> getWinners() {
-        int maxMoveDistance = getMaxMoveDistance();
-        List<String> winners = findWinners(maxMoveDistance);
-        return winners;
-    }
-
-    private int getMaxMoveDistance() {
-        return cars.stream()
-                .mapToInt(Car::getMoveDistance)
-                .max()
-                .getAsInt();
-    }
-
-    private List<String> findWinners(int maxMoveDistance) {
-        return cars.stream()
-                .filter(racingCar -> racingCar.getMoveDistance() == maxMoveDistance)
-                .map(Car::getName)
-                .toList();
+    public String getWinners(){
+        return new WinnerCalculator().getWinners(cars);
     }
 }
