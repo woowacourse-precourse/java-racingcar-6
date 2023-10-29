@@ -3,11 +3,9 @@ package racingcar.model;
 import java.util.ArrayList;
 
 public class CarObject {
-    public final int MOVE_LIMIT_CONDITION = 4;
-    public final int CAR_NAME_LIMIT_SIZE = 5;
-    public int carOnceMove;
-    public int carsSize = 0;
-    public int epoch;
+    public static int size = 0;
+    public static ArrayList<Integer> distance;
+    public static ArrayList<String> name;
     private ArrayList<CarComponent> cars;
 
     private CarObject() {}
@@ -18,5 +16,17 @@ public class CarObject {
 
     public static CarObject getInstance() {
         return SingleInstanceHolder.INSTANCE;
+    }
+
+    public void updateDistance() {
+        for(int i = 0; i < size; i++) {
+            cars.get(i).addDistance(distance.get(i));
+        }
+    }
+
+    public void addComponent() {
+        for(int i = 0; i < size; i++) {
+            cars.add(new CarComponent(name.get(i), distance.get(i)));
+        }
     }
 }

@@ -29,14 +29,4 @@ public class CarAction {
         CarObject.updateCarDistance(carMoveList);
         carMoveList.clear();
     }
-
-    public void inputCarName() {
-        String carName = readLine();
-        carNameList = CarNameJudgment.splitOf(carName);
-    }
-
-    public void inputEpoch() {
-        String epoch = readLine();
-        CarObject.epoch = Integer.parseInt(epoch);
-    }
 }
