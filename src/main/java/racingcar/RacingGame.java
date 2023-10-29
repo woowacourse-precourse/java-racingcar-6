@@ -1,6 +1,6 @@
 package racingcar;
 
-import java.util.HashMap;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingGame {
 
@@ -17,6 +17,7 @@ public class RacingGame {
              * 2. 해당 값이 4보다 큰지 확인
              * 3. 4이상이면 전진
              */
+
         }
     }
 
@@ -27,6 +28,13 @@ public class RacingGame {
     private void retrieveCount() {
         User user = new User();
         count = user.initCount();
+    }
+
+    private void checkMoving(String carName) {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        if (randomNumber >= 4) {
+            carList.moveForward(carName);
+        }
     }
 
 }

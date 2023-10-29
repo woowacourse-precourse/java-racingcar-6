@@ -22,4 +22,10 @@ public class CarList {
         return carList;
     }
 
+    public void moveForward(String carName) {
+        int position = carList.get(carName);
+        position++;
+        carList.put(carName, position);
+    }
+
 }
