@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Race {
+    private final static int CAN_MOVE = 4;
     private List<Car> carList;
 
     public Race(String inputCarNames) {
@@ -17,7 +18,6 @@ public class Race {
         String[] carNameArray = inputCarNames.split(",");
         List<String> carNames = new ArrayList<>(Arrays.asList(carNameArray));
         for (String carName : carNames) {
-            // carName에 대한 예외 검사
             Car newCar = new Car(carName);
             carList.add(newCar);
         }
@@ -34,7 +34,7 @@ public class Race {
     public void moveCars() {
         for (Car car : carList) {
             int randomNumber = RandomGenerator.createNumber();
-            if (randomNumber > 4) {
+            if (randomNumber >= CAN_MOVE) {
                 car.moveForward();
             }
         }
