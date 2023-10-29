@@ -1,38 +1,16 @@
 package racingcar.model;
 
+import racingcar.JudgeWinner;
+
 public class RacingGame {
 
     private final Cars cars;
-    private final int tryCount;
+    private final JudgeWinner judgeWinner;
 
-    private static final String NEW_LINE = "\n";
-
-    public RacingGame(Cars cars, int tryCount){
+    public RacingGame(Cars cars, JudgeWinner judgeWinner){
         this.cars = cars;
-        this.tryCount = tryCount;
+        this.judgeWinner = judgeWinner;
     }
-
-    public String makeStatus(){
-        StringBuilder result = new StringBuilder();
-        for(int i=0; i<tryCount; i++){
-            cars.forward();
-            result.append(cars.toString());
-            result.append(NEW_LINE);
-        }
-        return result.toString();
-    }
-
-    public void judgeFinalWinner(){
-        // TODO 최종 우승자
-    }
-
-
-
-
-
-
-
-
 
 
 }
