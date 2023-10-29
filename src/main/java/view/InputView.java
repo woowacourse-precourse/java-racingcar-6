@@ -6,8 +6,16 @@ import message.GameMessage;
 
 public class InputView {
 
-    public InputView() {
+    private static InputView defaultInputView;
 
+    private InputView() {
+    }
+
+    public static InputView getInstance() {
+        if(defaultInputView == null) {
+            defaultInputView = new InputView();
+        }
+        return defaultInputView;
     }
 
     public String inputCarNames() {
@@ -17,9 +25,12 @@ public class InputView {
 
     public String inputRaceCount() {
         System.out.println(GameMessage.count.getMessage());
-        String raceCount = Console.readLine();
+        return Console.readLine();
+    }
+
+    public void close() {
         Console.close();
-        return raceCount;
+        defaultInputView = null;
     }
 
 }
