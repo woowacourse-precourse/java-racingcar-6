@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import static camp.nextstep.edu.missionutils.Console.readLine;
+import camp.nextstep.edu.missionutils.Console;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,7 +14,7 @@ public class InputView {
     public static List<String> inputNames() {
         System.out.println(INPUT_NAME_MESSAGE);
         try {
-            String names = readLine();
+            String names = Console.readLine();
             return Arrays.asList(names.split(","));
         } catch (Exception e) {
             throw new IllegalArgumentException("[Error] 잘못된 형식의 자동차 이름이 입력되었습니다.", e);
@@ -24,7 +24,7 @@ public class InputView {
     public static int inputTrialCount() {
         System.out.println(INPUT_TRIAL_COUNT_MESSAGE);
         try {
-            String trialCount = readLine();
+            String trialCount = Console.readLine();
             return Integer.parseInt(trialCount);
         } catch (Exception e) {
             throw new IllegalArgumentException("[Error] 잘못된 형식의 시도횟수가 입력되었습니다.", e);

@@ -1,18 +1,14 @@
 package racingcar.controller;
 
-import static racingcar.view.InputView.inputNames;
-import static racingcar.view.InputView.inputTrialCount;
-import static racingcar.view.OutputView.printResultMessage;
-import static racingcar.view.OutputView.printRoundResult;
-import static racingcar.view.OutputView.printWinner;
-import static racingcar.view.OutputView.printBlank;
-
 import racingcar.dto.CarDto;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.NumberGenerator;
 import racingcar.model.RandomNumberGenerator;
 import racingcar.model.TrialCount;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,26 +26,31 @@ public class RacingGameController {
 
         Cars players = participatePlayers();
 
-        race(players, new TrialCount(inputTrialCount()));
+        TrialCount trialCount = inputTrialCount();
+
+        race(players, trialCount);
 
         awardRacingCarGame(players);
     }
 
+    private TrialCount inputTrialCount() {
+        return new TrialCount(InputView.inputTrialCount());
+    }
 
     private Cars participatePlayers() {
-        List<Car> cars = inputNames().stream()
+        List<Car> cars = InputView.inputNames().stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
         return new Cars(cars);
     }
 
     private void race(Cars players, TrialCount trialCount) {
-        printResultMessage();
+        OutputView.printResultMessage();
 
         while (trialCount.hasCount()) {
             players.moveUsingRandomNumber(numberGenerator);
-            printRoundResult(players.toDtos());
-            printBlank();
+            OutputView.printRoundResult(players.toDtos());
+            OutputView.printBlank();
 
             trialCount.countDown();
         }
@@ -60,6 +61,6 @@ public class RacingGameController {
                 .map(Car::toDto)
                 .collect(Collectors.toList());
 
-        printWinner(winners);
+        OutputView.printWinner(winners);
     }
 }
