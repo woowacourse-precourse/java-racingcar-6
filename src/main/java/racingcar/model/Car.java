@@ -13,7 +13,7 @@ public class Car {
         // 우승 자동차 출력시킬 때 여기에다가 SubString 써먹기
         this.carName = carName + " : ";
         // 그 자동차들 위치(얼마나 나갔니)
-        this.carRank = this.carName.length() - carName.length();
+        this.carRank = 0;
     }
 
     // 단위 횟수에서 업데이트값 출력 시키기 위한 메소드
@@ -30,6 +30,7 @@ public class Car {
     public String printMovement() {
         if (moveCar()) {
             carName = carName + "-";
+            carRank++;
             return carName;
         }
         return carName;

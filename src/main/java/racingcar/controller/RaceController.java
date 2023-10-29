@@ -27,8 +27,12 @@ public class RaceController {
 
         Race race = new Race(carNames);
 
-        race.printRace();
+        for (int i = 0; i < countNum; i++) {
+            race.printRace();
+        }
     }
+
+
 }
 
 //package racingcar.controller;
