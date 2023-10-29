@@ -47,4 +47,14 @@ public class ExceptionTest {
         assertThatThrownBy(() -> racingException.validateCarNameLen(inputStr))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    public void 라운드_횟수_입력_자연수_아닐_때() {
+        // given
+        String inputStr = "다섯번";
+
+        // when , then
+        assertThatThrownBy(() -> racingException.validateRoundNum(inputStr))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
