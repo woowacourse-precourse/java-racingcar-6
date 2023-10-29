@@ -15,11 +15,7 @@ public class OutputView {
         System.out.println(resultMap);
     }
 
-    public static void printFinalWinners(List<String> finalWinnersList) {
-        StringJoiner finalWinnersJoiner = new StringJoiner(", ");
-        for (String winner : finalWinnersList) {
-            finalWinnersJoiner.add(winner);
-        }
-        System.out.printf(printFinalWinnersFormat, finalWinnersJoiner);
+    public static void printFinalWinners(String finalWinners) {
+        System.out.printf(printFinalWinnersFormat, finalWinners);
     }
 }
