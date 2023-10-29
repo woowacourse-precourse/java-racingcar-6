@@ -90,7 +90,7 @@
   - GameService 호출
   - GameService에서 처리된 데이터를 OutputView로 전달
 </br></br>
-- InputManager
+- InputController
   - InputView로 들어온 게임 진행 횟수를 InputManager로 전달
   - InputView로 들어온 자동차를 InputManager로 전달
 
