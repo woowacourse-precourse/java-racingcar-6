@@ -1,6 +1,12 @@
 package domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
+    private static final int MIN_NUM = 0;
+    private static final int MAX_NUM = 9;
+    private static final int MOVE_NUM = 4;
+
     private final CarName name;
     private int score = 0;
 
@@ -17,6 +23,8 @@ public class Car {
     }
 
     public void move() {
-        score++;
+        if (Randoms.pickNumberInRange(MIN_NUM, MAX_NUM) >= MOVE_NUM) {
+            score++;
+        }
     }
 }

@@ -8,10 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 public class Cars {
-    private static final int MIN_NUM = 0;
-    private static final int MAX_NUM = 9;
-    private static final int MOVE_NUM = 4;
-
     private List<Car> cars = new ArrayList<>();
     private int tryCount;
 
@@ -21,11 +17,7 @@ public class Cars {
 
     public Map<String, Integer> getScores() {
         Map<String, Integer> scores = new HashMap<>();
-
-        for (Car car : cars) {
-            scores.put(car.getName(), car.getScore());
-        }
-
+        cars.forEach(car -> scores.put(car.getName(), car.getScore()));
         return scores;
     }
 
@@ -38,18 +30,11 @@ public class Cars {
     }
 
     public void moveAllCar() {
+        cars.forEach(car -> car.move());
         tryCount--;
-
-        for (Car car : cars) {
-            if (Randoms.pickNumberInRange(MIN_NUM, MAX_NUM) >= MOVE_NUM) {
-                car.move();
-            }
-        }
     }
 
     public boolean isCompleted() {
         return tryCount == 0;
     }
-
-
 }
