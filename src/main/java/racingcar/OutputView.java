@@ -17,20 +17,20 @@ public class OutputView {
         System.out.println(REQUEST_INPUT_TRY_NUMBER_MESSAGE);
     }
 
-    public void printPlayResult() {
-        space();
+    public void printGameResult() {
+        printEmptyLine();
         System.out.println(RESULT_MESSAGE);
     }
 
     public void printCarGameWinnerName(List<String> winnerCarNames) {
-        System.out.print(FINAL_WINNER_MESSAGE + gameWinnerJoin(winnerCarNames));
+        System.out.print(FINAL_WINNER_MESSAGE + joinGameWinnerCarName(winnerCarNames));
     }
 
-    private String gameWinnerJoin(List<String> winnerCarNames) {
+    private String joinGameWinnerCarName(List<String> winnerCarNames) {
         return String.join(SPLIT_COMMA, winnerCarNames);
     }
 
-    public void space() {
+    public void printEmptyLine() {
         System.out.println();
     }
 }

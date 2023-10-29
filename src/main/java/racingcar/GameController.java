@@ -44,7 +44,7 @@ public class GameController {
     }
 
     private void printPlayResult() {
-        outputView.printPlayResult();
+        outputView.printGameResult();
     }
 
     private void carStatusLoop() {
@@ -52,7 +52,7 @@ public class GameController {
             for (Car car : getPlayerCarInfo()) {
                 gameService.move(car);
             }
-            outputView.space();
+            outputView.printEmptyLine();
         }
     }
 
