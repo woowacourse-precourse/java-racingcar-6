@@ -24,6 +24,10 @@ public class RacingGame {
             this.carList.add(newCar);
         }
 
+        System.out.println(this.carList.get(0).getDistance());
+        this.carList.get(0).move();
+        System.out.println(this.carList.get(0).getDistance());
+
         System.out.println("시도할 회수는 몇회인가요?");
         int tryNum = gamer.getTryNum();
         System.out.println("시도 횟수 : " + tryNum);
