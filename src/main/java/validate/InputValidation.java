@@ -19,4 +19,10 @@ public class InputValidation {
             throw new IllegalArgumentException("자동차의 이름은 공백일 수 없습니다.");
         }
     }
+
+    public static void validateInputDoseNotContainSpecialCharacters(String input) {
+        if (input.matches(".*[ !@#$%^&*(),.?\":{}|<>].*")) {
+            throw new IllegalArgumentException("자동차의 이름에는 특수문자 혹은 공백이 들어갈 수 없습니다.");
+        }
+    }
 }
