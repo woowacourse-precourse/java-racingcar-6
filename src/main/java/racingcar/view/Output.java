@@ -1,10 +1,14 @@
-package racingcar;
+package racingcar.view;
 
 import java.util.List;
 
-public class Print {
+public class Output {
 
-    public void progress(String name, int move){
+    public void printStart(){
+        System.out.println("\n실행 결과");
+    }
+
+    public void printProgress(String name, int move){
         System.out.print(name + " : ");
         for(int i=0; i<move;i++){
             System.out.print("-");
@@ -12,7 +16,7 @@ public class Print {
         System.out.println(" ");
     }
 
-    public void winner(List<String> winner){
+    public void printWinner(List<String> winner){
         System.out.print("최종 우승자 : ");
 
         for(int i=0 ; i<winner.size() ; i++){
