@@ -16,6 +16,7 @@ public class RacingController {
         while (!cars.isCompleted()) {
             tryOnce();
         }
+        OutputView.printWinner(cars.findWinner());
     }
 
     public void initCars() {
