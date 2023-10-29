@@ -8,13 +8,15 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import racingcar.model.InputValueValidator;
+import racingcar.model.CarNameValidator;
+import racingcar.model.MovingCountValidator;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
-    InputValueValidator validator = new InputValueValidator();
+    CarNameValidator carNameValidator = new CarNameValidator();
+    MovingCountValidator movingCountValidator = new MovingCountValidator();
 
     @Test
     void 전진_정지() {
@@ -30,42 +32,42 @@ class ApplicationTest extends NsTest {
     @Test
     void 자동차이름_입력값검증() {
         assertSimpleTest(() -> {
-            assertThatThrownBy(() -> validator.checkNameValidation(new String[]{"Hello,,World"}))
+            assertThatThrownBy(() -> carNameValidator.checkNameValidation(new String[]{"Hello,,World"}))
                     .isInstanceOf(IllegalArgumentException.class);
         });
 
         assertSimpleTest(() -> {
-            assertThatThrownBy(() -> validator.checkNameValidation(new String[]{"Hello,Hello,Hello"}))
+            assertThatThrownBy(() -> carNameValidator.checkNameValidation(new String[]{"Hello,Hello,Hello"}))
                     .isInstanceOf(IllegalArgumentException.class);
         });
 
         assertSimpleTest(() -> {
-            assertThatThrownBy(() -> validator.checkNameValidation(new String[]{""}))
+            assertThatThrownBy(() -> carNameValidator.checkNameValidation(new String[]{""}))
                     .isInstanceOf(IllegalArgumentException.class);
         });
 
         assertSimpleTest(() -> {
-            assertThatThrownBy(() -> validator.checkNameValidation(new String[]{"Hello",",","World,"}))
+            assertThatThrownBy(() -> carNameValidator.checkNameValidation(new String[]{"Hello",",","World,"}))
                     .isInstanceOf(IllegalArgumentException.class);
         });
 
         assertSimpleTest(() -> {
-            assertThatThrownBy(() -> validator.checkNameValidation(new String[]{"OverLength"}))
+            assertThatThrownBy(() -> carNameValidator.checkNameValidation(new String[]{"OverLength"}))
                     .isInstanceOf(IllegalArgumentException.class);
         });
 
         assertSimpleTest(() -> {
-            assertThatThrownBy(() -> validator.checkNameValidation(new String[]{"한글여섯글자"}))
+            assertThatThrownBy(() -> carNameValidator.checkNameValidation(new String[]{"한글여섯글자"}))
                     .isInstanceOf(IllegalArgumentException.class);
         });
 
         assertSimpleTest(() -> {
-            assertThatThrownBy(() -> validator.checkNameValidation(new String[]{"^&#(*!"}))
+            assertThatThrownBy(() -> carNameValidator.checkNameValidation(new String[]{"^&#(*!"}))
                     .isInstanceOf(IllegalArgumentException.class);
         });
 
         assertSimpleTest(() -> {
-            assertThatThrownBy(() -> validator.checkNameValidation(new String[]{"     ", ""}))
+            assertThatThrownBy(() -> carNameValidator.checkNameValidation(new String[]{"     ", ""}))
                     .isInstanceOf(IllegalArgumentException.class);
         });
     }
@@ -73,17 +75,17 @@ class ApplicationTest extends NsTest {
     @Test
     void 이동횟수_입력값검증() {
         assertSimpleTest(() -> {
-            assertThatThrownBy(() -> validator.checkMovementCount("-1"))
+            assertThatThrownBy(() -> movingCountValidator.checkMovementCount("-1"))
                     .isInstanceOf(IllegalArgumentException.class);
         });
 
         assertSimpleTest(() -> {
-            assertThatThrownBy(() -> validator.checkMovementCount("abc"))
+            assertThatThrownBy(() -> movingCountValidator.checkMovementCount("abc"))
                     .isInstanceOf(IllegalArgumentException.class);
         });
 
         assertSimpleTest(() -> {
-            assertThatThrownBy(() -> validator.checkMovementCount("1.5"))
+            assertThatThrownBy(() -> movingCountValidator.checkMovementCount("1.5"))
                     .isInstanceOf(IllegalArgumentException.class);
         });
     }

@@ -3,7 +3,7 @@ package racingcar.model;
 import java.util.HashSet;
 import java.util.Set;
 
-public class InputValueValidator {
+public class CarNameValidator {
 
     // 자동차 입력값을 배열로 변환
     // WARNING : 입력값의 마지막 인덱스가 쉼표면 거르지 못함
@@ -42,18 +42,6 @@ public class InputValueValidator {
         }
         if(value.length() > 5) {
             throw new IllegalArgumentException("에러! 최대 다섯 글자까지만 입력해야 합니다.");
-        }
-    }
-
-    // 이동 횟수 입력값 검증
-    public void checkMovementCount(String value) throws IllegalArgumentException {
-        try {
-            int intValue = Integer.parseInt(value);
-            if (intValue <= 0) {
-                throw new IllegalArgumentException("에러! 이동 횟수는 1 이상의 정수만 입력해야 합니다.");
-            }
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("에러! 이동 횟수는 정수만 입력해야 합니다.");
         }
     }
 }

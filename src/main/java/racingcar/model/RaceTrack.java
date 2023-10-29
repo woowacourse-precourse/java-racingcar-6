@@ -98,7 +98,7 @@ public class RaceTrack {
     }
 
     // 우승 관련 메소드
-    public void winRace() {
+    public void endRace() {
         if (winnerIndex == null) {
             selectWinner();
         }
