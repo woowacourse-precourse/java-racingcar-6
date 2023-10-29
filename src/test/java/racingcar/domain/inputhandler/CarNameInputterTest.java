@@ -5,6 +5,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CarNameInputterTest {
@@ -23,5 +24,14 @@ public class CarNameInputterTest {
         List<String> carNameList = Arrays.asList("pobi", "woni", "jun");
         boolean isValidCarName = carNameInputter.validateCarName(carNameList);
         assertTrue(isValidCarName);
+    }
+
+    @Test
+    void InValid_자동차_이름_유효성_확인() {
+        CarNameInputter carNameInputter = new CarNameInputter();
+        List<String> carNameList = Arrays.asList("pobi", "swsoni", "1");
+        assertThrows(IllegalArgumentException.class, () -> {
+            boolean isValidCarName = carNameInputter.validateCarName(carNameList);
+        });
     }
 }
