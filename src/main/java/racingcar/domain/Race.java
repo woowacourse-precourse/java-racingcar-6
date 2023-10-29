@@ -27,4 +27,16 @@ public class Race {
     public List<Car> getCarList() {
         return carList;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Car car : carList) {
+            sb.append(car.getName())
+                    .append(" : ")
+                    .append("-".repeat(car.getPosition()))
+                    .append('\n');
+        }
+        return sb.toString();
+    }
 }

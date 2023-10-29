@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.lang.reflect.Proxy;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
@@ -69,5 +70,27 @@ public class RaceTest {
         // then
         assertThat(carList).allSatisfy(car ->
                 verify(car, times(3)).isProceedNext());
+    }
+
+    @DisplayName("toString()이 올바른 포멧으로 반환한다.")
+    @Test
+    void toStringTest() {
+        // given
+        Race race = new Race();
+        List<Car> carList = List.of(
+                Car.from("pobi", 3),
+                Car.from("woni", 2),
+                Car.from("jun", 3)
+        );
+
+        // when
+        race.registerCar(carList);
+
+        // then
+        assertThat(race.toString()).isEqualTo("""
+                pobi : ---
+                woni : --
+                jun : ---
+                """);
     }
 }
