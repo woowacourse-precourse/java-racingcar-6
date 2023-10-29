@@ -30,12 +30,12 @@ public class Race {
     }
     public void goFoward() {
         for (Car car : cars) {
-            if (decideGo()){
+            if (decideGo()) {
                 car.plusPosition();
             }
         }
         for (Car car : cars) {
-            System.out.println(car.getPosition());
+            System.out.println(car.addDash());
         }
     }
 }

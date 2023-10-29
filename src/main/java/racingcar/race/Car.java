@@ -13,7 +13,11 @@ public class Car {
     public String getName() {
         return name;
     }
-    public int getPosition() {
-        return position;
+    public String addDash() {
+        StringBuilder dash = new StringBuilder();
+        for (int i = 0; i < position; i++) {
+            dash.append("-");
+        }
+        return dash.toString();
     }
 }
