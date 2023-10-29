@@ -93,6 +93,26 @@ class InputViewTest {
     }
 
     @Test
+    void checkCarNameExceptions_길이확인2() {
+        String[] inputArr = {"","da","bo","mi"};
+        InputView inputView = new InputView();
+        MagicVariable magicVariable = new MagicVariable();
+        assertThatThrownBy(() ->  inputView.checkCarNameExceptions(inputArr))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(magicVariable.CAR_NAME_ERROR_MESSAGE);
+    }
+
+    @Test
+    void checkCarNameExceptions_공백포함불가확인() {
+        String[] inputArr = {"kim"," da","bo","mi"};
+        InputView inputView = new InputView();
+        MagicVariable magicVariable = new MagicVariable();
+        assertThatThrownBy(() ->  inputView.checkCarNameExceptions(inputArr))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(magicVariable.CAR_NAME_ERROR_MESSAGE);
+    }
+
+    @Test
     void checkTryCountExceptions_범위확인() {
         int tryCount = 0;
         InputView inputView = new InputView();
