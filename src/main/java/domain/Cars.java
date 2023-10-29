@@ -14,4 +14,8 @@ public class Cars {
     public List<Car> getCars() {
         return cars;
     }
+
+    public void setTryCount(int tryCount) {
+        this.tryCount = tryCount;
+    }
 }
