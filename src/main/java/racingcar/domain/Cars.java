@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import racingcar.constants.ExceptionMessage;
-import racingcar.util.RandomNumberGenerator;
+import racingcar.util.NumberGenerator;
 
 public class Cars {
 
@@ -44,9 +44,9 @@ public class Cars {
         return cars.size() < 2;
     }
 
-    public void moveAll(RandomNumberGenerator randomNumberGenerator) {
+    public void moveAll(NumberGenerator numberGenerator) {
         for (final Car car : cars) {
-            final int value = randomNumberGenerator.generateRandomNumber();
+            final int value = numberGenerator.generateRandomNumber();
             car.moveToCar(value);
         }
     }
