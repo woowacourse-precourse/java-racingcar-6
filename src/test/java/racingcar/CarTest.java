@@ -2,6 +2,7 @@ package racingcar;
 
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.Car.createCarByName;
 
@@ -25,6 +26,13 @@ class CarTest {
         assertThatThrownBy(() -> createCarByName(nameWithNull))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("null은 이름이 될 수 없습니다");
+    }
+
+    @Test
+    void 유효한_이름으로_Car_오브젝트_생성() {
+        String validName = "abcd";
+        Car car = createCarByName(validName);
+        assertThat(car.getName()).isEqualTo(validName);
     }
 
 }
