@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 
 public class ShowMessageTest {
     private final ByteArrayOutputStream outForTest = new ByteArrayOutputStream();
-    private final PrintStream outOriginal = System.out;
 
     @BeforeEach
     public void setUpStreams() {
@@ -20,7 +19,7 @@ public class ShowMessageTest {
 
     @AfterEach
     public void restoreStreams() {
-        System.setOut(outOriginal);
+        System.setOut(System.out);
     }
 
     @Test
