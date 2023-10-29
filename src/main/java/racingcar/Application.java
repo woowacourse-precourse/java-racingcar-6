@@ -7,13 +7,8 @@ public class Application {
 
     public static void main(String[] args) {
         GameInputController inputController = new GameInputController();
-        inputController.settingController();
-        inputController.requestNames();
-        inputController.requestTryNumber();
-
         GameOutputController outputController = new GameOutputController();
-        outputController.readyForGame(inputController.sendGameInfo());
-        outputController.startGame();
-        outputController.printWinner();
+        Client client = new Client();
+        client.run(inputController, outputController);
     }
 }
