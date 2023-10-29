@@ -58,6 +58,8 @@
 
   - [x] 자동차가 이동을 하는 제어해주는 메서드 생성 // GameProcess#MoveOfRaceCar
 
+  - [x] 현제 레이스카의 갯수를 알려주는기능 // GameProcess#sezeCurrentRaceCarList
+
   
 
 - [x] 모든 클래스에서 사용할 수 있는 메서드의 모음인 Utill 클래스 작성. // Utill

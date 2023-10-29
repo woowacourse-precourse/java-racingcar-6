@@ -133,4 +133,8 @@ public class GameProcess {
         }
     }
 
+    public Integer sizeCurrentRaceCarList() {
+        return raceCarOfCurrentList.size();
+    }
+
 }
