@@ -12,14 +12,12 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         Cars cars = new Cars();
+        Score score = new Score();
         
         String[] carArray = cars.enterCars();
         cars.validateCarsName(carArray);
         
-        Map<String, String> scorePerCar = new HashMap<>();
-        for (String car : carArray) {
-            scorePerCar.put(car, "");
-        }
+        score.initScorePerCar(carArray);
         
         System.out.println("시도할 회수는 몇회인가요?");
         int tryNum;
