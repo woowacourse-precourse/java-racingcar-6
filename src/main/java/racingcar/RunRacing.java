@@ -37,12 +37,18 @@ public class RunRacing {
         while(keys.hasNext()){
             MoveForward(keys.next());
         }
+        System.out.println();
     }
     public void MoveForward(String member) {
         int pickedNum = Randoms.pickNumberInRange(0,9);
         if (pickedNum >= 4) {
             members.put(member, members.get(member)+1);
         }
+        System.out.print(member+" : ");
+        for (int i = 0; i < members.get(member); i++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 
 }
