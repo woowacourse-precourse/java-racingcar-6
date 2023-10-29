@@ -1,6 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -10,14 +9,14 @@ import org.junit.platform.commons.util.StringUtils;
 public final class RacingCars {
     private final List<String> names;
 
-    private RacingCars() {
-        List<String> names = createNamesWithInput(Console.readLine());
+    private RacingCars(String input) {
+        List<String> names = createNamesWithInput(input);
         validateCarNames(names);
         this.names = names;
     }
 
-    public static RacingCars createRacingCars() {
-        return new RacingCars();
+    public static RacingCars createRacingCars(String input) {
+        return new RacingCars(input);
     }
 
     private List<String> createNamesWithInput(String input) {
@@ -40,7 +39,7 @@ public final class RacingCars {
 
     private static void validateNameLength(String name) {
         if (name.length() > 5) {
-            throw new IllegalArgumentException("자동차 이름은 제한길이를 초과할 수 없습니다.");
+            throw new IllegalArgumentException("자동차 이름은 제한 길이를 초과할 수 없습니다.");
         }
     }
 

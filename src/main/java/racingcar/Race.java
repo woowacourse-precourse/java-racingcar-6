@@ -1,20 +1,27 @@
 package racingcar;
 
+import static racingcar.constant.ViewMessage.INSERT_CARS_NAMES;
+import static racingcar.constant.ViewMessage.INSERT_MOVING_COUNT;
+
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
+
 public class Race {
 
     private Race() {
     }
 
     public static void start() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        RacingCars racingCars = RacingCars.createRacingCars();
-        System.out.println("시도할 회수는 몇회인가요?");
-        MovingCount movingCount = MovingCount.createMovingCount();
+        OutputView.printlnViewMessage(INSERT_CARS_NAMES);
+        RacingCars racingCars = RacingCars.createRacingCars(InputView.readLine());
+        OutputView.printlnViewMessage(INSERT_MOVING_COUNT);
+        MovingCount movingCount = MovingCount.createMovingCount(InputView.readLine());
+        InputView.close();
         CarsPosition carsPosition = CarsPosition.createPositionWithRacingCars(racingCars);
-        System.out.println("게임 결과");
+
         for (int i = 0; movingCount.isNotEqual(i); i++) {
-            System.out.println(carsPosition.getResult());
+            OutputView.printlnResult(carsPosition.getResult());
         }
-        System.out.println(carsPosition.getWinner());
+        OutputView.printlnResult(carsPosition.getWinner());
     }
 }

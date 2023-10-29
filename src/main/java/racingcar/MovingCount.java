@@ -1,18 +1,15 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-
 public final class MovingCount {
     private final int count;
 
-    private MovingCount() {
-        String input = Console.readLine();
+    private MovingCount(String input) {
         validateInputIsDigit(input);
         this.count = Integer.parseInt(input);
     }
 
-    public static MovingCount createMovingCount() {
-        return new MovingCount();
+    public static MovingCount createMovingCount(String input) {
+        return new MovingCount(input);
     }
 
     private void validateInputIsDigit(String input) {
