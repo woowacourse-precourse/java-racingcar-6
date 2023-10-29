@@ -7,7 +7,7 @@ import racingcar.config.Config;
 import racingcar.model.Car;
 import racingcar.utils.RandomUtil;
 import racingcar.utils.Validation;
-import racingcar.view.PrintView;
+
 
 public class GameService {
 
@@ -18,7 +18,7 @@ public class GameService {
     public List<Car> carList;
     public List<Car> winnerList;
     public int tryNum;
-    public int forwardNum;
+    private int forwardNum;
 
 
     public GameService(Config config) {
