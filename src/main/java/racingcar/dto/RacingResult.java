@@ -20,6 +20,11 @@ public class RacingResult {
     }
 
     public List<String> getFinalWinners() {
-        return this.racingRoundResults.get(racingRoundResults.size() - FINAL_ROUND_INDEX).getWinners();
+        RacingRoundResult finalRacingRoundResult = getFinalRacingRoundResult();
+        return finalRacingRoundResult.getWinners();
+    }
+
+    private RacingRoundResult getFinalRacingRoundResult() {
+        return this.racingRoundResults.get(racingRoundResults.size() - FINAL_ROUND_INDEX);
     }
 }
