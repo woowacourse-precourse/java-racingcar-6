@@ -9,6 +9,7 @@ import racingcar.dto.CarDTO;
 public class CarManager {
     private final List<Car> cars = new ArrayList<>();
 
+
     public Car getCarFromIndex(int index) {
         Car car = cars.get(index);
 
@@ -27,6 +28,7 @@ public class CarManager {
         }
         Settings.setCarAmount(cars.size());
     }
+
 
     // Car의 DTO를 받아서 그 중 가장 큰 position의 값 반환
     private int findBiggestNumber() {

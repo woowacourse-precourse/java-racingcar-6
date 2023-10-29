@@ -8,13 +8,14 @@ import racingcar.domain.Car;
 import racingcar.dto.CarDTO;
 
 public class Winners {
+    private final List<String> winners = new ArrayList<>();
     private final CarManager manager;
 
-    private final List<String> winners = new ArrayList<>();
 
     public Winners(CarManager manager) {
         this.manager = manager;
     }
+
 
     public String getWinners() {
         calculateWinners();
@@ -23,7 +24,7 @@ public class Winners {
         return string;
     }
 
-    
+
     // 이동 횟수가 가장 많은 자동차들을 winners 배열에 삽입
     private void calculateWinners() {
         for (int index = 0; index < CAR_AMOUNT; index++) {

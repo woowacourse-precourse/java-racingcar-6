@@ -4,6 +4,7 @@ public class Settings {
     public static int CAR_AMOUNT;
     public static int ROUND_MAX;
 
+    
     public static void setCarAmount(int amount) {
         CAR_AMOUNT = amount;
     }

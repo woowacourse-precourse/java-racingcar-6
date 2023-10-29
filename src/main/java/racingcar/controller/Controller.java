@@ -16,6 +16,7 @@ public class Controller {
     InputView input = new InputView();
     OutputView output = new OutputView();
 
+
     public void playGame() {
         askAndGenerateCars();
         askAndSetAttempts();
