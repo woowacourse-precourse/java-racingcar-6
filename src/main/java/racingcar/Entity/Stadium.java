@@ -16,13 +16,13 @@ public class Stadium {
          ioHelper = Config.getSystemIOHelper();
     }
 
-    public String inputCars() {
+    public void inputCars() {
         InputOutputHelper ioHelper = new ConsoleInputOutputHelper();
         ioHelper.output("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
-        return ioHelper.input();
+        saveInputCars(ioHelper.input());
     }
 
-    public void saveInputCars(String inputCars) {
+    void saveInputCars(String inputCars) {
         List<String> carNames = List.of(inputCars.split(","));
         for (String name : carNames) {
             if(name.length() > Config.MAX_NAME_LENGTH) {
@@ -32,14 +32,13 @@ public class Stadium {
         }
     }
 
-    public String inputTryCount() {
+    public void inputTryCount() {
         ioHelper.output("시도할 회수는 몇회인가요?\n");
-        String input = ioHelper.input();
+        saveTryCount(ioHelper.input());
         ioHelper.output("\n");
-        return input;
     }
 
-    public void saveTryCount(String inputNumber) {
+    void saveTryCount(String inputNumber) {
         int count;
         try {
             count = Integer.parseInt(inputNumber);

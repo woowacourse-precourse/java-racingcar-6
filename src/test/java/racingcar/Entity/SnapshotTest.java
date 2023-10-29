@@ -1,8 +1,6 @@
-package racingcar;
+package racingcar.Entity;
 
 import org.junit.jupiter.api.Test;
-import racingcar.Entity.Car;
-import racingcar.Entity.Snapshot;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
