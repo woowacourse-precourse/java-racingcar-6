@@ -21,23 +21,15 @@ public class Car {
                 .count();
     }
 
-    public int getTotalForward(){
-        return totalForward;
-    }
-
     public void incrementMoveCount(){
         this.completedMoves++;
     }
 
-    @Override
-    public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append(name).append(" : ");
-        for(int step = 0; step< completedMoves; step++) {
-            if(movementFlags.get(step)) {
-                sb.append("-");
-            }
-        }
-        return sb.toString();
+    public int getTotalForward(){
+        return totalForward;
+    }
+
+    public String getName(){
+        return name;
     }
 }
