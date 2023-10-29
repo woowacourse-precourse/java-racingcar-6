@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 public class CarGame {
 
-    private TreeMap<String, Integer> carDistances = new TreeMap<>();
+    private static TreeMap<String, Integer> carDistances = new TreeMap<>();
 
     public void CarGame(List<String> cars) {
         for(String car : cars){
@@ -16,7 +16,6 @@ public class CarGame {
 
     public void move(String car){
         carDistances.put(car,carDistances.get(car)+1);
-        printTreeMap();
     }
 
     public void printTreeMap(){

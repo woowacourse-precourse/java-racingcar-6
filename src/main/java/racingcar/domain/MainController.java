@@ -9,6 +9,9 @@ import racingcar.Validator;
 public class MainController {
 
     CarGame carGame = new CarGame();
+    RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+
+    ScorePrinter scorePrinter = new ScorePrinter();
     public static int ATTEMPT_COUNT = 0;
     public static List<String> CARS;
 
@@ -18,9 +21,15 @@ public class MainController {
 
         for (int i = ATTEMPT_COUNT; i >= 1; i--) {
             //랜덤값 생성
-            //중간 결과 출력
+            randomNumberGenerator.setUserRandomValue(CARS);
+            scorePrinter.printMidtermScore(); //중간 점수 출력
         }
+        carGame.printTreeMap();
+        scorePrinter.printFinalScore(); //최종 점수 출력
+
     }
+
+
 
     private void setInput() {
         Validator validator = new Validator();
