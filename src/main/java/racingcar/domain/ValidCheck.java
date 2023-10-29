@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.domain;
 
 public class ValidCheck {
     public static void namesize_check(String[] car_list){

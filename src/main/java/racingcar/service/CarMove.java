@@ -1,7 +1,7 @@
-package racingcar.model;
+package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.view.PrintResult;
+import racingcar.domain.Car;
 
 import java.util.List;
 

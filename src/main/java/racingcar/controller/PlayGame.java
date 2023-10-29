@@ -1,7 +1,10 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
-import racingcar.model.*;
+import racingcar.domain.*;
+import racingcar.service.CarMove;
+import racingcar.service.FindWinner;
+import racingcar.service.SettingCar;
+import racingcar.service.SettingGame;
 import racingcar.view.PrintInput;
 import racingcar.view.PrintOutput;
 import racingcar.view.PrintResult;
@@ -9,22 +12,12 @@ import racingcar.view.PrintResult;
 import java.util.List;
 
 public class PlayGame {
-    public List<Car> settingcar(){
-        PrintInput.inputCar();
-        String input_carName = Console.readLine();
-        CreateCar createCar = new CreateCar();
-        return createCar.createCar(input_carName);
-    }
-
-    public int numberOfGame(){
-        PrintInput.inputNumberOfMove();
-        String input = Console.readLine();
-        return ValidCheck.moveTypeCheck(input);
-    }
-
     public void play(){
-        List<Car> car_list = settingcar();
-        int game = numberOfGame();
+        PrintInput.inputCar();
+        List<Car> car_list = SettingCar.settingcar();
+
+        PrintInput.inputNumberOfMove();
+        int game = SettingGame.numberOfGame();
 
         for (int i = 0; i<game; i++){
             CarMove.move(car_list);
