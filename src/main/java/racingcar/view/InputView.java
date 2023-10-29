@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
 
 public class InputView {
     private static final String LENGTH_ERROR = "이름은 5자 이하만 가능합니다.";
@@ -43,9 +44,18 @@ public class InputView {
     }
 
     private String[] splitCommaAndValidate(String players) {
-        String[] separatedPlayers = players.split(SPLIT);
+        String[] separatedPlayers = removeSideSpace(players.split(SPLIT));
         validateNames(separatedPlayers);
         return separatedPlayers;
+    }
+
+    private String[] removeSideSpace(String[] players) {
+        String[] removedSpaceNames = new String[players.length];
+        for (int i = 0; i < players.length; i++) {
+            removedSpaceNames[i] = players[i].strip();
+        }
+        System.out.println(Arrays.toString(removedSpaceNames));
+        return removedSpaceNames;
     }
 
     private void nameLengthValidation(String[] players) {
@@ -53,7 +63,7 @@ public class InputView {
             if (player.length() > 5) {
                 throw new IllegalArgumentException(LENGTH_ERROR);
             }
-            if (player.trim().length() == 0) {
+            if (player.length() == 0) {
                 throw new IllegalArgumentException(IS_SPACE);
             }
         }
