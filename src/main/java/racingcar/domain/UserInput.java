@@ -25,5 +25,13 @@ public class UserInput {
         }
     }
 
+    public int askNumberGame(){
+        System.out.println("시도할 횟수는 얼마인가요?");
+        Scanner scanner = new Scanner(System.in);
+        int input = scanner.nextInt();
+        return input;
+    }
+
+
 
 }
