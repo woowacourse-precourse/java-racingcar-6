@@ -2,6 +2,7 @@ package racingcar.model;
 
 import racingcar.constants.ErrorMessage;
 import racingcar.constants.GameResultElement;
+import racingcar.constants.RacingCarRole;
 import racingcar.exception.CarsCountException;
 import racingcar.exception.NotFoundCarPositionException;
 
@@ -20,7 +21,7 @@ public class Cars {
     }
 
     private void validateCarsCount() {
-        if (racingCars.size() < 2) {
+        if (racingCars.size() < RacingCarRole.MIN_CARS_COUNT.getValue()) {
             throw new CarsCountException(ErrorMessage.CARS_COUNT_ERROR.getMessage());
         }
     }
