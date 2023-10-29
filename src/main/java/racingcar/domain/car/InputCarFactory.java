@@ -33,13 +33,15 @@ public class InputCarFactory implements CarFactory {
     }
 
     private void validateCarNamesLength(String[] carNames) {
+        System.out.println(carNames.length
+        );
         if(carNames.length > CarFactory.MAX_CAR_SIZE) {
             throw new IllegalArgumentException("자동차는 최대 " + CarFactory.MAX_CAR_SIZE + "대 만들 수 있습니다.");
         }
     }
 
-    private int uniqueNameCount(String[] carNames) {
-        return (int)Arrays.stream(carNames)
+    private long uniqueNameCount(String[] carNames) {
+        return Arrays.stream(carNames)
                 .map(String::trim)
                 .distinct()
                 .count();

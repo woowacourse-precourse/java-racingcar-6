@@ -50,4 +50,27 @@ class InputCarFactoryTest extends IOTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름에 중복이 있습니다.");
     }
+
+    @Test
+    void 입력받은_자동차_이름의_갯수가_최대치를_넘으면_에러를_던진다() {
+        //given
+        CarFactory carFactory = new InputCarFactory();
+
+        String carNames = generateNames(CarFactory.MAX_CAR_SIZE + 1);
+
+        //when
+        command(carNames);
+
+        //then
+        assertThatThrownBy(() -> carFactory.createCars())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차는 최대 " + CarFactory.MAX_CAR_SIZE + "대 만들 수 있습니다.");
+    }
+
+    private String generateNames(int size) {
+        StringBuilder sb = new StringBuilder();
+        for(int i=1; i<=size; i++) sb.append("a" + i + " ");
+        String carNames = String.join(",", sb.toString().trim().split(" "));
+        return carNames;
+    }
 }
