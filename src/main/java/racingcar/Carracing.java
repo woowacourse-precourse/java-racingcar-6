@@ -23,21 +23,25 @@ public class Carracing {
 
         setInitStartPoint(carNameList);
         for (int i = 0; i < movingCount; i++) {
-            goStop(raceScore);
+            goStop();
         }
-        chooseWinner(raceScore);
+        chooseWinner();
     }
 
-    public static void goStop(Map<String, String> raceScore) {
+    public static void goStop() {
 
         for (String carName : carNameList) {
             int randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE_NUMBER, FINAL_INCLUSIVE_NUMBER);
 
-            if (randomNumber >= STANDARD_MOVING_NUMBER) {
-                raceScore.put(carName, raceScore.get(carName) + "-");
-            }
+            move(carName, randomNumber);
         }
         printGameResultMsg(raceScore);
+    }
+
+    public static void move(String carName, int randomNumber) {
+        if (randomNumber >= STANDARD_MOVING_NUMBER) {
+            raceScore.put(carName, raceScore.get(carName) + "-");
+        }
     }
 
     public static Map<String, String> setInitStartPoint(String[] carNameList) {
@@ -51,7 +55,7 @@ public class Carracing {
         return raceScore;
     }
 
-    public static void chooseWinner(Map<String, String> raceScore) {
+    public static void chooseWinner() {
         List<String> winner = new ArrayList<>(raceScore.keySet());
 
         winner.sort((o1, o2) -> raceScore.get(o2).compareTo(raceScore.get(o1)));
