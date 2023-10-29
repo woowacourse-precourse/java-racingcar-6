@@ -76,7 +76,23 @@ public class GameManagerTest {
     }
 
     @Test
-    void 우승자_출력() {
+    void 단독_우승자_출력() {
+        List<Car> cars = new ArrayList<>();
+        cars.add(car);
+        cars.add(new Car("test2"));
+        cars.add(new Car("test3"));
+
+        assertRandomNumberInRangeTest(
+                () -> {
+                    cars.forEach(car -> gameManager.moveCar(car));
+                    assertThat(gameManager.makeWinnerResult(cars)).isEqualTo("최종 우승자 : test");
+                },
+                MOVING_NUMBER, STOP_NUMBER, STOP_NUMBER
+        );
+    }
+
+    @Test
+    void 공동_우승자_출력() {
         List<Car> cars = new ArrayList<>();
         cars.add(car);
         cars.add(new Car("test2"));
