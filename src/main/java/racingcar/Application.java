@@ -12,5 +12,8 @@ public class Application {
 
         RacingCupController racingCupController = new RacingCupController(gameView.getTotalRounds());
         PlayerController playersController = new PlayerController();
+
+        playersController.addPlayer(carNames);
+        racingCupController.addPlayers(playersController.getPlayerList());
     }
 }

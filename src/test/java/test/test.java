@@ -2,6 +2,7 @@ package test;
 
 import java.util.List;
 import racingcar.controller.PlayerController;
+import racingcar.controller.RacingCupController;
 import racingcar.view.GameView;
 
 public class test {
@@ -18,5 +19,10 @@ public class test {
         PlayerController playerController = new PlayerController();
         playerController.addPlayer(carNames);
         System.out.println(playerController.getPlayerList());
+
+        RacingCupController racingCupController = new RacingCupController(round);
+        racingCupController.addPlayers(playerController.getPlayerList());
+        System.out.println(racingCupController.getRacingCup());
+
     }
 }

@@ -35,7 +35,7 @@
 ### Controller
 - RacingCup Controller
   - [x] 입력받은 경기횟수를 추가한다.
-  - [ ] 입력받은 자동차들을 추가한다.
+  - [x] 입력받은 자동차들을 추가한다.
   - [ ] 다음 경기를 진행한다.
   - [ ] 최종 우승자를 정한다.
 - Player Controller
