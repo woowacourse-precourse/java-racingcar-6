@@ -8,13 +8,17 @@ import java.util.List;
 
 public class CarService {
     private Cars cars;
+    private static CarService instance;
 
     private CarService() {
 
     }
 
     public static CarService getInstance() {
-        return new CarService();
+        if (instance == null) {
+            instance = new CarService();
+        }
+        return instance;
     }
 
     public void generateCarsInstance(String carNames) {
@@ -25,7 +29,7 @@ public class CarService {
         // stream으로 바꿔보기
         List<Car> carList = new ArrayList<>();
         for (String carName : splitCarNames(carNames)) {
-            carList.add(Car.getInstance(carName));
+            carList.add(Car.newInstance(carName));
         }
         return carList;
     }

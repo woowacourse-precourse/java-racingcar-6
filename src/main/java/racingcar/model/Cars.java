@@ -4,13 +4,17 @@ import java.util.List;
 
 public class Cars {
     private List<Car> carList;
+    private static Cars instance;
 
     private Cars(List<Car> carList) {
         this.carList = carList;
     }
 
     public static Cars getInstance(List<Car> cars) {
-        return new Cars(cars);
+        if(instance == null) {
+            instance = new Cars(cars);
+        }
+        return instance;
     }
 
     public void racingCar() {

@@ -8,6 +8,7 @@ public class CarController {
     private InputView inputView;
     private OutputView outputView;
     private CarService carService;
+    private static CarController instance;
 
     public CarController(InputView inputView, OutputView outputView, CarService carService) {
         this.inputView = inputView;
@@ -16,7 +17,10 @@ public class CarController {
     }
 
     public static CarController getInstance() {
-        return new CarController(InputView.getInstance(), OutputView.getInstance(), CarService.getInstance());
+        if(instance == null) {
+            instance = new CarController(InputView.getInstance(), OutputView.getInstance(), CarService.getInstance());
+        }
+        return instance;
     }
 
     public void run() {
