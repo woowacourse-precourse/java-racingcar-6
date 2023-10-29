@@ -44,10 +44,8 @@ class GameControllerTest {
         MockedStatic<RandomNumber> randomNumber = mockStatic(RandomNumber.class);
         given(RandomNumber.createRandomNumber()).willReturn(new RandomNumber(4));
 
-
         GameController gameController = new GameController(inputView, new OutputView());
         gameController.play();
-
 
         String output = captor.toString().trim();
         Assertions.assertThat(output).contains(
