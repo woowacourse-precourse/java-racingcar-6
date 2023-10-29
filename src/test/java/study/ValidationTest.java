@@ -1,6 +1,8 @@
 package study;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.property.ErrorProperty;
 import racingcar.validation.InputValidation;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -16,19 +18,19 @@ public class ValidationTest {
             InputValidation.verifyForEmptyValue(target);
         }
             ).isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 입력값이 공백일 수는 없습니다.");
+                .hasMessage(ErrorProperty.VALUE_IS_EMPTY);
     }
 
     @Test
     void 입력_값_공백_포함_검증_로직_테스트(){
         //given
         String target = "pobi,woni, jun";
-
         //when
         assertThatThrownBy(()->{
                     InputValidation.verifyForSpaceValue(target);
                 }
         ).isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 입력값에 공백이 포함되었습니다.");
+                .hasMessage(ErrorProperty.VALUE_CONTAINS_SPACE);
     }
+
 }
