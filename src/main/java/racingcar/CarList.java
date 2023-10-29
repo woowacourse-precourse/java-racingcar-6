@@ -6,12 +6,11 @@ import java.util.Set;
 
 public class CarList {
 
-    private final User user;
     private final Map<String, Integer> carList;
     private int max = 0;
 
     public CarList() {
-        user = new User();
+        User user = new User();
         String[] carNameList = user.initCarList();
         carList = new HashMap<>();
 

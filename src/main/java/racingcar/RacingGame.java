@@ -16,6 +16,8 @@ public class RacingGame {
     }
 
     public void startRacingGame() {
+        sb.append("\n실행 결과\n");
+
         for (int i=0; i<count; i++) {
             for (String carName : carNameList) {
                 checkMoving(carName);
