@@ -145,7 +145,7 @@ public class GameProcess {
         return raceCarOfCurrentList.size();
     }
 
-    public Map<RaceCar, String> makeMsgOfCurrentRace() {
+    public Map<RaceCar, String> makeMapOfCurrentRace() {
         String result = "";
 
         for (RaceCar raceCar : raceCarOfCurrentList) {

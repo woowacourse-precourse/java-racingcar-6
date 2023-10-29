@@ -22,7 +22,7 @@ public class GameStart {
      * woni : ---
      */
     public void printSituationOfCarCurrentOneCycle() {
-        raceCarStringMap = gameProcess.makeMsgOfCurrentRace();
+        raceCarStringMap = gameProcess.makeMapOfCurrentRace();
 
         for (Map.Entry<RaceCar, String> entry : raceCarStringMap.entrySet()) {
             String nameOfRaceCar = entry.getKey().toString();
