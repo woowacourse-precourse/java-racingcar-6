@@ -4,10 +4,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static racingcar.ExceptionMessage.CAR_NAME_DUPLICATION;
 import static racingcar.ExceptionMessage.CAR_NAME_LENGTH_OVERED;
+import static racingcar.ExceptionMessage.INPUT_NUMBER_RANGE_MISMATCH;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class FunctionTest {
     @Test
@@ -26,7 +29,7 @@ public class FunctionTest {
     }
 
     @Test
-    void 차_이름이_길면_예외_발생() {
+    void 차_이름이_길면_예외_처리() {
         String input = "asd,asdfgh";
 
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> new Car(input));
@@ -34,10 +37,20 @@ public class FunctionTest {
     }
 
     @Test
-    void 차_이름이_중복이면_예외_발생() {
+    void 차_이름이_중복이면_예외_처리() {
         String input = "asd,asdf,asd";
 
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> new Car(input));
         assertThat(e.getMessage()).isEqualTo(CAR_NAME_DUPLICATION);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {-5, 0})
+    void 이동_횟수가_음수_혹은_0이면_예외_처리(int timesToTry) {
+        Car validCar = new Car("a,b");
+
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
+                () -> new RacingCarGameConsole(validCar, timesToTry));
+        assertThat(e.getMessage()).isEqualTo(INPUT_NUMBER_RANGE_MISMATCH);
     }
 }
