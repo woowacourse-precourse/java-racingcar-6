@@ -14,6 +14,14 @@ public class Car {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getLocation() {
+        return location;
+    }
+
     public int moves(int number){
         if(number >= THRESHOLD) location++;
         return location;
