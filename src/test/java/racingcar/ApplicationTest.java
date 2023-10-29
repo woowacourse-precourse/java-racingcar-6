@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -23,6 +24,20 @@ class ApplicationTest extends NsTest {
         assertThatThrownBy(() -> RacingCarGameInput.validateCarNames(carList))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(RacingCarGameInput.ERROR_MESSAGE_BIGGER_THAN_5CHAR);
+    }
+
+    @Test
+    void validateNumber_메소드를_사용시_숫자가_아닌_경우_예외_반환() {
+        assertThatThrownBy(() -> RacingCarGameInput.validateNumber("12ad"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(RacingCarGameInput.ERROR_MESSAGE_NOT_NUMBER);
+    }
+
+    @Test
+    void validateMoveCount_메소드를_사용시_1이상이_아닌_경우_예외_반환() {
+        assertThatThrownBy(() -> RacingCarGameInput.validateMoveCount(0))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(RacingCarGameInput.ERROR_MESSAGE_NOT_POSITIVE);
     }
 
     @Test
