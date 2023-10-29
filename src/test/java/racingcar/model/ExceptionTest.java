@@ -3,6 +3,8 @@ package racingcar.model;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.exception.car.name.LengthException.LengthExceptionMessage;
+import static racingcar.exception.cars.DuplicateException.DuplicateExceptionMessage;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.ArrayList;
@@ -13,11 +15,11 @@ import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.Application;
 import racingcar.utils.Parser;
 
-public class ExceptionTest extends NsTest {
+public class ExceptionTest {
     // 모델 생성자 테스트
     @ParameterizedTest
     @ValueSource(strings = {"a", "abc", "aca", "12345"})
-    void 자동차_이름_정상_테스트(String carName) {
+    void 자동차_이름_올바른_입력_테스트(String carName) {
         assertThatCode(() -> new Car(carName))
                 .doesNotThrowAnyException();
     }
@@ -27,7 +29,7 @@ public class ExceptionTest extends NsTest {
     void 자동차_이름_1자_이상_5자_이하가_아닌_경우(String carName) {
         assertThatThrownBy(() -> new Car(carName))
                 .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessageContaining("이름은 1자 이상 5자 이하");
+                        .hasMessageContaining(LengthExceptionMessage);
     }
 
     @Test
@@ -39,11 +41,6 @@ public class ExceptionTest extends NsTest {
                     .forEach(name -> carList.add(new Car(name)));
             new Cars(carList);
         }).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("중복된 자동차 이름이 있습니다.");
-    }
-
-    @Override
-    protected void runMain() {
-        Application.main(new String[]{});
+                .hasMessageContaining(DuplicateExceptionMessage);
     }
 }
