@@ -10,7 +10,7 @@ import java.util.List;
 
 public class CarRaceGameController {
 
-    private RaceGameService raceGameService;
+    private final RaceGameService raceGameService;
     InputView inputView = new InputView();
 
     public CarRaceGameController() {
