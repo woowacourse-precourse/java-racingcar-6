@@ -28,7 +28,7 @@ public class OutputView {
         int size = cars.getWinnersSize();
 
         if(size == 1) {
-            System.out.println(cars.getWinnersByIndex(0));
+            System.out.print(cars.getWinnersByIndex(0));
             return;
         }
 
@@ -36,6 +36,6 @@ public class OutputView {
             System.out.print(cars.getWinnersByIndex(i-1));
             System.out.print(GameMessage.OUTPUT_DIVISION.getMessage());
         }
-        System.out.println(cars.getWinnersByIndex(size-1));
+        System.out.print(cars.getWinnersByIndex(size-1));
     }
 }
