@@ -14,19 +14,19 @@ public class GameController {
         displayWinners();
     }
 
-    public void initialize(){
+    private void initialize(){
         racingCars = InputController.getCarNames();
         rounds = InputController.getRoundCount();
     }
 
-    public void initiateGame() {
+    private void initiateGame() {
         OutputView.printPlayMessage();
         IntStream.range(0, rounds).forEach(i -> {
             racingCars.play();
             OutputView.printNewLine();
         });
     }
-    public void displayWinners() {
+    private void displayWinners() {
         racingCars.showWinners();
     }
 }
