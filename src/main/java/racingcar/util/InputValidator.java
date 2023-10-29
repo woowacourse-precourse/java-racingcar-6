@@ -6,19 +6,19 @@ public final class InputValidator {
 
     public void validateInputFormat(String input) {
         if (!input.matches(CAR_NAMES_REGEX)) {
-            throw new IllegalArgumentException("올바른 입력 형식이 아닙니다.");
+            throw new IllegalArgumentException(Err.INVALID_CAR_NAMES_FORMAT.getMessage());
         }
     }
 
     public void validateNonEmpty(String input) {
         if (input.isBlank()) {
-            throw new IllegalArgumentException("입력 문자열은 빈 칸 또는 공백 문자를 포함하면 안됩니다.");
+            throw new IllegalArgumentException(Err.NON_EMPTY_STRING.getMessage());
         }
     }
 
     public void validateNumericString(String input) {
         if (!input.matches(NUMERIC_REGEX)) {
-            throw new IllegalArgumentException("1이상의 양수로 된 문자열만 입력할 수 있습니다.");
+            throw new IllegalArgumentException(Err.NUMERIC_STRING_ONLY.getMessage());
         }
     }
 }
