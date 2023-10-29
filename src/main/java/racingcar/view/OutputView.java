@@ -1,5 +1,8 @@
 package racingcar.view;
 
+import java.util.List;
+import racingcar.model.Car;
+
 public class OutputView {
 
     public static void printRaceResultMessage() {
@@ -7,15 +10,19 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
+    public static void printRaceResult(List<Car> carList) {
+        for (Car car : carList) {
+            printCarPosition(car.getName(), car.getPosition());
+        }
+        System.out.println();
+    }
+
+
     public static void printCarPosition(String carName, int position) {
         System.out.print(carName + " : ");
         for (int i = 0; i < position; i++) {
             System.out.print("-");
         }
-        System.out.println();
-    }
-
-    public static void markRaceEnd() {
         System.out.println();
     }
 

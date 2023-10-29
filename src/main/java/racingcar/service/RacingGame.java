@@ -17,7 +17,6 @@ public class RacingGame {
 
     public RacingGame() {
         raceCount = 0;
-        raceActionCount = 0;
         carList = new ArrayList<>();
         winnerList = new ArrayList<>();
     }
@@ -51,10 +50,9 @@ public class RacingGame {
 
 
     public void startRace() {
-        for (int i = 0; i < raceCount; i++, this.raceActionCount++) {
+        for (raceActionCount = 0; raceActionCount < raceCount; raceActionCount++) {
             decideCarPosition();
             sendRaceResult();
-            notifyResultEnd();
         }
     }
 
@@ -69,13 +67,7 @@ public class RacingGame {
     }
 
     private void sendRaceResult() {
-        for (Car car : carList) {
-            GameController.showRaceResult(car.getName(), car.getPosition());
-        }
-    }
-
-    private void notifyResultEnd() {
-        GameController.markRaceEnd();
+        GameController.showRaceResult(carList);
     }
 
     public void setWinnerList() {

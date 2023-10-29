@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import java.util.List;
+import racingcar.model.Car;
 import racingcar.service.RacingGame;
 import racingcar.view.InputView;
 import racingcar.service.Exception;
@@ -39,12 +41,8 @@ public class GameController {
         racingGame.startRace();
     }
 
-    public static void showRaceResult(String carName, int position) {
-        OutputView.printCarPosition(carName, position);
-    }
-
-    public static void markRaceEnd() {
-        OutputView.markRaceEnd();
+    public static void showRaceResult(List<Car> carList) {
+        OutputView.printRaceResult(carList);
     }
 
     private void showWinner() {
