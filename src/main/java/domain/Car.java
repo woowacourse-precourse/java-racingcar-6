@@ -2,7 +2,7 @@ package domain;
 
 public class Car {
     private final CarName name;
-    private int distance = 0;
+    private int score = 0;
 
     public Car(CarName name) {
         this.name = name;
@@ -12,7 +12,11 @@ public class Car {
         return name.getName();
     }
 
+    public int getScore() {
+        return score;
+    }
+
     public void move() {
-        distance++;
+        score++;
     }
 }
