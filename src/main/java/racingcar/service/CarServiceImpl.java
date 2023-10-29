@@ -9,7 +9,7 @@ import racingcar.util.ExceptionUtil;
 
 public class CarServiceImpl implements CarService {
     private final String DUPLICATE_NAME_MESSAGE = "중복된 이름은 입력할 수 없습니다.";
-    private static CarServiceImpl carServiceImpl;
+    private static CarServiceImpl carService;
     private final CarRepository carRepository;
 
     //DI를 통해 CarRepository가 구현되지 않았을때도 CarService 개발 가능, CarRepository구현체가 바뀌더라도 Service는 영향받지 않음
@@ -18,10 +18,10 @@ public class CarServiceImpl implements CarService {
     }
 
     public static CarServiceImpl getInstance(CarRepository carRepository) {
-        if (carServiceImpl == null) {
-            carServiceImpl = new CarServiceImpl(carRepository);
+        if (carService == null) {
+            carService = new CarServiceImpl(carRepository);
         }
-        return carServiceImpl;
+        return carService;
     }
 
     @Override
