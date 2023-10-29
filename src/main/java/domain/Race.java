@@ -47,10 +47,14 @@ public class Race {
     private List<Car> filterWinners(int maxPosition) {
         List<Car> winners = new ArrayList<>();
         for (Car car : cars) {
-            if (car.getPosition() == maxPosition) {
-                winners.add(car);
-            }
+            addWinnerIfPositionMatches(winners, car, maxPosition);
         }
         return winners;
+    }
+
+    private void addWinnerIfPositionMatches(List<Car> winners, Car car, int maxPosition) {
+        if (car.getPosition() == maxPosition) {
+            winners.add(car);
+        }
     }
 }
