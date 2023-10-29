@@ -1,4 +1,4 @@
-package racingcar.wrapper;
+package racingcar.model.wrapper;
 
 public class CarName {
     private final String name;

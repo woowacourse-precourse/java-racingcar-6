@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import racingcar.wrapper.CarName;
+import racingcar.model.wrapper.CarName;
 
 public class Car {
     private final CarName name;
