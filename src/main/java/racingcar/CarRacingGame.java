@@ -59,7 +59,8 @@ public class CarRacingGame {
     void setCar() throws IllegalArgumentException {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
-        Console.close();
+
+        System.out.println("1");
 
         if(!(input.contains(","))) {
             throw new IllegalArgumentException();
@@ -82,7 +83,6 @@ public class CarRacingGame {
     void setTrialInput() throws IllegalArgumentException {
         System.out.println("시도할 회수는 몇회인가요?");
         int input = Integer.parseInt(Console.readLine()); // 정수값으로 변환 안될 경우 NumberFormatException 발생
-        Console.close();
         System.out.println();
 
         if (input <= 0) {
