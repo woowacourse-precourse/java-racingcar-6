@@ -1,5 +1,8 @@
 package racingcar.model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -18,5 +21,15 @@ public class Car {
             positionDash.append("-");
         }
         return positionDash.toString();
+    }
+
+    public Map<String, String> getCarInfo() {
+        Map<String, String> carInfoMap = new HashMap<>();
+        String carPosition = positionDrawDash();
+
+        carInfoMap.put("name", name);
+        carInfoMap.put("position", carPosition);
+
+        return carInfoMap;
     }
 }
