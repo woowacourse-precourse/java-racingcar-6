@@ -11,7 +11,7 @@ public class Car {
         return Arrays.asList(inputCarName.split(","));
     }
 
-    public List<Integer> nowRacing(List<String> carNames, int tryNumber) {
+    public List<String> nowRacing(List<String> carNames, int tryNumber) {
         List<String> carMove = initializeCarMove(carNames);
 
         for (int i = 0; i < tryNumber; i++) {
@@ -21,7 +21,7 @@ public class Car {
 
         System.out.println();
 
-        return countCarMove(carMove);
+        return carMove;
     }
 
     private List<String> initializeCarMove(List<String> carNames) {
