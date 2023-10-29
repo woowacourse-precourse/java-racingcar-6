@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static racingcar.view.InputView.askCarNames;
+import static racingcar.util.Validator.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,8 +10,13 @@ public class Name {
     private List<String> names;
 
     private Name(String userInput) {
-        //validate input
-        this.names = convertStringToList(userInput);
+        validateEmpty(userInput);
+
+        List<String> splitUserInput = convertStringToList(userInput);
+        validateLength(splitUserInput);
+        validateDuplication(splitUserInput);
+
+        this.names = splitUserInput;
     }
 
     public static Name generateNames() {
