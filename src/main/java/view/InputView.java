@@ -8,10 +8,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class InputView {
-    public static final String DELIMITER = ",";
+    private static final String DELIMITER = ",";
 
     public static List<String> inputCarNames() {
-        OutputView.printInputName();
+        OutputView.printInputNameMessage();
         return NameValidator.validateName(splitWords(Console.readLine(), DELIMITER));
     }
 

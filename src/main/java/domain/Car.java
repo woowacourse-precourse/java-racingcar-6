@@ -7,7 +7,7 @@ public class Car {
     private static final int MAX_NUM = 9;
     private static final int MOVE_NUM = 4;
 
-    private final CarName name;
+    private CarName name;
     private int score = 0;
 
     public Car(CarName name) {

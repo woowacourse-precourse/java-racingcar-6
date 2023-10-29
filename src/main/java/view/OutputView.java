@@ -13,7 +13,7 @@ public class OutputView {
     private static final String REPEAT = "-";
     private static final String DELIMITER = ", ";
 
-    public static void printInputName() {
+    public static void printInputNameMessage() {
         System.out.println(INPUT_NAME_MESSAGE);
     }
 
@@ -31,7 +31,7 @@ public class OutputView {
         System.out.print(NEWLINE);
     }
 
-    public static void printWinner(List<String> winner) {
+    public static void printWinnerMessage(List<String> winner) {
         System.out.printf(WINNER_MESSAGE, String.join(DELIMITER, winner));
     }
 }

@@ -6,13 +6,12 @@ import java.util.stream.Collectors;
 
 public class NameValidator {
     private static final String COUNT_OF_NAME_ERROR_MESSAGE = "[ERROR] 두 개 이상의 이름을 입력해 주세요.";
-    private final static String DUP_ERROR_MESSAGE = "[ERROR] 자동차 이름은 중복될 수 없습니다.";
+    private static final String DUP_ERROR_MESSAGE = "[ERROR] 자동차 이름은 중복될 수 없습니다.";
     private static final String LENGTH_ERROR_MESSAGE = "[Error] 1자 이상, 5자 이하의 이름을 입력해 주세요.";
     private static final String CONTAIN_ERROR_MESSAGE = "[Error] 포함될 수 없는 문자가 포함되어 있습니다.";
     private static final int MIN_LENGTH = 1;
     private static final int MAX_LENGTH = 5;
     private static final String SPACE = " ";
-
     private static final int MIN_COUNT_OF_NAME = 2;
 
     public static List<String> validateName(List<String> nameList) {

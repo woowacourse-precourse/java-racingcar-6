@@ -19,7 +19,7 @@ public class RacingController {
             tryOnce();
         }
 
-        OutputView.printWinner(cars.findWinner());
+        OutputView.printWinnerMessage(cars.findWinner());
     }
 
     public void initCars() {
