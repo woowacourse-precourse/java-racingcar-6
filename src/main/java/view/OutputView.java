@@ -18,7 +18,7 @@ public class OutputView {
     }
 
     public void printCarsMove(List<Map.Entry<String, String>> carNameAndPosList) {
-        for(Map.Entry<String, String> car : carNameAndPosList) {
+        for (Map.Entry<String, String> car : carNameAndPosList) {
             String name = car.getKey();
             String position = car.getValue();
             System.out.println(name + " : " + position);

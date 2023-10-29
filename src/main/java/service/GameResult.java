@@ -12,12 +12,12 @@ public class GameResult {
     public ArrayList<String> winnersList = new ArrayList<>();
 
     public void chkWinners() {
-        Controller.userInput.carIdxNamePosList.sort(Comparator.comparing(e -> e.getValue().length(),
+        Controller.gameManager.carIdxNamePosList.sort(Comparator.comparing(e -> e.getValue().length(),
                 Comparator.reverseOrder()));
 
-        int longestMove = Controller.userInput.carIdxNamePosList.get(0).getValue().length();
+        int longestMove = Controller.gameManager.carIdxNamePosList.get(0).getValue().length();
 
-        for (Map.Entry<String, String> car : Controller.userInput.carIdxNamePosList) {
+        for (Map.Entry<String, String> car : Controller.gameManager.carIdxNamePosList) {
             String name = car.getKey();
             String position = car.getValue();
 

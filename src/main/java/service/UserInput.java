@@ -1,25 +1,19 @@
 package service;
 
-import java.util.AbstractMap;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.Arrays;
 
 public class UserInput {
 
-    public List<Map.Entry<String, String>> carIdxNamePosList = new ArrayList<>();
+    public ArrayList<String> carsName = new ArrayList<>();
     public int carCount;
     public int playTime;
 
     public void getCarsName(String inputString) {
-        String[] carsName = inputString.split(",");
+        String[] carsNameInput = inputString.split(",");
 
-        for (String name : carsName) {
-            Map.Entry<String, String> newCar = new AbstractMap.SimpleEntry<>(name,"");
-            this.carIdxNamePosList.add(newCar);
-        }
-
-        this.carCount = this.carIdxNamePosList.size();
+        this.carsName.addAll(Arrays.asList(carsNameInput));
+        this.carCount = this.carsName.size();
     }
 
     public void getPlayTime(int inputNum) {

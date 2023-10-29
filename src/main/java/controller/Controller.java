@@ -33,9 +33,10 @@ public class Controller {
 
     public void startGame() {
         outputView.printStartGame();
+        gameManager.makeCarIdxNamePosList();
         for (int i = 0; i < userInput.playTime; i++) {
             moveCars();
-            outputView.printCarsMove(userInput.carIdxNamePosList);
+            outputView.printCarsMove(gameManager.carIdxNamePosList);
         }
     }
 

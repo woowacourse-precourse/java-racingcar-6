@@ -41,7 +41,7 @@ public class Validator {
 
         int inputNum = Integer.parseInt(inputString);
 
-        if(inputNum <= 0) {
+        if (inputNum <= 0) {
             throw new IllegalArgumentException("입력은 0보다 커야 합니다.");
         }
     }
