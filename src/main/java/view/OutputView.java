@@ -16,7 +16,7 @@ public class OutputView {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public void informBeforeResult() {
+    public void informBeforeShowMove() {
         System.out.println("실행 결과");
     }
 
