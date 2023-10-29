@@ -3,6 +3,7 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import java.util.ArrayList;
+import racingcar.view.View;
 
 public class Model {
     public List<Car> MakeCarList(String[] namesOfCars){
@@ -27,10 +28,12 @@ public class Model {
     }
 
     public void racing(List<Car> carList, int times){
+        View view = new View();
+
         for(int i = 0 ; i < times ; i++) {
             racingForOneTurn(carList);
 
-
+            view.printResult(carList);
         }
     }
 }
