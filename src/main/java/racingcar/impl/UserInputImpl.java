@@ -12,12 +12,8 @@ public class UserInputImpl implements UserInput {
     }
 
     @Override
-    public int getUserInputAttemptNum() {
+    public String getUserInputAttemptNum() {
         System.out.println("시도할 회수는 몇회인가요?");
-        String attemptNum = Console.readLine();
-        InputException.validateAttemptNum(attemptNum);
-        return Integer.parseInt(attemptNum);
+        return Console.readLine();
     }
-
-
  }

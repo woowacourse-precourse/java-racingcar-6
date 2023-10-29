@@ -22,7 +22,7 @@ public class InputException extends RuntimeException{
        }
     }
 
-    public static void validateAttemptNum(String attemptNum) {
+    public static void validateAttemptNum(String attemptNum) throws IllegalArgumentException {
         try {
             int num = Integer.parseInt(attemptNum);
             if(num < 1 || num >= Integer.MAX_VALUE - 1) {
