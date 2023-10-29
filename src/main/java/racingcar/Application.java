@@ -20,7 +20,7 @@ public class Application {
         return Arrays.asList(userInput.split(","));
     }
 
-    private static int checkPositiveNumber(String userInput){
+    private static int checkPositiveNumber(String userInput) {
         int roundCount;
 
         try {
@@ -35,6 +35,19 @@ public class Application {
         return roundCount;
     }
 
+    private static int calculateMaxDistance(Car car) {
+        int maxDistance = 0;
+
+        for (int i = 0; i < car.names.size(); i++) {
+
+            if (maxDistance <= car.movedCount.get(i).length()) {
+                maxDistance = car.movedCount.get(i).length();
+            }
+
+        }
+
+        return maxDistance;
+    }
 
     public static void main(String[] args) {
         // TODO: 프로그램 구 현
@@ -45,24 +58,15 @@ public class Application {
         car.initializeMovedCount();
         car.move(Application.checkPositiveNumber(getInput("시도할 회수는 몇회인가요?")));
 
-
         // 4. 우승자 출력
-        int max = 0;
-
-        for (int i = 0; i < car.names.size(); i++) {
-
-            if (max <= car.movedCount.get(i).length()) {
-                max = car.movedCount.get(i).length();
-            }
-
-        }
+        int maxDistance = Application.calculateMaxDistance(car);
 
         System.out.print("최종 우승자 : ");
         int count = 0;
 
         for (int i = 0; i < car.names.size(); i++) {
 
-            if (max == car.movedCount.get(i).length()) {
+            if (maxDistance == car.movedCount.get(i).length()) {
 
                 if (count++ != 0) {
                     System.out.print(", ");
