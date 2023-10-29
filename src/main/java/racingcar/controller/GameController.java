@@ -88,7 +88,7 @@ public class GameController {
         for (int roundIndex = 0; roundIndex < roundCount; roundIndex++) {
             updateCarPosition();
         }
-        
+        getWinner();
     }
 
     public void updateCarPosition() {
@@ -108,10 +108,31 @@ public class GameController {
     public void showGameStatus() {
         for (int i = 0; i < carCount; i++) {
             System.out.println(builder[i].toString());
-//            System.out.println(car[i].getPosition());
         }
         System.out.println();
     }
 
+    public void getWinner() {
+        List<String> winner = new ArrayList<>();
+        int max =0;
+        for (int i = 0; i < carCount; i++) {
+            if(car[i].getPosition() > max) {
+                winner.clear();
+                winner.add(car[i].getCarName());
+                max = car[i].getPosition();
+            }else if(car[i].getPosition() == max) {
+                winner.add(car[i].getCarName());
+            }
+        }
+        System.out.print("최종 우승자 : ");
+        showWinner(winner);
+    }
+
+    public void showWinner(List<String> winner) {
+        String result = winner.stream()
+                .collect(Collectors.joining(","));
+
+        System.out.print(result);
+    }
 
 }
