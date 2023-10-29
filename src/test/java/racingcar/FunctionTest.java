@@ -1,6 +1,9 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static racingcar.ExceptionMessage.CAR_NAME_DUPLICATION;
+import static racingcar.ExceptionMessage.CAR_NAME_LENGTH_OVERED;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,5 +23,21 @@ public class FunctionTest {
         }
 
         assertThat(output).isEqualTo(expected);
+    }
+
+    @Test
+    void 차_이름이_길면_예외_발생() {
+        String input = "asd,asdfgh";
+
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> new Car(input));
+        assertThat(e.getMessage()).isEqualTo(CAR_NAME_LENGTH_OVERED);
+    }
+
+    @Test
+    void 차_이름이_중복이면_예외_발생() {
+        String input = "asd,asdf,asd";
+
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> new Car(input));
+        assertThat(e.getMessage()).isEqualTo(CAR_NAME_DUPLICATION);
     }
 }
