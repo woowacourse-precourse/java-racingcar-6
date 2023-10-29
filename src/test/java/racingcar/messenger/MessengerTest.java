@@ -31,4 +31,15 @@ public class MessengerTest {
         Assertions.assertEquals(string, expectedString);
     }
 
+    @Test
+    @DisplayName("실행 결과 메시지를 올바르게 반환한다.")
+    void requestPlayResultMessage() {
+        // when
+        String expectedString = "\n실행결과";
+        String string = messenger.getPlayResultMessage();
+
+        // then
+        Assertions.assertEquals(string, expectedString);
+    }
+
 }

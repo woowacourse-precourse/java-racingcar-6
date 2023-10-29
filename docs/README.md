@@ -101,8 +101,8 @@
     - `CAR_NAMES_DELIMITER` : 차 이름들 구분자
 - [x] 시도할 회수 요구 메시지 반환
     - `REQUEST_ROUND_COUNT` : `시도할 회수는 몇회인가요?`
-- [ ] 실행 결과 메시지 반환
-    - `PLAY_RESULT` : `\n실행결과`
+- [x] 실행 결과 메시지 반환
+    - `PLAY_RESULT_MESSAGE` : `\n실행결과`
 - [ ] 라운드 결과 반환
     - `CAR_INFORMATION_FORMAT` : 차 정보 메시지 : `%s : %s`
     - `CAR_POSITION_PRESENTOR` : 차 위치 표현자 : `-`

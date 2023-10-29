@@ -25,4 +25,8 @@ public class Messenger {
         return REQUEST_ROUND_COUNT;
     }
 
+    public String getPlayResultMessage() {
+        return PLAY_RESULT_MESSAGE;
+    }
+
 }
