@@ -2,8 +2,6 @@ package racingcar.domain;
 
 import java.util.List;
 
-import static racingcar.Input.InputView.trialNumber;
-
 /* Car 전부 관리하는 클래스
 * List<Car> 을 관리
 *  최대 5개까지
