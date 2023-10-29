@@ -3,7 +3,8 @@ package racingcar.domain;
 public class Car {
 
     private static final int MAX_NAME_LENGTH = 5;
-    public static final int MOVE_CONDITION = 4;
+    private static final int START_POSITION = 0;
+    private static final int MOVE_CONDITION = 4;
     private static final String NAME_BLANK_ERROR_MESSAGE = "이름이 존재하지 않습니다.";
     private static final String NAME_LENGTH_ERROR_MESSAGE = "이름은 5자 이하만 가능합니다.";
     private static final String NAME_CONTAIN_BLANK_ERROR_MESSAGE = "이름에 공백이 존재하면 안됩니다.";
@@ -14,7 +15,7 @@ public class Car {
     public Car(final String name) {
         validate(name);
         this.name = name;
-        this.position = 0;
+        this.position = START_POSITION;
     }
 
     private void validate(final String name) {
