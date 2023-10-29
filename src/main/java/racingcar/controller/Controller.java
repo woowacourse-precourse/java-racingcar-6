@@ -7,12 +7,14 @@ import static racingcar.utils.validator.GetNameValidator.validateStringNames;
 import static racingcar.utils.validator.GetTrialNumberValidator.validateNumberRange;
 import static racingcar.view.InputView.inputCarsName;
 import static racingcar.view.InputView.inputTrialNumber;
+import static racingcar.view.OutView.printResultEachTrack;
+import static racingcar.view.OutView.printResultMessage;
+import static racingcar.view.OutView.printResultWinner;
 
 import java.util.ArrayList;
 import racingcar.dto.CarDto;
 import racingcar.dto.CarsDto;
 import racingcar.service.Service;
-import racingcar.view.OutView;
 
 public class Controller {
 
@@ -52,6 +54,7 @@ public class Controller {
 
     public void startGame() {
         int trialNumber = getTrialNumber();
+        printResultMessage();
         while (trialNumber-- > 0) {
             runTrack();
             printEachTrackResult();
@@ -64,7 +67,7 @@ public class Controller {
 
     private void printEachTrackResult() {
         CarsDto carsDto = service.getResultOfOneTrack();
-        OutView.printResultEachTrack(carsDto);
+        printResultEachTrack(carsDto);
     }
 
 
@@ -76,6 +79,6 @@ public class Controller {
     }
 
     public void printFinalResult() {
-      OutView.printResultWinner(service.getWinner());
+      printResultWinner(service.getWinner());
     }
 }
