@@ -9,12 +9,10 @@ import racingcar.validator.RoundCountValidator;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringJoiner;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
-public class GameController {
+public class RacingController {
 
     private Game game;
     private Car[] car;
