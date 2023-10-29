@@ -6,7 +6,6 @@ import java.util.Optional;
 import racingcar.domain.entity.RacingCarGame;
 
 public class RacingCarGameRepository {
-    private static Long id;
     private static final Map<Long, RacingCarGame> store = new HashMap<>();
 
     public Optional<RacingCarGame> save(RacingCarGame racingCarGame) {
@@ -17,5 +16,13 @@ public class RacingCarGameRepository {
     public Optional<RacingCarGame> findById(Long id) {
         RacingCarGame racingCarGame = store.get(id);
         return Optional.ofNullable(racingCarGame);
+    }
+
+    public void update(Long id, RacingCarGame racingCarGame) {
+        store.put(id, racingCarGame);
+    }
+
+    public void clearAll() {
+        store.clear();
     }
 }

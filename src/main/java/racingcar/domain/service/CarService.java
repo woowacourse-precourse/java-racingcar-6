@@ -16,17 +16,19 @@ public class CarService {
         this.carRepository = carRepository;
     }
 
-    public void move(String carName, int number) {
+    public Car move(String carName, int number) {
         Car findCar = carRepository.findByCarName(carName)
                 .orElseThrow(() -> new CarRepositoryException(CarRepositoryException.NOT_FOUND));
 
         if (isForward(number)) {
-            // 전진
             int distance = findCar.getDistance();
             findCar.changeDistance(distance + 1);
 
             carRepository.update(findCar);
+            return findCar;
         }
+
+        return findCar;
     }
 
     private boolean isForward(int number) {

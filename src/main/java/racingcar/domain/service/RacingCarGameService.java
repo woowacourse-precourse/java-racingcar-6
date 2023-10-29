@@ -4,8 +4,9 @@ import java.util.List;
 import racingcar.domain.entity.Car;
 import racingcar.domain.entity.RacingCarGame;
 import racingcar.domain.repository.RacingCarGameRepository;
+import racingcar.exception.RacingCarGameRepositoryException;
 import racingcar.exception.validtaion.RacingCarGameValidationHandler;
-import racingcar.input.RacingCarGameInput;
+import racingcar.input.RegisterRacingCarGameInput;
 
 public class RacingCarGameService {
 
@@ -15,7 +16,7 @@ public class RacingCarGameService {
         this.racingCarGameRepository = racingCarGameRepository;
     }
 
-    public void registerCarAndGameCounter(RacingCarGameInput input) {
+    public void registerCarAndGameCounter(RegisterRacingCarGameInput input) {
         validationGameCount(input.getGameCount());
         validationCars(input.getCars());
 
@@ -32,5 +33,16 @@ public class RacingCarGameService {
 
     private void validationCars(List<Car> cars) {
         RacingCarGameValidationHandler.validationCarsEmpty(cars);
+    }
+
+    public RacingCarGame computeCarsDistanceAndGameCount(Long id, List<Car> cars) {
+        RacingCarGame findRacingCarGame = racingCarGameRepository.findById(id)
+                .orElseThrow(() -> new RacingCarGameRepositoryException(RacingCarGameRepositoryException.NOT_FOUND));
+
+        findRacingCarGame.changeCars(cars);
+        findRacingCarGame.changeGameCount(findRacingCarGame.getGameCount() - 1L);
+        racingCarGameRepository.update(findRacingCarGame.getId(), findRacingCarGame);
+
+        return findRacingCarGame;
     }
 }

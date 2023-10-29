@@ -3,7 +3,8 @@ package racingcar.domain.entity;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import racingcar.input.RacingCarGameInput;
+import racingcar.exception.RacingCarGameException;
+import racingcar.input.RegisterRacingCarGameInput;
 
 public class RacingCarGame extends Game {
     private List<String> winnerNames = new ArrayList<>();
@@ -13,7 +14,7 @@ public class RacingCarGame extends Game {
     private RacingCarGame() {
     }
 
-    public static RacingCarGame createWithoutWinnerNames(RacingCarGameInput input) {
+    public static RacingCarGame createWithoutWinnerNames(RegisterRacingCarGameInput input) {
         RacingCarGame racingCarGame = new RacingCarGame();
         racingCarGame.init(input.getRacingGameId(), input.getGameName());
         racingCarGame.gameCount = Long.parseLong(input.getGameCount());
@@ -32,5 +33,20 @@ public class RacingCarGame extends Game {
 
     public List<Car> getCars() {
         return Collections.unmodifiableList(cars);
+    }
+
+    public void changeCars(List<Car> cars) {
+        this.cars = cars;
+    }
+
+    public void changeGameCount(Long gameCount) {
+        this.gameCount = gameCount;
+        if (gameCount < 0) {
+            throw new RacingCarGameException(RacingCarGameException.NON_NEGATIVE_GAME_COUNT_RESTRICTION);
+        }
+    }
+
+    public void changeWinnerNames(List<String> winnerNames) {
+        this.winnerNames = winnerNames;
     }
 }
