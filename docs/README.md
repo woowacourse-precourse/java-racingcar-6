@@ -107,7 +107,7 @@ jun : ---
 - ### <strong>[ForwardCount]</strong>
   1. [X] <인스턴스> 전진 횟수
   2. [X] <기능> 전진 횟수 증가
-  3. [ ] <기능> 전진 횟수 출력 메시지 반환
+  3. [X] <기능> 전진 횟수 출력 메시지 반환
 
 - ### <strong>[Name]</strong>
   1. [ ] <인스턴스> 이름
@@ -159,5 +159,5 @@ jun : ---
   1. [X] 잘못된 입력 시 사용되는 출력 문자열
 
 - ### <strong>[GameConstant]</strong>
-  1. [ ] True/False
-  2. [ ] 이름 길이의 최대 값
+  1. [X] True/False
+  2. [X] 이름 길이의 최대 값

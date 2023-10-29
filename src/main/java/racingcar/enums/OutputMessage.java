@@ -7,7 +7,7 @@ public enum OutputMessage {
     PROGRESS_BAR_OF_CAR_FORWARD("-"),
     WINNER_OF_THIS_GAME_FORMAT("최종 우승자 : %s");
 
-    private String message;
+    private final String message;
 
     OutputMessage (String message) {
         this.message = message;
