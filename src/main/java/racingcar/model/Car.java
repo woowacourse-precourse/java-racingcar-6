@@ -12,4 +12,18 @@ public class Car {
     public String getName(){
         return name;
     }
+
+    public Integer getPosition(){
+        return position;
+    }
+
+    public void moveForward(){
+        this.position++;
+    }
+
+    public void printPosition(){
+        for(int i = 0; i<position; i++){
+            System.out.print("-");
+        }
+    }
 }

@@ -23,9 +23,23 @@ public class Game {
         }
     }
 
+    public boolean moveForwardAttempt(){
+        return Randoms.pickNumberInRange(0,9) >= FORWARD_THRESHOLD ;
+    }
+
+    public void moveForwardAttemptCars(){
+        for(Car car: cars){
+            if(moveForwardAttempt()){
+                car.moveForward();
+            }
+        }
+    }
+
     public void printCars(){
         for(Car car: cars){
-            System.out.print(car.getName()+",");
+            System.out.print(car.getName()+" : ");
+            car.printPosition();
+            System.out.println();
         }
     }
 }
