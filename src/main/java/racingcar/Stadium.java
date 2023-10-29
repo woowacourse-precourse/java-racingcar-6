@@ -1,6 +1,7 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
+import racingcar.IO.ConsoleInputOutputHelper;
+import racingcar.IO.InputOutputHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,13 +9,17 @@ import java.util.List;
 public class Stadium {
     private final List<Car> cars = new ArrayList<>();
     private int tryCount;
+    private final InputOutputHelper ioHelper;
+
 
     public Stadium() {
+         ioHelper = Config.getSystemIOHelper();
     }
 
     public String inputCars() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        return Console.readLine();
+        InputOutputHelper ioHelper = new ConsoleInputOutputHelper();
+        ioHelper.output("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
+        return ioHelper.input();
     }
 
     public void saveInputCars(String inputCars) {
@@ -28,9 +33,9 @@ public class Stadium {
     }
 
     public String inputTryCount() {
-        System.out.println("시도할 회수는 몇회인가요?");
-        String input = Console.readLine();
-        System.out.println();
+        ioHelper.output("시도할 회수는 몇회인가요?\n");
+        String input = ioHelper.input();
+        ioHelper.output("\n");
         return input;
     }
 

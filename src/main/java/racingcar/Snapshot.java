@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.IO.InputOutputHelper;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
@@ -8,6 +10,7 @@ import java.util.Map;
 
 public class Snapshot {
     private final List<Map<String, Integer>> snapshots;
+    private final InputOutputHelper ioHelper;
 
     public Snapshot(int tryCount) {
         this.snapshots = new ArrayList<>(tryCount + 1);
@@ -15,6 +18,7 @@ public class Snapshot {
         for(int i=1; i<=tryCount; i++) {
             this.snapshots.add(i, new LinkedHashMap<>());
         }
+        ioHelper = Config.getSystemIOHelper();
     }
 
     public String printSnapshot(int order) {
@@ -26,15 +30,14 @@ public class Snapshot {
         StringBuilder sb = new StringBuilder();
         if (snapshot.keySet().size() == 0) {
             sb.append("no snapshot\n");
-            System.out.print(sb);
+            ioHelper.output(sb.toString());
             return sb.toString();
         }
         for (String carName : snapshot.keySet()) {
             sb.append(String.format("%s : %s\n", carName, numberToHyphen(snapshot.get(carName))));
         }
         sb.append("\n");
-        System.out.print(sb);
-        return sb.toString();
+        return ioHelper.output(sb.toString());
     }
 
     private String numberToHyphen(int number){
@@ -42,11 +45,8 @@ public class Snapshot {
     }
 
     public String printWinner(int order){
-        StringBuilder sb = new StringBuilder();
-        sb.append("최종 우승자 : ");
-        sb.append(findWinner(order));
-        System.out.print(sb);
-        return sb.toString();
+        String winnerResult = "최종 우승자 : " + findWinner(order);
+        return ioHelper.output(winnerResult);
     }
 
     private String findWinner(int order){
