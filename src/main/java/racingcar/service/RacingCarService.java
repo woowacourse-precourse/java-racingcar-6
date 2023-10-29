@@ -32,6 +32,7 @@ public class RacingCarService {
     }
 
     public List<RunningCarDto> rushCars() {
+        tryNumber--;
         List<Car> carList = cars.rushCars();
         return carList.stream()
                 .map(DtoConverter::toRunningCarDto)
