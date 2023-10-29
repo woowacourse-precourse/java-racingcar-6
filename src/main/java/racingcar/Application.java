@@ -8,7 +8,26 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        int tries;
+        int highestScore;
+        String[] carNames = validateCarName();
+        List<Car> cars = new ArrayList<>();
 
+        // String[]로 되어 있는 차 이름들을
+        // Car클래스 안에 메소드들을 구현하고 사용하기 위해 List<Car>로 변환
+        for (String name : carNames) {
+            cars.add(new Car(name));
+        }
+
+        System.out.println("시도할 횟수는 몇회인가요?");
+        tries = validateAndParseTry();
+
+        runRace(cars, tries);
+
+        highestScore = setHighestScore(cars);
+
+        printWinner(cars,highestScore);
     }
 
     /**
