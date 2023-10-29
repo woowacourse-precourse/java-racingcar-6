@@ -15,11 +15,24 @@ public class Race {
 
     public void start() {
         setCarInstance();
+        tryNRound(tryCount);
     }
 
     private void setCarInstance() {
         for (String carName : carNameList) {
             carList.add(new Car(carName));
+        }
+    }
+
+    private void tryNRound(int tryCount) {
+        for (int i = 0; i < tryCount; i++) {
+            tryOneRound();
+        }
+    }
+
+    private void tryOneRound() {
+        for (Car car : carList) {
+            car.goOrStop();
         }
     }
 }
