@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Compare {
-    public int saveMaxPosition(List<Integer> position) {
+    public static int saveMaxPosition(List<Integer> position) {
         int max = 0;
         for (int i = 0; i < position.size(); i++) {
             if (max < position.get(i)) {
@@ -13,7 +13,7 @@ public class Compare {
         }
         return max;
     }
-    public int findHowManyMax(List<Integer> position) {
+    public static int findHowManyMax(List<Integer> position) {
         int max = saveMaxPosition(position);
         int count = 0;
         for (int i = 0; i < position.size(); i++) {
@@ -23,7 +23,7 @@ public class Compare {
         }
         return count;
     }
-    public List<Integer> findMaxIndex(List<Integer> position) {
+    public static List<Integer> findMaxIndex(List<Integer> position) {
         int max = saveMaxPosition(position);
         List<Integer> index = new ArrayList<>();
         for (int i = 0; i < position.size(); i++) {

@@ -46,4 +46,20 @@ public class Race {
         }
         return position;
     }
+    public List<Integer> findWinnerIndex() {
+         Compare compare = new Compare();
+         List<Integer> index = new ArrayList<>();
+         index = compare.findMaxIndex(savePositionInList());
+         return index;
+    }
+    public void findWinnerName() {
+        Compare compare = new Compare();
+        List<Integer> index = findWinnerIndex();
+        List<String> name = new ArrayList<>();
+        int maxCount = compare.findHowManyMax(savePositionInList());
+        for (int i = 0; i < maxCount; i++) {
+            name.add(cars.get(index.get(i)).getName());
+        }
+        System.out.println(name.toString());
+    }
 }
