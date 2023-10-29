@@ -5,7 +5,9 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.StringJoiner;
 import java.util.stream.Collectors;
+import org.junit.platform.commons.util.StringUtils;
 
 public class RacingApp {
 
@@ -18,25 +20,56 @@ public class RacingApp {
         getExecuteCount();
 
         play();
-
+        printRacingResult();
     }
 
     private void play() {
         System.out.println("실행 결과");
         for (int i = 0; i < executeCount; i++) {
             executeOneStep();
+            printRacingCarsCurrentStatus();
         }
     }
 
     private void executeOneStep() {
         racingCarList.forEach(racingCar -> {
-            int number = Randoms.pickNumberInRange(0,9);
-            if(number >= 4){
+            int number = Randoms.pickNumberInRange(0, 9);
+            if (number >= 4) {
                 racingCar.moveOneBlock();
             }
         });
     }
 
+    private void printRacingCarsCurrentStatus() {
+        racingCarList.forEach(racingCar -> {
+            System.out.print(racingCar.getName() + " : " );
+            for (int i = 0; i < racingCar.getCount(); i++) {
+                System.out.print("-");
+            }
+        });
+        System.out.println("\n");
+    }
+
+    private void printRacingResult() {
+        int maxCount = racingCarList.stream()
+                .mapToInt(RacingCar::getCount)
+                .max()
+                .orElse(0);
+
+        List<String> winnerList = racingCarList.stream()
+                .filter(racingCar -> racingCar.getCount() == maxCount)
+                .map(RacingCar::getName)
+                .toList();
+
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < winnerList.size(); i++) {
+            System.out.print(winnerList.get(i));
+            if (i != winnerList.size() - 1) {
+                System.out.print(", ");
+            }
+
+        }
+    }
 
     private void getExecuteCount() {
         System.out.println("시도할 회수는 몇회인가요?");
