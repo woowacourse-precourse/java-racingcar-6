@@ -17,6 +17,13 @@ public class InputValidator {
 
     private static final int MAX_LENGTH = 5;
 
+    public static void checkCarNames(List<String> carNames, String carInput) {
+        checkNameLength(carNames);
+        checkNameIsDuplicated(carNames);
+        checkNameIsDuplicated(carNames);
+        checkSeparator(carInput);
+    }
+
     public static void checkNameLength(List<String> carNames) {
         if (!carNames.stream().allMatch(carName -> carName.length() <= MAX_LENGTH)) {
             throw new IllegalArgumentException(INVALID_CAR_LENGTH);
