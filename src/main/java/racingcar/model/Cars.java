@@ -2,6 +2,8 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.exception.NullException;
+import racingcar.exception.cars.DuplicateException;
 
 public class Cars {
     private List<Car> carList;
@@ -36,7 +38,7 @@ public class Cars {
 
     private void validateNull(List<Car> carList) {
         if (carList == null) {
-            throw new IllegalArgumentException("null이 입력되었습니다.");
+            throw new NullException();
         }
     }
 
@@ -48,7 +50,7 @@ public class Cars {
         if (carNameList.stream()
                 .distinct()
                 .count() != carNameList.size()) {
-            throw new IllegalArgumentException("중복된 이름이 있습니다.");
+            throw new DuplicateException();
         }
     }
 }

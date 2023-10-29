@@ -4,6 +4,9 @@ import static racingcar.constant.RacingGameConstants.CAR_NAME_LENGTH_MAX;
 import static racingcar.constant.RacingGameConstants.CAR_NAME_LENGTH_MIN;
 
 import java.util.List;
+import racingcar.exception.cars.DuplicateException;
+import racingcar.exception.car.name.LengthException;
+import racingcar.exception.numberOfRounds.NonPositiveNumberException;
 import racingcar.utils.Parser;
 
 public class InputValidator {
@@ -24,8 +27,7 @@ public class InputValidator {
 
     private static void validateEachCarNameLength(String carName) {
         if (carName.length() < CAR_NAME_LENGTH_MIN || carName.length() > CAR_NAME_LENGTH_MAX) {
-            throw new IllegalArgumentException(
-                    String.format("이름은 %d자 이상 %d자 이하여야 합니다.", CAR_NAME_LENGTH_MIN, CAR_NAME_LENGTH_MAX));
+            throw new LengthException();
         }
     }
 
@@ -34,7 +36,7 @@ public class InputValidator {
         if (carNameList.stream()
                 .distinct()
                 .count() != carNameList.size()) {
-            throw new IllegalArgumentException("중복된 이름이 있습니다.");
+            throw new DuplicateException();
         }
     }
 
@@ -45,7 +47,7 @@ public class InputValidator {
 
     private static void validatePositiveInteger(String userInput) {
         if (!userInput.matches("[1-9][0-9]*")) {
-            throw new IllegalArgumentException("양수를 입력하지 않았습니다.");
+            throw new NonPositiveNumberException();
         }
     }
 }

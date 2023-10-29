@@ -4,6 +4,8 @@ import static racingcar.constant.RacingGameConstants.CAR_NAME_LENGTH_MAX;
 import static racingcar.constant.RacingGameConstants.CAR_NAME_LENGTH_MIN;
 
 import racingcar.constant.RacingGameConstants;
+import racingcar.exception.NullException;
+import racingcar.exception.car.name.LengthException;
 
 public class Car {
     private String name;
@@ -30,14 +32,13 @@ public class Car {
 
     private void validateNull(String name) {
         if (name == null) {
-            throw new IllegalArgumentException("null이 입력되었습니다.");
+            throw new NullException();
         }
     }
 
     private void validateNameLength(String name) {
-        if (name.isEmpty() || name.length() > CAR_NAME_LENGTH_MAX) {
-            throw new IllegalArgumentException(
-                    String.format("이름은 %d자 이상 %d자 이하여야 합니다.", CAR_NAME_LENGTH_MIN, CAR_NAME_LENGTH_MAX));
+        if (name.length() < CAR_NAME_LENGTH_MIN || name.length() > CAR_NAME_LENGTH_MAX) {
+            throw new LengthException();
         }
     }
 
