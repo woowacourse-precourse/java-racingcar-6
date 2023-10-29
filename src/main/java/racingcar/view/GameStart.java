@@ -43,10 +43,9 @@ public class GameStart {
 
     /**
      * 게임 진행 상황을 보여준다.
+     * 시도할 회수만큼 게임 진행 상황을 출력한다.
      */
     public void showPrsocessOfRaceGame() {
-//        시도할 회수만큼 게임 진행 상황을 출력한다.
-//        printSituationOfCarCurrent 실행
         Integer cntTryRace = gameProcess.getCntTryRace();
         for (int i = 0; i < cntTryRace; i++) {
             gameProcess.moveOfRaceCar();
