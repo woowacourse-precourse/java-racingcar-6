@@ -28,39 +28,50 @@ jun : -----
 ## 기능 목록
 
 ### InputView 
-- [x] 경주할 자동차 이름음 입력한다.
+- [x] 경주할 자동차 이름을 입력한다. -  inputCarNames()
   - [x] 이름은 쉼표(,) 기준으로 구분한다.
+- [x] 시도 횟수를 입력한다. - inputAttemptCount()
 
 ### InputValidator
-- [x] 쉼표(,)를 기준으로 이름을 나뉘었는지 검증한다.
+- [x] 쉼표(,)를 기준으로 이름을 나뉘었는지 검증한다. - validateDivisionCarNames()
+- [x] 숫자로 입력했는지 검증한다. - validateNumeric()
 
 ### InputMapper
-- [x] 자동차 입력을 받으면 Cars를 반환한다.
-- [x] 시도할 횟수를 받으면 숫자형태로 반환한다.
+- [x] 자동차 입력을 받으면 Cars를 반환한다. - toCars
+- [x] 시도할 횟수를 받으면 숫자형태로 반환한다. - toInt
 
 ### InputManager
-- [x] Controller에서 사용자의 입력을 관리한다.
+- [x] Controller에서 자동차들 이름 입력을 관리한다. - inputCarNames()
+- [x] 시도할 횟수 입력을 관리한다 - inputAttemptCount()
 
 ### OutputView
-- [ ] 게임 진행 메시지를 출력한다.
-- [ ] 실형 결과를 출력한다.
-- [ ] 최종 우승자를 출력한다.
+- [x] 게임 진행 메시지를 출력한다.
+- [x] 실행 결과를 출력한다. - printExecutionResultMessage()
+- [x] 최종 우승자를 출력한다. - printFinalWinners()
 
-### GameManager 
-- [ ] 자동차 게임에서의 최종 우승자를 구한다.
-  - [ ] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
-
-### Cars
-- [x] 자동차들을 저장한다.
-  - [x] 자동차들의 최소 개수는 2개이다.
 
 ### Car
-- [x] 자동차 이름과 이동 위치를 저장한다.
-  - [x] 자동차 이름은 5자 이하만 가능하다.
+- [x] 자동차 이름과 이동 위치를 저장한다. - Car()
+  - [x] 자동차 이름은 5자 이하만 가능하다. - validateNameLength()
+- [x] 자동차 위치를 움직인다. - movePosition()
+- [x] 자동차의 현재 위치 상태를 알 수 있다. - statusCarPosition()
+
+### Cars
+- [x] 자동차들을 저장한다. - Cars()
+  - [x] 자동차들의 최소 개수는 2개이다. - validateCarsCount()
+- [x] 자동차들의 현재 위치를 알 수 있다. - statusCarsPosition()
+- [x] 자동차들의 최대 위치를 찾을 수 있다. - findMaxCarPosition()
+- [x] 자동차들의 최종 우승자를 알 수 있다. - getFinalWinners()
+  - [x] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
 
 ### MovingCondition
-- [ ] 0에서 9사이에서 무작위 값을 생성한다.
-- [ ] 무작위 값이 4이상인지 확인한다.
+- [x] 자동차가 움직일 수 있는 조건을 판별한다. - canMove()
+  - [x] 0~9사이의 무작위 수 생성
+  - [x] 4 이상인지 판별
+
+### RacingCarController
+- [x] 게임을 실행한다. - run()
+- [x] 레이싱을 시작한다. - startRacing()
 
 ### RacingGameController
 - [ ] 게임을 시작한다.
