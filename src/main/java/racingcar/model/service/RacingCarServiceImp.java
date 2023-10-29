@@ -7,11 +7,8 @@ import java.util.List;
 import racingcar.model.domain.Car;
 import racingcar.model.domain.Game;
 import racingcar.utils.Generator;
-import racingcar.utils.GeneratorImp;
 
 public class RacingCarServiceImp implements RacingCarService {
-    private final Generator generator = new GeneratorImp();
-
     @Override
     public void moveCars(Game game) {
         for (Car car : game.getCars()) {
@@ -28,7 +25,7 @@ public class RacingCarServiceImp implements RacingCarService {
         return getMaxLocationCars(game.getCars(), maxLocation);
     }
 
-    private List<String> getMaxLocationCars(List<Car> cars, int maxLocation) {
+    private static List<String> getMaxLocationCars(List<Car> cars, int maxLocation) {
         List<String> carNames = new ArrayList<>();
         for (Car car : cars) {
             if (car.getLocation() == maxLocation) {
@@ -38,7 +35,7 @@ public class RacingCarServiceImp implements RacingCarService {
         return carNames;
     }
 
-    private int getMaxLocation(List<Car> cars) {
+    private static int getMaxLocation(List<Car> cars) {
         int max = 0;
         for (Car car : cars) {
             if (max < car.getLocation()) {
@@ -48,11 +45,11 @@ public class RacingCarServiceImp implements RacingCarService {
         return max;
     }
 
-    private int getRandomNumber() {
-        return generator.generateRandomNumber();
+    private static int getRandomNumber() {
+        return Generator.generateRandomNumber();
     }
 
-    private void increaseTrial(Game game) {
+    private static void increaseTrial(Game game) {
         game.increaseCount();
     }
 }

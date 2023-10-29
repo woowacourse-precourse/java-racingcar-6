@@ -6,14 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.domain.Car;
 import racingcar.utils.Validator;
-import racingcar.utils.ValidatorImp;
 
 public class CarRequestDto {
-    private static final Validator validator = new ValidatorImp();
     private final String names;
 
     public CarRequestDto(String names) {
-        validator.validateCarName(names);
+        Validator.validateCarName(names);
         this.names = names;
     }
 

@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 import racingcar.model.domain.Car;
 import racingcar.model.domain.Game;
 import racingcar.utils.Generator;
-import racingcar.utils.GeneratorImp;
 
 class RacingCarServiceTest {
     private RacingCarService racingCarService;
@@ -20,7 +19,7 @@ class RacingCarServiceTest {
     @BeforeEach
     void setUp() {
         racingCarService = new RacingCarServiceImp();
-        generator = new GeneratorImp();
+        generator = new Generator();
     }
 
     @Test

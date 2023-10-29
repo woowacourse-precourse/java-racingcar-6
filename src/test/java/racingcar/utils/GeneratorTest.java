@@ -9,13 +9,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class GeneratorTest {
-    private Generator generator;
     private int randomNumber;
 
     @BeforeEach
     void setUp() {
-        generator = new GeneratorImp();
-        randomNumber = generator.generateRandomNumber();
+        randomNumber = Generator.generateRandomNumber();
     }
 
     @Test
