@@ -26,13 +26,23 @@ public class CreateMoveMap {
             }
             numMoveMap.put(carType, numMoveMap.get(carType) + 1);
         }
-
+        return numMoveMap;
+    }
+    public void printResult(Map<String, Integer> numMoveMap) {
         for (Map.Entry<String, Integer> entrySet : numMoveMap.entrySet()) {
             System.out.println(entrySet.getKey() + ":" + "-".repeat(entrySet.getValue()));
         }
         System.out.println();
-        return numMoveMap;
     }
+//            System.out.println(entrySet.getKey() + ":" + "-".repeat(entrySet.getValue()));
+//        }
+
+//        for (Map.Entry<String, Integer> entrySet : numMoveMap.entrySet()) {
+//            System.out.println(entrySet.getKey() + ":" + "-".repeat(entrySet.getValue()));
+//        }
+//        System.out.println();
+//        return numMoveMap;
+
 //        List<String> printResultList = getRoad(numMoveMap);
 //        for (String gameResult: printResultList){
 //            System.out.println(gameResult);
