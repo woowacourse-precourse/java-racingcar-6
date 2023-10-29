@@ -5,6 +5,17 @@ import java.util.List;
 import java.util.Set;
 
 public final class NameValidator {
+    public static void validateName(String input) {
+        List<String> names = parseStringToList(input);
+        validateLength(names);
+        validateCharacters(names);
+        validateUnique(names);
+    }
+
+    private static List<String> parseStringToList(String input) {
+        return List.of(input.split(","));
+    }
+
     private static void validateLength(List<String> names) {
         for (String name : names) {
             if (name.length() > 5 || name.length() < 1) {
