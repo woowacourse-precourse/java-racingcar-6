@@ -17,18 +17,18 @@ public class GameController {
     private static final Comparator<CarModel> compareCarDistance = new Comparator<CarModel>() {
         @Override
         public int compare(CarModel o1, CarModel o2) {
-            return o1.getForwardDistance() -  o2.getForwardDistance();
+            return o1.getForwardDistance() - o2.getForwardDistance();
         }
     };
 
 
-    public GameController(GameModel gameModel,ArrayList<CarModel> carModelList) {
+    public GameController(GameModel gameModel, ArrayList<CarModel> carModelList) {
         this.gameModel = gameModel;
-        this.carModelList =carModelList;
+        this.carModelList = carModelList;
     }
 
 
-    public void gameStart(){
+    public void gameStart() {
 
         String[] carList;
         int coinNumber;
@@ -48,9 +48,9 @@ public class GameController {
 
     private void inputValidate(String[] carList) throws IllegalArgumentException {
 
-        for(String carName : carList){
+        for (String carName : carList) {
 
-            if(carName.length()>5){
+            if (carName.length() > 5) {
                 throw new IllegalArgumentException();
             }
         }
@@ -58,7 +58,7 @@ public class GameController {
 
     public void gamePlay() {
 
-        for(int i = 0; i< gameModel.getCoinNumber();i++){
+        for (int i = 0; i < gameModel.getCoinNumber(); i++) {
 
             throwDiceAndGoForward();
         }
@@ -72,18 +72,18 @@ public class GameController {
         ArrayList<CarModel> carModels = getCarModelList();
         CarModel nowCar;
 
-        for(int i = 0; i<gameModel.getCarNumber();i++){
+        for (int i = 0; i < gameModel.getCarNumber(); i++) {
 
-            dice=pickNumberInRange(0,9);
+            dice = pickNumberInRange(0, 9);
             nowCar = carModels.get(i);
 
-            goForward(nowCar,dice);
+            goForward(nowCar, dice);
         }
     }
 
-    public void setCarModels(String[] carList){
+    public void setCarModels(String[] carList) {
 
-        for(String carName : carList){
+        for (String carName : carList) {
 
             carModelList.add(new CarModel(carName));
         }
@@ -93,20 +93,20 @@ public class GameController {
         return carModelList;
     }
 
-    public void goForward(CarModel car, int dice){
+    public void goForward(CarModel car, int dice) {
 
-        if(dice>=4){
+        if (dice >= 4) {
             car.goForwardDistance();
         }
     }
 
-    public void printDistance(){
+    public void printDistance() {
 
         int distance;
         String carName;
         StringBuilder sb;
 
-        for(CarModel car : carModelList){
+        for (CarModel car : carModelList) {
 
             sb = new StringBuilder();
             distance = car.getForwardDistance();
@@ -114,7 +114,7 @@ public class GameController {
 
             sb.append(carName).append(" : ");
 
-            for(int i = 0; i < distance;i++){
+            for (int i = 0; i < distance; i++) {
                 sb.append("-");
             }
 
@@ -122,21 +122,21 @@ public class GameController {
         }
     }
 
-    public void findWinner(){
+    public void findWinner() {
 
         carModelList.sort(compareCarDistance);
         int size = carModelList.size();
-        int mostFowardDistance = carModelList.get(size-1).getForwardDistance();
+        int mostForwardDistance = carModelList.get(size - 1).getForwardDistance();
 
-        for (CarModel car: carModelList){
+        for (CarModel car : carModelList) {
 
-            if(car.getForwardDistance()==mostFowardDistance){
+            if (car.getForwardDistance() == mostForwardDistance) {
                 gameModel.setWinnerCar(car);
             }
         }
     }
 
-    public void endGame(){
+    public void endGame() {
 
         StringBuilder sb = new StringBuilder();
         sb.append("최종 우승자 : ");
@@ -144,11 +144,11 @@ public class GameController {
         ArrayList<CarModel> winnerCar = gameModel.getWinnerCar();
         Iterator<CarModel> carModelIterator = winnerCar.iterator();
 
-        while (carModelIterator.hasNext()){
+        while (carModelIterator.hasNext()) {
 
             sb.append(carModelIterator.next().getName());
 
-            if(carModelIterator.hasNext()) {
+            if (carModelIterator.hasNext()) {
                 sb.append(", ");
             }
         }
