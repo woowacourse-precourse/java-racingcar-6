@@ -2,19 +2,22 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.validator.InputRacingCarNameValidator;
+import racingcar.validator.InputTryCountValidator;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class InputView {
     private final OutputView outputView;
-    private final InputRacingCarNameValidator nameValidator;
     private final InputPreprocessor preprocessor;
+    private final InputRacingCarNameValidator racingCarNameValidator;
+    private final InputTryCountValidator tryCountValidator;
 
     public InputView(OutputView outputView) {
         this.outputView = outputView;
-        this.nameValidator = new InputRacingCarNameValidator();
         this.preprocessor = new InputPreprocessor();
+        this.racingCarNameValidator = new InputRacingCarNameValidator();
+        this.tryCountValidator = new InputTryCountValidator();
     }
 
     public List<String> inputRacingCarNames() {
@@ -27,11 +30,18 @@ public class InputView {
         for (String racingCarName : racingCarNames) {
             racingCarName = preprocessor.trimInput(racingCarName); // 공백 제거
 
-            nameValidator.validate(racingCarName); // 예외처리
+            racingCarNameValidator.validate(racingCarName); // 예외처리
 
             racingCarNamesList.add(racingCarName);
         }
 
         return racingCarNamesList;
+    }
+
+    public int inputTryCount() {
+        outputView.printTryCountInputMessage();
+        String input = preprocessor.trimInput(Console.readLine());
+
+        return tryCountValidator.validateAndConvert(input);
     }
 }

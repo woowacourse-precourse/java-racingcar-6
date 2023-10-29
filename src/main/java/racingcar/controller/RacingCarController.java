@@ -19,6 +19,8 @@ public class RacingCarController {
         List<String> racingCarNames = inputView.inputRacingCarNames();
         List<RacingCar> racingCars = createRacingCars(racingCarNames);
 
+        int tryCount = inputView.inputTryCount();
+
         // 게임 시작 로직
     }
 
