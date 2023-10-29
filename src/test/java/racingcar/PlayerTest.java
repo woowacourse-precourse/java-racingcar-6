@@ -4,8 +4,6 @@ import org.junit.jupiter.api.*;
 
 import java.io.ByteArrayInputStream;
 
-import java.util.NoSuchElementException;
-
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class PlayerTest {
 
@@ -26,13 +24,10 @@ public class PlayerTest {
     @Test
     @Order(2)
     void 사용자가_입력하지_않으면_에러를_발생한다(){
-        IllegalArgumentException exception = Assertions.assertThrows(IllegalArgumentException.class,()->{
-            try{
-                player.getPlayerInput();
-            }catch (NoSuchElementException e){
-                throw new IllegalArgumentException("입력을 해주세요!");
-            }
-        });
+        IllegalArgumentException exception =
+                Assertions.assertThrows(IllegalArgumentException.class,()->
+                    player.getPlayerInput()
+        );
         Assertions.assertEquals("입력을 해주세요!",exception.getMessage());
     }
 }
