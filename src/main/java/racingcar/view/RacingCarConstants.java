@@ -7,4 +7,7 @@ public class RacingCarConstants {
     public static final String RESULT_HEADER = "실행 결과\n";
     public static final String CAR_PROGRESS_INDICATOR = "-";
     public static final String WINNER_PREFIX = "최종 우승자 : ";
+    public static final String CAR_NAME_POSITION_SEPARATOR = " : ";
+    public static final String NAME_SEPARATOR = ", ";
+    public static final String NEW_LINE = "\n";
 }
