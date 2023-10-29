@@ -16,4 +16,11 @@ public class PrintMessage {
     public static void printResultStart() {
         System.out.println(RESULT_MAESSAGE_START);
     }
+
+    public static void printResult(String result){
+        System.out.println(result);
+    }
+    public static void printEnter(){
+        System.out.println();
+    }
 }

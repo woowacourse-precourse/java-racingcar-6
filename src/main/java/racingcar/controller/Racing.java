@@ -17,7 +17,7 @@ public class Racing {
     public void startRacing() {
         setRacingCar();
         setTryRound();
-        setRacing();
+        setRacingResult();
     }
 
     public void setRacingCar() {
@@ -30,7 +30,8 @@ public class Racing {
         tryCount= InputTryCount.setInputTryCount();
     }
 
-    public void setRacing(){
+    public void setRacingResult(){
+        PrintMessage.printResultStart();
         for (int i=0;i<tryCount;i++){
             RacingLogic.goRacing(racingCars);
         }
