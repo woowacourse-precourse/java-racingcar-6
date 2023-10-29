@@ -5,6 +5,7 @@ import java.util.stream.IntStream;
 
 public class Participants {
     private final List<Car> cars;
+    private RaceHistory raceHistory;
 
     public Participants(List<Car> cars) {
         this.cars = cars;
@@ -14,10 +15,14 @@ public class Participants {
         return new Participants(names.stream().map(Car::new).toList());
     }
 
-    public void raceNTimes(int times) {
+    public RaceHistory raceNTimes(int times) {
         validate(times);
+        raceHistory = new RaceHistory(cars);
+
         IntStream.range(0, times)
                 .forEach(unused -> race());
+
+        return raceHistory;
     }
 
     private void validate(int times) {
@@ -28,5 +33,6 @@ public class Participants {
 
     private void race() {
         cars.forEach(Car::moveForward);
+        raceHistory.record(cars);
     }
 }
