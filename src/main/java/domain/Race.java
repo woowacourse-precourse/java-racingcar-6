@@ -21,4 +21,10 @@ public class Race {
         }
         return instance;
     }
+
+    public void addCar(Car car) {
+        cars.add(car);
+    }
+
+
 }
