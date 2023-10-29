@@ -7,25 +7,26 @@ import racingcar.domain.car.Car;
 public class VictoryView {
 
     public void showVictory(List<Car> victoryCars) {
-        System.out.print("최종 우승자 : ");
         printVictoryCars(victoryCars);
     }
     private void printVictoryCars(List<Car> victoryCars) {
+        StringBuilder result = new StringBuilder("최종 우승자 : ");
+        appendCarNames(victoryCars, result);
+        System.out.print(result);
+    }
+
+    private void appendCarNames(List<Car> victoryCars, StringBuilder result) {
         IntStream.range(0, victoryCars.size())
                 .forEach(i -> {
-                    victoryCars.get(i).showName();
-                    addRest(victoryCars, i);
+                    victoryCars.get(i).appendCarName(result);
+                    addRest(victoryCars, i, result);
                 });
     }
 
-    private void addRest(List<Car> victoryCars, int i) {
+    private void addRest(List<Car> victoryCars, int i, StringBuilder result) {
         if(isNotLast(i, victoryCars.size()-1)) {
-            printRest();
+            result.append(", ");
         }
-    }
-
-    private void printRest() {
-        System.out.print(", ");
     }
 
     private boolean isNotLast(int index, int last) {

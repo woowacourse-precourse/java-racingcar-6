@@ -22,16 +22,12 @@ public class Car implements Comparable<Car> {
         return position;
     }
 
-    public void showName() {
-        System.out.print(name);
+    public void appendCarName(StringBuilder sb) {
+        sb.append(name);
     }
 
     @Override
     public int compareTo(Car car) {
-        if(car == null) {
-            throw new NullPointerException();
-        }
-
         return getPosition().compareTo(car.getPosition());
     }
 
