@@ -66,6 +66,21 @@ public class Application {
 		return maxValue;
 	}
 	
+	public void makeWinnerArr(int n) {
+		int cnt = 0;
+		for (int i=0; i<playerNumber; i++) {
+			if (playerData[i].loc == n) cnt++;
+		}
+		
+		this.winnerArr = new String[cnt];
+		for (int i=0, j=0; i<playerNumber; i++) {
+			if (playerData[i].loc == n) {
+				winnerArr[j] = playerData[i].name;
+				j++;
+			}
+		}
+	}
+	
     public static void main(String[] args) {
     	Application game = new Application();
     	game.gameStart();
