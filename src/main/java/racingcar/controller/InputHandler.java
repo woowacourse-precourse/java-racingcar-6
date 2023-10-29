@@ -2,9 +2,8 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.view.InputView;
 
-public class ViewController {
+public class InputHandler {
 
     public static List<String> parseCarName(String input) {
         List<String> carNames = new ArrayList<>();
