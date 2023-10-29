@@ -31,14 +31,19 @@ public class RacingGame {
             for(int j = 0; j<carNumber; j++){
                 String carName = player.getCarName(j);
                 eachCarPickRandomNumber(carName);
-                printProgress();
+                printProgress(carName);
             }
 
         }
     }
 
-    public void printProgress(){
-
+    public void printProgress(String carName){
+        System.out.printf("%s : ", carName);
+        int valueOfCar = cars.get(carName);
+        for(int i = 0; i<valueOfCar; i++){
+            System.out.print("-");
+        }
+        System.out.println("\n");
     }
 
     public void eachCarPickRandomNumber(String carName){
