@@ -1,6 +1,7 @@
 package racingcar.utill;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static racingcar.utill.Converter.stringToCarListConvert;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,7 @@ class ConverterTest {
     }
 
     @Test
-    void stringToCarListConvert() {
+    void stringToCarListConvertTest() {
         //given
         String covertString = "hoho,hihi,haha";
         List<Car> carList = new ArrayList<>();
@@ -31,8 +32,8 @@ class ConverterTest {
         carList.add(new Car("haha"));
 
         //when
-        List<Car> convertedString = Converter.stringToCarListConvert(covertString);
-        
+        List<Car> convertedString = stringToCarListConvert(covertString);
+
         //then
         assertEquals(convertedString.toString(), carList.toString());
     }
