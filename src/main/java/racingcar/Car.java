@@ -2,8 +2,6 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.List;
-
 public class Car {
     public static final int LIMIT_NUMBER = 4;
 
