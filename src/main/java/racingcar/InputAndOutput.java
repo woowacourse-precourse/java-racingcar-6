@@ -45,7 +45,10 @@ public class InputAndOutput {
             if (!carName.matches("^[a-zA-Z]*$")) {
                 throw new IllegalArgumentException();
             }
-            carNameList.add(carName);
+            if (carNameList.contains(carName)) {
+                throw new IllegalArgumentException();
+            }
+            carNameList.add(carName.toLowerCase());
         }
         return carNameList;
     }
