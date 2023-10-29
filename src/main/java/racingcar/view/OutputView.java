@@ -3,12 +3,13 @@ package racingcar.view;
 import java.util.List;
 import racingcar.model.RacingCar;
 
+import static racingcar.constant.GameMessage.*;
 public class OutputView {
     private static final String SEPARATE_CHAR = ",";
     private static final String SEPARATE_COLON = " : ";
 
     public static void gameResultMessge() {
-        System.out.println("실행 결과");
+        System.out.println(GAME_RESULT_MESSAGE.getValue());
     }
 
     public static void moveDistanceMessage(RacingCar racingCar) {
@@ -17,7 +18,7 @@ public class OutputView {
 
     public static void printFinalWinner(List<String> winners) {
         String result = String.join(SEPARATE_CHAR, winners);
-        System.out.println("최종 우승자" + SEPARATE_COLON + result);
+        System.out.println(GAME_WINNER_MESSAGE.getValue() + SEPARATE_COLON + result);
     }
 
     public static void newLine() {
