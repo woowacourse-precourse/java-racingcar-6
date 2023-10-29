@@ -86,6 +86,15 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 우승자_출력_테스트(){
+        OutputView outputView = new OutputView();
+        List<String> winners = new ArrayList<>(List.of("woni, pobi"));
+
+        outputView.printWinner(winners);
+        assertThat(output()).isEqualTo("최종 우승자 : woni, pobi");
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
