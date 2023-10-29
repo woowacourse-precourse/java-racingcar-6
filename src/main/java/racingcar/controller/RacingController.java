@@ -30,13 +30,20 @@ public class RacingController {
     public static void getCarInput(List<Car> carList){
         String carName = getCarName();
         splitCarList(carList, carName);
-        checkAllException(carList);
+        checkAllCarNameException(carList);
     }
 
     public static String getCarName() {
         getCarNameNotification();
         String carNameList = readLine();
         return carNameList;
+    }
+
+    public static int getTryCount() {
+        getNumberOfTry();
+        String tryCount = readLine();
+        checkAllTryCountException(tryCount);
+        return Integer.parseInt(tryCount);
     }
 
     public static void splitCarList(List<Car> carList, String carNames) {
