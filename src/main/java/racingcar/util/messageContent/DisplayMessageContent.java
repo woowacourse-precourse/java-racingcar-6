@@ -6,7 +6,8 @@ public enum DisplayMessageContent {
     PLAY_RESULT_TITLE("게임 결과"),
     GAME_WINNER("최종 우승자 : "),
     MOVE_DISPLAY_STRING("-"),
-    DIVIDING_LINE(" : ");
+    DIVIDING_LINE(" : "),
+    PLAYER_DIVIDING(", ");
 
     private final String content;
 

@@ -29,7 +29,7 @@ public class GameController {
             OutputView.displayGameProgress(player.getPlayer());
             OutputView.displayNextLine();
         }
-        OutputView.displayGameWinner();
+        OutputView.displayGameWinner(player.getWinner());
     }
 
     private void setUpPlayer(List<String> playerList) {
