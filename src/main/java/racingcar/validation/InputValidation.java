@@ -21,9 +21,16 @@ public class InputValidation {
         return carNamesList;
     }
 
-    public static List<String> validationCommaSeparate(List<String> carNames) {
-        return null;
+    public static List<String> validationNameSeparate(List<String> carNames) {
+        List<String> validatedNames = new ArrayList<>();
+
+        for (String name : carNames) {
+            validatedNames.addAll(validationName(name));
+        }
+        carSameNameValidation(validatedNames);
+        return validatedNames;
     }
+
 
     public static List<String> validateAndSplit(String name) {
         return null;
