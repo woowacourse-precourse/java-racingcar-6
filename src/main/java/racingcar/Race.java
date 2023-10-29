@@ -1,12 +1,16 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Race {
+    public List<Car> cars = new ArrayList<>();
     private int moveNum;
 
     public void play() {
-        inputCarNames();
+        createCarObjects(inputCarNames());
         inputMovingNumber();
 
         for (int num = 0; num < moveNum; num++) {
@@ -24,6 +28,10 @@ public class Race {
         return input.split(",");
     }
 
+    public void createCarObjects(String[] carNames){
+        for(int idx = 0; idx < carNames.length; idx++) {
+            cars.add(new Car(carNames[idx]));
+        }
     }
 
     private void inputMovingNumber() {
