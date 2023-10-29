@@ -12,4 +12,9 @@ public class Car {
         return count;
     }
 
+    public void putCarResult(int forwardOrBackward){
+        if(forwardOrBackward == 1){
+            count ++;
+        }
+    }
 }

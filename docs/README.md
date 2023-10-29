@@ -10,9 +10,9 @@
 - ❌ checkForwardOrBackward 메서드 구현
   - ❌ 입력한 숫자가 4이상일 경우 1을 리턴, 그렇지 않을 경우 0을 리턴
 
-## ❌ Count 증가 기능
-- ❌ putCarResult 메서드 구현
-  - ❌ 입력한 값이 1이면 이름에 항목 count를 증가
+## ✅ Count 증가 기능
+- ✅ putCarResult 메서드 구현
+  - ✅ 입력한 값이 1이면 이름에 항목 count를 증가
 
 
 ## ❌ 우승자 추출 기능
