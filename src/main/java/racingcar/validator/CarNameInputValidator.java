@@ -2,7 +2,8 @@ package racingcar.validator;
 
 import java.util.List;
 
-import static racingcar.global.GameConstant.*;
+import static racingcar.global.GameStrConstant.*;
+import static racingcar.global.GameIntConstant.*;
 
 public class CarNameInputValidator {
 
@@ -28,7 +29,7 @@ public class CarNameInputValidator {
     }
 
     private void validateLength(List<String> carNames){
-        if(hasValidLength(carNames)){
+        if(hasInvalidNameLength(carNames)){
             throw new IllegalArgumentException();
         }
     }
@@ -39,9 +40,9 @@ public class CarNameInputValidator {
         };
     }
 
-    private static boolean hasValidLength(List<String> carNames){
+    private static boolean hasInvalidNameLength(List<String> carNames){
         return carNames.stream()
-                .noneMatch(name -> name.length()>5);
+                .anyMatch(name -> name.length()> CAR_NAME_LIMIT.getValue());
     }
 
     private static boolean hasDuplicates(List<String> carNames) {
@@ -51,7 +52,7 @@ public class CarNameInputValidator {
     }
 
     private List<String> splitCarNames(String userInput){
-        userInput = userInput.trim();
+        userInput = userInput.replace(" ","");
         return List.of(userInput.split(CAR_NAME_SEPARATOR.getValue()));
     }
 }
