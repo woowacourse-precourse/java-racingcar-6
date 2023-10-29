@@ -1,4 +1,4 @@
 package racingcar;
 
-public class CarManagerTest {
+public class CarRaceManagerTest {
 }
