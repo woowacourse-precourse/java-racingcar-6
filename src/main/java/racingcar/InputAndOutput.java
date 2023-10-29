@@ -18,7 +18,7 @@ public class InputAndOutput {
             }
             raceResult.append("\n");
         }
-        System.out.print(raceResult.toString());
+        System.out.println(raceResult.toString());
     }
 
     static void outputRaceWinner(List<String> winnerList) {
