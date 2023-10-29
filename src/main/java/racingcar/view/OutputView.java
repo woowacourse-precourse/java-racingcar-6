@@ -4,10 +4,10 @@ import java.util.List;
 
 public class OutputView {
 
-    public void printResultStart() {
+    public static void printResultStart() {
         System.out.println("\n실행 결과");
     }
-    public void printRoundResult(List<String> carNames, List<Integer> roundResult) {
+    public static void printRoundResult(List<String> carNames, List<Integer> roundResult) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int index = 0; index < carNames.size(); index++) {
             int distance = roundResult.get(index);
@@ -20,7 +20,7 @@ public class OutputView {
         System.out.println(result);
     }
 
-    public void printWinners(List<String> winners) {
+    public static void printWinners(List<String> winners) {
         String result = String.join(", ", winners);
         System.out.println(result);
     }
