@@ -11,6 +11,7 @@ import static constant.Constant.STOP_SYMBOL;
 import static constant.Constant.WINNER_RESULT_MESSAGE;
 
 import basis.Converter;
+import basis.MovingStatus;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ import java.util.Map.Entry;
 
 public class Application {
     static Converter converter = new Converter();
+    static MovingStatus movingStatus = new MovingStatus();
     public static void main(String[] args) {
         System.out.println(CAR_NAME_REQUEST_MESSAGE);
         String carName = Console.readLine();
@@ -33,12 +35,7 @@ public class Application {
         for (int i = 0; i < attemptsNumber; i++) {
             for (Entry<String, String> element : carNameHashMap.entrySet()) {
                 int randomNumber = Randoms.pickNumberInRange(MINIMUM_RANGE, MAXIMUM_RANGE);
-                String move;
-                if (randomNumber >= MOVE_CRITERIA) {
-                    move = MOVE_SYMBOL;
-                } else {
-                    move = STOP_SYMBOL;
-                }
+                String move = movingStatus.checkDecidingMove(randomNumber);
                 String originalValue = element.getValue();
                 String newValue = originalValue + move;
                 carNameHashMap.put(element.getKey(), newValue);
