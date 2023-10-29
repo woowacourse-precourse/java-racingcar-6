@@ -9,8 +9,8 @@ import basis.Converter;
 import basis.MovingStatus;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
 
 public class Application {
@@ -20,23 +20,13 @@ public class Application {
     public static void main(String[] args) {
         System.out.println(CAR_NAME_REQUEST_MESSAGE);
         String carName = Console.readLine();
-        Map<String, String> carNameHashMap = converter.splitAndAddToMap(carName);
+        LinkedHashMap<String, String> carNameHashMap = converter.splitAndAddToMap(carName);
         System.out.println(ATTEMPTS_NUMBER_REQUEST_MESSAGE);
         String attemptsString = Console.readLine();
         int attemptsNumber = converter.wordToInt(attemptsString);
         System.out.println();
         System.out.println(RUN_RESULT_START_MESSAGE);
-
-        for (int i = 0; i < attemptsNumber; i++) {
-            for (Entry<String, String> element : carNameHashMap.entrySet()) {
-                String move = movingStatus.decideMove();
-                String originalValue = element.getValue();
-                String newValue = originalValue + move;
-                carNameHashMap.put(element.getKey(), newValue);
-                System.out.println(element.getKey() + " : " + element.getValue());
-            }
-            System.out.println("");
-        }
+        movingStatus.printRaceStatus(attemptsNumber, carNameHashMap);
 
         int largestMove = 0;
         for (Entry<String, String> element : carNameHashMap.entrySet()) {

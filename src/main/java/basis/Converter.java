@@ -17,8 +17,8 @@ public class Converter {
         }
     }
 
-    public Map<String, String> splitAndAddToMap(String Name) { // ["k1",v1,v2]
-        Map<String, String> hashMap = new LinkedHashMap<>();
+    public LinkedHashMap<String, String> splitAndAddToMap(String Name) { // ["k1",v1,v2]
+        LinkedHashMap<String, String> hashMap = new LinkedHashMap<>();
         try {
             String[] parts = tokenizeByComma(Name);
             for (String part : parts) {
