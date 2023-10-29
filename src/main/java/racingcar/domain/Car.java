@@ -12,19 +12,16 @@ public class Car {
         String name = Console.readLine();
 
         List<String> inputNames = Arrays.asList(name.split(","));
-
-        try {
-            checkEmpty(inputNames);
-            checkDuplicate(inputNames);
-            checkLength(inputNames);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            throw e;
-        }
+        validateInputNames(inputNames);
 
         names.addAll(inputNames);
-
         return names;
+    }
+
+    private void validateInputNames(List<String> inputNames) {
+        checkEmpty(inputNames);
+        checkDuplicate(inputNames);
+        checkLength(inputNames);
     }
 
     public void checkEmpty(List<String> inputNames) {
