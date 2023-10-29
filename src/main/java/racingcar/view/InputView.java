@@ -54,7 +54,6 @@ public class InputView {
         for (int i = 0; i < players.length; i++) {
             removedSpaceNames[i] = players[i].strip();
         }
-        System.out.println(Arrays.toString(removedSpaceNames));
         return removedSpaceNames;
     }
 
