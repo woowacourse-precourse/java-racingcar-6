@@ -78,7 +78,7 @@ public class RacingGame {
 
     private void displayAllCars() {
         for (Car car : cars) {
-            car.display();
+            UserOutput.displayCar(car);
         }
     }
 

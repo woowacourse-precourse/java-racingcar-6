@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
+import racingcar.domain.Car;
 
 public class UserOutput {
     private UserOutput() {
@@ -21,6 +22,15 @@ public class UserOutput {
 
     public static void printNewLine() {
         System.out.println();
+    }
+
+    public static void displayCar(Car car) {
+        System.out.println();
+        System.out.print(car.getName() + " : ");
+
+        for (int i = 0; i < car.getPosition(); i++) {
+            System.out.print("-");
+        }
     }
 
 }

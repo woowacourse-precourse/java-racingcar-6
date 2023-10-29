@@ -25,12 +25,4 @@ public class Car {
         }
     }
 
-    public void display() {
-        System.out.println();
-        System.out.print(name + " : ");
-        for (int i = 0; i < position; i++) {
-            System.out.print("-");
-        }
-    }
-
 }
