@@ -1,7 +1,9 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
-import net.bytebuddy.build.ToStringPlugin.Enhance;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -42,6 +44,24 @@ class ApplicationTest extends NsTest {
 
         assertThat(car.getName()).isEqualTo("TEST");
         assertThat(car.getMoveDistance()).isEqualTo(10);
+    }
+
+    @Test
+    void 이름_갯수에_대한_예외처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("123,ABC", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 쉼표_기준으로_Split_함수_테스트(){
+        List<String> names;
+        MakeNames makeNames = new MakeNames();
+
+        names = makeNames.commaSplit("123,abc,ABC");
+
+        assertThat(names).isEqualTo(new ArrayList<>(Arrays.asList("123","abc","ABC")));
     }
 
     @Override
