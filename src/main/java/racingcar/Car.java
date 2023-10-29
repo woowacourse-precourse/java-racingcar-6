@@ -1,7 +1,12 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
     private static final int LENGTH_LIMITER = 5;
+    private static final int MIN_NUMBER = 1;
+    private static final int MAX_NUMBER = 9;
+    private static final int FORWARD_STANDARD = 4;
 
     private final String name;
     private int point;
@@ -27,6 +32,8 @@ public class Car {
     }
 
     public void forward() {
-        point += 1;
+        if (Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER) > FORWARD_STANDARD) {
+            point += 1;
+        }
     }
 }
