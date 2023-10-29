@@ -16,6 +16,8 @@ public class Validation {
     }
 
     public static boolean validNumber(String number) {
+        if(number.equals("0"))
+            return false;
         return number.matches("^[0-9]+$");
     }
 }
