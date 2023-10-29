@@ -2,6 +2,7 @@ package racingcar.service;
 
 import java.util.Map.Entry;
 import racingcar.dao.RacingCarInformationDao;
+import racingcar.verify.ForwardPointVerify;
 
 public class RacingCarForwardService {
     private RacingCarInformationDao racingCarInformationDao;
@@ -14,7 +15,10 @@ public class RacingCarForwardService {
         for(Entry<String, Integer> entry : racingCarInformationDao.getAll().entrySet()) {
             RandomNumberPickService randomNumberPickService = new RandomNumberPickService();
             randomNumberPickService.pick();
-            if(randomNumberPickService.getRandomNumber() > 4){
+
+            ForwardPointVerify forwardPointVerify = new ForwardPointVerify(randomNumberPickService);
+
+            if(forwardPointVerify.verify()){
                 entry.setValue(entry.getValue() + 1);
             }
 
