@@ -2,5 +2,6 @@ package racingcar.controller.distinguish;
 
 public interface Distinguish {
 
-    public void distinguish(String data);
+    public String[] distinguishName(String data);
+    public int distinguishNum(String data);
 }
