@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.RacingCar;
+import racingcar.domain.RacingCars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -13,70 +14,39 @@ public class RacingCarController {
     OutputView outputView = new OutputView();
 
     public void startProgram() {
-        List<RacingCar> carList = initCars(getCarName());
-        int tryNumber = getTryNumber();
-        startRace(carList, tryNumber);
+        RacingCars racingCars = new RacingCars();
+        racingCars.initCars(getCarName());
+        startRace(racingCars);
     }
 
     private List<String> getCarName() {
         return inputView.inputCarName();
     }
 
-    private List<RacingCar> initCars(List<String> nameList) {
-        List<RacingCar> carList = new ArrayList<>();
-        for(String name : nameList) {
-            carList.add(new RacingCar(name));
+    private void startRace(RacingCars racingCars) {
+        int tryNumber = getTryNumber();
+        outputView.outputExecutionResult();
+        for(; tryNumber > 0; tryNumber--) {
+            racingCars.moveCars();
+            printMoveResult(racingCars);
         }
-        return carList;
+        printRaceResult(racingCars);
     }
 
     private int getTryNumber() {
         return inputView.inputTryNumber();
     }
 
-    private void startRace(List<RacingCar> carList, int tryNumber) {
-        outputView.outputExecutionResult();
-        for(; tryNumber > 0; tryNumber--) {
-            moveEachCar(carList);
-            printMoveResult(carList);
-        }
-        printRaceResult(carList);
-    }
 
-    private void moveEachCar(List<RacingCar> carList) {
-        for(RacingCar car : carList) {
-            car.moveCar();
-        }
-    }
-
-    private void printMoveResult(List<RacingCar> carList) {
-        for(RacingCar car : carList) {
+    private void printMoveResult(RacingCars racingCars) {
+        for(RacingCar car : racingCars.getCarList()) {
             outputView.outputMoveResult(car.getName(), car.getDashString());
         }
         outputView.outputBlank();
     }
 
-    private void printRaceResult(List<RacingCar> carList) {
-        List<String> maxMoveCarsName = getMaxMoveCarsName(carList, getMaxMoveNumber(carList));
+    private void printRaceResult(RacingCars racingCars) {
+        List<String> maxMoveCarsName = racingCars.getMaxMoveCarsName();
         outputView.outputRaceResult(maxMoveCarsName);
-    }
-
-    private int getMaxMoveNumber(List<RacingCar> carList) {
-        List<Integer> moveNumberList = new ArrayList<>();
-        for(RacingCar car : carList) {
-            moveNumberList.add(car.getMoveNumber());
-        }
-        moveNumberList.sort(Collections.reverseOrder());
-        return moveNumberList.get(0);
-    }
-
-    private List<String> getMaxMoveCarsName(List<RacingCar> carList, int max) {
-        List<String> maxMoveCarNameList = new ArrayList<>();
-        for(RacingCar car : carList) {
-            if(car.getMoveNumber() == max) {
-                maxMoveCarNameList.add(car.getName());
-            }
-        }
-        return maxMoveCarNameList;
     }
 }
