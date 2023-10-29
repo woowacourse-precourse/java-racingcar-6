@@ -24,7 +24,7 @@
 ## class별 기능 구현 목록
 
 ### RacingGameController
-자동차 경주 게임의 절차를 관리하는 클래스
+게임의 절차를 관리하는 클래스
 
 - member instance
   - RacingCars racingCars : 자동차 경주에 참가한 자동차 리스트를 저장해 놓은 클래스
@@ -35,13 +35,6 @@
   - [x] void inputCount() : 사용자로부터 시도 횟수 입력받아 유효성 검사 후 저장
   - [x] void playCountTimes() : 시도 횟수만큼 실행 결과 출력
   - [x] void showFinalWinners() : 최종 우승자 출력
-
-### InputValidator
-사용자에게 입력받은 경주 자동차 이름과 시도 횟수의 유효성을 검사하는 클래스
-
-- member function
-  - [x] : void validateRacingCarsName(String) : 입력받은 경주 자동차 이름의 유효성을 검사
-  - [x] : void validateCount(String) : 입력받은 시도 횟수의 유효성을 검사
 
 ### RacingGame
 자동차 게임과 관련된 기능을 관리하는 클래스
@@ -54,8 +47,8 @@
    - [x] void play() : 자동차들 경주
    - [x] Map<String, Integer> makeResultMap() : 자동차 리스트를 가지고 출력에 사용될 map 생성
   
-### RacingCar
-자동차의 이름과 이동 거리를 저장해 놓는 클래스
+### Car
+자동차의 정보 저장 및 전진하는 클래스
 
 - member instance
    - String name : 자동차 이름
@@ -66,7 +59,7 @@
    - [x] int getMoveDistance() : 이동 거리 반환
    - [x] void move() : 전진 조건을 만족하면 전진
 
-### ResultMap
+### CurrentResultMap
 회차마다 실행 결과를 저장하는 클래스
 
 - member instance
@@ -89,4 +82,11 @@
    - [x] void printResult(): 실행 결과 메시지 출력
    - [x] void printMove(Map<String, Integer>) : 해당 회차의 실행 결과 출력
    - [x] void printFinalWinners(List <String>) : 최종 우승자 출력
+
+### InputValidator
+사용자에게 입력받은 경주 자동차 이름과 시도 횟수의 유효성을 검사하는 클래스
+
+- member function
+    - [x] : void validateRacingCarsName(String) : 입력받은 경주 자동차 이름의 유효성을 검사
+    - [x] : void validateCount(String) : 입력받은 시도 횟수의 유효성을 검사
 
