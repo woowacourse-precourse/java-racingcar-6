@@ -13,7 +13,7 @@ public class RacingCar {
 
     }
 
-    private static List<Car> initializeCars(List<String> carNames) {
+    public static List<Car> initializeCars(List<String> carNames) {
         List<Car> cars = carNames.stream().map(Car::new).collect(Collectors.toList());
         return cars;
     }
