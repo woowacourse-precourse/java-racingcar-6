@@ -24,6 +24,7 @@ public class RacingGame {
             System.out.println();
             gameNumber--;
         }
+        printResult();
     }
 
     public void getWinner(){
@@ -33,6 +34,18 @@ public class RacingGame {
                 winnerList.add(car.getCarName());
                 maxDistance=car.getDistance();
             }
+        }
+    }
+
+
+    public void printResult(){
+        System.out.print(GameMessage.WINNER_MESSAGE);
+        getWinner();
+
+        while(!winnerList.isEmpty()){
+            System.out.print(winnerList.remove(0));
+            if(winnerList.size()>1)
+                System.out.print(", ");
         }
     }
 
