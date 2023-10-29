@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.view.Output;
 
 public class Game {
     GameManager gameManager = new GameManager();
@@ -10,7 +11,8 @@ public class Game {
     public void startGame() {
         gameManager.gameSetting();
         gamingWithTryCount();
-        checkWinner();
+        System.out.println(gameElements.getCarMap());
+        Output.printGameWinnerMessage(String.join(", ", checkWinner()));
     }
 
     private void gamingWithTryCount() {
