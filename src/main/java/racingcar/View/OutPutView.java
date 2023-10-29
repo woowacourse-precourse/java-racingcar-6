@@ -13,7 +13,15 @@ public class OutPutView {
     }
 
     public static void showFinalWinner(CarGroup carGroup) {
-
+        CarGroup finalWinners = carGroup.findFinalWinner();
+        System.out.print("최종 우승자 : ");
+        for (int order = 1; order <= finalWinners.findSize(); order++) {
+            Car findCar = finalWinners.findCarByOrder(order);
+            System.out.print(findCar.findName());
+            if (order != finalWinners.findSize()) {
+                System.out.print(", ");
+            }
+        }
     }
 
 
