@@ -13,7 +13,7 @@
 ### 구현
 * 자동차 전진 기능 구현 (Car Class) ✅
 * 랜덤한 값(0~9) 구하는 기능 구현 (Car Class) ✅
-* 자동차 이름이 유효한지 검사하는 기능 구현 (Information Class) ❌
+* 자동차 이름이 유효한지 검사하는 기능 구현 (Information Class) ✅
 * 자동차 개수가 유효한지 검사하는 기능 구현 (CarNum Class) ✅
 * 이동을 시도할 횟수가 유효한지 검사하는 기능 구현 (MoveNum Class) ✅
 * 입력값이 이동을 시도할 횟수를 넘었는지 검사하는 기능 구현 (MoveNum Class, CarNum Class) ✅
@@ -41,7 +41,7 @@
 
 ### Information
 클래스 변수 : String name, int destination
-* 자동차 이름이 유효한지 검사하는 기능 구현 ❌
+* 자동차 이름이 유효한지 검사하는 기능 구현 ✅
 * 현재 자동차 이름과 위치를 출력 ✅
 * 위치 업데이트(증가) 기능 구현 ✅
 * 생성자로 name 및 destination 초기화 ✅
