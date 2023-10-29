@@ -24,6 +24,14 @@ public class InputDeviceTest  extends NsTest {
         );
     }
 
+    @Test
+    void 시도횟수_입력_확인() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("ja", "ㅁ"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
