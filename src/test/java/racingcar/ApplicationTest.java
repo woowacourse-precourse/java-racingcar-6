@@ -9,8 +9,7 @@ import org.mockito.Mockito;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -47,7 +46,7 @@ class ApplicationTest extends NsTest {
             assertThat(result).isEqualTo(new String[]{"pobi", "woni", "june"});
         }
     }
-    
+
     @Test
     @DisplayName("isValidsting 함수에서 이름 정상으로 입력받은 경우 True 반환")
     void isValidsting함수_이름_정상_입력시_False_반환() {
@@ -110,6 +109,52 @@ class ApplicationTest extends NsTest {
         String[] names = new String[]{"pobi", "pobi", "june"};
         //when
         boolean result = Application.isValidString(names);
+        //then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    @DisplayName("readCount 함수에서 입력값 정상 반환되는지 확인")
+    void readCount함수_입력값_정상반환_확인() {
+        try (MockedStatic<Console> mock = Mockito.mockStatic(Console.class)) {
+            //given
+            mock.when(Console::readLine).thenReturn("5");
+            //when
+            int result = Application.readCount();
+            //then
+            assertThat(result).isEqualTo(5);
+        }
+    }
+
+    @Test
+    @DisplayName("isValidNumber 함수에서 숫자가 아닌 값을 입력받았을 경우 False 반환")
+    void isValidNumber함수_입력값_숫자아니면_False_반환() {
+        //given
+        String count = new String("a");
+        //when
+        boolean result = Application.isValidNumber(count);
+        //then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    @DisplayName("isValidNumber 함수에서 공백을 입력받았을 경우 False 반환")
+    void isValidNumber함수_입력값_공백이면_False_반환() {
+        //given
+        String count = new String("");
+        //when
+        boolean result = Application.isValidNumber(count);
+        //then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    @DisplayName("isValidNumber 함수에서 1_미만의 값을 입력받았을 경우 False 반환")
+    void isValidNumber함수_입력값_1_미만이면_False_반환() {
+        //given
+        String count = new String("0");
+        //when
+        boolean result = Application.isValidNumber(count);
         //then
         assertThat(result).isFalse();
     }

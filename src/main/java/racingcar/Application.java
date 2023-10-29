@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Application {
+
     public static void main(String[] args) {
         readNames();
     }
@@ -41,8 +42,33 @@ public class Application {
                 return false;
             }
         }
-        
+
         return true;
     }
 
+    public static int readCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = Console.readLine();
+        if(!isValidNumber(input))
+        {
+            throw new IllegalArgumentException("올바르지 않은 입력입니다.");
+        }
+        int count = Integer.parseInt(input);
+        return count;
+    }
+
+    public static boolean isValidNumber(String input) {
+        if (!input.matches("\\d+")) {
+            return false;
+        }
+        if (input.isEmpty()) {
+            return false;
+        }
+        if (Integer.parseInt(input) < 1) {
+            return false;
+        }
+        return true;
+    }
 }
+
+
