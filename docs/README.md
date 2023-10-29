@@ -62,3 +62,6 @@ InputView
 OutputView
 - [x] 최종 우승자를 출력한다.
 - [x] 이동하고나서 실행결과를 출력한다.
+
+OutputFormatter
+- [x] 출력 양식을 만들어준다.
