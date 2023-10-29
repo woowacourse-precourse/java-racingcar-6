@@ -5,9 +5,13 @@ import java.util.Map;
 import validation.UserInputValidator;
 
 public class Converter {
-    public Map<String, String> putHashMap(String carName) {
+    public int wordToInt(String word) {
+        return Integer.parseInt(word);
+    }
+
+    public Map<String, String> putHashMap(String Name) {
         Map<String, String> hashMap = new LinkedHashMap<>();
-        String[] parts = tokenizeByComma(carName);
+        String[] parts = tokenizeByComma(Name);
         for (String part : parts) {
             hashMap.put(part, "");
             UserInputValidator.checkNameLength(part);

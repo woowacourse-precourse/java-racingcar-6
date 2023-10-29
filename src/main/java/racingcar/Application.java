@@ -26,7 +26,7 @@ public class Application {
         Map<String, String> carNameHashMap = converter.putHashMap(carName);
         System.out.println(ATTEMPTS_NUMBER_REQUEST_MESSAGE);
         String attemptsString = Console.readLine();
-        int attemptsNumber = Integer.parseInt(attemptsString);
+        int attemptsNumber = converter.wordToInt(attemptsString);
         System.out.println();
         System.out.println(RUN_RESULT_START_MESSAGE);
 
