@@ -9,8 +9,25 @@ public class RacingCarConsole {
 
         try {
             return Console.readLine();
-        } catch (NoSuchElementException e) {
+        } catch (NoSuchElementException noSuchElementException) {
             throw new IllegalArgumentException("자동차의 이름을 정해주세요.");
+        }
+    }
+
+    public int readIterationNumBer() {
+        System.out.println("시도할 회수는 몇회인가요?");
+
+        String iterationNumBer;
+        try {
+            iterationNumBer = Console.readLine();
+        } catch (NoSuchElementException noSuchElementException) {
+            throw new IllegalArgumentException("시도 회수를 정해주세요.");
+        }
+
+        try {
+            return Integer.parseInt(iterationNumBer);
+        } catch (NumberFormatException numberFormatException) {
+            throw new IllegalArgumentException("시도 회수는 숫자로 입력해주세요.");
         }
     }
 }
