@@ -1,5 +1,7 @@
 package model;
 
+import controller.dto.MoveResult;
+
 public class Car {
 
     private final Name name;
@@ -30,5 +32,9 @@ public class Car {
 
     public boolean hasSameMoveCount(final int count) {
         return moveCount.hasSameValue(count);
+    }
+
+    public MoveResult toDto() {
+        return new MoveResult(getNameValue(), getMoveCountValue());
     }
 }
