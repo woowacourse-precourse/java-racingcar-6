@@ -2,8 +2,12 @@ package service;
 
 import model.RaceCar;
 
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class GameService {
@@ -30,4 +34,16 @@ public class GameService {
         return raceCars;
     }
 
+    public List<String> gameWinner() {
+        List<RaceCar> sortedRaceCars = raceCars.stream()
+                .sorted((a, b) -> b.getMoveForwardCount() - a.getMoveForwardCount())
+                .toList();
+
+        List<String> winners = sortedRaceCars.stream()
+                .filter(sortedRaceCar -> sortedRaceCar.getMoveForwardCount() == sortedRaceCars.get(0).getMoveForwardCount())
+                .map(RaceCar::getName)
+                .collect(Collectors.toList());
+
+        return winners;
+    }
 }

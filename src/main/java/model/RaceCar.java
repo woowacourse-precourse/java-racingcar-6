@@ -7,22 +7,24 @@ import java.util.Map;
 
 public class RaceCar {
     private final String name;
-    private StringBuilder moveForwardCount = new StringBuilder();
+    private int moveForwardCount;
 
     public RaceCar(String name) {
         this.name = name;
     }
 
     public void MoveForward() {
-        moveForwardCount.append("-");
+        ++moveForwardCount;
     }
 
     public String getName() {
         return new String(name);
     }
 
-    public StringBuilder getMoveForwardCount() {
-        return new StringBuilder(moveForwardCount);
+    public int getMoveForwardCount() {
+        int copyMoveForwardCount = moveForwardCount;
+
+        return copyMoveForwardCount;
     }
 
 }

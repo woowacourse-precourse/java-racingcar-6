@@ -40,11 +40,11 @@ public class GameController {
 
         for(int runCount = 0; runCount < tryNumber; runCount++) {
             raceCars = gameService.MoveForward();
+
             gameResult();
+            outputView.printChangeLine();
         }
-
-        outputView.printWinner();
-
+        outputView.printWinner(gameService.gameWinner());
     }
 
     public void gameResult() {

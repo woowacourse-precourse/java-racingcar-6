@@ -5,4 +5,6 @@ public class ViewMessage {
     public static final String PRINT_TRY_NUMBER = "시도할 회수는 몇회인가요?";
     public static final String PRINT_RUN_GAME = "실행 결과";
     public static final String PRINT_WINNER = "최종 우승자 : ";
+    public static final String PRINT_CHAR = "-";
+    public static final String PRINT_CHANGE_LINE = "\n";
 }

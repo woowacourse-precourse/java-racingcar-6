@@ -3,9 +3,6 @@ package view;
 import message.ViewMessage;
 
 import java.util.List;
-import java.util.Map.Entry;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class OutputView {
     public void printName() {
@@ -17,13 +14,24 @@ public class OutputView {
     }
 
     public void printRunGame() {
+        printChangeLine();
         System.out.println(ViewMessage.PRINT_RUN_GAME);
     }
 
-    public void printWinner() { System.out.println(ViewMessage.PRINT_WINNER);}
+    public void printChangeLine() { System.out.print(ViewMessage.PRINT_CHANGE_LINE); }
 
-    public void printGameResult(String name, StringBuilder moveForwardCount) {
-        System.out.printf("%s : %s%n", name , moveForwardCount);
+    public void printWinner(List<String> winners) {
+        System.out.print(ViewMessage.PRINT_WINNER);
+
+        for(String winner : winners) {
+            if(winners.indexOf(winner) >= 1) {
+                System.out.print(", ");
+            }
+            System.out.print(winner);
+        };
     }
 
+    public void printGameResult(String name, int moveForwardCount) {
+        System.out.printf("%s : %s%s", name , ViewMessage.PRINT_CHAR.repeat(moveForwardCount), ViewMessage.PRINT_CHANGE_LINE);
+    }
 }
