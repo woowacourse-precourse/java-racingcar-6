@@ -10,7 +10,8 @@ public class Validator {
 
     private static final int MAX_NAME_LENGTH = 5;
     private static final String NUMBER_REGEX = "^[0-9]*$";
-    private static final String NOT_SPECIAL_REGEX = "^[a-zA-Z0-9, ]*$";
+    private static final String NOT_SPECIAL_REGEX = "^[a-zA-Z0-9,]*$";
+    private static final String BLANK_REGEX = ".*\\s+.*";
 
     private Validator() {}
 
@@ -20,8 +21,8 @@ public class Validator {
         checkNumeric(name);
     }
 
-    private static void checkBlank(String name) {
-        if (name.isBlank() || name.isEmpty()) {
+    public static void checkBlank(String name) {
+        if (name.matches(BLANK_REGEX)) {
             throw new IllegalArgumentException(BLANK_ERROR.getMessage());
         }
     }

@@ -35,6 +35,7 @@ public class StringToCarGarageConverter implements Converter<String, CarGarage>{
     }
 
     private String[] splitName(String input) {
+        Validator.checkBlank(input);
         Validator.checkSplitUnit(input);
         return input.split(SPLIT_UNIT);
     }
