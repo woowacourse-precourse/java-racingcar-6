@@ -31,8 +31,9 @@ public class RacingGame {
             for(int j = 0; j<carNumber; j++){
                 String carName = player.getCarName(j);
                 eachCarPickRandomNumber(carName);
+                printProgress();
             }
-            printProgress();
+
         }
     }
 
