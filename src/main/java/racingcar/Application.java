@@ -3,10 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
@@ -38,6 +35,29 @@ public class Application {
                 System.out.println(arrayCarNames[j]+" : "+statusOfRacing.get(arrayCarNames[j]));
             }
             System.out.println();
+        }
+
+        int longestDistance = 0;
+
+        // 가장 길게 진행한 거리를 찾는다
+        for(int i=0;i<statusOfRacing.size();i++){
+            if(longestDistance < statusOfRacing.get(arrayCarNames[i]).length()){
+                longestDistance = statusOfRacing.get(arrayCarNames[i]).length();
+            }
+        }
+
+        //longestDistance와 일치하는 자동차
+        ArrayList<String> winnerList = new ArrayList<>();
+        for(int i=0;i<statusOfRacing.size();i++){
+            if(longestDistance == statusOfRacing.get(arrayCarNames[i]).length()) winnerList.add(arrayCarNames[i]);
+        }
+
+        if(winnerList.size()==1) System.out.println("최종 우승자 : " + winnerList.get(0));
+        else {
+            System.out.print("최종 우승자 : " + winnerList.get(0));
+            for(int i=1;i< winnerList.size();i++){
+                System.out.print(", "+winnerList.get(i));
+            }
         }
 
 
