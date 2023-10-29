@@ -21,8 +21,8 @@ public class CarTest {
     @Test
     void 무작위_값이_기준값_이상일_때_1칸_이동() {
         //Given
-        Car car = new Car();
         int randomValue = 4;
+        Car car = new Car();
 
         //When
         car.run(randomValue);

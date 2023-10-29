@@ -21,4 +21,16 @@ public class CarsTest {
         assertEquals("워니", carList.get(1).getName());
         assertEquals("차니", carList.get(2).getName());
     }
+
+    @Test
+    void 시도_횟수_저장() {
+        //Given
+        Cars cars = new Cars();
+
+        //When
+        cars.setTryCount(5);
+
+        //Then
+        assertEquals(5, cars.getTryCount());
+    }
 }
