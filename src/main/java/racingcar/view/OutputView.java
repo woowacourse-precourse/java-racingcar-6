@@ -8,44 +8,26 @@ public class OutputView {
     private static final int STRING_BUILDER_RESET_LENGTH = 0;
     private static final StringBuilder stringBuilder = new StringBuilder();
 
-    public void carNameInputMessage() {
+    public void carNameInputGuide() {
         System.out.println(CAR_NAME_INPUT_MESSAGE);
     }
 
-    public void timesInputMessage() {
+    public void timesInputGuide() {
         System.out.println(TIMES_INPUT_MESSAGE);
     }
 
-    public void resultMessage() {
+    public void resultGuide() {
         stringBuilder.append(RESULT_MESSAGE);
     }
 
-    public void CarNameOutput(String carName) {
-        stringBuilder.append(carName).append(" : ");
-    }
-
-    public void resultCountOutput(int forwardCount) {
-        for(int i=0; i<forwardCount; i++) {
-            stringBuilder.append("-");
-        }
-        stringBuilder.append("\n");
-    }
-
-    public void printOutput() {
-        System.out.println(stringBuilder);
+    public void printSingleCarResult(StringBuilder SingleRoundResultBuilder) {
+        System.out.println(SingleRoundResultBuilder);
         clearStringBuilder();
     }
 
-    public void winnerMessage() {
-        stringBuilder.append(WINNER_MESSAGE);
-    }
-
-    public void Winner(String carName) {
-        stringBuilder.append(carName);
-    }
-
-    public void Winners(String carName) {
-        stringBuilder.append(", ").append(carName);
+    public void printFinalWinner(String output) {
+        stringBuilder.append("\n").append(WINNER_MESSAGE).append(output);
+        System.out.println(stringBuilder);
     }
 
     private void clearStringBuilder() {
