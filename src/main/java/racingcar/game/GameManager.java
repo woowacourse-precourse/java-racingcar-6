@@ -39,8 +39,8 @@ public class GameManager {
             if (maxDistance < carDistance) {
                 maxDistance = carDistance;
                 winnerList.clear();
-                winnerList.add(car.getName());
-            } else if (maxDistance == carDistance){
+            }
+            if (maxDistance == carDistance) {
                 winnerList.add(car.getName());
             }
         }
