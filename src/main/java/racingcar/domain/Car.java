@@ -16,4 +16,8 @@ public class Car {
     public int getDistance() {
         return distance;
     }
+
+    public void forward() {
+        this.distance++;
+    }
 }
