@@ -6,21 +6,21 @@ import java.util.Map;
 
 public class GameWinner {
 
-    public static void getWinner(Map<String, String> carNamesMap) {
-        int maxCarValue = 0;
+    public static void getWinner(Map<String, String> racingCars) {
+        int maxCarDistance = 0;
         List<String> winner = new ArrayList<>();
-        winner = isWinner(carNamesMap, maxCarValue, winner);
+        winner = getMaxDistance(racingCars, maxCarDistance, winner);
         OutputView.printGameWinner(winner);
     }
 
-    private static List<String> isWinner(Map<String, String> carNamesMap, int maxCarValue, List<String> winner) {
-        for (String carName : carNamesMap.keySet()) {
-            if (maxCarValue == carNamesMap.get(carName).length()) {
-                maxCarValue = carNamesMap.get(carName).length();
+    private static List<String> getMaxDistance(Map<String, String> racingCars, int maxCarDistance, List<String> winner) {
+        for (String carName : racingCars.keySet()) {
+            if (maxCarDistance == racingCars.get(carName).length()) {
+                maxCarDistance = racingCars.get(carName).length();
                 winner.add(carName);
             }
-            if (maxCarValue < carNamesMap.get(carName).length()) {
-                maxCarValue = carNamesMap.get(carName).length();
+            if (maxCarDistance < racingCars.get(carName).length()) {
+                maxCarDistance = racingCars.get(carName).length();
                 winner.clear();
                 winner.add(carName);
             }
