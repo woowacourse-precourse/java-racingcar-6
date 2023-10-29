@@ -9,6 +9,7 @@ import racingcar.validation.ValidatorFactory;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Racer {
 
@@ -32,11 +33,10 @@ public class Racer {
     }
 
     public String winnerToString() {
-        List<String> winner = getWinner(new OrderByPosition())
+        return getWinner(new OrderByPosition())
                 .stream()
                 .map(Car::getName)
-                .toList();
-        return String.join(Message.NAME_SEPARATOR + " ", winner);
+                .collect(Collectors.joining(Message.NAME_SEPARATOR + " "));
     }
 
     private List<Car> getWinner(OrderStrategy orderStrategy) {
