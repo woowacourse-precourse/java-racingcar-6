@@ -11,15 +11,13 @@ public class ValidationUtil {
     private ValidationUtil() {
     }
 
-    public static String racingCarValidator(String input) {
+    public static void racingCarValidator(String input) {
         if (isEmpty(input)) {
             throw new IllegalArgumentException(ErrorMessage.EMPTY_ERROR_MESSAGE);
         }
         if(!isInMaxLength(input)){
             throw new IllegalArgumentException(ErrorMessage.MAX_LENGTH_ERROR_MESSAGE);
         }
-
-        return input;
     }
 
     // 입력된 자동차가 2대보다 작을 경우

@@ -21,6 +21,8 @@ public class RacingCarService {
     public String[] splitRacingCarsByComma(String racingCars) {
         String[] carList = racingCars.split(DELIMITER);
 
+        Arrays.stream(carList)
+                .forEach(ValidationUtil::racingCarValidator);
         ValidationUtil.duplicationValidator(carList);
         ValidationUtil.racingCarCountValidator(carList);
 
