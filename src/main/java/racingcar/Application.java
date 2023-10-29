@@ -26,13 +26,25 @@ public class Application {
     }
 
     private static void playRound(final List<Car> cars, final int playTimes) {
+        System.out.println("실행 결과");
         for (int i=0; i<playTimes; i++) {
             cars.forEach(car -> car
                     .move(generateRandomNumber()));
+            printRoundResult(cars);
+            System.out.println();
         }
     }
 
     private static int generateRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
+    }
+
+    private static void printRoundResult(final List<Car> cars) {
+        cars.forEach(car -> System.out.println(car.getName() + " : " + createHyphenResult(car)));
+    }
+
+    private static String createHyphenResult(final Car car) {
+        final int position = car.getPostion();
+        return "-".repeat(position);
     }
 }

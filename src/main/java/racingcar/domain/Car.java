@@ -12,6 +12,14 @@ public class Car {
         this.position = 0;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getPostion() {
+        return position;
+    }
+
     public void move(final int randomNumber) {
         if (randomNumber >= 4) {
             position += 1;
