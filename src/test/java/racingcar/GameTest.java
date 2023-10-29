@@ -13,6 +13,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
 
+    private static final int MOVING_FORWARD = 4;
+    private static final int STOP = 3;
+
     private Game game;
 
     @BeforeEach
@@ -43,8 +46,6 @@ class GameTest {
     void validateName_메서드로_검증_이름이_6자인_경우() {
         Assertions.assertThatThrownBy(() -> game.validateName("zzz_ei")).isInstanceOf(IllegalArgumentException.class);
     }
-
-
 
 
 }

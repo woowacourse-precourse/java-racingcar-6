@@ -3,15 +3,17 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.PriorityQueue;
 
 public class Game {
 
     private int round;  // 남은 회차 수
-    private PriorityQueue<Car> carRepository;    // Car 저장소
+    private List<Car> carRepository;    // Car 저장소
 
     public Game() {
-        carRepository = new PriorityQueue<>();
+        carRepository = new ArrayList<>();
     }
 
     // 메인 흐름
@@ -36,9 +38,10 @@ public class Game {
 
     // 우승자 안내 문구 출력
     void printWinner() {
-        Car winner = carRepository.remove();
+        PriorityQueue<Car> rank = new PriorityQueue<>(carRepository);
+        Car winner = rank.remove();
         System.out.print("최종 우승자 : " + winner.getName());
-        for (Car car : carRepository) {
+        for (Car car : rank) {
             if (car.getStatus() == winner.getStatus())
                 System.out.println(", " + car.getName());
             else
@@ -94,7 +97,7 @@ public class Game {
     }
 
     // 테스트 확인용으로 만든 메서드
-    public PriorityQueue<Car> getCarRepository() {
+    public List<Car> getCarRepository() {
         return carRepository;
     }
 
