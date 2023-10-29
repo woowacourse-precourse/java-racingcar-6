@@ -19,9 +19,11 @@ public class CarController {
         return carModelList;
     }
 
-    public void goFoward(CarModel car){
+    public void goFoward(CarModel car,int dice){
 
-        car.goForwardDistance();
+        if(dice>=4){
+            car.goForwardDistance();
+        }
     }
 
 }
