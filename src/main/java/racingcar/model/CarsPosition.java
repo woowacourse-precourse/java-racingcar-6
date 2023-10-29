@@ -8,7 +8,9 @@ import static racingcar.constant.RaceConfig.MINIMUM_RANDOM_NUMBER;
 import static racingcar.constant.RaceConfig.STEP_FORWARD_SPACE_COUNT;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import racingcar.util.StringFormatter;
@@ -24,15 +26,14 @@ public final class CarsPosition {
         return new CarsPosition(racingCars.createInitPosition());
     }
 
-    public String getEachRaceResult() {
-        StringBuilder sb = new StringBuilder();
+    public RaceResultTexts getEachRaceResult() {
+        List<String> result = new ArrayList<>();
         for (String key : carsPosition.keySet()) {
             checkStepForward(key);
             String signs = convertPositionToSigns(carsPosition.get(key));
-            sb.append(StringFormatter.raceResultFormat(key, signs));
+            result.add(StringFormatter.raceResultFormat(key, signs));
         }
-        return sb.append("\n")
-                .toString();
+        return new RaceResultTexts(result);
     }
 
     private void checkStepForward(String key) {

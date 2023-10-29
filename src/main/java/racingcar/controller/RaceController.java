@@ -30,7 +30,7 @@ public class RaceController {
     private static void raceStart(RacingCars racingCars, MovingCount movingCount) {
         RaceService raceService = RaceService.init(racingCars, movingCount);
         OutputView.printGameResultStart();
-        OutputView.printResult(raceService.getRaceResult());
+        OutputView.printResult(raceService.getTotalResult());
         OutputView.printWinner(raceService.getWinner());
     }
 }

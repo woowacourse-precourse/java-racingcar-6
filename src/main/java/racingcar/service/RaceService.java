@@ -1,8 +1,11 @@
 package racingcar.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import racingcar.model.CarsPosition;
 import racingcar.model.MovingCount;
 import racingcar.model.RacingCars;
+import racingcar.model.RaceResultTexts;
 
 public class RaceService {
     private final MovingCount movingCount;
@@ -18,12 +21,13 @@ public class RaceService {
         return new RaceService(movingCount, carsPosition);
     }
 
-    public String getRaceResult() {
-        StringBuilder sb = new StringBuilder();
+    public RaceResultTexts getTotalResult() {
+        List<String> totalResult = new ArrayList<>();
         for (int i = 0; movingCount.isNotEqual(i); i++) {
-            sb.append(carsPosition.getEachRaceResult());
+            RaceResultTexts eachRaceResult = carsPosition.getEachRaceResult();
+            totalResult.add(eachRaceResult.convertOneLine());
         }
-        return sb.toString();
+        return new RaceResultTexts(totalResult);
     }
 
     public String getWinner() {

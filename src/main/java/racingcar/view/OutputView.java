@@ -5,6 +5,7 @@ import static racingcar.constant.ViewMessage.INSERT_CARS_NAMES;
 import static racingcar.constant.ViewMessage.INSERT_MOVING_COUNT;
 
 import racingcar.constant.ViewMessage;
+import racingcar.model.RaceResultTexts;
 
 public class OutputView {
     private OutputView() {
@@ -23,8 +24,8 @@ public class OutputView {
         printlnViewMessage(GAME_RESULT);
     }
 
-    public static void printResult(String result) {
-        System.out.print(result);
+    public static void printResult(RaceResultTexts totalResults) {
+        System.out.println(totalResults.convertTotalOneLine());
     }
 
     public static void printWinner(String winner) {
