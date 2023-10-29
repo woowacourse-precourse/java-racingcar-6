@@ -20,7 +20,7 @@ public class RacingController {
 
     public void run() {
         Cars cars = getCarsFromUser();
-        RoundCount roundCount = getRoundCount();
+        RoundCount roundCount = getRoundCountFromUser();
         displayRunRacingWithRounds(cars, roundCount);
         displayFinalWinners(cars);
     }
@@ -36,7 +36,7 @@ public class RacingController {
         return inputView.requestCarNameFromUser();
     }
 
-    private RoundCount getRoundCount() {
+    private RoundCount getRoundCountFromUser() {
         String racingRoundCountFromUser = requestRacingRoundCountFromUser();
         return new RoundCount(racingRoundCountFromUser);
     }
