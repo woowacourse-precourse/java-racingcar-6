@@ -17,11 +17,12 @@ public class Application {
         GameController controller = new GameController();
         GameData gameData = new GameData();
 
-
         view.printAskCarName();
         String carsName = controller.getCarNamesInput();
         String[] carsNameArray = carsName.split(","); //"|", "*", ".", "&" , "^"  등의 문자를 regex로 사용하는 경우 함수가 동작하지 않는다
+
         isCarNameInputLengthValidate(carsNameArray);
+
         int carQuantity = carsNameArray.length;
         gameData.createCarList(carQuantity);
         List<Car> carList = gameData.getCarList();
@@ -29,8 +30,10 @@ public class Application {
 
         view.printAskTryRepetitionNumber();
         String repetitionNumberInput = gameData.getRepetitionNumberInput();
+
         isRepetitionNumberInputTypeValidate(repetitionNumberInput);
         isRepetitionNumberInputRangeValidate(repetitionNumberInput);
+
         gameData.changeRepetitionNumberType(repetitionNumberInput);
         Integer repetitionNumber = gameData.getRepetitionNumber();
         for (int repetition = 0; repetition < repetitionNumber; repetition++) {
@@ -43,15 +46,15 @@ public class Application {
                 String moveForwardStatus = car.makeMoveForwardStatus(successMoveForwardCount);
                 car.setMoveForwardStatus(moveForwardStatus);
             }
-
             view.printProgressStatus(carList);
         }
+
         gameData.sortCarListByRank(carList);
 
         gameData.createWinnerList();
         List<String> winnerList = gameData.getWinnerList();
         gameData.pickWinners(winnerList, carList);
 
-        view.printWinner(gameData.getWinnerList());
+        view.printWinners(winnerList);
     }
 }
