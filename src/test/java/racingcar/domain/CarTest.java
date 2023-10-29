@@ -9,7 +9,12 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class CarTest {
-    Car car = new Car("toto");
+    Car car;
+
+    @BeforeEach
+    void beforeEach(){
+        car = new Car("toto");
+    }
 
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 3})
@@ -30,6 +35,4 @@ class CarTest {
         // then
         Assertions.assertThat(car.getDistance()).isEqualTo(1);
     }
-
-
 }

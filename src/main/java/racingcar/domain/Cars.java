@@ -22,7 +22,7 @@ public class Cars {
                 .max()
                 .orElse(0);
         List<Car> winners = cars.stream()
-                .filter(car -> car.getDistance()==maxDistance)
+                .filter(car -> car.getDistance() == maxDistance)
                 .toList();
         return winners.stream()
                 .map(CarDTO::from)
