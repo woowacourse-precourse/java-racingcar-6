@@ -15,4 +15,11 @@ public class Printer {
     }
 
 
+    public static void printResultStart() {
+        System.out.println("실행 결과");
+    }
+
+    public static void printRoundResult(String carName, Integer forwardNumber) {
+        System.out.println(carName + " : " + "-".repeat(forwardNumber));
+    }
 }
