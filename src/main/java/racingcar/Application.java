@@ -25,9 +25,11 @@ public class Application {
         }
     }
     public static void playGame() {
+        System.out.println("\n실행결과");
         while(gameNumber != 0) {
             driveCar();
             gameNumber--;
+            System.out.printf("\n");
         }
     }
     public static void driveCar() {
