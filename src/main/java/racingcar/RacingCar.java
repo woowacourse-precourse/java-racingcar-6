@@ -33,7 +33,7 @@ public class RacingCar {
 
     private void validateCarName(String name) {
         if (!isValidName(name)) {
-            throw new IllegalArgumentException("차량 이름은 1~5의 글자 수만 허용 됩니다.");
+            throw new IllegalArgumentException(String.format("%s는 올바르지 않는 차량 이름입니다. 차량 이름은 1~5의 글자 수만 허용 됩니다.", name));
         }
     }
 
