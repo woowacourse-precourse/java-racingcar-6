@@ -20,4 +20,12 @@ public class MessageConst {
     public static final String NUMERIC_FORMAT_MESSAGE = "숫자를 입력해야 합니다.";
 
     public static final String RANGE_MESSAGE = "1 이상의 숫자를 입력해야 합니다.";
+
+    public static final String SAVE_CAR_NAMES_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+
+    public static final String GET_TRY_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
+
+    public static final String RESULT_MESSAGE = "\n실행 결과";
+
+    public static final String WINNER_MESSAGE = "최종 우승자";
 }
