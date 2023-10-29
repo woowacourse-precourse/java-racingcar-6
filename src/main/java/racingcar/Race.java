@@ -57,9 +57,11 @@ public class Race {
         System.out.println("\n실행 결과");
         for (int i = 0; i < gameCount; i++) {
             for (Car car : cars) {
+                car.printCarName();
                 int randomNumber = NumberGenerator.createRandomNumber();
                 compareNumberAndMove(car, randomNumber);
             }
+
         }
     }
 

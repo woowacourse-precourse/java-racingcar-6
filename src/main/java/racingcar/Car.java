@@ -20,4 +20,8 @@ public class Car {
         forwardCount++;
     }
 
+    public void printCarName() {
+        System.out.println(name + " : ");
+    }
+
 }
