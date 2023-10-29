@@ -5,6 +5,7 @@ import racingcar.domain.Car;
 import racingcar.domain.MoveCnt;
 import racingcar.model.CarMove;
 import racingcar.model.CarName;
+import racingcar.model.Winner;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -17,11 +18,15 @@ public class Race {
     private CarMove carMove;
     private List<Car> cars;
     private MoveCnt moveCnt;
+    private Winner winner;
+    private List<List<Car>> allRaceResultList;
 
     public Race() {
         this.inputView = new InputView();
         this.outputView = new OutputView();
         this.carName = new CarName();
+        this.carMove = new CarMove();
+        this.winner = new Winner();
     }
 
     public void run() {
@@ -39,12 +44,17 @@ public class Race {
     }
 
     public void move() {
+        outputView.printResultMsg(); // '실행 결과' 메세지 출력
 
+        allRaceResultList = carMove.race(cars, moveCnt); // 모든 레이스 실행 결과 각각 담고있는 리스트
+        for (List<Car> raceResult : allRaceResultList) { // 각각 실행 결과 출력
+            outputView.printEachRaceResult(raceResult);
+        }
 
     }
 
     public void printWinner() {
-
+        outputView.printWinner(winner.selectWinner(allRaceResultList.get(allRaceResultList.size() - 1)));
     }
 
 
