@@ -34,7 +34,7 @@
 
 ##
 
-#### 게임 결과를 담고 있는 역할 (RacingGameResultDto)
+#### 경주 1회 결과를 담고 있는 역할 (OneGameResultDto)
 
 - [ ] 이름 리스트 getter
 - [ ] 움직임 횟수 리스트 getter
