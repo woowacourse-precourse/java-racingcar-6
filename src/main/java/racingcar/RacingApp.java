@@ -14,6 +14,20 @@ public class RacingApp {
     public void run() {
         String input = getPlayerList();
         createRacingCarList(input);
+        getExecuteCount();
+
+
+    }
+
+    private void getExecuteCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = Console.readLine();
+        try {
+            this.executeCount = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+        System.out.println("\n");
     }
 
     private String getPlayerList() {
@@ -21,7 +35,7 @@ public class RacingApp {
         return Console.readLine();
     }
 
-    private void createRacingCarList(String input){
+    private void createRacingCarList(String input) {
         List<String> nameList = getNameListFromInput(input);
         createRacingCarListByNameList(nameList);
     }
