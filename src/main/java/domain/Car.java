@@ -1,8 +1,5 @@
 package domain;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class Car {
 
     private String name;
