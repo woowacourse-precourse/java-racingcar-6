@@ -1,5 +1,8 @@
 package racingcar;
 
+import racingcar.constant.CarStatus;
+import racingcar.constant.Message;
+
 import java.util.List;
 
 public class ConsolePrint {
@@ -14,13 +17,9 @@ public class ConsolePrint {
         System.out.println(Message.RESULT_RACING_INFO.getValue());
     }
 
-    public void racingTryResult(Car name, CarStatus status) {
-        StringBuilder moveTrace = new StringBuilder();
-        moveTrace.append(name).append(" : ");
-        if (status.equals(CarStatus.MOVE)) {
-            moveTrace.append("-");
-        }
-        System.out.println(moveTrace.toString());
+    public void racingTryResult(Car car, CarStatus status) {
+        System.out.println(car.getName() + "" + );
+
     }
 
     public void finalWinner(List<Car> winners) {

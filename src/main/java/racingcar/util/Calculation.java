@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.constant.CarStatus;
+import racingcar.constant.MagicNumber;
 
 public class Calculation {
 

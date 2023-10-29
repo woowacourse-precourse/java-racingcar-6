@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.Entity;
 
 import racingcar.constant.CarStatus;
 import racingcar.constant.SymbolType;
@@ -8,17 +8,22 @@ public class Car {
     private StringBuilder nowMoveTrace; // 현재 까지의 이동 경로 StringBuilder
     private int moveCount;  // 총 이동 횟수
 
-    Car(String name) {
+    public Car(String name, int moveCount) {
         this.name = name;
+        this.moveCount = moveCount;
+        this.nowMoveTrace = new StringBuilder();
     }
 
     public void setNowMoveTrace(CarStatus status) {
-        nowMoveTrace.append(SymbolType.TRACE_RACE_RESULT);
+        if (status.equals(CarStatus.MOVE)) {
+            nowMoveTrace.append(SymbolType.TRACE_RACE_RESULT.getValue());
+        }
     }
 
     public void setMoveCount(CarStatus status) {
-        if (status.equals(CarStatus.MOVE))
+        if (status.equals(CarStatus.MOVE)) {
             moveCount++;
+        }
     }
 
     public String getName() {

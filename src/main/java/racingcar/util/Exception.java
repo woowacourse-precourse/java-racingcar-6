@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.constant.MagicNumber;
+
 public class Exception {
     public void isNameNull(String name) {
         if (name == null || name.isBlank()) {
