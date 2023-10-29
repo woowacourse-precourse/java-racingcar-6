@@ -1,6 +1,10 @@
 package racingcar.car;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class RacingCar {
+    private static final Integer START_NUMBER = 0;
+    private static final Integer END_NUMBER = 9;
     private static final Integer MOVE_COUNT_INITIAL_NUMBER = 0;
     private static final Integer MAX_NAME_LENGTH = 5;
 
@@ -17,5 +21,9 @@ public class RacingCar {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
+    }
+
+    private Integer generateRandomNumber() {
+        return Randoms.pickNumberInRange(START_NUMBER, END_NUMBER);
     }
 }
