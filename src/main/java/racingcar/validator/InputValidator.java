@@ -15,17 +15,21 @@ import racingcar.view.Input;
 public class InputValidator {
 
     private List<String> validateCarNames;
-    private Input input = new Input();
+    private Input input;
 
     public InputValidator(String validateCarNames) {
+        input = new Input();
         convertValidateList(validateCarNames);
         removeSpaceInCarName();
+    }
+
+    public void validate() {
         hasDuplicatedName();
         validateCarNameLength();
         validateEmptyCarName();
     }
 
-    private void convertValidateList(String carNames) {
+    protected void convertValidateList(String carNames) {
         this.validateCarNames = Arrays.stream(carNames.split(",")).toList();
     }
 
@@ -35,7 +39,7 @@ public class InputValidator {
         return validateCarNames;
     }
 
-    private void hasDuplicatedName() {
+    protected void hasDuplicatedName() {
         HashSet<String> duplicateValidSet = new HashSet<>(validateCarNames);
         if (duplicateValidSet.size()!=this.validateCarNames.size()) {
             input.close();
@@ -43,7 +47,7 @@ public class InputValidator {
         }
     }
 
-    private void validateCarNameLength() {
+    protected void validateCarNameLength() {
         validateCarNames.stream()
                 .filter(carName -> carName.length() > CAR_NAME_MAX_SIZE)
                 .findAny()
@@ -53,7 +57,7 @@ public class InputValidator {
                 });
     }
 
-    private void validateEmptyCarName() {
+    protected void validateEmptyCarName() {
         validateCarNames.stream()
                 .filter(carName -> carName.length()==0)
                 .findAny()
