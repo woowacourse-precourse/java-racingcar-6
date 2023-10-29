@@ -51,6 +51,15 @@ public class InputAndOutput {
     }
 
     static int inputTryTimes() throws IllegalArgumentException {
-        return 0;
+        int tryTimes = 0;
+        try {
+            tryTimes = Integer.parseInt(Console.readLine());
+        } catch (NumberFormatException numberFormatException) {
+            throw new IllegalArgumentException();
+        }
+        if (tryTimes == 0) {
+            throw new IllegalArgumentException();
+        }
+        return tryTimes;
     }
 }
