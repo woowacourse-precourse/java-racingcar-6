@@ -30,6 +30,6 @@ public class Winner {
 
     public void result(List<String> winner) {
         String result = String.join(",", winner);
-        System.out.println("최종 우승자: " + result);
+        System.out.println("최종 우승자 : " + result);
     }
 }
