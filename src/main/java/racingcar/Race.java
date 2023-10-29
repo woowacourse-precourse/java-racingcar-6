@@ -7,8 +7,11 @@ import java.util.List;
 
 public class Race {
 
+    private static final int NOT_HAVE_SAME_NAMES = 0;
+
     private Integer gameCount;
     private final List<Car> cars = new ArrayList<>();
+    private final InputValidator inputValidator = new InputValidator(this);
 
     public void start() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -24,8 +27,7 @@ public class Race {
 
     private void createCars(String[] carNames) {
         for (String carName : carNames) {
-            InputValidator inputValidator = new InputValidator();
-            inputValidator.carNameLength(carName);
+            inputValidator.carName(carName);
             cars.add(new Car(carName));
         }
     }
@@ -38,8 +40,14 @@ public class Race {
     }
 
     private void saveGameCount(String userInput) {
-        InputValidator inputValidator = new InputValidator();
-        inputValidator.gameCountFormat(userInput);
+        inputValidator.gameCount(userInput);
         gameCount = Integer.parseInt(userInput);
+    }
+
+    public boolean hasDuplicatedCarNames(String carName) {
+        long countEqualNames = cars.stream()
+                .filter(car -> car.isEqualName(carName))
+                .count();
+        return countEqualNames > NOT_HAVE_SAME_NAMES;
     }
 }

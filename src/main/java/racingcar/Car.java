@@ -11,4 +11,9 @@ public class Car {
         this.name = name;
         this.forwardCount = DEFAULT_FORWARD_COUNT;
     }
+
+    public boolean isEqualName(String inputName) {
+        return inputName.equals(name);
+    }
+
 }
