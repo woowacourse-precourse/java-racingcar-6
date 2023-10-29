@@ -9,14 +9,9 @@ public class CarRacing {
     public void run(){
         InputController inputController = new InputController();
         RaceController raceController = new RaceController();
-        int raceTries=0;
-        try {
-            inputController.getNameOfCar();
-            raceTries = inputController.getRaceTries();
-        }catch(Exception e){
-            throw new IllegalArgumentException();
-        }
 
+        inputController.getNameOfCar();
+        int raceTries = inputController.getRaceTries();
 
         System.out.println("실행 결과");
         for (int i=0;i<raceTries;i++){
