@@ -4,18 +4,16 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class GameService {
 
+    private static final int MIN_MOVE_NUMBER = 0;
+    private static final int MAX_MOVE_NUMBER = 9;
+
+
     public void moveCars(List<Car> cars) {
 
-        cars.forEach(car -> {
-            int randomNumber = makeRandomNumberForMove();
-            if (isMove(randomNumber)) {
-                car.move();
-            }
-        });
+        cars.forEach(car -> car.tryMove(makeRandomNumberForMove()));
     }
 
     public List<String> findWinner(List<Car> cars) {
@@ -25,17 +23,12 @@ public class GameService {
         return cars.stream()
                 .filter(car -> car.getPosition().length() == maxPosition)
                 .map(Car::getName)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     private int makeRandomNumberForMove() {
 
-        return Randoms.pickNumberInRange(0, 9);
-    }
-
-    public boolean isMove(int randomNumber) {
-
-        return randomNumber >= 4;
+        return Randoms.pickNumberInRange(MIN_MOVE_NUMBER, MAX_MOVE_NUMBER);
     }
 
     private int findMaxPosition(List<Car> cars) {

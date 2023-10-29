@@ -2,13 +2,15 @@ package racingcar.domain;
 
 public class Car {
 
+    private static final String POSITION_SYMBOL = "-";
+    private static final int MOVE_CONDITION = 4;
+
     private final String name;
-    private String position;
+    private int position;
 
     public Car(String name) {
 
         this.name = name;
-        this.position = "";
     }
 
     public static Car makeCar(String name) {
@@ -16,9 +18,16 @@ public class Car {
         return new Car(name);
     }
 
-    public void move() {
+    public void tryMove(int randomNumber) {
 
-        this.position += "-";
+        if (isMove(randomNumber)) {
+            this.position++;
+        }
+    }
+
+    private boolean isMove(int randomNumber) {
+
+        return randomNumber >= MOVE_CONDITION;
     }
 
     public String getName() {
@@ -28,6 +37,6 @@ public class Car {
 
     public String getPosition() {
 
-        return position;
+        return POSITION_SYMBOL.repeat(position);
     }
 }

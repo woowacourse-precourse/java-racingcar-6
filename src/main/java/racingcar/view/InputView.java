@@ -6,18 +6,19 @@ import racingcar.validator.GameValidator;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class InputView {
+
+    private static final String DELIMITER = ",";
 
     public List<Car> inputCarNames() {
 
         String cars = getCars();
 
-        return Arrays.stream(cars.split(","))
+        return Arrays.stream(cars.split(DELIMITER))
                 .map(String::trim)
-                .map(carName -> new Car(carName))
-                .collect(Collectors.toList());
+                .map(Car::makeCar)
+                .toList();
     }
 
     public int inputTryCount() {
@@ -37,7 +38,7 @@ public class InputView {
         GameValidator.validateCarNumberIsOverTwo(cars);
         GameValidator.validateZeroCarName(cars);
 
-        Arrays.stream(cars.split(","))
+        Arrays.stream(cars.split(DELIMITER))
                 .forEach(GameValidator::validateCarNamesLength);
 
         return cars;

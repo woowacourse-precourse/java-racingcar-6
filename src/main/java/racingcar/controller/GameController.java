@@ -28,14 +28,14 @@ public class GameController {
         int tryCounts = inputView.inputTryCount();
         outputView.printResultMessage();
 
-        progressOneRound(cars, tryCounts);
+        progressRounds(cars, tryCounts);
 
         List<String> winners = gameService.findWinner(cars);
 
         outputView.printWinner(winners);
     }
 
-    private void progressOneRound(List<Car> cars, int tryCounts) {
+    private void progressRounds(List<Car> cars, int tryCounts) {
 
         for (int i = 0; i < tryCounts; i++) {
             gameService.moveCars(cars);
