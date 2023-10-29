@@ -2,8 +2,9 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 import racingcar.model.CarCreator;
-import racingcar.model.MessageEnum;
+import racingcar.model.NumberEnum;
 import racingcar.service.RacingService;
 import racingcar.service.UserService;
 import racingcar.view.InputMessage;
@@ -28,7 +29,6 @@ public class GameController {
             racingGame(movement);
             outputMessage.raceStatusMessage(carNames, movement);
         }
-
         outputMessage.winnerMessage(racingResult(carNames, movement));
     }
 
@@ -60,18 +60,13 @@ public class GameController {
     }
 
     private List<Integer> getWinnerIndex(List<Integer> movement) {
-        List<Integer> winnerIndex = new ArrayList<>();
-        int maxMove = 0;
-        for (int i = 0; i < movement.size(); i++) {
-            int currentMove = movement.get(i);
-            if (currentMove > maxMove) {
-                maxMove = currentMove;
-                winnerIndex.clear();
-            }
-            if (currentMove == maxMove) {
-                winnerIndex.add(i);
-            }
-        }
-        return winnerIndex;
+        int maxMove = movement.stream()
+                .max(Integer::compareTo)
+                .orElse(0);
+
+        return IntStream.range(NumberEnum.ZERO.getNumber(), movement.size())
+                .filter(i -> movement.get(i) == maxMove)
+                .boxed()
+                .toList();
     }
 }
