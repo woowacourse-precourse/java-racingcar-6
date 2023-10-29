@@ -10,6 +10,10 @@ import java.util.Map;
 import org.junit.platform.commons.util.StringUtils;
 
 public final class RacingCars {
+    private static final String INPUT_SPLIT_DELIMITER = ",";
+    private static final int CAR_NAME_LENGTH_LIMIT = 5;
+    private static final int INITIAL_CAR_POSITION = 0;
+
     private final List<String> names;
 
     private RacingCars(String input) {
@@ -23,7 +27,7 @@ public final class RacingCars {
     }
 
     private List<String> createNamesWithInput(String input) {
-        return Arrays.stream(input.split(","))
+        return Arrays.stream(input.split(INPUT_SPLIT_DELIMITER))
                 .toList();
     }
 
@@ -41,7 +45,7 @@ public final class RacingCars {
     }
 
     private static void validateNameLength(String name) {
-        if (name.length() > 5) {
+        if (name.length() > CAR_NAME_LENGTH_LIMIT) {
             throw new IllegalArgumentException(EXCEEDED_LIMIT_CAR_LENGTH.getMessage());
         }
     }
@@ -49,7 +53,7 @@ public final class RacingCars {
     public Map<String, Integer> createInitPosition() {
         Map<String, Integer> linkedHashMap = new LinkedHashMap<>();
         for (String name : names) {
-            linkedHashMap.put(name, 0);
+            linkedHashMap.put(name, INITIAL_CAR_POSITION);
         }
         return linkedHashMap;
     }
