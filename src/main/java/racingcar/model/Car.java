@@ -21,7 +21,7 @@ public class Car {
     @Override
     // "pobi : -----" 이렇게 넘기도록
     public String toString() {
-        return name + " : " + bar;
+        return name + " : " + bar+"\n";
     }
 
 }

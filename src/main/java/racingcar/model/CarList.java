@@ -4,16 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarList {
-    public List<Car> names;
+    public List<Car> cars = new ArrayList<>();
 
     public CarList(List<String> names) {
-        // Car 생성자 만들어서 각각 집어넣기
+        for (String name: names){
+            cars.add(new Car(name));
+        }
     }
 
     // 랜덤으로 받을 수들 업데이트
     // car의 updateDistance 호출
-    public void upgradeDistance(List<Integer> distances){
-
+    public void upgradeDistance(List<Integer> distanceList){
+        int index = 0;
+        for (Car car: cars){
+            car.updateDistance(distanceList.get(index));
+            index ++;
+        }
     }
 
     public List<String> getWinner(){
@@ -30,8 +36,10 @@ public class CarList {
     * 이렇게 공백까지 합쳐서 하나의 세트로 리턴하세요
     * */
     public String toString() {
-        return "CarList{" +
-                "names=" + names +
-                '}';
+        String addcars = "";
+        for (Car car: cars){
+            addcars += car.toString();
+        }
+        return addcars;
     }
 }

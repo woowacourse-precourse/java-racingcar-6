@@ -58,16 +58,16 @@
 
     - [x]  여기서 toString 만들기 (1개)
 - CarList
-    - [ ]  생성자(List<String> names)
+    - [x]  생성자(List<String> names)
         - controller/putCar에서 List<String> names 받으면 이걸로 CarList 생성하기
 
-    - [ ]  upgrade distance(List<Integer> distances)
+    - [x]  upgrade distance(List<Integer> distances)
         - 리스트별로 생성자에 업그레이드, 근데 이게 맞나? 이름에 맞춰서 해야 되지 않나? - update Distance 사용하기
 
     - [ ]  List<String> getWinner()
         - 정렬해서 우승자가 담긴 스트링 리스트 리턴
 
-    - [ ]  String toString (자동차 수만큼)
+    - [x]  String toString (자동차 수만큼)
         - carList에서 car 하나의 tostring을 받아와서 다 붙이고 마지막에 \n 붙이기
 
 
