@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import static org.assertj.core.api.Assertions.*;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -42,6 +44,35 @@ public class OutputViewTest {
         outputView.resultByRound(game);
 
         //then
-        Assertions.assertThat(outputStream.toString()).isEqualTo("car1 : -\ncar2 : \n");
+        assertThat(outputStream.toString()).isEqualTo("car1 : -\ncar2 : \n");
+    }
+
+    @Test
+    void 우승자_출력_단독() {
+        //given
+        List<String> winner = new ArrayList<>();
+        winner.add("car");
+
+        //when
+        OutputView outputView = new OutputView();
+        outputView.winners(winner);
+
+        //then
+        assertThat(outputStream.toString()).isEqualTo("최종 우승자 : car");
+    }
+
+    @Test
+    void 우승자_출력_공동() {
+        //given
+        List<String> winner = new ArrayList<>();
+        winner.add("car1");
+        winner.add("car2");
+
+        //when
+        OutputView outputView = new OutputView();
+        outputView.winners(winner);
+
+        //then
+        assertThat(outputStream.toString()).isEqualTo("최종 우승자 : car1, car2");
     }
 }
