@@ -2,6 +2,7 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.Arrays;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.util.Validator;
@@ -28,5 +29,19 @@ public class ValidatorTest {
         assertThatThrownBy(()-> Validator.validateInteger("1.34"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Input should be integer.");
+    }
+
+    @Test
+    void 길이가_6자_이상_이름_입력_예외테스트() {
+        assertThatThrownBy(()-> Validator.validateLength(Arrays.asList("wwwwww","pobi")))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Car names should be less than five character.");
+    }
+
+    @Test
+    void 중복된_이름_입력_예외테스트() {
+        assertThatThrownBy(() -> Validator.validateDuplication(Arrays.asList("pobi","pobi")))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Each car has to have unique name.");
     }
 }
