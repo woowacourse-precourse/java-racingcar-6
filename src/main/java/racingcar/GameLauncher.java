@@ -1,10 +1,10 @@
 package racingcar;
 
 import java.util.List;
+import racingcar.common.factory.ConstructorFactory;
 import racingcar.common.strategy.MoveStrategy;
 import racingcar.common.type.Names;
 import racingcar.common.type.TrialCount;
-import racingcar.common.factory.ConstructorFactory;
 import racingcar.controller.Game;
 import racingcar.controller.Racing;
 import racingcar.controller.Result;
@@ -16,45 +16,42 @@ import racingcar.view.InputView;
 
 public class GameLauncher {
     public static void run() {
-        //사용자 입력 생성
-        InputDTO inputDTO = InputView.readUserInput();
+        InputDTO userInput = getUserInput();
+        List<Car> carList = generateCars(userInput);
+        Game game = initializeGame(carList, userInput);
+        Result result = initializeResult(carList);
+        Racing racing = startRacing(game, result);
 
-        //자동차 리스트 생성
-        Names names = inputDTO.names();
-        List<Car> carList = createCarList(names);
-
-        //게임 객체 생성
-        TrialCount trialCount = inputDTO.trialCount();
-        Game game = createGame(carList, trialCount);
-
-        //게임 결과 객체 생성
-        Result result = createResult(carList);
-
-        //레이싱 객체 생성 및 게임 시작
-        Racing racing = createRacing(game, result);
         racing.start();
     }
 
-    private static List<Car> createCarList(Names names) {
+    private static InputDTO getUserInput() {
+        return InputView.readUserInput();
+    }
+
+    private static List<Car> generateCars(InputDTO userInput) {
+        Names names = userInput.names();
         return ConstructorFactory.createCarList(names);
     }
 
-    private static MoveStrategy createMoveStrategy() {
-        return ConstructorFactory.createMoveStrategy();
-    }
-
-    private static Game createGame(List<Car> carList, TrialCount trialCount) {
+    private static Game initializeGame(List<Car> carList, InputDTO userInput) {
         MoveStrategy moveStrategy = createMoveStrategy();
         RacingCars racingCars = ConstructorFactory.createRacingCars(carList);
+        TrialCount trialCount = userInput.trialCount();
+
         return ConstructorFactory.createGame(racingCars, moveStrategy, trialCount);
     }
 
-    private static Result createResult(List<Car> carList) {
+    private static Result initializeResult(List<Car> carList) {
         RacingWinners racingWinners = ConstructorFactory.createRacingWinners(carList);
         return ConstructorFactory.createResult(racingWinners);
     }
 
-    private static Racing createRacing(Game game, Result result) {
+    private static Racing startRacing(Game game, Result result) {
         return ConstructorFactory.createRacing(game, result);
+    }
+
+    private static MoveStrategy createMoveStrategy() {
+        return ConstructorFactory.createMoveStrategy();
     }
 }

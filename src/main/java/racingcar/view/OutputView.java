@@ -7,13 +7,13 @@ import racingcar.dto.output.WinnerDTO;
 public class OutputView {
     private static boolean isFirstTime = true;
 
-    public static void printRoundResult(List<RoundDTO> RoundDTOS) {
+    public static void printRoundResult(List<RoundDTO> roundDTOs) {
         if (isFirstTime) {
             System.out.println("\n실행 결과");
             isFirstTime = false;
         }
 
-        for (RoundDTO roundDTO : RoundDTOS) {
+        for (RoundDTO roundDTO : roundDTOs) {
             System.out.println(roundDTO);
         }
         System.out.println();

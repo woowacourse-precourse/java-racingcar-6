@@ -3,8 +3,6 @@ package racingcar.domain;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.common.factory.DTOFactory;
-import racingcar.dto.output.WinnerDTO;
 
 public class RacingWinners {
     private final List<Car> cars;
@@ -13,10 +11,9 @@ public class RacingWinners {
         this.cars = Collections.unmodifiableList(cars);
     }
 
-    public WinnerDTO getFinalResult() {
+    public List<String> getWinnerNames() {
         int winnerDistance = findWinnerDistance();
-        List<String> winnerNames = findWinnerNames(winnerDistance);
-        return DTOFactory.createWinnerDTO(winnerNames);
+        return findWinnerNames(winnerDistance);
     }
 
     // 승자의 거리를 찾는 메서드
