@@ -12,7 +12,7 @@ public class Validate {
         }
     }
     public static void lastCharIsComma(String name) {
-        if(! name.endsWith(",")) {
+        if(name.endsWith(",")) {
             throw new IllegalArgumentException("잘못된 입력 : \",\" 뒤는 자동차 이름이 들어가야합니다.");
         }
     }
