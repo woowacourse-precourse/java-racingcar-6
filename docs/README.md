@@ -16,7 +16,7 @@
 
 # 기능
 ### 랜덤 숫자 생성
-- [ ] `camp.nextstep.edu.missionutils.Randoms`를 이용해서 0에서 9 사이의 랜덤 숫자를 생성한다.
+- [x] `camp.nextstep.edu.missionutils.Randoms`를 이용해서 0에서 9 사이의 랜덤 숫자를 생성한다.
 
 ### 자동차
 - [x] 이름, 전진한 횟수의 필드를 가진다.
