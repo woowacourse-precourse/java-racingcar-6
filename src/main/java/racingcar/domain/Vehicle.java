@@ -5,7 +5,7 @@ public abstract class Vehicle implements Comparable<Vehicle> {
     String name;
     Distance distance;
 
-    public abstract void drive();
+    public abstract void advance();
 
     @Override
     public int compareTo(Vehicle otherVehicle) {
