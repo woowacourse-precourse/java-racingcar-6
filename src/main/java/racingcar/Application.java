@@ -7,24 +7,24 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
+import static camp.nextstep.edu.missionutils.Console.readLine;
+
 public class Application {
     static Race race;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         LinkedHashMap<String, Integer> racingCars = new LinkedHashMap<String, Integer>();
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         race = new Race(racingCars);
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String input = in.readLine();
+        String input = readLine();
         String[] cars = input.split(",");
         racingCarNameCheck(cars);
         race.racingCarInit(cars);
         System.out.println("시도할 회수는 몇회인가요?");
-        int gameCount = Integer.parseInt(in.readLine());
+        int gameCount = Integer.parseInt(readLine());
         System.out.println();
         System.out.println("실행 결과");
         race.raceStart(gameCount);
-        System.out.println(racingCars);
         int max = racingCarsMaxValue();
         String winners = whoWinner(max);
         System.out.println("최종 우승자 : " + winners);
