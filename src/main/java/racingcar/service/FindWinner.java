@@ -4,17 +4,18 @@ import racingcar.domain.Car;
 import racingcar.domain.FindMaxMove;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FindWinner {
-    public static List<String> findWinner(List<Car> car_list){
+    public static List<String> findWinner(HashMap<String,Integer> car_list){
         List<String> winner = new ArrayList<>();
         int winnerMove = FindMaxMove.findMaxMove(car_list);
 
-        for (int i = 0; i<car_list.size(); i++){
-            Car currentCar = car_list.get(i);
-            if (currentCar.getMove() == winnerMove){
-                winner.add(currentCar.getName());
+        for (Map.Entry<String, Integer> item : car_list.entrySet()) {
+            if (item.getValue() == winnerMove) {
+                winner.add(item.getKey());
             }
         }
 

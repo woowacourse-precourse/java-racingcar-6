@@ -9,12 +9,13 @@ import racingcar.view.PrintInput;
 import racingcar.view.PrintOutput;
 import racingcar.view.PrintResult;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class PlayGame {
     public void play(){
         PrintInput.inputCar();
-        List<Car> car_list = SettingCar.settingcar();
+        HashMap<String,Integer> car_list = SettingCar.settingcar();
 
         PrintInput.inputNumberOfMove();
         int game = SettingGame.numberOfGame();

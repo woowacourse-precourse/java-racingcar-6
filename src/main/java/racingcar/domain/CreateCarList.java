@@ -1,16 +1,18 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class CreateCarList {
-    private final List<Car> cars = new ArrayList<>();
+    private final HashMap<String,Integer> cars = new LinkedHashMap<>();
 
-    public List<Car> createCar_list(String string_cars){
+    public HashMap<String,Integer> createCar_list(String string_cars){
         String[] car_name = splitCarsName(string_cars);
 
         for (String s : car_name) {
-            cars.add(new Car(s));
+            cars.put(s,0);
         }
 
         return cars;
