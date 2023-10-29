@@ -8,6 +8,12 @@ import racingcar.domain.car.move.RandomMovement;
 
 public class InputCarFactory implements CarFactory {
 
+    private final InputCarFactoryValidator inputCarFactoryValidator;
+
+    public InputCarFactory(InputCarFactoryValidator inputCarFactoryValidator) {
+        this.inputCarFactoryValidator = inputCarFactoryValidator;
+    }
+
     @Override
     public List<Car> createCars() {
         printMakeCarMessage();
@@ -15,36 +21,10 @@ public class InputCarFactory implements CarFactory {
     }
 
     private List<Car> convertNamesToCars(String[] carNames) {
-        validateCarNames(carNames);
+        inputCarFactoryValidator.validateCarNames(carNames);
         return Arrays.stream(carNames)
                 .map(name -> new Car(name.trim(), new RandomMovement()))
                 .collect(Collectors.toList());
-    }
-
-    private void validateCarNames(String[] carNames) {
-        validateDuplicateNames(carNames);
-        validateCarNamesLength(carNames);
-    }
-
-    private void validateDuplicateNames(String[] carNames) {
-        if (uniqueNameCount(carNames) != carNames.length) {
-            throw new IllegalArgumentException("자동차 이름에 중복이 있습니다.");
-        }
-    }
-
-    private void validateCarNamesLength(String[] carNames) {
-        System.out.println(carNames.length
-        );
-        if(carNames.length > CarFactory.MAX_CAR_SIZE) {
-            throw new IllegalArgumentException("자동차는 최대 " + CarFactory.MAX_CAR_SIZE + "대 만들 수 있습니다.");
-        }
-    }
-
-    private long uniqueNameCount(String[] carNames) {
-        return Arrays.stream(carNames)
-                .map(String::trim)
-                .distinct()
-                .count();
     }
 
     private void printMakeCarMessage() {

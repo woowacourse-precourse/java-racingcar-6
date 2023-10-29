@@ -1,5 +1,6 @@
 package racingcar;
 
+import racingcar.domain.car.InputCarFactoryValidator;
 import racingcar.domain.victory.VictoryManager;
 import racingcar.domain.victory.VictoryView;
 import racingcar.domain.car.CarFactory;
@@ -35,7 +36,7 @@ public class RacingGameApplication {
 
     private CarFactory carFactory() {
         if (cashedCarFactory == null) {
-            cashedCarFactory = new InputCarFactory();
+            cashedCarFactory = new InputCarFactory(new InputCarFactoryValidator());
         }
         return cashedCarFactory;
     }

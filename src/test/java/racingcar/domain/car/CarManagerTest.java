@@ -16,7 +16,7 @@ class CarManagerTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni");
-                    CarManager carManager = new CarManager(new InputCarFactory(), new VictoryManager(new VictoryView()));
+                    CarManager carManager = new CarManager(new InputCarFactory(new InputCarFactoryValidator()), new VictoryManager(new VictoryView()));
                     carManager.makeCar();
                     carManager.moveAndShowProgress();
                     assertThat(output()).contains("pobi : -", "woni :");
@@ -30,7 +30,7 @@ class CarManagerTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni");
-                    CarManager carManager = new CarManager(new InputCarFactory(), new VictoryManager(new VictoryView()));
+                    CarManager carManager = new CarManager(new InputCarFactory(new InputCarFactoryValidator()), new VictoryManager(new VictoryView()));
                     carManager.makeCar();
                     carManager.moveAndShowProgress();
                     carManager.showVictory();
@@ -45,7 +45,7 @@ class CarManagerTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni");
-                    CarManager carManager = new CarManager(new InputCarFactory(), new VictoryManager(new VictoryView()));
+                    CarManager carManager = new CarManager(new InputCarFactory(new InputCarFactoryValidator()), new VictoryManager(new VictoryView()));
                     carManager.makeCar();
                     carManager.moveAndShowProgress();
                     carManager.showVictory();

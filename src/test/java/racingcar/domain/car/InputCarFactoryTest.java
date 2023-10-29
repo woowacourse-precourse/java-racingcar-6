@@ -12,7 +12,7 @@ class InputCarFactoryTest extends IOTest {
     @Test
     void 각_자동차에_이름을_입력받아_자동차를_만든다() {
         //given
-        CarFactory carFactory = new InputCarFactory();
+        CarFactory carFactory = new InputCarFactory(new InputCarFactoryValidator());
 
         //when
         command("a, b, c");
@@ -26,7 +26,7 @@ class InputCarFactoryTest extends IOTest {
     @Test
     void 입력받은_자동차_이름이_5글이_이하가_아니라면_에러를_던진다() {
         //given
-        CarFactory carFactory = new InputCarFactory();
+        CarFactory carFactory = new InputCarFactory(new InputCarFactoryValidator());
 
         //when
         command("aaaa, bbbb, cccccc");
@@ -40,7 +40,7 @@ class InputCarFactoryTest extends IOTest {
     @Test
     void 입력받은_자동차_이름에_중복이_발생하면_에러를_던진다() {
         //given
-        CarFactory carFactory = new InputCarFactory();
+        CarFactory carFactory = new InputCarFactory(new InputCarFactoryValidator());
 
         //when
         command("a, c, a");
@@ -54,7 +54,7 @@ class InputCarFactoryTest extends IOTest {
     @Test
     void 입력받은_자동차_이름의_갯수가_최대치를_넘으면_에러를_던진다() {
         //given
-        CarFactory carFactory = new InputCarFactory();
+        CarFactory carFactory = new InputCarFactory(new InputCarFactoryValidator());
 
         String carNames = generateNames(CarFactory.MAX_CAR_SIZE + 1);
 

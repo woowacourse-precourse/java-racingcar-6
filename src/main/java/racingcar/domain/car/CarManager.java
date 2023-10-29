@@ -4,7 +4,6 @@ import java.util.List;
 import racingcar.domain.victory.VictoryManager;
 
 public class CarManager {
-    private static final int MAX_CAR_COUNT = 5;
     private List<Car> cars;
     private final CarFactory carFactory;
     private final VictoryManager victoryManager;
