@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Collections;
 import java.util.List;
 
@@ -32,4 +33,16 @@ public class Referee {
         }
         return FINAL_WINNER + name;
     }
+
+    // 경기의 랜덤값 이상일 경우 차는 이동 할 수 있다.
+    public void startEngine(Car car) {
+        if (canStart()) {
+            car.accel();
+        }
+    }
+
+    private boolean canStart() {
+        return Randoms.pickNumberInRange(0, 9) >= 4;
+    }
+
 }
