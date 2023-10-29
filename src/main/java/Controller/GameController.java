@@ -50,7 +50,7 @@ public class GameController {
         String tryCountInput = GameView.getTryCount();
         tryCount = new TryCount(tryCountInput);
 
-        if (!tryCount.isTryCountNumeric()) {
+        if (!tryCount.isNumeric()) {
             throw new IllegalArgumentException();
         }
     }

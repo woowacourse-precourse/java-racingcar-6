@@ -11,7 +11,7 @@ public class TryCount {
         this.tryCount = tryCount;
     }
 
-    public boolean isTryCountNumeric() {
+    public boolean isNumeric() {
         return tryCount.matches("\\d+");
     }
 

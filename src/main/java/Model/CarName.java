@@ -9,11 +9,11 @@ public class CarName {
         this.carName = carName;
     }
 
-    public boolean isNameUnder5Characters() {
+    public boolean isUnder5Characters() {
         return carName.length() <= 5;
     }
 
-    public boolean isCarNameEmpty() {
+    public boolean isEmpty() {
         return carName.isEmpty();
     }
 

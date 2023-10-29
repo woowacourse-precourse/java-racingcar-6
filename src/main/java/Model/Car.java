@@ -16,10 +16,10 @@ public class Car {
     }
 
     public boolean isNameValid() {
-        if (carName.isCarNameEmpty()) {
+        if (carName.isEmpty()) {
             return false;
         }
-        if (!carName.isNameUnder5Characters()) {
+        if (!carName.isUnder5Characters()) {
             return false;
         }
         return true;

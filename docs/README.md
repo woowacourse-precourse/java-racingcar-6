@@ -7,10 +7,10 @@
 - [X] 경주할 자동차 이름을 입력받는 기능 - GameController.*receiveRaceCarNames*
   - [X] 자동차 이름을 파싱하는 기능 - RaceCarNames.*parseCarNamesFromInput*
   - [X] 자동차 이름이 유효한지 확인하는 기능 - Car.*isNameValid*
-    - [X] 자동차 이름이 빈 문자열인지 확인하는 기능 - CarName.*isCarNameEmpty*
-    - [X] 자동차 이름이 다섯 글자 이하인지 확인하는 기능 - CarName.*isNameUnder5Characters*
+    - [X] 자동차 이름이 빈 문자열인지 확인하는 기능 - CarName.*isEmpty*
+    - [X] 자동차 이름이 다섯 글자 이하인지 확인하는 기능 - CarName.*isUnder5Characters*
 - [X] 시도할 회수를 입력받는 기능 - GameController.*receiveTryCount*
-  - [X] 시도 횟수가 숫자인지 확인하는 기능 - TryCount.*isTryCountNumeric*
+  - [X] 시도 횟수가 숫자인지 확인하는 기능 - TryCount.*isNumeric*
 - [X] 매회차 게임 진행 기능 - GameController.*playGame*
   - [X] 자동차를 전진시키는 기능 - Car.*moveForward*
 - [X] 각 자동차의 위치를 보여주는 기능 - GameController.*showCarPositions*
