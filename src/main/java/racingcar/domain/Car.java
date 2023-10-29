@@ -1,8 +1,5 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Car {
 
     private static final int MOVE_CONDITION = 4;
@@ -28,18 +25,12 @@ public class Car {
         }
     }
 
-    public static List<Car> createCars(String[] names) {
-
-        List<Car> cars = new ArrayList<>();
-
-        for (String name : names) {
-            cars.add(createCar(name));
+    public void display() {
+        System.out.print(name + " : ");
+        for (int i = 0; i < position; i++) {
+            System.out.print("-");
         }
-        return cars;
-    }
-
-    private static Car createCar(String name) {
-        return new Car(name);
+        System.out.println();
     }
 
 }
