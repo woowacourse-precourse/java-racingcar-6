@@ -46,7 +46,7 @@ public class CarInputView {
             return;
         }
 
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException(TRY_COUNT_IS_NOT_DIGIT.getErrorMessage());
     }
 
     private boolean isDigit(String userInput) {
