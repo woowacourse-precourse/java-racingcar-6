@@ -3,28 +3,46 @@ package racingcar.controller;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.RacingCar;
-import racingcar.validator.InputValidation;
-import racingcar.view.*;
+import racingcar.model.RacingCarList;
+
+import static racingcar.view.OutputView.*;
+import static racingcar.view.InputView.*;
 
 public class GameController {
-    OutputView getMessage = new OutputView();
-    InputView putMessage = new InputView();
-    GameUtils gameUtility = new GameUtils();
-    InputValidation validator = new InputValidation();
+    private final GameProcess process;
 
-    List<RacingCar> racingCarList = new ArrayList<>();  // 추후 일급 컬랙션 적용 해보기
+    public GameController() {
+        process = new GameProcess();
+    }
 
     public void run() {
-        getMessage.GameStartMessage();
-        String namesOfRacingCars = putMessage.getPlayerInput();
-        if (validator.checkPlayerInput(namesOfRacingCars)) {
-            List<String> carNameList = gameUtility.splitByComma(namesOfRacingCars);
-            for (String carName : carNameList) {
-                racingCarList.add(new RacingCar(carName));
-            }
+        String namesOfRacingCars = getPlayerInput();
+        RacingCarList car = new RacingCarList(namesOfRacingCars);
+        int tryAttempt = getPlayerAttempts();
 
-        } else {
-            throw new IllegalArgumentException();
+        gameResultMessge();
+        while (tryAttempt > 0) {
+            process.processGame(car);
+            tryAttempt -= 1;
         }
+        printFinalWinner(getFinalWinner(car));
+    }
+
+    private List<String> getFinalWinner(RacingCarList racingCarList) {
+        int maxDistance = 0;
+        List<String> result = new ArrayList<>();
+        for (int carIndex = 0; carIndex < racingCarList.size(); carIndex++) {
+            RacingCar car = racingCarList.get(carIndex);
+            int carDistance = car.getDistance();
+
+            if (carDistance > maxDistance) {
+                result.clear();
+                maxDistance = carDistance;
+            }
+            if (car.getDistance() == maxDistance) {
+                result.add(car.getName());
+            }
+        }
+        return result;
     }
 }
