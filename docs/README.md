@@ -40,17 +40,17 @@
 * 생성자로 Information class name 초기화 ✅
 
 ### Information
-클래스 변수 : String name, long destination
+클래스 변수 : String name, int destination
 * 자동차 이름이 유효한지 검사하는 기능 구현 ❌
 * 현재 자동차 이름과 위치를 출력 ❌
 * 생성자로 name 및 destination 초기화 ✅
 
 ### MoveNum
-클래스 변수 : long num
+클래스 변수 : int num
 * 이동을 시도할 횟수가 유효한지 검사하는 기능 구현 ❌
 * 입력값이 이동을 시도할 횟수를 넘었는지 검사하는 기능 구현 ❌
 
 ### CarNum
-클래스 변수 : long num
+클래스 변수 : int num
 * 이동을 시도할 횟수가 유효한지 검사하는 기능 구현 ❌
 * 입력값이 자동차 개수를 넘었는지 검사하는 기능 구현 ❌
