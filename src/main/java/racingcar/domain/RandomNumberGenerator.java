@@ -13,6 +13,7 @@ public class RandomNumberGenerator implements Generator {
     public Integer generate() {
         List<Integer> randomNumber = Randoms.pickUniqueNumbersInRange(MIN, MAX, SIZE);
         Integer choose = randomNumber.get(0);
+
         assert inRange(choose);
         return choose;
     }
