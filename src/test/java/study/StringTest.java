@@ -62,4 +62,21 @@ public class StringTest {
             throw new IllegalArgumentException("Name should not be blank");
         }
     }
+
+    @Test
+    void 사용자에게_입력_받은_값이_0과_같거나_보다_작은경우_예외_발생() {
+        String input = "0";
+
+        assertThatThrownBy(() -> validateNumber(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Number should be greater than 0");
+    }
+
+    void validateNumber(String numberStr) {
+        int number = Integer.parseInt(numberStr);
+        if (number <= 0) {
+            throw new IllegalArgumentException("Number should be greater than 0");
+        }
+    }
+
 }
