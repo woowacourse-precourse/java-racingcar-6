@@ -1,10 +1,11 @@
 package racingcar.model;
 
+import racingcar.constants.CarConstant;
+
 public class Car {
 
-    private static final int MOVE_NUMBER = 4;
     private String name;
-    private int position = 0;
+    private int position = CarConstant.INITIAL_POSITION.getValue();
 
     private Car(String name) {
         this.name = name;
@@ -23,7 +24,7 @@ public class Car {
     }
 
     public void moveForward(int randomNumber) {
-        if (randomNumber >= MOVE_NUMBER) {
+        if (randomNumber >= CarConstant.MOVE_NUMBER.getValue()) {
             position++;
         }
     }

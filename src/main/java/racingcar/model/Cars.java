@@ -1,6 +1,7 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.constants.CarConstant;
+import racingcar.util.Util;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,9 +10,6 @@ import java.util.Set;
 
 public class Cars {
 
-    private static final int MAX_NAME_LENGTH = 5;
-    private static final int MIN_RANDOM_NUMBER = 0;
-    private static final int MAX_RANDOM_NUMBER = 9;
     private List<Car> cars;
 
     private Cars(List<Car> cars) {
@@ -38,7 +36,7 @@ public class Cars {
     }
 
     private static void validateNameLength(String name) {
-        if (name.length() > MAX_NAME_LENGTH) {
+        if (name.length() > CarConstant.MAX_NAME_LENGTH.getValue()) {
             throw new IllegalArgumentException("자동차의 이름은 5자 이하여야 합니다.");
         }
     }
@@ -51,7 +49,7 @@ public class Cars {
 
     public void playRound() {
         for (Car car : cars) {
-            int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+            int randomNumber = Util.generateRandomNumber();
             car.moveForward(randomNumber);
         }
     }
