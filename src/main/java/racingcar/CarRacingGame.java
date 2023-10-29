@@ -3,11 +3,39 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 public class CarRacingGame {
     private List<Car> car = new ArrayList<>();
     private int trial;
+
+    void rankWinner() {
+        List<Car> winner = new ArrayList<>();
+
+        Optional<Car> carWithMaximumDistance = car
+                .stream()
+                .max(Comparator.comparing(Car::getDistance));
+
+        winner.add(carWithMaximumDistance.get());
+
+        int maximumDistance = carWithMaximumDistance.get().getDistance();
+
+        for (Car car: car) {
+            if (car.getDistance() == maximumDistance) {
+                winner.add(car);
+            }
+        }
+
+        List<String> winnerName = new ArrayList<>();
+
+        for(Car car: winner) {
+            winnerName.add(car.toString());
+        }
+
+        System.out.println("최종 우승자 : " + String.join(", ", winnerName));
+    }
 
     void setCar() throws IllegalArgumentException {
         String input = Console.readLine();

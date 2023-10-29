@@ -29,6 +29,10 @@ public class Car {
         }
     }
 
+    int getDistance() {
+         return distance;
+    }
+
     public String toString() {
         return name;
     }
