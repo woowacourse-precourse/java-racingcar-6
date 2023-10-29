@@ -16,4 +16,12 @@ public class RacingException {
                 throw new IllegalArgumentException();
             }
         }
+
+        public void validateIsNullAfterComma(String carNames) {
+            for (int i = 0; i < carNames.length()-1; i++) {
+                if (carNames.charAt(i) == ',' && carNames.charAt(i + 1) == ' ') {
+                    throw new IllegalArgumentException("이름 간 공백없이 작성하시오.");
+                }
+            }
+        }
 }
