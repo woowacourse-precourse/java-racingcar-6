@@ -21,6 +21,6 @@ public class Name {
     }
 
     private static boolean isNameTooLong(String name) {
-        return name.length() >= MAX_LENGTH;
+        return name.trim().length() >= MAX_LENGTH;
     }
 }
