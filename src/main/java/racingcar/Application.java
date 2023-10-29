@@ -41,5 +41,9 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
 
         String answer = Console.readLine();
+
+        if (answer.length() > 9) {
+            throw new IllegalArgumentException("시도 횟수는 10자리 미만의 수여야 합니다.");
+        }
     }
 }
