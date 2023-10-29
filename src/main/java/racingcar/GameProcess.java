@@ -42,7 +42,7 @@ public class GameProcess {
 
 	public void printFinalString(int maxDistance, List<InformationOfCar> carList) {
 		StringBuilder result = new StringBuilder(carList.get(0).getCarName());
-		for (int i = 1; i < carList.size()-1; i++) {
+		for (int i = 1; i < carList.size(); i++) {
 			InformationOfCar car = carList.get(i);
 			if (car.getDistance().length() == maxDistance) {
 				result.append(", ").append(car.getCarName());
