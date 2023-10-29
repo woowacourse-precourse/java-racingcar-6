@@ -8,32 +8,15 @@ public class InputCarRace {
     private static List<String> carNames = new ArrayList<>();
     private static int moveCount = 0;
 
-    public static InputCarRace inputMove(String stringMoveCount) {
+    public static InputCarRace inputMove(String stringMoveCount){
         validateOnlyNumber(stringMoveCount);
         moveCount = Integer.parseInt(stringMoveCount);
-
+        OutputCarRace.printf(MessageType.INPUT_DATA_PRINT, stringMoveCount);
         return new InputCarRace();
     }
 
     public static int getMoveCount(){
         return moveCount;
-    }
-    
-    public static InputCarRace inputCarNames(String stringCarNames) {
-        StringTokenizer st = new StringTokenizer(stringCarNames, ",");
-
-        while (st.hasMoreTokens()) {
-            String carName = st.nextToken();
-            validateCarName(carName);
-            carNames.add(carName);
-        }
-
-        validateDuplicateCarNames();
-        return new InputCarRace();
-    }
-
-    public static List<String> getCarNumbers(){
-        return carNames;
     }
 
     private static void validateOnlyNumber(String stringMoveCount) {
@@ -42,38 +25,56 @@ public class InputCarRace {
         }
     }
 
-    private static boolean isOnlyNumber(String stringMoveCount) {
+    private static boolean isOnlyNumber(String stringMoveCount){
         return !stringMoveCount.matches("[0-9]+");
     }
 
-    private InputCarRace() {
+    public static InputCarRace inputCarNames(String stringCarNames){
+        StringTokenizer st = new StringTokenizer(stringCarNames,",");
+
+        while(st.hasMoreTokens()){
+            String carName = st.nextToken();
+            validateCarName(carName);
+            carNames.add(carName);
+        }
+
+        validateDuplicateCarNames();
+        OutputCarRace.printf(MessageType.INPUT_DATA_PRINT, stringCarNames);
+        return new InputCarRace();
+    }
+
+    public static List<String> getCarNumbers(){
+        return carNames;
+    }
+
+    private InputCarRace(){
 
     }
 
-    private static void validateCarName(String carName) {
+    private static void validateCarName(String carName){
         validateUnderFiveLength(carName);
         validateWhiteSpace(carName);
     }
 
     private static void validateUnderFiveLength(String carName) {
-        if (isOverSixLength(carName)) {
+        if(isOverSixLength(carName)){
             throw new IllegalArgumentException("입력하신 차량 이름이 6자를 넘었습니다.");
         }
     }
 
     private static void validateWhiteSpace(String carName) {
-        if (isWhiteSpace(carName)) {
+        if(isWhiteSpace(carName)){
             throw new IllegalArgumentException("입력하신 차량은 공백입니다.");
         }
     }
 
     private static void validateDuplicateCarNames() {
-        if (isDuplicateCarNames()) {
+        if(isDuplicateCarNames()){
             throw new IllegalArgumentException("입력하신 차량은 중복되었습니다.");
         }
     }
 
-    private static boolean isOverSixLength(String carName) {
+    private static boolean isOverSixLength(String carName){
         return carName.length() >= 6;
     }
 
