@@ -19,7 +19,6 @@ public class Controller {
         this.values = new Value();
         this.goStopRule = new GoStopRule();
         this.outputView = new OutputView();
-
     }
 
     public void run() {
@@ -28,6 +27,7 @@ public class Controller {
 //        gameStart();
         initGame();
         gameStart();
+        gameEnd();
     }
 
     private void carName() {
@@ -67,14 +67,18 @@ public class Controller {
             values.updateCarPositions(carIndex, newPosition);
         }
     }
-
     private void printRoundResult() {
         outputView.printRoundResult(values.getCarNames(), values.getCarPositions());
     }
 
+    private void gameEnd() {
+        values.determineWinners();
+        printWinner();
+    }
 
-
-
+    private void printWinner() {
+        outputView.printWinners(values.getWinners());
+    }
 }
 //    private void gameStart() {
 //        int roundOfGame = values.getNumberOfAttempts();
