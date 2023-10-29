@@ -8,22 +8,22 @@ import java.util.List;
 
 import static java.lang.Math.*;
 import static racingcar.service.InputService.*;
+import static racingcar.service.PrintService.*;
 
 public class GameService {
     static List<RacingCar> racingCars;
     static long maxLocation;
 
     public static void run() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        printRacingCarInputForm();
         racingCars = createRacingCars();
 
-        System.out.println("시도할 회수는 몇회인가요?");
+        printTimesInputForm();
         long times = readTimes();
 
-        System.out.println("\n실행 결과");
+        printGameOutcomeMessage();
         playGameForTimes(times);
 
-        System.out.print("최종 우승자 : ");
         findFinalWinner();
     }
 
@@ -51,6 +51,8 @@ public class GameService {
 
                 maxLocation = max(maxLocation, racingCar.getLocation());
             }
+
+            printOneGameOutcome(racingCars);
         }
     }
 
@@ -61,7 +63,6 @@ public class GameService {
             if (racingCar.getLocation().equals(maxLocation))
                 winners.add(racingCar);
 
-        for (RacingCar winner : winners)
-            System.out.print(winner + ", ");
+        printFinalWinner(winners);
     }
 }
