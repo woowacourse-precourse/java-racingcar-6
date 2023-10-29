@@ -2,7 +2,7 @@
 
 ## 기능 목록
 
-- [ ] 0부터 9까지의 임의의 수를 생성한다. - NumberGenerator#generateRandomNumber()
+- [x] 0부터 9까지의 임의의 수를 생성한다. - NumberGenerator#generateRandomNumber()
   - [ ] 자동차는 전진 할 수 있다. - Car#forward()
     - [ ] 전진하는 조건은 생성한 임의의 수가 4 이상일 경우에 전진할 수 있다. - Car#isForward()
   - [ ] 자동차는 멈출 수 있다. - Car#stop()
