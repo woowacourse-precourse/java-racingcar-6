@@ -34,6 +34,7 @@ public class OutputView {
             String position = replaceTo(entry.getValue());
             System.out.println(String.join(" : ", name, position));
         }
+        System.out.println();
     }
 
     private String replaceTo(final int position) {
