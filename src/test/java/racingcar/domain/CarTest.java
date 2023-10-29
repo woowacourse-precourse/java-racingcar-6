@@ -47,8 +47,9 @@ class CarTest {
         MovingStrategy stopStrategy = new MovingStrategy(() -> 3); // isCarMove() 항상 false 반환
         Car car = new Car(stopStrategy, "pobi", 0);
         // when
-        car.goForward();
+        Boolean result = car.goForward();
         // then
+        assertEquals(false, result);
         assertEquals(0, car.getPosition());
     }
 
@@ -59,8 +60,9 @@ class CarTest {
         MovingStrategy stopStrategy = new MovingStrategy(() -> 4); // isCarMove() 항상 true 반환
         Car car = new Car(stopStrategy, "pobi", 0);
         // when
-        car.goForward();
+        Boolean result = car.goForward();
         // then
+        assertEquals(true, result);
         assertEquals(1, car.getPosition());
     }
 
