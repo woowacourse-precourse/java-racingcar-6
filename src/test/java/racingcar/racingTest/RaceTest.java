@@ -4,8 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.*;
 
 import racingcar.controller.GameController;
 
@@ -20,7 +19,8 @@ public class RaceTest {
         List<String> carNames = List.of("pobi","woni");
         List<Integer> movement = (List<Integer>) method.invoke(gameController,carNames);
 
-        assertEquals(carNames.size(),movement.size());
+        assertThat(carNames.size()).isEqualTo(movement.size());
+
     }
 
     @Test
@@ -35,7 +35,7 @@ public class RaceTest {
         List<String> winners = (List<String>) method.invoke(gameController, carNames, movement);
 
         List<String> expectedWinners = List.of("pobi", "woni");
-        assertEquals(expectedWinners, winners);
+        assertThat(winners).isEqualTo(expectedWinners);
     }
 
 
