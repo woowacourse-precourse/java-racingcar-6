@@ -34,5 +34,7 @@ public class Application {
             System.out.println();
         }
         
+        // 결과 도출
+        Game.chooseWinner(car);
     }
 }

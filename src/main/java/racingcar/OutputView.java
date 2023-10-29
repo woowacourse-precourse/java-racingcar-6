@@ -12,4 +12,8 @@ public class OutputView {
     static void outputResult() {
         System.out.println("실행 결과");
     }
+    
+    static void Winner() {
+        System.out.print("최종 우승자 : ");
+    }
 }
