@@ -37,7 +37,7 @@ public class LeaderBoard {
                 .stream()
                 .filter(driveSuccessNumber -> driveSuccessNumber.getValue().equals(largestDriveNumber))
                 .map(Map.Entry::getKey)
-                .collect(Collectors.joining(","));
+                .collect(Collectors.joining(", "));
 
         System.out.print("최종 우승자 : " + winners);
     }
