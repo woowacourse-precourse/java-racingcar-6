@@ -58,5 +58,21 @@ public class Application {
             }
             System.out.println();
         }
+
+        List<String> result = new ArrayList<>();
+
+        int maxLength = carDistanceMap.values()
+                .stream()
+                .mapToInt(String::length)
+                .max()
+                .orElse(0);
+
+        carDistanceMap.forEach((k, v) -> {
+            if (v.length() == maxLength) {
+                result.add(k);
+            }
+        });
+
+        System.out.println("최종 우승자 : " + String.join(", ", result));
     }
 }
