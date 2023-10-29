@@ -3,7 +3,7 @@
     - [x] 올바른 입력인지 확인한다. - RacingCarProvider #validate
         - [x] 각 이름이 5자 이하인지 확인한다. - RacingCarProvider #isValidLength
     - [ ] 해당 개수만큼 자동차를 생성한다. - RacingCarProvider #getRacingCars
-        - [ ] 각 자동차에 이름을 부여한다. - RacingCar #createRacingCar
+        - [ ] 각 자동차에 이름을 부여한다. - RacingCar #create
 
 
 - [ ] 0부터 9 사이의 무작위 값을 생성한다. - NumberGenerator #createRandomNumbers
