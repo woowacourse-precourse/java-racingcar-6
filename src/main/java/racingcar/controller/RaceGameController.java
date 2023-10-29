@@ -16,7 +16,24 @@ public class RaceGameController {
     private int attemptNumber;
 
     public void start() {
+        // 사용자 input 입출력
+        List<String> carInputList = InputValidator.isValidCarName(InputView.getCarName());
+        attemptNumber = InputValidator.isValidAttemptNumber(InputView.getAttemptNumber());
 
+        // Car 객체 List 만들기
+        convertCarList(carInputList);
+
+        OutputView.printBeforeResult();
+
+        // 시도 횟수만큼 게임 실행 결과 출력
+        for (int i = 0; i < attemptNumber; i++) {
+            startOneRoundGame();
+        }
+
+        // 최종 우승자 출력
+        Car maxForwardCar = getMaxForwardCountCar();
+        setWinnerList(maxForwardCar);
+        OutputView.printWinner(winnerList);
     }
 
     private void convertCarList(List<String> carInputList) {
