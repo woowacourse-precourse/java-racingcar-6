@@ -7,6 +7,8 @@ import static racingcar.ExceptionMessage.CAR_NAMV_VALUE_EXCEPTION;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.model.Name;
 
 public class NameTest {
@@ -27,73 +29,30 @@ public class NameTest {
         assertThat(exception.getMessage()).isEqualTo(CAR_NAME_LENGTH_EXCEPTION.toString());
     }
 
-    @Test
-    void 공백이_처음에_포함되면_안_된다_예외() {
+    @ParameterizedTest
+    @ValueSource(strings = {"  bob", "bob  ", "b o b", "  "})
+    void 공백이_포함되면_안된다(final String value) {
         // given & when
         Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Name name = Name.from("  bob");
+            Name name = Name.from(value);
         });
         // then
         assertThat(exception.getMessage()).isEqualTo(CAR_NAME_BLANK_EXCEPTION.toString());
     }
 
-    @Test
-    void 공백이_마지막에_포함되면_안_된다_예외() {
+    @ParameterizedTest
+    @ValueSource(strings = {"존", "1a9"})
+    void 한글이나_알파벳_숫자는_가능하다(final String value) {
+        // given & when
+        Name name = Name.from(value);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"崔はлن", "?-bob"})
+    void 한글과_알파벳_숫자를_제외한_모든_문자는_안된다(final String value) {
         // given & when
         Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Name name = Name.from("bob  ");
-        });
-        // then
-        assertThat(exception.getMessage()).isEqualTo(CAR_NAME_BLANK_EXCEPTION.toString());
-    }
-
-    @Test
-    void 공백이_중간에_포함되면_안_된다_예외() {
-        // given & when
-        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Name name = Name.from("b o b");
-        });
-        // then
-        assertThat(exception.getMessage()).isEqualTo(CAR_NAME_BLANK_EXCEPTION.toString());
-    }
-
-    @Test
-    void 공백으로만_이루어지면_안_된다_예외() {
-        // given & when
-        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Name name = Name.from("  ");
-        });
-        // then
-        assertThat(exception.getMessage()).isEqualTo(CAR_NAME_BLANK_EXCEPTION.toString());
-    }
-
-    @Test
-    void 한글은_입력_가능하다() {
-        // given & when
-        Name name = Name.from("존");
-    }
-
-    @Test
-    void 숫자는_입력_가능하다() {
-        // given & when
-        Name name = Name.from("1a9");
-    }
-
-    @Test
-    void 한글과_알파벳을_제외한_언어는_안된다() {
-        // given & when
-        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Name name = Name.from("崔はлن");
-        });
-        // then
-        assertThat(exception.getMessage()).isEqualTo(CAR_NAMV_VALUE_EXCEPTION.toString());
-    }
-
-    @Test
-    void 특수기호는_입력되면_안_된다() {
-        // given & when
-        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Name name = Name.from("?-bob");
+            Name name = Name.from(value);
         });
         // then
         assertThat(exception.getMessage()).isEqualTo(CAR_NAMV_VALUE_EXCEPTION.toString());
