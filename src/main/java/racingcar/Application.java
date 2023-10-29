@@ -23,10 +23,7 @@ public class Application {
 
         Game game = new Game();
 
-        System.out.println();
         game.playAllRounds(cars, numberOfRounds);
-
-        System.out.println();
         viewOutput.printWinner(game.findWinner(cars));
     }
 }

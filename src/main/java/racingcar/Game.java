@@ -23,7 +23,7 @@ public class Game {
     }
 
     public List<Car> playAllRounds(List<Car> cars, int numberOfRounds) {
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
         for(int gameCount = 0; gameCount < numberOfRounds; gameCount++) {
             viewOutput.printRoundResult(playOneRound(cars));
         }
@@ -51,6 +51,6 @@ public class Game {
                 winnerCars.add(car);
         }
 
-        return cars;
+        return winnerCars;
     }
 }
