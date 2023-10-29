@@ -2,9 +2,9 @@ package racingcar.converter;
 
 import java.util.Arrays;
 import java.util.List;
-import racingcar.domain.game.Car;
-import racingcar.domain.game.CarName;
-import racingcar.domain.game.Cars;
+import racingcar.domain.game.car.Car;
+import racingcar.domain.game.car.CarName;
+import racingcar.domain.game.car.Cars;
 
 public class InputConverter {
     public Cars convertStringToCars(String input) {

@@ -1,4 +1,4 @@
-package racingcar.domain.game;
+package racingcar.domain.game.car;
 
 import racingcar.util.Err;
 

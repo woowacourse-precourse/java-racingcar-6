@@ -1,4 +1,4 @@
-package racingcar.domain.game;
+package racingcar.domain.game.car;
 
 import racingcar.domain.dto.CarMovementDto;
 
@@ -33,5 +33,4 @@ public class Car {
     public boolean isSameAs(int maxPosition) {
         return position == maxPosition;
     }
-
 }
