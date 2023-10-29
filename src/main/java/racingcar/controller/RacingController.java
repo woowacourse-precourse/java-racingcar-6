@@ -18,11 +18,13 @@ public class RacingController {
     public void proceedRacing() {
         List<String> validCarNames;
         int validTrialTimes;
+        List<Car> winnerCars;
 
         validCarNames = getValidCarNames();
         validTrialTimes = getValidTrialTimes();
         initCars(validCarNames);
         proceedRacingTrials(validTrialTimes);
+        winnerCars = racingCars.calculateFastestCar();
     }
 
     private List<String> getValidCarNames() {
