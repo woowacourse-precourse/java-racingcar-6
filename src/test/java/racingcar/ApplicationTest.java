@@ -124,6 +124,31 @@ class ApplicationTest extends NsTest {
     }
 
 
+    @Test
+    void 자동차_한대_참여할경우() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("kgy", "3");
+                    assertThat(output()).contains("kgy : ---", "최종 우승자 : kgy");
+                },
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 자동차_모두_공동_우승할경우() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("kang,geon,young", "3");
+                    assertThat(output()).contains("kang : ---", "geon : ---", "young : ---", "최종 우승자 : kang, geon, young");
+                },
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
