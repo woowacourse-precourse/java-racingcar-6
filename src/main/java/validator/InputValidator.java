@@ -36,13 +36,13 @@ public class InputValidator {
         }
     }
     private void isNameBelowFiveLetters(String input) {
-        if(input.length()>NameConstant.MAX_LENGTH){
+        if(input.length()>NameConstant.MAX_LENGTH) {
             throw new IllegalArgumentException(CAR_NAME_EXCEED_FIVE_WORDS);
         }
     }
 
-    private void isNameContainBlank(String input){
-        if(!Pattern.matches(REGEXP_PATTERN_SPACE_NO_CHAR,input)){
+    private void isNameContainBlank(String input) {
+        if(!Pattern.matches(REGEXP_PATTERN_SPACE_NO_CHAR,input)) {
             throw new IllegalArgumentException(INPUT_CONTAIN_BLANK);
         }
     }
@@ -54,7 +54,7 @@ public class InputValidator {
     }
 
     private void isNameEndWithComma(String input) {
-        if(input.length() > 0 && input.charAt(input.length()-1) == ',') {
+        if(!input.isEmpty() && input.charAt(input.length()-1) == ',') {
             throw new IllegalArgumentException(INPUT_CONTAIN_BLANK);
         }
     }
