@@ -58,11 +58,11 @@ public class Cars {
         }
 
         Car car = cars.get(index);
-        moveForward(index, car.increaseMove());
+        replaceCar(index, car.increaseMove());
     }
 
-    private void moveForward(final int index, final Car targetCar) {
-        cars.set(index, targetCar);
+    private void replaceCar(final int index, final Car car) {
+        cars.set(index, car);
     }
 
     private boolean isRandomNumberNotInRange() {
