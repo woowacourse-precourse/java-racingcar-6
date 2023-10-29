@@ -9,10 +9,10 @@ public class ViewOutput {
 
     public void printRoundResult(List<Car> cars) {
         for(Car car : cars) {
-            stringBuilder.append(car.getName() + "-".repeat(car.getCurrentLocation()));
+            stringBuilder.append(car.getName() + " : " + "-".repeat(car.getCurrentLocation()));
             stringBuilder.append("\n");
         }
-        System.out.println(stringBuilder);
+        System.out.print(stringBuilder);
         stringBuilder.setLength(0);
     }
 
@@ -24,5 +24,6 @@ public class ViewOutput {
         stringBuilder.setLength(stringBuilder.length() - 2);
 
         System.out.println(stringBuilder);
+        stringBuilder.setLength(0);
     }
 }
