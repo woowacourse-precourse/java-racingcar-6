@@ -13,14 +13,14 @@ public class NameValidator {
         }
     }
 
-    public void isAlphabetString(String names){
-        for(char c : names.toCharArray()){
+    public void isAlphabetString(String name){
+        for(char c : name.toCharArray()){
             isAlphabetChar(c);
         }
     }
 
     public void isAlphabetChar(char ch){
-        if(!((ch >= 'a' && ch <= 'z') || (ch >= 'A' || ch <= 'Z'))){
+        if(!((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))){
             throw new IllegalArgumentException("알파벳이 아닙니다.");
         }
     }
