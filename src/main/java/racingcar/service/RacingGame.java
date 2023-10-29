@@ -19,11 +19,12 @@ public class RacingGame {
 
     public void RacingGameStart() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        carGenerator.inputCarList();
+        String stringCarList = carGenerator.inputCarList();
+        car.setStringCarList(stringCarList);
+        System.out.println(car.getStringCarList());
         car.checkContainsConsecutiveCommas();
-        car.setCarList(carGenerator.createCarList());
+        car.setCarList(carGenerator.createCarList(stringCarList));
         car.checkCarNameLength();
-        car.checkCarNameDuplicate();
         car.checkCarNameFirstLetterIsSpace();
         car.checkCarNameLastLetterIsSpace();
         LinkedHashMap<String, String> carList = car.getCarList();
