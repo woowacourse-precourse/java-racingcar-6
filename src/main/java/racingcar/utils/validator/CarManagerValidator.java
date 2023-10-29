@@ -17,7 +17,7 @@ public class CarManagerValidator implements Validator<String> {
                 Arrays.stream(value.split(COMMAS, SPLIT_LIMIT))
                         .map(String::strip)
                         .toList();
-        System.out.println(carNames);
+
         validateExistCar(carNames);
         validateExistDuplicateCar(carNames);
     }
