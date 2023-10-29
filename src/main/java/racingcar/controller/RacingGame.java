@@ -7,6 +7,7 @@ import racingcar.domain.Messenger;
 import racingcar.domain.Round;
 import racingcar.domain.strategy.CarMovementStrategy;
 import racingcar.domain.strategy.MoveForwardOnceRandomlyStrategy;
+import racingcar.dto.CarsInformationDto;
 import racingcar.utility.Convertor;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -49,6 +50,18 @@ public class RacingGame implements Game {
 
         String playResultMessage = messenger.getPlayResultMessage();
         outputView.print(playResultMessage);
+
+
+        while (round.hasMoreRounds()) {
+            cars.move();
+
+            CarsInformationDto carsInformationDto = cars.getInformation();
+            String roundResult = messenger.getRoundResult(carsInformationDto);
+            outputView.print(roundResult);
+
+            round.nextRound();
+        }
+
     }
 
 }
