@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class RacingCar {
     private final String name;
     private int forwardCount;
@@ -8,6 +10,17 @@ public class RacingCar {
         validationCarName(name);
         this.name = name;
         this.forwardCount = 0;
+    }
+
+    public void move() {
+        if (canForward()) {
+            forwardCount++;
+        }
+    }
+
+    private boolean canForward() {
+        int randNum = Randoms.pickNumberInRange(1, 9);
+        return randNum >= 4;
     }
 
     private void validationCarName(String name) {
