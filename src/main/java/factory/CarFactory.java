@@ -7,7 +7,7 @@ import domain.ForwardStrategy;
 
 public class CarFactory {
 
-    public static Car createCar(String name, int location,ForwardStrategy forwardStrategy) {
+    public static Car createCar(String name, int location,ForwardStrategy<?> forwardStrategy) {
         CarName carName = new CarName(name);
         CarLocation carLocation = new CarLocation(location);
 
