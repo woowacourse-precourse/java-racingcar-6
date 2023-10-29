@@ -128,6 +128,15 @@ class ApplicationTest extends NsTest {
         assertThat(winnerList).isEqualTo(expectedList);
     }
 
+    @Test
+    void 우승자_이름_문자열_변환(){
+        RacingGame racingGame = new RacingGame();
+        List<String> winnerList = new ArrayList<>(Arrays.asList("aa","bb","cc"));
+        String winnerStr = racingGame.getWinnerNameString(winnerList);
+        assertThat(winnerStr).isEqualTo("aa,bb,cc");
+    }
+
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
