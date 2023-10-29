@@ -80,8 +80,7 @@ class CarTest {
         assertThat(expectedFalse).isFalse();
     }
 
-
-    @DisplayName("move 테스트 : 자동차의 position 이 한칸 전진한다.")
+    @DisplayName("move() 테스트 : 자동차의 position 이 한칸 전진한다.")
     @Test
     void move() {
         Car car = new Car("홍길동", 5);
@@ -93,7 +92,7 @@ class CarTest {
                 .isEqualTo(new Car("홍길동", 6));
     }
 
-    @DisplayName("같은 position 인지 테스트 : 자동차의 position 이 같으면 true, 다르면 false 반환.")
+    @DisplayName("isSamePosition() 테스트 : 자동차의 position 이 같으면 true, 다르면 false 반환한다.")
     @Test
     void isSamePosition() {
         Car car = new Car("홍길동", 5);
@@ -102,10 +101,9 @@ class CarTest {
                 () -> assertThat(car.isSamePosition(5)).isTrue(),
                 () -> assertThat(car.isSamePosition(7)).isFalse()
         );
-
     }
 
-    @DisplayName("같은 position 값을 가지는 Car 인지 테스트 : 자동차의 position 이 같으면 true, 다르면 false 반환.")
+    @DisplayName("isSamePositionCar() 테스트 : 자동차의 position 이 같으면 true, 다르면 false 반환한다.")
     @Test
     void isSamePositionCar() {
         Car car1 = new Car("홍길동", 5);
@@ -116,30 +114,39 @@ class CarTest {
                 () -> assertThat(car1.isSamePosition(car2)).isTrue(),
                 () -> assertThat(car1.isSamePosition(car3)).isFalse()
         );
-
     }
 
-    @DisplayName("create 생성 테스트 : Car 생성 시 이름을 부여할 수 있다.")
+    @DisplayName("Car(name) 생성 테스트 : Car 생성 시 이름을 부여할 수 있다.")
     @Test
-    void create() {
+    void create_생성자에_이름이주어짐() {
         Car car = new Car("홍길동");
 
         assertThat(car).usingRecursiveComparison()
-                .comparingOnlyFields("name")
-                .isEqualTo(new Car("홍길동"));
+                .comparingOnlyFields("name", "field")
+                .isEqualTo(new Car("홍길동", 0));
     }
 
-    @DisplayName("name 사이즈 5이하 테스트 : 5이하가 아니라면 IllegalArgumentException가 발생한다.")
+    @DisplayName("Car(name, position) 생성 테스트 : Car 생성 시 이름과 초기위치값을 부여할 수 있다.")
     @Test
-    void name_size_less_than_5() {
-        assertThatThrownBy(() -> new Car("홍길동홍길동"))
+    void create_생성자에_이름과_위치값이_주어짐() {
+        Car car = new Car("홍길동", 5);
+
+        assertThat(car).usingRecursiveComparison()
+                .comparingOnlyFields("name", "field")
+                .isEqualTo(new Car("홍길동", 5));
+    }
+
+    @DisplayName("name 사이즈 예외 테스트 : 5이하가 아니라면 IllegalArgumentException가 발생한다.")
+    @Test
+    void 예외발생_이름크기가_5자_초과인경우() {
+        assertThatThrownBy(() -> new Car("5글자를초과하는이름"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("이름 크기는 5이하여야 합니다.");
+                .hasMessageContaining("[Error] 이름 크기는 5이하여야 합니다.");
     }
 
     @DisplayName("position 값 0이상 테스트 : 0이상이 아니라면 IllegalArgumentException가 발생한다.")
     @Test
-    void position_init_size_more_than_0() {
+    void 예외발생_위치값이_0보다_작은_경우() {
         assertThatThrownBy(() -> new Car("홍길동", -1))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[Error] 초기위치값은 0보다 작을 수 없습니다.");
