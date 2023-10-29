@@ -75,7 +75,6 @@ jun : -----
 
 ### RacingCarService
 - [x] 레이싱카들이 레이싱을 한다. - startRacing()
-- [x] 시도횟수에 따른 진행 상태을 판별한다. - isProcessing()
 
 ## 예외 목록
 - CarNameLengthException
@@ -86,7 +85,7 @@ jun : -----
   - [x] 자동차 이름 구분자 예외
 - InputNumericException
   - [x] 숫자 입력 예외
-- NotFoundCarPositionException정
+- NotFoundCarPositionException
   - [x] 자동차 위치 찾기 예외
 
 ## 상수 목록
@@ -96,7 +95,13 @@ jun : -----
   - [x] 게임 결과 화면요소 상수
 - InputPattern
   - [x] 입력값 정규식 상수
+    - [x] 자동차들 이름 분할 패턴을 판별한다. - isNotMatchCarNamesPattern()
+    - [x] 숫자 입력 패턴을 판별한다. - isNotNumeric()
 - ProgressMessage
   - [x] 게임 진행 메시지 상수
 - RacingCarRole
   - [x] 레이싱카 규칙 상수
+- RacingCarMove
+  - [x] 레이싱카 이동 상수
+    - [x] 게임 진행을 판별한다. - isProcessing()
+    - [x] 게임 진행 횟수를 변경한다. - updateAttemptCount()
