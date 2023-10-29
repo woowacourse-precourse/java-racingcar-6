@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.validator.CarNameValidator;
+import racingcar.validator.AttemptCountValidator;
 
 public class InputView {
 
@@ -23,5 +24,10 @@ public class InputView {
 
     public static String[] splitCarNames(String carNames) {
         return carNames.split(NAME_DELIMITER);
+    }
+
+    public static int getAttemptCount() {
+        String attemptCount = getUserInput();
+        return AttemptCountValidator.validateAttemptCount(attemptCount);
     }
 }
