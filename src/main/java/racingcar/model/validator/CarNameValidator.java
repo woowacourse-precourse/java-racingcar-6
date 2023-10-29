@@ -13,8 +13,8 @@ public class CarNameValidator {
     private final HashMap<String, Integer> carNameCount;
 
     public CarNameValidator(String carNamesInput) {
-        this.carNameList = separateCars(validateCarNames(carNamesInput));
         this.carNameCount = new HashMap<>();
+        this.carNameList = separateCars(validateCarNames(carNamesInput));
     }
 
     public List<String> getCarNames() {
