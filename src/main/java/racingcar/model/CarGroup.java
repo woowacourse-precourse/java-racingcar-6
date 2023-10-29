@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.dto.CarDto;
+import racingcar.dto.CarGroupDto;
 import racingcar.utils.NumberGenerator;
 
 import java.util.List;
@@ -38,5 +40,12 @@ public class CarGroup {
         return cars.stream()
                 .max((car, compareCar) -> car.comparePosition(compareCar))
                 .get();
+    }
+
+    public CarGroupDto toDto() {
+        List<CarDto> carDtos = cars.stream()
+                .map(car -> car.toDto())
+                .collect(toList());
+        return new CarGroupDto(carDtos);
     }
 }
