@@ -6,9 +6,10 @@
     - [X] 쉽표(,)로 구분하여 여러 자동차 이름을 입력 가능하다.
     - [X] 쉼표(,) 뒤 공백 1개는 허용한다.
     - [X] 5자 이상 이름을 입력할 경우, `IllegalArgumentException`을 발생시킨 후 애플리케이션이 종료된다.
-    - [X] 특수문자를 입력할 경우, `IllegalArgumentException`을 발생시킨 후 애플리케이션이 종료된다.
+    - [X] 쉼표(,)를 제외한 특수문자를 입력할 경우, `IllegalArgumentException`을 발생시킨 후 애플리케이션이 종료된다.
     - [X] 공백만 입력하거나 입력 값이 없을 경우, `IllegalArgumentException`을 발생시킨 후 애플리케이션이 종료된다.
     - [X] 자동차 이름을 하나만 입력할 경우, `IllegalArgumentException`을 발생시킨 후 애플리케이션이 종료된다.
+    - [X] 자동차 이름을 중복해서 입력할 경우, `IllegalArgumentException`을 발생시킨 후 애플리케이션이 종료된다.
 - [X] 사용자로부터 최대 이동 횟수를 입력받는다.
     - [X] 1 미만을 입력할 경우, `IllegalArgumentException`을 발생시킨 후 애플리케이션이 종료된다.
     - [X] 숫자를 입력하지 않을 경우, `IllegalArgumentException`을 발생시킨 후 애플리케이션이 종료된다.

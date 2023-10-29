@@ -1,6 +1,8 @@
 package util;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 import racingcar.model.Car;
@@ -25,6 +27,7 @@ public class Validator {
         validateCarNameNotEmpty(cars);
         validateCarNameLengths(cars);
         validateCarListSize(cars);
+        validateCarNameUniqueness(cars);
         return cars;
     }
 
@@ -59,6 +62,15 @@ public class Validator {
     private static void validateCarListSize(List<Car> cars) {
         if (cars.size() < MIN_CAR_LIST_SIZE) {
             throw new IllegalArgumentException(Exception.CAR_LIST_SIZE_TOO_LITTLE.getMessage());
+        }
+    }
+
+    public static void validateCarNameUniqueness(List<Car> cars) {
+        Set<String> carNames = new HashSet<>();
+        for (Car car : cars) {
+            if (!carNames.add(car.getName())) {
+                throw new IllegalArgumentException(Exception.CAR_NAME_NOT_UNIQUE.getMessage());
+            }
         }
     }
 
