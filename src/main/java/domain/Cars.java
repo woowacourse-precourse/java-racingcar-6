@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 import validator.NameValidator;
 
 public class Cars {
-    public final List<Car> carsList = new ArrayList<>();
+    private final List<Car> carsList = new ArrayList<>();
 
     public Cars(String carNames) {
         List<String> carNameList = splitCarNames(carNames);
