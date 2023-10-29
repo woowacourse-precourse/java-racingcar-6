@@ -15,7 +15,7 @@ public class CarNameValidation {
     public void validateUserInput(String inputCarName) {
         String[] carNames = inputCarName.split(SPLIT_STANDARD);
 
-        if (Arrays.stream(carNames).allMatch(CarNameValidation::hasWhiteSpace)) {
+        if (!Arrays.stream(carNames).allMatch(CarNameValidation::hasWhiteSpace)) {
             throw new IllegalArgumentException(WHITESPACE_MESSAGE);
         }
 
@@ -32,12 +32,12 @@ public class CarNameValidation {
         }
     }
 
-    private static boolean isBlank(String carNames) {
-        return carNames.isBlank();
+    private static boolean isBlank(String carName) {
+        return carName.isBlank();
     }
 
-    private static boolean hasWhiteSpace(String carNames) {
-        return StringUtils.containsWhitespace(carNames);
+    private static boolean hasWhiteSpace(String carName) {
+        return carName.equals(carName.trim());
     }
 
 

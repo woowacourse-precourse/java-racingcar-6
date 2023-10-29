@@ -1,14 +1,12 @@
 package racingcar.utils;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.utils.CarNameValidation;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 class CarNameValidationTest {
 
@@ -47,10 +45,21 @@ class CarNameValidationTest {
         // given
         String inputCarName = "";
 
-        // when && then
+        // when & then
         assertThatThrownBy(
                 () -> carNameValidation.validateUserInput(inputCarName))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("입력값이 존재하지 않습니다.");
+    }
+
+    @DisplayName("사용자가 자동차명에 공백을 입력했을 때, 예외를 발생하는지")
+    @ParameterizedTest
+    @ValueSource(strings = {" ", "pobi ", "woni,pobi ", "woni, pobi"})
+    void validateUserInputWhiteSpace(String inputCarNames) {
+        // given & when & then
+        assertThatThrownBy(
+                () -> carNameValidation.validateUserInput(inputCarNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("공백을 입력할 수 없습니다.");
     }
 }
