@@ -6,7 +6,7 @@ public class Car {
     private final CarName carName;
     private int position = 0;
 
-    protected Car(CarName carName) {
+    private Car(CarName carName) {
         this.carName = carName;
     }
 
