@@ -1,6 +1,6 @@
 package racingcar.model;
 
-public class Attemps {
+public class Attempts {
     private int number;
 
     public void setNumber(int number) {

@@ -1,8 +1,10 @@
 package racingcar.controller;
 
+import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 
+import racingcar.constants.MyEnum;
 import racingcar.service.RacingGameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -20,7 +22,7 @@ public class RacingGame {
 
     public void run() {
         handleCarNameInput();
-        handleNumberOfattempsInput();
+        handleNumberOfAttemptsInput();
         handlePlayRacingGame();
         handleWinners();
     }
@@ -31,19 +33,18 @@ public class RacingGame {
         racingGameService.addCars(carNames);
     }
 
-    public void handleNumberOfattempsInput() {
-        outputView.printNumberOfattempsInputMessage();
-        String attemps = inputView.numberOfAttempsInput();
-        racingGameService.setAttemps(attemps);
+    public void handleNumberOfAttemptsInput() {
+        outputView.printNumberOfAttemptsInputMessage();
+        String attempts = inputView.numberOfAttempsInput();
+        racingGameService.setAttempts(attempts);
     }
 
     public void handlePlayRacingGame() {
         outputView.printPlayResultMessage();
-        boolean isGoal = false;
-        while (!isGoal) {
-            List<Map<String, String>> results = racingGameService.getResultList();
+
+        while (!racingGameService.reaches()) {
+            List<Map<MyEnum, String>> results = racingGameService.getResultList();
             outputView.printPlayResult(results);
-            isGoal = racingGameService.reaches();
         }
     }
 
