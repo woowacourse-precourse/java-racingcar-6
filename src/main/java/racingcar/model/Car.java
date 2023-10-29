@@ -5,21 +5,35 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
 
     private final String name;
+    private int location;
 
     public Car(String name) {
         this.name = name;
+        this.location = 0;
     }
 
+    public void move() {
+        int randomNumber = generateRandomNumber();
+        moveOrStop(randomNumber);
+    }
+
+    //TODO private으로 변경
     public int generateRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public void move() {
-        
+    //TODO private으로 변경
+    public void moveOrStop(int randomNumber) {
+
     }
 
-    //test 만을 위한 코드입니다.
+    //test 만을 위한 코드
     public String getNameForTest() {
         return name;
+    }
+
+    //test 만을 위한 코드
+    public int getLocationForTest() {
+        return location;
     }
 }
