@@ -32,7 +32,27 @@ public class Car {
                 }
                 notNullNames.add(inputNames.get(n));
             }
+
+            checkDuplicate(notNullNames);
+
         } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            throw e;
+        }
+    }
+
+    public void checkDuplicate(List<String> notNullNames) {
+        try {
+            List<String> notDuplicateNames = new ArrayList<>();
+
+            for (int n = 0; n < notNullNames.size(); n++){
+                if (notDuplicateNames.contains(notNullNames.get(n))) {
+                    throw new IllegalArgumentException("서로 다른 이름을 입력해 주세요.");
+                }
+                notDuplicateNames.add(notNullNames.get(n));
+            }
+        }
+        catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             throw e;
         }
