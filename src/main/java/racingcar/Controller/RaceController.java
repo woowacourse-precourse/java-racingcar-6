@@ -1,25 +1,21 @@
 package racingcar.Controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.CarComparator;
+import racingcar.CarList;
 import racingcar.Model.Car;
 import racingcar.View.ConsolePrint;
 
 public class RaceController {
 
-    private List<Car> carList = new ArrayList<Car>();
+    private CarList carList;
 
     public void start() {
-        String[] names = ConsolePrint.readCars().split(",");
+        carList = new CarList(ConsolePrint.readCars().split(","));
 
-        for (String name : names) {
-            carList.add(new Car(name));
-        }
-
-        System.out.println(carList);
+//        System.out.println(carList);
         int tryNum = Integer.parseInt(ConsolePrint.readTryNum());
         race(tryNum);
         findWinner();
@@ -30,12 +26,12 @@ public class RaceController {
 
         for (int i = 0; i < tryNum; i++) {
             move();
-            ConsolePrint.printRace(carList);
+            ConsolePrint.printRace(carList.getCarList());
         }
     }
 
     void move() {
-        for (Car car : carList) {
+        for (Car car : carList.getCarList()) {
             if (3 < Randoms.pickNumberInRange(0, 9)) {
                 car.incrementDistance();
             }
@@ -43,13 +39,13 @@ public class RaceController {
     }
 
     void findWinner() {
-        carList = carList.stream()
+        List<Car> sorted = carList.getCarList().stream()
                 .sorted(new CarComparator())
                 .collect(Collectors.toList());
-        for (Car car : carList) {
+        for (Car car : sorted) {
             System.out.println(car.getName() + " : " + car.getDistance());
         }
-        ConsolePrint.printWinner(carList);
+        ConsolePrint.printWinner(sorted);
     }
 
 }
