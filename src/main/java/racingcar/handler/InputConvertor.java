@@ -8,6 +8,7 @@ public class InputConvertor {
 
     public List<String> splitByComma(String input) {
         return Arrays.stream(input.split(COMMA_DELIMITER))
+            .map(name -> name.replaceAll(" ", ""))
             .toList();
     }
 
