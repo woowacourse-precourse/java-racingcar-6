@@ -31,9 +31,13 @@
 - 사용자가 입력한 자동차 이름이 null, Empty 인지 검사한다
   - [**validateCarNameEmptyOrNull**] 메시지 ➡ 자동차 이름 (String)
 
-### ✔ 시도 횟수 유효성 검사 기능
+### ✔ 시도 횟수 숫자 여부 유효성 검사 기능
 - 사용자가 입력한 시도 횟수가 숫자 인지 검사한다
-  - [**validateTryNumber**] 메시지 ➡ 시도 횟수 (String)
+  - [**validateTryNumberIsNumber**] 메시지 ➡ 시도 횟수 (String)
+  
+### ✔ 시도 횟수 Null, Empty 유효성 검사 기능
+- 사용자가 입력한 시도 횟수가 Null, Empty 인지 검사 기능
+  - [**validateTryNumberEmptyOrNull**] 메시지 ➡ 시도 횟수 (String)
 
 --- 
 
@@ -69,4 +73,4 @@
 
 ---
 ## 📄클래스 다이어그램
-![racingCar](https://github.com/study-hub-inu/study-hub-server/assets/97587573/7a33a322-2b66-4c36-9a11-5d8dfc62b1e1)
+![racingCar](https://github.com/study-hub-inu/study-hub-server/assets/97587573/e7f2b5a6-1ff9-417a-be01-fb777c171d40)
