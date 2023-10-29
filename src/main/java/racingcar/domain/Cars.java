@@ -62,12 +62,12 @@ public class Cars {
                 .toList();
     }
 
-    public List<Integer> moveForward(RandomNumberGenerator numberGenerator) {
+    public MoveResult moveForward(RandomNumberGenerator numberGenerator) {
         List<Integer> forwardCounts = new ArrayList<>();
         for (Car car : cars) {
             int forwardCount = car.moveForward(numberGenerator.generate());
             forwardCounts.add(forwardCount);
         }
-        return forwardCounts;
+        return new MoveResult(toCarNames(cars), forwardCounts);
     }
 }
