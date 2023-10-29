@@ -3,6 +3,7 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CarList {
 
@@ -16,14 +17,29 @@ public class CarList {
         carList.forEach(this::increaseForwardCountWithRandomMovement);
     }
 
+    public List<Car> findGreatestForwardCount() {
+        int maxCount = carList.stream()
+                .mapToInt(Car::getForwardCount)
+                .max()
+                .orElse(Integer.MIN_VALUE);
+
+        return carList.stream()
+                .filter(car -> car.getForwardCount() == maxCount)
+                .collect(Collectors.toList());
+    }
+
     private void increaseForwardCountWithRandomMovement(Car car) {
         int random = Randoms.pickNumberInRange(0, 9);
         if (isNumberGreaterThanOrEqualFour(random)) {
-            car.increaseForwardNumber();
+            car.increaseForwardCount();
         }
     }
 
     private boolean isNumberGreaterThanOrEqualFour(int number) {
         return number >= 4;
+    }
+
+    public List<Car> getCarList() {
+        return carList;
     }
 }
