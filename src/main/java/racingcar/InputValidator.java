@@ -18,13 +18,13 @@ public class InputValidator {
         }
     }
 
-    public void validTrialNumber(String input){
+    public void validTrialNumber(String input) {
         validNotEmpty(input);
         validOnlyNumber(input);
     }
 
     private void validNotEmpty(String input) {
-        if(input.isBlank()){
+        if (input.isBlank()) {
             throw new IllegalArgumentException(BLANK_EXCEPTION);
         }
     }
