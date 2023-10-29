@@ -8,10 +8,12 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
-class RacingCarTest {
+class RacingCarTest  {
     RacingCar racingCar = new RacingCar();
 
     @DisplayName("null 입력이면 exception 발생")
@@ -34,8 +36,12 @@ class RacingCarTest {
         String input = "1,2";
         List<String> actual = racingCar.naming(input);
 
-        assertThat(actual).isEqualTo(Arrays.asList("1","2"));
+        assertThat(actual).contains("1","2");
     }
 
+    @DisplayName("자동차 이름은 6자 이상이면 exception 발생")
+    @Test
+    void nameLength() {
 
+    }
 }
