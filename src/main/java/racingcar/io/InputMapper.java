@@ -1,11 +1,12 @@
 package racingcar.io;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
 import racingcar.domain.Name;
 import racingcar.domain.RacingCar;
 import racingcar.domain.RacingCars;
 import racingcar.domain.TryCount;
+
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class InputMapper {
 

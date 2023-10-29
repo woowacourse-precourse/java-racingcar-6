@@ -1,8 +1,9 @@
 package racingcar.domain;
 
+import racingcar.constant.ErrorMessage;
+
 import java.util.Collections;
 import java.util.List;
-import racingcar.constant.ErrorMessage;
 
 public final class Winners {
 

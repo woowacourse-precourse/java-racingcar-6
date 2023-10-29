@@ -1,11 +1,12 @@
 package racingcar.service;
 
-import java.util.List;
 import racingcar.domain.RacingCars;
 import racingcar.domain.TryCount;
 import racingcar.domain.Winners;
 import racingcar.repository.DomainRepository;
 import racingcar.utils.RandomNumberGenerator;
+
+import java.util.List;
 
 public class RacingCarService {
 
@@ -32,7 +33,8 @@ public class RacingCarService {
 
     public RacingCars move() {
         final RacingCars racingCars = racingCarsRepository.find();
-        final List<Integer> numbers = randomNumberGenerator.generateWithSize(racingCars.numOfElement());
+        final List<Integer> numbers =
+                randomNumberGenerator.generateWithSize(racingCars.numOfElement());
         racingCars.moveByNumbers(numbers);
         return racingCars;
     }

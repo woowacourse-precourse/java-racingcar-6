@@ -27,11 +27,11 @@ class NameTest {
         @Test
         @DisplayName("생성시 길이가 5를 초과하는 문자열을 받으면 예외를 던지는가")
         void longerThan5() {
-            //given
+            // given
             final String name = "abcdef";
 
-            //when
-            //then
+            // when
+            // then
             assertThatThrownBy(() -> new Name(name)).isInstanceOf(IllegalArgumentException.class);
         }
     }

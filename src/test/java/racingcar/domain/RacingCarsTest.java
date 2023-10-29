@@ -3,10 +3,11 @@ package racingcar.domain;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 @DisplayName("경주 자동차 일급컬렉션의 객체에")
 class RacingCarsTest {
@@ -32,17 +33,21 @@ class RacingCarsTest {
             // when
             // then
             assertThatThrownBy(
-                    () -> new RacingCars(List.of(new RacingCar(new Name("abc")), new RacingCar(new Name("abc")))))
+                            () ->
+                                    new RacingCars(
+                                            List.of(
+                                                    new RacingCar(new Name("abc")),
+                                                    new RacingCar(new Name("abc")))))
                     .isInstanceOf(IllegalArgumentException.class);
         }
     }
-
 
     @Test
     @DisplayName("자동차 개수를 요청하면 올바른 개수를 반환하는가")
     void numOfElement() {
         // given
-        final List<RacingCar> elements = List.of(new RacingCar(new Name("abc")), new RacingCar(new Name("def")));
+        final List<RacingCar> elements =
+                List.of(new RacingCar(new Name("abc")), new RacingCar(new Name("def")));
         final RacingCars racingCars = new RacingCars(elements);
 
         // when
@@ -60,8 +65,11 @@ class RacingCarsTest {
         @DisplayName("4이상의 숫자인 경우 이동하는가")
         void greaterThan4() {
             // given
-            final RacingCars racingCars = new RacingCars(
-                    List.of(new RacingCar(new Name("abc")), new RacingCar(new Name("def"))));
+            final RacingCars racingCars =
+                    new RacingCars(
+                            List.of(
+                                    new RacingCar(new Name("abc")),
+                                    new RacingCar(new Name("def"))));
 
             // when
             racingCars.moveByNumbers(List.of(4, 5));
@@ -74,8 +82,11 @@ class RacingCarsTest {
         @DisplayName("4이상의 숫자인 경우 이동하는가")
         void lessThan4() {
             // given
-            final RacingCars racingCars = new RacingCars(
-                    List.of(new RacingCar(new Name("abc")), new RacingCar(new Name("def"))));
+            final RacingCars racingCars =
+                    new RacingCars(
+                            List.of(
+                                    new RacingCar(new Name("abc")),
+                                    new RacingCar(new Name("def"))));
 
             // when
             racingCars.moveByNumbers(List.of(1, 2));
@@ -91,13 +102,16 @@ class RacingCarsTest {
         // given
         final String firstCarName = "abc";
         final String secondCarName = "def";
-        final RacingCars racingCars = new RacingCars(
-                List.of(new RacingCar(new Name(firstCarName)), new RacingCar(new Name(secondCarName))));
+        final RacingCars racingCars =
+                new RacingCars(
+                        List.of(
+                                new RacingCar(new Name(firstCarName)),
+                                new RacingCar(new Name(secondCarName))));
 
         // when
         final String resultMessage = racingCars.toResultMessage();
 
-        //then
+        // then
         assertThat(resultMessage).contains(firstCarName, secondCarName);
     }
 
@@ -107,8 +121,11 @@ class RacingCarsTest {
         // given
         final String firstWinner = "abc";
         final String secondWinner = "def";
-        final RacingCars racingCars = new RacingCars(
-                List.of(new RacingCar(new Name(firstWinner)), new RacingCar(new Name(secondWinner))));
+        final RacingCars racingCars =
+                new RacingCars(
+                        List.of(
+                                new RacingCar(new Name(firstWinner)),
+                                new RacingCar(new Name(secondWinner))));
         racingCars.moveByNumbers(List.of(4, 4));
 
         // when

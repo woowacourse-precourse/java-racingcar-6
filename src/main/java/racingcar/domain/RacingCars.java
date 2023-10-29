@@ -1,11 +1,12 @@
 package racingcar.domain;
 
+import racingcar.constant.ErrorMessage;
+import racingcar.constant.MoveStatus;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import racingcar.constant.ErrorMessage;
-import racingcar.constant.MoveStatus;
 
 public final class RacingCars {
 
@@ -35,8 +36,7 @@ public final class RacingCars {
     }
 
     public void moveByNumbers(final List<Integer> numbers) {
-        IntStream.range(START_INDEX, elements.size())
-                .forEach(index -> move(numbers, index));
+        IntStream.range(START_INDEX, elements.size()).forEach(index -> move(numbers, index));
     }
 
     private void move(final List<Integer> numbers, final int index) {
@@ -60,8 +60,9 @@ public final class RacingCars {
 
     public String toResultMessage() {
         return elements.stream()
-                .map(RacingCar::toResultMessage)
-                .collect(Collectors.joining(NEW_LINE)) + NEW_LINE;
+                        .map(RacingCar::toResultMessage)
+                        .collect(Collectors.joining(NEW_LINE))
+                + NEW_LINE;
     }
 
     public Winners findWinners() {
@@ -80,6 +81,9 @@ public final class RacingCars {
         return elements.stream()
                 .map(RacingCar::moveDistance)
                 .max(Integer::compare)
-                .orElseThrow(() -> new IllegalStateException(ErrorMessage.INVALID_MAX_CALCULATION.toValue()));
+                .orElseThrow(
+                        () ->
+                                new IllegalStateException(
+                                        ErrorMessage.INVALID_MAX_CALCULATION.toValue()));
     }
 }

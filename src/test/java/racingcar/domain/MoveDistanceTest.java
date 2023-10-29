@@ -2,10 +2,11 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @DisplayName("움직인 거리 도메인의 객체에")
 class MoveDistanceTest {
@@ -32,7 +33,10 @@ class MoveDistanceTest {
         final MoveDistance before = new MoveDistance();
         final MoveDistance after = before.next();
         final int expectedDistance = after.toValue();
-        final String expected = IntStream.range(0, expectedDistance).mapToObj(i -> "-").collect(Collectors.joining());
+        final String expected =
+                IntStream.range(0, expectedDistance)
+                        .mapToObj(i -> "-")
+                        .collect(Collectors.joining());
 
         // when
         final String resultMessage = after.toResultMessage();

@@ -19,13 +19,16 @@ public class InputValidator {
     }
 
     private boolean hasInvalidDelimiterUsage(final String input) {
-        return input.startsWith(CAR_NAMES_DELIMITER) || input.endsWith(CAR_NAMES_DELIMITER)
+        return input.startsWith(CAR_NAMES_DELIMITER)
+                || input.endsWith(CAR_NAMES_DELIMITER)
                 || input.contains(DOUBLE_CAR_NAMES_DELIMITER);
     }
 
     private boolean hasInvalidBlankUsage(final String input) {
-        return input.startsWith(BLANK) || input.endsWith(BLANK)
-                || input.contains(BLANK_AFTER_COMMA) || input.contains(BLANK_BEFORE_COMMA);
+        return input.startsWith(BLANK)
+                || input.endsWith(BLANK)
+                || input.contains(BLANK_AFTER_COMMA)
+                || input.contains(BLANK_BEFORE_COMMA);
     }
 
     public void validateTryCount(final String input) {

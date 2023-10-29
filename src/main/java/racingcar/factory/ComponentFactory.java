@@ -19,7 +19,8 @@ public class ComponentFactory {
     }
 
     private RacingCarService racingCarService() {
-        return new RacingCarService(racingCarsRepository(), tryCountRepository(), randomNumberGenerator());
+        return new RacingCarService(
+                racingCarsRepository(), tryCountRepository(), randomNumberGenerator());
     }
 
     private RandomNumberGenerator randomNumberGenerator() {

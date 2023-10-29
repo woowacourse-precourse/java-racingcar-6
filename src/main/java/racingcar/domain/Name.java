@@ -1,7 +1,8 @@
 package racingcar.domain;
 
-import java.util.Objects;
 import racingcar.constant.ErrorMessage;
+
+import java.util.Objects;
 
 public final class Name {
 

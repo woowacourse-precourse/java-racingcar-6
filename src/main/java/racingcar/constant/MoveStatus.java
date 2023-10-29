@@ -1,7 +1,6 @@
 package racingcar.constant;
 
 public enum MoveStatus {
-
     MOVE,
     STOP;
 
