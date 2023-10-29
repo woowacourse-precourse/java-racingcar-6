@@ -30,6 +30,12 @@ public class Race {
             currentMaxPostion = Math.max(currentMaxPostion,car.getPosition());
         }
 
+        List<Car> currentWinner = new ArrayList<>();
+        for (Car car : cars) {
+            if(car.getPosition() == currentMaxPostion){
+                currentWinner.add(car);
+            }
+        }
 
 
     }
