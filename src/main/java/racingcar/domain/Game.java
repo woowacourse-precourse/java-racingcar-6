@@ -10,10 +10,10 @@ public class Game {
         this.tryCount = tryCount.getTryCount();
     }
 
-    public void racingGame() {
+    public void run() {
         for (int i = 0; i < tryCount; i++) {
             moveCars();
-            cars.printCarPosition();
+            Output.printCarNameAndPosition(cars.getCarNamePositionMap());
         }
         Output.printVictoryCarNames(cars.getVictoryCarNames());
     }

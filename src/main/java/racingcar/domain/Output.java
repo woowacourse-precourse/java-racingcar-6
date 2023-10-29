@@ -1,11 +1,13 @@
 package racingcar.domain;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Output {
-    public static void printCarPosition(List<Car> cars) {
-        for (Car car : cars) {
-            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
+    public static void printCarNameAndPosition(LinkedHashMap<String, Integer> carNamePositionMap) {
+        for (Map.Entry<String, Integer> entry : carNamePositionMap.entrySet()) {
+            System.out.println(entry.getKey() + " : " + "-".repeat(entry.getValue()));
         }
         System.out.println();
     }

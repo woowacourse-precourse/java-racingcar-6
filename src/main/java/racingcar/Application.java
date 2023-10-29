@@ -11,12 +11,12 @@ public class Application {
         // TODO: 프로그램 구현
         Output.printCarInputMessage();
         String[] carArray = Input.getCarsByUser();
+        Cars cars = new Cars(carArray);
         Output.printTryCountInputMessage();
         TryCount tryCount = new TryCount(Input.getTryCountByUser());
         Output.printResultMessage();
 
-        Cars cars = new Cars(carArray);
         Game game = new Game(cars, tryCount);
-        game.racingGame();
+        game.run();
     }
 }

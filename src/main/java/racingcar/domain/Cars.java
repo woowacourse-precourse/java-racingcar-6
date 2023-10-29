@@ -3,6 +3,7 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class Cars {
@@ -13,19 +14,23 @@ public class Cars {
         carList = generateCarList(cars);
     }
 
-    public void printCarPosition() {
-        Output.printCarPosition(carList);
+    public LinkedHashMap<String, Integer> getCarNamePositionMap() {
+        LinkedHashMap<String, Integer> carNamePositionMap = new LinkedHashMap<>();
+        for (Car car : carList) {
+            carNamePositionMap.put(car.getName(), car.getPosition());
+        }
+        return carNamePositionMap;
     }
 
     public List<String> getVictoryCarNames() {
-        List<String> victoryCarsName = new ArrayList<>();
+        List<String> victoryCarNames = new ArrayList<>();
         int maxPosition = getMaxPosition();
         for (Car car : carList) {
             if (maxPosition == car.getPosition()) {
-                victoryCarsName.add(car.getName());
+                victoryCarNames.add(car.getName());
             }
         }
-        return victoryCarsName;
+        return victoryCarNames;
     }
 
     // 테스트를 위해 public접근 제한자로 설정 해놓았습니다.
