@@ -4,18 +4,18 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Car {
+public class CarName {
 
     public String inputCar = new String();
     public List<String> splitCarList = new ArrayList<>();
     public List<String> rangeCarList = new ArrayList<>();
 
-    public String nameInput() {
+    public String input() {
         String inputCar = Console.readLine();
         return inputCar;
     }
 
-    public List<String> nameSplit() {
+    public List<String> split() {
         String[] splitCars = inputCar.split(",");
         for(String car : splitCars){
             splitCarList.add(car);
@@ -23,7 +23,7 @@ public class Car {
         return splitCarList;
     }
 
-    public List<String> nameRange() {
+    public List<String> range() {
 
         for (String range : splitCarList) {
             if (range.length() <= 5) {
