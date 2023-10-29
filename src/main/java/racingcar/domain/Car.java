@@ -26,6 +26,7 @@ public class Car {
     }
 
     public void forward(int frowardCount) {
+        if (frowardCount < 0) return;
         position += frowardCount;
     }
 
