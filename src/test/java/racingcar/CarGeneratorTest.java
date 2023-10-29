@@ -20,6 +20,14 @@ public class CarGeneratorTest {
         assertThatThrownBy(
                 () -> carGenerator.generate(List.of("ppppobi", "woni")))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차 이름은 5자 이하만 가능합니다.");
+                .hasMessage("자동차 이름은 5자 이하, 1자 이상만 가능합니다.");
+    }
+
+    @Test
+    void 이름이_0글자인_경우_예외() {
+        assertThatThrownBy(
+                () -> carGenerator.generate(List.of("", "woni")))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 5자 이하, 1자 이상만 가능합니다.");
     }
 }
