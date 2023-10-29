@@ -2,6 +2,7 @@ package racingcar.view;
 
 import racingcar.control.GameProcess;
 import racingcar.domain.RaceCar;
+import racingcar.utill.Utill;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -59,16 +60,10 @@ public class GameStart {
         for (int i = 0; i < cntTryRace; i++) {
             gameProcess.moveOfRaceCar();
             printSituationOfRaceProcessOneCycle();
-            printNewLine();
+            Utill.printNewLine();
         }
     }
 
-    /**
-     * print new Line
-     */
-    private void printNewLine() {
-        System.out.println();
-    }
 
     /**
      * 경주할 자동차 이름을 입력하는 출력을 보여주는 기능

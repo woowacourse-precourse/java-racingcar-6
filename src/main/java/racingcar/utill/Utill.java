@@ -70,5 +70,12 @@ public class Utill {
         return string.split(regex);
     }
 
+    /**
+     * print new Line
+     */
+    public static void printNewLine() {
+        System.out.println();
+    }
+
     // TODO: 10/28/23 배열을 리스트로 변환
 }
