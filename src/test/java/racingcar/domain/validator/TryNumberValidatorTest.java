@@ -14,8 +14,9 @@ public class TryNumberValidatorTest {
     }
 
     @Test
-    void testTryNumberValidatorWithValidInput() {
-        Assertions.assertDoesNotThrow(() -> tryNumberValidator.validate("5"));
+    void 시도_회수_입력_검증성공() {
+        String collectInput = "2";
+        Assertions.assertDoesNotThrow(() -> tryNumberValidator.validate(collectInput));
     }
 
     @Test
