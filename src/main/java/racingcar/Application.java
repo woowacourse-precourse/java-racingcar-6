@@ -11,12 +11,10 @@ public class Application {
 
 
         String inputCars = View.inputCarName();
+        String[] cars = InputValidator.splitCarName(inputCars);
+        InputValidator.checkNameLength(cars);
+        InputValidator.checkNameNull(cars);
 
-        String[] cars = inputCars.split(",");
-
-        if(Arrays.stream(cars).anyMatch(car -> car.length() >5)){
-            throw new IllegalArgumentException("자동차 이름은 5자 이내입니다.");
-        }
 
         int gameRound = Integer.parseInt(View.inputRound());
 
