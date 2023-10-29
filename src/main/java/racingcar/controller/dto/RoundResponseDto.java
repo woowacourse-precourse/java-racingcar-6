@@ -12,14 +12,14 @@ public class RoundResponseDto {
     }
 
     public String covertOutput() {
-        StringBuilder st = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         for (Car car : carList) {
             String name = car.getName();
             int position = car.getPosition();
             String dashes = DISTANCE_MARKER.repeat(position);
-            st.append(name).append(" : ").append(dashes).append("\n");
+            sb.append(name).append(" : ").append(dashes).append("\n");
         }
 
-        return st.toString();
+        return sb.toString();
     }
 }
