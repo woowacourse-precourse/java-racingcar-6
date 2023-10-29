@@ -9,10 +9,13 @@
 ### Name 
 - isValid => 이름 조건 검증(5자 이하)
 
+### Attempt
+- isValid => 숫자 입력 검증
+
 ### Move
 - generateRandom => 랜덤값 생성
 
-### Result
+### Game
 - calculateDistance => 이동거리 계산
 
 ---
