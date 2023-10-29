@@ -5,7 +5,7 @@ import racingcar.domain.exception.Checker;
 
 import java.util.HashMap;
 
-public class ReceptionDest {
+public class ReceptionDesk {
 
     public static HashMap<String, Integer> registering() {
         HashMap<String, Integer> lineUp = new HashMap<>();
@@ -13,8 +13,8 @@ public class ReceptionDest {
 
         Checker.lenCheck(lineUpArr);
 
-        for (String name : lineUpArr) {
-            lineUp.put(name, 0);
+        for (String carName : lineUpArr) {
+            lineUp.put(carName, 0);
         }
 
         return lineUp;
