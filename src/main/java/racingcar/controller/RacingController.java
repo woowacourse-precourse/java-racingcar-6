@@ -52,4 +52,16 @@ public class RacingController {
             carList.add(new Car(carName));
         }
     }
+
+    public static void moveOrNot(List<Car> carList) {
+        for (int i = 0; i < carList.size(); ++i) {
+            determineRandomNumber(carList, i);
+        }
+    }
+
+    public static void determineRandomNumber(List<Car> carList, int index) {
+        if (Randoms.pickNumberInRange(0, 9) >= MINIMUM_MOVE_CONDITION) {
+            carList.get(index).move();
+        }
+    }
 }
