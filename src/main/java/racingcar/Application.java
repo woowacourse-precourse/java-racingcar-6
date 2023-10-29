@@ -7,9 +7,7 @@ import java.util.*;
 
 public class Application {
     public static void main(String[] args) throws IllegalArgumentException {
-        String names_cars_input;
         String[] names_cars;
-        String attempts_input;
         int attempts;
         int winners_location = 0;
         List<String> winners_names = new ArrayList<String>();
@@ -20,13 +18,9 @@ public class Application {
         try {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             names_cars = inputCarsNames();
+
             System.out.println("시도할 회수는 몇회인가요?");
-            attempts_input = Console.readLine();
-            for (String name_car : names_cars) {
-                stringLengthCheck(name_car);
-            }
-            
-            attempts = Integer.parseInt(attempts_input);
+            attempts = inputAttempts();
         } catch (Exception e) {
             throw new IllegalArgumentException();
         }
@@ -64,23 +58,27 @@ public class Application {
     }
 
 
-    public static String[] inputCarsNames() throws Exception{
+    public static String[] inputCarsNames() throws IllegalArgumentException{
         String[] names_cars;
         names_cars = Console.readLine().split(",");
 
         for (String car_name : names_cars) {
             if (car_name.length() > 5){
-                throw new Exception();
+                throw new IllegalArgumentException();
             }
         }
-
         return names_cars;
     }
 
-    public static void stringLengthCheck(String str) throws Exception{
-        if (str.length() > 5 ){
-            throw new Exception();
+    public static int inputAttempts() throws IllegalArgumentException{
+        int attempts;
+        try {
+            attempts = Integer.parseInt(Console.readLine());
+        } catch (Exception e) {
+            throw new IllegalArgumentException();
         }
+
+        return attempts;
     }
 
 
