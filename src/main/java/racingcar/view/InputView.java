@@ -20,6 +20,7 @@ public class InputView {
     public String inputTryCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         String tryCount = Console.readLine();
+        System.out.println();
         validator.validate(tryCount);
         return tryCount;
     }
