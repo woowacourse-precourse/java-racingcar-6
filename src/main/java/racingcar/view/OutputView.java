@@ -9,7 +9,7 @@ public class OutputView {
 
     private static final String RESULT_MESSAGE = "실행 결과";
 
-    public static void printBlank() {
+    public static void printBlankLine() {
         System.out.println();
     }
 

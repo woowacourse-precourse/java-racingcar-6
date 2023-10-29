@@ -64,7 +64,7 @@ public class RacingGameController {
 
     private void printRoundResult(Cars players) {
         OutputView.printRoundResult(players.toDtos());
-        OutputView.printBlank();
+        OutputView.printBlankLine();
     }
 
     private void awardRacingCarGame(Cars players) {
