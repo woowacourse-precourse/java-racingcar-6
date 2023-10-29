@@ -8,4 +8,5 @@ public class Constant {
     public static final int MAX_VALUE = 9;
 
     public static final int FORWARD_CONDITION = 4;
+    public static final int FORWARD_VALUE = 1;
 }
