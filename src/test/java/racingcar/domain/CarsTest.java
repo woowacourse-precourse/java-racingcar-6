@@ -13,12 +13,12 @@ import java.util.stream.Stream;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
-public class RacingCarsTest {
+public class CarsTest {
 
     private static Stream<Arguments> generateCarNames() {
         return Stream.of(
-                Arguments.of(new RacingCars(List.of("pobi", "woni", "jun")), List.of("pobi", "woni", "jun")),
-                Arguments.of(new RacingCars(List.of("현대", "BMW", "테슬라")), List.of("현대", "BMW", "테슬라"))
+                Arguments.of(new Cars(List.of("pobi", "woni", "jun")), List.of("pobi", "woni", "jun")),
+                Arguments.of(new Cars(List.of("현대", "BMW", "테슬라")), List.of("현대", "BMW", "테슬라"))
         );
     }
 
@@ -26,7 +26,7 @@ public class RacingCarsTest {
     @ParameterizedTest(name = "[{index}] input : {0} ")
     @ValueSource(strings = {"poB1,현대,woni", "pobi,현대 ,woni"})
     void createCarNamesWithInvalidWord(String inputString) {
-        assertThatThrownBy(() -> new RacingCars(List.of(inputString.split(","))))
+        assertThatThrownBy(() -> new Cars(List.of(inputString.split(","))))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorHandler.INVALID_ENGLISH_KOREAN.getException().getMessage());
     }
@@ -35,7 +35,7 @@ public class RacingCarsTest {
     @ParameterizedTest(name = "[{index}] input : {0} ")
     @ValueSource(strings = {"pobi,pobi,woni", "pobi,현대,woni,현대"})
     void createCarNamesWithDuplicate(String inputString) {
-        assertThatThrownBy(() -> new RacingCars(List.of(inputString.split(","))))
+        assertThatThrownBy(() -> new Cars(List.of(inputString.split(","))))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorHandler.DUPLICATE_NUMBER.getException().getMessage());
     }
@@ -44,7 +44,7 @@ public class RacingCarsTest {
     @ParameterizedTest(name = "[{index}] input : {0} ")
     @ValueSource(strings = {"pobiii,pobi,woni", "pobi,BUGATTI,woni,현대"})
     void createCarNamesWithInvalidLength(String inputString) {
-        assertThatThrownBy(() -> new RacingCars(List.of(inputString.split(","))))
+        assertThatThrownBy(() -> new Cars(List.of(inputString.split(","))))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorHandler.INVALID_LENGTH.getException().getMessage());
     }
@@ -52,7 +52,7 @@ public class RacingCarsTest {
     @DisplayName("자동차 이름이 정상적으로 반환된다")
     @ParameterizedTest(name = "[{index}] input : {0} ")
     @MethodSource("generateCarNames")
-    void createCarNames(RacingCars racingCars, List<String> carNames) {
-        assertThat(racingCars.getCarNames()).isEqualTo(carNames);
+    void createCarNames(Cars cars, List<String> carNames) {
+        assertThat(cars.getCarNames()).isEqualTo(carNames);
     }
 }

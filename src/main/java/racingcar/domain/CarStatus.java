@@ -3,13 +3,13 @@ package racingcar.domain;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RacingCarStatus implements Comparable<RacingCarStatus> {
+public class CarStatus implements Comparable<CarStatus> {
 
     private final String carName;
     private final Map<String, String> carStatus = new HashMap<>();
     private int position = 0;
 
-    public RacingCarStatus(String carName) {
+    public CarStatus(String carName) {
         this.carName = carName;
     }
 
@@ -33,12 +33,12 @@ public class RacingCarStatus implements Comparable<RacingCarStatus> {
         return position;
     }
 
-    public boolean isSamePosition(RacingCarStatus otherCar) {
+    public boolean isSamePosition(CarStatus otherCar) {
         return position == otherCar.getPosition();
     }
 
     @Override
-    public int compareTo(RacingCarStatus otherCar) {
+    public int compareTo(CarStatus otherCar) {
         return position - otherCar.getPosition();
     }
 }

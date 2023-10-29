@@ -1,42 +1,42 @@
 package racingcar.controller;
 
-import racingcar.domain.RacingCars;
+import racingcar.domain.Cars;
 import racingcar.domain.TryCount;
 import racingcar.handler.InputHandler;
 import racingcar.handler.OutputHandler;
-import racingcar.service.RacingCarGameService;
+import racingcar.service.CarGameService;
 
 import java.util.List;
 import java.util.Map;
 
-public class RacingCarGameController {
+public class CarGameController {
 
     private final InputHandler inputHandler;
     private final OutputHandler outputHandler;
-    private final RacingCarGameService racingCarGameService;
+    private final CarGameService carGameService;
 
-    public RacingCarGameController(InputHandler inputHandler, OutputHandler outputHandler, RacingCarGameService racingCarGameService) {
+    public CarGameController(InputHandler inputHandler, OutputHandler outputHandler, CarGameService carGameService) {
         this.inputHandler = inputHandler;
         this.outputHandler = outputHandler;
-        this.racingCarGameService = racingCarGameService;
+        this.carGameService = carGameService;
     }
 
     public void run() {
-        RacingCars racingCars = loadCarNames();
+        Cars cars = loadCarNames();
         TryCount tryCount = loadTryCount();
 
-        generateRacingCarGroup(racingCars);
+        generateRacingCarGroup(cars);
 
         playGame(tryCount);
 
         finalWinners();
     }
 
-    public RacingCars loadCarNames() {
+    public Cars loadCarNames() {
         outputHandler.printInputCarNameMessage();
         List<String> carNames = inputHandler.inputCarNames();
 
-        return new RacingCars(carNames);
+        return new Cars(carNames);
     }
 
     public TryCount loadTryCount() {
@@ -46,22 +46,22 @@ public class RacingCarGameController {
         return new TryCount(tryCount);
     }
 
-    public void generateRacingCarGroup(RacingCars racingCars) {
-        racingCarGameService.generateRacingCarGroup(racingCars);
+    public void generateRacingCarGroup(Cars cars) {
+        carGameService.generateRacingCarGroup(cars);
     }
 
     public void playGame(TryCount tryCount) {
         outputHandler.printGameResultMessage();
 
         for (int i = 0; i < tryCount.getTryCount(); i++) {
-            racingCarGameService.racingCarGameProgress();
-            List<Map<String, String>> stageGameResults = racingCarGameService.racingCarGameResult();
+            carGameService.racingCarGameProgress();
+            List<Map<String, String>> stageGameResults = carGameService.racingCarGameResult();
             outputHandler.printGameProgress(stageGameResults);
         }
     }
 
     public void finalWinners() {
-        String winners = racingCarGameService.getWinnerNames();
+        String winners = carGameService.getWinnerNames();
         outputHandler.printFinalWinners(winners);
     }
 }

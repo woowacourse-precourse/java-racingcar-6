@@ -8,11 +8,11 @@ import java.util.regex.Pattern;
 import static racingcar.handler.ConstantsHandler.VALID_CAR_NAMES_LENGTH;
 import static racingcar.handler.ErrorHandler.*;
 
-public class RacingCars {
+public class Cars {
 
     private final List<String> carNames;
 
-    public RacingCars(List<String> carNames) {
+    public Cars(List<String> carNames) {
         validateCarNames(carNames);
         validateDuplicate(carNames);
         validateLength(carNames);

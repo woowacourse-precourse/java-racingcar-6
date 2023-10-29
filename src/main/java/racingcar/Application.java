@@ -1,9 +1,9 @@
 package racingcar;
 
-import racingcar.controller.RacingCarGameController;
+import racingcar.controller.CarGameController;
 import racingcar.handler.InputHandler;
 import racingcar.handler.OutputHandler;
-import racingcar.service.RacingCarGameService;
+import racingcar.service.CarGameService;
 import racingcar.view.ConsoleInput;
 import racingcar.view.ConsoleOutput;
 
@@ -12,8 +12,8 @@ public class Application {
 
         final InputHandler inputHandler = new ConsoleInput();
         final OutputHandler outputHandler = new ConsoleOutput();
-        final RacingCarGameService racingCarGameService = new RacingCarGameService();
+        final CarGameService carGameService = new CarGameService();
 
-        new RacingCarGameController(inputHandler, outputHandler, racingCarGameService).run();
+        new CarGameController(inputHandler, outputHandler, carGameService).run();
     }
 }
