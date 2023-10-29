@@ -13,4 +13,7 @@ public class Car {
     public void addProgress(){
         this.currentProgress = this.currentProgress + '-';
     }
+    public String getProgress(){
+        return this.currentProgress;
+    }
 }
