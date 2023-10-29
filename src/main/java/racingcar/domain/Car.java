@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.RandomNumberGenerator;
+import racingcar.util.RandomNumberGenerator;
 
 public class Car implements Comparable<Car> {
 
@@ -24,6 +24,10 @@ public class Car implements Comparable<Car> {
 
     public void play() {
         int randomNumber = RandomNumberGenerator.generateRandomNumber();
+        goOrStop(randomNumber);
+    }
+
+    public void goOrStop(int randomNumber) {
         if(canMove(randomNumber)) {
             position++;
         }
