@@ -94,6 +94,20 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 처음부터_여러번_회차_진행_이후_이동거리_확인(){
+        RacingGame racingGame = new RacingGame();
+        String[] nameArr = {"aa", "bb", "cc"};
+        List<String> nameList =(Arrays.asList(nameArr));
+        List<Integer> expectedList = new ArrayList<>(Arrays.asList(2,1,1));
+        CallNsTestMethod.assertRandomNumberInRangeTest(
+                ()->{
+                    List<Integer> distanceList = racingGame.runAllCycle(nameList, 3);
+                    assertThat(distanceList).isEqualTo(expectedList);
+                },
+                4,0,0,0,0,0,4,4,4
+        );
+    }
 
     @Override
     public void runMain() {
