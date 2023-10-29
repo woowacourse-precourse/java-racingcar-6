@@ -12,7 +12,7 @@ public class OutputView {
     }
 
     public void printWinnerOfGame(ArrayList<String> carNames) {
-        System.out.println("최종 우승자: " + String.join(", ", carNames));
+        System.out.println("최종 우승자 : " + String.join(", ", carNames));
     }
 
 
