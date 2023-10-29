@@ -5,35 +5,30 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 import java.util.ArrayList;
 
-class Game {
+public class Game {
 	private static String[] userArray;
 	private static int count;
 	private static int[] moveCount;
 	private static ArrayList<Integer> maxIndices = new ArrayList<>();
 
-	Game() {
-		this.setGameUsers();
-		this.setGameCount();
-	}
-
-	private void checkUsername() {
-		for (int i = 0; i < userArray.length; i++) {
-			if (userArray[i].length() > 5) {
+	private String[] checkUsername(String[] input) {
+		for (int i = 0; i < input.length; i++) {
+			if (input[i].length() > 5) {
 				throw new IllegalArgumentException();
 			} else {
-				userArray[i] = userArray[i].replaceAll(" ", ""); // 공백제거
+				input[i] = input[i].replaceAll(" ", ""); // 공백제거
 			}
 		}
+		return userArray = input;
 	}
 
-	private String[] setGameUsers() {
+	public String[] setGameUsers() {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String userInput = readLine();
 
 		userArray = userInput.split(","); // 사용자 등록
-		this.checkUsername(); // 유효성 검사
-
-		return userArray;
+		
+		return this.checkUsername(userArray); // 유효성 검사
 	}
 
 	private int intValidator(String userInput) {
@@ -45,16 +40,14 @@ class Game {
 
 	}
 
-	private int setGameCount() {
+	public int setGameCount() {
 		System.out.println("시도할 회수는 몇회인가요?");
 		String userInput = readLine();
 
-		count = this.intValidator(userInput);// 이동할 회수 등록
-
-		return count;
+		return count = this.intValidator(userInput);// 이동할 회수 등록
 	}
 
-	private void forwardOrStop() {
+	public void forwardOrStop() {
 		String forward = "-";
 		moveCount = new int[userArray.length];
 
@@ -90,7 +83,7 @@ class Game {
 
 	}
 
-	private String pickWinner() {
+	public String pickWinner() {
 		String winner = "";
 
 		this.findWinnerIndex();
@@ -107,6 +100,8 @@ class Game {
 	}
 
 	public void processGame() {
+		this.setGameUsers();
+		this.setGameCount();
 		this.forwardOrStop();
 		System.out.print("최종 우승자 : " + this.pickWinner());
 	}
