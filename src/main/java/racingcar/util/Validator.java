@@ -11,11 +11,12 @@ public class Validator {
     private final Parser parser = new Parser();
 
     private List<String> carNameList = new ArrayList<>();
-    public void isValidCarName(String input){
+    public List<String> isValidCarName(String input){
         carNameList.clear();
         carNameList = parser.parseCarNames(input);
         checkEachCarNameLengthValid(carNameList);
         checkDuplicateName(carNameList);
+        return carNameList;
     }
 
 
@@ -42,7 +43,7 @@ public class Validator {
 
     //비어있지 않거나 숫자일때
     public boolean isValidTrialNumber(String input){
-        parser.parseTrialNumber(input);
+
         if(!input.isEmpty() && isNumberDigit(input)){
             return true;
         }
