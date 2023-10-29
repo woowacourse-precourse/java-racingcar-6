@@ -124,3 +124,17 @@
 #### Methods:
 1. `public static String playerInput(List<String> players)`: 주어진 플레이어 리스트를 쉼표(,)로 연결하여 문자열로 반환합니다.
 2. `public static String winnerOutput(List<String> winners)`: 주어진 우승자 리스트를 쉼표와 공백으로 연결하여 문자열로 반환합니다.
+---
+### **🌟 테스트 목록**
+1. Application Test
+- [ ] 이름에 대한 판단
+  - [ ] 이름은 최소 1자에서 최대 5자 이하 판단
+  - [ ] `kim, seong, han`: 공백 및  특수문자 불허
+  - [ ] `kim, kim`: 중복된 이름 불허
+- [ ] 실행횟수에 대한 판단
+  - [ ] 실행횟수가 0이외의 숫자인지 판단
+- [ ] 실행시 출력에 대한 판단
+  - [ ] `이름 : ---` 구조로 잘 되어있는지 판단
+- [ ] 실행결과에 대한 판단
+  - [ ] `최종우승자 : kim` 우승자 1명일 때 최종 출력 판단
+  - [ ] `최종우승자 : kim, seong` 우승자 2명 이상일 때 최종 출력 판단
