@@ -33,10 +33,10 @@ public class Cars {
         }
     }
 
-    public void moveAll(List<Integer> positions) {
+    public void moveAll(List<Integer> numbers) {
         for (int i = 0; i < cars.size(); i++) {
             Car car = cars.get(i);
-            car.moveForward(positions.get(i));
+            car.moveForward(numbers.get(i));
         }
     }
 
