@@ -11,6 +11,9 @@ public class Car {
         setName(name);
     }
     public void setName(String name) {
+        if(checkValidateName(name)){
+            throw new IllegalArgumentException();
+        }
         this.name = name;
     }
 
@@ -18,7 +21,7 @@ public class Car {
         return this.name;
     }
 
-    public void addPosition(int n){
+    public void setPosition(int n){
         this.position = this.position + n;
     }
 
@@ -33,7 +36,7 @@ public class Car {
 
     public void moveOrStop(){
         if(checkMoveCondition()){
-            addPosition(1);
+            setPosition(1);
         }
     }
 
@@ -44,5 +47,9 @@ public class Car {
             position += "-";
         }
         System.out.println(position);
+    }
+
+    public static boolean checkValidateName(String name){
+        return name == null ||name.isEmpty() ||  name.length() > 5;
     }
 }
