@@ -12,13 +12,13 @@ import racingcar.controller.Validator;
 
 public class ValidatorTest extends ApplicationTest {
     @ParameterizedTest
-    @MethodSource("generateData")
+    @MethodSource("generateInvalidNames")
     void 이름_유효성_실패_테스트(List<String> names) {
         assertThrows(IllegalArgumentException.class,
                 () -> Validator.validateNames(names));
     }
 
-    static Stream<Arguments> generateData() {
+    static Stream<Arguments> generateInvalidNames() {
         return Stream.of(
                 Arguments.of(Arrays.asList("pobi", "pobi", "woni")),
                 Arguments.of(Arrays.asList("pobi", "jjjjun")),
