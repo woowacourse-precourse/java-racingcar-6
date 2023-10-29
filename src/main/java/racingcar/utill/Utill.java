@@ -1,5 +1,6 @@
 package racingcar.utill;
 
+import java.sql.Struct;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
@@ -87,4 +88,17 @@ public class Utill {
         return List.of(arr);
     }
 
+    /**
+     * num_1 과 num_2의 숫자가 같으면 true
+     *
+     * @param num_1
+     * @param num_2
+     * @return
+     */
+    public static boolean isSameNum(int num_1, int num_2) {
+        if (Integer.compare(num_1, num_2) == 0) {
+            return true;
+        }
+        return false;
+    }
 }
