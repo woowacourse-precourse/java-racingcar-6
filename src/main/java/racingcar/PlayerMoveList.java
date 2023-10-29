@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.Collections;
 import java.util.List;
 
 public class PlayerMoveList {
@@ -36,6 +37,6 @@ public class PlayerMoveList {
     }
 
     public List<PlayerMove> getPlayerMoveList() {
-        return playerMoveList;
+        return Collections.unmodifiableList(playerMoveList);
     }
 }

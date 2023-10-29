@@ -24,6 +24,5 @@ public class GameResultDtoTest {
             assertEquals("test", gameResultDto.getPlayerName());
             assertEquals(0, gameResultDto.getDistance());
         }
-
     }
 }
