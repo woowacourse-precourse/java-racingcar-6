@@ -8,4 +8,10 @@ public class CarRaceService {
     public CarRaceService(Cars cars) {
         this.cars = cars;
     }
+
+    public void addCars(String input) {
+        cars.saveCars(input);
+    }
+
+
 }
