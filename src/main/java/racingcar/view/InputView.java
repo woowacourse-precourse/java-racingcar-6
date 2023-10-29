@@ -8,4 +8,10 @@ public class InputView {
         // TODO validation
         return carNames;
     }
+
+    public String inputTryCount() {
+        String tryCount = Console.readLine();
+        // TODO validation
+        return tryCount;
+    }
 }
