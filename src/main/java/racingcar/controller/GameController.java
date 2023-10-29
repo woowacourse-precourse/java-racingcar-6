@@ -2,12 +2,17 @@ package racingcar.controller;
 
 import racingcar.model.Car;
 import racingcar.model.RacingCars;
+import racingcar.service.GameService;
 import racingcar.view.InputValue;
 import racingcar.view.OutputValue;
 
 public class GameController {
 
     private RacingCars racingCars = new RacingCars();
+
+    private GameService gameService = new GameService();
+
+    private int range;
 
     public GameController() {
         gameInit();
@@ -25,17 +30,18 @@ public class GameController {
 
         OutputValue.getRangeMessage();
 
-        int result2 = InputValue.getRacingRange();
+        range = InputValue.getRacingRange();
 
-
-        for(Car car : racingCars.getCars()) {
-            System.out.print(car.getName() + " ");
-        }
-
-        System.out.println(result2);
     }
 
     private void gameStart() {
+
+        OutputValue.executionResultMessage();
+
+        for(int i = 0; i < range; i++) {
+            gameService.gameProgress(racingCars);
+            OutputValue.gameProgressMessage(racingCars);
+        }
 
     }
 
