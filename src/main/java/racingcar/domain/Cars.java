@@ -1,13 +1,15 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Cars {
 
-    private List<Car> cars = new ArrayList<>();
+    private Map<String, Car> cars = new HashMap<>();
 
-    public List<Car> getCars() {
+    public Map<String, Car> getCars() {
         return cars;
     }
 }
