@@ -13,6 +13,5 @@ public class ProgressController {
     public void gameProgress() {
         racingService.gameProgress();
         racingService.gameResult();
-        Console.close();
     }
 }

@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.repository.CarRepository;
@@ -51,5 +52,6 @@ public class RacingService {
                 winners.add(car.getName());
         }
         outputView.gameResult(winners);
+        Console.close();
     }
 }

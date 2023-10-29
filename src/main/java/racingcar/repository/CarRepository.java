@@ -1,6 +1,7 @@
 package racingcar.repository;
 
 import racingcar.domain.Car;
+import racingcar.validate.InputValueValidate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ public class CarRepository {
     public List<Car> save(String[] inputNames) {
         List<Car> cars = new ArrayList<>();
         for (String name : inputNames) {
+            InputValueValidate.checkNameException(name);
             Car car = new Car(name);
             cars.add(car);
         }

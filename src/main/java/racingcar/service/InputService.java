@@ -3,6 +3,7 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
 import racingcar.repository.CarRepository;
+import racingcar.validate.InputValueValidate;
 import racingcar.view.OutputView;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class InputService {
 
     public int inputTimes() {
         outputView.howManyTime();
-        int times = Integer.parseInt(Console.readLine());
+        int times = InputValueValidate.checkTimesException(Console.readLine());
         return times;
     }
 }
