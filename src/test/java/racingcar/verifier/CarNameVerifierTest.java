@@ -3,6 +3,7 @@ package racingcar.verifier;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import racingcar.system.ExceptionMessage;
 
 class CarNameVerifierTest {
 
@@ -13,4 +14,12 @@ class CarNameVerifierTest {
        Assertions.assertThatCode(()-> carNameVerifier.check("pobi,woni,jun"))
                .doesNotThrowAnyException();
     }
+
+    @Test
+    void 자동차이름5자이하가아닌경우() {
+        Assertions.assertThatThrownBy(()-> carNameVerifier.check("pobi,woni,123456,ifj"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ExceptionMessage.INVALID_CAR_NAME);
+    }
+
 }
