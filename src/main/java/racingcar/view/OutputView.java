@@ -1,7 +1,11 @@
 package racingcar.view;
 
+import static racingcar.util.messageContent.DisplayMessageContent.DIVIDING_LINE;
 import static racingcar.util.messageContent.DisplayMessageContent.GAME_WINNER;
+import static racingcar.util.messageContent.DisplayMessageContent.MOVE_DISPLAY_STRING;
 import static racingcar.util.messageContent.DisplayMessageContent.PLAY_RESULT_TITLE;
+
+import java.util.HashMap;
 
 public class OutputView {
 
@@ -13,4 +17,23 @@ public class OutputView {
         System.out.print(GAME_WINNER.getContent());
     }
 
+    public static void displayNextLine() {
+        System.out.println();
+    }
+
+    public static void displayGameProgress(HashMap<String, Integer> players) {
+        for (String player : players.keySet()) {
+            int currentPosition = players.get(player);
+            String progress = generateProgress(currentPosition);
+            System.out.println(player + DIVIDING_LINE.getContent() + progress);
+        }
+    }
+
+    private static String generateProgress(int currentPosition) {
+        StringBuilder result = new StringBuilder();
+        for (int move = 0; move < currentPosition; move++) {
+            result.append(MOVE_DISPLAY_STRING.getContent());
+        }
+        return result.toString();
+    }
 }

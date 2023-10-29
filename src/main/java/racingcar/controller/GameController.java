@@ -24,7 +24,11 @@ public class GameController {
 
     private void play() {
         OutputView.displayPlayResultTitle();
-        // TODO: 경주 게임 진행 메서드 작성
+        for (int gameTurn = 0; gameTurn < player.getGameTime(); gameTurn++) {
+            game.start(player.getPlayer());
+            OutputView.displayGameProgress(player.getPlayer());
+            OutputView.displayNextLine();
+        }
         OutputView.displayGameWinner();
     }
 
