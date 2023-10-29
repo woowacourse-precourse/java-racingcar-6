@@ -11,6 +11,10 @@ public class RacingCars {
         this.racingCars = racingCars;
     }
 
+    public List<Car> getRacingCars() {
+        return racingCars;
+    }
+
     public void MovingCars() {
         for (Car car : racingCars) {
             car.tryAddMove();

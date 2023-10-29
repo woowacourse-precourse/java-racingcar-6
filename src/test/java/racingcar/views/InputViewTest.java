@@ -11,6 +11,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.RacingCars;
 import racingcar.exception.CarNameDuplicateException;
 import racingcar.exception.CarNameIncorrectException;
 import racingcar.exception.CarNameSizeLimitExceededException;
@@ -71,7 +72,10 @@ class InputViewTest {
 
         // console.readLine() 에 테스트 입력 값 등록
         System.setIn(new ByteArrayInputStream(normal.getBytes()));
-        List<Car> carNameList = InputView.getCarNames();
+
+        RacingCars racingCars = InputView.getRacingCars();
+        List<Car> carNameList = racingCars.getRacingCars();
+
         assertThat(carNameList.size()).isEqualTo(5);
         assertThat(carNameList).isNotNull();
     }
@@ -84,7 +88,10 @@ class InputViewTest {
 
         // console.readLine() 에 테스트 입력 값 등록
         System.setIn(new ByteArrayInputStream(emptyNormal.getBytes()));
-        List<Car> carNameList = InputView.getCarNames();
+
+        RacingCars racingCars = InputView.getRacingCars();
+        List<Car> carNameList = racingCars.getRacingCars();
+        
         assertThat(carNameList.size()).isEqualTo(3);
         assertThat(carNameList).isNotNull();
     }
@@ -97,7 +104,7 @@ class InputViewTest {
 
         // console.readLine() 에 테스트 입력 값 등록
         System.setIn(new ByteArrayInputStream(error.getBytes()));
-        assertThrows(CarNameSizeLimitExceededException.class, InputView::getCarNames);
+        assertThrows(CarNameSizeLimitExceededException.class, InputView::getRacingCars);
     }
 
     @Test
@@ -136,7 +143,7 @@ class InputViewTest {
 
         // console.readLine() 에 테스트 입력 값 등록
         System.setIn(new ByteArrayInputStream(error.getBytes()));
-        assertThrows(CarNameDuplicateException.class, InputView::getCarNames);
+        assertThrows(CarNameDuplicateException.class, InputView::getRacingCars);
     }
 
 }

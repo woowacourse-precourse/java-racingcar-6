@@ -32,8 +32,7 @@ public class RacingCarGameController {
     }
 
     private void racingCarCreate() {
-        cars = InputView.getCarNames();
-        racingCars = new RacingCars(cars);
+        racingCars = InputView.getRacingCars();
     }
 
     private void gameTryCountCreate() {
