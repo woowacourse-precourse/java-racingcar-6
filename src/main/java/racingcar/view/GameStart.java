@@ -35,7 +35,6 @@ public class GameStart {
         }
     }
 
-
     /**
      * 현재 레이스 자동차들의 Map을 만들어준다.
      */
@@ -50,7 +49,7 @@ public class GameStart {
      */
     public void printWinnerOfRaceGame() {
         String carOfWinnerFinal = gameProcess.knowFinalWinner();
-        System.out.println("최종 우승자 : " + carOfWinnerFinal);
+        Utill.print(MyConstans.MSG_NAME_WINNER_CAR_RACE(carOfWinnerFinal));
     }
 
     /**
