@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +25,14 @@ public final class RacingCarRace {
         }
 
         return new RacingCarRace(racingCars, attemptCount);
+    }
+
+    public static String getCarNames(final List<RacingCar> racingCars) {
+        List<String> carNames = racingCars.stream()
+                .map(RacingCar::getCarName)
+                .toList();
+
+        return String.join(COMMA_BLANK, carNames);
     }
 
     public void runRace() {

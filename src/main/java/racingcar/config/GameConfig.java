@@ -10,9 +10,17 @@ public class GameConfig {
     }
 
     public static GameManager buildGameManager() {
-        MessagePrinter messagePrinter = new MessagePrinter();
-        MessageReceiver messageReceiver = new MessageReceiver();
+        MessagePrinter messagePrinter = messagePrinter();
+        MessageReceiver messageReceiver = messageReceiver();
 
         return new GameManager(messagePrinter, messageReceiver);
+    }
+
+    private static MessagePrinter messagePrinter() {
+        return new MessagePrinter();
+    }
+
+    private static MessageReceiver messageReceiver() {
+        return new MessageReceiver();
     }
 }

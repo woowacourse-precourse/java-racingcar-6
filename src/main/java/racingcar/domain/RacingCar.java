@@ -1,8 +1,7 @@
-package racingcar;
+package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.List;
 
 import static racingcar.constant.NumberConstant.*;
 import static racingcar.constant.TextConstant.*;
@@ -22,14 +21,6 @@ public final class RacingCar {
 
     public static RacingCar of(final String carName) {
         return new RacingCar(carName, BLANK, ZERO_POINT);
-    }
-
-    public static String getCarNames(final List<RacingCar> racingCars) {
-        List<String> carNames = racingCars.stream()
-                .map(RacingCar::getCarName)
-                .toList();
-
-        return String.join(COMMA_BLANK, carNames);
     }
 
     public void move(final int randomNumber) {

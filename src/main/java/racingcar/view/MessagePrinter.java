@@ -1,7 +1,7 @@
 package racingcar.view;
 
-import racingcar.RacingCar;
-import racingcar.RacingCarRace;
+import racingcar.domain.RacingCar;
+import racingcar.domain.RacingCarRace;
 
 import java.util.List;
 
@@ -40,7 +40,7 @@ public class MessagePrinter {
 
     public void printWinners(final RacingCarRace racingCarRace) {
         List<RacingCar> winners = racingCarRace.findWinners();
-        String result = RacingCar.getCarNames(winners);
+        String result = RacingCarRace.getCarNames(winners);
 
         System.out.println(result);
     }

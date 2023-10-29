@@ -1,8 +1,8 @@
 package racingcar;
 
+import racingcar.domain.RacingCarRace;
 import racingcar.view.MessagePrinter;
 import racingcar.view.MessageReceiver;
-
 
 import java.util.List;
 

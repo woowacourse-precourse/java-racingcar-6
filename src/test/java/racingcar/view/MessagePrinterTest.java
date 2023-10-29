@@ -3,8 +3,8 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import racingcar.RacingCar;
-import racingcar.RacingCarRace;
+import racingcar.domain.RacingCar;
+import racingcar.domain.RacingCarRace;
 
 
 import java.util.Arrays;
