@@ -4,8 +4,8 @@
 [x] 자동차에 부여할 이름을 입력받는다. - Judgement#getNamesFromUser()
 [x] 입력받은 자동차 이름들을 분할한다. - Judgement#separateCarNames()
 [x] 자동차에 부여할 이름이 유효한지 확인한다. - Judgement#checkNameIsValid()
-[ ] 자동차 경주를 시도할 횟수를 입력받는다. - Judgement#getPlayCountFromUser();
-[ ] 자동차 경주를 시도할 횟수가 유요한지 확인하다. -Judgement#checkPalyCount();
+[x] 자동차 경주를 시도할 횟수를 입력받는다. - Judgement#getPlayCountFromUser();
+[x] 자동차 경주를 시도할 횟수가 유요한지 확인하다. -Judgement#checkPalyCount();
 [ ] 우승자를 출력한다. - Judgement# printWinners()
 # 기능 요구 사항
 - 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.

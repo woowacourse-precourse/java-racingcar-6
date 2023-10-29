@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -24,6 +23,20 @@ public class Judgement {
     private static void checkNameIsValid(String carNames) {
         if (carNames.length() > 5) {
             throw new IllegalArgumentException("5글자를 초과한 이름은 입력할 수 없습니다.");
+        }
+    }
+
+    public static int getPlayCountFromUser(String unParsedPlayCount) {
+        checkPlayCount(unParsedPlayCount);
+        return Integer.parseInt(unParsedPlayCount);
+    }
+
+    private static void checkPlayCount(String unParsedPlayCount) {
+        int playCount = 0;
+        try {
+            playCount = Integer.parseInt(unParsedPlayCount);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("숫자를 입력해야합니다.");
         }
     }
 }
