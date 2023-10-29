@@ -72,6 +72,20 @@ class ValidatorTest {
     }
 
     @Test
+    void isNumber_숫자를_입력한_경우_true_반환() {
+        String number = "0123456789";
+
+        assertThat(Validator.isNumber(number)).isTrue();
+    }
+
+    @Test
+    void isNumber_숫자가_아닌_값을_입력한_경우_false_반환() {
+        String number = "1evc52";
+
+        assertThat(Validator.isNumber(number)).isFalse();
+    }
+
+    @Test
     void validateInput_이름으로_공백을_입력한_경우_예외_발생() {
         String blank = "";
 
