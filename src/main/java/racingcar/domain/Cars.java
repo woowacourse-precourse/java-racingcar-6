@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import org.junit.platform.commons.util.StringUtils;
 import racingcar.dto.CarDto;
 
 import java.util.*;
@@ -10,15 +11,32 @@ public class Cars {
 
     public Cars(String inputNames) {
 
-        String[] names = Arrays.stream(inputNames.split(","))
-                .map(String::trim)
-                .toArray(String[]::new);
+        String[] names = inputNames.split(",", -1);
+        validateBlank(names);
+        String[] trimNames = trimNames(names);
+        validateDuplicateName(trimNames);
 
-        validateDuplicateName(names);
-
-        cars = Arrays.stream(names)
+        cars = Arrays.stream(trimNames)
                 .map(name -> new Car(name))
                 .toList();
+    }
+
+    private String[] trimNames(String[] names) {
+
+        return Arrays.stream(names)
+                .map(String::trim)
+                .toArray(String[]::new);
+    }
+
+    private void validateBlank(String[] names) {
+
+        boolean hasBlank = Arrays.stream(names)
+                .filter(name -> StringUtils.isBlank(name))
+                .findFirst()
+                .isPresent();
+        if(hasBlank) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private void validateDuplicateName(String[] names) {
@@ -54,10 +72,6 @@ public class Cars {
                 .filter(car -> maxPositionCar.isSamePosition(car))
                 .map(Car::getName)
                 .toList();
-    }
-
-    public List<Car> getCars() {
-        return cars;
     }
 
     public List<CarDto> toDto() {
