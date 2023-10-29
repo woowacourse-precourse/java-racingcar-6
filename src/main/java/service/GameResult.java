@@ -28,8 +28,4 @@ public class GameResult {
             winnersList.add(name);
         }
     }
-
-    public void printWinners() {
-
-    }
 }

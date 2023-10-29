@@ -1,6 +1,6 @@
 package view;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -24,5 +24,11 @@ public class OutputView {
             System.out.println(name + " : " + position);
         }
         System.out.println();
+    }
+
+    public void printWinners(ArrayList<String> winnerList) {
+        String result = String.join(", ", winnerList);
+
+        System.out.print("최종 우승자 : " + result);
     }
 }

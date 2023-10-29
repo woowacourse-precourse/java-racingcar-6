@@ -49,6 +49,6 @@ public class Controller {
 
     public void endGame() {
         gameResult.chkWinners();
-        gameResult.printWinners();
+        outputView.printWinners(gameResult.winnersList);
     }
 }
