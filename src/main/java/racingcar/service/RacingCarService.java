@@ -1,11 +1,13 @@
 package racingcar.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.CarEngine;
 import racingcar.domain.Cars;
 import racingcar.domain.RacingResult;
 import racingcar.domain.RacingRoundResult;
+import racingcar.dto.CarInfo;
 
 public class RacingCarService {
     private final RacingCarAssemblyService racingCarAssemblyService;
@@ -22,8 +24,10 @@ public class RacingCarService {
         for (int i = 0; i < attemptCounts; i++) {
             cars.move();
             List<Car> readOnlyCarList = cars.getReadOnlyCarList();
-            RacingRoundResult racingRoundResult = new RacingRoundResult(readOnlyCarList);
-            racingResult.addResult(racingRoundResult);
+            List<CarInfo> carInfoList = readOnlyCarList.stream()
+                    .map(CarInfo::of)
+                    .collect(Collectors.toUnmodifiableList());
+            racingResult.addResult(new RacingRoundResult(carInfoList));
         }
         return racingResult;
     }
