@@ -16,7 +16,7 @@ public class InputView {
         return cars.split(",");
     }
 
-    int inputTrialNumber(){
+    static int inputTrialNumber(){
         System.out.println("시도할 회수는 몇회인가요?");
         String stringNumber = Console.readLine();
         validHasInput(stringNumber);
@@ -30,7 +30,7 @@ public class InputView {
         }
     }
 
-    int validNumber(String stringNumber) {
+    static int validNumber(String stringNumber) {
         int number;
         try {
             number = Integer.parseInt(stringNumber);
