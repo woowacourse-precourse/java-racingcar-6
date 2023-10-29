@@ -7,7 +7,7 @@ public class Car {
     public int getRandomNumber(){
         return Randoms.pickNumberInRange(0,9);
     }
-    public void addPlace(){
-        place++;
+    public int addPlace(){
+        return ++place;
     }
 }
