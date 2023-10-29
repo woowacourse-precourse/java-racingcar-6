@@ -9,6 +9,7 @@ import camp.nextstep.edu.missionutils.Console;
 public class Game {
 
     private LinkedHashMap<String, Integer> cars = new LinkedHashMap<>();
+    private Integer roundCount;
 
     public List<String> processCarNames(String carNames){
         List<String> carList = splitAndConvertToList(carNames, ",");
@@ -44,5 +45,22 @@ public class Game {
 
     public LinkedHashMap<String, Integer> getCars(){
         return cars;
+    }
+
+    public String getRoundCountInput(){
+        return Console.readLine();
+    }
+
+    public void checkIfNumeric(String userInput){
+        if(!userInput.matches("[0-9]+"))
+            throw new IllegalArgumentException();
+    }
+
+    public void setRoundCount(String userInput){
+        roundCount = Integer.parseInt(userInput);
+    }
+
+    public Integer getRoundCount(){
+        return roundCount;
     }
 }
