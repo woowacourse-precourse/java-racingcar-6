@@ -1,15 +1,25 @@
 package racingcar.model;
 
+import java.util.List;
+
 public class Car {
 
-    String name;
-    int moves;
+    List<String> name;
+    List<Integer> move;
 
-    public Car(String name) {
+    public Car() {
+
+    }
+
+    public Car(List<String> name) {
         this.name = name;
     }
 
-    public int getMoves() {
-        return moves;
+    public List<Integer> getMove() {
+        return move;
+    }
+
+    public List<String> getName() {
+        return name;
     }
 }

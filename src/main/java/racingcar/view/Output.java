@@ -11,7 +11,7 @@ public class Output {
     }
 
     public static void printResult() {
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
     }
 
     public static void printWinners() {
