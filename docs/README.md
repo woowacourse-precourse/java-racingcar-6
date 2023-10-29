@@ -16,7 +16,7 @@
 |기능 이름|기능 소개|메소드 이름| 구현여부 |비고|이슈 번호|
 |---|---|---|------|---|---|
 |자동차 이름 받기|자동차 이름들을 받은 후 RacingCars 배열에 삽입한다|getNameOfCars| 0    |thorws IllegalArguamentException|#01|
-|시도 횟수 받기|시도 횟수를 받은 후 Integer로 변환해 n에 삽입한다|getCountOfTries| X    |throws IllegalArgumentException|#02|
+|시도 횟수 받기|시도 횟수를 받은 후 Integer로 변환해 n에 삽입한다|getCountOfTries| 0    |throws IllegalArgumentException|#02|
 
 
 ## 출력
