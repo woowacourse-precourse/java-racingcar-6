@@ -4,7 +4,7 @@ import static racingcar.constant.Constant.COLON;
 
 public abstract class Car {
     private String name;
-    private String distanceDriver;
+    String distanceDriver;
 
     public abstract void moveCar();
 
