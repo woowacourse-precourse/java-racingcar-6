@@ -13,13 +13,13 @@ public class Application {
             // 기능 2-1. 자동차의 이름을 저장하여 각 라운드마다 자동차의 이름과 진행 상황을 프린트하는 함수인 playRound() 메서드 구현
             // 기능 3-1. 자동차 이름을 쉼표를 기준으로 구분하여 저장
             String[] cars = Input.split(",");
-            if(!validCars(cars)){
-                    throw new IllegalArgumentException();
-            }
-            // 자동차의 수만큼 0을 초기값으로 갖는 배열 생성
-            int[] location = new int[cars.length];
+            validCars(cars);
             // 기능 1-2. 주어진 횟수를 입력받기(몇 번의 라운드를 진행할 지 입력 받기)
             int rounds = getNumberOfRounds();
+            // 기능 4-1. 사용자에게 몇 라운드를 진행할 것인지 입력하게 하고 기능8에 따라서 숫자가 아니거나 1이상의 정수를 입력하지 않은 경우 IllegalArgumentException을 발생
+            validRound(rounds);
+            // 자동차의 수만큼 0을 초기값으로 갖는 배열 생성
+            int[] location = new int[cars.length];
             System.out.println("\n실행 결과");
 
     }
@@ -34,36 +34,34 @@ public class Application {
     }
 
     // 기능 3-2. 자동차 이름을 2개 이상 입력하지 않았거나 이름의 길이가 0이거나 5자 초과인 경우 기능 8에 따라 IllegalArgumentException 발생
-    public static boolean validCars(String[] cars){
+    public static void validCars(String[] cars){
             if (cars.length < 2){
-                return false;
+                System.out.println("경기를 위해서는 2대 이상의 자동차가 필요합니다.");
+                throw new IllegalArgumentException();
             }
             for (String car : cars) {
                 if (car.length() == 0){
                     System.out.println("자동차 이름이 공란이어서는 안됩니다.");
-                    return false;
+                    throw new IllegalArgumentException();
                 }
                 if(car.length() > 5) {
                     System.out.println("자동차 이름이 5자를 초과해서는 안됩니다.");
-                    return false;
+                    throw new IllegalArgumentException();
                 }
             }
-            return true;
     }
 
     // 기능 1-2. 주어진 횟수를 입력받기(몇 번의 라운드를 진행할 지 입력 받기)
     public static int getNumberOfRounds(){
-            int rounds = 0;
-            boolean validInput = false;
             System.out.print("시도할 회수는 몇회인가요?");
             Scanner scanner = new Scanner(System.in);
+            int rounds = scanner.nextInt();
             scanner.close();
             return rounds;
     }
 
     // 기능 2-1. 자동차의 이름을 저장하여 각 라운드마다 자동차의 이름과 진행 상황을 프린트하는 함수인 playRound() 메서드 구현
     public static void playRound(String[] cars, int rounds, int[] location){
-
             int numOfCars = cars.length;
             int[][] positions = new int[numOfCars][rounds];
             int index = 0;
@@ -75,6 +73,12 @@ public class Application {
                     }
                     System.out.println();
             }
+    }
+
+    public static void validRound(int rounds) {
+        if (rounds <= 0) {
+            throw new IllegalArgumentException("1이상의 정수를 입력해주세요.");
+        }
     }
 
 }
