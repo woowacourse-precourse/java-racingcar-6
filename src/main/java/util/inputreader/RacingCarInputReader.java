@@ -5,7 +5,7 @@ import java.util.List;
 
 public class RacingCarInputReader implements InputReader {
     public String inputPlayers() throws IllegalArgumentException{
-        String players =  Console.readLine();
+        String players =  this.readStringInput();
         if(!isInputPlayerValid(players)){
             throw new IllegalArgumentException("Invalid player names");
         }
@@ -18,7 +18,7 @@ public class RacingCarInputReader implements InputReader {
     }
 
     public int inputTryCount() throws IllegalArgumentException{
-        int tryCount = Integer.parseInt(Console.readLine());
+        int tryCount = this.readIntInput();
         if(!isInputTryCountValid(tryCount)){
             throw new IllegalArgumentException("Invalid try count");
         }
