@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -16,6 +17,7 @@ class InputViewTest {
     @ValueSource(strings = {"Car A,car B", " Car A,car B "})
     void 자동차_이름_입력(String inputCarsName) {
         // given
+        Console.close();
         command(inputCarsName);
 
         // when
@@ -34,6 +36,7 @@ class InputViewTest {
     @ValueSource(ints = {1, 3, 5, 10})
     void 이동_횟수_입력(int inputMovesNumber) {
         // given
+        Console.close();
         command(String.valueOf(inputMovesNumber));
 
         // when
@@ -47,8 +50,9 @@ class InputViewTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"a", "CHARACTER", "**"})
-    void 이동_횟수_숫자_검증(String inputMovesNumber) throws Exception {
+    void 이동_횟수_숫자_검증(String inputMovesNumber) {
         // given
+        Console.close();
         command(inputMovesNumber);
 
         // when & then
