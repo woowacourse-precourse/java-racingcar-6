@@ -6,7 +6,7 @@ public class Referee {
 
     public String showWinner(List<Car> carList) {
         String winner = "";
-        int position = 0;
+        int position = -1;
         for (int i = 0; i < carList.size(); i++) {
             if (position < carList.get(i).carPosition) {
                 position = carList.get(i).carPosition;
