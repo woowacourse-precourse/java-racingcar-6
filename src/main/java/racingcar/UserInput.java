@@ -1,12 +1,10 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 
 public class UserInput {
-    public List<String> getCarNamesInput() {
-        String inputNames = Console.readLine();
+    public List<String> getCarNamesInput(String inputNames) {
         List<String> carNames = Arrays.asList(inputNames.split(","));
 
         if (!isNotEmpty(carNames)) {
@@ -20,8 +18,7 @@ public class UserInput {
         return carNames;
     }
 
-    public int getTryTimeInput() {
-        String inputTime = Console.readLine();
+    public int getTryTimeInput(String inputTime) {
         if (!isNumberInteger(inputTime)) {
             throw new IllegalArgumentException();
         }

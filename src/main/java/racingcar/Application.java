@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
@@ -18,10 +19,10 @@ public class Application {
         UserInput userInput = new UserInput();
 
         System.out.println(INPUT_CARNAME_MESSAGE);
-        List<String> carNames = userInput.getCarNamesInput();
+        List<String> carNames = userInput.getCarNamesInput(Console.readLine());
 
         System.out.println(INPUT_TRYTIME_MESSAGE);
-        int tryTime = userInput.getTryTimeInput();
+        int tryTime = userInput.getTryTimeInput(Console.readLine());
 
         // 자동차 목록 생성
         Car[] cars = new Car[carNames.size()];
