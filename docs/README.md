@@ -2,7 +2,8 @@
 ## 1️⃣ 입력
 - 경주할 자동차의 이름을 입력받는다.
     - [X] 쉼표를 기준으로 구분하여 자동차 이름 입력
-    - [ ] 자동차 이름은 5자 이하
+    - [X] 자동차 이름은 0자 초과, 5자 이하
+    - [ ] 중복된 자동차 이름은 허용하지 않는다
 - [ ] 이동을 시도할 횟수를 입력받는다.
 
 ## 2️⃣ 출력
@@ -38,6 +39,7 @@
     - [X] null을 입력하면 IllegalArgumentException을 발생시킨다.
     - [X] 빈 문자열을 입력하면 IllegalArgumentException을 발생시킨다.
     - [X] 쉼표를 기준으로 자동차 이름을 입력받았을 때, 각 자동차 이름의 길이가 5자 초과라면 IllegalArgumentException을 발생시킨다.
+    - [ ] 중복된 자동차 이름을 입력한다면 IllegalArgumentException을 발생시킨다.
 - 이동을 시도할 횟수를 입력받는다.
     - [ ] null을 입력하면 IllegalArgumentException을 발생시킨다.
     - [ ] 빈 문자열을 입력하면 IllegalArgumentException을 발생시킨다.
