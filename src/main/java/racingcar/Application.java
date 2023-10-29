@@ -72,9 +72,10 @@ public class Application {
         }
     }
     private static void printFinalResult(ArrayList<String>WinnerNames){
+        System.out.print("최종 우승자 :");
         for (int winnerName =0; winnerName<WinnerNames.size(); winnerName++){
             if (winnerName==0){
-            System.out.print(WinnerNames.get(winnerName));}
+            System.out.print(" "+WinnerNames.get(winnerName));}
 
             else {
                 System.out.println(", "+WinnerNames.get(winnerName));
