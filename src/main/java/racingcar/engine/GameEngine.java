@@ -29,6 +29,10 @@ public class GameEngine {
         }
     }
 
+    public List<Score> getScores() {
+        return scores;
+    }
+
     public List<Score> getWinners() {
         Long winnerScore = scores.stream()
                 .max((x, y) -> y.getScore().compareTo(x.getScore()))
