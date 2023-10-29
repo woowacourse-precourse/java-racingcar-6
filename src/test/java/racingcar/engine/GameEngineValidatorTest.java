@@ -2,8 +2,22 @@ package racingcar.engine;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.Arrays;
 
 class GameEngineValidatorTest {
+    private static int MAX_SIZE = 5;
+
+    private static String[] 생성이_안되는_케이스() {
+        return new String[]{" ".repeat(MAX_SIZE + 1), "123456789"};
+    }
+
+    private static String[] 생성이_되는_케이스() {
+        return new String[]{" ".repeat(MAX_SIZE), "12345"};
+    }
+
     @Test
     public void 플레이어이름이_null값이면_예외를던진다() {
         Assertions.assertThatCode(() -> new GameEngineValidator().validateIsNotNull(null))
@@ -16,4 +30,20 @@ class GameEngineValidatorTest {
         Assertions.assertThatCode(() -> new GameEngineValidator().validateIsNotNull(""))
                 .doesNotThrowAnyException();
     }
+
+    @ParameterizedTest
+    @MethodSource("생성이_안되는_케이스")
+    public void 플레이어이름이_6이상이면_예외를_던진다(String readLine) {
+        Assertions.assertThatCode(() -> new GameEngineValidator().validatePlayerNames(Arrays.asList(readLine)))
+                .isExactlyInstanceOf(IllegalArgumentException.class)
+                .hasMessage("현재 입력된 플레이어 이름의 길이는 %d, %d이하로 해주세요.", readLine.length(), MAX_SIZE);
+    }
+
+    @ParameterizedTest
+    @MethodSource("생성이_되는_케이스")
+    public void 플레이어이름이_5이하이면_예외를_던진다(String readLine) {
+        Assertions.assertThatCode(() -> new GameEngineValidator().validatePlayerNames(Arrays.asList(readLine)))
+                .doesNotThrowAnyException();
+    }
+
 }

@@ -46,7 +46,7 @@ GameEngine
 GameEngineValidator
 
 - [x] 입력값이 널이면 예외를 반환한다.
-- [ ] 리스트에 있는 값이 6글자 이상이면, IllegalArgumentException반환
+- [x] 리스트에 있는 값이 6글자 이상이면, IllegalArgumentException반환
 
 NumberGenerator
 
