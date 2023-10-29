@@ -6,15 +6,21 @@ import java.util.List;
 
 public class Input {
 
-    public static List<String> carName() {
+    public List<String> carName() {
 
         String[] carNames = Console
                 .readLine()
                 .split(",");
         Exception.nameVerification(carNames);
-        System.out.println(Arrays.toString(carNames));
         return Arrays.asList(carNames);
 
     }
+
+    public int numberOfAttempts() {
+
+        return Integer.parseInt(Console.readLine());
+
+    }
+
 
 }
