@@ -1,4 +1,4 @@
-package racingcar.model.validation;
+package racingcar.utils.validation;
 
 public class ValidateAttempts extends Validator {
     private ValidateAttempts() {
@@ -12,7 +12,7 @@ public class ValidateAttempts extends Validator {
         isNaturalNunmber(attempts);
     }
 
-    
+
     private static void isNaturalNunmber(String attempts) {
         try {
             int input = Integer.parseInt(attempts);

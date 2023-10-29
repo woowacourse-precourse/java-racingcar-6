@@ -1,8 +1,8 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.model.validation.ValidateAttempts;
-import racingcar.model.validation.ValidateCars;
+import racingcar.utils.validation.ValidateAttempts;
+import racingcar.utils.validation.ValidateCars;
 
 public class View {
     public static String[] askForCarNames() {
@@ -25,7 +25,7 @@ public class View {
         System.out.printf("최종 우승자 : %s\n", winners);
     }
 
-    
+
     // 사용자에게 자동차 이름 입력받음
     private static String[] getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");

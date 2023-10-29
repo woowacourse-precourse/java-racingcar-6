@@ -1,4 +1,4 @@
-package racingcar.model.validation;
+package racingcar.utils.validation;
 
 import static racingcar.config.Constants.NAME_MAX_LENGTH;
 
@@ -22,7 +22,7 @@ public class ValidateCars extends Validator {
         }
     }
 
-    
+
     private static void isDuplicatedName(String[] names) {
         Set<String> carsSet = new HashSet<>();
 

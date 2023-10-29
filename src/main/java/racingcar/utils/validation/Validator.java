@@ -1,4 +1,4 @@
-package racingcar.model.validation;
+package racingcar.utils.validation;
 
 public class Validator {
     protected Validator() {
