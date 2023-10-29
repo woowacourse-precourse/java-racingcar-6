@@ -6,10 +6,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class GameProcess {
 
-	private final PrintGenerator printGenerator;
+	public GameProcess() {
 
-	public GameProcess(PrintGenerator printGenerator) {
-		this.printGenerator = printGenerator;
 	}
 
 	public void playGame(ArrayList<InformationOfCar> carList, int moveCount) {
