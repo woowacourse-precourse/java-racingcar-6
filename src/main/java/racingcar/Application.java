@@ -1,7 +1,13 @@
 package racingcar;
 
+import racingcar.controller.Game;
+import racingcar.model.dto.GameInput;
+import racingcar.view.InputView;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+
+        GameInput input = InputView.getInput();
+        Game game = new Game(input);
     }
 }

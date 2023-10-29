@@ -7,14 +7,14 @@ import racingcar.model.dto.GameInput;
 
 public class InputView {
 
-    public GameInput getInput() {
+    public static GameInput getInput() {
         List<String> names = getNames();
         Long totalTurns = getTotalTurns();
 
         return new GameInput(names, totalTurns);
     }
 
-    private List<String> getNames() {
+    private static List<String> getNames() {
         Messages.CAR_NAME_INPUT_ANNOUNCEMENT.print();
         String input = readLine();
         String[] names = input.split(",");
@@ -23,7 +23,7 @@ public class InputView {
         return namesList;
     }
 
-    private Long getTotalTurns() {
+    private static Long getTotalTurns() {
         Messages.GAME_TURN_INPUT_ANNOUNCEMENT.print();
         String input = readLine();
         try {

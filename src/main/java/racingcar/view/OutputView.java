@@ -7,11 +7,11 @@ import racingcar.model.dto.GameResult;
 
 public class OutputView {
 
-    public void printStatus(GameStatus status) {
-        status.positions().forEach(this::printPosition);
+    public static void printStatus(GameStatus status) {
+        status.positions().forEach(OutputView::printPosition);
     }
 
-    public void printWinner(GameResult result) {
+    public static void printWinner(GameResult result) {
         List<String> winnersList = result.winners();
         String winners = winnersList.stream().map(String::valueOf).collect(Collectors.joining(", "));
 
@@ -19,7 +19,7 @@ public class OutputView {
         System.out.println(winners);
     }
 
-    private void printPosition(String name, Long position) {
+    private static void printPosition(String name, Long position) {
         System.out.print(String.join(name, " : "));
         for (int i = 0; i < position; i++) {
             System.out.print('-');

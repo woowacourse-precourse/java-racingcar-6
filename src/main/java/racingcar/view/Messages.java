@@ -17,7 +17,7 @@ public enum Messages {
     }
 
     public void print() {
-        System.out.println(this.message);
+        System.out.print(this.message);
     }
 
     public String getMessage() {
