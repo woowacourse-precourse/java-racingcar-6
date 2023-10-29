@@ -37,5 +37,7 @@ public class Application {
         if (sizeAfterDistinct != carList.size()) {
             throw new IllegalArgumentException("중복된 이름입니다.");
         }
+
+        System.out.println("시도할 회수는 몇회인가요?");
     }
 }
