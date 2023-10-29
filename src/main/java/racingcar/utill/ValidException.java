@@ -161,7 +161,6 @@ public class ValidException {
      */
     public static boolean isValidCarEachNameFIveLessStringCheck(String inputStr) {
         List<String> nameEachOfList = Arrays.stream(inputStr.split(",")).toList();
-        System.out.println("nameEachOfList = " + nameEachOfList);
         for (String name : nameEachOfList) {
             isValidFIveLessString(name);
         }
