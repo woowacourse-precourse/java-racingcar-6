@@ -26,4 +26,26 @@ class CarTest {
         //then
         Assertions.assertThat(new Car(str)).isInstanceOf(Car.class);
     }
+
+    @DisplayName("자동차 이름 중 공백이 있을 경우 예외가 발생한다.")
+    @Test
+    void test123123() {
+        //given
+        String str = "가 나다라마";
+
+        //then
+        Assertions.assertThatThrownBy(() -> new Car(str))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("자동차 이름이 입력되지 않는다면 예외가 발생한다.")
+    @Test
+    void test123121233() {
+        //given
+        String str = "";
+
+        //then
+        Assertions.assertThatThrownBy(() -> new Car(str))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
