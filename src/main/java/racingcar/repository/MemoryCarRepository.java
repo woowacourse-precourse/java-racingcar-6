@@ -24,17 +24,22 @@ public class MemoryCarRepository implements CarRepository {
     }
 
     @Override
-    public Car findById(Long id) {
-        return null;
+    public Optional<Car> findById(Long id) {
+        return Optional.ofNullable(store.get(id));
     }
 
     @Override
-    public Car findByName(String name) {
-        return null;
+    public Optional<Car> findByName(String name) {
+        return store.values().stream()
+                .filter(car -> car.getName().equals(name))
+                .findFirst();
     }
 
     @Override
     public List<Car> findAll() {
         return null;
+        return new ArrayList<>(store.values());
+    }
+
     }
 }

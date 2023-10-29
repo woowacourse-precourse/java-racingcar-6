@@ -7,7 +7,7 @@ import racingcar.domain.Car;
 public interface CarRepository {
 
     Car save(Car car);
-    Car findById(Long id);
-    Car findByName(String name);
+    Optional<Car> findById(Long id);
+    Optional<Car> findByName(String name);
     List<Car> findAll();
 }
