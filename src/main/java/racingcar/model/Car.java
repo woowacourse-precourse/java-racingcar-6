@@ -4,10 +4,11 @@ import racingcar.Constants;
 import racingcar.Util;
 
 public class Car {
+
     private final String name;
     private int position = 0;
 
-    public Car(String name){
+    public Car(String name) {
         this.name = name;
     }
 
@@ -20,14 +21,13 @@ public class Car {
     }
 
     public void validRacingCars() {
-        if( Util.getRandomNum() >= Constants.MINIMUM_LENGTH){
+        if (Util.getRandomNum() >= Constants.MINIMUM_LENGTH) {
             position++;
         }
     }
 
     @Override
     public String toString() {
-        return name + " : "
-                + "-".repeat(Math.max(0, position));
+        return name + " : " + "-".repeat(position);
     }
 }

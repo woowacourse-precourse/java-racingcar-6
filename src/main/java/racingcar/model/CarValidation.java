@@ -9,9 +9,10 @@ public class CarValidation {
     public List<String> carNames;
     public CarValidation(String namesString) {
         this.NAMES_STRING = namesString;
-        this.carNames = Util.toArray(namesString);
+        this.carNames = Util.splitByComma(namesString);
         validate();
     }
+
     private void validate() {
         isCorrectFormat();
         isNotDuplicate();
