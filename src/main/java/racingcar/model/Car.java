@@ -53,4 +53,8 @@ public class Car {
         }
         return result;
     }
+
+    public int getCarSize() {
+        return this.carPosition.size();
+    }
 }
