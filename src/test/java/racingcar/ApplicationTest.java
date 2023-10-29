@@ -109,6 +109,16 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 최대값이_옳바르게_구해지는지_확인(){
+        RacingGame racingGame = new RacingGame();
+        List<Integer> numList = new ArrayList<>(Arrays.asList(1,4,2,7,12,4,12,3,0));
+        int max = racingGame.findMax(numList);
+        assertThat(max).isEqualTo(12);
+
+    }
+
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
