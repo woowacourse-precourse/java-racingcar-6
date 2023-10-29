@@ -15,11 +15,13 @@ public class InputView {
     }
 
     private static List<String> getNames() {
+
         Messages.CAR_NAME_INPUT_ANNOUNCEMENT.print();
         String input = readLine();
         String[] names = input.split(",");
         List<String> namesList = List.of(names);
-        //Validation
+        if (!Validation.names(namesList))
+            throw new IllegalArgumentException(Messages.ILLEGAL_INPUT_ANNOUNCEMENT.getMessage());
         return namesList;
     }
 
