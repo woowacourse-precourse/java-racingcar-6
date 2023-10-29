@@ -23,7 +23,7 @@
 5. ```
    getDistanceList(List<String> nameList, List<Integer> distanceList)
    기능: 한 회차가 끝난 이후에 현재까지 이동거리를 구함
-   매개변수: nameList (참가자 리스트)
+   매개변수: nameList, distanceList (참가자 리스트, 이전 회차까지 참가자들의 이동거리 리스트)
    반환값: List<Integer> distanceList (현제 회차까지의 각 참가자별 이동거리 리스트)
 
 6. ```
@@ -39,9 +39,9 @@
       반환값: int max (최대값)
    
 8. ```
-   chooseWinner( List<Integer> distanceList )
+   chooseWinner(List<String> nameList, List<Integer> distanceList )
      기능: 최종 우승자 선정
-     매개변수: distanceList (최종 참가자들의 이동거리 리스트)
+     매개변수: nameList, distanceList (참가자 이름 리스트, 최종 참가자들의 이동거리 리스트)
      반환값: List<String> winnerList (최종 우승자의 이름이 담긴 리스트)
    
 9. ```
