@@ -8,11 +8,11 @@ public class Round {
         round = Integer.parseInt(inputString);
     }
 
-    public boolean isRoundRemains() {
+    public boolean isRemaining() {
         return round > 0;
     }
 
-    public void subtractOneRound() {
+    public void subtractOne() {
         round -= 1;
     }
 }
