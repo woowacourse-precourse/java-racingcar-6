@@ -21,7 +21,7 @@ public class CarMove {
 
         // 두 번째 이동부터는 eachMove 메서드의 매개변수로 이전 이동 결과 리스트를 전달
         // (=> 이동 거리가 누적되도록 하기 위해서)
-        for (int i = 1; i <= moveCnt.getMoveCnt(); i++) {
+        for (int i = 1; i < moveCnt.getMoveCnt(); i++) {
             allRaceResultList.add(eachMove(allRaceResultList.get(i-1)));
         }
 
