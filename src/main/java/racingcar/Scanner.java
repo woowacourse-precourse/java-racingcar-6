@@ -27,4 +27,8 @@ public class Scanner {
         }
         return carNames;
     }
+    Integer inputNumberOfRound(){
+        Integer numberOfRound = Integer.parseInt(Console.readLine());
+        return numberOfRound;
+    }
 }
