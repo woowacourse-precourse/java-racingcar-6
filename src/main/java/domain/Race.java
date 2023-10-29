@@ -36,6 +36,11 @@ public class Race {
         declareWinner();
     }
 
+    private void inputRaceDetails() {
+        inputCarNames();
+        inputMoveCount();
+    }
+
 
 
 }
