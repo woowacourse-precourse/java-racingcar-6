@@ -5,13 +5,17 @@ import java.util.Arrays;
 import java.util.List;
 import racingcar.constant.Constant;
 import racingcar.validator.CarNamesInputValidator;
+import racingcar.validator.NumberOfGamesInputValidator;
 
 public class InputView {
 
     private final CarNamesInputValidator carNamesInputValidator;
+    private final NumberOfGamesInputValidator numberOfGamesInputValidator;
 
-    public InputView(CarNamesInputValidator carNamesInputValidator) {
+    public InputView(CarNamesInputValidator carNamesInputValidator,
+                     NumberOfGamesInputValidator numberOfGamesInputValidator) {
         this.carNamesInputValidator = carNamesInputValidator;
+        this.numberOfGamesInputValidator = numberOfGamesInputValidator;
     }
 
     public List<String> getCarNamesFromUser() {
@@ -23,6 +27,7 @@ public class InputView {
 
     public Long getNumberOfGamesFromUser() {
         String userInput = Console.readLine();
+        numberOfGamesInputValidator.validate(userInput);
         return Long.parseLong(userInput);
     }
 }
