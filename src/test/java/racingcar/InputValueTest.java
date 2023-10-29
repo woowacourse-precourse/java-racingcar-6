@@ -21,9 +21,12 @@ class InputValueTest {
         inputValue = new InputValue();
     }
 
-    @Test
+    @ParameterizedTest
+    @ValueSource(strings = "pobi,woni,jun")
     void 자동차_이름_입력(String input) {
-
+        generateUserInput(input);
+        String[] names = inputValue.InputNameOfCars();
+        assertThat(names).isEqualTo(new String[]{"pobi", "woni", "jun"});
     }
 
     private static void generateUserInput(String input) {
