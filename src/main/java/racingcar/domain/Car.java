@@ -1,28 +1,23 @@
 package racingcar.domain;
 
 import java.util.Objects;
-import racingcar.util.CarGoingRandomNumber;
-import racingcar.util.NumberGenerator;
 
 public class Car {
     private final String name;
-    private int position;
-    private NumberGenerator numberGenerator;
+    private Position position;
 
-    public Car(String name) {
+    public Car(final String name) {
         this(name, 0);
     }
 
-    public Car(String name, int position) {
+    public Car(final String name, int position) {
         this.name = name;
-        this.position = position;
-        this.numberGenerator = new CarGoingRandomNumber();
+        this.position = new Position(position);
     }
 
-    public void move() {
-        int randomNumber = numberGenerator.generateRandomNumber(0, 9);
-        if (randomNumber >= 4) {
-            position++;
+    public void move(MovingStrategy movingStrategy) {
+        if (movingStrategy.movable()) {
+            position = position.move();
         }
     }
 
@@ -31,13 +26,7 @@ public class Car {
     }
 
     public int getPosition() {
-        return position;
-    }
-
-    public void move(int number) {
-        if (number >= 4) {
-            position++;
-        }
+        return position.getPosition();
     }
 
     @Override
@@ -49,13 +38,12 @@ public class Car {
             return false;
         }
         Car car = (Car) o;
-        return position == car.position && Objects.equals(name, car.name) && Objects.equals(
-                numberGenerator, car.numberGenerator);
+        return Objects.equals(name, car.name) && Objects.equals(position, car.position);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, position, numberGenerator);
+        return Objects.hash(name, position);
     }
 
     @Override
@@ -63,7 +51,6 @@ public class Car {
         return "Car{" +
                 "name='" + name + '\'' +
                 ", position=" + position +
-                ", numberGenerator=" + numberGenerator +
                 '}';
     }
 }
