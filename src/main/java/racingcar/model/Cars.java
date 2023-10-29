@@ -16,20 +16,6 @@ public class Cars {
         return Collections.unmodifiableList(cars);
     }
 
-    private int getMaxLength(){
-        return cars.stream()
-                .map(car -> car.getPosition().length())
-                .max(Integer::compareTo)
-                .orElse(0);
-    }
-
-    private List<String> getMaxPlayer() {
-        List<String> maxPlayers = cars.stream()
-                .filter(car -> car.getPosition().length() == getMaxLength())
-                .map(Car::getName)
-                .collect(Collectors.toList());
-        return maxPlayers;
-    }
 
     private void individualWinner(List<String> winner) {
         winner.stream()

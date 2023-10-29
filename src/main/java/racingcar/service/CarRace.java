@@ -19,7 +19,7 @@ public class CarRace {
         int randomNumber = Randoms.pickNumberInRange(
                 Numbers.RANDOM_START_NUMBER.getNumber(),
                 Numbers.RANDOM_END_NUMBER.getNumber()
-        );ㅈ
+        );
         return randomNumber;
     }
 
