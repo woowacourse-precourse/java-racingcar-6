@@ -21,9 +21,7 @@ class AttemptTest {
     @Test
     void decrease_1에서_decrease했을_때_거짓_반환() {
         Attempt attempt = new Attempt(1);
-
         attempt.decrease();
-
         assertFalse(attempt.isExist());
     }
 
