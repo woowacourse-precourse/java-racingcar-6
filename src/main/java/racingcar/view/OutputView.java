@@ -23,6 +23,7 @@ public class OutputView {
     }
 
     public void printResultGuide() {
+        System.out.println();
         System.out.println(RESULT_GUIDE);
     }
 
