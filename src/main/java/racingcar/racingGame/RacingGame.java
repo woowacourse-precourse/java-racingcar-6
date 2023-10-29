@@ -26,6 +26,7 @@ public class RacingGame {
         int tryNum = gamer.getTryNum();
 
         raceStart(this.carList, tryNum);
+        printResult();
     }
 
     public void raceStart(List<Car> carList, int tryNum) {
@@ -40,6 +41,32 @@ public class RacingGame {
 
             System.out.println("---".repeat(20));
         }
+    }
+
+    public void printResult() {
+
+        int winnerDistance = -1;
+        List<String> winnerList = new ArrayList<>();
+
+        //모든 자동차를 돌면서, 리스트에는 가장 멀리 간 자동차만 저장될 수 있도록 함.
+        for(Car car : carList) {
+
+            if(car.getDistance() > winnerDistance) {
+                //신기록 갱신시 리스트를 다시만들고 신기록 세운 자동차만 저장
+                winnerList = new ArrayList<>();
+                winnerDistance = car.getDistance();
+                winnerList.add(car.getName());
+            } else if(car.getDistance() == winnerDistance) {
+                //같은 거리의 자동차가 발견되면 리스트에 해당 자동차를 추가
+                winnerList.add(car.getName());
+            }
+        }
+
+        System.out.print("최종 우승자 : ");
+        for(String winner : winnerList) {
+            System.out.print(winner + ", ");
+        }
+
     }
 
 }
