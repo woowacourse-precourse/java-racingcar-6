@@ -20,7 +20,7 @@ public class CarService {
         String[] tmp = input.getUserInputCarName().split(",");
         //각 자동차 이름별로 Car 클래스 리스트에 담고 초기화
         for (int i = 0; i < tmp.length; i++) {
-            list.add(new Car((tmp[i]), 0));
+            list.add(new Car(tmp[i], 0));
         }
         return list;
     }

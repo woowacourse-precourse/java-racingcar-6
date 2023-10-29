@@ -13,7 +13,7 @@ public class GameController {
 
     public GameController() {
         userInput = new UserInput();
-        userInput.inputUser(userInput);//입력받고
+        userInput.askInputUser(userInput);//입력받고
         carService = new CarService(userInput);
     }
 
