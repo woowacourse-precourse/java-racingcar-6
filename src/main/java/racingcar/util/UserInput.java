@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
 public class UserInput {
-    Validation validation = new Validation();
+    private final Validation validation = new Validation();
 
     public String getUserInput() {
         return Console.readLine();
