@@ -1,9 +1,8 @@
-package racingcar.domain;
+package racingcar.domain.validator;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.validator.CarNameValidator;
 import racingcar.domain.validator.exception.CarNameException;
 
 public class CarNameValidatorTest {
