@@ -17,16 +17,16 @@ public class GameConsole {
     }
 
     private void init() {
-        addRacingCarGameToConsole();
-        setDefaultAsRacingCarGame();
+        loadAllGameToGameConsole();
+        setDefault(GameList.RACING_CAR);
     }
 
-    private void addRacingCarGameToConsole() {
+    private void loadAllGameToGameConsole() {
         gameMap.put(GameList.RACING_CAR, new RacingCarGame());
     }
 
-    private void setDefaultAsRacingCarGame() {
-        target = GameList.RACING_CAR;
+    private void setDefault(GameList defaultTarget) {
+        target = defaultTarget;
     }
 
     public void start() {
