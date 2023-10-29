@@ -7,13 +7,8 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    Validator validator = new Validator();
-
     public List<String> splitByComma(String inputCarName) {
-        List<String> carNames = Arrays.asList(inputCarName.split(","));
-
-        validator.isLengthOverFive(carNames);
-        return carNames;
+        return Arrays.asList(inputCarName.split(","));
     }
 
     public List<Integer> nowRacing(List<String> carNames, int tryNumber) {
@@ -31,7 +26,7 @@ public class Car {
     private void goOrStop(List<String> carNames, List<String> carMove) {
         StringBuilder result = new StringBuilder();
 
-        for (int i = 0; i < carNames.size() ; i++) {
+        for (int i = 0; i < carNames.size(); i++) {
             result.append(carNames.get(i));
             result.append(" : ");
 
@@ -50,7 +45,7 @@ public class Car {
     private List<String> initializeCarMove(List<String> carNames) {
         List<String> carMove = new ArrayList<>();
 
-        for(String str : carNames) {
+        for (String str : carNames) {
             carMove.add("");
         }
 
