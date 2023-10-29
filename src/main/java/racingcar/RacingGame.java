@@ -8,5 +8,9 @@ public class RacingGame {
         InputCarName inputCarName = new InputCarName();
         carName = inputCarName.inputCarName();
         System.out.println(carName);
+
+        InputMovement inputMovement = new InputMovement();
+        int movement = inputMovement.inputMovement();
+        System.out.println(movement);
     }
 }
