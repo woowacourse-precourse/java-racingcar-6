@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RunGame {
+public class PlayGame {
     public static void runGame() {
         InputView inputView = new InputView();
         List<String> carNamesList = Collections.singletonList(inputView.getCarNameInput());
