@@ -48,7 +48,9 @@ public class RacingGame {
         int position = carList.getPosition(carName);
         sb.append(carName);
         sb.append(" : ");
-        sb.append(position);
+        for (int i=0; i<position; i++) {
+            sb.append('-');
+        }
         sb.append('\n');
     }
 
