@@ -51,7 +51,7 @@ public class CarNameValidator {
 
     private static void validateCarNameCond(String carName) {
         if (!CAR_NAME_COND.matcher(carName).matches()) {
-            throw new IllegalArgumentException("영대소문자,한글,숫자만 입력 가능하고 이름 가운데 공백은 허용됩니다.");
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_COND);
         }
     }
 
