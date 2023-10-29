@@ -1,7 +1,7 @@
 package domain;
 
-public interface ForwardStrategy {
+public interface ForwardStrategy<T> {
 
-    boolean canMove();
+    boolean canMove(T input);
 
 }
