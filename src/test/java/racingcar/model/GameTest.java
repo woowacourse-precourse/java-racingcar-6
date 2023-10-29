@@ -27,40 +27,38 @@ class GameTest {
         setGivenBehaviorMoveResolver(moveResolver,nonMoveResolver);
     }
 
-
-
-
     @Test
-    void 가장_먼_거리를_이동한_자동차를_기준으로_우승한_자동차들을_구할_수_있다_단일_우승자() {
-
-        cars.get(0).move(MOVING_DISTANCE,nonMoveResolver);
-        cars.get(0).move(MOVING_DISTANCE,nonMoveResolver);
-        cars.get(1).move(MOVING_DISTANCE,nonMoveResolver);
-        cars.get(1).move(MOVING_DISTANCE,moveResolver);
-        cars.get(2).move(MOVING_DISTANCE,moveResolver);
-        cars.get(2).move(MOVING_DISTANCE,moveResolver);
+    void 가장_먼_거리를_이동한_자동차를_기준으로_우승한_자동차들을_구할_수_있다_우승자가_하나일때() {
+        stop(cars.get(0));
+        stop(cars.get(1));
+        goForward(cars.get(2));
 
         List<Car> winners = game.getWinnerCars();
-        assertThat(winners).extracting(Car::getName).containsOnly("테스트2");
+        assertThat(winners).containsOnly(cars.get(2));
         assertThatThrownBy(() -> winners.add(new Car("dd"))).isInstanceOf(UnsupportedOperationException.class);
     }
 
     @Test
-    void 가장_먼_거리를_이동한_자동차를_기준으로_우승한_자동차들을_구할_수_있다_복수_우승자() {
-
-        cars.get(0).move(MOVING_DISTANCE,nonMoveResolver);
-        cars.get(0).move(MOVING_DISTANCE,nonMoveResolver);
-        cars.get(1).move(MOVING_DISTANCE,moveResolver);
-        cars.get(1).move(MOVING_DISTANCE,moveResolver);
-        cars.get(2).move(MOVING_DISTANCE,moveResolver);
-        cars.get(2).move(MOVING_DISTANCE,moveResolver);
+    void 가장_먼_거리를_이동한_자동차를_기준으로_우승한_자동차들을_구할_수_있다_우승자가_둘이상일때() {
+        stop(cars.get(0));
+        goForward(cars.get(1));
+        goForward(cars.get(2));
 
         List<Car> winners = game.getWinnerCars();
-        assertThat(winners).extracting(Car::getName).contains("테스트2","테스트1");
+        assertThat(winners).containsOnly(cars.get(1),cars.get(2));
+        assertThatThrownBy(() -> winners.add(new Car("dd"))).isInstanceOf(UnsupportedOperationException.class);
     }
 
     private void setGivenBehaviorMoveResolver(MoveResolver moveResolver,MoveResolver nonMoveResolver) {
         given(moveResolver.isMoveAble()).willReturn(true);
         given(nonMoveResolver.isMoveAble()).willReturn(false);
+    }
+
+    private void goForward(Car car) {
+        car.move(MOVING_DISTANCE,moveResolver);
+    }
+
+    private void stop(Car car) {
+        car.move(MOVING_DISTANCE,nonMoveResolver);
     }
 }
