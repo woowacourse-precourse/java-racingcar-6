@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -60,5 +61,14 @@ public class CarMap {
             }
         }
         return maxDistance;
+    }
+
+    /**
+     * 자동차들의 정보를 iterator로 반환한다.
+     *
+     * @return 자동차들의 iterator
+     */
+    public Iterator<Map.Entry<String, RacingCar>> getIterator() {
+        return carMap.entrySet().iterator();
     }
 }
