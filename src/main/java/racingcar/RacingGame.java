@@ -5,46 +5,46 @@ import java.util.Iterator;
 
 public class RacingGame {
     static HashMap<String,Integer> carName;
+    static InputCarName inputCarName = new InputCarName();
+    static InputMovement inputMovement = new InputMovement();
+    static CheckMoveStop checkMoveStop = new CheckMoveStop();
+    static Validation validation = new Validation();
     public void startGame() {
         carName = new HashMap<>();
-        InputCarName inputCarName = new InputCarName();
         inputCarName.inputCarName(carName);
 
-        Validation validation = new Validation();
         validation.inputCarNameLength(carName);
 
-        InputMovement inputMovement = new InputMovement();
         int movement = inputMovement.inputMovement();
 
-        CheckMoveStop checkMoveStop = new CheckMoveStop();
         System.out.println("실행 결과");
 
         for (int i = 0; i < movement; i++) {
-            Iterator<String> iter = carName.keySet().iterator();
-            checkMoveStop.checkMoveStop(carName, iter);
+            checkMoveStop.checkMoveStop(carName);
         }
 
         int foundMax = findMax();
+        System.out.println(foundMax);
         System.out.print("최종 우승자 :");
         printResult(foundMax);
 
     }
 
     private int findMax() {
-        int instantMax = 0;
+        int instantMax = Constant.max;
         for (String car : carName.keySet()) {
             int maxFind = carName.get(car);
-            if (maxFind > Constant.max) {
+            if (maxFind > instantMax) {
                 instantMax = maxFind;
             }
         }
         return instantMax;
     }
 
-    private void printResult(int max) {
+    private void printResult(int foundMax) {
         StringBuilder result = new StringBuilder();
         for (String car : carName.keySet()) {
-            if (carName.get(car) == max) {
+            if (carName.get(car) == foundMax) {
                 result.append(" " + car + ",");
             }
         }
