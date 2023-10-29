@@ -11,24 +11,24 @@ import racingcar.domain.Position;
 
 public class RacingGameService {
 
-    public Map<String,String> getUpdatedLogs(Position position, Logs logs) {
+    public Map<String, String> getUpdatedLogs(Position position, Logs logs) {
         updatePositionAndLogs(position, logs);
         return logs.getLogs();
     }
 
     private void updatePositionAndLogs(Position carsPosition, Logs logs) {
         Set<String> cars = carsPosition.getPosition().keySet();
-        for(String car:cars) {
-            carsPosition.update(car,1);
+        for (String car : cars) {
+            carsPosition.update(car, 1);
             int position = carsPosition.getPosition().get(car);
-            logs.update(car,position);
+            logs.update(car, position);
         }
     }
 
-    public String checkWinner(Map<String,Integer> position, int count) {
+    public String checkWinner(Map<String, Integer> position, int count) {
         List<String> winners = new ArrayList<>();
         Set<String> cars = position.keySet();
-        cars.stream().filter(car -> position.get(car)  == count)
+        cars.stream().filter(car -> position.get(car) == count)
                 .forEach(car -> winners.add(car));
         return String.join(", ", winners);
     }
@@ -43,7 +43,7 @@ public class RacingGameService {
     }
 
     public Position generateCarsPosition(Map<String, Integer> carsMap, int carsGameCount) {
-        return new Position(carsMap,carsGameCount);
+        return new Position(carsMap, carsGameCount);
     }
 
     public Logs generateCarsGameLogs(Map<String, Integer> carsMap) {

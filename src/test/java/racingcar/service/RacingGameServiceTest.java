@@ -42,9 +42,9 @@ class RacingGameServiceTest {
 
         //then
         assertAll(
-                () -> assertEquals(positionA+1, position.getPosition().get("A")),
-                () -> assertEquals(positionB+1, position.getPosition().get("B")),
-                () -> assertEquals(positionC+1, position.getPosition().get("C"))
+                () -> assertEquals(positionA + 1, position.getPosition().get("A")),
+                () -> assertEquals(positionB + 1, position.getPosition().get("B")),
+                () -> assertEquals(positionC + 1, position.getPosition().get("C"))
         );
 
         assertAll(
@@ -65,7 +65,7 @@ class RacingGameServiceTest {
         //when
         String winners = racingGameService.checkWinner(carsPosition, count);
         //then
-        assertThat(winners).contains("A","B","D");
+        assertThat(winners).contains("A", "B", "D");
     }
 
 }

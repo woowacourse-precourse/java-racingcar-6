@@ -33,7 +33,7 @@ class PositionTest {
         carsPosition.update("A", 1);
         int newPosition = carsPosition.getPosition().get("A");
         //then
-        assertThat(newPosition).isEqualTo(position+1);
+        assertThat(newPosition).isEqualTo(position + 1);
     }
 
 }

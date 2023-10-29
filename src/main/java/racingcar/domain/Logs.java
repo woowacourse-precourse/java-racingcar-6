@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class Logs {
 
-    private Map<String,String> logs;
+    private Map<String, String> logs;
 
     public Logs(Map<String, Integer> carsMap) {
 
@@ -17,8 +17,8 @@ public class Logs {
         return logs;
     }
 
-    private Map<String,String> generateLogs(Map<String, Integer> carsMap) {
-        Map<String,String> initialLogs = new LinkedHashMap<>();
+    private Map<String, String> generateLogs(Map<String, Integer> carsMap) {
+        Map<String, String> initialLogs = new LinkedHashMap<>();
         Set<String> cars = carsMap.keySet();
         cars.stream().forEach(car -> initialLogs.put(car, ""));
         return initialLogs;
@@ -26,10 +26,10 @@ public class Logs {
 
     public void update(String car, int position) {
         if (position > 0) {
-            logs.put(car,"-".repeat(position));
+            logs.put(car, "-".repeat(position));
         }
         if (position <= 0) {
-            logs.put(car,"");
+            logs.put(car, "");
         }
     }
 

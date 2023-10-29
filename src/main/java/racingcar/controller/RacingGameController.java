@@ -30,8 +30,8 @@ public class RacingGameController {
         Position position = racingGameService.generateCarsPosition(carsMap, count);
         Logs logs = racingGameService.generateCarsGameLogs(carsMap);
 
-        start(position, logs,count);
-        finish(position,count);
+        start(position, logs, count);
+        finish(position, count);
     }
 
     private void start(Position position, Logs carsGameLogs, int count) {
