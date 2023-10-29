@@ -6,6 +6,7 @@ import racingcar.dto.output.CarOutputDto;
 import racingcar.dto.output.CarsOutputDto;
 
 public class OutputView implements Output{
+    private final static int ZERO = 0;
     @Override
     public void showPlaying(CarsOutputDto carsOutputDto) {
         showCarNameAndPosition(carsOutputDto);
@@ -23,11 +24,11 @@ public class OutputView implements Output{
     private static void printingWinners(ResultList resultList) {
         System.out.print("최종 우승자 : ");
         printingNames(resultList);
-        System.out.println();
+        System.out.print("\n");
     }
 
     private static void printingNames(ResultList resultList) {
-        for(int i = 0; i < resultList.getResults().size(); i++){
+        for(int i = ZERO; i < resultList.getResults().size(); i++){
             printingOneWinner(resultList, i);
         }
     }
@@ -100,7 +101,7 @@ public class OutputView implements Output{
 
     private static void printNameAndPosition(CarOutputDto carOutputDto) {
         printName(carOutputDto);
-        printPostion(carOutputDto);
+        printPosition(carOutputDto);
         switchLine();
     }
 
@@ -108,8 +109,8 @@ public class OutputView implements Output{
         System.out.print("\n");
     }
 
-    private static void printPostion(CarOutputDto carOutputDto) {
-        for(int i = 0; i< carOutputDto.car().getCarPosition();){
+    private static void printPosition(CarOutputDto carOutputDto) {
+        for(int i = ZERO; i< carOutputDto.car().getCarPosition();i++){
             System.out.print("-");
         }
     }
