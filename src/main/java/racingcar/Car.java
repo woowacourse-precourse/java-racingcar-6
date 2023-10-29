@@ -17,7 +17,8 @@ public class Car {
     }
 
     public void move(MoveStatus moveStatus) {
-        if (moveStatus.canMove()) {
+        int randomNumber = moveStatus.getRandomNumber();
+        if (moveStatus.canMove(randomNumber)) {
             position++;
         }
     }
