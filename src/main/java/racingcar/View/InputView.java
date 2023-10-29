@@ -1,7 +1,6 @@
 package racingcar.View;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,7 +12,14 @@ public class InputView {
                 .map(String::trim)
                 .toList();
         // carNameList.forEach(System.out::println);
+        // 이름이 5글자 이하
+        // 그냥 Return으로 바로 넘겨도 될듯
         return carNameList;
     }
-
+    public static String inputRacingRoundTimes(){
+        System.out.println("시도할 회수는 몇회인가요?");
+        String racingRoundTimes = Console.readLine(); // String을 다른걸로 바꿀수는 없을까?
+        // 숫자만 되게 예외처리
+        return racingRoundTimes;
+    }
 }

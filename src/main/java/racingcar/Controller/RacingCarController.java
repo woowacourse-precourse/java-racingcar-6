@@ -7,5 +7,6 @@ public class RacingCarController {
 
     public void initRacingCarGame(){
         List<String> carNameList = InputView.inputRacingCarName();
+        String racingRoundTimes = InputView.inputRacingRoundTimes();
     }
 }
