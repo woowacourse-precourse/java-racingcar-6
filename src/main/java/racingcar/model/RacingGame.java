@@ -21,4 +21,8 @@ public class RacingGame {
     public boolean isPlayable() {
         return count.isAbleTry();
     }
+
+    public List<String> findWinCars() {
+        return cars.findWinnerNames();
+    }
 }
