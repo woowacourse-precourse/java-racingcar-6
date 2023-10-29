@@ -39,15 +39,15 @@ public class UserInput {
     private void validateCarNames(String carName) throws IllegalArgumentException {
         String[] names = carName.split(",");
         //1) 각 이름 길이 5초과 시 예외
-        validateLength(names);
+        validateCarNamesLength(names);
         //2) 각 이름에 " " 공백 포함 시 예외
-        validateBlank(names);
+        validateCarNamesBlank(names);
         //3) 이름 중복도 안됨
-        validateDuplicate(names);
+        validateCarNamesDuplicate(names);
     }
 
     // -이름 중복될 경우 - abc, ab,
-    private void validateDuplicate(String[] names) {
+    private void validateCarNamesDuplicate(String[] names) {
         //3) 이름이 중복될 경우 예외
         Map<String, Integer> map = new HashMap<>();
 
@@ -56,13 +56,14 @@ public class UserInput {
         }
 
         for (String key : map.keySet()) {
-            if (map.get(key) > 1)
+            if (map.get(key) > 1) {
                 throw new IllegalArgumentException("경주할 자동차 이름은 중복되면 안됩니다.");
+            }
         }
     }
 
     //validate 메소드 분리 - 길이
-    private void validateLength(String[] names) {
+    private void validateCarNamesLength(String[] names) {
         //1) 각 이름 길이 5초과 시 예외
         for (String x : names) {
             if (x.length() > 5) {
@@ -72,7 +73,7 @@ public class UserInput {
     }
 
     //- 공백 포함 시
-    private void validateBlank(String[] names) {
+    private void validateCarNamesBlank(String[] names) {
         //2) 각 이름에 " " 공백 포함 시 예외
         for (String x : names) {
             if (x.contains(" ")) {
@@ -86,12 +87,12 @@ public class UserInput {
      */
     private void validateGameCount(String gameCount) throws IllegalArgumentException {
         //숫자가 아닌 경우
-        validateNotNumber(gameCount);
+        validateGameCountNotNumber(gameCount);
         //범위 벗어난 입력
-        validateOutOfRange(gameCount);
+        validateGameCountOutOfRange(gameCount);
     }
 
-    private void validateNotNumber(String gameCount) throws IllegalArgumentException {
+    private void validateGameCountNotNumber(String gameCount) throws IllegalArgumentException {
         for (char ch : gameCount.toCharArray()) {
             if (!Character.isDigit(ch)) {
                 throw new IllegalArgumentException("게임 실행 횟수는 숫자만 입력해야 합니다.");
@@ -99,7 +100,7 @@ public class UserInput {
         }
     }
 
-    private void validateOutOfRange(String gameCount) throws IllegalArgumentException {
+    private void validateGameCountOutOfRange(String gameCount) throws IllegalArgumentException {
         int num = Integer.parseInt(gameCount);
         if (num <= 0) {
             throw new IllegalArgumentException("게임 실행 횟수는 양수만 입력해야 합니다.");
