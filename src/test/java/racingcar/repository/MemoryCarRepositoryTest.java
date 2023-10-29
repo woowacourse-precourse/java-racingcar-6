@@ -4,12 +4,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 import java.util.Optional;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 
 public class MemoryCarRepositoryTest {
 
-    private final CarRepository memoryCarRepository = MemoryCarRepository.getInstance();
+    private CarRepository memoryCarRepository = MemoryCarRepository.getInstance();
+
+    @BeforeEach
+    public void setUp() {
+        memoryCarRepository.deleteAll();
+    }
 
     @Test
     public void 새로운_Car저장() {
