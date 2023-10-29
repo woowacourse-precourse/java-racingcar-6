@@ -92,7 +92,7 @@ public class RacingGame {
     }
 
     public void printSoloWinner() {
-        System.out.printf("최종 우승자 :  %s", winnerList.get(0));
+        System.out.printf("최종 우승자 : %s", winnerList.get(0));
     }
 
     public void printJointWinner() {
