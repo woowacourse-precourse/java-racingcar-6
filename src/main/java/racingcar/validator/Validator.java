@@ -16,7 +16,7 @@ public class Validator {
     }
 
     public boolean isTryNumPositiveNum(Integer tryNum) {
-
+        return tryNum > 0;
     }
 
     public boolean checkCarNameLength(String carName) {
