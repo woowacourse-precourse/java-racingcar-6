@@ -14,4 +14,8 @@ public class OutPutView {
         results.forEach(System.out::println);
         System.out.println();
     }
+
+    public static void resultWinnerView(List<String> resultWinners) {
+        System.out.print(OutputMessage.WINNER_MESSAGE.getValue() + String.join(", ", resultWinners));
+    }
 }

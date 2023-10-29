@@ -19,4 +19,8 @@ public class CarGameManager {
         OutPutView.executionResultView();
         IntStream.range(0, roundNumber).forEach(i -> cars.carsMove());
     }
+
+    public void resultWinner(Cars cars) {
+        OutPutView.resultWinnerView(cars.getWinner());
+    }
 }

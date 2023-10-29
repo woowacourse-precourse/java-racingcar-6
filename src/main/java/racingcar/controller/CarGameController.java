@@ -18,4 +18,8 @@ public class CarGameController {
     public void start() {
         carGameManager.carGameStart(this.cars, this.roundNumber);
     }
+
+    public void winner() {
+        carGameManager.resultWinner(this.cars);
+    }
 }
