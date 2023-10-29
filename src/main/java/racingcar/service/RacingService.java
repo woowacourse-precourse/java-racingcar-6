@@ -44,4 +44,23 @@ public class RacingService {
                 player.setScore();
         }
     }
+
+    public String checkFinalScores(List<RacingPlayer> players){
+        int score = 0;
+        StringBuilder winner = new StringBuilder();
+
+        for (RacingPlayer player : players){
+            if(score < player.getScore())
+                score=player.getScore();
+        }
+
+        for (RacingPlayer player : players){
+            if(score == player.getScore() && winner.isEmpty())
+                winner.append(player.getName());
+            else if(score == player.getScore())
+                winner.append(", ").append(player.getName());
+        }
+
+        return winner.toString();
+    }
 }
