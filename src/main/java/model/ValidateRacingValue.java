@@ -17,5 +17,9 @@ public class ValidateRacingValue {
         }
         return raceResult;
     }
+    public static boolean validateRandomMoreFour() {
+        int randomNumber = Randoms.pickNumberInRange(0,9);
+        return randomNumber >= 4;
+    }
 
 }
