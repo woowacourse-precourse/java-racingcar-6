@@ -142,5 +142,32 @@ class ValidatorTest {
                 .hasMessageContaining("이름은 5자 이하로 입력해주세요.");
     }
 
+    @Test
+    void validateGameCount_숫자가_아닌_값을_입력한_경우_예외_발생() {
+        String input = "1f2b556cf2";
+
+        assertThatThrownBy(() -> Validator.validateGameCount(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("숫자만 입력해주세요.");
+    }
+
+    @Test
+    void validateGameCount_0을_입력한_경우_예외_발생() {
+        String input = "0000000";
+
+        assertThatThrownBy(() -> Validator.validateGameCount(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("0 이상의 값을 입력해주세요.");
+    }
+
+    @Test
+    void validateGameCount_9자릿수_초과로_입력한_경우_예외_발생() {
+        String input = "1234567890";
+
+        assertThatThrownBy(() -> Validator.validateGameCount(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("9자릿수까지 입력 가능합니다.");
+    }
+
 
 }
