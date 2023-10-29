@@ -70,8 +70,7 @@ public class GameService {
   }
 
   public void findWinner() {
-    int max= -1;
-
+    int max= Integer.MIN_VALUE;
     for(int i=0;i< carList.size();i++) {
       if(carList.get(i).getForward() > max) {
         max = carList.get(i).getForward();
