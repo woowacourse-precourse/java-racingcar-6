@@ -22,7 +22,7 @@ public class Controller {
         proceedGame();
 
         String gameResult = winners.getWinners();
-        OutputView.display(gameResult);
+        OutputView.displayWinners(gameResult);
     }
 
 
