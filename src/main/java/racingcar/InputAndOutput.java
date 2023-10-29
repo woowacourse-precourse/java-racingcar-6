@@ -10,9 +10,13 @@ public class InputAndOutput {
     static void outputRaceResult(List<Car> carList) {
         StringBuilder raceResult = new StringBuilder();
         for (Car car : carList) {
-            raceResult.append(car.getName()).append(" : ").append(car.getGoOrStopRecord().toString()).append("\n");
+            raceResult.append(car.getName()).append(" : ");
+            for (String record : car.getGoOrStopRecord()) {
+                raceResult.append(record);
+            }
+            raceResult.append("\n");
         }
-        System.out.println(raceResult.toString());
+        System.out.print(raceResult.toString());
     }
 
     static void outputRaceWinner(List<String> winnerList) {
