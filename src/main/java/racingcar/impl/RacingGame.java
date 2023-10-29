@@ -21,6 +21,7 @@ public class RacingGame implements Game {
 
     @Override
     public void start() {
+        System.out.println("실행 결과");
         for(int numOfAttempt = 1; numOfAttempt <= gameInfo.getAttemptTime(); numOfAttempt++) {
             startOneTurn();
             printCurrentResults();
@@ -63,7 +64,7 @@ public class RacingGame implements Game {
                 System.out.println(winner.get(indexOfWinner).getName());
                 break;
             }
-            System.out.print(winner.get(indexOfWinner).getName() + ",");
+            System.out.print(winner.get(indexOfWinner).getName() + ", ");
         }
     }
 
