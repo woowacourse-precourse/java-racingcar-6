@@ -66,5 +66,15 @@ public class InputViewTest {
         Assertions.assertEquals("[ERROR] 음수가 입력되었습니다.", exception.getMessage());
     }
 
+    @Test
+    void 시도_횟수_입력_공백_검증_테스트() {
+        ByteArrayInputStream fakeInput = new ByteArrayInputStream("\n".getBytes());
+        System.setIn(fakeInput);
+        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            InputView.readTryNumber();
+        });
+        Assertions.assertEquals("[ERROR] 공백이 입력되었습니다.", exception.getMessage());
+    }
+
 
 }
