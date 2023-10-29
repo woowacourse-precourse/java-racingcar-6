@@ -7,6 +7,7 @@ import static racingcar.constant.MessageConst.LENGTH_MESSAGE;
 import static racingcar.constant.MessageConst.NULL_MESSAGE;
 import static racingcar.constant.MessageConst.SPACE_MESSAGE;
 import static racingcar.constant.NumberConst.NUMERIC_FORMAT_MESSAGE;
+import static racingcar.constant.NumberConst.RANGE_MESSAGE;
 
 import java.util.HashSet;
 import java.util.List;
@@ -96,5 +97,16 @@ public class InputValidation {
 
     private boolean isNotNumericFormat(String input) {
         return !input.chars().allMatch(Character::isDigit);
+    }
+
+    public void validateInputRange(String input) {
+        int inputRange = Integer.parseInt(input);
+        if (isNotPositive(inputRange)) {
+            throw new IllegalArgumentException(RANGE_MESSAGE);
+        }
+    }
+
+    private boolean isNotPositive(int inputRange) {
+        return inputRange < 1;
     }
 }
