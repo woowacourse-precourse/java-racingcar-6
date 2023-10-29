@@ -28,9 +28,9 @@
 - ✅ displayPlayResult  메서드 구현
   - ✅ 실행 결과 출력 <br><a>ex)<br> pobi : - <br>woni :<br>jun : -</a>
 
-## ❌ 게임 우승자 출력 메시지 출력 기능
-- ❌ displayWinner  메서드 구현
-  - ❌ 최종 우승자 출력 <a>ex) 최종 우승자 : pobi</a>
+## ✅ 게임 우승자 출력 메시지 출력 기능
+- ✅ displayWinner  메서드 구현
+  - ✅ 최종 우승자 출력 <a>ex) 최종 우승자 : pobi</a>
   - 
 ## ✅ 숫자에 맞춰 대시 기호 변환
 - ✅ generateDashes 메서드 구현

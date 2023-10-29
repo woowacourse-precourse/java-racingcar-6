@@ -14,4 +14,12 @@ public class outputView {
         }
     }
 
+    public static void displayWinner(ArrayList<String> winners){
+        for(String winner:winners){
+            System.out.print(winner);
+            if (!winner.equals(winners.get(winners.size() - 1))) {
+                System.out.print(',');
+            }
+        }
+    }
 }
