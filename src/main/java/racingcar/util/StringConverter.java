@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import racingcar.exception.InputValidator;
 import racingcar.vo.CarName;
+import racingcar.vo.TryNumber;
 
 public class StringConverter {
 
@@ -14,13 +15,16 @@ public class StringConverter {
 
     public static List<CarName> stringToCarNameListByDelimiter(String carNames) {
         InputValidator.validateInputCarNames(carNames);
+
         return Arrays.stream(carNames.split(DELIMITER))
                 .map(name -> new CarName(name.trim()))
                 .toList();
     }
 
-    public static Integer stringToInteger(String tryNumber) {
+    public static TryNumber stringToTryNumber(String tryNumber) {
         InputValidator.validateInputTryNumber(tryNumber);
-        return Integer.valueOf(tryNumber);
+
+        Integer number = Integer.valueOf(tryNumber);
+        return new TryNumber(number);
     }
 }

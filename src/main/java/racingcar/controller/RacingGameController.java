@@ -1,7 +1,7 @@
 package racingcar.controller;
 
 import static racingcar.util.StringConverter.stringToCarNameListByDelimiter;
-import static racingcar.util.StringConverter.stringToInteger;
+import static racingcar.util.StringConverter.stringToTryNumber;
 
 import java.util.List;
 import racingcar.controller.dto.CarDto;
@@ -42,8 +42,7 @@ public class RacingGameController {
 
     private TryNumber getTryNumberFromInputView() {
         outputView.printRequestTryNumberMessage();
-        Integer number = stringToInteger(inputView.inputTryNumber());
-        return new TryNumber(number);
+        return stringToTryNumber(inputView.inputTryNumber());
     }
 
     private RacingGame gameSet(Cars cars) {
