@@ -9,7 +9,7 @@ public class CarGenerator {
         LinkedHashMap<String, String> carList = new LinkedHashMap<>();
         String[] cars = splitStringByCommas(stringCarList);
         for (String car : cars) {
-            if (carList.containsKey(car)){
+            if (carList.containsKey(car)) {
                 throw new IllegalArgumentException("자동차 이름 중복입니다");
             }
             carList.put(car, "");
@@ -25,4 +25,5 @@ public class CarGenerator {
     public String inputCarList() {
         return Console.readLine();
     }
+
 }
