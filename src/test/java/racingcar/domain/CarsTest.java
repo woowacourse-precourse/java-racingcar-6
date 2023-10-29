@@ -12,7 +12,7 @@ class CarsTest {
     void testMoveAllCars1() {
         // given
         Cars cars = new Cars(List.of("a", "b", "c"));
-        Movable movable = new FixedMovable(true);현
+        Movable movable = new FixedMovable(true);
 
         // when
         cars.moveAllCars(movable);
