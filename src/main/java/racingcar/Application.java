@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.controller.RacingController;
 import racingcar.converter.RacingConverter;
 import racingcar.factory.CarFactory;
@@ -20,5 +21,6 @@ public class Application {
                 carFactory);
 
         racingController.run();
+        Console.close();
     }
 }
