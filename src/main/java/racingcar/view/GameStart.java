@@ -3,7 +3,6 @@ package racingcar.view;
 import racingcar.control.GameProcess;
 import racingcar.domain.RaceCar;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -22,7 +21,7 @@ public class GameStart {
      * pobi : ----
      * woni : ---
      */
-    public void printSituationOfCarCurrent() {
+    public void printSituationOfCarCurrentOneCycle() {
         raceCarStringMap = gameProcess.makeMsgOfCurrentRace();
 
         for (Map.Entry<RaceCar, String> entry : raceCarStringMap.entrySet()) {
@@ -49,7 +48,7 @@ public class GameStart {
         Integer cntTryRace = gameProcess.getCntTryRace();
         for (int i = 0; i < cntTryRace; i++) {
             gameProcess.moveOfRaceCar();
-            printSituationOfCarCurrent();
+            printSituationOfCarCurrentOneCycle();
             System.out.println();
         }
     }
