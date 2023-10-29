@@ -32,14 +32,19 @@ public class RacingCarInputValidator {
     }
 
     public void validateAttemptCounts(String attempt) {
+        int attemptNumber = convertAttemptCounts(attempt);
+        if (attemptNumber < MIN_ATTEMPT_NUMBER || MAX_ATTEMPT_NUMBER < attemptNumber) {
+            throw new IllegalArgumentException(ATTEMPT_NOT_POSITIVE_NUMBER_EXCEPTION);
+        }
+    }
+
+    private static int convertAttemptCounts(String attempt) {
         int attemptNumber;
         try {
             attemptNumber = Integer.parseInt(attempt);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ATTEMPT_NOT_NUMBER_EXCEPTION);
         }
-        if (attemptNumber < MIN_ATTEMPT_NUMBER || MAX_ATTEMPT_NUMBER < attemptNumber) {
-            throw new IllegalArgumentException(ATTEMPT_NOT_POSITIVE_NUMBER_EXCEPTION);
-        }
+        return attemptNumber;
     }
 }
