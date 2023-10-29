@@ -24,6 +24,19 @@ public class InputViewValidator {
         if(isDuplicateCarName(carNames)){
             throw new IllegalArgumentException("[ERROR] : 차 이름은 중복될 수 없습니다");
         }
+        if(isEachCarNameEmpty(carNames)){
+            throw new IllegalArgumentException("[ERROR] : 각각의 차 이름은 공백일 수 없습니다.");
+        }
+    }
+
+    public boolean isEachCarNameEmpty(String carNames) {
+        String[] carNameList = carNames.split("");
+        for (String carName : carNameList) {
+            if(carName.equals("")){
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean isDuplicateCarName(String carNames) {
