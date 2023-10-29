@@ -95,6 +95,20 @@ class ValidatorTest {
     }
 
     @Test
+    void isZero_0을_입력한_경우_true_반환() {
+        String zero = "0";
+
+        assertThat(Validator.isZero(zero)).isTrue();
+    }
+
+    @Test
+    void isZero_0이_아닌_값을_입력한_경우_false_반환() {
+        String notZero = "01234";
+
+        assertThat(Validator.isZero(notZero)).isFalse();
+    }
+
+    @Test
     void validateNameList_이름으로_중복된_값을_입력한_경우_예외_발생() {
         List<String> dupliList = Arrays.asList("pobi", "pobi");
 
