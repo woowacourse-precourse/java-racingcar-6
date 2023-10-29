@@ -1,7 +1,10 @@
 package racingcar.Controller;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
+import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
+import java.util.ArrayList;
+import racingcar.Model.CarModel;
 import racingcar.Model.GameModel;
 
 public class GameController {
@@ -30,6 +33,26 @@ public class GameController {
         gameModel.setCoinNumber(coinNumber);
 
         carController.setCarModels(carList);
+
+        for(int i = 0; i< gameModel.getCoinNumber();i++){
+
+            throwDiceAndgoFoward();
+        }
+    }
+
+    private void throwDiceAndgoFoward() {
+
+        int dice;
+        ArrayList<CarModel> carModels = carController.getCarModelList();
+        CarModel nowCar;
+
+        for(int i = 0; i<gameModel.getCarNumber();i++){
+
+            dice=pickNumberInRange(0,9);
+            nowCar = carModels.get(i);
+
+            carController.goFoward(nowCar,dice);
+        }
     }
 
 }
