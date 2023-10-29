@@ -20,6 +20,10 @@ public class Censor {
         checkUniqueValue(playerList);
     }
 
+    public void checkInputForGameTime(String input) {
+        // TODO: 시도한 회수를 검증하는 로직 수행
+    }
+
     private void commonValid(String input) {
         if (input == null) {
             throw new IllegalArgumentException(NICKNAME_SPACE_ERROR.getContent());
