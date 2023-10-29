@@ -12,4 +12,10 @@ public class CarList {
             carList.add(new Car(carName));
         }
     }
+
+    private void isDuplicate(Car car) {
+        if(carList.contains(car)) {
+            throw new IllegalArgumentException("중복된 이름이 있습니다.");
+        }
+    }
 }
