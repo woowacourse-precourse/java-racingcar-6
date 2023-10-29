@@ -25,12 +25,4 @@ public class CarList {
     public Car getCar(int idx) {
         return carList.get(idx);
     }
-
-
-    /**
-     * 테스트용 메서드
-     */
-    public List<Car> getCarList() {
-        return carList;
-    }
 }

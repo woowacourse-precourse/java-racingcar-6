@@ -33,10 +33,6 @@ public class Car {
         return carPosition.getCarPosition();
     }
 
-
-    /**
-     * 테스트용 메서드
-     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
