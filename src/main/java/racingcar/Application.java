@@ -30,9 +30,13 @@ public class Application {
     public static int inputNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
 
+        return getInteger(camp.nextstep.edu.missionutils.Console.readLine());
+    }
+
+    public static int getInteger(String str) {
         int num = 0;
         try {
-            num = Integer.parseInt(camp.nextstep.edu.missionutils.Console.readLine());
+            num = Integer.parseInt(str);
         } catch (NumberFormatException ex) {
             throw new IllegalArgumentException("유효하지 않은 입력입니다, 1 이상의 자연수를 입력해 주세요");
         }
@@ -49,11 +53,11 @@ public class Application {
 
         List<Player> players = new ArrayList<>();
         /*
-        * 이름을 "," 를 기준으로 나눠 반복해서 처리
-        * */
+         * 이름을 "," 를 기준으로 나눠 반복해서 처리
+         * */
         for (String name : camp.nextstep.edu.missionutils.Console.readLine().split(",", -1)) {
             // 이름이 조건에 맞으면, player List에 추가
-            if(validateName(name)){
+            if (validateName(name)) {
                 players.add(new Player(name));
             }
         }
@@ -70,7 +74,7 @@ public class Application {
             throw new IllegalArgumentException("유효하지 않은 입력입니다, 이름이 5글자가 넘습니다.");
         }
 
-        if(name.contains(" ")){
+        if (name.contains(" ")) {
             throw new IllegalArgumentException("유효하지 않은 입력입니다, 이름에는 스페이스 바가 들어갈 수 없습니다.");
         }
 
