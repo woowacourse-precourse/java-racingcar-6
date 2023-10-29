@@ -35,7 +35,8 @@ public class Race {
     }
 
     private void inputMovingNumber() {
-
+        System.out.println("시도할 회수는 몇회인가요?");
+        int moveNum = Integer.parseInt(readLine());
     }
 
     private void updateCarsPosition() {
