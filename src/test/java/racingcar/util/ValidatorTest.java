@@ -57,9 +57,9 @@ public class ValidatorTest extends NsTest {
 
     @Test
     void 횟수_입력값_0_이하_오류() {
-        assertThatThrownBy(() -> validator.validateNumTrialInput(0))
+        assertThatThrownBy(() -> validator.validateNumTrialInput("0"))
                 .isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> validator.validateTrialInput(-5))
+        assertThatThrownBy(() -> validator.validateNumTrialInput("-5"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
