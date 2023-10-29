@@ -20,7 +20,7 @@ public class RacingCarService {
     }
 
     private String[] parsingMembersByComma(String input) {
-        return input.split(" ");
+        return input.split(",");
     }
 
     private ArrayList<RacingCar> parsingMembersByRacingCar(String[] input) {
@@ -38,12 +38,18 @@ public class RacingCarService {
         return numberOfAttempts;
     }
 
-    public void movingForward(ArrayList<RacingCar> racingCars) {
+    public ArrayList<RacingCar> movingForward(ArrayList<RacingCar> racingCars) {
         for (RacingCar racingCar : racingCars) {
             int pickRandomNumber = racingCar.pickRandomNumber();
             if (racingCar.isMoreThanFour(pickRandomNumber)) {
                 racingCar.moveForwardOneSpace("-");
             }
         }
+        return racingCars;
+    }
+
+    public int addTime(int start) {
+        start += 1;
+        return start;
     }
 }
