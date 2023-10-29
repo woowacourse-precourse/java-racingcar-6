@@ -5,8 +5,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+
+import racingcar.dto.RoundResult;
 
 public class Cars {
 
@@ -54,11 +54,10 @@ public class Cars {
                 .getPosition();
     }
 
-    public Map<String, Integer> getCurrentCarStatus() {
+    public List<RoundResult> getCurrentCarStatus() {
         return cars.stream()
-                .collect(Collectors.toMap(
-                        Car::getName, Car::getPosition
-                ));
+                .map(car -> new RoundResult(car.getName(), car.getPosition()))
+                .toList();
     }
 
 }

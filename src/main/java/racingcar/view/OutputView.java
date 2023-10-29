@@ -1,10 +1,9 @@
 package racingcar.view;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
-import racingcar.dto.CarsDto;
+import racingcar.dto.RoundResult;
+import racingcar.dto.RoundResultDto;
 
 public class OutputView {
 
@@ -27,12 +26,12 @@ public class OutputView {
         System.out.println(RESULT_GUIDE);
     }
 
-    public void printRoundResult(final CarsDto carsDto) {
-        Map<String, Integer> roundResult = carsDto.carsStatus();
-        for (Entry<String, Integer> entry : roundResult.entrySet()) {
-            String name = entry.getKey();
-            String position = replaceTo(entry.getValue());
-            System.out.println(String.join(" : ", name, position));
+    public void printRoundResult(final RoundResultDto roundResultDto) {
+        List<RoundResult> roundResults = roundResultDto.roundResults();
+        for (RoundResult roundResult : roundResults) {
+            String carName = roundResult.name();
+            String currentPosition = replaceTo(roundResult.position());
+            System.out.println(String.join(" : ", carName, currentPosition));
         }
         System.out.println();
     }

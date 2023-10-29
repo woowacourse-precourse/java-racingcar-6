@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import racingcar.domain.Cars;
-import racingcar.dto.CarsDto;
+import racingcar.dto.RoundResultDto;
 
 public class GameService {
 
@@ -42,9 +42,9 @@ public class GameService {
         }
     }
 
-    public CarsDto playRound(final Cars cars) {
+    public RoundResultDto playRound(final Cars cars) {
         cars.move();
-        return new CarsDto(cars.getCurrentCarStatus());
+        return new RoundResultDto(cars.getCurrentCarStatus());
     }
 
     public List<String> findWinnersName(final Cars cars) {
