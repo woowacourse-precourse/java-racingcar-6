@@ -9,8 +9,8 @@ public class InputView {
         return Console.readLine();
     }
 
-    public static int inputTryCount() {
-        System.out.println(Messages.INPUT_TRY_COUNT.getMessage());
+    public static int inputRoundNum() {
+        System.out.println(Messages.INPUT_ROUND_NUM.getMessage());
         return Integer.parseInt(Console.readLine());
     }
 }

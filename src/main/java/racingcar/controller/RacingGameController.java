@@ -6,6 +6,7 @@ import racingcar.view.InputView;
 
 public class RacingGameController {
     private CarList carList;
+    private int tryCount;
 
     public void run() {
         init();
@@ -13,5 +14,6 @@ public class RacingGameController {
 
     public void init() {
         carList = InputController.initCarList();
+
     }
 }
