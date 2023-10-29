@@ -3,9 +3,13 @@ package racingcar.utill;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static racingcar.utill.Validator.attemptNumberValidation;
 import static racingcar.utill.Validator.carNameValidation;
+import static racingcar.utill.Validator.duplicateCarNameValidation;
 import static racingcar.utill.Validator.nullInputValidation;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
 
 class ValidatorTest {
 
@@ -13,7 +17,7 @@ class ValidatorTest {
     void nullInputValidationTest() {
         //given
         String nullString = null;
-        
+
         //when, then
         assertThrows(IllegalArgumentException.class, () -> nullInputValidation(nullString));
     }
@@ -44,6 +48,22 @@ class ValidatorTest {
         assertThrows(IllegalArgumentException.class, () -> attemptNumberValidation(noNatural1));
         assertThrows(IllegalArgumentException.class, () -> attemptNumberValidation(minus));
         assertThrows(IllegalArgumentException.class, () -> attemptNumberValidation(floatNumber));
+    }
+
+    @Test
+    void duplicateCarNameValidationTest() {
+        //given
+        List<Car> testCarList = new ArrayList<>();
+        Car winnerCar = new Car("zizi");
+        winnerCar.stopOrMoveDecision(5);
+        testCarList.add(winnerCar);
+        testCarList.add(new Car("hoho"));
+        testCarList.add(new Car("haha"));
+        testCarList.add(new Car("haha"));
+
+        //when, then
+        assertThrows(IllegalArgumentException.class, () -> duplicateCarNameValidation(testCarList));
+        
     }
 
 }

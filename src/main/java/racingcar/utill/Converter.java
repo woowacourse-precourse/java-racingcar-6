@@ -2,6 +2,7 @@ package racingcar.utill;
 
 import static racingcar.utill.Validator.attemptNumberValidation;
 import static racingcar.utill.Validator.carNameValidation;
+import static racingcar.utill.Validator.duplicateCarNameValidation;
 import static racingcar.utill.Validator.nullInputValidation;
 
 import java.util.ArrayList;
@@ -16,15 +17,17 @@ public class Converter {
         return Integer.parseInt(stringValue);
     }
 
-    public static List<Car> stringToCarListConvert(String carNameString) {
-        nullInputValidation(carNameString);
+    public static List<Car> stringToCarListConvert(String carsNameString) {
+        nullInputValidation(carsNameString);
         List<Car> carList = new ArrayList<>();
-        String[] split = carNameString.split(",", -1);
+        String[] splitName = carsNameString.split(",", -1);
 
-        for (String a : split) {
-            carNameValidation(a);
-            carList.add(new Car(a));
+        for (String name : splitName) {
+            carNameValidation(name);
+            carList.add(new Car(name));
         }
+
+        duplicateCarNameValidation(carList);
 
         return carList;
     }

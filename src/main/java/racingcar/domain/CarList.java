@@ -31,7 +31,6 @@ public class CarList {
     public String racingWinnerDecision() {
         Map<String, Integer> rankingMap = carList.stream()
                 .collect(Collectors.toMap(Car::getCarName, Car::getCarPosition));
-
         List<String> winnerList = findWinner(rankingMap);
         return (stringListToStringConvert(winnerList));
     }
