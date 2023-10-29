@@ -36,19 +36,19 @@ public class InputProcessor {
     }
 
     public Integer manipulateRepetitionInput(String input) {
-        int repetition = parseRepititionInput(input);
-        validateRepititionInput(repetition);
+        int repetition = parseRepetitionInput(input);
+        validateRepetitionInput(repetition);
 
         return repetition;
     }
 
-    private static void validateRepititionInput(int repetition) {
+    private static void validateRepetitionInput(int repetition) {
         if (repetition < 1) {
             throw new IllegalArgumentException();
         }
     }
 
-    private static int parseRepititionInput(String repetitionInput) {
+    private static int parseRepetitionInput(String repetitionInput) {
         int repetition;
         try {
             repetition = Integer.parseInt(repetitionInput);
