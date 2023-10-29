@@ -5,35 +5,30 @@ import camp.nextstep.edu.missionutils.Console;
 public class Attempt {
     public int attemptNum() {
         System.out.println("시도할 회수는 몇회인가요?");
-        int attemptNum;
-        String inputNum = Console.readLine();
+        String inputCount = Console.readLine();
 
-        attemptNum = checkInt(inputNum);
-
-        return attemptNum;
+        return validateInputNumber(inputCount);
     }
 
-    public int checkInt(String inputNum) {
+    public int validateInputNumber(String inputCount) {
+        int countNum = checkInt(inputCount);
+        checkNatural(countNum);
+
+        return countNum;
+    }
+
+    public int checkInt(String inputCount) {
         try {
-            int num = Integer.parseInt(inputNum);
-
-            checkNatural(num);
-            return num;
-
+            return Integer.parseInt(inputCount);
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            throw e;
+            throw new IllegalArgumentException("숫자 형식이 아닙니다. 숫자를 입력해주세요.");
         }
     }
 
-    public int checkNatural(int num) {
-        try {
-            if(num < 1)
-                throw new IllegalArgumentException("1이상의 수를 입력해주세요.");
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            throw e;
-        }
-        return num;
+    public int checkNatural(int countNum) {
+        if(countNum < 1)
+            throw new IllegalArgumentException("1이상의 수를 입력해주세요.");
+
+        return countNum;
     }
 }
