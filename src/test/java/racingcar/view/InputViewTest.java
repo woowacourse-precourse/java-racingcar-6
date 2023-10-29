@@ -17,11 +17,11 @@ class InputViewTest {
     }
 
     @Test
-    void 사용자입력테스트() {
-        ByteArrayInputStream inContent = new ByteArrayInputStream("car1,car2,car3\n".getBytes());
-        System.setIn(inContent);
-        String input = InputView.inputCarNames();
-        assertThat(input).isEqualTo("car1,car2,car3");
+    void 자동차이름_입력테스트() {
+        String input = "car1,car2,car3";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        String carNames = InputView.inputCarNames();
+        assertThat(carNames).isEqualTo(input);
     }
 
     @Test
