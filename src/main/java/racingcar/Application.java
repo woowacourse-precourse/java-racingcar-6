@@ -16,6 +16,10 @@ public class Application {
 			this.name = name;
 			this.loc = loc;
 		}
+		
+		public void locIncr() {
+			loc++;
+		}
 	}
 	
 	public void gameStart() {
@@ -35,6 +39,15 @@ public class Application {
 			i++;
 		}
 	}
+	
+	public void move() {
+		for (int i=0; i<playerNumber; i++) {
+			int randNum = Randoms.pickNumberInRange(0,9);
+			if (randNum >= 4) playerData[i].locIncr();
+		}
+	}
+	
+	p
     public static void main(String[] args) {
     	Application game = new Application();
     	game.gameStart();
