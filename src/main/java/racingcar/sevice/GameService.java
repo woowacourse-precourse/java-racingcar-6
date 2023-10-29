@@ -8,7 +8,10 @@ import racingcar.manager.Validator;
 
 public class GameService {
 
-    public GameService() {
+    Validator validator;
+
+    public GameService(Validator validator) {
+        this.validator = validator;
     }
 
     public List<Car> registerCarListFromInput(String[] input) {

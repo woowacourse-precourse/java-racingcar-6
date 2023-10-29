@@ -10,8 +10,8 @@ import racingcar.view.OutputView;
 
 public class GameController {
 
-    GameService gameService = new GameService();
     Validator validator = new Validator();
+    GameService gameService = new GameService(validator);
 
     public void run() {
         OutputView.printStartGame();
