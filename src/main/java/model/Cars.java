@@ -1,6 +1,9 @@
 package model;
 
+import util.ErrorMessages;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static util.StringUtils.splitByDelimiter;
@@ -27,5 +30,14 @@ public class Cars {
 
     public Cars(String carNames) {
         String[] carNameArray = stripStringArray(splitByDelimiter(carNames, DELIMITER));
+        validateDuplicatedName(carNameArray);
+    }
+
+    private void validateDuplicatedName(String[] carNames) {
+        long distinctSize = Arrays.stream(carNames)
+                .distinct().count();
+        if (distinctSize != carNames.length) {
+            throw new IllegalArgumentException(ErrorMessages.DUPLICATED_NAME);
+        }
     }
 }
