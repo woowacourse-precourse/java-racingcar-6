@@ -43,7 +43,7 @@ public class RacingGame {
             throw new IllegalArgumentException(StringError.REQUIRED_NUMBER);
         }
         game.play(rounds);
-        String result = game.getWinners();
+        List<String> result = game.getWinners();
         UserOutput.showWinners(result);
 
         Console.close();
@@ -90,13 +90,11 @@ public class RacingGame {
         }
     }
 
-    private String getWinners() {
-        List<String> winners = cars.stream()
+    private List<String> getWinners() {
+        return cars.stream()
                 .filter(car -> car.getPosition() == getMaxPosition())
                 .map(Car::getName)
                 .collect(Collectors.toList());
-
-        return String.join(", ", winners);
     }
 
     private int getMaxPosition(){
