@@ -20,7 +20,7 @@ public class Validator {
     }
 
     public boolean checkCarNameLength(String carName) {
-
+        return 0 < carName.length() && carName.length() <= 5;
     }
 
     public boolean checkDuplicateCarName(List<String> carNameList) {
