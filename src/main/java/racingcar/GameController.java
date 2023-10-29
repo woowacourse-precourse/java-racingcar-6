@@ -2,7 +2,10 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.domain.Car;
 import racingcar.domain.RacingCars;
+import racingcar.service.OneGameResultDto;
+import racingcar.service.RacingGameService;
 import racingcar.view.Input;
 import racingcar.view.View;
 
@@ -10,9 +13,12 @@ public class GameController {
     private final View view;
     private final Input input;
 
-    public GameController(View view, Input input) {
+    private final RacingGameService racingGameService;
+
+    public GameController(View view, Input input, RacingGameService racingGameService) {
         this.view = view;
         this.input = input;
+        this.racingGameService = racingGameService;
     }
 
     public void run() {
@@ -39,15 +45,13 @@ public class GameController {
 
     private void playCarRace(long attemptCounts, RacingCars cars) {
         for (int attempCount = 0; attempCount < attemptCounts; attempCount++) {
-            List<Car> endCars = cars.doRace();
-            deliverToViewAboutOneGameResult(endCars);
+            OneGameResultDto resultDto = racingGameService.playOneTimeCarRace(cars);
+            deliverToViewAboutOneGameResult(resultDto);
         }
     }
 
-    private void deliverToViewAboutOneGameResult(List<Car> endCars) {
-        List<String> names = mappingToNames(endCars);
-        List<Long> moveCounts = mappingToMoveCounts(endCars);
-        view.printResult(names, moveCounts);
+    private void deliverToViewAboutOneGameResult(OneGameResultDto resultDto) {
+        view.printResult(resultDto);
     }
 
     private List<String> calculateFinalWinners(RacingCars racingCars) {
