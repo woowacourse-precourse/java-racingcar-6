@@ -1,6 +1,6 @@
 package racingcar.input;
 
-import config.CarConfig;
+import Config.AppConfig;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputHandler {
@@ -11,7 +11,7 @@ public class InputHandler {
 
     public static String[] inputStringToArray() {
         String input = readInput();
-        String[] array = input.split(CarConfig.INPUT_NAME_DELIMITER, CarConfig.INPUT_NAME_QUANTITY_LIMIT);
+        String[] array = input.split(AppConfig.INPUT_NAME_DELIMITER, AppConfig.INPUT_NAME_QUANTITY_LIMIT);
         return array;
     }
 }

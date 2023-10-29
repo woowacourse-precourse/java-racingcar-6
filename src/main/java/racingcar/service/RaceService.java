@@ -1,15 +1,17 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import config.CarConfig;
-import config.RaceConfig;
 import racingcar.model.CarRepository;
 import racingcar.model.car.Car;
 import racingcar.view.View;
 
 public class RaceService {
+    private static final int MOVE_CRITERIA = 4;
+    private static final int MOVE_START_RANGE = 0;
+    private static final int MOVE_END_RANGE = 9;
 
-    public static void runRaceByRound(String input, CarRepository carRepository) {
+
+    public static void raceRepeatByInput(String input, CarRepository carRepository) {
         int round = Integer.parseInt(input);
         int size = carRepository.size();
 
@@ -18,7 +20,7 @@ public class RaceService {
                 Car car = carRepository.getCar(j);
 
                 int randomDistance = pickRandomNumber();
-                boolean canMove = randomDistance >= RaceConfig.MOVABLE_CRITERIA;
+                boolean canMove = randomDistance >= MOVE_CRITERIA;
                 car.move(randomDistance, canMove);
 
                 View.print(car, randomDistance);
@@ -27,7 +29,7 @@ public class RaceService {
         }
     }
     private static int pickRandomNumber() {
-        return Randoms.pickNumberInRange(RaceConfig.MOVE_START_RANGE, RaceConfig.MOVE_END_RANGE);
+        return Randoms.pickNumberInRange(MOVE_START_RANGE, MOVE_END_RANGE);
     }
 
 }
