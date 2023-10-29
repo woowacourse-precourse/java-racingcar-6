@@ -12,6 +12,10 @@ public class RacingController {
     Cars cars = new Cars();
 
     public void startGame() {
+        initCars();
+    }
+
+    public void initCars() {
         InputView.inputCarNames()
                 .forEach(name -> cars.insertCar(new Car(new CarName(name))));
         cars.setTryCount(InputView.inputTryCount());
