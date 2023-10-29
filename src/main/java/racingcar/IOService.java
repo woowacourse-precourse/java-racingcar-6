@@ -27,7 +27,7 @@ public class IOService {
         }
     }
 
-    public static void printCarState(Car car){
+    public void printCarState(Car car){
         StringBuilder stringBuilder = new StringBuilder(car.getName() + " : ");
         final String symbol = "-";
         stringBuilder.append(symbol.repeat(car.getPos()));
@@ -35,7 +35,7 @@ public class IOService {
         System.out.println(stringBuilder.toString());
     }
 
-    public static void printWinners(List<String> winnerNames){
+    public void printWinners(List<String> winnerNames){
         StringBuilder stringBuilder = new StringBuilder("최종 우승자 : " + winnerNames.get(0));
 
         for(int i = 1; i < winnerNames.size(); ++i){

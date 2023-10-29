@@ -125,7 +125,7 @@ class ApplicationTest extends NsTest {
     void 게임_우승자_출력_테스트(){
         List<String> nameList = List.of("youea1", "intell");
 
-        IOService.printWinners(nameList);
+        ioService.printWinners(nameList);
         assertThat(output()).isEqualTo("최종 우승자 : youea1, intell");
     }
 
