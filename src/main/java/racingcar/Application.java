@@ -35,7 +35,12 @@ public class Application {
         for (int repetition = 0; repetition < repetitionNumber; repetition++) {
 
             List<Car> carListBeforeRacing = gameData.getCarList();
-            controller.MoveForward(carListBeforeRacing);
+            for (Car car : carListBeforeRacing) {
+                controller.generateMoveForwardRandomNumber();
+                Integer moveForwardRandomNumber = controller.getMoveForwardRandomNumber();
+                controller.MoveForward(car, moveForwardRandomNumber);
+            }
+
             List<Car> carListAfterMove = gameData.getCarList();
             controller.setRacingProgressStatus(carListAfterMove);
             view.printProgressStatus(carListAfterMove);
