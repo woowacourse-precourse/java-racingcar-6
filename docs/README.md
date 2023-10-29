@@ -16,3 +16,23 @@
 - [ ] 자동차 경주가 종료된 후 우승자를 출력한다.
   - [ ] 우승자는 한 명 이상일 수 있다.
   - [ ] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
+
+패키지 및 클래스 구성
+- view
+    - InputView
+        - getCarNames
+        - getTryCount
+    - OutputView
+        - printResult
+        - printWinners
+- validator
+    - InputValidator
+        - validateCarNames
+        - validateTryCount
+- controller
+    - RacingGameController
+        - play
+- model
+    - Car
+        - getName
+        - move
