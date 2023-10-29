@@ -79,7 +79,7 @@ public class GameStart {
      * 레이스 진행 시도할 횟수의 출력을 보여주는 기능
      */
     public void printInputNumOfTryCnt() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        Utill.print(MyConstans.MSG_INPUT_COUNT_TRY_GAME());
         gameProcess.inputNumberGameAttempts();
     }
 

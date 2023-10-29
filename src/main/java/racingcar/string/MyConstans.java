@@ -12,4 +12,8 @@ public class MyConstans {
     public static String MSG_INPUT_NAME_RACE_CARS() {
         return "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     }
+
+    public static String MSG_INPUT_COUNT_TRY_GAME() {
+        return "시도할 회수는 몇회인가요?";
+    }
 }
