@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
+import racingcar.domain.Racingcar;
 
 public class Application {
     public static void main(String[] args) {
@@ -11,13 +12,13 @@ public class Application {
         // given
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputNames = Console.readLine();
-        ArrayList<Car> carList = new ArrayList<>();
+        ArrayList<Racingcar> racingcarList = new ArrayList<>();
 
         for (String name : inputNames.split(",")) {
             if(name.length() > 5) {
                 throw new IllegalArgumentException();
             }
-            carList.add(new Car(name));
+            racingcarList.add(new Racingcar(name));
         }
 
         System.out.println("시도할 회수는 몇회인가요?");
@@ -34,10 +35,10 @@ public class Application {
         // when
         System.out.println("실행 결과");
         while(inputTimes > 0) {
-            for (Car car : carList) {
-                System.out.print(car.getName());
-                car.checkMovingForward();
-                System.out.println(" : " + "-".repeat(car.getMovingforward()));
+            for (Racingcar racingCar : racingcarList) {
+                System.out.print(racingCar.getName());
+                racingCar.checkMovingForward();
+                System.out.println(" : " + "-".repeat(racingCar.getMovingforward()));
             }
 
             System.out.println();
@@ -47,15 +48,15 @@ public class Application {
         //then
         ArrayList<String> winners = new ArrayList<>();
         int max = 0;
-        for(Car car: carList) {
-            if(car.getMovingforward() == max) {
-                winners.add(car.getName());
+        for(Racingcar racingCar : racingcarList) {
+            if(racingCar.getMovingforward() == max) {
+                winners.add(racingCar.getName());
             }
 
-            if(car.getMovingforward() > max) {
-                max = car.getMovingforward();
+            if(racingCar.getMovingforward() > max) {
+                max = racingCar.getMovingforward();
                 winners.clear();
-                winners.add(car.getName());
+                winners.add(racingCar.getName());
             }
         }
 
