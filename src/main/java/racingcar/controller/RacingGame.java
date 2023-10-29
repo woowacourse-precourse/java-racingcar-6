@@ -6,9 +6,7 @@ import racingcar.utill.RunGame;
 
 public class RacingGame {
     public RacingGame() {
-        InputView inputView = new InputView(InputView
-                .setCarsName(InputView
-                        .inputCar()));
+        InputView inputView = new InputView();
         RunGame runGame = new RunGame();
         runGame.run(inputView);
         OutputView.endGameResult(inputView.getCarMove(), inputView.getCars());
