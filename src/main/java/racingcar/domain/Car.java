@@ -7,7 +7,13 @@ package racingcar.domain;
 * */
 public class Car {
     private String carName;
+    private int location;
     public Car(String carName) {
         this.carName = carName;
+    }
+
+    // 전진 기능
+    public void forward() {
+        this.location++;
     }
 }
