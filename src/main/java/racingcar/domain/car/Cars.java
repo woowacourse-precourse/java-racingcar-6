@@ -15,4 +15,8 @@ public class Cars {
     public List<Car> getCars() {
         return Collections.unmodifiableList(cars);
     }
+
+    public Car findCarByIndex(int index) {
+        return cars.get(index);
+    }
 }
