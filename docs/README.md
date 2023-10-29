@@ -46,7 +46,7 @@
 - ❌ generateDashes 메서드 구현
   - ❌ 입력한 수에 맞춰 '-' 문자열을 반환
   - 
-## ✅ 입력한 수 검증
+## ✅ 입력한 값 검증
 - ✅ validateInputIsNumber  메서드 구현
   - ✅ 입력한 수가 숫자가 맞는지 검증
   - 만족하지 않으면 <mark>IllegalArgumentException</mark> 예외 발생
