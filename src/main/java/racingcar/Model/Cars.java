@@ -47,6 +47,11 @@ public class Cars {
         return icon;
     }
 
+    public List<String> getWinner(){
+        int winerPosition = sortPosition().get(0).getCarPosition();
+        return getWinnerPositionCar(winerPosition);
+    }
+
     private List<Car> sortPosition(){
         return cars.stream()
                 .sorted(Comparator.comparingInt(Car::getCarPosition).reversed())
