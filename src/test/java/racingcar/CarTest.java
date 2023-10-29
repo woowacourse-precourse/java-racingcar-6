@@ -19,4 +19,22 @@ public class CarTest {
         // then
         assertThat(car.getPosition()).isEqualTo(expectedPosition);
     }
+
+    @ParameterizedTest
+    @CsvSource({"4, true", "3, false"})
+    void 우승자_여부_판단_기능_테스트(int iteration, boolean expectedResult) {
+        // given
+        int randomNumber = 5;
+        int maxPosition = 4;
+        Car car = Car.from("test");
+        for (int i=0; i<iteration; i++) {
+            car.moveForward(randomNumber);
+        }
+
+        // when
+        boolean result = car.isWinner(maxPosition);
+
+        // then
+        assertThat(result).isEqualTo(expectedResult);
+    }
 }
