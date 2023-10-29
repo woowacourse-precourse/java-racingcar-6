@@ -1,7 +1,6 @@
 package racingcar.dto;
 
 import java.util.ArrayList;
-import racingcar.dto.CarDto;
 
 public class CarsDto {
     private final ArrayList<CarDto> carArrayList;

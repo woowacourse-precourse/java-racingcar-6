@@ -18,13 +18,13 @@ public class Car {
         return currentPosition;
     }
 
-    public void runTrack(){
-        if(getRandomNumber()>=4){
+    public void runTrack() {
+        if (getRandomNumber() >= 4) {
             currentPosition++;
         }
     }
 
-    private int getRandomNumber(){
+    private int getRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 

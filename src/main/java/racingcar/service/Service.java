@@ -30,7 +30,7 @@ public class Service {
         ArrayList<CarDto> carDtoArrayList = new ArrayList<>();
         garage.stream()
                 .forEach(car -> {
-                    carDtoArrayList.add(new CarDto(car.getName(),car.getCurrentPosition()));
+                    carDtoArrayList.add(new CarDto(car.getName(), car.getCurrentPosition()));
                 });
         CarsDto carsDto = new CarsDto(carDtoArrayList);
 

@@ -11,11 +11,11 @@ public class CarRepository {
     private ArrayList<Car> garage = new ArrayList<>();
 
 
-    private CarRepository(){
+    private CarRepository() {
 
     }
 
-    public static CarRepository getInstance(){
+    public static CarRepository getInstance() {
         return instance;
     }
 
