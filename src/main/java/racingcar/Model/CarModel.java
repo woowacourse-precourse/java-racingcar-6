@@ -21,8 +21,8 @@ public class CarModel {
         return forwardDistance;
     }
 
-    public void setForwardDistance(int forwardDistance) {
-        this.forwardDistance = forwardDistance;
+    public void goForwardDistance() {
+        this.forwardDistance += 1;
     }
 
 }
