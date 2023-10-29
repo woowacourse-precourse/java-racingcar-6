@@ -36,17 +36,16 @@ public class RacingGame {
     }
 
     public void printProgress(){
+
+    }
+
+    public void eachCarPickRandomNumber(int indexJ){
         int randomNumber = player.getRandomNumber();
         String carName = player.getCarName(indexJ);
         if (randomNumber >= 4){
             int updateCarValue = cars.get(carName) + 1;
             cars.put(carName,updateCarValue);
         }
-        System.out.printf("%s : ", carName);
-    }
-
-    public void eachCarPickRandomNumber(int indexJ){
-
     }
 
     public void printMessage(String message){
