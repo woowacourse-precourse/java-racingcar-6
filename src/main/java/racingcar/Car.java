@@ -1,8 +1,8 @@
 package racingcar;
 
 public class Car {
-    final String name;
-    int forwardNumber;
+    static String name;
+    static int forwardNumber;
 
     public Car(final String name, int forwardNumber) {
         this.name = name;
