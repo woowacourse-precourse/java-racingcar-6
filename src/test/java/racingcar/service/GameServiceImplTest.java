@@ -27,6 +27,6 @@ public class GameServiceImplTest {
         gameService.processCarNamesInput(input);
 
         // then
-        assertThat(memoryCarRepository.findAll()).hasSize(3); // 저장된 자동차가 3개여야 함
+        assertThat(memoryCarRepository.findAll()).hasSize(3);
     }
 }
