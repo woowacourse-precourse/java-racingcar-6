@@ -37,7 +37,7 @@ public class GameController {
     }
 
     private List<String> readCarNames() {
-        String inputNames = InputView.readCarNames();
+        String inputNames = InputView.readCarNames().trim();
 
         return Arrays.stream(inputNames.split(CommonSymbol.SYMBOL_COMMA))
                 .collect(Collectors.toList());

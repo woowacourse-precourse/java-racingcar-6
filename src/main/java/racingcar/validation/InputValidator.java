@@ -8,7 +8,7 @@ public class InputValidator {
     }
 
     public static void validateInputNameLength(String name) {
-        if (name.length() > GameConfig.MAXIMUM_CAR_NAME_LENGTH) {
+        if (name.isEmpty() || name.length() > GameConfig.MAXIMUM_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
     }
