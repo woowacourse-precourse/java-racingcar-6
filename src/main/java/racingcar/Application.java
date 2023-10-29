@@ -1,7 +1,9 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Application {
@@ -18,13 +20,13 @@ public class Application {
         game.setGameCount(getGameCount());
     }
 
-    public static Map<String, Integer> getCars(){
-        Map<String, Integer> cars;
+    public static List<Car> getCars(){
+        List<Car> cars;
         try{
-            String[] strings = Console.readLine().split(",");
-            cars = new HashMap<>();
-            for (String string : strings) {
-                cars.put(string, 0);
+            String[] carNames = Console.readLine().split(",");
+            cars = new ArrayList<>();
+            for (String carName : carNames) {
+                cars.add(new Car(carName));
             }
         } catch (Exception e){
             throw new IllegalArgumentException();

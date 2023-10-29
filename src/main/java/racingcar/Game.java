@@ -1,21 +1,19 @@
 package racingcar;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Game {
-    private Map<String, Integer> cars;
+    private List<Car> cars;
     private int gameCount;
 
     public void setGameCount(int cnt){
         gameCount = cnt;
     }
 
-    public void setCar(String car){
-        cars.put(car, 0);
-    }
-
-    public void setCars(Map<String, Integer> cars) {
+    public void setCars(List<Car> cars) {
         this.cars = cars;
     }
 }
+
