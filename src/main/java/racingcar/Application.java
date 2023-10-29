@@ -49,7 +49,6 @@ public class Application {
     private void playGame(int number){
         for(int i =0; i<number; i++){
             MoveCar();
-
         }
     }
     private void MoveCar(){
@@ -69,22 +68,30 @@ public class Application {
         System.out.println();
     }
 
-    private void winner() {
+    private String winnerChoice() {
         int max = 0;
-        String winners ="";
-        for(String carMoves : carStatus.values()){
-          if(max< carMoves.length()){
-              max = carMoves.length();
-          }
-        }
-        for(String carName : carStatus.keySet()){
-          if(carStatus.get(carName).length()==max){
-            if(!winners.isEmpty()){
-               winners += ",";
+        String winners = "";
+
+        for (String carMoves : carStatus.values()) {
+            if (max < carMoves.length()) {
+                max = carMoves.length();
             }
-            winners +=carName;
-          }
         }
+
+        for (String carName : carStatus.keySet()) {
+            if (carStatus.get(carName).length() == max) {
+                if (!winners.isEmpty()) {
+                    winners += ",";
+                }
+                winners += carName;
+            }
+        }
+
+        return winners;
+    }
+
+    private void winner() {
+        String winners = winnerChoice();
         System.out.println("최종 우승자 : " + winners);
     }
 }
