@@ -30,7 +30,7 @@ public class Car {
         distance++;
     }
 
-    public CarDistanceMessage getCarDistanceMessage() {
+    public CarDistanceMessage createCarDistanceMessage() {
         return new CarDistanceMessage(name, distance);
     }
 

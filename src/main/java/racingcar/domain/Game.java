@@ -21,7 +21,7 @@ public class Game {
 
         List<CarDistanceMessage> messages = new ArrayList<>();
         for (Car car : cars) {
-            messages.add(car.getCarDistanceMessage());
+            messages.add(car.createCarDistanceMessage());
         }
 
         return messages;

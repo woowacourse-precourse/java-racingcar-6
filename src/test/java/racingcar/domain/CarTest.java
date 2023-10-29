@@ -27,10 +27,10 @@ public class CarTest {
     void move_이동이_이루어졌는지_확인() {
 
         Car car = new Car("foo");
-        CarDistanceMessage before = car.getCarDistanceMessage();
+        CarDistanceMessage before = car.createCarDistanceMessage();
 
         car.move();
-        CarDistanceMessage after = car.getCarDistanceMessage();
+        CarDistanceMessage after = car.createCarDistanceMessage();
 
         assertAll(
                 () -> assertNotEquals(before.toString(), after.toString()),
@@ -44,7 +44,7 @@ public class CarTest {
 
         Car car = new Car("foo");
 
-        CarDistanceMessage message = car.getCarDistanceMessage();
+        CarDistanceMessage message = car.createCarDistanceMessage();
         CarDistanceMessage expect = new CarDistanceMessage("foo", 0);
 
         assertEquals(message.toString(), expect.toString());
