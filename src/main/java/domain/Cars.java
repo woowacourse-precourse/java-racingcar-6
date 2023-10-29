@@ -1,8 +1,11 @@
 package domain;
 
 import dto.RoundResultDto;
+import dto.WinnerDto;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
 
@@ -21,4 +24,10 @@ public class Cars {
         }
         return carInfos;
     }
+
+    public List<Car> getAllCars() {
+        return Collections.unmodifiableList(cars);
+    }
+
+
 }
