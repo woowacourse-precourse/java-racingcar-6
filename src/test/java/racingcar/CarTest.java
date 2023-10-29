@@ -19,4 +19,33 @@ public class CarTest {
         assertThat(car.getName()).isEqualTo("car1");
         assertThat(car.getMove()).isEqualTo(0);
     }
+
+    @Test
+    void 전진() {
+
+        //given
+        String name = "car";
+        Car car = new Car(name);
+
+        //when
+        car.forward();
+
+        //then
+        assertThat(car.getMove()).isEqualTo(1);
+    }
+
+    @Test
+    void 전진_2번() {
+        //given
+        String name = "car";
+        Car car = new Car(name);
+
+        //when
+        for (int i = 0; i < 2; i++) {
+            car.forward();
+        }
+
+        //then
+        assertThat(car.getMove()).isEqualTo(2);
+    }
 }
