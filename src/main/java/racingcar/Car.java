@@ -8,10 +8,8 @@ public class Car {
         this.name = name;
     }
 
-    void forwardCar(boolean isBiggerThanFour) {
-        if(isBiggerThanFour) {
-            forwardCount++;
-        }
+    void forward(int step) {
+        forwardCount+= step;
     }
 
 }
