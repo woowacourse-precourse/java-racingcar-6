@@ -2,8 +2,7 @@ package racingcar;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CarTest {
     @Test
@@ -49,7 +48,16 @@ public class CarTest {
     }
 
     @Test
-    void isMovablePower_테서트() {
+    void isMovablePower_true_반환_테스트() {
+        String name = "red";
+        int power = 5;
+        Car car = new Car(name);
+
+        assertTrue(car.isMovablePower(power));
+    }
+
+    @Test
+    void isMovablePower_false_반환_테스트() {
         String name = "red";
         int power = 3;
         Car car = new Car(name);
