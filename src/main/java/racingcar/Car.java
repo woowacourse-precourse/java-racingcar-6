@@ -1,7 +1,7 @@
 package racingcar;
 
 public class Car {
-    private String name;
+    private final String name;
     private int forwardCount = 0;
     private static final String FORWARD_MESSAGE = "-";
 
@@ -20,5 +20,13 @@ public class Car {
             printMessage.append(FORWARD_MESSAGE);
         }
         System.out.println(printMessage);
+    }
+
+    String getName() {
+        return name;
+    }
+
+    int getForwardCount() {
+        return forwardCount;
     }
 }
