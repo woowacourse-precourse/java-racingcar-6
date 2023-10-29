@@ -49,17 +49,18 @@ public class Cars {
         return !(2 <= cars.size() && cars.size() <= 10);
     }
 
-    public int getMaxForwardCountOfCars() {
+    public List<Car> getCarsWithMaxForwardCount() {
+        int maxForwardCount = getMaxForwardCountOfCars();
+        return cars.stream()
+                .filter(car -> car.isForwardCountSameAs(maxForwardCount))
+                .toList();
+    }
+
+    private int getMaxForwardCountOfCars() {
         return cars.stream()
                 .mapToInt(Car::getForwardCount)
                 .max()
                 .orElseThrow();
-    }
-
-    public List<Car> getCarsWithMaxForwardCount(int maxForwardCount) {
-        return cars.stream()
-                .filter(car -> car.isForwardCountSameAs(maxForwardCount))
-                .toList();
     }
 
     public MoveResult moveForward(RandomNumberGenerator numberGenerator) {
