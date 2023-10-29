@@ -28,6 +28,7 @@ public class OutputView {
             }
             System.out.println(stringBuilder);
         }
+        System.out.println();
     }
 
     public static void printWinner(List<String> winners) {
