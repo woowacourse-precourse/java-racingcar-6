@@ -33,4 +33,8 @@ public class Car {
         return position;
     }
 
+    public void printPosition() {
+        System.out.println(name + " : " + position); // 'this' 생략
+    }
+
 }
