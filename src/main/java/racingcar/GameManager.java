@@ -5,7 +5,7 @@ import racingcar.view.Input;
 import racingcar.view.Output;
 
 public class GameManager {
-    GameElements gameElements = new GameElements();
+    GameElements gameElements = GameElements.INSTANCE;
     Input input = new Input();
 
 
@@ -18,8 +18,8 @@ public class GameManager {
         gameElements.tryCountSetting(input.getTryCount());
     }
 
-    private void insertCarMap(){
-        for(String carName : gameElements.getCarNameList()){
+    private void insertCarMap() {
+        for (String carName : gameElements.getCarNameList()) {
             gameElements.getCarMap().put(carName, 0);
         }
     }

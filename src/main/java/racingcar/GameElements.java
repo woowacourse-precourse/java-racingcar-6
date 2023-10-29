@@ -5,7 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class GameElements {
+public enum GameElements { // 싱글톤 패턴 말고 다른 방법 생각, record도 생각
+    INSTANCE;
+
     private List<String> carNameList = new ArrayList<>();
     private int tryCount = 0;
 
@@ -24,10 +26,11 @@ public class GameElements {
     }
 
     public void carNamesSetting(List<String> carNameListByUser) {
-        carNameList = carNameListByUser;
+        carNameList.addAll(carNameListByUser);
     }
 
     public void tryCountSetting(int tryCountByUser) {
         tryCount = tryCountByUser;
     }
+
 }
