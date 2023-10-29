@@ -17,7 +17,7 @@ public class OutputView {
         System.out.print("최종 우승자 : " + winners);
     }
 
-    public void printEnterLine(){
+    public void printEnterLine() {
         System.out.println();
     }
 }
