@@ -66,5 +66,10 @@ public class RacingOutput {
         return winnerList;
     }
 
-
+    private void putResultOfWinner(List<String> winnerNames) throws IOException
+    {
+        bw.write("최종 우승자 : ");
+        String winners = String.join(", ", winnerNames);
+        bw.write(winners);
+    }
 }
