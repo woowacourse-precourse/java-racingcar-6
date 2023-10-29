@@ -15,7 +15,7 @@ pobi,woni,jun
 <br>
 
 ##### 🚫 예외 처리
-- [] 경주에 참가하는 자동차가 1대일 경우 ``IllegalArgumentException``
+- [x] 경주에 참가하는 자동차가 1대일 경우 ``IllegalArgumentException``
 - [x] 구분자를 쉼표(,)가 아닌 다른 값을 사용 했을 경우 (공백도 포함) ``IllegalArgumentException``
 - [x] 쉼표(,)로 구분된 이름이 5글자를 초과할 경우 ``IllegalArgumentException``
 - [x] 아무런 값을 입력하지 않았을 경우 ``IllegalArgumentException``
@@ -24,8 +24,7 @@ pobi,woni,jun
 - [x] 경주를 시도할 횟수의 첫 번째 수에 0이 포함되어 있을 경우 ``IllegalArgumentException``
 - [x] 경주를 시도할 횟수를 숫자가 아닌 값을 이력했을 경우 ``IllegalArgumentException``
 - [x] 자동차 이름 중간에 공백은 허용하되``ex:) god jun,po ten``, 영대소문자, 숫자, 한글이 아닌 값을 입력했을 경우, 한다.``IllegalArgumentException``
-- [x] 자동차 이름을 공백으로 입력 했을 경우 
-  - [x] 
+- [x] 자동차 이름을 공백으로 입력 했을 경우  ``IllegalArgumentException``
   - [x] 자동차 이름의 첫 글자는 공백을 허용하지 않는다.
   - [x] 자동차 이름의 마지막 글자는 공백을 허용하지 않는다.
 ---

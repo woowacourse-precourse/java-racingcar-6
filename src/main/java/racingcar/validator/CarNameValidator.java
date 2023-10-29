@@ -37,6 +37,7 @@ public class CarNameValidator {
 
     private static void validateCarName(String input) {
         String[] carNames = input.split(COMMA);
+        validateParticipatingCarCount(carNames.length);
         Set<String> nameSet = new HashSet<>();
         for (String carName : carNames) {
             validateCarNameCond(carName);
@@ -47,6 +48,12 @@ public class CarNameValidator {
             nameSet.add(carName);
         }
         validateDuplication(nameSet.size(), carNames.length);
+    }
+
+    private static void validateParticipatingCarCount(int carCount) {
+        if (carCount == 1) {
+            throw new IllegalArgumentException(ErrorMessage.PARTICIPATION_CAR_COUNT);
+        }
     }
 
     private static void validateCarNameCond(String carName) {
