@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import racingcar.util.Parser;
+
 import racingcar.util.Validator;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
@@ -8,19 +8,20 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 public class InputView {
 
     private final Validator validator = new Validator();
-    private final Parser parser = new Parser();
 
 
-    private void inputTrialNumber(){
+    public String inputTrialNumber(){
         OutputView.requestTrialNumberMessage();
         String userInput = readLine();
-        validator.isValidTrialNumber(userInput);
+        return userInput;
+        //validator.isValidTrialNumber(userInput);
     }
 
-    private void inputCarName(){
+    public String inputCarName(){
         OutputView.requestCarNameMessage();
         String userInput = readLine();
-        validator.isValidCarName(userInput);
+        return userInput;
+        //validator.isValidCarName(userInput);
     }
 
 
