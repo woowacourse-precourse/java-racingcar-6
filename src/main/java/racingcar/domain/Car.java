@@ -27,18 +27,18 @@ public class Car {
         this.position = position;
     }
 
-    public void move(int randomNum){
-        if(randomNum>=4){
+    public void move(int randomNum) {
+        if (randomNum >= 4) {
             this.position++;
         }
     }
 
-    public String showCarPosition(){
+    public String showCarPosition() {
         StringBuilder trace = new StringBuilder();
-        for(int i = 0; i < this.position; i++){
+        for (int i = 0; i < this.position; i++) {
             trace.append("-");
         }
-        return this.name+" : "+trace.toString();
+        return this.name + " : " + trace.toString();
     }
 
 
