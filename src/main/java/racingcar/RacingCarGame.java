@@ -51,7 +51,7 @@ public class RacingCarGame implements Game {
 
     public void setPlayers(){
         List<String> players = racingCarInputReader.inputPlayers();
-        this.players = this.racingCarFormatter.listStringToListRacingCarPlayer(players);
+        this.players = this.racingCarFormatter.formatListStringToListRacingCarPlayer(players);
     }
 
     public void setTryCount(){
@@ -89,7 +89,7 @@ public class RacingCarGame implements Game {
 
     public void printWinners(){
         System.out.print("최종 우승자 : ");
-        System.out.println(this.racingCarFormatter.racingCarPlayersToString(this.winners));
+        System.out.println(this.racingCarFormatter.formatListRacingCarPlayersToString(this.winners));
         System.out.println();
     }
 }

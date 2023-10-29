@@ -11,23 +11,23 @@ public class RacingCarFormatter {
         this.converter = new RacingCarConverter();
     }
 
-    public String racingCarPlayerToString(RacingCarPlayer player) {
+    public String formatRacingCarPlayerToString(RacingCarPlayer player) {
         return this.converter.toString(player);
     }
 
-    public RacingCarPlayer racingCarPlayerFromString(String string) {
+    public RacingCarPlayer formatStringToRacingCarPlayer(String string) {
         return this.converter.fromString(string);
     }
 
-    public List<String> racingCarPlayersToListString(List<RacingCarPlayer> players) {
-        return players.stream().map(this::racingCarPlayerToString).collect(Collectors.toList());
+    public List<String> formatListRacingCarPlayersToListString(List<RacingCarPlayer> players) {
+        return players.stream().map(this::formatRacingCarPlayerToString).collect(Collectors.toList());
     }
 
-    public String racingCarPlayersToString(List<RacingCarPlayer> players) {
-        return String.join(", ", this.racingCarPlayersToListString(players));
+    public String formatListRacingCarPlayersToString(List<RacingCarPlayer> players) {
+        return String.join(", ", this.formatListRacingCarPlayersToListString(players));
     }
 
-    public List<RacingCarPlayer> listStringToListRacingCarPlayer(List<String> players){
-        return players.stream().map(this::racingCarPlayerFromString).collect(Collectors.toList());
+    public List<RacingCarPlayer> formatListStringToListRacingCarPlayer(List<String> players){
+        return players.stream().map(this::formatStringToRacingCarPlayer).collect(Collectors.toList());
     }
 }
