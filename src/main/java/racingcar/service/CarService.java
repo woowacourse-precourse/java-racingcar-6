@@ -32,4 +32,13 @@ public class CarService {
             car.updateScore();
         }
     }
+
+    public StringBuilder createRoundRaceResults() {
+        StringBuilder roundRaceResults = new StringBuilder();
+        List<Car> cars = carRepository.getCars();
+        for (Car car : cars) {
+            roundRaceResults.append(car.createRoundRaceResult()).append("\n");
+        }
+        return roundRaceResults;
+    }
 }
