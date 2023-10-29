@@ -10,23 +10,17 @@ public class InputTest {
 
     @Test
     void 자동차_이름_정상_입력() {
-        assertThatCode(() -> {
-            new Cars("pobi,woni,jun");
-        }).doesNotThrowAnyException();
+        assertThatCode(() -> new Cars("pobi,woni,jun")).doesNotThrowAnyException();
     }
 
     @Test
     void 자동차_이름_5자리_이상() {
-        assertThatThrownBy(() -> {
-            new Cars("pobi,woni,junnnn");
-        }).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> new Cars("pobi,woni,junnnn")).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void 사용자가_자동차_이름을_입력하지_않았을_때() {
-        assertThatThrownBy(() -> {
-            new Cars("");
-        }).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> new Cars("")).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -40,15 +34,11 @@ public class InputTest {
 
     @Test
     void 차수를_입력하지_않았을_때() {
-        assertThatThrownBy(() -> {
-            validator.roundNonInputValidate("");
-        }).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> validator.roundNonInputValidate("")).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void 차수를_입력시_숫자가_아닌_다른_문자를_입력했을_때() {
-        assertThatThrownBy(() -> {
-            validator.roundRegExValidate("abc");
-        }).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> validator.roundRegExValidate("abc")).isInstanceOf(IllegalArgumentException.class);
     }
 }
