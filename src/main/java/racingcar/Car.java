@@ -10,6 +10,14 @@ public class Car {
         this.name = name;
     }
 
+    public int getGoCount() {
+        return goCount;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public void goOrStop() {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
             goCount++;
