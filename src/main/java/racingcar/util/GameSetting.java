@@ -7,6 +7,7 @@ import racingcar.entity.Participant;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GameSetting {
     private final UserInput userInput;
@@ -20,10 +21,9 @@ public class GameSetting {
     }
 
     public List<Participant> makeParticipants() {
-        List<Participant> participants = new ArrayList<>();
-        for(String name : Parser.splitName(userInput.getUserInputNames(), ",")) {
-            participants.add(new Participant(name, 0));
-        }
-        return participants;
+        return Parser.splitName(userInput.getUserInputNames(), ",")
+                .stream()
+                .map(s -> new Participant(s, 0))
+                .collect(Collectors.toList());
     }
 }
