@@ -6,7 +6,6 @@ import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static racingcar.handler.ErrorHandler.INVALID_INPUT;
-import static racingcar.handler.ErrorHandler.INVALID_NUMBER;
 
 public class ConsoleInput implements InputHandler {
 
