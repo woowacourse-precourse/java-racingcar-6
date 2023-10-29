@@ -8,7 +8,6 @@ import java.util.PriorityQueue;
 public class Cars {
 
     private CarList<Car> cars;
-    private PriorityQueue<Car> carMoveCountPQ;
 
     public Cars(CarList<Car> cars){
         this.cars = cars;
@@ -18,11 +17,4 @@ public class Cars {
         return cars;
     }
 
-    public void setCarMoveCountPQ(PriorityQueue<Car> carMoveCountPQ){
-        this.carMoveCountPQ = carMoveCountPQ;
-    }
-
-    public PriorityQueue<Car> getCarMoveCountPQ(){
-        return carMoveCountPQ;
-    }
 }
