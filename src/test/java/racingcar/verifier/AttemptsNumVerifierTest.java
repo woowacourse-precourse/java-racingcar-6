@@ -28,4 +28,11 @@ class AttemptsNumVerifierTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ExceptionMessage.NOT_NUMERIC);
     }
+
+    @Test
+    void 유효한범위의_숫자가_아닌_입력이_아닌경우() {
+        Assertions.assertThatThrownBy(()->attemptsNumVerifier.check("-1"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ExceptionMessage.INVALID_NUM_OF_ATTEMPTS);
+    }
 }
