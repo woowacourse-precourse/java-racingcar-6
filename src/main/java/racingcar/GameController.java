@@ -20,4 +20,9 @@ public class GameController {
         List<String> carNames = GameUtil.splitByCommas(carNamesInput);
         return new RacingCars(carNames);
     }
+
+    private long chooseAttemptCounts() {
+        view.printAttemptCountsQuestionMessage();
+        return input.inputAttemptCounts();
+    }
 }
