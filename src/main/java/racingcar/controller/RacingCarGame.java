@@ -14,17 +14,25 @@ public class RacingCarGame {
     }
 
     public void run() {
-        gameStart();
+        initRacingGame();
+        racingGamePlay();
+        displayWinner();
     }
 
-    private void gameStart() {
+    private void initRacingGame() {
         String[] carNameArr = splitCarNames(InputView.carNames());
         Validator.inputCarNames(carNameArr);
         racingGameService.init(carNameArr);
+    }
+
+    private void racingGamePlay() {
         String attemptCount = InputView.askForAttemptCount();
         Validator.isInteger(attemptCount);
         int count = Integer.parseInt(attemptCount);
         racingGameService.playGame(count);
+    }
+
+    private void displayWinner() {
         String winningCarNames = racingGameService.getWinningCar();
         OutputView.printWinningCar(winningCarNames);
     }
