@@ -1,5 +1,11 @@
 package view;
+
 import message.ViewMessage;
+
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class OutputView {
     public void printName() {
@@ -10,7 +16,14 @@ public class OutputView {
         System.out.println(ViewMessage.PRINT_TRY_NUMBER);
     }
 
-    public void printGameResult() {
-        System.out.println(ViewMessage.PRINT_GAME_RESULT);
+    public void printRunGame() {
+        System.out.println(ViewMessage.PRINT_RUN_GAME);
     }
+
+    public void printWinner() { System.out.println(ViewMessage.PRINT_WINNER);}
+
+    public void printGameResult(String name, StringBuilder moveForwardCount) {
+        System.out.printf("%s : %s%n", name , moveForwardCount);
+    }
+
 }
