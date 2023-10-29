@@ -3,12 +3,14 @@ package racingcar.controller;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.domain.CarManager;
 import racingcar.validator.Validator;
 import racingcar.view.CarRaceGameView;
 
 public class CarRaceGame {
     private static CarRaceGameView carRaceGameView = CarRaceGameView.getCarRaceGameView();
-    private static Car car;
+    private CarManager carManager;
+    private List<Car> carImplList;
 
     public CarRaceGame() {}
 
@@ -17,33 +19,33 @@ public class CarRaceGame {
     }
 
     public void startGame() {
-        car = Car.getCar();
-
+        carManager = CarManager.create();
         String carNames = carRaceGameView.startGameView();
-        carNameSetting(carNames);
+        createCar(carNames);
+
+        String attemptNumberString = carRaceGameView.attemptNumberView();
     }
 
-    public void carNameSetting(String carNames) {
+    public void createCar(String carNames) {
         List<String> carNameList = CarNamesToList(carNames);
-        car.setCarQuantity(carNameList.size());
-        addCarNameToCar(carNameList);
+        carManager.setCarQuantity(carNameList.size());
 
-    }
-
-    private List<String> CarNamesToList(String carNames) {
-        Validator.carNamesComma(carNames);
-        List<String> cartest = Arrays.stream(carNames.split(",")).toList();
-        return Arrays.stream(carNames.split(",")).toList();
-    }
-
-    private void addCarNameToCar(List<String> carNameList) {
-        for (String carName:carNameList) {
+        for (String carName : carNameList) {
             Validator.carNameStringLength(carName);
             Validator.isNull(carName);
-            car.addCarItem(carName);
+            carImplList.add(new Car(carName));
         }
     }
 
+    private List<String> CarNamesToList(String carNames) {
+
+        return Arrays.stream(carNames.split(",")).toList();
+    }
+
+
+    private void setUpAttemptNumber(String attemptNumberString) {
+        carManager.setAttemptNumber(Integer.parseInt(attemptNumberString));
+    }
 
 
 
