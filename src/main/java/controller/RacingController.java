@@ -1,5 +1,6 @@
 package controller;
 
+import camp.nextstep.edu.missionutils.Console;
 import model.Cars;
 import view.InputView;
 import view.OutputView;
@@ -18,5 +19,6 @@ public class RacingController {
             OutputView.displayCurrentRacingStatus(cars);
         }
         OutputView.displayFinalWinner(cars);
+        Console.close();
     }
 }
