@@ -13,11 +13,11 @@ public class Controller {
     private int numOfAttempt;
     private final List<Car> groupOfCar = new ArrayList<Car>();
     public void run() { //프로그램의 시작
-        createCar(parseCarName(getCarNameByInput()));
-        startRace();
+        createCar();
+        startCarRace();
     }
 
-    private void startRace() {
+    private void startCarRace() {
         setNumOfAttemptByInput();
         OutputView.printResultMessage();
 
@@ -29,7 +29,7 @@ public class Controller {
         }
     }
 
-    private void canCarMove() {
+    private void CarMove() {
         for(int i=0; i<this.groupOfCar.size();i++) {
             this.groupOfCar.get(i).move();
         }
