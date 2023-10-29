@@ -27,7 +27,15 @@ public class User {
     }
 
     public void setPlayNum() {
-        
+        System.out.println("시도할 횟수는 몇번인가요?");
+        String getplayNum = Console.readLine();
+        for (int i = 0; i < getplayNum.length(); i++) {
+            char c = getplayNum.charAt(i);
+            if (!Character.isDigit(c)) {
+                throw new IllegalArgumentException("정수만 입력하세요.");
+            }
+        }
+        playnum = Integer.parseInt(getplayNum);
     }
 
     public Car[] getCarList() {
