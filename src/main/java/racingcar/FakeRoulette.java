@@ -1,6 +1,6 @@
 package racingcar;
 
-final class FakeRoulette extends Roulette {
+final class FakeRoulette implements Roulette {
 
     private final int fixedNumber;
 
@@ -9,7 +9,7 @@ final class FakeRoulette extends Roulette {
     }
 
     @Override
-    int spin() {
+    public int spin() {
         return fixedNumber;
     }
 }
