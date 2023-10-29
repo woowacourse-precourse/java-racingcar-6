@@ -14,7 +14,13 @@ public class Application {
         Map<String, Integer> carMap = getCarMap(carList);
 
         String tryCountString = getInput("시도할 회수는 몇회인가요?");
-        int tryCount = Integer.parseInt(tryCountString);
+
+        int tryCount = 0;
+        try {
+            tryCount = Integer.parseInt(tryCountString);
+        } catch (Exception e) {
+            throw new IllegalArgumentException();
+        }
 
         System.out.println("실행 결과");
         System.out.println();

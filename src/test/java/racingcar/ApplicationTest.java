@@ -28,6 +28,22 @@ class ApplicationTest extends NsTest {
                 .isInstanceOf(IllegalArgumentException.class));
     }
 
+    @Test
+    void 이동_횟수에_대한_예외처리() {
+        assertSimpleTest(() -> assertThatThrownBy(() -> runException("pobi,java", "a"))
+                .isInstanceOf(IllegalArgumentException.class));
+    }
+
+    @Test
+    void 우승자가_여럿일_경우_쉼표로_구분() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : -", "최종 우승자 : pobi, woni");
+                },
+                4, 4);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[] {});
