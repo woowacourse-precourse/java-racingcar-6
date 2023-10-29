@@ -2,8 +2,8 @@ package racingcar.controller;
 
 import racingcar.dto.AttemptCount;
 import racingcar.dto.CarsState;
-import racingcar.dto.WinnersResult;
 import racingcar.model.Cars;
+import racingcar.model.Winners;
 import racingcar.service.GamePlayingService;
 import racingcar.view.View;
 
@@ -56,7 +56,7 @@ public class Controller {
         view.printFinalWinnerMessage(getWinners(cars));
     }
 
-    private WinnersResult getWinners(Cars cars) {
+    private Winners getWinners(Cars cars) {
         return gamePlayingService.getWinners(cars);
     }
 }

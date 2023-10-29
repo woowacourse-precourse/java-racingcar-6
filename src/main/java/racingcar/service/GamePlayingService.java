@@ -1,13 +1,11 @@
 package racingcar.service;
 
 import java.util.List;
-import racingcar.constants.Constants;
 import racingcar.dto.AttemptCount;
-import racingcar.dto.CarsDto;
 import racingcar.dto.CarsState;
-import racingcar.dto.WinnersResult;
 import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.model.Winners;
 import racingcar.validator.AttemptCountValidator;
 
 public class GamePlayingService {
@@ -29,33 +27,11 @@ public class GamePlayingService {
         return cars.getCarsState();
     }
 
-    public WinnersResult getWinners(Cars cars) {
-        CarsDto winners = cars.findWinners();
-        return toWinners(winners.cars());
+    public Winners getWinners(Cars cars) {
+        return createWinners(cars.findWinningCars());
     }
 
-    private WinnersResult toWinners(List<Car> winners) {
-        StringBuilder result = new StringBuilder();
-
-        winners.stream().map(Car::getNameValue)
-                .forEach((name) -> addResult(result, name));
-
-        trim(result);
-        return new WinnersResult(result.toString());
-    }
-
-    private void addResult(StringBuilder result, String name) {
-        result.append(Constants.WHITESPACE);
-        result.append(name);
-        result.append(Constants.COMMA);
-    }
-
-    private void trim(StringBuilder result) {
-        result.deleteCharAt(Constants.RESULT_FIRST_INDEX);
-        result.deleteCharAt(getLastIndexOfResult(result));
-    }
-
-    private int getLastIndexOfResult(StringBuilder result) {
-        return result.length() - 1;
+    private Winners createWinners(List<Car> winnersCar) {
+        return new Winners(winnersCar);
     }
 }

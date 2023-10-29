@@ -3,7 +3,6 @@ package racingcar.model;
 import java.util.Comparator;
 import java.util.List;
 import racingcar.dto.CarState;
-import racingcar.dto.CarsDto;
 import racingcar.dto.CarsState;
 import racingcar.validator.CarsValidator;
 
@@ -46,10 +45,6 @@ public class Cars {
                 .toList();
 
         return new CarsState(carsState);
-    }
-
-    public CarsDto findWinners() {
-        return new CarsDto(findWinningCars());
     }
 
     public List<Car> findWinningCars() {

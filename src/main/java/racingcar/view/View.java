@@ -5,7 +5,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 import racingcar.constants.Message;
 import racingcar.dto.CarState;
 import racingcar.dto.CarsState;
-import racingcar.dto.WinnersResult;
+import racingcar.model.Winners;
 
 public class View {
     public View() {
@@ -38,8 +38,8 @@ public class View {
         System.out.println(Message.ATTEMPTRESULT.message());
     }
 
-    public void printFinalWinnerMessage(WinnersResult winnersResult) {
+    public void printFinalWinnerMessage(Winners winnersResult) {
         System.out.println();
-        System.out.print(Message.WINNERS.message() + winnersResult.winners());
+        System.out.print(Message.WINNERS.message() + winnersResult.getWinners());
     }
 }
