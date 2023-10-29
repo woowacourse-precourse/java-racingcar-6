@@ -30,13 +30,30 @@ public class CarsManage {
         //전체 결과 출력 자리
     }
 
-    public void addStraight(){
+    public void addStraight() {
         int n;
-        for (Car car:cars) {
-            n = Randoms.pickNumberInRange(0,9);
-            if(n>=4){
+        for (Car car : cars) {
+            n = Randoms.pickNumberInRange(0, 9);
+            if (n >= 4) {
                 car.addStraight();
             }
         }
+    }
+    public List<String> chooseWinner(){
+        List<String> winner = new ArrayList<>();
+        int max = -1;
+        for (Car car: cars) {
+            if(max<car.getStraight()){
+                max = car.getStraight();
+            }
+        }
+
+        for (Car car:cars) {
+            if(max==car.getStraight()){
+                winner.add(car.getName());
+            }
+        }
+        return winner;
+        //winner 출력 자리
     }
 }
