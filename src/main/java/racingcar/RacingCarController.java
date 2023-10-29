@@ -9,11 +9,11 @@ public class RacingCarController {
     }
 
     private void gameStart() {
-        Map<String, String> carNamesMap = InputView.CarNames();
+        Map<String, String> racingCars = InputView.CarNames();
         int attemptNumber = InputView.AttemptNumber();
         OutputView.printEnter();
         OutputView.printGameResult();
-        GameProgress.racing(carNamesMap, attemptNumber);
-        GameWinner.getWinner(carNamesMap);
+        GameProgress.racing(racingCars, attemptNumber);
+        GameResult.getWinner(racingCars);
     }
 }
