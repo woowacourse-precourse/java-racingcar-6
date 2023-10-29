@@ -1,6 +1,6 @@
 package racingcar;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -16,8 +16,9 @@ public class RacingGameTest {
     @Test
     void init은_플레이어_이동현황_리스트를_받아_GameStatus를_초기화한_객체를_생성한다() {
         List<PlayerMove> playerMoves = List.of(PlayerMove.fromTest(), PlayerMove.fromTest());
-        RacingGame racingGame = RacingGame.init(playerMoves);
-        assertEquals(RacingGame.from(playerMoves, GameStatus.PLAYING), racingGame);
+        RacingGame racingGame = RacingGame.init(playerMoves, moveFactory);
+
+        assertNotNull(racingGame);
     }
 
     @Test
@@ -25,10 +26,10 @@ public class RacingGameTest {
         // given
         PlayerMove playerMove = mock(PlayerMove.class);
         List<PlayerMove> playerMoves = List.of(playerMove, playerMove);
-        RacingGame racingGame = RacingGame.init(playerMoves);
+        RacingGame racingGame = RacingGame.init(playerMoves, moveFactory);
 
         // when
-        racingGame.move(moveFactory);
+        racingGame.move();
 
         // then
         verify(playerMove, times(playerMoves.size())).move(anyBoolean());

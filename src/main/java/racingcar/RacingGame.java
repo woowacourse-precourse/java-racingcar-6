@@ -9,21 +9,19 @@ public class RacingGame {
 
     private final List<PlayerMove> playerMoves;
     private final GameStatus gameStatus;
+    private final MoveFactory moveFactory;
 
-    public RacingGame(List<PlayerMove> playerMoves, GameStatus gameStatus) {
+    public RacingGame(List<PlayerMove> playerMoves, GameStatus gameStatus, MoveFactory moveFactory) {
         this.playerMoves = playerMoves;
         this.gameStatus = gameStatus;
+        this.moveFactory = moveFactory;
     }
 
-    public static RacingGame init(List<PlayerMove> playerMoves) {
-        return new RacingGame(playerMoves, PLAYING);
+    public static RacingGame init(List<PlayerMove> playerMoves, MoveFactory moveFactory) {
+        return new RacingGame(playerMoves, PLAYING, moveFactory);
     }
 
-    public static RacingGame from(List<PlayerMove> playerMoves, GameStatus gameStatus) {
-        return new RacingGame(playerMoves, gameStatus);
-    }
-
-    public void move(MoveFactory moveFactory) {
+    public void move() {
         for (PlayerMove playerMove : playerMoves) {
             playerMove.move(moveFactory.isMove());
         }
