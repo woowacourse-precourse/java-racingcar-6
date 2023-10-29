@@ -66,7 +66,7 @@ class ParticipantsTest {
         Participants participants = new Participants(List.of(car1, car2, car3));
         participants.raceNTimes(10);
 
-        List<Car> winners = participants.getWinners();
-        assertThat(winners).contains(car1, car3).doesNotContain(car2);
+        List<String> winners = participants.getWinners();
+        assertThat(winners).contains("car1", "car3").doesNotContain("car2");
     }
 }

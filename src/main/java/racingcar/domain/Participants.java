@@ -38,12 +38,13 @@ public class Participants {
         raceHistory.record(cars);
     }
 
-    public List<Car> getWinners() {
+    public List<String> getWinners() {
         List<Car> candidates = new ArrayList<>(cars);
         Collections.sort(candidates);
         int first = candidates.get(0).getPosition();
         return candidates.stream()
                 .filter(car -> car.getPosition() == first)
+                .map(Car::getName)
                 .toList();
     }
 }
