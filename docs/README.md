@@ -29,7 +29,8 @@
 
 #### 게임 서비스 역할 (RacingGameService)
 
-- [ ] RacingCars에게 경주를 요청하여 결과 DTO를 반환하는 기능
+- [ ] 경주 1회를 진행하는 기능
+    - RacingCars에게 경주를 요청하여 결과 DTO를 반환한다
 
 ##
 
