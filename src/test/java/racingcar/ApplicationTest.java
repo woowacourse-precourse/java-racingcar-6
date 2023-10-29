@@ -65,6 +65,13 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 자동차_이동여부_판단() {
+        GameProcess game = new GameProcess();
+        int input = 4;
+        assertThat(game.judgeMoveOrNot(input)).isEqualTo(true);
+    }
+
+    @Test
     void 자동차_이동() {
         GameProcess game = new GameProcess();
         InformationOfCar car = new InformationOfCar("sanni", "");
