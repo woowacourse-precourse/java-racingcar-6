@@ -7,7 +7,7 @@
 * 이동을 시도할 횟수 입력 받기 (RacingSetting Class) ✅
 
 ### 출력
-* 이동 후 실행 결과 출력 (Car Class, Information Class) ❌
+* 이동 후 실행 결과 출력 (Car Class, Information Class) ✅
 * 최종 우승자 출력 (RacingCar Class) ❌
 * 입력받을때 안내메시지 출력 (RacingSetting Class) ✅
 ### 구현
