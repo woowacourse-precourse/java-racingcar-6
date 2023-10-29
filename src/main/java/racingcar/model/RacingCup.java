@@ -8,12 +8,22 @@ public class RacingCup {
     private int round;
     private List<Player> playerList;
     private List<String> winners;
+    private int first;
 
     public RacingCup(int FINAL_ROUND) {
         this.FINAL_ROUND = FINAL_ROUND;
         this.round = 0;
         this.playerList = new ArrayList<>();
         this.winners = new ArrayList<>();
+        this.first = 0;
+    }
+
+    public int getFirst() {
+        return first;
+    }
+
+    public void setFirst(int first) {
+        this.first = first;
     }
 
     public int getFINAL_ROUND() {
