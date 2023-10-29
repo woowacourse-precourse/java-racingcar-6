@@ -29,7 +29,6 @@ public class RacingGameController {
         round = InputController.scanRound();
 
         playAllRounds();
-        OutputController.printWinnersMessage(pickWinners());
     }
 
     private void playAllRounds() {
@@ -37,6 +36,7 @@ public class RacingGameController {
         while(!round.Over()) {
             playOneRound();
         }
+        OutputController.printWinnersMessage(pickWinners());
     }
 
     private void playOneRound() {
