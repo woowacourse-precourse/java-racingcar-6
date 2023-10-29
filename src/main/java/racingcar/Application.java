@@ -20,8 +20,10 @@ public class Application {
         List<String> carNameList = parseCarNamesToList(carNames);
         List<Integer> moveCountList = new ArrayList<>(Collections.nCopies(carNameList.size(), 0));
 
+        System.out.println("실행 결과");
         for (int i = 0; i < trialTimes; i++) {
             moveForward(moveCountList);
+            printCurrentPosition(carNameList, moveCountList);
         }
 
     }
@@ -57,5 +59,12 @@ public class Application {
     private static void move(List<Integer> moveCountList, int i) {
         Integer currentValue = moveCountList.get(i);
         moveCountList.set(i, currentValue + 1);
+    }
+
+    private static void printCurrentPosition(List<String> carNameList, List<Integer> moveCountList) {
+        for (int i = 0; i < carNameList.size(); i++) {
+            System.out.println(carNameList.get(i) + " : " + "-".repeat(moveCountList.get(i)));
+        }
+        System.out.println();
     }
 }
