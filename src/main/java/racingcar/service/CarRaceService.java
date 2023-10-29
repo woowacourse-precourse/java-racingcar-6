@@ -11,11 +11,11 @@ public class CarRaceService {
     Validator validator = new Validator();
 
 
-    private final static RaceService raceService = new RaceService();
+    private final RaceService raceService = new RaceService();
 
     public void initCarInfo(List<String> carNames, List<Car> cars) {
         for (String carName : carNames) {
-            cars.add(new Car(carName));
+            cars.add(new Car(carName, 0));
         }
     }
 

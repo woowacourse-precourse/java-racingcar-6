@@ -5,9 +5,9 @@ public class Car {
     private final String name;
     private int moveCount;
 
-    public Car(String carNames) {
+    public Car(String carNames, int moveCount) {
         this.name = carNames;
-        this.moveCount = 0;
+        this.moveCount = moveCount;
     }
 
     public String getName() {
