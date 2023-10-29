@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.Car;
 import racingcar.domain.Race;
-import racingcar.domain.strategy.RandomMoveStrategy;
+import racingcar.domain.strategy.MoveStrategy;
 import racingcar.util.InputValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -11,6 +11,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class RacingGame {
+    private final MoveStrategy moveStrategy;
+
+    public RacingGame(MoveStrategy moveStrategy) {
+        this.moveStrategy = moveStrategy;
+    }
 
     public void start() {
         List<String> carNames = inputAndValidateCarNames();
@@ -18,7 +23,7 @@ public class RacingGame {
 
         OutputView.printRacingResult();
 
-        Race race = new Race(createCars(carNames), new RandomMoveStrategy());
+        Race race = new Race(createCars(carNames), moveStrategy);
 
         for (int currentRound = 0; currentRound < roundCount; currentRound++) {
             race.executeOneRound();
