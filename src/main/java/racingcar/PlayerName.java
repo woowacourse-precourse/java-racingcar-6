@@ -16,7 +16,7 @@ public class PlayerName {
     private static final Pattern PLAYER_NAMES_PATTERN = Pattern.compile(PLAYER_NAMES_FORMAT);
     private final String value;
 
-    public PlayerName(String value) {
+    public PlayerName(final String value) {
         this.value = value;
     }
 

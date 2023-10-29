@@ -4,7 +4,7 @@ public class GameResultDto {
     private final String playerName;
     private final int distance;
 
-    public GameResultDto(String playerName, int distance) {
+    public GameResultDto(final String playerName, final int distance) {
         this.playerName = playerName;
         this.distance = distance;
     }

@@ -4,7 +4,7 @@ public class MoveFactory {
 
     private final NumberGenerator numberGenerator;
 
-    public MoveFactory(NumberGenerator numberGenerator) {
+    public MoveFactory(final NumberGenerator numberGenerator) {
         this.numberGenerator = numberGenerator;
     }
 

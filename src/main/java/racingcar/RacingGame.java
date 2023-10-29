@@ -9,7 +9,7 @@ public class RacingGame {
     private final PlayerMoveList playerMoveList;
     private final GameStatus gameStatus;
 
-    public RacingGame(PlayerMoveList playerMoveList, GameStatus gameStatus) {
+    public RacingGame(final PlayerMoveList playerMoveList, final GameStatus gameStatus) {
         this.playerMoveList = playerMoveList;
         this.gameStatus = gameStatus;
     }

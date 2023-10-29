@@ -13,7 +13,7 @@ public class RaceCount {
     private static final Pattern NUMBER_PATTERN = Pattern.compile(NUMBER_FORMAT);
     private final int value;
 
-    public RaceCount(int count) {
+    public RaceCount(final int count) {
         this.value = count;
     }
 

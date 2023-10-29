@@ -6,7 +6,7 @@ public class PlayerMoveList {
     private final List<PlayerMove> playerMoveList;
     private final MoveFactory moveFactory;
 
-    public PlayerMoveList(List<PlayerMove> playerMoveList, MoveFactory moveFactory) {
+    public PlayerMoveList(final List<PlayerMove> playerMoveList, final MoveFactory moveFactory) {
         this.playerMoveList = playerMoveList;
         this.moveFactory = moveFactory;
     }

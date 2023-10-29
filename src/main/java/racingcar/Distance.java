@@ -6,7 +6,7 @@ public class Distance {
 
     private int value;
 
-    public Distance(int value) {
+    public Distance(final int value) {
         this.value = value;
     }
 

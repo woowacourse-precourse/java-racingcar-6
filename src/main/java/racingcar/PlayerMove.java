@@ -7,7 +7,7 @@ public class PlayerMove {
     private final Player player;
     private final Distance distance;
 
-    public PlayerMove(Player player, Distance distance) {
+    public PlayerMove(final Player player, final Distance distance) {
         this.player = player;
         this.distance = distance;
     }
