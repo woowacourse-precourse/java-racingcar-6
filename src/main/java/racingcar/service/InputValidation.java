@@ -2,15 +2,15 @@ package racingcar.service;
 
 import java.util.Arrays;
 
-public class Validation {
+public class InputValidation {
 
     public void validateUserInput(String inputCarName) {
         String[] carNames = inputCarName.split(",");
 
-        if (!Arrays.stream(carNames).allMatch(Validation::isCarNameLengthValid)) {
+        if (!Arrays.stream(carNames).allMatch(InputValidation::isCarNameLengthValid)) {
             throw new IllegalArgumentException("5글자를 초과하는 이름은 입력할 수 없습니다. 사용자의 입력 : " + inputCarName);
         }
-        if (!Arrays.stream(carNames).allMatch(Validation::isNumeric)) {
+        if (!Arrays.stream(carNames).allMatch(InputValidation::isNumeric)) {
             throw new IllegalArgumentException("이름에 숫자가 들어갈 수 없습니다.");
         }
     }

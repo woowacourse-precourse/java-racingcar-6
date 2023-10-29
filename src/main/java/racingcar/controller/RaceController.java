@@ -8,7 +8,7 @@ import racingcar.view.OutputView;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class Controller {
+public class RaceController {
 
     private InputView inputView;
 
@@ -18,7 +18,7 @@ public class Controller {
 
     private final Integer MIN_MOVEMENT = 0;
 
-    public Controller() {
+    public RaceController() {
         inputView = new InputView();
         outputView = new OutputView();
         compareRace = new CompareRace();

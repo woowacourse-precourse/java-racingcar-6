@@ -2,23 +2,20 @@ package racingcar.service;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.domain.RacingCar;
 
-class ValidationTest {
+class InputValidationTest {
 
-    private Validation validation;
+    private InputValidation inputValidation;
 
     @BeforeEach
     void setUp() {
-        validation = new Validation();
+        inputValidation = new InputValidation();
     }
 
     @DisplayName("사용자가 자동차명을 5글자를 초과하여 입력했을때 예외를 발생하는지")
@@ -27,7 +24,7 @@ class ValidationTest {
     void validateUserInput5CharacterTest(String inputCarName) {
         // given & when & then
         assertThatThrownBy(
-                () -> validation.validateUserInput(inputCarName))
+                () -> inputValidation.validateUserInput(inputCarName))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("5글자를 초과하는 이름은 입력할 수 없습니다.");
     }
@@ -38,7 +35,7 @@ class ValidationTest {
     void validateUserInputNumber(String inputCarName) {
         // given & when & then
         assertThatThrownBy(
-                () -> validation.validateUserInput(inputCarName))
+                () -> inputValidation.validateUserInput(inputCarName))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("이름에 숫자가 들어갈 수 없습니다.");
     }
@@ -49,7 +46,7 @@ class ValidationTest {
     void validateMovementNullTest(Integer movement) {
         // given & when & then
         assertThatThrownBy(
-                () -> validation.validateMovement(movement))
+                () -> inputValidation.validateMovement(movement))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("숫자를 입력해주세요");
     }
