@@ -6,10 +6,12 @@ import racingcar.domain.Cars;
 public class CarGameController {
 
     private Cars cars;
+    private int roundNumber;
 
     private CarGameManager carGameManager = new CarGameManager();
 
     public void set() {
         this.cars = carGameManager.carNamesSet();
+        this.roundNumber = carGameManager.roundNumberSet();
     }
 }
