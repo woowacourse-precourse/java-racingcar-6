@@ -59,6 +59,28 @@ public class TryNumberTest {
                     () -> tryNumber.setClearTryNumber(trynumber));
             assertEquals(expectedMessage, exception.getMessage());
         }
+
+        @DisplayName("음의 정수 입력")
+        @Test
+        void minusInputTesting() {
+            TryNumber tryNumber = new TryNumber();
+            String trynumber = "-1";
+
+            Throwable exception = assertThrows(IllegalArgumentException.class,
+                    () -> tryNumber.setClearTryNumber(trynumber));
+            assertEquals(expectedMessage, exception.getMessage());
+        }
+
+        @DisplayName("실수 입력")
+        @Test
+        void floatInputTesting() {
+            TryNumber tryNumber = new TryNumber();
+            String trynumber = "0.5";
+
+            Throwable exception = assertThrows(IllegalArgumentException.class,
+                    () -> tryNumber.setClearTryNumber(trynumber));
+            assertEquals(expectedMessage, exception.getMessage());
+        }
     }
 
     @DisplayName("반환값 확인")
