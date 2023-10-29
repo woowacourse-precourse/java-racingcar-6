@@ -191,4 +191,17 @@ class CarTest {
         });
     }
 
+    @Test
+    void checkInputStringFirstLetterContainsCommas_입력값_첫글자_쉼표_테스트() {
+        //given
+        final String cars = ",포비1,포비2";
+        T.setStringCarList(cars);
+
+        //then
+        assertThrows(IllegalArgumentException.class, () -> {
+            //when
+            T.checkInputStringFirstLetterContainsCommas();
+        });
+    }
+
 }
