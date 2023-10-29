@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import static racingcar.constant.InputError.EXCEEDED_LIMIT_CAR_LENGTH;
+import static racingcar.constant.InputError.NOT_DIGIT_MOVING_COUNT;
 import static racingcar.constant.RaceConfig.IS_NUMBER;
 
 import java.util.regex.Matcher;
@@ -20,7 +20,7 @@ public final class MovingCount {
     private void validateInputIsDigit(String input) {
         Matcher matcher = IS_NUMBER.matcher(input);
         if (!matcher.matches()) {
-            throw new IllegalArgumentException(EXCEEDED_LIMIT_CAR_LENGTH.toString());
+            throw new IllegalArgumentException(NOT_DIGIT_MOVING_COUNT.toString());
         }
     }
 
