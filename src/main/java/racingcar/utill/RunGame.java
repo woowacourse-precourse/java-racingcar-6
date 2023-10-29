@@ -4,18 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.iosystem.InputView;
 import racingcar.iosystem.OutputView;
 
-import java.util.Arrays;
-
-public class RacingGame {
-    public RacingGame() {
-        // 대충 게임실행 넣으면 될듯
-        InputView inputView = new InputView(InputView
-                .setCarsName(InputView
-                        .inputCar()));
-        run(inputView);
-        OutputView.endGameResult(inputView.getCarMove(), inputView.getCars());
-    }
-
+public class RunGame {
 
     public void run(InputView inputView) {
         for (int i = 0; i < inputView.getTryCnt(); i++) {
