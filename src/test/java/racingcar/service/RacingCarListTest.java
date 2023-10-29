@@ -48,4 +48,28 @@ class RacingCarListTest {
         }
     }
 
+    @Test
+    void generateAllRacingCarsStatusList_리스트_생성_테스트() {
+        String[] carNames = {"test", "car", "name"};
+
+        List<RacingCar> racingCars = RacingCarList.generateRacingCarList(carNames);
+        List<String> result = RacingCarList.generateAllRacingCarsStatusList(racingCars);
+
+        assertThat(result.size()).isEqualTo(carNames.length);
+    }
+
+    @Test
+    void generateAllRacingCarsStatusList_리스트_내용_테스트() {
+        String[] carNames = {"test", "car", "name"};
+
+        List<RacingCar> racingCars = RacingCarList.generateRacingCarList(carNames);
+        List<String> result = RacingCarList.generateAllRacingCarsStatusList(racingCars);
+
+        String[] expected = {"test : ", "car : ", "name : "};
+
+        for (String status : result) {
+            assertThat(expected).contains(status);
+        }
+    }
+
 }
