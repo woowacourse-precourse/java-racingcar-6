@@ -11,8 +11,9 @@ public class RacingCarController {
         this.inputView = inputView;
     }
 
-    public void startRacingCarGame() {
-        List<RacingCar> racingCars = inputView.readRacingCars();
-        int attemptsNumber = inputView.readAttemptsNumber();
+    public void start() {
+        List<String> racingCars = inputView.readRacingCars();
+        int totalRounds = inputView.readAttemptsNumber();
+
     }
 }

@@ -10,12 +10,12 @@ import java.util.stream.Collectors;
 import racingcar.model.RacingCar;
 
 public class InputView {
-    public List<RacingCar> readRacingCars() {
+    public List<String> readRacingCars() {
         print(CAR_NAME_PROMPT);
         String[] carNames = Console.readLine().split(CAR_NAME_DELIMITER);
-        List<RacingCar> racingCars = Arrays.stream(carNames)
+
+        List<String> racingCars = Arrays.stream(carNames)
                 .map(String::trim)
-                .map(RacingCar::new)
                 .collect(Collectors.toList());
         return racingCars;
     }

@@ -1,5 +1,10 @@
 package racingcar.model;
 
-public class RacingCarGame {
-    
+import java.util.List;
+
+public class RacingGame {
+
+    public RacingGame(List<String> carNames, int totalRounds) {
+
+    }
 }
