@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
@@ -47,8 +48,7 @@ public class Application {
         // 3. 이동 로직 구현
         System.out.println("실행 결과");
 
-        List<String> movedCount = Arrays.asList(new String[car.names.size()]);
-        movedCount.replaceAll(Null -> "");
+        List<String> movedCount = new ArrayList<>(Collections.nCopies(car.names.size(), ""));
 
         for (int i = 0; i < roundCount; i++) {
 
