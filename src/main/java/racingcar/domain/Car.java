@@ -31,4 +31,8 @@ public class Car {
     public boolean canRush() {
         return Randoms.pickNumberInRange(1, 9) >= JUDGE_CAN_GO_NUMBER;
     }
+
+    public void goToPoint(int i) {
+        location = i;
+    }
 }

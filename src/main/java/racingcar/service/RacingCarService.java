@@ -48,4 +48,8 @@ public class RacingCarService {
                 .map(DtoConverter::toWinnerDto)
                 .collect(Collectors.toList());
     }
+
+    public int getTryNumber() {
+        return tryNumber;
+    }
 }
