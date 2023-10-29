@@ -27,7 +27,8 @@
 |실행 결과 문구 출력하기|"실행 결과"를 출력한다|putResultStatement|X||#11|
 |현황 출력하기|한 번 차가 움직인 결과를 출력한다|putResultOfMovement| X     || #05   |
 |각 차의 위치 출력하기|각 차가 움직인 결과를 출력한다|putResultOfEachCar|X|| #10   |
-|최종 우승자 출력하기|최종 우승자들의 이름을 출력한다|putResultOfWinner| X     || #06   |
+|최종 우승자 구하기|최종 우승자들의 이름을 구한다|getResultOfWinner|X||#06|
+|최종 우승자 출력하기|최종 우승자들의 이름을 출력한다|putResultOfWinner|X||#12|
 |입력 닫기|입력을 비운 후 닫는다|closeInput| X     || #09   |
 
 

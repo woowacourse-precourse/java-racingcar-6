@@ -3,6 +3,7 @@ package racingcar;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RacingOutput {
@@ -41,4 +42,5 @@ public class RacingOutput {
         }
         bw.write("\n");
     }
+
 }
