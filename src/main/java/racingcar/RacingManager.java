@@ -5,6 +5,8 @@ import racingcar.number_generator.NumberGenerator;
 import racingcar.number_generator.RandomNumberGenerator;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class RacingManager {
@@ -29,6 +31,7 @@ public class RacingManager {
             printMoveResult();
             System.out.println();
         }
+        printRacingWinnerNames(getRacingWinnerNames());
     }
 
     public void moveRacingCars() {
@@ -42,6 +45,19 @@ public class RacingManager {
         for (RacingCar racingCar : racingCars) {
             System.out.println(racingCar.toString());
         }
+    }
+
+
+    public List<String> getRacingWinnerNames() {
+        int maxMovement = Collections.max(racingCars, Comparator.comparingInt(RacingCar::getForwardCount)).getForwardCount();
+        return racingCars.stream()
+                .filter(car -> car.getForwardCount() == maxMovement)
+                .map(RacingCar::getName)
+                .toList();
+    }
+
+    private void printRacingWinnerNames(List<String> winners) {
+        System.out.printf("최종 우승자 : %s", String.join(", ", winners));
     }
 
     public List<RacingCar> createRacingCars(String carNamesInput) {
