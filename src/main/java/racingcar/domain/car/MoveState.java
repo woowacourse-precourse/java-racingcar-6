@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.domain.car;
+
+import racingcar.domain.generator.NumberGenerator;
 
 public class MoveState {
 

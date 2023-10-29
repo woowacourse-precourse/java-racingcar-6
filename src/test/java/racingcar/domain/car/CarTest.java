@@ -1,9 +1,12 @@
-package racingcar;
+package racingcar.domain.car;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.car.Car;
+import racingcar.domain.car.MoveState;
+import racingcar.domain.generator.NumberGenerator;
 
 class CarTest {
 
