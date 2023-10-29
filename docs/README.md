@@ -30,7 +30,7 @@
 
 `List<Car>` 일급 컬렉션
 
-- [ ] `Car`들의 이름과 위치들을 담는 `CarsInformationDto` 반환
+- [x] `Car`들의 이름과 위치들을 담는 `CarsInformationDto` 반환
 - [ ] 선두의 `Car`들을 `CarNamesDto`으로 반환
 - [ ] `Car`들의 이동을 명령
 

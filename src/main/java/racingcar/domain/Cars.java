@@ -1,6 +1,10 @@
 package racingcar.domain;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import racingcar.dto.CarInformationDto;
+import racingcar.dto.CarsInformationDto;
 
 public class Cars {
 
@@ -8,6 +12,13 @@ public class Cars {
 
     public Cars(List<Car> cars) {
         this.cars = cars;
+    }
+
+    public CarsInformationDto getInformation() {
+        List<CarInformationDto> carInformationDtoList = cars.stream()
+                .map(car -> car.getInformation())
+                .toList();
+        return new CarsInformationDto(carInformationDtoList);
     }
 
 }
