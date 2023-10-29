@@ -59,6 +59,7 @@ public class RacingLogic {
             if (car.getTotalGoTimes() > maxGoTimes) {
                 winnerList.clear();
                 winnerList.add(car.getName());
+                maxGoTimes = car.getTotalGoTimes();
             } else if (car.getTotalGoTimes() == maxGoTimes) {
                 winnerList.add(car.getName());
             }
