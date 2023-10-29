@@ -10,16 +10,22 @@ public class CarGameController {
 
     private CarGameManager carGameManager = new CarGameManager();
 
-    public void set() {
+    public void play() {
+        set();
+        start();
+        winner();
+    }
+
+    private void set() {
         this.cars = carGameManager.carNamesSet();
         this.roundNumber = carGameManager.roundNumberSet();
     }
 
-    public void start() {
+    private void start() {
         carGameManager.carGameStart(this.cars, this.roundNumber);
     }
 
-    public void winner() {
+    private void winner() {
         carGameManager.resultWinner(this.cars);
     }
 }
