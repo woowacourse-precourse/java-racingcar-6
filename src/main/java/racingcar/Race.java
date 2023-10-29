@@ -12,4 +12,8 @@ public class Race {
         this.cars = cars;
     }
 
+    public int getRound() {
+        return round;
+    }
+
 }
