@@ -40,4 +40,29 @@ class CarTest {
                 });
     }
 
+    @Test
+    @DisplayName("MovingStrategy.isCarMove()가 false인 경우 goForward() 호출하면 위치 정보 업데이트 안됨")
+    void goForward_멈춤_테스트() {
+        // given
+        MovingStrategy stopStrategy = new MovingStrategy(() -> 3); // isCarMove() 항상 false 반환
+        Car car = new Car(stopStrategy, "pobi", 0);
+        // when
+        car.goForward();
+        // then
+        assertEquals(0, car.getPosition());
+    }
+
+    @Test
+    @DisplayName("MovingStrategy.isCarMove()가 true인 경우 goForward() 호출하면 위치 정보 업데이트됨")
+    void goForward_전진_테스트() {
+        // given
+        MovingStrategy stopStrategy = new MovingStrategy(() -> 4); // isCarMove() 항상 true 반환
+        Car car = new Car(stopStrategy, "pobi", 0);
+        // when
+        car.goForward();
+        // then
+        assertEquals(1, car.getPosition());
+    }
+
+
 }
