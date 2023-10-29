@@ -17,7 +17,7 @@
 
 ## 클래스
 - [ ] Application
-  - Game.play(int 횟수);
+  - Game.play(String 자동차; int 횟수);
 - [ ] NumberGenerator
   - [ ] createRandomNumber()
   - [ ] compare()
