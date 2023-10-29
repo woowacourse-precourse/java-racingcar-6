@@ -6,7 +6,7 @@ public class GameView {
         System.out.println(GameMessages.START_GAME.getMessage());
     }
 
-    public static void displayAskRounds() {
+    public void displayAskRounds() {
         System.out.println(GameMessages.ASK_ROUNDS.getMessage());
     }
 

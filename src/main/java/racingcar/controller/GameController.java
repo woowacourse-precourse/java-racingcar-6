@@ -36,15 +36,15 @@ public class GameController {
         this.rounds = setupRounds();
     }
 
-    private static int setupRounds() {
-        GameView.displayAskRounds();
+    private int setupRounds() {
+        gameView.displayAskRounds();
 
         String rounds = Console.readLine();
         RoundValidator.validateRounds(rounds);
         return Integer.parseInt(rounds);
     }
 
-    private static List<Car> setupParticipantCars() {
+    private List<Car> setupParticipantCars() {
         String input = Console.readLine();
 
         CarValidator.validateNameUsingCommas(input);
