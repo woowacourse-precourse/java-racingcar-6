@@ -71,7 +71,26 @@ class ApplicationTest_function_list extends NsTest {
 
     @Test
     void 기능목록_테스트_빈_문자열_검사() {
+        List<List<Object>> inputList = List.of(List.of("pobi", false), List.of("", true));
+        for (List<Object> input : inputList) {
 
+            // private method reflection 사용
+            Object returnValue = new Object();
+            try {
+                // reflection
+                Method isBlankMethod = Input.class.getDeclaredMethod("isBlank", String.class);
+                isBlankMethod.setAccessible(true);
+
+                String parameter = input.get(0).toString();// 메소드 입력값
+                Object tmp = isBlankMethod.invoke(Input.class, parameter);// 실행
+                if (tmp instanceof Boolean) {
+                    returnValue = (boolean) tmp;
+                }
+            } catch (Exception e) { // 메소드명 오류시 예외처리
+                e.printStackTrace();
+            }
+            assertThat(returnValue).isEqualTo(input.get(1));
+        }
     }
 
     @Test
