@@ -20,34 +20,20 @@ public class RacingGameService {
         this.randomNumberGenerator = randomNumberGenerator;
     }
 
-    public void init(String[] carNamesArr) {
-        this.carList = mapToCarList(carNamesArr);
+    public List<Car> getCarList() {
+        return carList;
     }
 
-    private List<Car> mapToCarList(String[] carNamesArr) {
-        return Arrays.stream(carNamesArr).map(n -> new Car(n)).toList();
+    public void init(String[] carNamesArr) {
+        this.carList = mapToCarList(carNamesArr);
     }
 
     public void playGame(int count) {
         OutputView.printResultHeader();
         for (int i = 0; i < count; i++) {
-            play(carList);
+            moveCarsAndPrintStatus(carList);
             OutputView.printNewLine();
         }
-
-    }
-
-    private void play(List<Car> carList) {
-        for (Car car : carList) {
-            if (canMoveForward()) {
-                car.moveForward();
-            }
-            OutputView.printCarStatus(car);
-        }
-    }
-
-    private boolean canMoveForward() {
-        return FORWARD_CONDITION <= randomNumberGenerator.generate();
     }
 
     public String getWinningCar() {
@@ -55,27 +41,38 @@ public class RacingGameService {
         return findWinningCar(maxPosition,carList);
     }
 
+    private List<Car> mapToCarList(String[] carNamesArr) {
+        return Arrays.stream(carNamesArr).map(Car::new).toList();
+    }
+
+    private void moveCarsAndPrintStatus(List<Car> carList) {
+        for (Car car : carList) {
+            if (isForwardPossible()) {
+                car.moveForward();
+            }
+            OutputView.printCarStatus(car);
+        }
+    }
+
+    private boolean isForwardPossible() {
+        return FORWARD_CONDITION <= randomNumberGenerator.generate();
+    }
+
     private String findWinningCar(int maxPosition, List<Car> carList) {
         return getWinningCarNamesAsString(maxPosition, carList);
     }
 
     private String getWinningCarNamesAsString(int maxPosition, List<Car> carList) {
-        return carList.stream().filter(c -> c.getPosition() == maxPosition)
-                .map(c -> c.getName()).collect(Collectors.joining(", "));
+        return carList.stream().
+                filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
     }
 
     private int getMaxPosition(List<Car> carList) {
-        int max = 0;
-        for (Car car : carList) {
-            int position = car.getPosition();
-            if(position > max){
-                max = position;
-            }
-        }
-        return max;
-    }
-
-    public List<Car> getCarList() {
-        return carList;
+        return carList.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
     }
 }
