@@ -19,4 +19,8 @@ public class Race {
     public List<Car> getCars() {
         return cars.getCars();
     }
+
+    public boolean play() {
+        return count != 0;
+    }
 }

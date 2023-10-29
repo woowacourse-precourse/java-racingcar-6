@@ -40,6 +40,9 @@ public class RaceController {
 
     private void runRace(Cars cars, int count) {
         Race race = new Race(cars, count);
-        List<Car> raceCars = raceService.runRace(race);
+        while (race.play()) {
+            List<Car> raceCars = raceService.runRace(race);
+
+        }
     }
 }
