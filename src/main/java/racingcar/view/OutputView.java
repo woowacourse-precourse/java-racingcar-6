@@ -1,10 +1,13 @@
 package racingcar.view;
 
-public class OutputView {
-    public static void printResult(){
+import racingcar.domain.Car;
 
+public class OutputView {
+    public static void printResult(Car car) {
+        System.out.println(car.toString());
     }
-    public static void printWinner(){
+
+    public static void printWinner() {
 
     }
 }
