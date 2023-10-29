@@ -15,7 +15,7 @@ public class GameService {
   public Car[] car;
   public int tryNum;
   public int forwardNum;
-  Validation validation = new Validation();
+
 
   public GameService(Config config) {
     this.config = config;
@@ -42,9 +42,9 @@ public class GameService {
     car = new Car[carNum];
 
     for(int i=0;i<car.length;i++) {
-      validation.isBlank(splited[i]);
-      validation.isLengthError(splited[i]);
-      validation.isDuplicated(splited[i], car);
+      Validation.isBlank(splited[i]);
+      Validation.isLengthError(splited[i]);
+      Validation.isDuplicated(splited[i], car);
 
       car[i] = new Car(splited[i]);
     }
@@ -52,7 +52,7 @@ public class GameService {
 
   public void getInputTryNum() {
     System.out.println("시도할 횟수는 몇회인가요?");
-    tryNum = validation.isNumber(Console.readLine());
+    tryNum = Validation.isNumber(Console.readLine());
   }
 
   public void carForward() {
