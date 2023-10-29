@@ -1,7 +1,7 @@
 package racingcar;
 
-import static camp.nextstep.edu.missionutils.Console.readLine;
-import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
+import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,7 +16,7 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 사용자 입력 처리
         System.out.println(INPUT_CARNAME_MESSAGE);
-        String inputNames = readLine();
+        String inputNames = Console.readLine();
         List<String> carNames = Arrays.asList(inputNames.split(","));
 
         if (!isNotEmpty(carNames)) {
@@ -28,7 +28,7 @@ public class Application {
         }
 
         System.out.println(INPUT_TRYTIME_MESSAGE);
-        String inputTime = readLine();
+        String inputTime = Console.readLine();
         if (!isNumberInteger(inputTime)) {
             throw new IllegalArgumentException();
         }
@@ -90,7 +90,7 @@ public class Application {
     }
 
     public static int setForwardStep() {
-        if(pickNumberInRange(0,9) >= 4) {
+        if(Randoms.pickNumberInRange(0,9) >= 4) {
             return 1;
         }
         return 0;
