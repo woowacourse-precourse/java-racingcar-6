@@ -22,7 +22,7 @@ public class Validator {
         }
     }
 
-    public Boolean validateNameLength(ArrayList<String> input){
+    public static Boolean validateNameLength(ArrayList<String> input){
         for(String name: input){
             if(name.length() > 5){
                 return false;
