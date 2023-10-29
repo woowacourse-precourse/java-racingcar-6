@@ -2,6 +2,7 @@ package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
+import racingcar.util.CarUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +11,6 @@ import java.util.Map;
 public class RaceGameServiceImpl implements RaceGameService{
 
     private static final int MORE_THAN_NUMBER = 4;
-    private static final int START_RANDOM_NUMBER_RANGE = 0;
-    private static final int FINISH_RANDOM_NUMBER_RANGE = 9;
-
 
     @Override
     public Car startGame(List<String> input) {
@@ -30,14 +28,10 @@ public class RaceGameServiceImpl implements RaceGameService{
 
     private static void carMoveCheck(Car car, List<Integer> carPositions) {
         for (int i=0; i<carPositions.size(); i++) {
-            if (getRandomValue() >= MORE_THAN_NUMBER) {
+            if (CarUtil.getRandomValue() >= MORE_THAN_NUMBER) {
                 car.carMove(i);
             }
         }
-    }
-
-    private static int getRandomValue() {
-        return Randoms.pickNumberInRange(START_RANDOM_NUMBER_RANGE, FINISH_RANDOM_NUMBER_RANGE);
     }
 
     @Override
