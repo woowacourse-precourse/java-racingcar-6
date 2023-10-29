@@ -27,10 +27,21 @@ public class GameController {
         String raceCount = InputView.inputRaceCount();
         String testedRaceCount = exception.checkRaceCount(raceCount);
         racingGame.setRaceCount(testedRaceCount);
+        racingGame.startRace();
+
 
         //startRace();
         //showWinner();
     }
+
+    /*
+    public void startGame() {
+        if (racingGame.startRace()) {
+
+        }
+    }
+
+
 
     /*
     private void inputCarName() {

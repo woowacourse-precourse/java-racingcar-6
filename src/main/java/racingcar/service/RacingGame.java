@@ -11,11 +11,13 @@ import racingcar.view.OutputView;
 public class RacingGame {
 
     private int raceCount;
+    private int raceActionCount;
     private final List<Car> carList;
     private final List<String> winnerList;
 
     public RacingGame() {
         raceCount = 0;
+        raceActionCount = 0;
         carList = new ArrayList<>();
         winnerList = new ArrayList<>();
     }
@@ -35,24 +37,35 @@ public class RacingGame {
         this.raceCount = Integer.parseInt(raceCount);
     }
 
+    public int getRaceCount() {
+        return this.raceCount;
+    }
+
+    public int getRaceActionCount() {
+        return this.raceActionCount;
+    }
+
+
+
+
 
     public List<String> getWinnerList() {
         return winnerList;
     }
 
 
-    public int getRaceCount() {
-        return this.raceCount;
-    }
 
-    public void startRaceCount() {
-        for (int i = 0; i < raceCount; i++) {
-            setCarPosition();
-            printCarPosition();
+
+    public void startRace() {
+        for (int i = 0; i < raceCount; i++, this.raceActionCount++) {
+
+            //setCarPosition();
+            //printCarPosition();
         }
 
     }
 
+    /**
     private void setCarPosition() {
         for (Car car : Car.carList) {
             int randomNumber = setRandomNumber();
@@ -81,7 +94,7 @@ public class RacingGame {
             System.out.println(e.getName() + e.getPosition());
         }
 
-         */
+
         for (Car car : Car.carList) {
             if (Car.carList.get(0).getPosition() == car.getPosition()) {
                 //List<String> winnerList = new ArrayList<>();
@@ -92,6 +105,7 @@ public class RacingGame {
         for (String e : winnerList) {
             System.out.println(e);
         }
-         */
+
     }
+     */
 }
