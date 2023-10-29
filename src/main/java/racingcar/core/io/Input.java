@@ -1,12 +1,18 @@
 package racingcar.core.io;
 
+import racingcar.core.NamesParser;
+
+import java.util.List;
+
 import static camp.nextstep.edu.missionutils.Console.*;
 
 public class Input {
     private final Validator validator;
+    private final NamesParser parser;
 
-    public Input(final Validator validator) {
+    public Input(final Validator validator, final NamesParser parser) {
         this.validator = validator;
+        this.parser = parser;
     }
 
     private final static String INPUT_CARS_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -15,7 +21,8 @@ public class Input {
         System.out.println(INPUT_CARS_NAME);
         String userInput = readLine();
 
-        validator.valid(userInput);
+        List<String> parsedNames = parser.parsing(userInput);
+        validator.valid(parsedNames);
 
         return userInput;
     }
