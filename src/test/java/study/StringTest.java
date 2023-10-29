@@ -4,9 +4,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
+import racingcar.Constant;
 
 public class StringTest {
 
+    @Test
+    void constant_적절한_메시지_출력(){
+        String message = Constant.UserRequesMessage.CAR_NAME_REQUEST_MESSAGE.toString();
+        assertThat(message).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+    }
     @Test
     void split_메서드로_주어진_값을_구분() {
         String input = "1,2";
