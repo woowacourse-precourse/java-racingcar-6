@@ -8,19 +8,16 @@ public class OutputView {
     private static final String FINAL_WINNER = "최종 우승자";
 
     public static void carNameInput() {
-        print(CAR_NAME_MESSAGE);
+        System.out.println(CAR_NAME_MESSAGE);
     }
     public static void attemptCountInput() {
-        print(ATTEMPT_COUNT_MESSAGE);
+        System.out.println(ATTEMPT_COUNT_MESSAGE);
     }
     public static void executionResultView() {
-        print(EXECUTION_RESULT);
+        System.out.println(EXECUTION_RESULT);
     }
     public static void lastWinnerView() {
-        print(FINAL_WINNER);
-    }
-    public static void print(String message) {
-        System.out.println(message);
+        System.out.println(FINAL_WINNER);
     }
 
 }
