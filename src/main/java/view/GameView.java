@@ -4,8 +4,16 @@ import message.GameMessage;
 
 public class GameView {
 
-    public GameView() {
+    private static GameView defaultGameView;
 
+    private GameView() {
+    }
+
+    public static GameView getInstance() {
+        if(defaultGameView == null) {
+            defaultGameView = new GameView();
+        }
+        return defaultGameView;
     }
 
     public void printResult() {
@@ -18,6 +26,10 @@ public class GameView {
 
     public void printWinners(String winners) {
         System.out.println(GameMessage.winner.getMessage() + GameMessage.equal.getMessage() + winners);
+    }
+
+    public void close() {
+        defaultGameView = null;
     }
 
 }
