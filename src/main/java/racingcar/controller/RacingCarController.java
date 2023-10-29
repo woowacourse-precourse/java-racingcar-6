@@ -20,14 +20,18 @@ public class RacingCarController {
         int totalRounds = inputView.readAttemptsNumber();
         RacingGame racingGame = new RacingGame(carNames, totalRounds);
 
+        playRacingGame(totalRounds, racingGame);
+
+        List<RacingCar> winners = racingGame.getWinners();
+        outputView.printWinners(winners);
+    }
+
+    private void playRacingGame(int totalRounds, RacingGame racingGame) {
         outputView.printResultHeader();
         for (int i = 0; i < totalRounds; i++) {
             racingGame.moveCars();
             List<RacingCar> racingCars = racingGame.getRacingCars();
             outputView.printCars(racingCars);
         }
-
-        List<RacingCar> winners = racingGame.getWinners();
-        outputView.printWinners(winners);
     }
 }
