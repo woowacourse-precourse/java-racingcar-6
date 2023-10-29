@@ -28,11 +28,7 @@ public class Car {
     }
 
     private void trimCarNames(List<String> carNames) {
-
-        for (int i = 0; i < carNames.size(); i++) {
-            carNames.set(i, carNames.get(i).trim());  // 수정 필요
-        }
-
+        carNames.replaceAll(String::trim);
     }
 
     public void move(int roundCount) {
