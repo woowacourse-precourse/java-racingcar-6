@@ -9,6 +9,8 @@ import static racingcar.domain.util.InputMessage.*;
 
 public class CarInputView {
 
+    private static final int MAX_CAR_NAME_LENGTH = 5;
+
     public List<String> getCarNames() {
         printGameStart();
         String carNames = Console.readLine();
@@ -23,7 +25,7 @@ public class CarInputView {
 
 
     private boolean checkValidCarNameLength(String carName) {
-        if (carName.length() > 5) {
+        if (carName.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
 
