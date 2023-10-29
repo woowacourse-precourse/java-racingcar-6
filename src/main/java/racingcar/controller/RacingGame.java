@@ -7,8 +7,9 @@ import racingcar.util.InputValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingGame {
 
@@ -43,15 +44,8 @@ public class RacingGame {
     }
 
     private List<Car> createCars(String input) {
-        List<Car> cars = new ArrayList<>();
-
-        String[] carNames = input.split(",");
-        for (String carName : carNames) {
-            Car car = new Car(carName);
-
-            cars.add(car);
-        }
-
-        return cars;
+        return Arrays.stream(input.split(","))
+                .map(Car::new)
+                .collect(Collectors.toList());
     }
 }
