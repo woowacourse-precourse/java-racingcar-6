@@ -13,6 +13,6 @@ public class GameConstants {
     public static final String SPACE = " ";
     public static final String COLONS = ":";
     public static final String NULL = "";
-
+    public static final String FINAL_WINNER = "최종 우승자";
 
 }

@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.constant.GameConstants;
 import racingcar.validator.Validator;
 
@@ -42,4 +43,11 @@ public class CarRaceGameView {
     public static void LineBreakView() {
         System.out.println(NULL);
     }
+
+    public static void gameResultView(List<String> winnerList) {
+        String resultText = FINAL_WINNER + SPACE + COLONS + SPACE;
+        String winnerListString = winnerList.stream().collect(Collectors.joining(","));
+        System.out.println(resultText + winnerListString);
+    }
+
 }
