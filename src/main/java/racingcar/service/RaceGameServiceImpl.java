@@ -1,12 +1,9 @@
 package racingcar.service;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
 import racingcar.util.CarUtil;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class RaceGameServiceImpl implements RaceGameService{
 
@@ -25,6 +22,12 @@ public class RaceGameServiceImpl implements RaceGameService{
         carMoveCheck(car, car.getCarSize());
     }
 
+    @Override
+    public List<Integer> findWinner(Car car) {
+        int maxPosition = car.findMaxPosition();
+        return car.findWinnerIndex(maxPosition);
+    }
+
     private static void carMoveCheck(Car car, int size) {
         for (int i=0; i<size; i++) {
             if (isCanMove()) {
@@ -35,12 +38,6 @@ public class RaceGameServiceImpl implements RaceGameService{
 
     private static boolean isCanMove() {
         return CarUtil.getRandomValue() >= MORE_THAN_NUMBER;
-    }
-
-    @Override
-    public List<Integer> findWinner(Car car) {
-        int maxPosition = car.findMaxPosition();
-        return car.findWinnerIndex(maxPosition);
     }
 
 }

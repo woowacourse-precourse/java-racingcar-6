@@ -3,7 +3,6 @@ package racingcar.view;
 import racingcar.model.Car;
 
 import java.util.List;
-import java.util.Map;
 
 public class OutputView {
     public static void outputCarMoveResult(Car car) {
