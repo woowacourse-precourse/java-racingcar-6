@@ -1,29 +1,24 @@
 package racingcar.util;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public final class InputValidator {
     private static final String CAR_NAMES_REGEX = "^(\\w+,)+\\w+$";
+    private static final String NUMERIC_REGEX = "\\d+";
 
-    public void validatePlayerNamesFormat(String input) {
-        Matcher matcher = Pattern.compile(CAR_NAMES_REGEX).matcher(input);
-        if (!matcher.matches()) {
+    public void validateInputFormat(String input) {
+        if (!input.matches(CAR_NAMES_REGEX)) {
             throw new IllegalArgumentException("올바른 입력 형식이 아닙니다.");
         }
     }
 
     public void validateNonEmpty(String input) {
-        if (input.isEmpty()) {
-            throw new IllegalArgumentException("빈 문자열을 입력했습니다.");
+        if (input.isBlank()) {
+            throw new IllegalArgumentException("입력 문자열은 빈 칸 또는 공백 문자를 포함하면 안됩니다.");
         }
     }
 
     public void validateNumericString(String input) {
-        try {
-            Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자 문자열만 입력할 수 있습니다.");
+        if (!input.matches(NUMERIC_REGEX)) {
+            throw new IllegalArgumentException("숫자로 된 문자열만 입력할 수 있습니다.");
         }
     }
 }
