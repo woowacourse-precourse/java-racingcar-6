@@ -32,7 +32,7 @@ public class RaceController {
         if (isFinalRound(racingCar, i)) {
             List<Integer> finalResult = response.getRaceResult();
             List<String> winner = IntStream.range(RaceConstant.START_INDEX, finalResult.size())
-                    .filter(k -> finalResult.get(k) == searchMax(finalResult))
+                    .filter(k -> finalResult.get(k).equals(isMaximum(finalResult)))
                     .mapToObj(response.getCars()::get)
                     .collect(Collectors.toList());
             WinnerResponse winnerResponse = new WinnerResponse(winner);
@@ -41,10 +41,10 @@ public class RaceController {
     }
 
     private static boolean isFinalRound(RacingCar racingCar, int i) {
-        return i == racingCar.getRaceCount() - 1;
+        return i == racingCar.getRaceCount() - RaceConstant.ONE;
     }
 
-    private static int searchMax(List<Integer> finalResult) {
+    private static int isMaximum(List<Integer> finalResult) {
         return finalResult.stream()
                 .mapToInt(Integer::intValue)
                 .max()

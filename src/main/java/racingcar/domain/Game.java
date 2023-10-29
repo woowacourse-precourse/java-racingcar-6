@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import racingcar.constant.RaceConstant;
-import racingcar.dto.RaceResultResponse;
 
 public class Game {
     RandomNumberGenerator generator = new RandomNumberGenerator();
@@ -26,7 +25,7 @@ public class Game {
 
     private static void move(List<Integer> randomNumbers, List<Integer> raceResult, int i) {
         if (randomNumbers.get(i) >= RaceConstant.MIN_MOVEMENT_VALUE) {
-            int updatedResult = raceResult.get(i) + RaceConstant.PLUS_ONE;
+            int updatedResult = raceResult.get(i) + RaceConstant.ONE;
             raceResult.set(i, updatedResult);
         }
     }
