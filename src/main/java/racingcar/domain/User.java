@@ -21,5 +21,8 @@ public class User {
         System.out.println("시도할 회수는 몇회인가요?");
         gameNumber = Integer.parseInt(Console.readLine());
     }
+    public List<String> getCars() {
+        return cars;
+    }
 }
 
