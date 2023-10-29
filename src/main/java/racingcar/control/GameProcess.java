@@ -39,12 +39,22 @@ public class GameProcess {
         // 한글 포함 검사
         // 문자열 이름 "woo," 이렇게 ,다음은 문자열이 꼭나와야된다.
         // 자동차 하나만 입력 금지.
+        ValidInputNameOfRaceCar(inputStr);
+
+        nameLineOfRaceCar = inputStr;
+        createRaceCars();
+    }
+
+    /**
+     * 이름을 입력에 관한 모든 검증의 모임
+     *
+     * @param inputStr
+     */
+    private void ValidInputNameOfRaceCar(String inputStr) {
         ValidException.isValidCarEachNameFIveLessString(inputStr);
         ValidException.isValidIncludeKorean(inputStr);
         ValidException.isValidCommaNextBlankCheck(inputStr);
         ValidException.isValidOneNameOfRaceCarCheck(inputStr);
-        nameLineOfRaceCar = inputStr;
-        createRaceCars();
     }
 
     /**
