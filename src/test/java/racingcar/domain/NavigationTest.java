@@ -12,7 +12,7 @@ class NavigationTest {
     public void 자동차들을_이동() {
         List<Car> cars = List.of(
                 new Car(new TestNumberGenerator(5)),
-                new Car(new TestNumberGenerator(4)),
+                new Car(new TestNumberGenerator(3)),
                 new Car(new TestNumberGenerator(9)));
         Navigation navigation = new Navigation(cars);
 
