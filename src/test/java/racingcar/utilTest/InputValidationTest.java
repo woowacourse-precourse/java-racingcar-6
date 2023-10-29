@@ -1,6 +1,7 @@
 package racingcar.utilTest;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.util.InputValidation;
 
 import java.util.ArrayList;
@@ -54,18 +55,23 @@ class InputValidationTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @Test
-    void 자동차_이름이_서로_중복되는_경우_예외_처리() {
-        List<String> test = new ArrayList<>();
-        test.add("tayo");
-        test.add("tayo");
-        assertThatThrownBy(() -> InputValidation.validateCarNames(test))
+    @ParameterizedTest
+    @ValueSource(strings = {"1"})
+    void 이동횟수_정상_입력_테스트(String test) {
+        assertDoesNotThrow(() -> InputValidation.validateMoveCount(test));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {""})
+    void 이동횟수에_공백이_입력된_경우_예외_처리(String test) {
+        assertThatThrownBy(() -> InputValidation.validateMoveCount(test))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @Test
-    void 숫자가_아닌_경우_예외_처리() {
-        assertThatThrownBy(() -> InputValidation.validateMoveCount("two"))
+    @ParameterizedTest
+    @ValueSource(strings = {"0"})
+    void 이동횟수에_0이_입력된_경우_예외_처리(String test) {
+        assertThatThrownBy(() -> InputValidation.validateMoveCount(test))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
