@@ -14,4 +14,12 @@ public class OutputView {
         cars.forEach(System.out::println);
         System.out.println();
     }
+
+    public static void printWiningResult(List<Car> winingCars) {
+        List<String> winingCarsName = winingCars.stream()
+                .map(Car::getName)
+                .toList();
+        String winingResult = String.join(", ", winingCarsName);
+        System.out.println("최종 우승자 : " + winingResult);
+    }
 }

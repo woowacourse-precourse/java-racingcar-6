@@ -30,6 +30,9 @@ public class RacingCarGame {
             List<Car> cars = racing.getCars();
             OutputView.printRaceResult(cars);
         }
+
+        List<Car> winingCars = racing.getWiningCars();
+        OutputView.printWiningResult(winingCars);
     }
 
     private void validateMovesNumber(int movesNumber) {

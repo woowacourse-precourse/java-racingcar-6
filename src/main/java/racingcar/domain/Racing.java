@@ -3,6 +3,7 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Racing {
@@ -36,5 +37,19 @@ public class Racing {
     private boolean isMoveForward() {
         return Randoms.pickNumberInRange(START_RANDOM_NUMBER, END_RANDOM_NUMBER)
                 >= MOVE_FORWARD_THRESHOLD;
+    }
+
+    public List<Car> getWiningCars() {
+        int maxForwardStep = getMaxForwardStep();
+        return cars.stream()
+                .filter(car -> car.getForwardStep() == maxForwardStep)
+                .toList();
+    }
+
+    private int getMaxForwardStep() {
+        return cars.stream()
+                .max(Comparator.comparing(Car::getForwardStep))
+                .map(Car::getForwardStep)
+                .orElse(0);
     }
 }
