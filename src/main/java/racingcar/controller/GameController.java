@@ -12,6 +12,13 @@ public class GameController {
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
 
+    public void playGame() {
+        outputView.requestCarNames();
+        final Cars cars = generateCars();
+        outputView.requestTryCount();
+        final TryCount tryCount = generateTryCount();
+    }
+
     private Cars generateCars() {
         final String carName = inputView.inputCars();
         final List<Car> cars = InputParser.carsSplit(carName);
