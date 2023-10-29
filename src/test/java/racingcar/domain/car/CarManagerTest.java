@@ -2,10 +2,10 @@ package racingcar.domain.car;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.car.validator.InputCarFactoryValidator;
 import racingcar.domain.victory.VictoryManager;
 import racingcar.domain.victory.VictoryView;
 

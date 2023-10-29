@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.car.move.RandomMovement;
+import racingcar.domain.car.validator.InputCarFactoryValidator;
 
 public class InputCarFactory implements CarFactory {
 

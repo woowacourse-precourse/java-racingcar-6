@@ -1,10 +1,17 @@
 package racingcar.domain.racingGame;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.racingGame.validator.TryCountValidator;
 
 public class TryCountManager {
     public static final int MAX_TRY_COUNT = 100;
     private int tryCount;
+
+    private final TryCountValidator tryCountValidator;
+
+    public TryCountManager(TryCountValidator tryCountValidator) {
+        this.tryCountValidator = tryCountValidator;
+    }
 
     public void makeTryCount() {
         setTryCount(askTryCount());
@@ -27,22 +34,8 @@ public class TryCountManager {
 
     private int inputTryCount() {
         String input = Console.readLine();
-        validateTryCount(input);
+        tryCountValidator.validateTryCount(input);
         return Integer.parseInt(input);
-    }
-
-    private boolean isNumeric(String str) {
-        return str.chars().allMatch(Character::isDigit);
-    }
-
-    private void validateTryCount(String input) {
-        if(!isNumeric(input)) {
-            throw new IllegalArgumentException("숫자만 입력 가능합니다.");
-        }
-
-        if(Integer.parseInt(input) > MAX_TRY_COUNT) {
-            throw new IllegalArgumentException("시도 횟수는 최대 " + MAX_TRY_COUNT + "번 가능합니다.");
-        }
     }
 
 

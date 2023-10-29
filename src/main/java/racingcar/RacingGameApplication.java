@@ -1,6 +1,7 @@
 package racingcar;
 
-import racingcar.domain.car.InputCarFactoryValidator;
+import racingcar.domain.car.validator.InputCarFactoryValidator;
+import racingcar.domain.racingGame.validator.TryCountValidator;
 import racingcar.domain.victory.VictoryManager;
 import racingcar.domain.victory.VictoryView;
 import racingcar.domain.car.CarFactory;
@@ -29,7 +30,7 @@ public class RacingGameApplication {
 
     private TryCountManager tryCountManager() {
         if (cashedTryCountManager == null) {
-            cashedTryCountManager = new TryCountManager();
+            cashedTryCountManager = new TryCountManager(new TryCountValidator());
         }
         return cashedTryCountManager;
     }

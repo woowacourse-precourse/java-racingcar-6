@@ -5,12 +5,13 @@ import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 import racingcar.IOTest;
+import racingcar.domain.racingGame.validator.TryCountValidator;
 
 class TryCountManagerTest extends IOTest {
     @Test
     void 시도_횟수_입력받은후_해당_횟수만큼_람다_호출() {
         //given
-        TryCountManager tryCountManager = new TryCountManager();
+        TryCountManager tryCountManager = new TryCountManager(new TryCountValidator());
 
         //when
         int tryCount = 3;
@@ -26,7 +27,7 @@ class TryCountManagerTest extends IOTest {
     @Test
     void 숫자가_아닌_입력을_받으면_예외_발생() {
         //given
-        TryCountManager tryCountManager = new TryCountManager();
+        TryCountManager tryCountManager = new TryCountManager(new TryCountValidator());
 
         //when
         command("3번");
@@ -40,7 +41,7 @@ class TryCountManagerTest extends IOTest {
     @Test
     void 최대_시도횟수를_넘으면_예외_발생() {
         //given
-        TryCountManager tryCountManager = new TryCountManager();
+        TryCountManager tryCountManager = new TryCountManager(new TryCountValidator());
         int tryCount = TryCountManager.MAX_TRY_COUNT + 1;
 
         //when
