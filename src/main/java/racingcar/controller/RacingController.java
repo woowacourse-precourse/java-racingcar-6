@@ -16,13 +16,19 @@ public class RacingController {
     }
 
     public void startRacing() {
+        receiveRacingCar();
+        receiveAttemptCount();
+        printWinner();
+    }
+
+    private void receiveRacingCar() {
         String carNames = inputView.inputCarNames();
         saveRacingCars(carNames);
+    }
 
+    private void receiveAttemptCount() {
         int attemptCount = Integer.parseInt(inputView.inputAttemptCounts());
         playRacing(attemptCount);
-
-        outputView.printWinners(racingService.getWinnerNames());
     }
 
     private void playRacing(int attemptCount) {
@@ -36,5 +42,9 @@ public class RacingController {
     private void saveRacingCars(String carNames) {
         String[] racingCarsStr = racingService.splitRacingCarsByComma(carNames);
         racingService.saveRacingCars(racingCarsStr);
+    }
+
+    private void printWinner() {
+        outputView.printWinners(racingService.getWinnerNames());
     }
 }
