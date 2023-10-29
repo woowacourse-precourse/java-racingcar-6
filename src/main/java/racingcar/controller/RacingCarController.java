@@ -1,28 +1,25 @@
 package racingcar.controller;
 
-import java.util.List;
-import java.util.Map;
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.RandomMovable;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingCarController {
     private final InputView inputView;
     private final OutputView outputView;
+    private final RandomMovable movable;
 
-    public RacingCarController(InputView inputView, OutputView outputView) {
+    public RacingCarController(InputView inputView, OutputView outputView, RandomMovable movable) {
         this.inputView = inputView;
         this.outputView = outputView;
+        this.movable = movable;
     }
 
     public void start() {
         Cars cars = inputView.inputCars();
-
         race(cars);
-
-        List<String> winner = cars.findWinner();
-        outputView.printWinner(winner);
+        outputView.printWinner(cars.findWinner());
     }
 
     private void race(final Cars cars) {
@@ -36,8 +33,8 @@ public class RacingCarController {
             return;
         }
 
-        Map<Car, Integer> moveResults = cars.moveAllCars();
-        outputView.printMoveResult(moveResults);
+        cars.moveAllCars(movable);
+        outputView.printMoveResult(cars.toCarsDto());
 
         raceRecursive(cars, remainedTryCount - 1);
     }
