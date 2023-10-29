@@ -14,19 +14,28 @@ public class Application {
     private static final int NAME_LIMIT = 5;
     public static void main(String[] args) {
         printCarInputMessage();
-        String[] carNames = carsInputByName();
-        for (String name : carNames) cars.add(new Car(name));
+        String[] carNames = carNamesInput();
+        for (String name : carNames) addCarToList(createCar(name));
 
         printTryInputMessage();
         int tryCount = tryInput();
+
         makeCarsMove(tryCount);
 
         printResultMessage();
         List<Car> winners = decideWinners(cars);
         printWinners(winners);
     }
-    private static String[] carsInputByName() {
 
+    private static void addCarToList(Car car) {
+        cars.add(car);
+    }
+
+    private static Car createCar(String name) {
+        return new Car(name);
+    }
+
+    private static String[] carNamesInput() {
         String input = Console.readLine();
         String[] carNames = input.split(",");
         for (String name : carNames) {
