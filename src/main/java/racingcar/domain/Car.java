@@ -3,7 +3,7 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    private String name;
+    private final String name;
     private int movedDist;
     public Car(String name) {
         this.name = name;

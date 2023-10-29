@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class Racing {
     private List<Car> cars = new ArrayList<>();
-    private int turn;
+    private final int turn;
     public Racing(List<Car> cars, int turn) {
         this.cars = cars;
         this.turn = turn;
