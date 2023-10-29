@@ -12,4 +12,8 @@ public class RacingCar {
     public void moveForword() {
         distance += 1;
     }
+
+    public int getDistance() {
+        return distance;
+    }
 }
