@@ -40,10 +40,6 @@ public class GameController {
                 distance.put(playerName,a);
             }
         }
-        showResult();
-    }
-
-    public void showResult() {
         outputView.result(this.distance);
     }
 }
