@@ -3,10 +3,12 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class RacingCars {
 
     private static final int FORWARD_JUDGE_NUMBER = 4;
+    private int firstPosition = -1;    // 아무도 전진을 못한 경우를 생각해 -1로 세팅
 
     private final List<Car> racingCars;
 
@@ -22,7 +24,7 @@ public class RacingCars {
     }
 
     public void forwardJudge() {
-        for (Car racingCar  : racingCars) {
+        for (Car racingCar : racingCars) {
             int randomNumber = GenerateRandomNumber.generate();
             if (randomNumber >= FORWARD_JUDGE_NUMBER) {
                 racingCar.goForward();
@@ -39,5 +41,15 @@ public class RacingCars {
             racingCarsInfo.add(carInfo);
         }
         return racingCarsInfo;
+    }
+
+    public void getFirstPosition() {
+        for (Car racingCar : racingCars) {
+            Map<String, String> carInfos = racingCar.getCarInfo();
+            int carPosition = carInfos.get("position").length();
+            if (carPosition > firstPosition) {
+                firstPosition = carPosition;
+            }
+        }
     }
 }
