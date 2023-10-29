@@ -56,7 +56,7 @@ class InputViewTest {
                 .map(Car::new)
                 .collect(Collectors.toList());
 
-        List<Car> actualCarNames = carNames.names();
+        List<Car> actualCarNames = carNames.cars();
 
         assertEquals(expectedCarNames, actualCarNames);
     }
