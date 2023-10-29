@@ -11,7 +11,7 @@ public class Validator {
     }
 
     public static boolean isInNameRange(String name) {
-        return name.length() <= 5;
+        return name.length() <= MAX_NAME_LENGTH;
     }
 
 }
