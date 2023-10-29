@@ -12,7 +12,7 @@
 * 입력받을때 안내메시지 출력 (RacingSetting Class) ❌
 ### 구현
 * 자동차 전진 기능 구현 (Car Class) ❌
-* 랜덤한 값(0~9) 구하는 기능 구현 (Car Class) ❌
+* 랜덤한 값(0~9) 구하는 기능 구현 (Car Class) ✅
 * 자동차 이름이 유효한지 검사하는 기능 구현 (Information Class) ❌
 * 자동차 개수가 유효한지 검사하는 기능 구현 (CarNum Class) ❌
 * 이동을 시도할 횟수가 유효한지 검사하는 기능 구현 (MoveNum Class) ❌
