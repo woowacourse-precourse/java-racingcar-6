@@ -47,4 +47,14 @@ public class CarsTest {
         //then
         assertThat(carsSize).isEqualTo(5);
     }
+
+    @DisplayName("중복되는 자동차 이름이 존재하면 예외가 발생해야 한다.")
+    @Test
+    void 중복되는_자동차_이름이_존재시_예외_발생_테스트() {
+        //given
+        String names = "jun,seo,park,jun";
+
+        //when, then
+        assertThrows(IllegalArgumentException.class, () -> new Cars(names));
+    }
 }
