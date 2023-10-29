@@ -5,9 +5,11 @@ import racingcar.global.ErrorMessage;
 import racingcar.global.RaceException;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
-import static racingcar.global.Constant.MAX_CAR_NAME_LENGTH;
+import static racingcar.global.Constant.*;
 
 public class CarGroup {
     private Map<String, Integer> cars;
@@ -49,10 +51,19 @@ public class CarGroup {
 
     public void moveAllProbabilistically() {
         cars.replaceAll((carName, position) -> {
-            if (Randoms.pickNumberInRange(0, 9) > 4) {
+            if (Randoms.pickNumberInRange(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX) >= RANDOM_NUMBER_THRESHOLD) {
                 return position + 1;
             }
             return position;
         });
+    }
+
+    public String getStatusAsString() {
+        List<String> results = cars
+                .entrySet()
+                .stream()
+                .map(entry -> String.format("%s : %s", entry.getKey(), "-".repeat(entry.getValue())))
+                .collect(Collectors.toList());
+        return String.join("\n", results);
     }
 }
