@@ -1,6 +1,6 @@
 package racingcar;
 
-import static camp.nextstep.edu.missionutils.Console.readLine;
+import camp.nextstep.edu.missionutils.Console;
 
 public class RacingSetting {
     CarNum carNum;
@@ -10,7 +10,7 @@ public class RacingSetting {
         String inputCarName;
         String[] carNameParsing;
 
-        inputCarName = readLine();
+        inputCarName = Console.readLine();
         carNameParsing = inputCarName.split(",");
         carNum = new CarNum(carNameParsing);
         return (carNameParsing);
@@ -19,7 +19,7 @@ public class RacingSetting {
     void getMoveNum() {
         String inputMoveNum;
 
-        inputMoveNum = readLine();
+        inputMoveNum = Console.readLine();
         moveNum = new MoveNum(inputMoveNum);
     }
 }
