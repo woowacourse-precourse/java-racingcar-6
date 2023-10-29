@@ -1,8 +1,5 @@
 package racingcar.controller;
 
-import static racingcar.constant.ViewMessage.INSERT_CARS_NAMES;
-import static racingcar.constant.ViewMessage.INSERT_MOVING_COUNT;
-
 import racingcar.model.MovingCount;
 import racingcar.model.RacingCars;
 import racingcar.service.RaceService;
@@ -15,10 +12,10 @@ public class RaceController {
     }
 
     public static void start() {
-        OutputView.printlnViewMessage(INSERT_CARS_NAMES);
+        OutputView.printInsertCarNames();
         RacingCars racingCars = RacingCars.createRacingCars(InputView.readLine());
 
-        OutputView.printlnViewMessage(INSERT_MOVING_COUNT);
+        OutputView.printInsertMovingCount();
         MovingCount movingCount = MovingCount.createMovingCount(InputView.readLine());
         InputView.close();
 
