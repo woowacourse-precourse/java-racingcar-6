@@ -42,7 +42,7 @@ public class InputAndOutput {
             if (carName.length() > 5) {
                 throw new IllegalArgumentException();
             }
-            if (!carName.matches("[a-zA-Z]")) {
+            if (carName.matches("[^a-zA-Z]")) {
                 throw new IllegalArgumentException();
             }
             carNameList.add(carName);
