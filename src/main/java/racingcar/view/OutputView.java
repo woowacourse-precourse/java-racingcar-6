@@ -19,5 +19,6 @@ public class OutputView {
             System.out.printf(ROUND_RESULT, car.getCarName(), DISTANCE_RESULT.repeat(car.getDistance()));
             System.out.println();
         }
+        System.out.println();
     }
 }
