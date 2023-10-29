@@ -27,8 +27,9 @@ public class InputCarFactory implements CarFactory {
         }
     }
 
-    private long uniqueNameCount(String[] carNames) {
-        return Arrays.stream(carNames)
+    private int uniqueNameCount(String[] carNames) {
+        return (int)Arrays.stream(carNames)
+                .map(String::trim)
                 .distinct()
                 .count();
     }

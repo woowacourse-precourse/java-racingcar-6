@@ -36,4 +36,18 @@ class InputCarFactoryTest extends IOTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름은 5자 이하만 가능합니다.");
     }
+
+    @Test
+    void 입력받은_자동차_이름에_중복이_발생하면_에러를_던진다() {
+        //given
+        CarFactory carFactory = new InputCarFactory();
+
+        //when
+        command("a, c, a");
+
+        //then
+        assertThatThrownBy(() -> carFactory.createCars())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름에 중복이 있습니다.");
+    }
 }
