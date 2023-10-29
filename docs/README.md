@@ -4,17 +4,17 @@
 
 ## 기능 목록
 
-- [X] 경주할 자동차 이름을 입력받는 기능 - Application.*receiveRaceCarNames*
-- [X] 시도할 회수를 입력받는 기능 - Application.*receiveTryCount*
-- [X] 자동차 각각의 이름을 알아내는 기능 - RaceCarNames.*parseCarNamesFromRaceCarInput*
-- [X] 회수가 숫자인지 아닌지 판단하는 기능 - TryCount.*isTryCountNumeric*
-- [X] 자동차 이름이 5자 이하인지 판단하는 기능 - CarName.*isNameUnder5Characters*
-- [X] 자동차 이름이 공백인지 확인하는 기능 - CarName.*isCarNameEmpty*
-- [X] 자동차를 전진시키는 기능 - Car.*moveForward*
-- [X] 매회차 게임 진행 기능 - CarList.*playGame*
-- [X] 우승자가 누구인지 판별하는 기능 - CarList.*calculateRaceWinners*
-- [X] 우승자를 출력하는 기능 - Application.*printRaceWinners*
-- [X] 메인 애플리케이션 게임 진행 기능 - Application.*startRacingGame*
+- [X] 경주할 자동차 이름을 입력받는 기능 - GameController.*receiveRaceCarNames*
+  - [X] 자동차 이름을 파싱하는 기능 - RaceCarNames.*parseCarNamesFromInput*
+  - [X] 자동차 이름이 유효한지 확인하는 기능 - Car.*isNameValid*
+    - [X] 자동차 이름이 빈 문자열인지 확인하는 기능 - CarName.*isCarNameEmpty*
+    - [X] 자동차 이름이 다섯 글자 이하인지 확인하는 기능 - CarName.*isNameUnder5Characters*
+- [X] 시도할 회수를 입력받는 기능 - GameController.*receiveTryCount*
+  - [X] 시도 횟수가 숫자인지 확인하는 기능 - TryCount.*isTryCountNumeric*
+- [X] 매회차 게임 진행 기능 - GameController.*playGame*
+  - [X] 자동차를 전진시키는 기능 - Car.*moveForward*
+- [X] 각 자동차의 위치를 보여주는 기능 - GameController.*showCarPositions*
+- [X] 우승자를 알아내서 출력하는 기능 - GameController.*showRaceWinners*
 
 ---
 
