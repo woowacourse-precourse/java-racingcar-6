@@ -11,23 +11,6 @@ public class Car {
         this.distance = new Distance();
     }
 
-    private int generatedRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
-    }
-
-    private boolean shouldMove() {
-        if (generatedRandomNumber() >= 4) {
-            return true;
-        }
-        return false;
-    }
-
-    public void StopOrMove() {
-        if (shouldMove()) {
-            move();
-        }
-    }
-
     public String getName() {
         return name.toString();
     }
@@ -38,5 +21,22 @@ public class Car {
 
     public void move() {
         distance.move();
+    }
+
+    public void stopOrMove() {
+        if (shouldMove()) {
+            move();
+        }
+    }
+
+    private boolean shouldMove() {
+        if (generatedRandomNumber() >= 4) {
+            return true;
+        }
+        return false;
+    }
+
+    protected int generatedRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 }
