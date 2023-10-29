@@ -1,7 +1,6 @@
 package racingcar.domain;
 
-import java.util.List;
-import racingcar.dto.output.CarInfo;
+import racingcar.common.strategy.MoveStrategy;
 
 public class Car {
     private final String name;
@@ -11,30 +10,28 @@ public class Car {
         this.name = name;
     }
 
-    // 거리 증가
-    public void increaseDistance() {
-        distance++;
-    }
-
-    // CarInfo로 변환
-    public CarInfo toCarInfo() {
-        return new CarInfo(name, distance);
-    }
-
-    // 승자면 이름을 리스트에 추가
-    public void addWinnerIfEqual(int maxDistance, List<String> winnerNames) {
-        if (isWinner(maxDistance)) {
-            winnerNames.add(this.name);
+    // 이동
+    public void move(MoveStrategy moveStrategy) {
+        if (moveStrategy.isMovable()) {
+            increaseDistance();
         }
     }
 
-    // 승자인지 판별
-    public boolean isWinner(int maxDistance) {
-        return this.distance == maxDistance;
+    // 거리 증가
+    private void increaseDistance() {
+        distance++;
     }
 
-    // 최대 이동 거리 계산
-    public int calculateMaxDistance(int currentMaxDistance) {
-        return Math.max(this.distance, currentMaxDistance);
+    // 승자인지 판별
+    public boolean isWinner(int winnerDistance) {
+        return this.distance == winnerDistance;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getDistance() {
+        return distance;
     }
 }
