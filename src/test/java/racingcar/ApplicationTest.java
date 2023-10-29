@@ -64,6 +64,20 @@ class ApplicationTest extends NsTest {
         assertThat(ranNum).isGreaterThanOrEqualTo(0).isLessThanOrEqualTo(9);
     }
 
+    @Test
+    void 알맞게_전진하는지_확인() {
+        RacingGame racingGame = new RacingGame();
+        int inputNum1 = 4;
+        int inputNum2 = 3;
+        int inputNum3 = 9;
+        int result1 = racingGame.forwardOrStop(inputNum1);
+        int result2 = racingGame.forwardOrStop(inputNum2);
+        int result3 = racingGame.forwardOrStop(inputNum3);
+        assertThat(result1).isEqualTo(1);
+        assertThat(result2).isEqualTo(0);
+        assertThat(result3).isEqualTo(1);
+    }
+    
 
     @Override
     public void runMain() {
