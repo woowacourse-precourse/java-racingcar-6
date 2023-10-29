@@ -21,6 +21,7 @@ public class GameController {
         carName.isValid(player);
         String attemptsNum = inputView.attemptsNum();
         attemptNum.isValid(attemptsNum);
+        outputView.initial();
         for (Object playerName : player){
             this.distance.put(playerName,"");
         }
