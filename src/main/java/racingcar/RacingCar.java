@@ -7,7 +7,7 @@ public class RacingCar {
     private int forwardCount;
 
     public RacingCar(String name) {
-        validationCarName(name);
+        validateCarName(name);
         this.name = name;
         this.forwardCount = 0;
     }
@@ -31,7 +31,7 @@ public class RacingCar {
         return randNum >= 4;
     }
 
-    private void validationCarName(String name) {
+    private void validateCarName(String name) {
         if (!isValidName(name)) {
             throw new IllegalArgumentException("차량 이름은 1~5의 글자 수만 허용 됩니다.");
         }
