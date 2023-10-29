@@ -8,17 +8,19 @@ import racingcar.view.InputView;
 
 public class Game {
 
-    public void getCarNames() {
+    public List<String> getCarNames() {
         InputView.inputCarNames();
         String carInput = Console.readLine();
         List<String> carNames = StringConvertor.convertStringToList(carInput);
         InputValidator.checkCarNames(carNames, carInput);
+        return carNames;
     }
 
-    public void getTryNumber() {
+    public int getTryNumber() {
         InputView.inputTryNumber();
         String tryNumber = Console.readLine();
         InputValidator.checkTryNumberIsInteger(tryNumber);
+        return StringConvertor.convertStringToInt(tryNumber);
     }
 
 }
