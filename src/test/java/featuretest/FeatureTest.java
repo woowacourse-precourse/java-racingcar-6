@@ -133,13 +133,13 @@ public class FeatureTest {
 
     @Test
     void 자동차_전진() {
-        Car testObj = new Car("car1");
+        Car testCar = new Car("car1");
         int moveCount = 5;
         for (int i = 1; i <= moveCount; i++) {
-            testObj.moveForward();
+            testCar.moveForward();
         }
 
-        CarPosition actualPosition = testObj.getPosition();
+        CarPosition actualPosition = testCar.getPosition();
         CarPosition expectedPosition = new CarPosition(moveCount);
 
         assertThat(actualPosition).isEqualTo(expectedPosition);
