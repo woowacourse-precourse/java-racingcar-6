@@ -1,5 +1,7 @@
 package racingcar.Model;
 
+import java.util.ArrayList;
+
 public class GameModel {
 
     int carNumber;
@@ -21,13 +23,13 @@ public class GameModel {
         return coinNumber;
     }
 
-    public CarModel getWinnerCar() {
+    public ArrayList<CarModel> getWinnerCar() {
         return winnerCar;
     }
 
-    CarModel winnerCar;
+    ArrayList<CarModel> winnerCar = new ArrayList<>();
 
     public void setWinnerCar(CarModel winnerCar) {
-        this.winnerCar = winnerCar;
+        this.winnerCar.add(winnerCar);
     }
 }
