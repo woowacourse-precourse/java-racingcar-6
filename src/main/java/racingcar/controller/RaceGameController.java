@@ -21,7 +21,7 @@ public class RaceGameController {
         attemptNumber = InputValidator.isValidAttemptNumber(InputView.getAttemptNumber());
 
         // Car 객체 List 만들기
-        convertCarList(carInputList);
+        carList = convertCarList(carInputList);
 
         OutputView.printBeforeResult();
 
@@ -36,13 +36,13 @@ public class RaceGameController {
         OutputView.printWinner(winnerList);
     }
 
-    private void convertCarList(List<String> carInputList) {
-        int i = 0;
-        while (carInputList.size() > i) {
+    public List<Car> convertCarList(List<String> carInputList) {
+        List<Car> newCarList = new ArrayList<>();
+        for (int i = 0; i < carInputList.size(); i++) {
             Car newCar = new Car(carInputList.get(i));
-            carList.add(newCar);
-            i++;
+            newCarList.add(newCar);
         }
+        return newCarList;
     }
 
     // 게임 1회 실행 및 결과 출력
