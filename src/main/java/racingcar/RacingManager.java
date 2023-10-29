@@ -1,12 +1,14 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.number_generator.NumberGenerator;
+import racingcar.number_generator.RandomNumberGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RacingManager {
+    private final NumberGenerator ng = new RandomNumberGenerator();
     private List<RacingCar> racingCars;
     private int moveCount;
 
@@ -21,18 +23,18 @@ public class RacingManager {
     }
 
     public void startRace() {
+        System.out.println("\n실행 결과");
         for (int i = 0; i < moveCount; i++) {
-            for (RacingCar racingCar : racingCars) {
-                int moveWeight = Randoms.pickNumberInRange(1, 9);
-                racingCar.move(moveWeight);
-            }
-            printCarMoveResult();
+            moveRacingCars();
+            printMoveResult();
+            System.out.println();
         }
     }
 
-    private void printCarMoveResult() {
+    public void moveRacingCars() {
         for (RacingCar racingCar : racingCars) {
-            System.out.println(racingCar.getName() + " : " + "-".repeat(racingCar.getForwardCount()));
+            int moveWeight = ng.generate(1, 9);
+            racingCar.move(moveWeight);
         }
     }
 
