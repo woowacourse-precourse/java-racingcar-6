@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.ArrayList;
+
 public class ResultView {
     private static final String RESULT = "실행 결과";
     private static final String WINNER = "최종 우승자";
@@ -7,15 +9,15 @@ public class ResultView {
     private static final String DASH = "-";
     private static final String COMMAS = ", ";
 
-    public void printResultTitle(){
+    public static void printResultTitle(){
         System.out.println(RESULT);
     }
 
-    public void printCarState(String name, int position){
+    public static void printCarState(String name, int position){
         System.out.println(name+DELIMITER+DASH.repeat(position));
     }
 
-    public void printWinner(String[] names){
+    public static void printWinner(ArrayList<String> names){
         System.out.print(WINNER+DELIMITER+String.join(COMMAS, names));
     }
 }
