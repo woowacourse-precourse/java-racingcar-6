@@ -95,18 +95,18 @@
 
 메시지를 반환하는 클래스
 
-- [ ] 자동차 이름 입력 요구 메시지 반환
+- [x] 자동차 이름 입력 요구 메시지 반환
     - `REQUEST_CAR_NAMES_FORMAT` : 차 이름 조건 메시지 포맷 : `경주할 자동차 이름을 입력하세요.(이름은 %s(%s) 기준으로 구분)`
     - `CAR_NAMES_DELIMITER_DESCRIPTION` : 차 이름들 구분자 설명
     - `CAR_NAMES_DELIMITER` : 차 이름들 구분자
-- [ ] 시도할 회수 요구 메시지 반환
+- [x] 시도할 회수 요구 메시지 반환
     - `REQUEST_ROUND_COUNT` : `시도할 회수는 몇회인가요?`
-- [ ] 실행 결과 메시지 반환
-    - `PLAY_RESULT` : `\n실행결과`
-- [ ] 라운드 결과 반환
+- [x] 실행 결과 메시지 반환
+    - `PLAY_RESULT_MESSAGE` : `\n실행결과`
+- [x] 라운드 결과 반환
     - `CAR_INFORMATION_FORMAT` : 차 정보 메시지 : `%s : %s`
-    - `CAR_POSITION_PRESENTOR` : 차 위치 표현자 : `-`
-- [ ] 최종 우승자 메시지 반환
+    - `CAR_POSITION_PRESENTER` : 차 위치 표현자 : `-`
+- [x] 최종 우승자 메시지 반환
     - `WINNER_FORMAT` : `최종 우승자 : %s`
     - `WINNERS_DELIMITER` :  : `, `
 
