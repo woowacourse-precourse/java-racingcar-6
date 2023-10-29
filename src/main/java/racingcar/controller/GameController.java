@@ -24,9 +24,12 @@ public class GameController {
         gameResultMessge();
         while (tryAttempt > ZERO.getValue()) {
             process.processGame(car);
-            tryAttempt -= 1;    // 메서드 호출하는걸로 바꾸기
+            tryAttempt = decreaseAttempt(tryAttempt);
         }
         printFinalWinner(getFinalWinner(car));
+    }
+    private int decreaseAttempt(int attempt){
+        return attempt - 1;
     }
 
     private List<String> getFinalWinner(RacingCarList racingCarList) {
