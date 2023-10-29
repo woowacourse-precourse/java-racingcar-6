@@ -34,24 +34,27 @@ public class Application {
     public static void CheckName(String s) {
         for(int i=0;i<UserNum;i++)
         {
-            if(Name[i].length()>5||Objects.equals(Name[i], ""))
+            if(Name[i].length()>5||Objects.equals(Name[i], "")|| Name[i].isBlank())
             {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("알맞은 이름을 입력하시오");
             }
         }
         if(s.charAt(s.length() - 1)==',') {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("알맞은 이름을 입력하시오");
         }
     }
     public static int PutNum() {
         System.out.println("시도할 회수는 몇회인가요?");
-        String s = Console.readLine();
-        int i = Integer.parseInt(s);
-        if (i > 0) {
-            return Integer.parseInt(s);
-        }
-        else {
-            throw new IllegalArgumentException();
+        try {
+            String s = Console.readLine();
+            int i = Integer.parseInt(s);
+            if (i > 0) {
+                return i;
+            } else {
+                throw new IllegalArgumentException("알맞은 시도 횟수를 입력하시오.");
+            }
+        }catch (NumberFormatException e){
+            throw new IllegalArgumentException("알맞은 시도 횟수를 입력하시오.");
         }
     }
 
