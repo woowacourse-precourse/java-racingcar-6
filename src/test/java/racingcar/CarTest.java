@@ -10,6 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import racingcar.domain.Car;
+import racingcar.manager.RandomNumberGenerator;
 
 class CarTest {
 

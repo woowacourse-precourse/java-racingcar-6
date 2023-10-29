@@ -1,4 +1,4 @@
-package racingcar.controller;
+package racingcar.sevice;
 
 import java.util.ArrayList;
 import java.util.List;

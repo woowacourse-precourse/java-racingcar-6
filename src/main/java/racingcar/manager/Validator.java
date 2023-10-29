@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.manager;
 
 public class Validator {
 

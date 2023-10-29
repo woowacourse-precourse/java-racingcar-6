@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.RandomNumberGenerator;
+import racingcar.manager.RandomNumberGenerator;
 
 public class Car {
 
