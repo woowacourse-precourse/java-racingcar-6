@@ -62,4 +62,18 @@ public class RaceViewTest {
 
         assertThat(stream.toString()).contains("최종 우승자", "red", "green", "blue");
     }
+
+    @Test
+    void printProgress_테스트() {
+        List<String> input = Arrays.asList("red", "green", "blue");
+        List<Car> carList = RacingUtil.createCarsFromNames(input);
+        OutputStream stream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(stream));
+
+        carList.get(0).move();
+        carList.get(0).move();
+        view.printProgress(carList);
+
+        assertThat(stream.toString()).contains("red : --");
+    }
 }
