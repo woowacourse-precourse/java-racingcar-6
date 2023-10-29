@@ -1,10 +1,9 @@
 package racingcar.console.game.racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.console.game.Game;
+import racingcar.console.game.racingcar.domain.Car;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,40 +54,12 @@ public class RacingCarGame implements Game {
         }
 
         String[] winnerNames = winners.stream()
-                .map(Car::getName) // 또는 .map(car -> car.toString())
+                .map(Car::getName)
                 .toArray(String[]::new);
         String result = String.join(", ", winnerNames);
         System.out.println(result);
 
     }
 
-    public class Car {
-        private String name;
 
-        public String getName() {
-            return name;
-        }
-
-        private int location;
-
-        public Car(String name) {
-            this.name = name;
-            this.location = location;
-        }
-
-        public void moveLocation() {
-            if (Randoms.pickNumberInRange(0,9) > 3) {
-                location += 1;
-            }
-        }
-
-        public void indicateLocation() {
-            System.out.print(name + " : ");
-            System.out.println("-".repeat(location));
-        }
-
-        public int getLocation() {
-            return location;
-        }
-    }
 }
