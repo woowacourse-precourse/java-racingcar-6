@@ -17,7 +17,7 @@ public class CarValidator {
     private static final String DUPLICATE_CAR_NAME_ERROR = "자동차의 이름은 중복될 수 없습니다.";
     private static final String TRY_INPUT_TYPE_ERROR = "시도 횟수는 0부터 9 사이의 숫자로만 구성되어야 합니다.";
 
-    public static void checkAllException(List<Car> carList){
+    public static void checkAllCarNameException(List<Car> carList){
         for(Car carName : carList){
             checkCarNameLength(carName.getCarName());
             checkCarNameType(carName.getCarName());
