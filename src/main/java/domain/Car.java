@@ -1,5 +1,7 @@
 package domain;
 
+import util.RandomGenerator;
+
 public class Car {
 
     private String name;
@@ -17,6 +19,10 @@ public class Car {
         if (shouldMove()) {
             move();
         }
+    }
+
+    private boolean shouldMove() {
+        return RandomGenerator.generateNumber() >= 4;
     }
 
 }
