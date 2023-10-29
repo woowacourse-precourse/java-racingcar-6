@@ -14,8 +14,10 @@ public class OutputCarRaceTest extends PrintTest{
         INPUT_CAR_RACING_COUNT_PRINT("시도할 회수는 몇회인가요?"),
         INPUT_DATA_PRINT("%s"),
 
-        OUPUT_RACE_RESULT_PRINT("실행 결과"),
-        OUPUT_IMPLEMENTATION_RESULT_PRINT("%s : %s");
+        OUTPUT_RACE_RESULT_PRINT("실행 결과"),
+        OUTPUT_IMPLEMENTATION_RESULT_PRINT("%s : %s"),
+        OUTPUT_WINNERS("최종 우승자 : %s")
+        ;
 
         private final String value;
 
@@ -72,15 +74,15 @@ public class OutputCarRaceTest extends PrintTest{
 
     @Test
     void 자동차_경주_실행결과_정상(){
-        OutputCarRace.print(MessageType.OUPUT_RACE_RESULT_PRINT);
+        OutputCarRace.print(MessageType.OUTPUT_RACE_RESULT_PRINT);
 
-        assertThat(output()).contains(MessageType.OUPUT_RACE_RESULT_PRINT.getValue());
+        assertThat(output()).contains(MessageType.OUTPUT_RACE_RESULT_PRINT.getValue());
     }
 
     @Test
     void 자동차_이름들_출력_정상(){
-        String format = format(MessageType.OUPUT_IMPLEMENTATION_RESULT_PRINT.getValue(), 차이름, "");
-        OutputCarRace.printf(MessageType.OUPUT_IMPLEMENTATION_RESULT_PRINT, 차이름, "");
+        String format = format(MessageType.OUTPUT_IMPLEMENTATION_RESULT_PRINT.getValue(), 차이름, "");
+        OutputCarRace.printf(MessageType.OUTPUT_IMPLEMENTATION_RESULT_PRINT, 차이름, "");
 
         assertThat(outputf(차이름)).contains(format);
     }
@@ -89,6 +91,14 @@ public class OutputCarRaceTest extends PrintTest{
     void 입력했던_값_출력(){
         String format = format(MessageType.INPUT_DATA_PRINT.getValue(), 차이름들);
         OutputCarRace.printf(MessageType.INPUT_DATA_PRINT, 차이름들);
+
+        assertThat(outputf(차이름들)).contains(format);
+    }
+
+    @Test
+    void 우승자_값_출력(){
+        String format = format(MessageType.OUTPUT_WINNERS.getValue(), 차이름들);
+        OutputCarRace.printf(MessageType.OUTPUT_WINNERS, 차이름들);
 
         assertThat(outputf(차이름들)).contains(format);
     }
