@@ -6,8 +6,12 @@ import java.util.Set;
 
 public class InputException extends IllegalArgumentException {
 
+    // 이름은 5글자 이하이다.
     private static final int LIMIT_LENGTH = 5;
+
+    // 2대 이상의 carName이 입력되어야 한다.
     private static final int MIN_CARCOUNT = 2;
+
 
     // 자동차 이름이 5자가 넘어갈 경우
     public static void checkLimit(List<String> carNamesList){
@@ -56,9 +60,11 @@ public class InputException extends IllegalArgumentException {
     }
 
 
+
     // 횟수
     // 숫자가 아닌 경우
     public static void isNotNumber(int number){
+
         if (!String.valueOf(number).matches("\\d+")) {
             throw new IllegalArgumentException(number + " -> 숫자만 입력해주세요.");
         }
@@ -70,4 +76,6 @@ public class InputException extends IllegalArgumentException {
             throw new IllegalArgumentException(count + " -> 양의 정수만 입력해주세요. ");
         }
     }
+
+
 }
