@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.Validator;
+import racingcar.view.UserOutput;
 
 public class RacingGame {
     private static RacingGame instance; // 게임을 진행할 싱글톤 인스턴스
@@ -24,7 +25,7 @@ public class RacingGame {
 
     public static void run(){
 
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        UserOutput.askForCarNames();
         String carNames = Console.readLine();
 
         if(Validator.isEmpty(carNames)){
@@ -34,15 +35,15 @@ public class RacingGame {
         RacingGame game = RacingGame.getInstance();
         game.addCar(carNames);
 
-        System.out.println("시도할 회수는 몇 회인가요?");
+        UserOutput.askForTryCount();
         String rounds = Console.readLine();
 
         if(Validator.isNotNumber(rounds)){
             throw new IllegalArgumentException("숫자만 입력해야 합니다.");
         }
         game.play(rounds);
-
-        System.out.printf("최종 우승자 : %s", game.getWinners());
+        String result = game.getWinners();
+        UserOutput.showWinners(result);
 
         Console.close();
     }
@@ -67,12 +68,13 @@ public class RacingGame {
         for (int i = 0; i < rounds; i++) {
             playRound();
         }
+        UserOutput.printNewLine();
     }
 
     private void playRound() {
         moveAllCars();
         displayAllCars();
-        printNewLine();
+        UserOutput.printNewLine();
     }
 
     private void moveAllCars() {
@@ -85,10 +87,6 @@ public class RacingGame {
         for (Car car : cars) {
             car.display();
         }
-    }
-
-    private void printNewLine() {
-        System.out.println();
     }
 
     private String getWinners() {
