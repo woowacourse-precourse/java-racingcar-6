@@ -6,8 +6,11 @@ import java.util.List;
 public class Racing {
 
     private static final int MAXIMUM_CAR_NAME_LENGTH = 5;
+    private static final int MINIMUM_MOVES_NUMBER = 1;
 
     private final List<Car> cars;
+
+    private int movesNumber;
 
     public Racing() {
         cars = new ArrayList<>();
@@ -15,6 +18,11 @@ public class Racing {
 
     public List<Car> getCars() {
         return cars;
+    }
+
+    public void updateMovesNumber(int movesNumber) {
+        validateMovesNumber(movesNumber);
+        this.movesNumber = movesNumber;
     }
 
     public void generateCars(List<String> carsName) {
@@ -31,6 +39,12 @@ public class Racing {
 
         if (carName.length() > MAXIMUM_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차의 이름은 5자 이하이어야 합니다.");
+        }
+    }
+
+    private void validateMovesNumber(int movesNumber) {
+        if (movesNumber < MINIMUM_MOVES_NUMBER) {
+            throw new IllegalArgumentException("이동 횟수는 1회 이상이어야 합니다.");
         }
     }
 }
