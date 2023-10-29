@@ -1,14 +1,12 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.model.Car;
 
 import java.util.HashSet;
-import java.util.List;
 
 public class InputValue {
 
-    public static String[] getRacingCars() {
+    public static String[] getRacingCarsNames() {
 
         String input = Console.readLine();
 
@@ -25,6 +23,17 @@ public class InputValue {
         if(set.size() != names.length) throw new IllegalArgumentException();
 
         return names;
+    }
+
+    public static int getRacingRange() {
+
+        String input = Console.readLine();
+
+        String temp = input.replaceAll(" ", "");
+
+        if(!temp.matches("^[0-9]+$")) throw new IllegalArgumentException();
+
+        return Integer.parseInt(temp);
     }
 
 }
