@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Car {
     private final String name;
-    private final int position;
+    private int position;
 
     public Car(String name) {
         validateCarNameLength(name);
@@ -16,6 +16,18 @@ public class Car {
         if (name.length() > 5) {
             throw new IllegalArgumentException("[ERROR] 이름이 다섯글자를 초과했습니다.");
         }
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void addPosition() {
+        position += 1;
     }
 
     @Override
