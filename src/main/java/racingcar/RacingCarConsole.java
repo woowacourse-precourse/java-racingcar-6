@@ -36,4 +36,13 @@ public class RacingCarConsole {
         cars.forEach(System.out::println);
         System.out.println();
     }
+
+    public static void printChampionCars(List<Car> championCars) {
+        List<String> championCarsName = championCars.stream().map(Car::getName).toList();
+        String championCarsMessage = championCarsName.stream()
+                .reduce((carNames, carName) -> carNames + ", " + carName)
+                .get();
+
+        System.out.println("최종 우승자 : " + championCarsMessage);
+    }
 }

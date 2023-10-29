@@ -18,4 +18,12 @@ public class Car {
         String currentLocation = "-".repeat(location);
         return name + " : " + currentLocation;
     }
+
+    public int getLocation() {
+        return location;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
