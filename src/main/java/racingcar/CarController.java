@@ -2,7 +2,6 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class CarController {
@@ -47,10 +46,27 @@ public class CarController {
     }
 
     public String getWinner() {
-        // TODO: 임시 우승자 선정
-        List<String> winner;
-        winner = Arrays.asList("pobi", "jason");
+        List<String> winner = new ArrayList<>();
+
+        int winnerPosition = findWinnerPosition();
+        for (Car car : cars) {
+            if (car.getPosition() == winnerPosition) {
+                winner.add(car.getName());
+            }
+        }
 
         return String.join(",", winner);
+    }
+
+    private int findWinnerPosition() {
+        int winnerPosition = 0;
+
+        for (Car car : cars) {
+            if (car.getPosition() > winnerPosition) {
+                winnerPosition = car.getPosition();
+            }
+        }
+
+        return winnerPosition;
     }
 }
