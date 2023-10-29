@@ -23,15 +23,19 @@ public class Cars {
     public List<Car> getWinners() {
         List<Car> winners = new ArrayList<>();
         cars.sort(Comparator.reverseOrder());
+
         Car firstWinner = cars.get(0);
-        for (Car car : cars) {
-            if (car.compareTo(firstWinner) == 0) {
-                winners.add(car);
-                continue;
-            }
-            break;
+        int carIndex = 0;
+        while (carIndex < cars.size() && nextCarIsWinner(carIndex, firstWinner)) {
+            winners.add(cars.get(carIndex));
+            carIndex++;
         }
         return winners;
+    }
+
+    private boolean nextCarIsWinner(int nextCarIndex, Car winner) {
+        Car car = cars.get(nextCarIndex);
+        return (car.compareTo(winner) == 0);
     }
 
     private void printResultOfTurn() {
