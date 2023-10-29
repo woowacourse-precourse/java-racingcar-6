@@ -27,9 +27,14 @@ public class RacingCarController {
         List<Car> cars = carNames.stream().map(Car::new).toList();
 
         racingCarView.printAskingNumberOfRetries();
+        String numberOfRetries = askingNumberOfRetires();
     }
 
     public String askCarNames() {
+        return Console.readLine();
+    }
+
+    public String askingNumberOfRetires() {
         return Console.readLine();
     }
 
