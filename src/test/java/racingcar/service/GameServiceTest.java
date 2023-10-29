@@ -9,6 +9,8 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.Application;
 import racingcar.domain.GamePlayer;
+import racingcar.dto.CarNames;
+import racingcar.dto.MoveCount;
 
 public class GameServiceTest extends NsTest {
     private static final int MOVE_COUNT = 1;
@@ -18,9 +20,11 @@ public class GameServiceTest extends NsTest {
         //given
         List<String> names = new ArrayList(Arrays.asList("name1", "name2", "name3"));
         GameService gameService = new GameService();
+
         //when
-        GamePlayer gamePlayer = gameService.initializePlayer(names);
-        gamePlayer.moveCarsByCount(MOVE_COUNT);
+        GamePlayer gamePlayer = GamePlayer.from(CarNames.from(names));
+        gameService.moveCarsByCount(gamePlayer, new MoveCount(MOVE_COUNT));
+
         //then
         assertThat(output()).contains("name1", "name2", "name3");
         assertThat(output()).doesNotContain("name4");
@@ -42,8 +46,8 @@ public class GameServiceTest extends NsTest {
         List<String> names = new ArrayList(Arrays.asList("name1", "name2", "name3"));
         GameService gameService = new GameService();
         //when
-        GamePlayer gamePlayer = gameService.initializePlayer(names);
-        gamePlayer.moveCarsByCount(MOVE_COUNT);
+        GamePlayer gamePlayer = GamePlayer.from(CarNames.from(names));
+        gameService.moveCarsByCount(gamePlayer, new MoveCount(MOVE_COUNT));
         //then
         assertThat(output()).contains("name1", "name2", "name3");
         assertThat(output()).doesNotContain("name4");

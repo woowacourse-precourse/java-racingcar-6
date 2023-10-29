@@ -1,11 +1,11 @@
 package racingcar.service;
 
 
-import java.util.ArrayList;
-import java.util.List;
-import racingcar.domain.Car;
 import racingcar.domain.GamePlayer;
 import racingcar.domain.GameRank;
+import racingcar.domain.GameWinner;
+import racingcar.dto.CarNames;
+import racingcar.dto.MoveCount;
 import racingcar.view.OutputView;
 
 /*
@@ -14,34 +14,46 @@ import racingcar.view.OutputView;
 
 public class GameService {
 
-    public GamePlayer settingPlayer(List<String> carNames) {
-        GamePlayer gamePlayer = new GamePlayer();
-        addCarsToGamePlayer(gamePlayer, initializeCars(carNames));
-        return gamePlayer;
+    //    public GamePlayer createGamePlayer(List<String> carNames) {
+//        GamePlayer gamePlayer = new GamePlayer();
+////        GamePlayer gamePlayer = GamePlayer.create(initializeCars());
+//        addCarsToGamePlayer(gamePlayer, initializeCars(carNames));
+//        return gamePlayer;
+//    }
+//
+//    private void addCarsToGamePlayer(GamePlayer gamePlayer, List<Car> cars) {
+//        for (Car car : cars) {
+//            gamePlayer.addCar(car);
+//        }
+//    }
+//
+//    private List<Car> initializeCars(List<String> carNames) {
+//        List<Car> cars = new ArrayList<>();
+//        for (String carName : carNames) {
+//            cars.add(new Car(carName));
+//        }
+//        return cars;
+//    }
+    public GamePlayer createGamePlayer(CarNames carNames) {
+        return GamePlayer.from(carNames);
     }
 
-    private void addCarsToGamePlayer(GamePlayer gamePlayer, List<Car> cars) {
-        for (Car car : cars) {
-            gamePlayer.addCar(car);
-        }
-    }
-
-    private List<Car> initializeCars(List<String> carNames) {
-        List<Car> cars = new ArrayList<>();
-        for (String carName : carNames) {
-            cars.add(new Car(carName));
-        }
-        return cars;
-    }
-
-    public void moveCarsByCount(GamePlayer gamePlayer, int count) {
+    public void moveCarsByCount(GamePlayer gamePlayer, MoveCount moveCount) {
+        //OutputView.beforeMoveMessage() 로 하는 것이 더 가독성이 좋은가
         OutputView.beforeMove();
-        gamePlayer.moveCarsByCount(count);
+        for (int i = 0; i < moveCount.getMoveCount(); i++) {
+            gamePlayer.moveCars();
+        }
     }
+
 
     public GameRank createGameRank(GamePlayer gamePlayer) {
-        GameRank gameRank = gamePlayer.toGameRank();
-        gameRank.createGameWinners(gamePlayer.findBestRecord());
-        return gameRank;
+        return gamePlayer.createGameRank();
     }
+
+
+    public GameWinner createGameWinner(GameRank gameRank) {
+        return gameRank.createGameWinner();
+    }
+
 }
