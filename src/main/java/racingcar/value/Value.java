@@ -21,6 +21,7 @@ public class Value {
             carNames.add(name);
         }
     }
+
     public void setNumberOfAttempts(int numberOfAttempts) {
         this.numberOfAttempts = numberOfAttempts;
     }
@@ -38,6 +39,7 @@ public class Value {
             carPositions.add(0);
         }
     }
+
     public List<Integer> getCarPositions() {
         return carPositions;
     }
@@ -47,21 +49,21 @@ public class Value {
     }
 
 
-    public void determineWinners(List<Integer> carPositions) {
-        int maxPosition = findMaxPosition(carPositions);
-        for (int i = 0; i < carNames.size(); i++) {
-            if (carPositions.get(i) == maxPosition) {
-                winners.add(carNames.get(i));
-            }
-        }
-    }
-
-    private int findMaxPosition(List<Integer> carPositions) {
+    private int findMaxPosition() {
         int max = 0;
         for (int position : carPositions) {
             max = Math.max(max, position);
         }
         return max;
+    }
+
+    public void determineWinners() {
+        int maxPosition = findMaxPosition();
+        for (int i = 0; i < carNames.size(); i++) {
+            if (carPositions.get(i) == maxPosition) {
+                winners.add(carNames.get(i));
+            }
+        }
     }
 
     public List<String> getWinners() {
