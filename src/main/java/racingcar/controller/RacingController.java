@@ -1,11 +1,12 @@
 package racingcar.controller;
 
 import racingcar.domain.Car;
-import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static racingcar.view.InputView.*;
+import static racingcar.view.OutputView.*;
 
 public class RacingController {
 
@@ -18,8 +19,8 @@ public class RacingController {
         int tryCount = getTryCount();
         for (int i = 0; i < tryCount; ++i) {
             moveOrNot(carList);
-            OutputView.printResult(carList);
+            printResult(carList);
         }
-        OutputView.printWinnerList(carList);
+        printWinnerList(carList);
     }
 }
