@@ -7,13 +7,16 @@ import java.util.Map;
 
 public class Car {
 
+    private static final int CAR_START_POSITION = 0;
+    private static final int CAR_MOVE_STEP = 1;
+
     private List<String> carName = new ArrayList<>();
     private List<Integer> carPosition = new ArrayList<>();
 
     public void initCar(List<String> carlist) {
         for (String element : carlist) {
             this.carName.add(element);
-            this.carPosition.add(0);
+            this.carPosition.add(CAR_START_POSITION);
         }
     }
 
@@ -26,7 +29,7 @@ public class Car {
     }
 
     public void carMove(int move) {
-        this.carPosition.set(move, this.carPosition.get(move) + 1);
+        this.carPosition.set(move, this.carPosition.get(move) + CAR_MOVE_STEP);
     }
 
 }
