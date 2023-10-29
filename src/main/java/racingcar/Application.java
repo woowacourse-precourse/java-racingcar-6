@@ -2,11 +2,13 @@ package racingcar;
 
 import racingcar.controller.RacingCarController;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {
         InputView inputView = new InputView();
-        RacingCarController racingCarController = new RacingCarController(inputView);
+        OutputView outputView = new OutputView();
+        RacingCarController racingCarController = new RacingCarController(inputView, outputView);
         racingCarController.start();
     }
 }
