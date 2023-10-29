@@ -22,6 +22,11 @@ public class Utils {
                 .collect(Collectors.toList());
     }
 
+    public int convertStringToNumber(String tryNumber) {
+        inputValidator.validateTryNumber(tryNumber);
+        return Integer.parseInt(tryNumber);
+    }
+
     public static int makeRandomNumber() {
         return Randoms.pickNumberInRange(0,9);
     }
