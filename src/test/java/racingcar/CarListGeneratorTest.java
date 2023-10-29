@@ -1,4 +1,5 @@
 package racingcar;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Arrays;
@@ -10,11 +11,17 @@ import racingcar.domain.CarListGenerator;
 class CarListGeneratorTest {
 
     @Test
-    void getCarList() {
+    void getCarList_순서유지_테스트() {
         //given
-        List<String> carsString = Arrays.asList("pobi", "woni", "jun");
+        List<String> carStrings = Arrays.asList("pobi", "woni", "jun");
         //when
+        List<Car> carList = CarListGenerator.getCarList(carStrings);
         //then
-        assertThat(CarListGenerator.getCarList(carsString).get(0)).isInstanceOf(Car.class);
+        for (int index = 0; index < carStrings.size(); index++) {
+            String expectedCarName = carStrings.get(index);
+            Car car = carList.get(index);
+            String carName = car.getName();
+            assertThat(expectedCarName).isEqualTo(carName);
+        }
     }
 }
