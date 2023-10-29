@@ -1,17 +1,17 @@
 package racingcar.domain;
 
-public class CarManager {
-    private static CarManager carManager = null;
+public class GameManager {
+    private static GameManager gameManager = null;
     private static int carQuantity;
     private static int attemptNumber;
 
-    private CarManager() {};
+    private GameManager() {};
 
-    public static CarManager create() {
-        if(carManager == null){
-            carManager = new CarManager();
+    public static GameManager create() {
+        if(gameManager == null){
+            gameManager = new GameManager();
         }
-        return carManager;
+        return gameManager;
     }
 
 
