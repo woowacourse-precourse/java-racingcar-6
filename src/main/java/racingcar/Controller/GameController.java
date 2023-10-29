@@ -32,8 +32,23 @@ public class GameController {
 		InputView.printAttemptCount();
 		String inputAttemptCount = Console.readLine();
 
+		validateAttemptCount(inputAttemptCount);
 		return Integer.parseInt(inputAttemptCount);
 
+	}
+
+	private void validateAttemptCount(String inputAttemptCount) {
+		boolean errorSign = false;
+
+		try {
+			Integer.parseInt(inputAttemptCount);
+		}catch (IllegalArgumentException ill) {
+			errorSign = true;
+		}
+
+		if(errorSign) {
+			throw new IllegalArgumentException("숫자만 입력해주세요.");
+		}
 	}
 
 	private void conductRound(int attemptCount, List<Car> carList) {
