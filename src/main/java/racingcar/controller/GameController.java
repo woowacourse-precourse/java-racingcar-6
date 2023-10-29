@@ -23,9 +23,9 @@ public class GameController {
         Attempt attempt = receiveAttempt();
 
         Game game = new Game(cars);
-        List<List<CarDistanceMessage>> progressResults = simulate(attempt, game);
+        List<List<CarDistanceMessage>> carDistanceMessages = simulate(attempt, game);
 
-        sendProgressResults(progressResults);
+        sendProgressResults(carDistanceMessages);
         sendWinners(game);
 
     }
@@ -41,12 +41,12 @@ public class GameController {
     }
 
     private List<List<CarDistanceMessage>> simulate(Attempt attempt, Game game) {
-        List<List<CarDistanceMessage>> progressResults = new ArrayList<>();
+        List<List<CarDistanceMessage>> carDistanceMessages = new ArrayList<>();
         while (attempt.isExist()) {
             attempt.decrease();
-            progressResults.add(game.simulate());
+            carDistanceMessages.add(game.simulate());
         }
-        return progressResults;
+        return carDistanceMessages;
     }
 
     private void sendProgressResults(List<List<CarDistanceMessage>> results) {
