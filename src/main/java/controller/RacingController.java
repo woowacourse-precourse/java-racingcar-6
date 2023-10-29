@@ -1,12 +1,10 @@
-package Controller;
+package controller;
 
 import domain.Car;
 import domain.CarName;
 import domain.Cars;
 import view.InputView;
 import view.OutputView;
-
-import java.util.List;
 
 public class RacingController {
     Cars cars = new Cars();
