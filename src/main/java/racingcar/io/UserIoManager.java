@@ -3,28 +3,28 @@ package racingcar.io;
 import java.util.List;
 import racingcar.domain.car.Cars;
 import racingcar.domain.judge.WinnerCars;
-import racingcar.io.input.ConsoleReader;
+import racingcar.io.input.InputManager;
 import racingcar.io.output.ConsoleWriter;
 
 public class UserIoManager {
 
-    private final ConsoleReader consoleReader;
+    private final InputManager inputManager;
     private final ConsoleWriter consoleWriter;
     private boolean isFirstMoveResultNotification = true;
 
-    public UserIoManager(ConsoleReader consoleReader, ConsoleWriter consoleWriter) {
-        this.consoleReader = consoleReader;
+    public UserIoManager(InputManager inputManager, ConsoleWriter consoleWriter) {
+        this.inputManager = inputManager;
         this.consoleWriter = consoleWriter;
     }
 
     public List<String> readCarNames() {
         consoleWriter.printCarNameInputGuide();
-        return consoleReader.readCarNames();
+        return inputManager.readCarNames();
     }
 
     public long readMovingCount() {
         consoleWriter.printMovingCountInputGuide();
-        return consoleReader.readMovingCount();
+        return inputManager.readMovingCount();
     }
 
     public void notifyMoveResult(Cars cars) {
