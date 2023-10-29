@@ -26,10 +26,10 @@ public class Application {
     }
     // 기능 1-2. 주어진 횟수를 입력받기(몇 번의 라운드를 진행할 지 입력 받기)
     public static int getNumberOfRounds(){
-        int rounds = 0;
-        boolean validInput = false;
-        Scanner scanner = new Scanner(System.in);
-        scanner.close();
-        return rounds;
+            int rounds = 0;
+            boolean validInput = false;
+            Scanner scanner = new Scanner(System.in);
+            scanner.close();
+            return rounds;
     }
 }
