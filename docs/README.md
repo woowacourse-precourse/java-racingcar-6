@@ -71,9 +71,11 @@ OnRaceCar의 경우 불변 객체로 위치가 변경되면 새로운 객체를 
 - Viewer [ x ]
     - print
 
-- Manager [ ]
+- Manager [ x ]
     - save
-    - find
+    - saveAll
+    - findBy
+    - findAll
 ```
 
 ## 시스템 도메인, 역할 분석
@@ -90,6 +92,21 @@ OnRaceCar의 경우 불변 객체로 위치가 변경되면 새로운 객체를 
 - (메니저가) 자동차를 조회한다. : find
 - (메니저가) 자동차 위치를 저장한다. : save
 - (메니저가) 자동차 위치를 조회한다. : find
+
+### 구현 중 추가된 사항
+
+#### Manager
+
+Manager는 자동차(Car)와 자동차 위치(CarPosition)를 관리하는 역할을 한다.
+
+관리는 CarName을 키로하여 Map으로 관리하도록 구현하였다. (InMemory라는 접두가 있는 이유)
+
+기존의 메서드에 아래와 같이 추가하여 관리하도록 구현하였다.
+
+- save
+- saveAll
+- findBy
+- findAll
 
 ## 객체 결합 관계
 
