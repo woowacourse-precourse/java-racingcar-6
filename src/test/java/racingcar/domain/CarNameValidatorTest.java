@@ -59,4 +59,17 @@ class CarNameValidatorTest {
                 .hasMessage("자동차 이름은 5글자 이하여야 합니다.");
     }
 
+    @DisplayName("validateCarNamesDuplicate()로 자동차 이름들이 중복된다면 예외가 발생한다.")
+    @Test
+    void validateCarNamesDuplicateWithInvalidCarNames() {
+        // given
+        String invalidCarName = "sully,hi,my,name,is,sully";
+
+        // when
+        // then
+        assertThatThrownBy(() -> new CarNameValidator(invalidCarName))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 중복될 수 없습니다.");
+    }
+
 }
