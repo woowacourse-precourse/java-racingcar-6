@@ -26,7 +26,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 정상적인_이름() {
+    void 정상적인_이름과_이동_횟수() {
         assertSimpleTest(() ->
             assertThatCode(() -> runException("pobi,javaj", "1"))
                 .doesNotThrowAnyException()
