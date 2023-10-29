@@ -16,9 +16,6 @@ public class Race {
         for (String name : carNames) {
             cars.add(new Car(name));
         }
-        for (Car car : cars) {
-            System.out.println(car.getName());
-        }
     }
     public boolean decideGo() {
         boolean go = false;
@@ -34,8 +31,12 @@ public class Race {
                 car.plusPosition();
             }
         }
+    }
+    public void printRace() {
         for (Car car : cars) {
-            System.out.println(car.addDash());
+            System.out.print(car.getName() + " : " + car.addDash());
+            System.out.println();
         }
+        System.out.println();
     }
 }

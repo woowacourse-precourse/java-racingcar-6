@@ -17,7 +17,7 @@ public class Application {
         int num = count.raceCount(count.inputCount());
         for (int i = 0; i < num; i++) {
             race.goFoward();
+            race.printRace();
         }
-        System.out.println(names.toString() + num);
     }
 }
