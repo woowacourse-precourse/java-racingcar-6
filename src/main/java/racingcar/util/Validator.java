@@ -7,7 +7,7 @@ public class Validator {
 
     private static final int CAR_NAME_MAX_LENGTH = 5;
 
-    public List<String> validateCarNamesInput(String carNamesInput) {
+    public void validateCarNamesInput(String carNamesInput) {
         validateInputIsNotEmpty(carNamesInput);
         validateInputDoesNotEndWithComma(carNamesInput);
         validateInputDoesNotContainSpace(carNamesInput);
@@ -16,8 +16,6 @@ public class Validator {
         List<String> carNamesSplit = Arrays.asList(carNamesInput.split(","));
         validateInputDoesNotContainDuplicate(carNamesSplit);
         validateInputIsNotOverLength(carNamesSplit);
-
-        return carNamesSplit;
     }
 
     private void validateInputIsNotEmpty(String carNamesInput) {
