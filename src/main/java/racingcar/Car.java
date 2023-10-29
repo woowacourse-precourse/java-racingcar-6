@@ -21,10 +21,16 @@ public class Car {
     }
 
     public void moveForward() {
-        final int MINIMUM_CONDITION = 4;
-        if (Randoms.pickNumberInRange(0, 9) >= MINIMUM_CONDITION) {
+        if (isMovable()) {
             this.odometer++;
         }
+    }
+
+    private boolean isMovable() {
+        final int THRESHHOLD = 4;
+        final int LOWER_BOUND = 0;
+        final int UPPER_BOUND = 9;
+        return Randoms.pickNumberInRange(LOWER_BOUND, UPPER_BOUND) >= THRESHHOLD;
     }
 
     @Override
