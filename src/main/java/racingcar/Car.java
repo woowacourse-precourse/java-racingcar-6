@@ -21,8 +21,8 @@ public class Car {
         return "-".repeat(getForwardCount());
     }
 
-    public String showStatus(){
-        return name+" : "+getProgress();
+    public void showStatus(){
+        System.out.println(name+" : "+getProgress());
     }
 
     public void incrementForwardCount(){
