@@ -8,11 +8,17 @@ import racingcar.dto.CarDto;
 
 public class CarRacingImp implements CarRacing{
     private Racing racing;
+    private int numberOfRace;
 
     @Override
     public void addCar(String[] carNames){
         List<Car> cars = convertToCarList(carNames);
         initializeRace(cars);
+    }
+
+    @Override
+    public void addNumberOfRace(int nuber) {
+        this.numberOfRace = nuber;
     }
 
     @Override
