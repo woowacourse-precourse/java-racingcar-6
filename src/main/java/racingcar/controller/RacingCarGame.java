@@ -87,7 +87,7 @@ public class RacingCarGame {
     }
 
     public List<String> carList(String carNames){
-        String[] carNameList = carNames.split("");
+        String[] carNameList = carNames.split(",");
         return List.of(carNameList);
     }
 }

@@ -57,7 +57,7 @@ public class InputViewValidator {
     }
 
     public boolean isEachCarNameEmpty(String carNames) {
-        String[] carNameList = carNames.split("");
+        String[] carNameList = carNames.split(",");
         for (String carName : carNameList) {
             if(carName.equals("")){
                 return true;
@@ -76,7 +76,7 @@ public class InputViewValidator {
     }
 
     public boolean isCarNameCorrectLength(String carNames) {
-        String[] carNameList = carNames.split("");
+        String[] carNameList = carNames.split(",");
 
         for (String carName : carNameList) {
             if(carName.length() > 5){
