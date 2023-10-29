@@ -10,9 +10,15 @@ import java.util.stream.IntStream;
 
 public class CarController {
 
-    private final CarInputView carInputView = new CarInputView();
-    private final CarOutputView carOutputView = new CarOutputView();
-    private final CarService carService = new CarService();
+    private final CarInputView carInputView;
+    private final CarOutputView carOutputView;
+    private final CarService carService;
+
+    public CarController(CarInputView carInputView, CarOutputView carOutputView, CarService carService) {
+        this.carInputView = carInputView;
+        this.carOutputView = carOutputView;
+        this.carService = carService;
+    }
 
     public void process() {
         saveCarsProcess();
