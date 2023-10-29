@@ -23,6 +23,11 @@ public class RacingCarGame {
         OutputView.printGameResult();
 
         // TODO: Car 경주 실행
+        for (int i = 0; i < number; i++) {
+            carController.move();
+
+            System.out.print("\n");
+        }
 
         exist();
     }

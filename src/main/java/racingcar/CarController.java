@@ -20,4 +20,11 @@ public class CarController {
 
         return cars;
     }
+
+    public void move() {
+        for (Car car : cars) {
+            car.movePosition();
+        }
+    }
+
 }
