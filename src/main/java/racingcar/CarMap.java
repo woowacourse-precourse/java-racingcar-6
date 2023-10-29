@@ -14,8 +14,9 @@ public class CarMap {
 
         if(isValidated) {
             StringTokenizer st = new StringTokenizer(carList, ",");
+            StringBuilder sb = new StringBuilder();
             while(st.hasMoreTokens()){
-                carMap.put(st.nextToken(),null);
+                carMap.put(st.nextToken(), "");
             }
         }
 
@@ -32,11 +33,13 @@ public class CarMap {
         return true;
     }
 
-    public Map<String, String> getKey(){
+    public Map<String, String> getMap(){
         return carMap;
     }
 
-    public void setValue(String key, String value){
+    public void go(String key){
+        String value = carMap.get(key);
+        value += "-";
         carMap.replace(key, value);
     }
 }

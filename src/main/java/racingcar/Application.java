@@ -12,5 +12,7 @@ public class Application {
           -> 전진 or 제자리 정해진 값에 따라 이를 반복시행하는 기능
           -> 시행된 결과를 출력하는 기능
         */
+        RacingGame rc = new RacingGame();
+        rc.start();
     }
 }
