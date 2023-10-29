@@ -11,7 +11,7 @@ final class Cars {
     private Cars() {
     }
 
-    static Cars create(String input) {
+    static Cars create(String input, Roulette roulette) {
         String[] names = input.split(Constant.COMMA.value, -1);
         if (names.length < 1) throw new IllegalArgumentException();
 
