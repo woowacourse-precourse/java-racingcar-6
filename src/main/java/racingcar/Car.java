@@ -21,6 +21,10 @@ public class Car {
     public int getPosition() {
         return position;
     }
-}
+
+    protected void printResult(){
+        String posStr = this.name + " : " + "-".repeat(position);
+        System.out.println(posStr);
+    }
 
 }

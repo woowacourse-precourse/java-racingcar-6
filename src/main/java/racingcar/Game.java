@@ -11,7 +11,7 @@ public class Game {
     private int turns;
     private Dice dice = new Dice(0, 9);
 
-    private void run() {
+    protected void run() {
         getCarsInput();
         getTurnsInput();
         System.out.println("실행 결과");
@@ -64,8 +64,8 @@ public class Game {
             if (car.getPosition() == max){
                 winners.add(car.getName());
             }
-            System.out.println("최종 우승자 : " + String.join(",", winners));
         }
+        System.out.println("최종 우승자 : " + String.join(",", winners));
     }
 
 }
