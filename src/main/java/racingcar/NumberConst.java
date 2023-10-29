@@ -2,10 +2,6 @@ package racingcar;
 
 public final class NumberConst {
 
-    public static final int MIN_NUMBER_OF_CAR = 1;
-
-    public static final int MAX_NUMBER_OF_CAR = 20;
-
     public static final int MIN_NAME_OF_CAR_LENGTH = 1;
 
     public static final int MAX_NAME_OF_CAR_LENGTH = 5;
