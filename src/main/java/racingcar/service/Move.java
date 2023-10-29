@@ -7,8 +7,6 @@ import java.util.Map;
 
 public class Move {
 
-    Car car = new Car();
-
     public void moveTheCar(LinkedHashMap<String, String> carList, List<Integer> randomNumberList) {
         int randomNumberListIndex = 0;
         for (Map.Entry<String, String> entry : carList.entrySet()) {
