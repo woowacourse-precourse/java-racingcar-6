@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import static racingcar.constant.GameConstants.*;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -56,6 +58,8 @@ public class CarRaceGame {
     }
 
     public void startCarRaceGame() {
+        System.out.println(EXECUTION_RESULT);
+
         for (int i = 0; i < gameManager.getAttemptNumber(); i++){
             startCarRaceGameOneRound();
         }
@@ -64,11 +68,13 @@ public class CarRaceGame {
     private void startCarRaceGameOneRound() {
         for (Car car : carImplList) {
             tryForward(car);
+            CarRaceGameView.tryForwardResultView(car.getCarName(), car.getAdvanceNumber());
         }
+        CarRaceGameView.LineBreakView();
     }
 
     private int randomNumberGenerator() {
-        int randomNumber = Randoms.pickNumberInRange(GameConstants.MIN_NUM, GameConstants.MAX_NUM);
+        int randomNumber = Randoms.pickNumberInRange(MIN_NUM, MAX_NUM);
         return randomNumber;
     }
 

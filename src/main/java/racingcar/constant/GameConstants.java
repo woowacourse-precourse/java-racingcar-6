@@ -9,4 +9,10 @@ public class GameConstants {
     public static final String ATTEMPT_NUMBER = "시도할 회수";
     public static final int MAX_NUM = 9;
     public static final int MIN_NUM = 0;
+    public static final String EXECUTION_RESULT = "실행 결과";
+    public static final String SPACE = " ";
+    public static final String COLONS = ":";
+    public static final String NULL = "";
+
+
 }

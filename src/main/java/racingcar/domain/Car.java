@@ -11,6 +11,10 @@ public class Car {
         this.advanceNumber = 0;
     }
 
+    public String getCarName() {
+        return carName;
+    }
+
     public int getAdvanceNumber() {
         return advanceNumber;
     }
