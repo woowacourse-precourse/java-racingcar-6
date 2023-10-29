@@ -50,6 +50,13 @@ public class DataInputOutput {
         System.out.println(" ");
     }
 
+    public void printWinner(List<String> winnerList){
+        System.out.print("최종 우승자 : " + winnerList.get(0));
+        for(int i = 1; i < winnerList.size(); i++){
+            System.out.print(", " + winnerList.get(i));
+        }
+    }
+
     public boolean makeRandomNumber() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         if(randomNumber >= 4){

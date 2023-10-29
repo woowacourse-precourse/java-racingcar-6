@@ -20,4 +20,8 @@ public class Car {
     public String getCarPath(){
         return this.carPath;
     }
+
+    public int getMovingCount(){
+        return this.movingCount;
+    }
 }
