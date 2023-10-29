@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,6 +10,24 @@ public class Application {
         String input = inputCarName();
         Map<String, Integer> racingCars = validateCarName(input);
         int count = inputMovingCount();
+
+        for (int i = 0; i < count; i++) {
+            startGame(racingCars);
+        }
+    }
+
+    private static void startGame(Map<String, Integer> racingCars) {
+        for (Map.Entry<String, Integer> entry : racingCars.entrySet()) {
+            int number = Randoms.pickNumberInRange(0, 9);
+            racingCars.replace(entry.getKey(), moveCar(entry.getValue(), number));
+        }
+    }
+
+    public static int moveCar(int value, int number) {
+        if (number >= 4) {
+            return value + 1;
+        }
+        return value;
     }
 
     private static int inputMovingCount() {
