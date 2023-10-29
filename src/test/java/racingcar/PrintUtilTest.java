@@ -2,21 +2,28 @@ package racingcar;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.MessageConst.WINNER_MESSAGE;
 import static racingcar.PrintUtil.*;
+
 class PrintUtilTest {
 
     private static OutputStream out;
+
     @BeforeEach
     void setUp() {
         out = new ByteArrayOutputStream();
@@ -40,7 +47,7 @@ class PrintUtilTest {
 
     private static String generateGameResult(Map<String, String> result) {
         StringBuilder expectedResult = new StringBuilder();
-        for(Map.Entry<String, String> entrySet : result.entrySet()) {
+        for (Map.Entry<String, String> entrySet : result.entrySet()) {
             expectedResult.append(entrySet.getKey()).append(" : ").append(entrySet.getValue()).append("\n");
         }
         expectedResult.append("\n");
@@ -65,6 +72,28 @@ class PrintUtilTest {
                     put("woni", "-----");
                     put("jun", "-----");
                 }}
+        );
+    }
+
+    private static Stream<Arguments> provideWinner() {
+        return Stream.of(
+                Arguments.of(new LinkedHashMap<String, String>() {{
+                    put("pobi", "---");
+                    put("woni", "-----");
+                    put("jun", "--");
+                }}, Arrays.asList("woni", "pobi", "jun")),
+
+                Arguments.of(new LinkedHashMap<String, String>() {{
+                    put("pobi", "-----");
+                    put("woni", "-----");
+                    put("jun", "--");
+                }}, Arrays.asList("pobi", "woni", "jun")),
+
+                Arguments.of(new LinkedHashMap<String, String>() {{
+                    put("pobi", "--");
+                    put("woni", "--");
+                    put("jun", "--");
+                }}, Arrays.asList("pobi", "woni", "jun"))
         );
     }
 }
