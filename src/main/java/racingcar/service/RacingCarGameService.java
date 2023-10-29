@@ -37,4 +37,13 @@ public class RacingCarGameService {
 
         return racingCarsInfo;
     }
+
+    public String getWinnerNames() {
+        RacingCarStatus maxPositionCar = racingCarStatusGroup.getMaxPosition();
+        List<String> winners = racingCarStatusGroup.getWinnerNames(maxPositionCar);
+
+        String winnerNames = String.join(", ", winners);
+
+        return winnerNames;
+    }
 }

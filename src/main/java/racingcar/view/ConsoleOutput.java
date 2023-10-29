@@ -35,7 +35,7 @@ public class ConsoleOutput implements OutputHandler {
     }
 
     @Override
-    public void printFinalWinners() {
-
+    public void printFinalWinners(String winners) {
+        System.out.printf("최종 우승자 : %s", winners);
     }
 }

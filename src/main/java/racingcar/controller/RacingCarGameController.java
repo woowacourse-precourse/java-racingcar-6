@@ -28,6 +28,8 @@ public class RacingCarGameController {
         generateRacingCarGroup(racingCars);
 
         playGame(tryCount);
+
+        finalWinners();
     }
 
     public RacingCars loadCarNames() {
@@ -56,5 +58,10 @@ public class RacingCarGameController {
             List<Map<String, String>> stageGameResults = racingCarGameService.racingCarGameResult();
             outputHandler.printGameProgress(stageGameResults);
         }
+    }
+
+    public void finalWinners() {
+        String winners = racingCarGameService.getWinnerNames();
+        outputHandler.printFinalWinners(winners);
     }
 }

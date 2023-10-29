@@ -13,5 +13,5 @@ public interface OutputHandler {
 
     public void printGameProgress(List<Map<String, String>> stageGameResults);
 
-    public void printFinalWinners();
+    public void printFinalWinners(String winners);
 }
