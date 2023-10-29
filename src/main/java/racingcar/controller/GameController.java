@@ -1,6 +1,8 @@
 package racingcar.controller;
 
 import racingcar.model.service.GameService;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class GameController {
     private final GameService gameService;
@@ -10,9 +12,10 @@ public class GameController {
     }
 
     public void run() {
-        gameService.createCars();
+        gameService.createCars(InputView.inputName());
         gameService.nameCheck();
-        gameService.playGame();
-        gameService.resultGame();
+        OutputView.outputResult();
+        gameService.playGame(InputView.inputAttempt());
+        OutputView.outputWinner(gameService.resultGame());
     }
 }

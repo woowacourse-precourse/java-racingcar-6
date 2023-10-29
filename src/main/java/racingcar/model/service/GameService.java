@@ -2,8 +2,6 @@ package racingcar.model.service;
 
 import java.util.List;
 import racingcar.model.repository.CarRepository;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
 
 public class GameService {
     CarRepository carRepository;
@@ -12,8 +10,7 @@ public class GameService {
         carRepository = new CarRepository();
     }
 
-    public void createCars() {
-        List<String> names = InputView.inputName();
+    public void createCars(List<String> names) {
         names.forEach(name -> carRepository.save(name));
     }
 
@@ -21,16 +18,14 @@ public class GameService {
         carRepository.validNameCheck();
     }
 
-    public void playGame() {
-        int attemptNum = InputView.inputAttempt();
-        OutputView.outputResult();
+    public void playGame(int attemptNum) {
         while (attemptNum != 0) {
             carRepository.carForward();
             attemptNum--;
         }
     }
 
-    public void resultGame() {
-        OutputView.outputWinner(carRepository.findAllMaxForward());
+    public List<String> resultGame() {
+        return carRepository.findAllMaxForward();
     }
 }
