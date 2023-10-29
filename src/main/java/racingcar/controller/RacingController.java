@@ -32,15 +32,15 @@ public class RacingController {
         racingCarOutputView.printWinner(racingResult);
     }
 
-    private int getAttemptCountsFromUser() {
-        String attemptCounts = racingCarInputView.inputAttemptCounts();
-        racingCarInputValidator.validateAttemptCounts(attemptCounts);
-        return Integer.parseInt(attemptCounts);
-    }
-
     private List<String> getCarNamesFromUser() {
         List<String> carNames = racingCarInputView.inputCarNames();
         racingCarInputValidator.validateCarNames(carNames);
         return carNames;
+    }
+
+    private int getAttemptCountsFromUser() {
+        String attemptCounts = racingCarInputView.inputAttemptCounts();
+        racingCarInputValidator.validateAttemptCounts(attemptCounts);
+        return Integer.parseInt(attemptCounts);
     }
 }
