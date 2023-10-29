@@ -16,9 +16,11 @@ public class Inputs {
         return count;
     }
 
+    public static void raiseIllegalArgumentException() {
+        IllegalArgumentException e = new IllegalArgumentException();
+        throw e;
+    }
+
 
 
 }
-
-
-
