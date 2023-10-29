@@ -1,9 +1,5 @@
 package racingcar.domain;
 
-import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
-
-import racingcar.util.Constants;
-
 public class Car {
     private final String name;
     private int position = 0;
@@ -17,11 +13,7 @@ public class Car {
     }
 
     public void move() {
-        int randomNumber = randomNumberGenerator();
-
-        if (isMoreThanForwardCondition(randomNumber)) {
-            position++;
-        }
+        position++;
     }
 
     public int getPosition() {
