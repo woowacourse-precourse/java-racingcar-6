@@ -3,12 +3,14 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import camp.nextstep.edu.missionutils.Console;
+
 public class UserInput {
 
     public List<String> askCar() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
+        String input = Console.readLine();
 
         List<String> carTypeList = new ArrayList<String>();
         for (String carType: input.split(",")){
@@ -27,9 +29,8 @@ public class UserInput {
 
     public int askNumberGame(){
         System.out.println("시도할 횟수는 얼마인가요?");
-        Scanner scanner = new Scanner(System.in);
-        int input = scanner.nextInt();
-        return input;
+        int numGame = Integer.parseInt(Console.readLine());
+        return numGame;
     }
 
 
