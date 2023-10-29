@@ -8,6 +8,8 @@ public class Car {
     private final String name;
     private int position;
 
+    private static final int REQUIRED_NUMBER_TO_MOVE = 4;
+
     public Car(String name) {
         validateNameLength(name);
         validateNameNoWhitespace(name);
@@ -43,7 +45,7 @@ public class Car {
         }
     }
 
-    private boolean isMovable(int randomNumber) {
-        return randomNumber >= 4;
+    private boolean isMovable(int number) {
+        return number >= REQUIRED_NUMBER_TO_MOVE;
     }
 }
