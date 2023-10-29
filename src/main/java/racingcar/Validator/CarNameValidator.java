@@ -39,7 +39,7 @@ public class CarNameValidator {
             }
         }
 
-        if (!duplicates.isEmpty()) {
+        if (uniqueSet.size() != carNames.size()) {
             throw new CarNameException(DUPLICATEMESSAGE.getMessage(duplicates.toString()));
         }
     }
