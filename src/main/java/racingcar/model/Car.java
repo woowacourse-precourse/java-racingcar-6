@@ -1,13 +1,14 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.Constants;
 
 public class Car {
-    private String name;
+    private final String NAME;
     private int position;
 
     private Car(String name) {
-        this.name = name;
+        this.NAME = name;
         this.position = 0;
     }
 
@@ -16,7 +17,7 @@ public class Car {
     }
 
     public String getName() {
-        return name;
+        return NAME;
     }
 
     public int getPosition() {
@@ -24,8 +25,8 @@ public class Car {
     }
     public void move() {
 
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if (randomNumber >= 4) {
+        int randomNumber = Randoms.pickNumberInRange(Constants.MIN_RANDOM_NUM, Constants.MAX_RANDOM_NUM);
+        if (randomNumber >= Constants.START_NUM) {
             position++;
         }
     }
