@@ -38,8 +38,8 @@ public class RacingGame implements GameInterface{
         while(isCounting(time)){
             racing.race(cars);
             output.showPlaying(new CarsOutputDto(cars));
-            time--;
             System.out.println();
+            time--;
         }
     }
 

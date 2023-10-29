@@ -5,6 +5,7 @@ import racingcar.util.error.ErrorMessage;
 public class Validator {
     private static final int LIMIT_NUMBER = 5;
     private static final int LEAST_NUMBER = 0;
+    private static final String COMMA = ",";
 
     public static String[] validateCars(String input){
         checkNamesLength(split(input));
@@ -35,7 +36,7 @@ public class Validator {
     }
 
     private static String[] split(String input) {
-        return input.split(",");
+        return input.split(COMMA);
     }
 
     private static void checkNamesLength(String[] names) {
