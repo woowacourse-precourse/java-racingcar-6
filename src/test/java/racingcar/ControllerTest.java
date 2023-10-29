@@ -1,17 +1,14 @@
 package racingcar;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 class ControllerTest {
-    private Controller controller = new Controller(new InputView());
+    private Controller controller = new Controller(new InputView(), new OutputView());
 
     @AfterEach
     void tearDown() {
