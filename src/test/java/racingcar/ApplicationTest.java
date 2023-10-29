@@ -123,6 +123,31 @@ class ApplicationTest extends NsTest {
         assertThat(output()).contains("pobi : -", "woni :");
     }
 
+    @Test
+    void 단일_우승(){
+        Cars cars = new Cars();
+        cars.set("pobi,woni");
+        cars.getCars().get(0).move(5);
+        cars.printCarPositions();
+        Winner winner = new Winner(cars.getCars());
+        winner.printWinner();
+
+        assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+    }
+
+    @Test
+    void 공동_우승(){
+        Cars cars = new Cars();
+        cars.set("pobi,woni");
+        cars.getCars().get(0).move(5);
+        cars.getCars().get(1).move(5);
+        cars.printCarPositions();
+        Winner winner = new Winner(cars.getCars());
+        winner.printWinner();
+
+        assertThat(output()).contains("pobi : -", "woni : -", "최종 우승자 : pobi");
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
