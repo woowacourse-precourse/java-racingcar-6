@@ -5,6 +5,9 @@ import racingcar.domain.RaceHistory;
 
 public class OutputView {
     public void printRaceHistory(RaceHistory raceHistory) {
+        System.out.println();
+        System.out.println("실행 결과");
+
         List<String> carNames = raceHistory.getCarNames();
         List<List<Integer>> positionHistory = raceHistory.getPositionHistory();
 
