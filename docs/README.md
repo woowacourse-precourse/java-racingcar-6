@@ -32,7 +32,7 @@
 - [x] 자동차의 이름 (String)
     - [x] 자동차의 이름을 가져올 getName 메서드
 - [ ] 자동차의 위치 (int)
-    - [ ] 주행 조건에 맞을시 전진을 위한 forwardCarPosition 메서드
+    - [x] 주행 조건에 맞을시 전진을 위한 forwardCarPosition 메서드
     - [ ] 자동차의 현 위치를 알기 위한 getCarPosition 메서드
 ### Cars
 > Car의 정보를 토대로 차의 이동, 우승자 선출 등을 관리하는 클래스

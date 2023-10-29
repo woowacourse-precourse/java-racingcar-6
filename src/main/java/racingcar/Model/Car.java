@@ -12,4 +12,8 @@ public class Car {
     public String getName(){
         return this.name;
     }
+
+    public void forwardCarPosition(){
+        carPosition++;
+    }
 }
