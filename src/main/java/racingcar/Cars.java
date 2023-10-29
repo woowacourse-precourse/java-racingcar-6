@@ -13,11 +13,7 @@ final class Cars {
 
     static Cars create(String input, Roulette roulette) {
         String[] names = input.split(Constant.COMMA.value, -1);
-        if (names.length < 1) throw new IllegalArgumentException();
-
-        System.out.println("size : " + names.length);
-        // TODO : 메소드 분동
-        if (names.length != Arrays.stream(names).distinct().count()) throw new IllegalArgumentException();
+        validateNames(names);
 
         Cars instance = new Cars();
         instance.cars.addAll(Arrays.stream(names)
@@ -25,6 +21,11 @@ final class Cars {
                 .toList());
 
         return instance;
+    }
+
+    private static void validateNames(String[] names) {
+        var uniqueNameCount = Arrays.stream(names).distinct().count();
+        if (names.length < 1 || names.length != uniqueNameCount) throw new IllegalArgumentException();
     }
 
     enum Constant {
