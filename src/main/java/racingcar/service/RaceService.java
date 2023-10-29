@@ -1,10 +1,13 @@
 package racingcar.service;
 
+import static racingcar.constants.RaceRule.MOVE_MAX_RANGE;
+import static racingcar.constants.RaceRule.MOVE_MIN_RANGE;
+import static racingcar.constants.RaceRule.MOVE_THRESHOLD;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
 import racingcar.dto.Progress;
 
@@ -32,10 +35,7 @@ public class RaceService {
     }
 
     public List<String> getWinner() {
-        int maxValue = progressMap.entrySet().stream()
-                .map(Map.Entry::getValue)
-                .max(Integer::compareTo)
-                .orElse(0);
+        int maxValue = getMaxValue();
 
         return progressMap.entrySet().stream()
                 .filter(entry -> entry.getValue() == maxValue)
@@ -43,9 +43,16 @@ public class RaceService {
                 .toList();
     }
 
+    private int getMaxValue() {
+        return progressMap.entrySet().stream()
+                .map(Entry::getValue)
+                .max(Integer::compareTo)
+                .orElse(0);
+    }
+
     private boolean canMoveForward() {
-        int random = Randoms.pickNumberInRange(0, 9);
-        return random >= 4;
+        int random = Randoms.pickNumberInRange(MOVE_MIN_RANGE.getValue(), MOVE_MAX_RANGE.getValue());
+        return random >= MOVE_THRESHOLD.getValue();
     }
 
     private List<Progress> getProgressList() {

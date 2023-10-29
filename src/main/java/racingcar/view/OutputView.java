@@ -9,6 +9,7 @@ import racingcar.dto.Progress;
 
 public class OutputView {
     private final String BAR_SIGNATURE = "-";
+    private final String DELIMITER = ", ";
 
 
     public void printProgress(List<Progress> progressList) {
@@ -28,7 +29,7 @@ public class OutputView {
     }
 
     public void printWinners(List<String> winners) {
-        System.out.println(String.format(FINAL_WINNER.toString(), String.join(", ", winners)));
+        System.out.println(String.format(FINAL_WINNER.toString(), String.join(DELIMITER, winners)));
     }
 
     public void printResultHeader() {
