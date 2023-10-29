@@ -47,4 +47,20 @@ public class FunctionTest {
                 () -> new RacingCarGameConsole(VALID_CAR, timesToTry));
         assertThat(e.getMessage()).isEqualTo(INPUT_NUMBER_RANGE_MISMATCH);
     }
+
+    @ParameterizedTest
+    @ValueSource(ints = {3, 5})
+    void randomNumber에따른_전진_여부_판별(int randomNumber) {
+        Car car = new Car("a");
+        RacingCarGameConsole racingCarGameConsole = new RacingCarGameConsole(car, 1);
+
+        racingCarGameConsole.updateCarMovement(randomNumber);
+
+        if (randomNumber < 4) {
+            assertThat(0).isEqualTo(car.movedLately(0));
+        }
+        if (randomNumber >= 4) {
+            assertThat(1).isEqualTo(car.movedLately(0));
+        }
+    }
 }
