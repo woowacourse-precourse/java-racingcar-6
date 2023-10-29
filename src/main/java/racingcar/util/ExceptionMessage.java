@@ -1,4 +1,4 @@
-package racingcar.utill;
+package racingcar.util;
 
 
 public enum ExceptionMessage {

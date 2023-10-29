@@ -3,8 +3,8 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
-import racingcar.utill.ExceptionMessage;
-import racingcar.utill.Validator;
+import racingcar.util.ExceptionMessage;
+import racingcar.util.Validator;
 
 public class ValidatorTest {
 
