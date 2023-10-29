@@ -26,14 +26,14 @@ public record Cars(List<Car> cars) {
 
     private void validateCarsAmount() {
         if (cars.isEmpty()) {
-            IllegalArgumentExceptionType.EMPTY_CARS_ERROR_MESSAGE.throwException();
+            throw IllegalArgumentExceptionType.EMPTY_CARS_ERROR_MESSAGE.getException();
         }
     }
 
     private void validateDuplicatedCarNames() {
         Set<String> carNameSet = getCarNameSet();
         if (carNameSet.size() != cars.size()) {
-            IllegalArgumentExceptionType.DUPLICATED_CARS_ERROR_MESSAGE.throwException();
+            throw IllegalArgumentExceptionType.DUPLICATED_CARS_ERROR_MESSAGE.getException();
         }
     }
 

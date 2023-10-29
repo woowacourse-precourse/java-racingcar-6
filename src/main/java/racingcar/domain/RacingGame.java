@@ -16,7 +16,7 @@ public class RacingGame {
 
     private void validateMinAttemptCount() {
         if (isEnd()) {
-            IllegalArgumentExceptionType.ATTEMPT_COUNT_INIT_ERROR_MESSAGE.throwException();
+            throw IllegalArgumentExceptionType.ATTEMPT_COUNT_INIT_ERROR_MESSAGE.getException();
         }
     }
 

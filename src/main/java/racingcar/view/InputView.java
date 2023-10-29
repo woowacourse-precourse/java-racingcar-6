@@ -27,10 +27,7 @@ public class InputView {
         try {
             return Integer.parseInt(string);
         } catch (NumberFormatException e) {
-            // IDE 리턴 문법 오류 회피를 위한 에러 발생 별도 처리
-            throw new IllegalArgumentException(
-                    IllegalArgumentExceptionType.READ_ATTEMPT_COUNT_ERROR_MESSAGE.getMessage()
-            );
+            throw IllegalArgumentExceptionType.READ_ATTEMPT_COUNT_ERROR_MESSAGE.getException();
         }
     }
 

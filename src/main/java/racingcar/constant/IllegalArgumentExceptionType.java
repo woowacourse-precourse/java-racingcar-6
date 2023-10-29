@@ -18,7 +18,7 @@ public enum IllegalArgumentExceptionType {
         return message;
     }
 
-    public void throwException() {
-        throw new IllegalArgumentException(message);
+    public IllegalArgumentException getException() {
+        return new IllegalArgumentException(message);
     }
 }

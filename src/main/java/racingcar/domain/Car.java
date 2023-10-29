@@ -29,12 +29,12 @@ public class Car {
 
     private void validateIsCarNameEmpty() {
         if (name.isEmpty()) {
-            IllegalArgumentExceptionType.CAR_NAME_MIN_LENGTH_ERROR_MESSAGE.throwException();
+            throw IllegalArgumentExceptionType.CAR_NAME_MIN_LENGTH_ERROR_MESSAGE.getException();
         }
     }
     private void validateIsCarNameExceedingMaxLength() {
         if (name.length() > MAX_CAR_NAME_LENGTH) {
-            IllegalArgumentExceptionType.CAR_NAME_MAX_LENGTH_ERROR_MESSAGE.throwException();
+            throw IllegalArgumentExceptionType.CAR_NAME_MAX_LENGTH_ERROR_MESSAGE.getException();
         }
     }
 
