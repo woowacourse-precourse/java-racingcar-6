@@ -1,0 +1,2 @@
+- docs(README): add readme.md under docs directory
+- feat: setup precourse racingcar project
