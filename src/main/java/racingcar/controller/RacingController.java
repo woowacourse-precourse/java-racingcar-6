@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingController {
+    private static final int DECIDE_TO_NUMBER_MOVE_STOP = 4;
+
     public static void racingStart(List<Car> cars, int racingCount) {
         for (int i = 0; i < racingCount; i++) {
             executeRacingRound(cars);
@@ -32,7 +34,7 @@ public class RacingController {
     }
 
     private static void manageCarMovement(Car car, int randomNumber) {
-        if (randomNumber >= 4) {
+        if (randomNumber >= DECIDE_TO_NUMBER_MOVE_STOP) {
             car.moveCar();
         }
     }
