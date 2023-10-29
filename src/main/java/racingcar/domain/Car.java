@@ -14,4 +14,12 @@ public class Car {
     public void move() {
         distance += Randoms.pickNumberInRange(0, 9);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
 }

@@ -42,7 +42,7 @@ public class RaceController {
         Race race = new Race(cars, count);
         while (race.play()) {
             List<Car> raceCars = raceService.runRace(race);
-
+            outputView.carsDistanceOutput(raceCars);
         }
     }
 }
