@@ -1,8 +1,10 @@
 package racingcar.domain.game;
 
+import racingcar.domain.dto.CarMovementDto;
+
 public class Car {
-    protected final CarName carName;
-    protected int position = 0;
+    private final CarName carName;
+    private int position = 0;
 
     protected Car(CarName carName) {
         this.carName = carName;
@@ -15,4 +17,21 @@ public class Car {
     public void moveOnce() {
         position++;
     }
+
+    public CarMovementDto toCarMovementDto() {
+        return new CarMovementDto(carName, position);
+    }
+
+    public String getCarName() {
+        return carName.getName();
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public boolean isSameAs(int maxPosition) {
+        return position == maxPosition;
+    }
+
 }
