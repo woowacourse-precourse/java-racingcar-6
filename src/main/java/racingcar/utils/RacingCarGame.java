@@ -6,8 +6,10 @@ import racingcar.dto.RacingCar;
 
 public class RacingCarGame {
     private int farthestDistance;
+    private List<RacingCar> racingCarList;
 
-    public RacingCarGame() {
+    public RacingCarGame(List<RacingCar> racingCarList) {
+        this.racingCarList = racingCarList;
         farthestDistance = 0;
     }
 
@@ -16,8 +18,8 @@ public class RacingCarGame {
         return randomValue >= 4;
     }
 
-    public void moveCarsForward(List<RacingCar> carList) {
-        carList.forEach(car -> {
+    public void moveCarsForward() {
+        racingCarList.forEach(car -> {
             if (isRandomForwardMove()) {
                 car.moveForword();
                 updateFarthestDistance(car.getDistance());
@@ -31,8 +33,8 @@ public class RacingCarGame {
         }
     }
 
-    public List<RacingCar> getWinners(List<RacingCar> carList) {
-        return carList.stream()
+    public List<RacingCar> getWinners() {
+        return racingCarList.stream()
                 .filter(car -> car.getDistance() == farthestDistance)
                 .toList();
     }
