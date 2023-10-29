@@ -1,11 +1,12 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.test.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static racingcar.system.SystemConstant.MIN_MOVE_THRESHOLD;
 
 
@@ -17,10 +18,10 @@ class RoundManagerTest {
 
     @Test
     void 랜덤값이_4이상인_전진하는_경우() {
-        Assertions.assertRandomNumberInRangeTest(
+        assertRandomNumberInRangeTest(
                 () -> {
                     roundManager.moveCars(cars);
-                    org.assertj.core.api.Assertions.assertThat(cars.get(0).getTotalMovedDistance())
+                    assertThat(cars.get(0).getTotalMovedDistance())
                             .isEqualTo(4);
                 },
                 MIN_MOVE_THRESHOLD
@@ -30,10 +31,10 @@ class RoundManagerTest {
 
     @Test
     void 랜덤값이_4미만인_전진하지않는_경우() {
-        Assertions.assertRandomNumberInRangeTest(
+        assertRandomNumberInRangeTest(
                 ()->{
                     roundManager.moveCars(cars);
-                    org.assertj.core.api.Assertions.assertThat(cars.get(0).getTotalMovedDistance())
+                    assertThat(cars.get(0).getTotalMovedDistance())
                             .isEqualTo(3);
                 },
                 2
