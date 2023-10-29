@@ -8,18 +8,34 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Application {
-    public static void main(String[] args) {
-        List<Car> cars = new ArrayList<>();
 
+    private static final List<Car> cars = new ArrayList<>();
+    public static void main(String[] args) {
         printCarInputMessage();
-        String input = Console.readLine();
-        String[] carNames = input.split(",");
+        String[] carNames = carsInputByName();
         for (String name : carNames) cars.add(new Car(name));
 
         printTryInputMessage();
-        int tryCount = Integer.parseInt(Console.readLine());
+        int tryCount = tryInput();
+        makeCarsMove(tryCount);
 
         printResultMessage();
+        List<Car> winners = decideWinners(cars);
+        printWinners(winners);
+    }
+
+    private static String[] carsInputByName() {
+
+        String input = Console.readLine();
+        String[] carNames = input.split(",");
+        return carNames;
+    }
+
+    private static int tryInput() {
+        return Integer.parseInt(Console.readLine());
+    }
+
+    private static void makeCarsMove(int tryCount) {
         for(int i = 0; i < tryCount ; i++) {
             for (Car car : cars) {
                 car.move();
@@ -27,11 +43,9 @@ public class Application {
             }
             printNewLine();
         }
-        List<Car> winners = decideWinners(cars);
-        printWinners(winners);
     }
 
-    public static List<Car> decideWinners(List<Car> cars) {
+    private static List<Car> decideWinners(List<Car> cars) {
         return cars.stream().filter(car -> car.getDistance() == getMaxDistance(cars)).collect(Collectors.toList());
     }
 

@@ -9,11 +9,11 @@ public class Printer {
         if (winners.isEmpty()) {
             System.out.println("우승자가 없습니다.");
         }
-        System.out.println("최종 우승자 : ");
+        System.out.print("최종 우승자 : ");
         for( int i = 0; i < winners.size() ; i++ ) {
             System.out.print(winners.get(i));
             if (i != winners.size() - 1) {
-                System.out.println(",");
+                System.out.print(",");
             }
         }
     }
