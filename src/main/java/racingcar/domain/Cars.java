@@ -13,9 +13,7 @@ public class Cars {
     }
 
     public void move() {
-        for (Car car : cars) {
-            car.moveIfSatisfy();
-        }
+        cars.forEach(Car::moveIfSatisfy);
     }
 
     public Map<String, Integer> getMoveCountMap() {
