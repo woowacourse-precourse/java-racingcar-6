@@ -20,30 +20,30 @@ class InputManagerTest {
     @Test
     void 시행_입력_예외처리_숫자가_아닌_입력() {
         setInput("1d");
-        assertThrowsExactly(IllegalArgumentException.class, InputManager.INPUT_MOVE_COUNT::input);
+        assertThrowsExactly(IllegalArgumentException.class, GameCountInputManager.getInstance()::input);
     }
 
     @Test
     void 시행_입력_예외처리_음수_입력() {
         setInput("-1");
-        assertThrowsExactly(IllegalArgumentException.class, InputManager.INPUT_MOVE_COUNT::input);
+        assertThrowsExactly(IllegalArgumentException.class, GameCountInputManager.getInstance()::input);
     }
 
     @Test
     void 이름_입력_예외처리_5자_이상의_이름() {
         setInput("김희겸,신예찬,엄성준,김현진ㅇㅇㅇ");
-        assertThrowsExactly(IllegalArgumentException.class, InputManager.INPUT_NAME::input);
+        assertThrowsExactly(IllegalArgumentException.class, UsernameInputManager.getInstance()::input);
     }
     @Test
     void 이름_입력_예외처리_0명() {
         setInput(",,,,");
-        assertThrowsExactly(IllegalArgumentException.class, InputManager.INPUT_NAME::input);
+        assertThrowsExactly(IllegalArgumentException.class, UsernameInputManager.getInstance()::input);
     }
 
     @Test
     void 이름_입력() {
         setInput("김희겸,신예찬,엄성준,김현진");
-        List<String> inputs = (List<String>) InputManager.INPUT_NAME.input();
+        List<String> inputs = (List<String>) UsernameInputManager.getInstance().input();
         assertThat(inputs).containsExactly("김희겸", "신예찬", "엄성준", "김현진");
     }
 
