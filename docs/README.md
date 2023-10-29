@@ -44,3 +44,94 @@
 
 ## 시간 나면 해보세요
 - [ ] Car 클래스 캡슐화 도전, 직접 값에 접근 못하게 하도록
+
+
+## 구현 목록
+### Model
+
+- Car
+    - [x]  name
+    - [x]  distance
+    - [x]  생성자(String name)
+    - [x]  update Distance
+          - distance 직접 업그레이드
+
+    - [x]  여기서 toString 만들기 (1개)
+- CarList
+    - [ ]  생성자(List<String> names)
+        - controller/putCar에서 List<String> names 받으면 이걸로 CarList 생성하기
+
+    - [ ]  upgrade distance(List<Integer> distances)
+        - 리스트별로 생성자에 업그레이드, 근데 이게 맞나? 이름에 맞춰서 해야 되지 않나? - update Distance 사용하기
+
+    - [ ]  List<String> getWinner()
+        - 정렬해서 우승자가 담긴 스트링 리스트 리턴
+
+    - [ ]  String toString (자동차 수만큼)
+        - carList에서 car 하나의 tostring을 받아와서 다 붙이고 마지막에 \n 붙이기
+
+
+### Controller
+
+- controller
+    - putCarList(view에서 받은 List<String>)
+
+      validateName 실행시키고
+
+      CarList 생성자 만들기
+
+    - ~~int howMany = view의 askHowMany에서 return한 값~~ → main에서 view에서 가져오고 play를 실행시키기로 함
+    - play(int howMany)
+        - List <Integer> distances5개의 new Generator(); 해서 반복문 들어가게
+        - updatedistance(List<Integer> distances) // 자동차 갯수만큼 넘김
+        - view에게 carList에서 얻은 toString 넘기기 `중간결과toView` 이런거
+            - 이거 어디서 받는데?
+            - CarList의 toString 받아서 이걸 View에 전달할거임 그냥 바로 리턴하면 됨
+    - whoWinner
+        - CarList의 getWinner 호출
+- validate
+    - name가 제대로 들어왔는지 확인
+    - number가 제대로 들어왔는지 확인
+- Generator
+    - 랜덤 숫자 리턴
+
+### View
+
+- inputView
+    - List<String> askNames (”
+        - `경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)`
+        - 사용자의 입력 받아 리턴
+    - int askHowMany
+        - `시도할 회수는 몇회인가요?`
+        - 사용자의 입력 받아 리턴
+- outputView
+    - void print”실행 결과”
+        - ㄹㅇ sout (”실행 결고”)
+    - void print중간과정
+
+      controller에서 받은 string 넘긴걸 sout 하기 `중간결과toView`에서 리턴받으세요
+
+        ```
+        pobi : -
+        woni :
+        jun : -
+        ```
+
+    - void 최종우승자
+        - controller의 whoWinnner 호출해서 sout
+
+### Application
+
+controller의 putcarlist
+
+controller의 죽실행
+
+view에서 숫자 가져오기
+
+controller의 play실행
+
+view의 실행결과 실행
+
+view의 print중간과정 실행
+
+view의 최종우승자 실행
