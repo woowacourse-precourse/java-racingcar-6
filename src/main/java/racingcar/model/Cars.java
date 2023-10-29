@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import racingcar.exception.CarNamesValidator;
 import racingcar.vo.CarName;
@@ -13,10 +11,11 @@ public class Cars {
     public Cars(final List<CarName> carNames) {
         CarNamesValidator.validateCarNames(carNames);
 
-        List<Car> cars = new ArrayList<>();
-        carNames.forEach(carName -> cars.add(new Car(carName)));
-
-        carList = Collections.unmodifiableList(cars);
+        List<Car> carList = carNames.stream()
+                .map(Car::new)
+                .toList();
+        
+        this.carList = carList;
     }
 
     public void updateDistance() {
