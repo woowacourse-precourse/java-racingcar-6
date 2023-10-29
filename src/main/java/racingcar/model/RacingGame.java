@@ -12,4 +12,8 @@ public class RacingGame {
         this.cars = new CarGroup(names, new RandomNumberGenerator());
         this.count = new TryCount(count);
     }
+
+    public boolean isPlayable() {
+        return count.isAbleTry();
+    }
 }
