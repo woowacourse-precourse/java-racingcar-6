@@ -24,19 +24,19 @@ public class GameController {
         showWinner();
     }
 
-    public void registerRacingCar() {
+    private void registerRacingCar() {
         String inputValue = InputView.enterCarName();
         String checkedInputValue = exception.checkCarName(inputValue);
         racingGame.setCarList(checkedInputValue);
     }
 
-    public void registerNumberOfRaces() {
+    private void registerNumberOfRaces() {
         String inputValue = InputView.enterRaceCount();
         String checkedInputValue = exception.checkRaceCount(inputValue);
         racingGame.setNumberOfRaces(checkedInputValue);
     }
 
-    public void startRace() {
+    private void startRace() {
         OutputView.printRaceResultMessage();
         racingGame.startRace();
     }
@@ -47,7 +47,7 @@ public class GameController {
 
     private void showWinner() {
         racingGame.setWinnerList();
-        String winnerList = String.join(",", racingGame.getWinnerList());
+        String winnerList = String.join(", ", racingGame.getWinnerList());
         OutputView.printWinner(winnerList);
     }
 }
