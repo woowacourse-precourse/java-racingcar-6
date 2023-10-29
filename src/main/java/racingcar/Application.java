@@ -11,11 +11,11 @@ import java.util.Map;
 
 public class Application {
 
-    static String[] carNameList;
-    static ArrayList<String> winner;
-    static Map<String, Car> carInfo;
-    static int tryCount;
-    static int maxScore = 0;
+    public static String[] carNameList;
+    public static ArrayList<String> winner;
+    public static Map<String, Car> carInfo;
+    public static int tryCount;
+    public static int maxScore = 0;
 
     public static void main(String[] args) {
 
@@ -34,7 +34,7 @@ public class Application {
 
     public static void startRacing() {
 
-        for (int i = 0; i < tryCount ; i++) {
+        for (int i = 0; i < tryCount; i++) {
 
             checkRandomNumberAndUpdateCarScore();
             printCurrentState();
@@ -50,6 +50,7 @@ public class Application {
 
             int randomNumber = Randoms.pickNumberInRange(0, 9);
             if (randomNumber >= 4) {
+
                 Car car = carInfo.get(carName);
                 car.plusScore();
             }
@@ -70,10 +71,17 @@ public class Application {
     public static void getMaxScore() {
 
         for (String carName : carNameList) {
+
             int carScore = carInfo.get(carName).getScore();
-            if (maxScore < carScore) {
-                maxScore = carScore;
-            }
+            updateMaxScore(carScore);
+        }
+    }
+
+    public static void updateMaxScore(int carScore) {
+
+        if (maxScore < carScore) {
+
+            maxScore = carScore;
         }
     }
 
@@ -82,12 +90,18 @@ public class Application {
         for (String carName : carNameList) {
 
             int carScore = carInfo.get(carName).getScore();
-            if (maxScore == carScore) {
-
-                winner.add(carName);
-            }
+            updateWinner(carScore, carName);
         }
+
         System.out.print("최종 우승자 : " + String.join(", ", winner));
+    }
+
+    public static void updateWinner(int carScore, String carName) {
+
+        if (maxScore == carScore) {
+
+            winner.add(carName);
+        }
     }
 
     public static void inputCarNames() {
@@ -96,6 +110,10 @@ public class Application {
 
         String carNames = Console.readLine();
         carNameList = carNames.split(",");
+        exceptionInputCarNames();
+    }
+
+    public static void exceptionInputCarNames() {
 
         if (carNameList.length < 2) {
 
@@ -105,9 +123,14 @@ public class Application {
         for (String inputName : carNameList) {
 
             String carName = inputName.replaceAll("\\s", "");
-            if (carName.length() > 5 || carName.length() == 0) {
-                throw new IllegalArgumentException("이름은 1글자 이상 5글자 이하만 가능합니다.");
-            }
+            checkNameLength(carName);
+        }
+    }
+
+    public static void checkNameLength(String carName) {
+
+        if (carName.length() > 5 || carName.length() == 0) {
+            throw new IllegalArgumentException("이름은 1글자 이상 5글자 이하만 가능합니다.");
         }
     }
 
@@ -119,6 +142,7 @@ public class Application {
     }
 
     public static void inputTryCount() {
+
         System.out.println("시도할 회수는 몇회인가요?");
         tryCount = Integer.parseInt(Console.readLine());
     }
