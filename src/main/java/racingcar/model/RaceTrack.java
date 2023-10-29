@@ -98,13 +98,14 @@ public class RaceTrack {
     }
 
     // 우승 관련 메소드
-    public void winRace(int count) {
+    public void winRace() {
+        if (winnerIndex == null) {
+            selectWinner();
+        }
         StringBuilder win = new StringBuilder();
-        for (int i = 0; i < carNames.length; i++) {
-            if (carRank[i] == count) {
-                String modifiedName = carNames[i].substring(0, carNames[i].length() - (count + 3));
-                win.append(modifiedName).append(", ");
-            }
+        for (int i = 0; i < winnerIndex.length; i++) {
+            String modifiedName = carNames[winnerIndex[i]].substring(0, carStartLine[winnerIndex[i]] - 3);
+            win.append(modifiedName).append(", ");
         }
 
         if (win.length() >= 2) {
