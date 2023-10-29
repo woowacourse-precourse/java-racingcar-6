@@ -48,4 +48,19 @@ public class RacingCarService {
     private boolean canMove(int number) {
         return number >= CONDITION_NUMBER;
     }
+
+    public List<String> getWinnerNames() {
+        int maxMove = getMaxMove();
+        return racingCars.stream()
+                .filter(car -> car.getMove() == maxMove)
+                .map(RacingCar::getName)
+                .toList();
+    }
+
+    private int getMaxMove() {
+        return racingCars.stream()
+                .mapToInt(RacingCar::getMove)
+                .max()
+                .orElse(0);
+    }
 }
