@@ -10,7 +10,7 @@ public record CarName(String name) {
 
     private static final int MIN_NAME_SIZE = 1;
     private static final int MAX_NAME_SIZE = 5;
-    public static final String SPACE = " ";
+    private static final String SPACE = " ";
 
     public CarName {
         validateName(name);
@@ -24,6 +24,10 @@ public record CarName(String name) {
         if (isInvalidLength(name)) {
             throw new CustomErrorException(CAR_NAME_INVALID_LENGTH);
         }
+
+        if (isContainSpace(name)) {
+            throw new CustomErrorException(CAR_NAME_CONTAIN_SPACE);
+        }
     }
 
     private static boolean isNull(String name) {
@@ -32,5 +36,9 @@ public record CarName(String name) {
 
     private static boolean isInvalidLength(String name) {
         return name.length() < MIN_NAME_SIZE || name.length() > MAX_NAME_SIZE;
+    }
+
+    private static boolean isContainSpace(String name) {
+        return name.contains(SPACE);
     }
 }

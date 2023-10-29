@@ -31,6 +31,18 @@ class CarNameTest {
                 .hasMessage(CAR_NAME_INVALID_LENGTH.getMessage());
     }
 
+    @Test
+    void 자동차_이름_공백_포함_예외() {
+        // given
+        String name = "c a r";
+
+        // when
+        // then
+        assertThatThrownBy(() -> new CarName(name))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(CAR_NAME_CONTAIN_SPACE.getMessage());
+    }
+
     @ParameterizedTest
     @ValueSource(strings = {"A", "car", "자동차", "myCar"})
     void 자동차_이름_생성(String name) {
