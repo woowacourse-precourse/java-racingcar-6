@@ -14,7 +14,7 @@ public class InputController {
     public static Cars scanCars() {
         System.out.println(InputView.enterCarNamesMessage());
         String userInput = Console.readLine();
-        InputValidator.validateCarList(userInput);
+        InputValidator.validateCarNames(userInput);
 
         return createCars(userInput);
     }
