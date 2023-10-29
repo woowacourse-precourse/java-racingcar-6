@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
+import racingcar.model.CarDto;
 
 public class OutputView {
     private final static String REQUEST_CAR_NAMES_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -23,7 +24,7 @@ public class OutputView {
 
     public void raceResultByOrderMessage(List<CarDto> cars) {
         for(CarDto car : cars) {
-            System.out.println(car.name + " : " + MOVEMENT.repeat(car.len));
+            System.out.println(car.getName() + " : " + MOVEMENT.repeat(car.getPosition()));
         }
     }
 
