@@ -32,7 +32,8 @@ public class RacingCarGame {
 
         for (int i = 0; i < roundNumber; i++) {
             List<Integer> numbers = generateNumbers(cars.size());
-            generateRound(numbers, cars);
+            Round round = generateRound(numbers, cars);
+            round.race();
         }
     }
 
@@ -57,7 +58,7 @@ public class RacingCarGame {
                 .collect(Collectors.toList());
     }
 
-    private void generateRound(List<Integer> numbers, Cars cars) {
-        Round round = new Round(numbers, cars);
+    private Round generateRound(List<Integer> numbers, Cars cars) {
+        return new Round(numbers, cars);
     }
 }
