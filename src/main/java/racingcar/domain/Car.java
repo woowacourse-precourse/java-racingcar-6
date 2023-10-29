@@ -10,8 +10,17 @@ public class Car {
         this.name = name;
     }
 
+    private Car(String name, int distance) {
+        this.name = name;
+        this.distance = distance;
+    }
+
     public static Car makeCar(String name) {
         return new Car(name);
+    }
+
+    public static Car makeCarByNameDistance(String name, int distance) {
+        return new Car(name, distance);
     }
 
     public void validateCarName(String name) {
