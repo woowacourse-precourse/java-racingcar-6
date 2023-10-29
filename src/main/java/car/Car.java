@@ -2,6 +2,8 @@ package car;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import static validate.InputValidation.*;
+
 public class Car {
     public int distance;
     public String name;
@@ -31,11 +33,8 @@ public class Car {
     }
 
     public void nameValidate(String name) {
-        if (name.length() > 5) {
-            throw new IllegalArgumentException("이름은 5글자 이하로 입력해주세요.");
-        }
-        else if (name.isEmpty()) {
-            throw new IllegalArgumentException("이름이 입력되지 않았습니다.");
-        }
+        validateInputLengthExceeded(name);
+        validateInputIsEmpty(name);
+        validateInputDoseNotContainSpecialCharacters(name);
     }
 }
