@@ -82,6 +82,7 @@ public class InputValidator {
     }
 
     public void validateTime(String playTimeInput) {
+        playTimeInput = removeSpacePlayTime(playTimeInput);
         Integer playTime = validateNumber(playTimeInput);
         validateZero(playTime);
         validateMaxValue(playTime);
@@ -90,6 +91,10 @@ public class InputValidator {
 
     public Integer getPlayTime() {
         return this.playTime;
+    }
+
+    protected String removeSpacePlayTime(String playTime){
+        return playTime.replaceAll("\\s","");
     }
 
     protected Integer validateNumber(String playTime) {
