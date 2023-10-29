@@ -1,8 +1,8 @@
-package racingcar.model;
+package racingcar.model.car;
 
 import static java.lang.Integer.parseInt;
-import static racingcar.model.CarSplitConstantType.COMMAS;
-import static racingcar.model.CarSplitConstantType.SPLIT_LIMIT;
+import static racingcar.model.car.CarSplitConstants.COMMAS;
+import static racingcar.model.car.CarSplitConstants.SPLIT_LIMIT;
 
 import java.util.Arrays;
 import java.util.List;

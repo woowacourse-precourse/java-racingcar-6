@@ -1,7 +1,7 @@
 package racingcar.utils.validator;
 
 import static java.lang.Integer.*;
-import static racingcar.model.CarSplitConstantType.*;
+import static racingcar.model.car.CarSplitConstants.*;
 
 import java.util.Arrays;
 import java.util.List;

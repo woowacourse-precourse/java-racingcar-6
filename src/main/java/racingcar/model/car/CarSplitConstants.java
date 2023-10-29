@@ -1,12 +1,12 @@
-package racingcar.model;
+package racingcar.model.car;
 
-public enum CarSplitConstantType {
+public enum CarSplitConstants {
     COMMAS(","),
     SPLIT_LIMIT("-1");
 
     private final String constants;
 
-    CarSplitConstantType(final String constants) {
+    CarSplitConstants(final String constants) {
         this.constants = constants;
     }
 
