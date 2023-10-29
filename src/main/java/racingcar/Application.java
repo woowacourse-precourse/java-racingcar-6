@@ -10,8 +10,7 @@ public class Application {
         // TODO: 프로그램 구현
         GameSetting gameSetting = new GameSetting(new UserInputImpl());
         Game racingGame = new RacingGame(new RandomNumberProviderImpl());
-        racingGame.setGameInfo(gameSetting.getGameInfo());
-        racingGame.start();
+        racingGame.start(gameSetting.createGameInfo());
         racingGame.getResult();
     }
 }

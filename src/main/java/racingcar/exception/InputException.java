@@ -2,9 +2,13 @@ package racingcar.exception;
 
 import java.util.List;
 
-public class InputException {
+public class InputException extends RuntimeException{
 
-    public static void isValidName(List<String> nameList)  {
+    public InputException(String message, Throwable cause) {
+        super(message, new IllegalArgumentException());
+    }
+
+    public static void validateName(List<String> nameList) throws IllegalArgumentException {
        for(String name : nameList) {
            if(name.equals("")) {
                throw new IllegalArgumentException();
@@ -18,7 +22,7 @@ public class InputException {
        }
     }
 
-    public static void isValidAttemptNum(String attemptNum) {
+    public static void validateAttemptNum(String attemptNum) {
         try {
             int num = Integer.parseInt(attemptNum);
             if(num < 1 || num >= Integer.MAX_VALUE - 1) {

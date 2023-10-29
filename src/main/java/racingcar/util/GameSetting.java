@@ -1,11 +1,9 @@
 package racingcar.util;
 
-import racingcar.Game;
 import racingcar.UserInput;
 import racingcar.entity.GameInfo;
 import racingcar.entity.Participant;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,7 +14,7 @@ public class GameSetting {
         this.userInput = userInput;
     }
 
-    public GameInfo getGameInfo() {
+    public GameInfo createGameInfo() {
         return new GameInfo(makeParticipants(), userInput.getUserInputAttemptNum());
     }
 

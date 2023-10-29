@@ -20,7 +20,8 @@ public class RacingGame implements Game {
 
 
     @Override
-    public void start() {
+    public void start(GameInfo gameInfo) {
+        setGameInfo(gameInfo);
         System.out.println("실행 결과");
         for(int numOfAttempt = 1; numOfAttempt <= gameInfo.getAttemptTime(); numOfAttempt++) {
             startOneTurn();
@@ -68,7 +69,6 @@ public class RacingGame implements Game {
         }
     }
 
-    @Override
     public void setGameInfo(GameInfo gameInfo) {
         this.gameInfo = gameInfo;
     }

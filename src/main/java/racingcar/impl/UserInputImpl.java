@@ -2,13 +2,7 @@ package racingcar.impl;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.UserInput;
-import racingcar.entity.GameInfo;
 import racingcar.exception.InputException;
-import racingcar.util.Parser;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class UserInputImpl implements UserInput {
     @Override
@@ -21,11 +15,7 @@ public class UserInputImpl implements UserInput {
     public int getUserInputAttemptNum() {
         System.out.println("시도할 회수는 몇회인가요?");
         String attemptNum = Console.readLine();
-        try {
-            InputException.isValidAttemptNum(attemptNum);
-        } catch (Exception e) {
-            throw new IllegalArgumentException();
-        }
+        InputException.validateAttemptNum(attemptNum);
         return Integer.parseInt(attemptNum);
     }
 

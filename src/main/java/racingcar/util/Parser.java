@@ -12,7 +12,7 @@ public final class Parser {
         String[] cutIntoComma = userInput.split(regex);
         List<String> nameList = new ArrayList<>(Arrays.asList(cutIntoComma));
         try {
-            InputException.isValidName(nameList);
+            InputException.validateName(nameList);
         } catch (Exception e) {
             throw new IllegalArgumentException();
         }

@@ -3,9 +3,8 @@ package racingcar;
 import racingcar.entity.GameInfo;
 
 public interface Game {
-    void start();
+    void start(GameInfo gameInfo);
 
     void getResult();
 
-    void setGameInfo(GameInfo gameInfo);
 }
