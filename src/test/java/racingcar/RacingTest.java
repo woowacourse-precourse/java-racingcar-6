@@ -41,4 +41,22 @@ public class RacingTest {
         assertThat(finalPositions.get("car3")).isEqualTo(1);
     }
 
+    @Test
+    @DisplayName("랜덤숫자 입력 가정 - 3입력시 전진하면 안됨")
+    void race_whenRandomNumberIs3_shouldNotMoveCars() {
+        // Given
+        long attemptCount = 5;
+        FixedNumberGenerator fixedNumberGenerator = new FixedNumberGenerator(3);  // A number equal to 3, cars should not move
+        racing = new Racing(cars, attemptCount, fixedNumberGenerator);
+
+        // When
+        racing.race();
+
+        // Then
+        HashMap<String, Integer> finalPositions = cars.getCars();
+        assertThat(finalPositions.get("car1")).isEqualTo(0);
+        assertThat(finalPositions.get("car2")).isEqualTo(0);
+        assertThat(finalPositions.get("car3")).isEqualTo(0);
+    }
+
 }
