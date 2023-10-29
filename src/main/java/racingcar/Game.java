@@ -17,6 +17,7 @@ public class Game {
 
         generateCar(car);
         start();
+        findWinners();
     }
 
     public void generateCar(String[] car){
@@ -56,5 +57,22 @@ public class Game {
             OutputView.printGameResultByOrder(car.getName(), car.getForward());
         }
         OutputView.println();
+    }
+
+    public void findWinners() {
+        int maxForward = -1;
+        List<String> winner = new ArrayList<>();
+
+        for (Car car : carList) {
+            int carForward = car.getForward();
+            if (carForward > maxForward) {
+                maxForward = carForward;
+                winner.clear();
+                winner.add(car.getName());
+            } else if (carForward == maxForward) {
+                winner.add(car.getName());
+            }
+        }
+
     }
 }
