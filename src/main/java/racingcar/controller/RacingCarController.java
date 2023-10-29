@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.constants.RacingCarMove;
 import racingcar.io.input.InputManager;
 import racingcar.io.output.OutputView;
 import racingcar.model.Cars;
@@ -29,9 +30,10 @@ public class RacingCarController {
 
     private void startRacing(Cars cars, int attemptCount) {
         outputView.printExecutionResultMessage();
-        while (racingCarService.isProcessing(attemptCount)) {
+        while (RacingCarMove.isProcessing(attemptCount)) {
             racingCarService.startRacing(cars);
             outputView.printGameResult(cars.statusCarsPosition());
+            attemptCount = RacingCarMove.updateAttemptCount(attemptCount);
         }
         outputView.printFinalWinners(cars.getFinalWinners());
     }
