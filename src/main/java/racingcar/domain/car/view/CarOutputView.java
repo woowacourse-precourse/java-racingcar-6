@@ -5,11 +5,13 @@ import racingcar.domain.util.OutputMessage;
 
 import java.util.List;
 
+import static racingcar.domain.util.OutputMessage.*;
+
 public class CarOutputView {
 
     public void printResult() {
         System.out.println();
-        System.out.println(OutputMessage.PRINT_ROUND_RESULT.getMessage());
+        System.out.println(PRINT_ROUND_RESULT.getMessage());
     }
 
     public void printRoundResult(List<Car> cars) {
@@ -18,7 +20,7 @@ public class CarOutputView {
     }
 
     public void printWinner(List<String> winners) {
-        System.out.print(OutputMessage.PRINT_FINAL_WINNER.getMessage());
+        System.out.print(PRINT_FINAL_WINNER.getMessage());
         System.out.println(String.join(", ", winners));
 
     }
