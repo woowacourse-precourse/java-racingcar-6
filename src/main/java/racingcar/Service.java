@@ -15,13 +15,9 @@ public class Service {
 
     // Car 객체 생성
     public ArrayList<Car> createCarImpl() {
-        // carList return 필요
         ArrayList<Car> carList = new ArrayList<>();
-        for (String carName :
-                inputCarName()) {
-            if (carName.length() > 5) {
-                throw new IllegalArgumentException("자동차의 이름이 5자리 이상입니다.");
-            }
+        for (String carName : inputCarName()) {
+            if (carName.length() > 5) throw new IllegalArgumentException("자동차의 이름이 5자리 이상입니다.");
             carList.add(new Car(carName));
         }
         return carList;
@@ -30,26 +26,24 @@ public class Service {
     // 매 회수마다 출력
     public void resultPrint(ArrayList<Car> carList) {
         System.out.print("시도할 회수는 몇회인가요? : ");
-        int tryingNumber = Integer.parseInt(Console.readLine());
-        System.out.println();
-        System.out.println("실행 결과");
-        for (int k = 0; k < tryingNumber; k++) {
-            carDistancePrint(carList);
+        try {
+            int tryingNumber = Integer.parseInt(Console.readLine());
+            System.out.println();
+            System.out.println("실행 결과");
+            for (int k = 0; k < tryingNumber; k++) carDistancePrint(carList);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력해주세요");
         }
     }
 
     // 자동차가 움직인 거리 추가 및 출력
     public void carDistancePrint(ArrayList<Car> carList) {
         for (int i = 0; i < carList.size(); i++) {
-
             // random 값 생성
             int randomNum = Randoms.pickNumberInRange(0, 9);
-            if (randomNum > 3) {
-                carList.get(i).addDistance();
-            }
-            // 출력
-            String carString = carList.get(i).carString();
-            System.out.println(carString);
+            if (randomNum > 3) carList.get(i).addDistance();
+
+            System.out.println(carList.get(i).carString());
         }
         System.out.println();
     }
@@ -58,24 +52,17 @@ public class Service {
     public void findWinner(ArrayList<Car> carList) {
         int maxDistance = 0;
         // 최대 거리 찾기
-        for (Car car :
-                carList) {
-            int carDistance = car.getDistance().length();
-            maxDistance = Math.max(maxDistance, carDistance);
-        }
+        for (Car car : carList) maxDistance = Math.max(maxDistance, car.getDistance().length());
+
         // 최대로 이동한 자동차의 이름을 List 에 추가
         ArrayList<String> winners = new ArrayList<>();
-        for (Car car :
-                carList) {
-            if (maxDistance == car.getDistance().length()) {
-                winners.add(car.getName());
-            }
+        for (Car car : carList) {
+            if (maxDistance == car.getDistance().length()) winners.add(car.getName());
         }
+
         // List 에 값을 출력
         System.out.print("최종 우승자 : ");
-        for (int i = 0; i < winners.size() - 1; i++) {
-            System.out.print(winners.get(i) + ", ");
-        }
+        for (int i = 0; i < winners.size() - 1; i++) System.out.print(winners.get(i) + ", ");
         System.out.println(winners.get(winners.size()-1));
     }
 }

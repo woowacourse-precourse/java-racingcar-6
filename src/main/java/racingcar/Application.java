@@ -11,6 +11,5 @@ public class Application {
         ArrayList<Car> carList = service.createCarImpl();
         service.resultPrint(carList);
         service.findWinner(carList);
-
     }
 }

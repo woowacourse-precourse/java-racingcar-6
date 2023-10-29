@@ -16,9 +16,6 @@ public class Car {
         this.distance = "";
     }
 
-    public Car() {
-    }
-
     public String getName() {
         return name;
     }
