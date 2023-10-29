@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 
+import static org.assertj.core.api.Assertions.*;
+
 public class CarsTest {
 
     @DisplayName("콤마로 이름을 구분하여 Car 객체를 만드는 테스트")
@@ -16,8 +18,21 @@ public class CarsTest {
         Car hui = cars.getCar(1);
         Car pobi = cars.getCar(2);
 
-        Assertions.assertThat(dahee.getName()).isEqualTo("dahee");
-        Assertions.assertThat(hui.getName()).isEqualTo("hui");
-        Assertions.assertThat(pobi.getName()).isEqualTo("pobi");
+        assertThat(dahee.getName()).isEqualTo("dahee");
+        assertThat(hui.getName()).isEqualTo("hui");
+        assertThat(pobi.getName()).isEqualTo("pobi");
+    }
+
+    @DisplayName("가장 많이 전진한 자동차 하나를 찾는 테스트")
+    @Test
+    public void findWinnerTest() {
+        Cars cars = new Cars("dahee,hui,pobi");
+        Car dahee = cars.getCar(0);
+        Car hui = cars.getCar(1);
+        Car pobi = cars.getCar(2);
+
+        dahee.move();
+
+        assertThat(cars.findLongDistanceCar()).isEqualTo(dahee);
     }
 }
