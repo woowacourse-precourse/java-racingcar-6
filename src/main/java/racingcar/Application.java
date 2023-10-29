@@ -6,12 +6,12 @@ import java.util.stream.IntStream;
 import racingcar.domain.Car;
 import racingcar.domain.Racing;
 import racingcar.domain.Referee;
-import racingcar.util.CarFactory;
+import racingcar.util.Cars;
 
 public class Application {
     public static void main(String[] args) {
         List<String> carList = askCarName();
-        List<Car> racingList = CarFactory.createCars(carList);
+        List<Car> racingList = Cars.createCars(carList);
         int playRound = askPlayTurn();
 
         Racing racing = new Racing(racingList);

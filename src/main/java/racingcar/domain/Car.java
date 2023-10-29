@@ -1,10 +1,13 @@
 package racingcar.domain;
 
-import java.util.Comparator;
+import java.util.List;
 
-public class Car implements Comparator {
-    private final String name;
+public class Car implements Comparable<Car> {
+    private String name;
     private int moveDistance;
+
+    private Car() {
+    }
 
     public Car(String name) {
         this.name = name;
@@ -19,11 +22,16 @@ public class Car implements Comparator {
         return name + " : " + "-".repeat(Math.max(0, moveDistance));
     }
 
+    public StringBuilder isEqualDistance(List<Car> carList) {
+        List<String> names = carList.stream()
+                .filter(car -> this.moveDistance == car.moveDistance)
+                .map(car -> car.name)
+                .toList();
+        return new StringBuilder(String.join(", ", names));
+    }
+
     @Override
-    public int compare(final Object o1, final Object o2) {
-        if (o1 instanceof Car car1 && o2 instanceof Car car2) {
-            return Integer.compare(car2.moveDistance, car1.moveDistance);
-        }
-        return 0;
+    public int compareTo(Car otherCar) {
+        return Integer.compare(otherCar.moveDistance, this.moveDistance);
     }
 }

@@ -15,9 +15,9 @@ public class Racing {
         this.racingCar = racingList;
     }
 
-    public void run(){
-        for(Car car : racingCar){
-            if (judgment.isMoreThanFour(numberGenerator.createRandomNumber())){
+    public void run() {
+        for (Car car : racingCar) {
+            if (judgment.isMoreThanFour(numberGenerator.createRandomNumber())) {
                 car.forward();
             }
             printCarLocation(car);
