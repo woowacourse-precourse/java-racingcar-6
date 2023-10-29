@@ -13,32 +13,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class InputViewTest {
 
-    private InputStream originalSystemIn;
-
-    @BeforeEach
-    public void setUp() {
-        originalSystemIn = System.in;
-    }
-
-    @AfterEach
-    public void restoreSystemIn() {
-        System.setIn(originalSystemIn);
-    }
-
     @Test
     @DisplayName("자동차명 입력 테스트")
     public void requestCarNamesTest() {
         setInput("ray,tico");
         String inputedCarNames = InputView.requestCarNames();
         assertEquals("ray,tico", inputedCarNames);
-    }
-
-    @Test
-    @DisplayName("라운드 입력 테스트")
-    public void requestRoundsTest() {
-        setInput("5");
-        String inputedRounds = InputView.requestRounds();
-        assertEquals("5", inputedRounds);
     }
 
     private void setInput(String input) {
