@@ -44,10 +44,12 @@ class OutputViewTest {
         outputView.printCarsResults(carsDto);
 
         // then
-        assertThat(out.toString()).contains("a : \n"
-                + "b : -\n"
-                + "c : --\n"
-                + "d : -----\n");
+        assertThat(out.toString()).contains("""
+                a :\s
+                b : -
+                c : --
+                d : -----
+                """);
     }
 
     @Test
