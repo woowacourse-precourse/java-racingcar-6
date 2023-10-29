@@ -4,14 +4,14 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
 
-    String[] inputCars(){
+    static String[] inputCars(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String cars = Console.readLine();
         validHasInput(cars);
         return makeInputArray(cars);
     }
 
-    String[] makeInputArray(String cars){
+    static String[] makeInputArray(String cars){
         validDelimiter(cars);
         return cars.split(",");
     }
@@ -24,7 +24,7 @@ public class InputView {
         return number;
     }
 
-    void validHasInput(String input){
+    static void validHasInput(String input){
         if(input == null){
             throw new IllegalArgumentException();
         }
@@ -43,7 +43,7 @@ public class InputView {
         return number;
     }
 
-    void validDelimiter(String cars){
+    static void validDelimiter(String cars){
         if(!cars.contains(",")){
             throw new IllegalArgumentException();
         }
