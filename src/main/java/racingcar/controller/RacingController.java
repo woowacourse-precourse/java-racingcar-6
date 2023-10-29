@@ -32,6 +32,9 @@ public class RacingController {
         displayWinners();
     }
 
+    /**
+     * 자동차 이름에 대한 입력을 carMap에 저장한다.
+     */
     private void initializeCarMap() {
         OutputView.printCarInputMessage();
         CarInput carInput = new CarInput(InputView.readLine());
@@ -41,12 +44,22 @@ public class RacingController {
         }
     }
 
+    /**
+     * 차수 입력을 리턴한다.
+     *
+     * @return 차수
+     */
     private int getRoundCount() {
         OutputView.printRoundCountInputMessage();
         RoundCountInput roundCountInput = new RoundCountInput(InputView.readLine());
         return roundCountInput.getRoundCount();
     }
 
+    /**
+     * 차수 만큼 라운드를 진행한다.
+     *
+     * @param roundCount 차수
+     */
     private void executeRounds(int roundCount) {
         OutputView.printExecuteResultMessage();
         for (int i = 0; i < roundCount; i++) {
@@ -56,6 +69,9 @@ public class RacingController {
         }
     }
 
+    /**
+     * 수행 결과를 출력한다.
+     */
     private void displayRoundResults() {
         Iterator<Map.Entry<String, RacingCar>> carMapIterator = carMap.getIterator();
         while (carMapIterator.hasNext()) {
@@ -66,6 +82,9 @@ public class RacingController {
         }
     }
 
+    /**
+     * 우승자를 보여준다.
+     */
     private void displayWinners() {
         OutputView.printWinnersMessage(carMap.getWinners());
     }
