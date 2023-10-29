@@ -7,6 +7,7 @@ import java.util.stream.IntStream;
 public class Validator {
 
     private static final int MAX_NAME_LENGTH = 5;
+    private static final int MAX_NUMBER_LENGTH = 9;
 
     public static void validateInput(String input) {
         if (isBlank(input)) {
@@ -44,6 +45,10 @@ public class Validator {
 
     public static boolean isZero(String input) {
         return input.equals("0");
+    }
+
+    public static boolean isNumberWithinNineDigits(String input) {
+        return isNumber(input) && input.length() <= 9;
     }
 
 }
