@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class RacingController {
 
@@ -39,10 +40,9 @@ public class RacingController {
         int tryNumber = InputView.getTryNumberInput();
         OutputView.printResultMessage();
         CarRace carRace = new CarRace(cars.getCars());
-        while (tryNumber > 0) {
-            carRace.printPlayers();
-            tryNumber--;
-        }
+
+        IntStream.range(0, tryNumber)
+                .forEach(index -> carRace.printPlayers());
     }
 
     private void endGame() {
