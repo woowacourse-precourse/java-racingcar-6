@@ -4,24 +4,21 @@ import java.util.List;
 import racingcar.domain.Car;
 
 public class GameResult {
-    public static final String DASH_CHARACTER = "-";
-    public static final String CAR_NAME_DELIMITER = ",";
+    private static final String DASH_CHARACTER = "-";
+    private static final String CAR_NAME_DELIMITER = ",";
+    private static final String FINAL_WINNERS_LABEL = "최종 우승자 : ";
 
     public static void result(List<Car> cars) {
         for (Car car : cars) {
-            System.out.printf("%s : ", car.getName());
-            printDashes(car.getMovingCount());
+            printCarDetails(car);
         }
+    }
+
+    private static void printCarDetails(Car car) {
+        System.out.printf("%s : %s\n", car.getName(), DASH_CHARACTER.repeat(car.getMovingCount()));
     }
 
     public static void finalResult(List<String> winners) {
-        System.out.println("최종 우승자 : " + String.join(CAR_NAME_DELIMITER, winners));
-    }
-
-    private static void printDashes(int count) {
-        for (int i = 0; i < count; i++) {
-            System.out.print(DASH_CHARACTER);
-        }
-        System.out.println();
+        System.out.println(FINAL_WINNERS_LABEL + String.join(CAR_NAME_DELIMITER, winners));
     }
 }
