@@ -35,12 +35,12 @@ public class GameProcess {
 		return randomNumber >= 4;
 	}
 
-	private int calculateMaxDistance(ArrayList<InformationOfCar> carList) {
+	public int calculateMaxDistance(ArrayList<InformationOfCar> carList) {
 		carList.sort((car1, car2) -> car2.getDistance().length() - car1.getDistance().length());
 		return carList.get(0).getDistance().length();
 	}
 
-	private void printFinalString(int maxDistance, ArrayList<InformationOfCar> carList) {
+	public void printFinalString(int maxDistance, ArrayList<InformationOfCar> carList) {
 		StringBuilder result = new StringBuilder(carList.get(0).getCarName());
 		for (int i = 1; i < carList.size()-1; i++) {
 			InformationOfCar car = carList.get(i);
