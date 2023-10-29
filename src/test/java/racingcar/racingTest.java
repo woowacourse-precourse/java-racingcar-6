@@ -14,14 +14,14 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 public class racingTest {
 
     @Test
-    public void creatCarGenerator() throws Exception {
+    public void CarGenerator_생성() throws Exception {
         String input = "ab,cd,ef";
         String[] inStr = input.split(",");
-        CarGenerator cars= new CarGenerator(inStr);
-        String[][] names = cars.getNames();
+        CarGenerator cars = new CarGenerator(inStr);
+        String[] names = cars.getNames();
 
-        for(int i=0; i<names.length; i++) {
-            assertThat(names[i][0]).contains(inStr[i]);
+        for (int i = 0; i < names.length; i++) {
+            assertThat(names[i]).contains(inStr[i]);
         }
     }
 
@@ -38,14 +38,13 @@ public class racingTest {
     public void 우승자() {
         String input = "ab,cd,ef";
         String[] inStr = input.split(",");
-        CarGenerator cars= new CarGenerator(inStr);
-        String[][] names = cars.getNames();
+        CarGenerator cars = new CarGenerator(inStr);
 
-        names[0][1] = "--";
-        names[1][1] = "---"; //winner
-        names[2][1] = "--";
+        cars.getLocations()[0] = "--";
+        cars.getLocations()[1] = "---"; //winner
+        cars.getLocations()[2] = "--";
 
-        List<String> result = Referee.calculateCars(names);
+        List<String> result = Referee.calculateCars(cars);
         assertThat(result.get(0).contains("cd"));
     }
 }

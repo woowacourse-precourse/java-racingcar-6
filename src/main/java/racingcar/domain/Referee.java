@@ -4,17 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Referee {
-    protected Referee() {};
+    protected Referee() {
 
-    public static List<String> calculateCars(String[][] names) {
+    }
+
+    public static List<String> calculateCars(CarGenerator cars) {
         int maxNum = 0;
         List<String> result = new ArrayList<>();
-        for(int i=0;i< names.length;i++) {
-            maxNum = Math.max(maxNum, names[i][1].length());
+        for (int i = 0; i < cars.getNames().length; i++) {
+            maxNum = Math.max(maxNum, cars.getLocations()[i].length());
         }
-        for(int i=0;i< names.length;i++) {
-            if(maxNum == names[i][1].length())
-                result.add(names[i][0]);
+        for (int i = 0; i < cars.getNames().length; i++) {
+            if (maxNum == cars.getLocations()[i].length()) {
+                result.add(cars.getNames()[i]);
+            }
         }
         return result;
     }
