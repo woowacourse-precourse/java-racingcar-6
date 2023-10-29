@@ -6,40 +6,48 @@ import java.util.Comparator;
 
 public class Car implements Comparable<Car> {
 
-    private Name name;
-    private Position position;
+    private String name;
+    private int position;
 
     public Car(String name) {
 
-        this.name = new Name(name);
-        this.position = new Position();
+        validateName(name);
+        this.name = name;
+    }
+
+    private void validateName(String name) {
+
+        if(name.length() > 5) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public void play() {
         int randomNumber = RandomNumberGenerator.generateRandomNumber();
         if(canMove(randomNumber)) {
-            position.move();
+            position++;
         }
-    }
-
-    public boolean isSamePosition(Car other) {
-        return this.position.getPosition() == other.position.getPosition();
-    }
-
-    @Override
-    public int compareTo(Car other) {
-        return this.position.getPosition() - other.position.getPosition();
-    }
-
-    public String getName() {
-        return name.getName();
-    }
-
-    public int getPosition() {
-        return position.getPosition();
     }
 
     public boolean canMove(int randomNumber) {
         return randomNumber >= 4;
     }
+
+    public boolean isSamePosition(Car other) {
+        return this.position == other.position;
+    }
+
+    @Override
+    public int compareTo(Car other) {
+        return this.position - other.position;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
 }
