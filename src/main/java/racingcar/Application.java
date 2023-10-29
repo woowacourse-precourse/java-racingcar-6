@@ -47,20 +47,20 @@ public class Application {
     }
 
     private static String createHyphenResult(final Car car) {
-        final int position = car.getPostion();
+        final int position = car.getPosition();
         return "-".repeat(position);
     }
 
     private static List<Car> judgeWinners(final List<Car> cars) {
         final int maxPosition = getMaxPosition(cars);
         return cars.stream()
-                .filter(car -> car.getPostion() == maxPosition)
+                .filter(car -> car.getPosition() == maxPosition)
                 .toList();
     }
 
     private static int getMaxPosition(final List<Car> cars) {
         return cars.stream()
-                .mapToInt(Car::getPostion)
+                .mapToInt(Car::getPosition)
                 .max()
                 .getAsInt();
     }
