@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import java.util.HashMap;
-import racingcar.view.CarRaceGameView;
 
 public class Car {
     private static Car car;
@@ -28,7 +27,7 @@ public class Car {
         return carList;
     }
 
-    public void addCarList(String name) {
+    public void addCarItem(String name) {
             carList.put(name, 0);
     }
 
