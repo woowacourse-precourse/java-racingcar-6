@@ -101,4 +101,14 @@ public class Utill {
         }
         return false;
     }
+
+    /**
+     * 값이 1이상인지 확인한다.
+     *
+     * @param sizeOfWinnerList
+     * @return
+     */
+    public static boolean valueGreaterThanEqualOne(int sizeOfWinnerList) {
+        return sizeOfWinnerList >= 1;
+    }
 }
