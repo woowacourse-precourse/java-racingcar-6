@@ -123,7 +123,6 @@
     - [ ]  📝 실수가 아닌지 검증하기 - isNotRealNumber
     - [ ]  📝 `1`이상의 정수인지 검증하기 - isValidRange
 - [ ]  📔 자동차 이름 검증하는 기준값들 - CarNameValidationCriteria
-- [ ]  📔 이동 횟수 검증하는 기준값들 - RoundValidationCriteria
 
 ## 🧪  검증 테스트- Validator
 
