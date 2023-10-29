@@ -12,5 +12,12 @@ public class Cars {
     public Map<String, Car> getCars() {
         return cars;
     }
+
+    public void makeCarsFromCarList(List<String> carNameList) {
+        for (String carName : carNameList) {
+            Car car = new Car(carName);
+            cars.put(carName, car);
+        }
+    }
 }
 
