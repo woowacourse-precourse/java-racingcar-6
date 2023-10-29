@@ -12,6 +12,9 @@ public class CarRacingGame {
     private int trial;
 
     void execute() {
+        setCar();
+        setTrialInput();
+
         System.out.println("실행 결과");
         for(int i=0; i<trial; i++) {
             for (Car car: car) {
