@@ -4,13 +4,14 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Map;
 
 public class Car {
-    public void racingCarCount() {
+    public Map<String, Integer> racingCarCount() {
         CarName carName = new CarName();
         Map<String, Integer> carMap = carName.getcarList();
         carMap.forEach((key, value)->{
             int count = goControlStatement(getRandomNumber());
             carMap.put(key, value + count);
         });
+        return carMap;
     }
 
     public final int getRandomNumber() {
