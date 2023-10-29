@@ -27,4 +27,5 @@ public class GameManager {
     public List<Car> getCarImplList() {
         return carImplList;
     }
+
 }

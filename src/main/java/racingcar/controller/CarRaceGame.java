@@ -16,7 +16,6 @@ import racingcar.view.CarRaceGameView;
 public class CarRaceGame {
     private GameManager gameManager;
     private CarRaceGameUtility carRaceGameUtility;
-    private List<Car> carImplList = new ArrayList<Car>();
 
     public CarRaceGame() {
     }
@@ -27,22 +26,26 @@ public class CarRaceGame {
 
     public void startGame() {
         String carNames = CarRaceGameView.startGameView();
-        setUpCar(carNames);
+        List<Car> carImplList = setUpCar(carNames);
 
         String attemptNumberString = CarRaceGameView.attemptNumberView();
-        setUpGameManager(attemptNumberString);
 
-        carRaceGameUtility = CarRaceGameUtility.create(gameManager, carImplList);
+        gameManager = GameManager.create(Integer.parseInt(attemptNumberString), carImplList);
+
+        carRaceGameUtility = CarRaceGameUtility.create(gameManager);
         carRaceGameUtility.startCarRaceGame();
     }
 
-    private void setUpCar(String carNames) {
+    private List<Car> setUpCar(String carNames) {
         List<String> carNameList = CarNamesToList(carNames);
+        List<Car> carImplList = new ArrayList<Car>();
+
         for (String carName : carNameList) {
             Validator.carNameStringLength(carName);
             Validator.isSpace(carName);
             carImplList.add(new Car(carName));
         }
+        return carImplList;
     }
 
     private List<String> CarNamesToList(String carNames) {
@@ -50,7 +53,5 @@ public class CarRaceGame {
         return Arrays.stream(carNames.split(",")).toList();
     }
 
-    private void setUpGameManager(String attemptNumberString) {
-        gameManager = GameManager.create(Integer.parseInt(attemptNumberString), carImplList);
-    }
+
 }

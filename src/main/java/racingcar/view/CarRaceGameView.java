@@ -17,7 +17,6 @@ public class CarRaceGameView {
         String carNames = readLine();
         Validator.carNamesComma(carNames);
 
-
         return carNames;
     }
 
