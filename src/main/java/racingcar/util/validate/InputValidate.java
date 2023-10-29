@@ -15,4 +15,10 @@ public class InputValidate {
             throw new IllegalArgumentException("0부터 9사이의 숫자를 입력해주세요.");
         }
     }
+
+    static public void validateNumberLength(String name) {
+        if(name.length() > 5) {
+            throw new IllegalArgumentException("이름은 5자 이하로 입력해주세요.");
+        }
+    }
 }
