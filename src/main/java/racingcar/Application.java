@@ -8,6 +8,8 @@ public class Application {
     public static void main(String[] args) {
         Register register = new Register();
         List<String> cars = register.registerCar();
-        System.out.println(cars);
+
+        int raceCount = register.registerRaceCount();
+        System.out.println(raceCount);
     }
 }
