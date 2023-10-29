@@ -41,21 +41,24 @@ public class RacingCarGameConsole {
         System.out.println("\n실행 결과");
         carIndex = 0;
         while (carIndex < numberOfCars) {
-            updateCarMovement();
+            updateCarMovement(randomNumber());
             printCarMovement();
             carIndex++;
         }
     }
 
-    private void updateCarMovement() {
-        if (moveAllowed()) {
+    public void updateCarMovement(int randomNumber) {
+        if (moveAllowed(randomNumber)) {
             car.move(carIndex);
         }
     }
 
-    private boolean moveAllowed() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
+    private boolean moveAllowed(int randomNumber) {
         return randomNumber >= MOVE_JUDGE_INTEGER;
+    }
+
+    private int randomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 
     private void printCarMovement() {
