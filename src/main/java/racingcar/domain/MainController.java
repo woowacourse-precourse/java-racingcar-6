@@ -19,12 +19,15 @@ public class MainController {
         carGame.CarGame(CARS);
 
         for (int i = ATTEMPT_COUNT; i >= 1; i--) {
-            randomNumberGenerator.setUserRandomValue(CARS); //랜덤값 생성
-            scorePrinter.printMidtermScore(); //중간 점수 출력
+            attemptWithRepeat();
         }
         scorePrinter.printFinalScore(); //최종 점수 출력
     }
 
+    private void attemptWithRepeat() {
+        randomNumberGenerator.setUserRandomValue(CARS); //랜덤값 생성
+        scorePrinter.printMidtermScore(); //중간 점수 출력
+    }
 
     private void setInput() { //+유효검사
         Validator validator = new Validator();
