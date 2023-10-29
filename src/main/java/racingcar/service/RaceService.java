@@ -45,6 +45,10 @@ public class RaceService {
         }
     }
 
+    public int initializeCount(String countInput) {
+        return validateNumeric(countInput);
+    }
+
     private int validateNumeric(String countInput) {
         try {
             return Integer.parseInt(countInput);

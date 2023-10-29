@@ -20,12 +20,18 @@ public class RaceController {
 
     public void run() {
         Cars cars = initializeCars();
+        int count = initializeCount();
+    }
 
+    private int initializeCount() {
+        outputView.countOutput();
+        String countInput = inputView.getCountInput();
+        return raceService.initializeCount(countInput);
     }
 
     private Cars initializeCars() {
         outputView.carNamesOutput();
-        List<String> carNamesInput = inputView.carNamesInput();
+        List<String> carNamesInput = inputView.getCarNamesInput();
         return raceService.initializeCars(carNamesInput);
     }
 }
