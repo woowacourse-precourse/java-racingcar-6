@@ -131,5 +131,26 @@ class GameTest {
 
     @Test
     void winnersToString() {
+        String carNames = "pobi,woni";
+        String gameTurns = "1";
+
+        final int GO = 4;
+        final int STOP = 3;
+
+        String expected = "최종 우승자 : pobi";
+
+        try (MockedStatic<Console> consoleMockedStatic = mockStatic(Console.class);
+             MockedStatic<RandomMaker> randomMakerMockedStatic = mockStatic(RandomMaker.class)) {
+            when(Console.readLine()).thenReturn(carNames, gameTurns);
+            when(RandomMaker.makeRandomNumber()).thenReturn(GO, STOP);
+
+            game.init();
+            game.run();
+            game.findWinners();
+            assertThat(game.winnersToString()).isEqualTo(expected);
+
+            consoleMockedStatic.verify(Console::readLine, times(2));
+            randomMakerMockedStatic.verify(RandomMaker::makeRandomNumber, times(2));
+        }
     }
 }
