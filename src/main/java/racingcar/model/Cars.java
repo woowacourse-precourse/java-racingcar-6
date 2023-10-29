@@ -46,6 +46,18 @@ public class Cars {
         return winner;
     }
 
+    public String getProgressStatus() {
+        StringBuilder sb = new StringBuilder();
+
+        carList.forEach(car -> {
+            sb.append(car.getName() + " : ");
+            sb.append("-".repeat(car.getDistance()));
+            sb.append("\n");
+        });
+        sb.append("\n");
+
+        return sb.toString();
+    }
 
     private int generateRandomNumber() {
         return Randoms.pickNumberInRange(MIN_VALUE, MAX_VALUE);
