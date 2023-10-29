@@ -17,10 +17,10 @@ public class CarTest {
     @CsvSource(value = {"'',true", "a,true", "ab,true", "abc,true", "abcd,true", "abcde,true", "abcdef,false"})
     void forNameTest(String carName, boolean canCreate) {
         if (canCreate) {
-            assertInstanceOf(Car.class, Car.forName(carName));
+            assertInstanceOf(Car.class, Car.from(carName));
         } else {
             assertThrows(IllegalArgumentException.class,
-                    () -> Car.forName(carName),
+                    () -> Car.from(carName),
                     "Car 이름은 5자 이하여야 합니다.");
         }
     }
@@ -29,7 +29,7 @@ public class CarTest {
     @Test
     void proceedTest() {
         // given
-        Car car = Car.forName("name");
+        Car car = Car.from("name");
         int prevPosition = car.getPosition();
 
         // when
@@ -43,7 +43,7 @@ public class CarTest {
     @Test
     void stopTest() {
         // given
-        Car car = Car.forName("name");
+        Car car = Car.from("name");
         int prevPosition = car.getPosition();
 
         // when
@@ -63,7 +63,7 @@ public class CarTest {
     @Test
     void isProceedTest() {
         // given
-        Car car = Car.forName("name");
+        Car car = Car.from("name");
 
         int n = 1000; // 시행횟수
         double p = 0.6; // 확률

@@ -11,11 +11,15 @@ public class Car {
         this.position = position;
     }
 
-    public static Car forName(String name) {
+    public static Car from(String name) {
+        return Car.from(name, 0);
+    }
+
+    public static Car from(String name, int position){
         if (name.length() > 5) {
             throw new IllegalArgumentException("Car 이름은 5자 이하여야 합니다.");
         }
-        return new Car(name, 0);
+        return new Car(name, position);
     }
 
     public void proceed() {
