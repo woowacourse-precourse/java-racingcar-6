@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.validator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
@@ -35,22 +35,22 @@ public class ValidatorTest extends NsTest {
     void 자동차_이름_중복이_있는_경우(String carNames) {
         assertThatThrownBy(() -> InputValidator.validateCarList(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("중복된 이름이 있습니다.");
+                .hasMessageContaining("중복된 자동차 이름이 있습니다.");
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"0", "-1", "#$", "_12", "하위", "aa"})
+    @ValueSource(strings = {"1", "55", "101"})
+    void 사용자_입력_라운드수_정상_테스트(String numberOfRounds) {
+        assertThatCode(() -> InputValidator.validateNumberOfRounds(numberOfRounds))
+                .doesNotThrowAnyException();
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"0", "-1", "#$", "_12", "001", "하위", "aa"})
     void 사용자_입력_라운드수_양수가_아닌_경우(String numberOfRounds) {
         assertThatThrownBy(() -> InputValidator.validateNumberOfRounds(numberOfRounds))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("양수를 입력하지 않았습니다.");
-    }
-
-    @ParameterizedTest
-    @ValueSource(strings = {"0", "-1", "#$", "_12", "하위", "aa"})
-    void 사용자_입력_자동자_이름(String carNames) {
-        assertThatThrownBy(() -> InputValidator.validateCarList(carNames))
-                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Override

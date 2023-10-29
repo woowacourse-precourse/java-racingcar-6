@@ -42,7 +42,7 @@ public class ExceptionTest extends NsTest {
                     .forEach(name -> carList.add(new Car(name)));
             new Cars(carList);
         }).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("중복된 이름이 있습니다.");
+                .hasMessageContaining("중복된 자동차 이름이 있습니다.");
     }
 
     @Override
