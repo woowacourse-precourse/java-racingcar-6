@@ -4,9 +4,7 @@ public enum RacingCarRole {
 
     MAX_CAR_NAME_LENGTH(5),
     MOVING_CONDITION(4),
-    MIN_CARS_COUNT(2),
-    NEXT_POSITION(1),
-    END_ATTEMPT_NUMBER(0);
+    MIN_CARS_COUNT(2);
 
     private final int value;
 
