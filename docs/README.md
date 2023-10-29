@@ -17,6 +17,8 @@
   - 유틸리티 클래스
 
 ## 자동차 입력 기능
+- [ ] RaceView : `printCarListInputMessage` 메서드
+  - 입력 안내 메시지 출력
 - [x] RaceView : `getCarListInput` 메서드
   - 사용자로부터 자동차 목록을 입력받는다.
 - [x] Application : `validateCarListInput` 메서드
@@ -39,6 +41,8 @@
   - Car 리스트를 인수로 받아 Car 리스트를 감싸는 객체 생성
 
 ## 시도 횟수 입력 기능
+- [ ] RaceView : `printAttemptInputMessage` 메서드
+  - 시도 횟수 입력 안내 메시지 출력
 - [x] RaceView : `getAttemptInput` 메서드
   - 사용자로부터 시도 횟수 입력
 - [x] Application : `validateAttemptInput` 메서드
