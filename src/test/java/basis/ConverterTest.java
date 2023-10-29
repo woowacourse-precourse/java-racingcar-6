@@ -27,4 +27,9 @@ class ConverterTest {
         }
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    void 문자열을_정수로_반환() {
+        Assertions.assertEquals(7, converter.wordToInt("7"));
+    }
 }
