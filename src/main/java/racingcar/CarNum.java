@@ -6,4 +6,8 @@ public class CarNum {
     CarNum(String[] carNameParsing) {
         this.num = carNameParsing.length;
     }
+
+    boolean isInRange(int currentNum) {
+        return (num > currentNum);
+    }
 }
