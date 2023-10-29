@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import java.io.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class LogsTest {
     OutputStream out;
@@ -26,6 +25,9 @@ class LogsTest {
 
     @Test
     void inputGameTurns() {
+        String log = "시도할 회수는 몇회인가요?" + System.lineSeparator();
+        Logs.inputGameTurns();
+        assertThat(out.toString()).isEqualTo(log);
     }
 
     @Test
