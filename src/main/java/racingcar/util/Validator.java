@@ -16,4 +16,27 @@ public class Validator {
             throw new IllegalArgumentException();
         }
     }
+
+    public static void validateRounds(String input) {
+        int round = validateRoundsIsInteger(input);
+        validateRoundsIsPositive(round);
+    }
+
+    private static int validateRoundsIsInteger(String input) {
+        int round = -1;
+
+        try {
+            round = Integer.parseInt(input);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException();
+        }
+
+        return round;
+    }
+
+    private static void validateRoundsIsPositive(int round) {
+        if (round < 1) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
