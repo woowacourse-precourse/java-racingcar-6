@@ -2,12 +2,14 @@ package service;
 
 import view.View;
 
-import java.util.LinkedHashMap;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class UserInput {
 
     public static View view = new View();
-    public static LinkedHashMap<String, String> carNameAndPosList;
+    public static HashMap<String, String> carNameAndPosList;
+    public static ArrayList<String> carsNameList;
     public static int carCount;
     public static int playTime;
 
@@ -17,6 +19,7 @@ public class UserInput {
 
         for (String name : carsName) {
             carNameAndPosList.put(name, "");
+            carsNameList.add(name);
         }
 
         carCount = carNameAndPosList.size();

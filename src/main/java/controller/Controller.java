@@ -32,7 +32,7 @@ public class Controller {
         for (int idx = 0; idx < UserInput.carCount; idx++) {
             int randomNum = gameManager.setRandomNum();
             boolean goOrStop = gameManager.chkCarGoOrStop(randomNum);
-            gameManager.setCarsMove(goOrStop);
+            gameManager.setCarsMove(goOrStop, idx);
         }
     }
 
