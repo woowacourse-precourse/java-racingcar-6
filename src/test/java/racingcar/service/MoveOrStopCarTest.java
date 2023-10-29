@@ -23,18 +23,17 @@ class MoveOrStopCarTest {
         Integer numberOfTimes = 3;
         List<Car> cars = Arrays.asList(
                 new Car("kim", 0)
-                ,new Car("bi",0));
+                , new Car("bi", 0));
 
         //when
         moveOrStopCar.setRamdomStartNumber(4);
         moveOrStopCar.setRamdomEndNumber(5);
         moveOrStopCar.moveOrStopCarsForGivenTimes(numberOfTimes, cars);
 
-
         //then
         List<Integer> moveNumbers = cars.stream().map(Car::getMoveNumber).collect(Collectors.toList());
         for (Integer moveNumber : moveNumbers) {
-           assertThat(moveNumber).isEqualTo(3);
+            assertThat(moveNumber).isEqualTo(3);
         }
 
     }
@@ -46,13 +45,12 @@ class MoveOrStopCarTest {
         Integer numberOfTimes = 3;
         List<Car> cars = Arrays.asList(
                 new Car("kim", 0)
-                ,new Car("bi",0));
+                , new Car("bi", 0));
 
         //when
         moveOrStopCar.setRamdomStartNumber(1);
         moveOrStopCar.setRamdomEndNumber(3);
         moveOrStopCar.moveOrStopCarsForGivenTimes(numberOfTimes, cars);
-
 
         //then
         List<Integer> moveNumbers = cars.stream().map(Car::getMoveNumber).collect(Collectors.toList());
