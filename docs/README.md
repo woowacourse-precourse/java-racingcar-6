@@ -1,8 +1,8 @@
 # Input
-- [ ] `camp.nextstep.edu.missionutils.Console`을 이용해서 사용자 입력을 받는다.
+- [x] `camp.nextstep.edu.missionutils.Console`을 이용해서 사용자 입력을 받는다.
 - [x] 자동차 이름을 입력받는다.
 - [x] 시도할 횟수를 입력받는다.
-- [ ] 잘못된 값을 입력하면 IllegalArgumentException을 발생시킨다.
+- [x] 잘못된 값을 입력하면 IllegalArgumentException을 발생시킨다.
 
 ### IllegalArgumentException
 - [x] 입력값이 없을 경우
