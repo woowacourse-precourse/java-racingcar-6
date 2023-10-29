@@ -11,10 +11,20 @@ public class InputView {
         this.inputValidator = inputValidator;
     }
 
+    public String inputTryCount() {
+        String input = Console.readLine();
+        checkTryCount(input);
+        return input;
+    }
+
     public String inputCarNames() {
         String input = Console.readLine();
         checkEmptyAndBlank(input);
         return input;
+    }
+
+    private void checkTryCount(String input) {
+        inputValidator.validateTryCount(input);
     }
 
     private void checkEmptyAndBlank(String input) {
