@@ -41,6 +41,50 @@ class CarTest {
     }
 
     @Test
+    @DisplayName("위치 정보 조회")
+    void getPosition_위치_조회_테스트(){
+        // given
+        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
+        Car car = new Car(movingStrategy, "pobi", 0);
+        // when
+        int result = car.getPosition();
+        // then
+        assertEquals(0, result);
+    }
+
+
+    @Test
+    @DisplayName("이름 조회")
+    void getName_이름_테스트() {
+        // given
+        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
+        Car car = new Car(movingStrategy, "pobi", 0);
+        // when
+        String result = car.getName();
+        // then
+        assertEquals("pobi", result);
+    }
+
+
+    @Test
+    @DisplayName("위치 정보 기반으로 대소비교 - 위치 값이 더 큰 자동차가 큰 것으로 판단")
+    void compareTo_대소비교_테스트() {
+        // given
+        MovingStrategy stopStrategy = new MovingStrategy(() -> 3);
+        MovingStrategy moveStrategy = new MovingStrategy(() -> 4);
+        Car car1 = new Car(stopStrategy, "pobi", 0);
+        Car car2 = new Car(moveStrategy, "crong", 0);
+
+        // when
+        car1.goForward(); // car1 위치 0
+        car2.goForward(); // car2 위치 1
+
+        // then
+        assertEquals(-1, car1.compareTo(car2));
+
+    }
+
+    @Test
     @DisplayName("MovingStrategy.isCarMove()가 false인 경우 goForward() 호출하면 위치 정보 업데이트 안됨")
     void goForward_멈춤_테스트() {
         // given
@@ -80,6 +124,7 @@ class CarTest {
     }
 
     @Test
+    @DisplayName("우승자의 위치 정보와 다른 경우 false 반환")
     void isWinner_우승자가_아닌_경우_테스트() {
         // given
         MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
@@ -90,4 +135,6 @@ class CarTest {
         // then
         assertEquals(false, result);
     }
+
+
 }
