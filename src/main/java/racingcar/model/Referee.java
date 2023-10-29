@@ -16,28 +16,26 @@ public class Referee {
         return winnerNames;
     }
 
-    public void decideWinner(final Cars cars) {
-        List<Car> carList = cars.getCarList();
+    public void decideWinner(final List<Car> carList) {
         CarDistance maxDistance = getMaxDistance(carList);
-
         List<CarName> winners = getWinnerNames(carList, maxDistance);
 
         this.winnerNames = Collections.unmodifiableList(winners);
     }
 
-    private List<CarName> getWinnerNames(List<Car> cars, CarDistance maxDistance) {
-        return cars.stream()
+    private List<CarName> getWinnerNames(List<Car> carList, CarDistance maxDistance) {
+        return carList.stream()
                 .filter(car -> car.getCarDistance().distance() == maxDistance.distance())
                 .map(car -> car.getCarName())
                 .collect(Collectors.toList());
     }
 
-    private CarDistance getMaxDistance(List<Car> cars) {
-        Integer maxDistance = cars.stream()
+    private CarDistance getMaxDistance(List<Car> carList) {
+        Integer maxDistance = carList.stream()
                 .mapToInt(car -> car.getCarDistance().distance())
                 .max()
                 .orElse(START_POINT);
-        
+
         return new CarDistance(maxDistance);
     }
 }

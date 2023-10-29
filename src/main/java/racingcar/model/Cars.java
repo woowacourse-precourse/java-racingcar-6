@@ -19,8 +19,8 @@ public class Cars {
         carList = Collections.unmodifiableList(cars);
     }
 
-    public void changeState() {
-        carList.stream().forEach(car -> car.changeState());
+    public void updateDistance() {
+        carList.stream().forEach(car -> car.updateDistance());
     }
 
     public List<Car> getCarList() {

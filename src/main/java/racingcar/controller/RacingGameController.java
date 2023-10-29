@@ -54,7 +54,7 @@ public class RacingGameController {
     private void startRacing(Cars cars, TryNumber tryNumber, RacingGame racingGame) {
         outputView.printResultMessage();
         for (int i = 0; i < tryNumber.number(); i++) {
-            racingGame.runOneTerm();
+            racingGame.playOneStep();
             outputView.printResult(CarDto.toDtoList(cars));
         }
     }

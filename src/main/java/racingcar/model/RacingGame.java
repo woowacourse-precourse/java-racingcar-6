@@ -13,12 +13,12 @@ public class RacingGame {
         this.referee = referee;
     }
 
-    public void runOneTerm() {
-        cars.changeState();
+    public void playOneStep() {
+        cars.updateDistance();
     }
 
     public List<CarName> getWinners() {
-        referee.decideWinner(cars);
+        referee.decideWinner(cars.getCarList());
         return referee.getWinnerNames();
     }
 }
