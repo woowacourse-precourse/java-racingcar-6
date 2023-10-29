@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import racingcar.constant.CarRaceConstant;
 import racingcar.domain.Cars;
 import racingcar.domain.RandomGenerator;
 
@@ -25,7 +26,7 @@ public class CarRaceService {
 
     public boolean shouldMoveForward() {
         int randomNumber = RandomGenerator.createRandomNumber();
-        return randomNumber >= 4;
+        return randomNumber >= CarRaceConstant.MOVE_MIN_VALUE.getConstant();
     }
 
 }
