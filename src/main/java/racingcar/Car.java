@@ -1,8 +1,12 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
     private final String carName;
     final int LENGTH_CAR_NAME = 5;
+    final int START_RANDOM_RANGE = 0;
+    final int END_RANDOM_RANGE = 9;
     private int forwardCount;
     private String presentCondition;
 
@@ -17,6 +21,10 @@ public class Car {
 
     public String getCarName() {
         return carName;
+    }
+
+    public int getRandomNumber() {
+        return Randoms.pickNumberInRange(START_RANDOM_RANGE, END_RANDOM_RANGE);
     }
 
     final void validateNameLength(String carName) {
