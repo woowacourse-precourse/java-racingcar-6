@@ -1,36 +1,29 @@
 package racingcar.service;
 
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import racingcar.domain.Cars;
 
 public class RaceService {
-    public void createCars(String carNamesInput) {
+    public void createCars(List<String> carNamesInput) {
         List<String> carNames = validateCarNamesInput(carNamesInput);
         Cars cars = new Cars(carNames);
     }
 
-    public List<String> validateCarNamesInput(String carNamesInput) {
+    public List<String> validateCarNamesInput(List<String> carNamesInput) {
         validateEmptyInput(carNamesInput);
-        validateNullInput(carNamesInput);
-        List<String> carNames = Arrays.stream(carNamesInput.split(","))
-                .map(String::trim).toList();
-        validateLengthInput(carNames);
-        validateDuplicateInput(carNames);
-        return carNames;
+        validateLengthInput(carNamesInput);
+        validateDuplicateInput(carNamesInput);
+        return carNamesInput;
     }
 
-    private void validateEmptyInput(String carNamesInput) {
-        if (carNamesInput.trim().isEmpty()) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    private void validateNullInput(String carNamesInput) {
-        if (carNamesInput == null) {
+    private void validateEmptyInput(List<String> carNamesInput) {
+        boolean isEmptyInput = carNamesInput
+                .stream()
+                .anyMatch(carName -> carName.trim().isEmpty());
+        if (isEmptyInput) {
             throw new IllegalArgumentException();
         }
     }
@@ -44,7 +37,6 @@ public class RaceService {
             throw new IllegalArgumentException();
         }
     }
-
 
     private void validateDuplicateInput(List<String> carNames) {
         Set<String> uniqueCarNames = new HashSet<>(carNames);
