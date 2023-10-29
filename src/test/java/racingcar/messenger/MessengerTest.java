@@ -1,9 +1,12 @@
 package racingcar.messenger;
 
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Messenger;
+import racingcar.dto.CarInformationDto;
+import racingcar.dto.CarsInformationDto;
 
 public class MessengerTest {
 
@@ -37,6 +40,27 @@ public class MessengerTest {
         // when
         String expectedString = "\n실행결과";
         String string = messenger.getPlayResultMessage();
+
+        // then
+        Assertions.assertEquals(string, expectedString);
+    }
+
+    @Test
+    @DisplayName("라운드 결과를 올바르게 반환한다.")
+    void requestRoundResultMessage() {
+        // given
+        CarsInformationDto carsInformationDto = new CarsInformationDto(
+                List.of(
+                        new CarInformationDto("차1",0),
+                        new CarInformationDto("차2",1),
+                        new CarInformationDto("차3",2),
+                        new CarInformationDto("차4",3)
+                )
+        );
+
+        // when
+        String expectedString = "차1 : \n차2 : -\n차3 : --\n차4 : ---\n\n";
+        String string = messenger.getRoundResult(carsInformationDto);
 
         // then
         Assertions.assertEquals(string, expectedString);

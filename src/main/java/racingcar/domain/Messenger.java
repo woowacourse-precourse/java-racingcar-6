@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import java.util.stream.Collectors;
+import racingcar.dto.CarsInformationDto;
+
 public class Messenger {
 
     private static final String REQUEST_CAR_NAMES_FORMAT = "경주할 자동차 이름을 입력하세요.(이름은 %s(%s) 기준으로 구분)\n";
@@ -27,6 +30,20 @@ public class Messenger {
 
     public String getPlayResultMessage() {
         return PLAY_RESULT_MESSAGE;
+    }
+
+    public String getRoundResult(CarsInformationDto carsInformationDto) {
+        StringBuilder stringBuilder = new StringBuilder();
+        carsInformationDto.carInformationDtoList()
+                .forEach(carInformationDto -> {
+                    String name = carInformationDto.name();
+                    int position = carInformationDto.position();
+                    String carPositionString = CAR_POSITION_PRESENTER.repeat(position);
+                    String carInformationString = String.format(CAR_INFORMATION_FORMAT, name, carPositionString);
+                    stringBuilder.append(carInformationString);
+                });
+        stringBuilder.append(NEXT_LINE);
+        return stringBuilder.toString();
     }
 
 }

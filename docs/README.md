@@ -103,9 +103,9 @@
     - `REQUEST_ROUND_COUNT` : `시도할 회수는 몇회인가요?`
 - [x] 실행 결과 메시지 반환
     - `PLAY_RESULT_MESSAGE` : `\n실행결과`
-- [ ] 라운드 결과 반환
+- [x] 라운드 결과 반환
     - `CAR_INFORMATION_FORMAT` : 차 정보 메시지 : `%s : %s`
-    - `CAR_POSITION_PRESENTOR` : 차 위치 표현자 : `-`
+    - `CAR_POSITION_PRESENTER` : 차 위치 표현자 : `-`
 - [ ] 최종 우승자 메시지 반환
     - `WINNER_FORMAT` : `최종 우승자 : %s`
     - `WINNERS_DELIMITER` :  : `, `
