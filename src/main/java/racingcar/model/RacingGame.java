@@ -2,6 +2,8 @@ package racingcar.model;
 
 import static racingcar.config.Settings.CAR_AMOUNT;
 
+import java.util.ArrayList;
+import java.util.List;
 import racingcar.domain.Car;
 import racingcar.dto.CarDTO;
 
@@ -13,21 +15,19 @@ public class RacingGame {
     }
 
     public String getWinners() {
-        StringBuilder winners = new StringBuilder();
-        int farthest = manager.getFarthestMove();
+        List<String> winners = new ArrayList<>();
+        int farthest = manager.getFarthestPosition();
 
         for (int index = 0; index < CAR_AMOUNT; index++) {
             Car car = manager.getCarFromIndex(index);
             CarDTO dto = car.toDTO();
 
             if (dto.getPosition() == farthest) {
-                winners.append(dto.getName());
-                winners.append(", ");
+                winners.add(dto.getName());
             }
         }
-        removeWinnersStringTail(winners);
 
-        return winners.toString();
+        return String.join(",", winners);
     }
 
     public String playRound() {
@@ -52,14 +52,6 @@ public class RacingGame {
         String status = String.format("%s : %s\n", name, position);
 
         return status;
-    }
-
-    // 문자열 생성 과정에서 생긴 불필요한 부분 제거
-    private void removeWinnersStringTail(StringBuilder winners) {
-        int REMOVE_FROM = winners.length() - 2;
-        int REMOVE_TO = winners.length();
-
-        winners.delete(REMOVE_FROM, REMOVE_TO);
     }
 
 }
