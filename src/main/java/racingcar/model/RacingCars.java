@@ -27,4 +27,17 @@ public class RacingCars {
         return carList;
     }
 
+    public void moveCars() {
+        for (Car car : carList) {
+            car.move(getForwardCount());
+        }
+    }
+
+    private int getForwardCount() {
+        if (randomNumberGenerator.generate() >= 4) {
+            return 1;
+        }
+        return 0;
+    }
+
 }
