@@ -45,7 +45,7 @@ public class RacingGameController {
         }
     }
 
-    public void isAdvanceOrStop() {
+    public void doAdvanceOrStop() {
         Stream<Vehicle> vehicleStream = registeredCars.stream();
         vehicleStream.forEach(vehicle -> {
             Integer randomNumber = RandomNumber.makeRandomNumber();
