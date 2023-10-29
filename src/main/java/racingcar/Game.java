@@ -1,44 +1,37 @@
 package racingcar;
 
 import java.util.List;
+import racingcar.utils.CarListCreator;
+import racingcar.validator.CarNameValidator;
 
 public class Game {
 
-    private List<Car> cars;
-    private int attemptCount;
-    private int currentRound;
+    private static final String NAME_DELIMITER = ",";
 
-    public Game(List<Car> cars, int attemptCount) {
-        this.cars = cars;
-        this.attemptCount = attemptCount;
-        this.currentRound = 0;
+    private List<Car> cars;
+
+    public Game(String carNames) {
+        String[] splitCarNames = splitCarNames(carNames);
+        CarNameValidator.validateCarNames(splitCarNames);
+        this.cars = CarListCreator.createCarsList(splitCarNames);
+    }
+
+    private static String[] splitCarNames(String carNames) {
+        return carNames.split(NAME_DELIMITER);
     }
 
     public List<Car> getCars() {
         return cars;
     }
 
-    public int getCurrentRound() {
-        return currentRound;
-    }
-
-    public boolean isGameOngoing() {
-        return currentRound < attemptCount;
-    }
-
     public void playOneRound() {
         moveAllCarsOnce();
-        increaseRound();
     }
 
     public void moveAllCarsOnce() {
         for (Car car : cars) {
             car.move();
         }
-    }
-
-    public void increaseRound() {
-        currentRound++;
     }
 
     public List<String> getWinners() {
