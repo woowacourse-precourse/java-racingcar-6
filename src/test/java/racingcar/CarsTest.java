@@ -4,13 +4,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static racingcar.ExceptionMessage.CAR_NAME_DUPLICATE_EXCEPTION;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Cars;
 
 public class CarsTest {
 
     @Test
-    void 정상_자동차_리스트_생성_테스트() {
+    @DisplayName("정상 자동차 리스트 생성 테스트")
+    void correctCarListCreateTest() {
         // given & when
         Cars cars = Cars.from("pobi,12a,현준");
 
@@ -19,7 +21,8 @@ public class CarsTest {
     }
 
     @Test
-    void 같은_이름을_가진_자동차가_있으면_안된다() {
+    @DisplayName("같은 이름을 가진 자동차가 있으면 안된다")
+    void duplicateCarNameExceptionTest() {
         // given & when
         Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Cars cars = Cars.from("pobi,pobi");
