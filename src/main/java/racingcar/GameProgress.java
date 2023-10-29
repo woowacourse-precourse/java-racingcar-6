@@ -6,21 +6,21 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class GameProgress {
 
-    public static void racing(Map<String, String> carNamesMap, int attemptNumber) {
+    public static void racing(Map<String, String> racingCars, int attemptNumber) {
         for (int index = 0; index < attemptNumber; index++) {
-            for (String carName : carNamesMap.keySet()) {
-                carMove(carNamesMap, carName);
-                System.out.println(carName + " :" + carNamesMap.get(carName));
+            for (String carName : racingCars.keySet()) {
+                movingCar(racingCars, carName);
+                System.out.println(carName + " :" + racingCars.get(carName));
             }
             OutputView.printEnter();
         }
     }
 
-    private static void carMove(Map<String, String> carNamesMap, String carName) {
+    private static void movingCar(Map<String, String> racingCars, String carName) {
         if (generateRandomNumber()) {
-            String carValue = carNamesMap.get(carName);
-            carValue += "-";
-            carNamesMap.put(carName, carValue);
+            String carDistance = racingCars.get(carName);
+            carDistance += "-";
+            racingCars.put(carName, carDistance);
         }
     }
 
