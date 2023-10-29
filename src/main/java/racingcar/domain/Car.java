@@ -7,23 +7,22 @@ import racingcar.utils.Utils;
 
 public class Car {
     private final String name;
-    private int position;
+    private final Position position = new Position();
 
     public Car(String name) {
         this.name = name;
-        this.position = 0;
     }
 
     public CarDTO toDTO() {
         String name = this.name;
-        int position = this.position;
+        int pos = position.getPosition();
 
-        return new CarDTO(name, position);
+        return new CarDTO(name, pos);
     }
 
     public void tryMove() {
         if (canMove()) {
-            position++;
+            position.moveForward();
         }
     }
 
