@@ -6,6 +6,11 @@ import java.util.stream.Stream;
 
 public class InputValidator {
 
+    public void validateCarName(String names) {
+        validateCarNameEmptyOrNull(names);
+        validateCarNameLength(names);
+    }
+
     public void validateCarNameEmptyOrNull(String names) {
         if (names == null || names.isEmpty()) {
             throw new IllegalArgumentException("자동차 이름은 비어있으면 안됩니다.");
@@ -20,6 +25,11 @@ public class InputValidator {
                 throw new IllegalArgumentException("자동차 이름의 길이는 1에서 5 사이여야 합니다.");
             }
         });
+    }
+
+    public void validateTryNumber(String tryNumber) {
+        validateTryNumberEmptyOrNull(tryNumber);
+        validateTryNumberIsNumber(tryNumber);
     }
 
     public void validateTryNumberEmptyOrNull (String tryNumber) {
