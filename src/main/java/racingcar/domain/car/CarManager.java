@@ -18,21 +18,22 @@ public class CarManager {
         cars = carFactory.createCars();
     }
 
-    public void moveAndShowResult() {
+    public void moveAndShowProgress() {
         move();
-        showResult();
+        showProgress();
     }
     private void move() {
         cars.forEach(Car::move);
     }
 
-    private void showResult() {
-        cars.forEach(Car::showCar);
-        addBlank();
+    private void showProgress() {
+        System.out.println(makeProgress());
     }
 
-    private void addBlank() {
-        System.out.println();
+    private String makeProgress() {
+        StringBuilder result = new StringBuilder();
+        cars.forEach(car -> result.append(car.toString()).append("\n"));
+        return result.toString();
     }
 
     public void showVictory() {

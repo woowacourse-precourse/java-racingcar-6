@@ -24,10 +24,6 @@ public class Car implements Comparable<Car> {
         return Randoms.pickNumberInRange(0, 9) >= 4;
     }
 
-    public void showCar() {
-        System.out.printf("%s : %s\n",name,makeBar());
-    }
-
     private String makeBar() {
         return "-".repeat(position);
     }
@@ -47,5 +43,10 @@ public class Car implements Comparable<Car> {
         }
 
         return getPosition() - car.getPosition();
+    }
+
+    @Override
+    public String toString() {
+        return name + " : " +  makeBar();
     }
 }

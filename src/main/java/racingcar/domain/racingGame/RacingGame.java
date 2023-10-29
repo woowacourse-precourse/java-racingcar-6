@@ -20,7 +20,7 @@ public class RacingGame {
     }
 
     private void progressGame() {
-        tryCountManager.invokeForTryCount(carManager::moveAndShowResult);
+        tryCountManager.invokeForTryCount(carManager::moveAndShowProgress);
     }
 
     private void showVictory() {

@@ -31,7 +31,7 @@ public class TryCountManager {
         throw new IllegalArgumentException("숫자만 입력 가능합니다.");
     }
 
-    public boolean isNumeric(String str) {
+    private boolean isNumeric(String str) {
         return str.chars().allMatch(Character::isDigit);
     }
 
