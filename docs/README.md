@@ -52,7 +52,7 @@
 
 ## 🔧 utils
 ### 검증자
-- 이름을 검증한다. (검증실패 시, IllegalArgumentException 예외 발생시키기)
+- [x] 이름을 검증한다. (검증실패 시, IllegalArgumentException 예외 발생시키기)
   - [x] 빈문자열, null, ``` ```인 경우,
   - [x] 이름이 5자 이하인 경우,
   - [x] 입력된 이름이 같은 경우,
