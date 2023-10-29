@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import java.util.Arrays;
 import racingcar.domain.Car;
 
 public class GameServiceImpl implements GameService {
@@ -19,13 +20,13 @@ public class GameServiceImpl implements GameService {
     }
 
     public void processCarNamesInput(String input) {
-        String[] carNames = input.split(",");
-
-        for (String carName : carNames) {
-            Car car = Car.create(carName);
-            carService.join(car);
-        }
+        Arrays.stream(input.split(","))
+                .map(carName -> Car.create(carName))
+                .forEach(car -> carService.join(car));
     }
 
+    private void validateEmptyInput(String input) {
 
+
+    }
 }
