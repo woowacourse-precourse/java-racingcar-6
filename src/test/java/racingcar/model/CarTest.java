@@ -9,7 +9,7 @@ import racingcar.vo.CarName;
 
 class CarTest {
 
-    private static final Integer INIT_STEP = 0;
+    private static final Integer INIT_DISTANCE = 0;
 
     private Car car;
 
@@ -25,6 +25,6 @@ class CarTest {
         // then
         assertNotNull(car);
         assertEquals(carName.name(), car.getCarName().name());
-        assertEquals(INIT_STEP, car.getStep());
+        assertEquals(INIT_DISTANCE, car.getCarDistance().distance());
     }
 }
