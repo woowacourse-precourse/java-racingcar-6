@@ -66,14 +66,9 @@ public class NameTest {
     @DisplayName("[예외] 자동차 이름 글자수 예외 테스트")
     @Test
     void validateLengthTest() {
-        String overLengthName = "123456";
-        String zeroLengthName = "";
+        System.setIn(new ByteArrayInputStream("pobiii,woni,jun".getBytes()));
 
-        assertThatThrownBy(() -> new CarName(overLengthName))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("[Error] 1자 이상, 5자 이하의 이름을 입력해 주세요.");
-
-        assertThatThrownBy(() -> new CarName(zeroLengthName))
+        assertThatThrownBy(() -> InputView.inputCarNames())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[Error] 1자 이상, 5자 이하의 이름을 입력해 주세요.");
     }
@@ -81,9 +76,9 @@ public class NameTest {
     @DisplayName(("[예외] 허용되지 않는 문자 포함 예외 테스트"))
     @Test
     void validateContainTest() {
-        String containSpaceName = "K YE";
+        System.setIn(new ByteArrayInputStream("po bi,woni,jun".getBytes()));
 
-        assertThatThrownBy(() -> new CarName(containSpaceName))
+        assertThatThrownBy(() -> InputView.inputCarNames())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[Error] 포함될 수 없는 문자가 포함되어 있습니다.");
     }
@@ -91,10 +86,9 @@ public class NameTest {
     @DisplayName("[예외] 중복된 이름 예외 테스트")
     @Test
     void validateNameDupTest() {
-        Cars cars = new Cars();
-        cars.insertCar(new Car(new CarName("YEKIM")));
+        System.setIn(new ByteArrayInputStream("pobi,pobi,woni,jun".getBytes()));
 
-        assertThatThrownBy(() -> cars.insertCar(new Car(new CarName("YEKIM"))))
+        assertThatThrownBy(() -> InputView.inputCarNames())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 자동차 이름은 중복될 수 없습니다.");
     }
