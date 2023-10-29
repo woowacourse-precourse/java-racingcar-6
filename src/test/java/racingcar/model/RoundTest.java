@@ -7,16 +7,16 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
-class TrialCountTest {
+class RoundTest {
 
     @DisplayName("hasCount 테스트 : 시도 횟수가 더이상 남아있다면 true 를 반환한다.")
     @Test
     void hasCount() {
-        TrialCount trialCount1 = new TrialCount(1);
-        TrialCount trialCount2 = new TrialCount(0);
+        Round round1 = new Round(1);
+        Round round2 = new Round(0);
 
-        boolean expectedTrue = trialCount1.hasCount();
-        boolean expectedFalse = trialCount2.hasCount();
+        boolean expectedTrue = round1.hasRemainingRounds();
+        boolean expectedFalse = round2.hasRemainingRounds();
 
         assertAll(
                 () -> assertThat(expectedTrue).isTrue(),
@@ -27,11 +27,11 @@ class TrialCountTest {
     @DisplayName("hasNoCount 테스트 : 시도 횟수가 더이상 남아있지 않다면 true 를 반환한다.")
     @Test
     void hasNoCount() {
-        TrialCount trialCount1 = new TrialCount(0);
-        TrialCount trialCount2 = new TrialCount(1);
+        Round round1 = new Round(0);
+        Round round2 = new Round(1);
 
-        boolean expectedTrue = trialCount1.hasNoCount();
-        boolean expectedFalse = trialCount2.hasNoCount();
+        boolean expectedTrue = round1.hasNotRemainingRounds();
+        boolean expectedFalse = round2.hasNotRemainingRounds();
 
         assertAll(
             () -> assertThat(expectedTrue).isTrue(),
@@ -42,13 +42,13 @@ class TrialCountTest {
     @DisplayName("countDown 테스트 : 시도 횟수를 하나 감소시킨다.")
     @Test
     void countDown() {
-        TrialCount trialCount = new TrialCount(5);
+        Round round = new Round(5);
 
-        trialCount.countDown();
+        round.finishCurrentRound();
 
-        assertThat(trialCount).usingRecursiveComparison()
+        assertThat(round).usingRecursiveComparison()
                 .comparingOnlyFields("count")
-                .isEqualTo(new TrialCount(4));
+                .isEqualTo(new Round(4));
 
     }
 }

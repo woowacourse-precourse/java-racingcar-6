@@ -5,7 +5,7 @@ import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.NumberGenerator;
 import racingcar.model.RandomNumberGenerator;
-import racingcar.model.TrialCount;
+import racingcar.model.Round;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -26,15 +26,11 @@ public class RacingGameController {
 
         Cars players = participatePlayers();
 
-        TrialCount trialCount = inputTrialCount();
+        Round round = askRoundCount();
 
-        race(players, trialCount);
+        race(players, round);
 
         awardRacingCarGame(players);
-    }
-
-    private TrialCount inputTrialCount() {
-        return new TrialCount(InputView.inputTrialCount());
     }
 
     private Cars participatePlayers() {
@@ -44,15 +40,19 @@ public class RacingGameController {
         return new Cars(cars);
     }
 
-    private void race(Cars players, TrialCount trialCount) {
+    private Round askRoundCount() {
+        return new Round(InputView.inputRound());
+    }
+
+    private void race(Cars players, Round round) {
         OutputView.printResultMessage();
 
-        while (trialCount.hasCount()) {
+        while (round.hasRemainingRounds()) {
             players.moveUsingRandomNumber(numberGenerator);
             OutputView.printRoundResult(players.toDtos());
             OutputView.printBlank();
 
-            trialCount.countDown();
+            round.finishCurrentRound();
         }
     }
 

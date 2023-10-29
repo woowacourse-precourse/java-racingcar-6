@@ -21,7 +21,7 @@ public class InputView {
         }
     }
 
-    public static int inputTrialCount() {
+    public static int inputRound() {
         System.out.println(INPUT_TRIAL_COUNT_MESSAGE);
         try {
             String trialCount = Console.readLine();
