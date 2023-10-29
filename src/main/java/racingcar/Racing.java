@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -43,6 +44,6 @@ public class Racing {
                 winner.add(name);
             }
         }
-        return (String[]) winner.toArray();
+        return winner.toArray(new String[0]);
     }
 }
