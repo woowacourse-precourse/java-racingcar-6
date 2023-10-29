@@ -1,8 +1,11 @@
 package racingcar;
 
+import java.util.List;
+
 public class Announcer {
     private final String INPUT_CAR_NAME = "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)";
     private final String INPUT_TRY_COUNT = "시도할 회수는 몇회인가요?";
+    private final String RESULT_COMMENT = "실행 결과";
 
     public void announceToInputCarName() {
         print(INPUT_CAR_NAME);
@@ -10,6 +13,17 @@ public class Announcer {
 
     public void announceToInputTryCount() {
         print(INPUT_TRY_COUNT);
+    }
+
+    public void announceResult() {
+        print(RESULT_COMMENT);
+    }
+
+    public void announceRoundResult(List<Car> car) {
+        for (Car c : car) {
+            print(c.getName() + " : " + "-".repeat(c.getPosition()));
+        }
+        print("");
     }
 
     public void print(String message) {
