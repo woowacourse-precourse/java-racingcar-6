@@ -8,12 +8,12 @@ import racingcar.model.dto.CarRequestDto;
 import racingcar.model.dto.GameRequestDto;
 
 public class InputView {
-    public CarRequestDto setCarNames() {
+    public static CarRequestDto setCarNames() {
         System.out.println(GAME_START.getPhrase());
         return new CarRequestDto(Console.readLine());
     }
 
-    public GameRequestDto setGameTrial() {
+    public static GameRequestDto setGameTrial() {
         System.out.println(GAME_TRIAL.getPhrase());
         return new GameRequestDto(Console.readLine());
     }

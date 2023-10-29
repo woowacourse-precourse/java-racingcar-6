@@ -10,7 +10,6 @@ import racingcar.model.dto.CarRequestDto;
 import racingcar.model.dto.GameRequestDto;
 
 class InputViewTest {
-    private final InputView inputView = new InputView();
     private InputStream inputStream;
 
     @Test
@@ -22,7 +21,7 @@ class InputViewTest {
             inputStream = new ByteArrayInputStream(carName.getBytes());
             System.setIn(inputStream);
 
-            CarRequestDto carRequestDto = inputView.setCarNames();
+            CarRequestDto carRequestDto = InputView.setCarNames();
 
             assertThat(carRequestDto.getNames()).isEqualTo(new CarRequestDto(carName).getNames());
         } catch (Exception ignored) {
@@ -38,7 +37,7 @@ class InputViewTest {
             inputStream = new ByteArrayInputStream(trial.getBytes());
             System.setIn(inputStream);
 
-            GameRequestDto gameRequestDto = inputView.setGameTrial();
+            GameRequestDto gameRequestDto = InputView.setGameTrial();
 
             assertThat(gameRequestDto.getTrial()).isEqualTo(Integer.parseInt(trial));
         } catch (Exception ignored) {

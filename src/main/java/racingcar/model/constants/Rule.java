@@ -10,7 +10,9 @@ public enum Rule {
 
     RANDOM_MIN_SIZE(0, "0"),
     RANDOM_MAX_SIZE(9, "9"),
-    MOVE_VALUE(4, "4");
+    MOVE_VALUE(4, "4"),
+
+    MOVEMENT(0, "-");
 
     private final int value;
     private final String message;
