@@ -6,9 +6,9 @@ import java.util.List;
 
 public class Car {
 
-    String inputCar = new String();
-    List<String> splitCarList = new ArrayList<>();
-    List<String> rangeCarList = new ArrayList<>();
+    public String inputCar = new String();
+    public List<String> splitCarList = new ArrayList<>();
+    public List<String> rangeCarList = new ArrayList<>();
 
     public String nameInput() {
         String inputCar = Console.readLine();
