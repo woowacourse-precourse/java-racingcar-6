@@ -21,6 +21,25 @@ public class Inputs {
         throw e;
     }
 
+    public static void inputCars() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        try {
+            String inputStr = Console.readLine();
+            String[] strArr = inputStr.split(",");
+
+            for ( int i = 0; i < strArr.length; i++ ) {
+                if ( strArr[i].length() <= 0 || strArr[i].length() > 5 ) {
+                    raiseIllegalArgumentException();
+                }
+                cars.add(strArr[i]);
+            }
+
+        } catch ( IllegalArgumentException e ) {
+            throw e;
+        }
+
+    }
+
 
 
 }
