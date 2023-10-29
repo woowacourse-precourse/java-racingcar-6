@@ -2,7 +2,9 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 public class Cars {
     private final int MIN_VALUE = 0;
@@ -14,6 +16,9 @@ public class Cars {
         return carList;
     }
 
+    public void setCarList(List<Car> carList){
+        this.carList = carList;
+    }
     public void setCarList(String inputString) {
         String[] names = inputString.split(",");
 
@@ -29,7 +34,28 @@ public class Cars {
         }
     }
 
+    public List<Car> getWinner(){
+        List<Car> winner = new ArrayList<>();
+
+        Optional<Integer> maxDistance = getMaxDistance();
+
+        carList.stream()
+                .filter(car -> car.getDistance() == maxDistance.orElse(0))
+                .forEach(winner::add);
+
+        return winner;
+    }
+
+
     private int generateRandomNumber() {
         return Randoms.pickNumberInRange(MIN_VALUE, MAX_VALUE);
+    }
+
+    private Optional<Integer> getMaxDistance(){
+        Optional<Integer> maxDistance = carList.stream()
+                .map(Car::getDistance)
+                .max(Comparator.naturalOrder());
+
+        return maxDistance;
     }
 }
