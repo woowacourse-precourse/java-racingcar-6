@@ -8,10 +8,12 @@ public class Value {
     public List<String> carNames;
     int numberOfAttempts;
     private List<String> winners;
+    private List<Integer> carPositions;
 
     public Value() {
         this.carNames = new ArrayList<>();
         this.winners = new ArrayList<>();
+        this.carPositions = new ArrayList<>();
     }
 
     public void addCarNames(String[] names) {
@@ -30,6 +32,14 @@ public class Value {
     public int getNumberOfAttempts() {
         return numberOfAttempts;
     }
+
+    public void initializeCarPositions(int numberOfCars) {
+        for (int i = 0; i < numberOfCars; i++) {
+            carPositions.add(0);
+        }
+    }
+
+
     public void determineWinners(List<Integer> carPositions) {
         int maxPosition = findMaxPosition(carPositions);
         for (int i = 0; i < carNames.size(); i++) {

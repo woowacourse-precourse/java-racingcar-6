@@ -25,7 +25,8 @@ public class Controller {
     public void run() {
         carName();
         raceAttempts();
-        gameStart();
+//        gameStart();
+        initGame();
     }
 
     private void carName() {
@@ -40,26 +41,33 @@ public class Controller {
         values.setNumberOfAttempts(numberOfAttempts);
     }
 
-    private void gameStart() {
-        int roundOfGame = values.getNumberOfAttempts();
-
-        List<Integer> carPositions = new ArrayList<>();
-        for (int i = 0; i < values.getCarNames().size(); i++) {
-            carPositions.add(0);
-        }
-
-        for (int round = 0; round < roundOfGame; round++) {
-            playRound(carPositions);
-            outputView.printRoundResult(values.getCarNames(), carPositions);
-        }
-        values.determineWinners(carPositions);
-        outputView.printWinners(values.getWinners());
+    private void initGame(){
+        int numberOfCars = values.getCarNames().size();
+        values.initializeCarPositions(numberOfCars);
     }
-    private void playRound(List<Integer> carPositions) {
-        for (int i = 0; i < carPositions.size(); i++) {
-            if (goStopRule.shouldGo()) {
-                carPositions.set(i, carPositions.get(i) + 1);
-            }
-        }
-    }
+
+
 }
+//    private void gameStart() {
+//        int roundOfGame = values.getNumberOfAttempts();
+//        List<Integer> carPositions = new ArrayList<>();         // 처리 완료.
+//
+//        for (int i = 0; i < values.getCarNames().size(); i++) { // 처리 완료
+//            carPositions.add(0);                                // 처리 완료
+//        }                                                       // 처리 완료
+//
+//        for (int round = 0; round < roundOfGame; round++) {
+//            playRound(carPositions);
+//            outputView.printRoundResult(values.getCarNames(), carPositions);
+//        }
+//        values.determineWinners(carPositions);
+//        outputView.printWinners(values.getWinners());
+//    }
+//    private void playRound(List<Integer> carPositions) {
+//        for (int i = 0; i < carPositions.size(); i++) {
+//            if (goStopRule.shouldGo()) {
+//                carPositions.set(i, carPositions.get(i) + 1);
+//            }
+//        }
+//    }
+//}
