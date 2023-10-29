@@ -6,9 +6,9 @@ import java.util.Collection;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        GameHost racingCarHost = new GameHost();
+        GameHost racingCarHost;
         System.out.println(GAME_PROGRESS_STATEMENT.INPUT_CAR_NAME);
-        racingCarHost.addCars(inputCarNames());
+        racingCarHost = GameHost.addCars(inputCarNames());
         System.out.println(GAME_PROGRESS_STATEMENT.TRY_COUNT);
         final int moveCount = inputMoveCount();
 
