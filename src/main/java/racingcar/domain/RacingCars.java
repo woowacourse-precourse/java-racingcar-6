@@ -7,14 +7,14 @@ import java.util.List;
 public class RacingCars {
     private final List<Car> cars;
 
-    public RacingCars(List<String> carNames) {
-        this.cars = initializeCars(carNames);
+    public RacingCars(List<String> carNames, Engine engine) {
+        this.cars = initializeCars(carNames, engine);
     }
 
-    private List<Car> initializeCars(List<String> carNames) {
+    private List<Car> initializeCars(List<String> carNames, Engine engine) {
         List<Car> participateCars = new ArrayList<>();
         for (String carName : carNames) {
-            participateCars.add(new Car(carName, new Engine()));
+            participateCars.add(new Car(carName, engine));
         }
         return participateCars;
     }
@@ -42,6 +42,7 @@ public class RacingCars {
         for (Car car : this.cars) {
             car.moveCar();
         }
+        System.out.println("레이스 완료: " + this.cars);
         return Collections.unmodifiableList(cars);
     }
 }
