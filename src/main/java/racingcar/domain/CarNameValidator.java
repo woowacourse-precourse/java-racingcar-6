@@ -8,6 +8,7 @@ import racingcar.util.BlankValidator;
 public class CarNameValidator {
     private static final String PLEASE_INPUT_CAR_NAME_LENGTH_5 = "의 이름 5자를 초과했습니다";
     private static final String PLEASE_INPUT_NOT_DUPLICATE_CAR_NAMES = "중복된 자동차 이름이 있습니다.";
+    private static final String PLEASE_INPUT_CORRECT_CAR_NAMES = "잘못된 자동차 이름 입력 형식입니다.";
     private static final int CAR_NAME_LENGTH_LIMIT = 5;
     private final BlankValidator blankValidator;
 
@@ -25,7 +26,14 @@ public class CarNameValidator {
 
     private List<String> processInput(String carNames) {
         carNames = removeSpaces(carNames);
+        validateCommas(carNames);
         return splitByComma(carNames);
+    }
+
+    private void validateCommas(String carNames) {
+        if (carNames.startsWith(",") || carNames.endsWith(",") || carNames.contains(",,") ) {
+            throw new IllegalArgumentException(PLEASE_INPUT_CORRECT_CAR_NAMES);
+        }
     }
 
     private String removeSpaces(String carNames) {
