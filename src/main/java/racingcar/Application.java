@@ -97,9 +97,36 @@ public class Application {
 
     // 기능 4-1. 사용자에게 몇 라운드를 진행할 것인지 입력하게 하고 기능8에 따라서 숫자가 아니거나 1이상의 정수를 입력하지 않은 경우 IllegalArgumentException을 발생
     public static void validRound(int rounds) {
-        if (rounds <= 0) {
-            throw new IllegalArgumentException("1이상의 정수를 입력해주세요.");
-        }
+            if (rounds <= 0) {
+                throw new IllegalArgumentException("1이상의 정수를 입력해주세요.");
+            }
     }
 
+    // 기능 6-1. 기능 7을 고려하여 우승자가 여럿일 경우 쉼표를 이용해 구분하여 출력하는 기능을 printWinner와 getWinners 함수로 구현
+    public static void printWinner(String[] cars, int[][] location, int rounds) {
+            System.out.println("\n최종 우승자: " + getWinners(cars, location, rounds));
+    }
+    // 기능 6-1. 기능 7을 고려하여 우승자가 여럿일 경우 쉼표를 이용해 구분하여 출력하는 기능을 printWinner와 getWinners 함수로 구현
+    public static String getWinners(String[] cars, int[][] location, int rounds){
+            int numOfCars = cars.length;
+            StringBuilder winners = new StringBuilder();
+            int maxPosition = -1;
+            for (int i = 0; i < numOfCars; i++) {
+                    int finalPosition = 0;
+                    for (int round = 0; round < rounds; round++){
+                            finalPosition += location[i][round];
+                    }
+                    maxPosition = Math.max(maxPosition, finalPosition);
+            }
+
+            for (int index = 0; index < numOfCars; index++) {
+                    if (location[index][rounds - 1] == maxPosition) {
+                            if (winners.length() > 0) {
+                                    winners.append(", ");
+                            }
+                            winners.append(cars[index]);
+                    }
+            }
+            return winners.toString();
+    }
 }
