@@ -10,14 +10,15 @@ public class OutputView {
         System.out.println(GameMessage.GAME_RESULT_MESSAGE);
     }
 
-    public void printWinner(Car winner) {
-        System.out.printf(GameMessage.GAME_WINNER_MESSAGE, winner.getName());
+    public void printWinner(String winner) {
+        System.out.printf(GameMessage.GAME_WINNER_MESSAGE, winner);
     }
 
     public void printEachRaceResult(List<Car> raceResult) {
         for(Car car : raceResult) {
             printEachRaceCarResult(car);
         }
+        System.out.println();
     }
 
     public void printEachRaceCarResult(Car car) {
