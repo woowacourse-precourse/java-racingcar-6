@@ -12,12 +12,12 @@ public class CarManager {
 
     public int getBiggestMove() {
         int biggest = 0;
-
         for (Car car : cars) {
             if (biggest < car.getMoves()) {
                 biggest = car.getMoves();
             }
         }
+
         return biggest;
     }
 

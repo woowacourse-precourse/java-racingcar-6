@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import static racingcar.model.Settings.ATTEMPT_MAX;
+import static racingcar.model.Settings.ROUND_MAX;
 
 import racingcar.model.CarManager;
 import racingcar.model.RacingGame;
@@ -23,7 +23,7 @@ public class Controller {
     }
 
     private void playRace() {
-        for (int round = 0; round < ATTEMPT_MAX; round++) {
+        for (int round = 0; round < ROUND_MAX; round++) {
             String roundResult = game.playRound();
             View.displayRoundResult(roundResult);
         }
@@ -36,7 +36,7 @@ public class Controller {
 
     private void askAndSetAttempts() {
         int attempts = View.askForAttempts();
-        Settings.setAttempts(attempts);
+        Settings.setRound(attempts);
     }
 
 }
