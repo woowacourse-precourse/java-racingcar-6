@@ -12,7 +12,19 @@ import racingcar.controller.GameController;
 public class RaceTest {
 
     @Test
-    public void 승리자_여러명_테스트() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    void 전진_리스트_생성_테스트() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        GameController gameController = new GameController();
+        Method method = gameController.getClass().getDeclaredMethod("createMovementList",List.class);
+        method.setAccessible(true);
+
+        List<String> carNames = List.of("pobi","woni");
+        List<Integer> movement = (List<Integer>) method.invoke(gameController,carNames);
+
+        assertEquals(carNames.size(),movement.size());
+    }
+
+    @Test
+    void 승리자_여러명_테스트() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         GameController gameController = new GameController();
         Method method = gameController.getClass().getDeclaredMethod("racingResult", List.class, List.class);
         method.setAccessible(true);
@@ -25,6 +37,7 @@ public class RaceTest {
         List<String> expectedWinners = List.of("pobi", "woni");
         assertEquals(expectedWinners, winners);
     }
+
 
 
 }
