@@ -11,6 +11,18 @@ public class InputView {
 
     public static int getRounds() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return Integer.parseInt(Console.readLine());
+        return validateRoundsInput(Console.readLine());
+    }
+
+    private static int validateRoundsInput(String roundsInput) {
+        try {
+            int rounds = Integer.parseInt(roundsInput);
+            if (rounds <= 0) {
+                throw new IllegalArgumentException("라운드 수는 1 이상의 정수여야 합니다.");
+            }
+            return rounds;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("라운드 수는 정수여야 합니다.");
+        }
     }
 }
