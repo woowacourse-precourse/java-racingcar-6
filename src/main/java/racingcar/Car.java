@@ -3,7 +3,7 @@ package racingcar;
 import java.util.HashMap;
 import java.util.Map;
 
-class Car {
+public class Car {
     String name;
     int meter;
 
