@@ -117,13 +117,14 @@ public class GameProcess {
         raceCarOfWinnerList = gameHost.winRaceCar(raceCarOfCurrentList, cntTryRace);
         sizeOfWinnerList = raceCarOfWinnerList.size();
 
-        if (sizeOfWinnerList >= 1) {
-            raceCarOfWinnerArr = makeNameArrFromCarList(raceCarOfWinnerList);
+        if (Utill.valueGreaterThanEqualOne(sizeOfWinnerList)) {
+            raceCarOfWinnerArr = makeNameArrFromCarList();
             nameOfWinnerRaceCar = getNameOfWinnerRaceCarFromArr(raceCarOfWinnerArr);
         }
 
         return nameOfWinnerRaceCar;
     }
+
 
     /**
      * 승자들만있는 배열들을 중간에 ", "을 넣어서 문자열을 만든다.
@@ -138,17 +139,16 @@ public class GameProcess {
     /**
      * CarList에 있는 각각의 Car 이름을 Arr으로 만들어 반환한다.
      *
-     * @param raceCarList
      * @return
      */
-    private String[] makeNameArrFromCarList(List<RaceCar> raceCarList) {
-        Integer sizeOfRaceCarList = raceCarList.size();
+    private String[] makeNameArrFromCarList() {
+        Integer sizeOfRaceCarList = raceCarOfWinnerList.size();
         String[] arrOfStr = new String[sizeOfRaceCarList];
         RaceCar raceCar = null;
         String name = "";
 
         for (int index = 0; index < sizeOfRaceCarList; index++) {
-            raceCar = raceCarList.get(index);
+            raceCar = raceCarOfWinnerList.get(index);
             name = raceCar.toString();
             arrOfStr[index] = name;
         }
