@@ -9,7 +9,7 @@ public class InputTries {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("올바른 정수를 입력하세요.");
+            throw new IllegalArgumentException("올바른 정수를 입력하세요.");//숫자가 아닌 것을 입력 받았을 때
         }
     }
 }
