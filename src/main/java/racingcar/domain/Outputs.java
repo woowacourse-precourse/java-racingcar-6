@@ -1,7 +1,21 @@
 package racingcar.domain;
 
+import java.util.List;
 
 public class Outputs {
+
+    public static void resultMessage() {
+        System.out.println();
+        System.out.println("실행 결과");
+    }
+
+    public static void result(List resultList) {
+        List<String> cars = Inputs.getCars();
+        for (int i = 0 ; i < cars.size() ; i++) {
+            System.out.println(cars.get(i)+" : "+resultList.get(i));
+        }
+        System.out.println();
+    }
 
 
 }
