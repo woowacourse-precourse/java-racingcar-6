@@ -20,10 +20,10 @@ public class RaceController {
         System.out.println("");
         for (int i = 0; i < count; i++) {
             playRace();
-            outputView.outputResult(racingCars);
+            outputView.result(racingCars);
         }
         String winner = raceService.winnerResult(racingCars);
-        outputView.outputWinner(winner);
+        outputView.winner(winner);
     }
 
     private void playRace() {
@@ -35,11 +35,11 @@ public class RaceController {
     }
 
     private int playCount() {
-        return inputView.inputPlayCount();
+        return inputView.playCount();
     }
 
     private void startGameSet() {
-        List<String> carNames = inputView.inputCarName();
+        List<String> carNames = inputView.carName();
         racingCars = new ArrayList<>();
         for (String carName : carNames) {
             racingCars.add(new Car(carName, 0));

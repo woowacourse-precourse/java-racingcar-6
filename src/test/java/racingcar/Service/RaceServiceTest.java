@@ -1,5 +1,6 @@
 package racingcar.Service;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.Model.Car;
@@ -42,8 +43,8 @@ class RaceServiceTest {
 
     @Test
     void 입력받은_자동차_이름_검증() {
-        assertThat(raceService.CountOfNameSpelling(List.of("jung,yuju,dong"))).isTrue();
-        assertThat(raceService.CountOfNameSpelling(List.of("jungyeon,yuju,dong"))).isFalse();
+        assertThat(raceService.CountOfNameSpelling(Arrays.asList("jung","yuju","dong"))).isTrue();
+        assertThat(raceService.CountOfNameSpelling(Arrays.asList("jungyeon","yuju","dong"))).isFalse();
     }
 
     @Test

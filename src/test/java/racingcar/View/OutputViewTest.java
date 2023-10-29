@@ -18,7 +18,7 @@ class OutputViewTest {
 
     @Test
     void 일회_사이클_출력화면() {
-        String result = outputView.carResult(car);
+        String result = outputView.printResult(car);
         assertThat(result).isEqualTo("jung : ----");
     }
 
