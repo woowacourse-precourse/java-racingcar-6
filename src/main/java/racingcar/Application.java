@@ -70,9 +70,11 @@ public class Application {
                     for (int r = 0; r < rounds; r++){
                             int random = Randoms.pickNumberInRange(0, 9);
                             if (random >= 4){
-                                location[n][r] = 1;
+                                    location[n][r] = 1;
                             }
-                            location[n][r] = 0;
+                            if (random < 4) {
+                                    location[n][r] = 0;
+                            }
                     }
             }
             return location;
@@ -85,8 +87,8 @@ public class Application {
             int index = 0;
             for (String car : cars) {
                     System.out.print(car + " : ");
-                    for(int i = 0; i < rounds; i++){
-                            if(location[index][i] == 1){
+                    for(int round = 0; round < rounds; round++){
+                            if(location[index][round] == 1){
                                     System.out.print("-");
                             }
                     }
