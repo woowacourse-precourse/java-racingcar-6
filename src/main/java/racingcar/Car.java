@@ -7,7 +7,6 @@ import java.util.Arrays;
 public class Car {
 
     // Class Variable
-    public static final String MOVEMENT = "-";
     public static final int ZERO = 0;
     private ArrayList<String> userName;
     private ArrayList<Integer> userMovement;
@@ -109,6 +108,13 @@ public class Car {
             winnerName.add(indexUserName);
             winnerMovement = indexUserMovement;
         }
+    }
 
+    public String returnIndexUserName(int index) {
+        return userName.get(index);
+    }
+
+    public int returnIndexUserMovement(int index) {
+        return userMovement.get(index);
     }
 }

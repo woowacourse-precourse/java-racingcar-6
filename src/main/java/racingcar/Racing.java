@@ -4,8 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class Racing {
     // Class instance
-    Car car;
-    Output output;
+    private Car car;
+    private Output output;
 
     // Constructor
     public Racing() {
@@ -17,18 +17,21 @@ public class Racing {
     public void start() {
         getUserCarNameByConsole();
         getUserRoundNumberByConsole();
+        output.printRoundResultAnnouncement();
         carRacing();
         car.print();
         winnerSearchAndPrint();
     }
 
     public void getUserCarNameByConsole() {
+        output.printUserNameInputAnnouncement();
         String consoleInput = Console.readLine();
         car.insertUserName(consoleInput);
         car.checkUserNameError();
     }
 
     public void getUserRoundNumberByConsole() {
+        output.printUserRoundInputAnnouncement();
         String consoleInput = Console.readLine();
         car.insertRoundNumber(consoleInput);
         car.checkRoundNumberError();
@@ -42,11 +45,22 @@ public class Racing {
             for (int index = 0; index < maxUser; index++) {
                 car.plusMovement(index);
             }
+            printRoundResult();
         }
     }
 
     public void winnerSearchAndPrint() {
         car.searchWinner();
+    }
+
+    public void printRoundResult() {
+        int numberOfUser = car.howManyUser();
+        for (int index = 0; index < numberOfUser; index++) {
+            String indexUserName = car.returnIndexUserName(index);
+            int indexUserMovement = car.returnIndexUserMovement(index);
+            output.printUserRoundResult(indexUserName, indexUserMovement);
+        }
+        output.printGap();
     }
 
 }
