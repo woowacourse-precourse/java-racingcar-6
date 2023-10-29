@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 public class RacingCarService {
     private static final String DELIMITER = ",";
     private static final int CONDITION_NUMBER = 4;
+    private static final int MOVE = 1;
     private List<RacingCar> racingCars;
 
     public RacingCarService() {
@@ -27,18 +28,17 @@ public class RacingCarService {
                 .collect(Collectors.toList());
     }
 
-    public List<RacingCar> getRacingCars() {
-        return racingCars;
-    }
-
-    public void playRacingCar(int attempt) {
-        for (int count = 0; count < attempt; count++) {
-            playOneRacing();
+    public void playOneRacing() {
+        for (RacingCar racingCar : racingCars) {
+            proceedOneRacingCar(racingCar);
         }
     }
 
-    private void playOneRacing() {
+    private void proceedOneRacingCar(RacingCar racingCar) {
         int randomNumber = RandomUtil.getRandomNumber();
+        if (canMove(randomNumber)) {
+            racingCar.plusMove(MOVE);
+        }
     }
 
     private boolean canMove(int number) {
