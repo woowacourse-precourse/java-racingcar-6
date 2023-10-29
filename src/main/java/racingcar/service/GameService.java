@@ -10,7 +10,7 @@ import static racingcar.service.InputService.*;
 import static racingcar.service.PrintService.*;
 
 public class GameService {
-    public static void run() {
+    public static void runOneGame() {
         // 자동차 이름 입력
         printRacingCarNameInputForm();
         List<RacingCar> racingCars = createRacingCars();
