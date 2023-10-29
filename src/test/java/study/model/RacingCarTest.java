@@ -3,10 +3,7 @@ package study.model;
 import org.junit.jupiter.api.Test;
 import racingcar.model.RacingCar;
 
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class RacingCarTest {
 
