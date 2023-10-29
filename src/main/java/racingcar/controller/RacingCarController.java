@@ -5,8 +5,6 @@ import racingcar.domain.RacingCars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class RacingCarController {
@@ -14,8 +12,7 @@ public class RacingCarController {
     OutputView outputView = new OutputView();
 
     public void startProgram() {
-        RacingCars racingCars = initCars();
-        startRace(racingCars);
+        startRace(initCars());
     }
 
     public RacingCars initCars() {
@@ -27,12 +24,7 @@ public class RacingCarController {
     }
 
     private void startRace(RacingCars racingCars) {
-        int tryNumber = getTryNumber();
-        outputView.outputExecutionResult();
-        for(; tryNumber > 0; tryNumber--) {
-            racingCars.moveCars();
-            printMoveResult(racingCars);
-        }
+        printMoveResult(racingCars);
         printRaceResult(racingCars);
     }
 
@@ -40,8 +32,15 @@ public class RacingCarController {
         return inputView.inputTryNumber();
     }
 
-
     private void printMoveResult(RacingCars racingCars) {
+        outputView.outputExecutionResult();
+        for(int tryNumber = getTryNumber(); tryNumber > 0; tryNumber--) {
+            racingCars.moveCars();
+            printMoveString(racingCars);
+        }
+    }
+
+    private void printMoveString(RacingCars racingCars) {
         for(RacingCar car : racingCars.getCarList()) {
             outputView.outputMoveResult(car.getName(), car.getDashString());
         }
