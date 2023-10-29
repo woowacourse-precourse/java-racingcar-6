@@ -59,12 +59,47 @@ public class RacingCarGameTest extends NsTest {
     void game1() {
         assertRandomNumberInRangeTest(
                 () -> {
+                    run("pobi", "1");
+                    assertThat(output()).contains("pobi : -", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void game2() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi", "1");
+                    assertThat(output()).contains("pobi :", "최종 우승자 : pobi");
+                },
+                STOP
+        );
+    }
+
+    @Test
+    void game3() {
+        assertRandomNumberInRangeTest(
+                () -> {
                     run("pobi,woni", "1");
                     assertThat(output()).contains("pobi : -", "woni : -", "최종 우승자 : pobi, woni");
                 },
                 MOVING_FORWARD, MOVING_FORWARD
         );
     }
+
+    @Test
+    void game4() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "2");
+                    assertThat(output()).contains("pobi : -", "woni : --", "최종 우승자 : woni");
+                },
+                STOP, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+
 
     @Override
     public void runMain() {
