@@ -9,9 +9,13 @@ public class Validator {
 	private static final Pattern NUMBER_PATTERN = Pattern.compile("^[0-9]*$");
 	private static final int LENGTH = 5;
 	
-	public static void validateOutOfLength(String carName) {
-		if (carName.length() > LENGTH) {
-			throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH_ERROR.getMessage());
+	public static void validateOutOfLength(String carNames) {
+		String[] carNameArr = carNames.split(",");
+		
+		for(String carName : carNameArr) {
+			if (carName.length() > LENGTH) {
+				throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH_ERROR.getMessage());
+			}
 		}
 	}
 	
