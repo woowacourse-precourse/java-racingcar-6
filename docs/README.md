@@ -17,7 +17,7 @@
   - 유틸리티 클래스
 
 ## 자동차 입력 기능
-- [ ] RaceView : `printCarListInputMessage` 메서드
+- [x] RaceView : `printCarListInputMessage` 메서드
   - 입력 안내 메시지 출력
 - [x] RaceView : `getCarListInput` 메서드
   - 사용자로부터 자동차 목록을 입력받는다.
