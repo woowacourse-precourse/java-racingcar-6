@@ -20,12 +20,12 @@ public class CarRaceService {
     }
 
     public List<String> extractSeperator(String carInput) {
-        List<String> splitedName = List.of(carInput.split(INPUT_DELIMETER));
-        validator.isRightCarNameInput(splitedName);
-        return splitedName;
+        List<String> carNames = List.of(carInput.split(INPUT_DELIMETER));
+        validator.isRightCarNameInput(carNames);
+        return carNames;
     }
 
-    public Integer convertGameCountToNumber(String carGameCount) {
+    public Integer convertGameRoundToNumber(String carGameCount) {
         validator.isRightInputGameCount(carGameCount);
         return Integer.parseInt(carGameCount);
     }

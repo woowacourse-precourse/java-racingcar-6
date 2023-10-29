@@ -29,13 +29,13 @@ public class OutputView {
         System.out.println(INIT_GAME);
     }
 
-    public void printBeforeInputGameCount() {
+    public void printBeforeInputGameRound() {
         System.out.println(BEFORE_INPUT_GAME_COUNT);
     }
 
     public void printRoundResult(List<String> carResults) {
-        for (int i = 0; i < carResults.size(); i++) {
-            System.out.println(carResults.get(i));
+        for (int index = 0; index < carResults.size(); index++) {
+            System.out.println(carResults.get(index));
         }
         System.out.println();
     }

@@ -26,10 +26,10 @@ public class GameController {
         try {
             List<Car> cars = new ArrayList<>();
             List<String> carNames = initSetting();
-            Integer gameCount = getGameCount();
+            Integer gameRound = getTotalGameRound();
             initCarInfo(carNames, cars);
             notifyBeforeResult();
-            roundGameProcess(gameCount, cars);
+            roundGameProcess(gameRound, cars);
             outputView.printWinners(winnerService.findWinners(cars));
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e.getMessage());
@@ -40,9 +40,9 @@ public class GameController {
         outputView.notifyBeforeResult();
     }
 
-    private Integer getGameCount() {
-        outputView.printBeforeInputGameCount();
-        return carRaceService.convertGameCountToNumber(inputView.inputGameCount());
+    private Integer getTotalGameRound() {
+        outputView.printBeforeInputGameRound();
+        return carRaceService.convertGameRoundToNumber(inputView.inputGameRound());
     }
 
     private List<String> initSetting() {
@@ -50,8 +50,8 @@ public class GameController {
         return carRaceService.extractSeperator(inputView.inputCarName());
     }
 
-    private void roundGameProcess(Integer gameCount, List<Car> cars) {
-        for (int count = 0; count < gameCount; count++) {
+    private void roundGameProcess(Integer gameRound, List<Car> cars) {
+        for (int nowRound = 1; nowRound <= gameRound; nowRound++) {
             outputView.printRoundResult(carRaceService.roundResult(cars));
         }
     }

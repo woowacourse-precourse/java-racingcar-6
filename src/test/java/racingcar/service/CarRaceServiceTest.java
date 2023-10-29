@@ -1,7 +1,5 @@
 package racingcar.service;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.ArrayList;
 import java.util.List;
 import org.assertj.core.api.Assertions;
@@ -11,8 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.Car;
-import racingcar.util.NumberGenerator;
-import racingcar.util.Validator;
 
 class CarRaceServiceTest {
 
@@ -54,7 +50,7 @@ class CarRaceServiceTest {
     @DisplayName("게임 횟수 숫자인지 검증!")
     @ValueSource(strings = {"--=", "abd", "ddd", ""})
     void 게임횟수_입력_검증(String input){
-        Assertions.assertThatThrownBy(()-> carRaceService.convertGameCountToNumber(input)).isInstanceOf(IllegalArgumentException.class);
+        Assertions.assertThatThrownBy(()-> carRaceService.convertGameRoundToNumber(input)).isInstanceOf(IllegalArgumentException.class);
     }
 
 

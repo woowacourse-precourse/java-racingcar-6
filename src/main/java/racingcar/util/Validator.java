@@ -16,8 +16,8 @@ public class Validator {
         checkLengthEachName(splitedName);
     }
 
-    private void checkLengthEachName(List<String> splitedName) {
-        for (String carName : splitedName) {
+    private void checkLengthEachName(List<String> inputCarNames) {
+        for (String carName : inputCarNames) {
             if (isRightRangeCarName(carName)) {
                 continue;
             }

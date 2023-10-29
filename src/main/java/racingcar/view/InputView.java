@@ -21,7 +21,7 @@ public class InputView {
         return Console.readLine();
     }
 
-    public String inputGameCount() {
+    public String inputGameRound() {
         return Console.readLine();
     }
 }
