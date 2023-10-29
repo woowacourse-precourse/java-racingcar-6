@@ -2,6 +2,7 @@ package racingcar.view;
 
 import racingcar.control.GameProcess;
 import racingcar.domain.RaceCar;
+import racingcar.string.MyConstans;
 import racingcar.utill.Utill;
 
 import java.util.LinkedHashMap;
@@ -30,9 +31,10 @@ public class GameStart {
         for (Map.Entry<RaceCar, String> entry : raceCarMapOfCurrent.entrySet()) {
             nameOfRaceCar = entry.getKey().toString();
             moveStateStrOfRaceCar = entry.getValue();
-            System.out.println(nameOfRaceCar + " : " + moveStateStrOfRaceCar);
+            Utill.print(MyConstans.MSG_SITUATION_PROCESS_ONE_CAR(nameOfRaceCar, moveStateStrOfRaceCar));
         }
     }
+
 
     /**
      * 현재 레이스 자동차들의 Map을 만들어준다.
