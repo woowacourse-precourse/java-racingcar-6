@@ -1,4 +1,4 @@
-package racingcar.domain.util;
+package racingcar.util;
 
 public enum NameLengthCondition {
     MIN_LENGTH(1),
