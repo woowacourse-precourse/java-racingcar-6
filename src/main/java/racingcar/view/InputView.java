@@ -8,9 +8,9 @@ import java.util.List;
 public class InputView {
 
     public static List<String> enterCarsName() {
-        String names = Console.readLine()
-                .trim();
+        String names = Console.readLine();
         return Arrays.stream(names.split(","))
+                .map(String::trim)
                 .toList();
     }
 }
