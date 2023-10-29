@@ -23,4 +23,8 @@ public class Car {
         }
         return (false);
     }
+
+    void printInformation() {
+        information.print();
+    }
 }

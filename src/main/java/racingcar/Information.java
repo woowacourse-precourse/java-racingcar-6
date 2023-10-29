@@ -12,4 +12,8 @@ public class Information {
     void update() {
         destination++;
     }
+
+    void print() {
+        System.out.println(name + " : " + "-".repeat(destination));
+    }
 }
