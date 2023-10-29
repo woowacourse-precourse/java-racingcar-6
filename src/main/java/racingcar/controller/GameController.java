@@ -19,12 +19,18 @@ public class GameController {
 
     public void run() {
         Cars cars = makeCars();
+        getTrialCount();
     }
 
     private Cars makeCars() {
         outputView.printNamesGuide();
         String carNames = inputView.readCarNames();
         return gameService.createCars(carNames);
+    }
+
+    private void getTrialCount() {
+        outputView.printTrialGuide();
+        String trialCount = inputView.readTrialNumber();
     }
 
 }
