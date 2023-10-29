@@ -26,6 +26,10 @@ public class OutputView {
         System.out.print(carName);
     }
 
+    public void printRoundResult(int carIdx, ArrayList<StringBuilder> carStringBuilders) {
+        System.out.println(carStringBuilders.get(carIdx));
+    }
+
 
     public ArrayList<StringBuilder> makeStringBuilders(int numberOfCars) {
         ArrayList<StringBuilder> carStringBuilders = new ArrayList<>();
