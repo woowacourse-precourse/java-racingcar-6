@@ -1,16 +1,19 @@
 package racingcar.domain;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CircuitTest {
+
+    private final Car car1 = new Car("test1");
+    private final Car car2 = new Car("test2");
+    private final Car car3 = new Car("test3");
+    private final Car car4 = new Car("test4");
 
     @Test
     @DisplayName("자동차 경주를 했을 때 MoveCondition에 따라 포지션을 이동하거나 이동하지 않는다.")
@@ -22,7 +25,7 @@ class CircuitTest {
                 MoveCondition.STOP
         );
 
-        Circuit circuit = Circuit.fromCarNames(List.of("test1", "test2", "test3", "test4"));
+        Circuit circuit = Circuit.fromCarNames(List.of(car1, car2, car3, car4));
 
         List<Car> cars = circuit.raceCars(conditions);
 
@@ -35,7 +38,7 @@ class CircuitTest {
     @Test
     @DisplayName("서킷에 들어있는 차의 개수를 반환한다.")
     void getCircuitSize() {
-        Circuit circuit = Circuit.fromCarNames(List.of("test1", "test2", "test3", "test4"));
+        Circuit circuit = Circuit.fromCarNames(List.of(car1, car2, car3, car4));
 
         assertThat(circuit.getCircuitSize()).isEqualTo(4);
     }
@@ -50,7 +53,7 @@ class CircuitTest {
                 MoveCondition.STOP
         );
 
-        Circuit circuit = Circuit.fromCarNames(List.of("test1", "test2", "test3", "test4"));
+        Circuit circuit = Circuit.fromCarNames(List.of(car1, car2, car3, car4));
         circuit.raceCars(conditions);
 
         List<String> topPositionCarNames = circuit.findTopPositionCarNames();
@@ -63,8 +66,8 @@ class CircuitTest {
     @Test
     @DisplayName("서킷에는 최소 2대 이상의 자동차가 존재해야 한다.")
     void shouldThrowExceptionWhenLessThenTwo() {
-        List<String> cars = List.of("test1");
-        List<String> cars2 = List.of("");
+        List<Car> cars = List.of(car1);
+        List<Car> cars2 = List.of();
         assertThrows(IllegalArgumentException.class, () -> Circuit.fromCarNames(cars));
         assertThrows(IllegalArgumentException.class, () -> Circuit.fromCarNames(cars2));
     }

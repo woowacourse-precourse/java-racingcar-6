@@ -1,6 +1,5 @@
 package racingcar.service;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.Circuit;
@@ -14,10 +13,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class RacingServiceTest {
 
-    private Car car1 = new Car("test1");
-    private Car car2 = new Car("test2");
-    private Car car3 = new Car("test3");
-    private Car car4 = new Car("test4");
+    private final Car car1 = new Car("test1");
+    private final Car car2 = new Car("test2");
+    private final Car car3 = new Car("test3");
+    private final Car car4 = new Car("test4");
 
     @Test
     void race() {
