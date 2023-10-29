@@ -1,6 +1,8 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import camp.nextstep.edu.missionutils.Console;
+
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -15,9 +17,14 @@ class InputViewTest {
         System.setIn(new ByteArrayInputStream(inputData.getBytes()));
     }
 
-    @AfterEach
-    public void restoreSystemInStream() {
+    @BeforeEach
+    public void init() {
         System.setIn(originalSystemIn);
+    }
+
+    @AfterEach
+    public void afterInit() {
+        Console.close();
     }
 
     @Test
