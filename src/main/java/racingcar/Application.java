@@ -3,11 +3,12 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.HashMap;
+import java.util.LinkedList;
 
 public class Application {
     static String InputCarName = "";
-    static HashMap<String, Integer> racingcar = new HashMap<>();
+    static LinkedList<String> RacingCar = new LinkedList<>();
+    static LinkedList<Integer> RacingScore = new LinkedList<>();
     static int TryNumber = 0;
 
     public static void main(String[] args) {
@@ -34,7 +35,8 @@ public class Application {
             if (carArray[i].length() > 5) {
                 throw new IllegalArgumentException();
             }
-            racingcar.put(carArray[i], 0);
+            RacingCar.add(carArray[i]);
+            RacingScore.add(0);
         }
     }
 
@@ -72,9 +74,14 @@ public class Application {
     }
 
     public static void Match_game() {
-        for (int i = 0; i < racingcar.size(); i++) {
+        for (int i = 0; i < RacingCar.size(); i++) {
             int score = Randoms.pickNumberInRange(0, 9);
+            if (score > 3) {
+                int addScore = RacingScore.get(i) + 1;
+                RacingScore.set(i, addScore);
+            }
         }
     }
+
 
 }
