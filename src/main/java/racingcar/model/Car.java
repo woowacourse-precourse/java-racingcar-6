@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import racingcar.Constants;
 import racingcar.Util;
 
 public class Car {
@@ -19,7 +20,7 @@ public class Car {
     }
 
     public void validRacingCars(){
-        if( Util.getRandomNum() >= 4){
+        if( Util.getRandomNum() >= Constants.minimumLength){
             position++;
         }
     }
