@@ -31,7 +31,7 @@ public class CarRacingGame {
         List<String> winnerName = new ArrayList<>();
 
         for(Car car: winner) {
-            winnerName.add(car.toString());
+            winnerName.add(car.getName());
         }
 
         System.out.println("최종 우승자 : " + String.join(", ", winnerName));

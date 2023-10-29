@@ -30,11 +30,13 @@ public class Car {
     }
 
     int getDistance() {
-         return distance;
+        return distance;
     }
 
-    public String toString() {
+    String getName() {
         return name;
     }
+
+    public String toString() { return name; }
 
 }
