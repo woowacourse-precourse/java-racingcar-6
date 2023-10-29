@@ -11,16 +11,25 @@ public class Application {
         Map<String, Integer> racingCars = validateCarName(input);
         int count = inputMovingCount();
 
+        System.out.println("\n실행 결과");
         for (int i = 0; i < count; i++) {
-            startGame(racingCars);
+            play(racingCars);
+            System.out.println();
         }
     }
 
-    private static void startGame(Map<String, Integer> racingCars) {
+    private static void play(Map<String, Integer> racingCars) {
         for (Map.Entry<String, Integer> entry : racingCars.entrySet()) {
             int number = Randoms.pickNumberInRange(0, 9);
-            racingCars.replace(entry.getKey(), moveCar(entry.getValue(), number));
+            int forward = moveCar(entry.getValue(), number);
+            racingCars.replace(entry.getKey(), forward);
+
+            output(entry.getKey(), forward);
         }
+    }
+
+    private static void output(String key, int forward) {
+        System.out.println(key + " : " + "-".repeat(Math.max(0, forward)));
     }
 
     public static int moveCar(int value, int number) {
