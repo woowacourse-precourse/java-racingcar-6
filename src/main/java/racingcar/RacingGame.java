@@ -3,14 +3,17 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class RacingGame {
 
     List<Car> participants = new ArrayList<>();
     List<Score> scores = new ArrayList<>();
+    List<String> winners = new ArrayList<>();
     int times;
 
     public void start() {
@@ -29,7 +32,7 @@ public class RacingGame {
             score.printScore();
         }
 
-        // TODO : 우승한 자동차 리스트를 구한다
+        checkWinner();
         // TODO : 우승한 자동차 리스트를 출력한다
     }
 
@@ -63,10 +66,27 @@ public class RacingGame {
     }
 
     private Score moving(List<Car> participants) {
-        Map<String, Integer> movingDistance = new HashMap<>();
+        Map<String, Integer> movingDistance = new LinkedHashMap<>();
         for (Car participant : participants) {
             movingDistance.put(participant.name, participant.moveRandomDistance());
         }
         return new Score(movingDistance);
+    }
+
+    private void checkWinner() {
+        Map<String, Integer> sumOfDistance = new LinkedHashMap<>();
+        for (Car participant : participants) {
+            int sum = 0;
+            for (Score score : scores) {
+                sum += score.movingDistance.get(participant.name);
+            }
+            sumOfDistance.put(participant.name, sum);
+        }
+        int maxValue = Collections.max(sumOfDistance.values());
+        for (Entry<String, Integer> entrySet : sumOfDistance.entrySet()) {
+            if (entrySet.getValue().equals(maxValue)) {
+                winners.add(entrySet.getKey());
+            }
+        }
     }
 }
