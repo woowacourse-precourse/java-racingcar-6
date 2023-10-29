@@ -2,6 +2,8 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.view.InputView;
@@ -19,9 +21,10 @@ public class Race {
         moveCnt = getMoveCount();
         OutputView.printResult();
         while(moveCnt > 0){
-            for (Car car : carList) {
-                car.move();
-                OutputView.printCarsMove(car.getName(), car.getPosition());
+            cars.playSingleTurn();
+            Map<String,Integer> currentPostion = cars.carsInformation();
+            for (Entry<String, Integer> carsInformation : currentPostion.entrySet()) {
+                OutputView.printCarsMove(carsInformation.getKey(),carsInformation.getValue());
             }
             System.out.println();
             moveCnt--;
@@ -63,6 +66,7 @@ public class Race {
             Car car = new Car(carName);
             carList.add(car);
         }
+
         cars = new Cars(carList);
     }
 
