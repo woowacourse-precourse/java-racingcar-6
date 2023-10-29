@@ -19,13 +19,15 @@ public class GameHost {
      */
     public List<RaceCar> winRaceCar(List<RaceCar> progressCarList, Integer numOfWinCondition) {
         List<RaceCar> winRaceCarList = new ArrayList<>();
+        int cntOfMaxMove = getCntMaxMove(progressCarList);
 
         for (RaceCar raceCar : progressCarList) {
             // 전진 카운터가 입력한만큼있으면
-            if (judgeStandard.isVictoryCondition(raceCar, getCntMaxMove(progressCarList))) {
+            if (judgeStandard.isVictoryCondition(raceCar, cntOfMaxMove)) {
                 winRaceCarList.add(raceCar);
             }
         }
+
         return winRaceCarList;
     }
 
