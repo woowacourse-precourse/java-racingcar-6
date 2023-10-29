@@ -23,10 +23,7 @@ public class GameEngine {
 
     public void run(String playCount) {
         gameEngineValidator.validateIsPositiveNumber(playCount);
-        long playEndTime = Long.parseLong(playCount);
-        for (long playTime = 0; playTime < playEndTime; playTime++) {
-            scoreUpdater.updateScore(scores);
-        }
+        scoreUpdater.updateScore(scores);
     }
 
     public List<Score> getScores() {
