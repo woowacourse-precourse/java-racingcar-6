@@ -4,22 +4,14 @@ import racingcar.util.RandomNumberGenerator;
 
 public class Car implements Comparable<Car> {
 
-    private String name;
-    private int position;
     private static final int MOVABLE_BOUND = 4;
-    private static final int NAMING_LENGTH_BOUND = 5;
+    private Name name;
+    private Position position;
 
     public Car(String name) {
 
-        validateName(name);
-        this.name = name;
-    }
-
-    private void validateName(String name) {
-
-        if(name.length() > NAMING_LENGTH_BOUND) {
-            throw new IllegalArgumentException();
-        }
+        this.name = new Name(name);
+        this.position = new Position();
     }
 
     public void play() {
@@ -29,7 +21,7 @@ public class Car implements Comparable<Car> {
 
     public void goOrStop(int randomNumber) {
         if(canMove(randomNumber)) {
-            position++;
+            position.move();
         }
     }
 
@@ -37,21 +29,20 @@ public class Car implements Comparable<Car> {
         return randomNumber >= MOVABLE_BOUND;
     }
 
-    public boolean isSamePosition(Car other) {
-        return this.position == other.position;
-    }
-
     @Override
     public int compareTo(Car other) {
-        return this.position - other.position;
+        return this.position.compareTo(other.position);
+    }
+
+    public boolean isSamePosition(Car other) {
+        return this.position.isSamePosition(other.position);
     }
 
     public String getName() {
-        return name;
+        return name.getLawName();
     }
 
     public int getPosition() {
-        return position;
+        return position.getLawPosition();
     }
-
 }
