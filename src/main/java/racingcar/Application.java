@@ -45,12 +45,14 @@ public class Application {
 
     private static void racing(List<Car> carList) {
         for (Car car : carList) {
-            int randomNumber = Randoms.pickNumberInRange(0, 9);
-            if (randomNumber >= 4) {
-                car.move();
-            }
+            if (shouldMove()) car.move();
             System.out.println(car.printCarName());
         }
+    }
+
+    private static boolean shouldMove() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        return randomNumber >= 4;
     }
 
     private static List<String> winners(List<Car> cars) {
