@@ -17,7 +17,7 @@ public class Cars {
 
     private Cars(final List<String> names) {
         validate(names);
-        cars = convertToCars(names);
+        cars = convertToCarList(names);
     }
 
     public List<String> receiveCurrentRank() {
@@ -72,7 +72,7 @@ public class Cars {
         return cars.get(index);
     }
 
-    private List<Car> convertToCars(final List<String> names) {
+    private List<Car> convertToCarList(final List<String> names) {
         return names.stream()
                 .map(Car::of)
                 .collect(Collectors.toList());
