@@ -6,35 +6,31 @@ import java.util.stream.Collectors;
 
 
 public class Cars {
-    private List<Car> cars = new ArrayList<>();
+    private List<Car> cars;
+    private RandomGenerator randomGenerator;
 
-    public Cars(List<String> carName) {
-        for (String name : carName) {
-            addCar(new Car(name));
-        }
-    }
-
-    public void addCar(Car car) {
-        cars.add(car);
+    public Cars(List<String> carName, RandomGenerator randomGenerator) {
+        this.randomGenerator = randomGenerator;
+        this.cars = carName.stream()
+                .map(Car::new)
+                .collect(Collectors.toList());
     }
 
     public List<EachMoveResultDto> moveCarsAndCollectResults() {
-        List<EachMoveResultDto> moveResults = new ArrayList<>();
-        for (Car car : cars) {
-            moveCarForward(car);
-            collectMoveResult(moveResults, car);
-        }
-        return moveResults;
+        return cars.stream()
+                .peek(this::moveCarForward)
+                .map(this::collectMoveResult)
+                .collect(Collectors.toList());
     }
 
     private void moveCarForward(Car car) {
-        RandomGenerator randomGenerator = new RandomGenerator();
         car.moveFoward(randomGenerator.generate());
     }
 
-    private void collectMoveResult(List<EachMoveResultDto> moveResults, Car car) {
-        EachMoveResultDto moveResultDto = new EachMoveResultDto(car.getName(), car.getPosition());
-        moveResults.add(moveResultDto);
+    private EachMoveResultDto collectMoveResult(Car car) {
+        String carName = car.getName();
+        int position = car.getPosition();
+        return new EachMoveResultDto(carName, position);
     }
 
     public List<GameWinnerDto> findWinnersDto() {
