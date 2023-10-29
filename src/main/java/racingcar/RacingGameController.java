@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.Exception.IllegalNameEmptyException;
+import racingcar.Exception.IllegalNameLengthException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,13 +31,13 @@ public class RacingGameController {
     }
     private static void validateNameLength(String carName) {
         if (carName.length() > LIMIT_NAME_LENGTH) {
-            throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+            throw new IllegalNameLengthException();
         }
     }
 
     private static void validateCarNamesIsEmpty(String[] carNames) {
         if (carNames.length == 0) {
-            throw new IllegalArgumentException("이름이 없습니다.");
+            throw new IllegalNameEmptyException();
         }
     }
 
