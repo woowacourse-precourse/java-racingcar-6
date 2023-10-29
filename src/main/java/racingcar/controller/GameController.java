@@ -1,14 +1,14 @@
 package racingcar.controller;
 
+import racingcar.model.Cars;
 import racingcar.model.Round;
 import racingcar.view.InputView;
-import racingcar.model.RacingCarGame;
 import racingcar.view.OutputView;
 
 public class GameController {
 
     private static Round round;
-    private static RacingCarGame racingCarGame;
+    private static Cars racingCarGame;
 
     public static void run() {
         setGame();
@@ -18,7 +18,7 @@ public class GameController {
 
     private static void setGame() {
         String[] carNames = InputView.inputCarNames();
-        racingCarGame = RacingCarGame.from(carNames);
+        racingCarGame = Cars.from(carNames);
 
         round = InputView.inputRoundNumber();
     }

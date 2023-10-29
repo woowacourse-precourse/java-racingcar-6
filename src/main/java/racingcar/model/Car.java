@@ -27,4 +27,8 @@ public class Car {
             position++;
         }
     }
+
+    public boolean isWinner(int maxPosition) {
+        return position == maxPosition;
+    }
 }

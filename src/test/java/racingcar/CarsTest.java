@@ -5,18 +5,18 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.model.RacingCarGame;
+import racingcar.model.Cars;
 import racingcar.view.InputView;
 import java.io.ByteArrayInputStream;
 import java.util.stream.Stream;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
-public class RacingCarGameTest {
+public class CarsTest {
 
     @ParameterizedTest
     @MethodSource("provideNamesForValidate")
     void 자동차_이름_입력값_검증_테스트(String[] carNames) {
-        assertThatThrownBy(() -> RacingCarGame.from(carNames))
+        assertThatThrownBy(() -> Cars.from(carNames))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 

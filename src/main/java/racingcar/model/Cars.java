@@ -7,19 +7,18 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class RacingCarGame {
+public class Cars {
 
     private static final int MAX_NAME_LENGTH = 5;
     private static final int MIN_RANDOM_NUMBER = 0;
     private static final int MAX_RANDOM_NUMBER = 9;
     private List<Car> cars;
-    private List<String> winners = new ArrayList<>();
 
-    private RacingCarGame(List<Car> cars) {
+    private Cars(List<Car> cars) {
         this.cars = cars;
     }
 
-    public static RacingCarGame from(String[] carNames) {
+    public static Cars from(String[] carNames) {
         validateDuplicatedName(carNames);
 
         List<Car> cars = new ArrayList<>();
@@ -28,12 +27,12 @@ public class RacingCarGame {
             validateIsEmpty(name);
             cars.add(Car.from(name));
         }
-        return new RacingCarGame(cars);
+        return new Cars(cars);
     }
 
     private static void validateDuplicatedName(String[] carNames) {
         Set<String> names = new HashSet<>(Arrays.asList(carNames));
-        if(carNames.length != names.size()) {
+        if (carNames.length != names.size()) {
             throw new IllegalArgumentException("자동차의 이름은 중복될 수 없습니다.");
         }
     }
@@ -50,10 +49,6 @@ public class RacingCarGame {
         }
     }
 
-    public List<Car> getCars() {
-        return cars;
-    }
-
     public void playRound() {
         for (Car car : cars) {
             int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
@@ -62,9 +57,10 @@ public class RacingCarGame {
     }
 
     public List<String> getWinners() {
+        List<String> winners = new ArrayList<>();
         int maxPosition = getMaxPosition();
         for (Car car : cars) {
-            if (car.getPosition() == maxPosition) {
+            if (car.isWinner(maxPosition)) {
                 winners.add(car.getName());
             }
         }
@@ -77,5 +73,9 @@ public class RacingCarGame {
             maxPosition = Math.max(maxPosition, car.getPosition());
         }
         return maxPosition;
+    }
+
+    public List<Car> getCars() {
+        return cars;
     }
 }
