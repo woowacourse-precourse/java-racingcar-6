@@ -3,7 +3,6 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,18 +11,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class RaceDatasetTest {
-    String mockInput = "alpha,bravo,charm\n5";
-    private final InputStream inOriginal = System.in;
 
     @BeforeEach
     public void setUpStream() {
-        String simulatedInput  = mockInput;
-        System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
+        String mockInput = "alpha,bravo,charm\n5";
+        System.setIn(new ByteArrayInputStream(mockInput.getBytes()));
     }
 
     @AfterEach
     public void restoreStreams() {
-        System.setIn(inOriginal);
+        System.setIn(System.in);
     }
 
     @Test
