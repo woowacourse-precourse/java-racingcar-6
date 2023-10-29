@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.vo;
 
 public class CarName {
     private static final int MAX_LENGTH = 5;
