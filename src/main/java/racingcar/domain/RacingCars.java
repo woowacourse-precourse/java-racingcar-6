@@ -27,4 +27,20 @@ public class RacingCars {
         }
         OutputView.println();
     }
+
+    public String[] getRacingWinners() {
+        int maxDistance = getMaxDistance();
+
+        return racingCars.stream()
+                .filter(car -> car.carEqualsMaxDistance(maxDistance))
+                .map(Car::getName)
+                .toArray(String[]::new);
+    }
+
+    private int getMaxDistance() {
+        return racingCars.stream()
+                .mapToInt(Car::getMoveDistance)
+                .max()
+                .orElseGet(() -> 0);
+    }
 }
