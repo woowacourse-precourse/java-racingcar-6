@@ -26,4 +26,9 @@ public class Car {
             distance += "-";
         }
     }
+
+    @Override
+    public String toString() {
+        return name + " : " + distance;
+    }
 }
