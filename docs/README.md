@@ -8,7 +8,6 @@ Game
     - [ ] 게임플레이를 담당한다.
         -[ ] UI#시도횟수를 물어보는 문구를 출력한다.
         - [ ] InputReader#입력을 받게한다
-        - [ ] 입력받는값이 마이너스이면, IllgalArgumentException 반환
         -[ ] GameEngine#n번 전진시킨다.
         -[ ] Ui#전진현황을 출력한다.
     -[ ] 게임 종료를 담당한다.
@@ -36,10 +35,11 @@ GameEngine
     -[x] GameEngineValidator를 통해 입력값을 검증한다.
     - [x] 점수를 생성한다.
 - [ ] 플레이어가 전진하는지를 판단한다
+    - [ ] 입력받는값이 마이너스이면, IllegalArgumentException 반환
     -[ ] NumberGenerator# 숫자 만드는 것을 부른다.
     -[ ] 숫자를 판단한다
-    - [ ] 0부터3까지 멈춤
-    - [ ] 4부터 9까지는 전진
+        - [ ] 0부터3까지 멈춤
+        - [ ] 4부터 9까지는 전진
 -[ ] 우승자를 반환한다
     -[ ] 동점일경우, 플레이어 입력 순서대로 정렬한다.
 
@@ -47,6 +47,7 @@ GameEngineValidator
 
 - [x] 입력값이 널이면 예외를 반환한다.
 - [x] 리스트에 있는 값이 6글자 이상이면, IllegalArgumentException반환
+- [ ] 입력받는값이 마이너스이면, IllegalArgumentException 반환
 
 NumberGenerator
 
