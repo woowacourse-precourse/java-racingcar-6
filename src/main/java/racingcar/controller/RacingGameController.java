@@ -5,6 +5,7 @@ import racingcar.View.OutPutView;
 import racingcar.dto.GameResultDto;
 import racingcar.model.RacingCar;
 import racingcar.service.RacingGameService;
+import racingcar.validation.ValidateInput;
 
 import java.util.ArrayList;
 
@@ -21,7 +22,10 @@ public class RacingGameController {
 
     private int settingRacingGameAndGetRaceCount() {
         String userEnteredApplicantCarList = inputView.enterCarName();
+        racingGameService.validateUserInputApplicant(userEnteredApplicantCarList);
         int userEnteredRaceCount = Integer.parseInt(inputView.enterRaceCount());
+        racingGameService.validateUserInputInputRaceCount(userEnteredRaceCount);
+
         racingGameService.settingForRacingGame(userEnteredApplicantCarList, userEnteredRaceCount);
         return userEnteredRaceCount;
     }
