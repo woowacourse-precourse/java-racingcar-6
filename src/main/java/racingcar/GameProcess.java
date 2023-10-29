@@ -14,6 +14,21 @@ public class GameProcess {
 	public void playGame(ArrayList<InformationOfCar> carList, int moveCount) {
 		for (int i = 0; i < carList.size(); i++) {
 			InformationOfCar car = carList.get(i);
+			for (int j = 0; j < moveCount; j++) {
+				moveOrNot(car);
+				//진행상황 출력
+			}
 		}
 	}
+
+	private void moveOrNot(InformationOfCar car) {
+			int randomNumber = Randoms.pickNumberInRange(0, 9);
+			if (judgeMoveOrNot(randomNumber)) {
+				car.setDistance("-");
+			}
+	}
+	private boolean judgeMoveOrNot(int randomNumber) {
+		return randomNumber >= 4;
+	}
+
 }
