@@ -56,7 +56,14 @@ class ApplicationTest extends NsTest {
         RacingGame racingGame = new RacingGame();
         assertThatThrownBy(() -> racingGame.inputCountNum()).isInstanceOf(IllegalArgumentException.class);
     }
-    
+
+    @Test
+    void 랜덤수가_0_9_사이인지() {
+        RacingGame racingGame = new RacingGame();
+        int ranNum = racingGame.getRandomNum();
+        assertThat(ranNum).isGreaterThanOrEqualTo(0).isLessThanOrEqualTo(9);
+    }
+
 
     @Override
     public void runMain() {
