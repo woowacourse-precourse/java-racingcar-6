@@ -51,7 +51,7 @@ public class GameData {
         this.repetitionNumber = Integer.parseInt(repetitionNumberInput);
     }
 
-    public void sortCarListByRank() {
+    public void sortCarListByRank(List<Car> carList) {
         Comparator<Car> comparator = new Comparator<>() {
             @Override
             public int compare(Car o1, Car o2) {
@@ -59,7 +59,7 @@ public class GameData {
             }
         };
 
-        this.carList.sort(comparator);
+        carList.sort(comparator);
     }
 
     public void setWinnerList() {
