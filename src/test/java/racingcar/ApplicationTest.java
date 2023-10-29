@@ -77,7 +77,23 @@ class ApplicationTest extends NsTest {
         assertThat(result2).isEqualTo(0);
         assertThat(result3).isEqualTo(1);
     }
-    
+
+    @Test
+    void 한_회차가_끝난_이후_총_이동거리_확인() {
+        String[] nameArr = {"aa", "bb", "cc"};
+        List<String> nameList =(Arrays.asList(nameArr));
+        List<Integer> previousDistance = new ArrayList<>( Arrays.asList(1,3,0));
+        List<Integer> expectedList = new ArrayList<>( Arrays.asList(2,3,0));
+        RacingGame racingGame = new RacingGame();
+        CallNsTestMethod.assertRandomNumberInRangeTest(
+                ()->{
+                    racingGame.getDistanceList(nameList, previousDistance);
+                    assertThat(previousDistance).isEqualTo(expectedList);
+                },
+                4,0
+        );
+    }
+
 
     @Override
     public void runMain() {
