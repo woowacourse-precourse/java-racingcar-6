@@ -11,6 +11,22 @@ public class CarRacingGame {
     private List<Car> car = new ArrayList<>();
     private int trial;
 
+    void execute() {
+        System.out.println("실행 결과");
+        for(int i=0; i<trial; i++) {
+            for (Car car: car) {
+                car.decideMoveForwardOrStop();
+            }
+
+            for (Car car: car) {
+                System.out.println(car);
+            }
+            System.out.println();
+        }
+
+        rankWinner();
+    }
+
     void rankWinner() {
         List<Car> winner = new ArrayList<>();
 
