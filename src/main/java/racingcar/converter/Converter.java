@@ -1,4 +1,4 @@
-package racingcar.utils;
+package racingcar.converter;
 
 @FunctionalInterface
 public interface Converter<S, T> {

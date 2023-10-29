@@ -1,4 +1,4 @@
-package racingcar.utils;
+package racingcar.converter;
 
 import racingcar.domain.Car;
 

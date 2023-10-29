@@ -5,9 +5,9 @@ import racingcar.domain.NumberGenerator;
 import racingcar.domain.RacingGame;
 import racingcar.domain.RandomNumberGenerator;
 import racingcar.dto.CarDto;
-import racingcar.utils.CarToDtoConverter;
-import racingcar.utils.Converter;
-import racingcar.utils.StringToCarListConverter;
+import racingcar.converter.CarToDtoConverter;
+import racingcar.converter.Converter;
+import racingcar.converter.StringToCarListConverter;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
