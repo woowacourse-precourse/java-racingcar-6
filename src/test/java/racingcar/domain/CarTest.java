@@ -2,8 +2,10 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import testwatcher.ProbabilityWatcher;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -57,6 +59,7 @@ public class CarTest {
      * 실패하지는 않으나, 테스트결과를 모니터링 하며 기준치에서 벗어나지 않는지 확인할 필요가 있습니다.
      */
     @DisplayName("isProceed()가 true일 확률이 60%에 가깝다")
+    @ExtendWith(ProbabilityWatcher.class)
     @Test
     void isProceedTest() {
         // given
@@ -84,6 +87,6 @@ public class CarTest {
                 + "\n실제 확률: " + X
                 + "\n신뢰구간 준수여부: " + isInConfidenceInterval;
 
-        System.out.println(report);
+        ProbabilityWatcher.registerResult(report, isInConfidenceInterval);
     }
 }
