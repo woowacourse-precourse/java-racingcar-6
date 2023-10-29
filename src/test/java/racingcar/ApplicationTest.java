@@ -47,7 +47,7 @@ class ApplicationTest extends NsTest {
     @Test
     @DisplayName("기능 1번")
     void 시작문구_출력함수_확인() {
-        OutputViewer.printRequestCarNameMessage();
+        OutputViewer.printRequestingCarName();
         assertThat(output()).contains("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
@@ -104,9 +104,16 @@ class ApplicationTest extends NsTest {
         Driver jun = racingCar.drivers.get(1);
         Driver pobiCorrect = correctList.get(0);
         Driver junCorrect = correctList.get(1);
-        
+
         assertThat(pobi.sayCarName()).contains(pobiCorrect.sayCarName());
         assertThat(jun.sayCarName()).contains(junCorrect.sayCarName());
+    }
+
+    @Test
+    @DisplayName("기능 5번")
+    void 시도횟수_요청문구_출력함수_확인() {
+        OutputViewer.printRequestingNumberOfTry();
+        assertThat(output()).contains("시도할 회수는 몇회인가요?");
     }
 
 
