@@ -11,13 +11,14 @@ public class OutputView {
 	final static String MESSAGE_SEPARATOR = " : ";
 
 	public static void printResult() {
+		System.out.println();
 		System.out.println(RESULT_MESSAGE);
 	}
 
 	public static void printEachRound(List<Car> carList) {
 
 		for (Car eachCar : carList) {
-			System.out.println(eachCar.checkStatus(GRAPH_UNIT));
+			System.out.println(eachCar.getStatus(GRAPH_UNIT));
 		}
 
 		System.out.println();

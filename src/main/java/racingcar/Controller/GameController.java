@@ -16,7 +16,6 @@ public class GameController {
 		List<Car> carList = inputCarList();
 		int attemptCount = inputAttemptCount();
 
-		System.out.println();
 		OutputView.printResult();
 
 		conductRound(attemptCount, carList);
@@ -25,6 +24,14 @@ public class GameController {
 
 		OutputView.printWinner(winnerList);
 
+	}
+
+	private List<Car> inputCarList() {
+
+		InputView.printCarList();
+		String enteredCarList = Console.readLine();
+
+		return carListService.make(enteredCarList);
 	}
 
 	private int inputAttemptCount() {
@@ -42,11 +49,11 @@ public class GameController {
 
 		try {
 			Integer.parseInt(inputAttemptCount);
-		}catch (IllegalArgumentException ill) {
+		} catch (IllegalArgumentException ill) {
 			errorSign = true;
 		}
 
-		if(errorSign) {
+		if (errorSign) {
 			throw new IllegalArgumentException("숫자만 입력해주세요.");
 		}
 	}
@@ -55,17 +62,10 @@ public class GameController {
 
 		for (int i = 0; i < attemptCount; i++) {
 
-			carListService.moveCarList();
+			carListService.move();
 			OutputView.printEachRound(carList);
 
 		}
-	}
-
-	private List<Car> inputCarList() {
-		InputView.printCarList();
-		String enteredCarList = Console.readLine();
-
-		return carListService.makeCarList(enteredCarList);
 	}
 
 }
