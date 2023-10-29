@@ -17,13 +17,24 @@ public class RacingCarService {
         Cars cars = CarFactory.createCars(names);
         NumberOfRound numberOfRound = new NumberOfRound(tryCount);
 
-        List<RoundHistory> gameHistories = new ArrayList<>();
+        List<RoundHistory> roundHistories = new ArrayList<>();
 
         for (int i = 0; i < numberOfRound.value(); i++) {
             cars.moveAllCars(navigator);
-            RoundHistory roundHistory = new RoundHistory(new NumberOfRound(i + 1), cars.getCurrentStatus());
-            gameHistories.add(roundHistory);
+            RoundHistory roundHistory = new RoundHistory(
+                    new NumberOfRound(i + 1),
+                    new RoundResult(cars.getCurrentStatus()));
+
+            roundHistories.add(roundHistory);
         }
-        return new GameResult(gameHistories);
+
+        List<Name> winners = decideWinners(roundHistories);
+
+        return new GameResult(roundHistories, winners);
+    }
+
+    private List<Name> decideWinners(List<RoundHistory> roundHistories) {
+        RoundHistory lastRoundHistory = roundHistories.get(roundHistories.size() - 1);
+        return lastRoundHistory.roundResult().getWinners();
     }
 }
