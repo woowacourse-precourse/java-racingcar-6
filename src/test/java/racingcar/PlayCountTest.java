@@ -13,8 +13,10 @@ public class PlayCountTest {
 
     @Test
     void 횟수는_양수일_때_가능하다() {
-        // given & when
-        PlayCount count = PlayCount.from("5");
+        // given & when & then
+        Assertions.assertDoesNotThrow(() -> {
+            PlayCount count = PlayCount.from("5");
+        });
     }
 
     @ParameterizedTest

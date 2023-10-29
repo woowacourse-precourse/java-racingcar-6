@@ -15,8 +15,10 @@ public class NameTest {
 
     @Test
     void 이름은_5자_이하만_가능하다_정상() {
-        // given & when
-        Name name = Name.from("john");
+        // given & when & then
+        Assertions.assertDoesNotThrow(() -> {
+            Name name = Name.from("john");
+        });
     }
 
     @Test
@@ -45,8 +47,10 @@ public class NameTest {
     @ParameterizedTest
     @ValueSource(strings = {"존", "1a9"})
     void 한글이나_알파벳_숫자는_가능하다(final String value) {
-        // given & when
-        Name name = Name.from(value);
+        // given & when & then
+        Assertions.assertDoesNotThrow(() -> {
+            Name name = Name.from(value);
+        });
     }
 
     @ParameterizedTest
