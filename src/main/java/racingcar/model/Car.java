@@ -17,4 +17,8 @@ public class Car {
             position++;
         }
     }
+
+    public int comparePosition(Car compareCar) {
+        return this.position - compareCar.position;
+    }
 }
