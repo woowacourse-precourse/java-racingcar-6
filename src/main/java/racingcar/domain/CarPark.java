@@ -24,4 +24,10 @@ public class CarPark {
     public void UpdateCarParkState(List<Car> park) {
         this.park = park;
     }
+
+    public void printCarScores() {
+        for (Car car : park) {
+            System.out.println(car.getScoreBoard());
+        }
+    }
 }

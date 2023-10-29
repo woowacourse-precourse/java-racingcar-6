@@ -1,5 +1,7 @@
 package racingcar.config;
 
+import racingcar.factory.Factory;
+import racingcar.factory.impl.CarFactory;
 import racingcar.game.Game;
 import racingcar.game.impl.RacingGame;
 import racingcar.ioadapter.IoAdapter;
@@ -29,7 +31,11 @@ public class AppConfig {
         return new InputConvertServiceImpl(validateService());
     }
 
+    public Factory factory() {
+        return new CarFactory(racingService());
+    }
+
     public Game game() {
-        return new RacingGame(racingService());
+        return new RacingGame(factory());
     }
 }

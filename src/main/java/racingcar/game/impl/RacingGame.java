@@ -1,26 +1,24 @@
 package racingcar.game.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.CarPark;
+import racingcar.factory.Factory;
 import racingcar.game.Game;
-import racingcar.service.RacingService;
 import racingcar.vo.Car;
 
 public class RacingGame implements Game {
 
-    private final RacingService racingService;
+    private final Factory factory;
 
-    public RacingGame(RacingService racingService) {
-        this.racingService = racingService;
+    public RacingGame(Factory factory) {
+        this.factory = factory;
     }
 
     public void playGame(CarPark carPark) {
         List<Car> carList = carPark.getPark();
         List<Car> newCarList = carList.stream()
-                .filter(car -> racingService.isCanGoOneSpace())
-                .map(Car::makeNewCar)
+                .map(factory::makeTuningCar)
                 .collect(Collectors.toList());
         carPark.UpdateCarParkState(newCarList);
     }

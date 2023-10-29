@@ -13,8 +13,9 @@ public final class Car {
         return name;
     }
 
-    public Integer getScore() {
-        return score;
+    public String getScoreBoard() {
+        String repeatScore = "-".repeat(score);
+        return name + " : " + repeatScore;
     }
 
     public Car makeNewCar() {
