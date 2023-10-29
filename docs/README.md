@@ -18,7 +18,7 @@ pobi,woni,jun
 - [x] 경주에 참가하는 자동차가 1대일 경우 ``IllegalArgumentException``
 - [x] 구분자를 쉼표(,)가 아닌 다른 값을 사용 했을 경우 (공백도 포함) ``IllegalArgumentException``
 - [x] 쉼표(,)로 구분된 이름이 5글자를 초과할 경우 ``IllegalArgumentException``
-- [] 입력값 마지막을 쉼표(,)로 끝낸 경우 ``IllegalArgumentException``
+- [x] 입력값 마지막을 쉼표(,)로 끝낸 경우 ``IllegalArgumentException``
 - [x] 아무런 값을 입력하지 않았을 경우 ``IllegalArgumentException``
 - [x] 중복된 자동차 이름을 입력했을 경우 ``IllegalArgumentException``
 - [x] 경주를 시도할 횟수에 0보다 작은 값을 입력했을 경우 ``IllegalArgumentException``
