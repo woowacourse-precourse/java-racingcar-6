@@ -79,7 +79,8 @@ UserInterface 객체의 start 메서드를 실행한다.
 - 메서드
   - saveCars(String input) 사용자의 입력을 받아 car들을 리스트에 저장
   - validateInput 사용자의 입력값을 검증한다.
-  - size() 리스트이 사이즈를 반환한다.
+  - size() 리스트의 사이즈를 반환한다.
+  - moveCar(int index) 인덱스를 받아와 특정 자동차를 움직인다.
 
 ### RandomGenerator
 - 메서드

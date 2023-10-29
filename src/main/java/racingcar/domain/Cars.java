@@ -32,4 +32,8 @@ public class Cars {
     public int size() {
         return this.cars.size();
     }
+
+    public void moveCar(int index) {
+        this.cars.get(index).increaseLocation();
+    }
 }
