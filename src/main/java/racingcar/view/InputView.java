@@ -4,11 +4,12 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import java.util.Arrays;
 import java.util.List;
+import racingcar.domain.Cars;
 import racingcar.util.Constants;
 import racingcar.validator.InputValidator;
 
 public class InputView {
-    public List<String> inputCarNames() {
+    public Cars inputCars() {
         System.out.println(Constants.INPUT_CAR_NAMES_MESSAGE);
         String input = readLine().trim();
 
@@ -17,7 +18,7 @@ public class InputView {
         InputValidator.validateInputCarNameLength(input);
         InputValidator.validateDuplicationCarNames(input);
 
-        return converterCarNames(input);
+        return convertToCars(input);
     }
 
     public int inputTryCount() {
@@ -30,9 +31,11 @@ public class InputView {
         return Integer.parseInt(input);
     }
 
-    private List<String> converterCarNames(final String carNames) {
-        return Arrays.stream(carNames.split(","))
-                .map(name -> name.trim())
+    private Cars convertToCars(final String input) {
+        List<String> carNames = Arrays.stream(input.split(","))
+                .map(String::trim)
                 .toList();
+
+        return new Cars(carNames);
     }
 }
