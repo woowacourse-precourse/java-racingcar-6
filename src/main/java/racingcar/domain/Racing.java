@@ -4,7 +4,6 @@ import java.util.Map;
 
 public class Racing {
     public void racingMoveCount() {
-        CarName carName = new CarName();
         RacingCount racingCount = new RacingCount();
         Car car = new Car();
 

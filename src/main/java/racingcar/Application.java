@@ -9,6 +9,7 @@ public class Application {
         CarName carName = new CarName();
         RacingCarName inputCarName = new RacingCarName();
         carName.setCarList(inputCarName.inputRacingCarName());
+
         Racing racing = new Racing();
         racing.racingMoveCount();
     }

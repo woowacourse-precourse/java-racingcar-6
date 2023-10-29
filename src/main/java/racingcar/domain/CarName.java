@@ -8,7 +8,6 @@ public class CarName {
     private static final Map<String, Integer> carMap = new HashMap<>();
 
     public void setCarList(List<String> carList) {
-        carMap.clear();
         carList.forEach((car) -> {
             carMap.put(car, 0);
         });
