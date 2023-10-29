@@ -6,19 +6,12 @@ import java.util.List;
 import java.util.Set;
 
 public class ValidatorCarName {
-    public List<String> carNameList = new ArrayList<String>();
-
-
-    public ValidatorCarName() {
-    }
-
     public void checkCarName(String carName) {
         isContainComma(carName);
         isCorrectNameLength(carName);
         isNotDuplicated(carName);
         isNameBlank(carName);
 
-        this.carNameList = List.of(carName.split(","));
     }
 
     private void isContainComma(String carName) throws IllegalArgumentException {
