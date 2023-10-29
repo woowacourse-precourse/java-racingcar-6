@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import java.util.ArrayList;
+import racingcar.model.Player;
 
 public class OutputView {
     private static final String INPUT_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -21,8 +22,8 @@ public class OutputView {
         System.out.println(PRINT_RESULT);
     }
 
-    public void printPlayerStatus(final String status) {
-        System.out.println(status);
+    public void printPlayerStatus(final Player player) {
+        System.out.println(player.getStatus());
     }
     public void printWinner(final ArrayList<String> players) {
         System.out.println();

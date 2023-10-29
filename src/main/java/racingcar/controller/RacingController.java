@@ -41,7 +41,7 @@ public class RacingController {
     private void move() {
         for (Player player : players) {
             player.ForwardOrNot();
-            outputView.printPlayerStatus(player.getStatus());
+            outputView.printPlayerStatus(player);
         }
     }
 
