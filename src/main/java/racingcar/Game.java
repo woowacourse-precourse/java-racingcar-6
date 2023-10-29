@@ -21,7 +21,6 @@ public class Game {
     }
 
     public void play() {
-        System.out.println("실행 결과");
         for (int i = 0; i < tryCount; i++) {
             moveCars();
             System.out.println();
@@ -42,7 +41,7 @@ public class Game {
     private void moveCars() {
         for (Car car : cars) {
             car.move();
-            System.out.println(car);
+            OutputController.printCarPosition(car);
         }
     }
 
