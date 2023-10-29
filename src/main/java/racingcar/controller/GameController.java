@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import static racingcar.constant.Message.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -50,7 +52,7 @@ public class GameController {
     }
 
     private void runRounds(int rounds) {
-        outputView.printMessage("실행 결과");
+        outputView.printMessage(ROUND_RESULT_SUBJECT);
 
         for (int i=1; i<=rounds; i++) {
             cars.moveCars();
@@ -68,9 +70,9 @@ public class GameController {
     }
 
     private void printWinner() {
-        List<String> winner = cars.getWinner();
-        String result = String.join(", ", winner);
+        String winner = String.join(", ", cars.getWinner());
+        String result = RESULT_SUBJECT.getValue() + winner;
 
-        outputView.printMessage("최종 우승자 : " + result);
+        outputView.printMessage(result);
     }
 }

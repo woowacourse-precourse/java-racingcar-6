@@ -1,5 +1,7 @@
 package racingcar.util;
 
+import static racingcar.constant.Number.*;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -44,7 +46,7 @@ public class Validator {
     }
 
     private boolean hasTwoOrMore(List<String> list) {
-        return list.size() >= 2;
+        return list.size() >= MIN_CARS_LENGTH.getValue();
     }
 
     private boolean hasDuplicates(List<String> list) {

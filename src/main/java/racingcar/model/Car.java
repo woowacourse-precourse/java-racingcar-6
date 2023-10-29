@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import static racingcar.constant.Number.*;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car implements Comparable<Car> {
@@ -19,13 +21,13 @@ public class Car implements Comparable<Car> {
 
         String trimmedName = name.trim();
 
-        if (trimmedName.isEmpty() || trimmedName.length() > 5) {
+        if (trimmedName.isEmpty() || trimmedName.length() > CAR_NAME_LENGTH.getValue()) {
             throw new IllegalArgumentException();
         }
     }
 
     public void move() {
-        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+        if (Randoms.pickNumberInRange(0, 9) >= MOVE_THRESHOLD.getValue()) {
             position++;
         }
     }
