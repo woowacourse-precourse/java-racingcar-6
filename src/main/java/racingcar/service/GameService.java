@@ -14,6 +14,7 @@ public class GameService {
     private static final String DIVISION_STANDARD = ",";
 
     private final List<Car> carList;
+    private int gameCount;
 
     CarNameValidator carNameValidator = new CarNameValidator();
     GameCountValidator gameCountValidator = new GameCountValidator();
@@ -33,6 +34,7 @@ public class GameService {
     public void getGameCount() {
         String userInput = UserUtil.getUserInput();
         gameCountValidator.validateGameCount(userInput);
+        gameCount = Integer.parseInt(userInput);
     }
 
     private List<String> convertStrToList(String userInput) {

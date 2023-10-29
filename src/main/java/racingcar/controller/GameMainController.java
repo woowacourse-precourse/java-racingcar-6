@@ -9,5 +9,12 @@ public class GameMainController {
 
     public void startGame() {
         InputView.requestCarName();
+        gameService.getCarList();
+        InputView.requestGameCount();
+        gameService.getGameCount();
+    }
+
+    public void playGame() {
+
     }
 }
