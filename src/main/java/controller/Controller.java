@@ -20,7 +20,7 @@ public class Controller {
         endGame();
     }
 
-    public void getUserInput() {
+    private void getUserInput() {
         outputView.printRequestCarsName();
         String inputString = inputView.requestCarsName();
         userInput.setCarsName(inputString);
@@ -31,7 +31,7 @@ public class Controller {
         userInput.setPlayTime(inputNum);
     }
 
-    public void startGame() {
+    private void startGame() {
         outputView.printStartGame();
         gameManager.makeCarIdxNamePosList();
 
@@ -42,7 +42,7 @@ public class Controller {
         }
     }
 
-    public void moveCars() {
+    private void moveCars() {
         int carCount = userInput.getCarCount();
         for (int idx = 0; idx < carCount; idx++) {
             int randomNum = gameManager.setRandomNum();
@@ -51,7 +51,7 @@ public class Controller {
         }
     }
 
-    public void endGame() {
+    private void endGame() {
         gameResult.chkWinners();
         outputView.printWinners(gameResult.winnersList);
     }

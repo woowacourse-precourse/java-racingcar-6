@@ -13,7 +13,8 @@ public class GameManager {
     public List<Map.Entry<String, String>> carIdxNamePosList = new ArrayList<>();
 
     public void makeCarIdxNamePosList() {
-        for (String name : Controller.userInput.carsName) {
+        ArrayList<String> carsName = Controller.userInput.getCarsName();
+        for (String name : carsName) {
             Map.Entry<String, String> car = new AbstractMap.SimpleEntry<>(name, "");
             this.carIdxNamePosList.add(car);
         }

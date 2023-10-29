@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class UserInput {
 
-    public ArrayList<String> carsName = new ArrayList<>();
+    private ArrayList<String> carsName = new ArrayList<>();
     private int carCount;
     private int playTime;
 
@@ -13,11 +13,19 @@ public class UserInput {
         String[] carsNameInput = inputString.split(",");
 
         this.carsName.addAll(Arrays.asList(carsNameInput));
+        setCarCount();
+    }
+
+    private void setCarCount() {
         this.carCount = this.carsName.size();
     }
 
     public void setPlayTime(int inputNum) {
         this.playTime = inputNum;
+    }
+
+    public ArrayList<String> getCarsName() {
+        return carsName;
     }
 
     public int getCarCount() {
