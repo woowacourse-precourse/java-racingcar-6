@@ -19,5 +19,7 @@
   - [ ] 자동차별 현재 진행 사항 확인 - racingGame.progress
   - [ ] 실행 과정 결과 출력 - racingGame.progressResult
 
-- [ ] 최종 우승자 결과 출력 - Winner
+- [ ] 최종 우승자 - Winner
+  - [ ] 최종 우승자 확인 - Winner.car
+  - [ ] 최대 전진 길이 확인 - Winner.checkMax
   - [ ] 우승자의 자동차 이름 출력 (1명 이상일 수 있음.) - Winner.result

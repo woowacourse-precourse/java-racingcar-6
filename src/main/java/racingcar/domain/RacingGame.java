@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
-    public void progress(List<String> carNames, int attemptCount) {
+    public List<String> progress(List<String> carNames, int attemptCount) {
 
         MovingCondition movingCondition = new MovingCondition();
         List<String> racingProgress = new ArrayList<>();
@@ -24,6 +24,8 @@ public class RacingGame {
             }
             progressResult(carNames, racingProgress);
         }
+
+        return racingProgress;
     }
 
     public void progressResult(List<String> carNames, List<String> racingProgress){

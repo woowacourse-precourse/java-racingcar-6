@@ -3,6 +3,7 @@ package racingcar;
 import racingcar.domain.Attempt;
 import racingcar.domain.Car;
 import racingcar.domain.RacingGame;
+import racingcar.domain.Winner;
 
 import java.util.List;
 
@@ -15,6 +16,9 @@ public class Application {
         int attemptCount = attempt.attemptNum();
 
         RacingGame racingGame = new RacingGame();
-        racingGame.progress(carNames, attemptCount);
+        List<String> progressResults = racingGame.progress(carNames, attemptCount);
+
+        Winner winner = new Winner();
+        winner.car(carNames, progressResults);
     }
 }
