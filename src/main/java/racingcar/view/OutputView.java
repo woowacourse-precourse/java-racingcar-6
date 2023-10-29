@@ -20,4 +20,8 @@ public class OutputView {
             System.out.println(result.getResultMessage());
         }
     }
+
+    public void showWinners(List<String> winners) {
+        System.out.println(Messages.WINNER_MESSAGE + String.join(Messages.COMMA, winners));
+    }
 }

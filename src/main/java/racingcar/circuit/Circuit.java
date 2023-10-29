@@ -2,6 +2,7 @@ package racingcar.circuit;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
 import racingcar.domain.result.RacingCarResult;
 import racingcar.generator.NumberGenerator;
@@ -27,6 +28,6 @@ public class Circuit {
     }
 
     public List<RacingCarResult> summarizeRacingResult() {
-        return cars.stream().map(Car::toResult).toList();
+        return cars.stream().map(Car::toResult).collect(Collectors.toList());
     }
 }

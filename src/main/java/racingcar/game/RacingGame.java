@@ -8,6 +8,7 @@ import racingcar.domain.trial.Trial;
 import racingcar.game.validate.BlankTrialValidator;
 import racingcar.game.validate.EmptyCarNamesValidator;
 import racingcar.game.validate.IntegerTrialValidator;
+import racingcar.utils.RacingGameWinnerCalculator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -34,6 +35,14 @@ public class RacingGame {
             List<RacingCarResult> results = circuit.summarizeRacingResult();
             outputView.showRacingResult(results);
             trial.useTrialCount();
+            selectWinner(trial, results);
+        }
+    }
+
+    private void selectWinner(Trial trial, List<RacingCarResult> results) {
+        if (trial.isExhausted()) {
+            List<String> winners = RacingGameWinnerCalculator.getWinners(results);
+            outputView.showWinners(winners);
         }
     }
 
