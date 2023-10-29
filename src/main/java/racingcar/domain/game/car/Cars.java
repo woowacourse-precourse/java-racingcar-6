@@ -1,6 +1,7 @@
 package racingcar.domain.game.car;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.dto.CarMovementDto;
@@ -55,5 +56,9 @@ public class Cars {
                 .mapToInt(Car::getPosition)
                 .max()
                 .orElse(MIN_POSITION);
+    }
+
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
     }
 }
