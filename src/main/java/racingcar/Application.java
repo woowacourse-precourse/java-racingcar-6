@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.controller.RacingGameController;
 import racingcar.domain.numberpicker.RandomNumberPicker;
 import racingcar.domain.numberpicker.SystemRandomNumberPicker;
@@ -15,6 +16,8 @@ public class Application {
 
         RacingGameController racingGameController = new RacingGameController(randomNumberPicker, userIoManager);
         racingGameController.run();
+
+        Console.close();
     }
 
 }
