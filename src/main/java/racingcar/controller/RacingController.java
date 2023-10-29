@@ -5,32 +5,46 @@ import java.util.List;
 import racingcar.model.Car;
 import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingController {
 
     private final InputView inputView;
+    private final OutputView outputView;
     private final List<Car> cars = new ArrayList<>();
     private int attemptCount = 0;
     private int maxPosition = 0;
     private String winner = "";
 
-    public RacingController(InputView inputView) {
+    public RacingController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
+        this.outputView = outputView;
     }
 
     public void play() {
-        startInput();
+        readyForRacing();
+        racing();
+        awards();
+    }
 
-        carsSetting();
-
-        System.out.println();
-        System.out.println("실행 결과");
-
-        driveRepeatExecution();
-
+    private void awards() {
         findWinners();
+        outputView.printWinnersMessage(winner);
+    }
 
-        System.out.println("최종 우승자 : " + winner);
+    private void racing() {
+        ResultMessage();
+        driveRepeatExecution();
+    }
+
+    private void readyForRacing() {
+        startInput();
+        carsSetting();
+    }
+
+    private void ResultMessage() {
+        outputView.printSpaceLine();
+        outputView.printExecutionResultMessage();
     }
 
     private void findWinners() {
@@ -53,10 +67,10 @@ public class RacingController {
         while (attemptCount < inputView.getNumberOfAttempts()) {
             for (Car car : cars) {
                 isMove(car);
-                isMaxPostion(car);
+                isMaxPosition(car);
                 executionResult(car);
             }
-            System.out.println();
+            outputView.printSpaceLine();
             attemptCount++;
         }
     }
@@ -66,7 +80,7 @@ public class RacingController {
         System.out.println(result);
     }
 
-    private void isMaxPostion(Car car) {
+    private void isMaxPosition(Car car) {
         maxPosition = Math.max(maxPosition, car.getPosition());
     }
 
@@ -85,9 +99,9 @@ public class RacingController {
     }
 
     private void startInput() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        outputView.printCarNamesInputMessage();
         inputView.setInputNames();
-        System.out.println("시도할 회수는 몇회인가요?");
+        outputView.printExecutionNumberInputMessage();
         inputView.setNumberOfAttempts();
     }
 }
