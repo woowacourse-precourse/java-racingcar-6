@@ -2,9 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class UserInput {
     private static final String CAR_NAMES_DELIMETER = ",";
@@ -24,7 +22,7 @@ public class UserInput {
 
     //2) 사용자 입력에 대한 예외처리
     private void validateCarNames(String carName) throws IllegalArgumentException {
-        String[] names = carName.split(",");
+        List<String> names = Arrays.stream(carName.split(CAR_NAMES_DELIMETER)).toList();
         //1) 각 이름 길이 5초과 시 예외
         validateCarNamesLength(names);
         //2) 각 이름에 " " 공백 포함 시 예외
@@ -33,39 +31,25 @@ public class UserInput {
         validateCarNamesDuplicate(names);
     }
 
-    // -이름 중복될 경우 - abc, ab,
-    private void validateCarNamesDuplicate(String[] names) {
-        //3) 이름이 중복될 경우 예외
-        Map<String, Integer> map = new HashMap<>();
-
-        for (String x : names) {
-            map.put(x, map.getOrDefault(x, 0) + 1);
-        }
-
-        for (String key : map.keySet()) {
-            if (map.get(key) > 1) {
-                throw new IllegalArgumentException("경주할 자동차 이름은 중복되면 안됩니다.");
-            }
-        }
-    }
 
     //validate 메소드 분리 - 길이
-    private void validateCarNamesLength(String[] names) {
-        //1) 각 이름 길이 5초과 시 예외
-        for (String x : names) {
-            if (x.length() > 5) {
-                throw new IllegalArgumentException("경주할 자동차 이름의 길이는 5이하여야 합니다.");
-            }
+    private void validateCarNamesLength(List<String> names) {
+        if (names.stream().anyMatch(name -> name.length() > 5)) {
+            throw new IllegalArgumentException("경주할 자동차 이름의 길이는 5 이하여야 합니다.");
         }
     }
 
     //- 공백 포함 시
-    private void validateCarNamesBlank(String[] names) {
-        //2) 각 이름에 " " 공백 포함 시 예외
-        for (String x : names) {
-            if (x.contains(" ")) {
-                throw new IllegalArgumentException("경주할 자동차 이름에 공백이 포함되면 안됩니다.");
-            }
+    private void validateCarNamesBlank(List<String> names) {
+        if (names.stream().anyMatch(name -> name.contains(" "))) {
+            throw new IllegalArgumentException("경주할 자동차 이름에 공백이 포함되면 안됩니다.");
+        }
+    }
+
+    // -이름 중복될 경우 - abc, ab,
+    private void validateCarNamesDuplicate(List<String> names) {
+        if (names.size() != names.stream().distinct().count()) {
+            throw new IllegalArgumentException("경주할 자동차 이름은 중복되면 안됩니다.");
         }
     }
 
