@@ -42,7 +42,7 @@ public class CarGroup {
 
     private static void validateEmpty(String carName) {
         if (carName.isEmpty()) {
-            throw RaceException.of(ErrorMessage.DUPLICATED_CAR_NAME);
+            throw RaceException.of(ErrorMessage.EMPTY_CAR_NAME);
         }
     }
 }
