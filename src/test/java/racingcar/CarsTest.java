@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -46,5 +47,16 @@ public class CarsTest {
         carList.get(1).move();
 
         assertEquals(2, cars.findMaxPosition());
+    }
+
+    @Test
+    void findMaxPositionCarNames_테스트() {
+        carList.get(0).move();
+        carList.get(2).move();
+
+        List<String> result = cars.findMaxPositionCarNames();
+
+        assertEquals(2, result.size());
+        assertThat(result).contains("red").contains("blue");
     }
 }
