@@ -25,8 +25,8 @@ public class GameInputController {
         game.settingChance();
     }
 
-    //TODO: 게임 진행 요청
-    //TODO: 시도 횟수마다 결과 출력 요청
-    //TODO: 최종 우승자 출력 요청
+    public Game sendGameInfo() {
+        return game;
+    }
 
 }
