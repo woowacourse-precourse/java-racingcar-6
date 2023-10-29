@@ -42,7 +42,7 @@ class ApplicationTest extends NsTest {
                     run("car1,car2,car3", "1");
                     Assertions.assertThat(output()).contains("car1 : ", "car2 : ","car3 : ", "최종 우승자 : car1, car2, car3");
                 },
-                1,1,1
+                STOP,STOP,STOP
         );
     }
 

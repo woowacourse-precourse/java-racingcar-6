@@ -24,7 +24,7 @@ public class RacingCarGameController {
     private void moveCars(Cars cars) {
         int count = inputView.readMoveCount();
         outputView.printResultMessage();
-        IntStream.range(0, count).forEach(index -> {
+        IntStream.rangeClosed(1, count).forEach(index -> {
             moveCarProcess(cars);
         });
     }
