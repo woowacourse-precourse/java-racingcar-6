@@ -40,6 +40,15 @@ public class GameController {
         view.printResult(names, moveCounts);
     }
 
+    private List<String> calculateFinalWinners(RacingCars racingCars) {
+        List<Car> winners = racingCars.findWinners();
+        List<String> winnerNames = new ArrayList<>();
+        for (Car winner : winners) {
+            winnerNames.add(winner.getName());
+        }
+        return winnerNames;
+    }
+
     private List<String> mappingToNames(List<Car> endCars) {
         List<String> names = new ArrayList<>();
         for (Car endCar : endCars) {
