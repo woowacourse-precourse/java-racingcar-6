@@ -13,6 +13,10 @@ public class CarList {
         carList = new ArrayList<>();
     }
 
+    public CarList(List<Car> carList) {
+        this.carList = carList;
+    }
+
     public void addCar(Car car) {
         carList.add(car);
     }

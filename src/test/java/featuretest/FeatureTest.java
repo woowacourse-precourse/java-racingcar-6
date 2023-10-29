@@ -132,4 +132,30 @@ public class FeatureTest {
 
         assertThat(actualPosition).isEqualTo(expectedPosition);
     }
+
+    @Test
+    void 자동차_경주_우승자_한명_가려내기() {
+        List<Car> testCars = List.of(
+                new Car("car1"),
+                new Car("car2"),
+                new Car("car3")
+        );
+        List<Integer> moveCounts = List.of(3, 4, 2);
+
+        for (int i = 0; i < testCars.size(); i++) {
+            Car car = testCars.get(i);
+            for (int j = 0; j < moveCounts.get(i); j++) {
+                car.moveForward();
+            }
+        }
+        CarList carList = new CarList(testCars);
+        CarList raceWinners = carList.calculateRaceWinners();
+
+        List<Car> actualWinners = raceWinners.getCarList();
+        List<Car> expectedWinners = List.of(
+                new Car("car2")
+        );
+
+        assertThat(actualWinners).containsExactlyElementsOf(expectedWinners);
+    }
 }
