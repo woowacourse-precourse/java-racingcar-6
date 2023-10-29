@@ -2,19 +2,25 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-public class CarRacing {
-    private final List<Car> racingCars = new ArrayList<>();
+public class RacingGame {
+    private final List<Car> cars = new ArrayList<>();
 
-    public CarRacing(List<String> racingCarNames) {
-        setRacingCars(racingCarNames);
+    public RacingGame(List<String> carNames) {
+        initCars(carNames);
     }
 
-    private void setRacingCars(List<String> racingCarsName) {
-        for (String racingCarName : racingCarsName) {
-            racingCars.add(new Car(racingCarName));
+    private void initCars(List<String> carNames) {
+        for (String carName : carNames) {
+            cars.add(new Car(carName));
         }
+    }
+
+    public String race() {
+        for (Car racingCar : cars) {
+            racingCar.move();
+        }
+        return new CurrentResultMap().getCurrentResultMap(cars);
     }
 
     public List<String> getWinners() {
@@ -24,27 +30,16 @@ public class CarRacing {
     }
 
     private int getMaxMoveDistance() {
-        return racingCars.stream()
+        return cars.stream()
                 .mapToInt(Car::getMoveDistance)
                 .max()
                 .getAsInt();
     }
 
     private List<String> findWinners(int maxMoveDistance) {
-        return racingCars.stream()
+        return cars.stream()
                 .filter(racingCar -> racingCar.getMoveDistance() == maxMoveDistance)
                 .map(Car::getName)
                 .toList();
-    }
-
-    public void play() {
-        for (Car racingCar : racingCars) {
-            racingCar.move();
-        }
-    }
-
-    public Map<String, Integer> makeResultMap() {
-        ResultMap resultMap = new ResultMap(racingCars);
-        return resultMap.getResultMap();
     }
 }
