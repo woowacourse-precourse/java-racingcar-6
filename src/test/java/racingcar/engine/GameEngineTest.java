@@ -18,7 +18,7 @@ class GameEngineTest {
 
     @Test
     void 플레이어이름이_null이면_예외를_던진다() {
-        Assertions.assertThatCode(() -> new GameEngine(null, new ReturnOneGenerator(), new GameEngineValidator()))
+        Assertions.assertThatCode(() -> new GameEngine(null, new ScoreUpdater(new ReturnGenerator()), new GameEngineValidator()))
                 .isExactlyInstanceOf(IllegalArgumentException.class)
         ;
     }
@@ -26,7 +26,7 @@ class GameEngineTest {
     @ParameterizedTest
     @MethodSource("생성이_안되는_케이스")
     void 플레이어이름이_6이상이면_예외를_던진다(String readLine) {
-        Assertions.assertThatCode(() -> new GameEngine(readLine, new ReturnOneGenerator(), new GameEngineValidator()))
+        Assertions.assertThatCode(() -> new GameEngine(readLine, new ScoreUpdater(new ReturnGenerator()), new GameEngineValidator()))
                 .isExactlyInstanceOf(IllegalArgumentException.class)
         ;
     }
@@ -34,7 +34,7 @@ class GameEngineTest {
     @ParameterizedTest
     @MethodSource("생성이_되는_케이스")
     void 플레이어이름이_5이하이면_예외를_던지지_않는다(String readLine) {
-        Assertions.assertThatCode(() -> new GameEngine(readLine, new ReturnOneGenerator(), new GameEngineValidator()))
+        Assertions.assertThatCode(() -> new GameEngine(readLine, new ScoreUpdater(new ReturnGenerator()), new GameEngineValidator()))
                 .doesNotThrowAnyException();
     }
 
