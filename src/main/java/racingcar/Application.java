@@ -22,4 +22,14 @@ public class Application {
         int randomNum = Randoms.pickNumberInRange(0,9);
         return randomNum;
     }
+
+    private static void printEachScore(int[] raceAccumulation){
+        for (int index=0; index<raceAccumulation.length; index++){
+            int substitutionNum = raceAccumulation[index];
+            for (int printNum=0; printNum<substitutionNum; printNum++){
+                System.out.print("-");
+            }
+
+        }
+    }
 }
