@@ -27,8 +27,7 @@ public class ViewTest {
     @DisplayName("자동차의 현재 상태에 대해 출력하는 기능")
     @Test
     void printCurrentCarResult_자동차_상태출력() {
-
-        CurrentResult input = new CurrentResult("ski", new ForwardState(3));
+        CurrentResult input = new CurrentResult("ski", new ForwardState("---"));
         View view = new View();
 
         String expected = "ski : ---";
