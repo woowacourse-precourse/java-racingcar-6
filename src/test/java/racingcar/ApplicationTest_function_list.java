@@ -6,15 +6,41 @@ import org.junit.jupiter.api.Test;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 import java.io.ByteArrayInputStream;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 class ApplicationTest_function_list extends NsTest {
+
+    void testPrivateMethod(Class<?> testClass, String testMethodName, List<List<Object>> testCase) {
+
+        for (List<Object> input : testCase) {
+            // private method reflection 사용
+            Object returnValue = new Object();
+            try {
+                // reflection
+                Class<?> parameterClasses[] = Arrays.asList(testClass.getDeclaredMethods())
+                        .stream()
+                        .filter(x -> x.getName().equals(testMethodName))
+                        .toList()
+                        .get(0)
+                        .getParameterTypes();
+                Method testMethod = testClass.getDeclaredMethod(testMethodName, parameterClasses);
+                testMethod.setAccessible(true);
+
+                Object[] parameter = input.subList(0, input.size() - 1).toArray();// 메소드 입력값
+                returnValue = testMethod.invoke(testClass, parameter);// 실행
+            } catch (Exception e) { // 메소드명 오류시 예외처리
+                assertThatExceptionOfType(IllegalArgumentException.class);
+                continue;
+            }
+            Object expectResult = input.get(input.size() - 1);
+            assertThat(returnValue).isEqualTo(expectResult);
+        }
+    }
 
     @Test
     void 기능목록_테스트_시작_문자열_출력() {
@@ -24,73 +50,61 @@ class ApplicationTest_function_list extends NsTest {
 
     @Test
     void 기능목록_테스트_자동차_이름_입력() {
-        List<String> testInputs = List.of(
+        List<String> testCaes = Arrays.asList(
                 "pobi,woni,jun,0,1,2,3,4,5,6,7,8,9",
                 "pobi,0,1,2,3,4,5,6,7,8,9,woni,jun",
                 "0,1,2,3,4,5,6,7,8,9,pobi,woni,jun");
 
-        for (int i = 0; i < testInputs.size(); i++) {
-            final byte[] buf = String.join("\n", testInputs).getBytes();
+        for (int i = 0; i < testCaes.size(); i++) {
+            final byte[] buf = String.join("\n", testCaes).getBytes();
             System.setIn(new ByteArrayInputStream(buf));
             assertThat(Input.inputCarName())
-                    .containsAll(List.of("pobi", "woni", "jun", "0", "5", "9"));
+                    .containsAll(Arrays.asList("pobi", "woni", "jun", "0", "5", "9"));
         }
     }
 
     @Test
     void 기능목록_테스트_입력_문자열_분할() {
-        // private method reflection 사용
-        List<Object> returnValue = new ArrayList<>();
-        try {
-            // reflection
-            Method rawToListMethod = Input.class.getDeclaredMethod("rawToList", String.class);
-            rawToListMethod.setAccessible(true);
-
-            String parameterString = "a,bb,ccc";// 메소드 입력값
-            Object tmp = rawToListMethod.invoke(Input.class, parameterString);// 실행
-            if (tmp instanceof ArrayList) {
-                returnValue =  Arrays.asList(tmp);
-            }
-
-        } catch (Exception e) { // 메소드명 오류시 예외처리
-            e.printStackTrace();
-        }
-        assertThat(returnValue).containsExactly(Arrays.asList("a", "bb", "ccc"));
-
+        Class<?> testClass = Input.class;
+        String testMethodName = "rawToList";
+        List<List<Object>> testCase = Arrays.asList(
+                Arrays.asList("a,bb,ccc", Arrays.asList("a", "bb", "ccc")),
+                Arrays.asList("pobi", Arrays.asList("pobi")));
+        testPrivateMethod(testClass, testMethodName, testCase);
     }
 
     @Test
     void 기능목록_테스트_자동차_이름_입력_오류_처리() {
-
+        // void checkCarNameError(List<String> carNames) throws IllegalArgumentException
+        Class<?> testClass = Input.class;
+        String testMethodName = "checkCarNameError";
+        List<List<Object>> testCase = Arrays.asList(
+                Arrays.asList(Arrays.asList("pobi", "woni", "jun"), null),
+                Arrays.asList(Arrays.asList("1"), null),
+                Arrays.asList(Arrays.asList("pobi", "woni", "123456"), new IllegalArgumentException()));
+        testPrivateMethod(testClass, testMethodName, testCase);
     }
 
     @Test
     void 기능목록_테스트_빈_문자열_검사() {
-        List<List<Object>> inputList = List.of(List.of("pobi", false), List.of("", true));
-        for (List<Object> input : inputList) {
-
-            // private method reflection 사용
-            Object returnValue = new Object();
-            try {
-                // reflection
-                Method isBlankMethod = Input.class.getDeclaredMethod("isBlank", String.class);
-                isBlankMethod.setAccessible(true);
-
-                String parameter = input.get(0).toString();// 메소드 입력값
-                Object tmp = isBlankMethod.invoke(Input.class, parameter);// 실행
-                if (tmp instanceof Boolean) {
-                    returnValue = (boolean) tmp;
-                }
-            } catch (Exception e) { // 메소드명 오류시 예외처리
-                e.printStackTrace();
-            }
-            assertThat(returnValue).isEqualTo(input.get(1));
-        }
+        Class<?> testClass = Input.class;
+        String testMethodName = "isBlank";
+        List<List<Object>> testCase = Arrays.asList(
+                Arrays.asList("pobi", false),
+                Arrays.asList("", true));
+        testPrivateMethod(testClass, testMethodName, testCase);
     }
 
     @Test
     void 기능목록_테스트_1_5자_검사() {
-
+        Class<?> testClass = Input.class;
+        String testMethodName = "isLength1To";
+        List<List<Object>> testCase = Arrays.asList(
+                Arrays.asList("pobi", 5, false),
+                Arrays.asList("", 5, false),
+                Arrays.asList("123456", 5, true),
+                Arrays.asList("1234", 3, true));
+        testPrivateMethod(testClass, testMethodName, testCase);
     }
 
     @Test
