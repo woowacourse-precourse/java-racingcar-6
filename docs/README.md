@@ -13,10 +13,10 @@
     - [x] 1라운드 실행
     - [x] 현재상태 출력
     - [x] 우승자 출력
-  - [ ] GameShell
+  - [x] GameShell
     - [x] 자동차 이름 질문
     - [x] 라운드 횟수 질문
-    - [ ] 게임 루프
+    - [x] 게임 루프
   - [x] ProbabilityWatcher
     - [x] Test 작성
 - [x] 기초 설계
