@@ -27,7 +27,7 @@ public class Car {
     }
 
     // 얼마나 나갔는지 동적으로 업뎃
-    private String printMovement() {
+    public String printMovement() {
         if (moveCar()) {
             carName = carName + "-";
             return carName;

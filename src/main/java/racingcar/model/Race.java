@@ -15,7 +15,7 @@ public class Race {
     // 화면단에 출력하기(이제 이걸 이동회수 입력값만큼 반복)
     public void printRace() {
         for (int i = 0; i < cars.length; i++) {
-            System.out.print(cars[i] + "\n");
+            System.out.print(cars[i].printMovement() + "\n");
         }
         System.out.println();
     }
