@@ -2,12 +2,12 @@ package racingcar;
 
 public class RacingCar {
     private final String name;
-    private int moveCount;
+    private int forwardCount;
 
     public RacingCar(String name) {
         validationCarName(name);
         this.name = name;
-        this.moveCount = 0;
+        this.forwardCount = 0;
     }
 
     private void validationCarName(String name) {
