@@ -20,4 +20,12 @@ public class Car {
     public int getDistance() {
         return distance;
     }
+
+    public void printCurrentDistance(){
+        System.out.printf("%s : ", this.carName);
+        for(int i=0; i<this.distance; i++){
+            System.out.print("-");
+        }
+        System.out.println();
+    }
 }

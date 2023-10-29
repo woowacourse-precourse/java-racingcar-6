@@ -25,7 +25,7 @@ public class Application {
         for (int i =0; i< stepCount; i++){
             for (Car car: carList){
                 car.decideIfCarShouldGo();
-                System.out.printf("%s : - * %d%n", car.carName, car.distance);
+                car.printCurrentDistance();
             }
             System.out.println();
         }
@@ -33,9 +33,13 @@ public class Application {
         List<Car> championCars = utils.findCarsWithMaxDistance(carList);
 
         System.out.print("최종 우승자: ");
-        for (Car car : championCars){
+        int size = championCars.size();
+        for (int i = 0; i < size; i++) {
+            Car car = championCars.get(i);
             System.out.print(car.carName);
-            System.out.print(", ");
+            if (i < size - 1) {
+                System.out.print(", ");
+            }
         }
 
     }
