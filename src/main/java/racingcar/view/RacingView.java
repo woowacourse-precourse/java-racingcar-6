@@ -24,4 +24,8 @@ public class RacingView {
         InputValidator.validateTryCountInput(input);
         return Integer.parseInt(input);
     }
+
+    public void startPrintTryResult() {
+        System.out.println(RacingMessage.TRY_RESULT);
+    }
 }
