@@ -3,7 +3,6 @@ package racingcar.domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Field;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,17 +18,9 @@ class CarsTest {
         // when
         Cars cars = new Cars();
         cars.makeCars(nameList);
+        List<Car> carList = cars.getCars();
 
         // then
-        try {
-            Field field = Cars.class.getDeclaredField("cars");
-            field.setAccessible(true);
-            List<String> carList = (List<String>) field.get(cars);
-
-            assertThat(carList.size()).isEqualTo(3);
-            field.setAccessible(false);
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        assertThat(carList.size()).isEqualTo(3);
     }
 }
