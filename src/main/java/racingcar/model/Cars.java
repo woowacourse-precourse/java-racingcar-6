@@ -69,7 +69,6 @@ public class Cars {
             sb.append("-".repeat(car.getDistance()));
             sb.append("\n");
         });
-        sb.append("\n");
 
         return sb.toString();
     }

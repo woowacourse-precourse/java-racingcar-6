@@ -62,6 +62,6 @@ public class CarsTest {
         //Then
         assertEquals("pobi : ---\n"
                 + "woni : -\n"
-                + "jun : ---\n\n", progressStatus);
+                + "jun : ---\n", progressStatus);
     }
 }

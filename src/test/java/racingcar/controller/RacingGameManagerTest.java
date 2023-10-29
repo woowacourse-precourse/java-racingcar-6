@@ -5,6 +5,8 @@ import static org.mockito.Mockito.times;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import racingcar.View.InputView;
+import racingcar.View.OutputView;
 import racingcar.model.Cars;
 
 public class RacingGameManagerTest {
@@ -36,7 +38,7 @@ public class RacingGameManagerTest {
         // Given
         int tryCount = 3;
         Cars spyCars = Mockito.spy(new Cars());
-        RacingGameManager racingGameManager = new RacingGameManager(spyCars);
+        RacingGameManager racingGameManager = new RacingGameManager(spyCars, new InputView(), new OutputView());
 
         // When
         racingGameManager.repeatMove(tryCount);
