@@ -1,6 +1,8 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -21,6 +23,7 @@ public class GameProcess {
 			}
 			System.out.println();
 		}
+		judgeWinnerDistance(carList);
 	}
 
 	private void moveOrNot(InformationOfCar car) {
@@ -32,6 +35,22 @@ public class GameProcess {
 
 	private boolean judgeMoveOrNot(int randomNumber) {
 		return randomNumber >= 4;
+	}
+
+	private void judgeWinnerDistance(ArrayList<InformationOfCar> carList) {
+		carList.sort((car1, car2) -> car2.getDistance().length() - car1.getDistance().length());
+		int maxDistance = carList.get(0).getDistance().length();
+		makeFinalString(maxDistance, carList);
+	}
+
+	private void makeFinalString(int maxDistance, ArrayList<InformationOfCar> carList) {
+		String result = carList.get(0).getCarName();
+		for (int i = 1; i < carList.size()-1; i++) {
+			InformationOfCar car = carList.get(i);
+			if (car.getDistance().length() == maxDistance) {
+				result += ", " + car.getCarName();
+			}
+		}
 	}
 
 }

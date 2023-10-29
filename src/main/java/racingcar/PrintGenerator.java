@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.ArrayList;
+
 public class PrintGenerator {
 
 	public PrintGenerator() {
@@ -17,5 +19,4 @@ public class PrintGenerator {
 	public void printMoveResult(InformationOfCar car) {
 		System.out.println(car.getCarName() + " : " + car.getDistance());
 	}
-
 }
