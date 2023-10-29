@@ -14,5 +14,6 @@ public class Application {
         GameOutputController outputController = new GameOutputController();
         outputController.readyForGame(inputController.sendGameInfo());
         outputController.startGame();
+        outputController.printWinner();
     }
 }
