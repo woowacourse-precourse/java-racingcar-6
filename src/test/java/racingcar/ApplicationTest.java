@@ -26,6 +26,19 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 이동_횟수에_대한_예외_처리_숫자가_아님() {
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException("pobi","woni", "a"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException("pobi","woni", "!"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
     void 정상적인_이름과_이동_횟수() {
         assertSimpleTest(() ->
             assertThatCode(() -> runException("pobi,javaj", "1"))
