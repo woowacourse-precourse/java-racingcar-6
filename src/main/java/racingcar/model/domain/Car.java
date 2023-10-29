@@ -17,4 +17,8 @@ public class Car {
         return location;
     }
 
+    public int move(int forwardCount) {
+        return location += forwardCount;
+    }
+
 }
