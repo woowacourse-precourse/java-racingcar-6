@@ -5,7 +5,8 @@ import racingcar.domain.Car;
 public class CarDTO {
     private String name;
     private int position;
-    public CarDTO(String name, int position){
+
+    public CarDTO(String name, int position) {
         this.name = name;
         this.position = position;
     }

@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.Random;
 import racingcar.domain.dto.CarDTO;
 
 public class Car {
@@ -11,7 +10,7 @@ public class Car {
     private static final int MAX_RANDOM_NUM = 9;
     private static final int CONDITION_FOR_FORWARD = 4;
 
-    public Car(String name){
+    public Car(String name) {
         this.name = name;
         this.distance = 0;
     }
@@ -36,7 +35,7 @@ public class Car {
         return randNum >= CONDITION_FOR_FORWARD;
     }
 
-    private int getRandNum(){
+    private int getRandNum() {
         return Randoms.pickNumberInRange(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
     }
 

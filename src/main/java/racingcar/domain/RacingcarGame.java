@@ -8,10 +8,11 @@ public class RacingcarGame {
     private final Cars racingCars;
     private final Round round;
 
-    public RacingcarGame(InitDTO initDTO){
+    public RacingcarGame(InitDTO initDTO) {
         this.racingCars = registerCars(initDTO.getCarNames());
         this.round = new Round(initDTO.getRounds());
     }
+
     private Cars registerCars(List<String> carNames) {
         List<Car> cars = carNames.stream()
                 .map(Car::new)
@@ -19,7 +20,7 @@ public class RacingcarGame {
         return new Cars(cars);
     }
 
-    public List<CarDTO> play(){
+    public List<CarDTO> play() {
         this.round.next();
         return racingCars.playRound();
     }
@@ -28,7 +29,7 @@ public class RacingcarGame {
         return round.isEnd();
     }
 
-    public List<CarDTO> end(){
+    public List<CarDTO> end() {
         return racingCars.getWinners();
     }
 }

@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.stream.IntStream;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,12 +10,12 @@ class RoundTest {
     Round round;
 
     @BeforeEach
-    void beforeEach(){
+    void beforeEach() {
         round = new Round(TOTAL_ROUND);
     }
 
     @Test
-    void 마지막_라운드_전(){
+    void 마지막_라운드_전() {
         // given
         round.next();
 
@@ -26,9 +24,9 @@ class RoundTest {
     }
 
     @Test
-    void 마지막_라운드(){
+    void 마지막_라운드() {
         // given
-        IntStream.range(0, 5).forEach(i->{
+        IntStream.range(0, 5).forEach(i -> {
             round.next();
         });
         System.out.println(round.isEnd());
