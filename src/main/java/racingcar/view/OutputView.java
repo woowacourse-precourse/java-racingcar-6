@@ -18,7 +18,7 @@ public class OutputView {
     }
 
     public static void printGameResultMessage(List<Car> cars) {
-        for(Car car : cars){
+        for (Car car : cars) {
             System.out.print(car.getName() + " : ");
             printCarLocationMessage(car.getPosition());
         }
@@ -26,7 +26,7 @@ public class OutputView {
     }
 
     public static void printCarLocationMessage(int position) {
-        for(int i = 0 ; i < position; i++){
+        for (int i = 0; i < position; i++) {
             System.out.print("-");
         }
         System.out.println();
