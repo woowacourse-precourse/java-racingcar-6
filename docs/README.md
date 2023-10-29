@@ -2,9 +2,9 @@
 
 ## 기능 목록
 
-- [x] **각 자동차에 이름을 부여한다.** -`CarName #inputCarName`
+- [x] **각 자동차에 이름을 부여한다.** -`RacingCarName #inputRacingCarName`
   - [x] 자동차 이름은 쉼표(,)를 기준으로 구분한다.
-  - [ ] 예외처리 : 이름은 5자 이하만 가능하다.
+  - [x] **예외처리 : 이름은 5자 이하만 가능하다.** -`CarName #IllegalArgumentException`
 - [x] **사용자는 몇 번의 이동을 할 것인지 입력한다.** -`RacingCount #inputRacingCount`
 
 
