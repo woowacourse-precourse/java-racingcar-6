@@ -2,23 +2,11 @@ package racingcar.domain;
 
 public class Car {
 
-    private String name;
-    private int advancedNum;
+    private Name name;
+    private Position position;
 
-    public Car(int i, String carName) {
-        advancedNum = i;
-        name = carName;
-    }
-
-    public void plus() {
-        advancedNum++;
-    }
-
-    public String findName() {
-        return name;
-    }
-
-    public int findAdvanceNum() {
-        return advancedNum;
+    public Car(String name, int position) {
+        this.name = new Name(name);
+        this.position = new Position(position);
     }
 }
