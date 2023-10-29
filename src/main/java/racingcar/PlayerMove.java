@@ -16,7 +16,7 @@ public class PlayerMove {
         return new PlayerMove(player, Distance.from(0));
     }
 
-    public static PlayerMove from(Player player, Distance distance) {
+    public static PlayerMove of(Player player, Distance distance) {
         return new PlayerMove(player, distance);
     }
 

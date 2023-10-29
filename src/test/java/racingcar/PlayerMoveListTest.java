@@ -17,7 +17,7 @@ public class PlayerMoveListTest {
     @Test
     void from은_모든_플레이어의_이동현황을_받아_객체를_생성한다() {
         List<PlayerMove> playerMoves = List.of(PlayerMove.fromTest(), PlayerMove.fromTest());
-        PlayerMoveList playerMoveList = PlayerMoveList.from(playerMoves, moveFactory);
+        PlayerMoveList playerMoveList = PlayerMoveList.of(playerMoves, moveFactory);
         assertNotNull(playerMoveList);
     }
 
@@ -26,7 +26,7 @@ public class PlayerMoveListTest {
     void move는_모든_플레이어_이동현황에_이동여부를_적용한다() {
         // given
         PlayerMove playerMove = mock(PlayerMove.class);
-        PlayerMoveList playerMoveList = PlayerMoveList.from(List.of(playerMove, playerMove), moveFactory);
+        PlayerMoveList playerMoveList = PlayerMoveList.of(List.of(playerMove, playerMove), moveFactory);
 
         // when
         playerMoveList.move();
@@ -38,11 +38,11 @@ public class PlayerMoveListTest {
     @Test
     void getMaxDistance는_모든_플레이어_이동현황중에_가장_거리가_먼_값을_반환한다() {
         List<PlayerMove> playerMoves = List.of(
-                PlayerMove.from(Player.from("a"), Distance.from(0)),
-                PlayerMove.from(Player.from("b"), Distance.from(1)),
-                PlayerMove.from(Player.from("c"), Distance.from(2))
+                PlayerMove.of(Player.from("a"), Distance.from(0)),
+                PlayerMove.of(Player.from("b"), Distance.from(1)),
+                PlayerMove.of(Player.from("c"), Distance.from(2))
         );
-        PlayerMoveList playerMoveList = PlayerMoveList.from(playerMoves, moveFactory);
+        PlayerMoveList playerMoveList = PlayerMoveList.of(playerMoves, moveFactory);
 
         assertEquals(2, playerMoveList.getMaxDistance());
     }
@@ -51,7 +51,7 @@ public class PlayerMoveListTest {
     void checkWinner는_모든_플레이어_이동현황에_우승자를_체크하도록_호출한다() {
         // given
         PlayerMove playerMove = mock(PlayerMove.class);
-        PlayerMoveList playerMoveList = PlayerMoveList.from(List.of(playerMove, playerMove), moveFactory);
+        PlayerMoveList playerMoveList = PlayerMoveList.of(List.of(playerMove, playerMove), moveFactory);
         int max = 0;
 
         // when

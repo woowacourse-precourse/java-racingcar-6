@@ -14,7 +14,7 @@ public class RacingGameTest {
 
     @Test
     void init은_플레이어_이동현황_리스트를_받아_GameStatus를_초기화한_객체를_생성한다() {
-        PlayerMoveList playerMoveList = PlayerMoveList.from(playerMoves, moveFactory);
+        PlayerMoveList playerMoveList = PlayerMoveList.of(playerMoves, moveFactory);
         RacingGame racingGame = RacingGame.init(playerMoveList);
 
         assertNotNull(racingGame);
