@@ -49,6 +49,35 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 횟수_입력에_대한_예외_처리() {
+        // input space test
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javji", " "))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+        // input special letter test
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javji", ")"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+        // input number with space test
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javji", " 1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+        // input number with space test
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javji", " 1 "))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+        // input number with space test
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javji", "1 "))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
