@@ -1,4 +1,4 @@
-package racingcar.dto;
+package racingcar.controller.dto;
 
 import java.util.List;
 import racingcar.model.Car;
