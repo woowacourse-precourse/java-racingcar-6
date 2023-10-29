@@ -6,31 +6,41 @@ public class RaceCountInput {
 
     private static final String REGEX = "\\d+";
 
-    public void process() {
-        String userInput = InputView.getUserInput();
-        int gameCount = valid(userInput);
+    private final int raceCount;
+
+    private RaceCountInput(int raceCount) {
+        this.raceCount = raceCount;
     }
 
-    public int valid(String userInput) {
+    public static RaceCountInput createRaceCountInput(String userInput) {
+        int userCount = valid(userInput);
+        return new RaceCountInput(userCount);
+    }
+
+    private static int valid(String userInput) {
         validIsNumber(userInput);
         int userCount = toInt(userInput);
         validNotZero(userCount);
         return userCount;
     }
 
-    public void validIsNumber(String userInput) {
+    private static void validIsNumber(String userInput) {
         if (!userInput.matches(REGEX)) {
             throw new IllegalArgumentException();
         }
     }
 
-    public void validNotZero(int userCount) {
+    private static void validNotZero(int userCount) {
         if (userCount == 0) {
             throw new IllegalArgumentException();
         }
     }
 
-    public int toInt(String userInput) {
+    private static int toInt(String userInput) {
         return Integer.parseInt(userInput);
+    }
+
+    public int getRaceCount() {
+        return raceCount;
     }
 }
