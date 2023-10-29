@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.stream.IntStream;
 import racingcar.model.RacingCarGameModel;
 import racingcar.model.RacingCarPlayerModel;
 import racingcar.view.RacingCarGameView;
@@ -26,11 +27,11 @@ public class RacingCarGameController{
 
     private void startGame() {
         this.initRacingCarGame();
-        while(this.racingCarGameModel.getTryCount() > 0){
-            this.movePlayers();
-            this.racingCarPlayerView.printPlayersPosition(this.racingCarGameModel.getPlayers());
-            this.racingCarGameModel.setTryCount(this.racingCarGameModel.getTryCount() - 1);
-        }
+        IntStream.range(0, this.racingCarGameModel.getTryCount())
+            .forEach(i -> {
+                this.movePlayers();
+                this.racingCarPlayerView.printPlayersPosition(this.racingCarGameModel.getPlayers());
+            });
         this.racingCarGameModel.setWinners();
     }
 
