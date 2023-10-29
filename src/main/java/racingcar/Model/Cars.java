@@ -1,7 +1,9 @@
 package racingcar.Model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.Util.CarMovement;
 
 public class Cars {
@@ -43,5 +45,11 @@ public class Cars {
             icon += "-";
         }
         return icon;
+    }
+
+    private List<Car> sortPosition(){
+        return cars.stream()
+                .sorted(Comparator.comparingInt(Car::getCarPosition).reversed())
+                .collect(Collectors.toList());
     }
 }
