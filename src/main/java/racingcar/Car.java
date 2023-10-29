@@ -28,4 +28,10 @@ public class Car {
     public Integer getCurrentValue() {
         return currentValue;
     }
+    public void setWinner(){
+        isWinner = true;
+    }
+    public Boolean isWinner(){
+        return isWinner;
+    }
 }
