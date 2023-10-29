@@ -13,7 +13,7 @@ import static org.mockito.Mockito.mockStatic;
 class GameTest {
 
     @Test
-    void forwardCars_메시지_반환() {
+    void simulate_메시지_반환() {
 
         List<Car> cars = List.of(new Car("foo"), new Car("bar"));
         Game game = new Game(cars);
