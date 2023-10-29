@@ -11,7 +11,7 @@ public class CarName {
         this.carName = carName;
     }
 
-    public void printCarName() {
+    public void printOnTurnResult() {
         OutputView.printCarNameOnTurnResult(carName);
     }
 

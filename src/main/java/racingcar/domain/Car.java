@@ -12,7 +12,7 @@ public class Car implements Comparable<Car>{
     }
 
     public void printPresentMovingDistance() {
-        carName.printCarName();
+        carName.printOnTurnResult();
         OutputView.printMovingDistanceOnTurnResult(movingDistance);
     }
 
