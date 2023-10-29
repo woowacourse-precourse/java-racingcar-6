@@ -57,8 +57,8 @@ public class Cars {
             return;
         }
 
-        Car targetCar = getByIndex(index).increaseMove();
-        moveForward(index, targetCar);
+        Car car = cars.get(index);
+        moveForward(index, car.increaseMove());
     }
 
     private void moveForward(final int index, final Car targetCar) {
@@ -67,10 +67,6 @@ public class Cars {
 
     private boolean isRandomNumberNotInRange() {
         return pickNumberInRange() < RANDOM_NUMBER_LIMIT;
-    }
-
-    private Car getByIndex(final int index) {
-        return cars.get(index);
     }
 
     private void validate(final List<String> names) {
