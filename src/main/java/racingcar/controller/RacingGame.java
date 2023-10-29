@@ -1,15 +1,17 @@
 package racingcar.controller;
 
 import racingcar.model.Cars;
-import racingcar.view.InputView;
 
 public class RacingGame {
-    private static Cars cars;
+    private Cars cars;
+    private int repeatNum;
+
     public void playRacingGame() {
-        setCars();
+        initRacingGameInput();
     }
 
-    private void setCars() {
+    private void initRacingGameInput() {
         this.cars = CarCreator.createCars();
+        this.repeatNum = RepeatNum.setRepeatNum();
     }
 }

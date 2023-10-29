@@ -4,11 +4,11 @@ import java.util.Arrays;
 import java.util.List;
 import racingcar.view.InputView;
 
-public class StringName {
+public class CarNames {
     private static final int NAME_LENGTH = 5;
 
-
-    public static List<String> splitName(String inputName) {
+    public static List<String> splitName() {
+        String inputName = InputView.inputName();
         List<String> names = Arrays.asList(inputName.split(","));
         checkNames(names);
         return names;

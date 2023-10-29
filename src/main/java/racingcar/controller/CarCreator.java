@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.Cars;
-import racingcar.view.InputView;
 
 public class CarCreator {
     public static Cars createCars() {
@@ -12,8 +11,7 @@ public class CarCreator {
     }
 
     private static List<Car> createCarList() {
-        String inputName = InputView.inputName();
-        List<String> names = StringName.splitName(inputName);
+        List<String> names = CarNames.splitName();
         return names.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
