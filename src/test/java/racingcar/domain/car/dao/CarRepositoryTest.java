@@ -12,6 +12,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -106,6 +107,28 @@ class CarRepositoryTest {
             assertThat(carWithMaxPosition.get(1).getPosition()).isEqualTo(4);
         }
 
+    }
+
+    @Nested
+    @DisplayName("데이터베이스 초기화 테스트")
+    class clearDatabaseTest {
+
+        @Test
+        @DisplayName("데이터베이스를 성공적으로 초기화 해야 한다")
+        public void 데이터베이스를_성공적으로_초기화_해야_한다() {
+            CarRepository carRepository = new CarRepository();
+            carRepository.clear();
+
+            carRepository.save(any());
+            carRepository.save(any());
+            carRepository.save(any());
+
+            assertThat(carRepository.findAll().size()).isEqualTo(3);
+
+            carRepository.clear();
+
+            assertThat(carRepository.findAll().size()).isEqualTo(0);
+        }
     }
 
     @Nested
