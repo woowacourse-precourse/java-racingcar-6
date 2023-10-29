@@ -5,7 +5,7 @@ import java.util.List;
 public class RacingConverter {
     private static final String DELIMITER = ",";
 
-    public List<String> convertToList(String input) {
+    public List<String> convertToListByDelimiter(String input) {
         return List.of(input.split(DELIMITER));
     }
 
