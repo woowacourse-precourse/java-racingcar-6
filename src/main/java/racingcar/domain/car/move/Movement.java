@@ -14,10 +14,6 @@ public abstract class Movement implements Comparable<Movement> {
 
     @Override
     public int compareTo(Movement o) {
-        if(o == null) {
-            throw new NullPointerException();
-        }
-
         return getPosition() - o.getPosition();
     }
 

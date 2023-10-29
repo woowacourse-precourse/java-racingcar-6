@@ -22,7 +22,6 @@ public class InputCarFactory implements CarFactory {
     }
 
     private List<Car> convertNamesToCars(String[] carNames) {
-        inputCarFactoryValidator.validateCarNames(carNames);
         return Arrays.stream(carNames)
                 .map(name -> new Car(name.trim(), new RandomMovement()))
                 .collect(Collectors.toList());
@@ -33,7 +32,8 @@ public class InputCarFactory implements CarFactory {
     }
 
     private String[] inputCarName() {
-        return Console.readLine()
-                .split(",");
+        String[] carNames = Console.readLine().split(",");
+        inputCarFactoryValidator.validateCarNames(carNames);
+        return carNames;
     }
 }

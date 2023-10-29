@@ -1,7 +1,7 @@
-package racingcar.domain.racingGame;
+package racingcar.domain.racinggame;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.racingGame.validator.TryCountValidator;
+import racingcar.domain.racinggame.validator.TryCountValidator;
 
 public class TryCountManager {
     public static final int MAX_TRY_COUNT = 100;

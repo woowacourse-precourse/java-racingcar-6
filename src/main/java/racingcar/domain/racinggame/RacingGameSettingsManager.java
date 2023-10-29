@@ -1,4 +1,4 @@
-package racingcar.domain.racingGame;
+package racingcar.domain.racinggame;
 
 import racingcar.domain.car.CarManager;
 

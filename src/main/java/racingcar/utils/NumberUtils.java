@@ -1,4 +1,4 @@
-package racingcar.domain.utils;
+package racingcar.utils;
 
 public class NumberUtils {
     private NumberUtils() {};

@@ -1,11 +1,10 @@
-package racingcar.domain.racingGame;
+package racingcar.domain.racinggame;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 import racingcar.IOTest;
-import racingcar.domain.racingGame.validator.TryCountValidator;
+import racingcar.domain.racinggame.validator.TryCountValidator;
 
 class TryCountManagerTest extends IOTest {
     @Test

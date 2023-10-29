@@ -1,7 +1,7 @@
-package racingcar.domain.racingGame.validator;
+package racingcar.domain.racinggame.validator;
 
-import racingcar.domain.racingGame.TryCountManager;
-import racingcar.domain.utils.NumberUtils;
+import racingcar.domain.racinggame.TryCountManager;
+import racingcar.utils.NumberUtils;
 
 public class TryCountValidator {
 

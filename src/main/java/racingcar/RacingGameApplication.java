@@ -1,86 +1,39 @@
 package racingcar;
 
-import racingcar.domain.car.validator.InputCarFactoryValidator;
-import racingcar.domain.racingGame.validator.TryCountValidator;
-import racingcar.domain.victory.VictoryManager;
-import racingcar.domain.victory.VictoryView;
-import racingcar.domain.car.CarFactory;
-import racingcar.domain.car.CarManager;
-import racingcar.domain.car.InputCarFactory;
-import racingcar.domain.racingGame.RacingGame;
-import racingcar.domain.racingGame.RacingGameManager;
-import racingcar.domain.racingGame.RacingGameSettingsManager;
-import racingcar.domain.racingGame.TryCountManager;
+import racingcar.domain.car.config.CarConfig;
+import racingcar.domain.racinggame.config.RacingGameConfig;
+import racingcar.domain.victory.config.VictoryConfig;
 
 public class RacingGameApplication {
-    private RacingGameManager cashedRacingGameManager;
-    private RacingGameSettingsManager cashedRacingGameSettingsManager;
-    private RacingGame cashedRacingGame;
-    private TryCountManager cashedTryCountManager;
-    private CarFactory cashedCarFactory;
-    private CarManager cashedCarManager;
-    private VictoryManager cashedVictoryManager;
-    private VictoryView cashedVictoryView;
+    private VictoryConfig cashedVictoryConfig;
+    private CarConfig cashedCarConfig;
+    private RacingGameConfig cashedRacingGameConfig;
 
     public static void run() {
         new RacingGameApplication()
+                .racingGameConfig()
                 .racingGameManager()
                 .start();
     }
 
-    private TryCountManager tryCountManager() {
-        if (cashedTryCountManager == null) {
-            cashedTryCountManager = new TryCountManager(new TryCountValidator());
+    private VictoryConfig victoryConfig() {
+        if(cashedVictoryConfig == null) {
+            cashedVictoryConfig = new VictoryConfig();
         }
-        return cashedTryCountManager;
+        return cashedVictoryConfig;
     }
 
-    private CarFactory carFactory() {
-        if (cashedCarFactory == null) {
-            cashedCarFactory = new InputCarFactory(new InputCarFactoryValidator());
+    private CarConfig carConfig() {
+        if(cashedCarConfig == null) {
+            cashedCarConfig = new CarConfig(victoryConfig());
         }
-        return cashedCarFactory;
+        return cashedCarConfig;
     }
 
-    private VictoryView victoryView() {
-        if (cashedVictoryView == null) {
-            cashedVictoryView = new VictoryView();
+    private RacingGameConfig racingGameConfig() {
+        if(cashedRacingGameConfig == null) {
+            cashedRacingGameConfig = new RacingGameConfig(carConfig());
         }
-        return cashedVictoryView;
-    }
-
-    private VictoryManager victoryManager() {
-        if (cashedVictoryManager == null) {
-            cashedVictoryManager = new VictoryManager(victoryView());
-        }
-        return cashedVictoryManager;
-    }
-
-    private CarManager carManager() {
-        if (cashedCarManager == null) {
-            cashedCarManager = new CarManager(carFactory(), victoryManager());
-        }
-        return cashedCarManager;
-    }
-
-    private RacingGameSettingsManager racingGameSettingsManager() {
-        if (cashedRacingGameSettingsManager == null) {
-            cashedRacingGameSettingsManager = new RacingGameSettingsManager(carManager(), tryCountManager());
-        }
-        return cashedRacingGameSettingsManager;
-    }
-
-    private RacingGame racingGame() {
-        if (cashedRacingGame == null) {
-            cashedRacingGame = new RacingGame(carManager(), tryCountManager());
-        }
-        return cashedRacingGame;
-    }
-
-    private RacingGameManager racingGameManager() {
-        if (cashedRacingGameManager == null) {
-            cashedRacingGameManager = new RacingGameManager(racingGameSettingsManager(), racingGame());
-        }
-        return cashedRacingGameManager;
+        return cashedRacingGameConfig;
     }
 }
