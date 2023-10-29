@@ -26,4 +26,12 @@ public class CompareTest {
 
         assertThat(count).isEqualTo(2);
     }
+    @Test
+    void 최대값의_인덱스_제대로_저장됨() {
+        Compare compare = new Compare();
+        List<Integer> list = Arrays.asList(1, 5, 4, 3, 5);
+        List<Integer> index = compare.findMaxIndex(list);
+
+        assertThat(index).contains(1, 4);
+    }
 }
