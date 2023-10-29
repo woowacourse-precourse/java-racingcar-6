@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
 
-public class CarValidation {
+public class InputValidation {
 
     public void validateCarNameRange(List<String> carNames) {
         for (String carName : carNames) {

@@ -13,19 +13,19 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class CarValidationTest {
+class InputValidationTest {
 
     @Test
     @DisplayName("각 자동차 이름 길이의 범위 테스트")
     void validateCarNameRangeTest() {
         // given
-        CarValidation carValidation = new CarValidation();
+        InputValidation inputValidation = new InputValidation();
 
         // when
         List<String> carNames = List.of("pobipobi", "woni", "jun");
 
         // then
-        assertThatThrownBy(() -> carValidation.validateCarNameRange(carNames))
+        assertThatThrownBy(() -> inputValidation.validateCarNameRange(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(LENGTH_MESSAGE);
     }
@@ -34,13 +34,13 @@ class CarValidationTest {
     @DisplayName("자동차 이름 중복 여부 테스트")
     void validateCarNameDuplicationTest() {
         // given
-        CarValidation carValidation = new CarValidation();
+        InputValidation inputValidation = new InputValidation();
 
         // when
         List<String> carNames = List.of("woni", "woni", "jun");
 
         // then
-        assertThatThrownBy(() -> carValidation.validateCarNameDuplication(carNames))
+        assertThatThrownBy(() -> inputValidation.validateCarNameDuplication(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(DUPLICATE_MESSAGE);
     }
@@ -49,7 +49,7 @@ class CarValidationTest {
     @DisplayName("자동차 이름에 공백이 있는지 테스트")
     void validateCarNameSpaceTest() {
         // given
-        CarValidation carValidation = new CarValidation();
+        InputValidation inputValidation = new InputValidation();
 
         // when
         List<String> carNamesLeftSpace = List.of("     fobi", "woni", "jun");
@@ -57,13 +57,13 @@ class CarValidationTest {
         List<String> carNamesRightSpace = List.of("fobi", "woni", "jun    ");
 
         // then
-        assertThatThrownBy(() -> carValidation.validateCarNameSpace(carNamesLeftSpace))
+        assertThatThrownBy(() -> inputValidation.validateCarNameSpace(carNamesLeftSpace))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(SPACE_MESSAGE);
-        assertThatThrownBy(() -> carValidation.validateCarNameSpace(carNamesMiddleSpace))
+        assertThatThrownBy(() -> inputValidation.validateCarNameSpace(carNamesMiddleSpace))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(SPACE_MESSAGE);
-        assertThatThrownBy(() -> carValidation.validateCarNameSpace(carNamesRightSpace))
+        assertThatThrownBy(() -> inputValidation.validateCarNameSpace(carNamesRightSpace))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(SPACE_MESSAGE);
     }
@@ -72,13 +72,13 @@ class CarValidationTest {
     @DisplayName("각 자동차 이름이 빈 값인지 테스트")
     void validateCarNameEmptyTest() {
         // given
-        CarValidation carValidation = new CarValidation();
+        InputValidation inputValidation = new InputValidation();
 
         // when
         List<String> carNamesWithEmpty = List.of("fobi", "woni", "");
 
         // then
-        assertThatThrownBy(() -> carValidation.validateCarNameEmpty(carNamesWithEmpty))
+        assertThatThrownBy(() -> inputValidation.validateCarNameEmpty(carNamesWithEmpty))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(EMPTY_MESSAGE);
     }
@@ -87,13 +87,13 @@ class CarValidationTest {
     @DisplayName("입력값이 null인지 테스트")
     void validateInputNullTest() {
         // given
-        CarValidation carValidation = new CarValidation();
+        InputValidation inputValidation = new InputValidation();
 
         // when
         String input = null;
 
         // then
-        assertThatThrownBy(() -> carValidation.validateInputNull(input))
+        assertThatThrownBy(() -> inputValidation.validateInputNull(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(NULL_MESSAGE);
     }
@@ -102,13 +102,13 @@ class CarValidationTest {
     @DisplayName("입력된 자동차 이름 들이 , 로 구분 되어 있는지 판단")
     void validateCommaSeparatedCarNamesTest() {
         // given
-        CarValidation carValidation = new CarValidation();
+        InputValidation inputValidation = new InputValidation();
 
         // when
         String carName = "pobiwonijun";
 
         // then
-        assertThatThrownBy(() -> carValidation.validateCommaSeparatedCarNames(carName))
+        assertThatThrownBy(() -> inputValidation.validateCommaSeparatedCarNames(carName))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(COMMA_MESSAGE);
     }
@@ -117,13 +117,13 @@ class CarValidationTest {
     @DisplayName("자동차 입력값에 대해 모든 검증을 하는 테스트")
     void validateCarNamesTest() {
         // given
-        CarValidation carValidation = new CarValidation();
+        InputValidation inputValidation = new InputValidation();
 
         // when
         String carNames = "pobi,woni,jun";
 
         // then
-        assertThatCode(() -> carValidation.validateCarNames(carNames))
+        assertThatCode(() -> inputValidation.validateCarNames(carNames))
                 .doesNotThrowAnyException();
     }
 }
