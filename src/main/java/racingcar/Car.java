@@ -1,9 +1,15 @@
 package racingcar;
 
 public class Car {
-    private String name = "";
-    private int forward = 0;
-    private int winCount = 0;
+    private String name;
+    private int forward;
+    private int winCount;
+
+    public Car (String name){
+        this.name = name;
+        this.forward = 0;
+        this.winCount = 0;
+    }
 
     public String getName() {
         return this.name;
