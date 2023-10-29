@@ -16,4 +16,8 @@ public class OutputView {
     public void printRacingResult(String name, String icon){
         System.out.printf(RESULT_SETING, name, icon);
     }
+
+    public void printWinner(List<String> winners){
+        System.out.printf(FINAL_WINNER, String.join(COMMA, winners));
+    }
 }
