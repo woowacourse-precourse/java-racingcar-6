@@ -23,11 +23,24 @@ public class Controller {
 
     }
 
-    private int getNumOfAttemptByInput() {
-        return Integer.parseInt(readLine());
+    private void carMoveForward() {
+        for(int i=0; i<this.numOfAttempt; i++) {
+            canCarMove();
+        }
     }
 
-    private int checkNumOfAttempt(String input){
+    private void canCarMove() {
+        for(int i=0; i<this.groupOfCar.size();i++) {
+            this.groupOfCar.get(i).move();
+        }
+    }
+
+    private void setNumOfAttemptByInput() {
+        InputView.printUserInputNumOfAttemptMessage();
+        this.numOfAttempt = Integer.parseInt(readLine());
+    }
+
+    private int checkNumOfAttempt(String input) {
         try{
             inputValidator.checkNumOfAttempt(input);
             return Integer.parseInt(input);
@@ -38,7 +51,7 @@ public class Controller {
 
     private void createCar(String[] carName) {
         for(String name: carName) {
-            groupOfCar.addCar(new Car(name));
+            groupOfCar.add(new Car(name));
         }
     }
 
