@@ -21,4 +21,11 @@ public class CarTest {
         assertThatThrownBy(() -> Car.of("invaildName"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void moveRandomDistanceTest() {
+        Car racer = Car.of("pobi");
+
+        assertThat(racer.moveRandomDistance()).isLessThanOrEqualTo(5);
+    }
 }
