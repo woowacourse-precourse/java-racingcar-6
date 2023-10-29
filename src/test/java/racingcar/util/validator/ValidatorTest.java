@@ -10,8 +10,8 @@ import racingcar.util.message.ErrorMessage;
 
 public class ValidatorTest {
 	
-	@DisplayName("길이가 5초과하면 예외를 발생시킨다.")
-	@ValueSource(strings = { "jajass", "nananana" })
+	@DisplayName(",로 구분된 이름의 길이가 5초과하면 예외를 발생시킨다.")
+	@ValueSource(strings = { "jaaa,aaaabb", "nannnnn,nanan" })
 	@ParameterizedTest
 	void checkOutOfLength(String str) {
 		assertThatThrownBy(() -> Validator.validateOutOfLength(str))
@@ -19,8 +19,8 @@ public class ValidatorTest {
 						.hasMessageContaining(ErrorMessage.CAR_NAME_LENGTH_ERROR.getMessage());
 	}
 
-	@DisplayName("길이가 5이하일때 정삭적으로 작동하는 지 확인한다.")
-	@ValueSource(strings = { "nana", "jjaaa" })
+	@DisplayName(",로 구분된 이름의 길이가 5이하일때 정삭적으로 작동하는 지 확인한다.")
+	@ValueSource(strings = { "naan,jjaa", "jjaa" })
 	@ParameterizedTest
 	void checkNomalOperation1(String str) {
 		Validator.validateOutOfLength(str);
