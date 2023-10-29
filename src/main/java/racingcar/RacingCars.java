@@ -2,7 +2,9 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import org.junit.platform.commons.util.StringUtils;
 
 public final class RacingCars {
@@ -40,5 +42,13 @@ public final class RacingCars {
         if (name.length() > 5) {
             throw new IllegalArgumentException("자동차 이름은 제한길이를 초과할 수 없습니다.");
         }
+    }
+
+    public Map<String, Integer> createInitPosition() {
+        Map<String, Integer> linkedHashMap = new LinkedHashMap<>();
+        for (String name : names) {
+            linkedHashMap.put(name, 0);
+        }
+        return linkedHashMap;
     }
 }
