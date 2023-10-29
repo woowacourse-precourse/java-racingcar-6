@@ -22,8 +22,17 @@ public class Application {
         System.out.println(CarNamesAlert);
         String name =readLine();
         String[] carNames = name.split(",");
+        CarNameValidate(carNames);
 
         System.out.println(NumberTryAlert);
         int number = Integer.parseInt(readLine());
+    }
+
+    private void CarNameValidate(String[] carNames){
+        for(String carName : carNames){
+            if(carName.length()>5){
+                throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+            }
+        }
     }
 }
