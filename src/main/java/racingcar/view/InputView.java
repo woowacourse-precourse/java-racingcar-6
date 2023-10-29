@@ -1,20 +1,28 @@
 package racingcar.view;
 
+import static racingcar.message.RacingCarMessage.ASK_CAR_NAMES;
+import static racingcar.message.RacingCarMessage.ASK_GAME_COUNT;
+
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
 
     public String askCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(ASK_CAR_NAMES);
         String carNames = Console.readLine();
         Console.close();
         return carNames;
     }
 
-    public String askGameCount() {
-        System.out.println("시도할 횟수는 몇회인가요?");
+    public int askGameCount() {
+        System.out.println(ASK_GAME_COUNT);
         String gameCount = Console.readLine();
         Console.close();
-        return gameCount;
+        validateInteger(gameCount);
+        return Integer.parseInt(gameCount);
+    }
+
+    private void validateInteger(String input) {
+
     }
 }

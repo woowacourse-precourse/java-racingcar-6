@@ -7,22 +7,14 @@ import java.util.Set;
 public class Race {
 
     private Cars cars;
-    private int gameCount;
+    private GameCount gameCount;
 
-    private Race(Cars cars, int gameCount) {
+    private Race(Cars cars, GameCount gameCount) {
         this.cars = cars;
         this.gameCount = gameCount;
     }
 
-    public static Race of(Cars cars, int gameCount) {
+    public static Race of(Cars cars, GameCount gameCount) {
         return new Race(cars, gameCount);
-    }
-
-    public int getGameCount() {
-        return gameCount;
-    }
-
-    public void setGameCount(int gameCount) {
-        this.gameCount = gameCount;
     }
 }
