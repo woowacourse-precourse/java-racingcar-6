@@ -5,15 +5,19 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.CarGroup;
 import racingcar.global.ErrorMessage;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.global.Constant.RANDOM_NUMBER_THRESHOLD;
 
 public class CarGroupTest {
+
     @Test
     @DisplayName("자동차 이름이 5자리 이상일 경우 예외 발생")
     void fromExceedCarNameLength() {
         assertThatThrownBy(() -> CarGroup.from("pobi,woni,juniper"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ErrorMessage.EXCEED_CAR_NAME_LENGTH.getMessage());
+                .hasMessage(ErrorMessage.EXCEED_CAR_NAME_LENGTH.getMessage());
     }
 
     @Test
@@ -21,7 +25,7 @@ public class CarGroupTest {
     void fromDuplicatedCarName() {
         assertThatThrownBy(() -> CarGroup.from("pobi,woni,jun,woni"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ErrorMessage.DUPLICATED_CAR_NAME.getMessage());
+                .hasMessage(ErrorMessage.DUPLICATED_CAR_NAME.getMessage());
     }
 
     @Test
@@ -29,6 +33,16 @@ public class CarGroupTest {
     void fromEmptyCarName() {
         assertThatThrownBy(() -> CarGroup.from("pobi,,jun"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ErrorMessage.EMPTY_CAR_NAME.getMessage());
+                .hasMessage(ErrorMessage.EMPTY_CAR_NAME.getMessage());
+    }
+
+    @Test
+    @DisplayName("전진 및 한 라운드 결과 출력")
+    void statusCorrectly() {
+        assertRandomNumberInRangeTest(() -> {
+            CarGroup carGroup = CarGroup.from("pobi,woni");
+            carGroup.moveAllProbabilistically();
+            assertThat(carGroup.getStatusAsString()).contains("pobi : -", "woni : ");
+        }, RANDOM_NUMBER_THRESHOLD, RANDOM_NUMBER_THRESHOLD - 1);
     }
 }
