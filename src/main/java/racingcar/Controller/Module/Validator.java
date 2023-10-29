@@ -13,7 +13,7 @@ public class Validator {
         }
     }
 
-    public ArrayList<String> validateNameInputContainsComma(String input){
+    public static ArrayList<String> validateNameInputContainsComma(String input){
         if(input.contains(",")){
             ArrayList<String> carNames = new ArrayList<>(Arrays.asList(input.split(",")));
             return carNames;
