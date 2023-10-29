@@ -3,9 +3,11 @@ package racingcar.domain;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class DriverTest {
     @Test
-    void driveTest_whenNumber0(){
+    void getNumberTest(){
         // Given
         Driver driver = new RandomDriver();
 
@@ -13,7 +15,7 @@ public class DriverTest {
         int result = driver.getNumber();
 
         //Then
-        Assertions.assertThat(result).isGreaterThanOrEqualTo(0);
-        Assertions.assertThat(result).isLessThanOrEqualTo(9);
+        assertThat(result).isGreaterThanOrEqualTo(0);
+        assertThat(result).isLessThanOrEqualTo(9);
     }
 }
