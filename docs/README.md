@@ -5,7 +5,7 @@
     - [x] 쉼표(,)를 기준으로 구분
     - 잘못된 입력: `IllegalArgumentException` 발생 후 종료
       - [x] 빈 문자열인 경우
-      - [ ] 5자 이하가 아닌 경우
+      - [x] 5자 이하가 아닌 경우
 - 몇 번의 이동할 것인지 입력
   - [x] 게임을 진행할 횟수 입력
   - 잘못된 입력: `IllegalArgumentException` 발생 후 종료
