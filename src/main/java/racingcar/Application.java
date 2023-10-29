@@ -2,8 +2,11 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
+
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class Application {
 
@@ -54,15 +57,30 @@ public class Application {
         System.out.println("");
     }
 
+    public static String getWinner(Map<String, Integer> carDistanceMap) {
+
+        ArrayList<String> winnerList = new ArrayList<>();
+
+        Optional<Integer> maxDistance = carDistanceMap.values().stream().max(Integer::compareTo);
+
+        for (Map.Entry<String, Integer> carDistanceEntry : carDistanceMap.entrySet()) {
+            if (carDistanceEntry.getValue() == maxDistance.get()) {
+                winnerList.add(carDistanceEntry.getKey());
+            }
+        }
+
+        String winners = String.join(", ", winnerList);
+
+        return winners;
+    }
+
     public static void main(String[] args) {
         System.out.println("경주할 자동차의 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-
         String carNames = Console.readLine();
 
         Map<String, Integer> carDistanceMap = carDistanceMap(carNames);
 
         System.out.println("시도할 회수는 몇회인가요?");
-
         Integer repeatCount = Integer.parseInt(Console.readLine());
 
         System.out.println("\n실행 결과");
@@ -74,8 +92,8 @@ public class Application {
             printResult(carDistanceMap);
         }
 
-        String winners = "sample_winners";
+        String winners = getWinner(carDistanceMap);
 
-        System.out.printf("최종 우승자 : %s", winners);
+        System.out.printf("최종 우승자 : %s\n", winners);
     }
 }
