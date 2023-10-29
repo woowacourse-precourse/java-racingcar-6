@@ -28,7 +28,7 @@ class RandomNumberTest {
         );
     }
 
-    @DisplayName("RandomNumber 범위 0~9 예외 테스트 : 0~9 사이의 숫자가 아니라면 IllegalArgumentException가 발생한다.")
+    @DisplayName("RandomNumber(number) 생성 예외 테스트 : 0~9 사이의 숫자가 아니라면 IllegalArgumentException가 발생한다.")
     @ParameterizedTest(name = "{0}는 0~9범위가 아니므로 예외가 발생한다.")
     @ValueSource(ints = {-1, 10, 999})
     void 예외발생_범위가_0_to_9_가_아니라면(int number) {
@@ -37,7 +37,7 @@ class RandomNumberTest {
                 .hasMessageContaining("랜덤 생성 숫자는 0~9사이의 숫자여야 합니다.");
     }
 
-    @DisplayName("RandomNumber 범위 0~9 예외 테스트 : 0~9 사이의 숫자라면 성공적으로 RandomNumber 객체가 생성된다.")
+    @DisplayName("RandomNumber(number) 생성 예외 테스트 : 0~9 사이의 숫자라면 성공적으로 RandomNumber 객체가 생성된다.")
     @ParameterizedTest(name = "{0}는 0~9범위가 이므로 성공적으로 RandomNumber 객체가 생성된다.")
     @ValueSource(ints = {0, 5, 9})
     void 예외발생하지않음_0_to_9_라면(int number) {

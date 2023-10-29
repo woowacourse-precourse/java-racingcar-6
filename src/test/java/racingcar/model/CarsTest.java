@@ -37,7 +37,7 @@ class CarsTest {
                 );
     }
 
-    @DisplayName("우승자를 구할때 자동차가 한대도 없는 경우 예외 테스트 : 자동차가 한대도 없는데 우승자를 구하는 경우 IllegalArgumentException가 발생한다.")
+    @DisplayName("findWinner() 예외 테스트 : 자동차가 한대도 없는데 우승자를 구하는 경우 IllegalArgumentException가 발생한다.")
     @Test
     void 예외발생_자동차가_없는데_우승자를_구하는경우() {
         List<Car> carList = Arrays.asList();

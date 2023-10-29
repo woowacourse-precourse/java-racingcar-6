@@ -57,7 +57,7 @@ class CarTest {
                 .isEqualTo(new Car("홍길동", 5));
     }
 
-    @DisplayName("isFrontOf() 테스트 :Car 객체가 다른 Car 보다 더 앞에 있으면 true를 반환한다.")
+    @DisplayName("isFrontOf() 테스트 : Car 객체가 다른 Car 보다 더 앞에 있으면 true를 반환한다.")
     @ParameterizedTest(name = "내 차가(5) 다른차({0})보다 앞에 있으므로 true를 반환한다.")
     @ValueSource(ints = {0, 3, 4})
     void isFrontOf_다른차보다_앞에있을때_true(int otherPosition) {
@@ -135,7 +135,7 @@ class CarTest {
                 .isEqualTo(new Car("홍길동", 5));
     }
 
-    @DisplayName("name 사이즈 예외 테스트 : 5초과라면 IllegalArgumentException가 발생한다.")
+    @DisplayName("Car(name) 생성 예외 테스트 : 5초과라면 IllegalArgumentException가 발생한다.")
     @Test
     void 예외발생_이름크기가_5자_초과인경우() {
         assertThatThrownBy(() -> new Car("일이삼사오육"))
@@ -143,7 +143,7 @@ class CarTest {
                 .hasMessageContaining("[Error] 이름 크기는 5이하여야 합니다.");
     }
 
-    @DisplayName("name 사이즈 예외 테스트 : 5이하라면 성공적으로 Car객체가 생성된다.")
+    @DisplayName("Car(name) 생성 예외 테스트 : 5이하라면 성공적으로 Car객체가 생성된다.")
     @Test
     void 예외발생하지않음_이름크기가_5자_이하인경우() {
         assertAll(
@@ -156,7 +156,7 @@ class CarTest {
         );
     }
 
-    @DisplayName("position 값 0이상 테스트 : 0보다 작다면 IllegalArgumentException가 발생한다.")
+    @DisplayName("Car(name, position) 생성 예외 테스트 : 0보다 작다면 IllegalArgumentException가 발생한다.")
     @Test
     void 예외발생_위치값이_0보다_작은_경우() {
         assertThatThrownBy(() -> new Car("홍길동", -1))
@@ -164,7 +164,7 @@ class CarTest {
                 .hasMessageContaining("[Error] 초기위치값은 0보다 작을 수 없습니다.");
     }
 
-    @DisplayName("position 값 0이상 테스트 : 0이상이라면 성공적으로 Car객체가 생성된다.")
+    @DisplayName("Car(name, position) 생성 예외 테스트 : 0이상이라면 성공적으로 Car객체가 생성된다.")
     @Test
     void 예외발생하지않음_위치값이_0_이상인_경우() {
         assertAll(
