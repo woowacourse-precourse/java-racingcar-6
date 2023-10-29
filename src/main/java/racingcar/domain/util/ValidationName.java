@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 
 public class ValidationName {
 
+    private ValidationName() {}
+
     public static void validateLength(String carNames) {
         Arrays.stream(carNames.split(","))
                 .map(carName -> carName.trim())
