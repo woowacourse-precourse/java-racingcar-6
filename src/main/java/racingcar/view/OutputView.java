@@ -10,11 +10,9 @@ public class OutputView {
     private static final String CAR_NAME_INPUT_TEXT = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n";
     private static final String FIRST_SHOWN_WINNER_TEXT = "최종 우승자 : ";
 
-    public static void printWinners(List<Car> winners) {
+    public static void printWinners(List<String> winners) {
         printFirstShownWinnerText();
-        for (Car winner : winners) {
-            winner.printWinnerName();
-        }
+        System.out.println(String.join(", ", winners));
     }
     public static void printCarNameOnAnnounceWinner(String winnerName) {
         System.out.print(winnerName);

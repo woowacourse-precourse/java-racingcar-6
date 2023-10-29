@@ -15,7 +15,11 @@ public class Winners {
     }
 
     public void printWinners() {
-        OutputView.printWinners(winners);
+        List<String> winnerNameList = new ArrayList<>();
+        for (Car winner : winners) {
+            winner.addWinnerNameToWinnerNameList(winnerNameList);
+        }
+        OutputView.printWinners(winnerNameList);
     }
     private void decideWinners(List<Car> cars) {
         cars.sort(Comparator.reverseOrder());

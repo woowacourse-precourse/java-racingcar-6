@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import racingcar.view.OutputView;
 
+import java.util.List;
+
 public class CarName {
     String carName;
 
@@ -11,8 +13,8 @@ public class CarName {
         this.carName = carName;
     }
 
-    public void printOnAnnounceWinner() {
-        OutputView.printCarNameOnAnnounceWinner(carName);
+    public void addToWinnerNameList(List<String> winnerNameList) {
+        winnerNameList.add(carName);
     }
 
     public void printOnTurnResult() {
