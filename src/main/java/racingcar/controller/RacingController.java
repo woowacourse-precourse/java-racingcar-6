@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 
-import racingcar.util.RacingConverter;
+import racingcar.util.StringUtil;
 import racingcar.domain.Car;
 import racingcar.dto.RacingResult;
 import racingcar.factory.CarFactory;
@@ -14,11 +14,11 @@ public class RacingController {
     private final InputView inputView;
     private final OutputView outputView;
     private final RacingService racingService;
-    private final RacingConverter converter;
+    private final StringUtil converter;
     private final CarFactory carFactory;
 
     public RacingController(InputView inputView, OutputView outputView, RacingService racingService,
-            RacingConverter converter, CarFactory carFactory) {
+            StringUtil converter, CarFactory carFactory) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.racingService = racingService;

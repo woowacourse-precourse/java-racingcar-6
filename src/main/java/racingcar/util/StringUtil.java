@@ -2,7 +2,7 @@ package racingcar.util;
 
 import java.util.List;
 
-public class RacingConverter {
+public class StringUtil {
     private static final String DELIMITER = ",";
 
     public List<String> convertToListByDelimiter(String input) {

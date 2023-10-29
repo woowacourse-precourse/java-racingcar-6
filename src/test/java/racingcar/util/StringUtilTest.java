@@ -8,9 +8,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-class RacingConverterTest {
+class StringUtilTest {
     public static final String DELIMITER = ",";
-    private final RacingConverter converter = new RacingConverter();
+    private final StringUtil converter = new StringUtil();
 
     @Test
     void 구분자로_문자열을_리스트로_변환한다() {
