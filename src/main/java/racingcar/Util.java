@@ -12,6 +12,6 @@ public class Util {
         if (number < 0 || number > 9) {
             throw new IllegalArgumentException("0 또는 한 자리 양수를 입력해야 한다.");
         }
-        return number >= 4;
+        return number >= Config.TRUE_THRESHOLD_NUMBER;
     }
 }

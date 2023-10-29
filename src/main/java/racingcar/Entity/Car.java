@@ -1,5 +1,6 @@
 package racingcar.Entity;
 
+import racingcar.Config;
 import racingcar.Util;
 
 public class Car {
@@ -13,7 +14,7 @@ public class Car {
 
     public void run() {
         if (isRunnable()) {
-            plusStep(1);
+            plusStep(Config.RUN_STEP);
         }
     }
 

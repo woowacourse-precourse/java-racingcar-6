@@ -14,7 +14,7 @@ public class Snapshot {
 
     public Snapshot(int tryCount) {
         this.snapshots = new ArrayList<>(tryCount + 1);
-        this.snapshots.add(0, null);
+        this.snapshots.add(Config.CAR_START_LOCATION, null);
         for(int i=1; i<=tryCount; i++) {
             this.snapshots.add(i, new LinkedHashMap<>());
         }

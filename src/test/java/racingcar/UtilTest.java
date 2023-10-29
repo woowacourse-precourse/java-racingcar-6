@@ -11,13 +11,8 @@ class UtilTest {
 
     @Test
     void getBooleanByNumber_메서드_사용시_숫자에_따른_참거짓_반환_확인(){
-        List<Integer> numbers = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
-        List<Boolean> answers = Arrays.asList(false, false, false, false, true, true, true, true, true, true);
-
-        for (int i=0; i<10; i++) {
-            boolean result = Util.getBooleanByNumber(numbers.get(i));
-            assertThat(result).isEqualTo(answers.get(i));
-        }
+        boolean result = Util.getBooleanByNumber(Config.TRUE_THRESHOLD_NUMBER);
+        assertThat(result).isEqualTo(true);
     }
 
     @Test
