@@ -7,6 +7,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Application {
 	public int tryNumber;
 	public int playerNumber;
+	public PlayerInfo[] playerData;
+	public String[] winnerArr;
 	public class PlayerInfo{
 		private String name;
 		private int loc;
