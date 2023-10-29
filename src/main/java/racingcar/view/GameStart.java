@@ -81,7 +81,9 @@ public class GameStart {
         System.out.println("실행 결과");
     }
 
-    // TODO: 10/27/23 게임 시작.
+    /**
+     * 게임 시작하는 메서드
+     */
     public void run() {
         printInputNameOfRaceCar();
         printInputNumOfTryCnt();
