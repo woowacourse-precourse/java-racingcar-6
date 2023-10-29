@@ -9,17 +9,24 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
+    private List<String> names;
+    private int attempt;
+
     public void startGame() {
-        String inputName = InputView.input(GameMessage.INSTRUCTIONS_ENTERING_CAR_NAME.getMessage());
-        List<String> names = Converter.convertStringToList(inputName);
-        validate(names);
+        getUserInputs();
 
-        String inputNumber = InputView.input(GameMessage.INSTRUCTIONS_ENTERING_ATTEMPT_NUMBER.getMessage());
-        int number = Converter.convertStringToInt(inputNumber);
-
-        Car cars = new Car(names, number);
+        Car cars = new Car(names, attempt);
 
         racing(cars);
+    }
+
+    public void getUserInputs() {
+        String inputName = InputView.input(GameMessage.INSTRUCTIONS_ENTERING_CAR_NAME.getMessage());
+        names = Converter.convertStringToList(inputName);
+        validate(names);
+
+        String inputAttempt = InputView.input(GameMessage.INSTRUCTIONS_ENTERING_ATTEMPT_NUMBER.getMessage());
+        attempt = Converter.convertStringToInt(inputAttempt);
     }
 
     private void racing(Car cars){
