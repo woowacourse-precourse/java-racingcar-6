@@ -25,22 +25,13 @@ public class Application {
 		System.out.println("시도할 회수는 몇회인가요?");
 		String num = Console.readLine();
 		tryNumber = Integer.parseInt(num);
-		PlayerInfo[] data = new PlayerInfo[playerNumber];
+		PlayerInfo[] playerData = new PlayerInfo[playerNumber];
 		
 		int i=0;
 		while (st.hasMoreElements()) {
-			data[i] = new PlayerInfo(st.nextToken(), 0);
+			playerData[i] = new PlayerInfo(st.nextToken(), 0);
 			i++;
 		}
-		run();
-	}
-	
-	public void run() {
-		for (int i=0; i<tryNumber; i++) move();
-	}
-	
-	public void move() {
-		
 	}
     public static void main(String[] args) {
     	Application game = new Application();
