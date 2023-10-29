@@ -15,7 +15,7 @@ public class RacingGame implements GameInterface{
     private final Input input;
     private final Output output;
     private final Racing racing;
-    public RacingGame(Output output, Racing racing) {
+    public RacingGame() {
         this.output = new OutputView();
         this.racing = new RandomLogicRace();
         this.input = new InputView();
@@ -34,10 +34,12 @@ public class RacingGame implements GameInterface{
     }
 
     private void competing(int time, Cars cars) {
+        System.out.println("실행 결과");
         while(isCounting(time)){
             racing.race(cars);
             output.showPlaying(new CarsOutputDto(cars));
             time--;
+            System.out.println();
         }
     }
 

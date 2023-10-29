@@ -24,7 +24,6 @@ public class OutputView implements Output{
     private static void printingWinners(ResultList resultList) {
         System.out.print("최종 우승자 : ");
         printingNames(resultList);
-        System.out.print("\n");
     }
 
     private static void printingNames(ResultList resultList) {
@@ -106,7 +105,7 @@ public class OutputView implements Output{
     }
 
     private static void switchLine() {
-        System.out.print("\n");
+        System.out.println();
     }
 
     private static void printPosition(CarOutputDto carOutputDto) {
