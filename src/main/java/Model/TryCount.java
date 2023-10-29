@@ -10,18 +10,12 @@ public class TryCount {
     }
 
     public boolean isTryCountNumeric() {
-        try {
-            Integer.parseInt(tryCount);
-        } catch(Exception e) {
-            return false;
-        }
-        return true;
+        return tryCount.matches("\\d+");
     }
 
-    public int getTryCount() {
+    public int changeToInteger() {
         return Integer.parseInt(tryCount);
     }
-
 
     /**
      * 테스트용 메서드

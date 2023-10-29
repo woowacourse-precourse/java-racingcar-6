@@ -9,7 +9,6 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
 public class Application {
-    private static TryCount tryCount;
     private static CarList carList;
 
     public static void main(String[] args) {
@@ -19,10 +18,10 @@ public class Application {
 
     public static void startRacingGame() {
         receiveRaceCarNames();
-        receiveTryCount();
+        TryCount tryCount = receiveTryCount();
+        int gameCycle = tryCount.changeToInteger();
 
         System.out.println("\n실행 결과");
-        int gameCycle = tryCount.getTryCount();
         for (int i = 1; i <= gameCycle; i++) {
             carList.playGame();
             carList.printCarPositions();
@@ -45,14 +44,15 @@ public class Application {
         }
     }
 
-    public static void receiveTryCount() {
+    public static TryCount receiveTryCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         String tryCountInput = Console.readLine();
-        tryCount = new TryCount(tryCountInput);
+        TryCount tryCount = new TryCount(tryCountInput);
 
         if (!tryCount.isTryCountNumeric()) {
             throw new IllegalArgumentException();
         }
+        return tryCount;
     }
 
     public static void printRaceWinners() {
@@ -63,16 +63,10 @@ public class Application {
     }
 
 
-
-
     /**
      * 테스트용 메서드
      */
     public static CarList getCarList() {
         return carList;
-    }
-
-    public static TryCount getTryCount() {
-        return tryCount;
     }
 }
