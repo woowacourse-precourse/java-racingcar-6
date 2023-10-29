@@ -34,7 +34,7 @@ public class Race {
         Car first = carsCopy.stream()
                 .max(Comparator.comparing(Car::getPosition))
                 .get();
-        int firstCarPosition = first.getPosition();
+        Integer firstCarPosition = first.getPosition();
         List<Car> winner = carsCopy.stream()
                 .filter(car -> car.getPosition() == firstCarPosition)
                 .toList();

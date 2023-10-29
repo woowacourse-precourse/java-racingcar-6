@@ -44,7 +44,7 @@ class Input {
         return raw.compareTo("") == 0;
     }
 
-    private static boolean isLength1To(String raw, int length) {
+    private static boolean isLength1To(String raw, Integer length) {
         return raw.length() > length;
     }
 

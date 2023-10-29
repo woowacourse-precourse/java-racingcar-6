@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 class Car {
     private String name;
-    private int position;
+    private Integer position;
 
     Car() {
         position = 0;
@@ -18,7 +18,7 @@ class Car {
         return name;
     }
 
-    public int getPosition() {
+    public Integer getPosition() {
         return position;
     }
 
@@ -26,7 +26,7 @@ class Car {
         position += runningDistance();
     }
 
-    private int runningDistance() {
+    private Integer runningDistance() {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
             return 1;
         }
