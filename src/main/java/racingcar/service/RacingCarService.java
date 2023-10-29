@@ -18,8 +18,8 @@ public final class RacingCarService {
 
     public GameResult race(List<String> inputCarNames, int raceTime) {
         Cars cars = prepareCars(inputCarNames);
-        GameResult gameResult = determineRaceResult(startRace(cars, raceTime));
-        return gameResult;
+        Cars resultCars = startRace(cars, raceTime);
+        return determineRaceResult(resultCars);
     }
 
     Cars prepareCars(List<String> inputCarNames) {
