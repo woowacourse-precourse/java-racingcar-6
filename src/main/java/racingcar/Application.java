@@ -4,7 +4,9 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+
 
 public class Application {
     public static void main(String[] args) {
@@ -13,13 +15,10 @@ public class Application {
         // 1. 자동차 이름 입력
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
-        String[] userInput = Console.readLine().split(","); //수정 필요
-        //String[] carNames = userInput.split(","); //배열대신 컬렉션 변경하기
-        List<String> carNames = new ArrayList<>();
-
-        for (int i=0; i< userInput.length; i++) {
-            carNames.add(userInput[i]);
-        }
+        String userInput = Console.readLine(); //수정 필요
+        List<String> carNames = new ArrayList<>(
+                Arrays.asList(userInput.split(","))
+        );
 
         for (String carName : carNames) {
             System.out.print("\"" + carName + "\"");
@@ -43,8 +42,7 @@ public class Application {
         }
 
         // 이름 중복시 => 예외 처리
-
-        if (carNames.size() > carNames.stream().distinct().toList().size()) {
+        if (carNames.size() > new HashSet<>(carNames).size()) {
             throw new IllegalArgumentException("중복되지 않은 이름을 입력해 주세요.");
         }
 
