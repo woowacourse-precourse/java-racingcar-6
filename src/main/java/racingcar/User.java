@@ -14,4 +14,13 @@ public class User {
         return carArray;
     }
 
+    public int initCount() {
+        String countStr = Console.readLine();
+
+        int count = Integer.parseInt(countStr);
+        // validate count
+
+        return count;
+    }
+
 }
