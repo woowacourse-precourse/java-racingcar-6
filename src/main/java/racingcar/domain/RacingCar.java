@@ -16,4 +16,11 @@ public class RacingCar {
         this.cars.forEach(Car::forward);
     }
 
+    public String getResultMessage() {
+        return this.cars
+                .stream()
+                .map(Car::resultMessage)
+                .collect(Collectors.joining("\n"));
+    }
+
 }
