@@ -23,7 +23,6 @@ public class Player {
             }
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            getCarNames();
         }
 
     }
@@ -39,7 +38,6 @@ public class Player {
             checkRounds(tmp);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            getRounds();
         }
     }
 
