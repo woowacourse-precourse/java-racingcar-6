@@ -1,5 +1,9 @@
 package racingcar.view;
 
+import racingcar.domain.Car;
+
+import java.util.List;
+
 public class OutputView {
 
     public void printCarNameInputGuide() {
@@ -10,11 +14,19 @@ public class OutputView {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public void printRacingResult() {
-        
+    public void printRacingResult(List<Car> carList) {
+        for (Car car : carList) {
+            String bar = "-".repeat(car.getForwardNum());
+            System.out.println(String.format("%s : %s", car.getName(), bar));
+        }
+        System.out.println("\n");
     }
 
-    public void printWinner() {
+    public void printResultMessage(){
+        System.out.println("\n실행 결과");
+    }
 
+    public void printWinner(List<String> winnerList) {
+        
     }
 }

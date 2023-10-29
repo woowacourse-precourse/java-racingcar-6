@@ -9,7 +9,11 @@
     ```
 - 차수별 실행 결과 출력
     ```java
-    void printRacingResult()
+    void printRacingResult(List<Car> carList)
+    ```
+- 실행결과 출력할 것이라는 사실을 알리는 문구 출력
+    ```java
+  void printResultMessage()
     ```
 - 우승자 출력
     ```java
