@@ -9,7 +9,7 @@ public class OutputView {
         System.out.println(RESULT_MESSAGE);
     }
 
-    public static void printCurrentLocationOfCar(String name, int distance){
+    public static void printCurrentLocationOfCar(String name, int distance) {
         System.out.printf("%s : ",name);
         for(int i=0; i < distance; i++) {
             System.out.print(ONE_SPACE);
@@ -17,9 +17,8 @@ public class OutputView {
         System.out.println();
     }
 
-
-    public static void printWinnerMessage() {
+    public static void printWinnerMessage(String name) {
         System.out.print(WINNER_MESSAGE);
+        System.out.println(name);
     }
-
 }
