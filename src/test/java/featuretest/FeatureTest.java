@@ -64,8 +64,8 @@ public class FeatureTest {
         String testCarNames = "hi,im,";
         RaceCarNames raceCarNames = new RaceCarNames(testCarNames);
 
-        boolean actualResult = raceCarNames.isValid();
-        boolean expectedResult = false;
+        boolean actualResult = raceCarNames.isEndsWithComma();
+        boolean expectedResult = true;
 
         assertThat(actualResult).isEqualTo(expectedResult);
     }

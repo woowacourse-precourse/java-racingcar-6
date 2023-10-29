@@ -6,7 +6,7 @@
 
 - [X] 경주할 자동차 이름 문자열을 입력받는 기능 - GameController.*receiveRaceCarNames*
   - [X] 자동차 이름 문자열을 파싱하는 기능 - RaceCarNames.*parseCarNamesFromInput*
-  - [X] 자동차 이름 문자열이 유효한지 확인하는 기능 - RaceCarNames.*isValid*
+  - [X] 자동차 이름 문자열이 콤마로 끝나는지 확인하는 기능.*isEndsWithComma*
   - [X] 자동차 이름이 유효한지 확인하는 기능 - Car.*isNameValid*
     - [X] 자동차 이름이 빈 문자열인지 확인하는 기능 - CarName.*isEmpty*
     - [X] 자동차 이름이 다섯 글자 이하인지 확인하는 기능 - CarName.*isUnder5Characters*

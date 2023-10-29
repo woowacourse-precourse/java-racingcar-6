@@ -35,7 +35,7 @@ public class GameController {
     public void receiveRaceCarNames() {
         String raceCarNamesInput = GameView.getRaceCarNames();
         RaceCarNames raceCarNames = new RaceCarNames(raceCarNamesInput);
-        if (!raceCarNames.isValid()) {
+        if (raceCarNames.isEndsWithComma()) {
             throw new IllegalArgumentException();
         }
 

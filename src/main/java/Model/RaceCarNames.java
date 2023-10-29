@@ -18,8 +18,8 @@ public class RaceCarNames {
          return carNames;
     }
 
-    public boolean isValid() {
-        return !raceCarNames.endsWith(",");
+    public boolean isEndsWithComma() {
+        return raceCarNames.endsWith(",");
     }
 
     @Override
