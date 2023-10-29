@@ -1,13 +1,11 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
+import racingcar.view.InputView;
 
 public class RacingCarGame {
     public void start() {
-        System.out.println(Constants.INPUT_CAR_NAMES);
-        String carNames = Console.readLine();
-        System.out.println(Constants.INPUT_NUMBER);
-        int number = Integer.parseInt(Console.readLine());
+        String carNames = InputView.readCarNames();
+        int number = InputView.readNumber();
 
         run();
     }
