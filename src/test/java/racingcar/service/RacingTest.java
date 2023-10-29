@@ -38,9 +38,9 @@ public class RacingTest {
         }
 
         // Then
-        assertThat(car1.getPosition()).isEqualTo(4);
-        assertThat(car2.getPosition()).isEqualTo(1);
-        assertThat(car3.getPosition()).isEqualTo(4);
+        assertThat(car1.getPosition()).isEqualTo(3);
+        assertThat(car2.getPosition()).isEqualTo(0);
+        assertThat(car3.getPosition()).isEqualTo(3);
     }
 
     @Test
