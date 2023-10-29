@@ -24,7 +24,8 @@ public class PlayGame {
             PrintOutput.printAllMove(car_list);
         }
 
-        List<String> winner = FindWinner.findWinner(car_list);
+        FindWinner win = new FindWinner();
+        List<String> winner = win.findWinner(car_list);
         PrintResult.printWinner(winner);
     }
 }

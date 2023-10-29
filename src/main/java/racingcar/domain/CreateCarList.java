@@ -17,9 +17,12 @@ public class CreateCarList {
     }
 
     public String[] splitCarsName(String cars){
-    String[] car = cars.split(",");
-    ValidCheck.namesize_check(car);
+        String[] car = cars.split(",");
 
-    return car;
+        for (String car_name : car){
+            ValidCheck.nameSize_check(car_name);
+        }
+
+        return car;
     }
 }

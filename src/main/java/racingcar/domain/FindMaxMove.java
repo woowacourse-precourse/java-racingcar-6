@@ -7,9 +7,7 @@ public class FindMaxMove {
         int maxMove = 0;
 
         for (int car_move : car_list.values()) {
-            if (car_move >= maxMove) {
-                maxMove = car_move;
-            }
+            maxMove = Math.max(maxMove, car_move);
         }
         return maxMove;
     }
