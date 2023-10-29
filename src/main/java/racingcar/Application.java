@@ -7,84 +7,86 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Application {
     public static void main(String[] args) {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         Car car = new Car();
         car.displayCarInformation();
         car.displayWhoIsWinner();
     }
 }
+
 class User{
-    static int NumberOfMove(){
+    static int howMuchTry(){
         System.out.println("시도할 회수는 몇회인가요?");
-        String InputTry = readLine();
-        int moveCount = CheckException.CheckRightNumberOfMove(InputTry);
-        return moveCount;
+        String inputTry = readLine();
+        return CheckException.checkRightNumberOfMove(inputTry);
     }
 }
 
 class Car{
-    Map<String,String> CarInformation = new HashMap<>();
-    int RepeatCount;
+    Map<String,String> carInformation = new HashMap<>();
+    int repeatCount;
     public Car() {
         init();
     }
 
     public void init(){
-        String CarName = readLine();
-        for (String name : CarName.split(",")){
-            CarInformation.put(name.trim(),"");
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String carName = readLine();
+        for (String name : carName.split(",")){
+            carInformation.put(name.trim(),"");
         }
-        CheckException.CheckRightCarName(CarInformation.keySet());
-        RepeatCount = User.NumberOfMove();
+        CheckException.checkRightCarName(carInformation.keySet());
+        repeatCount = User.howMuchTry();
     }
 
-    private int CreateRandomNumber() {
+    private int createRandomNumber() {
         return pickNumberInRange(0,9);
     }
-    private boolean CheckGoOrStop(int num){
+
+    private boolean checkGoOrStop(int num){
         if (num >= 4){
             return true;
         }
         return false;
     }
-    private void WriteForwardDistance(String CarName){
-        String distance = CarInformation.get(CarName);
-        int num = CreateRandomNumber();
-        if (CheckGoOrStop(num)){
+
+    private void writeForwardDistance(String carName){
+        String distance = carInformation.get(carName);
+        int num = createRandomNumber();
+        if (checkGoOrStop(num)){
             distance += "-" ;
-            CarInformation.put(CarName,distance);
+            carInformation.put(carName,distance);
         }
     }
 
-    private void WhichCarWillMove(){
-        Set<String> CarNameSet = CarInformation.keySet();
-        for (String CarName : CarNameSet){
-            WriteForwardDistance(CarName);
+    private void whichCarWillMove(){
+        Set<String> carNameSet = carInformation.keySet();
+        for (String carName : carNameSet){
+            writeForwardDistance(carName);
         }
     }
 
     public void displayCarInformation(){
         System.out.println("\n실행 결과");
-        for (int i=0; i<RepeatCount; i++){
-            WhichCarWillMove();
-            CarInformation.forEach((key, value) -> System.out.println(key + " : " + value));
+        for (int i=0; i<repeatCount; i++){
+            whichCarWillMove();
+            carInformation.forEach((key, value) -> System.out.println(key + " : " + value));
             System.out.println();
         }
     }
+
     public void displayWhoIsWinner(){
-        List<String> WinnerList = FindWinner();
-        if (WinnerList.size() == 1){
-            String Winner = WinnerList.get(0);
-            System.out.println("최종 우승자 : " + Winner);
+        List<String> winnerList = findWinner();
+        if (winnerList.size() == 1){
+            String winner = winnerList.get(0);
+            System.out.println("최종 우승자 : " + winner);
         }
         else{
-            String result = MoreThanOneWinner(WinnerList);
+            String result = moreThanOneWinner(winnerList);
             System.out.print("최종 우승자 : " + result);
-
         }
     }
 
-    public static String MoreThanOneWinner(List<String> list){
+    public static String moreThanOneWinner(List<String> list){
         StringBuilder result = new StringBuilder();
         for (String name : list){
             result.append(name).append(", ");
@@ -93,36 +95,35 @@ class Car{
         return result.toString();
     }
 
-    public List<String> FindWinner(){
-        List<String> Winner = new ArrayList<>();
+    public List<String> findWinner(){
+        List<String> winner = new ArrayList<>();
         int maxDistance = -1;
-        for (Map.Entry<String, String> entry : CarInformation.entrySet()) {
+        for (Map.Entry<String, String> entry : carInformation.entrySet()) {
             int value = entry.getValue().length();
             if (value > maxDistance) {
-                Winner.clear();
-                Winner.add(entry.getKey());
+                winner.clear();
+                winner.add(entry.getKey());
                 maxDistance = value;
             } else if (value == maxDistance) {
-                Winner.add(entry.getKey());
+                winner.add(entry.getKey());
             }
         }
-        return Winner;
+        return winner;
     }
 }
 
 class CheckException {
-    static void CheckRightCarName(Set<String> CarNameSet){
-        for (String name : CarNameSet){
+    static void checkRightCarName(Set<String> carNameSet){
+        for (String name : carNameSet){
             if (name.length() > 5) {
                 throw new IllegalArgumentException();
             }
         }
     }
 
-    static int CheckRightNumberOfMove(String move){
+    static int checkRightNumberOfMove(String move){
         try{
-            int number = Integer.parseInt(move);
-            return number;
+            return Integer.parseInt(move);
         }
         catch (NumberFormatException e){
             throw new IllegalArgumentException();
