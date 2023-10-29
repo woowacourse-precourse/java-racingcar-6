@@ -46,6 +46,7 @@ public class RacingController {
     }
 
     private void runRace() {
+        outputView.printResultText();
         for (int i = 0; i < racing.getAttempCount(); i++) {
             racing.race();
             outputView.printExecutionResult(cars.getCars());
@@ -54,7 +55,6 @@ public class RacingController {
     }
 
     private void printRaceResults() {
-        outputView.printResultText();
         outputView.printFinalWinner(cars.determineFinalWinner());
     }
 }
