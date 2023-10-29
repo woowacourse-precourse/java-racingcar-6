@@ -1,52 +1,44 @@
 package racingcar.domain;
 
+import static racingcar.domain.RacingConfig.FORWARD_HISTORY_MARK;
 import static racingcar.domain.RacingConfig.FORWARD_NUMBER;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Car {
     private final String name;
-    private int randomNumber;
-    private int round;
+    private int currentRound;
     private final int finalRound;
-    private int moveResult;
-    private List<String> moveHistory;
+    private int movedDistance;
+    private final List<String> movedHistory;
 
-    public Car(String name, int randomNumber, int round, int finalRound, int moveResult, List<String> moveHistory) {
+    public Car(String name, int currentRound, int finalRound, int movedDistance, List<String> movedHistory) {
         this.name = name;
-        this.randomNumber = randomNumber;
-        this.round = round;
+        this.currentRound = currentRound;
         this.finalRound = finalRound;
-        this.moveResult = moveResult;
-        this.moveHistory = moveHistory;
+        this.movedDistance = movedDistance;
+        this.movedHistory = movedHistory;
     }
 
     public String getName() {
         return name;
     }
-    public int getRound() {
-        return round;
+    public int getMovedDistance() {
+        return movedDistance;
     }
-    public int getFinalRound() {
-        return finalRound;
-    }
-    public int getMoveResult() {
-        return moveResult;
-    }
-
-    public List<String> getMoveHistoryWithoutSpace() {
-        return this.moveHistory.stream()
+    public List<String> getFormattedMovedHistory(){
+        return this.movedHistory.stream()
                 .map(history -> history.replaceAll("\\s+", ""))
-                .collect(Collectors.toList());
+                .toList();
     }
 
-    public void setRandomNumber(int randomNumber) {
-        this.randomNumber = randomNumber;
+    public String generateMoveHistoryMark() {
+        String history = String.join("", getFormattedMovedHistory());
+        return String.format("%s : %s",this.name,history);
     }
 
-    public void move() {
-        if (this.randomNumber >= FORWARD_NUMBER) {
+    public void move(int generatedRandomNumber) {
+        if (generatedRandomNumber >= FORWARD_NUMBER) {
             moveForward();
             increaseRound();
             return;
@@ -54,17 +46,22 @@ public class Car {
         stayInplace();
         increaseRound();
     }
-
     private void moveForward() {
-        this.moveResult+= 1;
-        this.moveHistory.add("-");
+        this.movedDistance+= 1;
+        this.movedHistory.add(FORWARD_HISTORY_MARK);
     }
-
     private void stayInplace() {
-        this.moveHistory.add(" ");
+        this.movedHistory.add(" ");
     }
 
     private void increaseRound() {
-        this.round += 1;
+        this.currentRound += 1;
+    }
+    public boolean hasMoreRound() {
+        return this.currentRound < this.finalRound;
+    }
+
+    public boolean isWinner(int maxDistance) {
+        return this.movedDistance == maxDistance;
     }
 }
