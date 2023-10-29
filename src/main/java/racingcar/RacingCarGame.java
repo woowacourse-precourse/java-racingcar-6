@@ -1,11 +1,12 @@
 package racingcar;
 
+import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.IntStream;
 
 public class RacingCarGame {
@@ -27,6 +28,22 @@ public class RacingCarGame {
     public void run() {
         IntStream.range(0, trial)
                 .forEach(i -> runStage());
+        out.printWinners(getWinners());
+    }
+
+    private List<String> getWinners() {
+        Optional<RacingCar> winner = cars.stream()
+                .max(RacingCar.positionComparator);
+
+        if (winner.isEmpty()) {
+            throw new IllegalStateException("winner가 없습니다.");
+        }
+
+        return cars.stream()
+                .filter(car -> car.isSamePositionWith(winner.get()))
+                .map(RacingCar::getName)
+                .collect(toList());
+
     }
 
     private void runStage() {

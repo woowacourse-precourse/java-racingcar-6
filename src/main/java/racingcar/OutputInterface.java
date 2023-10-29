@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.io.PrintStream;
+import java.util.List;
 
 public class OutputInterface {
 
@@ -15,7 +16,11 @@ public class OutputInterface {
     }
 
     public void printStage(RacingCarGame game){
-        this.println(game.toString()+"\n");
+        outputStream.println(game.toString()+"\n");
+    }
+
+    public void printWinners(List<String> winners){
+        outputStream.println( "최종 우승자 : " + String.join(", ",winners));
     }
 
 }
