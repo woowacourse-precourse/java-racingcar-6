@@ -1,18 +1,19 @@
 package racingcar.controller;
 
+import java.util.List;
 import racingcar.model.CarList;
-import racingcar.model.validator.CarNameValidator;
-import racingcar.model.validator.RoundNumValidator;
+import racingcar.model.validator.impl.CarNameValidator;
+import racingcar.model.validator.impl.RoundNumValidator;
 import racingcar.view.InputView;
 
 public class InputController {
 
     public static CarList initCarList() { // 익셉션 처리 필요
         CarNameValidator carNameValidator = new CarNameValidator(InputView.inputCarNames());
-        return new CarList(carNameValidator.getCarNames());
+        return new CarList((List<String>) carNameValidator.getValidatedInput());
     }
 
     public static int initRoundNum() {
-        return new RoundNumValidator(InputView.inputRoundNum()).getRoundNum();
+        return (int) new RoundNumValidator(InputView.inputRoundNum()).getValidatedInput();
     }
 }

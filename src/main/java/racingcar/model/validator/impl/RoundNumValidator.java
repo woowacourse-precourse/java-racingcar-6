@@ -1,19 +1,16 @@
-package racingcar.model.validator;
+package racingcar.model.validator.impl;
 
 import racingcar.constants.GameInfo;
 import racingcar.constants.Messages;
+import racingcar.model.validator.InputValidator;
 
 // TODO
 // - Validator 추상화
-public class RoundNumValidator {
+public class RoundNumValidator implements InputValidator {
     private final int roundNum;
 
     public RoundNumValidator(String roundNum) {
         this.roundNum = Integer.parseInt(validate(roundNum));
-    }
-
-    public int getRoundNum() {
-        return roundNum;
     }
 
     public String validate(String roundNum) {
@@ -21,5 +18,10 @@ public class RoundNumValidator {
             throw new IllegalArgumentException(Messages.INPUT_ROUND_NUM_ERROR.getMessage());
         }
         return roundNum;
+    }
+
+    @Override
+    public Object getValidatedInput() {
+        return this.roundNum;
     }
 }
