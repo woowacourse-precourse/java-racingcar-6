@@ -1,11 +1,15 @@
 package racingcar.controller;
 
+import java.util.List;
+import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
     public void playGame() {
         OutputView outputView = new OutputView();
+        InputView inputView = new InputView();
         outputView.askToInsertCarNames();
-        outputView.askToInsertNumberOfGames();
+        List<String> carNames = inputView.getCarNamesFromUser();
+        carNames.forEach(System.out::println);
     }
 }
