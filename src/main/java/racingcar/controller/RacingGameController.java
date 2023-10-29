@@ -42,7 +42,7 @@ public class RacingGameController {
 
         carNames.addAll(Arrays.asList(splitInput(input)));
 
-        verification.verifyCarName(carNames);
+        verification.CarName(carNames);
 
         return carNames;
     }
@@ -56,7 +56,7 @@ public class RacingGameController {
     public int inputRound() {
         String input = Console.readLine();
 
-        verification.verifyRound(input);
+        verification.Round(input);
 
         return Integer.parseInt(input);
     }

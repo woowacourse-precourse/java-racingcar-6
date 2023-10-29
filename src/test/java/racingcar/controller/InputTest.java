@@ -27,7 +27,7 @@ class InputTest {
         List<String> input = new ArrayList<>();
         input.add("abcdef");
 
-        assertThatThrownBy(() -> verify.verifyCarName(input))
+        assertThatThrownBy(() -> verify.CarName(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -36,7 +36,7 @@ class InputTest {
         List<String> input = new ArrayList<>();
         input.add("   "); // 공백 3개
 
-        assertThatThrownBy(() -> verify.verifyCarName(input))
+        assertThatThrownBy(() -> verify.CarName(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -45,7 +45,7 @@ class InputTest {
         List<String> input = new ArrayList<>();
         input.add("abc  "); // abc + 공백 2개
 
-        assertThatThrownBy(() -> verify.verifyCarName(input))
+        assertThatThrownBy(() -> verify.CarName(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -65,7 +65,7 @@ class InputTest {
     void 실행_횟수_검증() {
         String input = "a";
 
-        assertThatThrownBy(() -> verify.verifyTryCnt(input))
+        assertThatThrownBy(() -> verify.Round(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
