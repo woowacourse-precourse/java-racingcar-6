@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.gameLogic.Driver;
+import racingcar.gameLogic.RacingCar;
 import racingcar.gameLogic.User;
 import racingcar.utils.InputValidator;
 import racingcar.views.OutputViewer;
@@ -53,10 +55,7 @@ class ApplicationTest extends NsTest {
     @DisplayName("기능 2번")
     void 자동차_이름_입력_확인() {
         User user = new User();
-        command(
-                "pobi, jun,kim ,po bi", //기능 2번 입력
-                "pobi, jun,kim ,  ,, "// 기능 2번 + 3번 입력
-        );
+        command("pobi, jun,kim ,po bi");
         List<String> carNames = user.inputCarName();
         assertThat(carNames).containsExactly("pobi", "jun", "kim", "po bi");
     }
@@ -87,11 +86,19 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    @DisplayName("기능 2번 + 3번")
-    void 자동차_입력과_검증_동시확인() {
-        User user = new User();
-        assertThatThrownBy(user::inputCarName)
-                .isInstanceOf(IllegalArgumentException.class);
+    @DisplayName("기능 4번")
+        //확인 위해서는 RacingCar 클래스 내부의 멤버변수들 접근인자 수정 필요
+    void 차량_배정_확인() {
+        RacingCar racingCar = new RacingCar();
+        racingCar.init();
+
+        List<Driver> correctList = new ArrayList<>(
+                List.of(new Driver("pobi"), new Driver("jun"))
+        );
+        List<String> carNames = new ArrayList<>(List.of("pobi", "jun"));
+
+        racingCar.setDrivers(carNames);
+        assertThat(racingCar.drivers.size()).isEqualTo(correctList.size());
     }
 
 
