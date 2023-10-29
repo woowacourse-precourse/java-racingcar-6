@@ -27,8 +27,11 @@ public class RacingCar {
         }
     }
 
-    public boolean canMove() {
-        int pickNumberInRange = Randoms.pickNumberInRange(0, 9);
-        return pickNumberInRange >= 4;
+    public boolean canMove(int randomNumber) {
+        return randomNumber >= 4;
+    }
+
+    public int getRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 }
