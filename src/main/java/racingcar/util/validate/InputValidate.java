@@ -2,6 +2,11 @@ package racingcar.util.validate;
 
 public class InputValidate {
 
+    static public void validateNameFormat(String input) {
+        if(input.isEmpty()) {
+            throw new IllegalArgumentException("공란입니다. 이름을 입력해주세요.");
+        }
+    }
     static public int validateInputNumberFormat(String input) {
         try {
             return Integer.parseInt(input);
