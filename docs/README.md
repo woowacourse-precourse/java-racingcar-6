@@ -19,7 +19,7 @@
    + [0] view가 받은 경주할 자동차 이름을 list로 전환 - carNameInputToList
    + [0] 자동차 숫자만큼 경기 결과 저장 list를 0으로 초기화 - raceResultListReset
    + [0] 0부터 9사이의 무작위 값 중 4이상 값이 나오는지 판단하는 기능 validateRandomMoreFour
-   + [ ] 각 자동차의 경기 결과를 판단하는 기능 validateRacingResult
+   + [0] 각 자동차의 경기 결과를 판단하는 기능 validateRacingResult
    + [ ] 최종 우승자를 판단하는 기능 validateRacingWinner
 
 ### controller package

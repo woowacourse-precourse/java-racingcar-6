@@ -21,5 +21,13 @@ public class ValidateRacingValue {
         int randomNumber = Randoms.pickNumberInRange(0,9);
         return randomNumber >= 4;
     }
+    public static List<Integer> validateRacingResult(List<String>carName, List<Integer>raceResult) {
+        for(int i = 0; i < carName.size(); i++) {
+            if (validateRandomMoreFour()) {
+                raceResult.set(i, raceResult.get(i) + 1);
+            }
+        }
+        return raceResult;
+    }
 
 }
