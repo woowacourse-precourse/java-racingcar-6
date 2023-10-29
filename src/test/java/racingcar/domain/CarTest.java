@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CarTest {
 
     @Test
-    @DisplayName("입력된 이름이 5글자보다 많은 경우")
+    @DisplayName("입력된 이름이 5글자보다 많은 경우 예외 발생")
     void 예외_처리_테스트_1() {
         MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
         assertThrows(IllegalArgumentException.class,
@@ -21,7 +21,7 @@ class CarTest {
     }
 
     @Test
-    @DisplayName("공백이 입력된 경우")
+    @DisplayName("공백이 입력된 경우 예외 발생")
     void 예외_처리_테스트_2() {
         MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
         assertThrows(IllegalArgumentException.class,
@@ -31,7 +31,7 @@ class CarTest {
     }
 
     @Test
-    @DisplayName("자동차 시작 위치가 0이 아닌 경우")
+    @DisplayName("자동차 시작 위치가 0이 아닌 경우 예외 발생")
     void 예외_처리_테스트_3() {
         MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
         assertThrows(IllegalArgumentException.class,
