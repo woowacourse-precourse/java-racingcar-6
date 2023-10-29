@@ -2,6 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.validator.CarNameValidator;
+import racingcar.validator.CountValidator;
 
 import java.util.Arrays;
 import java.util.List;
@@ -35,6 +36,7 @@ public class InputView {
         System.out.println(COUNT_INPUT);
         String count = Console.readLine();
 
-        //유효성 검증
+        int countNumber = CountValidator.checkNumber(count);
+        CountValidator.checkNegativeNumber(countNumber);
     }
 }
