@@ -19,10 +19,9 @@ public class Car {
     public List<Integer> nowRacing(List<String> carNames, int tryNumber) {
         List<Integer> carMoveDistance = new ArrayList<>();
 
-        for (String str : carNames) {
-            String bar = goOrStop(tryNumber);
+        for (int i = 0; i < tryNumber; i++) {
+            String bar = goOrStop(carNames);
 
-            System.out.print(str + " : ");
             System.out.println(bar);
 
             carMoveDistance.add(bar.length());
@@ -31,13 +30,18 @@ public class Car {
         return carMoveDistance;
     }
 
-    private String goOrStop(int tryNumber) {
+    private String goOrStop(List<String> carNames) {
         StringBuilder bar = new StringBuilder();
 
-        for (int i = 0; i < tryNumber; i++) {
+        for (String carName : carNames) {
+            bar.append(carName);
+            bar.append(" : ");
+
             if (Randoms.pickNumberInRange(0, 9) > 4) {
                 bar.append("-");
             }
+
+            bar.append("\n");
         }
         return bar.toString();
     }
