@@ -29,15 +29,15 @@ class GameDataTest {
     @Test
     void 자동차_이름_지정() {
 
-        List<Car> carListTemp = new ArrayList<>();
+        List<Car> carList = new ArrayList<>();
         String[] carsName = {"pobi", "woni", "jun", "jason"};
         int carNumber = carsName.length;
         for (int i = 0; i < carNumber; i++) {
-            carListTemp.add(new Car());
+            carList.add(new Car());
         }
-        gameData.setCarsName(carsName, carListTemp);
+        gameData.setCarsName(carsName, carList);
 
-        for (Car carTest : carListTemp) {
+        for (Car carTest : carList) {
             String carName = carTest.getName();
             Assertions.assertThat(carsName).contains(carName);
         }
@@ -81,6 +81,39 @@ class GameDataTest {
     }
 
     @Test
-    void setWinnerList() {
+    void 최종_우승자_추리기() {
+
+        final int WINNER_MOVE_COUNT = 10;
+        final int NORMAL_MOVE_COUNT = 4;
+
+        Car car1 = new Car();
+        car1.setName("car1");
+        car1.setSuccessMoveForwardCount(WINNER_MOVE_COUNT);
+
+        Car car2 = new Car();
+        car2.setName("car2");
+        car2.setSuccessMoveForwardCount(NORMAL_MOVE_COUNT);
+
+        Car car3 = new Car();
+        car3.setName("car3");
+        car3.setSuccessMoveForwardCount(WINNER_MOVE_COUNT);
+
+        Car car4 = new Car();
+        car4.setName("car4");
+        car4.setSuccessMoveForwardCount(NORMAL_MOVE_COUNT);
+
+        List<String> winnerList = new ArrayList<>();
+        List<Car> carList = new ArrayList<>();
+
+        carList.add(car1);
+        carList.add(car2);
+        carList.add(car3);
+        carList.add(car4);
+
+        gameData.pickWinners(winnerList, carList);
+
+        Assertions.assertThat(winnerList).isEqualTo(Arrays.asList("car1", "car3"));
+
+
     }
 }
