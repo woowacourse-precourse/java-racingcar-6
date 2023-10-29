@@ -8,7 +8,7 @@ import racingcar.io.OutputView;
 
 public class RacingCarGame {
 
-    private List<RacingCar> racingCars;
+    private List<RacingCar> racingCars = new ArrayList<>();
 
     public void run() {
         OutputView.printRequestCarNames();
@@ -25,8 +25,6 @@ public class RacingCarGame {
     }
 
     public void makeCars(String carNames) {
-
-        racingCars = new ArrayList<>();
 
         String[] carNamesInputSplit = carNames.split(",");
 
