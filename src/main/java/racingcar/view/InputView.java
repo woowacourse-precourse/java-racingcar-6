@@ -13,8 +13,12 @@ public class InputView {
 
     public List<String> readNames() {
         System.out.println(INPUT_NAMES_MESSAGE);
-        return Arrays.stream(Console.readLine().split(CAR_NAME_SEPARATOR))
+        return Arrays.stream(readInput().split(CAR_NAME_SEPARATOR))
                 .toList();
+    }
+
+    private String readInput() {
+        return Console.readLine();
     }
 
     public int readNumberOfRaces() {
@@ -23,7 +27,7 @@ public class InputView {
     }
 
     private int readNumber() {
-        String inputString = Console.readLine();
+        String inputString = readInput();
         Validation.validateNumberOfRaces(inputString);
         return Integer.parseInt(inputString);
     }
