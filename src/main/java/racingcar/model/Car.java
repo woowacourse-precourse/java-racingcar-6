@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import static racingcar.Constants.MAX_CAR_NAME_SIZE;
 import static racingcar.exception.InputErrorCode.INVALID_CAR_NAME_SIZE;
 
 import racingcar.exception.InputException;
@@ -28,7 +29,7 @@ public class Car {
     }
 
     private void validate() {
-        if (name.length() > 5) {
+        if (name.length() > MAX_CAR_NAME_SIZE) {
             throw new InputException(INVALID_CAR_NAME_SIZE);
         }
     }
