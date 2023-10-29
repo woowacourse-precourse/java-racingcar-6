@@ -20,8 +20,8 @@ public class InputValidation {
     }
 
     public static void validateDuplicateName(String[] namesOfCars) {
-        Object[] newNameOfCars = Arrays.stream(namesOfCars).distinct().toArray();
-        if (newNameOfCars.length != namesOfCars.length) {
+        Object[] deleteDuplicateName = Arrays.stream(namesOfCars).distinct().toArray();
+        if (deleteDuplicateName.length != namesOfCars.length) {
             throw new IllegalArgumentException();
         }
     }
