@@ -14,7 +14,7 @@
 - [x] 우승자를 구하는 기능 - Referee#findWinner()
 - [x] 우승자를 출력하는 기능 - Printer#printWinner()
 
-- [ ] 입력값이 올바른 이름 형식인지 확인하는 기능 - Validation#validNames()
+- [x] 입력값이 올바른 이름 형식인지 확인하는 기능 - Validation#validNames()
 - [ ] 입력값이 숫자인지 확인하는 기능 - Validation#validNumber()
 
 

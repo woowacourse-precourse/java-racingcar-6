@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Validation {
     public static boolean validNames(String names) {
-        return false;
+        return names.matches("^[a-zA-Z,]+$");
     }
     public static boolean validLength(List<String> nameList) {
         //각 이름이 5자 이하로 되어 있는지 확인
