@@ -19,4 +19,15 @@ public class OutputView {
         System.out.println();
     }
 
+    public static void displayWinners(List<String> winners) {
+        System.out.print("최종 우승자: ");
+        for (String winner : winners) {
+            System.out.print(winner);
+            if (winners.indexOf(winner) != winners.size() - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println();
+    }
+
 }

@@ -34,4 +34,22 @@ public class DisplayTest {
         "woni : --" + System.lineSeparator();
         assertThat(outContent.toString()).isEqualTo(expectedOutput);
     }
+
+    @Test
+    public void displaySingleWinner() {
+        List<String> winners = Arrays.asList("pobi");
+        OutputView.displayWinners(winners);
+
+        String expectedOutput = "최종 우승자: pobi"+ System.lineSeparator();
+        assertThat(outContent.toString()).isEqualTo(expectedOutput);
+    }
+
+    @Test
+    public void displayMultipleWinners() {
+        List<String> winners = Arrays.asList("pobi", "jun");
+        OutputView.displayWinners(winners);
+
+        String expectedOutput = "최종 우승자: pobi, jun"+ System.lineSeparator();
+        assertThat(outContent.toString()).isEqualTo(expectedOutput);
+    }
 }
