@@ -8,7 +8,7 @@ public class Racing {
     private List<Car> cars;
     private int maxLocation;
 
-    public void run(){
+    public void moveCars(){
         for(int i=0; i<cars.size(); i++){
             int randomNumber = Randoms.pickNumberInRange(0,9);
             cars.get(i).moves(randomNumber);
