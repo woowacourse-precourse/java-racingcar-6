@@ -2,7 +2,7 @@ package racingcar.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.domain.Car;
+import racingcar.service.domain.Car;
 
 public class OneGameResultDto {
     private final List<String> names;

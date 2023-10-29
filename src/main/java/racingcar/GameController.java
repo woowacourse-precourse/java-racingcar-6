@@ -2,11 +2,11 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.domain.Car;
-import racingcar.domain.RacingCars;
-import racingcar.domain.WootecoEngine;
 import racingcar.service.OneGameResultDto;
 import racingcar.service.RacingGameService;
+import racingcar.service.domain.Car;
+import racingcar.service.domain.RacingCars;
+import racingcar.service.domain.WootecoEngine;
 import racingcar.view.Input;
 import racingcar.view.View;
 

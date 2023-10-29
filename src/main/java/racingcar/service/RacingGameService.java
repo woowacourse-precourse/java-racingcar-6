@@ -1,8 +1,8 @@
 package racingcar.service;
 
 import java.util.List;
-import racingcar.domain.Car;
-import racingcar.domain.RacingCars;
+import racingcar.service.domain.Car;
+import racingcar.service.domain.RacingCars;
 
 public class RacingGameService {
 
