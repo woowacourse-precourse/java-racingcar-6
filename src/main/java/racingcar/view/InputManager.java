@@ -56,4 +56,22 @@ public class InputManager {
         }
         return carMap;
     }
+
+    public Boolean isValidateTryCount(String tryCount) {
+        if (!isNumber(tryCount) || !isValidNumber(Integer.valueOf(tryCount))) {
+            return false;
+        }
+        return true;
+    }
+
+    private Boolean isNumber(String tryCount) {
+        return tryCount.matches("[0-9]+");
+    }
+
+    private Boolean isValidNumber(int tryCount) {
+        if (tryCount < 1) {
+            return false;
+        }
+        return true;
+    }
 }
