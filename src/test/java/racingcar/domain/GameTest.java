@@ -11,9 +11,12 @@ import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.*;
 
 class GameTest {
-    Game game;
-    MockedStatic<Console> consoleMockedStatic;
-    MockedStatic<RandomMaker> randomMakerMockedStatic;
+    private static final int GO = 4, STOP = 3;
+    private Game game;
+    private MockedStatic<Console> consoleMockedStatic;
+    private MockedStatic<RandomMaker> randomMakerMockedStatic;
+    private String carNamesInput, gameTurnsInput;
+    private Integer[] randomArray;
 
     @BeforeEach
     void setUp() {
@@ -36,19 +39,19 @@ class GameTest {
 
     @Test
     void inputCarNames() {
-        String input = "pobi,woni,jun";
-        String[] output = {"pobi", "woni", "jun"};
+        carNamesInput = "pobi,woni,jun";
+        String[] expected = {"pobi", "woni", "jun"};
 
-        when(Console.readLine()).thenReturn(input);
-        assertThat(game.inputCarNames()).isEqualTo(output);
+        when(Console.readLine()).thenReturn(carNamesInput);
+        assertThat(game.inputCarNames()).isEqualTo(expected);
         consoleMockedStatic.verify(Console::readLine, times(1));
     }
 
     @Test
     void inputCarNames_Exception_EmptyName() {
-        String input = "pobi,,jun";
+        carNamesInput = "pobi,,jun";
 
-        when(Console.readLine()).thenReturn(input);
+        when(Console.readLine()).thenReturn(carNamesInput);
         assertThatThrownBy(() -> game.inputCarNames())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Not valid input: car names");
@@ -57,9 +60,9 @@ class GameTest {
 
     @Test
     void inputCardNames_Exception_MoreThanFiveCharacters() {
-        String input = "pobi,woni,jun,dongjin";
+        carNamesInput = "pobi,woni,jun,dongjin";
 
-        when(Console.readLine()).thenReturn(input);
+        when(Console.readLine()).thenReturn(carNamesInput);
         assertThatThrownBy(() -> game.inputCarNames())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Not valid input: car names");
@@ -68,18 +71,18 @@ class GameTest {
 
     @Test
     void inputGameTurns() {
-        String input = "10";
+        gameTurnsInput = "10";
 
-        when(Console.readLine()).thenReturn(input);
+        when(Console.readLine()).thenReturn(gameTurnsInput);
         assertThatCode(() -> game.inputGameTurns()).doesNotThrowAnyException();
         consoleMockedStatic.verify(Console::readLine, times(1));
     }
 
     @Test
     void inputGameTurns_Exception_NotNumber() {
-        String input = "...";
+        gameTurnsInput = "...";
 
-        when(Console.readLine()).thenReturn(input);
+        when(Console.readLine()).thenReturn(gameTurnsInput);
         assertThatThrownBy(() -> game.inputGameTurns())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Not valid input: game turn number");
@@ -88,9 +91,9 @@ class GameTest {
 
     @Test
     void inputGameTurns_Exception_NegativeNumber() {
-        String input = "-1";
+        gameTurnsInput = "-1";
 
-        when(Console.readLine()).thenReturn(input);
+        when(Console.readLine()).thenReturn(gameTurnsInput);
         assertThatThrownBy(() -> game.inputGameTurns())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Not valid input: game turn number");
@@ -99,15 +102,13 @@ class GameTest {
 
     @Test
     void findWinners() {
-        String carNames = "pobi,woni,jun";
-        String gameTurns = "5";
+        carNamesInput = "pobi,woni,jun";
+        gameTurnsInput = "5";
 
-        final int GO = 4;
-        final int STOP = 3;
-        Integer[] randoms = {STOP, GO, GO, STOP, GO, GO, GO, GO, GO, GO, GO, GO, GO, GO};
+        randomArray = new Integer[] {STOP, GO, GO, STOP, GO, GO, GO, GO, GO, GO, GO, GO, GO, GO};
 
-        when(Console.readLine()).thenReturn(carNames, gameTurns);
-        when(RandomMaker.makeRandomNumber()).thenReturn(GO, randoms);
+        when(Console.readLine()).thenReturn(carNamesInput, gameTurnsInput);
+        when(RandomMaker.makeRandomNumber()).thenReturn(GO, randomArray);
 
         assertThatCode(() -> {
             game.init();
@@ -121,15 +122,12 @@ class GameTest {
 
     @Test
     void winnersToString() {
-        String carNames = "pobi,woni";
-        String gameTurns = "1";
-
-        final int GO = 4;
-        final int STOP = 3;
+        carNamesInput = "pobi,woni";
+        gameTurnsInput = "1";
 
         String expected = "최종 우승자 : pobi";
 
-        when(Console.readLine()).thenReturn(carNames, gameTurns);
+        when(Console.readLine()).thenReturn(carNamesInput, gameTurnsInput);
         when(RandomMaker.makeRandomNumber()).thenReturn(GO, STOP);
 
         game.init();
