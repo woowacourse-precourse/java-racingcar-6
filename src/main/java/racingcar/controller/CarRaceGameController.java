@@ -18,17 +18,19 @@ public class CarRaceGameController {
     }
 
     public void gameStart() {
-        Car car = new Car();
+        Car car = raceGameService.startGame(inputView.userInputCarName());
+        carMoveResult(car, Integer.parseInt(inputView.userInputGameCount()));
+        printWinnerResult(car, raceGameService.findWinner(car));
+    }
 
-        List<String> input = inputView.userInputCarName();
-        car.initCar(input);
-
-        int count = Integer.parseInt(inputView.userInputGameCount());
-
+    private void carMoveResult(Car car, int count) {
         for (int i=0; i<count; i++) {
             raceGameService.carMoveCheckAndGo(car);
             OutputView.outputCarMoveResult(car);
         }
-        OutputView.outputWinnerResult(car, raceGameService.findWinner(car));
+    }
+
+    private void printWinnerResult(Car car, List<Integer> winnerIndex) {
+        OutputView.outputWinnerResult(car, winnerIndex);
     }
 }
