@@ -15,7 +15,6 @@
     - [x] **만약 무작위 값이 4 이상이라면 해당 자동차에 1을 더한다.** -`Car #goControlStatement`
 
 
-- [ ] **가장 많이 전진한 차부터 내림차순 정렬한다.** -`Referee #descendRangeCar`
 - [x] **누가 우승했는지 알려준다.** -`Referee #callWinnerCar`
   - [x] 가장 많이 전진한 차가 우승자다.
   - [ ] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
