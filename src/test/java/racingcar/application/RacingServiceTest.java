@@ -1,6 +1,7 @@
 package racingcar.application;
 
 import static org.assertj.core.api.Assertions.*;
+import static racingcar.enums.RacingConfig.*;
 
 import java.util.List;
 import java.util.stream.IntStream;
@@ -36,7 +37,7 @@ class RacingServiceTest {
     @Test
     void 전진_조건을_만족할_경우_한_번_전진한다() {
         // given
-        generator.setReturnNumber(RacingConfig.MOVE_CONDITION.getValue());
+        generator.setReturnNumber(MOVE_CONDITION.getValue());
         int createCount = 5;
         List<Car> cars = createCars(createCount);
 

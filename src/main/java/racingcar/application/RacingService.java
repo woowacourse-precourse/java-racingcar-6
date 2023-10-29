@@ -1,10 +1,11 @@
 package racingcar.application;
 
+import static racingcar.enums.RacingConfig.*;
+
 import java.util.List;
 
 import racingcar.domain.Car;
 import racingcar.dto.RacingResult;
-import racingcar.enums.RacingConfig;
 import racingcar.generator.NumberGenerator;
 
 public class RacingService {
@@ -21,7 +22,7 @@ public class RacingService {
     }
 
     private RacingResult moveCar(Car car) {
-        if (generator.generateNumber() >= RacingConfig.MOVE_CONDITION.getValue()) {
+        if (generator.generateNumber() >= MOVE_CONDITION.getValue()) {
             car.move();
         }
         return RacingResult.from(car);

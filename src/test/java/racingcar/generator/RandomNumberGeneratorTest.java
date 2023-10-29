@@ -1,10 +1,9 @@
 package racingcar.generator;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static racingcar.enums.RacingConfig.*;
 
 import org.junit.jupiter.api.Test;
-
-import racingcar.enums.RacingConfig;
 
 class RandomNumberGeneratorTest {
     private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
@@ -15,7 +14,7 @@ class RandomNumberGeneratorTest {
         int randomNumber = randomNumberGenerator.generateNumber();
 
         // then
-        assertTrue(randomNumber >= RacingConfig.RANDOM_NUMBER_MIN.getValue());
-        assertTrue(randomNumber <= RacingConfig.RANDOM_NUMBER_MAX.getValue());
+        assertTrue(randomNumber >= RANDOM_NUMBER_MIN.getValue());
+        assertTrue(randomNumber <= RANDOM_NUMBER_MAX.getValue());
     }
 }

@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.enums.RacingConfig;
+import static racingcar.enums.RacingConfig.*;
 
 public class Car {
     private final String name;
@@ -13,10 +13,10 @@ public class Car {
     }
 
     private void validateName(String name) {
-        int maxLength = RacingConfig.CAR_NAME_MAX_LENGTH.getValue();
-        if (name.isBlank() || name.length() > maxLength) {
+        if (name.isBlank() || name.length() > CAR_NAME_MAX_LENGTH.getValue()) {
             throw new IllegalArgumentException(
-                    String.format("rejected value: %s\n자동차 이름은 1자 이상 %d자 이하만 가능합니다.", name, maxLength)
+                    String.format("rejected value: %s\n자동차 이름은 1자 이상 %d자 이하만 가능합니다.",
+                            name, CAR_NAME_MAX_LENGTH.getValue())
             );
         }
     }
