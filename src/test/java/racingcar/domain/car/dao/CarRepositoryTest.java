@@ -6,10 +6,13 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import racingcar.domain.car.Car;
+import racingcar.domain.util.ErrorMessage;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 
@@ -102,5 +105,18 @@ class CarRepositoryTest {
 
     }
 
+    @Nested
+    @DisplayName("예외 테스트")
+    class ExceptionTest {
 
+        @Test
+        @DisplayName("DB에 Car 객체가 없는 경우 예외를 발생시켜야 한다")
+        public void DB에_Car_객체가_없는_경우_예외를_발생시켜야_한다() {
+            CarRepository carRepository = new CarRepository();
+
+            assertThrows(IllegalArgumentException.class,
+                    carRepository::findCarWithMaxPosition,
+                    ErrorMessage.CAR_NOT_EXIST.getErrorMessage());
+        }
+    }
 }
