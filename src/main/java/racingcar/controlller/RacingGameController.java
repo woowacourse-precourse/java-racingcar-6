@@ -18,6 +18,7 @@ public class RacingGameController {
     public void run() {
         while (isRunning) {
             startGame();
+            endGame();
         }
     }
 
@@ -27,8 +28,6 @@ public class RacingGameController {
 
         playAllRounds(numberOfRounds, cars);
         OutputController.printWinnersMessage(pickWinners(cars));
-
-        endGame();
     }
 
     private void playAllRounds(int numberOfRounds, Cars cars) {
