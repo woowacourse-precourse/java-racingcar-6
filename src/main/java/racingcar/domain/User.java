@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.List;
+
 /**
  * 경주에 참여하는 주체
  */
@@ -41,10 +43,21 @@ public class User {
     }
 
     public int getProceedCount() {
-        return proceedCount;
+        return this.proceedCount;
     }
 
     public String getName() {
         return name;
+    }
+
+    public boolean isFasterThen(List<User> users) {
+        for (User user: users)
+            if(this.proceedCount>=user.getProceedCount())
+                return true;
+        return false;
+    }
+
+    public void setProceedCount(int proceedCount) {
+        this.proceedCount = proceedCount;
     }
 }
