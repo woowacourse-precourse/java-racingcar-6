@@ -1,6 +1,8 @@
 package racingcar.domain;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Car {
 
@@ -21,5 +23,11 @@ public class Car {
     private boolean validateNameSize(List<String> carNameList) {
         return carNameList.stream()
                 .allMatch(carName -> CAR_NAME_MIN_SIZE <= carName.length() && carName.length() < CAR_NAME_MAX_SIZE);
+    }
+
+    private boolean validateNameDuplication(List<String> carNameList) {
+        Set<String> carNameSet = new HashSet<>(carNameList);
+
+        return carNameList.size() == carNameSet.size();
     }
 }
