@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Race {
+    private static final String EXECUTE_RESULT_MESSAGE = "\n실행 결과";
     private final List<Car> carList = new ArrayList<>();
     private final List<String> carNameList;
     private final int tryCount;
@@ -25,8 +26,10 @@ public class Race {
     }
 
     private void tryNRound(int tryCount) {
+        System.out.println(EXECUTE_RESULT_MESSAGE);
         for (int i = 0; i < tryCount; i++) {
             tryOneRound();
+            System.out.println();
         }
     }
 
