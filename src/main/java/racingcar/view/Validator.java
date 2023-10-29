@@ -3,40 +3,36 @@ package racingcar.view;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import racingcar.model.Car;
 
 public class Validator {
-    private static final List<String> carNameList = Car.getCarName();
 
-    private static boolean isCarNameOverFiveCharacters() {
+    public static boolean isCarNameOverFiveCharacters(List<String> carNameList) {
         boolean fiveCharacters = true;
         for (String carName : carNameList) {
             if (carName.length() > 5) {
                 fiveCharacters = false;
+                break;
             }
         }
         return fiveCharacters;
     }
 
-    private static boolean validateDelimiter() {
+    public static boolean validateDelimiter(List<String> carNameList) {
         boolean validateDelimiter = true;
 
         String specialCharacters = "[^\\\\w,]+";
         Pattern p = Pattern.compile(specialCharacters);
         for (String carName : carNameList) {
             Matcher m = p.matcher(carName);
-            if (m.find()) {
+            if (!m.matches()) {
                 validateDelimiter = false;
+                break;
             }
         }
         return validateDelimiter;
     }
 
-    private static boolean isEmpty(){
-        boolean isEmpty = true;
-        if (carNameList.isEmpty()) {
-            isEmpty = false;
-        }
-        return isEmpty;
+    public static boolean isEmpty(List<String> carNameList) {
+        return !carNameList.isEmpty();
     }
 }
