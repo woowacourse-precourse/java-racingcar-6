@@ -17,6 +17,21 @@ public class Game {
         setCarList(carNameList);
     }
 
+    public void setFinalRaceCount(String finalRaceCount) {
+        try {
+            this.finalRaceCount = Integer.parseInt(finalRaceCount);
+            validationFinalRaceCount();
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("1~2,147,483,647 사이의 값으로 입력해주세요.");
+        }
+    }
+
+    private void validationFinalRaceCount() {
+        if (finalRaceCount < 1) {
+            throw new IllegalArgumentException("1~2,147,483,647 사이의 값으로 입력해주세요.");
+        }
+    }
+
     private List<String> validationCarName(String carNameListString) {
         checkCarNameListIsEmpty(carNameListString);
         checkCarNameIsNull(carNameListString);
@@ -28,10 +43,6 @@ public class Game {
         this.carList = carNameList.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
-    }
-
-    public void setFinalRaceCount(int finalRaceCount) {
-        this.finalRaceCount = finalRaceCount;
     }
 
     public List<Car> getCarList() {

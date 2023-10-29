@@ -10,6 +10,9 @@ public class InitService {
 
     public void initCarList() {
         String carNameListString = ForInputMessage.forInputCarNamesMessage();
-        game.validationCarNameAndSetGame(carNameListString);
+        game.setCar(carNameListString);
+
+        String finalRaceCount = ForInputMessage.forInputRaceCountMessage();
+        game.setFinalRaceCount(finalRaceCount);
     }
 }
