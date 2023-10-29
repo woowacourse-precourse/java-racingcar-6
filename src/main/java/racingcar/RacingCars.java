@@ -1,5 +1,8 @@
 package racingcar;
 
+import static racingcar.constant.InputError.BLANK_CAR_NAME;
+import static racingcar.constant.InputError.EXCEEDED_LIMIT_CAR_LENGTH;
+
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -33,13 +36,13 @@ public final class RacingCars {
 
     private static void validateNameNotBlank(String name) {
         if (StringUtils.isBlank(name)) {
-            throw new IllegalArgumentException("자동차 이름은 비어있을 수 없습니다.");
+            throw new IllegalArgumentException(BLANK_CAR_NAME.getMessage());
         }
     }
 
     private static void validateNameLength(String name) {
         if (name.length() > 5) {
-            throw new IllegalArgumentException("자동차 이름은 제한 길이를 초과할 수 없습니다.");
+            throw new IllegalArgumentException(EXCEEDED_LIMIT_CAR_LENGTH.getMessage());
         }
     }
 

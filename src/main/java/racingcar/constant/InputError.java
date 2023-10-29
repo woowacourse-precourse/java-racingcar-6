@@ -10,4 +10,8 @@ public enum InputError {
     InputError(String message) {
         this.message = message;
     }
+
+    public String getMessage() {
+        return message;
+    }
 }

@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.constant.InputError.EXCEEDED_LIMIT_CAR_LENGTH;
+
 public final class MovingCount {
     private final int count;
 
@@ -14,7 +16,7 @@ public final class MovingCount {
 
     private void validateInputIsDigit(String input) {
         if (!input.matches("[0-9]+")) {
-            throw new IllegalArgumentException("이동 횟수는 숫자만 가능합니다.");
+            throw new IllegalArgumentException(EXCEEDED_LIMIT_CAR_LENGTH.getMessage());
         }
     }
 
