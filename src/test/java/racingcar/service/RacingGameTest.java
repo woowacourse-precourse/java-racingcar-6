@@ -3,6 +3,7 @@ package racingcar.service;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -43,5 +44,37 @@ class RacingGameTest {
         racingGame.startRace();
 
         assertThat(3).isEqualTo(racingGame.getRaceActionCount());
+    }
+
+    @Test
+    void 우승자선정_가장많이움직인자동차_하나의우승자() {
+        String playerInput = "자동차1,자동차2,자동차3";
+        racingGame.setCarList(playerInput);
+
+        racingGame.getCarList().get(0).setPosition(3);
+        racingGame.getCarList().get(1).setPosition(3);
+        racingGame.getCarList().get(2).setPosition(4);
+
+        racingGame.setWinnerList();
+
+        assertThat("자동차3").isEqualTo(racingGame.getWinnerList().get(0));
+    }
+
+    @Test
+    void 우승자선정_가장많이움직인자동차_여러우승자() {
+        String playerInput = "자동차1,자동차2,자동차3";
+        racingGame.setCarList(playerInput);
+
+        racingGame.getCarList().get(0).setPosition(3);
+        racingGame.getCarList().get(1).setPosition(4);
+        racingGame.getCarList().get(2).setPosition(4);
+
+        racingGame.setWinnerList();
+
+        assertAll(
+                () -> assertEquals(racingGame.getWinnerList().size(), 2),
+                () -> assertTrue(racingGame.getWinnerList().contains("자동차2")),
+                () -> assertTrue(racingGame.getWinnerList().contains("자동차3"))
+        );
     }
 }
