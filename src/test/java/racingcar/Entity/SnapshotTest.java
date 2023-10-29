@@ -1,5 +1,6 @@
 package racingcar.Entity;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class SnapshotTest {
     @Test
+    @DisplayName("스냅샷__정상출력")
     void printSnapshot_메서드_정상출력_테스트() {
         int tryCount = 3;
         List<Car> cars = List.of(
@@ -24,6 +26,7 @@ class SnapshotTest {
     }
 
     @Test
+    @DisplayName("스냅샷__인덱스_파라미터_예외")
     void printSnapshot_메서드_수행시_존재하지_않는_인덱스_파라미터_예외발생() {
         int tryCount = 1;
         Snapshot snapshot = new Snapshot(tryCount);
@@ -32,6 +35,7 @@ class SnapshotTest {
     }
 
     @Test
+    @DisplayName("스냅샷__미존재_출력")
     void printSnapshot_메서드_수행시_인덱스범위_내에서_스냅샷_미존재() {
         int tryCount = 1;
         Snapshot snapshot = new Snapshot(tryCount);
@@ -40,6 +44,7 @@ class SnapshotTest {
     }
 
     @Test
+    @DisplayName("스냅샷__우승자_결과")
     void printWinner_메서드의_우승자_결과_테스트() {
         Snapshot snapshot = new Snapshot(3);
         List<Car> cars = List.of(
