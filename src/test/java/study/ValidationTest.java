@@ -17,7 +17,7 @@ public class ValidationTest {
         String target = "";
 
         //when
-        assertThatThrownBy(()->{
+        assertThatThrownBy(()-> {
             InputValidation.verifyForEmptyValue(target);
         }
             ).isInstanceOf(IllegalArgumentException.class)
@@ -29,19 +29,20 @@ public class ValidationTest {
         //given
         String target = "pobi,woni, jun";
         //when
-        assertThatThrownBy(()->{
+        assertThatThrownBy(()-> {
                     InputValidation.verifyForSpaceValue(target);
-                }
-        ).isInstanceOf(IllegalArgumentException.class)
+        }
+            ).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorProperty.VALUE_CONTAINS_SPACE);
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"pob1","pobi@","포비-"})
     void 이름_입력_값_한글_혹은_영어_검증_로직_테스트(String inputValue){
-        assertThatThrownBy(()->{
+        assertThatThrownBy(()-> {
             NameValidation.verifyForRacerNameIsEngOrKor(inputValue);
-        }).isInstanceOf(IllegalArgumentException.class)
+        }
+            ).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorProperty.NAME_VALUE_IS_NOT_CORRECT_FORM);
     }
 
@@ -52,9 +53,10 @@ public class ValidationTest {
         Integer nameStandardLength = ValidateProperty.NAME_LENGTH_STANDARD;
 
         //when
-        assertThatThrownBy(()->{
+        assertThatThrownBy(()-> {
             NameValidation.verifyForRacerNameIsLengthNotOver(inputValue);
-        }).isInstanceOf(IllegalArgumentException.class)
+        }
+            ).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorProperty.NAME_VALUE_LENGTH_IS_OVER);
     }
 }
