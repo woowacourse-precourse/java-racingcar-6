@@ -13,6 +13,6 @@ public class ConstantString {
     public static String FINAL_WINNER = "최종 우승자 : ";
 
     public static String processMessage(Car car) {
-        return car.getCarName() + " : " + HYPHEN.repeat(car.getCount());
+        return car.getCarName() + " : " + HYPHEN.repeat(car.getMoveCount());
     }
 }

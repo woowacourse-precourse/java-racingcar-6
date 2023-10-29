@@ -28,7 +28,7 @@ public class Car {
         }
     }
 
-    public int getCount() {
+    public int getMoveCount() {
         return moveCount.getMoveCount();
     }
 }

@@ -7,7 +7,7 @@ public enum ConstantNumber {
     MOVING_FORWARD(4),
     MOVE_DISTANCE(1),
     MIN_ATTEMPTS(1),
-    DEFAULT_MAX_COUNT(0),
+    DEFAULT_MAX_MOVE_COUNT(0),
     INITIAL_MOVE_COUNT(0);
 
     private final int value;

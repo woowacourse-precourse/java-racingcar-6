@@ -1,7 +1,7 @@
 package controller;
 
 
-import static constant.ConstantNumber.DEFAULT_MAX_COUNT;
+import static constant.ConstantNumber.DEFAULT_MAX_MOVE_COUNT;
 import static constant.ConstantNumber.MAX_NUMBER_RANGE;
 import static constant.ConstantNumber.MIN_NUMBER_RANGE;
 import static constant.ConstantString.EXECUTION_RESULT;
@@ -49,18 +49,26 @@ public class RaceController {
 
     private List<String> findWinners() {
         List<String> winnerList = new ArrayList<>();
-        int maxCount = DEFAULT_MAX_COUNT.getValue();
+        int maxCount = findMaxMoveCount();
 
         for (Car car : cars.getCarsList()) {
-            int count = car.getCount();
-            if (count > maxCount) {
-                maxCount = count;
-                winnerList.clear();
-                winnerList.add(car.getCarName());
-            } else if (count == maxCount) {
+            int currentMoveCount = car.getMoveCount();
+            if (maxCount == currentMoveCount) {
                 winnerList.add(car.getCarName());
             }
         }
         return winnerList;
+    }
+
+    private int findMaxMoveCount() {
+        int maxMoveCount = DEFAULT_MAX_MOVE_COUNT.getValue();
+
+        for (Car car : cars.getCarsList()) {
+            int moveCount = car.getMoveCount();
+            if (moveCount > maxMoveCount) {
+                maxMoveCount = moveCount;
+            }
+        }
+        return maxMoveCount;
     }
 }
