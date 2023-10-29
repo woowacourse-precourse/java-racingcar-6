@@ -10,7 +10,7 @@ import java.util.List;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class RacingCarGame {
-    public final int start = 0;
+    public int start = 0;
     public RacingCarService racingCarService;
 
     public void playGame() {
@@ -26,12 +26,10 @@ public class RacingCarGame {
         System.out.println("실행 결과");
 
         while (start < number) {
-            /**
-             * pobi : -
-             * woni :
-             * jun : -
-             */
-            racingCarService.movingForward(racingCars);
+            racingCars = racingCarService.movingForward(racingCars);
+            racingCarService.getRaceResult(racingCars);
+
+            start = racingCarService.addTime(start);
         }
     }
 }
