@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Car;
+import racingcar.domain.NumberGenerator;
 import racingcar.domain.RacingGame;
 import racingcar.domain.RandomNumberGenerator;
 import racingcar.dto.CarDto;
@@ -24,7 +25,7 @@ public class MainController {
     public void run() {
         RacingGame racingGame = initializeRacingGame();
 
-        play(racingGame);
+        start(racingGame);
         showWinners(racingGame);
     }
 
@@ -40,11 +41,15 @@ public class MainController {
         return converter.convert(carNames);
     }
 
-    private void play(RacingGame racingGame) {
+    private void start(RacingGame racingGame) {
         outputView.printResultMessage();
 
+        race(racingGame, new RandomNumberGenerator());
+    }
+
+    private void race(RacingGame racingGame, NumberGenerator numberGenerator) {
         while (canRace(racingGame)) {
-            racingGame.race(new RandomNumberGenerator());
+            racingGame.race(numberGenerator);
 
             List<CarDto> cars = toCarDto(racingGame.getCars());
             outputView.printRaceResult(cars);
