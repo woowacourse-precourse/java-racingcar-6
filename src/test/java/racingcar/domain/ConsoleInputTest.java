@@ -83,4 +83,23 @@ class ConsoleInputTest {
             assertThat(carNames).containsExactly("붕", "카", "타", "요", "버", "스", "시");
         }
     }
+
+    @DisplayName("이동횟수 입력")
+    @Nested
+    class InputMoveCount {
+        @ParameterizedTest
+        @CsvSource(value = {"1", "11", "011", "1111", "11111111"})
+        @DisplayName("정상동작")
+        void goodCase(String input) {
+            //given
+            byte[] buf = input.getBytes();
+            System.setIn(new ByteArrayInputStream(buf));
+
+            //when
+            int moveCount = consoleInput.getMoveCount();
+
+            //then
+            assertThat(moveCount).isEqualTo(Integer.parseInt(input));
+        }
+    }
 }
