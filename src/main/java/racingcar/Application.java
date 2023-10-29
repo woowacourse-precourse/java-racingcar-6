@@ -1,6 +1,5 @@
 package racingcar;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Application {
@@ -11,17 +10,20 @@ public class Application {
         Validator validator = new Validator();
 
         String inputCarNames = input.carName();
-        //List<String> carNames = car.splitByComma(inputCarNames);
+        validator.hasSpace(inputCarNames);
+
+        List<String> carNames = car.splitByComma(inputCarNames);
         /*System.out.println(inputCarNames);
         System.out.println(carNames);*/
-
-        validator.hasSpace(inputCarNames);
 
         String inputNumber = input.tryNumber();
         validator.isNumber(inputNumber);
 
         int tryNumber = Integer.parseInt(inputNumber);
 
-        //car.nowRacing(carNames, tryNumber);
+        List<Integer> carMoveDistance = car.nowRacing(carNames, tryNumber);
+
+        String winner = car.printWinner(carNames, carMoveDistance);
+        System.out.println(winner);
     }
 }

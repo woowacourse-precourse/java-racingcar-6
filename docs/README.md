@@ -5,9 +5,9 @@
 - [x] 차수별 자동차 전진 현황 출력 (nowRacing)
   - [x] 0~3: 정차
   - [x] 4~9: 한 칸 전진
-- [ ] 게임 완료 후 우승자 출력 (printWinner)
-  - [ ] 단독 우승 (winOnlyOne)
-  - [ ] 여러 명 우승: 쉼표로 구분 (winManyCars)
+- [x] 게임 완료 후 우승자 출력 (printWinner)
+  - [x] 단독 우승
+  - [x] 여러 명 우승: 쉼표로 구분
 - [ ] 입력 값이 잘못된 경우 `IllegalArgumentException` 발생시킴
   - [x] 자동차 이름이 6자 이상일 경우 (isLengthOverFive)
   - [x] 시도할 회수가 숫자가 아닐 경우 (isNumber)
