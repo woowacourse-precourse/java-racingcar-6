@@ -16,4 +16,10 @@ public class Car {
     public int getScore() {
         return this.score;
     }
+
+    public StringBuilder createRoundRaceResult() {
+        StringBuilder raceResult = new StringBuilder(this.name + " : ");
+        raceResult.append("-".repeat(Math.max(0, this.score)));
+        return raceResult;
+    }
 }
