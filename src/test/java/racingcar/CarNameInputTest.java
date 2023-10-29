@@ -1,13 +1,16 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.TestUtil.setInput;
+import static racingcar.message.ExceptionMessage.DUPLICATE_NAME;
 import static racingcar.util.NameSplitter.split;
 
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
+import racingcar.model.Cars;
 import racingcar.view.InputView;
 
 class CarNameInputTest {
@@ -47,6 +50,8 @@ class CarNameInputTest {
         String[] carNames = split(inputView.askCarNames());
         List<Car> carList = Arrays.stream(carNames).map(Car::from).toList();
         // then
-        assertThat(carList).isEqualTo(expected);
+        assertThatThrownBy(() -> Cars.from(carList))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(DUPLICATE_NAME.getMessage());
     }
 }
