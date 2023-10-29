@@ -43,6 +43,7 @@
 클래스 변수 : String name, long destination
 * 자동차 이름이 유효한지 검사하는 기능 구현 ❌
 * 현재 자동차 이름과 위치를 출력 ❌
+* 생성자로 name 및 destination 초기화 ✅
 
 ### MoveNum
 클래스 변수 : long num
