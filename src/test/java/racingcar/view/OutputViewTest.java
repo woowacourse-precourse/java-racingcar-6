@@ -19,9 +19,9 @@ public class OutputViewTest extends NsTest {
 
 		Cars cars = createService.createCars("car1,car2,car3");
 		
-		outputView.printExecutionResult(cars.printCarsStatus(), 1);
+		outputView.printCarLocationCurrentSituation(cars.printCarsStatus());
 
-		assertThat(output()).contains("실행결과", "car1 :", "car2 :", "car3 :");
+		assertThat(output()).contains("car1 :", "car2 :", "car3 :");
 	}
 	
 	@DisplayName("실행결과 메세지를 확인한다.")
