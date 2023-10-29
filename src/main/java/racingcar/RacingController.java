@@ -18,34 +18,36 @@ public class RacingController {
     private List<Car> cars; // 경주에 참여하는 자동차 정보 리스트
     public void startGame() {
         consolePrint.requestCarNameInput();
-        String carNameInput = Console.readLine();
+        String carNameInput = Console.readLine();   // 자동차 이름 입력
+
         exception.isNameNull(carNameInput);
-        cars =  parsing.StringToCarList(carNameInput);
+        cars = parsing.StringToCarList(carNameInput);
         for (Car car : cars) {
             exception.isNameNull(car.getName());
             exception.isNameInRange(car.getName());
         }
 
         consolePrint.requestTryCountInput();
-        String tryCountInput = Console.readLine();
+
+        String tryCountInput = Console.readLine();  // 시도 회수 입력
         exception.isInteger(tryCountInput);
         int tryCount = parsing.stringToInt(tryCountInput);
         exception.isGreaterThanZero(tryCount);
 
         consolePrint.informRacingResult();
-        int i = 0;
-        while(i++ <= tryCount) {
+        int count = 0;
+        while(count++ <= tryCount) {
             playRacing();
         }
 
         List<Car> winners = calculation.judgeWhoIsWinner(cars);
-
         consolePrint.finalWinner(winners);
     }
 
     public void playRacing() {
         for (Car car : cars) {
             int randomNumber = calculation.generateRandomNumberInRange();
+
             CarStatus carStatus = calculation.judgeCarMoveOrStop(randomNumber);
             car.setMoveCount(carStatus);
             car.setNowMoveTrace(carStatus);
