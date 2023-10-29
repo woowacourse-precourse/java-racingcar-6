@@ -11,11 +11,26 @@ public class RacingCar {
         List<String> carNames = InputView.readCarNames();
         List<Car> cars = initializeCars(carNames);
 
+        int numberOfAttempts = InputView.readNumberAttempts();
+
+        race(cars, numberOfAttempts);
+
     }
 
     public static List<Car> initializeCars(List<String> carNames) {
         List<Car> cars = carNames.stream().map(Car::new).collect(Collectors.toList());
         return cars;
     }
+
+    public static void race(List<Car> cars, int numberOfAttempts) {
+        for (int i = 0; i < numberOfAttempts; i++) {
+            for (Car car : cars) {
+                car.move();
+            }
+        }
+    }
+
+
+
 
 }
