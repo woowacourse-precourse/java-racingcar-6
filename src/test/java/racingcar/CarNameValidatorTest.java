@@ -33,5 +33,11 @@ public class CarNameValidatorTest {
         assertThrows(IllegalArgumentException.class, () -> carNameValidator.processCarNames(carName));
     }
 
+    @DisplayName("자동차이동름입력 - ,로 시작시 예외발생")
+    @Test
+    void checklCarNmaeStartsWithComma() {
+        String carName = ",kim,jun";
+        assertThrows(IllegalArgumentException.class, () -> carNameValidator.processCarNames(carName));
+    }
 
 }
