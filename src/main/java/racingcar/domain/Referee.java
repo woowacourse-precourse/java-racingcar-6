@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Referee {
-    public List<String> callWinnerCar() {
+    public String callWinnerCar() {
         Racing racing = new Racing();
         Map<String, Integer> racingResult = racing.racingMoveCount();
         List<String> winnerCar = new ArrayList<>();
@@ -17,7 +17,6 @@ public class Referee {
                 winnerCar.add(key);
             }
         }
-        System.out.println(racingResult);
-        return winnerCar;
+        return "최종 우승자 : " + String.join(", ", winnerCar);
     }
 }
