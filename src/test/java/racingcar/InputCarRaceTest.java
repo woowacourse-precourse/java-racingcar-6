@@ -56,8 +56,12 @@ public class InputCarRaceTest {
         public static InputCarRace inputMove(String stringMoveCount){
             validateOnlyNumber(stringMoveCount);
             moveCount = Integer.parseInt(stringMoveCount);
-
+            OutputCarRace.printf(MessageType.INPUT_DATA_PRINT, stringMoveCount);
             return new InputCarRace();
+        }
+
+        public static int getMoveCount(){
+            return moveCount;
         }
 
         private static void validateOnlyNumber(String stringMoveCount) {
@@ -80,9 +84,14 @@ public class InputCarRaceTest {
             }
 
             validateDuplicateCarNames();
+            OutputCarRace.printf(MessageType.INPUT_DATA_PRINT, stringCarNames);
             return new InputCarRace();
         }
 
+        public static List<String> getCarNumbers(){
+            return carNames;
+        }
+        
         private InputCarRace(){
 
         }
@@ -164,7 +173,7 @@ public class InputCarRaceTest {
     }
 
     @Test
-    void 사용자이름_입력_정상(){
+    void 사용자이동횟수_입력_정상(){
         사용자_이동_횟수를_입력하라();
 
         InputCarRace.inputMove(사용자_이동_횟수);
@@ -173,7 +182,7 @@ public class InputCarRaceTest {
     }
 
     @Test
-    void 사용자이름_입력_예외(){
+    void 사용자이동횟수_입력_예외(){
         사용자_이동_횟수_예외를_입력하라();
 
         assertSimpleTest(() ->
