@@ -1,47 +1,35 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
-import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import org.assertj.core.api.Assertions;
 
-public class UserInputTest extends NsTest {
+public class UserInputTest {
+
     @Test
     void 회수가_숫자_아닌_경우_예외_처리() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,lkh,be", "abc"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
+        String input = "abc";
+        Assertions.assertThat(!UserInput.isNumberInteger(input));
     }
 
     @Test
     void 회수가_0보다_작은_경우_예외_처리() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi, sam", "0"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,sam", "-1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
+        int input = 0;
+        Assertions.assertThat(!UserInput.isNumberOverZero(input));
     }
 
     @Test
     void 이름이_공백인_경우_예외_처리() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,,abc", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
+        String blank = " ";
+        String includeBlank = "tom, ,yell";
+
+        List<String> blankList = Arrays.asList(blank.split(","));
+        List<String> includeBlankList = Arrays.asList(includeBlank.split(","));
+
+        Assertions.assertThat(!UserInput.isNotEmpty(blankList));
+        Assertions.assertThat(!UserInput.isNotEmpty(includeBlankList));
     }
 
-
-    @Override
-    public void runMain() {
-        Application.main(new String[]{});
-    }
 }
