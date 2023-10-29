@@ -14,6 +14,15 @@ public class GameController {
         this.input = input;
     }
 
+    public void run() {
+        final RacingCars racingCars = readyToCarRace();
+        long attemptCounts = chooseAttemptCounts();
+        view.printPlayResultText();
+        playCarRace(attemptCounts, racingCars);
+        List<String> winnerNames = calculateFinalWinners(racingCars);
+        view.printFinalWinners(winnerNames);
+    }
+
     private RacingCars readyToCarRace() {
         view.printGameStartMessage();
         String carNamesInput = input.inputCarNames();
