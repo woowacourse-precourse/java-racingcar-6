@@ -50,4 +50,20 @@ class InputViewTest {
         assertThatThrownBy(() -> InputView.getCarNames())
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 시도횟수_정상입력_숫자반환_통합테스트() {
+        String input = "5";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        int attemptCount = InputView.getAttemptCount();
+        assertThat(attemptCount).isEqualTo(5);
+    }
+
+    @Test
+    void 시도횟수_문자입력_에러발생_통합테스트() {
+        String input = "ab";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        assertThatThrownBy(() -> InputView.getAttemptCount())
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
