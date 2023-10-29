@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private final static int MOVING_STANDARD = 4;
@@ -13,18 +12,14 @@ public class Car {
     }
 
 
-    public void move(){
-        int randomNumber = createRandomNumber();
-        if(isMoveFront(randomNumber)){
+    public int move(int randomNumber) {
+        if (isMoveFront(randomNumber)) {
             location++;
         }
+        return location;
     }
 
-    private int createRandomNumber(){
-        return Randoms.pickNumberInRange(0,9);
-    }
-
-    private boolean isMoveFront(int randomNumber){
+    private boolean isMoveFront(int randomNumber) {
         return randomNumber >= MOVING_STANDARD;
     }
 
