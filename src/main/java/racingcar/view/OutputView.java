@@ -1,21 +1,23 @@
 package racingcar.view;
 
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+리import java.util.stream.Collectors;
 import racingcar.domain.Car;
+import racingcar.domain.CarDto;
+import racingcar.domain.CarsDto;
 import racingcar.util.Constants;
+import racingcar.util.StringUtils;
 
 public class OutputView {
 
     private boolean isFirstTime = true;
 
-    public void printMoveResult(Map<Car, Integer> moveResults) {
+    public void printMoveResult(final CarsDto carsDto) {
         printGameResultMessageForFirstTime();
 
-        for (Car car : moveResults.keySet()) {
-            String position = converterPosition(car.getPosition());
-            System.out.printf("%s : %s\n", car.getName(), position);
+        for (CarDto carDto : carsDto.cars()) {
+            String dashes = StringUtils.repeatDash(carDto.position());
+            System.out.printf("%s : %s\n", carDto.carName(), dashes);
         }
         System.out.println();
     }
