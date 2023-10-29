@@ -18,6 +18,6 @@ class InputViewTest {
         scanner = new Scanner(System.in);
         String[] expectedResult = new String[]{"lion", "cat", "dog"};
 
-        assertThat(InputView.readCarNames(scanner)).containsExactly(expectedResult);
+        assertThat(InputView.readCarNames()).containsExactly(expectedResult);
     }
 }
