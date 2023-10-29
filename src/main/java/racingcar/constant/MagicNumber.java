@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.constant;
 
 public enum MagicNumber {
     RANDOM_MIN(0),

@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.constant;
 
 public enum CarStatus {
     MOVE(1),
