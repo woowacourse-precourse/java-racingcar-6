@@ -2,6 +2,7 @@ package racingcar.service;
 
 import racingcar.domain.Car;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Racing {
@@ -21,4 +22,21 @@ public class Racing {
         }
         return racingCars;
     }
+
+    public List<String> getWinner(){
+        List<String> winners = new ArrayList<>();
+        int maxPosition = 0;
+        for(Car car: racingCars){
+            int position = car.getPosition();
+            if(position > maxPosition){
+                maxPosition = position;
+                winners.clear();
+                winners.add(car.getName());
+            } else if (position == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
+
 }
