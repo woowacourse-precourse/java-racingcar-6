@@ -27,18 +27,6 @@ public class Model {
         }
     }
 
-    public void racing(List<Car> carList, int times){
-        View view = new View();
-
-        for(int i = 0 ; i < times ; i++) {
-            racingForOneTurn(carList);
-            view.printResult(carList);
-        }
-
-        List<String> winnerList = getWinnerList(carList);
-        view.printWinner(winnerList);
-    }
-
     public List<String> getWinnerList(List<Car> carList) {
         List<String> winnerList = new ArrayList<>();
         int maxDistance = 0;

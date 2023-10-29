@@ -13,8 +13,14 @@ public class Controller {
         String[] namesOfCars = view.getNamesOfCars();
         List<Car> carList = model.makeCarList(namesOfCars);
 
-        int numberOfAttempts = view.getNumberOfAttempts();
+        int times = view.getTimes();
 
-        model.racing(carList, numberOfAttempts);
+        for(int i = 0 ; i < times ; i++) {
+            model.racingForOneTurn(carList);
+            view.printResult(carList);
+        }
+
+        List<String> winnerList = model.getWinnerList(carList);
+        view.printWinner(winnerList);
     }
 }
