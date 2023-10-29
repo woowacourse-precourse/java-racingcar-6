@@ -6,6 +6,7 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
+import racingcar.model.Game;
 
 public class GameRepositoryTest extends NsTest {
 
@@ -19,10 +20,14 @@ public class GameRepositoryTest extends NsTest {
         );
     }
 
+    private Game createGame() {
+        return new Game(3, createListOfCars());
+    }
+
     @Test
     void 레포지토리에_게임_저장_후_id로_확인() {
-        gameRepository.save(createListOfCars());
-        gameRepository.save(createListOfCars());
+        gameRepository.save(createGame());
+        gameRepository.save(createGame());
         assertThat(gameRepository.findById(0L).getCars().get(0).getName()).isEqualTo("a");
         assertThat(gameRepository.findById(0L).getCars().get(1).getName()).isEqualTo("b");
         assertThat(gameRepository.findById(0L).getCars().get(2).getName()).isEqualTo("c");
@@ -35,9 +40,9 @@ public class GameRepositoryTest extends NsTest {
     void 레포지토리에_자동차_저장_후_전체_확인() {
         int n = 4;
         for (int i = 0; i < n; i++) {
-            gameRepository.save(createListOfCars());
+            gameRepository.save(createGame());
         }
-        assertThat(gameRepository.findAll()).hasSize();
+        assertThat(gameRepository.findAll()).hasSize(n);
     }
 
     @Override
