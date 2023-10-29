@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class GameWinner {
+public class GameResult {
 
     public static void getWinner(Map<String, String> racingCars) {
         int maxCarDistance = 0;
