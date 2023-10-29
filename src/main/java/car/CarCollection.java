@@ -3,6 +3,8 @@ package car;
 import java.util.ArrayList;
 import java.util.List;
 
+import static constants.RacingCarConstants.*;
+
 public class CarCollection {
 
     private final List<Car> cars;
@@ -23,7 +25,7 @@ public class CarCollection {
 
     public void printCarsDistance() {
         for (Car car : cars) {
-            System.out.println(car.getName() + " : " + "-".repeat(car.getDistance()));
+            System.out.println(car.getName() + " : " + PRINT_DISTANCE_UNIT.repeat(car.getDistance()));
         }
         System.out.println();
     }
@@ -48,6 +50,6 @@ public class CarCollection {
     }
 
     public void printWinners(List<String> winners) {
-        System.out.println("최종 우승자 : " + String.join(", ", winners));
+        System.out.println(PRINT_WINNER_MESSAGE + String.join(", ", winners));
     }
 }
