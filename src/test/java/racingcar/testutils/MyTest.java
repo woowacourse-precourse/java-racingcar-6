@@ -27,7 +27,7 @@ public abstract class MyTest {
     }
 
     protected final String output() {
-        return captor.toString().trim();
+        return captor.toString();
     }
 
     protected final <T> T input(final String arg, Supplier<T> supplier) {

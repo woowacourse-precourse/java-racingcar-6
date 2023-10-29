@@ -18,7 +18,7 @@ class InputViewTest extends MyTest {
 
         Integer actual = input(arg, inputView::getAttemptCount);
 
-        assertThat(output()).isEqualTo("시도할 회수는 몇회인가요?");
+        assertThat(output()).isEqualTo("시도할 회수는 몇회인가요?\n");
         assertThat(actual).isEqualTo(10);
     }
 
@@ -41,7 +41,7 @@ class InputViewTest extends MyTest {
 
         List<String> actual = input(arg, inputView::getNames);
 
-        assertThat(output()).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        assertThat(output()).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
         assertThat(actual).isEqualTo(List.of("a","ab","abc","12345"));
     }
 }
