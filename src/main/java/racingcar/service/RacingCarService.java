@@ -32,9 +32,8 @@ public class RacingCarService {
 
     public RacingCars move() {
         final RacingCars racingCars = racingCarsRepository.find();
-        final Numbers numbers =
-                new Numbers(randomNumberGenerator.generateWithSize(racingCars.numOfElement()));
-        racingCars.moveByNumbers(numbers);
+        racingCars.moveByNumbers(
+                new Numbers(randomNumberGenerator.generateWithSize(racingCars.numOfElement())));
         return racingCars;
     }
 
