@@ -13,6 +13,11 @@ class CarNameValidatorTest {
     void 자동차_이름이_5자를_초과할경우_예외발생() {
         assertThrows(IllegalArgumentException.class,
                 () -> carNameValidator.validateCarName(List.of("lovejava")));
+    }
 
+    @Test
+    void 자동차_이름이_중복일경우_예외발생() {
+        assertThrows(IllegalArgumentException.class,
+                () -> carNameValidator.validateCarName(List.of("nara", "nara")));
     }
 }
