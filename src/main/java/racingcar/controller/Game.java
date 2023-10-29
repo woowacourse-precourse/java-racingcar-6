@@ -1,8 +1,5 @@
 package racingcar.controller;
 
-import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
-
-import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.dto.GameInput;
@@ -49,7 +46,7 @@ public class Game {
 
     private void turn() {
         for(Car car : cars) {
-            if (GameUtils.isForward()) {
+            if (GameUtils.canFoward()) {
                 car.foward();
             }
             OutputView.printStatus(GameStatus.fromCar(car));

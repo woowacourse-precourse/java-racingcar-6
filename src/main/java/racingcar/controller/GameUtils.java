@@ -16,7 +16,7 @@ public class GameUtils {
         return cars;
     }
 
-    public static boolean isForward() {
+    public static boolean canFoward() {
         int random = pickNumberInRange(0, 9);
 
         return random >= 4;
