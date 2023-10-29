@@ -39,8 +39,15 @@ public class Race {
         int moveNum = Integer.parseInt(readLine());
     }
 
-    private void updateCarsPosition() {
+    public void updateCarsPosition() {
 
+        for (Car car : cars) {
+            int number = NumberGenerator.createRandomNumber();
+
+            if (number >= 4) {
+                car.setPosition(car.getPosition() + 1);
+            }
+        }
     }
 
     private void displayCarMoving() {

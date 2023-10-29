@@ -17,7 +17,7 @@ public class Car {
         return position;
     }
 
-    public void setPosition() {
-        this.position += 1;
+    public void setPosition(int position) {
+        this.position = position;
     }
 }
