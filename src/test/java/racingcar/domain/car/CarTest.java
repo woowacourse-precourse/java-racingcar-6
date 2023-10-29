@@ -4,8 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.car.Car;
-import racingcar.domain.car.MoveState;
 import racingcar.domain.generator.NumberGenerator;
 
 class CarTest {
@@ -16,7 +14,8 @@ class CarTest {
 		// given
 		NumberGenerator movableNumber = () -> 4;
 		MoveState moveState = new MoveState(movableNumber);
-		Car car = new Car(moveState);
+		CarName carName = new CarName("12345");
+		Car car = new Car(carName, moveState);
 
 		// when
 		car.move();
@@ -31,7 +30,8 @@ class CarTest {
 		// given
 		NumberGenerator nonMovableNumber = () -> 3;
 		MoveState moveState = new MoveState(nonMovableNumber);
-		Car car = new Car(moveState);
+		CarName carName = new CarName("12345");
+		Car car = new Car(carName, moveState);
 
 		// when
 		car.move();
