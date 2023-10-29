@@ -31,7 +31,7 @@ public class Application {
      * 3) 중복 불가능
      *
      * @throws IllegalArgumentException 위 검증을 통과하지 못할 시 예외발생
-     * @return 입력 받은 자동차 이름을 key값으로 하는 Map
+     * @return 입력 받은 자동차 이름을 key값으로 하고 각 value값이 0으로 초기화 된 Map
      */
     public static Map<String, Integer> inputCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
