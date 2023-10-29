@@ -21,6 +21,6 @@ public class StringConverter {
 
     public static Integer stringToInteger(String tryNumber) {
         InputValidator.validateInputTryNumber(tryNumber);
-        return Integer.parseInt(tryNumber);
+        return Integer.valueOf(tryNumber);
     }
 }

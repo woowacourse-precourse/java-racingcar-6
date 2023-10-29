@@ -25,7 +25,7 @@ public class InputValidator {
 
     private static boolean isNumeric(String number) {
         try {
-            Integer.parseInt(number);
+            Integer.valueOf(number);
             return true;
         } catch (NumberFormatException e) {
             return false;
