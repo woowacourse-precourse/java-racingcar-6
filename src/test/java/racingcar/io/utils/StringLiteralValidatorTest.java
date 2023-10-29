@@ -9,12 +9,12 @@ class StringLiteralValidatorTest {
 
     @DisplayName("숫자가 아닌 경우 예외를 발생한다.")
     @Test
-    void validateIsNumeric() {
+    void validateIsInteger() {
         // given
         String literal = "asb";
 
         // when & then
-        assertThatThrownBy(() -> StringLiteralValidator.validateIsNumeric(literal))
+        assertThatThrownBy(() -> StringLiteralValidator.validateIsInteger(literal))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
