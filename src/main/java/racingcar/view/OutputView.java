@@ -1,25 +1,25 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.dto.output.CarInfo;
-import racingcar.dto.output.WinnerInfo;
+import racingcar.dto.output.RoundDTO;
+import racingcar.dto.output.WinnerDTO;
 
 public class OutputView {
     private static boolean isFirstTime = true;
 
-    public static void printRoundResult(List<CarInfo> carInfos) {
+    public static void printRoundResult(List<RoundDTO> RoundDTOS) {
         if (isFirstTime) {
             System.out.println("\n실행 결과");
             isFirstTime = false;
         }
 
-        for (CarInfo carInfo : carInfos) {
-            System.out.println(carInfo);
+        for (RoundDTO roundDTO : RoundDTOS) {
+            System.out.println(roundDTO);
         }
         System.out.println();
     }
 
-    public static void printWinner(WinnerInfo winnerInfo) {
-        System.out.println(winnerInfo);
+    public static void printWinner(WinnerDTO winnerDTO) {
+        System.out.println(winnerDTO);
     }
 }

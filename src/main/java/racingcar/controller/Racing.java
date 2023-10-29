@@ -1,33 +1,20 @@
 package racingcar.controller;
 
-import racingcar.domain.RacingCars;
-import racingcar.view.OutputView;
-
 public class Racing {
-    private final int trialCount;
-    private final RacingCars racingCars;
+    private final Game game;
+    private final Result result;
 
-    public Racing(int trialCount, RacingCars racingCars) {
-        this.trialCount = trialCount;
-        this.racingCars = racingCars;
+    public Racing(Game game, Result result) {
+        this.game = game;
+        this.result = result;
     }
 
-    // 레이싱 시작
-    public void startRacing() {
-        executeRaces();
-        announceWinner();
+    public void start() {
+        executeRacingGame();
     }
 
-    // 레이싱 실행
-    private void executeRaces() {
-        for (int i = 0; i < trialCount; i++) {
-            racingCars.moveCars();
-            OutputView.printRoundResult(racingCars.getRoundResults());
-        }
-    }
-
-    // 승자 발표
-    private void announceWinner() {
-        OutputView.printWinner(racingCars.determineWinnerInfo());
+    private void executeRacingGame() {
+        game.play();
+        result.announce();
     }
 }

@@ -2,7 +2,7 @@ package racingcar.common.generator;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class NsRandomGenerator implements RandomGenerator{
+public class NsRandomGenerator implements RandomGenerator {
     private static final int MIN_RANDOM_NUMBER = 0;
     private static final int MAX_RANDOM_NUMBER = 9;
 

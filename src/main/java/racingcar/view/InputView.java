@@ -1,13 +1,14 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.common.type.TrialCount;
 import racingcar.dto.input.InputDTO;
 
 public class InputView {
 
     public static InputDTO readUserInput() {
         String[] names = readCarNames();
-        int trialCount = readTrialCount();
+        TrialCount trialCount = new TrialCount(readTrialCount());
 
         return new InputDTO(names, trialCount);
     }
