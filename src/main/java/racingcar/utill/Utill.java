@@ -87,5 +87,4 @@ public class Utill {
         return List.of(arr);
     }
 
-    // TODO: 10/28/23 배열을 리스트로 변환
 }
