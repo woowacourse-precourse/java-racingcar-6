@@ -6,6 +6,8 @@ import racingcar.service.GameService;
 import racingcar.view.InputValue;
 import racingcar.view.OutputValue;
 
+import java.util.List;
+
 public class GameController {
 
     private RacingCars racingCars = new RacingCars();
@@ -47,6 +49,9 @@ public class GameController {
 
     private void gameEnd() {
 
+        gameService.getWinnerNames(racingCars);
+
+        OutputValue.gameResultMessage(racingCars);
     }
 
 }
