@@ -21,6 +21,10 @@ public class Car implements Comparable<Car> {
         position++;
     }
 
+    public boolean isSamePosition(Car car) {
+        return car.position == this.position;
+    }
+
     public boolean isNameLongerThenCriteria(int criteria) {
         return name.length() > criteria;
     }
