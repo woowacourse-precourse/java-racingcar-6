@@ -31,4 +31,13 @@ public class InputView {
         throw new IllegalArgumentException(INVALID_SPLIT_CHAR.getMessage());
     }
 
+    public static int inputAttempNum() {
+        try {
+            int attempNum = Integer.parseInt(Console.readLine());
+            return attempNum;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(NON_DIGIT_ATTEMP_NUM.getMessage());
+        }
+    }
+
 }

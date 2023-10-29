@@ -1,9 +1,12 @@
 package racingcar.view;
 
-import racingcar.utils.Message;
+import static racingcar.utils.Message.*;
 
 public class OutputView {
     public static void printStartGameMessage() {
-        System.out.println(Message.StartGameMessage.getMessage());
+        System.out.println(StartGameMessage.getMessage());
+    }
+    public static void printAttempNumMessage() {
+        System.out.println(AttempNumMessage.getMessage());
     }
 }

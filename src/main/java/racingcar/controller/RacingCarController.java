@@ -9,5 +9,7 @@ public class RacingCarController {
     public void startGame() {
         OutputView.printStartGameMessage();
         List<Car> cars = InputView.inputCarNames();
+        OutputView.printAttempNumMessage();
+        int attempNum = InputView.inputAttempNum();
     }
 }
