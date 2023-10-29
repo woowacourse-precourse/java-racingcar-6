@@ -57,9 +57,7 @@ public class Application {
     // 기능 1-2. 주어진 횟수를 입력받기(몇 번의 라운드를 진행할 지 입력 받기)
     public static int getNumberOfRounds(){
             System.out.print("시도할 회수는 몇회인가요?");
-            Scanner scanner = new Scanner(System.in);
             int rounds = Integer.parseInt(Console.readLine());
-            scanner.close();
             return rounds;
     }
     // 기능 5-1. 입력 받은 라운드 수만큼 전진할 지 정지할 지 결정하여 int[][] location에 저장하고 매 라운드마다 자동차 별 진행 상황 프린트
@@ -85,14 +83,13 @@ public class Application {
     public static void playRound(String[] cars, int rounds, int[][] location){
             int numOfCars = cars.length;
             int index = 0;
-
             for (String car : cars) {
-                    index += 1;
                     System.out.print(car + ": ");
                     for(int i = 0; i < rounds; i++){
                             if(location[index][i] == 1){
                                     System.out.print("-");
                             }
+                            index += 1;
                     }
                     System.out.println();
             }
