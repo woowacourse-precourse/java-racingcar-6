@@ -6,36 +6,36 @@ import java.util.HashMap;
 
 public class Player {
 
-    private HashMap<String,Integer> cars = new HashMap<>();
+    private HashMap<String, Integer> cars = new HashMap<>();
     private String[] inputCarNames;
     private int attemptNumber;
 
 
-    public void setCarName(){
+    public void setCarName() {
         inputCarNames = Console.readLine().split(",");
         for (String inputCarName : inputCarNames) {
             cars.put(inputCarName, 0);
         }
     }
 
-    public HashMap<String, Integer> getCarName(){
+    public HashMap<String, Integer> getCarName() {
         return cars;
     }
 
-    public String getCarName(int index){
+    public String getCarName(int index) {
         return inputCarNames[index];
     }
 
-    public void setAttemptNumber(){
+    public void setAttemptNumber() {
         attemptNumber = Integer.parseInt(Console.readLine());
     }
 
-    public int getAttemptNumber(){
+    public int getAttemptNumber() {
         return attemptNumber;
     }
 
-    public int getRandomNumber(){
-        return Randoms.pickNumberInRange(0,9);
+    public int getRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 
 }
