@@ -26,7 +26,7 @@ public class OutputView {
         System.out.println(carName + " : " + makeCarPosition(position));
     }
 
-    public static String makeCarPosition(int position) {
+    private static String makeCarPosition(int position) {
         StringBuilder carPosition = new StringBuilder();
         for (int i = 0; i < position; i++) {
             carPosition.append("-");
