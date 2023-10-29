@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
+    public Game(Integer playCount) {
+        this.playCount = playCount;
+    }
 
     private List<Car> carList = new ArrayList<>();
 
