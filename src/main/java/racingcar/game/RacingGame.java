@@ -2,11 +2,12 @@ package racingcar.game;
 
 import java.util.ArrayList;
 import java.util.List;
-import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
-import racingcar.message.Printer;
+import racingcar.message.Console;
 import racingcar.evaluator.Evaluator;
+
+import static camp.nextstep.edu.missionutils.Console.*;
 
 public class RacingGame {
 
@@ -18,16 +19,16 @@ public class RacingGame {
     static Evaluator evaluator = new Evaluator();
 
     public static void run() {
-        Printer.requestCarName();
+        Console.requestCarName();
         List<Car> cars = inputCarName();
 
-        Printer.requestCount();
+        Console.requestCount();
         int gameCount = inputGameCount();
 
         while (gameCount > 0) {
             for (Car car : cars) {
                 moveCar(car);
-                Printer.move(car.getName(), convertMovesToString(car));
+                Console.move(car.getName(), convertMovementToString(car));
             }
             System.out.println();
             gameCount--;
@@ -35,12 +36,12 @@ public class RacingGame {
         evaluator.evaluate(cars);
     }
 
-    private static List<Car> inputCarName() {
-        String inputCars = Console.readLine();
+    static List<Car> inputCarName() {
+        String inputCars = readLine();
         return saveCars(inputCars);
     }
 
-    private static List<Car> saveCars(String inputCars) {
+    static List<Car> saveCars(String inputCars) {
         String[] carNames = inputCars.split(",");
         List<Car> cars = new ArrayList<>();
 
@@ -50,21 +51,21 @@ public class RacingGame {
         return cars;
     }
 
-    private static int inputGameCount() {
-        return Integer.parseInt(Console.readLine());
+    static int inputGameCount() {
+        return Integer.parseInt(readLine());
     }
 
-    private static int generateRandomNumber() {
+    static int generateRandomNumber() {
         return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
     }
 
-    private static void moveCar(Car car) {
+    static void moveCar(Car car) {
         if (generateRandomNumber() >= MIN_MOVE_VALUE) {
             car.updateMovingCount();
         }
     }
 
-    private static String convertMovesToString(Car car) {
+    static String convertMovementToString(Car car) {
         return FOOTPRINT.repeat(car.getMoving());
     }
 }
