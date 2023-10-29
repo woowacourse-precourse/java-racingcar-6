@@ -120,7 +120,7 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,woni", "-1"))
                         .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessage(ErrorMessage.INVALID_TRIAL_COUNT)
+                        .hasMessage(ErrorMessage.INVALID_NEGATIVE)
         );
     }
 

@@ -5,7 +5,7 @@ import static racingcar.domain.GameOption.CAR_NAME_DELIMITER;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
-import racingcar.domain.PositiveInteger;
+import racingcar.domain.TrialCount;
 import racingcar.message.ViewMessage;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -14,7 +14,7 @@ public class MainController {
 
     public void run() {
         Cars cars = initCars();
-        PositiveInteger trialCount = initTrialCount();
+        TrialCount trialCount = initTrialCount();
         proceedGame(cars, trialCount);
         endGame(cars);
     }
@@ -28,12 +28,12 @@ public class MainController {
         return new Cars(carList);
     }
 
-    private PositiveInteger initTrialCount() {
+    private TrialCount initTrialCount() {
         int count = InputView.inputInteger(ViewMessage.INPUT_TRIAL_COUNT);
-        return new PositiveInteger(count);
+        return new TrialCount(count);
     }
 
-    private void proceedGame(Cars cars, PositiveInteger trialCount) {
+    private void proceedGame(Cars cars, TrialCount trialCount) {
         int moveCount  = 0;
         OutputView.printMessage(ViewMessage.GAME_RESULT);
         while (trialCount.moreThen(moveCount)) {

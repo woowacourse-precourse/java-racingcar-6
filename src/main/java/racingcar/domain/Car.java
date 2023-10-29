@@ -7,12 +7,12 @@ import racingcar.message.ErrorMessage;
 public class Car {
     private static final int MAX_NAME_LENGTH = 4;
     private final String name;
-    private PositiveInteger position;
+    private Position position;
 
     public Car(String name) {
         validateName(name);
         this.name = name;
-        this.position = new PositiveInteger(0);
+        this.position = new Position(0);
     }
 
     private void validateName(String name) {
