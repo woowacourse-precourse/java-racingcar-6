@@ -9,7 +9,9 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingController {
 
@@ -24,15 +26,15 @@ public class RacingController {
         OutputView.printStartMessage();
         String [] players = InputView.getPlayerInput();
         OutputView.printTryNumberMessage();
-
-        List<Car> carList = new ArrayList<>();
-        for (String player : players) {
-            Car car = new Car(player, "");
-            carList.add(car);
-        }
-        cars = new Cars(carList);
+        setPlayerNames(players);
     }
 
+    private void setPlayerNames(String [] players) {
+        List<Car> carList = Arrays.stream(players)
+                .map(player -> new Car(player , ""))
+                .collect(Collectors.toList());
+        cars = new Cars(carList);
+    }
     private void playGame() {
         int tryNumber = InputView.getTryNumberInput();
         OutputView.printResultMessage();
