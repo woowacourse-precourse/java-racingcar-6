@@ -24,6 +24,7 @@ public class InputView {
 
     public int getRounds() {
         String input = readLine();
+        Validator.validateRounds(input);
 
         return Integer.parseInt(input);
     }
