@@ -18,6 +18,10 @@ public class TryCount {
 
     private final int tryCount;
 
+    public boolean isNotSame(int tryCount) {
+        return this.tryCount != tryCount;
+    }
+
     public TryCount(String countString) {
         this.tryCount = convertStringToInt(countString);
         validatePositive(tryCount);

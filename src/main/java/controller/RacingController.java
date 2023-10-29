@@ -44,5 +44,9 @@ public class RacingController {
     private void race() {
         int nowTryCnt = 0;
         OutputView.printResultMessage();
+
+//        while(tryCount.isNotSame(nowTryCnt++)){
+//            cars.moveAll();
+//        }
     }
 }

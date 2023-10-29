@@ -1,6 +1,7 @@
 package model;
 
 import util.ErrorMessages;
+import util.RandomGenerator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,6 +39,12 @@ public class Cars {
                 .distinct().count();
         if (distinctSize != carNames.length) {
             throw new IllegalArgumentException(ErrorMessages.DUPLICATED_NAME);
+        }
+    }
+
+    public void moveAll() {
+        for (Car car : cars) {
+            RandomGenerator.generateNumber(MIN, MAX + 1);
         }
     }
 }
