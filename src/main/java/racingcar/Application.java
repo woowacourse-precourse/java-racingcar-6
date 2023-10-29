@@ -1,5 +1,6 @@
 package racingcar;
 import racingcar.domain.Car;
+import racingcar.domain.Judgement;
 import racingcar.domain.User;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.List;
 public class Application {
     static List<String> carsList = new ArrayList<>();
     static List<Car> cars = new ArrayList<>();
+    static List<String> carsStatus = new ArrayList<>();
     static int gameNumber;
 
     public static void main(String[] args) {
@@ -16,6 +18,7 @@ public class Application {
         gameNumber = user.gameNumber;
         createCars();
         playGame();
+        printResult();
     }
     public static void createCars() {
         for(int i=0; i<carsList.size(); i++) {
@@ -36,5 +39,16 @@ public class Application {
         for(int i=0; i<cars.size(); i++) {
             (cars.get(i)).drive();
         }
+    }
+    public static void setCarsStatus() {
+        for(int i=0; i<cars.size(); i++) {
+            String carStatus = (cars.get(i)).status;
+            carsStatus.add(carStatus);
+        }
+    }
+    public static void printResult() {
+        setCarsStatus();
+        Judgement judgement = new Judgement();
+        judgement.makeJudge(cars);
     }
 }
