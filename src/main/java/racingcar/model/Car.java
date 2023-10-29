@@ -3,22 +3,22 @@ package racingcar.model;
 public class Car {
 
     private final String carName;
-    private int forwardNumber;
+    private int forwardCount;
 
     public Car(String carName) {
         this.carName = carName;
-        forwardNumber = 0;
+        forwardCount = 0;
     }
 
-    public String getcarName() {
+    public String getCarName() {
         return carName;
     }
 
-    public int getForwardNumber() {
-        return forwardNumber;
+    public int getForwardCount() {
+        return forwardCount;
     }
 
-    public void increaseForwardNumber() {
-        forwardNumber++;
+    public void increaseForwardCount() {
+        forwardCount++;
     }
 }

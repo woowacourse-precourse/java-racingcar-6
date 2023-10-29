@@ -1,6 +1,10 @@
 package racingcar.view;
 
+import racingcar.model.Car;
 import racingcar.model.CarList;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingView {
 
@@ -17,10 +21,14 @@ public class RacingView {
     }
 
     public void printExecutionResultsForEachOrder(CarList carList) {
-        carList.getCarList()
-                .forEach(car ->
-                        System.out.printf("%s : %s%n",
-                                car.getCarName(), "-".repeat(car.getForwardCount()))
-                );
+        carList.getCarList().forEach(car ->
+                System.out.printf("%s : %s%n", car.getCarName(), "-".repeat(car.getForwardCount()))
+        );
+    }
+
+    public void printResult(CarList carList) {
+        List<Car> greatestForwardCount = carList.findGreatestForwardCount();
+        System.out.print("최종 우승자 : ");
+        System.out.print(greatestForwardCount.stream().map(Car::getCarName).collect(Collectors.joining(", ")));
     }
 }
