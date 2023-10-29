@@ -23,7 +23,7 @@
 
 ### RacingGame
 클래스 변수 : List<Car<Car>> car
-* 전체적인 실행 ❌
+* 전체적인 실행 ✅
 * 최종 우승자 출력하기 ✅
 
 ### RacingSetting

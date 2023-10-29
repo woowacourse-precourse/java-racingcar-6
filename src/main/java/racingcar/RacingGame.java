@@ -10,6 +10,26 @@ public class RacingGame {
     List<Car> carList;
     RacingSetting racingSetting;
 
+    void start() {
+        racingSetting = new RacingSetting();
+        carList = new ArrayList<Car>();
+        String[] name = racingSetting.getName();
+        for (String currentName: name) {
+            carList.add(new Car(currentName));
+        }
+        racingSetting.getMoveNum();
+        System.out.println("\n실행 결과");
+        int i = 0;
+        while (racingSetting.isInRange(i++)) {
+            for (Car currentCar: carList) {
+                currentCar.move();
+            }
+            printMovingResult();
+            System.out.println();
+        }
+        printWinner();
+    }
+
     void printMovingResult() {
         for (Car currentCar: carList) {
             currentCar.printInformation();
