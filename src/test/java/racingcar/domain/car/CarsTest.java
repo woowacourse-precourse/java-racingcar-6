@@ -17,11 +17,11 @@ public class CarsTest {
 
     @BeforeEach
     void setUp() {
-        cars = new Cars(new TrueRandomMove());
-
         String carNames = "다오,디지니,배찌";
         CarsNameDto carsNameDto = new CarsNameDto(carNames);
-        cars.generateCars(carsNameDto);
+
+        cars = new Cars(new TrueRandomMove(), carsNameDto.names());
+        cars.generateCars(carsNameDto.names());
     }
 
     @DisplayName("이름들 입력 시 Car 생성하는지 확인")
