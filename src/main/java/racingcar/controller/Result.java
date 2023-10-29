@@ -4,7 +4,6 @@ import java.util.List;
 import racingcar.common.factory.DTOFactory;
 import racingcar.domain.RacingWinners;
 import racingcar.dto.output.WinnerDTO;
-import racingcar.view.OutputView;
 
 public class Result {
     private final RacingWinners racingWinners;
@@ -13,10 +12,9 @@ public class Result {
         this.racingWinners = racingWinners;
     }
 
-    public void announce() {
+    public WinnerDTO announce() {
         List<String> winnerNames = racingWinners.getWinnerNames();
-        WinnerDTO winnerDTO = createWinnerDTO(winnerNames);
-        OutputView.printWinner(winnerDTO);
+        return createWinnerDTO(winnerNames);
     }
 
     private WinnerDTO createWinnerDTO(List<String> winnerNames) {

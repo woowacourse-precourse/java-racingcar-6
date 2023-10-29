@@ -1,12 +1,11 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
 import racingcar.common.factory.DTOFactory;
 import racingcar.common.strategy.MoveStrategy;
 import racingcar.common.type.TrialCount;
 import racingcar.domain.RacingCars;
-import racingcar.dto.output.RoundDTO;
-import racingcar.view.OutputView;
-
+import racingcar.dto.output.AllRoundDTO;
 import java.util.List;
 
 public class Game {
@@ -20,20 +19,23 @@ public class Game {
         this.trialCount = trialCount;
     }
 
-    public void play() {
+    public List<AllRoundDTO> play() {
+        List<AllRoundDTO> allRoundResults = new ArrayList<>();
         int count = trialCount.count();
+
         for (int i = 0; i < count; i++) {
             moveCars();
-            printRoundResults();
+            allRoundResults.add(fetchRoundResult());
         }
+
+        return allRoundResults;
     }
 
     private void moveCars() {
         racingCars.move(moveStrategy);
     }
 
-    private void printRoundResults() {
-        List<RoundDTO> roundResults = DTOFactory.carsToRoundDTOs(racingCars.cars());
-        OutputView.printRoundResult(roundResults);
+    private AllRoundDTO fetchRoundResult() {
+        return DTOFactory.createAllRoundDTO(racingCars.cars());
     }
 }

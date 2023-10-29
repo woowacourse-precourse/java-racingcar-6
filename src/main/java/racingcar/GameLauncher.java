@@ -16,12 +16,16 @@ import racingcar.view.InputView;
 
 public class GameLauncher {
     public static void run() {
+        //사용자 입력
         InputDTO userInput = getUserInput();
+
+        //각종 객체 초기화
         List<Car> carList = generateCars(userInput);
         Game game = initializeGame(carList, userInput);
         Result result = initializeResult(carList);
         Racing racing = startRacing(game, result);
 
+        //레이싱 시작
         racing.start();
     }
 
