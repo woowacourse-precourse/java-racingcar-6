@@ -34,6 +34,10 @@ public class RacingCarController {
             System.out.println();
             tryCount++;
         }
+        end(cars);
+
+    }
+    public void end(List<Car> cars) {
         int maxPosition = racingCarService.findMaxPosition(cars);
         outputView.printFinalResult(racingCarService.findWinner(cars,maxPosition));
     }
