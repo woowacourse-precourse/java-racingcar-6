@@ -11,14 +11,24 @@ public class RaceController {
     private RaceController() {
     }
 
-    public static void start() {
-        OutputView.printInsertCarNames();
-        RacingCars racingCars = RacingCars.createRacingCars(InputView.readLine());
-
-        OutputView.printInsertMovingCount();
-        MovingCount movingCount = MovingCount.createMovingCount(InputView.readLine());
+    public static void run() {
+        RacingCars racingCars = getRaceCarsFromInput();
+        MovingCount movingCount = getMovingCountFromInput();
         InputView.close();
+        raceStart(racingCars, movingCount);
+    }
 
+    private static RacingCars getRaceCarsFromInput() {
+        OutputView.printInsertCarNames();
+        return RacingCars.createRacingCars(InputView.readLine());
+    }
+
+    private static MovingCount getMovingCountFromInput() {
+        OutputView.printInsertMovingCount();
+        return MovingCount.createMovingCount(InputView.readLine());
+    }
+
+    private static void raceStart(RacingCars racingCars, MovingCount movingCount) {
         RaceService raceService = RaceService.init(racingCars, movingCount);
         OutputView.printGameResultStart();
         OutputView.printResult(raceService.getRaceResult());
