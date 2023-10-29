@@ -16,7 +16,7 @@ public class CarFuntion {
         }
     }
 
-    public void forwardCar() {
+    public static void forwardCar() {
         for (Car car : cars) {
             if(Randoms.pickNumberInRange(0,9) > 3) {
                 car.forwardNumber++;
