@@ -40,6 +40,7 @@ public class RacingController {
     }
 
     private void endGame() {
+        OutputView.printWinnerMessage();
         cars.printWinner();
     }
 
