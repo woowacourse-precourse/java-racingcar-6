@@ -13,13 +13,14 @@ import java.util.ArrayList;
 public class GameController {
     private InputView inputView;
     private OutputView outputView;
-    private CarList carList;
+    private List<Car> carList;
+//    private CarList carList;
     private Validator validator;
 
     public GameController(){
         this.inputView = new InputView();
         this.outputView = new OutputView();
-        this.carList = new CarList();
+        this.carList = new ArrayList<>();
         this.validator = new Validator();
     }
 
@@ -42,7 +43,7 @@ public class GameController {
         for(String carName : carNameList){
             validator.validCarName(carName);
             Car newCar = new Car(carName);
-            carList.addCar(newCar);
+            carList.add(newCar);
         }
     }
     public void raceOnce(Car car){
