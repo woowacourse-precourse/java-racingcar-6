@@ -109,7 +109,6 @@ public class GameProcess {
      * @return
      */
     public String knowFinalWinner() {
-        RaceCar raceCar = null;
         String nameOfWinnerRaceCar = null;
         String[] raceCarOfWinnerArr = null;
         int sizeOfWinnerList = 0;
@@ -118,16 +117,22 @@ public class GameProcess {
         raceCarOfWinnerList = gameHost.winRaceCar(raceCarOfCurrentList, cntTryRace);
         sizeOfWinnerList = raceCarOfWinnerList.size();
 
-        if (Utill.isSameNum(sizeOfWinnerList, 1)) {
-            raceCar = raceCarOfWinnerList.get(0);
-            nameOfWinnerRaceCar = raceCar.toString();
-        } else if (sizeOfWinnerList >= 1) {
+        if (sizeOfWinnerList >= 1) {
             raceCarOfWinnerArr = makeNameArrFromCarList(raceCarOfWinnerList);
-            nameOfWinnerRaceCar = String.join(", ", raceCarOfWinnerArr);
-        } else if (Utill.isSameNum(sizeOfWinnerList, 0)) {
-            nameOfWinnerRaceCar = String.join(", ", nameSplitList);
+            nameOfWinnerRaceCar = getNameOfWinnerRaceCarFromArr(raceCarOfWinnerArr);
         }
+
         return nameOfWinnerRaceCar;
+    }
+
+    /**
+     * 승자들만있는 배열들을 중간에 ", "을 넣어서 문자열을 만든다.
+     *
+     * @param raceCarOfWinnerArr
+     * @return
+     */
+    private String getNameOfWinnerRaceCarFromArr(String[] raceCarOfWinnerArr) {
+        return String.join(", ", raceCarOfWinnerArr);
     }
 
     /**
