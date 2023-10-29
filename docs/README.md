@@ -15,8 +15,9 @@
   - [ ] 0에서 9 사이에서 무작위 값을 구한 후 4이상 시, 전진 - MovingCondition.isMoveForward
   - [ ] 4미만 시, 멈춤 - MovingCondition.isMoveForward
 
-- [ ] 실행 과정 결과 출력
-  - [ ] 자동차별 현재 진행 사항 확인
+- [ ] 실행 과정 - RacingGame
+  - [ ] 자동차별 현재 진행 사항 확인 - racingGame.progress
+  - [ ] 실행 과정 결과 출력 - racingGame.progressResult
 
-- [ ] 최종 우승자 결과 출력
-  - [ ] 우승자의 자동차 이름 출력 (1명 이상일 수 있음.)
+- [ ] 최종 우승자 결과 출력 - Winner
+  - [ ] 우승자의 자동차 이름 출력 (1명 이상일 수 있음.) - Winner.result
