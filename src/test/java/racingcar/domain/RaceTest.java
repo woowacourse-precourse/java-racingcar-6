@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.Test;
@@ -23,19 +23,6 @@ public class RaceTest {
         assertThatThrownBy(() -> new Race(nameIsEmpty, 1)).isInstanceOf(IllegalArgumentException.class);
         assertThatThrownBy(() -> new Race(nameIsBlank, 1)).isInstanceOf(IllegalArgumentException.class);
         assertThatThrownBy(() -> new Race(nameIsLong, 1)).isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    void 랜덤_수가_4이상일때_카운팅하는_경우() {
-        Car car = new Car("ford");
-        int random = Randoms.pickNumberInRange(0, 9);
-        car.move(random);
-
-        if (random >= 4) {
-            assertThat(car.getCount()).isEqualTo(1);
-        } else {
-            assertThat(car.getCount()).isEqualTo(0);
-        }
     }
 
     @Test
