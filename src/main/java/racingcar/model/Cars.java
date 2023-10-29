@@ -1,12 +1,14 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.validator.InputValidator;
 
 public class Cars {
-
+    private static final int MIN_RANDOM_NUMBER = 1;
+    private static final int MAX_RANDOM_NUMBER = 9;
     private final List<Car> cars;
 
     public Cars(String names) {
@@ -24,7 +26,10 @@ public class Cars {
     }
 
     public void decideToMove() {
-        cars.forEach(Car::decideToMove);
+        int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        cars.forEach(car -> {
+            car.decideToMove(randomNumber);
+        });
     }
 
     public String generateRoundResultString() {
