@@ -10,7 +10,7 @@ public class Car {
 
     public Car(String name) {
         CarNameValidator.validate(name);
-        this.name = Objects.requireNonNull(name);
+        this.name = name;
     }
 
     public String getName() {
