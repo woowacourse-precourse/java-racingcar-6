@@ -25,7 +25,7 @@ public class Car {
         return Randoms.pickNumberInRange(0,9);
     }
 
-    public int checkForwardOrBackward(int number){
+    public static int checkForwardOrBackward(int number){
         if(number >= 4){
             return 1;
         }else{
