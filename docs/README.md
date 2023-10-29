@@ -8,9 +8,9 @@
 - [x] 게임이 종료되면 우승자를 판별한다.
 - [x] 우승자를 출력한다.
 ### Car
-- [x] 이름과 위치를 가진 객체이다.
-- [x] 랜덤으로 생성된 값을 바탕으로 이동한다.
-  - 값이 4 이상이면 전진한다.
+- 이름과 위치를 가진 객체이다.
+  - [x] 랜덤으로 생성된 값을 바탕으로 이동한다.
+    - 값이 4 이상이면 전진한다.
 ### Cars
 - 자동차 리스트를 가진 객체이다.
   - [x] 자동차들을 움직이게 한다.
@@ -26,6 +26,31 @@
 ### OutputView
 - [x] 횟수마다 자동차들을 움직인 결과를 출력한다.
 - [x] 우승자를 출력한다.
+
+## 상수 목록
+### StringConstant
+게임 진행시 사용되는 문자열들을 상수화 하여 모아놓은 클래스이다.   
+`INPUT_CAR_NAMES_MESSAGE` = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"   
+`INPUT_ATTEMPT_NUMBER_MESSAGE` = "시도할 회수는 몇회인가요?"   
+`WINNER_MESSAGE` = "최종 우승자 : ";   
+`RESULT_MESSAGE` = "\n실행 결과";   
+`COLON` = " : ";   
+`DASH` = "-";   
+`DELIMITER` = ",";   
+`JOIN_DELIMITER` = ", ";   
+
+`DIGIT` = "^[0-9]+$";  
+`INVALID_NAME_LENGTH_EXCEPTION_MESSAGE` = "자동차의 이름 길이는 1이상 5이하입니다.";   
+`INVALID_ATTEMPT_NUMBER_RANGE_EXCEPTION_MESSAGE` = "시도 횟수는 1이상입니다.";   
+`INVALID_NUMBER_EXCEPTION_MESSAGE` = "숫자만 입력 가능합니다.";   
+### NumberConstant
+게임 진행시 사용되는 정수들을 상수화 하여 모아놓은 클래스이다.
+`MIN_NAME_LENGTH` = 1;   
+`MAX_NAME_LENGTH` = 5;   
+`MIN_ATTEMPT_NUMBER` = 1;   
+`MIN_RANDOM_NUMBER` = 0;   
+`MAX_RANDOM_NUMBER` = 9;   
+`CAN_FORWARD_NUMBER` = 4;   
 
 ## 주의 할 점 !
 - 우승자는 1명 이상일 수 있다.
