@@ -14,6 +14,8 @@ public class Race {
         callCarNames();
         OutputView.printAskCount();
         moveCnt = getMoveCount();
+        OutputView.printResult();
+
     }
 
     private static int getMoveCount() {
@@ -29,6 +31,7 @@ public class Race {
             Car car = new Car(carName);
             cars.add(car);
         }
+        System.out.println("cars = " + cars);
     }
 
 }
