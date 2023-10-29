@@ -12,10 +12,6 @@ public class Car {
         this.count = 0;
     }
 
-    public Car(String name) {
-        this.name = name;
-        this.count = 0;
-    }
     public String getName() {
         return name;
     }
