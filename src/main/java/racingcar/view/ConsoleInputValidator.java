@@ -4,6 +4,8 @@ import java.util.List;
 
 public class ConsoleInputValidator {
     private static final IllegalArgumentException ILLEGAL_ARGUMENT_EXCEPTION = new IllegalArgumentException();
+    private static final String NULL_REGEX = "(^null)";
+    private static final String NOT_NUMBER_REGEX = "\\D";
 
     public static void validateInputString(String inputString) {
         validateInputNotNull(inputString);
@@ -12,7 +14,7 @@ public class ConsoleInputValidator {
     }
 
     private static void validateInputNotNull(String inputString) {
-        if (inputString == null || inputString.equals("null")) {
+        if (inputString == null || inputString.matches(NULL_REGEX)) {
             throw ILLEGAL_ARGUMENT_EXCEPTION;
         }
     }
@@ -53,6 +55,12 @@ public class ConsoleInputValidator {
 
     private static void validateCarNameLengthNotLongerThan5(String carName) {
         if (carName.length() > 5) {
+            throw ILLEGAL_ARGUMENT_EXCEPTION;
+        }
+    }
+
+    public static void validateInputIsNumber(String inputString) {
+        if (inputString.matches(NOT_NUMBER_REGEX)) {
             throw ILLEGAL_ARGUMENT_EXCEPTION;
         }
     }
