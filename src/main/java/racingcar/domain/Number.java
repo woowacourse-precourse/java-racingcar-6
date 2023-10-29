@@ -22,7 +22,7 @@ public class Number {
 //        return new Number(userInput);
 //    }
 
-    public boolean isEqualOrGreaterThanFour(Number generatedRandomNumber) {
-        return false;
+    public boolean isEqualOrGreaterThanFour() {
+        return this.number >= 4;
     }
 }
