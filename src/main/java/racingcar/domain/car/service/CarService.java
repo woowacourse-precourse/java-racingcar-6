@@ -11,7 +11,11 @@ import java.util.List;
 
 public class CarService {
 
-    private final CarRepository carRepository = new CarRepository();
+    private final CarRepository carRepository;
+
+    public CarService(CarRepository carRepository) {
+        this.carRepository = carRepository;
+    }
 
     public void saveCars(List<String> carNames) {
         saveCar(createCars(carNames));
