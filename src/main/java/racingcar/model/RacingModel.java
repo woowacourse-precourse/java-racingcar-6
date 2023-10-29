@@ -1,8 +1,5 @@
 package racingcar.model;
 
-import racingcar.model.Car;
-import racingcar.model.Cars;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
