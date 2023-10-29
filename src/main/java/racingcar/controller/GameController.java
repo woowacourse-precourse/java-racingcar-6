@@ -1,8 +1,8 @@
 package racingcar.controller;
 
 import racingcar.domain.car.CarsRacing;
-import racingcar.domain.car.dto.output.CarsFinishedDto;
 import racingcar.domain.car.dto.output.CarsRacingDto;
+import racingcar.domain.car.dto.output.WinnerNamesDto;
 import racingcar.domain.move.MoveCommander;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -51,7 +51,7 @@ public final class GameController {
     }
 
     private void showWinners(CarsRacing cars) {
-        final CarsFinishedDto dto = cars.toFinished().toWinnersResult();
+        final WinnerNamesDto dto = cars.toFinished().toWinnerNamesDto();
         outputView.printGameResult(dto);
     }
 }

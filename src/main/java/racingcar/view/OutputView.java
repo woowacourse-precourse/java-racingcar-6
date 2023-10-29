@@ -3,8 +3,8 @@ package racingcar.view;
 import racingcar.component.ComponentWriter;
 import racingcar.component.output.GameResultComponent;
 import racingcar.component.output.RoundResultComponent;
-import racingcar.domain.car.dto.output.CarsFinishedDto;
 import racingcar.domain.car.dto.output.CarsRacingDto;
+import racingcar.domain.car.dto.output.WinnerNamesDto;
 
 public final class OutputView {
     private final ComponentWriter componentWriter;
@@ -17,7 +17,7 @@ public final class OutputView {
         componentWriter.write(new RoundResultComponent(dto));
     }
 
-    public void printGameResult(final CarsFinishedDto dto) {
+    public void printGameResult(final WinnerNamesDto dto) {
         componentWriter.write(new GameResultComponent(dto));
     }
 }

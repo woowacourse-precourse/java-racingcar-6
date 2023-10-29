@@ -2,7 +2,7 @@ package racingcar.domain.car.dto.output;
 
 import java.util.List;
 
-public record CarsFinishedDto(
+public record WinnerNamesDto(
         List<String> winnerNames
 ) {
 }

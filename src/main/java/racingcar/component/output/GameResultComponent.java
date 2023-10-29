@@ -5,14 +5,14 @@ import static strings.Strings.LINE_BREAK;
 import static strings.Strings.WHITE_SPACE;
 
 import racingcar.component.Component;
-import racingcar.domain.car.dto.output.CarsFinishedDto;
+import racingcar.domain.car.dto.output.WinnerNamesDto;
 
 public final class GameResultComponent implements Component {
 
     private static final String TEXT = "최종 우승자 : %s";
-    private final CarsFinishedDto dto;
+    private final WinnerNamesDto dto;
 
-    public GameResultComponent(final CarsFinishedDto dto) {
+    public GameResultComponent(final WinnerNamesDto dto) {
         this.dto = dto;
     }
 
