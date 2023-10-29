@@ -19,9 +19,9 @@ public class Application {
         //1
         try {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            names_cars = inputCarsNames();
             System.out.println("시도할 회수는 몇회인가요?");
             attempts_input = Console.readLine();
-            names_cars = inputCarsNames();
             for (String name_car : names_cars) {
                 stringLengthCheck(name_car);
             }
