@@ -23,6 +23,10 @@ public class GameFlowManagementService {
         return getFurthestCarList(carList, maximumLocation);
     }
 
+    public Boolean roundIsFinished(Game game) {
+        return gameRepository.gameIsFinished(game);
+    }
+
     private List<String> getFurthestCarList(List<Car> carList, int maximumLocation) {
         List<String> carNames = new ArrayList<>();
         for (Car car : carList) {
