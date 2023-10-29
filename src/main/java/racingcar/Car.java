@@ -11,12 +11,12 @@ public class Car {
         return Arrays.asList(inputCarName.split(","));
     }
 
-    public List<String> nowRacing(List<String> carNames, int tryNumber) {
+    public List<String> racingResult(List<String> carNames, int tryNumber) {
         List<String> carMove = initializeCarMove(carNames);
 
         for (int i = 0; i < tryNumber; i++) {
             System.out.println(i + 1 + "회차");
-            printRacingNow(carNames, carMove);
+            printRacing(carNames, carMove);
         }
 
         System.out.println();
