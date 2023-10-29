@@ -1,9 +1,11 @@
 package racingcar.validator;
 
 import static racingcar.constant.Constant.CAR_NAME_MAX_SIZE;
+import static racingcar.constant.Constant.MAX_VALUE;
 import static racingcar.constant.Constant.ZERO;
 import static racingcar.constant.ExceptionMessage.DUPLICATE_CAR_NAME;
 import static racingcar.constant.ExceptionMessage.EMPTY_CAR_NAME;
+import static racingcar.constant.ExceptionMessage.MAX_VALUE_MESSAGE;
 import static racingcar.constant.ExceptionMessage.NOT_NUMBER_MESSAGE;
 import static racingcar.constant.ExceptionMessage.OVER_SIZE_CAR_NAME;
 import static racingcar.constant.ExceptionMessage.ZERO_NUMBER_MESSAGE;
@@ -18,9 +20,10 @@ import racingcar.view.Input;
 public class InputValidator {
 
     private List<String> validateCarNames;
+    private Integer playTime;
     private Input input;
 
-    public InputValidator(){
+    public InputValidator() {
     }
 
     public InputValidator(String validateCarNames) {
@@ -29,7 +32,7 @@ public class InputValidator {
         removeSpaceInCarName();
     }
 
-    public List<String> convertList(){
+    public List<String> convertList() {
         return this.validateCarNames;
     }
 
@@ -78,22 +81,33 @@ public class InputValidator {
                 );
     }
 
-    public void validateTime(String playTimeInput){
+    public void validateTime(String playTimeInput) {
         Integer playTime = validateNumber(playTimeInput);
         validateZero(playTime);
+        validateMaxValue(playTime);
+        this.playTime = playTime;
+    }
 
+    public Integer getPlayTime() {
+        return this.playTime;
     }
 
     protected Integer validateNumber(String playTime) {
-        if(!playTime.chars().allMatch(Character::isDigit)){
+        if (!playTime.chars().allMatch(Character::isDigit)) {
             throw new IllegalArgumentException(NOT_NUMBER_MESSAGE.getMessage());
         }
         return Integer.parseInt(playTime);
     }
 
-    protected void validateZero(Integer playTime){
-        if(playTime.equals(ZERO)){
+    protected void validateZero(Integer playTime) {
+        if (playTime.equals(ZERO)) {
             throw new IllegalArgumentException(ZERO_NUMBER_MESSAGE.getMessage());
+        }
+    }
+
+    protected void validateMaxValue(Integer playTime) {
+        if (playTime > MAX_VALUE) {
+            throw new IllegalArgumentException(MAX_VALUE_MESSAGE.getMessage());
         }
     }
 
