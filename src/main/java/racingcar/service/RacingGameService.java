@@ -1,7 +1,6 @@
 package racingcar.service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
@@ -15,38 +14,30 @@ import racingcar.model.Cars;
 import racingcar.model.Winners;
 
 public class RacingGameService {
-    private final Cars cars;
-    private final Attempts attempts;
-    private final Winners winners;
-
-    public RacingGameService() {
-        this.cars = new Cars();
-        this.attempts = new Attempts();
-        this.winners = new Winners();
-    }
+    private Cars cars;
+    private Attempts attempts;
+    private Winners winners = new Winners();
 
     public void addCars(String carNames) {
-        List<String> carNameList = new ArrayList<String>(
-                Arrays.asList(carNames.split(Constants.SEPARATOR.getStringValue())));
-        cars.addCars(carNameList);
+        cars = new Cars(carNames);
     }
 
     public void setAttempts(String numberOfAttempts) {
-        attempts.setNumber(Integer.valueOf(numberOfAttempts));
+        attempts = new Attempts(numberOfAttempts);
+    }
+
+    public void everyCarMoveForward() {
+        for (Car car : cars.getCarList()) {
+            car.moveForward();
+        }
     }
 
     public List<Map<MyEnum, String>> getResultList() {
         List<Map<MyEnum, String>> results = new ArrayList<>();
         for (Car car : cars.getCarList()) {
-            car.moveForward();
-            
             EnumMap<MyEnum, String> result = new EnumMap<>(MyEnum.class);
-            
             result.put(MyEnum.CAR_NAME, car.getName());
             result.put(MyEnum.DISTANCE, car.getDistance());
-//            Map<String, String> result = new HashMap<>();
-//            result.put("carName", car.getName());
-//            result.put("distance", car.getDistance());
             results.add(result);
         }
         return results;
@@ -54,7 +45,7 @@ public class RacingGameService {
 
     public boolean reaches() {
         for (Car car : cars.getCarList()) {
-            if (car.getDistance().length() == attempts.getNumber()) {
+            if (isReached(car)) {
                 return true;
             }
         }
@@ -63,14 +54,17 @@ public class RacingGameService {
 
     public void addWinners() {
         for (Car car : cars.getCarList()) {
-            if (car.getDistance().length() == attempts.getNumber()) {
+            if (isReached(car)) {
                 winners.addWinner(car);
             }
         }
     }
 
+    public boolean isReached(Car car) {
+        return car.getDistance().length() == attempts.getNumber();
+    }
+
     public String getWinnersNames() {
-        return winners.getWinner().stream().map(car -> car.getName())
-                .collect(Collectors.joining(Constants.SEPARATOR.getStringValue() + " "));
+        return winners.getWinnersNames();
     }
 }

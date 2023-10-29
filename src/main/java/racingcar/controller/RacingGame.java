@@ -10,47 +10,47 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGame {
+    private final RacingGameService racingGameService;
     private final OutputView outputView;
     private final InputView inputView;
-    private final RacingGameService racingGameService;
 
     public RacingGame() {
+        this.racingGameService = new RacingGameService();
         this.outputView = new OutputView();
         this.inputView = new InputView();
-        this.racingGameService = new RacingGameService();
     }
 
     public void run() {
-        handleCarNameInput();
-        handleNumberOfAttemptsInput();
-        handlePlayRacingGame();
-        handleWinners();
+        collectCarNames();
+        collectNumberOfAttempts();
+        playRacingGame();
+        announceWinners();
     }
 
-    public void handleCarNameInput() {
+    public void collectCarNames() {
         outputView.printCarNameInputMessage();
-        String carNames = inputView.carNameInput();
+        String carNames = inputView.carNamesInput();
         racingGameService.addCars(carNames);
     }
 
-    public void handleNumberOfAttemptsInput() {
+    public void collectNumberOfAttempts() {
         outputView.printNumberOfAttemptsInputMessage();
-        String attempts = inputView.numberOfAttempsInput();
-        racingGameService.setAttempts(attempts);
+        racingGameService.setAttempts(inputView.numberOfAttemptsInput());
     }
 
-    public void handlePlayRacingGame() {
+    public void playRacingGame() {
         outputView.printPlayResultMessage();
 
         while (!racingGameService.reaches()) {
+            racingGameService.everyCarMoveForward();
+
             List<Map<MyEnum, String>> results = racingGameService.getResultList();
             outputView.printPlayResult(results);
         }
     }
 
-    public void handleWinners() {
+    public void announceWinners() {
         racingGameService.addWinners();
-        String winnerList = racingGameService.getWinnersNames();
-        outputView.printWinners(winnerList);
+        outputView.printWinners(racingGameService.getWinnersNames());
     }
 }
