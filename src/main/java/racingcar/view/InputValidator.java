@@ -20,6 +20,7 @@ public class InputValidator {
     public static void validatePositiveIntegerType(String input) {
         validateBlank(input);
         validateIntegerType(input);
+        validatePositive(input);
     }
 
     private static void validateIntegerType(String input) {
