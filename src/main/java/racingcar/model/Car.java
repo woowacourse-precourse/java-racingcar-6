@@ -38,6 +38,10 @@ public class Car {
         return stringBuilder.toString();
     }
 
+    public boolean equalCarPosition(int maxPosition) {
+        return position == maxPosition;
+    }
+
     public String getName() {
         return name;
     }
