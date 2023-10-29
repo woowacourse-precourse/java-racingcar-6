@@ -28,22 +28,4 @@ public class Name {
     public String getName() {
         return name;
     }
-
-    @Override
-    public boolean equals(final Object value) {
-        if (value == name) {
-            return true;
-        }
-
-        if (!(value instanceof Name nameValue)) {
-            return false;
-        }
-
-        return name.equals(nameValue.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return name.hashCode();
-    }
 }
