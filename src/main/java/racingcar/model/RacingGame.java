@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import java.util.List;
 import racingcar.JudgeWinner;
 
 public class RacingGame {
@@ -12,5 +13,11 @@ public class RacingGame {
         this.judgeWinner = judgeWinner;
     }
 
+    public void moveOneStep() {
+        cars.moveOneStep();
+    }
 
+    public List<Car> getStatus(){
+        return cars.getStatus();
+    }
 }
