@@ -1,18 +1,13 @@
 # 자동차 경주
-
-## 2주차 목표
-- 함수를 하나의 기능만 책임지도록 분리하기.
-- 각 함수별로 테스트를 작성하는 것에 익숙해지는 것.
-
 ## 기능 목록
 - [x] 자동차 이름 입력 메세지 출력 - printCarNameInputMessage()
 - [x] 자동차 이름 입력 - carNameInput() - Car
-	- [ ] 유효성 검사 - Validator
+	- [x] 유효성 검사 - Validator
 - [x] 자동차 이름 저장 - addCars(carNameInput()) - Cars
 
 - [x] 시도할 횟수 입력 메세지 출력 - printNumberOfattempsInputMessage()
 - [x] 시도할 횟수 입력 - numberOfattempsInput()
-	- [ ] 유효성 검사
+	- [x] 유효성 검사
 - [x] 시도한 횟수 저장 - saveCount(carNameInput()) - Attemps
 
 - [x] 시도할 횟수가 될 때까지 loop
@@ -32,6 +27,11 @@
 		- [x] 현재 거리가 시도할 횟수와 같다면 우승자 목록에 추가
 - ~~최종 우승자 결과 출력 printWinners(List<String> winners) - join 함수 사용해보기~~
 - [x] 최종 우승자 출력하기 - stream을 이용하여 쉽게 ,로 구분된 값을 가져올 수 있었다.
+
+## 2주차 목표
+- 함수를 하나의 기능만 책임지도록 분리하기.
+- 각 함수별로 테스트를 작성하는 것에 익숙해지는 것. (F.I.R.S.T)
+- [ ] 유닛 테스트 공부하기, TDD 알아보기
 
 ### 만들 객체들
 - [x] RacingGame (controller) - 출력과 입력 제어
