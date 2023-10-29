@@ -34,7 +34,7 @@ public class InputView {
 
             return movement;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("문자열을 입력할 수 없습니다.");
+            throw new IllegalArgumentException("공백이나 문자열을 입력할 수 없습니다.");
         }
     }
 }

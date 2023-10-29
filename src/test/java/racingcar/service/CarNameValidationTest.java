@@ -1,4 +1,4 @@
-package racingcar.utils;
+package racingcar.service;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;

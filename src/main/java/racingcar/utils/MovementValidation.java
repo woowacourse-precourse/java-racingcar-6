@@ -9,7 +9,7 @@ public class MovementValidation {
 
     private void validateNullMovement(Integer movement) {
         if (movement == null) {
-            throw new IllegalArgumentException("숫자를 입력해주세요.");
+            throw new IllegalArgumentException("아무것도 입력하지 않았습니다.");
         }
     }
 
