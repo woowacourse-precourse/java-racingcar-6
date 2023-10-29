@@ -25,12 +25,11 @@ public class CarsGameService {
         }
     }
 
-    public String checkWinner(Map<String,Integer> carsPosition, int count) {
+    public String checkWinner(Map<String,Integer> position, int count) {
         List<String> winners = new ArrayList<>();
-        Set<String> cars = carsPosition.keySet();
-        cars.stream().filter(car -> carsPosition.get(car)  == count)
+        Set<String> cars = position.keySet();
+        cars.stream().filter(car -> position.get(car)  == count)
                 .forEach(car -> winners.add(car));
-
         return String.join(", ", winners);
     }
 
