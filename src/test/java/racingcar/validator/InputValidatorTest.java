@@ -20,9 +20,9 @@ class InputValidatorTest {
     public void 입력_자동차_중복된_이름_테스트() {
         carNames = "waCar,waCar";
         try {
-           inputValidator = new InputValidator(carNames);
-           inputValidator.hasDuplicatedName();
-           fail("중복된 자동차 이름이 없습니다.");
+            inputValidator = new InputValidator(carNames);
+            inputValidator.hasDuplicatedName();
+            fail("중복된 자동차 이름이 없습니다.");
         } catch (IllegalArgumentException e) {
             assertThat(DUPLICATE_CAR_NAME.getMessage()).isEqualTo(e.getMessage());
         }
@@ -48,7 +48,7 @@ class InputValidatorTest {
         carNames = "c  a \t r Len 7  , super";
         inputValidator = new InputValidator(carNames);
         assertThrows(IllegalArgumentException.class, () -> inputValidator.validateCarNameLength()
-        , "자동차 이름 중 5글자 초과한 자동차가 없습니다.");
+                , "자동차 이름 중 5글자 초과한 자동차가 없습니다.");
     }
 
     @Test
@@ -57,9 +57,16 @@ class InputValidatorTest {
         carNames = "   \t , super,power, h    i , h `d ";
         inputValidator = new InputValidator(carNames);
         assertThrows(IllegalArgumentException.class, () -> inputValidator.validateEmptyCarName()
-        , "모든 자동차 이름이 정상적으로 입력되었습니다.");
+                , "모든 자동차 이름이 정상적으로 입력되었습니다.");
     }
 
-
+    @Test
+    @DisplayName("게임 진행 횟수에 숫자를 제외한 문자를 입력할 수 없습니다.")
+    public void 게임_진행_횟수에_문자_입력_예외_테스트() {
+        String wrongPlayTime = "1a";
+        inputValidator = new InputValidator();
+        assertThrows(IllegalArgumentException.class, () -> inputValidator.validateNumber(wrongPlayTime)
+                , "진행 횟수가 정상적으로 입력되었습니다.");
+    }
 
 }
