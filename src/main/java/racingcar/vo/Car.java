@@ -29,7 +29,15 @@ public class Car {
         return totalForward;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
+    }
+
+    public List<Boolean> getMovementFlags() {
+        return movementFlags;
+    }
+
+    public int getCompletedMoves() {
+        return completedMoves;
     }
 }
