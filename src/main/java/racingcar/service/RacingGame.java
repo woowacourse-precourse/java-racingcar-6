@@ -21,6 +21,8 @@ public class RacingGame {
         String stringCarList = carGenerator.inputCarList();
         car.setStringCarList(stringCarList);
         car.checkContainsConsecutiveCommas();
+        car.checkInputStringFirstLetterContainsCommas();
+        car.checkInputStringLastLetterContainsCommas();
 
         car.setCarList(carGenerator.createCarList(stringCarList));
         car.checkCarNameLength();
