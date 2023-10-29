@@ -12,7 +12,7 @@ public class OutputView {
 
     public void printRaceRoundResult(List<Car> cars) {
         for (Car car : cars) {
-            System.out.printf("%s : %s\n", car.getCarName(), "-".repeat(car.getDistance()));
+            System.out.printf("%s : %s\n", car.carName(), "-".repeat(car.distance()));
         }
         System.out.println();
     }

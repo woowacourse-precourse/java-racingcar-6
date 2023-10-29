@@ -2,18 +2,13 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Car {
+public record Car(String carName, int distance) {
 
-    private final String carName;
-    private final int distance;
-
-    public Car(String carName, int distance) {
-        this.carName = carName;
-        this.distance = distance;
-    }
+    private static final int MIN_NUMBER = 0;
+    private static final int MAX_NUMBER = 9;
 
     private int generateRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
     }
 
     private boolean isCarMoving() {
@@ -26,13 +21,5 @@ public class Car {
             return new Car(carName, distance + 1);
         }
         return new Car(carName, distance);
-    }
-
-    public String getCarName() {
-        return carName;
-    }
-
-    public int getDistance() {
-        return distance;
     }
 }
