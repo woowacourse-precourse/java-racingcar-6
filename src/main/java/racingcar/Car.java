@@ -1,15 +1,18 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class Car {
     private static final int STANDARD_NUMBER = 4;
 
     private final String name;
-    private int position = 0;
+    private int position;
 
     public Car(String name) {
+        this(name, 0);
+    }
+
+    public Car(String name, int position) {
         this.name = name;
+        this.position = position;
     }
 
     public String getName() {
