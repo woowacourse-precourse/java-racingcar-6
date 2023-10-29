@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Validator {
-    public int validateInputIsNumber(int input){
+    public static int validateInputIsNumber(int input){
         if(input > 0){
             return input;
         }else{
