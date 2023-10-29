@@ -1,7 +1,7 @@
 package racingcar.domain.attempt;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -30,9 +30,9 @@ class AttemptTest {
         final String ERROR_MESSAGE_TOO_LOW = "최소 1 이상의 값을 입력해 주세요.";
 
         // when, then
-        IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
-            () -> new Attempt(input));
-        assertThat(e.getMessage()).isEqualTo(ERROR_MESSAGE_TOO_LOW);
+        assertThatThrownBy(() -> new Attempt(input))
+            .isExactlyInstanceOf(IllegalArgumentException.class)
+            .hasMessageContaining(ERROR_MESSAGE_TOO_LOW);
     }
 
     @Test
@@ -59,9 +59,9 @@ class AttemptTest {
         attempt.use();
 
         // when, then
-        IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
-            () -> attempt.use());
-        assertThat(e.getMessage()).isEqualTo(ERROR_MESSAGE_CANNOT_EXECUTE);
+        assertThatThrownBy(() -> attempt.use())
+            .isExactlyInstanceOf(IllegalArgumentException.class)
+            .hasMessageContaining(ERROR_MESSAGE_CANNOT_EXECUTE);
     }
 
     @Test

@@ -1,7 +1,7 @@
 package racingcar.domain.car;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -30,9 +30,9 @@ class CarNameTest {
         final String ERROR_MESSAGE_INVALID_SIZE = "자동차의 이름은 1자리 이상 5자리 이하입니다.";
 
         // when, then
-        IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
-            () -> new CarName(name));
-        assertThat(e.getMessage()).isEqualTo(ERROR_MESSAGE_INVALID_SIZE);
+        assertThatThrownBy(() -> new CarName(name))
+            .isExactlyInstanceOf(IllegalArgumentException.class)
+            .hasMessageContaining(ERROR_MESSAGE_INVALID_SIZE);
     }
 
     @Test

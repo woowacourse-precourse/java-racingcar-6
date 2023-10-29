@@ -1,7 +1,7 @@
 package racingcar.domain.racingcargame;
 
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.mockStatic;
@@ -71,11 +71,9 @@ class RacingCarGameTest {
         racingCarGame.race();
 
         // when, then
-        IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
-            () -> racingCarGame.race());
-        assertThat(e.getMessage()).isEqualTo(ERROR_MESSAGE_CANNOT_RACE);
-
-        // then
+        assertThatThrownBy(() -> racingCarGame.race())
+            .isExactlyInstanceOf(IllegalArgumentException.class)
+            .hasMessageContaining(ERROR_MESSAGE_CANNOT_RACE);
     }
 
     @Test
