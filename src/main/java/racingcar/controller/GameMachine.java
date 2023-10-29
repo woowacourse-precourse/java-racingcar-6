@@ -30,19 +30,11 @@ public class GameMachine {
 
     public Cars getCars() {
         List<String> nameList = inputView.inputCarName();
-        try {
-            return new Cars(nameList);
-        } catch (IllegalStateException e) {
-            return getCars();
-        }
+        return new Cars(nameList);
     }
 
     public int getTryCount() {
-        try {
-            return inputView.inputTryCount();
-        } catch (IllegalStateException e) {
-            return getTryCount();
-        }
+        return inputView.inputTryCount();
     }
 
     public void runRaceAndPrintResult(Cars cars, int tryCount) {

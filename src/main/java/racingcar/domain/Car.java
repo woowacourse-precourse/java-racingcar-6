@@ -15,11 +15,6 @@ public class Car {
         this.name = name;
     }
 
-    public Car(String name, int position) {
-        this.name = name;
-        this.position = position;
-    }
-
     private void validationNameLength(String name) {
         if (name.length() > FIVE || name.isEmpty()) {
             throw new IllegalArgumentException("자동차의 이름은 5자 이하여야 합니다.");
