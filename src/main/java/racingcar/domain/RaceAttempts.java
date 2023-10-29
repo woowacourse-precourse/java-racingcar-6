@@ -5,7 +5,7 @@ import racingcar.exception.InvalidInputException;
 
 public class RaceAttempts {
 
-    private static final int MIN_ATTEMPTS = 1;
+    public static final int MIN_ATTEMPTS = 1;
     private final int attempts;
 
     public RaceAttempts(int attempts) {

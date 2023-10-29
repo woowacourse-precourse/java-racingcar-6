@@ -1,5 +1,6 @@
 package racingcar.exception;
 
+import racingcar.domain.RaceAttempts;
 import racingcar.domain.RacingCar;
 
 public enum ErrorMessage {
@@ -12,9 +13,8 @@ public enum ErrorMessage {
             String.format("자동차 이름은 %d~%d자만 가능합니다.", RacingCar.NAME_MIN_LENGTH, RacingCar.NAME_MAX_LENGTH)),
     CAR_NAME_DUPLICATE("자동차 이름은 중복될 수 없습니다."),
 
-    INVALID_RACE_ATTEMPTS("시도 횟수는 1이상이어야 합니다."),
-    RACE_ATTEMPTS_NOT_EMPTY("시도 횟수는 비어있을 수 없습니다."),
-    RACE_ATTEMPTS_NOT_NUMBER("시도 횟수는 숫자여야 합니다.");
+    INVALID_RACE_ATTEMPTS(String.format("시도 횟수는 %d이상이어야 합니다.", RaceAttempts.MIN_ATTEMPTS));
+
 
     private final String message;
 
