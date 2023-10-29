@@ -16,4 +16,8 @@ public class Race {
         return round;
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
 }
