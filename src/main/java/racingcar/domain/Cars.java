@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,9 +16,12 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
-    public List<Car> getCarsOrderByLocations() {
-        return cars.stream()
-                .sorted(Comparator.comparingInt(Car::getLocation).reversed())
-                .collect(Collectors.toList());
+    public List<Car> rushCars() {
+        cars.forEach(car -> {
+            if (Judge.canRush()) {
+                car.rush();
+            }
+        });
+        return cars;
     }
 }
