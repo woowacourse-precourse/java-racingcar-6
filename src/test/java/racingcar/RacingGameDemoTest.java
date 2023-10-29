@@ -55,6 +55,7 @@ class RacingGameDemoTest {
         CarDemo car2 = new CarDemo("kim");
         CarDemo car3 = new CarDemo("lee");
         List<CarDemo> cars = List.of(car1, car2, car3);
+        car1.move(5);
 
         RacingGameDemo racingGameDemo = new RacingGameDemo(cars);
         List<CarDemo> winners = racingGameDemo.findWinner();

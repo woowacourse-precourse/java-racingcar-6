@@ -11,11 +11,11 @@ import racingcar.domain.CarDemo;
 class CarDemoTest {
     @ParameterizedTest
     @DisplayName("자동차는 이름과 위치를 가진다.")
-    @CsvSource(value = {"go, 1", "kim, 2"})
-    void test1(final String name, final int position) {
+    @CsvSource(value = {"go", "kim"})
+    void test1(final String name) {
         final CarDemo car = new CarDemo(name);
         assertThat(car.getName()).isEqualTo(name);
-        assertThat(car.getPosition()).isEqualTo(position);
+        assertThat(car.getPosition()).isEqualTo(0);
     }
 
     @Test
@@ -29,7 +29,7 @@ class CarDemoTest {
     void test3() {
         final CarDemo car = new CarDemo("go");
         car.move(4);
-        assertThat(car.getPosition()).isEqualTo(2);
+        assertThat(car.getPosition()).isEqualTo(1);
     }
 
     @Test
@@ -37,6 +37,6 @@ class CarDemoTest {
     void test4() {
         final CarDemo car = new CarDemo("go");
         car.move(3);
-        assertThat(car.getPosition()).isEqualTo(1);
+        assertThat(car.getPosition()).isEqualTo(0);
     }
 }
