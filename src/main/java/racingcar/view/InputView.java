@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Pattern;
 import racingcar.constant.ErrorMessage;
 
 public class InputView {
     private final String DELIMITER = ",";
+    private final String NUMERIC_PATTERN = "^[0-9]*$";
 
     public List<String> getCarNames() {
         try {
@@ -21,6 +23,20 @@ public class InputView {
             return carNamesArrToList(splitCarNamesByComma);
         } catch (Exception e) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_INPUT_EXCEPTION.getMessage());
+        }
+    }
+
+    public int getMovementTime() {
+        try {
+            String movementTimeStr = Console.readLine();
+
+            validateNull(movementTimeStr, ErrorMessage.MOVEMENT_TIME_INPUT_EXCEPTION.getMessage());
+            validateBlank(movementTimeStr, ErrorMessage.MOVEMENT_TIME_INPUT_EXCEPTION.getMessage());
+            validateNumericValue(movementTimeStr);
+
+            return Integer.parseInt(movementTimeStr);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(ErrorMessage.MOVEMENT_TIME_INPUT_EXCEPTION.getMessage());
         }
     }
 
@@ -58,6 +74,12 @@ public class InputView {
     private void validateDuplicateName(String carName, Set<String> setCarNames) {
         if (!setCarNames.add(carName)) {
             throw new IllegalArgumentException(ErrorMessage.DUPLICATE_CAR_NAME_EXCEPTION.getMessage());
+        }
+    }
+
+    private void validateNumericValue(String movementTimeStr) {
+        if (!Pattern.matches(NUMERIC_PATTERN, movementTimeStr)) {
+            throw new IllegalArgumentException(ErrorMessage.MOVEMENT_TIME_TYPE_EXCEPTION.getMessage());
         }
     }
 }
