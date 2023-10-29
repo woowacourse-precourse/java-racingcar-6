@@ -33,4 +33,21 @@ public class Controller {
 
         return count;
     }
+
+    public void racingCarOutputController() {
+        outputView outputView = new outputView();
+        startRacing startRacing = new startRacing();
+        HashMap<String, Integer> carNameHashMap = racingCarInputNameController();
+        int count = racingCarCountController();
+        String winner = "";
+
+        outputView.resultView();
+        for (int i = 0; i < count; i++) {
+            startRacing.checkRandomNum(carNameHashMap);
+            startRacing.racingResult(carNameHashMap);
+        }
+
+        winner = startRacing.realWinner(carNameHashMap);
+        outputView.winnerView(winner);
+    }
 }
