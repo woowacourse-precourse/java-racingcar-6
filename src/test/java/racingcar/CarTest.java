@@ -2,6 +2,7 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.when;
 
@@ -14,6 +15,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.MockedStatic;
 import racingcar.model.Car;
+import racingcar.model.Result;
 
 @DisplayName("자동차 모델에 대한 테스트")
 class CarTest {
@@ -62,10 +64,13 @@ class CarTest {
 
         //when
         when(Randoms.pickNumberInRange(0, 9)).thenReturn(value);
-        car.move();
+        Result result = car.move();
 
         // then
-        assertThat(car.getMovedCount()).isEqualTo(1);
+        assertAll(
+                () -> assertThat(result.movedCount()).isEqualTo(1),
+                () -> assertThat(result.name()).isEqualTo("beom")
+        );
         mockRandoms.close();
     }
 
@@ -79,10 +84,13 @@ class CarTest {
 
         //when
         when(Randoms.pickNumberInRange(0, 9)).thenReturn(value);
-        car.move();
+        Result result = car.move();
 
         // then
-        assertThat(car.getMovedCount()).isZero();
+        assertAll(
+                () -> assertThat(result.movedCount()).isZero(),
+                () -> assertThat(result.name()).isEqualTo("beom")
+        );
         mockRandoms.close();
     }
 
