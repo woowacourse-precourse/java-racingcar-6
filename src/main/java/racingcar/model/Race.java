@@ -11,7 +11,7 @@ public class Race {
     public void initialize(ArrayList<String> carNames) {     //매개변수는 이 메서드에서만 유효함
         this.carNames = carNames;   //Race 내부 다른 메서드에서도 사용할 수 있도록 멤버 변수에 할당
         /*
-         * arraylist 에서 set 메서드로 접근하기 위해 실시하는 초기화
+         * runRace() 에서 set 메서드로 접근하기 위해 실시하는 초기화
          */
         carGoingCount = new ArrayList<>(carNames.size());
         for (int i = 0; i < carNames.size(); i++) {
