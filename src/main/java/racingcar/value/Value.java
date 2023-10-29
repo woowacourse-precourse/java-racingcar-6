@@ -38,6 +38,13 @@ public class Value {
             carPositions.add(0);
         }
     }
+    public List<Integer> getCarPositions() {
+        return carPositions;
+    }
+
+    public void updateCarPositions(int carIndex, int newPosition) {
+        carPositions.set(carIndex, newPosition);
+    }
 
 
     public void determineWinners(List<Integer> carPositions) {

@@ -27,6 +27,7 @@ public class Controller {
         raceAttempts();
 //        gameStart();
         initGame();
+        gameStart();
     }
 
     private void carName() {
@@ -46,6 +47,28 @@ public class Controller {
         values.initializeCarPositions(numberOfCars);
     }
 
+    private void gameStart(){
+        int roundOfGame = values.getNumberOfAttempts();
+        for (int round = 0; round < roundOfGame; round++){
+            playRound();
+        }
+    }
+
+    private void playRound() {
+        List<Integer> carPositions = values.getCarPositions();
+        for (int i = 0; i < carPositions.size(); i++) {
+            goStop(i);
+        }
+    }
+    private void goStop(int carIndex) {
+        if (goStopRule.shouldGo()) {
+            int newPosition = values.getCarPositions().get(carIndex) + 1;
+            values.updateCarPositions(carIndex, newPosition);
+        }
+    }
+
+
+
 
 }
 //    private void gameStart() {
@@ -56,17 +79,17 @@ public class Controller {
 //            carPositions.add(0);                                // 처리 완료
 //        }                                                       // 처리 완료
 //
-//        for (int round = 0; round < roundOfGame; round++) {
+//        for (int round = 0; round < roundOfGame; round++) { //   처리 완료
 //            playRound(carPositions);
 //            outputView.printRoundResult(values.getCarNames(), carPositions);
 //        }
 //        values.determineWinners(carPositions);
 //        outputView.printWinners(values.getWinners());
 //    }
-//    private void playRound(List<Integer> carPositions) {
-//        for (int i = 0; i < carPositions.size(); i++) {
-//            if (goStopRule.shouldGo()) {
-//                carPositions.set(i, carPositions.get(i) + 1);
+//    private void playRound(List<Integer> carPositions) {               처
+//        for (int i = 0; i < carPositions.size(); i++) {                리
+//            if (goStopRule.shouldGo()) {                               완
+//                carPositions.set(i, carPositions.get(i) + 1);          료
 //            }
 //        }
 //    }
