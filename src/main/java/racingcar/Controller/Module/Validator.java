@@ -1,5 +1,7 @@
 package racingcar.Controller.Module;
 
+import java.util.ArrayList;
+
 public class Validator {
     public int validateInputIsNumber(int input){
         if(input > 0){
@@ -11,5 +13,14 @@ public class Validator {
 
     public Boolean validateNameInputContainsComma(String input){
         return input.contains(",");
+    }
+
+    public Boolean validateNameLength(ArrayList<String> input){
+        for(String name: input){
+            if(name.length() > 5){
+                return false;
+            }
+        }
+        return true;
     }
 }
