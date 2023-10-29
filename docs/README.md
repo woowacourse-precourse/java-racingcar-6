@@ -25,6 +25,8 @@
   - [x] 상수 분리
   - [ ] Util 분리
   - [x] 생성자 대신 정적 팩토리 메서드 사용
+  - [ ] InputController를 CarController와 RoundController로 분리
+  
 
 ## 기능 요구 사항
 
