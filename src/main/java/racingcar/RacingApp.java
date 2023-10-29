@@ -5,9 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.StringJoiner;
 import java.util.stream.Collectors;
-import org.junit.platform.commons.util.StringUtils;
 
 public class RacingApp {
 
@@ -18,7 +16,6 @@ public class RacingApp {
         String input = getPlayerList();
         createRacingCarList(input);
         getExecuteCount();
-
         play();
         printRacingResult();
     }
@@ -42,7 +39,7 @@ public class RacingApp {
 
     private void printRacingCarsCurrentStatus() {
         racingCarList.forEach(racingCar -> {
-            System.out.print(racingCar.getName() + " : " );
+            System.out.print(racingCar.getName() + " : ");
             for (int i = 0; i < racingCar.getCount(); i++) {
                 System.out.print("-");
             }
@@ -51,24 +48,23 @@ public class RacingApp {
     }
 
     private void printRacingResult() {
-        int maxCount = racingCarList.stream()
-                .mapToInt(RacingCar::getCount)
-                .max()
-                .orElse(0);
+        int maxForward = getMaxForward();
+        List<String> winnerList = getWinnerList(maxForward);
+        System.out.print("최종 우승자: " + String.join(", ", winnerList));
+    }
 
-        List<String> winnerList = racingCarList.stream()
+    private List<String> getWinnerList(int maxCount) {
+        return racingCarList.stream()
                 .filter(racingCar -> racingCar.getCount() == maxCount)
                 .map(RacingCar::getName)
                 .toList();
+    }
 
-        System.out.print("최종 우승자 : ");
-        for (int i = 0; i < winnerList.size(); i++) {
-            System.out.print(winnerList.get(i));
-            if (i != winnerList.size() - 1) {
-                System.out.print(", ");
-            }
-
-        }
+    private int getMaxForward() {
+        return racingCarList.stream()
+                .mapToInt(RacingCar::getCount)
+                .max()
+                .orElse(0);
     }
 
     private void getExecuteCount() {
@@ -99,6 +95,5 @@ public class RacingApp {
     private List<String> getNameListFromInput(String input) {
         return Arrays.stream(input.split(",")).collect(Collectors.toList());
     }
-
 
 }
