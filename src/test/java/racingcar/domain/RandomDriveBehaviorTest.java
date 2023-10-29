@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import org.junit.jupiter.params.ParameterizedTest;
@@ -30,5 +31,16 @@ public class RandomDriveBehaviorTest {
         int newPosition = carPosition.getPosition();
 
         assertThat(newPosition).isEqualTo(oldPosition);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {-1, -2, 10, 11})
+    void 무작위_값이_0애서_9_사이의_숫자가_아니라면_예외를_발생시킨다(int randomNumber) {
+        DriveBehavior driveBehavior = new RandomDriveBehavior(() -> randomNumber);
+        CarPosition carPosition = new CarPosition();
+
+        assertThatThrownBy(() -> driveBehavior.drive(carPosition))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Error: 무작위 값은 0에서 9 사이의 숫자여야 합니다.");
     }
 }
