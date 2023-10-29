@@ -7,10 +7,12 @@ public class Race {
     private static final int CAR_NAME_LENGTH_LIMIT = 5;
 
     private List<Car> carList = new ArrayList<>();
+    private int attemptCount;
 
-    public Race(String carNames) {
+    public Race(String carNames, int attemptCount) {
         validate(carNames);
         addToCarList(carNames);
+        this.attemptCount = attemptCount;
     }
 
     private static void validate(String carNames) {
