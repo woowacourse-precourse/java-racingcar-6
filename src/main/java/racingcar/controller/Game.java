@@ -36,9 +36,7 @@ public class Game {
     private static void startRace(List<Car> cars, int numberOfMove) {
         View.printMessage(Prompt.RACE_RESULT);
         for (int i = 0; i < numberOfMove; i++) {
-            List<MoveResultDto> moveResultDtos = cars.stream()
-                    .map(Car::move)
-                    .toList();
+            List<MoveResultDto> moveResultDtos = cars.stream().map(Car::move).toList();
             View.printMessage(Result.announcement(moveResultDtos));
         }
     }

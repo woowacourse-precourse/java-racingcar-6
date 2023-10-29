@@ -9,7 +9,7 @@ public class Car {
     private static final int MOVE_FORWARD_NUMBER = 4;
     private static final int MIN_RANDOM_NUMBER = 0;
     private static final int MAX_RANDOM_NUMBER = 9;
-    
+
     private final String name;
     private Integer location;
 
