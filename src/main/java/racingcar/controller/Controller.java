@@ -8,26 +8,25 @@ import racingcar.view.View;
 public class Controller {
     CarManager manager = new CarManager();
     RacingGame game = new RacingGame(manager);
-    View view = new View();
 
     public void startGame() {
         askAndGenerateCars();
         askAndSetAttempts();
 
-        view.displayResult();
+        View.displayResult();
         game.playGame();
 
         String winners = game.getWinners();
-        view.displayWinners(winners);
+        View.displayWinners(winners);
     }
 
     private void askAndGenerateCars() {
-        String[] cars = view.askForCarNames();
+        String[] cars = View.askForCarNames();
         manager.createAndAddCars(cars);
     }
 
     private void askAndSetAttempts() {
-        int attempts = view.askForAttempts();
+        int attempts = View.askForAttempts();
         Settings.setAttempts(attempts);
     }
 
