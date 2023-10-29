@@ -39,6 +39,20 @@ public class NameTest {
         assertThat(answer).isEqualTo(carNames);
     }
 
+    @DisplayName("[예외] 자동차 이름 개수 예외 테스트")
+    @Test
+    void validateCountOfNameTest() {
+        List<String> nameList = new ArrayList<>() {
+            {
+                add("pobi");
+            }
+        };
+
+        assertThatThrownBy(() -> NameValidator.validateName(nameList))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 두 개 이상의 이름을 입력해 주세요.");
+    }
+
     @DisplayName("[예외] 자동차 이름 글자수 예외 테스트")
     @Test
     void validateLengthTest() {
