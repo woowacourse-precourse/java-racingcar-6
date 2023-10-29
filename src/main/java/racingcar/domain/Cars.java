@@ -35,7 +35,7 @@ public class Cars {
                 .filter(name -> StringUtils.isBlank(name))
                 .findFirst()
                 .isPresent();
-        if(hasBlank) {
+        if (hasBlank) {
             throw new IllegalArgumentException();
         }
     }
@@ -46,15 +46,14 @@ public class Cars {
         Arrays.stream(names)
                 .forEach(name -> notDuplicateNames.add(name));
 
-        if(notDuplicateNames.size() != names.length) {
+        if (notDuplicateNames.size() != names.length) {
             throw new IllegalArgumentException();
         }
     }
 
     public void play() {
-
         cars.stream()
-                .forEach(car -> car.play());
+                .forEach(Car::play);
     }
 
     public List<String> findWinners() {
@@ -64,7 +63,7 @@ public class Cars {
 
     private Car findMaxPositionCar() {
         return cars.stream()
-                .max((car, other) -> car.compareTo(other))
+                .max(Car::compareTo)
                 .orElseThrow(() -> new IllegalArgumentException());
     }
 
@@ -75,9 +74,7 @@ public class Cars {
                 .toList();
     }
 
-    public List<CarDto> toDto() {
-        return cars.stream()
-                .map(car -> new CarDto(car.getName(), car.getPosition()))
-                .toList();
+    public List<Car> getCars() {
+        return cars;
     }
 }

@@ -1,10 +1,12 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
+import racingcar.dto.CarDto;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RaceController {
 
@@ -18,9 +20,21 @@ public class RaceController {
                 OutputView.printResultMessage();
             }
             cars.play();
-            OutputView.printResult(cars.toDto());
+            printResult();
         }
 
+        printFinalWinner();
+    }
+
+    private void printResult() {
+        List<CarDto> carDtos = cars.getCars().stream()
+                .map(car -> new CarDto(car.getName(), car.getPosition()))
+                .collect(Collectors.toList());
+
+        OutputView.printResult(carDtos);
+    }
+
+    private void printFinalWinner() {
         List<String> winners = cars.findWinners();
         OutputView.printFinalWinner(winners);
     }
