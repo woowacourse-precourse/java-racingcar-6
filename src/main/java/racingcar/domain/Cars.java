@@ -9,9 +9,9 @@ public class Cars {
 
     private final List<Car> cars;
 
-    public Cars(List<String> carNames) {
+    public Cars(List<CarName> carNames) {
         cars = new ArrayList<>(carNames.size());
-        for (String carName : carNames) {
+        for (CarName carName : carNames) {
             Car car = new Car(carName);
             cars.add(car);
         }

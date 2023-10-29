@@ -4,11 +4,11 @@ import java.util.List;
 
 public class Car {
 
-    private final String name;
     private int position = 0;
+    private final CarName carName;
 
-    public Car(String name) {
-        this.name = name;
+    public Car(CarName carName) {
+        this.carName = carName;
     }
 
     public void move() {
@@ -27,13 +27,13 @@ public class Car {
     }
 
     public void registerOnWinnerList(List<String> winnerList) {
-        winnerList.add(this.name);
+        carName.writeOnWinnerList(winnerList);
     }
 
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder(name + " : ");
+        StringBuilder sb = new StringBuilder(carName.makeNameForPrintResult());
         for (int i = 0; i < position; i++) {
             sb.append("-");
         }
