@@ -27,8 +27,11 @@ public class Game {
 		validateCarNamesInput(input);
 		this.racingCars = makeCarNamesInputToCarList(input);
 	}
-
-	private void setRoundCount(){}
+	private void setRoundCount(){
+		String input = InputView.getRoundCountInput();
+		validateRoundCountInput(input);
+		this.roundCount = Integer.parseInt(input);
+	}
 
 	private Car findWinner(){
 		Car winner = new Car("name");
@@ -59,5 +62,11 @@ public class Game {
 
 	private Car makeCarInstance(String name){
 		return new Car(name);
+	}
+
+	private void validateRoundCountInput(String input){
+		if(!input.matches("\\d+")){
+			throw new IllegalArgumentException("시도 횟수는 숫자로 입력해야 합니다.");
+		}
 	}
 }
