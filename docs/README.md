@@ -12,7 +12,7 @@
     - [x] 자동차 최대 개수를 넘어가면  `IllegalArgumentException` 
     - [x] 자동차 이름이 5자를 넘어가면 `IllegalArgumentException`
     - [x] 자동차 이름이 0자면 `IllegalArgumentException`
-    - [ ] 중복된 자동차 이름이면 `IllegalArgumentException`
+    - [x] 중복된 자동차 이름이면 `IllegalArgumentException`
     - [x] 자동차 이름으로 객체 생성하기
   - [x] 객체를 배열로 리턴하기
 

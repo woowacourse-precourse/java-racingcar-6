@@ -31,6 +31,12 @@ public class Car implements Comparable<Car>{
     }
 
     @Override
+    public boolean equals(Object obj) {
+        CarName opponentCarName = ((Car) obj).carName;
+        return opponentCarName.equals(this.carName);
+    }
+
+    @Override
     public int compareTo(Car o) {
         return this.movingDistance - o.movingDistance;
     }

@@ -32,4 +32,10 @@ public class CarName {
             throw new IllegalArgumentException("자동차의 이름은 공백이 될 수 없습니다.");
         }
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        String opponentCarNameStr = ((CarName) obj).carName;
+        return opponentCarNameStr.equals(this.carName);
+    }
 }

@@ -37,11 +37,18 @@ public class Cars {
 
     private void addCarInCars(List<String> carNameList) {
         for (String carName : carNameList) {
-            cars.add(new Car(carName));
+            Car newCar = new Car(carName);
+            validateDuplicatedCarName(newCar);
+            cars.add(newCar);
             validateCarsMaximumNumber();
         }
     }
 
+    private void validateDuplicatedCarName(Car car) {
+        if (cars.contains(car)) {
+            throw new IllegalArgumentException("차 이름이 중복되었습니다.");
+        }
+    }
     private void validateCarsMaximumNumber() {
         if (cars.size() >= CAR_MAXIMUM_NUMBER) {
             throw new IllegalArgumentException(String.format("차의 개수는 %d 을 넘어갈 수 없습니다.", CAR_MAXIMUM_NUMBER));
