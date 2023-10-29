@@ -8,9 +8,9 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    public static void printRoundResult(List<Car> roundResults) {
-        for (Car result : roundResults) {
-            System.out.println(result.toString());
+    public static void printRoundResult(List<String> carStatuses) {
+        for (String status : carStatuses) {
+            System.out.println(status);
         }
     }
 

@@ -16,14 +16,13 @@ public class RacingCars {
 
     public void play() {
         advanceCar();
-        OutputView.printRoundResult(getCarStatus());
+        OutputView.printRoundResult(getCarStatuses());
     }
 
     public void showWinners() {
         List<String> winners = getWinners();
         OutputView.printWinner(winners);
     }
-
 
     private List<String> getWinners() {
         int maxPosition = Util.getMaxPosition(cars);
@@ -33,8 +32,10 @@ public class RacingCars {
                 .collect(Collectors.toList());
     }
 
-    private List<Car> getCarStatus() {
-        return new ArrayList<>(cars);
+    private List<String> getCarStatuses() {
+        return cars.stream()
+                .map(Car::toString)
+                .collect(Collectors.toList());
     }
 
     private void advanceCar() {

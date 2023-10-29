@@ -6,8 +6,8 @@ import racingcar.view.OutputView;
 
 public class GameController {
 
-    private int rounds;
-    private RacingCars racingCars;
+    private final int rounds;
+    private final RacingCars racingCars;
 
     public GameController() {
         this.racingCars = InputController.getCarNames();
