@@ -10,14 +10,17 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.constant.ExceptionMessage;
+import racingcar.domain.Attempt;
 import racingcar.domain.CarsFactory;
 
 public class GameTest {
     private CarsFactory carsFactory;
+    private Attempt attempt;
 
     @BeforeEach
     public void setUp() {
         carsFactory = new CarsFactory();
+        attempt = new Attempt();
     }
 
     @Test
@@ -40,6 +43,13 @@ public class GameTest {
                 carsFactory.validateCarNames(carNames2))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ExceptionMessage.INVALID_NAME_EXCEPTION);
+    }
+
+    @Test
+    void 시도_횟수_입력받아_저장하기() {
+        command("5");
+
+        assertThatCode(() -> attempt.saveAttemptNumber()).doesNotThrowAnyException();
     }
 
     private void command(final String... args) {
