@@ -3,6 +3,7 @@ package racingcar;
 public class RacingCar {
     private String carName;
     private int currentPosition = 0;
+
     public RacingCar(String carName) {
         this.carName = carName;
     }
@@ -18,12 +19,16 @@ public class RacingCar {
     public String getCarName() {
         return carName;
     }
-    public void printCurrentPosition() {
+
+    public void printCurrentPositionWithName() {
         System.out.print(this.carName + " : ");
-        for (int i = 0; i < this.currentPosition; i++) {
-            System.out.print("-");
-        }
+        printPositionAsDashes();
         System.out.println();
     }
 
+    private void printPositionAsDashes() {
+        for (int i = 0; i < this.currentPosition; i++) {
+            System.out.print("-");
+        }
+    }
 }
