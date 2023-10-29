@@ -3,8 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class RacingSetting {
-    CarNum carNum;
-    MoveNum moveNum;
+    private CarNum carNum;
+    private MoveNum moveNum;
 
     String[] getName() {
         String inputCarName;
@@ -26,7 +26,7 @@ public class RacingSetting {
         moveNum = new MoveNum(inputMoveNum);
     }
 
-    void isVaildInputCarName(String inputCarName) throws IllegalArgumentException{
+    private void isVaildInputCarName(String inputCarName) throws IllegalArgumentException{
         if (inputCarName.matches(".*,,.*|.*,+$")) {
             throw new IllegalArgumentException("Error : 자동차 이름이 없습니다 최소 한글자 이상 적어주세요");
         }

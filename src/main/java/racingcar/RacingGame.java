@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 public class RacingGame {
-    List<Car> carList;
-    RacingSetting racingSetting;
+    private List<Car> carList;
+    private RacingSetting racingSetting;
 
     void start() {
         racingSetting = new RacingSetting();
@@ -30,13 +30,13 @@ public class RacingGame {
         printWinner();
     }
 
-    void printMovingResult() {
+    private void printMovingResult() {
         for (Car currentCar: carList) {
             currentCar.printInformation();
         }
     }
 
-    void printWinner() {
+    private void printWinner() {
         Map<Integer, List<String>> destinationToNamesMap = new HashMap<>();
         for (Car currentCar: carList) {
             addDestinationName(destinationToNamesMap, currentCar.getDestination(), currentCar.getName());

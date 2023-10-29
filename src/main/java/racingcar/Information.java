@@ -1,9 +1,9 @@
 package racingcar;
 
 public class Information {
-    final static int MAX_CAR_NAME = 5;
-    String name;
-    int destination;
+    private final static int MAX_CAR_NAME = 5;
+    private String name;
+    private int destination;
 
     Information(String name) {
         isVaildCarName(name);
@@ -19,7 +19,7 @@ public class Information {
         System.out.println(name + " : " + "-".repeat(destination));
     }
 
-    void isVaildCarName(String name) throws IllegalArgumentException {
+    private void isVaildCarName(String name) throws IllegalArgumentException {
         if (name.isBlank()) {
             throw new IllegalArgumentException("Error : 자동차 이름이 없습니다 최소 한글자 이상 적어주세요");
         }

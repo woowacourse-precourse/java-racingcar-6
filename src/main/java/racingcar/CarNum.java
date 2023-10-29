@@ -1,8 +1,8 @@
 package racingcar;
 
 public class CarNum {
-    final static int MAX_CAR_NUM = 10;
-    int num;
+    private final static int MAX_CAR_NUM = 10;
+    private int num;
 
     CarNum(String[] carNameParsing) {
         isVaildCarNum(carNameParsing);
@@ -13,7 +13,7 @@ public class CarNum {
         return (num > currentNum);
     }
 
-    void isVaildCarNum(String[] carNameParsing) throws IllegalArgumentException {
+    private void isVaildCarNum(String[] carNameParsing) throws IllegalArgumentException {
         if (carNameParsing.length > MAX_CAR_NUM) {
             throw new IllegalArgumentException("Error : 자동차 개수가 너무 많습니다 최대개수 " + MAX_CAR_NUM);
         }
