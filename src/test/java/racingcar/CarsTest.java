@@ -1,14 +1,10 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.model.Cars;
-import racingcar.view.InputView;
-import java.io.ByteArrayInputStream;
 import java.util.List;
 import java.util.stream.Stream;
 

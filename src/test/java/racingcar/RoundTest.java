@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.view.InputView;
-
 import java.io.ByteArrayInputStream;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
