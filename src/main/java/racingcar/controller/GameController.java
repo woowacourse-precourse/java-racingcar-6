@@ -7,6 +7,7 @@ import racingcar.validate.RoundNumberValidation;
 import racingcar.view.GameView;
 
 import java.util.List;
+import java.util.Queue;
 
 public class GameController {
     private final GameModel gameModel;
@@ -22,6 +23,9 @@ public class GameController {
         gameModel.setCars(carNames);
 
         int roundNumber = gameView.getRoundNumber(new RoundNumberValidation());
-    }
 
+        Queue<List<Integer>> moveNumbers = gameModel.getMoveNumbers(roundNumber);
+        gameModel.playGame(moveNumbers);
+
+    }
 }

@@ -7,7 +7,9 @@ import racingcar.model.Car;
 import racingcar.model.GameModel;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -30,5 +32,28 @@ public class GameModelTest {
         List<Car> result = gameModel.getCars();
         // then
         assertThat(result).isEqualTo(response);
+    }
+
+    @Test
+    @DisplayName("해당 라운드에서 move count 값이 4 이상인 자동차는 전진한다")
+    public void playRoundTest() {
+        // given
+        List<String> carNames = Arrays.asList("KWY", "DSH", "ASAP");
+        gameModel.setCars(carNames);
+
+        List<Integer> roundMoveNumbers = Arrays.asList(1, 5, 7);
+        List<Integer> roundMoveNumbers2 = Arrays.asList(5, 6, 3);
+        List<Integer> roundMoveNumbers3 = Arrays.asList(3, 8, 6);
+        Queue<List<Integer>> moveNumbers = new LinkedList<>();
+        moveNumbers.add(roundMoveNumbers);
+        moveNumbers.add(roundMoveNumbers2);
+        moveNumbers.add(roundMoveNumbers3);
+        // when
+        gameModel.playGame(moveNumbers);
+        List<Car> result = gameModel.getCars();
+        // then
+        assertThat(result.get(0).getMoveCount()).isEqualTo(1);
+        assertThat(result.get(1).getMoveCount()).isEqualTo(3);
+        assertThat(result.get(2).getMoveCount()).isEqualTo(2);
     }
 }
