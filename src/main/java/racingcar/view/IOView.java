@@ -16,4 +16,10 @@ public class IOView implements View {
         outputView.requestCarNames(inputView.getDelimiterDescription(), inputView.getDelimiter());
         return inputView.enterCarNames();
     }
+
+    @Override
+    public int getRacingCount() {
+        outputView.requestTryCount();
+        return inputView.enterTryCount();
+    }
 }
