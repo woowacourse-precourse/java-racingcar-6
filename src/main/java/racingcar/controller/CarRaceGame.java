@@ -9,11 +9,13 @@ import java.util.List;
 import racingcar.constant.GameConstants;
 import racingcar.domain.Car;
 import racingcar.domain.GameManager;
+import racingcar.utility.CarRaceGameUtility;
 import racingcar.validator.Validator;
 import racingcar.view.CarRaceGameView;
 
 public class CarRaceGame {
     private GameManager gameManager;
+    private CarRaceGameUtility carRaceGameUtility;
     private List<Car> carImplList = new ArrayList<Car>();
 
     public CarRaceGame() {
@@ -26,12 +28,12 @@ public class CarRaceGame {
     public void startGame() {
         String carNames = CarRaceGameView.startGameView();
         setUpCar(carNames);
-        setUpGameManager();
 
         String attemptNumberString = CarRaceGameView.attemptNumberView();
-        setUpAttemptNumber(attemptNumberString);
+        setUpGameManager(attemptNumberString);
 
-        startCarRaceGame();
+        carRaceGameUtility = CarRaceGameUtility.create(gameManager, carImplList);
+        carRaceGameUtility.startCarRaceGame();
     }
 
     private void setUpCar(String carNames) {
@@ -48,40 +50,7 @@ public class CarRaceGame {
         return Arrays.stream(carNames.split(",")).toList();
     }
 
-    private void setUpGameManager() {
-        gameManager = GameManager.create();
-        gameManager.setCarQuantity(carImplList.size());
+    private void setUpGameManager(String attemptNumberString) {
+        gameManager = GameManager.create(Integer.parseInt(attemptNumberString), carImplList);
     }
-
-    private void setUpAttemptNumber(String attemptNumberString) {
-        gameManager.setAttemptNumber(Integer.parseInt(attemptNumberString));
-    }
-
-    public void startCarRaceGame() {
-        System.out.println(EXECUTION_RESULT);
-
-        for (int i = 0; i < gameManager.getAttemptNumber(); i++){
-            startCarRaceGameOneRound();
-        }
-    }
-
-    private void startCarRaceGameOneRound() {
-        for (Car car : carImplList) {
-            tryForward(car);
-            CarRaceGameView.tryForwardResultView(car.getCarName(), car.getAdvanceNumber());
-        }
-        CarRaceGameView.LineBreakView();
-    }
-
-    private int randomNumberGenerator() {
-        int randomNumber = Randoms.pickNumberInRange(MIN_NUM, MAX_NUM);
-        return randomNumber;
-    }
-
-    private void tryForward(Car car) {
-        if (4 >= randomNumberGenerator()) {
-            car.setAdvanceNumber(car.getAdvanceNumber() + 1);
-        }
-    }
-
 }
