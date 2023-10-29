@@ -10,6 +10,8 @@ import java.util.stream.Collectors;
 public class Application {
 
     private static final List<Car> cars = new ArrayList<>();
+
+    private static final int NAME_LIMIT = 5;
     public static void main(String[] args) {
         printCarInputMessage();
         String[] carNames = carsInputByName();
@@ -28,6 +30,9 @@ public class Application {
 
         String input = Console.readLine();
         String[] carNames = input.split(",");
+        for (String name : carNames) {
+            if (name.length() > NAME_LIMIT) throw new IllegalArgumentException("이름은 5자 이하여야 합니다.");
+        }
         return carNames;
     }
 
