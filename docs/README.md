@@ -78,6 +78,12 @@ jun : -----
 
 ## 상수 목록
 - ErrorMessage
-  - [ ] 에러 메시지 상수
+  - [x] 에러 메시지 상수
+- GameResultElement
+  - [x] 게임 결과 화면요소 상수
 - InputPattern
-  - [ ] 입력값 정규식 상수
+  - [x] 입력값 정규식 상수
+- ProgressMessage
+  - [x] 게임 진행 메시지 상수
+- RacingCarRole
+  - [x] 레이싱카 규칙 상수
