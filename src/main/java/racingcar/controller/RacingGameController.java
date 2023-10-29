@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,13 +9,13 @@ import racingcar.domain.Referee;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-public class RacingGame {
+public class RacingGameController {
     private final InputView inputView;
     private final OutputView outputView;
     private final Judgment judgment;
     private final Referee referee;
 
-    public RacingGame() {
+    public RacingGameController() {
         inputView = new InputView();
         outputView = new OutputView();
         judgment = new Judgment();
