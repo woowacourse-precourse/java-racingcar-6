@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.controller;
 
 import static racingcar.view.InitialInputs.readCarNames;
 import static racingcar.view.InitialInputs.readExcecutionNumber;
@@ -16,19 +16,18 @@ public class GameManager {
     private List<Car> cars = new ArrayList<>();
     private int executionNumber;
 
-    public GameManager() {
-        set();
+    public void playGame() {
+        set(readCarNames(), readExcecutionNumber());
         play();
         result();
     }
 
-    private void set() {
-        List<String> names = readCarNames();
+    void set(List<String> names, int readNumber) {
         names.stream().forEach(name -> cars.add(new Car(name)));
-        executionNumber = readExcecutionNumber();
+        executionNumber = readNumber;
     }
 
-    private void play() {
+    void play() {
         showText();
         for (int i = 0; i < executionNumber; i++) {
             updateOneRound();
@@ -42,7 +41,7 @@ public class GameManager {
         }
     }
 
-    private void result() {
+    void result() {
         showWinners(JudgeResult.getWinners(cars));
     }
 }
