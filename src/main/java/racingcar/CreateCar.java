@@ -1,9 +1,6 @@
 package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.ArrayList;
-
-
 public class CreateCar {
 
     public String input() {
@@ -11,8 +8,6 @@ public class CreateCar {
         String input = Console.readLine();
         return input;
     }
-    // 이름
-    // 수
 
     public String[] carName(String input) {
         String[] carName = input.split(",");
@@ -23,4 +18,8 @@ public class CreateCar {
         int carCount = carName.length;
         return carCount;
     }
+
+
+
+
 }
