@@ -7,14 +7,9 @@ public class Application {
     public static void main(String[] args) {
         GameInputController controller = new GameInputController();
         controller.settingController();
-
-        // 이름 입력 문구를 받는다.
         controller.requestNames();
+        controller.requestTryNumber();
 
-//        // 횟수 입력 문구를 받는다.
-//        gameUI.requestTryNumber();
-//        game.settingChance();
-//
 //        // 게임을 진행시킨다.
 //        game.running();
     }
