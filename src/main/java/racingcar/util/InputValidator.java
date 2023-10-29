@@ -37,7 +37,8 @@ public class InputValidator {
             try {
                 Double.parseDouble(inputList.get(i));
                 throw new IllegalArgumentException();
-            } catch (NumberFormatException e) {}
+            } catch (NumberFormatException e) {
+            }
         }
     }
 
@@ -45,7 +46,7 @@ public class InputValidator {
     private static void isValidLength(List<String> inputList) {
         for (int i = 0; i < inputList.size(); i++) {
             if (inputList.get(i).length() > 5) {
-                throw new IllegalStateException();
+                throw new IllegalArgumentException();
             }
         }
     }
