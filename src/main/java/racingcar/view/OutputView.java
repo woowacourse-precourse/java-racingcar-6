@@ -14,8 +14,12 @@ public class OutputView {
     public void printResult(CarList carList) {
         System.out.println(OUTPUT_RESULT);
 
+        printCarList(carList);
+    }
+
+    private void printCarList(CarList carList) {
         for (Car car : carList.getCarList()) {
-            car.StopOrMove();
+            car.stopOrMove();
             printNameAndDistance(car);
         }
         System.out.println();
