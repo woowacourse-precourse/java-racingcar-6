@@ -11,6 +11,7 @@ public class Car {
     private ArrayList<Integer> userScore;
     private ArrayList<String> winner;
 
+
     // Constructor
     public Car() {
         this.userName = new ArrayList<>();
@@ -19,7 +20,4 @@ public class Car {
     }
 
     // Method
-    public void start() {
-        System.out.println("Hello !");
-    }
 }
