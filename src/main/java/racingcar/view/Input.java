@@ -15,11 +15,15 @@ public class Input {
         System.out.println(message);
     }
 
-    public String writeUserInput() {
+    public String writeCarNames() {
         return Console.readLine();
     }
 
-    public void close(){
+    public Integer writePlayTime() {
+        return Integer.parseInt(Console.readLine());
+    }
+
+    public void close() {
         Console.close();
     }
 
