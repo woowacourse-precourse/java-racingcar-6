@@ -29,7 +29,8 @@ public class RacingGame {
         printMessage(PROGRESS_RESULT);
         for(int i = 0; i<attemptNumber; i++){
             for(int j = 0; j<carNumber; j++){
-                eachCarPickRandomNumber(j);
+                String carName = player.getCarName(j);
+                eachCarPickRandomNumber(carName);
             }
             printProgress();
         }
@@ -39,9 +40,8 @@ public class RacingGame {
 
     }
 
-    public void eachCarPickRandomNumber(int indexJ){
+    public void eachCarPickRandomNumber(String carName){
         int randomNumber = player.getRandomNumber();
-        String carName = player.getCarName(indexJ);
         if (randomNumber >= 4){
             int updateCarValue = cars.get(carName) + 1;
             cars.put(carName,updateCarValue);
