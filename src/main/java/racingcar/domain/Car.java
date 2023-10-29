@@ -19,7 +19,7 @@ public class Car {
         return position;
     }
 
-    public void move(){
+    public void move() {
         if (NumberGenerator.createRandomNumber() >= MOVE_CONDITION) {
             position++;
         }

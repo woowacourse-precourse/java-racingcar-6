@@ -25,7 +25,7 @@ public class RacingGame {
         return instance;
     }
 
-    public static void run(){
+    public static void run() {
 
         UserOutput.askForCarNames();
         String carNames = UserInput.readCarName();
@@ -89,7 +89,7 @@ public class RacingGame {
                 .collect(Collectors.toList());
     }
 
-    private int getMaxPosition(){
+    private int getMaxPosition() {
         return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
