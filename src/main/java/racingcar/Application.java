@@ -35,44 +35,24 @@ public class Application {
         return roundCount;
     }
 
+
     public static void main(String[] args) {
         // TODO: 프로그램 구 현
 
         // 1. 자동차 이름 입력
         Car car = Car.getInstance(createCarNames(getInput("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")));
 
+        car.initializeMovedCount();
+        car.move(Application.checkPositiveNumber(getInput("시도할 회수는 몇회인가요?")));
 
-        // 2. 시도 횟수 입력
-        int roundCount = Application.checkPositiveNumber(getInput("시도할 회수는 몇회인가요?"));
-
-        // 3. 이동 로직 구현
-        System.out.println("실행 결과");
-
-        List<String> movedCount = new ArrayList<>(Collections.nCopies(car.names.size(), ""));
-
-        for (int i = 0; i < roundCount; i++) {
-
-            for (int j = 0; j < movedCount.size(); j++) {
-
-                if (Randoms.pickNumberInRange(0, 9) >= 4) {
-                    movedCount.set(j, movedCount.get(j) + "-");
-                }
-            }
-
-            for (int k = 0; k < car.names.size(); k++) {
-                System.out.println(car.names.get(k) + " : " + movedCount.get(k));
-            }
-
-            System.out.println();
-        }
 
         // 4. 우승자 출력
         int max = 0;
 
         for (int i = 0; i < car.names.size(); i++) {
 
-            if (max <= movedCount.get(i).length()) {
-                max = movedCount.get(i).length();
+            if (max <= car.movedCount.get(i).length()) {
+                max = car.movedCount.get(i).length();
             }
 
         }
@@ -82,7 +62,7 @@ public class Application {
 
         for (int i = 0; i < car.names.size(); i++) {
 
-            if (max == movedCount.get(i).length()) {
+            if (max == car.movedCount.get(i).length()) {
 
                 if (count++ != 0) {
                     System.out.print(", ");
