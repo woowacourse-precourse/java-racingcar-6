@@ -2,16 +2,24 @@ package racingcar.domain.view;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class InputViewTest {
 
     private static ByteArrayOutputStream outputStream;
+    private static final String NAMES = "pobi, jang, woni";
+
+    @Disabled
+    void systemInCarNames() {
+        System.setIn(new ByteArrayInputStream(NAMES.getBytes()));
+    }
 
     @BeforeEach
     void 테스트_함수_실행_전_실행() {
@@ -38,5 +46,13 @@ class InputViewTest {
         InputView.printAttemptMessage();
         String outputMessage = outputStream.toString().trim();
         assertEquals(InputMessages.ATTEMPT.getMessage(), outputMessage);
+    }
+
+    @Test
+    @DisplayName("자동차 이름 입력 테스트")
+    void inputCarNames() {
+        systemInCarNames();
+        String carNames = InputView.inputCarNames();
+        assertEquals(carNames, NAMES);
     }
 }
