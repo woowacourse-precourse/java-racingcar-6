@@ -1,15 +1,19 @@
 package utils;
 
-import java.util.Collections;
-import java.util.Map;
+import java.util.*;
 
-public class <K, V extends Comparable<? super V>> Happy {
-    public static V getMaxVaule(Map<K, V> map) {
+public class MapUtils {
+    public static <K, V extends Comparable<? super V>> V getMaxValue(Map<K, V> map) {
         return Collections.max(map.values());
     }
 
-//    public static <K, V extends Comparable<? super V>> getKeysForValue(Map<K, V> map, V value) {
-//
-//        return
-//    }
+    public static <K, V> List<K> getKeysForValue(Map<K, V> map, V value) {
+        List<K> keys = new ArrayList<>();
+        for (Map.Entry<K, V> entry : map.entrySet()) {
+            if (entry.getValue().equals(value)) {
+                keys.add(entry.getKey());
+            }
+        }
+        return keys;
+    }
 }
