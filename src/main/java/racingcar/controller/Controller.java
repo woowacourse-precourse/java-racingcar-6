@@ -13,6 +13,7 @@ import racingcar.view.InputView;
 
 public class Controller {
 	private RacingCar racingCar;
+	private TryNumber tryNumber;
 
 	public void run() {
 		setCar();
@@ -30,6 +31,6 @@ public class Controller {
 
 	private void setTryNumber() {
 		InputView.askTryNumber();
-		TryNumber tryNumber = new TryNumber(Console.readLine());
+		this.tryNumber = new TryNumber(Console.readLine());
 	}
 }
