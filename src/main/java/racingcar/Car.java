@@ -25,6 +25,10 @@ public class Car {
         return this.name;
     }
 
+    public void printStatus() {
+        System.out.println(this.name + " : " + "-".repeat(Math.max(0, this.distance)));
+    }
+
     public String getStatus() {
         return this.name + " : "
                 + "-".repeat(Math.max(0, this.distance));

@@ -1,6 +1,6 @@
 package racingcar;
 
-import static console.Printer.printWinners;
+import static console.Printer.*;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
@@ -11,20 +11,21 @@ public class Application {
     public static void main(String[] args) {
         List<Car> cars = new ArrayList<>();
 
+        printCarInputMessage();
         String input = Console.readLine();
         String[] carNames = input.split(",");
         for (String name : carNames) cars.add(new Car(name));
 
-        System.out.println("시도할 횟수는 몇회인가요?");
+        printTryInputMessage();
         int tryCount = Integer.parseInt(Console.readLine());
 
-        System.out.println("실행결과");
+        printResultMessage();
         for(int i = 0; i < tryCount ; i++) {
             for (Car car : cars) {
                 car.move();
-                System.out.println(car.getStatus());
+                car.printStatus();
             }
-            System.out.println();
+            printNewLine();
         }
         List<Car> winners = decideWinners(cars);
         printWinners(winners);
