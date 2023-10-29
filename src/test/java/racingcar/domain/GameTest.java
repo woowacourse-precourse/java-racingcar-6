@@ -21,7 +21,7 @@ class GameTest {
         MockedStatic<RandomNumber> randomNumber = mockStatic(RandomNumber.class);
         given(RandomNumber.createRandomNumber()).willReturn(new RandomNumber(4));
 
-        List<CarDistanceMessage> carDistanceMessages = game.forwardCars();
+        List<CarDistanceMessage> carDistanceMessages = game.simulate();
         List<String> messages = carDistanceMessages.stream().map(CarDistanceMessage::toString).toList();
 
         assertThat(messages).contains("foo : -", "bar : -");

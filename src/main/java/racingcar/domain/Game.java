@@ -12,12 +12,12 @@ public class Game {
         this.cars = cars;
     }
 
-    public List<CarDistanceMessage> forwardCars() {
-        moveCars();
+    public List<CarDistanceMessage> simulate() {
+        moveRandomCars();
         return getCarDistanceMessages();
     }
 
-    private void moveCars() {
+    private void moveRandomCars() {
         for (Car car : cars) {
             RandomNumber number = RandomNumber.createRandomNumber();
             if (number.isMovable()) car.move();

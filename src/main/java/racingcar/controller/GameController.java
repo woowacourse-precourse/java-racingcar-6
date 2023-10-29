@@ -44,7 +44,7 @@ public class GameController {
         List<List<CarDistanceMessage>> progressResults = new ArrayList<>();
         while (attempt.isExist()) {
             attempt.decrease();
-            progressResults.add(game.forwardCars());
+            progressResults.add(game.simulate());
         }
         return progressResults;
     }
