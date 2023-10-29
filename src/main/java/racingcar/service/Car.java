@@ -2,28 +2,23 @@ package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Car {
 
-    List<String> inputCarList = new ArrayList<>();
+    String inputCar = new String();
     List<String> splitCarList = new ArrayList<>();
     List<String> rangeCarList = new ArrayList<>();
 
-    public List<String> nameInput() {
+    public String nameInput() {
         String inputCar = Console.readLine();
-        inputCarList.add(inputCar);
-        return inputCarList;
+        return inputCar;
     }
 
     public List<String> nameSplit() {
-
-        for (String car : inputCarList) {
-            String[] splitCars = car.split(",");
-            for (String splitCar : splitCars) {
-                splitCarList.add(splitCar.trim());
-            }
+        String[] splitCars = inputCar.split(",");
+        for(String car : splitCars){
+            splitCarList.add(car);
         }
         return splitCarList;
     }
@@ -35,8 +30,6 @@ public class Car {
                 rangeCarList.add(range);
             }
         }
-        System.out.println(rangeCarList);
         return rangeCarList;
     }
 }
-
