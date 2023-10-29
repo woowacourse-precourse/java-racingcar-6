@@ -35,10 +35,16 @@ public class Car {
             forwardCount++;
             presentCondition += MARK_FOR_FORWARD;
         }
+
+        System.out.println(getPresentCondition());
     }
 
     public int getForwardCount() {
         return forwardCount;
+    }
+
+    public String getPresentCondition() {
+        return getCarName() + " : " + presentCondition;
     }
 
     final void validateNameLength(String carName) {
