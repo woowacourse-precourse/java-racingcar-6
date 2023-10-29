@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class CarRaceGame {
     private List<Car> cars;
@@ -35,8 +36,7 @@ public class CarRaceGame {
     }
 
     public boolean isForwardCondition() {
-        // 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4이상일 경우
-        return true;
+        return Randoms.pickNumberInRange(0,9) >= 4;
     }
 
     public List<String> getWinners() {
