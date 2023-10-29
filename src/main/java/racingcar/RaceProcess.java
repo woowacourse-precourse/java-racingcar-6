@@ -8,7 +8,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Map;
 import racingcar.util.Printer;
 
-public class RacePlay {
+public class RaceProcess {
     private final Printer printer = new Printer();
     private Map<String, StringBuilder> resultScore;
 

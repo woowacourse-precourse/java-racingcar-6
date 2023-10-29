@@ -7,15 +7,15 @@ import racingcar.util.Printer;
 
 public class RaceGame {
     private final Printer printer = new Printer();
-    private final RacePlay racePlay = new RacePlay();
+    private final RaceProcess raceProcess = new RaceProcess();
     private final RacePreparation racePreparation = new RacePreparation();
 
     public void gameStart() {
-        RacePreparation gameInformation = racePreparation.getRaceInfo();
-        racePlay.playGame(gameInformation.getGameRound(), gameInformation.getScoreBoard());
+        RacePreparation gameInformation = racePreparation.getRaceInformation();
+        raceProcess.playGame(gameInformation.getGameRound(), gameInformation.getScoreBoard());
 
-        int winPoint = calculateForwardPoint(racePlay.getResultScore());
-        printer.printWinnersNames(findWinners(winPoint, racePlay.getResultScore()));
+        int winPoint = calculateForwardPoint(raceProcess.getResultScore());
+        printer.printWinnersNames(findWinners(winPoint, raceProcess.getResultScore()));
     }
 
     public int calculateForwardPoint(Map<String, StringBuilder> scoreResult) {

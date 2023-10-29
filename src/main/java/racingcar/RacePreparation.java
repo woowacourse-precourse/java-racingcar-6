@@ -14,7 +14,7 @@ public class RacePreparation {
     private int gameRound;
     private Map<String, StringBuilder> scoreBoard;
 
-    public RacePreparation getRaceInfo() {
+    public RacePreparation getRaceInformation() {
         this.carNames = inputCarNames();
         this.gameRound = inputGameRound();
         this.scoreBoard = makeScoreBoard();
