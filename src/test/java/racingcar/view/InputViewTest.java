@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 public class InputViewTest {
@@ -21,7 +22,7 @@ public class InputViewTest {
     }
 
     @Test
-    public void 입력값_String_이름_분리() {
+    public void 차이름_입력값_String_이름_분리() {
         String input = "tobi,fobi,bobi";
         String[] result = input.split(",");
 
@@ -29,7 +30,7 @@ public class InputViewTest {
     }
 
     @Test
-    public void 입력값_System_In_이름_분리() {
+    public void 차이름_입력값_이름_분리() {
         String input = "tobi,fobi,bobi";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -38,5 +39,48 @@ public class InputViewTest {
         List<String> actual = inputView.readCarsNamesInput();
 
         assertEquals(expected, actual);
+    }
+
+    @Nested
+    class 실행횟수_입력값 {
+        @Test
+        public void 실행횟수_입력값_숫자형식예외_글자() {
+            String input = "errorValue";
+            InputStream in = new ByteArrayInputStream(input.getBytes());
+            System.setIn(in);
+
+            Assertions.assertThatThrownBy(() -> inputView.readNumberInput())
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
+
+        @Test
+        public void 실행횟수_입력값_숫자형식예외_int범위외() {
+            String input = "2147483648";
+            InputStream in = new ByteArrayInputStream(input.getBytes());
+            System.setIn(in);
+
+            Assertions.assertThatThrownBy(() -> inputView.readNumberInput())
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
+
+        @Test
+        public void 실행횟수_입력값_숫자형식예외_음수() {
+            String input = "-3";
+            InputStream in = new ByteArrayInputStream(input.getBytes());
+            System.setIn(in);
+
+            Assertions.assertThatThrownBy(() -> inputView.readNumberInput())
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
+
+        @Test
+        public void 실행횟수_입력값_빈값예외() {
+            String input = "";
+            InputStream in = new ByteArrayInputStream(input.getBytes());
+            System.setIn(in);
+
+            Assertions.assertThatThrownBy(() -> inputView.readNumberInput())
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
     }
 }
