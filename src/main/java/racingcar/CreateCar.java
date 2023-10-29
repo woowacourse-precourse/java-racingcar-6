@@ -1,5 +1,7 @@
 package racingcar;
 import camp.nextstep.edu.missionutils.Console;
+
+
 public class CreateCar {
 
     public String input() {
@@ -13,8 +15,6 @@ public class CreateCar {
         int carNum = carName.length;
         return carNum;
     }
-
-
 
 
 }
