@@ -61,7 +61,7 @@ public class RacingCarConsoleTest {
     }
 
     @Test
-    void 시도회수_입력받기_양수_입력_정상처리() {
+    void 시도_회수_입력받기_양수_입력_정상처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String input = "3\n";
@@ -76,7 +76,7 @@ public class RacingCarConsoleTest {
     }
 
     @Test
-    void 시도회수_입력받기_0입력_정상처리() {
+    void 시도_회수_입력받기_0_입력_정상처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String input = "0\n";
@@ -91,7 +91,7 @@ public class RacingCarConsoleTest {
     }
 
     @Test
-    void 시도회수_입력받기_음수_입력_정상처리() {
+    void 시도_회수_입력받기_음수_입력_정상처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String input = "-12\n";
@@ -106,7 +106,7 @@ public class RacingCarConsoleTest {
     }
 
     @Test
-    void 시도회수_입력받기_문자열_입력_예외처리() {
+    void 시도_회수_입력받기_문자열_입력_예외처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String input = "-11abc#\n";

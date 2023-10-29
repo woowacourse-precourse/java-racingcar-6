@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class InputValidatorTest {
 
     @Test
-    void validateCarNames_null_예외처리() {
+    void 자동자_전체_이름_검증_null_예외처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String carNames = null;
@@ -20,7 +20,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void validateCarNames_빈_문자열_예외처리() {
+    void 자동자_전체_이름_검증_빈_문자열_예외처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String carNames = "";
@@ -32,7 +32,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void validateCarNames_공백_예외처리() {
+    void 자동자_전체_이름_검증_공백_예외처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String carNames = " ";
@@ -44,7 +44,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void validateCarNames_개행_예외처리() {
+    void 자동자_전체_이름_검증_개행_예외처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String carNames = "\n";
@@ -56,7 +56,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void validateCarNames_정상처리() {
+    void 자동자_전체_이름_검증_정상처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String carNames = "홍길동,test,a맨";
@@ -68,7 +68,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void validateCarName_한글_정상처리() {
+    void 하나의_자동차_이름_검증_한글_정상처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String carName = "홍길동";
@@ -80,7 +80,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void validateCarName_영어_정상처리() {
+    void 하나의_자동차_이름_검증_영어_정상처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String carName = "Asus";
@@ -92,7 +92,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void validateCarName_빈_문자열_예외처리() {
+    void 하나의_자동차_이름_검증_빈_문자열_예외처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String carName = "";
@@ -104,7 +104,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void validateCarName_5자_초과_예외처리() {
+    void 하나의_자동차_이름_검증_5자_초과_예외처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String carName = "superMan";
@@ -116,7 +116,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void validateCarName_개행_예외처리() {
+    void 하나의_자동차_이름_검증_개행_예외처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String carName = "\n";
@@ -128,7 +128,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void validateCarName_숫자_예외처리() {
+    void 하나의_자동차_이름_검증_숫자_예외처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String carName = "666";
@@ -140,7 +140,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void validateIterationNumBer_양수_정상처리() {
+    void 시도_회수_검증_양수_정상처리() {
         Throwable result = catchThrowable(
                 () -> {
                     InputValidator.validateIterationNumBer(5);
@@ -151,7 +151,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void validateIterationNumBer_0_예외처리() {
+    void 시도_회수_검증_0_예외처리() {
         Throwable result = catchThrowable(
                 () -> {
                     InputValidator.validateIterationNumBer(0);
@@ -162,7 +162,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void validateIterationNumBer_음수_예외처리() {
+    void 시도_회수_검증_음수_예외처리() {
         Throwable result = catchThrowable(
                 () -> {
                     InputValidator.validateIterationNumBer(-12);
