@@ -1,6 +1,7 @@
 package convert;
 
 import domain.Car;
+import domain.RandomForwardStrategy;
 import factory.CarFactory;
 import java.util.Arrays;
 import java.util.List;
@@ -20,7 +21,7 @@ public class StringListToCarListConvertorTest {
     @MethodSource("provideStringListAndCarList")
     void stringListToCarListConvertTest(List<String> strings, List<Car> expect) {
         //when
-        List<Car> result = StringListToCarListConvertor.convert(strings);
+        List<Car> result = StringListToCarListConvertor.convert(strings,new RandomForwardStrategy());
 
         //then
         Assertions.assertThat(result).isEqualTo(expect);
@@ -42,7 +43,7 @@ public class StringListToCarListConvertorTest {
 
     private static List<Car> createCarList(String... names) {
         return Arrays.stream(names)
-                .map(name -> CarFactory.createCar(name, 0))
+                .map(name -> CarFactory.createCar(name, 0,new RandomForwardStrategy()))
                 .collect(Collectors.toList());
     }
 

@@ -4,16 +4,19 @@ import java.util.Objects;
 
 public class Car {
 
+    private final ForwardStrategy<?> forwardStrategy;
     private final CarName carName;
     private final CarLocation carLocation;
 
-    private Car(CarName carname, CarLocation carLocation) {
+    private Car(CarName carname, CarLocation carLocation, ForwardStrategy<?> forwardStrategy) {
+        this.forwardStrategy = forwardStrategy;
         this.carName = carname;
         this.carLocation = carLocation;
     }
 
-    public static Car of(CarName carName, CarLocation carLocation) {
-        return new Car(carName, carLocation);
+    public static Car of(CarName carName, CarLocation carLocation,
+            ForwardStrategy<?> forwardStrategy) {
+        return new Car(carName, carLocation, forwardStrategy);
     }
 
 
