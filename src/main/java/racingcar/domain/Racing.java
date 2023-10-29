@@ -70,9 +70,14 @@ public class Racing {
     }
 
     private static boolean validateCreateRacingCarInput(List<String> carList) {
-        // 자동차 이름 중복 체크
         Set<String> set = new HashSet<>();
         for (String carStr : carList) {
+            // 자동차 이름 5자 이하 체크
+            if (carStr.length() > 5) {
+                return false;
+            }
+
+            // 자동차 이름 중복 체크
             if (set.contains(carStr)) {
                 return false;
             }
