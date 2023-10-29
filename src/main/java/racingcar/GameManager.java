@@ -12,17 +12,13 @@ public class GameManager {
     public void gameSetting() {
         Output.printInputCarMessage();
         gameElements.carNamesSetting(input.getCarNameList());
-        insertCarMap();
+        gameElements.insertCarMap();
 
         Output.printInputTryCountMessage();
         gameElements.tryCountSetting(input.getTryCount());
     }
 
-    private void insertCarMap() {
-        for (String carName : gameElements.getCarNameList()) {
-            gameElements.getCarMap().put(carName, 0);
-        }
-    }
+
 
     public int createRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
