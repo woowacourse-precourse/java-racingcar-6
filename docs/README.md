@@ -26,8 +26,8 @@
 
 ## OutputView 클래스
 
-- [ ] printResultWinner: 인자로 받은 names 리스트의 이름들을 ", "를 구분자로 합쳐 출력하는지
-- [ ] printResult: 인자로 받은 이름과, info.moved 횟수만큼 '-'를 반복하여 형식에 맞게 출력하는지
+- [x] printFinalWinner: 인자로 받은 names 리스트의 이름들을 ", "를 구분자로 합쳐 출력하는지
+- [x] printResult: 인자로 받은 이름과, info.moved 횟수만큼 '-'를 반복하여 형식에 맞게 출력하는지
 
 ## RacingGame 클래스
 
