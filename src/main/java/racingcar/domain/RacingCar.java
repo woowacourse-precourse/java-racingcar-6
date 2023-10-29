@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.domain.NumberConstant.*;
+
 public class RacingCar {
     String name;
     long location;
@@ -8,8 +10,8 @@ public class RacingCar {
     public static RacingCar createRacingCar(String name) {
         RacingCar racingCar = new RacingCar();
 
-        racingCar.name = name;
-        racingCar.location = 0;
+        racingCar.setName(name);
+        racingCar.setLocation(INITIAL_LOCATION);
 
         return racingCar;
     }

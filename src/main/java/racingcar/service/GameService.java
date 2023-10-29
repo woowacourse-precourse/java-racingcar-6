@@ -6,6 +6,7 @@ import racingcar.domain.RacingCar;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static racingcar.domain.NumberConstant.*;
 import static racingcar.service.InputService.*;
 import static racingcar.service.PrintService.*;
 
@@ -44,16 +45,16 @@ public class GameService {
 
     public static void playGameForTimes(Long times, List<RacingCar> racingCars) {
         for (int i = 0; i < times; i++) {
-            increaseLocationForRandomNumber(racingCars);
+            addLocationForRandomNumber(racingCars);
 
             printOneGameOutcome(racingCars);
         }
     }
-        private static void increaseLocationForRandomNumber(List<RacingCar> racingCars) {
+        private static void addLocationForRandomNumber(List<RacingCar> racingCars) {
             for (RacingCar racingCar : racingCars) {
-                int num = Randoms.pickNumberInRange(0, 9);
+                int num = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
 
-                if (num >= 4)
+                if (num >= MIN_INCREMENT_NUMBER)
                     racingCar.putForward();
             }
         }
