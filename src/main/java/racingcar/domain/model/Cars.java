@@ -4,11 +4,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public record CarNames(List<CarName> names) {
+public record Cars(List<Car> names) {
 
-    public CarNames(String input) {
+    public Cars(String input) {
         this(Arrays.stream(input.split(","))
-                .map(CarName::new)
+                .map(Car::new)
                 .collect(Collectors.toList()));
 
     }
@@ -16,7 +16,7 @@ public record CarNames(List<CarName> names) {
     private static final int MAX_ALLOWED_COUNT = 5;
 
     public String formatNames() {
-        return this.names.stream().map(CarName::name).collect(Collectors.joining(","));
+        return this.names.stream().map(Car::name).collect(Collectors.joining(","));
     }
 }
 

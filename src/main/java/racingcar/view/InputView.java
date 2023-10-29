@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import racingcar.domain.model.AttemptsNumber;
-import racingcar.domain.model.CarNames;
+import racingcar.domain.model.Cars;
 
 public class InputView {
     private final InputProvider consoleProvider;
@@ -10,8 +10,8 @@ public class InputView {
         this.consoleProvider = consoleProvider;
     }
 
-    public CarNames readCarNames() {
-        return new CarNames(consoleProvider.provide());
+    public Cars readCarNames() {
+        return new Cars(consoleProvider.provide());
     }
 
     public AttemptsNumber readAttemptsNumber() {
