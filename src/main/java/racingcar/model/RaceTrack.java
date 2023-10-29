@@ -8,6 +8,8 @@ public class RaceTrack {
     public int[] carStartLine; // 자동차들 출발선 배열
     public int[] carRank; // 자동차들 전진 횟수 배열 = 업데이트된 이름 길이 = 출발선 인덱스
 
+    public int[] winnerIndex;
+
     public RaceTrack(String[] carNames) {
         this.carNames = carNames;
         this.carStartLine = new int[carNames.length];
@@ -58,13 +60,41 @@ public class RaceTrack {
     }
 
     // carRank 배열의 요소 중 하나라도 인자 count의 값을 가지는지 확인하는 메소드
-    private boolean checkRaceCompletion(int count) {
+//    private boolean checkRaceCompletion(int count) {
+//        for (int rank : carRank) {
+//            if (rank >= count) {
+//                return true; // 레이스 완료 조건 충족
+//            }
+//        }
+//        return false; // 레이스 완료 조건 미충족
+//    }
+
+    // REFACTORING
+    // 프로그램에서 최소값을 초기 비교값으로 사용할 때 Integer.MIN_VALUE를 활용
+
+    public void selectWinner() {
+        int max = Integer.MIN_VALUE;
+        int count = 0;
+
+        // 최댓값 찾고, 갯수가 복수인지 확인
         for (int rank : carRank) {
-            if (rank >= count) {
-                return true; // 레이스 완료 조건 충족
+            if (rank > max) {
+                max = rank;
+                count = 1; // 새로운 최대값 발견시 count를 1로 초기화
+            } else if (rank == max) {
+                count++; // 같은 최대값을 발견시 count 증가
             }
         }
-        return false; // 레이스 완료 조건 미충족
+
+        // 최댓값과 동일한 값을 가지는 요소의 인덱스를 winnerIndex 배열에 추가
+        winnerIndex = new int[count];
+        int index = 0;
+        for (int i = 0; i < carRank.length; i++) {
+            if (carRank[i] == max) {
+                winnerIndex[index] = i;
+                index++;
+            }
+        }
     }
 
     // 우승 관련 메소드
