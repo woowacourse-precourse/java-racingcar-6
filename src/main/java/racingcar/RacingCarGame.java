@@ -4,15 +4,21 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingCarGame {
-    public void start() {
-        String carNames = InputView.readCarNames();
-        int number = InputView.readNumber();
+    private String carNames;
+    private int number;
 
+    private CarController carController;
+
+    public void start() {
+        carNames = InputView.readCarNames();
+        number = InputView.readNumber();
+
+        System.out.print("\n");
         run();
     }
 
     private void run() {
-        // TODO: Car 생성
+        carController = new CarController(carNames);
 
         OutputView.printGameResult();
 
