@@ -14,6 +14,7 @@ class CarTest {
 
     @BeforeEach
     void init() {
+        carList.getCars().clear();
         String carName = "carName";
         Car.setCar(carName);
     }

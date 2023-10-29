@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -17,8 +18,8 @@ class GameControllerTest {
     GameController controller = new GameController();
     CarList carList = CarList.getInstance();
 
-    @AfterEach
-    void after() {
+    @BeforeEach
+    void before() {
         carList.getCars().clear();
     }
 
