@@ -4,13 +4,15 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.message.InputMessage;
 
 public class InputView {
-    public String[] getNames(){
+    public String[] setNames(){
         printMessage(InputMessage.START_GAME);
         String inputNames = Console.readLine();
-        return inputNames.split(",");
+        String [] names = inputNames.split(",");
+        return names;
+
     }
 
-    public int getRound(){
+    public int setRounds(){
         printMessage(InputMessage.SET_GAME_ROUND);
         String inputRounds = Console.readLine();
         int round = Integer.parseInt(inputRounds);
