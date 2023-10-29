@@ -33,36 +33,53 @@ public class RacingGame implements Game {
 
     @Override
     public void run() {
+        printRequestCarNamesMessage();
+        inputCars();
+        printRequestRoundCountMessage();
+        inputRound();
+        printPlayResultMessage();
+        while (round.hasMoreRounds()) {
+            cars.move();
+            printRoundResult();
+            round.nextRound();
+        }
+        printWinners();
+    }
+
+    private void printRequestCarNamesMessage() {
         String requestCarNamesMessage = messenger.getRequestCarNames();
         outputView.print(requestCarNamesMessage);
+    }
 
+    private void inputCars() {
         String namesString = inputView.input();
         List<String> names = Convertor.split(namesString, Messenger.CAR_NAMES_DELIMITER);
         cars = carsGenerator.generateCarsFromNames(names);
+    }
 
-
+    private void printRequestRoundCountMessage() {
         String requestRoundCountMessage = messenger.getRequestRoundCount();
         outputView.print(requestRoundCountMessage);
+    }
 
+    private void inputRound() {
         String roundCountString = inputView.input();
         int roundCount = Convertor.parseInt(roundCountString);
         round = new Round(roundCount);
+    }
 
-
+    private void printPlayResultMessage() {
         String playResultMessage = messenger.getPlayResultMessage();
         outputView.print(playResultMessage);
+    }
 
+    private void printRoundResult() {
+        CarsInformationDto carsInformationDto = cars.getInformation();
+        String roundResult = messenger.getRoundResult(carsInformationDto);
+        outputView.print(roundResult);
+    }
 
-        while (round.hasMoreRounds()) {
-            cars.move();
-
-            CarsInformationDto carsInformationDto = cars.getInformation();
-            String roundResult = messenger.getRoundResult(carsInformationDto);
-            outputView.print(roundResult);
-
-            round.nextRound();
-        }
-
+    private void printWinners() {
         CarNamesDto winnerNamesDto = cars.findWinnerNames();
         String winnersMessage = messenger.getWinners(winnerNamesDto);
         outputView.print(winnersMessage);
