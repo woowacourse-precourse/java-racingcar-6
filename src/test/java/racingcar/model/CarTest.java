@@ -30,4 +30,13 @@ class CarTest {
 
         assertThat(1).isEqualTo(car.getPosition());
     }
+
+    @Test
+    void 랜덤값4미만_자동차정지_랜덤값1 () {
+        Car car = new Car("testCar");
+        int randomNumber = 1;
+        car.setPosition(randomNumber);
+
+        assertThat(0).isEqualTo(car.getPosition());
+    }
 }
