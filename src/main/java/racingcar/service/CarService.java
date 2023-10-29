@@ -1,6 +1,10 @@
 package racingcar.service;
 
 import static racingcar.constant.MessageConst.WINNER_MESSAGE;
+import static racingcar.constant.NumberConst.FORMAT_NUMBER;
+import static racingcar.constant.NumberConst.RANDOM_MAX_RANGE;
+import static racingcar.constant.NumberConst.RANDOM_MIN_NUMBER;
+import static racingcar.constant.NumberConst.RANDOM_MIN_RANGE;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
@@ -26,11 +30,11 @@ public class CarService {
     }
 
     private int createRandomNum() {
-        return Randoms.pickNumberInRange(0,9);
+        return Randoms.pickNumberInRange(RANDOM_MIN_RANGE, RANDOM_MAX_RANGE);
     }
 
     public void updateCarScore(Car car, int randomNum) {
-        if (randomNum >= 4) {
+        if (randomNum >= RANDOM_MIN_NUMBER) {
             car.updateScore();
         }
     }
@@ -70,6 +74,6 @@ public class CarService {
     }
 
     public StringBuilder formatOutput(StringBuilder winner) {
-        return winner.delete(winner.length() - 2, winner.length());
+        return winner.delete(winner.length() - FORMAT_NUMBER, winner.length());
     }
 }

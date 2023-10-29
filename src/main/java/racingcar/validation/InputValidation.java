@@ -8,6 +8,9 @@ import static racingcar.constant.MessageConst.NULL_MESSAGE;
 import static racingcar.constant.MessageConst.SPACE_MESSAGE;
 import static racingcar.constant.MessageConst.NUMERIC_FORMAT_MESSAGE;
 import static racingcar.constant.MessageConst.RANGE_MESSAGE;
+import static racingcar.constant.NumberConst.CAR_NAME_MAX_LENGTH;
+import static racingcar.constant.NumberConst.CAR_NAME_MIN_LENGTH;
+import static racingcar.constant.NumberConst.RACE_MIN_ROUND;
 
 import java.util.HashSet;
 import java.util.List;
@@ -24,7 +27,7 @@ public class InputValidation {
     }
 
     public void isRangeValid(int carNameLength) {
-        if (carNameLength < 1 || carNameLength > 5) {
+        if (carNameLength < CAR_NAME_MIN_LENGTH || carNameLength > CAR_NAME_MAX_LENGTH) {
             throw new IllegalArgumentException(LENGTH_MESSAGE);
         }
     }
@@ -107,7 +110,7 @@ public class InputValidation {
     }
 
     private boolean isNotPositive(int inputRange) {
-        return inputRange < 1;
+        return inputRange < RACE_MIN_ROUND;
     }
 
     public void validateInputEmpty(String input) {
