@@ -3,35 +3,19 @@ package racingcar.domain;
 import java.util.HashMap;
 
 public class Car {
-    private static Car car;
-    private int carQuantity;
-    private HashMap<String,Integer> carList = new HashMap<String, Integer>();
+    private final String carName;
+    private int advanceNumber;
 
-
-    public static Car getCar() {
-        if(car == null){
-            car = new Car();
-        }
-        return car;
+    public Car(String carName) {
+        this.carName = carName;
+        this.advanceNumber = 0;
     }
 
-    public int getCarQuantity() {
-        return carQuantity;
+    public int getAdvanceNumber() {
+        return advanceNumber;
     }
 
-    public void setCarQuantity(int carQuantity) {
-        this.carQuantity = carQuantity;
-    }
-
-    public HashMap<String, Integer> getCarList() {
-        return carList;
-    }
-
-    public void addCarItem(String name) {
-            carList.put(name, 0);
-    }
-
-    public void updateCarList(String name, int advanceNumber) {
-        carList.replace(name,advanceNumber);
+    public void setAdvanceNumber(int advanceNumber) {
+        this.advanceNumber = advanceNumber;
     }
 }
