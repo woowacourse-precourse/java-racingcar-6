@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import static racingcar.constant.ViewMessage.GAME_RESULT;
 import static racingcar.constant.ViewMessage.INSERT_CARS_NAMES;
 import static racingcar.constant.ViewMessage.INSERT_MOVING_COUNT;
 
@@ -15,6 +16,11 @@ public class OutputView {
 
     public static void printInsertMovingCount() {
         printlnViewMessage(INSERT_MOVING_COUNT);
+    }
+
+    public static void printGameResultStart() {
+        System.out.println();
+        printlnViewMessage(GAME_RESULT);
     }
 
     public static void printResult(String result) {

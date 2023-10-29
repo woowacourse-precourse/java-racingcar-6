@@ -20,6 +20,7 @@ public class RaceController {
         InputView.close();
 
         RaceService raceService = RaceService.init(racingCars, movingCount);
+        OutputView.printGameResultStart();
         OutputView.printResult(raceService.getRaceResult());
         OutputView.printWinner(raceService.getWinner());
     }
