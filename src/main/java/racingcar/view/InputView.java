@@ -2,7 +2,9 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import racingcar.constant.ErrorMessage;
 
 public class InputView {
@@ -36,9 +38,12 @@ public class InputView {
 
     private List<String> carNamesArrToList(String[] splitCarNamesByComma) {
         List<String> carNames = new ArrayList<>();
+        Set<String> setCarNames = new HashSet<>();
         for (int idx = 0; idx < splitCarNamesByComma.length; idx++) {
-            validateCarNameLength(splitCarNamesByComma[idx]);
-            carNames.add(splitCarNamesByComma[idx]);
+            String carName = splitCarNamesByComma[idx].trim();
+            validateCarNameLength(carName);
+            validateDuplicateName(carName, setCarNames);
+            carNames.add(carName);
         }
 
         return carNames;
@@ -47,6 +52,12 @@ public class InputView {
     private void validateCarNameLength(String carName) {
         if (carName.length() > 5 || carName.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH_EXCEPTION.getMessage());
+        }
+    }
+
+    private void validateDuplicateName(String carName, Set<String> setCarNames) {
+        if (!setCarNames.add(carName)) {
+            throw new IllegalArgumentException();
         }
     }
 }
