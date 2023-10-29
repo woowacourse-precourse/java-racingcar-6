@@ -23,4 +23,8 @@ public class RemainRacingCount {
             throw new IllegalArgumentException();
         }
     }
+
+    public int getRemainRacingCount(){ //  테스트용 코드
+        return remainRacingCount;
+    }
 }
