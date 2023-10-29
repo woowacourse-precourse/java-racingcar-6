@@ -97,6 +97,32 @@ class ApplicationTest extends NsTest {
         assertThat(game.getRoundCount()).isEqualTo(1);
     }
 
+    @Test
+    void 한_칸_전진(){
+        Car car = new Car("pobi",0);
+        car.move(4);
+
+        assertThat(car.getPosition()).isEqualTo(1);
+    }
+
+    @Test
+    void 정지(){
+        Car car = new Car("pobi",0);
+        car.move(2);
+
+        assertThat(car.getPosition()).isEqualTo(0);
+    }
+
+    @Test
+    void 현재_경기_상황_출력(){
+        Cars cars = new Cars();
+        cars.set("pobi,woni");
+        cars.getCars().get(0).move(5);
+        cars.printCarPositions();
+
+        assertThat(output()).contains("pobi : -", "woni :");
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
