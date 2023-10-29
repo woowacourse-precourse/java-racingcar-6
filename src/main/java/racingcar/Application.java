@@ -19,7 +19,7 @@ public class Application {
     // 기능 1-1. 자동차의 이름을 입력 받아 몇 대(n)의 자동차로 경기를 할 것인지 입력 받기
     public static String getInput(){
             Scanner scanner = new Scanner(System.in);
-            System.out.print("쉼표(,)를 기준으로 구분하여 5자 이하의 자동차 이름을 입력해주세요.");
+            System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             String input = scanner.nextLine();
             scanner.close();
             return input;
@@ -28,8 +28,16 @@ public class Application {
     public static int getNumberOfRounds(){
             int rounds = 0;
             boolean validInput = false;
+            System.out.print("시도할 회수는 몇회인가요?");
             Scanner scanner = new Scanner(System.in);
             scanner.close();
             return rounds;
+    }
+
+    public static void playRound(String[] cars){
+            for (String car : cars) {
+                int randomNumber = new Randoms.pickNumberInRange(0, 9);
+                System.out.
+        }
     }
 }
