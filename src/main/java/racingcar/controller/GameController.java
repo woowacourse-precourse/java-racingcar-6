@@ -3,6 +3,7 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
 import racingcar.domain.Game;
+import racingcar.utils.RandomUtils;
 import racingcar.validator.CarNameValidator;
 import racingcar.validator.RoundCountValidator;
 
@@ -13,6 +14,7 @@ import java.util.List;
 public class GameController {
 
     private Game game;
+    private Car[] car;
     private List<String> carsName = new ArrayList<>();
 
 
@@ -20,7 +22,10 @@ public class GameController {
         initInputCarName();
         initGameRound();
         initCar();
+        gameStart();
     }
+
+
 
     public void initInputCarName() {
         String carName = inputCarName();
@@ -54,11 +59,28 @@ public class GameController {
 
     public void initCar() {
         int carsCount = game.getCarsCount();
-        Car[] car = new Car[carsCount];
+        car = new Car[carsCount];
 
         for (int i=0; i<carsCount; i++) {
             car[i] = new Car(carsName.get(i),0);
         }
     }
+
+    public void gameStart() {
+        int roundCount = game.getRoundCount();
+        int carCount = carsName.size();
+        
+        for (int roundIndex = 0; roundIndex <roundCount ; roundIndex++) {
+            updateCarPosition(carCount);
+        }
+    }
+
+    public void updateCarPosition(int carCount) {
+        for (int carIndex = 0; carIndex < carCount ; carIndex++) {
+            String position = RandomUtils.detarminPostionByRandomNumber();
+            car[carIndex].increasePosition(position);
+        }
+    }
+
 
 }

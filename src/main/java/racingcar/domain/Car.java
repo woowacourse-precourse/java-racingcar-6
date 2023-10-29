@@ -9,6 +9,12 @@ public class Car {
         this.position = position;
     }
 
+    public void increasePosition(String position) {
+        if(position.equals("STRAIGHT")) {
+            this.position++;
+        }
+    }
+
     public String getCarName() {
         return carName;
     }
