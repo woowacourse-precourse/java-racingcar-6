@@ -1,8 +1,8 @@
-package racingcar;
+package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Racing {
+public class RacingService {
 
     public static boolean isMovingForward() {
         return generateRandomNumber() >= 4;

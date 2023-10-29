@@ -1,16 +1,17 @@
-package racingcar;
+package racingcar.controller;
 
 import static racingcar.view.OutputView.printRacingWinner;
 
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.service.RacingService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-public class RacingGame {
+public class RacingGameController {
     private final List<Car> cars;
 
-    public RacingGame(List<Car> cars) {
+    public RacingGameController(List<Car> cars) {
         this.cars = cars;
     }
 
@@ -27,7 +28,7 @@ public class RacingGame {
 
     private void racing() {
         for (Car car : cars) {
-            if (Racing.isMovingForward()) {
+            if (RacingService.isMovingForward()) {
                 car.addPosition();
             }
         }
