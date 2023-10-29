@@ -13,4 +13,5 @@ public class ErrorMessage {
     public static final String TRY_COUNT_NOT_ALLOW_ZERO_IN_FIRST = "게임 시도 횟수의 첫 번째 숫자는 0이 될 수 없습니다.";
     public static final String CAR_NAME_COND = "이름은 영대소문자,한글,숫자만 입력 가능하고 이름 가운데 공백은 허용됩니다.";
     public static final String PARTICIPATION_CAR_COUNT = "경주에 참가하는 자동차는 최소 2대 이상이어야 합니다.";
+    public static final String NOT_ALLOW_END_WITH_COMMA = "마지막을 쉼표(,)로 끝낼 수 없습니다.";
 }
