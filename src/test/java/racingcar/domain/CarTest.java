@@ -38,7 +38,7 @@ class CarTest {
     class createTest {
 
         @Test
-        @DisplayName("[Success] 차량 이름이 조건에 부합해 차량 생성에 성공합니다.")
+        @DisplayName("[Success] 차량 생성에 성공합니다.")
         void Given_ValidName_When_Create_Then_Success() {
             //given
             String validName = VALID_KOREAN.getName();
