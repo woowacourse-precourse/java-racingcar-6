@@ -1,6 +1,9 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
+import message.OutputMessages;
+import model.Car;
 import validator.CarNameValidator;
 import validator.TryCountValidator;
 import view.InputView;
@@ -14,11 +17,30 @@ public class RacingGameController {
     public void play() {
         List<String> carNameList = inputView.getCarNames();
         validateCarNames(carNameList);
+        List<Car> carList = createCars(carNameList);
 
         String tryCount = inputView.getTryCount();
         validateTryCount(tryCount);
         int tryCountNumber = Integer.parseInt(tryCount);
 
+        startRace(carList, tryCountNumber);
+
+    }
+
+    private void startRace(List<Car> carList, int tryCountNumber) {
+        System.out.println(OutputMessages.RACE_START);
+        
+        while (tryCountNumber > 0) {
+            tryCountNumber--;
+        }
+    }
+
+    private List<Car> createCars(List<String> carNameList) {
+        List<Car> cars = new ArrayList<>();
+        for (String carName : carNameList) {
+            cars.add(new Car(carName));
+        }
+        return cars;
     }
 
 
