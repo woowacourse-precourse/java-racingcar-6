@@ -14,7 +14,7 @@ public class Utill {
         ValidException.isValidIncludeNum(inputStr);
 
         // 공백입력 검사
-        ValidException.isValidIncludeBlank(inputStr);
+        ValidException.isValidBlankCheck(inputStr);
 
         // 공백포함 검사
         ValidException.isValidIncludeBlank(inputStr);

@@ -100,6 +100,14 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름에_대한_예외_처리_1() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     // 추가 - 박승찬
     // ================ RaceCar.class ================
     @DisplayName("자동차의 이동을 제어해준다.")
