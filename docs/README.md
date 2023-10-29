@@ -37,7 +37,7 @@
 2. UserNum
     - getCars()
     : 자동차 이름 입력받기
-    - getTryNum()
+    - getTryNum()
     : 시도할 횟수 입력받기
 3. RandomNum
     - genRandomNum()
