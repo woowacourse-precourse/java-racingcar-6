@@ -13,28 +13,30 @@ public class Controller {
     CarManager manager = new CarManager();
     RacingGame game = new RacingGame(manager);
     Winners winners = new Winners(manager);
+    InputView input = new InputView();
+    OutputView output = new OutputView();
 
     public void playGame() {
         askAndGenerateCars();
         askAndSetAttempts();
 
-        OutputView.startDisplayResult();
+        output.startDisplayResult();
         proceedGame();
 
         String gameResult = winners.getWinners();
-        OutputView.displayWinners(gameResult);
+        output.displayWinners(gameResult);
     }
 
 
     // View에서 받은 자동차 이름을 토대로 자동차 생성 요청
     private void askAndGenerateCars() {
-        String[] cars = InputView.askForCarNames();
+        String[] cars = input.askForCarNames();
         manager.createAndAddCars(cars);
     }
 
     // View에서 받은 시도 횟수를 설정 파일에 전달
     private void askAndSetAttempts() {
-        int attempts = InputView.askForAttempts();
+        int attempts = input.askForAttempts();
         Settings.setRound(attempts);
     }
 
@@ -49,7 +51,7 @@ public class Controller {
     // 라운드가 끝난 후 결과 출력
     private void displayRound() {
         String roundResult = game.getRoundResult();
-        OutputView.display(roundResult);
+        output.display(roundResult);
     }
 
 }
