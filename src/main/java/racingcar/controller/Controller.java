@@ -1,12 +1,15 @@
 package racingcar.controller;
 
-import racingcar.service.InitService;
+
+import racingcar.domain.Game;
+import racingcar.service.GameService;
 
 public class Controller {
 
-    InitService initService = new InitService();
+    GameService gameService = new GameService();
 
     public void start() {
-        initService.initCarList();;
+        gameService.initCarList();
+        gameService.runGame();
     }
 }

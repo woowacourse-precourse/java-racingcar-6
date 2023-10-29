@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Game {
-    private int finalRaceCount;
+    private static int finalRaceCount;
     private List<Car> carList;
     private int currentRaceCount;
 
@@ -53,8 +53,8 @@ public class Game {
         currentRaceCount++;
     }
 
-    public boolean isGameOver() {
-        return finalRaceCount == currentRaceCount;
+    public boolean isNotGameOver() {
+        return finalRaceCount != currentRaceCount;
     }
 
     private void checkCarNameListIsEmpty(String carNameListString) {
