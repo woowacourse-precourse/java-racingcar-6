@@ -54,7 +54,7 @@ public class RacingGame {
     }
 
     private List<Object> splitCarNames(String input) {
-        validator.validatelastInputCommas(input);
+        validator.validateEmptyCarNames(input);
         List<Object> carNames = Arrays.asList(input.split(","));
         return carNames;
     }

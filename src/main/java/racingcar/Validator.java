@@ -21,7 +21,11 @@ public class Validator {
         validateCarNamesBlank(cars);
     }
 
-    public void validatelastInputCommas(String input) {
+    public void validateEmptyCarNames(String input) {
+        validateEmptyName(input);
+        validatelastInputCommas(input);
+    }
+    private void validatelastInputCommas(String input) {
         if (input.charAt(input.length() - 1) == ',') {
             throw new IllegalArgumentException("이름이 없는 자동차가 있습니다.");
         }
@@ -62,7 +66,6 @@ public class Validator {
     private void validateCarsNamesLength(List<Car> cars) {
         for (int i = 0; i < cars.size(); i++) {
             validateNameLength(cars.get(i).getName());
-            validateEmptyName(cars.get(i).getName());
         }
     }
 
@@ -73,7 +76,7 @@ public class Validator {
     }
 
     private void validateEmptyName(String name) {
-        if (name.length() < 1) {
+        if (name.isEmpty()) {
             throw new IllegalArgumentException("이름이 없는 자동차가 있습니다.");
         }
     }
