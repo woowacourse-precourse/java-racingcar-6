@@ -27,7 +27,6 @@ public class UserInput {
     }
 
     public int askNumberGame() throws IllegalArgumentException {
-        System.out.println("시도할 횟수는 얼마인가요?");
         int numGame = Integer.parseInt(Console.readLine());
         return numGame;
     }
