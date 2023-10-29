@@ -4,11 +4,21 @@ public class RacingCar {
 
     private String name;
 
-    private int count;
+    private int count = 0;
 
-    public RacingCar(String name, int count) {
+    public void moveOneBlock() {
+        this.count += 1;
+    }
+
+    public RacingCar(String name) {
+        validateName(name);
         this.name = name;
-        this.count = count;
+    }
+
+    private void validateName(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public String getName() {
