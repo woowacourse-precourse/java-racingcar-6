@@ -1,9 +1,13 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatNoException;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.List;
+
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -22,6 +26,19 @@ class CarsTest {
     void givenNames_whenCreateCars_thenThrowException(String names) {
         assertThatThrownBy(() -> new Cars(names))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("최종 우승자 이름 구하기")
+    void givenCars_whenFindWinners_thenReturnWinnersName() {
+        Cars cars = new Cars("pobi,woni");
+        cars.move();
+
+        // when
+        List<String> result = cars.findWinners();
+
+        // then
+        assertThat(result).containsAnyOf("pobi", "woni");
     }
 
 }

@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Cars {
@@ -35,6 +37,19 @@ public class Cars {
         for (Car car : cars) {
             car.move(randomNumberGenerator.generate());
         }
+    }
+
+    public List<String> findWinners() {
+        int winnerPosition = getWinnerPosition();
+        return cars.stream()
+                .filter(car -> car.getPosition() == winnerPosition)
+                .map(Car::getName)
+                .toList();
+    }
+
+    private int getWinnerPosition() {
+        return Collections.max(cars, Comparator.comparingInt(Car::getPosition))
+                .getPosition();
     }
 
 
