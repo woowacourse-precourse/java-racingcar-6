@@ -10,6 +10,7 @@ import static racingcar.constant.MessageConst.SPACE_MESSAGE;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Stream;
 
 public class CarValidation {
 
@@ -69,5 +70,20 @@ public class CarValidation {
 
     private boolean hasNotCommaSeparatedCarNames(String input) {
         return !input.matches(".*[a-zA-Z]+(,[a-zA-Z]+)+.*");
+    }
+
+    public void validateCarNames(String input) {
+        validateInputNull(input);
+        validateCommaSeparatedCarNames(input);
+        List<String> carNames = stringToCollection(input);
+        validateCarNameRange(carNames);
+        validateCarNameDuplication(carNames);
+        validateCarNameSpace(carNames);
+        validateCarNameEmpty(carNames);
+    }
+
+    private List<String> stringToCollection(String input) {
+        return Stream.of(input.split(","))
+                .toList();
     }
 }
