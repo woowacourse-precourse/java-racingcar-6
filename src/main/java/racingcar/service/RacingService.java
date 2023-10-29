@@ -14,9 +14,7 @@ public class RacingService {
 
         int count = getCount();
 
-        while (count-- > 0) {
-            moveAllRacingCar();
-        }
+        moveAllRacingCar(count);
     }
 
     private int getCount() {
@@ -35,8 +33,10 @@ public class RacingService {
         }
     }
 
-    private void moveAllRacingCar() {
-        carList.stream().forEach(x -> x.moveWithRandomNumber());
+    private void moveAllRacingCar(int count) {
+        while (count-- > 0) {
+            carList.stream().forEach(x -> x.moveWithRandomNumber());
+        }
     }
 
 
