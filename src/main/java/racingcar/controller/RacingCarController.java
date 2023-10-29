@@ -17,6 +17,7 @@ public class RacingCarController {
 
     private RacingCarController(RacingCarService racingCarService) {
         this.racingCarService = racingCarService;
+        startGame();
     }
 
     public static RacingCarController create() {
