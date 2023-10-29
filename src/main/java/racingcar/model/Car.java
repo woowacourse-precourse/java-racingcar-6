@@ -1,23 +1,23 @@
 package racingcar.model;
 
 public class Car {
-  private String name;
-  private int forward;
+    private String name;
+    private int forward;
 
-  public Car(String name) {
-    this.name = name;
-    forward = 0;
-  }
+    public Car(String name) {
+        this.name = name;
+        forward = 0;
+    }
 
-  public String getName() {
-    return name;
-  }
+    public String getName() {
+        return name;
+    }
 
-  public int getForward() {
-    return forward;
-  }
+    public int getForward() {
+        return forward;
+    }
 
-  public void increaseForward() {
-    this.forward += 1;
-  }
+    public void increaseForward() {
+        this.forward += 1;
+    }
 }
