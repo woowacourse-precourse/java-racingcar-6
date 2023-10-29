@@ -26,20 +26,36 @@ public class RacingController {
             cars.add(car);
         }
 
+        System.out.println();
         System.out.println("실행 결과");
 
         int count = 0;
+        int maxPosition = 0;
         while (count < inputView.getNumberOfAttempts()) {
             for (Car car : cars) {
                 int number = RandomNumberGenerator.createRandomNumber();
                 if (number >= 4) {
                     car.move();
                 }
+                maxPosition = Math.max(maxPosition, car.getPosition());
                 String result = car.getName() + " : " + "-".repeat(car.getPosition());
                 System.out.println(result);
             }
             System.out.println();
             count++;
         }
+
+        String winner = "";
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                if (winner.equals("")) {
+                    winner = car.getName();
+                } else {
+                    winner += ", " + car.getName();
+                }
+            }
+        }
+
+        System.out.println("최종 우승자 : " + winner);
     }
 }
