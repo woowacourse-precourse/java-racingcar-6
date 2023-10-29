@@ -32,7 +32,11 @@ public class Application {
 
         List<Car> championCars = utils.findCarsWithMaxDistance(carList);
 
-
+        System.out.print("최종 우승자: ");
+        for (Car car : championCars){
+            System.out.print(car.carName);
+            System.out.print(", ");
+        }
 
     }
 }
