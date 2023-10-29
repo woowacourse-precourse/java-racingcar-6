@@ -1,5 +1,5 @@
 package racingcar;
 
-public interface MovingStrategy {
+public interface MoveSate {
 	boolean canMove();
 }

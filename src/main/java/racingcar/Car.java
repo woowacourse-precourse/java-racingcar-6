@@ -3,15 +3,15 @@ package racingcar;
 public class Car {
 
 	private int position;
-	private final MovingStrategy movingStrategy;
+	private final MoveSate moveState;
 
-	public Car(MovingStrategy movingStrategy) {
+	public Car(MoveSate moveState) {
 		this.position = 0;
-		this.movingStrategy = movingStrategy;
+		this.moveState = moveState;
 	}
 
 	public void move() {
-		if (movingStrategy.canMove()) {
+		if (moveState.canMove()) {
 			position++;
 		}
 	}

@@ -11,8 +11,8 @@ class CarTest {
 	@DisplayName("자동차가 전진할 수 있는 조건을 만족하면 1씩 전진한다.")
 	void can_move() {
 		// given
-		MovingStrategy movingStrategy = () -> true;
-		Car car = new Car(movingStrategy);
+		MoveSate moveState = () -> true;
+		Car car = new Car(moveState);
 
 		// when
 		car.move();
@@ -25,8 +25,8 @@ class CarTest {
 	@DisplayName("자동차가 전진할 수 있는 조건을 만족하지 않으면 움직이지 않는다.")
 	void not_move() {
 		// given
-		MovingStrategy movingStrategy = () -> false;
-		Car car = new Car(movingStrategy);
+		MoveSate moveState = () -> false;
+		Car car = new Car(moveState);
 
 		// when
 		car.move();
