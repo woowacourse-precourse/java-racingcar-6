@@ -1,59 +1,73 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
-    private List<RacingCar> cars;
-    private List<RacingCar> winners;
-    public static int tryCount;
+    public static int carCount;
+    private List<RacingCar> cars = new ArrayList<>();
+    private List<RacingCar> winners = new ArrayList<>();
 
-    public void addRacingCar(List<String> names){
-        for(String name : names){
+    public RacingGame(List<String> names) {
+        for (String name : names) {
             RacingCar car = new RacingCar(name);
             cars.add(car);
         }
+        setCarCount();
     }
 
-    public int getCarMove(int index){
+    public void moveCarForward() {
+        for (RacingCar car : cars) {
+            car.moveForward();
+        }
+    }
+
+    public void setCarCount(){
+        this.carCount = cars.size();
+    }
+
+    public int getCarMove(int index) {
         return cars
                 .get(index)
                 .getMove();
     }
 
-    public List<String> getWinnerNames(){
-        List<String> winnerNames = null;
+    public String getCarName(int index){
+        return cars
+                .get(index)
+                .getCarName();
+    }
+
+    public List<String> getWinnerNames() {
+        setWinners();
+        List<String> winnerNames = new ArrayList<>();
         for(RacingCar winner : winners){
             winnerNames.add(winner.getCarName());
         }
         return winnerNames;
     }
 
-    public void setWinners(){
+    public void setWinners() {
         int max = findMax();
-        for (RacingCar car : cars){
+        for (RacingCar car : cars) {
             addWinner(max, car);
         }
     }
 
-    public void addWinner(int max, RacingCar car){
+    public void addWinner(int max, RacingCar car) {
         int carMove = car.getMove();
-        if (max == carMove){
+        if (max == carMove) {
             winners.add(car);
         }
     }
 
-    public int findMax(){
+    public int findMax() {
         int max = 0;
-        for(RacingCar car : cars){
+        for (RacingCar car : cars) {
             int carMove = car.getMove();
-            max = updateMax(max, carMove);
-        }
-        return max;
-    }
-
-    public int updateMax(int max, int value){
-        if (max < value){
-            max = value;
+            if (max < carMove){
+                max = carMove;
+            }
         }
         return max;
     }
