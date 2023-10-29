@@ -13,11 +13,7 @@ public class Car {
         driveCount++;
     }
 
-    public String getName() {
-        return licensePlate.getName();
-    }
-
-    public int getDriveCount() {
-        return driveCount;
+    public CarStatus getStatus() {
+        return new CarStatus(licensePlate.getName(), driveCount);
     }
 }
