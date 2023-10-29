@@ -1,40 +1,43 @@
 package racingcar;
 
+import static constant.Constant.ATTEMPTS_NUMBER_REQUEST_MESSAGE;
+import static constant.Constant.CAR_NAME_REQUEST_MESSAGE;
+import static constant.Constant.MAXIMUM_RANGE;
+import static constant.Constant.MINIMUM_RANGE;
+import static constant.Constant.MOVE_CRITERIA;
+import static constant.Constant.MOVE_SYMBOL;
+import static constant.Constant.RUN_RESULT_START_MESSAGE;
+import static constant.Constant.STOP_SYMBOL;
+import static constant.Constant.WINNER_RESULT_MESSAGE;
+
+import basis.Converter;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
 public class Application {
+    static Converter converter = new Converter();
     public static void main(String[] args) {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(CAR_NAME_REQUEST_MESSAGE);
         String carName = Console.readLine();
-        Map<String, String> carNameHashMap = new LinkedHashMap<>();
-        String[] parts = carName.split(",");
-        for (String part : parts) {
-            if (part.length() > 5) {
-                throw new IllegalArgumentException();
-            }
-            carNameHashMap.put(part, "");
-        }
-
-        System.out.println("시도할 횟수는 몇회인가요?");
+        Map<String, String> carNameHashMap = converter.putHashMap(carName);
+        System.out.println(ATTEMPTS_NUMBER_REQUEST_MESSAGE);
         String attemptsString = Console.readLine();
         int attemptsNumber = Integer.parseInt(attemptsString);
         System.out.println();
-        System.out.println("실행 결과");
+        System.out.println(RUN_RESULT_START_MESSAGE);
 
         for (int i = 0; i < attemptsNumber; i++) {
             for (Entry<String, String> element : carNameHashMap.entrySet()) {
-                int randomNumber = Randoms.pickNumberInRange(0, 9);
+                int randomNumber = Randoms.pickNumberInRange(MINIMUM_RANGE, MAXIMUM_RANGE);
                 String move;
-                if (randomNumber >= 4) {
-                    move = "-";
+                if (randomNumber >= MOVE_CRITERIA) {
+                    move = MOVE_SYMBOL;
                 } else {
-                    move = "";
+                    move = STOP_SYMBOL;
                 }
                 String originalValue = element.getValue();
                 String newValue = originalValue + move;
@@ -60,7 +63,7 @@ public class Application {
             }
         }
 
-        System.out.print("최종 우승자 : ");
+        System.out.print(WINNER_RESULT_MESSAGE);
         for (int i = 0; i < winnerList.size(); i++) {
             System.out.print(winnerList.get(i));
             if (winnerList.size() > 1) {
