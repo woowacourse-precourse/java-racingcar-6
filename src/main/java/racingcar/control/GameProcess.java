@@ -37,7 +37,6 @@ public class GameProcess {
 
         ValidInputNameOfRaceCar(inputStr);
         nameLineOfRaceCar = inputStr;
-        createRaceCars();
     }
 
     /**
@@ -59,7 +58,7 @@ public class GameProcess {
     /**
      * 입력받은 이름 문자열리스트로 자동차를 만들어준다.
      */
-    private void createRaceCars() {
+    public void createRaceCars() {
         makeNameOfCarListFromStringLine();
         // 입력받은 이름 문자열로 자동차를 만든다.
         // 문자열 공백 검사.
