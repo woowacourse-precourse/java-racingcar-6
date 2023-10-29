@@ -10,19 +10,19 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         GameHost racingCarHost;
-        System.out.println(GAME_PROGRESS_STATEMENT.INPUT_CAR_NAME);
+        announce(GAME_PROGRESS_STATEMENT.INPUT_CAR_NAME);
         racingCarHost = GameHost.addCars(inputCarNames());
-        System.out.println(GAME_PROGRESS_STATEMENT.TRY_COUNT);
+        announce(GAME_PROGRESS_STATEMENT.TRY_COUNT);
         final int moveCount = inputMoveCount();
 
-        System.out.println(GAME_PROGRESS_STATEMENT.GAME_RESULT);
+        announce(GAME_PROGRESS_STATEMENT.GAME_RESULT);
         for (int i = 1; i <= moveCount; i++) {
             racingCarHost.playOneTurn();
             System.out.println();
         }
 
-        System.out.println(GAME_PROGRESS_STATEMENT.WINNER);
-        System.out.println(racingCarHost.announceWinner());
+        announce(GAME_PROGRESS_STATEMENT.WINNER);
+        announce(racingCarHost.announceWinner());
     }
 
     private static int inputMoveCount() {
@@ -40,5 +40,13 @@ public class Application {
 
     private static Collection<Car> extractCarNames(String carNames) {
         return Arrays.stream(carNames.split(",")).map(Car::new).collect(Collectors.toList());
+    }
+
+    private static void announce(GAME_PROGRESS_STATEMENT statement) {
+        System.out.print(statement.getValue());
+    }
+
+    private static void announce(String statement) {
+        System.out.println(statement);
     }
 }
