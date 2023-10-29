@@ -7,9 +7,10 @@ import java.util.List;
 
 public class AttemptNumberInputter {
 
-    public Integer getAttemptNumber() {
+    public int getAttemptNumber() {
         printInputMessage();
-        return transformAttemptNumberToInt(readLine());
+        int attempNumber = transformAttemptNumberToInt(readLine());
+        return attempNumber;
     }
 
     private void printInputMessage() {
