@@ -24,7 +24,7 @@ public class Game {
         }
 
         FinalResponse finalResponse = cars.buildFinalResponse();
-        System.out.println(finalResponse.toEntity());
+        System.out.println(finalResponse.toResponse());
 
         Console.close();
     }
