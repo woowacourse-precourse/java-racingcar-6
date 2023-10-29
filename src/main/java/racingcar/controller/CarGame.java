@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Console;
+import racingcar.validator.InputValidator;
 import racingcar.view.InputView;
 
 public class CarGame {
@@ -10,6 +12,23 @@ public class CarGame {
     }
 
     private void start() {
-        String inputName = inputView.inputCarName();
+        String input = getCarNamesInput();
+    }
+
+    private String getCarNamesInput() {
+        inputView.printInputCarName();
+        String input = Console.readLine().trim();
+        return checkCarNamesInput(input);
+    }
+
+    private String checkCarNamesInput(String input) {
+        try {
+            InputValidator.isNullOrIsEmpty(input);
+            InputValidator.includeNumberOrSymbol(input);
+            InputValidator.includeSpace(input);
+        } catch (IllegalArgumentException e) {
+            getCarNamesInput();
+        }
+        return input;
     }
 }
