@@ -25,6 +25,7 @@ public class OutputView {
         for(int currentCarPosition = 0 ; currentCarPosition < car.getAdvanceCount(); currentCarPosition++){
             System.out.print("-");
         }
+        System.out.println();
     }
 
     public void printFinalWinner(List<String> winners){

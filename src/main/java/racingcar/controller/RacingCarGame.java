@@ -16,18 +16,28 @@ public class RacingCarGame {
 
     public void run(){
         carInitialize();
-        int tryNumber = inputView.InputTryNumber();
-        playRacingGame(tryNumber);
+        playRacingGame(inputView.InputTryNumber());
+
     }
 
     public void playRacingGame(int tryNumber) {
+        outputView.printPlayResultMessage();
         for(int tryCount = 0; tryCount < tryNumber;tryCount++){
-            pickEachCarRandomNumber();
+            pickEachCarRandomNumber(cars.getCars());
+            printEachRoundResult(cars.getCars());
         }
     }
 
-    public void pickEachCarRandomNumber() {
-        Map<String, Car> carsMap = cars.getCars();
+    public void printEachRoundResult(Map<String, Car> cars) {
+        for (Car car : cars.values()) {
+            outputView.printCarName(car);
+            outputView.printCurrentCarPosition(car);
+        }
+        System.out.println();
+    }
+
+
+    public void pickEachCarRandomNumber(Map<String, Car> carsMap) {
         for (Car car : carsMap.values()) {
             int randomNumber = pickRandomNumber();
             judgeAdvanceOrLeft(car, randomNumber);
