@@ -4,7 +4,8 @@ import java.util.List;
 import racingcar.domain.Car;
 
 public class OutputView {
-    public void printExecutuionResult() {
+
+    public static void printExecutionResult() {
         System.out.println("실행 결과");
     }
     public void printCarScore(List<Car> cars) {
