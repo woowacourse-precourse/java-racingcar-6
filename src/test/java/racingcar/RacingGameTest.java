@@ -1,11 +1,13 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.io.ByteArrayInputStream;
 import java.util.List;
+import java.util.NoSuchElementException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
@@ -52,5 +54,13 @@ class RacingGameTest {
 
         assertThat(winners.size()).isEqualTo(1);
         assertThat(winners.get(0)).isSameAs(car1);
+    }
+
+    @Test
+    @DisplayName("자동차 이름 입력 시 아무것도 입력하지 않는다.")
+    void test5() {
+        System.setIn(new ByteArrayInputStream("".getBytes()));
+
+        assertThrows(NoSuchElementException.class, Console::readLine);
     }
 }
