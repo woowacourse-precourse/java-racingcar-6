@@ -30,22 +30,21 @@
 1. Application
     - main()
     : 애플리케이션 시작 제어
-2. GameProgress
     - printStart()
     : 게임 시작 문구 출력
     - printResult()
-    : 3개의 숫자 맞췄을 경우 문구 출력
-3. ComputerNum
-    - genComputerNum()
-    : 서로 다른 1~9까지의 3자리 숫자 생성
-4. UserNum
-    - getUserNum()
-    : readLine()으로 사용자 숫자 입력
-    - SplitUserNum()
-    : 입력받은 숫자 글자 단위로 분리, Test 위해 별도 메서드 생성
-5. Compare
-    - entireCount(), strikeCount(), ballCount()
-    : 사용자 숫자와 컴퓨터 숫자 비교 메서드
-6. Judgement
+    : 경기 결과 출력
+2. UserNum
+    - getCars()
+    : 자동차 이름 입력받기
+    - getTryNum()
+    : 시도할 횟수 입력받기
+3. RandomNum
+    - genRandomNum()
+    : 각 자동차마다 0~9 사이 무작위 정수 지정
+4. Racing
+    - addHyphen()
+    : 무작위 정수가 4 이상일 경우 "-" 추가
+5. Judgement
     - judgement()
-    : 최종 볼, 스트라이크, 낫싱 텍스트 출력
+    : 우승자 판별
