@@ -33,11 +33,25 @@ public class Application {
         return carDistanceMap;
     }
 
-    public static void printResult(Map<String, Integer> carDistanceMap) {
-        for (Map.Entry<String, Integer> carDistanceEntry : carDistanceMap.entrySet()) {
-            // '-'를 carDistanceMap의 value 만큼 반복하여 새로운 문자열을 만드는 함수
-            System.out.printf("%s : %s", carDistanceEntry.getKey(), "--");
+    public static String meterBuilder(Integer repeatCount) {
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (int i = 0; i < repeatCount; i++) {
+            stringBuilder.append('-');
         }
+
+        return stringBuilder.toString();
+    }
+
+    public static void printResult(Map<String, Integer> carDistanceMap) {
+
+        for (Map.Entry<String, Integer> carDistanceEntry : carDistanceMap.entrySet()) {
+
+            String meter = meterBuilder(carDistanceEntry.getValue());
+            System.out.printf("%s : %s \n", carDistanceEntry.getKey(), meter);
+        }
+        System.out.println("");
     }
 
     public static void main(String[] args) {
@@ -51,13 +65,13 @@ public class Application {
 
         Integer repeatCount = Integer.parseInt(Console.readLine());
 
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
 
         for (int i = 0; i < repeatCount; i++) {
 
             carDistanceMap = movingCar(carDistanceMap);
 
-            // 시행 결과 출력
+            printResult(carDistanceMap);
         }
 
         String winners = "sample_winners";
