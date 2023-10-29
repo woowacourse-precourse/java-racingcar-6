@@ -21,7 +21,7 @@
 - updateCarStatus - 자동차 전진 상태를 업데이트함
 - isMove - 자동차가 전진 가능한 값인지 리턴함
 - getMaxMove - 자동차들 중 가장 전진을 많이한 회수를 리턴함
-- getWinnerIndex - 우승자의 인덱스를 리턴함
+- getWinnerName - 우승자의 이름 리스트를 리턴함
 
 
 ## controller
