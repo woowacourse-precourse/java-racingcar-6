@@ -6,15 +6,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameService {
+    private static final String CAR_MOVEMENT = "-";
+    private static final String CAR_NAME_FRAME = " : ";
+    private static final int RANDOM_NUMBER_RANGE_START = 0;
+    private static final int RANDOM_NUMBER_RANGE_END = 9;
+    private static final int CONDITION_CAR_MOVEMENT_NUMBER = 4;
     private int carGameWinner = 0;
 
     public void move(Car car) {
         moveForward(car);
         StringBuilder moveCount = new StringBuilder();
         for (int i = 0; i < car.getPosition(); i++) {
-            moveCount.append("-");
+            moveCount.append(CAR_MOVEMENT);
         }
-        System.out.println(car.getCarName() + " : " + moveCount);
+        System.out.println(car.getCarName() + CAR_NAME_FRAME + moveCount);
     }
 
     public void moveForward(Car car) {
@@ -46,8 +51,8 @@ public class GameService {
     }
 
     private boolean isMoveForward() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        int randomNumber = Randoms.pickNumberInRange(RANDOM_NUMBER_RANGE_START, RANDOM_NUMBER_RANGE_END);
 
-        return randomNumber >= 4;
+        return randomNumber >= CONDITION_CAR_MOVEMENT_NUMBER;
     }
 }
