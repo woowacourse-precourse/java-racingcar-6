@@ -1,5 +1,7 @@
 package racingcar.service;
 
+import racingcar.utils.Numbers;
+
 import java.util.List;
 
 public class CarWinner {
@@ -22,7 +24,7 @@ public class CarWinner {
 
     public void printWinner() {
         List<String> winner = result.getMaxPlayer();
-        if (winner.size() == 1) {
+        if (winner.size() == Numbers.ALONE_NUMBER.getNumber()) {
             individualWinner(winner);
             return;
         }
