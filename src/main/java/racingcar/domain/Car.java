@@ -8,7 +8,6 @@ import java.util.regex.Pattern;
 public class Car {
 
     private String stringCarList;
-
     private LinkedHashMap<String, String> carList;
 
     public String getStringCarList() {
@@ -71,7 +70,7 @@ public class Car {
 
     public void checkCarNameLastLetterIsSpace() {
         for (String key : getCarList().keySet()) {
-            if (key.charAt(getCarList().size() - 1) == ' ') {
+            if (key.charAt(key.length() - 1) == ' ') {
                 throw new IllegalArgumentException("자동차의 이름의 마지막 글자에 띄어쓰기가 있습니다");
             }
         }
