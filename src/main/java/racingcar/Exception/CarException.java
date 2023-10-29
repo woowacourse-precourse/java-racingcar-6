@@ -5,7 +5,7 @@ import racingcar.Message.ExceptionMessage;
 
 public class CarException {
     Set<String> nameSet;
-    public boolean checkExceptionCar(String names){
+    public String checkExceptionCar(String names){
         nameSet = new HashSet<>();
         String[] cars = checkNameCount(names);
         for (String car : cars) {
@@ -16,7 +16,7 @@ public class CarException {
                 isSameName(car);
             }
         }
-        return true;
+        return names;
     }
     public String[] checkNameCount(String names){
         if (Arrays.stream(names.split(",")).count() <= 1)
