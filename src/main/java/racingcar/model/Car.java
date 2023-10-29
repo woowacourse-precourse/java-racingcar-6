@@ -50,9 +50,9 @@ public class Car {
         this.position += 1;
     }
 
-    public void moveUsingRandomNumber(NumberGenerator numberGenerator) {
+    public void moveUsingRandomNumber(NumberGenerator numberGenerator, MovingStrategy movingStrategy) {
         RandomNumber randomNumber = numberGenerator.generate();
-        if (randomNumber.isGreaterThanFour()) {
+        if (movingStrategy.movable(randomNumber)) {
             move();
         }
     }

@@ -16,13 +16,16 @@ class CarTest {
     void moveUsingRandomNumber() {
         Car car = new Car("홍길동", 5);
 
-        car.moveUsingRandomNumber(new FixtureNumberGenerator(4));
+        car.moveUsingRandomNumber(new FixtureNumberGenerator(4),
+                randomNumber -> randomNumber.isGreaterThan(4));
 
         assertThat(car).usingRecursiveComparison()
                 .comparingOnlyFields("position")
                 .isEqualTo(new Car("홍길동", 6));
 
-        car.moveUsingRandomNumber(new FixtureNumberGenerator(3));
+        car.moveUsingRandomNumber(new FixtureNumberGenerator(3),
+                randomNumber -> randomNumber.isGreaterThan(4));
+
         assertThat(car).usingRecursiveComparison()
                 .comparingOnlyFields("position")
                 .isEqualTo(new Car("홍길동", 6));

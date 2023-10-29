@@ -11,9 +11,9 @@ public class Cars {
         this.cars = cars;
     }
 
-    public void moveUsingRandomNumber(NumberGenerator numberGenerator) {
+    public void moveUsingRandomNumber(NumberGenerator numberGenerator, MovingStrategy movingStrategy) {
         this.cars.stream()
-                .forEach(car -> car.moveUsingRandomNumber(numberGenerator));
+                .forEach(car -> car.moveUsingRandomNumber(numberGenerator, movingStrategy));
     }
 
     public List<Car> findWinner() {

@@ -16,6 +16,8 @@ import java.util.stream.Collectors;
 
 public class RacingGameController {
 
+    private static final int MOVE_THRESHOLD = 4;
+
     private final NumberGenerator numberGenerator;
 
     public RacingGameController() {
@@ -54,7 +56,9 @@ public class RacingGameController {
     }
 
     private void playRound(Cars players) {
-        players.moveUsingRandomNumber(numberGenerator);
+        players.moveUsingRandomNumber(numberGenerator,
+                randomNumber -> randomNumber.isGreaterThan(MOVE_THRESHOLD)
+        );
         printRoundResult(players);
     }
 

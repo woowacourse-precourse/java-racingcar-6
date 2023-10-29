@@ -2,8 +2,6 @@ package racingcar.model;
 
 public class RandomNumber {
 
-    private static final int MOVE_THRESHOLD = 4;
-
     private static final int MIN_RANGE = 0;
     private static final int MAX_RANGE = 9;
 
@@ -20,7 +18,7 @@ public class RandomNumber {
         }
     }
 
-    public boolean isGreaterThanFour() {
-        return this.number >= MOVE_THRESHOLD;
+    public boolean isGreaterThan(int number) {
+        return this.number >= number;
     }
 }

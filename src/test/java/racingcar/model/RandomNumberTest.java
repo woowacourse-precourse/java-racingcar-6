@@ -10,14 +10,14 @@ import org.junit.jupiter.api.Test;
 
 class RandomNumberTest {
 
-    @DisplayName("RandomNumber 값이 4 이상이지 테스트 : 값이 4 이상이라면 true, 미만이라면 false 반환.")
+    @DisplayName("RandomNumber 값이 특정 값 이상이지 테스트 : 값이 4 이상이라면 true, 미만이라면 false 반환.")
     @Test
     void isGreaterThan_4() {
         RandomNumber randomNumber1 = new RandomNumber(4);
         RandomNumber randomNumber2 = new RandomNumber(3);
 
-        boolean expectedTrue = randomNumber1.isGreaterThanFour();
-        boolean expectedFalse = randomNumber2.isGreaterThanFour();
+        boolean expectedTrue = randomNumber1.isGreaterThan(4);
+        boolean expectedFalse = randomNumber2.isGreaterThan(4);
 
         assertAll(
                 () -> assertThat(expectedTrue).isTrue(),
