@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.Game;
 import racingcar.domain.RacingCar;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -19,6 +20,11 @@ public class RaceController {
         racingCar.updateRaceCount(inputView.getRaceCount());
 
         outputView.printRaceResult();
+        for (int i = 0; i < racingCar.getRaceCount(); i++) {
+            Game game = new Game();
+            game.generateRaceResult(racingCar.getCars().size());
+        }
+
 
     }
 }
