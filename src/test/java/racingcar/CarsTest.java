@@ -38,4 +38,20 @@ public class CarsTest {
 
         assertThat(winnerCar.get(0)).isEqualTo(dahee);
     }
+
+    @DisplayName("가장 많이 전진한 자동차 두 개를 찾는 테스트")
+    @Test
+    public void findWinnersTest() {
+        Cars cars = new Cars("dahee,hui,pobi");
+        Car dahee = cars.getCar(0);
+        Car hui = cars.getCar(1);
+        Car pobi = cars.getCar(2);
+
+        dahee.move();
+        hui.move();
+        List<Car> winnerCar = cars.findLongDistanceCars();
+
+        assertThat(winnerCar.get(0)).isEqualTo(dahee);
+        assertThat(winnerCar.get(1)).isEqualTo(hui);
+    }
 }
