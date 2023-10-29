@@ -5,8 +5,8 @@ import java.util.List;
 public class GameEngineValidator {
     private static final String NULL_EXCEPTION_MESSAGE = "입력값은 null입니다.";
 
-    private final static int PLAYER_NAME_MAX_SIZE = 5;
-    private final static String PLAYER_NAME_EXCEPTION_MESSAGE = "현재 입력된 플레이어 이름의 길이는 %d, %d이하로 해주세요.";
+    private static final int PLAYER_NAME_MAX_SIZE = 5;
+    private static final String PLAYER_NAME_EXCEPTION_MESSAGE = "현재 입력된 플레이어 이름의 길이는 %d, %d이하로 해주세요.";
 
     void validateIsNotNull(String readLine) {
         if (readLine == null)
