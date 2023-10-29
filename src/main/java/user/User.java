@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class User {
-    public static List<String> playerNameInput() {
+    public static List<String> inputPlayerName() {
         String players = Console.readLine();
 
         List<String> playersArray = new ArrayList<>(Arrays.asList(players.split(",")));
@@ -16,7 +16,7 @@ public class User {
         return playersArray;
     }
 
-    public static String tryNumberInput() {
+    public static String inputTryNumber() {
         String moveNumber = Console.readLine();
 
         ExceptionHandler.rasieMoveNumberInputException(moveNumber);
