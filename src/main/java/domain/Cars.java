@@ -2,10 +2,7 @@ package domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Cars {
     private List<Car> cars = new ArrayList<>();
@@ -36,5 +33,12 @@ public class Cars {
 
     public boolean isCompleted() {
         return tryCount == 0;
+    }
+
+    public List<String> findWinner() {
+        return getScores().entrySet().stream()
+                .filter(entry -> entry.getValue() == Collections.max(getScores().values()))
+                .map(Map.Entry::getKey)
+                .toList();
     }
 }
