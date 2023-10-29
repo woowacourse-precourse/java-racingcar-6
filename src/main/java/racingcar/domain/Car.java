@@ -2,9 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Car {
     public List<String> getNames() {
@@ -15,66 +13,42 @@ public class Car {
 
         List<String> inputNames = Arrays.asList(name.split(","));
 
-        checkEmpty(inputNames);
+        try {
+            checkEmpty(inputNames);
+            checkDuplicate(inputNames);
+            checkLength(inputNames);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            throw e;
+        }
 
-        names = inputNames;
+        names.addAll(inputNames);
 
         return names;
     }
 
     public void checkEmpty(List<String> inputNames) {
-        try {
-            List<String> notNullNames = new ArrayList<>();
-
-            for (int n = 0; n < inputNames.size(); n++) {
-                if (inputNames.get(n).isEmpty()) {
-                    throw new IllegalArgumentException("이름에 빈값이 있습니다.");
-                }
-                notNullNames.add(inputNames.get(n));
+        for (String inputName : inputNames) {
+            if (inputName.isEmpty()) {
+                throw new IllegalArgumentException("이름에 빈값이 있습니다.");
             }
-
-            checkDuplicate(notNullNames);
-
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            throw e;
         }
     }
 
-    public void checkDuplicate(List<String> notNullNames) {
-        try {
-            List<String> notDuplicateNames = new ArrayList<>();
-
-            for (int n = 0; n < notNullNames.size(); n++){
-                if (notDuplicateNames.contains(notNullNames.get(n))) {
-                    throw new IllegalArgumentException("서로 다른 이름을 입력해 주세요.");
-                }
-                notDuplicateNames.add(notNullNames.get(n));
+    public void checkDuplicate(List<String> inputNames) {
+        Set<String> uniqueNames = new HashSet<>();
+        for (String inputName : inputNames) {
+            if (!uniqueNames.add(inputName)) {
+                throw new IllegalArgumentException("이름에 중복 값이 있습니다. 서로 다른 이름을 입력해 주세요.");
             }
-
-            checkLength(notDuplicateNames);
-
-        }
-        catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            throw e;
         }
     }
 
-    public void checkLength(List<String> notDuplicateNames) {
-        try {
-            List<String> correctLengthNames = new ArrayList<>();
-
-            for (int n = 0; n < notDuplicateNames.size(); n++){
-                if (notDuplicateNames.get(n).length() > 5) {
-                    throw new IllegalArgumentException("자동차 이름의 길이를 5 이하로 지정해주세요.");
-                }
-                correctLengthNames.add(notDuplicateNames.get(n));
+    public void checkLength(List<String> inputNames) {
+        for (String inputName : inputNames) {
+            if (inputName.length() > 5) {
+                throw new IllegalArgumentException("자동차 이름의 길이를 5 이하로 지정해주세요.");
             }
-        }
-        catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            throw e;
         }
     }
 }
