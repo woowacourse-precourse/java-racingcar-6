@@ -34,4 +34,8 @@ public class Validator {
             return;
         throw new IllegalArgumentException("중복된 이름이 있습니다!");
     }
+    public void validateUserInputIsCorrectCount(String userInput){
+
+    }
+
 }

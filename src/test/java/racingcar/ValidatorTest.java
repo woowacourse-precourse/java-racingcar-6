@@ -39,4 +39,33 @@ public class ValidatorTest {
                         validator.validateUserInputIsCorrectFormat(wrongInput));
         Assertions.assertEquals("중복된 이름이 있습니다!",exception.getMessage());
     }
+    @Test
+    void 양의_정수를_입력하면_에러없이_동작한다(){
+        String correctInput = "5";
+        Assertions.assertDoesNotThrow(()->validator.validateUserInputIsCorrectCount(correctInput));
+    }
+    @Test
+    void 숫자가_아닌값을_입력하면_에러가_발생한다(){
+        String wrongInput = "notInteger";
+        IllegalArgumentException exception =
+                Assertions.assertThrows(IllegalArgumentException.class,()->
+                        validator.validateUserInputIsCorrectCount(wrongInput));
+        Assertions.assertEquals("양의 정수를 입력해주세요!",exception.getMessage());
+    }
+    @Test
+    void 음의_정수를_입력하면_에러가_발생한다(){
+        String wrongInput = "-4";
+        IllegalArgumentException exception =
+                Assertions.assertThrows(IllegalArgumentException.class,()->
+                        validator.validateUserInputIsCorrectCount(wrongInput));
+        Assertions.assertEquals("양의 정수를 입력해주세요!",exception.getMessage());
+    }
+    @Test
+    void 숫자_0을_입력하면_에러가_발생한다(){
+        String wrongInput = "0";
+        IllegalArgumentException exception =
+                Assertions.assertThrows(IllegalArgumentException.class,()->
+                        validator.validateUserInputIsCorrectCount(wrongInput));
+        Assertions.assertEquals("양의 정수를 입력해주세요!",exception.getMessage());
+    }
 }
