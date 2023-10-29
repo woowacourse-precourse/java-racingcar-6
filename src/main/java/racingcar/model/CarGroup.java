@@ -13,6 +13,7 @@ public class CarGroup {
     private NumberGenerator numberGenerator;
 
     public CarGroup(List<String> names, NumberGenerator numberGenerator) {
+        CarGroupValidator.validate(names);
         this.cars = generateCars(names);
         this.numberGenerator = numberGenerator;
     }
