@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -9,7 +10,7 @@ public class Car {
     public static final String MOVEMENT = "-";
     public static final int ZERO = 0;
     private ArrayList<String> userName;
-    private ArrayList<Integer> userScore;
+    private ArrayList<Integer> userMovement;
     private ArrayList<String> winner;
     private int roundNumber;
 
@@ -17,7 +18,7 @@ public class Car {
     // Constructor
     public Car() {
         this.userName = new ArrayList<>();
-        this.userScore = new ArrayList<>();
+        this.userMovement = new ArrayList<>();
         this.winner = new ArrayList<>();
         this.roundNumber = 0;
     }
@@ -53,4 +54,38 @@ public class Car {
             throw new IllegalArgumentException();
         }
     }
+
+    public int howManyUser() {
+        return userName.size();
+    }
+
+    public int howManyRound() {
+        return roundNumber;
+    }
+
+    public void resetUserMovementArraylist() {
+        int numOfUser = howManyUser();
+        for (int index = 0; index < numOfUser; index++) {
+            userMovement.add(0);
+        }
+
+    }
+
+    public Boolean checkMoveOrSkip() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        return randomNumber >= 4;
+    }
+
+    public void plusMovement(int index) {
+        if (checkMoveOrSkip()) {
+            int movement = userMovement.get(index) + 1;
+            userMovement.set(index, movement);
+        }
+    }
+
+    public void print() {
+        System.out.println(userName);
+        System.out.println(userMovement);
+    }
+
 }

@@ -17,6 +17,8 @@ public class Racing {
     public void start() {
         getUserCarNameByConsole();
         getUserRoundNumberByConsole();
+        carRacing();
+        car.print();
     }
 
     public void getUserCarNameByConsole() {
@@ -29,6 +31,17 @@ public class Racing {
         String consoleInput = Console.readLine();
         car.insertRoundNumber(consoleInput);
         car.checkRoundNumberError();
+    }
+
+    public void carRacing() {
+        car.resetUserMovementArraylist();
+        int maxUser = car.howManyUser();
+        int maxRound = car.howManyRound();
+        for (int i = 0; i < maxRound; i++) {
+            for (int index = 0; index < maxUser; index++) {
+                car.plusMovement(index);
+            }
+        }
     }
 
 }
