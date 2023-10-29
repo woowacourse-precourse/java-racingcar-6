@@ -15,5 +15,6 @@ public class Race {
         for (int i = 0; movingCount.isNotEqual(i); i++) {
             System.out.println(carsPosition.getResult());
         }
+        System.out.println(carsPosition.getWinner());
     }
 }
