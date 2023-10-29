@@ -99,6 +99,14 @@ class ApplicationTest extends NsTest {
 
         racingCar.setDrivers(carNames);
         assertThat(racingCar.drivers.size()).isEqualTo(correctList.size());
+
+        Driver pobi = racingCar.drivers.get(0);
+        Driver jun = racingCar.drivers.get(1);
+        Driver pobiCorrect = correctList.get(0);
+        Driver junCorrect = correctList.get(1);
+        
+        assertThat(pobi.sayCarName()).contains(pobiCorrect.sayCarName());
+        assertThat(jun.sayCarName()).contains(junCorrect.sayCarName());
     }
 
 

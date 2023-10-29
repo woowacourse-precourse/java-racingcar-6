@@ -8,4 +8,8 @@ public class Driver {
     public Driver(String carName) {
         car.setCarName(carName);
     }
+
+    public String sayCarName() {
+        return car.getCarName();
+    }
 }
