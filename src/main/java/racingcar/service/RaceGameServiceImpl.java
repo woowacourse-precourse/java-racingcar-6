@@ -8,6 +8,11 @@ import java.util.List;
 import java.util.Map;
 
 public class RaceGameServiceImpl implements RaceGameService{
+
+    private static final int MORE_THAN_NUMBER = 4;
+    private static final int START_RANDOM_NUMBER_RANGE = 0;
+    private static final int FINISH_RANDOM_NUMBER_RANGE = 9;
+
     @Override
     public void carMoveCheckAndGo(Car car) {
         // 전진하는 조건은 0~9사이에서 무작위 값을 구한 후 무작위 값이 4이상일 경우
@@ -17,14 +22,14 @@ public class RaceGameServiceImpl implements RaceGameService{
 
     private static void carMoveCheck(Car car, List<Integer> carPositions) {
         for (int i=0; i<carPositions.size(); i++) {
-            if (getRandomValue() >= 4) {
+            if (getRandomValue() >= MORE_THAN_NUMBER) {
                 car.carMove(i);
             }
         }
     }
 
     private static int getRandomValue() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(START_RANDOM_NUMBER_RANGE, FINISH_RANDOM_NUMBER_RANGE);
     }
 
     @Override
