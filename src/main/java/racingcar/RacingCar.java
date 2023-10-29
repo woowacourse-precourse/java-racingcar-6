@@ -9,14 +9,18 @@ public class RacingCar {
     public int games;
     public RacingCar(){
         getUser();
-        for (String player : members){
-            System.out.println(player);
-        }
+        games = getGameNum();
+        System.out.println(games);
     }
 
     public void getUser(){
         players = new Player();
         members = players.getMember(Console.readLine());
 //        players.printMembers();
+    }
+
+    public int getGameNum(){
+        String num = Console.readLine();
+        return Integer.parseInt(num);
     }
 }
