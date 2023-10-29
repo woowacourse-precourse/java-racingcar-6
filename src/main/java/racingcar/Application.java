@@ -10,8 +10,10 @@ public class Application {
 
         CarList carList = new CarList();
         carList.setCarName();
-        carList.checkCarName();
+        if (!carList.checkCarName()) throw new IllegalArgumentException();
         List<String> carArrayList = carList.getCarList();
+
+        
 
 
     }

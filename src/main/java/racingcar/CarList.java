@@ -29,7 +29,7 @@ public class CarList {
     }
 
     public boolean isEnglishName(){
-        Pattern pattern = Pattern.compile("^[a-zA-Z]+$");
+        Pattern pattern = Pattern.compile("^[a-zA-Z]+${1,5}");
 
         for(String car: this.carList){
             if(!pattern.matcher(car).matches()) return false;
