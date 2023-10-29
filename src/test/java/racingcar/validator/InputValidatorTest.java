@@ -37,7 +37,7 @@ class InputValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @DisplayName("")
+    @DisplayName("시도 횟수가 비어있을 경우 예외가 발생한다.")
     @Test
     void validateTryNumberEmptyOrNull() {
         // given
@@ -45,6 +45,17 @@ class InputValidatorTest {
 
         // when, then
         assertThatThrownBy(() -> inputValidator.validateTryNumberEmptyOrNull(tryTimes))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("시도 횟수가 숫자로 된 문자열이 아닐 경우 예외가 발생한다.")
+    @Test
+    void validateTryNumberIsNumber() {
+        // given
+        String tryTimes = "abc";
+
+        // when, then
+        assertThatThrownBy(() -> inputValidator.validateTryNumberIsNumber(tryTimes))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
