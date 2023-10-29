@@ -31,7 +31,7 @@ public class GameController {
         outputView.printGameEnd();
 
         while (!playCount.isPlayEnd()) {
-            cars.racing(randomNumber);
+            cars.race(randomNumber);
             printCarsStatus();
             playCount.endOneRound();
         }
@@ -50,7 +50,7 @@ public class GameController {
     }
 
     private void printCarsStatus() {
-        List<String> carsStatus = cars.eachStatus();
+        List<String> carsStatus = cars.collectEachStatus();
         outputView.printCarsStatus(carsStatus);
     }
 

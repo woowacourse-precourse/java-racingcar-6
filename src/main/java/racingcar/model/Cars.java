@@ -37,7 +37,7 @@ public class Cars {
         return new Cars(cars);
     }
 
-    public void racing(final RandomNumber randomNumber) {
+    public void race(final RandomNumber randomNumber) {
         cars.forEach(car -> {
             int number = randomNumber.pickNumber();
             car.accelerate(number);
@@ -49,7 +49,7 @@ public class Cars {
         maxPosition = Math.max(maxPosition, position);
     }
 
-    public List<String> eachStatus() {
+    public List<String> collectEachStatus() {
         return cars.stream()
                 .map(Car::toString)
                 .collect(Collectors.toList());
