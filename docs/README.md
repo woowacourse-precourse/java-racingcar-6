@@ -12,8 +12,8 @@
   - [ ] 1이상의 자연수 - Attempt.checkNatural
 
 - [ ] 전진 조건 확인 - MovingCondition
-  - [ ] 0에서 9 사이에서 무작위 값을 구한 후 4이상 시, 전진
-  - [ ] 4미만 시, 멈춤
+  - [ ] 0에서 9 사이에서 무작위 값을 구한 후 4이상 시, 전진 - MovingCondition.isMoveForward
+  - [ ] 4미만 시, 멈춤 - MovingCondition.isMoveForward
 
 - [ ] 실행 과정 결과 출력
   - [ ] 자동차별 현재 진행 사항 확인
