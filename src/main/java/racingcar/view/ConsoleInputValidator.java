@@ -53,7 +53,6 @@ public class ConsoleInputValidator {
 
     private static void validateCarNameLengthNotLongerThan5(String carName) {
         if (carName.length() > 5) {
-            System.out.println("길이 5 이상");
             throw ILLEGAL_ARGUMENT_EXCEPTION;
         }
     }
