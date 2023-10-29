@@ -9,8 +9,8 @@
     - [x] 전진하는 기능 Car#moveForward
 - [] 사용자가 몇번의 이동을 할 것인지 입력받는 기능(예외[])
 - [x] 최종 우승자를 판정하는 기능 Judgement#compareDistance
-    - [] 누가 우승했는지 알려주는 기능 Referee#isWinner
-      - [] 우승자가 여러명일 경우 쉼표를 이용하여 구분해주는 기능
+    - [x] 누가 우승했는지 알려주는 기능 Referee#isWinner
+      - [x] 우승자가 여러명일 경우 쉼표를 이용하여 구분해주는 기능
 
 
 
