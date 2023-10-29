@@ -40,6 +40,14 @@ public class Car {
         return distance;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Car car) {
+            return name.equals(car.name) && distance.equals(car.distance);
+        }
+        return false;
+    }
+
     public static WinnersMessage createWinnersMessage(List<Car> cars) {
         Integer farthest = getFarthestDistance(cars);
         List<Car> winners = getWinners(cars, farthest);
