@@ -21,7 +21,14 @@ public class UserInput {
 
     public static String[] inputCarNames() {
         String userInput = readLine();
-        return carNamesValidation(userInput);
+        return carNamesSplitValidation(userInput);
     }
 
+    public static String[] carNamesSplitValidation(String target) throws IllegalArgumentException{
+        try {
+            return target.split(",");
+        } catch (Exception e) {
+            throw new IllegalArgumentException("잘못 입력하였습니다.");
+        }
+    }
 }
