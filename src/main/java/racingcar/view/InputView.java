@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class InputView {
+    private static final int MINIMUM_TRIAL = 1;
 
     public List<String> getCarNames() {
         String userInput = getUserInput();
@@ -16,9 +17,11 @@ public class InputView {
     public int getTrials() {
         String userInput = getUserInput();
         try {
-            return Integer.parseInt(userInput);
+            int parsedUserInput = Integer.parseInt(userInput);
+            validateTrialsNumber(parsedUserInput);
+            return parsedUserInput;
         } catch (NumberFormatException numberFormatException) {
-            throw new IllegalArgumentException("문자는 입력할 수 없습니다");
+            throw new IllegalArgumentException("시도 횟수는 양의 정수여야 합니다");
         }
     }
 
@@ -31,6 +34,12 @@ public class InputView {
             if (carName.isBlank()) {
                 throw new IllegalArgumentException("자동차 이름은 공백일 수 없습니다");
             }
+        }
+    }
+
+    private void validateTrialsNumber(int userInput) {
+        if (userInput < MINIMUM_TRIAL) {
+            throw new IllegalArgumentException("시도 횟수는 1 이상이어야 합니다");
         }
     }
 }
