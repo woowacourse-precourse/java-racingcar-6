@@ -9,6 +9,7 @@ public class UserInput {
     public void process() {
         List<String> userInputList = toArray();
         validLength(userInputList);
+        validBlankString(userInputList);
     }
 
     public List<String> toArray() {
@@ -24,4 +25,10 @@ public class UserInput {
         }
     }
 
+    private void validBlankString(List<String> userInputList) {
+        boolean isBlank = userInputList.stream().anyMatch(String::isBlank);
+        if (isBlank) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
