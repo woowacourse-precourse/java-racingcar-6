@@ -1,4 +1,4 @@
-package racingcar.exception.numberOfRounds;
+package racingcar.exception.round;
 
 public class NonPositiveNumberException extends IllegalArgumentException{
     public NonPositiveNumberException() {
