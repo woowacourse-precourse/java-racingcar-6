@@ -19,10 +19,14 @@ public class Race {
 
     public void startRace(ResultView resultView) {
         for (int i = 0; i < tryCount; i++) {
-            for (Car car : cars) {
-                car.move(moveStatus);
-            }
+            carMove();
             resultView.printRace(cars);
+        }
+    }
+
+    private void carMove() {
+        for (Car car : cars) {
+            car.move(moveStatus);
         }
     }
 
