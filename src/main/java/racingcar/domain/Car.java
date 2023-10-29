@@ -1,8 +1,5 @@
 package racingcar.domain;
 
-import racingcar.util.RandomNumber;
-import racingcar.util.RandomNumber.MoveOrder;
-
 public class Car implements Comparable<Car> {
     private final String name;
     private int distance;
@@ -13,10 +10,14 @@ public class Car implements Comparable<Car> {
         distance = 0;
     }
 
-    public void updateDistance() {
-        if (RandomNumber.getMoveOrder() == MoveOrder.MOVE_FORWARD) {
+    public void updateDistance(int number) {
+        if (isMoveForward(number)) {
             distance += 1;
         }
+    }
+
+    private boolean isMoveForward(int number) {
+        return number >= 4;
     }
 
     public int getDistance() {

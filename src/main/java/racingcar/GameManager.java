@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.service.JudgeResult;
+import racingcar.util.RandomNumber;
 
 public class GameManager {
     private List<Car> cars = new ArrayList<>();
@@ -37,7 +38,7 @@ public class GameManager {
 
     private void updateOneRound() {
         for (Car car : cars) {
-            car.updateDistance();
+            car.updateDistance(RandomNumber.getRandomNumber());
         }
     }
 
