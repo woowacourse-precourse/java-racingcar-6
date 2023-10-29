@@ -10,7 +10,7 @@ import racingcar.Model.GameModel;
 public class GameController {
 
     private final GameModel gameModel;
-    ArrayList<CarModel> carModelList = new ArrayList<>();
+    private final ArrayList<CarModel> carModelList;
 
 
     public GameController(GameModel gameModel,ArrayList<CarModel> carModelList) {
