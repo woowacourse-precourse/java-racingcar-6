@@ -1,6 +1,9 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import racingcar.RandomNumberGenerator;
 
 public class Cars {
 
@@ -57,5 +60,14 @@ public class Cars {
         return cars.stream()
                 .filter(car -> car.isForwardCountSameAs(maxForwardCount))
                 .toList();
+    }
+
+    public List<Integer> moveForward(RandomNumberGenerator numberGenerator) {
+        List<Integer> forwardCounts = new ArrayList<>();
+        for (Car car : cars) {
+            int forwardCount = car.moveForward(numberGenerator.generate());
+            forwardCounts.add(forwardCount);
+        }
+        return forwardCounts;
     }
 }

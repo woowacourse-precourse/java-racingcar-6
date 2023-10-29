@@ -21,7 +21,7 @@ class RefereeTest {
         Referee referee = new Referee();
 
         // when
-        List<Car> result = referee.decideWinners(List.of(car1, car2, car3));
+        List<Car> result = referee.decideWinners(new Cars(List.of(car1, car2, car3)));
 
         // then
         Assertions.assertThat(result.size()).isEqualTo(2);
