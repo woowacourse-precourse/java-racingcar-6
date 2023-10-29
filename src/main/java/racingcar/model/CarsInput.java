@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import racingcar.view.InputView;
 
-public class UserInput {
+public class CarsInput {
 
     public void process() {
         List<String> userInputList = toArray();
