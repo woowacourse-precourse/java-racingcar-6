@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -29,16 +30,41 @@ class CarTest {
     }
 
     @Test
-    public void testValidCarName() {
-        String validName = "Car1";
-        Car car = new Car(validName);
-        assertThat(validName).isEqualTo(validName);
+    public void testIsEqualDistance_One_winner() {
+        Car car2 = new Car("Car2");
+        Car car3 = new Car("Car3");
+
+        List<Car> carList = List.of(car1, car2, car3);
+        car1.forward();
+
+        StringBuilder result = car1.isEqualDistance(carList);
+        assertThat(result.toString()).isEqualTo("ccc");
     }
 
-//    @Test
-//    void testInvalidCarName() {
-//        String invalidName = "ThisIsTooLong";
-//        assertThatThrownBy(() -> new Car(invalidName))
-//                .isInstanceOf(IllegalArgumentException.class);
-//    }
+    @Test
+    public void testIsEqualDistance_Two_winner() {
+        Car car2 = new Car("Car2");
+        Car car3 = new Car("Car3");
+
+        List<Car> carList = List.of(car1, car2, car3);
+        car1.forward();
+        car2.forward();
+
+        StringBuilder result = car1.isEqualDistance(carList);
+        assertThat(result.toString()).isEqualTo("ccc, Car2");
+    }
+
+    @Test
+    public void testIsEqualDistance_Three_winner() {
+        Car car2 = new Car("Car2");
+        Car car3 = new Car("Car3");
+
+        List<Car> carList = List.of(car1, car2, car3);
+        car1.forward();
+        car2.forward();
+        car3.forward();
+
+        StringBuilder result = car1.isEqualDistance(carList);
+        assertThat(result.toString()).isEqualTo("ccc, Car2, Car3");
+    }
 }
