@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import racingcar.model.CarList;
+
 public class RacingView {
 
     public void printInputCarName() {
@@ -12,5 +14,13 @@ public class RacingView {
 
     public void printExecutionResults() {
         System.out.println("실행 결과");
+    }
+
+    public void printExecutionResultsForEachOrder(CarList carList) {
+        carList.getCarList()
+                .forEach(car ->
+                        System.out.printf("%s : %s%n",
+                                car.getCarName(), "-".repeat(car.getForwardCount()))
+                );
     }
 }
