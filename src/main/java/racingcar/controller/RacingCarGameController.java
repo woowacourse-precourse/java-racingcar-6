@@ -2,11 +2,13 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.domain.RacingCars;
 import racingcar.views.InputView;
 import racingcar.views.OutputView;
 
 public class RacingCarGameController {
 
+    private RacingCars racingCars;
     private List<Car> cars;
     private Integer movingCount;
 
@@ -23,8 +25,18 @@ public class RacingCarGameController {
 
     private void racingCarGameInit() {
         OutputView.racingCarOpeningComment();
-        cars = InputView.getCarNames();
 
+        racingCarCreate();
+
+        gameTryCountCreate();
+    }
+
+    private void racingCarCreate() {
+        cars = InputView.getCarNames();
+        racingCars = new RacingCars(cars);
+    }
+
+    private void gameTryCountCreate() {
         OutputView.tryCountInputComment();
         movingCount = InputView.getMovingCount();
     }
@@ -33,11 +45,8 @@ public class RacingCarGameController {
         OutputView.racingCarResultComment();
 
         for (int i = 0; i < movingCount; i++) {
-            cars.forEach(car -> {
-                car.tryAddMove();
-                OutputView.racingCarResultPrint(car.getName(), car.getMovePosition());
-            });
-            OutputView.println();
+            racingCars.MovingCars();
+            racingCars.racingCarResultPrint();
         }
     }
 
