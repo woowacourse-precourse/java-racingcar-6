@@ -8,11 +8,11 @@ import org.junit.jupiter.params.provider.MethodSource;
 class GameEngineTest {
     private static final int MAX_SIZE = 5;
 
-    private static String[] 생성이_안되는_케이스() {
+    private static String[] 점수_생성이_안되는_케이스() {
         return new String[]{" ".repeat(MAX_SIZE + 1), "123456789"};
     }
 
-    private static String[] 생성이_되는_케이스() {
+    private static String[] 점수_생성이_되는_케이스() {
         return new String[]{" ".repeat(MAX_SIZE), "12345"};
     }
 
@@ -24,7 +24,7 @@ class GameEngineTest {
     }
 
     @ParameterizedTest
-    @MethodSource("생성이_안되는_케이스")
+    @MethodSource("점수_생성이_안되는_케이스")
     void 플레이어이름이_6이상이면_예외를_던진다(String readLine) {
         Assertions.assertThatCode(() -> new GameEngine(readLine, new ScoreUpdater(new ReturnGenerator()), new GameEngineValidator()))
                 .isExactlyInstanceOf(IllegalArgumentException.class)
@@ -32,7 +32,7 @@ class GameEngineTest {
     }
 
     @ParameterizedTest
-    @MethodSource("생성이_되는_케이스")
+    @MethodSource("점수_생성이_되는_케이스")
     void 플레이어이름이_5이하이면_예외를_던지지_않는다(String readLine) {
         Assertions.assertThatCode(() -> new GameEngine(readLine, new ScoreUpdater(new ReturnGenerator()), new GameEngineValidator()))
                 .doesNotThrowAnyException();
