@@ -1,41 +1,46 @@
 package racingcar;
 
+import racingcar.constant.ConstantNumber;
+import racingcar.domain.CheckMoveStop;
+import racingcar.input.InputUtil;
+import racingcar.validation.InputValidation;
+
 import java.util.HashMap;
-import java.util.Iterator;
 
 public class RacingGame {
-    static HashMap<String,Integer> carName;
-    static InputCarName inputCarName = new InputCarName();
-    static InputMovement inputMovement = new InputMovement();
-    static CheckMoveStop checkMoveStop = new CheckMoveStop();
-    static Validation validation = new Validation();
+    private static HashMap<String,Integer> carName;
+    private static final InputUtil inputUtil = new InputUtil();
+    private static final CheckMoveStop checker = new CheckMoveStop();
+    private static final InputValidation validator = new InputValidation();
+    private static int movement;
+    private static int foundMax;
     public void startGame() {
         carName = new HashMap<>();
-        inputCarName.inputCarName(carName);
+        inputUtil.inputCarName(carName);
 
-        validation.inputCarNameLength(carName);
+        validator.inputCarNameLength(carName);
 
-        int movement = inputMovement.inputMovement();
+        movement = inputUtil.inputMovement();
 
+        System.out.println();
         System.out.println("실행 결과");
 
         for (int i = 0; i < movement; i++) {
-            checkMoveStop.checkMoveStop(carName);
+            checker.checkMoveStop(carName);
         }
 
-        int foundMax = findMax();
-        System.out.println(foundMax);
+        foundMax = findMax();
         System.out.print("최종 우승자 :");
         printResult(foundMax);
 
     }
 
     private int findMax() {
-        int instantMax = Constant.max;
+        int instantMax = ConstantNumber.max;
         for (String car : carName.keySet()) {
-            int maxFind = carName.get(car);
-            if (maxFind > instantMax) {
-                instantMax = maxFind;
+            int findMax = carName.get(car);
+            if (findMax > instantMax) {
+                instantMax = findMax;
             }
         }
         return instantMax;
@@ -48,6 +53,6 @@ public class RacingGame {
                 result.append(" " + car + ",");
             }
         }
-        System.out.println(result.deleteCharAt(result.length() - 1));
+        System.out.print(result.deleteCharAt(result.length() - 1));
     }
 }

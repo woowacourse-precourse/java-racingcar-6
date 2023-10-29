@@ -1,8 +1,8 @@
-package racingcar;
+package racingcar.validation;
 
 import java.util.HashMap;
 
-public class Validation {
+public class InputValidation {
     public void inputCarNameLength(HashMap<String, Integer> carName) {
         for (String car : carName.keySet()) {
             if (car.length() > 5) {
