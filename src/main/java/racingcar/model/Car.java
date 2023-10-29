@@ -26,4 +26,8 @@ public class Car {
     public Integer getMovingDistance() {
         return movingDistance;
     }
+
+    @Override public String toString() {
+        return carName;
+    }
 }

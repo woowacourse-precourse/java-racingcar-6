@@ -18,4 +18,8 @@ public class RacingCar {
     private int createRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }
