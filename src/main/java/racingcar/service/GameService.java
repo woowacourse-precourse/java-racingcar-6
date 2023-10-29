@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -44,6 +45,10 @@ public class GameService {
     public CarsDto playRound(final Cars cars) {
         cars.move();
         return new CarsDto(cars.getCurrentCarStatus());
+    }
+
+    public List<String> findWinnersName(final Cars cars) {
+        return cars.findWinners();
     }
 
 }
