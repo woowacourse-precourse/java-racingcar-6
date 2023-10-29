@@ -1,6 +1,7 @@
 package racingcar.util;
 
 import java.util.List;
+import java.util.Objects;
 
 import static racingcar.domain.CarConstants.MAX_CAR_NAME_LENGTH;
 import static racingcar.domain.CarConstants.MIN_NUMBER_OF_RACES;
@@ -40,7 +41,7 @@ public class Validation {
 
     private static boolean isEmptyName(List<String> names) {
         return names.stream()
-                .anyMatch(name -> name == EMPTY_NAME);
+                .anyMatch(name -> Objects.equals(name, EMPTY_NAME));
     }
 
     public static void validateNumberOfRaces(String inputString) {
