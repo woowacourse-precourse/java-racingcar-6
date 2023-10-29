@@ -106,7 +106,7 @@ public class ValidException {
      * @param inputStr
      */
     public static void isValidIncludeSpecialString(String inputStr) {
-        String regex = ".*[!@#$%^&*(),.?\":{}|<>].*"; // 특수 문자가 포함되어 있는지 확인하는 정규 표현식
+        String regex = ".*[!@#$%^&*().?\":{}|<>].*"; // 특수 문자가 포함되어 있는지 확인하는 정규 표현식
 
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(inputStr);
@@ -162,12 +162,11 @@ public class ValidException {
      */
     public static boolean isValidCarEachNameFIveLessString(String inputStr) {
         List<String> nameEachOfList = Arrays.stream(inputStr.split(",")).toList();
+        System.out.println("nameEachOfList = " + nameEachOfList);
         for (String name : nameEachOfList) {
-            if (isValidFIveLessString(name)) {
-                return true;
-            }
+            isValidFIveLessString(name);
         }
-        return false;
+        return true;
     }
 
     /**
