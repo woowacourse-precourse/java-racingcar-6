@@ -11,7 +11,8 @@ public class Car {
     public static final int ZERO = 0;
     private ArrayList<String> userName;
     private ArrayList<Integer> userMovement;
-    private ArrayList<String> winner;
+    private ArrayList<String> winnerName;
+    private int winnerMovement;
     private int roundNumber;
 
 
@@ -19,7 +20,8 @@ public class Car {
     public Car() {
         this.userName = new ArrayList<>();
         this.userMovement = new ArrayList<>();
-        this.winner = new ArrayList<>();
+        this.winnerName = new ArrayList<>();
+        this.winnerMovement = 0;
         this.roundNumber = 0;
     }
 
@@ -88,4 +90,25 @@ public class Car {
         System.out.println(userMovement);
     }
 
+    public void searchWinner() {
+        int numberOfUser = howManyUser();
+        for (int index = 0; index < numberOfUser; index++) {
+            int indexUserMovement = userMovement.get(index);
+            compareMovement(index, indexUserMovement);
+        }
+        System.out.println(winnerName);
+    }
+
+    public void compareMovement(int index, int indexUserMovement) {
+        String indexUserName = userName.get(index);
+        if (indexUserMovement == winnerMovement) {
+            winnerName.add(indexUserName);
+        }
+        if (indexUserMovement > winnerMovement) {
+            winnerName.clear();
+            winnerName.add(indexUserName);
+            winnerMovement = indexUserMovement;
+        }
+
+    }
 }

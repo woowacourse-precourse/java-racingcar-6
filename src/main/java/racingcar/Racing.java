@@ -19,6 +19,7 @@ public class Racing {
         getUserRoundNumberByConsole();
         carRacing();
         car.print();
+        winnerSearchAndPrint();
     }
 
     public void getUserCarNameByConsole() {
@@ -42,6 +43,10 @@ public class Racing {
                 car.plusMovement(index);
             }
         }
+    }
+
+    public void winnerSearchAndPrint() {
+        car.searchWinner();
     }
 
 }
