@@ -48,4 +48,16 @@ public class Application {
     return positions;
   }
 
+  private static void displayCarPositions(String[] carNames, int[] positions) {
+
+    for (int i = 0; i < carNames.length; i++) {
+      System.out.print(carNames[i] + ": ");
+      for (int j = 0; j < positions[i]; j++) {
+        System.out.print("-");
+      }
+      System.out.println();
+    }
+    System.out.println();
+  }
+
 }
