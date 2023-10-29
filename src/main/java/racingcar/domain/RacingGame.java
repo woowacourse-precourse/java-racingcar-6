@@ -37,10 +37,14 @@ public class RacingGame {
         int rounds = Integer.parseInt(input);
 
         for (int round = 0; round < rounds; round++) {
-            moveAllCars();
-            displayAllCars();
-            printNewLine();
+            playRound();
         }
+    }
+
+    private void playRound() {
+        moveAllCars();
+        displayAllCars();
+        printNewLine();
     }
 
     private void moveAllCars() {
