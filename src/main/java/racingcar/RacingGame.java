@@ -31,7 +31,7 @@ public class RacingGame {
     }
 
     private void retrieveCarList() {
-        CarList carlist = new CarList();
+        carList = new CarList();
     }
 
     private void retrieveCount() {
