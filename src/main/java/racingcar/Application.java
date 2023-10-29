@@ -19,6 +19,6 @@ public class Application {
             race.goFoward();
             race.printRace();
         }
-        race.findWinnerName();
+        race.printWinner();
     }
 }

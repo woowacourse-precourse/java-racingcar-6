@@ -48,11 +48,10 @@ public class Race {
     }
     public List<Integer> findWinnerIndex() {
          Compare compare = new Compare();
-         List<Integer> index = new ArrayList<>();
-         index = compare.findMaxIndex(savePositionInList());
+         List<Integer> index = compare.findMaxIndex(savePositionInList());
          return index;
     }
-    public void findWinnerName() {
+    public List<String> findWinnerName() {
         Compare compare = new Compare();
         List<Integer> index = findWinnerIndex();
         List<String> name = new ArrayList<>();
@@ -60,6 +59,18 @@ public class Race {
         for (int i = 0; i < maxCount; i++) {
             name.add(cars.get(index.get(i)).getName());
         }
-        System.out.println(name.toString());
+        return name;
+    }
+    public void printWinner() {
+        List<String> winner = findWinnerName();
+        StringBuilder winnerName = new StringBuilder();
+        winnerName.append(winner.get(0));
+        if (winner.size() > 1) {
+            for (int i = 1; i < winner.size(); i++) {
+                winnerName.append(", ");
+                winnerName.append(winner.get(i));
+            }
+        }
+        System.out.println("최종 우승자 : " + winnerName.toString());
     }
 }
