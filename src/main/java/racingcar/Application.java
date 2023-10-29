@@ -49,12 +49,14 @@ public class Application {
 
         for (int i = 0; i < count; i++) {
             for (Map.Entry<String, String> entry : carDistanceMap.entrySet()) {
-                if (Randoms.pickNumberInRange(0, 9) < 4) {
-                    continue;
+                if (Randoms.pickNumberInRange(0, 9) >= 4) {
+                    String beforeDistance = entry.getValue();
+                    carDistanceMap.replace(entry.getKey(), beforeDistance + "-");
                 }
-                String beforeDistance = entry.getValue();
-                carDistanceMap.replace(entry.getKey(), beforeDistance + "-");
+
+                System.out.println(entry.getKey() + " : " + entry.getValue());
             }
+            System.out.println();
         }
     }
 }
