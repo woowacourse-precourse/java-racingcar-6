@@ -22,7 +22,7 @@ public class ImplementGame {
         Map<String, Integer> numMoveMap = createMoveMap.initMap(carList);
         for (int i = 0; i < gameNumber; i++){
             numMoveMap = createMoveMap.decideIncMove(carList, numMoveMap);
-            createMoveMap.printResult(numMoveMap);
+            createMoveMap.printMoveResult(numMoveMap);
         }
         return numMoveMap;
     }

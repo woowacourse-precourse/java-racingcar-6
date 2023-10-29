@@ -28,7 +28,7 @@ public class CreateMoveMap {
         }
         return numMoveMap;
     }
-    public void printResult(Map<String, Integer> numMoveMap) {
+    public void printMoveResult(Map<String, Integer> numMoveMap) {
         for (Map.Entry<String, Integer> entrySet : numMoveMap.entrySet()) {
             System.out.println(entrySet.getKey() + ":" + "-".repeat(entrySet.getValue()));
         }
