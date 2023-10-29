@@ -15,7 +15,7 @@ public class NameParserTest {
 
         // When
         NameParser nameParser = new NameParser();
-        List<String> resultCarNames = nameParser.parseName(input);
+        List<String> resultCarNames = nameParser.parseCarName(input);
 
         // Then
         assertThat(resultCarNames).isNotNull();
