@@ -15,7 +15,7 @@ public class Car {
         this.distance = distance;
     }
 
-    public static Car makeCar(String name) {
+    public static Car makeCarByName(String name) {
         return new Car(name);
     }
 
