@@ -57,8 +57,7 @@ public class RacingGameController {
         outputView.printResultMessage();
         for (int i = 0; i < tryNumber.number(); i++) {
             racingGame.runOneTerm();
-            List<CarDto> carDtoList = CarDto.toDtoList(cars);
-            printResultOfOneTerm(carDtoList);
+            printResultOfOneTerm(CarDto.toDtoList(cars));
         }
     }
 
