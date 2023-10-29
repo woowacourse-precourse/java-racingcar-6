@@ -109,6 +109,22 @@ class ValidatorTest {
     }
 
     @Test
+    void isNumberWithinNineDigits_9자릿수_이하로_입력한_경우_true_반환() {
+        String eightDigits = "12345678";
+
+        assertThat(Validator.isNumberWithinNineDigits(eightDigits)).isTrue();
+    }
+
+    @Test
+    void isNumberWithinNineDigits_9자릿수_초과로_입력한_경우_false_반환() {
+        String tenDigits = "1234567890";
+        String elevenDigits = "123456789000";
+
+        assertThat(Validator.isNumberWithinNineDigits(tenDigits)).isFalse();
+        assertThat(Validator.isNumberWithinNineDigits(elevenDigits)).isFalse();
+    }
+
+    @Test
     void validateNameList_이름으로_중복된_값을_입력한_경우_예외_발생() {
         List<String> dupliList = Arrays.asList("pobi", "pobi");
 
