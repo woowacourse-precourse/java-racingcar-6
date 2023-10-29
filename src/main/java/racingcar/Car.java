@@ -23,9 +23,16 @@ public class Car implements Comparable<Car> {
         status++;
     }
 
-
     @Override
     public int compareTo(Car o) {
         return o.status - status;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name='" + name + '\'' +
+                ", status=" + status +
+                '}';
     }
 }

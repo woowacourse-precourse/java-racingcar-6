@@ -3,9 +3,6 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
 import java.util.PriorityQueue;
 
 public class Game {
@@ -21,7 +18,7 @@ public class Game {
     public void run() {
         // 조건들을 입력받는다.
         createCar();
-        getRound();
+        createRound();
 
         // 동작
         play();
@@ -40,10 +37,10 @@ public class Game {
     // 우승자 안내 문구 출력
     void printWinner() {
         Car winner = carRepository.remove();
-        System.out.print("최종 우승자 : "+winner.getName());
+        System.out.print("최종 우승자 : " + winner.getName());
         for (Car car : carRepository) {
             if (car.getStatus() == winner.getStatus())
-                System.out.println(", "+car.getName());
+                System.out.println(", " + car.getName());
             else
                 break;
         }
@@ -79,14 +76,14 @@ public class Game {
     }
 
     // 시도할 횟수를 입력받는다
-    void getRound() {
+    void createRound() {
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
         round = Integer.parseInt(input);
     }
 
     // 입력받은 자동차 이름 값 검증
-    private void validateName(String input) {
+    void validateName(String input) {
         String[] names = input.split(",");
         for (String name : names) {
             if (name.length() > 5) {    // 이름은 5자 이하만 가능
@@ -96,4 +93,13 @@ public class Game {
         }
     }
 
+    // 테스트 확인용으로 만든 메서드
+    public PriorityQueue<Car> getCarRepository() {
+        return carRepository;
+    }
+
+    // 테스트 확인용으로 만든 메서드
+    public int getRound() {
+        return round;
+    }
 }
