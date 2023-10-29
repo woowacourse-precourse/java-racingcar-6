@@ -69,10 +69,25 @@ class CarTest {
     @Test
     @DisplayName("우승자의 위치 정보와 같은 경우 true 반환")
     void isWinner_우승자인_경우_테스트() {
-
+        // given
+        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
+        Car car = new Car(movingStrategy, "pobi", 0);
+        // when
+        Integer winnerPosition = 0;
+        Boolean result = car.isWinner(winnerPosition);
+        // then
+        assertEquals(true, result);
     }
 
     @Test
     void isWinner_우승자가_아닌_경우_테스트() {
+        // given
+        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
+        Car car = new Car(movingStrategy, "pobi", 0);
+        // when
+        Integer winnerPosition = 1;
+        Boolean result = car.isWinner(winnerPosition);
+        // then
+        assertEquals(false, result);
     }
 }
