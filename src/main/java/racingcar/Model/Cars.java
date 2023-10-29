@@ -29,6 +29,10 @@ public class Cars {
         }
     }
 
+    public String getCarName(int index){
+        return cars.get(index).getName();
+    }
+
     public String getCarPositionIcon(int index){
         return connectingIcons(cars.get(index));
     }
