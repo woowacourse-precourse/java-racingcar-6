@@ -35,4 +35,11 @@ public class Application {
             }
         }
     }
+
+    private void InitalcarSetting(String[] carNames){
+        carStatus = new HashMap<>();
+        for(String carName : carNames){
+            carStatus.put(carName,"");
+        }
+    }
 }
