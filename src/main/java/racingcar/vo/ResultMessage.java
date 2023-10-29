@@ -1,4 +1,4 @@
-package racingcar.dto;
+package racingcar.vo;
 
 import java.util.List;
 import racingcar.Constants;

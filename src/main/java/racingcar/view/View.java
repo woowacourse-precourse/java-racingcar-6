@@ -5,7 +5,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 import racingcar.Message;
 import racingcar.dto.CarState;
 import racingcar.dto.CarsState;
-import racingcar.dto.ResultMessage;
+import racingcar.vo.ResultMessage;
 
 public class View {
     public View() {

@@ -2,10 +2,10 @@ package racingcar.controller;
 
 import racingcar.dto.AttemptCount;
 import racingcar.dto.CarsState;
-import racingcar.dto.ResultMessage;
 import racingcar.model.Cars;
 import racingcar.service.GamePlayingService;
 import racingcar.view.View;
+import racingcar.vo.ResultMessage;
 
 public class Controller {
     private final View view;

@@ -1,4 +1,4 @@
-package racingcar.dto;
+package racingcar.vo;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 

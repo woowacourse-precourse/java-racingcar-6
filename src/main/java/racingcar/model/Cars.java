@@ -4,8 +4,8 @@ import java.util.Comparator;
 import java.util.List;
 import racingcar.dto.CarState;
 import racingcar.dto.CarsState;
-import racingcar.dto.ResultMessage;
 import racingcar.validator.CarsValidator;
+import racingcar.vo.ResultMessage;
 
 public class Cars {
     private final List<Car> cars;

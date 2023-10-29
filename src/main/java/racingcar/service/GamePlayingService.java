@@ -2,9 +2,9 @@ package racingcar.service;
 
 import racingcar.dto.AttemptCount;
 import racingcar.dto.CarsState;
-import racingcar.dto.ResultMessage;
 import racingcar.model.Cars;
 import racingcar.validator.AttemptCountValidator;
+import racingcar.vo.ResultMessage;
 
 public class GamePlayingService {
     public GamePlayingService() {
