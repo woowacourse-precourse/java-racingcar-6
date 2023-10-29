@@ -19,8 +19,7 @@ public class GameController {
 
 
     public void StartGame() {
-        inputCarNameMessage.inputCarNameMessage();
-        List<String> carNames = carCreator.createCarList(userService.inputItem());
+        List<String> carNames = createCarNames();
         inputCarNameMessage.inputTryNumberMessage();
         int tryNumber = userService.inputTryNumber(userService.inputItem());
         outputMessage.resultMessage();
@@ -68,5 +67,10 @@ public class GameController {
                 .filter(i -> movement.get(i) == maxMove)
                 .boxed()
                 .toList();
+    }
+
+    private List<String> createCarNames() {
+        inputCarNameMessage.inputCarNameMessage();
+        return carCreator.createCarList(userService.inputItem());
     }
 }
