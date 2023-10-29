@@ -77,7 +77,7 @@
 
 - [ ] MoveFactory가 역할이 4이상 숫자 판단에 의해 boolean 값 반환밖에 없다.
     - [ ] 거기다 메소드 하나만 있어서 생성자에 말고 메소드에 바로 numbergenerator를 주입해도 되지 않을까하는 생각.
--
+-[ ] distance에 대한 validate 체크
 
 ## 프로그래밍 요구 사항
 

@@ -24,9 +24,9 @@ public class RacingGame {
     }
 
     public void move(MoveFactory moveFactory) {
-        playerMoves.forEach(
-            playerMove -> playerMove.move(moveFactory.isMove())
-        );
+        for (PlayerMove playerMove : playerMoves) {
+            playerMove.move(moveFactory.isMove());
+        }
     }
 
     @Override
