@@ -31,7 +31,7 @@
 ### RacingGameManager
 
 - [x] 시도할 횟수가 1이상의 정수가 아니라면 IllegalArgumentException
-- [ ] 시도 횟수 만큼 Car 객체의 랜덤 전진 호출
+- [x] 시도 횟수 만큼 Car 객체의 랜덤 전진 호출
 - [ ] 게임 실행 
   - 게임 실행 메세지를 출력
   - 자동차 이름 입력

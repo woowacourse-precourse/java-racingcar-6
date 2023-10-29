@@ -1,8 +1,11 @@
 package racingcar.controller;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.times;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import racingcar.model.Cars;
 
 public class RacingGameManagerTest {
 
@@ -26,5 +29,19 @@ public class RacingGameManagerTest {
 
         //When & Then
         assertThrows(IllegalArgumentException.class, () -> racingGameManager.tryCountValidation(inputValue));
+    }
+
+    @Test
+    void 시도_횟수_만큼_자동차_이동_함수_호출(){
+        // Given
+        int tryCount = 3;
+        Cars spyCars = Mockito.spy(new Cars());
+        RacingGameManager racingGameManager = new RacingGameManager(spyCars);
+
+        // When
+        racingGameManager.repeatMove(tryCount);
+
+        // Then
+        Mockito.verify(spyCars, times(tryCount)).moveCars();
     }
 }

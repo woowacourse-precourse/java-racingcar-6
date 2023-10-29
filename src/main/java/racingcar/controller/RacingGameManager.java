@@ -12,6 +12,13 @@ public class RacingGameManager {
         this.cars = cars;
     }
 
+    void repeatMove(int tryCount){
+        while (tryCount > 0){
+            cars.moveCars();
+            tryCount--;
+        }
+    }
+
     void tryCountValidation(String tryCount){
         if(!isNumeric(tryCount)){
             throw new IllegalArgumentException();
