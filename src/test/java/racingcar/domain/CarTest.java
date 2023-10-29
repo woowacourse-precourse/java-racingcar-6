@@ -7,16 +7,16 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CarTest {
     @Test
-    void 전진_테스트 (){
+    void 전진_테스트() {
         Car car = new Car("test");
         car.move(true);
         assertThat(car.getPosition()).isEqualTo(1);
     }
 
     @Test
-    void 멈춤_테스트(){
+    void 멈춤_테스트() {
         Car car = new Car("test");
         car.move(false);
-        assertThat(car.getPosition()).isEqualTo(0);    }
-
+        assertThat(car.getPosition()).isEqualTo(0);
+    }
 }
