@@ -57,7 +57,8 @@ public class GameStart {
      */
     public void printAllProcessOfRaceGame() {
         Integer cntTryRace = gameProcess.getCntTryRace();
-        for (int i = 0; i < cntTryRace; i++) {
+
+        for (int indexOfRaceGame = 0; indexOfRaceGame < cntTryRace; indexOfRaceGame++) {
             gameProcess.moveOfRaceCar();
             printSituationOfRaceProcessOneCycle();
             Utill.printNewLine();
