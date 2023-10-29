@@ -45,7 +45,7 @@ GameEngine
 
 GameEngineValidator
 
-- [ ] 입력값이 널이면 예외를 반환한다.
+- [x] 입력값이 널이면 예외를 반환한다.
 - [ ] 리스트에 있는 값이 6글자 이상이면, Ill
 
 NumberGenerator
