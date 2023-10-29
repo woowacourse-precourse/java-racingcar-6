@@ -31,6 +31,8 @@
 2. 모든 player들이 차례를 마쳤다면 현재 경기 상황을 출력한다. 
 
 * Random 값 추출은 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용한다.
+
+* roundCount 만큼 1~2의 과정을 반복한다.
 ````
 <br/>
 
