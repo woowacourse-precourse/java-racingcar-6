@@ -1,11 +1,17 @@
 package racingcar.domain;
 
+import java.util.List;
+
 public class ExceptionCase {
-    public void inputLength(String input) {
-        if (input.length() > 5) {
-            throw new IllegalArgumentException();
-        }
+
+    public void carNameLength(List<String> racers) {
+        racers.forEach((a)-> {
+            if(a.length()>6) {
+                throw new IllegalArgumentException();
+            }
+        });
     }
+
     public void nullInput(String input) {
         if (input == null || input == "") {
             throw new IllegalArgumentException();
