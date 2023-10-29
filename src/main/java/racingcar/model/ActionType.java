@@ -2,7 +2,7 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public enum Status {
+public enum ActionType {
 
     GO(1), STOP(0);
 
@@ -10,13 +10,13 @@ public enum Status {
     private static final Integer LAST_NUMBER = 9;
     private static final Integer THRESHOLD = 4;
 
-    private Integer forward;
+    private Integer action;
 
-    Status(Integer forward) {
-        this.forward = forward;
+    ActionType(Integer action) {
+        this.action = action;
     }
 
-    public static Integer change() {
+    public static Integer getRandomAction() {
         Integer randomNumber = Randoms.pickNumberInRange(FIRST_NUMBER, LAST_NUMBER);
         if (randomNumber >= THRESHOLD) {
             return move();
@@ -25,14 +25,14 @@ public enum Status {
     }
 
     private static Integer move() {
-        return GO.getForward();
+        return GO.getAction();
     }
 
     private static Integer stop() {
-        return STOP.getForward();
+        return STOP.getAction();
     }
 
-    private Integer getForward() {
-        return forward;
+    private Integer getAction() {
+        return action;
     }
 }
