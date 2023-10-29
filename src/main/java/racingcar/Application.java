@@ -10,12 +10,8 @@ import java.util.List;
 
 public class Application {
 
-    private static void printMessage(String message) {
+    private static String getInput(String message) {
         System.out.println(message);
-    }
-
-    private static String getInput() {
-        Application.printMessage("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         return Console.readLine();
     }
 
@@ -23,19 +19,15 @@ public class Application {
         return Arrays.asList(userInput.split(","));
     }
 
-
-
-
     public static void main(String[] args) {
         // TODO: 프로그램 구 현
 
         // 1. 자동차 이름 입력
-        Car car = Car.getInstance(createCarNames(getInput()));
+        Car car = Car.getInstance(createCarNames(getInput("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")));
 
 
         // 2. 시도 횟수 입력
-        Application.printMessage("시도할 회수는 몇회인가요?");
-        userInput = Console.readLine();
+        String userInput = getInput("시도할 회수는 몇회인가요?");
         int roundCount;
 
         try {
@@ -49,7 +41,7 @@ public class Application {
         }
 
         // 3. 이동 로직 구현
-        Application.printMessage("실행 결과");
+        System.out.println("실행 결과");
 
         List<String> movedCount = Arrays.asList(new String[carNames.size()]);
         movedCount.replaceAll(Null -> "");
@@ -81,7 +73,7 @@ public class Application {
 
         }
 
-        Application.printMessage("최종 우승자 : ");
+        System.out.print("최종 우승자 : ");
         int count = 0;
 
         for (int i = 0; i < carNames.size(); i++) {

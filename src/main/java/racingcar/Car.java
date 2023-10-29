@@ -6,7 +6,7 @@ import java.util.List;
 public class Car {
 
     private static Car car;
-    public List<String> names;  // Car는 원하는 곳에서 한 번만 사용가능하기 때문에, 다른 곳에서 호출될 수 없음
+    public List<String> names;  // Car는 Application에서만 단 한번만 생성 되기 때문에, 다른 곳에서 호출될 수 없음
 
     private Car(List<String> names) {
         this.names = names;
