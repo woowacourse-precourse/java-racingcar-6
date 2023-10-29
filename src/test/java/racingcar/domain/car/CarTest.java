@@ -39,7 +39,7 @@ public class CarTest {
         assertThat(car.getPosition()).isEqualTo(0);
     }
 
-    @DisplayName("자동차는 4~9사이의 숫자를 받으면 이동하지 않는다.")
+    @DisplayName("자동차는 4~9사이의 숫자를 받으면 이동해야 한다.")
     @ParameterizedTest
     @ValueSource(ints = {4, 5, 6, 7, 8, 9})
     void 자동차_전진_조건_테스트(int number) {
