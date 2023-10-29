@@ -32,7 +32,7 @@ public class FeatureTest {
     }
 
     @Test
-    void 경주_할_자동차_이름을_입력받기() {
+    void 자동차_이름_입력받고_자동차리스트에_저장() {
         String testInput = "car1,car2,car3";
         InputStream inputStream = new ByteArrayInputStream(testInput.getBytes());
         System.setIn(inputStream);
