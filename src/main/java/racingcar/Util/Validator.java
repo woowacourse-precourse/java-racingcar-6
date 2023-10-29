@@ -6,7 +6,12 @@ import racingcar.Constants.ExceptionMessage;
 
 public class Validator {
 
-
+    public String[] validationCarName(String name){
+        name = name.replaceAll(" ", "");
+        String[] names = validationNameLength(name.split(","));
+        validationNameDuplicate(names);
+        return names;
+    }
 
     private String[] validationNameLength(String[] name){
         for (String s : name) {
