@@ -14,9 +14,9 @@ public class CarRepositoryTest extends NsTest {
         carRepository.save(new Car("a"));
         carRepository.save(new Car("b"));
         carRepository.save(new Car("c"));
-        assertThat(carRepository.findById(1L).getName()).isEqualTo("a");
-        assertThat(carRepository.findById(2L).getName()).isEqualTo("b");
-        assertThat(carRepository.findById(3L).getName()).isEqualTo("c");
+        assertThat(carRepository.findById(0L).getName()).isEqualTo("a");
+        assertThat(carRepository.findById(1L).getName()).isEqualTo("b");
+        assertThat(carRepository.findById(2L).getName()).isEqualTo("c");
     }
 
     @Test
