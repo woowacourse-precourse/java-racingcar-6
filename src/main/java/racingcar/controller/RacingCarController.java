@@ -26,7 +26,12 @@ public class RacingCarController {
 
         printExecutionResultMessage();
         gameProcess();
+        selectWinner();
+    }
 
+    private void selectWinner() {
+        List<String> winners = racingCarService.getWinners();
+        outputView.printWinners(winners);
     }
 
     private void printExecutionResultMessage() {
