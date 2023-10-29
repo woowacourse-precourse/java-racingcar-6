@@ -30,7 +30,7 @@ public class InputValidator {
 
     public static void validateInputCarNameLength(final String input) {
         long count = Arrays.stream(input.split(","))
-                .filter(str -> str.length() > 5)
+                .filter(str -> str.length() > Constants.MAX_CAR_NAME_LENGTH)
                 .count();
 
         if (count > 0) {
