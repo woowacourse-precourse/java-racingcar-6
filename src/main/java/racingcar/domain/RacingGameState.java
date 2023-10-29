@@ -1,10 +1,10 @@
 package racingcar.domain;
 
 import java.util.List;
+import racingcar.constant.IllegalStateExceptionType;
 
 public class RacingGameState {
     private static final int MIN_DISTANCE = 0;
-    private static final String GAME_NOT_ENDED_ERROR_MESSAGE = "게임이 끝나지 않아 우승자를 뽑을 수 없습니다.";
 
     private final boolean isGameEnd;
     private final List<Car> cars;
@@ -30,7 +30,7 @@ public class RacingGameState {
 
     private void validateIsGameEnd() {
         if (!isGameEnd) {
-            throw new RuntimeException(GAME_NOT_ENDED_ERROR_MESSAGE);
+            throw IllegalStateExceptionType.GAME_NOT_ENDED_MESSAGE.getException();
         }
     }
 
