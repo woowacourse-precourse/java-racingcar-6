@@ -1,10 +1,10 @@
 # 자동차 경주
 
 ## 기능 목록
-- [ ] 자동차 이름 입력 : Application#inputCarName()
+- [ ] 자동차 이름 입력 : Application#inputCarNames()
   - [ ] 각 이름은 쉼표로 구분 : Application#extractCarName()
   - [ ] 이름은 5자이하 가능 : Car#checkCharacterLimit()
-  - [ ] 게임에 자동차 추가 : GameHost.addCar() 
+  - [ ] 게임에 자동차 추가 : GameHost.addCars() 
   - [ ] 잘못된 입력 : IllegalArgumentException
 - [ ] 자동차 이동 횟수 입력 : Application#inputMoveCount()
   - [ ] 잘못된 입력 : IllegalArgumentException
@@ -35,7 +35,7 @@
 
 ## 게임 진행자(GameHost) :
 ### 프로퍼티
-Enum
++ Enum
 
 INPUT_CAR_NAME: 경주할 자동차 이름 질문
 
@@ -45,13 +45,13 @@ GAME_RESULT: 실행 결과 출력문
 
 WINNER: 우승자 출력문
 
-자동차 리스트 : carList
++ 자동차 리스트 : carList
 
-진행 회수 : moveCount
++ 진행 회수 : moveCount
 
 ### 메서드
+게임 진행 : playGame()
 게임 한번 진행 : playOneTurn()
-게임 진행 출력 : says()
 
 
 
