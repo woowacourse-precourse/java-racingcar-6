@@ -3,6 +3,8 @@ package racingcar.view;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class InputView {
+
+    private static final int MAX_LENGTH = 5;
     public String[] getCarNames(){
         String[] cars = readLine().split(",");
 
@@ -25,7 +27,7 @@ public class InputView {
 
     private boolean isShortEnough(String[] cars) {
         for (String car : cars) {
-            if (car.length() > 5) {
+            if (car.length() > MAX_LENGTH) {
                 return false;
             }
         }
