@@ -38,6 +38,7 @@ public class RacingCar {
 	
 	private Cars createCars() {
 		outputView.printInputCarName();
+		
 		String carNames = inputView.inputCarNames();
 		Cars cars = createCarsService.createCars(carNames);
 		
@@ -46,9 +47,11 @@ public class RacingCar {
 	
 	private void progress(Cars cars) {
 		outputView.printInputTryNumber();
+		
 		int tryNumber = inputView.inputTryNumber();
 		
 		outputView.printExecutionResult();
+		
 		for(int i = 0; i < tryNumber; i++) {
 			moveCarsService.moveCars(cars);
 			outputView.printCarLocationCurrentSituation(cars.printCarsStatus());
@@ -57,6 +60,7 @@ public class RacingCar {
 	
 	private void gameResult(Cars cars) {
 		String winner = pickWinnerService.printWinner(cars);
+		
 		outputView.printWinner(winner);
 	}
 }

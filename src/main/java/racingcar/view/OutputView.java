@@ -18,7 +18,7 @@ public class OutputView {
 	
 	public void printCarLocationCurrentSituation(String result) {
 		System.out.println(result);
-	}
+	}	
 	
 	public void printWinner(String winner) {
 		System.out.printf(ProgressMessage.WINNER.getMessage(), winner);

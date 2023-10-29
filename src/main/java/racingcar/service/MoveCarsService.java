@@ -7,6 +7,7 @@ import racingcar.util.generator.NumberGenerator;
 public class MoveCarsService {
 	
 	private static final NumberGenerator GENERATOR = new NumberGenerator();
+	private static final int MOVE_CONDITION_NUMBER = 4;
 	
 	public void moveCars(Cars cars) {
 		for(Car car : cars.getCars()) {
@@ -23,6 +24,6 @@ public class MoveCarsService {
 	}
 	
 	private boolean checkMoveCondition(int number) {
-		return number >= 4;
+		return number >= MOVE_CONDITION_NUMBER;
 	}
 }
