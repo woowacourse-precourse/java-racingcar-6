@@ -16,6 +16,7 @@ import java.util.Map.Entry;
 public class Application {
     static Converter converter = new Converter();
     static MovingStatus movingStatus = new MovingStatus();
+
     public static void main(String[] args) {
         System.out.println(CAR_NAME_REQUEST_MESSAGE);
         String carName = Console.readLine();
@@ -28,8 +29,7 @@ public class Application {
 
         for (int i = 0; i < attemptsNumber; i++) {
             for (Entry<String, String> element : carNameHashMap.entrySet()) {
-                int randomNumber = movingStatus.getRandomNumber();
-                String move = movingStatus.checkDecidingMove(randomNumber);
+                String move = movingStatus.decideMove();
                 String originalValue = element.getValue();
                 String newValue = originalValue + move;
                 carNameHashMap.put(element.getKey(), newValue);

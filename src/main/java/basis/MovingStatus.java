@@ -9,11 +9,15 @@ import static constant.Constant.STOP_SYMBOL;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class MovingStatus {
-    public int getRandomNumber() {
+    public String decideMove() {
+        return checkDecidingMove(getRandomNumber());
+    }
+
+    private int getRandomNumber() {
         return Randoms.pickNumberInRange(MINIMUM_RANGE, MAXIMUM_RANGE);
     }
 
-    public String checkDecidingMove(int number) {
+    private String checkDecidingMove(int number) {
         if (number >= MOVE_CRITERIA) {
             return MOVE_SYMBOL;
         }
