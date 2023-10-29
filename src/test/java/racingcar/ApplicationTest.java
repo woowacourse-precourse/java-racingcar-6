@@ -2,9 +2,6 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -37,53 +34,41 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void processCarNames_5_글자_초과_하는_이름_존재할_때_예외_발생(){
-        Game game = new Game();
+    void parsingCarNames_자동차_이름_파싱(){
+        Cars cars = new Cars();
+        String carNames = "abc,de";
+        List<String> carList = cars.parsingCarNames(carNames);
+
+        assertThat(carList).contains("abc","de");
+    }
+
+    @Test
+    void storeCars_5_글자_초과_하는_이름_존재할_때_예외_발생(){
+        Cars cars = new Cars();
         String carNames = "abcdef,ab";
+        List<String> carList = cars.parsingCarNames(carNames);
 
-        assertThatThrownBy(() -> game.processCarNames(carNames))
+        assertThatThrownBy(() -> cars.storeCars(carList))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    void processCarNames_1_글자_미만인_이름_존재할_때_예외_발생(){
-        Game game = new Game();
+    void storeCars_1_글자_미만인_이름_존재할_때_예외_발생(){
+        Cars cars = new Cars();
         String carNames = ",ab";
+        List<String> carList = cars.parsingCarNames(carNames);
 
-
-        assertThatThrownBy(() -> game.processCarNames(carNames))
+        assertThatThrownBy(() -> cars.storeCars(carList))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    void processCarNames_유효한_이름들일_때_예외_발생_안함(){
-        Game game = new Game();
-        String carName = "abc,de";
+    void storeCars_유효한_이름들일_때_예외_발생_안함(){
+        Cars cars = new Cars();
+        String carNames = "abc,de";
+        List<String> carList = cars.parsingCarNames(carNames);
 
-        assertDoesNotThrow(() -> game.processCarNames(carName));
-    }
-
-    @Test
-    void splitAndConvertToList_유효한_사용자_입력일_때_쉼표를_기준으로_분할(){
-        Game game = new Game();
-        String carNamesInput = "pobi,woni,jun";
-        List<String> carList = game.splitAndConvertToList(carNamesInput, ",");
-
-        assertThat(carList).contains("woni", "pobi", "jun");
-    }
-
-    @Test
-    void storeCarNames_List에_들어_있는_값들_LinkedHashMap에_저장(){
-        Game game = new Game();
-        List<String> carList = Arrays.asList("pobi", "woni");
-        game.storeCarNames(carList);
-
-        LinkedHashMap<String, Integer> cars = game.getCars();
-        assertThat(cars.size()).isEqualTo(2);
-        assertThat(cars.containsKey("pobi"));
-        assertThat(cars.containsKey("woni"));
-        assertThat(cars.get("pobi")).isEqualTo(0);
-        assertThat(cars.get("woni")).isEqualTo(0);
+        assertDoesNotThrow(() ->cars.storeCars(carList));
     }
 
     @Test
@@ -91,7 +76,7 @@ class ApplicationTest extends NsTest {
         Game game = new Game();
         String roundCountInput = "abc2";
 
-        assertThatThrownBy(() -> game.checkIfNumeric(roundCountInput))
+        assertThatThrownBy(() -> Input.checkIfNumeric(roundCountInput))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -100,7 +85,7 @@ class ApplicationTest extends NsTest {
         Game game = new Game();
         String roundCountInput = "0";
 
-        assertDoesNotThrow(() -> game.checkIfNumeric(roundCountInput));
+        assertDoesNotThrow(() -> Input.checkIfNumeric(roundCountInput));
     }
 
     @Test

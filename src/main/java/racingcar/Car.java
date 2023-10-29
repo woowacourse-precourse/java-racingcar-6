@@ -16,4 +16,11 @@ public class Car {
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public Integer getPosition() {
+        return position;
+    }
 }
