@@ -7,7 +7,8 @@ import org.junit.jupiter.api.Test;
 public class OutputCarRaceTest extends PrintTest{
     enum MessageType{
         INPUT_CAR_NAME_PRINT("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"),
-        INPUT_CAR_RACING_COUNT("시도할 회수는 몇회인가요?");
+        INPUT_CAR_RACING_COUNT("시도할 회수는 몇회인가요?"),
+        RACE_RESULT("실행 결과");
 
         private final String value;
 
@@ -44,5 +45,12 @@ public class OutputCarRaceTest extends PrintTest{
         OutputCarRace.print(MessageType.INPUT_CAR_RACING_COUNT);
 
         assertThat(output()).contains(MessageType.INPUT_CAR_RACING_COUNT.getValue());
+    }
+
+    @Test
+    void 자동차_경주_실행결과_정상(){
+        OutputCarRace.print(MessageType.RACE_RESULT);
+
+        assertThat(output()).contains(MessageType.RACE_RESULT.getValue());
     }
 }
