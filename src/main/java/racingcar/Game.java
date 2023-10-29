@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Game {
-    private Map<String, Integer> cars = new HashMap<>();
+    private Map<String, Integer> cars;
     private int gameCount;
 
     public void setGameCount(int cnt){
@@ -15,4 +15,7 @@ public class Game {
         cars.put(car, 0);
     }
 
+    public void setCars(Map<String, Integer> cars) {
+        this.cars = cars;
+    }
 }
