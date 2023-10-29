@@ -20,8 +20,7 @@ public class PickWinnerServiceTest {
 	@ParameterizedTest
 	void checkWinner(Cars cars, String winner) {
 		PickWinnerService service = new PickWinnerService();
-		List<Car> winnerList = service.pickWinner(cars);
-		String printWinner = service.printWinner(winnerList);
+		String printWinner = service.printWinner(cars);
 		
 		assertEquals(printWinner, winner, "test");
 	}
