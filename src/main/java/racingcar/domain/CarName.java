@@ -35,7 +35,10 @@ public class CarName {
 
     @Override
     public boolean equals(Object obj) {
-        String opponentCarNameStr = ((CarName) obj).carName;
-        return opponentCarNameStr.equals(this.carName);
+        if (obj.getClass() == CarName.class) {
+            String opponentCarNameStr = ((CarName) obj).carName;
+            return opponentCarNameStr.equals(this.carName);
+        }
+        return false;
     }
 }
