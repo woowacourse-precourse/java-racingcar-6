@@ -51,6 +51,7 @@ public class Controller {
         int roundOfGame = values.getNumberOfAttempts();
         for (int round = 0; round < roundOfGame; round++){
             playRound();
+            printRoundResult();
         }
     }
 
@@ -67,6 +68,10 @@ public class Controller {
         }
     }
 
+    private void printRoundResult() {
+        outputView.printRoundResult(values.getCarNames(), values.getCarPositions());
+    }
+
 
 
 
@@ -81,7 +86,7 @@ public class Controller {
 //
 //        for (int round = 0; round < roundOfGame; round++) { //   처리 완료
 //            playRound(carPositions);
-//            outputView.printRoundResult(values.getCarNames(), carPositions);
+//            outputView.printRoundResult(values.getCarNames(), carPositions); // 처리완료
 //        }
 //        values.determineWinners(carPositions);
 //        outputView.printWinners(values.getWinners());
