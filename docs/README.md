@@ -1,6 +1,6 @@
 # 🏁 컨트롤러
 
-## 📘 CarRacingGame
+## 📘 RacingGame
 
 `Game`를 구현
 
