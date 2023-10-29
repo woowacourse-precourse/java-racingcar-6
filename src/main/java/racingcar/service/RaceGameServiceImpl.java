@@ -22,16 +22,19 @@ public class RaceGameServiceImpl implements RaceGameService{
     @Override
     public void carMoveCheckAndGo(Car car) {
         // 전진하는 조건은 0~9사이에서 무작위 값을 구한 후 무작위 값이 4이상일 경우
-        List<Integer> carPositions = car.getCarPosition();
-        carMoveCheck(car, carPositions);
+        carMoveCheck(car, car.getCarSize());
     }
 
-    private static void carMoveCheck(Car car, List<Integer> carPositions) {
-        for (int i=0; i<carPositions.size(); i++) {
-            if (CarUtil.getRandomValue() >= MORE_THAN_NUMBER) {
+    private static void carMoveCheck(Car car, int size) {
+        for (int i=0; i<size; i++) {
+            if (isCanMove()) {
                 car.carMove(i);
             }
         }
+    }
+
+    private static boolean isCanMove() {
+        return CarUtil.getRandomValue() >= MORE_THAN_NUMBER;
     }
 
     @Override
