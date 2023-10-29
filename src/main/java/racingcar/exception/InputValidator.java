@@ -14,7 +14,7 @@ public class InputValidator {
         }
     }
 
-    public static void validateInputTrialCount(String number) {
+    public static void validateInputTryNumber(String number) {
         if (number.isEmpty()) {
             throw new IllegalArgumentException(EMPTY_INPUT_ERROR_MSG);
         }

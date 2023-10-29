@@ -35,21 +35,21 @@ class InputValidatorTest {
 
     @DisplayName("시도 횟수에 대한 입력값이 비어있지 않고 숫자인 경우 예외가 발생하지 않는다.")
     @Test
-    void validTrialCount_test() {
-        String trialCount = "1";
+    void validTryNumber_test() {
+        String tryNumber = "1";
 
         assertDoesNotThrow(() -> {
-            InputValidator.validateInputTrialCount(trialCount);
+            InputValidator.validateInputTryNumber(tryNumber);
         });
     }
 
     @DisplayName("시도 횟수 입력값이 비어있는 경우 예외가 발생해야 합니다.")
     @Test
-    void invalidTrialCount_empty_exception_test() {
-        String trialCount = "";
+    void invalidTryNumber_empty_exception_test() {
+        String tryNumber = "";
 
         try {
-            InputValidator.validateInputTrialCount(trialCount);
+            InputValidator.validateInputTryNumber(tryNumber);
         } catch (IllegalArgumentException e) {
             assertEquals(EMPTY_INPUT_ERROR_MSG, e.getMessage());
         }
@@ -57,11 +57,11 @@ class InputValidatorTest {
 
     @DisplayName("시도 횟수 입력값이 숫자가 아닌 경우 예외가 발생해야 한다.")
     @Test
-    void invalidTrialCount_character_exception_test() {
-        String trialCount = "c";
+    void invalidTryNumber_character_exception_test() {
+        String tryNumber = "c";
 
         try {
-            InputValidator.validateInputTrialCount(trialCount);
+            InputValidator.validateInputTryNumber(tryNumber);
         } catch (IllegalArgumentException e) {
             assertEquals(CHARACTERS_IN_INPUT_ERROR_MSG, e.getMessage());
         }

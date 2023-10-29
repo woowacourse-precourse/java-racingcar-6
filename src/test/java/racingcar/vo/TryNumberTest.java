@@ -6,33 +6,33 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class TrialCountTest {
+class TryNumberTest {
 
-    public static final Integer MIN_TRIAL = 1;
-    public static final String SMALLER_THAN_MIN_NUMBER_MSG = MIN_TRIAL + " 이상의 정수값만 입력할 수 있습니다.";
+    public static final Integer MIN_TRY_NUMBER = 1;
+    public static final String SMALLER_THAN_MIN_NUMBER_MSG = MIN_TRY_NUMBER + " 이상의 정수값만 입력할 수 있습니다.";
 
     @DisplayName("시도 횟수가 유효한 경우 객체를 생성할 수 있다.")
     @Test
-    void validTrialCount_test() {
+    void validTryNumber_test() {
         // given
-        Integer validCount = MIN_TRIAL;
+        Integer validNumber = MIN_TRY_NUMBER;
 
         // when
-        TrialCount trialCount = assertDoesNotThrow(() -> {
-            return new TrialCount(validCount);
+        TryNumber tryNumber = assertDoesNotThrow(() -> {
+            return new TryNumber(validNumber);
         });
 
         // then
-        assertEquals(validCount, trialCount.number());
+        assertEquals(validNumber, tryNumber.number());
     }
 
     @DisplayName("시도 횟수가 유효하지 않은 경우 객체가 생성되지 않고 예외가 발생한다.")
     @Test
-    void invalidTrialCount_test() {
-        Integer invalidCount = MIN_TRIAL - 1;
+    void invalidTryNumber_test() {
+        Integer invalidNumber = MIN_TRY_NUMBER - 1;
 
         try {
-            TrialCount trialCount = new TrialCount(invalidCount);
+            TryNumber tryNumber = new TryNumber(invalidNumber);
         } catch (IllegalArgumentException e) {
             assertEquals(SMALLER_THAN_MIN_NUMBER_MSG, e.getMessage());
         }

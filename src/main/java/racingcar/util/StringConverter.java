@@ -20,8 +20,8 @@ public class StringConverter {
                 .collect(Collectors.toList());
     }
 
-    public static Integer stringToInteger(String trialCount) {
-        InputValidator.validateInputTrialCount(trialCount);
-        return Integer.parseInt(trialCount);
+    public static Integer stringToInteger(String TryNumber) {
+        InputValidator.validateInputTryNumber(TryNumber);
+        return Integer.parseInt(TryNumber);
     }
 }

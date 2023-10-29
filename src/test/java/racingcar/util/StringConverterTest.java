@@ -17,7 +17,7 @@ class StringConverterTest {
     @Test
     void stringToListByDelimiter_test() {
         // given
-        String input = "Car1,Car2,Car3";
+        String input = "Car1, Car2, Car3";
         List<CarName> expectedList = Arrays.asList(new CarName("Car1"), new CarName("Car2"), new CarName("Car3"));
 
         // when

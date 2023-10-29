@@ -9,8 +9,8 @@ public class InputView {
         return carNames;
     }
 
-    public static String inputTrialCount() {
-        String trialCount = Console.readLine();
-        return trialCount;
+    public static String inputTryNumber() {
+        String TryNumber = Console.readLine();
+        return TryNumber;
     }
 }

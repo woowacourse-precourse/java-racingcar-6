@@ -11,7 +11,7 @@ import racingcar.model.Referee;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 import racingcar.vo.CarName;
-import racingcar.vo.TrialCount;
+import racingcar.vo.TryNumber;
 
 public class RacingGameController {
 
@@ -25,14 +25,14 @@ public class RacingGameController {
 
     public void run() {
         Cars cars = getCarsFromInputView();
-        TrialCount trialCount = getTrialCountFromInputView();
+        TryNumber tryNumber = getTryNumberFromInputView();
 
         Referee referee = new Referee();
 
         RacingGame racingGame = new RacingGame(cars, referee);
         outputView.printResultMessage();
 
-        for (int i = 0; i < trialCount.number(); i++) {
+        for (int i = 0; i < tryNumber.number(); i++) {
             racingGame.runOneTerm();
             List<CarDto> carDtoList = CarDto.toDtoList(cars);
             outputView.printResult(carDtoList);
@@ -48,9 +48,9 @@ public class RacingGameController {
         return new Cars(carNames);
     }
 
-    private TrialCount getTrialCountFromInputView() {
+    private TryNumber getTryNumberFromInputView() {
         outputView.printRequestCountMessage();
-        Integer number = stringToInteger(inputView.inputTrialCount());
-        return new TrialCount(number);
+        Integer number = stringToInteger(inputView.inputTryNumber());
+        return new TryNumber(number);
     }
 }

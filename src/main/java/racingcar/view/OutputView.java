@@ -8,7 +8,7 @@ import racingcar.vo.CarName;
 public class OutputView {
 
     private static final String CAR_NAME_INPUT_MSG = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private static final String TRIAL_COUNT_INPUT_MSG = "시도할 회수는 몇회인가요?";
+    private static final String TRY_NUMBER_INPUT_MSG = "시도할 회수는 몇회인가요?";
     private static final String LINE = "\n";
     private static final String RESULT_MSG = LINE + "실행 결과";
     private static final String SEPARATOR_COLON = " : ";
@@ -21,7 +21,7 @@ public class OutputView {
     }
 
     public void printRequestCountMessage() {
-        System.out.println(TRIAL_COUNT_INPUT_MSG);
+        System.out.println(TRY_NUMBER_INPUT_MSG);
     }
 
     public void printResultMessage() {
@@ -40,7 +40,7 @@ public class OutputView {
         String result = winnerNames.stream()
                 .map(CarName::name)
                 .collect(Collectors.joining(COMMA_SEPARATOR));
-        
+
         System.out.print(WINNER_INFO_MSG + SEPARATOR_COLON + result);
     }
 }
