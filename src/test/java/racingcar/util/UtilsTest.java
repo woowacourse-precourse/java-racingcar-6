@@ -32,4 +32,18 @@ class UtilsTest {
         IntStream.range(0, nameList.size())
                 .forEach(i -> assertThat(getNames.get(i)).isEqualTo(nameList.get(i)));
     }
+
+    @DisplayName("사용자가 입력한 시도 횟수를 정수로 반환한다.")
+    @Test
+    void convertStringToNumber() {
+        // given
+        String tryNumber = "12";
+
+        // when
+        int tryTimes = utils.convertStringToNumber(tryNumber);
+
+        // then
+        assertThat(tryTimes).isEqualTo(12);
+    }
+
 }
