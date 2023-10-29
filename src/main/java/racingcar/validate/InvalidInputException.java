@@ -7,6 +7,7 @@ public class InvalidInputException {
     private static final String EMPTY_EXCEPTION_MESSAGE = "입력값이 비었습니다.";
     private static final String NULL_EXCEPTION_MESSAGE = "입력값이 null입니다.";
     private static final String BLANK_NAME_EXCEPTION_MESSAGE = "자동차 이름은 공백일 수 없습니다.";
+    private static final String SINGLE_CAR_EXCEPTION_MESSAGE = "자동차의 수는 2대 이상이여야만 경주가 가능합니다.";
     private static final String CAR_NAME_OVER_LIMIT_EXCEPTION_MESSAGE = "자동차 이름은 5글자를 초과할 수 없습니다.";
     private static final String DUPLICATION_EXCEPTION_MESSAGE = "동일한 자동차 이름을 여러번 입력할 수 없습니다.";
     private static final String NOT_NUMBER_EXCEPTION_MESSAGE = "이동 시도 횟수는 숫자여야 합니다.";
@@ -19,6 +20,7 @@ public class InvalidInputException {
 
         String[] carNames = input.split(",");
         isBlankName(carNames);
+        isSingleCar(carNames);
         isCarNameOverLimit(carNames);
         isDuplication(carNames);
     }
@@ -47,6 +49,12 @@ public class InvalidInputException {
             if(carName.isBlank()) {
                 throw new IllegalArgumentException(BLANK_NAME_EXCEPTION_MESSAGE);
             }
+        }
+    }
+
+    private void isSingleCar(String[] carNames) {
+        if(carNames.length == 1) {
+            throw new IllegalArgumentException(SINGLE_CAR_EXCEPTION_MESSAGE);
         }
     }
 
