@@ -25,7 +25,7 @@ public class ResultMessage {
     }
 
     private void trim(StringBuilder result) {
-        result.deleteCharAt(0);
+        result.deleteCharAt(Constants.RESULT_FIRST_INDEX);
         result.deleteCharAt(getLastIndexOfResult(result));
     }
 
