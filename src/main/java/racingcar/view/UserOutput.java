@@ -25,7 +25,7 @@ public class UserOutput {
     }
 
     public static void displayCar(Car car) {
-        System.out.println();
+        printNewLine();
         System.out.print(car.getName() + " : ");
 
         for (int i = 0; i < car.getPosition(); i++) {
