@@ -9,12 +9,9 @@ public class Forward {
         return randomsNum;
     }
 
-    public int canForward() {
+    public boolean canForward() {
         int randomsNum = randomNums();
-        if(randomsNum >= 4) {
-            forward++;
-        }
-        return forward;
+        return randomsNum >= 4;
     }
 
 
