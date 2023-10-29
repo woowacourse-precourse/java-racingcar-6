@@ -47,6 +47,15 @@ class InputViewTest {
                                 .isInstanceOf(IllegalArgumentException.class)
                 );
             }
+
+            @Test
+            @DisplayName("중복된 이름 테스트")
+            void duplicatedCarNamesExceptionTest() {
+                assertSimpleTest(() ->
+                        assertThatThrownBy(() -> runException(CarNameTest.DUPLICATE_CAR_NAMES_TEST))
+                                .isInstanceOf(IllegalArgumentException.class)
+                );
+            }
         }
 
         @Override
