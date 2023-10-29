@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import racingcar.logic.RacingGameLogic;
-import racingcar.logic.WinnnerLogic;
+import racingcar.logic.WinnerLogic;
 import racingcar.repository.Player;
 import racingcar.repository.PlayerRepository;
 import racingcar.validation.Validation;
@@ -13,7 +13,7 @@ import racingcar.validation.Validation;
 public class User {
     private final PlayerRepository playerRepository = new PlayerRepository();
     private final RacingGameLogic racingGameLogic = new RacingGameLogic();
-    private final WinnnerLogic winnnerLogic = new WinnnerLogic();
+    private final WinnerLogic winnerLogic = new WinnerLogic();
     private final Validation validation = new Validation();
 
     public void run() {
@@ -44,7 +44,7 @@ public class User {
 
         System.out.println("실행 결과");
         Map<String, Integer> updatedPlayers = racingGameLogic.forwardLogic(playerRepository.getPlayers(), tryCount);
-        List<String> winners = winnnerLogic.finalWinner(updatedPlayers);
+        List<String> winners = winnerLogic.finalWinner(updatedPlayers);
 
         String result = String.join(",", winners);
         System.out.println("최종 우승자 : " + result);
