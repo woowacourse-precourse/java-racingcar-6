@@ -12,7 +12,6 @@ public class InputValidator {
         }
     }
 
-
     public static void checkNameNull(String[] names){
         if(Arrays.stream(names).anyMatch(name -> name.trim().isEmpty())){
             throw new IllegalArgumentException("자동차 이름은 공백일 수 없습니다.");
