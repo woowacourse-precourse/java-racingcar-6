@@ -5,7 +5,6 @@ public final class RoundDtoMapper {
     }
 
     public static int mapToRound(RoundDto roundDto) {
-
-        return 0;
+        return Integer.parseInt(roundDto.roundInput());
     }
 }
