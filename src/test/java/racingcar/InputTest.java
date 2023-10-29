@@ -3,6 +3,7 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static racingcar.Exception.INVALID_CAR_NAME_LENGTH_MESSAGE;
+import static racingcar.Exception.INVALID_CAR_NUMBER_MESSAGE;
 import static racingcar.Input.getCarName;
 
 import org.junit.jupiter.api.Assertions;
@@ -29,13 +30,24 @@ public class InputTest {
     @ParameterizedTest
     @ValueSource(strings = {"car1,car2,overFiveCharacters"})
     void getCarNameLengthExceptionTest(String userInput) {
-    InputStream userInputStream = generateByteArrayInputStream(userInput);
-    System.setIn(userInputStream);
-    try {
-        getCarName();
-    } catch (IllegalArgumentException illegalArgumentException) {
-        Assertions.assertEquals(INVALID_CAR_NAME_LENGTH_MESSAGE, illegalArgumentException.getMessage());
+        InputStream userInputStream = generateByteArrayInputStream(userInput);
+        System.setIn(userInputStream);
+        try {
+            getCarName();
+        } catch (IllegalArgumentException illegalArgumentException) {
+            Assertions.assertEquals(INVALID_CAR_NAME_LENGTH_MESSAGE, illegalArgumentException.getMessage());
+        }
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {""})
+    void getCarNameEmptyExceptionTest(String userInput) {
+        InputStream userInputStream = generateByteArrayInputStream(userInput);
+        System.setIn(userInputStream);
+        try {
+            getCarName();
+        } catch (IllegalArgumentException illegalArgumentException) {
+            Assertions.assertEquals(INVALID_CAR_NUMBER_MESSAGE, illegalArgumentException.getMessage());
+        }
     }
 }
