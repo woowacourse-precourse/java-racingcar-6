@@ -1,5 +1,8 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.StringTokenizer;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
@@ -12,6 +15,7 @@ public class Application {
 	public class PlayerInfo{
 		private String name;
 		private int loc;
+		
 		public PlayerInfo(String name, int loc) {
 			this.name = name;
 			this.loc = loc;
@@ -38,6 +42,7 @@ public class Application {
 			playerData[i] = new PlayerInfo(st.nextToken(), 0);
 			i++;
 		}
+		run();
 	}
 	
 	public void move() {
@@ -79,6 +84,23 @@ public class Application {
 				j++;
 			}
 		}
+	}
+	
+	public void printWinner() {
+		System.out.print("최종 우승자 : ");
+		List<String> winner = new ArrayList<String>(Arrays.asList(winnerArr));
+		String result = String.join(", ", winner);
+		System.out.println(result);
+	}
+	
+	public void run() {
+		System.out.println("\n실행결과");
+		for (int i=0; i<tryNumber; i++) {
+			move();
+			printCurrent();
+		}
+		makeWinnerArr(findMaxValue());
+		printWinner();
 	}
 	
     public static void main(String[] args) {
