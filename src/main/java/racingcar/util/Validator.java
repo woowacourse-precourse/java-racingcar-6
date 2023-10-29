@@ -6,6 +6,7 @@ import java.util.List;
 public class Validator {
 
     private static final int CAR_NAME_MAX_LENGTH = 5;
+    private static final int NUM_TRIAL_MIN_VALUE = 1;
 
     public void validateCarNamesInput(String carNamesInput) {
         validateInputIsNotEmpty(carNamesInput);
@@ -24,7 +25,7 @@ public class Validator {
     }
 
     private void validateInputIsNotZeroOrNegative(String numTrialInput) {
-        if (Integer.parseInt(numTrialInput) <= 0) {
+        if (Integer.parseInt(numTrialInput) < NUM_TRIAL_MIN_VALUE) {
             throw new IllegalArgumentException("입력값은 1 이상이어야 합니다.");
         }
     }
