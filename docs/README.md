@@ -6,18 +6,18 @@
 
 #### Set the Entry List
 - [x] n대의 자동차 이름을 저장한다. - registering()
-    - [x] 각각의 자동차 이름은 쉼표(,)를 통해 구분한다. - `.spiit(",")`
-    - [x] 자동차 이름이 5자 이상이면 `IllegalArgumentException`
+  - [x] 각각의 자동차 이름은 쉼표(,)를 통해 구분한다. - `.spiit(",")`
+  - [x] 자동차 이름이 5자 이상이면 `IllegalArgumentException` - exception.Checker.lenCheck()
 
 #### Laps
-- [ ] n대의 자동차가 몇 번의 이동을 할 것인지 입력한다. - setLaps()
-  - [ ] 숫자가 아니면 `IllegalArgumentException`
+- [x] n대의 자동차가 몇 번의 이동을 할 것인지 입력한다. - setLaps()
+  - [x] 숫자가 아니면 `IllegalArgumentException` - exception.Checker.typeCheck()
 
 
 ### Output
 
 #### Racing Start
-- [ ] 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다. - broadcast()
+- [ ] 입력 받은 횟수만큼 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다. - broadcast()
   - [ ] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다. - `Randoms`
 
 #### Winner Prize
