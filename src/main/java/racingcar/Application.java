@@ -13,10 +13,10 @@ public class Application {
         announce(GAME_PROGRESS_STATEMENT.INPUT_CAR_NAME);
         racingCarHost = GameHost.addCars(inputCarNames());
         announce(GAME_PROGRESS_STATEMENT.TRY_COUNT);
-        final int moveCount = inputMoveCount();
+        final int MOVING_FORWARD = inputMovingForward();
 
         announce(GAME_PROGRESS_STATEMENT.GAME_RESULT);
-        for (int i = 1; i <= moveCount; i++) {
+        for (int i = 1; i <= MOVING_FORWARD; i++) {
             racingCarHost.playOneTurn();
             System.out.println();
         }
@@ -25,7 +25,7 @@ public class Application {
         announce(racingCarHost.announceWinner());
     }
 
-    private static int inputMoveCount() {
+    private static int inputMovingForward() {
         try {
             return Integer.parseInt(Console.readLine());
         } catch (NumberFormatException e) {
