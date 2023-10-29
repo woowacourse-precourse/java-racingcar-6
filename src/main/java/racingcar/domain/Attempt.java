@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 import static racingcar.constant.ExceptionMessage.BLANK_EXCEPTION;
-import static racingcar.constant.ExceptionMessage.NON_NUMBER_EXCEPTION;
+import static racingcar.constant.ExceptionMessage.NON_INTEGER_EXCEPTION;
 import static racingcar.constant.ExceptionMessage.NON_POSITIVE_NUMBER_EXCEPTION;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -39,7 +39,7 @@ public class Attempt {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(NON_NUMBER_EXCEPTION);
+            throw new IllegalArgumentException(NON_INTEGER_EXCEPTION);
         }
     }
 
