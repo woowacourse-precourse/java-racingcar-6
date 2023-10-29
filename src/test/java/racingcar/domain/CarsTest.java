@@ -119,8 +119,8 @@ class CarsTest {
                 .max().getAsInt();
 
         List<String> carList = cars.getCars()
-                .stream().filter(car -> car.getPosition() == maxPosition)
-                .map(car -> car.getName())
+                .stream().filter(car -> car.getPosition().equals(maxPosition))
+                .map(Car::getName)
                 .toList();
 
         assertThat(cars.findWinnerNameList())
