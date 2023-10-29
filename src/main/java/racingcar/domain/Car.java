@@ -13,7 +13,7 @@ public class Car implements Comparable<Car> {
 
     public void move() {
         if (accelerator.press()) {
-            movedCount++;
+            this.movedCount++;
         }
     }
 
