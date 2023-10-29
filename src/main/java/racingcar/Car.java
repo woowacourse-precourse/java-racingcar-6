@@ -8,8 +8,12 @@ public class Car {
         this.name = name;
     }
 
-    void advance() {
-        this.gauge++;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setGauge(int gauge) {
+        this.gauge = gauge;
     }
 
     String getName() {
