@@ -6,19 +6,20 @@ import java.util.Arrays;
 import java.util.List;
 import racingcar.exception.ExceptionCheck;
 import racingcar.model.CarModel;
+import racingcar.model.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingController {
 
-    private CarController carController;
+    private Cars cars;
     private int repeatNumber;
 
     public void carNamesProcess() {
         OutputView.printCarNameDemand();
         List<String> carList = Arrays.asList(InputView.inputCarName().split(","));
 
-        this.carController = new CarController(carList);
+        this.cars = new Cars(carList);
     }
 
     public void repeatNumberProcess() {
@@ -30,11 +31,11 @@ public class RacingController {
     public void racingStart() {
         OutputView.printResult();
         for (int i = 0; i < repeatNumber; i++) {
-            carController.carForward();
+            cars.carForward();
         }
     }
 
     public void resultWinner() {
-        OutputView.printWinner(carController.winnerCheck(repeatNumber));
+        OutputView.printWinner(cars.winnerCheck(repeatNumber));
     }
 }

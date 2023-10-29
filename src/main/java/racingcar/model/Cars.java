@@ -1,25 +1,20 @@
-package racingcar.controller;
-
-import static racingcar.exception.ExceptionCheck.nameLengthValidation;
+package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.exception.ExceptionCheck;
-import racingcar.model.CarModel;
 import racingcar.view.OutputView;
 
-public class CarController {
+public class Cars {
+    private final List<CarModel> carModelList = new ArrayList<>();
 
-    private List<CarModel> carModelList = new ArrayList<>();
-
-    public CarController(List<String> carList) {
+    public Cars(List<String> carList) {
         for (String s : carList) {
             ExceptionCheck.nameLengthValidation(s);
             this.carModelList.add(new CarModel(s));
         }
     }
-
     public void carForward() {
         for ( CarModel carModel : carModelList) {
             if (forwardCheck()) {
