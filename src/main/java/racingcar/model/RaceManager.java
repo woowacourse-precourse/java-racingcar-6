@@ -3,9 +3,12 @@ package racingcar.model;
 import java.util.List;
 
 public class RaceManager {
+
+    private static final int MIN_NUMBER_OF_MOVE = 0;
+
     public static int validateNumberOfMove(String numberOfMove) {
         int number = toNumber(numberOfMove);
-        if (number < 0) {
+        if (number < MIN_NUMBER_OF_MOVE) {
             throw new IllegalArgumentException();
         }
         return number;

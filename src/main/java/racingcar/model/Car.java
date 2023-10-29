@@ -5,12 +5,17 @@ import racingcar.dto.MoveResultDto;
 
 public class Car {
 
+    private static final int START_LOCATION = 0;
+    private static final int MOVE_FORWARD_NUMBER = 4;
+    private static final int MIN_RANDOM_NUMBER = 0;
+    private static final int MAX_RANDOM_NUMBER = 9;
+    
     private final String name;
     private Integer location;
 
     private Car(String name) {
         this.name = name;
-        this.location = 0;
+        this.location = START_LOCATION;
     }
 
     public static Car withName(String name) {
@@ -23,11 +28,11 @@ public class Car {
     }
 
     protected int generateRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
     }
 
     protected void moveOrStop(int randomNumber) {
-        if (randomNumber >= 4) {
+        if (randomNumber >= MOVE_FORWARD_NUMBER) {
             location++;
         }
     }

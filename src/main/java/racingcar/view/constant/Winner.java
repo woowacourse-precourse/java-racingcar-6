@@ -4,10 +4,13 @@ import java.util.List;
 
 public class Winner implements Message {
 
+    private static final String WINNER_ANNOUNCEMENT_PREFIX = "최종 우승자 : ";
+    private static final String DELIMITER = ", ";
+
     private final String winner;
 
     private Winner(List<String> winnerList) {
-        winner = "최종 우승자 : " + String.join(", ", winnerList);
+        winner = WINNER_ANNOUNCEMENT_PREFIX + String.join(DELIMITER, winnerList);
     }
 
     public static Winner announcement(List<String> winnerList) {

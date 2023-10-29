@@ -5,8 +5,11 @@ import java.util.List;
 
 public class CarCreator {
 
+    private static final String DELIMITER = ",";
+    private static final int MAX_CAR_NAME_LENGTH = 5;
+
     public static List<String> splitCarNamesString(String carNamesString) {
-        return arrayToList(carNamesString.split(","));
+        return arrayToList(carNamesString.split(DELIMITER));
     }
 
     public static void validateCarNames(List<String> carNames) {
@@ -24,7 +27,7 @@ public class CarCreator {
     }
 
     private static void validateCarName(String carName) {
-        if (carName.isEmpty() || carName.length() > 5) {
+        if (carName.isEmpty() || carName.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
     }

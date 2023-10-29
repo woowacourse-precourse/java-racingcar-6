@@ -6,6 +6,10 @@ import racingcar.dto.MoveResultDto;
 
 public class Result implements Message {
 
+    private static final String MOVE_SYMBOL = "-";
+    private static final String COLON = " : ";
+    private static final String NEW_LINE = "\n";
+
     private final String result;
 
     private Result(List<MoveResultDto> moveResultDtos) {
@@ -19,8 +23,8 @@ public class Result implements Message {
     }
 
     private String createResult(MoveResultDto moveResultDto) {
-        String location = "-".repeat(moveResultDto.getLocation());
-        return moveResultDto.getName() + " : " + location + "\n";
+        String location = MOVE_SYMBOL.repeat(moveResultDto.getLocation());
+        return moveResultDto.getName() + COLON + location + NEW_LINE;
     }
 
     @Override
