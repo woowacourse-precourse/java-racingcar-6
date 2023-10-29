@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.dto.CarDto;
+
 import java.util.Objects;
 
 public class Car {
@@ -22,6 +24,10 @@ public class Car {
 
     public int comparePosition(Car compareCar) {
         return this.position - compareCar.position;
+    }
+
+    public CarDto toDto() {
+        return new CarDto(name, position);
     }
 
     public Integer getPosition() {
