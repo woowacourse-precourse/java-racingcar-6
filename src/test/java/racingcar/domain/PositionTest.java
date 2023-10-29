@@ -18,4 +18,33 @@ class PositionTest {
         // then
         Assertions.assertThat(position.getLawPosition()).isEqualTo(1);
     }
+
+    @Test
+    @DisplayName("Position 비교 결과 동일")
+    void compareToSameTest() {
+        // given
+        Position position1 = new Position();
+        Position position2 = new Position();
+
+        // when
+        int result = position1.compareTo(position2);
+
+        // then
+        Assertions.assertThat(result).isEqualTo(0);
+    }
+
+    @Test
+    @DisplayName("Position 비교 결과 다름")
+    void compareToDifferentTest() {
+        // given
+        Position position1 = new Position();
+        Position position2 = new Position();
+
+        // when
+        position1.move();
+        int result = position1.compareTo(position2);
+
+        // then
+        Assertions.assertThat(result).isEqualTo(1);
+    }
 }
