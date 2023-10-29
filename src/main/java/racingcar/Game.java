@@ -2,62 +2,64 @@ package racingcar;
 
 import player.Player;
 import user.User;
-import utils.Create;
+import utils.Factory;
+import utils.MapUtils;
 
 import java.util.*;
 
-public class Game {
-    List<String> players;
+final class Game {
+    List<Player> players;
 
     public Game() {
+    }
+
+    public void start() {
         Output.printGameStartMessage();
-        this.players = User.playerNameInput();
+
+        List<String> playersName = User.inputPlayerName();
+        Output.printPlayersName(playersName);
+
+        players = Factory.createPlayersArray(playersName);
+
+        assignNewCarToEachPlayer();
     }
 
     public void play() {
-        Output.printPlayersName(this.players);
-
         Output.printTryCountMessage();
-        String tryNumber = User.tryNumberInput();
+        String tryNumber = User.inputTryNumber();
         Output.printTryCount(tryNumber);
 
-        List<Player> playerObjectArray = Create.playerObjectArray(this.players);
+        playRounds(Integer.parseInt(tryNumber));
+    }
 
-        playRounds(playerObjectArray, Integer.parseInt(tryNumber));
-
-        Map<String, Integer> playerDistanceMap = Create.playerDistanceMapping(playerObjectArray);
-        int maxDistance = getMaxDistance(playerDistanceMap);
-
-        List<String> winners = findFindWinner(playerDistanceMap, maxDistance);
-
+    public void end() {
+        List<String> winners = findFinalWinner();
         Output.printFinalWinner(winners);
     }
 
-    private void playRounds(List<Player> playerObjects, int tryNumber) {
+    private void assignNewCarToEachPlayer() {
+        for (Player player : players) {
+            player.selectNewCar();
+        }
+    }
+
+    private void playRounds(int tryNumber) {
         for (int round = 1; round <= tryNumber; round++) {
-            raceCars(playerObjects);
+            playRound();
+            Output.printPlayersStatus(players);
         }
     }
 
-    private void raceCars(List<Player> playerObjects) {
-        for (Player car : playerObjects) {
-            car.move(Create.randomNumber());
-            Output.printRaceCar(car.getPlayerName(), car.getDist());
+    private void playRound() {
+        for (Player player : players) {
+            player.play();
         }
-        System.out.println();
     }
 
-    private int getMaxDistance(Map<String, Integer> playerDistanceMap) {
-        return Collections.max(playerDistanceMap.values());
-    }
-
-    private List<String> findFindWinner(Map<String, Integer> playerDistanceMap, int maxDistance) {
-        List<String> winners = new ArrayList<>();
-        for (Map.Entry<String, Integer> entry : playerDistanceMap.entrySet()) {
-            if (entry.getValue() == maxDistance) {
-                winners.add(entry.getKey());
-            }
-        }
-        return winners;
+    private List<String> findFinalWinner() {
+        Map<String, Integer> playerDistanceMap = Factory.createPlayerDistanceMap(players);
+        int maxDistance = MapUtils.getMaxValue(playerDistanceMap);
+        List<String> winnersName = MapUtils.getKeysForValue(playerDistanceMap, maxDistance);
+        return winnersName;
     }
 }
