@@ -3,7 +3,6 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
@@ -28,5 +27,6 @@ public class Application {
             }
             System.out.println();
         }
+        carRace.printWinner(contestants, move);
     }
 }
