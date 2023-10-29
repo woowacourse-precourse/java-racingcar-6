@@ -21,15 +21,18 @@ public class Application {
             // 자동차의 수 X 라운드의 수 만큼 0을 초기값으로 갖는 배열 생성
             int[][] location = saveLocation(cars, rounds);
             System.out.println("\n실행 결과");
-
+            // 기능 5-1. 입력 받은 라운드 수만큼 전진할지 정지할지 결정하여 int[][] location에 저장하고 매 라운드마다 자동차별 진행 상황 프린트
+            for(int round = 0; round < rounds; round++ ){
+                    playRound(cars, rounds, location);
+            }
+            // 기능 6-1. 기능 7을 고려하여 우승자가 여럿일 경우 쉼표를 이용해 구분하여 출력하는 기능을 printWinner와 getWinners 함수로 구현
+            printWinner(cars, rounds, location);
     }
 
     // 기능 1-1. 자동차의 이름을 입력 받아 몇 대(n)의 자동차로 경기를 할 것인지 입력 받기
     public static String getInput(){
-            Scanner scanner = new Scanner(System.in);
             System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-            String input = scanner.nextLine();
-            scanner.close();
+            String input = Console.readLine();
             return input;
     }
 
@@ -40,7 +43,7 @@ public class Application {
                 throw new IllegalArgumentException();
             }
             for (String car : cars) {
-                if (car.length() == 0){
+                if (car.isEmpty()){
                     System.out.println("자동차 이름이 공란이어서는 안됩니다.");
                     throw new IllegalArgumentException();
                 }
@@ -55,7 +58,7 @@ public class Application {
     public static int getNumberOfRounds(){
             System.out.print("시도할 회수는 몇회인가요?");
             Scanner scanner = new Scanner(System.in);
-            int rounds = scanner.nextInt();
+            int rounds = Integer.parseInt(Console.readLine());
             scanner.close();
             return rounds;
     }
@@ -103,11 +106,11 @@ public class Application {
     }
 
     // 기능 6-1. 기능 7을 고려하여 우승자가 여럿일 경우 쉼표를 이용해 구분하여 출력하는 기능을 printWinner와 getWinners 함수로 구현
-    public static void printWinner(String[] cars, int[][] location, int rounds) {
-            System.out.println("\n최종 우승자: " + getWinners(cars, location, rounds));
+    public static void printWinner(String[] cars, int rounds, int[][] location) {
+            System.out.println("\n최종 우승자: " + getWinners(cars, rounds, location));
     }
     // 기능 6-1. 기능 7을 고려하여 우승자가 여럿일 경우 쉼표를 이용해 구분하여 출력하는 기능을 printWinner와 getWinners 함수로 구현
-    public static String getWinners(String[] cars, int[][] location, int rounds){
+    public static String getWinners(String[] cars, int rounds, int[][] location){
             int numOfCars = cars.length;
             StringBuilder winners = new StringBuilder();
             int maxPosition = -1;
@@ -121,7 +124,7 @@ public class Application {
 
             for (int index = 0; index < numOfCars; index++) {
                     if (location[index][rounds - 1] == maxPosition) {
-                            if (winners.length() > 0) {
+                            if (!winners.isEmpty()) {
                                     winners.append(", ");
                             }
                             winners.append(cars[index]);
