@@ -7,40 +7,57 @@ import racingcar.view.OutputView;
 
 import java.util.List;
 
-public class GameController {
+public class Game {
 
     private final static int MAX_NAME_LENGTH = 5;
+    private final Race race;
+    private final Round round;
 
-    public void run() {
+    public Game() {
         String namesInput = InputView.readCarNames();
         validateNamesInput(namesInput);
-        Race race = new Race(namesInput);
+        race = new Race(namesInput);
 
         String roundInput = InputView.readRoundNumber();
         validateRoundInput(roundInput);
-        Round round = new Round(roundInput);
+        round = new Round(roundInput);
+    }
 
+    public void run() {
         OutputView.printResultStartMessage();
+        List<String> carNames = race.getCarNames();
 
         while (round.isRemaining()) {
             race.moveCars();
-            OutputView.printRoundResult(race);
+
+            List<Integer> roundResult = race.getRoundResult();
+            OutputView.printRoundResult(carNames, roundResult);
+
             round.subtractOne();
         }
 
-        OutputView.printGameWinners(race);
+        List<String> winners = race.getWinners();
+        OutputView.printGameWinners(winners);
     }
 
     private void validateNamesInput(String namesInput) {
         String[] inputSplit = namesInput.split(",");
         List<String> nameList = List.of(inputSplit);
         for (String name : nameList) {
-            if (name.isEmpty()) {
-                throw new IllegalArgumentException("빈 이름이 존재함니다.");
-            }
-            if (name.length() > MAX_NAME_LENGTH) {
-                throw new IllegalArgumentException("5글자를 초과한 이름이 입력되었습니다.");
-            }
+            checkEmpty(name);
+            checkLength(name);
+        }
+    }
+
+    private void checkEmpty(String name) {
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException("빈 이름이 존재함니다.");
+        }
+    }
+
+    private void checkLength(String name) {
+        if (name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException("5글자를 초과한 이름이 입력되었습니다.");
         }
     }
 
