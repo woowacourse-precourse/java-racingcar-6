@@ -17,7 +17,7 @@
 
 ## 🗺️ 객체 관계도
 
-![java-racingcar-6.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/c57a31b1-ab99-4371-bca4-3ae8d0b066a9/6dd624ac-7107-4736-b1e7-65dc13e82e7a/java-racingcar-6.jpg)
+![java-racingcar-6.jpg](./image/java-racingcar-6.jpg)
 
 ## 📑 필요 기능 목록
 
