@@ -17,19 +17,27 @@ public class Car {
     }
 
     public CarDTO playRound() {
-        if(isMoving()){
-            move();
-        }
+        int randNum = getRandNum();
+        move(randNum);
         return CarDTO.from(this);
     }
 
-    private void move() {
+    public void move(int randNum) {
+        if (isMoving(randNum)) {
+            addDistance();
+        }
+    }
+
+    private void addDistance() {
         this.distance += 1;
     }
 
-    private boolean isMoving() {
-        int num = Randoms.pickNumberInRange(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
-        return num >= CONDITION_FOR_FORWARD;
+    private boolean isMoving(int randNum) {
+        return randNum >= CONDITION_FOR_FORWARD;
+    }
+
+    private int getRandNum(){
+        return Randoms.pickNumberInRange(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
     }
 
     public int getDistance() {
