@@ -1,7 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.RacingGame;
+import racingcar.controller.RacingGame;
 
 public class Application {
     public static void main(String[] args) {
@@ -17,6 +17,8 @@ public class Application {
         game.play(rounds);
 
         System.out.printf("최종 우승자 : %s", game.getWinners());
+
+        Console.close();
 
     }
 }
