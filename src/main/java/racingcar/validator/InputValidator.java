@@ -27,4 +27,12 @@ public class InputValidator {
             throw new IllegalArgumentException("시도 횟수는 비어있으면 안됩니다.");
         }
     }
+
+    public void validateTryNumberIsNumber(String tryNumber) {
+        try {
+            Integer.parseInt(tryNumber);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도 횟수는 숫자로 된 문자열 입니다.");
+        }
+    }
 }
