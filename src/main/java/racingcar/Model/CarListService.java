@@ -5,21 +5,27 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class CarList {
+public class CarListService {
 	private final String ENTERED_LIST_SEPARATOR = ",";
-	private final List<Car> carList = new ArrayList<>();
+	private final List<Car> CAR_LIST = new ArrayList<>();
 
-	public CarList(String enteredList) {
+	public List<Car> makeCarList(String enteredList) {
 
 		String[] splitEnteredList = splitEnteredList(enteredList);
 
 		for (String eachCarName : splitEnteredList) {
 
 			validateCarName(eachCarName);
-			carList.add(new Car(eachCarName.trim()));
+			CAR_LIST.add(new Car(eachCarName.trim()));
 
 		}
 
+		return CAR_LIST;
+
+	}
+
+	private String[] splitEnteredList(String enteredList) {
+		return enteredList.split(ENTERED_LIST_SEPARATOR);
 	}
 
 	private void validateCarName(String eachCarName) {
@@ -34,14 +40,10 @@ public class CarList {
 
 	public void moveCarList() {
 
-		for (Car eachCar : carList) {
+		for (Car eachCar : CAR_LIST) {
 			eachCar.move();
 		}
 
-	}
-
-	private String[] splitEnteredList(String enteredList) {
-		return enteredList.split(ENTERED_LIST_SEPARATOR);
 	}
 
 	public String findWinner() {
@@ -54,7 +56,7 @@ public class CarList {
 	private List<Car> makeWinnerList() {
 
 		Set<Car> removeList = makeRemoveList();
-		List<Car> winnerList = carList;
+		List<Car> winnerList = CAR_LIST;
 
 		for (Car removedCar : removeList) {
 			winnerList.remove(removedCar);
@@ -68,8 +70,8 @@ public class CarList {
 
 		Set<Car> removeList = new HashSet<>();
 
-		for (int i = 0; i < carList.size(); i++) {
-			for (int j = 0; j < carList.size(); j++) {
+		for (int i = 0; i < CAR_LIST.size(); i++) {
+			for (int j = 0; j < CAR_LIST.size(); j++) {
 
 				addRemoveList(removeList, i, j);
 
@@ -82,7 +84,7 @@ public class CarList {
 	private void addRemoveList(Set<Car> removeList, int referenceIndex, int comparableIndex) {
 
 		if (isRemovedCar(referenceIndex, comparableIndex)) {
-			removeList.add(carList.get(referenceIndex));
+			removeList.add(CAR_LIST.get(referenceIndex));
 		}
 
 	}
@@ -91,7 +93,7 @@ public class CarList {
 
 		final int COMPARE_EQUAL_SIGN = 0;
 
-		return carList.get(referenceIndex).compareDistance(carList.get(comparableIndex)) < COMPARE_EQUAL_SIGN;
+		return CAR_LIST.get(referenceIndex).compareDistance(CAR_LIST.get(comparableIndex)) < COMPARE_EQUAL_SIGN;
 	}
 
 	private String toStringWinner(List<Car> winnerList) {
@@ -107,14 +109,6 @@ public class CarList {
 		}
 
 		return winner.toString();
-	}
-
-	public Car getEachCar(int index) {
-		return carList.get(index);
-	}
-
-	public int size() {
-		return carList.size();
 	}
 
 }

@@ -1,15 +1,19 @@
 package racingcar.Controller;
 
+import java.util.List;
+
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.Model.CarList;
+import racingcar.Model.Car;
+import racingcar.Model.CarListService;
 import racingcar.View.InputView;
 import racingcar.View.OutputView;
 
 public class GameController {
+	CarListService carListService = new CarListService();
 
 	public void playGame() {
 
-		CarList carList = CarListMaker.makeList();
+		List<Car> carList = inputCarList();
 		int attemptCount = inputAttemptCount();
 
 		System.out.println();
@@ -17,7 +21,7 @@ public class GameController {
 
 		conductRound(attemptCount, carList);
 
-		String winnerList = carList.findWinner();
+		String winnerList = carListService.findWinner();
 
 		OutputView.printWinner(winnerList);
 
@@ -32,14 +36,21 @@ public class GameController {
 
 	}
 
-	private void conductRound(int attemptCount, CarList carList) {
+	private void conductRound(int attemptCount, List<Car> carList) {
 
 		for (int i = 0; i < attemptCount; i++) {
 
-			carList.moveCarList();
+			carListService.moveCarList();
 			OutputView.printEachRound(carList);
 
 		}
+	}
+
+	private List<Car> inputCarList() {
+		InputView.printCarList();
+		String enteredCarList = Console.readLine();
+
+		return carListService.makeCarList(enteredCarList);
 	}
 
 }

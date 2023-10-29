@@ -1,6 +1,8 @@
 package racingcar.View;
 
-import racingcar.Model.CarList;
+import java.util.List;
+
+import racingcar.Model.Car;
 
 public class OutputView {
 	final static String GRAPH_UNIT = "-";
@@ -12,10 +14,10 @@ public class OutputView {
 		System.out.println(RESULT_MESSAGE);
 	}
 
-	public static void printEachRound(CarList carList) {
+	public static void printEachRound(List<Car> carList) {
 
-		for (int i = 0; i < carList.size(); i++) {
-			System.out.println(carList.getEachCar(i) + MESSAGE_SEPARATOR + carList.getEachCar(i).makeDistanceGraph(GRAPH_UNIT));
+		for (Car eachCar : carList) {
+			System.out.println(eachCar.checkStatus(GRAPH_UNIT));
 		}
 
 		System.out.println();

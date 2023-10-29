@@ -33,7 +33,15 @@ public class Car {
 		return this.distance - other.distance;
 	}
 
-	public String makeDistanceGraph(String graphUnit) {
+	public String checkStatus(String graphUnit) {
+
+		StringBuilder status = new StringBuilder();
+		status.append(name).append(" : ").append(makeDistanceGraph(graphUnit));
+
+		return status.toString();
+	}
+
+	private String makeDistanceGraph(String graphUnit) {
 		return graphUnit.repeat(distance);
 	}
 
