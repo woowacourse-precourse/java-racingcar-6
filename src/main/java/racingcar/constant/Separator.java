@@ -1,10 +1,17 @@
 package racingcar.constant;
 
-public class Separator {
-    private Separator() {
+public enum Separator {
+    INPUT_CAR_SEPARATOR(","),
+    OUTPUT_CAR_SEPARATOR(", "),
+    KEY_VALUE_SEPARATOR(" : ");
+
+    private final String separator;
+
+    Separator(String separator) {
+        this.separator = separator;
     }
 
-    public static final String INPUT_CAR_SEPARATOR = ",";
-    public static final String OUTPUT_CAR_SEPARATOR = ", ";
-    public static final String KEY_VALUE_SEPARATOR = " : ";
+    public String getSeparator() {
+        return separator;
+    }
 }
