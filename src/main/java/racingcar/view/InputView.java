@@ -21,7 +21,7 @@ public class InputView {
         String[] names = input.split(",");
         List<String> namesList = List.of(names);
         if (!Validation.names(namesList))
-            throw new IllegalArgumentException(Messages.ILLEGAL_INPUT_ANNOUNCEMENT.getMessage());
+            throw new IllegalArgumentException(Messages.ILLEGAL_NAME_ANNOUNCEMENT.getMessage());
         return namesList;
     }
 
@@ -31,7 +31,7 @@ public class InputView {
         try {
             return Long.parseLong(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(Messages.ILLEGAL_INPUT_ANNOUNCEMENT.getMessage());
+            throw new IllegalArgumentException(Messages.ILLEGAL_NUMBER_ANNOUNCEMENT.getMessage());
         }
     }
 }

@@ -8,7 +8,12 @@ public enum Messages {
     GAME_TURN_INPUT_ANNOUNCEMENT("시도할 회수는 몇회인가요?\n"),
     GAME_RESULT_ANNOUNCEMENT("실행 결과\n"),
     WINNER_ANNOUNCEMENT("최종 우승자 : "),
-    ILLEGAL_INPUT_ANNOUNCEMENT("입력 형식이 잘못되었습니다\n");
+    ILLEGAL_NAME_ANNOUNCEMENT("이름 형식이 잘못되었습니다\n"),
+    ILLEGAL_NUMBER_ANNOUNCEMENT("숫자 형식이 아닙니다\n");
+
+
+    
+
 
     private final String message;
 
