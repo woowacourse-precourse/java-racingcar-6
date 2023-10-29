@@ -54,7 +54,7 @@ public class InputValidator {
     }
 
     private void isNameEndWithComma(String input) {
-        if(input.charAt(input.length()-1) == ',') {
+        if(input.length() > 0 && input.charAt(input.length()-1) == ',') {
             throw new IllegalArgumentException(INPUT_CONTAIN_BLANK);
         }
     }
