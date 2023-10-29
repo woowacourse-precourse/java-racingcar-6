@@ -44,4 +44,12 @@ class ValidatorTest {
         assertThrows(IllegalArgumentException.class, () ->
                 validator.validateCarName(" he l"));
     }
+
+    @Test
+    @DisplayName("차의 이름이 중복되는 경우")
+    void carNamesDuplicated(){
+        String[] cars = {"test", "hello", "test"};
+        assertThrows(IllegalArgumentException.class, ()->
+                validator.validateCarNamesDuplicated(cars));
+    }
 }

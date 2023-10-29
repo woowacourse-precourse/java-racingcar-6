@@ -22,4 +22,8 @@ public class Validator {
             throw new IllegalArgumentException("자동차 이름에 공백이 존재합니다.");
         }
     }
+
+    public void validateCarNamesDuplicated(String[] cars) {
+        throw new IllegalArgumentException("중복된 자동차 이름이 존재합니다.");
+    }
 }
