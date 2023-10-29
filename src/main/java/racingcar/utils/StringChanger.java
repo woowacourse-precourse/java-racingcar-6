@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class StringChanger {
-    public static String[] stringToTrimStringArray(String string){
-        return Stream.of(string.split(",",-1)).map(String::trim).toArray(String[]::new);
+    public static String[] stringToTrimmedStringArray(String string) {
+        return Stream.of(string.split(",", -1)).map(String::trim).toArray(String[]::new);
     }
 
-    public static List<String> stringArrayToStringList(String[] strings){
+    public static List<String> stringArrayToStringList(String[] strings) {
         return new ArrayList<>(Arrays.asList(strings));
     }
 }

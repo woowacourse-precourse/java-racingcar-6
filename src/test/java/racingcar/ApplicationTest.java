@@ -1,16 +1,20 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
-import java.io.ByteArrayInputStream;
-import java.util.List;
-import org.junit.jupiter.api.Test;
-import racingcar.gameLogic.User;
-import racingcar.views.OutputViewer;
+//import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
+//import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 
-import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
-import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
+import camp.nextstep.edu.missionutils.test.NsTest;
+import java.io.ByteArrayInputStream;
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import racingcar.gameLogic.User;
+import racingcar.utils.InputValidator;
+import racingcar.views.OutputViewer;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -36,21 +40,60 @@ class ApplicationTest extends NsTest {
 //    }
 
     /*
-    아래부터 docs에 명시된 기능 1번부터 모든 테스트코드들입니다.
+    아래부터 docs에 명시된 기능들(1번부터 15번까지)을 검증하는 테스트 코드입니다.
      */
     @Test
-    void 시작문구_출력함수_확인(){
+    @DisplayName("기능 1번")
+    void 시작문구_출력함수_확인() {
         OutputViewer.printRequestCarNameMessage();
         assertThat(output()).contains("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
     @Test
-    void 자동차_이름_입력_확인(){
+    @DisplayName("기능 2번")
+    void 자동차_이름_입력_확인() {
         User user = new User();
-        command("pobi, pobi,pobi ,po bi");
+        command(
+                "pobi, jun,kim ,po bi", //기능 2번 입력
+                "pobi, jun,kim ,  ,, "// 기능 2번 + 3번 입력
+        );
         List<String> carNames = user.inputCarName();
-        assertThat(carNames).containsExactly("pobi", "pobi", "pobi", "po bi");
+        assertThat(carNames).containsExactly("pobi", "jun", "kim", "po bi");
     }
+
+    @Test
+    @DisplayName("기능 3번")
+    void 자동차_이름_입력_검증_확인() {
+        List<String> emptyList = new ArrayList<>();
+        assertThatThrownBy(() -> InputValidator.validateNumberOfCars(emptyList.size()))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("1대 이상의 차량을 입력하세요.");
+
+        List<String> duplicatedList = new ArrayList<>(List.of("pobi", "pobi", "jun"));
+        assertThatThrownBy(() -> InputValidator.validateIsNamesDistinct(duplicatedList))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("중복되지 않는 이름들을 입력하세요.");
+
+        String nameOverFiveLength = "poobii";
+        assertThatThrownBy(() -> InputValidator.validateNameLength(nameOverFiveLength.length()))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("1자 이상, 5자이하의 이름을 입력하세요.");
+
+        String nameUnderOneLength = "";
+        assertThatThrownBy(() -> InputValidator.validateNameLength(nameUnderOneLength.length()))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("1자 이상, 5자이하의 이름을 입력하세요.");
+
+    }
+
+    @Test
+    @DisplayName("기능 2번 + 3번")
+    void 자동차_입력과_검증_동시확인() {
+        User user = new User();
+        assertThatThrownBy(user::inputCarName)
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
 
     @Override
     public void runMain() {
