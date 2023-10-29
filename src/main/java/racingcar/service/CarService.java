@@ -48,4 +48,10 @@ public class CarService {
                 .max()
                 .orElse(0);
     }
+
+    public List<Car> createCarsWithHighestScore(List<Car> cars, int highestScore) {
+        return cars.stream()
+                .filter(car -> car.getScore() == highestScore)
+                .toList();
+    }
 }
