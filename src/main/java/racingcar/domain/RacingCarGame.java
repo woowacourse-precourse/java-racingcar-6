@@ -1,12 +1,16 @@
 package racingcar.domain;
 
 import racingcar.domain.view.InputView;
+import racingcar.domain.view.OutputView;
+
+import java.util.List;
 
 public class RacingCarGame {
 
     public void start() {
         Cars cars = initCarNames();
         int attemptCount = initAttemptNumber();
+        race(cars, attemptCount);
     }
 
     private Cars initCarNames() {
@@ -21,5 +25,13 @@ public class RacingCarGame {
         }
     }
 
+    private void race(Cars cars, int attemptNumber) {
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
+        while (attemptNumber-- > 0) {
+            List<Integer> randomNumbers = randomNumberGenerator.generate(cars.getCars().size());
+            cars.goOrStop(randomNumbers);
+            OutputView.outputRaceProgress(cars.getCars());
+        }
+    }
 }
