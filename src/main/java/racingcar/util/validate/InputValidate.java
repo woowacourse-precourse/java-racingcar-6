@@ -1,29 +1,33 @@
 package racingcar.util.validate;
 
+import racingcar.util.constant.ExceptionConstant;
+
+import static racingcar.util.constant.ExceptionConstant.*;
+
 public class InputValidate {
 
     static public void validateNameFormat(String input) {
         if(input.isEmpty()) {
-            throw new IllegalArgumentException("공란입니다. 이름을 입력해주세요.");
+            throw new IllegalArgumentException(EMPTY_NAME);
         }
     }
     static public int validateInputNumberFormat(String input) {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자를 입력해주세요.");
+            throw new IllegalArgumentException(INPUT_VALID_NUMBER);
         }
     }
 
     static public void validateInputNumberRange(int number) {
-        if(number > 9 || number < 0) {
-            throw new IllegalArgumentException("0부터 9사이의 숫자를 입력해주세요.");
+        if(number < 1) {
+            throw new IllegalArgumentException(INPUT_VALID_NUMBER_RANGE);
         }
     }
 
     static public void validateNumberLength(String name) {
         if(name.length() > 5) {
-            throw new IllegalArgumentException("이름은 5자 이하로 입력해주세요.");
+            throw new IllegalArgumentException(INPUT_VALID_NAME_LENGTH);
         }
     }
 }
