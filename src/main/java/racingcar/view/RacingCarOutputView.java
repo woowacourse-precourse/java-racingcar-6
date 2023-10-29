@@ -2,9 +2,9 @@ package racingcar.view;
 
 
 import java.util.List;
-import racingcar.domain.Car;
 import racingcar.domain.RacingResult;
 import racingcar.domain.RacingRoundResult;
+import racingcar.dto.CarInfo;
 
 public class RacingCarOutputView {
     public static final String RACING_EXECUTE_MESSAGE = "실행 결과";
@@ -25,10 +25,10 @@ public class RacingCarOutputView {
     }
 
     private void printCarsNameAndPosition(RacingRoundResult r) {
-        List<Car> cars = r.getCars();
-        for (Car car : cars) {
-            String carName = car.getName();
-            int position = car.getPosition();
+        List<CarInfo> carInfoList = r.getCarInfoList();
+        for (CarInfo carInfo : carInfoList) {
+            String carName = carInfo.name();
+            int position = carInfo.position();
             String positionProgress = convertPositionValue(position);
             String result = String.format(EACH_RACING_RESULT_FORMAT, carName, positionProgress);
             System.out.println(result);
