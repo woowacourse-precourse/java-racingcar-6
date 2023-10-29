@@ -6,10 +6,11 @@ import java.util.List;
 import java.util.Set;
 
 public class CarListService {
+
 	private final String ENTERED_LIST_SEPARATOR = ",";
 	private final List<Car> CAR_LIST = new ArrayList<>();
 
-	public List<Car> makeCarList(String enteredList) {
+	public List<Car> make(String enteredList) {
 
 		String[] splitEnteredList = splitEnteredList(enteredList);
 
@@ -27,22 +28,35 @@ public class CarListService {
 
 	}
 
-	private void validateSize() {
-		final int MIN_LIST_LENGTH = 2;
-
-		if(CAR_LIST.size() < MIN_LIST_LENGTH) {
-			throw new IllegalArgumentException("2대 이상의 자동차가 존재해야 합니다.");
-		}
-	}
-
 	private String[] splitEnteredList(String enteredList) {
+
+		validateSeparator(enteredList);
+
 		return enteredList.split(ENTERED_LIST_SEPARATOR);
 	}
 
-	public void moveCarList() {
+	private void validateSeparator(String enteredList) {
+
+		if (!enteredList.contains(ENTERED_LIST_SEPARATOR)) {
+			throw new IllegalArgumentException("자동차 이름을 구분자(,)를 이용해 나눠주세요.");
+		}
+
+	}
+
+	private void validateSize() {
+
+		final int MIN_LIST_LENGTH = 2;
+
+		if (CAR_LIST.size() < MIN_LIST_LENGTH) {
+			throw new IllegalArgumentException("2대 이상의 자동차가 존재해야 합니다.");
+		}
+
+	}
+
+	public void move() {
 
 		for (Car eachCar : CAR_LIST) {
-			eachCar.move();
+			eachCar.moveOrStop();
 		}
 
 	}
@@ -64,7 +78,6 @@ public class CarListService {
 		}
 
 		return winnerList;
-
 	}
 
 	private Set<Car> makeRemoveList() {
@@ -72,29 +85,25 @@ public class CarListService {
 		Set<Car> removeList = new HashSet<>();
 
 		for (int i = 0; i < CAR_LIST.size(); i++) {
-			for (int j = 0; j < CAR_LIST.size(); j++) {
-
-				addRemoveList(removeList, i, j);
-
-			}
+			addRemoveList(removeList, i);
 		}
 
 		return removeList;
 	}
 
-	private void addRemoveList(Set<Car> removeList, int referenceIndex, int comparableIndex) {
+	private void addRemoveList(Set<Car> removeList, int referenceIndex) {
 
-		if (isRemovedCar(referenceIndex, comparableIndex)) {
-			removeList.add(CAR_LIST.get(referenceIndex));
+		Car referenceCar = CAR_LIST.get(referenceIndex);
+
+		for (Car comparableCar : CAR_LIST) {
+
+			if (referenceCar.isLaggingCar(comparableCar)) {
+				removeList.add(referenceCar);
+				break;
+			}
+
 		}
 
-	}
-
-	private boolean isRemovedCar(int referenceIndex, int comparableIndex) {
-
-		final int COMPARE_EQUAL_SIGN = 0;
-
-		return CAR_LIST.get(referenceIndex).compareDistance(CAR_LIST.get(comparableIndex)) < COMPARE_EQUAL_SIGN;
 	}
 
 	private String toStringWinner(List<Car> winnerList) {
