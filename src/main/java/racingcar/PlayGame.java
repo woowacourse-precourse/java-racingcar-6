@@ -17,10 +17,13 @@ public class PlayGame {
                 .map(Car::new)
                 .collect(Collectors.toList());
 
+        playRace(cars, tryCount);
+    }
+
+    private static void playRace(List<Car> cars, int tryCount) {
         Race race = new Race(cars, tryCount);
         ResultView resultView = new ResultView(cars);
         race.startRace(resultView);
-
         ResultView.printWinners(race.getWinners());
     }
 }

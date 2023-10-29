@@ -16,9 +16,8 @@ public class Car {
         return carName;
     }
 
-    public void move(MoveStatus defaultMoveStatus) {
-        int randomNumber = defaultMoveStatus.getRandomNumber();
-        if (defaultMoveStatus.canMove(randomNumber)) {
+    public void move(MoveStatus moveStatus) {
+        if (moveStatus.canMove()) {
             position++;
         }
     }
