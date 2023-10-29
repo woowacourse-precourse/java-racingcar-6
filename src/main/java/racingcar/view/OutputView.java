@@ -19,7 +19,7 @@ public class OutputView {
         System.out.println(CAR_NAME_INPUT_MESSAGE);
     }
 
-    public void printRequestCountMessage() {
+    public void printRequestTryNumberMessage() {
         System.out.println(TRY_NUMBER_INPUT_MESSAGE);
     }
 

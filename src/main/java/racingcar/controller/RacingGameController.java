@@ -42,7 +42,7 @@ public class RacingGameController {
     }
 
     private TryNumber getTryNumberFromInputView() {
-        outputView.printRequestCountMessage();
+        outputView.printRequestTryNumberMessage();
         Integer number = stringToInteger(inputView.inputTryNumber());
         return new TryNumber(number);
     }
