@@ -12,6 +12,7 @@ import racingcar.view.View;
 public class MainController {
     private static RaceController raceController = RaceConfig.raceControllerImplements();
     private CarRepository carRepository = new CarRepository(new ArrayList<Car>());
+
     public void process() {
         startGame();
         startRace();
@@ -33,6 +34,4 @@ public class MainController {
     private static void closeGame() {
         Console.close();
     }
-
-
 }
