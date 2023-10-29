@@ -1,32 +1,35 @@
 package racingcar.controller;
 
+import java.util.Arrays;
 import racingcar.model.Car;
+import racingcar.model.Cars;
 import racingcar.model.Race;
+import racingcar.util.NameSplitter;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingCarController {
 
-    private final Race race;
     private final InputView inputView;
     private final OutputView outputView;
+    private Race race;
 
-    public RacingCarController(Race race, InputView inputView, OutputView outputView) {
-        this.race = race;
+    public RacingCarController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
     }
 
     public void start() {
-        inputCarNames();
+        Cars cars = createCars(inputCarNames());
         inputGameCount();
     }
 
-    private void inputCarNames() {
-        String[] carNames = inputView.askCarNames().split(",");
-        for (String carName : carNames) {
-            race.add(new Car(carName));
-        }
+    private String[] inputCarNames() {
+        return NameSplitter.split(inputView.askCarNames());
+    }
+
+    private Cars createCars(String[] carNames) {
+        return Cars.from(Arrays.stream(carNames).map(Car::from).toList());
     }
 
     private void inputGameCount() {

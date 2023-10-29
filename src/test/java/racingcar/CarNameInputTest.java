@@ -2,16 +2,16 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static racingcar.TestUtil.setInput;
+import static racingcar.util.NameSplitter.split;
 
-import java.util.Set;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
-import racingcar.model.Race;
 import racingcar.view.InputView;
 
 class CarNameInputTest {
 
-    Race race = new Race();
     InputView inputView = new InputView();
 
     @Test
@@ -20,38 +20,33 @@ class CarNameInputTest {
         String input = "자동차1,자동차2,자동차3";
         setInput(input);
 
-        Set<Car> expected = Set.of(
-                new Car("자동차1"),
-                new Car("자동차2"),
-                new Car("자동차3")
+        List<Car> expected = List.of(
+                Car.from("자동차1"),
+                Car.from("자동차2"),
+                Car.from("자동차3")
         );
         // when
-        String[] carNames = inputView.askCarNames().split(",");
-        for (String carName : carNames) {
-            race.add(new Car(carName));
-        }
+        String[] carNames = split(inputView.askCarNames());
+        List<Car> carList = Arrays.stream(carNames).map(Car::from).toList();
         // then
-        assertThat(race.getCars()).isEqualTo(expected);
+        assertThat(carList).isEqualTo(expected);
     }
 
     @Test
     void 중복된_이름_입력() {
         // given
-        String input = "자동차1,자동차2,자동차1,자동차2";
+        String input = "자동차1,자동차2,자동차3,자동차1,자동차2";
         setInput(input);
 
-        Set<Car> expected = Set.of(
-                new Car("자동차1"),
-                new Car("자동차2")
+        List<Car> expected = List.of(
+                Car.from("자동차1"),
+                Car.from("자동차2"),
+                Car.from("자동차3")
         );
         // when
-        String[] carNames = inputView.askCarNames().split(",");
-        for (String carName : carNames) {
-            race.add(new Car(carName));
-        }
+        String[] carNames = split(inputView.askCarNames());
+        List<Car> carList = Arrays.stream(carNames).map(Car::from).toList();
         // then
-        assertThat(race.getCars()).isEqualTo(expected);
+        assertThat(carList).isEqualTo(expected);
     }
-
-
 }

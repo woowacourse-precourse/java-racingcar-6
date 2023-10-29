@@ -3,13 +3,15 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static racingcar.TestUtil.setInput;
 
+import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.model.Cars;
 import racingcar.model.Race;
 import racingcar.view.InputView;
 
 class GameCountInputTest {
 
-    Race race = new Race();
+
     InputView inputView = new InputView();
 
     @Test
@@ -19,8 +21,9 @@ class GameCountInputTest {
         setInput(input);
 
         int expected = 5;
+
         // when
-        race.setGameCount(Integer.parseInt(inputView.askGameCount()));
+        Race race = Race.of(Cars.from(List.of()), Integer.parseInt(inputView.askGameCount()));
 
         // then
         assertThat(race.getGameCount()).isEqualTo(expected);

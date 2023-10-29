@@ -6,15 +6,16 @@ import java.util.Set;
 
 public class Race {
 
-    private final Set<Car> cars = new LinkedHashSet<>();
+    private Cars cars;
     private int gameCount;
 
-    public void add(Car car) {
-        cars.add(car);
+    private Race(Cars cars, int gameCount) {
+        this.cars = cars;
+        this.gameCount = gameCount;
     }
 
-    public Set<Car> getCars() {
-        return Collections.unmodifiableSet(cars);
+    public static Race of(Cars cars, int gameCount) {
+        return new Race(cars, gameCount);
     }
 
     public int getGameCount() {
