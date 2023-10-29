@@ -4,6 +4,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.exception.InvalidInputException;
 
 public class InputView {
     private final static String inputCarNameMessage = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -20,6 +21,7 @@ public class InputView {
         List<String> nameList = new ArrayList<>();
 
         for (int i = 0; i < namesArray.length; i++) {
+            InvalidInputException.longNameException(namesArray[i]);
             nameList.add(namesArray[i]);
         }
 
@@ -29,6 +31,8 @@ public class InputView {
     public static int inputTryNumber(){
         System.out.println(inputTryNumberMessage);
         String input = Console.readLine();
+        InvalidInputException.NotIntegerValueException(input);
+
         return Integer.parseInt(input);
     }
 }
