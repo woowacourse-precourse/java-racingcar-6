@@ -5,10 +5,13 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.driver.Driver;
+import racingcar.domain.driver.RandomDriver;
 import racingcar.vo.CarName;
 import racingcar.vo.RoundCount;
 
 class RacingTest {
+    private static final Driver randomDriver = new RandomDriver();
     @Test
     void 경주에_사용할_자동차들을_생성한다() {
         // given
@@ -22,7 +25,7 @@ class RacingTest {
     }
 
     private static List<Car> getCarListByNames(List<CarName> carNameList) {
-        return carNameList.stream().map(Car::new).toList();
+        return carNameList.stream().map(name -> new Car(name, randomDriver)).toList();
     }
 
     @Test
