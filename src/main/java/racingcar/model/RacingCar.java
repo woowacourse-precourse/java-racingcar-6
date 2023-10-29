@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import java.util.Objects;
+
 public class RacingCar {
     private static final int MAX_NAME_LENGTH = 5;
     private static final int FORWARD_CONDITION = 4;
@@ -26,5 +28,18 @@ public class RacingCar {
     @Override
     public String toString() {
         return name + " : ";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RacingCar racingCar = (RacingCar) o;
+        return Objects.equals(name, racingCar.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }

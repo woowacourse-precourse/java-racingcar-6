@@ -2,6 +2,7 @@ package racingcar.model;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EmptySource;
@@ -22,7 +23,7 @@ class RacingCarTest {
                 .isThrownBy(() -> new RacingCar(name.trim()));
     }
 
-    @DisplayName("자동차는 전진 또는 멈출 수 있다")
+    @DisplayName("자동차는 전진 또는 멈출 수 있다.")
     @ParameterizedTest
     @CsvSource(value = {"0,4", "1,5", "2,6", "3,7", "3,8", "2,9"})
     void applyStatus(int stop, int forward){
@@ -31,6 +32,13 @@ class RacingCarTest {
                 () -> assertThat(racingCar.apply(stop)).isEqualTo(CarStatus.STOP),
                 () -> assertThat(racingCar.apply(forward)).isEqualTo(CarStatus.FORWARD)
         );
+    }
+
+    @DisplayName("이름이 같다면 동일한 자동차로 인식한다.")
+    @Test
+    void equals(){
+        RacingCar expected = new RacingCar("pobi");
+        assertThat(new RacingCar("pobi")).isEqualTo(expected);
     }
 
 
