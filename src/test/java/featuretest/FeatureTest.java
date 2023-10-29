@@ -21,6 +21,17 @@ import static org.assertj.core.api.Assertions.*;
 public class FeatureTest {
 
     @Test
+    void 자동차_이름_파싱() {
+        String testInput = "car1,car2,car3";
+        RaceCarNames raceCarNames = new RaceCarNames(testInput);
+
+        List<String> actualCarNames = raceCarNames.parseCarNamesFromRaceCarInput();
+        List<String> expectedCarNames = List.of("car1", "car2", "car3");
+
+        assertThat(actualCarNames).containsExactlyElementsOf(expectedCarNames);
+    }
+
+    @Test
     void 경주_할_자동차_이름을_입력받기() {
         String testInput = "car1,car2,car3";
         InputStream inputStream = new ByteArrayInputStream(testInput.getBytes());
@@ -73,16 +84,7 @@ public class FeatureTest {
 //                .isInstanceOf(IllegalArgumentException.class);
 //    }
 //
-//    @Test
-//    void 자동차_각각의_이름_알아내기() {
-//        String testInput = "TestCar1,TestCar2,TestCar3";
-//        RaceCarNames raceCarNames = new RaceCarNames(testInput);
-//
-//        List<String> actualList = raceCarNames.parseCarNamesFromRaceCarInput();
-//        List<String> expectedList = Arrays.asList("TestCar1", "TestCar2", "TestCar3");
-//
-//        assertThat(actualList).isEqualTo(expectedList);
-//    }
+
 //
 
 //
