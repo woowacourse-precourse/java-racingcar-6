@@ -18,13 +18,12 @@ public class Car {
         this.movementCount = 0;
     }
 
-    public Boolean isPossibleForward() {
+    public void forward() {
         int randomNumber = NumberGenerator.generateRandomNumberInRange(RANDOM_RANGE_START_NUMBER,
                 RANDOM_RANGE_END_NUMBER);
         if (randomNumber >= FORWARD_CONDITION_NUMBER) {
-            return true;
+            this.movementCount++;
         }
-        return false;
     }
 
     private void checkNameLength(String name) {
