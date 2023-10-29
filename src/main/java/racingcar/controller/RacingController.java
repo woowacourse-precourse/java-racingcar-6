@@ -9,18 +9,18 @@ import racingcar.view.OutputView;
 
 public class RacingController {
     private RacingResult racingResult;
-    private RacingCars racingCars;
 
     public void startGame() {
-        setParticipationCars();
-        racing(setTryCount());
+        RacingCars racingCars = setParticipationCars();
+        int tryCount = setTryCount();
+        racing(racingCars, tryCount);
         OutputView.printWinner(racingResult.getWinner());
     }
 
-    private void setParticipationCars() {
+    private RacingCars setParticipationCars() {
         OutputView.printCarNameInputMessage();
         String carNames = InputView.inputCarNames();
-        racingCars = new RacingCars(CarFactory.generateParticipationCarList(carNames));
+        return new RacingCars(CarFactory.generateParticipationCarList(carNames));
     }
 
     private int setTryCount() {
@@ -28,7 +28,7 @@ public class RacingController {
         return Convertor.convertStringToInt(InputView.inputTryCount());
     }
 
-    private void racing(int tryCount) {
+    private void racing(RacingCars racingCars, int tryCount) {
         OutputView.printExecutionResultMessage();
         while (isNotRacingFinished(tryCount)) {
             racingCars.move();
