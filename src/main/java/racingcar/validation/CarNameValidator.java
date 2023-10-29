@@ -3,14 +3,16 @@ package racingcar.validation;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 public class CarNameValidator {
 
     private static final int CAR_NAME_MIN_SIZE = 1;
     private static final int CAR_NAME_MAX_SIZE = 5;
-    //private static final String CAR_NAME_REGEX = "^[\\w]*$";
+    private static final Pattern CAR_NAME_REGEX = Pattern.compile("^[0-9a-zA-Zㄱ-ㅎ가-힣]*$");
     private static final String CAR_NAME_LENGTH_EXCEPTION_MESSAGE = "자동차의 이름은 1자 이상, 5자 이하여야 합니다.";
     private static final String CAR_NAME_DUPLICATION_EXCEPTION_MESSAGE = "자동차의 이름은 중복될 수 없습니다.";
+    private static final String CAR_NAME_TYPE_EXCEPTION_MESSAGE = "자동차의 이름은 특수문자를 제외한 문자와 숫자만 허용합니다.";
 
     public void validateCarName(List<String> carNameList) {
         if (!validateNameSize(carNameList)) {
@@ -19,6 +21,10 @@ public class CarNameValidator {
 
         if (!validateNameDuplication(carNameList)) {
             throw new IllegalArgumentException(CAR_NAME_DUPLICATION_EXCEPTION_MESSAGE);
+        }
+
+        if (validateNameType(carNameList) == false) {
+            throw new IllegalArgumentException(CAR_NAME_TYPE_EXCEPTION_MESSAGE);
         }
     }
 
@@ -31,5 +37,14 @@ public class CarNameValidator {
         Set<String> carNameSet = new HashSet<>(carNameList);
 
         return carNameList.size() == carNameSet.size();
+    }
+
+    private boolean validateNameType(List<String> carNameList) {
+        for (String carName : carNameList) {
+            if (!CAR_NAME_REGEX.matcher(carName).matches()) {
+                return false;
+            }
+        }
+        return true;
     }
 }
