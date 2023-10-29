@@ -23,7 +23,7 @@ public class CarRaceGameView {
     public static String attemptNumberView() {
         System.out.println(ATTEMPT_NUMBER);
         String attemptNumberString = readLine();
-        Validator.isNull(attemptNumberString);
+        Validator.isStringEmpty(attemptNumberString);
         Validator.isNumber(attemptNumberString);
         Validator.attemptNumberRange(attemptNumberString);
 

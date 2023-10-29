@@ -8,17 +8,12 @@ public class Validator {
         throw new IllegalArgumentException("[ERROR] 이름 길이 5초과");
     }
 
-    public static void isSpace(String input) {
-        if (input == " ") {
-            throw new IllegalArgumentException("[ERROR] 입력이 스페이스 입니다.");
+    public static void isStringEmpty(String input) {
+        if (input == null || input.isBlank() || input.isEmpty()) {
+            throw new IllegalArgumentException("[ERROR] 입력이 존재하지  않습니다.");
         }
     }
 
-    public static void isNull(String input) {
-        if (input == "") {
-            throw new IllegalArgumentException("[ERROR] 입력이 존재하지 않습니다.");
-        }
-    }
 
     //콤마 개수랑 이름 개수가 안 맞으면 throw
     public static void carNamesComma(String carNames) {
