@@ -9,7 +9,6 @@ public class RacingCarGameController {
     private UserInputCarNameFactory userInputCarNameFactory;
 
     public RacingCarGameController(UserInputCarNameFactory userInputCarNameFactory){
-
         this.userInputCarNameFactory = userInputCarNameFactory;
     }
     public void play(){
