@@ -4,11 +4,13 @@ public class Configurations {
     private int minimumOfRange;
     private int maximumOfRange;
     private int numberOfCars;
+    private String delimiter;
 
 
     Configurations(int numberOfCars) {
         minimumOfRange = 0;
         maximumOfRange = 9;
+        delimiter = ",";
         this.numberOfCars = numberOfCars;
     }
 
@@ -24,6 +26,8 @@ public class Configurations {
         return numberOfCars;
     }
 
-
+    public String getDelimiter(){
+        return delimiter;
+    }
 
 }
