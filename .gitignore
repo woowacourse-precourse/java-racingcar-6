@@ -5,6 +5,9 @@ build/
 !**/src/main/**
 !**/src/test/**
 
+### Desktop Service Store ###
+.DS_Store
+
 ### STS ###
 .apt_generated
 .classpath
