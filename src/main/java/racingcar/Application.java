@@ -6,27 +6,25 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-
 public class Application {
     public static void main(String[] args) {
 
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String inputCars = Console.readLine();
+
+        String inputCars = View.inputCarName();
+
         String[] cars = inputCars.split(",");
 
-        int cnt = (int) Arrays.stream(cars).filter(car -> car.length() >5).count();
-        if (cnt > 0){
-            throw new IllegalArgumentException();
+        if(Arrays.stream(cars).anyMatch(car -> car.length() >5)){
+            throw new IllegalArgumentException("자동차 이름은 5자 이내입니다.");
         }
 
-        System.out.println("시도할 회수는 몇회인가요?");
-        int tryCount = Integer.parseInt(Console.readLine());
+        int gameRound = Integer.parseInt(View.inputRound());
 
         Car[] carList = Arrays.stream(cars)
                 .map(Car::new)
                 .toArray(Car[]::new);
 
-        for (int i = 0; i < tryCount; i++) {
+        for (int i = 0; i < gameRound; i++) {
             for (Car car : carList) {
                 if (decideMove()) {
                     car.moveForward();
