@@ -1,11 +1,13 @@
 package racingcar.domain;
 
 public class Car {
-    String name;
+    private String name;
+    private int step;
     Car(String name) {
         this.name = name;
+        this.step = 0;
     }
     public void moveForward() {
-
+        step++;
     }
 }
