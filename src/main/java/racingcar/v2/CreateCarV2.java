@@ -14,4 +14,13 @@ public class CreateCarV2 {
         String[] carName = input.split(",");
         return carName;
     }
+
+    public Map<String, Integer> stateMap(String input) {
+        String[] carNames = carName(input);
+        Map<String, Integer> stateMap = new HashMap<>();
+        for (String car : carNames) {
+            stateMap.put(car.trim(), 0);
+        }
+        return stateMap;
+    }
 }
