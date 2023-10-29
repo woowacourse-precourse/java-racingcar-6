@@ -33,7 +33,7 @@ public class RacingController {
         return Randoms.pickNumberInRange(0,9);
     }
 
-    private static void manageCarMovement(Car car, int randomNumber) {
+    public static void manageCarMovement(Car car, int randomNumber) {
         if (randomNumber >= DECIDE_TO_NUMBER_MOVE_STOP) {
             car.moveCar();
         }
