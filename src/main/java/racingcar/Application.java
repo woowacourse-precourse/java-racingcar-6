@@ -16,7 +16,8 @@ public class Application {
         final RacingConverter converter = new RacingConverter();
         final RacingService racingService = new RacingService(new RandomNumberGenerator());
         final CarFactory carFactory = new CarFactory();
-        final RacingController racingController = new RacingController(inputView, outputView, racingService, converter, carFactory);
+        final RacingController racingController = new RacingController(inputView, outputView, racingService, converter,
+                carFactory);
 
         racingController.run();
     }

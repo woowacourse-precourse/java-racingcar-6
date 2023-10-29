@@ -17,8 +17,8 @@ public class RacingController {
     private final RacingConverter converter;
     private final CarFactory carFactory;
 
-    public RacingController(InputView inputView, OutputView outputView, RacingService racingService, RacingConverter converter,
-            CarFactory carFactory) {
+    public RacingController(InputView inputView, OutputView outputView, RacingService racingService,
+            RacingConverter converter, CarFactory carFactory) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.racingService = racingService;
