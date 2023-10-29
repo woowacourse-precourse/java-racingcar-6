@@ -1,5 +1,7 @@
 package view;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import message.InputMessage;
 import message.OutputMessage;
 
@@ -26,5 +28,12 @@ public class OutputView {
             }
             System.out.println(stringBuilder);
         }
+    }
+
+    public static void printWinner(List<String> winners) {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(OutputMessage.WINNER_MESSAGE);
+        stringBuilder.append(winners.stream().collect(Collectors.joining(", ")));
+        System.out.println(stringBuilder);
     }
 }
