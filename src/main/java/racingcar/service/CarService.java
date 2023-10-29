@@ -20,4 +20,8 @@ public class CarService {
     }
 
 
+    public void go(String carName) {
+        Car car = carRepository.findByName(carName);
+        car.plusScore();
+    }
 }

@@ -17,4 +17,8 @@ public class Car {
     public Integer getScore() {
         return score;
     }
+
+    public void plusScore() {
+        score += 1;
+    }
 }

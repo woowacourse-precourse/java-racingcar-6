@@ -28,7 +28,13 @@ public class GameService {
     public void processGame() {
         Game game;
         for (String carName : game.getCarNameList()) {
-            carService.goOrStop(carName);
+            goOrStop(game,carName);
         }
     }
+
+    public void goOrStop(Game game, String carName) {
+
+        if (game.carGoOrStop()) carService.go(carName);
+    }
+
 }
