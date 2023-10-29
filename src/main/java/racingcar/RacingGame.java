@@ -11,7 +11,7 @@ public class RacingGame {
     private Player player = new Player();
     private HashMap<String, Integer> cars;
     private ArrayList<String> winnerList = new ArrayList<>();
-    private int attemptNumber, carNumber, valueOfCar, randomNumber, updateCarValue;
+    private int attemptNumber, carNumber, carMoveMent, randomNumber, updateCarValue;
     private String carName;
 
     public void GameStart() {
@@ -30,7 +30,6 @@ public class RacingGame {
     public void gameProgress(int attemptNumber) {
         System.out.println();
         printMessage(PROGRESS_RESULT);
-        carName = "";
         for (int i = 0; i < attemptNumber; i++) {
             for (int j = 0; j < carNumber; j++) {
                 carName = player.getCarName(j);
@@ -45,8 +44,8 @@ public class RacingGame {
 
     public void printProgress(String carName) {
         System.out.printf("%s : ", carName);
-        valueOfCar = cars.get(carName);
-        for (int i = 0; i < valueOfCar; i++) {
+        carMoveMent = player.getCarMoveForward(carName);
+        for (int i = 0; i < carMoveMent; i++) {
             System.out.print("-");
         }
         System.out.println();
@@ -61,11 +60,12 @@ public class RacingGame {
     }
 
     public void checkWinner() {
+        int highestMovement = -1;
         for (int i = 0; i < cars.size(); i++) {
             carName = player.getCarName(i);
-            valueOfCar = cars.get(carName);
-            if (valueOfCar == attemptNumber) {
-                winnerList.add(carName);
+            carMoveMent = player.getCarMoveForward(carName);
+            if (carMoveMent > highestMovement) {
+                highestMovement = carMoveMent;
             }
         }
     }

@@ -34,6 +34,10 @@ public class Player {
         return attemptNumber;
     }
 
+    public int getCarMoveForward(String carName){
+        return cars.get(carName);
+    }
+
     public int getRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
