@@ -5,11 +5,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 
 class CarTest {
-
     @Test
-    void generateRandomNumber() {
+    void 랜덤_번호가_4_이상이면_전진() {
         Car car = new Car("상추");
-        int randomNumber = car.generateRandomNumber();
-        assertThat(randomNumber).isBetween(0, 1);
+        car.moveForward(3);
+        assertThat(car.getDistance()).isEqualTo("");
+        car.moveForward(4);
+        assertThat(car.getDistance()).isEqualTo("-");
     }
 }
