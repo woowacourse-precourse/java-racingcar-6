@@ -10,6 +10,6 @@ public class Application {
         OutputView.startInputMessage();
         Controller.validateCarNames();
         OutputView.askForAttemptsCount();
-        inputAttemptsCount();
+        Controller.validateInputAttemptsCount();
     }
 }

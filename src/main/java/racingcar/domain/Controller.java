@@ -1,5 +1,9 @@
 package racingcar.domain;
 
+import static racingcar.view.InputView.inputAttemptsCount;
+
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.view.Validator;
@@ -22,4 +26,14 @@ public class Controller {
         }
     }
 
+    public static void validateInputAttemptsCount() {
+        String inputAttemptsCount = inputAttemptsCount();
+        if (!Validator.isNonNumericInput(inputAttemptsCount)) {
+            throw new IllegalArgumentException();
+        }
+
+        if (!Validator.isEmpty(Collections.singletonList(inputAttemptsCount))) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
