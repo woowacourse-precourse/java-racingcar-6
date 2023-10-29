@@ -3,6 +3,7 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static java.lang.Integer.parseInt;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
@@ -92,5 +93,20 @@ public class Application {
             }
         }
         return highestScore;
+    }
+
+    /**
+     * List<Car> cars 안에 highestScore 점수와 같은 점수가 있다면 출력
+     * @param cars
+     * @param highestScore
+     */
+    public static void printWinner(List<Car> cars, int highestScore){
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getScore() == highestScore) {
+                winners.add(car.getName());
+            }
+        }
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 }
