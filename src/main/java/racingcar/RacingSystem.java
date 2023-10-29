@@ -5,7 +5,7 @@ import java.util.List;
 
 public class RacingSystem {
 
-    private static final String SEPARATOR = "";
+    private static final String SEPARATOR = ",";
     private static final int MAX_COUNT = 5;
 
     private List<Car> cars = new ArrayList<>();
@@ -14,7 +14,7 @@ public class RacingSystem {
     public RacingSystem() {
     }
 
-    public void checkValid(String input) {
+    public void checkValidName(String input) {
         String[] nameArray = input.split(SEPARATOR, -1);
         for(String name:nameArray){
             if(isInvalidName(name)) {
@@ -44,7 +44,7 @@ public class RacingSystem {
     }
 
     private boolean isEmptyString(String name) {
-        return name == null || "".equals(name);
+        return name == null || " ".equals(name);
     }
 
 }
