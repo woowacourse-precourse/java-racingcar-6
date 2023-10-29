@@ -17,7 +17,6 @@ class PrinterTest {
     private Printer printer;
     private List<Car> carList;
 
-
     @BeforeEach
     void setUp() {
         outputMessage = new ByteArrayOutputStream();
@@ -54,7 +53,6 @@ class PrinterTest {
                 + "melon : -" + System.lineSeparator();
         assertThat(expectMessage).isEqualTo(outputMessage.toString());
     }
-
 
     @Test
     void printWinner_메소드에_전달된_우승자들의_이름을_출력() {
