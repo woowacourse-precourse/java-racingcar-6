@@ -51,7 +51,7 @@ public class GameStart {
     }
 
     /**
-     * 게임 진행 상황을 보여준다.
+     * 자동차 레이스의 모든 상황을 보여준다.
      * 시도할 회수만큼 게임 진행 상황을 출력한다.
      */
     public void printAllProcessOfRaceGame() {
