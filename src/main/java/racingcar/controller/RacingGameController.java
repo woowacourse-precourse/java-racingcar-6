@@ -22,6 +22,7 @@ public class RacingGameController {
         List<Car> cars = Car.namesOf(carNames);
 
         // 이동 횟수를 입력받는다.
+        long movingCount = ioManager.readMovingCount();
 
         // 게임을 만든다.
 

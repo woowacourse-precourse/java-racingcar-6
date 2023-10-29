@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.global.CharacterSymbol;
+import racingcar.io.utils.StringLiteralValidator;
 
 public class ConsoleReader {
 
@@ -18,6 +19,14 @@ public class ConsoleReader {
         validateBlankCharacterNotIncluded(delimited);
 
         return delimited;
+    }
+
+    public long readMovingCount() {
+        String input = readLine();
+
+        StringLiteralValidator.validateIsNumeric(input);
+
+        return Long.parseLong(input);
     }
 
     private List<String> parseByDelimiter(String input) {

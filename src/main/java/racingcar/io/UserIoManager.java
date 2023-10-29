@@ -19,4 +19,9 @@ public class UserIoManager {
         return consoleReader.readCarNames();
     }
 
+    public long readMovingCount() {
+        consoleWriter.printMovingCountInputGuide();
+        return consoleReader.readMovingCount();
+    }
+
 }
