@@ -13,7 +13,12 @@ public class Application {
         if (!carList.checkCarName()) throw new IllegalArgumentException();
         List<String> carArrayList = carList.getCarList();
 
-        
+        RacingNumber racingNumber = new RacingNumber();
+        racingNumber.setRacingNum();
+        if(!racingNumber.isPositiveInteger()) throw new IllegalArgumentException();
+        Integer racingInteger = racingNumber.getRacingNum();
+
+
 
 
     }

@@ -13,5 +13,5 @@ public class CarRacing {
             this.racingMap.put(car, 0);
         }
     }
-    
+
 }
