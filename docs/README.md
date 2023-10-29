@@ -92,13 +92,15 @@
 
 ### InputValidator
 
-#### validateInputNameLength
+#### validateInputName
 
 - [x] 설정된 값보다 긴 문자열이 들어오면 예외 발생
 - [x] 설정된 값 범위 안에 들어온다면 통과
 - [x] 아무것도 입력하지 않았다면 예외 발생
+- [x] 이름에 공백이 포함되어 있다면 예외 발생
 
-#### readAttemptCount
+#### validateNumericInput
 
-- [ ] 숫자가 아닌 값이 들어오면 예외 발생
-- [ ] 숫자가 들어오면 통과
+- [x] 숫자가 아닌 값이 들어오면 예외 발생
+- [x] 숫자가 들어오면 통과
+- [x] 아무것도 입력하지 않았다면 예외 발생

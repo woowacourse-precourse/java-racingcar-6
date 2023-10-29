@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import static racingcar.validation.InputValidator.validateInputNameLength;
+import static racingcar.validation.InputValidator.validateInputName;
 
 public class Car {
     private final String name;
@@ -24,6 +24,6 @@ public class Car {
     }
 
     private void validateName(String name) {
-        validateInputNameLength(name);
+        validateInputName(name);
     }
 }
