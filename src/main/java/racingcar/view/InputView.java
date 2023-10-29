@@ -15,6 +15,7 @@ public final class InputView {
         List<Car> cars = parseCarNames(input);
         validateCarNameNotEmpty(cars);
         validateCarNameLengths(cars);
+        validateCarListSize(cars);
         return cars;
     }
 
@@ -29,7 +30,7 @@ public final class InputView {
 
     /**
      * @param input 사용자가 입력한 자동차 이름 목록
-     * @return 쉽표(,)를 기준으로 구분하여 공백 제거 후 자동차 이름 리스트 반환
+     * @return 쉽표(, )를 기준으로 구분하여 앞뒤 공백 제거 후 자동차 이름 리스트 반환
      */
     private static List<Car> parseCarNames(String input) {
         return Stream.of(input.split(","))
@@ -53,6 +54,12 @@ public final class InputView {
             if (car.getName().length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
             }
+        }
+    }
+
+    private static void validateCarListSize(List<Car> cars) {
+        if (cars.size() < 2) {
+            throw new IllegalArgumentException("자동차가 2대 이상이어야 합니다.");
         }
     }
 
