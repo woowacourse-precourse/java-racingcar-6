@@ -6,7 +6,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class CarFuntion {
     public int forwardNumber = 0;
-    private final List<Car> cars = new ArrayList<Car>();
+    private static final List<Car> cars = new ArrayList<Car>();
     public static List<String> CarNameList = new ArrayList<String>();
 
     public void makeCar(String carNames) {
@@ -24,7 +24,7 @@ public class CarFuntion {
         }
     }
 
-    public List<Car> getCar(){
+    public static List<Car> getCar(){
         return cars;
     }
 
