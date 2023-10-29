@@ -19,7 +19,25 @@ public class Player {
         return player;
     }
 
-    public List<String> inputCarName () {
+    private static void validateListSize(int listSize) {
+        if (listSize > 3) {
+            throw new IllegalArgumentException("잘못된 값입니다.");
+        }
+    }
+
+    private static void validateName(String carName) {
+        if (carName.isEmpty() || carName.length() > 5) {
+            throw new IllegalArgumentException("잘못된 값입니다.");
+        }
+    }
+
+    private static void validateCount(int count) {
+        if (count <= 0 || count > 9) {
+            throw new IllegalArgumentException("잘못된 값입니다.");
+        }
+    }
+
+    public List<String> inputCarName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         List<String> car = Arrays.stream(Console.readLine().split(",")).toList();
 
@@ -39,23 +57,5 @@ public class Player {
         validateCount(count);
 
         return count;
-    }
-
-    private static void validateListSize(int listSize) {
-        if (listSize > 3) {
-            throw new IllegalArgumentException("잘못된 값입니다.");
-        }
-    }
-
-    private static void validateName(String carName) {
-        if (carName.isEmpty() || carName.length() > 5) {
-            throw new IllegalArgumentException("잘못된 값입니다.");
-        }
-    }
-
-    private static void validateCount(int count) {
-        if (count <= 0 || count > 9) {
-            throw new IllegalArgumentException("잘못된 값입니다.");
-        }
     }
 }

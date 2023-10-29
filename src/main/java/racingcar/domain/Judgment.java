@@ -11,8 +11,7 @@ import java.util.stream.IntStream;
 public class Judgment {
     private static final int OFFSET = 1;
     private static final int LIMIT = 9;
-
-    public static HashMap<String, String> result = new HashMap<>();
+    private static final HashMap<String, String> RESULT = new HashMap<>();
     private static Judgment judgment;
 
     private Judgment() {
@@ -28,8 +27,8 @@ public class Judgment {
     public void executeForCount(int count, List<String> cars) {
         IntStream.range(0, count).forEach(i -> {
             judgment.getExecutionResult(cars);
-            result.keySet().stream()
-                    .map(key -> key + " : " + result.get(key))
+            RESULT.keySet().stream()
+                    .map(key -> key + " : " + RESULT.get(key))
                     .forEach(System.out::println);
             System.out.println();
         });
@@ -42,22 +41,21 @@ public class Judgment {
 
             int randomNum = getRandomNumber();
 
-            result.putIfAbsent(car, spaceMoved);
+            RESULT.putIfAbsent(car, spaceMoved);
 
             if (canMoveForward(randomNum)) {
-                spaceMoved = result.get(car);
+                spaceMoved = RESULT.get(car);
                 spaceMoved += "-";
-                result.put(car, spaceMoved);
+                RESULT.put(car, spaceMoved);
             }
         }
-
     }
 
     public List<String> getResultWinner() {
-        int max = Collections.max(result.values()).length();
+        int max = Collections.max(RESULT.values()).length();
 
-        return result.keySet().stream()
-                .filter(key -> result.get(key).length() == max)
+        return RESULT.keySet().stream()
+                .filter(key -> RESULT.get(key).length() == max)
                 .collect(Collectors.toList());
     }
 

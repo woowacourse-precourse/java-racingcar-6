@@ -1,21 +1,17 @@
 package racingcar.domain;
 
-import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.when;
 
 class JudgmentTest {
-
 
     @Test
     void 숫자가_4_이상인_경우_전진_테스트() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {

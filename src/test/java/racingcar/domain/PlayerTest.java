@@ -4,7 +4,6 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Player;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
