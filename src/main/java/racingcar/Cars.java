@@ -33,17 +33,16 @@ public class Cars {
     }
 
     public int findMaxScore() {
-        int max = Integer.MIN_VALUE;
-        for(Car car : cars) {
-            max = Math.max(car.meter, max);
-        }
-        return max;
+        return cars.stream()
+            .mapToInt(car -> car.meter)
+            .max()
+            .orElse(Integer.MIN_VALUE);
     }
 
-    public String findWinners(int maxScore) {
+    public ArrayList<String> findWinners() {
         return cars.stream()
-            .filter(car -> car.meter == maxScore)
+            .filter(car -> car.meter == findMaxScore())
             .map(car -> car.name)
-            .collect(Collectors.joining(", "));
+            .collect(Collectors.toCollection(ArrayList::new));
     }
 }
