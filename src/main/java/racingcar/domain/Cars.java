@@ -26,4 +26,8 @@ public class Cars {
             car.movePosition();
         }
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }

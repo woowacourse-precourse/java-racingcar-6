@@ -18,12 +18,18 @@ public class RaceController {
         TryCount tryCount = new TryCount(inputView.readTryCount());
         Cars cars = Cars.from(carNames);
         startRace(cars, tryCount);
+        printWinners();
     }
 
     private void startRace(Cars cars, TryCount tryCount) {
         outputView.printRaceResultMessage();
         for (int i = 0; i < tryCount.getTryCount(); i++) {
             cars.move();
+            outputView.printCurrentRaceStatus(cars);
         }
+    }
+
+    private void printWinners(){
+        // TODO: 우승자들 출력
     }
 }

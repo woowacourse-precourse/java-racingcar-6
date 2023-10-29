@@ -1,11 +1,11 @@
 package racingcar.domain;
 
 public class Position {
-    private int position = 0;
+    private int position;
     private static final int INIT_POSITION = 0;
 
     public Position(){
-        this.position = 0;
+        this.position = INIT_POSITION;
     }
     private Position(int position){
         this.position = position;
