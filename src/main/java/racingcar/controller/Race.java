@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.CarGroup;
+import racingcar.domain.PlayIterator;
 import racingcar.view.InputView;
 
 public class Race {
@@ -20,5 +21,11 @@ public class Race {
 
     public void start() {
         CarGroup carGroup = CarGroup.from(InputView.askCarNames());
+        PlayIterator playIterator = PlayIterator.from(InputView.askPlayCount());
+
+        while (playIterator.isPlayable()) {
+            playIterator.play();
+            // TODO: Move all cars and print result
+        }
     }
 }
