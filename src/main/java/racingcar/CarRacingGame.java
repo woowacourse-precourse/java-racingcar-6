@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 import java.util.List;
 
-public class User {
+public class CarRacingGame {
     private List<String> carName;
     private int trial;
 
@@ -37,4 +37,5 @@ public class User {
 
         this.trial = input;
     }
+
 }
