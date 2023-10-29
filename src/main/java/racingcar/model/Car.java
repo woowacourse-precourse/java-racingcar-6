@@ -32,4 +32,25 @@ public class Car {
         this.carPosition.set(move, this.carPosition.get(move) + CAR_MOVE_STEP);
     }
 
+    public int findMaxPosition() {
+        int maxPosition = 0;
+
+        for (Integer carPosition : carPosition) {
+            if (carPosition > maxPosition) {
+                maxPosition = carPosition;
+            }
+        }
+        return maxPosition;
+    }
+
+    public List<Integer> findWinnerIndex(int maxPosition) {
+        List<Integer> result = new ArrayList<>();
+
+        for (int i=0; i<this.carPosition.size(); i++) {
+            if (this.carPosition.get(i) == maxPosition) {
+                result.add(i);
+            }
+        }
+        return result;
+    }
 }
