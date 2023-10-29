@@ -3,16 +3,23 @@ package racingcar.view;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import java.security.PublicKey;
+import java.util.List;
+import racingcar.validation.Validator;
 
 public class InputView {
-  public String getCarName() {
-    String input = readLine();
-    //validation 검증. (NULL, 1글자 이상 - 5글자 이하, 문자만 입력)
-    return input;
+  Validator validator = new Validator();
+  public List<String> getCarName() {
+    String names = readLine();
+    validator.validateNullValue(names);
+    List<String> nameList = List.of(names.split(","));
+    validator.validateNameLength(nameList);
+    validator.validateDuplicatedName(nameList);
+    return nameList;
   }
   public int getCount() {
-    int input = Integer.parseInt(readLine());
-    //validation 검증. (숫자만 입력. 자연수만 가능)
-    return input;
+    String count = readLine();
+    validator.validateNullValue(count);
+    validator.validateNum(count);
+    return Integer.parseInt(count);
   }
 }
