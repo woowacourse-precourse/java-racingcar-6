@@ -6,6 +6,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class User {
 
     public String[] initCarList() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carList = Console.readLine();
 
         String[] carArray = carList.split(",");
@@ -15,6 +16,7 @@ public class User {
     }
 
     public int initCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
         String countStr = Console.readLine();
         int count = 0;
 

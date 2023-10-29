@@ -11,6 +11,8 @@ public class RacingGame {
 
     public RacingGame() {
         sb = new StringBuilder();
+        sb.append("\n실행 결과\n");
+        
         retrieveCarList();
         retrieveCount();
 
@@ -22,6 +24,8 @@ public class RacingGame {
             }
             sb.append('\n');
         }
+
+        checkWinner();
 
         System.out.println(sb);
     }
