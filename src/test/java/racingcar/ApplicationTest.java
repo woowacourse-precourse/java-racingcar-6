@@ -31,6 +31,17 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining(ExceptionMessage.INVALID_CAR_NAME_LENGTH.getMessage())
+        );
+    }
+
+    @Test
+    @DisplayName("이름 중복 검사")
+    void 이름에_대한_예외_처리2() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,pobi,java,C++", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining(ExceptionMessage.INVALID_CAR_NAME_DUPLICATE.getMessage())
         );
     }
 
