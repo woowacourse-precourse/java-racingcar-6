@@ -8,6 +8,7 @@ public class OutputView {
     private final List<String> winnerCarNames = new ArrayList<>();
     private final int mostMovedAmount;
     private final int numberOfCars;
+    private int carIndex = 0;
 
     public OutputView(Car car) {
         this.car = car;
@@ -21,13 +22,12 @@ public class OutputView {
     }
 
     private void setWinnerCarNames() {
-        for (int carIndex = 0; carIndex < numberOfCars; carIndex++) {
-            addToListIfWinner(carIndex);
-            carIndex++;
+        for (carIndex = 0; carIndex < numberOfCars; carIndex++) {
+            addToListIfWinner();
         }
     }
 
-    private void addToListIfWinner(int carIndex) {
+    private void addToListIfWinner() {
         if (car.movedLately(carIndex) == mostMovedAmount) {
             winnerCarNames.add(car.name(carIndex));
         }
