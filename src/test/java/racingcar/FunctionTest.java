@@ -6,24 +6,20 @@ import static racingcar.ExceptionMessage.CAR_NAME_DUPLICATION;
 import static racingcar.ExceptionMessage.CAR_NAME_LENGTH_OVERED;
 import static racingcar.ExceptionMessage.INPUT_NUMBER_RANGE_MISMATCH;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class FunctionTest {
+    private static final Car VALID_CAR = new Car("a,b,c");
+
     @Test
     void Car_생성자로_주어진_값을_구분() {
         String input = "a,b,c";
-        Car car = new Car(input);
-        int carNumber = car.numberOf();
 
         List<String> expected = List.of(input.split(","));
-        List<String> output = new ArrayList<>();
-        for (int i = 0; i < carNumber; i++) {
-            output.add(car.name(i));
-        }
+        List<String> output = VALID_CAR.names();
 
         assertThat(output).isEqualTo(expected);
     }
@@ -47,10 +43,8 @@ public class FunctionTest {
     @ParameterizedTest
     @ValueSource(ints = {-5, 0})
     void 이동_횟수가_음수_혹은_0이면_예외_처리(int timesToTry) {
-        Car validCar = new Car("a,b");
-
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
-                () -> new RacingCarGameConsole(validCar, timesToTry));
+                () -> new RacingCarGameConsole(VALID_CAR, timesToTry));
         assertThat(e.getMessage()).isEqualTo(INPUT_NUMBER_RANGE_MISMATCH);
     }
 }
