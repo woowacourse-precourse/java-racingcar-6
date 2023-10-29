@@ -11,4 +11,12 @@ public class UserInput {
         return numValidation(userInput);
     }
 
+    public static int numValidation(String target) throws IllegalArgumentException{
+        try {
+            return Integer.parseInt(target);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("숫자를 입력해주세요.");
+        }
+    }
+
 }
