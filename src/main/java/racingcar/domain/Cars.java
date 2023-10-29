@@ -11,42 +11,42 @@ public class Cars {
     private static final String SEPARATOR = " : ";
     private static final String POSITION_SYMBOL = "-";
     private static final String LINE_FEED = "\n";
-    private final List<Car> cars;
+    private final List<Car> carList;
 
     public Cars() {
-        this.cars = new ArrayList<>();
+        this.carList = new ArrayList<>();
     }
 
     public void add(String name) {
         validateDuplicate(name);
-        cars.add(Car.getNewCar(name));
+        carList.add(Car.getNewCar(name));
     }
 
     public void move() {
-        cars.forEach(Car::move);
+        carList.forEach(Car::move);
     }
 
     public String getStringOfRaceResult() {
-        return cars.stream()
+        return carList.stream()
                 .reduce(INIT_VALUE, getParsedResultBiFunction(), String::join);
     }
 
     public int getMaxPosition() {
-        return cars.stream()
+        return carList.stream()
                 .mapToInt(Car::getPosition)
                 .max()
                 .getAsInt();
     }
 
     public List<String> getCarNameListByPosition(int position) {
-        return cars.stream()
+        return carList.stream()
                 .filter(car -> car.getPosition() == position)
                 .map(Car::getName)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     private void validateDuplicate(String newName) {
-        cars.stream()
+        carList.stream()
                 .map(Car::getName)
                 .filter(name -> name.equals(newName))
                 .findAny()
