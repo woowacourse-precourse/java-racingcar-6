@@ -1,7 +1,7 @@
 package racingcar.validator;
 
-import racingcar.constants.Constants;
 import racingcar.constants.ExceptionMessage;
+import racingcar.constants.NameConstants;
 
 public enum NameValidator {
     INSTANCE;
@@ -18,7 +18,7 @@ public enum NameValidator {
     }
 
     private boolean isEmpty(String name) {
-        return name.length() == Constants.NAME_EMPTY_SIZE;
+        return name.length() < NameConstants.LOW_BOUND.getValue();
     }
 
     private void checkNameCorrectRange(String name) {
@@ -28,6 +28,6 @@ public enum NameValidator {
     }
 
     private boolean isRangeOver(String name) {
-        return name.length() > Constants.NAME_MAX_LENGTH;
+        return name.length() > NameConstants.HIGH_BOUND.getValue();
     }
 }
