@@ -7,6 +7,8 @@ import static racingcar.View.inputView.displayGameStartMessage;
 import static racingcar.View.inputView.displayPlayCountMessage;
 
 import java.util.ArrayList;
+import java.util.List;
+import racingcar.Model.Car;
 
 public class RaceGame {
     public static ArrayList<String> getCarsName(){
@@ -21,4 +23,21 @@ public class RaceGame {
     public static String generateDashes(int input){
         return "-".repeat(Math.max(0, input));
     }
+
+    private static ArrayList<String> getWinners(ArrayList<Car> cars) {
+        int maxCount = 0;
+        ArrayList<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            int count = car.getCount();
+            if (count > maxCount) {
+                maxCount = count;
+                winners.clear();
+                winners.add(car.getName());
+            } else if (count == maxCount) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
+
 }
