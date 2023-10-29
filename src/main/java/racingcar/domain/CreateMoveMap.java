@@ -26,21 +26,28 @@ public class CreateMoveMap {
             }
             numMoveMap.put(carType, numMoveMap.get(carType) + 1);
         }
-        List<String> printResultList = getRoad(numMoveMap);
-        for (String gameResult: printResultList){
-            System.out.println(gameResult);
+
+        for (Map.Entry<String, Integer> entrySet : numMoveMap.entrySet()) {
+            System.out.println(entrySet.getKey() + ":" + "-".repeat(entrySet.getValue()));
         }
-        System.out.println("");
+        System.out.println();
         return numMoveMap;
     }
-    public List<String> getRoad(Map<String, Integer> numMap){
-        List<String> printList = new ArrayList<>();
-        for (Map.Entry<String, Integer> entry: numMap.entrySet()){
-            String car = entry.getKey();
-            int key = entry.getValue();
-            printList.add(car + ":" + "-".repeat(key));
-        }
-        return printList;
-    }
+//        List<String> printResultList = getRoad(numMoveMap);
+//        for (String gameResult: printResultList){
+//            System.out.println(gameResult);
+//        }
+//        System.out.println("");
+//        return numMoveMap;
+//    }
+//    public List<String> getRoad(Map<String, Integer> numMap){
+//        List<String> printList = new ArrayList<>();
+//        for (Map.Entry<String, Integer> entry: numMap.entrySet()){
+//            String car = entry.getKey();
+//            int key = entry.getValue();
+//            printList.add(car + ":" + "-".repeat(key));
+//        }
+//        return printList;
+//    }
 
 }
