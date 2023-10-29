@@ -25,9 +25,8 @@ class InputViewTest {
     }
     
     @Test
-    void 예외_공백_확인() {
-        InputView inputView = new InputView();
-
+    @DisplayName("이름에 공백이 존재하는 경우 예외 처리")
+    void 예외_테스트1() {
         assertThatThrownBy(() -> inputView.setInputNames("pobi,woni, jun"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("공백을 제거해주세요.");
@@ -39,5 +38,22 @@ class InputViewTest {
         assertThatThrownBy(() -> inputView.setInputNames("pobi, ,jun"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("공백을 제거해주세요.");
+
+        assertThatThrownBy(() -> inputView.setInputNames(""))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("공백을 제거해주세요.");
+
+        assertThatThrownBy(() -> inputView.setInputNames("pobi,,jun"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("공백을 제거해주세요.");
+    }
+
+    @Test
+    @DisplayName("이름의 길이가 5글자를 넘어서는 경우")
+    void 예외_테스트2() {
+        assertThatThrownBy(() -> inputView.setInputNames("qwerasdf"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("이름은 1~5글자로 작성해주세요.");
+
     }
 }
