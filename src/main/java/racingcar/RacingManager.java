@@ -38,6 +38,12 @@ public class RacingManager {
         }
     }
 
+    private void printMoveResult() {
+        for (RacingCar racingCar : racingCars) {
+            System.out.println(racingCar.toString());
+        }
+    }
+
     public List<RacingCar> createRacingCars(String carNamesInput) {
         validateCarNames(carNamesInput);
 
