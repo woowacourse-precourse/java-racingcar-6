@@ -10,14 +10,14 @@ public class WinnerFinder {
         return getWinnerNames(cars, maxMoveNum);
     }
 
-    public static int getMaxMoveNum(List<Car> cars) {
+    private static int getMaxMoveNum(List<Car> cars) {
         return cars.stream()
                 .mapToInt(Car::getMoveNum)
                 .max()
                 .orElse(0);
     }
 
-    public static List<String> getWinnerNames(List<Car> cars, int maxMoveNum) {
+    private static List<String> getWinnerNames(List<Car> cars, int maxMoveNum) {
         return cars.stream()
                 .filter(car -> car.getMoveNum() == maxMoveNum)
                 .map(Car::getName)
