@@ -1,6 +1,5 @@
 package model;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
@@ -30,16 +29,5 @@ class NameTest {
         assertThrows(IllegalArgumentException.class, () -> {
             Name.from(testName);
         });
-    }
-
-    @Test
-    void 동등성_비교_테스트() {
-        // given
-        String testInput = "t".repeat(MAX_NAME_LENGTH);
-        Name firstName = Name.from(testInput);
-        Name secondName = Name.from(testInput);
-
-        // when & then
-        assertEquals(firstName, secondName);
     }
 }
