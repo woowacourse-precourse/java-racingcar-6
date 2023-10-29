@@ -10,8 +10,8 @@ public class Validator {
         return input == null || input.isBlank();
     }
 
-    public static boolean isInNameRange(String input) {
-        return input.length() <= 5;
+    public static boolean isInNameRange(String name) {
+        return name.length() <= 5;
     }
 
 }
