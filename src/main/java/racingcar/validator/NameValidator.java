@@ -1,6 +1,8 @@
 package racingcar.validator;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public final class NameValidator {
     private static void validateLength(List<String> names) {
@@ -21,5 +23,14 @@ public final class NameValidator {
 
     private static boolean containsWithLowerCase(String name) {
         return name.matches("^[a-z]+$");
+    }
+
+    private static void validateUnique(List<String> names) {
+        Set<String> uniqueNames = new HashSet<>();
+        for (String name : names) {
+            if (!uniqueNames.add(name)) {
+                throw new IllegalArgumentException("중복 없이 이름을 입력해주세요.");
+            }
+        }
     }
 }
