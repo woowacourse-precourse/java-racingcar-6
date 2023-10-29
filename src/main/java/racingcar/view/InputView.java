@@ -7,12 +7,14 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.controller.Validation;
 
 public class InputView {
+
     public String inputCarName() {
         System.out.println(CAR_NAME_INPUT);
         String nameInput = Console.readLine();
         validateInputBlank(nameInput);
         return nameInput;
     }
+
     public String inputRounds() {
         System.out.println(NUMBER_INPUT);
         String roundsInput = Console.readLine();

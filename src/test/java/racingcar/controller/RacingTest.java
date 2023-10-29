@@ -13,6 +13,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 public class RacingTest {
+
     @ParameterizedTest
     @DisplayName("한 자동차가 얻은 0~9 사이 임의의 정수값이 4 이상이면 해당 자동차의 전진횟수는 1 증가")
     @CsvSource({"5, 4, 6", "5, 3, 5"})

@@ -3,6 +3,7 @@ package racingcar.model;
 import racingcar.controller.Validation;
 
 public class Rounds {
+
     private final Validation validation;
 
     public Rounds() {

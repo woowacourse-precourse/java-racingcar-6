@@ -14,6 +14,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Racing {
+
     private final InputView inputView;
     private final OutputView outputView;
     private final Car car;
@@ -35,12 +36,14 @@ public class Racing {
         outputView.printWinnerList(getWinnerList(carNameList));
         finishRacing();
     }
+
     public void playAllRounds(Map<String, Integer> carNameList, int counts) {
         for (int i = 0; i < counts; i++) {
             Map<String, Integer> oneRoundResult = playOneRound(carNameList);
             outputView.printProgressOfAllCars(oneRoundResult);
         }
     }
+
     public Map<String, Integer> playOneRound(Map<String, Integer> carNameList) {
         for (String carName : carNameList.keySet()) {
             int moves = carNameList.get(carName);
@@ -49,12 +52,14 @@ public class Racing {
         }
         return carNameList;
     }
+
     public Integer progressOrNot(int currentMoves, int randomNum) {
         if (randomNum >= RANDOM_FOUR) {
             currentMoves += MOVE_FORWARD;
         }
         return currentMoves;
     }
+
     public List<String> getWinnerList(Map<String, Integer> carNameList) {
         List<String> result = new ArrayList<>();
         Integer maxValue = Collections.max(carNameList.values());
@@ -69,6 +74,7 @@ public class Racing {
     private void startRacing() {
         outputView.printRaceStart();
     }
+
     private void finishRacing() {
         outputView.printRaceFinish();
         Console.close();

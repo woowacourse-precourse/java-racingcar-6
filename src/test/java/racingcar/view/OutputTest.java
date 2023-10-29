@@ -10,6 +10,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 public class OutputTest {
+
     @ParameterizedTest
     @DisplayName("해당 자동차의 전진횟수만큼 '-'를 출력하는지 검증")
     @CsvSource({"'name1', 5, 'name1 : -----'", "'name2', 0, 'name2 : '"})

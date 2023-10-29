@@ -7,7 +7,9 @@ import java.util.Map;
 import racingcar.controller.Validation;
 
 public class Car {
+
     private final Validation validation;
+
     public Car() {
         this.validation = new Validation();
     }

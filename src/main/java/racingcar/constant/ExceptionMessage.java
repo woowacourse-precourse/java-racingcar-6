@@ -1,6 +1,7 @@
 package racingcar.constant;
 
 public class ExceptionMessage {
+
     public static final String BLANK_INPUT = "빈 문자열은 입력할 수 없습니다.";
     public static final String NULL_CAR_NAME = "입력된 문자열 안에 누락된 자동차 이름이 있습니다: ";
     public static final String SPACE_IN_CAR_NAME = "입력된 자동차 이름에 공백이 포함되어 있습니다.";

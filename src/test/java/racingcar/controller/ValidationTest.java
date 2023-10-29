@@ -10,6 +10,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class ValidationTest {
+
     @ParameterizedTest
     @DisplayName("입력값에서 처음이나 끝이 쉼표(,) 혹은 쉼표들이 연속되면 예외 발생")
     @ValueSource(strings = {
@@ -20,6 +21,7 @@ public class ValidationTest {
         Validation sample = new Validation();
         assertThatIllegalArgumentException().isThrownBy(() -> sample.checkNullOrSpaceInNameInput(input));
     }
+
     @ParameterizedTest
     @DisplayName("입력값에서 자동차 이름의 첫글자나 마지막 글자가 공백문자, 혹은 연속된 공백문자가 사용되면 예외 발생")
     @ValueSource(strings = {
@@ -31,6 +33,7 @@ public class ValidationTest {
         Validation sample = new Validation();
         assertThatIllegalArgumentException().isThrownBy(() -> sample.checkNullOrSpaceInNameInput(input));
     }
+
     @ParameterizedTest
     @DisplayName("입력값에 포함된 자동차 이름의 중간에만 공백문자가 사용되는 경우에는 정상 종료")
     @ValueSource(strings = {"name1,A B,name2", "A B C,name2,name3"})
@@ -56,6 +59,7 @@ public class ValidationTest {
         Map<String, Integer> inputMap = Map.of("name1", 0, "name2", 0, "name3", 0);
         assertThatIllegalArgumentException().isThrownBy(() -> sample.checkNameTokenDuplicated(inputToken, inputMap));
     }
+
     @Test
     @DisplayName("현재 이름 토큰이 Map에 없는 새로운 key이면 정상 종료")
     void checkNameTokenDuplicated_normalTest() {
@@ -72,6 +76,7 @@ public class ValidationTest {
         Validation sample = new Validation();
         assertThatIllegalArgumentException().isThrownBy(() -> sample.checkRoundsNumeric(input));
     }
+
     @ParameterizedTest
     @DisplayName("문자열로 입력된 시도횟수를 정수로 변환할 수 있으면 정상 종료")
     @ValueSource(strings = {"15", "0", "-123"})
