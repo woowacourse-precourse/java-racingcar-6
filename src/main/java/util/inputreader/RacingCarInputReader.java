@@ -1,22 +1,20 @@
 package util.inputreader;
 
-import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
 
 public class RacingCarInputReader implements InputReader {
-    public List<String> inputPlayers() throws IllegalArgumentException{
-        List<String> players =  List.of(Console.readLine().split(","));
+    public String inputPlayers() throws IllegalArgumentException{
+        String players =  Console.readLine();
         if(!isInputPlayerValid(players)){
             throw new IllegalArgumentException("Invalid player names");
         }
         return players;
     }
 
-    public boolean isInputPlayerValid(List<String> players){
-        if(players.isEmpty()){
-            return false;
-        }
-        return players.stream().allMatch(player -> player.length() <= 5);
+    public boolean isInputPlayerValid(String players){
+        List<String> playerList = List.of(players.split(","));
+        return !playerList.isEmpty() && playerList.stream().allMatch(player -> player.length() <= 5);
     }
 
     public int inputTryCount() throws IllegalArgumentException{
