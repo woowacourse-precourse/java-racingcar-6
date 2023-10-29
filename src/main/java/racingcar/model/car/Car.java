@@ -1,7 +1,6 @@
 package racingcar.model.car;
 
 public class Car {
-
     private final CarId carId;
     private final CarName carName;
     private int position = 0;

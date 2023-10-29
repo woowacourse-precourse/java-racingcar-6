@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.controller.RaceController;
-import racingcar.controller.RaceControllerIntegerVer;
+import racingcar.controller.RaceControllerIntegerRanged;
 import racingcar.model.car.Car;
 import racingcar.model.CarRepository;
 
@@ -22,7 +22,7 @@ public class ControllerTest {
 
     @Test
     public void RaceController_테스트(){
-        RaceController raceControllerIntegerVer = new RaceControllerIntegerVer();
+        RaceController raceControllerIntegerVer = new RaceControllerIntegerRanged();
         raceControllerIntegerVer.processRace("5",carRepository);
     }
 }

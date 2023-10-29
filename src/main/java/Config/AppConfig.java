@@ -1,7 +1,7 @@
 package Config;
 
 import racingcar.controller.RaceController;
-import racingcar.controller.RaceControllerIntegerVer;
+import racingcar.controller.RaceControllerIntegerRanged;
 
 public class AppConfig {
     public static final String INPUT_NAME_DELIMITER = ",";
@@ -11,7 +11,7 @@ public class AppConfig {
     public static final String CAR_NAME_FORMAT = String.format("[a-zA-Z]{%d,%d}", NAME_MIN_LENGTH, NAME_MAX_LENGTH);
 
     public static RaceController raceControllerImplements() {
-        return new RaceControllerIntegerVer();
+        return new RaceControllerIntegerRanged();
     }
 
 }

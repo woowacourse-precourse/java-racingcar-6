@@ -14,6 +14,7 @@ public class MainController {
     private CarRepository carRepository = new CarRepository(new ArrayList<Car>());
 
     public void process() {
+
         startGame();
         startRace();
         closeGame();
