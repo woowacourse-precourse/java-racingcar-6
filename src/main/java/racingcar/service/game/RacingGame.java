@@ -26,7 +26,11 @@ public class RacingGame implements GameInterface{
         Cars cars = Cars.of(input.getCarInput());
         int time = getTime();
         competing(time, cars);
+        resulting(cars);
+    }
 
+    private void resulting(Cars cars) {
+        output.showResult(new CarsOutputDto(cars));
     }
 
     private void competing(int time, Cars cars) {
