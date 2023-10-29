@@ -2,29 +2,24 @@ package racingcar;
 
 import static racingcar.GameStatus.PLAYING;
 
-import java.util.List;
 import java.util.Objects;
 
 public class RacingGame {
 
-    private final List<PlayerMove> playerMoves;
+    private final PlayerMoveList playerMoveList;
     private final GameStatus gameStatus;
-    private final MoveFactory moveFactory;
 
-    public RacingGame(List<PlayerMove> playerMoves, GameStatus gameStatus, MoveFactory moveFactory) {
-        this.playerMoves = playerMoves;
+    public RacingGame(PlayerMoveList playerMoveList, GameStatus gameStatus) {
+        this.playerMoveList = playerMoveList;
         this.gameStatus = gameStatus;
-        this.moveFactory = moveFactory;
     }
 
-    public static RacingGame init(List<PlayerMove> playerMoves, MoveFactory moveFactory) {
-        return new RacingGame(playerMoves, PLAYING, moveFactory);
+    public static RacingGame init(PlayerMoveList playerMoveList) {
+        return new RacingGame(playerMoveList, PLAYING);
     }
 
     public void move() {
-        for (PlayerMove playerMove : playerMoves) {
-            playerMove.move(moveFactory.isMove());
-        }
+        playerMoveList.move();
     }
 
     @Override
@@ -36,11 +31,11 @@ public class RacingGame {
             return false;
         }
         RacingGame that = (RacingGame) o;
-        return Objects.equals(playerMoves, that.playerMoves) && gameStatus == that.gameStatus;
+        return Objects.equals(playerMoveList, that.playerMoveList) && gameStatus == that.gameStatus;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(playerMoves, gameStatus);
+        return Objects.hash(playerMoveList, gameStatus);
     }
 }

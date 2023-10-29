@@ -5,6 +5,7 @@
     - [ ] PlayerName, (미정) isWinner를 필드로 갖는다.
 - 플레이어 이동현황을 생성하는 기능 [PlayerMove]
     - [x] Player를 받아서 PlayerMove 객체를 생성한다.
+    - [x]  PlayerMove 객체를 PlayerMoveList에 담는다.
 
 - 랜덤 숫자를 생성하는 기능 [RandomNumberGenerator]
     - [x] 랜덤 숫자를 뽑는다.
@@ -23,14 +24,22 @@
         - [ ] 한 이동당 한 번씩 이동결과를 출력한다.
 
 - 게임 승리 판단
-    - [ ] 입력한 시도 횟수와 이동 결과 횟수가 같으면 우승자가 된다.
-    - [ ] 게임 상태를 종료로 바꾼다.
+    - [ ] 입력한 시도 횟수만큼 플레이어별 이동의 반복이 끝나면 게임은 멈춘다.
+    - [ ] 게임이 종료되었을 때, 가장 이동한 거리가 가장 먼 사람이 우승자가 된다.
 
 # 필요한 객체들과 메소드를 생각해보자(추후 삭제)
 
+- 입력한 시도 횟수와 이동 결과 횟수가 같은지를 항상 어디서 체크할까?
+- Game -> PlayerMove ->Player / Distnace
+- 이 흐름인데 애초에 game.move를 4번 반복을 돌리면 되는 거고
+- 반복이 끝나면 각자의 distance에 숫자가 있을텐데
+- PlayerMove에게 비교하는 메시지를 보낸다.(비교할 PlayerMove 객체를 들고)
+- 그 안에서 또, Distance에게 비교하는 메시지를 보낸다.(비교할 Distance 객체를 들고)
+- 원래는 모든 playerMove 중에 get해서 distance가 가장 높은 Player의 isWinner를 winner로 바꾸면 되긴 하는데
+
 - Game
-- Game에는 List<PlayerMove> 가 있고 GameStatus가 있어야할듯
-    - List<PlayerMove>는 일급컬렉션화 하지 않아도 될까?
+- Game에는 PlayerMoveList 가 있고 GameStatus가 있어야할듯
+    - [x] List<PlayerMove>는 일급컬렉션화 하지 않아도 될까?
     - [x] game.init
         - player를 갖고 PlayerMove를 생성해야할듯
         - 아니면 컨트롤러에서 PlayerMove를 생성해서 갖고와야하려나, 테스트를 위해
@@ -38,13 +47,13 @@
         - -> 리스트로 담겨서 Game이 갖고 있게됨
         - GameStatus는 뭐 PLAYING 이렇게 초기화하고
     - [x] game.move(MoveFactory)
-        - List<PlayerMove>를 데리고 move를 해야지 : PlayerMove.move(MoveFactory)
+        - PlayerMoveList를 데리고 move를 해야지 : PlayerMove.move(MoveFactory)
 - PlayerMove
 - [x] PlayerMove에는 Player와 Distance
     - [x] PlayerMove.move(MoveFactory)
         - Distance++;
-- 컨트롤러에서는: List<PlayerMove> 를 갖고가서 출력하면 될듯?
-    - 아니면 responseDto로 만들어 갖고가서 출력하든지
+-  [ ] 컨트롤러에서는: PlayerMoveList를 갖고가서 출력하면 될듯?
+    - [ ] 아니면 responseDto로 만들어 갖고가서 출력하든지
 
 ## 예외 처리
 
@@ -77,9 +86,10 @@
 
 - [x] validate 위치 조정
 - [x] racingGame의 move 메소드 의존성 주입 조정
-- [ ] MoveFactory가 역할이 4이상 숫자 판단에 의해 boolean 값 반환밖에 없다.
+- [ ] MoveFactory가 역할: 4이상 숫자 판단에 의해 boolean 값 반환밖에 없다.
     - [ ] 거기다 메소드 하나만 있어서 생성자에 말고 메소드에 바로 numbergenerator를 주입해도 되지 않을까하는 생각.
 -[ ] distance에 대한 validate 체크
+-[ ] 이외 입력받은 상황이 아니더라도, 생성자 부분에 validate가 필요한 부분 체크
 
 ## 프로그래밍 요구 사항
 
