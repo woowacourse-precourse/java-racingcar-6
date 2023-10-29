@@ -23,4 +23,8 @@ public class Car {
     public int getCurrentLocation() {
         return step;
     }
+
+    public String getCarName() {
+        return name;
+    }
 }
