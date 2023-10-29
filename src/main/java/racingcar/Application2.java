@@ -1,113 +1,135 @@
 //package racingcar;
 //
-//import camp.nextstep.edu.missionutils.Randoms; // Random값 추출
-//import camp.nextstep.edu.missionutils.Console; //사용자가 입력하는 값
-//
-//import java.util.Arrays;
-//import java.util.List;
+//import camp.nextstep.edu.missionutils.Randoms;
+//import camp.nextstep.edu.missionutils.Console;
 //
 //public class Application2 {
-//    private static final int MOVE_THRESHOLD = 4; //랜덤값이 4이상일 경우에만 전진
 //
 //    public static void main(String[] args) {
-//        Console console = new Console(); //  사용자의 입력을 받고 출력하는 데 사용
-//        String[] carNames = console.readLine("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)").split(",");
-//        int numberOfAttempts = Integer.parseInt(console.readLine("시도할 회수는 몇회인가요?"));
+//        System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)로 구분): ");
+//        String carNamesInput = Console.readLine();
+//        String[] carNames = carNamesInput.split(",");
+//
+//        // 자동차 이름 길이 검증
+//        for (String carName : carNames) {
+//            validateCarName(carName);
+//        }
+//
+//        // 시도할 횟수 입력 및 검증
+//        int numberOfAttempts = 0;
+//        boolean validAttempts = false;
+//        while (!validAttempts) {
+//            try {
+//                System.out.print("시도할 회수는 몇회인가요?: ");
+//                String attemptsInput = Console.readLine();
+//                numberOfAttempts = Integer.parseInt(attemptsInput);
+//                validateAttempts(numberOfAttempts);
+//                validAttempts = true;
+//            } catch (NumberFormatException e) {
+//                System.out.println("올바른 숫자를 입력하세요.");
+//            } catch (IllegalArgumentException e) {
+//                System.out.println(e.getMessage());
+//            }
+//        }
 //
 //        Race race = new Race(carNames);
-//        race.start(numberOfAttempts); // 게임을 실제로 실행, numberOfAttempts 횟수만큼 자동차들을 전진시킴
-//        race.printRaceResult(); // 경주 결과를 출력
+//        race.start(numberOfAttempts);
+//        race.printRaceResult();
+//    }
+//
+//    private static void validateCarName(String carName) {
+//        if (carName.length() > 5) {
+//            throw new IllegalArgumentException("올바른 5글자 이내의 carname을 입력하세요.");
+//        }
+//    }
+//
+//    private static void validateAttempts(int numberOfAttempts) {
+//        if (numberOfAttempts <= 0) {
+//            throw new IllegalArgumentException("시도 횟수는 양의 정수여야 합니다.");
+//        }
 //    }
 //}
 //
 //class Race {
-//    private final List<Car> cars; // 레이스에 참가하는 자동차 리스트를 저장하는 변수
+//    private final Car[] cars;
 //
-//    public Race(String[] carNames) { // Race 클래스의 생성자, 자동차 이름 배열을 받아 초기화함
+//    public Race(String[] carNames) {
 //        cars = initializeCars(carNames);
 //    }
 //
-//    // 주어진 자동차 이름 배열을 기반으로 자동차 객체를 생성하여 리스트로 반환하는 메서드
-//    private List<Car> initializeCars(String[] carNames) {
-//        return Arrays.stream(carNames).map(Car::new).toList(); ///
+//    private Car[] initializeCars(String[] carNames) {
+//        Car[] initializedCars = new Car[carNames.length];
+//        for (int i = 0; i < carNames.length; i++) {
+//            initializedCars[i] = new Car(carNames[i]);
+//        }
+//        return initializedCars;
 //    }
 //
-//    public void start(int numberOfAttempts) { // 주어진 횟수만큼 자동차들을 이동시키는 메서드
+//    public void start(int numberOfAttempts) {
 //        for (int i = 0; i < numberOfAttempts; i++) {
 //            moveCars();
 //            printCars();
 //        }
 //    }
 //
-//    private void moveCars() { // 모든 자동차를 한 번씩 이동시키는 메서드
+//    private void moveCars() {
 //        for (Car car : cars) {
-//            car.move();
+//            int randomNumber = Randoms.pickNumberInRange(0,9); // 0부터 9까지의 랜덤 숫자
+//            if (randomNumber >= 4) {
+//                car.move();
+//            }
 //        }
 //    }
 //
-//    private void printCars() { // 라운드 진행 중 결과 표현
+//    private void printCars() {
 //        for (Car car : cars) {
-//            Console.println(car.getName() + " : " + "-".repeat(car.getPosition()));
+//            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
 //        }
-//        Console.println("\n");
-//    }
-//    public void printRaceResult() { // 레이스 결과를 출력하는 메서드
-////        for (Car car : cars) {  // 각 자동차의 이름과 이동 거리를 출력
-////            Console.print(car.getName() + " : " + "-".repeat(car.getPosition()));
-////        }
-//        List<String> winners = getWinners();
-//        Console.println("\n최종 우승자: " + String.join(", ", winners));
+//        System.out.println("\n");
 //    }
 //
-//    private List<String> getWinners() { // 우승한 자동차들의 이름을 출력
+//    public void printRaceResult() {
 //        int maxPosition = getMaxPosition();
-//        return extractWinnerNames(maxPosition);
+//        System.out.print("최종 우승자: ");
+//        boolean isFirst = true;
+//        for (Car car : cars) {
+//            if (car.getPosition() == maxPosition) {
+//                if (!isFirst) {
+//                    System.out.print(", ");
+//                }
+//                System.out.print(car.getName());
+//                isFirst = false;
+//            }
+//        }
 //    }
 //
-//    private int getMaxPosition() { // 가장 멀리 간 자동차의 이동 거리를 반환하는 메서드
-//        return cars.stream().mapToInt(Car::getPosition).max().orElse(0);
-//    }
-//
-//    // 우승한 자동차들의 이름을 추출하여 리스트로 반환하는 메서드
-//    private List<String> extractWinnerNames(int maxPosition) {
-//        return cars.stream()
-//                .filter(car -> car.getPosition() == maxPosition)
-//                .map(Car::getName)
-//                .toList();
+//    private int getMaxPosition() {
+//        int maxPosition = 0;
+//        for (Car car : cars) {
+//            maxPosition = Math.max(maxPosition, car.getPosition());
+//        }
+//        return maxPosition;
 //    }
 //}
 //
 //class Car {
-//    private final String name; // 자동차의 이름을 저장하는 변수
-//    private int position = 0; // 자동차의 현재 위치를 나타내는 변수
+//    private static final int MOVE_THRESHOLD = 4;
+//    private final String name;
+//    private int position = 0;
 //
-//    public Car(String name) { // Car 클래스의 생성자, 자동차의 이름을 받아 초기화함
+//    public Car(String name) {
 //        this.name = name;
 //    }
 //
-//    public void move() { // 자동차를 무작위로 전진시키는 메서드
-//        int randomNumber = Randoms.pickNumberInRange(0, 9);
-//        if (randomNumber >= MOVE_THRESHOLD) {
-//            position++;
-//        }
+//    public void move() {
+//        position++;
 //    }
 //
-//    public String getName() { // 자동차의 이름을 반환하는 메서드
+//    public String getName() {
 //        return name;
 //    }
 //
-//    public int getPosition() { // 자동차의 현재 위치를 반환하는 메서드
+//    public int getPosition() {
 //        return position;
 //    }
-//
-//    /*
-//     * name: 자동차의 이름을 저장하는 멤버 변수
-//     * position: 자동차의 현재 위치를 나타내는 멤버 변수
-//     * public Car(String name): 클래스의 생성자로, 자동차의 이름을 받아 초기화
-//     * public void move(): 자동차를 무작위로 전진시키는 메서드.
-//     *   Randoms.pickNumberInRange(0, 9)를 사용하여 0에서 9까지의 무작위 값을 얻고,
-//     *   이 값이 MOVE_THRESHOLD(4) 이상일 때만 전진
-//     * public String getName(): 자동차의 이름을 반환하는 메서드
-//     * public int getPosition(): 자동차의 현재 위치를 반환하는 메서드
-//     */
 //}
