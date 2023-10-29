@@ -2,22 +2,34 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import org.assertj.core.util.Arrays;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Application {
 
     static String[] carNameList;
+    static ArrayList<String> winner;
     static Map<String, Car> carInfo;
     static int tryCount;
-    static int maxScore;
+    static int maxScore = 0;
 
     public static void main(String[] args) {
 
+        initVariables();
         inputCarNames();
         createCar();
-        inputCarNames();
+        inputTryCount();
         startRacing();
+    }
+
+    public static void initVariables() {
+
+        winner = new ArrayList<>();
+        carInfo = new HashMap<>();
     }
 
     public static void startRacing() {
@@ -27,6 +39,9 @@ public class Application {
             checkRandomNumberAndUpdateCarScore();
             printCurrentState();
         }
+
+        getMaxScore();
+        printWinner();
     }
 
     public static void checkRandomNumberAndUpdateCarScore() {
@@ -48,11 +63,36 @@ public class Application {
             Car car = carInfo.get(carName);
             System.out.println(carName + " : " + "-".repeat(car.getScore()));
         }
+
+        System.out.println();
+    }
+
+    public static void getMaxScore() {
+
+        for (String carName : carNameList) {
+            int carScore = carInfo.get(carName).getScore();
+            if (maxScore < carScore) {
+                maxScore = carScore;
+            }
+        }
+    }
+
+    public static void printWinner() {
+
+        for (String carName : carNameList) {
+
+            int carScore = carInfo.get(carName).getScore();
+            if (maxScore == carScore) {
+
+                winner.add(carName);
+            }
+        }
+        System.out.print("최종 우승자 : " + String.join(", ", winner));
     }
 
     public static void inputCarNames() {
 
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
         String carNames = Console.readLine();
         carNameList = carNames.split(",");
@@ -74,13 +114,12 @@ public class Application {
     public static void createCar() {
 
         for (String carName : carNameList) {
-
             carInfo.put(carName, new Car(carName));
         }
     }
 
     public static void inputTryCount() {
-
+        System.out.println("시도할 회수는 몇회인가요?");
         tryCount = Integer.parseInt(Console.readLine());
     }
 }
