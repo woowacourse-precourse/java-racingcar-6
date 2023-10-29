@@ -1,14 +1,17 @@
 package racingcar.controller;
 
-import static racingcar.utils.Converter.*;
-import static racingcar.utils.validator.GetTrialNumberValidator.*;
-import static racingcar.view.InputView.*;
+import static racingcar.utils.Converter.convertStringToInt;
+import static racingcar.utils.Converter.convertStringToList;
+import static racingcar.utils.validator.GetNameValidator.validateArrayListNames;
+import static racingcar.utils.validator.GetNameValidator.validateStringNames;
+import static racingcar.utils.validator.GetTrialNumberValidator.validateNumberRange;
+import static racingcar.view.InputView.inputCarsName;
+import static racingcar.view.InputView.inputTrialNumber;
 
 import java.util.ArrayList;
 import racingcar.dto.CarDto;
 import racingcar.dto.CarsDto;
 import racingcar.service.Service;
-import racingcar.utils.validator.GetNameValidator;
 import racingcar.view.OutView;
 
 public class Controller {
@@ -25,15 +28,16 @@ public class Controller {
     }
 
     public void settingGame() {
-        saveCars(getCarsName());
-    }
-
-
-    private static ArrayList<String> getCarsName() {
         String inputString = inputCarsName();
-        ArrayList<String> carNameArrayList = GetNameValidator.validateCarsName(inputString);
-        return carNameArrayList;
+        validateStringNames(inputString);
+
+        ArrayList<String> carsNameList = convertStringToList(inputString);
+        validateArrayListNames(carsNameList);
+
+        saveCars(carsNameList);
     }
+
+
 
 
     private void saveCars(ArrayList<String> carsName) {

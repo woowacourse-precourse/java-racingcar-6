@@ -1,8 +1,6 @@
 package racingcar.utils.validator;
 
 
-import static racingcar.utils.Converter.convertStringToList;
-
 import java.util.ArrayList;
 
 public class GetNameValidator {
@@ -11,22 +9,15 @@ public class GetNameValidator {
 
     }
 
-    public static ArrayList<String> validateCarsName(String carsName) {
-
+    public static void validateStringNames(String carsName) {
         validateBlank(carsName);
         validateCommaPosition(carsName);
         validateNotFormat(carsName);
-        ArrayList<String> carsNameList = convertStringToList(carsName);
-        validateOverDigit(carsNameList);
-        validateDupicateName(carsNameList);
-        validateCarsNumber(carsNameList);
-
-        return carsNameList;
     }
 
-    private static void validateNotFormat(String carsName) {
-        if (!carsName.matches("^[a-zA-Z0-9,가-힣]*$")) {
-            throw new IllegalArgumentException("문자, 숫자, 컴마만 입력해주세요");
+    private static void validateBlank(String carsName) {
+        if (carsName.contains(" ")) {
+            throw new IllegalArgumentException("공백");
         }
     }
 
@@ -36,20 +27,18 @@ public class GetNameValidator {
         }
     }
 
-    private static void validateCarsNumber(ArrayList<String> carsNameList) {
-        if (carsNameList.stream()
-                .count() < 2) {
-            throw new IllegalArgumentException("2개 미만");
+
+    private static void validateNotFormat(String carsName) {
+        if (!carsName.matches("^[a-zA-Z0-9,가-힣]*$")) {
+            throw new IllegalArgumentException("문자, 숫자, 컴마만 입력해주세요");
         }
     }
 
 
-    private static void validateDupicateName(ArrayList<String> carsNameList) {
-        if (carsNameList.size() != carsNameList.stream()
-                .distinct()
-                .count()) {
-            throw new IllegalArgumentException("중복된 이름");
-        }
+    public static void validateArrayListNames(ArrayList<String> carsNameList) {
+        validateOverDigit(carsNameList);
+        validateDupicateName(carsNameList);
+        validateCarsNumber(carsNameList);
     }
 
     private static void validateOverDigit(ArrayList<String> carsNameList) {
@@ -60,10 +49,20 @@ public class GetNameValidator {
         }
     }
 
-    private static void validateBlank(String carsName) {
-        if (carsName.contains(" ")) {
-            throw new IllegalArgumentException("공백");
+    private static void validateDupicateName(ArrayList<String> carsNameList) {
+        if (carsNameList.size() != carsNameList.stream()
+                .distinct()
+                .count()) {
+            throw new IllegalArgumentException("중복된 이름");
         }
     }
+
+    private static void validateCarsNumber(ArrayList<String> carsNameList) {
+        if (carsNameList.stream()
+                .count() < 2) {
+            throw new IllegalArgumentException("2개 미만");
+        }
+    }
+
 
 }
