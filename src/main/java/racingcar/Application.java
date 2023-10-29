@@ -43,6 +43,12 @@ public class Application {
             System.out.println();
         }
 
+//        최종 우승자 결정
+        for(int i=0; i<namelist.length; i++){
+            if(scorelist[i] == Arrays.stream(scorelist).max().getAsInt()){
+                winner.add(namelist[i]);
+            }
+        }
 
 
 
