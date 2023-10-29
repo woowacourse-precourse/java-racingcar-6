@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.common.factory.DTOFactory;
@@ -9,7 +10,7 @@ public class RacingWinners {
     private final List<Car> cars;
 
     public RacingWinners(List<Car> cars) {
-        this.cars = cars;
+        this.cars = Collections.unmodifiableList(cars);
     }
 
     public WinnerDTO getFinalResult() {

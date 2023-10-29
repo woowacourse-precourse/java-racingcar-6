@@ -1,6 +1,7 @@
 package racingcar.common.type;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Names {
@@ -12,7 +13,7 @@ public class Names {
     }
 
     public List<String> getNameList() {
-        return nameList;
+        return Collections.unmodifiableList(nameList);
     }
 
     public void validateisPobi() {

@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.common.strategy.MoveStrategy;
@@ -11,7 +12,7 @@ public class RacingCars {
 
     // 자동차 생성
     public RacingCars(List<Car> cars) {
-        this.cars = cars;
+        this.cars = Collections.unmodifiableList(cars);
     }
 
     // 자동차 이동
