@@ -5,6 +5,8 @@ import racingcar.domain.RaceResultDTO;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
+import java.util.List;
+
 public class Controller {
 
     private final InputView inputView;
@@ -17,8 +19,16 @@ public class Controller {
     }
 
     public void run() {
-        car = new Car(inputView.readNames());
-        carRace(inputView.readNumberOfRaces());
+        car = new Car(askCarNames());
+        carRace(askNumberOfRaces());
+    }
+
+    private List<String> askCarNames() {
+        return inputView.readNames();
+    }
+
+    private int askNumberOfRaces() {
+        return inputView.readNumberOfRaces();
     }
 
     private void carRace(int numberOfRaces) {
