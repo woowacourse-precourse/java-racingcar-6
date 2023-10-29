@@ -11,9 +11,8 @@ public class OutputView {
 
     public void printFinalResult(List<String> winners) {
         System.out.print(PRINT_FINAL_RESULT);
-        for (String winner : winners) {
-            System.out.print(winner);
-        }
+        String winner = String.join(",",winners);
+        System.out.print(winner);
     }
 
     public void printEachResult(Car car, int randomNumber) {
