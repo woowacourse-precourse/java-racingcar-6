@@ -11,7 +11,7 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 public class RaceController {
     private static CarManager carManager;
     private List<Car> carList;
-    public static final String MOVE_FORWARD = "_";
+    public static final String MOVE_FORWARD = "-";
     public void raceStart() {
         carList =carManager.getCarList();
         for (Car car : carList) {
