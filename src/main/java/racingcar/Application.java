@@ -1,9 +1,10 @@
 package racingcar;
 
-import racingcar.view.RacingView;
 import racingcar.model.RacingModel;
+import racingcar.view.RacingView;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
 public class Application {
 

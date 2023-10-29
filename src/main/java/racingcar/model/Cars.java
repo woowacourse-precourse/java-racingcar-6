@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import racingcar.RacingUtil;
-import racingcar.model.Car;
 
 import java.util.*;
 
