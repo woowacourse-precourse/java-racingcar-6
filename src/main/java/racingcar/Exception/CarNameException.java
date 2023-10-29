@@ -5,6 +5,7 @@ import racingcar.Util.StringToList;
 
 public class CarNameException {
     private final StringToList stringToList = new StringToList();
+    private static final int MINIMUM_CARNAME_LENGTH = 1;
     private static final String BLANK = " ";
 
     public void validateCarNameInput(String carNameInput) throws IllegalArgumentException {
@@ -12,17 +13,31 @@ public class CarNameException {
         checkCarNameIsOutOfRangeAndBlank(carNameList);
 
         checkInputIsEmpty(carNameInput);
+        checkLastInputIsComma(carNameInput);
     }
+
     private void checkCarNameIsOutOfRangeAndBlank(List<String> carNameList) {
         for (String carName : carNameList) {
             checkIntervalBlank(carName);
         }
     }
+
     private void checkInputIsEmpty(String carNameInput) {
         if (carNameInput.isEmpty()) {
             throw new IllegalArgumentException("값을 입력해주세요.");
         }
     }
+
+    private void checkLastInputIsComma(String carNameInput) {
+        if (carNameInput.lastIndexOf(",") == carNameInput.length() - 1) {
+            throwUnderMinLengthException();
+        }
+    }
+
+    private void throwUnderMinLengthException() {
+        throw new IllegalArgumentException("자동차 이름은 " + MINIMUM_CARNAME_LENGTH + "글자 이상이어야 합니다.");
+    }
+
     private void checkIntervalBlank(String carName) {
         if (carName.contains(BLANK)) {
             throwBlankException();
