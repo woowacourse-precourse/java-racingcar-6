@@ -10,10 +10,7 @@ import java.util.stream.Collectors;
 
 public class Application {
     public static void main(String[] args) {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-
-        String inputName = Console.readLine();
-        List<String> names = Arrays.asList(inputName.split(","));
+        List<String> names = getCarNames();
 
         List<Car> carList = new ArrayList<>();
         for (String name : names) {
@@ -41,6 +38,12 @@ public class Application {
         List<String> result = winners(carList);
         String winners = String.join(",", result);
         System.out.println("최종 우승자 : " + winners);
+    }
+
+    private static List<String> getCarNames() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String inputName = Console.readLine();
+        return Arrays.asList(inputName.split(","));
     }
 
     private static void racing(List<Car> carList) {
