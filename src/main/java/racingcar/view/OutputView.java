@@ -7,6 +7,7 @@ public class OutputView {
     private static final String EACH_FORWARD_INFORMATION = "-";
     private static final String INPUT_CAR_NAMES_INFO = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String INPUT_MOVEMENT_TIME_INFO = "시도할 회수는 몇회인가요?";
+    private static final String FINAL_WINNER_INFO = "최종 우승자 : ";
 
     public void printCarNamesInput() {
         System.out.println(INPUT_CAR_NAMES_INFO);
@@ -22,6 +23,12 @@ public class OutputView {
             printForwardInfo(car, executionResult);
         }
         System.out.println(executionResult);
+    }
+
+    public void printFinalWinners(List<String> finalWinners) {
+        StringBuilder winners = new StringBuilder(FINAL_WINNER_INFO);
+        winners.append(finalWinners.toString().substring(1, finalWinners.toString().length() - 1));
+        System.out.println(winners);
     }
 
     private void printForwardInfo(Car car, StringBuilder executionResult) {
