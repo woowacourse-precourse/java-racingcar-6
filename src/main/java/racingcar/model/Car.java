@@ -2,16 +2,16 @@ package racingcar.model;
 
 public class Car {
 
-    private String name;
+    private final String carName;
     private int forwardNumber;
 
-    public Car(String name) {
-        this.name = name;
+    public Car(String carName) {
+        this.carName = carName;
         forwardNumber = 0;
     }
 
-    public String getName() {
-        return name;
+    public String getcarName() {
+        return carName;
     }
 
     public int getForwardNumber() {
