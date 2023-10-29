@@ -18,6 +18,14 @@ public class RacingCar {
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getForwardCount() {
+        return forwardCount;
+    }
+
     private boolean canForward() {
         int randNum = Randoms.pickNumberInRange(1, 9);
         return randNum >= 4;
