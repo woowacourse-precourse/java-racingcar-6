@@ -27,11 +27,14 @@ public class GameStart {
 
     }
 
-    // TODO: 10/27/23 우승자가 누구인지 출력을 해준다.
+    /**
+     * 우승자가 누구인지 출력을 해준다.
+     */
     public void printWinnerOfRaceGame() {
 //        - [ ] 우승자는 한명이상이다.
 //        - [ ] 우승자가 여러명일경우 쉼표(,)를 이용하여 구분한다.
 //        최종 우승자 : pobi, jun
+        System.out.println("최종 우승자 : " + gameProcess.knowFinalWinner());
     }
 
     // TODO: 10/27/23 게임 진행 상황을 보여준다.
