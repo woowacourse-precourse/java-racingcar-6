@@ -33,13 +33,12 @@ public class OutputView {
                 carDto -> {
                     Integer carDistance = carDto.carDistance().distance();
                     String carName = carDto.carName().name();
-
                     System.out.println(carName + SEPARATOR_COLON + DISTANCE_CHARACTER.repeat(carDistance));
                 });
 
         System.out.print(LINE);
     }
-    
+
     public void printWinners(List<CarName> winnerNames) {
         String result = winnerNames.stream()
                 .map(CarName::name)

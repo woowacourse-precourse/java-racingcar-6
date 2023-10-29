@@ -28,10 +28,9 @@ public class RacingGameController {
         TryNumber tryNumber = getTryNumberFromInputView();
 
         Referee referee = new Referee();
-
         RacingGame racingGame = new RacingGame(cars, referee);
-        outputView.printResultMessage();
 
+        outputView.printResultMessage();
         for (int i = 0; i < tryNumber.number(); i++) {
             racingGame.runOneTerm();
             List<CarDto> carDtoList = CarDto.toDtoList(cars);
