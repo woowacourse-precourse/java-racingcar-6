@@ -6,6 +6,11 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * CarMap 클래스는 자동차 맵을 랩핑하는 클래스다.
+ *
+ * @author haiseong
+ */
 public class CarMap {
     private final Map<String, RacingCar> carMap;
 

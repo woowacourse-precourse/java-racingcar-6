@@ -2,6 +2,11 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+/**
+ * RacingCar 클래스는 자동차를 의미하는 클래스다.
+ *
+ * @author haiseong
+ */
 public class RacingCar {
     private static final int START_DISTANCE = 0;
     private static final int MINIMUM_RANDOM_NUMBER_TO_MOVE = 4;
