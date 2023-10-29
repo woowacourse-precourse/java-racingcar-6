@@ -56,4 +56,16 @@ class CarsGameServiceTest {
 
     }
 
+    @Test
+    @DisplayName("우승자 체크 완료")
+    void checkWinner() throws Exception {
+        //given
+        Map<String, Integer> carsPosition = Map.of("A", 3, "B", 3, "C", 2, "D", 3);
+        int count = 3;
+        //when
+        String winners = carsGameService.checkWinner(carsPosition, count);
+        //then
+        assertThat(winners).isEqualTo("A, B, D");
+    }
+
 }

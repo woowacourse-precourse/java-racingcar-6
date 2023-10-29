@@ -1,5 +1,7 @@
 package racingcar.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import racingcar.domain.Cars;
@@ -22,6 +24,16 @@ public class CarsGameService {
             carsGameLogs.update(car,position);
         }
     }
+
+    public String checkWinner(Map<String,Integer> carsPosition, int count) {
+        List<String> winners = new ArrayList<>();
+        Set<String> cars = carsPosition.keySet();
+        cars.stream().filter(car -> carsPosition.get(car)  == count)
+                .forEach(car -> winners.add(car));
+
+        return String.join(", ", winners);
+    }
+
 
     public Cars generateCars(String carsInput) {
         return new Cars(carsInput);
