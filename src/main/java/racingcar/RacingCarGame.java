@@ -42,7 +42,7 @@ public class RacingCarGame {
 
     public void moveCars() {
         for (RacingCar racingCar : racingCars) {
-            boolean canMove = racingCar.isMove();
+            boolean canMove = racingCar.canMove();
             racingCar.move(canMove);
             OutputView.printCarLocation(racingCar);
         }

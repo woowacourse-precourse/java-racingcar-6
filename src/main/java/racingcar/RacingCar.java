@@ -21,13 +21,13 @@ public class RacingCar {
         return location;
     }
 
-    public void move(boolean isMove) {
-        if (isMove) {
+    public void move(boolean canMove) {
+        if (canMove) {
             this.location++;
         }
     }
 
-    public boolean isMove() {
+    public boolean canMove() {
         int pickNumberInRange = Randoms.pickNumberInRange(0, 9);
         return pickNumberInRange >= 4;
     }
