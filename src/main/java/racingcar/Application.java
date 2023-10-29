@@ -26,5 +26,7 @@ public class Application {
             carMap.put(carName, 0);
         }
 
+        // 시도할 횟수 입력 안내 메세지 출력
+        outputView.timesInputMessage();
     }
 }
