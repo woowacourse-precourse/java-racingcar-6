@@ -1,10 +1,9 @@
-package racingcar;
+package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Console;
+import racingcar.model.Car;
 
 import java.util.*;
 
-import static java.util.Collections.list;
 import static java.util.Collections.max;
 
 public class RacingCars {

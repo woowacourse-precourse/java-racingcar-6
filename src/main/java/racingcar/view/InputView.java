@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
@@ -20,7 +20,7 @@ public class InputView {
         String[] carsName = input.split(",");
 
         if (!isNotDuplicate(carsName)) {
-            throw new IllegalArgumentException("중복되지 않는 이름을 입력해주세요");
+            throw new IllegalArgumentException("중복되지 않는 이름을 입력해주세요.");
         }
 
         for (String names : carsName) {

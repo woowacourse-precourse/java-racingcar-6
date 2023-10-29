@@ -1,4 +1,7 @@
-package racingcar;
+package racingcar.controller;
+
+import racingcar.model.RacingCars;
+import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
