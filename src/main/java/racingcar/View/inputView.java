@@ -11,7 +11,7 @@ public class inputView {
         return Console.readLine();
     }
 
-    public String displayPlayCountMessage(){
+    public static String displayPlayCountMessage(){
         System.out.println(INPUT_PLAY_COUNT_MESSAGE);
         return Console.readLine();
     }
