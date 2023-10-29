@@ -31,8 +31,8 @@ public class InputView {
     }
 
     private List<String> converterCarNames(final String carNames) {
-        return Arrays.stream(readLine()
-                        .split(","))
+        return Arrays.stream(carNames.split(","))
+                .map(name -> name.trim())
                 .toList();
     }
 }
