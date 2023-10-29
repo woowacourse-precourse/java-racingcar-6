@@ -29,8 +29,10 @@ class ConverterTest {
         carList.add(new Car("hoho"));
         carList.add(new Car("hihi"));
         carList.add(new Car("haha"));
+
         //when
         List<Car> convertedString = Converter.stringToCarListConvert(covertString);
+        
         //then
         assertEquals(convertedString.toString(), carList.toString());
     }
