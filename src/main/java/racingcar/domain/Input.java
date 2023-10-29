@@ -7,8 +7,9 @@ import java.util.List;
 public class Input {
     public static List<String> readCarName() {
         String input = Console.readLine();
-        String[] Names = input.split(",");
-        return Arrays.asList(Names);
+        List<String> carNames = InputChecker.checkCharacter(input);
+        InputChecker.checkOverlap(carNames);
+        return carNames;
     }
 
     public static int readMoveCount() {
