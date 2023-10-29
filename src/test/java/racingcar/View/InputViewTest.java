@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
 import racingcar.View.InputView;
-class InputViewTest {
+public class InputViewTest {
     public static InputStream setReadLine(String readLine) {
         return new ByteArrayInputStream(readLine.getBytes());
     }
@@ -32,7 +32,7 @@ class InputViewTest {
 
 
     @Test
-    void askTryCount(){
+    void askTryCountTest(){
         InputStream readLine = setReadLine("5");
         System.setIn(readLine);
 
@@ -44,7 +44,7 @@ class InputViewTest {
     }
 
     @Test
-    void storeCarName(){
+    void storeCarNameTest(){
         InputStream readLine = setReadLine("Pobi,NANa,Kane");
         System.setIn(readLine);
 

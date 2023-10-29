@@ -8,9 +8,9 @@ import java.util.Map;
 import racingcar.View.InputView;
 
 public class MoveRandomNumber {
-    InputView inputView = new InputView();
+    static InputView inputView = new InputView();
 
-    public List<Map<String,Integer>> generateRandomGameNumber() {
+    public static List<Map<String,Integer>> generateRandomGameNumber() {
         List< Map<String,Integer>> randomNumbersMap = new ArrayList<>();    // 맵을 저장할 리스트
         Map<String,Integer> carCountMap = inputView.storeCarName();
 

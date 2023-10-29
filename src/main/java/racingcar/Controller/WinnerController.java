@@ -1,6 +1,5 @@
 package racingcar.Controller;
 
-import java.security.Key;
 import java.util.HashMap;
 import java.util.Map;
 import racingcar.View.InputView;
