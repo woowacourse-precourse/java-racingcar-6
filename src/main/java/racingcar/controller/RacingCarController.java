@@ -9,4 +9,5 @@ public class RacingCarController {
     public void startGame() {
         OutputView.printStartGameMessage();
         List<Car> cars = InputView.inputCarNames();
+    }
 }
