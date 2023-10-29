@@ -8,6 +8,7 @@ import static racingcar.global.GameIntConstant.*;
 public class CarNameInputValidator {
 
     public List<String> validateAndGetCarNames(String userInput) {
+        userInput = removeWhiteSpace(userInput);
         validateNotEmpty(userInput);
         validateSeparator(userInput);
         List<String> carNames= splitCarNames(userInput);
@@ -52,7 +53,12 @@ public class CarNameInputValidator {
     }
 
     private List<String> splitCarNames(String userInput){
-        userInput = userInput.replace(" ","");
+        userInput = removeWhiteSpace(userInput);
         return List.of(userInput.split(CAR_NAME_SEPARATOR.getValue()));
+    }
+
+    private String removeWhiteSpace(String userInput) {
+        userInput = userInput.replace(" ","");
+        return userInput;
     }
 }

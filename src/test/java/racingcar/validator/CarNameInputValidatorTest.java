@@ -47,6 +47,12 @@ class CarNameInputValidatorTest {
     }
 
     @Test
+    void validateAndGetCarNames_입력에_공백만_있을때_검증() {
+        String userInput = "      ";
+        assertThrows(IllegalArgumentException.class, () -> validator.validateAndGetCarNames(userInput));
+    }
+
+    @Test
     void validateAndGetCarNames_잘못된_구분자_검증() {
         String userInput = "hello/my/name/is/semin";
         assertThrows(IllegalArgumentException.class, () -> validator.validateAndGetCarNames(userInput));
