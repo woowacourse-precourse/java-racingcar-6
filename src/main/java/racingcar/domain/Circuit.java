@@ -16,11 +16,8 @@ public class Circuit {
         this.cars = cars;
     }
 
-    public static Circuit fromCarNames(List<String> carNames) {
-        checkCarNameSize(carNames.size());
-        List<Car> cars = carNames.stream()
-                .map(Car::new)
-                .collect(Collectors.toList());
+    public static Circuit fromCarNames(List<Car> cars) {
+        checkCarNameSize(cars.size());
         return new Circuit(cars);
     }
 

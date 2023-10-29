@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.Car;
 import racingcar.domain.Circuit;
 import racingcar.domain.TryCount;
 import racingcar.dto.RacingResult;
@@ -9,6 +10,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class GameController {
@@ -38,7 +40,11 @@ public class GameController {
     }
 
     private Circuit setupRace() {
-        return Circuit.fromCarNames(inputView.getInputCarNames());
+        List<String> carNames = inputView.getInputCarNames();
+        List<Car> cars = carNames.stream()
+                .map(Car::new)
+                .toList();
+        return Circuit.fromCarNames(cars);
     }
 
     private void raceOneRound(Circuit circuit) {

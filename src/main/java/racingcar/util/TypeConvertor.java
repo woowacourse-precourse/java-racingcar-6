@@ -22,5 +22,4 @@ public class TypeConvertor {
             throw new IllegalArgumentException(NOT_NUMERIC.getMessage());
         }
     }
-
 }
