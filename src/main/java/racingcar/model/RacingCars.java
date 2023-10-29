@@ -30,20 +30,20 @@ public final class RacingCars {
                 .toList();
     }
 
-    private static void validateCarNames(List<String> names) {
+    private void validateCarNames(List<String> names) {
         for (String name : names) {
             validateNameNotBlank(name);
             validateNameLength(name);
         }
     }
 
-    private static void validateNameNotBlank(String name) {
+    private void validateNameNotBlank(String name) {
         if (StringUtils.isBlank(name)) {
             throw new IllegalArgumentException(BLANK_CAR_NAME.toString());
         }
     }
 
-    private static void validateNameLength(String name) {
+    private void validateNameLength(String name) {
         if (name.length() > CAR_NAME_LENGTH_LIMIT) {
             throw new IllegalArgumentException(EXCEEDED_LIMIT_CAR_LENGTH.toString());
         }
