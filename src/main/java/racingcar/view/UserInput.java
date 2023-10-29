@@ -1,7 +1,5 @@
 package racingcar.view;
 
-import camp.nextstep.edu.missionutils.Console;
-
 public class UserInput {
     static String userInputCarName;
     static int gameCount;
@@ -23,6 +21,18 @@ public class UserInput {
 
     public static int getGameCount() {
         return gameCount;
+    }
+
+
+    //2) 사용자 입력에 대한 예외처리
+    public void validateInput(String carName) throws IllegalArgumentException {
+        String[] names = carName.split(",");
+        //1) 각 이름 길이 5초과 시 예외
+        validateLength(names);
+        //2) 각 이름에 " " 공백 포함 시 예외
+        validateBlank(names);
+        //3) 이름 중복도 안됨
+        validateDuplicate(names);
     }
 
     // -이름 중복될 경우
@@ -57,28 +67,5 @@ public class UserInput {
         }
     }
 
-    //1) 사용자 입력 처리해서 객체에도 세팅
-    public void askInputUser(UserInput userInput) {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String carName = Console.readLine();
 
-        validateInput(carName);
-
-        System.out.println("시도할 회수는 몇회인가요?");
-        int gameCount = Integer.parseInt(Console.readLine());
-
-        userInput.setUserInputCarName(carName);
-        userInput.setGameCount(gameCount);
-    }
-
-    //2) 사용자 입력에 대한 예외처리
-    public void validateInput(String carName) throws IllegalArgumentException {
-        String[] names = carName.split(",");
-        //1) 각 이름 길이 5초과 시 예외
-        validateLength(names);
-        //2) 각 이름에 " " 공백 포함 시 예외
-        validateBlank(names);
-        //3) 이름 중복도 안됨
-        validateDuplicate(names);
-    }
 }
