@@ -18,13 +18,11 @@ public class RacingGame {
     private final List<Car> carList;
     private final List<String> winnerList;
 
-
     public RacingGame() {
         numberOfRaces = 0;
         carList = new ArrayList<>();
         winnerList = new ArrayList<>();
     }
-
 
     public void setCarList(String carName) {
         List<String> separatedCarName = Arrays.asList(carName.split(","));
