@@ -44,6 +44,7 @@ public class Cars {
         for(Car car : cars){
             car.printStatus();
         }
+        System.out.println();
     }
 
     public List<Car> getWinners() {
