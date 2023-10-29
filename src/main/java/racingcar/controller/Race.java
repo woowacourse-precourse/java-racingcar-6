@@ -25,7 +25,7 @@ public class Race {
             moveCnt--;
         }
 
-        int currentMaxPostion =0;
+        int currentMaxPostion = 0;
         for (Car car : cars) {
             currentMaxPostion = Math.max(currentMaxPostion,car.getPosition());
         }
@@ -37,6 +37,14 @@ public class Race {
             }
         }
 
+        StringBuilder winnerResult = new StringBuilder();
+        for (int i = 0; i < currentWinner.size(); i++) {
+            winnerResult.append(currentWinner.get(i));
+            if(i != currentWinner.size()-1){
+                winnerResult.append(",");
+            }
+        }
+        OutputView.printWinner(winnerResult.toString());
 
     }
 
