@@ -59,4 +59,64 @@ public class RacingCarConsoleTest {
 
         assertThat(result).doesNotThrowAnyException();
     }
+
+    @Test
+    void 시도회수_입력받기_양수_입력_정상처리() {
+        Throwable result = catchThrowable(
+                () -> {
+                    String input = "3\n";
+                    System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+                    RacingCarConsole racingCarConsole = new RacingCarConsole();
+                    racingCarConsole.readIterationNumBer();
+                }
+        );
+
+        assertThat(result).doesNotThrowAnyException();
+    }
+
+    @Test
+    void 시도회수_입력받기_0입력_정상처리() {
+        Throwable result = catchThrowable(
+                () -> {
+                    String input = "0\n";
+                    System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+                    RacingCarConsole racingCarConsole = new RacingCarConsole();
+                    racingCarConsole.readIterationNumBer();
+                }
+        );
+
+        assertThat(result).doesNotThrowAnyException();
+    }
+
+    @Test
+    void 시도회수_입력받기_음수_입력_정상처리() {
+        Throwable result = catchThrowable(
+                () -> {
+                    String input = "-12\n";
+                    System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+                    RacingCarConsole racingCarConsole = new RacingCarConsole();
+                    racingCarConsole.readIterationNumBer();
+                }
+        );
+
+        assertThat(result).doesNotThrowAnyException();
+    }
+
+    @Test
+    void 시도회수_입력받기_문자열_입력_예외처리() {
+        Throwable result = catchThrowable(
+                () -> {
+                    String input = "-11abc#\n";
+                    System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+                    RacingCarConsole racingCarConsole = new RacingCarConsole();
+                    racingCarConsole.readIterationNumBer();
+                }
+        );
+
+        assertThat(result).isInstanceOf(IllegalArgumentException.class);
+    }
 }
