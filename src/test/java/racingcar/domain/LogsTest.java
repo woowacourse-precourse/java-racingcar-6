@@ -32,10 +32,16 @@ class LogsTest {
 
     @Test
     void newLine() {
+        String log = System.lineSeparator();
+        Logs.newLine();
+        assertThat(out.toString()).isEqualTo(log);
     }
 
     @Test
     void getGameResult() {
+        String log = "실행결과" + System.lineSeparator();
+        Logs.getGameResult();
+        assertThat(out.toString()).isEqualTo(log);
     }
 
     @Test
