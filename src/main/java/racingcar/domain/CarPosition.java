@@ -16,6 +16,9 @@ public class CarPosition {
 
     @Override
     public boolean equals(Object obj) {
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
         CarPosition carPosition = (CarPosition) obj;
         return position == carPosition.position;
     }

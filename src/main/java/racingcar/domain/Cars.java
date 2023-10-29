@@ -1,8 +1,6 @@
 package racingcar.domain;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import racingcar.dto.CarInformationDto;
 import racingcar.dto.CarNamesDto;
 import racingcar.dto.CarsInformationDto;
@@ -44,6 +42,15 @@ public class Cars {
                 .map(Car::getPosition)
                 .max(Integer::compareTo)
                 .orElse(0);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+        Cars anotherCars = (Cars) obj;
+        return cars.equals(anotherCars.cars);
     }
 
 }

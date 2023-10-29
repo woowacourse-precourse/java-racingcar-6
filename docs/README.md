@@ -58,9 +58,8 @@
 
 `Cars`를 만드는 클래스
 
-- [ ] `List<String>`을 `Cars`로 변환
-    - `List<String>`을 `List<Car>`로 변환
-- [ ] `String`을 `CarMovementStrategy`전략을 적용하여 `Car`로 변환
+- [x] `List<String>`을 `Cars`로 변환
+    - [x] `String`을 `CarMovementStrategy`전략을 적용하여 `Car`로 변환
 
 ## 📖 CarMovementStrategy
 
