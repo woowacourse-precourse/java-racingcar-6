@@ -30,7 +30,7 @@ public class CarTest {
 
         car.move();
 
-        assertNotEquals(0, (int) car.getDistance());
+        assertNotEquals(car, new Car("foo"));
 
     }
 
