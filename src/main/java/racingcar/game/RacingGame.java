@@ -1,6 +1,9 @@
-package racingcar;
+package racingcar.game;
 
 import java.util.List;
+
+import racingcar.domain.CarManger;
+import racingcar.ui.GameUI;
 
 public class RacingGame {
 	private final CarManger carManger;

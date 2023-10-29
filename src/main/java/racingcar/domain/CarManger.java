@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.domain.Car;
 
 public class CarManger {
 	private final List<Car> cars = new ArrayList<>();
