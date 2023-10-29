@@ -43,9 +43,9 @@
 
 #### 경주 횟수 검증
 
-- [ ] 입력 받은 반복 횟수에 대한 검증
-    - [ ] [예외] 숫자가 아니라면 `IllegalArgumentException` 발생
-    - [ ] [예외] 숫자가 0이하면 `IllegalArgumentException` 발생
+- [X] 입력 받은 반복 횟수에 대한 검증
+    - [X] [예외] 숫자가 아니라면 `IllegalArgumentException` 발생
+    - [X] [예외] 숫자가 0이하면 `IllegalArgumentException` 발생
 
 - - -
 

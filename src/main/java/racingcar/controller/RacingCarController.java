@@ -35,10 +35,12 @@ public class RacingCarController {
     }
 
     public String askingNumberOfRetires() {
-        return Console.readLine();
+        String numberOfRetries = Console.readLine();
+        UserInputValidator.validateNumberOfRetriesInput(numberOfRetries);
+        return numberOfRetries;
     }
 
-    public List<String> splitInputByComma(String userInput) {
+    private List<String> splitInputByComma(String userInput) {
         return Arrays.asList(userInput.split(","));
     }
 
