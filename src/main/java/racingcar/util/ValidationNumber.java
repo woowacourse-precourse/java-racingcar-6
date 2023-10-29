@@ -6,6 +6,11 @@ public class ValidationNumber {
 
     private static final String removeNumberRegex = "[0-9]";
 
+    public static void validateAttemptNumber(String attemptNumber) {
+        validateIsEmpty(attemptNumber);
+        validateIsNumber(attemptNumber);
+    }
+
     public static void validateIsEmpty(String attemptNumber) {
         attemptNumber = attemptNumber.trim();
         if (attemptNumber.isEmpty()) {

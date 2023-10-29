@@ -8,6 +8,11 @@ public class ValidationName {
 
     private ValidationName() {}
 
+    public static void validateCarNames(String carNames) {
+        validateLength(carNames);
+        validateDuplication(carNames);
+    }
+
     public static void validateLength(String carNames) {
         Arrays.stream(carNames.split(","))
                 .map(carName -> carName.trim())
