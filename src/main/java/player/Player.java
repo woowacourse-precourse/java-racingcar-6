@@ -1,24 +1,28 @@
 package player;
 
 public class Player {
-    private int distance = 0;
-    private final String playerName;
+    private final String name;
+    private Car car;
 
     public Player(String playerName) {
-        this.playerName = playerName;
+        this.name = playerName;
     }
 
     public String getPlayerName() {
-        return playerName;
+        return name;
     }
 
-    public int getDist() {
-        return distance;
+    public int getDistance() {
+        return car.getDistance();
     }
 
-    public void move(int randomNumber) {
-        if (randomNumber >= 4) {
-            this.distance++;
+    public void selectNewCar() {
+        car = new Car();
+    }
+
+    public void play() {
+        if (car != null) {
+            car.tryMove();
         }
     }
 }
