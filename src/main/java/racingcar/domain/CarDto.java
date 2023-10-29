@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.constant.GameMessage;
 
 public class CarDto {
     private final String name;
@@ -12,9 +13,11 @@ public class CarDto {
         this.position = position;
     }
 
-    public String getDisplayStatus() {
+    public String getStatus() {
         StringBuilder status = new StringBuilder();
-        status.append(name).append(" : ").append("-".repeat(position));
+        status.append(name)
+                .append(GameMessage.COLON.getMessage())
+                .append(GameMessage.DASH.getMessage().repeat(position));
         return status.toString();
     }
 
