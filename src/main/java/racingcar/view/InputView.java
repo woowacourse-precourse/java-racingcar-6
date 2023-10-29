@@ -10,6 +10,12 @@ public class InputView {
         return carNames;
     }
 
+    public static String inputAttemptNumber() {
+        printAttemptMessage();
+        String attemptNumber = input();
+        return attemptNumber;
+    }
+
     public static void printStartMessage() {
         System.out.println(InputMessages.START.getMessage());
     }
