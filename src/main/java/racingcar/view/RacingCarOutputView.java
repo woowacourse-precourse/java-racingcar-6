@@ -9,7 +9,6 @@ import racingcar.dto.CarInfo;
 public class RacingCarOutputView {
     public static final String RACING_EXECUTE_MESSAGE = "실행 결과";
     public static final String EACH_RACING_RESULT_FORMAT = "%s : %s";
-    public static final String POSITION_PROGRESS = "-";
     public static final String DELIMITER = ", ";
     public static final String FINAL_WINNERS_MESSAGE = "최종 우승자 : ";
 
@@ -28,16 +27,11 @@ public class RacingCarOutputView {
         List<CarInfo> carInfoList = r.getCarInfoList();
         for (CarInfo carInfo : carInfoList) {
             String carName = carInfo.name();
-            int position = carInfo.position();
-            String positionProgress = convertPositionValue(position);
+            String positionProgress = carInfo.convertPositionValue();
             String result = String.format(EACH_RACING_RESULT_FORMAT, carName, positionProgress);
             System.out.println(result);
         }
         System.out.println();
-    }
-
-    private String convertPositionValue(int position) {
-        return POSITION_PROGRESS.repeat(position);
     }
 
     public void printWinner(RacingResult racingResult) {
