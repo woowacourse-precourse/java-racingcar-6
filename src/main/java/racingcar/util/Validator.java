@@ -18,8 +18,19 @@ public class Validator {
         validateInputIsNotOverLength(carNamesSplit);
     }
 
-    private void validateInputIsNotEmpty(String carNamesInput) {
-        if (carNamesInput.isEmpty()) {
+    public void validateNumTrialInput(String numTrialInput) {
+        validateInputIsNotEmpty(numTrialInput);
+        validateInputIsNotZeroOrNegative(numTrialInput);
+    }
+
+    private void validateInputIsNotZeroOrNegative(String numTrialInput) {
+        if (Integer.parseInt(numTrialInput) <= 0) {
+            throw new IllegalArgumentException("입력값은 0 이상이어야 합니다.");
+        }
+    }
+
+    private void validateInputIsNotEmpty(String carNamesOrNumTrialInput) {
+        if (carNamesOrNumTrialInput.isEmpty()) {
             throw new IllegalArgumentException("입력값은 비어있을 수 없습니다.");
         }
     }
