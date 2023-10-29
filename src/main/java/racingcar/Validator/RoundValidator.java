@@ -1,9 +1,9 @@
 package racingcar.Validator;
 
+import static racingcar.Message.RoundExceptionPrompt.RANGEPROMPT;
 import static racingcar.Message.RoundExceptionPrompt.REALNUMBERPROMPT;
 import static racingcar.Message.RoundExceptionPrompt.STRINGPROMPT;
 
-import racingcar.Exception.GameException;
 import racingcar.Exception.GameException.RoundException;
 
 public class RoundValidator {
@@ -21,5 +21,8 @@ public class RoundValidator {
     }
 
     public static void isValidRange(String round) {
+        if (Integer.parseInt(round) <= 0) {
+            throw new RoundException(RANGEPROMPT.getMessage(round));
+        }
     }
 }
