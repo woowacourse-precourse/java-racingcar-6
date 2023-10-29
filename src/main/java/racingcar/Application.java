@@ -9,10 +9,10 @@ import java.util.Random;
 
 public class Application {
     public static void main(String[] args) {
-        test();
+        play_racing_game();
     }
 
-    public static void test() {
+    public static void play_racing_game() {
         String[] car_name_list = input_car_name();
         int repeat_count = input_repeat_count();
         go_or_stop(car_name_list, repeat_count);
@@ -61,7 +61,6 @@ public class Application {
         System.out.println("실행 결과");
 
         String[] results = new String[car_name_list.length];
-
         for (int i = 0; i < car_name_list.length; i++) {
             results[i] = "";
         }
@@ -71,6 +70,9 @@ public class Application {
             print_result(car_name_list, racing_results);
             System.out.println();
         }
+
+        List<String> winners = racing_winner(car_name_list, results);
+        print_winner(winners);
     }
 
     public static String[] racing(String[] car_name_list, String[] results) {
@@ -92,4 +94,42 @@ public class Application {
             System.out.println(car_name + " : " + result);
         }
     }
+
+    public static List<String> racing_winner(String[] car_name_list, String[] results) {
+        int amount_of_line = 0;
+        List<String> winners = new ArrayList<>();
+
+        for (int l = 0; l < car_name_list.length; l++) {
+            int line = results[l].length();
+
+            if (line > amount_of_line) {
+                amount_of_line = line;
+                winners.clear();
+                winners.add(car_name_list[l]);
+            } else if (line == amount_of_line) {
+                winners.add(car_name_list[l]);
+            }
+        }
+        return winners;
+    }
+
+    public static void print_winner(List<String> winners){
+        System.out.print("최종 우승자 : ");
+
+        if (winners.size() == 1) {
+            System.out.print(winners.get(0));
+        } else {
+            if_multiple_winners(winners);
+        }
+    }
+
+    public static void if_multiple_winners(List<String> winners) {
+        for (int m = 0; m < winners.size(); m++) {
+            System.out.print(winners.get(m));
+            if (m < winners.size() - 1) {
+                System.out.print(", ");
+            }
+        }
+    }
+
 }
