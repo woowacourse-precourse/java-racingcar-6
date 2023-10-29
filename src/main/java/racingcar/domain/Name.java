@@ -6,10 +6,10 @@ public class Name {
     private final String name;
 
     public Name(String name) {
-        this.name = validation(name);
+        this.name = validateName(name);
     }
 
-    private String validation(String name) {
+    private String validateName(String name) {
         if (StringUtils.isBlank(name)) {
             throw new IllegalArgumentException("자동차 이름에 공백은 입력할 수 없습니다.");
         }

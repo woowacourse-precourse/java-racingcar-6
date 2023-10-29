@@ -6,14 +6,10 @@ public class Position {
     private int position;
 
     public Position(int position) {
-        this.position = validation(position);
-    }
-
-    private int validation(int position) {
         if (position < 0) {
             throw new IllegalArgumentException("position은 음수값을 가질 수 없습니다.");
         }
-        return position;
+        this.position = position;
     }
 
     public Position move() {
