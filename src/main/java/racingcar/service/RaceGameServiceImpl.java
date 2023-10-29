@@ -42,33 +42,8 @@ public class RaceGameServiceImpl implements RaceGameService{
 
     @Override
     public List<Integer> findWinner(Car car) {
-        int maxPosition = findMaxPosition(car);
-        return findWinnerIndex(car, maxPosition);
+        int maxPosition = car.findMaxPosition();
+        return car.findWinnerIndex(maxPosition);
     }
 
-    private static List<Integer> findWinnerIndex(Car car, int maxPosition) {
-        List<Integer> carPositions = car.getCarPosition();
-
-        List<Integer> result = new ArrayList<>();
-
-        for (int i=0; i<carPositions.size(); i++) {
-            if (carPositions.get(i) == maxPosition) {
-                result.add(i);
-            }
-        }
-        return result;
-    }
-
-    private static int findMaxPosition(Car car) {
-        List<Integer> carPositions = car.getCarPosition();
-
-        int maxPosition = 0;
-
-        for (Integer carPosition : carPositions) {
-            if (carPosition > maxPosition) {
-                maxPosition = carPosition;
-            }
-        }
-        return maxPosition;
-    }
 }
