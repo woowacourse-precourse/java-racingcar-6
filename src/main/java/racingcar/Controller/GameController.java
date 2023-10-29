@@ -35,6 +35,7 @@ public class GameController {
 
         System.out.println("경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)");
         carList = readLine().split(",");
+        inputValidate(carList);
 
         System.out.println("시도할 회수는 몇회인가요?");
         coinNumber = Integer.parseInt(readLine());
@@ -43,6 +44,16 @@ public class GameController {
         gameModel.setCoinNumber(coinNumber);
 
         setCarModels(carList);
+    }
+
+    private void inputValidate(String[] carList) throws IllegalArgumentException {
+
+        for(String carName : carList){
+
+            if(carName.length()>5){
+                throw new IllegalArgumentException();
+            }
+        }
     }
 
     public void gamePlay() {
