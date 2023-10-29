@@ -4,6 +4,7 @@ import java.util.HashMap;
 import racingcar.util.RandomNumberGenerator;
 
 public class Racing {
+    private static final int MIN_FORWARD_VALUE = 4;
     private final Cars cars;
     private final long attempCount;
     private final RandomNumberGenerator randomNumberGenerator;
@@ -31,7 +32,7 @@ public class Racing {
     }
 
     private boolean isMovable(int randomValue) {
-        return randomValue > 3;
+        return randomValue >= MIN_FORWARD_VALUE;
     }
 
     public long getAttempCount() {
