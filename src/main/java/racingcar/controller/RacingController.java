@@ -16,5 +16,8 @@ public class RacingController {
         List<Car> cars = view.inputCarNames();
         Integer tryCount = view.inputTryCount();
         view.startPrintTryResult();
+        for (Integer i = 0; i < tryCount; i++) {
+            cars.forEach(car -> car.randomGoForward());
+        }
     }
 }
