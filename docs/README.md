@@ -1,21 +1,21 @@
 # 📚 기능목록
-- [ ] 자동차의 이름들을 입력받는다.
-  - [ ] 🚫 자동차 이름이 공백인지 검증한다.
-  - [ ] 🚫 중복된 자동차 이름이 있는지 검증한다.
-  - [ ] 🚫 자동차 이름이 5자 이하인지 검증한다.
-- [ ] 이름 문자열을 이름 리스트로 변환한다.
-- [ ] 자동차 리스트를 생성한다.
-- [ ] 자동차에 이름을 부여한다.
-- [ ] 자동차가 몇 번 이동할 지 입력받는다.
-  - [ ] 🚫 입력값이 숫자인지 검증한다.
-  - [ ] 🚫 입력값이 1 이상인지 검증한다.
-- [ ] 경주를 진행한다.
-- [ ] 자동차가 전진하는지 판단한다.
-- [ ] 0에서 9 사이의 무작위 값을 구한다.
-- [ ] 무작위 값이 4이상인지 비교한다.
-- [ ] 자동차가 전진한다.
-- [ ] 자동차의 이름을 출력한다.
-- [ ] 자동차의 전진 상황을 출력한다.
-- [ ] 우승자를 안내한다.
-- [ ] 자동차중 가장 많이 전진한 자동차들이 누구인지 확인한다.
-- [ ] 우승자를 출력한다.
+- [ ] 자동차의 이름들을 입력받는다. ``InputView - readCarName``
+  - [ ] 🚫 자동차 이름이 공백인지 검증한다. ``InputView - validateBlankName``
+  - [ ] 🚫 중복된 자동차 이름이 있는지 검증한다. ``Car - validateDuplicateName``
+  - [ ] 🚫 자동차 이름이 5자 이하인지 검증한다. ``Car - validateNameLength``
+- [ ] 이름 문자열을 이름 리스트로 변환한다. ``GameController - convertStringToList``
+- [ ] 자동차 리스트를 생성한다. ``GameController - createCarList``
+- [ ] 자동차에 이름을 부여한다. ``GameController - generateCarName``
+- [ ] 자동차가 몇 번 이동할 지 입력받는다.  ``InputView - readCarMoveCount``
+  - [ ] 🚫 입력값이 숫자인지 검증한다. ``InputView - validateDigit``
+  - [ ] 🚫 입력값이 1 이상인지 검증한다. ``GameController - validateCarMoveCount``
+- [ ] 경주를 진행한다. ``GameController - startGame``
+- [ ] 자동차가 이동한다. ``Car - move``
+- [ ] 자동차가 전진하는지 판단한다. ``Car - isMoveForward``
+- [ ] 0에서 9 사이의 무작위 값을 구한다. ``NumberGenerator - createRandomNumber`` 
+- [ ] 자동차가 전진한다. ``Car - moveForward``
+- [ ] 자동차의 이름을 출력한다. ``OutputView - printCarName``
+- [ ] 자동차의 전진 상황을 출력한다. ``OutputView - printCarProgress``
+- [ ] 우승자를 안내한다. ``GameController - announceWinner``
+- [ ] 자동차중 가장 많이 전진한 자동차들이 누구인지 확인한다. ``Referee - findMostProgressCar``
+- [ ] 우승자를 출력한다. ``OutputView - printWinner``
