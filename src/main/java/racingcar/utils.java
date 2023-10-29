@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,5 +27,26 @@ public class utils {
         } catch (NumberFormatException e){
             throw new IllegalArgumentException("입력값이 올바르지 않습니다.");
         }
+    }
+
+    public static List<Car> findCarsWithMaxDistance(List<Car> carList){
+        List<Car> maxDistanceCars = new ArrayList<>();
+        if (carList.isEmpty()) {
+            return maxDistanceCars;
+        }
+
+        int maxDistance = Integer.MIN_VALUE;
+
+        for (Car car : carList) {
+            if (car.getDistance() > maxDistance) {
+                maxDistanceCars.clear();
+                maxDistanceCars.add(car);
+                maxDistance = car.getDistance();
+            } else if (car.getDistance() == maxDistance) {
+                maxDistanceCars.add(car);
+            }
+        }
+
+        return maxDistanceCars;
     }
 }

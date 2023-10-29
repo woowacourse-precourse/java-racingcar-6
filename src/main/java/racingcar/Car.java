@@ -16,4 +16,8 @@ public class Car {
             this.distance++;
         }
     }
+
+    public int getDistance() {
+        return distance;
+    }
 }
