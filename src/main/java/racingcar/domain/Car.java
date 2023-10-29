@@ -15,8 +15,26 @@ public class Car {
 
         List<String> inputNames = Arrays.asList(name.split(","));
 
+        checkEmpty(inputNames);
+
         names = inputNames;
 
         return names;
+    }
+
+    public void checkEmpty(List<String> inputNames) {
+        try {
+            List<String> notNullNames = new ArrayList<>();
+
+            for (int n = 0; n < inputNames.size(); n++) {
+                if (inputNames.get(n).isEmpty()) {
+                    throw new IllegalArgumentException("이름에 빈값이 있습니다.");
+                }
+                notNullNames.add(inputNames.get(n));
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            throw e;
+        }
     }
 }
