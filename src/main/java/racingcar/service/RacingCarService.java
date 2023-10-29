@@ -37,4 +37,13 @@ public class RacingCarService {
         validateInputNumberRange(numberOfAttempts);
         return numberOfAttempts;
     }
+
+    public void movingForward(ArrayList<RacingCar> racingCars) {
+        for (RacingCar racingCar : racingCars) {
+            int pickRandomNumber = racingCar.pickRandomNumber();
+            if (racingCar.isMoreThanFour(pickRandomNumber)) {
+                racingCar.moveForwardOneSpace("-");
+            }
+        }
+    }
 }
