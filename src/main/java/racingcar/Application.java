@@ -30,7 +30,7 @@ public class Application {
         System.out.println("\n실행 결과");
         for (int i = 0; i < numberOfTimes; i++) {
             for (Car car : carList) {
-                car.move();
+                car.move(Car.canMove());
             }
             printer.printDistance(carList);
             System.out.println();

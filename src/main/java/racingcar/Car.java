@@ -16,7 +16,7 @@ public class Car {
             distance++;
     }
 
-    public boolean canMove() {
+    public static boolean canMove() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber >= 4;
     }

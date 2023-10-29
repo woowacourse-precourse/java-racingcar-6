@@ -29,15 +29,15 @@ class PrinterTest {
         carList.add(new Car("pear"));
         carList.add(new Car("melon"));
 
-        carList.get(0).move();
-        carList.get(0).move();
-        carList.get(0).move();
+        carList.get(0).move(true);
+        carList.get(0).move(true);
+        carList.get(0).move(true);
 
-        carList.get(1).move();
-        carList.get(1).move();
-        carList.get(1).move();
+        carList.get(1).move(true);
+        carList.get(1).move(true);
+        carList.get(1).move(true);
 
-        carList.get(2).move();
+        carList.get(2).move(true);
     }
 
     @AfterEach

@@ -21,15 +21,15 @@ class RefereeTest {
         List<String> nameList = generator.splitNames(names);
         carList = generator.createCars(nameList);
 
-        carList.get(0).move();
-        carList.get(0).move();
-        carList.get(0).move();
+        carList.get(0).move(true);
+        carList.get(0).move(true);
+        carList.get(0).move(true);
 
-        carList.get(1).move();
-        carList.get(1).move();
-        carList.get(1).move();
+        carList.get(1).move(true);
+        carList.get(1).move(true);
+        carList.get(1).move(true);
 
-        carList.get(2).move();
+        carList.get(2).move(true);
     }
 
     @Test
