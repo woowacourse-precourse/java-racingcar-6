@@ -1,9 +1,9 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
+
 import java.util.HashSet;
 import java.util.Set;
-
-import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Application {
 
@@ -20,7 +20,7 @@ public class Application {
 
     public static int makePlayCount() {
         System.out.println("시도할 회수는 몇회인가요?");
-        String inputCount = readLine();
+        String inputCount = Console.readLine();
         findPlayCountError(inputCount);
 
         return Integer.parseInt(inputCount);
@@ -36,7 +36,7 @@ public class Application {
     }
 
     public static String findinputCarError() {
-        String inputCar = readLine();
+        String inputCar = Console.readLine();
         if (inputCar == "" || inputCar.contains(" ")) {
             throw new IllegalArgumentException();
         }
