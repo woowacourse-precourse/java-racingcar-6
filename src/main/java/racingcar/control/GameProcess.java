@@ -56,10 +56,13 @@ public class GameProcess {
      * 입력받은 이름 문자열리스트로 자동차를 만들어준다.
      */
     public void createRaceCars() {
+        RaceCar newRaceCar = null;
+
         makeNameOfCurrentCarListFromStringLine();
 
         for (String nameOfRaceCar : nameSplitList) {
-            raceCarOfCurrentList.add(new RaceCar(nameOfRaceCar));
+            newRaceCar = new RaceCar(nameOfRaceCar);
+            raceCarOfCurrentList.add(newRaceCar);
         }
     }
 
