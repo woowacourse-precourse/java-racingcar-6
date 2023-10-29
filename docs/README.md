@@ -1,21 +1,37 @@
 # 자동차 경주 구현 기능 목록 📜
 
-## 1. 경주할 자동차 입력받기
+## ✅ 1. 경주할 자동차 입력받기
 
-- 자동차 이름은 쉼표(,)를 기준으로 구분합니다.
-    - 쉼표가 없는 경우, 예외 처리합니다.
-        - IllegalArgumentException을 발생시킨 후 애플리케이션을 종료시킵니다.
-- 이름은 5자 이하만 가능합니다.
-    - 영어, 한글, 숫자만 가능합니다.
-        - 잘못된 값을 입력할 경우, IllegalArgumentException을 발생시킨 후 애플리케이션을 종료시킵니다.
+- ✅ 자동차 이름은 쉼표(,)를 기준으로 구분합니다.
+    - ✅ 잘못된 값을 입력할 경우, IllegalArgumentException을 발생시킨 후 애플리케이션을 종료시킵니다.
+        - ✅ 아래 3가지 경우, "Input value cannot be blank." 예외 메시지 설정
+            - ✅ null일 경우
+            - ✅ 빈 문자열일 경우
+            - ✅ 값이 공백만으로 구성된 경우
+        - ✅ 아래 2가지 경우, "There must be two or more cars, and each car must be separated by a comma." 예외 메시지 설정
+            - ✅ 쉼표가 없는 경우
+            - ✅ 자동차의 개수가 1개일 경우 (경기할 수 있는 대상이 없으므로)
+- ✅ 각 이름은 5자 이하만 가능합니다.
+    - ✅ 잘못된 값을 입력할 경우, IllegalArgumentException을 발생시킨 후 애플리케이션을 종료시킵니다.
+        - ✅ 아래 3가지의 경우, "None of the names can be blank." 예외 메시지 설정
+            - ✅ null일 경우
+            - ✅ 빈 문자열일 경우
+            - ✅ 값이 공백만으로 구성된 경우
+        - ✅ 길이가 6이상일 경우, "The length of the name must be 5 or less." 예외 메시지 설정
+        - ✅ 영어, 숫자, '-' 이외의 다른 값이 포함된 경우, "Only English letters, numbers, and '-' symbol are allowed in the name." 예외
+          메시지 설정
 
 ## 2. 시도할 횟수 입력받기
 
 - 숫자만 입력할 수 있습니다.
-    - 양수만 입력할 수 있습니다.
-        - 잘못된 값을 입력할 경우, IllegalArgumentException을 발생시킨 후 애플리케이션을 종료시킵니다.
-    - 두 자릿수 이상일 경우, 맨 앞자리 수가 0일 수 없습니다.
-        - IllegalArgumentException을 발생시킨 후 애플리케이션을 종료시킵니다.
+    - 잘못된 값을 입력할 경우, IllegalArgumentException을 발생시킨 후 애플리케이션을 종료시킵니다.
+        - 숫자가 아닌 값이 포함된 경우, "It cannot contain non-numeric values and cannot be negative." 예외 메시지 설정
+        - 입력된 값이 '0'일 경우, "It cannot be 0." 예외 메시지 설정
+        - 값의 길이가 2이상인데 가장 큰 자리의 수가 0일 경우, "The number in the largest digit cannot be 0." 예외 메시지 설정
+        - 아래 3가지의 경우, "Input value cannot be blank" 예외 메시지 설정
+            - null일 경우
+            - 빈 문자열일 경우
+            - 값이 공백만으로 구성된 경우
 
 ## 3. 자동차 경주 시작
 
