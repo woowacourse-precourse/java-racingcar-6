@@ -8,6 +8,7 @@ import racingcar.view.InputView;
 import java.util.List;
 
 public class RacingController {
+    TrialController trialController = new TrialController();
     InputValidator inputValidator = new InputValidator();
     InputView inputView = new InputView();
     private final Cars racingCars = new Cars();
@@ -19,6 +20,7 @@ public class RacingController {
         validCarNames = getValidCarNames();
         validTrialTimes = getValidTrialTimes();
         initCars(validCarNames);
+        proceedRacingTrials(validTrialTimes);
     }
 
     private List<String> getValidCarNames() {
@@ -36,6 +38,12 @@ public class RacingController {
     private void initCars(List<String> validCarsName) {
         for (String carName : validCarsName) {
             racingCars.addCar(new Car(carName));
+        }
+    }
+
+    private void proceedRacingTrials(int trialTimes) {
+        for (int i = 0; i < trialTimes; i++) {
+            trialController.applyTrialResult(racingCars);
         }
     }
 }
