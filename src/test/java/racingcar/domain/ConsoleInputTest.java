@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -12,21 +13,21 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.ArgumentMatchers;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 
 class ConsoleInputTest {
-    @Mock
-    static InputValidator inputValidator = mock(InputValidator.class);
-
-    @InjectMocks
-    static ConsoleInput consoleInput = new ConsoleInput();
+    static InputValidator inputValidator;
+    static ConsoleInput consoleInput;
 
     @BeforeAll
-    static void setMock() {
+    static void init() {
+        inputValidator = mock(InputValidator.class);
+        consoleInput = new ConsoleInput(inputValidator);
         when(inputValidator.validateCarNames(ArgumentMatchers.anyString()))
                 .thenReturn(true);
+        doNothing().when(inputValidator).validateMoveCount(ArgumentMatchers.anyString());
     }
 
     @AfterEach
