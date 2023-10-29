@@ -8,32 +8,38 @@ import java.util.List;
 import java.util.Map;
 
 public class Application {
+    static User user = new User();
+    static NumberGenerator numberGenerator = new NumberGenerator();
+    static Car car = new Car();
+    static Referee referee = new Referee();
+    static Judgement judgement = new Judgement();
+
+    static List<String> carList;
+    static List<String> winners;
+    static int gameCount;
+    static Map<String,String> userInfomation;
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        //디버깅 용 코드 , 구현 후 삭제할것
-        //NumberGenerator numberGenerator = new NumberGenerator();
-        //int a = numberGenerator.createRandomNumber();
-        //System.out.println(a);
-        User user = new User();
-        //System.out.println(user.decideMove(a));
-        List<String> list = user.initCarList();
-        System.out.println(list);
-        Map<String,String> users = user.initUser(list);
-        Car car = new Car();
-        for(int i = 0 ; i < 3;i++){
-            car.moveForward(list.get(2),users);
-            System.out.println(users.get(list.get(2)));
+
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        carList =  user.initCarList();
+        userInfomation = user.initUser(carList);
+        System.out.println("시도할 회수는 몇회인가요?");
+        gameCount = user.inputGameCount();
+        System.out.println("\n실행 결과");
+        while (gameCount > 0){
+
+            for (int index = 0; index < carList.size();index++){
+                int randomNumber = numberGenerator.createRandomNumber();
+                if(user.decideMove(randomNumber)){
+                    car.moveForward(carList.get(index),userInfomation);
+                }
+                System.out.println(carList.get(index) + " : "+ userInfomation.get(carList.get(index)));
+            }
+            System.out.println("");
+            gameCount--;
         }
-        for(int i = 0 ; i < 2;i++){
-            car.moveForward(list.get(0),users);
-            System.out.println(users.get(list.get(0)));
-        }
-        List<String> str2 = new ArrayList<>();
-        Judgement judgement = new Judgement();
-        str2 = judgement.compareDistance(users,list);
-        System.out.println(str2);
-        Referee referee = new Referee();
-        referee.printWinner(str2);
-        System.out.println(user.inputGameCount());
+        winners = judgement.compareDistance(userInfomation,carList);
+        referee.printWinner(winners);
     }
 }

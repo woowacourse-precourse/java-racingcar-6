@@ -13,6 +13,7 @@ public class Referee {
                 totalWinnerNumber--;
             }
         }
+        System.out.print("최종 우승자 : ");
         System.out.println(winners);
     }
 }
