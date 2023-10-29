@@ -1,6 +1,5 @@
 package racingcar.view;
 
-import racingcar.controller.dto.GameResultDto;
 import racingcar.controller.dto.RoundResponseDto;
 
 public class OutputView {
@@ -25,7 +24,7 @@ public class OutputView {
         System.out.println(output);
     }
 
-    public static void printGameWinner(GameResultDto gameResultDto) {
-        System.out.print("최종 우승자 : " + gameResultDto.convertOutput());
+    public static void printGameWinner(String gameWinner) {
+        System.out.print("최종 우승자 : " + gameWinner);
     }
 }
