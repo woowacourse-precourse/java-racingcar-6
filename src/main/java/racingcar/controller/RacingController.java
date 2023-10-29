@@ -24,6 +24,20 @@ public class RacingController {
         return carList;
     }
 
+    public void runOneRound(ArrayList<StringBuilder> carStringBuilders){
+        int carIdx = 0;
+        for (Car car : carList) {
+            String carName = car.getName();
+            Integer carLocation = car.getLocation();
+            if(numJudge.judgeNum()){
+                car.increaseCarLocation();
+                outputView.appendStringBuilder(carIdx,carName,carStringBuilders);
+            }
+            outputView.printRoundResult(carIdx,carStringBuilders);
+            carIdx ++;
+        }
+    }
+
     public void game() {
         ArrayList<String> carNameList = start();
         int totalRoundNum = inputView.readRoundNum();
@@ -40,6 +54,11 @@ public class RacingController {
         for(int i=0; i<carList.size(); i++) {
             Car nowCar = carList.get(i);
             outputView.appendDefaultString(i, nowCar.getName(), carStringBuilders);
+        }
+        while (round.getRoundNum() <= totalRoundNum) {
+            runOneRound(carStringBuilders);
+            round.increaseRoundNum();
+            System.out.println(" ");
         }
     }
 }
