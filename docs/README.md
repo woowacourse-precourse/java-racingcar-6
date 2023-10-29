@@ -1,14 +1,14 @@
 ## 자동차 경주
 ### [🚀 기능 요구 사항](https://github.com/woowacourse-precourse/java-racingcar-6#-%EA%B8%B0%EB%8A%A5-%EC%9A%94%EA%B5%AC-%EC%82%AC%ED%95%AD)
-### RacingcarGameManager
+### RacingCarGameManager
 + [ ] 게임 시작
-### Racingcar
+### RacingCar
 + [ ] 생성자
   + 차 이름을 설정한다.
   + 이동 거리 = 0
 + [ ] 이동 거리를 1 더해준다.
 + [ ] 몇 칸 이동했는지 반환해준다.
-### RacingcarGame
+### RacingCarGame
 + [ ] 생성자
   + 현재 가장 멀리 이동한 칸 수 = 0
 + [ ] 무작위 값을 사용하여 전진하는 조건인지 확인하기
@@ -18,7 +18,7 @@
 + [ ] 현재 가장 멀리 이동한 칸 수가 갱신되었는지 확인하고 갱신시켜준다.
 + [ ] 우승자들을 반환해준다.
   + 현재 가장 멀리 이동한 칸 수와 동일하게 이동한 자동차들을 반환해준다.
-### RacingcarGameInput
+### RacingCarGameInput
 + [ ] 자동차 이름들을 입력 받는다.
 + [ ] 입력 받은 자동차 이름들을 조건에 맞는지 검증한다.
   + ","를 기준으로 구분하였는가?
@@ -26,7 +26,7 @@
 + [ ] 몇 번의 이동을 할 것인지 입력 받는다.
 + [ ] 입력받은 이동 횟수를 조건에 맞는지 검증한다.
   + 숫자인가?
-### RacingcarGameOutput
+### RacingCarGameOutput
 + [ ] 자동차 이름들을 입력 받기 위한 메시지를 출력한다.
 + [ ] 이동 횟수를 입력 받기 위한 메시지를 출력한다.
 + [ ] 게임을 진행하며 실행 결과들을 출력한다.
