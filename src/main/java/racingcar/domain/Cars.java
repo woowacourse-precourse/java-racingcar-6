@@ -1,11 +1,7 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
 public class Cars {
 
@@ -17,12 +13,12 @@ public class Cars {
                 .toList();
     }
 
-    public Map<Car, Integer> moveAllCars() {
-        for (Car car : carList.keySet()) {
-            car.move();
+    public void moveAllCars(Movable movable) {
+        for (Car car : carList) {
+            if (movable.canMove()) {
+                car.move();
+            }
         }
-
-        return moveResults();
     }
 
     public List<String> findWinner() {
