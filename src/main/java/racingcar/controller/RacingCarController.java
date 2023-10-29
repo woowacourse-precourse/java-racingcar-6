@@ -31,6 +31,8 @@ public class RacingCarController {
             List<RacingCar> racingCars = racingCarService.getRacingCars();
             outputView.printRacingResult(racingCars);
         }
+
+        outputView.printWinners(racingCarService.getWinnerNames());
     }
 
     private void saveRacingCars(String carNames) {
