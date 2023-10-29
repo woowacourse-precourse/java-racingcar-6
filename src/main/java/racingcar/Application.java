@@ -32,5 +32,8 @@ public class Application {
         // 시도할 횟수 입력
         String times = inputView.timesInput();
         invalidInputException.checkTimes(times);
+
+        // '실행 결과' 메세지 출력
+        outputView.resultMessage();
     }
 }
