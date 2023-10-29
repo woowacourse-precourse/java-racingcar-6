@@ -8,7 +8,7 @@
   - [ ] 이름의 길이가 5자 이하 - Car.checkLength
 
 - [ ] 몇 번의 시도를 할지 회수를 받기 - Attempt
-  - [ ] 숫자로 입력
+  - [ ] 숫자로 입력 - checkInt
   - [ ] 1이상의 자연수
 
 - [ ] 전진 조건 확인 - MovingCondition

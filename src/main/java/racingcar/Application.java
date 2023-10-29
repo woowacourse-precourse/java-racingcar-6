@@ -11,7 +11,8 @@ public class Application {
         List<String> carNames = car.getNames();
         System.out.println("자동차 이름: " + carNames);
 
-        Attempt attemptNum = new Attempt();
+        Attempt num = new Attempt();
+        int attemptNum = num.attemptNum();
         System.out.println("시도 회수: " + attemptNum);
     }
 }
