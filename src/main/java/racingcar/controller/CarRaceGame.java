@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.Car;
@@ -8,11 +9,11 @@ import racingcar.validator.Validator;
 import racingcar.view.CarRaceGameView;
 
 public class CarRaceGame {
-    private static CarRaceGameView carRaceGameView = CarRaceGameView.getCarRaceGameView();
     private CarManager carManager;
-    private List<Car> carImplList;
+    private List<Car> carImplList = new ArrayList<Car>();
 
-    public CarRaceGame() {}
+    public CarRaceGame() {
+    }
 
     public void run() {
         startGame();
@@ -20,19 +21,19 @@ public class CarRaceGame {
 
     public void startGame() {
         carManager = CarManager.create();
-        String carNames = carRaceGameView.startGameView();
+        String carNames = CarRaceGameView.startGameView();
         createCar(carNames);
+        carManager.setCarQuantity(carImplList.size());
 
-        String attemptNumberString = carRaceGameView.attemptNumberView();
+        String attemptNumberString = CarRaceGameView.attemptNumberView();
+        setUpAttemptNumber(attemptNumberString);
     }
 
     public void createCar(String carNames) {
         List<String> carNameList = CarNamesToList(carNames);
-        carManager.setCarQuantity(carNameList.size());
-
         for (String carName : carNameList) {
             Validator.carNameStringLength(carName);
-            Validator.isNull(carName);
+            Validator.isSpace(carName);
             carImplList.add(new Car(carName));
         }
     }
