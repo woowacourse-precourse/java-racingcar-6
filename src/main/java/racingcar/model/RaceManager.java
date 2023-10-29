@@ -15,7 +15,9 @@ public class RaceManager {
     }
 
     public static void startRace(List<Car> cars) {
-
+        for (int i = 0; i < numberOfMove; i++) {
+            cars.forEach(Car::move);
+        }
     }
 
     private static int toNumber(String string) {

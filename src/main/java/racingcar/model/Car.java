@@ -14,8 +14,8 @@ public class Car {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public Car move(int numberOfMove) {
-        return null;
+    public void move() {
+        
     }
 
     //test 만을 위한 코드입니다.
