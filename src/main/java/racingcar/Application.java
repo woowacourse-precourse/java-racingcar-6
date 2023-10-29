@@ -11,7 +11,8 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        List<String> carNamesList = inputCarNames();
+        String carNames = Console.readLine();
+        List<String> carNamesList = splitCarNames(carNames);
         checkNamingError(carNamesList);
 
         System.out.println("시도할 회수는 몇회인가요?");
@@ -25,8 +26,7 @@ public class Application {
         printWinner(winnerNameList);
     }
 
-    public static List<String> inputCarNames() {
-        String carNames = Console.readLine();
+    public static List<String> splitCarNames(String carNames) {
         return new ArrayList<>(Arrays.asList(carNames.split(",")));
     }
 
@@ -67,37 +67,37 @@ public class Application {
 
     public static List<Integer> printCarRace(int numberOfRaces, List<String> carNamesList) {
         int numberOfCars = carNamesList.size();
-        List<Integer> totalActionList = new ArrayList<>(Collections.nCopies(numberOfCars, 0));
+        List<Integer> raceResult = new ArrayList<>(Collections.nCopies(numberOfCars, 0));
 
         for (int j = 0; j < numberOfRaces; j++) {
             List<Integer> carActionList = recordCarAction(carNamesList);
 
             for (int i = 0; i < numberOfCars; i++) {
                 String car = carNamesList.get(i);
-                int action = totalActionList.get(i) + carActionList.get(i);
+                int action = raceResult.get(i) + carActionList.get(i);
                 String dashes = "-".repeat(action);
                 System.out.println(car + " : " + dashes);
 
-                totalActionList.set(i, action);
+                raceResult.set(i, action);
             }
             System.out.println();
         }
-        return totalActionList;
+        return raceResult;
     }
 
-    public static List<Integer> extractWinnerIndex(List<Integer> totalActionList) {
-        int maxDistance = Collections.max(totalActionList);
+    public static List<Integer> extractWinnerIndex(List<Integer> raceResult) {
+        int maxDistance = Collections.max(raceResult);
         List<Integer> winnerIndexList = new ArrayList<>();
-        for (int i = 0; i < totalActionList.size(); i++) {
-            if (totalActionList.get(i) == maxDistance) {
+        for (int i = 0; i < raceResult.size(); i++) {
+            if (raceResult.get(i) == maxDistance) {
                 winnerIndexList.add(i);
             }
         }
         return winnerIndexList;
     }
 
-    public static List<String> decideWinner(List<Integer> totalActionList, List<String> carNamesList) {
-        List<Integer> winnerIndexList = extractWinnerIndex(totalActionList);
+    public static List<String> decideWinner(List<Integer> raceResult, List<String> carNamesList) {
+        List<Integer> winnerIndexList = extractWinnerIndex(raceResult);
         List<String> winnerNameList = new ArrayList<>();
         for (int winnerIndex : winnerIndexList) {
             String winnerName = carNamesList.get(winnerIndex);
