@@ -1,6 +1,9 @@
-package racingcar.domain;
+package racingcar.service;
 
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
+import racingcar.domain.Driver;
+import racingcar.domain.TestDriver;
 import racingcar.service.Racing;
 
 import java.util.ArrayList;
@@ -26,7 +29,8 @@ public class RacingTest {
         Car[] cars = {car1, car2, car3};
         carList.addAll(Arrays.asList(cars));
 
-        Racing racing = new Racing(carList);
+        Racing racing = new Racing();
+        racing.setRacingCars(carList);
 
         // When
         for(int i = 0; i<3; i++){
@@ -54,7 +58,8 @@ public class RacingTest {
         Car[] cars = {car1, car2, car3};
         carList.addAll(Arrays.asList(cars));
 
-        Racing racing = new Racing(carList);
+        Racing racing = new Racing();
+        racing.setRacingCars(carList);
 
         // When
         for(int i = 0; i<3; i++){
@@ -64,5 +69,24 @@ public class RacingTest {
         // Then
         List<String> winners = racing.getWinner();
         assertThat(winners).contains("test1", "test3");
+    }
+
+    @Test
+    public void setRacingCarTest(){
+        Driver driver1 = new TestDriver(4);
+        Car car1 = new Car("test1", driver1);
+
+        List<Car> carList = new ArrayList<>();
+        carList.add(car1);
+
+        Racing racing = new Racing();
+
+        // When
+        racing.setRacingCars(carList);
+
+
+        // Then
+        List<Car> cars = racing.getRacingCars();
+        assertThat(cars.get(0).getName()).isEqualTo("test1");
     }
 }

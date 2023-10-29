@@ -8,7 +8,7 @@ import java.util.List;
 public class Racing {
     private List<Car> racingCars;
 
-    public Racing(List<Car> racingCars) {
+    public void setRacingCars(List<Car> racingCars) {
         this.racingCars = racingCars;
     }
 

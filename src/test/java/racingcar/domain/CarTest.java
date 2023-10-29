@@ -16,7 +16,7 @@ public class CarTest {
         car.drive();
 
         //Then
-        Assertions.assertThat(car.getPosition()).isEqualTo(1);
+        Assertions.assertThat(car.getPosition()).isEqualTo(0);
     }
     @Test
     void driveTest_whenNumber3(){
@@ -29,7 +29,7 @@ public class CarTest {
         car.drive();
 
         //Then
-        Assertions.assertThat(car.getPosition()).isEqualTo(1);
+        Assertions.assertThat(car.getPosition()).isEqualTo(0);
     }
     @Test
     void driveTest_whenNumber4(){
@@ -42,7 +42,7 @@ public class CarTest {
         car.drive();
 
         //Then
-        Assertions.assertThat(car.getPosition()).isEqualTo(2);
+        Assertions.assertThat(car.getPosition()).isEqualTo(1);
     }
     @Test
     void driveTest_whenNumber5(){
@@ -55,7 +55,7 @@ public class CarTest {
         car.drive();
 
         //Then
-        Assertions.assertThat(car.getPosition()).isEqualTo(2);
+        Assertions.assertThat(car.getPosition()).isEqualTo(1);
     }
     @Test
     void driveTest_whenNumber9(){
@@ -68,6 +68,6 @@ public class CarTest {
         car.drive();
 
         //Then
-        Assertions.assertThat(car.getPosition()).isEqualTo(2);
+        Assertions.assertThat(car.getPosition()).isEqualTo(1);
     }
 }

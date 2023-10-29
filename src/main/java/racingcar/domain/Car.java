@@ -7,9 +7,12 @@ public class Car {
     private int position;
     private Driver driver;
 
-    public Car(String name, Driver driver) {
+    public Car(String name, Driver driver){
+        if(name.length()>5){
+            throw new IllegalArgumentException();
+        }
         this.name = name;
-        this.position = 1;
+        this.position = 0;
         this.driver = driver;
     }
 
