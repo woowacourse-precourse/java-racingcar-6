@@ -3,7 +3,7 @@ package racingcar.domain.racingGame;
 import camp.nextstep.edu.missionutils.Console;
 
 public class TryCountManager {
-    private static final int MAX_TRY_COUNT = 100;
+    public static final int MAX_TRY_COUNT = 100;
     private int tryCount;
 
     public void makeTryCount() {

@@ -36,4 +36,19 @@ class TryCountManagerTest extends IOTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("숫자만 입력 가능합니다.");
     }
+
+    @Test
+    void 최대_시도횟수를_넘으면_예외_발생() {
+        //given
+        TryCountManager tryCountManager = new TryCountManager();
+        int tryCount = TryCountManager.MAX_TRY_COUNT + 1;
+
+        //when
+        command(tryCount + "");
+
+        //then
+        assertThatThrownBy(() -> tryCountManager.makeTryCount())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도 횟수는 최대 " + TryCountManager.MAX_TRY_COUNT + "번 가능합니다.");
+    }
 }
