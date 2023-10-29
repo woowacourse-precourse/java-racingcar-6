@@ -55,4 +55,28 @@ class ValidatorTest {
         // then
         Assertions.assertThat(result).isFalse();
     }
+
+    @Test
+    void 입력에_공백이_없는지_검증한다_성공_케이스() {
+        // given
+        String input = "성겸,성민";
+
+        // when
+        boolean result = hasNoWhitespace(input);
+
+        // then
+        Assertions.assertThat(result).isTrue();
+    }
+
+    @Test
+    void 입력에_공백이_없는지_검증한다_실패_케이스() {
+        // given
+        String input = "성겸, 성민";
+
+        // when
+        boolean result = hasNoWhitespace(input);
+
+        // then
+        Assertions.assertThat(result).isFalse();
+    }
 }
