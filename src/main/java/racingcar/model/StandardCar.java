@@ -16,12 +16,12 @@ public class StandardCar implements Vehicle {
     }
 
     @Override
-    public void addWinScore() {
+    public void addScore() {
         this.score++;
     }
 
     @Override
-    public int getWinScore() {
+    public int getScore() {
         return this.score;
     }
 
@@ -34,7 +34,7 @@ public class StandardCar implements Vehicle {
     public void tryMove(int movePoint) {
         int randomNumber = GameUtil.generateRandomNumber();
         if (randomNumber >= movePoint) {
-            addWinScore();
+            addScore();
         }
     }
 

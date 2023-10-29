@@ -26,7 +26,7 @@ public class ConsoleView implements View {
     public void printRoundProgress(List<Vehicle> playerList) {
         for (int i = 0; i < playerList.size(); i++) {
             Vehicle player = playerList.get(i);
-            String winStatus = drawWin(player.getWinScore());
+            String winStatus = drawWin(player.getScore());
             out(player.getName() + " : " + winStatus);
         }
         out("");

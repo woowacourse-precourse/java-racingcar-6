@@ -21,8 +21,8 @@ Model, Controller, View, Logic 에 대해 인터페이스를 먼저 구현한다
 ```
 ## Model
 플레이어를 정의한다. 
-1. addWins() - 점수를 올린다.
-2. getWins() - 점수를 가져온다.
+1. addScore() - 점수를 올린다.
+2. getScore() - 점수를 가져온다.
 3. getName()  - 이름을 가져온다.
 4. tryMove() - 전진을 시도할 수 있도록 한다. 
 ## View

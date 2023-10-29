@@ -49,10 +49,10 @@ public class RacingGame implements Game {
         int maxScore = 0;
         for (int i = 0; i < playerList.size(); i++) {
             Vehicle player = playerList.get(i);
-            if (maxScore == player.getWinScore()) {
+            if (maxScore == player.getScore()) {
                 winnerList.add(player.getName());
-            } else if (maxScore < player.getWinScore()) {
-                maxScore = player.getWinScore();
+            } else if (maxScore < player.getScore()) {
+                maxScore = player.getScore();
                 winnerList.clear();
                 winnerList.add(player.getName());
             }

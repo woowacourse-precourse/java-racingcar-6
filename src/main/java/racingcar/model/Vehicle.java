@@ -1,9 +1,9 @@
 package racingcar.model;
 
 public interface Vehicle {
-    void addWinScore();
+    void addScore();
 
-    int getWinScore();
+    int getScore();
 
     String getName();
 
