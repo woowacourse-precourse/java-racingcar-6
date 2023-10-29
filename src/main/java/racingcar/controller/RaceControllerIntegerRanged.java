@@ -13,15 +13,12 @@ public class RaceControllerIntegerVer implements RaceController {
     public void processRace(String input, CarRepository carRepository) {
 
         View.RaceStartMessage();
+
         RaceService.raceRepeatByInput(input, carRepository);
 
-        Map<Integer, List<Car>> rankingMap = WinnerService.partitioningByRank(carRepository);
-        List<Car> winnerCarList = WinnerService.getWinnerList(rankingMap);
-        List<String> winners = WinnerService.ConvertCarToString(winnerCarList);
-
+        List<String> winners = WinnerService.getWinnerNames(carRepository);
         View.printWinner(winners);
     }
-
     @Override
     public void validateRoundInput(String input) {
         try {
