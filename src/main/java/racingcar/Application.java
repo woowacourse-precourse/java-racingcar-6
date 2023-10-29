@@ -8,6 +8,21 @@ public class Application {
     public static void main(String[] args) {
         String input = inputCarName();
         Map<String, Integer> racingCars = validateCarName(input);
+        int count = inputMovingCount();
+    }
+
+    private static int inputMovingCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = Console.readLine();
+        return parseInt(input);
+    }
+
+    public static int parseInt(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자가 아닙니다.");
+        }
     }
 
     private static String inputCarName() {
