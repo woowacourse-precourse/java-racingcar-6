@@ -44,4 +44,12 @@ public class RaceService {
             throw new IllegalArgumentException();
         }
     }
+
+    private int validateNumeric(String countInput) {
+        try {
+            return Integer.parseInt(countInput);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
