@@ -2,8 +2,7 @@ package racingcar;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static racingcar.Exception.INVALID_CAR_NAME_LENGTH_MESSAGE;
-import static racingcar.Exception.INVALID_CAR_NUMBER_MESSAGE;
+import static racingcar.Exception.*;
 import static racingcar.Input.getCarName;
 import static racingcar.Input.getTryNumber;
 
@@ -58,5 +57,17 @@ public class InputTest {
         InputStream userInputStream = generateByteArrayInputStream(userInput);
         System.setIn(userInputStream);
         assertEquals(answer,getTryNumber());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"1!23"})
+    void getTryNumberNumericExceptionTest(String userInput) {
+        InputStream userInputStream = generateByteArrayInputStream(userInput);
+        System.setIn(userInputStream);
+        try {
+            getCarName();
+        } catch (IllegalArgumentException illegalArgumentException) {
+            assertEquals(INVALID_TRY_NUMBER_CHARACTER_MESSAGE, illegalArgumentException.getMessage());
+        }
     }
 }
