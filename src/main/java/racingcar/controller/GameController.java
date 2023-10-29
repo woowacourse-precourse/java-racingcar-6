@@ -42,7 +42,7 @@ public class GameController {
     private void gameProcess() {
         int count = 0;
 
-        output.printResult();
+        output.printAnnounce();
 
         while (count < tryCount) {
             carMove();
