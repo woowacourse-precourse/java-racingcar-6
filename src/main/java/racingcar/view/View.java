@@ -1,14 +1,14 @@
 package racingcar.view;
 
-import Config.AppConfig;
+import config.CarConfig;
 import java.util.List;
 import racingcar.model.car.Car;
 
 public class View {
     private static final String GAME_START_MESSAGE =
-            AppConfig.NAME_MIN_LENGTH + "에서 " +
-            AppConfig.NAME_MAX_LENGTH + "까지 길이의 영문으로 이루어진 이름을 각각 " +
-            AppConfig.INPUT_NAME_DELIMITER + "로 구분하여 입력하세요.";
+            CarConfig.NAME_MIN_LENGTH + "에서 " +
+            CarConfig.NAME_MAX_LENGTH + "까지 길이의 영문으로 이루어진 이름을 각각 " +
+            CarConfig.INPUT_NAME_DELIMITER + "로 구분하여 입력하세요.";
     private static final String ROUND_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String RACE_START_MESSAGE = "실행 결과";
     private static final String DISTANCE_MARK = "-";

@@ -1,4 +1,4 @@
-import Config.AppConfig;
+import config.CarConfig;
 import java.util.ArrayList;
 import java.util.List;
 import org.assertj.core.api.Assertions;
@@ -55,7 +55,7 @@ public class test {
     @Test
     public void 자동차이름_유효성검사2() {
         String input = "jhon,jhonn,jhonnnnn";
-        String[] split = input.split(AppConfig.INPUT_NAME_DELIMITER);
+        String[] split = input.split(CarConfig.INPUT_NAME_DELIMITER);
         Assertions.assertThatThrownBy(() -> {
             for (int i = 0; i < split.length; i++) {
                 Car.of(i, split[i]);

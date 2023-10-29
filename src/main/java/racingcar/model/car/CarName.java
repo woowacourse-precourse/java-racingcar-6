@@ -1,6 +1,6 @@
 package racingcar.model.car;
 
-import Config.AppConfig;
+import config.CarConfig;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,7 +13,7 @@ public class CarName {
         this.name = name;
     }
     private void validateName(String carName){
-        Pattern pattern = Pattern.compile(AppConfig.CAR_NAME_FORMAT);
+        Pattern pattern = Pattern.compile(CarConfig.CAR_NAME_FORMAT);
         Matcher matcher = pattern.matcher(carName);
         if (matcher.matches()){
             return;
