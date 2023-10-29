@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.RacingCar;
+import racingcar.domain.RacingGame;
 import racingcar.view.InputPreprocessor;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -27,7 +28,8 @@ public class RacingCarController {
         List<RacingCar> racingCars = setupRacingCars();
         int tryCount = getValidatedTryCount();
 
-        // 게임 시작 로직
+        RacingGame game = new RacingGame(racingCars, tryCount);
+        game.start();
     }
 
     private List<RacingCar> setupRacingCars() {
