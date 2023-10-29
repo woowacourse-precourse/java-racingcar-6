@@ -19,7 +19,7 @@ public class RacingCarList {    // 경주 자동차의 속성을가진 객체
     public int size(){
         return this.car.size();
     }
-    public RacingCar get(int index){
+    public RacingCar getCar(int index){
         return this.car.get(index);
     }
 }

@@ -23,7 +23,7 @@ public class GameController {
         gameResultMessge();
         while (tryAttempt > 0) {
             process.processGame(car);
-            tryAttempt -= 1;
+            tryAttempt -= 1;    // 메서드 호출하는걸로 바꾸기
         }
         printFinalWinner(getFinalWinner(car));
     }
@@ -32,7 +32,7 @@ public class GameController {
         int maxDistance = 0;
         List<String> result = new ArrayList<>();
         for (int carIndex = 0; carIndex < racingCarList.size(); carIndex++) {
-            RacingCar car = racingCarList.get(carIndex);
+            RacingCar car = racingCarList.getCar(carIndex);
             int carDistance = car.getDistance();
 
             if (carDistance > maxDistance) {
