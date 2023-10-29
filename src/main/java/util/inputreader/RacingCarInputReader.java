@@ -12,9 +12,19 @@ public class RacingCarInputReader implements InputReader {
         return players;
     }
 
-    public boolean isInputPlayerValid(String players){
+    public boolean isInputPlayerValid(String players) {
         List<String> playerList = List.of(players.split(","));
-        return !playerList.isEmpty() && playerList.stream().allMatch(player -> player.length() <= 5);
+        if (playerList.isEmpty()) {
+            return false;
+        }
+        return playerList.stream().allMatch(this::isValidPlayerName);
+    }
+
+    private boolean isValidPlayerName(String player) {
+        return player.length() <= 5 &&
+                !player.contains(" ") &&
+                !player.contains(",") &&
+                !player.isEmpty();
     }
 
     public int inputTryCount() throws IllegalArgumentException{
