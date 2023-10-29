@@ -6,16 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarFactory {
-    private final NamesParser namesParser;
-    public CarFactory(final NamesParser namesParser) {
-        this.namesParser = namesParser;
-    }
-
-    public List<Car> factory(String stringNames){
+    public List<Car> factory(List<String> stringNames) {
         List<Car> res = new ArrayList<>();
-        List<String> parsedStringNames = namesParser.parsing(stringNames);
-
-        for (String name : parsedStringNames) {
+        for (String name : stringNames) {
             Car car = new Car(name);
             res.add(car);
         }

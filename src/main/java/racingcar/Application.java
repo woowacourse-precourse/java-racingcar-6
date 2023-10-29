@@ -16,7 +16,7 @@ public class Application {
         Input input = new Input(validator,namesParser);
         Output output = new Output();
 
-        CarFactory factory = new CarFactory(namesParser);
+        CarFactory factory = new CarFactory();
         Game game = new Game();
         WinnerCheckSystem winnerCheckSystem = new WinnerCheckSystem();
         GameAwards gameAwards = new GameAwards(winnerCheckSystem);

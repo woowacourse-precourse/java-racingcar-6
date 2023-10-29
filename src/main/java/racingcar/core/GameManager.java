@@ -21,8 +21,9 @@ public class GameManager {
         this.game = game;
         this.gameAwards = gameAwards;
     }
-    public void play(){
-        String stringNames = input.readNames();
+
+    public void play() {
+        List<String> stringNames = input.readNames();
         int tryNum = input.readTryNum();
 
         List<Car> carList = factory.factory(stringNames);
