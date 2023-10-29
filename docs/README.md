@@ -36,9 +36,11 @@
     - 멤버 변수 : cars, moveCount
     - 메서드 : 
       - getInstance() : Race에 등록된 차 반환
-      - setCars() : 경주에 참가할 자동차 등록
+      - addCar() : 경주에 참가할 자동차 추가
       - start() : 경주 시작
       - checkWinner() : 우승자 확인
+        - for문을 통해 Car의 거리를 계산하여 우승자 확인
+        - calcDistance() : 거리를 계산하는 함수 "------" -> 6
       - printWinner() : 우승자 출력
 
 
