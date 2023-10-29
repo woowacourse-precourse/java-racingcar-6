@@ -4,7 +4,6 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.CarFactory;
 import racingcar.domain.Cars;
-import racingcar.domain.Player;
 import racingcar.domain.RandomNumberGenerator;
 import racingcar.domain.Utils;
 import racingcar.view.InputView;
@@ -14,14 +13,11 @@ public class RacingCarGameController {
 
     private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
     private Cars cars;
-    private Player player;
 
     public void playRacingCarGame() {
         OutputView.printInputCarsNameMessage();
-        player = new Player(InputView.inputCarsNamesOfCars());
 
-        List<String> namesOfCars = player.splitNamesOfCars();
-
+        List<String> namesOfCars = Utils.splitNamesOfCars(InputView.inputCarsNamesOfCars());
         List<Car> carList = CarFactory.generateCar(namesOfCars);
         cars = new Cars(carList);
 
@@ -34,7 +30,6 @@ public class RacingCarGameController {
         }
 
         String winnerNamesOfCars = cars.findWinnerCars();
-
         OutputView.printWinnerNames(winnerNamesOfCars);
     }
 }
