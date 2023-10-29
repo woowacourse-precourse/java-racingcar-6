@@ -11,23 +11,20 @@ import static racingcar.service.InputService.*;
 import static racingcar.service.PrintService.*;
 
 public class GameService {
-    static List<RacingCar> racingCars;
-    static long maxLocation;
-
     public static void run() {
         printRacingCarNameInputForm();
-        racingCars = createRacingCars();
+        List<RacingCar> racingCars = createRacingCars();
 
         printTimesInputForm();
         long times = readTimes();
 
         printGameOutcomeMessage();
-        playGameForTimes(times);
+        long maxLocation = playGameForTimes(times, racingCars);
 
-        findFinalWinner();
+        findFinalWinner(maxLocation, racingCars);
     }
 
-    private static List<RacingCar> createRacingCars() {
+    public static List<RacingCar> createRacingCars() {
         List<RacingCar> racingCars = new ArrayList<>();
         String[] carNames = convertToStringArray(readInput());
 
@@ -37,11 +34,13 @@ public class GameService {
         return racingCars;
     }
 
-    private static Long readTimes() {
+    public static Long readTimes() {
         return convertToLong(readInput());
     }
 
-    private static void playGameForTimes(Long times) {
+    public static Long playGameForTimes(Long times, List<RacingCar> racingCars) {
+        long maxLocation = 0;
+
         for (int i = 0; i < times; i++) {
             for (RacingCar racingCar : racingCars) {
                 int num = Randoms.pickNumberInRange(0, 9);
@@ -54,9 +53,11 @@ public class GameService {
 
             printOneGameOutcome(racingCars);
         }
+
+        return maxLocation;
     }
 
-    private static void findFinalWinner() {
+    public static void findFinalWinner(Long maxLocation, List<RacingCar> racingCars) {
         List<RacingCar> winners = new ArrayList<>();
 
         for (RacingCar racingCar : racingCars)
