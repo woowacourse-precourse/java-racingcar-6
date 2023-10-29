@@ -13,6 +13,15 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
+    void 이름_분류(){
+        Application application = new Application();
+        String input = "pobi,crong,woni";
+        String[] devidedName = application.devide_name(input);
+
+        assertThat(devidedName).containsExactly("pobi", "crong", "woni");
+    }
+
+    @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
             () -> {
