@@ -109,17 +109,16 @@ public class FeatureTest {
         assertThat(actualTryCount).isEqualTo(expectedTryCount);
     }
 
+    @Test
+    void 시도_횟수_숫자_아닐시_예외발생() {
+        String testInput = "car1";
+        InputStream inputStream = new ByteArrayInputStream(testInput.getBytes());
+        System.setIn(inputStream);
 
-//
-//    @Test
-//    void 시도_횟수_숫자_아님() {
-//        String testTryCount = "car1";
-//        InputStream inputStream = new ByteArrayInputStream(testTryCount.getBytes());
-//        System.setIn(inputStream);
-//
-//        assertThatThrownBy(Application::receiveTryCount)
-//                .isInstanceOf(IllegalArgumentException.class);
-//    }
+        assertThatThrownBy(Application::receiveTryCount)
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
 //
 //    @Test
 //    void 자동차_전진() {
