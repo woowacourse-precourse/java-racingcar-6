@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameService {
-    private static final String CAR_MOVEMENT = "-";
+    private static final String CAR_MOVEMENT_SYMBOL = "-";
     private static final String CAR_NAME_FRAME = " : ";
     private static final int RANDOM_NUMBER_RANGE_START = 0;
     private static final int RANDOM_NUMBER_RANGE_END = 9;
@@ -17,7 +17,7 @@ public class GameService {
         moveForward(car);
         StringBuilder moveCount = new StringBuilder();
         for (int i = 0; i < car.getPosition(); i++) {
-            moveCount.append(CAR_MOVEMENT);
+            moveCount.append(CAR_MOVEMENT_SYMBOL);
         }
         System.out.println(car.getCarName() + CAR_NAME_FRAME + moveCount);
     }
@@ -44,15 +44,15 @@ public class GameService {
         return gameWinners;
     }
 
-    private void findMaxPosition(Car carInfo) {
-        if (gameWinnerPosition < carInfo.getPosition()) {
-            gameWinnerPosition = carInfo.getPosition();
-        }
-    }
-
     private boolean isMoveForward() {
         int randomNumber = Randoms.pickNumberInRange(RANDOM_NUMBER_RANGE_START, RANDOM_NUMBER_RANGE_END);
 
         return randomNumber >= CONDITION_CAR_MOVEMENT_NUMBER;
+    }
+
+    private void findMaxPosition(Car carInfo) {
+        if (gameWinnerPosition < carInfo.getPosition()) {
+            gameWinnerPosition = carInfo.getPosition();
+        }
     }
 }
