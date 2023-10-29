@@ -3,7 +3,6 @@ package racingcar.domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Field;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -33,16 +32,7 @@ class CarTest {
         car.moveCar(randomNumber);
 
         // then
-        try {
-            Field field = Car.class.getDeclaredField("distance");
-            field.setAccessible(true);
-            int distance = (int) field.get(car);
-
-            assertThat(distance).isEqualTo(1);
-            field.setAccessible(false);
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        assertThat(car.getDistance()).isEqualTo(1);
     }
 
     @DisplayName("정적 팩토리 메서드 파라미터로 들어온 값을 받아 객체로 반환한다.")
@@ -55,16 +45,7 @@ class CarTest {
         Car car = Car.makeCar(carName);
 
         // then
-        try {
-            Field field = Car.class.getDeclaredField("name");
-            field.setAccessible(true);
-            String name = (String) field.get(car);
-
-            assertThat(name).isEqualTo(carName);
-            field.setAccessible(false);
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        assertThat(car.getName()).isEqualTo(carName);
     }
 
 }
