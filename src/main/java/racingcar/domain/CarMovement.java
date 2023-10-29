@@ -6,40 +6,40 @@ import java.util.List;
 
 public class CarMovement {
     private List<int[]> getRandomNumbers(int numberOfCars, int tryNumber) {
-        List<int[]> randomNumbersPerCars = new ArrayList<>();
-        for (int i = 0; i < numberOfCars; i++) {
-            int[] randomNumbers = new int[tryNumber];
-            for (int j = 0; j < tryNumber; j++) {
+        List<int[]> randomNumbersPerRound = new ArrayList<>();
+        for (int i = 0; i < tryNumber; i++) {
+            int[] randomNumbers = new int[numberOfCars];
+            for (int j = 0; j < numberOfCars; j++) {
                 randomNumbers[j] = Randoms.pickNumberInRange(0, 9);
             }
-            randomNumbersPerCars.add(randomNumbers);
+            randomNumbersPerRound.add(randomNumbers);
         }
-        return randomNumbersPerCars;
+        return randomNumbersPerRound;
     }
 
-    private int getCarsMoveOrStop(int[] randomNumbers) {
-        int result = 0;
-        for (int randomNumber : randomNumbers) {
-            if (randomNumber >= 4) {
-                result++;
+    private boolean[] getCarsMoveOrStop(int[] randomNumbers) {
+        boolean[] moveResults = new boolean[randomNumbers.length];
+        for (int i = 0; i < randomNumbers.length; i++) {
+            if (randomNumbers[i] >= 4) {
+                moveResults[i] = true;
             }
         }
-        return result;
+        return moveResults;
     }
 
-    public int[] getCarMoveCount(List<Object> racingData) {
+    public List<boolean[]> getCarMoveCount(List<Object> racingData) {
         String[] carNames = (String[]) racingData.get(0);
         int numberOfCars = carNames.length;
         int tryNumber = (int) racingData.get(1);
 
-        List<int[]> randomNumbersPerCars = getRandomNumbers(numberOfCars, tryNumber);
+        List<int[]> randomNumbersPerRound = getRandomNumbers(numberOfCars, tryNumber);
 
-        int[] moveResults = new int[numberOfCars];
+        List<boolean[]> moveResults = new ArrayList<>();
 
-        for (int i = 0; i < numberOfCars; i++) {
-            int[] randomNumbers = randomNumbersPerCars.get(i);
-            int moveResult = getCarsMoveOrStop(randomNumbers);
-            moveResults[i] = moveResult;
+        for (int i = 0; i < tryNumber; i++) {
+            int[] randomNumbers = randomNumbersPerRound.get(i);
+            boolean[] moveResult = getCarsMoveOrStop(randomNumbers);
+            moveResults.add(moveResult);
         }
         return moveResults;
     }
