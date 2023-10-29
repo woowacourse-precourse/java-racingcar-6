@@ -6,8 +6,6 @@
 │  └─ GameController
 ├─ model
 │  └─ Car
-├─ service
-│  └─ GameService [게임 처리 주요 로직]
 ├─ view
 │  ├─ ResultView [게임 실행 결과 출력]
 │  └─ SettingView [게임 설정(자동차 이름, 회수) 문구 출력]
