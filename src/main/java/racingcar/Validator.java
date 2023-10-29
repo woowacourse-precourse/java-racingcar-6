@@ -3,6 +3,12 @@ package racingcar;
 import java.util.List;
 
 public class Validator {
+    public void isEmpty(String carNames) {
+        if (carNames.isEmpty()) {
+            throw new IllegalArgumentException("값을 입력해주세요.");
+        }
+    }
+
     public void hasSpace(String carNames) {
         if (carNames.contains(" ")) {
             throw new IllegalArgumentException("띄어쓰기를 제외하고 입력해주세요.");

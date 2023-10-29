@@ -9,6 +9,7 @@ public class Game {
         Validator validator = new Validator();
 
         String inputCarNames = input.carName();
+        validator.isEmpty(inputCarNames);
         validator.hasSpace(inputCarNames);
 
         List<String> carNames = car.splitByComma(inputCarNames);
