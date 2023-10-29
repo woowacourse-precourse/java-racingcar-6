@@ -20,20 +20,19 @@
   - [X] 4 최종 우승자 출력  OutputView - printWinner
 
 - ### 🤔 Logic - GameController, CarRaceService, WinnerService, RecordService
-  - [X] 전반적인 징검다리 역할 - 🎮 GameController
-    - [X] 자동차 이름 (,) 로 분리하는 작업 진행 -  CarGameService - extractSeperator
-      - [X] 여기에서 확인! 자동차 이름의 길이가 5가 넘어가는 경우! Validator, InputTest
+  - 전반적인 징검다리 역할 - 🎮 GameController
+  - 자동차들에 대한 정보를 저장 - 🚗 Car
+    - [X] 자동차 이름 (,) 로 분리하는 작업 진행 -  CarRaceService - extractSeperator
+      - [X] 여기에서 확인! 자동차 이름의 길이가 5가 넘어가는 경우! Validator
       - [X] 자동차의 이름이 ,,로만 진행되어 이름이 나오지 않을 경우! Validator - isNoName,
       - [X] 자동차의 이름이 123,,23 의 경우로 진행되어 이름이 나오지 않을 경우! Validator - checkLengthEachName,
     - [X] 게임 횟수 만큼 진행될 수 있게 진행 - GameController(이후 분리 고려)
-    - [X] 게임 횟수 입력시 잘못된 값 입력시 검증 과정 진행! Validator, CarGameService
-      - 숫자인지 확인!
-    - [X] 게임 진행 - GameController - start
-      - [X] 자동차의 이름마다 숫자 굴리기 -  NumberGenerator - generate  
-        - [X] 숫자가 4 이상인 경우 자동차가 전진을 기록한 변수 + 1  RaceService - raceRoundGameStart,  CarGameService - race 
-      - [X] 자동차들에 대한 정보를 저장 - 🚗 Car
-      - [X] 라운드별 결과 출력을 위한 서비스 - RaceService - raceRoundResult, RecordService - madeCarResult
-    - [X] 게임이 끝나는 마지막 과정에서 우승자가 누군지 판별하는 곳 필요! - WinnerService
+    - [X] 게임 횟수 입력시 잘못된 값 입력시 검증 과정 진행! Validator, CarRaceService
+      - 숫자인지 확인! 
+    - [X] 숫자가 4 이상인 경우 자동차가 전진을 기록  RaceService - raceRoundResult,  CarGameService - roundResult
+      - [X] 자동차의 이름마다 숫자 굴리기 -  NumberGenerator - generate
+    - [X] 라운드별 결과 출력을 위한 서비스 - RaceService - raceRoundResult, RecordService - madeCarResult
+    - [X] 게임이 끝나는 마지막 과정에서 우승자가 누군지 판별하는 곳 필요! - WinnerService - findwinners
 
 
 
@@ -45,11 +44,13 @@
 
 ---
 ## 테스트 요구사항 처리
-- [ ] Junit5 or AssertJ를 활용하여 기능 명세서의 기능에 대한 테스트 진행!
+- [X] Junit5 or AssertJ를 활용하여 기능 명세서의 기능에 대한 테스트 진행!
   - [X] 자동차 이름 입력 부분 테스트!
     - [X] 자동차 이름의 길이가 5를 넘어가는 경우
     - [X] 오로지 공백인 경우(",," 로 입력된 경우, "123,,23")
   - [X] 자동차 게임 횟수 입력 테스트!
+  - [X] 최종 우승자 분별하는 기능 테스트!
+  - [X] 실행 결과 항목 출력 테스트! 
 
 
 ## 리팩토링 관련 요구사항 처리 
