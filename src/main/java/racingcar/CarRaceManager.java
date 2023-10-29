@@ -39,6 +39,5 @@ public class CarRaceManager {
     }
 
     public void printWinner() {
-
     }
 }
