@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.exception.ErrorMessages;
 
 public class CarTest {
 
@@ -33,13 +34,15 @@ public class CarTest {
     @DisplayName("자동차이름이 5자를 초과하면 에러가 발생한다.")
     void 자동차이름_5자를_초과하면_에러발생() {
         assertThatThrownBy(() -> new Car("abcdef"))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ErrorMessages.NAME_LENGTH_ERROR);
     }
 
     @Test
     @DisplayName("자동차이름을 입력하지 않으면 에러가 발생한다")
     void 자동차이름을_입력하지_않으면_에러가_발생한다() {
         assertThatThrownBy(() -> new Car(""))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ErrorMessages.NAME_BLANK_ERROR);
     }
 }

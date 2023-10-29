@@ -1,8 +1,13 @@
 package racingcar.domain;
 
 import org.junit.platform.commons.util.StringUtils;
+import racingcar.exception.ErrorMessages;
 
 public class Car {
+    private static final int MIN_MOVE_TO_INCREMENT = 4;
+    private static final int MAX_NAME_LENGTH = 5;
+    private static final int DEFAULT_MOVING_COUNT = 0;
+
     private String name;
     private int movingCount;
 
@@ -10,16 +15,16 @@ public class Car {
         validateName(name);
 
         this.name = name;
-        this.movingCount = 0;
+        this.movingCount = DEFAULT_MOVING_COUNT;
     }
 
     private void validateName(String name) {
         if (StringUtils.isBlank(name)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessages.NAME_BLANK_ERROR);
         }
 
-        if (name.length() > 5) {
-            throw new IllegalArgumentException();
+        if (name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException(ErrorMessages.NAME_LENGTH_ERROR);
         }
     }
 
@@ -29,7 +34,7 @@ public class Car {
     }
 
     public void moveAccordingToInput(int number) {
-        if (number >= 4) {
+        if (number >= MIN_MOVE_TO_INCREMENT) {
             this.moving();
         }
     }
