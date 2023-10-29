@@ -1,8 +1,11 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class Cars {
 
@@ -22,6 +25,20 @@ public class Cars {
         }
 
         return moveResults();
+    }
+
+    public List<String> findWinner() {
+        List<String> winnerList = new ArrayList<>();
+
+        Integer maxPosition = Collections.max(carList.values());
+
+        for (Entry<Car, Integer> entry : carList.entrySet()) {
+            if (entry.getValue().equals(maxPosition)) {
+                winnerList.add(entry.getKey().getName());
+            }
+        }
+
+        return winnerList;
     }
 
     private Map<Car, Integer> moveResults() {
