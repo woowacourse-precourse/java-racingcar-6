@@ -185,6 +185,7 @@
     - [ ]  📝 시도할 횟수 입력받기 - getNumberOfRound
 - [ ]  📔 결과 출력 - OutputView
     - [ ]  📝 차수 결과 출력하기 - showRoundResult
+    - [ ]  📝 차량별 현재 위치 나타내기
     - [ ]  📝 최종 우승자 출력하기 - showFinalWinner
 
 ## 🧪 입출력 - View
@@ -194,6 +195,7 @@
    - [ ]  📝 시도할 횟수 입력받기 테스트
 - [ ]  📔 결과 출력 - OutputViewTest
    - [ ]  📝 차수 결과 출력하기 테스트
+   - [ ]  📝 차량별 현재 위치 나타내기 테스트
    - [ ]  📝 최종 우승자가 두명 이상 있을때 출력하기 - showFinalWinnerMoreThanTwo
    - [ ]  📝 최종 우승자가 한 명일때 출력하기 - showFinalWinner
 
