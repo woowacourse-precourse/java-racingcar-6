@@ -7,10 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CompareRace {
+    private static final Integer START_NUMBER = 0;
+    private static final Integer END_NUMBER = 9;
 
     public void moveCars(List<RacingCar> racingCars) {
         for (RacingCar racingCar : racingCars) {
-            Integer randomNumber = racingCar.getRandomNumber();
+            Integer randomNumber = Randoms.pickNumberInRange(START_NUMBER, END_NUMBER);;
 
             if (randomNumber >= 4) {
                 racingCar.forward();

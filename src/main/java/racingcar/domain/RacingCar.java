@@ -9,11 +9,9 @@ import java.util.List;
 public class RacingCar {
     private static final String STATUS_FORMAT = " : ";
     private static final String PROGRESS = "-";
-    private final Integer CAR_MOVEMENT = 0;
-    private final Integer START_NUMBER = 0;
-    private final Integer END_NUMBER = 9;
-    private final String carName;
+    private static final Integer CAR_MOVEMENT = 0;
 
+    private String carName;
     private Integer carMovement;
 
     public RacingCar(String carName) {
@@ -53,9 +51,5 @@ public class RacingCar {
 
     public boolean hasEqualMovement(RacingCar otherRacingCar) {
         return this.carMovement.equals(otherRacingCar.carMovement);
-    }
-
-    public Integer getRandomNumber() {
-        return Randoms.pickNumberInRange(START_NUMBER, END_NUMBER);
     }
 }
