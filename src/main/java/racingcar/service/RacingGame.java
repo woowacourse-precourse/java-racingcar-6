@@ -2,6 +2,7 @@ package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import racingcar.model.Car;
@@ -10,18 +11,32 @@ import racingcar.view.OutputView;
 public class RacingGame {
 
     private int raceCount;
+    private final List<Car> carList = new ArrayList<>();
+    private final List<String> winnerList = new ArrayList<>();
 
-    private final List<String> winnerList;
-
-    public RacingGame() {
-        winnerList = new ArrayList<>();
+    public void setCarList(String carName) {
+        List<String> separatedCarName = Arrays.asList(carName.split(","));
+        for (String name : separatedCarName) {
+            carList.add(new Car(name));
+        }
     }
+
+
+
+
+    public void setRaceCount(String raceCount) {
+        this.raceCount = Integer.parseInt(raceCount);
+    }
+
+
 
     public List<String> getWinnerList() {
         return winnerList;
     }
-    public void setRaceCount(String raceCount) {
-        this.raceCount = Integer.parseInt(raceCount);
+
+
+    public int getRaceCount() {
+        return this.raceCount;
     }
 
     public void startRaceCount() {

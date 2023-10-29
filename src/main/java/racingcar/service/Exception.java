@@ -11,7 +11,7 @@ public class Exception {
     private static final String BLANK = " ";
     public static List<String> carNames;
 
-    public static void checkCarName(String inputValue) throws IllegalArgumentException {
+    public static String checkCarName(String inputValue) throws IllegalArgumentException {
         checkEmpty(inputValue);
 
         carNames = Arrays.asList(inputValue.split(","));
@@ -22,6 +22,7 @@ public class Exception {
         }
 
         checkSameName();
+        return inputValue;
     }
 
     public static String checkRaceCount(String inputValue) throws IllegalArgumentException {

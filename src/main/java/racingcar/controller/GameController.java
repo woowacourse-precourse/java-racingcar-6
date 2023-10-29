@@ -1,19 +1,17 @@
 package racingcar.controller;
 
-import racingcar.service.CarService;
-import racingcar.service.RacingGameService;
+import racingcar.service.RacingGame;
 import racingcar.view.InputView;
-import racingcar.service.ExceptionService;
-import racingcar.view.OutputView;
+import racingcar.service.Exception;
 
 public class GameController {
 
-    private ExceptionService exception;
-    private RacingGameService racingGame;
+    private Exception exception;
+    private RacingGame racingGame;
 
     public GameController() {
-        exception = new ExceptionService();
-        racingGame = new RacingGameService();
+        exception = new Exception();
+        racingGame = new RacingGame();
     }
 
     /*
@@ -23,7 +21,8 @@ public class GameController {
 
     public void play() {
         String carName = InputView.inputCarName();
-        exception.checkCarName(carName);
+        String testedCarName = exception.checkCarName(carName);
+        racingGame.setCarList(testedCarName);
         setRaceCount();
         startRace();
         showWinner();
