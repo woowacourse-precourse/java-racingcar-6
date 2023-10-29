@@ -13,6 +13,18 @@ public class GameModel {
         this.coinNumber = coinNumber;
     }
 
+    public int getCarNumber() {
+        return carNumber;
+    }
+
+    public int getCoinNumber() {
+        return coinNumber;
+    }
+
+    public CarModel getWinnerCar() {
+        return winnerCar;
+    }
+
     CarModel winnerCar;
 
     public void setWinnerCar(CarModel winnerCar) {
