@@ -93,4 +93,25 @@ public class RaceTest {
                 jun : ---
                 """);
     }
+
+    @DisplayName("제일 빠른 자동차들을 반환")
+    @Test
+    void getHeadCarsTest() {
+        // given
+        Race race = new Race();
+        List<Car> carList = List.of(
+                Car.from("pobi", 3),
+                Car.from("woni", 2),
+                Car.from("jun", 3)
+        );
+        race.registerCar(carList);
+
+        // when
+        List<Car> headCars = race.getHeadCars();
+
+        // then
+        assertThat(headCars)
+                .map(Car::getName)
+                .containsExactly("pobi", "jun");
+    }
 }

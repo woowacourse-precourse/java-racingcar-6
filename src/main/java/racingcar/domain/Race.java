@@ -24,6 +24,25 @@ public class Race {
         }
     }
 
+    public List<Car> getHeadCars() {
+        List<Car> resultList = new ArrayList<>();
+        int max = Integer.MIN_VALUE;
+        for (Car car : carList) {
+            int position = car.getPosition();
+            if (position < max) {
+                continue;
+            }
+
+            if (position > max) {
+                resultList.clear();
+                max = position;
+            }
+            resultList.add(car);
+        }
+
+        return resultList;
+    }
+
     public List<Car> getCarList() {
         return carList;
     }
