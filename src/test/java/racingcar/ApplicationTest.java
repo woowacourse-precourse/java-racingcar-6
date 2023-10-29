@@ -13,6 +13,14 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
+    void 횟수가_너무_클때() {
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException("pobi,java", "2147483648"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
             () -> {
