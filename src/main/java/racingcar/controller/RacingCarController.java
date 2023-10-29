@@ -25,6 +25,8 @@ public class RacingCarController {
         CarValidator.validateCarNameList(carNames);
 
         List<Car> cars = carNames.stream().map(Car::new).toList();
+
+        racingCarView.printAskingNumberOfRetries();
     }
 
     public String askCarNames() {
