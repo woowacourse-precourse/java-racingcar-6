@@ -75,9 +75,9 @@
 ### Util
 #### RandomNumberGenerator
 - 랜덤 숫자 생성하는 로직
-  - [ ] 자동차 갯수만큼 랜던 숫자 생성
-    - [ ] 0부터 9까지 숫자 생성
-    - [ ] Randoms의 pickNumberInRange() 활용
+  - [x] 자동차 갯수만큼 랜던 숫자 생성
+    - [x] 0부터 9까지 숫자 생성
+    - [x] Randoms의 pickNumberInRange() 활용
     
 ### View
 #### InputView
