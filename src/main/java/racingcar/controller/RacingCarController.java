@@ -19,5 +19,6 @@ public class RacingCarController {
 
     private void saveRacingCars(String carNames) {
         String[] racingCarsStr = racingCarService.splitRacingCarsByComma(carNames);
+        racingCarService.saveRacingCars(racingCarsStr);
     }
 }
