@@ -14,7 +14,12 @@
 
 ### ✔ 우승자 선정 기능
 - 자동차 경주 게임을 완료하고 누가 우승했는지를 알려준다.
-  - [**winner**]
+  - [**findWinner**]
+  - [**findFarthestCar**]
+  - [**findSameDistanceCar**]
+- 자동차들의 위치를 비교한다.
+  - [**compareTo**] 메시지 ➡ 자동차 객체 (Car)
+  - [**isSameDistance**] 메시지 ➡ 자동차 객체 (Car)
 
 --- 
 ## [유효성 검사 기능]
@@ -64,4 +69,4 @@
 
 ---
 ## 📄클래스 다이어그램
-![racingCar](https://github.com/study-hub-inu/study-hub-server/assets/97587573/b2b9f084-3d15-4a6a-9711-7a1a59d422a6)
+![racingCar](https://github.com/study-hub-inu/study-hub-server/assets/97587573/7a33a322-2b66-4c36-9a11-5d8dfc62b1e1)
