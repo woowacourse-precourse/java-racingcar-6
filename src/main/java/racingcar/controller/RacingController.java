@@ -8,11 +8,12 @@ public class RacingController {
 
     private Racing racing = new Racing();
 
-    public void race(List<String> carNames, int NumberOfExecutions) {
+    public List<Car> race(List<String> carNames, int NumberOfExecutions) {
         createCars(carNames);
         for (int i = 0; i < NumberOfExecutions; i++) {
             racing.moveCars();
         }
+        return racing.getWinners();
     }
 
     private void createCars(List<String> carNames) {
