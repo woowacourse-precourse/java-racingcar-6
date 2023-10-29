@@ -5,11 +5,11 @@ import java.util.List;
 import racingcar.utils.CustomCollections;
 
 public class Cars implements Iterable<Car> {
-    private final List<Car> cars;
+    private final List<Car> carList;
 
-    private Cars(List<Car> cars) {
-        validateNotEmpty(cars);
-        this.cars = cars;
+    private Cars(List<Car> carList) {
+        validateNotEmpty(carList);
+        this.carList = carList;
     }
 
     public static Cars from(List<Car> cars) {
@@ -17,7 +17,7 @@ public class Cars implements Iterable<Car> {
     }
 
     public List<Car> getCarsWithMaxStep() {
-        return CustomCollections.maxAll(cars);
+        return CustomCollections.maxAll(carList);
     }
 
     private static void validateNotEmpty(List<Car> cars) {
@@ -28,6 +28,6 @@ public class Cars implements Iterable<Car> {
 
     @Override
     public Iterator<Car> iterator() {
-        return cars.iterator();
+        return carList.iterator();
     }
 }

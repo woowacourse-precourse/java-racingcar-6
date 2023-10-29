@@ -9,9 +9,9 @@ public class Race {
     private static final int MINIMUM_NUMBER_OF_RACES = 1;
     private static final int MINIMUM_REMAINING_RACES = 0;
 
-    private Cars cars;
+    private final Cars cars;
     private Integer remainingRaces;
-    private MoveStrategy moveStrategy;
+    private final MoveStrategy moveStrategy;
 
     private Race(Cars cars, Integer numberOfRaces, MoveStrategy moveStrategy) {
         validateNumberOfRaces(numberOfRaces);
