@@ -12,6 +12,13 @@ public class RacingCarService {
         int randomNumber = pickNumberInRange(1, 9);
         return randomNumber;
     }
+    public List<Integer> saveRandomNumber(List<Car> cars) {
+        List<Integer> allRandomNumbers = new ArrayList<>();
+        for(int i=0; i< cars.size(); i++) {
+            allRandomNumbers.add(generateRandomNumber());
+        }
+        return allRandomNumbers;
+    }
 
     public void move(Car car, int randomNumber) {
         int position = car.getPosition();
