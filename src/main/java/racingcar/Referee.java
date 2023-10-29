@@ -1,2 +1,4 @@
-package racingcar;public class Referee {
+package racingcar;
+
+public class Referee {
 }
