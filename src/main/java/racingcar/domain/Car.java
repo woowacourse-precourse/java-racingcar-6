@@ -2,8 +2,9 @@ package racingcar.domain;
 
 public class Car {
 
-    private int location;
+    public static final int MOVE_BOUNDARY = 4;
     private final Generator generator;
+    private int location;
 
     public Car(Generator generator) {
         location = 0;
@@ -11,13 +12,16 @@ public class Car {
     }
 
     public void move() {
-        if (generator.generate() < 4) {
-            return;
+        if (isMove()) {
+            location++;
         }
-        location++;
     }
 
     public int getLocation() {
         return location;
+    }
+
+    private boolean isMove() {
+        return MOVE_BOUNDARY <= generator.generate();
     }
 }
