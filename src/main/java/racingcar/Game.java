@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
+import java.util.StringJoiner;
 
 public class Game {
 
@@ -13,6 +14,19 @@ public class Game {
         System.out.println();
     }
 
+    public static void printWinner(List<User> users) {
+        System.out.print("최종 우승자 : ");
+        int max = findWinner(users);
+
+        StringJoiner sj = new StringJoiner(", ");
+        for (User u : users) {
+            if (u.length == max) {
+                sj.add(u.name);
+            }
+        }
+        System.out.print(sj);
+    }
+
     private static int findWinner(List<User> users) {
         int max = 0;
         for (User u : users) {
@@ -20,6 +34,7 @@ public class Game {
         }
         return max;
     }
+
 
     private static int randomNumber() {
         int randomNum = Randoms.pickNumberInRange(0, 9);
