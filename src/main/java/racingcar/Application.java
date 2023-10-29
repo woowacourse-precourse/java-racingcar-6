@@ -49,6 +49,7 @@ public class Application {
     private void playGame(int number){
         for(int i =0; i<number; i++){
             MoveCar();
+
         }
     }
     private void MoveCar(){
@@ -58,6 +59,10 @@ public class Application {
                carStatus.put(carName,carStatus.get(carName)+"-");
             }
         }
+        for (String carName : carStatus.keySet()) {
+            System.out.println(carName + " : " + carStatus.get(carName));
+        }
+        System.out.println();
     }
 
     private void winner() {
