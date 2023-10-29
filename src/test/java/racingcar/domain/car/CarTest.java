@@ -4,6 +4,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.domain.numberpicker.RandomNumberPicker;
+import racingcar.mock.FakeRandomNumberPicker;
 
 class CarTest {
 
@@ -17,14 +21,17 @@ class CarTest {
         assertThat(car.getForwardCount()).isEqualTo(0L);
     }
 
-    @DisplayName("차를 전진 시키면 전진 카운트가 1만큼 증가한다.")
-    @Test
-    void moveForward() {
+    @DisplayName("선택된 난수가 4~9 사이의 숫자라면 차는 한 칸 전진한다.")
+    @ParameterizedTest
+    @ValueSource(ints = {4, 5, 6, 7, 8, 9})
+    void moveForwardForNumberGreaterThanOrEqualTo4(int randomDigit) {
         // given
+        RandomNumberPicker randomNumberPicker = new FakeRandomNumberPicker(randomDigit);
+
         Car car = Car.nameOf(CarName.from("haero"));
 
         // when
-        car.moveForward();
+        car.moveForward(randomNumberPicker);
 
         // then
         assertThat(car.getForwardCount()).isEqualTo(1L);
