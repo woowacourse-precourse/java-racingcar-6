@@ -5,6 +5,20 @@ import camp.nextstep.edu.missionutils.Console;
 public class Application {
     public static void main(String[] args) {
         String[] cars = carNameInput();// 자동차 이름 입력 받기
+        int retryCount = getRetryCount();// 시도 횟수 입력 받기
+
+    }
+
+    private static int getRetryCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = Console.readLine();
+
+        try {
+            int number = Integer.parseInt(input);
+            return number;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력하세요.");
+        }
     }
 
     private static String[] carNameInput() {
