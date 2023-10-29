@@ -50,7 +50,7 @@ public class GameEngine {
     public List<Score> getWinners() {
         validateScoreIsNotNull();
         Long winnerScore = scores.stream()
-                .max((x, y) -> y.getScore().compareTo(x.getScore()))
+                .max(Comparator.comparing(Score::getScore))
                 .get().getScore();
         return scores.stream()
                 .filter(score -> score.getScore().equals(winnerScore))
