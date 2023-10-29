@@ -3,6 +3,7 @@ package racingcar.controller;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.constant.Delimiter;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.CarDto;
@@ -41,7 +42,7 @@ public class Controller {
         String namesContainComma = inputView.getInput();
         NameValidator validator = new NameValidator(namesContainComma);
         validator.validateNames();
-        List<Car> cars = Arrays.stream(namesContainComma.split(","))
+        List<Car> cars = Arrays.stream(namesContainComma.split(Delimiter.COMMA.getSymbol()))
                 .map(Car::new)
                 .collect(Collectors.toList());
         this.cars = new Cars(cars);

@@ -2,6 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.constant.Delimiter;
 import racingcar.constant.GameMessage;
 import racingcar.domain.Car;
 import racingcar.domain.CarDto;
@@ -29,7 +30,7 @@ public class OutputView {
 
     public void announceWinner(List<Car> winners) {
         print(GameMessage.FINAL_WINNER.getMessage());
-        printLn(winners.stream().map(Car::getName).collect(Collectors.joining(", ")));
+        printLn(winners.stream().map(Car::getName).collect(Collectors.joining(Delimiter.COMMA_WITH_SPACE.getSymbol())));
     }
 
     private void printLn(String message) {

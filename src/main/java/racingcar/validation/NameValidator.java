@@ -4,13 +4,14 @@ import java.util.List;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
 import racingcar.constant.CarName;
+import racingcar.constant.Delimiter;
 import racingcar.constant.InvalidMessage;
 
 public class NameValidator {
     private final List<String> names;
 
     public NameValidator(String namesContainComma) {
-        this.names = Stream.of(namesContainComma.split(","))
+        this.names = Stream.of(namesContainComma.split(Delimiter.COMMA.getSymbol()))
                 .collect(Collectors.toList());
     }
 
