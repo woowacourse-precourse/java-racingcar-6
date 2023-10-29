@@ -17,14 +17,7 @@ public class Application {
         cars.validateCarsName(carArray);
         
         race.initScorePerCar(carArray);
-        
-        System.out.println("시도할 회수는 몇회인가요?");
-        int tryNum;
-        try {
-            tryNum = Integer.parseInt(Console.readLine());
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자를 입력해주세요!");
-        }
+        race.enterRaceNum();
     
         for (int i = 0; i < tryNum; i++) {
             moveOrStop(scorePerCar);
