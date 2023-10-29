@@ -41,4 +41,11 @@ public class CarService {
         }
         return roundRaceResults;
     }
+
+    public int findHighestScore(List<Car> cars) {
+        return cars.stream()
+                .mapToInt(Car::getScore)
+                .max()
+                .orElse(0);
+    }
 }
