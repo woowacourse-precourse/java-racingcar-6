@@ -2,6 +2,7 @@ package racingcar.validation;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.constant.MessageConst.DUPLICATE_MESSAGE;
+import static racingcar.constant.MessageConst.EMPTY_MESSAGE;
 import static racingcar.constant.MessageConst.LENGTH_MESSAGE;
 import static racingcar.constant.MessageConst.SPACE_MESSAGE;
 
@@ -62,5 +63,20 @@ class CarValidationTest {
         assertThatThrownBy(() -> carValidation.validateCarNameSpace(carNamesRightSpace))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(SPACE_MESSAGE);
+    }
+
+    @Test
+    @DisplayName("각 자동차 이름이 빈 값인지 테스트")
+    void validateCarNameEmptyTest() {
+        // given
+        CarValidation carValidation = new CarValidation();
+
+        // when
+        List<String> carNamesWithEmpty = List.of("fobi", "woni", "");
+
+        // then
+        assertThatThrownBy(() -> carValidation.validateCarNameEmpty(carNamesWithEmpty))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(EMPTY_MESSAGE);
     }
 }
