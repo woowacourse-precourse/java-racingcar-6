@@ -33,7 +33,9 @@ public class RacingGame {
         }
 
         checkWinner();
-        // TODO : 우승한 자동차 리스트를 출력한다
+
+        System.out.print("최종 우승자 : ");
+        System.out.println(String.join(", ", winners));
     }
 
     private List<Car> readParticipantCars(String input) {
