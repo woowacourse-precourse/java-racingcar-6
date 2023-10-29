@@ -15,8 +15,11 @@ public class InputAndOutput {
         System.out.println(raceResult.toString());
     }
 
-    static void outputRaceWinner(List<Car> carList) {
-
+    static void outputRaceWinner(List<String> winnerList) {
+        StringBuilder raceWinner = new StringBuilder();
+        raceWinner.append("최종 우승자").append(" : ");
+        raceWinner.append(String.join(", ", winnerList));
+        System.out.println(raceWinner.toString());
     }
 
     static List<String> inputCarNames() throws IllegalArgumentException {

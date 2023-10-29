@@ -15,7 +15,7 @@ public class RacingLogic {
             repeatTimes++;
         }
         List<String> winnerList = checkWinner(carList);
-        InputAndOutput.outputRaceWinner(carList);
+        InputAndOutput.outputRaceWinner(winnerList);
     }
 
     static List<Integer> decideGoOrStopByRandoms(int carListSize) {
