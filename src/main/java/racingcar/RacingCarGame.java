@@ -43,9 +43,19 @@ public class RacingCarGame {
     //이름 입력 및 Player 객체 리스트 생성
     public void inputCarName() {
         String carNames = Console.readLine();
+        if(carNames.equals("")){
+            throw new IllegalArgumentException("No Name Error");
+        }
+
         String[] carArr = carNames.split(",");
 
         for (String s : carArr) {
+            if(s.equals("")){
+                throw new IllegalArgumentException("Comma Error");
+            }
+            if(s.length() >= 5){
+                throw new IllegalArgumentException("Length Error");
+            }
             Player player = new Player(s);
             players.add(player);
         }
@@ -53,6 +63,9 @@ public class RacingCarGame {
 
     public void inputRunCount(){
         RUN_COUNT = Integer.parseInt(Console.readLine());
+        if(RUN_COUNT <= 0){
+            throw new IllegalArgumentException("Try Count Error");
+        }
     }
 
     public void runGame(){
@@ -93,6 +106,11 @@ public class RacingCarGame {
                 MAX = player.getRunCount();
             }
         }
+
+        if(MAX == 0){
+            throw new IllegalArgumentException("No Winner Error");
+        }
+
         return MAX;
     }
 }
