@@ -25,9 +25,18 @@ public class GameController {
         int count = inputView.getCountInput();
         for (int i = 0; i < count; i++) {
             race(racingCars);
+            result.append(raceController.getNameAndRecord(racingCars));
 
-            result.append(raceController.getNameAndRecord(racingCars)).append("\n");
+            if (i == count - 1) {
+                continue;
+            }
+
+            result.append("\n");
         }
+
         outputView.printNameAndRecord(result.toString());
+        outputView.printWinnerName(raceController.getWinnerName(racingCars));
     }
+
+
 }
