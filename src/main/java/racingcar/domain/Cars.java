@@ -13,14 +13,14 @@ public class Cars {
         this.cars = cars;
     }
 
-    public void playSingleTurn(){
+    public void playSingleTurn() {
         for (Car car : cars) {
             car.move();
         }
     }
 
-    public Map<String,Integer> carsInformation(){
-        Map<String,Integer> currentPostion = new HashMap<>();
+    public Map<String, Integer> carsInformation() {
+        Map<String, Integer> currentPostion = new HashMap<>();
         for (Car car : cars) {
             currentPostion.put(car.getName(), car.getPosition());
         }
@@ -35,16 +35,15 @@ public class Cars {
         return currnetMaxPosition;
     }
 
-    public List<Car> findWinner(int currnetMaxPosition){
+    public List<Car> findWinner(int currnetMaxPosition) {
         List<Car> winners = new ArrayList<>();
         for (Car car : cars) {
-            if(car.getPosition() == currnetMaxPosition){
+            if (car.getPosition() == currnetMaxPosition) {
                 winners.add(car);
             }
         }
         return winners;
     }
-
 
 
 }

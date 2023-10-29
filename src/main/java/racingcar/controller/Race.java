@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.view.InputView;
