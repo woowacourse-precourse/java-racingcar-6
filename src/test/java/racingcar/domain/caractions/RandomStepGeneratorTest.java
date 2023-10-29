@@ -5,17 +5,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
-class RandomStepGeneratorTest {
-    private RandomStepGenerator stepGenerator;
+class RandomNumberGeneratorTest {
+    private RandomNumberGenerator NumberGenerator;
 
     @BeforeEach
     public void setUp() {
-        stepGenerator = new RandomStepGenerator();
+        NumberGenerator = new RandomNumberGenerator();
     }
 
     @Test
-    void getStepTest() {
-        int step = stepGenerator.getStep();
-        assertTrue(step == 0 || step >= 4);
+    void getNumberTest() {
+        int Number = NumberGenerator.getNumber();
+        assertTrue(Number == 0 || Number == 1);
     }
 }
