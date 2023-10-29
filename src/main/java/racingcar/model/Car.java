@@ -29,13 +29,12 @@ public class Car {
         }
     }
 
-    //test 만을 위한 코드
-    public String getNameForTest() {
+    public String getName() {
         return name;
     }
 
     //test 만을 위한 코드
-    public int getLocationForTest() {
+    public int getLocation() {
         return location;
     }
 }

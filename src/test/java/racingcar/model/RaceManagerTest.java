@@ -36,7 +36,7 @@ public class RaceManagerTest {
 
         //then
         assertThat(RaceManager.decideWinner(List.of(car1, car2, car3)))
-                .isEqualTo(List.of(car1.getNameForTest()));
+                .isEqualTo(List.of(car1.getName()));
     }
 
     @Test
@@ -55,6 +55,6 @@ public class RaceManagerTest {
 
         //then
         assertThat(RaceManager.decideWinner(List.of(car1, car2, car3)))
-                .isEqualTo(List.of(car1.getNameForTest(), car2.getNameForTest()));
+                .isEqualTo(List.of(car1.getName(), car2.getName()));
     }
 }

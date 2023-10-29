@@ -21,7 +21,24 @@ public class RaceManager {
     }
 
     public static List<String> decideWinner(List<Car> cars) {
-        return null;
+        return cars.stream()
+                .filter((car) -> isWinner(car, calculateFarthestLocation(cars)))
+                .map(Car::getName)
+                .toList();
+    }
+
+    private static int calculateFarthestLocation(List<Car> cars) {
+        return cars.stream()
+                .mapToInt(Car::getLocation)
+                .max()
+                .orElseThrow(() -> new IllegalArgumentException());
+    }
+
+    private static boolean isWinner(Car car, int farthestLocation) {
+        if (car.getLocation() == farthestLocation) {
+            return true;
+        }
+        return false;
     }
 
     private static int toNumber(String string) {

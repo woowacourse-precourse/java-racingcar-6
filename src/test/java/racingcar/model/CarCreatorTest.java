@@ -59,7 +59,7 @@ public class CarCreatorTest {
 
         //then
         List<String> actualCarNameList = actualCarList.stream()
-                .map(Car::getNameForTest).toList();
+                .map(Car::getName).toList();
 
         assertThat(actualCarNameList).isEqualTo(carNameList);
     }

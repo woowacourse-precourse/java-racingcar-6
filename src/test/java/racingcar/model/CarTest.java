@@ -32,7 +32,7 @@ public class CarTest {
         car.moveOrStop(randomNumber);
 
         //then
-        assertThat(car.getLocationForTest()).isEqualTo(0);
+        assertThat(car.getLocation()).isEqualTo(0);
     }
 
     @ParameterizedTest
@@ -42,6 +42,6 @@ public class CarTest {
         car.moveOrStop(randomNumber);
 
         //then
-        assertThat(car.getLocationForTest()).isEqualTo(1);
+        assertThat(car.getLocation()).isEqualTo(1);
     }
 }
