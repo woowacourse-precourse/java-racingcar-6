@@ -22,11 +22,25 @@ public class CarRepository {
     }
 
     public void save(Car car) {
+        if (carRepository.contains(car)) {
+            update(car);
+            return;
+        }
+
         carRepository.add(car);
+    }
+
+    public void update(Car car) {
+        int previousIndex = carRepository.indexOf(car);
+        carRepository.set(previousIndex, car);
     }
 
     public List<Car> findAll() {
         return Collections.unmodifiableList(carRepository);
+    }
+
+    public void updateAll(List<Car> cars) {
+        cars.forEach(this::update);
     }
 
 }

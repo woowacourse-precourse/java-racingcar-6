@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import java.util.Objects;
 import racingcar.vo.CarName;
 
 public class Car {
@@ -13,13 +12,14 @@ public class Car {
         forwardCount = 0;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+
+
+    public void moveForward() {
+        forwardCount++;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(name);
-    }
+
+
+
+
 }

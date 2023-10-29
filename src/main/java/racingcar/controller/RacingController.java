@@ -1,15 +1,12 @@
 package racingcar.controller;
 
-import racingcar.service.CarFactoryService;
+import racingcar.service.RacingPlayService;
 
 public class RacingController {
 
-    CarFactoryService carFactoryService;
+    RacingPlayService racingPlayService;
 
-    public void createRacingCars(String racingCarString) {
-        String[] cars = racingCarString.split(",");
-        carFactoryService.createCars(cars);
-    }
+
 
 
 
