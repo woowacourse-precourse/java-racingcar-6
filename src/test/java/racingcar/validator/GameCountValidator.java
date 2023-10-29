@@ -16,4 +16,10 @@ public class GameCountValidator {
             throw new IllegalArgumentException("입력값은 정수이어야 합니다.");
         }
     }
+
+    private void validateSign(String gameCount) {
+        if (parseInt(gameCount) <= 0) {
+            throw new IllegalArgumentException("입력값은 양의 정수이어야 합니다.");
+        }
+    }
 }
