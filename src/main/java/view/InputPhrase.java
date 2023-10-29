@@ -1,8 +1,14 @@
-package service;
+package view;
+
+import static model.Constants.START_INPUT_MESSAGE;
+import static model.Constants.NUMBER_ATTEMPTS_MESSAGE;
+
 
 public class InputPhrase {
-
-    public void startInputMessage(){
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+    public void startInputMessage() {
+        System.out.println(START_INPUT_MESSAGE);
+    }
+    public void inputNumberAttempts() {
+        System.out.println(NUMBER_ATTEMPTS_MESSAGE);
     }
 }
