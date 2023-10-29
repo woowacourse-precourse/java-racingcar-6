@@ -3,7 +3,7 @@
 - [o] 자동차 m개의 이름과 n번의 경주 시도 횟수를 입력받을 수 있다. - askCarName(), askRound()
   - [o] 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 종료한다. - checkCarNameAsCommas(), checkCarNameAsLength(), checkRound() 
 
-- [] n번의 횟수 동안 m개의 자동차는 각각 '-'을 출력하거나 ''을 출력하는 경기를 반복한다.
+- [o] n번의 횟수 동안 m개의 자동차는 각각 '-'을 출력하거나 ''을 출력하는 경기를 반복한다.
   - [o] 각각의 자동차는 0부터 9사이의 무작위 값을 생성하여 해당 값이 4이상인 경우 '-', 아닌 경우 ''를 출력한다. - printTrack()
   - [o] 전 출력값에 이어서 출력해준다.
 

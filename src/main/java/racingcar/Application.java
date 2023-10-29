@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.domain.CarRace;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,9 +9,32 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Application {
     public static void main(String[] args) {
+        List<String> carNames = askCarName();
+        int round = askRound();
+
+        CarRace carRace = new CarRace();
+
+        List<String> tracks = setupTrack(carNames.size());
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < round; i++) {
+            carRace.printTrack(carNames, tracks);
+            System.out.print("\n");
+        }
+
+
         // TODO: 프로그램 구현
     }
-    
+
+    public static List<String> setupTrack(int size) {
+        List<String> tracks = new ArrayList<>();
+
+        for (int i = 0; i < size; i++) {
+            tracks.add("");
+        }
+
+        return tracks;
+    }
+
     public static List<String> askCarName() {
         System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
         String input = readLine();
