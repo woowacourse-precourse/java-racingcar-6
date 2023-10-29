@@ -4,7 +4,7 @@ package racingcar.model;
 import java.util.Objects;
 import racingcar.utils.validator.CarValidator;
 
-public class RacingCar implements Car{
+public class RacingCar extends CarValidator implements Car {
 
     private final String name;
 
@@ -15,11 +15,6 @@ public class RacingCar implements Car{
 
         this.name = name;
         this.progress = progress;
-    }
-
-    @Override
-    public void validate(final String name) {
-        new CarValidator().validate(name);
     }
 
     public String getName() {
