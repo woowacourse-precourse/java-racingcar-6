@@ -13,6 +13,14 @@ public class RaceGameServiceImpl implements RaceGameService{
     private static final int START_RANDOM_NUMBER_RANGE = 0;
     private static final int FINISH_RANDOM_NUMBER_RANGE = 9;
 
+
+    @Override
+    public Car startGame(List<String> input) {
+        Car car = new Car();
+        car.initCar(input);
+        return car;
+    }
+
     @Override
     public void carMoveCheckAndGo(Car car) {
         // 전진하는 조건은 0~9사이에서 무작위 값을 구한 후 무작위 값이 4이상일 경우
