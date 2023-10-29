@@ -13,17 +13,14 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         int rounds = Integer.parseInt(Console.readLine());
         // 레이싱 진행
+        System.out.println("실행 결과");
         int[] progress = new int[cars.length];
-        for(int i=0; i<5; i++){
+        for(int i=0; i<rounds; i++){
             for(int j=0; j<cars.length; j++){
                 randomForward(cars, progress, j);
-
-                String progressBar = "";
-                for(int k=0; k<progress[k]; k++){
-                    progressBar += "-";
-                }
-                System.out.println(cars[j] + " : " + progressBar);
+                printRacingStatus(j, progress, cars);
             }
+            System.out.println(" ");
         }
         // 우승자 판독 출력
     }
@@ -33,13 +30,19 @@ public class Application {
             progress[carindex] += 1;
         }
     }
-
     public static void whoisWinner(String[] cars, int[] progress){
 
     }
-
     public static String[] makingCarList(String userinput){
         String[] cars = userinput.split(",");
         return cars;
     }
+    public static void printRacingStatus(int carindex, int[] progress, String[] cars){
+        String progressbar = "";
+        for(int i=0; i<progress[carindex]; i++){
+            progressbar += "-";
+        }
+        System.out.println(cars[carindex] + " : " + progressbar);
+    }
+
 }
