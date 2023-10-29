@@ -3,7 +3,7 @@
 ### Car
 
 - [x] 자동차 이름 저장
-- [ ] 이름의 길이가 0 보다 크고 5보다 작은 경우가 아니라면 IllegalArgumentException
+- [x] 이름의 길이가 0 보다 크고 5보다 작은 경우가 아니라면 IllegalArgumentException
 - [ ] 0~9 사이의 무작위 값 선택하여 4 이상일 때 자동차 1칸 이동
 
 ### Cars
