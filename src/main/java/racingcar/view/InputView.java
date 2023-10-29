@@ -2,22 +2,26 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.RacingCar;
-import racingcar.service.InputValidation;
+import racingcar.service.CarNameValidation;
+import racingcar.service.MovementValidation;
 
 import java.util.List;
 
 public class InputView {
 
-    private InputValidation inputValidation;
+    private CarNameValidation carNameValidation;
+
+    private MovementValidation movementValidation;
 
     public InputView() {
-        inputValidation = new InputValidation();
+        carNameValidation = new CarNameValidation();
+        movementValidation = new MovementValidation();
     }
 
     public List<RacingCar> inputCarName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputCarName = Console.readLine();
-        inputValidation.validateUserInput(inputCarName);
+        carNameValidation.validateUserInput(inputCarName);
 
         return RacingCar.fromInputCarName(inputCarName);
     }
@@ -26,7 +30,7 @@ public class InputView {
         try {
             System.out.println("시도할 회수는 몇회인가요?");
             Integer movement = Integer.parseInt(Console.readLine());
-            inputValidation.validateMovement(movement);
+            movementValidation.validateMovement(movement);
 
             return movement;
         } catch (NumberFormatException e) {
