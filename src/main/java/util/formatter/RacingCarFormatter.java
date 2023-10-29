@@ -1,6 +1,6 @@
 package util.formatter;
 
-import static racingcar.Constants.COMMA;
+import static racingcar.Constants.COMMA_BLANK;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,23 +14,23 @@ public class RacingCarFormatter extends Formatter {
         this.converter = new RacingCarConverter();
     }
 
-    public String formatRacingCarPlayerToString(RacingCarPlayerModel player) {
+    public String formatPlayerToString(RacingCarPlayerModel player) {
         return this.converter.toString(player);
     }
 
-    public RacingCarPlayerModel formatStringToRacingCarPlayer(String string) {
+    public RacingCarPlayerModel formatStringToPlayer(String string) {
         return this.converter.fromString(string);
     }
 
-    public List<String> formatListRacingCarPlayersToListString(List<RacingCarPlayerModel> players) {
-        return players.stream().map(this::formatRacingCarPlayerToString).collect(Collectors.toList());
+    public List<String> formatListPlayersToListString(List<RacingCarPlayerModel> players) {
+        return players.stream().map(this::formatPlayerToString).collect(Collectors.toList());
     }
 
-    public String formatListRacingCarPlayersToString(List<RacingCarPlayerModel> players) {
-        return String.join(COMMA, this.formatListRacingCarPlayersToListString(players));
+    public String formatListPlayersToString(List<RacingCarPlayerModel> players) {
+        return String.join(COMMA_BLANK, this.formatListPlayersToListString(players));
     }
 
-    public List<RacingCarPlayerModel> formatListStringToListRacingCarPlayer(List<String> players){
-        return players.stream().map(this::formatStringToRacingCarPlayer).collect(Collectors.toList());
+    public List<RacingCarPlayerModel> formatListStringToListPlayers(List<String> players){
+        return players.stream().map(this::formatStringToPlayer).collect(Collectors.toList());
     }
 }

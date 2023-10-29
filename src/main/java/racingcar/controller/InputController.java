@@ -8,11 +8,11 @@ public class InputController {
         this.racingCarInputReader = new RacingCarInputReader();
     }
 
-    public String inputRacingCarPlayers(){
-        return this.racingCarInputReader.inputPlayers();
+    public String readRacingCarPlayers(){
+        return this.racingCarInputReader.readPlayers();
     }
 
-    public int getTryCount(){
-        return this.racingCarInputReader.inputTryCount();
+    public int readTryCount(){
+        return this.racingCarInputReader.readTryCount();
     }
 }

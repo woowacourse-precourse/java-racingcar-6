@@ -1,7 +1,7 @@
 package racingcar.view;
 
-import static racingcar.Constants.INPUT_CAR_NAMES;
-import static racingcar.Constants.INPUT_TRY_NUMBER;
+import static racingcar.Constants.INPUT_CAR_NAMES_MESSAGE;
+import static racingcar.Constants.INPUT_TRY_NUMBER_MESSAGE;
 
 import java.util.List;
 import racingcar.model.RacingCarPlayerModel;
@@ -15,16 +15,16 @@ public class RacingCarGameView {
     }
 
     public void printInputRacingCarPlayers(){
-        System.out.println(INPUT_CAR_NAMES);
+        System.out.println(INPUT_CAR_NAMES_MESSAGE);
     }
 
     public void printInputTryCount(){
-        System.out.println(INPUT_TRY_NUMBER);
+        System.out.println(INPUT_TRY_NUMBER_MESSAGE);
     }
 
     public void printWinners(List<RacingCarPlayerModel> winners){
         System.out.print("최종 우승자 : ");
-        System.out.println(this.racingCarFormatter.formatListRacingCarPlayersToString(winners));
+        System.out.println(this.racingCarFormatter.formatListPlayersToString(winners));
         System.out.println();
     }
 }

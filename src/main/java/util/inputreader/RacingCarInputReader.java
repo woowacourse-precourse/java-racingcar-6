@@ -9,15 +9,15 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
 public class RacingCarInputReader implements InputReader {
-    public String inputPlayers() throws IllegalArgumentException{
+    public String readPlayers() throws IllegalArgumentException{
         String players =  this.readStringInput();
-        if(!isInputPlayerValid(players)){
+        if(!isValidPlayers(players)){
             throw new IllegalArgumentException("Invalid player names");
         }
         return players;
     }
 
-    public boolean isInputPlayerValid(String players) {
+    public boolean isValidPlayers(String players) {
         List<String> playerList = List.of(players.split(COMMA));
         if (playerList.isEmpty()) {
             return false;
@@ -32,15 +32,15 @@ public class RacingCarInputReader implements InputReader {
                 !player.isEmpty();
     }
 
-    public int inputTryCount() throws IllegalArgumentException{
+    public int readTryCount() throws IllegalArgumentException{
         int tryCount = this.readIntInput();
-        if(!isInputTryCountValid(tryCount)){
+        if(!isValidTryCount(tryCount)){
             throw new IllegalArgumentException("Invalid try count");
         }
         return tryCount;
     }
 
-    public boolean isInputTryCountValid(int tryCount){
+    public boolean isValidTryCount(int tryCount){
         return tryCount >= MIN_TRY_COUNT;
     }
 }

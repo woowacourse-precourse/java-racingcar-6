@@ -43,9 +43,9 @@ public class RacingCarGameController{
 
     private void initRacingCarGame(){
         this.racingCarGameView.printInputRacingCarPlayers();
-        String players = this.inputController.inputRacingCarPlayers();
+        String players = this.inputController.readRacingCarPlayers();
         this.racingCarGameModel.setPlayers(this.racingCarFormatController.formatStringToListRacingCarPlayer(players));
         this.racingCarGameView.printInputTryCount();
-        this.racingCarGameModel.setTryCount(this.inputController.getTryCount());
+        this.racingCarGameModel.setTryCount(this.inputController.readTryCount());
     }
 }
