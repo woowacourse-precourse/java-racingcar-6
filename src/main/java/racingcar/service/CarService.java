@@ -1,5 +1,7 @@
 package racingcar.service;
 
+import static racingcar.constant.MessageConst.WINNER_MESSAGE;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.domain.Car;
@@ -40,6 +42,18 @@ public class CarService {
             roundRaceResults.append(car.createRoundRaceResult()).append("\n");
         }
         return roundRaceResults;
+    }
+
+    public StringBuilder createWinner() {
+        List<Car> cars = carRepository.getCars();
+        int highestScore = findHighestScore(cars);
+        List<Car> carsWithHighestScore = createCarsWithHighestScore(cars, highestScore);
+        StringBuilder winner = new StringBuilder();
+        winner.append(WINNER_MESSAGE).append(" : ");
+        for (Car car : carsWithHighestScore) {
+            winner.append(car.createWinner());
+        }
+        return formatOutput(winner);
     }
 
     public int findHighestScore(List<Car> cars) {
