@@ -2,6 +2,7 @@ package racingcar.Validator;
 
 import static racingcar.Message.CarNameExceptionPrompt.LENGTHMESSAGE;
 import static racingcar.Message.CarNameExceptionPrompt.WHITESPACEMESSAGE;
+import static racingcar.Validator.CarNameValidationCriteria.INVALID_CHARACTER;
 import static racingcar.Validator.CarNameValidationCriteria.MAX_LENGTH;
 import static racingcar.Validator.CarNameValidationCriteria.MIN_LENGTH;
 
