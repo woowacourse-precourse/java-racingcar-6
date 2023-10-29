@@ -11,7 +11,7 @@ public class Referee {
     private static final Integer START_POINT = 0;
 
     private List<CarName> winnerNames;
-    
+
     public List<CarName> getWinnerNames() {
         return winnerNames;
     }
@@ -31,7 +31,6 @@ public class Referee {
                 .map(car -> car.getCarName())
                 .collect(Collectors.toList());
     }
-
 
     private CarDistance getMaxDistance(List<Car> cars) {
         Integer maxDistance = cars.stream()
