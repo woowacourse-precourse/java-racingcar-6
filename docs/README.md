@@ -3,7 +3,7 @@
 ## ⛳구현할 기능 목록
 
 ### 입력
-* 경주할 자동차 이름 입력 받기 (RacingSetting Class) ❌
+* 경주할 자동차 이름 입력 받기 (RacingSetting Class) ✅
 * 이동을 시도할 횟수 입력 받기 (RacingSetting Class) ❌
 
 ### 출력
@@ -28,7 +28,7 @@
 
 ### RacingSetting
 클래스 변수 : MoveNum moveNum, CarNum carNum
-* 경주할 자동차 입력받기 ❌
+* 경주할 자동차 입력받기 ✅
 * 이동을 시도할 횟수 입력받기 ❌
 * 입력받을때 안내메시지 출력 ❌
 
