@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
@@ -75,21 +76,20 @@ public class Application {
         // 3. 이동 로직 구현
         System.out.println("실행 결과");
 
-        String[] movedCount = new String[carNames.size()]; // 배열 대신 컬렉션으로 교체 하기, 초기화 방법고려
-
-        Arrays.fill(movedCount, "");
+        List<String> movedCount = Arrays.asList(new String[carNames.size()]);
+        movedCount.replaceAll(Null -> "");
 
         for (int i = 0; i < roundCount; i++) {
 
-            for (int j = 0; j < carNames.size(); j++) {
-                // 3도 상수로 변환하기
+            for (int j = 0; j < movedCount.size(); j++) {
+
                 if (Randoms.pickNumberInRange(0, 9) >= 4) {
-                    movedCount[j] += "-";
+                    movedCount.set(j, movedCount.get(j) + "-");
                 }
             }
 
             for (int k = 0; k < carNames.size(); k++) {
-                System.out.println(carNames.get(k) + " : " + movedCount[k]);
+                System.out.println(carNames.get(k) + " : " + movedCount.get(k));
             }
 
             System.out.println();
@@ -99,9 +99,11 @@ public class Application {
         int max = 0;
 
         for (int i = 0; i < carNames.size(); i++) {
-            if (max <= movedCount[i].length()) {
-                max = movedCount[i].length();
+
+            if (max <= movedCount.get(i).length()) {
+                max = movedCount.get(i).length();
             }
+
         }
 
         System.out.print("최종 우승자 : ");
@@ -109,7 +111,7 @@ public class Application {
 
         for (int i = 0; i < carNames.size(); i++) {
 
-            if (max == movedCount[i].length()) {
+            if (max == movedCount.get(i).length()) {
 
                 if (count++ != 0) {
                     System.out.print(", ");
@@ -118,6 +120,5 @@ public class Application {
                 System.out.print(carNames.get(i));
             }
         }
-
     }
 }
