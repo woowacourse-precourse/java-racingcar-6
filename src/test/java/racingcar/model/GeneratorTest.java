@@ -1,10 +1,9 @@
-package racingcar.controller;
+package racingcar.model;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.model.Generator;
 
 public class GeneratorTest {
 
