@@ -1,12 +1,13 @@
 package racingcar.controller;
 
+import racingcar.model.Round;
 import racingcar.view.InputView;
 import racingcar.model.RacingCarGame;
 import racingcar.view.OutputView;
 
 public class GameController {
 
-    private static int round;
+    private static Round round;
     private static RacingCarGame racingCarGame;
 
     public static void run() {
@@ -24,7 +25,7 @@ public class GameController {
 
     private static void playGame() {
         OutputView.printPlayResultMessage();
-        for (int i=0; i<round; i++) {
+        for (int i=0; i<round.getRound(); i++) {
             racingCarGame.playRound();
             OutputView.printPlayResult(racingCarGame.getCars());
         }
