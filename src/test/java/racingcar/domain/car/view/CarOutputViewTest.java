@@ -51,6 +51,22 @@ class CarOutputViewTest {
             carOutputView.printRoundResult(List.of(car, otherCar));
 
             assertThat(output.toString()).isEqualTo(expectResultMessage);
+
+            output.reset();
+        }
+
+        @Test
+        @DisplayName("최종 우승자를 성공적으로 출력해야 한다")
+        public void 최종_우승자를_성공적으로_출력해야_한다() {
+            CarOutputView carOutputView = new CarOutputView();
+            ByteArrayOutputStream output = new ByteArrayOutputStream();
+            System.setOut(new PrintStream(output));
+
+            carOutputView.printWinner(List.of("pobi", "woni"));
+
+            assertThat(output.toString()).isEqualTo(PRINT_FINAL_WINNER.getMessage() + "pobi, woni\n");
+
+            output.reset();
         }
     }
 
