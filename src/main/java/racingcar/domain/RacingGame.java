@@ -64,17 +64,19 @@ public class RacingGame {
     }
 
     public String getWinners() {
-        int maxPosition = cars.stream()
-                .mapToInt(Car::getPosition)
-                .max()
-                .orElse(-1);
-
         List<String> winners = cars.stream()
-                .filter(car -> car.getPosition() == maxPosition)
+                .filter(car -> car.getPosition() == getMaxPosition())
                 .map(Car::getName)
                 .collect(Collectors.toList());
 
         return String.join(", ", winners);
+    }
+
+    private int getMaxPosition(){
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(-1);
     }
 
 }
