@@ -6,6 +6,15 @@ public class Game {
 
     public void startGame() {
         gameManager.gameSetting();
+        gamingWithTryCount();
+    }
+
+    private void gamingWithTryCount() {
+        int totalTryCount = gameElements.getTryCount();
+
+        for (int tryCount = 0; tryCount < totalTryCount; tryCount++) {
+            runGameForCar();
+        }
     }
 
     private void runGameForCar() {
@@ -13,7 +22,7 @@ public class Game {
             checkMoveForward(car);
         }
     }
-    
+
     private void checkMoveForward(String car) {
         if (gameManager.createRandomNumber() >= 4) {
             int forwardCount = gameElements.getCarMap().get(car) + 1;
