@@ -16,6 +16,10 @@ public class Car {
         return name;
     }
 
+    public int getDistance() {
+        return distance;
+    }
+
     public void proceed() {
         int number = Randoms.pickNumberInRange(0, 9);
         if (number >= 4) {
