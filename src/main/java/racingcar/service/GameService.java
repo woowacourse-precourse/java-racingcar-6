@@ -5,27 +5,20 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.config.Config;
 import racingcar.model.Car;
-import racingcar.utils.RandomUtil;
 import racingcar.utils.Validation;
 
 
 public class GameService {
 
     private Config config;
-    private int minValue;
-    private int maxValue;
-    private int setValue;
     public List<Car> carList;
     public List<Car> winnerList;
     public int tryNum;
-    private int forwardNum;
+
 
 
     public GameService(Config config) {
         this.config = config;
-        this.maxValue = config.getMaxValue();
-        this.minValue = config.getMinValue();
-        this.setValue = config.getSetValue();
         winnerList = new ArrayList<Car>();
         carList = new ArrayList<Car>();
     }
@@ -57,24 +50,16 @@ public class GameService {
     }
 
 
-    public void carForward() {
-        for (int j = 0; j < carList.size(); j++) {
-            forwardNum = RandomUtil.getRandomNumber(minValue, maxValue);
-            if (forwardNum >= setValue) {
-                carList.get(j).increaseForward();
-            }
-        }
-    }
-
     public void findWinner() {
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < carList.size(); i++) {
-            if (carList.get(i).getForward() > max) {
-                max = carList.get(i).getForward();
+            Car selectCar = carList.get(i);
+            if (selectCar.getForward() > max) {
+                max = selectCar.getForward();
                 winnerList.clear();
-                winnerList.add(carList.get(i));
-            } else if (carList.get(i).getForward() == max) {
-                winnerList.add(carList.get(i));
+                winnerList.add(selectCar);
+            } else if (selectCar.getForward() == max) {
+                winnerList.add(selectCar);
             }
         }
     }
