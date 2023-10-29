@@ -6,6 +6,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
+    private static final int FIRST_IDX = 0;
+    private static final int RAND_MIN = 0;
+    private static final int RAND_MAX = 9;
+    private static final int MOVE_CRITERIA = 4;
 
     private final List<Car> cars;
     private final View view = new View();
@@ -27,11 +31,11 @@ public class Cars {
     }
 
     private Car firstElement() {
-        return cars.get(0);
+        return cars.get(FIRST_IDX);
     }
 
     public void roundStatus(int round) {
-        for (int i = 0; i < round; i++) {
+        for (int i = FIRST_IDX; i < round; i++) {
             printRoundResult();
         }
     }
@@ -45,8 +49,8 @@ public class Cars {
     }
 
     private void updatePositionComparedToRandNum(Car car) {
-        int randNum = Randoms.pickNumberInRange(0, 9);
-        if (randNum >= 4) {
+        int randNum = Randoms.pickNumberInRange(RAND_MIN, RAND_MAX);
+        if (randNum >= MOVE_CRITERIA) {
             car.updatePosition();
         }
     }
