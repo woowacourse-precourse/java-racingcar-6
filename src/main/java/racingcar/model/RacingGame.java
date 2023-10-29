@@ -14,9 +14,9 @@ public class RacingGame {
     }
 
     public void runOneTerm() {
-        cars.move();
+        cars.changeState();
     }
-    
+
     public List<CarName> getWinners() {
         referee.decideWinner(cars);
         return referee.getWinnerNames();

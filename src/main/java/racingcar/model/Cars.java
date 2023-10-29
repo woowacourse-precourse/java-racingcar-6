@@ -19,10 +19,10 @@ public class Cars {
         carList = Collections.unmodifiableList(cars);
     }
 
-    public void move() {
-        carList.stream().forEach(car -> car.move());
+    public void changeState() {
+        carList.stream().forEach(car -> car.changeState());
     }
-    
+
     public List<Car> getCarList() {
         return carList;
     }

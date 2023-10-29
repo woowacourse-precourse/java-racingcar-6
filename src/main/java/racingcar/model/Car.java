@@ -15,9 +15,9 @@ public class Car {
         this.carDistance = new CarDistance(INIT_DISTANCE);
     }
 
-    public void move() {
+    public void changeState() {
         Integer previousDistance = this.carDistance.distance();
-        this.carDistance = new CarDistance(previousDistance + Status.moveOrStop());
+        this.carDistance = new CarDistance(previousDistance + Status.change());
     }
 
     public CarName getCarName() {
