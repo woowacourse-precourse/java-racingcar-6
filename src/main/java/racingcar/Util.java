@@ -8,4 +8,9 @@ public class Util {
         return Randoms.pickNumberInRange(0,9);
     }
 
+    Boolean decideMovement(int randomNum){
+        if(randomNum >= 4) return true;
+        else return false;
+    }
+
 }
