@@ -21,7 +21,7 @@ public class GameController {
         for (Car car : carList) {
             this.generateTryMoveForwardRandomNumber();
             if (this.TryMoveForwardRandomNumber > 3) {
-                car.setSuccessMoveForwardCount();
+                car.increaseSuccessMoveForwardCount();
             }
         }
     }
