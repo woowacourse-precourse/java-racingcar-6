@@ -5,11 +5,11 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Objects;
 
 public class Car {
-    private static final int MIN_NAME_LENGTH = 1;
-    private static final int MAX_NAME_LENGTH = 5;
-    private static final int MIN_RANDOM_VALUE = 0;
-    private static final int MAX_RANDOM_VALUE = 9;
-    private static final int MIN_MOVE_CONDITION = 4;
+    static final int MIN_NAME_LENGTH = 1;
+    static final int MAX_NAME_LENGTH = 5;
+    static final int MIN_RANDOM_VALUE = 0;
+    static final int MAX_RANDOM_VALUE = 9;
+    static final int MIN_MOVE_CONDITION = 4;
     private String name;
     private Integer moveCount;
 
