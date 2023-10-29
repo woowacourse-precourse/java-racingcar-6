@@ -28,10 +28,29 @@ public class Car {
         userName.addAll(Arrays.asList(userNameInput));
     }
 
+    public void checkUserNameError() throws IllegalArgumentException {
+        for (String s : userName) {
+            UserNameError(s);
+        }
+    }
+
+    public void UserNameError(String UserName) throws IllegalArgumentException {
+        if (UserName.length() > 5) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     public void insertRoundNumber(String userInput) {
-        int roundNumberInput = Integer.parseInt(userInput);
-        if (roundNumberInput != ZERO) {
-            roundNumber = roundNumberInput;
+        try {
+            roundNumber = Integer.parseInt(userInput);
+        } catch (NumberFormatException | NullPointerException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public void checkRoundNumberError() throws IllegalArgumentException {
+        if (roundNumber == ZERO) {
+            throw new IllegalArgumentException();
         }
     }
 }

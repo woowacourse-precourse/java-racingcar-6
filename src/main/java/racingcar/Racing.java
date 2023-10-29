@@ -22,11 +22,13 @@ public class Racing {
     public void getUserCarNameByConsole() {
         String consoleInput = Console.readLine();
         car.insertUserName(consoleInput);
+        car.checkUserNameError();
     }
 
     public void getUserRoundNumberByConsole() {
         String consoleInput = Console.readLine();
         car.insertRoundNumber(consoleInput);
+        car.checkRoundNumberError();
     }
 
 }
