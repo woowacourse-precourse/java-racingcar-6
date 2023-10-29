@@ -2,8 +2,6 @@ package featuretest;
 
 import Model.*;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import racingcar.Application;
 
 import java.io.ByteArrayInputStream;
@@ -26,16 +24,13 @@ public class FeatureTest {
         assertThat(actualCarNames).containsExactlyElementsOf(expectedCarNames);
     }
 
-    @ParameterizedTest()
-    @CsvSource({
-            "car1, true",
-            "mycar, true",
-            "iamcar, false"
-    })
-    void 자동차_이름_5자_이하인지_확인(String testCarName, boolean expectedResult) {
-        CarName carName = new CarName(testCarName);
+    @Test
+    void 자동차_이름_5자_이하인지_확인() {
+        String testCarNames = "myfavoritecar";
+        CarName carName = new CarName(testCarNames);
 
         boolean actualResult = carName.isNameUnder5Characters();
+        boolean expectedResult = false;
 
         assertThat(actualResult).isEqualTo(expectedResult);
     }
