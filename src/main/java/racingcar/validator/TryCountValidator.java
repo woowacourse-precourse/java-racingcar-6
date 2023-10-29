@@ -1,9 +1,10 @@
 package racingcar.validator;
 
+import java.util.regex.Pattern;
 import racingcar.util.Convertor;
 
 public class TryCountValidator {
-    private static final String ONLY_NUMBER = "^[0-9]*$";
+    private static final Pattern ONLY_NUMBER = Pattern.compile("^[0-9]*$");
     private static final char ZERO = '0';
     private static final int MIN_COUNT = 1;
 
@@ -24,7 +25,7 @@ public class TryCountValidator {
     }
 
     private static void validateInputFormat(String input) {
-        if (!input.matches(ONLY_NUMBER)) {
+        if (!ONLY_NUMBER.matcher(input).matches()) {
             throw new IllegalArgumentException(ErrorMessage.TRY_COUNT_ONY_NUMBER);
         }
     }
