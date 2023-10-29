@@ -21,4 +21,8 @@ public class Car {
     public int comparePosition(Car compareCar) {
         return this.position - compareCar.position;
     }
+
+    public Integer getPosition() {
+        return position;
+    }
 }
