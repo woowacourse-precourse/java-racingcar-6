@@ -1,5 +1,9 @@
 package racingcar;
 
+import static racingcar.Enum.COLON;
+import static racingcar.Enum.MOVE;
+import static racingcar.Enum.WINNER;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Map.Entry;
@@ -44,7 +48,7 @@ public class CarRacing {
             }
         }
 
-        System.out.println("최종 우승자 : " + String.join(", ", winner));
+        System.out.println(WINNER.getMessage() + String.join(", ", winner));
     }
 
     public static void initCarMoveToZero() {
@@ -74,9 +78,9 @@ public class CarRacing {
             String key = e.getKey();
             int value = e.getValue();
 
-            System.out.print(key + " : ");
+            System.out.print(key + COLON.getMessage());
             for (int i = 0; i < value; i++) {
-                System.out.print("-");
+                System.out.print(MOVE.getMessage());
             }
             System.out.println();
         }
