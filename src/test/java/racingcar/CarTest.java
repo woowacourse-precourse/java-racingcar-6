@@ -11,7 +11,7 @@ public class CarTest {
 
     @Test
     @DisplayName("값이 4이상이면 1번 전진한다")
-    void 값이_4이상인경우_1번전진한다() {
+    void 값이_4이상이면_1번전진한다() {
         Car car = new Car("pobi", 0);
 
         car.moveAccordingToInput(4);
@@ -21,7 +21,7 @@ public class CarTest {
 
     @Test
     @DisplayName("값이 3이하이면 정지한다")
-    void 값이_3이하인경우_정지한다() {
+    void 값이_3이하이면_정지한다() {
         Car car = new Car("pobi", 0);
 
         car.moveAccordingToInput(3);

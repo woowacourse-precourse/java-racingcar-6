@@ -31,7 +31,8 @@ public class RacingGame {
     private void runRace(int count, Cars cars) {
         System.out.println(EXECUTION_RESULT_MESSAGE);
         for (int i = 0; i < count; i++) {
-            GameResult.result(cars.moveCars());
+            cars.moveCars();
+            GameResult.result(cars.getCars());
             System.out.println();
         }
         GameResult.finalResult(cars.getWinners(cars.getCars()));

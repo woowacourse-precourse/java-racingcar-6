@@ -26,9 +26,8 @@ public class Cars {
         return Collections.unmodifiableList(cars);
     }
 
-    public List<Car> moveCars() {
+    public void moveCars() {
         cars.forEach(car -> car.moveAccordingToInput(Randoms.pickNumberInRange(RANDOM_MIN_VALUE, RANDOM_MAX_VALUE)));
-        return Collections.unmodifiableList(cars);
     }
 
     public Integer getMaxMovingCount(List<Car> cars) {
