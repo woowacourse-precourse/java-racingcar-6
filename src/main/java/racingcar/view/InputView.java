@@ -36,6 +36,7 @@ public class InputView {
             throw new IllegalArgumentException(IS_NOT_POSITIVE_INTEGER);
         }
 
+        System.out.println();
 
         return Integer.parseInt(input);
     }

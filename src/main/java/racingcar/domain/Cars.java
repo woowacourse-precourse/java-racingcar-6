@@ -44,7 +44,25 @@ public class Cars {
     }
 
 
+    public List<String> pickWinnersName(){
+        List<String> winnerNames = new ArrayList<>();
 
+        int count = 0;
+        for(Car car : cars){
+            int number_of_step = car.getNowStep();
+
+            if(number_of_step > count){
+                winnerNames.clear();
+                winnerNames.add(car.getCarName());
+                count = number_of_step;
+            }
+            else if(number_of_step == count){
+                winnerNames.add(car.getCarName());
+            }
+        }
+
+        return winnerNames;
+    }
 
 
 }

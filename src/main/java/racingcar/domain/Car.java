@@ -10,9 +10,9 @@ public class Car {
     }
 
     public void forward(int number){
-        if(number <= 4) return;
+        if(number < 4) return;
 
-        numberOfStep += 1;
+        addStep();
     }
 
     public String getCarName(){
@@ -21,6 +21,10 @@ public class Car {
 
     public int getNowStep(){
         return numberOfStep;
+    }
+
+    private void addStep(){
+        this.numberOfStep += 1;
     }
 
 }

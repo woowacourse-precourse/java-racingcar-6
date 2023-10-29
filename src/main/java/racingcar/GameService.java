@@ -23,6 +23,11 @@ public class GameService {
     }
 
 
+    public List<String> selectWinners(){
+
+        return cars.pickWinnersName();
+    }
+
 
 
 }
