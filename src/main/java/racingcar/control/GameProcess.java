@@ -146,4 +146,8 @@ public class GameProcess {
 
         return result;
     }
+
+    public Integer getCntTryRace() {
+        return cntTryRace;
+    }
 }

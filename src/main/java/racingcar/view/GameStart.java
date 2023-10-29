@@ -37,10 +37,17 @@ public class GameStart {
         System.out.println("최종 우승자 : " + gameProcess.knowFinalWinner());
     }
 
-    // TODO: 10/27/23 게임 진행 상황을 보여준다.
-    public void showProcessOfRaceGame() {
+    /**
+     * 게임 진행 상황을 보여준다.
+     */
+    public void showPrsocessOfRaceGame() {
 //        시도할 회수만큼 게임 진행 상황을 출력한다.
 //        printSituationOfCarCurrent 실행
+        Integer cntTryRace = gameProcess.getCntTryRace();
+        for (int i = 0; i < cntTryRace; i++) {
+            printSituationOfCarCurrent();
+            System.out.println();
+        }
     }
 
     /**

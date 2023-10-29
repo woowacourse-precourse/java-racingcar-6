@@ -114,9 +114,9 @@
       최종 우승자 : pobi, jun
       ```
   
-  - [ ] 게임 진행 상황을 보여준다. // GameStart#showProcessOfRaceGame
+  - [x] 게임 진행 상황을 보여준다. // GameStart#showProcessOfRaceGame
   
-    - [ ] 시도할 회수만큼 게임 진행 상황을 출력한다.
+    - [x] 시도할 회수만큼 게임 진행 상황을 출력한다.
   
   - [ ] 게임 시작. // GameStart#run
   
