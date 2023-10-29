@@ -16,13 +16,23 @@ public class RacingGameManager {
     public List<RacingCar> raceCars() {
         int RacingCount = getRacingCount();
 
-        for (int i = 0; i < RacingCount; i++) {
-            moveCarsBasedOnRandomNumber();
-            printCarsCurrentPosition();
-            System.out.println();
-        }
+        executeRacing(RacingCount);
+        printRacingResult();
+
         return getRacingCarList();
     }
+
+    private void executeRacing(int RacingCount) {
+        for (int i = 0; i < RacingCount; i++) {
+            moveCarsBasedOnRandomNumber();
+        }
+    }
+
+    private void printRacingResult() {
+        printCarsCurrentPosition();
+        System.out.println();
+    }
+
 
     private void printCarsCurrentPosition() {
         for (RacingCar car : getRacingCarList()) {
