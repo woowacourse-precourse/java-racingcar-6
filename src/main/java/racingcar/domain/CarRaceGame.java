@@ -27,6 +27,7 @@ public class CarRaceGame {
             moveCars();
             GameOutput.printCurrentStatus(cars);
         }
+        GameOutput.printWinners(getWinners());
     }
 
     public void moveCars() {
