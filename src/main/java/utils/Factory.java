@@ -23,8 +23,12 @@ public class Create {
         // HashMap의 입력 순서를 보장하기 위해서 LinkedHashMap 사용
         Map<String, Integer> playerDistanceMap = new LinkedHashMap<>();
         for (Player player : playerObjectArray) {
-            playerDistanceMap.put(player.getPlayerName(), player.getDist());
+            playerDistanceMap.put(player.getPlayerName(), player.getDistance());
         }
         return playerDistanceMap;
     }
 }
+// Game <- player
+//        <- PlayerObject
+
+// Game <- Player <- Car
