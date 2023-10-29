@@ -10,4 +10,11 @@ public class PositionTest {
         Position position = Position.getIncreasedPosition(initPosition);
         assertThat(position).isEqualTo(new Position(1));
     }
+
+    @Test
+    void createPositionWithPause(){
+        int initPosition = 0;
+        Position position = Position.getPausedPosition(initPosition);
+        assertThat(position).isEqualTo(new Position(0));
+    }
 }
