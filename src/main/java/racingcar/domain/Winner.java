@@ -14,7 +14,7 @@ public class Winner {
 
     public void judgeRacingWinner(List<Car> carList) {
         for (Car car : carList) {
-            if (car.getLocation() == location) {
+            if (location.equals(car.getLocation())) {
                 winnerNames.add(car.getName());
             }
         }
@@ -23,6 +23,6 @@ public class Winner {
     public String getWinners() {
         String[] names = winnerNames.toArray(String[]::new);
 
-        return String.join(",");
+        return String.join(",", names);
     }
 }
