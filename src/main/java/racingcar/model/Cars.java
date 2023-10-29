@@ -8,9 +8,9 @@ public class Cars {
 
 
     public void setCarList(String inputString) {
-        String[] carNames = inputString.split(",");
+        String[] names = inputString.split(",");
 
-        for (String name : carNames) {
+        for (String name : names) {
             Car car = new Car(name.trim());
             carList.add(car);
         }

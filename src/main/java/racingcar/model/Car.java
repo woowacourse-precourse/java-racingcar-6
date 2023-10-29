@@ -6,11 +6,12 @@ public class Car {
     public Car() {
     }
 
-    public Car(String carName) {
-        this.name = carName;
+    public Car(String name) {
+        this.name = name;
     }
 
     public String getName() {
         return name;
     }
+
 }
