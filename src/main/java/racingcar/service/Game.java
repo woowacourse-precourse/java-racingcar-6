@@ -20,12 +20,18 @@ public class Game {
 
     public void playGame() {
         init();
+        outputProcessor.printResult();
+        for (int i = 0; i < Integer.parseInt(tryCount); i++) {
+            inGame();
+        }
+        outputProcessor.printFinalWinner(cars.carList);
     }
 
     private void init() {
         initCarNames();
         initTryCount();
         initCars();
+        System.out.println();
     }
 
     private void initCarNames() {
@@ -48,12 +54,9 @@ public class Game {
     }
 
     private void inGame() {
-        outputProcessor.printResult();
-        for (int i = 0; i < Integer.parseInt(tryCount); i++) {
-            for (String carName : cars.carList.keySet()) {
-                if (judgement.isMoving(numberGenerator.createNumber())) {
-                    cars.updateCar(carName);
-                }
+        for (String carName : cars.carList.keySet()) {
+            if (judgement.isMoving(numberGenerator.createNumber())) {
+                cars.updateCar(carName);
             }
         }
         outputProcessor.printResult(cars.carList);
