@@ -3,45 +3,25 @@ package racingcar.model;
 import java.util.ArrayList;
 
 public class GameModel {
-    private ArrayList<Car> scoreBoard;
+    private ScoreBoard scoreBoard;
     private int raceTimes;
 
     public GameModel(String inputNames, String inputTimes) {
 
         String[] names = inputNames.split(",");
 
-        this.scoreBoard = initScoreBoard(names);
+        this.scoreBoard = new ScoreBoard(names);
         this.raceTimes = Integer.parseInt(inputTimes);
     }
 
-    public void racing() {
-        for (Car car : scoreBoard) {
-            car.move();
-        }
-        this.raceTimes--;
+    public ArrayList<String> aggregateRoundScore() {
+        raceTimes--;
+        return scoreBoard.aggregateScore();
     }
-    
 
     public boolean raceTimeRemain() {
         return this.raceTimes != 0;
     }
 
-    public ArrayList<Car> initScoreBoard(String[] names) {
-        ArrayList<Car> board = new ArrayList<>();
-        for (String name : names) {
-            exceptCarNameValidate(name);
-            board.add(new Car(name, 0));
-        }
-        return board;
-    }
-
-    public void exceptCarNameValidate(String carName) {
-        if (Validator.validateMaxNameLength(carName)) {
-            throw new IllegalArgumentException("입력값이 최대 길이를 초과 했습니다.");
-        }
-        if (Validator.validateNameIsNull(carName)) {
-            throw new IllegalArgumentException("자동차 이름을 입력하지 않았습니다.");
-        }
-    }
 
 }

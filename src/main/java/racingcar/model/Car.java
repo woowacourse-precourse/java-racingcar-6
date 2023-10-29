@@ -17,8 +17,8 @@ public class Car {
         }
     }
 
-    public void printcar() {
-        System.out.println(this.carName.trim() + " 의 점수 :" + this.moveDistance);
+    public String getCarNameDistance() {
+        return this.carName + "," + this.moveDistance;
     }
 
     private boolean canMove() {

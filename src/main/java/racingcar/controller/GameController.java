@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
 import racingcar.model.GameModel;
 import racingcar.view.InputView;
 
@@ -9,7 +10,6 @@ public class GameController {
 
     public void runGame() {
         initGame();
-        
         do {
             processGame();
         }
@@ -27,7 +27,7 @@ public class GameController {
     }
 
     public void processGame() {
-        gameModel.racing();
+        ArrayList<String> roundScoreBoard = gameModel.aggregateRoundScore();
     }
 
     public boolean isRacing() {
