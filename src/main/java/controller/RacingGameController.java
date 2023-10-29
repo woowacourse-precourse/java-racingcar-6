@@ -2,13 +2,9 @@ package controller;
 
 import controller.dto.CarNames;
 import controller.dto.MoveResult;
-import controller.dto.Winner;
 import java.util.List;
-import model.Car;
-import model.Cars;
-import model.RandomReferee;
-import model.Referee;
 import model.TryCount;
+import service.RacingService;
 import view.InputView;
 import view.OutputView;
 
@@ -16,25 +12,12 @@ public class RacingGameController {
 
     private final OutputView outputView;
     private final InputView inputView;
-    private final Referee referee;
-    private Cars cars;
+    private RacingService racingService;
     private TryCount tryCount;
 
-    public RacingGameController(final OutputView outputView, final InputView inputView,
-        final Referee referee) {
+    public RacingGameController(final OutputView outputView, final InputView inputView) {
         this.inputView = inputView;
         this.outputView = outputView;
-        this.referee = referee;
-    }
-
-    public static RacingGameController createDefault(final OutputView outputView,
-        final InputView inputView) {
-        return new RacingGameController(outputView, inputView, new RandomReferee());
-    }
-
-    public static RacingGameController createControllerWithReferee(final OutputView outputView,
-        final InputView inputView, final Referee referee) {
-        return new RacingGameController(outputView, inputView, referee);
     }
 
     public void run() {
@@ -43,44 +26,29 @@ public class RacingGameController {
         decideWinner();
     }
 
-    private void decideWinner() {
-        List<Winner> winners = cars.getWinners();
-
-        List<String> winnerNames = winners.stream()
-            .map(Winner::name)
-            .toList();
-        outputView.showWinners(winnerNames);
-    }
-
     private void initGame() {
-        initCars();
+        initService();
         initTryCount();
     }
 
     private void startRace() {
-        outputView.informBeforeResult();
+        outputView.informBeforeShowMove();
+
         for (int i = 0; i < tryCount.getTryCount(); i++) {
-            moveCars();
+            List<MoveResult> moveResults = racingService.moveEachCar();
+            outputView.informResult(moveResults);
         }
     }
 
-    private void moveCars() {
-        cars.actEachCar(this::moveCarByReferee);
-        List<MoveResult> moveResults = cars.getMoveResult();
-        outputView.informResult(moveResults);
+    private void decideWinner() {
+        List<String> decidedWinners = racingService.getWinners();
+        outputView.showWinners(decidedWinners);
     }
 
-    private void moveCarByReferee(Car car) {
-        if (!referee.isSatisfiedCondition()) {
-            return;
-        }
-        car.moveForward();
-    }
-
-    private void initCars() {
+    private void initService() {
         outputView.askCarNames();
         CarNames carNames = CarNames.of(inputView.readLine());
-        cars = carNames.toCars();
+        racingService = RacingService.createDefault(carNames.getCarNames());
     }
 
     private void initTryCount() {
