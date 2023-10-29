@@ -1,5 +1,7 @@
 package racingcar;
 
+import static java.lang.String.format;
+
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
@@ -21,6 +23,10 @@ public abstract class PrintTest {
     protected final void printOutput() {
         System.setOut(standardOut);
         System.out.println(output());
+    }
+
+    protected final String outputf(Object... inputNames) {
+        return format(captor.toString(), inputNames);
     }
 
     protected final String output() {
