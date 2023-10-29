@@ -44,4 +44,11 @@ public class Validator {
             ExceptionMessage.NONE_INPUT.throwexception();
         }
     }
+
+    private int validationTrialType(String trialNumber){
+        if(trialNumber.matches(".*\\D.*")){
+            ExceptionMessage.NUMBER_ONLY.throwexception();
+        }
+        return Integer.parseInt(trialNumber);
+    }
 }
