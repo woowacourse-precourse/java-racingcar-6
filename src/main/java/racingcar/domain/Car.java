@@ -29,4 +29,10 @@ public class Car {
     public String toString() {
         return this.name + " : " + this.mileage;
     }
+
+    public Integer accel() {
+        this.mileage += "-";
+        return this.distance++;
+    }
+
 }
