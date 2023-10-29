@@ -3,9 +3,9 @@ package racingcar.model;
 import java.util.Comparator;
 import java.util.List;
 import racingcar.dto.CarState;
+import racingcar.dto.CarsDto;
 import racingcar.dto.CarsState;
 import racingcar.validator.CarsValidator;
-import racingcar.vo.Winners;
 
 public class Cars {
     private final List<Car> cars;
@@ -48,8 +48,8 @@ public class Cars {
         return new CarsState(carsState);
     }
 
-    public Winners findWinners() {
-        return new Winners(findWinningCars());
+    public CarsDto findWinners() {
+        return new CarsDto(findWinningCars());
     }
 
     public List<Car> findWinningCars() {
