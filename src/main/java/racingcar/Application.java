@@ -24,7 +24,7 @@ public class Application {
         for (int index=0; index<raceAccumulation.length; index++){
             int substitutionNum = raceAccumulation[index];
             for (int printNum=0; printNum<substitutionNum; printNum++){
-                System.out.print("-");
+                System.out.println("-");
             }
         }
     }
@@ -44,6 +44,14 @@ public class Application {
             raceAccumulation[chanceScore]+=1;
         }
         return raceAccumulation;
+    }
+
+    private static void printEachRace(int[] raceAccumulation, String[]carArray){
+        for (int index=0; index<carArray.length; index++){
+            System.out.print(carArray[index]+" : ");
+            printEachScore(raceAccumulation);
+        }
+        System.out.println();
     }
 
 }
