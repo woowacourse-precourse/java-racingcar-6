@@ -17,9 +17,8 @@ public class OutputView {
     }
 
     public void printTryResult(RacingGame game) {
-        List<String> winnerNames = game.getWinnerNames();
         for (int i = 0; i < RacingGame.carCount; i++) {
-            System.out.print(winnerNames.get(i) + " : ");
+            System.out.print(game.getCarName(i) + " : ");
             System.out.println("-".repeat(game.getCarMove(i)));
         }
         System.out.println();
