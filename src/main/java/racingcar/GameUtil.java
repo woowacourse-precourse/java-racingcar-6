@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 
@@ -16,6 +17,7 @@ public class GameUtil {
     public void runGame() {
         receiveCarsName();
         receiveRepeatNumber();
+        repeatProgress();
     }
 
     public void receiveCarsName() {
@@ -54,5 +56,33 @@ public class GameUtil {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public void repeatProgress() {
+        for (int i = 0; i < repeatNumber; i++) {
+            randomProgress();
+            printResult();
+        }
+    }
+
+    private void randomProgress() {
+        for (Car car : cars) {
+            int randomNumber = Randoms.pickNumberInRange(0, 9);
+
+            if (randomNumber >= Constants.PROGRESS_LIMIT_NUMBER) {
+                car.setProgress(car.getProgress() + 1);
+            }
+        }
+    }
+
+    private void printResult() {
+        StringBuilder result = new StringBuilder();
+
+        for (Car car : cars) {
+            result.append(car);
+            result.append("\n");
+        }
+
+        System.out.println(result);
     }
 }
