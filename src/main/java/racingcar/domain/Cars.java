@@ -21,14 +21,19 @@ public class Cars {
         }
     }
 
-    public List<String> findWinner() {
-        List<String> winnerList = new ArrayList<>();
+    public List<Car> findWinner() {
+        List<Car> winnerList = new ArrayList<>();
 
-        Integer maxPosition = Collections.max(carList.values());
+        int maxPosition = 0;
+        for (Car car : carList) {
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+            }
+        }
 
-        for (Entry<Car, Integer> entry : carList.entrySet()) {
-            if (entry.getValue().equals(maxPosition)) {
-                winnerList.add(entry.getKey().getName());
+        for (Car car : carList) {
+            if (car.getPosition() == maxPosition) {
+                winnerList.add(car);
             }
         }
 
