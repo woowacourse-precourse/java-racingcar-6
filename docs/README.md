@@ -14,7 +14,7 @@
 #### 1. 경주할 자동차의 이름이 5자가 넘지 않는지 확인하는 기능 [O] [<span style="color:green">TEST_OK</span>]
 #### 2. 경주할 자동차가 1대 이상인지 확인하는 기능 [O] [<span style="color:red">TEST_FAILED</span>]
 #### 3. 시도 횟수가 숫자인지 확인하는 기능 [O] [<span style="color:green">TEST_OK</span>]
-#### 4. 시도 횟수의 범위를 확인하는 기능 [O]
+#### 4. 시도 횟수의 범위를 확인하는 기능 [O] [<span style="color:green">TEST_OK</span>]
 
 ### 핵심 기능
 #### 1. 자동차 객체를 만드는 기능 [O]

@@ -70,4 +70,16 @@ public class InputTest {
             assertEquals(INVALID_TRY_NUMBER_CHARACTER_MESSAGE, illegalArgumentException.getMessage());
         }
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"99999999999999"})
+    void getTryNumberRangeExceptionTest(String userInput) {
+        InputStream userInputStream = generateByteArrayInputStream(userInput);
+        System.setIn(userInputStream);
+        try {
+            getCarName();
+        } catch (IllegalArgumentException illegalArgumentException) {
+            assertEquals(INVALID_TRY_NUMBER_RANGE_MESSAGE, illegalArgumentException.getMessage());
+        }
+    }
 }
