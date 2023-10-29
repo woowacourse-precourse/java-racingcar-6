@@ -21,7 +21,7 @@ class InputViewTest {
     void 자동차이름_입력테스트() {
         String input = "car1,car2,car3";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
-        String carNames = InputView.inputCarNames();
+        String carNames = InputView.getUserInput();
         assertThat(carNames).isEqualTo(input);
     }
 

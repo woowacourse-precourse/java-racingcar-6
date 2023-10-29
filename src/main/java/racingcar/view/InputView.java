@@ -11,13 +11,13 @@ public class InputView {
     private static final String NAME_DELIMITER = ",";
 
     public static List<String> getCarNames() {
-        String carNames = inputCarNames();
+        String carNames = getUserInput();
         String[] splitNames = splitCarNames(carNames);
         CarNameValidator.validateCarNames(splitNames);
         return new ArrayList<>(Arrays.asList(splitNames));
     }
 
-    public static String inputCarNames() {
+    public static String getUserInput() {
         return Console.readLine();
     }
 
