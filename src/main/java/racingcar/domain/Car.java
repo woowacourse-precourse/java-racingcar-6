@@ -5,9 +5,9 @@ import static racingcar.domain.constants.number.MAX_RANDOM_NUMBER;
 import static racingcar.domain.constants.number.MIN_RANDOM_NUMBER;
 import static racingcar.domain.constants.number.MOVEMENT_POSSIBLE_NUMBER;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private final String name;
-    private String distance = "";
+    private int distance;
 
 
     public Car(String name) {
@@ -18,7 +18,7 @@ public class Car {
         return name;
     }
 
-    public String getDistance() {
+    public int getDistance() {
         return distance;
     }
 
@@ -28,12 +28,17 @@ public class Car {
 
     public void moveForward(int number) {
         if (number >= MOVEMENT_POSSIBLE_NUMBER.getNumber()) {
-            distance += "-";
+            distance++;
         }
     }
 
     @Override
     public String toString() {
         return name + " : " + distance;
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return distance;
     }
 }
