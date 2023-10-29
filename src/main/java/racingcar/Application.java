@@ -2,8 +2,6 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -51,13 +49,15 @@ public class Application {
 
     public static void race(LinkedHashMap<String, StringBuilder> racers) {
         for (String racer : racers.keySet()) {
-            if (Randoms.pickNumberInRange(0, 9) >= 4) {racers.get(racer).append("-");}
+            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+                racers.get(racer).append("-");
+            }
             System.out.println(racer + " : " + racers.get(racer));
         }
         System.out.println("");
     }
 
-    public static void judge(LinkedHashMap<String, StringBuilder> racers){
+    public static void judge(LinkedHashMap<String, StringBuilder> racers) {
         int maxLength = racers.values()
                 .stream()
                 .mapToInt(StringBuilder::length)
