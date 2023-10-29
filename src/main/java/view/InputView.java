@@ -4,6 +4,7 @@ import static constant.ConstantString.ATTEMPT_COUNT_MESSAGE;
 import static constant.ConstantString.ENTER_CAR_NAME_MESSAGE;
 
 import camp.nextstep.edu.missionutils.Console;
+import domain.AttemptCount;
 import validator.AttemptValidator;
 
 public class InputView {
@@ -18,8 +19,7 @@ public class InputView {
 
     public static int attemptCount() {
         System.out.println(ATTEMPT_COUNT_MESSAGE);
-        String attempt = Console.readLine();
-        AttemptValidator.isDigit(attempt);
-        return Integer.parseInt(attempt);
+        AttemptCount attemptCount = new AttemptCount(Console.readLine());
+        return attemptCount.getAttemptCount();
     }
 }

@@ -7,7 +7,7 @@ public class AttemptValidator {
     private AttemptValidator() {
     }
 
-    public static void isDigit(String attempt) {
+    public static void isPositiveDigit(String attempt) {
         try {
             int number = Integer.parseInt(attempt);
             if (number < MIN_ATTEMPTS.getValue()) {
