@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.view.OutputView.printRacingWinner;
+
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.view.InputView;
@@ -19,6 +21,8 @@ public class RacingGame {
             getRacingResult(cars);
             System.out.println();
         }
+
+        printRacingWinner(getRacingWinner(cars));
     }
 
     private void racing() {
@@ -40,5 +44,16 @@ public class RacingGame {
         }
     }
 
+    private List<String> getRacingWinner(List<Car> cars) {
+        int maxCarPosition = cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElseThrow(IllegalArgumentException::new);
+
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxCarPosition)
+                .map(Car::getName)
+                .toList();
+    }
 
 }
