@@ -25,7 +25,7 @@ public class OutputView {
         System.out.print(INTRODICE_WINNER);
 
         List<String> resultWinner = winners.stream()
-                .map(WinnerDto::Name)
+                .map(WinnerDto::name)
                 .collect(Collectors.toList());
 
         System.out.println(StringManipulator.join(resultWinner));
