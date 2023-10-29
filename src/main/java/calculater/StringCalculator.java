@@ -41,7 +41,7 @@ public class StringCalculator {
     }
 
     private static boolean hasSingleNumber(String inputString) {
-        return inputString.length() == MINIMUM_NUMBER;
+        return inputString.length() == MINIMUM_LENGTH;
     }
 
     private static int validateNumber(int number) {
