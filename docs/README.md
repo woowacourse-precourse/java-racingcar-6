@@ -1,4 +1,4 @@
-# class1: user input
+# class1: UserInput
 
     method1: labelNameOfCar
         유저의 입력을 받아 변수에 저장
@@ -23,7 +23,7 @@
 
 # class3: SystemOutput
 
-    method1: showStstus
+    method1: showStatus
         게임 진행중 진행과정을 보여줄 메서드
     
     method2: showResult
@@ -32,7 +32,7 @@
 
 # class4: Verification
     
-    mothod1: verifyNames
+    mothod1: verifyArg
 
     mothod2: verifyNumberOfTry
 
