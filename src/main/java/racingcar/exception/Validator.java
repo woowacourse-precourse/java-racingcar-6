@@ -8,7 +8,7 @@ public class Validator {
 
         boolean isValidCarName = (carName.length()<=5)&&(carName.length()>0);
         if(!isValidCarName){
-            throw new IllegalArgumentException("자동차 이름은 1~5자 사이입니다.");
+            throw new IllegalArgumentException("자동차 이름은 앞,뒤 공백 없는 1~5자 사이입니다.");
         }
     }
 

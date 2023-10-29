@@ -12,17 +12,17 @@ public class RaceManager {
     private List<Car> cars;
     private int tryCount;
 
-    public RaceManager(List<Car> cars,CarService carService,InputManager inputManager) {
+    public RaceManager(List<Car> cars,CarService carService,InputManager inputManager,OutputManager outputManager) {
 
         this.cars = cars;
         this.carService = carService;
         this.inputManager = inputManager;
+        this.outputManager = outputManager;
         this.tryCount = 0;
     }
 
     public void start() {
 
-        outputManager = new OutputManager(cars);
         tryCount = Integer.parseInt(inputManager.inputTryCount());
 
         racing();
