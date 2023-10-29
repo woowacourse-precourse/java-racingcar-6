@@ -9,7 +9,7 @@ import racingcar.domain.car.view.CarOutputView;
 public class AppConfig {
 
 
-    public static CarController carController() {
+    public static CarController getController() {
         return new CarController(getCarInputView(), getCarOutputView(), getCarService());
     }
 
