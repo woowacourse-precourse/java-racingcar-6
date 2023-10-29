@@ -10,6 +10,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.io.ByteArrayInputStream;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 class ApplicationTest_function_list extends NsTest {
@@ -38,20 +40,22 @@ class ApplicationTest_function_list extends NsTest {
     @Test
     void 기능목록_테스트_입력_문자열_분할() {
         // private method reflection 사용
-        List<String> returnValue = List.of();
+        List<Object> returnValue = new ArrayList<>();
         try {
             // reflection
             Method rawToListMethod = Input.class.getDeclaredMethod("rawToList", String.class);
             rawToListMethod.setAccessible(true);
 
             String parameterString = "a,bb,ccc";// 메소드 입력값
-
-            returnValue = (List<String>) rawToListMethod.invoke(Input.class, parameterString);// 실행
+            Object tmp = rawToListMethod.invoke(Input.class, parameterString);// 실행
+            if (tmp instanceof ArrayList) {
+                returnValue =  Arrays.asList(tmp);
+            }
 
         } catch (Exception e) { // 메소드명 오류시 예외처리
             e.printStackTrace();
         }
-        assertThat(returnValue).containsExactlyInAnyOrderElementsOf(List.of("a", "bb", "ccc"));
+        assertThat(returnValue).containsExactly(Arrays.asList("a", "bb", "ccc"));
 
     }
 
