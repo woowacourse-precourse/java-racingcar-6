@@ -7,6 +7,7 @@ import racingcar.domain.Car;
 import racingcar.domain.RacingGame;
 import racingcar.util.RacingGameUtil;
 import racingcar.view.InputManager;
+import racingcar.view.OutputManager;
 
 public class GameController {
 
@@ -14,7 +15,14 @@ public class GameController {
         String carNames = getCarNameFromUser();
         List<Car> cars = makeCar(carNames);
         Integer gameCycleNumber = getGameCycleNumberFromUser();
+
+        playRacingGame(gameCycleNumber, cars);
+    }
+
+    private void playRacingGame(Integer gameCycleNumber, List<Car> cars) {
         RacingGame racingGame = new RacingGame(gameCycleNumber, cars);
+
+        OutputManager.printGameStart();
         racingGame.playGame();
     }
 

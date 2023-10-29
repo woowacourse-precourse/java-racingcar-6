@@ -16,15 +16,17 @@ public class RacingGame {
     }
 
     public void playGame() {
-        OutputManager.printGameStart();
         for (int i = 0; i < this.gameCycle; i++) {
             for (Car car : cars) {
-                int randNumber = Randoms.pickNumberInRange(0, 9);
-                car.go(randNumber);
+                goEachCar(car);
             }
             printEachCycleResult(cars);
         }
         printResult(cars);
+    }
+    private static void goEachCar(Car car) {
+        int randNumber = Randoms.pickNumberInRange(0, 9);
+        car.go(randNumber);
     }
 
     private void printEachCycleResult(List<Car> cars) {
