@@ -12,6 +12,11 @@ public class RacingCarGame {
     Cars cars = new Cars();
 
     public void run(){
+        String carNames = inputView.InputCarNames();
+    }
 
+    public List<String> carList(String carNames){
+        String[] carNameList = carNames.split("");
+        return List.of(carNameList);
     }
 }
