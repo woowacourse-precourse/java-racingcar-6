@@ -8,9 +8,14 @@ public class RaceCountInput {
 
     public void process() {
         String userInput = InputView.getUserInput();
+        int gameCount = valid(userInput);
+    }
+
+    public int valid(String userInput) {
         validIsNumber(userInput);
         int userCount = toInt(userInput);
         validNotZero(userCount);
+        return userCount;
     }
 
     public void validIsNumber(String userInput) {
