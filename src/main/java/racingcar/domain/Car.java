@@ -11,6 +11,9 @@ public class Car implements Comparable<Car>{
         this.movingDistance = 0;
     }
 
+    public void printWinnerName() {
+        carName.printOnAnnounceWinner();
+    }
     public void printPresentMovingDistance() {
         carName.printOnTurnResult();
         OutputView.printMovingDistanceOnTurnResult(movingDistance);

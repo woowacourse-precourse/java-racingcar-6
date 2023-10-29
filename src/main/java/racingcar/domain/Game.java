@@ -11,7 +11,7 @@ public class Game {
         Cars cars = inputView.getCarsFromUser();
         TrialNumber trialNumber = inputView.getTrialNumber();
         trialNumber.playTurnAsMuchAsTrialNumber(cars);
-        List<Car> winners = cars.getWinners();
-
+        Winners winners = cars.getWinners();
+        winners.printWinners();
     }
 }

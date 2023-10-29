@@ -11,6 +11,10 @@ public class CarName {
         this.carName = carName;
     }
 
+    public void printOnAnnounceWinner() {
+        OutputView.printCarNameOnAnnounceWinner(carName);
+    }
+
     public void printOnTurnResult() {
         OutputView.printCarNameOnTurnResult(carName);
     }

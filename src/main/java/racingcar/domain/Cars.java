@@ -3,7 +3,6 @@ package racingcar.domain;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class Cars {
@@ -20,22 +19,8 @@ public class Cars {
         printResultOfTurn();
     }
 
-    public List<Car> getWinners() {
-        List<Car> winners = new ArrayList<>();
-        cars.sort(Comparator.reverseOrder());
-
-        Car firstWinner = cars.get(0);
-        int carIndex = 0;
-        while (carIndex < cars.size() && nextCarIsWinner(carIndex, firstWinner)) {
-            winners.add(cars.get(carIndex));
-            carIndex++;
-        }
-        return winners;
-    }
-
-    private boolean nextCarIsWinner(int nextCarIndex, Car winner) {
-        Car car = cars.get(nextCarIndex);
-        return (car.compareTo(winner) == 0);
+    public Winners getWinners() {
+        return new Winners(cars);
     }
 
     private void printResultOfTurn() {
