@@ -9,7 +9,7 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 public class RacingCarService {
 
     public int generateRandomNumber() {
-        int randomNumber = pickNumberInRange(1, 9);
+        int randomNumber = pickNumberInRange(0, 9);
         return randomNumber;
     }
     public List<Integer> saveRandomNumber(List<Car> cars) {
