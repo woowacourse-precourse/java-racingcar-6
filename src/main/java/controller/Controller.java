@@ -32,6 +32,7 @@ public class Controller {
     private void CarMove() {
         for(int i=0; i<this.groupOfCar.size();i++) {
             this.groupOfCar.get(i).move();
+            OutputView.printCurrentLocationOfCar(this.groupOfCar.get(i).getName(),this.groupOfCar.get(i).getDistance());
         }
     }
 
