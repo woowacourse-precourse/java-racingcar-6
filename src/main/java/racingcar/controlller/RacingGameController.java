@@ -1,15 +1,17 @@
 package racingcar.controlller;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Collections;
 import java.util.List;
 import racingcar.constant.RacingGameConstants;
 import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.model.Round;
 import racingcar.utils.RandomGenerator;
 
 public class RacingGameController {
     private boolean isRunning;
+    private Cars cars;
+    private Round round;
 
     public RacingGameController(boolean isRunning) {
         this.isRunning = isRunning;
@@ -23,25 +25,26 @@ public class RacingGameController {
     }
 
     public void startGame() {
-        Cars cars = InputController.scanCarList();
-        int numberOfRounds = InputController.scanNumberOfRounds();
+        cars = InputController.scanCarList();
+        round = InputController.scanRound();
 
-        playAllRounds(numberOfRounds, cars);
-        OutputController.printWinnersMessage(pickWinners(cars));
+        playAllRounds();
+        OutputController.printWinnersMessage(pickWinners());
     }
 
-    private void playAllRounds(int numberOfRounds, Cars cars) {
+    private void playAllRounds() {
         OutputController.printResultHeaderMessage();
-        for (int i = 0; i < numberOfRounds; i++) {
-            playOneRound(cars);
-            OutputController.printForwardStateMessage(cars);
+        while(!round.Over()) {
+            playOneRound();
         }
     }
 
-    private void playOneRound(Cars cars) {
+    private void playOneRound() {
         for (Car car : cars.getCarList()) {
             moveOrNot(car);
         }
+        OutputController.printForwardStateMessage(cars);
+        round.plusOne();
     }
 
     private void moveOrNot(Car car) {
@@ -52,7 +55,7 @@ public class RacingGameController {
         }
     }
 
-    private Cars pickWinners(Cars cars) {
+    private Cars pickWinners() {
         List<Car> winnerList = (cars.getCarList()).stream()
                 .filter(car -> (car.getPosition() == Collections.max(cars.getPositionList())))
                 .toList();

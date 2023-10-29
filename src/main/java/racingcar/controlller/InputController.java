@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.model.Round;
 import racingcar.utils.Parser;
 import racingcar.view.InputView;
 
@@ -24,15 +25,15 @@ public class InputController {
         return new Cars(carList);
     }
 
-    public static Integer scanNumberOfRounds() {
+    public static Round scanRound() {
         System.out.println(InputView.enterNumberOfRoundsMessage());
         String userInput = Console.readLine();
         InputValidator.validateNumberOfRounds(userInput);
 
-        return createNumberOfRounds(userInput);
+        return createRound(userInput);
     }
 
-    private static Integer createNumberOfRounds(String userInput) {
-        return Integer.parseInt(userInput);
+    private static Round createRound(String userInput) {
+        return new Round(Integer.parseInt(userInput));
     }
 }
