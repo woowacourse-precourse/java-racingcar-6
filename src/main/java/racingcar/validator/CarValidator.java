@@ -11,4 +11,12 @@ public class CarValidator {
             }
         }
     }
+
+    public static void checkCarNameLength(List<String> carNameList) {
+        for (String carName : carNameList) {
+            if (!(carName.length() >= 1 && carName.length() <= 5)) {
+                throw new IllegalArgumentException("자동차 이름은 1자 이상, 5자 이하여야 한다.");
+            }
+        }
+    }
 }

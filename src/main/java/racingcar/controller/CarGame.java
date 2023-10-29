@@ -30,8 +30,9 @@ public class CarGame {
             InputValidator.isNullOrIsEmpty(input);
             InputValidator.includeNumberOrSymbol(input);
             InputValidator.includeSpace(input);
-            List carNameList = splitCarNames(input);
+            List<String> carNameList = splitCarNames(input);
             CarValidator.isOnlyLowerCase(carNameList);
+            CarValidator.checkCarNameLength(carNameList);
 
         } catch (IllegalArgumentException e) {
             getCarNamesInput();
