@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class RacingCarService {
+public class CarService {
 
     public List<String> stringToList(String carName) {
         List<String> carNames = Arrays.asList(carName.split(","));
