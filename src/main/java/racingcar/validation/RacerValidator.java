@@ -2,6 +2,7 @@ package racingcar.validation;
 
 import racingcar.constant.Rule;
 import racingcar.constant.message.ErrorMessage;
+import racingcar.constant.message.Message;
 import racingcar.model.Racer;
 
 public class RacerValidator implements Validator {
@@ -18,7 +19,7 @@ public class RacerValidator implements Validator {
     }
 
     private void validateSize(String value) {
-        if (value == null || value.split(Rule.NAME_SEPARATOR).length < Rule.MIN_PARTICIPANT) {
+        if (value == null || value.split(Message.NAME_SEPARATOR).length < Rule.MIN_PARTICIPANT) {
             throw new IllegalArgumentException(ErrorMessage.NO_PARTICIPANT);
         }
     }

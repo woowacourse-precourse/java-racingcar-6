@@ -1,10 +1,12 @@
 package racingcar.view;
 
+import racingcar.constant.message.Message;
+
 public class OutputViewImpl implements OutputView {
 
     @Override
-    public void printExecution() {
-        System.out.println("\n실행 결과");
+    public void printExecutionResult() {
+        System.out.println(Message.EXECUTION_RESULT);
     }
 
     @Override
@@ -14,6 +16,6 @@ public class OutputViewImpl implements OutputView {
 
     @Override
     public void printFinalWinner(String winner) {
-        System.out.print("최종 우승자 : " + winner);
+        System.out.printf(Message.FINAL_WINNER, winner);
     }
 }

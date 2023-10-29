@@ -1,6 +1,6 @@
 package racingcar.model.car;
 
-import racingcar.constant.Rule;
+import racingcar.constant.message.Message;
 import racingcar.service.Accelerator;
 import racingcar.validation.Validator;
 import racingcar.validation.ValidatorFactory;
@@ -46,9 +46,9 @@ public class Car {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(this.name).append(Rule.NAME_POSITION_SEPARATOR);
+        stringBuilder.append(this.name).append(Message.NAME_POSITION_SEPARATOR);
         for (long i = 0; i < this.currentPosition; i++) {
-            stringBuilder.append(Rule.MARK);
+            stringBuilder.append(Message.MARK);
         }
         return stringBuilder.toString();
     }

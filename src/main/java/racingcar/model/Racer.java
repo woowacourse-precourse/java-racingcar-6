@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import racingcar.constant.Rule;
+import racingcar.constant.message.Message;
 import racingcar.model.car.Car;
 import racingcar.validation.Validator;
 import racingcar.validation.ValidatorFactory;
@@ -14,7 +14,7 @@ public class Racer {
 
     public Racer(String value) {
         validate(value);
-        this.racer = Arrays.stream(value.split(Rule.NAME_SEPARATOR))
+        this.racer = Arrays.stream(value.split(Message.NAME_SEPARATOR))
                 .map(Car::new)
                 .toList();
     }
@@ -44,7 +44,7 @@ public class Racer {
                 .stream()
                 .map(Car::getName)
                 .toList();
-        return String.join(Rule.NAME_SEPARATOR + " ", winner);
+        return String.join(Message.NAME_SEPARATOR + " ", winner);
     }
 
     @Override
