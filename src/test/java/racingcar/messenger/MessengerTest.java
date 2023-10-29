@@ -37,7 +37,7 @@ public class MessengerTest {
 
     @Test
     @DisplayName("실행 결과 메시지를 올바르게 반환한다.")
-    void requestPlayResultMessage() {
+    void playResultMessage() {
         // when
         String expectedString = "\n실행결과";
         String string = messenger.getPlayResultMessage();
@@ -48,7 +48,7 @@ public class MessengerTest {
 
     @Test
     @DisplayName("라운드 결과를 올바르게 반환한다.")
-    void requestRoundResultMessage() {
+    void roundResultMessage() {
         // given
         CarsInformationDto carsInformationDto = new CarsInformationDto(
                 List.of(
