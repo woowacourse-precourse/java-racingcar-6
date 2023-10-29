@@ -18,9 +18,9 @@ public class Application {
         //(예외처리1)입력 차 이름이 문자가 아닐 경우
         ExeptionProcess exception = new ExeptionProcess();
         // 이름이 비어있지 않고, 공백 문자만으로 구성되지 않는지, 숫자인지 확인
-        for (int i = 0; i < carNames.length; i++) {
-            if (!exception.isValidCarName(carNames[i])) {
-                throw new IllegalArgumentException("유효하지 않은 자동차 이름: " + carNames[i]);
+        for (String name : carNames) {
+            if (!exception.isValidCarName(name)) {
+                throw new IllegalArgumentException("유효하지 않은 자동차 이름: " + name);
             }
         }
 
@@ -54,10 +54,10 @@ public class Application {
         System.out.println("실행 결과");
         for(int j=0; j<tryCount; j++)//5회반복
         {
-            for(int i =0; i < car.length; i++)//차1,차2,차3의 거리
-            {
-                int distance=Randoms.pickNumberInRange(0,9);
-                car[i].move(distance);
+            //차1,차2,차3의 거리
+            for (Car value : car) {
+                int distance = Randoms.pickNumberInRange(0, 9);
+                value.move(distance);
                 System.out.print("\n");
             }
             System.out.print("\n");

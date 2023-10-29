@@ -8,10 +8,6 @@ public class Car {
         this.name = name;
         this.position = 0;
     }
-    public void getName(String name)
-    {
-        System.out.println(this.name);
-    }
 
     public void move(int distance) {
         System.out.print(this.name+" : ");
