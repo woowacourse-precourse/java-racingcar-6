@@ -5,19 +5,19 @@ public class Player {
     private String name;
     private int runCount;
 
-    public String getName() {
-        return name;
+    public Player(String name) {
+        this.name = name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getName() {
+        return name;
     }
 
     public int getRunCount() {
         return runCount;
     }
 
-    public void setRunCount(int runCount) {
-        this.runCount = runCount;
+    public void setRunCount() {
+        this.runCount++;
     }
 }
