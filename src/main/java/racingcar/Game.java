@@ -20,5 +20,11 @@ public class Game {
         }
     }
 
-
+    private void printRacing(User u) {
+        System.out.print(u.name + " : ");
+        for (int i = 0; i < u.length; i++) {
+            System.out.print("-");
+        }
+        System.out.print("\n");
+    }
 }
