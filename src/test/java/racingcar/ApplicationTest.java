@@ -31,6 +31,14 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 횟수에_대한_예외_처리() {
+        String inputNumber = "가";
+        Validator validator = new Validator();
+        assertThatThrownBy(() -> validator.validateMoveCount(inputNumber))
+            .isInstanceOf(IllegalArgumentException.class);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
