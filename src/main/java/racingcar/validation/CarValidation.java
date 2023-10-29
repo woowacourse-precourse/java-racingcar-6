@@ -1,5 +1,6 @@
 package racingcar.validation;
 
+import static racingcar.constant.MessageConst.COMMA_MESSAGE;
 import static racingcar.constant.MessageConst.DUPLICATE_MESSAGE;
 import static racingcar.constant.MessageConst.EMPTY_MESSAGE;
 import static racingcar.constant.MessageConst.LENGTH_MESSAGE;
@@ -58,5 +59,15 @@ public class CarValidation {
         if (input == null) {
             throw new IllegalArgumentException(NULL_MESSAGE);
         }
+    }
+
+    public void validateCommaSeparatedCarNames(String carNames) {
+        if (hasNotCommaSeparatedCarNames(carNames)) {
+            throw new IllegalArgumentException(COMMA_MESSAGE);
+        }
+    }
+
+    private boolean hasNotCommaSeparatedCarNames(String input) {
+        return !input.matches(".*[a-zA-Z]+(,[a-zA-Z]+)+.*");
     }
 }
