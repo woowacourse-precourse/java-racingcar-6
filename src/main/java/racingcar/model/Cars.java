@@ -32,4 +32,8 @@ public class Cars {
             throw new IllegalArgumentException();
         }
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }
