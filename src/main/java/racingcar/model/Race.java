@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -14,9 +13,9 @@ public class Race {
         setCarList(inputCarNames);
     }
 
-    public void setCarList(String inputCarNames) {
+    private void setCarList(String inputCarNames) {
         String[] carNameArray = inputCarNames.split(",");
-        List<String> carNames = new ArrayList<>(Arrays.asList(carNameArray));
+        List<String> carNames = List.of(carNameArray);
         for (String carName : carNames) {
             Car newCar = new Car(carName);
             carList.add(newCar);

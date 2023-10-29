@@ -44,30 +44,39 @@ public class Game {
         String[] inputSplit = namesInput.split(",");
         List<String> nameList = List.of(inputSplit);
         for (String name : nameList) {
-            checkEmpty(name);
-            checkLength(name);
+            checkNameEmpty(name);
+            checkNameLength(name);
         }
     }
 
-    private void checkEmpty(String name) {
+    private void checkNameEmpty(String name) throws IllegalArgumentException {
         if (name.isEmpty()) {
             throw new IllegalArgumentException("빈 이름이 존재함니다.");
         }
     }
 
-    private void checkLength(String name) {
+    private void checkNameLength(String name) throws IllegalArgumentException {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("5글자를 초과한 이름이 입력되었습니다.");
         }
     }
 
     private void validateRoundInput(String roundInput) {
+        int number = checkIsNumber(roundInput);
+        checkRoundRange(number);
+    }
+
+    private int checkIsNumber(String roundInput) throws IllegalArgumentException {
         int number;
         try {
             number = Integer.parseInt(roundInput);
         } catch (Exception e) {
             throw new IllegalArgumentException("정수가 아닌 값이 입력되었습니다.");
         }
+        return number;
+    }
+
+    private void checkRoundRange(int number) throws IllegalArgumentException {
         if (number < 1 ) {
             throw new IllegalArgumentException("시도할 회수가 1보다 작습니다.");
         }
