@@ -8,6 +8,7 @@ public class CarNamesInputValidator {
 
         String[] elements = target.split(",");
         validateEachElementIsNotBlank(elements);
+        validateEachElementCorrectLength(elements);
     }
 
     private static void validateIsNotBlank(String target) {
@@ -32,6 +33,14 @@ public class CarNamesInputValidator {
         for (String target : targets) {
             if (target.isBlank()) {
                 throw new IllegalArgumentException("공백 문자로만 입력하면 안됩니다.");
+            }
+        }
+    }
+
+    private static void validateEachElementCorrectLength(String[] targets) {
+        for (String target : targets) {
+            if (target.length() > 5) {
+                throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다.");
             }
         }
     }
