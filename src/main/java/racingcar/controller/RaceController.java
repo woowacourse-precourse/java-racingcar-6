@@ -14,12 +14,11 @@ public class RaceController {
 
     public void race(){
         RacingCar racingCar = setUp();
-
         outputView.printRaceResultMessage();
-
-        for (int i = 0; i < racingCar.getRaceCount(); i++) {
+        for (int i = RaceConstant.START_INDEX; i < racingCar.getRaceCount(); i++) {
             Game game = new Game();
-            RaceResultResponse response = game.updateRaceResult(racingCar);
+            List<Integer> raceResult = game.updateRaceResult(racingCar);
+            RaceResultResponse response = new RaceResultResponse(racingCar.getCars(), raceResult);
             outputView.printRaceResult(response);
         }
     }

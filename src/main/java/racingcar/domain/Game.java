@@ -9,10 +9,10 @@ import racingcar.dto.RaceResultResponse;
 public class Game {
     RandomNumberGenerator generator = new RandomNumberGenerator();
 
-    public RaceResultResponse updateRaceResult(RacingCar racingCar){
+    public List<Integer> updateRaceResult(RacingCar racingCar){
         List<Integer> raceResult = generateRaceResult(racingCar);
         racingCar.updateRaceResult(raceResult);
-        return new RaceResultResponse(racingCar.getCars(), racingCar.getRaceResult());
+        return raceResult;
     }
 
     private List<Integer> generateRaceResult(RacingCar racingCar) {
