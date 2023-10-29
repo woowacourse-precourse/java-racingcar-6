@@ -52,6 +52,18 @@ public class GameTest {
         assertThatCode(() -> attempt.saveAttemptNumber()).doesNotThrowAnyException();
     }
 
+    @Test
+    void 시도_횟수_검증하기() {
+        String attemptNumber1 = "5";
+        String attemptNumber2 = "0";
+
+        assertThatCode(() -> attempt.validateAttemptNumber(attemptNumber1)).doesNotThrowAnyException();
+        assertThatThrownBy(() ->
+                attempt.validateAttemptNumber(attemptNumber2))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ExceptionMessage.NON_POSITIVE_NUMBER_EXCEPTION);
+    }
+
     private void command(final String... args) {
         final byte[] buf = String.join("\n", args).getBytes();
         System.setIn(new ByteArrayInputStream(buf));
