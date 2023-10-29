@@ -3,7 +3,9 @@ package ui;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class InputView {
     public static List<String> inputCarNames() {
@@ -30,6 +32,7 @@ public class InputView {
         for (String carName : carNames) {
             validateCarNameLength(carName);
             validateCarNameNoSpace(carName);
+            validateCarNameOverlap(carNames);
         }
     }
 
@@ -42,6 +45,14 @@ public class InputView {
     private static void validateCarNameNoSpace(String carName) {
         if (carName.contains(" ")) {
             throw new IllegalArgumentException("자동차 이름에 공백은 불가능합니다.");
+        }
+    }
+
+    private static void validateCarNameOverlap(List<String> carNames) {
+        Set<String> uniqueNames = new HashSet<>(carNames);
+
+        if (uniqueNames.size() < carNames.size()) {
+            throw new IllegalArgumentException("자동차 이름 중복은 불가능합니다.");
         }
     }
 
