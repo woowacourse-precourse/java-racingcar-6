@@ -27,6 +27,20 @@ public class Validator {
         }
     }
 
+    public static void validateGameCount(String input) {
+        if (!isNumber(input)) {
+            throw new IllegalArgumentException("숫자만 입력해주세요.");
+        }
+
+        if (isZero(input)) {
+            throw new IllegalArgumentException("0 이상의 값을 입력해주세요.");
+        }
+
+        if (!isNumberWithinNineDigits(input)) {
+            throw new IllegalArgumentException("9자릿수까지 입력 가능합니다.");
+        }
+    }
+
     public static boolean isBlank(String input) {
         return input == null || input.isBlank();
     }
