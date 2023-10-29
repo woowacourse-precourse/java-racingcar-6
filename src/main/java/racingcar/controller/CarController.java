@@ -8,14 +8,18 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import java.util.stream.Stream;
 import racingcar.service.CarService;
+import racingcar.validation.InputValidation;
 
 public class CarController {
 
     private final CarService carService = new CarService();
+    private final InputValidation inputValidation = new InputValidation();
 
     public void save() {
         System.out.println(SAVE_CAR_NAMES_MESSAGE);
-        List<String> carNames = stringToCollection(Console.readLine());
+        String input = Console.readLine();
+        inputValidation.validateCarNames(input);
+        List<String> carNames = stringToCollection(input);
         carService.save(carNames);
     }
 
@@ -26,7 +30,9 @@ public class CarController {
 
     public int getRaceCount() {
         System.out.println(GET_TRY_COUNT_MESSAGE);
-        int raceCount = Integer.parseInt(Console.readLine());
+        String attemptInput = Console.readLine();
+        inputValidation.validateAttemptInput(attemptInput);
+        int raceCount = Integer.parseInt(attemptInput);
         System.out.println(RESULT_MESSAGE);
         return raceCount;
     }
