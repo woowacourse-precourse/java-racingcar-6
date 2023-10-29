@@ -15,14 +15,6 @@ public class Car {
         return new Car(name);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getPosition() {
-        return position;
-    }
-
     public void moveForward(int randomNumber) {
         if (randomNumber >= CarConstant.MOVE_NUMBER.getValue()) {
             position++;
@@ -31,5 +23,13 @@ public class Car {
 
     public boolean isWinner(int maxPosition) {
         return position == maxPosition;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 }
