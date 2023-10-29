@@ -1,6 +1,7 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -37,5 +38,28 @@ public class GameTest {
         Set<String> resultSet = new HashSet<>(resultList);
 
         assertThat(resultSet.size()).isEqualTo(result.length);
+    }
+
+    @Test
+    void validate_라운드횟수_숫자인지() {
+        String input = "7a";
+
+        assertThatThrownBy(() -> Integer.parseInt(input))
+                .isInstanceOf(NumberFormatException.class)
+                .hasMessageContaining("For input string: \"7a\"");
+    }
+
+    @Test
+    void validate_라운드횟수_null인지() {
+        String input = "7";
+
+        assertThat(input).isNotNull();
+    }
+
+    @Test
+    void validate_라운드횟수_0보다큰지() {
+        String input = "1";
+
+        assertThat(Integer.parseInt(input)).isGreaterThan(0);
     }
 }
