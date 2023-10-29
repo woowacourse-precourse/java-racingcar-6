@@ -9,33 +9,24 @@ class CensorTest {
 
     private final Censor censor = new Censor();
 
-    @DisplayName("플레이어가 아무런 입력을 하지 않는다면, 예외가 발생한다.")
-    @Test
-    void playerInputNull() {
-        //given
-        String input = null;
-
-        //when,then
-        assertThrows(IllegalArgumentException.class, () -> {
-            censor.checkInputForNickname(input);
-        });
-        assertThrows(IllegalArgumentException.class, () -> {
-            censor.checkInputForGameTime(input);
-        });
-    }
-
     @DisplayName("플레이어가 빈칸을 입력한다면, 예외가 발생한다.")
     @Test
     void playerInputSpace() {
         //given
-        String input = " ";
+        String inputNull = null;
+        String inputEnter = "";
+        String inputSpace = " ";
 
         //when,then
         assertThrows(IllegalArgumentException.class, () -> {
-            censor.checkInputForNickname(input);
+            censor.checkInputForNickname(inputNull);
+            censor.checkInputForNickname(inputEnter);
+            censor.checkInputForNickname(inputSpace);
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            censor.checkInputForGameTime(input);
+            censor.checkInputForGameTime(inputNull);
+            censor.checkInputForGameTime(inputEnter);
+            censor.checkInputForGameTime(inputSpace);
         });
     }
 

@@ -31,6 +31,10 @@ public class Censor {
             throw new IllegalArgumentException(NICKNAME_SPACE_ERROR.getContent());
         }
 
+        if (input.trim().isEmpty()) {
+            throw new IllegalArgumentException(NICKNAME_SPACE_ERROR.getContent());
+        }
+
         if (input.contains(" ")) {
             throw new IllegalArgumentException(NICKNAME_SPACE_ERROR.getContent());
         }
