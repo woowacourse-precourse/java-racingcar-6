@@ -94,7 +94,7 @@ public class RacingTest extends NsTest {
     @Test
     void 특수_문자_에러() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi.name", "2147483647"))
+                assertThatThrownBy(() -> runException("pobi.name", "3"))
                         .isInstanceOf(IllegalArgumentException.class)
                         .hasMessageContaining(SPLIT_REGEX_ERROR.getMessage())
         );
