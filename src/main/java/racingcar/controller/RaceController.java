@@ -1,7 +1,9 @@
 package racingcar.controller;
 
 import java.util.List;
+import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.Race;
 import racingcar.service.RaceService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -21,6 +23,7 @@ public class RaceController {
     public void run() {
         Cars cars = initializeCars();
         int count = initializeCount();
+        runRace(cars, count);
     }
 
     private int initializeCount() {
@@ -33,5 +36,10 @@ public class RaceController {
         outputView.carNamesOutput();
         List<String> carNamesInput = inputView.getCarNamesInput();
         return raceService.initializeCars(carNamesInput);
+    }
+
+    private void runRace(Cars cars, int count) {
+        Race race = new Race(cars, count);
+        List<Car> raceCars = raceService.runRace(race);
     }
 }

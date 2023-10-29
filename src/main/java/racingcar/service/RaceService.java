@@ -4,7 +4,9 @@ package racingcar.service;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.Race;
 
 public class RaceService {
     public Cars initializeCars(List<String> carNamesInput) {
@@ -55,5 +57,10 @@ public class RaceService {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public List<Car> runRace(Race race) {
+        race.run();
+        return race.getCars();
     }
 }
