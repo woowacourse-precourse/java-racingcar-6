@@ -10,6 +10,11 @@ public class Input {
         }
         return (false);
     }
+
+    static boolean isOutOfRange(long tryNumber) {
+        return (tryNumber > 2000000000 || tryNumber < 0);
+    }
+
     static String[] getCarName() {
         String carNameInput = Console.readLine();
         String[] carNames = carNameInput.split(",");
@@ -18,14 +23,20 @@ public class Input {
         return (carNames);
     }
 
-    static int getTryNumber() throws IllegalArgumentException {
+    static int getTryNumber() {
         String tryNumberInput = Console.readLine();
-        int tryNumber = 0;
+        if (tryNumberInput.length() > 10) {
+            Exception.generateInvalidTryNumberRangeException();
+        }
+        long tryNumber = 0;
         try {
-            tryNumber = Integer.parseInt(tryNumberInput);
+            tryNumber = Long.parseLong(tryNumberInput);
+            if (isOutOfRange(tryNumber)) {
+                Exception.generateInvalidTryNumberRangeException();
+            }
         } catch (NumberFormatException numberFormatException) {
             Exception.generateInvalidNumberCharacterException();
         }
-        return (tryNumber);
+        return ((int) tryNumber);
     }
 }

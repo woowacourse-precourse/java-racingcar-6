@@ -17,4 +17,8 @@ public class Exception {
     static void generateInvalidNumberCharacterException() throws IllegalArgumentException {
         throw new IllegalArgumentException(INVALID_TRY_NUMBER_CHARACTER_MESSAGE);
     }
+
+    static void generateInvalidTryNumberRangeException() throws IllegalArgumentException {
+        throw new IllegalArgumentException(INVALID_TRY_NUMBER_RANGE_MESSAGE);
+    }
 }
