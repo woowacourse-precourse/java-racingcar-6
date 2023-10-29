@@ -28,7 +28,7 @@ public class Car {
     }
 
     public String getPositionToString() {
-        return IntStream.rangeClosed(0, this.position)
+        return IntStream.rangeClosed(1, this.position)
                 .mapToObj(i -> "-")
                 .collect(Collectors.joining());
     }
