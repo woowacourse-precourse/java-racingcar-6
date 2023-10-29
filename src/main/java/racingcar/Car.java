@@ -34,7 +34,7 @@ public class Car {
         return carMove;
     }
 
-    private void printRacingNow(List<String> carNames, List<String> carMove) {
+    private void printRacing(List<String> carNames, List<String> carMove) {
         StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < carNames.size(); i++) {
