@@ -11,12 +11,21 @@ public class RacingController {
 
     public void proceedRacing() {
         List<String> validCarNames;
+        int validTrialTimes;
+
         validCarNames = getValidCarNames();
+        validTrialTimes = getValidTrialTimes();
     }
 
     private List<String> getValidCarNames() {
         String carsNameInput = inputView.askCarsName();
         String preprossedInputNames = inputValidator.preprocessInputString(carsNameInput);
         return inputValidator.validateCarsNameInput(preprossedInputNames);
+    }
+
+    private int getValidTrialTimes() {
+        String trialTimesInput = inputView.askTrialTimes();
+        String preprossedInputTrialTimes = inputValidator.preprocessInputString(trialTimesInput);
+        return inputValidator.validateTrialTimesInput(preprossedInputTrialTimes);
     }
 }
