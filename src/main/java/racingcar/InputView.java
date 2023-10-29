@@ -18,7 +18,7 @@ public class InputView {
         return String.join(",", carNames);
     }
 
-    private void checkCarNameExceptions(String[] carNames) {
+    public void checkCarNameExceptions(String[] carNames) {
         Set<String> uniqueNames = new HashSet<>(Arrays.asList(carNames));
         if (uniqueNames.size() != carNames.length) {
             throw new IllegalArgumentException(magicVariable.CAR_DUPLICATE_ERROR_MESSAGE);
@@ -34,10 +34,14 @@ public class InputView {
     public int getTryCount() {
         System.out.println(magicVariable.ASK_TRY_COUNT_MESSAGE);
         int tryCount = Integer.parseInt(Console.readLine());
+        checkTryCountExceptions(tryCount);
+        return tryCount;
+    }
+
+    public void checkTryCountExceptions(int tryCount) {
         if (tryCount <= magicVariable.PICK_NUM_MIN) {
             throw new IllegalArgumentException(magicVariable.TRY_COUNT_RANGE_ERROR_MESSAGE);
         }
-        return tryCount;
     }
 }
 
