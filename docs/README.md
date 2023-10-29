@@ -4,7 +4,7 @@
 - 들여쓰기 depth를 3이 넘지 않도록 구현해야한다. (ex: while문 안에 if문이 있으면 들여쓰기는 2이다.)
 - 3항 연산자를 쓰지 않는다.
 - Random  및 Scanner API대신 `camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()`를 사용한다.
-- 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
+- ~~사용자가 입력하는 값은 camp.nextstep.edu.missionutils.Console의 readLine()을 활용한다.~~
 
 ## 객체 간의 협력관계 파악하기
 
@@ -14,21 +14,15 @@
 
 ### InputView
 
-- 사용자는 경주할 자동차 이름을 입력한다.
-    - 이때, 이름은 5자 이하만 가능하다.
-    - 사용자가 잘못된 값을 입력할 경우, `IllegalArgumentException` 을 발생시킨다.
-- 시도횟수를 입력한다.
-    - 사용자가 잘못된 값을 입력할 경우, `IllegalArgumentException` 을 발생시킨다.
+게임 시작시,
+
+- `public` **’경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)’** 를 출력 및 사용자는 경주할 자동차 이름을 입력한다.
+  - 사용자가 잘못된 값을 입력할 경우, `IllegalArgumentException` 을 발생시킨다.
+- `public`  ‘**시도할 회수는 몇회인가요?’** 를 출력 및 시도횟수를 입력한다.
+  - 사용자가 잘못된 값을 입력할 경우, `IllegalArgumentException` 을 발생시킨다.
 
 ### OutputView
 
-- 게임 시작시,
-    - `경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)`
-    - `시도할 회수는 몇회인가요?`
-
-  를 출력한다.
-
-- `실행결과` 를 출력한다.
 - `-` 을 이용하여, 자동차 리스트들의 이동 현황을 출력한다.
 - `최종 우승자 :`  출력 및 우승자가 여러명일 경우, `,` 를 이용하여 구분한다.
 
