@@ -61,6 +61,6 @@ public class WinnerTest {
         Winner winner = new Winner(cars);
 
         //then
-        assertThat(winner.toString()).isEqualTo("jun,pobi");
+        assertThat(winner.toString()).isEqualTo("jun, pobi");
     }
 }

@@ -6,7 +6,7 @@ import racingcar.domain.car.Car;
 import racingcar.domain.car.Cars;
 
 public class Winner {
-    private static final String DELIMITER = ",";
+    private static final String DELIMITER = ", ";
     private final String winners;
 
     public Winner(Cars cars) {
