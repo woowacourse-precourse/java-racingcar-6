@@ -1,7 +1,6 @@
 package controller.dto;
 
 import java.util.List;
-import model.Cars;
 
 public class CarNames {
 
@@ -18,7 +17,7 @@ public class CarNames {
         return new CarNames(carNameValues);
     }
 
-    public Cars toCars() {
-        return Cars.from(carNames);
+    public List<String> getCarNames() {
+        return carNames;
     }
 }
