@@ -26,6 +26,14 @@ public class Cars {
         return Collections.unmodifiableList(cars);
     }
 
+    public Car get(int index) {
+        return cars.get(index);
+    }
+
+    public void sortingCarsOrderByPosition() {
+        Collections.sort(cars);
+    }
+
     private void validateNameLength(final List<Car> cars) {
         for (Car car : cars) {
             if (car.isExceedMaxLength()) {

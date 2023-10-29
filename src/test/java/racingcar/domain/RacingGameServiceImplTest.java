@@ -9,24 +9,27 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.TestUtils;
+import racingcar.controller.dto.WinnerDto;
 
 class RacingGameServiceImplTest {
 
     private RacingGameServiceImpl racingGameService;
     private Cars cars;
+    private String name;
+    private List<Car> carList;
 
     @BeforeEach
     void setUp() {
         racingGameService = new RacingGameServiceImpl();
 
         int length = MAX_NAME_LENGTH.getConstant();
-        String name = TestUtils.generateName(length, 'a');
+        name = TestUtils.generateName(length, 'a');
         Car car1 = new Car(name);
 
         name = TestUtils.generateName(length, 'b');
         Car car2 = new Car(name);
 
-        List<Car> carList = List.of(car1, car2);
+        carList = List.of(car1, car2);
         cars = new Cars(carList);
     }
 
@@ -54,6 +57,18 @@ class RacingGameServiceImplTest {
                 },
                 FORWARD_THRESHOLD.getConstant() - 1
         );
+    }
+
+    @Test
+    void 우승자_찾기_기능_테스트() {
+        //given
+        carList.get(1).moveForward();
+
+        //when
+        WinnerDto winner = racingGameService.findWinner(cars);
+
+        //then
+        assertThat(winner.getWinners().get(0)).isEqualTo(name);
     }
 
 }

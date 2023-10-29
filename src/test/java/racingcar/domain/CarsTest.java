@@ -116,4 +116,27 @@ class CarsTest {
         assertThatThrownBy(() -> actualCarList.add(new Car("car3")))
                 .isInstanceOf(UnsupportedOperationException.class);
     }
+
+    @Test
+    void 자동차_포지션_기준_정렬_테스트() {
+        //given
+        int length = MAX_NAME_LENGTH.getConstant();
+        String name = TestUtils.generateName(length, 'a');
+        Car car1 = new Car(name);
+
+        name = TestUtils.generateName(length, 'b');
+        Car car2 = new Car(name);
+        car2.moveForward();
+
+        List<Car> carList = List.of(car1, car2);
+        Cars cars = new Cars(carList);
+
+        //when
+        cars.sortingCarsOrderByPosition();
+
+        //then
+        assertThat(cars.getCar())
+                .extracting(Car::getPosition)
+                .containsExactly(1, 0);
+    }
 }

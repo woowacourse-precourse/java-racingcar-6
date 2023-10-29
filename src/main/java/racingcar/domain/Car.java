@@ -4,7 +4,7 @@ import static racingcar.enums.Constant.MAX_NAME_LENGTH;
 
 import java.util.Objects;
 
-public class Car {
+public class Car implements Comparable<Car> {
 
     private int position;
     private final String name;
@@ -41,7 +41,21 @@ public class Car {
         return Objects.hash(name);
     }
 
+    @Override
+    public int compareTo(Car car) {
+        return car.position - this.position;
+    }
+
+    public boolean isSamePosition(Car car) {
+        return this.position == car.position;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public int getPosition() {
         return position;
     }
+
 }
