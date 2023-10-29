@@ -1,12 +1,16 @@
 package racingcar.domain;
 
 public class RacingCar {
-    private String username;
-    private String currentLocation;
+    private final String username;
+    private final String currentLocation;
 
-    public RacingCar(String username, String currentLocation) {
+    public RacingCar(String username) {
         this.username = username;
-        this.currentLocation = currentLocation;
+        this.currentLocation = getStartLocation();
+    }
+
+    public String getStartLocation() {
+        return "";
     }
 
     public String getUsername() {
@@ -21,9 +25,9 @@ public class RacingCar {
 /**
  * List<Integer> computer = new ArrayList<>();
  * while (computer.size() < 3) {
- *     int randomNumber = Randoms.pickNumberInRange(1, 9);
- *     if (!computer.contains(randomNumber)) {
- *         computer.add(randomNumber);
- *     }
+ * int randomNumber = Randoms.pickNumberInRange(0, 9);
+ * if (!computer.contains(randomNumber)) {
+ * computer.add(randomNumber);
+ * }
  * }
  */
