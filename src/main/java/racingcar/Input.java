@@ -34,7 +34,7 @@ class Input {
     private static void checkCarNameError(List<String> carNames) throws IllegalArgumentException {
         for (String carName : carNames) {
             if (isBlank(carName)
-                    || isLength1To(carName, 5)) {
+                    || isLengthOutOf1To(carName, 5)) {
                 throw new IllegalArgumentException();
             }
         }
@@ -44,8 +44,8 @@ class Input {
         return raw.compareTo("") == 0;
     }
 
-    private static boolean isLength1To(String raw, Integer length) {
-        return raw.length() > length;
+    private static boolean isLengthOutOf1To(String raw, Integer length) {
+        return raw.length() < 1 || raw.length() > length;
     }
 
     static Long inputRepetitions() {
