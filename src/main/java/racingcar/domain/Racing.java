@@ -6,11 +6,7 @@ import java.util.List;
 public class Racing {
 
     private List<Car> cars;
-    private int count;
     private int maxLocation;
-    public Racing(List<Car> cars, int count){
-        this.count = count;
-    }
 
     public void run(){
         for(int i=0; i<cars.size(); i++){
