@@ -61,9 +61,26 @@ public class GameProcess {
         makeNameOfCurrentCarListFromStringLine();
 
         for (String nameOfRaceCar : nameSplitList) {
-            newRaceCar = new RaceCar(nameOfRaceCar);
-            raceCarOfCurrentList.add(newRaceCar);
+            newRaceCar = generateNewRaceCar(nameOfRaceCar);
+            AddRaceCarOfCurrentList(newRaceCar);
         }
+    }
+
+    /**
+     * 새로운 자동차를 생성한다.
+     * @param nameOfRaceCar
+     * @return
+     */
+    private  RaceCar generateNewRaceCar(String nameOfRaceCar) {
+        return new RaceCar(nameOfRaceCar);
+    }
+
+    /**
+     * 현제 레이싱 자동차 리스트에 새로운 자동차를 추가한다.
+     * @param newRaceCar
+     */
+    private void AddRaceCarOfCurrentList(RaceCar newRaceCar) {
+        raceCarOfCurrentList.add(newRaceCar);
     }
 
     /**
