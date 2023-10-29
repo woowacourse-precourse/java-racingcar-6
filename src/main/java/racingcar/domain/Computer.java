@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Computer {
 
-    private static final int CAR_NAME_MAXIMUM_LENGTH = 5;
+    private static final int MAXIMUM_CAR_NAME_LENGTH = 5;
 
     private final List<Car> cars;
 
@@ -25,7 +25,7 @@ public class Computer {
             throw new IllegalArgumentException("자동차의 이름은 비어있을 수 없습니다.");
         }
 
-        if (carName.length() > CAR_NAME_MAXIMUM_LENGTH) {
+        if (carName.length() > MAXIMUM_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차의 이름은 5자 이하이어야 합니다.");
         }
     }
