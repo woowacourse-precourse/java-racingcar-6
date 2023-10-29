@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Application {
     public static void main(String[] args) {
@@ -26,6 +27,8 @@ public class Application {
             printCurrentPosition(carNameList, moveCountList);
         }
 
+        String winner = findWinner(carNameList, moveCountList);
+        System.out.println("최종 우승자 : " + winner);
     }
 
     private static String inputCarNames() {
@@ -66,5 +69,34 @@ public class Application {
             System.out.println(carNameList.get(i) + " : " + "-".repeat(moveCountList.get(i)));
         }
         System.out.println();
+    }
+
+    private static String findWinner(List<String> carNameList, List<Integer> moveCountList) {
+
+        int max = getMax(moveCountList);
+        List<Integer> maxIndices = getMaxIndices(moveCountList, max);
+
+        return getWinner(carNameList, maxIndices);
+    }
+
+    private static int getMax(List<Integer> moveCountList) {
+        return moveCountList.stream()
+                .mapToInt(Integer::intValue)
+                .max()
+                .orElse(Integer.MIN_VALUE);
+    }
+
+    private static List<Integer> getMaxIndices(List<Integer> moveCountList, int max) {
+        return IntStream.range(0, moveCountList.size())
+                .filter(i -> moveCountList.get(i) == max)
+                .boxed()
+                .toList();
+    }
+
+    private static String getWinner(List<String> carNameList, List<Integer> maxIndices) {
+        String winner = maxIndices.stream()
+                .map(index -> carNameList.get(index))
+                .collect(Collectors.joining(", "));
+        return winner;
     }
 }
