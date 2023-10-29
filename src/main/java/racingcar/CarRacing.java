@@ -20,13 +20,28 @@ public class CarRacing {
         initCarMoveToZero();
 
         int tmpCount = 0;
+        // 사용자가 입력한 횟수에 다가갈 때 까지 반복
         while (tmpCount < countTrial) {
             boolean ifMoved = createRandomNumberAndMoveCar();
+            // 하나라도 움직인 차가 있다면 tmpCount 횟수 증가
             if (ifMoved == true){
                 tmpCount++;
             }
             printRacingCar();
         }
+    }
+
+    public static void printWinner(){
+        ArrayList<String> winner = new ArrayList<>();
+
+        for (Entry<String, Integer> e : carMoveMap.entrySet()){
+            String key = e.getKey();
+            int value = e.getValue();
+            if (value == countTrial) {
+                winner.add(key);
+            }
+        }
+        System.out.println("최종 우승자 : "+ String.join(", ", winner));
     }
 
     public static void initCarMoveToZero() {
