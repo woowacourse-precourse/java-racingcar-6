@@ -25,7 +25,7 @@ public class OutputView {
     }
 
     public static void printCarsLocation(Cars cars) {
-        Map<String,Integer> moveCountMap = cars.getMoveCountMap();
+        Map<String, Integer> moveCountMap = cars.getMoveCountMap();
         moveCountMap.forEach(OutputView::printCarLocation);
         System.out.println();
     }
