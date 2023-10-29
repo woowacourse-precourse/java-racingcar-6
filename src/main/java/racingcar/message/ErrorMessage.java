@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.message;
 
 public enum ErrorMessage {
     NOT_AN_INTEGER_OVER_ZERO("[ERROR] 0이상의 정수를 입력하여야 합니다."),
