@@ -6,6 +6,8 @@ public class InputView {
     private static final String LENGTH_ERROR = "이름은 5자 이하만 가능합니다.";
     private static final String IS_NOT_NUMBER = "숫자를 입력해 주세요.";
     private static final String IS_NOT_NATURAL_NUMBER = "전진횟수는 자연수여야 합니다.";
+    private static final String IS_SPACE = "공백 혹은 빈 문자열은 등록할 수 없습니다.";
+    private static final String SPLIT = ",";
     private static final Character ZERO = '0';
     private static final Character NINE = '9';
     public String[] inputPlayers() {
@@ -41,7 +43,7 @@ public class InputView {
     }
 
     private String[] splitCommaAndValidate(String players) {
-        String[] separatedPlayers = players.split(",");
+        String[] separatedPlayers = players.split(SPLIT);
         validateNames(separatedPlayers);
         return separatedPlayers;
     }
@@ -50,6 +52,9 @@ public class InputView {
         for (String player : players) {
             if (player.length() > 5) {
                 throw new IllegalArgumentException(LENGTH_ERROR);
+            }
+            if (player.trim().length() == 0) {
+                throw new IllegalArgumentException(IS_SPACE);
             }
         }
     }
