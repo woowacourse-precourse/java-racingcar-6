@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.assertj.core.api.ObjectArrayAssert;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -12,6 +13,22 @@ class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
+    @Test
+    void 자동차_생성(){
+        Application application = new Application();
+        String[] split = {"pobi", "crong", "wooni"};
+
+        Car[] carlist = application.createCar(split);
+
+        assertThat(carlist[0].getName()).isEqualTo("pobi");
+        assertThat(carlist[0].getPos()).isEqualTo(0);
+        assertThat(carlist[1].getName()).isEqualTo("crong");
+        assertThat(carlist[1].getPos()).isEqualTo(0);
+        assertThat(carlist[2].getName()).isEqualTo("wooni");
+        assertThat(carlist[2].getPos()).isEqualTo(0);
+
+    }
+    
     @Test
     void 전진_조건(){
         Application application = new Application();
