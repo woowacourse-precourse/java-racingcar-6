@@ -56,6 +56,16 @@ public class Application {
 		}
 		System.out.println();
 	}
+	
+	public int findMaxValue() {
+		int maxValue = 0;
+		for (int i=0; i<playerNumber; i++) {
+			if (maxValue < playerData[i].loc) 
+				maxValue = playerData[i].loc;
+		}
+		return maxValue;
+	}
+	
     public static void main(String[] args) {
     	Application game = new Application();
     	game.gameStart();
