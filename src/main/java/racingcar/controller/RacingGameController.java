@@ -18,6 +18,7 @@ public class RacingGameController {
     public void run() {
         initialize();
         start();
+        findWinner();
     }
 
     private void initialize() {
@@ -44,5 +45,10 @@ public class RacingGameController {
             currentAttempt++;
         }
 
+    }
+
+    private void findWinner() {
+        List<String> winner = cars.getWinner();
+        outputView.showWinner(winner);
     }
 }
