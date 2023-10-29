@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import static racingcar.constant.MessageConst.GET_TRY_COUNT_MESSAGE;
 import static racingcar.constant.MessageConst.SAVE_CAR_NAMES_MESSAGE;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -23,6 +24,7 @@ public class CarController {
     }
 
     public int getRaceCount() {
+        System.out.println(GET_TRY_COUNT_MESSAGE);
         return Integer.parseInt(Console.readLine());
     }
 
