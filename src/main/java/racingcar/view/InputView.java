@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.util.Validator;
+import racingcar.util.InputValidator;
 
 public class InputView {
 
@@ -18,8 +18,8 @@ public class InputView {
     }
 
     private void validate(final String input) {
-        Validator.isBlankInput(input);
-        Validator.isNullInput(input);
+        InputValidator.isBlankInput(input);
+        InputValidator.isNullInput(input);
     }
 
 }
