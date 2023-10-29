@@ -63,6 +63,14 @@ class InputValidatorTest {
     }
 
     @Test
+    @DisplayName("게임 진행 횟수에 공백 제거")
+    public void 게임_진행_횟수에_공백_제거_테스트() {
+        String playTime = "2  3     3 4 5 6 7 ";
+        inputValidator = new InputValidator();
+        assertThat(inputValidator.removeSpacePlayTime(playTime)).isEqualTo("2334567");
+    }
+
+    @Test
     @DisplayName("게임 진행 횟수에 숫자를 제외한 문자를 입력할 수 없습니다.")
     public void 게임_진행_횟수에_문자_입력_예외_테스트() {
         String wrongPlayTime = "1a";
