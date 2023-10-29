@@ -29,7 +29,7 @@ public class Cars {
 
     public void applyMovingForward() {
         for (int index = 0; index < cars.size(); index++) {
-            conditionalMove(index);
+            moveConditional(index);
         }
     }
 
@@ -52,7 +52,7 @@ public class Cars {
                 .orElseThrow();
     }
 
-    private void conditionalMove(final int index) {
+    private void moveConditional(final int index) {
         if (isRandomNumberNotInRange()) {
             return;
         }

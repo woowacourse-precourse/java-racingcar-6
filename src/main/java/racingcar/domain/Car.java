@@ -50,12 +50,12 @@ public class Car {
     }
 
     private void checkLength(final String name) {
-        if (isCarNameLengthOutOfRange(name)) {
+        if (isNameLengthOutOfRange(name)) {
             throw new IllegalArgumentException(INVALID_CAR_NAME_MESSAGE);
         }
     }
 
-    private boolean isCarNameLengthOutOfRange(final String name) {
+    private boolean isNameLengthOutOfRange(final String name) {
         int length = name.length();
         return length < MINIMUM_CAR_NAME_LENGTH || length > MAXIMUM_CAR_NAME_LENGTH;
     }
