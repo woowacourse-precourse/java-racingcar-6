@@ -26,7 +26,7 @@ public class RacingCarInputReader {
     @VisibleForTesting
     protected static List<RacingCar> makeRacingCarList(String input) {
         return Arrays.stream(input.split(RACING_CAR_INPUT_SPLITTER))
-                .map(name -> new RacingCar(name, 0))
+                .map(RacingCar::new)
                 .collect(Collectors.toList());
     }
 

@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import static racingcar.input.RacingCarInputReader.getRacingCarsFromConsole;
+import static racingcar.printer.RacingCarPrinter.printMessageBeforePlay;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
@@ -17,20 +18,18 @@ public class RacingCarGameService {
     }
 
     private static void advanceRacingCarsUntilPlayNumber(List<RacingCar> racingCars, int numberToPlay) {
+        printMessageBeforePlay();
         while(numberToPlay-- > 0) {
             advanceEachRacingCars(racingCars);
+            // TODO : implement below
+//            printCurrentDistanceStatus(racingCars);
         }
     }
 
     private static void advanceEachRacingCars(List<RacingCar> racingCars) {
-        racingCars.forEach(racingCar -> {
-            if (isAdvancedTarget()) {
-                racingCar.advance();
-            }
-        });
-    }
-
-    private static boolean isAdvancedTarget() {
-        return Randoms.pickNumberInRange(RANDOM_GENERATE_START_NUM, RANDOM_GENERATE_END_NUM) >= 4;
+        racingCars.forEach(racingCar ->
+            racingCar.advanceByNumber(
+                    Randoms.pickNumberInRange(
+                            RANDOM_GENERATE_START_NUM, RANDOM_GENERATE_END_NUM)));
     }
 }
