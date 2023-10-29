@@ -9,6 +9,5 @@ public class Application {
         String str=readLine();
 
 
-
     }
 }
