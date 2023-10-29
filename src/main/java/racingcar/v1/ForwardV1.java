@@ -1,8 +1,8 @@
-package racingcar;
+package racingcar.v1;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Forward {
+public class ForwardV1 {
     static int forward = 0;
 
     public int randomNums() {

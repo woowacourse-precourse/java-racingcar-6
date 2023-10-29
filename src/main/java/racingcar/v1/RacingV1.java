@@ -1,19 +1,21 @@
-package racingcar;
+package racingcar.v1;
 
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.Map;
 
-public class Racing {
+public class RacingV1 {
 
-    CreateCar createCar = new CreateCar();
+    CreateCarV1 createCar = new CreateCarV1();
     int carCount = createCar.carCount(createCar.carName(createCar.input()));
     String[] carName = createCar.carName(createCar.input());
 
-    RacingRound racingRound = new RacingRound();
+    RacingRoundV1 racingRound = new RacingRoundV1();
     int attemptCount = racingRound.attemptCount();
 
-    Forward forward = new Forward();
+    ForwardV1 forward = new ForwardV1();
+
+
 
     // 입력 받기
     public String input() {
@@ -28,6 +30,7 @@ public class Racing {
         for (int i = 0; i < attemptCount; i++) {
             for (int j = 0; j < carCount; j++) {
                 if (forward.canForward()) {
+                    state(carName).put(carName[j], forward.forward);
                     System.out.println(carName[j] + " : " + "-");
                 } else {
                     System.out.println(carName[j] + " : " + "");
