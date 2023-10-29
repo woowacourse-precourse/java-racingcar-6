@@ -20,6 +20,10 @@
     -[]우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.  Referee#makeWinnerWithCommas()
     -[]우승자를 발표한다. Referee#announceWinner()
 
--[]전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다. OutputView#printCar();
-    -[] 자동차의 위치와 이름을 받는다. OutputView#CarState();
+-[] 경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분) InputView#inputCars()
+-[] 시도할 회수 입력 InputView#inputCount()
+
+
+-[]전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.(차수별 출력) OutputView#printForEach();
+-[]우승자 안내 문구 출력 OutputView#printWinner
 -[]사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.    Error#processError()
