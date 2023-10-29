@@ -69,6 +69,17 @@
    3. ~~printCarName 메서드: 자동차의 이름을 출력할 때 사용하는 메서드이다.~~
 2. 요구사항을 제대로 읽지 못해서 5라운드가 진행되면 5번 전진을 해야 우승이라고 생각하였다. 하지만 요구사항에는 어디에도 라운드 수 만큼 전진을 해야 우승이라고 작성되어 있지 않았다. 이에 따라 isCarPassTheGoal 메서드를 삭제하였다.
 3. Car 클래스의 name에 대한 getter를 생성함에 따라 printCarName 메서드를 삭제하였다.
+4. Car 클래스에 차량의 진행률을 반환하는 process 메서드를 생성하였다.
+5. Car 객체를 가지는 List 내에서 position을 기준으로 정렬을 위해 Comparable 인터페이스를 구현하였다.
+6. 기능 목록에 있는 출력 부분을 구현하였다. 목록은 아래와 같다.
+   - 자동차 이름 입력 안내 메시지: inputNamesMsg
+   - 시도할 횟수 입력 안내 메시지: inputRoundMsg
+   - 실행 결과 제목: resultTitleMsg
+   - 각 차수별 실행 결과: carResultMsg
+   - 최종 우승자: finalWinnerMsg
+7. View 클래스 내부에 공백 라인을 출력하는 printEmptyLine 메서드를 추가하였다.
+8. Car 도메인의 유효성을 검증하기 위해 테스트 케이스를 생성 후 통과하였다.
+9. Car 객체로 구성된 List를 가지고 있는 일급 컬렉션 Cars 클래스를 구현하였다.
 
 ## 테스트 케이스
 
