@@ -30,12 +30,14 @@ public class OutputView {
     }
 
     public void displayEachGameResult(List<EachMoveResultDto> moveResults) {
-        for (EachMoveResultDto moveResultDto : moveResults) {
-            System.out.println(moveResultDto.getCarName()
-                    + Message.EACHGAMERESULT.getMessage()
-                    + Message.MOVEFOWARD.getMessage().repeat(moveResultDto.getPosition()));
-        }
+
+        moveResults.stream()
+                .forEach(moveResultDto -> System.out.println(
+                        moveResultDto.getCarName() + Message.EACHGAMERESULT.getMessage()
+                                + Message.MOVEFOWARD.getMessage()
+                                .repeat(moveResultDto.getPosition())));
         System.out.println();
+
     }
 
 
