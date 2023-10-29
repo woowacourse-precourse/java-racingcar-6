@@ -4,42 +4,50 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car
 {
-	public final String Name;
-	private int Score;
+	// 이름은 한번 생성자가 생성 될 때 한번 입력 받고 변경하지 않아 상수로 둠
+	public final String name;
+	private int score;
+
+	public Car(String name) {
+		this.name = name;
+		score = 0;
+	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public int getScore() {
-		return Score;
+		return score;
 	}
 
-	public Car(String name) {
-		if (name == null || name.isEmpty()) {
-			throw new IllegalArgumentException();
-		}
-		Name = name;
-		Score = 0;
-	}
-
+	/**
+	 * camp.nextstep.edu.missionutils.Randoms를 사용해 랜덤한 숫자를 뽑고 전진할 수 있는지 여부 판단
+	 * @return
+	 */
 	public boolean canMove() {
 		int num = Randoms.pickNumberInRange(0,9);
 		return num >= 4;
 	}
 
-
-
+	/**
+	 * 전진 할 수 있다면 Score++
+	 * @param canMove
+	 */
 	public void move(boolean canMove) {
 		if (canMove) {
-			Score++;
+			score++;
 		}
 	}
 
+	/**
+	 * score만큼 "-" 붙여서 전진했다는 표시를 해줌
+	 * @return
+	 */
 	public String display() {
-		String result = Name + " : ";
-		if (Score > 0) {
-			result += "-".repeat(Score);
+		String result = name + " : ";
+		if (score > 0) {
+			result += "-".repeat(score);
 		}
 		return result;
 	}
