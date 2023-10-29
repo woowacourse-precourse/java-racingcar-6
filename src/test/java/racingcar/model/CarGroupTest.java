@@ -49,6 +49,19 @@ class CarGroupTest {
     }
 
     @Test
+    void 자동차_그룹에서_모두_한칸도_이동하지_않은_경우는_모든_사람이_우승자이다() {
+        Car jackCar = createCarWith("jack", 0);
+        Car johnCar = createCarWith("john", 0);
+        CarGroup carGroup = new CarGroup(List.of(jackCar, johnCar));
+        CarWinners expectedWinners = CarWinners.from(List.of(jackCar, johnCar));
+
+        CarWinners winners = carGroup.findWinners();
+
+        assertThat(winners).usingRecursiveComparison()
+                .isEqualTo(expectedWinners);
+    }
+
+    @Test
     void 자동차_그룹에서_단일_우승자를_찾을_수_있다() {
         Car jackCar = createCarWith("jack", 5);
         Car johnCar = createCarWith("john", 4);
