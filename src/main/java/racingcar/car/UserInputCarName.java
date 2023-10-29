@@ -11,30 +11,33 @@ public class UserInputCarName {
         return Console.readLine();
     }
 
+    private static List<CarInfo> processInput(String input) {
+        String[] cars = splitByComma(input);
+        List<CarInfo> carList = addCarList(cars);
+        validator(carList);
+
+        return carList;
+    }
+
     private static String[] splitByComma(String inputCarName) {
         return inputCarName.split(",");
+    }
+
+    private static List<CarInfo> addCarList(String[] cars){
+        List<CarInfo> carList = new ArrayList<>();
+
+        for (String carName : cars) {
+            carList.add(createCar(carName.trim()));
+        }
+
+        return carList;
     }
 
     private static CarInfo createCar(String carName) {
         return new CarInfo(carName.trim());
     }
 
-    private static List<CarInfo> addCarList(String[] cars){
-        List<CarInfo> carList = new ArrayList<>();
-        for (String carName : cars) {
-            carList.add(createCar(carName.trim()));
-        }
-        return carList;
-    }
-
     private static void validator(List<CarInfo> carList){
         ValidateCar.validator(carList);
-    }
-
-    public static void run() {
-        String inputCarName = inputName();
-        String[] cars = splitByComma(inputCarName);
-        List<CarInfo> carList = addCarList(cars);
-        validator(carList);
     }
 }
