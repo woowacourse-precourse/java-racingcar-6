@@ -75,6 +75,8 @@
 
 ## 보완할 점
 
+- [x] validate 위치 조정
+- [ ] racingGame의 move 메소드 의존성 주입 조정
 - [ ] MoveFactory가 역할이 4이상 숫자 판단에 의해 boolean 값 반환밖에 없다.
     - [ ] 거기다 메소드 하나만 있어서 생성자에 말고 메소드에 바로 numbergenerator를 주입해도 되지 않을까하는 생각.
 -[ ] distance에 대한 validate 체크

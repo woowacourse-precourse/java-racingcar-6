@@ -21,31 +21,32 @@ public class PlayerName {
     }
 
     public static PlayerName from(String playerName) {
+        validateLength(playerName);
         return new PlayerName(playerName);
     }
 
-    public void validateLength(String rawName) {
+    private static void validateLength(String rawName) {
         if (isLengthOverFive(rawName)) {
             throw new IllegalArgumentException(PLAYER_NAME_LENGTH_IS_INVALID);
         }
     }
 
-    private boolean isLengthOverFive(String rawName) {
+    private static boolean isLengthOverFive(String rawName) {
         return rawName.length() > MAXIMUM_PLAYER_NAME_LENGTH;
     }
 
-    public void validateFormat(String rawName) {
+    private static void validateFormat(String rawName) {
         if (!isNamesFormat(rawName)) {
             throw new IllegalArgumentException(PLAYER_NAMES_IS_INVALID_FORMAT);
         }
     }
 
-    private boolean isNamesFormat(String rawNames) {
+    private static boolean isNamesFormat(String rawNames) {
         Matcher matcher = PLAYER_NAMES_PATTERN.matcher(rawNames);
         return matcher.matches();
     }
 
-    public List<String> convertNames(String rawNames) {
+    private static List<String> convertNames(String rawNames) {
         return Arrays.asList(rawNames.split(PLAYER_NAMES_DELIMITER));
     }
 }
