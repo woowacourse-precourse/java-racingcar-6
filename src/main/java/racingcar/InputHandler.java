@@ -7,10 +7,10 @@ import camp.nextstep.edu.missionutils.Console;
 public class InputHandler {
     private static final String separator = ",";
 
-    public void carNames() {
+    public List<String> carNames() {
         String carNamesWithSeparator = Console.readLine();
         String[] tokens = StringManipulator.splitSeparator(carNamesWithSeparator, separator);
         List<String> carNamesWithoutSeparator = StringManipulator.toList(tokens);
-        System.out.println("tokens = " + carNamesWithoutSeparator.get(1));
+        return carNamesWithoutSeparator;
     }
 }
