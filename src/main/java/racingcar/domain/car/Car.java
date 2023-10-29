@@ -19,6 +19,10 @@ public class Car {
         return new Car(name, ForwardCount.defaultOf());
     }
 
+    public static Car of(CarName name, ForwardCount forwardCount) {
+        return new Car(name, forwardCount);
+    }
+
     public static List<Car> namesOf(List<CarName> carNames) {
         return carNames.stream()
                 .map(Car::nameOf)
@@ -37,6 +41,10 @@ public class Car {
 
     public String getName() {
         return this.name.getName();
+    }
+
+    public boolean matchesForwardCount(long forwardCount) {
+        return this.forwardCount.matchesCount(forwardCount);
     }
 
 }
