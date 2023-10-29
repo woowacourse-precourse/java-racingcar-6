@@ -22,8 +22,11 @@ public class Result {
         }
     }
 
-    private void printProgress(String name, String move){
-        System.out.println(name + " : " + move);
+    private void printProgress(String name, int move){
+        System.out.print(name + " : ");
+        for(int i=0; i<move;i++){
+            System.out.print("-");
+        }
     }
 
     private void printWinner(List<String> winner){

@@ -9,10 +9,10 @@ public class Game {
         List<Car> cars = player.getCarList();
         int times = player.getTimes();
 
-        Result result = new Result();
         Judge judge = new Judge();
         List<String> winner = judge.findWinner(cars);
 
+        Result result = new Result();
         result.print(cars,times,winner);
     }
 

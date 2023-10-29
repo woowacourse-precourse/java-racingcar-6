@@ -15,40 +15,38 @@ public class Player {
         List<String> cars = splitName(input);
         validateName(cars);
 
-        return strToCar(cars);
+        return stringToCar(cars);
     }
 
     public int getTimes(){
         System.out.println("시도할 회수는 몇회인가요?");
         String times = Console.readLine();
-        return strToInt(times);
+        return stringToInteger(times);
     }
 
     public List<String> splitName(String names){
         return Arrays.asList(names.split(","));
     }
 
-    public int strToInt(String str){
-        return Integer.parseInt(str);
-    }
-
-    public List<Car> strToCar(List<String> cars){
+    public List<Car> stringToCar(List<String> cars){
         List<Car> result = new ArrayList<>();
-        for(int i=0;i<cars.size();i++){
-            Car car = new Car(cars.get(i));
+        for (String name : cars) {
+            Car car = new Car(name);
             result.add(car);
         }
         return result;
     }
 
-    public void validateName(List<String> names){
+    public int stringToInteger(String str){
+        return Integer.parseInt(str);
+    }
 
-        for(int i=0;i<names.size();i++){
-            if(names.get(i).length()>5){
-                throw  new IllegalArgumentException("The name must not be more than 5 characters.");
+    public void validateName(List<String> names){
+        for (String name : names) {
+            if (name.length() > 5) {
+                throw new IllegalArgumentException("The name must not be more than 5 characters.");
             }
         }
-
     }
 
 }
