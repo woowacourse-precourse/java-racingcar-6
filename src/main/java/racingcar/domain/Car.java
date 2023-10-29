@@ -1,24 +1,16 @@
 package racingcar.domain;
 
 import static racingcar.message.MessageConstants.CAR_NAME_AND_POSITION_FORMAT;
-import static racingcar.message.MessageConstants.FIVE;
 import static racingcar.message.MessageConstants.FOUR;
 import static racingcar.message.MessageConstants.HYPHEN;
 import static racingcar.message.MessageConstants.ZERO;
 
 public class Car {
-    private final String name;
+    private final Names name;
     private int position;
 
-    public Car(String name) {
-        validationNameLength(name);
+    public Car(Names name) {
         this.name = name;
-    }
-
-    private void validationNameLength(String name) {
-        if (name.length() > FIVE || name.isEmpty()) {
-            throw new IllegalArgumentException("자동차의 이름은 5자 이하여야 합니다.");
-        }
     }
 
     public void move(int power) {
@@ -28,7 +20,7 @@ public class Car {
     }
 
     public String forwardStatus() {
-        return String.format(CAR_NAME_AND_POSITION_FORMAT, name) + HYPHEN.repeat(Math.max(ZERO, position));
+        return String.format(CAR_NAME_AND_POSITION_FORMAT, name.value()) + HYPHEN.repeat(Math.max(ZERO, position));
     }
 
     public boolean isSamePosition(int maxPosition) {
@@ -40,6 +32,6 @@ public class Car {
     }
 
     public String getName() {
-        return name;
+        return name.value();
     }
 }

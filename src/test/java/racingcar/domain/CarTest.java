@@ -14,21 +14,21 @@ public class CarTest {
     @DisplayName("자동차에게 이름을 부여한다.")
     @Test
     void 자동차_이름_부여() {
-        assertThatCode(() -> new Car("자동차1")).doesNotThrowAnyException();
+        assertThatCode(() -> new Car(new Names("자동차1"))).doesNotThrowAnyException();
     }
 
     @DisplayName("자동차 이름이 1자 이상, 5자 이하 시 성공")
     @ParameterizedTest
     @ValueSource(strings = {"일", "일이", "일이삼", "일이삼사"})
     void 자동차_이름_길이_성공(String name) {
-        assertThatCode(() -> new Car(name)).doesNotThrowAnyException();
+        assertThatCode(() -> new Car(new Names(name))).doesNotThrowAnyException();
     }
 
     @DisplayName("자동차 이름이 1자 미만, 5자 초과 시 실패")
     @ParameterizedTest
     @ValueSource(strings = {"여섯글자이름", ""})
     void 자동차_이름_길이_실패(String name) {
-        assertThatThrownBy(() -> new Car(name))
+        assertThatThrownBy(() -> new Car(new Names(name)))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차의 이름은 5자 이하여야 합니다.");
     }
@@ -37,7 +37,7 @@ public class CarTest {
     @ParameterizedTest
     @ValueSource(ints = {4, 5, 6, 7, 8, 9})
     void 자동차_전진(int value) {
-        Car car = new Car("전진");
+        Car car = new Car(new Names("전진"));
 
         int position = car.getPosition();
         car.move(value);
@@ -49,7 +49,7 @@ public class CarTest {
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 3})
     void 자동차_멈춤(int value) {
-        Car car = new Car("멈춤");
+        Car car = new Car(new Names("멈춤"));
 
         int position = car.getPosition();
         car.move(value);

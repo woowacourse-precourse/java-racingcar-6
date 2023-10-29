@@ -13,6 +13,7 @@ public class Cars {
 
     public Cars(List<String> cars) {
         this.cars = cars.stream()
+                .map(Names::new)
                 .map(Car::new)
                 .collect(Collectors.toList());
 
