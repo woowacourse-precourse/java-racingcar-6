@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
@@ -34,5 +35,20 @@ class ApplicationTest extends NsTest {
     @Override
     public void runMain() {
         Application.main(new String[]{});
+    }
+
+    @Test
+    void inputCarNameValidation() {
+      IllegalArgumentException illegalArgumentException = null;
+      String input = "테스트1,테스트2,테스트3";
+      String[] cars = input.split(",");
+      assertThat(cars[2]).isEqualTo("테스트3");
+
+      for (String car: cars) {
+        if (car.length()>5){
+          illegalArgumentException = new IllegalArgumentException("자동차이름 5자 이하만 가능합니다.");
+        }
+      }
+      assertThat(illegalArgumentException).isEqualTo(null);
     }
 }
