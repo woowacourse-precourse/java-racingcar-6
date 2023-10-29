@@ -2,12 +2,10 @@ package racingcar.domain;
 
 import racingcar.message.ErrorMessage;
 
-public class TrialCount {
-    private int count;
+public record TrialCount(int count) {
 
-    public TrialCount(int count) {
+    public TrialCount {
         validate(count);
-        this.count = count;
     }
 
     private void validate(int count) {

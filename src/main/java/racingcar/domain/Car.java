@@ -2,8 +2,6 @@ package racingcar.domain;
 
 import static racingcar.domain.GameOption.CAR_POSITION_SIGN;
 
-import racingcar.message.ErrorMessage;
-
 public class Car {
     private final CarName name;
     private final Position position;
