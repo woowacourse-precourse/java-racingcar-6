@@ -3,7 +3,6 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -61,6 +60,15 @@ public class RacingGame {
     }
 
     public void printRacingSituation(CarMap carMap){
+        Map<String,String> racingMap = carMap.getMap();
+        Set<String> racingSet = racingMap.keySet();
+        for (String key : racingSet) {
+            System.out.println(key + " : " + racingMap.get(key));
+        }
+        System.out.println();
     }
 
+    public void printResult(CarMap carMap){
+
+    }
 }
