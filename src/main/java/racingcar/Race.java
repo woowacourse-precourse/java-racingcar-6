@@ -48,22 +48,16 @@ public class Race {
     }
 
     private static int calculateMaxPositionLength(List<Car> carList) {
-        int maxPositionLength = 0;
-        for (Car car : carList) {
-            if (car.getPositionLength() > maxPositionLength) {
-                maxPositionLength = car.getPositionLength();
-            }
-        }
-        return maxPositionLength;
+        return carList.stream()
+                .mapToInt(Car::getPositionLength)
+                .max()
+                .orElse(0);
     }
 
     private static List<String> getWinningCarNames(List<Car> carList, int maxPositionLength) {
-        List<String> winners = new ArrayList<>();
-        for (Car car : carList) {
-            if (car.isWinner(maxPositionLength)) {
-                winners.add(car.getName());
-            }
-        }
-        return winners;
+        return carList.stream()
+                .filter(car -> car.isWinner(maxPositionLength))
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 }

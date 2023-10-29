@@ -23,12 +23,12 @@ public class CarFactory {
     }
 
     private static List<Car> createCars(String[] nameArr) {
-        List<Car> carList = new ArrayList<>();
-        for (String name : nameArr) {
-            validateNameLength(name);
-            carList.add(new Car(name.trim()));
-        }
-        return carList;
+        return Arrays.stream(nameArr)
+                .map(name -> {
+                    validateNameLength(name);
+                    return new Car(name);
+                })
+                .collect(Collectors.toList());
     }
 
     private static void validateNameLength(String name) {
