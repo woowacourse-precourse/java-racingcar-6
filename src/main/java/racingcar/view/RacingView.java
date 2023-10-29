@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.constant.RacingMessage;
 import racingcar.model.Car;
+import racingcar.validator.InputValidator;
 
 public class RacingView {
 
@@ -19,6 +20,8 @@ public class RacingView {
 
     public Integer inputTryCount() {
         System.out.println(RacingMessage.INPUT_TRY_COUNT);
-        return Integer.parseInt(Console.readLine());
+        String input = Console.readLine();
+        InputValidator.validateTryCountInput(input);
+        return Integer.parseInt(input);
     }
 }
