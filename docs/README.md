@@ -26,9 +26,11 @@
         - printResult
         - printWinners
 - validator
-    - InputValidator
-        - validateCarNames
-        - validateTryCount
+    - validateCarName
+      - validateCarNameLength
+      - validateCarNameDuplication
+    - validateTryCount
+      - validateTryCountNumber
 - controller
     - RacingGameController
         - play
