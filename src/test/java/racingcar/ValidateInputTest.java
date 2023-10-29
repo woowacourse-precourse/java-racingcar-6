@@ -113,4 +113,19 @@ public class ValidateInputTest {
         assertThatThrownBy(() -> Application.validateNumber(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void validatePositiveNumber_유효성검사_성공_테스트() {
+        String input = "32";
+
+        Application.validatePositiveNumber(input);
+    }
+
+    @Test
+    void validatePositiveNumber_유효성검사_실패_테스트() {
+        String input = "-3";
+
+        assertThatThrownBy(() -> Application.validatePositiveNumber(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }

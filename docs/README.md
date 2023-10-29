@@ -46,7 +46,7 @@
     - 숫자가 아니라면 `IllegalArgumentException` 발생
       - [x] `validateNumber` 메서드
     - 음수라면 `IllegalArgumentException` 발생
-      - [ ] `validatePositive` 메서드
+      - [ ] `validatePositiveNumber` 메서드
 
 ## 게임 진행 기능
 - [x] RaceCarList : `moveRandomEachCars` 메서드
