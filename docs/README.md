@@ -99,7 +99,7 @@
     - `REQUEST_CAR_NAMES_FORMAT` : 차 이름 조건 메시지 포맷 : `경주할 자동차 이름을 입력하세요.(이름은 %s(%s) 기준으로 구분)`
     - `CAR_NAMES_DELIMITER_DESCRIPTION` : 차 이름들 구분자 설명
     - `CAR_NAMES_DELIMITER` : 차 이름들 구분자
-- [ ] 시도할 회수 요구 메시지 반환
+- [x] 시도할 회수 요구 메시지 반환
     - `REQUEST_ROUND_COUNT` : `시도할 회수는 몇회인가요?`
 - [ ] 실행 결과 메시지 반환
     - `PLAY_RESULT` : `\n실행결과`

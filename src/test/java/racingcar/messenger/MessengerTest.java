@@ -20,4 +20,15 @@ public class MessengerTest {
         Assertions.assertEquals(string, expectedString);
     }
 
+    @Test
+    @DisplayName("라운드 횟수 입력 요구 메시지를 올바르게 반환한다.")
+    void requestRoundCount() {
+        // when
+        String expectedString = "시도할 회수는 몇회인가요?\n";
+        String string = messenger.getRequestRoundCount();
+
+        // then
+        Assertions.assertEquals(string, expectedString);
+    }
+
 }

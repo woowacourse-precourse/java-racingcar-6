@@ -21,4 +21,8 @@ public class Messenger {
         return String.format(REQUEST_CAR_NAMES_FORMAT, CAR_NAMES_DELIMITER_DESCRIPTION, CAR_NAMES_DELIMITER);
     }
 
+    public String getRequestRoundCount() {
+        return REQUEST_ROUND_COUNT;
+    }
+
 }
