@@ -26,13 +26,13 @@ public class ConsoleView implements View {
     public void printRoundProgress(List<Vehicle> playerList) {
         for (int i = 0; i < playerList.size(); i++) {
             Vehicle player = playerList.get(i);
-            String winStatus = drawWin(player.getScore());
+            String winStatus = drawScore(player.getScore());
             out(player.getName() + " : " + winStatus);
         }
         out("");
     }
 
-    private String drawWin(int winCount) {
+    private String drawScore(int winCount) {
         StringBuilder winStatus = new StringBuilder();
         for (int i = 0; i < winCount; i++) {
             winStatus.append('-');
