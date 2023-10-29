@@ -2,29 +2,26 @@ package racingcar.manager;
 
 import java.util.List;
 import racingcar.domain.Car;
-import racingcar.service.CarFactory;
 import racingcar.service.CarService;
 
 public class RaceManager {
 
     private InputManager inputManager;
     private OutputManager outputManager;
-    private CarFactory carFactory;
     private CarService carService;
     private List<Car> cars;
     private int tryCount;
 
-    public RaceManager() {
+    public RaceManager(List<Car> cars,CarService carService,InputManager inputManager) {
 
-        inputManager = new InputManager();
-        carFactory = new CarFactory();
-        carService = new CarService();
-        tryCount = 0;
+        this.cars = cars;
+        this.carService = carService;
+        this.inputManager = inputManager;
+        this.tryCount = 0;
     }
 
     public void start() {
 
-        cars = carFactory.generateCars();
         outputManager = new OutputManager(cars);
         tryCount = Integer.parseInt(inputManager.inputTryCount());
 
