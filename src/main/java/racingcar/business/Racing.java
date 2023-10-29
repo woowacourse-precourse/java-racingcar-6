@@ -14,6 +14,8 @@ public class Racing {
         Output.GET_NAMES.print();
         List<String> names = inputView.getNames();
 
+        Output.GET_GAME_COUNT.print();
+
 
     }
 }
