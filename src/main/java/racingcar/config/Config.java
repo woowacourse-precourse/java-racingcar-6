@@ -1,9 +1,10 @@
 package racingcar.config;
 
 public class Config {
-  private static int MIN_VALUE = 0;
-  private static int MAX_VALUE = 9;
-  private static int SET_VALUE = 4;
+  private static final int MIN_VALUE = 0;
+  private static final int MAX_VALUE = 9;
+  private static final int SET_VALUE = 4;
+
 
   public int getMinValue() {
     return MIN_VALUE;
