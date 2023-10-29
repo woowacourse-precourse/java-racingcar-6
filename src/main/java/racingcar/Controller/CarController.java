@@ -5,7 +5,7 @@ import racingcar.Model.CarModel;
 
 public class CarController {
 
-    ArrayList<CarModel> carModelList;
+    ArrayList<CarModel> carModelList = new ArrayList<>();
 
     public void setCarModels(String[] carList){
 
@@ -23,6 +23,28 @@ public class CarController {
 
         if(dice>=4){
             car.goForwardDistance();
+        }
+    }
+
+    public void printDistance(){
+
+        int distance;
+        String carName;
+        StringBuilder sb;
+
+        for(CarModel car : carModelList){
+
+            sb = new StringBuilder();
+            distance = car.getForwardDistance();
+            carName = car.getName();
+
+            sb.append(carName).append(" : ");
+
+            for(int i = 0; i < distance;i++){
+                sb.append("-");
+            }
+
+            System.out.println(sb);
         }
     }
 
