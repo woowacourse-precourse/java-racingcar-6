@@ -3,6 +3,7 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.output.GameOutput;
 
 public class CarRaceGame {
     private List<Car> cars;
@@ -21,9 +22,10 @@ public class CarRaceGame {
     }
 
     public void playGame() {
+        GameOutput.initializeOutput();
         for (int i = 0; i < iterationNumber; i++) {
             moveCars();
-            // output result
+            GameOutput.printCurrentStatus(cars);
         }
     }
 
