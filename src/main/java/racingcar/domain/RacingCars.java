@@ -39,14 +39,17 @@ public class RacingCars {
     }
 
     public List<Car> findWinners() {
-        int maxMove = cars.stream()
+        int maxMove = getMaxMove();
+        return cars.stream()
+                .filter(car -> car.isMaxMove(maxMove))
+                .toList();
+    }
+
+    private int getMaxMove() {
+        return cars.stream()
                 .map(Car::getMoveCount)
                 .mapToInt(num -> num)
                 .max()
                 .orElseThrow();
-
-        return cars.stream()
-                .filter(car -> car.isMaxMove(maxMove))
-                .toList();
     }
 }
