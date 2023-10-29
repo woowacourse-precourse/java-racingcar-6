@@ -2,15 +2,17 @@
 
 - [ ] 주어진 횟수 만큼 자동차 전진 또는 멈춤 수행 - RacingcarGame#run()
 - [x] 각 자동차에 이름을 부여 - Car#createName()
-  - [x] 자동차 이름이 5자 이하 검증 - Car#validateName()
-  - [x] 자동차 이름을 쉼표(,)를 기준으로 구분 및 문자열 리스트 변환 - Car#splitToName() 
-- [ ] 사용자가 이동할 횟수 입력 - Player#moveOnInput()
+    - [x] 자동차 이름이 5자 이하 검증 - Car#validateName()
+    - [x] 자동차 이름을 쉼표(,)를 기준으로 구분 및 문자열 리스트 변환 - Car#splitToName()
+- [x] 사용자가 이동할 횟수 입력 - Player#moveOnInput()
+    - [x] 사용자가 입력한 이동 횟수 검증 - Player#validateCount()
+    - [x] 사용자가 입력한 이동 횟수가 0보다 큰 정수 확인 - Player#isCountRange()
 - [x] 0에서 9사이 무작위 값을 구한다. - Utils#randomNumberGenerator()
-  - [x] 0에서 9사이 무작위 값을 검증 - Utils#isNumberRange()
-  - [x] 무작위 값이 4 이상일 경우 전진 - Car#moveToGo()
+    - [x] 0에서 9사이 무작위 값을 검증 - Utils#isNumberRange()
+    - [x] 무작위 값이 4 이상일 경우 전진 - Car#moveToGo()
 - [ ] 자동차 경주 게임을 완료한 후 누가 우승했는지 알린다. - OutputView#printToResult()
-  - [ ] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분 - OutputView#winnersToMulti()
-- [ ] 사용자가 잘못된 값을 입력한 경우 `IllegalArgumentException` 발생 - ExceptionMessage
+    - [ ] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분 - OutputView#winnersToMulti()
+- [x] 사용자가 잘못된 값을 입력한 경우 `IllegalArgumentException` 발생 - ExceptionMessage
 
 [기능 요구 사항]
 초간단 자동차 경주 게임을 구현한다.
@@ -24,9 +26,8 @@
 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.
 
-
 [추가된 요구 사항]
-indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다. 
+indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다.
 예를 들어 while문 안에 if문이 있으면 들여쓰기는 2이다.
 힌트: indent(인덴트, 들여쓰기) depth를 줄이는 좋은 방법은 함수(또는 메서드)를 분리하면 된다.
 3항 연산자를 쓰지 않는다.
