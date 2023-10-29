@@ -8,4 +8,8 @@ public class Information {
         this.name = name;
         destination = 0;
     }
+
+    void update() {
+        destination++;
+    }
 }
