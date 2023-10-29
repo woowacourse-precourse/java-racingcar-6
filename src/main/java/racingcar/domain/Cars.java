@@ -1,7 +1,9 @@
 package racingcar.domain;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import racingcar.constants.ExceptionMessage;
 
 public class Cars {
@@ -31,7 +33,10 @@ public class Cars {
     }
 
     private boolean hasDuplicateName(final List<Car> cars) {
-        return cars.stream().distinct().count() != cars.size();
+        Set<String> carNames = new HashSet<>();
+        return cars.stream()
+                .map(car -> car.getName().toString())
+                .anyMatch(name -> !carNames.add(name));
     }
 
     private boolean hasMinimumCarCount(final List<Car> cars) {
@@ -41,5 +46,4 @@ public class Cars {
     public List<Car> getCars() {
         return Collections.unmodifiableList(cars);
     }
-
 }
