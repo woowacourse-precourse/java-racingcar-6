@@ -5,7 +5,7 @@ import racingcar.vo.Car;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class WinnerDeterminationService {
+public class WinnerService {
     public List<Car> findWinners(List<Car> cars){
         int maxTotalForwards = getMaxTotalForwards(cars);
         return cars.stream()

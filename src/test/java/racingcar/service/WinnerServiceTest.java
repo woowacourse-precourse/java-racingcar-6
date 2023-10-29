@@ -11,12 +11,12 @@ import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
 
-class WinnerDeterminationServiceTest {
+class WinnerServiceTest {
 
     private Car car1;
     private Car car2;
     private Car car3;
-    private WinnerDeterminationService winnerService;
+    private WinnerService winnerService;
 
 
     @BeforeEach
@@ -24,7 +24,7 @@ class WinnerDeterminationServiceTest {
         car1 = new Car("pobi", List.of(TRUE, TRUE, TRUE, TRUE, TRUE));
         car2 = new Car("woni", List.of(FALSE, TRUE, TRUE, TRUE, TRUE));
         car3 = new Car("jun", List.of(TRUE, TRUE, TRUE, TRUE, TRUE));
-        winnerService = new WinnerDeterminationService();
+        winnerService = new WinnerService();
     }
 
     @Test

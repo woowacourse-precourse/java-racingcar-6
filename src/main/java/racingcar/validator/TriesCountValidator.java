@@ -1,6 +1,6 @@
 package racingcar.validator;
 
-public class TriesCountInputValidator {
+public class TriesCountValidator {
     public int validateAndGetTriesCount(String userInput) {
         userInput = removeWhiteSpace(userInput);
         validateNotEmpty(userInput);

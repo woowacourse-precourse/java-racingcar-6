@@ -1,9 +1,9 @@
 package racingcar.controller;
 
 import racingcar.service.MoveStrategy;
-import racingcar.service.WinnerDeterminationService;
-import racingcar.validator.CarNameInputValidator;
-import racingcar.validator.TriesCountInputValidator;
+import racingcar.service.WinnerService;
+import racingcar.validator.CarNameValidator;
+import racingcar.validator.TriesCountValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 import racingcar.vo.Car;
@@ -13,15 +13,16 @@ import java.util.List;
 
 public class RacingGameController {
     private final MoveStrategy moveStrategy;
-    private final CarNameInputValidator carNameInputValidator;
-    private final TriesCountInputValidator triesCountInputValidator;
-    private final WinnerDeterminationService winnerDeterminationService;
+    private final CarNameValidator carNameValidator;
+    private final TriesCountValidator triesCountValidator;
+    private final WinnerService winnerService;
 
-    public RacingGameController(MoveStrategy moveStrategy, CarNameInputValidator carNameInputValidator, TriesCountInputValidator triesCountInputValidator, WinnerDeterminationService winnerDeterminationService) {
+    public RacingGameController(MoveStrategy moveStrategy, CarNameValidator carNameValidator,
+                                TriesCountValidator triesCountValidator, WinnerService winnerService) {
         this.moveStrategy = moveStrategy;
-        this.carNameInputValidator = carNameInputValidator;
-        this.triesCountInputValidator = triesCountInputValidator;
-        this.winnerDeterminationService = winnerDeterminationService;
+        this.carNameValidator = carNameValidator;
+        this.triesCountValidator = triesCountValidator;
+        this.winnerService = winnerService;
     }
 
     public void racingGame() {
@@ -30,8 +31,8 @@ public class RacingGameController {
         String carNameUserInput = InputView.askCarNames();
         String triesCountUserInput = InputView.askTriesCount();
 
-        List<String> carNames = carNameInputValidator.validateAndGetCarNames(carNameUserInput);
-        int triesCount = triesCountInputValidator.validateAndGetTriesCount(triesCountUserInput);
+        List<String> carNames = carNameValidator.validateAndGetCarNames(carNameUserInput);
+        int triesCount = triesCountValidator.validateAndGetTriesCount(triesCountUserInput);
 
         for (String carName : carNames) {
             List<Boolean> movementFlags = moveStrategy.createMovementFlags(triesCount);
@@ -50,7 +51,7 @@ public class RacingGameController {
             OutputView.printNewLine();
         }
 
-        List<Car> winners = winnerDeterminationService.findWinners(racingCars);
+        List<Car> winners = winnerService.findWinners(racingCars);
         OutputView.printWinners(winners); //winner 객체로 뺄 지 고민 해보기
     }
 

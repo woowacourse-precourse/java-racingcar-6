@@ -1,13 +1,12 @@
 package racingcar.validator;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TriesCountInputValidatorTest {
+class TriesCountValidatorTest {
 
-    TriesCountInputValidator validator = new TriesCountInputValidator();
+    TriesCountValidator validator = new TriesCountValidator();
 
     /**
      * positive test

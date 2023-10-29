@@ -4,20 +4,22 @@ import racingcar.controller.RacingGameController;
 import racingcar.service.CampRandomGenerator;
 import racingcar.service.MoveStrategy;
 import racingcar.service.RandomMoveStrategy;
-import racingcar.service.WinnerDeterminationService;
-import racingcar.validator.CarNameInputValidator;
-import racingcar.validator.TriesCountInputValidator;
+import racingcar.service.WinnerService;
+import racingcar.validator.CarNameValidator;
+import racingcar.validator.TriesCountValidator;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
-        MoveStrategy moveStrategy = new RandomMoveStrategy(new CampRandomGenerator());
-        CarNameInputValidator carNameInputValidator = new CarNameInputValidator();
-        TriesCountInputValidator triesCountInputValidator = new TriesCountInputValidator();
-        WinnerDeterminationService winnerDeterminationService = new WinnerDeterminationService();
-
-        RacingGameController racingGameController = new RacingGameController(moveStrategy,carNameInputValidator,triesCountInputValidator,winnerDeterminationService);
-
+        RacingGameController racingGameController = initializeGameController();
         racingGameController.racingGame();
+    }
+
+    private static RacingGameController initializeGameController() {
+        MoveStrategy moveStrategy = new RandomMoveStrategy(new CampRandomGenerator());
+        CarNameValidator carNameValidator = new CarNameValidator();
+        TriesCountValidator triesCountValidator = new TriesCountValidator();
+        WinnerService winnerService = new WinnerService();
+
+        return new RacingGameController(moveStrategy, carNameValidator, triesCountValidator, winnerService);
     }
 }

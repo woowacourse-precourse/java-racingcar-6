@@ -5,7 +5,7 @@ import java.util.List;
 import static racingcar.global.GameStrConstant.*;
 import static racingcar.global.GameIntConstant.*;
 
-public class CarNameInputValidator {
+public class CarNameValidator {
 
     public List<String> validateAndGetCarNames(String userInput) {
         userInput = removeWhiteSpace(userInput);
