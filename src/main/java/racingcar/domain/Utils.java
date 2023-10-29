@@ -16,8 +16,9 @@ public class Utils {
         }
     }
 
-    public static List<String> splitNamesOfCars(String namesOfCars) {
+    public static List<Name> splitNamesOfCars(String namesOfCars) {
         return Arrays.stream(namesOfCars.split(CAR_NAME_SEPARATOR))
+                .map(Name::new)
                 .collect(Collectors.toList());
     }
 }
