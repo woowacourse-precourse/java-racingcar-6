@@ -4,31 +4,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Winner {
-    public void car(List<String> carNames, List<String> progressResults) {
+    public void findWinners(List<String> carNames, List<String> progressResults) {
         List<String> winner = new ArrayList<>();
-        int maxNum = checkMax(progressResults);
+        int maxProgress = findMaxProgress(progressResults);
 
         for (int r = 0; r < progressResults.size(); r++) {
-            if(progressResults.get(r).length() == maxNum) {
+            if(progressResults.get(r).length() == maxProgress) {
                 winner.add(carNames.get(r));
             }
         }
 
-        result(winner);
+        printResult(winner);
     }
 
-    public int checkMax(List<String> progressResults) {
-        int maxNum = 0;
+    public int findMaxProgress(List<String> progressResults) {
+        int maxProgress = 0;
 
         for (String progressResult: progressResults) {
-            if(progressResult.length() > maxNum) {
-                maxNum = progressResult.length();
+            if(progressResult.length() > maxProgress) {
+                maxProgress = progressResult.length();
             }
         }
-        return maxNum;
+        return maxProgress;
     }
 
-    public void result(List<String> winner) {
+    public void printResult(List<String> winner) {
         String result = String.join(",", winner);
         System.out.println("최종 우승자 : " + result);
     }

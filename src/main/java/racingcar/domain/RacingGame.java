@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
-    public List<String> progress(List<String> carNames, int attemptCount) {
+    public List<String> race(List<String> carNames, int attemptCount) {
 
         MovingCondition movingCondition = new MovingCondition();
         List<String> racingProgress = new ArrayList<>();
@@ -16,19 +16,19 @@ public class RacingGame {
 
         for (int a = 0; a < attemptCount; a++){
             for (int c = 0; c < carNames.size(); c++){
-                boolean condition = movingCondition.isMoveForward();
-                if(condition){
+                boolean isMovingForward = movingCondition.isMoveForward();
+                if(isMovingForward){
                     String currentProgress = racingProgress.get(c);
                     racingProgress.set(c, currentProgress + "-");
                 }
             }
-            progressResult(carNames, racingProgress);
+            printProgressResult(carNames, racingProgress);
         }
 
         return racingProgress;
     }
 
-    public void progressResult(List<String> carNames, List<String> racingProgress){
+    public void printProgressResult(List<String> carNames, List<String> racingProgress){
         for (int p = 0; p < carNames.size(); p++) {
             System.out.println(carNames.get(p) + " : " + racingProgress.get(p));
         }

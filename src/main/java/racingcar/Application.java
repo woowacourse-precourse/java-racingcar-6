@@ -13,12 +13,12 @@ public class Application {
         List<String> carNames = car.getNames();
 
         Attempt attempt = new Attempt();
-        int attemptCount = attempt.attemptNum();
+        int attemptCount = attempt.getCount();
 
         RacingGame racingGame = new RacingGame();
-        List<String> progressResults = racingGame.progress(carNames, attemptCount);
+        List<String> progressResults = racingGame.race(carNames, attemptCount);
 
         Winner winner = new Winner();
-        winner.car(carNames, progressResults);
+        winner.findWinners(carNames, progressResults);
     }
 }

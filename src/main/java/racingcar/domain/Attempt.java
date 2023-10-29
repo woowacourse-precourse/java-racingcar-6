@@ -3,14 +3,14 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Attempt {
-    public int attemptNum() {
+    public int getCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         String inputCount = Console.readLine();
 
-        return validateInputNumber(inputCount);
+        return validateAttemptCount(inputCount);
     }
 
-    public int validateInputNumber(String inputCount) {
+    public int validateAttemptCount(String inputCount) {
         int countNum = checkInt(inputCount);
         checkNatural(countNum);
 
