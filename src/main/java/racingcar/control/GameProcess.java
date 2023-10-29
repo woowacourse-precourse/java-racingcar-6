@@ -36,6 +36,7 @@ public class GameProcess {
         String inputStr = Utill.inputString();
 
         ValidInputNameOfRaceCar(inputStr);
+
         nameLineOfRaceCar = inputStr;
     }
 
@@ -45,14 +46,10 @@ public class GameProcess {
      * @param inputStr
      */
     private void ValidInputNameOfRaceCar(String inputStr) {
-        // 각각 자동차의 이름은 5자 이하 검사
-        ValidException.isValidCarEachNameFIveLessString(inputStr);
-        // 한글 포함 검사
-        ValidException.isValidIncludeKorean(inputStr);
-        // 문자열 이름 "woo," 이렇게 ,다음은 문자열이 꼭나와야된다.
-        ValidException.isValidCommaNextBlankCheck(inputStr);
-        // 자동차 하나만 입력 금지.
-        ValidException.isValidOneNameOfRaceCarCheck(inputStr);
+        ValidException.isValidCarEachNameFIveLessStringCheck(inputStr); // 각각 자동차의 이름은 5자 이하 검사
+        ValidException.isValidIncludeKoreanCheck(inputStr); // 한글 포함 검사
+        ValidException.isValidCommaNextBlankCheck(inputStr); // 문자열 이름 "woo," 이렇게 ,다음은 문자열이 꼭나와야된다.
+        ValidException.isValidOneNameOfRaceCarCheck(inputStr); // 자동차 하나만 입력 금지.
     }
 
     /**

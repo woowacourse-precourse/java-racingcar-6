@@ -2,7 +2,6 @@ package racingcar.utill;
 
 import racingcar.string.ValidConstants;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -31,7 +30,7 @@ public class ValidException {
      * @param str "one, two, three"
      * @return
      */
-    public static Boolean isValidIncludeKorean(String str) {
+    public static Boolean isValidIncludeKoreanCheck(String str) {
         Pattern pattern = Pattern.compile("[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+");
         Matcher matcher = pattern.matcher(str);
 
@@ -160,7 +159,7 @@ public class ValidException {
      * @param inputStr
      * @return
      */
-    public static boolean isValidCarEachNameFIveLessString(String inputStr) {
+    public static boolean isValidCarEachNameFIveLessStringCheck(String inputStr) {
         List<String> nameEachOfList = Arrays.stream(inputStr.split(",")).toList();
         System.out.println("nameEachOfList = " + nameEachOfList);
         for (String name : nameEachOfList) {
