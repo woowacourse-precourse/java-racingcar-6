@@ -9,18 +9,27 @@ import racingcar.view.View;
 public class RaceControllerIntegerRanged implements RaceController {
     @Override
     public void processRace(String input, CarRepository carRepository) {
-
+        int round = inputToInt(input);
         View.RaceStartMessage();
-
-        RaceService.raceRepeatByInput(input, carRepository);
+        RaceService.raceRepeatByInput(round, carRepository);
 
         List<String> winners = WinnerService.getWinnerNames(carRepository);
         View.printWinner(winners);
     }
+
+    private int inputToInt(String input) {
+        isValidInput(input);
+        int round = Integer.parseInt(input);
+        return round;
+    }
+
     @Override
-    public void validateRoundInput(String input) {
+    public void isValidInput(String input) {
         try {
-            Integer.parseInt(input);
+            int round = Integer.parseInt(input);
+            if (round <= 0) {
+                throw new NumberFormatException();
+            }
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }

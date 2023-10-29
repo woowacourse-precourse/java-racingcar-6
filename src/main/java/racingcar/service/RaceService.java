@@ -1,35 +1,34 @@
 package racingcar.service;
 
+import Config.RaceConfig;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.CarRepository;
 import racingcar.model.car.Car;
 import racingcar.view.View;
 
 public class RaceService {
-    private static final int MOVE_CRITERIA = 4;
-    private static final int MOVE_START_RANGE = 0;
-    private static final int MOVE_END_RANGE = 9;
 
-
-    public static void raceRepeatByInput(String input, CarRepository carRepository) {
-        int round = Integer.parseInt(input);
-        int size = carRepository.size();
-
+    public static void raceRepeatByInput(int round, CarRepository carRepository) {
         for (int i = 0; i < round; i++) {
-            for (int j = 0; j < size; j++) {
-                Car car = carRepository.getCar(j);
-
-                int randomDistance = pickRandomNumber();
-                boolean canMove = randomDistance >= MOVE_CRITERIA;
-                car.move(randomDistance, canMove);
-
-                View.print(car, randomDistance);
-            }
+            runRace(carRepository);
             System.out.println();
         }
     }
+
+    private static void runRace(CarRepository carRepository) {
+        for (int j = 0; j < carRepository.size(); j++) {
+            Car car = carRepository.getCar(j);
+
+            int randomDistance = pickRandomNumber();
+            boolean canMove = randomDistance >= RaceConfig.MOVE_CRITERIA;
+            car.move(randomDistance, canMove);
+
+            View.print(car, randomDistance);
+        }
+    }
+
     private static int pickRandomNumber() {
-        return Randoms.pickNumberInRange(MOVE_START_RANGE, MOVE_END_RANGE);
+        return Randoms.pickNumberInRange(RaceConfig.MOVE_START_RANGE, RaceConfig.MOVE_END_RANGE);
     }
 
 }

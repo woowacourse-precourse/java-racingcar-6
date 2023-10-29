@@ -11,7 +11,7 @@ import racingcar.model.car.Car;
 
 public class WinnerService {
 
-    public static List<String> getWinnerNames(CarRepository carRepository){
+    public static List<String> getWinnerNames(CarRepository carRepository) {
         Map<Integer, List<Car>> rankMap = partitioningByRank(carRepository);
         List<Car> winnerCarList = getWinnerList(rankMap);
         return convertCarsToStrings(winnerCarList);

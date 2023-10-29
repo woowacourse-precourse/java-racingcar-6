@@ -5,11 +5,12 @@ import racingcar.model.car.Car;
 
 public class CarSaveService {
 
-    private CarSaveService(){
+    private CarSaveService() {
 
     }
-    public static CarRepository SaveCars(String[] strings, CarRepository carRepository){
-        for(int i = 0; i< strings.length; i++) {
+
+    public static CarRepository saveCars(String[] strings, CarRepository carRepository) {
+        for (int i = 0; i < strings.length; i++) {
             Car participantCar = Car.of(i, strings[i]);
             carRepository.save(participantCar);
         }

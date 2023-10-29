@@ -6,11 +6,10 @@ public class CarId {
         this.id = id;
     }
 
-    public static IllegalArgumentException validateRange(int size) {
+    private void validateRange(int size) {
         if (size > Integer.MAX_VALUE || size < 0) {
             throw new IllegalArgumentException();
         }
-        return null;
     }
 
     public Integer getId() {

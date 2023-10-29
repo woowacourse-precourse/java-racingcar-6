@@ -14,7 +14,6 @@ public class MainController {
     private CarRepository carRepository = new CarRepository(new ArrayList<Car>());
 
     public void process() {
-
         startGame();
         startRace();
         closeGame();
@@ -22,13 +21,11 @@ public class MainController {
     private void startGame() {
         View.gameStartMessage();
         String[] carNames = InputHandler.inputStringToArray();
-        CarSaveService.SaveCars(carNames, carRepository);
+        CarSaveService.saveCars(carNames, carRepository);
     }
-
     private void startRace() {
         View.raceStartMessage();
         String roundInput = InputHandler.readInput();
-        raceController.validateRoundInput(roundInput);
         raceController.processRace(roundInput, carRepository);
     }
 

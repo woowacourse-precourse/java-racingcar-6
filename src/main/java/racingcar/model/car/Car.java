@@ -18,12 +18,12 @@ public class Car {
 
     public void move(int distance, boolean canMove){
         if(canMove) {
-            validateOverflow(distance);
+            throwExceptionWhenOverflow(distance);
             position += distance;
         }
     }
 
-    private void validateOverflow(int distance) {
+    private void throwExceptionWhenOverflow(int distance) {
         if(distance > 0 && position + distance < position) {
             throw new IllegalArgumentException();
         }

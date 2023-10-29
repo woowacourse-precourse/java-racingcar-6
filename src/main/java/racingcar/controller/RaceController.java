@@ -6,6 +6,6 @@ public interface RaceController {
 
     void processRace(String round, CarRepository carRepository);
 
-    void validateRoundInput(String input);
+    void isValidInput(String input);
 
 }
