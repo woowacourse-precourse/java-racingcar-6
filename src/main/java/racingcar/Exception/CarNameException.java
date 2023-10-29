@@ -12,6 +12,7 @@ public class CarNameException {
     public void validateCarNameInput(String carNameInput) throws IllegalArgumentException {
         List<String> carNameList = stringToList.analysisCarNames(carNameInput);
         checkCarNameIsOutOfRangeAndBlank(carNameList);
+        checkCarNameIsDuplication(carNameList);
 
         checkInputIsEmpty(carNameInput);
         checkLastInputIsComma(carNameInput);
@@ -21,6 +22,20 @@ public class CarNameException {
         for (String carName : carNameList) {
             checkLength(carName);
             checkIntervalBlank(carName);
+        }
+    }
+
+    private void checkCarNameIsDuplication(List<String> carNameList) {
+        for (int i = 0; i < carNameList.size(); i++) {
+            for (int j = i + 1; j < carNameList.size(); j++) {
+                carNamesComparison(carNameList.get(i), carNameList.get(j));
+            }
+        }
+    }
+
+    private void carNamesComparison(String firstUsedCarName, String nextUsedCarName) {
+        if (firstUsedCarName.equals(nextUsedCarName)) {
+            throw new IllegalArgumentException("같은 이름을 가진 자동차가 있습니다.");
         }
     }
 
