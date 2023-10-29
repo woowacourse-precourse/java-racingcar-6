@@ -5,11 +5,12 @@ import racingcar.domain.car.Car;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CarRepository {
 
     private static Long CarId = 0L;
-    private HashMap<Long, Car> carDatabase = new HashMap<>();
+    private static Map<Long, Car> carDatabase = new HashMap<>();
 
     public void save(Car car) {
         carDatabase.put(CarId, car);
