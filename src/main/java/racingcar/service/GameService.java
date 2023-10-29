@@ -37,6 +37,16 @@ public class GameService {
         gameCount = Integer.parseInt(userInput);
     }
 
+    public void playGame() {
+        for (int count = 0; count < gameCount; count++) {
+            for (Car carList : carList) {
+                carList.play();
+                carList.printGameProceed();
+            }
+            System.out.println();
+        }
+    }
+
     private List<String> convertStrToList(String userInput) {
         return Arrays.stream(userInput.split(DIVISION_STANDARD))
                 .collect(Collectors.toList());

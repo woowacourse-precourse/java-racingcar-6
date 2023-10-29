@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.service.GameService;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class GameMainController {
 
@@ -15,6 +16,7 @@ public class GameMainController {
     }
 
     public void playGame() {
-
+        OutputView.printResultMessage();
+        gameService.playGame();
     }
 }
