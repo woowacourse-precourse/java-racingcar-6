@@ -2,9 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class User {
     private final int GO_STRAIGHT_NUMBER = 4;
@@ -18,5 +16,12 @@ public class User {
         String userInput = Console.readLine();
         List<String> nameList = Arrays.asList(userInput.split(","));
         return nameList;
+    }
+    public Map<String,String> initUser(List<String> nameList){
+        HashMap<String,String> userInformation = new HashMap<>();
+        for(int index = 0; index < nameList.size();index++){
+            userInformation.put(nameList.get(index),"+");
+        }
+        return userInformation;
     }
 }
