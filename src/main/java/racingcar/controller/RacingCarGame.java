@@ -28,9 +28,7 @@ public class RacingCarGame {
             playRound();
             printRoundResult();
         }
-
         printWinners();
-
     }
 
     private void playRound() {
