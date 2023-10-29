@@ -1,4 +1,4 @@
-package racingcar.util;
+package racingcar.game.util;
 
 import java.util.Collection;
 
