@@ -5,6 +5,7 @@ import view.InputPhrase;
 
 public class RacingCarGame {
     IllegalLogic illegalLogic = new IllegalLogic();
+    RacingCarGameLogic racingCarGameLogic = new RacingCarGameLogic();
 
     InputPhrase inputPhrase = new InputPhrase();
     public void run(){
@@ -15,6 +16,9 @@ public class RacingCarGame {
 
     private void gameStart(){
         inputPhrase.inputNumberAttempts();
-        illegalLogic.checkInputNumberAttempts(Console.readLine());
+        int repeteNumber = illegalLogic.checkInputNumberAttempts(Console.readLine());
+        for(int i=0;i<repeteNumber;i++){
+            racingCarGameLogic.checkFrontAttempts();
+        }
     }
 }
