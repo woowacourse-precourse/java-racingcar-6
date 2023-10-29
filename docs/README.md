@@ -31,7 +31,6 @@
 ### 🛠 util
 
 - 🛡️ validator
-    - [ ] **ForwardValidator**: 전진 가능 여부 검증 클래스
     - [x] **CarNameLengthValidator**: 자동차 이름 글자 수 검증 클래스
     - [x] **CarNameRegexValidator**: 자동차 이름 입력시 ,와 문자 숫자로 되어있는지 검증하는 클래스
 
@@ -41,18 +40,17 @@
     - [x] **StringListToCarListConverter**: 문자열 리스트를 자동차 리스트로 변환하는 클래스
 
 - generator
-    - [ ] **🎰 NumberGenerator**: 1~9 사이의 랜덤값을 생성하고 반환하는 클래스
+    - [x] **🎰 NumberGenerator**: 1~9 사이의 랜덤값을 생성하고 반환하는 클래스
 
 ### 🏢 domain
 
-- [ ] 🚗 **Cars**: (일급 컬렉션)
+- [x] 🚗 **Cars**: (일급 컬렉션)
     - [x] 🚖 **Car**: 자동차의 움직임을 맡는다.
         - [x] **CarName**: 자동차의 이름을 저장하는 불변 객체
         - [x] **CarLocation**: 현재 자동차의 위치를 저장하는 객체
 
-- 🏁 CarForwardService: 전진 가능 여부를 확인하고 가능하면 `car.move()`를 실행
-    - 🚀 ForwardStrategy: 자동차의 전진 전략을 정의하는 추상 클래스
-        - [ ] **ConditionBasedForwardStrategy**: ForwardStrategy를 구현하는 구체적인 전략 클래스. 특정 조건에 따라 자동차가 전진
+    - [x] 🚀 ForwardStrategy: 자동차의 전진 전략을 정의하는 추상 클래스
+    - [x] **RandomForwardStrategy**: ForwardStrategy를 구현하는 구체적인 전략 클래스. 특정 조건에 따라 자동차가 전진
     - [ ] **ResultFormatter**: RoundResultDto의 값을 출력하기 좋게 변환하는 클래스
 
 - 🏆 CarRaceResultEvaluator: 자동차 경주의 우승자를 찾아주는 클래스
@@ -71,8 +69,8 @@
 - 📤 output
     - [ ] **Output**: 출력을 받는 인터페이스
 
-- 🖼️ [ ] **ConsoleInputView**: input 인터페이스를 구현하는 클래스
-- 🖼️ [ ] **ConsoleOutputView**: output 인터페이스를 구현하는 클래스
+- [ ] 🖼️ **ConsoleInputView**: input 인터페이스를 구현하는 클래스
+- [ ] 🖼️ **ConsoleOutputView**: output 인터페이스를 구현하는 클래스
 
 ### 📝 dto
 
@@ -81,3 +79,4 @@
 
 ### enum
 - [ ] **RaceMessages**: 출력 메세지 상수를 가지고 있는 이넘  
+- [x] **ErrorMessages**: 에러 메세지 상수를 가지고 있는 이넘 
