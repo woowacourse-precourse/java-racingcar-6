@@ -1,10 +1,9 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
-public class PlayGame {
+public class Game {
     public void TryGame(List<String> members, int TryNumber){
         System.out.println("실행 결과");
         List<Integer> count = new ArrayList<>();
@@ -18,16 +17,23 @@ public class PlayGame {
     }
     public List<Integer> CheckMoveOrStop(List<String> members, List<Integer> count){
         int MembersSize = members.size();
+        String result = "";
         for(int i=0;i<MembersSize;i++){
-            String result = "";
             int RandomNumber = Randoms.pickNumberInRange(0,9);
             if(RandomNumber >= 4){
-                result += "-";
-                count.add(i, 1);
+                count.set(i, count.get(i)+1);
             }
+            result = CheckResult(count.get(i));
             System.out.println(members.get(i) + " : " + result);
         }
         return count;
+    }
+    public String CheckResult(int count){
+        String result = "";
+        for(int i =0; i<count;i++){
+            result += "-";
+        }
+        return result;
     }
     public void CheckWinner(List<String> members, List<Integer> count){
         int MaxIndex = FindMaxIndex(count);
@@ -44,8 +50,8 @@ public class PlayGame {
     public int FindMaxIndex(List<Integer> count){
         int index = 0;
         int size = count.size();
-        for(int i = size; i <= 0; i--){
-            if(count.get(i) == Collections.max(count))
+        for(int i = 0; i<size;i++){
+            if(count.get(index) < count.get(i))
                 index = i;
         }
         return index;
