@@ -8,7 +8,7 @@ import racingcar.model.dto.GameResult;
 public class OutputView {
 
     public static void printStatus(GameStatus status) {
-        status.positions().forEach(OutputView::printPosition);
+        OutputView.printPosition(status.name(), status.position());
     }
 
     public static void printWinner(GameResult result) {
@@ -20,7 +20,7 @@ public class OutputView {
     }
 
     private static void printPosition(String name, Long position) {
-        System.out.print(String.join(name, " : "));
+        System.out.print(name + " : ");
         for (int i = 0; i < position; i++) {
             System.out.print('-');
         }

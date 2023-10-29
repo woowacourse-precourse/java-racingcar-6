@@ -9,5 +9,6 @@ public class Application {
 
         GameInput input = InputView.getInput();
         Game game = new Game(input);
+        game.play();
     }
 }
