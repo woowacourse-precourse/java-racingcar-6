@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
+import java.util.List;
 
 public class Application {
 
@@ -10,6 +12,10 @@ public class Application {
 
     public String inputCarNames() {
         return Console.readLine();
+    }
+
+    public List<String> splitCarNames(String carNames) {
+        return Arrays.stream(carNames.split(",")).toList();
     }
 
     public static void main(String[] args) {
