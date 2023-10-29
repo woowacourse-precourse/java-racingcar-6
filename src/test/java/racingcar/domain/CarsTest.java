@@ -64,4 +64,18 @@ class CarsTest {
                 });
     }
 
+    @DisplayName("")
+    @Test
+    void findWinner() {
+        // given
+        mockStatic(Utils.class);
+        when(Utils.makeRandomNumber()).thenReturn(7,5, 6, 8, 6, 2, 9, 1, 0);
+        for(int i=0; i<3; i++) { cars.moveCars(); }
+
+        // when
+        List<String> winnerList = cars.findWinner();
+
+        // then
+        assertThat(winnerList.get(0)).isEqualTo("pobi");
+    }
 }
