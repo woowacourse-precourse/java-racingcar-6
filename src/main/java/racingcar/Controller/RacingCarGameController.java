@@ -4,12 +4,14 @@ import java.util.List;
 import racingcar.Util.InputValidator;
 import racingcar.View.InputView;
 
-public class RacingCarController {
+public class RacingCarGameController {
 
     public void initRacingCarGame(){
         List<String> carNameList = InputView.inputRacingCarName();
         InputValidator.checkCarNameLength(carNameList);
         String racingRoundTimes = InputView.inputRacingRoundTimes();
         InputValidator.checkIsNumber(racingRoundTimes);
+
+        Integer.parseInt(racingRoundTimes);
     }
 }
