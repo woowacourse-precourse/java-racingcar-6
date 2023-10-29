@@ -6,22 +6,23 @@ import racingcar.model.Car;
 import racingcar.model.CarCreator;
 import racingcar.model.RaceManager;
 import racingcar.view.View;
-import racingcar.view.constant.PromptMessage;
+import racingcar.view.constant.Prompt;
+import racingcar.view.constant.Result;
 
 public class Game {
 
     public static void start() {
-        View.printMessage(PromptMessage.CAR_NAME_INPUT);
+        View.printMessage(Prompt.CAR_NAME_INPUT);
         String carNamesString = View.getInput();
         List<String> carNames = CarCreator.splitCarNamesString(carNamesString);
         CarCreator.validateCarNames(carNames);
         List<Car> cars = CarCreator.createCars(carNames);
 
-        View.printMessage(PromptMessage.NUMBER_OF_MOVE_INPUT);
+        View.printMessage(Prompt.NUMBER_OF_MOVE_INPUT);
         String numberOfMoveInput = View.getInput();
         int numberOfMove = RaceManager.validateNumberOfMove(numberOfMoveInput);
 
-        View.printMessage(PromptMessage.RACE_RESULT);
+        View.printMessage(Prompt.RACE_RESULT);
         startRace(cars, numberOfMove);
 
         List<String> winnerList = RaceManager.decideWinner(cars);
@@ -32,6 +33,7 @@ public class Game {
             List<MoveResultDto> moveResultDtos = cars.stream()
                     .map(Car::move)
                     .toList();
+            View.printMessage(new Result(moveResultDtos));
         }
     }
 }

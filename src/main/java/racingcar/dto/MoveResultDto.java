@@ -12,4 +12,12 @@ public class MoveResultDto {
     public static MoveResultDto make(String name, Integer location) {
         return new MoveResultDto(name, location);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getLocation() {
+        return location;
+    }
 }
