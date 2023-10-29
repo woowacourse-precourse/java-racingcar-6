@@ -24,11 +24,6 @@ public class Input {
 
         return parsedNames;
     }
-
-    private void useValidator(final List<String> parsedNames) {
-        validator.valid(parsedNames);
-    }
-
     public int readTryNum(){
         System.out.println(INPUT_MAX_TRY);
         try {
@@ -37,6 +32,11 @@ public class Input {
             throw new IllegalArgumentException();
         }
     }
+
+    private void useValidator(final List<String> parsedNames) {
+        validator.valid(parsedNames);
+    }
+
 
     public List<String> useParser(String userInput) {
         return parser.parsing(userInput);

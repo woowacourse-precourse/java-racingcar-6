@@ -1,5 +1,7 @@
 package racingcar.core.io;
 
+import camp.nextstep.edu.missionutils.Console;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,6 +11,7 @@ import java.io.InputStream;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class InputTest {
     private Validator validator;
@@ -22,8 +25,13 @@ class InputTest {
         input = new Input(validator, parser);
     }
 
+    @AfterEach
+    void after() {
+        Console.close();
+    }
+
     @Test
-    @DisplayName("정상값을 입력한 경우")
+    @DisplayName("정상 이름값들을 입력한 경우")
     void 정상값을_입력한_경우() throws Exception {
         // given
         String userInput = "car1,car2,car3";
@@ -36,10 +44,60 @@ class InputTest {
         // then
         assertThat(names).containsExactly("car1", "car2", "car3");
     }
-
-    /**
-     * 현재 사용되는 readline() 메소드가 싱글톤 Scanner를 사용중이고,
-     * Console를 직접 수정 할 수 없어서 input 객체의 readline만을 사용하여 테스트하기에는 제약이 있음.
-     * 따라서 parser 테스트에서 깊이 있는 예외 케이스를 검증하도록 하겠음.
-     */
+    @Test
+    @DisplayName("이름 값에 공백을 입력한 경우")
+    void 이름_값에_공백을_입력한_경우() throws Exception {
+        //given
+        String userInput = "car1,car2,";
+        InputStream in = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(in);
+        // when and then
+        assertThatThrownBy(() -> input.readNames())
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+    @Test
+    @DisplayName("이름값에 첫 글자를 생략한 경우")
+    void 이름값에_첫_글자를_생략한_경우() throws Exception {
+        //given
+        String userInput = ",car1,car2";
+        InputStream in = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(in);
+        // when and then
+        assertThatThrownBy(() -> input.readNames())
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+    @Test
+    @DisplayName("정상 반복 횟수를 입력한 경우")
+    void 정상_반복_횟수를_입력한_경우() throws Exception {
+        // given
+        String userInput = "5";
+        InputStream in = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(in);
+        //when
+        int tryNum = input.readTryNum();
+        // then
+        assertThat(tryNum).isEqualTo(5);
+    }
+    @Test
+    @DisplayName("반복 횟수에 숫자가 아닌 값을 입력한 경우")
+    void 반복_횟수에_숫자가_아닌_값을_입력한_경우() throws Exception {
+        // given
+        String userInput = "실패";
+        InputStream in = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(in);
+        //when and then
+        assertThatThrownBy(() -> input.readTryNum())
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+    @Test
+    @DisplayName("반복 횟수에 공백을 입력한 경우")
+    void 반복_횟수에_공백을_입력한_경우() throws Exception {
+        // given
+        String userInput = " ";
+        InputStream in = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(in);
+        //when and then
+        assertThatThrownBy(() -> input.readTryNum())
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
