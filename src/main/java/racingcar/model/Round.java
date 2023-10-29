@@ -13,7 +13,7 @@ public class Round {
     }
 
     public boolean Over() {
-        return currentRoundNumber == totalNumberOfRounds;
+        return currentRoundNumber > totalNumberOfRounds;
     }
 
     public void plusOne() {
