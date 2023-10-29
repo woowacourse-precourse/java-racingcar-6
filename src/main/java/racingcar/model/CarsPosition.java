@@ -31,7 +31,8 @@ public final class CarsPosition {
             String signs = convertPositionToSigns(carsPosition.get(key));
             sb.append(StringFormatter.raceResultFormat(key, signs));
         }
-        return sb.toString();
+        return sb.append("\n")
+                .toString();
     }
 
     public String getWinner() {
