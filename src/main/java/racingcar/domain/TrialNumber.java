@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.view.OutputView;
+
 public class TrialNumber {
     int trialNumber;
 
@@ -9,6 +11,7 @@ public class TrialNumber {
     }
 
     public void playTurnAsMuchAsTrialNumber(Cars cars) {
+        OutputView.printFirstShownResultText();
         for (int trial = 0; trial < trialNumber; trial++) {
             cars.playTurn();
         }

@@ -24,7 +24,6 @@ public class Cars {
     }
 
     private void printResultOfTurn() {
-        OutputView.printFirstShownResultText();
         for (Car car : cars) {
             car.printPresentMovingDistance();
         }
