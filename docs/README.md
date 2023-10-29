@@ -9,7 +9,7 @@
 - [x] n대의 자동차 이름을 입력할 수 있다. - InputView#inputCarName()
     - [] 각 자동차에 이름을 부여할 수 있다. - Car.name
     - [x] 자동차 이름은 쉼표(,)를 기준으로 구분한다. - Car#splitNames()
-    - [ ] 자동차 이름은 5자 이하만 가능하다. - Car#validateNameLength()
+    - [x] 자동차 이름은 5자 이하만 가능하다. - Car#validateNameLength()
 - [ ] 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
 - [ ] 시도 횟수를 입력할 수 있다.
 - [ ] 시도 횟수가 끝난 후 우승자를 출력한다.
