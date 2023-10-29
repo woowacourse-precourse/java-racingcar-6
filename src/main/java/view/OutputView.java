@@ -1,5 +1,7 @@
 package view;
 
+import domain.Car;
+
 import java.util.List;
 
 public class OutputView {
@@ -11,5 +13,17 @@ public class OutputView {
         for(String winner : winners) {
             System.out.print(winner);
         }
+    }
+    public void printEachResult(List<Car> cars, List<Integer> randomNumber) {
+        for(int i=0; i<cars.size(); i++) {
+            System.out.println(cars.get(i).getName()+" : ");
+            printEachRandomResult(randomNumber.get(i));
+        }
+    }
+    public void printEachRandomResult(int randomNumber) {
+        for(int i=0; i<randomNumber; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 }
