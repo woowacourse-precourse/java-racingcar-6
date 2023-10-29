@@ -19,6 +19,10 @@ public class Cars {
         }
     }
 
+    public int carsLength(){
+        return carsLength;
+    }
+
     public void racingOne(){
         for (Car car : cars){
             moveCar(car);
