@@ -8,12 +8,12 @@ public class RoundManager {
 
     public void moveCars(List<Car> cars){
         cars.forEach(car -> {
-            if(shouldCarMove())
+            if(canCarMove())
                 car.move();
         });
     }
 
-    private boolean shouldCarMove(){
+    private boolean canCarMove(){
         int randomValue = RandomNumberGenerator.randomNumGenerate();
         return randomValue >= SystemConstant.MIN_MOVE_THRESHOLD;
     }
