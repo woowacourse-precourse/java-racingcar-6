@@ -1,10 +1,12 @@
 package racingcar.domain.car.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.util.ErrorMessage;
 
 import java.util.Arrays;
 import java.util.List;
 
+import static racingcar.domain.util.ErrorMessage.*;
 import static racingcar.domain.util.InputMessage.*;
 
 public class CarInputView {
@@ -26,7 +28,7 @@ public class CarInputView {
 
     private boolean checkValidCarNameLength(String carName) {
         if (carName.length() > MAX_CAR_NAME_LENGTH) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(CAR_NAME_LENGTH_OVER.getErrorMessage());
         }
 
         return true;
