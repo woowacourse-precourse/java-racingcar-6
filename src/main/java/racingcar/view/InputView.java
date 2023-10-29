@@ -18,6 +18,8 @@ public class InputView {
 
     public int inputTrialCount() {
         System.out.println(TRIAL_COUNT_INPUT_MESSAGE);
-        return Integer.parseInt(Console.readLine());
+        String input = Console.readLine();
+        Validator.verifyTrialCount(input);
+        return InputParser.parseTrialCountToInt(input);
     }
 }

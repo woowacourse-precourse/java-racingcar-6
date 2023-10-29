@@ -17,6 +17,10 @@ public class Validator {
         verifyDuplicateCarName(carNameList);
     }
 
+    public static void verifyTrialCount(String input) {
+        InputParser.parseTrialCountToInt(input);
+    }
+
     private static void verifyCarNameLength(String name) {
         if (name.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_EXCESS_ERROR_MESSAGE);
