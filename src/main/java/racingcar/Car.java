@@ -18,10 +18,20 @@ public class Car {
             System.out.println(i + 1 + "회차");
             printRacingNow(carNames, carMove);
         }
-        
+
         System.out.println();
 
         return countCarMove(carMove);
+    }
+
+    private List<String> initializeCarMove(List<String> carNames) {
+        List<String> carMove = new ArrayList<>();
+
+        for (String str : carNames) {
+            carMove.add("");
+        }
+
+        return carMove;
     }
 
     private void printRacingNow(List<String> carNames, List<String> carMove) {
@@ -44,17 +54,7 @@ public class Car {
         System.out.println(result);
     }
 
-    private List<String> initializeCarMove(List<String> carNames) {
-        List<String> carMove = new ArrayList<>();
-
-        for (String str : carNames) {
-            carMove.add("");
-        }
-
-        return carMove;
-    }
-
-    private List<Integer> countCarMove(List<String> carMove) {
+    public List<Integer> countCarMove(List<String> carMove) {
         List<Integer> carMoveDistance = new ArrayList<>();
 
         for (String str : carMove) {
