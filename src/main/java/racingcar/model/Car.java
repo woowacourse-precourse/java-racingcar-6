@@ -2,13 +2,12 @@ package racingcar.model;
 
 import racingcar.constants.ErrorMessage;
 import racingcar.constants.GameResultElement;
+import racingcar.constants.RacingCarRole;
 import racingcar.exception.CarNameLengthException;
 
 import java.util.stream.IntStream;
 
 public class Car {
-
-    private static final int MAX_CAR_NAME_LENGTH = 5;
 
     private final String name;
     private int position;
@@ -19,7 +18,7 @@ public class Car {
     }
 
     private void validateNameLength(String name) {
-        if (name.length() > MAX_CAR_NAME_LENGTH) {
+        if (name.length() > RacingCarRole.MAX_CAR_NAME_LENGTH.getValue()) {
             throw new CarNameLengthException(ErrorMessage.CAR_NAME_LENGTH_ERROR.getMessage());
         }
     }
