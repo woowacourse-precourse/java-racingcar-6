@@ -3,7 +3,7 @@ package racingcar.domain;
 import java.util.Objects;
 
 public class Car {
-    private final String name;
+    private final Name name;
     private Position position;
 
     public Car(final String name) {
@@ -11,7 +11,7 @@ public class Car {
     }
 
     public Car(final String name, int position) {
-        this.name = name;
+        this.name = new Name(name);
         this.position = new Position(position);
     }
 
@@ -21,7 +21,7 @@ public class Car {
         }
     }
 
-    public String getName() {
+    public Name getName() {
         return name;
     }
 
