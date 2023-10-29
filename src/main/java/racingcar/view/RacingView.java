@@ -10,4 +10,9 @@ public class RacingView {
         outputView.printRaceStartingMessage();
         return inputView.getCarNames();
     }
+
+    public int getTrials() {
+        outputView.printGetTrialsMessage();
+        return inputView.getTrials();
+    }
 }

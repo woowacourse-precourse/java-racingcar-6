@@ -13,6 +13,15 @@ public class InputView {
         return userInputList;
     }
 
+    public int getTrials() {
+        String userInput = getUserInput();
+        try {
+            return Integer.parseInt(userInput);
+        } catch (NumberFormatException numberFormatException) {
+            throw new IllegalArgumentException("문자는 입력할 수 없습니다");
+        }
+    }
+
     private String getUserInput() {
         return Console.readLine();
     }
