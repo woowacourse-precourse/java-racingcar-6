@@ -17,12 +17,12 @@
 
 #### 자동차 이름 하나에 대한 검증
 
-- [ ] 쉼표(,) 구분로 문자열을 나누기
-    - [ ] 자동차 이름에 대한 검증
-        - [ ] [예외] 이름에 문자나 숫자가 아닌 다른 문자가 있으면 `IllegalArgumentException`발생
-        - [ ] [예외] 이름이 5자 초과면 `IllegalArgumentException` 발생
-        - [ ] [예외] 이름이 0자 이하면 `IllegalArgumentException` 발생
-        - [ ] [예외] 같은 이름이 있는 경우 `IllegalArgumentException` 발생
+- [X] 쉼표(,) 구분로 문자열을 나누기
+- [ ] 자동차 이름에 대한 검증
+    - [ ] [예외] 이름에 문자나 숫자가 아닌 다른 문자가 있으면 `IllegalArgumentException`발생
+    - [ ] [예외] 이름이 5자 초과면 `IllegalArgumentException` 발생
+    - [ ] [예외] 이름이 0자 이하면 `IllegalArgumentException` 발생
+    - [ ] [예외] 같은 이름이 있는 경우 `IllegalArgumentException` 발생
 
 - - -
 
