@@ -15,8 +15,9 @@ public class Application {
 
 
 
-
     }
+
+
 
     private static int makeRandomNum(){
         int randomNum = Randoms.pickNumberInRange(0,9);
@@ -29,7 +30,20 @@ public class Application {
             for (int printNum=0; printNum<substitutionNum; printNum++){
                 System.out.print("-");
             }
-
         }
     }
+
+    private static int[] playGame(int tryNumber, String[]carArray,int[] raceAccumulation){
+        for (int i=0; i<tryNumber; i++){
+            for (int j=0; j<carArray.length; j++){
+                int randomNum = makeRandomNum();
+                if (randomNum>=4){
+                    raceAccumulation[j]+=1;
+                }
+            }
+        }
+        return raceAccumulation;
+    }
+
+
 }
