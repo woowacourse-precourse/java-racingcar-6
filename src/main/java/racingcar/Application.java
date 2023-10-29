@@ -45,5 +45,12 @@ public class Application {
         if (answer.length() > 9) {
             throw new IllegalArgumentException("시도 횟수는 10자리 미만의 수여야 합니다.");
         }
+
+        int ans;
+        try {
+            ans = Integer.parseInt(answer);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력해주세요.");
+        }
     }
 }
