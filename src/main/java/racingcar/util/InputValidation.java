@@ -21,6 +21,9 @@ public class InputValidation {
     }
 
     public static void validateCarNames(List<String> carNames) throws IllegalArgumentException {
+        if (carNames.size() < 2) {
+            throw new IllegalArgumentException();
+        }
         for (String st : carNames) {
             if (st.length() > MAX_LENGTH) {
                 throw new IllegalArgumentException();
