@@ -22,6 +22,12 @@ public class CarValidator {
         duplicatedCarNameInNameListThrowException(carNames);
     }
 
+    public static void validateCarName(String carName) {
+        unlessHasCharacterOrNumberThrowException(carName);
+        lengthUnderOneThrowException(carName);
+        lengthOverFiveThrowException(carName);
+    }
+
     private static void validateNameElementHasCharacterOrNumber(List<String> names) {
         names.forEach(CarValidator::unlessHasCharacterOrNumberThrowException);
     }
