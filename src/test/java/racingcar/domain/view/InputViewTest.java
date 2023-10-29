@@ -17,10 +17,16 @@ class InputViewTest {
 
     private static ByteArrayOutputStream outputStream;
     private static final String NAMES = "pobi, jang, woni";
+    private static final String ATTEMPT_NUMBER = "9";
 
     @Disabled
     void systemInCarNames() {
         System.setIn(new ByteArrayInputStream(NAMES.getBytes()));
+    }
+
+    @Disabled
+    void systemInAttemptNumber() {
+        System.setIn(new ByteArrayInputStream(ATTEMPT_NUMBER.getBytes()));
     }
 
     @BeforeEach
@@ -56,5 +62,13 @@ class InputViewTest {
         systemInCarNames();
         String carNames = InputView.inputCarNames();
         assertEquals(carNames, NAMES);
+    }
+
+    @Test
+    @DisplayName("시도 횟수 입력 테스트")
+    void inputAttemptNumber() {
+        systemInAttemptNumber();
+        String attemptNumber = InputView.inputAttemptNumber();
+        assertEquals(attemptNumber, ATTEMPT_NUMBER);
     }
 }
