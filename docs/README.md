@@ -21,7 +21,7 @@
 
 ### 자동차 이름 입력
 
-- [ ]  자동차 이름 입력 메시지 출력
+- [x]  자동차 이름 입력 메시지 출력
     - 예시
 
         ```
@@ -54,7 +54,8 @@
         ```
 
 - [ ]  각 자동차가 일정 확률로 전진
-    - `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 이용하여 0~9 사이의 무작위 숫자를 뽑아서 4이상이면 전진한다.
+    - `camp.nextstep.edu.missionutils.Randoms`의`pickNumberInRange()`를 이용하여 0~9 사이의 무작위 숫자를 뽑아서 4이상이면
+      전진한다.
 - [ ]  레이싱 과정 출력
     - 각 자동차 이름과 현재 전진한 횟수 만큼 `-`를 출력
     - 예시
