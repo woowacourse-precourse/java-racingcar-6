@@ -5,10 +5,11 @@ import java.util.Random;
 import racingcar.domain.dto.CarDTO;
 
 public class Car {
-    private final String name;
+    private String name;
     private int distance;
     private static final int MIN_RANDOM_NUM = 0;
     private static final int MAX_RANDOM_NUM = 9;
+    private static final int CONDITION_FOR_FORWARD = 4;
 
     public Car(String name){
         this.name = name;
@@ -28,7 +29,7 @@ public class Car {
 
     private boolean isMoving() {
         int num = Randoms.pickNumberInRange(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
-        return num >= 4;
+        return num >= CONDITION_FOR_FORWARD;
     }
 
     public int getDistance() {

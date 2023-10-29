@@ -9,8 +9,7 @@ public class InitScreen {
     public static InitDTO init(){
         String carNames = readCarNames();
         String rounds = readRounds();
-        InitDTO initDTO = new InitDTO(carNames, rounds);
-        return initDTO;
+        return new InitDTO(carNames, rounds);
     }
     public static String readCarNames() {
         System.out.println(REQUEST_CAR_NAME);

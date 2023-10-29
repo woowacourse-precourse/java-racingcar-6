@@ -9,7 +9,7 @@ public class EndScreen {
     private static final String WINNER_SEPARATOR = ", ";
     public static void printWinner(List<CarDTO> winners){
         String winnerNames = winners.stream()
-                .map(winner -> winner.getName())
+                .map(CarDTO::getName)
                 .collect(Collectors.joining(WINNER_SEPARATOR));
         System.out.println(WINNER_IS + winnerNames);
     }

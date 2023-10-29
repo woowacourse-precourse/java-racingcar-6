@@ -18,14 +18,14 @@ public class Cars {
 
     public List<CarDTO> getWinners() {
         int maxDistance = cars.stream()
-                .mapToInt(car -> car.getDistance())
+                .mapToInt(Car::getDistance)
                 .max()
                 .orElse(0);
         List<Car> winners = cars.stream()
                 .filter(car -> car.getDistance()==maxDistance)
-                .collect(Collectors.toList());
+                .toList();
         return winners.stream()
-                .map(car -> CarDTO.from(car))
+                .map(CarDTO::from)
                 .collect(Collectors.toList());
     }
 }
