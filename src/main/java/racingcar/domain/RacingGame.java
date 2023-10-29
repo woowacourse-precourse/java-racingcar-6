@@ -44,4 +44,8 @@ public class RacingGame {
         return this.gameStatus.isEnd();
     }
 
+    public GameStatus getGameStatus() {
+        return this.gameStatus;
+    }
+
 }

@@ -14,6 +14,23 @@ import racingcar.mock.FakeRandomNumberPicker;
 
 class RacingGameTest {
 
+    @DisplayName("게임을 새로 생성하면 게임 상태는 IN_PROGRESS 이다.")
+    @Test
+    void newGame() {
+        // given
+        Cars cars = new Cars(List.of(
+                Car.nameOf(new CarName("haero")),
+                Car.nameOf(new CarName("pobi"))
+        ));
+        long movingCount = 1L;
+
+        // when
+        RacingGame racingGame = RacingGame.newGame(cars, movingCount);
+
+        // then
+        assertThat(racingGame.getGameStatus()).isEqualTo(GameStatus.IN_PROGRESS);
+    }
+
     @DisplayName("이동 횟수를 모두 소진하면 게임 상태는 END이다.")
     @Test
     void movingCount() {
@@ -35,7 +52,7 @@ class RacingGameTest {
 
         // then
         assertAll(
-                () -> assertThat(racingGame.isEnd()).isTrue(),
+                () -> assertThat(racingGame.getGameStatus()).isEqualTo(GameStatus.END),
                 () -> assertThat(racingGame)
                         .extracting("movingCount")
                         .isEqualTo(0L)
