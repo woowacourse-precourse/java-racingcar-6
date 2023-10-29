@@ -3,6 +3,7 @@ package racingcar.domain.car;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.result.RacingCarResult;
 
 class CarTest {
 
@@ -20,10 +21,16 @@ class CarTest {
     void move() {
         Car car = new Car("test");
         Integer moveCommand = 4;
-        Integer currentLocation = car.getLocation();
+        Integer currentLocation = getCurrentLocation(car);
 
         car.move(moveCommand);
+        RacingCarResult result = car.toResult();
 
-        Assertions.assertThat(car.getLocation()).isEqualTo(currentLocation + 1);
+        Assertions.assertThat(result.location()).isEqualTo(currentLocation + 1);
+    }
+
+    private Integer getCurrentLocation(Car car) {
+        RacingCarResult result = car.toResult();
+        return result.location();
     }
 }
