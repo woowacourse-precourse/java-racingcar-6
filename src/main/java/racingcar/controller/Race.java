@@ -75,14 +75,9 @@ public class Race {
     }
 
     private static StringBuilder showWinner(List<Car> currentWinner) {
-        StringBuilder winnerResult = new StringBuilder();
-        for (int i = 0; i < currentWinner.size(); i++) {
-            winnerResult.append(currentWinner.get(i));
-            if (i != currentWinner.size() - 1) {
-                winnerResult.append(",");
-            }
-        }
-        return winnerResult;
+        return new StringBuilder(currentWinner.stream()
+                .map(Car::getName)
+                .collect(Collectors.joining(",")));
     }
 
     public static void validateUserInput(List<Car> userInput) {
