@@ -23,25 +23,28 @@ public class Controller {
     public void getUserInput() {
         outputView.printRequestCarsName();
         String inputString = inputView.requestCarsName();
-        userInput.getCarsName(inputString);
+        userInput.setCarsName(inputString);
 
 
         outputView.printRequestPlayTime();
         int inputNum = inputView.requestPlayTime();
-        userInput.getPlayTime(inputNum);
+        userInput.setPlayTime(inputNum);
     }
 
     public void startGame() {
         outputView.printStartGame();
         gameManager.makeCarIdxNamePosList();
-        for (int time = 0; time < userInput.playTime; time++) {
+
+        int playTime = userInput.getPlayTime();
+        for (int time = 0; time < playTime; time++) {
             moveCars();
             outputView.printCarsMove(gameManager.carIdxNamePosList);
         }
     }
 
     public void moveCars() {
-        for (int idx = 0; idx < userInput.carCount; idx++) {
+        int carCount = userInput.getCarCount();
+        for (int idx = 0; idx < carCount; idx++) {
             int randomNum = gameManager.setRandomNum();
             boolean goOrStop = gameManager.chkCarGoOrStop(randomNum);
             gameManager.setCarsMove(goOrStop, idx);
