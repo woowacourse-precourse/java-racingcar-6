@@ -14,6 +14,16 @@ public class Race {
         this.carList.addAll(carList);
     }
 
+    public void proceedCars() {
+        for (Car car : carList) {
+            if (car.isProceedNext()) {
+                car.proceed();
+            } else {
+                car.stop();
+            }
+        }
+    }
+
     public List<Car> getCarList() {
         return carList;
     }
