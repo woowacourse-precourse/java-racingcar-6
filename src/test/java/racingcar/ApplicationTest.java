@@ -1,16 +1,23 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.test.NsTest;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.mockito.Mock;
+import org.mockito.MockedStatic;
 import racingcar.domain.Car;
+import racingcar.domain.Racing;
 import racingcar.util.Validator;
+
+import javax.sound.midi.Track;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.*;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -90,7 +97,45 @@ class ApplicationTest extends NsTest {
         }
 
 
+
     }
+    @Nested
+    class RacingTest{
+
+        private static MockedStatic<Console> consoleMock;
+
+        @BeforeAll
+        public static void beforeALl() {
+            consoleMock = mockStatic(Console.class);
+        }
+
+        @AfterAll
+        public static void afterAll() {
+            consoleMock.close();
+        }
+
+
+        @Test
+        @DisplayName("레이싱에서 자동차이름 리스트 만들기")
+        void Test(){
+
+//            static 메소드 mocking
+            given(Console.readLine()).willReturn("pobi,woni,jun");
+
+            Racing racing = Racing.registerCarList();
+
+            String result = "pobi : \nwoni : \njun : \n";
+
+            assertThat(racing.toString()).isEqualTo(result);
+        }
+
+
+
+
+
+    }
+
+
 
 
 
