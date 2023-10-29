@@ -10,7 +10,6 @@ public class InputView {
     public static String requestCarNames() {
         System.out.println(CAR_NAME_INPUT_MESSAGE);
         String carNames = Console.readLine();
-        Console.close();
         return carNames;
     }
 
