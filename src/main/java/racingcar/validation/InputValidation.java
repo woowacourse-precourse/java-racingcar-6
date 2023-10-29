@@ -7,28 +7,26 @@ public class InputValidation {
     private static final String IS_NULL_CAR_NAME_ERROR_MESSAGE = "입력하지 않았습니다.";
     private static final String IS_NOT_RANGE_NAME_ERROR_MESSAGE = "5자리 이하가 아닙니다.";
 
-    public static Map<String, Integer> checkedInputValidation(String carNames){
+    public String[] checkedInputValidation(String carNames){
         isNullText(carNames);
         return collectCarNames(carNames);
     }
 
-    public static void isNullText(String carNames){
+    private void isNullText(String carNames){
         if(carNames.isBlank()){
             throw new IllegalArgumentException(IS_NULL_CAR_NAME_ERROR_MESSAGE);
         }
     }
 
-    public static Map<String, Integer> collectCarNames(String carNames){
-        Map<String, Integer> collectCarName = new LinkedHashMap<>();
+    private String[] collectCarNames(String carNames){
         String[] cars = carNames.split(",");
         for (String carName : cars) {
             isCheckedNameRange(carName);
-            collectCarName.put(carName,0);
         }
-        return collectCarName;
+        return cars;
     }
 
-    public static void isCheckedNameRange(String carName){
+    private void isCheckedNameRange(String carName){
         if(carName.length()>5){
             throw new IllegalArgumentException(IS_NOT_RANGE_NAME_ERROR_MESSAGE);
         }
