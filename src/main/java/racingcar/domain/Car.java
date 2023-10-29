@@ -19,15 +19,19 @@ public class Car {
         }
     }
 
-    public void move() {
-        movedCount++;
-    }
-
     public String getName() {
         return name;
     }
 
     public int getMovedCount() {
         return movedCount;
+    }
+
+    public void move() {
+        movedCount++;
+    }
+
+    public boolean isSameMovedCount(int movedCount) {
+        return this.movedCount == movedCount;
     }
 }
