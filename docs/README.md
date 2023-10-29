@@ -39,7 +39,7 @@
 차라는 클래스
 
 - [x] 이름과 위치를 담는 `CarInformationDto` 반환
-- [ ] 차를 이동 (`CarMovementStrategy` 전략 사용)
+- [x] 차를 이동 (`CarMovementStrategy` 전략 사용)
 - [x] `equals()` 오버라이딩
 
 ### 📄 CarName

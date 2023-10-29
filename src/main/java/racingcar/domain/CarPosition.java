@@ -6,8 +6,8 @@ public class CarPosition implements Comparable<CarPosition> {
 
     private int position = 0;
 
-    public void move(int value) {
-        position = position + value;
+    public void move(int incrementValue) {
+        position = position + incrementValue;
     }
 
     public int getPosition() {

@@ -5,6 +5,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.CarName;
+import racingcar.domain.strategy.CarMovementStrategy;
+import racingcar.domain.strategy.MoveForwardOnceRandomlyStrategy;
 
 public class CarEqualsTest {
 
@@ -14,9 +16,10 @@ public class CarEqualsTest {
         // given
         String carName1 = "차1";
         String carName2 = "차2";
-        Car car1 = new Car(carName1);
-        Car car2 = new Car(carName2);
-        Car car3 = new Car(carName2);
+        CarMovementStrategy carMovementStrategy = new MoveForwardOnceRandomlyStrategy();
+        Car car1 = new Car(carName1, carMovementStrategy);
+        Car car2 = new Car(carName2, carMovementStrategy);
+        Car car3 = new Car(carName2, carMovementStrategy);
 
         // when
         boolean expectedFalse = car1.equals(car2);
