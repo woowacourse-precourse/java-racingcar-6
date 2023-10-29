@@ -112,7 +112,7 @@
 
 ## 📦 검증 - Validator
 
-- [ ]  📔 자동차 이름 검증 - CarNameValidator
+- [ ]  📔 자동차 검증 - CarValidator
     - [ ]  📝통합 검증하기
     - [ ]  📝자동차 이름 1글자 이상 5글자 이하인지 검증하기 - isValidLength
     - [ ]  📝 자동차 이름에 공백이 들어가 있는지 검증하기 - hasWhiteSpace
@@ -127,7 +127,7 @@
 
 ## 🧪  검증 테스트- Validator
 
-- [ ]  📔 자동차 이름 검증 - CarNameValidatorTest
+- [ ]  📔 자동차 이름 검증 - CarValidatorTest
    - [ ]  📝 통합 검증하기 테스트
    - [ ]  📝 자동차 이름 1글자 이상 5글자 이하인지 검증하기 테스트
    - [ ]  📝 자동차 이름에 공백이 들어가 있는지 검증하기 테스트
