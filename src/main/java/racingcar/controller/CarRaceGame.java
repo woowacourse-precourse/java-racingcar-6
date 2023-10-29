@@ -20,16 +20,19 @@ public class CarRaceGame {
     }
 
     public void startGame() {
-        carManager = CarManager.create();
         String carNames = CarRaceGameView.startGameView();
-        createCar(carNames);
-        carManager.setCarQuantity(carImplList.size());
+        setUpCar(carNames);
+        setUpCarManager();
 
         String attemptNumberString = CarRaceGameView.attemptNumberView();
         setUpAttemptNumber(attemptNumberString);
+
+        for (int i = 0; i < carManager.getAttemptNumber(); i++) {
+            tryOneAttempt();
+        }
     }
 
-    private void createCar(String carNames) {
+    private void setUpCar(String carNames) {
         List<String> carNameList = CarNamesToList(carNames);
         for (String carName : carNameList) {
             Validator.carNameStringLength(carName);
@@ -43,14 +46,19 @@ public class CarRaceGame {
         return Arrays.stream(carNames.split(",")).toList();
     }
 
-
+    private void setUpCarManager() {
+        carManager = CarManager.create();
+        carManager.setCarQuantity(carImplList.size());
+    }
 
     private void setUpAttemptNumber(String attemptNumberString) {
         carManager.setAttemptNumber(Integer.parseInt(attemptNumberString));
     }
 
 
+    private void tryOneAttempt() {
+        for (Car car : carImplList) {
 
-
-
+        }
+    }
 }
