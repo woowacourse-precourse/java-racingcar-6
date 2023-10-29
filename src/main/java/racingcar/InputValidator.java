@@ -3,10 +3,11 @@ package racingcar;
 import java.util.regex.Pattern;
 
 public class InputValidator {
+    private static final int MAXIMUM_LENGTH_OF_NAME = 5;
 
-    public boolean carNamesValidate (String carNames) {
-        if(carNames.contains(" ")) {
-            throw new IllegalArgumentException("Blank should not be included");
+    public boolean lengthOfCarNameValidate (String carName) {
+        if(carName.length() > MAXIMUM_LENGTH_OF_NAME) {
+            throw new IllegalArgumentException("The name must be no more than five characters long.");
         }
         return true;
     }
