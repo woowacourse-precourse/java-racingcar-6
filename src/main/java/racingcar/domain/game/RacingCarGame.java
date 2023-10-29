@@ -1,5 +1,6 @@
 package racingcar.domain.game;
 
+import racingcar.domain.car.Cars;
 import racingcar.utils.NumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -23,7 +24,8 @@ public class RacingCarGame {
 
     public void play() {
         String names = readCarNamesFromUser();
-        int round = readGameRoundFromUser();
+        int roundNumber = readGameRoundFromUser();
+        Cars cars = generateCars(names);
     }
 
     private String readCarNamesFromUser() {
@@ -34,5 +36,9 @@ public class RacingCarGame {
     private int readGameRoundFromUser() {
         outputView.printRequestGameRound();
         return inputView.readGameRound();
+    }
+
+    private Cars generateCars(String names) {
+        return new Cars(names);
     }
 }
