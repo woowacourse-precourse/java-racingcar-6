@@ -10,9 +10,9 @@ public class Car {
         this.position = 0;
     }
 
-    public void move(MoveCondition status) {
-        if (status.isMove()) {
-            position += status.distance;
+    public void move(MoveCondition condition) {
+        if (condition.isMove()) {
+            position += condition.distance;
         }
     }
 
@@ -24,7 +24,7 @@ public class Car {
         return position;
     }
 
-    public boolean isWinner(int maxPosition) {
-        return this.position == maxPosition;
+    public boolean isEqualToPosition(int position) {
+        return this.position == position;
     }
 }

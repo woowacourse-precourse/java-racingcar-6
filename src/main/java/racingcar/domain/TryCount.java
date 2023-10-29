@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.util.ExceptionMessage.NOT_NUMERIC;
+
 public class TryCount {
 
     private final int count;
@@ -15,7 +17,7 @@ public class TryCount {
 
     private static void checkPositive(int count) {
         if (count <= 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(NOT_NUMERIC.getMessage());
         }
     }
 
