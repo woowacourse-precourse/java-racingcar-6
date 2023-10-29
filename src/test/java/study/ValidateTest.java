@@ -1,6 +1,7 @@
 package study;
 
 import java.util.List;
+import java.util.regex.Pattern;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 
@@ -22,6 +23,16 @@ public class ValidateTest {
     void 문자_정규표현식_위반할_때_예외_발생() {
         String input = "Kia, Honda, Porsche, @@";
 //        assertThatThrownBy(() -> InputView.parseCarNames(input))
+//                .isInstanceOf(IllegalArgumentException.class)
+//                .hasMessageContaining(Exception.INVALID_CHARACTER_FORMAT.getMessage());
+    }
+
+    @Test
+    void 자동차_이름_길이_초과_할_때_예외_발생() {
+        String input = "@@";
+        Pattern INPUT_CHARACTERS_PATTERN = Pattern.compile("^[a-zA-Z0-9,\\s가-힣ㄱ-ㅎㅏ-ㅣ]*$");
+
+//        assertThatThrownBy(() -> Validator.validateInputCharacters(input))
 //                .isInstanceOf(IllegalArgumentException.class)
 //                .hasMessageContaining(Exception.INVALID_CHARACTER_FORMAT.getMessage());
     }
