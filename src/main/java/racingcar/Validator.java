@@ -9,6 +9,9 @@ public class Validator {
             //not a number
             return false;
         }
+    }
 
+    public static boolean isPositiveInteger(String input) {
+        return Integer.parseInt(input) > 0;
     }
 }
