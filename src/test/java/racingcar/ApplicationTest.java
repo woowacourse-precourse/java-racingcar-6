@@ -15,9 +15,11 @@ class ApplicationTest extends NsTest {
     @Test
     void 전진_조건(){
         Application application = new Application();
-        String go = application.go();
+        int randomNumberTest1 = 3;
+        int randomNumberTest2 = 5;
 
-        assertThat(go).isEqualTo("false");
+        assertThat(application.go(randomNumberTest1)).isEqualTo(true);
+        assertThat(application.go(randomNumberTest2)).isEqualTo(false);
     }
 
     @Test
