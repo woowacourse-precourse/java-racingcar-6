@@ -5,7 +5,7 @@ public class Car {
     private int position;
     private Car(String carName) {
         this.carName = Name.of(carName);
-        this.position = 0;
+        this.position = 4;
     }
 
     public static Car createCar(String carName) {
@@ -16,8 +16,7 @@ public class Car {
         position++;
     }
 
-    @Override
-    public String toString() {
+    public String printPosition() {
         return carName + " : " + convertPositionToResult();
     }
 
