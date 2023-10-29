@@ -7,7 +7,12 @@ import java.util.Set;
 public class Validator {
 
     public boolean isTryNumInteger(String tryNum) {
-
+        try {
+            Integer.parseInt(tryNum);
+            return true;
+        } catch (NumberFormatException ex) {
+            return false;
+        }
     }
 
     public boolean isTryNumPositiveNum(Integer tryNum) {
