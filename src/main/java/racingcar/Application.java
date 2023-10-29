@@ -8,7 +8,7 @@ import racingcar.view.OutputView;
 public class Application {
 
     public static void main(String[] args) {
-        RacingController racingGameController = new RacingController(inputView(), outputView(), judgement());
+        RacingController racingGameController = new RacingController(inputView(), outputView());
         racingGameController.run();
     }
 
@@ -18,9 +18,5 @@ public class Application {
 
     private static OutputView outputView() {
         return new OutputView();
-    }
-
-    private static Judgement judgement() {
-        return new Judgement();
     }
 }
