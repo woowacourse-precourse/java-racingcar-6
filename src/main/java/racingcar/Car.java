@@ -11,7 +11,7 @@ public class Car {
     }
 
     public int move(int randomNumber) {
-        if(randomNumber > 0 && randomNumber < 4) {
+        if(randomNumber > 3 && randomNumber < 10) {
             location++;
         }
         return location;
