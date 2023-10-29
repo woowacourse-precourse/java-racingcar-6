@@ -22,52 +22,41 @@ public class RacingController {
         this.racingView = racingView;
     }
 
-    public void start() {
-        play();
-    }
+    public void play() {
 
-    private void play() {
+        String[] carNames = readCarNames();
+        int round = readRoundNumber();
 
-        String[] carNames = readNameInput();
-        int round = readRoundInput();
-        List<Car> cars = generateCars(carNames,round);
-
-        racingView.displayResultMessage(ResultMessage.RACING_RESULT);
+        List<Car> cars = racingModel.generateCars(carNames,round);
         List<String> results = racingModel.proceed(cars);
-        racingView.displayWinnerMessage(results);
+
+        racingView.displayResult(results);
     }
 
-    private String[] readNameInput() {
+    private String[] readCarNames() {
         racingView.displayMessage(RacingMessage.ASK_FOR_CAR_NAME);
         String inputName = racingView.readInput();
-        return getUserInputName(inputName);
+        return processCarNames(inputName);
     }
 
-    private int readRoundInput() {
+    private int readRoundNumber() {
         racingView.displayMessage(RacingMessage.ASK_FOR_ROUNDS);
         String inputRound = racingView.readInput();
-        return getUserInputNumber(inputRound);
+        return processRoundNumber(inputRound);
     }
 
-    private List<Car> generateCars(String[] carNames, int round) {
-        List<Car> cars = new ArrayList<>();
-        for (String carName : carNames) {
-            cars.add(new Car(carName,0,0,round,0,new ArrayList<>()));
-        }
-        return cars;
-    }
-
-    private String[] getUserInputName(String inputName) {
+    private String[] processCarNames(String inputName) {
         isValidNameFormat(inputName);
         return Arrays.stream(inputName.split(","))
-                                    .map(String::trim)
-                                    .distinct()
-                                    .peek(Validator::isValidLength)
-                    .toArray(String[]::new);
+                .map(String::trim)
+                .distinct()
+                .peek(Validator::isValidLength)
+                .toArray(String[]::new);
     }
 
-    private int getUserInputNumber(String inputNumber) {
+    private int processRoundNumber(String inputNumber) {
         isNumber(inputNumber);
         return Integer.parseInt(inputNumber);
     }
+
 }
