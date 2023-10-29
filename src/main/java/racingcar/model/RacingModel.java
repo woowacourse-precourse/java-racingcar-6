@@ -1,28 +1,41 @@
 package racingcar.model;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
-import static racingcar.domain.RacingConfig.FORWARD_NUMBER;
 import static racingcar.domain.RacingConfig.MAX_NUMBER;
 import static racingcar.domain.RacingConfig.MIN_NUMBER;
+import static racingcar.utils.ConvertListStringToString.convertListStringToString;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
+import racingcar.domain.RacingFinalResult;
+import racingcar.domain.RacingRoundResult;
 
 public class RacingModel {
 
-    public List<String> proceed(List<Car> cars) {
+    public RacingFinalResult proceed(String[] carNames, int round) {
+        List<Car> cars = generateCars(carNames, round);
+        List<RacingRoundResult> roundResults = new ArrayList<>();
+
         do {
-            generateRandomNumbers(cars);
-            moveForwards(cars);
-            representationCars(cars);
-            System.out.println();
+            assignRandomNumbersToCars(cars);
+            moveCars(cars);
+            roundResults.add(createRacingRoundResult(cars));
         } while (cars.stream().allMatch(car -> car.getRound() < car.getFinalRound()));
 
-        return determineWinner(cars);
+        return new RacingFinalResult(roundResults, findWinnerNames(cars));
     }
 
-    private void generateRandomNumbers(List<Car> cars) {
+    private List<Car> generateCars(String[] carNames, int round) {
+        List<Car> cars = new ArrayList<>();
+        for (String carName : carNames) {
+            cars.add(new Car(carName,0,0,round,0,new ArrayList<>()));
+        }
+        return cars;
+    }
+
+    private void assignRandomNumbersToCars(List<Car> cars) {
         for (Car car : cars) {
             car.setRandomNumber(generateRandomNumber());
         }
@@ -32,31 +45,26 @@ public class RacingModel {
         return pickNumberInRange(MIN_NUMBER,MAX_NUMBER);
     }
 
-    private void moveForwards(List<Car> cars) {
+    private void moveCars(List<Car> cars) {
         for (Car car : cars) {
-            moveForward(car);
+            car.move();
         }
     }
 
-    private void moveForward(Car car) {
-        if (car.getRandomNumber() >= FORWARD_NUMBER){
-            car.increaseMoveResult();
-        }
-        car.increaseRound();
-    }
-
-    private void representationCars(List<Car> cars){
+    public RacingRoundResult createRacingRoundResult (List<Car> cars){
+        List<String> results = new ArrayList<>();
         for (Car car : cars) {
-            representation(car);
+            results.add(createCarMoveHistory(car));
         }
+        return new RacingRoundResult(results);
     }
 
-    private void representation (Car car) {
-        String result = String.format("%s : %s",car.getName(),car.representationHistoryMove());
-        System.out.println(result);
+    private String createCarMoveHistory(Car car) {
+        String history = convertListStringToString(car.getMoveHistoryWithoutSpace());
+        return String.format("%s : %s",car.getName(),history);
     }
 
-    private List<String> determineWinner(List<Car> cars) {
+    public List<String> findWinnerNames(List<Car> cars) {
         int maxResult = cars.stream()
                 .mapToInt(Car::getMoveResult)
                 .max()
