@@ -4,6 +4,8 @@ public class Car {
     private String name;
     private Integer successMoveForwardCount = 0;
 
+
+
     private String moveForwardStatus = "";
 
     public String getMoveForwardStatus() {
@@ -30,7 +32,11 @@ public class Car {
         return successMoveForwardCount;
     }
 
-    public void setSuccessMoveForwardCount() {
+    public void increaseSuccessMoveForwardCount() {
         this.successMoveForwardCount++;
+    }
+
+    public void setSuccessMoveForwardCount(Integer successMoveForwardCount) {
+        this.successMoveForwardCount = successMoveForwardCount;
     }
 }
