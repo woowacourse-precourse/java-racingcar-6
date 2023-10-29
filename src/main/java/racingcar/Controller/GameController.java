@@ -36,11 +36,11 @@ public class GameController {
 
         for(int i = 0; i< gameModel.getCoinNumber();i++){
 
-            throwDiceAndgoFoward();
+            throwDiceAndGoForward();
         }
     }
 
-    private void throwDiceAndgoFoward() {
+    private void throwDiceAndGoForward() {
 
         int dice;
         ArrayList<CarModel> carModels = carController.getCarModelList();
@@ -51,7 +51,7 @@ public class GameController {
             dice=pickNumberInRange(0,9);
             nowCar = carModels.get(i);
 
-            carController.goFoward(nowCar,dice);
+            carController.goForward(nowCar,dice);
         }
     }
 
