@@ -15,6 +15,10 @@ public class CarController {
         }
     }
 
+    public ArrayList<CarModel> getCarModelList() {
+        return carModelList;
+    }
+
     public void goFoward(CarModel car){
 
         car.goForwardDistance();
