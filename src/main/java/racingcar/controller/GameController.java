@@ -15,7 +15,8 @@ public class GameController {
         String namesOfRacingCars = getPlayerInput();
         RacingCarList car = new RacingCarList(namesOfRacingCars);
         int tryAttempt = getPlayerAttempts();
-        //GameProcess 클래스를 만들어서 관리할것.
+
+        gameResultMessge();
         while(tryAttempt > 0){
             process.processGame(car);
             tryAttempt -= 1;
