@@ -16,6 +16,7 @@ public class CarGameController {
     private Game game;
     private Cars cars;
 
+
     public CarGameController() {
         this.game = new Game();
     }
@@ -26,11 +27,12 @@ public class CarGameController {
         String input = InputView.readCarName();
         List<String> carNameList = game.splitCarName(input);
         validateNameLength(carNameList);
-        cars = new Cars(createCars(carNameList));
+        createCars(carNameList);
+//        cars = new Cars(createCars(carNameList));
         OutputView.printRequestTryNumberMessage();
         int tryNumber = Integer.parseInt(InputView.readTryNumber());
         OutputView.printResultStartMessage();
-        while (tryNumber-- >= 0) {
+        while (tryNumber-- > 0) {
             movedCars = cars.moveAll();
             OutputView.printGameResultMessage(movedCars);
         }
@@ -49,15 +51,14 @@ public class CarGameController {
     }
 
 
-    public List<Car> createCars(List<String> carNameList) {
+    public void createCars(List<String> carNameList) {
         List<Car> cars = new ArrayList<>();
 
         for (String carName : carNameList) {
             Car car = new Car(carName);
             cars.add(car);
         }
-        return cars;
-
+        this.cars = new Cars(cars);
     }
 
 

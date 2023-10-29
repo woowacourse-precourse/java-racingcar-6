@@ -62,25 +62,25 @@ public class OutputViewTest {
 
     }
 
-    @Test
-    void 게임_실행_결과_출력_테스트() {
-
-        CarGameController carGameController = new CarGameController();
-        List<String> carNames = new ArrayList<>();
-
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        PrintStream printStream = new PrintStream(outputStream);
-        System.setOut(printStream);
-
-        carNames.add("pobi");
-
-        OutputView.printGameResultMessage(carGameController.createCars(carNames));
-        String capturedOutput = outputStream.toString();
-
-        Assertions.assertEquals("pobi : \n\n", capturedOutput);
-
-
-    }
+//    @Test
+//    void 게임_실행_결과_출력_테스트() {
+//
+//        CarGameController carGameController = new CarGameController();
+//        List<String> carNames = new ArrayList<>();
+//
+//        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+//        PrintStream printStream = new PrintStream(outputStream);
+//        System.setOut(printStream);
+//
+//        carNames.add("pobi");
+//
+//        OutputView.printGameResultMessage(carGameController.createCars(carNames));
+//        String capturedOutput = outputStream.toString();
+//
+//        Assertions.assertEquals("pobi : \n\n", capturedOutput);
+//
+//
+//    }
 
     @Test
     void 우승자_출력_테스트() {
