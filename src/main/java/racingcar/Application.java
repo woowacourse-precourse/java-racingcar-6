@@ -7,6 +7,6 @@ public class Application {
     public static void main(String[] args) {
         GameConfig gameConfig = new GameConfig();
         RacingCarGame game = new RacingCarGame(gameConfig);
-        game.play();
+        game.run();
     }
 }

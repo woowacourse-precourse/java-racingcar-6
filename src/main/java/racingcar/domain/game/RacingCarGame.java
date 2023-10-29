@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import racingcar.domain.car.Cars;
+import racingcar.dto.CarDto;
 import racingcar.utils.NumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -25,16 +26,11 @@ public class RacingCarGame {
         outputView = gameConfig.outputView();
     }
 
-    public void play() {
+    public void run() {
         String names = readCarNamesFromUser();
         int roundNumber = readGameRoundFromUser();
         Cars cars = generateCars(names);
-
-        for (int i = 0; i < roundNumber; i++) {
-            List<Integer> numbers = generateNumbers(cars.size());
-            Round round = generateRound(numbers, cars);
-            round.race();
-        }
+        raceByRoundNumber(roundNumber, cars);
     }
 
     private String readCarNamesFromUser() {
@@ -49,6 +45,14 @@ public class RacingCarGame {
 
     private Cars generateCars(String names) {
         return new Cars(names);
+    }
+
+    private void raceByRoundNumber(int roundNumber, Cars cars) {
+        for (int i = 0; i < roundNumber; i++) {
+            List<Integer> numbers = generateNumbers(cars.size());
+            Round round = generateRound(numbers, cars);
+            round.race();
+        }
     }
 
     private List<Integer> generateNumbers(int size) {
