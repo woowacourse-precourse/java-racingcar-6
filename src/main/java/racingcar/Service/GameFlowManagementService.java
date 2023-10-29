@@ -27,6 +27,10 @@ public class GameFlowManagementService {
         return gameRepository.gameIsFinished(game);
     }
 
+    public Long saveGamestatus(Game game) {
+        return gameRepository.saveGameProcess(game);
+    }
+
     private List<String> getFurthestCarList(List<Car> carList, int maximumLocation) {
         List<String> carNames = new ArrayList<>();
         for (Car car : carList) {
