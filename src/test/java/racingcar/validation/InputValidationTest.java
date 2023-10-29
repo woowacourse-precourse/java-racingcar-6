@@ -57,4 +57,15 @@ class InputValidationTest {
             InputValidation.gameCountValidate(count);
         });
     }
+
+    @Test
+    @DisplayName("시도할 횟수가 자연수가 아닐시 오류를 반환")
+    void gameCountNotNaturalNumberTest() {
+        // given
+        String count="-6";
+        // then
+        assertThrows(IllegalArgumentException.class, () -> {
+            InputValidation.gameCountValidate(count);
+        });
+    }
 }
