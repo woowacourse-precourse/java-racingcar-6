@@ -5,14 +5,14 @@ import racingcar.vo.CarName;
 
 public class Car {
 
-    private static final Integer INIT_DISTANCE = 0;
+    private static final Integer START_POINT = 0;
 
     private final CarName carName;
     private CarDistance carDistance;
 
     public Car(final CarName carName) {
         this.carName = carName;
-        this.carDistance = new CarDistance(INIT_DISTANCE);
+        this.carDistance = new CarDistance(START_POINT);
     }
 
     public void updateDistance() {
