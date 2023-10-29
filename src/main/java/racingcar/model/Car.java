@@ -8,6 +8,8 @@ public class Car {
 
     private final String name;
 
+    private int moveCount = 0;
+
     public Car(String name) {
         this.name = name;
         validate();
@@ -15,6 +17,14 @@ public class Car {
 
     public String getName() {
         return name;
+    }
+
+    public int getMoveCount() {
+        return moveCount;
+    }
+
+    public void move() {
+        moveCount++;
     }
 
     private void validate() {
