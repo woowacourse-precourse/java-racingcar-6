@@ -23,11 +23,12 @@ public class PrintService {
     }
 
     public static void printOneGameOutcome(List<RacingCar> racingCars) {
-        for (RacingCar racingCar : racingCars) {
+        racingCars.forEach( racingCar -> {
             System.out.printf("%s : ", racingCar.getName());
             System.out.printf("%s", printLocation(racingCar.getLocation()));
             System.out.println();
-        }
+        });
+
         System.out.println();
     }
         private static String printLocation(Long distance) {
@@ -37,13 +38,12 @@ public class PrintService {
         }
 
     public static void printWinners(List<RacingCar> winners) {
-        String[] winnerNames = new String[winners.size()];
-
-        for (int i = 0; i < winnerNames.length; i++)
-            winnerNames[i] = winners.get(i).getName();
+        String[] winnerNames = winners.stream()
+                .map(RacingCar::getName)
+                .toArray(String[]::new);
 
         System.out.printf("%s", WINNER_MESSAGE);
-        System.out.printf("%s", String.join(CARS_SPLIT_JOIN_DELIMITER, winnerNames));
+        System.out.printf("%s", String.join(CARS_JOIN_DELIMITER, winnerNames));
         System.out.println();
     }
 }
