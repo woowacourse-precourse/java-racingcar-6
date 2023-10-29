@@ -42,17 +42,15 @@ public class Stadium {
 
     public static void displayResult(List<User> winner) {
         List<String> winnerNames = winner.stream().map(user -> " " + user.getName()).toList();
-        String resultMessage = String.join(",", winnerNames);
-        System.out.println("최종 우승자 :" + resultMessage);
+        String resultMessage = "최종 우승자 :" + String.join(",", winnerNames);
+        System.out.println(resultMessage);
     }
 
     public List<User> chooseWinner() {
-        List<User> winner = new ArrayList<>(List.of(User.of("")));
-        users.forEach(user -> {
-            if (user.isFasterThen(winner)) {
-                winner.clear();
-                winner.add(user);
-            }
+        List<User> winner = new ArrayList<>();
+        users.stream().filter(user -> user.isFasterThen(winner)).forEach(user -> {
+            winner.clear();
+            winner.add(user);
         });
         return winner;
     }

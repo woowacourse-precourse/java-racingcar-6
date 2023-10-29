@@ -26,7 +26,7 @@ public class User {
     }
 
     private StringBuilder visualizedCount() {
-        StringBuilder sb=new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         return sb.append("-".repeat(Math.max(0, proceedCount)));
     }
 
@@ -50,10 +50,10 @@ public class User {
         return name;
     }
 
-    public boolean isFasterThen(List<User> users) {
-        for (User user: users)
-            if(this.proceedCount>=user.getProceedCount())
-                return true;
+    public boolean isFasterThen(List<User> winner) {
+        if (winner.isEmpty()) return true;
+        for (User user : winner)
+            if (this.proceedCount >= user.getProceedCount()) return true;
         return false;
     }
 
