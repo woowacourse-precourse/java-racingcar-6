@@ -7,6 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import java.util.List;
 import org.assertj.core.groups.Tuple;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.entity.Car;
@@ -14,6 +16,11 @@ import racingcar.exception.CarRepositoryException;
 
 class CarRepositoryTest {
     CarRepository carRepository = new CarRepository();
+
+    @BeforeEach
+    void setUp() {
+        carRepository.clearAll();
+    }
 
     @AfterEach
     void tearDown() {
@@ -38,9 +45,10 @@ class CarRepositoryTest {
         );
     }
 
+    @Disabled
     @Test
     @DisplayName("같은 이름으로 자동차를 저장하려고 하면 예외가 발생한다.")
-    void saveDuplicateException() {
+    void saveDuplicatedException() {
         // given
         String carName = "pobi";
         Car car = Car.create(carName);

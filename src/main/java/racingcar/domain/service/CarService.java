@@ -1,6 +1,9 @@
 package racingcar.domain.service;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import racingcar.domain.entity.Car;
 import racingcar.domain.repository.CarRepository;
 import racingcar.exception.CarRepositoryException;
@@ -35,16 +38,28 @@ public class CarService {
         return number >= FORWARD_THRESHOLD;
     }
 
-    public void saveCarName(String carNames) {
+    public List<Car> registerCarsByCarNames(String carNames) {
         List<String> carNameList = RacingCarStringUtils.parseCarNamesToList(carNames);
+        Set<String> carNameSet = RacingCarStringUtils.parseCarNamesToSet(carNames);
+        validationCarNames(carNameList, carNameSet);
+
+        List<Car> cars = new ArrayList<>();
         carNameList.forEach(carName -> {
             validationCarName(carName);
-            carRepository.save(Car.create(carName));
+            Car car = Car.create(carName);
+            cars.add(car);
+            carRepository.save(car);
         });
+
+        return Collections.unmodifiableList(cars);
     }
 
     private void validationCarName(String carName) {
         CarValidationHandler.validationAlphaNumericOrAlphaOrNumeric(carName);
         CarValidationHandler.validationCarNameUnder5Length(carName);
+    }
+
+    private void validationCarNames(List<String> carNameList, Set<String> carNameSet) {
+        CarValidationHandler.validationDuplicatedName(carNameList, carNameSet);
     }
 }

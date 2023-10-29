@@ -20,7 +20,7 @@ public class RacingCarGameService {
         this.racingCarGameRepository = racingCarGameRepository;
     }
 
-    public void registerCarAndGameCounter(RegisterRacingCarGameInput input) {
+    public void registerCarsAndGameCounter(RegisterRacingCarGameInput input) {
         validationGameCount(input.getGameCount());
         validationCars(input.getCars());
 

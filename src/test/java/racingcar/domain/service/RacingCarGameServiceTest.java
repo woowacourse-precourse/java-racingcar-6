@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import java.util.List;
 import org.assertj.core.groups.Tuple;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.entity.Car;
@@ -24,6 +25,12 @@ class RacingCarGameServiceTest {
     RacingCarGameRepository racingCarGameRepository = new RacingCarGameRepository();
     CarRepository carRepository = new CarRepository();
     RacingCarGameService racingCarGameService = new RacingCarGameService(racingCarGameRepository);
+
+    @BeforeEach
+    void setUp() {
+        carRepository.clearAll();
+        racingCarGameRepository.clearAll();
+    }
 
     @AfterEach
     void tearDown() {
@@ -47,7 +54,7 @@ class RacingCarGameServiceTest {
                 GameType.RACING_CAR_GAME, gameCount, cars);
 
         // when
-        racingCarGameService.registerCarAndGameCounter(input);
+        racingCarGameService.registerCarsAndGameCounter(input);
 
         // then
         RacingCarGame racingCarGame = racingCarGameRepository.findById(racingGameId).get();
@@ -82,7 +89,7 @@ class RacingCarGameServiceTest {
                 GameType.RACING_CAR_GAME, gameCount, cars);
 
         // when // then
-        assertThatThrownBy(() -> racingCarGameService.registerCarAndGameCounter(input))
+        assertThatThrownBy(() -> racingCarGameService.registerCarsAndGameCounter(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(RacingCarGameValidationHandler.PROMPT_GAME_COUNT_INPUT);
     }
@@ -103,7 +110,7 @@ class RacingCarGameServiceTest {
                 GameType.RACING_CAR_GAME, gameCount, cars);
 
         // when // then
-        assertThatThrownBy(() -> racingCarGameService.registerCarAndGameCounter(input))
+        assertThatThrownBy(() -> racingCarGameService.registerCarsAndGameCounter(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(RacingCarGameValidationHandler.GAME_COUNT_FORMAT_RESTRICTION);
     }
@@ -124,7 +131,7 @@ class RacingCarGameServiceTest {
                 GameType.RACING_CAR_GAME, gameCount, cars);
 
         // when // then
-        assertThatThrownBy(() -> racingCarGameService.registerCarAndGameCounter(input))
+        assertThatThrownBy(() -> racingCarGameService.registerCarsAndGameCounter(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(RacingCarGameValidationHandler.MAX_GAME_COUNT_RESTRICTION);
     }

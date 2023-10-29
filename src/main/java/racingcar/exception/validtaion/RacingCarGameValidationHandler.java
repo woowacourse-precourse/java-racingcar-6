@@ -2,6 +2,7 @@ package racingcar.exception.validtaion;
 
 import java.util.List;
 import racingcar.domain.entity.Car;
+import racingcar.utils.RacingCarStringUtils;
 
 public class RacingCarGameValidationHandler {
 
@@ -20,7 +21,7 @@ public class RacingCarGameValidationHandler {
     }
 
     public static void validationHasText(String gamCount) {
-        if (!hasText(gamCount)) {
+        if (!RacingCarStringUtils.hasText(gamCount)) {
             throw new IllegalArgumentException(PROMPT_GAME_COUNT_INPUT);
         }
     }
@@ -44,19 +45,6 @@ public class RacingCarGameValidationHandler {
     private static boolean isNumeric(String gameCount) {
         return gameCount.chars()
                 .allMatch(Character::isDigit);
-    }
-
-    private static boolean hasText(String gameCount) {
-        return gameCount != null && !gameCount.isEmpty() && containsText(gameCount);
-    }
-
-    private static boolean containsText(String gameCount) {
-        for (char ch : gameCount.toCharArray()) {
-            if (!Character.isWhitespace(ch)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     private static boolean isCarsEmpty(List<Car> cars) {

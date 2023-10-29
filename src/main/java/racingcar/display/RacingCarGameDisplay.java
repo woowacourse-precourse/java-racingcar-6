@@ -26,10 +26,6 @@ public class RacingCarGameDisplay {
         System.out.println("\n" + RACING_CAR_GAME_RESULT_MESSAGE);
     }
 
-    public static void printGameEndMessage(String winners) {
-        System.out.print(RACING_CAR_GAME_WINNERS_MESSAGE + winners);
-    }
-
     public static void printGameCountMessage() {
         System.out.println(PROMPT_RACING_CAR_GAME_COUNT_MESSAGE);
     }
@@ -43,7 +39,7 @@ public class RacingCarGameDisplay {
             carMovementResult.append(carName).append(COLON).append(distanceGraphics).append("\n");
         }
 
-        System.out.print(carMovementResult);
+        System.out.println(carMovementResult);
     }
 
     public static void printFinalWinnerNames(List<String> winnerNames) {

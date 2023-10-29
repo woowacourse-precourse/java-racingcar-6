@@ -7,21 +7,31 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.entity.Car;
 import racingcar.domain.repository.CarRepository;
+import racingcar.domain.repository.RacingCarGameRepository;
 import racingcar.exception.CarRepositoryException;
 import racingcar.exception.validtaion.CarValidationHandler;
 
 class CarServiceTest {
 
     CarRepository carRepository = new CarRepository();
+    RacingCarGameRepository racingCarGameRepository = new RacingCarGameRepository();
     CarService carService = new CarService(carRepository);
+
+    @BeforeEach
+    void setUp() {
+        carRepository.clearAll();
+        racingCarGameRepository.clearAll();
+    }
 
     @AfterEach
     void tearDown() {
         carRepository.clearAll();
+        racingCarGameRepository.clearAll();
     }
 
     @Test
@@ -31,7 +41,7 @@ class CarServiceTest {
         String carNames = "pobi,ja1va,1";
 
         // when
-        carService.saveCarName(carNames);
+        carService.registerCarsByCarNames(carNames);
 
         // then
         List<Car> cars = carRepository.findAll();
@@ -51,7 +61,7 @@ class CarServiceTest {
         String carNames = "pobi,woni,jun433";
 
         // when // then
-        assertThatThrownBy(() -> carService.saveCarName(carNames))
+        assertThatThrownBy(() -> carService.registerCarsByCarNames(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(CarValidationHandler.CAR_NAME_LENGTH_RESTRICTION);
     }
@@ -63,7 +73,7 @@ class CarServiceTest {
         String carNames = "pobi,woni,세웅";
 
         // when // then
-        assertThatThrownBy(() -> carService.saveCarName(carNames))
+        assertThatThrownBy(() -> carService.registerCarsByCarNames(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(CarValidationHandler.CAR_NAME_FORMAT_RESTRICTION);
     }

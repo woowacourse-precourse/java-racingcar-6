@@ -1,13 +1,23 @@
 package racingcar.exception.validtaion;
 
+import java.util.List;
+import java.util.Set;
+
 public class CarValidationHandler {
     private static final String ALPHA_NUMERIC_REGEX = "^[a-zA-Z0-9]*$";
     private static final String ALPHA_REGEX = "^[a-zA-Z]*$";
     private static final String NUMERIC_REGEX = "^[0-9]*$";
     public static final String CAR_NAME_LENGTH_RESTRICTION = "자동차 이름은 5글자 이하로 입력해주세요.";
     public static final String CAR_NAME_FORMAT_RESTRICTION = "자동차 이름은 영어, 숫자의 조합 또는 영어와 숫자로만 입력해주세요.";
+    public static final String CAR_NAME_DUPLICATED_RESTRICTION = "자동차 이름은 영어, 숫자의 조합 또는 영어와 숫자로만 입력해주세요.";
 
     private CarValidationHandler() {
+    }
+
+    public static void validationDuplicatedName(List<String> carNameList, Set<String> carNameSet) {
+        if (!isSameSize(carNameList, carNameSet)) {
+            throw new IllegalArgumentException(CAR_NAME_DUPLICATED_RESTRICTION);
+        }
     }
 
     public static void validationAlphaNumericOrAlphaOrNumeric(String carName) {
@@ -40,5 +50,9 @@ public class CarValidationHandler {
 
     private static boolean isNumeric(String carName) {
         return carName.matches(NUMERIC_REGEX);
+    }
+
+    private static boolean isSameSize(List<String> carNameList, Set<String> carNameSet) {
+        return carNameList.size() == carNameSet.size();
     }
 }
