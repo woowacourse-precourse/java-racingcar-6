@@ -21,7 +21,7 @@ class ControllerTest {
     @Test
     void 사용자_입력으로_경주_생성() {
         //given
-        String inputString = "pobi,woni,jun";
+        String inputString = "pobi,woni,jun\n5\n";
         System.setIn(new ByteArrayInputStream(inputString.getBytes()));
         //when
         controller.run();
