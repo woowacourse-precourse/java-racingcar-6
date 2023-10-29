@@ -1,19 +1,20 @@
 package racingcar.util;
 
-import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 
-import static org.assertj.core.api.Assertions.*;
-import static racingcar.constants.ErrorConstants.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.constants.ErrorConstants.NOT_DIGIT_ERROR_MESSAGE;
 
+class consoleTest {
 
-class ConsoleTest {
-
-    @AfterEach
-    public void tearDown() {
+    @BeforeEach
+    public void setUp() {
+        //테스트가 실행하기 전 Scanner를 새로 받기 위함
         camp.nextstep.edu.missionutils.Console.close();
     }
 
@@ -24,7 +25,7 @@ class ConsoleTest {
         String request = "pobi,woni,jun";
         System.setIn(new ByteArrayInputStream(request.getBytes()));
         // when
-        String[] names = Console.requestNames();
+        String[] names = racingcar.util.Console.requestNames();
         // then
         assertThat(names).hasSize(3)
                 .contains("pobi", "woni", "jun");
@@ -37,7 +38,7 @@ class ConsoleTest {
         String request = "5";
         System.setIn(new ByteArrayInputStream(request.getBytes()));
         // when
-        int movementAttempts = Console.getNumberOfMovementAttempts();
+        int movementAttempts = racingcar.util.Console.getNumberOfMovementAttempts();
         // then
         assertThat(5).isEqualTo(movementAttempts);
     }
@@ -49,7 +50,7 @@ class ConsoleTest {
         String request = "haen";
         System.setIn(new ByteArrayInputStream(request.getBytes()));
         // when // then
-        assertThatThrownBy(() -> Console.getNumberOfMovementAttempts())
+        assertThatThrownBy(() -> racingcar.util.Console.getNumberOfMovementAttempts())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(NOT_DIGIT_ERROR_MESSAGE);
     }

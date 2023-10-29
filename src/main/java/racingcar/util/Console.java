@@ -8,12 +8,16 @@ public class Console {
     }
 
     public static String[] requestNames() {
-        return camp.nextstep.edu.missionutils.Console.readLine().split(",");
+        return readLine().split(",");
     }
 
     public static int getNumberOfMovementAttempts() {
-        String movementAttempts = camp.nextstep.edu.missionutils.Console.readLine();
+        String movementAttempts = readLine();
         return parseInt(movementAttempts);
+    }
+
+    private static String readLine() {
+        return camp.nextstep.edu.missionutils.Console.readLine();
     }
 
     private static int parseInt(String movementAttempts) {
