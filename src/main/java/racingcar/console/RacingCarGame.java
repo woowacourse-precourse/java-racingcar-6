@@ -31,5 +31,7 @@ public class RacingCarGame {
 
             start = racingCarService.addTime(start);
         }
+
+        racingCarService.getFinalWinner(racingCars);
     }
 }
