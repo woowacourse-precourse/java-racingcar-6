@@ -52,9 +52,7 @@ public class ValidatorTest {
         });
 
         // when, then
-        validInputs.forEach(
-                ValidatorTest::assertNotThrowsOnValidCarName
-        );
+        validInputs.forEach(ValidatorTest::assertNotThrowsOnValidCarName);
     }
 
     private static void assertNotThrowsOnValidCarName(String carName) {

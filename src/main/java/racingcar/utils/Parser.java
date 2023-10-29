@@ -14,4 +14,8 @@ public class Parser {
 
         return result;
     }
+
+    public static int parseInt(String input) {
+        return Integer.parseInt(input);
+    }
 }
