@@ -27,15 +27,23 @@
 - CarNameException
   - 자동차 이름 입력 예외
   #
-- Car, RandomNumberGenerator, Judge
-    - 차, 랜덤숫자, 숫자 판단 심판에 대한 책임
+- Car, Cars
+    - 자동차, 자동차 묶음행위에 대한 책임
 - RacingCarService
     - domain 패키지에 속한 클레스에게 의존하여 비즈니스 로직을 기반한 서비스를 제공
+    - WinnerDto
+      - 승리한 사람들의 이름을 전달
+    - RunningCarDto
+      - 진행중인 차의 상황을 전달 
+    - DtoConverter
+      - car에서 Dto로 변환해주는 책임
 - RacingCarController
   - 입력에 따른 비즈니스 로직 호출
 #
 - Configuration
     - RacingCarService와 RacingCarController클레스의 의존성을 관리
+- StringManipulatro
+  - 문자열을 분리하고 병합하는 책임
 
 ## 🤔 요구 사항에 대한 분석 (공부 및 적용할 것)
 - JDK 17버전의 바른 사용 
@@ -51,5 +59,4 @@
 - 일급 컬렉션 사용 
 - JDK 17버전의 Java Record 목적에 맞는 사용 ( DTO 목적으로 활용한다.)
 - 함수형 프로그래밍을 통해  Validator 의 범용성 있는 코드작성 
-- 팩토리 메서드를 통한 Car 리스트 생성
 - RacingCarService 에서 최대한 변경에 열린 코드로 비즈니스 로직 수행하도록 작성
