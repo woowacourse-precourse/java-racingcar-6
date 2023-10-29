@@ -17,6 +17,7 @@ public class Application {
 	}
 
 	public static void setCarMap() {
+		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String input = readLine().trim();
 		for (String carName : input.split(",")) {
 			if (carName.length() == 0) {
@@ -27,6 +28,7 @@ public class Application {
 	}
 
 	public static void setTurnCount() {
+		System.out.println("시도할 회수는 몇회인가요?");
 		String input = readLine().trim();
 		try {
 			turnCount = Integer.parseInt(input);
