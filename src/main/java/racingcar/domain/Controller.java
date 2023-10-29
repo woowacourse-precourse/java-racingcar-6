@@ -2,15 +2,14 @@ package racingcar.domain;
 
 import static racingcar.view.InputView.inputAttemptsCount;
 
-import java.util.Arrays;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Collections;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.view.Validator;
 
 public class Controller {
-    static Car car = new Car();
-    private static final List<String> carNameList = car.getCarName();
+    private static final List<String> carNameList = Car.getCarName();
 
     public static void validateCarNames() {
         if (!Validator.isCarNameOverFiveCharacters(carNameList)) {
@@ -35,5 +34,14 @@ public class Controller {
         if (!Validator.isEmpty(Collections.singletonList(inputAttemptsCount))) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public static boolean makeMoveDecision() {
+        boolean move = false;
+        int moveDecision = Randoms.pickNumberInRange(0, 9);
+        if (moveDecision >= 4) {
+            move = true;
+        }
+        return move;
     }
 }

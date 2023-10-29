@@ -1,6 +1,5 @@
 package racingcar.view;
 
-import static racingcar.view.InputView.inputAttemptsCount;
 
 import java.util.List;
 import java.util.regex.Matcher;

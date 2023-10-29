@@ -1,6 +1,9 @@
 package racingcar.view;
 
-import static racingcar.view.InputView.inputCarName;
+import static racingcar.model.Car.moveCount;
+
+import java.util.List;
+import racingcar.model.Car;
 
 public class OutputView {
     public static void startInputMessage() {
@@ -10,4 +13,17 @@ public class OutputView {
     public static void askForAttemptsCount() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
+
+    public static void resultMessage() {
+        System.out.println();
+        System.out.println("실행 결과");
+    }
+
+    public static void displayResult() {
+        List<String> carNameList = Car.getCarName();
+        for (String s : carNameList) {
+            System.out.println(s + " : " + moveCount());
+        }
+    }
+
 }
