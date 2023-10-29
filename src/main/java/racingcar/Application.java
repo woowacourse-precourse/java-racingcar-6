@@ -32,7 +32,7 @@ public class Application {
 
         List<Car> championCars = utils.findCarsWithMaxDistance(carList);
 
-        System.out.print("최종 우승자: ");
+        System.out.print("최종 우승자 : ");
         int size = championCars.size();
         for (int i = 0; i < size; i++) {
             Car car = championCars.get(i);
