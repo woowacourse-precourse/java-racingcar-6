@@ -23,6 +23,8 @@ public class Race {
 
     private void createCars(String[] carNames) {
         for (String carName : carNames) {
+            InputValidator inputValidator = new InputValidator();
+            inputValidator.carNameLength(carName);
             cars.add(new Car(carName));
         }
     }
