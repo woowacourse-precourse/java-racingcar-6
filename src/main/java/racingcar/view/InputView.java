@@ -6,11 +6,15 @@ import racingcar.constants.Messages;
 public class InputView {
     public static String inputCarNames() {
         System.out.println(Messages.INPUT_CAR_NAMES.getMessage());
-        return Console.readLine();
+        return consoleInput();
     }
 
-    public static int inputRoundNum() {
+    public static String inputRoundNum() {
         System.out.println(Messages.INPUT_ROUND_NUM.getMessage());
-        return Integer.parseInt(Console.readLine());
+        return consoleInput();
+    }
+
+    public static String consoleInput() {
+        return Console.readLine();
     }
 }
