@@ -1,10 +1,11 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EntryPoint {
 
-	private ArrayList<InformationOfCar> carList;
+	private List<InformationOfCar> carList;
 	private final UserInput userInput;
 	private final GameProcess gameProcess;
 

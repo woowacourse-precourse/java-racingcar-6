@@ -1,27 +1,27 @@
 package racingcar;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import camp.nextstep.edu.missionutils.Console;
 
 public class UserInput {
 
-	private ArrayList<InformationOfCar> carList;
+	private List<InformationOfCar> carList;
 	private final Validator validator;
 
-	public UserInput(ArrayList<InformationOfCar> carList) {
+	public UserInput(List<InformationOfCar> carList) {
 		this.carList = carList;
 		this.validator = new Validator();
 	}
 
-	public ArrayList<InformationOfCar> inputInformationOfCar() {
+	public List<InformationOfCar> inputInformationOfCar() {
 		StringTokenizer nameDivider = new StringTokenizer(Console.readLine(), ",");
 		carList = addToCarList(nameDivider);
 		return carList;
 	}
 
-	private ArrayList<InformationOfCar> addToCarList(StringTokenizer nameDivider) {
+	private List<InformationOfCar> addToCarList(StringTokenizer nameDivider) {
 		while (nameDivider.hasMoreTokens()) {
 			String carName = nameDivider.nextToken();
 			if (validator.validateNameLength(carName)) {

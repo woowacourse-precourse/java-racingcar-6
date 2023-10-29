@@ -1,6 +1,6 @@
 package racingcar;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -10,7 +10,7 @@ public class GameProcess {
 
 	}
 
-	public void playGame(ArrayList<InformationOfCar> carList, int moveCount) {
+	public void playGame(List<InformationOfCar> carList, int moveCount) {
 		System.out.println();
 		System.out.println("실행 결과");
 		for (int j = 0; j < moveCount; j++) {
@@ -35,12 +35,12 @@ public class GameProcess {
 		return randomNumber >= 4;
 	}
 
-	public int calculateMaxDistance(ArrayList<InformationOfCar> carList) {
+	public int calculateMaxDistance(List<InformationOfCar> carList) {
 		carList.sort((car1, car2) -> car2.getDistance().length() - car1.getDistance().length());
 		return carList.get(0).getDistance().length();
 	}
 
-	public void printFinalString(int maxDistance, ArrayList<InformationOfCar> carList) {
+	public void printFinalString(int maxDistance, List<InformationOfCar> carList) {
 		StringBuilder result = new StringBuilder(carList.get(0).getCarName());
 		for (int i = 1; i < carList.size()-1; i++) {
 			InformationOfCar car = carList.get(i);
