@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import java.util.StringJoiner;
 
 public class Application {
 
@@ -30,21 +31,21 @@ public class Application {
         return maxDistance;
     }
 
-    private static void findWinner(Car car, int maxDistance) {
+    private static StringJoiner findWinner(Car car, int maxDistance) {
         System.out.print("최종 우승자 : ");
-        int count = 0;
+        StringJoiner winner = new StringJoiner(",");
 
         for (int i = 0; i < car.names.size(); i++) {
 
             if (maxDistance == car.movedDistances.get(i).length()) {
-
-                if (count++ != 0) {
-                    System.out.print(", ");
-                }
-
-                System.out.print(car.names.get(i));
+                winner.add(car.names.get(i));
             }
         }
+        return winner;
+    }
+
+    private static void printWinner(StringJoiner winner){
+        System.out.println(winner);
     }
 
     private static int createRoundCount(String userInput) {
@@ -60,7 +61,7 @@ public class Application {
 
         car.move(Application.createRoundCount(getInput("시도할 회수는 몇회인가요?")));
 
-        Application.findWinner(car, Application.calculateMaxDistance(car));
+        Application.printWinner(Application.findWinner(car, Application.calculateMaxDistance(car)));
 
     }
 }
