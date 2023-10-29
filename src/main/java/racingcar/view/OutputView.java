@@ -37,7 +37,7 @@ public class OutputView {
     public String convertWinnersToString(List<String> winnerName) {
         StringBuilder winner = new StringBuilder(RACE_WINNER + winnerName.get(0));
         for (int i = 1; i < winnerName.size(); i++) {
-            winner.append(COMMA+BLANK);
+            winner.append(COMMA + SPACE);
             winner.append(winnerName.get(i));
         }
         return winner.toString();
