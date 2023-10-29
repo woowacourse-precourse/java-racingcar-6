@@ -5,12 +5,12 @@ import java.util.Collections;
 import java.util.List;
 
 public class ResultOutput {
-    private List<String> strResults = new ArrayList<>();
-    private List<Integer> intResults = new ArrayList<>();
-    private List<String> winners = new ArrayList<>();
-    private List<String> racingCarNames = new ArrayList<>();
+    private static List<String> strResults = new ArrayList<>();
+    private final List<Integer> intResults = new ArrayList<>();
+    private final List<String> winners = new ArrayList<>();
+    private static final List<String> racingCarNames = new ArrayList<>();
 
-    public void printRacingResult(String[] carNames, List<Boolean> boolResult) {
+    public static void printRacingResult(String[] carNames, List<Boolean> boolResult) {
         List<String> strResult = boolResultToStr(boolResult);
         setStrResults(strResult);
         for (int i = 0; i < carNames.length; i++) {
@@ -20,7 +20,7 @@ public class ResultOutput {
         System.out.println();
     }
 
-    private List<String> boolResultToStr(List<Boolean> boolResult) {
+    private static List<String> boolResultToStr(List<Boolean> boolResult) {
         List<String> strResult = new ArrayList<>();
         for (int i = 0; i < boolResult.size(); i++) {
             strResult.add("");
@@ -31,7 +31,7 @@ public class ResultOutput {
         return strResult;
     }
 
-    private void setStrResults(List<String> strResult) {
+    private static void setStrResults(List<String> strResult) {
         if (strResults.isEmpty()) {
             strResults = strResult;
             return;
