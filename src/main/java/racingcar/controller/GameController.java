@@ -16,14 +16,13 @@ public class GameController {
 
     public void playGame() {
         initializeGame();
-
     }
 
     private void initializeGame() {
         outputView.requestCarNames();
-        final Cars cars = generateCars();
+        cars = generateCars();
         outputView.requestTryCount();
-        final TryCount tryCount = generateTryCount();
+        tryCount = generateTryCount();
     }
 
     private Cars generateCars() {
