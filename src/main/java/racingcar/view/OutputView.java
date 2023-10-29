@@ -13,8 +13,8 @@ public class OutputView {
         System.out.println(ConsoleMessage.RACE_RESULT_HEADER.getMessage());
     }
 
-    public static void printSingleCarResult(String carName, int forward) {
-        System.out.println(carName + Separator.KEY_VALUE_SEPARATOR.getSeparator() + "-".repeat(forward));
+    public static void printSingleCarResult(String carName, int position) {
+        System.out.println(carName + Separator.KEY_VALUE_SEPARATOR.getSeparator() + "-".repeat(position));
     }
 
     public static void lineBreak() {
