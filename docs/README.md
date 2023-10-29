@@ -2,12 +2,12 @@
 
 ## 기능 구현 목록
 
-- [ ] 사용자로부터 경주할 자동차 이름을 입력받는다. - `IOService#scanCarNames()`
+- [x] 사용자로부터 경주할 자동차 이름을 입력받는다. - `IOService#scanCarNames()`
   - 자동차 이름은 한 줄로 입력받으며 ','로 구분된다.
   - 사용자가 잘못된 값을 입력하는 경우 `IllegalArguemntExceptopn`을 발생시킨다.
     - 공백을 입력하는 경우
     - 이름이 5글자를 초과하는 경우
-- [ ] 0에서 9사이에서 랜덤숫자를 생성한다. - `NumberGenerator#createRandomNumber()`
+- [ ] 0에서 9사이에서 랜덤숫자 n개를 생성한다. - `NumberGenerator#createRandomNumbers(n)`
 - [ ] 차를 한 칸 전진한다. `Car#move()`
   -  주어진 숫자가 4이상이면 자동차의 위치를 1 증가 시키고, 그렇지 않으면 변화시키지 않는다.
 - [ ] 자동차의 이름과 위치를 보고 상태를 출력한다. - `IOService#printCarState()`
