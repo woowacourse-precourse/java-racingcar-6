@@ -55,8 +55,8 @@ public class CarGameController {
         outputHandler.printGameResultMessage();
 
         for (int i = 0; i < tryCount.getTryCount(); i++) {
-            carGameService.racingCarGameProgress();
-            List<Map<String, String>> stageGameResults = carGameService.racingCarGameResult();
+            carGameService.carGameProgress();
+            List<Map<String, String>> stageGameResults = carGameService.carGameResult();
             outputHandler.printGameProgress(stageGameResults);
         }
     }

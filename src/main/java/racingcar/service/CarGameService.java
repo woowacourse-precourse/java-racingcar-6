@@ -19,20 +19,20 @@ public class CarGameService {
             carStatusList.add(carStatus);
         }
 
-        carStatusGroup = new CarStatusGroup(carStatusList);
+        carStatusGroup = CarStatusGroup.create(carStatusList);
     }
 
-    public void racingCarGameProgress() {
+    public void carGameProgress() {
         carStatusGroup.moveForward();
     }
 
-    public List<Map<String, String>> racingCarGameResult() {
+    public List<Map<String, String>> carGameResult() {
         List<Map<String, String>> racingCarsInfo = new ArrayList<>();
-        List<CarStatus> finishCarList = carStatusGroup.getFinishCarList();
+        List<CarStatus> gameResults = carStatusGroup.getCarStatusList();
 
-        for (CarStatus finishCar : finishCarList) {
-            Map<String, String> carInfos = finishCar.getCarStatus();
-            racingCarsInfo.add(carInfos);
+        for (CarStatus gameResult : gameResults) {
+            Map<String, String> carInfo = gameResult.getCarStatus();
+            racingCarsInfo.add(carInfo);
         }
 
         return racingCarsInfo;
@@ -40,10 +40,10 @@ public class CarGameService {
 
     public String getWinnerNames() {
         CarStatus maxPositionCar = carStatusGroup.getMaxPosition();
-        List<String> winners = carStatusGroup.getWinnerNames(maxPositionCar);
+        List<String> winnerNames = carStatusGroup.getWinnerNames(maxPositionCar);
 
-        String winnerNames = String.join(", ", winners);
+        String winners = String.join(", ", winnerNames);
 
-        return winnerNames;
+        return winners;
     }
 }

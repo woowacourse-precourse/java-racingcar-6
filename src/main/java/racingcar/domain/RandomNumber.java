@@ -6,8 +6,12 @@ public class RandomNumber {
 
     private final int randomNumber;
 
-    public RandomNumber() {
+    private RandomNumber() {
         this.randomNumber = generateNumber();
+    }
+
+    public static RandomNumber create() {
+        return new RandomNumber();
     }
 
     private int generateNumber() {

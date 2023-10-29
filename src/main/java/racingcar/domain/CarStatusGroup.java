@@ -9,13 +9,17 @@ public class CarStatusGroup {
 
     private final List<CarStatus> carStatusList;
 
-    public CarStatusGroup(List<CarStatus> carStatusList) {
+    private CarStatusGroup(List<CarStatus> carStatusList) {
         this.carStatusList = carStatusList;
+    }
+
+    public static CarStatusGroup create(List<CarStatus> carStatusList) {
+        return new CarStatusGroup(carStatusList);
     }
 
     public void moveForward() {
         for (CarStatus carStatus : carStatusList) {
-            RandomNumber randomNumber = new RandomNumber();
+            RandomNumber randomNumber = RandomNumber.create();
 
             if (randomNumber.isMovePossible()) {
                 carStatus.forWard();
@@ -23,8 +27,10 @@ public class CarStatusGroup {
         }
     }
 
-    public List<CarStatus> getFinishCarList() {
-        return List.copyOf(carStatusList);
+    public CarStatus getMaxPosition() {
+        return carStatusList.stream()
+                .max(CarStatus::compareTo)
+                .orElseThrow(() -> MAX_VALUE_MISSING.getException());
     }
 
     public List<String> getWinnerNames(CarStatus maxPositionCar) {
@@ -34,9 +40,7 @@ public class CarStatusGroup {
                 .collect(Collectors.toUnmodifiableList());
     }
 
-    public CarStatus getMaxPosition() {
-        return carStatusList.stream()
-                .max(CarStatus::compareTo)
-                .orElseThrow(() -> MAX_VALUE_MISSING.getException());
+    public List<CarStatus> getCarStatusList() {
+        return List.copyOf(carStatusList);
     }
 }
