@@ -26,16 +26,16 @@ public class View {
     }
 
     public void printNameInputMessage() {
-        System.out.println(Message.NAMEINPUT.message());
+        System.out.println(Message.NAME_INPUT.message());
     }
 
     public void printAttemptCountInputMessage() {
-        System.out.println(Message.ATTEMPTCOUNTINPUT.message());
+        System.out.println(Message.ATTEMPT_COUNT_INPUT.message());
     }
 
     public void printAttemptResultMessage() {
         System.out.println();
-        System.out.println(Message.ATTEMPTRESULT.message());
+        System.out.println(Message.ROUNDS_RESULT.message());
     }
 
     public void printFinalWinnerMessage(Winners winnersResult) {

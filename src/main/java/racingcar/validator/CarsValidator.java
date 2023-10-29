@@ -31,7 +31,7 @@ public enum CarsValidator {
                 .distinct().toList().size();
 
         if (isDuplicate(names.size(), uniqueSize)) {
-            throw new IllegalArgumentException(ExceptionMessage.DUPLICATEDNAME.message());
+            throw new IllegalArgumentException(ExceptionMessage.DUPLICATED_NAME.message());
         }
     }
 

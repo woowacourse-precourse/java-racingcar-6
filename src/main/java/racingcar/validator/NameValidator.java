@@ -13,7 +13,7 @@ public enum NameValidator {
 
     private void checkNameIsEmpty(String name) {
         if (isEmpty(name)) {
-            throw new IllegalArgumentException(ExceptionMessage.EMPTYNAME.message());
+            throw new IllegalArgumentException(ExceptionMessage.EMPTY_NAME.message());
         }
     }
 
@@ -23,7 +23,7 @@ public enum NameValidator {
 
     private void checkNameCorrectRange(String name) {
         if (isRangeOver(name)) {
-            throw new IllegalArgumentException(ExceptionMessage.EXPLODENAME.message());
+            throw new IllegalArgumentException(ExceptionMessage.EXPLODE_NAME.message());
         }
     }
 

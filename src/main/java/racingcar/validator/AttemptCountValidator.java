@@ -14,7 +14,7 @@ public enum AttemptCountValidator {
 
     private void checkAttemptCountIsInteger(String input) {
         if (isNotInteger(input)) {
-            throw new IllegalArgumentException(ExceptionMessage.NOTINTEGER.message());
+            throw new IllegalArgumentException(ExceptionMessage.NON_INTEGER.message());
         }
     }
 
