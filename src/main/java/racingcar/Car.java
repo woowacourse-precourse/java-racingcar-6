@@ -23,10 +23,6 @@ public class Car {
         }
     }
 
-    public String getName() {
-        return name;
-    }
-
     public int getPoint() {
         return point;
     }
@@ -35,9 +31,18 @@ public class Car {
         if (getRandomNumber() > FORWARD_STANDARD) {
             point += 1;
         }
+        print();
     }
 
     private int getRandomNumber() {
         return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
+    }
+
+    private void print() {
+        System.out.println(name + " : " + getForward());
+    }
+
+    private String getForward() {
+        return "-".repeat(point);
     }
 }
