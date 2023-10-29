@@ -13,6 +13,7 @@
 - [ ] 자동차가 앞으로 이동한다. Forward 
   - [x] 0에서 9 사이에서 무작위 값을 구한다. Forward#randomNums()
   - [ ] Forward#randomNums()가 4 이상일 때 전진한다. Forward#canForward()
+  - [ ] canForward()에 따른 변경사항을 반영한다. Forward#updatePosition
   
 - [ ] 경주의 라운드 별 상태를 나타낸다. Racing
   - [ ] 전진하는 자동차를 출력할 때 이름을 같이 출력한다. Racing#state()
