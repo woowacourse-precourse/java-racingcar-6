@@ -16,9 +16,14 @@ public class Application {
         RacingNumber racingNumber = new RacingNumber();
         racingNumber.setRacingNum();
         if(!racingNumber.isPositiveInteger()) throw new IllegalArgumentException();
-        Integer racingInteger = racingNumber.getRacingNum();
+        int racingNum = racingNumber.getRacingNum();
 
-
+        CarRacing carRacing = new CarRacing(carArrayList);
+        for(int i = 0; i < racingNum; i ++){
+            carRacing.setRacingMap();
+            carRacing.printRacingProgress();
+        }
+        carRacing.printRacingResult();
 
 
     }
