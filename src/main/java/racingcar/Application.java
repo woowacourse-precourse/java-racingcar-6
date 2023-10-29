@@ -34,6 +34,24 @@ public class Application {
         List<Car> cars = getCars();
 
         int times = getTimesToMove();
+
+        race(cars, times);
+
+    }
+
+    public static void race(List<Car> cars, int times) {
+        for (int i = 0; i < times; i++) {
+            for (Car car : cars) {
+                int num = getRandomNum();
+                forwardOrStop(car, num);
+            }
+        }
+    }
+
+    public static void forwardOrStop(Car car, int num) {
+        if (num >= 4) {
+            car.forward();
+        }
     }
 
     public static int getRandomNum() {
