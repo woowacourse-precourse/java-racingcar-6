@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,12 +24,12 @@ class CarTest {
 
     @DisplayName("새로 생성된 자동차가 전진에 성공하면, 그 자동차의 전진 횟수는 1이다.")
     @Test
-    void moveForward_Success() {
+    void move_Success() {
         // given
         Car car = new Car("pobi");
 
         // when
-        int forwardCount = car.moveForward(5);
+        int forwardCount = car.move(5);
 
         // then
         Assertions.assertThat(forwardCount).isEqualTo(1);
@@ -39,12 +37,12 @@ class CarTest {
 
     @DisplayName("새로 생성된 자동차가 전진에 실패하면, 그 자동차의 전진 횟수는 0이다.")
     @Test
-    void moveForward_Fail_ByValueIsLessThanSpecifiedNumber() {
+    void move_Fail_ByValueIsLessThanSpecifiedNumber() {
         // given
         Car car = new Car("pobi");
 
         // when
-        int forwardCount = car.moveForward(3);
+        int forwardCount = car.move(3);
 
         // then
         Assertions.assertThat(forwardCount).isEqualTo(0);
@@ -68,7 +66,7 @@ class CarTest {
     void isForwardCountSameAs_True() {
         // given
         Car car = new Car("pobi");
-        car.moveForward(5);
+        car.move(5);
 
         // when, then
         Assertions.assertThat(car.isForwardCountSameAs(1)).isTrue();

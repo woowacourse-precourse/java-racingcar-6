@@ -15,8 +15,8 @@ class RefereeTest {
         Car car2 = new Car("car2");
         Car car3 = new Car("car3");
 
-        car1.moveForward(5);
-        car2.moveForward(5);
+        car1.move(5);
+        car2.move(5);
 
         Referee referee = new Referee();
 

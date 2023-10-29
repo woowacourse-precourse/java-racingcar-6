@@ -17,7 +17,7 @@ public class Car {
         }
     }
 
-    public int moveForward(int value) {
+    public int move(int value) {
         if (value >= 4) {
             forwardCount++;
         }

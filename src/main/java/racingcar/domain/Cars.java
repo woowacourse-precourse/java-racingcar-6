@@ -45,10 +45,10 @@ public class Cars {
         }
     }
 
-    public MoveResult moveForward(RandomNumberGenerator numberGenerator) {
+    public MoveResult move(RandomNumberGenerator numberGenerator) {
         List<Integer> forwardCounts = new ArrayList<>();
         for (Car car : cars) {
-            int forwardCount = car.moveForward(numberGenerator.generate());
+            int forwardCount = car.move(numberGenerator.generate());
             forwardCounts.add(forwardCount);
         }
         return new MoveResult(getCarNames(cars), forwardCounts);
