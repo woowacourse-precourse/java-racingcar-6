@@ -1,8 +1,10 @@
-package racingcar;
+package racingcar.console;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import java.util.NoSuchElementException;
+import racingcar.Car;
+import racingcar.CarRacingResult;
 
 public class RacingCarConsole {
     public static String readCarNames() {

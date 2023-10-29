@@ -7,6 +7,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import racingcar.console.RacingCarConsole;
 
 public class RacingCarConsoleTest {
 

@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.validator;
+
+import racingcar.util.Util;
 
 public class InputValidator {
     public static void validateCarNames(String carNames) {

@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
+import racingcar.console.RacingCarConsole;
 
 public class CarRacing {
     private final List<Car> carList;
