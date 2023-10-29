@@ -32,4 +32,17 @@ class TryCountValidatorTest {
                 .hasMessage("시도할 횟수를 입력해주세요.");
     }
 
+    @DisplayName("validateTryCountIsInteger()로 시도할 횟수가 정수가 아니라면 예외가 발생한다.")
+    @Test
+    void validateTryCountIsIntegerWithInvalidTryCount() {
+        // given
+        String invalidTryCount = "akb1";
+
+        // when
+        // then
+        assertThatThrownBy(() -> new TryCountValidator(invalidTryCount))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("시도할 횟수는 정수여야 합니다.");
+    }
+
 }
