@@ -32,7 +32,7 @@ public class FeatureTest {
     }
 
     @Test
-    void 자동차_이름_입력받고_자동차리스트에_저장() {
+    void 자동차_이름_입력받고_자동차리스트_객체에_저장() {
         String testInput = "car1,car2,car3";
         InputStream inputStream = new ByteArrayInputStream(testInput.getBytes());
         System.setIn(inputStream);
@@ -51,7 +51,7 @@ public class FeatureTest {
     }
 
     @Test
-    void 시도할_회수_입력받기() {
+    void 시도할_회수_입력받고_시도횟수_객체에_저장() {
         String testInput = "5";
         InputStream inputStream = new ByteArrayInputStream(testInput.getBytes());
         System.setIn(inputStream);
