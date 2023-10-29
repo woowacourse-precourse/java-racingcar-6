@@ -14,7 +14,9 @@ public class RacingCarService {
 
     public void move(Car car, int randomNumber) {
         int position = car.getPosition();
-        car.setPosition(position+randomNumber);
+        if(randomNumber>4) {
+            car.setPosition(position+1);
+        }
     }
 
     public int findMaxPosition(List<Car> cars) {
