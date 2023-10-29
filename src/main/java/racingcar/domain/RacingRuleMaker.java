@@ -15,8 +15,8 @@ import java.util.List;
 //            - [ ] 몇번의 이동을 할것인가 입력 (주어진 횟수(게임세트수)) int roundCount
 public class RacingRuleMaker {
 
-    public List<String> cars = new ArrayList<>();
-    public int roundCount;
+    private List<String> cars = new ArrayList<>();
+    private int roundCount;
 
     public RacingRuleMaker() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -40,5 +40,11 @@ public class RacingRuleMaker {
         roundCount = Integer.parseInt(inputRacingRound);
     }
 
+    public List<String> getCars() {
+        return cars;
+    }
+    public int getRoundCount() {
+        return roundCount;
+    }
 
 }
