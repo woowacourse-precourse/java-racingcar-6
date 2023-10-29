@@ -84,9 +84,9 @@
 
 #### Car
 - 이름을 검증한다.(5자 이상시 IllegalArgumentException)
-- 자동차를 이동 할 수 있는지 판단한다.
-  - 이동할 수 있다면 이동한다.
-- getLocation를 이용하여 이동한 거리를 반환한다.
+-[x] 자동차를 이동 할 수 있는지 판단한다.
+  -[x] 이동할 수 있다면 이동한다.
+-[x] getLocation를 이용하여 이동한 거리를 반환한다.
 - getName을 이용하여 자동차의 이름을 반환한다.
 
 #### RandomNumberGenerator
