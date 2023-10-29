@@ -17,18 +17,18 @@ public class Application {
 
         view.printAskCarName();
         String carsName = controller.getCarNamesInput();
-        String[] carsNameArray = carsName.split(",");
+        String[] carsNameArray = carsName.split(","); //"|", "*", ".", "&" , "^"  등의 문자를 regex로 사용하는 경우 함수가 동작하지 않는다
         isCarNameInputLengthValidate(carsNameArray);
         int carQuantity = carsNameArray.length;
         gameData.createCarList(carQuantity);
-        gameData.setCarsName(carsNameArray);
+        gameData.setCarsName(carsNameArray, gameData.getCarList());
 
         view.printAskTryRepetitionNumber();
-        String repetitionNumberInput = gameData.getrepetitionNumberInput();
+        String repetitionNumberInput = gameData.getRepetitionNumberInput();
         isRepetitionNumberInputTypeValidate(repetitionNumberInput);
         isRepetitionNumberInputRangeValidate(repetitionNumberInput);
         gameData.changeRepetitionNumberType(repetitionNumberInput);
-        Integer repetitionNumber = gameData.getrepetitionNumber();
+        Integer repetitionNumber = gameData.getRepetitionNumber();
         for (int repetition = 0; repetition < repetitionNumber; repetition++) {
 
             controller.MoveForward(gameData.getCarList());
