@@ -1,30 +1,40 @@
 package racingcar.controller;
 
+import java.util.List;
+import racingcar.service.RaceService;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
+
 public class RaceController {
+    private final RaceService raceService;
+    private final InputView inputView;
+    private final OutputView outputView;
+
+    public RaceController(RaceService raceService, InputView inputView, OutputView outputView) {
+        this.raceService = raceService;
+        this.inputView = inputView;
+        this.outputView = outputView;
+    }
+
 
     public void race() {
         int tryCount = setupRace();
-        raceRound(tryCount);
+        raceWholeRound(tryCount);
         printFinalWinner();
     }
 
     private int setupRace() {
-        //TODO: inputView를 통해 시작 메시지 출력
+        inputView.printAskName();
 
-        //TODO: inputView를 통해 사용자로부터 경주 자동차 이름 입력 받기
+        List<String> carNames = inputView.getCarNames();
+        raceService.init(carNames);
 
-        //TODO: 시도 횟수 묻는 메시지 출력
-
-        //TODO: 시도횟수 입력 받기
-
-        //TODO: raceService.init(List<String> carList)을 통해 raceService의 hashMap 초기화하기
-
-        //TODO: 시도횟수 반환
-        return 0;
+        inputView.printAskCount();
+        return inputView.getTryCount();
     }
 
 
-    private void raceRound(int tryCount) {
+    private void raceWholeRound(int tryCount) {
         while (tryCount-- > 0) {
             //TODO: raceService.경주차 이동()을 통해 HashMap의 값 갱신 및 DTO 반환
 
