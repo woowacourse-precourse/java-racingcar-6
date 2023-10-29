@@ -24,11 +24,12 @@ Model, Controller, View, Logic 에 대해 인터페이스를 먼저 구현한다
 1. addWins() - 점수를 올린다.
 2. getWins() - 점수를 가져온다.
 3. getName()  - 이름을 가져온다.
+4. tryMove() - 전진을 시도할 수 있도록 한다. 
 ## View
 사용자와의 입출력을 관리한다.
 1. getPlayerInfo() - (",")로 구분된 사용자 이름을 입력받을 수 있도록 한다.
 2. getGameRound() - 사용자로부터 게임 진행횟수를 입력받는다.
-3. printRoundInfo() - 게임 라운드마다 진행현황을 출력할 수 있도록 한다.
+3. printRoundProgress() - 게임 라운드마다 진행현황을 출력할 수 있도록 한다.
 4. printWinner() - 우승자를 출력할 수 있도록 한다.
 ## Controller
 플레이어 목록을 관리하는 기능을 제공한다.
@@ -41,27 +42,24 @@ Model, Controller, View, Logic 에 대해 인터페이스를 먼저 구현한다
 2. start() - 게임을 시작할 수 있도록 한다.
 3. run() - 정해진 라운드 동안 게임을 진행한다.
 4. addRound() - 라운드를 증가시킬 수 있도록 한다.
-5. checkMovable() - 사용자가 움직일 수 있는지를 확인한다.
-6. addWinCount() - 사용자의 점수를 올린다.
-7. getWinCount() - 사용자의 승리 횟수를 가져온다.
-8. getWinners() - 최종 승리자를 가져온다 
-9. getPlayers() - 컨트롤러로 부터 플레이어를 가져온다.
+5. movePlayers() - 플레이어들을 움직이도록 한다.
+6. getWinners() - 최종 승리자를 가져온다
 ## Utils
 1. generateRandomNumber() - 무작위 숫자를 생성할 수 있도록 한다.
 2. isIllegalPlayerInfo() - 사용자의 입력 문자열에 대해 에러처리를 하도록 한다. 
-3. isValidRound() - 사용
+3. isIllegalRoundInfo() - 사용
 --- 
 # 고려사항 ( 고민했던 사항 )
 ### 1. 로직에서 Player별 승리 횟수를 조작하기 위해선 Controller를 통해 이루어져야 할까?
   - 컨트롤러는 플레이어 삭제, 추가등 목록을 관리하기 위해 만들어졌다. 게임 진행에 따라 각 플레이어의 승리 횟수를 조작하는 것은 로직의 역할인 것인가 컨트롤러를 통해야 하는가? 
   - 플레이어 리스트는 컨트롤러에 존재하도록 구현했으므로 플레이어를 조작하는 모든 메소드는 컨트롤러 내에 존재해야 하는가?
-  - 아니다. addsWinCount, getWinsCount(), getWinners()는 게임의 진행에 따라 관리 되어야 하므로 로직에서 관리되어야 한다. 로직에서 플레이어 목록을 받아올 수 있도록 구현하자.
+  - 아니다. addsWinCount, getWinsCount(), getWinners()는 게임의 진행에 따라 관리 되어야 하므로 로직에서 관리되어야 한다. 그러므로, 로직에서 플레이어 목록을 받아올 수 있도록 구현하자.
 ---
 
 # 추가 업데이트
 1. Logic - 10번 getPlayers() 추가 필요성 
 2. View - printRoundInfo() -> printRoundProgress() 수정
-3. 플레이어 리스트를 ArrayList를 오버라이딩 하여 사용한다. 
+3. 플레이어 리스트를 ArrayList를 사용하여 관리한다.
 
 
 
