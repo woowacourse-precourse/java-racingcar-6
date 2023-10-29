@@ -29,6 +29,17 @@ public class InputViewValidator {
         }
     }
 
+    public void validateTryNumber(String tryNumber){
+
+        if(isTryNumberEmpty(tryNumber)){
+            throw new IllegalArgumentException("[ERROR] : 시도 횟수가 공백일 수 없습니다");
+        }
+    }
+
+    public boolean isTryNumberEmpty(String tryNumber) {
+        return tryNumber.equals("");
+    }
+
     public boolean isEachCarNameEmpty(String carNames) {
         String[] carNameList = carNames.split("");
         for (String carName : carNameList) {
