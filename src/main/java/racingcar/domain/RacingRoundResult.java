@@ -19,14 +19,21 @@ public class RacingRoundResult {
     }
 
     public List<String> getWinners() {
-        int maxPosition = carInfoList.stream()
-                .mapToInt(CarInfo::position)
-                .max()
-                .orElseThrow(() -> new IllegalArgumentException(NOT_AVAILABLE_CAR_LIST_EXCEPTION));
+        int maxPosition = getMaxPosition();
+        return getSamePosition(maxPosition);
+    }
 
-        return carInfoList.stream()
+    private List<String> getSamePosition(int maxPosition) {
+        return this.carInfoList.stream()
                 .filter(carInfo -> carInfo.position() == maxPosition)
                 .map(CarInfo::name)
                 .collect(Collectors.toList());
+    }
+
+    private int getMaxPosition() {
+        return this.carInfoList.stream()
+                .mapToInt(CarInfo::position)
+                .max()
+                .orElseThrow(() -> new IllegalArgumentException(NOT_AVAILABLE_CAR_LIST_EXCEPTION));
     }
 }
