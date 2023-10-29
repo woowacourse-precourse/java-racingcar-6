@@ -21,7 +21,7 @@ public class InputValidator {
         convertValidateList(validateCarNames);
         removeSpaceInCarName();
         hasDuplicatedName();
-        isOverCarNameSize();
+        validateCarNameLength();
         validateEmptyCarName();
     }
 
@@ -43,25 +43,24 @@ public class InputValidator {
         }
     }
 
-    private void isOverCarNameSize() {
-        List<String> unAvailCarNames = validateCarNames.stream()
+    private void validateCarNameLength() {
+        validateCarNames.stream()
                 .filter(carName -> carName.length() > CAR_NAME_MAX_SIZE)
-                .toList();
-        if (!unAvailCarNames.isEmpty()) {
-            input.close();
-            throw new IllegalArgumentException(OVER_SIZE_CAR_NAME.getMessage());
-        }
+                .findAny()
+                .ifPresent(carName -> {
+                    input.close();
+                    throw new IllegalArgumentException(OVER_SIZE_CAR_NAME.getMessage());
+                });
     }
 
     private void validateEmptyCarName() {
-        System.out.println(validateCarNames);
         validateCarNames.stream()
                 .filter(carName -> carName.length()==0)
                 .findAny()
                 .ifPresent(carName -> {
-                    input.close();
-                    throw new IllegalArgumentException(EMPTY_CAR_NAME.getMessage());
-                }
-        );
+                            input.close();
+                            throw new IllegalArgumentException(EMPTY_CAR_NAME.getMessage());
+                        }
+                );
     }
 }
