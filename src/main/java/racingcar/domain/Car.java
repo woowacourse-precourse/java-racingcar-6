@@ -8,7 +8,6 @@ public class Car {
     private static final int CAN_FORWARD_NUMBER = 4;
 
     private final String name;
-
     private int position;
 
     public Car(String name) {
