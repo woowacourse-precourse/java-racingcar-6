@@ -4,11 +4,13 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import racingcar.domain.car.Car;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 
 class CarRepositoryTest {
@@ -47,12 +49,26 @@ class CarRepositoryTest {
     class findCarRepositoryTest {
 
         @Test
-        @DisplayName("Car 객체를 성공적으로 읽어와야 한다")
-        public void Car_객체를_성공적으로_읽어와야_한다() {
+        @DisplayName("가장 많이 움직인 Car 객체를 읽어와야 한다")
+        public void 가장_많이_움직인_Car_객체를_읽어와야_한다() {
             CarRepository carRepository = new CarRepository();
-            Car firstCar = new Car("FirstCar");
-            Car secondCar = new Car("SecondCar");
+            Car firstCar = Mockito.mock(Car.class);
+            Car secondCar = Mockito.mock(Car.class);
 
+            when(firstCar.getName()).thenReturn("firstCar");
+            when(secondCar.getName()).thenReturn("secondCar");
+
+            when(firstCar.getPosition()).thenReturn(3);
+            when(secondCar.getPosition()).thenReturn(4);
+
+            carRepository.save(firstCar);
+            carRepository.save(secondCar);
+
+            List<Car> carWithMaxPosition = carRepository.findCarWithMaxPosition();
+
+            assertThat(carWithMaxPosition.size()).isEqualTo(1);
+            assertThat(carWithMaxPosition.get(0).getName()).isEqualTo("secondCar");
+            assertThat(carWithMaxPosition.get(0).getPosition()).isEqualTo(4);
         }
     }
 
