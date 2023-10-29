@@ -4,7 +4,7 @@ import static java.util.Objects.isNull;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Car {
+public class Car implements Comparable<Car> {
 
     private static final int MAX_LENGTH_OF_NAME = 5;
     private static final int MIN_RANDOM_VALUE_TO_MOVE = 4;
@@ -32,6 +32,11 @@ public class Car {
 
     public Integer getMovedCount() {
         return movedCount;
+    }
+
+    @Override
+    public int compareTo(Car cmpCar) {
+        return cmpCar.getMovedCount()- this.getMovedCount();
     }
 
     private boolean canMove() {
