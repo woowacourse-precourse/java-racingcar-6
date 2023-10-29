@@ -4,14 +4,16 @@ import racingcar.dto.AttemptCount;
 import racingcar.dto.CarsState;
 import racingcar.dto.ResultMessage;
 import racingcar.model.Cars;
-import racingcar.validator.AttemptCountValidator;
+import racingcar.service.GamePlayingService;
 import racingcar.view.View;
 
 public class Controller {
     private final View view;
+    private final GamePlayingService gamePlayingService;
 
-    public Controller(View view) {
+    public Controller(View view, GamePlayingService gamePlayingService) {
         this.view = view;
+        this.gamePlayingService = gamePlayingService;
     }
 
     public void start() {
@@ -22,39 +24,32 @@ public class Controller {
 
     private Cars generateCars() {
         view.printNameInputMessage();
-        return createCars(readFromConsole());
-    }
-
-    private Cars createCars(String inputCars) {
-        return new Cars(inputCars);
-    }
-
-    private int setAttemptCount() {
-        view.printAttemptCountInputMessage();
-        return creatAttemptCount(readFromConsole());
-    }
-
-    private int creatAttemptCount(String input) {
-        AttemptCountValidator validator = AttemptCountValidator.INSTANCE;
-        AttemptCount attemptCount = validator.validate(input);
-        return attemptCount.getAttemptCount();
+        return gamePlayingService.generateCars(readFromConsole());
     }
 
     private String readFromConsole() {
         return view.inputConsole();
     }
 
+    private int setAttemptCount() {
+        view.printAttemptCountInputMessage();
+        return getCount(gamePlayingService.createAttemptCount(readFromConsole()));
+    }
+
+    private int getCount(AttemptCount attemptCount) {
+        return attemptCount.getAttemptCount();
+    }
+
     private void attemptForward(Cars cars, int count) {
         view.printAttemptResultMessage();
 
         for (int current = 0; current < count; current++) {
-            cars.attemptForward();
-            view.printCurrentCarsResult(getCurrentResult(cars));
+            view.printCurrentCarsResult(tryForward(cars));
         }
     }
 
-    private CarsState getCurrentResult(Cars cars) {
-        return cars.getCurrentCarsResult();
+    private CarsState tryForward(Cars cars) {
+        return gamePlayingService.tryForward(cars);
     }
 
     private void printWinners(Cars cars) {
@@ -62,6 +57,6 @@ public class Controller {
     }
 
     private ResultMessage getResultMessage(Cars cars) {
-        return cars.findWinners();
+        return gamePlayingService.getResultMessage(cars);
     }
 }
