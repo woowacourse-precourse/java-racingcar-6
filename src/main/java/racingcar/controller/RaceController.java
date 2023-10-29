@@ -32,7 +32,7 @@ public class RaceController {
 
     private void printWinners(Cars cars){
         List<CarName> winnerCarNames = getWinnerCarNames(cars.getWinnerCars());
-        outputView.printCRaceResult(winnerCarNames);
+        outputView.printRaceResult(winnerCarNames);
     }
 
     public List<CarName> getWinnerCarNames(List<Car> winnerCars){

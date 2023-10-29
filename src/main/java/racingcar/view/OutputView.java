@@ -32,7 +32,7 @@ public class OutputView {
         System.out.println();
     }
 
-    public void printCRaceResult(List<CarName> carNames){
+    public void printRaceResult(List<CarName> carNames){
         // TODO: 경주 결과 출력
     }
 }
