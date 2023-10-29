@@ -1,4 +1,4 @@
-package racingcar.core.io;
+package racingcar.core.utils;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
