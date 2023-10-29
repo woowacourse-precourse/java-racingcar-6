@@ -78,4 +78,19 @@ public class Application {
             System.out.println();
         }
     }
+
+    /**
+     * Car클라스 안에 있는 getScore()메소드를 활용하여 최고점 점수 리턴
+     * @param cars
+     * @return int highestScore
+     */
+    public static int setHighestScore(List<Car> cars){
+        int highestScore = 0;
+        for (Car car : cars) {
+            if (car.getScore() > highestScore) {
+                highestScore = car.getScore();
+            }
+        }
+        return highestScore;
+    }
 }
