@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
+import racingcar.validator.NamesCountValidator;
 import racingcar.view.InputView;
 
 import java.util.ArrayList;
@@ -11,14 +12,19 @@ public class CarController {
     private final List<Car> racingCars = new ArrayList<>();
     private final InputView inputView = new InputView();
 
-    public List<String> inputToCarNameList() {
+    private List<String> inputToCarNameList() {
         String playerInput = inputView.getCarNameInput();
-        return Arrays.asList(playerInput.split(","));
+        List<String> carNames = Arrays.asList(playerInput.split(","));
+        System.out.println(carNames);
+
+        NamesCountValidator namesCountValidator = new NamesCountValidator();
+        namesCountValidator.validate(carNames);
+        return carNames;
     }
 
     public List<Car> getRacingCars() {
         for (String carName : inputToCarNameList()) {
-            racingCars.add(new Car(carName));
+            racingCars.add(new Car(carName.trim()));
         }
         return racingCars;
     }
