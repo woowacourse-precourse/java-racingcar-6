@@ -12,7 +12,6 @@
 - [X] 자동차 이름이 공백인지 확인하는 기능 - CarName.*isCarNameEmpty*
 - [X] 자동차를 전진시키는 기능 - Car.*moveForward*
 - [X] 자동차 위치를 +1하는 기능 - CarPosition.*incrementPosition*
-- [X] 랜덤 값을 생성하는 기능 - Application.*generateRandomNumber*
 - [X] 자동차의 이름이 유효한지 확인하는 기능 Car.*isNameValid*
 - [X] 메인 애플리케이션 게임 진행 기능 - Application.*startRacingGame*
 - [X] 매회차 게임 진행 기능 - Application.*playGame*

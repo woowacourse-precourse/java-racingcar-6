@@ -144,16 +144,4 @@ public class FeatureTest {
 
         assertThat(actualPosition).isEqualTo(expectedPosition);
     }
-
-//
-//    @Test
-//    void 랜덤_값_생성() {
-//        Car actualObj = new Car("car1");
-//        actualObj.generateRandomNumber();
-//
-//        boolean actualResult = actualObj.isRandomNumberInRange0to9();
-//        boolean expectedResult = true;
-//
-//        assertThat(actualResult).isEqualTo(expectedResult);
-//    }
 }
