@@ -79,4 +79,28 @@ class ValidatorTest {
         // then
         Assertions.assertThat(result).isFalse();
     }
+
+    @Test
+    void 콤마가_연속으로_입력되어_있는지_검증_성공_케이스() {
+        // given
+        String input = "성겸,성민";
+
+        // when
+        boolean result = hasNoConsecutiveCommas(input);
+
+        // then
+        Assertions.assertThat(result).isTrue();
+    }
+
+    @Test
+    void 콤마가_연속으로_입력되어_있는지_검증_실패_케이스() {
+        // given
+        String input = "성겸,,성민";
+
+        // when
+        boolean result = hasNoConsecutiveCommas(input);
+
+        // then
+        Assertions.assertThat(result).isFalse();
+    }
 }
