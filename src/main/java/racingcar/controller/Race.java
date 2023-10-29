@@ -1,12 +1,13 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import racingcar.Utils.ErrorMessage;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
@@ -14,34 +15,30 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Race {
-    private final ArrayList<Car> carList = new ArrayList<>();
     private Cars cars;
-
     private int moveCnt;
+    private StringBuilder findWinners;
 
     public void run() {
         start();
         count();
         OutputView.printResult();
-        StringBuilder findWinners = null;
         while (moveCnt > 0) {
             cars.playSingleTurn();
             carsInformation();
             findWinners = getFindWinners();
             moveCnt--;
         }
-        OutputView.printFindWinner(Objects.requireNonNull(findWinners).toString());
+        OutputView.printFindWinner(findWinners.toString());
 
 
     }
 
     private StringBuilder getFindWinners() {
-        StringBuilder findWinners;
         int currnetMaxPosition = cars.getCurrnetMaxPosition();
         List<Car> winners = cars.findWinner(currnetMaxPosition);
-        findWinners = showWinner(winners);
         System.out.println();
-        return findWinners;
+        return showWinner(winners);
     }
 
     private void carsInformation() {
@@ -70,11 +67,10 @@ public class Race {
     private void callCarNames() {
         String input = InputView.userInput();
         String[] carNames = input.split(",");
-        for (String carName : carNames) {
-            Car car = new Car(carName);
-            validateUserInput(carList);
-            carList.add(car);
-        }
+        List<Car> carList = Stream.of(carNames)
+                .map(Car::new)
+                .collect(Collectors.toList());
+        validateUserInput(carList);
         cars = new Cars(carList);
     }
 
