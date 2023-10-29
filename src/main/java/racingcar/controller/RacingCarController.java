@@ -19,21 +19,20 @@ public class RacingCarController {
 
     public void run() {
         outputView.printRacingCarNamesMessage();
-        startRacing();
-    }
-
-    private void startRacing() {
         Cars cars = inputManager.inputCarNames();
 
         outputView.printAttemptCountMessage();
         int attemptCount = inputManager.inputAttemptCount();
-        outputView.printExecutionResultMessage();
 
+        startRacing(cars, attemptCount);
+    }
+
+    private void startRacing(Cars cars, int attemptCount) {
+        outputView.printExecutionResultMessage();
         for (int i = 0; i < attemptCount; i++) {
             racingCarService.startRacing(cars);
             outputView.printGameResult(cars.statusCarsPosition());
         }
-
         outputView.printFinalWinners(cars.getFinalWinners());
     }
 }
