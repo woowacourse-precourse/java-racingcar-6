@@ -20,4 +20,16 @@ public class CarNamesInputValidator {
             throw new IllegalArgumentException(ErrorMessage.INPUT_CAR_NAMES_NOT_CONTAIN_DELIMITER);
         }
     }
+
+    private void isEachCarNameLengthUnderLimitLength(String userInput) {
+        String[] carNames = userInput.split(Constant.INPUT_CAR_NAMES_DELIMITER);
+        String trimmedCarName;
+        for (String carName : carNames) {
+            trimmedCarName = carName.trim();
+            if (trimmedCarName.length() > Constant.CAR_NAME_MAX_LENGTH) {
+                throw new IllegalArgumentException(ErrorMessage.INPUT_CAR_NAME_LENGTH_EXCEEDS_LIMIT);
+            }
+        }
+    }
+
 }
