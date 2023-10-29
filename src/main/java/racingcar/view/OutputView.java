@@ -32,22 +32,22 @@ public class OutputView {
         List<RoundResult> roundResults = roundResultDto.roundResults();
         for (RoundResult roundResult : roundResults) {
             String carName = roundResult.name();
-            String currentPosition = replaceTo(roundResult.position());
+            String currentPosition = replaceToHyphens(roundResult.position());
             System.out.println(String.join(COLON_DELIMITER, carName, currentPosition));
         }
         System.out.println();
     }
 
-    private String replaceTo(final int position) {
+    private String replaceToHyphens(final int position) {
         return HYPHEN.repeat(position);
     }
 
     public void printWinnersName(List<String> winnersName) {
-        System.out.println(String.join(COLON_DELIMITER, WINNERS_GUIDE, divideByComma(winnersName)));
+        System.out.println(String.join(COLON_DELIMITER, WINNERS_GUIDE, divideNamesByComma(winnersName)));
     }
 
-    private String divideByComma(List<String> winnersName) {
-        return String.join(COMMA_DELIMITER, winnersName);
+    private String divideNamesByComma(List<String> names) {
+        return String.join(COMMA_DELIMITER, names);
     }
 
 }
