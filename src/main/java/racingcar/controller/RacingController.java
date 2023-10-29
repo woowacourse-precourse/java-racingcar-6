@@ -46,7 +46,7 @@ public class RacingController {
     }
 
     private void runRace(RoundCount roundCount, Race race, Camera camera) {
-        for (int round = 0; round < roundCount.getCount(); round++) {
+        for (int round = 0; round < roundCount.getValue(); round++) {
             race.runOneRound();
             String racingState = camera.captureRaceState(race);
             outputView.displayRacingState(racingState);
