@@ -11,8 +11,14 @@ import racingcar.view.OutputView;
 public class RacingGame {
 
     private int raceCount;
-    private final List<Car> carList = new ArrayList<>();
-    private final List<String> winnerList = new ArrayList<>();
+    private final List<Car> carList;
+    private final List<String> winnerList;
+
+    public RacingGame() {
+        raceCount = 0;
+        carList = new ArrayList<>();
+        winnerList = new ArrayList<>();
+    }
 
     public void setCarList(String carName) {
         List<String> separatedCarName = Arrays.asList(carName.split(","));
@@ -21,13 +27,13 @@ public class RacingGame {
         }
     }
 
-
-
+    public List<Car> getCarList() {
+        return carList;
+    }
 
     public void setRaceCount(String raceCount) {
         this.raceCount = Integer.parseInt(raceCount);
     }
-
 
 
     public List<String> getWinnerList() {

@@ -23,9 +23,13 @@ public class GameController {
         String carName = InputView.inputCarName();
         String testedCarName = exception.checkCarName(carName);
         racingGame.setCarList(testedCarName);
-        setRaceCount();
-        startRace();
-        showWinner();
+
+        String raceCount = InputView.inputRaceCount();
+        String testedRaceCount = exception.checkRaceCount(raceCount);
+        racingGame.setRaceCount(testedRaceCount);
+
+        //startRace();
+        //showWinner();
     }
 
     /*
