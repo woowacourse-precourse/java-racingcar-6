@@ -26,18 +26,14 @@
 ### RacingGameController
 게임의 절차를 관리하는 클래스
 
-- member instance
-  - RacingCars racingCars : 자동차 경주에 참가한 자동차 리스트를 저장해 놓은 클래스
-  - int count : 시도 횟수
-- member function
-  - [x] void race() : 게임을 진행
-  - [x] void inputRaceCars() : 사용자로부터 자동차 이름 입력받아 유효성 검사 후 저장
-  - [x] void inputCount() : 사용자로부터 시도 횟수 입력받아 유효성 검사 후 저장
-  - [x] void playCountTimes() : 시도 횟수만큼 실행 결과 출력
-  - [x] void showFinalWinners() : 최종 우승자 출력
+- [x] 게임을 실행
+- [x] 자동차 이름 입력받아 유효성 검사 후 저장
+- [x] 시도 횟수 입력받아 유효성 검사 후 저장
+- [x] 회차마다 경주 실행 & 결과 출력
+- [x] 최종 우승자 출력
 
 ### RacingGame
-자동차 게임과 관련된 기능을 관리하는 클래스
+자동차 경주 게임과 관련된 기능을 관리하는 클래스
 
 - member instance
    - List<String> racingCars : 자동차 리스트
