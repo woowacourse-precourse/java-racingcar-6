@@ -29,7 +29,7 @@ public class OutputView {
 
     public static void printWinners(List<String> racingWinners) {
         System.out.print(WINNER + COLON);
-        System.out.print(String.join(",", racingWinners));
+        System.out.print(String.join(", ", racingWinners));
     }
 
 }
