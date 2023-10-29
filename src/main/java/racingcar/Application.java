@@ -2,6 +2,7 @@ package racingcar;
 
 import racingcar.domain.Input;
 import racingcar.domain.Movement;
+import racingcar.domain.Race;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class Application {
 
         Input input = new Input();
         Movement movement = new Movement();
+        Race race = new Race();
 
         List<String> names = input.createNames(); // 이름 리스트
         int moveCount = input.moveCount(); // 총 이동 가능한 횟수
@@ -28,5 +30,6 @@ public class Application {
             if (movementList.contains(moveCount)) break;
         }
 
+        race.printWinner(names, movementList, moveCount);
     }
 }

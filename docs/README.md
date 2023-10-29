@@ -32,5 +32,5 @@
   - 현재까지의 이동 현황 프린트하기 [o] - movement.printRace()
   
 
-- 모든 자동차들의 전진 혹은 멈춤 한 사이클 후 우승자가 존재하는지 확인하기 [x] - race.isExistWinner()
-  - 우승자가 여러명일경우 쉼표(,)를 이용하여 구분 [x] - race.findWinner()
+- 우승자가 여러명일경우 쉼표(,)를 이용하여 구분하여 우승자 프린트하기 [o] - race.printWinner()
+  - 우승자 여러명일때 여러 우승자들 추출하기 [o] - race.extractWinner
