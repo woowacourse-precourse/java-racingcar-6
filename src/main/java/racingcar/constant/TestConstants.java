@@ -16,4 +16,17 @@ public class TestConstants {
     public static final String EMPTY_STRING = "";
     public static final String BLANK_STRING = " ";
     public static final String LONGER_THAN_FIVE_STRING = "Pororo";
+
+
+    // Valid Play Number Constants
+    public static final String PLAY_ONE_TIME = "1";
+    public static final String PLAY_FIVE_TIMES = "5";
+
+    public static final String EXPECTED_PLAY_ONE_TIME = PLAY_ONE_TIME;
+    public static final String EXPECTED_PLAY_FIVE_TIMES = PLAY_FIVE_TIMES;
+
+
+    // Invalid Play Number Constants
+    public static final String PLAY_NO_TIME = "0";
+    public static final String PLAY_NEGATIVE_TIME = "-1";
 }
