@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.*;
 
 public class CarsTest {
@@ -23,7 +25,7 @@ public class CarsTest {
         assertThat(pobi.getName()).isEqualTo("pobi");
     }
 
-    @DisplayName("가장 많이 전진한 자동차 하나를 찾는 테스트")
+    @DisplayName("가장 많이 전진한 자동차 한 개를 찾는 테스트")
     @Test
     public void findWinnerTest() {
         Cars cars = new Cars("dahee,hui,pobi");
@@ -32,7 +34,8 @@ public class CarsTest {
         Car pobi = cars.getCar(2);
 
         dahee.move();
+        List<Car> winnerCar = cars.findLongDistanceCars();
 
-        assertThat(cars.findLongDistanceCar()).isEqualTo(dahee);
+        assertThat(winnerCar.get(0)).isEqualTo(dahee);
     }
 }

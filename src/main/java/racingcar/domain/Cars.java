@@ -27,4 +27,15 @@ public class Cars {
     public Car getCar(int index) {
         return cars.get(index);
     }
+
+    public List<Car> findLongDistanceCars() {
+        int max = -1;
+        List<Car> longDistanceCars = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getDistance() >= max) {
+                longDistanceCars.add(car);
+            }
+        }
+        return longDistanceCars;
+    }
 }
