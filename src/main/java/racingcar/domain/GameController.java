@@ -26,12 +26,4 @@ public class GameController {
             car.increaseSuccessMoveForwardCount();
         }
     }
-
-    public void setRacingProgressStatus(List<Car> carList) {
-        for (Car car : carList) {
-            Integer successMoveForwardCount = car.getSuccessMoveForwardCount();
-            String moveForwardStatus = car.makeMoveForwardStatus(successMoveForwardCount);
-            car.setMoveForwardStatus(moveForwardStatus);
-        }
-    }
 }
