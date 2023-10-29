@@ -29,6 +29,6 @@ public class Car implements Comparable<Car>{
 
     @Override
     public int compareTo(Car o) {
-        return o.movingDistance - this.movingDistance;
+        return this.movingDistance - o.movingDistance;
     }
 }
