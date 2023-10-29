@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BooleanSupplier;
 
@@ -10,10 +11,13 @@ public class Cars {
         this.cars = cars;
     }
 
-    public void doRace(BooleanSupplier raceRule) {
-        for (Car car : cars) {
-            driveCarAccordingRaceRule(raceRule, car);
-        }
+    public RaceStatus driveCarsByRule(BooleanSupplier raceRule) {
+        List<CarStatus> carStatuses = cars.stream()
+                .peek(car -> driveCarAccordingRaceRule(raceRule, car))
+                .map(Car::getStatus)
+                .toList();
+
+        return new RaceStatus(carStatuses);
     }
 
     private static void driveCarAccordingRaceRule(BooleanSupplier raceRule, Car car) {
@@ -21,6 +25,4 @@ public class Cars {
             car.drive();
         }
     }
-
-
 }
