@@ -4,10 +4,13 @@ import java.util.List;
 
 public class Car {
 
+    private static final int DEFAULT_FORWARD_COUNT = 0;
+    private static final String COLON = " : ";
+    private static final String DASH = "-";
+    private static final String CAR_NAME_OUTPUT_DELIMITER = ", ";
+
     private String name;
     private Integer forwardCount;
-
-    private static final int DEFAULT_FORWARD_COUNT = 0;
 
     public Car(String name) {
         this.name = name;
@@ -23,11 +26,11 @@ public class Car {
     }
 
     public void printCarName() {
-        System.out.print(name + " : ");
+        System.out.print(name + COLON);
     }
 
     public void printForwardCount() {
-        System.out.println("-".repeat(forwardCount));
+        System.out.println(DASH.repeat(forwardCount));
     }
 
     public boolean isEqualForwardCount(Integer inputForwardCount) {
@@ -42,6 +45,6 @@ public class Car {
         List<String> winnerCarsNames = winnerCars.stream()
                 .map(car -> car.name)
                 .toList();
-        System.out.println(String.join(", ", winnerCarsNames));
+        System.out.println(String.join(CAR_NAME_OUTPUT_DELIMITER, winnerCarsNames));
     }
 }
