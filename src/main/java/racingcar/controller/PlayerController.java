@@ -18,4 +18,11 @@ public class PlayerController {
     public List<Player> getPlayerList() {
         return playerList;
     }
+
+    public int getDistacne(int index) {
+        return playerList.get(index).getDistance();
+    }
+    public void forward(int index) {
+        playerList.get(index).setDistance(getDistacne(index)+1);
+    }
 }
