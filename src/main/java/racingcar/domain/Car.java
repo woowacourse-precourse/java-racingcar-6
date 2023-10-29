@@ -10,15 +10,17 @@ public class Car {
         this.name = name;
     }
 
-    public CarName getName() {
-        return this.name;
+    public void moveToCar(final int value) {
+        if (value >= 4) {
+            this.position = position.move();
+        }
     }
 
-    public void moveToCar() {
-        this.position = position.move();
+    public String getName() {
+        return this.name.getName();
     }
 
-    public Position getPosition() {
-        return this.position;
+    public int getPosition() {
+        return this.position.position();
     }
 }
