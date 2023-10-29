@@ -40,7 +40,7 @@
 
 - [ ] 이름과 위치를 담는 `CarInformationDto` 반환
 - [ ] 차를 이동 (`CarMovementStrategy` 전략 사용)
-- [ ] `equals()` 오버라이딩
+- [x] `equals()` 오버라이딩
 
 ### 📄 CarName
 

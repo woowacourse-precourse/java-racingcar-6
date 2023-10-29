@@ -1,15 +1,12 @@
 package racingcar.domain;
 
-public class CarName {
+public record CarName(String name) {
 
     private static final int MIN_LENGTH = 1;
     private static final int MAX_LENGTH = 5;
 
-    private final String name;
-
-    public CarName(String name) {
+    public CarName {
         validateNameLength(name);
-        this.name = name;
     }
 
     private void validateNameLength(String name) {
