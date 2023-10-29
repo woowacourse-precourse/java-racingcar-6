@@ -10,11 +10,11 @@ import org.junit.jupiter.api.Test;
 
 
 public class ShowMessageTest {
-    private final ByteArrayOutputStream outForTest = new ByteArrayOutputStream();
+    private final ByteArrayOutputStream outputStreamForTest = new ByteArrayOutputStream();
 
     @BeforeEach
     public void setUpStreams() {
-        System.setOut(new PrintStream(outForTest));
+        System.setOut(new PrintStream(outputStreamForTest));
     }
 
     @AfterEach
@@ -28,7 +28,7 @@ public class ShowMessageTest {
 
         machines.showMessage();
 
-        assertThat(outForTest.toString().trim()).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        assertThat(outputStreamForTest.toString().trim()).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
     @Test
@@ -37,6 +37,6 @@ public class ShowMessageTest {
 
         raceLap.showMessage();
 
-        assertThat(outForTest.toString().trim()).isEqualTo("시도할 회수는 몇회인가요?");
+        assertThat(outputStreamForTest.toString().trim()).isEqualTo("시도할 회수는 몇회인가요?");
     }
 }
