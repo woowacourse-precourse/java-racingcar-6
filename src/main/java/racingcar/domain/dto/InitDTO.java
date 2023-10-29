@@ -16,15 +16,19 @@ public class InitDTO {
     }
 
     private int toInt(String text) {
-        validateNumericString(text);
-        int rounds = Integer.parseInt(text);
-        validateRounds(rounds);
+        int rounds = validateRounds(text);
         return rounds;
     }
 
-    private void validateRounds(int rounds) {
-        if(rounds <= 0) {
-            throw new IllegalArgumentException("실행 횟수를 양수로 입력해 주세요.");
+    private int validateRounds(String text) {
+        try{
+            int rounds = Integer.parseInt(text);
+            if (rounds <= 0) {
+                throw new IllegalArgumentException("실행 횟수를 양수로 입력해 주세요.");
+            }
+            return rounds;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자가 아닌 다른 문자를 입력하셨습니다. 실행 횟수를 양수로 입력해 주세요.");
         }
     }
 
