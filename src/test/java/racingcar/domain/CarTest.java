@@ -30,6 +30,8 @@ public class CarTest {
 
     @Test
     void splitNames_메서드로_구분된_각각의_이름_길이가_5초과시_에러() {
+        input = "pobi,woni,junnnn";
+
         assertThatThrownBy(() -> new Car(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름은 5자 이하로만 가능합니다.");
@@ -37,8 +39,13 @@ public class CarTest {
 
     @Test
     void forward_자동차_전진() {
-        car.forward();
         Map<String, Integer> result = car.getCars();
+        Iterator<Map.Entry<String, Integer>> iterator = result.entrySet().iterator();
+
+        while (iterator.hasNext()) {
+            car.forward(iterator.next());
+        }
+
         for (String key : result.keySet()) {
             assertThat(result.get(key)).isEqualTo(1);
         }
