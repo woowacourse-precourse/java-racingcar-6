@@ -12,4 +12,12 @@ public class RacingCar {
     public void plusMove(int move) {
         this.move += move;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getMove() {
+        return move;
+    }
 }

@@ -28,6 +28,10 @@ public class RacingCarService {
                         .toList());
     }
 
+    public List<RacingCar> getRacingCars() {
+        return racingCars;
+    }
+
     public void playOneRacing() {
         for (RacingCar racingCar : racingCars) {
             proceedOneRacingCar(racingCar);
