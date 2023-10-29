@@ -19,7 +19,7 @@ public class CarService {
         printWinnerPerGame(winnerList);
     }
 
-    private static void goAheadIfRandomNumberGtThree(List<Car> carsList) {
+    private void goAheadIfRandomNumberGtThree(List<Car> carsList) {
         for (int j = 0; j < carsList.size(); j++) {
             Car car = carsList.get(j);
             int randomNumber = Randoms.pickNumberInRange(0, 9);
@@ -30,13 +30,8 @@ public class CarService {
     }
 
     private void printGameResultPerOneGame(List<Car> carsList) {
-        for (int j = 0; j < carsList.size(); j++) {
-            Car car = carsList.get(j);
-            System.out.print(car.getCarName() + " : ");
-            for (int k = 0; k < car.getGoCount(); k++) {
-                System.out.print("-");
-            }
-            System.out.println();
+        for (Car car : carsList) {
+            printCarStatus(car);
         }
     }
 
@@ -58,19 +53,21 @@ public class CarService {
     }
 
     private void printWinnerPerGame(List<Car> winnerList) {
-        for (int i = 0; i < winnerList.size(); i++) {
-            Car car = winnerList.get(i);
-            System.out.print(car.getCarName() + " : ");
-            for (int j = 0; j < car.getGoCount(); j++) {
-                System.out.print("-");
-            }
-            System.out.print(" ");
+        for (Car car : winnerList) {
+            printCarStatus(car);
         }
-
         printFinalWinner(winnerList);
     }
 
-    private static void printFinalWinner(List<Car> winnerList) {
+    private void printCarStatus(Car car) {
+        System.out.print(car.getCarName() + " : ");
+        for (int j = 0; j < car.getGoCount(); j++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
+    private void printFinalWinner(List<Car> winnerList) {
         System.out.print("최종 우승자 : ");
         StringBuilder res = new StringBuilder();
         for (int i = 0; i < winnerList.size(); i++) {

@@ -2,18 +2,12 @@ package racingcar.domain;
 
 public class Car {
 
-    private int carNum;
-    private String carName;
+    private final String carName;
     private int goCount;
 
-    public Car(int carNum, String carName, int goCount) {
-        this.carNum = carNum;
+    public Car(String carName, int goCount) {
         this.carName = carName;
         this.goCount = goCount;
-    }
-
-    public int getCarNum() {
-        return carNum;
     }
 
     public String getCarName() {
