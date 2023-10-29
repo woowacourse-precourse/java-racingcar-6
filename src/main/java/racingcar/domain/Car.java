@@ -1,8 +1,9 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import static racingcar.domain.RacingConfig.FORWARD_NUMBER;
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Car {
     private final String name;
@@ -20,11 +21,9 @@ public class Car {
         this.moveResult = moveResult;
         this.moveHistory = moveHistory;
     }
+
     public String getName() {
         return name;
-    }
-    public int getRandomNumber() {
-        return randomNumber;
     }
     public int getRound() {
         return round;
@@ -36,24 +35,36 @@ public class Car {
         return moveResult;
     }
 
+    public List<String> getMoveHistoryWithoutSpace() {
+        return this.moveHistory.stream()
+                .map(history -> history.replaceAll("\\s+", ""))
+                .collect(Collectors.toList());
+    }
+
     public void setRandomNumber(int randomNumber) {
         this.randomNumber = randomNumber;
     }
 
-    public void increaseMoveResult() {
-        this.moveResult += 1;
+    public void move() {
+        if (this.randomNumber >= FORWARD_NUMBER) {
+            moveForward();
+            increaseRound();
+            return;
+        }
+        stayInplace();
+        increaseRound();
+    }
+
+    private void moveForward() {
+        this.moveResult+= 1;
         this.moveHistory.add("-");
     }
-    public void increaseRound() {
-        this.round += 1;
+
+    private void stayInplace() {
+        this.moveHistory.add(" ");
     }
 
-    public String representationHistoryMove() {
-        StringBuilder history = new StringBuilder();
-
-        for (String move : moveHistory) {
-            history.append(move);
-        }
-        return history.toString();
+    private void increaseRound() {
+        this.round += 1;
     }
 }
