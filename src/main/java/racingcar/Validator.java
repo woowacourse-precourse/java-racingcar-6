@@ -19,4 +19,12 @@ public class Validator {
         }
     }
 
+    public static void validateMoveCount(String moveCountString) throws IllegalArgumentException {
+        try {
+            Integer.parseInt(moveCountString);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(INPUT_WRONG_VALUE);
+        }
+
+    }
 }
