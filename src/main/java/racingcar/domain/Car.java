@@ -29,4 +29,9 @@ public class Car {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public boolean isNameLengthOver(int length) {
+        return name.length() > length;
+    }
+
 }

@@ -1,5 +1,7 @@
 package racingcar.service;
 
+import static racingcar.domain.Constants.MAX_CAR_LENGTH;
+
 import java.util.Optional;
 import racingcar.domain.Car;
 import racingcar.repository.CarRepository;
@@ -22,10 +24,9 @@ public class CarServiceImpl implements CarService {
         return carServiceImpl;
     }
 
-    //"중복된 이름은 가입할 수 없다"는 비지니스 로직이라 판단함. 이 정책이 바뀌더라도 Repository에는 영향을 주지 않음
     @Override
     public void join(Car car) {
-        validateDuplicatedName(car);
+        validateCar(car);
         carRepository.save(car);
     }
 
@@ -34,5 +35,16 @@ public class CarServiceImpl implements CarService {
         result.ifPresent(c -> {
             ExceptionUtil.throwInvalidValueException(DUPLICATE_NAME_MESSAGE);
         });
+    }
+
+    private void validateNameLength(Car car) {
+        if (car.isNameLengthOver(MAX_CAR_LENGTH.getValue())) {
+            ExceptionUtil.throwInvalidValueException(DUPLICATE_NAME_MESSAGE);
+        }
+    }
+
+    private void validateCar(Car car) {
+        validateDuplicatedName(car);
+        validateNameLength(car);
     }
 }
