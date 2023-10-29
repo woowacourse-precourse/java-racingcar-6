@@ -26,4 +26,10 @@ class CarNameValidatorTest {
         assertThrows(IllegalArgumentException.class,
                 () -> carNameValidator.validateCarName(List.of("nara", "")));
     }
+
+    @Test
+    void 자동차_이름에_특수문자가있으면_예외발생() {
+        assertThrows(IllegalArgumentException.class,
+                () -> carNameValidator.validateCarName(List.of("nara", "na^^")));
+    }
 }
