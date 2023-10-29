@@ -33,6 +33,13 @@ public class InputValueValidator {
         return true;
     }
 
+    public int validateTryNumber(int tryNumber) {
+        if (tryNumber < 1) {
+            throw new IllegalArgumentException("잘못된 입력입니다. 시도 횟수는 최소 1회 이상이어야 합니다.");
+        }
+        return tryNumber;
+    }
+
     private List<String> converStringToList(String inputCarNames) {
         return Arrays.asList(inputCarNames.split(","));
     }
