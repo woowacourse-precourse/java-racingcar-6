@@ -1,9 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.List;
 
-public class InputView {
+public class InputInterface {
 
     String[] getNames() {
         String input = Console.readLine();

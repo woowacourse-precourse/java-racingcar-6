@@ -44,7 +44,7 @@ public class Application_OutputTest extends MyApplicationTest {
 
     @Test
     void 각_자동차별_실행결과를_시행횟수번_출력한다() {
-        Pattern pattern = Pattern.compile("\\w{1,5} :");
+        Pattern pattern = Pattern.compile("[a-zA-Z0-9]{1,5} : -*");
         run("pobi,woni", "10");
         assertThat(outputs())
                 .filteredOn(output -> pattern.matcher(output).matches())

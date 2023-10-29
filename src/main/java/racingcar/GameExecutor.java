@@ -1,25 +1,26 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-import java.util.List;
-
 public class GameExecutor {
     private RacingCarGame game;
-    private InputView inputView;
+    private InputInterface in;
+    private OutputInterface out;
 
     public GameExecutor() {
-        this.inputView = new InputView();
+        this.in = new InputInterface();
+        this.out = new OutputInterface();
     }
 
     public void run() {
         try {
-            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-            String[] names = inputView.getNames();
-            System.out.println("시도할 회수는 몇회인가요?");
-            int trial = inputView.getTrial();
-            game = new RacingCarGame(trial, names);
+            out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            String[] names = in.getNames();
+            out.println("시도할 회수는 몇회인가요?");
+            int trial = in.getTrial();
+            game = new RacingCarGame(trial, names, out);
+            out.println("실행 결과");
+            game.run();
         } finally {
-            inputView.close();
+            in.close();
         }
     }
 }
