@@ -27,6 +27,7 @@ public class RacingGame {
         int max = maxFind();
         System.out.println(max);
         System.out.print("최종 우승자 :");
+        printResult(max);
 
     }
 
@@ -39,5 +40,15 @@ public class RacingGame {
             }
         }
         return max;
+    }
+
+    private void printResult(int max) {
+        StringBuilder result = new StringBuilder();
+        for (String car : carName.keySet()) {
+            if (carName.get(car) == max) {
+                result.append(" " + car + ",");
+            }
+        }
+        System.out.println(result.deleteCharAt(result.length() - 1));
     }
 }
