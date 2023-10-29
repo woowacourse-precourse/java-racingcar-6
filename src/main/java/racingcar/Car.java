@@ -16,14 +16,14 @@ public class Car {
 
         for (int i = 0; i < tryNumber; i++) {
             System.out.println(i + 1 + "회차");
-            goOrStop(carNames, carMove);
+            printRacingNow(carNames, carMove);
         }
         System.out.println();
 
         return countCarMove(carMove);
     }
 
-    private void goOrStop(List<String> carNames, List<String> carMove) {
+    private void printRacingNow(List<String> carNames, List<String> carMove) {
         StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < carNames.size(); i++) {
