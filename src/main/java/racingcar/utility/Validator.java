@@ -42,4 +42,8 @@ public class Validator {
         return input.chars().allMatch(ch -> (ch >= '0' && ch <= '9'));
     }
 
+    public static boolean isZero(String input) {
+        return input.equals("0");
+    }
+
 }
