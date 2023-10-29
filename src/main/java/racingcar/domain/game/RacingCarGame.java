@@ -19,18 +19,19 @@ public class RacingCarGame {
         init();
     }
 
-    public void init() {
+    public void run() {
+        String names = readCarNamesFromUser();
+        Cars cars = generateCars(names);
+        int roundNumber = readGameRoundFromUser();
+        outputView.printResultMessage();
+        raceByRoundNumber(roundNumber, cars);
+        judgeWinner(cars);
+    }
+
+    private void init() {
         generator = gameConfig.numberGenerator();
         inputView = gameConfig.inputView();
         outputView = gameConfig.outputView();
-    }
-
-    public void run() {
-        String names = readCarNamesFromUser();
-        int roundNumber = readGameRoundFromUser();
-        Cars cars = generateCars(names);
-        raceByRoundNumber(roundNumber, cars);
-        judgeWinner(cars);
     }
 
     private String readCarNamesFromUser() {
@@ -48,7 +49,6 @@ public class RacingCarGame {
     }
 
     private void raceByRoundNumber(int roundNumber, Cars cars) {
-        outputView.printResultMessage();
         for (int i = 0; i < roundNumber; i++) {
             List<Integer> numbers = generateNumbers(cars.size());
             Round round = generateRound(numbers, cars);
