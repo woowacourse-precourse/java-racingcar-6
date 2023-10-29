@@ -16,10 +16,15 @@ public class RacingCar {
         }
     }
 
-    public CarGear apply(int condition){
+    public CarStatus apply(int condition){
         if(condition >= FORWARD_CONDITION){
-            return CarGear.FORWARD;
+            return CarStatus.FORWARD;
         }
-        return CarGear.STOP;
+        return CarStatus.STOP;
+    }
+
+    @Override
+    public String toString() {
+        return name + " : ";
     }
 }
