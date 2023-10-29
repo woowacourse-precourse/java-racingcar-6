@@ -2,8 +2,8 @@ package view;
 import message.ViewMessage;
 
 public class OutputView {
-    public void printNameOfCar() {
-        System.out.println(ViewMessage.PRINT_NAME_OF_CAR);
+    public void printName() {
+        System.out.println(ViewMessage.PRINT_NAME);
     }
 
     public void printTryNumber() {
