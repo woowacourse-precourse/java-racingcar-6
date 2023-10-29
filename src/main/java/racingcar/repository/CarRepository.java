@@ -7,7 +7,7 @@ import racingcar.dto.Car;
 
 public class CarRepository {
     private static final CarRepository instance = new CarRepository();
-    private Map<Integer, Car> cars;
+    private Map<String, Car> cars;
 
     public static CarRepository getInstance() {
         return instance;
@@ -18,7 +18,7 @@ public class CarRepository {
     }
 
     public void saveCar(Car car) {
-        cars.put(car.id(), car);
+        cars.put(car.name(), car);
     }
 
     public List<Car> findByAll() {
@@ -26,8 +26,8 @@ public class CarRepository {
         return carList;
     }
 
-    public Car findById(Integer id) {
-        return cars.get(id);
+    public Car findByname(String name) {
+        return cars.get(name);
     }
 
     public int size() {

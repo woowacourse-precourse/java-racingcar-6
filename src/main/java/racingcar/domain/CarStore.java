@@ -16,8 +16,8 @@ public class CarStore {
         carRepository.saveCar(car);
     }
 
-    public Car getCarInfo(int carId) {
-        return carRepository.findById(carId);
+    public Car getCarInfo(String carName) {
+        return carRepository.findByname(carName);
     }
 
     public List<Car> getAllCarInfo() {

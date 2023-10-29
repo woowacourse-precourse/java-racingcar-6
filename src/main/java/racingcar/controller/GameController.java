@@ -27,7 +27,7 @@ public class GameController {
     private void getCarNameInput(List<String> carList) {
         MAX_CAR_NUMBER = carList.size();
         IntStream.range(ZERO, MAX_CAR_NUMBER)
-                .mapToObj(id -> new Car(id, carList.get(id), ZERO))
+                .mapToObj(id -> new Car(carList.get(id), ZERO))
                 .forEach(carStore::saveCarInfo);
     }
 

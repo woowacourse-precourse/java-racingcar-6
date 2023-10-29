@@ -19,11 +19,11 @@ public class CarMovement {
     }
 
     private Car drive(Car currentCar) {
-        return new Car(currentCar.id(), currentCar.name(), currentCar.position() + 1);
+        return new Car(currentCar.name(), currentCar.position() + 1);
     }
 
     private Car Stop(Car currentCar) {
-        return new Car(currentCar.id(), currentCar.name(), currentCar.position());
+        return new Car(currentCar.name(), currentCar.position());
     }
 
     public Car car() {

@@ -1,4 +1,4 @@
 package racingcar.dto;
 
-public record Car(int id, String name, Integer position) {
+public record Car(String name, Integer position) {
 }
