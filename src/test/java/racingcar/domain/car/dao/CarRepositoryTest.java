@@ -32,6 +32,8 @@ class CarRepositoryTest {
             CarRepository carRepository = new CarRepository();
             Car frirstCar = new Car("FirstCarName");
             Car secondCar = new Car("SecondCarName");
+
+            carRepository.clear();
             carRepository.save(frirstCar);
             carRepository.save(secondCar);
 
@@ -63,6 +65,7 @@ class CarRepositoryTest {
             when(firstCar.getPosition()).thenReturn(3);
             when(secondCar.getPosition()).thenReturn(4);
 
+            carRepository.clear();
             carRepository.save(firstCar);
             carRepository.save(secondCar);
 
@@ -89,6 +92,7 @@ class CarRepositoryTest {
             when(secondCar.getPosition()).thenReturn(4);
             when(thirdCar.getPosition()).thenReturn(4);
 
+            carRepository.clear();
             carRepository.save(firstCar);
             carRepository.save(secondCar);
             carRepository.save(thirdCar);
@@ -112,6 +116,8 @@ class CarRepositoryTest {
         @DisplayName("DB에 Car 객체가 없는 경우 예외를 발생시켜야 한다")
         public void DB에_Car_객체가_없는_경우_예외를_발생시켜야_한다() {
             CarRepository carRepository = new CarRepository();
+
+            carRepository.clear();
 
             assertThrows(IllegalArgumentException.class,
                     carRepository::findCarWithMaxPosition,

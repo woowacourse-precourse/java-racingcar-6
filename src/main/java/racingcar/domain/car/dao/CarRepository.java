@@ -38,4 +38,9 @@ public class CarRepository {
                 .filter(car -> car.getPosition() == maxPosition)
                 .toList();
     }
+
+    public void clear() {
+        carDatabase.clear();
+        CarId = 0L;
+    }
 }
