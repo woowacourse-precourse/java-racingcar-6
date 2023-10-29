@@ -19,6 +19,7 @@ public class User {
         int raceCount = carController.getRaceCount();
         int round = 1;
         while (round <= raceCount) {
+            carController.forward();
             round++;
         }
     }

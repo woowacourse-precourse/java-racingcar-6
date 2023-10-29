@@ -25,4 +25,8 @@ public class CarController {
     public int getRaceCount() {
         return Integer.parseInt(Console.readLine());
     }
+
+    public void forward() {
+        carService.forward();
+    }
 }
