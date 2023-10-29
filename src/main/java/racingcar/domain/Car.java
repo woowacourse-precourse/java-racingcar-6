@@ -16,9 +16,9 @@ public class Car {
 
     public void movePosition(){
         if(isAbleToMove()){
-            position = position.getIncreasedPosition();
+            position = Position.getIncreasedPosition(position.getPosition());
         }
-        position = position.getPausedPosition();
+        position = Position.getPausedPosition(position.getPosition());
     }
 
     private boolean isAbleToMove(){

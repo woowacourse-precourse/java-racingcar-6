@@ -11,11 +11,15 @@ public class Position {
         this.position = position;
     }
 
-    public Position getIncreasedPosition(){
-        return new Position(position++);
+    public static Position getIncreasedPosition(int position){
+        return new Position(position + 1);
     }
 
-    public Position getPausedPosition(){
+    public static Position getPausedPosition(int position){
         return new Position(position);
+    }
+
+    public int getPosition() {
+        return position;
     }
 }

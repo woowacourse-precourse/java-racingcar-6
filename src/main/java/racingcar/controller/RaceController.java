@@ -1,8 +1,10 @@
 package racingcar.controller;
 
 import java.util.List;
+import racingcar.domain.Car;
 import racingcar.domain.CarName;
 import racingcar.domain.CarNames;
+import racingcar.domain.Cars;
 import racingcar.domain.TryCount;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -14,13 +16,17 @@ public class RaceController {
     public void runGame() {
         CarNames carNames = CarNames.from(inputView.readCarNames());
         TryCount tryCount = new TryCount(inputView.readTryCount());
-        startRace(carNames, tryCount);
+        Cars cars = Cars.from(carNames);
+        startRace(cars, tryCount);
     }
 
-    private void startRace(CarNames carNames, TryCount tryCount) {
+    private void startRace(Cars cars, TryCount tryCount) {
         outputView.printRaceResultMessage();
         for (int i = 0; i < tryCount.getTryCount(); i++) {
-            // TODO: (1) 자동차 움직이기 (2) 각 자동차 결과 출력하기
+            // round();
         }
+    }
+
+    private void round(Cars cars){
     }
 }
