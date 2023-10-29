@@ -42,9 +42,9 @@ public class Application {
 
 
         // 2. 시도 횟수 입력
-        String userInput = getInput("시도할 회수는 몇회인가요?");
 
-        int roundCount = Application.checkPositiveNumber(userInput);
+
+        int roundCount = Application.checkPositiveNumber(getInput("시도할 회수는 몇회인가요?"));
 
         // 3. 이동 로직 구현
         System.out.println("실행 결과");
