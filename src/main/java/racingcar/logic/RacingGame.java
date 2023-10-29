@@ -72,7 +72,7 @@ public class RacingGame implements Game {
         String roundCount = view.getRoundInfo();
 
         GameUtil.isIllegalRoundInfo(roundCount);
-        return Integer.parseInt(view.getRoundInfo());
+        return Integer.parseInt(roundCount);
     }
 
     private void movePlayers() {
