@@ -11,4 +11,9 @@ public class RacingException {
                 }
             }
         }
+        public void validateLastCharIsComma(String carNames) {
+            if (carNames.charAt(carNames.length() - 1) == ',') {
+                throw new IllegalArgumentException();
+            }
+        }
 }
