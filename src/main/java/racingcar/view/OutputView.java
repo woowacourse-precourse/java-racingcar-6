@@ -17,8 +17,9 @@ public class OutputView {
 
     public void notifyCarRunning(List<RunningCarDto> runningCarDtos) {
         runningCarDtos.stream()
-                .map(runningCarDto -> runningCarDto.name() + " : " + "-".repeat(runningCarDto.location() * 2))
+                .map(runningCarDto -> runningCarDto.name() + " : " + "-".repeat(runningCarDto.location()))
                 .forEach(System.out::println);
+        System.out.println();
     }
 
     public void notifyWinner(List<WinnerDto> winners) {
