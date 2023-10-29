@@ -20,7 +20,7 @@ public class Cars {
     }
 
     private void throwIllegalArgumentExceptionForDuplicatedName(List<Car> cars) {
-        List<String> carNames = toCarNames(cars);
+        List<String> carNames = getCarNames(cars);
         for (int i = 0; i < carNames.size(); i++) {
             throwIfContainsDuplicatedName(carNames, i);
         }
@@ -32,7 +32,7 @@ public class Cars {
         }
     }
 
-    private List<String> toCarNames(List<Car> cars) {
+    private List<String> getCarNames(List<Car> cars) {
         return cars.stream()
                 .map(Car::getName)
                 .toList();
@@ -68,6 +68,6 @@ public class Cars {
             int forwardCount = car.moveForward(numberGenerator.generate());
             forwardCounts.add(forwardCount);
         }
-        return new MoveResult(toCarNames(cars), forwardCounts);
+        return new MoveResult(getCarNames(cars), forwardCounts);
     }
 }
