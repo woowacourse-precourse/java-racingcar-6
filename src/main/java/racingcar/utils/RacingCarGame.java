@@ -31,4 +31,10 @@ public class RacingCarGame {
         }
     }
 
+    public List<RacingCar> getWinners(List<RacingCar> carList) {
+        return carList.stream()
+                .filter(car -> car.getDistance() == farthestDistance)
+                .toList();
+    }
+
 }
