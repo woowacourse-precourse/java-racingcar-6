@@ -106,7 +106,7 @@ public class Application {
 
     // 기능 6-1. 기능 7을 고려하여 우승자가 여럿일 경우 쉼표를 이용해 구분하여 출력하는 기능을 printWinner와 getWinners 함수로 구현
     public static void printWinner(String[] cars, int rounds, int[][] location) {
-            System.out.println("\n최종 우승자: " + getWinners(cars, rounds, location));
+            System.out.println("\n최종 우승자 : " + getWinners(cars, rounds, location));
     }
     // 기능 6-1. 기능 7을 고려하여 우승자가 여럿일 경우 쉼표를 이용해 구분하여 출력하는 기능을 printWinner와 getWinners 함수로 구현
     public static String getWinners(String[] cars, int rounds, int[][] location){
