@@ -29,4 +29,10 @@ class UiTest {
         Assertions.assertThat(outputStreamCaptor.toString().trim()).isEqualTo(expectMessage);
     }
 
+    @Test
+    void 시도횟수를_묻는_문구를_출력한다() {
+        String expectMessage = "시도할 회수는 몇회인가요?";
+        new Ui().askPlayCount();
+        Assertions.assertThat(outputStreamCaptor.toString().trim()).isEqualTo(expectMessage);
+    }
 }
