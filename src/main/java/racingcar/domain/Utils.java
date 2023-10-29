@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Collections;
+import java.util.HashSet;
 
 public class Utils {
     public static boolean isNaturalNumber(String number) {
@@ -17,6 +19,12 @@ public class Utils {
         } catch (NumberFormatException e) {
             return false;
         }
+    }
+
+    public static boolean hasDuplicateMember(String[] array) {
+        HashSet<String> set = new HashSet<String>();
+        Collections.addAll(set, array);
+        return array.length > set.size();
     }
 
     public static boolean isIntegerOverThanZero(int integer) {

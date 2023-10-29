@@ -1,11 +1,10 @@
 package racingcar.domain;
 
-public class Game {
-
+public class RacingGame {
     private final Cars cars;
     private final int tryCount;
 
-    public Game(Cars cars, TryCount tryCount) {
+    public RacingGame(Cars cars, TryCount tryCount) {
         this.cars = cars;
         this.tryCount = tryCount.getTryCount();
     }

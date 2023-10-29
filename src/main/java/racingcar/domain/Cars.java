@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -60,14 +59,8 @@ public class Cars {
     }
 
     private void validateCars(String[] cars) {
-        if (hasDuplicatedCarName(cars)) {
+        if (Utils.hasDuplicateMember(cars)) {
             throw new IllegalArgumentException("중복된 자동차 이름을 입력하였습니다.");
         }
-    }
-
-    private boolean hasDuplicatedCarName(String[] cars) {
-        HashSet<String> carSet = new HashSet<String>();
-        Collections.addAll(carSet, cars);
-        return cars.length > carSet.size();
     }
 }
