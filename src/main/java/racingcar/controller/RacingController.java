@@ -52,6 +52,19 @@ public class RacingController {
         return largestCars;
     }
 
+    public void endGame() {
+        ArrayList<Car> largestCars = decideWinner(carList);
+        outputView.printWinnerMessage();
+        for (int i = 0; i < largestCars.size(); i++) {
+            String carName = largestCars.get(i).getName();
+            if (i == largestCars.size() - 1) {
+                outputView.printLastWinnerResult(carName);
+                break;
+            }
+            outputView.printWinnerResult(carName);
+        }
+    }
+
     public void game() {
         ArrayList<String> carNameList = start();
         int totalRoundNum = inputView.readRoundNum();
@@ -74,5 +87,6 @@ public class RacingController {
             round.increaseRoundNum();
             System.out.println(" ");
         }
+        endGame();
     }
 }
