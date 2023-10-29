@@ -7,11 +7,11 @@ public class InvalidInputException {
     private static final String EMPTY_EXCEPTION_MESSAGE = "입력값이 비었습니다.";
     private static final String NULL_EXCEPTION_MESSAGE = "입력값이 null입니다.";
     private static final String BLANK_NAME_EXCEPTION_MESSAGE = "자동차 이름은 공백일 수 없습니다.";
-    private static final String SINGLE_CAR_EXCEPTION_MESSAGE = "자동차의 수는 2대 이상이여야만 경주가 가능합니다.";
+    private static final String SINGLE_CAR_EXCEPTION_MESSAGE = "자동차 수는 2이상이여야만 경주가 가능합니다.";
     private static final String CAR_NAME_OVER_LIMIT_EXCEPTION_MESSAGE = "자동차 이름은 5글자를 초과할 수 없습니다.";
     private static final String DUPLICATION_EXCEPTION_MESSAGE = "동일한 자동차 이름을 여러번 입력할 수 없습니다.";
     private static final String NOT_NUMBER_EXCEPTION_MESSAGE = "이동 시도 횟수는 숫자여야 합니다.";
-    private static final String NOT_NATURAL_NUMBER_EXCEPTION_MESSAGE = "이동 시도 횟수는 자연수여야 합니다.";
+    private static final String NOT_NATURAL_NUMBER_EXCEPTION_MESSAGE = "이동 시도 횟수는 1이상이어야 합니다.";
 
 
     public void checkInput(String input) {
@@ -45,22 +45,22 @@ public class InvalidInputException {
     }
 
     private void isBlankName(String[] carNames) {
-        for(String carName : carNames) {
-            if(carName.isBlank()) {
+        for (String carName : carNames) {
+            if (carName.isBlank()) {
                 throw new IllegalArgumentException(BLANK_NAME_EXCEPTION_MESSAGE);
             }
         }
     }
 
     private void isSingleCar(String[] carNames) {
-        if(carNames.length == 1) {
+        if (carNames.length == 1) {
             throw new IllegalArgumentException(SINGLE_CAR_EXCEPTION_MESSAGE);
         }
     }
 
     private void isCarNameOverLimit(String[] carNames) {
-        for(String carName : carNames) {
-            if(carName.length() > 5) {
+        for (String carName : carNames) {
+            if (carName.length() > 5) {
                 throw new IllegalArgumentException(CAR_NAME_OVER_LIMIT_EXCEPTION_MESSAGE);
             }
         }
@@ -68,8 +68,8 @@ public class InvalidInputException {
 
     private void isDuplication(String[] carNames) {
         List<String> carNameList = new ArrayList<>();
-        for(String carName : carNames) {
-            if(carNameList.contains(carName)) {
+        for (String carName : carNames) {
+            if (carNameList.contains(carName)) {
                 throw new IllegalArgumentException(DUPLICATION_EXCEPTION_MESSAGE);
             }
             carNameList.add(carName);
@@ -86,7 +86,7 @@ public class InvalidInputException {
 
     private void isNaturalNumber(String times) {
         int intTimes = Integer.parseInt(times);
-        if(intTimes < 1) {
+        if (intTimes < 1) {
             throw new IllegalArgumentException(NOT_NATURAL_NUMBER_EXCEPTION_MESSAGE);
         }
     }
