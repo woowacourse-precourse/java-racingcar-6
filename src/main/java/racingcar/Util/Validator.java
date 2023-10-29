@@ -38,4 +38,10 @@ public class Validator {
             ExceptionMessage.DUPLICATE_NAME.throwexception();
         }
     }
+
+    private void validationTrialEmpty(String trialNumber){
+        if(trialNumber.isEmpty()){
+            ExceptionMessage.NONE_INPUT.throwexception();
+        }
+    }
 }
