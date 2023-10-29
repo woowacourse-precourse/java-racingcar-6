@@ -13,6 +13,8 @@ public class ScoreBoard {
     }
 
     public void showCarsScore(List<Car> carList, int tryNum) {
+        System.out.println();
+        System.out.println("실행 결과");
         for (int i = 0; i < tryNum; i++) {
             for (int j = 0; j < carList.size(); j++) {
                 carList.get(j).tryMoveCar();
