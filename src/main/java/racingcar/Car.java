@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Car {
 
@@ -20,4 +21,8 @@ public class Car {
     }
 
     // Method
+    public void insertUserName(String userInput) {
+        String[] userNameInput = userInput.split(",");
+        userName.addAll(Arrays.asList(userNameInput));
+    }
 }

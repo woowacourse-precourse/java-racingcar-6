@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
+
 public class Racing {
     // Class instance
     Car car;
@@ -12,6 +14,13 @@ public class Racing {
     }
 
     //method
-    public void Start() {
+    public void start() {
+        getUserCarNameByConsole();
     }
+
+    public void getUserCarNameByConsole() {
+        String consoleInput = Console.readLine();
+        car.insertUserName(consoleInput);
+    }
+
 }
