@@ -3,6 +3,8 @@ package racingcar.controller;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.service.CarRace;
+import racingcar.service.CarResult;
+import racingcar.service.CarWinner;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -43,7 +45,9 @@ public class RacingController {
 
     private void endGame() {
         OutputView.printWinnerMessage();
-        cars.printWinner();
+        CarResult result = new CarResult(cars.getCars());
+        CarWinner winner = new CarWinner(result);
+        winner.printWinner();
     }
 
 

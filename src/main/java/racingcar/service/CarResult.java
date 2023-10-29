@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 public class CarResult {
 
     private final List<Car> cars;
-
     public CarResult(List<Car> cars) {
         this.cars = cars;
     }
@@ -20,7 +19,7 @@ public class CarResult {
                 .orElse(0);
     }
 
-    private List<String> getMaxPlayer() {
+    public List<String> getMaxPlayer() {
         List<String> maxPlayer = cars.stream()
                 .filter(car -> car.getPosition().length() == getMaxLength())
                 .map(Car::getName)
