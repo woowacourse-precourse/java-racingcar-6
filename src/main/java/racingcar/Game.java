@@ -13,6 +13,14 @@ public class Game {
         System.out.println();
     }
 
+    private static int findWinner(List<User> users) {
+        int max = 0;
+        for (User u : users) {
+            max = Math.max(max, u.length);
+        }
+        return max;
+    }
+
     private static int randomNumber() {
         int randomNum = Randoms.pickNumberInRange(0, 9);
         return randomNum;
