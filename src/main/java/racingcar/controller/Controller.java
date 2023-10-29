@@ -1,8 +1,10 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.utils.Parser;
 import racingcar.view.InputView;
@@ -19,9 +21,10 @@ public class Controller {
         attemptNum = getAttemptNumberByInput();
         for (int i = 0; i < attemptNum; i++)
         {
-
+            decideMovement();
+            OutputView.printCarScore(carRepository);
+            System.out.println();
         }
-
     }
 
     private void saveCars(List<String> carNames) {
@@ -39,5 +42,12 @@ public class Controller {
         InputView.requestAttemptNumber();
         int attemptNum = Integer.parseInt(Console.readLine());
         return attemptNum;
+    }
+    private void decideMovement() {
+        for (int i = 0; i < carRepository.size(); i++) {
+            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+                carRepository.get(i).moveForward(1);
+            }
+        }
     }
 }
