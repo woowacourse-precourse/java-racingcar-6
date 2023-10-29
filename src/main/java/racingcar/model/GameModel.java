@@ -61,5 +61,9 @@ public class GameModel {
         return cars;
     }
 
+    public Queue<List<Car>> getRoundSnapShots() {
+        return roundSnapShots;
+    }
+
     }
 }

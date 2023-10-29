@@ -27,5 +27,7 @@ public class GameController {
         Queue<List<Integer>> moveNumbers = gameModel.getMoveNumbers(roundNumber);
         gameModel.playGame(moveNumbers);
 
+        Queue<List<Car>> roundSnapShots = gameModel.getRoundSnapShots();
+        gameView.printRoundResult(roundSnapShots);
     }
 }
