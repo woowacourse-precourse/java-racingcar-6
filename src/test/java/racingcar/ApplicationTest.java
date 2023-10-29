@@ -46,6 +46,7 @@ class ApplicationTest extends NsTest {
 	void 숫자가_아닌_문자에_대한_예외_처리() {
 		String input = "가";
 		Validator validator = new Validator();
+
 		assertThatThrownBy(() -> validator.validateMoveCount(input))
 			.isInstanceOf(IllegalArgumentException.class);
 	}
@@ -54,6 +55,7 @@ class ApplicationTest extends NsTest {
 	void 음수에_대한_예외_처리() {
 		String input = "-1";
 		Validator validator = new Validator();
+
 		assertThatThrownBy(() -> validator.validateMoveCount(input))
 			.isInstanceOf(IllegalArgumentException.class);
 	}
@@ -62,6 +64,7 @@ class ApplicationTest extends NsTest {
 	void _0에_대한_예외_처리() {
 		String input = "0";
 		Validator validator = new Validator();
+
 		assertThatThrownBy(() -> validator.validateMoveCount(input))
 			.isInstanceOf(IllegalArgumentException.class);
 	}
@@ -70,6 +73,7 @@ class ApplicationTest extends NsTest {
 	void 자동차_이동여부_판단() {
 		GameProcess game = new GameProcess();
 		int input = 4;
+
 		assertThat(game.judgeMoveOrNot(input)).isEqualTo(true);
 	}
 
@@ -77,6 +81,7 @@ class ApplicationTest extends NsTest {
 	void 자동차_이동() {
 		GameProcess game = new GameProcess();
 		InformationOfCar car = new InformationOfCar("sanni", "");
+
 		assertRandomNumberInRangeTest(
 			() -> {
 				game.moveOrNot(car);
@@ -93,6 +98,7 @@ class ApplicationTest extends NsTest {
 		carList.add(new InformationOfCar("aaa", "---"));
 		carList.add(new InformationOfCar("bbb", "--"));
 		carList.add(new InformationOfCar("ccc", "---"));
+
 		assertThat(game.calculateMaxDistance(carList)).isEqualTo(3);
 	}
 
@@ -104,6 +110,7 @@ class ApplicationTest extends NsTest {
 		carList.add(new InformationOfCar("bbb", "---"));
 		carList.add(new InformationOfCar("ccc", "--"));
 		int maxDistance = 3;
+
 		game.printFinalString(maxDistance, carList);
 		assertThat(output()).isEqualTo("최종 우승자 : aaa, bbb");
 	}

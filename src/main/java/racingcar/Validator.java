@@ -1,12 +1,13 @@
 package racingcar;
 
 public class Validator {
-
+	private static final int MAXINUM_LENGTH = 5;
+	private static final int MININUM_NUMBER = 1;
 	public Validator() {
 
 	}
 	public boolean validateNameLength(String carName) {
-		if (carName.length() > 5 || carName.isEmpty()) {
+		if (carName.length() > MAXINUM_LENGTH || carName.isEmpty()) {
 			throw new IllegalArgumentException();
 		}
 		return true;
@@ -25,7 +26,7 @@ public class Validator {
 	}
 
 	private void validateNaturalNumber(int moveCount) {
-		if (moveCount < 1) {
+		if (moveCount < MININUM_NUMBER) {
 			throw new IllegalArgumentException();
 		}
 	}

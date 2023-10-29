@@ -5,6 +5,9 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class GameProcess {
+	private static final int START_RANGE = 0;
+	private static final int END_RANGE = 9;
+	private static final int STANDARD = 4;
 
 	public GameProcess() {
 
@@ -24,7 +27,7 @@ public class GameProcess {
 	}
 
 	public void moveOrNot(InformationOfCar car) {
-		int randomNumber = Randoms.pickNumberInRange(0, 9);
+		int randomNumber = Randoms.pickNumberInRange(START_RANGE, END_RANGE);
 		if (judgeMoveOrNot(randomNumber)) {
 			car.setDistance("-");
 		}
@@ -32,7 +35,7 @@ public class GameProcess {
 	}
 
 	public boolean judgeMoveOrNot(int randomNumber) {
-		return randomNumber >= 4;
+		return randomNumber >= STANDARD;
 	}
 
 	public int calculateMaxDistance(List<InformationOfCar> carList) {
