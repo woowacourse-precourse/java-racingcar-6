@@ -11,10 +11,9 @@ public class Application {
         sizeComparison(carName);
     }
 
-
     public static void sizeComparison(String[] carname){ // 차 이름이 5자 이하가 아니면 예외
         for (String s : carname) {
-            if (s.length() <= 5) {
+            if (s.length() > 5) {
                 throw new IllegalArgumentException();
             }
         }
