@@ -14,8 +14,8 @@ public class Position {
         this.value = START_POSITION;
     }
 
-    public void move() {
-        this.value++;
+    public void move(int distance) {
+        this.value += distance;
     }
 
     public int getValue() {

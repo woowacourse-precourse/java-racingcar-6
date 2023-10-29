@@ -20,9 +20,10 @@ public class PositionTest {
     void moveTest() {
         //given
         Position position = Position.setStartPosition();
+        MoveCondition condition = MoveCondition.MOVE;
 
         //when
-        position.move();
+        position.move(condition.getDistance());
 
         //then
         assertThat(position.getValue()).isEqualTo(1);

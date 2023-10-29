@@ -27,9 +27,10 @@ public class CarTest {
     void 자동차_전진() {
         //given
         Car car = new Car(new Name(VALID_NAME));
+        MoveCondition condition = MoveCondition.MOVE;
 
         //when
-        car.goForward();
+        car.updatePositionBy(condition);
 
         //then
         assertThat(car.getPosition()).isEqualTo(1);

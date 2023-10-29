@@ -1,5 +1,7 @@
 package racingcar.domain.car;
 
+import racingcar.domain.MoveCondition;
+
 public class Car {
 
     private final Name name;
@@ -10,8 +12,9 @@ public class Car {
         this.position = Position.setStartPosition();
     }
 
-    public void goForward() {
-        this.position.move();
+    public void updatePositionBy(MoveCondition condition) {
+        int distance = condition.getDistance();
+        this.position.move(distance);
     }
 
     public String getName() {
