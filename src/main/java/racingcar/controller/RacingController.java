@@ -19,6 +19,7 @@ public class RacingController {
     public void run() {
         RacingGame racingGame = setRacingGame();
         playGame(racingGame);
+        endGame(racingGame);
     }
 
     private RacingGame setRacingGame() {
@@ -34,6 +35,10 @@ public class RacingController {
             CarGroup cars = racingGame.getCars();
             outputView.printRacingResult(cars.toDto());
         }
+    }
+
+    private void endGame(RacingGame racingGame) {
+        outputView.printWinCars(racingGame.findWinCars());
     }
 
 }
