@@ -3,17 +3,19 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.Input.UserInput;
+import racingcar.domain.CarRaceGame;
 
 public class Application {
     public static void main(String[] args) {
-        UserInput userInput = new UserInput();
-        int IterationNumber;
+        int iterationNumber;
         List<String> carNames = new ArrayList<>();
 
-        carNames = userInput.getCarNames();
-        System.out.println(carNames);
+        UserInput userInput = new UserInput();
 
-        IterationNumber = userInput.getIterationNumber();
-        System.out.println(IterationNumber);
+        carNames = userInput.getCarNames();
+        iterationNumber = userInput.getIterationNumber();
+
+        CarRaceGame carRaceGame = new CarRaceGame(carNames, iterationNumber);
+        carRaceGame.playGame();
     }
 }
