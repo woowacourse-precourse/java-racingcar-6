@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Objects;
 
 public class Car {
     private static final int MINIMUM_NUMBER = 0;
@@ -26,4 +27,22 @@ public class Car {
         return randomNumber >= MOVING_CONDITION;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Car car)) {
+            return false;
+        }
+        return name.equals(car.name);
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name=" + this.name +
+                '}';
+    }
 }

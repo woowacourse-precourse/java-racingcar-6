@@ -21,4 +21,13 @@ public class CarList {
             throw new IllegalArgumentException("중복된 이름이 있습니다.");
         }
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Car car : carList) {
+            sb.append(car.toString());
+        }
+        return sb.toString();
+    }
 }
