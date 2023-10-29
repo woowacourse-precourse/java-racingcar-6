@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
+
 public class InputValidator {
 
     private static final int LIMIT_NAME_LEN = 5;
@@ -17,9 +19,17 @@ public class InputValidator {
         }
     }
 
-    public static void validateTryNum(int tryNum) {
-        if (tryNum < MINIMUM_TRY_NUM) {
+    public static int validateTryNum(String stringTryNum) {
+        int tryNum;
+        try {
+            tryNum = Integer.parseInt(stringTryNum);
+            if (tryNum < MINIMUM_TRY_NUM) {
+                throw new IllegalArgumentException();
+            }
+        }
+        catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
+        return tryNum;
     }
 }
