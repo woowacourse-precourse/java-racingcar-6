@@ -49,4 +49,12 @@ public class Application {
             seen.add(name);
         }
     }
+
+    public static void validateNumber(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
 }

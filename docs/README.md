@@ -44,7 +44,7 @@
 - [ ] Application : `validateAttemptInput` 메서드
   - 문자열을 인수로 받아 시도 횟수 입력 형식으로서 유효한지 검사한다.
     - 숫자가 아니라면 `IllegalArgumentException` 발생
-      - [ ] `validateNumber` 메서드
+      - [x] `validateNumber` 메서드
     - 음수라면 `IllegalArgumentException` 발생
       - [ ] `validatePositive` 메서드
 
