@@ -6,7 +6,18 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 
 public class Car {
+
+    private String stringCarList;
+
     private LinkedHashMap<String, String> carList;
+
+    public String getStringCarList() {
+        return stringCarList;
+    }
+
+    public void setStringCarList(String stringCarList) {
+        this.stringCarList = stringCarList;
+    }
 
     public LinkedHashMap<String, String> getCarList() {
         return carList;
