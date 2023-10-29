@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class GameBoard {
-    List<Player> players;
+    private final List<Player> players;
 
     public GameBoard(List<Player> players) {
         validateDuplication(players);
