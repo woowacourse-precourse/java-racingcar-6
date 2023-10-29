@@ -18,6 +18,10 @@ public class OutputView {
 
     public void printGameResult(CarsMovementDto carsMovementDto) {
         printInitialResultMessage();
+        printCarMovement(carsMovementDto);
+    }
+
+    private void printCarMovement(CarsMovementDto carsMovementDto) {
         for (CarMovementDto carMovementDto : carsMovementDto.carsMovementDto()) {
             String carName = carMovementDto.carName().getName();
             String totalDistanceForPosition = positionToTotalDistance(carMovementDto);
