@@ -12,12 +12,25 @@ public class User {
 
     public User() {
         InputCarName();
+        CheckCarName();
         InputGameNumber();
     }
 
     public void InputCarName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         cars = Arrays.asList(Console.readLine().split(","));
+    }
+
+    public void CheckCarName() {
+        for(int i=0; i<cars.size(); i++) {
+            CheckCarNameLength(cars.get(i));
+        }
+    }
+
+    public void CheckCarNameLength(String carName) {
+        if(carName.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름은 5자리 이하만 입력하세요.");
+        }
     }
 
     public void InputGameNumber() {
