@@ -14,6 +14,7 @@ public class Application {
         System.out.println("자동차 이름을 쉼표(,)로 구분하여 입력하세요:");
         String carNamesInput = Console.readLine();
         String[] carNames = carNamesInput.split(",");
+        int n = carNames.length;
 
         //(예외처리1)입력 차 이름이 문자가 아닐 경우
         ExeptionProcess exception = new ExeptionProcess();
@@ -32,7 +33,8 @@ public class Application {
         }
 
         //Car클래스에 입력값으로 초기화
-        Car[] car = new Car[3];
+        Car[] car = new Car[n];
+
         for(int i =0; i< car.length; i++)
         {
             car[i] = new Car(carNames[i]);
@@ -47,7 +49,7 @@ public class Application {
         try {
             tryCount = Integer.parseInt(tryCountInput);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("시도 횟수는 정수여야 합니다.");
+            throw new IllegalArgumentException("시도 횟수는 숫자로 입력하세요");
         }
 
         //결과값 출력
@@ -67,9 +69,17 @@ public class Application {
         //1, 단독우승인지, 2명이상 공동우승인지 구분을 해야함다
         //2. 어떻게 구분을 지을지  최대값?으로 구분을지을까
         //3. 단독이면 그이름 한명만 출력 공동이면 공동우승한사람만 출력
-
-        Winner win =new Winner();
-        win.findWinner(car[0].position,car[1].position,car[2].position,car[0].name,car[1].name,car[2].name);
-
+        int max=0;
+        for (int i = 0; i < n; i++) {
+            if (car[i].position > max) {
+                max = car[i].position;
+            }
+        }
+        System.out.print("최종 우승자 : ");
+        for (Car value : car) {
+            if (value.position == max) {
+                System.out.print(value.name + ", ");
+            }
+        }
     }
 }
