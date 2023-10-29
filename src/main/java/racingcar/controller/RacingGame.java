@@ -11,6 +11,7 @@ import java.util.List;
 
 public class RacingGame {
     private List<Car> carList = new ArrayList<>();
+    private List<String> winner = new ArrayList<>();
     Order order = new Order();
     RotatingCount rotatingCount = new RotatingCount();
     CarName carName = new CarName();
@@ -20,8 +21,65 @@ public class RacingGame {
         init(carNames);
         order.rotateCount();
         int racingCount = rotatingCount.input();
-        order.gameResult();
+        order.gameProcess();
         check(racingCount);
+        order.printWinner();
+        calculate();
+        win();
+    }
+
+    private void calculate() {
+        int maxPoint = Integer.MIN_VALUE;
+
+        for(int index = 0; index < carList.size(); index++){
+            int carPoint = point(carList.get(index));
+            if(carPoint > maxPoint){
+                maxPoint = carPoint;
+                winner.clear();
+                winner.add(carList.get(index).getName());
+            }
+
+            else if(carPoint == maxPoint){
+                winner.add(carList.get(index).getName());
+            }
+        }
+    }
+
+    private int point(Car car) {
+        return score(car.getMove());
+    }
+
+    private int score(String move) {
+        return move.length();
+    }
+
+
+    private void win() {
+        switch (winner.size()){
+            case 0:
+                order.noWinner();
+                break;
+            case 1:
+                person();
+                break;
+            default:
+                people();
+        }
+    }
+
+    private void people() {
+        for(int person = 0; person < winner.size(); person++){
+            if(person != winner.size()-1){
+                System.out.print(winner.get(person)+", ");
+            }
+            else if(person == winner.size()-1){
+                System.out.println(winner.get(person));
+            }
+        }
+    }
+
+    private void person() {
+        System.out.print(winner.get(0));
     }
 
     private void check(int racingCount) {

@@ -1,7 +1,5 @@
 package racingcar.view;
 
-import racingcar.model.Car;
-
 public class Order {
     private static final String INPUT_CARNAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String ROTATE_COUNT = "시도할 회수는 몇회인가요?";
@@ -14,12 +12,20 @@ public class Order {
         System.out.println(ROTATE_COUNT);
     }
 
-    public void gameResult(){
+    public void gameProcess(){
         blank();
         System.out.println(GAME_RESULT);
     }
 
     public void blank(){
         System.out.print("\n");
+    }
+
+    public void printWinner(){
+        System.out.print(WINNER);
+    }
+
+    public void noWinner(){
+        System.out.print("");
     }
 }
