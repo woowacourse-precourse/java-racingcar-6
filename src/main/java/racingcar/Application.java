@@ -14,6 +14,7 @@ public class Application {
 	private static int turnCount;
 
 	public static int CAR_MOVE_CONDITION = 4;
+	public static int CAR_NAME_MAXIMUM = 5;
 
 	public static void main(String[] args) {
 		setCarMap();
@@ -35,7 +36,7 @@ public class Application {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String input = readLine().trim();
 		for (String carName : input.split(",")) {
-			if (carName.length() == 0) {
+			if (carName.length() == 0 || carName.length() > CAR_NAME_MAXIMUM) {
 				throw new IllegalArgumentException("자동차 이름이 올바르지 않습니다.");
 			}
 			if (carMap.containsKey(carName)) {
