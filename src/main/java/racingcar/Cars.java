@@ -20,6 +20,13 @@ final class Cars {
                 .toList());
     }
 
+    void tryMove() {
+        cars.stream()
+                .filter(car -> roulette.spin() >= 4)
+                .forEach(Car::move);
+    }
+
+
     private void validateNames(String[] names) {
         var uniqueNameCount = Arrays.stream(names).distinct().count();
         if (names.length < 1 || names.length != uniqueNameCount) throw new IllegalArgumentException();
