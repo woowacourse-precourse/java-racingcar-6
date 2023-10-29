@@ -62,17 +62,21 @@ public class GameData {
         carList.sort(comparator);
     }
 
-    public void setWinnerList() {
-        this.winnerList = new ArrayList<>();
-        Car car1st = this.carList.get(0);
+    public void pickWinners(List<String> winnerList, List<Car> carList) {
+
+        Car car1st = carList.get(0);
         Integer moveForwardCount1st = car1st.getSuccessMoveForwardCount();
 
         for (Car car : carList) {
             Integer successMoveForwardCount = car.getSuccessMoveForwardCount();
-            if (successMoveForwardCount == moveForwardCount1st) {
+            if (successMoveForwardCount.equals(moveForwardCount1st)) {
 
-                this.winnerList.add(car.getName());
+                winnerList.add(car.getName());
             }
         }
+    }
+
+    public void createWinnerList() {
+        this.winnerList = new ArrayList<>();
     }
 }
