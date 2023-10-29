@@ -6,9 +6,14 @@ import racingcar.utils.validator.CarValidator;
 
 public class RacingCar extends CarValidator implements Car {
 
+    public static final long INIT_PROGRESS = 0L;
     private final String name;
 
     private final Long progress;
+
+    public RacingCar(final String name) {
+        this(name, INIT_PROGRESS);
+    }
 
     public RacingCar(final String name, final Long progress) {
         this.validate(name);
