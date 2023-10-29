@@ -8,11 +8,13 @@ import racingcar.domain.Cars;
 import racingcar.domain.CarDto;
 import racingcar.domain.RandomMoveStrategy;
 import racingcar.domain.RandomNumberGenerator;
+import racingcar.validation.NameValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Controller {
     private Cars cars;
+
     private final RandomNumberGenerator randomNumberGenerator;
     private final RandomMoveStrategy randomMoveStrategy;
     private final InputView inputView;
@@ -36,15 +38,17 @@ public class Controller {
 
     private void initCars() {
         outputView.requestCarNames();
-        String names = inputView.getInput();
-        validateNames(names);
-        List<Car> carList = Arrays.stream(names.split(","))
+        String namesContainComma = inputView.getInput();
+        NameValidator validator = new NameValidator(namesContainComma);
+        validator.validateNames();
+        List<Car> cars = Arrays.stream(namesContainComma.split(","))
                 .map(Car::new)
                 .collect(Collectors.toList());
-        this.cars = new Cars(carList);
+        this.cars = new Cars(cars);
     }
 
     private void playGame(int rounds) {
+        outputView.printExecutionResult();
         for (int i = 0; i < rounds; i++) {
             cars.moveAll(randomNumberGenerator, randomMoveStrategy);
             List<CarDto> carStatus = cars.getStatus();
@@ -54,15 +58,5 @@ public class Controller {
 
     private int makeStringToNumber(String input) {
         return Integer.parseInt(input);
-    }
-
-    private void validateNames(String names) {
-        String[] nameArray = names.split(",");
-
-        for (String name : nameArray) {
-            if (name.length() < 1 || name.length() > 5 || !name.matches("^[a-zA-Z]+$")) {
-                throw new IllegalArgumentException();
-            }
-        }
     }
 }
