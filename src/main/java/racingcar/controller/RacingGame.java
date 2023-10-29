@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import racingcar.constant.StringError;
 import racingcar.domain.Car;
 import racingcar.domain.Validator;
+import racingcar.view.UserInput;
 import racingcar.view.UserOutput;
 
 public class RacingGame {
@@ -27,22 +28,15 @@ public class RacingGame {
     public static void run(){
 
         UserOutput.askForCarNames();
-        String carNames = Console.readLine();
-
-        if(Validator.isEmpty(carNames)){
-            throw new IllegalArgumentException(StringError.REQUIRED_CAR_NAME);
-        }
+        String carNames = UserInput.readCarName();
 
         RacingGame game = RacingGame.getInstance();
         game.addCar(carNames);
 
         UserOutput.askForTryCount();
-        String rounds = Console.readLine();
-
-        if(Validator.isNotNumber(rounds)){
-            throw new IllegalArgumentException(StringError.REQUIRED_NUMBER);
-        }
+        int rounds = UserInput.readRound();
         game.play(rounds);
+
         List<String> result = game.getWinners();
         UserOutput.showWinners(result);
 
@@ -62,9 +56,7 @@ public class RacingGame {
         }
     }
 
-    private void play(String round) {
-
-        int rounds = Integer.parseInt(round);
+    private void play(int rounds) {
 
         for (int i = 0; i < rounds; i++) {
             playRound();
