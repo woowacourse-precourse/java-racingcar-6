@@ -70,7 +70,7 @@ public class GameStart {
      * 경주할 자동차 이름을 입력하는 출력을 보여주는 기능
      */
     public void printInputNameOfRaceCar() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        Utill.print(MyConstans.MSG_INPUT_NAME_RACE_CARS());
         gameProcess.inputNameOfRaceCar();
         gameProcess.createRaceCars();
     }

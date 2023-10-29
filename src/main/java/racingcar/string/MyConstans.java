@@ -8,4 +8,8 @@ public class MyConstans {
     public static String MSG_NAME_WINNER_CAR_RACE(String carOfWinnerFinal) {
         return "최종 우승자 : " + carOfWinnerFinal;
     }
+
+    public static String MSG_INPUT_NAME_RACE_CARS() {
+        return "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    }
 }
