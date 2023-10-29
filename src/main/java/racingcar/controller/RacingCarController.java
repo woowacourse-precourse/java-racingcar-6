@@ -13,6 +13,6 @@ public class RacingCarController {
 
     public void startRacingCarGame() {
         List<RacingCar> racingCars = inputView.readRacingCars();
-
+        int attemptsNumber = inputView.readAttemptsNumber();
     }
 }

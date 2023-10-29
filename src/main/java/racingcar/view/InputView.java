@@ -19,4 +19,9 @@ public class InputView {
                 .collect(Collectors.toList());
         return racingCars;
     }
+
+    public int readAttemptsNumber() {
+        print(ATTEMPTS_PROMPT);
+        return Integer.parseInt(Console.readLine());
+    }
 }
