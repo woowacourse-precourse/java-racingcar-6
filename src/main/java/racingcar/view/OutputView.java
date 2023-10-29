@@ -4,6 +4,7 @@ import java.util.List;
 
 public class OutputView {
     public static void printExecResult() {
+        System.out.println();
         System.out.println("실행 결과");
     }
     public static void printWinner(List<String> winnerName) {
