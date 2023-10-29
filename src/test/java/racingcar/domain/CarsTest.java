@@ -57,7 +57,7 @@ class CarsTest {
 
         // when
         while (n-- > 0) {
-            cars.go();
+            cars.goByRandomNumber();
         }
 
         // then
@@ -88,7 +88,7 @@ class CarsTest {
 
         // when
         while (n-- > 0) {
-            cars.go();
+            cars.goByRandomNumber();
         }
 
         // then
@@ -109,7 +109,7 @@ class CarsTest {
 
         // when
         while (n-- > 0) {
-            cars.go();
+            cars.goByRandomNumber();
         }
 
         // then

@@ -32,7 +32,7 @@ public class RacingGame {
         outputView.printRunResult();
 
         while (rotateCount-- > ZERO) {
-            cars.go();
+            cars.goByRandomNumber();
             outputView.printCarsResults(CarsDto.from(cars));
         }
 

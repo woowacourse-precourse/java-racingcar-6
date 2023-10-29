@@ -21,7 +21,7 @@ public class Cars {
                 .toList());
     }
 
-    public void go() {
+    public void goByRandomNumber() {
         cars.forEach(car -> car.go(RandomNumberGenerator.generate()));
     }
 
