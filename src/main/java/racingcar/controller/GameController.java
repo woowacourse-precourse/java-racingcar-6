@@ -3,21 +3,19 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.service.CarGameService;
-import racingcar.view.CarView;
+import racingcar.view.RacingCarView;
 
 public class GameController {
 
-    private final CarView carView;
     private final CarGameService carGameService;
 
-    public GameController(CarView carView, CarGameService carGameService) {
-        this.carView = carView;
+    public GameController(CarGameService carGameService) {
         this.carGameService = carGameService;
     }
 
     public void gameRun() {
-        String[] carNames = carView.inputCarNames();
-        int gameCount = carView.inputGameCount();
+        String[] carNames = RacingCarView.inputCarNames();
+        int gameCount = RacingCarView.inputGameCount();
 
         carGameService.makeAndStoreCar(carNames);
         for (int i = 0; i < gameCount; i++) {
@@ -25,12 +23,12 @@ public class GameController {
             if (i == 0) {
                 System.out.println("\n실행 결과");
             }
-            carView.outputRaceResult(playingCars);
+            RacingCarView.outputRaceResult(playingCars);
         }
 
         List<Car> finalPlayingCars = carGameService.getDuplicatedCars();
 
-        carView.outputWinners(finalPlayingCars);
+        RacingCarView.outputWinners(finalPlayingCars);
     }
 
     private List<Car> gameStart() {
