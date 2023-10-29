@@ -7,9 +7,9 @@ public class Car {
     private final String carName;
     private Integer movingDistance;
 
-    private static final int STARTING_LINE = 0;
-    private static final int MOVE_CONDITION_MIN_NUMBER = 4;
-    private static final int MOVE_ONE_STEP = 1;
+    private static final Integer STARTING_LINE = 0;
+    private static final Integer MOVE_CONDITION_MIN_NUMBER = 4;
+    public static final Integer MOVE_ONE_STEP = 1;
 
     public Car(String carName) {
         CarValidator.validateCarName(carName);
@@ -21,5 +21,9 @@ public class Car {
         if (randomNumber >= MOVE_CONDITION_MIN_NUMBER) {
             this.movingDistance += MOVE_ONE_STEP;
         }
+    }
+
+    public Integer getMovingDistance() {
+        return movingDistance;
     }
 }
