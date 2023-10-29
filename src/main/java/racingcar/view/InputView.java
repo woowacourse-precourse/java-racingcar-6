@@ -9,6 +9,9 @@ public class InputView {
     private static final int MINIMUN_ROUND = 1;
     private static final Scanner SCANNER = new Scanner(System.in);
 
+    private InputView() {
+    }
+
     public static String getCarName() {
         System.out.println(INPUT_CAR_NAME);
         return SCANNER.nextLine();
