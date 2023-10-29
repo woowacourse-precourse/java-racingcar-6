@@ -41,10 +41,13 @@ public class RaceController {
 
     private int setPlayCount() {
         try {
-            return Integer.parseInt(InputView.askPlayCount());
+            int playCount = Integer.parseInt(InputView.askPlayCount());
+            if (playCount == 0) {
+                throw new IllegalArgumentException();
+            }
+            return playCount;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
-
     }
 }
