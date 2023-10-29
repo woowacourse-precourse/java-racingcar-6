@@ -21,7 +21,7 @@ public class CarName {
     }
 
     private void validateCarNameMinLength(String name) {
-        if (name.isEmpty() || name.isBlank()) {
+        if (name == null || name.isBlank()) {
             throw new IllegalArgumentException(Err.INVALID_CAR_NAME_MIN_LENGTH.getMessage());
         }
     }
@@ -30,5 +30,9 @@ public class CarName {
         if (name.length() > CAR_NAME_MAX_LENGTH) {
             throw new IllegalArgumentException(Err.INVALID_CAR_NAME_MAX_LENGTH.getMessage());
         }
+    }
+
+    public String getName() {
+        return name;
     }
 }
