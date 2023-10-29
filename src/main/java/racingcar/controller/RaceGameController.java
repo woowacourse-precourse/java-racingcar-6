@@ -28,5 +28,14 @@ public class RaceGameController {
         }
     }
 
+    // 게임 1회 실행 및 결과 출력
+    private void startOneRoundGame() {
+        for (int i = 0; i < carList.size(); i++) {
+            carList.get(i).oneGameStart();
+            OutputView.printGameResult(carList.get(i));
+            OutputView.printLine();
+        }
+        OutputView.printLine();
+    }
 
 }
