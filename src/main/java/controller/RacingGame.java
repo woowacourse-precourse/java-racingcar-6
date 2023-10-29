@@ -3,6 +3,7 @@ package controller;
 import repository.CarListRepository;
 import service.RandomMovementDecider;
 import view.InputView;
+import view.OutputView;
 
 import static service.RandomMovementDecider.decideForwardMovement;
 
@@ -14,6 +15,12 @@ public class RacingGame {
         int tryNumber = Integer.parseInt(InputView.setTryNumber());
         for (int Try = 0; Try < tryNumber; Try++) {
             decideForwardMovement(carListRepository);
+            if(Try == 0){
+                OutputView.displayPlayResult();
+                OutputView.displayRaceResult(carListRepository.carList);
+            } else {
+                OutputView.displayRaceResult(carListRepository.carList);
+            }
         }
     }
 

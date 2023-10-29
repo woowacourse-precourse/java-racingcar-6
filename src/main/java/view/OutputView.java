@@ -4,11 +4,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class OutputView {
+    public static void displayPlayResult(){
+
+        System.out.println("\n실행 결과");
+    }
     public static void displayRaceResult(HashMap<String, Integer> raceResult){
-        System.out.println("실행 결과");
         for (String carName : raceResult.keySet()) {
             System.out.println(carName + " : " + "-".repeat(raceResult.get(carName)));
         }
+        System.out.println();
     }
 
     public static void displayWinners(ArrayList<String> winners){
