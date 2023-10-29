@@ -10,7 +10,7 @@ public class UserIoManager {
 
     private final ConsoleReader consoleReader;
     private final ConsoleWriter consoleWriter;
-    private boolean isFirstMoveResultNotification = true; // FIXME flag 값 없애기
+    private boolean isFirstMoveResultNotification = true;
 
     public UserIoManager(ConsoleReader consoleReader, ConsoleWriter consoleWriter) {
         this.consoleReader = consoleReader;
