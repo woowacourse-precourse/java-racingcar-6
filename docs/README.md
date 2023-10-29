@@ -23,6 +23,9 @@
 2. Winner
     - [] 승리자이름
 
+3. Computer
+   - [x] 0~9까지의 랜덤숫자
+
 ### View
 1. InputView
     - [x] 경주할 자동차 이름을 요청 메시지
