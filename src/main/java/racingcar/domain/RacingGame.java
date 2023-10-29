@@ -30,14 +30,7 @@ public class RacingGame {
         // 자동차 경주 과정 출력
         OutputManager.printResultMessage();
         for (int i = 0; i < rounds; i++) {
-            cars.stream().forEach(car -> {
-                int random = RandomNumberGenerator.generateRandomNumber();
-                MoveStatus moveStatus = MoveDecider.decideToMove(random);
-
-                if (moveStatus == MoveStatus.MOVE) {
-                    car.moveForward();
-                }
-            });
+            Runner.runRound(cars);
             OutputManager.printRoundResult(cars);
         }
         
