@@ -15,20 +15,30 @@ public class Judge {
 
     private void longestDistance(List<Car> cars) {
 
-        winCars.add(cars.get(0));
+        Car maxDistanceCar = cars.get(0);
 
         for (Car car : cars) {
 
-            if (car.getCarDistance() > winCars.get(0).getCarDistance()) {
+            if (car.getCarDistance() > maxDistanceCar.getCarDistance()) {
 
-                winCars.clear();
-                winCars.add(car);
-            } else if (car.getCarDistance() == winCars.get(0).getCarDistance()) {
+                maxDistanceCar = car;
+            }
+        }
+
+        findDuplicateWinner(cars, maxDistanceCar);
+    }
+
+    private void findDuplicateWinner(List<Car> cars, Car maxDistanceCar) {
+
+        for (Car car : cars) {
+
+            if (car.getCarDistance() == maxDistanceCar.getCarDistance()) {
 
                 winCars.add(car);
             }
         }
     }
+
 
     private void printWinner() {
 

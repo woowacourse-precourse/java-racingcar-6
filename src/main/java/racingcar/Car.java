@@ -28,11 +28,6 @@ public class Car {
 
     public void go() {
 
-        randomGo();
-    }
-
-    private void randomGo() {
-
         int num = Randoms.pickNumberInRange(MINRANDOM, MAXRANDOM);
 
         if (num >= 4) {

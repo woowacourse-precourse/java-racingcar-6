@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.Exception.ExceptionHandler;
 
 public class RacingStarter {
 
@@ -10,6 +11,7 @@ public class RacingStarter {
 
     public RacingStarter() {
     }
+
     public void racingStart() {
 
         racing = new Racing();
@@ -17,19 +19,16 @@ public class RacingStarter {
         repeatCount = repeatCountInput();
         racing.racingRun(inputs, repeatCount);
     }
+
     private String[] nameInput() {
 
         System.out.println("경주할 자동차 이름을 입력하세요.");
-        String input = Console.readLine();
-        inputs = input.split(",");
-        return inputs;
+        return ExceptionHandler.checkNameInputException(Console.readLine());
     }
 
     private int repeatCountInput() {
 
         System.out.println("시도할 회수는 몇회인가요?");
-        String input = Console.readLine();
-        System.out.println();
-        return Integer.parseInt(input);
+        return ExceptionHandler.checkRepeatCountInputException(Console.readLine());
     }
 }
