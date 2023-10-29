@@ -1,19 +1,19 @@
 package racingcar.model;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class ResultMap {
-    private final Map<String, Integer> resultMap = new HashMap<>();
+public class CurrentResultMap {
+    private final static String moveUnit = "-";
+    private final static String printMoveFormat = "%s : %s\n";
+    private String currentResultMap = "";
 
-    public ResultMap(List<Car> racingCars){
-        for (Car racingCar : racingCars) {
-            resultMap.put(racingCar.getName(), racingCar.getMoveDistance());
+    public String getCurrentResultMap(List<Car> cars) {
+        for (Car car : cars) {
+            String carName = car.getName();
+            int moveDistance = car.getMoveDistance();
+            String moveUnits = moveUnit.repeat(moveDistance);
+            currentResultMap += String.format(printMoveFormat, carName, moveUnits);
         }
-    }
-
-    public Map<String, Integer> getResultMap() {
-        return resultMap;
+        return currentResultMap;
     }
 }
