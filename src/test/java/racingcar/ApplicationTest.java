@@ -37,13 +37,13 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 자동차_생성_확인() {
-        String carNames = "pobi,woni,jun,kkk";
+        String carNames = "pobi,woni,jun,kkkkk";
         List<Car> cars = RacingService.createCars(carNames);
 
         assertThat(cars.get(0).getName()).isEqualTo("pobi");
         assertThat(cars.get(1).getName()).isEqualTo("woni");
         assertThat(cars.get(2).getName()).isEqualTo("jun");
-        assertThat(cars.get(3).getName()).isEqualTo("kkk");
+        assertThat(cars.get(3).getName()).isEqualTo("kkkkk");
     }
 
 
