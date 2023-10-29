@@ -1,6 +1,6 @@
 package racingcar.tdd.config;
 
-public enum ValidationConfig {
+public enum RacingConfig {
     INPUT_CAR_NAME_LENGTH_MIN(1),
     INPUT_CAR_NAME_LENGTH_MAX(100000),
     SPLIT_CAR_NAME_LENGTH_MIN(1),
@@ -13,11 +13,11 @@ public enum ValidationConfig {
     private int value;
     private String content;
 
-    ValidationConfig(int value) {
+    RacingConfig(int value) {
         this.value = value;
     }
 
-    ValidationConfig(String content) {
+    RacingConfig(String content) {
         this.content = content;
     }
 

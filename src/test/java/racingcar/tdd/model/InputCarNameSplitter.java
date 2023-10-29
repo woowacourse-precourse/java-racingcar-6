@@ -1,6 +1,6 @@
 package racingcar.tdd.model;
 
-import static racingcar.tdd.config.ValidationConfig.CAR_NAME_SPLIT_DELIM;
+import static racingcar.tdd.config.RacingConfig.CAR_NAME_SPLIT_DELIM;
 
 import java.util.ArrayList;
 import java.util.Arrays;

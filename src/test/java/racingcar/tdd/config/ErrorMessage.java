@@ -1,12 +1,12 @@
 package racingcar.tdd.config;
 
-import static racingcar.tdd.config.ValidationConfig.ATTEMPT_COUNT_MAX;
-import static racingcar.tdd.config.ValidationConfig.ATTEMPT_COUNT_MIN;
-import static racingcar.tdd.config.ValidationConfig.CAR_NAME_SPLIT_DELIM;
-import static racingcar.tdd.config.ValidationConfig.INPUT_CAR_NAME_LENGTH_MAX;
-import static racingcar.tdd.config.ValidationConfig.INPUT_CAR_NAME_LENGTH_MIN;
-import static racingcar.tdd.config.ValidationConfig.SPLIT_CAR_NAME_LENGTH_MAX;
-import static racingcar.tdd.config.ValidationConfig.SPLIT_CAR_NAME_LENGTH_MIN;
+import static racingcar.tdd.config.RacingConfig.ATTEMPT_COUNT_MAX;
+import static racingcar.tdd.config.RacingConfig.ATTEMPT_COUNT_MIN;
+import static racingcar.tdd.config.RacingConfig.CAR_NAME_SPLIT_DELIM;
+import static racingcar.tdd.config.RacingConfig.INPUT_CAR_NAME_LENGTH_MAX;
+import static racingcar.tdd.config.RacingConfig.INPUT_CAR_NAME_LENGTH_MIN;
+import static racingcar.tdd.config.RacingConfig.SPLIT_CAR_NAME_LENGTH_MAX;
+import static racingcar.tdd.config.RacingConfig.SPLIT_CAR_NAME_LENGTH_MIN;
 
 public enum ErrorMessage {
     SPLIT_CAR_REGEX_ERROR_MESSAGE("자동차 이름은 영어 소문자, 숫자만 입력 가능합니다. 잘못 입력한 자동차 이름 : %s"),

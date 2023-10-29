@@ -1,9 +1,9 @@
 package racingcar.tdd.config;
 
-import static racingcar.tdd.config.ValidationConfig.INPUT_CAR_NAME_LENGTH_MAX;
-import static racingcar.tdd.config.ValidationConfig.INPUT_CAR_NAME_LENGTH_MIN;
-import static racingcar.tdd.config.ValidationConfig.SPLIT_CAR_NAME_LENGTH_MAX;
-import static racingcar.tdd.config.ValidationConfig.SPLIT_CAR_NAME_LENGTH_MIN;
+import static racingcar.tdd.config.RacingConfig.INPUT_CAR_NAME_LENGTH_MAX;
+import static racingcar.tdd.config.RacingConfig.INPUT_CAR_NAME_LENGTH_MIN;
+import static racingcar.tdd.config.RacingConfig.SPLIT_CAR_NAME_LENGTH_MAX;
+import static racingcar.tdd.config.RacingConfig.SPLIT_CAR_NAME_LENGTH_MIN;
 
 public enum InputPattern {
     SPLIT_CAR_NAME_REGEX("^[a-z0-9]*$"),

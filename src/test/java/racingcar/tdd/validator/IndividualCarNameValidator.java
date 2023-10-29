@@ -5,7 +5,7 @@ import static racingcar.tdd.config.InputPattern.SPLIT_CAR_NAME_LENGTH_REGEX;
 import static racingcar.tdd.config.InputPattern.SPLIT_CAR_NAME_REGEX;
 import static racingcar.tdd.config.ErrorMessage.SPLIT_CAR_REGEX_ERROR_MESSAGE;
 import static racingcar.tdd.config.ErrorMessage.SPLIT_CAR_UNIQUE_ERROR_MESSAGE;
-import static racingcar.tdd.config.ValidationConfig.ERROR_CARS_MESSAGE_JOIN_DELIM;
+import static racingcar.tdd.config.RacingConfig.ERROR_CARS_MESSAGE_JOIN_DELIM;
 
 import java.util.List;
 import java.util.stream.Collectors;
