@@ -19,8 +19,10 @@ public class OutputView {
         System.out.println(INPUT_TRY_COUNT_MESSAGE);
     }
 
-    public void printCarPositions(CarDtos carDtos) {
+    public void printResultMessage(){
         System.out.println(RESULT_MESSAGE);
+    }
+    public void printCarPositions(CarDtos carDtos) {
         for (CarDto carDto : carDtos.getCarDtos()) {
             printSingleCarPosition(carDto);
         }

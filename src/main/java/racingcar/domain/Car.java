@@ -1,16 +1,23 @@
 package racingcar.domain;
 
+import racingcar.common.RandomNumberGenerator;
+import racingcar.domain.dto.CarDto;
+import racingcar.domain.dto.CarPositionDto;
+
 import java.util.Objects;
 
 public class Car {
     private static final int MAX_NAME_LENGTH = 5;
+    private static final int CONDITION_NUMBER=4;
     private final String carName;
     private final CarPosition carPosition;
+    private final RandomNumberGenerator randomNumberGenerator;
 
-    public Car(final String carName) {
+    public Car(final String carName,final RandomNumberGenerator randomNumberGenerator) {
         validateCarNameLength(carName);
         this.carName = carName;
         this.carPosition= new CarPosition();
+        this.randomNumberGenerator = randomNumberGenerator;
     }
 
     private void validateCarNameLength(final String carName) {
@@ -19,8 +26,20 @@ public class Car {
         }
     }
 
-    public String getPositionAsString() {
-        return carName + " : " + carPosition.getPositionAsString();
+    public void move() {
+        if (shouldMove()) {
+            this.carPosition.move();
+        }
+    }
+
+    private boolean shouldMove() {
+        int randomNumber = randomNumberGenerator.generate();
+        return randomNumber >= CONDITION_NUMBER;
+    }
+
+    public CarDto toCarDto() {
+        CarPositionDto carPositionDto =carPosition.createPositionDto();
+        return new CarDto(this.carName,carPositionDto.getPosition() );
     }
 
     @Override

@@ -7,7 +7,7 @@ public class InputView {
         return Console.readLine();
     }
 
-    public String inputTryCount() {
+    public String inputGameCount() {
         return Console.readLine();
     }
 }

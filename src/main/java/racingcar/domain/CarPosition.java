@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.domain.dto.CarPositionDto;
+
 import java.util.Objects;
 
 public class CarPosition {
@@ -13,16 +15,8 @@ public class CarPosition {
         this.position++;
     }
 
-    public boolean isGreaterThan(final CarPosition other) {
-        return this.position > other.position;
-    }
-
-    public String getPositionAsString() {
-        StringBuilder positionString = new StringBuilder();
-        for (int i = 0; i < position; i++) {
-            positionString.append("-");
-        }
-        return positionString.toString();
+    public CarPositionDto createPositionDto() {
+        return new CarPositionDto(this.position);
     }
 
     @Override
