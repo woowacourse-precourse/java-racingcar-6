@@ -29,19 +29,19 @@ public class GameData {
         }
     }
 
-    public void setCarsName(String[] carNamesArray) {
+    public void setCarsName(String[] carNamesArray, List<Car> carListTemp) {
 
         for (int i = 0; i < carNamesArray.length; i++) {
-            Car car = carList.get(i);
+            Car car = carListTemp.get(i);
             car.setName(carNamesArray[i]);
         }
     }
 
-    public Integer getrepetitionNumber() {
+    public Integer getRepetitionNumber() {
         return repetitionNumber;
     }
 
-    public String getrepetitionNumberInput() {
+    public String getRepetitionNumberInput() {
         String repetitionNumberInput = Console.readLine();
         System.out.println();
         return repetitionNumberInput;
