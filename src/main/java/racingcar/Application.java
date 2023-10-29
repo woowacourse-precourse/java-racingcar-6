@@ -3,11 +3,11 @@ package racingcar;
 import java.util.*;
 
 public class Application {
-    private static RaceView view;
+    private static RacingView view;
     private static CarList carList;
 
     public static void main(String[] args) {
-        view = new RaceView();
+        view = new RacingView();
 
         // TODO: string을 List<String>으로 변환하면서 검증까지 하는 메소드를 만드는게 더 좋지 않을까?
         view.printCarListInputMessage();

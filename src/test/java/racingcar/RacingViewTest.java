@@ -12,14 +12,14 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class RaceViewTest {
-    private RaceView view;
+public class RacingViewTest {
+    private RacingView view;
     private InputStream originalIn;
     private PrintStream originalOut;
 
     @BeforeEach
     void setUp() {
-        view = new RaceView();
+        view = new RacingView();
         originalIn = System.in;
         originalOut = System.out;
     }

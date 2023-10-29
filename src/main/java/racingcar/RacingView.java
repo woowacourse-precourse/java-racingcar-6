@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RaceView {
+public class RacingView {
     public String getCarListInput() {
         return Console.readLine();
     }
