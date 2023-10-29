@@ -25,18 +25,6 @@ public class SelfApplicationTest {
     }
 
     @Test
-    void 이름_공백_예외처리() {
-        List<Car> carList = new ArrayList<>();
-        carList.add(new Car(""));
-        carList.add(new Car("folio"));
-        carList.add(new Car("pobi"));
-        assertThatThrownBy(() -> {
-            new Cars(carList);
-        }).isInstanceOf(IllegalArgumentException.class)
-        .hasMessage("이름이 없는 자동차가 있습니다.");
-    }
-
-    @Test
     void 이름_중복_예외처리() {
         List<Car> carList = new ArrayList<>();
         carList.add(new Car("pobi"));
@@ -56,5 +44,27 @@ public class SelfApplicationTest {
             validator.validatePlayCount(input);
         }).isInstanceOf(IllegalArgumentException.class)
         .hasMessage("숫자만 입력할 수 있습니다.");
+    }
+
+    @Test
+    void 이름_공백_포함_예외처리() {
+        List<Car> carList = new ArrayList<>();
+        carList.add(new Car("pobi"));
+        carList.add(new Car("uni "));
+        carList.add(new Car("osh"));
+        assertThatThrownBy(() -> {
+            new Cars(carList);
+        }).isInstanceOf(IllegalArgumentException.class)
+        .hasMessage("이름에 공백이 포함된 자동차가 있습니다.");
+    }
+
+    @Test
+    void 이름_빈칸_오류처리() {
+        Validator validator = new Validator();
+        String input = "";
+        assertThatThrownBy(() -> {
+            validator.validateEmptyCarNames(input);
+        }).isInstanceOf(IllegalArgumentException.class)
+        .hasMessage("이름이 없는 자동차가 있습니다.");
     }
 }

@@ -23,10 +23,18 @@ public class Validator {
 
     public void validateEmptyCarNames(String input) {
         validateEmptyName(input);
-        validatelastInputCommas(input);
+        validateLastInputCommas(input);
+        validateStartInputCommas(input);
     }
-    private void validatelastInputCommas(String input) {
+    
+    private void validateLastInputCommas(String input) {
         if (input.charAt(input.length() - 1) == ',') {
+            throw new IllegalArgumentException("이름이 없는 자동차가 있습니다.");
+        }
+    }
+
+    private void validateStartInputCommas(String input) {
+        if (input.charAt(0) == ',') {
             throw new IllegalArgumentException("이름이 없는 자동차가 있습니다.");
         }
     }
