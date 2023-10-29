@@ -35,6 +35,7 @@ public class Application {
             System.out.println();
         }
         final List<Car> winners = judgeWinners(cars);
+        printWinners(winners);
     }
 
     private static int generateRandomNumber() {
@@ -62,5 +63,13 @@ public class Application {
                 .mapToInt(Car::getPostion)
                 .max()
                 .getAsInt();
+    }
+
+    private static void printWinners(final List<Car> winners) {
+        List<String> winnerNames = winners.stream()
+                .map(winner -> winner.getName())
+                .toList();
+        String result = String.join(", ", winnerNames);
+        System.out.println("최종 우승자 : " + result);
     }
 }
