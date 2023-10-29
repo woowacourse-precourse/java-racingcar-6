@@ -106,6 +106,24 @@ class ApplicationTest extends NsTest {
     }
 
 
+    @Test
+    void 자동차_객체_리스트_변환() {
+        List<Car> carList = new ArrayList<>();
+        List<String> carInputList = new ArrayList<>(List.of("kang", "geon", "young"));
+        carList = raceGameController.convertCarList(carInputList);
+
+        assertThat(carList.size()).isEqualTo(3);
+    }
+
+    @Test
+    void 범위내_무작위_숫자_생성() {
+        int randomNumber = car.generateRandomNumber();
+        assertThat(randomNumber)
+                .isGreaterThanOrEqualTo(0)
+                .isLessThanOrEqualTo(9);
+    }
+
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
