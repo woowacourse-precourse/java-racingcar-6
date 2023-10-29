@@ -2,6 +2,7 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -20,6 +21,7 @@ public class RaceDatasetTest {
 
     @AfterEach
     public void restoreStreams() {
+        Console.close();
         System.setIn(System.in);
     }
 
