@@ -45,7 +45,7 @@ public class GameController {
         }
     }
 
-    private int maxNum(List<Car> cars) {
+    public int maxNum(List<Car> cars) {
         Comparator<Car> comparator = ((o1, o2) -> o2.getLevel() - o1.getLevel());
         cars.sort(comparator);
 
@@ -99,7 +99,7 @@ public class GameController {
         count = inputView.printTryCount();
     }
 
-    private void carsToList(String carNames) {
+    public void carsToList(String carNames) {
         String[] cars = carNames.split(",");
         for (String car : cars) {
             validator.valid(car);
