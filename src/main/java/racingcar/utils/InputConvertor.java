@@ -3,7 +3,7 @@ package racingcar.utils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InputSeparator {
+public class InputConvertor {
     private static final String COMMA_SEPARATOR = ",";
     private static final int MAX_NAME_LENGTH = 5;
 
@@ -20,5 +20,19 @@ public class InputSeparator {
             }
         }
         return validNames.toArray(new String[0]);
+    }
+
+    public static int parseTryCount(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("유효한 숫자를 입력해주세요.");
+        }
+    }
+
+    public static void validateTryCount(int tryCount) {
+        if (tryCount <= 0) {
+            throw new IllegalArgumentException("시도 횟수는 1 이상이어야 합니다.");
+        }
     }
 }
