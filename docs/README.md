@@ -15,7 +15,7 @@
 - [x] 우승자를 출력하는 기능 - Printer#printWinner()
 
 - [x] 입력값이 올바른 이름 형식인지 확인하는 기능 - Validation#validNames()
-- [ ] 입력값이 숫자인지 확인하는 기능 - Validation#validNumber()
+- [x] 입력값이 숫자인지 확인하는 기능 - Validation#validNumber()
 
 
 ## 프로그래밍 요구 사항

@@ -15,7 +15,7 @@ public class Validation {
         return true;
     }
 
-    public static boolean validNumber(int number) {
-        return false;
+    public static boolean validNumber(String number) {
+        return number.matches("^[0-9]+$");
     }
 }
