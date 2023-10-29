@@ -7,12 +7,22 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Application {
 
+    public static void findPlayCountError(String inputCount) {
+        try {
+            int playCount = Integer.parseInt(inputCount);
+            if (playCount < 1 || playCount > 100)
+                throw new IllegalArgumentException();
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     public static int makePlayCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         String inputCount = readLine();
-        int playCount = Integer.parseInt(inputCount);
+        findPlayCountError(inputCount);
 
-        return playCount;
+        return Integer.parseInt(inputCount);
     }
 
     public static void findCarListError(String[] carList) {
