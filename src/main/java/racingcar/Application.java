@@ -12,13 +12,7 @@ public class Application {
     public static void main(String[] args) {
         List<String> names = getCarNames();
 
-        List<Car> carList = new ArrayList<>();
-        for (String name : names) {
-            if (name.length() > 5) {
-                throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
-            }
-            carList.add(new Car(name));
-        }
+        List<Car> carList = createCars(names);
 
         System.out.println("시도할 회수는 몇회인가요?");
         String inputNumber = Console.readLine();
@@ -38,6 +32,21 @@ public class Application {
         List<String> result = winners(carList);
         String winners = String.join(",", result);
         System.out.println("최종 우승자 : " + winners);
+    }
+
+    private static List<Car> createCars(List<String> names) {
+        List<Car> carList = new ArrayList<>();
+        for (String name : names) {
+            validateName(name);
+            carList.add(new Car(name));
+        }
+        return carList;
+    }
+
+    private static void validateName(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+        }
     }
 
     private static List<String> getCarNames() {
