@@ -4,6 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import racingcar.domain.Cars;
+import racingcar.dto.CarsDto;
 
 public class GameService {
 
@@ -38,6 +39,11 @@ public class GameService {
         if (parseLong > Integer.MAX_VALUE) {
             throw new IllegalArgumentException(RANGE_ERROR_MESSAGE);
         }
+    }
+
+    public CarsDto playRound(final Cars cars) {
+        cars.move();
+        return new CarsDto(cars.getCurrentCarStatus());
     }
 
 }
