@@ -54,4 +54,11 @@ public class Car {
         return false;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getMoveCount() {
+        return moveCount;
+    }
 }

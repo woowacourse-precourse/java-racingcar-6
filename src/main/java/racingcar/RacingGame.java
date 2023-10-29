@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -9,19 +10,34 @@ import java.util.Objects;
 public class RacingGame {
     Integer targetAttempts;
     private static final int MIN_TARGET_ATTEMPS = 0;
+    private List<Car> cars;
 
     public RacingGame() {
         targetAttempts = MIN_TARGET_ATTEMPS;
+        cars = new ArrayList<>();
     }
 
     public void start() throws IllegalArgumentException {
         printCarNameInputMessages();
         List<String> carNames = getCarNames();
+        cars = getCars(carNames);
 
         printTargetAttemptsInputMessage();
         targetAttempts = getTargetAttempts();
         validateTargetAttempts(targetAttempts);
 
+    }
+
+    private List<Car> getCars(List<String> names) {
+        if (Objects.isNull(names)) {
+            throw new IllegalArgumentException("getCars(): names는 NULL이 될 수 없습니다.");
+        }
+
+        List<Car> carList = new ArrayList<>();
+        for (String name : names) {
+            carList.add(new Car(name));
+        }
+        return carList;
     }
 
     private void printCarNameInputMessages() {
