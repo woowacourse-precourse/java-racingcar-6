@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.validator.CarNameValidator;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,7 +19,8 @@ public class InputView {
 
         List<String> carNameList = splitCarName(carName);
 
-        //유효성 검증
+        CarNameValidator.checkLength(carNameList);
+        CarNameValidator.checkDuplicated(carNameList);
     }
 
     public List<String> splitCarName(String carName){
