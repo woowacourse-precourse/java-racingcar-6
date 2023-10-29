@@ -18,11 +18,11 @@ public class Judge {
         return maxTrack;
     }
 
-    public List<String> findWinner(List<String> carNames, int maxTrack) {
+    public List<String> findWinner(List<String> carNames, List<String> tracks, int maxTrack) {
         List<String> winners = new ArrayList<>();
 
         for (int i = 0; i < carNames.size(); i++) {
-            if (carNames.get(i).length() == maxTrack){
+            if (tracks.get(i).length() == maxTrack) {
                 winners.add(carNames.get(i));
             }
         }
