@@ -62,8 +62,8 @@ public class Play {
     //자동차 경주 로직
     public void playRacing (List<Car> carList) {
         for (Car cars : carList) {
-            int randoms = Randoms.pickNumberInRange(0, 9);
-            if (randoms >= 4) {
+            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            if (randomNumber >= 4) {
                 cars.setDrive(cars.getDrive()+"-");
             }
             System.out.println(cars.getName() + " : " + cars.getDrive());
