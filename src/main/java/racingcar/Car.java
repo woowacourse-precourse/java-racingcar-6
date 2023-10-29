@@ -3,6 +3,8 @@ package racingcar;
 import java.util.List;
 
 public class Car {
+    public static final String ONE_STEP = "-";
+
     private final String name;
     private List<String> distance;
 
@@ -10,8 +12,8 @@ public class Car {
         this.name = name;
     }
 
-    public void move() {
-
+    public void move(boolean biggerThanFour) {
+        distance.add(ONE_STEP);
     }
 
     public void findLongestDistance() {
