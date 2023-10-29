@@ -30,7 +30,7 @@ public class Car {
     }
 
     public void checkCarNameCharacterCount(String name) {
-        if (name.isEmpty() || name.length() > 6) {
+        if (name.isEmpty() || name.length() > 5) {
             throw new IllegalArgumentException("자동차 이름 글자수는 1~5자 사이로 입력해야합니다.");
         }
     }
