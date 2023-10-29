@@ -23,6 +23,7 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         final int playTimes = Integer.parseInt(Console.readLine());
         playRound(cars, playTimes);
+        Console.close();
     }
 
     private static void playRound(final List<Car> cars, final int playTimes) {
@@ -33,6 +34,7 @@ public class Application {
             printRoundResult(cars);
             System.out.println();
         }
+        final List<Car> winners = judgeWinners(cars);
     }
 
     private static int generateRandomNumber() {
@@ -46,5 +48,19 @@ public class Application {
     private static String createHyphenResult(final Car car) {
         final int position = car.getPostion();
         return "-".repeat(position);
+    }
+
+    private static List<Car> judgeWinners(final List<Car> cars) {
+        final int maxPosition = getMaxPosition(cars);
+        return cars.stream()
+                .filter(car -> car.getPostion() == maxPosition)
+                .toList();
+    }
+
+    private static int getMaxPosition(final List<Car> cars) {
+        return cars.stream()
+                .mapToInt(Car::getPostion)
+                .max()
+                .getAsInt();
     }
 }
