@@ -5,4 +5,7 @@ public class ExceptionConstant {
     public static String INPUT_VALID_NUMBER = "숫자를 입력해주세요.";
     public static String INPUT_VALID_NUMBER_RANGE = "1 이상의 숫자를 입력해주세요.";
     public static String INPUT_VALID_NAME_LENGTH = "이름은 5자 이하로 입력해주세요.";
+
+    public static int MINIMUM_NUMBER_VALUE = 1;
+    public static int MINIMUM_NAME_LENGTH = 5;
 }
