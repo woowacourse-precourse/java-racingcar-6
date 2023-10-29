@@ -1,7 +1,7 @@
 package domain;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import util.RandomGenerator;
 
 public class Players {
@@ -17,33 +17,36 @@ public class Players {
     public String processRacing() {
         StringBuilder builder = new StringBuilder();
         for (RacingCar racingCar : players) {
-            if (racingCar.isMoveForward(RandomGenerator.generateNumber())) {
-                racingCar.moveForward();
-            }
-            builder.append(racingCar.getName()).append(COLON_WITH_WHITESPACE).append(racingCar.getLocation())
-                    .append("\n");
+            checkRacingCarMoveForward(racingCar);
+            buildRacingStatusMessage(builder, racingCar);
         }
         builder.append("\n");
 
         return builder.toString();
     }
 
-    public List<String> findWinners() {
-        int maxDistance = Integer.MIN_VALUE;
-        List<String> winners = new ArrayList<>();
-
-        for (RacingCar racingCar : players) {
-            int distance = racingCar.getLocation().length();
-            if (distance > maxDistance) {
-                maxDistance = distance;
-                winners.clear();
-                winners.add(racingCar.getName());
-            } else if (distance == maxDistance) {
-                winners.add(racingCar.getName());
-            }
+    private static void checkRacingCarMoveForward(RacingCar racingCar) {
+        if (racingCar.isMoveForward(RandomGenerator.generateNumber())) {
+            racingCar.moveForward();
         }
+    }
 
-        return winners;
+    private static void buildRacingStatusMessage(StringBuilder builder, RacingCar racingCar) {
+        builder.append(racingCar.getName()).append(COLON_WITH_WHITESPACE).append(racingCar.getLocation())
+                .append("\n");
+    }
+
+    public List<String> findWinners() {
+        int maxDistance = players.stream()
+                                    .map(RacingCar::getLocation)
+                                    .map(String::length)
+                                    .max(Integer::compare)
+                                    .orElse(0);
+
+        return players.stream()
+                        .filter(racingCar -> racingCar.getLocation().length() == maxDistance)
+                        .map(RacingCar::getName)
+                        .collect(Collectors.toList());
     }
 
     public int size() {
