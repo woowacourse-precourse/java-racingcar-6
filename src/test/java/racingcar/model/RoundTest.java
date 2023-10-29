@@ -30,4 +30,12 @@ class RoundTest {
         });
     }
 
+    @Test
+    public void hasNextRoundAndFinishRound() {
+        int one = 1;
+        Round round = new Round(one);
+
+        round.finishRound();
+        assertEquals(false, round.hasNextRound());
+    }
 }
