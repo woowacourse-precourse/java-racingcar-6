@@ -5,7 +5,7 @@ import org.junit.platform.commons.util.StringUtils;
 import java.util.regex.Pattern;
 
 public class InputValidator {
-    private static Pattern onlyNumbers = Pattern.compile("-?[0-9]+");
+    private static final Pattern ONLY_NUMBERS = Pattern.compile("-?[0-9]+");
 
     public static void validateInput(String input) {
         if (StringUtils.isBlank(input)) {
@@ -22,7 +22,7 @@ public class InputValidator {
     }
 
     private static boolean isNotDigit(String input) {
-        return !onlyNumbers.matcher(input)
+        return !ONLY_NUMBERS.matcher(input)
                 .matches();
     }
 }

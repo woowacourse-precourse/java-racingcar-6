@@ -1,5 +1,5 @@
 package racingcar.dto;
 
-public record CarDto (String name, int position) {
+public record CarDto(String name, int position) {
 
 }
