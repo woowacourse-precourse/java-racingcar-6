@@ -40,11 +40,13 @@ public class Application {
             if (maxDistance == car.movedDistances.get(i).length()) {
                 winner.add(car.names.get(i));
             }
+
         }
+
         return winner;
     }
 
-    private static void printWinner(StringJoiner winner){
+    private static void printWinner(StringJoiner winner) {
         System.out.println(winner);
     }
 

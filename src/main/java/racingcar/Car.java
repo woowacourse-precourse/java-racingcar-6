@@ -28,9 +28,11 @@ public class Car {
     }
 
     private void trimCarNames(List<String> carNames) {
+
         for (int i = 0; i < carNames.size(); i++) {
             carNames.set(i, carNames.get(i).trim());  // 수정 필요
         }
+
     }
 
     public void move(int roundCount) {
@@ -40,6 +42,7 @@ public class Car {
             moveRandomly();
             printDistances();
         }
+
     }
 
     private void moveRandomly() {
@@ -49,13 +52,17 @@ public class Car {
             if (Randoms.pickNumberInRange(0, 9) >= 4) {
                 movedDistances.set(j, movedDistances.get(j) + "-");
             }
+
         }
+
     }
 
     private void printDistances() {
+
         for (int k = 0; k < names.size(); k++) {
             System.out.println(names.get(k) + " : " + movedDistances.get(k));
         }
+
         System.out.println();
     }
 }
