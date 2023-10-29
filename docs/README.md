@@ -30,6 +30,10 @@
   + 자동차의 이름을 입력을 받는 서비스
 
 
++ RacingCarNameAddService
+  + 입력받은 자동차의 이름들을 추가하는 서비스
+
+
 + TryNumberScanService
     + 시도할 횟수를 입력 받는 서비스
         + static tryNumber 변수
