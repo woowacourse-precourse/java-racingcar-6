@@ -75,6 +75,9 @@ public class Race {
                 });
     }
 
-
+    private void declareWinner() {
+        String winnerName = checkWinner(cars);
+        printWinner(winnerName);
+    }
 
 }
