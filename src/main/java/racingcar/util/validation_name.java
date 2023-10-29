@@ -1,18 +1,18 @@
 package racingcar.util;
 
-import java.util.List;
 import java.util.Arrays;
-import java.util.Set;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class validation_name {
 
-    public static String validation_name(String names) {
+    public static List<String> validation_name(String names) {
         contain_commas(names);
         List<String> cars = separate_commas(names);
         name_length(cars);
         name_dup(cars);
-        return names;
+        return cars;
     }
 
     public static void contain_commas(String names) {

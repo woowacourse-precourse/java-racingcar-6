@@ -1,15 +1,18 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.util.validation_name;
+
 import racingcar.util.validation_attempts;
+import racingcar.util.validation_name;
+
+import java.util.List;
 
 public class input {
 
-    public static String input_names() {
+    public static List<String> input_names() {
         String names = Console.readLine();
-        validation_name.validation_name(names);
-        return names;
+        List<String> cars = validation_name.validation_name(names);
+        return cars;
     }
 
     public static Integer input_attempts() {
