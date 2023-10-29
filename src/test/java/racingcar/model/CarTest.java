@@ -105,4 +105,38 @@ class CarTest {
             }
         };
     }
+    
+    @DisplayName("최대 전진 거리값을 넘겼을 때 자동차의 현재 위치값과 일치하면 true를 반환한다.")
+    @Test        
+    void Given_MaximumDistance_When_CarPositionIsEqual_Then_ReturnTrue() throws Exception {
+        // Given
+        int maximumDistance = 5;
+        int position = 5;
+        RandomNumberUtil randomNumberUtil = new ProductionRandomNumberUtil();
+        String carName = "kue";
+        Car car = new Car(randomNumberUtil, carName, position);
+
+        // When
+        boolean isWinner = car.isWinner(maximumDistance);
+
+        // Then
+        assertThat(isWinner).isTrue();
+    }
+
+    @DisplayName("최대 전진 거리값을 넘겼을 때 자동차의 현재 위치값과 일치하지 않으면 false를 반환한다.")
+    @Test
+    void Given_MaximumDistance_When_CarPositionIsNotEqual_Then_ReturnFalse() throws Exception {
+        // Given
+        int maximumDistance = 5;
+        int position = 3;
+        RandomNumberUtil randomNumberUtil = new ProductionRandomNumberUtil();
+        String carName = "kue";
+        Car car = new Car(randomNumberUtil, carName, position);
+
+        // When
+        boolean isWinner = car.isWinner(maximumDistance);
+
+        // Then
+        assertThat(isWinner).isFalse();
+    }
 }

@@ -44,4 +44,8 @@ public class Car {
     public CarStatus getStatus() {
         return new CarStatus(name, position);
     }
+
+    public boolean isWinner(int maximumDistance) {
+        return position == maximumDistance;
+    }
 }
