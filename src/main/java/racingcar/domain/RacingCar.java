@@ -12,5 +12,8 @@ public class RacingCar {
                 .collect(Collectors.toList());
     }
 
+    public void playRacing() {
+        this.cars.forEach(Car::forward);
+    }
 
 }
