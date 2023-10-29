@@ -7,11 +7,14 @@ import racingcar.dto.RacingCar;
 
 public class RacingCarGameInput {
     public static String ERROR_MESSAGE_BIGGER_THAN_5CHAR = "[ERROR] 자동차 이름은 5자 이하만 가능합니다.";
+
     public static List<RacingCar> readCarNames() {
         String[] arr = Console.readLine().split(",");
-        return Arrays.stream(arr)
+        List<RacingCar> carList = Arrays.stream(arr)
                 .map(RacingCar::new)
                 .toList();
+        validateCarNames(carList);
+        return carList;
     }
 
     public static boolean validateCarNames(List<RacingCar> carList) {
