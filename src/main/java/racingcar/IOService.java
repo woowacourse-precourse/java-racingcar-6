@@ -27,6 +27,13 @@ public class IOService {
         }
     }
 
+    public void printCarListState(List<Car> carList){
+        for (Car car : carList) {
+            printCarState(car);
+        }
+
+        System.out.println();
+    }
     public void printCarState(Car car){
         StringBuilder stringBuilder = new StringBuilder(car.getName() + " : ");
         final String symbol = "-";
@@ -55,7 +62,8 @@ public class IOService {
             throw new IllegalArgumentException("숫자를 입력해야합니다.");
         }
 
-
         return cnt;
     }
+
+
 }
