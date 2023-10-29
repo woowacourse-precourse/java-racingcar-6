@@ -32,11 +32,7 @@ public class Car {
         return name;
     }
 
-    private int randomNumberGenerator() {
-        return pickNumberInRange(Constants.START_INCLUSIVE, Constants.END_INCLUSIVE);
-    }
-
-    private boolean isMoreThanForwardCondition(final int pickedNumber) {
-        return pickedNumber >= Constants.MIN_NUMBER_FORWARD_CONDITION;
+    public CarDto toCarDto() {
+        return new CarDto(name, position);
     }
 }
