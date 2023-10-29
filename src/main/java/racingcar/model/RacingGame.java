@@ -2,48 +2,38 @@ package racingcar.model;
 
 import static racingcar.config.Settings.CAR_AMOUNT;
 
-import java.util.ArrayList;
-import java.util.List;
 import racingcar.domain.Car;
 import racingcar.dto.CarDTO;
 
 public class RacingGame {
     private final CarManager manager;
+    private StringBuilder roundResult = new StringBuilder();
 
     public RacingGame(CarManager manager) {
         this.manager = manager;
     }
 
-    public String getWinners() {
-        List<String> winners = new ArrayList<>();
-        int farthest = manager.getFarthestPosition();
-
-        for (int index = 0; index < CAR_AMOUNT; index++) {
-            Car car = manager.getCarFromIndex(index);
-            CarDTO dto = car.toDTO();
-
-            if (dto.getPosition() == farthest) {
-                winners.add(dto.getName());
-            }
-        }
-
-        return String.join(",", winners);
-    }
-
-    public String playRound() {
-        StringBuilder roundResult = new StringBuilder();
-        for (int index = 0; index < CAR_AMOUNT; index++) {
-            Car car = manager.getCarFromIndex(index);
-
-            car.tryMove();
-            String status = getStatus(car);
-            roundResult.append(status);
-        }
-
+    public String getRoundResult() {
         return roundResult.toString();
     }
 
-    // dto로부터 이름과 위치를 받아 라운드 진행 상황 제작
+    public void playRound() {
+        roundResult.setLength(0);
+        for (int index = 0; index < CAR_AMOUNT; index++) {
+            Car car = manager.getCarFromIndex(index);
+            
+            car.tryMove();
+            updateStatus(car);
+        }
+    }
+
+    // 자동차의 현재 상황판을 작성하도록 요청한 후 결과에 추가
+    private void updateStatus(Car car) {
+        String status = getStatus(car);
+        roundResult.append(status);
+    }
+
+    // car 객체를 받아서 해당 자동차의 상황판 작성
     private String getStatus(Car car) {
         CarDTO dto = car.toDTO();
 

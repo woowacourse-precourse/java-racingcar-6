@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.utils.validation.ValidateAttempts;
 import racingcar.utils.validation.ValidateCars;
 
-public class View {
+public class InputView {
     public static String[] askForCarNames() {
         return getCarNames();
     }
@@ -12,19 +12,6 @@ public class View {
     public static int askForAttempts() {
         return getAttempts();
     }
-
-    public static void displayResult() {
-        System.out.println("\n실행결과");
-    }
-
-    public static void displayRoundResult(String result) {
-        System.out.println(result);
-    }
-
-    public static void displayWinners(String winners) {
-        System.out.printf("최종 우승자 : %s\n", winners);
-    }
-
 
     // 사용자에게 자동차 이름 입력받음
     private static String[] getCarNames() {
