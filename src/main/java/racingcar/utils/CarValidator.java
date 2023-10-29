@@ -20,19 +20,19 @@ public class CarValidator {
 
     public static void validateName(String name) {
         if (isNotMatchValidNameCondition(name)) {
-            throw new IllegalArgumentException("이름은 공백 없는 1~5자의 영어 또는 한글이어야 합니다.");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_CONDITION.getMessage());
         }
     }
 
     private static void validateCarSize(List<Car> cars) {
         if (isOverValidCarSize(cars.size())) {
-            throw new IllegalArgumentException("자동차의 갯수는 2~5개 사이여야 합니다.");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_NUMBER.getMessage());
         }
     }
 
     private static void validateDuplicateName(List<Car> cars) {
         if (isContainDuplicateName(cars)) {
-            throw new IllegalArgumentException("중복되는 자동차 이름이 존재합니다.");
+            throw new IllegalArgumentException(ErrorMessage.DUPLICATE_CAR_NAME.getMessage());
         }
     }
 
