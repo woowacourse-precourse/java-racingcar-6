@@ -6,6 +6,7 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
@@ -57,6 +58,7 @@ class ApplicationTest extends NsTest {
         User user = new User();
         command("pobi, jun,kim ,po bi");
         List<String> carNames = user.inputCarName();
+        assertThat(output()).contains("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         assertThat(carNames).containsExactly("pobi", "jun", "kim", "po bi");
     }
 
@@ -88,7 +90,7 @@ class ApplicationTest extends NsTest {
     @Test
     @DisplayName("기능 4번")
         //확인 위해서는 RacingCar 클래스 내부의 멤버변수들 접근인자 수정 필요
-    void 차량_배정_확인() {
+    void 차량_생성_확인() {
         RacingCar racingCar = new RacingCar();
         racingCar.init();
 
@@ -114,6 +116,20 @@ class ApplicationTest extends NsTest {
     void 시도횟수_요청문구_출력함수_확인() {
         OutputViewer.printRequestingNumberOfTry();
         assertThat(output()).contains("시도할 회수는 몇회인가요?");
+    }
+
+    @Test
+    @DisplayName("기능 6번")
+    void 시도횟수_입력_확인() {
+        User user = new User();
+        int numberOfTry;
+
+        Console.close();
+        command("5");
+
+        numberOfTry = user.inputNumberOfTry();
+        assertThat(output()).contains("시도할 회수는 몇회인가요?");
+        assertThat(numberOfTry).isEqualTo(5);
     }
 
 

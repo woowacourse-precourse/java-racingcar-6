@@ -11,18 +11,27 @@ public class User {
         return requestValidateCarNames(userInput);
     }
 
+    public int inputNumberOfTry() {
+        int numberOfTry;
+        String userInput = InputViewer.requestNumberOfTry();
+        numberOfTry = Integer.parseInt(userInput);
+        return numberOfTry;
+
+    }
+
     public List<String> requestValidateCarNames(String userInput) {
         List<String> carNameList = requestStringToList(userInput);
+
         InputValidator.validateNumberOfCars(carNameList.size());
         InputValidator.validateIsNamesDistinct(carNameList);
         for (String carName : carNameList) {
             InputValidator.validateNameLength(carName.length());
         }
+
         return carNameList;
     }
 
     public List<String> requestStringToList(String userInput) {
-        String[] splitStrings = StringChanger.stringToTrimmedStringArray(userInput);
-        return StringChanger.stringArrayToStringList(splitStrings);
+        return StringChanger.stringToStringList(userInput);
     }
 }
