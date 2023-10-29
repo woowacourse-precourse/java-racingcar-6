@@ -15,8 +15,8 @@ class RoundTest {
         Round round1 = new Round(1);
         Round round2 = new Round(0);
 
-        boolean expectedTrue = round1.hasRemainingRounds();
-        boolean expectedFalse = round2.hasRemainingRounds();
+        boolean expectedTrue = round1.hasRemainingRound();
+        boolean expectedFalse = round2.hasRemainingRound();
 
         assertAll(
                 () -> assertThat(expectedTrue).isTrue(),
@@ -30,8 +30,8 @@ class RoundTest {
         Round round1 = new Round(0);
         Round round2 = new Round(1);
 
-        boolean expectedTrue = round1.hasNotRemainingRounds();
-        boolean expectedFalse = round2.hasNotRemainingRounds();
+        boolean expectedTrue = round1.hasNotRemainingRound();
+        boolean expectedFalse = round2.hasNotRemainingRound();
 
         assertAll(
             () -> assertThat(expectedTrue).isTrue(),

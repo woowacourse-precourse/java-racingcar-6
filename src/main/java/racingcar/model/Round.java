@@ -14,11 +14,11 @@ public class Round {
         this.round--;
     }
 
-    public boolean hasNotRemainingRounds() {
+    public boolean hasNotRemainingRound() {
         return this.round == NO_ROUND;
     }
 
-    public boolean hasRemainingRounds() {
+    public boolean hasRemainingRound() {
         return this.round != NO_ROUND;
     }
 }

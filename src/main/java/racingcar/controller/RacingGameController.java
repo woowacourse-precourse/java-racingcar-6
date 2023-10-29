@@ -52,7 +52,7 @@ public class RacingGameController {
         do {
             playRound(players);
             round.finishCurrentRound();
-        } while (round.hasRemainingRounds());
+        } while (round.hasRemainingRound());
     }
 
     private void playRound(Cars players) {
