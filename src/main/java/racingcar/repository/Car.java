@@ -5,7 +5,7 @@ import java.util.List;
 public class Car {
     private static Car car;
 
-    private List<String> cars;
+    private List<CarInfo> cars;
 
     private Car() {
     }
@@ -17,11 +17,11 @@ public class Car {
         return car;
     }
 
-    public List<String> getCars() {
+    public List<CarInfo> getCars() {
         return cars;
     }
 
-    public void setCars(List<String> cars) {
+    public void setCars(List<CarInfo> cars) {
         this.cars = cars;
     }
 }
