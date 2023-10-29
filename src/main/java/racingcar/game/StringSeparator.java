@@ -1,9 +1,9 @@
-package racingcar;
+package racingcar.game;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class CarSeparator {
+public class StringSeparator {
 
     public static List<String> separate(String carNames) {
         String[] carNameArray = carNames.split(",");

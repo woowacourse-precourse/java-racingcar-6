@@ -1,21 +1,22 @@
-package racingcar;
+package racingcar.game;
+
+import racingcar.game.domain.Car;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Setting {
+public class GameSetting {
 
     private final List<Car> cars;
     private int round = 0;
 
-    public Setting() {
+    public GameSetting() {
         this.cars = new ArrayList<>();
     }
 
-    public void initializeCars(String carNames) {
-        List<String> carNameList = CarSeparator.separate(carNames);
+    public void initializeCars(List<String> carNameList) {
         for (String carName : carNameList) {
-            this.cars.add(new Car(carName));
+            cars.add(new Car(carName));
         }
     }
 
@@ -24,9 +25,19 @@ public class Setting {
     }
 
     public void tryCarsForward() {
-        for (Car car : this.cars) {
+        for (Car car : cars) {
             car.tryForward();
         }
+    }
+
+    public List<String> getCarsState() {
+        List<String> carStateList = new ArrayList<>();
+
+        for (Car car : cars) {
+            carStateList.add(car.getCarState());
+        }
+
+        return carStateList;
     }
 
     public List<Car> getCars() {
