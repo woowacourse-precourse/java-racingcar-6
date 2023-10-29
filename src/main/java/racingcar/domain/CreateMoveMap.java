@@ -19,4 +19,13 @@ public class CreateMoveMap {
         return numMoveMap;
     }
 
+    public Map<String, Integer> decideIncMove(List<String> carInput, Map<String, Integer>numMoveMap) {
+        for (String carType : carInput) {
+            if (createRandomNumber.generateRandomNumber() < 4) {
+                continue;
+            }
+            numMoveMap.put(carType, numMoveMap.get(carType) + 1);
+        }
+        return numMoveMap;
+    }
 }
