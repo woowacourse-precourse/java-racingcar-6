@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 class Car {
     private String name;
@@ -33,6 +34,10 @@ public class Application {
         List<Car> cars = getCars();
 
         int times = getTimesToMove();
+    }
+
+    public static int getRandomNum() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 
     public static int getTimesToMove() {
