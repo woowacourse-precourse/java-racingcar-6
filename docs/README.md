@@ -11,16 +11,15 @@
 #### 사용자가 입력한 전체 문자열에 대한 검증
 
 - [ ] 문자열 전체에 대한 검증
-    - [ ] [예외] 쉼표(,)으로 이름을 구분한 것이 아니면 `IllegalArgumentException` 발생
-    - [ ] [예외] 맨 앞이나 끝에 쉼표(,) 구분자가 있는 경우 `IllegalArgumentException` 발생
-    - [ ] [예외] null 값이나 빈 문자열이 입력 되었을 경우 `IllegalArgumentException` 발생
+    - [ ] [예외] 공백으로 이루어지거나 빈 문자열이 입력 되었을 경우 `IllegalArgumentException` 발생
 
 - - -
 
 #### 자동차 이름 하나에 대한 검증
 
 - [ ] 쉼표(,) 구분로 문자열을 나누기
-    - [ ] 구분된 이름에 대한 검증
+    - [ ] 자동차 이름에 대한 검증
+        - [ ] [예외] 이름에 문자나 숫자가 아닌 다른 문자가 있으면 `IllegalArgumentException`발생
         - [ ] [예외] 이름이 5자 초과면 `IllegalArgumentException` 발생
         - [ ] [예외] 이름이 0자 이하면 `IllegalArgumentException` 발생
         - [ ] [예외] 같은 이름이 있는 경우 `IllegalArgumentException` 발생
