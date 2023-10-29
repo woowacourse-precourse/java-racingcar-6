@@ -25,6 +25,12 @@ public class Car {
         return this.dist;
     }
 
+    public String printDist(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("-".repeat(Math.max(0, dist)));
+        return sb.toString();
+    }
+
     public String getName(){
         return this.name;
     }
