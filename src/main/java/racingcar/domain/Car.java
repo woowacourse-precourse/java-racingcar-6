@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.Objects;
+import racingcar.dto.CarInformationDto;
 
 public class Car {
 
@@ -10,6 +11,12 @@ public class Car {
     public Car(CarName name) {
         this.name = name;
         this.position = new CarPosition();
+    }
+
+    public CarInformationDto getInformation() {
+        String carName = name.name();
+        int carPosition = position.getPosition();
+        return new CarInformationDto(carName, carPosition);
     }
 
     @Override
