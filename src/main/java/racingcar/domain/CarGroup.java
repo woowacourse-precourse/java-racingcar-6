@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.global.ErrorMessage;
 import racingcar.global.RaceException;
 
@@ -44,5 +45,14 @@ public class CarGroup {
         if (carName.isEmpty()) {
             throw RaceException.of(ErrorMessage.EMPTY_CAR_NAME);
         }
+    }
+
+    public void moveAllProbabilistically() {
+        cars.replaceAll((carName, position) -> {
+            if (Randoms.pickNumberInRange(0, 9) > 4) {
+                return position + 1;
+            }
+            return position;
+        });
     }
 }
