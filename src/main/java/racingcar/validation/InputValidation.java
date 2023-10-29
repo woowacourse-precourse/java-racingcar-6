@@ -109,4 +109,10 @@ public class InputValidation {
     private boolean isNotPositive(int inputRange) {
         return inputRange < 1;
     }
+
+    public void validateAttemptInput(String input) {
+        validateInputNull(input);
+        validateInputNumericFormat(input);
+        validateInputRange(input);
+    }
 }
