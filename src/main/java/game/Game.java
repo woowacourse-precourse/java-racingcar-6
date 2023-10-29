@@ -1,19 +1,35 @@
 package game;
 
+import Util.InputUtil;
 import car.Car;
+import car.CarCollection;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static constants.RacingCarConstants.NUMBER_OF_ATTEMPTS_MESSAGE;
+import static constants.RacingCarConstants.PARTICIPANTS_INPUT_MESSAGE;
+
 public class Game {
 
-    public List<Car> participants;
-    public int frequency;
+    private List<Car> participants;
+    private int frequency;
 
-    public Game(String participants, String frequency) {
-        this.participants = stringToCarList(participants);
-        this.frequency = stringToInt(frequency);
+    public Game() {
+        initializeParticipants();
+        initializeFrequency();
     }
+
+    private void initializeParticipants() {
+        String participantsInput = InputUtil.getUserInput(PARTICIPANTS_INPUT_MESSAGE);
+        participants = stringToCarList(participantsInput);
+    }
+
+    private void initializeFrequency() {
+        String frequencyInput = InputUtil.getUserInput(NUMBER_OF_ATTEMPTS_MESSAGE);
+        frequency = stringToInt(frequencyInput);
+    }
+
 
     public void start(){
 
