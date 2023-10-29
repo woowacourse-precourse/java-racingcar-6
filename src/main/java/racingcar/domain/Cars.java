@@ -1,6 +1,8 @@
 package racingcar.domain;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Cars {
     private final List<Car> cars;
@@ -36,4 +38,11 @@ public class Cars {
     public void moveCar(int index) {
         this.cars.get(index).increaseLocation();
     }
+
+    public Map<String, Integer> getCarsInfo() {
+        Map<String, Integer> result = new HashMap<>();
+        cars.forEach(car -> result.put(car.getName(), car.getLocation()));
+        return result;
+    }
+
 }

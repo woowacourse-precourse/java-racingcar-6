@@ -81,6 +81,7 @@ UserInterface 객체의 start 메서드를 실행한다.
   - validateInput 사용자의 입력값을 검증한다.
   - size() 리스트의 사이즈를 반환한다.
   - moveCar(int index) 인덱스를 받아와 특정 자동차를 움직인다.
+  - getCarsInfo() 자동차의 이름과 위치를 맵에 담아 반환한다.
 
 ### RandomGenerator
 - 메서드

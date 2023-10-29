@@ -33,4 +33,6 @@ public class CarRaceService {
         return randomNumber >= CarRaceConstant.MOVE_MIN_VALUE.getConstant();
     }
 
+
+
 }
