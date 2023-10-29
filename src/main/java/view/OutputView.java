@@ -1,5 +1,7 @@
 package view;
 
+import static util.Messages.RUN_RESULT;
+
 /**
  * packageName    : view
  * fileName       : OutputView
@@ -14,5 +16,9 @@ package view;
 public class OutputView {
     public static void printException(Exception exception) {
         System.out.println(exception.getMessage());
+    }
+
+    public static void printResultMessage() {
+        System.out.println(RUN_RESULT);
     }
 }
