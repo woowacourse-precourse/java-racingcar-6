@@ -11,9 +11,9 @@ import racingcar.view.OutputView;
 
 public class GameController {
 
-    private final RandomNumberGenerator numberGenerator;
+    private final NumberGenerator numberGenerator;
 
-    public GameController(RandomNumberGenerator numberGenerator) {
+    public GameController(NumberGenerator numberGenerator) {
         this.numberGenerator = numberGenerator;
     }
 

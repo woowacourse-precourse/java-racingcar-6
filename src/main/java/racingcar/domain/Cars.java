@@ -3,7 +3,7 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-import racingcar.RandomNumberGenerator;
+import racingcar.NumberGenerator;
 
 public class Cars {
 
@@ -45,7 +45,7 @@ public class Cars {
         }
     }
 
-    public MoveResult move(RandomNumberGenerator numberGenerator) {
+    public MoveResult move(NumberGenerator numberGenerator) {
         List<Integer> forwardCounts = new ArrayList<>();
         for (Car car : cars) {
             int forwardCount = car.move(numberGenerator.generate());
