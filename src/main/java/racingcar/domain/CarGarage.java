@@ -5,6 +5,8 @@ import racingcar.domain.car.Car;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static racingcar.domain.car.Position.START_POSITION;
+
 public record CarGarage(List<Car> cars) {
 
     public Winner findWinner() {
@@ -19,6 +21,6 @@ public record CarGarage(List<Car> cars) {
         return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
-                .orElse(0);
+                .orElse(START_POSITION);
     }
 }

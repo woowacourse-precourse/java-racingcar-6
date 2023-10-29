@@ -2,7 +2,7 @@ package racingcar.domain.car;
 
 public class Position {
 
-    private static final int START_POSITION = 0;
+    public static final int START_POSITION = 0;
 
     private int value;
 
