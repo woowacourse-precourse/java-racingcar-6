@@ -14,6 +14,7 @@ public class User {
     public int inputNumberOfTry() {
         int numberOfTry;
         String userInput = InputViewer.requestNumberOfTry();
+        userInput = StringChanger.stringToTrimmedString(userInput);
         numberOfTry = Integer.parseInt(userInput);
         return numberOfTry;
 

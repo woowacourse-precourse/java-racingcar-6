@@ -49,6 +49,7 @@ class ApplicationTest extends NsTest {
     @DisplayName("기능 1번")
     void 시작문구_출력함수_확인() {
         OutputViewer.printRequestingCarName();
+
         assertThat(output()).contains("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
@@ -56,10 +57,14 @@ class ApplicationTest extends NsTest {
     @DisplayName("기능 2번")
     void 자동차_이름_입력_확인() {
         User user = new User();
+
         command("pobi, jun,kim ,po bi");
         List<String> carNames = user.inputCarName();
+
         assertThat(output()).contains("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         assertThat(carNames).containsExactly("pobi", "jun", "kim", "po bi");
+
+        Console.close();
     }
 
     @Test
@@ -70,8 +75,8 @@ class ApplicationTest extends NsTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("1대 이상의 차량을 입력하세요.");
 
-        List<String> duplicatedList = new ArrayList<>(List.of("pobi", "pobi", "jun"));
-        assertThatThrownBy(() -> InputValidator.validateIsNamesDistinct(duplicatedList))
+        List<String> duplicatedNameList = new ArrayList<>(List.of("pobi", "pobi", "jun"));
+        assertThatThrownBy(() -> InputValidator.validateIsNamesDistinct(duplicatedNameList))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("중복되지 않는 이름들을 입력하세요.");
 
@@ -102,19 +107,20 @@ class ApplicationTest extends NsTest {
         racingCar.setDrivers(carNames);
         assertThat(racingCar.drivers.size()).isEqualTo(correctList.size());
 
-        Driver pobi = racingCar.drivers.get(0);
-        Driver jun = racingCar.drivers.get(1);
+        Driver pobiTest = racingCar.drivers.get(0);
+        Driver junTest = racingCar.drivers.get(1);
         Driver pobiCorrect = correctList.get(0);
         Driver junCorrect = correctList.get(1);
 
-        assertThat(pobi.sayCarName()).contains(pobiCorrect.sayCarName());
-        assertThat(jun.sayCarName()).contains(junCorrect.sayCarName());
+        assertThat(pobiTest.sayCarName()).contains(pobiCorrect.sayCarName());
+        assertThat(junTest.sayCarName()).contains(junCorrect.sayCarName());
     }
 
     @Test
     @DisplayName("기능 5번")
     void 시도횟수_요청문구_출력함수_확인() {
         OutputViewer.printRequestingNumberOfTry();
+
         assertThat(output()).contains("시도할 회수는 몇회인가요?");
     }
 
@@ -124,22 +130,23 @@ class ApplicationTest extends NsTest {
         User user = new User();
         int numberOfTry;
 
-        Console.close();
-        command("5");
-
+        command(" 5 ");
         numberOfTry = user.inputNumberOfTry();
+
         assertThat(output()).contains("시도할 회수는 몇회인가요?");
         assertThat(numberOfTry).isEqualTo(5);
-    }
 
-
-    @Override
-    public void runMain() {
-        Application.main(new String[]{});
+        Console.close();
     }
 
     private void command(final String... args) {
         final byte[] buf = String.join("\n", args).getBytes();
         System.setIn(new ByteArrayInputStream(buf));
     }
+
+    @Override
+    public void runMain() {
+        Application.main(new String[]{});
+    }
+
 }
