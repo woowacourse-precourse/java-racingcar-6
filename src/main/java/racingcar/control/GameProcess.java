@@ -69,10 +69,8 @@ public class GameProcess {
     private void makeNameOfCarListFromStringLine() {
         String[] nameSplitArr = null;
 
-        if (ValidException.isValidBlankCheck(nameLineOfRaceCar)) {
-            nameSplitArr = Utill.makeArrFromString(nameLineOfRaceCar, ",");
-            nameSplitList = List.of(nameSplitArr);
-        }
+        nameSplitArr = Utill.makeArrFromString(nameLineOfRaceCar, ",");
+        nameSplitList = List.of(nameSplitArr);
     }
 
     /**
