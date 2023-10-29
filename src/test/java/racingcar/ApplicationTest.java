@@ -49,7 +49,14 @@ class ApplicationTest extends NsTest {
         assertThat(nameList.get(4)).isEqualTo("cc.dd");
     }
 
-
+    @Test
+    void 숫자값_잘못_입력시_예외_처리() {
+        String inputName = "-5";
+        CallNsTestMethod.myCommand(inputName);
+        RacingGame racingGame = new RacingGame();
+        assertThatThrownBy(() -> racingGame.inputCountNum()).isInstanceOf(IllegalArgumentException.class);
+    }
+    
 
     @Override
     public void runMain() {
