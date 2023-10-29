@@ -8,4 +8,6 @@ public interface InputView {
     String getDelimiterDescription();
 
     String getDelimiter();
+
+    int enterTryCount();
 }
