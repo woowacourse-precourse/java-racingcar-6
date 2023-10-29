@@ -51,6 +51,26 @@ public class Car {
                 }
                 notDuplicateNames.add(notNullNames.get(n));
             }
+
+            checkLength(notDuplicateNames);
+
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            throw e;
+        }
+    }
+
+    public void checkLength(List<String> notDuplicateNames) {
+        try {
+            List<String> correctLengthNames = new ArrayList<>();
+
+            for (int n = 0; n < notDuplicateNames.size(); n++){
+                if (notDuplicateNames.get(n).length() > 6) {
+                    throw new IllegalArgumentException("자동차 이름의 길이를 5 이하로 지정해주세요.");
+                }
+                correctLengthNames.add(notDuplicateNames.get(n));
+            }
         }
         catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
