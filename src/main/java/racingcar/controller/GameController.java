@@ -17,23 +17,28 @@ public class GameController {
         racingGame = new RacingGame();
     }
 
-    /*
-    private final CarService carService = new CarService();
-    private final RacingGameService game = new RacingGameService();
-     */
-
     public void play() {
+        setRacingCar();
+        setRacing();
+        startRace();
+        showWinner();
+    }
+
+    public void setRacingCar() {
         String carName = InputView.inputCarName();
         String testedCarName = exception.checkCarName(carName);
         racingGame.setCarList(testedCarName);
+    }
 
+    public void setRacing() {
         String raceCount = InputView.inputRaceCount();
         String testedRaceCount = exception.checkRaceCount(raceCount);
         racingGame.setRaceCount(testedRaceCount);
-        racingGame.startRace();
-        racingGame.setWinnerList();
+    }
 
-        //showWinner();
+    public void startRace() {
+        OutputView.printRaceResultMessage();
+        racingGame.startRace();
     }
 
     public static void showRaceResult(String carName, int position) {
@@ -44,16 +49,9 @@ public class GameController {
         OutputView.markRaceEnd();
     }
 
-
-
-
-
-
-    /*
     private void showWinner() {
-        game.selectWinner();
-        String winnerList = String.join(",", game.getWinnerList());
+        racingGame.setWinnerList();
+        String winnerList = String.join(",", racingGame.getWinnerList());
         OutputView.printWinner(winnerList);
     }
-     */
 }
