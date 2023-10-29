@@ -25,9 +25,19 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    @DisplayName("이름에 대한 예외 처리-5자리 보다 긴 이름")
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    @DisplayName("이름에 대한 예외 처리-1자리 보다 작은 이름")
+    void 이름에_대한_예외_처리_작은길이(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,,java"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
