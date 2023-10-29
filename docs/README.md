@@ -39,12 +39,14 @@
   - Car 리스트를 인수로 받아 Car 리스트를 감싸는 객체 생성
 
 ## 시도 횟수 입력 기능
-- [ ] RaceView : `getAttemptInput` 메서드
+- [x] RaceView : `getAttemptInput` 메서드
   - 사용자로부터 시도 횟수 입력
 - [ ] Application : `validateAttemptInput` 메서드
   - 문자열을 인수로 받아 시도 횟수 입력 형식으로서 유효한지 검사한다.
     - 숫자가 아니라면 `IllegalArgumentException` 발생
+      - [ ] `validateNumber` 메서드
     - 음수라면 `IllegalArgumentException` 발생
+      - [ ] `validatePositive` 메서드
 
 ## 게임 진행 기능
 - [x] RaceCarList : `moveRandomEachCars` 메서드
