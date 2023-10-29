@@ -20,24 +20,24 @@ public class InputView {
         }
     }
 
-    private void validate(String attempt) {
+    private void validate(final String attempt) {
         validateInput(attempt);
     }
 
-    private void validateInput(String attempt) {
+    private void validateInput(final String attempt) {
         for (int index = 0; index < attempt.length(); index++) {
             char target = attempt.charAt(index);
             checkInteger(target);
         }
     }
 
-    private void checkInteger(char target) {
+    private void checkInteger(final char target) {
         if (isNotInteger(target)) {
             throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
         }
     }
 
-    private boolean isNotInteger(char c) {
+    private boolean isNotInteger(final char c) {
         return !Character.isDigit(c);
     }
 }
