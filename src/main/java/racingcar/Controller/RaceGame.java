@@ -1,8 +1,10 @@
 package racingcar.Controller;
 
 
+import static racingcar.Controller.Module.Validator.validateInputIsNumber;
 import static racingcar.Controller.Module.Validator.validateNameInput;
 import static racingcar.View.inputView.displayGameStartMessage;
+import static racingcar.View.inputView.displayPlayCountMessage;
 
 import java.util.ArrayList;
 
@@ -12,4 +14,7 @@ public class RaceGame {
         return validateNameInput(CarsNameString);
     }
 
+    public static int getPlayCount(){
+        return validateInputIsNumber(displayPlayCountMessage());
+    }
 }
