@@ -14,7 +14,7 @@ public class Camera {
     public String captureRaceState(final Cars cars) {
         return cars.cars()
                 .stream()
-                .map(car -> car.getName() + COLON_DELIMITER + generatePositionDashString(car.getForwardCount()))
+                .map(car -> car.getName() + COLON_DELIMITER + generatePositionDashString(car.getPosition()))
                 .collect(Collectors.joining(LINE));
     }
 

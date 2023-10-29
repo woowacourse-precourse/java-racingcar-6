@@ -12,7 +12,7 @@ public class Judgement {
 
         return cars.cars()
                 .stream()
-                .filter(car -> car.getForwardCount() == maxForwardCount)
+                .filter(car -> car.getPosition() == maxForwardCount)
                 .map(Car::getName)
                 .collect(Collectors.joining(COMMA_DELIMITER + SPACE));
     }
@@ -20,7 +20,7 @@ public class Judgement {
     private int calculateMaxPosition(final Cars cars) {
         return cars.cars()
                 .stream()
-                .mapToInt(Car::getForwardCount)
+                .mapToInt(Car::getPosition)
                 .max()
                 .orElse(0);
     }

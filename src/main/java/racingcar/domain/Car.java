@@ -21,7 +21,7 @@ public class Car {
         return name.toString();
     }
 
-    public int getForwardCount() {
+    public int getPosition() {
         return position;
     }
 
