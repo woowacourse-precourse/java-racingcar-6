@@ -30,11 +30,8 @@ public class Racing {
 
     private void printTurnResult() {
         for (Car car : cars) {
-            StringBuilder result = new StringBuilder();
-            result.append(car.getName()).append(" : ");
-            for (int i = 0; i < car.getMovedDist(); i++) {
-                result.append("-");
-            }
+            String result = car.getName() + " : " +
+                    "-".repeat(Math.max(0, car.getMovedDist()));
             System.out.println(result);
         }
     }
