@@ -22,5 +22,7 @@ public class RacingCarController {
         for (Car car : cars.getCars()) {
             System.out.println(car.getCarName()+" "+car.getPosition());
         }
+
+        cars.playNumberTimes(inputView.playNumber());
     }
 }

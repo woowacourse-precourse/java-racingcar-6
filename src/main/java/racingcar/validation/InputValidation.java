@@ -14,10 +14,11 @@ public class InputValidation {
         return collectCarNames(carNames);
     }
 
-    public void checkedInputNumberValidation(String number){
+    public int checkedInputNumberValidation(String number){
         isNullText(number);
         isCheckedNumber(number);
         isCheckedNumberRange(number);
+        return ChangeIntegerNumber(number);
     }
 
     private void isNullText(String carNames){
@@ -52,5 +53,9 @@ public class InputValidation {
         if(Integer.parseInt(number) < 0){
             throw new IllegalArgumentException(IS_NOT_NUMBER_RANGE_ERROR_MESSAGE);
         }
+    }
+
+    private int ChangeIntegerNumber(String number) {
+        return Integer.parseInt(number);
     }
 }
