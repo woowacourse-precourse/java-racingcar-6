@@ -4,6 +4,7 @@ import racingcar.control.GameProcess;
 import racingcar.domain.RaceCar;
 
 import java.util.List;
+import java.util.Map;
 
 // TODO: 10/27/23 사용자 화면을 보여주는 클래스.
 public class GameStart {
@@ -22,9 +23,14 @@ public class GameStart {
 //        pobi : ----
 //        woni : ---
 //        jun : ----
-        gameProcess.moveOfRaceCar();
-        System.out.println(gameProcess.makeMsgOfCurrentRace());
 
+        Map<RaceCar, String> raceCarStringMap = gameProcess.makeMsgOfCurrentRace();
+
+        for (Map.Entry<RaceCar, String> entry : raceCarStringMap.entrySet()) {
+            String raceCar = entry.getKey().toString();
+            String state = entry.getValue();
+            System.out.println(raceCar + " : " + state);
+        }
     }
 
     /**
@@ -45,6 +51,7 @@ public class GameStart {
 //        printSituationOfCarCurrent 실행
         Integer cntTryRace = gameProcess.getCntTryRace();
         for (int i = 0; i < cntTryRace; i++) {
+            gameProcess.moveOfRaceCar();
             printSituationOfCarCurrent();
             System.out.println();
         }

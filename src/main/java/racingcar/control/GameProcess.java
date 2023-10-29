@@ -6,10 +6,10 @@ import racingcar.utill.Utill;
 import racingcar.domain.RaceCar;
 import racingcar.utill.ValidException;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class GameProcess {
+    Map<RaceCar, String> raceCarStringMap;
     private List<RaceCar> raceCarOfCurrentList;
     private String nameLineOfRaceCar;
     private List<String> nameSplitList;
@@ -26,6 +26,7 @@ public class GameProcess {
         raceCarOfWinnerList = new ArrayList<>();
         gameHost = new GameHost();
         createRandomNum = new CreateRandomNum();
+        raceCarStringMap = new LinkedHashMap<>();
     }
 
     /**
@@ -137,14 +138,14 @@ public class GameProcess {
         return raceCarOfCurrentList.size();
     }
 
-    public String makeMsgOfCurrentRace() {
+    public Map<RaceCar, String> makeMsgOfCurrentRace() {
         String result = "";
 
         for (RaceCar raceCar : raceCarOfCurrentList) {
-            result.concat(raceCar + " : " + raceCar.toStringMoveState() + "\0");
+            raceCarStringMap.put(raceCar, raceCar.toStringMoveState());
         }
 
-        return result;
+        return raceCarStringMap;
     }
 
     public Integer getCntTryRace() {
