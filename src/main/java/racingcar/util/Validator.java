@@ -10,7 +10,7 @@ public class Validator {
 
     private static final int MAX_NAME_LENGTH = 5;
     private static final String NUMBER_REGEX = "^[0-9]*$";
-    private static final String NOT_SPECIAL_REGEX = "[^a-zA-Z0-9가-힣]";
+    private static final String NOT_SPECIAL_REGEX = "^[a-zA-Z0-9, ]*$";
 
     private Validator() {}
 
