@@ -8,7 +8,7 @@ public class CarRacingGame {
     private List<String> carName;
     private int trial;
 
-    void setCar() throws IllegalArgumentException {
+    void setCarNamesInput() throws IllegalArgumentException {
         String input = Console.readLine();
         Console.close();
 
@@ -27,7 +27,7 @@ public class CarRacingGame {
         this.carName = carName;
     }
 
-    void setTrial() throws IllegalArgumentException {
+    void setTrialInput() throws IllegalArgumentException {
         int input = Integer.parseInt(Console.readLine()); // 정수값으로 변환 안될 경우 NumberFormatException 발생
         Console.close();
 
