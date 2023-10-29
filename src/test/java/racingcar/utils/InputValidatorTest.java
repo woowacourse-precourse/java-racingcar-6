@@ -2,10 +2,11 @@ package racingcar.utils;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import org.junit.platform.commons.util.StringUtils;
 
 class InputValidatorTest {
 
@@ -29,6 +30,22 @@ class InputValidatorTest {
     void 컴마_연속_두개() {
         List<String> carNames = Arrays.asList("pobi", "", "jun", "aa");
         assertThrows(IllegalArgumentException.class, () -> {
+            InputValidator.validateCarNames(carNames);
+        });
+    }
+
+    @Test
+    void NULL_테스트(){
+        List<String> carNames = Arrays.asList(null, "", "jun", "aa");
+        assertThrows(IllegalArgumentException.class, () -> {
+            InputValidator.validateCarNames(carNames);
+        });
+    }
+
+    @Test
+    void 중복_이름이_들어오는_경우(){
+        List<String> carNames = Arrays.asList("a", "a", "b", "c");
+        assertThrows(IllegalArgumentException.class, ()->{
             InputValidator.validateCarNames(carNames);
         });
     }
