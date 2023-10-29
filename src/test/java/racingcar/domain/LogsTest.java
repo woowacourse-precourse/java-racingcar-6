@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.*;
 
@@ -58,7 +60,10 @@ class LogsTest {
         assertThat(captor.toString()).isEqualTo(log + System.lineSeparator());
     }
 
-    @Test
-    void string() {
+    @ParameterizedTest
+    @ValueSource(strings = {"pobi, woni, jun", "pobi, jun", "woni, jun"})
+    void string(String log) {
+        Logs.string(log);
+        assertThat(captor.toString()).isEqualTo(log + System.lineSeparator());
     }
 }
