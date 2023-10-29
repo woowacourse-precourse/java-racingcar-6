@@ -8,12 +8,18 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.io.ByteArrayInputStream;
 import java.util.List;
 import java.util.NoSuchElementException;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.RacingGame;
 
 class RacingGameTest {
+    @AfterEach
+    void restoreSystemIn() {
+        Console.close();
+    }
+
     @Test
     @DisplayName("자동차에 이름을 부여한다.")
     void test1() {
