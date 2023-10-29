@@ -1,5 +1,6 @@
 package racingcar.control;
 
+import racingcar.domain.CreateRandomNum;
 import racingcar.domain.GameHost;
 import racingcar.utill.Utill;
 import racingcar.domain.RaceCar;
@@ -15,6 +16,7 @@ public class GameProcess {
     private Integer cntTryRace;
     private List<RaceCar> raceCarOfWinnerList;
     private GameHost gameHost;
+    private CreateRandomNum createRandomNum;
 
     public GameProcess() {
         raceCarOfCurrentList = new ArrayList<>();
@@ -23,6 +25,7 @@ public class GameProcess {
         cntTryRace = 0;
         raceCarOfWinnerList = new ArrayList<>();
         gameHost = new GameHost();
+        createRandomNum = new CreateRandomNum();
     }
 
     /**
@@ -40,12 +43,13 @@ public class GameProcess {
         ValidException.isValidCommaNextBlankCheck(inputStr);
         ValidException.isValidOneNameOfRaceCarCheck(inputStr);
         nameLineOfRaceCar = inputStr;
+        createRaceCars();
     }
 
     /**
      * 입력받은 이름 문자열리스트로 자동차를 만들어준다.
      */
-    public void createRaceCars() {
+    private void createRaceCars() {
         makeNameOfCarListFromStringLine();
         // 입력받은 이름 문자열로 자동차를 만든다.
         // 문자열 공백 검사.
@@ -122,4 +126,11 @@ public class GameProcess {
 
         return arrOfStr;
     }
+
+    public void moveOfRaceCar() {
+        for (RaceCar raceCar : raceCarOfCurrentList) {
+            raceCar.movementControlCar(createRandomNum.createRanOneNum());
+        }
+    }
+
 }
