@@ -39,7 +39,7 @@ public class Car {
     }
 
     private boolean isValidRangeNumber(Integer number) {
-        return number >= 0 && number <= 9;
+        return number >= MIN_RANGE && number <= MAX_RANGE;
     }
 
 }
