@@ -9,7 +9,6 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 
     @Override
     public int compareTo(Vehicle otherVehicle) {
-        System.out.println(this.distance.compareTo(otherVehicle.distance));
         return this.distance.compareTo(otherVehicle.distance);
     }
 }
