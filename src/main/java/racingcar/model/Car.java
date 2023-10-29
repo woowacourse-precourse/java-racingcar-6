@@ -16,4 +16,9 @@ public class Car {
     public Integer getLocation() {
         return location;
     }
+
+    public void increaseCarLocation() {
+        this.location += 1;
+    }
+
 }
