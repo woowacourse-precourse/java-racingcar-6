@@ -2,9 +2,9 @@ package racingcar.view;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
-import java.util.List;
 import racingcar.Message;
-import racingcar.dto.CurrentResult;
+import racingcar.dto.CarState;
+import racingcar.dto.CarsState;
 import racingcar.dto.ResultMessage;
 
 public class View {
@@ -16,12 +16,12 @@ public class View {
         return readLine();
     }
 
-    public void printCurrentCarsResult(List<CurrentResult> currentResult) {
-        currentResult.forEach(this::printCurrentCarResult);
+    public void printCurrentCarsResult(CarsState carsState) {
+        carsState.getCarsState().forEach(this::printCurrentCarResult);
         System.out.println();
     }
 
-    public void printCurrentCarResult(CurrentResult carResult) {
+    public void printCurrentCarResult(CarState carResult) {
         System.out.println(carResult.getName() + " : " + carResult.getForwardStatus());
     }
 

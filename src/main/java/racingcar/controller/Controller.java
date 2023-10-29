@@ -1,8 +1,7 @@
 package racingcar.controller;
 
-import java.util.List;
 import racingcar.dto.AttemptCount;
-import racingcar.dto.CurrentResult;
+import racingcar.dto.CarsState;
 import racingcar.dto.ResultMessage;
 import racingcar.model.Cars;
 import racingcar.validator.AttemptCountValidator;
@@ -54,7 +53,7 @@ public class Controller {
         }
     }
 
-    private List<CurrentResult> getCurrentResult(Cars cars) {
+    private CarsState getCurrentResult(Cars cars) {
         return cars.getCurrentCarsResult();
     }
 

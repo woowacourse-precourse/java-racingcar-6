@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.dto.CurrentResult;
+import racingcar.dto.CarState;
 import racingcar.dto.ForwardState;
 
 public class ViewTest {
@@ -27,7 +27,7 @@ public class ViewTest {
     @DisplayName("자동차의 현재 상태에 대해 출력하는 기능")
     @Test
     void printCurrentCarResult_자동차_상태출력() {
-        CurrentResult input = new CurrentResult("ski", new ForwardState("---"));
+        CarState input = new CarState("ski", new ForwardState("---"));
         View view = new View();
 
         String expected = "ski : ---";

@@ -2,7 +2,8 @@ package racingcar.model;
 
 import java.util.Comparator;
 import java.util.List;
-import racingcar.dto.CurrentResult;
+import racingcar.dto.CarState;
+import racingcar.dto.CarsState;
 import racingcar.dto.ResultMessage;
 import racingcar.validator.CarsValidator;
 
@@ -39,10 +40,12 @@ public class Cars {
         cars.forEach(Car::attemptForward);
     }
 
-    public List<CurrentResult> getCurrentCarsResult() {
-        return cars.stream()
+    public CarsState getCurrentCarsResult() {
+        List<CarState> carsState = cars.stream()
                 .map(Car::createCurrentResult)
                 .toList();
+
+        return new CarsState(carsState);
     }
 
     public ResultMessage findWinners() {

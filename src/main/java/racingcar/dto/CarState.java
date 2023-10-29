@@ -1,10 +1,10 @@
 package racingcar.dto;
 
-public class CurrentResult {
+public class CarState {
     private final String name;
     private final ForwardState forwardState;
 
-    public CurrentResult(String name, ForwardState forwardState) {
+    public CarState(String name, ForwardState forwardState) {
         this.name = name;
         this.forwardState = forwardState;
     }
