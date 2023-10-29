@@ -2,11 +2,14 @@ package racingcar.validator;
 
 public class CountValidator {
 
-    public static void checkNumber(String Count){
+    public static int checkNumber(String count){
+        int countNumber;
         try{
-            Integer.parseInt(Count);
+            countNumber = Integer.parseInt(count);
         } catch (NumberFormatException e){
             throw new IllegalArgumentException();
         }
+
+        return countNumber;
     }
 }
