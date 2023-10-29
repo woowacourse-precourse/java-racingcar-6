@@ -110,6 +110,16 @@ public class InputValidation {
         return inputRange < 1;
     }
 
+    public void validateInputEmpty(String input) {
+        if (isEmptyValue(input)) {
+            throw new IllegalArgumentException(EMPTY_MESSAGE);
+        }
+    }
+
+    private boolean isEmptyValue(String input) {
+        return input.isEmpty();
+    }
+
     public void validateAttemptInput(String input) {
         validateInputNull(input);
         validateInputNumericFormat(input);
