@@ -1,9 +1,11 @@
 package racingcar.validation;
 
 import racingcar.constant.Rule;
+import racingcar.constant.message.ErrorMessage;
 import racingcar.model.Round;
 
 public class RoundValidator implements Validator {
+
     @Override
     public boolean support(Class<?> clazz) {
         return Round.class.isAssignableFrom(clazz);
@@ -17,13 +19,13 @@ public class RoundValidator implements Validator {
 
     private void validateType(String value) {
         if (value != null && !value.matches(Rule.VALID_RANGE)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.INVALID_TYPE);
         }
     }
 
     private void validateRange(String value) {
         if (0 > Long.parseLong(value)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.INVALID_RANGE);
         }
     }
 }

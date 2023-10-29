@@ -1,6 +1,7 @@
 package racingcar.validation;
 
 import racingcar.constant.Rule;
+import racingcar.constant.message.ErrorMessage;
 import racingcar.model.car.Car;
 
 public class CarValidator implements Validator {
@@ -17,13 +18,13 @@ public class CarValidator implements Validator {
 
     private void validateLength(String value) {
         if (Rule.MIN_LENGTH > value.length() || value.length() > Rule.MAX_LENGTH) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.INVALID_LENGTH);
         }
     }
 
     private void validateSpace(String value) {
         if (value.trim().equals("")) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.BLANK_SPACE);
         }
     }
 }

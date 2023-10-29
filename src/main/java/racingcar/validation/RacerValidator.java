@@ -1,11 +1,12 @@
 package racingcar.validation;
 
 import racingcar.constant.Rule;
+import racingcar.constant.message.ErrorMessage;
 import racingcar.model.Racer;
 
-import static racingcar.constant.Rule.NAME_SEPARATOR;
-
 public class RacerValidator implements Validator {
+
+
     @Override
     public boolean support(Class<?> clazz) {
         return Racer.class.isAssignableFrom(clazz);
@@ -17,8 +18,8 @@ public class RacerValidator implements Validator {
     }
 
     private void validateSize(String value) {
-        if (value == null || value.split(NAME_SEPARATOR).length < Rule.MIN_PARTICIPANT) {
-            throw new IllegalArgumentException("참가자가 없습니다.");
+        if (value == null || value.split(Rule.NAME_SEPARATOR).length < Rule.MIN_PARTICIPANT) {
+            throw new IllegalArgumentException(ErrorMessage.NO_PARTICIPANT);
         }
     }
 }
