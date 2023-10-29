@@ -72,4 +72,10 @@ public class RacingOutput {
         String winners = String.join(", ", winnerNames);
         bw.write(winners);
     }
+
+    private void closeInput() throws IOException
+    {
+        bw.flush();
+        bw.close();
+    }
 }
