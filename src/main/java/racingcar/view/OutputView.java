@@ -17,7 +17,7 @@ public class OutputView {
     }
 
     public void printRoundHeader() {
-        System.out.println("실행 결과");
+        System.out.println(Constants.OUTPUT_RESULT_MESSAGE.message);
     }
 
     public void printRacingResult(List<RacingResult> results) {
@@ -34,15 +34,16 @@ public class OutputView {
     }
 
     public void printWinner(Winners winners) {
-        String winnerNames = String.join(", ", winners.names());
-        System.out.println("최종 우승자 : " + winnerNames);
+        String winnerNames = String.join(Constants.OUTPUT_COMMA.message, winners.names());
+        System.out.printf(Constants.OUTPUT_WINNER.message, winnerNames);
     }
 
     private enum Constants {
         OUTPUT_RESULT_MESSAGE("실행 결과"),
         OUTPUT_RESULT_FORMAT("%s : %s%n"),
         OUTPUT_LINES("-"),
-        OUTPUT_WINNER("%s가 최종 우승했습니다.");
+        OUTPUT_COMMA(", "),
+        OUTPUT_WINNER("최종 우승자 : %s");
 
         private final String message;
 
