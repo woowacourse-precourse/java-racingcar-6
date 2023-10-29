@@ -13,14 +13,9 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGame {
-
-    private final InputView inputView;
-    private final OutputView outputView;
     private final Circuit circuit;
 
-    public RacingGame(InputView inputView, OutputView outputView, Circuit circuit) {
-        this.inputView = inputView;
-        this.outputView = outputView;
+    public RacingGame(Circuit circuit) {
         this.circuit = circuit;
     }
 
@@ -33,7 +28,7 @@ public class RacingGame {
         while (!trial.isExhausted()) {
             circuit.tryRacingGame();
             List<RacingCarResult> results = circuit.summarizeRacingResult();
-            outputView.showRacingResult(results);
+            OutputView.showRacingResult(results);
             trial.useTrialCount();
             selectWinner(trial, results);
         }
@@ -42,7 +37,7 @@ public class RacingGame {
     private void selectWinner(Trial trial, List<RacingCarResult> results) {
         if (trial.isExhausted()) {
             List<String> winners = RacingGameWinnerCalculator.getWinners(results);
-            outputView.showWinners(winners);
+            OutputView.showWinners(winners);
         }
     }
 
@@ -57,15 +52,15 @@ public class RacingGame {
     }
 
     private List<String> receiveCarNames() {
-        outputView.inputCarsNames();
-        List<String> carNames = inputView.getCarNames();
+        OutputView.inputCarsNames();
+        List<String> carNames = InputView.getCarNames();
         EmptyCarNamesValidator.validate(carNames);
         return carNames;
     }
 
     private Trial receiveTrial() {
-        outputView.inputTrial();
-        String racingTrial = inputView.getRacingTrial();
+        OutputView.inputTrial();
+        String racingTrial = InputView.getRacingTrial();
         BlankTrialValidator.validate(racingTrial);
         return new Trial(IntegerTrialValidator.validate(racingTrial));
     }

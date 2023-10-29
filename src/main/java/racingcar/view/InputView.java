@@ -7,7 +7,7 @@ import java.util.List;
 public class InputView {
     private static final String COMMA = ",";
 
-    public List<String> getCarNames() {
+    public static List<String> getCarNames() {
         List<String> carNames = new ArrayList<>();
         for (String name : Console.readLine().split(COMMA)) {
             if (!name.isBlank() && !name.isEmpty()) {
@@ -17,7 +17,7 @@ public class InputView {
         return carNames;
     }
 
-    public String getRacingTrial() {
+    public static String getRacingTrial() {
         return Console.readLine();
     }
 }
