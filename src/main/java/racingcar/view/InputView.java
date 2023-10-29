@@ -10,5 +10,9 @@ public class InputView {
         return input;
     }
 
-
+    public static String readAttemptCount(){
+        OutputView.printAttemptCountPrompt();
+        String input = Console.readLine();
+        return input;
+    }
 }
