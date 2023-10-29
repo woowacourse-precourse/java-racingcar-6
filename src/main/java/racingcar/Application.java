@@ -70,6 +70,14 @@ public class Application {
             }
         }
     }
+    private static void printFinalResult(ArrayList<String>WinnerNames){
+        for (int winnerName =0; winnerName<WinnerNames.size(); winnerName++){
+            if (winnerName==0){
+            System.out.print(WinnerNames.get(winnerName));}
 
-
+            else {
+                System.out.println(", "+WinnerNames.get(winnerName));
+            }
+        }
+    }
 }
