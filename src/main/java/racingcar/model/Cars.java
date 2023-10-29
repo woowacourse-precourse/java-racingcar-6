@@ -40,9 +40,9 @@ public class Cars {
         cars.forEach(Car::attemptForward);
     }
 
-    public CarsState getCurrentCarsResult() {
+    public CarsState getCarsState() {
         List<CarState> carsState = cars.stream()
-                .map(Car::createCurrentResult)
+                .map(Car::getCarState)
                 .toList();
 
         return new CarsState(carsState);

@@ -26,7 +26,7 @@ public class GamePlayingService {
     }
 
     private CarsState getCarsState(Cars cars) {
-        return cars.getCurrentCarsResult();
+        return cars.getCarsState();
     }
 
     public WinnersResult getWinners(Cars cars) {

@@ -20,7 +20,7 @@ public class Car {
         position.attemptForward();
     }
 
-    public CarState createCurrentResult() {
+    public CarState getCarState() {
         return new CarState(getNameValue(), getForwardState());
     }
 
