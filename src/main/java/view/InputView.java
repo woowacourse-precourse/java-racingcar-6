@@ -15,6 +15,7 @@ public class InputView {
     public static int inputMoveCount() {
         OutputView.printInputMoveCountMessage();
         String moveCountInput = Console.readLine();
+        InputValidator.validateMoveCount(moveCountInput);
         return Integer.parseInt(moveCountInput);
     }
 }
