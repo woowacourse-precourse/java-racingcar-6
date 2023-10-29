@@ -20,10 +20,6 @@
 
 ### 클래스 별 기능 요구 사항
 
-#### Race
-
-#### RaceController
-
 ---
 
 ### 실행 결과 예시
@@ -57,3 +53,27 @@ jun : -----
 
 최종 우승자 : pobi, jun
 ```
+
+---
+
+#### 자동차 경주 로직 설계
+
+[HashMap을 이용하는 방법]
+경주 자동차들의 상태는 어떻게 저장 할 것인가? -> 게임이 한 번만 이루어지기 때문에 HashMap을 통해 저장해도 될 듯  
+HashMap 사용하면 좋은 점: DTO를 따로 사용하지 않아도 된다. key에는 경주차 이름, value에는 전진한 칸 수  
+HashMap를 전역변수로 저장해서 이를 이용하기
+
+1. raceService에서 init() 메서드를 통해 HashMap 초기화 : 경주차 이름을 전부 전달받아서 HashMap에 저장
+2. while(count++ < 시도횟수)를 통해 계속 돌게 만들고
+3. raceService를 통해 각 라운드를 플레이하고, raceService 내의 HashMap을 계속해서 갱신
+4. 갱신과 동시에 DTO를 생성해서 전달 -> OutputView에서는 DTO를 통해 출력
+5. 전체 시도횟수가 끝나면 raceService의 HashMap을 통해 최종 우승자 결과를 전달받음
+6. OutputView를 통해 최종 우승자를 출력
+
+[List< Progress>를 이용하는 방법]
+
+1. while(count++ < 시도횟수)를 통해 계속 돌게 만들고
+2. raceService를 통해 각 라운드를 플레이하고, 매 라운드마다 결과를 List< Progress>로 반환
+    - Progress: 경주차 한 대의 진행 상황. 경주차 이름 + 전진한 칸 수. 칸을 전진하는 메서드 필요
+3. OutputView에서 결과를 받아서 그대로 출력
+    - List< Progress>를 매번 순회하면서 출력
