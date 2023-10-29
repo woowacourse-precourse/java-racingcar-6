@@ -1,4 +1,4 @@
-package racingcar.message;
+package racingcar.utils;
 
 public enum ErrorMessage {
 

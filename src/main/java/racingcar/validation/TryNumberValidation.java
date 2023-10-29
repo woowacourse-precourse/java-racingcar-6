@@ -1,6 +1,6 @@
 package racingcar.validation;
 
-import racingcar.message.ErrorMessage;
+import racingcar.utils.ErrorMessage;
 
 public class TryNumberValidation {
 

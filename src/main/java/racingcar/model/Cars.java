@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.utils.Numbers;
 
 public class Cars {
 
@@ -18,13 +19,16 @@ public class Cars {
     }
 
     private int randomGenerator() {
-        int randomNumber = Randoms.pickNumberInRange(0,9);
+        int randomNumber = Randoms.pickNumberInRange(
+                Numbers.RANDOM_START_NUMBER.getNumber(),
+                Numbers.RANDOM_END_NUMBER.getNumber()
+        );
         return randomNumber;
     }
 
     private void moveForward() {
         cars.stream()
-                .filter(car -> randomGenerator() >= 4)
+                .filter(car -> randomGenerator() >= Numbers.MOVE_POSITION_NUMBER.getNumber())
                 .forEach(car -> car.updatePosition());
     }
 
