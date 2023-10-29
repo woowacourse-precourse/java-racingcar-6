@@ -9,9 +9,10 @@ import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.model.Cars;
 import racingcar.view.InputView;
 import java.io.ByteArrayInputStream;
+import java.util.List;
 import java.util.stream.Stream;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 public class CarsTest {
@@ -62,5 +63,18 @@ public class CarsTest {
         int currentPosition2 = cars.getCars().get(1).getPosition();
         assertThat(currentPosition1).isIn(initialPosition1, initialPosition1 + 1);
         assertThat(currentPosition2).isIn(initialPosition2, initialPosition2 + 1);
+    }
+
+    @Test
+    void 우승자_판단_기능() {
+        // given
+        String[] carNames = {"jy", "wb"};
+        Cars cars = Cars.from(carNames);
+
+        // when
+        List<String> winners = cars.getWinners();
+
+        // then
+        assertThat(winners).containsOnly("jy", "wb");
     }
 }
