@@ -1,10 +1,8 @@
 package racingcar;
 
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.GameCount;
 import racingcar.domain.Output;
-
-import java.util.List;
 
 public class CarRacingGame {
 
@@ -14,10 +12,10 @@ public class CarRacingGame {
         this.output = output;
     }
 
-    public void start(int gameCount, Cars cars) {
-        for (int i = 0; i < gameCount; i++) {
-            List<Car> moveResult = cars.moveAllCar();
-            output.printMoveResult(moveResult);
+    public void start(GameCount gameCount, Cars cars) {
+        while (gameCount.hasRemainCount()) {
+            cars.moveAllCar();
+            output.printMoveResult(cars);
         }
     }
 }

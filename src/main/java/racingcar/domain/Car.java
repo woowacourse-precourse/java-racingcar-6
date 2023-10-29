@@ -37,6 +37,7 @@ public class Car {
         for (int i = 0; i < position; i++) {
             sb.append("-");
         }
+        sb.append("\n");
         return sb.toString();
     }
 }

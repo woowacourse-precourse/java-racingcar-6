@@ -1,7 +1,10 @@
 package racingcar.domain;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
 
@@ -13,12 +16,17 @@ public class Cars {
         cars = carNames.assignNamesToCars();
     }
 
-    public List<Car> moveAllCar() {
+    public void moveAllCar() {
         for (Car car : cars) {
             int randomNumber = RandomNumberGenerator.generateNumber();
             moveCarIfBiggerThanThree(randomNumber, car);
         }
-        return cars;
+    }
+
+    public String getMoveResult() {
+        return cars.stream()
+                .map(Car::toString)
+                .collect(Collectors.joining());
     }
 
     private void moveCarIfBiggerThanThree(int randomNumber, Car car) {

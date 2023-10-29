@@ -18,15 +18,14 @@ public class Input {
         return new CarNames(carNames);
     }
 
-    public int getGameCount() {
+    public GameCount getGameCount() {
         userInput = Console.readLine();
-        int gameCount = Integer.parseInt(userInput);
-        validateGameCountNubmer(gameCount);
-        return gameCount;
+        validateGameCountNubmer(userInput);
+        return new GameCount(userInput);
     }
 
-    private void validateGameCountNubmer(int gameCount) {
-        if (gameCount < 1) {
+    private void validateGameCountNubmer(String userInput) {
+        if (Integer.parseInt(userInput) < 1) {
             throw new IllegalArgumentException("게임 가능 횟수는 1 이상 입니다.");
         }
     }

@@ -1,14 +1,10 @@
 package racingcar.domain;
 
-import java.util.List;
-
 public class Output {
 
-    public void printMoveResult(List<Car> moveResult) {
-        for (Car car : moveResult) {
-            System.out.println(car);
-        }
-        System.out.println();
+    public void printMoveResult(Cars cars) {
+        String result = cars.getMoveResult();
+        System.out.println(result);
     }
 
     public void printWinner(Cars cars) {
