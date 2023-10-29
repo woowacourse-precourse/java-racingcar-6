@@ -8,4 +8,8 @@ public class Car {
         this.name = name;
         this.score = 0;
     }
+
+    public void updateScore() {
+        this.score++;
+    }
 }
