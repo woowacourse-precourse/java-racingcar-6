@@ -30,9 +30,9 @@ public class Circuit {
         }
     }
 
-    public List<Car> raceCars(List<MoveCondition> randomNumbers) {
+    public List<Car> raceCars(List<MoveCondition> conditions) {
         IntStream.range(0, getCircuitSize())
-                .forEach(index -> cars.get(index).move(randomNumbers.get(index)));
+                .forEach(index -> cars.get(index).move(conditions.get(index)));
         return cars;
     }
 
