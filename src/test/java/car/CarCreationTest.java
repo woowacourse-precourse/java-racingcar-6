@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
-import racingcar.CarValidator;
+import racingcar.validator.CarValidator;
 
 public class CarCreationTest {
 
