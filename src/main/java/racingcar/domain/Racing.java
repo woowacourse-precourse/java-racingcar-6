@@ -1,16 +1,14 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Racing {
 
     private List<Car> cars;
     private int count;
-
+    private int maxLocation;
     public Racing(List<Car> cars, int count){
-        this.cars = cars;
         this.count = count;
     }
 
@@ -20,4 +18,9 @@ public class Racing {
             cars.get(i).moves(randomNumber);
         }
     }
+
+    public void addCar(Car car){
+        cars.add(car);
+    }
+
 }
