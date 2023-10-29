@@ -8,14 +8,14 @@ public final class Number {
     private static final int MIN_VALUE = 0;
     private static final int MAX_VALUE = 9;
     private static final int MOVE_STANDARD = 4;
-    private final int value;
+    private final Integer value;
 
-    public Number(final int value) {
+    public Number(final Integer value) {
         validate(value);
         this.value = value;
     }
 
-    private void validate(final int value) {
+    private void validate(final Integer value) {
         if (value < MIN_VALUE || value > MAX_VALUE) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER.toValue());
         }
