@@ -1,6 +1,6 @@
 package validator;
 
-public class validateTryCount {
+public class TryCountValidator {
 
     public void validateTryCountNumber () {
 

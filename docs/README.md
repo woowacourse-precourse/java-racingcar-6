@@ -1,8 +1,8 @@
 자동차경주 기능명세서
-- [ ] 자동차 이름을 입력받는다.
-  - [ ] 자동차 이름은 쉼표(,)를 기준으로 구분한다.
-  - [ ] 자동차 이름은 5자 이하만 가능하다.
-  - [ ] 자동차 이름은 중복될 수 없다.
+- [x] 자동차 이름을 입력받는다.
+  - [x] 자동차 이름은 쉼표(,)를 기준으로 구분한다.
+  - [x] 자동차 이름은 5자 이하만 가능하다.
+  - [x] 자동차 이름은 중복될 수 없다.
 - [ ] 시도할 횟수를 입력받는다.
   - [ ] 시도할 횟수는 숫자만 가능하다.
   - [ ] 시도할 횟수는 1이상이어야 한다.
@@ -28,7 +28,7 @@
 - validator
     - validateCarName
       - validateCarNameLength
-      - validateCarNameDuplication
+      - validateCarNameDuplication 
     - validateTryCount
       - validateTryCountNumber
 - controller
