@@ -12,7 +12,7 @@ public class InputTryCountValidator {
         return tryCount;
     }
 
-    private void validateTryCountIsBlank(String input) {
+    public void validateTryCountIsBlank(String input) {
         if (input == null || input.isBlank()) {
             throw new IllegalArgumentException(ErrorMessage.TRY_COUNT_DOES_NOT_BLANK.getMessage());
         }
@@ -26,7 +26,7 @@ public class InputTryCountValidator {
         }
     }
 
-    private void validatePositiveInteger(int tryCount) {
+    public void validatePositiveInteger(int tryCount) {
         if (tryCount <= 0) {
             throw new IllegalArgumentException(ErrorMessage.TRY_COUNT_MUST_BE_POSITIVE_INTEGER.getMessage());
         }
