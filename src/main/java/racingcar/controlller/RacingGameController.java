@@ -46,8 +46,9 @@ public class RacingGameController {
     }
 
     private Cars pickWinners() {
+        int maxPosition = Collections.max(cars.getPositionList());
         List<Car> winnerList = (cars.getCarList()).stream()
-                .filter(car -> (car.getPosition() == Collections.max(cars.getPositionList())))
+                .filter(car -> (car.getPosition() == maxPosition))
                 .toList();
         return new Cars(winnerList);
     }
