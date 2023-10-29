@@ -13,7 +13,7 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
-    void 전진_정지() {
+    void 최종_우승자_1명일_때_전진_정지() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni", "1");
@@ -22,6 +22,29 @@ class ApplicationTest extends NsTest {
                 MOVING_FORWARD, STOP
         );
     }
+
+    @Test
+    void 최종_우승자_2명일_때_전진_정지() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : -", "최종 우승자 : pobi, woni");
+                },
+                MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 최종_우승자_2명일_때_정지만_존재() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : ", "woni : ", "최종 우승자 : pobi, woni");
+                },
+                STOP, STOP
+        );
+    }
+
 
     @Test
     void 이름_최대길이5에_대한_예외_처리() {
