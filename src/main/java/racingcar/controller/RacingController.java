@@ -32,7 +32,6 @@ public class RacingController {
         Camera camera = new Camera();
         outputView.displayExecutionResult();
         runRace(roundCount, race, camera);
-        String winners = judgement.determineWinners(race);
         outputView.displayFinalWinners(judgement.determineWinners(race));
     }
 
@@ -49,7 +48,7 @@ public class RacingController {
     private void runRace(RoundCount roundCount, Race race, Camera camera) {
         for (int round = 0; round < roundCount.getCount(); round++) {
             race.runOneRound();
-            String racingState = camera.displayRacingState(race);
+            String racingState = camera.captureRaceState(race);
             outputView.displayRacingState(racingState);
         }
     }

@@ -9,17 +9,17 @@ import java.util.stream.Collectors;
 public class Camera {
 
     private static final String COLON_DELIMITER = " : ";
-    private static final String LINE = System.lineSeparator();
+    private static final String LINE = "\n";
 
-    public String displayRacingState(final Race race) {
+    public String captureRaceState(final Race race) {
         return race.getCarList()
                 .stream()
-                .map(car -> car.getName() + COLON_DELIMITER + generateHyphens(car.getForwardCount()))
+                .map(car -> car.getName() + COLON_DELIMITER + generatePositionDashString(car.getForwardCount()))
                 .collect(Collectors.joining(LINE));
     }
 
-    private String generateHyphens(final int forwardCount) {
-        if (forwardCount <= 0) return "";
-        return "-".repeat(forwardCount);
+    private String generatePositionDashString(final int position) {
+        if (position <= 0) return "";
+        return "-".repeat(position);
     }
 }
