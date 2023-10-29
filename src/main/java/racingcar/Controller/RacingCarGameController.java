@@ -1,6 +1,8 @@
 package racingcar.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
+import racingcar.Model.Car;
 import racingcar.Util.InputValidator;
 import racingcar.View.InputView;
 
@@ -12,6 +14,14 @@ public class RacingCarGameController {
         String racingRoundTimes = InputView.inputRacingRoundTimes();
         InputValidator.checkIsNumber(racingRoundTimes);
 
-        Integer.parseInt(racingRoundTimes);
+        createRacingCar(carNameList);
+    }
+
+    public void createRacingCar(List<String> carNameList){
+        List<Car> carList = new ArrayList<>();
+
+        for (String carName : carNameList) {
+            carList.add(new Car(carName));
+        }
     }
 }
