@@ -35,4 +35,10 @@ public class OutputView {
         }
         return carStringBuilders;
     }
+
+    public void appendDefaultString(int carIdx, String name, ArrayList<StringBuilder> carStringBuilders) {
+        StringBuilder carStringBuilder = carStringBuilders.get(carIdx);
+        carStringBuilder.append(name + " : ");
+    }
+
 }
