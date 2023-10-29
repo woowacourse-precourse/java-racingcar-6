@@ -22,4 +22,7 @@ public class CarList {
         return new Car(name);
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
 }
