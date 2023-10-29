@@ -5,9 +5,11 @@ import java.util.List;
 public class Game {
 
     public void play(){
-        Player player = new Player();
-        List<Car> cars = player.getCarList();
-        int times = player.getTimes();
+
+        Input input = new Input();
+        List<Car> cars = input.askCarList();
+        int times = input.askTimes();
+        Player player = new Player(cars, times);
 
         Print print = new Print();
 

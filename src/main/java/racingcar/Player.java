@@ -8,45 +8,12 @@ import java.util.List;
 
 public class Player {
 
-    public List<Car> getCarList(){
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String input = Console.readLine();
+    private final List<Car> cars;
+    private final int times;
 
-        List<String> cars = splitName(input);
-        validateName(cars);
-
-        return stringToCar(cars);
-    }
-
-    public int getTimes(){
-        System.out.println("시도할 회수는 몇회인가요?");
-        String times = Console.readLine();
-        return stringToInteger(times);
-    }
-
-    public List<String> splitName(String names){
-        return Arrays.asList(names.split(","));
-    }
-
-    public List<Car> stringToCar(List<String> cars){
-        List<Car> result = new ArrayList<>();
-        for (String name : cars) {
-            Car car = new Car(name);
-            result.add(car);
-        }
-        return result;
-    }
-
-    public int stringToInteger(String str){
-        return Integer.parseInt(str);
-    }
-
-    public void validateName(List<String> names){
-        for (String name : names) {
-            if (name.length() > 5) {
-                throw new IllegalArgumentException("The name must not be more than 5 characters.");
-            }
-        }
+    public Player(List<Car> cars, int times){
+        this.cars = cars;
+        this.times = times;
     }
 
 }
