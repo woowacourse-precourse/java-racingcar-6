@@ -2,15 +2,15 @@ package racingcar;
 
 import racingcar.domain.CarName;
 import racingcar.domain.RacingCarName;
-import racingcar.domain.Racing;
+import racingcar.domain.Referee;
 
 public class Application {
     public static void main(String[] args) {
         CarName carName = new CarName();
         RacingCarName inputCarName = new RacingCarName();
-        carName.setCarList(inputCarName.inputRacingCarName());
+        Referee referee = new Referee();
 
-        Racing racing = new Racing();
-        racing.racingMoveCount();
+        carName.setCarList(inputCarName.inputRacingCarName());
+        System.out.println(referee.callWinnerCar());
     }
 }

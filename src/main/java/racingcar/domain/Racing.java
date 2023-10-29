@@ -3,7 +3,7 @@ package racingcar.domain;
 import java.util.Map;
 
 public class Racing {
-    public void racingMoveCount() {
+    public Map<String, Integer> racingMoveCount() {
         RacingCount racingCount = new RacingCount();
         Car car = new Car();
 
@@ -12,6 +12,6 @@ public class Racing {
         for (int i=0; raceCount>i; i++) {
             result = car.racingCarCount();
         }
-        System.out.println("result : " + result);
+        return result;
     }
 }
