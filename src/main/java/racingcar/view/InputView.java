@@ -9,6 +9,7 @@ import java.util.List;
 
 public class InputView {
     public TrialNumber getTrialNumber() {
+        OutputView.printTrialNumberInputText();
         String trialNumberInput = Console.readLine().trim();
         return new TrialNumber(trialNumberInput);
     }
