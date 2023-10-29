@@ -6,13 +6,16 @@ import org.junit.jupiter.api.Test;
 
 class CarFactoryTest {
 
+    private static final Name POBI = new Name("pobi");
+    private static final Name WONI = new Name("woni");
+
     @Test
     public void 자동차_변환_테스트() {
         // given
-        List<String> namesOfCars = List.of("pobi", "woni");
+        final List<Name> namesOfCars = List.of(POBI, WONI);
 
         // when
-        List<Car> cars = CarFactory.generateCar(namesOfCars);
+        final List<Car> cars = CarFactory.generateCar(namesOfCars);
 
         // then
         Assertions.assertThat(cars).hasSize(2);

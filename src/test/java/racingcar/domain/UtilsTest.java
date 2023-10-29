@@ -9,6 +9,10 @@ import org.junit.jupiter.api.Test;
 
 class UtilsTest {
 
+    private static final Name POBI = new Name("pobi");
+    private static final Name WONI = new Name("woni");
+    private static final Name JUN = new Name("jun");
+
     @Test
     public void 숫자가_아니면_예외_발생() {
         // given
@@ -37,9 +41,10 @@ class UtilsTest {
         final String namesOfCars = "pobi,woni,jun";
 
         // when
-        final List<String> splitNamesOfCars = Utils.splitNamesOfCars(namesOfCars);
+        final List<Name> splitNamesOfCars = Utils.splitNamesOfCars(namesOfCars);
 
         // then
-        assertThat(splitNamesOfCars).contains("pobi", "woni", "jun");
+        assertThat(splitNamesOfCars).hasSize(3)
+                .contains(POBI, WONI, JUN);
     }
 }
