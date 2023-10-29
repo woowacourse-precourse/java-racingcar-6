@@ -13,10 +13,6 @@ public class RacingCar {
         this.distance = distance;
     }
 
-//    public void setDistance() {
-//        this.distance = 0;
-//    }
-
     public int getDistance() {
         return this.distance;
     }

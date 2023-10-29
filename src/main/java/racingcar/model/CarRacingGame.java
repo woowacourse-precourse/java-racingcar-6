@@ -11,6 +11,10 @@ public class CarRacingGame {
         this.ParticipationConfirmedCarList = racingCars;
     }
 
+    public int getRaceCount() {
+        return this.raceCount;
+    }
+
     public void setRaceCount(int raceCount) {
         this.raceCount = raceCount;
     }
@@ -19,7 +23,7 @@ public class CarRacingGame {
         this.winners.add(racingCar);
     }
 
-    public ArrayList<RacingCar> getApplicantRacingCarList() {
+    public ArrayList<RacingCar> getParticipationConfirmedCarList() {
         return this.ParticipationConfirmedCarList;
     }
 

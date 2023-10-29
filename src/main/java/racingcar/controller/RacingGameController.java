@@ -2,8 +2,7 @@ package racingcar.controller;
 
 import racingcar.View.InputView;
 import racingcar.View.OutPutView;
-import racingcar.model.CarRacingGame;
-import racingcar.model.RacingCar;
+import racingcar.dto.GameResultDto;
 import racingcar.service.RacingGameService;
 
 import java.util.ArrayList;
@@ -11,14 +10,26 @@ import java.util.ArrayList;
 public class RacingGameController {
     RacingGameService racingGameService = new RacingGameService();
     InputView inputView = new InputView();
+    OutPutView outPutView = new OutPutView();
 
     public void start() {
-        setRacingGame();
+        int raceCount = settingRacingGameAndGetRaceCount();
+        startRacingGame(raceCount);
     }
 
-    private void setRacingGame() {
+    private int settingRacingGameAndGetRaceCount() {
         String userEnteredApplicantCarList = inputView.enterCarName();
         int userEnteredRaceCount = Integer.parseInt(inputView.enterRaceCount());
         racingGameService.settingForRacingGame(userEnteredApplicantCarList, userEnteredRaceCount);
+        return userEnteredRaceCount;
+    }
+
+    private void startRacingGame(int raceCount) {
+        outPutView.resultAnnouncementMessage();
+        for (int i = 0; i < raceCount; i++) {
+            ArrayList<GameResultDto> gameResultDtoList = racingGameService.gameInProcess();
+            outPutView.midGameResultMessage(gameResultDtoList);
+            System.out.println();
+        }
     }
 }
