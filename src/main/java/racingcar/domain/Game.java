@@ -13,19 +13,23 @@ public class Game {
     }
 
     public List<CarDistanceMessage> forwardCars() {
+        moveCars();
+        return getCarDistanceMessages();
+    }
 
+    private void moveCars() {
         for (Car car : cars) {
             RandomNumber number = RandomNumber.createRandomNumber();
             if (number.isMovable()) car.move();
         }
+    }
 
+    private List<CarDistanceMessage> getCarDistanceMessages() {
         List<CarDistanceMessage> messages = new ArrayList<>();
         for (Car car : cars) {
             messages.add(car.createCarDistanceMessage());
         }
-
         return messages;
-
     }
 
     public WinnersMessage getWinnersMessage() {
