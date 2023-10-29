@@ -10,5 +10,11 @@ public class Car {
 
     private Integer score;
 
+    public String getName() {
+        return name;
+    }
 
+    public Integer getScore() {
+        return score;
+    }
 }
