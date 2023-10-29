@@ -21,5 +21,6 @@ public class Application {
         System.out.println("\n실행 결과");
         CarRacing carRacing = new CarRacing(carNameList, countTrial);
         carRacing.race();
+        carRacing.printWinner();
     }
 }
