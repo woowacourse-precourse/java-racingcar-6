@@ -10,10 +10,10 @@ public class InputConverter {
     public Cars convertStringToCars(String input) {
         List<Car> cars = Arrays.stream(input.split(","))
                 .map(CarName::from)
-                .map(Car::of)
+                .map(Car::from)
                 .toList();
 
-        return Cars.of(cars);
+        return Cars.from(cars);
     }
 
     public int covertStringToInteger(String input) {
