@@ -32,16 +32,16 @@ public class RacingGame {
         System.out.println("시도할 회수는 몇회인가요?");
         int numberOfAttempts = Integer.parseInt(Console.readLine());
         System.out.println();
-        int tryValue = 0;
+        int currentTryValue = 0;
 
         System.out.println("실행 결과");
-        while (tryValue < numberOfAttempts) {
+        while (currentTryValue < numberOfAttempts) {
             randomNumber.setRandomNumberList(randomNumberGenerator.createRandomNumberList(carList));
             move.moveTheCar(car.getCarList(), randomNumber.getRandomNumberList());
             move.stopTheCar(car.getCarList(), randomNumber.getRandomNumberList());
             car.getCurrentRacingResult();
             System.out.println();
-            tryValue++;
+            currentTryValue++;
         }
         System.out.println("최종 우승자 : " + car.getFinalWinner());
     }
