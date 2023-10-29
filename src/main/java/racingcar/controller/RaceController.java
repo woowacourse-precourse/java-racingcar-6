@@ -11,10 +11,6 @@ public class RaceController {
     private int playCount;
     private Cars cars;
 
-    public RaceController() {
-        setRace();
-    }
-
     public void play() {
 
         for(int i = 0; i < playCount; i++) {
@@ -29,7 +25,7 @@ public class RaceController {
         OutputView.printFinalWinner(winners);
     }
 
-    private void setRace() {
+    public void setRace() {
         cars = setCar();
         playCount = setPlayCount();
     }
@@ -40,14 +36,24 @@ public class RaceController {
     }
 
     private int setPlayCount() {
+        String inputPlayCount = InputView.askPlayCount();
+        return validatePlayCount(inputPlayCount);
+    }
+
+
+    public int validatePlayCount(String inputPlayCount) {
+
+        int playCount;
         try {
-            int playCount = Integer.parseInt(InputView.askPlayCount());
-            if (playCount == 0) {
-                throw new IllegalArgumentException();
-            }
-            return playCount;
+            playCount = Integer.parseInt(inputPlayCount);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
+
+        if (playCount == 0) {
+            throw new IllegalArgumentException();
+        }
+
+        return playCount;
     }
 }
