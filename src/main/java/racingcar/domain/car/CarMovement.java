@@ -1,10 +1,11 @@
-package racingcar.domain;
+package racingcar.domain.car;
 
+import racingcar.domain.game.GameCondition;
 import racingcar.dto.Car;
 
 public class CarMovement {
     Car raceCar;
-    private static final CarStore carStore = CarStore.getInstance();
+    private static final CarInfo carStore = CarInfo.getInstance();
 
     public CarMovement(Car car) {
         this.raceCar = car;

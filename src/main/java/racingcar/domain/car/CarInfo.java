@@ -1,14 +1,14 @@
-package racingcar.domain;
+package racingcar.domain.car;
 
 import java.util.List;
 import racingcar.dto.Car;
 import racingcar.repository.CarRepository;
 
-public class CarStore {
+public class CarInfo {
     private static final CarRepository carRepository = CarRepository.getInstance();
-    private static final CarStore instance = new CarStore();
+    private static final CarInfo instance = new CarInfo();
 
-    public static CarStore getInstance() {
+    public static CarInfo getInstance() {
         return instance;
     }
 
