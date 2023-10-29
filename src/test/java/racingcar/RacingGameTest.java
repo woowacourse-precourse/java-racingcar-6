@@ -78,4 +78,12 @@ class RacingGameTest {
 
         assertThatIllegalArgumentException().isThrownBy(() -> new Car(carName, 0));
     }
+
+    @Test
+    @DisplayName("시도 횟수 입력 시 아무것도 입력하지 않는다.")
+    void test7() {
+        System.setIn(new ByteArrayInputStream("".getBytes()));
+
+        assertThrows(NoSuchElementException.class, Console::readLine);
+    }
 }
