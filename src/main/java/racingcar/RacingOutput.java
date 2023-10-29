@@ -31,5 +31,14 @@ public class RacingOutput {
         }
     }
 
-
+    private void putResultOfMovement(int n, List<Integer> carNames, List<Integer> carDis) throws IOException
+    {
+        for (int i = 0 ; i<n ; i++)
+        {
+            bw.write(carNames.get(i) + " : ");
+            putResultOfEachCar(carDis.get(i));
+            bw.write("\n");
+        }
+        bw.write("\n");
+    }
 }
