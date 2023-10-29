@@ -1,6 +1,7 @@
 package service;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import controller.Controller;
 
 public class GameManager {
 
@@ -13,15 +14,11 @@ public class GameManager {
     }
 
     public void setCarsMove(boolean goOrStop, int carIdx) {
-        String nowCarName = UserInput.carsNameList.get(carIdx);
+        String nowCarName = Controller.userInput.carsNameList.get(carIdx);
 
         if (goOrStop) {
-            String nowCarBeforeMove = UserInput.carNameAndPosList.get(nowCarName);
-            UserInput.carNameAndPosList.put(nowCarName, nowCarBeforeMove + "-");
+            String nowCarBeforeMove = Controller.userInput.carNameAndPosList.get(nowCarName);
+            Controller.userInput.carNameAndPosList.put(nowCarName, nowCarBeforeMove + "-");
         }
-    }
-
-    public void printCarsMove() {
-
     }
 }
