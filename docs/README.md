@@ -37,7 +37,8 @@ GameEngine
 - [x] 플레이어가 전진하는지를 판단한다
     - [x] GameEngineValidator# 음수이거나 숫자가아닌지 검증한다.
     - [x] ScoreUpdater#점수를 업데이트한다
--[x] 우승자를 반환한다
+-[ ] 스코어를 반환한다.
+- [x] 우승자를 반환한다
     -[x] 동점일경우, 플레이어 입력 순서대로 정렬한다.
 
 GameEngineValidator
@@ -63,3 +64,4 @@ ScoreUpdater
         -[x] 그 숫자를 판단한다
             - [x] 0부터3까지 멈춤
             - [x] 4부터 9까지는 전진
+
