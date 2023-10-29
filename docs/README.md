@@ -5,7 +5,7 @@
 - [x] 쉼표를 기준으로 자동차의 이름들을 입력 받는다. - makeCarList
   - [x] 쉼표가 없는 입력과 쉼표만 있는 입력은 잘못된 값으로 판단한다. - findinputCarError
   - [x] 쉼표로 시작하거나 끝나는 입력은 잘못된 값으로 판단한다. - findinputCarError
-  - [x] 자동차의 개수가 1이하 100이하면 잘못된 값으로 판단한다. - findInputCarError
+  - [x] 자동차의 개수가 1이하 100이상이면 잘못된 값으로 판단한다. - findInputCarError
   - [x] 우승 자동차를 구분하기 위해 ""입력 또는 White Space(공백 문자)는 잘못된 값으로 판단한다. - findinputCarError
   - [x] 5자 이하의 이름이 아니면 잘못된 값으로 판단한다. - findCarListError
   - [x] 우승 자동차를 구분하기 위해 이름이 없는 자동차는 잘못된 값으로 판단한다. - findCarListError

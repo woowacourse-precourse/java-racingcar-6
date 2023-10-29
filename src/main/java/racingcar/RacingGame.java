@@ -10,7 +10,7 @@ public class RacingGame {
     private static int[] gameResultCount;
     private static int carListLength;
     private static int winCount;
-    private static final ArrayList<String> winningCarList = new ArrayList<>();
+    private static ArrayList<String> winningCarList = new ArrayList<>();
 
     public static void printWinningCar() {
         System.out.print("최종 우승자 : ");
@@ -38,6 +38,7 @@ public class RacingGame {
     }
 
     public static void moveCar() {
+        winCount = 0;
         for (int i = 0; i < carListLength; i++) {
             if (Randoms.pickNumberInRange(0, 9) > 3) {
                 gameResultCount[i]++;
@@ -52,6 +53,7 @@ public class RacingGame {
         carList = inputCarList;
         carListLength = carList.length;
         gameResultCount = new int[carListLength];
+        winningCarList = new ArrayList<>();
 
         System.out.println("\n실행 결과");
         for (int i = 0; i < playCount; i++) {
