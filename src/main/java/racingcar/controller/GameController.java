@@ -62,7 +62,7 @@ public class GameController {
 
 		for (int i = 0; i < attemptCount; i++) {
 
-			carListService.move();
+			carListService.moveOrStop();
 			OutputView.printEachRound(carList);
 
 		}

@@ -52,7 +52,7 @@ public class CarListService {
 
 	}
 
-	public void move() {
+	public void moveOrStop() {
 
 		for (Car eachCar : CAR_LIST) {
 			eachCar.moveOrStop();
@@ -69,7 +69,7 @@ public class CarListService {
 
 	private List<Car> makeWinnerList() {
 
-		Set<Car> removeList = makeRemoveList();
+		Set<Car> removeList = makeLaggingCarList();
 		List<Car> winnerList = CAR_LIST;
 
 		for (Car removedCar : removeList) {
@@ -79,18 +79,18 @@ public class CarListService {
 		return winnerList;
 	}
 
-	private Set<Car> makeRemoveList() {
+	private Set<Car> makeLaggingCarList() {
 
 		Set<Car> removeList = new HashSet<>();
 
 		for (int i = 0; i < CAR_LIST.size(); i++) {
-			addRemoveList(removeList, i);
+			addLaggingCarList(removeList, i);
 		}
 
 		return removeList;
 	}
 
-	private void addRemoveList(Set<Car> removeList, int referenceIndex) {
+	private void addLaggingCarList(Set<Car> removeList, int referenceIndex) {
 
 		Car referenceCar = CAR_LIST.get(referenceIndex);
 
