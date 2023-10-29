@@ -5,21 +5,14 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
 class RacingGameTest {
 
     private RacingGame racingGame = new RacingGame();
 
     @Test
-    void 자동차등록_입력받은문자열 () {
+    void 자동차등록_입력받은문자열() {
         String playerInput = "자동차1,자동차2,자동차3";
         racingGame.setCarList(playerInput);
 
@@ -31,19 +24,19 @@ class RacingGameTest {
     }
 
     @Test
-    void 경주횟수등록_입력받은문자열 () {
+    void 경주횟수등록_입력받은문자열() {
         String playerInput = "100";
-        racingGame.setRaceCount(playerInput);
+        racingGame.setNumberOfRaces(playerInput);
 
-        assertThat(Integer.parseInt(playerInput)).isEqualTo(racingGame.getRaceCount());
+        assertThat(Integer.parseInt(playerInput)).isEqualTo(racingGame.getNumberOfRaces());
     }
 
     @Test
-    void 경주실행횟수_설정된경주횟수 () {
-        racingGame.setRaceCount("3");
+    void 경주실행횟수_설정된경주횟수() {
+        racingGame.setNumberOfRaces("3");
         racingGame.startRace();
 
-        assertThat(3).isEqualTo(racingGame.getRaceActionCount());
+        assertThat(3).isEqualTo(racingGame.getNumberOfRaceRuns());
     }
 
     @Test
