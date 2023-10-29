@@ -1,15 +1,19 @@
 package racingcar;
 
+import racingcar.domain.Racing;
 import racingcar.domain.Register;
 
 import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        Register register = new Register();
-        List<String> cars = register.registerCar();
+//        Register register = new Register();
+//        List<String> cars = register.registerCar();
+//
+//        int raceCount = register.registerRaceCount();
+//        System.out.println(raceCount);
 
-        int raceCount = register.registerRaceCount();
-        System.out.println(raceCount);
+        Racing racing = new Racing();
+        racing.racingProcess();
     }
 }
