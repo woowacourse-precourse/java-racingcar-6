@@ -73,8 +73,21 @@ jun : -----
 - [x] 게임을 실행한다. - run()
 - [x] 레이싱을 시작한다. - startRacing()
 
-### RacingGameController
-- [ ] 게임을 시작한다.
+### RacingCarService
+- [x] 레이싱카들이 레이싱을 한다. - startRacing()
+- [x] 시도횟수에 따른 진행 상태을 판별한다. - isProcessing()
+
+## 예외 목록
+- CarNameLengthException
+  - [x] 자동차 이름 길이 예외
+- CarsCountException
+  - [x] 자동차들 최소 개수 예외
+- DivisionCarNamesException
+  - [x] 자동차 이름 구분자 예외
+- InputNumericException
+  - [x] 숫자 입력 예외
+- NotFoundCarPositionException정
+  - [x] 자동차 위치 찾기 예외
 
 ## 상수 목록
 - ErrorMessage
