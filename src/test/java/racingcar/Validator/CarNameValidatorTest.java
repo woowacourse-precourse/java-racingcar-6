@@ -17,11 +17,16 @@ class CarNameValidatorTest {
     @Test
     @DisplayName("자동차 이름 길이 검증 테스트")
     void isValidLengthTest() {
-        String testCarName = "test";
+        String testCarName1 = "test123";
+        String testCarName2 = "test123";
 
-        Assertions.assertThatThrownBy(() -> isValidLength(testCarName))
+        Assertions.assertThatThrownBy(() -> isValidLength(testCarName1))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(LENGTHMESSAGE.getMessage());
+                .hasMessageContaining(LENGTHMESSAGE.getMessage(testCarName1));
+
+        Assertions.assertThatThrownBy(() -> isValidLength(testCarName2))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(LENGTHMESSAGE.getMessage(testCarName2));
     }
 
     @Test
