@@ -12,6 +12,7 @@ public class RacingCarGame {
 
     public RacingCarGame(GameConfig gameConfig) {
         this.gameConfig = gameConfig;
+        init();
     }
 
     public void init() {
