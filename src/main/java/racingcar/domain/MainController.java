@@ -10,7 +10,6 @@ public class MainController {
 
     CarGame carGame = new CarGame();
     RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
-
     ScorePrinter scorePrinter = new ScorePrinter();
     public static int ATTEMPT_COUNT = 0;
     public static List<String> CARS;
@@ -20,23 +19,18 @@ public class MainController {
         carGame.CarGame(CARS);
 
         for (int i = ATTEMPT_COUNT; i >= 1; i--) {
-            //랜덤값 생성
-            randomNumberGenerator.setUserRandomValue(CARS);
+            randomNumberGenerator.setUserRandomValue(CARS); //랜덤값 생성
             scorePrinter.printMidtermScore(); //중간 점수 출력
         }
-        carGame.printTreeMap();
         scorePrinter.printFinalScore(); //최종 점수 출력
-
     }
 
 
-
-    private void setInput() {
+    private void setInput() { //+유효검사
         Validator validator = new Validator();
 
         CARS = getCarNameInput();
         validator.validatorForCar(CARS);
-
         ATTEMPT_COUNT = getAttemptCountInput();
         validator.validatorForAttemptCount(ATTEMPT_COUNT);
     }

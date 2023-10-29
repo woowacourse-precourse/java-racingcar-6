@@ -8,15 +8,13 @@ public class Validator {
     private static final String WORNG_COUNT_RANDE = "최소 시도 횟수는 1번이에요.";
 
     //false일때 오류
-    public void validatorForCar(List<String> cars) {
-        //5자 이하인가?
+    public void validatorForCar(List<String> cars) { //자동차 이름이 5자 이하인가?
         if (!isMaxSizeName(cars)) {
             throw new IllegalArgumentException(WORNG_CAR_LENGTH);
         }
     }
 
-    public void validatorForAttemptCount(int count) {
-        //0이상인가?
+    public void validatorForAttemptCount(int count) { //시도 횟수가 1 이상인가?
         if (!isVaildRange(count)) {
             throw new IllegalArgumentException(WORNG_COUNT_RANDE);
         }
@@ -32,7 +30,7 @@ public class Validator {
     }
 
     private boolean isVaildRange(int count) {
-        if (count <= 0) {
+        if (count < 1) {
             return false;
         }
         return true;

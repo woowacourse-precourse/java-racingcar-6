@@ -8,7 +8,7 @@ public class RandomNumberGenerator {
 
     CarGame carGame = new CarGame();
 
-    public void setUserRandomValue(List<String> cars){
+    public void setUserRandomValue(List<String> cars){ //Distance 점수 업데이트
         for(String car : cars){
             if(makeRandomNumber()>=4){
                 carGame.move(car);
