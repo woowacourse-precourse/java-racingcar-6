@@ -6,8 +6,8 @@ import static racingcar.constant.MessageConst.EMPTY_MESSAGE;
 import static racingcar.constant.MessageConst.LENGTH_MESSAGE;
 import static racingcar.constant.MessageConst.NULL_MESSAGE;
 import static racingcar.constant.MessageConst.SPACE_MESSAGE;
-import static racingcar.constant.NumberConst.NUMERIC_FORMAT_MESSAGE;
-import static racingcar.constant.NumberConst.RANGE_MESSAGE;
+import static racingcar.constant.MessageConst.NUMERIC_FORMAT_MESSAGE;
+import static racingcar.constant.MessageConst.RANGE_MESSAGE;
 
 import java.util.HashSet;
 import java.util.List;

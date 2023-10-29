@@ -16,4 +16,8 @@ public class MessageConst {
     public static final String NULL_MESSAGE = "값에 null이 들어올 수 없습니다.";
 
     public static final String COMMA_MESSAGE = "자동차 이름들은 , 로 구분 되어야 합니다.";
+
+    public static final String NUMERIC_FORMAT_MESSAGE = "숫자를 입력해야 합니다.";
+
+    public static final String RANGE_MESSAGE = "1 이상의 숫자를 입력해야 합니다.";
 }
