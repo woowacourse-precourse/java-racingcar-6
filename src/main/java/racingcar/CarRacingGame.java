@@ -40,9 +40,10 @@ public class CarRacingGame {
         winner.add(carWithMaximumDistance.get());
 
         int maximumDistance = carWithMaximumDistance.get().getDistance();
+        String maximumDistanceCarName = carWithMaximumDistance.get().getName();
 
         for (Car car: car) {
-            if (car.getDistance() == maximumDistance) {
+            if ((car.getDistance() == maximumDistance) && !(car.getName().equals(maximumDistanceCarName))) {
                 winner.add(car);
             }
         }
