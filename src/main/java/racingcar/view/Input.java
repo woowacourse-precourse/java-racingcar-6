@@ -16,8 +16,15 @@ public class Input {
         return carNameList;
     }
 
-    public int getTryCount(){
+    public int getTryCount() {
         int tryCount = Integer.parseInt(Console.readLine());
+        validateTryCountIfZero(tryCount);
         return tryCount;
+    }
+
+    private void validateTryCountIfZero(int tryCount){
+        if(tryCount == 0){
+            throw new IllegalArgumentException("입력이 잘못되었습니다.");
+        }
     }
 }
