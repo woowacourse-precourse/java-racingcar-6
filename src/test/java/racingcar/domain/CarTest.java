@@ -1,8 +1,5 @@
 package racingcar.domain;
 
-import static org.assertj.core.api.Assertions.in;
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,7 +16,7 @@ class CarTest {
     private Car car;
 
     @BeforeEach
-    void init(){
+    void init() {
         car = new Car("povi");
     }
 
@@ -38,7 +35,7 @@ class CarTest {
 
     @ParameterizedTest
     @CsvSource(value = {"4:1", "5:1"}, delimiter = ':')
-    void 자동차_전진_테스트(int input, int expect){
+    void 자동차_전진_테스트(int input, int expect) {
         assertThat(car.move(input)).isEqualTo(expect);
     }
 
@@ -48,8 +45,6 @@ class CarTest {
     void 자동차_정지_테스트(int input) {
         assertThat(car.move(input)).isEqualTo(0);
     }
-
-
 
 
 }
