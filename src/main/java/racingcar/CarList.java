@@ -25,6 +25,10 @@ public class CarList {
         return keySet.toArray(new String[arrSize]);
     }
 
+    public int getPosition(String carName) {
+        return carList.get(carName);
+    }
+
     public void moveForward(String carName) {
         int position = carList.get(carName);
         position++;
