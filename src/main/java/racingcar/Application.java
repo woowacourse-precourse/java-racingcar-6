@@ -50,6 +50,14 @@ public class Application {
             }
         }
 
+//        우승자 출력
+//            - 우승자가 한 명이면 바로 출력
+//            - 우승자가 두 명 이상이면 ',' 로 구분해서 출력
+        System.out.print("최종 우승자 : ");
+        for(int i=0; i<winner.size()-1; i++){
+            System.out.print(winner.get(i) + ", ");
+        }
+        System.out.println(winner.get(winner.size()-1));
 
 
     }
