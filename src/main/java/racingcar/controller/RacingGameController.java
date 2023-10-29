@@ -32,6 +32,10 @@ public class RacingGameController {
             ioManager.notifyMoveResult(racingGame.getCars());
         }
 
+        notifyWinner(racingGame);
+    }
+
+    private void notifyWinner(RacingGame racingGame) {
         WinnerJudge judge = new WinnerJudge(racingGame.getCars());
         ioManager.notifyWinner(judge.judge());
     }
