@@ -19,4 +19,19 @@ public class RacingCarGame {
         inputView = gameConfig.inputView();
         outputView = gameConfig.outputView();
     }
+
+    public void play() {
+        String names = readCarNamesFromUser();
+        int round = readGameRoundFromUser();
+    }
+
+    private String readCarNamesFromUser() {
+        outputView.printRequestCarNames();
+        return inputView.readCarNames();
+    }
+
+    private int readGameRoundFromUser() {
+        outputView.printRequestGameRound();
+        return inputView.readGameRound();
+    }
 }
