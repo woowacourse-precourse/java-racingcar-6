@@ -8,7 +8,7 @@ import racingcar.domain.CarRaceGame;
 public class Application {
     public static void main(String[] args) {
         int iterationNumber;
-        List<String> carNames = new ArrayList<>();
+        List<String> carNames;
 
         UserInput userInput = new UserInput();
 
@@ -17,5 +17,6 @@ public class Application {
 
         CarRaceGame carRaceGame = new CarRaceGame(carNames, iterationNumber);
         carRaceGame.playGame();
+        System.out.println(carRaceGame.getWinners());
     }
 }

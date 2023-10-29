@@ -40,7 +40,20 @@ public class CarRaceGame {
     }
 
     public List<String> getWinners() {
-        // 게임이 완료되면 최종 우승자 선정
-        return null;
+        int maxForwardCount = 0;
+        List<String> winners = new ArrayList<>();
+
+        for (Car car : cars) {
+            if (car.getForwardCount() > maxForwardCount) {
+                maxForwardCount = car.getForwardCount();
+                winners.clear();
+                winners.add(car.getName());
+            }
+            else if (car.getForwardCount() == maxForwardCount) {
+                winners.add(car.getName());
+            }
+        }
+
+        return winners;
     }
 }
