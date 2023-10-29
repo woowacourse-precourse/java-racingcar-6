@@ -36,4 +36,12 @@ class RacingGameTest {
 
         assertThat(Integer.parseInt(playerInput)).isEqualTo(racingGame.getRaceCount());
     }
+
+    @Test
+    void 경주실행횟수_설정된경주횟수 () {
+        racingGame.setRaceCount("3");
+        racingGame.startRace();
+
+        assertThat(3).isEqualTo(racingGame.getRaceActionCount());
+    }
 }
