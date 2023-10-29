@@ -12,6 +12,7 @@ public class Car {
     private Integer position;
 
     public Car(String name) {
+        CarValidator.validate(name);
         this.name = name;
         this.position = INIT_POSITION;
     }
