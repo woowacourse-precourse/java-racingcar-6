@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
+import racingcar.dto.CarsDto;
 import racingcar.service.GameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -20,6 +21,8 @@ public class GameController {
     public void run() {
         Cars cars = makeCars();
         int trialCount = getTrialCount();
+
+        playRounds(trialCount, cars);
     }
 
     private Cars makeCars() {
@@ -32,6 +35,14 @@ public class GameController {
         outputView.printTrialGuide();
         String trialCount = inputView.readTrialNumber();
         return gameService.createTrialCount(trialCount);
+    }
+
+    private void playRounds(final int trialCount, final Cars cars) {
+        outputView.printResultGuide();
+        for (int round = 0; round < trialCount; round++) {
+            CarsDto carsDto = gameService.playRound(cars);
+            outputView.printRoundResult(carsDto);
+        }
     }
 
 }
