@@ -21,4 +21,13 @@ public class Game {
         View.printResultTitle();
     }
 
+    private static void executeLoop() {
+        GameController.moveForward();
+        tries++;
+    }
+
+    private static boolean isLoopEnd() {
+        return tries < Model.getNumberOfTries();
+    }
+
 }
