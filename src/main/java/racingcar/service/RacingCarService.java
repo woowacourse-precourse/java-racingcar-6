@@ -20,6 +20,7 @@ public class RacingCarService {
 
     public int initNumberOfAttempts() {
         int numberOfAttempts = validateInputNumberFormat(readLine());
+        System.out.println();
         validateInputNumberRange(numberOfAttempts);
         return numberOfAttempts;
     }
