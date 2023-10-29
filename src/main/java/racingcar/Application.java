@@ -2,6 +2,9 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -39,5 +42,18 @@ public class Application {
             }
             System.out.println();
         }
+
+        int maxScore = Collections.max(carMap.values());
+
+        List<String> winners = new ArrayList<>();
+        for (String carName : carMap.keySet()) {
+            if (carMap.get(carName) == maxScore) {
+                winners.add(carName);
+            }
+        }
+        
+        String result = String.join(", ", winners);
+        System.out.println("최종 우승자 : " + result);
+
     }
 }
