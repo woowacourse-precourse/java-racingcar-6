@@ -122,6 +122,7 @@ public class InputValidation {
 
     public void validateAttemptInput(String input) {
         validateInputNull(input);
+        validateInputEmpty(input);
         validateInputNumericFormat(input);
         validateInputRange(input);
     }
