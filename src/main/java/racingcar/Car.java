@@ -3,9 +3,9 @@ package racingcar;
 public class Car {
 
 	private int position;
-	private final MoveSate moveState;
+	private final MoveState moveState;
 
-	public Car(MoveSate moveState) {
+	public Car(MoveState moveState) {
 		this.position = 0;
 		this.moveState = moveState;
 	}
