@@ -40,6 +40,9 @@ public class Application {
         if (inputCar == "" || inputCar.contains(" ")) {
             throw new IllegalArgumentException();
         }
+        if (!inputCar.contains(",") || inputCar.matches(",*")) {
+            throw new IllegalArgumentException();
+        }
 
         String[] carList = inputCar.split(",");
         findCarListError(carList);
@@ -50,5 +53,7 @@ public class Application {
     public static void main(String[] args) {
         String[] carList = makeCarList();
         int playCount = makePlayCount();
+
+        RacingGame.playGame(carList, playCount);
     }
 }
