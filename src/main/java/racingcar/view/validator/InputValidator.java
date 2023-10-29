@@ -1,5 +1,6 @@
 package racingcar.view.validator;
 
+import java.util.Arrays;
 import racingcar.view.constants.Messages;
 import racingcar.view.constants.Numbers;
 
@@ -20,8 +21,7 @@ public class InputValidator {
         }
     }
 
-    private static void handleLengthOfCarName(String carName) {
-        String[] carNames = carName.split(",");
+    private static void handleLengthOfCarName(String[] carNames) {
         for (String name : carNames) {
             if (name.isEmpty() || name.length() > Numbers.MAX_NAME_LENGTH.getNumber()) {
                 throw new IllegalArgumentException(Messages.LENGTH_OF_CAR_NAME_ERROR.getMessage());
@@ -29,13 +29,19 @@ public class InputValidator {
         }
     }
 
-    private static void handleNumberOfCarNames(String carName) {
-        String[] carNames = carName.split(",");
+    private static void handleNumberOfCarNames(String[] carNames) {
         if (carNames.length == 0 || carNames.length > Numbers.MAX_GAME_PLAYER.getNumber()) {
             throw new IllegalArgumentException(Messages.NUMBER_OF_CARS_ERROR.getMessage());
         }
+    }
 
-
+    private static void handleDuplicatedCarNames(String[] carNames) {
+        Arrays.sort(carNames);
+        for (int i = 1; i < carNames.length; i++) {
+            if (carNames[i - 1].equals(carNames[i])) {
+                throw new IllegalArgumentException(Messages.Duplicated_Car_Name_Error.getMessage());
+            }
+        }
     }
 
 
@@ -46,17 +52,21 @@ public class InputValidator {
         }
     }
 
+
     public static void validateCarName(String carName) {
         handleIsNullOrEmpty(carName);
-        handleOnlyContainsValidLetter(carName, Messages.VALID_CAR_NAME.getMessage());
-        handleLengthOfCarName(carName);
-        handleNumberOfCarNames(carName);
-
+        handleOnlyContainsValidLetter(carName, Messages.VALID_CAR_NAME_LETTERS.getMessage());
+        
+        String[] carNames = carName.split(",");
+        handleLengthOfCarName(carNames);
+        handleNumberOfCarNames(carNames);
+        handleDuplicatedCarNames(carNames);
     }
+
 
     public static void validatePlayTime(String playtime) {
         handleIsNullOrEmpty(playtime);
-        handleOnlyContainsValidLetter(playtime, Messages.VALID_PLAYTIME.getMessage());
+        handleOnlyContainsValidLetter(playtime, Messages.VALID_PLAYTIME_LETTERS.getMessage());
         handlePlayTimeInRange(playtime);
     }
 
