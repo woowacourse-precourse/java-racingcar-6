@@ -24,7 +24,7 @@ public class RacingGame {
     public boolean isEnd() { return attemptCount <= END_COUNT; }
 
     public void proceed() {
-        if (!isEnd()) {
+        if (isEnd()) {
             throw IllegalStateExceptionType.NO_MORE_ATTEMPT_MESSAGE.getException();
         }
         cars.moveCars();
