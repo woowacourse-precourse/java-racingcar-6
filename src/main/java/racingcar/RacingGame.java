@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class RacingGame {
 
     CarList carList;
+    String[] carNameList;
     int count;
     StringBuilder sb;
 
@@ -13,7 +14,7 @@ public class RacingGame {
         retrieveCarList();
         retrieveCount();
 
-        String[] carNameList = carList.getCarNameList();
+        carNameList = carList.getCarNameList();
 
         for (int i=0; i<count; i++) {
             for (String carName : carNameList) {
@@ -21,6 +22,8 @@ public class RacingGame {
             }
             sb.append('\n');
         }
+
+        System.out.println(sb);
     }
 
     private void retrieveCarList() {
@@ -47,6 +50,22 @@ public class RacingGame {
         sb.append(" : ");
         sb.append(position);
         sb.append('\n');
+    }
+
+    private void checkWinner() {
+        int max = carList.getMax();
+        boolean flag = false;
+
+        for (String carName : carNameList) {
+            int position = carList.getPosition(carName);
+            if (flag) {
+                sb.append(", ");
+            }
+            if (position == max) {
+                sb.append(carName);
+                flag = true;
+            }
+        }
     }
 
 }

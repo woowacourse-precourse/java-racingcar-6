@@ -8,6 +8,7 @@ public class CarList {
 
     private final User user;
     private final Map<String, Integer> carList;
+    private int max = 0;
 
     public CarList() {
         user = new User();
@@ -29,10 +30,18 @@ public class CarList {
         return carList.get(carName);
     }
 
+    public int getMax() {
+        return max;
+    }
+
     public void moveForward(String carName) {
         int position = carList.get(carName);
         position++;
         carList.put(carName, position);
+
+        if (position > max) {
+            max = position;
+        }
     }
 
 }
