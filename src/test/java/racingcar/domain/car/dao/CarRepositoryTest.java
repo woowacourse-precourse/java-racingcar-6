@@ -32,7 +32,6 @@ class CarRepositoryTest {
             CarRepository carRepository = new CarRepository();
             Car frirstCar = new Car("FirstCarName");
             Car secondCar = new Car("SecondCarName");
-
             carRepository.save(frirstCar);
             carRepository.save(secondCar);
 
