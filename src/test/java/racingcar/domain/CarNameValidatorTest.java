@@ -12,7 +12,7 @@ class CarNameValidatorTest {
     @Test
     void validateAllCasesDoesNotThrowAnyException() {
         // given
-        String validCarName = "sully";
+        String validCarName = "i,am,sully";
 
         // when
         // then
@@ -24,7 +24,7 @@ class CarNameValidatorTest {
     @Test
     void validateCarNameExistsWithBlank() {
         // given
-        String invalidCarName = "";
+        String invalidCarName = "sully,,i";
 
         // when
         // then
@@ -37,7 +37,7 @@ class CarNameValidatorTest {
     @Test
     void validateAlphanumericAndCommaCarNameWithInvalidCarName() {
         // given
-        String invalidCarName = "siu^^";
+        String invalidCarName = "i,am,siu^^";
 
         // when
         // then
@@ -50,7 +50,7 @@ class CarNameValidatorTest {
     @Test
     void validateCarNameLengthWithInvalidLength() {
         // given
-        String invalidCarName = "romero";
+        String invalidCarName = "romero,sully,hi";
 
         // when
         // then
