@@ -19,4 +19,8 @@ public class Cars {
     public Car findCarByIndex(int index) {
         return cars.get(index);
     }
+
+    public int size() {
+        return cars.size();
+    }
 }
