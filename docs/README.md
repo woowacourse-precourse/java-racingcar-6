@@ -99,3 +99,33 @@ classDiagram
 
 ```
 
+## sequence diagram
+```mermaid
+sequenceDiagram
+	actor 사용자
+	participant Application
+	participant GameManager
+	participant GameView
+	사용자->>+Application: 프로그램 시작
+	Application->>+GameManager: start()
+	GameManager->>+GameManager: getCars()
+	GameManager->>+GameView: readCarNames()
+	GameView-->>-GameManager: String
+	GameManager->>+Validator: validateCarNames(carNames: String)
+	Validator-->>-GameManager: 
+	GameManager-->>-GameManager: List<Car>
+	GameManager->>+GameManager: getNumberOfMoves()
+	GameManager->>+GameView: readNumberOfMoves()
+	GameView->>-GameManager: int
+	GameManager->>+Validator: validateNumberOfMoves()
+	Validator-->>-GameManager: 
+	GameManager-->>-GameManager: int
+	GameManager->>GameManager: moveCars(cars: List<Car>)
+	GameManager->>+GameView: printMoveResult(cars: List<Car>)
+	GameView-->>-GameManager: 
+	GameManager->>GameManager: getWinner(cars: List<Car>)
+	GameManager->>+GameView: printWinner(winners: List<Car>)
+	GameView-->>-GameManager: 
+	GameManager-->>-Application: 
+	Application-->>-사용자: 프로그램 종료
+```
