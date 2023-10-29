@@ -15,7 +15,7 @@ public class GameService {
     static long maxLocation;
 
     public static void run() {
-        printRacingCarInputForm();
+        printRacingCarNameInputForm();
         racingCars = createRacingCars();
 
         printTimesInputForm();
