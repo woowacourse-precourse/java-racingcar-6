@@ -19,6 +19,10 @@ public class Car {
         if (name.length() >= LIMIT_NAME_LENGTH) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_FIVE_UNDER);
         }
+
+        if (name.isEmpty() || name.isBlank()) {
+            throw new IllegalArgumentException("자동차의 이름은 공백이 불가능합니다.");
+        }
     }
 
     @Override
