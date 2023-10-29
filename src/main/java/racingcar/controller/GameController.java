@@ -25,7 +25,7 @@ public class GameController {
         Game game = new Game(cars);
         List<List<CarDistanceMessage>> carDistanceMessages = simulate(attempt, game);
 
-        sendProgressResults(carDistanceMessages);
+        sendCarDistanceMessages(carDistanceMessages);
         sendWinners(game);
 
     }
@@ -49,7 +49,7 @@ public class GameController {
         return carDistanceMessages;
     }
 
-    private void sendProgressResults(List<List<CarDistanceMessage>> results) {
+    private void sendCarDistanceMessages(List<List<CarDistanceMessage>> results) {
         outputView.printResultMessage();
         for (List<CarDistanceMessage> messages : results) {
             outputView.printCarDistanceMessages(messages);
