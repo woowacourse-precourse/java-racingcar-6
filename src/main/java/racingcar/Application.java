@@ -42,7 +42,11 @@ public class Application {
         }
         List<Car> carListAfterRacing = gameData.getCarList();
         gameData.sortCarListByRank(carListAfterRacing);
-        gameData.setWinnerList();
+
+        gameData.createWinnerList();
+        List<String> winnerList = gameData.getWinnerList();
+        List<Car> carListAfterSorting = gameData.getCarList();
+        gameData.pickWinners(winnerList, carListAfterSorting);
 
         view.printWinner(gameData.getWinnerList());
     }
