@@ -21,7 +21,7 @@ public class GetInputTest {
     }
 
     @Test
-    public void getMachineNamesThenLap() {
+    public void getMachineNamesThenRaceLapNumber() {
         Machines machines = new Machines();
         RaceLap raceLap = new RaceLap();
 

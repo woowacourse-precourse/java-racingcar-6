@@ -33,7 +33,7 @@ public class ShowMessageTest {
     }
 
     @Test
-    public void lapInstructionMessage() {
+    public void raceLapNumberInstructionMessage() {
         RaceLap raceLap = new RaceLap();
 
         raceLap.showMessage();
