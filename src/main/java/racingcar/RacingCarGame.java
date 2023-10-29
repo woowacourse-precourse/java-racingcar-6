@@ -1,6 +1,7 @@
 package racingcar;
 
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingCarGame {
     public void start() {
@@ -13,7 +14,7 @@ public class RacingCarGame {
     private void run() {
         // TODO: Car 생성
 
-        System.out.println("\n" + Constants.OUTPUT_GAME_RESULT);
+        OutputView.printGameResult();
 
         // TODO: Car 경주 실행
 
@@ -21,6 +22,6 @@ public class RacingCarGame {
     }
 
     private void exist() {
-        System.out.print(Constants.OUTPUT_GAME_WINNER);
+        OutputView.printGameWinner();
     }
 }
