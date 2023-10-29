@@ -78,7 +78,7 @@ public class Car {
 
     public void checkContainsConsecutiveCommas() {
         Pattern pattern = Pattern.compile(",,+");
-        Matcher matcher = pattern.matcher(stringCarList);
+        Matcher matcher = pattern.matcher(getStringCarList());
 
         if (matcher.find()) {
             throw new IllegalArgumentException("연속적인 쉼표가 발견되었습니다.");
