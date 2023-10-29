@@ -36,7 +36,7 @@
     - [x] 자동차의 현 위치를 알기 위한 getCarPosition 메서드
 ### Cars
 > Car의 정보를 토대로 차의 이동, 우승자 선출 등을 관리하는 클래스
-- [ ] Car 객체를 추가하고 담는 addCar 메서드
+- [x] Car 객체를 추가하고 담는 addCar 메서드
 - [ ] Util에서 받아온 정보를 통해 자동차를 정지 혹은 전진 시키는 메서드
 - [ ] 차의 주행 정보를 표현한 데이터를 전달 해주는 getCarPositionIcon 메서드
 - [ ] 차의 이름을 전달 해주는 getCarName 메서드
