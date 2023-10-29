@@ -14,4 +14,15 @@ public class UserInput {
 
         return input.split(",");
     }
+
+    public static int inputNumberOfGames() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = Console.readLine();
+
+        Validator.blankCheck(input);
+        Validator.countZeroCheck(input);
+        Validator.countNumericCheck(input);
+
+        return Integer.parseInt(input);
+    }
 }
