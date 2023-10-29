@@ -53,11 +53,30 @@ public class RacingcargameController {
     }
 
     private void manageRacingCarGame(int tryCount) {
+        Game game = setupRacingCarGame(tryCount);
+        playGameRound(game);
         printGameResults(game);
     }
+
+    private Game setupRacingCarGame(int tryCount) { // 게임 초기 상태 세팅
+        List<Car> cars = carRepository.findAll();
+        Game game = new Game(cars, tryCount);
+        gameFlowManagementService.saveGamestatus(game);
+        OutputView.showHeaderPrompt();
+        return game;
+    }
+
+    private void playGameRound(Game game) { // 차수별 경주를 진행
+        while (!gameFlowManagementService.roundIsFinished(game)) {
+            gameFlowManagementService.playRacingCarGameRound(game);
+            OutputView.showRoundResult(game.getCarList());
+        }
+    }
+
     private void printGameResults(Game game) { // 게임 결과 출력
         OutputView.showFinalWinners(gameFlowManagementService.getRoundWinnerCarNames(game));
     }
+
     //입력받을 자동차 이름과 시도 횟수에 대한 메서드
     private void saveCarNamesToRepo(List<String> carNames) {
         for (String carName : carNames) {
