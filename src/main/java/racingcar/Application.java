@@ -28,6 +28,10 @@ public class Application {
     }
 
     public static void findCarListError(String[] carList) {
+        if (carList.length < 2) {
+            throw new IllegalArgumentException();
+        }
+
         Set<String> uniqueCar = new HashSet<>();
         for (String s : carList) {
             if (s.length() > 5 || s.equals("") || !uniqueCar.add(s)) {
