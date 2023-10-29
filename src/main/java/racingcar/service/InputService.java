@@ -16,7 +16,7 @@ public class InputService {
 
 
     public static String[] convertToStringArray(String line) {
-        String[] carNames = line.split(CARS_SPLIT_JOIN_DELIMITER);
+        String[] carNames = line.split(CARS_SPLIT_DELIMITER);
 
         for (String carName : carNames)
             validateCarNameLength(carName);
