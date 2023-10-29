@@ -18,14 +18,18 @@ public class InputValidator {
     }
 
     public static void validateInputCarNameCharacter(final String input) {
-        long countNotString = Arrays.stream(input.split(""))
+        if (hasCharacterIsNotString(input)) {
+            throw new IllegalArgumentException(Constants.WRONG_INPUT_CAR_NAME_CHARACTER_MASSAGE);
+        }
+    }
+
+    private static boolean hasCharacterIsNotString(String input) {
+        int count = (int) Arrays.stream(input.split(""))
                 .filter(str -> !",".equals(str) && !" ".equals(str))
                 .filter(str -> str.charAt(0) < 'A' || str.charAt(0) > 'z')
                 .count();
 
-        if (countNotString > 0) {
-            throw new IllegalArgumentException(Constants.WRONG_INPUT_CAR_NAME_CHARACTER_MASSAGE);
-        }
+        return count > 0;
     }
 
     public static void validateInputCarNameLength(final String input) {
