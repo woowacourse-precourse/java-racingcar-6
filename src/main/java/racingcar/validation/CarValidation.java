@@ -1,6 +1,7 @@
 package racingcar.validation;
 
 import static racingcar.constant.MessageConst.DUPLICATE_MESSAGE;
+import static racingcar.constant.MessageConst.EMPTY_MESSAGE;
 import static racingcar.constant.MessageConst.LENGTH_MESSAGE;
 import static racingcar.constant.MessageConst.SPACE_MESSAGE;
 
@@ -39,5 +40,16 @@ public class CarValidation {
     private boolean hasCarNamesWithSpace(List<String> carNames) {
         return carNames.stream()
                 .anyMatch(carName -> carName.contains(" "));
+    }
+
+    public void validateCarNameEmpty(List<String> carNames) {
+        if (hasCarNamesWithEmpty(carNames)) {
+            throw new IllegalArgumentException(EMPTY_MESSAGE);
+        }
+    }
+
+    private boolean hasCarNamesWithEmpty(List<String> carNames) {
+        return carNames.stream()
+                .anyMatch(carName -> carName.isEmpty());
     }
 }
