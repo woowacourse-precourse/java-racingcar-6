@@ -1,5 +1,7 @@
 package racingcar.domain.car;
 
+import java.util.List;
+
 public class CarName {
 
     private static final int MAX_NAME_LENGTH = 5;
@@ -13,6 +15,12 @@ public class CarName {
     public static CarName from(String name) {
         validateMaxLength(name);
         return new CarName(name);
+    }
+
+    public static List<CarName> from(List<String> names) {
+        return names.stream()
+                .map(CarName::from)
+                .toList();
     }
 
     private static void validateMaxLength(String name) {

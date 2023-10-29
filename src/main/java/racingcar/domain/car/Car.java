@@ -1,5 +1,6 @@
 package racingcar.domain.car;
 
+import java.util.List;
 import racingcar.domain.numberpicker.RandomNumberPicker;
 
 public class Car {
@@ -16,6 +17,12 @@ public class Car {
 
     public static Car nameOf(CarName name) {
         return new Car(name, ForwardCount.defaultOf());
+    }
+
+    public static List<Car> namesOf(List<CarName> carNames) {
+        return carNames.stream()
+                .map(Car::nameOf)
+                .toList();
     }
 
     public void moveForward(RandomNumberPicker randomNumberPicker) {
