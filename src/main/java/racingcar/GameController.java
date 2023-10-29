@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.RacingCars;
+import racingcar.domain.WootecoEngine;
 import racingcar.service.OneGameResultDto;
 import racingcar.service.RacingGameService;
 import racingcar.view.Input;
@@ -35,7 +36,7 @@ public class GameController {
         String carNamesInput = input.inputCarNames();
         Validator.validate(carNamesInput);
         List<String> carNames = GameUtil.splitByCommas(carNamesInput);
-        return new RacingCars(carNames);
+        return new RacingCars(carNames, new WootecoEngine());   // TODO: 컨트롤러에서 엔진을 설정하는게 마음에 안듦
     }
 
     private long chooseAttemptCounts() {
