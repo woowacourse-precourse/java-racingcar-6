@@ -14,22 +14,20 @@ public class Car {
     private Integer moveCount;
 
     public Car(String name) throws IllegalArgumentException {
-        if (!validateNameLength(name)) {
-            throw new IllegalArgumentException("자동차 이름은 "
-                    + MIN_NAME_LENGTH + "글자 이상 "
-                    + MAX_NAME_LENGTH + "글자 이하여야 합니다.");
-        }
-
+        validateNameLength(name);
         this.moveCount = 0;
         this.name = name;
     }
 
-    private boolean validateNameLength(String name) {
-        if (Objects.isNull(name))
-            return false;
-        if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH)
-            return false;
-        return true;
+    private void validateNameLength(String name) {
+        if (Objects.isNull(name)) {
+            throw new IllegalArgumentException("자동차 이름은 NULL이 될 수 없습니다.");
+        }
+        if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException("자동차 이름은 "
+                    + MIN_NAME_LENGTH + "글자 이상 "
+                    + MAX_NAME_LENGTH + "글자 이하여야 합니다.");
+        }
     }
 
     public void tryToMove() {
