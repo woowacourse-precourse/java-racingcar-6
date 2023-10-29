@@ -70,12 +70,15 @@ public class Race {
     private void printResult() {
         System.out.print("최종 우승자 : ");
 
-        List<Car> winnerCars = findWinnerCars(findMaxForwardCount());
+        List<Car> winnerCars = findWinnerCars();
 
         Car.printWinnerCars(winnerCars);
     }
 
-    private List<Car> findWinnerCars(int maxForwardCount) {
+    private List<Car> findWinnerCars() {
+
+        int maxForwardCount = findMaxForwardCount();
+
         return cars.stream()
                 .filter(car -> car.isEqualForwardCount(maxForwardCount))
                 .toList();
