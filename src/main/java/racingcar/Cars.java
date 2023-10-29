@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -30,5 +31,18 @@ public class Cars {
 
     public List<String> splitAndConvertToList(String input, String delimiter) {
         return Arrays.asList(input.split(delimiter));
+    }
+
+    public void moveAll(){
+        for(Car car : cars){
+            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            car.move(randomNumber);
+        }
+    }
+
+    public void printCarPositions(){
+        for(Car car : cars){
+            car.printStatus();
+        }
     }
 }

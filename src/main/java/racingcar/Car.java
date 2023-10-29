@@ -23,4 +23,17 @@ public class Car {
     public Integer getPosition() {
         return position;
     }
+
+    public void move(Integer randomNumber){
+        if(randomNumber >= 4)
+            this.position++;
+    }
+
+    public void printStatus(){
+        System.out.print(this.name + " : ");
+        for(int i=0; i<this.position; i++){
+            System.out.print("-");
+        }
+        System.out.println();
+    }
 }
