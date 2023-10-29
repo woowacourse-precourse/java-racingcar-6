@@ -2,7 +2,6 @@ package racingcar.controller;
 
 import java.util.stream.IntStream;
 import racingcar.model.RacingCarGameModel;
-import racingcar.model.RacingCarPlayerModel;
 import racingcar.view.RacingCarGameView;
 import racingcar.view.RacingCarPlayerView;
 
@@ -32,7 +31,6 @@ public class RacingCarGameController{
                 this.movePlayers();
                 this.racingCarPlayerView.printPlayersPosition(this.racingCarGameModel.getPlayers());
             });
-        this.racingCarGameModel.setWinners();
     }
 
     private void endGame() {

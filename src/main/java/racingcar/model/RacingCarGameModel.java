@@ -5,14 +5,10 @@ import java.util.List;
 
 public class RacingCarGameModel {
     private List<RacingCarPlayerModel> players;
-
-    private List<RacingCarPlayerModel> winners;
-
     private int tryCount;
 
     public RacingCarGameModel() {
         this.players = new ArrayList<>();
-        this.winners = new ArrayList<>();
     }
 
     public void setPlayers(List<RacingCarPlayerModel> players){
@@ -21,15 +17,6 @@ public class RacingCarGameModel {
 
     public void setTryCount(int tryCount){
         this.tryCount = tryCount;
-    }
-
-    public void setWinners(){
-        int maxPosition = this.getMaxPosition();
-        this.players.forEach(player -> {
-            if(player.getCurrentPosition() == maxPosition){
-                this.winners.add(player);
-            }
-        });
     }
 
     public int getMaxPosition(){
@@ -49,6 +36,7 @@ public class RacingCarGameModel {
     }
 
     public List<RacingCarPlayerModel> getWinners(){
-        return this.winners;
+        int maxPosition = this.getMaxPosition();
+        return this.players.stream().filter(player -> player.getCurrentPosition() == maxPosition).toList();
     }
 }
