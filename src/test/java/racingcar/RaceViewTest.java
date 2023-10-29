@@ -41,7 +41,6 @@ public class RaceViewTest {
         String input = "5";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
-
         String result = view.getAttemptInput();
 
         assertEquals(input, result);

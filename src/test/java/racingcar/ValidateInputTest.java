@@ -98,4 +98,19 @@ public class ValidateInputTest {
         assertThatThrownBy(() -> Application.validateCarListInput(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void validateNumber_유효성검사_성공_테스트() {
+        String input = "32";
+
+        Application.validateNumber(input);
+    }
+
+    @Test
+    void validateNumber_유효성검사_실패_테스트() {
+        String input = "red";
+
+        assertThatThrownBy(() -> Application.validateNumber(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
