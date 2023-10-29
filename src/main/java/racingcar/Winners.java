@@ -17,7 +17,7 @@ public class Winners {
         return winners.size();
     }
 
-    public void addWinners(String winner) {
+    public void addWinner(String winner) {
         winners.add(winner);
     }
 

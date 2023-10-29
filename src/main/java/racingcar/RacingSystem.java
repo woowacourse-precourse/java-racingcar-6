@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,12 +14,34 @@ public class RacingSystem {
     private static final String SEPARATOR = ",";
     private static final int MAX_COUNT = 5;
     private static final String NUMBER_REGEX = "^[0-9]*$";
+    private static final int MIN_NUMBER = 0;
+    private static final int MAX_NUMBER = 9;
 
     private List<Car> cars = new ArrayList<>();
     private Winners winners = new Winners();
     private int cnt = 0;
 
     public RacingSystem() {
+    }
+
+    public void racingStart() {
+        while (winners.getWinnersCount() == 0) {
+            for(Car car : cars) {
+                int random = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
+                car.go(random);
+                getWinner(car.getName(), car.getPosition());
+            }
+        }
+    }
+
+    private void getWinner(String name, int position) {
+        if(position == cnt) {
+            winners.addWinner(name);
+        }
+    }
+
+    public Winners getWinners() {
+        return winners;
     }
 
     public void inputCarName() {

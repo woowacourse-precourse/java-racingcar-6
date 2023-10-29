@@ -4,8 +4,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private static final int STANDARD_NUMBER = 4;
-    private static final int MIN_NUMBER = 0;
-    private static final int MAX_NUMBER = 9;
 
     private final String name;
     private int position = 0;
