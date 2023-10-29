@@ -8,7 +8,8 @@ public enum ConstantNumber {
     MOVE_DISTANCE(1),
     MIN_ATTEMPTS(1),
     DEFAULT_MAX_MOVE_COUNT(0),
-    INITIAL_MOVE_COUNT(0);
+    INITIAL_MOVE_COUNT(0),
+    MIN_RACE_CAR_COUNT(2);
 
     private final int value;
 

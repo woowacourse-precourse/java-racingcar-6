@@ -15,6 +15,7 @@ public class Cars {
 
     public Cars(String carNames) {
         List<String> carNameList = splitCarNames(carNames);
+        NameValidator.isCarCountLessThanTwo(carNameList);
         NameValidator.isNameDuplicate(carNameList);
         carNameList.forEach(carName -> carsList.add(new Car(carName)));
     }
