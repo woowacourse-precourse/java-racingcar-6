@@ -9,9 +9,9 @@ import static racingcar.RacingGameController.createRacingCars;
 
 import racingcar.model.Cars;
 import racingcar.view.RacingGameView;
-public class RacingGame {
+public class RacingGameManager {
     private final RacingGameView racingGameView = new RacingGameView();
-    public RacingGame(){
+    public RacingGameManager(){
 
     }
 
@@ -43,7 +43,6 @@ public class RacingGame {
 
     public void displayGameResult(Cars cars){
         List<String> winners = RacingGameController.getWinner(cars);
-        racingGameView.printGameResultMessage();
-        System.out.println(String.join(", ", winners));
+        racingGameView.printGameResultMessage(winners);
     }
 }
