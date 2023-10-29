@@ -17,6 +17,12 @@ public class Game {
         this.cars = CarListCreator.createCarsList(splitCarNames);
     }
 
+    public Game(String carNames, NumberGenerator numberGenerator) {
+        String[] splitCarNames = splitCarNames(carNames);
+        CarNameValidator.validateCarNames(splitCarNames);
+        this.cars = CarListCreator.createCarsList(splitCarNames, numberGenerator);
+    }
+
     private static String[] splitCarNames(String carNames) {
         return carNames.split(NAME_DELIMITER);
     }
