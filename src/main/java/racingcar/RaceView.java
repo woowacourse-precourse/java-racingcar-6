@@ -17,6 +17,17 @@ public class RaceView {
     public void printWinners(List<Car> winners) {
         String winnerNames = winners.stream().map(Car::getName)
                 .collect(Collectors.joining(", "));
-        System.out.printf("최종 우승자 : %s%n", winnerNames);
+        System.out.printf("최종 우승자 : %s\n", winnerNames);
+    }
+
+    public void printProgress(List<Car> carList) {
+        StringBuilder sb = new StringBuilder();
+        for (Car car : carList) {
+            String name = car.getName();
+            String progress = "-".repeat(car.getPosition());
+            sb.append(String.format("%s : %s%n", name, progress));
+        }
+        sb.append('\n');
+        System.out.print(sb);
     }
 }

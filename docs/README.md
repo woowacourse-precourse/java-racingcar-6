@@ -57,7 +57,7 @@
   - 랜덤 0~9 사이 무작위 수를 생성한다
 
 ## 각 수행 횟수에 결과 출력 기능
-- [ ] RaceView : `printRaceProgress` 메서드
+- [x] RaceView : `printProgress` 메서드
   - CarList 객체를 인수로 받아 현재 각 자동차들의 위치 출력
 
 ## 우승자 출력
