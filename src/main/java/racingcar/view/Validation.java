@@ -7,7 +7,7 @@ import java.util.Set;
 public class Validation {
 
     private static boolean hasValidContent(List<String> names) {
-        return names.stream().noneMatch(name -> name.trim().isEmpty());
+        return !names.isEmpty() && names.stream().noneMatch(name -> name.trim().isEmpty());
     }
 
     private static boolean hasValidLength(List<String> names, int max) {
