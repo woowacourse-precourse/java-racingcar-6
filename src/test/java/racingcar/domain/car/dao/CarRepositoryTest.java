@@ -70,6 +70,36 @@ class CarRepositoryTest {
             assertThat(carWithMaxPosition.get(0).getName()).isEqualTo("secondCar");
             assertThat(carWithMaxPosition.get(0).getPosition()).isEqualTo(4);
         }
+
+        @Test
+        @DisplayName("가장 많이 움직인 Car 객체가 여럿일 경우 함께 읽어와야 한다")
+        public void 가장_많이_움직인_Car_객체가_여럿일_경우_함께_읽어와야_한다() {
+            CarRepository carRepository = new CarRepository();
+            Car firstCar = Mockito.mock(Car.class);
+            Car secondCar = Mockito.mock(Car.class);
+            Car thirdCar = Mockito.mock(Car.class);
+
+            when(firstCar.getName()).thenReturn("firstCar");
+            when(secondCar.getName()).thenReturn("secondCar");
+            when(thirdCar.getName()).thenReturn("thirdCar");
+
+            when(firstCar.getPosition()).thenReturn(3);
+            when(secondCar.getPosition()).thenReturn(4);
+            when(thirdCar.getPosition()).thenReturn(4);
+
+            carRepository.save(firstCar);
+            carRepository.save(secondCar);
+            carRepository.save(thirdCar);
+
+            List<Car> carWithMaxPosition = carRepository.findCarWithMaxPosition();
+
+            assertThat(carWithMaxPosition.size()).isEqualTo(2);
+            assertThat(carWithMaxPosition.get(0).getName()).isEqualTo("secondCar");
+            assertThat(carWithMaxPosition.get(1).getName()).isEqualTo("thirdCar");
+            assertThat(carWithMaxPosition.get(0).getPosition()).isEqualTo(4);
+            assertThat(carWithMaxPosition.get(1).getPosition()).isEqualTo(4);
+        }
+
     }
 
 
