@@ -47,8 +47,8 @@
   - ❌ 입력한 수에 맞춰 '-' 문자열을 반환
   - 
 ## ❌ 입력한 수 검증
-- ❌ validateInputIsNumber  메서드 구현
-  - ❌ 입력한 수가 숫자가 맞는지 검증
+- ✅ validateInputIsNumber  메서드 구현
+  - ✅ 입력한 수가 숫자가 맞는지 검증
   - 만족하지 않으면 <mark>IllegalArgumentException</mark> 예외 발생
 - ❌ validateNameInput  메서드 구현
   - ❌ 입력한 자동차들의 이름이 규칙에 맞게 잘 입력 됐는지 검증
