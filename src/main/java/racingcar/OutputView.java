@@ -10,6 +10,6 @@ public class OutputView {
     }
 
     public static void printFinalWinner() {
-        System.out.println(FINAL_WINNER_MESSAGE);
+        System.out.print(FINAL_WINNER_MESSAGE);
     }
 }
