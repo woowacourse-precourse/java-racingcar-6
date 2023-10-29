@@ -1,12 +1,12 @@
 package racingcar.View;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static racingcar.View.OutPutView.showFinalWinner;
-import static racingcar.View.OutPutView.showRoundResult;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.List;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.Domain.CarGroup;
@@ -24,11 +24,11 @@ class OutPutViewTest {
         PrintStream standardOut = System.out;
         ByteArrayOutputStream captor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(captor));
-
+        OutPutView outPutView = new OutPutView();
 
         //when
         CarGroup carGroup = CarGroup.of(carList);
-        showRoundResult(carGroup);
+        outPutView.showRoundResult(carGroup);
 
         //then
         System.setOut(standardOut);
@@ -46,10 +46,11 @@ class OutPutViewTest {
         PrintStream standardOut = System.out;
         ByteArrayOutputStream captor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(captor));
+        OutPutView outPutView = new OutPutView();
 
         //when
         CarGroup carGroup = CarGroup.of(carList);
-        showFinalWinner(carGroup);
+        outPutView.showFinalWinner(carGroup);
 
         //then
         System.setOut(standardOut);
@@ -67,10 +68,11 @@ class OutPutViewTest {
         PrintStream standardOut = System.out;
         ByteArrayOutputStream captor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(captor));
+        OutPutView outPutView = new OutPutView();
 
         //when
         CarGroup carGroup = CarGroup.of(carList);
-        showFinalWinner(carGroup);
+        outPutView.showFinalWinner(carGroup);
 
         //then
         System.setOut(standardOut);

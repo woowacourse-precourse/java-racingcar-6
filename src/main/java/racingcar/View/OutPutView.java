@@ -5,14 +5,14 @@ import racingcar.Domain.CarGroup;
 
 public class OutPutView {
 
-    public static void showRoundResult(CarGroup carGroup) {
+    public void showRoundResult(CarGroup carGroup) {
         for (int order = 1; order <= carGroup.findSize(); order++) {
             Car findCar = carGroup.findCarByOrder(order);
             System.out.println(findCar.findName() + " : " + makeIndividualResult(findCar.findPosition()));
         }
     }
 
-    public static void showFinalWinner(CarGroup carGroup) {
+    public void showFinalWinner(CarGroup carGroup) {
         CarGroup finalWinners = carGroup.findFinalWinner();
         System.out.print("최종 우승자 : ");
         for (int order = 1; order <= finalWinners.findSize(); order++) {
@@ -25,7 +25,7 @@ public class OutPutView {
     }
 
 
-    public static String makeIndividualResult(Integer position) {
+    public String makeIndividualResult(Integer position) {
         return "-".repeat(Math.max(0, position));
     }
 }

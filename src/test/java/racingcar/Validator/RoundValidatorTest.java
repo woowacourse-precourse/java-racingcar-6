@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 
 class RoundValidatorTest {
 
+    private final RoundValidator RoundValidator = new RoundValidator();
     @Test
     @DisplayName("시도 횟수가 문자열이 아닌지 검증")
     void isNotString() {

@@ -1,8 +1,6 @@
 package racingcar.View;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static racingcar.View.InputView.getCarName;
-import static racingcar.View.InputView.getNumberOfRound;
 
 import java.io.ByteArrayInputStream;
 import org.junit.jupiter.api.DisplayName;
@@ -16,9 +14,10 @@ class InputViewTest {
         //given
         String testCarNames = "test1,test2,test3";
         System.setIn(new ByteArrayInputStream(testCarNames.getBytes()));
+        InputView inputView = new InputView();
 
         //when
-        String result = getCarName();
+        String result = inputView.getCarName();
 
         //then
         assertEquals("test1,test2,test3", result);
@@ -30,9 +29,10 @@ class InputViewTest {
         //given
         String testNumberOfRound = "5";
         System.setIn(new ByteArrayInputStream(testNumberOfRound.getBytes()));
+        InputView inputView = new InputView();
 
         //when
-        String result = getNumberOfRound();
+        String result = inputView.getNumberOfRound();
 
         //then
         assertEquals("5", result);

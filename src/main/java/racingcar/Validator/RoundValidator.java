@@ -8,19 +8,19 @@ import racingcar.Exception.GameException.RoundException;
 
 public class RoundValidator {
 
-    public static void isNotString(String round) {
-        if (round.matches(".*[^0-9].*")) {
+    public void isNotString(String round) {
+        if (round.matches(".*\\D.*")) {
             throw new RoundException(STRINGPROMPT.getMessage(round));
         }
     }
 
-    public static void isNotRealNumber(String round) {
+    public void isNotRealNumber(String round) {
         if (round.contains(".")) {
             throw new RoundException(REALNUMBERPROMPT.getMessage(round));
         }
     }
 
-    public static void isValidRange(String round) {
+    public void isValidRange(String round) {
         if (Integer.parseInt(round) <= 0) {
             throw new RoundException(RANGEPROMPT.getMessage(round));
         }

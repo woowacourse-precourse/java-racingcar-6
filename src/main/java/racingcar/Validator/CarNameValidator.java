@@ -14,7 +14,7 @@ import java.util.Set;
 import racingcar.Exception.GameException.CarNameException;
 
 public class CarNameValidator {
-    public static void isValidLength(String carName) {
+    public void isValidLength(String carName) {
         Integer minLengthValue = (Integer) MIN_LENGTH.getValue();
         Integer maxLengthValue = (Integer) MAX_LENGTH.getValue();
 
@@ -23,13 +23,13 @@ public class CarNameValidator {
         }
     }
 
-    public static void hasWhiteSpace(String carName) {
+    public void hasWhiteSpace(String carName) {
         if (carName.contains(INVALID_CHARACTER.getValue().toString())) {
             throw new CarNameException(WHITESPACEMESSAGE.getMessage(carName));
         }
     }
 
-    public static void hasDuplicateName(List<String> carNames) {
+    public void hasDuplicateName(List<String> carNames) {
         Set<String> uniqueSet = new HashSet<>(carNames);
         List<String> duplicates = new ArrayList<>();
 
