@@ -3,7 +3,6 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Util {
-
     public static int getRandomSingleDigit(){
         return Randoms.pickNumberInRange(0,9);
     }

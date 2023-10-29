@@ -3,7 +3,6 @@ package racingcar.IO;
 import camp.nextstep.edu.missionutils.Console;
 
 public class ConsoleInputOutputHelper extends InputOutputHelper{
-
     @Override
     public String input() {
         return Console.readLine();

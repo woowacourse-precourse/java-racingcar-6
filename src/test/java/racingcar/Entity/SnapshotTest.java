@@ -8,7 +8,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 
 class SnapshotTest {
-
     @Test
     void printSnapshot_메서드_정상출력_테스트() {
         int tryCount = 3;

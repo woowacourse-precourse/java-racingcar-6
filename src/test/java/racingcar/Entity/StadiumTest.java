@@ -9,7 +9,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class StadiumTest {
-
     @Test
     void saveInputCars_메서드_사용시_5자이상_이름입력_예외() {
         Stadium stadium = new Stadium();

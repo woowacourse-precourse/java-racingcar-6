@@ -11,7 +11,6 @@ public class Stadium {
     private int tryCount;
     private final InputOutputHelper ioHelper;
 
-
     public Stadium() {
          ioHelper = Config.getSystemIOHelper();
     }
@@ -48,7 +47,6 @@ public class Stadium {
         if (count < 0) {
             throw new IllegalArgumentException("음이 아닌 숫자만 입력해야 한다.");
         }
-
         this.tryCount = count;
     }
 
