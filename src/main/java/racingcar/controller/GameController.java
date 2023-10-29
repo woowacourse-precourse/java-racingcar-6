@@ -43,8 +43,7 @@ public class GameController {
 
     private List<List<CarDistanceMessage>> simulate(Attempt attempt, Game game) {
         List<List<CarDistanceMessage>> carDistanceMessages = new ArrayList<>();
-        while (attempt.isExist()) {
-            attempt.decrease();
+        for (; attempt.isExist(); attempt.decrease()) {
             carDistanceMessages.add(game.simulate());
         }
         return carDistanceMessages;
