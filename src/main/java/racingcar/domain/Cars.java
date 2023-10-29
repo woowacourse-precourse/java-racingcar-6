@@ -2,8 +2,7 @@ package racingcar.domain;
 
 import racingcar.dto.CarDto;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Cars {
 
@@ -11,10 +10,26 @@ public class Cars {
 
     public Cars(String inputNames) {
 
-        String[] names = inputNames.split(",");
+        String[] names = Arrays.stream(inputNames.split(","))
+                .map(String::trim)
+                .toArray(String[]::new);
+
+        validateDuplicateName(names);
+
         cars = Arrays.stream(names)
                 .map(name -> new Car(name))
                 .toList();
+    }
+
+    private void validateDuplicateName(String[] names) {
+
+        Set<String> notDuplicateNames = new HashSet<>();
+        Arrays.stream(names)
+                .forEach(name -> notDuplicateNames.add(name));
+
+        if(notDuplicateNames.size() != names.length) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public void play() {
