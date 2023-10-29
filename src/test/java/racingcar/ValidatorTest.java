@@ -31,4 +31,28 @@ class ValidatorTest {
         // then
         Assertions.assertThat(result).isFalse();
     }
+
+    @Test
+    void 입력한_숫자가_양의_정수인지_검증_성공_케이스() {
+        // given
+        String input = "5";
+
+        // when
+        boolean result = isPositiveInteger(input);
+
+        // then
+        Assertions.assertThat(result).isTrue();
+    }
+
+    @Test
+    void 입력한_숫자가_양의_정수인지_검증_실패_케이스() {
+        // given
+        String input = "-7";
+
+        // when
+        boolean result = isPositiveInteger(input);
+
+        // then
+        Assertions.assertThat(result).isFalse();
+    }
 }
