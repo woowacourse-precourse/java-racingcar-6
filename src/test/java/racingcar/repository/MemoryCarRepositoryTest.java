@@ -2,6 +2,8 @@ package racingcar.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.List;
+import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 
@@ -37,5 +39,48 @@ public class MemoryCarRepositoryTest {
         assertThat(result1.getId()).isEqualTo(1L);
         assertThat(result2.getId()).isEqualTo(2L);
     }
-    //TODO: get~~(getPosition)같은것을 쓸경우 이거를 위한 테스트 따로하기(위치 이동시킨다음  위치값 저장 잘되는지)
+
+    @Test
+    public void Car_Id로_객체찾기() {
+        //given
+        final Car car1 = Car.create("car1");
+
+        //when
+        memoryCarRepository.save(car1);
+        final Optional<Car> findResult = memoryCarRepository.findById(1L);
+
+        //then
+        assertThat(findResult.isPresent()).isTrue(); // Optional이 존재해야 함
+        assertThat(findResult.get()).isEqualTo(car1);
+    }
+
+    @Test
+    public void Car_Name으로_객체찾기() {
+        //given
+        final Car car1 = Car.create("car1");
+
+        //when
+        memoryCarRepository.save(car1);
+        final Optional<Car> findResult = memoryCarRepository.findByName("car1");
+
+        //then
+        assertThat(findResult.isPresent()).isTrue();
+        assertThat(findResult.get()).isEqualTo(car1);
+    }
+
+    @Test
+    public void 모든Car객체반환() {
+        //given
+        final Car car1 = Car.create("car1");
+        final Car car2 = Car.create("car2");
+
+        //when
+        memoryCarRepository.save(car1);
+        memoryCarRepository.save(car2);
+        List<Car> carList = memoryCarRepository.findAll();
+
+        //then
+        assertThat(carList.size()).isEqualTo(2);
+    }
+
 }
