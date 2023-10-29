@@ -93,9 +93,6 @@ public class Application {
         int times = inputNumber();
 
         startRacing(names, times);
-//
-//        for(String s : names)
-//            System.out.println(s);
 
     }
 }
