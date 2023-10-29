@@ -81,8 +81,8 @@ public class Game {
 				maxIndices.add(i);
 			}
 		}
-		return maxIndices;
 
+		return maxIndices;
 	}
 
 	private String pickWinner() {
