@@ -19,7 +19,7 @@ public class Car {
     }
 
     private int startEngine() {
-        return engine.generateRandomNumber();
+        return engine.generateNumber();
     }
 
     private boolean canMove(int power) {
