@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import racingcar.dto.CarDto;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,44 +12,34 @@ public class Cars {
     }
 
     public void moveUsingRandomNumber(NumberGenerator numberGenerator) {
-        for (Car car : this.cars) {
-            car.moveUsingRandomNumber(numberGenerator);
-        }
+        this.cars.stream()
+                .forEach(car -> car.moveUsingRandomNumber(numberGenerator));
     }
 
     public List<Car> findWinner() {
-
-        validateEmpty();
 
         Car leadCar = findLeadCar();
 
         return findAllLeadCar(leadCar);
     }
 
-    private void validateEmpty() {
-        if (this.cars.isEmpty()) {
-            throw new IllegalArgumentException("[Error] 자동차가 한대도 없습니다.");
-        }
-    }
-
     private Car findLeadCar() {
-        Car leadCar = this.cars.get(0);
-        for (Car car : this.cars) {
-            if (car.isFrontOf(leadCar)) {
-                leadCar = car;
-            }
-        }
-        return leadCar;
+        return this.cars.stream()
+                .reduce(this::compareCars)
+                .orElseThrow(() -> new IllegalArgumentException("[Error] 자동차가 한대도 없습니다."));
     }
 
     private List<Car> findAllLeadCar(Car leadCar) {
-        List<Car> leadCars = new ArrayList<>();
-        for (Car car : this.cars) {
-            if (car.isSamePosition(leadCar)) {
-                leadCars.add(car);
-            }
+        return this.cars.stream()
+                .filter(car -> car.isSamePosition(leadCar))
+                .collect(Collectors.toList());
+    }
+
+    private Car compareCars(Car leadCar, Car currentCar) {
+        if (currentCar.isFrontOf(leadCar)) {
+            return currentCar;
         }
-        return leadCars;
+        return leadCar;
     }
 
     public List<CarDto> toDtos() {
@@ -58,4 +47,5 @@ public class Cars {
                 .map(Car::toDto)
                 .collect(Collectors.toList());
     }
+
 }
