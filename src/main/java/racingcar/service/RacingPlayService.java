@@ -5,17 +5,13 @@ import static racingcar.enums.Integers.RANDOM_NUMBER_MAX;
 import static racingcar.enums.Integers.RANDOM_NUMBER_MIN;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.List;
-import java.util.stream.Collectors;
-import racingcar.domain.Car;
-import racingcar.repository.CarRepository;
 
 public class RacingPlayService {
 
-    CarRepository carRepository = CarRepository.getInstance();
+
 
     public void playRacing() {
-        carRepository.findAll();
+
 
     }
 
