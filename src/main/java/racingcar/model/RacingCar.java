@@ -15,7 +15,7 @@ public class RacingCar {
     /**
      * 라운드를 진행한다.
      */
-    public void excuteRound() {
+    public void executeRound() {
         boolean movable = isMovable();
         if (movable) {
             moveForward();

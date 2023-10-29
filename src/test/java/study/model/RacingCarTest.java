@@ -14,7 +14,7 @@ class RacingCarTest {
 
         // when
         for (int i = 0; i < 5; i++) {
-            racingCar.excuteRound();
+            racingCar.executeRound();
         }
         int distance = racingCar.getDistance();
 
