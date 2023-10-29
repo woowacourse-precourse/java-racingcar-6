@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class CarList {
 
@@ -18,8 +19,10 @@ public class CarList {
         }
     }
 
-    public Map<String, Integer> getCarList() {
-        return carList;
+    public String[] getCarNameList() {
+        Set<String> keySet = carList.keySet();
+        int arrSize = carList.size();
+        return keySet.toArray(new String[arrSize]);
     }
 
     public void moveForward(String carName) {
