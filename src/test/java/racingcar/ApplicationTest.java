@@ -54,6 +54,28 @@ class ApplicationTest extends NsTest {
         }
     }
 
+    @Test
+    void 입력값이_숫자인지_확인() {
+        String input = "12345";
+        int num = Application.validNum(input);
+        assertThat(num).isEqualTo(12345);
+    }
+
+    @Test
+    void 입력값이_숫자가_아닌_경우_예외처리() {
+        String input1 = ".";
+        assertThatThrownBy(() -> Application.validNum(input1))
+                .isInstanceOf(IllegalArgumentException.class);
+
+        String input2 = "12?";
+        assertThatThrownBy(() -> Application.validNum(input2))
+                .isInstanceOf(IllegalArgumentException.class);
+
+        String input3 = "test";
+        assertThatThrownBy(() -> Application.validNum(input3))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
