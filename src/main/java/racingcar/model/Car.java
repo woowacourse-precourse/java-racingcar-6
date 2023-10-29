@@ -51,7 +51,6 @@ public class Car {
                 winners.add(names.get(i));
             }
         }
-        System.out.println(winners);
     }
 
     public int getWinnersSize() {
