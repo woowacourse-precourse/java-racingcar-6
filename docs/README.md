@@ -5,3 +5,8 @@
 - 잘못된 입력시 IllegalArgumentException 발생
     - 이름은 1글자 이상 5글자 이하 가능
     - 이름의 시작은 공백 불가
+
+## 시도 횟수를 입력 받습니다.
+- 문구: 시도할 회수는 몇회인가요?
+- 잘못된 입력시 IllegalArgumentException 발생
+  - 자연수만 입력 가능
