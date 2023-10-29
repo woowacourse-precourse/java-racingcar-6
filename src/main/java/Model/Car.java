@@ -25,20 +25,12 @@ public class Car {
         return true;
     }
 
-    public void printCarName() {
-        System.out.print(carName.getCarName());
+    public String getName() {
+        return carName.getCarName();
     }
 
-    public void printCarPosition() {
-        int position = carPosition.getCarPosition();
-        for (int i = 1; i <= position; i++) {
-            System.out.print('-');
-        }
-        System.out.println();
-    }
-
-    public CarPosition getPosition() {
-        return carPosition;
+    public int getPosition() {
+        return carPosition.getCarPosition();
     }
 
 

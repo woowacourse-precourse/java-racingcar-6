@@ -5,6 +5,8 @@ import java.util.Objects;
 public class TryCount {
     private String tryCount;
 
+    public TryCount() {}
+
     public TryCount(String tryCount) {
         this.tryCount = tryCount;
     }
@@ -13,7 +15,7 @@ public class TryCount {
         return tryCount.matches("\\d+");
     }
 
-    public int changeToInteger() {
+    public int parseInt() {
         return Integer.parseInt(tryCount);
     }
 

@@ -11,7 +11,7 @@ public class RaceCarNames {
         this.raceCarNames = raceCarNames;
     }
 
-    public List<String> parseCarNamesFromRaceCarInput() {
+    public List<String> parseCarNamesFromInput() {
         return Arrays.asList(raceCarNames.split(","));
     }
 
