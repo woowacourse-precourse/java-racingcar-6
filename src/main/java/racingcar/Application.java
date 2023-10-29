@@ -9,6 +9,7 @@ import java.util.List;
 public class Application {
     private static List<String> carNames = new ArrayList<>();
     private static int carMovingCount;
+    private static List<Integer> carMovings = new ArrayList<>();
 
     private static void displayStartText() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
@@ -33,13 +34,26 @@ public class Application {
         return Randoms.pickNumberInRange(0, 9);
     }
 
+    private static int decideGoAndStop() {
+        if (randomPickingNumberZeroToNine() >= 4) {
+            return 1;
+        }
+        return 0;
+    }
+
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         displayStartText();
+
         inputCarMovingCount();
+
         inputCarNames();
         for (int i = 0; i < carNames.size(); i++) {
             isNameLengthOverFive(carNames.get(i));
+        }
+
+        for (int i = 0; i < carNames.size(); i++) {
+            carMovings.add(0);
         }
     }
 }
