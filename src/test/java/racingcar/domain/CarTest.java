@@ -27,15 +27,10 @@ public class CarTest {
     void move_이동이_이루어졌는지_확인() {
 
         Car car = new Car("foo");
-        CarDistanceMessage before = car.createCarDistanceMessage();
 
         car.move();
-        CarDistanceMessage after = car.createCarDistanceMessage();
 
-        assertAll(
-                () -> assertNotEquals(before.toString(), after.toString()),
-                () -> Assertions.assertThat(after.toString()).contains("-")
-        );
+        assertNotEquals(0, (int) car.getDistance());
 
     }
 
