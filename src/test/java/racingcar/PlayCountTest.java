@@ -5,6 +5,8 @@ import static racingcar.ExceptionMessage.PLAY_COUNT_VALUE_EXCEPTION;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.model.PlayCount;
 
 public class PlayCountTest {
@@ -15,21 +17,12 @@ public class PlayCountTest {
         PlayCount count = PlayCount.from("5");
     }
 
-    @Test
-    void 횟수는_음수일_수_없다() {
+    @ParameterizedTest
+    @ValueSource(strings = {"-3", "abc"})
+    void 횟수는_음수거나_일반_문자면_안된다(final String value) {
         // given & when
         Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-           PlayCount count = PlayCount.from("-3");
-        });
-        // then
-        assertThat(exception.getMessage()).isEqualTo(PLAY_COUNT_VALUE_EXCEPTION.toString());
-    }
-
-    @Test
-    void 횟수는_숫자여야_한다() {
-        // given & when
-        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            PlayCount count = PlayCount.from("abc");
+           PlayCount count = PlayCount.from(value);
         });
         // then
         assertThat(exception.getMessage()).isEqualTo(PLAY_COUNT_VALUE_EXCEPTION.toString());
