@@ -11,9 +11,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DisplayName("Computer 도메인 테스트")
 class ComputerTest {
 
-    @DisplayName("사용자가 입력한 이름들로 자동차를 생성한다.")
     @Test
-    void generateCars() throws Exception {
+    void 사용자가_입력한_이름으로_자동차_생성() throws Exception {
         // given
         Computer computer = new Computer();
 
