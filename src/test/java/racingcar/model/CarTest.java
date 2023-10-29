@@ -14,8 +14,6 @@ import racingcar.fixture.FixtureNumberGenerator;
 
 class CarTest {
 
-    private static final String ANONYMOUS_NAME = "name";
-    private static final int ANONYMOUS_POSITION = 5;
     private static final int MOVE_THRESHOLD = 4;
 
 
@@ -23,28 +21,28 @@ class CarTest {
     @ParameterizedTest(name = "생성된 랜덤값이 {0}일 때 0에서 1로 전진한다.")
     @ValueSource(ints = {4, 5, 9})
     void moveUsingRandomNumber_램덤값이_4보다_클때(int random) {
-        Car car = new Car(ANONYMOUS_NAME, 0);
+        Car car = new Car("홍길동", 0);
 
         car.moveUsingRandomNumber(new FixtureNumberGenerator(random),
                 randomNumber -> randomNumber.isGreaterThan(MOVE_THRESHOLD));
 
         assertThat(car).usingRecursiveComparison()
                 .comparingOnlyFields("position")
-                .isEqualTo(new Car(ANONYMOUS_NAME, 1));
+                .isEqualTo(new Car("홍길동", 1));
     }
 
     @DisplayName("moveUsingRandomNumber() 테스트 : 랜덤으로 생성된 값이 기준값보다 작으면 가만히 있는다.")
     @ParameterizedTest(name = "생성된 랜덤값이 {0}일 때 0에서 전진하지 않는다.")
     @ValueSource(ints = {0, 1, 3})
     void moveUsingRandomNumber_랜덤값이_4보다_작을때(int random) {
-        Car car = new Car(ANONYMOUS_NAME, 0);
+        Car car = new Car("홍길동", 0);
 
         car.moveUsingRandomNumber(new FixtureNumberGenerator(random),
                 randomNumber -> randomNumber.isGreaterThan(MOVE_THRESHOLD));
 
         assertThat(car).usingRecursiveComparison()
                 .comparingOnlyFields("position")
-                .isEqualTo(new Car(ANONYMOUS_NAME, 0));
+                .isEqualTo(new Car("홍길동", 0));
     }
 
     @DisplayName("toDto() 테스트 : Car를 CarDto로 변환한다.")
@@ -140,7 +138,7 @@ class CarTest {
     @DisplayName("name 사이즈 예외 테스트 : 5초과라면 IllegalArgumentException가 발생한다.")
     @Test
     void 예외발생_이름크기가_5자_초과인경우() {
-        assertThatThrownBy(() -> new Car("여섯글자여섯"))
+        assertThatThrownBy(() -> new Car("일이삼사오육"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[Error] 이름 크기는 5이하여야 합니다.");
     }
@@ -149,11 +147,11 @@ class CarTest {
     @Test
     void 예외발생하지않음_이름크기가_5자_이하인경우() {
         assertAll(
-                () -> assertThatCode(() -> new Car("다섯글자다"))
+                () -> assertThatCode(() -> new Car("일이삼사오"))
                         .doesNotThrowAnyException(),
-                () -> assertThatCode(() -> new Car("세글자"))
+                () -> assertThatCode(() -> new Car("일이삼"))
                         .doesNotThrowAnyException(),
-                () -> assertThatCode(() -> new Car("한"))
+                () -> assertThatCode(() -> new Car("일"))
                         .doesNotThrowAnyException()
         );
     }
@@ -170,9 +168,9 @@ class CarTest {
     @Test
     void 예외발생하지않음_위치값이_0_이상인_경우() {
         assertAll(
-            () -> assertThatCode(() -> new Car("세글자", 0))
+            () -> assertThatCode(() -> new Car("홍길동", 0))
                     .doesNotThrowAnyException(),
-            () -> assertThatCode(() -> new Car("세글자", 1))
+            () -> assertThatCode(() -> new Car("홍길동", 1))
                     .doesNotThrowAnyException()
         );
     }
