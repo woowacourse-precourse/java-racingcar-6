@@ -13,7 +13,7 @@ public class RacingCarGame {
         carNames = InputView.readCarNames();
         number = InputView.readNumber();
 
-        System.out.print("\n");
+        OutputView.printBlankLine();
         run();
     }
 
@@ -24,7 +24,7 @@ public class RacingCarGame {
 
         for (int i = 0; i < number; i++) {
             carController.move();
-            System.out.print("\n");
+            OutputView.printBlankLine();
         }
 
         exist();

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.Constants;
 import racingcar.model.Car;
+import racingcar.view.OutputView;
 
 public class CarController {
     private final List<Car> cars;
@@ -37,13 +38,13 @@ public class CarController {
 
     private void printPositions() {
         for (Car car : cars) {
-            System.out.print(car.getName() + " : ");
+            OutputView.printCarName(car.getName());
 
             for (int i = 0; i < car.getPosition(); i++) {
-                System.out.print("-");
+                OutputView.printHyphen();
             }
 
-            System.out.print("\n");
+            OutputView.printBlankLine();
         }
     }
 
