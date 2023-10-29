@@ -18,5 +18,7 @@ public class Game {
         RaceManager.validateNumberOfMove(numberOfMove);
 
         RaceManager.startRace(cars);
+
+        List<String> winnerList = RaceManager.decideWinner(cars);
     }
 }

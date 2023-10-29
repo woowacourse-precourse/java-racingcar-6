@@ -20,6 +20,10 @@ public class RaceManager {
         }
     }
 
+    public static List<String> decideWinner(List<Car> cars) {
+        return null;
+    }
+
     private static int toNumber(String string) {
         try {
             return Integer.parseInt(string);
