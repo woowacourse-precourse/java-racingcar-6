@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import com.sun.security.jgss.GSSUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,7 @@ public class Race {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         inputCarNames();
         inputGameCount();
+        play();
     }
 
     private void inputCarNames() {
@@ -49,5 +51,9 @@ public class Race {
                 .filter(car -> car.isEqualName(carName))
                 .count();
         return countEqualNames > NOT_HAVE_SAME_NAMES;
+    }
+
+    private void play() {
+        System.out.println("\n실행 결과");
     }
 }
