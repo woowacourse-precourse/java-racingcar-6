@@ -1,22 +1,31 @@
 package racingcar.service;
 
+import static java.util.Comparator.comparingInt;
 import static java.util.stream.Collectors.toList;
 
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.domain.Progress;
 
 public class WinnerChecker {
+
+    private static Progress maxProgress;
+
     public static List<Car> findWinner(List<Car> carList) {
-        int maxProgress = getMaxProgress(carList);
+        maxProgress = getMaxProgress(carList);
         return carList.stream()
-                .filter(i -> i.getProgressToInt() == maxProgress)
+                .filter(WinnerChecker::isWinner)
                 .collect(toList());
     }
 
-    private static int getMaxProgress(List<Car> carList) {
+    private static Progress getMaxProgress(List<Car> carList) {
         return carList.stream()
-                .mapToInt(Car::getProgressToInt)
-                .max()
+                .max(comparingInt(Car::getProgressToInt))
+                .map(Car::getProgress)
                 .orElseThrow();
+    }
+
+    private static boolean isWinner(Car car) {
+        return car.getProgressToInt() == maxProgress.get();
     }
 }

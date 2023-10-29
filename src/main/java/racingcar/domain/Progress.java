@@ -13,7 +13,7 @@ public class Progress {
         progress++;
     }
 
-    int get() {
+    public int get() {
         return progress;
     }
 }

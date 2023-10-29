@@ -20,4 +20,8 @@ public class Car {
     public int getProgressToInt() {
         return progress.get();
     }
+
+    public Progress getProgress() {
+        return progress;
+    }
 }
