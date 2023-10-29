@@ -6,8 +6,8 @@ public enum ActionType {
 
     GO(1), STOP(0);
 
-    private static final Integer FIRST_NUMBER = 0;
-    private static final Integer LAST_NUMBER = 9;
+    private static final Integer MIN_NUMBER = 0;
+    private static final Integer MAX_NUMBER = 9;
     private static final Integer THRESHOLD = 4;
 
     private Integer action;
@@ -16,8 +16,8 @@ public enum ActionType {
         this.action = action;
     }
 
-    public static Integer getRandomAction() {
-        Integer randomNumber = Randoms.pickNumberInRange(FIRST_NUMBER, LAST_NUMBER);
+    public static Integer randomAction() {
+        Integer randomNumber = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
         if (randomNumber >= THRESHOLD) {
             return move();
         }

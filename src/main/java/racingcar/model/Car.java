@@ -17,7 +17,7 @@ public class Car {
 
     public void updateDistance() {
         Integer previousDistance = this.carDistance.distance();
-        this.carDistance = new CarDistance(previousDistance + ActionType.getRandomAction());
+        this.carDistance = new CarDistance(previousDistance + ActionType.randomAction());
     }
 
     public CarName getCarName() {
