@@ -38,7 +38,7 @@
 
 
 
-- [ ] 레이싱 게임의 진행을 도와주는 게임진행 상항 클래스를 만든다. // GameProcess
+- [x] 레이싱 게임의 진행을 도와주는 게임진행 상항 클래스를 만든다. // GameProcess
 
   - [x] 경주할 자동차 이름을 입력하는 메서드 // GameProcess#inputNameOfRaceCar
     - [x] 입력받은 자동차의 이름으로 레이싱 자동차를 만든다.
@@ -118,16 +118,16 @@
   
     - [x] 시도할 회수만큼 게임 진행 상황을 출력한다.
   
-  - [ ] 게임 시작. // GameStart#run
+  - [x] 게임 시작. // GameStart#run
   
-    - [ ] 게임 시작을 한다.
+    - [x] 게임 시작을 한다.
   
   
 
 
 
 
-- [ ] 올바른 값을 확인하기 위한 검증 클래스를 만든다. ValidException
+- [x] 올바른 값을 확인하기 위한 검증 클래스를 만든다. ValidException
   - [x] 이름은 5자 이하 검사. // ValidException#isValidFIveLessString
   - [x] 한글 포함 검사. //  ValidException#isValidIncludeKorean
   - [x] 숫자을 포함하는가 검사  // ValidException#isValidIncludeNum
