@@ -1,5 +1,9 @@
 package basis;
 
+import static constant.ErrorMessage.EMPTY_NAME_CASE_MESSAGE;
+import static constant.ErrorMessage.INVALID_INPUT_CASE_MESSAGE;
+import static constant.ErrorMessage.NOT_NUMBER_INPUT_CASE_MESSAGE;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 import validation.UserInputValidator;
@@ -9,7 +13,7 @@ public class Converter {
         try {
             return Integer.parseInt(word);
         } catch (NumberFormatException error) {
-            throw new IllegalArgumentException("[ERROR] 숫자가 아닌 것을 입력했습니다. 게임을 종료합니다.");
+            throw new IllegalArgumentException(NOT_NUMBER_INPUT_CASE_MESSAGE);
         }
     }
 
@@ -19,14 +23,14 @@ public class Converter {
             String[] parts = tokenizeByComma(Name);
             for (String part : parts) {
                 if (part.isBlank()) {
-                    throw new IllegalArgumentException("[ERROR] 이름이 존재하지 않습니다. 게임을 종료합니다.");
+                    throw new IllegalArgumentException(EMPTY_NAME_CASE_MESSAGE);
                 }
                 hashMap.put(part, "");
                 UserInputValidator.checkNameLength(part);
             }
             return hashMap;
         } catch (IllegalArgumentException error) {
-            throw new IllegalArgumentException("[ERROR] 입력이 잘못되었습니다. 게임을 종료합니다.");
+            throw new IllegalArgumentException(INVALID_INPUT_CASE_MESSAGE);
         }
     }
 
