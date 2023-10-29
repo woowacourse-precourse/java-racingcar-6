@@ -1,11 +1,14 @@
 package racingcar.domain.car.dao;
 
 import racingcar.domain.car.Car;
+import racingcar.domain.util.ErrorMessage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static racingcar.domain.util.ErrorMessage.*;
 
 public class CarRepository {
 
@@ -28,7 +31,7 @@ public class CarRepository {
                 .stream()
                 .mapToInt(Car::getPosition)
                 .max()
-                .orElseThrow();
+                .orElseThrow(() -> new IllegalArgumentException(CAR_NOT_EXIST.getErrorMessage()));
 
         return carDatabase.values()
                 .stream()
