@@ -58,10 +58,9 @@
 ### OutputView
 사용자에게 출력하여 보여주는 클래스
 
-- member function
-   - [x] void printResult(): 실행 결과 메시지 출력
-   - [x] void printMove(Map<String, Integer>) : 해당 회차의 실행 결과 출력
-   - [x] void printFinalWinners(List <String>) : 최종 우승자 출력
+- [x] 실행 결과 메시지 출력
+- [x] 해당 회차의 실행 결과 출력
+- [x] 최종 우승자 출력
 
 ### InputValidator
 사용자에게 입력받은 경주 자동차 이름과 시도 횟수의 유효성을 검사하는 클래스
