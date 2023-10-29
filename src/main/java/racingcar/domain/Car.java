@@ -10,18 +10,18 @@ public class Car {
     private static final int MAXIMUM_NUMBER = 9;
     private static final int MOVING_STANDARD_NUMBER = 4;
 
-    public Car(CarName carName){
+    public Car(CarName carName) {
         this.carName = carName;
     }
 
-    public void movePosition(){
-        if(isAbleToMove()){
+    public void movePosition() {
+        if (isAbleToMove()) {
             position = Position.getIncreasedPosition(position.getPosition());
         }
         position = Position.getPausedPosition(position.getPosition());
     }
 
-    private boolean isAbleToMove(){
+    private boolean isAbleToMove() {
         int randomNumber = Randoms.pickNumberInRange(MIMIMUM_NUMBER, MAXIMUM_NUMBER);
         return randomNumber >= MOVING_STANDARD_NUMBER;
     }

@@ -6,18 +6,19 @@ public class Position {
     private int position;
     private static final int INIT_POSITION = 0;
 
-    public Position(){
+    public Position() {
         this.position = INIT_POSITION;
     }
-    public Position(int position){
+
+    public Position(int position) {
         this.position = position;
     }
 
-    public static Position getIncreasedPosition(int position){
+    public static Position getIncreasedPosition(int position) {
         return new Position(position + 1);
     }
 
-    public static Position getPausedPosition(int position){
+    public static Position getPausedPosition(int position) {
         return new Position(position);
     }
 
@@ -26,11 +27,11 @@ public class Position {
     }
 
     @Override
-    public boolean equals(Object o){
-        if(this == o){
+    public boolean equals(Object o) {
+        if (this == o) {
             return true;
         }
-        if(o == null || getClass() != o.getClass()){
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         Position otherPosition = (Position) o;
@@ -38,7 +39,7 @@ public class Position {
     }
 
     @Override
-    public int hashCode(){
+    public int hashCode() {
         return Objects.hashCode(this.position);
     }
 }

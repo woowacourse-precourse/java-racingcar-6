@@ -10,7 +10,7 @@ public class TryCount {
     private static final Pattern NUMBER_PATTERN = Pattern.compile("^[1-9]\\d*$");
 
 
-    public TryCount(String tryCount){
+    public TryCount(String tryCount) {
         validateParse(tryCount);
         int parsedCount = Integer.parseInt(tryCount);
         validateRange(parsedCount);
@@ -24,8 +24,8 @@ public class TryCount {
     }
 
 
-    private void validateRange(int tryCount){
-        if(tryCount < MINIMUM_TRY_COUNT){
+    private void validateRange(int tryCount) {
+        if (tryCount < MINIMUM_TRY_COUNT) {
             throw new IllegalArgumentException(NUMBER_PARSE_ERROR_MESSAGE);
         }
     }

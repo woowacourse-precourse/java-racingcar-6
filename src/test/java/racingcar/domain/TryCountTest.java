@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 
 public class TryCountTest {
     @Test
-    void createTryCountByInValidFormat(){
+    void createTryCountByInValidFormat() {
         assertThatThrownBy(() -> new TryCount("a"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    void createTryCountByUnderValue(){
+    void createTryCountByUnderValue() {
         assertThatThrownBy(() -> new TryCount("0"))
                 .isInstanceOf(IllegalArgumentException.class);
     }

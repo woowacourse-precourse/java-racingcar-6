@@ -13,13 +13,13 @@ public class CarNames {
     private static final String NAME_DELIMITER = ",";
     private static final int MIN_NAMES_COUNT = 2;
 
-    private CarNames(List<CarName> carNames){
+    private CarNames(List<CarName> carNames) {
         validateDuplicate(carNames);
         validateCounts(carNames);
         this.names = carNames;
     }
 
-    public static CarNames from(String input){
+    public static CarNames from(String input) {
         return new CarNames(generateCarNames(input));
     }
 
@@ -34,7 +34,7 @@ public class CarNames {
 
     public static List<CarName> createCarNames(List<String> names) {
         List<CarName> carNames = new ArrayList<>();
-        for(String name : names) {
+        for (String name : names) {
             carNames.add(new CarName(name));
         }
         return carNames;
@@ -54,8 +54,8 @@ public class CarNames {
         }
     }
 
-    private void validateCounts(List<CarName> carNames){
-        if(carNames.size() < MIN_NAMES_COUNT){
+    private void validateCounts(List<CarName> carNames) {
+        if (carNames.size() < MIN_NAMES_COUNT) {
             throw new IllegalArgumentException(NAMES_COUNT_ERROR_MESSAGE);
         }
     }

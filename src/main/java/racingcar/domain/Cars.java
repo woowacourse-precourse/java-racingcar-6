@@ -6,22 +6,22 @@ import java.util.stream.Collectors;
 public class Cars {
     private List<Car> cars;
 
-    private Cars(List<Car> cars){
+    private Cars(List<Car> cars) {
         this.cars = cars;
     }
 
-    public static Cars from(CarNames carNames){
+    public static Cars from(CarNames carNames) {
         List<Car> cars = generateCars(carNames);
         return new Cars(cars);
     }
 
-    private static List<Car> generateCars(CarNames carNames){
+    private static List<Car> generateCars(CarNames carNames) {
         return carNames.getNames().stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
 
-    public void move(){
+    public void move() {
         for (Car car : cars) {
             car.movePosition();
         }
@@ -32,7 +32,7 @@ public class Cars {
         return getMaxWinnerCars(position);
     }
 
-    private List<Car> getMaxWinnerCars(Position position){
+    private List<Car> getMaxWinnerCars(Position position) {
         return this.cars.stream()
                 .filter(car -> car.getPosition().equals(position))
                 .collect(Collectors.toList());
