@@ -7,7 +7,12 @@ public class Checker {
         }
     }
 
-    public static void valueCheck(String val){
-
+    public static int typeCheck(String val){
+        try {
+            return Integer.parseInt(val);
+        }
+        catch (NumberFormatException e){
+            throw new IllegalArgumentException("숫자를 입력해야 합니다.");
+        }
     }
 }
