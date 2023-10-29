@@ -12,6 +12,11 @@ public class Application {
         // 1. 자동차 이름 입력받기
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         getCars();
+
+        // 2. 시도횟수 입력받기
+        System.out.println("시도할 횟수는 몇회인가요?");
+        int move = getMove();
+        System.out.println();
     }
 
     static void getCars() {
@@ -23,5 +28,9 @@ public class Application {
             }
             forwardMap.put(carName, "");
         }
+    }
+
+    static int getMove() {
+        return Integer.parseInt(Console.readLine());
     }
 }
