@@ -31,9 +31,8 @@
 
 ## RacingGame 클래스
 
-- [ ] setParticipants: participants 필드가 제대로 구성되는지
-- [ ] setRepeat: repeat 필드가 제대로 저장되는지
-- [ ] finishGame: 최종 우승자를 확인할 수 있는지
+- [x] setParticipants: participants 필드가 제대로 구성되는지
+- [x] getWinner: 최종 우승자를 확인할 수 있는지
 
 # 주의할 점
 

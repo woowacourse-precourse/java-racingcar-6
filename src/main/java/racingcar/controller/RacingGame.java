@@ -18,23 +18,26 @@ public class RacingGame {
         setRepeat();
 
         OutputView.printResultTitle();
-        while (repeat.decrease() > 0) {
+        while (repeat.decrease()) {
             move();
         }
 
         finishGame();
     }
 
-    private void setParticipants() {
+    public void setParticipants() {
+        setParticipants(InputView.inputNames());
+    }
+    public List<Car> setParticipants(String[] names) {
         participants = new ArrayList<>();
-        String[] names = InputView.inputNames();
         for (String name : names) {
             Car participant = new Car(name);
             participants.add(participant);
         }
+        return participants;
     }
 
-    private void setRepeat() {
+    public void setRepeat() {
         repeat = InputView.inputRepeat();
     }
 
@@ -46,21 +49,25 @@ public class RacingGame {
         System.out.println();
     }
 
-    private void finishGame() {
+    public List<String> getWinner(List<Car> target) {
         int maxMoved = -1;
-        List<String> names = new ArrayList<>();
+        List<String> winner = new ArrayList<>();
 
-        for (Car participant : participants) {
-            MoveInfo info = participant.info();
+        for (Car car: target) {
+            MoveInfo info = car.info();
             if (info.getMoved() > maxMoved) {
                 maxMoved = info.getMoved();
-                names = new ArrayList<>();
-                names.add(info.getName());
+                winner = new ArrayList<>();
+                winner.add(info.getName());
             } else if (info.getMoved() == maxMoved) {
-                names.add(info.getName());
+                winner.add(info.getName());
             }
         }
+        return winner;
+    }
 
-        OutputView.printFinalWinner(names);
+    private void finishGame() {
+        List<String> winner = getWinner(participants);
+        OutputView.printFinalWinner(winner);
     }
 }

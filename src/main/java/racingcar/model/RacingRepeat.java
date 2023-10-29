@@ -15,10 +15,11 @@ public class RacingRepeat {
         }
     }
 
-    public int decrease() {
+    public boolean decrease() {
         if (repeat > 0) {
             repeat--;
+            return true;
         }
-        return repeat;
+        return false;
     }
 }

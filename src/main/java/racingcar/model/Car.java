@@ -4,10 +4,15 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private final CarName name;
-    private final CarMoved moved = new CarMoved(0);
+    private final CarMoved moved;
 
     public Car(String name) {
         this.name = new CarName(name);
+        this.moved = new CarMoved(0);
+    }
+    public Car(String name, int moved) {
+        this.name = new CarName(name);
+        this.moved = new CarMoved(moved);
     }
 
     public int move() {
