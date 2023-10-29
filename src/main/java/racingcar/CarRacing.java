@@ -19,13 +19,13 @@ public class CarRacing {
         // 각 자동차 별로 이동 횟수 0으로 초기화
         initCarMoveToZero();
 
-        int tmpCount = 0;
+        int tmpCountTrial = 0;
         // 사용자가 입력한 횟수에 다가갈 때 까지 반복
-        while (tmpCount < countTrial) {
+        while (tmpCountTrial < countTrial) {
             boolean ifMoved = createRandomNumberAndMoveCar();
             // 하나라도 움직인 차가 있다면 tmpCount 횟수 증가
             if (ifMoved == true){
-                tmpCount++;
+                tmpCountTrial++;
             }
             printRacingCar();
         }
