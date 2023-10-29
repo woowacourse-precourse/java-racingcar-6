@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class GameUtil {
     private Integer repeatNumber;
@@ -18,6 +19,7 @@ public class GameUtil {
         receiveCarsName();
         receiveRepeatNumber();
         repeatProgress();
+        findWinners();
     }
 
     public void receiveCarsName() {
@@ -84,5 +86,21 @@ public class GameUtil {
         }
 
         System.out.println(result);
+    }
+
+    public void findWinners() {
+        StringBuilder result = new StringBuilder();
+        Car maxCar = cars.stream()
+                .max(Comparator.comparing(Car::getProgress))
+                .orElse(cars.get(0));
+
+        for (Car car : cars) {
+            if (car.getProgress().equals(maxCar.getProgress())) {
+                result.append(car.getName());
+                result.append(",");
+            }
+        }
+
+        System.out.println(Constants.WINNER_PRINT_COMMENT + result.deleteCharAt(result.length()-1));
     }
 }
