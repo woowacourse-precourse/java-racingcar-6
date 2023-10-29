@@ -11,6 +11,7 @@ public class Application {
         String attempts_input;
         int attempts;
         int winners_location = 0;
+        List<String> winners_names = new ArrayList<String>();
         List<Car> cars_list = new ArrayList<Car>();
         int attempts_cnt = 0;
 
@@ -33,12 +34,25 @@ public class Application {
         }
 
         //4
+        System.out.println("\n실행 결과");
         while(attempts_cnt < attempts){
-            //3-1, 3-2
+            //3
             for (Car car : cars_list) {
                 car.carMoving();
                 car.printCurrentLocation();
-                //check
+            }
+            System.out.println("");
+            attempts_cnt++;
+        }
+
+        //5
+        for (Car car : cars_list) {
+            if (car.getCurrentLocation() > winners_location){
+                winners_names.clear();
+                winners_names.add(car.getCarName());
+                winners_location = car.getCurrentLocation();
+            }else if (car.getCurrentLocation() == winners_location){
+                winners_names.add(car.getCarName());
             }
         }
 
