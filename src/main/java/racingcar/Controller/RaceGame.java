@@ -20,10 +20,6 @@ public class RaceGame {
         return validateInputIsNumber(displayPlayCountMessage());
     }
 
-    public static String generateDashes(int input){
-        return "-".repeat(Math.max(0, input));
-    }
-
     private static ArrayList<String> getWinners(ArrayList<Car> cars) {
         int maxCount = 0;
         ArrayList<String> winners = new ArrayList<>();
