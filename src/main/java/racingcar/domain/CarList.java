@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CarName {
+public class CarList {
     private static final Map<String, Integer> carMap = new HashMap<>();
 
     public void setCarList(List<String> carList) {

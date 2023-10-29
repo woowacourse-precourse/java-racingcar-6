@@ -5,12 +5,13 @@ import java.util.Map;
 public class Racing {
     public Map<String, Integer> racingMoveCount() {
         RacingCount racingCount = new RacingCount();
-        Car car = new Car();
+        ForwardCar car = new ForwardCar();
+
         int raceCount = racingCount.inputRacingCount();
         System.out.println();
         System.out.println("실행 결과");
         Map<String, Integer> result = null;
-        for (int i=0; raceCount>i; i++) {
+        for (int i = 0; raceCount > i; i++) {
             result = car.racingCarCount();
             printRacingCar(result);
             System.out.println();
@@ -19,7 +20,7 @@ public class Racing {
     }
 
     public void printRacingCar(Map<String, Integer> result) {
-        result.forEach((key, value)->{
+        result.forEach((key, value) -> {
             System.out.print(key + " : ");
             printMoveCount(value);
             System.out.println();
