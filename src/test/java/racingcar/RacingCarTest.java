@@ -3,14 +3,16 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.RacingCarOutputManager;
 import racingcar.domain.Turn;
 
 public class RacingCarTest {
-
 
     @Test
     void 자동차_생성_기능() {
@@ -61,6 +63,32 @@ public class RacingCarTest {
         for (String blank : blanks) {
             assertThatThrownBy(() -> new Turn(blank))
                     .isInstanceOf(IllegalArgumentException.class);
+        }
+    }
+
+    @Test
+    void 이동_시도_출력_형식() {
+        PrintStream originalOut = System.out;
+        try {
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            System.setOut(new PrintStream(outputStream));
+
+            List<String> carNames = List.of("jamy", "risa", "jun");
+            Cars cars = new Cars(carNames);
+
+            RacingCarOutputManager outputManager = new RacingCarOutputManager();
+            for (Car car : cars.tryToMove()) {
+                outputManager.printCarPosition(car.getName(), car.getPosition());
+            }
+
+            List<String> expectedOutputs = List.of("jamy : ", "risa : ", "jun : ");
+            String actualOutput = outputStream.toString().trim();
+
+            assertThat(actualOutput).contains(expectedOutputs);
+
+
+        } finally {
+            System.setOut(originalOut);
         }
     }
 }

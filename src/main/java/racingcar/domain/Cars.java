@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Cars {
@@ -13,5 +14,12 @@ public class Cars {
         }
 
         this.cars = cars;
+    }
+
+    public List<Car> tryToMove() {
+        for (Car car : cars) {
+            car.triesToMove();
+        }
+        return Collections.unmodifiableList(cars);
     }
 }
