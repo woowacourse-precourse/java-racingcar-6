@@ -13,7 +13,7 @@ public class OutputView {
 
     public static void printWinner(GameResult result) {
         List<String> winnersList = result.winners();
-        String winners = winnersList.stream().map(String::valueOf).collect(Collectors.joining(", "));
+        String winners = String.join(", ", winnersList);
 
         Messages.WINNER_ANNOUNCEMENT.print();
         System.out.println(winners);
