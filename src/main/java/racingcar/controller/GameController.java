@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.CarService;
@@ -9,7 +11,7 @@ import racingcar.view.UserInput;
 public class GameController {
     private UserInput userInput = new UserInput();
     private CarService carService = new CarService();
-    private Output output;
+    private Output output = new Output();
 
     private List<Car> carList;
     private int gameCount;
@@ -17,7 +19,7 @@ public class GameController {
     public void gameStart() {
         askInputUser();
         doGame();
-        output.printFinalWinner(carList);
+        output.printFinalWinner(getWinnerName(carList));
     }
 
     private void askInputUser() {
@@ -35,8 +37,6 @@ public class GameController {
     private void doGame() {
         for (int i = 0; i < gameCount; i++) {
             doStep();
-            output = new Output(carService);
-            //(1) 출력 : 현재의 게임 객체들 상태 출력
             output.printCurrentCar(carList);
         }
     }
@@ -48,5 +48,22 @@ public class GameController {
             //판별된 상태에 따른 상태 세팅
             carService.setCurrentCar(flag, carList.get(j));
         }
+    }
+
+    //5) 최종 우승자 이름 리턴 함수
+    private List<String> getWinnerName(List<Car> carList) {
+        int winScore = getMaxScore(carList);
+
+        List<String> winner = new ArrayList<>();
+        for (int i = 0; i < carList.size(); i++) {
+            if (winScore == carList.get(i).getCount()) {
+                winner.add(carList.get(i).getCarName());
+            }
+        }
+        return winner;
+    }
+
+    private int getMaxScore(List<Car> carList) {
+        return carList.stream().max(Comparator.comparing(Car::getCount)).get().getCount();
     }
 }

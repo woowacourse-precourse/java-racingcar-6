@@ -1,8 +1,6 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
-import java.util.List;
 
 //각 시행 별 자동차들 관리하는 컨트롤 Service
 public class CarService {
@@ -24,26 +22,5 @@ public class CarService {
         }
     }
 
-    /**
-     * 최종 우승자 판별 기능
-     */
-    //4) 최종 우승자의 max Score 찾는 함수
-    public int getMaxScore(List<Car> list) {
-        int max = 0;
-        for (int i = 0; i < list.size(); i++) {
-            max = Math.max(max, list.get(i).getCount());
-        }
-        return max;
-    }
 
-    //5) 최종 우승자 이름 리턴 함수
-    public List<String> getWinnerName(List<Car> list, int max) {
-        List<String> winner = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            if (max == list.get(i).getCount()) {
-                winner.add(list.get(i).getCarName());
-            }
-        }
-        return winner;
-    }
 }
