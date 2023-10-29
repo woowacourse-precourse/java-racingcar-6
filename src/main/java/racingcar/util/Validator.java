@@ -34,12 +34,12 @@ public class Validator {
         }
     }
 
-    public void validationCount(String input) {
-        validationCountIsZero(input);
-        validationCountNumeric(input);
+    public void validationTrial(String input) {
+        validationTrialIsZero(input);
+        validationTrialNumeric(input);
     }
 
-    private void validationCountNumeric(String input) {
+    private void validationTrialNumeric(String input) {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
@@ -47,7 +47,7 @@ public class Validator {
         }
     }
 
-    private void validationCountIsZero(String input) {
+    private void validationTrialIsZero(String input) {
         if (input.equals("0")) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_NOT_NUMERIC.getMessage());
         }

@@ -33,7 +33,7 @@ public class ValidatorTest {
     void 휫수입력이_0일_경우_에러발생() {
         String input = "0";
         assertThatThrownBy(() -> {
-            validator.validationCount(input);
+            validator.validationTrial(input);
         })
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ExceptionMessage.INVALID_NOT_NUMERIC.getMessage());
@@ -43,7 +43,7 @@ public class ValidatorTest {
     void 휫수입력이_숫자가_아닐_경우_에러발생() {
         String input = "a";
         assertThatThrownBy(() -> {
-            validator.validationCount(input);
+            validator.validationTrial(input);
         })
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ExceptionMessage.INVALID_NOT_NUMERIC.getMessage());

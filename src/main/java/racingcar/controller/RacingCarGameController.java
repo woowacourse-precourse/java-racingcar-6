@@ -22,9 +22,9 @@ public class RacingCarGameController {
     }
 
     private void moveCars(Cars cars) {
-        int count = inputView.readMoveCount();
+        int trial = inputView.readMoveCount();
         outputView.printResultMessage();
-        IntStream.rangeClosed(1, count).forEach(index -> {
+        IntStream.rangeClosed(1, trial).forEach(index -> {
             moveCarProcess(cars);
         });
     }
