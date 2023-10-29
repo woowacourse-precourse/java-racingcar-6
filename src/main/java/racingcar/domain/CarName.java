@@ -28,8 +28,7 @@ public class CarName {
         }
     }
 
-    @Override
-    public String toString() {
+    public String getName() {
         return name;
     }
 }
