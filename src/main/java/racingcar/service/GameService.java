@@ -3,6 +3,7 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.Game;
+import racingcar.repository.GameRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,10 +18,20 @@ public class GameService {
 
     private final List<String> getMaxCarNames = new ArrayList<>();
 
+    private final GameRepository gameRepository = new GameRepository();
 
-    public void playGame(Game game){
+
+    public void playOneGame(Game game){
         moveOneStepForward(game);
         game.increaseTrialNumber();
+    }
+
+    public Boolean isGameEnd(Game game){
+        return game.checkTrialEqualsToTrialCount();
+    }
+
+    public Long saveGame(Game game) {
+        return gameRepository.save(game);
     }
 
     public List<String> getWinner(Game game){
