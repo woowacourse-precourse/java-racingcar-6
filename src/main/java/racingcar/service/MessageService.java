@@ -24,5 +24,9 @@ public class MessageService {
         System.out.println("최종 우승자 : " + winner);
     }
 
-
+    public void printRun(int i, int[] arr) {
+        for (int j = 0; j < arr[i]; j++) {
+            System.out.print("-");
+        }
+    }
 }
