@@ -36,4 +36,13 @@ public class Car implements Comparable<Car> {
     public int compareTo(Car o) {
         return this.distance - o.distance;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Car car) {
+            return this.distance == car.distance;
+        }
+        return false;
+    }
+
 }

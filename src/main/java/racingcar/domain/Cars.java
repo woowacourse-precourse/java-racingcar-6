@@ -19,4 +19,10 @@ public class Cars {
         return carList.stream()
                 .max(Car::compareTo).orElseThrow(() -> new IllegalArgumentException("차량이 존재하지 않습니다."));
     }
+
+    public List<Car> findWinner() {
+        return carList.stream()
+                .filter(x -> x.equals(findMaxDistanceCar()))
+                .toList();
+    }
 }
