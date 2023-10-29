@@ -13,16 +13,18 @@ class MoveStatusTest {
     @Test
     void canMove_동작확인() {
         MoveStatus moveStatus = new MoveStatus();
-        int randomNumber = 5;
-        boolean moveResult = moveStatus.canMove(randomNumber);
+        moveStatus.setTestMoveStatus(true);
+        int randomNumber = 3;
+        boolean moveResult = moveStatus.canMove();
         assertThat(moveResult).isEqualTo(true);
     }
 
     @Test
     void canMove_동작확인2() {
         MoveStatus moveStatus = new MoveStatus();
+        moveStatus.setTestMoveStatus(false);
         int randomNumber = 3;
-        boolean moveResult = moveStatus.canMove(randomNumber);
+        boolean moveResult = moveStatus.canMove();
         assertThat(moveResult).isEqualTo(false);
     }
 }
