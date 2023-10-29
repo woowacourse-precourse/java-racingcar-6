@@ -34,6 +34,11 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
+    public int InputTryNumber() {
+        String numberString = Console.readLine();
+        return Integer.parseInt(numberString);
+    }
+
 
     public static void main(String[] args) {
         // TODO: 프로그램 구현
