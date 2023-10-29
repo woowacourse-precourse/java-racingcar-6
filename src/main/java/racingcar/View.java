@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+
 public class View {
 
     private void printMsg(String output) {
@@ -26,7 +28,19 @@ public class View {
         printMsg(name + " : " + process);
     }
 
-    public void finalWinnerMsg() {
+    public void finalWinnerMsg(List<String> cars) {
         System.out.print("최종 우승자 : ");
+
+        for (int i = 0; i < cars.size(); i++) {
+            String carName = cars.get(i);
+            System.out.print(carName);
+            isThatNotLastCar(i != cars.size() - 1);
+        }
+    }
+
+    private void isThatNotLastCar(boolean result) {
+        if (result) {
+            System.out.print(", ");
+        }
     }
 }
