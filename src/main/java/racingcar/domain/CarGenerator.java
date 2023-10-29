@@ -5,8 +5,6 @@ import java.util.LinkedHashMap;
 
 public class CarGenerator {
 
-
-
     public LinkedHashMap<String, String> createCarList(String stringCarList) {
         LinkedHashMap<String, String> carList = new LinkedHashMap<>();
         String[] cars = splitStringByCommas(stringCarList);
