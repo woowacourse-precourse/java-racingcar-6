@@ -31,7 +31,7 @@ public class RacingGameController {
 
     private void playAllRounds() {
         OutputController.printResultHeaderMessage();
-        while(!round.Over()) {
+        while(!round.over()) {
             playOneRound();
         }
         OutputController.printWinnersMessage(pickWinners());
@@ -39,7 +39,7 @@ public class RacingGameController {
 
     private void playOneRound() {
         for (Car car : cars.getCarList()) {
-            car.TryToMove();
+            car.tryToMove();
         }
         OutputController.printForwardStateMessage(cars);
         round.plusOne();

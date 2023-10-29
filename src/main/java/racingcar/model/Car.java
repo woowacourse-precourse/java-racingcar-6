@@ -20,7 +20,7 @@ public class Car {
         return position;
     }
 
-    public void TryToMove() {
+    public void tryToMove() {
         int randomNumber = RandomGenerator
                 .generateRandomIntInRange(RacingGameConstants.MOVE_ENERGY_MIN, RacingGameConstants.MOVE_ENERGY_MAX);
 

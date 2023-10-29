@@ -12,7 +12,7 @@ public class Round {
         currentRoundNumber = 1;
     }
 
-    public boolean Over() {
+    public boolean over() {
         return currentRoundNumber > totalNumberOfRounds;
     }
 
