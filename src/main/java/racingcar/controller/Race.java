@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
 import racingcar.domain.Car;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -24,6 +25,13 @@ public class Race {
             moveCnt--;
         }
 
+        int currentMaxPostion =0;
+        for (Car car : cars) {
+            currentMaxPostion = Math.max(currentMaxPostion,car.getPosition());
+        }
+
+
+
     }
 
     private static int getMoveCount() {
@@ -39,8 +47,9 @@ public class Race {
             Car car = new Car(carName);
             cars.add(car);
         }
-        System.out.println("cars = " + cars);
     }
+
+
 
 }
 
