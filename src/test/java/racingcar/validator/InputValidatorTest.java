@@ -50,12 +50,7 @@ class InputValidatorTest {
     public void 자동차_이름_길이_테스트() {
         carNames = "c  a \t r Len 7  , super";
         assertThrows(IllegalArgumentException.class, () -> new InputValidator(carNames)
-        , "예외가 발생하지 않았음");
-//        try {
-//            new InputValidator(carNames);
-//        } catch (IllegalArgumentException e) {
-//            assertThat(OVER_SIZE_CAR_NAME).isEqualTo(e);
-//        }
+        , "자동차 이름 중 5글자 초과한 자동차가 없습니다.");
     }
 
 }
