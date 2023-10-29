@@ -2,31 +2,31 @@
 
 ## 기능 요구 사항 목록
 
-- [] 입력
-  - [] 쉼표를 기준으로 5자 이하의 이름을 n개 입력.
-  - [] n개의 자동차마다 각각 인덱스 n-1 값 부여
-  - [] 몇 번 이동 할건지 입력
+- [x] 입력
+  - [x] 쉼표를 기준으로 5자 이하의 이름을 n개 입력.
+  - [x] n개의 자동차마다 각각 인덱스 n-1 값 부여
+  - [x] 몇 번 이동 할건지 입력
   
-- [] 계산
-  - [] 경주를 시도한 회수만큼 n개의 자동차는 각각 0 - 9의 무작위 값을 구해서 4 이상 나올 경우 한 칸 앞으로 이동.
+- [x] 계산
+  - [x] 경주를 시도한 회수만큼 n개의 자동차는 각각 0 - 9의 무작위 값을 구해서 4 이상 나올 경우 한 칸 앞으로 이동.
   
-- [] 출력
-  - [] 매 경기 마다 모든 자동차마다 이동한 결과 출력
-  - [] 경기 종료 후 가장 많이 전진한 자동차가 우승 -> 우승자 출력 
-  - [] 우승자가 여러 명일 경우 쉼표를 이용하여 구분하여 모두 출력
+- [x] 출력
+  - [x] 매 경기 마다 모든 자동차마다 이동한 결과 출력
+  - [x] 경기 종료 후 가장 많이 전진한 자동차가 우승 -> 우승자 출력 
+  - [x] 우승자가 여러 명일 경우 쉼표를 이용하여 구분하여 모두 출력
   
-- [] 예외
-  - [] 각 자동차 이름을 5자 이상 입력하면 IllegalArgumentException 발생
-  - [] 이동 횟수 입력이 음수 입력시 IllegalArgumentException 발생
-  - [] 이동 횟수 입력이 0 입력시 IllegalArgumentException 발생
-  - [] 이동 횟수 입력이 숫자가 아닌 값 입력시 IllegalArgumentException 발생  
+- [x] 예외
+  - [x] 각 자동차 이름을 5자 이상 입력하면 IllegalArgumentException 발생
+  - [x] 이동 횟수 입력이 음수 입력시 IllegalArgumentException 발생
+  - [x] 이동 횟수 입력이 0 입력시 IllegalArgumentException 발생
+  - [x] 이동 횟수 입력이 숫자가 아닌 값 입력시 IllegalArgumentException 발생  
   
-- [] CarController 테스트
-  - [] 입력값이 split(",")이 잘 되는지 테스트
-  - [] 각 자동차 이름을 5자 이상 입력하면 IllegalArgumentException 발생 테스트
-  - [] 이동 횟수 입력이 음수 입력시 IllegalArgumentException 발생 테스트
-  - [] 이동 횟수 입력이 0 입력시 IllegalArgumentException 발생 테스트
-  - [] 이동 횟수 입력이 숫자가 아닌 값 입력시 IllegalArgumentException 발생 테스트
+- [x] CarController 테스트
+  - [x] 입력값이 split(",")이 잘 되는지 테스트
+  - [x] 각 자동차 이름을 5자 이상 입력하면 IllegalArgumentException 발생 테스트
+  - [x] 이동 횟수 입력이 음수 입력시 IllegalArgumentException 발생 테스트
+  - [x] 이동 횟수 입력이 0 입력시 IllegalArgumentException 발생 테스트
+  - [x] 이동 횟수 입력이 숫자가 아닌 값 입력시 IllegalArgumentException 발생 테스트
 
 
 
