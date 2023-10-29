@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.constant.MessageConst.DUPLICATE_MESSAGE;
 import static racingcar.constant.MessageConst.EMPTY_MESSAGE;
 import static racingcar.constant.MessageConst.LENGTH_MESSAGE;
+import static racingcar.constant.MessageConst.NULL_MESSAGE;
 import static racingcar.constant.MessageConst.SPACE_MESSAGE;
 
 import java.util.List;
@@ -78,5 +79,20 @@ class CarValidationTest {
         assertThatThrownBy(() -> carValidation.validateCarNameEmpty(carNamesWithEmpty))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(EMPTY_MESSAGE);
+    }
+
+    @Test
+    @DisplayName("입력값이 null인지 테스트")
+    void validateInputNullTest() {
+        // given
+        CarValidation carValidation = new CarValidation();
+
+        // when
+        String input = null;
+
+        // then
+        assertThatThrownBy(() -> carValidation.validateInputNull(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(NULL_MESSAGE);
     }
 }
