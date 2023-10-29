@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Race {
     private final static int CAN_MOVE = 4;
-    private List<Car> carList;
+    private final List<Car> carList;
 
     public Race(String inputCarNames) {
         carList = new ArrayList<>();
