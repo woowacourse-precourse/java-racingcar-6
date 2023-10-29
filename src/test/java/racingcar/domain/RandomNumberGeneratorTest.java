@@ -16,6 +16,7 @@ public class RandomNumberGeneratorTest {
     @Test
     void 랜덤_숫자_생성() {
         Integer randomNumber = randomNumberGenerator.createRandomNumber();
+
         Assertions.assertNotNull(randomNumber);
     }
 }
