@@ -18,6 +18,17 @@ public class Distance {
         value++;
     }
 
+    public int getMaxDistance(int presentMax) {
+        if (isMax(presentMax)) {
+            return value;
+        }
+        return presentMax;
+    }
+
+    public boolean isMax(int presentMax) {
+        return value >= presentMax;
+    }
+
     public int getValue() {
         return value;
     }

@@ -21,6 +21,20 @@ public class PlayerMoveList {
         }
     }
 
+    public int getMaxDistance() {
+        int max = 0;
+        for (PlayerMove playerMove : playerMoveList) {
+            max = playerMove.getMaxDistance(max);
+        }
+        return max;
+    }
+
+    public void checkWinner(int max) {
+        for (PlayerMove playerMove : playerMoveList) {
+            playerMove.checkWinner(max);
+        }
+    }
+
     public List<PlayerMove> getPlayerMoveList() {
         return playerMoveList;
     }

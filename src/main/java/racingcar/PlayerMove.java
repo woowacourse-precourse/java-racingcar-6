@@ -16,13 +16,23 @@ public class PlayerMove {
         return new PlayerMove(player, Distance.from(0));
     }
 
-    public static PlayerMove init(Player player, Distance distance) {
+    public static PlayerMove from(Player player, Distance distance) {
         return new PlayerMove(player, distance);
     }
 
     public void move(boolean isMove) {
         if (isMove) {
             distance.increase();
+        }
+    }
+
+    public int getMaxDistance(int presentMax) {
+        return distance.getMaxDistance(presentMax);
+    }
+
+    public void checkWinner(int max) {
+        if (distance.isMax(max)) {
+            player.checkWinner();
         }
     }
 
