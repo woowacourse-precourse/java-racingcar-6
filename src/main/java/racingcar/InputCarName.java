@@ -6,8 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class InputCarName {
-    public HashMap<String, Integer> inputCarName() {
-        HashMap<String, Integer> carName = new HashMap<>();
+    public void inputCarName(HashMap<String, Integer> carName) {
         System.out.println("경주할 자동차 이름을 입력하세요.");
 
         String carNames = Console.readLine();
@@ -16,6 +15,5 @@ public class InputCarName {
         for (int i  = 0; i < carNameList.size(); i++) {
             carName.put(carNameList.get(i),0);
         }
-        return carName;
     }
 }
