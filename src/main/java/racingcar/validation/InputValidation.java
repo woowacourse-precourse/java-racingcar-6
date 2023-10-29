@@ -6,6 +6,7 @@ import static racingcar.constant.MessageConst.EMPTY_MESSAGE;
 import static racingcar.constant.MessageConst.LENGTH_MESSAGE;
 import static racingcar.constant.MessageConst.NULL_MESSAGE;
 import static racingcar.constant.MessageConst.SPACE_MESSAGE;
+import static racingcar.constant.NumberConst.NUMERIC_FORMAT_MESSAGE;
 
 import java.util.HashSet;
 import java.util.List;
@@ -85,5 +86,15 @@ public class InputValidation {
     private List<String> stringToCollection(String input) {
         return Stream.of(input.split(","))
                 .toList();
+    }
+
+    public void validateInputNumericFormat(String input) {
+        if (isNotNumericFormat(input)) {
+            throw new IllegalArgumentException(NUMERIC_FORMAT_MESSAGE);
+        }
+    }
+
+    private boolean isNotNumericFormat(String input) {
+        return !input.chars().allMatch(Character::isDigit);
     }
 }
