@@ -41,10 +41,8 @@ public class Cars {
     }
 
     private List<Car> namesToCars(List<String> names) {
-        List<Car> carList = new ArrayList<>();
-        for (String name : names) {
-            carList.add(new Car(name));
-        }
-        return carList;
+        return names.stream()
+                .map(Car::new)
+                .collect(Collectors.toList());
     }
 }
