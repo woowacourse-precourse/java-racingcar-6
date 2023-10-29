@@ -14,11 +14,11 @@ public class Censor {
     private final TypeTransducer typeTransducer = new TypeTransducer();
 
     public void checkInputForNickname(String input) {
+        checkValidInput(input);
         List<String> playerList = typeTransducer.strToList(input);
         checkLength(playerList);
         checkUniqueValue(playerList);
         checkSpace(playerList);
-        checkEmptyValue(playerList);
     }
 
     private void checkLength(List<String> playerList) {
@@ -38,14 +38,15 @@ public class Censor {
 
     private void checkSpace(List<String> playerList) {
         boolean includeSpace = playerList.stream()
-                .anyMatch(nickname -> nickname.contains(" "));
+                .anyMatch(nickname -> nickname.contains(" ") || nickname.trim().isEmpty());
+
         if (includeSpace) {
             throw new IllegalArgumentException(NICKNAME_SPACE_ERROR.getContent());
         }
     }
 
-    private void checkEmptyValue(List<String> playerList) {
-        // TODO: 아무런 입력값이 없는 경우를 검증한다.
+    private void checkValidInput(String input) {
+        // TODO: 사용자가 콤마(,)만 입력하거나 닉네임 뒤에 콤마(,)로 끝나는 경우 예외처리
     }
 
 }
