@@ -1,19 +1,30 @@
 package racingcar.controller;
 
 import static racingcar.view.InputView.readCarName;
+import static racingcar.view.InputView.readMovingCount;
 
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.model.GoStopDecider;
 import racingcar.model.NameParser;
 
 public class RacingController {
-    private NameParser nameParser = new NameParser();
+    private final NameParser nameParser = new NameParser();
+    private final GoStopDecider goStopDecider = new GoStopDecider();
     private Car car;
 
     public void start() {
-        List<String> carList = nameParser.parseCarName(readCarName());
-        nameParser.carNameLengthUnderFive(carList);
+        List<String> carNmaeList = nameParser.parseCarName(readCarName());
+        nameParser.carNameLengthUnderFive(carNmaeList);
 
-         nameParser.setCar(carList);
+         List<Car> carList = nameParser.setCar(carNmaeList);
+
+         int movingCount = readMovingCount();
+
+         for (Car car : carList) {
+            goStopDecider.numbersOfMovement(car);
+        }
+
+
     }
 }

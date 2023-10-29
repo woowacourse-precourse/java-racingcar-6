@@ -2,7 +2,7 @@ package racingcar.model;
 
 public class Car {
     private final String name;
-    private final int distance;
+    private int distance;
 
     public Car(String name, int distance) {
         this.name = name;
@@ -15,5 +15,9 @@ public class Car {
 
     public int getDistance() {
         return distance;
+    }
+
+    public void upDistance() {
+        distance++;
     }
 }

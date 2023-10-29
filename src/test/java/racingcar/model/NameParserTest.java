@@ -3,14 +3,13 @@ package racingcar.model;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
 public class NameParserTest {
 
-/*    @Test
+    @Test
     void 쉼표로_자동차_이름_나누기() {
         // Given
         String input = "pobi,woni,jun";
@@ -35,7 +34,7 @@ public class NameParserTest {
         assertThrows(IllegalArgumentException.class, () -> {
             nameParser.setCar(carNameList);
         });
-    }*/
+    }
 
     @Test
     public void 자동차_이름_할당() {
