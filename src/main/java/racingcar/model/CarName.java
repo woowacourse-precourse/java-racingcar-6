@@ -11,19 +11,12 @@ public class CarName {
     private final String name;
 
     private CarName(final String name) {
-        validateIfNotEmpty(name);
         validateIfLengthInLimit(name);
         this.name = name;
     }
 
     public static CarName from(final String name) {
         return new CarName(name);
-    }
-
-    private void validateIfNotEmpty(final String name) {
-        if (name.isEmpty()) {
-            throw new IllegalArgumentException(NAME_EMPTY);
-        }
     }
 
     private void validateIfLengthInLimit(final String name) {
