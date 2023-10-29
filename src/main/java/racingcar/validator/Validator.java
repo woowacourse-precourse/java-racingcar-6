@@ -24,6 +24,7 @@ public class Validator {
     }
 
     public boolean checkDuplicateCarName(List<String> carNameList) {
-
+        Set<String> carNameSet = new HashSet<>(carNameList);
+        return carNameSet.size() != carNameList.size();
     }
 }
