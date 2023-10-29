@@ -34,19 +34,10 @@ public class Application {
 
         printResult();
         findWinner();
-
-    }
-
-    public static boolean checkValidateName(String name){
-        return name.length() > 5 || name.isEmpty();
     }
 
     public static void addCar(String name){
-        if(checkValidateName(name)){
-            throw new IllegalArgumentException();
-        }
-
-        Car tempCar = new Car(name);
+        Car tempCar = new Car(name.trim());
         carList.add(tempCar);
     }
 
@@ -62,7 +53,22 @@ public class Application {
     }
 
     public static void findWinner(){
+
         String result = "최종 우승자 : ";
+        int maxValue = getMaxPosition();
+
+        String WinnerNames = "";
+        for(int i = 0; i < carList.size(); i++){
+            if(carList.get(i).getPosition() == maxValue){
+                WinnerNames = addComma(WinnerNames);
+                WinnerNames += carList.get(i).getName();
+            }
+        }
+
+        System.out.println(result + WinnerNames);
+    }
+
+    public static int getMaxPosition(){
         int maxValue = 0;
         for(int i = 0; i < carList.size(); i++){
             int pos = carList.get(i).getPosition();
@@ -71,16 +77,14 @@ public class Application {
             }
         }
 
-        String WinnerNames = "";
-        for(int i = 0; i < carList.size(); i++){
-            if(carList.get(i).getPosition() == maxValue){
-                if(!WinnerNames.isEmpty()){
-                    WinnerNames += ", ";
-                }
-                WinnerNames += carList.get(i).getName();
-            }
-        }
-
-        System.out.println(result + WinnerNames);
+        return maxValue;
     }
+
+    public static String addComma(String result){
+        if(!result.isEmpty()){
+            result += ", ";
+        }
+        return result;
+    }
+
 }
