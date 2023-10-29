@@ -1,50 +1,36 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 
 public class Game {
-
     GameException gameException = new GameException();
 
-    int minNumber = 0;
-    int maxNumber = 9;
     public void playGame() {
 
         ArrayList<String> carName = InputCarName();
         int round = InputRound();
 
-//        System.out.println("실행 결과");
-//        int[] result = new int[name.size()];
-//        for (int i = 0; count >= i; i++) {
-//            for (int j = 0; name.size() > j; j++) {
-//                int random = Randoms.pickNumberInRange(minNumber, maxNumber);
-//                if (random >= 4) {
-//                    System.out.println(name.get(j) + ":" + RandomNumber(result, j));
-//                } else {
-//
-//                }
-//            }
-//            System.out.println("");
-//        }
-
+        System.out.println("실행 결과");
+        RandomResult(carName, round);
     }
 
-    private ArrayList<String> InputCarName(){
+    private ArrayList<String> InputCarName() {
         ArrayList<String> carName = new ArrayList<>();
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] inputName = Console.readLine().split(",");
 
-        for (int i = 0; i < inputName.length; i++){
+        for (int i = 0; i < inputName.length; i++) {
             carName.add(inputName[i]);
             gameException.NameCount(inputName[i]);
         }
         return carName;
     }
 
-    private int InputRound(){
+    private int InputRound() {
         int inputRound;
 
         System.out.println("시도할 회수는 몇회인가요?");
@@ -53,18 +39,20 @@ public class Game {
         return inputRound;
     }
 
-//    public StringBuilder RandomNumber(int[] result, int j) {
-//
-//        StringBuilder string = new StringBuilder();
-//
-//
-//        for (int i = 0; result[j] > i; i++) {
-//            string.append("-");
-//        }
-//        return (string);
-//    }
-//
-//    public void ResultText() {
-//
-//    }
+    private void RandomResult(ArrayList<String> carName, int round) {
+        int minNumber = 0;
+        int maxNumber = 9;
+
+        for (int i = 0; round >= i; i++) { //0depth
+            for (int j = 0; carName.size() > j; j++) { //1depth
+                int random = Randoms.pickNumberInRange(minNumber, maxNumber);
+                if (random >= 4) { //2depth
+                    System.out.println(carName.get(j) + ":");
+                } else {
+                    System.out.println(carName.get(j) + ":");
+                }
+            }
+            System.out.println("");
+        }
+    }
 }
