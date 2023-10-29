@@ -15,7 +15,9 @@ public class Application {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         race = new Race(racingCars);
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String[] cars = in.readLine().split(",");
+        String input = in.readLine();
+        String[] cars = input.split(",");
+        racingCarNameCheck(cars);
         race.racingCarInit(cars);
         System.out.println("시도할 회수는 몇회인가요?");
         int gameCount = Integer.parseInt(in.readLine());
@@ -25,7 +27,11 @@ public class Application {
         String winners = whoWinner(max);
         System.out.println("최종 우승자 : " + winners);
     }
-
+    public static void racingCarNameCheck(String[] cars){
+        for(int i=0; i<cars.length; i++){
+            if(cars[i].length() > 5) throw new IllegalArgumentException("자동차의 이름은 5자 이하로 입력해주세요");
+        }
+    }
     public static String whoWinner(int max) {
         ArrayList<String> resRacing = new ArrayList<>();
         String winners = "";
