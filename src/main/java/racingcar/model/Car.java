@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import java.util.Objects;
 import racingcar.util.CarNameValidator;
 import racingcar.util.MoveResolver;
 
