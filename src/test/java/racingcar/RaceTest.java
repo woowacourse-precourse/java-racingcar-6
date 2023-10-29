@@ -15,6 +15,7 @@ class RaceTest {
     void setUp() {
         cars = Arrays.asList(new Car("kim"), new Car("mi"));
     }
+
     @Test
     void Race_인스턴스_생성확인() {
         List<Car> car = new ArrayList<Car>();
