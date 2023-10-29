@@ -3,7 +3,7 @@ package racingcar.domain;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RacingCarStatus {
+public class RacingCarStatus implements Comparable<RacingCarStatus> {
 
     private final String carName;
     private final Map<String, String> carStatus = new HashMap<>();
@@ -31,5 +31,10 @@ public class RacingCarStatus {
 
     public int getPosition() {
         return position;
+    }
+
+    @Override
+    public int compareTo(RacingCarStatus otherCar) {
+        return position - otherCar.getPosition();
     }
 }

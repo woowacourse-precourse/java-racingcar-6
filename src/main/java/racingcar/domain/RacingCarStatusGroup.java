@@ -26,10 +26,9 @@ public class RacingCarStatusGroup {
         return List.copyOf(racingCarStatusList);
     }
 
-    public int getMaxPosition() {
+    private RacingCarStatus getMaxPosition() {
         return racingCarStatusList.stream()
-                .mapToInt(RacingCarStatus::getPosition)
-                .max()
+                .max(RacingCarStatus::compareTo)
                 .orElseThrow(() -> MAX_VALUE_MISSING.getException());
     }
 }
