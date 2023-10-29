@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.CarName;
 import racingcar.domain.CarNames;
@@ -30,6 +31,13 @@ public class RaceController {
     }
 
     private void printWinners(Cars cars){
+        List<CarName> winnerCarNames = getWinnerCarNames(cars.getWinnerCars());
+        outputView.printCRaceResult(winnerCarNames);
+    }
 
+    public List<CarName> getWinnerCarNames(List<Car> winnerCars){
+        return winnerCars.stream()
+                .map(Car::getCarName)
+                .collect(Collectors.toList());
     }
 }

@@ -7,7 +7,7 @@ public class Position {
     public Position(){
         this.position = INIT_POSITION;
     }
-    private Position(int position){
+    public Position(int position){
         this.position = position;
     }
 

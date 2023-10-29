@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.CarName;
 import racingcar.domain.Cars;
@@ -29,5 +30,9 @@ public class OutputView {
             System.out.print(PROGRESS_BAR);
         }
         System.out.println();
+    }
+
+    public void printCRaceResult(List<CarName> carNames){
+        // TODO: 경주 결과 출력
     }
 }
