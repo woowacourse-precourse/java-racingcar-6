@@ -6,29 +6,44 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.dto.CarDto;
 import racingcar.fixture.FixtureNumberGenerator;
 
 class CarTest {
 
-    @DisplayName("랜덤값에 따른 move 테스트 : 4이상이면 전진, 4보다 작으면 전진하지 않는다.")
-    @Test
-    void moveUsingRandomNumber() {
-        Car car = new Car("홍길동", 5);
+    private static final String ANONYMOUS_NAME = "name";
+    private static final int ANONYMOUS_POSITION = 5;
+    private static final int MOVE_THRESHOLD = 4;
 
-        car.moveUsingRandomNumber(new FixtureNumberGenerator(4),
-                randomNumber -> randomNumber.isGreaterThan(4));
+
+    @DisplayName("move() 테스트 : 랜덤으로 생성된 값이 기준값보다 크거나 같으면 전진한다.")
+    @ParameterizedTest(name = "생성된 랜덤값이 {0}일 때 0에서 1로 전진한다.")
+    @ValueSource(ints = {4, 5, 9})
+    void moveUsingRandomNumber_램덤값이_4보다_클때(int random) {
+        Car car = new Car(ANONYMOUS_NAME, 0);
+
+        car.moveUsingRandomNumber(new FixtureNumberGenerator(random),
+                randomNumber -> randomNumber.isGreaterThan(MOVE_THRESHOLD));
 
         assertThat(car).usingRecursiveComparison()
                 .comparingOnlyFields("position")
-                .isEqualTo(new Car("홍길동", 6));
+                .isEqualTo(new Car(ANONYMOUS_NAME, 1));
+    }
 
-        car.moveUsingRandomNumber(new FixtureNumberGenerator(3),
-                randomNumber -> randomNumber.isGreaterThan(4));
+    @DisplayName("move() 테스트 : 랜덤으로 생성된 값이 기준값보다 작으면 가만히 있는다.")
+    @ParameterizedTest(name = "생성된 랜덤값이 {0}일 때 0에서 전진하지 않는다.")
+    @ValueSource(ints = {0, 1, 3})
+    void moveUsingRandomNumber_랜덤값이_4보다_작을때(int random) {
+        Car car = new Car(ANONYMOUS_NAME, 0);
+
+        car.moveUsingRandomNumber(new FixtureNumberGenerator(random),
+                randomNumber -> randomNumber.isGreaterThan(MOVE_THRESHOLD));
 
         assertThat(car).usingRecursiveComparison()
                 .comparingOnlyFields("position")
-                .isEqualTo(new Car("홍길동", 6));
+                .isEqualTo(new Car(ANONYMOUS_NAME, 0));
     }
 
     @DisplayName("CarDto로 변환 테스트 : 모든 필드값을 통해 CarDto로 변환한다.")
