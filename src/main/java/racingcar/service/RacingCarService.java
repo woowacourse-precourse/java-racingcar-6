@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import racingcar.model.RacingCar;
+import racingcar.utils.RandomUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,4 +30,13 @@ public class RacingCarService {
         return racingCars;
     }
 
+    public void playRacingCar(int attempt) {
+        for (int count = 0; count < attempt; count++) {
+            playOneRacing();
+        }
+    }
+
+    private void playOneRacing() {
+        int randomNumber = RandomUtil.getRandomNumber();
+    }
 }

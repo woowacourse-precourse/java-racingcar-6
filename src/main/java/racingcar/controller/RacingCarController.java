@@ -17,6 +17,7 @@ public class RacingCarController {
         saveRacingCars(carNames);
 
         int attemptCount = Integer.parseInt(inputView.inputAttemptCounts());
+        racingCarService.playRacingCar(attemptCount);
     }
 
     private void saveRacingCars(String carNames) {
