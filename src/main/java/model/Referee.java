@@ -7,14 +7,9 @@ public class Referee {
     private List<String> winner = new ArrayList<>();
 
     public void competeCars(Cars cars) {
-        List<Integer> scores = new ArrayList<>();
-        for (Car car : cars) {
-            scores.add(car.getPosition());
-        }
-
         int maxPosition = -1;
-        for (int score : scores) {
-            maxPosition = Math.max(maxPosition, score);
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
         }
 
         for (Car car : cars) {
