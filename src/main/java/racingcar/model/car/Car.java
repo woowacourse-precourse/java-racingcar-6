@@ -1,5 +1,7 @@
 package racingcar.model.car;
 
+import Config.AppConfig;
+
 public class Car {
     private final CarId carId;
     private final CarName carName;
@@ -25,7 +27,7 @@ public class Car {
 
     private void throwExceptionWhenOverflow(int distance) {
         if(distance > 0 && position + distance < position) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("자동차의 이동범위의 한계는 " + AppConfig.CAR_POSITION_MAX + "입니다.");
         }
     }
 

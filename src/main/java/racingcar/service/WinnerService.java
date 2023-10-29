@@ -42,7 +42,7 @@ public class WinnerService {
     public static List<String> convertCarsToStrings(List<Car> winnerCarList) {
         return winnerCarList
                 .stream()
-                .map(car -> car.getCarName().getName())
+                .map(car -> car.getCarName().name())
                 .toList();
     }
 }

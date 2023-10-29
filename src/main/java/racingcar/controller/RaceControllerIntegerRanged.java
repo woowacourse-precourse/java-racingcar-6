@@ -10,7 +10,7 @@ public class RaceControllerIntegerRanged implements RaceController {
     @Override
     public void processRace(String input, CarRepository carRepository) {
         int round = inputToInt(input);
-        View.RaceStartMessage();
+        View.raceStartMessage();
         RaceService.raceRepeatByInput(round, carRepository);
 
         List<String> winners = WinnerService.getWinnerNames(carRepository);
@@ -31,7 +31,7 @@ public class RaceControllerIntegerRanged implements RaceController {
                 throw new NumberFormatException();
             }
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("0 ~ " + Integer.MAX_VALUE + "범위의 숫자를 입력해야 합니다.");
         }
     }
 }

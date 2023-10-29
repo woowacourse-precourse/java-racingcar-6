@@ -4,24 +4,18 @@ import Config.AppConfig;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CarName {
+public record CarName(String name) {
 
-    private final String name;
-
-    public CarName(String name) {
+    public CarName {
         validateName(name);
-        this.name = name;
     }
-    private void validateName(String carName){
-        Pattern pattern = Pattern.compile(AppConfig.CAR_NAME_FORMAT);
+
+    private void validateName(String carName) {
+        Pattern pattern = Pattern.compile(AppConfig.CAR_NAME_FORMAT_REGEX);
         Matcher matcher = pattern.matcher(carName);
-        if (matcher.matches()){
+        if (matcher.matches()) {
             return;
         }
-        throw new IllegalArgumentException();
-    }
-
-    public String getName() {
-        return name;
+        throw new IllegalArgumentException("이름은 공백, 숫자, 콤마(,)를 제외한 특수문자가 포함될 수 없습니다.");
     }
 }

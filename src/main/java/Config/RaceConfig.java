@@ -1,8 +1,15 @@
 package Config;
+public enum RaceConfig {
+    MOVE_CRITERIA(4),
+    MOVE_START_RANGE(0),
+    MOVE_END_RANGE(9);
 
-public class RaceConfig {
+    private final int value;
 
-    public static final int MOVE_CRITERIA = 4;
-    public static final int MOVE_START_RANGE = 0;
-    public static final int MOVE_END_RANGE = 9;
+    RaceConfig(int value) {
+        this.value = value;
+    }
+    public int getValue() {
+        return value;
+    }
 }

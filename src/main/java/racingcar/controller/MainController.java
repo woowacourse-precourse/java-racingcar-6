@@ -12,7 +12,6 @@ import racingcar.view.View;
 public class MainController {
     private static RaceController raceController = AppConfig.raceControllerImplements();
     private CarRepository carRepository = new CarRepository(new ArrayList<Car>());
-
     public void process() {
         startGame();
         startRace();
@@ -24,11 +23,10 @@ public class MainController {
         CarSaveService.saveCars(carNames, carRepository);
     }
     private void startRace() {
-        View.raceStartMessage();
+        View.tryNumberMessage();
         String roundInput = InputHandler.readInput();
         raceController.processRace(roundInput, carRepository);
     }
-
     private static void closeGame() {
         Console.close();
     }
