@@ -17,22 +17,28 @@ public class RacingGameController {
     private static final Integer RANDOM_BOUNDARY = 4;
     public static Cars createRacingCars() {
         String[] carNames = Console.readLine().trim().split(",");
+        validateCarNamesIsEmpty(carNames);
         List<Car> cars = Arrays.stream(carNames)
-                .map(Car::new)
-                .filter(car -> !car.getName().isEmpty())
-                .peek(RacingGameController::validateNameLength)
+                .map((carName)->{
+                    validateNameLength(carName);
+                    return new Car(carName);
+                })
                 .toList();
+
         return new Cars(cars);
     }
-    public static Integer getMaxPosition(Cars cars){
-        Integer maxPosition = 0;
-        for(Car car : cars.getCars()){
-            if(car.getPosition() >= maxPosition){
-                maxPosition = car.getPosition();
-            }
+    private static void validateNameLength(String carName) {
+        if (carName.length() > LIMIT_NAME_LENGTH) {
+            throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
         }
-        return maxPosition;
     }
+
+    private static void validateCarNamesIsEmpty(String[] carNames) {
+        if (carNames.length == 0) {
+            throw new IllegalArgumentException("이름이 없습니다.");
+        }
+    }
+
     public static List<String> getWinner(Cars cars) {
         Integer maxPosition = getMaxPosition(cars);
         List<String> returnCarList=new ArrayList<>();
@@ -43,16 +49,21 @@ public class RacingGameController {
         }
         return returnCarList;
     }
-    public static void randomDice(Car car){
+    public static void randomNumber(Car car){
         int randomValue = pickNumberInRange(RANDOM_START, RANDOM_END);
         if(randomValue >= RANDOM_BOUNDARY){
             car.setPosition(car.getPosition() + 1);
         }
     }
-
-    private static void validateNameLength(Car car) {
-        if (car.getName().length() > LIMIT_NAME_LENGTH) {
-            throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+    public static Integer getMaxPosition(Cars cars){
+        Integer maxPosition = 0;
+        for(Car car : cars.getCars()){
+            if(car.getPosition() >= maxPosition){
+                maxPosition = car.getPosition();
+            }
         }
+        return maxPosition;
     }
+
+
 }

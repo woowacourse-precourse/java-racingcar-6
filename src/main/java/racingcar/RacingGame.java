@@ -18,7 +18,7 @@ public class RacingGame {
         System.out.println("실행 결과");
         IntStream.range(0, repeat).forEach(j -> {
             IntStream.range(0, userCars.getCarsLength()).mapToObj(i ->
-                    userCars.getCars().get(i)).forEach(RacingGameController::randomDice);
+                    userCars.getCars().get(i)).forEach(RacingGameController::randomNumber);
             displayGameProcessing(userCars);
         });
         displayGameResult(userCars);
