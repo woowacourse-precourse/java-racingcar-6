@@ -26,7 +26,5 @@ public class RacingCarServiceTest {
 
         Assertions.assertDoesNotThrow(() -> racingCarService.inputValidate(validInput,carNameValidator));
     }
-
-
 }
 
