@@ -1,28 +1,30 @@
 package racingcar.model;
 
+import racingcar.vo.CarDistance;
 import racingcar.vo.CarName;
 
 public class Car {
 
-    private static final Integer INIT_STEP = 0;
+    private static final Integer INIT_DISTANCE = 0;
 
     private final CarName carName;
-    private Integer step;
+    private CarDistance carDistance;
 
     public Car(final CarName carName) {
         this.carName = carName;
-        this.step = INIT_STEP;
+        this.carDistance = new CarDistance(INIT_DISTANCE);
     }
 
     public void move() {
-        this.step = Status.moveOrStop() + this.step;
+        Integer previousDistance = this.carDistance.distance();
+        this.carDistance = new CarDistance(previousDistance + Status.moveOrStop());
     }
 
     public CarName getCarName() {
         return carName;
     }
 
-    public Integer getStep() {
-        return step;
+    public CarDistance getCarDistance() {
+        return carDistance;
     }
 }
