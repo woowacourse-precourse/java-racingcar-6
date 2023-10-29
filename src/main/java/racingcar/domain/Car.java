@@ -6,13 +6,14 @@ import racingcar.util.RandomNumber.MoveOrder;
 public class Car {
     private final String name;
     private int distance;
+    private static final String BASH = "-";
 
     public Car(String name) {
         this.name = name;
         distance = 0;
     }
 
-    public void playRound() {
+    public void updateDistance() {
         if (RandomNumber.getMoveOrder() == MoveOrder.MOVE_FORWARD) {
             distance += 1;
         }
@@ -26,4 +27,8 @@ public class Car {
         return name;
     }
 
+    @Override
+    public String toString() {
+        return name + " : " + BASH.repeat(distance);
+    }
 }
