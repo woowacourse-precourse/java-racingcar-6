@@ -12,10 +12,10 @@ public class RacingGame {
     public List<String> inputCarName() {  // checkInput 구현시 수정 필요
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputStr = Console.readLine();
-        checkInput(inputStr);
         inputStr = inputStr.replace(" ", "");
         String[] inputArr = inputStr.split(",");
         List<String> nameList = Arrays.asList(inputArr);
+        checkInput(nameList);
         return nameList;
     }
 
@@ -116,10 +116,12 @@ public class RacingGame {
         System.out.println("최종 우승자 : " + winnerStr);
     }
 
-    public void checkInput(String name) {
+    public void checkInput(List<String> nameList) {
 //  사람이 아닌 차량 이름이니 특수문자가 허용될수도 있다.
-        if (name.length() > 5) {
-            throw new IllegalArgumentException();
+        for(String name : nameList){
+            if (name.length() > 5) {
+                throw new IllegalArgumentException();
+            }
         }
     }
 
