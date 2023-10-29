@@ -8,9 +8,13 @@ public class Car {
     private final String name;
     private Integer location;
 
-    public Car(String name) {
+    private Car(String name) {
         this.name = name;
         this.location = 0;
+    }
+
+    public static Car withName(String name) {
+        return new Car(name);
     }
 
     public MoveResultDto move() {
@@ -18,13 +22,11 @@ public class Car {
         return MoveResultDto.make(name, location);
     }
 
-    //TODO private으로 변경
-    public int generateRandomNumber() {
+    protected int generateRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    //TODO private으로 변경
-    public void moveOrStop(int randomNumber) {
+    protected void moveOrStop(int randomNumber) {
         if (randomNumber >= 4) {
             location++;
         }
@@ -34,7 +36,6 @@ public class Car {
         return name;
     }
 
-    //test 만을 위한 코드
     public Integer getLocation() {
         return location;
     }

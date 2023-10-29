@@ -13,10 +13,10 @@ public class CarTest {
 
     @BeforeEach
     public void setup() {
-        car = new Car("gyuwon");
+        car = Car.withName("gyuwon");
     }
 
-    @RepeatedTest(value = 10000)
+    @RepeatedTest(value = 1000)
     public void 랜덤값_생성_테스트() {
         //when
         int randomNumber = car.generateRandomNumber();

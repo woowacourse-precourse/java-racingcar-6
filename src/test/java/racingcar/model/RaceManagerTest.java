@@ -23,9 +23,9 @@ public class RaceManagerTest {
     @Test
     public void 우승자_한명_테스트() {
         //given
-        Car car1 = new Car("gyuwon");
-        Car car2 = new Car("pobbi");
-        Car car3 = new Car("wendy");
+        Car car1 = Car.withName("gyuwon");
+        Car car2 = Car.withName("pobi");
+        Car car3 = Car.withName("wendy");
 
         //when
         for (int i = 4; i < 10; i++) {
@@ -42,9 +42,9 @@ public class RaceManagerTest {
     @Test
     public void 우승자_두명_테스트() {
         //given
-        Car car1 = new Car("gyuwon");
-        Car car2 = new Car("pobbi");
-        Car car3 = new Car("wendy");
+        Car car1 = Car.withName("gyuwon");
+        Car car2 = Car.withName("pobbi");
+        Car car3 = Car.withName("wendy");
 
         //when
         for (int i = 1; i < 10; i++) {

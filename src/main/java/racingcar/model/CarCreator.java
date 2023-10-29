@@ -30,6 +30,6 @@ public class CarCreator {
     }
 
     private static Car createCar(String carName) {
-        return new Car(carName);
+        return Car.withName(carName);
     }
 }
