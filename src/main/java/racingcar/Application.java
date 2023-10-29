@@ -18,8 +18,8 @@ public class Application {
             int rounds = getNumberOfRounds();
             // 기능 4-1. 사용자에게 몇 라운드를 진행할 것인지 입력하게 하고 기능8에 따라서 숫자가 아니거나 1이상의 정수를 입력하지 않은 경우 IllegalArgumentException을 발생
             validRound(rounds);
-            // 자동차의 수만큼 0을 초기값으로 갖는 배열 생성
-            int[] location = new int[cars.length];
+            // 자동차의 수 X 라운드의 수 만큼 0을 초기값으로 갖는 배열 생성
+            int[][] location = saveLocation(cars, rounds);
             System.out.println("\n실행 결과");
 
     }
@@ -59,22 +59,43 @@ public class Application {
             scanner.close();
             return rounds;
     }
+    // 기능 5-1. 입력 받은 라운드 수만큼 전진할 지 정지할 지 결정하여 int[][] location에 저장하고 매 라운드마다 자동차 별 진행 상황 프린트
+    public static int[][] saveLocation(String[] cars, int rounds) {
+            int numOfCars = cars.length;
+            int[][] location = new int[numOfCars][rounds];
+
+            // 각 자동차에 대하여 매 라운드마다 랜덤하게 수를 생성하여 규칙에 따라 전진하면 1을 정지하면 0을 location에 저장
+            for (int n = 0; n < numOfCars; n++){
+                    for (int r = 0; r < rounds; r++){
+                            int random = Randoms.pickNumberInRange(0, 9);
+                            if (random >= 4){
+                                location[n][r] = 1;
+                            }
+                            location[n][r] = 0;
+                    }
+            }
+            return location;
+    }
 
     // 기능 2-1. 자동차의 이름을 저장하여 각 라운드마다 자동차의 이름과 진행 상황을 프린트하는 함수인 playRound() 메서드 구현
-    public static void playRound(String[] cars, int rounds, int[] location){
+    // 기능 5-1. 입력 받은 라운드 수만큼 전진할지 정지할지 결정하여 int[][] location에 저장하고 매 라운드마다 자동차별 진행 상황 프린트
+    public static void playRound(String[] cars, int rounds, int[][] location){
             int numOfCars = cars.length;
-            int[][] positions = new int[numOfCars][rounds];
             int index = 0;
 
             for (String car : cars) {
+                    index += 1;
                     System.out.print(car + ": ");
-                    for(int i = 0; i < location[index]; i++){
-                        System.out.print("-");
+                    for(int i = 0; i < rounds; i++){
+                            if(location[index][i] == 1){
+                                    System.out.print("-");
+                            }
                     }
                     System.out.println();
             }
     }
 
+    // 기능 4-1. 사용자에게 몇 라운드를 진행할 것인지 입력하게 하고 기능8에 따라서 숫자가 아니거나 1이상의 정수를 입력하지 않은 경우 IllegalArgumentException을 발생
     public static void validRound(int rounds) {
         if (rounds <= 0) {
             throw new IllegalArgumentException("1이상의 정수를 입력해주세요.");
