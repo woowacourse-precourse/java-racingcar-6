@@ -38,6 +38,8 @@ public class RacingGame {
         return roundResult.toString();
     }
 
+    
+    // 문자열 생성 과정에서 생긴 불필요한 부분 제거
     private void cutStringTail(StringBuilder winners) {
         int length = winners.length();
         winners.delete(length - 2, length);

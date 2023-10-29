@@ -38,8 +38,12 @@ public class Car {
         }
     }
 
+    
+    // 랜덤으로 뽑은 값이 임계값보다 큰지(이동해도 되는지) 판별
     private boolean canMove() {
-        return !(MOVE_THRESHOLD > Randoms.pickNumberInRange(RANGE_MIN, RANGE_MAX));
+        int pickedNumber = Randoms.pickNumberInRange(RANGE_MIN, RANGE_MAX);
+
+        return pickedNumber > MOVE_THRESHOLD;
     }
 
 }

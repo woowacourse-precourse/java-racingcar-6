@@ -22,21 +22,25 @@ public class Controller {
         View.displayWinners(winners);
     }
 
-    private void playRace() {
-        for (int round = 0; round < ROUND_MAX; round++) {
-            String roundResult = game.playRound();
-            View.displayRoundResult(roundResult);
-        }
-    }
 
+    // View에서 받은 자동차 이름을 토대로 자동차 생성 요청
     private void askAndGenerateCars() {
         String[] cars = View.askForCarNames();
         manager.createAndAddCars(cars);
     }
 
+    // View에서 받은 시도 횟수를 설정 파일에 전달
     private void askAndSetAttempts() {
         int attempts = View.askForAttempts();
         Settings.setRound(attempts);
+    }
+
+    // 정해진 시도 횟수만큼 라운드별 진행을 요청, 라운드가 끝날 때마다 결과 출력
+    private void playRace() {
+        for (int round = 0; round < ROUND_MAX; round++) {
+            String roundResult = game.playRound();
+            View.displayRoundResult(roundResult);
+        }
     }
 
 }

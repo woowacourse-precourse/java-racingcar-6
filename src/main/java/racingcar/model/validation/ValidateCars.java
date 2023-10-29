@@ -22,6 +22,7 @@ public class ValidateCars extends Validator {
         }
     }
 
+    
     private static void isDuplicatedName(String[] names) {
         Set<String> carsSet = new HashSet<>();
 
