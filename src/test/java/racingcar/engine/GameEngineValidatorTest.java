@@ -18,6 +18,10 @@ class GameEngineValidatorTest {
         return new String[]{" ".repeat(MAX_SIZE), "12345"};
     }
 
+    private static String[] 입력값이_마이너스이거나_숫자가_아니거나_null_경우() {
+        return new String[]{" ".repeat(MAX_SIZE), null, "qwe", "ㅁㄴㅇ", "ㅃ", "Q", "★", "-123", "-123456789", "-1", "1-1"};
+    }
+
     @Test
     void 플레이어이름이_null값이면_예외를던진다() {
         Assertions.assertThatCode(() -> new GameEngineValidator().validateIsNotNull(null))
@@ -46,4 +50,10 @@ class GameEngineValidatorTest {
                 .doesNotThrowAnyException();
     }
 
+    @ParameterizedTest
+    @MethodSource("입력값이_마이너스이거나_숫자가_아니거나_null_경우")
+    void 입력값이_마이너스이거나_숫자가_아니거나_null이면_예외를_던진다(String readLine) {
+        Assertions.assertThatCode(() -> new GameEngineValidator().validateIsPositiveNumber(readLine))
+                .isExactlyInstanceOf(IllegalArgumentException.class);
+    }
 }
