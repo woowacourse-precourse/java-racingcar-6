@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.Collection;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class GameHost {
 
@@ -25,15 +24,29 @@ public class GameHost {
     }
 
     public String announceWinner(){
+        int maxOdometer = getMaxOdometer();
+        return getWinner(maxOdometer);
+    }
+
+    private int getMaxOdometer() {
         int maxOdometer = 0;
-        String winnerName = "";
         for (Car car : carList) {
             if(maxOdometer < car.getOdometer()) {
-                winnerName = car.getName();
                 maxOdometer = car.getOdometer();
             }
         }
-        return winnerName;
+        return maxOdometer;
+    }
+
+    private String getWinner(int maxOdometer) {
+        StringBuilder sb = new StringBuilder();
+        for (Car car : carList) {
+            if(maxOdometer == car.getOdometer()) {
+                sb.append(car.getName()).append(",");
+            }
+        }
+        sb.deleteCharAt(sb.length()-1);
+        return sb.toString();
     }
 
 }

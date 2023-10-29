@@ -12,7 +12,7 @@
   - [X] 자동차 전진 : 0~9의 무작위 값이 4이상일 경우 - Car#moveForward()
   - [X] 게임 진행 정보 확인 : 자동차 이름 , 적산거리 출력 - Car#toString()
 - [X] 게임 완료 후, 우승자 출력 : GameHost#announceWinner()
-  - [ ] 우승자가 여러명일 경우 쉼표 구분 - GameHost#multipleWinner()
+  - [X] 우승자가 여러명일 경우 쉼표 구분 - GameHost#getWinner()
 
 # Class
 
