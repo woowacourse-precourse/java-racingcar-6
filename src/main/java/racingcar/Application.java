@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -16,25 +17,23 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         int numberOfRaces = inputNumberOfRaces();
 
+        System.out.println("실행 결과");
         List<Integer> raceResult = printCarRace(numberOfRaces, carNamesList);
 
         List<String> winnerNameList = decideWinner(raceResult, carNamesList);
+
         printWinner(winnerNameList);
     }
 
     public static List<String> inputCarNames() {
-        // 문자열 받아서 콤마(,)롤 기준으로 나누어 List에 담음
         String carNames = Console.readLine();
-        String[] carNamesSplitted = carNames.split(",");
-        List<String> carNamesList = new ArrayList<>();
-        Collections.addAll(carNamesList, carNamesSplitted);
-        return carNamesList;
+        return new ArrayList<>(Arrays.asList(carNames.split(",")));
     }
 
     public static void checkNamingError(List<String> carNamesList) {
         int maxLength = 5;
-        for (String item : carNamesList) {
-            if (item.length() > maxLength) {
+        for (String name : carNamesList) {
+            if (name.length() > maxLength) {
                 throw new IllegalArgumentException("이름 길이 5자 초과");
             }
         }
@@ -86,7 +85,7 @@ public class Application {
         return totalActionList;
     }
 
-    public static List<String> decideWinner(List<Integer> totalActionList, List<String> carNamesList) {
+    public static List<Integer> extractWinnerIndex(List<Integer> totalActionList) {
         int maxDistance = Collections.max(totalActionList);
         List<Integer> winnerIndexList = new ArrayList<>();
         for (int i = 0; i < totalActionList.size(); i++) {
@@ -94,6 +93,11 @@ public class Application {
                 winnerIndexList.add(i);
             }
         }
+        return winnerIndexList;
+    }
+
+    public static List<String> decideWinner(List<Integer> totalActionList, List<String> carNamesList) {
+        List<Integer> winnerIndexList = extractWinnerIndex(totalActionList);
         List<String> winnerNameList = new ArrayList<>();
         for (int winnerIndex : winnerIndexList) {
             String winnerName = carNamesList.get(winnerIndex);
