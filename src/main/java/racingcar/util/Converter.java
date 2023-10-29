@@ -2,12 +2,15 @@ package racingcar.util;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import racingcar.exception.NonPositiveIntException;
 
 public class Converter {
 
-    private static final String POSITIVE_INTEGER_PATTERN = "^[1-9]\\d*$";
     private static final String COMMA = ",";
+    private static final String POSITIVE_INTEGER_PATTERN = "^[1-9]\\d*$";
+    private static final Pattern pattern = Pattern.compile(POSITIVE_INTEGER_PATTERN);
 
     public static List<String> convertCommaSeparatedStringToList(final String input) {
         return Arrays.stream(input.split(COMMA))
@@ -31,6 +34,7 @@ public class Converter {
     }
 
     private static boolean isPositiveNumeric(final String input) {
-        return input.matches(POSITIVE_INTEGER_PATTERN);
+        Matcher matcher = pattern.matcher(input);
+        return matcher.matches();
     }
 }
