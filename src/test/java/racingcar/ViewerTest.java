@@ -6,6 +6,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class ViewerTest {
     private final Viewer viewer = new Viewer();
@@ -28,7 +30,7 @@ public class ViewerTest {
     }
 
     @Nested
-    class 시도_회수_입력 extends NsTest {
+    class 시도_횟수_입력 extends NsTest {
         @Test
         void 시도_횟수가_숫자가_아닌_경우_예외() {
             final String input = "a";
@@ -37,6 +39,15 @@ public class ViewerTest {
                     assertThatThrownBy(() -> runException(input))
                             .isInstanceOf(IllegalArgumentException.class)
                             .hasMessage("시도 횟수는 숫자여야 합니다."));
+        }
+
+        @ParameterizedTest(name = "실패_시도_횟수가_{0}인_경우")
+        @ValueSource(strings = {"0", "-1"})
+        void 시도_횟수가_0보다_적거나_음수인_경우_예외(String input) {
+            assertSimpleTest(() ->
+                    assertThatThrownBy(() -> runException(input))
+                            .isInstanceOf(IllegalArgumentException.class)
+                            .hasMessage("시도 횟수는 1 이상이어야 합니다."));
         }
 
         @Override
