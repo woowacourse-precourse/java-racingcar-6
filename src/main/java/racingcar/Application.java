@@ -31,6 +31,23 @@ public class Application {
     public static void main(String[] args) {
 
         List<Car> cars = getCars();
+
+        int times = getTimesToMove();
+    }
+
+    public static int getTimesToMove() {
+        String input = Console.readLine();
+        return validNum(input);
+    }
+
+    public static int validNum(String input) {
+        boolean matches = input.matches("^[0-9]+$");
+
+        if (!matches) {
+            throw new IllegalArgumentException();
+        }
+
+        return Integer.parseInt(input);
     }
 
     public static List<Car> getCars() {
