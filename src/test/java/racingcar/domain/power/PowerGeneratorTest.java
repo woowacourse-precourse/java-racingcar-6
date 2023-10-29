@@ -1,6 +1,6 @@
 package racingcar.domain.power;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -10,7 +10,7 @@ class PowerGeneratorTest {
 
     @DisplayName("생성된 파워는 0-9사이의 범위를 가져야 한다")
     @RepeatedTest(100)
-    void defaultPowerGeneratorRangeTest() {
+    void testGeneratedPowerInRange() {
         PowerGenerator powerGenerator = new DefaultPowerGenerator();
         assertTrue(isNumberInRange(powerGenerator.generate(), 0, 9));
     }

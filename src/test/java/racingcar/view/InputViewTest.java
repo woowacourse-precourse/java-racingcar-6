@@ -27,7 +27,7 @@ class InputViewTest {
         Console.close();
     }
 
-    @DisplayName("자동차 이름 입력 테스트")
+    @DisplayName("자동차 이름 입력을 올바르게 처리한다")
     @Test
     void testReadCarNames() throws InterruptedException {
 
@@ -39,7 +39,7 @@ class InputViewTest {
         assertThat(carNames).containsExactly("pobi", "jun", "woni");
     }
 
-    @DisplayName("라운드 횟수 입력 테스트")
+    @DisplayName("라운드 횟수 입력을 올바르게 처리한다")
     @Test
     void testReadNumberOfRounds() {
         String input = "5\n";
@@ -49,6 +49,4 @@ class InputViewTest {
         int numberOfRounds = inputView.readNumberOfRounds();
         assertEquals(5, numberOfRounds);
     }
-
-
 }

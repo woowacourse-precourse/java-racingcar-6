@@ -25,8 +25,7 @@ class OutputViewTest {
         System.setOut(new PrintStream(outputStream));
     }
 
-
-    @DisplayName("라운드 결과 출력 테스트")
+    @DisplayName("라운드 결과를 올바르게 출력한다")
     @Test
     void testShowRoundResult() {
         List<Car> cars = Arrays.asList(
@@ -41,7 +40,7 @@ class OutputViewTest {
         assertEquals(expectedOutput.trim(), outputStream.toString().trim());
     }
 
-    @DisplayName("복수 우승자 출력 테스트")
+    @DisplayName("복수 우승자일 경우 올바르게 출력한다")
     @Test
     void testShowGameResult() {
         List<Car> cars = Arrays.asList(
@@ -56,7 +55,7 @@ class OutputViewTest {
         assertEquals(expectedOutput.trim(), outputStream.toString().trim());
     }
 
-    @DisplayName("단일 우승자 출력 테스트")
+    @DisplayName("단일 우승자일 경우 올바르게 출력한다")
     @Test
     void testShowGameResultWithSingleWinner() {
         List<Car> cars = Arrays.asList(
