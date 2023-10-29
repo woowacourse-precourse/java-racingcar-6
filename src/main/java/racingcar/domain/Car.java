@@ -5,31 +5,12 @@ import static racingcar.domain.GameOption.CAR_POSITION_SIGN;
 import racingcar.message.ErrorMessage;
 
 public class Car {
-    private static final int MAX_NAME_LENGTH = 4;
-    private final String name;
+    private final CarName name;
     private final Position position;
 
-    public Car(String name, Position position) {
-        validateName(name);
+    public Car(CarName name, Position position) {
         this.name = name;
         this.position = position;
-    }
-
-    private void validateName(String name) {
-        validateBlank(name);
-        validateNameLength(name);
-    }
-
-    private void validateBlank(String name) {
-        if (name == null || name.isBlank()) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_CAR_NAME);
-        }
-    }
-
-    private void validateNameLength(String name) {
-        if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_CAR_NAME);
-        }
     }
 
     public boolean isSamePosition(int position) {
@@ -41,7 +22,7 @@ public class Car {
     }
 
     public String getName() {
-        return name;
+        return name.getName();
     }
 
     public int getPosition() {
@@ -50,6 +31,6 @@ public class Car {
 
     @Override
     public String toString() {
-        return name + " : " + CAR_POSITION_SIGN.repeat(position.getAmount());
+        return name.getName() + " : " + CAR_POSITION_SIGN.repeat(position.getAmount());
     }
 }
