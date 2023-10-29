@@ -13,5 +13,6 @@ public class Application {
         gameController.gameStart();
         gameController.gamePlay();
         gameController.findWinner();
+        gameController.endGame();
     }
 }

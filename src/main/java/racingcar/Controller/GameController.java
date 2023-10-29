@@ -5,6 +5,7 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Iterator;
 import racingcar.Model.CarModel;
 import racingcar.Model.GameModel;
 
@@ -122,5 +123,25 @@ public class GameController {
                 gameModel.setWinnerCar(car);
             }
         }
+    }
+
+    public void endGame(){
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("최종 우승자 : ");
+
+        ArrayList<CarModel> winnerCar = gameModel.getWinnerCar();
+        Iterator<CarModel> carModelIterator = winnerCar.iterator();
+
+        while (carModelIterator.hasNext()){
+
+            sb.append(carModelIterator.next().getName());
+
+            if(carModelIterator.hasNext()) {
+                sb.append(", ");
+            }
+        }
+
+        System.out.println(sb);
     }
 }
