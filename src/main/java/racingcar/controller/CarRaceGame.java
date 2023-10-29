@@ -26,7 +26,8 @@ public class CarRaceGame {
 
     public void startGame() {
         String carNames = CarRaceGameView.startGameView();
-        List<Car> carImplList = setUpCar(carNames);
+        List<String> carNameList = CarNamesToList(carNames);
+        List<Car> carImplList = setUpCar(carNameList);
 
         String attemptNumberString = CarRaceGameView.attemptNumberView();
 
@@ -36,8 +37,7 @@ public class CarRaceGame {
         carRaceGameUtility.startCarRaceGame();
     }
 
-    private List<Car> setUpCar(String carNames) {
-        List<String> carNameList = CarNamesToList(carNames);
+    private List<Car> setUpCar(List<String> carNameList) {
         List<Car> carImplList = new ArrayList<Car>();
 
         for (String carName : carNameList) {
