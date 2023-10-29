@@ -23,7 +23,7 @@ public class CarName {
         }
     }
 
-    public static CarName create(final String name) {
+    public static CarName valueOf(final String name) {
         return new CarName(name);
     }
 }

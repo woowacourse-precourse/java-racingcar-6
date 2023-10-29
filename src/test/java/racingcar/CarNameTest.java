@@ -16,14 +16,14 @@ public class CarNameTest {
     @ValueSource(strings = {" ", "      "})
     @DisplayName("이름이 null이거나 빈 문자열이면 예외가 발생한다.")
     void isNameNullOrEmpty_Then_ExceptionOccurs(final String name) {
-        assertThatThrownBy(() -> CarName.create(name))
+        assertThatThrownBy(() -> CarName.valueOf(name))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     @DisplayName("다섯 글자를 초과한 이름이 입력되면 예외가 발생한다.")
     void exceedFiveLetters_Then_ExceptionOccurs() {
-        assertThatThrownBy(() -> CarName.create("123456"))
+        assertThatThrownBy(() -> CarName.valueOf("123456"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -31,7 +31,7 @@ public class CarNameTest {
     @ValueSource(strings = {"1", "car", "car3", "12345"})
     @DisplayName("다섯 글자 이하의 이름이 입력되면 예외가 발생하지 않는다.")
     void lessThenFiveLetters_Then_NoExceptionOccurs(final String name) {
-        assertThatCode(() -> CarName.create(name))
+        assertThatCode(() -> CarName.valueOf(name))
                 .doesNotThrowAnyException();
     }
 }
