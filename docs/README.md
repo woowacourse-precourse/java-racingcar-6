@@ -42,9 +42,9 @@
 - ✅ getPlayCount 메서드 구현
   - ✅ 사용자들에게 시도활 회수를 입력 받음
 
-## ❌ 숫자에 맞춰 대시 기호 변환
-- ❌ generateDashes 메서드 구현
-  - ❌ 입력한 수에 맞춰 '-' 문자열을 반환
+## ✅ 숫자에 맞춰 대시 기호 변환
+- ✅ generateDashes 메서드 구현
+  - ✅ 입력한 수에 맞춰 '-' 문자열을 반환
   - 
 ## ✅ 입력한 값 검증
 - ✅ validateInputIsNumber  메서드 구현

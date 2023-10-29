@@ -17,4 +17,8 @@ public class RaceGame {
     public static int getPlayCount(){
         return validateInputIsNumber(displayPlayCountMessage());
     }
+
+    public static String generateDashes(int input){
+        return "-".repeat(Math.max(0, input));
+    }
 }
