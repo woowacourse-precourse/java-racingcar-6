@@ -1,33 +1,30 @@
 package racingcar.domain;
 
+import java.util.List;
+
 public class GameManager {
     private static GameManager gameManager = null;
-    private static int carQuantity;
-    private static int attemptNumber;
+    private int attemptNumber;
+    private List<Car> carImplList;
 
-    private GameManager() {};
 
-    public static GameManager create() {
+    private GameManager(int attemptNumber, List<Car> carImplList) {
+        this.attemptNumber = attemptNumber;
+        this.carImplList =carImplList;
+    };
+
+    public static GameManager create(int attemptNumber, List<Car> carImplList) {
         if(gameManager == null){
-            gameManager = new GameManager();
+            gameManager = new GameManager(attemptNumber, carImplList);
         }
         return gameManager;
-    }
-
-
-    public int getCarQuantity() {
-        return carQuantity;
-    }
-
-    public void setCarQuantity(int carQuantity) {
-        this.carQuantity = carQuantity;
     }
 
     public int getAttemptNumber() {
         return attemptNumber;
     }
 
-    public void setAttemptNumber(int attemptNumber) {
-        this.attemptNumber = attemptNumber;
+    public List<Car> getCarImplList() {
+        return carImplList;
     }
 }
