@@ -19,4 +19,13 @@ public class ResultView {
         }
         System.out.println();
     }
+
+    public static void printWinners(List<Car> winners) {
+        StringBuilder sb = new StringBuilder("최종 우승자 : ");
+        for (Car car : winners) {
+            sb.append(car.getName()).append(", ");
+        }
+        sb.setLength(sb.length() - 2);
+        System.out.println(sb);
+    }
 }
