@@ -8,10 +8,10 @@ public class CarMover {
     private List<Boolean> decideToMoveCars(int n)
     {
         List<Boolean> whetherMoveOrNot = new ArrayList<>();
-        for(int i = 0 ; i<n ; i++)
+        for (int i = 0 ; i<n ; i++)
         {
             int pickedRandomNumber = Randoms.pickNumberInRange(0, 9);
-            if(pickedRandomNumber >= 4)
+            if (pickedRandomNumber >= 4)
             {
                 whetherMoveOrNot.add(true);
             }
@@ -26,9 +26,9 @@ public class CarMover {
 
     private List<Integer> moveEveryCar(int n, List<Integer> carList, List<Boolean> whetherMoveOrNot)
     {
-        for(int i = 0 ; i<n ; i++)
+        for (int i = 0 ; i<n ; i++)
         {
-            if(whetherMoveOrNot.get(i))
+            if (whetherMoveOrNot.get(i))
             {
                 carList.set(i, carList.get(i) + 1);
             }

@@ -9,9 +9,9 @@ public class RacingInput {
         List<String> nameOfEachCars = List.of(carNames.split(","));
 
         int n = nameOfEachCars.size();
-        for(String carName : nameOfEachCars)
+        for (String carName : nameOfEachCars)
         {
-            if(carName.length() > 5)
+            if (carName.length() > 5)
             {
                 throw new IllegalArgumentException("차의 이름이 5 초과입니다");
             }

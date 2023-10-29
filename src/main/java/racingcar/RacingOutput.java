@@ -43,26 +43,28 @@ public class RacingOutput {
         bw.write("\n");
     }
 
-    private List<Integer> getResultOfWinner(int n, List<Integer> carNames, List<Integer> carDis) throws IOException
+    private List<String> getResultOfWinner(int n, List<String> carName, List<Integer> carDis) throws IOException
     {
         if (n==0)    return new ArrayList<>();
 
         int biggestDis = carDis.get(0);
-        List<Integer> winnerList = List.of(0);
+        List<String> winnerList = List.of(carName.get(0));
 
         for (int i = 1 ; i<n ; i++)
         {
             if (carDis.get(i) > biggestDis)
             {
-                winnerList = List.of(i);
+                winnerList = List.of(carName.get(i));
                 biggestDis = carDis.get(i);
             }
             else if (carDis.get(i) == biggestDis)
             {
-                winnerList.add(i);
+                winnerList.add(carName.get(i));
             }
         }
 
         return winnerList;
     }
+
+
 }
