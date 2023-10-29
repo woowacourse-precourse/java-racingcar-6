@@ -67,8 +67,8 @@ OnRaceCar의 경우 불변 객체로 위치가 변경되면 새로운 객체를 
 
 - Reader [ ]
     - read
-료
-- Viewer [ ]
+    
+- Viewer [ x ]
     - print
 
 - Manager [ ]
