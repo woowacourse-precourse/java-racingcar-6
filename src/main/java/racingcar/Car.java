@@ -37,7 +37,7 @@ public class Car {
             bar.append(carName);
             bar.append(" : ");
 
-            if (Randoms.pickNumberInRange(0, 9) > 4) {
+            if (Randoms.pickNumberInRange(0, 9) >= 4) {
                 bar.append("-");
             }
 
