@@ -4,8 +4,16 @@ import message.GameMessage;
 
 public class GameInputException {
 
-    public GameInputException() {
+    private static GameInputException defaultGameInputException;
 
+    private GameInputException() {
+    }
+
+    public static GameInputException getInstance() {
+        if(defaultGameInputException == null) {
+            defaultGameInputException = new GameInputException();
+        }
+        return defaultGameInputException;
     }
 
     public void validateNameLength(String[] names) {
@@ -26,6 +34,10 @@ public class GameInputException {
         if(number.length() > 1 && number.charAt(0) == '0') {
             throw new IllegalArgumentException(GameMessage.countError.getMessage());
         }
+    }
+
+    public void close() {
+        defaultGameInputException = null;
     }
 
 }
