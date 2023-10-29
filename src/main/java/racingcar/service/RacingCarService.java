@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import racingcar.constants.RacingCarRole;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.MovingCondition;
@@ -20,6 +21,11 @@ public class RacingCarService {
         racingCars.stream()
                 .filter(car -> movingCondition.canMove())
                 .forEach(Car::movePosition);
+    }
+
+    public boolean isProcessing(int attemptCount){
+        attemptCount -= RacingCarRole.NEXT_POSITION.getValue();
+        return attemptCount > RacingCarRole.END_ATTEMPT_NUMBER.getValue();
     }
 
 }
