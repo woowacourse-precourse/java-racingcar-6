@@ -1,18 +1,19 @@
 package racingcar.validation;
 
 import java.util.List;
-import racingcar.utils.NameHandler;
+import racingcar.util.NameHandler;
 
 public class CarNames {
     static final String BLANK_INPUT_EXCEPTION = "공백 입력입니다.";
     static final String NAME_LENGTH_EXCEPTION = "이름 길이가 5를 초과합니다.";
     static final String SAME_NAMES_EXCEPTION = "중복된 이름이 존재합니다.";
 
-    public void validateCarNames(String in) {
+    public List<String> validateCarNames(String in) {
         List<String> names = NameHandler.splitNames(in);
         checkBlankInput(names);
         checkNameLength(names);
         checkSameNames(names);
+        return names;
     }
 
     private void checkBlankInput(List<String> names) throws IllegalArgumentException {
