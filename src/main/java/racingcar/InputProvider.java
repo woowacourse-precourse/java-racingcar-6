@@ -1,6 +1,10 @@
 package racingcar;
 
-import static racingcar.InputProvider.ErrorMessage.*;
+import static racingcar.InputProvider.ErrorMessage.INVALID_FORMAT_EXCEPTION;
+import static racingcar.InputProvider.ErrorMessage.INVALID_LENGTH_EXCEPTION;
+import static racingcar.InputProvider.ErrorMessage.INVALID_RACE_COUNT;
+import static racingcar.InputProvider.ErrorMessage.NOT_EXIST_EXCEPTION;
+import static racingcar.InputProvider.ErrorMessage.START_ZERO_EXCEPTION;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
@@ -40,7 +44,7 @@ public final class InputProvider {
         if (raceCount.isEmpty()) {
             throw new IllegalArgumentException(NOT_EXIST_EXCEPTION.getMessage());
         }
-        if (isRaceCountStartsZero(raceCount)){
+        if (isRaceCountStartsZero(raceCount)) {
             throw new IllegalArgumentException(START_ZERO_EXCEPTION.getMessage());
         }
         if (isInvalidRaceCountFormat(raceCount)) {

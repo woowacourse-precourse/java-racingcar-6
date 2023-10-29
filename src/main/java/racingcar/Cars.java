@@ -1,6 +1,5 @@
 package racingcar;
 
-import java.util.Collections;
 import java.util.List;
 import racingcar.util.CarListMaker;
 
