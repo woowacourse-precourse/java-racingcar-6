@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 public class InputView {
 
-
     public ArrayList<String> getCarsName() {
         String carsName = Console.readLine();
         return Utils.splitCarName(carsName);
