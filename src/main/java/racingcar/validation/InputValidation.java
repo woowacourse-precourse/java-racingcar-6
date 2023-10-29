@@ -18,10 +18,12 @@ public class InputValidation {
 
     public static String gameCountValidate(String input) {
         try {
-            Integer.parseInt(input);
-            return input;
+            if (Integer.parseInt(input) > 0) {
+                return input;
+            }
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(INVALID_INPUT);
         }
+        return input;
     }
 }
