@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static racingcar.util.Validator.*;
 import static racingcar.view.InputView.askHowManyRounds;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -16,6 +17,10 @@ public class Number {
     }
 
     private Number(String userInput) {
+        validateEmpty(userInput);
+        validateInteger(userInput);
+        validatePositive(userInput);
+
         this.number = convertStringToInt(userInput);
     }
     public static Number inputUserRounds() {
