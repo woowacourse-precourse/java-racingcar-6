@@ -3,6 +3,7 @@ package model;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static model.ValidateRacingValue.carNameInputToList;
 import static model.ValidateRacingValue.validateRacingResult;
+import static model.ValidateRacingValue.validateRacingWinner;
 import static model.ValidateRacingValue.validateRandomMoreFour;
 import static org.assertj.core.api.Assertions.*;
 
@@ -49,6 +50,21 @@ class ValidateRacingValueTest extends NsTest {
                     assertThat(validateRacingResult(carName, raceResult)).isEqualTo(testResult);
                 },FOWARDVALUE, STOPVALUE
         );
+    }
+    @DisplayName("결과 값에 따라 우승자를 선정하는가")
+    @Test
+    void validateRacingWinnerTest() {
+        //given
+        List<String> carName = new ArrayList<>();
+        carName.add("pobi");
+        carName.add("nana");
+        carName.add("bubu");
+        carName.add("lala");
+        List<Integer> raceResult = Arrays.asList(1, 4, 3, 4);
+        //when
+        List<String> testResult = validateRacingWinner(carName, raceResult);
+        //then
+        assertThat(testResult).contains("nana", "lala");
     }
     @Override
     public void runMain() {

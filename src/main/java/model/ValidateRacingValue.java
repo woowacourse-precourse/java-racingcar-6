@@ -29,5 +29,15 @@ public class ValidateRacingValue {
         }
         return raceResult;
     }
-
+    public static List<String> validateRacingWinner(List<String>carName, List<Integer>raceResult) {
+        int WinnerResult = Collections.max(raceResult);
+        List<String>loser = new ArrayList<>();
+        for(int i = 0; i < carName.size(); i++) {
+            if(raceResult.get(i) < WinnerResult) {
+                loser.add(carName.get(i));
+            }
+        }
+        carName.removeAll(loser);
+        return carName;
+    }
 }
