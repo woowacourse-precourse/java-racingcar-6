@@ -24,4 +24,9 @@ public class ConsoleInputView implements InputView {
     public String getDelimiter() {
         return DELIMITER;
     }
+
+    @Override
+    public int enterTryCount() {
+        return Integer.parseInt(readLine());
+    }
 }
