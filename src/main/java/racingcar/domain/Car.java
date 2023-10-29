@@ -16,4 +16,9 @@ public class Car {
     public void forward() {
         this.location++;
     }
+
+    // 후진 기능
+    public void backward() {
+        this.location--;
+    }
 }
