@@ -13,11 +13,19 @@ public class RacingController {
 
     public void startGame() {
         initCars();
+        while (!cars.isCompleted()) {
+            tryOnce();
+        }
     }
 
     public void initCars() {
         InputView.inputCarNames()
                 .forEach(name -> cars.insertCar(new Car(new CarName(name))));
         cars.setTryCount(InputView.inputTryCount());
+    }
+
+    public void tryOnce() {
+        cars.moveAllCar();
+        OutputView.printScores(cars.getScores());
     }
 }

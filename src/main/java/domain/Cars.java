@@ -47,5 +47,9 @@ public class Cars {
         }
     }
 
+    public boolean isCompleted() {
+        return tryCount == 0;
+    }
+
 
 }
