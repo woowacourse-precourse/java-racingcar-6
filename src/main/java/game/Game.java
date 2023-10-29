@@ -16,18 +16,11 @@ public class Game {
     }
 
     public void start(){
-        // 게임이 시작되면 frequency 만큼 반복문을 돌게된다.
         int maxDistanceCar = 0;
         List<String> winners = new ArrayList<>();
 
         for (int i = 0; i < frequency; i++){
-            for (Car car : participants) {
-                car.movingForward();
-                int distance = car.getDistance();
-                if (maxDistanceCar < distance) {
-                    maxDistanceCar = distance;
-                }
-            }
+            moveCarsForward(participants);
 
             for (Car participant : participants) {
                 System.out.println(participant.getName() + " : " + "-".repeat(participant.getDistance()));
@@ -41,6 +34,12 @@ public class Game {
             }
         }
         System.out.println("최종 우승자 : " + String.join(", ", winners));
+    }
+
+    public void moveCarsForward(List<Car> participants) {
+        for (Car car : participants) {
+            car.movingForward();
+        }
     }
 
     public List<Car> stringToCarList(String data) {
