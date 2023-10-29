@@ -22,4 +22,10 @@ public class Car {
         raceResult.append("-".repeat(Math.max(0, this.score)));
         return raceResult;
     }
+
+    public StringBuilder createWinner() {
+        StringBuilder winner = new StringBuilder();
+        winner.append(this.name).append(", ");
+        return winner;
+    }
 }
