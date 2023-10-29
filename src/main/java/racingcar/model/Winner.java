@@ -11,7 +11,7 @@ public class Winner {
 
         for (Car car : result) {
             int dist = car.getDist();
-            int name = car.getDist();
+            String name = car.getName();
 
             if (dist == max) {
                 sb.append(name + ", ");
