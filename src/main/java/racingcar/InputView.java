@@ -25,13 +25,7 @@ public class InputView {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ExceptionMessage.INPUT_TYPE_MISMATCH);
         }
-        isCorrectTimesToTry(timesToTry);
         return timesToTry;
     }
 
-    private static void isCorrectTimesToTry(int timesToTry) {
-        if (timesToTry <= 0) {
-            throw new IllegalArgumentException(ExceptionMessage.INPUT_NUMBER_RANGE_MISMATCH);
-        }
-    }
 }

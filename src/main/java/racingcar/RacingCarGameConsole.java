@@ -5,30 +5,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarGameConsole {
-    private Car car;
+    private final Car car;
     private final List<String> winnerCarNames = new ArrayList<>();
     private static final int MOVE_JUDGE_INTEGER = 4;
+    private final int numberOfCars;
+    private final int timesToTry;
     private int carIndex = 0;
-    private int numberOfCars = 0;
-    private int timesToTry = 0;
     private int mostMovedAmount = 0;
 
+    public RacingCarGameConsole(Car car, int timesToTry) {
+        this.car = car;
+        numberOfCars = car.numberOf();
+        isCorrectTimesToTry(timesToTry);
+        this.timesToTry = timesToTry;
+    }
+
+    private static void isCorrectTimesToTry(int timesToTry) {
+        if (timesToTry <= 0) {
+            throw new IllegalArgumentException(ExceptionMessage.INPUT_NUMBER_RANGE_MISMATCH);
+        }
+    }
+
     public void run() {
-        set();
         race();
         printResult();
     }
 
-    private void set() {
-        car = new Car(InputView.carName());
-        numberOfCars = car.numberOf();
-        timesToTry = InputView.timesToTry();
-    }
-
     private void race() {
-        while (timesToTry > 0) {
+        for (int i = 0; i < timesToTry; i++) {
             tryMoving();
-            timesToTry--;
         }
     }
 
