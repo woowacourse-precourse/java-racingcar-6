@@ -1,12 +1,13 @@
 package racingcar.model;
 
+import static racingcar.validator.Validator.checkInputCarNames;
+
 public class Name {
-    private static final int MAX_LENGTH = 5;
-    
+
     private final String name;
 
     public Name(String name) {
-        // 이름 검증도 필요
+        checkInputCarNames(name);
         this.name = name;
     }
 
