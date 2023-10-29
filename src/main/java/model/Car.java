@@ -3,6 +3,8 @@ package model;
 import utils.Utils;
 
 public class Car {
+    final static int FORWARDING_THRESHOLD = 4;
+    final static String ONE_PLACE = "-";
     String name;
     String nowPlace = "";
     Utils utils = new Utils();
@@ -18,12 +20,18 @@ public class Car {
         return name;
     }
 
-    public void move_forward(String onePlace) {
-        this.nowPlace = this.nowPlace + onePlace;
+    public void moveForward() {
+        this.nowPlace = this.nowPlace + ONE_PLACE;
     }
 
     public String getNowPlace() {
         return nowPlace;
+    }
+
+    public void tryMove(int randomNumber) {
+        if (randomNumber >= FORWARDING_THRESHOLD) {
+            moveForward();
+        }
     }
 
 }
