@@ -63,6 +63,11 @@ public class ValidatorTest extends NsTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 횟수_입력값_성공() {
+        validator.validateNumTrialInput("5");
+    }
+
     @Override
     protected void runMain() {
     }
