@@ -11,24 +11,25 @@ public class Game {
 	private static int[] moveCount;
 	private static ArrayList<Integer> maxIndices = new ArrayList<>();
 
-	public String[] checkUsername(String[] input) {
-		for (int i = 0; i < input.length; i++) {
-			if (input[i].length() > 5) {
+	public String[] checkUsername(String input) {
+		String[] users = input.split(",");
+
+		for (int i = 0; i < users.length; i++) {
+			if (users[i].length() > 5) {
 				throw new IllegalArgumentException();
 			} else {
-				input[i] = input[i].replaceAll(" ", ""); // 공백제거
+				users[i] = users[i].replaceAll(" ", ""); // 공백제거
 			}
 		}
-		return userArray = input;
+
+		return users;
 	}
 
-	private String[] setGameUsers() {
+	private void setGameUsers() {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String userInput = readLine();
 
-		userArray = userInput.split(","); // 사용자 등록
-
-		return this.checkUsername(userArray); // 유효성 검사
+		userArray = checkUsername(userInput); // 사용자 등록
 	}
 
 	public int intValidator(String userInput) {
@@ -40,14 +41,14 @@ public class Game {
 
 	}
 
-	private void setGameCount() {
+	private int setGameCount() {
 		System.out.println("시도할 회수는 몇회인가요?");
 		String userInput = readLine();
 
-		count = this.intValidator(userInput);// 이동할 회수 등록
+		return count = this.intValidator(userInput);// 이동할 회수 등록
 	}
 
-	public void forwardOrStop() {
+	private void forwardOrStop() {
 		String forward = "-";
 		moveCount = new int[userArray.length];
 
@@ -66,27 +67,28 @@ public class Game {
 		}
 	}
 
-	private void findWinnerIndex() {
-		int max = moveCount[0];
+	public ArrayList<Integer> findWinnerIndex(int[] count) {
+		int max = count[0];
 
 		maxIndices.add(0);
 
-		for (int i = 1; i < moveCount.length; i++) {
-			if (moveCount[i] > max) {
-				max = moveCount[i];
+		for (int i = 1; i < count.length; i++) {
+			if (count[i] > max) {
+				max = count[i];
 				maxIndices.clear();
 				maxIndices.add(i);
-			} else if (moveCount[i] == max) {
+			} else if (count[i] == max) {
 				maxIndices.add(i);
 			}
 		}
+		return maxIndices;
 
 	}
 
-	public String pickWinner() {
+	private String pickWinner() {
 		String winner = "";
 
-		this.findWinnerIndex();
+		this.findWinnerIndex(moveCount);
 
 		for (int i = 0; i < maxIndices.size(); i++) {
 			if (i == maxIndices.size() - 1) {
