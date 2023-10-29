@@ -5,7 +5,6 @@ import racingcar.domain.Car;
 import racingcar.domain.CarGenerator;
 import racingcar.domain.RandomNumber;
 import racingcar.domain.RandomNumberGenerator;
-
 import java.util.LinkedHashMap;
 
 public class RacingGame {

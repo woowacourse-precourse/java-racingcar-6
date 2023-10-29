@@ -1,8 +1,6 @@
 package racingcar.domain;
 
-
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

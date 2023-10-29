@@ -3,7 +3,6 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.LinkedHashMap;
 
-
 public class CarGenerator {
 
 
