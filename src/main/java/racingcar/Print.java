@@ -3,24 +3,36 @@ package racingcar;
 import java.util.List;
 
 public class Print {
-    private static final String GetUserInput = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String GetCarName = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String GetPlayCount = "시도할 회수는 몇회인가요?";
     private static final String PlayResult = "실행 결과";
     private static final String WinnerInfo = "최종 우승자";
 
 
-    // 실행결과 출력 시작 안내 문구 출력
-    public void start() {
-        System.out.println(PlayResult);
+    public static void message(int i){
+        switch (i){
+            case 1: System.out.println(GetCarName);
+                break;
+            case 2: System.out.println(GetPlayCount);
+                break;
+            case 3: System.out.println(PlayResult);
+                break;
+            default: break;
+
+        }
+
     }
 
     // 실행 결과 출력
-    public void result(Car car){
-        System.out.println(car.name + " : " + "-".repeat(car.distance));
+    public static void result(List<Car> cars){
+        for(Car c: cars){
+            System.out.println(c.name + " : " + "-".repeat(c.distance));
+        }
+
     }
 
     // 우승자 출력
-    public void winner(List<String> winnerName){
+    public static void winner(List<String> winnerName){
         System.out.print(WinnerInfo + " : ");
 
         for(String s: winnerName){
