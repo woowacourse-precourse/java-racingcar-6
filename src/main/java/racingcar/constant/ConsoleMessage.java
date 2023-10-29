@@ -1,7 +1,7 @@
 package racingcar.constant;
 
-public class Message {
-    private Message() {
+public class ConsoleMessage {
+    private ConsoleMessage() {
     }
 
     public static final String ENTER_CAR_NAMES = "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,)로 구분)";
