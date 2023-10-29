@@ -11,5 +11,8 @@ public class GameController {
         outputView.askToInsertCarNames();
         List<String> carNames = inputView.getCarNamesFromUser();
         carNames.forEach(System.out::println);
+        outputView.askToInsertNumberOfGames();
+        Integer numberOfGames = inputView.getNumberOfGamesFromUser();
+        System.out.println(numberOfGames);
     }
 }

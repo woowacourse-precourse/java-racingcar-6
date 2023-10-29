@@ -11,4 +11,9 @@ public class InputView {
         String[] carNames = userInput.split(Constant.INPUT_CAR_NAMES_DELIMITER);
         return Arrays.asList(carNames);
     }
+
+    public Integer getNumberOfGamesFromUser() {
+        String userInput = Console.readLine();
+        return Integer.parseInt(userInput);
+    }
 }
