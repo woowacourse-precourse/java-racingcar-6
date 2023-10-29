@@ -11,11 +11,19 @@ public class Car {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String name = Console.readLine();
 
-        List<String> inputNames = Arrays.asList(name.split(","));
+        List<String> inputNames = splitInputNames(name);
         validateInputNames(inputNames);
 
         names.addAll(inputNames);
         return names;
+    }
+
+    public List<String> splitInputNames(String name) {
+
+        List<String> inputNames = Arrays.asList(name.split(","));
+        validateInputNames(inputNames);
+
+        return inputNames;
     }
 
     private void validateInputNames(List<String> inputNames) {

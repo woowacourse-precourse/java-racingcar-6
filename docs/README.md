@@ -3,6 +3,7 @@
 
 - [ ] 자동차 이름을 받기 - Car
   - [ ] 이름 리스트 - Car.getNames
+  - [ ] 쉼표로 이름 구분 - Car.splitInputNames
   - [ ] 예외 처리 - Car.validateInputNames
     - [ ] 빈 값 x - Car.checkEmpty
     - [ ] 자동차 이름에 중복 값 X - Car.checkDuplicate
