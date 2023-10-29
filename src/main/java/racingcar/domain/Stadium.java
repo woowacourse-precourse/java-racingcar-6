@@ -22,9 +22,7 @@ public class Stadium {
     }
 
     public void startRace() {
-        IntStream.range(0, gameCount).forEach(i -> {
-            playEachStep();
-        });
+        IntStream.range(0, gameCount).forEach(i -> playEachStep());
     }
 
     private void playEachStep() {

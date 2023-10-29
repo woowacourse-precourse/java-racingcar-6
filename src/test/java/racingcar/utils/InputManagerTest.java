@@ -43,7 +43,7 @@ class InputManagerTest {
     @Test
     void 이름_입력() {
         setInput("김희겸,신예찬,엄성준,김현진");
-        List<String> inputs = (List<String>) UsernameInputManager.getInstance().input();
+        List<String> inputs = UsernameInputManager.getInstance().input();
         assertThat(inputs).containsExactly("김희겸", "신예찬", "엄성준", "김현진");
     }
 

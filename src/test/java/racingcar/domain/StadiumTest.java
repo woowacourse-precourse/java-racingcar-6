@@ -13,16 +13,14 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
 class StadiumTest {
-    private static ByteArrayOutputStream outputMessage;
     private Stadium stadium;
-    private List<User> users;
     private int gameCount;
 
 
     @Test
     void 경주_진행_테스트() {
         gameCount = 5;
-        users = List.of(User.of("김희겸"), User.of("엄성준"), User.of("김현진"));
+        List<User> users = List.of(User.of("김희겸"), User.of("엄성준"), User.of("김현진"));
         stadium = new Stadium(gameCount, users);
         try (MockedStatic<Randoms> randoms = mockStatic(Randoms.class)) {
             given(Randoms.pickNumberInRange(0, 9)).willReturn(5);
@@ -47,7 +45,7 @@ class StadiumTest {
         gameCount = 5;
         stadium = spy(new Stadium(gameCount, List.of(user1,user2,user3)));
 
-        outputMessage = new ByteArrayOutputStream();
+        ByteArrayOutputStream outputMessage = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputMessage));
 
         when(stadium.chooseWinner()).thenReturn(List.of(user3));

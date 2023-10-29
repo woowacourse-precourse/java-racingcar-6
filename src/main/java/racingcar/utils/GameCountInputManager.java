@@ -23,4 +23,4 @@ public class GameCountInputManager implements InputManager<Integer>{
             throw new IllegalArgumentException();
         }
     }
-};
+}
