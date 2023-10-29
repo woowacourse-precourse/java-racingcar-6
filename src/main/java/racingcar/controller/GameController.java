@@ -19,7 +19,7 @@ public class GameController {
 
     public void run() {
         Cars cars = makeCars();
-        getTrialCount();
+        int trialCount = getTrialCount();
     }
 
     private Cars makeCars() {
@@ -28,9 +28,10 @@ public class GameController {
         return gameService.createCars(carNames);
     }
 
-    private void getTrialCount() {
+    private int getTrialCount() {
         outputView.printTrialGuide();
         String trialCount = inputView.readTrialNumber();
+        return gameService.createTrialCount(trialCount);
     }
 
 }
