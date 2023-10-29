@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import static racingcar.input.RacingCarInputReader.getPlayNumberFromConsole;
 import static racingcar.input.RacingCarInputReader.getRacingCarsFromConsole;
 import static racingcar.printer.RacingCarPrinter.printCurrentDistanceStatus;
 import static racingcar.printer.RacingCarPrinter.printMessageBeforePlay;
@@ -18,7 +19,7 @@ public class RacingCarGameService {
 
     public static void startGame() {
         List<RacingCar> racingCars = getRacingCarsFromConsole();
-        int numberToPlay = RacingCarInputReader.getPlayNumberFromConsole();
+        int numberToPlay = getPlayNumberFromConsole();
         advanceRacingCarsUntilPlayNumber(racingCars, numberToPlay);
         printWinnerOfPlay(calculateWinner(racingCars));
     }

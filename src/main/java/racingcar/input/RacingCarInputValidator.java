@@ -6,6 +6,8 @@ import java.util.Arrays;
 import org.assertj.core.util.VisibleForTesting;
 
 public class RacingCarInputValidator {
+
+    private static final int MAX_NAME_LENGTH = 4;
     public static boolean isInputRacingCarsValidated(String input) {
         String[] names = input.split(RACING_CAR_INPUT_SPLITTER);
         if (hasLongName(names)) {
@@ -28,7 +30,7 @@ public class RacingCarInputValidator {
     @VisibleForTesting
     protected static boolean hasLongName(String[] names) {
         return Arrays.stream(names)
-                .anyMatch(name -> name.length() > 5);
+                .anyMatch(name -> !(name.length() <= MAX_NAME_LENGTH));
     }
 
     @VisibleForTesting
