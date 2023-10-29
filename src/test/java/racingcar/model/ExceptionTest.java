@@ -11,9 +11,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.Application;
-import racingcar.controlller.InputValidator;
-import racingcar.model.Car;
-import racingcar.model.Cars;
 import racingcar.utils.Parser;
 
 public class ExceptionTest extends NsTest {

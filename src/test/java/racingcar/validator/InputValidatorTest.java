@@ -9,7 +9,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.Application;
 
-public class ValidatorTest extends NsTest {
+public class InputValidatorTest extends NsTest {
     @ParameterizedTest
     @ValueSource(strings = {"a", "abc", "aca", "12345"})
     void 자동차_이름_정상_테스트(String carNames) {
