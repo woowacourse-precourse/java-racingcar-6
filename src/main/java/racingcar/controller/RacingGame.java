@@ -19,7 +19,7 @@ public class RacingGame {
         init(carNames);
         order.rotateCount();
         int RacingCount = rotatingCount.input();
-
+        order.gameResult();
     }
 
     private void init(String[] carNames){

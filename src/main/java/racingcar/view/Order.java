@@ -11,4 +11,9 @@ public class Order {
     public void rotateCount(){
         System.out.println(ROTATE_COUNT);
     }
+
+    public void gameResult(){
+        System.out.println();
+        System.out.println(GAME_RESULT);
+    }
 }
