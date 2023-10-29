@@ -60,4 +60,24 @@ public class Application {
     System.out.println();
   }
 
+  private static void announceWinners(String[] carNames, int[] positions) {
+    int maxPosition = 0;
+    for (int position : positions) {
+      if (position > maxPosition) {
+        maxPosition = position;
+      }
+    }
+
+    System.out.print("최종 우승자 : ");
+    boolean isFirstWinner = true;
+    for (int i = 0; i < carNames.length; i++) {
+      if (positions[i] == maxPosition) {
+        if (!isFirstWinner) {
+          System.out.print(", ");
+        }
+        System.out.print(carNames[i]);
+        isFirstWinner = false;
+      }
+    }
+  }
 }
