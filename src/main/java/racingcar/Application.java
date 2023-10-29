@@ -3,6 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
+
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
@@ -52,6 +54,21 @@ public class Application {
             printEachScore(raceAccumulation);
         }
         System.out.println();
+    }
+
+    private static void findFinalWinner(int[]raceAccumulation, String[]carArray){
+        int maxScore = 0;
+        ArrayList<String>WinnerName = new ArrayList<>();
+        for (int index=0; index<carArray.length; index++){
+            if (raceAccumulation[index]>maxScore){
+                maxScore = raceAccumulation[index];
+                WinnerName.clear();
+                WinnerName.add(carArray[index]);
+            }
+            else if (raceAccumulation[index]==maxScore){
+                WinnerName.add(carArray[index]);
+            }
+        }
     }
 
 }
