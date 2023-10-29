@@ -21,7 +21,11 @@ public class CarRacing {
 
         int tmpCount = 0;
         while (tmpCount < countTrial) {
-            createRandomNumberAndMoveCar();
+            boolean ifMoved = createRandomNumberAndMoveCar();
+            if (ifMoved == true){
+                tmpCount++;
+            }
+            printRacingCar();
         }
     }
 
@@ -43,5 +47,18 @@ public class CarRacing {
             }
         }
         return ifMoved;
+    }
+
+    public static void printRacingCar(){
+        for (Entry<String, Integer> e : carMoveMap.entrySet()) {
+            String key = e.getKey();
+            int value = e.getValue();
+            System.out.print(key + " : ");
+            for (int i = 0; i < value; i++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 }
