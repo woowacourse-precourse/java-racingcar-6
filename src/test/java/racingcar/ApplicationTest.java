@@ -32,19 +32,19 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 시도_회수로_음수_입력할_때_예외_처리() {
+    void 시도_횟수에_음수_입력할_때_예외_처리() {
         assertThatThrownBy(() -> runException("pobi,jun", "-3"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    void 시도_회수로_숫자_아닌_값_입력할_때_예외_처리() {
+    void 시도_횟수에_숫자_아닌_값_입력할_때_예외_처리() {
         assertThatThrownBy(() -> runException("pobi,jun", "abc"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    void 시도_회수로_0을_입력할_때_예외_처리() {
+    void 시도_횟수에_0을_입력할_때_예외_처리() {
         assertThatThrownBy(() -> runException("pobi,jun", "0"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
