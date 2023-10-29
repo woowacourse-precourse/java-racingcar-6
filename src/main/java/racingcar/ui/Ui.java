@@ -3,6 +3,7 @@ package racingcar.ui;
 import racingcar.domain.Score;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static java.math.BigInteger.ZERO;
 
@@ -13,6 +14,9 @@ public class Ui {
     private static final String BLANK = "";
     private static final String SCORE_UI = "-";
     private static final String GAME_STATUS_GUIDE_MESSAGE = "실행 결과";
+    private static final String WINNER_MESSAGE = "최종 우승자 : %s%n";
+    private static final String CO_WINNER_DELIMITER = ", ";
+
 
     public void start() {
         System.out.println(START_MESSAGE);
@@ -42,4 +46,12 @@ public class Ui {
         }
         return scoreUi.toString();
     }
+
+    public void printGameWinners(List<Score> scores) {
+        String winners = scores.stream()
+                .map(Score::getName)
+                .collect(Collectors.joining(CO_WINNER_DELIMITER));
+        System.out.printf((WINNER_MESSAGE), winners);
+    }
+
 }

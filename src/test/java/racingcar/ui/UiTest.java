@@ -49,6 +49,16 @@ class UiTest {
         );
     }
 
+    private static Stream<Arguments> 우승자를_출력하는_케이스() {
+        return Stream.of(
+                Arguments.of(Arrays.asList(new Score("pobi", 1L), new Score("jun", 1L)),
+                        "최종 우승자 : pobi, jun"),
+                Arguments.of(List.of(new Score("pobi", 1L)),
+                        "최종 우승자 : pobi")
+        );
+
+    }
+
     @BeforeEach
     void setUp() {
         System.setOut(new PrintStream(outputStreamCaptor));
@@ -85,5 +95,13 @@ class UiTest {
     void 전진_시도_현황을_출력한다(List<Score> scores, String expectMessage) {
         new Ui().printGameStatus(scores);
         Assertions.assertThat(outputStreamCaptor.toString().trim()).isEqualToIgnoringNewLines(expectMessage);
+    }
+
+    @ParameterizedTest
+    @MethodSource("우승자를_출력하는_케이스")
+    void 우승자를_출력한다() {
+        String expectMessage = "최종 우승자 : pobi, jun";
+        new Ui().printGameWinners(Arrays.asList(new Score("pobi", 4L), new Score("jun", 4L)));
+        Assertions.assertThat(outputStreamCaptor.toString().trim()).isEqualTo(expectMessage);
     }
 }
