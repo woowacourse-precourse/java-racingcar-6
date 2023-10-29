@@ -1,7 +1,9 @@
 package racingcar.dto;
 
+import racingcar.domain.Car;
+
 public record RacingResult(String name, String position) {
-    public RacingResult(String name, int movedCount) {
-        this(name, "-".repeat(movedCount));
+    public static RacingResult from(Car car) {
+        return new RacingResult(car.getName(), "-".repeat(car.getMovedCount()));
     }
 }

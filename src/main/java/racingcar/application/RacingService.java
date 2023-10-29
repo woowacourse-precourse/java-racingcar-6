@@ -24,7 +24,7 @@ public class RacingService {
         if (generator.generateNumber() >= RacingConfig.MOVE_CONDITION.getValue()) {
             car.move();
         }
-        return new RacingResult(car.getName(), car.getMovedCount());
+        return RacingResult.from(car);
     }
 
     public List<String> selectWinners(List<Car> cars) {
