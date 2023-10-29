@@ -24,14 +24,14 @@ public class OutputView {
         System.out.println();
     }
 
-//    public static void printWinners(List<String> winners) {
-//        System.out.print(WINNER_MESSAGE);
-//        for (int i = 0; i < winners.size(); i++) {
-//            if (i > 0) {
-//                System.out.print(", ");
-//            }
-//            System.out.print(winners.get(i));
-//        }
-//
-//    }
+    public static void printWinners(List<String> winners) {
+        System.out.print(WINNER_MESSAGE);
+        for (int i = 0; i < winners.size(); i++) {
+            if (i > 0) {
+                System.out.print(", ");
+            }
+            System.out.print(winners.get(i));
+        }
+
+    }
 }
