@@ -7,6 +7,7 @@ import java.util.LinkedList;
 
 public class Application {
     static String InputCarName = "";
+    static LinkedList<String> Winner = new LinkedList<>();
     static LinkedList<String> RacingCar = new LinkedList<>();
     static LinkedList<Integer> RacingScore = new LinkedList<>();
     static int TryNumber = 0;
@@ -18,7 +19,7 @@ public class Application {
         Try_Message();
         Result_Message();
         Repeat_Racing();
-
+        Racing_winner();
     }
 
     public static void StartMessage() {
@@ -33,7 +34,7 @@ public class Application {
     public static void Exception_Handling() {
         String[] carArray = InputCarName.split(",");
         for (int i = 0; i < carArray.length; i++) {
-            if (carArray[i].length() > 5) {
+            if (carArray[i].length() >= 5) {
                 throw new IllegalArgumentException();
             }
             RacingCar.add(carArray[i]);
@@ -96,5 +97,19 @@ public class Application {
         System.out.println();
     }
 
+    public static void Racing_winner() {
+        int max_score = 0;
 
+        for (int i = 0; i < RacingCar.size(); i++) {
+            if (RacingScore.get(i) > max_score) {
+                max_score = RacingScore.get(i);
+            }
+        }
+        for (int i = 0; i < RacingScore.size(); i++) {
+            if (RacingScore.get(i) == max_score) {
+                Winner.add(RacingCar.get(i));
+            }
+        }
+    }
+    
 }
