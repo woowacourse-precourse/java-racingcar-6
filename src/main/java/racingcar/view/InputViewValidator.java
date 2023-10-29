@@ -1,5 +1,8 @@
 package racingcar.view;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class InputViewValidator {
 
     private static final InputViewValidator inputViewValidator = new InputViewValidator();
@@ -18,6 +21,21 @@ public class InputViewValidator {
         if(isCarNameCorrectLength(carNames)){
             throw new IllegalArgumentException("[ERROR] : 차 이름은 길이가 5이하여야 합니다.");
         }
+        if(isDuplicateCarName(carNames)){
+            throw new IllegalArgumentException("[ERROR] : 차 이름은 중복될 수 없습니다");
+        }
+    }
+
+    public boolean isDuplicateCarName(String carNames) {
+        String[] carNameList = carNames.split("");
+        Set<String> carNameSet = new HashSet<>();
+
+        for (String carName : carNameList) {
+            if(!carNameSet.contains(carName)){
+                carNameSet.add(carName);
+            }
+        }
+        return carNameList.length != carNameSet.size();
     }
 
     public boolean isCarNameCorrectLength(String carNames) {
