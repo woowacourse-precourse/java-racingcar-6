@@ -18,6 +18,7 @@ public class Application {
         Try_Message();
         Result_Message();
         Repeat_Racing();
+
     }
 
     public static void StartMessage() {
@@ -70,6 +71,7 @@ public class Application {
     public static void Repeat_Racing() {
         for (int i = 0; i < TryNumber; i++) {
             Match_game();
+            Print_result();
         }
     }
 
@@ -81,6 +83,17 @@ public class Application {
                 RacingScore.set(i, addScore);
             }
         }
+    }
+
+    public static void Print_result() {
+        for (int i = 0; i < RacingCar.size(); i++) {
+            String line = "";
+            for (int j = 0; j < RacingScore.get(i); j++) {
+                line = line + "-";
+            }
+            System.out.println(RacingCar.get(i) + " : " + line);
+        }
+        System.out.println();
     }
 
 
