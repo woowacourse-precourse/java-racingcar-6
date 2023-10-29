@@ -17,8 +17,9 @@ public class CarGame {
     }
 
     public void start() {
-        String input = getCarNamesInput();
-        List<Car> carList = getCarList(splitCarNames(input));
+        String inputCarName = getCarNamesInput();
+        List<Car> carList = getCarList(splitCarNames(inputCarName));
+        String inputTryNumber = getTryNumberInput();
     }
 
     private String getCarNamesInput() {
@@ -55,5 +56,22 @@ public class CarGame {
             carList.add(new Car(carName, 0));
         }
         return carList;
+    }
+
+    private String getTryNumberInput() {
+        inputView.printInputTryNumber();
+        String input = Console.readLine().trim();
+        return checkTryNumberInput(input);
+    }
+
+    private String checkTryNumberInput(String input) {
+        try {
+            InputValidator.isNullOrIsEmpty(input);
+            InputValidator.isNotDigit(input);
+            return input;
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return getTryNumberInput();
+        }
     }
 }
