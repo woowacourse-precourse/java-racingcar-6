@@ -3,7 +3,7 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    private String name;
+    private final String name;
     private int moves;
 
     public Car(String name) {
@@ -20,14 +20,6 @@ public class Car {
 
     private int getRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
-    }
-
-    public void printMoves() {
-        System.out.print(name + " : ");
-        for (int i = 0; i < moves; i++) {
-            System.out.print("-");
-        }
-        System.out.println();
     }
 
     public String getName() {
