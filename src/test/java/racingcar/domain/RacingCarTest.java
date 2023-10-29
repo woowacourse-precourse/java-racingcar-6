@@ -24,6 +24,7 @@ class RacingCarTest {
     }
 
     @Test
+    @DisplayName("결과 메시지를 요청하면 이름과 움직인 거리에 맞는 문자열을 반환하는가")
     void toResultMessage() {
         // given
         final String hello = "hello";
