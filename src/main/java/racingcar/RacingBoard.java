@@ -1,8 +1,6 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,19 +11,28 @@ public final class RacingBoard {
         racingBoard.add(racingCar);
     }
 
+    public void racingCarsMove() {
+        for (RacingCar racingCar : racingBoard) {
+            racingCar.move();
+        }
+        System.out.println();
+    }
+
     public String carsWithMaxDistance() {
+
+        final int maxDistance = getMaxDistance();
+
         return racingBoard
                 .stream()
-                .filter(car -> car.getDistance().size() == getMaxDistance())
+                .filter(car -> car.getDistance().size() == maxDistance)
                 .map(RacingCar::getCarName)
                 .collect(Collectors.joining(", "));
     }
 
     private int getMaxDistance() {
-        racingBoard.sort(Comparator.comparingInt(car -> car.getDistance().size()));
-
-        Collections.reverse(racingBoard);
-
-        return racingBoard.get(0).getDistance().size();
+        return racingBoard.stream()
+                .mapToInt(car -> car.getDistance().size())
+                .max()
+                .orElse(0);
     }
 }

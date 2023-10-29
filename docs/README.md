@@ -18,16 +18,22 @@
 ### RacingCar
 
 - RacingCar 이름
-- RacingCar 이동 거리  `List<String> ?`
+- RacingCar 이동 거리  `List<String>`
 - RacingCar 이동 여부 결정 메소드
 - RacingCar 이름과 이동 거리 출력 메소드
 
 ### RacingBoard
-- RacingCar 클래스를 담는 Collection 활용
-- 우승자를 확인하는 기능 → RacingCar 클래스의 이동거리를 기준으로 내림차순 정렬 후?    
+
+- RacingCar 클래스를 담는 멤버 변수 → `List<RacingCar>` 활용
+- RacingCar를 움직이는 기능
+  - RacingCar의 move() 메소드 실행
+- 우승자를 확인하는 기능 
     - 우승자가 1명인 경우? & 그 이상인 경우?
+    - Racing Board의 멤버 변수에 담긴 RacingCar 클래스들 중 가장 큰 이동거리(크기)를 찾음
+    - 가장 큰 이동거리와 비교하여 우승자를 찾고 출력 (1명 or 그 이상)
 
 ### RacingGameLauncher
+
 - 구현한 기능으로 게임을 진행하는 클래스
 - 우승자를 출력하는 기능
 
