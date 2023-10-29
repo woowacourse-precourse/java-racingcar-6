@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import java.util.Objects;
 import racingcar.constants.ExceptionMessage;
 
 public class CarName {
@@ -8,9 +7,6 @@ public class CarName {
     private final String name;
 
     public CarName(final String name) {
-        if (Objects.isNull(name)) {
-            ExceptionMessage.NONE_INPUT_CARS.throwException();
-        }
         validateName(name);
         this.name = name;
     }
@@ -21,7 +17,7 @@ public class CarName {
     }
 
     private void validateCarNameIsBlank(final String name) {
-        if (name.isBlank()) {
+        if (name == null || name.trim().isEmpty()) {
             ExceptionMessage.NONE_INPUT_CARS.throwException();
         }
     }
