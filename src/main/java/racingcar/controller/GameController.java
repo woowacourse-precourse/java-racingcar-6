@@ -7,18 +7,30 @@ import racingcar.view.OutputView;
 public class GameController {
 
     private static int round;
+    private static RacingCarGame racingCarGame;
 
     public static void run() {
+        setGame();
+        playGame();
+        printWinner();
+    }
+
+    private static void setGame() {
         String[] carNames = InputView.inputCarNames();
-        RacingCarGame racingCarGame = RacingCarGame.from(carNames);
+        racingCarGame = RacingCarGame.from(carNames);
 
         round = InputView.inputRoundNumber();
+    }
+
+    private static void playGame() {
         OutputView.printPlayResultMessage();
         for (int i=0; i<round; i++) {
             racingCarGame.playRound();
             OutputView.printPlayResult(racingCarGame.getCars());
         }
+    }
 
+    private static void printWinner() {
         OutputView.printWinnerMessage();
         OutputView.printWinner(racingCarGame.getWinners());
     }
