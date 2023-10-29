@@ -23,4 +23,8 @@ public class InputParser {
                         HashMap::new
                 ));
     }
+
+    public static int parseTrialCountToInt(String input) {
+        return Integer.parseInt(input);
+    }
 }
