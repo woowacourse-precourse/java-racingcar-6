@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static racingcar.constants.RacingCarGameConstants.FORWARD_CONDITION;
+
 public class RacingGameService {
 
     private final NumberGenerator randomNumberGenerator;
@@ -45,7 +47,7 @@ public class RacingGameService {
     }
 
     private boolean canMoveForward() {
-        return 4 <= randomNumberGenerator.generate();
+        return FORWARD_CONDITION <= randomNumberGenerator.generate();
     }
 
     public String getWinningCar() {

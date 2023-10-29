@@ -4,16 +4,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
+import static racingcar.constants.RacingCarGameConstants.MAX_NAME_LENGTH;
+import static racingcar.constants.RacingCarGameConstants.MIN_NAME_LENGTH;
+import static racingcar.constants.ValidatorConstants.*;
+
 public class Validator {
-
-    private static final String DUPLICATE_ERROR_MESSAGE = "[ERROR] 중복된 이름이 있습니다.";
-    private static final String HAS_WHITE_SPACE_ERROR_MESSAGE = "[ERROR] 이름에 공백이 존재합니다.";
-    private static final String NAME_LENGTH_ERROR_MESSAGE  = "[ERROR] 이름은 1~5자만 가능합니다.";
-    private static final String INTEGER_INPUT_ERROR_MESSAGE  = "[ERROR] 정수만 입력 가능합니다.";
-
-    private static final int MIN_NAME_LENGTH = 1;
-    private static final int MAX_NAME_LENGTH = 5;
-    private static final String WHITE_SPACE  = " ";
 
     public static void inputCarNames(String[] carNameArr) {
         if (hasDuplicates(carNameArr)) {
