@@ -2,10 +2,14 @@ package racingcar;
 
 final class FakeRoulette implements Roulette {
 
-    private final int fixedNumber;
+    private int fixedNumber;
 
     FakeRoulette(int fixedNumber) {
         this.fixedNumber = fixedNumber;
+    }
+
+    void changeNumber(int number) {
+        fixedNumber = number;
     }
 
     @Override
