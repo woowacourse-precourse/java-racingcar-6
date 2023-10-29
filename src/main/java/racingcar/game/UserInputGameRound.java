@@ -8,24 +8,32 @@ public class UserInputGameRound {
         return Console.readLine();
     }
 
+    private static int processInput(String round) {
+        int gameRound = checkIsNumber(round);
+        checkIsZero(gameRound);
+
+        return gameRound;
+    }
+
     private static int checkIsNumber(String gameRound) {
         for (char digit : gameRound.toCharArray()) {
-            int num = digit - '0';
-            if (num < 0 || num > 9) {
-                throw new IllegalArgumentException("0부터 9까지의 숫자를 입력해주세요.");
-            }
+            validateDigit(digit);
         }
+
         return Integer.parseInt(gameRound);
+    }
+
+    private static void validateDigit(char digit) {
+        int num = digit - '0';
+
+        if (num < 0 || num > 9) {
+            throw new IllegalArgumentException("0부터 9까지의 숫자를 입력해주세요.");
+        }
     }
 
     private static void checkIsZero(int num){
         if(num == 0){
             throw new IllegalArgumentException("시도 횟수 0");
         }
-    }
-
-    public static void run(){
-        String gameRound = inputGameRound();
-        checkIsZero(checkIsNumber(gameRound));
     }
 }
