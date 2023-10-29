@@ -24,4 +24,12 @@ public class RacingCarStatus {
 
         return carStatus;
     }
+
+    public String getCarName() {
+        return carName;
+    }
+
+    public int getPosition() {
+        return position;
+    }
 }
