@@ -35,15 +35,15 @@ class ParticipantsTest {
 
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 30})
-    void 시도_횟수만큼_레이스를_할_수_있다(int attemptCount) {
+    void 레이스를_하면_시도_횟수만큼_결과가_기록된다(int attemptCount) {
         Car car1 = new Car("car1", () -> true);
         Car car2 = new Car("car2", () -> true);
         Participants participants = new Participants(List.of(car1, car2));
 
-        participants.raceNTimes(attemptCount);
+        RaceHistory raceHistory = participants.raceNTimes(attemptCount);
 
-        assertThat(car1.getPosition()).isEqualTo(attemptCount);
-        assertThat(car2.getPosition()).isEqualTo(attemptCount);
+        int actual = raceHistory.getPositionHistory().size();
+        assertThat(actual).isEqualTo(attemptCount);
     }
 
     @ParameterizedTest
