@@ -18,9 +18,14 @@ public class Input {
         return (carNames);
     }
 
-    static int getTryNumber() {
+    static int getTryNumber() throws IllegalArgumentException {
         String tryNumberInput = Console.readLine();
-        int tryNumber = Integer.parseInt(tryNumberInput);
+        int tryNumber = 0;
+        try {
+            tryNumber = Integer.parseInt(tryNumberInput);
+        } catch (NumberFormatException numberFormatException) {
+            Exception.generateInvalidNumberCharacterException();
+        }
         return (tryNumber);
     }
 }
