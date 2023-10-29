@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public final class RacingCar {
     private final String carName;
@@ -20,10 +21,11 @@ public final class RacingCar {
         return distance;
     }
 
-    public void getNameAndDistance() {
-        System.out.print(this.carName + " : ");
-        distance.forEach(System.out::print);
-        System.out.println();
+    public String getNameAndDistance() {
+        return this.carName + " : " + distance
+                .stream()
+                .map(Object::toString)
+                .collect(Collectors.joining());
     }
 
     public void move() {

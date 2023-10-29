@@ -13,13 +13,12 @@ public final class RacingBoard {
         racingBoard.add(racingCar);
     }
 
-    public void printCarsWithMaxDistance() {
-        System.out.println(racingBoard
+    public String carsWithMaxDistance() {
+        return racingBoard
                 .stream()
                 .filter(car -> car.getDistance().size() == getMaxDistance())
                 .map(RacingCar::getCarName)
-                .collect(Collectors.joining(", "))
-        );
+                .collect(Collectors.joining(", "));
     }
 
     private int getMaxDistance() {
