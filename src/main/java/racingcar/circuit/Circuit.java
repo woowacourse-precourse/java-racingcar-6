@@ -3,6 +3,7 @@ package racingcar.circuit;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.car.Car;
+import racingcar.domain.result.RacingCarResult;
 import racingcar.generator.NumberGenerator;
 
 public class Circuit {
@@ -19,13 +20,13 @@ public class Circuit {
         cars.add(car);
     }
 
-    public List<Car> getCars() {
-        return cars;
-    }
-
     public void tryRacingGame() {
         for (Car car : cars) {
             car.move(numberGenerator.generate());
         }
+    }
+
+    public List<RacingCarResult> summarizeRacingResult() {
+        return cars.stream().map(Car::toResult).toList();
     }
 }

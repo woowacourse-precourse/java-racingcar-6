@@ -3,6 +3,7 @@ package racingcar.game;
 import java.util.List;
 import racingcar.circuit.Circuit;
 import racingcar.domain.car.Car;
+import racingcar.domain.result.RacingCarResult;
 import racingcar.domain.trial.Trial;
 import racingcar.game.validate.BlankTrialValidator;
 import racingcar.game.validate.EmptyCarNamesValidator;
@@ -30,6 +31,8 @@ public class RacingGame {
     private void playRacingGame(Trial trial) {
         while (!trial.isExhausted()) {
             circuit.tryRacingGame();
+            List<RacingCarResult> results = circuit.summarizeRacingResult();
+            outputView.showRacingResult(results);
             trial.useTrialCount();
         }
     }

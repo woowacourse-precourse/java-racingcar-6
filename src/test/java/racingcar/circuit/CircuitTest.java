@@ -34,14 +34,10 @@ class CircuitTest {
         cars.forEach(circuit::addRacingCar);
 
         circuit.tryRacingGame();
-        List<RacingCarResult> results = summarizeRacingResult(circuit.getCars());
+        List<RacingCarResult> results = circuit.summarizeRacingResult();
         List<Integer> racingCarLocations = results.stream().map(RacingCarResult::location).toList();
 
         Assertions.assertThat(racingCarLocations).containsExactly(1, 0, 1);
-    }
-
-    private List<RacingCarResult> summarizeRacingResult(List<Car> cars) {
-        return cars.stream().map(Car::toResult).toList();
     }
 
     private Circuit getTestCircuit() {
