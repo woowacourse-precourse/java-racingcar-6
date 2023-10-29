@@ -2,17 +2,27 @@ package racingcar.domain.raingcar;
 
 import racingcar.constant.Constant;
 import racingcar.constant.ErrorMessage;
+import racingcar.util.RandomNumberGenerator;
 
 public class RacingCar {
     private final String name;
-    private Integer move;
+    private Integer position;
 
     public RacingCar(String name) {
         verify(name);
         this.name = name;
     }
 
-    private void verify(String name) {
+    public void move() {
+        int randomNumber = RandomNumberGenerator.pick();
+        if(moveForward(randomNumber)) position += randomNumber;
+    }
+
+    private boolean moveForward(final int number) {
+        return number >= 4;
+    }
+
+    private void verify(final String name) {
 
         if (name.length() < Constant.CAR_NAME_MIN_SIZE || name.length() > Constant.CAR_NAME_MAX_SIZE) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH_ERROR);
