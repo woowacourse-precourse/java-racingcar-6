@@ -39,10 +39,26 @@ public class Application {
         }
 
         // TODO: 자동차 목록 생성
-
+        Car[] cars = new Car[carNames.size()];
+        for (int i = 0; i < cars.length; i++) {
+            cars[i] = new Car(carNames.get(i));
+        }
 
         // TODO: 실행 결과 처리
         System.out.println(RESULT_MESSAGE);
+
+        for (int i = 0; i < tryTime; i++) {
+            for (int j = 0; j < cars.length; j++) {
+                cars[j].forward(setForwardStep());
+                cars[j].printForwardState();
+            }
+            System.out.println();
+
+        }
+
+        // TODO: 우승자 발표 처리
+        System.out.print(WINNER_MESSAGE);
+
     }
 
     public static boolean isNumberInteger(String input) {
@@ -73,4 +89,10 @@ public class Application {
         return input > 0;
     }
 
+    public static int setForwardStep() {
+        if(pickNumberInRange(0,9) >= 4) {
+            return 1;
+        }
+        return 0;
+    }
 }
