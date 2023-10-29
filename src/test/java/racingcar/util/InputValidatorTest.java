@@ -18,7 +18,7 @@ class InputValidatorTest {
 
     @DisplayName("쉼표 기준으로 구분된 문자열 검증 성공")
     @Test
-    void checkComma() {
+    void should_Validate_Comma_Separated_String() {
         // given
         String input1 = "z,x,c,v";
         String input2 = "kim,lee,park";
@@ -32,7 +32,7 @@ class InputValidatorTest {
     @ParameterizedTest
     @DisplayName("콤마로 문자열이 구분되었으나 공백 포함이거나 빈 문자열은 예외 발생")
     @ValueSource(strings = {"", " "})
-    void checkEmpty(String input) {
+    void should_Throw_Exception_For_Empty_String(String input) {
         // when
         // then
         assertThatThrownBy(() -> inputValidator.validateNonEmpty(input))
@@ -41,13 +41,13 @@ class InputValidatorTest {
     }
 
     @ParameterizedTest
-    @DisplayName("시도 횟수가 숫자 문자열로 입력되지 않으면 예외 발생")
-    @ValueSource(strings = {"a", "bb", "!", "$#", "1q@"})
-    void checkNumericInput(String input) {
+    @DisplayName("시도 횟수가 1이상의 양수로 된 숫자 문자열로 입력되지 않으면 예외 발생")
+    @ValueSource(strings = {"a", "bb", "!", "$#", "1q@", "-5", "-10", "0"})
+    void should_Throw_Exception_For_Invalid_Numeric_Input(String input) {
         // when
         // then
         assertThatThrownBy(() -> inputValidator.validateNumericString(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("숫자로 된 문자열만 입력할 수 있습니다.");
+                .hasMessage("1이상의 양수로 된 문자열만 입력할 수 있습니다.");
     }
 }
