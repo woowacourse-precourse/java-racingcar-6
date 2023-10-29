@@ -40,7 +40,7 @@ public class UserInputValidator {
     }
 
     private static void validateIsPositive(String input) {
-        if (Integer.parseInt(input) >= MIN_NUMBER) {
+        if (Integer.parseInt(input) < MIN_NUMBER) {
             throw new IllegalArgumentException(POSITIVE_NUMBER_ALLOWED);
         }
     }
