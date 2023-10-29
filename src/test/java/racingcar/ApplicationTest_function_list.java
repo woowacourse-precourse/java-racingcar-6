@@ -7,6 +7,7 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.ByteArrayInputStream;
 import java.lang.reflect.Method;
@@ -50,13 +51,13 @@ class ApplicationTest_function_list extends NsTest {
 
     @Test
     void 기능목록_테스트_자동차_이름_입력() {
-        List<String> testCaes = Arrays.asList(
+        List<String> testCase = Arrays.asList(
                 "pobi,woni,jun,0,1,2,3,4,5,6,7,8,9",
                 "pobi,0,1,2,3,4,5,6,7,8,9,woni,jun",
                 "0,1,2,3,4,5,6,7,8,9,pobi,woni,jun");
 
-        for (int i = 0; i < testCaes.size(); i++) {
-            final byte[] buf = String.join("\n", testCaes).getBytes();
+        for (int i = 0; i < testCase.size(); i++) {
+            final byte[] buf = String.join("\n", testCase).getBytes();
             System.setIn(new ByteArrayInputStream(buf));
             assertThat(Input.inputCarName())
                     .containsAll(Arrays.asList("pobi", "woni", "jun", "0", "5", "9"));
@@ -98,10 +99,10 @@ class ApplicationTest_function_list extends NsTest {
     @Test
     void 기능목록_테스트_1_5자_검사() {
         Class<?> testClass = Input.class;
-        String testMethodName = "isLength1To";
+        String testMethodName = "isLengthOutOf1To";
         List<List<Object>> testCase = Arrays.asList(
                 Arrays.asList("pobi", 5, false),
-                Arrays.asList("", 5, false),
+                Arrays.asList("", 5, true),
                 Arrays.asList("123456", 5, true),
                 Arrays.asList("1234", 3, true));
         testPrivateMethod(testClass, testMethodName, testCase);
