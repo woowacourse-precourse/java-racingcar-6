@@ -11,17 +11,19 @@ public class RacingCarController {
 
     private static final String DUPLICATED_NAME = "중복된 이름을 사용할 수 없습니다.";
     private static final String OVER_LIMIT_NAME_LENGTH = "5자 이상의 이름은 입력할 수 없습니다.";
+    private static final String NON_NUMERIC = "반복 횟수는 숫자만 입력 가능합니다.";
     private static final String COMMA = ",";
     private static final int LIMIT_NAME_LENGTH = 5;
 
     private RacingCarService racingCarService = new RacingCarService();
 
-    public void extractName(String input) {
+    public Set<String> extractName(String input) {
         List<String> carNameList = Arrays.asList(input.split(COMMA));
         validateLimitNameLength(carNameList);
         Set<String> carNameSet = validateDuplicateName(carNameList);
 
         racingCarService.generateRacingCar(carNameSet);
+        return carNameSet;
     }
 
     public void startRacing(String input) {
@@ -60,7 +62,7 @@ public class RacingCarController {
     private void validateIsNumeric(String input) {
         for (int i = 0; i < input.length(); i++) {
             if (!Character.isDigit(input.charAt(i))) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException(NON_NUMERIC);
             }
         }
     }
