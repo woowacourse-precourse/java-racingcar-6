@@ -23,16 +23,17 @@ public class RacingCarController {
         saveRacingCars(carNames);
 
         int attemptCount = Integer.parseInt(inputView.inputAttemptCounts());
+        playRacing(attemptCount);
 
+        outputView.printWinners(racingCarService.getWinnerNames());
+    }
+
+    private void playRacing(int attemptCount) {
         outputView.printResultMessage();
         for (int attempt = 0; attempt < attemptCount; attempt++) {
             racingCarService.playOneRacing();
-
-            List<RacingCar> racingCars = racingCarService.getRacingCars();
-            outputView.printRacingResult(racingCars);
+            outputView.printRacingResult(racingCarService.getRacingCars());
         }
-
-        outputView.printWinners(racingCarService.getWinnerNames());
     }
 
     private void saveRacingCars(String carNames) {
