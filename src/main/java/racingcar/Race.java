@@ -3,12 +3,15 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Race {
     Map<String, String> scorePerCar = new HashMap<>();
     int tryNum;
+    List<String> winCars = new ArrayList<>();
     
     public void initScorePerCar(String[] carArray) {
         for (String car : carArray) {
@@ -31,6 +34,29 @@ public class Race {
             printResultPerTry();
         }
     }
+    
+    public void findWinner() {
+        int maxDistance = getMaxDistance();
+    
+        for (String scorePerCarKey : scorePerCar.keySet()) {
+            if (scorePerCar.get(scorePerCarKey).length() == maxDistance) {
+                winCars.add(scorePerCarKey);
+            }
+        }
+        System.out.println("최종 우승자 : " + String.join(",", winCars));
+    }
+    
+    private int getMaxDistance() {
+        int maxDistance = -1;
+        for (String scorePerCarKey : scorePerCar.keySet()) {
+            String distance = scorePerCar.get(scorePerCarKey);//마지막에 각 키에 따른 밸류 길이 비교
+            if (distance.length() > maxDistance) {
+                maxDistance = distance.length();
+            }
+        }
+        return maxDistance;
+    }
+    
     
     private void moveOrStop() {
         for (String scorePerCarKey : scorePerCar.keySet()) {
