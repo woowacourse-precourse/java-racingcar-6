@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Number;
 
@@ -44,7 +46,57 @@ public class RacingCarGame {
             oneRound();
         }
 
-        // TODO: 결과 표시
+        printResult(); // 결과 표시
+    }
+
+    /**
+     * 게임 결과를 출력한다.
+     */
+    private void printResult() {
+        System.out.print("최종 우승자 : ");
+
+        int maximumAdvance = getMaximumAdvance(); // 최대 점수를 가져온다.
+        List<String> names = getNameToAdvance(maximumAdvance); // 최대 점수에 해당하는 자동차의 이름을 가져온다.
+
+        String namesOutText = String.join(", ", names); // 유저 이름을 출력 형식에 맞게 가공한다.
+        System.out.println(namesOutText);
+    }
+
+    /**
+     * 전진에 해당하는 자동차들의 이름을 가져온다.
+     *
+     * @param advance 전진 횟수
+     * @return 전진 횟수에 해당하는 유저 정보를 가져온다.
+     */
+    private List<String> getNameToAdvance(int advance) {
+        List<String> names = new ArrayList<>();
+
+        for (Car car :
+                cars) {
+            if (car.getAdvance() == advance) {
+                names.add(car.getName());
+            }
+        }
+
+        return names;
+    }
+
+    /**
+     * 게임에서 최대 전진한 자동차의 횟수를 가져온다.
+     *
+     * @return 최대 전진 횟수를 가져온다.
+     */
+    private int getMaximumAdvance() {
+        int value = 0;
+
+        for (Car car :
+                cars) {
+            if (car.getAdvance() > value) {
+                value = car.getAdvance();
+            }
+        }
+
+        return value;
     }
 
     /**
