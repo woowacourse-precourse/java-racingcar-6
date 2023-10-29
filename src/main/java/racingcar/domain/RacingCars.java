@@ -35,15 +35,21 @@ public final class RacingCars {
     }
 
     public void moveByNumbers(final Numbers numbers) {
-        IntStream.range(START_INDEX, numOfElement()).forEach(index -> move(numbers, index));
+        IntStream.range(START_INDEX, numOfElement())
+                .forEach(index -> moveIfMovable(numbers, index));
     }
 
-    private void move(final Numbers numbers, final int index) {
-        final RacingCar racingCar = elements.get(index);
+    private void moveIfMovable(final Numbers numbers, final int index) {
         final MoveStatus moveStatus = numbers.checkMoveStatus(index);
+
         if (moveStatus.isMove()) {
-            racingCar.move();
+            move(index);
         }
+    }
+
+    private void move(final int index) {
+        final RacingCar racingCar = elements.get(index);
+        racingCar.move();
     }
 
     public String toResultMessage() {
