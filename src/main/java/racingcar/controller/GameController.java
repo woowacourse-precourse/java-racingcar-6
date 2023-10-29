@@ -12,8 +12,6 @@ public class GameController {
     private final InputView inputView;
     private final OutputView outputView;
     private final RandomNumber randomNumber;
-    private Cars cars;
-    private PlayCount playCount;
 
     public GameController(final InputView inputView, final OutputView outputView, final RandomNumber randomNumber) {
         this.outputView = outputView;
@@ -23,38 +21,28 @@ public class GameController {
 
     public void play() {
         outputView.askCarNames();
-        joinCars();
+        Cars playCars = Cars.from(inputView.receiveCarNames());
         
         outputView.askPlayCount();
-        savePlayCount();
+        PlayCount playCount = PlayCount.from(inputView.receivePlayCount());
 
         outputView.printGameEnd();
 
         while (!playCount.isPlayEnd()) {
-            cars.race(randomNumber);
-            printCarsStatus();
+            playCars.race(randomNumber);
+            printCarsStatus(playCars);
             playCount.endOneRound();
         }
 
-        printWinners();
+        printWinners(playCars);
     }
 
-    private void joinCars() {
-        String carNamesInput = inputView.receiveCarNames();
-        cars = Cars.from(carNamesInput);
-    }
-
-    private void savePlayCount() {
-        String countInput = inputView.receivePlayCount();
-        playCount = PlayCount.from(countInput);
-    }
-
-    private void printCarsStatus() {
+    private void printCarsStatus(final Cars cars) {
         List<String> carsStatus = cars.collectEachStatus();
         outputView.printCarsStatus(carsStatus);
     }
 
-    private void printWinners() {
+    private void printWinners(final Cars cars) {
         List<String> winners = cars.collectWinners();
         outputView.printWinners(winners);
     }
