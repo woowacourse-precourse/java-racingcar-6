@@ -13,5 +13,6 @@ public class GameController {
     public void start() {
         outputView.printInputCarNameMessage();
         List<Car> cars = inputView.readCarNames();
+        outputView.printInputAttemptCountMessage();
     }
 }
