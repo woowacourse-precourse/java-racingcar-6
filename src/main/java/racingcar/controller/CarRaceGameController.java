@@ -25,7 +25,7 @@ public class CarRaceGameController {
 
     private void carMoveResult(Car car, int count) {
         for (int i=0; i<count; i++) {
-            raceGameService.carMoveCheckAndGo(car);
+            raceGameService.race(car);
             OutputView.outputCarMoveResult(car);
         }
     }

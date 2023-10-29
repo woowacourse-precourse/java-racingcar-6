@@ -20,7 +20,7 @@ public class RaceGameServiceImpl implements RaceGameService{
     }
 
     @Override
-    public void carMoveCheckAndGo(Car car) {
+    public void race(Car car) {
         // 전진하는 조건은 0~9사이에서 무작위 값을 구한 후 무작위 값이 4이상일 경우
         carMoveCheck(car, car.getCarSize());
     }
