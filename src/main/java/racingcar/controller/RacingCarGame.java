@@ -1,7 +1,9 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
+import racingcar.model.CarMovement;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,5 +20,17 @@ public class RacingCarGame {
             carList.add(new Car(name));
         }
 
+        OutputView.printResultMessage();
+        for (int i = 0; i < countNumber; i++){
+            race(carList);
+            OutputView.printRoundResult(carList);
+        }
+
+    }
+
+    public void race(List<Car> carList){
+        for (Car car : carList){
+            CarMovement.moveCar(car);
+        }
     }
 }
