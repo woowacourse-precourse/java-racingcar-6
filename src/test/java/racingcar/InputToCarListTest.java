@@ -57,4 +57,17 @@ class InputToCarListTest {
         Assertions.assertThatThrownBy(() -> instance.askCarName(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("구분자인 ',,,' 를 입력받을 경우 해당 리스트의 사이즈는 0이되어 예외가 발생한다.")
+    @Test
+    void listSizeOverOne() {
+        //given
+        InputToCarList instance = InputToCarList.getInstance();
+        String input = ",,,";
+
+        //then
+        Assertions.assertThatThrownBy(() -> instance.askCarName(input)).isInstanceOf(
+                IllegalArgumentException.class);
+
+    }
 }
