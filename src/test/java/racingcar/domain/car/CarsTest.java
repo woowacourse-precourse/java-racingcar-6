@@ -34,4 +34,17 @@ public class CarsTest {
         //then
         assertThat(car.getName()).isEqualTo("park");
     }
+
+    @DisplayName("자동차 리스트의 크기를 반환해야 한다.")
+    @Test
+    void 자동차_리스트_크기_반환_테스트() {
+        //given
+        Cars cars = new Cars("jun,seo,park,pobi,woni");
+
+        //when
+        int carsSize = cars.size();
+
+        //then
+        assertThat(carsSize).isEqualTo(5);
+    }
 }
