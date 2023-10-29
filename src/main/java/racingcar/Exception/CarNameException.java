@@ -6,6 +6,7 @@ import racingcar.Util.StringToList;
 public class CarNameException {
     private final StringToList stringToList = new StringToList();
     private static final int MINIMUM_CARNAME_LENGTH = 1;
+    private static final int MAXIMUM_CARNAME_LENGTH = 5;
     private static final String BLANK = " ";
 
     public void validateCarNameInput(String carNameInput) throws IllegalArgumentException {
@@ -18,6 +19,7 @@ public class CarNameException {
 
     private void checkCarNameIsOutOfRangeAndBlank(List<String> carNameList) {
         for (String carName : carNameList) {
+            checkLength(carName);
             checkIntervalBlank(carName);
         }
     }
@@ -34,8 +36,21 @@ public class CarNameException {
         }
     }
 
+    private void checkLength(String carName) {
+        if (MAXIMUM_CARNAME_LENGTH < carName.length()) {
+            throwOverMaxLengthException();
+        }
+        if (carName.length() < MINIMUM_CARNAME_LENGTH) {
+            throwUnderMinLengthException();
+        }
+    }
+
     private void throwUnderMinLengthException() {
         throw new IllegalArgumentException("자동차 이름은 " + MINIMUM_CARNAME_LENGTH + "글자 이상이어야 합니다.");
+    }
+
+    private void throwOverMaxLengthException() {
+        throw new IllegalArgumentException("자동차 이름은 " + MAXIMUM_CARNAME_LENGTH + "글자 이하여야 합니다.");
     }
 
     private void checkIntervalBlank(String carName) {
