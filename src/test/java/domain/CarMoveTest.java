@@ -18,7 +18,7 @@ public class CarMoveTest {
         car.move(randomNumber);
         CarLocation carLocation = car.getCarLocation();
 
-        Assertions.assertThat(carLocation.getCarLocation()).isEqualTo(1);
+        Assertions.assertThat(carLocation.getValue()).isEqualTo(1);
     }
 
     public static Stream<Arguments> provideCarAndGoNumber() {
@@ -40,7 +40,7 @@ public class CarMoveTest {
         car.move(randomNumber);
         CarLocation carLocation = car.getCarLocation();
 
-        Assertions.assertThat(carLocation.getCarLocation()).isEqualTo(0);
+        Assertions.assertThat(carLocation.getValue()).isEqualTo(0);
     }
 
     public static Stream<Arguments> provideCarAndStopNumber() {

@@ -12,6 +12,10 @@ public class CarName {
         this.carName = carName;
     }
 
+    public String getValue(){
+        return carName;
+    }
+
     @Override
     public boolean equals(Object o){
         if(this == o){

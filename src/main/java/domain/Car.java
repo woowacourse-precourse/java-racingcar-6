@@ -28,6 +28,9 @@ public class Car<T> {
     public CarLocation getCarLocation() {
         return this.carLocation;
     }
+    public CarName getCarName(){
+        return this.carName;
+    }
 
     @Override
     public boolean equals(Object o) {

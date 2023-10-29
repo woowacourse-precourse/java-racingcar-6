@@ -15,7 +15,7 @@ public class CarLocation {
         this.carLocation += MOVE_DISTANCE;
     }
 
-    public int getCarLocation() {
+    public int getValue() {
         return this.carLocation;
     }
 
