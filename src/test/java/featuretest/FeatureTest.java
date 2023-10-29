@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import racingcar.Application;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Array;
 import java.util.ArrayList;
@@ -36,6 +37,20 @@ public class FeatureTest {
         );
 
         assertThat(actualCars).containsExactlyElementsOf(expectedCars);
+    }
+
+    @Test
+    void 시도할_회수_입력받기() {
+        String testInput = "5";
+        InputStream inputStream = new ByteArrayInputStream(testInput.getBytes());
+        System.setIn(inputStream);
+
+        Application.receiveTryCount();
+
+        TryCount actualTryCount = Application.getTryCount();
+        TryCount expectedTryCount = new TryCount("5");
+
+        assertThat(actualTryCount).isEqualTo(expectedTryCount);
     }
 
 //    @Test
@@ -69,19 +84,7 @@ public class FeatureTest {
 //        assertThat(actualList).isEqualTo(expectedList);
 //    }
 //
-//    @Test
-//    void 시도할_회수_입력받기() {
-//        String predInput = "5";
-//        InputStream inputStream = new ByteArrayInputStream(predInput.getBytes());
-//        System.setIn(inputStream);
-//
-//        Application.receiveTryCount();
-//
-//        TryCount actualObject = Application.getTryCount();
-//        TryCount expectedObject = new TryCount("5");
-//
-//        assertThat(actualObject).isEqualTo(expectedObject);
-//    }
+
 //
 //    @Test
 //    void 시도_횟수_숫자_아님() {

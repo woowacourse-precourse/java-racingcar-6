@@ -22,6 +22,10 @@ public class TryCount {
         return Integer.parseInt(tryCount);
     }
 
+
+    /**
+     * 테스트용 메서드
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
