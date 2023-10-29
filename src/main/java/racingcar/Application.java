@@ -51,6 +51,15 @@ public class Application {
         System.out.println();
     }
 
+    public static List<Car> getWinners(List<Car> cars) {
+        if (cars.isEmpty())
+            throw new IllegalArgumentException();
+        int maxPosition = cars.stream().mapToInt(Car::getPosition).max().getAsInt();
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .toList();
+    }
+
     public static void main(String[] args) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         List<Car> cars = getCarsFromInput();
@@ -64,5 +73,11 @@ public class Application {
             cars.forEach(Car::tryMoveForward);
             cars.forEach(Application::printPosition);
         }
+
+        List<Car> winners = getWinners(cars);
+        List<String> winnerNames = winners.stream()
+                .map(Car::getName)
+                .toList();
+        System.out.println("최종 우승자 : " + String.join(", ", winnerNames));
     }
 }
