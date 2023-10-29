@@ -30,8 +30,12 @@ public enum CarsValidator {
         int uniqueSize = names.stream()
                 .distinct().toList().size();
 
-        if (names.size() != uniqueSize) {
+        if (isDuplicate(names.size(), uniqueSize)) {
             throw new IllegalArgumentException(ExceptionMessage.DUPLICATEDNAME.message());
         }
+    }
+
+    private boolean isDuplicate(int orginalSize, int uniqueSize) {
+        return orginalSize != uniqueSize;
     }
 }

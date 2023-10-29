@@ -11,8 +11,12 @@ public enum AttemptCountValidator {
     }
 
     private void checkAttemptCountIsInteger(String input) {
-        if (!Constants.INTEGER.matcher(input).matches()) {
+        if (isNotInteger(input)) {
             throw new IllegalArgumentException(ExceptionMessage.NOTINTEGER.message());
         }
+    }
+
+    private boolean isNotInteger(String input) {
+        return !Constants.INTEGER.matcher(input).matches();
     }
 }

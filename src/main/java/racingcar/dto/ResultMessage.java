@@ -19,12 +19,18 @@ public class ResultMessage {
     }
 
     private void addResult(StringBuilder result, String name) {
-        result.append(Constants.WHITESPACE).append(name).append(Constants.COMMA);
+        result.append(Constants.WHITESPACE);
+        result.append(name);
+        result.append(Constants.COMMA);
     }
 
     private void trim(StringBuilder result) {
         result.deleteCharAt(0);
-        result.deleteCharAt(result.length() - 1);
+        result.deleteCharAt(getLastIndexOfResult(result));
+    }
+
+    private int getLastIndexOfResult(StringBuilder result) {
+        return result.length() - 1;
     }
 
     public String getResultMessage() {
