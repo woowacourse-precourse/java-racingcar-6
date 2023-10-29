@@ -44,6 +44,8 @@ public class RacingCarController {
             startRacing();
         }
 
+        cars.setWinner();
+
         // '최종 우승자 : ' 메세지 출력
         outputView.winnerMessage();
 

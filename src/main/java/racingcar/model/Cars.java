@@ -14,7 +14,6 @@ public class Cars {
     }
 
     public void oneResult(Car car, int randomNumber) {
-        winner.clear();
         if(randomNumber >= MIN_FORWARD_NUMBER) {
             car.upForwardCount();
         }
@@ -22,8 +21,6 @@ public class Cars {
         if(car.getForwardCount() > maxForward) {
             maxForward = car.getForwardCount();
         }
-
-        setWinner();
     }
 
     public List<Car> getWinner() {
@@ -34,7 +31,7 @@ public class Cars {
         return carList;
     }
 
-    private void setWinner() {
+    public void setWinner() {
         for(Car car : carList) {
             if(car.getForwardCount() == maxForward) {
                 winner.add(car);
