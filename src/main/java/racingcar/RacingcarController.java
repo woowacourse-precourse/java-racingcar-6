@@ -11,6 +11,9 @@ public class RacingcarController {
     }
 
     private void inputCarsName() {
-        String carsName = input.inputCarName();
+        for (String name : input.inputCarName().split(",")) {
+            Car car = new Car(name.trim(), 0);
+            cars.addCarList(car);
+        }
     }
 }
