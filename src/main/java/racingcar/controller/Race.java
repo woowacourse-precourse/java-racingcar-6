@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.view.InputView;
@@ -14,43 +15,46 @@ public class Race {
     private Cars cars;
 
     private int moveCnt;
+
     public void run() {
-        OutputView.printRacingStart();
-        callCarNames();
+        start();
+        count();
+        OutputView.printResult();
+        while (moveCnt > 0) {
+            cars.playSingleTurn();
+            carsInformation();
+            StringBuilder findWinners = getFindWinners();
+            moveCnt--;
+            OutputView.printFindWinner(findWinners.toString());
+        }
+
+
+    }
+
+    private StringBuilder getFindWinners() {
+        StringBuilder findWinners;
+        int currnetMaxPosition = cars.getCurrnetMaxPosition();
+        List<Car> winners = cars.findWinner(currnetMaxPosition);
+        findWinners = showWinner(winners);
+        System.out.println();
+        return findWinners;
+    }
+
+    private void carsInformation() {
+        Map<String, Integer> currentPostion = cars.carsInformation();
+        for (Entry<String, Integer> carsInformation : currentPostion.entrySet()) {
+            OutputView.printCarsMove(carsInformation.getKey(), carsInformation.getValue());
+        }
+    }
+
+    private void count() {
         OutputView.printAskCount();
         moveCnt = getMoveCount();
-        OutputView.printResult();
-        while(moveCnt > 0){
-            cars.playSingleTurn();
-            Map<String,Integer> currentPostion = cars.carsInformation();
-            for (Entry<String, Integer> carsInformation : currentPostion.entrySet()) {
-                OutputView.printCarsMove(carsInformation.getKey(),carsInformation.getValue());
-            }
-            System.out.println();
-            moveCnt--;
-        }
+    }
 
-        int currentMaxPostion = 0;
-        for (Car car : carList) {
-            currentMaxPostion = Math.max(currentMaxPostion,car.getPosition());
-        }
-
-        List<Car> currentWinner = new ArrayList<>();
-        for (Car car : carList) {
-            if(car.getPosition() == currentMaxPostion){
-                currentWinner.add(car);
-            }
-        }
-
-        StringBuilder winnerResult = new StringBuilder();
-        for (int i = 0; i < currentWinner.size(); i++) {
-            winnerResult.append(currentWinner.get(i));
-            if(i != currentWinner.size()-1){
-                winnerResult.append(",");
-            }
-        }
-        OutputView.printWinner(winnerResult.toString());
-
+    private void start() {
+        OutputView.printRacingStart();
+        callCarNames();
     }
 
     private static int getMoveCount() {
@@ -66,10 +70,19 @@ public class Race {
             Car car = new Car(carName);
             carList.add(car);
         }
-
         cars = new Cars(carList);
     }
 
+    private static StringBuilder showWinner(List<Car> currentWinner) {
+        StringBuilder winnerResult = new StringBuilder();
+        for (int i = 0; i < currentWinner.size(); i++) {
+            winnerResult.append(currentWinner.get(i));
+            if (i != currentWinner.size() - 1) {
+                winnerResult.append(",");
+            }
+        }
+        return winnerResult;
+    }
 
 
 }
