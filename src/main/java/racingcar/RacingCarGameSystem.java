@@ -1,7 +1,5 @@
 package racingcar;
 
-import static java.lang.Integer.parseInt;
-
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
@@ -19,42 +17,66 @@ import racingcar.input.RegisterRacingCarGameInput;
 
 public class RacingCarGameSystem extends GameSystem {
 
-    private final CarRepository carRepository = new CarRepository();
-    private final RacingCarGameRepository racingCarGameRepository = new RacingCarGameRepository();
-    private final CarService carService = new CarService(carRepository);
-    private final RacingCarGameService racingCarGameService = new RacingCarGameService(racingCarGameRepository);
-    private static final int START_INCLUSIVE = 1;
-    private static final int END_INCLUSIVE = 9;
+    private final CarService carService = new CarService(new CarRepository());
+    private final RacingCarGameService racingCarGameService = new RacingCarGameService(new RacingCarGameRepository());
+    private static final int MIN_RANDOM_NUMBER = 1;
+    private static final int MAX_RANDOM_NUMBER = 9;
 
     @Override
     public void run() {
         Long racingGameId = 1L;
 
-        RacingCarGameDisplay.printGameStartMessage();
-        String carNamesLine = Console.readLine();
-        List<Car> cars = carService.registerCarsByCarNames(carNamesLine);
-        RacingCarDistanceGraphics racingCarDistanceGraphics = new RacingCarDistanceGraphics(cars);
+        List<Car> cars = registerCars();
+        int gameCount = registerGameCount(racingGameId, cars);
+        simulateRace(racingGameId, cars, gameCount);
+        displayWinners(racingGameId);
+    }
 
+    private int registerGameCount(Long racingGameId, List<Car> cars) {
         RacingCarGameDisplay.printGameCountMessage();
         String gameCountLine = Console.readLine();
-        RegisterRacingCarGameInput input =
-                new RegisterRacingCarGameInput(racingGameId, GameType.RACING_CAR_GAME, gameCountLine, cars);
+
+        RegisterRacingCarGameInput input = new RegisterRacingCarGameInput(racingGameId, GameType.RACING_CAR_GAME,
+                gameCountLine, cars);
         racingCarGameService.registerCarsAndGameCounter(input);
 
+        return Integer.parseInt(gameCountLine);
+    }
+
+    private List<Car> registerCars() {
+        RacingCarGameDisplay.printGameStartMessage();
+        String carNamesLine = Console.readLine();
+
+        return carService.registerCarsByCarNames(carNamesLine);
+    }
+
+    private void simulateRace(Long racingGameId, List<Car> cars, int gameCount) {
         RacingCarGameDisplay.printGameResultMessage();
-        for (int count = 0; count < parseInt(gameCountLine); count++) {
-            List<Car> movedCars = new ArrayList<>();
-            for (Car car : cars) {
-                int number = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
-                Car moveCar = carService.move(car.getCarName(), number);
-                movedCars.add(moveCar);
-            }
-
-            racingCarGameService.computeCarsDistanceAndGameCount(racingGameId, movedCars);
-            Map<String, String> carMovementMap = racingCarDistanceGraphics.updateCarGraphicsBasedOnDistance(movedCars);
-            RacingCarGameDisplay.printCarMovementResultMessage(carMovementMap);
+        RacingCarDistanceGraphics racingCarDistanceGraphics = new RacingCarDistanceGraphics(cars);
+        for (int count = 0; count < gameCount; count++) {
+            List<Car> movedCars = moveCars(cars);
+            updateCarGraphicsAndCount(racingGameId, movedCars, racingCarDistanceGraphics);
         }
+    }
 
+    private List<Car> moveCars(List<Car> cars) {
+        List<Car> movedCars = new ArrayList<>();
+        for (Car car : cars) {
+            int number = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+            Car movedCar = carService.move(car.getCarName(), number);
+            movedCars.add(movedCar);
+        }
+        return movedCars;
+    }
+
+    private void updateCarGraphicsAndCount(Long racingGameId, List<Car> movedCars, RacingCarDistanceGraphics graphics) {
+        racingCarGameService.computeCarsDistanceAndGameCount(racingGameId, movedCars);
+        Map<String, String> carMovementMap = graphics.updateCarGraphicsBasedOnDistance(movedCars);
+
+        RacingCarGameDisplay.printCarMovementResultMessage(carMovementMap);
+    }
+
+    private void displayWinners(Long racingGameId) {
         List<String> winnerNames = racingCarGameService.computeGameWinners(racingGameId);
         RacingCarGameDisplay.printFinalWinnerNames(winnerNames);
     }
