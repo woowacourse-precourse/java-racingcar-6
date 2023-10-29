@@ -1,10 +1,11 @@
 package racingcar.Model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 
 public class Car {
     private String name;
-    private int count;
+    private static int count;
 
     public String getName() {
         return name;
@@ -14,7 +15,7 @@ public class Car {
         return count;
     }
 
-    public void putCarResult(int forwardOrBackward){
+    public static void putCarResult(int forwardOrBackward){
         if(forwardOrBackward == 1){
             count ++;
         }
