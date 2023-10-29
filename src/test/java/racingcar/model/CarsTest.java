@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Test;
 
 public class CarsTest {
     private Cars cars = new Cars();
+    private Car pobi = new Car("pobi", 3);
+    private Car woni = new Car("woni", 1);
+    private Car jun = new Car("jun", 3);
 
     @Test
     void 자동차_이름이_콤마로_구분되어_저장된다() {
@@ -26,12 +29,8 @@ public class CarsTest {
     @Test
     void 가장_많은_거리를_이동한_차량들을_우승자로_뽑는다() {
         //Given
-        Car car1 = new Car("pobi", 3);
-        Car car2 = new Car("woni", 1);
-        Car car3 = new Car("jun", 3);
-
-        List<Car> carList = List.of(car1, car2, car3);
-        List<Car> winner = List.of(car1, car3);
+        List<Car> carList = List.of(pobi, woni, jun);
+        List<Car> winner = List.of(pobi, jun);
 
         cars.setCarList(carList);
 
@@ -40,13 +39,21 @@ public class CarsTest {
     }
 
     @Test
+    void 우승자들을_문자열로_조회() {
+        //Given
+        List<Car> winner = List.of(pobi, jun);
+
+        //When
+        String winnerMessage = cars.winnerToString(winner);
+
+        //Then
+        assertEquals("최종 우승자 : pobi, jun", winnerMessage);
+    }
+
+    @Test
     void 현재_자동차들의_이동상태_문자열로_조회() {
         //Given
-        List<Car> carList = List.of(
-                new Car("pobi", 3),
-                new Car("woni", 1),
-                new Car("jun", 3)
-        );
+        List<Car> carList = List.of(pobi, woni, jun);
         cars.setCarList(carList);
 
         //When
@@ -56,6 +63,5 @@ public class CarsTest {
         assertEquals("pobi : ---\n"
                 + "woni : -\n"
                 + "jun : ---\n\n", progressStatus);
-
     }
 }

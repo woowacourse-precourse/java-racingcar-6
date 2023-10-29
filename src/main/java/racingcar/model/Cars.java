@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class Cars {
     private final int MIN_VALUE = 0;
@@ -16,9 +17,10 @@ public class Cars {
         return carList;
     }
 
-    public void setCarList(List<Car> carList){
+    public void setCarList(List<Car> carList) {
         this.carList = carList;
     }
+
     public void setCarList(String inputString) {
         String[] names = inputString.split(",");
 
@@ -34,7 +36,7 @@ public class Cars {
         }
     }
 
-    public List<Car> getWinner(){
+    public List<Car> getWinner() {
         List<Car> winner = new ArrayList<>();
 
         Optional<Integer> maxDistance = getMaxDistance();
@@ -44,6 +46,19 @@ public class Cars {
                 .forEach(winner::add);
 
         return winner;
+    }
+
+    public String winnerToString(List<Car> cars) {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("최종 우승자 : ");
+        sb.append(cars.get(0).getName());
+
+        for (int i = 1; i < cars.size(); i++) {
+            sb.append(", ").append(cars.get(i).getName());
+        }
+
+        return sb.toString();
     }
 
     public String getProgressStatus() {
@@ -63,7 +78,7 @@ public class Cars {
         return Randoms.pickNumberInRange(MIN_VALUE, MAX_VALUE);
     }
 
-    private Optional<Integer> getMaxDistance(){
+    private Optional<Integer> getMaxDistance() {
         Optional<Integer> maxDistance = carList.stream()
                 .map(Car::getDistance)
                 .max(Comparator.naturalOrder());
