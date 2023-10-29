@@ -46,4 +46,13 @@ public class RaceGameController {
         return maxForwardCar;
     }
 
+    // 최종 우승자를 선정
+    private void setWinnerList(Car maxForwardCar) {
+        for (Car car : carList) {
+            if (car.getForwardCount() == maxForwardCar.getForwardCount()) {
+                winnerList.add(car.getCarName());
+            }
+        }
+    }
+
 }
