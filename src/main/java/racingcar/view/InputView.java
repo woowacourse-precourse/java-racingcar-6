@@ -14,13 +14,13 @@ public class InputView {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
         String inputCarName = Console.readLine();
         String[] nameSplit = inputCarName.split(REGEX);
-        
+
         return Arrays.asList(nameSplit);
     }
 
-    public int inputTryCount() {
+    public String inputTryCount() {
         System.out.println(INPUT_TRYCOUNT_MESSAGE);
-        return Integer.parseInt(Console.readLine());
+        return Console.readLine();
     }
 
 }

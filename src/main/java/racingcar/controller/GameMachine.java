@@ -7,6 +7,7 @@ import java.util.List;
 import racingcar.domain.Cars;
 import racingcar.domain.PowerGenerator;
 import racingcar.domain.RandomPowerGenerator;
+import racingcar.domain.TryCount;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -34,7 +35,9 @@ public class GameMachine {
     }
 
     public int getTryCount() {
-        return inputView.inputTryCount();
+        String inputTryCount = inputView.inputTryCount();
+        TryCount tryCount = new TryCount(inputTryCount);
+        return tryCount.getValue();
     }
 
     public void runRaceAndPrintResult(Cars cars, int tryCount) {
