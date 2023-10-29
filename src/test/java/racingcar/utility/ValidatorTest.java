@@ -21,4 +21,25 @@ class ValidatorTest {
 
     }
 
+    @Test
+    void 전달받은_이름이_5글자_이상인_경우_false_반환() {
+        boolean nineLength = Validator.isInNameRange("123456789");
+        boolean sixLength = Validator.isInNameRange("123456");
+
+        assertThat(nineLength).isFalse();
+        assertThat(sixLength).isFalse();
+    }
+
+    @Test
+    void 전달받은_이름이_5글자_이하인_경우_true_반환() {
+        boolean fiveLength = Validator.isInNameRange("12345");
+        boolean oneLength = Validator.isInNameRange("1");
+        boolean zeroLength = Validator.isInNameRange("");
+
+        assertThat(fiveLength).isTrue();
+        assertThat(oneLength).isTrue();
+        assertThat(zeroLength).isTrue();
+    }
+
+
 }
