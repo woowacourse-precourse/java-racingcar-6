@@ -32,12 +32,20 @@ public class RaceController {
 
     private void printWinners(Cars cars){
         List<CarName> winnerCarNames = getWinnerCarNames(cars.getWinnerCars());
-        outputView.printRaceResult(winnerCarNames);
+        List<String> originCarNames = getOriginCarNames(winnerCarNames);
+        outputView.printRaceResult(originCarNames);
     }
 
     public List<CarName> getWinnerCarNames(List<Car> winnerCars){
         return winnerCars.stream()
                 .map(Car::getCarName)
                 .collect(Collectors.toList());
+    }
+
+    private List<String> getOriginCarNames(List<CarName> carNames){
+        List<String> originCarNames = carNames.stream()
+                .map(car -> car.getName().toString())
+                .collect(Collectors.toList());
+        return originCarNames;
     }
 }
