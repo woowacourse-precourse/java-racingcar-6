@@ -5,6 +5,7 @@ import racingcar.domain.Car;
 import racingcar.repository.CarRepository;
 import racingcar.utils.Parser;
 import racingcar.view.InputMessage;
+import racingcar.vo.TryTime;
 
 import java.util.List;
 
@@ -14,6 +15,12 @@ public class RacingService {
 
     public void initializeGame() {
         inputCarName();
+    }
+
+    public TryTime inputTryTimes() {
+        InputMessage.printTryTimesInputMessage();
+        int time = Parser.parseTryTimesInput(Console.readLine());
+        return new TryTime(time);
     }
 
     private void inputCarName() {

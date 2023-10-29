@@ -8,4 +8,8 @@ public class Parser {
     public static List<String> parseCarNameInput (String input) {
         return Arrays.stream(input.split(",")).collect(Collectors.toList());
     }
+
+    public static int parseTryTimesInput(String input) {
+        return Integer.parseInt(input);
+    }
 }
