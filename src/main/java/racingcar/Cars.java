@@ -27,7 +27,18 @@ public class Cars {
     private Car firstElement() {
         return cars.get(0);
     }
+
+    public void roundStatus(int round) {
+        for (int i = 0; i < round; i++) {
+            for (Car car : cars) {
+                int randNum = Randoms.pickNumberInRange(0, 9);
+                if (randNum >= 4) {
+                    car.updatePosition();
+                }
+
+                view.carResultMsg(car.getName(), car.process());
             }
+            view.printEmptyLine();
         }
     }
 }
