@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class Game {
 
@@ -29,6 +30,7 @@ public class Game {
     public void start(){
         while(tryCount > 0){
             gameByOrder();
+            printGameByOrder();
             tryCount--;
         }
     }
@@ -47,5 +49,12 @@ public class Game {
     public int moveForwardStep(int num){
         if(num >= 4 && num <= 9) return 1;
         return 0;
+    }
+
+    public void printGameByOrder(){
+        for(Car car: carList) {
+            OutputView.printGameResultByOrder(car.getName(), car.getForward());
+        }
+        OutputView.println();
     }
 }
