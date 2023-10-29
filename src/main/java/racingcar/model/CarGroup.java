@@ -20,4 +20,9 @@ public class CarGroup {
                 .map(Car::new)
                 .collect(toList());
     }
+
+    public void race() {
+        cars.stream()
+                .forEach(car -> car.go(numberGenerator.generate()));
+    }
 }
