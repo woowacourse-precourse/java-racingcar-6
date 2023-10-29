@@ -1,13 +1,13 @@
 # 자동차 경주
 
 ## 기능 목록
-- [ ] 자동차 이름 입력 : Application#inputCarNames()
+- [X] 자동차 이름 입력 : Application#inputCarNames()
   - [ ] 각 이름은 쉼표로 구분 : Application#extractCarName()
   - [X] 이름은 5자이하 가능 : Car#checkCharacterLimit()
   - [X] 게임에 자동차 추가 : GameHost.addCars() 
-  - [ ] 잘못된 입력 : IllegalArgumentException
+  - [] 잘못된 입력 : IllegalArgumentException
 - [ ] 자동차 이동 횟수 입력 : Application#inputMoveCount()
-  - [ ] 잘못된 입력 : IllegalArgumentException
+  - [X] 잘못된 입력 : IllegalArgumentException
 - [ ] 게임 진행 : GameHost#playOneTurn()
   - [X] 자동차 전진 : 0~9의 무작위 값이 4이상일 경우 - Car#moveForward()
   - [X] 게임 진행 정보 확인 : 자동차 이름 , 적산거리 출력 - Car#toString()

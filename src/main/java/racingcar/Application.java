@@ -1,7 +1,10 @@
 package racingcar;
 
 
+import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 public class Application {
     public static void main(String[] args) {
@@ -24,6 +27,7 @@ public class Application {
     }
 
     private static Collection<Car> inputCarNames() {
+        String carNames = Console.readLine();
         return null;
     }
 }
