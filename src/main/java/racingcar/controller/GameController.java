@@ -15,12 +15,17 @@ public class GameController {
     public void start() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String namesInput = Console.readLine();
+
         initCars(namesInput);
+
         System.out.println("시도할 회수는 몇회인가요?");
         String roundInput = Console.readLine();
         System.out.println();
+
         setRounds(roundInput);
         runRounds(rounds);
+
+        printWinner();
     }
 
     private void initCars(String input) {
@@ -40,9 +45,11 @@ public class GameController {
 
     private void runRounds(int rounds) {
         System.out.println("실행 결과");
+
         for (int i=1; i<=rounds; i++) {
             cars.moveCars();
             List<String> resultList = cars.getRoundResult();
+
             printRoundResult(resultList);
         }
     }
@@ -52,5 +59,12 @@ public class GameController {
             System.out.println(result);
         }
             System.out.println();
+    }
+
+    private void printWinner() {
+        List<String> winner = cars.getWinner();
+        String result = String.join(", ", winner);
+
+        System.out.println("최종 우승자 : " + result);
     }
 }

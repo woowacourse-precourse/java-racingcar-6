@@ -1,11 +1,10 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.Map;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private final String name;
-    protected int position;
+    private int position;
 
     public Car(final String name) {
         validateName(name);
@@ -26,7 +25,7 @@ public class Car {
     }
 
     public void move() {
-        if (Randoms.pickNumberInRange(0, 9) > 4) {
+        if (Randoms.pickNumberInRange(0, 9) >= 4) {
             position++;
         }
     }
@@ -36,11 +35,15 @@ public class Car {
         return name + " : " + positionString;
     }
 
-    public String getName() {
-        return name;
+    public int compareTo(Car other) {
+        return this.position - other.position;
     }
 
-    public int getPosition() {
-        return position;
+    public boolean isSamePosition(Car other) {
+        return this.position == other.position;
+    }
+
+    public String getName() {
+        return name;
     }
 }
