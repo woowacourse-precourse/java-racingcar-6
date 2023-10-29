@@ -13,5 +13,10 @@ public class Car {
         this.name = name;
     }
 
+    public void drive() {
+        if (shouldMove()) {
+            move();
+        }
+    }
 
 }
