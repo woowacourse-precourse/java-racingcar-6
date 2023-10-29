@@ -12,11 +12,18 @@ public class PlayerinputView {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
             }
         }
+        for (int i = 0; i < names.length; i++) {
+            System.out.print(names[i]); // 자동차이름 입력값 사용자 확인 출력
+            if (i < names.length - 1) {
+                System.out.print(",");
+            }
+        }
         return names;
     }
 
+
     public static int getRound() {
-        System.out.print("시도할 회수는 몇회인가요? ");
+        System.out.print("\n시도할 회수는 몇회인가요? ");
         String inputround = Console.readLine();
         int round = Integer.parseInt(inputround);
         return round;
