@@ -6,12 +6,12 @@ import java.util.List;
 
 public class RacingCars {
     List<RacingCar> carList;
-    public List<RacingCar> initCars(List<String> nameList) {
+
+    public RacingCars(List<String> nameList) {
         carList = new ArrayList<>();
         for(String name : nameList) {
             carList.add(new RacingCar(name));
         }
-        return carList;
     }
 
     public void moveCars() {

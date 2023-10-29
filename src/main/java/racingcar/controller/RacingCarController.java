@@ -14,9 +14,12 @@ public class RacingCarController {
     OutputView outputView = new OutputView();
 
     public void startProgram() {
-        RacingCars racingCars = new RacingCars();
-        racingCars.initCars(getCarName());
+        RacingCars racingCars = initCars();
         startRace(racingCars);
+    }
+
+    public RacingCars initCars() {
+        return new RacingCars(getCarName());
     }
 
     private List<String> getCarName() {
