@@ -42,4 +42,23 @@ class CarInputViewTest {
         }
     }
 
+    @Nested
+    @DisplayName("자동차 이름 입력 예외 테스트")
+    class CarNameExceptionTest {
+
+        @Test
+        @DisplayName("자동차 이름이 6자 이상일 경우 예외를 발생시켜야 한다")
+        public void 자동차_이름이_6자_이상일_경우_예외를_발생시켜야_한다() {
+            CarInputView carInputView = new CarInputView();
+            MockedStatic<Console> consoleMockedStatic = mockStatic(Console.class);
+            when(Console.readLine()).thenReturn("pooooooobi,juuuuuuuun,wooooooooni");
+
+            assertThrows(IllegalArgumentException.class,
+                    carInputView::getCarNames,
+                    CAR_NAME_LENGTH_OVER.getErrorMessage());
+
+            consoleMockedStatic.close();
+        }
+    }
+
 }
