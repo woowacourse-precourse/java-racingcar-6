@@ -2,23 +2,24 @@ package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
+import racingcar.repository.CarRepository;
 import racingcar.view.OutputView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class InputService {
-    OutputView outputView = new OutputView();
+    private final CarRepository carRepository;
+    private final OutputView outputView;
+
+    public InputService(CarRepository carRepository, OutputView outputView) {
+        this.carRepository = carRepository;
+        this.outputView = outputView;
+    }
 
     public List<Car> inputCarName() {
         outputView.inputCarName();
         String[] inputNames = Console.readLine().split(",");
-        List<Car> cars = new ArrayList<>();
-        for (String name : inputNames) {
-            Car car = new Car(name);
-            cars.add(car);
-        }
-        return cars;
+        return carRepository.save(inputNames);
     }
 
     public int inputTimes() {
