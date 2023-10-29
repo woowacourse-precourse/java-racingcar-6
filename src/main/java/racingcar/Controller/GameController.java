@@ -4,6 +4,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import racingcar.Model.CarModel;
 import racingcar.Model.GameModel;
 
@@ -11,6 +12,13 @@ public class GameController {
 
     private final GameModel gameModel;
     private final ArrayList<CarModel> carModelList;
+
+    private static Comparator<CarModel> compareCarDistance = new Comparator<CarModel>() {
+        @Override
+        public int compare(CarModel o1, CarModel o2) {
+            return o1.getForwardDistance() -  o2.getForwardDistance();
+        }
+    };
 
 
     public GameController(GameModel gameModel,ArrayList<CarModel> carModelList) {
@@ -34,6 +42,9 @@ public class GameController {
         gameModel.setCoinNumber(coinNumber);
 
         setCarModels(carList);
+    }
+
+    public void gamePlay() {
 
         for(int i = 0; i< gameModel.getCoinNumber();i++){
 
@@ -99,4 +110,17 @@ public class GameController {
         }
     }
 
+    public void findWinner(){
+
+        carModelList.sort(compareCarDistance);
+        int size = carModelList.size();
+        int mostFowardDistance = carModelList.get(size-1).getForwardDistance();
+
+        for (CarModel car: carModelList){
+
+            if(car.getForwardDistance()==mostFowardDistance){
+                gameModel.setWinnerCar(car);
+            }
+        }
+    }
 }

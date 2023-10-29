@@ -11,5 +11,7 @@ public class Application {
         GameController gameController = new GameController(new GameModel(), new ArrayList<>());
 
         gameController.gameStart();
+        gameController.gamePlay();
+        gameController.findWinner();
     }
 }
