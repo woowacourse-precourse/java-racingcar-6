@@ -11,7 +11,8 @@ public class RacingCarService {
     private Players players;
 
     private static final String COMMA_WITH_WHITESPACE = ", ";
-    private static final String FINAL_WINNERS = "최종 우승자 : ";
+    private static final String FINAL_WINNERS = "최종 우승자";
+    private static final String COLON_WITH_WHITESPACE = " : ";
 
     public int generateRacingCar(Set<String> carNameSet) {
         players = new Players(generate(carNameSet));
@@ -34,7 +35,8 @@ public class RacingCarService {
     }
 
     public String judgeWinners() {
-        return FINAL_WINNERS + String.join(COMMA_WITH_WHITESPACE, players.findWinners());
+        return String.join(COLON_WITH_WHITESPACE, FINAL_WINNERS,
+                String.join(COMMA_WITH_WHITESPACE, players.findWinners()));
     }
 
 }
