@@ -22,6 +22,9 @@ public class Game {
             if (s.isEmpty()) {
                 throw new IllegalArgumentException(INPUT_WRONG_VALUE);
             }
+            if (s.equals("null")) {
+                throw new IllegalArgumentException(INPUT_WRONG_VALUE);
+            }
         }
     }
 
