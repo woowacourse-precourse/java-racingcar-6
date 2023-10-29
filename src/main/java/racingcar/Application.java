@@ -87,7 +87,7 @@ public class Application {
     }
 
     private static void winner(HashMap<String,String> carMoveStatus) {
-        List<String> test = mostMovingForwardCar(carMoveStatus);
-        System.out.println(test);
+        String test = String.join(", ", mostMovingForwardCar(carMoveStatus));
+        System.out.println("최종 우승자 : " + test);
     }
 }
