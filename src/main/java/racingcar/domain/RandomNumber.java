@@ -16,11 +16,7 @@ public class RandomNumber {
         return new RandomNumber();
     }
 
-    private int generateNumber() {
+    public int generateNumber() {
         return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER,MAX_RANDOM_NUMBER);
-    }
-
-    public boolean isMovePossible() {
-        return randomNumber >= NUMBER_POSSIBLE_TO_FORWARD;
     }
 }

@@ -6,6 +6,7 @@ import racingcar.domain.wrapper.CarPosition;
 import java.util.HashMap;
 import java.util.Map;
 
+import static racingcar.handler.ConstantsHandler.NUMBER_POSSIBLE_TO_FORWARD;
 import static racingcar.handler.ConstantsHandler.POINT_MARK;
 
 public class CarStatus implements Comparable<CarStatus> {
@@ -23,8 +24,10 @@ public class CarStatus implements Comparable<CarStatus> {
         return new CarStatus(carName);
     }
 
-    public void forWard() {
-        position.addPosition();
+    public void forWard(int number) {
+        if (number >= NUMBER_POSSIBLE_TO_FORWARD) {
+            position.addPosition();
+        }
     }
 
     public Map<String, String> getCarStatus() {

@@ -20,10 +20,7 @@ public class CarStatusGroup {
     public void moveForward() {
         for (CarStatus carStatus : carStatusList) {
             RandomNumber randomNumber = RandomNumber.create();
-
-            if (randomNumber.isMovePossible()) {
-                carStatus.forWard();
-            }
+            carStatus.forWard(randomNumber.generateNumber());
         }
     }
 
