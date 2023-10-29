@@ -10,6 +10,10 @@ public class Race {
         RacingCars racingCars = RacingCars.createRacingCars();
         System.out.println("시도할 회수는 몇회인가요?");
         MovingCount movingCount = MovingCount.createMovingCount();
-        CarsPosition racingScore = CarsPosition.createPositionWithRacingCars(racingCars);
+        CarsPosition carsPosition = CarsPosition.createPositionWithRacingCars(racingCars);
+        System.out.println("게임 결과");
+        for (int i = 0; movingCount.isNotEqual(i); i++) {
+            System.out.println(carsPosition.getResult());
+        }
     }
 }

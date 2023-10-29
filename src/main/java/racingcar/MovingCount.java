@@ -20,4 +20,8 @@ public final class MovingCount {
             throw new IllegalArgumentException("이동 횟수는 숫자만 가능합니다.");
         }
     }
+
+    public boolean isNotEqual(int i) {
+        return count != i;
+    }
 }
