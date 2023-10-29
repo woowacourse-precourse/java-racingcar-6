@@ -5,10 +5,10 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
     private CarInform carInform;
     private Car(String carName) {
-        carInform = CarInform.getInstance(carName);
+        carInform = CarInform.newInstance(carName);
     }
 
-    public static Car getInstance(String carName) {
+    public static Car newInstance(String carName) {
         return new Car(carName);
     }
 

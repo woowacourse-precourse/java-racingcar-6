@@ -9,7 +9,7 @@ public class CarInform {
         this.dash = "";
     }
 
-    public static CarInform getInstance(String carName) {
+    public static CarInform newInstance(String carName) {
         return new CarInform(carName);
     }
 
