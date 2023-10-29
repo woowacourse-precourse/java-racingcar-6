@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.utill.ExceptionMessage;
 
@@ -34,13 +35,26 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    @DisplayName("아무도 전진하지 않음")
     void 우승자가_여러명일_경우() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("car1,car2,car3", "1");
                     Assertions.assertThat(output()).contains("car1 : ", "car2 : ","car3 : ", "최종 우승자 : car1, car2, car3");
                 },
-                1,2
+                1,1,1
+        );
+    }
+
+    @Test
+    @DisplayName("모두 끝까지 전진")
+    void 우승자가_여러명일_경우2() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("car1,car2,car3", "3");
+                    Assertions.assertThat(output()).contains("car1 : ", "car2 : ","car3 : ", "최종 우승자 : car1, car2, car3");
+                },
+                5,5,5,5,5,5,5,5,5
         );
     }
 
