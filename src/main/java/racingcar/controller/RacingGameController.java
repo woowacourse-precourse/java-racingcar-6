@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 import racingcar.domain.Cars;
 import racingcar.domain.GameWinnerDto;
+import racingcar.domain.RandomGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -25,7 +26,8 @@ public class RacingGameController {
 
     private Cars getCarsFromInput() {
         inputView.displayCarNamePrompt();
-        return new Cars(inputView.getCarNames());
+        RandomGenerator randomGenerator = new RandomGenerator();
+        return new Cars(inputView.getCarNames(), randomGenerator);
     }
 
     private int getRaceCountFromInput() {
