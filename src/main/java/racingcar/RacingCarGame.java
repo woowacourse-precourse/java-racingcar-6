@@ -12,11 +12,13 @@ public class RacingCarGame {
     final int trial;
     final List<RacingCar> cars;
     private final OutputInterface out;
+    private final GameRandom random;
 
-    public RacingCarGame(int trial, String[] names, OutputInterface out) {
+    public RacingCarGame(int trial, String[] names, OutputInterface out, GameRandom random) {
         checkTrial(trial);
         this.trial = trial;
         this.out = out;
+        this.random = random;
         cars = Arrays.stream(names)
                 .map(RacingCar::new)
                 .collect(toList());
@@ -30,15 +32,12 @@ public class RacingCarGame {
     private void runStage() {
         cars.stream()
                 .forEach(car -> {
-                    car.tryForward(randomDice());
+                    car.tryForward(random.randomNumberRange(0, 10));
                 });
         out.printStage(this);
 
     }
 
-    private int randomDice() {
-        return Randoms.pickNumberInRange(0, 9);
-    }
 
     private static void checkTrial(int trial) {
         if (trial <= 0) {
@@ -47,9 +46,9 @@ public class RacingCarGame {
     }
 
     @Override
-    public String toString(){
-      return cars.stream()
-              .map(car -> car.toString())
-              .collect(joining("\n"));
+    public String toString() {
+        return cars.stream()
+                .map(car -> car.toString())
+                .collect(joining("\n"));
     }
 }
