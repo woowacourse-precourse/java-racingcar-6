@@ -59,4 +59,17 @@ public class ValidationTest {
             ).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorProperty.NAME_VALUE_LENGTH_IS_OVER);
     }
+
+    @Test
+    void 이름_입력_값_중복_검증_로직_테스트(){
+        //given
+        String racerNameList = "pobi,woni,pobi";
+
+        //when
+        assertThatThrownBy(()->{
+            NameValidation.verifyForRacerNameIsDuplicate(racerNameList);
+        }
+            ).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ErrorProperty.NAME_VALUE_IS_DUPLICATE);
+    }
 }
