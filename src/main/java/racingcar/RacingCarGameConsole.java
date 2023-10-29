@@ -42,7 +42,7 @@ public class RacingCarGameConsole {
         carIndex = 0;
         while (carIndex < numberOfCars) {
             updateCarMovement(randomNumber());
-            printCarMovement();
+            System.out.println(carMovement(car.movedLately(carIndex)));
             carIndex++;
         }
     }
@@ -61,12 +61,8 @@ public class RacingCarGameConsole {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    private void printCarMovement() {
-        System.out.print(car.name(carIndex) + " : ");
-        for (int i = 0; i < car.movedLately(carIndex); i++) {
-            System.out.print("-");
-        }
-        System.out.println();
+    public String carMovement(int movedLately) {
+        return car.name(carIndex) + " : " + "-".repeat(movedLately);
     }
 
     private void printResult() {
