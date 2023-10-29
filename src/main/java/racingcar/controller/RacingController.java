@@ -8,6 +8,11 @@ public class RacingController {
 
     public void run() {
         Cars cars = inputCarNames();
+        int attemptCount = inputAttemptCount();
+    }
+
+    private int inputAttemptCount() {
+        return inputView.inputAttemptCount();
     }
 
     private Cars inputCarNames() {
