@@ -14,14 +14,21 @@ public class Censor {
     private final TypeTransducer typeTransducer = new TypeTransducer();
 
     public void checkInputForNickname(String input) {
-        checkComma(input);
+        commonValid(input);
         List<String> playerList = typeTransducer.strToList(input);
         checkLength(playerList);
         checkUniqueValue(playerList);
-        checkSpace(playerList);
     }
 
-    private void checkComma(String input) {
+    private void commonValid(String input) {
+        if (input == null) {
+            throw new IllegalArgumentException(NICKNAME_SPACE_ERROR.getContent());
+        }
+
+        if (input.contains(" ")) {
+            throw new IllegalArgumentException(NICKNAME_SPACE_ERROR.getContent());
+        }
+
         if (input.endsWith(",")) {
             throw new IllegalArgumentException(NICKNAME_SPACE_ERROR.getContent());
         }
@@ -39,15 +46,6 @@ public class Censor {
         Set<String> uniqueNicknames = new HashSet<>(playerList);
         if (uniqueNicknames.size() != playerList.size()) {
             throw new IllegalArgumentException(NICKNAME_UNIQUE_ERROR.getContent());
-        }
-    }
-
-    private void checkSpace(List<String> playerList) {
-        boolean includeSpace = playerList.stream()
-                .anyMatch(nickname -> nickname.contains(" ") || nickname.trim().isEmpty());
-
-        if (includeSpace) {
-            throw new IllegalArgumentException(NICKNAME_SPACE_ERROR.getContent());
         }
     }
 }
