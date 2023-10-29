@@ -14,7 +14,9 @@ public class RaceManager {
         this.cars = cars;
         this.rounds = rounds;
     }
-
+    public int getRounds() {
+        return rounds;
+    }
     public void startRace() {
         for (int i = 0; i < rounds; i++) {
             raceRound();
