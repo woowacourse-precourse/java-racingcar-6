@@ -13,34 +13,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class RacingCarInputValidatorTest {
 
-    static Stream<Arguments> provideValidateCarNamesSuccessTestArguments() {
-        return Stream.of(
-                arguments(List.of("java1", "JIGI2")),
-                arguments(List.of("자바v", "test")),
-                arguments(List.of("자바", "test")),
-                arguments(List.of("한글12", "123"))
-        );
-    }
-
-    static Stream<Arguments> provideValidateCarNamesFailTestArguments() {
-        return Stream.of(
-                arguments(List.of("", "asdasdsadsadas"), "자동차 이름은 최대 5자 이하만 가능합니다."),
-                arguments(List.of("jㄹㅇ ", "!@#"), "자동차 이름은 한글, 영어, 숫자만 가능합니다."),
-                arguments(List.of("ja va", ""), "자동차 이름은 한글, 영어, 숫자만 가능합니다."),
-                arguments(List.of(" java", "    "), "자동차 이름은 한글, 영어, 숫자만 가능합니다.")
-        );
-    }
-
-    static Stream<Arguments> provideValidateAttemptCountsFailTestArguments() {
-        return Stream.of(
-                arguments("-1", "시도 횟수는 0 이상 2억 이하의 양수만 입력 가능합니다."),
-                arguments("200000001", "시도 횟수는 0 이상 2억 이하의 양수만 입력 가능합니다."),
-                arguments("일부러", "입력값이 숫자가 아닙니다."),
-                arguments("~!@#$%^&*()_+", "입력값이 숫자가 아닙니다."),
-                arguments("fail", "입력값이 숫자가 아닙니다.")
-        );
-    }
-
     @DisplayName("자동차 이름이 한글, 영어, 숫자만을 포함한 5자 이내면 에러가 발생하지 않는다.")
     @ParameterizedTest
     @MethodSource("provideValidateCarNamesSuccessTestArguments")
@@ -48,6 +20,15 @@ public class RacingCarInputValidatorTest {
         RacingCarInputValidator racingCarInputValidator = new RacingCarInputValidator();
         assertThatCode(() -> racingCarInputValidator.validateCarNames(names))
                 .doesNotThrowAnyException();
+    }
+
+    static Stream<Arguments> provideValidateCarNamesSuccessTestArguments() {
+        return Stream.of(
+                arguments(List.of("java1", "JIGI2")),
+                arguments(List.of("자바v", "test")),
+                arguments(List.of("자바", "test")),
+                arguments(List.of("한글12", "123"))
+        );
     }
 
     @DisplayName("자동차 이름이 한글, 영어, 숫자만을 포함한 5자 이내가 아니면 에러가 발생한다.")
@@ -60,16 +41,25 @@ public class RacingCarInputValidatorTest {
                 .hasMessage(message);
     }
 
-    @DisplayName("시도 횟수가 0 이상 2억 이하의 수면 에러가 발생하지 않는다.")
+    static Stream<Arguments> provideValidateCarNamesFailTestArguments() {
+        return Stream.of(
+                arguments(List.of("", "asdasdsadsadas"), "자동차 이름은 최대 5자 이하만 가능합니다."),
+                arguments(List.of("jㄹㅇ ", "!@#"), "자동차 이름은 한글, 영어, 숫자만 가능합니다."),
+                arguments(List.of("ja va", ""), "자동차 이름은 한글, 영어, 숫자만 가능합니다."),
+                arguments(List.of(" java", "    "), "자동차 이름은 한글, 영어, 숫자만 가능합니다.")
+        );
+    }
+
+    @DisplayName("시도 횟수가 1 이상 2억 이하의 수면 아니면 에러가 발생하지 않는다.")
     @ParameterizedTest
-    @ValueSource(strings = {"0", "1", "2", "3", "4", "5", "99", "200000000"})
+    @ValueSource(strings = {"1", "2", "3", "4", "5", "99", "200000000"})
     void validateAttemptCountsSuccessTest(String attempt) {
         RacingCarInputValidator racingCarInputValidator = new RacingCarInputValidator();
         assertThatCode(() -> racingCarInputValidator.validateAttemptCounts(attempt))
                 .doesNotThrowAnyException();
     }
 
-    @DisplayName("시도 횟수가 0 이상 2억 이하의 수가 아니면 에러가 발생한다.")
+    @DisplayName("시도 횟수가 1 이상 2억 이하의 수가 아니면 에러가 발생한다.")
     @ParameterizedTest
     @MethodSource("provideValidateAttemptCountsFailTestArguments")
     void validateAttemptCountsFailTest(String attempt, String message) {
@@ -77,5 +67,16 @@ public class RacingCarInputValidatorTest {
         assertThatCode(() -> racingCarInputValidator.validateAttemptCounts(attempt))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(message);
+    }
+
+    static Stream<Arguments> provideValidateAttemptCountsFailTestArguments() {
+        return Stream.of(
+                arguments("-1", "시도 횟수는 1 이상 2억 이하의 숫자만 입력 가능합니다."),
+                arguments("0", "시도 횟수는 1 이상 2억 이하의 숫자만 입력 가능합니다."),
+                arguments("200000001", "시도 횟수는 1 이상 2억 이하의 숫자만 입력 가능합니다."),
+                arguments("일부러", "입력값이 숫자가 아닙니다."),
+                arguments("~!@#$%^&*()_+", "입력값이 숫자가 아닙니다."),
+                arguments("fail", "입력값이 숫자가 아닙니다.")
+        );
     }
 }
