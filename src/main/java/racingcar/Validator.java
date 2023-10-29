@@ -24,4 +24,10 @@ public class Validator {
             throw new IllegalArgumentException("공백 입력");
         }
     }
+
+    public static void countZeroCheck(String input) {
+        if (input.length() == 1 && input.charAt(0) == '0') {
+            throw new IllegalArgumentException("0이 아닌 정수 입력");
+        }
+    }
 }
