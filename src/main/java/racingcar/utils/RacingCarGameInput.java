@@ -28,6 +28,14 @@ public class RacingCarGameInput {
         return true;
     }
 
+    public static int readMoveCount() {
+        String input = Console.readLine();
+        validateNumber(input);
+        int moveCount = Integer.parseInt(input);
+        validateMoveCount(moveCount);
+        return moveCount;
+    }
+
     public static boolean validateNumber(String input) {
         try {
             Integer.parseInt(input);
