@@ -37,6 +37,6 @@ public class Car {
     }
 
     private boolean isMoreThanFour(final int pickedNumber) {
-        return pickedNumber > 4;
+        return pickedNumber >= 4;
     }
 }
