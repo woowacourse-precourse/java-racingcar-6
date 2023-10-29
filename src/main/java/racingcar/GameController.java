@@ -47,4 +47,12 @@ public class GameController {
         }
         return names;
     }
+
+    private List<Long> mappingToMoveCounts(List<Car> endCars) {
+        List<Long> moveCounts = new ArrayList<>();
+        for (Car endCar : endCars) {
+            moveCounts.add(endCar.getTotalMoveCount());
+        }
+        return moveCounts;
+    }
 }
