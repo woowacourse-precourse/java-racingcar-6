@@ -60,14 +60,26 @@ public class RacingGame {
     }
 
     public void checkWinner() {
-        int highestMovement = -1;
+        int furthestMovement = findFurthestMovement();
         for (int i = 0; i < cars.size(); i++) {
             carName = player.getCarName(i);
             carMoveMent = player.getCarMoveForward(carName);
-            if (carMoveMent > highestMovement) {
-                highestMovement = carMoveMent;
+            if (carMoveMent == furthestMovement) {
+                winnerList.add(carName);
             }
         }
+    }
+
+    public int findFurthestMovement() {
+        int max = -1;
+        for (int i = 0; i < cars.size(); i++) {
+            carName = player.getCarName(i);
+            carMoveMent = player.getCarMoveForward(carName);
+            if (carMoveMent > max) {
+                max = carMoveMent;
+            }
+        }
+        return max;
     }
 
     public void printWinner() {

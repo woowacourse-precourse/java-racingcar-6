@@ -34,7 +34,7 @@ public class Player {
         return attemptNumber;
     }
 
-    public int getCarMoveForward(String carName){
+    public int getCarMoveForward(String carName) {
         return cars.get(carName);
     }
 
