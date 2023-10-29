@@ -1,57 +1,43 @@
 package racingcar.controller;
 
 import racingcar.InputValidator;
-import racingcar.model.CarRacing;
+import racingcar.model.RacingGame;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.List;
 
-public class GameController {
-    private CarRacing carRacing;
-    private int count;
+public class RacingGameController {
+    private RacingGame racingGame;
+    int tryCount;
 
-    public void proceedGame() {
-        initCarRacing();
-        inputRacingCars();
-        inputCount();
-        playCountTimes();
+    public void proceed() {
+        initRacingGame();
+        initTryCount();
+        playGame();
         showFinalWinners();
     }
 
-    private void inputRacingCars() {
-        List<String> racingCarsName = inputRacingCarsName();
-        carRacing = new CarRacing(racingCarsName);
+    private void initRacingGame() {
+        List<String> carNames = InputView.inputCarNames();
+        InputValidator.validate(carNames);
+        racingGame = new RacingGame(carNames);
     }
 
-    private List<String> inputRacingCarsName() {
-        String racingCarsName = InputView.inputRacingCarsName();
-        return InputValidator.validateRacingCarsName(racingCarsName);
+    private void initTryCount() {
+        int tryCount = InputView.inputTryCount();
+        InputValidator.validate(tryCount);
+        this.tryCount = tryCount;
     }
 
-    private void inputCount() {
-        String count = InputView.inputCount();
-        this.count = InputValidator.validateCount(count);
-    }
-
-    private void playCountTimes() {
-        showResultMessage();
-        for (int i = 0; i < count; ++i) {
-            carRacing.play();
-            showResult();
+    private void playGame() {
+        OutputView.printResultMessage();
+        for (int i = 0; i < tryCount; ++i) {
+            OutputView.printMove(racingGame.race());
         }
     }
 
-    private void showResultMessage() {
-        OutputView.printResult();
-    }
-
-    private void showResult() {
-        OutputView.printMove(carRacing.makeResultMap());
-    }
-
     private void showFinalWinners() {
-        List<String> winners = carRacing.getWinners();
-        OutputView.printFinalWinners(winners);
+        OutputView.printFinalWinners(racingGame.getWinners());
     }
 }
