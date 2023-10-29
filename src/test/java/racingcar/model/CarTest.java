@@ -11,7 +11,7 @@ class CarTest {
 
     @DisplayName("잘못된 자동차 이름의 길이인 경우 예외 발생")
     @ParameterizedTest(name = "{displayName} value = {0}")
-    @ValueSource(strings = {"myCarIsKia", "myName", ""})
+    @ValueSource(strings = {"myCarIsKia", "myName", " "})
     void checkValidateLength(String name) {
         assertThatThrownBy(() -> new Car(name))
                 .isInstanceOf(IllegalArgumentException.class);
