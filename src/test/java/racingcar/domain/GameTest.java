@@ -6,6 +6,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
+
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.*;
@@ -17,20 +21,38 @@ class GameTest {
     private MockedStatic<RandomMaker> randomMakerMockedStatic;
     private String carNamesInput, gameTurnsInput;
     private Integer[] randomArray;
+    private OutputStream captor;
 
     @BeforeEach
     void setUp() {
         game = new Game();
+
         consoleMockedStatic = mockStatic(Console.class);
         randomMakerMockedStatic = mockStatic(RandomMaker.class);
+
+        captor = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(captor));
     }
 
     @Test
     void init() {
+        carNamesInput = "pobi,woni,jun";
+        gameTurnsInput = "5";
+
+        String expectedLog = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)" + System.lineSeparator()
+                + "시도할 회수는 몇회인가요?" + System.lineSeparator()
+                + System.lineSeparator();
+
+        when(Console.readLine()).thenReturn(carNamesInput, gameTurnsInput);
+
+        assertThatCode(() -> game.init()).doesNotThrowAnyException();
+        consoleMockedStatic.verify(Console::readLine, times(2));
+        assertThat(captor.toString()).isEqualTo(expectedLog);
     }
 
     @Test
     void run() {
+
     }
 
     @Test
