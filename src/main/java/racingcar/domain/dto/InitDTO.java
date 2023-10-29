@@ -23,14 +23,14 @@ public class InitDTO {
     }
 
     private void validateRounds(int rounds) {
-        if(rounds < 0) {
-            throw new IllegalArgumentException("실행 횟수는 음수일 수 없습니다. 음이 아닌 정수로만 입력해 주세요.");
+        if(rounds <= 0) {
+            throw new IllegalArgumentException("실행 횟수를 양수로 입력해 주세요.");
         }
     }
 
     private void validateNumericString(String text) {
         if(!Pattern.matches("[0-9]+", text)) {
-            throw new IllegalArgumentException("실행 횟수는 음이 아닌 정수로만 입력해 주세요.");
+            throw new IllegalArgumentException("숫자가 아닌 다른 문자를 입력하셨습니다. 실행 횟수를 양수로 입력해 주세요.");
         }
 
     }
