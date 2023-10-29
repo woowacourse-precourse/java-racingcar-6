@@ -24,7 +24,9 @@ public class Car {
 
     //TODO private으로 변경
     public void moveOrStop(int randomNumber) {
-
+        if (randomNumber >= 4) {
+            location++;
+        }
     }
 
     //test 만을 위한 코드
