@@ -26,14 +26,14 @@ public class GameTest {
 	@DisplayName("사용자 이름 5자 이상일 경우 예외 발생")
 	@Test
 	void userNameLengthTest() {
-	    // given
-	    final String userInput = "user1,username,user3";
+		// given
+		final String userInput = "user1,username,user3";
 
-	// then
-	assertThatThrownBy(() -> {
-	        // when
-	        game.checkUsername(userInput);
-	    }).isInstanceOf(IllegalArgumentException.class);
+		// then
+		assertThatThrownBy(() -> {
+			// when
+			game.checkUsername(userInput);
+		}).isInstanceOf(IllegalArgumentException.class);
 	}
 
 	@DisplayName("사용자의 입력값이 숫자가 아닌 경우 예외 발생")

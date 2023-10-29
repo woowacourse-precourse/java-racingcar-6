@@ -67,7 +67,7 @@ public class Game {
 		}
 	}
 
-	public ArrayList<Integer> findWinnerIndex(int[] count) {
+	public ArrayList<Integer> findMaxIndex(int[] count) {
 		int max = count[0];
 
 		maxIndices.add(0);
@@ -88,7 +88,7 @@ public class Game {
 	private String pickWinner() {
 		String winner = "";
 
-		this.findWinnerIndex(moveCount);
+		this.findMaxIndex(moveCount);
 
 		for (int i = 0; i < maxIndices.size(); i++) {
 			if (i == maxIndices.size() - 1) {
