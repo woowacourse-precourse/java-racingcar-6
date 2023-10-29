@@ -15,4 +15,10 @@ public class InputValidator {
             throw new IllegalArgumentException(ErrorMessage.INPUT_TRY_TYPE_MESSAGE.getValue());
         }
     }
+
+    public static void validateNumberZero(String inputNumber) {
+        if (Integer.parseInt(inputNumber) == 0) {
+            throw new IllegalArgumentException(ErrorMessage.INPUT_TRY_ZERO_MESSAGE.getValue());
+        }
+    }
 }
