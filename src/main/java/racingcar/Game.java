@@ -4,13 +4,13 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class Game {
-
-    private int randomNumber() {
+    
+    private static int randomNumber() {
         int randomNum = Randoms.pickNumberInRange(0, 9);
         return randomNum;
     }
 
-    private void moveForward(List<User> users) {
+    private static void moveForward(List<User> users) {
         for (User u : users) {
             int randomNum = randomNumber();
             if (randomNum < 4) {
@@ -20,7 +20,7 @@ public class Game {
         }
     }
 
-    private void printRacing(User u) {
+    private static void printRacing(User u) {
         System.out.print(u.name + " : ");
         for (int i = 0; i < u.length; i++) {
             System.out.print("-");
