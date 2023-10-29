@@ -58,4 +58,66 @@ class CarTest {
         }
     }
 
+    @Nested
+    class compareTo_메서드는 {
+        static Car car1 = new Car("alpha");
+        static Car car2 = new Car("bravo");
+        static Car car3 = new Car("char");
+        static int round = 3;
+
+        @Nested
+        class distance가 {
+            @Test
+            public void 큰_메서드를_인자로_받으면_양수를_리턴한다() throws Exception {
+
+                camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest(
+                        () -> {
+                            for (int i = 0; i < round; i++) {
+                                car1.proceed();
+                                car2.proceed();
+                                car3.proceed();
+                            }
+                            Assertions.assertThat(car1.compareTo(car2) > 0).isTrue();
+                        },
+                        STOP,
+                        MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+                );
+            }
+
+            @Test
+            public void 같은_메서드를_인자로_받으면_0을_리턴한다() throws Exception {
+
+                camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest(
+                        () -> {
+                            for (int i = 0; i < round; i++) {
+                                car1.proceed();
+                                car2.proceed();
+                                car3.proceed();
+                            }
+                            Assertions.assertThat(car2.compareTo(car3) == 0).isTrue();
+                        },
+                        STOP,
+                        MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+                );
+            }
+
+            @Test
+            public void 작은_메서드를_인자로_받으면_음수를_리턴한다() throws Exception {
+
+                camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest(
+                        () -> {
+                            for (int i = 0; i < round; i++) {
+                                car1.proceed();
+                                car2.proceed();
+                                car3.proceed();
+                            }
+                            Assertions.assertThat(car2.compareTo(car1) < 0).isTrue();
+                        },
+                        STOP,
+                        MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+                );
+            }
+        }
+    }
+
 }
