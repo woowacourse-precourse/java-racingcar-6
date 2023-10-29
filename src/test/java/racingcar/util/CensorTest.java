@@ -19,6 +19,9 @@ class CensorTest {
         assertThrows(IllegalArgumentException.class, () -> {
             censor.checkInputForNickname(input);
         });
+        assertThrows(IllegalArgumentException.class, () -> {
+            censor.checkInputForGameTime(input);
+        });
     }
 
     @DisplayName("플레이어가 빈칸을 입력한다면, 예외가 발생한다.")
@@ -30,6 +33,9 @@ class CensorTest {
         //when,then
         assertThrows(IllegalArgumentException.class, () -> {
             censor.checkInputForNickname(input);
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            censor.checkInputForGameTime(input);
         });
     }
 
@@ -78,6 +84,18 @@ class CensorTest {
         //when,then
         assertThrows(IllegalArgumentException.class, () -> {
             censor.checkInputForNickname(input);
+        });
+    }
+
+    @DisplayName("플레이어가 입력한 시도 회수가 정수의 형식을 가지고 있지 않는다면, 예외가 발생한다.")
+    @Test
+    void playerInputGameTimeNotInteger() {
+        //given
+        String input = "세번";
+
+        //when, then
+        assertThrows(IllegalArgumentException.class, () -> {
+            censor.checkInputForGameTime(input);
         });
     }
 }
