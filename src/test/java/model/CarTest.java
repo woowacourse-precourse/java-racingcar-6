@@ -15,30 +15,24 @@ public class CarTest {
     }
 
     @Test
-    public void Car_생성_실패(){
-        String name="abcded";
+    public void Car_생성_실패() {
+        String name = "abcded";
         assertThatThrownBy(() -> new Car(name))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    public void Car_한_칸_전진() {
-        String name = "자동차";
-        String one_place = "-";
-        Car car = new Car(name);
-        car.move_forward(one_place);
-
+    public void 전진_성공() {
+        Car car = new Car("pobi");
+        car.tryMove(4);
         assertThat(car.getNowPlace()).isEqualTo("-");
     }
 
     @Test
-    public void Car_한_칸_전진_후_한_칸_더_전진() {
-        String name = "자동차";
-        String one_place = "-";
-        Car car = new Car(name);
-        car.move_forward(one_place);
-        car.move_forward(one_place);
-
-        assertThat(car.getNowPlace()).isEqualTo("--");
+    public void 전진_실패() {
+        Car car = new Car("pobi");
+        car.tryMove(3);
+        assertThat(car.getNowPlace()).isEqualTo("");
     }
+
 }
