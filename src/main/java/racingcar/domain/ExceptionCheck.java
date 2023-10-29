@@ -25,7 +25,7 @@ public class ExceptionCheck {
     public static void isRepetitionNumberInputRangeValidate(String carsNameInput) throws IllegalArgumentException{
 
         int validationCheckNumber = Integer.parseInt(carsNameInput);
-        if (validationCheckNumber < 0) {
+        if (validationCheckNumber <= 0) {
             throw new IllegalArgumentException();
         }
     }
