@@ -32,11 +32,11 @@ public class Car {
         return new CarDistanceMessage(name, distance);
     }
 
-    public String getName() {
+    private String getName() {
         return name;
     }
 
-    public Integer getDistance() {
+    private Integer getDistance() {
         return distance;
     }
 
