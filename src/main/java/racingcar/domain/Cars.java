@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -9,7 +10,7 @@ import java.util.stream.Collectors;
 public class Cars {
     private static final int CAR_INIT_COUNT = 0;
     private static final int CAR_MOVE_DISTANCE = 1;
-    private final HashMap<String, Integer> cars = new HashMap<>();
+    private final LinkedHashMap<String, Integer> cars = new LinkedHashMap<>();
 
     public void addCars(List<String> carNameList) {
         initializeCars(carNameList);
