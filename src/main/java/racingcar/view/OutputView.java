@@ -5,10 +5,13 @@ import racingcar.config.GameConfig;
 import racingcar.domain.RoundResult;
 import racingcar.domain.RoundResult.CarDto;
 
-public class OutputView {
+public final class OutputView {
 
     private static final String RESULT_PREFIX = "\n실행 결과\n";
     private static final String WINNER_MESSAGE_PREFIX = "최종 우승자 : ";
+
+    private OutputView() {
+    }
 
     public static void printGameResult(List<RoundResult> results) {
         StringBuilder stringBuilder = new StringBuilder();
