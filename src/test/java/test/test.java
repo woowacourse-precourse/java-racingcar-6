@@ -20,7 +20,7 @@ public class test {
         playerController.addPlayer(carNames);
         System.out.println(playerController.getPlayerList());
 
-        RacingCupController racingCupController = new RacingCupController(round);
+        RacingCupController racingCupController = new RacingCupController(round, playerController);
         racingCupController.addPlayers(playerController.getPlayerList());
         System.out.println(racingCupController.getRacingCup());
 

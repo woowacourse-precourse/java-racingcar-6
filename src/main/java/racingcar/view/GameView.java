@@ -3,6 +3,8 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.controller.PlayerController;
+import racingcar.model.Player;
 import racingcar.utility.InputDataExceptionHandler;
 
 public class GameView {
@@ -23,5 +25,16 @@ public class GameView {
         InputDataExceptionHandler.validateTotalRounds(totalRounds);
 
         return Integer.parseInt(totalRounds);
+    }
+
+    public void printMessage(String message) {
+        System.out.println(message);
+    }
+
+    public void nowRoundResultPrint(List<Player> playerList) {
+        for(Player player : playerList) {
+            System.out.println(player);
+        }
+        System.out.println();
     }
 }

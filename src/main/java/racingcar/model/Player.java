@@ -27,9 +27,6 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" +
-                "carName='" + carName + '\'' +
-                ", distance=" + distance +
-                '}';
+        return carName + " : " + "-".repeat(distance);
     }
 }
