@@ -20,6 +20,7 @@ public class Application {
         Result_Message();
         Repeat_Racing();
         Racing_winner();
+        Winner_Print();
     }
 
     public static void StartMessage() {
@@ -111,5 +112,15 @@ public class Application {
             }
         }
     }
-    
+
+    public static void Winner_Print() {
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < Winner.size(); i++) {
+            if (i == Winner.size() - 1) {
+                System.out.println(Winner.get(i));
+            } else {
+                System.out.print(Winner.get(i) + ", ");
+            }
+        }
+    }
 }
