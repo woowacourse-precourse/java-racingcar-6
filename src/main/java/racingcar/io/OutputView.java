@@ -17,7 +17,7 @@ public class OutputView {
         System.out.println(result);
     }
 
-    public void printExecutionResultMessage(){
+    public void printExecutionResultMessage() {
         System.out.println(GameResultElement.ENTER.toString() + ProgressMessage.EXECUTION_RESULT);
     }
 

@@ -35,7 +35,7 @@ public class Cars {
         return stringBuilder.toString();
     }
 
-    public String getFinalWinners(){
+    public String getFinalWinners() {
         List<String> winners = racingCars.stream()
                 .filter(car -> car.getPosition() == findMaxCarPosition())
                 .map(Car::getName)

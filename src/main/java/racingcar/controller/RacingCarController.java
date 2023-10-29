@@ -29,7 +29,7 @@ public class RacingCarController {
 
     private void startRacing(Cars cars, int attemptCount) {
         outputView.printExecutionResultMessage();
-        for (int i = 0; i < attemptCount; i++) {
+        while (racingCarService.isProcessing(attemptCount)) {
             racingCarService.startRacing(cars);
             outputView.printGameResult(cars.statusCarsPosition());
         }

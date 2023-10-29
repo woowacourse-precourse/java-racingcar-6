@@ -23,7 +23,7 @@ public class RacingCarService {
                 .forEach(Car::movePosition);
     }
 
-    public boolean isProcessing(int attemptCount){
+    public boolean isProcessing(int attemptCount) {
         attemptCount -= RacingCarRole.NEXT_POSITION.getValue();
         return attemptCount > RacingCarRole.END_ATTEMPT_NUMBER.getValue();
     }
