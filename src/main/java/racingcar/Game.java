@@ -7,6 +7,7 @@ public class Game {
     private static final InputValidator inputValidator = new InputValidator();
     private static final String TRIAL_NUMBER_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String RESULT_TITLE_MESSAGE = "실행 결과";
+    private static final String WINNER_SEPERATOR = ",";
 
     private final GameManager gameManager = new GameManager();
 
@@ -43,7 +44,7 @@ public class Game {
 
     private void setCarNames() {
         String input = Console.readLine();
-        String[] carNames = input.split(",");
+        String[] carNames = input.split(WINNER_SEPERATOR);
 
         for (String carName : carNames) {
             inputValidator.validCarNameLength(carName);
