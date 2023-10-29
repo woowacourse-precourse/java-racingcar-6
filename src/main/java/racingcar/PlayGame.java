@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PlayGame {
-    public static void runGame() {
+    public static void playGame() {
         InputView inputView = new InputView();
         List<String> carNamesList = Collections.singletonList(inputView.getCarNameInput());
         String carNamesInput = String.join(",", carNamesList);
