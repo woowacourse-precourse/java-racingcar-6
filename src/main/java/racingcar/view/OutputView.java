@@ -1,8 +1,5 @@
 package racingcar.view;
 
-import java.util.List;
-import java.util.StringJoiner;
-
 public class OutputView {
     private final static String resultMessage = "\n실행 결과";
     private final static String printFinalWinnersFormat = "최종 우승자 : %s";
