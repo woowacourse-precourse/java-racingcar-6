@@ -12,33 +12,30 @@ public final class OutputView {
     private static final String HYPHEN = "-";
     private static final String COMMA = ", ";
 
-    public static void printResultMessage() {
+    public void printResultMessage() {
         System.out.println(RESULT_MESSAGE);
     }
 
-    public static void printResult(List<CarDto> carDtos) {
-
+    public void printResult(List<CarDto> carDtos) {
         carDtos.stream()
-                .forEach(OutputView::printDtoInfo);
+                .forEach(this::printDtoInfo);
         System.out.println();
     }
 
-    public static void printFinalWinner(List<String> winnerNames) {
-
+    public void printFinalWinner(List<String> winnerNames) {
         System.out.print(FINAL_WINNER + COLON);
-        for(int i = 0; i < winnerNames.size();) {
+        for (int i = 0; i < winnerNames.size(); ) {
             System.out.print(winnerNames.get(i));
-            if(++i < winnerNames.size()) {
+            if (++i < winnerNames.size()) {
                 System.out.print(COMMA);
             }
         }
         System.out.println('\n');
     }
 
-    private static void printDtoInfo(CarDto carDto) {
-
+    private void printDtoInfo(CarDto carDto) {
         System.out.print(carDto.getName() + COLON);
-        for(int i = 0; i< carDto.getPosition(); i++) {
+        for (int i = 0; i < carDto.getPosition(); i++) {
             System.out.print(HYPHEN);
         }
         System.out.println();
