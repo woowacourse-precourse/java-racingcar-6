@@ -24,7 +24,6 @@ class ApplicationTest extends NsTest {
             MOVING_FORWARD, STOP
         );
     }
-    @Disabled
     @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->

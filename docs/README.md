@@ -8,11 +8,11 @@
   - [X] 자동차 이름을 입력 받는다
   - [X] 시도할 횟수를 입력하기 전에 "시도할 회수는 몇회인가요?"를 출력한다.
   - [X] 시도할 횟수를 입력 받는다 
-- [ ] 입력이 유효한지 검증한다
-  - [ ] 자동차 이름이 빈 공백이면 IllegalArgumentException을 발생시키고 종료한다
-  - [ ] 자동차 이름이 6자 이상이면 IllegalArgumentException을 발생시키고 종료한다
-  - [ ] 시도할 횟수가 0 이하의 값이라면 IllegalArgumentException을 발생시키고 종료한다 
-  - [ ] 기타 입력이 유효하지 않는 경우에 IllegalArgumentException을 발생시키고 종료한다
+- [X] 입력이 유효한지 검증한다
+  - [X] 자동차 이름이 빈 공백이면 IllegalArgumentException을 발생시키고 종료한다
+  - [X] 자동차 이름이 6자 이상이면 IllegalArgumentException을 발생시키고 종료한다
+  - [X] 시도할 횟수가 0 이하의 값이라면 IllegalArgumentException을 발생시키고 종료한다 
+  - [X] 기타 입력이 유효하지 않는 경우에 IllegalArgumentException을 발생시키고 종료한다
 - [ ] 게임을 진행한다
   - [ ] 게임을 진행하기 전 "실행 결과"를 출력한다
   - [ ] 중간 결과를 계산하기
