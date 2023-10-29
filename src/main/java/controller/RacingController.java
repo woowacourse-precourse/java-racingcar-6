@@ -20,7 +20,7 @@ public class RacingController {
 
     public void start(){
         try {
-            //cars = new Cars(InputView.inputCarNames());
+            cars = new Cars(InputView.inputCarNames());
         } catch(IllegalArgumentException e){
 
         }

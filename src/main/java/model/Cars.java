@@ -3,6 +3,9 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import static util.StringUtils.splitByDelimiter;
+import static util.StringUtils.stripStringArray;
+
 /**
  * packageName    : model
  * fileName       : Cars
@@ -21,4 +24,8 @@ public class Cars {
     private static final int MAX = 9;
 
     private final List<Car> cars = new ArrayList<>();
+
+    public Cars(String carNames) {
+        String[] carNameArray = stripStringArray(splitByDelimiter(carNames, DELIMITER));
+    }
 }
