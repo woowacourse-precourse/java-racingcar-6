@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class Cars {
 
-    private List<Car> cars;
+    private final List<Car> cars;
 
     public Cars(String names) {
         String[] splitNames = names.split(",");
