@@ -38,6 +38,9 @@ public class Application {
 			if (carName.length() == 0) {
 				throw new IllegalArgumentException("자동차 이름이 올바르지 않습니다.");
 			}
+			if (carMap.containsKey(carName)) {
+				throw new IllegalArgumentException("중복된 자동차 이름은 사용할 수 없습니다.");
+			}
 			carMap.put(carName, 0);
 		}
 	}
