@@ -2,6 +2,7 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.fail;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -61,5 +62,22 @@ public class GameTest {
         String input = "1";
 
         assertThat(Integer.parseInt(input)).isGreaterThan(0);
+    }
+
+    @Test
+    void 라운드진행_정상진행되는지() {
+        Car obj1 = new Car("npc1");
+        Car obj2 = new Car("npc2");
+        Game gameObj = new Game();
+
+        gameObj.carList.add(obj1);
+        gameObj.carList.add(obj2);
+        gameObj.roundNumber = 5;
+
+        try {
+            gameObj.proceedEachRound();
+        } catch (Exception e) {
+            fail("proceedEachRound 함수의 실행이 정상적으로 처리되지 않았음");
+        }
     }
 }
