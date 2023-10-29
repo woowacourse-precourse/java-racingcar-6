@@ -21,4 +21,8 @@ public class Cars {
         return new CarsInformationDto(carInformationDtoList);
     }
 
+    public void move() {
+        cars.forEach(Car::move);
+    }
+
 }
