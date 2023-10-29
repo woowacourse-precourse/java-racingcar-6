@@ -7,6 +7,7 @@ import racingcar.model.RacingCarList;
 
 import static racingcar.view.OutputView.*;
 import static racingcar.view.InputView.*;
+import static racingcar.constant.GameConfig.*;
 
 public class GameController {
     private final GameProcess process;
@@ -21,7 +22,7 @@ public class GameController {
         int tryAttempt = getPlayerAttempts();
 
         gameResultMessge();
-        while (tryAttempt > 0) {
+        while (tryAttempt > ZERO.getValue()) {
             process.processGame(car);
             tryAttempt -= 1;    // 메서드 호출하는걸로 바꾸기
         }
@@ -29,7 +30,7 @@ public class GameController {
     }
 
     private List<String> getFinalWinner(RacingCarList racingCarList) {
-        int maxDistance = 0;
+        int maxDistance = ZERO.getValue();
         List<String> result = new ArrayList<>();
         for (int carIndex = 0; carIndex < racingCarList.size(); carIndex++) {
             RacingCar car = racingCarList.getCar(carIndex);

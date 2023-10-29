@@ -3,7 +3,7 @@ package racingcar.controller;
 import racingcar.model.RacingCar;
 import racingcar.model.RacingCarList;
 
-import static racingcar.view.OutputView.moveDistanceMessage;
+import static racingcar.view.OutputView.*;
 
 public class GameProcess {
     public void processGame(RacingCarList racingCars) {
@@ -20,6 +20,6 @@ public class GameProcess {
             RacingCar racingCar = racingCars.getCar(element);
             moveDistanceMessage(racingCar);
         }
-        System.out.println();
+        newLine();
     }
 }
