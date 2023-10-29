@@ -64,6 +64,32 @@ public class Race {
             }
             System.out.println();
         }
+        printResult();
+    }
+
+    private void printResult() {
+        System.out.print("최종 우승자 : ");
+
+        List<Car> winnerCars = findWinnerCars(findMaxForwardCount());
+
+        Car.printWinnerCars(winnerCars);
+    }
+
+    private List<Car> findWinnerCars(int maxForwardCount) {
+        return cars.stream()
+                .filter(car -> car.isEqualForwardCount(maxForwardCount))
+                .toList();
+    }
+
+    private int findMaxForwardCount() {
+
+        int maxForwardCount = -1;
+
+        for (Car car : cars) {
+            maxForwardCount = car.findBiggerForwardCount(maxForwardCount);
+        }
+
+        return maxForwardCount;
     }
 
     private void compareNumberAndMove(Car car, int randomNumber) {

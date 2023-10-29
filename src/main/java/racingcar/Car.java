@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+
 public class Car {
 
     private String name;
@@ -28,4 +30,18 @@ public class Car {
         System.out.println("-".repeat(forwardCount));
     }
 
+    public boolean isEqualForwardCount(Integer inputForwardCount) {
+        return forwardCount.equals(inputForwardCount);
+    }
+
+    public int findBiggerForwardCount(int forwardCount) {
+        return Math.max(this.forwardCount, forwardCount);
+    }
+
+    public static void printWinnerCars(List<Car> winnerCars) {
+        List<String> winnerCarsNames = winnerCars.stream()
+                .map(car -> car.name)
+                .toList();
+        System.out.println(String.join(", ", winnerCarsNames));
+    }
 }
