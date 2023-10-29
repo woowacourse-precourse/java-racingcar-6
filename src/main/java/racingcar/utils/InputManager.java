@@ -14,8 +14,10 @@ public enum InputManager {
             try{
                 String input = Console.readLine();
                 String[] nameList = input.split(",");
+                if(nameList.length==0)
+                    throw new RuntimeException();
                 for (String name : nameList)
-                    if(name.length()>5)
+                    if(name.isEmpty()||name.length()>5)
                         throw new RuntimeException();
                 return List.of(nameList);
             }catch (RuntimeException e){
