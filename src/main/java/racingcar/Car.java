@@ -17,33 +17,54 @@ public class Car {
     }
 
     public List<Integer> nowRacing(List<String> carNames, int tryNumber) {
-        List<Integer> carMoveDistance = new ArrayList<>();
+        List<String> carMove = initializeCarMove(carNames);
 
         for (int i = 0; i < tryNumber; i++) {
-            String bar = goOrStop(carNames);
-
-            System.out.println(bar);
-
-            carMoveDistance.add(bar.length());
+            System.out.println(i + 1 + "회차");
+            goOrStop(carNames, carMove);
         }
         System.out.println();
-        return carMoveDistance;
+
+        return countCarMove(carMove);
     }
 
-    private String goOrStop(List<String> carNames) {
-        StringBuilder bar = new StringBuilder();
+    private void goOrStop(List<String> carNames, List<String> carMove) {
+        StringBuilder result = new StringBuilder();
 
-        for (String carName : carNames) {
-            bar.append(carName);
-            bar.append(" : ");
+        for (int i = 0; i < carNames.size() ; i++) {
+            result.append(carNames.get(i));
+            result.append(" : ");
+
+            String bar = carMove.get(i);
 
             if (Randoms.pickNumberInRange(0, 9) >= 4) {
-                bar.append("-");
+                carMove.set(i, bar + "-");
             }
 
-            bar.append("\n");
+            result.append(bar);
+            result.append("\n");
         }
-        return bar.toString();
+        System.out.println(result);
+    }
+
+    private List<String> initializeCarMove(List<String> carNames) {
+        List<String> carMove = new ArrayList<>();
+
+        for(String str : carNames) {
+            carMove.add("");
+        }
+
+        return carMove;
+    }
+
+    private List<Integer> countCarMove(List<String> carMove) {
+        List<Integer> carMoveDistance = new ArrayList<>();
+
+        for (String str : carMove) {
+            carMoveDistance.add(str.length());
+        }
+
+        return carMoveDistance;
     }
 
     public String printWinner(List<String> carNames, List<Integer> carMoveDistance) {
