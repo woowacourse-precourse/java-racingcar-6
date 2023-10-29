@@ -22,4 +22,8 @@ public class Cars {
     private void sortCarsByForwards() {
         Collections.sort(carList, (car1, car2) -> car2.getForwards() - car1.getForwards());
     }
+
+    public List<Car> getCarList() {
+        return carList;
+    }
 }
