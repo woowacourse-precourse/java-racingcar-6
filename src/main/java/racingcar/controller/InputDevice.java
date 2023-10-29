@@ -3,6 +3,9 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.view.Printer;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class InputDevice {
     public String[] inputCarNames(){
         String inputValue = Console.readLine();
@@ -27,4 +30,18 @@ public class InputDevice {
         }
     }
 
+    public Integer inputTryNumber(){
+        String inputValue = Console.readLine();
+        checkTryNumber(inputValue);
+        return Integer.valueOf(inputValue);
+    }
+
+    private void checkTryNumber(String tryNumber){
+        String regex = "^[1-9]\\d*$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(tryNumber);
+        if(!matcher.matches()){
+            throw new IllegalArgumentException("시도 횟수는 자연수로 입력해야 합니다.");
+        }
+    }
 }

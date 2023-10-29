@@ -7,5 +7,7 @@ public class RacingCarGame {
     public void run(){
         Printer.printQuestionCars();
         String[] carNames = inputDevice.inputCarNames();
+        Printer.printQuestionTryNumber();
+        Integer tryNumber = inputDevice.inputTryNumber();
     }
 }
