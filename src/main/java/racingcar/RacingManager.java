@@ -72,7 +72,7 @@ public class RacingManager {
     }
 
     private void validateCarNames(String carNames) {
-        if (carNames.isEmpty()) {
+        if (carNames.trim().isEmpty()) {
             throw new IllegalArgumentException("자동차의 이름들을 입력해주세요.");
         }
     }
@@ -83,7 +83,7 @@ public class RacingManager {
     }
 
     private void validateMoveCount(String moveCount) {
-        if (moveCount.isEmpty()) {
+        if (moveCount.trim().isEmpty()) {
             throw new IllegalArgumentException("시도할 회수를 입력해주세요.");
         }
 
