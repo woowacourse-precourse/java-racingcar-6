@@ -1,6 +1,7 @@
 package model;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
 
@@ -11,6 +12,13 @@ public class CarTest {
         Car car = new Car(name);
 
         assertThat(car.getClass()).isEqualTo(Car.class);
+    }
+
+    @Test
+    public void Car_생성_실패(){
+        String name="abcded";
+        assertThatThrownBy(() -> new Car(name))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
