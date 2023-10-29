@@ -1,8 +1,10 @@
 package game;
 
 import org.junit.jupiter.api.Test;
+import racingcar.Car;
 import racingcar.Play;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,6 +29,18 @@ public class PlayTest {
         int result = play.inputNumber("123");
 
         assertThat(result).isEqualTo(123);
+    }
+
+    @Test
+    void 우승자_목록_출력 () {
+        Play play = new Play();
+        List<Car> carList = new ArrayList();
+        carList.add(new Car("khj","-----"));
+        carList.add(new Car("chj","----"));
+
+        List<String> winnerList = play.winner(carList);
+
+        assertThat(winnerList).isEqualTo(Arrays.asList("khj"));
     }
 
     @Test
