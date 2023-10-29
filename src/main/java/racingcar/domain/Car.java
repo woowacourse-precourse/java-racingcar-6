@@ -1,29 +1,32 @@
 package racingcar.domain;
 
+import static racingcar.Constant.*;
+
 public class Car {
     private final String name;
-    private final int count;
+    private int point;
 
-    public Car(String name, int count) {
+    public Car(String name) {
         this.name = name;
-        this.count = count;
+    }
+
+    public void move() {
+        point++;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getCount() {
-        return count;
+    public int getPoint() {
+        return point;
     }
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
-
-        builder.append(name).append(" : ");
-        for (int i = 0; i < count; i++)
-            builder.append("-");
-        return builder.toString();
+        return name +
+                IS +
+                LINE.repeat(point);
     }
+
 }

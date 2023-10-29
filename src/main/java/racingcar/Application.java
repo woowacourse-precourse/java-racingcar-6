@@ -3,6 +3,8 @@ package racingcar;
 public class Application {
     public static void main(String[] args) {
         AppConfiguration appConfiguration = new AppConfiguration();
-        appConfiguration.gameManager().play();
+        GameManager gameManager = appConfiguration.gameManager();
+
+        gameManager.play();
     }
 }
