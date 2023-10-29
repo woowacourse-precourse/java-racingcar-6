@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.ByteArrayInputStream;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -120,7 +121,32 @@ class ApplicationTest_function_list extends NsTest {
 
     @Test
     void 기능목록_테스트_시도_횟수_입력() {
+        List<String> testCaseGood = Arrays.asList(
+                "1",
+                "1234567890",
+                "9223372036854775807");
 
+        List<String> testCaseException = Arrays.asList(
+                "",
+                "0",
+                "-1",
+                "-9223372036854775809",
+                "9223372036854775808");
+        List<String> testCase = new ArrayList<>(testCaseGood);// + testCaseException;
+        testCase.addAll(testCaseException);
+
+        final byte[] bufTestCaseException = String.join("\n", testCase).getBytes();
+        System.setIn(new ByteArrayInputStream(bufTestCaseException));
+        for (int i = 0; i < testCaseGood.size(); i++) {
+            String actual = Input.inputRepetitions().toString();
+            assertThat(actual).isEqualTo(testCaseGood.get(i));
+        }
+
+        for (int i = 0; i < testCaseException.size(); i++) {
+            assertThrows(IllegalArgumentException.class, () -> {
+                Input.inputRepetitions();
+            });
+        }
     }
 
     @Test
