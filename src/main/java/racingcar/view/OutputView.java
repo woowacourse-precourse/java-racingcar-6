@@ -9,4 +9,9 @@ public class OutputView {
     public OutputView getInstance(){
         return INSTANCE;
     }
+
+    public void printPlayResultMessage(){
+        System.out.println("실행 결과");
+    }
+
 }
