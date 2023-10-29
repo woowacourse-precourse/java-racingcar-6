@@ -12,4 +12,10 @@ public class CountValidator {
 
         return countNumber;
     }
+
+    public static void checkNegativeNumber(int countNumber){
+        if (countNumber < 0){
+            throw new IllegalArgumentException();
+        }
+    }
 }
