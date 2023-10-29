@@ -134,10 +134,6 @@ public class GameProcess {
         }
     }
 
-    public Integer sizeCurrentRaceCarList() {
-        return raceCarOfCurrentList.size();
-    }
-
     public Map<RaceCar, String> makeMapOfCurrentRace() {
         String result = "";
 
