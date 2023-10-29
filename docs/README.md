@@ -5,10 +5,10 @@
 <img width="767" alt="다이어그램" src="https://github.com/zbqmgldjfh/ServletEx/assets/60593969/0ddfbeea-ce23-4223-8187-3271e938bff2">
 
 ## 구현 기능 목록
-- [ ] Input
-    - [ ] 입력을 쉼표 기준으로 분리한다. 분리된 자동차 이름이 1개 이하라면 IllegalArgumentException을 던진다
-    - [ ] 분리된 자동차 각각의 이름이 5글자 이하인지 확인한다, 아니라면 IllegalArgumentException을 던진다
-    - [ ] 시도할 횟수를 입력받는다. 정수가 아니라면 IllegalArgumentException을 던진다
+- [x] Input
+    - [x] 입력을 쉼표 기준으로 분리한다. 분리된 자동차 이름이 1개 이하라면 IllegalArgumentException을 던진다
+    - [x] 분리된 자동차 각각의 이름이 5글자 이하인지 확인한다, 아니라면 IllegalArgumentException을 던진다
+    - [x] 시도할 횟수를 입력받는다. 정수가 아니라면 IllegalArgumentException을 던진다
 - [ ] Core
     - [ ] 진행 조건
         - [ ] 자동차는 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우 전진한다

@@ -9,21 +9,16 @@ import java.util.stream.Collectors;
 
 public class InputView {
 
-    public List<String> readUserNameInput() {
+    private static final String INVALID_CAR_NAME_LENGTH_MESSAGE = "자동차 이름은 1자 이상, 5자 이하만 가능합니다.";
+    private static final String CAR_NAMES_DELIMITER = ",";
+    private static final int SPLIT_LIMIT_NUMBER = -1;
+    private static final String INVALID_GAME_COUNT_INPUT_MESSAGE = "게임 횟수는 숫자만 입력 가능합니다.";
+
+    public List<String> readCarNamesInput() {
         String input = Console.readLine().trim();
-
-        List<String> carNames = splitWordsByDelimiter(input, ",");
+        List<String> carNames = splitWordsByDelimiter(input, CAR_NAMES_DELIMITER);
         validateCarNames(carNames);
-
         return carNames;
-    }
-
-    private void validateCarNames(List<String> carNames) {
-        for (String carName : carNames) {
-            if(!InputValidator.isValidCarNameLength(carName)) {
-                throw new IllegalArgumentException("자동차 이름은 1자 이상, 5자 이하만 가능합니다.");
-            }
-        }
     }
 
     public String readUserGameCountInput() {
@@ -32,12 +27,22 @@ public class InputView {
             return input;
         }
 
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException(INVALID_GAME_COUNT_INPUT_MESSAGE);
     }
 
     private List<String> splitWordsByDelimiter(String input, String delimiter) {
-        return Arrays.stream(input.split(delimiter, -1))
+        return Arrays.stream(input.split(delimiter, SPLIT_LIMIT_NUMBER))
                 .map(String::strip)
                 .collect(Collectors.toList());
+    }
+
+    private void validateCarNames(List<String> carNames) {
+        carNames.forEach(InputView::validateCarName);
+    }
+
+    private static void validateCarName(String carName) {
+        if(!InputValidator.isValidCarNameLength(carName)) {
+            throw new IllegalArgumentException(INVALID_CAR_NAME_LENGTH_MESSAGE);
+        }
     }
 }
