@@ -27,4 +27,12 @@ public class CheckValidation {
         }
         return carNameList;
     }
+
+    public static int checkIfIntAndReturnIntForm(String input){
+        try{
+            return Integer.parseInt(input);
+        } catch (IllegalArgumentException exception){
+            throw new IllegalArgumentException("입력 오류");
+        }
+    }
 }
