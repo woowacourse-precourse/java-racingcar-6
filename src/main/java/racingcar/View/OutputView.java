@@ -1,15 +1,15 @@
 package racingcar.View;
 
 public class OutputView {
-    private static final String runResultMsg = "실행결과";
-    private static final String whoIsWinner = "최종 우승자 : ";
+    private static final String RUN_RESULT_MSG = "실행결과";
+    private static final String WHO_IS_WINNER = "최종 우승자 : ";
 
     public void printResultMsg() {
-        System.out.println(runResultMsg);
+        System.out.println(RUN_RESULT_MSG);
     }
 
     public void printWinnerName() {
-        System.out.println(whoIsWinner);
+        System.out.print(WHO_IS_WINNER);
     }
 
     public void printRandomCount(int underBar) {

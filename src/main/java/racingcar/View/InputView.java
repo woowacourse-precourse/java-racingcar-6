@@ -11,8 +11,12 @@ public class InputView {
     private static final String TRY_COUNT = "시도할 횟수는 몇회인가요?";
 
     public static String askCarName(){
+        String name = Console.readLine();
+        return name;
+    }
+
+    public static void printAskCarName(){
         System.out.println(RACING_CAR_NAME);
-        return Console.readLine();
     }
 
     public static int askTryCount(){

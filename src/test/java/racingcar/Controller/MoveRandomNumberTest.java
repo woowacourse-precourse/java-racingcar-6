@@ -1,7 +1,7 @@
 package racingcar.Controller;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static racingcar.Controller.MoveRandomNumber.inputView;
+//import static racingcar.Controller.MoveRandomNumber.inputView;
 import static racingcar.View.InputViewTest.setReadLine;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -31,14 +31,17 @@ class MoveRandomNumberTest {
         carCountMapTest.put("NANa",0);
         carCountMapTest.put("Kane",0);
 
-        for (int i = 0 ; i < 5 ; i++) {
+        for (int i = 0 ; i < 2 ; i++) {
+            Map<String, Integer> carCountMapNumber = new HashMap<>();
             for(String key : carCountMapTest.keySet()){
-                carCountMapTest.put(key, Randoms.pickNumberInRange(0, 9));
-                expectTestResult.add(carCountMapTest);
+                int randomNumber =  Randoms.pickNumberInRange(0, 9);
+                carCountMapNumber.put(key,randomNumber);
+                expectTestResult.add(carCountMapNumber);
+
             }
         }
 
-        assertNotEquals(expectTestResult,actualTestResult);
+        assertEquals(expectTestResult,actualTestResult);
 
     }
 }
