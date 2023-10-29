@@ -3,6 +3,7 @@ package racingcar.validation;
 import static racingcar.constant.MessageConst.DUPLICATE_MESSAGE;
 import static racingcar.constant.MessageConst.EMPTY_MESSAGE;
 import static racingcar.constant.MessageConst.LENGTH_MESSAGE;
+import static racingcar.constant.MessageConst.NULL_MESSAGE;
 import static racingcar.constant.MessageConst.SPACE_MESSAGE;
 
 import java.util.HashSet;
@@ -51,5 +52,11 @@ public class CarValidation {
     private boolean hasCarNamesWithEmpty(List<String> carNames) {
         return carNames.stream()
                 .anyMatch(carName -> carName.isEmpty());
+    }
+
+    public void validateInputNull(String input) {
+        if (input == null) {
+            throw new IllegalArgumentException(NULL_MESSAGE);
+        }
     }
 }
