@@ -35,8 +35,15 @@ public class InputViewValidator {
             throw new IllegalArgumentException("[ERROR] : 시도 횟수가 공백일 수 없습니다");
         }
         if(isNotIntegerType(tryNumber)){
-            throw  new IllegalArgumentException("[ERROR] : 시도 횟수는 정수 타입이어야 합니다.")
+            throw  new IllegalArgumentException("[ERROR] : 시도 횟수는 정수 타입이어야 합니다.");
         }
+        if(isNotCorrectRange(tryNumber)){
+            throw new IllegalArgumentException("[ERROR] : 시도 횟수는 1 이상이어야 합니다");
+        }
+    }
+
+    public boolean isNotCorrectRange(String tryNumber) {
+        return Integer.parseInt(tryNumber) > 0;
     }
 
     public boolean isNotIntegerType(String tryNumber) {
