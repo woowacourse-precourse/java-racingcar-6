@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-import java.math.BigInteger;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -20,8 +19,8 @@ class RacingCarTest {
     @Test
     @DisplayName("차량 생성 정상 테스트")
     public void carConstructor() {
-        assertThat(new RacingCar("car1", new BigInteger("100")))
-                .isEqualTo(new RacingCar("car1", new BigInteger("100")));
+        assertThat(new RacingCar("car1", 100L))
+                .isEqualTo(new RacingCar("car1", 100L));
     }
 
     @ParameterizedTest
@@ -29,7 +28,7 @@ class RacingCarTest {
     @DisplayName("차량 생성 예외 테스트 : 잘못된 차량 이름 입력")
     public void exceptCarConstructor(final String name) {
         assertThrows(IllegalArgumentException.class,
-                () -> new RacingCar(name, new BigInteger("10")));
+                () -> new RacingCar(name, 10L));
     }
 
     static Stream<Arguments> invalidCarNames() {

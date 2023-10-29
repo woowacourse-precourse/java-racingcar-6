@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import java.math.BigInteger;
+
 import java.util.Objects;
 import racingcar.utils.validator.CarValidator;
 
@@ -8,9 +8,9 @@ public class RacingCar implements Car{
 
     private final String name;
 
-    private final BigInteger progress;
+    private final Long progress;
 
-    public RacingCar(final String name, final BigInteger progress) {
+    public RacingCar(final String name, final Long progress) {
         this.validate(name);
 
         this.name = name;
@@ -26,7 +26,7 @@ public class RacingCar implements Car{
         return name;
     }
 
-    public BigInteger getProgress() {
+    public Long getProgress() {
         return progress;
     }
 
