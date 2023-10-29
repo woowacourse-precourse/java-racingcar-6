@@ -5,9 +5,7 @@ public enum Message {
     TRY_COUNT_REQUEST("시도할 회수는 몇회인가요?"),
     RESULT_RACING_INFO("\n실행 결과"),
 
-    FINAL_WINNER_INFO("최종 우승자 : "),
-    DELIMITER_SPLIT_CARS(","),
-    DELIMITER_PRINT_CARS(", ");
+    FINAL_WINNER_INFO("최종 우승자 : ");
 
     private String message;
 
