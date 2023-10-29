@@ -109,4 +109,12 @@ class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("이름 크기는 5이하여야 합니다.");
     }
+
+    @DisplayName("position 값 0이상 테스트 : 0이상이 아니라면 IllegalArgumentException가 발생한다.")
+    @Test
+    void position_init_size_more_than_0() {
+        assertThatThrownBy(() -> new Car("홍길동", -1))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[Error] 초기위치값은 0보다 작을 수 없습니다.");
+    }
 }

@@ -18,9 +18,21 @@ public class Car {
     }
 
     public Car(final String name, final int position) {
-        validateSize(name);
+        validate(name, position);
         this.name = name;
         this.position = position;
+    }
+
+
+    private void validate(final String name, final int position) {
+        validateSize(name);
+        validatePosition(position);
+    }
+
+    private void validatePosition(final int position) {
+        if (position < INIT_POSITION) {
+            throw new IllegalArgumentException("[Error] 초기위치값은 0보다 작을 수 없습니다.");
+        }
     }
 
     private void validateSize(final String name) {
