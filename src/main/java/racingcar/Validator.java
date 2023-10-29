@@ -1,9 +1,12 @@
 package racingcar;
 
+import java.util.Arrays;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 public class Validator {
+    private static final String ALLOWED_CHARACTERS_PATTERN = "^[a-zA-Z0-9가-힣]*$";
+
     public static boolean isInteger(String input) {
         try {
             Integer.valueOf(input);
@@ -27,5 +30,16 @@ public class Validator {
         Pattern pattern = Pattern.compile(",{2,}");
         Matcher matcher = pattern.matcher(input);
         return !matcher.find();
+    }
+
+    public static boolean containsOnlyAllowedCharacters(String name) {
+        Pattern pattern = Pattern.compile(ALLOWED_CHARACTERS_PATTERN);
+        Matcher matcher = pattern.matcher(name);
+        return matcher.matches();
+    }
+
+    public static boolean validateNames(String input) {
+        String[] names = input.split(",");
+        return Arrays.stream(names).allMatch(Validator::containsOnlyAllowedCharacters);
     }
 }
