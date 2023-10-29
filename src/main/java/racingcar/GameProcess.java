@@ -16,7 +16,6 @@ public class GameProcess {
 		for (InformationOfCar car : carList) {
 			for (int j = 0; j < moveCount; j++) {
 				moveOrNot(car);
-
 			}
 		}
 	}

@@ -17,7 +17,9 @@ public class EntryPoint {
 	}
 
 	public void startGame() {
+		printGenerator.printNameQuestion();
 		carList = userInput.inputInformationOfCar();
+		printGenerator.printCountQuestion();
 		int moveCount = userInput.inputMoveCount();
 		gameProcess.playGame(carList, moveCount);
 	}
