@@ -86,9 +86,53 @@ class ApplicationTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni", "2");
-                    assertThat(output()).contains("pobi : -", "woni : -", "최종 우승자 : pobi");
+                    assertThat(output()).contains("pobi : -", "woni : -", "최종 우승자 : pobi, woni");
                 },
                 MOVING_FORWARD, MOVING_FORWARD, STOP, STOP
+        );
+    }
+
+    @Test
+    void 전진_정지_4() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "2");
+                    assertThat(output()).contains("pobi : ", "woni : ", "최종 우승자 : pobi, woni");
+                },
+                STOP, STOP, STOP, STOP
+        );
+    }
+
+    @Test
+    void 전진_정지_5() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "5");
+                    assertThat(output()).contains("pobi : ----", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 전진_정지_6() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,seung,chan,win", "3");
+                    assertThat(output()).contains("pobi : ---", "woni : ", "seung : ---", "chan : ---", "win : ---", "최종 우승자 : pobi, seung, chan, win");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 전진_정지_7() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "3");
+                    assertThat(output()).contains("pobi : -", "woni : --", "최종 우승자 : woni");
+                },
+                STOP, STOP, MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD
         );
     }
 
