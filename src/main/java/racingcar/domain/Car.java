@@ -3,6 +3,10 @@ package racingcar.domain;
 import java.util.function.BooleanSupplier;
 
 public class Car implements Comparable<Car> {
+    public static final String NOT_BLANK_NAME = "자동차 이름은 비어있을 수 없습니다";
+    public static final String INVALID_NAME_LENGTH_FORMAT = "자동차 이름은 %d자 이하여야 합니다";
+    public static final int MAX_NAME_LENGTH = 5;
+
     private final String name;
     private final BooleanSupplier engine;
     private int position;
@@ -20,10 +24,10 @@ public class Car implements Comparable<Car> {
 
     private void validateName(String name) {
         if (name.isBlank()) {
-            throw new IllegalArgumentException("자동차 이름은 비어있을 수 없습니다");
+            throw new IllegalArgumentException(NOT_BLANK_NAME);
         }
-        if (name.length() > 5) {
-            throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다");
+        if (name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException(String.format(INVALID_NAME_LENGTH_FORMAT, MAX_NAME_LENGTH));
         }
     }
 
