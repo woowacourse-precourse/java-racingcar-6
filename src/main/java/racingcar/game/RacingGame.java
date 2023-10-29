@@ -27,11 +27,16 @@ public class RacingGame {
     private void playRacingGame(Trial trial) {
         while (!trial.isExhausted()) {
             circuit.tryRacingGame();
-            List<RacingCarResult> results = circuit.summarizeRacingResult();
-            OutputView.showRacingResult(results);
+            List<RacingCarResult> results = tryRacingGame();
             trial.useTrialCount();
             selectWinner(trial, results);
         }
+    }
+
+    private List<RacingCarResult> tryRacingGame() {
+        List<RacingCarResult> results = circuit.summarizeRacingResult();
+        OutputView.showRacingResult(results);
+        return results;
     }
 
     private void selectWinner(Trial trial, List<RacingCarResult> results) {
