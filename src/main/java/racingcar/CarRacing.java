@@ -22,7 +22,7 @@ public class CarRacing {
 
     public static void race() {
         // 각 자동차 별로 이동 횟수 0으로 초기화
-        initCarMoveToZero();
+        initCarMovementToZero();
 
         int tmpCountTrial = 0;
         // 사용자가 입력한 횟수에 다가갈 때 까지 반복
@@ -51,7 +51,7 @@ public class CarRacing {
         System.out.println(WINNER.getMessage() + String.join(", ", winner));
     }
 
-    public static void initCarMoveToZero() {
+    public static void initCarMovementToZero() {
         for (String carName : carNameList) {
             carMoveMap.put(carName, 0);
         }
