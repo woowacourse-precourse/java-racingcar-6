@@ -1,9 +1,13 @@
 package racingcar.controller;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.Set;
+import racingcar.Utils.ErrorMessage;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.view.InputView;
@@ -19,13 +23,14 @@ public class Race {
         start();
         count();
         OutputView.printResult();
+        StringBuilder findWinners = null;
         while (moveCnt > 0) {
             cars.playSingleTurn();
             carsInformation();
-            StringBuilder findWinners = getFindWinners();
+            findWinners = getFindWinners();
             moveCnt--;
-            OutputView.printFindWinner(findWinners.toString());
         }
+        OutputView.printFindWinner(Objects.requireNonNull(findWinners).toString());
 
 
     }
@@ -67,6 +72,7 @@ public class Race {
         String[] carNames = input.split(",");
         for (String carName : carNames) {
             Car car = new Car(carName);
+            validateUserInput(carList);
             carList.add(car);
         }
         cars = new Cars(carList);
@@ -83,6 +89,17 @@ public class Race {
         return winnerResult;
     }
 
+    public static void validateUserInput(List<Car> userInput) {
+        for (Car car : userInput) {
+            if (car.getName().length() >= 5) {
+                throw new IllegalArgumentException(ErrorMessage.CAR_NAME_ONLY_FIVE_BELOW.getMessage());
+            }
+        }
+        Set<Car> userInputSet = new HashSet<>(userInput);
+        if (userInputSet.size() == userInput.size()) {
+            throw new IllegalArgumentException(ErrorMessage.USER_INSERT_NOT_DUPLICATION.getMessage());
+        }
+    }
 
 }
 
