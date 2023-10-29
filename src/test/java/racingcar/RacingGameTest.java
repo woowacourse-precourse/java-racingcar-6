@@ -69,4 +69,13 @@ class RacingGameTest {
 
         assertThrows(NoSuchElementException.class, Console::readLine);
     }
+
+    @Test
+    @DisplayName("자동차 이름을 5자 초과로 입력한다.")
+    void test6() {
+        System.setIn(new ByteArrayInputStream("가나다라마바사".getBytes()));
+        String carName = Console.readLine();
+
+        assertThatIllegalArgumentException().isThrownBy(() -> new Car(carName, 0));
+    }
 }
