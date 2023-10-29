@@ -18,10 +18,10 @@ public class InputHandler {
         return carNames;
     }
 
-    public static Integer tryNumberInput(){
+    public static Integer targetNumberInput(){
         System.out.println("시도할 회수는 몇회인가요?");
         int input = Integer.parseInt(Console.readLine());
-
+        System.out.println();
         return input;
 
     }
