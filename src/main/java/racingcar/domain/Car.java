@@ -2,12 +2,12 @@ package racingcar.domain;
 
 import racingcar.RandomNumberGenerator;
 
-import java.util.Comparator;
-
 public class Car implements Comparable<Car> {
 
     private String name;
     private int position;
+    private static final int MOVABLE_BOUND = 4;
+    private static final int NAMING_LENGTH_BOUND = 5;
 
     public Car(String name) {
 
@@ -17,7 +17,7 @@ public class Car implements Comparable<Car> {
 
     private void validateName(String name) {
 
-        if(name.length() > 5) {
+        if(name.length() > NAMING_LENGTH_BOUND) {
             throw new IllegalArgumentException();
         }
     }
@@ -30,7 +30,7 @@ public class Car implements Comparable<Car> {
     }
 
     public boolean canMove(int randomNumber) {
-        return randomNumber >= 4;
+        return randomNumber >= MOVABLE_BOUND;
     }
 
     public boolean isSamePosition(Car other) {
