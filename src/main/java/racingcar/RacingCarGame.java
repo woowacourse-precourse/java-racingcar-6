@@ -9,9 +9,26 @@ public class RacingCarGame {
 
     private Cars cars;
 
+    public void run() {
+        initCars();
+        this.tryCount = InputView.inputTryCount();
+        System.out.println("실행 결과\n");
+        while (isTryCountRemain()) {
+            playOneTry();
+        }
+
+        OutputView.outputWinnerRacingCarNames(cars);
+    }
+
     public void initCars() {
         String[] carsNames = getCarNames();
         this.cars = makeCars(carsNames);
+    }
+
+    private void playOneTry() {
+        cars.updateForwardCar();
+        OutputView.outputRacingStatus(cars);
+        minusTryCount();
     }
 
     private String[] getCarNames() {
@@ -25,6 +42,14 @@ public class RacingCarGame {
             cars.add(new Car(carName));
         }
         return new Cars(cars);
+    }
+
+    private boolean isTryCountRemain() {
+        return this.tryCount > 0;
+    }
+
+    private void minusTryCount() {
+        this.tryCount --;
     }
 
 }
