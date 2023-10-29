@@ -7,8 +7,11 @@ public class Car {
     final int LENGTH_CAR_NAME = 5;
     final int START_RANDOM_RANGE = 0;
     final int END_RANDOM_RANGE = 9;
+    final int TRIGGER_MINIMUM_FORWARD = 4;
+    final String MARK_FOR_FORWARD = "-";
     private int forwardCount;
     private String presentCondition;
+
 
     public Car(String carName) {
         validateNameLength(carName);
@@ -25,6 +28,17 @@ public class Car {
 
     public int getRandomNumber() {
         return Randoms.pickNumberInRange(START_RANDOM_RANGE, END_RANDOM_RANGE);
+    }
+
+    public void runCar() {
+        if (getRandomNumber() >= TRIGGER_MINIMUM_FORWARD) {
+            forwardCount++;
+            presentCondition += MARK_FOR_FORWARD;
+        }
+    }
+
+    public int getForwardCount() {
+        return forwardCount;
     }
 
     final void validateNameLength(String carName) {
