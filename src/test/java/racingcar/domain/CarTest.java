@@ -48,19 +48,6 @@ class CarTest {
         Assertions.assertThat(forwardCount).isEqualTo(0);
     }
 
-    @DisplayName("자동차의 전진 횟수 0과 5를 비교해서 더 큰 전진 횟수를 반환한 결과는 5다.")
-    @Test
-    void getLargerForwardCount_ReturnLargerForwardCount() {
-        // given
-        Car car = new Car("pobi");
-
-        // when
-        int largerForwardCount = car.getLargerForwardCount(5);
-
-        // then
-        Assertions.assertThat(largerForwardCount).isEqualTo(5);
-    }
-
     @DisplayName("자동차의 전진 횟수와 파라미터로 받은 전진 횟수가 같으면 true를 반환한다.")
     @Test
     void isForwardCountSameAs_True() {

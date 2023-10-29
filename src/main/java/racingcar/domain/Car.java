@@ -24,10 +24,6 @@ public class Car {
         return forwardCount;
     }
 
-    public int getLargerForwardCount(int maxForwardCount) {
-        return Math.max(forwardCount, maxForwardCount);
-    }
-
     public boolean isForwardCountSameAs(int forwardCount) {
         return this.forwardCount == forwardCount;
     }
