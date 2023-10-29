@@ -43,6 +43,11 @@ public class Application {
             // 배열을 스트림으로 변환해 최대 값 구하기
             int maxProgress= Arrays.stream(progress).max().orElse(0);
 
+            //우승자 배열
+            String[] winners=getWinners(carNameArray,progress,maxProgress);
+            //우승자 출력
+            printWinners(winners);
+
 
     }
     // 입력값 예외처리 해주는 메소드-이름, 횟수
@@ -83,6 +88,12 @@ public class Application {
             }
         }
         return winnerList.toArray(new String[0]);
+    }
+    //우승자 출력
+    private static void printWinners(String[] winners) {
+        String winnersString=String.join(",",winners);
+        System.out.println("최종 우승자 : "+winnersString);
+
     }
 
 
