@@ -1,7 +1,7 @@
 package racingcar;
 
 public class Validator {
-    static public boolean isInteger(String input) {
+    public static boolean isInteger(String input) {
         try {
             Integer.valueOf(input);
             return true;
@@ -13,5 +13,9 @@ public class Validator {
 
     public static boolean isPositiveInteger(String input) {
         return Integer.parseInt(input) > 0;
+    }
+
+    public static boolean hasNoWhitespace(String input) {
+        return !input.contains(" ");
     }
 }
