@@ -18,8 +18,23 @@ public class ForwardCar {
     private static void forwardCar(List<CarInfo> carList) {
         for (CarInfo car : carList) {
             if (isForward(randomNumber())) {
-                car.setMoveCount(car.getMoveCount() + Constant.FORWARD_VALUE);
+                car.setMoveCount(car.getMoveCount() + 1);
             }
         }
+        result(carList);
+    }
+
+    private static void result(List<CarInfo> carList){
+        for (CarInfo car : carList) {
+            System.out.println(car.getName() + " : " + createMoveCount(car.getMoveCount()));
+        }
+        System.out.println();
+    }
+
+    private static String createMoveCount(int moveCount) {
+        if (moveCount <= 0) {
+            return "";
+        }
+        return "-".repeat(moveCount);
     }
 }
