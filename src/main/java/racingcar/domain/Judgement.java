@@ -41,7 +41,7 @@ public class Judgement {
         }
     }
 
-    public static String printWinners(List<Car> particiatingCars) {
+    public static String judgeWinners(List<Car> particiatingCars) {
         //내림차순정렬
         Collections.sort(particiatingCars, (o1, o2) -> {
             return -1 * Integer.compare(o1.getPosition(), o2.getPosition());

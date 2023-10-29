@@ -31,12 +31,21 @@ class JudgementTest {
     }
 
     @Test
-    void printWinners(){
+    void printWinners공동우승(){
         List<Car> participatingCars= new ArrayList<>();
         participatingCars.add(new Car("소방차", 3));
         participatingCars.add(new Car("구급차", 3));
         participatingCars.add(new Car("경찰차", 2));
-        Assertions.assertThat(Judgement.printWinners(participatingCars)).isEqualTo("소방차, 구급차");
+        Assertions.assertThat(Judgement.judgeWinners(participatingCars)).isEqualTo("소방차, 구급차");
+    }
+
+    @Test
+    void printWinners단독우승(){
+        List<Car> participatingCars= new ArrayList<>();
+        participatingCars.add(new Car("소방차", 1));
+        participatingCars.add(new Car("구급차", 0));
+        participatingCars.add(new Car("경찰차", 2));
+        Assertions.assertThat(Judgement.judgeWinners(participatingCars)).isEqualTo("경찰차");
     }
 
 }
