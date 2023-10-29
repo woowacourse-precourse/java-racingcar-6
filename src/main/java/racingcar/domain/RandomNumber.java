@@ -19,4 +19,8 @@ public class RandomNumber {
     public int generateNumber() {
         return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER,MAX_RANDOM_NUMBER);
     }
+
+    public int getRandomNumber() {
+        return randomNumber;
+    }
 }

@@ -56,9 +56,13 @@ public class CarGameController {
 
         for (int i = 0; i < tryCount.getTryCount(); i++) {
             carGameService.carGameProgress();
-            List<Map<String, String>> stageGameResults = carGameService.carGameResult();
-            outputHandler.printGameProgress(stageGameResults);
+            gameResult();
         }
+    }
+
+    private void gameResult() {
+        List<Map<String, String>> stageGameResults = carGameService.carGameResult();
+        outputHandler.printGameProgress(stageGameResults);
     }
 
     private void finalWinners() {
