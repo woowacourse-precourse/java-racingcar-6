@@ -6,8 +6,8 @@ public class PlayGameMsg {
         System.out.println("\n실행 결과");
     }
 
-    public void eachResult(String player, int num){
-        System.out.printf("%s : %s%n", player, "-".repeat(num));
+    public void eachResult(String carName, int num){
+        System.out.printf("%s : %s%n", carName, "-".repeat(num));
     }
 
     public void changeLine(){

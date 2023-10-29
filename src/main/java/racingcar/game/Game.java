@@ -2,83 +2,87 @@ package racingcar.game;
 
 import java.util.*;
 
-import racingcar.input.PlayNumber;
-import racingcar.input.PlayerName;
+import racingcar.input.NumberOfPlay;
+import racingcar.input.CarName;
 import racingcar.random.DriveStop;
 import racingcar.view.PlayGameMsg;
 import racingcar.view.RequestInput;
 
 public class Game {
 
-    private int playNum;
-    List<String> playerNames;
-    public Map<String, Integer> playerScore = new HashMap<String, Integer>();
+    private int playCount;
+    private List<String> carNames;
+    public Map<String, Integer> carNameScores = new HashMap<String, Integer>();
     public RequestInput requestInput = new RequestInput();
-    public PlayerName playerName = new PlayerName();
-    public PlayNumber playNumber = new PlayNumber();
+    public CarName carName = new CarName();
+    public NumberOfPlay numberOfPlay = new NumberOfPlay();
     public PlayGameMsg playGameMsg = new PlayGameMsg();
     public DriveStop driveStop = new DriveStop();
 
     public void setGame(){
-        setPlayer();
-        setPlayNum();
+        setCar();
+        setPlayCount();
     }
 
     public void playGame(){
         playGameMsg.start();
-        repeatPlayNum();
+        repeatPlayCount();
     }
 
     public void endGame(){
         printFinalResult();
     }
 
-    public void setPlayer(){
-        requestInput.playerName();
-        playerNames = playerName.validatedUserInput();
-        for(String playerName: playerNames) {
-            playerScore.put(playerName, 0);
+    public void setCar(){
+        requestInput.carName();
+        carNames = carName.validatedUserInput();
+        for(String playerName: carNames) {
+            carNameScores.put(playerName, 0);
         }
     }
 
-    public void setPlayNum(){
-        requestInput.playNum();
-        playNum = playNumber.validatedUserInput();
+    public void setPlayCount(){
+        requestInput.playCount();
+        playCount = numberOfPlay.validatedUserInput();
     }
 
-    public void repeatPlayNum(){
-        for(int i=0; i<playNum; i++){
-            repeatPlayers();
+    public void repeatPlayCount(){
+        for(int i = 0; i< playCount; i++){
+            repeatCars();
         }
     }
 
-    public void repeatPlayers(){
-        for(String player: playerNames){
-            updateScore(player);
+    public void repeatCars(){
+        for(String carName: carNames){
+            updateScore(carName);
         }
         playGameMsg.changeLine();
     }
 
-    public void updateScore(String player) {
-        int score = playerScore.get(player);
+    public void updateScore(String carName) {
+        int score = carNameScores.get(carName);
         if (driveStop.isDrive()) {
-            playerScore.replace(player, score + 1);
+            carNameScores.replace(carName, score + 1);
         }
-        playGameMsg.eachResult(player, playerScore.get(player));
+        playGameMsg.eachResult(carName, carNameScores.get(carName));
     }
 
     public void printFinalResult(){
-        int maxScore = Collections.max(playerScore.values());
-        List<String> winners = new ArrayList<String>();
-        for(String player : playerNames){
-            winners = addWinner(winners, player, maxScore);
-        }
-        String result = String.join(", ", winners);
+        String result = finalWinners();
         playGameMsg.end(result);
     }
 
+    public String finalWinners(){
+        int maxScore = Collections.max(carNameScores.values());
+        List<String> winners = new ArrayList<String>();
+        for(String player : carNames) {
+            winners = addWinner(winners, player, maxScore);
+        }
+        return String.join(", ", winners);
+    }
+
     public List<String> addWinner(List<String> winners, String player, int maxScore){
-        if(playerScore.get(player) == maxScore){
+        if(carNameScores.get(player) == maxScore){
             winners.add(player);
         }
         return winners;

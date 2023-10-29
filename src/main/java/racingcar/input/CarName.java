@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 
-public class PlayerName {
+public class CarName {
 
     public List<String> validatedUserInput(){
         String userInput = Console.readLine();
@@ -13,15 +13,15 @@ public class PlayerName {
 
     public List<String> valid(String userInput){
         String[] userInputSplit = userInput.split(",");
-        List<String> players = Arrays.asList(userInputSplit);
-        for(String player : players){
-            notFiveOrLess(player);
+        List<String> carNames = Arrays.asList(userInputSplit);
+        for(String carName : carNames){
+            notFiveOrLess(carName);
         }
-        return players;
+        return carNames;
     }
 
-    public void notFiveOrLess(String player) throws IllegalArgumentException{
-        if(player.length() > 5){
+    public void notFiveOrLess(String carName) throws IllegalArgumentException{
+        if(carName.length() > 5){
             throw new IllegalArgumentException();
         }
     }
