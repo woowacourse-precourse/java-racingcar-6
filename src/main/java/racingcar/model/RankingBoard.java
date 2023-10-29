@@ -1,8 +1,6 @@
 package racingcar.model;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class RankingBoard {
     private Map<String, Integer> rankingBoard;
@@ -30,6 +28,16 @@ public class RankingBoard {
         rankingBoard.put(carName, rankingBoard.get(carName)+1);
     }
 
+    public List<String> getWinners() {
+        List<String> winners = new ArrayList<>();
+        int maxValue = Collections.max(rankingBoard.values());
+        for (Map.Entry<String, Integer> entry : rankingBoard.entrySet()) {
+            if(entry.getValue() == maxValue){
+                winners.add(entry.getKey());
+            }
+        }
+        return winners;
+    }
 
 
 }

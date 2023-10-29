@@ -28,6 +28,9 @@ public class RacingCarGame {
             playRound();
             printRoundResult();
         }
+
+        printWinners();
+
     }
 
     private void playRound() {
@@ -46,4 +49,9 @@ public class RacingCarGame {
         }
         Printer.printWhiteSpace();
     }
+
+    public void printWinners(){
+        Printer.printWinner(rankingBoard.getWinners());
+    }
+
 }

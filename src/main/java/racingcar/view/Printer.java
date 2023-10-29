@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.List;
+
 public class Printer {
     public static String ERROR_CAR_NAME_LENGTH = "자동차 이름은 1글자 이상 5글자 이하여야 합니다.";
     public static String ERROR_CAR_NAME_FIRST_WHITE_SPACE = "자동차 이름은 시작이 공백이면 안됩니다.";
@@ -21,5 +23,15 @@ public class Printer {
 
     public static void printRoundResult(String carName, Integer forwardNumber) {
         System.out.println(carName + " : " + "-".repeat(forwardNumber));
+    }
+
+    public static void printWinner(List<String> winners){
+        StringBuilder sb = new StringBuilder();
+        sb.append("최종 우승자 : ");
+        sb.append(winners.get(0));
+        for(int i = 1; i < winners.size()-1; i++){
+            sb.append(", ").append(winners.get(i));
+        }
+        System.out.println(sb);
     }
 }
