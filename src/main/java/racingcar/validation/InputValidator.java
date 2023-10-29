@@ -8,6 +8,7 @@ public class InputValidator {
     public static void validateRoundInput(String roundInputNumber) {
         StringValidator.stringNullAndBlankCheck(roundInputNumber);
         validateNumber(roundInputNumber);
+        validateNumberZero(roundInputNumber);
     }
 
     public static void validateNumber(String inputNumber) {
