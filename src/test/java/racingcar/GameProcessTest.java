@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.Cars;
 
 public class GameProcessTest extends NsTest {
-    private static final int ROUND = 5;
-
     @Test
     void 난수가_4이상일_경우_자동차_위치_업데이트_O() {
         assertRandomNumberInRangeTest(
