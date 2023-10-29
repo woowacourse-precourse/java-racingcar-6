@@ -26,6 +26,8 @@ public class RacingController {
             cars.add(car);
         }
 
+        System.out.println("실행 결과");
+
         int count = 0;
         while (count < inputView.getNumberOfAttempts()) {
             for (Car car : cars) {
@@ -33,7 +35,10 @@ public class RacingController {
                 if (number >= 4) {
                     car.move();
                 }
+                String result = car.getName() + " : " + "-".repeat(car.getPosition());
+                System.out.println(result);
             }
+            System.out.println();
             count++;
         }
     }
