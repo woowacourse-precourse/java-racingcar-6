@@ -3,6 +3,7 @@ package racingcar.validation;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.constant.MessageConst.DUPLICATE_MESSAGE;
 import static racingcar.constant.MessageConst.LENGTH_MESSAGE;
+import static racingcar.constant.MessageConst.SPACE_MESSAGE;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -38,5 +39,28 @@ class CarValidationTest {
         assertThatThrownBy(() -> carValidation.validateCarNameDuplication(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(DUPLICATE_MESSAGE);
+    }
+
+    @Test
+    @DisplayName("자동차 이름에 공백이 있는지 테스트")
+    void validateCarNameSpaceTest() {
+        // given
+        CarValidation carValidation = new CarValidation();
+
+        // when
+        List<String> carNamesLeftSpace = List.of("     fobi", "woni", "jun");
+        List<String> carNamesMiddleSpace = List.of("fobi", "wo   ni", "jun");
+        List<String> carNamesRightSpace = List.of("fobi", "woni", "jun    ");
+
+        // then
+        assertThatThrownBy(() -> carValidation.validateCarNameSpace(carNamesLeftSpace))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(SPACE_MESSAGE);
+        assertThatThrownBy(() -> carValidation.validateCarNameSpace(carNamesMiddleSpace))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(SPACE_MESSAGE);
+        assertThatThrownBy(() -> carValidation.validateCarNameSpace(carNamesRightSpace))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(SPACE_MESSAGE);
     }
 }
