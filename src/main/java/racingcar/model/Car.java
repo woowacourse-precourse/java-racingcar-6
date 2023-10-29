@@ -4,7 +4,7 @@ public class Car {
 
     private static final int DISTANCE_INITIALIZE = 0;
     private final String carName;
-    private final int distance;
+    private int distance;
 
     public Car(String carName){
         this.carName = carName;
@@ -15,7 +15,11 @@ public class Car {
         return carName;
     }
 
-        public int getDistance() {
+    public int getDistance() {
         return distance;
+    }
+
+    public void updateDistance(){
+        distance++;
     }
 }
