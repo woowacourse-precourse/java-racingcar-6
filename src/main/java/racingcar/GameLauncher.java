@@ -2,8 +2,9 @@ package racingcar;
 
 import java.util.List;
 import racingcar.common.strategy.MoveStrategy;
+import racingcar.common.type.Names;
 import racingcar.common.type.TrialCount;
-import racingcar.common.util.ConstructorFactory;
+import racingcar.common.factory.ConstructorFactory;
 import racingcar.controller.Game;
 import racingcar.controller.Racing;
 import racingcar.controller.Result;
@@ -19,7 +20,7 @@ public class GameLauncher {
         InputDTO inputDTO = InputView.readUserInput();
 
         //자동차 리스트 생성
-        String[] names = inputDTO.names();
+        Names names = inputDTO.names();
         List<Car> carList = createCarList(names);
 
         //게임 객체 생성
@@ -34,7 +35,7 @@ public class GameLauncher {
         racing.start();
     }
 
-    private static List<Car> createCarList(String[] names) {
+    private static List<Car> createCarList(Names names) {
         return ConstructorFactory.createCarList(names);
     }
 

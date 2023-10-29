@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.common.util.DTOFactory;
+import racingcar.common.factory.DTOFactory;
 import racingcar.dto.output.WinnerDTO;
 
 public class RacingWinners {

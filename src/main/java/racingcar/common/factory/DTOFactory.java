@@ -1,4 +1,4 @@
-package racingcar.common.util;
+package racingcar.common.factory;
 
 import java.util.List;
 import racingcar.dto.output.RoundDTO;

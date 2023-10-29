@@ -1,10 +1,10 @@
-package racingcar.common.util;
+package racingcar.common.factory;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.common.generator.NsRandomGenerator;
 import racingcar.common.strategy.MoveStrategy;
+import racingcar.common.type.Names;
 import racingcar.common.type.TrialCount;
 import racingcar.controller.Game;
 import racingcar.controller.Racing;
@@ -15,8 +15,9 @@ import racingcar.domain.RacingWinners;
 
 public class ConstructorFactory {
     // 자동차 리스트 생성
-    public static List<Car> createCarList(String[] names) {
-        return Arrays.stream(names)
+    public static List<Car> createCarList(Names names) {
+        return names.getNameList()
+                .stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
