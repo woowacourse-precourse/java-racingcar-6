@@ -8,11 +8,13 @@ public class Winner {
         List<String> winner = new ArrayList<>();
         int maxNum = checkMax(progressResults);
 
-         for (int r = 0; r < progressResults.size(); r++) {
-             if(progressResults.get(r).length() == maxNum) {
-                 winner.add(carNames.get(r));
-             }
-         }
+        for (int r = 0; r < progressResults.size(); r++) {
+            if(progressResults.get(r).length() == maxNum) {
+                winner.add(carNames.get(r));
+            }
+        }
+
+        result(winner);
     }
 
     public int checkMax(List<String> progressResults) {
@@ -24,5 +26,10 @@ public class Winner {
             }
         }
         return maxNum;
+    }
+
+    public void result(List<String> winner) {
+        String result = String.join(",", winner);
+        System.out.println("최종 우승자: " + result);
     }
 }
