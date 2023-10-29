@@ -10,6 +10,9 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.Cars;
 
 public class CarsTest {
+
+    private static final int INITIAL_POSITION = 0;
+    private static final int MOVED_POSITION = 1;
     private Cars cars;
 
     @BeforeEach
@@ -28,9 +31,9 @@ public class CarsTest {
 
         // Then
         assertThat(carPositions).hasSize(3);
-        assertThat(carPositions.get("pobi")).isEqualTo(0);
-        assertThat(carPositions.get("woni")).isEqualTo(0);
-        assertThat(carPositions.get("jun")).isEqualTo(0);
+        assertThat(carPositions.get("pobi")).isEqualTo(INITIAL_POSITION);
+        assertThat(carPositions.get("woni")).isEqualTo(INITIAL_POSITION);
+        assertThat(carPositions.get("jun")).isEqualTo(INITIAL_POSITION);
     }
 
     @DisplayName("특정 자동차를 이동시키면 값이 1증가해야 한다.")
@@ -45,9 +48,9 @@ public class CarsTest {
         HashMap<String, Integer> carPositions = cars.getCars();
 
         // Then
-        assertThat(carPositions.get("pobi")).isEqualTo(1);
-        assertThat(carPositions.get("woni")).isEqualTo(0);
-        assertThat(carPositions.get("jun")).isEqualTo(0);
+        assertThat(carPositions.get("pobi")).isEqualTo(MOVED_POSITION);
+        assertThat(carPositions.get("woni")).isEqualTo(INITIAL_POSITION);
+        assertThat(carPositions.get("jun")).isEqualTo(INITIAL_POSITION);
     }
 
     @DisplayName("값이 같다면, 해당 차량은 모두 우승자로 결정되어야 한다.")
