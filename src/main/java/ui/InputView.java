@@ -17,16 +17,29 @@ public class InputView {
     public static int inputNumberOfTries() {
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
+        int numberOfTries = Integer.parseInt(input);
+        validateInputNumbers(numberOfTries);
         return Integer.parseInt(input);
     }
+
     private static List<String> splitByComma(String input) {
         return Arrays.asList(input.split(","));
     }
+
     private static void validateCarNames(List<String> carNames) {
         for (String carName : carNames) {
             if (carName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
             }
+            if (carName.contains(" ")) {
+                throw new IllegalArgumentException("자동차 이름에 공백은 불가능합니다.");
+            }
+        }
+    }
+
+    private static void validateInputNumbers(int numberOfTries) {
+        if (numberOfTries < 0) {
+            throw new IllegalArgumentException("음수 라운드 입력은 불가능합니다.");
         }
     }
 }
