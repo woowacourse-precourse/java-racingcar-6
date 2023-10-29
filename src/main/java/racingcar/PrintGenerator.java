@@ -14,4 +14,8 @@ public class PrintGenerator {
 		System.out.println("시도할 회수는 몇회인가요?");
 	}
 
+	public void printMoveResult(InformationOfCar car) {
+		System.out.println(car.getCarName() + " : " + car.getDistance());
+	}
+
 }

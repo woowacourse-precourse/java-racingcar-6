@@ -13,10 +13,13 @@ public class GameProcess {
 	}
 
 	public void playGame(ArrayList<InformationOfCar> carList, int moveCount) {
-		for (InformationOfCar car : carList) {
-			for (int j = 0; j < moveCount; j++) {
+		System.out.println("실행 결과");
+		for (int j = 0; j < moveCount; j++) {
+			for (InformationOfCar car : carList) {
 				moveOrNot(car);
+				printGenerator.printMoveResult(car);
 			}
+			System.out.println();
 		}
 	}
 
