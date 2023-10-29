@@ -12,4 +12,11 @@ public class RacingCar {
         return racingCarName;
     }
 
+    public int getDistance(){
+        return forwardDistance;
+    }
+
+    public void setForwardDistance(){
+        forwardDistance+=1;
+    }
 }
