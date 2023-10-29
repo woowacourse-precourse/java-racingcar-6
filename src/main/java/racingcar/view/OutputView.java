@@ -26,10 +26,10 @@ public class OutputView {
 
     public static void printRoundResult(List<CarDto> players) {
         players.stream()
-                .forEach(c -> printRoundResultPlayer(c.name(), c.position()));
+                .forEach(c -> printOnePlayerRoundResult(c.name(), c.position()));
     }
 
-    private static void printRoundResultPlayer(String name, int position) {
+    private static void printOnePlayerRoundResult(String name, int position) {
         System.out.println(name + " : " + makeDash(position));
     }
 
