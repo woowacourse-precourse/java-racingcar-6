@@ -7,11 +7,11 @@ import camp.nextstep.edu.missionutils.Randoms;
  * @description random number moveable play rule
  * @since 2023.10.27
  **********************************************************************************************************************/
-public class RandomNumberRacingGameRule implements RacingGameRule {
+public class RandomNumberRacingRule implements RacingRule {
 
     @Override
     public boolean isMovable() {
-        return Randoms.pickNumberInRange(0, 9) > 4;
+        return Randoms.pickNumberInRange(0, 9) >= 4;
     }
 
 }

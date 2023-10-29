@@ -1,6 +1,6 @@
 package racingcar.playrule;
 
-public interface RacingGameRule {
+public interface RacingRule {
 
     boolean isMovable();
 
