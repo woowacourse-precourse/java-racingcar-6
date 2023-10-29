@@ -21,6 +21,6 @@ public class PrintGenerator {
 	}
 
 	public void printResult(String result) {
-		System.out.println("최종 우승자 : "+ result);
+		System.out.println("최종 우승자 : " + result);
 	}
 }

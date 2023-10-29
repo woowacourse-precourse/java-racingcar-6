@@ -34,6 +34,11 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Override
+    public void runMain() {
+        Application.main(new String[]{});
+    }
+
     @Test
     void 숫자가_아닌_문자에_대한_예외_처리() {
         String input = "가";
@@ -56,10 +61,5 @@ class ApplicationTest extends NsTest {
         Validator validator = new Validator();
         assertThatThrownBy(() -> validator.validateMoveCount(input))
             .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Override
-    public void runMain() {
-        Application.main(new String[]{});
     }
 }

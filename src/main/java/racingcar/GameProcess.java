@@ -1,8 +1,6 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -20,7 +18,6 @@ public class GameProcess {
 		for (int j = 0; j < moveCount; j++) {
 			for (InformationOfCar car : carList) {
 				moveOrNot(car);
-				printGenerator.printMoveResult(car);
 			}
 			System.out.println();
 		}
@@ -32,6 +29,7 @@ public class GameProcess {
 		if (judgeMoveOrNot(randomNumber)) {
 			car.setDistance("-");
 		}
+		System.out.println(car.getCarName() + " : " + car.getDistance());
 	}
 
 	private boolean judgeMoveOrNot(int randomNumber) {
@@ -52,7 +50,7 @@ public class GameProcess {
 				result.append(", ").append(car.getCarName());
 			}
 		}
-		printGenerator.printResult(result.toString());
+		System.out.println("최종 우승자 : " + result.toString());
 	}
 
 }
