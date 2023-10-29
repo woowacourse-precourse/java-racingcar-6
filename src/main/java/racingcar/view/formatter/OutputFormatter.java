@@ -12,6 +12,7 @@ public class OutputFormatter {
     private static final String EMPTY_STRING = "";
     private static final String SPACE = " ";
     private static final String DASH = "-";
+    private static final String COLON_SEPARATOR = ":";
     private static final String DELIMITER_COMMA = ",";
 
     private static final int START_POSITION = 0;
@@ -30,7 +31,7 @@ public class OutputFormatter {
     }
 
     private static String makeOnePlayerResult(CarDto carDto) {
-        return carDto.name() + " : " + makeDash(carDto.position());
+        return carDto.name() + SPACE + COLON_SEPARATOR + SPACE + makeDash(carDto.position());
     }
 
     private static String makeDash(int position) {
