@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.Collection;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class GameHost {
 
@@ -21,6 +22,18 @@ public class GameHost {
 
     public static GameHost addCars(Collection<Car> cars) {
         return new GameHost(cars);
+    }
+
+    public String announceWinner(){
+        int maxOdometer = 0;
+        String winnerName = "";
+        for (Car car : carList) {
+            if(maxOdometer < car.getOdometer()) {
+                winnerName = car.getName();
+                maxOdometer = car.getOdometer();
+            }
+        }
+        return winnerName;
     }
 
 }

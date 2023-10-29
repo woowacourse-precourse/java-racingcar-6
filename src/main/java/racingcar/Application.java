@@ -15,11 +15,14 @@ public class Application {
         System.out.println(GAME_PROGRESS_STATEMENT.TRY_COUNT);
         final int moveCount = inputMoveCount();
 
+        System.out.println(GAME_PROGRESS_STATEMENT.GAME_RESULT);
         for (int i = 1; i <= moveCount; i++) {
             racingCarHost.playOneTurn();
+            System.out.println();
         }
-        System.out.println(GAME_PROGRESS_STATEMENT.GAME_RESULT);
+
         System.out.println(GAME_PROGRESS_STATEMENT.WINNER);
+        System.out.println(racingCarHost.announceWinner());
     }
 
     private static int inputMoveCount() {

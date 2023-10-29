@@ -6,12 +6,19 @@ public class Car {
     private final String name;
     private int odometer;
 
+    public String getName() {
+        return name;
+    }
+
     public Car(String name) {
         classInvariant(name);
         this.name = name;
         this.odometer = 0;
     }
 
+    public int getOdometer() {
+        return odometer;
+    }
 
     public void moveForward() {
         final int MINIMUM_CONDITION = 4;
