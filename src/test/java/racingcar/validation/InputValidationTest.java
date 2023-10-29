@@ -160,20 +160,6 @@ class InputValidationTest {
     }
 
     @Test
-    @DisplayName("시도할 횟수 입력에 대해 모든 검증을 하는 테스트")
-    void validateAttemptInputTest() {
-        // given
-        InputValidation inputValidation = new InputValidation();
-
-        // when
-        String input = "1";
-
-        // then
-        assertThatCode(() -> inputValidation.validateAttemptInput(input))
-                .doesNotThrowAnyException();
-    }
-
-    @Test
     @DisplayName("시도할 횟수 입력값이 빈값인지 검증 하는 테스트")
     void validateInputEmptyTest() {
         // given
@@ -186,5 +172,19 @@ class InputValidationTest {
         assertThatThrownBy(() -> inputValidation.validateInputEmpty(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(EMPTY_MESSAGE);
+    }
+
+    @Test
+    @DisplayName("시도할 횟수 입력에 대해 모든 검증을 하는 테스트")
+    void validateAttemptInputTest() {
+        // given
+        InputValidation inputValidation = new InputValidation();
+
+        // when
+        String input = "1";
+
+        // then
+        assertThatCode(() -> inputValidation.validateAttemptInput(input))
+                .doesNotThrowAnyException();
     }
 }
