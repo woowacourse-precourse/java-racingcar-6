@@ -22,7 +22,7 @@ public class Validator {
 
     private void checkForm(String input) {
         //자동차의 이름은 5자 이하만 허용
-        //자동차의 이름은 영어만 하용
+        //자동차의 이름은 영어, 숫자만 하용
         //자동차의 수는 최소 1대, 최대 10대까지 허용
         if (!Pattern.matches("^(\\w{1,5})(,\\w{1,5}){0,9}$", input)) {
             throw new IllegalArgumentException();

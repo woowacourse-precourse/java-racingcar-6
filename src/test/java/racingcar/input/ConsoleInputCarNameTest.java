@@ -9,9 +9,8 @@ import racingcar.validator.Validator;
 
 class ConsoleInputCarNameTest extends NsTest {
 
-    Validator validator = new Validator();
-    Input consoleInput = new ConsoleInput(validator);
-
+    Validator defaultValidator = new Validator();
+    Input consoleInput = new ConsoleInput(defaultValidator);
 
     @Test
     void 자동차_이름_입력() {

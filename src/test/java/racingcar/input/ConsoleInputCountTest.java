@@ -9,8 +9,8 @@ import racingcar.validator.Validator;
 
 class ConsoleInputCountTest extends NsTest {
 
-    Validator validator = new Validator();
-    Input consoleInput = new ConsoleInput(validator);
+    Validator defaultValidator = new Validator();
+    Input consoleInput = new ConsoleInput(defaultValidator);
 
     @Test
     void 실행_횟수_입력() {

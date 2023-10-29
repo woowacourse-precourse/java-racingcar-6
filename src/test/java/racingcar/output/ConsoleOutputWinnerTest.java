@@ -13,8 +13,8 @@ import racingcar.validator.Validator;
 
 class ConsoleOutputWinnerTest extends NsTest {
 
-    Validator validator = new Validator();
-    Input consoleInput = new ConsoleInput(validator);
+    Validator defaultValidator = new Validator();
+    Input consoleInput = new ConsoleInput(defaultValidator);
     Output consoleOutput = new ConsoleOutput();
 
     private static final int MOVING_FORWARD = 4;

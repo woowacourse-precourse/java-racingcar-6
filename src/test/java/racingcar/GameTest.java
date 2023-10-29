@@ -3,12 +3,10 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.config.Configuration.game;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
-import racingcar.input.ConsoleInput;
-import racingcar.output.ConsoleOutput;
-import racingcar.validator.Validator;
 
 class GameTest extends NsTest {
 
@@ -93,7 +91,7 @@ class GameTest extends NsTest {
 
     @Override
     protected void runMain() {
-        Game game = new Game(new ConsoleInput(new Validator()), new ConsoleOutput());
+        Game game = game();
         game.play();
     }
 }
