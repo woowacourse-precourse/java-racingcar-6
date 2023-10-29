@@ -1,21 +1,22 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
+
 import java.util.Arrays;
+import java.util.List;
 import racingcar.model.Car;
 
 public final class Util {
 
-    public static ArrayList<String> toArray(String cars){
-        return new ArrayList<>(Arrays.asList(cars.split(",")));
+    public static List<String> toArray(String cars){
+        return Arrays.asList(cars.split(","));
     }
 
     public static int getRandomNum() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public static int getMaxPosition(ArrayList<Car> racingCar) {
+    public static int getMaxPosition(List<Car> racingCar) {
         return racingCar.stream()
                 .mapToInt(Car::getPosition)
                 .max()

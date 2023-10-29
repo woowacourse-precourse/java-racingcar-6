@@ -1,18 +1,19 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.Util;
 import racingcar.view.OutputView;
 
 public class RacingCars {
-    private final ArrayList<Car> CARS = new ArrayList<>();
-    public RacingCars(ArrayList<String> carNames) {
+    private final List<Car> CARS = new ArrayList<>();
+    public RacingCars(List<String> carNames) {
         carNames.forEach(car -> CARS.add(new Car(car)));
     }
 
     public void play(){
-        go();
+        advanceCar();
         OutputView.printRoundResult(CARS);
     }
 
@@ -25,7 +26,7 @@ public class RacingCars {
         OutputView.printWinner(winners);
     }
 
-    private void go(){
+    private void advanceCar(){
         CARS.forEach(Car::validRacingCars);
     }
 }

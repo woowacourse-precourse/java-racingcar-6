@@ -1,12 +1,12 @@
 package racingcar.model;
 
-import java.util.ArrayList;
+import java.util.List;
 import racingcar.Constants;
 import racingcar.Util;
 
 public class CarValidation {
     private final String NAMES_STRING;
-    public ArrayList<String> carNames;
+    public List<String> carNames;
     public CarValidation(String namesString){
         this.NAMES_STRING = namesString;
         this.carNames = Util.toArray(namesString);
