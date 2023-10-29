@@ -9,14 +9,12 @@ public class CarTest {
 
     @Test
     void 랜덤_수가_4이상일때_카운팅하는_경우() {
-        Car car = new Car("ford");
-        int random = Randoms.pickNumberInRange(0, 9);
-        car.move(random);
+        Car ford = new Car("ford");
+        ford.move(5);
+        assertThat(ford.getCount()).isEqualTo(1);
 
-        if (random >= 4) {
-            assertThat(car.getCount()).isEqualTo(1);
-        } else {
-            assertThat(car.getCount()).isEqualTo(0);
-        }
+        Car bmw = new Car("bmw");
+        bmw.move(3);
+        assertThat(bmw.getCount()).isEqualTo(0);
     }
 }
