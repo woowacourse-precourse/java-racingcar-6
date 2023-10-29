@@ -18,12 +18,30 @@ public class CarRacing {
     public static void race() {
         // 각 자동차 별로 이동 횟수 0으로 초기화
         initCarMoveToZero();
-    }
 
+        int tmpCount = 0;
+        while (tmpCount < countTrial) {
+            createRandomNumberAndMoveCar();
+        }
+    }
 
     public static void initCarMoveToZero() {
         for (String carName : carNameList) {
             carMoveMap.put(carName, 0);
         }
+    }
+
+    public static boolean createRandomNumberAndMoveCar() {
+        boolean ifMoved = false; // 이동한 자동차가 하나라도 있는지 확인
+
+        for (Entry<String, Integer> m : carMoveMap.entrySet()) {
+            String key = m.getKey();
+            int value = m.getValue();
+            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+                carMoveMap.replace(key, value + 1);
+                ifMoved = true;
+            }
+        }
+        return ifMoved;
     }
 }
