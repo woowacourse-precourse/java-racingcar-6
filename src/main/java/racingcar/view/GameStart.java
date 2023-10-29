@@ -87,8 +87,8 @@ public class GameStart {
      * 실행결과 출력 메서드
      */
     public void printMsgResultOfRun() {
-        System.out.println();
-        System.out.println("실행 결과");
+        Utill.printNewLine();
+        Utill.print(MyConstans.MSG_PROCESS_RESULT());
     }
 
     /**

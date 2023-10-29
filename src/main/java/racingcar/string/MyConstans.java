@@ -16,4 +16,8 @@ public class MyConstans {
     public static String MSG_INPUT_COUNT_TRY_GAME() {
         return "시도할 회수는 몇회인가요?";
     }
+
+    public static String MSG_PROCESS_RESULT() {
+        return "실행 결과";
+    }
 }
