@@ -23,4 +23,5 @@ public class Cars {
     public int askDistance() {
         return this.distance;
     }
+
 }
