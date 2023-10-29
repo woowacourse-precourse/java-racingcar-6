@@ -118,6 +118,15 @@ class ApplicationTest extends NsTest {
 
     }
 
+    @Test
+    void 우승자_이름_리스트(){
+        RacingGame racingGame = new RacingGame();
+        List<String> nameList = new ArrayList<>(Arrays.asList("aa","bb","cc"));
+        List<Integer> distanceList = new ArrayList<>(Arrays.asList(2,2,0));
+        List<String> winnerList = racingGame.chooseWinner(nameList, distanceList);
+        List<String> expectedList = new ArrayList<>(Arrays.asList("aa","bb"));
+        assertThat(winnerList).isEqualTo(expectedList);
+    }
 
     @Override
     public void runMain() {
