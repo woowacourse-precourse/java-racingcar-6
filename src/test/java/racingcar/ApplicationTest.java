@@ -86,6 +86,32 @@ class ApplicationTest extends NsTest {
         assertThat(cars.get("woni")).isEqualTo(0);
     }
 
+    @Test
+    void checkIfNumeric_숫자가_아닌_입력_시_예외_발생(){
+        Game game = new Game();
+        String roundCountInput = "abc2";
+
+        assertThatThrownBy(() -> game.checkIfNumeric(roundCountInput))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void checkIfNumeric_숫자_입력_시_정상_동작(){
+        Game game = new Game();
+        String roundCountInput = "0";
+
+        assertDoesNotThrow(() -> game.checkIfNumeric(roundCountInput));
+    }
+
+    @Test
+    void 경기_진행_수_저장(){
+        Game game = new Game();
+        String roundCountInput = "01";
+        game.setRoundCount(roundCountInput);
+
+        assertThat(game.getRoundCount()).isEqualTo(1);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
