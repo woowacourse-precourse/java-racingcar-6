@@ -13,29 +13,38 @@ import racingcar.view.constant.Winner;
 public class Game {
 
     public static void start() {
+        List<Car> cars = createCars();
+        int numberOfMove = setNumberOfMove();
+        startRace(cars, numberOfMove);
+        announceWinner(cars);
+    }
+
+    private static List<Car> createCars() {
         View.printMessage(Prompt.CAR_NAME_INPUT);
         String carNamesString = View.getInput();
         List<String> carNames = CarCreator.splitCarNamesString(carNamesString);
         CarCreator.validateCarNames(carNames);
-        List<Car> cars = CarCreator.createCars(carNames);
+        return CarCreator.createCars(carNames);
+    }
 
+    private static int setNumberOfMove() {
         View.printMessage(Prompt.NUMBER_OF_MOVE_INPUT);
         String numberOfMoveInput = View.getInput();
-        int numberOfMove = RaceManager.validateNumberOfMove(numberOfMoveInput);
-
-        View.printMessage(Prompt.RACE_RESULT);
-        startRace(cars, numberOfMove);
-
-        List<String> winnerList = RaceManager.decideWinner(cars);
-        View.printMessage(Winner.announcement(winnerList));
+        return RaceManager.validateNumberOfMove(numberOfMoveInput);
     }
 
     private static void startRace(List<Car> cars, int numberOfMove) {
+        View.printMessage(Prompt.RACE_RESULT);
         for (int i = 0; i < numberOfMove; i++) {
             List<MoveResultDto> moveResultDtos = cars.stream()
                     .map(Car::move)
                     .toList();
             View.printMessage(Result.announcement(moveResultDtos));
         }
+    }
+
+    private static void announceWinner(List<Car> cars) {
+        List<String> winnerList = RaceManager.decideWinner(cars);
+        View.printMessage(Winner.announcement(winnerList));
     }
 }
