@@ -4,19 +4,19 @@ import java.util.List;
 
 public class GameInfo {
 
-    private List<String> participants;
+    private List<Participant> participants;
     private int attemptTime;
 
-    public GameInfo(List<String> participants, int attemptTime) {
+    public GameInfo(List<Participant> participants, int attemptTime) {
         this.participants = participants;
         this.attemptTime = attemptTime;
     }
 
-    public List<String> getParticipants() {
+    public List<Participant> getParticipants() {
         return participants;
     }
 
-    public void setParticipants(List<String> participants) {
+    public void setParticipants(List<Participant> participants) {
         this.participants = participants;
     }
 

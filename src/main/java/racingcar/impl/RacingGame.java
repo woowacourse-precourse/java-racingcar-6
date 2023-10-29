@@ -11,24 +11,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame implements Game {
-    private final UserInput userInput;
     private final RandomNumberProvider randomNumberProvider;
-    private List<Participant> participants;
     private GameInfo gameInfo;
-    private int attemptNum;
 
-    public RacingGame(UserInput userInput, RandomNumberProvider randomNumberProvider) {
-        this.userInput = userInput;
+    public RacingGame(RandomNumberProvider randomNumberProvider) {
         this.randomNumberProvider = randomNumberProvider;
-        this.gameInfo = userInput.getGameInfo();
     }
 
 
     @Override
     public void start() {
-        setParticipants();
-        setAttemptNum();
-        for(int numOfAttempt = 1; numOfAttempt <= attemptNum; numOfAttempt++) {
+        for(int numOfAttempt = 1; numOfAttempt <= gameInfo.getAttemptTime(); numOfAttempt++) {
             startOneTurn();
             printCurrentResults();
         }
@@ -37,7 +30,7 @@ public class RacingGame implements Game {
 
 
     private void startOneTurn() {
-        for(Participant participant : participants) {
+        for(Participant participant : gameInfo.getParticipants()) {
             if(isForward()) {
                 int forward = participant.getForward();
                 participant.setForward(++forward);
@@ -47,7 +40,7 @@ public class RacingGame implements Game {
     }
 
     private void printCurrentResults() {
-        for(Participant participant : participants) {
+        for(Participant participant : gameInfo.getParticipants()) {
             System.out.print(participant.getName() + " : ");
             for(int numberOfForward = 0; numberOfForward < participant.getForward(); numberOfForward++) {
                 System.out.print("-");
@@ -61,36 +54,35 @@ public class RacingGame implements Game {
         return randomNumberProvider.getRandomNumber() >= 4;
     }
 
-    private void setParticipants() {
-        participants = new ArrayList<>();
-        for(String name : gameInfo.getParticipants()) {
-            participants.add(new Participant(name, 0));
-        }
-    }
-
-    private void setAttemptNum() {
-        attemptNum = userInput.inputAttemptNum();
-    }
-
     @Override
     public void getResult() {
         List<Participant> winner = getWinner();
         System.out.print("최종 우승자 : ");
-        for(Participant participant : winner) {
-            System.out.print(participant.getName());
+        for(int indexOfWinner = 0; indexOfWinner < winner.size(); indexOfWinner++) {
+            if(indexOfWinner == winner.size() - 1) {
+                System.out.println(winner.get(indexOfWinner).getName());
+                break;
+            }
+            System.out.print(winner.get(indexOfWinner).getName() + ",");
         }
     }
 
+    @Override
+    public void setGameInfo(GameInfo gameInfo) {
+        this.gameInfo = gameInfo;
+    }
+
+
     private List<Participant> getWinner() {
         List<Participant> winners = new ArrayList<>();
-        participants.sort((o1, o2) -> o2.getForward() - o1.getForward());
-        Participant first = participants.get(0);
-        winners.add(participants.get(0));
-        for(int numOfParticipant = 1; numOfParticipant < participants.size(); numOfParticipant++) {
-            if(participants.get(numOfParticipant).getForward() < first.getForward()) {
+        gameInfo.getParticipants().sort((o1, o2) -> o2.getForward() - o1.getForward());
+        Participant first = gameInfo.getParticipants().get(0);
+        winners.add(gameInfo.getParticipants().get(0));
+        for(int numOfParticipant = 1; numOfParticipant < gameInfo.getAttemptTime(); numOfParticipant++) {
+            if(gameInfo.getParticipants().get(numOfParticipant).getForward() < first.getForward()) {
                 break;
             }
-            winners.add(participants.get(numOfParticipant));
+            winners.add(gameInfo.getParticipants().get(numOfParticipant));
         }
         return winners;
     }

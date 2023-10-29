@@ -1,11 +1,7 @@
 package racingcar;
 
-import racingcar.entity.GameInfo;
-
 public interface UserInput {
-    String inputLine();
+    String getUserInputNames();
 
-    int inputAttemptNum();
-
-    GameInfo getGameInfo();
+    int getUserInputAttemptNum();
 }

@@ -12,12 +12,12 @@ import java.util.List;
 
 public class UserInputImpl implements UserInput {
     @Override
-    public String inputLine() {
+    public String getUserInputNames() {
         return Console.readLine();
     }
 
     @Override
-    public int inputAttemptNum() {
+    public int getUserInputAttemptNum() {
         String attemptNum = Console.readLine();
         try {
             InputException.isValidAttemptNum(attemptNum);
@@ -27,8 +27,5 @@ public class UserInputImpl implements UserInput {
         return Integer.parseInt(attemptNum);
     }
 
-    @Override
-    public GameInfo getGameInfo() {
-        return new GameInfo(Parser.splitName(inputLine(),","), inputAttemptNum());
-    }
+
  }
