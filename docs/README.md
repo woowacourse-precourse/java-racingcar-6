@@ -2,7 +2,7 @@
 
 ## 기능 목록
 - [X] 자동차 이름 입력 : Application#inputCarNames()
-  - [ ] 각 이름은 쉼표로 구분 : Application#extractCarName()
+  - [X] 각 이름은 쉼표로 구분 : Application#extractCarName()
   - [X] 이름은 5자이하 가능 : Car#checkCharacterLimit()
   - [X] 게임에 자동차 추가 : GameHost.addCars() 
   - [] 잘못된 입력 : IllegalArgumentException

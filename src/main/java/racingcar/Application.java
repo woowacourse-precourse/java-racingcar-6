@@ -2,6 +2,7 @@ package racingcar;
 
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -28,6 +29,10 @@ public class Application {
 
     private static Collection<Car> inputCarNames() {
         String carNames = Console.readLine();
-        return null;
+        return extractCarNames(carNames);
+    }
+
+    private static Collection<Car> extractCarNames(String carNames) {
+        return Arrays.stream(carNames.split(",")).map(Car::new).collect(Collectors.toList());
     }
 }
