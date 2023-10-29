@@ -5,10 +5,12 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.validator.Validator;
 
 class ConsoleInputCountTest extends NsTest {
 
-    Input consoleInput = new ConsoleInput();
+    Validator validator = new Validator();
+    Input consoleInput = new ConsoleInput(validator);
 
     @Test
     void 실행_횟수_입력() {

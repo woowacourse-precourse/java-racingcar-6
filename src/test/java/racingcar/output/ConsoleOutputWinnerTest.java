@@ -9,10 +9,12 @@ import org.junit.jupiter.api.Test;
 import racingcar.Car;
 import racingcar.input.ConsoleInput;
 import racingcar.input.Input;
+import racingcar.validator.Validator;
 
 class ConsoleOutputWinnerTest extends NsTest {
 
-    Input consoleInput = new ConsoleInput();
+    Validator validator = new Validator();
+    Input consoleInput = new ConsoleInput(validator);
     Output consoleOutput = new ConsoleOutput();
 
     private static final int MOVING_FORWARD = 4;

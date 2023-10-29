@@ -8,6 +8,7 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.input.ConsoleInput;
 import racingcar.output.ConsoleOutput;
+import racingcar.validator.Validator;
 
 class GameTest extends NsTest {
 
@@ -92,7 +93,7 @@ class GameTest extends NsTest {
 
     @Override
     protected void runMain() {
-        Game game = new Game(new ConsoleInput(), new ConsoleOutput());
+        Game game = new Game(new ConsoleInput(new Validator()), new ConsoleOutput());
         game.play();
     }
 }

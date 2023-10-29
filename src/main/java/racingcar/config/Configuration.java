@@ -5,6 +5,7 @@ import racingcar.input.ConsoleInput;
 import racingcar.input.Input;
 import racingcar.output.ConsoleOutput;
 import racingcar.output.Output;
+import racingcar.validator.Validator;
 
 public class Configuration {
 
@@ -13,10 +14,14 @@ public class Configuration {
     }
 
     public static Input input() {
-        return new ConsoleInput();
+        return new ConsoleInput(validator());
     }
 
     public static Output output() {
         return new ConsoleOutput();
+    }
+
+    public static Validator validator() {
+        return new Validator();
     }
 }

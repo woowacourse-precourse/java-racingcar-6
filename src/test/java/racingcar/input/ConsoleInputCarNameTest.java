@@ -5,10 +5,13 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.validator.Validator;
 
 class ConsoleInputCarNameTest extends NsTest {
 
-    Input consoleInput = new ConsoleInput();
+    Validator validator = new Validator();
+    Input consoleInput = new ConsoleInput(validator);
+
 
     @Test
     void 자동차_이름_입력() {
