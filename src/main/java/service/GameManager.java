@@ -3,6 +3,9 @@ package service;
 import camp.nextstep.edu.missionutils.Randoms;
 import controller.Controller;
 
+import java.util.AbstractMap;
+import java.util.Map;
+
 public class GameManager {
 
     public int setRandomNum() {
@@ -14,11 +17,13 @@ public class GameManager {
     }
 
     public void setCarsMove(boolean goOrStop, int carIdx) {
-        String nowCarName = Controller.userInput.carsNameList.get(carIdx);
+        Map.Entry<String, String> car = Controller.userInput.carIdxNamePosList.get(carIdx);
 
         if (goOrStop) {
-            String nowCarBeforeMove = Controller.userInput.carNameAndPosList.get(nowCarName);
-            Controller.userInput.carNameAndPosList.put(nowCarName, nowCarBeforeMove + "-");
+            String nowCarBeforePos = car.getValue();
+            String newCarPos = nowCarBeforePos + "-";
+
+            Controller.userInput.carIdxNamePosList.set(carIdx, new AbstractMap.SimpleEntry<>(car.getKey(), newCarPos));
         }
     }
 }

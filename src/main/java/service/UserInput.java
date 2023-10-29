@@ -2,13 +2,14 @@ package service;
 
 import controller.Controller;
 
+import java.util.AbstractMap;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class UserInput {
 
-    public HashMap<String, String> carNameAndPosList;
-    public ArrayList<String> carsNameList;
+    public List<Map.Entry<String, String>> carIdxNamePosList = new ArrayList<>();
     public int carCount;
     public int playTime;
 
@@ -16,11 +17,11 @@ public class UserInput {
         String[] carsName = inputString.split(",");
 
         for (String name : carsName) {
-            this.carNameAndPosList.put(name, "");
-            this.carsNameList.add(name);
+            Map.Entry<String, String> newCar = new AbstractMap.SimpleEntry<>(name,"");
+            this.carIdxNamePosList.add(newCar);
         }
 
-        this.carCount = this.carNameAndPosList.size();
+        this.carCount = this.carIdxNamePosList.size();
     }
 
     public void getPlayTime(int inputNum) {

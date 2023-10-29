@@ -1,6 +1,8 @@
 package view;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class OutputView {
     public void printRequestCarsName() {
@@ -15,9 +17,11 @@ public class OutputView {
         System.out.println("\n실행 결과");
     }
 
-    public void printCarsMove(HashMap<String, String> carNameAndPosList) {
-        for(String name : carNameAndPosList.keySet()) {
-            System.out.println(name + " : " + carNameAndPosList.get(name));
+    public void printCarsMove(List<Map.Entry<String, String>> carNameAndPosList) {
+        for(Map.Entry<String, String> car : carNameAndPosList) {
+            String name = car.getKey();
+            String position = car.getValue();
+            System.out.println(name + " : " + position);
         }
         System.out.println();
     }
