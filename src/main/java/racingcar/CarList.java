@@ -36,6 +36,10 @@ public class CarList {
                 .toList();
     }
 
+    public List<Car> getCarList() {
+        return carList;
+    }
+
     public boolean contains(Car car) {
         return carList.contains(car);
     }

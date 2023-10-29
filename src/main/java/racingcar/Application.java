@@ -1,12 +1,36 @@
 package racingcar;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Application {
+    private static RaceView view;
+    private static CarList carList;
+
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        view = new RaceView();
+
+        // TODO: string을 List<String>으로 변환하면서 검증까지 하는 메소드를 만드는게 더 좋지 않을까?
+        view.printCarListInputMessage();
+        String carListInput = view.getCarListInput();
+        validateCarListInput(carListInput);
+        List<String> nameList = Arrays.asList(carListInput.split(","));
+
+        carList = new CarList(RacingUtil.createCarsFromNames(nameList));
+
+        // TODO: 시도횟수를 저장하는 객체를 만들어서 저장시 검증 과정을 거치게 만드는건 어떨까?
+        view.printAttemptInputMessage();
+        String attemptInput = view.getAttemptInput();
+        validateAttemptInput(attemptInput);
+        int attempt = Integer.parseInt(attemptInput);
+
+        // TODO: RacingModel 클래스를 만들어 List<Car>을 포함하는 형태로 변경하자
+        System.out.println("실행 결과");
+        for (int i = 0; i < attempt; i++) {
+            carList.moveRandomEachCars();
+            view.printProgress(carList.getCarList());
+        }
+
+        view.printWinners(carList.findWinners());
     }
 
     public static void validateCarListInput(String input) {
