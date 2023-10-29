@@ -1,5 +1,6 @@
 package racingcar;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Arrays;
@@ -18,11 +19,25 @@ public class ValidatorTest extends ApplicationTest {
                 () -> Validator.validateNames(names));
     }
 
+    @ParameterizedTest
+    @MethodSource("generateValidNames")
+    void 이름_유효성_성공_테스트(List<String> names) {
+        assertDoesNotThrow(() -> Validator.validateNames(names));
+    }
+
     static Stream<Arguments> generateInvalidNames() {
         return Stream.of(
                 Arguments.of(Arrays.asList("pobi", "pobi", "woni")),
                 Arguments.of(Arrays.asList("pobi", "jjjjun")),
                 Arguments.of(Arrays.asList("", ""))
+        );
+    }
+
+    static Stream<Arguments> generateValidNames() {
+        return Stream.of(
+                Arguments.of(Arrays.asList("pobi", "woni", "jun")),
+                Arguments.of(Arrays.asList("pobi", "shu")),
+                Arguments.of(Arrays.asList("jjjun", "pobi"))
         );
     }
 }
