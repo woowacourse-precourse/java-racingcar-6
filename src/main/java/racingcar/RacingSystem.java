@@ -23,12 +23,21 @@ public class RacingSystem {
 
     public void inputCarName() {
         String input = write(INPUT_CAR_SENTENCE);
-        checkValidName(input);
+        try {
+            checkValidName(input);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e);
+        }
     }
 
     public void inputTryCount() {
         String input = write(INPUT_CNT_SENTENCE);
-        checkNumber(input);
+        try{
+            checkNumber(input);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e);
+        }
+
     }
 
     private String write(String sentence) {
