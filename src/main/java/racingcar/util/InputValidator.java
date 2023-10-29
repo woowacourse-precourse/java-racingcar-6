@@ -13,12 +13,12 @@ public class InputValidator {
 		}
 	}
 
-	public void isValidTryNumber(String userInput) {
+	public void isValidRoundNumber(String userInput) {
 		if (userInput == null || userInput.isEmpty()) {
-			throw new IllegalArgumentException("시도 횟수가 입력되지 않음.");
+			throw new IllegalArgumentException("라운드 횟수가 입력되지 않음.");
 		}
 		if (Integer.parseInt(userInput) < 1) {
-			throw new IllegalArgumentException("시도 횟수가 1보다 작음.");
+			throw new IllegalArgumentException("라운드 횟수가 1보다 작음.");
 		}
 	}
 }

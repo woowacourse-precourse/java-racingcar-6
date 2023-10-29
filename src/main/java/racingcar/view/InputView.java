@@ -23,12 +23,12 @@ public class InputView {
 		return carNames;
 	}
 
-	public static int inputTryNumber() {
-		OutputView.printMessage(Message.INPUT_TRY_NUMBER_MESSAGE);
+	public static int inputRoundNumber() {
+		OutputView.printMessage(Message.INPUT_ROUND_NUMBER_MESSAGE);
 		String userInput = Console.readLine();
 
 		InputValidator inputValidator = new InputValidator();
-		inputValidator.isValidTryNumber(userInput);
+		inputValidator.isValidRoundNumber(userInput);
 
 		return Integer.parseInt(userInput);
 	}

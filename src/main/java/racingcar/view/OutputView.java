@@ -11,8 +11,8 @@ public class OutputView {
 		printMessage(Message.INPUT_CAR_NAME_MESSAGE);
 	}
 
-	public static void printInputTryNumberMessage() {
-		printMessage(Message.INPUT_TRY_NUMBER_MESSAGE);
+	public static void printInputRoundNumberMessage() {
+		printMessage(Message.INPUT_ROUND_NUMBER_MESSAGE);
 	}
 
 	public static void printGameStartMessage() {
