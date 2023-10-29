@@ -13,4 +13,10 @@ public class InputValidation {
             throw new IllegalArgumentException("자동차의 이름은 5글자를 초과할 수 없습니다.");
         }
     }
+
+    public static void validateInputIsEmpty(String input) {
+        if (input.isEmpty()) {
+            throw new IllegalArgumentException("자동차의 이름은 공백일 수 없습니다.");
+        }
+    }
 }
