@@ -1,4 +1,7 @@
 package racingcar.domain;
+
+import java.util.Map;
+
 /* Car 하나하나 관리 하는 클래스
 *  이름
 *  위치
@@ -7,18 +10,20 @@ package racingcar.domain;
 * */
 public class Car {
     private String carName;
-    private int location;
+    private Map<String, Integer> car;
     public Car(String carName) {
         this.carName = carName;
     }
 
     // 전진 기능
     public void forward() {
-        this.location++;
+        int location = car.get(carName);
+        car.put(carName,++location);
     }
 
     // 후진 기능
     public void backward() {
-        this.location--;
+        int location = car.get(carName);
+        car.put(carName,--location);
     }
 }
