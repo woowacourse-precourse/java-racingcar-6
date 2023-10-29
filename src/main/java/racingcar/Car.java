@@ -21,6 +21,10 @@ public class Car implements Comparable<Car> {
         position++;
     }
 
+    public boolean isNameLongerThenCriteria(int criteria) {
+        return name.length() > criteria;
+    }
+
     @Override
     public int compareTo(Car o) {
         return this.position - o.position;
