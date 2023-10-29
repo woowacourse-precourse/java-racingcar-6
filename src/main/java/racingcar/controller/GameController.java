@@ -88,20 +88,29 @@ public class GameController {
         for (int roundIndex = 0; roundIndex < roundCount; roundIndex++) {
             updateCarPosition();
         }
+        
     }
 
     public void updateCarPosition() {
-        for (int carIndex = 0; carIndex < carCount; carIndex++) {
+        for (int carIndex = 0; carIndex < carCount ; carIndex++) {
             String position = RandomUtils.detarminPostionByRandomNumber();
-            if (car[carIndex].increasePosition(position)) {
+            if(car[carIndex].increasePosition(position)) {
                 stringBuilderToCarPosition(carIndex);
-            }
-            ;
+            };
         }
+        showGameStatus();
     }
 
     public void stringBuilderToCarPosition(int carIndex) {
         builder[carIndex].append("-");
+    }
+
+    public void showGameStatus() {
+        for (int i = 0; i < carCount; i++) {
+            System.out.println(builder[i].toString());
+//            System.out.println(car[i].getPosition());
+        }
+        System.out.println();
     }
 
 

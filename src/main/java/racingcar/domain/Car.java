@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Car {
-    private final String carName;
+    private String carName;
     private int position;
 
     public Car(String carName, int position) {
@@ -20,4 +20,11 @@ public class Car {
         return false;
     }
 
+    public String getCarName() {
+        return carName;
+    }
+
+    public int getPosition() {
+        return position;
+    }
 }
