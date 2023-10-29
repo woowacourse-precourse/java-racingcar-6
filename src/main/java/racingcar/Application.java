@@ -57,4 +57,11 @@ public class Application {
             throw new IllegalArgumentException();
         }
     }
+
+    public static void validatePositiveNumber(String input) {
+        validateNumber(input);
+        if (Integer.parseInt(input) <= 0) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
