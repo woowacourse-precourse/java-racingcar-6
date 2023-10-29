@@ -34,7 +34,7 @@ class TryNumberTest {
         try {
             TryNumber tryNumber = new TryNumber(invalidNumber);
         } catch (IllegalArgumentException e) {
-            assertEquals(SMALLER_THAN_MIN_NUMBER_MESSAGE, e.getMessage());
+            assertEquals(MIN_TRY_NUMBER + SMALLER_THAN_MIN_NUMBER_MESSAGE, e.getMessage());
         }
     }
 }
