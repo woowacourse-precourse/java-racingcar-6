@@ -8,6 +8,5 @@ public class GameMessage {
     public static final String OUTPUT_WINNER_MESSAGE = "최종 우승자 : ";
     public static final String INPUT_DUPLICATE_EXCEPTION_MESSAGE = "자동차 이름은 중복없이 입력해주세요.";
     public static final String INPUT_LENGTH_EXCEPTION_MESSAGE = "자동차 이름은 5자 이하만 가능합니다.";
-
     public static final String INPUT_BLANK_EXCEPTION_MESSAGE = "자동차 이름은 공백 없이 입력해주세요.";
 }
