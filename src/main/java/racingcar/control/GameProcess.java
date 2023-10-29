@@ -137,4 +137,13 @@ public class GameProcess {
         return raceCarOfCurrentList.size();
     }
 
+    public String makeMsgOfCurrentRace() {
+        String result = "";
+
+        for (RaceCar raceCar : raceCarOfCurrentList) {
+            result.concat(raceCar + " : " + raceCar.toStringMoveState() + "\0");
+        }
+
+        return result;
+    }
 }
