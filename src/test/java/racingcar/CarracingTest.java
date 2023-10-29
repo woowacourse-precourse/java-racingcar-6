@@ -32,6 +32,14 @@ class CarracingTest {
         assertThat(expectedResult).isEqualTo("");
     }
 
+    private static boolean checkNull(Map<String, String> nameList) {
+        for (Map.Entry<String, String> entrySet : nameList.entrySet()) {
+            if(entrySet.getValue().equals(null))
+                return true;
+        }
+        return false;
+    }
+
     private static String sumScore(Map<String, String> result) {
         StringBuilder scoreSum = new StringBuilder();
         for (Map.Entry<String, String> entrySet : result.entrySet()) {
