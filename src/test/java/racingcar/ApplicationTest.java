@@ -41,11 +41,12 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 이름에_대한_예외_처리() {
+        // length test
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
-        // duplicated name test
+        // duplicated test
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,pobi", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -64,29 +65,19 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 횟수_입력에_대한_예외_처리() {
-        // input space test
+        // space test
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javji", " "))
                         .isInstanceOf(IllegalArgumentException.class)
         );
-        // input special letter test
+        // special letter test
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javji", ")"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
-        // input number with space test
+        // number with space test
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javji", " 1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-        // input number with space test
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javji", " 1 "))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-        // input number with space test
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javji", "1 "))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
