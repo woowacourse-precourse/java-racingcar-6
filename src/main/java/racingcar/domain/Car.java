@@ -40,4 +40,12 @@ public class Car {
 
         return winners;
     }
+
+    public void checkCarNameLength() {
+        for (String key : getCarList().keySet()) {
+            if (key.length() > 5) {
+                throw new IllegalArgumentException("각 자동자의 이름은 5자 이하여야만 합니다.");
+            }
+        }
+    }
 }
