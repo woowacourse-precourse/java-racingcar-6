@@ -6,6 +6,7 @@ import racingcar.mapper.Delimiter;
 import racingcar.mapper.InputMapper;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 import static racingcar.view.InputView.readNames;
 import static racingcar.view.InputView.readTimes;
@@ -20,7 +21,9 @@ class Controller {
     }
 
     public void run() {
-        start(createCars());
+        Cars cars = createCars();
+        race(cars);
+        showWinner(cars);
     }
 
     private Cars createCars() {
@@ -33,29 +36,24 @@ class Controller {
         return InputMapper.mapToNameList(readNames(delimiter.getName(), delimiter.getShape()));
     }
 
-    private void start(Cars cars) {
-        int maxTimes = getRaceTimes();
+    private void race(Cars cars) {
+        int raceTimes = getRaceTimes();
 
-        race(cars, maxTimes);
+        printResultHeader();
+        IntStream.range(0, raceTimes)
+                .forEach(times -> raceOneTimes(cars));
     }
 
     private int getRaceTimes() {
         return InputMapper.mapToPositiveNumber(readTimes());
     }
 
-    private void race(Cars cars, int maxTimes) {
-        printResultHeader();
-
-        for (int times = 0; times < maxTimes; times++) {
-            raceOneTimes(cars);
-        }
-
-        printWinner(cars.findFrontCarsName());
-    }
-
     private void raceOneTimes(Cars cars) {
         cars.moveAll(policy);
-
         printResult(cars.describeAll());
+    }
+
+    private void showWinner(Cars cars) {
+        printWinner(cars.findFrontCarsName());
     }
 }
