@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.view.Input;
 import racingcar.view.View;
@@ -37,5 +38,13 @@ public class GameController {
         List<String> names = mappingToNames(endCars);
         List<Long> moveCounts = mappingToMoveCounts(endCars);
         view.printResult(names, moveCounts);
+    }
+
+    private List<String> mappingToNames(List<Car> endCars) {
+        List<String> names = new ArrayList<>();
+        for (Car endCar : endCars) {
+            names.add(endCar.getName());
+        }
+        return names;
     }
 }
