@@ -39,9 +39,11 @@ public class Cars {
         return winnerList;
     }
 
-    private Map<Car, Integer> moveResults() {
-        carList.replaceAll((car, v) -> car.getPosition());
+    public CarsDto toCarsDto() {
+        List<CarDto> carDtos = carList.stream()
+                .map(Car::toCarDto)
+                .toList();
 
-        return carList;
+        return new CarsDto(carDtos);
     }
 }
