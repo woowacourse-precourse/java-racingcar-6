@@ -1,0 +1,16 @@
+package racingcar;
+
+import java.util.List;
+
+import camp.nextstep.edu.missionutils.Console;
+
+public class InputHandler {
+    private static final String separator = ",";
+
+    public void carNames() {
+        String carNamesWithSeparator = Console.readLine();
+        String[] tokens = StringManipulator.splitSeparator(carNamesWithSeparator, separator);
+        List<String> carNamesWithoutSeparator = StringManipulator.toList(tokens);
+        System.out.println("tokens = " + carNamesWithoutSeparator.get(1));
+    }
+}
