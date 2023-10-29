@@ -28,7 +28,8 @@ public class OutputView {
     }
 
     public void printResult(String carName, Integer carDistance) {
-        System.out.println(carName + SEPARATOR_COLON + DISTANCE_CHARACTER.repeat(carDistance));
+        System.out.print(carName + SEPARATOR_COLON + DISTANCE_CHARACTER.repeat(carDistance));
+        System.out.print(LINE);
     }
 
     public void printLine() {
