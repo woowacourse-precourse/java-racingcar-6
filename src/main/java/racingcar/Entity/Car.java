@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.Entity;
+
+import racingcar.Util;
 
 public class Car {
     private final String name;
@@ -24,11 +26,11 @@ public class Car {
         return Util.getBooleanByNumber(number);
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 
-    int getStep() {
+    public int getStep() {
         return step;
     }
 }

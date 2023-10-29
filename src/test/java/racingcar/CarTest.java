@@ -2,8 +2,9 @@ package racingcar;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import racingcar.Entity.Car;
 
-import static org.assertj.core.internal.bytebuddy.matcher.ElementMatchers.anyOf;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class CarTest {
 
@@ -12,7 +13,7 @@ class CarTest {
         Car car = new Car("cc", 3);
         car.run();
 
-        Assertions.assertThat(car.getStep()).isIn(3, 4);
+        assertThat(car.getStep()).isIn(3, 4);
     }
 
 }

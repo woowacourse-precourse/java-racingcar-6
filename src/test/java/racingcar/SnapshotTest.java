@@ -1,9 +1,13 @@
 package racingcar;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-
+import racingcar.Entity.Car;
+import racingcar.Entity.Snapshot;
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 
 class SnapshotTest {
 
@@ -18,7 +22,7 @@ class SnapshotTest {
         Snapshot snapshot = new Snapshot(tryCount);
         snapshot.setSnapshot(3, cars);
 
-        Assertions.assertThat(snapshot.printSnapshot(3))
+        assertThat(snapshot.printSnapshot(3))
                 .isEqualTo("car1 : -\ncar2 : \ncar3 : ---\n\n");
     }
 
@@ -26,7 +30,7 @@ class SnapshotTest {
     void printSnapshot_메서드_수행시_존재하지_않는_인덱스_파라미터_예외발생() {
         int tryCount = 1;
         Snapshot snapshot = new Snapshot(tryCount);
-        Assertions.assertThatThrownBy(() -> snapshot.printSnapshot(3))
+        assertThatThrownBy(() -> snapshot.printSnapshot(3))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -34,7 +38,7 @@ class SnapshotTest {
     void printSnapshot_메서드_수행시_인덱스범위_내에서_스냅샷_미존재() {
         int tryCount = 1;
         Snapshot snapshot = new Snapshot(tryCount);
-        Assertions.assertThat(snapshot.printSnapshot(1))
+        assertThat(snapshot.printSnapshot(1))
                 .isEqualTo("no snapshot\n");
     }
 
@@ -49,7 +53,7 @@ class SnapshotTest {
         int raceNumber = 4;
         snapshot.setSnapshot(raceNumber, cars);
 
-        Assertions.assertThat(snapshot.printWinner(raceNumber))
+        assertThat(snapshot.printWinner(raceNumber))
                 .isEqualTo("최종 우승자 : car1, car2");
     }
 }

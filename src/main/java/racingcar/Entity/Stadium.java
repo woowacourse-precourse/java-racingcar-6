@@ -1,8 +1,8 @@
-package racingcar;
+package racingcar.Entity;
 
+import racingcar.Config;
 import racingcar.IO.ConsoleInputOutputHelper;
 import racingcar.IO.InputOutputHelper;
-
 import java.util.ArrayList;
 import java.util.List;
 

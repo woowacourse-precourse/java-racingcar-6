@@ -1,13 +1,14 @@
 package racingcar;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-
+import racingcar.Entity.Car;
+import racingcar.Entity.Stadium;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class StadiumTest {
 
@@ -16,7 +17,7 @@ class StadiumTest {
         Stadium stadium = new Stadium();
         String input = "hundai";
 
-        Assertions.assertThatThrownBy(() -> stadium.saveInputCars(input))
+        assertThatThrownBy(() -> stadium.saveInputCars(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -33,9 +34,9 @@ class StadiumTest {
         stadium.saveInputCars(input);
 
         List<Car> savedCars = stadium.getCars();
-        Assertions.assertThat(nameList.size()).isEqualTo(savedCars.size());
+        assertThat(nameList.size()).isEqualTo(savedCars.size());
         for (int i=0; i<savedCars.size(); i++) {
-            Assertions.assertThat(nameList.get(i)).isEqualTo(cars.get(i).getName());
+            assertThat(nameList.get(i)).isEqualTo(cars.get(i).getName());
         }
     }
 
@@ -45,7 +46,7 @@ class StadiumTest {
         List<String> inputList = List.of("-4", "안녕");
 
         for (String input : inputList) {
-            Assertions.assertThatThrownBy(() -> stadium.saveTryCount(input))
+            assertThatThrownBy(() -> stadium.saveTryCount(input))
                     .isInstanceOf(IllegalArgumentException.class);
         }
     }
