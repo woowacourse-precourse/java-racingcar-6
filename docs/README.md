@@ -8,7 +8,7 @@
   - [] 잘못된 입력 : IllegalArgumentException
 - [X] 자동차 이동 횟수 입력 : Application#inputMoveCount()
   - [X] 잘못된 입력 : IllegalArgumentException
-- [ ] 게임 진행 : GameHost#playOneTurn()
+- [X] 게임 진행 : GameHost#playOneTurn()
   - [X] 자동차 전진 : 0~9의 무작위 값이 4이상일 경우 - Car#moveForward()
   - [X] 게임 진행 정보 확인 : 자동차 이름 , 적산거리 출력 - Car#toString()
 - [ ] 게임 완료 후, 우승자 출력 : GameHost#says()
