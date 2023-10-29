@@ -1,16 +1,9 @@
 package racingcar.io;
 
+import racingcar.constant.Delimiter;
 import racingcar.constant.ErrorMessage;
 
 public class InputValidator {
-
-    private static final String DOUBLE_CAR_NAMES_DELIMITER = ",,";
-    private static final String CAR_NAMES_DELIMITER = ",";
-    private static final String BLANK_AFTER_COMMA = ", ";
-    private static final String BLANK_BEFORE_COMMA = " ,";
-    private static final String BLANK = " ";
-    private static final char MIN_NUMBER = '0';
-    private static final char MAX_NUMBER = '9';
 
     public void validateRacingCarNames(final String input) {
         if (hasInvalidDelimiterUsage(input) || hasInvalidBlankUsage(input)) {
@@ -19,16 +12,20 @@ public class InputValidator {
     }
 
     private boolean hasInvalidDelimiterUsage(final String input) {
-        return input.startsWith(CAR_NAMES_DELIMITER)
-                || input.endsWith(CAR_NAMES_DELIMITER)
-                || input.contains(DOUBLE_CAR_NAMES_DELIMITER);
+        final String comma = Delimiter.COMMA.toExpression();
+
+        return input.startsWith(comma)
+                || input.endsWith(comma)
+                || input.contains(Delimiter.DOUBLE_COMMA.toExpression());
     }
 
     private boolean hasInvalidBlankUsage(final String input) {
-        return input.startsWith(BLANK)
-                || input.endsWith(BLANK)
-                || input.contains(BLANK_AFTER_COMMA)
-                || input.contains(BLANK_BEFORE_COMMA);
+        final String blank = Delimiter.BLANK.toExpression();
+
+        return input.startsWith(blank)
+                || input.endsWith(blank)
+                || input.contains(Delimiter.BLANK_AFTER_COMMA.toExpression())
+                || input.contains(Delimiter.BLANK_BEFORE_COMMA.toExpression());
     }
 
     public void validateTryCount(final String input) {
@@ -38,10 +35,6 @@ public class InputValidator {
     }
 
     private boolean hasNonNumeric(final String input) {
-        return input.chars().anyMatch(this::isNotNumeric);
-    }
-
-    private boolean isNotNumeric(final int element) {
-        return MIN_NUMBER > element || element > MAX_NUMBER;
+        return !input.chars().allMatch(Character::isDigit);
     }
 }

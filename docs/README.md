@@ -115,6 +115,7 @@
 - ProgressMessage: 진행 메시지를 가진다
 - ErrorMessage: 예외사항 메시지를 가진다
 - MoveStatus: 움직임 여부를 가진다
+- Delimiter: 구분자 문자열을 가진다
 
 ## 테스트 목록
 

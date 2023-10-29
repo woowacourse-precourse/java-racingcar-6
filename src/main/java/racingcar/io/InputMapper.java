@@ -1,5 +1,6 @@
 package racingcar.io;
 
+import racingcar.constant.Delimiter;
 import racingcar.domain.Name;
 import racingcar.domain.RacingCar;
 import racingcar.domain.RacingCars;
@@ -10,10 +11,8 @@ import java.util.stream.Collectors;
 
 public class InputMapper {
 
-    private static final String RACING_CAR_NAMES_DELIMITER = ",";
-
     public RacingCars toRacingCars(final String input) {
-        return Arrays.stream(input.split(RACING_CAR_NAMES_DELIMITER))
+        return Arrays.stream(input.split(Delimiter.COMMA.toExpression()))
                 .map(Name::new)
                 .map(RacingCar::new)
                 .collect(Collectors.collectingAndThen(Collectors.toList(), RacingCars::new));
