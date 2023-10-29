@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.ArrayList;
+
 public class GameTest {
 	// given
 	final Game game = new Game();
@@ -48,4 +50,31 @@ public class GameTest {
 			game.intValidator(userInput);
 		}).isInstanceOf(IllegalArgumentException.class);
 	}
+
+	@DisplayName("이동 횟수가 가장 많은 사람의 인덱스 확인")
+	@Test
+	void findWinnerIndex() {
+		// given
+		final int[] moveCount = { 1, 5, 2 };
+
+		// when
+		final ArrayList<Integer> result = game.findMaxIndex(moveCount);
+
+		// then
+		assertThat(result).containsExactly(1);
+	}
+
+	@DisplayName("이동 횟수가 가장 많은 사람이 두명일 경우 인덱스 확인")
+	@Test
+	void findWinnerIndices() {
+		// given
+		final int[] moveCount = { 1, 5, 5, 2 };
+
+		// when
+		final ArrayList<Integer> result = game.findMaxIndex(moveCount);
+
+		// then
+		assertThat(result).containsExactly(1, 2);
+	}
+
 }
