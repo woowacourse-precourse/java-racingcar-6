@@ -17,6 +17,10 @@ public class Game {
         return tryChance;
     }
 
+    public Cars getCars() {
+        return carList;
+    }
+
     public Map<String, Integer> getGameResult() {
         return gameResult;
     }

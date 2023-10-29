@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
+import racingcar.Cars;
 import racingcar.Game;
 import racingcar.view.OutputView;
 
@@ -26,6 +28,10 @@ public class GameOutputController {
         outputView.showOneRound(game.getGameResult());
     }
 
-    //TODO: 최종 우승자 출력 요청
+    public void printWinner() {
+        Cars cars = game.getCars();
+        ArrayList<String> winners = cars.findWinners();
+        outputView.showWinners(winners);
+    }
 
 }
