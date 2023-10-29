@@ -11,6 +11,13 @@ public class Cars {
         this.cars = cars;
     }
 
+    public void playSingleTurn(){
+        for (Car car : cars) {
+            car.move();
+        }
+    }
+
+
 
 
 }
