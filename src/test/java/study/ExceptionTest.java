@@ -37,4 +37,14 @@ public class ExceptionTest {
         assertThatThrownBy(() -> racingException.validateLastCharIsComma(inputStr))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    public void 자동차_이름_5자이상() {
+        // given
+        String inputStr = "포비포비포비,수현수현,수민";
+
+        // when , then
+        assertThatThrownBy(() -> racingException.validateCarNameLen(inputStr))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
