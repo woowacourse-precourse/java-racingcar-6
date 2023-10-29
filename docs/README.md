@@ -6,7 +6,7 @@
   - [x] 5자 이하의 이름이 아니면 잘못된 값으로 판단한다. - findCarListError(String[] carList)
   - [x] 우승 자동차를 구분하기 위해 ""입력 또는 White Space(공백 문자)는 잘못된 값으로 판단한다. - makeCarList() 
   - [x] 우승 자동차를 구분하기 위해 이름이 없는 자동차는 잘못된 값으로 판단한다. - findCarListError(String[] carList)
-  - [ ] 우승 자동차를 구분하기 위해 중복된 이름의 자동차는 잘못된 값으로 판단한다.<br><br>
+  - [x] 우승 자동차를 구분하기 위해 중복된 이름의 자동차는 잘못된 값으로 판단한다. - findCarListError(String[] carList)<br><br>
 
 - [ ] 이동할 회차를 입력 받아 회차를 진행한다.
   - [ ] 1이상 정수가 아니면 잘못된 값으로 판단한다.

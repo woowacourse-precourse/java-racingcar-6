@@ -10,7 +10,7 @@ public class Application {
     public static void findCarListError(String[] carList) {
         Set<String> uniqueCar = new HashSet<>();
         for (int i = 0; i < carList.length; i++) {
-            if (carList[i].length() > 5 || carList[i] == "") {
+            if (carList[i].length() > 5 || carList[i] == "" || !uniqueCar.add(carList[i])) {
                 throw new IllegalArgumentException();
             }
         }
