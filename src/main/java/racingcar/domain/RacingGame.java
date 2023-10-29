@@ -27,4 +27,8 @@ public class RacingGame {
         int randomNumber = pickNumberInRange(START_NUMBER, END_NUMBER);
         return DRIVE_MIN_NUMBER <= randomNumber;
     }
+
+    public WinnerNames getWinnerNames() {
+        return cars.getWinnerNames();
+    }
 }

@@ -25,4 +25,29 @@ public class Cars {
             car.drive();
         }
     }
+
+    public WinnerNames getWinnerNames() {
+        List<String> winnerNames = new ArrayList<>();
+        int maxDriveCount = 0;
+
+        for (Car car : cars) {
+            CarStatus status = car.getStatus();
+            int driveCount = status.getDriveCount();
+
+            if (driveCount < maxDriveCount) {
+                continue;
+            }
+
+            String name = status.getName();
+
+            if (maxDriveCount < driveCount) {
+                maxDriveCount = driveCount;
+                winnerNames.clear();
+            }
+
+            winnerNames.add(name);
+        }
+
+        return new WinnerNames(winnerNames);
+    }
 }
