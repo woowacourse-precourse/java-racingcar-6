@@ -13,7 +13,7 @@ public class OutputCarRaceTest extends PrintTest{
         INPUT_CAR_RACING_COUNT_PRINT("시도할 회수는 몇회인가요?"),
 
         OUPUT_RACE_RESULT_PRINT("실행 결과"),
-        OUPUT_IMPLEMENTATION_RESULT_PRINT("%s :");
+        OUPUT_IMPLEMENTATION_RESULT_PRINT("%s : %s");
 
         private final String value;
 
@@ -77,8 +77,8 @@ public class OutputCarRaceTest extends PrintTest{
 
     @Test
     void 자동차_이름들_출력_정상(){
-        String format = format(MessageType.OUPUT_IMPLEMENTATION_RESULT_PRINT.getValue(), 차이름);
-        OutputCarRace.printf(MessageType.OUPUT_IMPLEMENTATION_RESULT_PRINT, 차이름);
+        String format = format(MessageType.OUPUT_IMPLEMENTATION_RESULT_PRINT.getValue(), 차이름, "");
+        OutputCarRace.printf(MessageType.OUPUT_IMPLEMENTATION_RESULT_PRINT, 차이름, "");
 
         assertThat(outputf(차이름)).contains(format);
     }
