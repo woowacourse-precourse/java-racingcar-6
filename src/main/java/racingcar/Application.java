@@ -59,6 +59,10 @@ public class Application {
                carStatus.put(carName,carStatus.get(carName)+"-");
             }
         }
+        MoviecarStatus();
+    }
+
+    private void MoviecarStatus(){
         for (String carName : carStatus.keySet()) {
             System.out.println(carName + " : " + carStatus.get(carName));
         }
