@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import static racingcar.utils.Parser.COMMA;
+import static racingcar.utils.Parser.removeSpacesBetweenCommas;
 
 public class InputValidator {
 
@@ -40,10 +41,11 @@ public class InputValidator {
 
 
     private static void validateSplitComma(String input) {
-        if (input.endsWith(COMMA)) {
+        String names = removeSpacesBetweenCommas(input);
+        if (names.endsWith(COMMA)) {
             throw new IllegalArgumentException(LAST_COMMA_ERROR);
         }
-        if (!input.matches(COMMA_PATTERN)) {
+        if (!names.matches(COMMA_PATTERN)) {
             throw new IllegalArgumentException(COMMA_ERROR);
         }
     }
