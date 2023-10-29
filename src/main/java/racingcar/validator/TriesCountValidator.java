@@ -1,5 +1,7 @@
 package racingcar.validator;
 
+import static racingcar.validator.ErrorMessage.*;
+
 public class TriesCountValidator {
     public int validateAndGetTriesCount(String userInput) {
         userInput = removeWhiteSpace(userInput);
@@ -11,7 +13,7 @@ public class TriesCountValidator {
 
     private void validateNotEmpty(String userInput){
         if(userInput.isEmpty()){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(INVALID_NULL.getMessage());
         }
     }
 
@@ -19,13 +21,13 @@ public class TriesCountValidator {
         try {
             return Integer.parseInt(userInput);
         } catch (Exception e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(INVALID_INTEGER.getMessage());
         }
     }
 
     private void validatePositive(int number){
         if(number<=0){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(INVALID_POSITIVE.getMessage());
         }
     }
 
