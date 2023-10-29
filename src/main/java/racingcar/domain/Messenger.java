@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.stream.Collectors;
+import racingcar.dto.CarNamesDto;
 import racingcar.dto.CarsInformationDto;
 
 public class Messenger {
@@ -44,6 +45,11 @@ public class Messenger {
                 });
         stringBuilder.append(NEXT_LINE);
         return stringBuilder.toString();
+    }
+
+    public String getWinners(CarNamesDto carNamesDto) {
+        String winners = String.join(WINNERS_DELIMITER, carNamesDto.names());
+        return String.format(WINNER_FORMAT, winners);
     }
 
 }

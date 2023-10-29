@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Messenger;
 import racingcar.dto.CarInformationDto;
+import racingcar.dto.CarNamesDto;
 import racingcar.dto.CarsInformationDto;
 
 public class MessengerTest {
@@ -61,6 +62,38 @@ public class MessengerTest {
         // when
         String expectedString = "차1 : \n차2 : -\n차3 : --\n차4 : ---\n\n";
         String string = messenger.getRoundResult(carsInformationDto);
+
+        // then
+        Assertions.assertEquals(string, expectedString);
+    }
+
+    @Test
+    @DisplayName("최종 우승자가 한 명일 때, 메시지를 올바르게 반환한다.")
+    void winner() {
+        // given
+        CarNamesDto carNamesDto = new CarNamesDto(
+                List.of("차1")
+        );
+
+        // when
+        String expectedString = "최종 우승자 : 차1\n";
+        String string = messenger.getWinners(carNamesDto);
+
+        // then
+        Assertions.assertEquals(string, expectedString);
+    }
+
+    @Test
+    @DisplayName("최종 우승자가 여러 명일 때, 메시지를 올바르게 반환한다.")
+    void winners() {
+        // given
+        CarNamesDto carNamesDto = new CarNamesDto(
+                List.of("차1", "차2")
+        );
+
+        // when
+        String expectedString = "최종 우승자 : 차1, 차2\n";
+        String string = messenger.getWinners(carNamesDto);
 
         // then
         Assertions.assertEquals(string, expectedString);

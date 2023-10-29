@@ -106,7 +106,7 @@
 - [x] 라운드 결과 반환
     - `CAR_INFORMATION_FORMAT` : 차 정보 메시지 : `%s : %s`
     - `CAR_POSITION_PRESENTER` : 차 위치 표현자 : `-`
-- [ ] 최종 우승자 메시지 반환
+- [x] 최종 우승자 메시지 반환
     - `WINNER_FORMAT` : `최종 우승자 : %s`
     - `WINNERS_DELIMITER` :  : `, `
 
