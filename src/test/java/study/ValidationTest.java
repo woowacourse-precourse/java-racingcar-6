@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.property.ErrorProperty;
+import racingcar.property.ValidateProperty;
 import racingcar.validation.InputValidation;
 import racingcar.validation.NameValidation;
 
@@ -42,5 +43,18 @@ public class ValidationTest {
             NameValidation.verifyForRacerNameIsEngOrKor(inputValue);
         }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorProperty.NAME_VALUE_IS_NOT_CORRECT_FORM);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"테스트유저1","testuser2"})
+    void 이름_입력_값_길이_초과_검증_로직_테스트(String inputValue){
+        //given
+        Integer nameStandardLength = ValidateProperty.NAME_LENGTH_STANDARD;
+
+        //when
+        assertThatThrownBy(()->{
+            NameValidation.verifyForRacerNameIsLengthNotOver(inputValue);
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ErrorProperty.NAME_VALUE_LENGTH_IS_OVER);
     }
 }
