@@ -5,8 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.*;
 
@@ -38,6 +37,7 @@ class GameTest {
         try (MockedStatic<Console> mockedStatic = mockStatic(Console.class)) {
             when(Console.readLine()).thenReturn(input);
             assertThat(game.inputCarNames()).isEqualTo(output);
+            mockedStatic.verify(Console::readLine, times(1));
         }
     }
 
@@ -50,6 +50,7 @@ class GameTest {
             assertThatThrownBy(() -> game.inputCarNames())
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessageContaining("Not valid input: car names");
+            mockedStatic.verify(Console::readLine, times(1));
         }
     }
 
@@ -62,15 +63,36 @@ class GameTest {
             assertThatThrownBy(() -> game.inputCarNames())
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessageContaining("Not valid input: car names");
+            mockedStatic.verify(Console::readLine, times(1));
         }
     }
 
     @Test
     void inputGameTurns() {
+        String input = "10";
+
+        try(MockedStatic<Console> mockedStatic = mockStatic(Console.class)) {
+            when(Console.readLine()).thenReturn(input);
+            assertThatCode(() -> game.inputGameTurns()).doesNotThrowAnyException();
+            mockedStatic.verify(Console::readLine, times(1));
+        }
     }
 
     @Test
-    void inputGameTurns_ThrownByIllegalArgumentException() {
+    void inputGameTurns_Exception_NotNumber() {
+        String input = "...";
+
+        try(MockedStatic<Console> mockedStatic = mockStatic(Console.class)) {
+            when(Console.readLine()).thenReturn(input);
+            assertThatThrownBy(() -> game.inputGameTurns())
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessageContaining("Not valid input: game turn number");
+            mockedStatic.verify(Console::readLine, times(1));
+        }
+    }
+
+    @Test
+    void inputGameTurns_Exception_NegativeNumber() {
     }
 
     @Test
