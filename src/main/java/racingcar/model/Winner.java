@@ -6,15 +6,21 @@ import java.util.Arrays;
 
 public class Winner {
     private ArrayList<String> winnerList = new ArrayList<>();
-    public void decideWinner(int[] ranking, ArrayList<String> cars){
-        for(int i = 0; i < ranking.length; i++){
-            if(ranking[i] == Arrays.stream(ranking).max().getAsInt()){
-                winnerList.add(cars.get(i));
+
+    public void decideWinner(int[] ranking, ArrayList<String> cars) {
+        for (int idx = 0; idx < ranking.length; idx++) {
+            if (ranking[idx] == Arrays.stream(ranking).max().getAsInt()) {
+                addToWinnerList(cars, idx);
             }
         }
     }
 
-    public ArrayList<String> getWinnerList(){
+    public void addToWinnerList(ArrayList<String> cars, int idx) {
+        winnerList.add(cars.get(idx));
+    }
+
+
+    public ArrayList<String> getWinnerList() {
         return winnerList;
     }
 }
