@@ -14,10 +14,4 @@ public class Racing {
         this.cars = new Cars(carList);
     }
 
-    private static List<Car> getCarList(List<CarName> carNameList) {
-        return carNameList.stream()
-                .map(Car::new)
-                .toList();
-    }
-
 }
