@@ -1,12 +1,9 @@
 package racingcar.util;
 
 public class RacingCountValidator {
-    private final String regex = "^[0-9]+$";
+    private final String regex = "[0-9]+";
     public boolean check(String racingCount) {
-        if(isNull(racingCount) && isSize(racingCount) && isNumber(racingCount)){
-            return true;
-        }
-        throw new IllegalArgumentException("잘못된 시도 횟수를 입력하였습니다.");
+        return isNull(racingCount) && isSize(racingCount) && isNumber(racingCount);
     }
 
     private boolean isNumber(String racingCount) {

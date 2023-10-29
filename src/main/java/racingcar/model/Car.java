@@ -25,4 +25,9 @@ public class Car {
     public String getMove() {
         return move;
     }
+
+    @Override
+    public String toString() {
+        return name + " : " + move;
+    }
 }

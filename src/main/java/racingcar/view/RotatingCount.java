@@ -10,7 +10,7 @@ public class RotatingCount {
         if(racingCountValidator.check(racingCount)){
             return  stoi(racingCount);
         }
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("잘못된 입력 입니다.");
     }
 
     private int stoi(String racingCount){
