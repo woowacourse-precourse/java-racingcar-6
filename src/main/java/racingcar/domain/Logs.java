@@ -18,7 +18,7 @@ public class Logs {
     }
 
     public static void getGameResult() {
-        System.out.println("실행결과");
+        System.out.println("실행 결과");
     }
 
     public static void car(Car car) {

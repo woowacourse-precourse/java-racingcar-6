@@ -19,7 +19,7 @@ class GameTest {
     private Game game;
     private MockedStatic<Console> consoleMockedStatic;
     private MockedStatic<RandomMaker> randomMakerMockedStatic;
-    private String carNamesInput, gameTurnsInput;
+    private String carNamesInput, gameTurnsInput, expectedLog;
     private Integer[] randomArray;
     private OutputStream captor;
 
@@ -39,24 +39,75 @@ class GameTest {
         carNamesInput = "pobi,woni,jun";
         gameTurnsInput = "5";
 
-        String expectedLog = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)" + System.lineSeparator()
+        expectedLog = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)" + System.lineSeparator()
                 + "시도할 회수는 몇회인가요?" + System.lineSeparator()
                 + System.lineSeparator();
 
         when(Console.readLine()).thenReturn(carNamesInput, gameTurnsInput);
 
         assertThatCode(() -> game.init()).doesNotThrowAnyException();
-        consoleMockedStatic.verify(Console::readLine, times(2));
         assertThat(captor.toString()).isEqualTo(expectedLog);
+        consoleMockedStatic.verify(Console::readLine, times(2));
     }
 
     @Test
     void run() {
+        carNamesInput = "pobi,woni,jun";
+        gameTurnsInput = "5";
 
+        randomArray = new Integer[] {STOP, GO};
+
+        expectedLog = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)" + System.lineSeparator()
+                + "시도할 회수는 몇회인가요?" + System.lineSeparator()
+                + System.lineSeparator()
+                + "실행 결과" + System.lineSeparator()
+                + "pobi : -" + System.lineSeparator() +  "woni : " + System.lineSeparator() +  "jun : -" + System.lineSeparator() + System.lineSeparator()
+                + "pobi : --" + System.lineSeparator() + "woni : -" + System.lineSeparator() + "jun : --" + System.lineSeparator() + System.lineSeparator()
+                + "pobi : ---" + System.lineSeparator() + "woni : --" + System.lineSeparator() + "jun : ---" + System.lineSeparator() + System.lineSeparator()
+                + "pobi : ----" + System.lineSeparator() + "woni : ---" + System.lineSeparator() + "jun : ----" + System.lineSeparator() + System.lineSeparator()
+                + "pobi : -----" + System.lineSeparator() + "woni : ----" + System.lineSeparator() + "jun : -----" + System.lineSeparator() + System.lineSeparator();
+
+        when(Console.readLine()).thenReturn(carNamesInput, gameTurnsInput);
+        when(RandomMaker.makeRandomNumber()).thenReturn(GO, randomArray);
+
+        assertThatCode(() -> {
+            game.init();
+            game.run();
+        }).doesNotThrowAnyException();
+        assertThat(captor.toString()).isEqualTo(expectedLog);
+        consoleMockedStatic.verify(Console::readLine, times(2));
+        randomMakerMockedStatic.verify(RandomMaker::makeRandomNumber, times(15));
     }
 
     @Test
     void finish() {
+        carNamesInput = "pobi,woni,jun";
+        gameTurnsInput = "5";
+
+        randomArray = new Integer[] {STOP, GO};
+
+        expectedLog = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)" + System.lineSeparator()
+                + "시도할 회수는 몇회인가요?" + System.lineSeparator()
+                + System.lineSeparator()
+                + "실행 결과" + System.lineSeparator()
+                + "pobi : -" + System.lineSeparator() +  "woni : " + System.lineSeparator() +  "jun : -" + System.lineSeparator() + System.lineSeparator()
+                + "pobi : --" + System.lineSeparator() + "woni : -" + System.lineSeparator() + "jun : --" + System.lineSeparator() + System.lineSeparator()
+                + "pobi : ---" + System.lineSeparator() + "woni : --" + System.lineSeparator() + "jun : ---" + System.lineSeparator() + System.lineSeparator()
+                + "pobi : ----" + System.lineSeparator() + "woni : ---" + System.lineSeparator() + "jun : ----" + System.lineSeparator() + System.lineSeparator()
+                + "pobi : -----" + System.lineSeparator() + "woni : ----" + System.lineSeparator() + "jun : -----" + System.lineSeparator() + System.lineSeparator()
+                + "최종 우승자 : pobi, jun" + System.lineSeparator();
+
+        when(Console.readLine()).thenReturn(carNamesInput, gameTurnsInput);
+        when(RandomMaker.makeRandomNumber()).thenReturn(GO, randomArray);
+
+        assertThatCode(() -> {
+            game.init();
+            game.run();
+            game.finish();
+        }).doesNotThrowAnyException();
+        assertThat(captor.toString()).isEqualTo(expectedLog);
+        consoleMockedStatic.verify(Console::readLine, times(2));
+        randomMakerMockedStatic.verify(RandomMaker::makeRandomNumber, times(15));
     }
 
     @Test

@@ -42,7 +42,7 @@ class LogsTest {
 
     @Test
     void getGameResult() {
-        String log = "실행결과" + System.lineSeparator();
+        String log = "실행 결과" + System.lineSeparator();
         Logs.getGameResult();
         assertThat(captor.toString()).isEqualTo(log);
     }
