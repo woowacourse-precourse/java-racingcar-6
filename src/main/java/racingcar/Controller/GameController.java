@@ -38,6 +38,8 @@ public class GameController {
 
             throwDiceAndGoForward();
         }
+
+        carController.printDistance();
     }
 
     private void throwDiceAndGoForward() {
