@@ -29,9 +29,11 @@ public class InputValidator {
     }
 
     public static void validateInputCarNameLength(final String input) {
-        try {
-            Integer.parseInt(input);
-        } catch (Exception e) {
+        long count = Arrays.stream(input.split(","))
+                .filter(str -> str.length() > 5)
+                .count();
+
+        if (count > 0) {
             throw new IllegalArgumentException(Constants.WRONG_INPUT_CAR_NAME_LENGTH_MESSAGE);
         }
     }
@@ -48,7 +50,7 @@ public class InputValidator {
                     .count();
         }
 
-        if (countDuplicate > 0) {
+        if (countDuplicate > 1) {
             throw new IllegalArgumentException(Constants.WRONG_INPUT_CAR_NAME_DUPLICATION_MESSAGE);
         }
     }
