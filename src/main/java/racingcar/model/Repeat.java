@@ -1,9 +1,9 @@
 package racingcar.model;
 
-public class RepeatNum {
-    public int repeatNum;
+public class Repeat {
+    private int repeatNum;
 
-    public RepeatNum(String inputRepeat) {
+    public Repeat(String inputRepeat) {
         this.repeatNum = createRepeatNum(inputRepeat);
     }
 
