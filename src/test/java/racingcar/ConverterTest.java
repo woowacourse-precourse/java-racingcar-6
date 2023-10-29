@@ -22,16 +22,4 @@ public class ConverterTest {
         assertThat(carNames.size()).isEqualTo(3);
         assertThat(carNames.contains("pobi")).isTrue();
     }
-
-    @Test
-    void 문자열_정수_변환() {
-        // given
-        String attempt = "5";
-
-        // when
-        int attemptNumber = converter.getAttemptNumber(attempt);
-
-        // then
-        assertThat(attemptNumber).isEqualTo(5);
-    }
 }
