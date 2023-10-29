@@ -12,7 +12,7 @@ public class ValidatorTest {
     }
     @Test
     void 정해진_형식대로_입력하면_에러없이_동작한다(){
-        String correctInput = "poby,crong,winter";
+        String correctInput = "poby,crong,ahrin";
         Assertions.assertDoesNotThrow(()->validator.validateUserInputIsCorrectFormat(correctInput));
     }
     @Test
