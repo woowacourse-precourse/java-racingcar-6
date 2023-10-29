@@ -38,13 +38,10 @@ public class OutputView {
         System.out.println(gameProgress);
     }
 
-    public void printWinner(List<Car> cars) {
+    public void printWinner(List<String> cars) {
         final String DELIMITER = ", ";
 
-        String winnerMessage = cars.stream()
-                .map(Car::getName)
-                .collect(Collectors.joining(DELIMITER));
-
-        System.out.println(WINNER_MESSAGE + SEPARATOR + winnerMessage);
+        String winners = String.join(DELIMITER, cars);
+        System.out.println(WINNER_MESSAGE + SEPARATOR + winners);
     }
 }

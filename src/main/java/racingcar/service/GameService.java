@@ -1,11 +1,22 @@
-package racingcar.domain;
+package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.domain.Car;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class GameService {
+
+    public void moveCars(List<Car> cars) {
+
+        cars.forEach(car -> {
+            int randomNumber = makeRandomNumberForMove();
+            if (isMove(randomNumber)) {
+                car.move();
+            }
+        });
+    }
 
     public List<String> findWinner(List<Car> cars) {
 
