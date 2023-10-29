@@ -8,6 +8,7 @@ import java.util.List;
 public class Race {
 
     private static final int NOT_HAVE_SAME_NAMES = 0;
+    private static final int KEY_VALUE = 4;
 
     private Integer gameCount;
     private final List<Car> cars = new ArrayList<>();
@@ -57,7 +58,14 @@ public class Race {
         for (int i = 0; i < gameCount; i++) {
             for (Car car : cars) {
                 int randomNumber = NumberGenerator.createRandomNumber();
+                compareNumberAndMove(car, randomNumber);
             }
+        }
+    }
+
+    private void compareNumberAndMove(Car car, int randomNumber) {
+        if (randomNumber >= KEY_VALUE) {
+            car.moveForward();
         }
     }
 }

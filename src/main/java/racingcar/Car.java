@@ -16,4 +16,8 @@ public class Car {
         return inputName.equals(name);
     }
 
+    public void moveForward() {
+        forwardCount++;
+    }
+
 }
