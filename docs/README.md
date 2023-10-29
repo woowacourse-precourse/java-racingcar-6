@@ -6,7 +6,7 @@
   - [X] 이름은 5자이하 가능 : Car#checkCharacterLimit()
   - [X] 게임에 자동차 추가 : GameHost.addCars() 
   - [] 잘못된 입력 : IllegalArgumentException
-- [ ] 자동차 이동 횟수 입력 : Application#inputMoveCount()
+- [X] 자동차 이동 횟수 입력 : Application#inputMoveCount()
   - [X] 잘못된 입력 : IllegalArgumentException
 - [ ] 게임 진행 : GameHost#playOneTurn()
   - [X] 자동차 전진 : 0~9의 무작위 값이 4이상일 경우 - Car#moveForward()

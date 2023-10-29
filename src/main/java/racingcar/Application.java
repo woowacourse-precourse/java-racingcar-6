@@ -24,7 +24,11 @@ public class Application {
     }
 
     private static int inputMoveCount() {
-        return 0;
+        try {
+            return Integer.parseInt(Console.readLine());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("반복횟수는 정수로 입력하세요");
+        }
     }
 
     private static Collection<Car> inputCarNames() {
