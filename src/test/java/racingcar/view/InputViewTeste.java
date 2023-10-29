@@ -10,7 +10,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-class InputViewTeste {
+class InputViewTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"Car A,car B", " Car A,car B "})
