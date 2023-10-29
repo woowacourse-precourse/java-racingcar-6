@@ -117,11 +117,12 @@ class CarRepositoryTest {
         @DisplayName("데이터베이스를 성공적으로 초기화 해야 한다")
         public void 데이터베이스를_성공적으로_초기화_해야_한다() {
             CarRepository carRepository = new CarRepository();
+            Car car = mock(Car.class);
             carRepository.clear();
 
-            carRepository.save(any());
-            carRepository.save(any());
-            carRepository.save(any());
+            carRepository.save(car);
+            carRepository.save(car);
+            carRepository.save(car);
 
             assertThat(carRepository.findAll().size()).isEqualTo(3);
 
