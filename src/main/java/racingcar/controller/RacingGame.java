@@ -9,17 +9,16 @@ import racingcar.view.OutputView;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class RacingGame {
 
     public void start() {
-        String carNamesInput = inputAndValidateCarNames();
+        List<String> carNames = inputAndValidateCarNames();
         int roundCount = inputAndValidateRound();
 
         OutputView.printRacingResult();
 
-        Race race = new Race(createCars(carNamesInput), new RandomMoveStrategy());
+        Race race = new Race(createCars(carNames), new RandomMoveStrategy());
 
         for (int currentRound = 0; currentRound < roundCount; currentRound++) {
             race.executeOneRound();
@@ -29,11 +28,12 @@ public class RacingGame {
         OutputView.printRacingWinner(race.getWinners());
     }
 
-    private String inputAndValidateCarNames() {
+    private List<String> inputAndValidateCarNames() {
         String carNamesInput = InputView.inputCarNames();
         InputValidator.validateCarNames(carNamesInput);
 
-        return carNamesInput;
+        return Arrays.stream(carNamesInput.split(","))
+                .toList();
     }
 
     private int inputAndValidateRound() {
@@ -43,9 +43,9 @@ public class RacingGame {
         return Integer.parseInt(roundInput);
     }
 
-    private List<Car> createCars(String input) {
-        return Arrays.stream(input.split(","))
+    private List<Car> createCars(List<String> carNames) {
+        return carNames.stream()
                 .map(Car::new)
-                .collect(Collectors.toList());
+                .toList();
     }
 }
