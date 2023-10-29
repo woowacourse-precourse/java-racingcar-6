@@ -1,9 +1,18 @@
 package racingcar.model;
 
-public interface Car {
-    public void move();
-
-    public String getName();
-
-    public int getPosition();
+public class Car {
+    private int position = 0;
+    private String name;
+    public Car(String name) {
+        this.name = name;
+    }
+    public int getPosition() {
+        return position;
+    }
+    public String getName() {
+        return name;
+    }
+    public void move() {
+        position++;
+    }
 }
