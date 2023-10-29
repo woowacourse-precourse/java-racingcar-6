@@ -10,6 +10,7 @@ import java.util.List;
 
 public class RacingCarService {
     private final Cars cars;
+    private int tryNumber;
     private final Judge judge;
     private final RandomNumberGenerator randomNumberGenerator;
 
@@ -26,5 +27,9 @@ public class RacingCarService {
     public void insertCarNames(String carNames) {
         List<String> names = StringManipulator.split(carNames);
         cars.insertCarsNames(names);
+    }
+
+    public void insertTryNumber(String inputNumber) {
+        tryNumber = Integer.parseInt(inputNumber);
     }
 }
