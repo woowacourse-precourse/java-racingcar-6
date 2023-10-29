@@ -14,8 +14,7 @@
 - [☑️✅] 시도 횟수를 입력받는다. - inputAttemptCount()
 - [☑️✅] 입력받은 시도 횟수를 검증한다. - validateAttemptNumber()
     - [☑️] 사용자가 공백을 입력했을 경우 예외 발생 - checkNonBlank
-    - [☑️] 사용자가 숫자가 아닌 문자를 입력했을 경우 예외 발생 - checkInteger()
-    - [☑️] 사용자가 소수를 입력했을 경우 예외 발생 - checkNonDecimal()
+    - [☑️] 사용자가 숫자가 아닌 문자(실수 등)를 입력했을 경우 예외 발생 - checkInteger()
     - [☑️] 사용자가 0 이하의 수(음수 포함)를 입력했을 경우 예외 발생 - checkPositiveNumber()
 - [☑️] 0에서 9사이의 무작위 값을 구한다. - createRandomNumber()
 - [☑️] 무작위 값이 4 이상일 경우 앞으로 움직인다. - moveCar()
