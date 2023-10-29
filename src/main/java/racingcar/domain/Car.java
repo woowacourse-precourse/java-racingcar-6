@@ -63,17 +63,6 @@ public class Car {
         }
     }
 
-    public void checkCarNameDuplicate() {
-        HashSet<String> unduplicatedCarList = new HashSet<>();
-        for (String key : getCarList().keySet()) {
-            unduplicatedCarList.add(key);
-        }
-
-        if (unduplicatedCarList.size() != getCarList().size()) {
-            throw new IllegalArgumentException("자동자의 이름은 중복되지 않아야 합니다.");
-        }
-    }
-
     public void checkCarNameFirstLetterIsSpace() {
         for (String key : getCarList().keySet()) {
             if (key.charAt(0) == ' ') {
