@@ -19,4 +19,9 @@ public class UserInput {
         }
     }
 
+    public static String[] inputCarNames() {
+        String userInput = readLine();
+        return carNamesValidation(userInput);
+    }
+
 }
