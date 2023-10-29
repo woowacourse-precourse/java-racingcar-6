@@ -20,6 +20,12 @@ public class InputValidatorTest {
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessage(EMPTY_STRING_ERROR.getMessage());
     }
+    @Test
+    public void 자동차_이름이_중복되는_경우_예외_발생() {
+        assertThatThrownBy(() -> inputValidator.validateCarName("a,bc,ab,ab,a"))
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessage(DUPLICATE_CAR_NAME_ERROR.getMessage());
+    }
 
     @Test
     public void 자동차_이름이_5글자_초과인_경우_예외_발생() {
@@ -29,7 +35,7 @@ public class InputValidatorTest {
     }
     @Test
     public void 자동차_이름은_공백을_포함하면_제거하고_5글자를_판단한다() {
-        final String carName = "abcde ,a b c d e, abc d e, abc     de";
+        final String carName = "abce ,a  c d e, bc d e, a     de";
         inputValidator.validateCarName(carName);
     }
 
