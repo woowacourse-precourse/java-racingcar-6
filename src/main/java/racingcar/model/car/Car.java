@@ -14,12 +14,12 @@ public class Car {
     private final Comparator<Car> comparator = new OrderByPosition();
 
     protected final String name;
-    protected Integer currentPosition;
+    protected Long currentPosition;
 
     public Car(String name) {
         validate(name);
         this.name = name;
-        this.currentPosition = 0;
+        this.currentPosition = 0L;
     }
 
     public void move() {
@@ -29,7 +29,6 @@ public class Car {
     }
 
     private void validate(String value) {
-        //TODO: 다른 방식으로 구현체 가져오기
         ValidatorFactory validatorFactory = ValidatorFactory.buildDefaultValidatorFactory();
         Validator validator = validatorFactory.getValidator(this.getClass());
         validator.validate(value);
@@ -46,7 +45,12 @@ public class Car {
 
     @Override
     public String toString() {
-        return this.name + " : " + MARK.repeat(this.currentPosition);
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(this.name).append(" : ");
+        for (long i = 0; i < this.currentPosition; i++) {
+            stringBuilder.append(MARK);
+        }
+        return stringBuilder.toString();
     }
 
     @Override
