@@ -9,4 +9,9 @@ public class Exception {
     static void generateInvalidCarNameLengthException() {
         throw new IllegalArgumentException(INVALID_CAR_NAME_LENGTH_MESSAGE);
     }
+
+    static void generateInvalidCarNumberException() {
+        throw new IllegalArgumentException((INVALID_CAR_NUMBER_MESSAGE));
+    }
+
 }
