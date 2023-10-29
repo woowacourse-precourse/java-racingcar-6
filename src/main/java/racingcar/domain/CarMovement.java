@@ -2,30 +2,27 @@ package racingcar.domain;
 
 import racingcar.dto.Car;
 
-/**
- * GameRound, GameCondition 나누기
- */
 public class CarMovement {
     Car raceCar;
     private static final CarStore carStore = CarStore.getInstance();
 
     public CarMovement(Car car) {
         this.raceCar = car;
-        decideMovement(raceCar);
+        decideMovement();
     }
 
-    private void decideMovement(Car car) {
+    private void decideMovement() {
         if (GameCondition.hasDriveCondition()) {
             Car driveCar = drive(raceCar);
             carStore.saveCarInfo(driveCar);
         }
     }
 
-    public Car drive(Car currentCar) {
+    private Car drive(Car currentCar) {
         return new Car(currentCar.id(), currentCar.name(), currentCar.position() + 1);
     }
 
-    public Car Stop(Car currentCar) {
+    private Car Stop(Car currentCar) {
         return new Car(currentCar.id(), currentCar.name(), currentCar.position());
     }
 

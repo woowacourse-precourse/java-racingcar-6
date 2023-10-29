@@ -6,15 +6,15 @@ import java.util.stream.Collectors;
 import racingcar.dto.Car;
 
 public class OutputView {
+    private static final String GAME_FINAL_WINNER = "최종 우승자 : ";
 
-    /* 자동차별 라운드 결과 출력 */
     public static void printStatusOfRaceCar(Car car) {
         System.out.println(car.name() + " : " + "-".repeat(car.position()));
     }
 
-    /* 최종 우승자 출력 */
     public static void printGameWinner(List<Car> listCar) {
-        System.out.print("최종 우승자 : ");
+        System.out.print(GAME_FINAL_WINNER);
+
         Optional<Integer> maxPosition = listCar.stream()
                 .map(Car::position)
                 .max(Integer::compareTo);
@@ -32,4 +32,6 @@ public class OutputView {
 
         }
     }
+
+    public
 }

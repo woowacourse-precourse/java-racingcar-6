@@ -20,7 +20,7 @@ public class CarStore {
         return carRepository.findById(carId);
     }
 
-    public List<Car> findAllCar() {
+    public List<Car> getAllCarInfo() {
         return carRepository.findByAll();
     }
 }
