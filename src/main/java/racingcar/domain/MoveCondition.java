@@ -1,13 +1,13 @@
 package racingcar.domain;
 
-public enum CarStatus {
+public enum MoveCondition {
     MOVE(1), STOP(0);
 
     private static final int CRITICAL_POINT = 4;
 
     public final int distance;
 
-    CarStatus(int distance) {
+    MoveCondition(int distance) {
         this.distance = distance;
     }
 
@@ -15,7 +15,7 @@ public enum CarStatus {
         return this.equals(MOVE);
     }
 
-    public static CarStatus convertToCarStatus(Integer randomNumber) {
+    public static MoveCondition convertToCarStatus(Integer randomNumber) {
         if (randomNumber >= CRITICAL_POINT) {
             return MOVE;
         }

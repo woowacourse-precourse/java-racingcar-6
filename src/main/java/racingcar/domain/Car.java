@@ -10,7 +10,7 @@ public class Car {
         this.position = 0;
     }
 
-    public void move(CarStatus status) {
+    public void move(MoveCondition status) {
         if (status.isMove()) {
             position += status.distance;
         }
