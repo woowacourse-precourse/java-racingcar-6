@@ -2,6 +2,9 @@ package racingcar.model;
 
 import static racingcar.constant.InputError.BLANK_CAR_NAME;
 import static racingcar.constant.InputError.EXCEEDED_LIMIT_CAR_LENGTH;
+import static racingcar.constant.RaceConfig.CAR_NAME_LENGTH_LIMIT;
+import static racingcar.constant.RaceConfig.INITIAL_CAR_POSITION;
+import static racingcar.constant.RaceConfig.INPUT_SPLIT_DELIMITER;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -10,9 +13,6 @@ import java.util.Map;
 import org.junit.platform.commons.util.StringUtils;
 
 public final class RacingCars {
-    private static final String INPUT_SPLIT_DELIMITER = ",";
-    private static final int CAR_NAME_LENGTH_LIMIT = 5;
-    private static final int INITIAL_CAR_POSITION = 0;
 
     private final List<String> names;
 
