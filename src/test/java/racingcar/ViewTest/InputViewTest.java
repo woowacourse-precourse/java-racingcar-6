@@ -20,4 +20,14 @@ public class InputViewTest {
         assertEquals("ray,tico",inputedCarNames);
     }
 
+    @Test
+    @DisplayName("라운드 입력 테스트")
+    public void requestRoundsTest() {
+        ByteArrayInputStream roundsInput = new ByteArrayInputStream("5".getBytes());
+        System.setIn(roundsInput);
+        String inputedRounds = InputView.requestRounds();
+        System.setIn(System.in);
+
+        assertEquals("5",inputedRounds);
+    }
 }
