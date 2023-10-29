@@ -52,4 +52,15 @@ public class RacingCars {
             }
         }
     }
+
+    public List<String> winnersJudge() {
+        getFirstPosition();
+        return racingCars.stream()
+                .filter(racingCar -> {
+                    int position = racingCar.getCarInfo().get("position").length();
+                    return position == firstPosition;
+                })
+                .map(racingCar -> racingCar.getCarInfo().get("name"))
+                .collect(Collectors.toList());
+    }
 }
