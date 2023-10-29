@@ -12,4 +12,14 @@ public class Compare {
         }
         return max;
     }
+    public int findHowManyMax(List<Integer> position) {
+        int max = saveMaxPosition(position);
+        int count = 0;
+        for (int i = 0; i < position.size(); i++) {
+            if (position.get(i) == max) {
+                count++;
+            }
+        }
+        return count;
+    }
 }
