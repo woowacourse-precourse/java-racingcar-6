@@ -1,7 +1,9 @@
 package racingcar.view;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class InputViewValidator {
 
@@ -43,7 +45,7 @@ public class InputViewValidator {
     }
 
     public boolean isNotCorrectRange(String tryNumber) {
-        return Integer.parseInt(tryNumber) > 0;
+        return Integer.parseInt(tryNumber) <= 0;
     }
 
     public boolean isNotIntegerType(String tryNumber) {
@@ -65,14 +67,11 @@ public class InputViewValidator {
     }
 
     public boolean isDuplicateCarName(String carNames) {
-        String[] carNameList = carNames.split("");
-        Set<String> carNameSet = new HashSet<>();
+        String[] carNameList = carNames.split(",");
 
-        for (String carName : carNameList) {
-            if(!carNameSet.contains(carName)){
-                carNameSet.add(carName);
-            }
-        }
+        Set<String> carNameSet = Arrays.stream(carNameList)
+                .collect(Collectors.toSet());
+
         return carNameList.length != carNameSet.size();
     }
 

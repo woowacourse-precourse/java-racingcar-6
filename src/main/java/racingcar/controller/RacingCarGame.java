@@ -3,7 +3,6 @@ package racingcar.controller;
 import static java.lang.Math.max;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
