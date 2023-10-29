@@ -18,11 +18,30 @@ public class Validator {
     public void validateCarsNames(List<Car> cars) {
         validateCarsNamesDuplicate(cars);
         validateCarsNamesLength(cars);
+        validateCarNamesBlank(cars);
     }
 
     public void validatelastInputCommas(String input) {
         if (input.charAt(input.length() - 1) == ',') {
             throw new IllegalArgumentException("이름이 없는 자동차가 있습니다.");
+        }
+    }
+
+    private void validateCarNamesBlank(List<Car> cars) {
+        for (int i = 0; i < cars.size(); i++) {
+            validateBlankContain(cars.get(i).getName());
+        }
+    }
+
+    private void validateBlankContain(String input) {
+        for (String s : input.split("")) {
+            validateBlank(s);
+        }
+    }
+
+    private void validateBlank(String s) {
+        if (s.isBlank()) {
+            throw new IllegalArgumentException("이름에 공백이 포함된 자동차가 있습니다.");
         }
     }
 
