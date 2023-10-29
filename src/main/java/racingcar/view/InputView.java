@@ -17,7 +17,8 @@ public class InputView {
 
     private static void checkCarNameInputData(String input) {
         InputValidation.emptyInputValidation(input);
-        InputValidation.checkLastCarName(input);
+        InputValidation.checkBlankCarName(input);
+        InputValidation.checkLastCarNameValidation(input);
         InputValidation.checkCarNameRangeValidation(input);
     }
 
@@ -44,9 +45,20 @@ public class InputView {
             }
         }
 
-        private static void checkLastCarName(String input) {
+        private static void checkBlankCarName(String input) {
+            String[] split = input.split(",");
+            long count = Arrays.stream(split)
+                    .filter(name -> name.length() == 0)
+                    .count();
+
+            if (count > 0) {
+                throw new IllegalArgumentException("','로 구분되는 자동차 이름은 1글자 이상이어야 합니다.");
+            }
+        }
+
+        private static void checkLastCarNameValidation(String input) {
             if (input.charAt(input.length()-1) == ',') {
-                throw new IllegalArgumentException("입력된 마지막 자동차 이름에 오류가 있습니다.");
+                throw new IllegalArgumentException("입력한 자동차 이름 마지막에 ','를 입력할 수 없습니다.");
             }
         }
 
