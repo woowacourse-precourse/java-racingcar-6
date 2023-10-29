@@ -4,9 +4,16 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
 public class RacingGame {
+    private static final RacingGame racingGame = new RacingGame();
     private final RaceResult raceResult = new RaceResult();
     private Cars cars;
 
+    private RacingGame(){
+    }
+
+    public static RacingGame getInstance() {
+        return racingGame;
+    }
     public void startGame() {
         String names = receiveCarNames();
         int raceCount = receiveRaceCount();
