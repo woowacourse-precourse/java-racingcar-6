@@ -1,5 +1,7 @@
 package model;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
 
     private String name;
@@ -10,12 +12,19 @@ public class Car {
         this.position = 0;
     }
 
-    public void getName() {
+    public String getName() {
+        return this.name;
+    }
 
+    public int getPosition() {
+        return this.position;
     }
 
     public void move() {
-
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        if (randomNumber >= 4) {
+            this.position++;
+        }
     }
 
 

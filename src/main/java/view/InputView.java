@@ -11,14 +11,13 @@ public class InputView {
         System.out.println(InputMessages.REQUEST_CAR_NAMES);
         String carNames = Console.readLine();
         List<String> carNameList = Arrays.asList(carNames.split(","));
-        System.out.println("carNameList = " + carNameList);
         return carNameList;
     }
 
     public String getTryCount() {
         System.out.println(InputMessages.REQUEST_TRY_COUNT);
         String tryCount = Console.readLine();
-        System.out.println("tryCount = " + tryCount);
+        System.out.println();
         return tryCount;
     }
 }

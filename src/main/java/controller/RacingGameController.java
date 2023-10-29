@@ -7,6 +7,7 @@ import model.Car;
 import validator.CarNameValidator;
 import validator.TryCountValidator;
 import view.InputView;
+import view.OutputView;
 
 public class RacingGameController {
 
@@ -29,8 +30,13 @@ public class RacingGameController {
 
     private void startRace(List<Car> carList, int tryCountNumber) {
         System.out.println(OutputMessages.RACE_START);
-        
+
         while (tryCountNumber > 0) {
+            for (Car car : carList) {
+                car.move();
+                OutputView.printRacingResult(car);
+            }
+            System.out.println();
             tryCountNumber--;
         }
     }
