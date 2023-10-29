@@ -11,17 +11,17 @@ public class Application {
         Validator validator = new Validator();
 
         String inputCarNames = input.carName();
-        List<String> carNames = car.splitByComma(inputCarNames);
+        //List<String> carNames = car.splitByComma(inputCarNames);
         /*System.out.println(inputCarNames);
         System.out.println(carNames);*/
 
+        validator.hasSpace(inputCarNames);
 
         String inputNumber = input.tryNumber();
         validator.isNumber(inputNumber);
 
         int tryNumber = Integer.parseInt(inputNumber);
 
-
-        car.nowRacing(carNames, tryNumber);
+        //car.nowRacing(carNames, tryNumber);
     }
 }

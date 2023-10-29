@@ -5,11 +5,11 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    Input input = new Input();
     Validator validator = new Validator();
 
     public List<String> splitByComma(String inputCarName) {
         List<String> carNames = Arrays.asList(inputCarName.split(","));
+
         validator.isLengthOverFive(carNames);
         return carNames;
     }
@@ -31,6 +31,4 @@ public class Car {
         }
         return bar.toString();
     }
-
-
 }

@@ -11,4 +11,4 @@
 - [ ] 입력 값이 잘못된 경우 `IllegalArgumentException` 발생시킴
   - [x] 자동차 이름이 6자 이상일 경우 (isLengthOverFive)
   - [x] 시도할 회수가 숫자가 아닐 경우 (isNumber)
-  - [ ] 띄어쓰기가 포함될 경우 (hasSpace)
+  - [x] 띄어쓰기가 포함될 경우 (hasSpace)

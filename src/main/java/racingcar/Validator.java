@@ -3,6 +3,12 @@ package racingcar;
 import java.util.List;
 
 public class Validator {
+    public void hasSpace(String carNames) {
+        if (carNames.contains(" ")) {
+            throw new IllegalArgumentException("띄어쓰기를 제외하고 입력해주세요.");
+        }
+    }
+
     public void isLengthOverFive(List<String> carNames) {
         for (String str : carNames) {
             if (str.length() > 5) {
