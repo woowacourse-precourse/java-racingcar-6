@@ -65,11 +65,6 @@ class ApplicationTest_function_list extends NsTest {
     }
 
     @Test
-    void 기능목록_테스트_null_검사() {
-
-    }
-
-    @Test
     void 기능목록_테스트_빈_문자열_검사() {
         List<List<Object>> inputList = List.of(List.of("pobi", false), List.of("", true));
         for (List<Object> input : inputList) {
