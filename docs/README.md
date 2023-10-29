@@ -6,7 +6,7 @@
         - [x] 이름을 가진 자동차를 생성한다. - RacingCar #create
 
 
-- [ ] 0부터 9 사이의 무작위 값을 생성한다. - NumberGenerator #createRandomNumbers
+- [x] 0부터 9 사이의 무작위 값을 생성한다. - NumberGenerator #createRandomNumbers
 
 
 - [ ] 자동차를 전진시킨다(전진 횟수를 1 증가시킨다). - RacingGame #move
