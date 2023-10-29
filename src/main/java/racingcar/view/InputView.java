@@ -8,7 +8,7 @@ public class InputView {
         String carNames = Console.readLine();
         return carNames;
     }
-
+    
     public String inputTryNumber() {
         String tryNumber = Console.readLine();
         return tryNumber;

@@ -39,7 +39,7 @@ public class OutputView {
 
         System.out.print(LINE);
     }
-
+    
     public void printWinners(List<CarName> winnerNames) {
         String result = winnerNames.stream()
                 .map(CarName::name)

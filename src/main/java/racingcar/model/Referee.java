@@ -37,7 +37,7 @@ public class Referee {
                 .mapToInt(car -> car.getCarDistance().distance())
                 .max()
                 .orElse(START_POINT);
-
+        
         return new CarDistance(maxDistance);
     }
 }

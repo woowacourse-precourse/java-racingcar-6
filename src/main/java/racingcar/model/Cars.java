@@ -22,7 +22,7 @@ public class Cars {
     public void move() {
         carList.stream().forEach(car -> car.move());
     }
-
+    
     public List<Car> getCarList() {
         return carList;
     }
