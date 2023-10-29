@@ -9,9 +9,9 @@ import org.junit.jupiter.api.Test;
 
 class RoundTest {
 
-    @DisplayName("hasCount 테스트 : 시도 횟수가 더이상 남아있다면 true 를 반환한다.")
+    @DisplayName("hasRemainingRound() 테스트 : 라운드가 남아있다면 true를 반환, 남아있지 않다면 false를 반환한다.")
     @Test
-    void hasCount() {
+    void hasRemainingRound() {
         Round round1 = new Round(1);
         Round round2 = new Round(0);
 
@@ -24,9 +24,9 @@ class RoundTest {
         );
     }
 
-    @DisplayName("hasNoCount 테스트 : 시도 횟수가 더이상 남아있지 않다면 true 를 반환한다.")
+    @DisplayName("hasNotRemainingRound() 테스트 : 라운드가 남아있지 않다면 true를 반환, 남아있다면 false를 반환한다.")
     @Test
-    void hasNoCount() {
+    void hasNotRemainingRound() {
         Round round1 = new Round(0);
         Round round2 = new Round(1);
 
@@ -39,9 +39,9 @@ class RoundTest {
         );
     }
 
-    @DisplayName("countDown 테스트 : 시도 횟수를 하나 감소시킨다.")
+    @DisplayName("finishCurrentRound() 테스트 : 라운드 수를 하나 감소시킨다.")
     @Test
-    void countDown() {
+    void finishCurrentRound() {
         Round round = new Round(5);
 
         round.finishCurrentRound();
@@ -49,6 +49,5 @@ class RoundTest {
         assertThat(round).usingRecursiveComparison()
                 .comparingOnlyFields("count")
                 .isEqualTo(new Round(4));
-
     }
 }
