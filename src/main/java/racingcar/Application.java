@@ -1,7 +1,6 @@
 package racingcar;
 
 import racingcar.controller.RacingGame;
-import racingcar.utill.RunGame;
 
 public class Application {
     public static void main(String[] args) {
