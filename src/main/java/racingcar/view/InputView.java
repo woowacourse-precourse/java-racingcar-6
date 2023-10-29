@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import static java.lang.Integer.parseInt;
+import static racingcar.constants.MessageConstant.INVALID_INPUT_MESSAGE;
 import static racingcar.utils.Console.readLine;
 
 public class InputView {
@@ -11,9 +12,32 @@ public class InputView {
 
     public int readAttempt() {
         try {
-            return parseInt(readLine());
+            String attempt = readLine();
+            validate(attempt);
+            return parseInt(attempt);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(e);
         }
+    }
+
+    private void validate(String attempt) {
+        validateInput(attempt);
+    }
+
+    private void validateInput(String attempt) {
+        for (int index = 0; index < attempt.length(); index++) {
+            char target = attempt.charAt(index);
+            checkInteger(target);
+        }
+    }
+
+    private void checkInteger(char target) {
+        if (isNotInteger(target)) {
+            throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
+        }
+    }
+
+    private boolean isNotInteger(char c) {
+        return !Character.isDigit(c);
     }
 }
