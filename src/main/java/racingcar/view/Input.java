@@ -10,7 +10,9 @@ public class Input {
         List<String> carNameList = new ArrayList<>();
         StringTokenizer stringTokenizer = new StringTokenizer(Console.readLine(), ",");
         while (stringTokenizer.hasMoreTokens()) {
-            carNameList.add(stringTokenizer.nextToken());
+            String carName = stringTokenizer.nextToken();
+            validateCarNameLength(carName);
+            carNameList.add(carName);
         }
 
         return carNameList;
@@ -22,8 +24,14 @@ public class Input {
         return tryCount;
     }
 
-    private void validateTryCountIfZero(int tryCount){
-        if(tryCount == 0){
+    private void validateTryCountIfZero(int tryCount) {
+        if (tryCount == 0) {
+            throw new IllegalArgumentException("입력이 잘못되었습니다.");
+        }
+    }
+
+    private void validateCarNameLength(String carName) {
+        if (carName.length() > 5) {
             throw new IllegalArgumentException("입력이 잘못되었습니다.");
         }
     }
