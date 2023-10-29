@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -24,7 +25,10 @@ public class CarController {
 
     public void move() {
         for (Car car : cars) {
-            car.movePosition();
+            int randomNumber = Randoms.pickNumberInRange(Constants.MOVE_NUMBER_MIN, Constants.MOVE_NUMBER_MAX);
+            if (randomNumber >= Constants.MOVE_NUMBER_DEFAULT) {
+                car.movePosition();
+            }
         }
 
         printPositions();
@@ -44,8 +48,9 @@ public class CarController {
 
     public String getWinner() {
         // TODO: 임시 우승자 선정
-        List<String> members = Arrays.asList("pobi", "jason");
+        List<String> winner;
+        winner = Arrays.asList("pobi", "jason");
 
-        return String.join(",", members);
+        return String.join(",", winner);
     }
 }

@@ -6,4 +6,8 @@ public final class Constants {
 
     public static final String OUTPUT_GAME_RESULT = "실행 결과";
     public static final String OUTPUT_GAME_WINNER = "최종 우승자 : ";
+
+    public static final int MOVE_NUMBER_MIN = 0;
+    public static final int MOVE_NUMBER_MAX = 9;
+    public static final int MOVE_NUMBER_DEFAULT = 4;
 }
