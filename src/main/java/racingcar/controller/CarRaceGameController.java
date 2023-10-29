@@ -17,7 +17,7 @@ public class CarRaceGameController {
         raceGameService = new RaceGameServiceImpl();
     }
 
-    public void gameStart() {
+    public void run() {
         Car car = raceGameService.startGame(inputView.userInputCarName());
         carMoveResult(car, Integer.parseInt(inputView.userInputGameCount()));
         printWinnerResult(car, raceGameService.findWinner(car));
