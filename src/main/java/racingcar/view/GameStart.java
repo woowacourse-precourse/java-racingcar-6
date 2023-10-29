@@ -76,6 +76,10 @@ public class GameStart {
 
     // TODO: 10/27/23 게임 시작.
     public void run() {
-//        게임 시작을 한다.
+        printInputNameOfRaceCar();
+        printInputNumOfTryCnt();
+        printMsgResultOfRun();
+        showPrsocessOfRaceGame();
+        printWinnerOfRaceGame();
     }
 }
