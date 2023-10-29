@@ -4,7 +4,10 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.Car;
+
+import static org.assertj.core.api.Assertions.*;
 
 public class CarTest {
 
@@ -16,6 +19,15 @@ public class CarTest {
         if (car.isMoreThanCondition(randomNumber)) {
             car.move();
         }
-        Assertions.assertThat(car.getDistance()).isEqualTo(result);
+        assertThat(car.getDistance()).isEqualTo(result);
+    }
+
+    @DisplayName("이름이 5자를 넘으면 예외가 발생하는 테스트")
+    @ParameterizedTest
+    @ValueSource(strings = {"daheee", "huihui"})
+    public void checkNameLengthTest(String name) {
+        assertThatThrownBy(()->{
+            new Car(name);
+        }).isInstanceOf(IllegalArgumentException.class);
     }
 }
