@@ -9,5 +9,6 @@ public class Application {
         host.inputCars();
         host.inputAttemptCount();
         host.carRacingResults();
+
     }
 }
