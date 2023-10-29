@@ -4,13 +4,9 @@ import java.util.Arrays;
 
 public class OutputView {
     public static void printExecutionResult(String[] cars, int[] carMove) {
-        System.out.println("실행결과");
+        System.out.println("실행 결과");
         for (int i = 0; i < cars.length; i++) {
-            System.out.print(cars[i] + " : ");
-            for (int j = 0; j < carMove[i]; j++) {
-                System.out.print('-');
-            }
-            System.out.println();
+            System.out.println(cars[i] + " : " + "-".repeat(carMove[i]));
         }
     }
 
