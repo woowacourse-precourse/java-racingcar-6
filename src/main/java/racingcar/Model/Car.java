@@ -16,4 +16,8 @@ public class Car {
     public void forwardCarPosition(){
         carPosition++;
     }
+
+    public int getCarPosition(){
+        return this.carPosition;
+    }
 }
