@@ -1,6 +1,7 @@
 package racingcar.game;
 
 import racingcar.game.domain.Car;
+import racingcar.game.domain.Round;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,10 +9,11 @@ import java.util.List;
 public class GameSetting {
 
     private final List<Car> cars;
-    private int round = 0;
+    private Round round;
 
     public GameSetting() {
         this.cars = new ArrayList<>();
+        this.round = null;
     }
 
     public void initializeCars(List<String> carNameList) {
@@ -21,7 +23,7 @@ public class GameSetting {
     }
 
     public void initializeRound(String round) {
-        this.round = Integer.parseInt(round);
+        this.round = Round.create(round);
     }
 
     public void tryCarsForward() {
@@ -45,6 +47,6 @@ public class GameSetting {
     }
 
     public int getRound() {
-        return this.round;
+        return round.getMovingCount();
     }
 }
