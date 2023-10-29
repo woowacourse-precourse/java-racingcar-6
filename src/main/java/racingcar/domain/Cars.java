@@ -35,6 +35,16 @@ public class Cars {
         return currnetMaxPosition;
     }
 
+    public List<Car> findWinner(int currnetMaxPosition){
+        List<Car> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if(car.getPosition() == currnetMaxPosition){
+                winners.add(car);
+            }
+        }
+        return winners;
+    }
+
 
 
 }
