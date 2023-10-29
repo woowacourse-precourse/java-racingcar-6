@@ -20,4 +20,9 @@ public class OutputView {
     private String makeDelimiter(int position) {
         return "-".repeat(position);
     }
+
+    public void showWinner(List<String> winner) {
+        String winnerName = String.join(",", winner);
+        System.out.print("최종 우승자 : " + winnerName);
+    }
 }
