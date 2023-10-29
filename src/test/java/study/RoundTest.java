@@ -7,7 +7,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class RoundTest {
     @Test
-    void Increase() {
+    void Increase_테스트() {
         Round round = new Round(6,0);
         int result1= round.Increase();
         int result2= round.Increase();
@@ -35,7 +35,7 @@ public class RoundTest {
     }
 
     @Test
-    void Get_Round_Remaining() {
+    void Get_Round_Remaining_테스트() {
         Round round1 = new Round(6,3);
         Round round2 = new Round(6,2);
         Round round3 = new Round(6,1);

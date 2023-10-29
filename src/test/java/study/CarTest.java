@@ -82,4 +82,13 @@ public class CarTest {
         Car car = new Car("pobi",5);
         assertThat(car.Get_Position()).isEqualTo(5);
     }
+
+    @Test
+    void Position_Move_테스트(){
+        Car car = new Car("pobi",0);
+        car.Position_Move(()->true);
+        assertThat(car.Get_Position()).isEqualTo(1);
+        car.Position_Move(()->false);
+        assertThat(car.Get_Position()).isEqualTo(1);
+    }
 }

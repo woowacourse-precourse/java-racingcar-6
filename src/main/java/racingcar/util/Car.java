@@ -14,13 +14,11 @@ public class Car {
         this.position = position;
     }
 
-    /* 이름만 정해 놔서 오류남. 기능 만들고 주석 제거 해 볼것.
-    public void Position_Move(Go_Stop_Selector go_stop_selector) {
-        if(go_stop_selector.Go_or_Stop()) {
+    public void Position_Move(Move_Selector move_selector) {
+        if(move_selector.Go_or_Stop()) {
             position++;
         }
     }
-     */
 
     //위치가 다른 위치보다 크면 1 아니면 0
     public boolean Position_Comparator(Car other) {

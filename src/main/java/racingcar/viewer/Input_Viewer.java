@@ -5,7 +5,6 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 public class Input_Viewer {
     private static final String SEPARATOR = ",";
