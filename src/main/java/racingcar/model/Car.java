@@ -5,4 +5,7 @@ public class Car {
     private int position;
 
 
+    public Car(String name) {
+        this.name = name;
+    }
 }
