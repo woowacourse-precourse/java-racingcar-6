@@ -38,6 +38,20 @@ public class RacingController {
         }
     }
 
+    public ArrayList<Car> decideWinner(ArrayList<Car> carList) {
+        ArrayList<Car> largestCars = new ArrayList<>();
+        int maxValue = 0;
+        for (Car car : carList) {
+            maxValue = Math.max(car.getLocation(),maxValue);
+        }
+        for (Car car : carList) {
+            if (car.getLocation() == maxValue) {
+                largestCars.add(car);
+            }
+        }
+        return largestCars;
+    }
+
     public void game() {
         ArrayList<String> carNameList = start();
         int totalRoundNum = inputView.readRoundNum();
