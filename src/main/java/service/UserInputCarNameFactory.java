@@ -3,8 +3,8 @@ package service;
 import domain.Car;
 import domain.Cars;
 import ui.Input;
+import util.CarList;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,7 +14,7 @@ public class UserInputCarNameFactory {
     public Cars createCars(){
         String[] carNameInputArray = processCarNameInput();
 
-        List<Car> cars = Arrays.stream(carNameInputArray)
+        CarList<Car> cars = (CarList<Car>) Arrays.stream(carNameInputArray)
                 .map(Car::new)
                 .collect(Collectors.toList());
 
