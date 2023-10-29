@@ -15,12 +15,8 @@ public class CarService {
         this.carRepository = carRepository;
     }
 
-    private void createCarList(String input, Game game) {
-        List<String> names = Arrays.stream(input.split(",")).toList();
-        for (String name : names) {
-            Car saveCar = carRepository.save(name);
-            game.addCar(saveCar);
-        }
+    public Car carCreate(String input) {
+        return carRepository.save(input);
     }
 
 
