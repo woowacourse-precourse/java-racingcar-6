@@ -12,6 +12,7 @@ public class InputValidator {
     public final String ATTEMPT_NUMBER_CONTAIN_CHAR_OTHER_THAN_NUMBER = "시도 회수는 0이상의 정수만 입력하세요.";
     public void checkCarNameValidate(String input) {
         isNameOnlyComma(input);
+        isNameEndWithComma(input);
         String[] carNames = input.split(",");
         for(String name: carNames) {
             isNameBelowFiveLetters(name);
@@ -42,12 +43,18 @@ public class InputValidator {
 
     private void isNameContainBlank(String input){
         if(!Pattern.matches(REGEXP_PATTERN_SPACE_NO_CHAR,input)){
-            throw new IllegalArgumentException("공백이 포함되어 있거나 빈 문자열입니다.");
+            throw new IllegalArgumentException(INPUT_CONTAIN_BLANK);
         }
     }
 
     private void isNameOnlyComma(String input){
         if (Pattern.matches(REGEXP_PATTERN_ONLY_COMMA, input)) {
+            throw new IllegalArgumentException(INPUT_CONTAIN_BLANK);
+        }
+    }
+
+    private void isNameEndWithComma(String input) {
+        if(input.charAt(input.length()-1) == ',') {
             throw new IllegalArgumentException(INPUT_CONTAIN_BLANK);
         }
     }
