@@ -9,7 +9,7 @@ import racingcar.view.OutputView;
 
 public class RacingGame {
 
-    public static final Integer ZERO = 0;
+    private static final Integer ZERO = 0;
     private final InputView inputView;
     private final OutputView outputView;
 

@@ -6,10 +6,10 @@ import racingcar.exception.RacingGameException;
 
 public class Car {
 
-    public static final Integer CAR_START_POSITION = 0;
-    public static final Integer CAR_ONE_STEP = 1;
-    public static final Integer CAR_CAN_GO_NUMBER = 4;
-    public static final Integer CAR_LIMIT_NAME_LENGTH = 5;
+    private static final Integer CAR_START_POSITION = 0;
+    private static final Integer CAR_ONE_STEP = 1;
+    private static final Integer CAR_CAN_GO_NUMBER = 4;
+    private static final Integer CAR_LIMIT_NAME_LENGTH = 5;
     private final String name;
     private Integer position;
 
