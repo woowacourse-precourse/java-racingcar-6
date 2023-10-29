@@ -11,9 +11,10 @@ public class Cars {
 
     public Cars(String inputNames) {
 
-        String[] names = inputNames.split(",", -1);
-        validateBlank(names);
-        String[] trimNames = trimNames(names);
+        String[] splitNames = inputNames.split(",", -1);
+        validateBlank(splitNames);
+
+        String[] trimNames = trimNames(splitNames);
         validateDuplicateName(trimNames);
 
         cars = Arrays.stream(trimNames)
