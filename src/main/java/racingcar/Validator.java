@@ -37,7 +37,7 @@ public class Validator {
 
     }
 
-    public static String checkPositiveNumber(String userInput) {
+    public static void checkPositiveNumber(String userInput) {
 
         try {
 
@@ -49,7 +49,6 @@ public class Validator {
             throw new IllegalArgumentException("숫자만 입력하세요.");
         }
 
-        return userInput;
     }
 
 }
