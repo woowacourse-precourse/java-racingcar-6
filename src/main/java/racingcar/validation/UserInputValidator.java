@@ -16,7 +16,7 @@ public class UserInputValidator {
 
     public static void validateNumberOfRetriesInput(String userInput) {
         validateIsNumber(userInput);
-        validateIsNotUnderOne(userInput);
+        validateIsPositive(userInput);
     }
 
     private static void validateIsEmpty(String input) {
@@ -39,7 +39,7 @@ public class UserInputValidator {
         }
     }
 
-    private static void validateIsNotUnderOne(String input) {
+    private static void validateIsPositive(String input) {
         if (Integer.parseInt(input) >= MIN_NUMBER) {
             throw new IllegalArgumentException(POSITIVE_NUMBER_ALLOWED);
         }
