@@ -61,10 +61,18 @@ public class Cars {
                 .forEach(System.out::println);
     }
 
+    private void multipleWinner(List<String> winner) {
+        String winners = String.join(", " , winner);
+        System.out.println(winners);
+    }
 
     public void printWinner() {
         List<String> winner = getMaxPlayer();
-        individualWinner(winner);
+        if (winner.size() == 1) {
+            individualWinner(winner);
+            return;
+        }
+        multipleWinner(winner);
     }
 
 
