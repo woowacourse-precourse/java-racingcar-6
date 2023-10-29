@@ -17,18 +17,28 @@ public class RacingCarController {
     }
 
     public void start() {
-        List<String> carNames = inputView.inputCarNames();
-        int tryCount = inputView.inputTryCount();
+        Cars cars = inputView.inputCars();
 
-        Cars cars = new Cars(carNames);
-
-        outputView.printGameResult();
-        for (int i = 0; i < tryCount; i++) {
-            Map<Car, Integer> moveResults = cars.moveAllCars();
-            outputView.printMoveResult(moveResults);
-        }
+        race(cars);
 
         List<String> winner = cars.findWinner();
         outputView.printWinner(winner);
+    }
+
+    private void race(final Cars cars) {
+        int tryCount = inputView.inputTryCount();
+
+        raceRecursive(cars, tryCount);
+    }
+
+    private void raceRecursive(final Cars cars, final int remainedTryCount) {
+        if (remainedTryCount == 0) {
+            return;
+        }
+
+        Map<Car, Integer> moveResults = cars.moveAllCars();
+        outputView.printMoveResult(moveResults);
+
+        raceRecursive(cars, remainedTryCount - 1);
     }
 }
