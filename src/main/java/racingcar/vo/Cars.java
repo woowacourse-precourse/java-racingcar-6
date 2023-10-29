@@ -2,6 +2,7 @@ package racingcar.vo;
 
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.dto.CarDTO;
 
 public class Cars {
     private static final int MINIMUM_CARS_SIZE = 2;
@@ -21,5 +22,9 @@ public class Cars {
 
     public void moveAll() {
         cars.forEach(Car::move);
+    }
+
+    public List<CarDTO> toDTO() {
+        return cars.stream().map(Car::toDTO).toList();
     }
 }

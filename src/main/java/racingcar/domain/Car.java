@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import racingcar.domain.driver.Driver;
+import racingcar.dto.CarDTO;
 import racingcar.vo.CarName;
 
 public class Car {
@@ -25,5 +26,9 @@ public class Car {
 
     public String getName() {
         return name.getName();
+    }
+
+    public CarDTO toDTO() {
+        return new CarDTO(name.getName(), position);
     }
 }
