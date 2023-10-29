@@ -19,4 +19,8 @@ public class ConsoleOutput {
         System.out.println(EXECUTION_RESULT);
     }
 
+    public static void printNewLine() {
+        System.out.println();
+    }
+
 }
