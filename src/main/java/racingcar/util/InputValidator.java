@@ -8,11 +8,11 @@ public class InputValidator {
     private static final String INVALID_ATTEMPT_NUMBER_RANGE_EXCEPTION_MESSAGE = "시도 횟수는 1이상입니다.";
     private static final String INVALID_NUMBER_EXCEPTION_MESSAGE = "숫자만 입력 가능합니다.";
 
-    public void validateCarNames(List<String> carNames) {
+    public static void validateCarNames(List<String> carNames) {
         checkNameLength(carNames);
     }
 
-    public boolean validateAttemptNumber(String input) {
+    public static boolean validateAttemptNumber(String input) {
         if (isNotNumber(input)) {
             throw new IllegalArgumentException(INVALID_NUMBER_EXCEPTION_MESSAGE);
         }
@@ -22,7 +22,7 @@ public class InputValidator {
         return true;
     }
 
-    private void checkNameLength(List<String> carNames) {
+    private static void checkNameLength(List<String> carNames) {
         for (String name : carNames) {
             if (name.length() < 1 || name.length() > 5) {
                 throw new IllegalArgumentException(INVALID_NAME_LENGTH_EXCEPTION_MESSAGE);
@@ -30,11 +30,11 @@ public class InputValidator {
         }
     }
 
-    private boolean isNotNumber(String number) {
+    private static boolean isNotNumber(String number) {
         return !number.matches(DIGIT);
     }
 
-    private boolean isInvalidRange(String number) {
+    private static boolean isInvalidRange(String number) {
         return Integer.parseInt(number) < 1;
     }
 }
