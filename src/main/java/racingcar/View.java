@@ -29,8 +29,11 @@ public class View {
 
     public static void ouputGameWinner(List<String> winners) {
         System.out.print("최종 우승자 :");
-        String collect = winners.stream().collect(Collectors.joining(",", " ", ""));
-        System.out.print(collect);
+        System.out.print(joinWinnersName(winners));
+    }
+
+    private static String joinWinnersName(List<String> winners) {
+        return winners.stream().collect(Collectors.joining(",", " ", ""));
     }
 
     private static String formDistance(int distance) {
