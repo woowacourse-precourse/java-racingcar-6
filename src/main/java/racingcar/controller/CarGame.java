@@ -33,7 +33,7 @@ public class CarGame {
             List<String> carNameList = splitCarNames(input);
             CarValidator.isOnlyLowerCase(carNameList);
             CarValidator.checkCarNameLength(carNameList);
-
+            CarValidator.checkDuplicateCarName(carNameList);
         } catch (IllegalArgumentException e) {
             getCarNamesInput();
         }
