@@ -23,3 +23,19 @@
 #### 3차 수정
 - HashMap -> Class
 
+#### 4차 수정
+- 잘못된 MVC 패턴 수정
+- 다시 설계
+
+MODEL
+- 자동차 객체 CLASS
+- 자동차 기능 CLASS
+  - 전에 ACTION에 구현했던 것 + 
+  - 싱글톤 패턴 사용
+- 메세지 객체 CLASS
+
+CONTROLLER
+- VIEW와 연결다리 역할만 구현
+
+VIEW
+- 모델에 구현된 서비스 출력
