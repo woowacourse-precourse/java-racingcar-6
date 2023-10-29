@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import static racingcar.model.Settings.CAR_AMOUNT;
+import static racingcar.config.Settings.CAR_AMOUNT;
 
 public class RacingGame {
     private final CarManager manager;

@@ -1,7 +1,6 @@
-package racingcar.model;
+package racingcar.config;
 
 public class Settings {
-    public static final int NAME_MAX_LENGTH = 5;
     public static int CAR_AMOUNT;
     public static int ROUND_MAX;
 

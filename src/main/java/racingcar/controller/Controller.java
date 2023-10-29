@@ -1,10 +1,10 @@
 package racingcar.controller;
 
-import static racingcar.model.Settings.ROUND_MAX;
+import static racingcar.config.Settings.ROUND_MAX;
 
+import racingcar.config.Settings;
 import racingcar.model.CarManager;
 import racingcar.model.RacingGame;
-import racingcar.model.Settings;
 import racingcar.view.View;
 
 public class Controller {

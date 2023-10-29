@@ -1,6 +1,6 @@
 package racingcar.model.validation;
 
-import static racingcar.model.Settings.NAME_MAX_LENGTH;
+import static racingcar.config.Constants.NAME_MAX_LENGTH;
 
 import java.util.HashSet;
 import java.util.Set;

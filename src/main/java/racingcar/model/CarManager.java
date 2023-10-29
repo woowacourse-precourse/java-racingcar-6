@@ -2,6 +2,7 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.config.Settings;
 
 public class CarManager {
     private List<Car> cars = new ArrayList<>();

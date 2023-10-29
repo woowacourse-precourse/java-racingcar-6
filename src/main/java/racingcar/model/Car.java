@@ -1,5 +1,9 @@
 package racingcar.model;
 
+import static racingcar.config.Constants.MOVE_THRESHOLD;
+import static racingcar.config.Constants.RANGE_MAX;
+import static racingcar.config.Constants.RANGE_MIN;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
@@ -34,9 +38,8 @@ public class Car {
         }
     }
 
-
     private boolean canMove() {
-        return (Randoms.pickNumberInRange(0, 9) > 3);
+        return !(MOVE_THRESHOLD > Randoms.pickNumberInRange(RANGE_MIN, RANGE_MAX));
     }
 
 }
