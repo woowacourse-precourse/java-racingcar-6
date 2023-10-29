@@ -48,7 +48,7 @@ public class RacingCarGame {
 
     private void attemptUntilGameOver(Cars cars, Round round) {
         while (round.hasNextRound()) {
-            CarAccelerator carAccelerator= new CarAccelerator();
+            CarAccelerator carAccelerator = new CarAccelerator();
             cars.attemptToMoveCars(carAccelerator);
             List<String> carNames = cars.getCarNames();
             List<Integer> movingDistances = cars.getMovingDistances();
