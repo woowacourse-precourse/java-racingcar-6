@@ -1,9 +1,7 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiFunction;
-import java.util.stream.Collectors;
 
 public class Cars {
     private static final String DUPLICATE_ERROR_MESSAGE = "이미 존재하는 자동차 이름입니다.";
@@ -13,8 +11,8 @@ public class Cars {
     private static final String LINE_FEED = "\n";
     private final List<Car> carList;
 
-    public Cars() {
-        this.carList = new ArrayList<>();
+    public Cars(List<Car> carList) {
+        this.carList = carList;
     }
 
     public void add(String name) {

@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Cars;
 import racingcar.view.InputView;
@@ -10,7 +11,7 @@ public class GameController {
     private int trialCount;
 
     public GameController() {
-        this.cars = new Cars();
+        this.cars = new Cars(new ArrayList<>());
     }
 
     public void run() {
