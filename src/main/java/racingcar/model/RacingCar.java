@@ -3,10 +3,12 @@ package racingcar.model;
 
 import java.util.Objects;
 import racingcar.utils.validator.CarValidator;
+import racingcar.utils.validator.Validator;
 
-public class RacingCar extends CarValidator implements Car {
+public class RacingCar implements Car {
 
     public static final long INIT_PROGRESS = 0L;
+
     private final String name;
 
     private final Long progress;
@@ -16,8 +18,11 @@ public class RacingCar extends CarValidator implements Car {
     }
 
     public RacingCar(final String name, final Long progress) {
-        this.validate(name);
+        this(name, progress, new CarValidator());
+    }
 
+    public RacingCar(final String name, final Long progress, final Validator<String> validator) {
+        validator.validate(name);
         this.name = name;
         this.progress = progress;
     }

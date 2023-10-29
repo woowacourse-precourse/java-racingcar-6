@@ -1,22 +1,28 @@
 package racingcar.utils.validator;
 
+import static java.lang.Integer.*;
+import static racingcar.model.CarSplitConstantType.*;
+
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CarManagerValidator implements Validator<List<String>> {
+public class CarManagerValidator extends CarCommonValidator{
 
-    private final CarCommonValidator commonValidator = new CarCommonValidator();
 
     @Override
-    public void validate(final List<String> value) {
-        validateExistCar(value);
-        validateExistDuplicateCar(value);
+    public void validate(final String name) {
+        super.validate(name);
+
+        final List<String> carNames = this.convertStringToList(name);
+        validateExistCar(carNames);
+        validateExistDuplicateCar(carNames);
     }
 
 
     private void validateExistCar(final List<String> carNames) {
         for(String name : carNames){
-            this.commonValidator.validate(name);
+            super.validate(name);
         }
     }
 
@@ -26,7 +32,9 @@ public class CarManagerValidator implements Validator<List<String>> {
         }
     }
 
-    public CarCommonValidator getCommonValidator() {
-        return commonValidator;
+    private List<String> convertStringToList(String carNamesString) {
+        return Arrays.stream(carNamesString.split(COMMAS.getConstants(), parseInt(SPLIT_LIMIT.getConstants())))
+                .map(String::strip)
+                .collect(Collectors.toList());
     }
 }
