@@ -11,8 +11,6 @@ import static racingcar.util.validate.InputValidate.*;
 
 public class RacingCarService {
 
-    public ArrayList<RacingCar> racingCars = new ArrayList<>();
-
     public ArrayList<RacingCar> initRacingCarMembers() {
         String input = readLine();
         String[] strings = parsingMembersByComma(input);
@@ -24,6 +22,7 @@ public class RacingCarService {
     }
 
     private ArrayList<RacingCar> parsingMembersByRacingCar(String[] input) {
+        ArrayList<RacingCar> racingCars = new ArrayList<>();
 
         for (String player : input) {
             RacingCar racingCar = new RacingCar(player);
@@ -46,6 +45,22 @@ public class RacingCarService {
             }
         }
         return racingCars;
+    }
+
+    public void getRaceResult(ArrayList<RacingCar> racingCars) {
+        /**
+         * pobi : -
+         * woni :
+         * jun : -
+         */
+        for (RacingCar racingCar : racingCars) {
+            printResult(racingCar);
+        }
+        System.out.println();
+    }
+
+    private void printResult(RacingCar racingCar) {
+        System.out.println(racingCar.getUsername() + " : " + racingCar.getCurrentLocation());
     }
 
     public int addTime(int start) {
