@@ -1,4 +1,4 @@
-package racingcar.Constant;
+package racingcar.constant;
 
 public enum ErrorMessages {
     NAME_INPUT_LENGTH_ERROR("이름은 5자 이하만 가능합니다."),

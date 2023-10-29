@@ -7,7 +7,10 @@ import java.util.stream.IntStream;
 
 import static racingcar.RacingGameController.createRacingCars;
 
+import racingcar.model.Cars;
+import racingcar.view.RacingGameView;
 public class RacingGame {
+    private final RacingGameView racingGameView = new RacingGameView();
     public RacingGame(){
 
     }
@@ -15,7 +18,7 @@ public class RacingGame {
     public void play(){
         Cars userCars = createCars();
         Integer repeat = repeatCount();
-        System.out.println("실행 결과");
+        racingGameView.printExecutionMessage();
         IntStream.range(0, repeat).forEach(j -> {
             IntStream.range(0, userCars.getCarsLength()).mapToObj(i ->
                     userCars.getCars().get(i)).forEach(RacingGameController::randomNumber);
@@ -25,21 +28,22 @@ public class RacingGame {
     }
 
     public Cars createCars(){
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        racingGameView.printGameStartMessage();
         return createRacingCars();
     }
 
     public Integer repeatCount(){
-        System.out.println("시도할 회수는 몇회인가요?");
+        racingGameView.printRepeatCountMessage();
         return Integer.parseInt(Console.readLine().trim());
     }
 
     public void displayGameProcessing(Cars cars){
-        System.out.println(cars.toString());
+        racingGameView.printGameProcessingMessage(cars);
     }
 
     public void displayGameResult(Cars cars){
         List<String> winners = RacingGameController.getWinner(cars);
-        System.out.println("최종 우승자 : "+String.join(", ", winners));
+        racingGameView.printGameResultMessage();
+        System.out.println(String.join(", ", winners));
     }
 }

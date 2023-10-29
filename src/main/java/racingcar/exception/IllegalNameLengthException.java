@@ -1,6 +1,6 @@
-package racingcar.Exception;
+package racingcar.exception;
 
-import racingcar.Constant.ErrorMessages;
+import racingcar.constant.ErrorMessages;
 
 public class IllegalNameLengthException extends IllegalArgumentException{
     public IllegalNameLengthException() {

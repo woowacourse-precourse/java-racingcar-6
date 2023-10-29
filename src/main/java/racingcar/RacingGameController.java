@@ -1,8 +1,10 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.Exception.IllegalNameEmptyException;
-import racingcar.Exception.IllegalNameLengthException;
+import racingcar.exception.IllegalNameEmptyException;
+import racingcar.exception.IllegalNameLengthException;
+import racingcar.model.Car;
+import racingcar.model.Cars;
 
 import java.util.ArrayList;
 import java.util.Arrays;
