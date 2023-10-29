@@ -14,4 +14,9 @@ public class Cars {
         }
         return carList;
     }
+
+    public Car findMaxDistanceCar() {
+        return carList.stream()
+                .max(Car::compareTo).orElseThrow(() -> new IllegalArgumentException("차량이 존재하지 않습니다."));
+    }
 }

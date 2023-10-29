@@ -33,12 +33,7 @@ public class Car implements Comparable<Car> {
     }
 
     @Override
-    public String toString() {
-        return name + " : " + distance;
-    }
-
-    @Override
     public int compareTo(Car o) {
-        return distance;
+        return this.distance - o.distance;
     }
 }

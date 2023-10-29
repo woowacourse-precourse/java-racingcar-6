@@ -10,7 +10,11 @@ public class OutputView {
     }
 
     public static void printResult(Car car) {
-        System.out.println(car.toString());
+        String result = "";
+        for (int i = 0; i < car.getDistance(); i++) {
+            result += "-";
+        }
+        System.out.println(car.getName() + " : " + result);
     }
 
     public static void printWinner() {
