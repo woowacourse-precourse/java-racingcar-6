@@ -1,11 +1,13 @@
 package racingcar.service;
 
 import racingcar.domain.RacingCar;
+import racingcar.util.validate.InputValidate;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import static camp.nextstep.edu.missionutils.Console.*;
+import static racingcar.util.validate.InputValidate.*;
 
 public class RacingCarService {
 
@@ -28,5 +30,11 @@ public class RacingCarService {
             racingCars.add(racingCar);
         }
         return racingCars;
+    }
+
+    public int initNumberOfAttempts() {
+        int numberOfAttempts = validateInputNumberFormat(readLine());
+        validateInputNumberRange(numberOfAttempts);
+        return numberOfAttempts;
     }
 }
