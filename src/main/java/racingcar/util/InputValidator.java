@@ -2,7 +2,7 @@ package racingcar.util;
 
 public final class InputValidator {
     private static final String CAR_NAMES_REGEX = "^(\\w+,)+\\w+$";
-    private static final String NUMERIC_REGEX = "\\d+";
+    private static final String NUMERIC_REGEX = "[1-9]\\d+";
 
     public void validateInputFormat(String input) {
         if (!input.matches(CAR_NAMES_REGEX)) {
@@ -18,7 +18,7 @@ public final class InputValidator {
 
     public void validateNumericString(String input) {
         if (!input.matches(NUMERIC_REGEX)) {
-            throw new IllegalArgumentException("숫자로 된 문자열만 입력할 수 있습니다.");
+            throw new IllegalArgumentException("1이상의 양수로 된 문자열만 입력할 수 있습니다.");
         }
     }
 }
