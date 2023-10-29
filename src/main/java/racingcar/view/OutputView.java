@@ -19,4 +19,10 @@ public class OutputView {
     public void printCarName(Car car){
         System.out.print(car.getCarName() + " : ");
     }
+
+    public void printCurrentCarPosition(Car car){
+        for(int currentCarPosition = 0 ; currentCarPosition < car.getAdvanceCount(); currentCarPosition++){
+            System.out.print("-");
+        }
+    }
 }
