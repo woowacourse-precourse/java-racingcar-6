@@ -7,9 +7,9 @@ import java.util.Set;
 
 public final class InputView {
 
-    public List<String> inputStringSplitByComma() {
+    public List<String> inputStringSplitBy(String delimiter) {
         String input = Console.readLine();
-        return splitByComma(input);
+        return splitBy(input, delimiter);
     }
 
     public Integer inputDigit() {
@@ -22,8 +22,8 @@ public final class InputView {
     }
 
 
-    private List<String> splitByComma(String input) {
-        String[] splitInput = input.split(",");
+    private List<String> splitBy(String input, String delimiter) {
+        String[] splitInput = input.split(delimiter);
 
         List<String> stringList = List.of(splitInput);
         checkString(stringList);

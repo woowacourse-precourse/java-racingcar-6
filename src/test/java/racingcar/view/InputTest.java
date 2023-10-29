@@ -7,9 +7,10 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import racingcar.view.InputView;
 
 class InputTest extends NsTest {
+
+    private final static String DELIMITER = ",";
 
     @Test
     void 콤마로_구분된_문자열_입력_확인() {
@@ -40,7 +41,7 @@ class InputTest extends NsTest {
     @Override
     public void runMain() {
         InputView inputView = new InputView();
-        List<String> list = inputView.inputStringSplitByComma();
+        List<String> list = inputView.inputStringSplitBy(DELIMITER);
         System.out.println(list);
     }
 
