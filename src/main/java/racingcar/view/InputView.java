@@ -21,8 +21,8 @@ public class InputView {
         return Arrays.asList(carNames);
     }
 
-    public Integer getNumberOfGamesFromUser() {
+    public Long getNumberOfGamesFromUser() {
         String userInput = Console.readLine();
-        return Integer.parseInt(userInput);
+        return Long.parseLong(userInput);
     }
 }
