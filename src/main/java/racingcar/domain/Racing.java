@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static java.lang.Integer.parseInt;
+import java.lang.Integer;
 
 
 public class Racing {
@@ -25,8 +25,8 @@ public class Racing {
     public List<String> getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요(이름은 쉼표(,) 기준으로 구분)");
         String[] userInput = Console.readLine().split(",");
-        for (int i=0; i< userInput.length;i++){
-            userInput[i]=userInput[i].trim();
+        for (int i = 0; i < userInput.length; i++) {
+            userInput[i] = userInput[i].trim();
         }
         carNames = Arrays.asList(userInput);
         checkNameLength(carNames);
@@ -43,13 +43,17 @@ public class Racing {
         return carNames.size();
     }
 
-    private int getRoundCount() {
+    public int getRoundCount() {
         System.out.println("시도할 회수를 입력하세요");
         try {
-            return parseInt(Console.readLine());
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace(); //예외정보 출력 (호출스택(Call Stack)에 있었던 메서드의 정보와 예외 메세지를 콘솔화면에 출력)
-            throw e;
+            int var = Integer.parseInt(Console.readLine());
+            if (var < 1) {
+                throw new IllegalArgumentException("input must be higher than 0");
+            }
+            return var;
+        } catch (NumberFormatException e) {
+            //e.printStackTrace(); //예외정보 출력 (호출스택(Call Stack)에 있었던 메서드의 정보와 예외 메세지를 콘솔화면에 출력)
+            throw new IllegalArgumentException("input must be number");
         }
 
     }
@@ -66,7 +70,7 @@ public class Racing {
         return 0;
     }
 
-    private List<Integer> initCarPoints() {
+    public List<Integer> initCarPoints() {
         for (int i = 0; i < carNames.size(); i++) {
             carPoints.add(0);
         }
@@ -101,7 +105,7 @@ public class Racing {
         System.out.print("최종 우승자 : ");
         for (int i = 0; i < winner.size(); i++) {
             System.out.print(winner.get(i));
-            if (i+1 < winner.size()){
+            if (i + 1 < winner.size()) {
                 System.out.print(", ");
             }
         }
