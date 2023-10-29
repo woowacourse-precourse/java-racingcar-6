@@ -4,7 +4,7 @@ public class OutputViewImpl implements OutputView {
 
     @Override
     public void printExecution() {
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
     }
 
     @Override
@@ -14,6 +14,6 @@ public class OutputViewImpl implements OutputView {
 
     @Override
     public void printFinalWinner(String winner) {
-        System.out.println("최종 우승자 : " + winner);
+        System.out.print("최종 우승자 : " + winner);
     }
 }

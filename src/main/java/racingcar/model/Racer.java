@@ -44,7 +44,7 @@ public class Racer {
                 .stream()
                 .map(Car::getName)
                 .toList();
-        return String.join(Rule.SEPARATOR, winner);
+        return String.join(Rule.SEPARATOR + " ", winner);
     }
 
     @Override
