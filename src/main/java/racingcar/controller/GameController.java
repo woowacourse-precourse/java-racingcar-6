@@ -29,4 +29,9 @@ public class GameController {
         outputView.printMessage(Message.GET_CARS);
         cars = gameService.toCarList(inputView.getCarNames());
     }
+
+    private void getRounds() {
+        outputView.printMessage(Message.GET_ROUNDS);
+        round = inputView.getRounds();
+    }
 }
