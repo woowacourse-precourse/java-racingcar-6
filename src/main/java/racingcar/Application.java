@@ -8,12 +8,6 @@ import java.util.ArrayList;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String carInput = Console.readLine();
-        String[] carArray = carInput.split(",");
-        System.out.println("시도할 회수는 몇회인가요?");
-        int tryNumber = Integer.parseInt(Console.readLine());
-        int[]raceAccumulations = new int[carArray.length];
 
     }
     private static Race receiveRaceInformation(){
@@ -31,14 +25,13 @@ public class Application {
         return randomNum;
     }
 
-    private static void printEachCarScore(int[] raceAccumulations){
-        for (int index=0; index<raceAccumulations.length; index++){
+    private static void printEachCarScore(int[] raceAccumulations,int index){
             int substitutionNum = raceAccumulations[index];
             for (int printNum=0; printNum<substitutionNum; printNum++){
                 System.out.print("-");
             }
         }
-    }
+
 
     private static int[] playGame(int tryNumber, String[]carArray,int[] raceAccumulations){
         for (int i=0; i<tryNumber; i++){
@@ -60,13 +53,13 @@ public class Application {
     private static void printEachRace(int[] raceAccumulations, String[]carArray){
         for (int index=0; index<carArray.length; index++){
             System.out.print(carArray[index]+" : ");
-            printEachCarScore(raceAccumulations);
+            printEachCarScore(raceAccumulations,index);
             System.out.println();
         }
         System.out.println();
     }
 
-    private static void findFinalWinner(int[]raceAccumulations, String[]carArray){
+    private static ArrayList<String> findFinalWinner(int[]raceAccumulations, String[]carArray){
         int maxScore = 0;
         ArrayList<String>WinnerNames = new ArrayList<>();
         for (int index=0; index<carArray.length; index++){
@@ -79,6 +72,7 @@ public class Application {
                 WinnerNames.add(carArray[index]);
             }
         }
+        return WinnerNames;
     }
     private static void printFinalResult(ArrayList<String>WinnerNames){
         System.out.print("최종 우승자 :");
