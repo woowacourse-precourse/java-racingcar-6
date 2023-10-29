@@ -9,10 +9,6 @@ import racingcar.util.RacingGuideMessage;
 
 public class OutputView {
 
-    public void showMessage(String message) {
-        System.out.println(message);
-    }
-
     public void showMessage(RacingGuideMessage racingGuideMessage) {
         System.out.println(racingGuideMessage.getMessage());
     }
@@ -30,8 +26,9 @@ public class OutputView {
     }
 
     private void renderRaceStatus(CarGroup carGroup) {
+        String positionMarker = "-";
         for (Car car : carGroup.getCarGroup()) {
-            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
+            System.out.println(car.getName() + " : " + positionMarker.repeat(car.getPosition()));
         }
     }
 
