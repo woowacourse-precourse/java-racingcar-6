@@ -56,4 +56,19 @@ public class InputTest {
 
         assertThat(exception.getMessage()).isEqualTo(ErrorMessage.ERROR_NAME_MUST_BE_NUMBER.getMessage());
     }
+
+    @Test
+    @DisplayName("사용자의 입력이 중복이 된 경우, 에러를 출력하는가?")
+    void testErrorNameDuplicated() {
+        String input = "pobi,pobi";
+
+        List<String> names = Converter.convertStringToList(input);
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class, () -> Validator.validateNotDuplicate(names)
+        );
+
+        assertThat(exception.getMessage()).isEqualTo(ErrorMessage.ERROR_NAME_MUST_BE_NOT_DUPLICATED.getMessage());
+
+    }
 }
