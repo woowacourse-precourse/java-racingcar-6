@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 public class CarNameTest {
     @Test
     void createCarNameByEmptySpace(){
-        assertThatThrownBy(() -> new CarName("msung99 "))
+        assertThatThrownBy(() -> new CarName("msung "))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
