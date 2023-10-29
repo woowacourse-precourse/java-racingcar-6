@@ -11,7 +11,7 @@
         - [ ] 자동차 생성 가능 최대 수는 10대로 한다. (2023 F1 출전 팀을 기준 10팀)
         - [ ] 자동차 생성 가능 최소 수는 2대로 한다. (경주 게임을 진행하기 위한 최소 인원)
 - [ ] 자동차가 앞으로 이동한다. Forward 
-  - [ ] 0에서 9 사이에서 무작위 값을 구한다. Forward#randomNums()
+  - [x] 0에서 9 사이에서 무작위 값을 구한다. Forward#randomNums()
   - [ ] Forward#randomNums()가 4 이상일 때 전진한다. Forward#canForward()
   
 - [ ] 경주의 라운드 별 상태를 나타낸다. Racing
