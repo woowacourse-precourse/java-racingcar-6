@@ -37,20 +37,25 @@ public class Car {
         System.out.println("실행 결과");
 
         for (int i = 0; i < roundCount; i++) {
-
-            for (int j = 0; j < movedCount.size(); j++) {
-
-                if (Randoms.pickNumberInRange(0, 9) >= 4) {
-                    movedCount.set(j, movedCount.get(j) + "-");
-                }
-            }
-
-            for (int k = 0; k < this.names.size(); k++) {
-                System.out.println(this.names.get(k) + " : " + movedCount.get(k));
-            }
-
-            System.out.println();
+            moveRandomly();
+            printDistances();
         }
     }
 
+    private void moveRandomly() {
+
+        for (int j = 0; j < movedCount.size(); j++) {
+
+            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+                movedCount.set(j, movedCount.get(j) + "-");
+            }
+        }
+    }
+
+    private void printDistances() {
+        for (int k = 0; k < names.size(); k++) {
+            System.out.println(names.get(k) + " : " + movedCount.get(k));
+            System.out.println();
+        }
+    }
 }
