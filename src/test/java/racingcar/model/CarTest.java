@@ -46,7 +46,7 @@ class CarTest {
                 .isEqualTo(new Car(ANONYMOUS_NAME, 0));
     }
 
-    @DisplayName("CarDto로 변환 테스트 : 모든 필드값을 통해 CarDto로 변환한다.")
+    @DisplayName("toDto() 테스트 : Car를 CarDto로 변환한다.")
     @Test
     void toDto() {
         Car car = new Car("홍길동", 5);
@@ -58,19 +58,28 @@ class CarTest {
                 .isEqualTo(new Car("홍길동", 5));
     }
 
-    @DisplayName("더 앞에 있는지 테스트 :Car 객체가 다른 Car 보다 더 앞에 있으면 true, 그렇지 않으면 false 반환")
-    @Test
-    void isFrontOf() {
+    @DisplayName("isFrontOf() 테스트 :Car 객체가 다른 Car 보다 더 앞에 있으면 true를 반환한다.")
+    @ParameterizedTest(name = "내 차가(5) 다른차 {0}보다 앞에 있으므로 true를 반환한다.")
+    @ValueSource(ints = {0, 3, 4})
+    void isFrontOf_다른차보다_앞에있을때_true(int otherPosition) {
         Car car = new Car("홍길동", 5);
 
-        boolean expectedTrue = car.isFrontOf(new Car("성춘향", 3));
-        boolean expectedFalse = car.isFrontOf(new Car("성춘향", 6));
+        boolean expectedTrue = car.isFrontOf(new Car("성춘향", otherPosition));
 
-        assertAll(
-            () -> assertThat(expectedTrue).isTrue(),
-            () -> assertThat(expectedFalse).isFalse()
-        );
+        assertThat(expectedTrue).isTrue();
     }
+
+    @DisplayName("isFrontOf() 테스트 :Car 객체가 다른 Car 보다 같거나 뒤에있으면 false를 반환한다.")
+    @ParameterizedTest(name = "내 차가(5) 다른차 {0}와 같거나 뒤에 있으므로 false를 반환한다.")
+    @ValueSource(ints = {5, 6, 7})
+    void isFrontOf_다른차보다_뒤에있을때_false(int otherPosition) {
+        Car car = new Car("홍길동", 5);
+
+        boolean expectedFalse = car.isFrontOf(new Car("성춘향", otherPosition));
+
+        assertThat(expectedFalse).isFalse();
+    }
+
 
     @DisplayName("move 테스트 : 자동차의 position 이 한칸 전진한다.")
     @Test
