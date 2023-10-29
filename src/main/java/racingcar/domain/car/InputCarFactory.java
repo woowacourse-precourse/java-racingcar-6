@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.domain.car.move.RandomMovement;
 
 public class InputCarFactory implements CarFactory {
 
@@ -15,7 +16,7 @@ public class InputCarFactory implements CarFactory {
 
     private List<Car> convertNamesToCars(String[] carNames) {
         return Arrays.stream(carNames)
-                .map(name -> new Car(name.trim()))
+                .map(name -> new Car(name.trim(), new RandomMovement()))
                 .collect(Collectors.toList());
     }
 
