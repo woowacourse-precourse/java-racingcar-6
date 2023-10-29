@@ -55,7 +55,7 @@ public class Car {
     private void printDistances() {
         for (int k = 0; k < names.size(); k++) {
             System.out.println(names.get(k) + " : " + movedDistances.get(k));
-            System.out.println();
         }
+        System.out.println();
     }
 }
