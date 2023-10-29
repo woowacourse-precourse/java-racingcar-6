@@ -23,7 +23,7 @@ class User{
 }
 
 class Car{
-    Map<String,Integer> CarInformation = new HashMap<>();
+    Map<String,String> CarInformation = new HashMap<>();
     int RepeatCount;
     public Car() {
         init();
@@ -32,7 +32,7 @@ class Car{
     public void init(){
         String CarName = readLine();
         for (String name : CarName.split(",")){
-            CarInformation.put(name.trim(),0);
+            CarInformation.put(name.trim(),"");
         }
         CheckException.CheckRightCarName(CarInformation.keySet());
         RepeatCount = User.NumberOfMove();
@@ -48,10 +48,10 @@ class Car{
         return false;
     }
     private void WriteForwardDistance(String CarName){
-        int distance = CarInformation.get(CarName);
+        String distance = CarInformation.get(CarName);
         int num = CreateRandomNumber();
         if (CheckGoOrStop(num)){
-            distance++ ;
+            distance += "-" ;
             CarInformation.put(CarName,distance);
         }
     }
@@ -67,7 +67,7 @@ class Car{
         System.out.println("\n실행 결과");
         for (int i=0; i<RepeatCount; i++){
             WhichCarWillMove();
-            CarInformation.forEach((key, value) -> System.out.println("Key: " + key + ", Value: " + value));
+            CarInformation.forEach((key, value) -> System.out.println(key + " : " + value));
             System.out.println();
         }
     }
@@ -96,8 +96,8 @@ class Car{
     public List<String> FindWinner(){
         List<String> Winner = new ArrayList<>();
         int maxDistance = -1;
-        for (Map.Entry<String, Integer> entry : CarInformation.entrySet()) {
-            int value = entry.getValue();
+        for (Map.Entry<String, String> entry : CarInformation.entrySet()) {
+            int value = entry.getValue().length();
             if (value > maxDistance) {
                 Winner.clear();
                 Winner.add(entry.getKey());
