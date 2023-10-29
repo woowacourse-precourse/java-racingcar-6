@@ -1,8 +1,11 @@
-package racingcar;
+package racingcar.util;
 
+import racingcar.Entity.Car;
 import racingcar.constant.CarStatus;
 import racingcar.constant.Message;
+import racingcar.constant.SymbolType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ConsolePrint {
@@ -18,15 +21,19 @@ public class ConsolePrint {
     }
 
     public void racingTryResult(Car car, CarStatus status) {
-        System.out.println(car.getName() + "" + );
+        System.out.println(car.getName() + SymbolType.CAR_RESULT.getValue() + car.getNowMoveTrace());
 
     }
 
     public void finalWinner(List<Car> winners) {
-        StringBuilder winnerString = new StringBuilder();
-        System.out.println(Message.FINAL_WINNER_INFO.getValue());
+        System.out.print(Message.FINAL_WINNER_INFO.getValue());
+
+        ArrayList<String> winnersName = new ArrayList<>();
         for (Car winner : winners) {
-            winnerString.append(winner.getName()).append(Message.DELIMITER_PRINT_CARS.getValue());
+            winnersName.add(winner.getName());
         }
+        String result = String.join(SymbolType.DELIMITER_PRINT_CARS.getValue(),winnersName);
+
+        System.out.println(result);
     }
 }
