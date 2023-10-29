@@ -1,6 +1,7 @@
 package racingcar.utils;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.List;
 import racingcar.dto.RacingCar;
 
 public class RacingCarGame {
@@ -15,10 +16,12 @@ public class RacingCarGame {
         return randomValue >= 4;
     }
 
-    public static void moveCarsForward(RacingCar car) {
-        if (isRandomForwardMove()) {
-            car.moveForword();
-        }
+    public static void moveCarsForward(List<RacingCar> carList) {
+        carList.forEach(car -> {
+            if (isRandomForwardMove()) {
+                car.moveForword();
+            }
+        });
     }
 
 }
