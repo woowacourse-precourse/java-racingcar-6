@@ -30,3 +30,13 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Java ###
+# Compiled class file
+*.class
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
