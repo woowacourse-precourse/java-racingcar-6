@@ -2,7 +2,6 @@ package racingcar.util;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.exception.InputValidator;
 import racingcar.vo.CarName;
 
@@ -17,7 +16,7 @@ public class StringConverter {
         InputValidator.validateInputCarNames(carNames);
         return Arrays.stream(carNames.split(DELIMITER))
                 .map(name -> new CarName(name.trim()))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public static Integer stringToInteger(String TryNumber) {
