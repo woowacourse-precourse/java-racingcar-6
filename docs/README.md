@@ -63,25 +63,39 @@ graph LR
 ## class diagram
 ```mermaid
 classDiagram
-    class Car{
-        -String name
-        -Int position
-        +moveForward()
-        +getPosition()
-    }
-    class GameView{
-        +readCarNames()
-        +readNumberOfMoves()
-        +printResult(cars:List)
-        +printWinner(cars:List)
-    }
-    class GameController{
-        -GameView view
-        +readCarNames(): List<String>
-        +readNumberOfMoves(): Int
-    }
-    class GameManager{
-        +start()
-    }
+  Application o-- GameManager
+  GameManager o-- GameView
+  GameManager o-- Car
+  GameManager --> Validator
+  class Car{
+    -String name
+    -List<Integer> positions
+    +Car(name: String)
+    +addPosition()
+    +getPosition(index: Int)
+    +getName()
+  }
+  class GameManager{
+    +start()
+    -getCars() List<Car>
+    -getNumberOfMoves() Int
+    -moveCars(cars: List<Car>)
+    -getWinner(cars: List<Car>)
+  }
+  class GameView{
+    +readCarNames() String
+    +readNumberOfMoves() Int
+    +printMoveResult(cars: List<Car>)
+    +printWinner(winners: List<Car>)
+  }
+  class Validator{
+
+    +validateCarNames(carNames: String)$
+    +validateNumberOfMoves(numberOfMoves: int)$
+  }
+  class Application{
+    +main()$
+  }
+
 ```
 
