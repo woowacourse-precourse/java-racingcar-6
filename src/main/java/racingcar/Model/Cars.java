@@ -28,4 +28,16 @@ public class Cars {
             car.forwardCarPosition();
         }
     }
+
+    public String getCarPositionIcon(int index){
+        return connectingIcons(cars.get(index));
+    }
+
+    private String connectingIcons(Car car){
+        String icon = "";
+        for(int i = 0; i < car.getCarPosition(); i++){
+            icon += "-";
+        }
+        return icon;
+    }
 }
