@@ -15,7 +15,7 @@ public class Car {
         List<String> carMove = initializeCarMove(carNames);
 
         for (int i = 0; i < tryNumber; i++) {
-            System.out.println(i + 1 + "회차"); 
+            System.out.println(i + 1 + "회차");
             printRacing(carNames, carMove);
         }
 

@@ -23,9 +23,15 @@ public class Validator {
         }
     }
 
-    public void isNumber(String inputNumber) {
-        if (inputNumber.matches("[^0-9]+")) {
-            throw new IllegalArgumentException("숫자를 입력해 주세요.");
+    public int toNumber(String inputNumber) {
+        int tryNumber;
+
+        try {
+            tryNumber = Integer.parseInt(inputNumber);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력해주세요.");
         }
+
+        return tryNumber;
     }
 }

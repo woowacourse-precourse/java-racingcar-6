@@ -16,9 +16,9 @@ public class Game {
         validator.isLengthOverFive(carNames);
 
         String inputNumber = input.tryNumber();
-        validator.isNumber(inputNumber);
+        validator.toNumber(inputNumber);
 
-        int tryNumber = Integer.parseInt(inputNumber);
+        int tryNumber = validator.toNumber(inputNumber);
 
         List<String> carMove = car.racingResult(carNames, tryNumber);
         List<Integer> carMoveDistance = car.countCarMove(carMove);
