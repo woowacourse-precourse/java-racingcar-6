@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import static racingcar.constants.MessageConstant.INVALID_INPUT_MESSAGE;
 import static racingcar.constants.NumberConstant.RANDOM_NUMBER_LIMIT;
+import static racingcar.utils.Converter.convertToCarList;
 import static racingcar.utils.Randoms.pickNumberInRange;
 
 import java.util.List;
@@ -70,12 +71,6 @@ public class Cars {
 
     private Car getByIndex(final int index) {
         return cars.get(index);
-    }
-
-    private List<Car> convertToCarList(final List<String> names) {
-        return names.stream()
-                .map(Car::of)
-                .collect(Collectors.toList());
     }
 
     private void validate(final List<String> names) {

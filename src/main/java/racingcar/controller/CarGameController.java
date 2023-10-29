@@ -1,9 +1,11 @@
 package racingcar.controller;
 
+import static racingcar.utils.Converter.convertToCars;
+
 import racingcar.domain.Cars;
 import racingcar.service.CarGameService;
-import racingcar.view.OutputView;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class CarGameController {
 
@@ -47,6 +49,6 @@ public class CarGameController {
     private Cars receiveCars() {
         outputView.printStartGame();
         String input = inputView.readCarNames();
-        return carGameService.convertToCars(input);
+        return convertToCars(input);
     }
 }
