@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,12 +11,12 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         Cars cars = new Cars();
-        Score score = new Score();
+        Race race = new Race();
         
         String[] carArray = cars.enterCars();
         cars.validateCarsName(carArray);
         
-        score.initScorePerCar(carArray);
+        race.initScorePerCar(carArray);
         
         System.out.println("시도할 회수는 몇회인가요?");
         int tryNum;
