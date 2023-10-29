@@ -10,12 +10,10 @@ public class Cars {
     private static final int DEFAULT_POSITION = 0;
 
     private final List<Car> cars;
-    private int maxPosition;
 
     private Cars(final List<Car> cars) {
         validateEachCarUnique(cars);
         this.cars = cars;
-        this.maxPosition = DEFAULT_POSITION;
     }
 
     private void validateEachCarUnique(final List<Car> cars) {
@@ -41,12 +39,7 @@ public class Cars {
         cars.forEach(car -> {
             int number = randomNumber.pickNumber();
             car.accelerate(number);
-            updateMaxPosition(car.getPosition());
         });
-    }
-
-    private void updateMaxPosition(final int position) {
-        maxPosition = Math.max(maxPosition, position);
     }
 
     public List<String> collectEachStatus() {
@@ -56,10 +49,19 @@ public class Cars {
     }
 
     public List<String> collectWinners() {
+        int highestPosition = getHighestPosition();
         return cars.stream()
-                .filter(car -> car.isWinner(maxPosition))
+                .filter(car -> car.isPositionEqualTo(highestPosition))
                 .map(Car::getName)
                 .collect(Collectors.toList());
+    }
+
+    private int getHighestPosition() {
+        int position = DEFAULT_POSITION;
+        for (Car car : cars) {
+            position = Math.max(car.getPosition(), position);
+        }
+        return position;
     }
 
     public boolean isCarsCountEqualTo(final int size) {
