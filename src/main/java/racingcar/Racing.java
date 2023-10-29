@@ -15,7 +15,7 @@ public class Racing {
         return record;
     }
 
-    static void recordResult(Map<String, Integer> record){
+    static Map<String, Integer> recordResult(Map<String, Integer> record){
         for(Entry<String, Integer> entrySet: record.entrySet()){
             int randomNum = Util.makeRandomNumber();
 
@@ -24,6 +24,7 @@ public class Racing {
                 record.put(entrySet.getKey(), num);
             }
         }
+        return record;
     }
 
     static String[] decideWinner(Map<String, Integer> record){
