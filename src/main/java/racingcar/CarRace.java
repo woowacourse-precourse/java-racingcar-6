@@ -24,4 +24,10 @@ public class CarRace {
         printMove(contestant, move);
         return move;
     }
+
+    public void nameCheck(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("이름 길이가 5를 초과할 수 없습니다.");
+        }
+    }
 }
