@@ -6,7 +6,7 @@ import racingcar.util.Constants;
 
 public class OutputView {
     public void printGameResult() {
-        System.out.println(Constants.GAME_RESULT_MESSAGE);
+        System.out.println("\n" + Constants.GAME_RESULT_MESSAGE);
     }
 
     public void printMoveResult(Map<Car, Integer> moveResults) {
