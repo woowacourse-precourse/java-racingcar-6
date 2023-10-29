@@ -30,4 +30,8 @@ public class Game {
         return tries < Model.getNumberOfTries();
     }
 
+    private static void gameEnd() {
+        View.printWinner(Model.getWinnersName());
+    }
+
 }
