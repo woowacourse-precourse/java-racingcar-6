@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,6 +44,12 @@ public class Cars {
         Map<String, Integer> result = new HashMap<>();
         cars.forEach(car -> result.put(car.getName(), car.getLocation()));
         return result;
+    }
+
+    public List<String> getCarsName() {
+        List<String> names = new ArrayList<>();
+        cars.forEach(car -> names.add(car.getName()));
+        return names;
     }
 
 }
