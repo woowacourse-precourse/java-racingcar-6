@@ -1,31 +1,38 @@
-package racingcar.util;
+package racingcar.domain;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import static racingcar.app.RacingGameConst.*;
 
 public class RacingGameValidator {
 
-    public static void validateGameCount(final String count) {
-        try {
-            Integer.parseInt(count);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    public static void validateCarName(
-            final String input,
-            final List<String> carNames,
-            int count
-    ) {
-        for (int i = 0; i < count; i++) {
+    public static void validateCarNameInput(final List<String> carNames) {
+        validateCarNameInputEmpty(carNames);
+        validateCarNameIncludeEmpty(carNames);
+        validateCarNameDuplicate(carNames);
+        for (int i = 0; i < carNames.size(); i++) {
             String name = carNames.get(i);
             validateCarNameEmpty(name);
             validateCarNameLength(name);
-            validateCarNameDuplicate(name, carNames);
+        }
+    }
+
+    private static void validateCarNameInputEmpty(List<String> names) {
+        if (names.isEmpty()) {
+            throw new IllegalArgumentException(NAMES_EMPTY_ERROR_MESSAGE);
+        }
+    }
+
+    private static void validateCarNameIncludeEmpty(List<String> names) {
+        Optional<String> emptyName = names.stream()
+                .filter(s -> s.equals(""))
+                .findAny();
+
+        if (emptyName.isPresent()) {
+            throw new IllegalArgumentException(NAMES_INCLUDE_EMPTY_ERROR_MESSAGE);
         }
     }
 
@@ -42,10 +49,7 @@ public class RacingGameValidator {
         }
     }
 
-    private static void validateCarNameDuplicate(
-            final String name,
-            final List<String> carNames
-    ) {
+    private static void validateCarNameDuplicate(final List<String> carNames) {
         Set<String> carNameSet = new HashSet<>(carNames);
         if (carNameSet.size() != carNames.size()) {
             throw new IllegalArgumentException("중복된 이름은 입력할 수 없습니다.");

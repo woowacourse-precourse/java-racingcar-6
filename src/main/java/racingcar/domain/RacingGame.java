@@ -5,7 +5,6 @@ import racingcar.domain.collection.RacingCars;
 import racingcar.domain.interfaces.CarFactory;
 import racingcar.domain.interfaces.Game;
 import racingcar.util.OutputUtil;
-import racingcar.util.RacingGameValidator;
 
 import java.util.List;
 

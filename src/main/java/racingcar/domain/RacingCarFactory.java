@@ -6,7 +6,6 @@ import racingcar.domain.collection.RacingCars;
 import racingcar.domain.interfaces.CarFactory;
 import racingcar.util.InputUtil;
 import racingcar.util.OutputUtil;
-import racingcar.util.RacingGameValidator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +24,7 @@ public class RacingCarFactory implements CarFactory {
 
         String input = Console.readLine();
         List<String> carNames = InputUtil.getSplitTokensFrom(input);
-        RacingGameValidator.validateCarName(input, carNames, carNames.size());
+        RacingGameValidator.validateCarNameInput(carNames);
 
         return new CarNames(carNames);
     }
