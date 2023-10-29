@@ -1,10 +1,15 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.Objects;
 
 public class Car {
     private static final int MIN_NAME_LENGTH = 1;
     private static final int MAX_NAME_LENGTH = 5;
+    private static final int MIN_RANDOM_VALUE = 0;
+    private static final int MAX_RANDOM_VALUE = 9;
+    private static final int MIN_MOVE_CONDITION = 4;
     private String name;
     private Integer moveCount;
 
@@ -26,4 +31,29 @@ public class Car {
             return false;
         return true;
     }
+
+    public void tryToMove() {
+        int randomValue = Randoms.pickNumberInRange(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE);
+        validateRandomValue(randomValue);
+
+        if (isPossibleToMove(randomValue)) {
+            moveCount++;
+        }
+    }
+
+    private void validateRandomValue(final int randomValue) {
+        if (randomValue < MIN_RANDOM_VALUE || randomValue > MAX_RANDOM_VALUE) {
+            throw new IllegalArgumentException("랜덤 값은 "
+                    + MIN_RANDOM_VALUE + "이상 "
+                    + MAX_RANDOM_VALUE + "이하 값을 가져야 합니다.");
+        }
+    }
+
+    private boolean isPossibleToMove(final int value) {
+        if (value >= MIN_MOVE_CONDITION) {
+            return true;
+        }
+        return false;
+    }
+
 }
