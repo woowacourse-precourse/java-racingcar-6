@@ -7,6 +7,7 @@ import racingcar.view.InputView;
 public class StringName {
     private static final int NAME_LENGTH = 5;
 
+
     public static List<String> splitName(String inputName) {
         List<String> names = Arrays.asList(inputName.split(","));
         checkNames(names);
