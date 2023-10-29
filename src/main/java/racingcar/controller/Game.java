@@ -42,6 +42,7 @@ public class Game {
 
         for(currentTurn = 0L; currentTurn < totalTurns; currentTurn++) {
             turn();
+            System.out.println();
         }
         OutputView.printWinner(GameResult.fromCars(cars));
     }
@@ -54,6 +55,4 @@ public class Game {
             OutputView.printStatus(GameStatus.fromCar(car));
         }
     }
-
-
 }
