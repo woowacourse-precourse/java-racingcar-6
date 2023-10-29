@@ -18,8 +18,8 @@ public class Cars {
         return this.carList.stream().filter(car -> car.getForwards() == maxForwards).map(car -> car.getName())
                 .collect(Collectors.toList());
     }
-    
-    public void sortCarsByForwards() {
+
+    private void sortCarsByForwards() {
         Collections.sort(carList, (car1, car2) -> car2.getForwards() - car1.getForwards());
     }
 }
