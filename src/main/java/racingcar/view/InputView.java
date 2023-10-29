@@ -57,7 +57,7 @@ public class InputView {
 
     private void validateDuplicateName(String carName, Set<String> setCarNames) {
         if (!setCarNames.add(carName)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.DUPLICATE_CAR_NAME_EXCEPTION.getMessage());
         }
     }
 }
