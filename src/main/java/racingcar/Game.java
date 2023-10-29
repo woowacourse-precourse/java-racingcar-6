@@ -10,6 +10,7 @@ public class Game {
         for (User u : users) {
             printRacing(u);
         }
+        System.out.println();
     }
 
     private static int randomNumber() {
@@ -32,6 +33,7 @@ public class Game {
         for (int i = 0; i < u.length; i++) {
             System.out.print("-");
         }
-        System.out.print("\n");
+        System.out.println();
+
     }
 }
