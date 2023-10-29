@@ -87,6 +87,6 @@ public class CarTest {
                 + "\n실제 확률: " + X
                 + "\n신뢰구간 준수여부: " + isInConfidenceInterval;
 
-        ProbabilityWatcher.registerResult(report, isInConfidenceInterval);
+        ProbabilityWatcher.registerResult(report, !isInConfidenceInterval);
     }
 }
