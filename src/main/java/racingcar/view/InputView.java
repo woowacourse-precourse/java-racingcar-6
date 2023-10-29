@@ -22,6 +22,12 @@ public class InputView {
         return input;
     }
 
+    public int getRounds() {
+        String input = readLine();
+
+        return Integer.parseInt(input);
+    }
+
     private String readLine() {
         return Console.readLine();
     }
