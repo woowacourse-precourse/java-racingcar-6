@@ -9,5 +9,5 @@ public class ExceptionMessage {
     public static final String SAME_NAME_ERROR = ERROR_MESSAGE + "동일한 이름은 존재할 수 없습니다.";
     public static final String IS_NUMBER_ERROR = ERROR_MESSAGE + "숫자를 입력해주세요.";
     public static final String IS_INT_ERROR = ERROR_MESSAGE + "정수를 입력해주세요";
-    public static final String ZERO_OR_LESS_ERROR = ERROR_MESSAGE + "1 이상의 값을 입력해주세요.";
+    public static final String NUMBER_ERROR = ERROR_MESSAGE + "1 이상의 올바른 숫자 값을 입력해주세요.";
 }
