@@ -21,4 +21,8 @@ public class CarController {
         return Stream.of(input.split(","))
                 .toList();
     }
+
+    public int getRaceCount() {
+        return Integer.parseInt(Console.readLine());
+    }
 }
