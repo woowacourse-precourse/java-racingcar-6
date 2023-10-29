@@ -6,7 +6,7 @@ import racingcar.util.Constants;
 
 public class InputValidator {
     public static void validateNotInputComma(final String input) {
-        if (input.length() > 5) {
+        if (input.length() > Constants.MAX_CAR_NAME_LENGTH) {
             validateContainsComma(input);
         }
     }
