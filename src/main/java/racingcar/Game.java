@@ -19,6 +19,9 @@ public class Game {
             if (s.length() > this.MAX_CAR_NAME_LENGTH) {
                 throw new IllegalArgumentException(this.INPUT_WRONG_VALUE);
             }
+            if (s.isEmpty()) {
+                throw new IllegalArgumentException(INPUT_WRONG_VALUE);
+            }
         }
     }
 
