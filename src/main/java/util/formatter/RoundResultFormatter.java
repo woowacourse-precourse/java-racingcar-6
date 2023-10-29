@@ -1,4 +1,4 @@
-package domain.formatter;
+package util.formatter;
 
 import dto.RoundResultDto;
 import java.util.List;

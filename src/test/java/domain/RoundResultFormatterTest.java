@@ -1,6 +1,6 @@
 package domain;
 
-import domain.formatter.RoundResultFormatter;
+import util.formatter.RoundResultFormatter;
 import dto.RoundResultDto;
 import java.util.Arrays;
 import java.util.List;
