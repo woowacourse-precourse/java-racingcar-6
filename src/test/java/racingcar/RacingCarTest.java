@@ -18,7 +18,7 @@ public class RacingCarTest {
         InputCarRace.inputMove("2");
         System.out.println();
 
-        OutputCarRace.print(MessageType.OUPUT_RACE_RESULT_PRINT);
+        OutputCarRace.print(MessageType.OUTPUT_RACE_RESULT_PRINT);
 
         for (String carName : InputCarRace.getCarNumbers()) {
             this.winCount.add(new StringBuilder());
@@ -34,7 +34,7 @@ public class RacingCarTest {
                     }
                 }
 
-                OutputCarRace.printf(MessageType.OUPUT_IMPLEMENTATION_RESULT_PRINT, InputCarRace.getCarNumbers().get(j), this.winCount.get(j).toString());
+                OutputCarRace.printf(MessageType.OUTPUT_IMPLEMENTATION_RESULT_PRINT, InputCarRace.getCarNumbers().get(j), this.winCount.get(j).toString());
             }
             System.out.println();
         }
