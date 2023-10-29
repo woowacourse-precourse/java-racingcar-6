@@ -12,17 +12,19 @@ import java.util.List;
 public class Application {
 
 
-    private static void printMessage(String message){
+    private static void printMessage(String message) {
         System.out.println(message);
     }
+
+    private static String getInput() {
+        Application.printMessage("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        return Console.readLine();
+    }
+
     public static void main(String[] args) {
         // TODO: 프로그램 구 현
 
         // 1. 자동차 이름 입력
-
-        Application.printMessage("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-
-        String userInput = Console.readLine();
 
         List<String> carNames = new ArrayList<>(
                 Arrays.asList(userInput.split(","))
