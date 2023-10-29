@@ -11,15 +11,15 @@ public class CarRacing {
         this.cars = cars;
         this.iterationNumBer = iterationNumBer;
     }
-
-    private List<Car> getChampionCars() {
+    private List<CarRacingResult> getCarRacingResult() {
         Integer maxLocation = cars.stream()
                 .map(Car::getLocation)
                 .max(Integer::compare)
                 .get();
 
-        List<Car> championCars = cars.stream()
+        List<CarRacingResult> championCars = cars.stream()
                 .filter(car -> car.getLocation() == maxLocation)
+                .map(Car::convertToCarRacingResult)
                 .toList();
 
         return championCars;

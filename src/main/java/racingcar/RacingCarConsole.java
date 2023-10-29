@@ -37,8 +37,8 @@ public class RacingCarConsole {
         System.out.println();
     }
 
-    public static void printChampionCars(List<Car> championCars) {
-        List<String> championCarsName = championCars.stream().map(Car::getName).toList();
+    public static void printChampionCars(List<CarRacingResult> championCars) {
+        List<String> championCarsName = championCars.stream().map(CarRacingResult::getName).toList();
         String championCarsMessage = championCarsName.stream()
                 .reduce((carNames, carName) -> carNames + ", " + carName)
                 .get();
