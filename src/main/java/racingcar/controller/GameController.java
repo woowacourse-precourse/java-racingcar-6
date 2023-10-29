@@ -29,5 +29,8 @@ public class GameController {
 
         Queue<List<Car>> roundSnapShots = gameModel.getRoundSnapShots();
         gameView.printRoundResult(roundSnapShots);
+
+        List<String> winnerCars = gameModel.getWinnerCars();
+        gameView.printGameWinner(winnerCars);
     }
 }

@@ -56,4 +56,49 @@ public class GameModelTest {
         assertThat(result.get(1).getMoveCount()).isEqualTo(3);
         assertThat(result.get(2).getMoveCount()).isEqualTo(2);
     }
+
+    @Test
+    @DisplayName("최대로 움직인 횟수를 구한 뒤, 우승자들의 이름을 반환한다")
+    public void getWinnerCarsTest() {
+        // given
+        List<String> carNames = Arrays.asList("KWY", "DSH", "ASAP");
+        gameModel.setCars(carNames);
+
+        List<Integer> roundMoveNumbers = Arrays.asList(1, 5, 7);
+        List<Integer> roundMoveNumbers2 = Arrays.asList(5, 6, 3);
+        List<Integer> roundMoveNumbers3 = Arrays.asList(3, 8, 6);
+        Queue<List<Integer>> moveNumbers = new LinkedList<>();
+        moveNumbers.add(roundMoveNumbers);
+        moveNumbers.add(roundMoveNumbers2);
+        moveNumbers.add(roundMoveNumbers3);
+        gameModel.playGame(moveNumbers);
+        // when
+        List<String> result = gameModel.getWinnerCars();
+        // then
+        assertThat(result.size()).isEqualTo(1);
+        assertThat(result.get(0)).isEqualTo("DSH");
+    }
+
+    @Test
+    @DisplayName("우승자가 여러명일 때 우승자들의 이름을 반환한다")
+    public void getWinnerCarsTest2() {
+        // given
+        List<String> carNames = Arrays.asList("KWY", "DSH", "ASAP");
+        gameModel.setCars(carNames);
+
+        List<Integer> roundMoveNumbers = Arrays.asList(8, 5, 7);
+        List<Integer> roundMoveNumbers2 = Arrays.asList(5, 6, 3);
+        List<Integer> roundMoveNumbers3 = Arrays.asList(5, 8, 6);
+        Queue<List<Integer>> moveNumbers = new LinkedList<>();
+        moveNumbers.add(roundMoveNumbers);
+        moveNumbers.add(roundMoveNumbers2);
+        moveNumbers.add(roundMoveNumbers3);
+        gameModel.playGame(moveNumbers);
+        // when
+        List<String> result = gameModel.getWinnerCars();
+        // then
+        assertThat(result.size()).isEqualTo(2);
+        assertThat(result.get(0)).isEqualTo("KWY");
+        assertThat(result.get(1)).isEqualTo("DSH");
+    }
 }

@@ -65,5 +65,15 @@ public class GameModel {
         return roundSnapShots;
     }
 
+    public List<String> getWinnerCars() {
+        int maxMoveCount = cars.stream()
+                .mapToInt(Car::getMoveCount)
+                .max()
+                .getAsInt();
+
+        return cars.stream()
+                .filter(c -> c.getMoveCount() == maxMoveCount)
+                .map(Car::getName)
+                .toList();
     }
 }

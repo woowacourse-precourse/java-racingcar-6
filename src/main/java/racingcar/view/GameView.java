@@ -39,7 +39,7 @@ public class GameView {
             addRoundResult(roundSnapshot, sb);
             sb.append("\n");
         }
-        System.out.println(sb);
+        System.out.print(sb);
     }
 
     private void addRoundResult(final List<Car> roundSnapshot, final StringBuilder sb) {
@@ -51,4 +51,8 @@ public class GameView {
         }
     }
 
+    public void printGameWinner(final List<String> winnerCarNames) {
+        String winnerCarsNameToString = String.join(COMMA, winnerCarNames);
+        System.out.println("최종 우승자 : " + winnerCarsNameToString);
+    }
 }
