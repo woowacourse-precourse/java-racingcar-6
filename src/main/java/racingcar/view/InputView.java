@@ -9,6 +9,8 @@ import static racingcar.constant.CarConstant.NAME_REGEX;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.dto.CarNames;
+import racingcar.dto.MoveCount;
 import racingcar.validator.Validator;
 
 /*
@@ -17,26 +19,26 @@ import racingcar.validator.Validator;
 public class InputView {
     private static final int SIZE_ZERO = 0;
 
-    public List<String> carNames() {
+    public CarNames carNames() {
         String input = Console.readLine();
         List<String> carNames = Arrays.stream(input.split(",")).toList();
         validateCarNames(carNames);
-        return carNames;
+        return CarNames.from(carNames);
     }
 
     private void validateCarNames(List<String> carNames) {
-        Validator.stringsSizeBiggerThan(SIZE_ZERO, carNames);
-        Validator.stringsLengthInRange(carNames, MIN_NAME_SIZE, MAX_NAME_SIZE);
-        Validator.stringsContainsOnlyRegex(carNames, NAME_REGEX);
-        Validator.stringsNotDuplicated(carNames);
+        Validator.commandsSizeBiggerThan(SIZE_ZERO, carNames);
+        Validator.commandsLengthInRange(carNames, MIN_NAME_SIZE, MAX_NAME_SIZE);
+        Validator.commandsFollowRegex(carNames, NAME_REGEX);
+        Validator.commandsNotDuplicated(carNames);
     }
 
-    public int moveCount() {
+    public MoveCount moveCount() {
         String input = Console.readLine();
-        Validator.stringToInteger(input);
+        Validator.commandToInteger(input);
         int moveCount = Integer.parseInt(input);
-        Validator.integerInRange(moveCount, MIN_MOVE_COUNT, MAX_MOVE_COUNT);
+        Validator.commandValueInRange(moveCount, MIN_MOVE_COUNT, MAX_MOVE_COUNT);
         System.out.println();
-        return moveCount;
+        return new MoveCount(moveCount);
     }
 }
