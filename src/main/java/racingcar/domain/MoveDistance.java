@@ -3,11 +3,10 @@ package racingcar.domain;
 import racingcar.constant.ProgressMessage;
 
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public final class MoveDistance {
 
-    private static final int START_INDEX = 0;
     private static final int INITIAL_VALUE = 0;
     private static final int PLUS_UNIT = 1;
     private final Integer value;
@@ -29,8 +28,8 @@ public final class MoveDistance {
     }
 
     public String toResultMessage() {
-        return IntStream.range(START_INDEX, value)
-                .mapToObj(element -> ProgressMessage.MOVE_EXPRESSION.toValue())
+        return Stream.generate(ProgressMessage.MOVE_EXPRESSION::toValue)
+                .limit(value)
                 .collect(Collectors.joining());
     }
 }
