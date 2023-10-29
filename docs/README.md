@@ -39,7 +39,7 @@ UserInterface 객체의 start 메서드를 실행한다.
 
 ## Service Package
 
-### CarRaceLogic
+### CarRaceService
 - 멤버변수
   - Cars
 
