@@ -10,7 +10,7 @@ import static java.lang.Math.max;
 
 public class Output {
     private static void print(OutputMessage message) {
-        System.out.println(message.getMessage());
+        System.out.print(message.getMessage());
     }
 
     public static void printResult() {
