@@ -128,4 +128,18 @@ public class ValidateInputTest {
         assertThatThrownBy(() -> Application.validatePositiveNumber(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void validateAttemptInput_유효성검사_성공_테스트() {
+        String input = "3";
+
+        Application.validateAttemptInput(input);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"red", "-3", "0"})
+    void validateAttemptInput_유효성검사_실패_테스트(String input) {
+        assertThatThrownBy(() -> Application.validateAttemptInput(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
