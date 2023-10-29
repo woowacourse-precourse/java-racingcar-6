@@ -1,6 +1,8 @@
 package racingcar.model;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class RacingCars {
 
@@ -26,5 +28,16 @@ public class RacingCars {
                 racingCar.goForward();
             }
         }
+    }
+
+    public List<Map<String, String>> getRacingCarsInfo() {
+        List<Map<String, String>> racingCarsInfo = new ArrayList<>();
+        List<Car> racingCarsList = racingCars;
+
+        for (Car racingCar : racingCarsList) {
+            Map<String, String> carInfo = racingCar.getCarInfo();
+            racingCarsInfo.add(carInfo);
+        }
+        return racingCarsInfo;
     }
 }
