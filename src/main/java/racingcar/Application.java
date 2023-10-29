@@ -18,11 +18,7 @@ public class Application {
         
         race.initScorePerCar(carArray);
         race.enterRaceNum();
-    
-        for (int i = 0; i < tryNum; i++) {
-            moveOrStop(scorePerCar);
-            printResultPerTry(scorePerCar);
-        }
+        race.raceProgress();
         
         int maxDistance = -1;
         List<String> winCars = new ArrayList<>();
@@ -39,21 +35,6 @@ public class Application {
             }
         }
         System.out.println("최종 우승자 : " + String.join(",", winCars));
-    }
-    
-    private static void moveOrStop(Map<String, String> scorePerCar) {
-        for (String scorePerCarKey : scorePerCar.keySet()) {
-            if(Randoms.pickNumberInRange(0, 9) >= 4){
-                scorePerCar.replace(scorePerCarKey, scorePerCar.get(scorePerCarKey) + "-");//전진
-            }
-        }
-    }
-    
-    private static void printResultPerTry(Map<String, String> scorePerCar) {
-        System.out.println("실행 결과");
-        for (String scorePerCarKey : scorePerCar.keySet()) {
-            System.out.println(scorePerCarKey + " : " + scorePerCar.get(scorePerCarKey));
-        }
     }
     
 }
