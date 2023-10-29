@@ -17,6 +17,9 @@
       - setName() : 차 이름 설정
       - drive() : 전진 조건을 체크하고 전진하면 positon 증가
       - getPosition() : 현재 위치 반환
+      - shouldMove() : 차가 움직일 수 있는지 판단
+      - move() : 차가 움직임
+      - printPosition() : 현재 포지션 출력
 
 ### - UserInput 클래스 
     - 메서드 : 
