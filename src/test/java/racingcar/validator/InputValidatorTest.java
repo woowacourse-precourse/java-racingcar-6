@@ -3,6 +3,7 @@ package racingcar.validator;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
+import static racingcar.constant.Constant.MAX_VALUE;
 import static racingcar.constant.Constant.ZERO;
 import static racingcar.constant.ExceptionMessage.DUPLICATE_CAR_NAME;
 
@@ -75,6 +76,14 @@ class InputValidatorTest {
     public void 게임_진행_횟수에_0_입력_예외_테스트() {
         inputValidator = new InputValidator();
         assertThrows(IllegalArgumentException.class, () -> inputValidator.validateZero(ZERO)
+                , "진행 횟수가 정상적으로 입력되었습니다.");
+    }
+
+    @Test
+    @DisplayName("게임 진행 횟수에 십만 이상의 값을 입력할 수 없습니다.")
+    public void 게임_진행_횟수에_최댓값_초과_입력_예외_테스트() {
+        inputValidator = new InputValidator();
+        assertThrows(IllegalArgumentException.class, () -> inputValidator.validateMaxValue(MAX_VALUE + 1)
                 , "진행 횟수가 정상적으로 입력되었습니다.");
     }
 
