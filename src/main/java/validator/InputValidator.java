@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class InputValidator {
     private final String REGEXP_PATTERN_SPACE_NO_CHAR = "^[^\\s]+$";
     private final String REGEXP_PATTERN_ONLY_COMMA = "^,+$";
-
+    private final String REGEXP_PATTERN_ONLY_NUMBER ="^[0-9]*S";
 
     public void checkCarNameValidate(String input) {
         isNameOnlyComma(input);
@@ -18,11 +18,21 @@ public class InputValidator {
     }
 
     public void checkNumOfAttempt(String input) {
-        if(!Pattern.matches(REGEXP_PATTERN_SPACE_NO_CHAR,input)){
+        isNumContainBlank(input);
+        isNumOnlyComposeNumber(input);
+    }
+
+    private void isNumOnlyComposeNumber(String input) {
+        if(!Pattern.matches(REGEXP_PATTERN_ONLY_NUMBER,input)) {
+            throw new IllegalArgumentException("시도 회수는 0이상의 정수만 입력하세요.");
+        }
+    }
+    private void isNumContainBlank(String input) {
+        if(!Pattern.matches(REGEXP_PATTERN_SPACE_NO_CHAR,input)) {
             throw new IllegalArgumentException("공백이 포함되어 있거나 빈 문자열입니다.");
         }
     }
-    public void isNameBelowFiveLetters(String input) {
+    private void isNameBelowFiveLetters(String input) {
         if(input.length()>NameConstant.MAX_LENGTH){
             throw new IllegalArgumentException("다섯 글자이하의 입력값이 아닙니다.");
         }
