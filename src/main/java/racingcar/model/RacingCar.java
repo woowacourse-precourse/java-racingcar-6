@@ -1,6 +1,9 @@
 package racingcar.model;
 
 
+import racingcar.util.Constants;
+import racingcar.util.ExceptionMessages;
+
 public class RacingCar {
     private static int distance;
     private static String name;
@@ -23,7 +26,7 @@ public class RacingCar {
     }
 
     private static boolean checkSymbol(String name) {
-        return !name.matches(Constants.MATCH_REGEX+Constants.PARSER_REGEX+Constants.MATCH_REGEX);
+        return !name.matches(Constants.COMMA_MATCH_REGEX+Constants.PARSER_REGEX+Constants.COMMA_MATCH_REGEX);
     }
 
     private static boolean checkNotEmpty(String name) {

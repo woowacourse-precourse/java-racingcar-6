@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.util.Constants;
 
 public class RandomNumberGenerator implements NumberGenerator {
     @Override

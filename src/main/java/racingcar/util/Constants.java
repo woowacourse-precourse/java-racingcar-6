@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.util;
 
 public class Constants {
     private Constants() {
@@ -10,6 +10,7 @@ public class Constants {
     public static final int NAME_MAX_LENGTH = 5;
     public static final int NAME_MIN_LENGTH = 0;
     public static final String PARSER_REGEX = "\\s*,\\s*";
-    public static final String MATCH_REGEX = "(.*)";
+    public static final String COMMA_MATCH_REGEX = "(.*)";
+    public static final String NUMBER_MATCH_REGEX = "[+-]?\\d*(\\.\\d+)?";
 
 }
