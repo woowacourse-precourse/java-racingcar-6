@@ -59,8 +59,15 @@ public class GameStart {
         for (int i = 0; i < cntTryRace; i++) {
             gameProcess.moveOfRaceCar();
             printSituationOfCarCurrentOneCycle();
-            System.out.println();
+            printNewLine();
         }
+    }
+
+    /**
+     * print new Line
+     */
+    private void printNewLine() {
+        System.out.println();
     }
 
     /**
