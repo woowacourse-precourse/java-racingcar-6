@@ -22,10 +22,10 @@ public class Racing {
     }
 
     private static void getFinalWinner() {
-        System.out.print(SystemMessage.FINAL_WINNER.getMessage());
         participants.sort((o1, o2) -> o2.advance - o1.advance);
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         Car firstWinner = participants.get(0);
+        System.out.print(SystemMessage.FINAL_WINNER.getMessage()); // TODO :: MVC 패턴을 적용한다면 뷰(화면)에 관련한 코드를 분리하여야 한다.
         try {
             bw.write(firstWinner.name);
             if (participants.size() > 1) {
@@ -37,6 +37,7 @@ public class Racing {
         }
     }
 
+    // TODO :: MVC 패턴을 적용한다면 뷰(화면)에 관련한 코드를 분리하여야 한다.
     private static void checkJointFirstPlace(Car firstWinner, BufferedWriter bw) throws IOException {
         for (int i = 1; i < participants.size(); i++) {
             if (Objects.equals(participants.get(i).advance, firstWinner.advance)) {
@@ -62,14 +63,15 @@ public class Racing {
     }
 
     private static void getTryCountInput() {
-        System.out.println(SystemMessage.INPUT_TRY_COUNT.getMessage());
+        System.out.println(
+                SystemMessage.INPUT_TRY_COUNT.getMessage()); // TODO :: MVC 패턴을 적용한다면 뷰(화면)에 관련한 코드를 분리하여야 한다.
         tryCount = validateTryCount(Console.readLine());
         System.out.println();
     }
 
-    private static int validateTryCount(String input) {
+    public static int validateTryCount(String input) {
         for (char c : input.toCharArray()) {
-            if (!Character.isDigit(c)) {
+            if (!Character.isDigit(c) || c == '0') {
                 throw new IllegalArgumentException(ErrorMessage.NOT_AN_INTEGER_OVER_ZERO.getMessage());
             }
         }
@@ -77,7 +79,7 @@ public class Racing {
     }
 
     private static void getCarNameInput() throws IllegalArgumentException {
-        System.out.println(SystemMessage.INPUT_CAR_NAME.getMessage());
+        System.out.println(SystemMessage.INPUT_CAR_NAME.getMessage()); // TODO :: MVC 패턴을 적용한다면 뷰(화면)에 관련한 코드를 분리하여야 한다.
         String[] carNameInput = Console.readLine().split(",");
         for (String name : carNameInput) {
             validateCarName(name);
@@ -85,7 +87,7 @@ public class Racing {
         }
     }
 
-    private static void validateCarName(String name) throws IllegalArgumentException {
+    public static void validateCarName(String name) throws IllegalArgumentException {
         if (name.length() > 5) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH_MUST_BE_UNDER_5.getMessage());
         }

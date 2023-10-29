@@ -31,7 +31,7 @@ public class Car {
         this.advance += 1;
     }
 
-    public void printStatus() throws IOException {
+    public void printStatus() throws IOException { // TODO :: MVC 패턴을 적용한다면 모델에는 뷰와 관련한 코드가 있으면 안된다
         System.out.printf("%s : ", name);
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         collectAdvance(bw);
