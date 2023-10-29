@@ -15,14 +15,15 @@ public class UserInput {
         List<String> carNamesInputList = Arrays.asList(carNamesInput.split(","));
         // 유저가 자동차 한 개만 입력했든, 여러개를 입력했든, 어차피 split이 되면서(1개의 경우는 안되면서) carNamesInputArray로 들어감
 
-//        System.out.println(carNamesInputList.toString());
+//      System.out.println(carNamesInputList.toString());
         return carNamesInputList;
 
     }
 
-    public getTrialNumber(){
-        int trailNumber = Integer.parseInt(Console.readLine());
+    public static int getTrialNumber() {
+        int trialNumber = Integer.parseInt(Console.readLine());
 
+        return trialNumber;
     }
 
 }
