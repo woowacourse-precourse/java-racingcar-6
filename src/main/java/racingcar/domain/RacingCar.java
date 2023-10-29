@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import static racingcar.util.constant.ProductConstant.*;
+
 public class RacingCar {
     private final String username;
     private String currentLocation;
@@ -12,7 +14,7 @@ public class RacingCar {
     }
 
     public String getStartLocation() {
-        return "";
+        return FIRST_LOCATION;
     }
 
     public String getUsername() {
@@ -24,14 +26,14 @@ public class RacingCar {
     }
 
     public int pickRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(START_NUMBER, LAST_NUMBER);
     }
 
     public boolean isMoreThanFour(int pickNumber) {
-        return pickNumber >= 4;
+        return pickNumber >= MINIMUM_VALUE;
     }
 
-    public void moveForwardOneSpace(String go) {
-        this.currentLocation += go;
+    public void moveForwardOneSpace() {
+        this.currentLocation += MOVE_ONE_SPACE;
     }
 }
