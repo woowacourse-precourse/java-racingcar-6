@@ -26,6 +26,7 @@ public class RacingCarController {
         int tryCount = 0;
         while(tryCount<tryTime){
             List<Integer> allRandomNumber = racingCarService.saveRandomNumber(cars);
+            outputView.printEachResultMessage(tryCount);
             for(int i=0; i<cars.size(); i++) {
                 racingCarService.move(cars.get(i),allRandomNumber.get(i));
                 outputView.printEachResult(cars.get(i),allRandomNumber.get(i));
