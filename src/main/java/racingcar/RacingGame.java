@@ -23,5 +23,21 @@ public class RacingGame {
             checkMoveStop.checkMoveStop(carName, iter);
         }
         System.out.println(carName);
+
+        int max = maxFind();
+        System.out.println(max);
+        System.out.print("최종 우승자 :");
+
+    }
+
+    private int maxFind() {
+        int max = -1;
+        for (String car : carName.keySet()) {
+            int maxFind = carName.get(car);
+            if (maxFind > max) {
+                max = maxFind;
+            }
+        }
+        return max;
     }
 }
