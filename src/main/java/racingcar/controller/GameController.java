@@ -18,22 +18,22 @@ public class GameController {
     }
 
     public void play() {
-        setRacingCar();
-        setRacing();
+        registerRacingCar();
+        registerNumberOfRaces();
         startRace();
         showWinner();
     }
 
-    public void setRacingCar() {
-        String carName = InputView.inputCarName();
-        String testedCarName = exception.checkCarName(carName);
-        racingGame.setCarList(testedCarName);
+    public void registerRacingCar() {
+        String inputValue = InputView.enterCarName();
+        String checkedInputValue = exception.checkCarName(inputValue);
+        racingGame.setCarList(checkedInputValue);
     }
 
-    public void setRacing() {
-        String raceCount = InputView.inputRaceCount();
-        String testedRaceCount = exception.checkRaceCount(raceCount);
-        racingGame.setRaceCount(testedRaceCount);
+    public void registerNumberOfRaces() {
+        String inputValue = InputView.enterRaceCount();
+        String checkedInputValue = exception.checkRaceCount(inputValue);
+        racingGame.setNumberOfRaces(checkedInputValue);
     }
 
     public void startRace() {

@@ -2,12 +2,15 @@ package racingcar.model;
 
 public class Car implements Comparable<Car> {
 
+    private static final int MIN_FORWARD_NUMBER = 4;
+    private static final int POSITION_DEFAULT = 0;
+
     private final String name;
     private int position;
 
     public Car(String name) {
         this.name = name;
-        this.position = 0;
+        this.position = POSITION_DEFAULT;
     }
 
     public String getName() {
@@ -15,10 +18,9 @@ public class Car implements Comparable<Car> {
     }
 
     public void setPosition(int randomNumber) {
-        if (randomNumber >= 4) {
+        if (randomNumber >= MIN_FORWARD_NUMBER) {
             this.position++;
         }
-        //this.position += position;
     }
 
     public int getPosition() {

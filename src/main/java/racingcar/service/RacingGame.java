@@ -10,16 +10,21 @@ import racingcar.model.Car;
 
 public class RacingGame {
 
-    private int raceCount;
-    private int raceActionCount;
+    private static final int MIN_RANDOMNUMBER = 0;
+    private static final int MAX_RANDOMNUMBER = 9;
+
+    private int numberOfRaces;
+    private int numberOfRaceRuns;
     private final List<Car> carList;
     private final List<String> winnerList;
 
+
     public RacingGame() {
-        raceCount = 0;
+        numberOfRaces = 0;
         carList = new ArrayList<>();
         winnerList = new ArrayList<>();
     }
+
 
     public void setCarList(String carName) {
         List<String> separatedCarName = Arrays.asList(carName.split(","));
@@ -32,25 +37,33 @@ public class RacingGame {
         return carList;
     }
 
-    public void setRaceCount(String raceCount) {
-        this.raceCount = Integer.parseInt(raceCount);
+    public void setNumberOfRaces(String raceCount) {
+        this.numberOfRaces = Integer.parseInt(raceCount);
     }
 
-    public int getRaceCount() {
-        return this.raceCount;
+    public int getNumberOfRaces() {
+        return this.numberOfRaces;
     }
 
-    public int getRaceActionCount() {
-        return this.raceActionCount;
+    public int getNumberOfRaceRuns() {
+        return this.numberOfRaceRuns;
+    }
+
+    public void setWinnerList() {
+        Collections.sort(carList, Collections.reverseOrder());
+        for (Car car : carList) {
+            if (carList.get(0).getPosition() == car.getPosition()) {
+                winnerList.add(car.getName());
+            }
+        }
     }
 
     public List<String> getWinnerList() {
         return winnerList;
     }
 
-
     public void startRace() {
-        for (raceActionCount = 0; raceActionCount < raceCount; raceActionCount++) {
+        for (numberOfRaceRuns = 0; numberOfRaceRuns < numberOfRaces; numberOfRaceRuns++) {
             decideCarPosition();
             sendRaceResult();
         }
@@ -63,19 +76,10 @@ public class RacingGame {
     }
 
     private int setRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(MIN_RANDOMNUMBER, MAX_RANDOMNUMBER);
     }
 
     private void sendRaceResult() {
         GameController.showRaceResult(carList);
-    }
-
-    public void setWinnerList() {
-        Collections.sort(carList, Collections.reverseOrder());
-        for (Car car : carList) {
-            if (carList.get(0).getPosition() == car.getPosition()) {
-                winnerList.add(car.getName());
-            }
-        }
     }
 }
