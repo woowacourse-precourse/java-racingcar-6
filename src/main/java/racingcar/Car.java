@@ -8,12 +8,10 @@ public class Car {
         this.name = name;
     }
 
-    private void move() {
-        position += 1;
-    }
-
-    private void stay() {
-        // 아무것도 하지않음
+    protected void move(int number) {
+        if (number >= 4){
+            position += 1;
+        }
     }
 
     public String getName() {

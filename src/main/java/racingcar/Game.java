@@ -18,11 +18,7 @@ public class Game {
         for (int i = 0; i < turns; i++) {
             for (Car car : cars) {
                 int number = dice.roll();
-                if (number >= 4) {
-                    car.move();
-                } else if (number < 4) {
-                    car.stay();
-                }
+                car.move(number);
                 car.printResult();
             }
             System.out.println("");
@@ -65,7 +61,7 @@ public class Game {
         }
 
         for (Car car: cars){
-            if (car.getPosition == max){
+            if (car.getPosition() == max){
                 winners.add(car.getName());
             }
             System.out.println("최종 우승자 : " + String.join(",", winners));
