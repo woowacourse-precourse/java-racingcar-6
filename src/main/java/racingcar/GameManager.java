@@ -1,39 +1,38 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class GameManager {
-    public static final int MIN_RANDOM_NUMBER = 0;
-    public static final int MAX_RANDOM_NUMBER = 9;
-    public static final int BOUNDARY_MOVE_NUMBER = 4;
     private static final String RESULT_FORMAT = "%s : %s\n";
     private static final String LOCATION_SIGN = "-";
     private static final String WINNER_FORMAT = "최종 우승자 : %s";
+    private static final MovingRule movingRule = new MovingRule();
+    private static final NumberGenerator numberGenerator = new NumberGenerator();
 
-    public void moveCar(Car car) {
-        if (isMove()) {
-            car.move();
+    private final List<Car> cars = new ArrayList<>();
+
+    public void addCar(String carName) {
+        Car car = new Car(carName);
+        cars.add(car);
+    }
+
+    public void moveCars() {
+        for (Car car : cars) {
+            if (isMovable(car)) {
+                car.move();
+            }
         }
     }
 
-    private int makeRandomNumber() {
-        return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+    private boolean isMovable(Car car) {
+        int randomNum = numberGenerator.generate();
+        return movingRule.isMovable(randomNum);
     }
 
-    private boolean isMove() {
-        if (makeRandomNumber() < BOUNDARY_MOVE_NUMBER) {
-            return false;
-        }
-
-        return true;
-    }
-
-    public String makeResult(List<Car> cars) {
+    public String makeResult() {
         StringBuilder results = new StringBuilder();
 
         for (Car car : cars) {
@@ -51,7 +50,7 @@ public class GameManager {
         return LOCATION_SIGN.repeat(location);
     }
 
-    public String makeWinnerResult(List<Car> cars) {
+    public String makeWinnerResult() {
         List<String> winners = new ArrayList<>();
 
         int maxLocation = findMaxLocation(cars);
