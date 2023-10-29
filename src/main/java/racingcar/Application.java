@@ -14,30 +14,14 @@ public class Application {
     private static final String WINNER_MESSAGE = "최종 우승자 : ";
 
     public static void main(String[] args) {
-        // 자동차 이름 입력 처리
+
+        UserInput userInput = new UserInput();
+
         System.out.println(INPUT_CARNAME_MESSAGE);
-        String inputNames = Console.readLine();
-        List<String> carNames = Arrays.asList(inputNames.split(","));
+        List<String> carNames = userInput.getCarNamesInput();
 
-        if (!isNotEmpty(carNames)) {
-            throw new IllegalArgumentException();
-        }
-
-        if (!isUnderSixDigit(carNames)) {
-            throw new IllegalArgumentException();
-        }
-
-        // 경주 회수 입력 처리
         System.out.println(INPUT_TRYTIME_MESSAGE);
-        String inputTime = Console.readLine();
-        if (!isNumberInteger(inputTime)) {
-            throw new IllegalArgumentException();
-        }
-
-        int tryTime = Integer.parseInt(inputTime);
-        if (!isNumberOverZero(tryTime)) {
-            throw new IllegalArgumentException();
-        }
+        int tryTime = userInput.getTryTimeInput();
 
         // 자동차 목록 생성
         Car[] cars = new Car[carNames.size()];
@@ -64,34 +48,6 @@ public class Application {
         // 우승자 출력 처리
         System.out.print(WINNER_MESSAGE);
         printWinner(winners);
-    }
-
-    public static boolean isNumberInteger(String input) {
-        String regularExpression = "^[0-9]+$";
-        return input.matches(regularExpression);
-
-    }
-
-    public static boolean isUnderSixDigit(List<String> inputs) {
-        for (String input : inputs) {
-            if (input.length() > 5) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public static boolean isNotEmpty(List<String> inputs) {
-        for (String input : inputs) {
-            if (input.isEmpty()) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public static boolean isNumberOverZero(int input) {
-        return input > 0;
     }
 
     public static int setForwardStep() {
