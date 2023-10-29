@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import static racingcar.constant.ExceptionMessage.BLANK_EXCEPTION;
-import static racingcar.constant.ExceptionMessage.DECIMAL_EXCEPTION;
 import static racingcar.constant.ExceptionMessage.NON_NUMBER_EXCEPTION;
 import static racingcar.constant.ExceptionMessage.NON_POSITIVE_NUMBER_EXCEPTION;
 
@@ -27,7 +26,6 @@ public class Attempt {
     public void validateAttemptNumber(String number) {
         checkNonBlank(number);
         checkInteger(number);
-        checkNonDecimal(number);
         checkPositiveNumber(number);
     }
 
@@ -42,13 +40,6 @@ public class Attempt {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(NON_NUMBER_EXCEPTION);
-        }
-    }
-
-    public void checkNonDecimal(String input) {
-        double number = Utils.revertToDouble(input);
-        if (number != (int) number) {
-            throw new IllegalArgumentException(DECIMAL_EXCEPTION);
         }
     }
 
