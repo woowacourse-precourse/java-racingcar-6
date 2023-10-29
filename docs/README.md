@@ -1,24 +1,34 @@
-# 자동차 경주 게임
+# 2주차 미션 : 자동차 경주 게임
 
 ---
 
-## 구현 기능 리스트 (구현전)
+## 1. 구현 기능 리스트 (구현전)
+
+- 필요한 기능 리스트와 설명
+- 양식 : [구현여부] (기능 설명)_ (클래스 이름)#(메서드 이름)
 
 ---
 
 - [x] 자동차의 이름을 입력받는다. InputView#readCarNames()
 
 
-- [x] 자동차에 이름을 부여한다. Race#setCarList()
+- [x] 입력한 이름이 유효한지 검사한다. Game#validateNamesInput()
+    - [x] 이름이 5글자를 초과하면 예외를 발생시킨다. Game#checkNameLength()
+
+
+- [x] 자동차들의 상태를 초기화한다. Race#setCarList()
     - [x] 입력받은 모든 자동차의 이름을 쉼표(,)로 나누어 저장할 수 있어야 한다.
-    - [x] 이름이 5자 초과면 예외가 발생해야 한다. GameController#validateNamesInput()
+    - [x] 각 자동차의 이름과 이동 거리를 설정한다. Car#Car()
 
 
-- [x] 몇 번의 이동을 할 것인지 입력받는다. InputView#readRoundNumber()
+- [x] 이동 회수를 입력받는다. InputView#readRoundNumber()
 
 
-- [x] 총 몇 번의 이동을 할 것인지 설정한다. Round()#Round()
-    - [x] 숫자가 아니라면 예외가 발생해야 한다. GameController#validateRoundInput()
+- [x] 입력받은 이동 회수가 유효한지 검사한다. Game#validateRoundInput()
+    - [x] 이동 회수가 정수가 아니면 예외를 발생시킨다. Game#checkIsNumber()
+
+
+- [x] 이동 회수를 설정한다. Round()#Round()
 
 
 - [x] 매 번 이동마다 각각의 자동차가 전진하거나 멈춘다. Race#moveCars()
@@ -27,7 +37,7 @@
         - [x] 무작위 값이 4 이상일 때만 한 칸 전진해야 한다.
 
 
-- [x] 매 번 이동마다 자동차의 이동 결과를 출력한다. OutputView#printResult()
+- [x] 매 번 이동마다 자동차의 이동 결과를 출력한다. OutputView#printRoundResult()
     - [x] 자동차의 이름과 전진한 칸이 출력되어야 한다.
 
 
@@ -41,15 +51,20 @@
 
 ---
 
-## 구현 기능 리스트 (구현중 변경 사항)
+## 2. 구현 기능 리스트 (구현중 변경 사항)
 
-- [x] 남은 이동이 있는지 확인한다. Round#isRoundRemaining()
+- 구현중 추가된 기능의 리스트와 설명
+- 양식 : [구현여부] (기능 설명)_ (클래스 이름)#(메서드 이름)
+
+---
+
+- [x] 남은 이동 회수가 있는지 확인한다. Round#isRoundRemaining()
 
 
 - [x] 이동 회수를 1회 줄인다. Round#subtractOneRound()
 
 
-- [x] 레이스에 참여한 자동차들의 이름 리스트를 반환한다. Race#getCarNames()
+- [x] 자동차들의 이름 리스트를 반환한다. Race#getCarNames()
     - [x] 자동차의 이름을 반환한다. Car#getName()
 
 
@@ -57,7 +72,13 @@
     - [x] 자동차의 전진 거리를 반환한다. Car#getDistance()
 
 
-- [x] 몇 번을 이동할지 입력받은 수가 0보다 작으면 예외를 발생시킨다. GameController#validateRoundInput()
+- [x] 자동차 이름이 비었다면 예외를 발생시킨다. Game#checkNameEmpty()
 
 
-- [x] 자동차 이름이 비었다면 예외를 발생시킨다. GameController#validateNamesInput()
+- [x] 이동 회수가 0보다 작으면 예외를 발생시킨다. Game#checkRoundRange()
+
+
+- [x] 게임의 결과를 출력하기 전 "실행 결과" 메시지를 출력한다. OutputView#printResultStartMessage
+
+
+- [x] 출력할 게임 결과 문자열을 만든다. OutputView#makeResultString()
