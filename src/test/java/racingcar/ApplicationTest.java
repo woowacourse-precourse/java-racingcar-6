@@ -79,8 +79,14 @@ class ApplicationTest extends NsTest {
                         .isGreaterThanOrEqualTo(0)
                         .isLessThanOrEqualTo(9)
         );
+    }
 
+    @Test
+    void 문자_자동차_현재_상태_출력_테스트(){
+        Car car = new Car("youjae", 4);
 
+        ioService.printCarState(car);
+        assertThat(output()).isEqualTo("youjae : ----");
     }
 
     @Override
