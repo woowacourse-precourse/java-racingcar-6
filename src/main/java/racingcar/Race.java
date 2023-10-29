@@ -13,6 +13,7 @@ public class Race {
         createCarObjects(inputCarNames());
         inputMovingNumber();
 
+        System.out.println("실행 결과");
         for (int num = 0; num < moveNum; num++) {
             updateCarsPosition();
             displayCarMoving();
@@ -51,11 +52,14 @@ public class Race {
     }
 
     private void displayCarMoving() {
-
+        for (Car car : cars) {
+            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
+        }
+        System.out.println(" ");
     }
 
     private void decideWinner() {
-
+        
     }
 
     private void displayWinner() {
