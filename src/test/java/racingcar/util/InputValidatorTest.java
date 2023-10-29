@@ -9,34 +9,34 @@ class InputValidatorTest {
     void 자동차_이름을_입력하지_않았을_때_예외_발생() {
         assertThatThrownBy(() -> InputValidator.validateCarNames(""))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차 이름을 입력해주세요.");
+                .hasMessageContaining(Constants.INVALID_CAR_NAMES_EMPTY);
     }
 
     @Test
     void 다섯_글자를_넘는_자동차_이름이_있을_때_예외_발생() {
         assertThatThrownBy(() -> InputValidator.validateCarNames("pobi,woni,yehyeok"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차 이름은 5자 이하만 가능합니다.");
+                .hasMessageContaining(Constants.INVALID_CAR_NAMES_LENGTH);
     }
 
     @Test
     void 중복되는_자동차_이름이_있을_때_예외_발생() {
         assertThatThrownBy(() -> InputValidator.validateCarNames("pobi,pobi"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("중복된 자동차 이름이 존재합니다.");
+                .hasMessageContaining(Constants.INVALID_CAR_NAMES_DUPLICATE);
     }
 
     @Test
     void round를_입력하지_않았을_때_예외_발생() {
         assertThatThrownBy(() -> InputValidator.validateRound(""))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("시도할 회수를 입력해주세요.");
+                .hasMessageContaining(Constants.INVALID_ROUND_EMPTY);
     }
 
     @Test
     void 입력받은_round가_숫자가_아닐_때_예외_발생() {
         assertThatThrownBy(() -> InputValidator.validateRound("a"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("시도할 회수는 숫자만 가능합니다.");
+                .hasMessageContaining(Constants.INVALID_ROUND_ONE_OR_MORE);
     }
 }
