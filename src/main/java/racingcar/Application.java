@@ -2,8 +2,10 @@ package racingcar;
 
 import racingcar.input.Name;
 import racingcar.input.Count;
+import racingcar.race.Compare;
 import racingcar.race.Race;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Application {
@@ -20,5 +22,10 @@ public class Application {
             race.printRace();
         }
         System.out.println(race.savePositionInList().toString());
+        Compare compare = new Compare();
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+        int max = compare.saveMaxPosition(list);
+        System.out.println(list.contains(1));
+        System.out.println(max);
     }
 }
