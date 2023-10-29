@@ -59,6 +59,20 @@ class CarInputViewTest {
 
             consoleMockedStatic.close();
         }
+
+        @Test
+        @DisplayName("시도 횟수 입력이 숫자가 아닌 경우 예외를 발생시켜야 한다")
+        public void 시도_횟수_입력이_숫자가_아닌_경우_예외를_발생시켜야_한다() {
+            CarInputView carInputView = new CarInputView();
+            MockedStatic<Console> consoleMockedStatic = mockStatic(Console.class);
+            when(Console.readLine()).thenReturn("NotIntInput");
+
+            assertThrows(IllegalArgumentException.class,
+                    carInputView::getTryCount,
+                    TRY_COUNT_IS_NOT_DIGIT.getErrorMessage());
+
+            consoleMockedStatic.close();
+        }
     }
 
     @Nested
