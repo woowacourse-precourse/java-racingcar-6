@@ -25,4 +25,8 @@ public class RacingGame {
     public List<String> findWinCars() {
         return cars.findWinnerNames();
     }
+
+    public CarGroup getCars() {
+        return cars;
+    }
 }
