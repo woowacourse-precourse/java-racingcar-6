@@ -40,7 +40,7 @@ public class CarTest {
     }
 
     @Test
-    void getCarDistanceMessage_메시지를_잘_생성하는지_확인() {
+    void createCarDistanceMessage_메시지를_잘_생성하는지_확인() {
 
         Car car = new Car("foo");
 
@@ -52,7 +52,7 @@ public class CarTest {
     }
 
     @Test
-    void getWinnersMessage_우승자를_잘_추리는지_확인() {
+    void createWinnersMessage_우승자를_잘_추리는지_확인() {
 
         List<Car> cars = new ArrayList<>();
         cars.add(new Car("foo"));
@@ -67,7 +67,7 @@ public class CarTest {
     }
 
     @Test
-    void getWinnersMessage_우승자_여러_명을_잘_추리는지_확인() {
+    void createWinnersMessage_우승자_여러_명을_잘_추리는지_확인() {
 
         List<Car> cars = new ArrayList<>();
         cars.add(new Car("foo"));
