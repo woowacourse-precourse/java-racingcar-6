@@ -18,6 +18,14 @@ public class RacingCar {
         this.moveCount = MOVE_COUNT_INITIAL_NUMBER;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public Integer getMoveCount() {
+        return this.moveCount;
+    }
+
     private void validateNameLength(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException();
