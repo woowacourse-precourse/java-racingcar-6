@@ -27,7 +27,7 @@ public class RacingGameService {
     }
 
     public void playGame(int count) {
-        OutputView.printResult();
+        OutputView.printResultHeader();
         for (int i = 0; i < count; i++) {
             play(carList);
             OutputView.printNewLine();
@@ -40,7 +40,7 @@ public class RacingGameService {
             if (canMoveForward()) {
                 car.moveForward();
             }
-            OutputView.printCarPosition(car);
+            OutputView.printCarStatus(car);
         }
     }
 
