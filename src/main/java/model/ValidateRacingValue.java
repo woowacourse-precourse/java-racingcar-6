@@ -1,16 +1,16 @@
 package model;
-
-
+import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ValidateRacingValue {
-    public static boolean validateRandomMoreFour() {
-
+    public static List<String> carNameInputToList(String carNameBundle) {
+        String[] carNameArray = carNameBundle.split(",");
+        List<String> listCarName = new ArrayList<>(Arrays.asList(carNameArray));
+        return listCarName;
     }
-    public static List<Integer> validateRacingResult() {
 
-    }
-    public static List<String> validateRacingWinner() {
 
-    }
 }
