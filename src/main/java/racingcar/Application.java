@@ -5,21 +5,34 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 public class Application {
 
+    public static void inputNameException(String names){
+        if(!names.matches("^([\\w]{1,5},)*[\\w]{1,5}$")){
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public static void inputTimeException(String times){
+        if(!times.matches("^[0-9]*$"))
+            throw new IllegalArgumentException();
+    }
+
     public static String[] inputCarNames(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String str = Console.readLine();
+        inputNameException(str);
         String[] names = str.split(",");
         return names;
     }
 
     public static int inputNumber(){
         System.out.println("시도할 회수는 몇회인가요?");
-        return Integer.parseInt(Console.readLine());
+        String times = Console.readLine();
+        inputTimeException(times);
+        return Integer.parseInt(times);
     }
 
     public static void startRacing(String[] names, int times){
