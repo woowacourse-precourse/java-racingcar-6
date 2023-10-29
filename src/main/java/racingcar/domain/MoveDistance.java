@@ -28,8 +28,7 @@ public final class MoveDistance {
     }
 
     public String toResultMessage() {
-        return Stream.generate(ProgressMessage.MOVE_EXPRESSION::toValue)
-                .limit(value)
-                .collect(Collectors.joining());
+        final String moveExpression = ProgressMessage.MOVE_EXPRESSION.toValue();
+        return Stream.generate(() -> moveExpression).limit(value).collect(Collectors.joining());
     }
 }
