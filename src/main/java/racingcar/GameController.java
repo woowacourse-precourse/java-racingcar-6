@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.domain.RacingCars;
 import racingcar.view.Input;
 import racingcar.view.View;
 
@@ -58,19 +59,4 @@ public class GameController {
         return winnerNames;
     }
 
-    private List<String> mappingToNames(List<Car> endCars) {
-        List<String> names = new ArrayList<>();
-        for (Car endCar : endCars) {
-            names.add(endCar.getName());
-        }
-        return names;
-    }
-
-    private List<Long> mappingToMoveCounts(List<Car> endCars) {
-        List<Long> moveCounts = new ArrayList<>();
-        for (Car endCar : endCars) {
-            moveCounts.add(endCar.getTotalMoveCount());
-        }
-        return moveCounts;
-    }
 }
