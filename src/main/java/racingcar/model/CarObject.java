@@ -18,6 +18,10 @@ public class CarObject {
         return SingleInstanceHolder.INSTANCE;
     }
 
+    public CarComponent getComponentIndexOf(int index) {
+        return cars.get(index);
+    }
+
     public void updateDistance() {
         for(int i = 0; i < size; i++) {
             cars.get(i).addDistance(distance.get(i));

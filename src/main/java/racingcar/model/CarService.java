@@ -11,18 +11,10 @@ public class CarService {
     public final int CAR_NAME_LIMIT_SIZE = 5;
     public int carOnceMove = 0;
 
-    private String name;
-    private int epoch;
+    public String name;
+    public int epoch;
 
     private CarService() {}
-
-    public void inputName() {
-        name = readLine();
-    }
-
-    public void inputEpoch() {
-        epoch = Integer.parseInt(readLine());
-    }
 
     public void setCarOnceMoveDistance() {
         do {
@@ -63,7 +55,7 @@ public class CarService {
 
         insertCarName(this.name);
         insertCarDistance();
-        CarInstance.updateDistance();
+        CarInstance.addComponent();
     }
 
     private static class SingleInstanceHolder {
