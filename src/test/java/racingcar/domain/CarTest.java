@@ -17,7 +17,7 @@ class CarTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @DisplayName("자동차 이름의 길이가 5글자 이상일 경우 정상적으로 Car 객체가 생성된다.")
+    @DisplayName("자동차 이름의 길이가 공백이 포함되어 있지 않는 5글자 이하 일 경우 정상적으로 Car 객체가 생성된다.")
     @Test
     void test123() {
         //given
