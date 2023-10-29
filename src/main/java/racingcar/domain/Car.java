@@ -12,4 +12,8 @@ public class Car {
     public void updateScore() {
         this.score++;
     }
+
+    public int getScore() {
+        return this.score;
+    }
 }
