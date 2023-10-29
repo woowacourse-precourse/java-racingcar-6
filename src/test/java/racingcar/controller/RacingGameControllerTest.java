@@ -25,7 +25,7 @@ public class RacingGameControllerTest {
 
         //when
         RacingGameController rc = new RacingGameController();
-        List<String> winner = rc.winners(game);
+        List<String> winner = rc.selectWinners(game);
 
         //then
         Assertions.assertThat(winner).isEqualTo(expectedWinner);
@@ -50,7 +50,7 @@ public class RacingGameControllerTest {
 
         //when
         RacingGameController rc = new RacingGameController();
-        List<String> winner = rc.winners(game);
+        List<String> winner = rc.selectWinners(game);
 
         //then
         Assertions.assertThat(winner).isEqualTo(expectedWinner);

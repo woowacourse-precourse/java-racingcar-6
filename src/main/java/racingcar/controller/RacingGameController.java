@@ -32,7 +32,7 @@ public class RacingGameController {
             outputView.resultByRound(game);
         }
 
-        List<String> winners = winners(game);
+        List<String> winners = selectWinners(game);
         outputView.winners(winners);
     }
 
@@ -70,7 +70,7 @@ public class RacingGameController {
         }
     }
 
-    public List<String> winners(Game game) {
+    public List<String> selectWinners(Game game) {
         Car[] cars = game.getCars();
         List<String> winners = new ArrayList<>();
         int LongestStep = cars[0].getStep().length();
