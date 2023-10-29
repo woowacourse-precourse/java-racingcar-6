@@ -25,6 +25,14 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 이름에_대한_예외_처리_null() {
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException(null, "1"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
     void 이름에_대한_예외_처리_empty() {
         assertSimpleTest(() ->
             assertThatThrownBy(() -> runException("", "1"))
