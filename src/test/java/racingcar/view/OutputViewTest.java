@@ -28,8 +28,8 @@ public class OutputViewTest {
     }
 
     @Test
-    @DisplayName("temporary")
-    void temporary() {
+    @DisplayName("자동차 이동의 실행 결과를 출력한다.")
+    void printExecutionResult() {
         OutputView outputView = new OutputView();
         LinkedHashMap<String, Integer> carNamesAndMovingCount = new LinkedHashMap<>();
         carNamesAndMovingCount.put("park", 3);
