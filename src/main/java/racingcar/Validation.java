@@ -8,7 +8,7 @@ public class Validation {
     }
     public static boolean validLength(List<String> nameList) {
         for(String name : nameList) {
-            if(name.length() > 5) {
+            if(name.length() > 5 || name.isEmpty()) {
                 return false;
             }
         }
