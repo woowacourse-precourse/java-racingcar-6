@@ -3,7 +3,6 @@ package racingcar;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static racingcar.Validator.*;
 
 class ValidatorTest {
@@ -99,6 +98,30 @@ class ValidatorTest {
 
         // when
         boolean result = hasNoConsecutiveCommas(input);
+
+        // then
+        Assertions.assertThat(result).isFalse();
+    }
+
+    @Test
+    void 이름에_허용되는_문자만_포함되어_있는_검증_성공_케이스() {
+        // given
+        String input = "성겸,성민12,성우a";
+
+        // when
+        boolean result = validateNames(input);
+
+        // then
+        Assertions.assertThat(result).isTrue();
+    }
+
+    @Test
+    void 이름에_허용되는_문자만_포함되어_있는지_검증_실패_케이스() {
+        // given
+        String input = "성겸@,성민,성우";
+
+        // when
+        boolean result = validateNames(input);
 
         // then
         Assertions.assertThat(result).isFalse();
