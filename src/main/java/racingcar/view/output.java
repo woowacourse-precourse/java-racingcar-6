@@ -3,6 +3,7 @@ package racingcar.view;
 import java.util.HashMap;
 import java.util.List;
 
+import racingcar.model.game_attempt;
 import racingcar.model.game_set;
 
 public class output {
@@ -20,8 +21,19 @@ public class output {
     }
 
     public static void Game_exe(int n, List<String> cars) {
-        HashMap<String, Integer> setting = game_set.game_set(n, cars);
-        System.out.println(setting);
+        HashMap<String, Integer> setting = game_set.game_set(cars);
+        for (int i = 0; i < n; i++) {
+            game_attempt.game_record(setting);
+            Game_cur(setting);
+        }
+    }
+
+    public static void Game_cur(HashMap<String, Integer> setting) {
+        for (String car_name : setting.keySet()) {
+            System.out.print(car_name + " : ");
+            System.out.println("-".repeat(setting.get(car_name)));
+        }
+        System.out.println("");
     }
 
 }
