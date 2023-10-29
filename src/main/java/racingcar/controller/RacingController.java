@@ -35,8 +35,7 @@ public class RacingController {
 
     public static String getCarName() {
         getCarNameNotification();
-        String carNameList = readLine();
-        return carNameList;
+        return readLine();
     }
 
     public static int getTryCount() {
