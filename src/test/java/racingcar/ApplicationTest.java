@@ -136,6 +136,16 @@ class ApplicationTest extends NsTest {
         assertThat(winnerStr).isEqualTo("aa,bb,cc");
     }
 
+    @Test
+    void 게임_구동(){
+        RacingGame racingGame = new RacingGame();
+        CallNsTestMethod.assertRandomNumberInRangeTest(
+                ()->{
+                    run("aa,bb,cc,dd","1");
+                    assertThat(output()).contains("aa : -", "bb : ", "cc : -", "dd : ", "최종 우승자 : aa,cc");
+                },4,0,4,0
+        );
+    }
 
     @Override
     public void runMain() {
