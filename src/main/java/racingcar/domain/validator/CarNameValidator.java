@@ -20,7 +20,7 @@ public class CarNameValidator implements InputValidator {
     }
 
     private void check_length(String sentence) {
-        if (sentence.length() >=10) {
+        if (sentence.length() >=6) {
             throw new IllegalArgumentException(CarNameException.INVALID_TOO_LONG_NAME.getMessage());
         }
 
