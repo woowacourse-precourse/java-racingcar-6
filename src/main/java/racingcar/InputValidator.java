@@ -17,4 +17,10 @@ public class InputValidator {
             throw new IllegalArgumentException("자동차 이름은 1~5자의 한글, 영어 대소문자로 구성됩니다.");
         }
     }
+
+    public static void validateIterationNumBer(int iterationNumBer) {
+        if (iterationNumBer <= 0) {
+            throw new IllegalArgumentException("시도 회수는 양수입니다.");
+        }
+    }
 }
