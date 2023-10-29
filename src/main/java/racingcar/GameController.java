@@ -25,4 +25,11 @@ public class GameController {
         view.printAttemptCountsQuestionMessage();
         return input.inputAttemptCounts();
     }
+
+    private void playCarRace(long attemptCounts, RacingCars cars) {
+        for (int attempCount = 0; attempCount < attemptCounts; attempCount++) {
+            List<Car> endCars = cars.doRace();
+            deliverToViewAboutOneGameResult(endCars);
+        }
+    }
 }
