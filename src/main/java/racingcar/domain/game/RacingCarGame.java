@@ -30,6 +30,7 @@ public class RacingCarGame {
         int roundNumber = readGameRoundFromUser();
         Cars cars = generateCars(names);
         raceByRoundNumber(roundNumber, cars);
+        judgeWinner(cars);
     }
 
     private String readCarNamesFromUser() {
@@ -65,5 +66,10 @@ public class RacingCarGame {
 
     private Round generateRound(List<Integer> numbers, Cars cars) {
         return new Round(numbers, cars);
+    }
+
+    private void judgeWinner(Cars cars) {
+        Winner winner = new Winner(cars);
+        outputView.printGameWinner(winner.toString());
     }
 }

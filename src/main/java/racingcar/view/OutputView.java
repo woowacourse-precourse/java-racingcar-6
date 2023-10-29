@@ -8,5 +8,5 @@ public interface OutputView {
     void printRequestGameRound();
     void printResultMessage();
     void printRoundResult(List<CarDto> result);
-    void printGameWinner();
+    void printGameWinner(String winners);
 }
