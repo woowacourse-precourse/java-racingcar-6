@@ -20,6 +20,8 @@ public class GameController {
     public void startGame() {
         List<String> carNames = gameView.getCarNames(new CarNamesValidation());
         gameModel.setCars(carNames);
+
+        int roundNumber = gameView.getRoundNumber(new RoundNumberValidation());
     }
 
 }

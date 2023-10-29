@@ -19,4 +19,13 @@ public class GameView {
         if (!userInputValidation.validate(carNames)) throw new IllegalArgumentException();
         return carNames;
     }
+
+    public int getRoundNumber(final UserInputValidation<String> userInputValidation) {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String userInput = Console.readLine();
+
+        if (!userInputValidation.validate(userInput)) throw new IllegalArgumentException();
+        return Integer.parseInt(userInput);
+    }
+
 }
