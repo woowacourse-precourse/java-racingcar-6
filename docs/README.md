@@ -14,9 +14,9 @@
     - [x] 랜덤 값이 4이상일 경우 전진하고, 아니면 멈춘다.
     - [x] 각 자동차의 전진 상태를 출력한다.
     - [x] 위 과정을 시도할 횟수만큼 반복한다.
-- [ ] 자동차 경주가 종료된 후 우승자를 출력한다.
-    - [ ] 우승자는 한 명 이상일 수 있다.
-    - [ ] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
+- [x] 자동차 경주가 종료된 후 우승자를 출력한다.
+    - [x] 우승자는 한 명 이상일 수 있다.
+    - [x] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
 
 패키지 및 클래스 구성
 
@@ -25,18 +25,31 @@
         - getCarNames
         - getTryCount
     - OutputView
-        - printResult
+        - printRacingResult
         - printWinners
 - validator
     - validateCarName
         - validateCarNameLength
-        - validateCarNameDuplication
+        - validateCarNameDuplicate
     - validateTryCount
         - validateTryCountNumber
+        - validateTryCountMin
 - controller
     - RacingGameController
         - play
+        - startRace
+        - createCars
+        - validateCarNames
+        - validateTryCount
 - model
     - Car
         - getName
+        - getPosition
         - move
+    - Winner
+        - getMaxPosition
+        - getWinners
+- message
+    - ErrorMessages
+    - InputMessages
+    - OutputMessages

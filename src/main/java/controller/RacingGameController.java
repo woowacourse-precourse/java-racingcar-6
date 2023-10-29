@@ -26,6 +26,8 @@ public class RacingGameController {
 
         startRace(carList, tryCountNumber);
 
+        OutputView.printWinners(carList);
+
     }
 
     private void startRace(List<Car> carList, int tryCountNumber) {
