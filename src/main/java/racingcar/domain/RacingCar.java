@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.message.ValidateErrorMessage;
@@ -10,6 +11,7 @@ public class RacingCar {
 
     private List<String> cars = new ArrayList<>();
     private int RaceCount;
+    private List<Integer> raceResult;
 
     public void updateCars(String cars) {
         List<String> convertedCars = convertToList(cars);
@@ -20,6 +22,10 @@ public class RacingCar {
     public void updateRaceCount(String raceCount) {
         validate(raceCount);
         this.RaceCount = convertToInt(raceCount);
+    }
+
+    public void updateRaceResult(List<Integer> raceResult) {
+        this.raceResult = raceResult;
     }
 
     private List<String> convertToList(String cars) {
@@ -53,5 +59,9 @@ public class RacingCar {
 
     public int getRaceCount() {
         return RaceCount;
+    }
+
+    public List<Integer> getRaceResult() {
+        return raceResult;
     }
 }
