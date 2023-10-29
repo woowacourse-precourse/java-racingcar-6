@@ -13,9 +13,10 @@ public class Car {
     }
 
     public void move() {
-        currentStep+=1;
+        currentStep += 1;
     }
-    public void tryMove(){
+
+    public void tryMove() {
         int pickNumber = Randoms.pickNumberInRange(0, 9);
         if (pickNumber >= RANDOM_STANDARD) {
             this.move();
@@ -29,9 +30,4 @@ public class Car {
     public int getCurrentStep() {
         return currentStep;
     }
-
-    public void setName(final String name) {
-        this.name = name;
-    }
-
 }

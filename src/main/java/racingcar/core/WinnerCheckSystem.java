@@ -6,9 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WinnerCheckSystem {
-    private List<Car> winners = new ArrayList<>();
-
     public List<Car> getWinners(List<Car> cars) {
+        List<Car> winners = new ArrayList<>();
         int maxLine = maxLineCount(cars);
         for (Car car : cars) {
             if (car.getCurrentStep() == maxLine) {
@@ -18,7 +17,7 @@ public class WinnerCheckSystem {
         return winners;
     }
 
-    public static int maxLineCount(List<Car> cars){
+    public static int maxLineCount(List<Car> cars) {
         int maxLine = 0;
         for (Car car : cars) {
             maxLine = Math.max(maxLine, car.getCurrentStep());
