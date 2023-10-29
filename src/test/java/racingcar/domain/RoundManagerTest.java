@@ -21,12 +21,22 @@ class RoundManagerTest {
                 () -> {
                     roundManager.moveCars(cars);
                     org.assertj.core.api.Assertions.assertThat(cars.get(0).getTotalMovedDistance())
-                            .isEqualTo(MIN_MOVE_THRESHOLD);
+                            .isEqualTo(4);
                 },
                 MIN_MOVE_THRESHOLD
         );
 
     }
 
-
+    @Test
+    void 랜덤값이_4미만인_전진하지않는_경우() {
+        Assertions.assertRandomNumberInRangeTest(
+                ()->{
+                    roundManager.moveCars(cars);
+                    org.assertj.core.api.Assertions.assertThat(cars.get(0).getTotalMovedDistance())
+                            .isEqualTo(3);
+                },
+                2
+        );
+    }
 }
