@@ -35,4 +35,14 @@ public class PlayeroutputView {
         return max;
     }
 
+    public static void resultPrize(List<Car> cars, int prize) {
+        StringJoiner winners = new StringJoiner(", ");
+        for (Car car : cars) {
+            if (car.getPosition() == prize) {
+                winners.add(car.getName());
+            }
+        }
+        System.out.println(winners);
+    }
+
 }

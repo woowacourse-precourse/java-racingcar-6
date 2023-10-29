@@ -25,7 +25,6 @@ public class PlayerinputView {
         return names;
     }
 
-
     public static List<Car> saveNames(String[] names){
         List<Car> cars = new ArrayList<>();
         for(int i=0; i< names.length; i++){
@@ -34,7 +33,6 @@ public class PlayerinputView {
         }
         return cars;
     }
-
 
     public static int getRound() {
         System.out.print("\n시도할 회수는 몇회인가요? ");
