@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.*;
 
@@ -42,6 +43,14 @@ class GameTest {
 
     @Test
     void inputCarNames_Exception_EmptyName() {
+        String input = "pobi,,jun";
+
+        try (MockedStatic<Console> mockedStatic = mockStatic(Console.class)) {
+            when(Console.readLine()).thenReturn(input);
+            assertThatThrownBy(() -> game.inputCarNames())
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessageContaining("Not valid input: car names");
+        }
     }
 
     @Test
