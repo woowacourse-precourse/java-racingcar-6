@@ -40,6 +40,18 @@ public class Inputs {
 
     }
 
-
+    public static void inputCounts() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        try {
+            String inputStr = Console.readLine();
+            int inputCount = Integer.parseInt(inputStr);
+            if ( inputCount < 1 ) {
+                raiseIllegalArgumentException();
+            }
+            count = inputCount;
+        } catch (IllegalArgumentException e) {
+            throw e;
+        }
+    }
 
 }
