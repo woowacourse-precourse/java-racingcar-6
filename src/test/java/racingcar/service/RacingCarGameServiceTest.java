@@ -8,9 +8,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 public class RacingCarGameServiceTest {
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "[테스트 케이스 {index}] 랜덤 숫자 = {0}, 전진 결과 = {1}")
     @CsvSource({"3,false", "4,true", "5,true"})
-    @DisplayName("{$랜덤 숫자}, {$전진 결과} : 3 이하는 정지상태를 유지하고 4 이상은 전진한다.")
+    @DisplayName("4이상은 전진하고, 3이하는 정지상태를 유지한다.")
     public void should_MovingForward_When_FourOrMore(int randomNumber, boolean expected) {
         RacingCarGameService racingCarGameService = new RacingCarGameService();
 
