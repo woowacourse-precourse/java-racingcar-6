@@ -8,4 +8,5 @@ public class RaceConstant {
     public static final int START_INDEX = 0;
     public static final String COLON = " : ";
     public static final String MOVE = "-";
+    public static final String COMMA = ", ";
 }

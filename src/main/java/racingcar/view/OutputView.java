@@ -17,6 +17,9 @@ public class OutputView {
         }
         System.out.println();
     }
+    public void printWinner(List<String> winner){
+        System.out.println(RaceMessage.WINNER + RaceConstant.COLON + String.join(RaceConstant.COMMA, winner));
+    }
 
     private static void printResultByCar(List<Integer> raceResult, List<String> cars, int i) {
         System.out.print(cars.get(i) + RaceConstant.COLON);
