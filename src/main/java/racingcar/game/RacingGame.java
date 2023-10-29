@@ -23,8 +23,20 @@ public class RacingGame {
     }
 
     public void start() {
+        Trial trial = prepareRacingGame();
+        playRacingGame(trial);
+    }
+
+    private void playRacingGame(Trial trial) {
+        while (!trial.isExhausted()) {
+            circuit.tryRacingGame();
+            trial.useTrialCount();
+        }
+    }
+
+    private Trial prepareRacingGame() {
         setUpCars();
-        Trial trial = receiveTrial();
+        return receiveTrial();
     }
 
     private void setUpCars() {

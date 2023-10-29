@@ -19,7 +19,13 @@ public class Circuit {
         cars.add(car);
     }
 
-    public void tryRacingGame() {
+    public List<Car> getCars() {
+        return cars;
+    }
 
+    public void tryRacingGame() {
+        for (Car car : cars) {
+            car.move(numberGenerator.generate());
+        }
     }
 }
