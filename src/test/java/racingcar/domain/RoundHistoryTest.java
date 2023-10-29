@@ -16,10 +16,10 @@ public class RoundHistoryTest {
         Cars cars = new Cars(List.of("pobi", "crong", "honux"));
 
         // when
-        RoundHistory roundHistory = new RoundHistory(currentRound, cars.getCurrentStatus());
+        RoundHistory roundHistory = new RoundHistory(currentRound, new RoundResult(cars.getCurrentStatus()));
 
         // then
         Assertions.assertEquals(currentRound, roundHistory.currentRound());
-        Assertions.assertEquals(cars.getCurrentStatus(), roundHistory.roundResult());
+        Assertions.assertEquals(cars.getCurrentStatus(), roundHistory.roundResult().results());
     }
 }
