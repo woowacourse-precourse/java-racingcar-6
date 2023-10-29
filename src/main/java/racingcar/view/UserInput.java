@@ -64,10 +64,10 @@ public class UserInput {
     }
 
     private void validateGameCountNotNumber(String gameCount) throws IllegalArgumentException {
-        for (char ch : gameCount.toCharArray()) {
-            if (!Character.isDigit(ch)) {
-                throw new IllegalArgumentException("게임 실행 횟수는 숫자만 입력해야 합니다.");
-            }
+        try {
+            Integer.parseInt(gameCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("게임 실행 횟수는 숫자만 입력해야 합니다.");
         }
     }
 
