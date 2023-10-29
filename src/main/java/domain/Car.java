@@ -23,8 +23,15 @@ public class Car {
     }
 
     public void move() {
-        if (Randoms.pickNumberInRange(MIN_NUM, MAX_NUM) >= MOVE_NUM) {
+        if (isMove()) {
             score++;
         }
+    }
+
+    public boolean isMove() {
+        if (Randoms.pickNumberInRange(MIN_NUM, MAX_NUM) >= MOVE_NUM) {
+            return true;
+        }
+        return false;
     }
 }
