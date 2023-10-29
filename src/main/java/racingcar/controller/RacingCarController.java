@@ -18,6 +18,7 @@ public class RacingCarController {
     public void run() {
         Participants participants = createParticipants();
         playRace(participants);
+        printWinner(participants);
     }
 
     private Participants createParticipants() {
@@ -29,5 +30,10 @@ public class RacingCarController {
         int attemptCount = inputView.getAttemptCount();
         RaceHistory raceHistory = participants.raceNTimes(attemptCount);
         outputView.printRaceHistory(raceHistory);
+    }
+
+    private void printWinner(Participants participants) {
+        List<String> winners = participants.getWinners();
+        outputView.printWinners(winners);
     }
 }
