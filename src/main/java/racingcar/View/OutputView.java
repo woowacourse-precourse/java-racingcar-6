@@ -6,6 +6,9 @@ import racingcar.Model.Car;
 public class OutputView {
     private static final String MSG_RESULT = "\n실행 결과";
 
+    public void printResultInit(){
+        System.out.println(MSG_RESULT);
+    }
     public void printRaceProgress(Car car){
         String carName = car.getCarName();
         String carProgress = car.getProgress();
