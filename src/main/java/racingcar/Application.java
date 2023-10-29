@@ -47,7 +47,15 @@ public class Application {
 		}
 	}
 	
-	p
+	public void printCurrent() {
+		for (int i=0; i<playerNumber; i++) {
+			System.out.print(playerData[i].name + " : ");
+			for (int j = 0; j<playerData[i].loc; j++)
+				System.out.print('-');
+			System.out.println();
+		}
+		System.out.println();
+	}
     public static void main(String[] args) {
     	Application game = new Application();
     	game.gameStart();
