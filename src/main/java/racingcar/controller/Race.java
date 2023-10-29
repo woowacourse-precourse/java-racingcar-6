@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.domain.CarGroup;
 import racingcar.domain.PlayIterator;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class Race {
     // Constructor for singleton pattern
@@ -23,9 +24,12 @@ public class Race {
         CarGroup carGroup = CarGroup.from(InputView.askCarNames());
         PlayIterator playIterator = PlayIterator.from(InputView.askPlayCount());
 
+        OutputView.printResultTitle();
         while (playIterator.isPlayable()) {
             playIterator.play();
-            // TODO: Move all cars and print result
+            carGroup.moveAllProbabilistically();
+            OutputView.printStatus(carGroup.getStatusAsString());
         }
+        // TODO: Print winner
     }
 }
