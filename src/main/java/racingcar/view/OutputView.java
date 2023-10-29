@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import racingcar.domain.Car;
+
 public class OutputView {
 
     private static final OutputView INSTANCE = new OutputView();
@@ -14,9 +16,7 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    public void printCarName(String carName){
-        System.out.print(carName + " : ");
+    public void printCarName(Car car){
+        System.out.print(car.getCarName() + " : ");
     }
-
-
 }
