@@ -26,6 +26,10 @@ public class Car {
         }
     }
 
+    public void addCarName(String carName){
+        carNameList.add(carName);
+    }
+
     public String getCarName() {
         return carName;
     }
