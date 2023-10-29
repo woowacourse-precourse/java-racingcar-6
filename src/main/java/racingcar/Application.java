@@ -17,7 +17,6 @@ public class Application {
         Map<String, Integer> carNameAndMovementCountMap = inputCarNames();
         int numberOfRounds = inputNumberOfRounds();
 
-        System.out.println("실행 결과");
         executeAllRounds(carNameAndMovementCountMap, numberOfRounds);
         selectFinalWinner(carNameAndMovementCountMap);
     }
@@ -47,7 +46,8 @@ public class Application {
 
 
     public static Map<String, Integer> executeAllRounds(Map<String, Integer> carNameAndMovementCountMap, int numberOfRounds) {
-        for (int i=0; i<numberOfRounds; i++) {
+        System.out.println("실행 결과");
+        for (int i = 0; i < numberOfRounds; i++) {
             executeMovement(carNameAndMovementCountMap);
         }
         return carNameAndMovementCountMap;
@@ -57,7 +57,8 @@ public class Application {
         carNameAndMovementCountMap.forEach((carName, movementCount) -> {
             if (Randoms.pickNumberInRange(0, 9) > 3) {
                 carNameAndMovementCountMap.put(carName, ++movementCount);
-            };
+            }
+            ;
             printResultAfterMovement(carName, movementCount);
         });
         System.out.println();
@@ -66,7 +67,7 @@ public class Application {
     private static void printResultAfterMovement(String carName, Integer movementCount) {
         System.out.print(carName + " : ");
 
-        for (int j=0; j<movementCount; j++) {
+        for (int j = 0; j < movementCount; j++) {
             System.out.print("-");
         }
         System.out.println();
