@@ -19,7 +19,7 @@ public class TryNumberValidatorTest {
     }
 
     @Test
-    void testTryNumberValidatorWithEmptyInput() {
+    void 시도_회수_빈_입력_검증예외() {
         String emptyInput = "";
 
         IllegalArgumentException emptyInputException = Assertions.assertThrows(
@@ -34,7 +34,7 @@ public class TryNumberValidatorTest {
     }
 
     @Test
-    void testTryNumberValidatorWithNonNumericInput() {
+    void 시도_회수_숫자_아닌_입력_검증예외() {
         String nonNumericInput = "abc";
 
         IllegalArgumentException nonNumericException = Assertions.assertThrows(
@@ -49,7 +49,7 @@ public class TryNumberValidatorTest {
     }
 
     @Test
-    void testTryNumberValidatorWithTooBigInput() {
+    void 시도_회수_너무_큰_입력_검증예외() {
         String tooBigInput = "11";
 
         IllegalArgumentException tooBigNumberException = Assertions.assertThrows(
@@ -64,7 +64,7 @@ public class TryNumberValidatorTest {
     }
 
     @Test
-    void testTryNumberValidatorWithTooSmallInput() {
+    void 시도_회수_너무_작은_입력_검증예외() {
         String tooSmallInput = "0";
 
         IllegalArgumentException tooSmallNumberException = Assertions.assertThrows(

@@ -15,12 +15,12 @@ public class CarNameValidatorTest {
     }
 
     @Test
-    void testCarNameValidatorWithValidInput() {
+    void 차_이름_입력_검증성공() {
         Assertions.assertDoesNotThrow(() -> carNameValidator.validate("Car1,Car2,Car3"));
     }
 
     @Test
-    void testCarNameValidatorWithEmptyInput() {
+    void 차_이름_없는_입력_검증예외() {
         String emptyInput = "";
 
         IllegalArgumentException emptyInputException = Assertions.assertThrows(
@@ -34,7 +34,7 @@ public class CarNameValidatorTest {
     }
 
     @Test
-    void testCarNameValidatorWithTooLongName() {
+    void 차_이름_너무_긴_입력_검증예외() {
         String tooLongName = "LongNamingIsNotValidatedInThisGame";
 
         IllegalArgumentException tooLongNameException = Assertions.assertThrows(
@@ -48,7 +48,7 @@ public class CarNameValidatorTest {
     }
 
     @Test
-    void testCarNameValidatorWithTooShortName() {
+    void 차_이름_너무_짧은_입력_검증예외() {
         String tooShortName = "C";
 
         IllegalArgumentException tooShortNameException = Assertions.assertThrows(
