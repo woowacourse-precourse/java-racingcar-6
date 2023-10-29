@@ -17,6 +17,10 @@ public class View {
         System.out.println("\n실행결과");
     }
 
+    public static void displayRoundResult(String result) {
+        System.out.println(result);
+    }
+
     public static void displayWinners(String winners) {
         System.out.printf("최종 우승자 : %s\n", winners);
     }

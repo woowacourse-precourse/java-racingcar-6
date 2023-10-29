@@ -11,6 +11,14 @@ public class Car {
         this.moves = 0;
     }
 
+    public String getPosition() {
+        String name = this.name;
+        String position = "-".repeat(this.moves);
+        String carStatus = String.format("%s : %s\n", name, position);
+
+        return carStatus;
+    }
+
     // TODO: Getter 제거, 다른 방법 모색
     public String getName() {
         return this.name;
@@ -26,13 +34,6 @@ public class Car {
         }
     }
 
-    // TODO: 출력은 View를 통해서만
-    public void getPosition() {
-        String name = this.name;
-        String position = "-".repeat(this.moves);
-        
-        System.out.printf("%s : %s\n", name, position);
-    }
 
     private boolean canMove() {
         return (Randoms.pickNumberInRange(0, 9) > 3);

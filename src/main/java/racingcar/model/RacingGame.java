@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import static racingcar.model.Settings.ATTEMPT_MAX;
 import static racingcar.model.Settings.CAR_AMOUNT;
 
 public class RacingGame {
@@ -9,7 +8,6 @@ public class RacingGame {
     public RacingGame(CarManager manager) {
         this.manager = manager;
     }
-
 
     public String getWinners() {
         StringBuilder winners = new StringBuilder();
@@ -24,26 +22,20 @@ public class RacingGame {
             }
         }
         cutStringTail(winners);
+
         return winners.toString();
     }
 
-    public void playRace() {
-        int round = 0;
-        do {
-            playRound();
-            round++;
-        } while (round < ATTEMPT_MAX);
-    }
-
-    // TODO: 처리결과 View로 넘기기(직접출력 x)
-    private void playRound() {
+    public String playRound() {
+        StringBuilder roundResult = new StringBuilder();
         for (int index = 0; index < CAR_AMOUNT; index++) {
             Car car = manager.getCarFromIndex(index);
 
             car.tryMove();
-            car.getPosition();
+            roundResult.append(car.getPosition());
         }
-        System.out.println();
+
+        return roundResult.toString();
     }
 
     private void cutStringTail(StringBuilder winners) {

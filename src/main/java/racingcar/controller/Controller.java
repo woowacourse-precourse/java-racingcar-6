@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import static racingcar.model.Settings.ATTEMPT_MAX;
+
 import racingcar.model.CarManager;
 import racingcar.model.RacingGame;
 import racingcar.model.Settings;
@@ -14,10 +16,17 @@ public class Controller {
         askAndSetAttempts();
 
         View.displayResult();
-        game.playRace();
-
+        playRace();
         String winners = game.getWinners();
+
         View.displayWinners(winners);
+    }
+
+    private void playRace() {
+        for (int round = 0; round < ATTEMPT_MAX; round++) {
+            String roundResult = game.playRound();
+            View.displayRoundResult(roundResult);
+        }
     }
 
     private void askAndGenerateCars() {
