@@ -20,7 +20,7 @@ public class utils {
         }
     }
 
-    public static Integer convertToInteger(String value){
+    public static int convertToInteger(String value){
         try {
             return Integer.parseInt(value);
         } catch (NumberFormatException e){
