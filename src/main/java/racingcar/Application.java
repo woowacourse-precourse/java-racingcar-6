@@ -1,6 +1,7 @@
 package racingcar;
 
 import racingcar.domain.Input;
+import racingcar.domain.Movement;
 
 import java.util.List;
 
@@ -13,12 +14,19 @@ public class Application {
     private static void playRacingCar() {
 
         Input input = new Input();
+        Movement movement = new Movement();
 
-        List<String> names = input.createNames();
-        for (String name : names) {
-            System.out.println("name = " + name);
+        List<String> names = input.createNames(); // 이름 리스트
+        int moveCount = input.moveCount(); // 총 이동 가능한 횟수
+        List<Integer> movementList = movement.createMovement(names); // 누적 이동값 리스트
+
+        System.out.println();
+        System.out.println("실행 결과");
+        while (true) {
+            movement.raceMoveOrStop(names, movementList);
+
+            if (movementList.contains(moveCount)) break;
         }
-        int moveCount = input.moveCount();
-        System.out.println("moveCount = " + moveCount);
+
     }
 }

@@ -24,10 +24,12 @@
   - 숫자를 입력받지 않을경우 오류 발생 [o] - exception.checkNumber()
   
 
-- 각 이름 인덱스에 매칭되게끔 이동 횟수 리스트 만들기 [x] - movement.createMovement()
+- 각 이름 인덱스에 매칭되게끔 이동 횟수 리스트 만들기 [o] - movement.createMovement()
   
-
-- 랜덤 값을 이용해서 전진할지 멈출지 계산 [x] - movement.isMove()
+  
+- 움직이면 이동 횟수 리스트에 += 1 해주기 [o] - movement.raceMoveOrStop() 
+  - 랜덤 값을 이용해서 전진할지 멈출지 계산 [o] - movement.isMove()
+  - 현재까지의 이동 현황 프린트하기 [o] - movement.printRace()
   
 
 - 모든 자동차들의 전진 혹은 멈춤 한 사이클 후 우승자가 존재하는지 확인하기 [x] - race.isExistWinner()
