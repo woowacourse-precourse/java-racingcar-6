@@ -74,5 +74,13 @@ public class Game {
             }
         }
 
+        printWinner(winner);
+    }
+
+    public void printWinner(List<String> winner){
+        if(winner.size() == 1)
+            OutputView.printSoloWinner(winner.get(0));
+        else
+            OutputView.printJointWinner(winner);
     }
 }
