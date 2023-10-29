@@ -8,6 +8,7 @@ import java.io.ByteArrayInputStream;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class InputViewTeste {
 
@@ -42,6 +43,18 @@ class InputViewTeste {
         Assertions.assertAll(
                 () -> assertThat(movesNumber).isEqualTo(inputMovesNumber)
         );
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"a", "CHARACTER", "**"})
+    void 이동_횟수_숫자_검증(String inputMovesNumber) throws Exception {
+        // given
+        command(inputMovesNumber);
+
+        // when & then
+        assertThatThrownBy(InputView::enterMovesNumber)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("숫자만 입력할 수 있습니다.");
     }
 
     private void command(String input) {
