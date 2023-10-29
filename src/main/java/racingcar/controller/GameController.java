@@ -34,6 +34,10 @@ public class GameController {
         String input = InputView.getCarName();
         String[] splitName = input.split(CAR_NAME_DELIMITER);
 
+        for (int i = ZERO; i < splitName.length; i++) {
+            splitName[i] = splitName[i].trim();
+        }
+
         return Arrays.stream(splitName).collect(Collectors.toList());
     }
 
