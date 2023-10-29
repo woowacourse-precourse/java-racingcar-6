@@ -2,13 +2,15 @@ package racingcar.validator;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 public class CarNameValidator {
+    private static final Pattern INCLUDE_COMMA = Pattern.compile(".*,.*");
+    private static final Pattern CAR_NAME_COND = Pattern.compile("^[\\sa-zA-Z0-9가-힣]*$");
+    private static final Pattern BLANK_IN_START = Pattern.compile("^\\s.*");
+    private static final Pattern BLANK_IN_END = Pattern.compile(".*\\s$");
     private static final String COMMA = ",";
     private static final String BLANK = " ";
-    private static final String NOT_COMMA_AND_ALLOW_BLANK_BETWEEN_NAME = ".*[^,\\s^a-zA-Z0-9^[가-힣]*$].*";
-    private static final String BLANK_IN_START = "^\\s.*";
-    private static final String BLANK_IN_END = ".*\\s$";
     private static final int MAX_RANGE = 5;
     private static final int MIM_RANGE = 1;
 
@@ -28,7 +30,7 @@ public class CarNameValidator {
     }
 
     private static void validateSeparator(String input) {
-        if (input.matches(NOT_COMMA_AND_ALLOW_BLANK_BETWEEN_NAME)) {
+        if (!INCLUDE_COMMA.matcher(input).matches()) {
             throw new IllegalArgumentException(ErrorMessage.ONLY_COMMA);
         }
     }
@@ -37,6 +39,7 @@ public class CarNameValidator {
         String[] carNames = input.split(COMMA);
         Set<String> nameSet = new HashSet<>();
         for (String carName : carNames) {
+            validateCarNameCond(carName);
             validateCarNameLength(carName);
             validateCarNameIsBlank(carName);
             validateIsStartBlank(carName);
@@ -44,6 +47,12 @@ public class CarNameValidator {
             nameSet.add(carName);
         }
         validateDuplication(nameSet.size(), carNames.length);
+    }
+
+    private static void validateCarNameCond(String carName) {
+        if (!CAR_NAME_COND.matcher(carName).matches()) {
+            throw new IllegalArgumentException("영대소문자,한글,숫자만 입력 가능하고 이름 가운데 공백은 허용됩니다.");
+        }
     }
 
     private static void validateCarNameLength(String carName) {
@@ -59,13 +68,13 @@ public class CarNameValidator {
     }
 
     private static void validateIsStartBlank(String carName) {
-        if (carName.matches(BLANK_IN_START)) {
+        if (BLANK_IN_START.matcher(carName).matches()) {
             throw new IllegalArgumentException(ErrorMessage.NOT_ALLOW_BLANK_IN_START);
         }
     }
 
     private static void validateIsEndBlank(String carName) {
-        if (carName.matches(BLANK_IN_END)) {
+        if (BLANK_IN_END.matcher(carName).matches()) {
             throw new IllegalArgumentException(ErrorMessage.NOT_ALLOW_BLANK_IN_END);
         }
     }
