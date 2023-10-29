@@ -8,14 +8,22 @@ import view.InputView;
 
 public class RacingGame {
 
+    private static RacingGame defaultRacingGame;
     private final InputView inputView;
     private final GameInputException gameInputException;
     private final GameController gameController;
 
-    public RacingGame() {
-        inputView = new InputView();
-        gameInputException = new GameInputException();
-        gameController = new GameController();
+    private RacingGame() {
+        inputView = InputView.getInstance();
+        gameInputException = GameInputException.getInstance();
+        gameController = GameController.getInstance();
+    }
+
+    public static RacingGame getInstance() {
+        if(defaultRacingGame == null) {
+            defaultRacingGame = new RacingGame();
+        }
+        return defaultRacingGame;
     }
 
     public void run() {
@@ -38,6 +46,13 @@ public class RacingGame {
         gameInputException.validateNumber(input);
         gameInputException.validateNumberZero(input);
         return Integer.parseInt(input);
+    }
+
+    public void close() {
+        gameController.close();
+        gameInputException.close();
+        inputView.close();
+        defaultRacingGame = null;
     }
 
 }
