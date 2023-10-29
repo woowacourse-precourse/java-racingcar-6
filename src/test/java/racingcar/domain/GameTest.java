@@ -55,7 +55,14 @@ class GameTest {
 
     @Test
     void inputCardNames_Exception_MoreThanFiveCharacters() {
+        String input = "pobi,woni,jun,dongjin";
 
+        try (MockedStatic<Console> mockedStatic = mockStatic(Console.class)) {
+            when(Console.readLine()).thenReturn(input);
+            assertThatThrownBy(() -> game.inputCarNames())
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessageContaining("Not valid input: car names");
+        }
     }
 
     @Test
