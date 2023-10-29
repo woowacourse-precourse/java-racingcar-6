@@ -14,8 +14,10 @@ public class RacingCarController {
         OutputView.printAttempNumMessage();
         int attempNum = InputView.inputAttempNum();
 
-        for (int i = 1; i > attempNum; i++) {
+        OutputView.printResultMessage();
+        for (int i = 0; i < attempNum; i++) {
             CarRace.raceCar(cars);
+            OutputView.printAttempResult(cars);
         }
 
     }

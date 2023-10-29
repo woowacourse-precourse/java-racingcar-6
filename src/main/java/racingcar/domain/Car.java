@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import static racingcar.utils.ErrorMessage.*;
 
+import static racingcar.utils.Message.ProgressBar;
+
 public class Car {
     private final String name;
     private int progress;
@@ -19,6 +21,15 @@ public class Car {
 
     public void moveForward() {
         this.progress++;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String printProgressBar() {
+        String progressBar = ProgressBar.getMessage();
+        return progressBar.repeat(this.progress);
     }
 
 }
