@@ -25,9 +25,7 @@ public class Cars {
 
     public List<String> getWinners() {
         List<String> winners = new ArrayList<>();
-        for (Car car : cars) {
-            addWinners(winners, car);
-        }
+        cars.forEach(car -> addWinners(winners, car));
         return winners;
     }
 
