@@ -28,12 +28,20 @@ public class InputView {
 
     private static void validateCarNames(List<String> carNames) {
         for (String carName : carNames) {
-            if (carName.length() > 5) {
-                throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
-            }
-            if (carName.contains(" ")) {
-                throw new IllegalArgumentException("자동차 이름에 공백은 불가능합니다.");
-            }
+            validateCarNameLength(carName);
+            validateCarNameNoSpace(carName);
+        }
+    }
+
+    private static void validateCarNameLength(String carName) {
+        if (carName.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
+        }
+    }
+
+    private static void validateCarNameNoSpace(String carName) {
+        if (carName.contains(" ")) {
+            throw new IllegalArgumentException("자동차 이름에 공백은 불가능합니다.");
         }
     }
 
