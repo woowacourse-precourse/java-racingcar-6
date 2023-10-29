@@ -27,7 +27,7 @@ public class Application {
         racingCar.printWinner();
     }
 
-    private static int inputNumber() {
+    public static int inputNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
 
         int num = 0;
@@ -61,7 +61,7 @@ public class Application {
         return players;
     }
 
-    private static boolean validateName(String name) {
+    public static boolean validateName(String name) {
         if (name == null || name.length() == 0) {
             throw new IllegalArgumentException("유효하지 않은 입력입니다, 이름이 비어있습니다.");
         }
