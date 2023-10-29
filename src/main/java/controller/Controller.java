@@ -30,7 +30,7 @@ public class Controller {
         OutputView.printWinnerMessage(winner);
     }
 
-    private String findWinner(int maxDistance){
+    private String findWinner(int maxDistance) {
         List<String> winners = new ArrayList<>();
         for(Car car : this.groupOfCar) {
             if(car.getDistance() == maxDistance) {
