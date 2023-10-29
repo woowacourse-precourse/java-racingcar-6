@@ -1,7 +1,5 @@
 package racingcar.domain.car;
 
-import static racingcar.Constant.ZERO;
-
 import racingcar.domain.car.carcomponent.carposition.CarPosition;
 import racingcar.domain.car.carcomponent.carposition.CarPositionCompareResult;
 
@@ -9,6 +7,7 @@ public class Car {
     private static final String CAR_NAME_ERROR_MESSAGE = "자동차의 이름은 5자 이하만 가능합니다.";
     private static final String MOVE_RESULT_DELIMITER_FOR_CAR = " : ";
     private static final int MAX_CAR_NAME_LENGTH = 5;
+    private static final int START_POSITION = 0;
 
     private final String carName;
     private CarPosition carPosition;
@@ -16,7 +15,7 @@ public class Car {
     public Car(String carName) {
         validateCarName(carName);
         this.carName = carName;
-        this.carPosition = new CarPosition(ZERO);
+        this.carPosition = new CarPosition(START_POSITION);
     }
 
     protected void move(boolean moveOrNot) {

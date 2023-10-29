@@ -1,7 +1,5 @@
 package racingcar.domain.car.carcomponent.carposition;
 
-import static racingcar.Constant.ONE;
-
 public class CarPosition {
     private static final String RESULT_MESSAGE_COMPONENT = "-";
     private static final String WRONG_CAR_POSITION_MESSAGE = "자동차의 위치에 음수가 들어왔습니다.";
@@ -24,7 +22,7 @@ public class CarPosition {
     }
 
     public CarPosition move() {
-        return new CarPosition(position + ONE);
+        return new CarPosition(position + 1);
     }
 
     public String makePositionResultMessage() {
