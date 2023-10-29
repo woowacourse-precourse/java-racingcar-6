@@ -20,5 +20,6 @@ public class RacingController {
             cars.forEach(car -> car.randomGoForward());
             view.showRacingProgress(cars);
         }
+        view.showRacingWinner(cars);
     }
 }

@@ -13,6 +13,7 @@ public class RacingView {
     private static final String CAR_NAME_SEPARATOR = ",";
     private static final String RACING_PROGRESS_FORMAT = "%s : %s";
     private static final String RACING_PROGRESS_BAR = "-";
+    private static final String WINNER_NAME_SEPARATOR = ", ";
 
     public List<Car> inputCarNames() {
         System.out.println(RacingMessage.INPUT_CAR_NAME);
@@ -36,6 +37,17 @@ public class RacingView {
             System.out.println(getRacingProgress(car.getName(), car.getMoveCount()));
         }
         System.out.println();
+    }
+
+    public void showRacingWinner(List<Car> cars) {
+        Integer maxCount = cars.stream()
+            .mapToInt(Car::getMoveCount)
+            .max().getAsInt();
+        String maxCountCarNames = cars.stream()
+            .filter(car -> car.getMoveCount() == maxCount)
+            .map(Car::getName)
+            .collect(Collectors.joining(WINNER_NAME_SEPARATOR));
+        System.out.println(RacingMessage.RACING_WINNER + maxCountCarNames);
     }
 
     private String getRacingProgress(String carName, Integer moveCount) {
