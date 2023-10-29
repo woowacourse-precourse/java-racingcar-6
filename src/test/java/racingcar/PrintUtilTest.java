@@ -45,6 +45,16 @@ class PrintUtilTest {
         assertThat(out.toString().replace(System.lineSeparator(), "\n")).isEqualTo(expectedResult);
     }
 
+    @ParameterizedTest
+    @MethodSource("provideWinner")
+    void 게임_우승자_출력(Map<String, String> result, List<String> winner) {
+        printWinnerMsg(result, winner);
+
+        String expectedWinner = generateWinnerReuslt(result, winner);
+
+        assertThat(out.toString().replace(System.lineSeparator(), "\n")).isEqualTo(expectedWinner.toString());
+    }
+
     private static String generateGameResult(Map<String, String> result) {
         StringBuilder expectedResult = new StringBuilder();
         for (Map.Entry<String, String> entrySet : result.entrySet()) {
