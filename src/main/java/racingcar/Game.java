@@ -1,9 +1,9 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Game {
 
@@ -25,6 +25,28 @@ public class Game {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("시도 횟수는 숫자로 입력되어야 합니다.");
         }
+    }
+
+    public void race() {
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < attempts; i++) {
+            for (Car car : cars) {
+                int num = Randoms.pickNumberInRange(0, 9);
+                car.move(num);
+            }
+            printRaceStatus();
+        }
+    }
+
+    private void printRaceStatus() {
+        for (Car car : cars) {
+            System.out.print(car.getName() + " : ");
+            for (int i = 0; i < car.getPosition(); i++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 
     public List<Car> getCars() {
