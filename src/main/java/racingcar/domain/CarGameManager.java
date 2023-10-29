@@ -18,6 +18,7 @@ public class CarGameManager {
     public void carGameStart(Cars cars, final int roundNumber) {
         OutPutView.executionResultView();
         IntStream.range(0, roundNumber).forEach(i -> cars.carsMove());
+        OutPutView.resultNameAndAdvanceView(cars.carsResult());
     }
 
     public void resultWinner(Cars cars) {

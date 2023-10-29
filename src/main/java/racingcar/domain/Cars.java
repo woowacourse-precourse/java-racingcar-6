@@ -25,14 +25,13 @@ public class Cars {
 
     public void carsMove() {
         this.cars.forEach(Car::move);
-        carsResult();
     }
 
-    public void carsResult() {
-        OutPutView.resultNameAndAdvanceView(new ArrayList<>(cars.stream()
+    public List<String> carsResult() {
+        return new ArrayList<>(cars.stream()
                 .map(Car::result)
                 .toList()
-        ));
+        );
     }
 
     public List<String> getWinner() {
