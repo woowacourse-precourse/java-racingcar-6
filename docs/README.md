@@ -4,7 +4,7 @@
 
 ### 입력
 * 경주할 자동차 이름 입력 받기 (RacingSetting Class) ✅
-* 이동을 시도할 횟수 입력 받기 (RacingSetting Class) ❌
+* 이동을 시도할 횟수 입력 받기 (RacingSetting Class) ✅
 
 ### 출력
 * 이동 후 실행 결과 출력 (Car Class, Information Class) ❌
