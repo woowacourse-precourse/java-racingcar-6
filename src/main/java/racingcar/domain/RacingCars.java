@@ -13,7 +13,7 @@ public class RacingCars {
 
     private final List<Car> cars;
 
-    private RacingCars(List<Car> cars) {
+    public RacingCars(List<Car> cars) {
         validateSize(cars);
         this.cars = cars;
     }
