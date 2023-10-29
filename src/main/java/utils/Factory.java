@@ -5,12 +5,12 @@ import player.Player;
 
 import java.util.*;
 
-public class Create {
-    public static int randomNumber() {
+public class Factory {
+    public static int createRandomDigit() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public static List<Player> playerObjectArray(List<String> players) {
+    public static List<Player> createPlayersArray(List<String> players) {
         List<Player> playerObjectArray = new ArrayList<>();
         for (String playerName : players) {
             Player player = new Player(playerName);
@@ -19,7 +19,7 @@ public class Create {
         return playerObjectArray;
     }
 
-    public static Map<String, Integer> playerDistanceMapping(List<Player> playerObjectArray){
+    public static Map<String, Integer> createPlayerDistanceMap(List<Player> playerObjectArray) {
         // HashMap의 입력 순서를 보장하기 위해서 LinkedHashMap 사용
         Map<String, Integer> playerDistanceMap = new LinkedHashMap<>();
         for (Player player : playerObjectArray) {
@@ -28,7 +28,3 @@ public class Create {
         return playerDistanceMap;
     }
 }
-// Game <- player
-//        <- PlayerObject
-
-// Game <- Player <- Car
