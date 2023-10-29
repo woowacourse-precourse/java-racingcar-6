@@ -3,6 +3,7 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
 
@@ -63,4 +64,33 @@ public class RacingCarTest {
         assertThat(result).isEqualTo(1);
     }
 
+    @Test
+    void 우승자_분석() {
+        // given
+        String car1 = "wiz";
+        String car2 = "JiHye";
+        Map<String, Integer> racingCars = Map.of(car1, 0, car2, 1);
+
+        // when
+        String winner = Application.parseWinner(racingCars);
+
+        // then
+        assertThat(winner).isEqualTo(car2);
+    }
+
+    @Test
+    void 공동_우승자_분석() {
+        // given
+        String car1 = "wiz";
+        String car2 = "JiHye";
+        Map<String, Integer> racingCars = new LinkedHashMap<>();
+        racingCars.put(car1, 1);
+        racingCars.put(car2, 1);
+
+        // when
+        String winner = Application.parseWinner(racingCars);
+
+        // then
+        assertThat(winner).isEqualTo(car1 + ", " + car2);
+    }
 }
