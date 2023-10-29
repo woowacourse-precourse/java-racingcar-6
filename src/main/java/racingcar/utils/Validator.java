@@ -6,6 +6,7 @@ import racingcar.domain.RacingCar;
 public class Validator {
 
     private static final int MAX_NAME_LENGTH = 5;
+    private static final int MIN_NAME_LENGTH = 1;
     private static final String ERROR_TOO_BIG_SIZE = "이름의 길이는 5자 이하 여야하고, 빈칸이면 안됩니다.";
     private static final String ERROR_ONLY_INT = "숫자를 입력 해 주세요.";
     private static final String ERROR_LESS_THAN_ONE = "숫자는 양수여야 합니다.";
@@ -23,7 +24,7 @@ public class Validator {
         try {
             int number = Integer.parseInt(str);
 
-            if (number < 1) {
+            if (number < MIN_NAME_LENGTH) {
                 throw new IllegalArgumentException(ERROR_LESS_THAN_ONE);
             }
 
