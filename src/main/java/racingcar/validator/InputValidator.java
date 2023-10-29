@@ -17,13 +17,20 @@ public class InputValidator {
     private List<String> validateCarNames;
     private Input input;
 
+    public InputValidator(){
+    }
+
     public InputValidator(String validateCarNames) {
         input = new Input();
         convertValidateList(validateCarNames);
         removeSpaceInCarName();
     }
 
-    public void validate() {
+    public List<String> convertList(){
+        return this.validateCarNames;
+    }
+
+    public void validateCarNames() {
         hasDuplicatedName();
         validateCarNameLength();
         validateEmptyCarName();
@@ -67,4 +74,5 @@ public class InputValidator {
                         }
                 );
     }
+    
 }
