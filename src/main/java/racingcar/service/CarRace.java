@@ -3,7 +3,6 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.OptionalInt;
 import racingcar.domain.Car;
 
 public class CarRace {
