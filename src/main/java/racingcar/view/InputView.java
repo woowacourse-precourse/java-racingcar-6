@@ -14,7 +14,7 @@ public class InputView {
     public List<String> inputCarNames() {
         System.out.println(INPUT_CAR_NAMES_MESSAGE);
         String input = Console.readLine();
-        //todo 입력값 겁증
+        InputValidator.validateList(input);
         return parseStrings(input);
     }
 
