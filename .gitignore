@@ -30,3 +30,11 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# OS related
+.DS_Store
+Thumbs.db
+
+# Others
+*.log
+*.tmp
