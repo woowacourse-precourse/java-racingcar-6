@@ -1,6 +1,7 @@
 package test;
 
 import java.util.List;
+import racingcar.controller.PlayerController;
 import racingcar.view.GameView;
 
 public class test {
@@ -13,5 +14,9 @@ public class test {
         System.out.print("시도할 횟수 입력 : ");
         int round = gameView.getTotalRounds();
         System.out.println("totalround = " + round);
+
+        PlayerController playerController = new PlayerController();
+        playerController.addPlayer(carNames);
+        System.out.println(playerController.getPlayerList());
     }
 }
