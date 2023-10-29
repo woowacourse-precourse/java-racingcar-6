@@ -20,8 +20,7 @@ public class GameController {
 
     public void StartGame() {
         List<String> carNames = createCarNames();
-        inputCarNameMessage.inputTryNumberMessage();
-        int tryNumber = userService.inputTryNumber(userService.inputItem());
+        int tryNumber = inputTryNumber();
         outputMessage.resultMessage();
         List<Integer> movement = createMovementList(carNames);
         for (int i = 0; i < tryNumber; i++) {
@@ -72,5 +71,10 @@ public class GameController {
     private List<String> createCarNames() {
         inputCarNameMessage.inputCarNameMessage();
         return carCreator.createCarList(userService.inputItem());
+    }
+
+    private int inputTryNumber() {
+        inputCarNameMessage.inputTryNumberMessage();
+        return userService.inputTryNumber(userService.inputItem());
     }
 }
