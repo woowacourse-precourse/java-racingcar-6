@@ -10,8 +10,8 @@ public class Car {
         position = "";
     }
 
-    public void move() {
-        int randomNum = Randoms.pickNumberInRange(0, 9);
+    public void move(int randomNum) {
+//        int randomNum = Randoms.pickNumberInRange(0, 9);
         if (randomNum >= 4) {
             for (int count = 0; count < randomNum; count++) {
                 position += "-";

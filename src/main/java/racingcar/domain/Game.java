@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +39,7 @@ public class Game {
 
     private void play(List<Car> carList) {
         for (Car car : carList) {
-            car.move();
+            car.move(Randoms.pickNumberInRange(0,9));
         }
 
     }
