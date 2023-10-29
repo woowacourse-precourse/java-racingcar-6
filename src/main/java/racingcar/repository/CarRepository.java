@@ -29,4 +29,8 @@ public class CarRepository {
         car.increaseCarPosition();
         store.put(car.getId(), car);
     }
+
+    public void clear() {
+        store.clear();
+    }
 }
