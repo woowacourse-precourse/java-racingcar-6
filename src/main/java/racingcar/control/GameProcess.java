@@ -88,22 +88,23 @@ public class GameProcess {
      */
     public String knowFinalWinner() {
         RaceCar raceCar = null;
-        String nameOfRaceCar = null;
+        String nameOfWinnerRaceCar = null;
         String[] raceCarOfWinnerArr = null;
+        int sizeOfWinnerList = 0;
 
         // 레이싱게임의 최종 승자를 알려준다.
         raceCarOfWinnerList = gameHost.winRaceCar(raceCarOfCurrentList, cntTryRace);
-        int sizeOfWinnerList = raceCarOfWinnerList.size();
+        sizeOfWinnerList = raceCarOfWinnerList.size();
 
         if (sizeOfWinnerList == 1) {
             raceCar = raceCarOfWinnerList.get(0);
-            nameOfRaceCar = raceCar.toString();
+            nameOfWinnerRaceCar = raceCar.toString();
         }
         if (sizeOfWinnerList >= 1) {
             raceCarOfWinnerArr = makeNameArrFromCarList(raceCarOfCurrentList);
-            nameOfRaceCar = String.join(" ,", raceCarOfWinnerArr);
+            nameOfWinnerRaceCar = String.join(" ,", raceCarOfWinnerArr);
         }
-        return nameOfRaceCar;
+        return nameOfWinnerRaceCar;
     }
 
     /**
