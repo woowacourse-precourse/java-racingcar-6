@@ -22,6 +22,10 @@ public class Player {
         return cars;
     }
 
+    public String getCarName(int index){
+        return inputCarNames[index];
+    }
+
     public void setAttemptNumber(){
         attemptNumber = Integer.parseInt(Console.readLine());
     }
