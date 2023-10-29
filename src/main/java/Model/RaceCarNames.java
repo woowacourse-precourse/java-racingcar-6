@@ -12,7 +12,10 @@ public class RaceCarNames {
     }
 
     public List<String> parseCarNamesFromInput() {
-        return Arrays.asList(raceCarNames.split(","));
+         List<String> carNames = Arrays.asList(raceCarNames.split(","));
+         carNames.replaceAll(String::trim);
+
+         return carNames;
     }
 
     @Override
