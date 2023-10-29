@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.model.RacingCar;
 import racingcar.validation.CarValidator;
 import racingcar.validation.UserInputValidator;
 import racingcar.view.RacingCarView;
@@ -27,17 +28,19 @@ public class RacingCarController {
         List<Car> cars = carNames.stream().map(Car::new).toList();
 
         racingCarView.printAskingNumberOfRetries();
-        String numberOfRetries = askingNumberOfRetires();
+        Integer numberOfRetries = askingNumberOfRetires();
+
+        RacingCar racingCar = new RacingCar(cars, numberOfRetries);
     }
 
     public String askCarNames() {
         return Console.readLine();
     }
 
-    public String askingNumberOfRetires() {
+    public Integer askingNumberOfRetires() {
         String numberOfRetries = Console.readLine();
         UserInputValidator.validateNumberOfRetriesInput(numberOfRetries);
-        return numberOfRetries;
+        return Integer.valueOf(numberOfRetries);
     }
 
     private List<String> splitInputByComma(String userInput) {
