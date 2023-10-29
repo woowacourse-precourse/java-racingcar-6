@@ -31,14 +31,18 @@ public class FeatureTest {
         assertThat(actualCarNames).containsExactlyElementsOf(expectedCarNames);
     }
 
-    @Test
-    void 자동차_이름_다섯글자_초과시_예외발생() {
-        String testRaceCarNames = "mycar1,car2,car3";
-        InputStream inputStream = new ByteArrayInputStream(testRaceCarNames.getBytes());
-        System.setIn(inputStream);
+    @ParameterizedTest()
+    @CsvSource({
+            "car1, true",
+            "mycar, true",
+            "iamcar, false"
+    })
+    void 자동차_이름_5자_이하인지_확인(String testCarName, boolean expectedResult) {
+        CarName carName = new CarName(testCarName);
 
-        assertThatThrownBy(Application::receiveRaceCarNames)
-                .isInstanceOf(IllegalArgumentException.class);
+        boolean actualResult = carName.isNameUnder5Characters();
+
+        assertThat(actualResult).isEqualTo(expectedResult);
     }
 
     @Test
@@ -73,6 +77,24 @@ public class FeatureTest {
 
         assertThat(actualTryCount).isEqualTo(expectedTryCount);
     }
+
+    //    @Test
+//    void 자동차_이름_다섯글자_초과시_예외발생() {
+//        String testInput = "car1,car2,car3";
+//        InputStream inputStream = new ByteArrayInputStream(testInput.getBytes());
+//        System.setIn(inputStream);
+//
+//        Application.receiveRaceCarNames();
+//
+//
+//        String testRaceCarNames = "mycar1,car2,car3";
+//
+//        InputStream inputStream = new ByteArrayInputStream(testRaceCarNames.getBytes());
+//        System.setIn(inputStream);
+//
+//        assertThatThrownBy(Application::receiveRaceCarNames)
+//                .isInstanceOf(IllegalArgumentException.class);
+//    }
 
 
 //
