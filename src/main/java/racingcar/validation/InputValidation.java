@@ -4,13 +4,10 @@ import java.util.List;
 
 public class InputValidation {
 
-    public static final int MAXIMUM_CAR_NAME_LIMIT = 5;
-    public static final String INVALID_INPUT = "잘못된 입력입니다.";
-
     public static List<String> carNameValidate(List<String> input) {
         for (String s : input) {
-            if (s.length() > MAXIMUM_CAR_NAME_LIMIT) {
-                throw new IllegalArgumentException(INVALID_INPUT);
+            if (s.length() > 5) {
+                throw new IllegalArgumentException("잘못된 입력입니다.");
             }
         }
         return input;
@@ -21,7 +18,7 @@ public class InputValidation {
             Integer.parseInt(input);
             return input;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(INVALID_INPUT);
+            throw new IllegalArgumentException("잘못된 입력입니다.");
         }
     }
 }
