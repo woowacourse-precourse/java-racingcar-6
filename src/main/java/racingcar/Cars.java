@@ -20,12 +20,6 @@ public class Cars {
         }
     }
 
-    public void settingLogBoard(int tryChance) {
-        for(Car car : cars) {
-            car.settingLog(tryChance);
-        }
-    }
-
     public ArrayList<Car> getCars() {
         return cars;
     }

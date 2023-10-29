@@ -23,7 +23,6 @@ public class Game {
 
     public void settingChance() {
         this.tryChance = Integer.parseInt(Console.readLine());
-        carList.settingLogBoard(tryChance);
     }
 
     public void running() {
