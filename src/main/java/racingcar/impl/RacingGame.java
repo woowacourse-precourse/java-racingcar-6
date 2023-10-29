@@ -1,7 +1,8 @@
 package racingcar.impl;
 
 import racingcar.Game;
-import racingcar.Parser;
+import racingcar.entity.GameInfo;
+import racingcar.util.Parser;
 import racingcar.RandomNumberProvider;
 import racingcar.UserInput;
 import racingcar.entity.Participant;
@@ -10,14 +11,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame implements Game {
-    private UserInput userInput;
-    private RandomNumberProvider randomNumberProvider;
+    private final UserInput userInput;
+    private final RandomNumberProvider randomNumberProvider;
     private List<Participant> participants;
+    private GameInfo gameInfo;
     private int attemptNum;
 
     public RacingGame(UserInput userInput, RandomNumberProvider randomNumberProvider) {
         this.userInput = userInput;
         this.randomNumberProvider = randomNumberProvider;
+        this.gameInfo = userInput.getGameInfo();
     }
 
 
@@ -60,7 +63,7 @@ public class RacingGame implements Game {
 
     private void setParticipants() {
         participants = new ArrayList<>();
-        for(String name : Parser.splitName(userInput.inputLine(), ",")) {
+        for(String name : gameInfo.getParticipants()) {
             participants.add(new Participant(name, 0));
         }
     }

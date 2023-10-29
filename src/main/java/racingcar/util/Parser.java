@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.util;
 
 import racingcar.exception.InputException;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Parser {
+public final class Parser {
 
     public static List<String> splitName(String userInput, String regex) {
         String[] cutIntoComma = userInput.split(regex);
