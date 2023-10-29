@@ -9,7 +9,8 @@ import org.junit.jupiter.api.Test;
 class CarNameValidatorTest {
 
     private static final Integer CAR_NAME_MAX_LENGTH = 5;
-    private static final String INVALID_CAR_NAME_LENGTH_ERROR_MSG = "자동차 이름은 " + CAR_NAME_MAX_LENGTH + "자 이하만 가능합니다.";
+    private static final String INVALID_CAR_NAME_LENGTH_ERROR_MESSAGE =
+            "자동차 이름은 " + CAR_NAME_MAX_LENGTH + "자 이하만 가능합니다.";
 
     @DisplayName("자동차 이름이 최대 길이 이하인 경우 예외가 발생하지 않는다.")
     @Test
@@ -29,7 +30,7 @@ class CarNameValidatorTest {
         try {
             CarNameValidator.validateCarName(invalidCarName);
         } catch (IllegalArgumentException e) {
-            assertEquals(INVALID_CAR_NAME_LENGTH_ERROR_MSG, e.getMessage());
+            assertEquals(INVALID_CAR_NAME_LENGTH_ERROR_MESSAGE, e.getMessage());
         }
     }
 }

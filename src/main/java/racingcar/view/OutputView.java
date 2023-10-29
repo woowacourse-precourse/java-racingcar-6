@@ -7,25 +7,25 @@ import racingcar.vo.CarName;
 
 public class OutputView {
 
-    private static final String CAR_NAME_INPUT_MSG = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private static final String TRY_NUMBER_INPUT_MSG = "시도할 회수는 몇회인가요?";
+    private static final String CAR_NAME_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String TRY_NUMBER_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String LINE = "\n";
-    private static final String RESULT_MSG = "실행 결과";
+    private static final String RESULT_MESSAGE = "실행 결과";
     private static final String SEPARATOR_COLON = " : ";
     private static final String DISTANCE_CHARACTER = "-";
-    private static final String WINNER_INFO_MSG = "최종 우승자";
+    private static final String WINNER_INFO_MESSAGE = "최종 우승자";
     private static final String COMMA_SEPARATOR = ", ";
 
     public void printRequestCarNameMessage() {
-        System.out.println(CAR_NAME_INPUT_MSG);
+        System.out.println(CAR_NAME_INPUT_MESSAGE);
     }
 
     public void printRequestCountMessage() {
-        System.out.println(TRY_NUMBER_INPUT_MSG);
+        System.out.println(TRY_NUMBER_INPUT_MESSAGE);
     }
 
     public void printResultMessage() {
-        System.out.println(LINE + RESULT_MSG);
+        System.out.println(LINE + RESULT_MESSAGE);
     }
 
     public void printResult(List<CarDto> carDtoList) {
@@ -45,6 +45,6 @@ public class OutputView {
                 .map(CarName::name)
                 .collect(Collectors.joining(COMMA_SEPARATOR));
 
-        System.out.print(WINNER_INFO_MSG + SEPARATOR_COLON + result);
+        System.out.print(WINNER_INFO_MESSAGE + SEPARATOR_COLON + result);
     }
 }

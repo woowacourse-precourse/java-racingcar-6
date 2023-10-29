@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 class TryNumberTest {
 
     public static final Integer MIN_TRY_NUMBER = 1;
-    public static final String SMALLER_THAN_MIN_NUMBER_MSG = MIN_TRY_NUMBER + " 이상의 정수값만 입력할 수 있습니다.";
+    public static final String SMALLER_THAN_MIN_NUMBER_MESSAGE = MIN_TRY_NUMBER + " 이상의 정수값만 입력할 수 있습니다.";
 
     @DisplayName("시도 횟수가 유효한 경우 객체를 생성할 수 있다.")
     @Test
@@ -34,7 +34,7 @@ class TryNumberTest {
         try {
             TryNumber tryNumber = new TryNumber(invalidNumber);
         } catch (IllegalArgumentException e) {
-            assertEquals(SMALLER_THAN_MIN_NUMBER_MSG, e.getMessage());
+            assertEquals(SMALLER_THAN_MIN_NUMBER_MESSAGE, e.getMessage());
         }
     }
 }

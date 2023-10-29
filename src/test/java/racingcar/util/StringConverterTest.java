@@ -10,8 +10,8 @@ import racingcar.vo.CarName;
 
 class StringConverterTest {
 
-    private static final String EMPTY_INPUT_ERROR_MSG = "입력값이 비어있습니다.";
-    private static final String CHARACTERS_IN_INPUT_ERROR_MSG = "입력값에 문자가 포함되어 있습니다";
+    private static final String EMPTY_INPUT_ERROR_MESSAGE = "입력값이 비어있습니다.";
+    private static final String CHARACTERS_IN_INPUT_ERROR_MESSAGE = "입력값에 문자가 포함되어 있습니다";
 
     @DisplayName("유효한 문자열을 구분자로 나누어 리스트로 변환한다.")
     @Test
@@ -35,7 +35,7 @@ class StringConverterTest {
         try {
             StringConverter.stringToInteger(invalidInput);
         } catch (IllegalArgumentException e) {
-            assertEquals(EMPTY_INPUT_ERROR_MSG, e.getMessage());
+            assertEquals(EMPTY_INPUT_ERROR_MESSAGE, e.getMessage());
         }
     }
 
@@ -62,7 +62,7 @@ class StringConverterTest {
         try {
             StringConverter.stringToInteger(invalidInput);
         } catch (IllegalArgumentException e) {
-            assertEquals(CHARACTERS_IN_INPUT_ERROR_MSG, e.getMessage());
+            assertEquals(CHARACTERS_IN_INPUT_ERROR_MESSAGE, e.getMessage());
         }
     }
 }

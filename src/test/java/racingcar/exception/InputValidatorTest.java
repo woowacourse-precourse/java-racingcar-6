@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 
 class InputValidatorTest {
 
-    private static final String EMPTY_INPUT_ERROR_MSG = "입력값이 비어있습니다.";
-    private static final String CHARACTERS_IN_INPUT_ERROR_MSG = "입력값에 문자가 포함되어 있습니다";
+    private static final String EMPTY_INPUT_ERROR_MESSAGE = "입력값이 비어있습니다.";
+    private static final String CHARACTERS_IN_INPUT_ERROR_MESSAGE = "입력값에 문자가 포함되어 있습니다";
 
     @DisplayName("자동차 이름 입력값이 비어있는 경우 예외가 발생해야 한다.")
     @Test
@@ -19,7 +19,7 @@ class InputValidatorTest {
         try {
             InputValidator.validateInputCarNames(emptyInput);
         } catch (IllegalArgumentException e) {
-            assertEquals(EMPTY_INPUT_ERROR_MSG, e.getMessage());
+            assertEquals(EMPTY_INPUT_ERROR_MESSAGE, e.getMessage());
         }
     }
 
@@ -51,7 +51,7 @@ class InputValidatorTest {
         try {
             InputValidator.validateInputTryNumber(tryNumber);
         } catch (IllegalArgumentException e) {
-            assertEquals(EMPTY_INPUT_ERROR_MSG, e.getMessage());
+            assertEquals(EMPTY_INPUT_ERROR_MESSAGE, e.getMessage());
         }
     }
 
@@ -63,7 +63,7 @@ class InputValidatorTest {
         try {
             InputValidator.validateInputTryNumber(tryNumber);
         } catch (IllegalArgumentException e) {
-            assertEquals(CHARACTERS_IN_INPUT_ERROR_MSG, e.getMessage());
+            assertEquals(CHARACTERS_IN_INPUT_ERROR_MESSAGE, e.getMessage());
         }
     }
 }
