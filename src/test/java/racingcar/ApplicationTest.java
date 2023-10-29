@@ -1,9 +1,13 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -17,6 +21,7 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     private IOService ioService = new IOService();
+    private GameService gameService = new GameService();
     void systemIn(String input){
         System.setIn(new ByteArrayInputStream(input.getBytes()));
     }
@@ -87,6 +92,33 @@ class ApplicationTest extends NsTest {
 
         ioService.printCarState(car);
         assertThat(output()).isEqualTo("youjae : ----");
+    }
+
+    @Test
+    void 게임_우승자_선택_테스트() throws NoSuchMethodException {
+        Car car1 = new Car("car1", 3);
+        Car car2 = new Car("car2", 2);
+        Car car3 = new Car("car3", 3);
+        Car car4 = new Car("car4", 3);
+
+        List<Car> carList = List.of(car1, car2, car3, car4);
+
+        try{
+            Method selectWinners = GameService.class.getDeclaredMethod("selectWinners", List.class);
+            selectWinners.setAccessible(true);
+
+            List<Car> winners = (List<Car>)selectWinners.invoke(gameService, carList);
+
+            assertThat(winners.get(0).getName()).isEqualTo("car1");
+            assertThat(winners.get(1).getName()).isEqualTo("car3");
+            assertThat(winners.get(2).getName()).isEqualTo("car4");
+        } catch (NoSuchMethodException e){
+            e.printStackTrace();
+        } catch(IllegalAccessException e){
+            e.printStackTrace();
+        }catch (InvocationTargetException e){
+            e.printStackTrace();
+        }
     }
 
     @Override
