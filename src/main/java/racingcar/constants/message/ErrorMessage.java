@@ -1,4 +1,4 @@
-package racingcar.constants;
+package racingcar.constants.message;
 
 public enum ErrorMessage {
 

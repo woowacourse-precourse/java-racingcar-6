@@ -1,9 +1,9 @@
 package racingcar.model;
 
-import racingcar.constants.ErrorMessage;
 import racingcar.constants.GameResultElement;
 import racingcar.constants.RacingCarRole;
-import racingcar.exception.CarNameLengthException;
+import racingcar.constants.message.ErrorMessage;
+import racingcar.exception.car.CarNameLengthException;
 
 import java.util.stream.IntStream;
 

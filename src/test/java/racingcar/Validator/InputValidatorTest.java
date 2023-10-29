@@ -4,9 +4,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.exception.DivisionCarNamesException;
+import racingcar.exception.car.DivisionCarNamesException;
 import racingcar.exception.InputNumericException;
-import racingcar.io.InputValidator;
+import racingcar.validator.InputValidator;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;

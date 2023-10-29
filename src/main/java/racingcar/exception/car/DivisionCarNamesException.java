@@ -1,4 +1,4 @@
-package racingcar.exception;
+package racingcar.exception.car;
 
 public class DivisionCarNamesException extends IllegalArgumentException {
     public DivisionCarNamesException(String message) {

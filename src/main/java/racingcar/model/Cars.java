@@ -1,10 +1,10 @@
 package racingcar.model;
 
-import racingcar.constants.ErrorMessage;
 import racingcar.constants.GameResultElement;
 import racingcar.constants.RacingCarRole;
-import racingcar.exception.CarsCountException;
-import racingcar.exception.NotFoundCarPositionException;
+import racingcar.constants.message.ErrorMessage;
+import racingcar.exception.car.CarsCountException;
+import racingcar.exception.car.NotFoundCarPositionException;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,4 +1,4 @@
-package racingcar.io;
+package racingcar.io.input;
 
 import racingcar.model.Cars;
 

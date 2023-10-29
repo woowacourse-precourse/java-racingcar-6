@@ -1,7 +1,7 @@
-package racingcar.io;
+package racingcar.io.output;
 
 import racingcar.constants.GameResultElement;
-import racingcar.constants.ProgressMessage;
+import racingcar.constants.message.ProgressMessage;
 
 public class OutputView {
 

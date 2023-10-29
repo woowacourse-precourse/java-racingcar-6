@@ -1,7 +1,7 @@
 package racingcar.controller;
 
-import racingcar.io.InputManager;
-import racingcar.io.OutputView;
+import racingcar.io.input.InputManager;
+import racingcar.io.output.OutputView;
 import racingcar.model.Cars;
 import racingcar.service.RacingCarService;
 

@@ -1,9 +1,9 @@
-package racingcar.io;
+package racingcar.validator;
 
-import racingcar.constants.ErrorMessage;
 import racingcar.constants.InputPattern;
-import racingcar.exception.DivisionCarNamesException;
+import racingcar.constants.message.ErrorMessage;
 import racingcar.exception.InputNumericException;
+import racingcar.exception.car.DivisionCarNamesException;
 
 public class InputValidator {
 
