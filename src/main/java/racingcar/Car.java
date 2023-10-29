@@ -117,4 +117,8 @@ public class Car {
     public int returnIndexUserMovement(int index) {
         return userMovement.get(index);
     }
+
+    public String whoIsWinner() {
+        return String.join(",", winnerName);
+    }
 }

@@ -19,7 +19,6 @@ public class Racing {
         getUserRoundNumberByConsole();
         output.printRoundResultAnnouncement();
         carRacing();
-        car.print();
         winnerSearchAndPrint();
     }
 
@@ -51,6 +50,7 @@ public class Racing {
 
     public void winnerSearchAndPrint() {
         car.searchWinner();
+        printWinner();
     }
 
     public void printRoundResult() {
@@ -61,6 +61,11 @@ public class Racing {
             output.printUserRoundResult(indexUserName, indexUserMovement);
         }
         output.printGap();
+    }
+
+    public void printWinner() {
+        String winner = car.whoIsWinner();
+        output.printWinner(winner);
     }
 
 }

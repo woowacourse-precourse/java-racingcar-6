@@ -28,4 +28,8 @@ public class Output {
     public void printGap() {
         System.out.println();
     }
+
+    public void printWinner(String winner) {
+        System.out.println("최종 우승자 : " + winner);
+    }
 }
