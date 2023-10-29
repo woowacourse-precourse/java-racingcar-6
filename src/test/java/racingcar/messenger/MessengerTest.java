@@ -39,7 +39,7 @@ public class MessengerTest {
     @DisplayName("실행 결과 메시지를 올바르게 반환한다.")
     void playResultMessage() {
         // when
-        String expectedString = "\n실행결과";
+        String expectedString = "\n실행결과\n";
         String string = messenger.getPlayResultMessage();
 
         // then
