@@ -3,18 +3,17 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    private static final String LOCATION = "-";
     private static final int MAX_NAME_LENGTH = 5;
     private static final int MAX_RANDOM = 9;
     private static final int MIN_RANDOM = 0;
     private static final int SATISFY_FOR_MOVE = 4;
     private final String name;
-    private final StringBuilder location;
+    private int moveCount;
 
     public Car(String name) {
         validateCarName(name);
         this.name = name;
-        location = new StringBuilder();
+        moveCount = 0;
     }
 
     private void validateCarName(String name) {
@@ -26,20 +25,15 @@ public class Car {
     public void moveIfSatisfy() {
         int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM, MAX_RANDOM);
         if (randomNumber >= SATISFY_FOR_MOVE) {
-            location.append(LOCATION);
+            moveCount++;
         }
     }
 
     public int getMoveCount() {
-        return location.length();
+        return moveCount;
     }
 
     public String getName() {
         return name;
-    }
-
-    @Override
-    public String toString() {
-        return name + " : " + location;
     }
 }

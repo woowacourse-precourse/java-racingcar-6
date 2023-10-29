@@ -18,14 +18,6 @@ public class Cars {
         }
     }
 
-    public void printCar(int index) {
-        System.out.println(cars.get(index));
-    }
-
-    public int size() {
-        return cars.size();
-    }
-
     public Map<String, Integer> getMoveCountMap() {
         Map<String, Integer> moveCountMap = new LinkedHashMap<>();
         cars.forEach(car -> moveCountMap.put(car.getName(), car.getMoveCount()));

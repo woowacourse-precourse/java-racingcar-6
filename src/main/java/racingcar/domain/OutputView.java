@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
+import java.util.Map;
 
 public class OutputView {
     private static final String CAR_NAMES_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분";
@@ -8,6 +9,7 @@ public class OutputView {
     private static final String RESULT_MESSAGE = "실행 결과";
     private static final String WINNER_MESSAGE = "최종 우승자 : ";
     private static final String WINNER_DELIMITER = ", ";
+    private static final String LOCATION = "-";
 
     public static void printCarNamesMessage() {
         System.out.println(CAR_NAMES_MESSAGE);
@@ -23,10 +25,14 @@ public class OutputView {
     }
 
     public static void printCarsLocation(Cars cars) {
-        for (int index = 0; index < cars.size(); index++) {
-            cars.printCar(index);
-        }
+        Map<String,Integer> moveCountMap = cars.getMoveCountMap();
+        moveCountMap.forEach(OutputView::printCarLocation);
         System.out.println();
+    }
+
+    public static void printCarLocation(String name, Integer moveCount) {
+        String location = LOCATION.repeat(moveCount);
+        System.out.println(name + " : " + location);
     }
 
     public static void printWinner(List<String> winnerList) {
