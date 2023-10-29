@@ -57,8 +57,8 @@ class CarTest {
     @DisplayName("MovingStrategy.isCarMove()가 true인 경우 goForward() 호출하면 위치 정보 업데이트됨")
     void goForward_전진_테스트() {
         // given
-        MovingStrategy stopStrategy = new MovingStrategy(() -> 4); // isCarMove() 항상 true 반환
-        Car car = new Car(stopStrategy, "pobi", 0);
+        MovingStrategy moveStrategy = new MovingStrategy(() -> 4); // isCarMove() 항상 true 반환
+        Car car = new Car(moveStrategy, "pobi", 0);
         // when
         Boolean result = car.goForward();
         // then
@@ -66,5 +66,13 @@ class CarTest {
         assertEquals(1, car.getPosition());
     }
 
+    @Test
+    @DisplayName("우승자의 위치 정보와 같은 경우 true 반환")
+    void isWinner_우승자인_경우_테스트() {
 
+    }
+
+    @Test
+    void isWinner_우승자가_아닌_경우_테스트() {
+    }
 }
