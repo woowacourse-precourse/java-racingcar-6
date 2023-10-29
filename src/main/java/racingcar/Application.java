@@ -1,9 +1,11 @@
 package racingcar;
 
 import racingcar.domain.Car;
+import racingcar.domain.Judgement;
 import racingcar.domain.NumberGenerator;
 import racingcar.domain.User;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,10 +23,17 @@ public class Application {
         System.out.println(list);
         Map<String,String> users = user.initUser(list);
         Car car = new Car();
-        System.out.println(users.get(list.get(0)));
         for(int i = 0 ; i < 3;i++){
-            car.moveForward(list.get(0),users);
-            System.out.println(users.get(list.get(0)));
+            car.moveForward(list.get(2),users);
+            System.out.println(users.get(list.get(2)));
         }
+        for(int i = 0 ; i < 3;i++){
+            car.moveForward(list.get(1),users);
+            System.out.println(users.get(list.get(1)));
+        }
+        List<String> str = new ArrayList<>();
+        Judgement judgement = new Judgement();
+        str = judgement.compareDistance(users,list);
+        System.out.println(str);
     }
 }

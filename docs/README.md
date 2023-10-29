@@ -6,9 +6,9 @@
   - [] 이름이 5자 이하인지 확인하는 기능(예외[])
 - [x] 자동차 이름을 입력받고 객체를 생성하는 기능 User#initUser 
 - [x] 전진/ 멈춤을 판단하는 기능 User#decideMove
-    - [] 전진하는 기능 Car#moveForward
+    - [x] 전진하는 기능 Car#moveForward
 - [] 사용자가 몇번의 이동을 할 것인지 입력받는 기능(예외[])
-- [] 최종 우승자를 판정하는 기능 Judgement#compareCar
+- [x] 최종 우승자를 판정하는 기능 Judgement#compareDistance
     - [] 누가 우승했는지 알려주는 기능 Referee#isWinner
       - [] 우승자가 여러명일 경우 쉼표를 이용하여 구분해주는 기능
 
