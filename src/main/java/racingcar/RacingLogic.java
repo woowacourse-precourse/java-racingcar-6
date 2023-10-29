@@ -14,7 +14,7 @@ public class RacingLogic {
             InputAndOutput.outputRaceResult(carList);
             repeatTimes++;
         }
-        List<Integer> winnerList = checkWinner(carList);
+        List<String> winnerList = checkWinner(carList);
         saveWinnerData(carList, winnerList);
         InputAndOutput.outputRaceWinner(carList);
     }
@@ -53,16 +53,15 @@ public class RacingLogic {
         }
     }
 
-    static List<Integer> checkWinner(List<Car> carList) {
-        List<Integer> winnerList = new ArrayList<>();
+    static List<String> checkWinner(List<Car> carList) {
+        List<String> winnerList = new ArrayList<>();
         int maxGoTimes = 0;
-        for (int i = 0; i < carList.size(); i++) {
-            Car car = carList.get(i);
+        for (Car car : carList) {
             if (car.getTotalGoTimes() > maxGoTimes) {
                 winnerList.clear();
-                winnerList.add(i);
+                winnerList.add(car.getName());
             } else if (car.getTotalGoTimes() == maxGoTimes) {
-                winnerList.add(i);
+                winnerList.add(car.getName());
             }
         }
         return winnerList;
