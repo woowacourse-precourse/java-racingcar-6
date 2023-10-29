@@ -28,4 +28,12 @@ public class OneGameResultDto {
         }
         return moveCounts;
     }
+
+    public List<String> getNames() {
+        return names;
+    }
+
+    public List<Long> getTotalMoveCounts() {
+        return totalMoveCounts;
+    }
 }
