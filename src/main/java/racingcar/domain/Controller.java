@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static racingcar.view.InputView.inputAttemptsCount;
+import static racingcar.view.OutputView.createStringBuilders;
 import static racingcar.view.OutputView.displayResult;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -47,8 +48,9 @@ public class Controller {
 
     public static void playRace(String inputAttemptsCount) {
         int raceCount = Integer.parseInt(inputAttemptsCount);
+        List<StringBuilder> result = createStringBuilders(carNameList);
         for (int i = 0; i < raceCount; i++) {
-            displayResult();
+            displayResult(result);
             System.out.println();
         }
     }

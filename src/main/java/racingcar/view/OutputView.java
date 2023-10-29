@@ -2,6 +2,7 @@ package racingcar.view;
 
 import static racingcar.model.Car.moveCount;
 
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
 
@@ -19,11 +20,23 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    public static void displayResult() {
-        List<String> carNameList = Car.getCarName();
-        for (String s : carNameList) {
-            System.out.println(s + " : " + moveCount());
+    public static void displayResult(List<StringBuilder> result) {
+        for (StringBuilder sb : result) {
+            sb.append(moveCount());
+            System.out.println(sb);
         }
+    }
+
+    public static List<StringBuilder> createStringBuilders(List<String> carNameList) {
+        List<StringBuilder> result = new ArrayList<>();
+
+        for (String s : carNameList) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(s).append(" : ");
+            result.add(sb);
+        }
+
+        return result;
     }
 
 }
