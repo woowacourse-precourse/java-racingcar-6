@@ -48,4 +48,18 @@ public class StringTest {
                 .hasMessageContaining("String index out of range: 5");
     }
 
+    @Test
+    void trim_입력_문자열이_공백일_경우_예외_발생() {
+        String input = " ";
+
+        assertThatThrownBy(() -> validateName(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Name should not be blank");
+    }
+
+    void validateName(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Name should not be blank");
+        }
+    }
 }
