@@ -3,10 +3,8 @@ package racingcar.view;
 import racingcar.control.GameProcess;
 import racingcar.domain.RaceCar;
 
-import java.util.List;
 import java.util.Map;
 
-// TODO: 10/27/23 사용자 화면을 보여주는 클래스.
 public class GameStart {
     GameProcess gameProcess;
 
@@ -16,14 +14,11 @@ public class GameStart {
 
     /**
      * 전진하는 모든 차들의 자동차를 출력한다.
-     * (자동차 이름을 같이 출력한다.) ex) pobi : ---
+     * "-"을 출력 ( pobi : - )
+     * pobi : ----
+     * woni : ---
      */
     public void printSituationOfCarCurrent() {
-//        - [ ] 전진은 "-"을 출력 ( pobi : - )
-//        pobi : ----
-//        woni : ---
-//        jun : ----
-
         Map<RaceCar, String> raceCarStringMap = gameProcess.makeMsgOfCurrentRace();
 
         for (Map.Entry<RaceCar, String> entry : raceCarStringMap.entrySet()) {
@@ -35,11 +30,10 @@ public class GameStart {
 
     /**
      * 우승자가 누구인지 출력을 해준다.
+     * 우승자는 한명이상이다.
+     * 우승자가 여러명일경우 쉼표(,)를 이용하여 구분한다.
      */
     public void printWinnerOfRaceGame() {
-//        - [ ] 우승자는 한명이상이다.
-//        - [ ] 우승자가 여러명일경우 쉼표(,)를 이용하여 구분한다.
-//        최종 우승자 : pobi, jun
         System.out.println("최종 우승자 : " + gameProcess.knowFinalWinner());
     }
 
