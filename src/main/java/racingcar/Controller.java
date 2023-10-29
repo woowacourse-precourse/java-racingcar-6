@@ -11,6 +11,12 @@ public class Controller {
 
     private int trialNumber;
 
+    public void run(){
+        setRacing();
+        playRacing(trialNumber);
+        endRacing();
+    }
+
     private void setRacing(){
         cars.addCar(inputView.printStart());
         trialNumber = inputView.printTrial();

@@ -56,7 +56,7 @@
 ## Controller
 ### Controller
 > 실질적으로 게임의 진행을 담당하는 클래스
-- [ ] 게임의 총 진행을 담당할 run() 구현
+- [x] 게임의 총 진행을 담당할 run() 구현
     - [x] 시작 메세지 출력과 사용자 입력을 담당 하는 setRacing() 구현
     - [x] 레이싱의 주행 상태를 출력 하는 playRacing() 구현
     - [x] 우승자를 출력 하는 endRacing() 구현
