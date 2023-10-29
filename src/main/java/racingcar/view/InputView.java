@@ -6,7 +6,7 @@ import java.util.List;
 
 public class InputView {
 
-    public String getInput() {
+    private String getInput() {
         return Console.readLine();
     }
 
@@ -14,5 +14,9 @@ public class InputView {
         String carNamesInput = getInput();
         return Arrays.stream(carNamesInput.split(","))
                 .map(String::trim).toList();
+    }
+
+    public String countInput() {
+        return getInput();
     }
 }
