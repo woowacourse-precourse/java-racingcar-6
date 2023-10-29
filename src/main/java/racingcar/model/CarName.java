@@ -1,15 +1,18 @@
 package racingcar.model;
 
-import static racingcar.message.ExceptionMessage.LENGTH_LIMIT_EXCEEDED;
-
 public class CarName {
 
-    private static final int LENGTH_LIMIT = 5;
+    public static final String NAME_EMPTY = "한 글자 이상 입력해주세요.";
+    public static final String NAME_LENGTH_LIMIT_EXCEEDED = "자동차 이름은 5자 이하만 가능합니다.";
+    public static final String NAME_DUPLICATED = "중복된 이름을 입력할 수 없습니다.";
+
+    private static final int NAME_LENGTH_LIMIT = 5;
 
     private final String name;
 
     private CarName(final String name) {
-        validate(name);
+        validateIfNotEmpty(name);
+        validateIfLengthInLimit(name);
         this.name = name;
     }
 
@@ -17,9 +20,15 @@ public class CarName {
         return new CarName(name);
     }
 
-    private void validate(final String name) {
-        if (name.length() > LENGTH_LIMIT) {
-            throw new IllegalArgumentException(LENGTH_LIMIT_EXCEEDED.getMessage());
+    private void validateIfNotEmpty(final String name) {
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException(NAME_EMPTY);
+        }
+    }
+
+    private void validateIfLengthInLimit(final String name) {
+        if (name.length() > NAME_LENGTH_LIMIT) {
+            throw new IllegalArgumentException(NAME_LENGTH_LIMIT_EXCEEDED);
         }
     }
 

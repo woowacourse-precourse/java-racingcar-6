@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import static racingcar.message.ExceptionMessage.DUPLICATE_NAME;
+import static racingcar.model.CarName.NAME_DUPLICATED;
 
 import java.util.Collections;
 import java.util.List;
@@ -11,19 +11,19 @@ public class Cars {
 
     private final List<Car> cars;
 
-    private Cars(List<Car> cars) {
-        validateDuplication(cars);
+    private Cars(final List<Car> cars) {
+        validateIfCarNotDuplicated(cars);
         this.cars = cars;
     }
 
-    public static Cars from(List<Car> cars) {
+    public static Cars from(final List<Car> cars) {
         return new Cars(cars);
     }
 
-    private void validateDuplication(List<Car> cars) {
+    private void validateIfCarNotDuplicated(final List<Car> cars) {
         Set<Car> carSet = Set.copyOf(cars);
         if (cars.size() != carSet.size()) {
-            throw new IllegalArgumentException(DUPLICATE_NAME.getMessage());
+            throw new IllegalArgumentException(NAME_DUPLICATED);
         }
     }
 

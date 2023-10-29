@@ -1,17 +1,16 @@
 package racingcar.model;
 
-import static racingcar.message.ExceptionMessage.GAME_COUNT_EXCEEDED;
-
-import java.util.Arrays;
-
 public class GameCount {
 
+    public static final String GAME_COUNT_EXCEEDED = "정해진 횟수를 초과했습니다.";
+    public static final String GAME_COUNT_OUT_OF_RANGE = "1 ~ 100 사이의 숫자를 입력해주세요.";
     private static final int NO_MORE_COUNT = 0;
+
 
     private int count;
 
     private GameCount(final int count) {
-        validate(count);
+        validateIfInRange(count);
         this.count = count;
     }
 
@@ -25,15 +24,18 @@ public class GameCount {
 
     public void play() {
         count--;
-        validateNegativity();
+        validateIfPositive();
     }
 
-    private void validate(final int count) {
+    private void validateIfInRange(final int count) {
+        if (count < 1 || count > 100) {
+            throw new IllegalArgumentException(GAME_COUNT_OUT_OF_RANGE);
+        }
     }
 
-    private void validateNegativity() {
+    private void validateIfPositive() {
         if (count < NO_MORE_COUNT) {
-            throw new UnsupportedOperationException(GAME_COUNT_EXCEEDED.getMessage());
+            throw new UnsupportedOperationException(GAME_COUNT_EXCEEDED);
         }
     }
 }

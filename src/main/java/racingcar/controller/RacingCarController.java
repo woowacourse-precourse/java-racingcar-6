@@ -6,7 +6,6 @@ import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.GameCount;
 import racingcar.model.Race;
-import racingcar.util.NameSplitter;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -26,9 +25,8 @@ public class RacingCarController {
         GameCount gameCount = GameCount.from(inputView.askGameCount());
     }
 
-    private Cars createCarsFromCarNames(String input) {
-        String[] carNames = NameSplitter.split(input);
-        List<Car> carList = Arrays.stream(carNames).map(Car::from).toList();
+    private Cars createCarsFromCarNames(String[] input) {
+        List<Car> carList = Arrays.stream(input).map(Car::from).toList();
         return Cars.from(carList);
     }
 }
