@@ -17,7 +17,6 @@
 5. 시도횟수 입력받을 때 문자가 들어오는 경우
 6. 시도횟수 공백 들어오는 경우
 
-
 Car
 - 이름 초기화
 - 차수별 이동 거리 출력
@@ -29,3 +28,24 @@ Racing
 Input
 - 자동차 이름 입력받기
 - 시도 횟수 입력받기
+
+Application
+- 이름 입력 받기
+- 객체 생성
+- racing 진행
+- racing을 통해 결과 출력 
+
+--------
+1회차
+car class 추가
+- 이름 초기화
+- 이동 거리 출력
+
+코드 흐름 
+1. Application에서 input을 통해 각 차 이름를 담은 array list를 받음
+2. racing class에 array list를 넘김.
+3. racing class는 array list 요소 마다 car 객체를 생성.
+4. n을 입력받고 n번 움직이는 과정을 반복.
+5. car의 GetDistance를 통해 우승자를 뽑음.
+6. 우승자를 tostring을 통해 출력.
+
