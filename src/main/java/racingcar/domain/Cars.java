@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import racingcar.constants.ExceptionMessage;
+import racingcar.util.RandomNumberGenerator;
+
 public class Cars {
 
     private final List<Car> cars;
@@ -40,6 +42,13 @@ public class Cars {
 
     private boolean hasMinimumCarCount(final List<Car> cars) {
         return cars.size() < 2;
+    }
+
+    public void moveAll(RandomNumberGenerator randomNumberGenerator) {
+        for (final Car car : cars) {
+            final int value = randomNumberGenerator.generateRandomNumber();
+            car.moveToCar(value);
+        }
     }
 
     public List<Car> getCars() {
