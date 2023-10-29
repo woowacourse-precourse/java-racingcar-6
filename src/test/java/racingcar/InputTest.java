@@ -17,4 +17,12 @@ public class InputTest {
         assertThatThrownBy(() -> inputValidator.carNameValidator(cars))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 게임횟수_검증_테스트(){
+        String input = "1번";
+        InputValidator inputValidator = new InputValidator();
+        assertThatThrownBy(() -> inputValidator.gameCountValidator(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
