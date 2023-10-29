@@ -21,7 +21,7 @@ public class Car {
     }
 
     public void printCarName() {
-        System.out.println(name + " : ");
+        System.out.print(name + " : ");
     }
 
     public void printForwardCount() {
