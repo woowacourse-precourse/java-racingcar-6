@@ -9,13 +9,7 @@ public class OutputView {
         String racingCarName = racingCar.getName();
         int racingCarPosition = racingCar.getPosition();
 
-        StringBuilder output = new StringBuilder(racingCarName + " : ");
-
-        for (int i = 0; i < racingCarPosition; i++) {
-            output.append("-");
-        }
-
-        System.out.println(output);
+        System.out.println(racingCarName + " : " + "-".repeat(racingCarPosition));
     }
 
     public void printWinners(final List<String> winners) {
