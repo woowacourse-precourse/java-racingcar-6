@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import racingcar.enums.OutputMessage;
 import racingcar.view.OutputView;
 
 public class ForwardCount {
@@ -13,7 +14,9 @@ public class ForwardCount {
         ++this.counter;
     }
 
-    public void printProgressBar() {
-        OutputView.printProgressAfterCarForward(this.counter);
+    @Override
+    public String toString() {
+        String pattern = OutputMessage.PROGRESS_BAR_OF_CAR_FORWARD.getMessage();
+        return pattern.repeat(this.counter);
     }
 }
