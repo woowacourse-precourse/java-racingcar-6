@@ -2,12 +2,10 @@ package racingcar;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
-import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.util.Validation;
 
-import static org.junit.jupiter.api.AssertionsKt.assertDoesNotThrow;
 import static racingcar.constant.Constant.*;
 
 class ValidationTest {
@@ -94,11 +92,21 @@ class ValidationTest {
 
     @DisplayName("횟수가 숫자가 아닐 경우 에러 반환")
     @Test
-    void validateGameRound() {
+    void validateRoundType() {
         String input = "a2ajw";
 
-        assertThatThrownBy(() -> validation.validateGameRound(input))
+        assertThatThrownBy(() -> validation.validateRoundType(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(EXCEPTION_ROUND_TYPE);
+    }
+
+    @DisplayName("횟수를 입력하지 않은 경우 에러 반환")
+    @Test
+    void validateBlankRound() {
+        String blank = "";
+
+        assertThatThrownBy(() -> validation.validateBlankRound(blank))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(EXCEPTION_ROUND_LENGTH);
     }
 }
