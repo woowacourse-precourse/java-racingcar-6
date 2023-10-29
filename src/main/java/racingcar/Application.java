@@ -14,9 +14,7 @@ public class Application {
                 new RacingCarInputView(),
                 new RacingCarOutputView(),
                 new RacingCarInputValidator(),
-                new RacingCarService(),
-                new RacingCarAssemblyService(),
-                new RandomCarEngine()
+                new RacingCarService(new RacingCarAssemblyService(), new RandomCarEngine())
         );
         racingController.run();
     }
