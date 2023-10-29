@@ -12,13 +12,14 @@ public class GameUtilTest {
     public void 숫자생성_범위_검사() {
         assertThat(GameUtil.generateRandomNumber()).isLessThan(10).isGreaterThan(-1);
     }
+
     @Test
     public void 잘못된_사용자이름_검사() {
-        assertThatThrownBy(() -> GameUtil.isIllegalPlayerInfo(new String[] {"Heejong", "jqrefrs"}))
+        assertThatThrownBy(() -> GameUtil.isIllegalPlayerInfo(new String[]{"Heejong", "jqrefrs"}))
                 .isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> GameUtil.isIllegalPlayerInfo(new String[] {"Heejo","mjun "}))
+        assertThatThrownBy(() -> GameUtil.isIllegalPlayerInfo(new String[]{"Heejo", "mjun "}))
                 .isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> GameUtil.isIllegalPlayerInfo(new String[] {" Heej"}))
+        assertThatThrownBy(() -> GameUtil.isIllegalPlayerInfo(new String[]{" Heej"}))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 

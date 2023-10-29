@@ -16,13 +16,14 @@ public class GameUtil {
             }
         }
     }
-    public static final void isIllegalRoundInfo(String str){
+
+    public static final void isIllegalRoundInfo(String str) {
         try {
             int temp = Integer.parseInt(str);
             if (temp <= 0) {
                 throw new IllegalArgumentException();
             }
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
     }
