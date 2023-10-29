@@ -16,8 +16,8 @@ public class ConsoleInput implements InputHandler {
     }
 
     @Override
-    public int inputTryCount() {
-        return stringToInt(readLine());
+    public String inputTryCount() {
+        return readLine();
     }
 
     private List<String> stringToList(String input) {
@@ -25,14 +25,6 @@ public class ConsoleInput implements InputHandler {
             return List.of(input.split(","));
         } catch (Exception e) {
             throw INVALID_INPUT.getException();
-        }
-    }
-
-    private int stringToInt(String input) {
-        try {
-            return Integer.parseInt(input);
-        } catch (Exception e) {
-            throw INVALID_NUMBER.getException();
         }
     }
 }

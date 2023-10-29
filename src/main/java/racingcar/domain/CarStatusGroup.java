@@ -1,8 +1,12 @@
 package racingcar.domain;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
+import static racingcar.handler.ErrorHandler.DUPLICATE_NUMBER;
 import static racingcar.handler.ErrorHandler.MAX_VALUE_MISSING;
 
 public class CarStatusGroup {

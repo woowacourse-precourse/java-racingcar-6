@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.domain.wrapper;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -11,9 +11,9 @@ public class TryCountTest {
 
     @DisplayName("1보다 작은 숫자가 입력되면 예외가 발생한다")
     @ParameterizedTest(name = "[{index}] input : {0}")
-    @ValueSource(ints = {-1, 0})
-    void createTryCountWithInvalidRange(int input) {
-        assertThatThrownBy(() -> new TryCount(input))
+    @ValueSource(strings = {"-1", "0"})
+    void createTryCountWithInvalidRange(String input) {
+        assertThatThrownBy(() -> TryCount.create(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorHandler.INVALID_RANGE.getException().getMessage());
     }

@@ -6,5 +6,5 @@ public interface InputHandler {
 
     public List<String> inputCarNames();
 
-    public int inputTryCount();
+    public String inputTryCount();
 }

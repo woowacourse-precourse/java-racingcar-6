@@ -1,6 +1,7 @@
 package racingcar.controller;
 
-import racingcar.domain.TryCount;
+import racingcar.domain.wrapper.TryCount;
+import racingcar.domain.wrapper.CarNames;
 import racingcar.handler.InputHandler;
 import racingcar.handler.OutputHandler;
 import racingcar.service.CarGameService;
@@ -21,31 +22,32 @@ public class CarGameController {
     }
 
     public void run() {
-        List<String> carNames = loadCarNames();
-        TryCount tryCount = loadTryCount();
+        CarNames carNames = loadCarNames();
 
-        generateRacingCarGroup(carNames);
+        generateStatusGroup(carNames);
+
+        TryCount tryCount = loadTryCount();
 
         playGame(tryCount);
 
         finalWinners();
     }
 
-    public List<String> loadCarNames() {
+    public CarNames loadCarNames() {
         outputHandler.printInputCarNameMessage();
         List<String> carNames = inputHandler.inputCarNames();
 
-        return carNames;
+        return CarNames.create(carNames);
     }
 
     public TryCount loadTryCount() {
         outputHandler.printInputTryCountMessage();
-        int tryCount = inputHandler.inputTryCount();
+        String tryCount = inputHandler.inputTryCount();
 
-        return new TryCount(tryCount);
+        return TryCount.create(tryCount);
     }
 
-    public void generateRacingCarGroup(List<String> carNames) {
+    public void generateStatusGroup(CarNames carNames) {
         carGameService.generateRacingCarGroup(carNames);
     }
 
