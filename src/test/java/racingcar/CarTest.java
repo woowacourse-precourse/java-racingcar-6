@@ -11,7 +11,7 @@ class CarTest {
     public void tryMove_return_false_when_0() throws Exception{
         Car car = new Car("name");
         assertRandomNumberInRangeTest(
-                ()-> Assertions.assertThat(car.tryMove())
+                ()-> Assertions.assertThat(car.isMove())
                             .isFalse(),
                 0
         );
@@ -21,7 +21,7 @@ class CarTest {
     public void tryMove_return_false_when_3() throws Exception{
         Car car = new Car("name");
         assertRandomNumberInRangeTest(
-                ()-> Assertions.assertThat(car.tryMove())
+                ()-> Assertions.assertThat(car.isMove())
                             .isFalse(),
                 3
         );
@@ -31,7 +31,7 @@ class CarTest {
     public void tryMove_return_true_when_4() throws Exception{
         Car car = new Car("name");
         assertRandomNumberInRangeTest(
-                ()-> Assertions.assertThat(car.tryMove())
+                ()-> Assertions.assertThat(car.isMove())
                             .isTrue(),
                 4
         );
@@ -41,7 +41,7 @@ class CarTest {
     public void tryMove_return_true_when_9() throws Exception{
         Car car = new Car("name");
         assertRandomNumberInRangeTest(
-                ()-> Assertions.assertThat(car.tryMove())
+                ()-> Assertions.assertThat(car.isMove())
                             .isTrue(),
                 4
         );
@@ -77,8 +77,8 @@ class CarTest {
     private String moveCar(String carName, int roundNum){
         Car car = new Car(carName);
         for(int i = 0; i<roundNum; i++){
-            car.tryMove();
+            car.isMove();
         }
-        return car.toString();
+        return car.getRoundResult();
     }
 }

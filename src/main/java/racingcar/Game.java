@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.function.IntFunction;
 import java.util.stream.Collectors;
 
 public class Game {
@@ -44,13 +43,13 @@ public class Game {
     public void playRound(){
         for(Car car : cars){
             moveCar(car);
-            System.out.println(car);
+            System.out.println(car.getRoundResult());
         }
         System.out.println();
     }
 
     private void moveCar(Car car) {
-        if(!car.tryMove()) {
+        if(!car.isMove()) {
             return;
         }
 

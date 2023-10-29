@@ -19,21 +19,20 @@ public class Car {
         return name;
     }
 
-    public boolean tryMove(){
-        int randomNum = Randoms.pickNumberInRange(START_RANGE, END_RANGE);
-        if(canGo(randomNum)){
+    public boolean isMove(){
+        if(canGo()){
             this.location++;
             return true;
         }
         return false;
     }
 
-    private boolean canGo(int randomNum) {
+    private boolean canGo() {
+        int randomNum = Randoms.pickNumberInRange(START_RANGE, END_RANGE);
         return randomNum >= MIN_MOVABLE_NUMBER;
     }
 
-    @Override
-    public String toString(){
+    public String getRoundResult(){
         StringBuilder sb = new StringBuilder(name);
         sb.append(" : ");
         for(int i = 0; i<location; i++){
