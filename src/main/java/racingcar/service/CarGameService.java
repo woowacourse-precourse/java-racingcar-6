@@ -3,6 +3,7 @@ package racingcar.service;
 import racingcar.dto.CarsDto;
 import racingcar.util.RandomMove;
 import racingcar.view.OutputView;
+
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -20,7 +21,7 @@ public class CarGameService {
 
     public List<String> playGame(List<String> participants, int times) {
         enrollCar(participants);
-        while(times > 0) {
+        while (times > 0) {
             round(participants);
             times--;
             outputView.carsStatus(carsDto.findAll());
@@ -29,8 +30,7 @@ public class CarGameService {
     }
 
     private void round(List<String> participants) {
-        participants.stream()
-                .forEach(this::MoveCar);
+        participants.stream().forEach(this::MoveCar);
     }
 
     private void enrollCar(List<String> participants) {
@@ -38,17 +38,13 @@ public class CarGameService {
     }
 
     private void MoveCar(String carName) {
-        if(randomMove.isMove()) {
+        if (randomMove.isMove()) {
             carsDto.increaseCarPosition(carName);
         }
     }
 
     private List<String> getWinningCar(Map<String, Integer> participants) {
-        return participants.entrySet()
-                .stream()
-                .filter(entry -> entry.getValue() == getMaxPosition(participants))
-                .map(Map.Entry::getKey)
-                .collect(Collectors.toList());
+        return participants.entrySet().stream().filter(entry -> entry.getValue() == getMaxPosition(participants)).map(Map.Entry::getKey).collect(Collectors.toList());
     }
 
     private static int getMaxPosition(Map<String, Integer> map) {

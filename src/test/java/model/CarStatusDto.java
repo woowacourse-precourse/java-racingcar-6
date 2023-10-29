@@ -4,11 +4,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class CarStatusDto {
-    static Map<String,Car> cars = new HashMap();
+    static Map<String, Car> cars = new HashMap();
 
     public void enrollCar(String carName) {
-        if(findByNameObject(carName).equals(Optional.empty())) {
-            cars.put(carName,new Car(carName,0));
+        if (findByNameObject(carName).equals(Optional.empty())) {
+            cars.put(carName, new Car(carName, 0));
         }
     }
 
@@ -21,14 +21,12 @@ public class CarStatusDto {
     }
 
     public Map<String, Integer> findAll() {
-        return cars.entrySet().stream()
-                .collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue().position));
+        return cars.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue().position));
     }
 
     public void increaseCarPosition(String carName) {
         findByNameObject(carName).get().position++;
     }
-
 
 
 }

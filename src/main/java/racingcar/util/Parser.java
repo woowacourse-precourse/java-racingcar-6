@@ -10,8 +10,6 @@ public class Parser {
     }
 
     public List<String> parseUserInputToList(String input) {
-        return Arrays.stream(input.split(","))
-                .map(String::trim)
-                .collect(Collectors.toList());
+        return Arrays.stream(input.split(",")).map(String::trim).collect(Collectors.toList());
     }
 }

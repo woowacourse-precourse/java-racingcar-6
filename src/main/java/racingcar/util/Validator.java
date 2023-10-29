@@ -10,7 +10,7 @@ public class Validator {
         try {
             int inputInt = Integer.parseInt(input);
             validRangeNumber(inputInt);
-        }catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자 값을 입력해주세요.");
         }
     }

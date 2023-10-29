@@ -33,14 +33,11 @@ public class OutputView {
     }
 
     public String intToDash(int intValue) {
-        return IntStream.range(0, intValue)
-                .mapToObj(i -> "-")
-                .collect(Collectors.joining());
+        return IntStream.range(0, intValue).mapToObj(i -> "-").collect(Collectors.joining());
     }
 
     public void winnerMessage(List<String> a) {
-        String result = a.stream()
-                .collect(Collectors.joining(", "));
-        System.out.println(RESULT_MESSAGE+result);
+        String result = a.stream().collect(Collectors.joining(", "));
+        System.out.println(RESULT_MESSAGE + result);
     }
 }
