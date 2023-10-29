@@ -4,7 +4,7 @@ import com.sun.jdi.InvalidTypeException;
 import dto.UserInputCarMoveCountDto;
 import ui.Input;
 
-public class UserInputCarMoveCountService {
+public class UserInputCarMoveCountFactory {
 
     public UserInputCarMoveCountDto createUserInputCarMoveCountDto() throws InvalidTypeException {
 
