@@ -6,8 +6,8 @@ public class RandomNumber {
 
     private RandomNumber() {}
 
-    public static int makeRandomNumber() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
+    public static Integer makeRandomNumber() {
+        Integer randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber;
     }
 }
