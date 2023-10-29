@@ -12,6 +12,11 @@ public class GameHost {
 
     public void playOneTurn() {
         carList.forEach((Car::moveForward));
+        printAfterOneTurn();
+    }
+
+    private void printAfterOneTurn() {
+        carList.forEach((car -> System.out.println(car.toString())));
     }
 
     public static GameHost addCars(Collection<Car> cars) {
