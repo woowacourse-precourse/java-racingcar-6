@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 // 자동차의 이름, 진행 상황
@@ -39,16 +40,8 @@ public class Application {
                 printProgress(carNameArray,progress);
             }
 
-
-
-    //입력된 자동차 이름으로 Car 객체 생성
-
-
-
-
-
-
-
+            // 배열을 스트림으로 변환해 최대 값 구하기
+            int maxProgress= Arrays.stream(progress).max().orElse(0);
 
 
     }
@@ -74,10 +67,22 @@ public class Application {
     }
     // 전진 출력
     private static void printProgress(String[] carNameArray,int[] progress){
-        for(int i=0;i<carNameArray.length;i++){
+        for (int i=0;i<carNameArray.length;i++){
             System.out.println(carNameArray[i]+":"+"-".repeat(progress[i]));
         }
         System.out.println("");
+    }
+
+    // 우승자 구하기
+    private static String[] getWinners(String[] carNameArray,int[] progress,int maxProgress){
+        List<String> winnerList=new ArrayList<>();
+
+        for (int i=0;i<carNameArray.length;i++){
+            if (progress[i]==maxProgress){
+                winnerList.add(carNameArray[i]);
+            }
+        }
+        return winnerList.toArray(new String[0]);
     }
 
 
