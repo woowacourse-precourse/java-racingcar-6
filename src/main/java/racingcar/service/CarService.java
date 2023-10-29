@@ -13,4 +13,10 @@ public class CarService {
                 .map(Car::new)
                 .forEach(carRepository::save);
     }
+
+    public void updateCarScore(Car car, int randomNum) {
+        if (randomNum >= 4) {
+            car.updateScore();
+        }
+    }
 }
