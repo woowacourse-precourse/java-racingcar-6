@@ -19,6 +19,7 @@ public class InputValidate {
 
     public static void checkLengthCarName(String[] carNameArr) {
         for (String name : carNameArr) {
+            isBlank(name);
             if (name.length() > Config.CAR_NAME_SIZE) {
                 throw new CarNameSizeLimitExceededException(ExceptionComments.INPUT_VALUE_SIZE_OVER);
             }
@@ -26,14 +27,18 @@ public class InputValidate {
     }
 
     public static void checkDuplicateCarName(String[] carNameArr) {
-        if (carNameArr.length > Arrays.stream(carNameArr).distinct().count()) {
+        long carCount = Arrays.stream(carNameArr)
+                .distinct()
+                .count();
+
+        if (carNameArr.length > carCount) {
             throw new CarNameDuplicateException(ExceptionComments.INPUT_CAR_NAME_DUPLICATED);
         }
     }
 
     private static void checkNullAndEmpty(String str) {
         isNull(str);
-        isEmpty(str);
+        isBlank(str);
     }
 
     private static void isNull(String str) {
@@ -42,8 +47,8 @@ public class InputValidate {
         }
     }
 
-    private static void isEmpty(String str) {
-        if (str.trim().isEmpty()) {
+    private static void isBlank(String str) {
+        if (str.isBlank()) {
             throw new CarNameIncorrectException(ExceptionComments.INPUT_EMPTY_VALUE_COMMENT);
         }
     }
