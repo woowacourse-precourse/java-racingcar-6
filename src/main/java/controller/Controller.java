@@ -49,13 +49,14 @@ public class Controller {
         }
     }
 
-    private void createCar(String[] carName) {
+    private void createCar() {
+        String[] carName = parseCarName();
         for(String name: carName) {
-            groupOfCar.add(new Car(name));
+            this.groupOfCar.add(new Car(name));
         }
     }
 
-    private String[] parseCarName(String input) {
+    private String[] parseCarName() {
         String carNames = getCarNameByInput();
         return carNames.split(",");
     }
