@@ -32,7 +32,7 @@ public class CarTest {
     }
 
     @Test
-    void equals_메서드는_다른_Car_객체와_position_이_같은지_판별한다(){
+    void equals_메서드는_다른_Car_객체와_position_이_같은지_판별한다() {
         Car car = new Car("내자동차");
         Car compareCar = new Car("상대자동차");
         assertThat(car.equals(compareCar)).isTrue();

@@ -10,7 +10,7 @@ public class TryCount {
     }
 
     public void decrease() {
-        count --;
+        count--;
     }
 
     public boolean isAbleTry() {
