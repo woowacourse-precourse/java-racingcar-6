@@ -3,9 +3,9 @@
 ## 기능 목록
 
 - [x] 쉼표를 기준으로 자동차의 이름들을 입력 받는다. - makeCarList
+  - [x] 쉼표가 없는 입력과 쉼표만 있는 입력은 잘못된 값으로 판단한다. - findinputCarError
+  - [x] 우승 자동차를 구분하기 위해 ""입력 또는 White Space(공백 문자)는 잘못된 값으로 판단한다. - findinputCarError
   - [x] 5자 이하의 이름이 아니면 잘못된 값으로 판단한다. - findCarListError
-  - [x] 쉼표가 없는 입력과 쉼표만 있는 입력은 잘못된 값으로 판단한다. - makeCarList 
-  - [x] 우승 자동차를 구분하기 위해 ""입력 또는 White Space(공백 문자)는 잘못된 값으로 판단한다. - makeCarList 
   - [x] 우승 자동차를 구분하기 위해 이름이 없는 자동차는 잘못된 값으로 판단한다. - findCarListError
   - [x] 우승 자동차를 구분하기 위해 중복된 이름의 자동차는 잘못된 값으로 판단한다. - findCarListError<br><br>
 

@@ -10,8 +10,9 @@ public class Application {
     public static void findPlayCountError(String inputCount) {
         try {
             int playCount = Integer.parseInt(inputCount);
-            if (playCount < 1 || playCount > 100)
+            if (playCount < 1 || playCount > 100) {
                 throw new IllegalArgumentException();
+            }
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
@@ -34,8 +35,7 @@ public class Application {
         }
     }
 
-    public static String[] makeCarList() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+    public static String findinputCarError() {
         String inputCar = readLine();
         if (inputCar == "" || inputCar.contains(" ")) {
             throw new IllegalArgumentException();
@@ -43,6 +43,13 @@ public class Application {
         if (!inputCar.contains(",") || inputCar.matches(",*")) {
             throw new IllegalArgumentException();
         }
+
+        return inputCar;
+    }
+
+    public static String[] makeCarList() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String inputCar = findinputCarError();
 
         String[] carList = inputCar.split(",");
         findCarListError(carList);
