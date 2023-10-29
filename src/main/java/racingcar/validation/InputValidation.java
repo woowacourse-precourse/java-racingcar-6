@@ -53,7 +53,7 @@ public class InputValidation {
 
     private boolean hasCarNamesWithEmpty(List<String> carNames) {
         return carNames.stream()
-                .anyMatch(carName -> carName.isEmpty());
+                .anyMatch(String::isEmpty);
     }
 
     public void validateInputNull(String input) {
