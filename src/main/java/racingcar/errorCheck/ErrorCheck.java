@@ -1,5 +1,7 @@
 package racingcar.errorCheck;
 
+import racingcar.iosystem.InputView;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,7 +21,14 @@ public class ErrorCheck {
         if (set.size() != cars.length) {
             throw new IllegalArgumentException("중복된 이름이 있습니다");
         }
+    }
+    public static void isZeroValues(int cnt) {
+        if (cnt < 1) {
+            throw new IllegalArgumentException("잘못된 입력입니다 1이상의 값을 입력해주세요");
+        }
 
     }
+
+
 
 }
