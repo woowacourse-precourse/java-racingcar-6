@@ -1,6 +1,5 @@
 package domain;
 
-
 import static constant.ConstantNumber.INITIAL_MOVE_COUNT;
 import static constant.ConstantNumber.MOVE_DISTANCE;
 import static constant.ConstantNumber.MOVING_FORWARD;

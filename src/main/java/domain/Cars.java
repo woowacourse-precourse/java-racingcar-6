@@ -12,7 +12,7 @@ public class Cars {
     public final List<Car> carsList = new ArrayList<>();
 
     public Cars(String carNames) {
-        List<String> carNameList= splitCarNames(carNames);
+        List<String> carNameList = splitCarNames(carNames);
         NameValidator.isNameDuplicate(carNameList);
         carNameList.forEach(carName -> carsList.add(new Car(carName)));
     }

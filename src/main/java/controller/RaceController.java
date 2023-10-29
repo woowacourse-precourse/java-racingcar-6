@@ -10,8 +10,8 @@ import static constant.ConstantString.EXECUTION_RESULT;
 import camp.nextstep.edu.missionutils.Randoms;
 import domain.Car;
 import domain.Cars;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import view.InputView;
 import view.OutputView;
 
@@ -48,16 +48,12 @@ public class RaceController {
     }
 
     private List<String> findWinners() {
-        List<String> winnerList = new ArrayList<>();
         int maxCount = findMaxMoveCount();
 
-        for (Car car : cars.getCarsList()) {
-            int currentMoveCount = car.getMoveCount();
-            if (maxCount == currentMoveCount) {
-                winnerList.add(car.getCarName());
-            }
-        }
-        return winnerList;
+        return cars.getCarsList().stream()
+                .filter(car -> car.getMoveCount() == maxCount)
+                .map(Car::getCarName)
+                .collect(Collectors.toList());
     }
 
     private int findMaxMoveCount() {
