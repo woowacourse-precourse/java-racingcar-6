@@ -1,7 +1,11 @@
 package domain;
 
+import util.UserInput;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Race {
 
@@ -25,6 +29,13 @@ public class Race {
     public void addCar(Car car) {
         cars.add(car);
     }
+
+    public void start() {
+        inputRaceDetails();
+        runRace();
+        declareWinner();
+    }
+
 
 
 }
