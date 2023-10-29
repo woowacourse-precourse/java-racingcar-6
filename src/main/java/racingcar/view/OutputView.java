@@ -41,4 +41,12 @@ public class OutputView {
         carStringBuilder.append(name + " : ");
     }
 
+    public void appendStringBuilder(int carIdx, String name, ArrayList<StringBuilder> carStringBuilders) {
+        StringBuilder carStringBuilder = carStringBuilders.get(carIdx);
+        if (carStringBuilder.isEmpty()) {
+            carStringBuilder.append(name + " : ");
+        }
+        carStringBuilders.get(carIdx).append("-");
+    }
+
 }
