@@ -21,7 +21,8 @@ public class Car {
 
     public void forward () {
         for(int i = 0 ; i < names.size(); i++) {
-            boolean isSatisfied = Random.isConditionsAdvancementMet();
+            int random = Random.generate();
+            boolean isSatisfied = Random.isConditionsAdvancementMet(random);
             if(isSatisfied) {
                 mileage.set(i, mileage.get(i) + 1);
             }
