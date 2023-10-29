@@ -27,4 +27,19 @@ public class Cars {
     public List<CarDTO> toDTO() {
         return cars.stream().map(Car::toDTO).toList();
     }
+
+    public List<CarDTO> getMaxPositionCars() {
+        int maxPosition = getMaxPosition();
+        return cars.stream()
+                .filter(car -> car.isSamePosition(maxPosition))
+                .map(Car::toDTO)
+                .toList();
+    }
+
+    private int getMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElseThrow();
+    }
 }

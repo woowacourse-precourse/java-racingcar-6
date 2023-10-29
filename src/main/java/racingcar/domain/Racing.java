@@ -24,4 +24,8 @@ public class Racing {
     public boolean isEnd() {
         return curRound == roundCount.getCount();
     }
+
+    public List<CarDTO> getWinner() {
+        return cars.getMaxPositionCars();
+    }
 }

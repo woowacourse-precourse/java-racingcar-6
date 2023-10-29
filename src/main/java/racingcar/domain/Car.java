@@ -31,4 +31,8 @@ public class Car {
     public CarDTO toDTO() {
         return new CarDTO(name.getName(), position);
     }
+
+    public boolean isSamePosition(int targetPosition) {
+        return this.position == targetPosition;
+    }
 }
