@@ -43,6 +43,10 @@ public class Car {
         return names.get(index);
     }
 
+    public List<String> names() {
+        return names;
+    }
+
     public int movedLately(int index) {
         return moveAmount[index];
     }
