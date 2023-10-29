@@ -28,17 +28,34 @@ public class Cars {
         }
     }
 
-    public void setTryCount(int tryCount) {
-        this.tryCount = tryCount;
-    }
-
-    public int generateRandomNumber() {
-        return Randoms.pickNumberInRange(MIN_VALUE, MAX_VALUE);
+    public void setTryCount(String tryCount) {
+        tryCountValidation(tryCount);
+        this.tryCount = convertStringToInt(tryCount);
     }
 
     public void moveCars() {
         for (Car car : carList) {
             car.run(generateRandomNumber());
         }
+    }
+
+    private int generateRandomNumber() {
+        return Randoms.pickNumberInRange(MIN_VALUE, MAX_VALUE);
+    }
+
+    private int convertStringToInt(String tryCount){
+        return Integer.parseInt(tryCount);
+    }
+    private void tryCountValidation(String tryCount){
+        if(!isNumeric(tryCount)){
+            throw new IllegalArgumentException();
+        }
+        if(Integer.parseInt(tryCount) < 1){
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public boolean isNumeric(String inputString) {
+        return inputString.matches("-?\\d+");  // 정수만 허용
     }
 }

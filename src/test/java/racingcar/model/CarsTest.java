@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -25,12 +26,35 @@ public class CarsTest {
     @Test
     void 시도_횟수_저장() {
         //Given
+        String tryCount = "6";
         Cars cars = new Cars();
 
         //When
-        cars.setTryCount(5);
+        cars.setTryCount(tryCount);
 
         //Then
-        assertEquals(5, cars.getTryCount());
+        assertEquals(tryCount, cars.getTryCount());
+    }
+
+    @Test
+    void 시도할_횟수가_1보다_작다면_예외발생() {
+        //Given
+        String negativeNumber = "-1";
+        String zero = "0";
+        Cars cars = new Cars();
+
+        //When & Then
+        assertThrows(IllegalArgumentException.class, () -> cars.setTryCount(negativeNumber));
+        assertThrows(IllegalArgumentException.class, () -> cars.setTryCount(zero));
+    }
+
+    @Test
+    void 시도할_횟수가_숫자가_아니라면_예외발생() {
+        //Given
+        String inputValue = "sd";
+        Cars cars = new Cars();
+
+        //When & Then
+        assertThrows(IllegalArgumentException.class, () -> cars.setTryCount(inputValue));
     }
 }
