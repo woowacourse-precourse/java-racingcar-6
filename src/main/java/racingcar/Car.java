@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Car {
 
-    static final int MOVE_50_PERCENT = 4;
+    static final int MOVE_60_PERCENT = 4;
     private List<String> name;
     private int position;
 
@@ -33,8 +33,14 @@ public class Car {
         }
     }
 
-    private boolean canMove() {
-        return Randoms.pickNumberInRange(0, 9) >= MOVE_50_PERCENT;
+    public void move(boolean canMove) {
+        if (canMove) {
+            position++;
+        }
+    }
+
+    public boolean canMove() {
+        return Randoms.pickNumberInRange(0, 9) >= MOVE_60_PERCENT;
     }
 
 }

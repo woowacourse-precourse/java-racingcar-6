@@ -8,6 +8,7 @@ import java.util.List;
 
 public class UserInputHandler {
     List<String> cars = new ArrayList<>();
+
     public List<String> getUserCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String userInput = Console.readLine();
@@ -47,12 +48,12 @@ public class UserInputHandler {
         System.out.println("시도할 회수는 몇회인가요?");
         String userCount = Console.readLine();
         validateInputNotEmpty(userCount);
-        validateNotLong(userCount);
+        validateNotLongNumber(userCount);
 
         return Long.parseLong(userCount);
     }
 
-    private void validateNotLong(String userCount) {
+    private void validateNotLongNumber(String userCount) {
         try {
             Long.parseLong(userCount);
         } catch (IllegalArgumentException e) {
@@ -60,16 +61,4 @@ public class UserInputHandler {
         }
 
     }
-
-    // 테스트를 위한 함수 코드
-    public List<String> getUserCarNames(String userInput) {
-        String[] carNames = userInput.split(",");
-        validateInputNotEmpty(userInput);
-        duplicateCarNames(carNames);
-        validateCarNames(carNames);
-
-        return Arrays.asList(carNames);
-    }
-
-
 }
