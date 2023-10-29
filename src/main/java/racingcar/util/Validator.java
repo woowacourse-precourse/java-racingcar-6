@@ -25,7 +25,7 @@ public class Validator {
 
     private void validateInputIsNotZeroOrNegative(String numTrialInput) {
         if (Integer.parseInt(numTrialInput) <= 0) {
-            throw new IllegalArgumentException("입력값은 0 이상이어야 합니다.");
+            throw new IllegalArgumentException("입력값은 1 이상이어야 합니다.");
         }
     }
 
