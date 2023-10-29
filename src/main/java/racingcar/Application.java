@@ -17,5 +17,9 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         input = Console.readLine();
         int countTrial = checkValidation.checkIfIntAndReturnIntForm(input);
+
+        System.out.println("\n실행 결과");
+        CarRacing carRacing = new CarRacing(carNameList, countTrial);
+        carRacing.race();
     }
 }
