@@ -2,7 +2,6 @@ package racingcar.game;
 
 import racingcar.domain.Computer;
 import racingcar.view.InputView;
-import racingcar.view.OutputView;
 
 import java.util.List;
 
@@ -17,7 +16,6 @@ public class RacingCarGame {
     }
 
     public void play() {
-        OutputView.printStartMessage();
         List<String> carsName = InputView.enterCarsName();
         computer.generateCars(carsName);
 
