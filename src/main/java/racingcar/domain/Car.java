@@ -1,13 +1,14 @@
 package racingcar.domain;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
+import static racingcar.domain.constants.number.MAX_RANDOM_NUMBER;
+import static racingcar.domain.constants.number.MIN_RANDOM_NUMBER;
+import static racingcar.domain.constants.number.MOVEMENT_POSSIBLE_NUMBER;
 
 public class Car {
     private final String name;
     private String distance = "";
-    public static final int MIN_RANDOM_NUMBER = 0;
-    public static final int MAX_RANDOM_NUMBER = 9;
-    public static final int MOVEMENT_POSSIBLE_NUMBER = 4;
+
 
     public Car(String name) {
         this.name = name;
@@ -22,11 +23,11 @@ public class Car {
     }
 
     public int generateRandomNumber() {
-        return pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        return pickNumberInRange(MIN_RANDOM_NUMBER.getNumber(), MAX_RANDOM_NUMBER.getNumber());
     }
 
     public void moveForward(int number) {
-        if (number >= MOVEMENT_POSSIBLE_NUMBER) {
+        if (number >= MOVEMENT_POSSIBLE_NUMBER.getNumber()) {
             distance += "-";
         }
     }
