@@ -1,6 +1,10 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import racingcar.validator.CarValidator;
 import racingcar.validator.InputValidator;
 import racingcar.view.InputView;
 
@@ -26,9 +30,18 @@ public class CarGame {
             InputValidator.isNullOrIsEmpty(input);
             InputValidator.includeNumberOrSymbol(input);
             InputValidator.includeSpace(input);
+            List carNameList = splitCarNames(input);
+            CarValidator.isOnlyLowerCase(carNameList);
+
         } catch (IllegalArgumentException e) {
             getCarNamesInput();
         }
         return input;
+    }
+
+    private List<String> splitCarNames(String input) {
+        String[] nameArray = input.split(",");
+        List<String> nameList = new ArrayList<>(Arrays.stream(nameArray).toList());
+        return nameList;
     }
 }
