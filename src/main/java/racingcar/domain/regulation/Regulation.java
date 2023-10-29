@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import static racingcar.domain.exception.Checker.typeCheck;
 
@@ -13,12 +14,10 @@ public class Regulation {
     }
 
     public static void goStop(HashMap<String, Integer> lineUp) {
-        for (String carName : lineUp.keySet()) {
-
-        }
-
-        if (Randoms.pickNumberInRange(0, 9) > 3) {
-
+        for (Map.Entry<String, Integer> carRecord : lineUp.entrySet()) {
+            if (Randoms.pickNumberInRange(0, 9) > 3) {
+                carRecord.setValue(carRecord.getValue() + 1);
+            }
         }
     }
 }
