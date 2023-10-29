@@ -13,8 +13,8 @@
   - [x] 자동차의 이동 거리를 1 증가시킨다. - RacingCar #move
 
 
-- [ ] 우승자를 확인한다.
-    - [ ] 가장 많은 전진 횟수를 가진 자동차를 확인한다. - RacingGame #getWinner
+- [x] 우승자를 확인한다.
+    - [x] 가장 많은 전진 횟수를 가진 자동차를 확인한다. - RacingGame #getWinners
 
 
 ## 기능 요구 사항
