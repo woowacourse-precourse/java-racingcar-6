@@ -11,4 +11,14 @@ public class Car {
         this.carName = carName;
     }
 
+    public boolean tryMoveCar() {
+        NumberGenerator numberGenerator = new NumberGenerator();
+        int randomNum = numberGenerator.createRandomNumber();
+        if (randomNum >= 4) {
+            this.carPosition += 1;
+            return true;
+        }
+        return false;
+    }
+
 }
