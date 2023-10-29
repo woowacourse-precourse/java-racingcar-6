@@ -19,7 +19,7 @@ public class GameProcess {
 			}
 			System.out.println();
 		}
-		judgeWinnerDistance(carList);
+		calculateMaxDistance(carList);
 	}
 
 	private void moveOrNot(InformationOfCar car) {
@@ -34,7 +34,7 @@ public class GameProcess {
 		return randomNumber >= 4;
 	}
 
-	private void judgeWinnerDistance(ArrayList<InformationOfCar> carList) {
+	private void calculateMaxDistance(ArrayList<InformationOfCar> carList) {
 		carList.sort((car1, car2) -> car2.getDistance().length() - car1.getDistance().length());
 		int maxDistance = carList.get(0).getDistance().length();
 		makeFinalString(maxDistance, carList);
