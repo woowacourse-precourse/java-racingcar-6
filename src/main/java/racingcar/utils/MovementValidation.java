@@ -1,10 +1,8 @@
 package racingcar.utils;
 
-public class MovementValidation {
+import static racingcar.message.IllegalArgumentExceptionMessage.*;
 
-    private static final String NULL_MOVEMENT_MESSAGE = "아무것도 입력하지 않았습니다.";
-    private static final String ZERO_MOVEMENT_MESSAGE = "이동회수는 0을 입력할 수 없습니다.";
-    private static final String NEGATIVE_MOVEMENT_MESSAGE = "음수는 입력할 수 없습니다.";
+public class MovementValidation {
     private static final Integer MIN_MOVEMENT = 0;
 
 

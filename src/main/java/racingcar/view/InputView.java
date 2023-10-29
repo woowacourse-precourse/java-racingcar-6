@@ -7,17 +7,17 @@ import racingcar.utils.MovementValidation;
 
 import java.util.List;
 
+import static racingcar.message.IllegalArgumentExceptionMessage.NULL_OR_STRING_MESSAGE;
+
 public class InputView {
+
+    public static final String START_SENTENCE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+
+    public static final String MOVEMENT_SENTENCE = "시도할 회수는 몇회인가요?";
 
     private CarNameValidation carNameValidation;
 
     private MovementValidation movementValidation;
-
-    private static final String START_SENTENCE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-
-    private static final String MOVEMENT_SENTENCE = "시도할 회수는 몇회인가요?";
-
-    private static final String NULL_OR_STRING_MESSAGE = "공백이나 문자열을 입력할 수 없습니다.";
 
     public InputView() {
         carNameValidation = new CarNameValidation();
