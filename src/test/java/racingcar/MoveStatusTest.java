@@ -2,7 +2,6 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.Test;
 
 class MoveStatusTest {
