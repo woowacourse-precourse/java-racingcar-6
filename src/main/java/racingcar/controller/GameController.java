@@ -28,6 +28,7 @@ public class GameController {
         for (int i = 0; i < Integer.parseInt(attemptsNum); i++) {
             playGame(player, this.distance);
         }
+//        outputView.winner(this.distance);
     }
 
     public void playGame(List player, HashMap distance) {
@@ -40,6 +41,16 @@ public class GameController {
                 distance.put(playerName,a);
             }
         }
-        outputView.result(this.distance);
+        showResult(distance);
+    }
+
+    public void showResult(HashMap distance) {
+        Set<Map.Entry<String, String>> result = distance.entrySet();
+        for(Map.Entry<String, String> movement : result){
+            String name = movement.getKey();
+            String bar = movement.getValue();
+            outputView.result(name, bar);
+        }
+        System.out.println();
     }
 }
