@@ -1,6 +1,3 @@
-
-
-
 # 자동차 경주
 
 ## 기능 목록
@@ -24,7 +21,7 @@
 
 ### controller package
  - racingCarGameManager class
-   + [] view,model 활용해 게임 진행 - racingStart
+   + [0] view,model 활용해 게임 진행 - racingStart
  
 ### utility package 
 #### - model, view에 특수하게 개입할 필요가 있을 때 사용
