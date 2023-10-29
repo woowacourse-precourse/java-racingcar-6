@@ -23,4 +23,16 @@ public class CarMover {
 
         return whetherMoveOrNot;
     }
+
+    private List<Integer> moveEveryCar(int n, List<Integer> carList, List<Boolean> whetherMoveOrNot)
+    {
+        for(int i = 0 ; i<n ; i++)
+        {
+            if(whetherMoveOrNot.get(i))
+            {
+                carList.set(i, carList.get(i) + 1);
+            }
+        }
+        return carList;
+    }
 }
