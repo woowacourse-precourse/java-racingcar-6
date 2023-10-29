@@ -10,8 +10,26 @@ public class Cars {
     }
 
     public static Cars createCars(List<Car> cars) {
-        // valid
+        valid(cars);
         return new Cars(cars);
     }
 
+    private static void valid(List<Car> userInputList) {
+        validLength(userInputList);
+        validBlankString(userInputList);
+    }
+
+    private static void validLength(List<Car> userInputList) {
+        boolean lengthOver = userInputList.stream().anyMatch(car -> car.getName().length() > 5);
+        if (lengthOver) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private static void validBlankString(List<Car> userInputList) {
+        boolean isBlank = userInputList.stream().anyMatch(car -> car.getName().isBlank());
+        if (isBlank) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
