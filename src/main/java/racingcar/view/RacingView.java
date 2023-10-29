@@ -16,4 +16,8 @@ public class RacingView {
         return Arrays.stream(Console.readLine().split(CAR_NAME_SEPARATOR)).map(Car::new).collect(
             Collectors.toList());
     }
+
+    public void inputTryCount() {
+        System.out.println(RacingMessage.INPUT_TRY_COUNT);
+    }
 }
