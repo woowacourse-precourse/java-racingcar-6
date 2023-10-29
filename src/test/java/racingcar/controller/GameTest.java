@@ -39,7 +39,13 @@ class GameTest {
 
     @Test
     void 실행횟수에_문자_포함() {
+        // given
+        String rounds = "d";
 
+        // then
+        Assertions.assertThatThrownBy(() -> new RacingcarGame(new InitDTO(RIGHT_INPUT_ABOUT_NAMES, rounds)))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("숫자가 아닌 다른 문자를 입력하셨습니다. 실행 횟수를 양수로 입력해 주세요.");
     }
 
 }
