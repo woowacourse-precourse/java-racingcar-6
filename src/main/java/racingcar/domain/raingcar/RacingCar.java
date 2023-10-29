@@ -11,11 +11,16 @@ public class RacingCar {
     public RacingCar(String name) {
         verify(name);
         this.name = name;
+        this.position = 0;
     }
 
     public void move() {
         int randomNumber = RandomNumberGenerator.pick();
         if(moveForward(randomNumber)) position += randomNumber;
+    }
+
+    public Integer getPosition() {
+        return position;
     }
 
     private boolean moveForward(final int number) {
