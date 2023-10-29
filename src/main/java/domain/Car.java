@@ -28,4 +28,9 @@ public class Car {
     private void move() {
         position += "-"; // 'this' 생략
     }
+
+    public String getPosition() {
+        return position;
+    }
+
 }
