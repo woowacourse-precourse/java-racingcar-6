@@ -11,6 +11,9 @@ public class Round {
     }
 
     public void finishCurrentRound() {
+        if (hasNotRemainingRound()) {
+            throw new IllegalArgumentException("[Error] 남은 라운드 횟수가 없습니다.");
+        }
         this.round--;
     }
 

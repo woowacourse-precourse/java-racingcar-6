@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 import org.junit.jupiter.api.DisplayName;
@@ -49,5 +50,14 @@ class RoundTest {
         assertThat(round).usingRecursiveComparison()
                 .comparingOnlyFields("count")
                 .isEqualTo(new Round(4));
+    }
+    @DisplayName("round 감소 예외 테스트 : 더이상 감소시킬 라운드가 없는 경우에 IllegalArgumentException가 발생한다.")
+    @Test
+    void 예외발생_라운드횟수가_0일때_라운드를_감소시키려는_경우() {
+        Round round = new Round(0);
+
+        assertThatThrownBy(() -> round.finishCurrentRound())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[Error] 남은 라운드 횟수가 없습니다.");
     }
 }

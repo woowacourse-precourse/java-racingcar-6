@@ -46,6 +46,7 @@ RandomNumber
 
 Round
 - [x] 남은 라운드를 하나 감소시킨다.
+  - [x] 남은 라운드가 없는경우 감소시키려고하면 IllegalArgumentException 를 발생시킨다.
 - [x] 남아있는 게임라운드가 없는지 확인한다.
 - [x] 남아있는 게임 라운드가 있는지 확인한다.
 
