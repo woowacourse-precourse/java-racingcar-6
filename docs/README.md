@@ -27,7 +27,8 @@
 - attemptsNum => 게임 횟수 입력
 
 ### OutputView
-- showResult => 자동차 이름 + 이동 거리 출력
+- result => 자동차 이름 + 이동 거리 출력
+- winner => 우승자 출력
 
 ---
 
@@ -36,7 +37,7 @@
 ### GameController
 - start => 이름 입력, 시도 횟수 입력, 이름 조건 검증
 - playGame => 게임 실행 반복
-- showResult => 결과 도출
+- showResult => 자동차 이름 + 이동 거리 출력, 우승자 출력
 
 
 
