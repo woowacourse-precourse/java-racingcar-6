@@ -9,11 +9,12 @@ public class RacingGame {
         carName = new HashMap<>();
         InputCarName inputCarName = new InputCarName();
         inputCarName.inputCarName(carName);
-        System.out.println(carName);
+
+        Validation validation = new Validation();
+        validation.inputCarNameLength(carName);
 
         InputMovement inputMovement = new InputMovement();
         int movement = inputMovement.inputMovement();
-        System.out.println(movement);
 
         CheckMoveStop checkMoveStop = new CheckMoveStop();
         System.out.println("실행 결과");
@@ -22,10 +23,8 @@ public class RacingGame {
             Iterator<String> iter = carName.keySet().iterator();
             checkMoveStop.checkMoveStop(carName, iter);
         }
-        System.out.println(carName);
 
         int max = maxFind();
-        System.out.println(max);
         System.out.print("최종 우승자 :");
         printResult(max);
 
