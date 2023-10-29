@@ -14,14 +14,14 @@ public class InputView {
 
     private static String validateBlankCarName(String input) {
         if (input.equals("")) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[Error] 공백이 입력되었습니다.");
         }
         return input;
     }
 
 
     private static String validateTryNumber(String input) {
-        validateNullTryNumber(input);
+        validateBlankTryNumber(input);
         validateIsIntegerTryNumber(input);
         validateZeroTryNumber(input);
         validatePositiveTryNumber(input);
@@ -30,28 +30,28 @@ public class InputView {
 
     private static void validatePositiveTryNumber(String input) {
         if (Integer.parseInt(input) < 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 음수가 입력되었습니다.");
         }
     }
 
 
-    private static void validateNullTryNumber(String input) {
+    private static void validateBlankTryNumber(String input) {
         if (input.equals("")) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 공백이 입력되었습니다.");
         }
     }
 
     private static void validateZeroTryNumber(String input) {
         if (input.equals("0")) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 0이 입력되었습니다.");
         }
     }
 
     private static void validateIsIntegerTryNumber(String input) {
         try {
-            int number = Integer.parseInt(input);
+            Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 숫자가 아닌 값이 입력되었습니다.");
         }
     }
 
