@@ -4,14 +4,13 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
 
 public class Application {
 
-
+    private static List<String> carNames;
     private static void printMessage(String message) {
         System.out.println(message);
     }
@@ -21,14 +20,15 @@ public class Application {
         return Console.readLine();
     }
 
+    private static void createCarNames(String userInput){
+        carNames = Arrays.asList(userInput.split(","));
+    }
+
     public static void main(String[] args) {
         // TODO: 프로그램 구 현
 
         // 1. 자동차 이름 입력
-
-        List<String> carNames = new ArrayList<>(
-                Arrays.asList(userInput.split(","))
-        );
+        Application.createCarNames(Application.getInput());
 
         // 2대 미만 입력 => 예외 처리
         if (carNames.size() < 2) {
