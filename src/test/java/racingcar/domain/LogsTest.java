@@ -6,46 +6,56 @@ import org.junit.jupiter.api.Test;
 import java.io.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class LogsTest {
-    OutputStream out;
+    private OutputStream captor;
+    private Car car;
 
     @BeforeEach
     void setUp() {
-        out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out));
+        captor = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(captor));
     }
 
     @Test
     void inputCarNames() {
         String log = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)" + System.lineSeparator();
         Logs.inputCarNames();
-        assertThat(out.toString()).isEqualTo(log);
+        assertThat(captor.toString()).isEqualTo(log);
     }
 
     @Test
     void inputGameTurns() {
         String log = "시도할 회수는 몇회인가요?" + System.lineSeparator();
         Logs.inputGameTurns();
-        assertThat(out.toString()).isEqualTo(log);
+        assertThat(captor.toString()).isEqualTo(log);
     }
 
     @Test
     void newLine() {
         String log = System.lineSeparator();
         Logs.newLine();
-        assertThat(out.toString()).isEqualTo(log);
+        assertThat(captor.toString()).isEqualTo(log);
     }
 
     @Test
     void getGameResult() {
         String log = "실행결과" + System.lineSeparator();
         Logs.getGameResult();
-        assertThat(out.toString()).isEqualTo(log);
+        assertThat(captor.toString()).isEqualTo(log);
     }
 
     @Test
     void car() {
+        String log = "myCar : -------";
+
+        car = mock(Car.class);
+        when(car.toString()).thenReturn(log);
+
+        Logs.car(car);
+        assertThat(captor.toString()).isEqualTo(log + System.lineSeparator());
     }
 
     @Test

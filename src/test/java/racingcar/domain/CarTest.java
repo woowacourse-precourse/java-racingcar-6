@@ -9,8 +9,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class CarTest {
-    String name;
-    Car car;
+    private String name;
+    private Car car;
 
     @BeforeEach
     void setUp() {
