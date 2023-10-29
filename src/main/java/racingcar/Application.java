@@ -14,6 +14,11 @@ public class Application {
         String inputCars = Console.readLine();
         String[] cars = inputCars.split(",");
 
+        int cnt = (int) Arrays.stream(cars).filter(car -> car.length() >5).count();
+        if (cnt > 0){
+            throw new IllegalArgumentException();
+        }
+
         System.out.println("시도할 회수는 몇회인가요?");
         int tryCount = Integer.parseInt(Console.readLine());
 
