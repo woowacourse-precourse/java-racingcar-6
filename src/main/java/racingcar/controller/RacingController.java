@@ -14,6 +14,7 @@ public class RacingController {
     public void runGame() {
         startGame();
         playGame();
+        endGame();
     }
 
     private void startGame() {
@@ -36,6 +37,10 @@ public class RacingController {
             cars.printPlayers();
             tryNumber--;
         }
+    }
+
+    private void endGame() {
+        cars.printWinner();
     }
 
 

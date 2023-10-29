@@ -26,7 +26,7 @@
   - [X] 실행 결과
   - [X] 플레이어들의 이름과 이동한 거리를 '-'으로 출력
     - [X] 멈췄을 때는 공백을 출력하거나, 이전 '-'값을 출력한다
-  - [] 최종 우승자를 출력한다
+  - [X] 최종 우승자를 출력한다
     - [] 단독으로 우승했을 경우, 그 플레이어의 이름만 출력한다.
     - [] 공동으로 우승했을 경우, 플레이어들의 이름을 ','로 나눠서 출력한다
 
@@ -44,3 +44,9 @@
 - [] camp.nextstep.edu.missionutils에서 제공하는 Randoms 및 Console API 사용
 - [] camp.nextstep.edu.missionutils.Randoms을 통해 Random값 추출
 - [] camp.nextstep.edu.missionutils.Console 으로 입력값 활용
+
+### 체크리스트
+- [] 매직 넘버 처리
+- [] 메서드 네이밍 고민
+- [] stream 문법 적용
+- [] 원시값 포장 관련 더 공부
