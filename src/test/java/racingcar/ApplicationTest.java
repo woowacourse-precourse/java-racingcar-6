@@ -91,7 +91,7 @@ class ApplicationTest extends NsTest {
     @Test
     void 경기_진행_수_저장(){
         Game game = new Game();
-        String roundCountInput = "01";
+        Integer roundCountInput = 1;
         game.setRoundCount(roundCountInput);
 
         assertThat(game.getRoundCount()).isEqualTo(1);
