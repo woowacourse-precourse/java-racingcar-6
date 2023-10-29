@@ -17,4 +17,12 @@ class RacerTest {
         assertThatThrownBy(() -> new Racer(value))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("중복된 이름 체크")
+    @ParameterizedTest
+    @ValueSource(strings = {"ad,k,la,a,la", "l,l", "qwe,kz,pi,pi"})
+    void checkUnique(String value) {
+        assertThatThrownBy(() -> new Racer(value))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
