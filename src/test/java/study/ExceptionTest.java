@@ -17,4 +17,14 @@ public class ExceptionTest {
         assertThatThrownBy(() -> racingException.validateCommaAfterComma(inputStr))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    public void 콤마_뒤에_공백() {
+        // given
+        String inputStr = "포비, ";
+
+        // when , then
+        assertThatThrownBy(() -> racingException.validateIsNullAfterComma(inputStr))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
