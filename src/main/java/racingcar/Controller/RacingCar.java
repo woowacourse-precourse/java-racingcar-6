@@ -29,8 +29,19 @@ public class RacingCar {
             }
         }
     }
+    public static int findMaxPosition(List<Car> cars) {
+        return cars.stream()
+                .mapToInt(car -> car.carPosition)
+                .max()
+                .orElseThrow(IllegalStateException::new);
+    }
 
-
-
-
+    public static List<String> findWinners(List<Car> cars) {
+        int maxPosition = findMaxPosition(cars);
+        List<String> winners = cars.stream()
+                .filter(car -> car.carPosition == maxPosition)
+                .map(car -> car.carName)
+                .collect(Collectors.toList());
+        return winners;
+    }
 }
