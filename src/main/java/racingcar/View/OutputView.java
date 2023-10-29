@@ -10,8 +10,9 @@ public class OutputView {
             displayPosition(car.carName, car.carPosition);
         }
     }
+
     private static void displayPosition(String carName, int position) {
-        System.out.print(carName + " : ");
+        System.out.print(carName+ " : ");
         for (int i = 0; i < position; i++) {
             System.out.print("-");
         }
