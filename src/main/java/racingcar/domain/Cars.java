@@ -10,26 +10,26 @@ public class Cars {
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
-        validate(cars);
+        validateSize(cars);
+        validateDuplicated(cars);
         this.cars = cars;
     }
 
-    private void validate(List<Car> cars) {
-        throwIllegalArgumentExceptionForInvalidSize(cars);
-        throwIllegalArgumentExceptionForDuplicatedName(cars);
+    private void validateSize(List<Car> cars) {
+        if (invalidSize(cars)) {
+            throw new IllegalArgumentException("[ERROR] 자동차는 2대 이상 10대 이하만 가능합니다.");
+        }
     }
 
-    private void throwIllegalArgumentExceptionForDuplicatedName(List<Car> cars) {
+    private void validateDuplicated(List<Car> cars) {
         List<String> carNames = getCarNames(cars);
         for (int i = 0; i < carNames.size(); i++) {
             throwIfContainsDuplicatedName(carNames, i);
         }
     }
 
-    private void throwIllegalArgumentExceptionForInvalidSize(List<Car> cars) {
-        if (invalidSize(cars)) {
-            throw new IllegalArgumentException("[ERROR] 자동차는 2대 이상 10대 이하만 가능합니다.");
-        }
+    private boolean invalidSize(List<Car> cars) {
+        return !(2 <= cars.size() && cars.size() <= 10);
     }
 
     private List<String> getCarNames(List<Car> cars) {
@@ -45,8 +45,13 @@ public class Cars {
         }
     }
 
-    private boolean invalidSize(List<Car> cars) {
-        return !(2 <= cars.size() && cars.size() <= 10);
+    public MoveResult moveForward(RandomNumberGenerator numberGenerator) {
+        List<Integer> forwardCounts = new ArrayList<>();
+        for (Car car : cars) {
+            int forwardCount = car.moveForward(numberGenerator.generate());
+            forwardCounts.add(forwardCount);
+        }
+        return new MoveResult(getCarNames(cars), forwardCounts);
     }
 
     public List<Car> getCarsWithMaxForwardCount() {
@@ -61,14 +66,5 @@ public class Cars {
                 .mapToInt(Car::getForwardCount)
                 .max()
                 .orElseThrow();
-    }
-
-    public MoveResult moveForward(RandomNumberGenerator numberGenerator) {
-        List<Integer> forwardCounts = new ArrayList<>();
-        for (Car car : cars) {
-            int forwardCount = car.moveForward(numberGenerator.generate());
-            forwardCounts.add(forwardCount);
-        }
-        return new MoveResult(getCarNames(cars), forwardCounts);
     }
 }
