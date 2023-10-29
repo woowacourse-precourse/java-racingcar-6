@@ -9,7 +9,6 @@ public class OutputView {
     private static final String RESULT_START_MESSAGE = "\n실행 결과";
     private static final String PRINT_SCORES = "%s : %s\n";
     private static final String WINNER_MESSAGE = "\n최종 우승자 : %s";
-    private static final String NEWLINE = "\n";
     private static final String REPEAT = "-";
     private static final String DELIMITER = ", ";
 
@@ -28,7 +27,6 @@ public class OutputView {
     public static void printScores(Map<String, Integer> scores) {
         scores.entrySet().forEach(entry ->
                 System.out.printf(PRINT_SCORES, entry.getKey(), REPEAT.repeat(entry.getValue())));
-        System.out.print(NEWLINE);
     }
 
     public static void printWinnerMessage(List<String> winner) {
