@@ -8,30 +8,31 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingController {
-    private RacingResult racingResult;
 
     public void startGame() {
-        RacingCars racingCars = setParticipationCars();
-        int tryCount = setTryCount();
+        RacingCars racingCars = getParticipationCars();
+        int tryCount = getTryCount();
         racing(racingCars, tryCount);
     }
 
-    private RacingCars setParticipationCars() {
+    private RacingCars getParticipationCars() {
         OutputView.printCarNameInputMessage();
         String carNames = InputView.inputCarNames();
         return new RacingCars(CarFactory.generateParticipationCarList(carNames));
     }
 
-    private int setTryCount() {
+    private int getTryCount() {
         OutputView.printTryCountInputMessage();
         return Convertor.convertStringToInt(InputView.inputTryCount());
     }
 
     private void racing(RacingCars racingCars, int tryCount) {
         OutputView.printExecutionResultMessage();
+        RacingResult racingResult = racingCars.createRacingResult();
         while (isNotRacingFinished(tryCount)) {
             racingCars.move();
-            OutputView.printResult(getRacingResult(racingCars));
+            racingResult = racingCars.createRacingResult();
+            OutputView.printResult(racingResult);
             tryCount--;
         }
         OutputView.printWinner(racingResult.getWinner());
@@ -39,10 +40,5 @@ public class RacingController {
 
     private boolean isNotRacingFinished(int tryCount) {
         return tryCount > 0;
-    }
-
-    private RacingResult getRacingResult(RacingCars racingCars) {
-        racingResult = racingCars.createRacingResult();
-        return racingResult;
     }
 }
