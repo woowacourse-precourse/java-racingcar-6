@@ -50,6 +50,21 @@ class AttemptTest {
     }
 
     @Test
+    @DisplayName("시도 횟수가 0회 이하일 때 use()를 실행하면 IllegalArgumentException을 발생한다.")
+    void throwsIllegalArgumentException_whenAttemptIsUnder0() {
+        // given
+        final String ERROR_MESSAGE_CANNOT_EXECUTE = "모든 시도 횟수를 소모하셨습니다.";
+        int value = 1;
+        Attempt attempt = new Attempt(value);
+        attempt.use();
+
+        // when, then
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
+            () -> attempt.use());
+        assertThat(e.getMessage()).isEqualTo(ERROR_MESSAGE_CANNOT_EXECUTE);
+    }
+
+    @Test
     @DisplayName("hasNext() 가 시도 횟수가 남아있다면 true를 반환한다.")
     void hasNextReturnTrue_whenAttemptRemain() {
         // given
