@@ -1,6 +1,6 @@
 package racingcar.exception;
 
-public class InvalidInputException {
+public class InvalidInput {
     public static void longNameException(String name) {
         if (name.length() >= 6) {
             throw new IllegalArgumentException("이름은 최대 5글자 입니다.");
