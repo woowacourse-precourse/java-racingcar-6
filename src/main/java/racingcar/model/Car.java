@@ -2,20 +2,14 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class RacingCar {
+public class Car {
     private final static int moveCondition = 4;
     private final String name;
     private int moveDistance;
 
-    public RacingCar(String name) {
+    public Car(String name) {
         this.name = name;
-        this.moveDistance  = 0;
-    }
-
-    public void move(){
-        if(canMove()){
-            addMoveDistance();
-        }
+        moveDistance = 0;
     }
 
     public String getName() {
@@ -26,18 +20,20 @@ public class RacingCar {
         return moveDistance;
     }
 
+    public void move() {
+        if (canMove()) {
+            moveDistance += 1;
+        }
+    }
+
     private boolean canMove() {
-        if(getMoveValue()>= moveCondition){
+        if (getMoveValue() >= moveCondition) {
             return true;
         }
         return false;
     }
 
-    private void addMoveDistance() {
-        moveDistance+=1;
-    }
-
-    private int getMoveValue(){
-        return Randoms.pickNumberInRange(0,9);
+    private int getMoveValue() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 }
