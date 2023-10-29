@@ -8,12 +8,12 @@
 
 - - -
 
-#### 문자열 전체에 대한 검증
+#### 사용자가 입력한 전체 문자열에 대한 검증
 
 - [ ] 문자열 전체에 대한 검증
-    - [ ] [예외] 문자열이 아니라면 `IllegalArgumentException` 발생
     - [ ] [예외] 쉼표(,)으로 이름을 구분한 것이 아니면 `IllegalArgumentException` 발생
     - [ ] [예외] 맨 앞이나 끝에 쉼표(,) 구분자가 있는 경우 `IllegalArgumentException` 발생
+    - [ ] [예외] null 값이나 빈 문자열이 입력 되었을 경우 `IllegalArgumentException` 발생
 
 - - -
 
