@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static racingcar.handler.ErrorHandler.MAX_VALUE_MISSING;
 
@@ -26,7 +27,14 @@ public class RacingCarStatusGroup {
         return List.copyOf(racingCarStatusList);
     }
 
-    private RacingCarStatus getMaxPosition() {
+    public List<String> getWinnerNames(RacingCarStatus maxPositionCar) {
+        return racingCarStatusList.stream()
+                .filter(maxPositionCar::isSamePosition)
+                .map(RacingCarStatus::getCarName)
+                .collect(Collectors.toUnmodifiableList());
+    }
+
+    public RacingCarStatus getMaxPosition() {
         return racingCarStatusList.stream()
                 .max(RacingCarStatus::compareTo)
                 .orElseThrow(() -> MAX_VALUE_MISSING.getException());

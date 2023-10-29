@@ -33,6 +33,10 @@ public class RacingCarStatus implements Comparable<RacingCarStatus> {
         return position;
     }
 
+    public boolean isSamePosition(RacingCarStatus otherCar) {
+        return position == otherCar.getPosition();
+    }
+
     @Override
     public int compareTo(RacingCarStatus otherCar) {
         return position - otherCar.getPosition();
