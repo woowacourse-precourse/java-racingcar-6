@@ -42,14 +42,7 @@
 ### Car
 자동차의 정보 저장 및 전진하는 클래스
 
-- member instance
-   - String name : 자동차 이름
-   - int moveDistance : 이동 거리
-- member function
-   - [x] Car(String) : name, moveDistance 초기화
-   - [x] String getName() : 자동차 이름 반환
-   - [x] int getMoveDistance() : 이동 거리 반환
-   - [x] void move() : 전진 조건을 만족하면 전진
+- [x] 전진 조건을 만족하면 전진
 
 ### CurrentResultMap
 회차마다 실행 결과를 저장하는 클래스
