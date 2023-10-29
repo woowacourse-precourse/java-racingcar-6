@@ -80,7 +80,7 @@
 #### Navigation
 - 우승자를 판단하고 찾아온다.
 - 리스트들의 이동 상태를 요청한다.
-- Car들에 이동 요청을 한다.
+-[x] Car들에 이동 요청을 한다.
 
 #### Car
 - 이름을 검증한다.(5자 이상시 IllegalArgumentException)
