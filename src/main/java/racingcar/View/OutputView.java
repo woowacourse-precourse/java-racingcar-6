@@ -13,4 +13,7 @@ public class OutputView {
         System.out.println(TRIAL_RESULT);
     }
 
+    public void printRacingResult(String name, String icon){
+        System.out.printf(RESULT_SETING, name, icon);
+    }
 }
