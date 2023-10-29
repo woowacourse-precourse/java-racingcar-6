@@ -20,7 +20,7 @@ public class Application {
     public static void main(String[] args) {
         System.out.println(CAR_NAME_REQUEST_MESSAGE);
         String carName = Console.readLine();
-        Map<String, String> carNameHashMap = converter.putHashMap(carName);
+        Map<String, String> carNameHashMap = converter.splitAndAddToMap(carName);
         System.out.println(ATTEMPTS_NUMBER_REQUEST_MESSAGE);
         String attemptsString = Console.readLine();
         int attemptsNumber = converter.wordToInt(attemptsString);

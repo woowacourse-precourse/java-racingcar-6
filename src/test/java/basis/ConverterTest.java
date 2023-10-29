@@ -19,7 +19,7 @@ class ConverterTest {
     @Test
     void 문자열을_쉼표로_구분해서_해시맵에_넣기() {
         List<String> expected = List.of("pobi", "crong");
-        Map<String, String> actualMap = converter.putHashMap("pobi,crong");
+        Map<String, String> actualMap = converter.splitAndAddToMap("pobi,crong");
         List<String> actual = new ArrayList<>();
         for (Entry<String, String> entry : actualMap.entrySet()) {
             String s = entry.getKey() + entry.getValue();

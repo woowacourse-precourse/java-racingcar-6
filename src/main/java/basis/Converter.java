@@ -9,7 +9,7 @@ public class Converter {
         return Integer.parseInt(word);
     }
 
-    public Map<String, String> putHashMap(String Name) {
+    public Map<String, String> splitAndAddToMap(String Name) { // ["k1",v1,v2]
         Map<String, String> hashMap = new LinkedHashMap<>();
         String[] parts = tokenizeByComma(Name);
         for (String part : parts) {
