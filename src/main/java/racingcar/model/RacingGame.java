@@ -1,8 +1,8 @@
 package racingcar.model;
 
-import static java.util.stream.Collectors.collectingAndThen;
 import static java.util.stream.Collectors.toList;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 public final class RacingGame {
@@ -21,9 +21,14 @@ public final class RacingGame {
     }
 
     public RaceHistory playWith(MovementCondition movementCondition) {
+        List<CarGroup> raceStages = simulateRacingStages(movementCondition);
+        return RaceHistory.from(raceStages);
+    }
+
+    private List<CarGroup> simulateRacingStages(MovementCondition movementCondition) {
         return Stream.iterate(carGroup, carGroup -> carGroup.moveAll(movementCondition))
                 .skip(INITIAL_SKIP_COUNT)
                 .limit(tryCount.getCount())
-                .collect(collectingAndThen(toList(), RaceHistory::from));
+                .collect(toList());
     }
 }

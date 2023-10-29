@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import static java.util.stream.Collectors.collectingAndThen;
 import static java.util.stream.Collectors.toList;
 import static racingcar.model.ExceptionMessage.DUPLICATE_CAR_GROUP_EXCEPTION_MESSAGE;
 import static racingcar.model.ExceptionMessage.EMPTY_CAR_GROUP_EXCEPTION_MESSAGE;
@@ -39,20 +38,31 @@ public class CarGroup {
     }
 
     private boolean hasDuplicates(List<Car> cars) {
+        long distinctCount = getDistinctCount(cars);
+        return distinctCount != cars.size();
+    }
+
+    private long getDistinctCount(List<Car> cars) {
         return cars.stream()
                 .distinct()
-                .count() != cars.size();
+                .count();
     }
 
     public static CarGroup from(List<String> carNames) {
+        List<Car> mappedCars = createCarsFromNames(carNames);
+        return new CarGroup(mappedCars);
+    }
+
+    private static List<Car> createCarsFromNames(List<String> carNames) {
         return carNames.stream()
                 .map(Car::from)
-                .collect(collectingAndThen(toList(), CarGroup::new));
+                .collect(toList());
     }
 
     public CarWinners findWinners() {
         CarPosition maxPosition = findMaxPosition();
-        return findCarsWithMaxPosition(maxPosition);
+        List<Car> winners = findCarsWithMaxPosition(maxPosition);
+        return CarWinners.from(winners);
     }
 
     private CarPosition findMaxPosition() {
@@ -62,16 +72,21 @@ public class CarGroup {
                 .orElseThrow(() -> new IllegalArgumentException(EMPTY_WINNER_GROUP_EXCEPTION_MESSAGE));
     }
 
-    private CarWinners findCarsWithMaxPosition(CarPosition maxPosition) {
+    private List<Car> findCarsWithMaxPosition(CarPosition maxPosition) {
         return cars.stream()
                 .filter(car -> car.isSamePosition(maxPosition))
-                .collect(collectingAndThen(toList(), CarWinners::from));
+                .collect(toList());
     }
 
     public CarGroup moveAll(MovementCondition movementCondition) {
+        List<Car> movedCars = moveCarsBasedOnCondition(movementCondition);
+        return new CarGroup(movedCars);
+    }
+
+    private List<Car> moveCarsBasedOnCondition(MovementCondition movementCondition) {
         return cars.stream()
                 .map(car -> car.move(movementCondition))
-                .collect(collectingAndThen(toList(), CarGroup::new));
+                .collect(toList());
     }
 
     public List<Car> getCars() {

@@ -14,11 +14,11 @@ public class RaceStageDto {
 
     public static RaceStageDto from(CarGroup carGroup) {
         List<Car> cars = carGroup.getCars();
-        List<CarProgressDto> carProgressDtos = getCarProgressDtos(cars);
-        return new RaceStageDto(carProgressDtos);
+        List<CarProgressDto> carProgressDtoList = getCarProgressDtoList(cars);
+        return new RaceStageDto(carProgressDtoList);
     }
 
-    private static List<CarProgressDto> getCarProgressDtos(List<Car> cars) {
+    private static List<CarProgressDto> getCarProgressDtoList(List<Car> cars) {
         return cars.stream()
                 .map(CarProgressDto::from)
                 .collect(Collectors.toList());
