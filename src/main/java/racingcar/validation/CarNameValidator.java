@@ -8,11 +8,9 @@ import java.util.List;
 
 public class CarNameValidator {
 
-    private final String CAR_NAME_STRINGS;
     private final List<String> CAR_NAMES;
 
     public CarNameValidator(String carNameStrings) {
-        this.CAR_NAME_STRINGS = carNameStrings;
         this.CAR_NAMES = Arrays.asList(carNameStrings.split(","));
     }
 
@@ -25,11 +23,15 @@ public class CarNameValidator {
     }
 
     public void validateNull() {
-        this.CAR_NAMES.forEach(StringValidator::stringIsNull);
+        this.CAR_NAMES.forEach(
+                i -> System.out.println(ErrorMessage.INPUT_NAME_NULL_BLANK_MESSAGE.getValue())
+        );
     }
 
     public void validateBlank() {
-        this.CAR_NAMES.forEach(StringValidator::stringIsBlank);
+        this.CAR_NAMES.forEach(
+                i -> System.out.println(ErrorMessage.INPUT_NAME_NULL_BLANK_MESSAGE.getValue())
+        );
     }
 
     public void validateLength() {

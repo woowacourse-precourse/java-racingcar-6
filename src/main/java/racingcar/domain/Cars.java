@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import racingcar.validation.CarNameValidator;
 import racingcar.validation.StringValidator;
-import racingcar.view.OutPutView;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import racingcar.message.OutputMessage;
 import racingcar.resource.CarGameValue;
 import racingcar.util.LetterUtil;
 import racingcar.util.RandomUtil;
@@ -23,12 +24,12 @@ public class Car {
 
     public void move() {
         if (moveCheck()) {
-            this.position++;
+            this.position += CarGameValue.POWER.getValue();
         }
     }
 
     public String result() {
-        return this.name + " : " + LetterUtil.sameLetterPaste("-", this.position);
+        return this.name + " : " + LetterUtil.sameLetterPaste(OutputMessage.RACE.getValue(), this.position);
     }
 
     public boolean isWinner(int winnerPosition) {
