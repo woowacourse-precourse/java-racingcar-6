@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
     private String name;
     private int moveCount;
@@ -17,6 +19,13 @@ public class Car {
     private void validateNameLength(String name) {
         if (name.length() > 5) {
             throw new IllegalArgumentException();
+        }
+    }
+
+    public void moveWithRandomNumber() {
+        int num = Randoms.pickNumberInRange(0, 9);
+        if (num >= 4) {
+            this.moveCount++;
         }
     }
 
