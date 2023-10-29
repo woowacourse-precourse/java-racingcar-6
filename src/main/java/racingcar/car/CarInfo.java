@@ -14,6 +14,14 @@ public class CarInfo {
         return name;
     }
 
+    public int getMoveCount() {
+        return moveCount;
+    }
+
+    public void setMoveCount(int moveCount) {
+        this.moveCount = moveCount;
+    }
+
     @Override
     public String toString() {
         return name;
