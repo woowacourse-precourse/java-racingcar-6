@@ -1,10 +1,8 @@
 package racingcar.service;
 
 import racingcar.domain.RacingCar;
-import racingcar.util.validate.InputValidate;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import static camp.nextstep.edu.missionutils.Console.*;
 import static racingcar.util.validate.InputValidate.*;
@@ -61,6 +59,36 @@ public class RacingCarService {
 
     private void printResult(RacingCar racingCar) {
         System.out.println(racingCar.getUsername() + " : " + racingCar.getCurrentLocation());
+    }
+
+    public void getFinalWinner(ArrayList<RacingCar> racingCars) {
+        ArrayList<String> finalWinners = new ArrayList<>();
+
+        int maxDistance = findMaxDistance(racingCars);
+        findWinners(racingCars, finalWinners, maxDistance);
+
+        String winners = String.join(", ", finalWinners);
+        System.out.println("최종 우승자 : " + winners);
+    }
+
+    private void findWinners(ArrayList<RacingCar> racingCars, ArrayList<String> finalWinners, int maxDistance) {
+        for (RacingCar racingCar : racingCars) {
+            int racingCarLocation = racingCar.getCurrentLocation().length();
+            if (maxDistance == racingCarLocation) {
+                finalWinners.add(racingCar.getUsername());
+            }
+        }
+    }
+
+    private int findMaxDistance(ArrayList<RacingCar> racingCars) {
+        int maxDistance = 0;
+        for (RacingCar racingCar : racingCars) {
+            int racingCarLocation = racingCar.getCurrentLocation().length();
+            if (maxDistance < racingCarLocation) {
+                maxDistance = racingCarLocation;
+            }
+        }
+        return maxDistance;
     }
 
     public int addTime(int start) {
