@@ -9,13 +9,16 @@ import java.util.StringTokenizer;
 
 public class CarsManage {
     List<Car> cars = new ArrayList<>();
+    MyException myException = new MyException();
     public void inputCars() {
         String carInput = Console.readLine();
         StringTokenizer stringTokenizer = new StringTokenizer(carInput, ",");
 
         while (stringTokenizer.hasMoreTokens()) {
             Car car = new Car();
-            car.setName(stringTokenizer.nextToken());
+            String carName = stringTokenizer.nextToken();
+            myException.isCorrectName(carName);
+            car.setName(carName);
             cars.add(car);
         }
     }
