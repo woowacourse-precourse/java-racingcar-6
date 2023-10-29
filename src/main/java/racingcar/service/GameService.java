@@ -15,6 +15,7 @@ public class GameService {
   private int maxValue;
   private int setValue;
   public Car[] car;
+  List<Car> winnerList;
   public int tryNum;
   public int forwardNum;
 
@@ -57,36 +58,51 @@ public class GameService {
     tryNum = Validation.isNumber(Console.readLine());
   }
 
+  public void carsProcessing() {
+    for(int i=0;i<tryNum;i++) {
+      carForward();
+      carForwardView();
+      findWinner();
+      winnerView();
+    }
+  }
+
 
   public void carForward() {
-    System.out.println("실행 결과");
-    for(int i=0;i<tryNum;i++) {
-      for(int j=0;j<car.length;j++) {
-        forwardNum = RandomUtil.getRandomNumber(minValue, maxValue);
-        if(forwardNum >= setValue) {
-          car[j].increaseForward();
-        }
-        System.out.print(car[j].getName() + " : ");
-        for(int k=0;k<car[j].getForward();k++)
-          System.out.print("-");
-        System.out.println();
+    for(int j=0;j<car.length;j++) {
+      forwardNum = RandomUtil.getRandomNumber(minValue, maxValue);
+      if(forwardNum >= setValue) {
+        car[j].increaseForward();
       }
-      System.out.println();
     }
+  }
 
-    List<Car> winnerList = new ArrayList<Car>();
+  public void carForwardView() {
+    System.out.println("실행 결과");
+    for(int i=0;i<car.length;i++) {
+      System.out.print(car[i].getName() + " : ");
+      for(int k=0;k<car[i].getForward();k++)
+        System.out.print("-");
+    }
+    System.out.println();
+  }
+
+  public void findWinner() {
+    winnerList = new ArrayList<Car>();
     int max= -1;
 
     for(int i=0;i<car.length;i++) {
       if(car[i].getForward() > max) {
         max = car[i].getForward();
-        winnerList.clear(); // 새로운 최대값을 찾았으므로 이전 우승자 목록을 지웁니다.
-        winnerList.add(car[i]); // 현재 자동차를 우승자로 설정
+        winnerList.clear();
+        winnerList.add(car[i]);
       } else if(car[i].getForward() == max) {
-        winnerList.add(car[i]); // 중복된 경우 우승자 목록에 추가
+        winnerList.add(car[i]);
       }
     }
+  }
 
+  public void winnerView() {
     System.out.print("최종 우승자 : ");
     for (int i = 0; i < winnerList.size(); i++) {
       Car winner = winnerList.get(i);
@@ -97,7 +113,6 @@ public class GameService {
       }
     }
   }
-
 
 
 }
