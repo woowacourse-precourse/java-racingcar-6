@@ -54,4 +54,10 @@ public class Validate {
             throw new IllegalArgumentException("중복된 자동차 이름을 넣었습니다.");
         }
     }
+
+    public static void moveIsPositiveNumber(int move) {
+        if(move < 0) {
+            throw new IllegalArgumentException("시도할 숫자는 0보다 커야합니다.");
+        }
+    }
 }
