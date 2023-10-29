@@ -7,6 +7,7 @@
   - [ ] 이름은 5자 이하인지 알 수 있다. checkNameLength()
   - [ ] 콤마와 콤마 사이의 공백은 무시한다.
 - [ ] 사용자는 몇 번의 이동을 할 것인지 입력할 수 있다. getRoundCount()
+  -[ ] 입력한 값이 0이하이면  IllegalArgumentException을 발생시킨 후 애플리케이션 종료
 - [ ] 입력한 이동 회수 만큼 라운드를 진행한다. 자동차는 4이상이면 전진한다. 이외의 경우 정지  playRound()
   - [ ] 초기 점수를 0으로 초기화 한다. initCarPoints()
   - [ ] 각 라운드가 종료 후, 실행 결과를 출력한다.   displayResult()
