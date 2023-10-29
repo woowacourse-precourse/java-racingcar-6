@@ -20,6 +20,7 @@ public class RaceController {
         for (int i = 0; i < racingCar.getRaceCount(); i++) {
             Game game = new Game();
             RaceResultResponse response = game.updateRaceResult(racingCar);
+            outputView.printRaceResult(response);
         }
     }
 

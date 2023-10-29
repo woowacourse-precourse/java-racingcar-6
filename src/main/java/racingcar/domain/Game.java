@@ -26,7 +26,7 @@ public class Game {
 
     private static void move(List<Integer> randomNumbers, List<Integer> raceResult, int i) {
         if (randomNumbers.get(i) >= RaceConstant.MIN_MOVEMENT_VALUE) {
-            int updatedResult = raceResult.get(i) + RaceConstant.MOVE;
+            int updatedResult = raceResult.get(i) + RaceConstant.PLUS_ONE;
             raceResult.set(i, updatedResult);
         }
     }
