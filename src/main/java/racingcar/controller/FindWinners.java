@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface FindWinners {
 
-    public List<Integer> getWinner(List<Car> cars);
+    public List<String> getWinner(List<Car> cars);
 
 }

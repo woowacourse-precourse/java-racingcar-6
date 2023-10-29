@@ -7,11 +7,11 @@ import java.util.List;
 
 public class FindWinnersImpl implements FindWinners{
 
-    public List<Integer> getWinner(List<Car> cars) {
+    public List<String> getWinner(List<Car> cars) {
 
         int max=0;
         Car car;
-        List<Integer> winners=new ArrayList<>();
+        List<String> winners=new ArrayList<>();
 
         for(int i=0;i< cars.size();i++){
             car = cars.get(i);
@@ -20,10 +20,12 @@ public class FindWinnersImpl implements FindWinners{
             }
         }
 
+        String name;
         for(int i=0;i<cars.size();i++){
             car=cars.get(i);
             if(max == car.getMoveCount()){
-                winners.add(i);
+                name=car.getName();
+                winners.add(name);
             }
         }
 

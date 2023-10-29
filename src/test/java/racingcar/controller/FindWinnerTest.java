@@ -38,9 +38,9 @@ public class FindWinnerTest {
                 4, 3,2
         );
 
-        List<Integer> result=findWinners.getWinner(cars);
+        List<String> result=findWinners.getWinner(cars);
 
-        Assertions.assertThat(result).containsExactly(0);
+        Assertions.assertThat(result).containsExactly("pobi");
     }
 
     @Test
@@ -52,9 +52,9 @@ public class FindWinnerTest {
                 4, 3,7
         );
 
-        List<Integer> result=findWinners.getWinner(cars);
+        List<String> result=findWinners.getWinner(cars);
 
-        Assertions.assertThat(result).containsExactly(0,2);
+        Assertions.assertThat(result).containsExactly("pobi","jun");
     }
 
 }
