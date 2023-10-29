@@ -7,7 +7,7 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.Application;
 
-public class ExceptionTest extends NsTest {
+public class ValidationTest extends NsTest {
     @Test
     void 이름_예외_처리_빈_문자열() {
         assertSimpleTest(() ->
@@ -47,6 +47,16 @@ public class ExceptionTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    void 숫자_예외_처리_공백() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(" "))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
+
+
 
     @Override
     public void runMain() {
