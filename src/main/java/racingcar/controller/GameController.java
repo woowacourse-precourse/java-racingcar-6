@@ -17,18 +17,17 @@ public class GameController {
 
     public void runGame() {
         setUpPlayer(typeTransducer.strToList(getNickname()));
-        setUpGame(Integer.parseInt(getGameTime()));
+        setUpGameTime(getGameTime());
     }
 
     private void setUpPlayer(List<String> playerList) {
         for (String nickname : playerList) {
-            player.register(nickname);
+            player.registerNickname(nickname);
         }
     }
 
-    private void setUpGame(Integer gameTime) {
-        // TODO: 비즈니스 로직을 수행할 메소드 호출
-        game.register(gameTime);
+    private void setUpGameTime(String gameTime) {
+        player.registerGameTime(gameTime);
     }
 
     private String getNickname() {
