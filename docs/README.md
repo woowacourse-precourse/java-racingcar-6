@@ -6,9 +6,9 @@
 - ✅ getRandomNumber 메서드 구현
   - ✅ camp.nextstep.edu.missionutils에서 제공하는 Randoms 및 Console API를 사용하여 0에서 9사이의 랜덤 숫자 생성
 
-## ❌ 전진/후진 확인 기능
-- ❌ checkForwardOrBackward 메서드 구현
-  - ❌ 입력한 숫자가 4이상일 경우 1을 리턴, 그렇지 않을 경우 0을 리턴
+## ✅ 전진/후진 확인 기능
+- ✅ checkForwardOrBackward 메서드 구현
+  - ✅ 입력한 숫자가 4이상일 경우 1을 리턴, 그렇지 않을 경우 0을 리턴
 
 ## ✅ Count 증가 기능
 - ✅ putCarResult 메서드 구현
