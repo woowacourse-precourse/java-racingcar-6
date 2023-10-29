@@ -1,8 +1,11 @@
 package racingcar;
 
+import racingcar.domain.Car;
 import racingcar.domain.GameController;
 import racingcar.domain.GameData;
 import racingcar.domain.View;
+
+import java.util.List;
 
 import static racingcar.domain.ExceptionCheck.*;
 
@@ -31,12 +34,14 @@ public class Application {
         Integer repetitionNumber = gameData.getRepetitionNumber();
         for (int repetition = 0; repetition < repetitionNumber; repetition++) {
 
-            controller.MoveForward(gameData.getCarList());
-            controller.setRacingProgressStatus(gameData.getCarList());
-            view.printProgressStatus(gameData.getCarList());
+            List<Car> carListBeforeRacing = gameData.getCarList();
+            controller.MoveForward(carListBeforeRacing);
+            List<Car> carListAfterMove = gameData.getCarList();
+            controller.setRacingProgressStatus(carListAfterMove);
+            view.printProgressStatus(carListAfterMove);
         }
-
-        gameData.sortCarListByRank();
+        List<Car> carListAfterRacing = gameData.getCarList();
+        gameData.sortCarListByRank(carListAfterRacing);
         gameData.setWinnerList();
 
         view.printWinner(gameData.getWinnerList());
