@@ -7,6 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.model.Car;
 import racingcar.model.RacingGame;
 
@@ -30,4 +32,13 @@ class RacingGameTest {
         );
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"", " , ", "   ", " , , "})
+    void init_EmptyCarNameIsEntered_ThrownException() {
+        // given
+        // when
+
+        // then
+        assertThatThrownBy(() -> RacingGame.of("")).isInstanceOf(IllegalArgumentException.class);
+    }
 }
