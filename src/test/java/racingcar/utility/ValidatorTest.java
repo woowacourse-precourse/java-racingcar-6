@@ -72,5 +72,32 @@ class ValidatorTest {
 
     }
 
+    @Test
+    void validateInput_이름으로_공백을_입력한_경우_예외_발생() {
+        String blank = "";
+
+        assertThatThrownBy(() -> Validator.validateInput(blank))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("공백을 입력할 수 없습니다.");
+    }
+
+    @Test
+    void validateNameList_이름으로_중복된_값을_입력한_경우_예외_발생() {
+        List<String> dupliList = Arrays.asList("pobi", "pobi");
+
+        assertThatThrownBy(() -> Validator.validateNameList(dupliList))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("중복된 이름을 사용할 수 없습니다.");
+    }
+
+    @Test
+    void validateNameList_이름이_5자_초과인_경우_예외_발생() {
+        List<String> excessList = Arrays.asList("12345", "123456", "1234");
+
+        assertThatThrownBy(() -> Validator.validateNameList(excessList))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("이름은 5자 이하로 입력해주세요.");
+    }
+
 
 }
