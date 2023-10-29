@@ -16,16 +16,23 @@ public class GameTest {
     void 주어진_횟수_동안_n대의_자동차는_전진_또는_멈춤() {
         assertRandomNumberInRangeTest(
                 () -> {
+                    // when
                     game.step();
+                    // then
                     Assertions.assertThat(
                             "i : \nmy : \nme : ").isEqualTo(game.getRaceInfo());
+                    // when
                     game.step();
+                    // then
                     Assertions.assertThat(
                             "i : -\nmy : -\nme : -").isEqualTo(game.getRaceInfo());
+                    // when
                     game.step();
+                    // then
                     Assertions.assertThat(
                             "i : -\nmy : -\nme : --").isEqualTo(game.getRaceInfo());
                 },
+                //given
                 1, 2, 3,
                 4, 5, 6,
                 1, 2, 4);
@@ -35,11 +42,14 @@ public class GameTest {
     void 자동차_경주_게임을_완료한_후_누가_우승했는지를_알려줌() {
         assertRandomNumberInRangeTest(
                 () -> {
+                    // when
                     while (!game.isDone()) {
                         game.step();
                     }
+                    // then
                     assertThat(game.getWinnersList()).contains("me");
                 },
+                // given
                 1, 2, 3,
                 4, 5, 6,
                 1, 2, 4);
@@ -49,11 +59,14 @@ public class GameTest {
     void 우승자는_한_명_이상일_수_있음() {
         assertRandomNumberInRangeTest(
                 () -> {
+                    // when
                     while (!game.isDone()) {
                         game.step();
                     }
+                    // then
                     assertThat(game.getWinnersList()).contains("me", "my");
                 },
+                // given
                 1, 2, 3,
                 4, 5, 6,
                 1, 4, 4);
