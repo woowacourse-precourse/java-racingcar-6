@@ -16,7 +16,8 @@ public class LeaderBoard {
 
         LinkedHashMap<String, Integer> currentPaceMap = paceComputer.createDefaultPaceMap(machines);
 
-        for (int i = 0; i < Integer.parseInt(raceLap.getRaceLapNumber()); i++) {
+        int raceLapNumber = Integer.parseInt(raceLap.getRaceLapNumber());
+        for (int i = 0; i < raceLapNumber; i++) {
             paceComputer.updatePaceMap(currentPaceMap);
             paceMapList.add(new LinkedHashMap<>(currentPaceMap));
 
