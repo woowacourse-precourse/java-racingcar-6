@@ -1,8 +1,12 @@
 package racingcar.controller;
 
+import static java.lang.Math.max;
+
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.view.InputView;
@@ -17,7 +21,29 @@ public class RacingCarGame {
     public void run(){
         carInitialize();
         playRacingGame(inputView.InputTryNumber());
+        chooseWinner(cars.getCars());
+    }
 
+    public void chooseWinner(Map<String, Car> carsMap) {
+        int maxAdvanceCount = getMaxAdvanceCount(carsMap);
+        List<String> winnerList = getWinnerList(carsMap, maxAdvanceCount);
+        outputView.printFinalWinner(winnerList);
+    }
+
+    public List<String> getWinnerList(Map<String, Car> carsMap, int maxAdvanceCount) {
+        return  carsMap.values()
+                .stream()
+                .filter(car -> car.getAdvanceCount() == maxAdvanceCount)
+                .map(Car::getCarName)
+                .collect(Collectors.toList());
+    }
+
+    public int getMaxAdvanceCount(Map<String, Car> carsMap) {
+        int maxAdvanceCount = 0;
+        for (Car car : carsMap.values()) {
+            maxAdvanceCount = max(maxAdvanceCount, car.getAdvanceCount());
+        }
+        return maxAdvanceCount;
     }
 
     public void playRacingGame(int tryNumber) {
