@@ -7,7 +7,10 @@ public class Car {
     private int distance;
 
     Car() {
+    }
 
+    Car(String name) {
+        this.name = name;
     }
 
     void moveForward() {

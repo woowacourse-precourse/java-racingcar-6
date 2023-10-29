@@ -2,13 +2,14 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CarRacingGame {
-    private List<String> carName;
+    private List<Car> car = new ArrayList<>();
     private int trial;
 
-    void setCarNamesInput() throws IllegalArgumentException {
+    void setCar() throws IllegalArgumentException {
         String input = Console.readLine();
         Console.close();
 
@@ -24,7 +25,10 @@ public class CarRacingGame {
             }
         }
 
-        this.carName = carName;
+        for (String element: carName) {
+            car.add(new Car(element));
+        }
+
     }
 
     void setTrialInput() throws IllegalArgumentException {

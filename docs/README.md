@@ -41,8 +41,8 @@
     - 자동차 개수가 1개인 경우 그냥 출력한다.
     - 자동차 개수가 2개 이상인 경우 쉼표로 구분해 출력한다.
 
-#### `setCarNamesInput()`
-- 경주할 자동차의 모든 이름을 설정한다.
+#### `setCar()`
+- 경주할 자동차를 설정한다.
   - Console API의 readLine()을 사용해 입력값을 받고 저장한다.
   - Console API의 close()을 사용해 입력값을 닫는다.
   - 입력값에 쉼표가 없는 경우면 `IllegalArgumentException`을 발생시킨다.
