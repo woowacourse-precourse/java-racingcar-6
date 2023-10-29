@@ -36,7 +36,7 @@ public final class RoundDtoValidator {
 
     // 0이거나 음수인 케이스
     static Function<String, Void> validateNotPositiveNumber = roundInput -> {
-        if (roundInput.matches("-*[0-9]*|0")) {
+        if (roundInput.matches("^[-][0-9]*|0$")) {
             throw new IllegalArgumentException(NOT_POSITIVE_NUMBER_MESSAGE);
         }
         return null;
