@@ -5,6 +5,7 @@ import java.util.List;
 
 import racingcar.model.game_attempt;
 import racingcar.model.game_set;
+import racingcar.model.game_winner;
 
 public class output {
 
@@ -20,12 +21,13 @@ public class output {
         System.out.println("실행결과");
     }
 
-    public static void Game_exe(int n, List<String> cars) {
+    public static HashMap<String, Integer> Game_exe(int n, List<String> cars) {
         HashMap<String, Integer> setting = game_set.game_set(cars);
         for (int i = 0; i < n; i++) {
             game_attempt.game_record(setting);
             Game_cur(setting);
         }
+        return setting;
     }
 
     public static void Game_cur(HashMap<String, Integer> setting) {
@@ -34,6 +36,12 @@ public class output {
             System.out.println("-".repeat(setting.get(car_name)));
         }
         System.out.println("");
+    }
+
+    public static void Game_result(HashMap<String, Integer> result) {
+        List<String> winners = game_winner.game_winner(result);
+        String wins = String.join(", ", winners);
+        System.out.println("최종 우승자 : " + wins);
     }
 
 }

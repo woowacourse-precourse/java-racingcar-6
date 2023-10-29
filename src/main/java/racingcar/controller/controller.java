@@ -14,7 +14,8 @@ public class controller {
         output.Attempts_Message();
         int attempt = input.input_attempts();
         output.Game_Start();
-        output.Game_exe(attempt, names);
+        HashMap<String, Integer> result = output.Game_exe(attempt, names);
+        output.Game_result(result);
     }
 
 }
