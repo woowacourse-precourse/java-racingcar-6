@@ -4,6 +4,7 @@ import racingcar.constants.GameConstant;
 import racingcar.constants.OutputMessage;
 import racingcar.model.Car;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class OutputView {
 
@@ -12,13 +13,12 @@ public class OutputView {
     }
 
     public static void printPlayResult(List<Car> cars) {
-        for (Car car : cars) {
+        cars.forEach(car -> {
             System.out.print(car.getName() + OutputMessage.COLON.getMessage());
-            for(int i=0; i<car.getPosition(); i++) {
-                System.out.print(OutputMessage.RESULT_CHARACTER.getMessage());
-            }
+            IntStream.range(0, car.getPosition())
+                    .forEach(i -> System.out.print(OutputMessage.RESULT_CHARACTER.getMessage()));
             System.out.println();
-        }
+        });
         System.out.println();
     }
 

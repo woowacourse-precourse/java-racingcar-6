@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Cars {
 
@@ -30,8 +31,11 @@ public class Cars {
     }
 
     private static void validateDuplicatedName(String[] carNames) {
-        Set<String> names = new HashSet<>(Arrays.asList(carNames));
-        if (carNames.length != names.size()) {
+        Set<String> names = new HashSet<>();
+        boolean hasDuplicates = Arrays.stream(carNames)
+                .anyMatch(name -> !names.add(name));
+
+        if (hasDuplicates) {
             throw new IllegalArgumentException(ErrorMessage.ERROR_DUPLICATED_NAME.getMessage());
         }
     }
@@ -49,29 +53,25 @@ public class Cars {
     }
 
     public void playRound() {
-        for (Car car : cars) {
+        cars.forEach(car -> {
             int randomNumber = Util.generateRandomNumber();
             car.moveForward(randomNumber);
-        }
+        });
     }
 
     public List<String> getWinners() {
-        List<String> winners = new ArrayList<>();
         int maxPosition = getMaxPosition();
-        for (Car car : cars) {
-            if (car.isWinner(maxPosition)) {
-                winners.add(car.getName());
-            }
-        }
-        return winners;
+        return cars.stream()
+                .filter(car -> car.isWinner(maxPosition))
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 
     private int getMaxPosition() {
-        int maxPosition = 0;
-        for (Car car : cars) {
-            maxPosition = Math.max(maxPosition, car.getPosition());
-        }
-        return maxPosition;
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
     }
 
     public List<Car> getCars() {
