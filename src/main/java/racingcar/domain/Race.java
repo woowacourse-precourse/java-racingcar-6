@@ -14,16 +14,10 @@ public class Race {
         this.moveStrategy = moveStrategy;
     }
 
-    public void oneRound() {
-        move();
-    }
-
-    public void move() {
-        for (Car car : cars) {
-            if (moveStrategy.isAbleToMove()) {
-                car.move();
-            }
-        }
+    public void executeOneRound() {
+        cars.stream()
+                .filter(car -> moveStrategy.isAbleToMove())
+                .forEach(Car::move);
     }
 
     public List<Car> getCars() {
@@ -31,20 +25,13 @@ public class Race {
     }
 
     public List<Car> getWinners() {
-        List<Car> winners = new ArrayList<>();
-        int maxPosition = 0;
+        int maxPosition = cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
 
-        for (Car car : cars) {
-            if (car.getPosition() > maxPosition) {
-                maxPosition = car.getPosition();
-                winners.clear();
-            }
-
-            if (car.getPosition() == maxPosition) {
-                winners.add(car);
-            }
-        }
-
-        return winners;
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .toList();
     }
 }

@@ -22,7 +22,7 @@ public class RacingGame {
         Race race = new Race(createCars(carNamesInput), new RandomMoveStrategy());
 
         for (int currentRound = 0; currentRound < roundCount; currentRound++) {
-            race.oneRound();
+            race.executeOneRound();
             OutputView.printProgress(race.getCars());
         }
 
