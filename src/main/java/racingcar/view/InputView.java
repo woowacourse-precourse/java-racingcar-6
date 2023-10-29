@@ -14,7 +14,7 @@ public class InputView {
     private static final String DELIMITER = ",";
 
 
-    public List<String> inputCarName(){
+    public static List<String> inputCarName(){
         System.out.println(CAR_INPUT);
         String carName = Console.readLine();
 
@@ -26,7 +26,7 @@ public class InputView {
         return carNameList;
     }
 
-    public List<String> splitCarName(String carName){
+    public static List<String> splitCarName(String carName){
         List<String> carNameList = Arrays.
                 stream(carName.split(DELIMITER)).
                 toList();
@@ -34,7 +34,7 @@ public class InputView {
         return carNameList;
     }
 
-    public int inputCount(){
+    public static int inputCount(){
         System.out.println(COUNT_INPUT);
         String count = Console.readLine();
 
