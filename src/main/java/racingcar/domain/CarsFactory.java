@@ -30,7 +30,7 @@ public class CarsFactory {
 
     public List<String> inputCarNames() {
         String inputNames = Console.readLine();
-        List<String> carNames = Arrays.asList(inputNames.split(DELIMITER));
+        List<String> carNames = Arrays.asList(inputNames.split(DELIMITER, -1));
         validateCarNames(carNames);
 
         return carNames;
