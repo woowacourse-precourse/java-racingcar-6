@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Reader {
-        public List<String> InputReader(){
+        public List<String> readInput(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         List<String> members = new ArrayList<>();
         String input = Console.readLine();
@@ -17,7 +17,7 @@ public class Reader {
         }
         return members;
     }
-    public int NumberReader(){
+    public int readNumber(){
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
         try{
