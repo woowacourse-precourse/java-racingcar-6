@@ -13,8 +13,8 @@ public class Player {
 
     public void setCarName(){
         inputCarNames = Console.readLine().split(",");
-        for(int i = 0; i < inputCarNames.length; i++){
-            cars.put(inputCarNames[i], 0);
+        for (String inputCarName : inputCarNames) {
+            cars.put(inputCarName, 0);
         }
     }
 
