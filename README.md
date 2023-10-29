@@ -43,7 +43,7 @@
 ### GameManager
 
 - 0에서 9사이의 무작위 값을 생성한다
-- 게임 시작 전 게임 진행을 위한 요소들을 세팅한다
+- 게임 시작 전 게임 진행을 위한 요소들을 세팅한다 (자동차 이름, 시도 횟수, carMap 내 key, value)
 
 ### Input
 
@@ -64,3 +64,5 @@
 - 게임 진행에 필요한 요소인 carNameList, tryCount 변수 생성
 - 사용자로부터 입력 받은 값을 통해 carNameList 세팅
 - 사용자로부터 입력 받은 값을 통해 tryCount 세팅
+- 자동차 이름과 전진 횟수를 key, value로 같는 carMap 변수 생성
+- GameElements 내 변수들에 대한 getter method 구현
