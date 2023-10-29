@@ -28,8 +28,7 @@ public class RoundCountInput {
      */
     private int parseRoundCount(String userInput) {
         try {
-            int roundCount = Integer.parseInt(userInput);
-            return roundCount;
+            return Integer.parseInt(userInput);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(FORMAT_ERROR);
         }
