@@ -20,6 +20,7 @@ public class User {
         int round = 1;
         while (round <= raceCount) {
             carController.forward();
+            carController.getRoundRaceResults();
             round++;
         }
     }

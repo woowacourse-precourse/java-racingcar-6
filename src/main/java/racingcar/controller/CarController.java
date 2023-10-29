@@ -34,4 +34,8 @@ public class CarController {
     public void forward() {
         carService.forward();
     }
+
+    public void getRoundRaceResults() {
+        System.out.println(carService.createRoundRaceResults());
+    }
 }
