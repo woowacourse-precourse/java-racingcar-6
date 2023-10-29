@@ -16,7 +16,7 @@ public class GameSetting {
 
     public void initializeCars(List<String> carNameList) {
         for (String carName : carNameList) {
-            cars.add(new Car(carName));
+            cars.add(Car.create(carName));
         }
     }
 
