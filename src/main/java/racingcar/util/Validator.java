@@ -19,13 +19,13 @@ public class Validator {
         validateInputIsNotOverLength(carNamesSplit);
     }
 
-    public void validateNumGamesInput(String numGamesInput) {
-        validateInputIsNotEmpty(numGamesInput);
-        validateInputIsNotZeroOrNegative(numGamesInput);
+    public void validateNumRacesInput(String numRacesInput) {
+        validateInputIsNotEmpty(numRacesInput);
+        validateInputIsNotZeroOrNegative(numRacesInput);
     }
 
-    private void validateInputIsNotZeroOrNegative(String numGamesInput) {
-        if (Integer.parseInt(numGamesInput) < NUM_TRIAL_MIN_VALUE) {
+    private void validateInputIsNotZeroOrNegative(String numRacesInput) {
+        if (Integer.parseInt(numRacesInput) < NUM_TRIAL_MIN_VALUE) {
             throw new IllegalArgumentException("입력값은 1 이상이어야 합니다.");
         }
     }

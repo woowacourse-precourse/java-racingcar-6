@@ -51,21 +51,21 @@ public class ValidatorTest extends NsTest {
 
     @Test
     void 횟수_입력값_비어있음_오류() {
-        assertThatThrownBy(() -> validator.validateNumGamesInput(""))
+        assertThatThrownBy(() -> validator.validateNumRacesInput(""))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void 횟수_입력값_0_이하_오류() {
-        assertThatThrownBy(() -> validator.validateNumGamesInput("0"))
+        assertThatThrownBy(() -> validator.validateNumRacesInput("0"))
                 .isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> validator.validateNumGamesInput("-5"))
+        assertThatThrownBy(() -> validator.validateNumRacesInput("-5"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void 횟수_입력값_성공() {
-        validator.validateNumGamesInput("5");
+        validator.validateNumRacesInput("5");
     }
 
     @Override

@@ -2,15 +2,15 @@ package racingcar.model;
 
 import java.util.List;
 
-public class Game {
+public class Race {
     private int order = 0;
     private final List<Car> cars;
 
-    private final int numGames;
+    private final int numRaces;
 
-    public Game(int numGames, List<Car> cars) {
+    public Race(int numRaces, List<Car> cars) {
         this.cars = cars;
-        this.numGames = numGames;
+        this.numRaces = numRaces;
     }
 
     public List<Car> getCars() {
@@ -22,6 +22,6 @@ public class Game {
     }
 
     public boolean checkGamesExhausted() {
-        return this.order >= this.numGames;
+        return this.order >= this.numRaces;
     }
 }
