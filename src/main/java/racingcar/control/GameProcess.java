@@ -78,8 +78,7 @@ public class GameProcess {
         // 입력받은 이름 문자열로 자동차를 만든다.
         // 문자열 공백 검사.
         if (ValidException.isValidBlankCheck(nameLineOfRaceCar)) {
-            // TODO: 10/28/23 Utill 클래스로 배열을 리스트로 변환
-            nameSplitArr = nameLineOfRaceCar.split(",");
+            nameSplitArr = Utill.makeArrFromString(nameLineOfRaceCar, ",");
             nameSplitList = List.of(nameSplitArr);
         }
     }

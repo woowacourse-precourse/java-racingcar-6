@@ -59,5 +59,16 @@ public class Utill {
         return Integer.valueOf(str);
     }
 
+    /**
+     * string을 regex의 기준으로 구분을 하여 배열로 반환
+     *
+     * @param string arr으로 만들고 싶은 string
+     * @param regex  string을 배열로 만드는 기준
+     * @return
+     */
+    public static String[] makeArrFromString(String string, String regex) {
+        return string.split(regex);
+    }
+
     // TODO: 10/28/23 배열을 리스트로 변환
 }
