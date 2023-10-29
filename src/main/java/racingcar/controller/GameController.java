@@ -15,5 +15,6 @@ public class GameController {
     public void Init() {
         inputService.readCarInput();
         System.out.println(racingGameRepository.getCar());
+        inputService.readMoveCountFromUser();
     }
 }
