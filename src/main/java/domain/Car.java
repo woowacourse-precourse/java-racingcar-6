@@ -26,4 +26,8 @@ public class Car {
     public void setMoveCount(int moveCount){
         this.moveCount = moveCount;
     }
+
+    public int getMoveCount(){
+        return moveCount;
+    }
 }
