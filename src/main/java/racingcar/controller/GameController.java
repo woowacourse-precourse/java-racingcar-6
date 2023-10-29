@@ -2,6 +2,9 @@ package racingcar.controller;
 
 import racingcar.domain.GamePlayer;
 import racingcar.domain.GameRank;
+import racingcar.domain.GameWinner;
+import racingcar.dto.CarNames;
+import racingcar.dto.MoveCount;
 import racingcar.service.GameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -27,19 +30,26 @@ public class GameController {
     }
 
     private void showWinner(GamePlayer gamePlayer) {
+        //createGameRankBy(gamePlayer) 가 더 가독성이 좋은가
         GameRank gameRank = gameService.createGameRank(gamePlayer);
-        outputView.gameWinner(gameRank);
+        GameWinner gameWinner = gameService.createGameWinner(gameRank);
+        outputView.gameWinner(gameWinner);
     }
 
     private void play(GamePlayer gamePlayer) {
         outputView.requestMoveCount();
-        gameService.moveCarsByCount(gamePlayer, inputView.moveCount());
+        MoveCount moveCount = inputView.moveCount();
+        gameService.moveCarsByCount(gamePlayer, moveCount);
         System.out.println(gamePlayer);
     }
 
     private GamePlayer start() {
         outputView.requestCarName();
-        GamePlayer gamePlayer = gameService.settingPlayer(inputView.carNames());
-        return gamePlayer;
+        //inputView.carNames();
+        //함수를 넣는것이 아닌 함수로 정보를 저장한뒤 저장한 인스턴스를 전달하는 과정은 어떤지
+        //현재 GamePlayer가 inputView의 기능을 담당하고 있다고 봐도 되는 것인지
+//        GamePlayer gamePlayer = gameService.initializePlayer(inputView.carNames());
+        CarNames carNames = inputView.carNames();
+        return gameService.createGamePlayer(carNames);
     }
 }
