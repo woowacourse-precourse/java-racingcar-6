@@ -10,11 +10,12 @@ import racingcar.Model.GameModel;
 public class GameController {
 
     private final GameModel gameModel;
-    private final CarController carController;
+    ArrayList<CarModel> carModelList = new ArrayList<>();
 
-    public GameController(GameModel gameModel, CarController carController) {
+
+    public GameController(GameModel gameModel,ArrayList<CarModel> carModelList) {
         this.gameModel = gameModel;
-        this.carController = carController;
+        this.carModelList =carModelList;
     }
 
 
@@ -32,20 +33,20 @@ public class GameController {
         gameModel.setCarNumber(carList.length);
         gameModel.setCoinNumber(coinNumber);
 
-        carController.setCarModels(carList);
+        setCarModels(carList);
 
         for(int i = 0; i< gameModel.getCoinNumber();i++){
 
             throwDiceAndGoForward();
         }
 
-        carController.printDistance();
+        printDistance();
     }
 
     private void throwDiceAndGoForward() {
 
         int dice;
-        ArrayList<CarModel> carModels = carController.getCarModelList();
+        ArrayList<CarModel> carModels = getCarModelList();
         CarModel nowCar;
 
         for(int i = 0; i<gameModel.getCarNumber();i++){
@@ -53,7 +54,48 @@ public class GameController {
             dice=pickNumberInRange(0,9);
             nowCar = carModels.get(i);
 
-            carController.goForward(nowCar,dice);
+            goForward(nowCar,dice);
+        }
+    }
+
+    public void setCarModels(String[] carList){
+
+        for(String carName : carList){
+
+            carModelList.add(new CarModel(carName));
+        }
+    }
+
+    public ArrayList<CarModel> getCarModelList() {
+        return carModelList;
+    }
+
+    public void goForward(CarModel car, int dice){
+
+        if(dice>=4){
+            car.goForwardDistance();
+        }
+    }
+
+    public void printDistance(){
+
+        int distance;
+        String carName;
+        StringBuilder sb;
+
+        for(CarModel car : carModelList){
+
+            sb = new StringBuilder();
+            distance = car.getForwardDistance();
+            carName = car.getName();
+
+            sb.append(carName).append(" : ");
+
+            for(int i = 0; i < distance;i++){
+                sb.append("-");
+            }
+
+            System.out.println(sb);
         }
     }
 
