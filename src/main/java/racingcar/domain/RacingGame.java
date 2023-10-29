@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import racingcar.constant.IllegalArgumentExceptionType;
+import racingcar.constant.IllegalStateExceptionType;
 
 public class RacingGame {
     private static final int END_COUNT = 0;
@@ -23,8 +24,8 @@ public class RacingGame {
     public boolean isEnd() { return attemptCount <= END_COUNT; }
 
     public void proceed() {
-        if (isEnd()) {
-            return;
+        if (!isEnd()) {
+            throw IllegalStateExceptionType.NO_MORE_ATTEMPT_MESSAGE.getException();
         }
         cars.moveCars();
         attemptCount--;

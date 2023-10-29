@@ -1,6 +1,6 @@
 package racingcar.constant;
 
-public enum IllegalArgumentExceptionType {
+public enum IllegalArgumentExceptionType implements ExceptionType<IllegalArgumentException> {
     CAR_NAME_MIN_LENGTH_ERROR_MESSAGE("차량 이름은 0보다 커야 합니다."),
     CAR_NAME_MAX_LENGTH_ERROR_MESSAGE("차량 이름의 길이는 5와 같거나 작아야 합니다."),
     EMPTY_CARS_ERROR_MESSAGE("차량은 한 대 이상이어야 합니다."),
