@@ -4,7 +4,14 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class Game {
-    
+
+    public static void playGame(List<User> users) {
+        moveForward(users);
+        for (User u : users) {
+            printRacing(u);
+        }
+    }
+
     private static int randomNumber() {
         int randomNum = Randoms.pickNumberInRange(0, 9);
         return randomNum;
