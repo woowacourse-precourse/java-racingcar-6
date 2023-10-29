@@ -39,11 +39,19 @@ public class RacingGame {
         input = input.replaceAll(" ", "");
         String[] carNames = input.split(",");
 
+        if (isEmptyString(input, carNames)) {
+            throw new IllegalArgumentException("자동차 이름을 입력해주세요.");
+        }
+
         for (String carName : carNames) {
             cars.add(Car.of(carName));
         }
 
         return cars;
+    }
+
+    private boolean isEmptyString(String input, String[] carNames) {
+        return input.isEmpty() || carNames.length == 0;
     }
 
     private int readRacingTimes(String input) {
