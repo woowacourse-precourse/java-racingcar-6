@@ -6,6 +6,7 @@ import java.util.List;
 import racingcar.constant.RacingGameConstants;
 import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.utils.RandomGenerator;
 
 public class RacingGameController {
     private boolean isRunning;
@@ -24,14 +25,18 @@ public class RacingGameController {
         Cars cars = InputController.scanCarList();
         int numberOfRounds = InputController.scanNumberOfRounds();
 
+        playAllRounds(numberOfRounds, cars);
+        OutputController.printWinnersMessage(pickWinners(cars));
+
+        endGame();
+    }
+
+    private void playAllRounds(int numberOfRounds, Cars cars) {
         OutputController.printResultHeaderMessage();
         for (int i = 0; i < numberOfRounds; i++) {
             playOneRound(cars);
             OutputController.printForwardStateMessage(cars);
         }
-        OutputController.printWinnersMessage(pickWinners(cars));
-
-        endGame();
     }
 
     private void playOneRound(Cars cars) {
@@ -41,8 +46,9 @@ public class RacingGameController {
     }
 
     private void moveOrNot(Car car) {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if (randomNumber >= RacingGameConstants.MOVE_THRESHOLD) {
+        int randomNumber = RandomGenerator
+                .generateRandomIntInRange(RacingGameConstants.MOVE_ENERGY_MIN, RacingGameConstants.MOVE_ENERGY_MAX);
+        if (randomNumber >= RacingGameConstants.ENERGY_THRESHOLD_TO_MOVE) {
             car.moveOneStep();
         }
     }
