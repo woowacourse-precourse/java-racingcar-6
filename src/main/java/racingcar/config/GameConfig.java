@@ -5,6 +5,7 @@ public enum GameConfig {
     START_OF_RANGE(0),
     END_OF_RANGE(9),
     MAX_TRY_COUNT(Integer.MAX_VALUE),
+    MIN_TRY_COUNT(1),
     MAX_CAR_NAME_LENGTH(5);
 
     private final int value;
