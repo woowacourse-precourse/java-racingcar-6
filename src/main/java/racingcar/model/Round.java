@@ -35,4 +35,12 @@ public class Round {
             throw new IllegalArgumentException(ERROR_MESSAGE + ERROR_INTEGER_OVERFLOW);
         }
     }
+
+    public boolean hasNextRound() {
+        return this.round != 0;
+    }
+
+    public void finishRound() {
+        this.round--;
+    }
 }
