@@ -149,6 +149,20 @@ class ApplicationTest extends NsTest {
     }
 
 
+    @Test
+    void 게임결과_출력_테스트() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("kang,geon,young", "3");
+                    assertThat(output()).contains("kang : -", "geon : --", "young : ---", "최종 우승자 : young");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD,
+                STOP, MOVING_FORWARD, MOVING_FORWARD,
+                STOP, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
