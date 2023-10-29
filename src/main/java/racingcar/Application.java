@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import view.InputView;
+import view.OutputView;
 
 public class Application {
     static int moveCondition = 4;
@@ -10,8 +11,10 @@ public class Application {
         String[] racingCarNames = InputView.inputRacingCarNames();
         int moveCount = InputView.inputMoveCount();
         int[] distances = new int[racingCarNames.length];
+        OutputView.printResultMessage();
         for (int i = 0; i < moveCount; ++i) {
             move(distances);
+            OutputView.printResult(racingCarNames, distances);
         }
     }
 
