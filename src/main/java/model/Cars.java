@@ -10,6 +10,7 @@ public class Cars {
     Utils utils = new Utils();
 
     public Cars(String input) {
+        utils.duplicateCarName(input);
         cars = convertStringArrayToCars(input);
     }
 

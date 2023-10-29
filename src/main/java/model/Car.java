@@ -1,10 +1,16 @@
 package model;
 
+import utils.Utils;
+
 public class Car {
     String name;
     String nowPlace = "";
+    Utils utils = new Utils();
 
     public Car(String name) {
+        utils.isOverLength(name);
+        utils.isEmpty(name);
+        utils.hasSpace(name);
         this.name = name;
     }
 
