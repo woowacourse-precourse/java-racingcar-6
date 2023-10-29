@@ -18,4 +18,8 @@ public enum ExceptionMessage {
     public String toString() {
         return message;
     }
+
+    public String getMessage() {
+        return message;
+    }
 }
