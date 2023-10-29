@@ -22,13 +22,23 @@ public class FeatureTest {
 
     @Test
     void 자동차_이름_파싱() {
-        String testInput = "car1,car2,car3";
-        RaceCarNames raceCarNames = new RaceCarNames(testInput);
+        String testCarNames = "car1,car2,car3";
+        RaceCarNames raceCarNames = new RaceCarNames(testCarNames);
 
         List<String> actualCarNames = raceCarNames.parseCarNamesFromRaceCarInput();
         List<String> expectedCarNames = List.of("car1", "car2", "car3");
 
         assertThat(actualCarNames).containsExactlyElementsOf(expectedCarNames);
+    }
+
+    @Test
+    void 자동차_이름_다섯글자_초과시_예외발생() {
+        String testRaceCarNames = "mycar1,car2,car3";
+        InputStream inputStream = new ByteArrayInputStream(testRaceCarNames.getBytes());
+        System.setIn(inputStream);
+
+        assertThatThrownBy(Application::receiveRaceCarNames)
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -64,15 +74,7 @@ public class FeatureTest {
         assertThat(actualTryCount).isEqualTo(expectedTryCount);
     }
 
-//    @Test
-//    void 자동차_이름_다섯_글자_초과() {
-//        String testRaceCarNames = "mycar1,car2,car3";
-//        InputStream inputStream = new ByteArrayInputStream(testRaceCarNames.getBytes());
-//        System.setIn(inputStream);
-//
-//        assertThatThrownBy(Application::receiveRaceCarNames)
-//                .isInstanceOf(IllegalArgumentException.class);
-//    }
+
 //
 //    @Test
 //    void 자동차_이름_비어있음() {
