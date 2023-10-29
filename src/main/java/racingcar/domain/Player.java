@@ -17,9 +17,9 @@ public class Player {
         System.out.println(ASK_CAR_NAME);
         String names = Console.readLine();
             cars = splitString(names);
-            for (int i = 0; i < cars.length; i++) {
-                checkNames(cars[i]);
-            }
+        for (String car : cars) {
+            checkNames(car);
+        }
     }
 
     public String[] splitString(String str) {

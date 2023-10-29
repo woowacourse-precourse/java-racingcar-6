@@ -1,4 +1,5 @@
 package racingcar.domain;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.Vector;
@@ -31,25 +32,21 @@ public class Game {
     }
 
     public void startRound() {
-        for (int i = 0; i < cars.length; i++) {
+        for (Car car : cars) {
             if (moveForward(Randoms.pickNumberInRange(0, 9))) { // 난수 생성 및 4보다 큰지 판단
-                cars[i].moveForward();
+                car.moveForward();
             }
         }
     }
 
     public boolean moveForward(int randomNumber) {
-        if (randomNumber >= 4) {
-            return true;
-        }
-
-        return false;
+        return randomNumber >= 4;
     }
 
     public void printProgress() {
-        for (int i = 0; i < cars.length; i++) {
-            String name = cars[i].getName();
-            int position = cars[i].getPosition();
+        for (Car car : cars) {
+            String name = car.getName();
+            int position = car.getPosition();
             System.out.print(name + " : ");
             for (int j = 0; j < position; j++) {
                 System.out.print("-");
@@ -61,8 +58,8 @@ public class Game {
 
     public int getFirstPosition() {
         int firstPosition = 0;
-        for (int i = 0; i < cars.length; i++) {
-            int tmp = cars[i].getPosition();
+        for (Car car : cars) {
+            int tmp = car.getPosition();
             if (tmp < firstPosition) {
                 continue;
             }
@@ -74,10 +71,10 @@ public class Game {
 
     public void getWinners() {
         int firstPosition = getFirstPosition();
-        for (int i = 0; i < cars.length; i++) {
-            int tmp = cars[i].getPosition();
+        for (Car car : cars) {
+            int tmp = car.getPosition();
             if (tmp == firstPosition) {
-                winners.add(cars[i].getName());
+                winners.add(car.getName());
             }
         }
     }
