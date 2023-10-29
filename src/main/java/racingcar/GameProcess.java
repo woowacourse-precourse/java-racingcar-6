@@ -23,7 +23,7 @@ public class GameProcess {
 		printFinalString(maxDistance, carList);
 	}
 
-	private void moveOrNot(InformationOfCar car) {
+	public void moveOrNot(InformationOfCar car) {
 		int randomNumber = Randoms.pickNumberInRange(0, 9);
 		if (judgeMoveOrNot(randomNumber)) {
 			car.setDistance("-");
@@ -31,7 +31,7 @@ public class GameProcess {
 		System.out.println(car.getCarName() + " : " + car.getDistance());
 	}
 
-	private boolean judgeMoveOrNot(int randomNumber) {
+	public boolean judgeMoveOrNot(int randomNumber) {
 		return randomNumber >= 4;
 	}
 

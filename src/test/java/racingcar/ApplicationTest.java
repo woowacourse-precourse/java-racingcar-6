@@ -10,6 +10,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.List;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -61,5 +62,18 @@ class ApplicationTest extends NsTest {
         Validator validator = new Validator();
         assertThatThrownBy(() -> validator.validateMoveCount(input))
             .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 자동차_이동() {
+        GameProcess game = new GameProcess();
+        InformationOfCar car = new InformationOfCar("sanni", "");
+        assertRandomNumberInRangeTest(
+            () -> {
+                game.moveOrNot(car);
+                assertThat(output()).contains("sanni : -");
+            },
+            MOVING_FORWARD
+        );
     }
 }
