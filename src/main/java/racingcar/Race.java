@@ -26,7 +26,7 @@ public class Race {
         }
     }
 
-        public List<Car> getWinners() {
+    public List<Car> getWinners() {
         int maxPosition = cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
