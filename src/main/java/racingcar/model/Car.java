@@ -25,7 +25,7 @@ public class Car {
 
     private void validateSize(final String name) {
         if (name.length() > MAX_NAME_SIZE) {
-            throw new IllegalArgumentException("이름 크기는 5이하여야 합니다.");
+            throw new IllegalArgumentException("[Error] 이름 크기는 5이하여야 합니다.");
         }
     }
 

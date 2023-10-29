@@ -17,7 +17,7 @@ public class InputView {
             String names = readLine();
             return Arrays.asList(names.split(","));
         } catch (Exception e) {
-            throw new IllegalArgumentException("잘못된 형식의 자동차 이름이 입력되었습니다.", e);
+            throw new IllegalArgumentException("[Error] 잘못된 형식의 자동차 이름이 입력되었습니다.", e);
         }
     }
 
@@ -27,7 +27,7 @@ public class InputView {
             String trialCount = readLine();
             return Integer.parseInt(trialCount);
         } catch (Exception e) {
-            throw new IllegalArgumentException("잘못된 형식의 시도횟수가 입력되었습니다.", e);
+            throw new IllegalArgumentException("[Error] 잘못된 형식의 시도횟수가 입력되었습니다.", e);
         }
     }
 }

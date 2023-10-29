@@ -29,7 +29,7 @@ public class Cars {
 
     private void validateEmpty() {
         if (this.cars.isEmpty()) {
-            throw new IllegalArgumentException("자동차가 한대도 없습니다.");
+            throw new IllegalArgumentException("[Error] 자동차가 한대도 없습니다.");
         }
     }
 

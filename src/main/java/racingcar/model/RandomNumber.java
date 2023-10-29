@@ -16,7 +16,7 @@ public class RandomNumber {
 
     private void validateRange(final int number) {
         if (number < MIN_RANGE || MAX_RANGE < number) {
-            throw new IllegalArgumentException("랜덤 생성 숫자는 0~9사이의 숫자여야 합니다.");
+            throw new IllegalArgumentException("[Error] 랜덤 생성 숫자는 0~9사이의 숫자여야 합니다.");
         }
     }
 
