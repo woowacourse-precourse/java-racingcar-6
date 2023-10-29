@@ -15,6 +15,7 @@ public class GameUtil {
 
     public void runGame() {
         receiveCarsName();
+        receiveRepeatNumber();
     }
 
     public void receiveCarsName() {
@@ -37,5 +38,21 @@ public class GameUtil {
         }
 
         return carNames;
+    }
+
+    public void receiveRepeatNumber() {
+        System.out.println(Constants.REPEAT_NUMBER_INPUT_COMMENT);
+        String repeatNumber = Console.readLine();
+
+        validateRepeatNumber(repeatNumber);
+        this.repeatNumber = Integer.parseInt(repeatNumber);
+    }
+
+    private void validateRepeatNumber(String repeatNumber) {
+        try {
+            Integer.parseInt(repeatNumber);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
     }
 }
