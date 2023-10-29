@@ -15,8 +15,8 @@ public class InputConvertorTest {
 
     @Test
     public void 쉼표로_문자열을_분리하면_올바르게_분리된_리스트가_반환되어야_한다() {
-        String input = "car1,car2,car3";
-        List<String> expected = List.of("car1", "car2", "car3");
+        String input = "car1,car2,car3, car4, c a r 5";
+        List<String> expected = List.of("car1", "car2", "car3","car4","car5");
 
         List<String> result = inputConvertor.splitByComma(input);
 
@@ -33,9 +33,10 @@ public class InputConvertorTest {
     }
 
     @Test
-    public void 유효하지_않은_문자열을_정수로_변환하려고_하면_NumberFormatException이_발생해야_한다() {
+    public void 유효하지_않은_문자열을_정수로_변환하려고_하면_IllegalArgumentException이_발생해야_한다() {
         String input = "invalid";
 
         Assertions.assertThatIllegalArgumentException().isThrownBy(() -> inputConvertor.convertToInt(input));
     }
+
 }
