@@ -18,6 +18,12 @@ public class RaceLap implements Showable, Gettable {
     public String getInput() {
         raceLapNumber = readLine();
 
+        validateInput(raceLapNumber);
+
+        return raceLapNumber;
+    }
+
+    private void validateInput(String raceLapNumber) {
         Predicate<String> isNumeric = str -> {
             try {
                 Double.parseDouble(str);
@@ -30,8 +36,6 @@ public class RaceLap implements Showable, Gettable {
         if (!isNumeric.test(raceLapNumber)) {
             throw new IllegalArgumentException(ILLEGALARGUMENTEXCEPTION_INSTRUCTION);
         }
-
-        return raceLapNumber;
     }
 
     public String getRaceLapNumber() {
