@@ -21,12 +21,12 @@ class MovementValidationTest {
     @DisplayName("사용자가 이동 횟수에 아무것도 입력하지 않았을 때, 예외를 발생하는지")
     @ParameterizedTest
     @NullSource
-    void validateMovementNullTest(Integer movement) {
+    void 셍(Integer movement) {
         // given & when & then
         assertThatThrownBy(
                 () -> movementValidation.validateMovement(movement))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("숫자를 입력해주세요");
+                .hasMessageContaining("아무것도 입력하지 않았습니다.");
     }
 
     @DisplayName("사용자가 이동 횟수에 음수를 입력했을 때, 예외를 발생하는지")
