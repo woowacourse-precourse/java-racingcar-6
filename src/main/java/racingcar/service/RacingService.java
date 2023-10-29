@@ -26,4 +26,20 @@ public class RacingService {
         }
         return new RacingResult(car.getName(), car.getMovedCount());
     }
+
+    public List<String> selectWinners(List<Car> cars) {
+        int maxMovedCount = getMaxMovedCount(cars);
+
+        return cars.stream()
+                .filter(car -> car.isSameMovedCount(maxMovedCount))
+                .map(Car::getName)
+                .toList();
+    }
+
+    private int getMaxMovedCount(List<Car> cars) {
+        return cars.stream()
+                .mapToInt(Car::getMovedCount)
+                .max()
+                .orElseThrow(() -> new IllegalArgumentException("자동차가 존재하지 않습니다."));
+    }
 }
