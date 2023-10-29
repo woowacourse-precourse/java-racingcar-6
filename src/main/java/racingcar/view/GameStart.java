@@ -26,12 +26,12 @@ public class GameStart {
     public void printSituationOfRaceProcessOneCycle() {
         makeMapOfCurrentRace();
         String nameOfRaceCar = "";
-        String moveStateStrOfRaceCar = "";
+        String MsgMoveStateOfRaceCar = "";
 
         for (Map.Entry<RaceCar, String> entry : raceCarMapOfCurrent.entrySet()) {
             nameOfRaceCar = entry.getKey().toString();
-            moveStateStrOfRaceCar = entry.getValue();
-            Utill.print(MyConstans.MSG_SITUATION_PROCESS_ONE_CAR(nameOfRaceCar, moveStateStrOfRaceCar));
+            MsgMoveStateOfRaceCar = entry.getValue();
+            Utill.print(MyConstans.MSG_SITUATION_PROCESS_ONE_CAR(nameOfRaceCar, MsgMoveStateOfRaceCar));
         }
     }
 
