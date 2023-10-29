@@ -76,6 +76,26 @@ public class FeatureTest {
     }
 
     @Test
+    void 자동차_이름_다섯글자_초과시_예외발생() {
+        String testInput = "car1,mycar2,car3";
+        InputStream inputStream = new ByteArrayInputStream(testInput.getBytes());
+        System.setIn(inputStream);
+
+        assertThatThrownBy(Application::receiveRaceCarNames)
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 자동차_이름_비어있을시_예외발생() {
+        String testInput = "car1,,car3";
+        InputStream inputStream = new ByteArrayInputStream(testInput.getBytes());
+        System.setIn(inputStream);
+
+        assertThatThrownBy(Application::receiveRaceCarNames)
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     void 시도할_회수_입력받고_시도횟수_객체에_저장() {
         String testInput = "5";
         InputStream inputStream = new ByteArrayInputStream(testInput.getBytes());
@@ -89,38 +109,6 @@ public class FeatureTest {
         assertThat(actualTryCount).isEqualTo(expectedTryCount);
     }
 
-    //    @Test
-//    void 자동차_이름_다섯글자_초과시_예외발생() {
-//        String testInput = "car1,car2,car3";
-//        InputStream inputStream = new ByteArrayInputStream(testInput.getBytes());
-//        System.setIn(inputStream);
-//
-//        Application.receiveRaceCarNames();
-//
-//
-//        String testRaceCarNames = "mycar1,car2,car3";
-//
-//        InputStream inputStream = new ByteArrayInputStream(testRaceCarNames.getBytes());
-//        System.setIn(inputStream);
-//
-//        assertThatThrownBy(Application::receiveRaceCarNames)
-//                .isInstanceOf(IllegalArgumentException.class);
-//    }
-
-
-//
-//    @Test
-//    void 자동차_이름_비어있음() {
-//        String testRaceCarNames = "mycar1,  ,car3";
-//        InputStream inputStream = new ByteArrayInputStream(testRaceCarNames.getBytes());
-//        System.setIn(inputStream);
-//
-//        assertThatThrownBy(Application::receiveRaceCarNames)
-//                .isInstanceOf(IllegalArgumentException.class);
-//    }
-//
-
-//
 
 //
 //    @Test
