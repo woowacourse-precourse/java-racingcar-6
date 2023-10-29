@@ -4,10 +4,10 @@ import java.util.List;
 
 import racingcar.domain.Car;
 import racingcar.dto.RacingResult;
+import racingcar.enums.RacingConfig;
 import racingcar.generator.NumberGenerator;
 
 public class RacingService {
-    private static final int MOVE_CONDITION = 4;
     private final NumberGenerator generator;
 
     public RacingService(NumberGenerator generator) {
@@ -21,7 +21,7 @@ public class RacingService {
     }
 
     private RacingResult moveCar(Car car) {
-        if (generator.generateNumber() >= MOVE_CONDITION) {
+        if (generator.generateNumber() >= RacingConfig.MOVE_CONDITION.getValue()) {
             car.move();
         }
         return new RacingResult(car.getName(), car.getMovedCount());
