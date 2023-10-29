@@ -1,68 +1,61 @@
 package racingcar.controller;
 
-import static racingcar.utils.Validator.isNumber;
-import static racingcar.utils.Validator.isValidNameFormat;
+import static racingcar.domain.RacingConfig.NAME_SEPARATOR;
+import static racingcar.utils.Validator.validIsNumber;
+import static racingcar.utils.Validator.validNameFormat;
 
 import java.util.Arrays;
-import java.util.List;
-import racingcar.domain.RacingFinalResult;
-import racingcar.domain.RacingRoundResult;
+import racingcar.domain.FinalResult;
 import racingcar.model.RacingModel;
 import racingcar.utils.Validator;
 import racingcar.view.RacingView;
 import racingcar.view.enums.RacingMessage;
 
 public class RacingController {
-    private RacingModel racingModel;
-    private RacingView racingView;
+    private final RacingModel racingModel;
+    private final RacingView racingView;
 
     public RacingController(RacingModel racingModel, RacingView racingView) {
         this.racingModel = racingModel;
         this.racingView = racingView;
     }
 
-    public void play() {
+    public void start() {
 
         String[] carNames = readCarNames();
-        int round = readRoundNumber();
+        int finalRound = readRoundNumber();
 
-        RacingFinalResult racingResults = racingModel.proceed(carNames, round);
-        displayResult(racingResults);
-        displayWinner(racingResults);
+        FinalResult finalResult = racingModel.startRacingGame(carNames, finalRound);
+
+        displayResult(finalResult);
     }
 
     private String[] readCarNames() {
         racingView.displayRacingMessage(RacingMessage.ASK_FOR_CAR_NAME);
-        String inputName = racingView.readInput();
-        return parseCarNames(inputName);
+        String inputCarNames = racingView.readInput();
+        return parseCarNames(inputCarNames);
+    }
+    private String[] parseCarNames(String inputCarNames) {
+        validNameFormat(inputCarNames);
+        return Arrays.stream(inputCarNames.split(NAME_SEPARATOR))
+                .map(String::trim)
+                .distinct()
+                .peek(Validator::validLength)
+                .toArray(String[]::new);
     }
 
     private int readRoundNumber() {
         racingView.displayRacingMessage(RacingMessage.ASK_FOR_ROUNDS);
-        String inputRound = racingView.readInput();
-        return parseRoundNumber(inputRound);
+        String inputRoundNumber = racingView.readInput();
+        return parseRoundNumber(inputRoundNumber);
     }
-
-    private String[] parseCarNames(String inputName) {
-        isValidNameFormat(inputName);
-        return Arrays.stream(inputName.split(","))
-                .map(String::trim)
-                .distinct()
-                .peek(Validator::isValidLength)
-                .toArray(String[]::new);
-    }
-
     private int parseRoundNumber(String inputNumber) {
-        isNumber(inputNumber);
+        validIsNumber(inputNumber);
         return Integer.parseInt(inputNumber);
     }
 
-    private void displayResult(RacingFinalResult roundResults){
-        racingView.displayRacingMessage(RacingMessage.RACING_RESULT);
-        racingView.displayResults(roundResults.getRoundResults());
-    }
-
-    private void displayWinner(RacingFinalResult racingResults) {
-        racingView.displayWinnerMessage(racingResults.getWinnersName());
+    private void displayResult(FinalResult finalResult) {
+        racingView.displayResults(finalResult.getSingleRoundResults());
+        racingView.displayWinnerMessage(finalResult.getWinnerNames());
     }
 }
