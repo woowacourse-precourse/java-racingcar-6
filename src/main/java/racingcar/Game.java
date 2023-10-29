@@ -13,4 +13,12 @@ public class Game {
         gameEnd();
     }
 
+    private static void gameInit() {
+        GameController.setCars();
+        GameController.setNumberOfTries();
+
+        View.printBlank();
+        View.printResultTitle();
+    }
+
 }
