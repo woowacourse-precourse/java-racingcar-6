@@ -4,9 +4,12 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.validator.InputValidator;
 
 public class InputView {
-    public InputValidator inputCarName() {
+    public String inputCarName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String input = Console.readLine();
+        InputValidator.isNullOrIsEmpty(input);
+        InputValidator.includeNumberOrSymbol(input);
 
-        return new InputValidator(Console.readLine().trim());
+        return input;
     }
 }
