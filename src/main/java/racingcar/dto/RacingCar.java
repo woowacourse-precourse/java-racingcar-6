@@ -16,4 +16,8 @@ public class RacingCar {
     public int getDistance() {
         return distance;
     }
+
+    public String getName(){
+        return name;
+    }
 }
