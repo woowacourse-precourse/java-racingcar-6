@@ -25,6 +25,7 @@ public class RacingController {
         initCars(validCarNames);
         proceedRacingTrials(validTrialTimes);
         winnerCars = racingCars.calculateFastestCar();
+        printWinnerCar(winnerCars);
     }
 
     private List<String> getValidCarNames() {
@@ -49,6 +50,30 @@ public class RacingController {
         for (int i = 0; i < trialTimes; i++) {
             trialController.applyTrialResult(racingCars);
             printTrialResults();
+        }
+    }
+
+    private void printWinnerCar(List<Car> winnerCars) {
+        StringBuilder winnerCarsName = new StringBuilder();
+        if (racingCars.isCoFastestCars()) {
+            String createdCoWinnerCarsName = createCoWinnerCarsName(winnerCars, winnerCarsName);
+            winnerCarsName.append(createdCoWinnerCarsName);
+        }
+        winnerCarsName.append(winnerCars.get(0).provideCarStatus().get("name"));
+        outputView.printWinnerCars(winnerCarsName.toString());
+    }
+
+    private String createCoWinnerCarsName(List<Car> winnerCars, StringBuilder winnerCarsName) {
+        for (int i = 0; i < winnerCars.size(); i++) {
+            addSeperator(winnerCarsName, i);
+            winnerCarsName.append(winnerCars.get(0).provideCarStatus().get("name"));
+        }
+        return winnerCarsName.toString();
+    }
+
+    private void addSeperator(StringBuilder winnerCarsName, int i) {
+        if (i != 0) {
+            winnerCarsName.append(", ");
         }
     }
 
