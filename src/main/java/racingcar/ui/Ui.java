@@ -12,6 +12,7 @@ public class Ui {
     private static final String GAME_STATUS_FORMAT = "%s : %s%n";
     private static final String BLANK = "";
     private static final String SCORE_UI = "-";
+    private static final String GAME_STATUS_GUIDE_MESSAGE = "실행 결과";
 
     public void start() {
         System.out.println(START_MESSAGE);
@@ -19,6 +20,10 @@ public class Ui {
 
     public void askPlayCount() {
         System.out.println(ASK_PLAY_COUNT_MESSAGE);
+    }
+
+    public void printGameStatusGuide() {
+        System.out.println(GAME_STATUS_GUIDE_MESSAGE);
     }
 
     public void printGameStatus(List<Score> scores) {

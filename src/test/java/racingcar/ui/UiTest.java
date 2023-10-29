@@ -73,6 +73,13 @@ class UiTest {
         Assertions.assertThat(outputStreamCaptor.toString().trim()).isEqualTo(expectMessage);
     }
 
+    @Test
+    void 전진_시도_가이드_문구를_출력한다() {
+        String expectMessage = "실행 결과";
+        new Ui().printGameStatusGuide();
+        Assertions.assertThat(outputStreamCaptor.toString().trim()).isEqualTo(expectMessage);
+    }
+
     @ParameterizedTest
     @MethodSource("전진_시도_현황_케이스")
     void 전진_시도_현황을_출력한다(List<Score> scores, String expectMessage) {
