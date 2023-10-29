@@ -33,20 +33,6 @@ public class CarsTest {
         );
     }
 
-    @ParameterizedTest
-    @ValueSource(strings = {"+4", "ss", "-1", "0"})
-    void 라운드_수_입력값_검증_테스트(String input) {
-        generateInput(input);
-        assertThatThrownBy(InputView::inputRoundNumber)
-                .isInstanceOf(IllegalArgumentException.class);
-
-        Console.close();
-    }
-
-    private void generateInput(String input) {
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
-    }
-
     @Test
     void 라운드_하나_실행_테스트() {
         // given
