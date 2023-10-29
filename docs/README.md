@@ -94,9 +94,9 @@
 
   - [x] 실행결과 출력 메서드 // GameStart#printMsgResultOfRun
 
-  - [ ] 전진하는 모든 차들의 자동차를 출력할 (자동차 이름을 같이 출력한다.) // GameStart#printSituationOfCarCurrent
+  - [x] 전진하는 모든 차들의 자동차를 출력할 (자동차 이름을 같이 출력한다.) // GameStart#printSituationOfCarCurrent
   
-    - [ ] 전진은 "-"을 출력 ( pobi : - )
+    - [x] 전진은 "-"을 출력 ( pobi : - )
   
       ```
       pobi : ----

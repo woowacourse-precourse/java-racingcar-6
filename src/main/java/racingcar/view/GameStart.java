@@ -1,6 +1,9 @@
 package racingcar.view;
 
 import racingcar.control.GameProcess;
+import racingcar.domain.RaceCar;
+
+import java.util.List;
 
 // TODO: 10/27/23 사용자 화면을 보여주는 클래스.
 public class GameStart {
@@ -10,12 +13,18 @@ public class GameStart {
         gameProcess = new GameProcess();
     }
 
-    // TODO: 10/27/23 전진하는 모든 차들의 자동차를 출력할 (자동차 이름을 같이 출력한다.)
+    /**
+     * 전진하는 모든 차들의 자동차를 출력한다.
+     * (자동차 이름을 같이 출력한다.) ex) pobi : ---
+     */
     public void printSituationOfCarCurrent() {
 //        - [ ] 전진은 "-"을 출력 ( pobi : - )
 //        pobi : ----
 //        woni : ---
 //        jun : ----
+        gameProcess.moveOfRaceCar();
+        System.out.println(gameProcess.makeMsgOfCurrentRace());
+
     }
 
     // TODO: 10/27/23 우승자가 누구인지 출력을 해준다.
