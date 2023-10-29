@@ -24,4 +24,8 @@ public class Car {
         System.out.println(name + " : ");
     }
 
+    public void printForwardCount() {
+        System.out.println("-".repeat(forwardCount));
+    }
+
 }

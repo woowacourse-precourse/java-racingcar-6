@@ -60,8 +60,9 @@ public class Race {
                 car.printCarName();
                 int randomNumber = NumberGenerator.createRandomNumber();
                 compareNumberAndMove(car, randomNumber);
+                car.printForwardCount();
             }
-
+            System.out.println();
         }
     }
 
