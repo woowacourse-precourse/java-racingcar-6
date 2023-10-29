@@ -3,7 +3,8 @@ package racingcar.constants;
 public enum GameConstant {
 
     MIN_RANDOM_NUMBER(0),
-    MAX_RANDOM_NUMBER(9);
+    MAX_RANDOM_NUMBER(9),
+    SEPARATOR(44);
 
     private int value;
     GameConstant(int constant) {
@@ -12,5 +13,9 @@ public enum GameConstant {
 
     public int getValue() {
         return value;
+    }
+
+    public String getStringValue() {
+        return String.valueOf((char) value);
     }
 }

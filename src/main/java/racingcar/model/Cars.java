@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import racingcar.constants.CarConstant;
+import racingcar.constants.ErrorMessage;
 import racingcar.util.Util;
 import java.util.List;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class Cars {
         List<Car> cars = new ArrayList<>();
         for (String name : carNames) {
             validateNameLength(name);
-            validateIsEmpty(name);
+            validateIsBlank(name);
             cars.add(Car.from(name));
         }
         return new Cars(cars);
@@ -31,19 +32,19 @@ public class Cars {
     private static void validateDuplicatedName(String[] carNames) {
         Set<String> names = new HashSet<>(Arrays.asList(carNames));
         if (carNames.length != names.size()) {
-            throw new IllegalArgumentException("자동차의 이름은 중복될 수 없습니다.");
+            throw new IllegalArgumentException(ErrorMessage.ERROR_DUPLICATED_NAME.getMessage());
         }
     }
 
     private static void validateNameLength(String name) {
         if (name.length() > CarConstant.MAX_NAME_LENGTH.getValue()) {
-            throw new IllegalArgumentException("자동차의 이름은 5자 이하여야 합니다.");
+            throw new IllegalArgumentException(ErrorMessage.ERROR_NAME_LENGTH.getMessage());
         }
     }
 
-    private static void validateIsEmpty(String name) {
+    private static void validateIsBlank(String name) {
         if (name.isBlank()) {
-            throw new IllegalArgumentException("자동차의 이름에 공백은 포함될 수 없습니다.");
+            throw new IllegalArgumentException(ErrorMessage.ERROR_IS_BLANK.getMessage());
         }
     }
 

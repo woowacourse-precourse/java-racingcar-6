@@ -1,17 +1,19 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.constants.GameConstant;
+import racingcar.constants.InputMessage;
 import racingcar.model.Round;
 
 public class InputView {
 
     public static String[] inputCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        return Console.readLine().split(",");
+        System.out.println(InputMessage.INPUT_CAR_NAMES.getMessage());
+        return Console.readLine().split(GameConstant.SEPARATOR.getStringValue());
     }
 
     public static Round inputRoundNumber() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(InputMessage.INPUT_ROUND_NUMBER.getMessage());
         String input = Console.readLine();
         return Round.from(input);
     }

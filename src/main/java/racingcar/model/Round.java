@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import racingcar.constants.ErrorMessage;
 import racingcar.constants.RoundConstant;
 import java.util.regex.Pattern;
 
@@ -23,13 +24,13 @@ public class Round {
 
     private static void validateIsNumber(String input) {
         if (!Pattern.matches(RoundConstant.NUMBER_PATTERN.getValue(), input)) {
-            throw new IllegalArgumentException("자연수만 입력 가능합니다.");
+            throw new IllegalArgumentException(ErrorMessage.ERROR_IS_NOT_NATURAL_NUMBER.getMessage());
         }
     }
 
     private static void validateIsNotZero(String input) {
         if (input.equals(RoundConstant.ZERO.getValue())) {
-            throw new IllegalArgumentException("자연수만 입력 가능합니다.");
+            throw new IllegalArgumentException(ErrorMessage.ERROR_IS_NOT_NATURAL_NUMBER.getMessage());
         }
     }
 }
