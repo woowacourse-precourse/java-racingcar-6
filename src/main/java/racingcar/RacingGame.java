@@ -31,7 +31,14 @@ public class RacingGame {
 
     private void run() {
         for (int attempts = 0; attempts < targetAttempts; attempts++) {
+            tryToMoveCars();
             printProgress();
+        }
+    }
+
+    private void tryToMoveCars() {
+        for (Car car : cars) {
+            car.tryToMove();
         }
     }
 
