@@ -10,7 +10,7 @@ import racingcar.model.Car;
 import racingcar.model.Name;
 import racingcar.model.Position;
 
-public class ResultMessageTest {
+public class WinnersTest {
     @DisplayName("차들의 이름을 출력하는 기능.")
     @Test
     void printCarName() {
@@ -20,10 +20,10 @@ public class ResultMessageTest {
         String expected = "pobi, jun";
 
         //when
-        ResultMessage result = new ResultMessage(cars);
+        Winners result = new Winners(cars);
 
         //then
-        assertThat(result.getResultMessage()).isEqualTo(expected);
+        assertThat(result.getWinners()).isEqualTo(expected);
 
     }
 }

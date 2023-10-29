@@ -2,10 +2,10 @@ package racingcar.controller;
 
 import racingcar.dto.AttemptCount;
 import racingcar.dto.CarsState;
+import racingcar.dto.WinnersDto;
 import racingcar.model.Cars;
 import racingcar.service.GamePlayingService;
 import racingcar.view.View;
-import racingcar.vo.ResultMessage;
 
 public class Controller {
     private final View view;
@@ -53,10 +53,10 @@ public class Controller {
     }
 
     private void printWinners(Cars cars) {
-        view.printFinalWinnerMessage(getResultMessage(cars));
+        view.printFinalWinnerMessage(getWinners(cars));
     }
 
-    private ResultMessage getResultMessage(Cars cars) {
-        return gamePlayingService.getResultMessage(cars);
+    private WinnersDto getWinners(Cars cars) {
+        return gamePlayingService.getWinners(cars);
     }
 }

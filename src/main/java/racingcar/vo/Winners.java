@@ -2,12 +2,13 @@ package racingcar.vo;
 
 import java.util.List;
 import racingcar.Constants;
+import racingcar.dto.WinnersDto;
 import racingcar.model.Car;
 
-public class ResultMessage {
-    private final String resultMessage;
+public class Winners {
+    private final String winners;
 
-    public ResultMessage(List<Car> cars) {
+    public Winners(List<Car> cars) {
         StringBuilder result = new StringBuilder();
 
         cars.stream().map(Car::getNameValue)
@@ -15,7 +16,7 @@ public class ResultMessage {
 
         trim(result);
 
-        resultMessage = result.toString();
+        winners = result.toString();
     }
 
     private void addResult(StringBuilder result, String name) {
@@ -33,7 +34,11 @@ public class ResultMessage {
         return result.length() - 1;
     }
 
-    public String getResultMessage() {
-        return resultMessage;
+    public String getWinners() {
+        return winners;
+    }
+
+    public WinnersDto toDto() {
+        return new WinnersDto(winners);
     }
 }

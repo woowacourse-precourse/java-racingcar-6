@@ -5,7 +5,7 @@ import java.util.List;
 import racingcar.dto.CarState;
 import racingcar.dto.CarsState;
 import racingcar.validator.CarsValidator;
-import racingcar.vo.ResultMessage;
+import racingcar.vo.Winners;
 
 public class Cars {
     private final List<Car> cars;
@@ -48,8 +48,8 @@ public class Cars {
         return new CarsState(carsState);
     }
 
-    public ResultMessage findWinners() {
-        return new ResultMessage(findWinningCars());
+    public Winners findWinners() {
+        return new Winners(findWinningCars());
     }
 
     public List<Car> findWinningCars() {

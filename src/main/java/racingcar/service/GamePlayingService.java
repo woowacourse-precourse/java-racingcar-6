@@ -2,9 +2,10 @@ package racingcar.service;
 
 import racingcar.dto.AttemptCount;
 import racingcar.dto.CarsState;
+import racingcar.dto.WinnersDto;
 import racingcar.model.Cars;
 import racingcar.validator.AttemptCountValidator;
-import racingcar.vo.ResultMessage;
+import racingcar.vo.Winners;
 
 public class GamePlayingService {
     public GamePlayingService() {
@@ -29,7 +30,11 @@ public class GamePlayingService {
         return cars.getCurrentCarsResult();
     }
 
-    public ResultMessage getResultMessage(Cars cars) {
-        return cars.findWinners();
+    public WinnersDto getWinners(Cars cars) {
+        return toWinnersDto(cars.findWinners());
+    }
+
+    private WinnersDto toWinnersDto(Winners result) {
+        return result.toDto();
     }
 }
