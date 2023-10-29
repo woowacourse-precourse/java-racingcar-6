@@ -12,6 +12,10 @@ public class Car {
         return new Car(name);
     }
 
+    public void move() {
+        location += 1;
+    }
+
     public String getName() {
         return name;
     }

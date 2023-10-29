@@ -16,6 +16,14 @@ public class Game {
         return new Game(cars, trial);
     }
 
+    public void increaseCount() {
+        count += 1;
+    }
+
+    public boolean isFinished() {
+        return trial == count;
+    }
+
     public List<Car> getCars() {
         return cars;
     }
