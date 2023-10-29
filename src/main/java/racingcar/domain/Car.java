@@ -48,9 +48,7 @@ public class Car {
 
     private static Integer getFarthestDistance(List<Car> cars) {
         int farthest = 0;
-        for (Car car : cars) {
-            farthest = Math.max(farthest, car.getDistance());
-        }
+        for (Car car : cars) farthest = Math.max(farthest, car.getDistance());
         return farthest;
     }
 
