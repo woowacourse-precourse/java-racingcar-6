@@ -47,13 +47,20 @@ public class RacingGameController {
     private void race(Cars players, Round round) {
         OutputView.printResultMessage();
 
-        while (round.hasRemainingRounds()) {
-            players.moveUsingRandomNumber(numberGenerator);
-            OutputView.printRoundResult(players.toDtos());
-            OutputView.printBlank();
-
+        do {
+            playRound(players);
             round.finishCurrentRound();
-        }
+        } while (round.hasRemainingRounds());
+    }
+
+    private void playRound(Cars players) {
+        players.moveUsingRandomNumber(numberGenerator);
+        printRoundResult(players);
+    }
+
+    private void printRoundResult(Cars players) {
+        OutputView.printRoundResult(players.toDtos());
+        OutputView.printBlank();
     }
 
     private void awardRacingCarGame(Cars players) {
