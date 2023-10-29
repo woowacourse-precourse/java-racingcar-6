@@ -12,9 +12,7 @@ public class Car {
     private int position;
 
     public Car(final String name) {
-        validateSize(name);
-        this.name = name;
-        this.position = INIT_POSITION;
+        this(name, INIT_POSITION);
     }
 
     public Car(final String name, final int position) {
@@ -22,7 +20,6 @@ public class Car {
         this.name = name;
         this.position = position;
     }
-
 
     private void validate(final String name, final int position) {
         validateSize(name);
