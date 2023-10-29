@@ -10,14 +10,16 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class RaceGameService {
+
     private static final int START_NUMBER = 0;
+
     private ExecutionView executionView;
 
     public RaceGameService() {
         this.executionView = new ExecutionView();
     }
 
-    public RaceCars run(RaceGameInfo raceGameInfo){
+    public RaceCars run(RaceGameInfo raceGameInfo) {
         printRunMessage();
         final RaceCars raceCars = raceGameInfo.getRaceCars();
         final int attemptCount = raceGameInfo.getAttemptCount();

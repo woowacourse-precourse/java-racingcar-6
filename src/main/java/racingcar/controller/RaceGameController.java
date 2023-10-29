@@ -31,16 +31,16 @@ public class RaceGameController {
         return Console.requestNames();
     }
 
-    private int requestAttemptCount(){
+    private int requestAttemptCount() {
         gameStartEndView.printAttemptCountMessage();
         return Console.getNumberOfMovementAttempts();
     }
 
-    public RaceCars run(RaceGameInfo raceGameInfo){
+    public RaceCars run(RaceGameInfo raceGameInfo) {
         return raceGameService.run(raceGameInfo);
     }
 
-    public void printWinningCarNames(RaceCars raceCars){
+    public void printWinningCarNames(RaceCars raceCars) {
         gameStartEndView.printWinningCarNames(raceCars);
     }
 

@@ -9,10 +9,11 @@ import java.util.stream.Collectors;
 import static racingcar.constants.ErrorConstants.DUPLICATE_NAME_ERROR_MESSAGE;
 
 public class CarListConverter {
+
     private CarListConverter() {
     }
 
-    public static List<Car> convertCarNamesToCarList(String[] names){
+    public static List<Car> convertCarNamesToCarList(String[] names) {
         List<Car> cars = Arrays.stream(names)
                 .distinct()
                 .map(Car::new)
@@ -23,8 +24,8 @@ public class CarListConverter {
         return cars;
     }
 
-    private static void validateDuplicate(int oldNameSize, int carSize){
-        if (oldNameSize != carSize){
+    private static void validateDuplicate(int oldNameSize, int carSize) {
+        if (oldNameSize != carSize) {
             throw new IllegalArgumentException(DUPLICATE_NAME_ERROR_MESSAGE);
         }
     }

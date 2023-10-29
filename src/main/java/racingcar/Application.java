@@ -12,4 +12,5 @@ public class Application {
         RaceCars raceCars = raceGameController.run(raceGameInfo);
         raceGameController.printWinningCarNames(raceCars);
     }
+
 }

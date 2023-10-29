@@ -17,16 +17,17 @@ public class ExecutionView {
         System.out.println(getExecutionMessage(car.getName(), car.getMoveCount()));
     }
 
-    private String getExecutionMessage(String name, int moveCount){
+    private String getExecutionMessage(String name, int moveCount) {
         String hyphenString = generateHyphenString(moveCount);
         return String.format(EXECUTION_MESSAGE_FORMAT, name, hyphenString);
     }
 
-    private String generateHyphenString(int moveCount){
+    private String generateHyphenString(int moveCount) {
         return HYPHEN.repeat(moveCount);
     }
 
-    public void newLine(){
+    public void newLine() {
         System.out.println();
     }
+
 }

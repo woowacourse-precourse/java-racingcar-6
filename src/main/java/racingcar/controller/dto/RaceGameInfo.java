@@ -18,4 +18,5 @@ public class RaceGameInfo {
     public int getAttemptCount() {
         return attemptCount;
     }
+
 }

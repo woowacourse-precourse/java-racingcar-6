@@ -13,7 +13,8 @@ public enum SupportedMove {
         this.expression = expression;
     }
 
-    public int calculate(int value){
+    public int calculate(int value) {
         return expression.apply(value);
     }
+
 }

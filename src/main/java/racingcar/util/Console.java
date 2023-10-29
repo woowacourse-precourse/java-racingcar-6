@@ -3,6 +3,7 @@ package racingcar.util;
 import static racingcar.constants.ErrorConstants.NOT_DIGIT_ERROR_MESSAGE;
 
 public class Console {
+
     private Console() {
     }
 
@@ -10,7 +11,7 @@ public class Console {
         return camp.nextstep.edu.missionutils.Console.readLine().split(",");
     }
 
-    public static int getNumberOfMovementAttempts(){
+    public static int getNumberOfMovementAttempts() {
         String movementAttempts = camp.nextstep.edu.missionutils.Console.readLine();
         return parseInt(movementAttempts);
     }
@@ -22,4 +23,5 @@ public class Console {
             throw new IllegalArgumentException(NOT_DIGIT_ERROR_MESSAGE);
         }
     }
+
 }

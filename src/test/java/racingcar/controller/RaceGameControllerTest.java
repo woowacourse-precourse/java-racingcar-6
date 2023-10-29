@@ -39,7 +39,7 @@ class RaceGameControllerTest extends OutputTestSupport {
         assertThat(attemptCount).isEqualTo(2);
     }
 
-    void userRequest(){
+    private void userRequest(){
         String input = "haen\n2";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         raceGameController = new RaceGameController();

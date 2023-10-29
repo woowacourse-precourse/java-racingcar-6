@@ -5,7 +5,9 @@ import java.util.Objects;
 import static racingcar.constants.ErrorConstants.*;
 
 public class Name {
+
     private static final int NAME_MAX_LENGTH = 5;
+
     private final String name;
 
     public Name(String name) {
@@ -31,4 +33,5 @@ public class Name {
     public int hashCode() {
         return Objects.hash(name);
     }
+
 }
