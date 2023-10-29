@@ -3,6 +3,7 @@ package racingcar.domain;
 public class Car {
 
     private static final int MOVABLE_OFFSET = 4;
+    public static final int FORWARD_AMOUNT = 1;
 
     private final CarName name;
     private final CarPosition position;
@@ -26,7 +27,7 @@ public class Car {
 
     public void moveForward(final int randomNumber) {
         if (randomNumber >= MOVABLE_OFFSET) {
-            position.increase(1);
+            position.increase(FORWARD_AMOUNT);
         }
     }
 
