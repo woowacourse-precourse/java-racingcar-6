@@ -1,6 +1,7 @@
 package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.*;
+import static camp.nextstep.edu.missionutils.Randoms.*;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -9,11 +10,20 @@ public class Application {
 	private static Map<String, Integer> carMap = new LinkedHashMap<>();
 	private static int turnCount;
 
+	public static int CAR_MOVE_CONDITION = 4;
+
 	public static void main(String[] args) {
 		setCarMap();
 		System.out.println(carMap);
+
 		setTurnCount();
 		System.out.println(turnCount);
+		System.out.println();
+
+		for (int i = 0; i < turnCount; i++) {
+			setCarValue();
+			printCarMap();
+		}
 	}
 
 	public static void setCarMap() {
@@ -35,5 +45,25 @@ public class Application {
 		} catch (NumberFormatException e) {
 			throw new IllegalArgumentException("숫자만 입력 가능합니다.");
 		}
+	}
+
+	public static int getRandomValue() {
+		return pickNumberInRange(0, 9);
+	}
+
+	public static void setCarValue() {
+		carMap.forEach((name, value) -> {
+			if (getRandomValue() >= CAR_MOVE_CONDITION) {
+				carMap.put(name, value + 1);
+			}
+		});
+	}
+
+	public static void printCarMap() {
+		System.out.println("실행 결과");
+		carMap.forEach((name, value) -> {
+			System.out.println(name.concat(" : ").concat("-".repeat(value)));
+		});
+		System.out.println();
 	}
 }
