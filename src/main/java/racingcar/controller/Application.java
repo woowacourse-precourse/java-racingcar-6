@@ -1,13 +1,13 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import racingcar.model.Car;
 import racingcar.model.Race;
 import racingcar.model.RaceResult;
 import racingcar.view.InputHandler;
 import racingcar.view.OutputHandler;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
