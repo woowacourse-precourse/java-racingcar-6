@@ -16,11 +16,17 @@ public class Racing {
     //method
     public void start() {
         getUserCarNameByConsole();
+        getUserRoundNumberByConsole();
     }
 
     public void getUserCarNameByConsole() {
         String consoleInput = Console.readLine();
         car.insertUserName(consoleInput);
+    }
+
+    public void getUserRoundNumberByConsole() {
+        String consoleInput = Console.readLine();
+        car.insertRoundNumber(consoleInput);
     }
 
 }
