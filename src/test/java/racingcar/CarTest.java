@@ -43,4 +43,13 @@ public class CarTest {
         carObj.runCar();
         assertThat(carObj.getForwardCount()).isEqualTo(1);
     }
+
+    @Test
+    void 자동차_운행_현재상태출력확인() {
+        Car carObj = new Car("vega");
+        String compareString = "vega : -";
+        carObj.runCar();
+
+        assertThat(carObj.getPresentCondition()).isEqualTo(compareString);
+    }
 }
