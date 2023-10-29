@@ -5,7 +5,7 @@ import java.util.Map.Entry;
 
 public class OutputView {
 
-    void showRacingResult(Map<String, Integer> record){
+    static void showRacingResult(Map<String, Integer> record){
         for(Entry<String, Integer> entrySet: record.entrySet()){
             Integer number = entrySet.getValue();
             StringBuilder sb = new StringBuilder();
@@ -19,7 +19,7 @@ public class OutputView {
         }
     }
 
-    void showWinner(String[] result) {
+    static void showWinner(String[] result) {
         String winner = String.join(",", result);
         System.out.println(winner);
     }
