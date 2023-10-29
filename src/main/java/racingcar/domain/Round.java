@@ -21,7 +21,7 @@ public class Round {
     }
 
     public boolean hasMoreRounds() {
-        return rounds > currentRound;
+        return rounds >= currentRound;
     }
 
 }
