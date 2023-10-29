@@ -11,22 +11,23 @@ public class Car {
         this.mileage = 0;
     }
 
-    public int getMileage() {
-        return mileage;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int compareMileage(Car o) {
-        return mileage - o.getMileage();
+    public int compareMileage(Car other) {
+        return mileage - other.getMileage();
     }
 
     public void go() {
         if (engine.checkWorking()) {
             this.mileage += 1;
         }
+    }
+
+
+    public int getMileage() {
+        return mileage;
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override

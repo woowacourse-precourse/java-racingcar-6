@@ -6,7 +6,7 @@ public class RandomizedCarEngine implements CarEngine {
 
     @Override
     public boolean checkWorking() {
-        int random = Randoms.pickNumberInRange(0, 9);
+        final int random = Randoms.pickNumberInRange(0, 9);
         return random >= 4;
     }
 }

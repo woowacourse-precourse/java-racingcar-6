@@ -3,53 +3,53 @@ package racingcar.game;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.game.constant.StringConstants;
+import racingcar.game.converter.CarConverter;
 import racingcar.game.domain.Car;
-import racingcar.game.domain.RandomizedCarEngine;
 import racingcar.io.Input;
+import racingcar.io.Output;
 
 public class RacingCarGame implements Game {
-    private int targetPhase;
+    private int tryCount;
     private List<Car> cars;
 
     @Override
     public boolean beforeLoop() {
-        var players = Input.inputPlayers();
+        final var carsInput = Input.promptLine(StringConstants.PLAYER_PROMPT_MESSAGE);
+        final var cars = CarConverter.inputToListOfCars(carsInput);
 
-        this.cars = players.stream()
-                .map(player -> new Car(
-                        player,
-                        new RandomizedCarEngine()
-                ))
-                .collect(Collectors.toList());
-        this.targetPhase = Input.inputGamePhase();
+        final var tryCountInput = Input.promptLine(StringConstants.TRY_COUNT_PROMPT_MESSAGE);
+        final var tryCount = CarConverter.inputToTryCount(tryCountInput);
 
+        this.cars = cars;
+        this.tryCount = tryCount;
         return true;
     }
 
     @Override
     public boolean gameLoop() {
         System.out.println(StringConstants.GAME_RESULT_MESSAGE);
-        for (int t = 0; t < targetPhase; t++) {
+        for (int t = 0; t < tryCount; t++) {
             for (var car : cars) {
                 car.go();
-                System.out.println(car);
+                Output.println(car);
             }
-            System.out.println();
+            Output.println("");
         }
         return false;
     }
 
     @Override
     public boolean afterLoop() {
-        Car max = cars.stream()
+        final Car max = cars.stream()
                 .max(Car::compareMileage)
                 .orElseThrow(IllegalArgumentException::new);
-        List<String> winners = cars.stream()
+
+        final List<String> winners = cars.stream()
                 .filter(c -> c.compareMileage(max) == 0).map(c -> c.getName())
                 .collect(Collectors.toList());
-        String message = String.join(", ", winners);
-        System.out.print(StringConstants.FINAL_WINNER_MESSAGE + " : ");
-        System.out.println(message);
+
+        final String message = String.join(", ", winners);
+        Output.print(StringConstants.FINAL_WINNER_MESSAGE + " : " + message);
         return false;
     }
 }
