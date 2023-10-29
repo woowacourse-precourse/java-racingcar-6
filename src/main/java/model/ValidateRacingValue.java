@@ -17,19 +17,19 @@ public class ValidateRacingValue {
         }
         return raceResult;
     }
-    public static boolean validateRandomMoreFour() {
+    public static boolean randomMoreFour() {
         int randomNumber = Randoms.pickNumberInRange(0,9);
         return randomNumber >= 4;
     }
-    public static List<Integer> validateRacingResult(List<String>carName, List<Integer>raceResult) {
+    public static List<Integer> racingResult(List<String>carName, List<Integer>raceResult) {
         for(int i = 0; i < carName.size(); i++) {
-            if (validateRandomMoreFour()) {
+            if (randomMoreFour()) {
                 raceResult.set(i, raceResult.get(i) + 1);
             }
         }
         return raceResult;
     }
-    public static List<String> validateRacingWinner(List<String>carName, List<Integer>raceResult) {
+    public static List<String> racingWinner(List<String>carName, List<Integer>raceResult) {
         int WinnerResult = Collections.max(raceResult);
         List<String>loser = new ArrayList<>();
         for(int i = 0; i < carName.size(); i++) {

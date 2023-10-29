@@ -1,9 +1,9 @@
 package model;
 
 import static model.ValidateRacingValue.carNameInputToList;
-import static model.ValidateRacingValue.validateRacingResult;
-import static model.ValidateRacingValue.validateRacingWinner;
-import static model.ValidateRacingValue.validateRandomMoreFour;
+import static model.ValidateRacingValue.racingResult;
+import static model.ValidateRacingValue.racingWinner;
+import static model.ValidateRacingValue.randomMoreFour;
 import static org.assertj.core.api.Assertions.*;
 
 import java.util.ArrayList;
@@ -25,21 +25,21 @@ class ValidateRacingValueTest {
     }
     @DisplayName("숫자 랜덤 추출 기능이 작동하는가")
     @Test
-    void validateRandomMoreFourTest() {
+    void randomMoreFourTest() {
         //given
         //when
-        boolean testResult = validateRandomMoreFour();
+        boolean testResult = randomMoreFour();
         //then
         System.out.printf("랜덤 추출 기능 출력값 : %b \n", testResult);
     }
     @DisplayName("추가된 레이싱 결과값이 List에 저장되는가")
     @Test
-    void validateRacingResultTest() {
+    void racingResultTest() {
         //given
         List<String> carName = Arrays.asList("pobi", "nana");
         List<Integer> raceResult = Arrays.asList(1, 3);
         //when
-        List<Integer> testList = validateRacingResult(carName, raceResult);
+        List<Integer> testList = racingResult(carName, raceResult);
         //then
         System.out.print("레이싱 결과 저장 기능 출력값 :");
         for(int result : testList) {
@@ -49,7 +49,7 @@ class ValidateRacingValueTest {
     }
     @DisplayName("결과 값에 따라 우승자를 선정하는가")
     @Test
-    void validateRacingWinnerTest() {
+    void racingWinnerTest() {
         //given
         List<String> carName = new ArrayList<>();
         carName.add("pobi");
@@ -58,7 +58,7 @@ class ValidateRacingValueTest {
         carName.add("lala");
         List<Integer> raceResult = Arrays.asList(1, 4, 3, 4);
         //when
-        List<String> testResult = validateRacingWinner(carName, raceResult);
+        List<String> testResult = racingWinner(carName, raceResult);
         //then
         assertThat(testResult).contains("nana", "lala");
     }
