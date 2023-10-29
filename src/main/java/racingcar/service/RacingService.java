@@ -12,17 +12,23 @@ import java.util.List;
 public class RacingService {
 
     public List<RacingResult> race(Circuit circuit) {
-        List<Integer> randomNumbers = RandomNumbersGenerator.generate(circuit.getCircuitSize());
+        List<MoveCondition> moveConditions = generateMoveConditions(circuit.getCircuitSize());
+        List<Car> racedCars = circuit.raceCars(moveConditions);
+        return convertToRacingResults(racedCars);
+    }
 
-        List<MoveCondition> moveConditionList = randomNumbers.stream()
-                .map(MoveCondition::convertToCarStatus)
+    private List<MoveCondition> generateMoveConditions(int size) {
+        return RandomNumbersGenerator.generate(size).stream()
+                .map(MoveCondition::determineMoveCondition)
                 .toList();
+    }
 
-        List<Car> racingResult = circuit.moveCars(moveConditionList);
-        return racingResult.stream()
+    private List<RacingResult> convertToRacingResults(List<Car> racedCars) {
+        return racedCars.stream()
                 .map(RacingResult::new)
                 .toList();
     }
+
 
     public Winners announceWinners(Circuit circuit) {
         List<String> winnerNames = circuit.findTopPositionCarNames();

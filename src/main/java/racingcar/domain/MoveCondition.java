@@ -15,7 +15,7 @@ public enum MoveCondition {
         return this.equals(MOVE);
     }
 
-    public static MoveCondition convertToCarStatus(Integer randomNumber) {
+    public static MoveCondition determineMoveCondition(Integer randomNumber) {
         if (randomNumber >= CRITICAL_POINT) {
             return MOVE;
         }
