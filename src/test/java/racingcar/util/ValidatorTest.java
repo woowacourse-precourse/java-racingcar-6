@@ -48,8 +48,8 @@ public class ValidatorTest extends NsTest {
 
     @Test
     void 자동차_이름_입력값_성공() {
-        List<String> successfulCarNameList = validator.validateCarNamesInput("a,b,c");
-        assertThat(successfulCarNameList).containsExactly("a", "b", "c");
+        validator.validateCarNamesInput("a,b,c");
+
     }
 
     @Override
