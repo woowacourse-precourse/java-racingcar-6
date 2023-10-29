@@ -14,7 +14,6 @@ public class RacingController {
         RacingCars racingCars = setParticipationCars();
         int tryCount = setTryCount();
         racing(racingCars, tryCount);
-        OutputView.printWinner(racingResult.getWinner());
     }
 
     private RacingCars setParticipationCars() {
@@ -35,6 +34,7 @@ public class RacingController {
             OutputView.printResult(getRacingResult(racingCars));
             tryCount--;
         }
+        OutputView.printWinner(racingResult.getWinner());
     }
 
     private boolean isNotRacingFinished(int tryCount) {
