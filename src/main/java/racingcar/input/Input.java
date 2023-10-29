@@ -22,6 +22,7 @@ public class Input {
         printEnterCarNames();
         String names = Console.readLine();
         String[] nameArr = names.split(",");
+        InputValidator.isValidCarName(nameArr);
         return Arrays.asList((nameArr));
     }
 
