@@ -21,8 +21,8 @@ public class Machines implements Showable, Gettable {
     @Override
     public String getInput() {
         String machineNames = readLine();
-
         machineNameList = Arrays.asList(machineNames.split(","));
+
         validateInput(machineNameList);
 
         return machineNames;
