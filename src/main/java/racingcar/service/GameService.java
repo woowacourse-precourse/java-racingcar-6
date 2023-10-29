@@ -15,11 +15,11 @@ public class GameService {
   private int minValue;
   private int maxValue;
   private int setValue;
-  public Car[] car;
-  List<Car> winnerList;
+  public List<Car> carList;
+  public List<Car> winnerList;
   public int tryNum;
   public int forwardNum;
-  PrintView printView;
+
 
 
   public GameService(Config config) {
@@ -28,14 +28,13 @@ public class GameService {
     this.minValue = config.getMinValue();
     this.setValue = config.getSetValue();
     winnerList = new ArrayList<Car>();
-    printView = new PrintView();
+    carList = new ArrayList<Car>();
   }
 
 
 
   // 입력값을 받는다.
   public void getInputCar() {
-    printView.inputCarNameView();
     String input = Console.readLine();
     splitInputName(input);
   }
@@ -46,37 +45,26 @@ public class GameService {
     String[] splited = input.split(",");
     int carNum = splited.length;
 
-    car = new Car[carNum];
 
-    for(int i=0;i<car.length;i++) {
+    for(int i=0;i<carNum;i++) {
       Validation.isBlank(splited[i]);
       Validation.isLengthError(splited[i]);
-      Validation.isDuplicated(splited[i], car);
+      Validation.isDuplicated(splited[i], carList);
 
-      car[i] = new Car(splited[i]);
+      carList.add(new Car(splited[i]));
     }
   }
 
   public void getInputTryNum() {
-    printView.inputTryNumView();
     tryNum = Validation.isNumber(Console.readLine());
-  }
-
-  public void carsProcessing() {
-    for(int i=0;i<tryNum;i++) {
-      carForward();
-      printView.carForwardView(car);
-      findWinner();
-      printView.winnerView(winnerList);
-    }
   }
 
 
   public void carForward() {
-    for(int j=0;j<car.length;j++) {
+    for(int j=0;j<carList.size();j++) {
       forwardNum = RandomUtil.getRandomNumber(minValue, maxValue);
       if(forwardNum >= setValue) {
-        car[j].increaseForward();
+        carList.get(j).increaseForward();
       }
     }
   }
@@ -84,13 +72,13 @@ public class GameService {
   public void findWinner() {
     int max= -1;
 
-    for(int i=0;i<car.length;i++) {
-      if(car[i].getForward() > max) {
-        max = car[i].getForward();
+    for(int i=0;i< carList.size();i++) {
+      if(carList.get(i).getForward() > max) {
+        max = carList.get(i).getForward();
         winnerList.clear();
-        winnerList.add(car[i]);
-      } else if(car[i].getForward() == max) {
-        winnerList.add(car[i]);
+        winnerList.add(carList.get(i));
+      } else if(carList.get(i).getForward() == max) {
+        winnerList.add(carList.get(i));
       }
     }
   }

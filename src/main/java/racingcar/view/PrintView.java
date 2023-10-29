@@ -13,11 +13,11 @@ public class PrintView {
     System.out.println("시도할 횟수는 몇회인가요?");
   }
 
-  public void carForwardView(Car []car) {
+  public void carForwardView(List<Car> car) {
     System.out.println("실행 결과");
-    for(int i=0;i<car.length;i++) {
-      System.out.print(car[i].getName() + " : ");
-      for(int k=0;k<car[i].getForward();k++)
+    for(int i=0;i<car.size();i++) {
+      System.out.print(car.get(i).getName() + " : ");
+      for(int k=0;k<car.get(i).getForward();k++)
         System.out.print("-");
     }
     System.out.println();
