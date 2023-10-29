@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.constant.StringError;
 import racingcar.domain.Car;
 import racingcar.domain.Validator;
 import racingcar.view.UserOutput;
@@ -29,7 +30,7 @@ public class RacingGame {
         String carNames = Console.readLine();
 
         if(Validator.isEmpty(carNames)){
-            throw new IllegalArgumentException("자동차 이름을 입력해야 합니다.");
+            throw new IllegalArgumentException(StringError.REQUIRED_CAR_NAME);
         }
 
         RacingGame game = RacingGame.getInstance();
@@ -39,7 +40,7 @@ public class RacingGame {
         String rounds = Console.readLine();
 
         if(Validator.isNotNumber(rounds)){
-            throw new IllegalArgumentException("숫자만 입력해야 합니다.");
+            throw new IllegalArgumentException(StringError.REQUIRED_NUMBER);
         }
         game.play(rounds);
         String result = game.getWinners();
@@ -54,7 +55,7 @@ public class RacingGame {
 
         for (String name : carNames) {
             if (Validator.isValidCarName(name)) {
-                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+                throw new IllegalArgumentException(StringError.CAR_NAME_TOO_LONG);
             }
             Car car = new Car(name);
             cars.add(car);
