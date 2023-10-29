@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -21,7 +22,8 @@ public class CarGame {
         String inputCarName = getCarNamesInput();
         List<Car> carList = getCarList(splitCarNames(inputCarName));
         String inputTryNumber = getTryNumberInput();
-        getCarsScoreList(inputTryNumber, carList);
+        OutputView.printNewLine();
+        getCarsScoreResult(inputTryNumber, carList);
     }
 
     private String getCarNamesInput() {
@@ -83,15 +85,24 @@ public class CarGame {
         }
     }
 
-    private void getCarsScoreList(String inputTryNumber, List<Car> carList) {
+    private void getCarsScoreResult(String inputTryNumber, List<Car> carList) {
         for (int i = 0; i < Integer.parseInt(inputTryNumber); i++) {
             OutputView.printResultMessage();
             for (Car car: carList) {
+                pickNumberNMove(car);
                 OutputView.printCarName(car.getName());
                 getCarMove(car.getMoveCount());
                 OutputView.printNewLine();
             }
             OutputView.printNewLine();
+        }
+    }
+
+    private void pickNumberNMove(Car car) {
+        if (Randoms.pickNumberInRange(0,9) >= 4) {
+            int moveCount = car.getMoveCount();
+            moveCount += 1;
+            car.setMoveCount(moveCount);
         }
     }
 }
