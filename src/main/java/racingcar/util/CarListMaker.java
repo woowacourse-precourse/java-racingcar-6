@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import racingcar.Car;
 
-public class CarListMaker {
+public final class CarListMaker {
     private static final String COMMA = ",";
     private static final int MAX_NAME_LENGTH = 5;
     public static List<Car> makeCarList(String names) {

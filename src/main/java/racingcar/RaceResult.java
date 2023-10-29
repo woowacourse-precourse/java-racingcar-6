@@ -3,7 +3,7 @@ package racingcar;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RaceResult {
+public final class RaceResult {
     private static final String MOVE_UI = "-";
     private static final String COLON = " : ";
     private static final String COMMA = ", ";
