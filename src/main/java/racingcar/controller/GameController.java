@@ -94,6 +94,7 @@ public class GameController {
      * 경주에 참여할 자동차를 정리하고 시도할 횟수 지정
      */
     private void init() {
+        carList.getCars().clear();
         String carNames = inputView.printCarName();
         carsToList(carNames);
         count = inputView.printTryCount();
