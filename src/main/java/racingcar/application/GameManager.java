@@ -1,10 +1,10 @@
 package racingcar.application;
 
 import racingcar.domain.Car;
-import racingcar.domain.Cars;
 import racingcar.domain.DefaultFuelFactory;
 import racingcar.domain.FuelFactory;
 import racingcar.domain.GameTry;
+import racingcar.domain.RacingStadium;
 import racingcar.io.InputProcessor;
 import racingcar.io.OutputProcessor;
 
@@ -13,7 +13,7 @@ import java.util.List;
 public class GameManager {
     private static final FuelFactory FUEL_FACTORY = new DefaultFuelFactory();
 
-    private Cars cars;
+    private RacingStadium racingStadium;
     private GameTry gameTry;
 
     public void run() {
@@ -25,7 +25,7 @@ public class GameManager {
 
     private void readRacingCars() {
         final List<String> participants = InputProcessor.readParticipateCars();
-        cars = Cars.from(applyCars(participants));
+        racingStadium = RacingStadium.from(applyCars(participants));
     }
 
     private List<Car> applyCars(final List<String> participants) {
@@ -41,13 +41,13 @@ public class GameManager {
 
     private void racingStart() {
         while (gameTry.isStillCanTry()) {
-            cars.racing(FUEL_FACTORY);
-            OutputProcessor.printRacingRound(cars.getCars());
+            racingStadium.racing(FUEL_FACTORY);
+            OutputProcessor.printRacingRound(racingStadium.getCars());
             gameTry.proceed();
         }
     }
 
     private void notifyWinners() {
-        OutputProcessor.printWinners(cars.getWinners());
+        OutputProcessor.printWinners(racingStadium.getWinners());
     }
 }

@@ -8,17 +8,17 @@ import static racingcar.exception.ExceptionMessage.CarException.DUPLICATE_CAR;
 import static racingcar.exception.ExceptionMessage.CarException.NO_PARTICIPANTS;
 import static racingcar.exception.ExceptionMessage.WinnerException.WINNER_MUST_BE_EXISTS;
 
-public class Cars {
+public class RacingStadium {
     private final List<Car> cars;
 
-    private Cars(final List<Car> cars) {
+    private RacingStadium(final List<Car> cars) {
         this.cars = cars;
     }
 
-    public static Cars from(final List<Car> cars) {
+    public static RacingStadium from(final List<Car> cars) {
         validateParticipantExists(cars);
         validateDuplicateCarExists(cars);
-        return new Cars(cars);
+        return new RacingStadium(cars);
     }
 
     private static void validateParticipantExists(final List<Car> cars) {

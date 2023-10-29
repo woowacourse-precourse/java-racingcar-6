@@ -15,14 +15,14 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.exception.ExceptionMessage.CarException.DUPLICATE_CAR;
 import static racingcar.exception.ExceptionMessage.CarException.NO_PARTICIPANTS;
 
-public class CarsTest {
+public class RacingStadiumTest {
     @Nested
-    @DisplayName("레이싱 참여자들 집합 Cars")
+    @DisplayName("레이싱 참여자들 집합 RacingStadium")
     class Construct {
         @Test
         @DisplayName("경주에 참여하는 자동차가 비어있으면 게임을 진행할 수 없다")
         void throwExceptionByNoParticipants() {
-            assertThatThrownBy(() -> Cars.from(List.of()))
+            assertThatThrownBy(() -> RacingStadium.from(List.of()))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage(NO_PARTICIPANTS.message);
         }
@@ -38,13 +38,13 @@ public class CarsTest {
             );
 
             // when - then
-            assertThatThrownBy(() -> Cars.from(candidate))
+            assertThatThrownBy(() -> RacingStadium.from(candidate))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage(DUPLICATE_CAR.message);
         }
 
         @Test
-        @DisplayName("게임에 참여할 Cars를 관리한다")
+        @DisplayName("게임에 참여할 자동차들을 RacingStadium에서 관리한다")
         void success() {
             // given
             final List<Car> candidates = List.of(
@@ -54,42 +54,42 @@ public class CarsTest {
             );
 
             // when
-            final Cars cars = Cars.from(candidates);
+            final RacingStadium racingStadium = RacingStadium.from(candidates);
 
             // then
-            assertThat(cars.getCars()).hasSize(candidates.size());
+            assertThat(racingStadium.getCars()).containsExactlyInAnyOrderElementsOf(candidates);
         }
     }
 
     @Test
-    @DisplayName("각 Car별로 fuel을 주입함으로써 레이싱을 진행한다")
+    @DisplayName("각 자동차별로 fuel을 주입함으로써 레이싱을 진행한다")
     void racing() {
         // given
         final Car car1 = new Car("pobi1");
         final Car car2 = new Car("pobi2");
         final Car car3 = new Car("pobi3");
-        final Cars cars = Cars.from(List.of(car1, car2, car3));
+        final RacingStadium racingStadium = RacingStadium.from(List.of(car1, car2, car3));
         final int initPosition = 0;
 
         /* first time */
-        cars.racing(() -> 4);
+        racingStadium.racing(() -> 4);
         final int step1Position = initPosition + 1;
 
-        assertThat(cars.getCars())
+        assertThat(racingStadium.getCars())
                 .map(car -> car.getPosition().getValue())
                 .containsExactly(step1Position, step1Position, step1Position);
 
         /* second time */
-        cars.racing(() -> 2);
+        racingStadium.racing(() -> 2);
         final int step2Position = step1Position;
-        assertThat(cars.getCars())
+        assertThat(racingStadium.getCars())
                 .map(car -> car.getPosition().getValue())
                 .containsExactly(step2Position, step2Position, step2Position);
 
         /* third time */
-        cars.racing(() -> 6);
+        racingStadium.racing(() -> 6);
         final int step3Position = step2Position + 1;
-        assertThat(cars.getCars())
+        assertThat(racingStadium.getCars())
                 .map(car -> car.getPosition().getValue())
                 .containsExactly(step3Position, step3Position, step3Position);
     }
@@ -102,10 +102,10 @@ public class CarsTest {
             final List<Car> expected
     ) {
         // given
-        final Cars cars = Cars.from(participants);
+        final RacingStadium racingStadium = RacingStadium.from(participants);
 
         // when
-        final List<Car> winners = cars.getWinners();
+        final List<Car> winners = racingStadium.getWinners();
 
         // then
         assertThat(winners).containsExactlyInAnyOrderElementsOf(expected);
