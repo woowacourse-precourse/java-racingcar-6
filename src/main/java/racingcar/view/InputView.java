@@ -17,7 +17,7 @@ public class InputView {
         return carNames;
     }
 
-    private static void validateCarInput(String carstr) {
+    public static void validateCarInput(String carstr) {
         if (carstr.contains(",")) {
             return;
         }

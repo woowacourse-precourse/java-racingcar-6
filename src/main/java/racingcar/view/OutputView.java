@@ -9,6 +9,7 @@ public class OutputView {
     public static void printStartGameMessage() {
         System.out.println(StartGameMessage.getMessage());
     }
+
     public static void printAttempNumMessage() {
         System.out.println(AttempNumMessage.getMessage());
     }
@@ -19,8 +20,8 @@ public class OutputView {
     }
 
     public static void printAttempResult(List<Car> cars) {
-        for (Car car: cars) {
-            System.out.print(car.getName()+" : ");
+        for (Car car : cars) {
+            System.out.print(car.getName() + " : ");
             System.out.println(car.printProgressBar());
         }
         System.out.println();
@@ -30,7 +31,7 @@ public class OutputView {
         System.out.print(WINNERPRINTMESSAGE.getMessage());
 
         List<String> winnerNames = winners.stream().map(Car::getName).toList();
-        System.out.println(String.join(", ",winnerNames));
+        System.out.println(String.join(", ", winnerNames));
     }
 
 }

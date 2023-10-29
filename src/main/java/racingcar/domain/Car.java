@@ -14,7 +14,13 @@ public class Car {
         this.progress = 0;
     }
 
-    private void validateCarName(String name) {
+    public Car(String name, int progress) {
+        validateCarName(name);
+        this.name = name;
+        this.progress = progress;
+    }
+
+    public void validateCarName(String name) {
         if(name.length() > 5){
             throw new IllegalArgumentException(INVALID_NAME_LENGTH.getMessage());
         }
