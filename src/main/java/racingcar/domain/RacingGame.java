@@ -32,8 +32,12 @@ public class RacingGame {
         }
     }
 
-    public boolean isEnd() {
-        return this.gameStatus.isEnd();
+    public boolean isInProgress() {
+        return this.gameStatus.isInProgress();
+    }
+
+    public Cars getCars() {
+        return this.cars;
     }
 
 }

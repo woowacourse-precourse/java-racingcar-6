@@ -3,7 +3,8 @@ package racingcar.global;
 public enum CharacterSymbol {
 
     COMMA(","),
-    BLANK(" ");
+    BLANK(" "),
+    HYPHEN("-");
 
     private final String literal;
 

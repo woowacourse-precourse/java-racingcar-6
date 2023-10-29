@@ -23,6 +23,10 @@ public class CarName {
                 .toList();
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     private static void validateMaxLength(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(

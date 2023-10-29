@@ -35,4 +35,8 @@ public class Car {
         return this.forwardCount.getCount();
     }
 
+    public String getName() {
+        return this.name.getName();
+    }
+
 }
