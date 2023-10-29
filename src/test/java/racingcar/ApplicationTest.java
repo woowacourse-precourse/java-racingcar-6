@@ -19,23 +19,17 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 전진_정지() {
-        Console.close();
         assertRandomNumberInRangeTest( // values 3으로 이뤄진 배열이 됨. 따라서 첫번째 pobi는 4, woni는 3의 값을 가짐.
                 () -> {
                     run("pobi,woni", "1");
                     assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
                     Console.close();
-                },
-                MOVING_FORWARD, STOP
-        );
+                }, MOVING_FORWARD, STOP);
     }
 
     @Test
     void 이름에_대한_예외_처리() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
+        assertSimpleTest(() -> assertThatThrownBy(() -> runException("pobi,javaji", "1")).isInstanceOf(IllegalArgumentException.class));
     }
 
     @Test
@@ -50,15 +44,16 @@ class ApplicationTest extends NsTest {
         assertThat(nameList.get(2)).isEqualTo("ccc");
         assertThat(nameList.get(3)).isEqualTo("ddd");
         assertThat(nameList.get(4)).isEqualTo("cc.dd");
+        Console.close();
     }
 
     @Test
     void 숫자값_잘못_입력시_예외_처리() {
-        Console.close();
         String inputName = "-5";
         CallNsTestMethod.myCommand(inputName);
         RacingGame racingGame = new RacingGame();
         assertThatThrownBy(() -> racingGame.inputCountNum()).isInstanceOf(IllegalArgumentException.class);
+        Console.close();
     }
 
     @Test
@@ -89,13 +84,10 @@ class ApplicationTest extends NsTest {
         List<Integer> previousDistance = new ArrayList<>(Arrays.asList(1, 3, 0));
         List<Integer> expectedList = new ArrayList<>(Arrays.asList(2, 3, 0));
         RacingGame racingGame = new RacingGame();
-        CallNsTestMethod.assertRandomNumberInRangeTest(
-                () -> {
-                    racingGame.getDistanceList(nameList, previousDistance);
-                    assertThat(previousDistance).isEqualTo(expectedList);
-                },
-                4, 0
-        );
+        CallNsTestMethod.assertRandomNumberInRangeTest(() -> {
+            racingGame.getDistanceList(nameList, previousDistance);
+            assertThat(previousDistance).isEqualTo(expectedList);
+        }, 4, 0);
     }
 
     @Test
@@ -104,13 +96,10 @@ class ApplicationTest extends NsTest {
         String[] nameArr = {"aa", "bb", "cc"};
         List<String> nameList = (Arrays.asList(nameArr));
         List<Integer> expectedList = new ArrayList<>(Arrays.asList(2, 1, 1));
-        CallNsTestMethod.assertRandomNumberInRangeTest(
-                () -> {
-                    List<Integer> distanceList = racingGame.runAllCycle(nameList, 3);
-                    assertThat(distanceList).isEqualTo(expectedList);
-                },
-                4, 0, 0, 0, 0, 0, 4, 4, 4
-        );
+        CallNsTestMethod.assertRandomNumberInRangeTest(() -> {
+            List<Integer> distanceList = racingGame.runAllCycle(nameList, 3);
+            assertThat(distanceList).isEqualTo(expectedList);
+        }, 4, 0, 0, 0, 0, 0, 4, 4, 4);
     }
 
     @Test
@@ -119,7 +108,6 @@ class ApplicationTest extends NsTest {
         List<Integer> numList = new ArrayList<>(Arrays.asList(1, 4, 2, 7, 12, 4, 12, 3, 0));
         int max = racingGame.findMax(numList);
         assertThat(max).isEqualTo(12);
-
     }
 
     @Test
@@ -142,13 +130,10 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 게임_구동() {
-        Console.close();
-        CallNsTestMethod.assertRandomNumberInRangeTest(
-                () -> {
-                    run("aa,bb,cc,dd", "1");
-                    assertThat(output()).contains("aa : -", "bb : ", "cc : -", "dd : ", "최종 우승자 : aa,cc");
-                }, 4, 0, 4, 0
-        );
+        CallNsTestMethod.assertRandomNumberInRangeTest(() -> {
+            run("aa,bb,cc,dd", "1");
+            assertThat(output()).contains("aa : -", "bb : ", "cc : -", "dd : ", "최종 우승자 : aa,cc");
+        }, 4, 0, 4, 0);
     }
 
     @Override
