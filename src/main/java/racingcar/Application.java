@@ -7,6 +7,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Application {
     public static void main(String[] args) {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         Car car = new Car();
         car.displayCarInformation();
         car.displayWhoIsWinner();
@@ -14,6 +15,7 @@ public class Application {
 }
 class User{
     static int NumberOfMove(){
+        System.out.println("시도할 회수는 몇회인가요?");
         String InputTry = readLine();
         int moveCount = CheckException.CheckRightNumberOfMove(InputTry);
         return moveCount;
@@ -26,6 +28,7 @@ class Car{
     public Car() {
         init();
     }
+
     public void init(){
         String CarName = readLine();
         for (String name : CarName.split(",")){
@@ -33,8 +36,8 @@ class Car{
         }
         CheckException.CheckRightCarName(CarInformation.keySet());
         RepeatCount = User.NumberOfMove();
-        this.WhichCarWillMove(CarInformation.keySet());
     }
+
     private int CreateRandomNumber() {
         return pickNumberInRange(0,9);
     }
@@ -45,23 +48,28 @@ class Car{
         return false;
     }
     private void WriteForwardDistance(String CarName){
-        int distance = 0;
-        for (int i=0; i<RepeatCount; i++){
-            int num = CreateRandomNumber();
-            if (CheckGoOrStop(num)){
-                distance ++ ;
-                CarInformation.put(CarName,distance);
-            }
+        int distance = CarInformation.get(CarName);
+        int num = CreateRandomNumber();
+        if (CheckGoOrStop(num)){
+            distance++ ;
+            CarInformation.put(CarName,distance);
         }
     }
 
-    private void WhichCarWillMove(Set<String> CarNameSet){
+    private void WhichCarWillMove(){
+        Set<String> CarNameSet = CarInformation.keySet();
         for (String CarName : CarNameSet){
             WriteForwardDistance(CarName);
         }
     }
-    public void displayCarInformation() {
-        CarInformation.forEach((key, value) -> System.out.println("Key: " + key + ", Value: " + value));
+
+    public void displayCarInformation(){
+        System.out.println("\n실행 결과");
+        for (int i=0; i<RepeatCount; i++){
+            WhichCarWillMove();
+            CarInformation.forEach((key, value) -> System.out.println("Key: " + key + ", Value: " + value));
+            System.out.println();
+        }
     }
     public void displayWhoIsWinner(){
         List<String> WinnerList = FindWinner();
