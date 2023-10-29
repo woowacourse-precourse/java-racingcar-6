@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RacingGame {
@@ -9,6 +10,7 @@ public class RacingGame {
     private static final String PROGRESS_RESULT = "실행결과";
     private Player player = new Player();
     private HashMap<String, Integer> cars;
+    private ArrayList<String> winnerList;
     private int attemptNumber, carNumber, valueOfCar, randomNumber, updateCarValue;
     private String carName;
 
@@ -36,7 +38,8 @@ public class RacingGame {
             }
             System.out.println();
         }
-        checkWinner(carName);
+        checkWinner();
+        printWinner();
     }
 
     public void printProgress(String carName){
@@ -56,7 +59,17 @@ public class RacingGame {
         }
     }
 
-    public void checkWinner(String carName){
+    public void checkWinner(){
+        for(int i = 0; i<cars.size(); i++){
+            carName = player.getCarName(i);
+            valueOfCar = cars.get(carName);
+            if (valueOfCar == attemptNumber){
+                winnerList.add(carName);
+            }
+        }
+    }
+
+    public void printWinner(){
         
     }
 
