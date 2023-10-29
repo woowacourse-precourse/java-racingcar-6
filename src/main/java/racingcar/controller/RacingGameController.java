@@ -31,6 +31,9 @@ public class RacingGameController {
             goForward(game);
             outputView.resultByRound(game);
         }
+
+        List<String> winners = winners(game);
+        outputView.winners(winners);
     }
 
     public List<String> inputCarName() {
