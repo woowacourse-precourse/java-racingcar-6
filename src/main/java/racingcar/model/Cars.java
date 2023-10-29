@@ -10,7 +10,7 @@ public class Cars {
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
-        this.cars = new ArrayList<>(cars);
+        this.cars = cars;
     }
 
     public static Cars fromNames(List<String> carNames) {
@@ -26,6 +26,13 @@ public class Cars {
             movedCars.add(car.attemptMove());
         }
         return new Cars(movedCars);
+    }
+
+    public int getMaxDistance() {
+        return cars.stream()
+            .mapToInt(Car::distance)
+            .max()
+            .orElse(0);
     }
 
     public List<Car> toList() {

@@ -2,6 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.model.Cars;
 import racingcar.model.RaceResult;
 
 public class OutputView {
@@ -10,8 +11,8 @@ public class OutputView {
         System.out.print("\n실행 결과\n");
     }
 
-    public void printRaceRoundResult(List<Car> cars) {
-        for (Car car : cars) {
+    public void printRaceRoundResult(Cars cars) {
+        for (Car car : cars.toList()) {
             System.out.printf("%s : %s\n", car.carName(), "-".repeat(car.distance()));
         }
         System.out.println();

@@ -40,14 +40,14 @@ public class RaceController {
         List<RaceResult> raceResults = new ArrayList<>();
         for (int i = 0; i < attemptCount; i++) {
             cars = cars.playRound();
-            raceResults.add(new RaceResult(cars.toList()));
+            raceResults.add(new RaceResult(cars));
         }
         return raceResults;
     }
 
     private void displayRaceResults(List<RaceResult> raceResults) {
         for (RaceResult result : raceResults) {
-            outputView.printRaceRoundResult(result.carsToList());
+            outputView.printRaceRoundResult(new Cars(result.carsToList()));
         }
         outputView.printWinner(raceResults.get(raceResults.size() - 1));
     }

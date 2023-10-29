@@ -6,29 +6,23 @@ import java.util.stream.Collectors;
 
 public class RaceResult {
 
-    private final List<Car> cars;
+    private final Cars cars;
 
-    public RaceResult(List<Car> cars) {
+    public RaceResult(Cars cars) {
         this.cars = cars;
     }
 
     public List<Car> carsToList() {
-        return Collections.unmodifiableList(cars);
+        return cars.toList();
     }
 
     public List<String> getWinners() {
-        int maxDistance = getMaxDistance();
-        return cars.stream()
-            .filter(car -> car.getDistance() == maxDistance)
-            .map(Car::getCarName)
+        int maxDistance = cars.getMaxDistance();
+        return cars.toList().stream()
+            .filter(car -> car.distance() == maxDistance)
+            .map(Car::carName)
             .collect(Collectors.toList());
     }
 
-    private int getMaxDistance() {
-        return cars.stream()
-            .mapToInt(Car::getDistance)
-            .max()
-            .orElse(0);
-    }
 
 }
