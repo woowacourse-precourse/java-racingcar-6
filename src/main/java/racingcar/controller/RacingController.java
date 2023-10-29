@@ -21,6 +21,11 @@ public class RacingController {
         outputView.printWinner(winner());
     }
 
+    private int times() {
+        outputView.inputTimes();
+        return inputView.inputTimes();
+    }
+
     private ArrayList<String> winner() {
         ArrayList<String> winner = new ArrayList<>();
         for (Player player : players) {
