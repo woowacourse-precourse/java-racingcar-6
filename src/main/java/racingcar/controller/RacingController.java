@@ -14,6 +14,6 @@ public class RacingController {
 
     public void run() {
         List<Car> cars = view.inputCarNames();
-        view.inputTryCount();
+        Integer tryCount = view.inputTryCount();
     }
 }

@@ -17,7 +17,8 @@ public class RacingView {
             Collectors.toList());
     }
 
-    public void inputTryCount() {
+    public Integer inputTryCount() {
         System.out.println(RacingMessage.INPUT_TRY_COUNT);
+        return Integer.parseInt(Console.readLine());
     }
 }
