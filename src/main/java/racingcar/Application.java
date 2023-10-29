@@ -14,7 +14,7 @@ public class Application {
     private static final String WINNER_MESSAGE = "최종 우승자 : ";
 
     public static void main(String[] args) {
-        // TODO: 사용자 입력 처리
+        // 자동차 이름 입력 처리
         System.out.println(INPUT_CARNAME_MESSAGE);
         String inputNames = Console.readLine();
         List<String> carNames = Arrays.asList(inputNames.split(","));
@@ -27,6 +27,7 @@ public class Application {
             throw new IllegalArgumentException();
         }
 
+        // 경주 회수 입력 처리
         System.out.println(INPUT_TRYTIME_MESSAGE);
         String inputTime = Console.readLine();
         if (!isNumberInteger(inputTime)) {
@@ -38,13 +39,15 @@ public class Application {
             throw new IllegalArgumentException();
         }
 
-        // TODO: 자동차 목록 생성
+        // 자동차 목록 생성
         Car[] cars = new Car[carNames.size()];
         for (int i = 0; i < cars.length; i++) {
             cars[i] = new Car(carNames.get(i));
         }
 
         // TODO: 실행 결과 처리
+        // 실행 결과 처리
+        System.out.println();
         System.out.println(RESULT_MESSAGE);
 
         for (int i = 0; i < tryTime; i++) {
