@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 public class CarsTest {
 	
-	@DisplayName("printCarStatus메소드 출력 형태를 확인한다.")
+	@DisplayName("printCarsStatus메소드 출력 형태를 확인한다.")
 	@Test
 	void checkPrintCarStatusMethodPrintMessage() {
 		Car car1 = new Car("car1");

@@ -21,7 +21,7 @@ public class PickWinnerService {
 	
 	private List<Car> pickWinner(Cars cars) {
 		int maxCarLocation = getMaxCarLocation(cars);
-		List<Car> winnerList = new ArrayList();
+		List<Car> winnerList = new ArrayList<>();
 		
 		for(Car car : cars.getCars()) {
 			if(car.getCarLocation() == maxCarLocation) {
@@ -31,7 +31,6 @@ public class PickWinnerService {
 		
 		return winnerList;
 	}
-	
 	
 	private int getMaxCarLocation(Cars cars) {
 		return cars.getCars().stream()

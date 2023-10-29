@@ -22,10 +22,10 @@ public class Car {
 	}
 
 	public String printCarStatus() {
-		return String.format("%s : %s", carName, convertCarLocationToMinusWords());
+		return String.format("%s : %s", carName, convertCarLocationToMinus());
 	}
 
-	private String convertCarLocationToMinusWords() {
+	private String convertCarLocationToMinus() {
 		StringBuilder strBuilder = new StringBuilder();
 
 		IntStream.range(0, carLocation).forEach(x -> strBuilder.append("-"));

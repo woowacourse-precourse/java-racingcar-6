@@ -29,7 +29,7 @@ public class RacingCar {
 		
 		progress(cars);
 		
-		gameResult(cars);
+		pickWinner(cars);
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 			throw e;
@@ -58,7 +58,7 @@ public class RacingCar {
 		}
 	}
 	
-	private void gameResult(Cars cars) {
+	private void pickWinner(Cars cars) {
 		String winner = pickWinnerService.printWinner(cars);
 		
 		outputView.printWinner(winner);

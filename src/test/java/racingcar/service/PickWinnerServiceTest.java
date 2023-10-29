@@ -22,7 +22,7 @@ public class PickWinnerServiceTest {
 		PickWinnerService service = new PickWinnerService();
 		String printWinner = service.printWinner(cars);
 		
-		assertEquals(printWinner, winner, "test");
+		assertEquals(printWinner, winner);
 	}
 	
 	static Stream<Arguments> createCheckWinnerTestValue(){

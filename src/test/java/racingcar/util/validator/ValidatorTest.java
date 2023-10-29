@@ -16,7 +16,7 @@ public class ValidatorTest {
 	void checkOutOfLength(String str) {
 		assertThatThrownBy(() -> Validator.validateOutOfLength(str))
 				.isInstanceOf(IllegalArgumentException.class)
-						.hasMessageContaining(ErrorMessage.CAR_NAME_LENGTH_ERROR.getMessage());
+				.hasMessageContaining(ErrorMessage.CAR_NAME_LENGTH_ERROR.getMessage());
 	}
 	
 	@DisplayName(",로 구분된 이름의 길이가 5이하일때 정삭적으로 작동하는 지 확인한다.")
@@ -32,7 +32,7 @@ public class ValidatorTest {
 	void checkContainNumber(String str) {
 		assertThatThrownBy(() -> Validator.validateContainNumber(str))
 				.isInstanceOf(IllegalArgumentException.class)
-						.hasMessageContaining(ErrorMessage.CONTAIN_NUMBER_ERROR.getMessage());
+				.hasMessageContaining(ErrorMessage.CONTAIN_NUMBER_ERROR.getMessage());
 	}
 	
 	@DisplayName("숫자가 아닌 문자로만 구성되었을 때 정상적으로 작동하는 지 확인한다.")
@@ -48,7 +48,7 @@ public class ValidatorTest {
 	void checkNumberFormat(String str) {
 		assertThatThrownBy(() -> Validator.validateNumberFormat(str))
 				.isInstanceOf(IllegalArgumentException.class)
-						.hasMessageContaining(ErrorMessage.INPUT_LETTER_ERROR.getMessage());
+				.hasMessageContaining(ErrorMessage.INPUT_LETTER_ERROR.getMessage());
 	}
 
 	@DisplayName("숫자만을 입력했을 떄 정상적으로 작동하는 지 확인한다.")
