@@ -42,7 +42,7 @@
 - [x] 차의 이름을 전달 해주는 getCarName 메서드
 - [ ] 우승자의 정보를 전달 해주는 getWinner 메서드
     - [ ] 가장 멀리간 거리를 int winerPosition으로 받기
-    - [ ] 앞서 받은 winerPosition과 같은 거리를 간 차들의 이름을 리스트에 담아서 반환
+    - [x] 앞서 받은 winerPosition과 같은 거리를 간 차들의 이름을 리스트에 담아서 반환
 ## View
 ### InputView
 > 입력 메세지 출력과 자동차의 이름과 주행 횟수를 입력 받는 클래스

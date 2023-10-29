@@ -52,4 +52,11 @@ public class Cars {
                 .sorted(Comparator.comparingInt(Car::getCarPosition).reversed())
                 .collect(Collectors.toList());
     }
+
+    private List<String> getWinnerPositionCar(int winerPosition){
+        return cars.stream()
+                .filter(car -> car.isEqualPosition(winerPosition))
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
 }
