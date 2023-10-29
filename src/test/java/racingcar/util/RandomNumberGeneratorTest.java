@@ -10,6 +10,9 @@ class RandomNumberGeneratorTest {
     @DisplayName("올바른 범위의 랜덤한 숫자 생성 테스트")
     @Test
     void checkRandomNumberGenerate() {
-        assertThat(RandomNumberGenerator.generate()).isBetween(0, 9);
+        int t = 10;
+        while (t-- > 0) {
+            assertThat(RandomNumberGenerator.generate()).isBetween(0, 9);
+        }
     }
 }
