@@ -42,4 +42,12 @@ public class Car {
         return Objects.hash(name, position);
     }
 
+    public String getName() {
+        return name.name();
+    }
+
+    public int getPosition() {
+        return position.getPosition();
+    }
+
 }
