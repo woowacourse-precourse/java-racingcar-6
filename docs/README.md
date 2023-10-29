@@ -17,9 +17,9 @@
 
 #### 👦🏻 사용자 요구사항
 
-##### ☑️ 사용자는 경주할 레이서들의 이름을 입력할 수 있다.
+##### ✅ 사용자는 경주할 레이서들의 이름을 입력할 수 있다.
 	`camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다. 
-##### ☑️ 사용자는 시도할 횟수를 입력할 수 있다.
+##### ✅ 사용자는 시도할 횟수를 입력할 수 있다.
     `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
 
 #### 🔎 검증자 요구사항

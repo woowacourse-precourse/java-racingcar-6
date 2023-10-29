@@ -1,21 +1,22 @@
 package racingcar;
-import camp.nextstep.edu.missionutils.Console;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.io.ByteArrayInputStream;
 
 import java.util.NoSuchElementException;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class PlayerTest {
+
     private Player player;
     @BeforeEach()
     void setUp(){
         player = new Player();
     }
+
     @Test
+    @Order(1)
     void 사용자의_입력을_받는다(){
         String expectedInput = "correct";
         System.setIn(new ByteArrayInputStream("correct".getBytes()));
@@ -23,6 +24,7 @@ public class PlayerTest {
         Assertions.assertEquals(expectedInput,playerInput);
     }
     @Test
+    @Order(2)
     void 사용자가_입력하지_않으면_에러를_발생한다(){
         IllegalArgumentException exception = Assertions.assertThrows(IllegalArgumentException.class,()->{
             try{
