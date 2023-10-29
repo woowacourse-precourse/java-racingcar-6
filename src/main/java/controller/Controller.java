@@ -12,6 +12,7 @@ public class Controller {
     private final InputValidator inputValidator = new InputValidator();
     private int numOfAttempt;
     private final List<Car> groupOfCar = new ArrayList<Car>();
+
     public void run() { //프로그램의 시작
         createCar();
         startCarRace();
@@ -40,11 +41,11 @@ public class Controller {
     }
 
     private int findMaxDistance() {
-        int max = Integer.MIN_VALUE;
+        int maxDistance = Integer.MIN_VALUE;
         for(Car car : this.groupOfCar) {
-            max = Math.max(max,car.getDistance());
+            maxDistance = Math.max(maxDistance,car.getDistance());
         }
-        return max;
+        return maxDistance;
     }
 
     private void carMoveStage() {
