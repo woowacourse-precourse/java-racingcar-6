@@ -1,18 +1,19 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class UserInput {
+    private static final String CAR_NAMES_DELIMETER = ",";
 
-
-    public String readCarNames() {
+    public List<String> readCarNames() {
         String names = Console.readLine();
         validateCarNames(names);
-        return names;
+        return Arrays.stream(names.split(CAR_NAMES_DELIMETER)).toList();
     }
-
 
     public int readGameCount() {
         String gameCount = Console.readLine();

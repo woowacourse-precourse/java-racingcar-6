@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.CarService;
@@ -38,22 +37,14 @@ public class GameController {
     //1) 사용자 입력 처리해서 객체에도 세팅
     private void askInputUser() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String carNamesStr = userInput.readCarNames();
-
-        carList = changeUserInputToCarList(carNamesStr);
+        carList = changeUserInputToCarList(userInput.readCarNames());
 
         System.out.println("시도할 회수는 몇회인가요?");
         gameCount = userInput.readGameCount();
     }
 
     //1) 입력받은 자동차 이름별 Car 클래스 생성 및 리스트에 담기
-    public List<Car> changeUserInputToCarList(String carNames) {
-        ArrayList<Car> list = new ArrayList<>();
-        String[] tmp = carNames.split(",");
-        //각 자동차 이름별로 Car 클래스 리스트에 담고 초기화
-        for (int i = 0; i < tmp.length; i++) {
-            list.add(new Car(tmp[i], 0));
-        }
-        return list;
+    private List<Car> changeUserInputToCarList(List<String> carNames) {
+        return carNames.stream().map(Car::new).toList();
     }
 }
