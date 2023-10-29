@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.service.CarRace;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -33,8 +34,9 @@ public class RacingController {
     private void playGame() {
         int tryNumber = InputView.getTryNumberInput();
         OutputView.printResultMessage();
+        CarRace carRace = new CarRace(cars.getCars());
         while (tryNumber > 0) {
-            cars.printPlayers();
+            carRace.printPlayers();
             tryNumber--;
         }
     }
