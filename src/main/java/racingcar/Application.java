@@ -15,5 +15,11 @@ public class Application {
         List<String> carNameList  = Arrays.stream(input.split(","))
                                         .map(carName -> carName.strip())
                                         .toList();
+
+        List<Car> carList = new ArrayList<>();
+        for (int i = 0; i < carNameList.size(); i++) {
+            Car car = new Car(carNameList.get(i), 0);
+            carList.add(car);
+        }
     }
 }
