@@ -14,7 +14,7 @@ public class Car {
         return this.name;
     }
 
-    public int getForward() {
+    public int getForwardCount() {
         return this.forwardCount;
     }
 

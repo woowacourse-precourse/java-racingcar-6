@@ -14,6 +14,9 @@
 
 ### `model` 패키지
 - `Car` 클래스 : 경주차량 관리
-  - 멤버변수: name(이름), forward(전진횟수)
+  - 멤버변수: name(이름), forwardCount(전진횟수)
   - 멤버함수: 
-    - 
+    - `getName`: 해당 차량의 이름을 불러옴
+    - `getForwardCount`: 해당 차량의 전진횟수
+    - `randomNumber`: 전진의 여부를 결정짓는 난수
+    - `currentLocation`: 현재 위치를 반환
