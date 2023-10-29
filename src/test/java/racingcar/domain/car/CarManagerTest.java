@@ -40,6 +40,22 @@ class CarManagerTest extends NsTest {
         );
     }
 
+    @Test
+    void 우승자가_여러명일_경우_쉼표를_이용하여_구분한다() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni");
+                    CarManager carManager = new CarManager(new InputCarFactory(), new VictoryManager(new VictoryView()));
+                    carManager.makeCar();
+                    carManager.moveAndShowProgress();
+                    carManager.showVictory();
+                    assertThat(output()).contains("최종 우승자 : pobi, woni");
+                },
+                4, 4
+        );
+    }
+
+
     @Override
     protected void runMain() {
 
