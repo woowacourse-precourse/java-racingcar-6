@@ -6,13 +6,13 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.exception.car.name.LengthException.LengthExceptionMessage;
 import static racingcar.exception.cars.DuplicateException.DuplicateExceptionMessage;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.Application;
+import racingcar.model.car.Car;
+import racingcar.model.car.Cars;
 import racingcar.utils.Parser;
 
 public class ExceptionTest {

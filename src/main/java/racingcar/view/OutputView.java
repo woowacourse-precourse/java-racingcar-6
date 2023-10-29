@@ -1,7 +1,7 @@
 package racingcar.view;
 
-import racingcar.model.Car;
-import racingcar.model.Cars;
+import racingcar.model.car.Car;
+import racingcar.model.car.Cars;
 
 public class OutputView {
     public static String resultHeaderMessage() {

@@ -1,29 +1,21 @@
-package racingcar.model;
+package racingcar.model.car;
 
 import racingcar.constant.RacingGameConstants;
 import racingcar.exception.NullException;
 import racingcar.exception.car.name.LengthException;
-import racingcar.utils.RandomGenerator;
 
-public class Car {
+public class Name {
     private String name;
-    private int position;
-
-    public Car(String name) {
-        validateName(name);
+    public Name(String name) {
+        validate(name);
         this.name = name;
-        position = 0;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getPosition() {
-        return position;
-    }
-
-    private void validateName(String name) {
+    private void validate(String name) {
         validateNull(name);
         validateNameLength(name);
     }
@@ -39,18 +31,5 @@ public class Car {
                 || name.length() > RacingGameConstants.CAR_NAME_LENGTH_MAX) {
             throw new LengthException();
         }
-    }
-
-    public void TryToMove() {
-        int randomNumber = RandomGenerator
-                .generateRandomIntInRange(RacingGameConstants.MOVE_ENERGY_MIN, RacingGameConstants.MOVE_ENERGY_MAX);
-
-        if(randomNumber >= RacingGameConstants.ENERGY_THRESHOLD_TO_MOVE) {
-            moveOneStep();
-        }
-    }
-
-    public void moveOneStep() {
-        position++;
     }
 }

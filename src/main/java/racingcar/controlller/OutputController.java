@@ -1,6 +1,6 @@
 package racingcar.controlller;
 
-import racingcar.model.Cars;
+import racingcar.model.car.Cars;
 import racingcar.view.OutputView;
 
 public class OutputController {

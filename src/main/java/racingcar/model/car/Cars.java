@@ -1,9 +1,10 @@
-package racingcar.model;
+package racingcar.model.car;
 
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.exception.NullException;
 import racingcar.exception.cars.DuplicateException;
+import racingcar.model.car.Car;
 
 public class Cars {
     private List<Car> carList;
