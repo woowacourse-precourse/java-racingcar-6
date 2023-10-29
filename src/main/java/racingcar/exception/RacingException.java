@@ -32,4 +32,12 @@ public class RacingException {
                 }
             }
         }
+
+        public void validateRoundNum(String roundNum) {
+            try {
+                Integer.parseInt(roundNum);
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException();
+            }
+        }
 }
