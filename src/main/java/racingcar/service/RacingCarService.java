@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 public class RacingCarService {
     private static final String DELIMITER = ",";
+    private static final int CONDITION_NUMBER = 4;
     private List<RacingCar> racingCars;
 
     public RacingCarService() {
@@ -38,5 +39,9 @@ public class RacingCarService {
 
     private void playOneRacing() {
         int randomNumber = RandomUtil.getRandomNumber();
+    }
+
+    private boolean canMove(int number) {
+        return number >= CONDITION_NUMBER;
     }
 }
