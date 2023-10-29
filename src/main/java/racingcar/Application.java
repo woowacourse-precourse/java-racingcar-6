@@ -16,7 +16,6 @@ public class Application {
         return Arrays.asList(userInput.split(","));
     }
 
-
     private static int calculateMaxDistance(Car car) {
         int maxDistance = 0;
 
@@ -33,7 +32,7 @@ public class Application {
 
     private static StringJoiner findWinner(Car car, int maxDistance) {
         System.out.print("최종 우승자 : ");
-        StringJoiner winner = new StringJoiner(",");
+        StringJoiner winner = new StringJoiner(", ");
 
         for (int i = 0; i < car.names.size(); i++) {
 
