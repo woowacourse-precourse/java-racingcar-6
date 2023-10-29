@@ -14,7 +14,7 @@ public class CarTest {
     @Test
     void 아무움직임없을떄_최종_우승자_판정_테스트() {
         Cars cars = new Cars(Arrays.asList("mj", "dh", "pobi", "jason"));
-        assertThat(cars.getWinners().size()).isEqualTo(4);
+        assertThat(cars.getWinners().getWinnersSize()).isEqualTo(4);
     }
 
     @Test

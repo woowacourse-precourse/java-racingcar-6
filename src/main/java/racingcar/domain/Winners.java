@@ -35,4 +35,8 @@ public class Winners {
     private boolean nextCarIsWinner(Car car, Car winner) {
         return (car.compareTo(winner) == 0);
     }
+
+    public int getWinnersSize() {
+        return winners.size();
+    }
 }
