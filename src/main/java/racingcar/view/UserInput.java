@@ -5,33 +5,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserInput {
-    static String userInputCarName;
-    static int gameCount;
-
-    public UserInput() {
-    }
 
 
-    public static String getUserInputCarName() {
-        return userInputCarName;
-    }
-
-    public static int getGameCount() {
-        return gameCount;
-    }
-
-
-    public void readCarNames() {
+    public String readCarNames() {
         String names = Console.readLine();
         validateCarNames(names);
-        userInputCarName = names;
+        return names;
     }
 
 
-    public void readGameCount() {
-        String count = Console.readLine();
-        validateGameCount(count);
-        gameCount = Integer.parseInt(count);
+    public int readGameCount() {
+        String gameCount = Console.readLine();
+        validateGameCount(gameCount);
+        return Integer.parseInt(gameCount);
     }
 
 
