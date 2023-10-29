@@ -9,6 +9,7 @@ public class Car {
     private int progress;
 
     public Car(String name) {
+        validateCarName(name);
         this.name = name;
         this.progress = 0;
     }
