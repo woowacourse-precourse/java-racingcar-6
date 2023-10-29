@@ -1,33 +1,19 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import racingcar.validator.CarNameValidator;
-import racingcar.validator.AttemptCountValidator;
 
 public class InputView {
 
-    private static final String NAME_DELIMITER = ",";
+    private static final String GAME_START_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String PROMPT_MESSAGE = "시도할 회수는 몇 회인가요?";
 
-    public static List<String> getCarNames() {
-        String carNames = getUserInput();
-        String[] splitNames = splitCarNames(carNames);
-        CarNameValidator.validateCarNames(splitNames);
-        return new ArrayList<>(Arrays.asList(splitNames));
-    }
-
-    public static String getUserInput() {
+    public static String getCarNames() {
+        System.out.println(GAME_START_MESSAGE);
         return Console.readLine();
     }
 
-    public static String[] splitCarNames(String carNames) {
-        return carNames.split(NAME_DELIMITER);
-    }
-
-    public static int getAttemptCount() {
-        String attemptCount = getUserInput();
-        return AttemptCountValidator.validateAttemptCount(attemptCount);
+    public static String getAttemptCount() {
+        System.out.println(PROMPT_MESSAGE);
+        return Console.readLine();
     }
 }
