@@ -1,9 +1,6 @@
 package racingcar;
 
-import racingcar.domain.CarName;
-import racingcar.domain.Cars;
-import racingcar.domain.Input;
-import racingcar.domain.Output;
+import racingcar.domain.*;
 
 import java.util.List;
 
@@ -14,7 +11,7 @@ public class Application {
         final Input input = new Input();
 
         output.printInputCarNameMessage();
-        List<CarName> carNames = input.getCarNames();
+        CarNames carNames = input.getCarNames();
         Cars cars = new Cars(carNames);
         output.printInputGameCountMessage();
         int gameCount = input.getGameCount();

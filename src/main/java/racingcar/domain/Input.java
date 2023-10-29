@@ -9,13 +9,13 @@ public class Input {
 
     private String userInput;
 
-    public List<CarName> getCarNames() {
+    public CarNames getCarNames() {
         userInput = Console.readLine();
         List<CarName> carNames = Arrays.stream(userInput.split(","))
                 .map(name -> new CarName(name.trim()))
                 .collect(Collectors.toList());
         validateDuplication(carNames);
-        return carNames;
+        return new CarNames(carNames);
     }
 
     public int getGameCount() {

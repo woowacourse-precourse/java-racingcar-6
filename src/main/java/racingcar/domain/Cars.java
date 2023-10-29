@@ -9,12 +9,8 @@ public class Cars {
 
     private final List<Car> cars;
 
-    public Cars(List<CarName> carNames) {
-        cars = new ArrayList<>(carNames.size());
-        for (CarName carName : carNames) {
-            Car car = new Car(carName);
-            cars.add(car);
-        }
+    public Cars(CarNames carNames) {
+        cars = carNames.assignNamesToCars();
     }
 
     public List<Car> moveAllCar() {
