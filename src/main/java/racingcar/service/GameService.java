@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import racingcar.entity.Car;
 import racingcar.entity.Game;
 import racingcar.repository.GameRepository;
 
@@ -21,6 +22,13 @@ public class GameService {
         List<String> nameList = Arrays.stream(nameInput.split(",")).toList();
         for (String name : nameList) {
             game.addCar(carService.carCreate(name));
+        }
+    }
+
+    public void processGame() {
+        Game game;
+        for (String carName : game.getCarNameList()) {
+            carService.goOrStop(carName);
         }
     }
 }
