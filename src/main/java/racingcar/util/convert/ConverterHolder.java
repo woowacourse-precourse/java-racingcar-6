@@ -6,6 +6,8 @@ public class ConverterHolder {
 
     private static final ThreadLocal<List<Converter<?, ?>>> converterHolder = new ThreadLocal<>();
 
+    private ConverterHolder() { }
+
     public static void setConverters(List<Converter<?, ?>> converters) {
         converterHolder.set(converters);
     }
