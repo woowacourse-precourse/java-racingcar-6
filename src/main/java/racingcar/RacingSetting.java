@@ -9,8 +9,13 @@ public class RacingSetting {
         String[] carNameParsing;
 
         inputCarName = readLine();
-        System.out.println(inputCarName);
         carNameParsing = inputCarName.split(",");
         return (carNameParsing);
+    }
+
+    void getMoveNum() {
+        String inputMoveNum;
+
+        inputMoveNum = readLine();
     }
 }

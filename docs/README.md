@@ -29,7 +29,7 @@
 ### RacingSetting
 클래스 변수 : MoveNum moveNum, CarNum carNum
 * 경주할 자동차 입력받기 ✅
-* 이동을 시도할 횟수 입력받기 ❌
+* 이동을 시도할 횟수 입력받기 ✅
 * 입력받을때 안내메시지 출력 ❌
 
 ### Car
