@@ -1,13 +1,13 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class GameDataTest {
     private GameData gameData;
@@ -45,16 +45,39 @@ class GameDataTest {
 
     }
 
-    @Test
-    void getRepetitionNumberInput() {
-    }
-
-    @Test
+    /*@Test
     void changeRepetitionNumberType() {
-    }
+
+        String repetitionNumberInputTest = "123";
+        gameData.changeRepetitionNumberType(repetitionNumberInputTest);
+        Integer repetitionNumber = gameData.getRepetitionNumber();
+        Assertions.assertThat(repetitionNumber).isIn(Number);
+    }*/
 
     @Test
-    void sortCarListByRank() {
+    void 자동차_전진횟수에_따라_내림차순_정렬() {
+        List<Car> carList = new ArrayList<>();
+        List<String> carNameList = new ArrayList<>();
+
+        int carNumber = 5;
+        for (int i = 0; i < carNumber; i++) {
+            carList.add(new Car());
+            Car car = carList.get(i);
+            int ascii_a = 97;
+            char nameTemp = (char)(ascii_a + i);
+            car.setName(String.valueOf(nameTemp));
+            car.setSuccessMoveForwardCount(30 + i);
+
+        }
+
+        gameData.sortCarListByRank(carList);
+        for (int i = 0; i < carNumber; i++) {
+            String carName = carList.get(i).getName();
+            carNameList.add(carName);
+        }
+
+        Assertions.assertThat(carNameList).isEqualTo(Arrays.asList("e", "d", "c", "b", "a"));
+
     }
 
     @Test
