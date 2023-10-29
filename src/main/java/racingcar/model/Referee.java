@@ -11,7 +11,7 @@ public class Referee {
     private static final Integer START_POINT = 0;
 
     private List<CarName> winnerNames;
-
+    
     public List<CarName> getWinnerNames() {
         return winnerNames;
     }
