@@ -18,7 +18,7 @@ public class CarsTest {
         Cars cars = new Cars(Arrays.asList(pobi, woni, jun, ski));
         List<Car> expected = Arrays.asList(woni, ski);
 
-        List<Car> winningCars = cars.findWiiningCars();
+        List<Car> winningCars = cars.findWinningCars();
 
         for (int index = 0; index < winningCars.size(); index++) {
             assertThat(winningCars.get(index)).isEqualTo(expected.get(index));

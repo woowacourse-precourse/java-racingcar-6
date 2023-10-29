@@ -46,10 +46,10 @@ public class Cars {
     }
 
     public ResultMessage findWinners() {
-        return new ResultMessage(findWiiningCars());
+        return new ResultMessage(findWinningCars());
     }
 
-    public List<Car> findWiiningCars() {
+    public List<Car> findWinningCars() {
         return cars.stream()
                 .max(Comparator.comparingInt(Car::getPosition))
                 .stream().toList();
