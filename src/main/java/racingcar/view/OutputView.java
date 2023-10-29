@@ -7,19 +7,19 @@ public class OutputView {
     private static final String EXECUTION_RESULT = "실행 결과";
     private static final String FINAL_WINNER = "최종 우승자";
 
-    private static void carNameInput() {
+    public static void carNameInput() {
         print(CAR_NAME_MESSAGE);
     }
-    private static void attemptCountInput() {
+    public static void attemptCountInput() {
         print(ATTEMPT_COUNT_MESSAGE);
     }
-    private static void executionResultView() {
+    public static void executionResultView() {
         print(EXECUTION_RESULT);
     }
-    private static void lastWinnerView() {
+    public static void lastWinnerView() {
         print(FINAL_WINNER);
     }
-    private static void print(String message) {
+    public static void print(String message) {
         System.out.println(message);
     }
 
