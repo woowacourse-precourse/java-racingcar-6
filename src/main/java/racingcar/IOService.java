@@ -27,4 +27,12 @@ public class IOService {
         }
 
     }
+
+    public static void printCarState(Car car){
+        StringBuilder stringBuilder = new StringBuilder(car.getName() + " : ");
+        final String symbol = "-";
+        stringBuilder.append(symbol.repeat(car.getPos()));
+
+        System.out.println(stringBuilder.toString());
+    }
 }
