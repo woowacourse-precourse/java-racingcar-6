@@ -15,11 +15,9 @@ public class Cars {
     }
 
     public List<Car> rushCars() {
-        cars.forEach(car -> {
-            if (car.canRush()) {
-                car.rush();
-            }
-        });
+        cars.stream()
+                .filter(Car::canRush)
+                .forEach(Car::rush);
         return cars;
     }
 
