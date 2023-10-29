@@ -26,12 +26,11 @@ public class RacingGameController {
     public void run() {
         Cars cars = getCarsFromInputView();
         TryNumber tryNumber = getTryNumberFromInputView();
-
         RacingGame racingGame = gameSet(cars);
-        gameStart(cars, tryNumber, racingGame);
+
+        startRacing(cars, tryNumber, racingGame);
 
         List<CarName> winners = racingGame.getWinners();
-
         outputView.printWinners(winners);
     }
 
@@ -53,17 +52,11 @@ public class RacingGameController {
         return racingGame;
     }
 
-    private void gameStart(Cars cars, TryNumber tryNumber, RacingGame racingGame) {
+    private void startRacing(Cars cars, TryNumber tryNumber, RacingGame racingGame) {
         outputView.printResultMessage();
         for (int i = 0; i < tryNumber.number(); i++) {
             racingGame.runOneTerm();
-            printResultOfOneTerm(CarDto.toDtoList(cars));
+            outputView.printResult(CarDto.toDtoList(cars));
         }
-    }
-
-    private void printResultOfOneTerm(List<CarDto> carDtoList) {
-        carDtoList.stream().forEach(
-                carDto -> outputView.printResult(carDto.carName().name(), carDto.carDistance().distance()));
-        outputView.printLine();
     }
 }

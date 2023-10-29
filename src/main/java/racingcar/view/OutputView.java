@@ -2,6 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.controller.dto.CarDto;
 import racingcar.vo.CarName;
 
 public class OutputView {
@@ -27,11 +28,12 @@ public class OutputView {
         System.out.println(LINE + RESULT_MESSAGE);
     }
 
-    public void printResult(String carName, Integer carDistance) {
-        System.out.println(carName + SEPARATOR_COLON + DISTANCE_CHARACTER.repeat(carDistance));
-    }
-
-    public void printLine() {
+    public void printResult(List<CarDto> carDtoList) {
+        carDtoList.stream().forEach(carDto -> {
+            String carName = carDto.carName().name();
+            String distance = DISTANCE_CHARACTER.repeat(carDto.carDistance().distance());
+            System.out.println(carName + SEPARATOR_COLON + distance);
+        });
         System.out.println();
     }
 
