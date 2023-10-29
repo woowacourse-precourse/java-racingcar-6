@@ -81,6 +81,31 @@ class ApplicationTest extends NsTest {
     }
 
 
+    @Test
+    void 시도_횟수_문자일경우() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("kang,geon,young", "a"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도_횟수_소수점_숫자일경우() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("kang,geon,young", "3.3"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도_횟수_공백일경우() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("kang,geon,young", " "))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
