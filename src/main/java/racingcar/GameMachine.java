@@ -3,12 +3,12 @@ package racingcar;
 public class GameMachine {
 
     void playRacingGame() {
+        RacingGame racingGame = new RacingGame();
         Output.printCarNameInputRequest();
         String[] carNames = Input.getCarName();
+        racingGame.createCars(carNames);
         Output.printTryNumberInputRequest();
         int tryNumber = Input.getTryNumber();
-        RacingGame racingGame = new RacingGame();
-        racingGame.createCars(carNames);
         Output.printResultTitle();
         for (int times = 0; times < tryNumber; times++) {
             racingGame.moveCars();
