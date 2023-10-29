@@ -6,19 +6,19 @@ import java.util.stream.Stream;
 import racingcar.model.Car;
 
 public class Validator {
+    private static final Pattern CAR_NAME_PATTERN = Pattern.compile("^[a-zA-Z0-9,\\s가-힣ㄱ-ㅎㅏ-ㅣ]*$");
     private static final String CAR_SEPARATOR = ",";
     private static final int INITIAL_POSITION = 0;
     private static final int MAX_CAR_NAME_LENGTH = 5;
     private static final int MIN_CAR_LIST_SIZE = 2;
     private static final int MIN_NUMBER_OF_ATTEMPTS = 1;
-    private static final Pattern INPUT_CHARACTERS_PATTERN = Pattern.compile("^[a-zA-Z0-9,\\s가-힣ㄱ-ㅎㅏ-ㅣ]*$");
 
     /**
      * @param input 사용자가 입력한 자동차 이름 목록
      * @return 쉽표(, )를 기준으로 구분하여 앞뒤 공백 제거 후 자동차 이름 리스트 반환
      */
     public static List<Car> parseCarNames(String input) {
-        validateInputCharacters(input);
+        validateCarNameFormat(input);
         List<Car> cars = Stream.of(input.split(CAR_SEPARATOR))
                 .map(name -> new Car(name.strip(), INITIAL_POSITION))
                 .toList();
@@ -26,6 +26,15 @@ public class Validator {
         validateCarNameLengths(cars);
         validateCarListSize(cars);
         return cars;
+    }
+
+    /**
+     * @param input 영문 대소문자, 숫자, 쉼표, 공백, 한글 허용
+     */
+    private static void validateCarNameFormat(String input) {
+        if (!input.matches(CAR_NAME_PATTERN.pattern())) {
+            throw new IllegalArgumentException(Exception.INVALID_CAR_NAME_FORMAT.getMessage());
+        }
     }
 
     /**
@@ -54,7 +63,6 @@ public class Validator {
     }
 
     public static int parseNumberOfAttempts(String input) {
-        validateInputCharacters(input);
         int numberOfAttempts;
         try {
             numberOfAttempts = Integer.parseInt(input);
@@ -68,15 +76,6 @@ public class Validator {
     private static void validateNumberOfAttempts(int numberOfAttempts) {
         if (numberOfAttempts < MIN_NUMBER_OF_ATTEMPTS) {
             throw new IllegalArgumentException(Exception.NUMBER_OF_ATTEMPT_TOO_LITTLE.getMessage());
-        }
-    }
-
-    /**
-     * @param input 영문 대소문자, 숫자, 쉼표, 공백, 한글 허용
-     */
-    private static void validateInputCharacters(String input) {
-        if (!input.matches(INPUT_CHARACTERS_PATTERN.pattern())) {
-            throw new IllegalArgumentException(Exception.INVALID_CHARACTER_FORMAT.getMessage());
         }
     }
 }
