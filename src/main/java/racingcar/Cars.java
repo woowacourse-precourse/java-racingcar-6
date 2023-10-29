@@ -17,9 +17,12 @@ public class Cars {
     }
 
     private void validateCarNames() {
-        if (cars.size() == 1 && firstElement().getName() == "") {
-            throw new IllegalArgumentException("어떠한 이름도 입력되지 않았습니다!");
+        InputValidator validator = new InputValidator();
+        validator.nameNonInputValidate(cars.size(), firstElement().getName());
+        for (Car car : cars) {
+            validator.nameLengthValidate(car);
         }
+    }
 
         for (Car car : cars) {
             if (car.isNameLongerThenCriteria(5)) {
