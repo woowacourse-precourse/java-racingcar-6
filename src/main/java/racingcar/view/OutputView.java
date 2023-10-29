@@ -16,7 +16,7 @@ public class OutputView {
     private static final String GAP = "\n";
     private static final String CAR_POSITION = "-";
 
-    public static void printRaceResult() {
+    public static void printRaceResultHeader() {
         System.out.println(GAP + RACE_RESULT_MESSAGE);
     }
 
@@ -26,7 +26,7 @@ public class OutputView {
         System.out.print(GAP);
     }
 
-    public static void printWinCars(List<String> names) {
+    public static void printWinCarNames(List<String> names) {
         System.out.println(MessageFormat.format(WIN_CARS_MESSAGE, toStringCarNames(names)));
     }
 

@@ -29,7 +29,7 @@ public class RacingController {
     }
 
     private void playGame(RacingGame racingGame) {
-        outputView.printRaceResult();
+        outputView.printRaceResultHeader();
         while (racingGame.isPlayable()) {
             racingGame.start();
             CarGroup cars = racingGame.getCars();
@@ -38,7 +38,7 @@ public class RacingController {
     }
 
     private void endGame(RacingGame racingGame) {
-        outputView.printWinCars(racingGame.findWinCars());
+        outputView.printWinCarNames(racingGame.findWinCars());
     }
 
 }
