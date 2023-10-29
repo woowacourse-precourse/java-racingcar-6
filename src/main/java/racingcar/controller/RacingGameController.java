@@ -21,7 +21,6 @@ public class RacingGameController {
 
     public void run() {
         Cars racingCars = setUpRacingCars();
-
         long movingCount = ioManager.readMovingCount();
 
         RacingGame racingGame = RacingGame.newGame(racingCars, movingCount);
