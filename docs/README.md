@@ -32,13 +32,13 @@
 
 - 🛡️ validator
     - [ ] **ForwardValidator**: 전진 가능 여부 검증 클래스
-    - [ ] **CarNameLengthValidator**: 자동차 이름 글자 수 검증 클래스
-    - [ ] **CarNameDuplicateValidator**: 자동차 이름 중복 글자 수 검증 클래스
+    - [x] **CarNameLengthValidator**: 자동차 이름 글자 수 검증 클래스
+    - [x] **CarNameRegexValidator**: 자동차 이름 입력시 ,와 문자 숫자로 되어있는지 검증하는 클래스
 
 - 🎉 converter
     - [ ] **StringToNumberConverter**: 입력받은 숫자를 숫자로 변환하는 클래스
-    - [ ] **StringToStringListConverter**: 입력받은 문자열을 쉼표를 기준으로 나눠서 리스트로 변환하는 클래스
-    - [ ] **StringListToCarListConverter**: 문자열 리스트를 자동차 리스트로 변환하는 클래스
+    - [x] **StringToStringListConverter**: 입력받은 문자열을 쉼표를 기준으로 나눠서 리스트로 변환하는 클래스
+    - [x] **StringListToCarListConverter**: 문자열 리스트를 자동차 리스트로 변환하는 클래스
 
 - generator
     - [ ] **🎰 NumberGenerator**: 1~9 사이의 랜덤값을 생성하고 반환하는 클래스
@@ -46,9 +46,9 @@
 ### 🏢 domain
 
 - [ ] 🚗 **Cars**: (일급 컬렉션)
-    - [ ] 🚖 **Car**: 자동차의 움직임을 맡는다.
-        - [ ] **CarName**: 자동차의 이름을 저장하는 불변 객체
-        - [ ] **CarLocation**: 현재 자동차의 위치를 저장하는 객체
+    - [x] 🚖 **Car**: 자동차의 움직임을 맡는다.
+        - [x] **CarName**: 자동차의 이름을 저장하는 불변 객체
+        - [x] **CarLocation**: 현재 자동차의 위치를 저장하는 객체
 
 - 🏁 CarForwardService: 전진 가능 여부를 확인하고 가능하면 `car.move()`를 실행
     - 🚀 ForwardStrategy: 자동차의 전진 전략을 정의하는 추상 클래스
@@ -56,7 +56,7 @@
     - [ ] **ResultFormatter**: RoundResultDto의 값을 출력하기 좋게 변환하는 클래스
 
 - 🏆 CarRaceResultEvaluator: 자동차 경주의 우승자를 찾아주는 클래스
-- [ ] **CarFactory**: 자동차 객체를 생성하는 클래스
+- [x] **CarFactory**: 자동차 객체를 생성하는 클래스
 
 ### 🚥 racing
 
