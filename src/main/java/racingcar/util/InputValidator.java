@@ -2,7 +2,7 @@ package racingcar.util;
 
 public final class InputValidator {
     private static final String CAR_NAMES_REGEX = "^(\\w+,)+\\w+$";
-    private static final String NUMERIC_REGEX = "[1-9]\\d+";
+    private static final String NUMERIC_REGEX = "\\d+";
 
     public void validateInputFormat(String input) {
         if (!input.matches(CAR_NAMES_REGEX)) {
