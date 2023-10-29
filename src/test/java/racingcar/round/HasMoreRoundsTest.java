@@ -11,7 +11,7 @@ public class HasMoreRoundsTest {
     @DisplayName("라운드를 더 진행하는가를 판단할 수 있다.")
     void hasMoreRoundsTest() {
         // given
-        Round round = new Round(3);
+        Round round = new Round(2);
 
         // when
         boolean hasMoreRoundsAtRound1 = round.hasMoreRounds();
