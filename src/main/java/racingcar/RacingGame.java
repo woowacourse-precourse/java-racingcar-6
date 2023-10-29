@@ -24,7 +24,11 @@ public class RacingGame {
             scores.add(moving(participants));
         }
 
-        // TODO : 각 차수별 실행 결과를 출력한다
+        System.out.println("\n실행 결과");
+        for (Score score : scores) {
+            score.printScore();
+        }
+
         // TODO : 우승한 자동차 리스트를 구한다
         // TODO : 우승한 자동차 리스트를 출력한다
     }
