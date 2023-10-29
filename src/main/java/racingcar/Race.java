@@ -11,31 +11,31 @@ public class Race {
     public Race(String nameStr) {
         gameCar = new ArrayList<>();
         String[] nameArr = nameStr.split(",");
-        for (String name : nameArr)
+        for (String name : nameArr) {
             gameCar.add(new Car(name));
+        }
     }
 
     public void playGame(String roundsStr) {
-        int rounds = parseRounds(roundsStr);
-
-        for (int i = 0; i < rounds; i++) {
-            moveCars();
-            displayResults();
-        }
-    }
-
-    public String findWinner() {
-        int maxMoveValue = findMaxValue();
-        List<String> maxMoveNames = findMaxNames(maxMoveValue);
-        return String.join(", ", maxMoveNames);
-    }
-
-    private int parseRounds(String roundsStr) {
         try {
-            return Integer.parseInt(roundsStr);
+            int rounds = Integer.parseInt(roundsStr);
+            if (rounds < 0) {
+                throw new IllegalArgumentException("-1보다 큰 수를 입력하세요");
+            }
+
+            for (int i = 0; i < rounds; i++) {
+                moveCars();
+                displayResults();
+            }
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("숫자를 입력해주세요");
         }
+    }
+
+    public String findWinnerToString() {
+        int maxValue = findMaxValue();
+        List<String> maxMoveNames = findNamesByLength(maxValue);
+        return String.join(", ", maxMoveNames);
     }
 
     private int findMaxValue() {
@@ -46,7 +46,7 @@ public class Race {
                 .orElse(0);
     }
 
-    private List<String> findMaxNames(int maxMoveValue) {
+    private List<String> findNamesByLength(int maxMoveValue) {
         return gameCar
                 .stream()
                 .filter(car -> car.getMove() == maxMoveValue)
@@ -55,19 +55,18 @@ public class Race {
     }
 
     private void displayResults() {
-        for (Car car : gameCar)
+        for (Car car : gameCar) {
             System.out.println(car.getName() + " : " + "-".repeat(car.getMove()));
+        }
         System.out.println("");
     }
 
     private void moveCars() {
-        for (Car car : gameCar)
-            if (randomNumber() >= 4)
+        for (Car car : gameCar) {
+            if (Randoms.pickNumberInRange(0, 9) >= 4) {
                 car.plusMove();
-    }
-
-    private int randomNumber() {
-        return Randoms.pickNumberInRange(0,9);
+            }
+        }
     }
 
     public List<Car> getGameCar() {
