@@ -9,7 +9,7 @@ public class Application {
     public static void main(String[] args) {
         Car car = new Car();
         car.displayCarInformation();
-
+        car.displayWhoIsWinner();
     }
 }
 class User{
@@ -21,7 +21,7 @@ class User{
 }
 
 class Car{
-    Map<String,String> CarInformation = new HashMap<>();
+    Map<String,Integer> CarInformation = new HashMap<>();
     int RepeatCount;
     public Car() {
         init();
@@ -29,7 +29,7 @@ class Car{
     public void init(){
         String CarName = readLine();
         for (String name : CarName.split(",")){
-            CarInformation.put(name.trim(),"");
+            CarInformation.put(name.trim(),0);
         }
         CheckException.CheckRightCarName(CarInformation.keySet());
         RepeatCount = User.NumberOfMove();
@@ -45,11 +45,11 @@ class Car{
         return false;
     }
     private void WriteForwardDistance(String CarName){
-        String distance ="";
+        int distance = 0;
         for (int i=0; i<RepeatCount; i++){
             int num = CreateRandomNumber();
             if (CheckGoOrStop(num)){
-                distance += "-";
+                distance ++ ;
                 CarInformation.put(CarName,distance);
             }
         }
@@ -62,6 +62,43 @@ class Car{
     }
     public void displayCarInformation() {
         CarInformation.forEach((key, value) -> System.out.println("Key: " + key + ", Value: " + value));
+    }
+    public void displayWhoIsWinner(){
+        List<String> WinnerList = FindWinner();
+        if (WinnerList.size() == 1){
+            String Winner = WinnerList.get(0);
+            System.out.println("최종 우승자 : " + Winner);
+        }
+        else{
+            String result = MoreThanOneWinner(WinnerList);
+            System.out.print("최종 우승자 : " + result);
+
+        }
+    }
+
+    public static String MoreThanOneWinner(List<String> list){
+        StringBuilder result = new StringBuilder();
+        for (String name : list){
+            result.append(name).append(", ");
+        }
+        result.setLength(result.length() - 2);
+        return result.toString();
+    }
+
+    public List<String> FindWinner(){
+        List<String> Winner = new ArrayList<>();
+        int maxDistance = -1;
+        for (Map.Entry<String, Integer> entry : CarInformation.entrySet()) {
+            int value = entry.getValue();
+            if (value > maxDistance) {
+                Winner.clear();
+                Winner.add(entry.getKey());
+                maxDistance = value;
+            } else if (value == maxDistance) {
+                Winner.add(entry.getKey());
+            }
+        }
+        return Winner;
     }
 }
 
