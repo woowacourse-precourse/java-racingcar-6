@@ -62,6 +62,19 @@ public class Race {
         this.moveCount = UserInput.inputMoveCount();
     }
 
+    private void runRace() {
+        System.out.println("실행 결과");
+
+        Stream.iterate(0, n -> n + 1)
+                .limit(moveCount)
+                .forEach(i -> {
+                    cars.stream()
+                            .peek(Car::drive)
+                            .forEach(Car::printPosition);
+                    System.out.println();
+                });
+    }
+
 
 
 }
