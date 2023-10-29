@@ -20,6 +20,6 @@ public class Printer {
             winnerNames.add(car.getName());
         }
 
-        System.out.println(String.join(", ", winnerNames));
+        System.out.print(String.join(", ", winnerNames));
     }
 }
