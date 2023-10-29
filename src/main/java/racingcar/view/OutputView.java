@@ -3,8 +3,10 @@ package racingcar.view;
 import racingcar.dto.CarDto;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class OutputView {
+    private static final String NEWLINE = System.lineSeparator();
     private static final String RESULT_MESSAGE = "실행 결과";
     private static final String WINNERS_MESSAGE = "최종 우승자";
 
@@ -22,8 +24,14 @@ public class OutputView {
     }
 
     public void printRaceResult(List<CarDto> cars) {
-        cars.forEach(car -> System.out.println(generateMessageOf(car)));
+        System.out.println(generateRaceResultMessage(cars));
         newLine();
+    }
+
+    private String generateRaceResultMessage(List<CarDto> cars) {
+        return cars.stream()
+                .map(this::generateMessageOf)
+                .collect(Collectors.joining(NEWLINE));
     }
 
     private String generateMessageOf(CarDto car) {
