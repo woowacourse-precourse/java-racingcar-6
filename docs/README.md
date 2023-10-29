@@ -15,14 +15,13 @@
 
 ### 구현 해야 할 요소들
 
-- 이름을 입력받기 [x] - input.createNames()
-  - 쉼표가 아닐경우 오류 발생 [x] - exception.checkRest()
-  - 5자 넘을경우 오류 발생 [x] - exception.checkNameOver5()
-  - 중복된 이름이 있을경우 오류 발생 [x] - exception.checkDuplicatedName()
+- 이름을 입력받기 [o] - input.createNames()
+  - 5자 넘을경우 오류 발생 [o] - exception.checkNameOver5()
+  - 중복된 이름이 있을경우 오류 발생 [o] - exception.checkDuplicatedName()
   
     
-- 몇번의 이동을 할건지 입력받기 [x] - input.moveCount()
-  - 숫자를 입력받지 않을경우 오류 발생 [x] - exception.checkNumber()
+- 몇번의 이동을 할건지 입력받기 [o] - input.moveCount()
+  - 숫자를 입력받지 않을경우 오류 발생 [o] - exception.checkNumber()
   
 
 - 각 이름 인덱스에 매칭되게끔 이동 횟수 리스트 만들기 [x] - movement.createMovement()
