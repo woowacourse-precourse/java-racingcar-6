@@ -25,4 +25,7 @@ public class Car {
         return location += forwardCount;
     }
 
+    public String getStringLocation() {
+        return "-".repeat(location);
+    }
 }
