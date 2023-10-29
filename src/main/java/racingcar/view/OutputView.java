@@ -1,11 +1,18 @@
 package racingcar.view;
 
-public class OutputView {
-    public void printToResult(){
+import java.util.List;
 
+public class OutputView {
+    public String printToResult(List<String> winners) {
+        String result = winnersToMulti(winners);
+        System.out.println("최종 우승자 : " + result);
+        return result;
     }
 
-    public void winnersToMulti(){
-
+    private String winnersToMulti(List<String> winners) {
+        if (winners.size() > 1) {
+            return String.join(", ", winners);
+        }
+        return winners.get(0);
     }
 }

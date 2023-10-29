@@ -10,8 +10,8 @@
 - [x] 0에서 9사이 무작위 값을 구한다. - Utils#randomNumberGenerator()
     - [x] 0에서 9사이 무작위 값을 검증 - Utils#isNumberRange()
     - [x] 무작위 값이 4 이상일 경우 전진 - Car#moveToGo()
-- [ ] 자동차 경주 게임을 완료한 후 누가 우승했는지 알린다. - OutputView#printToResult()
-    - [ ] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분 - OutputView#winnersToMulti()
+- [x] 자동차 경주 게임을 완료한 후 누가 우승했는지 알린다. - OutputView#printToResult()
+    - [x] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분 - OutputView#winnersToMulti()
 - [x] 사용자가 잘못된 값을 입력한 경우 `IllegalArgumentException` 발생 - ExceptionMessage
 
 [기능 요구 사항]
