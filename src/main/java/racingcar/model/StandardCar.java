@@ -1,28 +1,41 @@
 package racingcar.model;
 
-import java.util.Objects;
+import racingcar.util.GameUtil;
 
-public class RacingPlayer implements Player{
+public class StandardCar implements Vehicle {
     private final String name;
     private int score = 0;
-    public RacingPlayer(String name) {
+
+    public StandardCar(String name) {
         this.name = name;
     }
-    public RacingPlayer(String name, int score){
+
+    public StandardCar(String name, int score) {
         this.name = name;
         this.score = score;
     }
+
     @Override
-    public void addWins() {
+    public void addWinScore() {
         this.score++;
     }
+
     @Override
-    public int getWins() {
+    public int getWinScore() {
         return this.score;
     }
+
     @Override
     public String getName() {
         return this.name;
+    }
+
+    @Override
+    public void tryMove(int movePoint) {
+        int randomNumber = GameUtil.generateRandomNumber();
+        if (randomNumber >= movePoint) {
+            addWinScore();
+        }
     }
 
     @Override
@@ -33,7 +46,7 @@ public class RacingPlayer implements Player{
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        Player player = (Player) obj;
+        Vehicle player = (Vehicle) obj;
         return name.equals(player.getName());
     }
 }
