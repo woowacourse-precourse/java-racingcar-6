@@ -30,4 +30,11 @@ class ValidatorTest {
         assertThrows(IllegalArgumentException.class, () ->
                 validator.validateGameRound("test"));
     }
+
+    @Test
+    @DisplayName("차의 이름이 5보다 큰 경우")
+    void validateCarNameLengthFail(){
+        assertThrows(IllegalArgumentException.class, () ->
+                validator.validateCar("carName"));
+    }
 }
