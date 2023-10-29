@@ -17,6 +17,7 @@ public class Game {
     }
 
     public int setRandNum() {
-
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        return randomNumber;
     }
 }
