@@ -50,4 +50,19 @@ public class CarTest {
         // when, then
         assertThat(car.canGo(number)).isFalse();
     }
+
+    @Test
+    void 자동차_우승_여부() {
+        // given
+        Car winnerCar = new Car("fast");
+        Car notWinnerCar = new Car("slow");
+        int winnerPosition = 1;
+
+        // when
+        winnerCar.go();
+
+        // then
+        assertThat(winnerCar.isWinner(winnerPosition)).isTrue();
+        assertThat(notWinnerCar.isWinner(winnerPosition)).isFalse();
+    }
 }
