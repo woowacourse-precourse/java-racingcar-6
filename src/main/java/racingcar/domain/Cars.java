@@ -19,7 +19,7 @@ public class Cars {
         }
     }
 
-    public Map<String,Integer> getCurrentPositon(){
+    public Map<String,Integer> carsInformation(){
         Map<String,Integer> currentPostion = new HashMap<>();
         for (Car car : cars) {
             currentPostion.put(car.getName(), car.getPosition());
@@ -27,6 +27,13 @@ public class Cars {
         return currentPostion;
     }
 
+    public int getCurrnetMaxPosition() {
+        int currnetMaxPosition = 0;
+        for (Car car : cars) {
+            currnetMaxPosition = Math.max(currnetMaxPosition, car.getPosition());
+        }
+        return currnetMaxPosition;
+    }
 
 
 
