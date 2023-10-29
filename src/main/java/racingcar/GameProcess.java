@@ -12,8 +12,7 @@ public class GameProcess {
 	}
 
 	public void playGame(ArrayList<InformationOfCar> carList, int moveCount) {
-		for (int i = 0; i < carList.size(); i++) {
-			InformationOfCar car = carList.get(i);
+		for (InformationOfCar car : carList) {
 			for (int j = 0; j < moveCount; j++) {
 				moveOrNot(car);
 				//진행상황 출력
