@@ -8,7 +8,6 @@ public class GameManager {
     GameElements gameElements = GameElements.INSTANCE;
     Input input = new Input();
 
-
     public void gameSetting() {
         Output.printInputCarMessage();
         gameElements.carNamesSetting(input.getCarNameList());
@@ -17,8 +16,6 @@ public class GameManager {
         Output.printInputTryCountMessage();
         gameElements.tryCountSetting(input.getTryCount());
     }
-
-
 
     public int createRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);

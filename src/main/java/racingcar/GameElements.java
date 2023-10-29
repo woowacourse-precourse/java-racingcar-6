@@ -10,7 +10,6 @@ public enum GameElements { // 싱글톤 패턴 말고 다른 방법 생각, reco
 
     private List<String> carNameList = new ArrayList<>();
     private int tryCount = 0;
-
     private Map<String, Integer> carMap = new HashMap<>();
 
     public List<String> getCarNameList() {
@@ -38,5 +37,4 @@ public enum GameElements { // 싱글톤 패턴 말고 다른 방법 생각, reco
             carMap.put(carName, 0);
         }
     }
-
 }

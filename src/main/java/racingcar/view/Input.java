@@ -23,6 +23,7 @@ public class Input {
     public int getTryCount() {
         int tryCount = Integer.parseInt(Console.readLine());
         validateTryCountIfZero(tryCount);
+
         return tryCount;
     }
 
