@@ -7,12 +7,13 @@ public class OutputView {
 
     public static void displayPositions(List<Car> cars) {
         for (Car car : cars) {
-            displayPosition(car.carName, car.carPosition);
+            System.out.print(car.carName + " : ");
+            displayPosition(car.carPosition);
         }
+        System.out.println();
     }
 
-    private static void displayPosition(String carName, int position) {
-        System.out.print(carName+ " : ");
+    private static void displayPosition(int position) {
         for (int i = 0; i < position; i++) {
             System.out.print("-");
         }
@@ -20,7 +21,7 @@ public class OutputView {
     }
 
     public static void displayWinners(List<String> winners) {
-        System.out.print("최종 우승자: ");
+        System.out.print("최종 우승자 : ");
         for (String winner : winners) {
             System.out.print(winner);
             if (winners.indexOf(winner) != winners.size() - 1) {
@@ -29,5 +30,4 @@ public class OutputView {
         }
         System.out.println();
     }
-
 }
