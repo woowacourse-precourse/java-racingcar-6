@@ -47,7 +47,20 @@ public class ValidatorTest extends NsTest {
     @Test
     void 자동차_이름_입력값_성공() {
         validator.validateCarNamesInput("a,b,c");
+    }
 
+    @Test
+    void 횟수_입력값_비어있음_오류() {
+        assertThatThrownBy(() -> validator.validateTrialInput(""))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 횟수_입력값_0_이하_오류() {
+        assertThatThrownBy(() -> validator.validateTrialInput(0))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> validator.validateTrialInput(-5))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Override
