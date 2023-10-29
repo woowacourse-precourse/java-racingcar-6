@@ -34,8 +34,8 @@
     + [x] 생성자를 통해 멤버 변수 값을 초기화 한다.
     + [x] 현재 거리를 증가시키는 기능
     + [x] 자동차의 이름을 얻는 기능(toString을 오버라이드)
-+ [ ] InputView 클래스를 구현
-    + [ ] 입력을 담당하는 클래스로 ```camp.nextstep.edu.missionutils.Console```의 ```readLine()```을 활용하여 입력받는다.
++ [x] InputView 클래스를 구현
+    + [x] 입력을 담당하는 클래스로 ```camp.nextstep.edu.missionutils.Console```의 ```readLine()```을 활용하여 입력받는다.
 + [ ] OutputView 클래스를 구현
     + [ ] 출력을 담당하는 클래스로, 출력을 하는 기능을 구현한다.
 + [ ] InputValidator 클래스를 구현
