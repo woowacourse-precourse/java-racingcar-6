@@ -12,6 +12,10 @@ public class Car {
         this.forwardCount = 0;
     }
 
+    public void updateForwardCount() {
+        forwardCount += 1;
+    }
+
     public Integer getId() {
         return id;
     }
