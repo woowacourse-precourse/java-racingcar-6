@@ -22,7 +22,22 @@ public class Application {
                 .collect(Collectors.toList());
     }
 
+    public static int inputMoveCount() {
+        String input = Console.readLine();
+        int moveCount;
+        try {
+            moveCount = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+        if (moveCount < 0) {
+            throw new IllegalArgumentException();
+        }
+        return moveCount;
+    }
+
     public static void main(String[] args) {
         List<Car> cars = getCarsFromInput();
+        int moveCount = inputMoveCount();
     }
 }
