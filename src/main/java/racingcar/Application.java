@@ -6,16 +6,21 @@ import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
-        int score[];
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
 
         Scanner scanner = new Scanner(System.in);
         String inputValue = scanner.nextLine();
 
-        String[] splitedValue = inputValue.split(", ");  //자동차 이름 쉼표 기준으로 나누기
+        String[] cars = inputValue.split(", ");  //자동차 이름 쉼표 기준으로 나누기
 
-        int len = splitedValue.length;
+        int len = cars.length;
+
+        for(int i=0;i<len;i++){
+            if(cars[i].length()>5){
+                throw new IllegalArgumentException("자동차 이름이 5자보다 김.");
+            }
+        }  //오류
 
 
         System.out.println("시도할 횟수는 몇회인가요?");
@@ -38,7 +43,7 @@ public class Application {
                 }
             }
             for(int j=0;j<len;j++){
-                System.out.print(splitedValue[j] + " : ");
+                System.out.print(cars[j] + " : ");
                 for(int k=0;k<forward[j];k++){
                     System.out.print("-");
                 }
@@ -66,7 +71,7 @@ public class Application {
             if(i!=0){
                 System.out.print(", ");
             }
-            System.out.print(splitedValue[winner[i]]);
+            System.out.print(cars[winner[i]]);
         }
     }
 }
