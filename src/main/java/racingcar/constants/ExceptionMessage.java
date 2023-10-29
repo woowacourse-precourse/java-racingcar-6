@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.constants;
 
 public enum ExceptionMessage {
     EMPTYNAME("비어있는 이름이 들어왔습니다."),

@@ -2,8 +2,8 @@ package racingcar.validator;
 
 import java.util.Arrays;
 import java.util.List;
-import racingcar.Constants;
-import racingcar.ExceptionMessage;
+import racingcar.constants.Constants;
+import racingcar.constants.ExceptionMessage;
 
 public enum CarsValidator {
     INSTANCE;

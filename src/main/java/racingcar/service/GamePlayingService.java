@@ -1,7 +1,7 @@
 package racingcar.service;
 
 import java.util.List;
-import racingcar.Constants;
+import racingcar.constants.Constants;
 import racingcar.dto.AttemptCount;
 import racingcar.dto.CarsDto;
 import racingcar.dto.CarsState;

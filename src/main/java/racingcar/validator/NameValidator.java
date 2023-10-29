@@ -1,7 +1,7 @@
 package racingcar.validator;
 
-import racingcar.Constants;
-import racingcar.ExceptionMessage;
+import racingcar.constants.Constants;
+import racingcar.constants.ExceptionMessage;
 
 public enum NameValidator {
     INSTANCE;

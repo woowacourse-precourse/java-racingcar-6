@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.constants;
 
 public enum PositionConstant {
     VALUE_LOW_BOUND(0),

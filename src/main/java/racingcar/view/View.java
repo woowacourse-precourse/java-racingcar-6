@@ -2,7 +2,7 @@ package racingcar.view;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
-import racingcar.Message;
+import racingcar.constants.Message;
 import racingcar.dto.CarState;
 import racingcar.dto.CarsState;
 import racingcar.dto.WinnersResult;
