@@ -3,6 +3,7 @@ package racingcar;
 import com.sun.jdi.InvalidTypeException;
 import domain.Cars;
 import dto.UserInputCarMoveCountDto;
+import service.CarMoveService;
 import service.UserInputCarMoveCountFactory;
 import service.UserInputCarNameFactory;
 import ui.Input;
@@ -11,11 +12,14 @@ public class RacingCarGameController {
 
     private UserInputCarNameFactory userInputCarNameFactory;
     private UserInputCarMoveCountFactory userInputCarMoveCountFactory;
+    private CarMoveService carMoveService;
 
     public RacingCarGameController(UserInputCarNameFactory userInputCarNameFactory,
-                                   UserInputCarMoveCountFactory userInputCarMoveCountFactory){
+                                   UserInputCarMoveCountFactory userInputCarMoveCountFactory,
+                                   CarMoveService carMoveService){
         this.userInputCarNameFactory = userInputCarNameFactory;
         this.userInputCarMoveCountFactory = userInputCarMoveCountFactory;
+        this.carMoveService = carMoveService;
     }
     public void play() throws InvalidTypeException {
 
@@ -29,6 +33,7 @@ public class RacingCarGameController {
         UserInputCarMoveCountDto userInputCarMoveCountDto = userInputCarMoveCountFactory.createUserInputCarMoveCountDto();
 
         //4. 자동차 전진
+        carMoveService.move(cars,userInputCarMoveCountDto);
 
         //5. 우승자 판별
 
