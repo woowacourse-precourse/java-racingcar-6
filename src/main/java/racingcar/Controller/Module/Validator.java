@@ -1,5 +1,6 @@
 package racingcar.Controller.Module;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -13,8 +14,12 @@ public class Validator {
     }
 
     public ArrayList<String> validateNameInputContainsComma(String input){
-        ArrayList<String> carNames = new ArrayList<>(Arrays.asList(input.split(",")));
-        return carNames;
+        if(input.contains(",")){
+            ArrayList<String> carNames = new ArrayList<>(Arrays.asList(input.split(",")));
+            return carNames;
+        }else{
+            throw new IllegalArgumentException("잘못된 입력값 입니다.");
+        }
     }
 
     public Boolean validateNameLength(ArrayList<String> input){
@@ -25,5 +30,4 @@ public class Validator {
         }
         return true;
     }
-
 }
