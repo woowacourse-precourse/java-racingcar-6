@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.service.RacingService;
 
 public class ProgressController {

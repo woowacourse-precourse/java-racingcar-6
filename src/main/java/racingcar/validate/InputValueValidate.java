@@ -16,7 +16,7 @@ public class InputValueValidate {
     }
 
     static public void checkNameException(String name) {
-        if (name.length() > MAX_LENGTH.getNumber()) {
+        if (name.length() > MAX_LENGTH.getNumber() || name.length() == 0) {
             Console.close();
             throw new IllegalArgumentException();
         }
