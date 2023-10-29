@@ -25,7 +25,7 @@ public class CarMap {
     /**
      * 각 자동차들이 라운드를 진행하게한다.
      */
-    public void excuteRound() {
+    public void executeRound() {
         for (Map.Entry<String, RacingCar> carEntry : carMap.entrySet()) {
             RacingCar racingCar = carEntry.getValue();
             racingCar.excuteRound();

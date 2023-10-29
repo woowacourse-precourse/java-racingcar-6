@@ -20,7 +20,7 @@ class CarMapTest {
 
         // when
         for (int i = 0; i < 5; i++) {
-            carMap.excuteRound();
+            carMap.executeRound();
         }
         List<String> winners = carMap.getWinners();
 
