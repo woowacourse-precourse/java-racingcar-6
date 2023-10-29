@@ -2,6 +2,7 @@ package racingcar.utility;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.IntStream;
 
 public class Validator {
 
@@ -35,6 +36,10 @@ public class Validator {
 
     public static boolean hasSameName(List<String> names) {
         return names.size() != Set.copyOf(names).size();
+    }
+
+    public static boolean isNumber(String input) {
+        return input.chars().allMatch(ch -> (ch >= '0' && ch <= '9'));
     }
 
 }
