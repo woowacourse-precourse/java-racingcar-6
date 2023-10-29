@@ -26,9 +26,8 @@ public class CarMap {
      * 각 자동차들이 라운드를 진행하게한다.
      */
     public void executeRound() {
-        for (Map.Entry<String, RacingCar> carEntry : carMap.entrySet()) {
-            RacingCar racingCar = carEntry.getValue();
-            racingCar.excuteRound();
+        for (RacingCar racingCar : carMap.values()) {
+            racingCar.executeRound();
         }
     }
 
@@ -44,7 +43,8 @@ public class CarMap {
         for (Map.Entry<String, RacingCar> entry : carMap.entrySet()) {
             RacingCar car = entry.getValue();
             if (car.getDistance() == maxDistance) {
-                winners.add(entry.getKey());
+                String name = entry.getKey();
+                winners.add(name);
             }
         }
 
