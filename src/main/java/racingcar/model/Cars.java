@@ -28,7 +28,11 @@ public class Cars {
     }
 
     private Car createCar(Name name) {
-        return new Car(name, new Position());
+        return new Car(name, createPosition());
+    }
+
+    private Position createPosition() {
+        return new Position();
     }
 
     public void attemptForward() {
