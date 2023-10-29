@@ -60,11 +60,22 @@ public class Validation {
     }
 
     public int validateGameRound(String input) {
+        validateBlankRound(input);
+        validateRoundType(input);
+        return Integer.parseInt(input);
+    }
+
+    public void validateRoundType(String input) {
         boolean result = input.chars().allMatch(Character::isDigit);
 
         if (!result) {
             throw new IllegalArgumentException(EXCEPTION_ROUND_TYPE);
         }
-        return Integer.parseInt(input);
+    }
+
+    public void validateBlankRound(String input) {
+        if (input.length() == 0) {
+            throw new IllegalArgumentException(EXCEPTION_ROUND_LENGTH);
+        }
     }
 }

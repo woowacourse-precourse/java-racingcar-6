@@ -97,7 +97,9 @@
         - void validateDuplicateName(int carNameCount, String[] carNames) {
 - 입력받은 횟수에 대한 검증
     - [x] 입력받은 횟수가 숫자가 아닐 경우
-        - public int validateGameRound(String input) {
+        - int validateGameRound(String input)
+    - [ ] 라운드 횟수를 입력하지 않았을 경우
+        - void validateBlankRound(String input)
 
 ### 출력 기능
 
