@@ -1,6 +1,7 @@
 package model;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
+
 public class Car {
     private String name;
     private int distance = 0;
@@ -23,6 +24,7 @@ public class Car {
     public String getName() {
         return this.name;
     }
+
     public int getDistance() {
         return this.distance;
     }
