@@ -12,13 +12,15 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import racingcar.controller.GameController;
+import racingcar.view.ConsoleInputView;
+import racingcar.view.ConsoleOutputView;
 
 public class GameControllerTest {
     private GameController gameController;
 
     @BeforeEach
     void init() {
-        gameController = new GameController();
+        gameController = new GameController(new ConsoleInputView(), new ConsoleOutputView());
     }
 
     @AfterEach
