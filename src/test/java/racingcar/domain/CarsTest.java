@@ -1,20 +1,42 @@
 package racingcar.domain;
 
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class CarsTest {
+
+    private Cars cars;
+
+    @BeforeEach
+    public void setUp() {
+        cars = new Cars();
+    }
+
     @Test
-    void 위치_값_기반으로_정렬된_리스트_반환() {
-        String carNameTmp1 = "1tmp";
-        String carNameTmp2 = "2tmp";
-        Cars cars = new Cars();
-        cars.insertCarsNames(List.of(carNameTmp1, carNameTmp2));
+    public void 자동차_이름_주입() {
+        List<String> carNames = Arrays.asList("차1", "차2", "차3");
 
-        List<Car> orderedCars = cars.getCarsOrderByLocations();
+        cars.insertCarsNames(carNames);
 
-        Assertions.assertEquals(0, orderedCars.get(1).getLocation());
+        assertEquals(3, cars.getCars().size());
+    }
+
+    @Test
+    public void 우승자_찾기() {
+        List<Car> carList = Arrays.asList(
+                new Car("차1", 3),
+                new Car("차2", 5),
+                new Car("차3", 3)
+        );
+        cars.getCars().addAll(carList);
+
+        List<Car> winners = cars.findWinners();
+
+        assertEquals("차2", winners.get(0).getName());
     }
 }
