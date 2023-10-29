@@ -57,6 +57,11 @@ public class Race {
                 .forEach(cars::add);
     }
 
+    private void inputMoveCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        this.moveCount = UserInput.inputMoveCount();
+    }
+
 
 
 }
