@@ -11,16 +11,42 @@ public class GameService {
 
     private IOService ioService;
 
+    public GameService() {
+        this.ioService = new IOService();
+    }
+
     public void start() {
         int count;
 
         System.out.println(START_MESSAGE);
+        
         List<String> carNames = ioService.scanCarNames();
         List<Car> carList = createCarList(carNames);
 
+        System.out.println(COUNT_QUERY_MESSAGE);
+        count = ioService.scanCnt();
 
+        System.out.println("실행 결과");
 
+        for (int i = 0; i < count; ++i) {
+            List<Integer> randomNumbers = NumberGenerator.createRandomNumbers(carList.size());
+            process(carList, randomNumbers);
+            ioService.printCarListState(carList);
+        }
 
+        List<Car> winnerCars = selectWinners(carList);
+        List<String> winnerCarsName = winnerCars.stream()
+                .map(Car::getName)
+                .toList();
+
+        ioService.printWinners(winnerCarsName);
+    }
+
+    private void process(List<Car> carList, List<Integer> randomNumbers) {
+        for(int i = 0; i < carList.size(); ++i){
+            if(randomNumbers.get(i) >= 4)
+                carList.get(i).move();
+        }
     }
 
     private List<Car> createCarList(List<String> carNames) {
