@@ -33,7 +33,10 @@ public class InputValidation {
 
 
     public static List<String> validateAndSplit(String name) {
-        return null;
+        List<String> namesList = Arrays.asList(name.split(COMMA));
+        if (namesList.size() < 2) {
+            throw new IllegalArgumentException("자동차 이름을 쉼표로 구분하여 2개 이상 입력해야 합니다.");
+        }
     }
 
     // 자동차 이름이 같은 경우 예외 처리
