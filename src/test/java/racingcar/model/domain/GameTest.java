@@ -19,4 +19,17 @@ public class GameTest {
         assertThat(game.getCars().size()).isEqualTo(1);
         assertThat(game.getTrial()).isEqualTo(trial);
     }
+    
+    @Test
+    @DisplayName("게임 객체 시도 횟수 증가에 따른 게임 종료를 테스트 합니다.")
+    void 게임_종료() {
+        List<Car> cars = Arrays.asList(Car.from("pobi"));
+        int trial = 1;
+        Game game = Game.of(cars, trial);
+        game.increaseCount();
+
+        assertThat(game).isNotNull();
+        assertThat(game.getTrial()).isEqualTo(trial);
+        assertThat(game.isFinished()).isTrue();
+    }
 }

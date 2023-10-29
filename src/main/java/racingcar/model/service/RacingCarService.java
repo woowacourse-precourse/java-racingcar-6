@@ -1,9 +1,10 @@
 package racingcar.model.service;
 
+import java.util.List;
 import racingcar.model.domain.Game;
 
 public interface RacingCarService {
-    boolean isEnd(Game game);
-
     void moveCars(Game game);
+
+    List<String> getWinner(Game game);
 }

@@ -2,14 +2,18 @@ package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static racingcar.model.constants.Phrase.GAME_RESULT;
+import static racingcar.model.constants.Phrase.GAME_WINNER;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.domain.Car;
+import racingcar.model.dto.CarResponseDto;
 import racingcar.model.dto.GameResponseDto;
 
 class OutputViewTest {
@@ -42,6 +46,15 @@ class OutputViewTest {
     void 공백_출력_문구() {
         OutputView.printJumpLine();
         assertOutputEquals("\n".trim());
+    }
+
+    @Test
+    @DisplayName("우승자를 출력하는지 테스트 합니다.")
+    void 우승자_출력_문구() {
+        List<String> carNames = Arrays.asList("pobi");
+        CarResponseDto carResponseDto = new CarResponseDto(carNames);
+        OutputView.printWinner(carResponseDto);
+        assertOutputEquals(GAME_WINNER.getPhrase() + carResponseDto.getCarNames().get(0));
     }
 
     private void assertOutputEquals(String expected) {

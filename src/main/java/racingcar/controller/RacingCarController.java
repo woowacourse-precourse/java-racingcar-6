@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.model.domain.Car;
 import racingcar.model.domain.Game;
 import racingcar.model.dto.CarRequestDto;
+import racingcar.model.dto.CarResponseDto;
 import racingcar.model.dto.GameRequestDto;
 import racingcar.model.dto.GameResponseDto;
 import racingcar.model.service.RacingCarService;
@@ -23,10 +24,11 @@ public class RacingCarController {
     public void startGame() {
         Game game = initializeGame();
         OutputView.printGameResult();
-        while (!racingCarService.isEnd(game)) {
+        while (!game.isFinished()) {
             racingCarService.moveCars(game);
             showGameScore(game);
         }
+        showGameWinner(game);
     }
 
     private Game initializeGame() {
@@ -40,5 +42,9 @@ public class RacingCarController {
             OutputView.printGameScore(new GameResponseDto(car));
         }
         OutputView.printJumpLine();
+    }
+
+    private void showGameWinner(Game game) {
+        OutputView.printWinner(new CarResponseDto(racingCarService.getWinner(game)));
     }
 }
