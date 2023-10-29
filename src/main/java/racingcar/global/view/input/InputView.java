@@ -12,8 +12,8 @@ public class InputView {
          return input;
     }
 
-    public static Integer IntegerInput() {
-        String input = Console.readLine();
+    public static Integer integerInput() {
+        String input = stringInput();
 
         try {
             return Integer.parseInt(input);
