@@ -14,6 +14,10 @@ public class Race {
         this.rounds = rounds;
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
     public void start() {
         ResultView.printLineBreak();
         ResultView.printResultNotification();
