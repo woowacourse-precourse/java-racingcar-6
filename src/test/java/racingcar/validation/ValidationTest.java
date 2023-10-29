@@ -2,6 +2,8 @@ package racingcar.validation;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.util.Validation;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -41,5 +43,21 @@ public class ValidationTest {
 
         //then
         assertThrows(IllegalArgumentException.class, () -> Validation.valiCarName(invalidLengthCarName));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {
+            ",,",
+            ",",
+    })
+    @DisplayName("vali 3 - ,(쉼표) 구분자로 나눠서 반환된 문자열 배열이 비었는지 체크")
+    public void invaliEmptySplitInputCarNames(String invalidInput) {
+        //given
+        String input = invalidInput;
+        String[] split = input.split(",");
+        //when
+
+        //then
+        assertThrows(IllegalArgumentException.class, () -> Validation.valiEmptySplitInputCarNames(split));
     }
 }
