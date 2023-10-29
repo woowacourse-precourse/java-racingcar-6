@@ -15,6 +15,14 @@ public class Race {
         OutputView.printAskCount();
         moveCnt = getMoveCount();
         OutputView.printResult();
+        while(moveCnt > 0){
+            for (Car car : cars) {
+                car.move();
+                OutputView.printCarsMove(car.getName(), car.getPosition());
+            }
+            System.out.println();
+            moveCnt--;
+        }
 
     }
 
