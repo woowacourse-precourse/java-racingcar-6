@@ -6,10 +6,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
-import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.controller.Validation;
+import racingcar.model.Car;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -36,7 +36,7 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 이름_입력안한_경우_처리() {
-        List<String> input = new ArrayList<>();
+        Car input = new Car();
 
         assertThatThrownBy(() -> Validation.validateEmtpy(input))
                 .isInstanceOf(IllegalArgumentException.class);
@@ -44,7 +44,7 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 이름_길이_예외_처리() {
-        List<String> input = List.of("abc", "cde", "abcdef");
+        Car input = new Car(List.of("abc", "cde", "abcdef"));
 
         assertThatThrownBy(() -> Validation.validateLength(input))
                 .isInstanceOf(IllegalArgumentException.class);
@@ -52,7 +52,7 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 이름_중복_예외_처리() {
-        List<String> input = List.of("Abc", "abc");
+        Car input = new Car(List.of("Abc", "abc"));
 
         assertThatThrownBy(() -> Validation.validateDuplicate(input))
                 .isInstanceOf(IllegalArgumentException.class);
@@ -60,7 +60,7 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 이름_알파벳_이외_문자_예외_처리() {
-        List<String> input = List.of("abd", "qAz", "aq1");
+        Car input = new Car(List.of("abd", "qAz", "aq1"));
 
         assertThatThrownBy(() -> Validation.validateCharacters(input))
                 .isInstanceOf(IllegalArgumentException.class);
