@@ -11,8 +11,12 @@ public class GameUtils {
     }
 
     public int makeRandomNumber() {
-        int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUM.getValue(), MAX_RANDOM_NUM.getValue());
-        if (randomNumber > MAX_CAR_NAME_LENGTH.getValue()) {
+        int randomNumber = Randoms.pickNumberInRange(
+                MIN_RANDOM_NUM.getValue(),
+                MAX_RANDOM_NUM.getValue()
+        );
+
+        if (randomNumber >= MIN_DISTANCE.getValue()) {
             return randomNumber;
         }
         return ZERO.getValue();

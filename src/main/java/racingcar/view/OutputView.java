@@ -5,7 +5,7 @@ import racingcar.model.RacingCar;
 
 import static racingcar.constant.GameMessage.*;
 public class OutputView {
-    private static final String SEPARATE_CHAR = ",";
+    private static final String SEPARATE_CHAR = ", ";
     private static final String SEPARATE_COLON = " : ";
 
     public static void gameResultMessge() {
