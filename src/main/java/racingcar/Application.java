@@ -11,7 +11,6 @@ public class Application {
     private static final String INPUT_CARNAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String INPUT_TRYTIME_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String RESULT_MESSAGE = "실행 결과";
-    private static final String FORWARD_MESSAGE = "-";
     private static final String WINNER_MESSAGE = "최종 우승자 : ";
 
     public static void main(String[] args) {
@@ -19,9 +18,11 @@ public class Application {
         System.out.println(INPUT_CARNAME_MESSAGE);
         String inputNames = readLine();
         List<String> carNames = Arrays.asList(inputNames.split(","));
+
         if (!isNotEmpty(carNames)) {
             throw new IllegalArgumentException();
         }
+
         if (!isUnderSixDigit(carNames)) {
             throw new IllegalArgumentException();
         }
@@ -31,7 +32,11 @@ public class Application {
         if (!isNumberInteger(inputTime)) {
             throw new IllegalArgumentException();
         }
+
         int tryTime = Integer.parseInt(inputTime);
+        if (!isNumberOverZero(tryTime)) {
+            throw new IllegalArgumentException();
+        }
 
         // TODO: 자동차 목록 생성
 
@@ -47,9 +52,8 @@ public class Application {
     }
 
     public static boolean isUnderSixDigit(List<String> inputs) {
-        String regularExpression = "^[.]{5}$";
         for (String input : inputs) {
-            if (!input.matches(regularExpression)) {
+            if (input.length() > 5) {
                 return false;
             }
         }
@@ -57,9 +61,16 @@ public class Application {
     }
 
     public static boolean isNotEmpty(List<String> inputs) {
-        if(inputs.size() == 0){
-            return false;
+        for (String input : inputs) {
+            if (input.isEmpty()) {
+                return false;
+            }
         }
-        return inputs.contains(" ");
+        return true;
     }
+
+    public static boolean isNumberOverZero(int input) {
+        return input > 0;
+    }
+
 }
