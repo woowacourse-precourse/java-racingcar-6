@@ -12,20 +12,18 @@ import java.util.List;
 import static racingcar.constant.NumberConstant.*;
 
 public class RacingService {
-    private final OutputView outputView;
     private final CarRepository carRepository;
     private final List<Car> cars;
     private final int times;
 
-    public RacingService(List<Car> cars, int times, OutputView outputView, CarRepository carRepository) {
+    public RacingService(List<Car> cars, int times, CarRepository carRepository) {
         this.cars = cars;
         this.times = times;
-        this.outputView = outputView;
         this.carRepository = carRepository;
     }
 
     public void gameProgress() {
-        outputView.gameStart();
+        OutputView.gameStart();
         for (int i = 0; i < times; i++) {
             progressOnceTime();
         }
@@ -35,9 +33,9 @@ public class RacingService {
         for (Car car : cars) {
             int randomValue = Randoms.pickNumberInRange(MIN_NUMBER.getNumber(), MAX_NUMBER.getNumber());
             carRepository.moveForward(car, randomValue);
-            outputView.gameProgress(car);
+            OutputView.gameProgress(car);
         }
-        outputView.skipLine();
+        OutputView.skipLine();
     }
 
     public void gameResult() {
@@ -51,7 +49,7 @@ public class RacingService {
             if (max == car.getCount())
                 winners.add(car.getName());
         }
-        outputView.gameResult(winners);
+        OutputView.gameResult(winners);
         Console.close();
     }
 }
