@@ -11,6 +11,18 @@ public class CarRacing {
         this.cars = cars;
         this.iterationNumBer = iterationNumBer;
     }
+
+    public List<CarRacingResult> start() {
+        System.out.println();
+        for (int stepNumber = 0; stepNumber < iterationNumBer; stepNumber++) {
+            progressOneStep();
+            RacingCarConsole.printCarRacingProgressState(cars);
+        }
+
+        List<CarRacingResult> championCars = getCarRacingResult();
+        return championCars;
+    }
+
     private List<CarRacingResult> getCarRacingResult() {
         Integer maxLocation = cars.stream()
                 .map(Car::getLocation)
