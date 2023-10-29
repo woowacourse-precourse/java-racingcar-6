@@ -26,8 +26,8 @@ public class Cars {
     }
 
     public void decideToMove() {
-        int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
         cars.forEach(car -> {
+            int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
             car.decideToMove(randomNumber);
         });
     }
