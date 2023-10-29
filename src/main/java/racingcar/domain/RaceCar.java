@@ -3,10 +3,12 @@ package racingcar.domain;
 public class RaceCar {
     private String nameOfCar;
     private Integer cntMovementOfCar;
+    private String moveStateStr;
 
     public RaceCar() {
         nameOfCar = "";
         cntMovementOfCar = 0;
+        moveStateStr = "";
     }
 
 
@@ -40,6 +42,7 @@ public class RaceCar {
     public void moveForward() {
         // 이동시 전진 카운터 증가.
         cntMovementOfCar = cntMovementOfCar + 1;
+        moveStateStr.contains("-");
     }
 
     // TODO: 10/27/23 자동차 멈춤(정지), 나중에 추가할지 말지 생각
@@ -55,6 +58,10 @@ public class RaceCar {
     @Override
     public String toString() {
         return nameOfCar;
+    }
+
+    public String toStringMoveState() {
+        return moveStateStr;
     }
 
     public Integer getCntMovementOfCar() {
