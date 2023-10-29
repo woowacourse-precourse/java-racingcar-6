@@ -17,8 +17,8 @@ public class Output {
     //++현재 상태를 출력하는 함수
     public void printCurrentCar(List<Car> list) {
         for (int i = 0; i < list.size(); i++) {
-            System.out.print(list.get(i).carName + " : ");
-            for (int j = 0; j < list.get(i).count; j++) {
+            System.out.print(list.get(i).getCarName() + " : ");
+            for (int j = 0; j < list.get(i).getCount(); j++) {
                 System.out.print("-");
             }
             System.out.println();

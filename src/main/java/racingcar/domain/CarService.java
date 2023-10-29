@@ -19,7 +19,8 @@ public class CarService {
     //3) 판별 결과에 따라 현재 상태 세팅
     public void setCurrentCar(boolean flag, Car car) {
         if (flag) { //전진 상태일 때만
-            car.count++;//++처리
+            int carCount = car.getCount();
+            car.setCount(carCount + 1);
         }
     }
 
@@ -30,7 +31,7 @@ public class CarService {
     public int getMaxScore(List<Car> list) {
         int max = 0;
         for (int i = 0; i < list.size(); i++) {
-            max = Math.max(max, list.get(i).count);
+            max = Math.max(max, list.get(i).getCount());
         }
         return max;
     }
@@ -39,8 +40,8 @@ public class CarService {
     public List<String> getWinnerName(List<Car> list, int max) {
         List<String> winner = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
-            if (max == list.get(i).count) {
-                winner.add(list.get(i).carName);
+            if (max == list.get(i).getCount()) {
+                winner.add(list.get(i).getCarName());
             }
         }
         return winner;
