@@ -11,7 +11,7 @@ public class Cars {
     private List<Car> cars;
 
     public Cars(String names) {
-        List<Car> targetCars = CarMapper.convertToCars(names);
+        List<Car> targetCars = CarMapper.convertToCarList(names);
         validateDuplicateName(targetCars);
         this.cars = targetCars;
     }

@@ -15,7 +15,7 @@ public class CarMapperTest {
         String names = "jun,seo,park";
 
         //when
-        List<Car> cars = CarMapper.convertToCars(names);
+        List<Car> cars = CarMapper.convertToCarList(names);
 
         //then
         assertThat(cars.size()).isEqualTo(3);

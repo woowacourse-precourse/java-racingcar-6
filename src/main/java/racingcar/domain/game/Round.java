@@ -1,10 +1,10 @@
 package racingcar.domain.game;
 
-import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.Cars;
 import racingcar.dto.CarDto;
+import racingcar.mapper.CarMapper;
 
 public class Round {
     private final List<Integer> numbers;
@@ -16,22 +16,13 @@ public class Round {
     }
 
     public void race() {
-        for (int i = 0; i < cars.size(); i++) {
-            Car car = cars.findCarByIndex(i);
-            car.move(numbers.get(i));
+        for (int index = 0; index < cars.size(); index++) {
+            Car car = cars.findCarByIndex(index);
+            car.move(numbers.get(index));
         }
     }
 
     public List<CarDto> getResult() {
-        return generateCarDtoList();
-    }
-
-    private List<CarDto> generateCarDtoList() {
-        List<CarDto> result = new ArrayList<>();
-        for (int i = 0; i < cars.size(); i++) {
-            Car car = cars.findCarByIndex(i);
-            result.add(new CarDto(car.getName(), car.getPosition()));
-        }
-        return result;
+        return CarMapper.convertToCarDtoList(cars);
     }
 }
