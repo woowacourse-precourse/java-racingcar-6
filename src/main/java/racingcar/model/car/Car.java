@@ -1,5 +1,6 @@
 package racingcar.model.car;
 
+import racingcar.constant.Rule;
 import racingcar.service.Accelerator;
 import racingcar.validation.Validator;
 import racingcar.validation.ValidatorFactory;
@@ -9,7 +10,6 @@ import java.util.Comparator;
 //TODO: 허무맹랑할 수 있는 이야기이지만, 자동차 경주에 말이 들어온다면?? 해당 경우도 한번 고민해보기
 public class Car {
 
-    private static final String MARK = "-";
     //TODO: 어떻게 선언할까
     private final Comparator<Car> comparator = new OrderByPosition();
 
@@ -46,9 +46,9 @@ public class Car {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(this.name).append(" : ");
+        stringBuilder.append(this.name).append(Rule.NAME_POSITION_SEPARATOR);
         for (long i = 0; i < this.currentPosition; i++) {
-            stringBuilder.append(MARK);
+            stringBuilder.append(Rule.MARK);
         }
         return stringBuilder.toString();
     }

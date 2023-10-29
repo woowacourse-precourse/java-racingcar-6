@@ -14,7 +14,7 @@ public class Racer {
 
     public Racer(String value) {
         validate(value);
-        this.racer = Arrays.stream(value.split(Rule.SEPARATOR))
+        this.racer = Arrays.stream(value.split(Rule.NAME_SEPARATOR))
                 .map(Car::new)
                 .toList();
     }
@@ -44,7 +44,7 @@ public class Racer {
                 .stream()
                 .map(Car::getName)
                 .toList();
-        return String.join(Rule.SEPARATOR + " ", winner);
+        return String.join(Rule.NAME_SEPARATOR + " ", winner);
     }
 
     @Override
