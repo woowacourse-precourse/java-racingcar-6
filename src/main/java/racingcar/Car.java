@@ -1,15 +1,15 @@
 package racingcar;
 
 public class Car {
-    private final String name;
-    private int forwardNumber;
+    final String name;
+    int forwardNumber;
 
-    public Car(String name, int forwardNumber) {
+    public Car(final String name, int forwardNumber) {
         this.name = name;
         this.forwardNumber = forwardNumber;
     }
 
-    public Car(String name) {
+    public Car(final String name) {
         this.name = name;
     }
 
