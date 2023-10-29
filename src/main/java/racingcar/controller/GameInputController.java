@@ -1,7 +1,7 @@
 package racingcar.controller;
 
-import racingcar.Cars;
-import racingcar.Game;
+import racingcar.model.Cars;
+import racingcar.model.Game;
 import racingcar.view.InputView;
 
 public class GameInputController {

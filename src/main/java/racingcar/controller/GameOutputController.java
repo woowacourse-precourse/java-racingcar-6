@@ -1,8 +1,8 @@
 package racingcar.controller;
 
 import java.util.ArrayList;
-import racingcar.Cars;
-import racingcar.Game;
+import racingcar.model.Cars;
+import racingcar.model.Game;
 import racingcar.view.OutputView;
 
 public class GameOutputController {
