@@ -9,7 +9,7 @@ public class InputValidator {
 
     public static void validateInputNames(String names) {
         if (isNotNamesPattern(names)) {
-            throw new IllegalArgumentException("올바른 이름 형식이 아닙니다. ex) jun,pobi,woni");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NAMES_INPUT.getMessage());
         }
     }
 
@@ -20,13 +20,13 @@ public class InputValidator {
 
     private static void validateIsDigit(String round) {
         if (isNotDigit(round)) {
-            throw new IllegalArgumentException("숫자의 형식이 아닙니다.");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_DIGIT_FORM.getMessage());
         }
     }
 
     private static void validateRoundRange(String round) {
         if (isNotValidRange(Integer.parseInt(round))) {
-            throw new IllegalArgumentException("횟수는 2이상 10이하만 입력할 수 있습니다.");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_ROUND_RANGE_INPUT.getMessage());
         }
     }
 
