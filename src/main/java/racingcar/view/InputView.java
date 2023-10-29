@@ -16,9 +16,13 @@ public class InputView {
     }
 
     public String getCarNames() {
-        String input = Console.readLine();
+        String input = readLine();
         Validator.validateCarNames(input);
 
         return input;
+    }
+
+    private String readLine() {
+        return Console.readLine();
     }
 }
