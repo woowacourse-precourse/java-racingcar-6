@@ -15,7 +15,7 @@ class CarTest {
         Car car = new Car("pobi");
         int past = car.getPosition();
 
-        car.move();
+        car.moveForward();
         assertThat(car.getPosition()).isEqualTo(past + 1);
     }
 }
