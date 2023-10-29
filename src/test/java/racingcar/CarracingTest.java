@@ -40,15 +40,6 @@ class CarracingTest {
         return false;
     }
 
-    private static String sumScore(Map<String, String> result) {
-        StringBuilder scoreSum = new StringBuilder();
-        for (Map.Entry<String, String> entrySet : result.entrySet()) {
-            scoreSum.append(entrySet.getValue());
-        }
-
-        return scoreSum.toString();
-    }
-
     private static Stream<Arguments> provideCarName() {
         return Stream.of(
                 Arguments.of((Object) new String[]{"pobi", "woni", "jun"}),
