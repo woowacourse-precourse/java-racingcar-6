@@ -33,10 +33,10 @@ public final class GameController {
 
     private void playUntilMaxRound(final CarsRacing cars) {
         final MaxRound maxRound = inputView.inputMaxRound();
-        playUntilMaxRoundRecursive(cars, CurrentRound.min(), maxRound);
+        _playUntilMaxRound(cars, CurrentRound.min(), maxRound);
     }
 
-    private void playUntilMaxRoundRecursive(
+    private void _playUntilMaxRound(
             final CarsRacing cars,
             final CurrentRound currentRound,
             final MaxRound maxRound
@@ -47,7 +47,7 @@ public final class GameController {
         cars.moveAllBy(moveCommander);
         final CarsRacingDto dto = cars.toDto();
         outputView.printRoundResult(dto);
-        playUntilMaxRoundRecursive(cars, currentRound.nextRound(), maxRound);
+        _playUntilMaxRound(cars, currentRound.nextRound(), maxRound);
     }
 
     private void showWinners(CarsRacing cars) {
