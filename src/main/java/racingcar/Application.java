@@ -13,7 +13,7 @@ public class Application {
         int count;
         Input_data.input_cars(racer_name);
 
-        count = input_number();
+        count = Input_data.input_number();
 
         racing_game(racer_name, distance, count);
         calculate_winner(racer_name, distance, winner);
@@ -21,19 +21,7 @@ public class Application {
 
     }
 
-    public static int input_number() {
-        System.out.println("시도할 회수는 몇회인가요?");
-        String input_str = Console.readLine();
-        int number;
 
-        try {
-            number = Integer.parseInt(input_str);
-        }
-        catch (NumberFormatException ex){
-            throw new IllegalArgumentException("올바른 숫자 형식이 아닙니다.", ex);
-        }
-        return number;
-    }
 
     public static void racing_game(ArrayList<String> name, ArrayList<String> distance,int number) {
         System.out.println("실행 결과");

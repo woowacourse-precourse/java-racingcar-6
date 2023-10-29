@@ -18,4 +18,17 @@ public class Input_data {
             name.add(str);
         }
     }
+    public static int input_number() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input_str = Console.readLine();
+        int number;
+
+        try {
+            number = Integer.parseInt(input_str);
+        }
+        catch (NumberFormatException ex){
+            throw new IllegalArgumentException("올바른 숫자 형식이 아닙니다.", ex);
+        }
+        return number;
+    }
 }
