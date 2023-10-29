@@ -1,13 +1,14 @@
 package racingcar.domain;
 
 import racingcar.util.RandomNumberGenerator;
+import racingcar.util.RandomUtil;
 
 public class MovingStrategy {
 
     private static final Integer POSSIBLE_NUMBER = 4;
-    private final RandomNumberGenerator randomNumberGenerator;
+    private final RandomUtil randomNumberGenerator;
 
-    public MovingStrategy(RandomNumberGenerator randomNumberGenerator) {
+    public MovingStrategy(RandomUtil randomNumberGenerator) {
         this.randomNumberGenerator = randomNumberGenerator;
     }
 
