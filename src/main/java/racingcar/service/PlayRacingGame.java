@@ -6,7 +6,7 @@ import java.util.List;
 import racingcar.domain.Car;
 
 public class PlayRacingGame {
-    public void play(int moveCount, List<Car> cars) {
+    public void play(long moveCount, List<Car> cars) {
         System.out.println("\n" + RESULT_MESSAGE);
 
         while (moveCount-- > 0) {

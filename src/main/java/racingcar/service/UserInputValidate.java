@@ -24,10 +24,10 @@ public class UserInputValidate {
         }
     }
 
-    public int tryCountValidate(String moveCount) {
-        int mvCount;
+    public long tryCountValidate(String moveCount) {
+        long mvCount;
         try {
-            mvCount = Integer.parseInt(moveCount);
+            mvCount = Long.parseLong(moveCount);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(Not_Integer_VALUE_ERROR_MESSAGE);
         }

@@ -40,7 +40,7 @@ public class Application {
         // 이동 횟수 묻기
         String moveCount = userInput.tryCount();
         //valid
-        int validMoveCount = userInputValidate.tryCountValidate(moveCount);
+        long validMoveCount = userInputValidate.tryCountValidate(moveCount);
         //play racing game
         playRacingGame.play(validMoveCount, cars);
         //최종 결과
