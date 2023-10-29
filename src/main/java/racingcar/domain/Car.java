@@ -12,10 +12,22 @@ public class Car {
         this.name = name;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
+
     public void move() {
         if (moveCheck()) {
             this.position++;
         }
+    }
+
+    public boolean isWinner(int winnerPosition) {
+        return this.position == winnerPosition;
     }
 
     private boolean moveCheck() {
