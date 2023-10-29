@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import racingcar.dto.MoveResultDto;
 import racingcar.model.Car;
 import racingcar.model.CarCreator;
 import racingcar.model.RaceManager;
@@ -14,11 +15,19 @@ public class Game {
         CarCreator.validateCarNames(carNames);
         List<Car> cars = CarCreator.createCars(carNames);
 
-        String numberOfMove = View.getInput();
-        RaceManager.validateNumberOfMove(numberOfMove);
+        String numberOfMoveInput = View.getInput();
+        int numberOfMove = RaceManager.validateNumberOfMove(numberOfMoveInput);
 
-        RaceManager.startRace(cars);
+        startRace(cars, numberOfMove);
 
         List<String> winnerList = RaceManager.decideWinner(cars);
+    }
+
+    private static void startRace(List<Car> cars, int numberOfMove) {
+        for (int i = 0; i < numberOfMove; i++) {
+            List<MoveResultDto> moveResultDtos = cars.stream()
+                    .map(Car::move)
+                    .toList();
+        }
     }
 }

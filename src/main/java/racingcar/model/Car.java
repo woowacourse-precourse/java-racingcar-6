@@ -1,20 +1,21 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.dto.MoveResultDto;
 
 public class Car {
 
     private final String name;
-    private int location;
+    private Integer location;
 
     public Car(String name) {
         this.name = name;
         this.location = 0;
     }
 
-    public void move() {
-        int randomNumber = generateRandomNumber();
-        moveOrStop(randomNumber);
+    public MoveResultDto move() {
+        moveOrStop(generateRandomNumber());
+        return MoveResultDto.make(name, location);
     }
 
     //TODO private으로 변경
@@ -34,7 +35,7 @@ public class Car {
     }
 
     //test 만을 위한 코드
-    public int getLocation() {
+    public Integer getLocation() {
         return location;
     }
 }

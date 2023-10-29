@@ -3,21 +3,12 @@ package racingcar.model;
 import java.util.List;
 
 public class RaceManager {
-
-    private static int numberOfMove;
-
-    public static void validateNumberOfMove(String numberOfMove) {
+    public static int validateNumberOfMove(String numberOfMove) {
         int number = toNumber(numberOfMove);
         if (number < 0) {
             throw new IllegalArgumentException();
         }
-        RaceManager.numberOfMove = number;
-    }
-
-    public static void startRace(List<Car> cars) {
-        for (int i = 0; i < numberOfMove; i++) {
-            cars.forEach(Car::move);
-        }
+        return number;
     }
 
     public static List<String> decideWinner(List<Car> cars) {
