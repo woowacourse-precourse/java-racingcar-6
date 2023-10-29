@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import java.util.Objects;
+
 public class Position {
     private static final int ZERO_POSITION = 0;
     private static final int MOVE_SIZE = 1;
@@ -13,17 +15,30 @@ public class Position {
     public void movePosition() {
         this.position += MOVE_SIZE;
     }
-
-    public int getPosition() {
-        return this.position;
     
     public String getDisplayFormat() {
         return DISPLAY_STRING.repeat(position);
     }
+
+    public boolean isGreaterThan(Position other) {
+        return this.position > other.position;
     }
 
     @Override
-    public String toString() {
-        return DISPLAY_STRING.repeat(this.position);
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Position that = (Position) o;
+        return position == that.position;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(position);
+    }
+
 }

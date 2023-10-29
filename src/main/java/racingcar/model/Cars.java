@@ -36,18 +36,21 @@ public class Cars {
         return sb.toString();
     }
 
-    public int getMaxPosition() {
-        return cars.stream()
-                .mapToInt(Car::getCarPosition)
-                .max()
-                .getAsInt();
+    private Position getMaxPosition() {
+        Position maxPosition = new Position();
+        for (Car car : cars) {
+            if (car.position().isGreaterThan(maxPosition)) {
+                maxPosition = car.position();
+            }
+        }
+        return maxPosition;
     }
 
     public List<String> getWinners() {
-        int maxPosition = getMaxPosition();
+        Position maxPosition = getMaxPosition();
         return cars.stream()
-                .filter(car -> maxPosition == car.getCarPosition())
-                .map(Car::getCarName)
+                .filter(car -> maxPosition.equals(car.position()))
+                .map(car -> car.name().getDisplayFormat())
                 .collect(Collectors.toList());
     }
 
