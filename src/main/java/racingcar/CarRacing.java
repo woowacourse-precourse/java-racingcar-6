@@ -9,16 +9,16 @@ import java.util.StringJoiner;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class CarRacing {
-    private HashMap<String, Integer> racingMap;
-    private List<String> carList;
+    private final HashMap<String, Integer> racingMap;
+    private final List<String> carList;
 
     CarRacing(List<String> carList) {
         this.racingMap = new HashMap<>();
+        this.carList = carList;
 
         for (String car : carList) {
             this.racingMap.put(car, 0);
         }
-        this.carList = carList;
     }
 
     public int setCarForwardingNum(){
@@ -44,6 +44,7 @@ public class CarRacing {
             this.printEachCarProgress(racingMap.get(car));
             System.out.println();
         }
+       System.out.println();
     }
 
     public void printEachCarProgress(int num){
@@ -53,7 +54,7 @@ public class CarRacing {
     }
 
     public List<String> setRacingResult(){
-        List<String> resultList = new ArrayList<>();
+        List<String> winnerList = new ArrayList<>();
         int maxNum = racingMap.get(carList.get(0));
 
         for(Entry<String, Integer> entry : racingMap.entrySet()){
@@ -61,22 +62,22 @@ public class CarRacing {
 
             if(entryNum > maxNum){
                 maxNum = entryNum;
-                resultList.clear();
-                resultList.add(entry.getKey());
+                winnerList.clear();
+                winnerList.add(entry.getKey());
             }
             else if(entryNum == maxNum) {
-                resultList.add(entry.getKey());
+                winnerList.add(entry.getKey());
             }
         }
-        return resultList;
+        return winnerList;
     }
 
     public void printRacingResult(){
-        List<String> resultList = this.setRacingResult();
+        List<String> winnerList = this.setRacingResult();
 
         System.out.print("최종 우승자 : ");
         StringJoiner joiner = new StringJoiner(", ");
-        for (String winner : resultList) {
+        for (String winner : winnerList) {
             joiner.add(winner);
         }
         System.out.println(joiner);
