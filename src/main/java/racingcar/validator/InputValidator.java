@@ -1,6 +1,7 @@
 package racingcar.validator;
 
 import java.util.List;
+import java.util.regex.Pattern;
 import racingcar.constant.RacingGameConstants;
 import racingcar.exception.cars.DuplicateException;
 import racingcar.exception.car.name.LengthException;
@@ -8,6 +9,8 @@ import racingcar.exception.round.NonPositiveIntegerException;
 import racingcar.utils.Parser;
 
 public class InputValidator {
+
+
     // 자동차 이름 입력 검증
     public static void validateCarList(String userInput) {
         validateCarNames(userInput);
@@ -45,7 +48,9 @@ public class InputValidator {
     }
 
     private static void validatePositiveInteger(String userInput) {
-        if (!userInput.matches("[1-9][0-9]*")) {
+        if (!RacingGameConstants.POSITIVE_INTEGER_PATTERN
+                .matcher(userInput)
+                .matches()) {
             throw new NonPositiveIntegerException();
         }
     }
