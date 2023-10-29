@@ -3,9 +3,9 @@ package racingcar.domain.game.car;
 import racingcar.util.MoveStrategy;
 
 class FixedMoveStrategy implements MoveStrategy {
-    private final Boolean isPlaying;
+    private final boolean isPlaying;
 
-    public FixedMoveStrategy(Boolean isPlaying) {
+    public FixedMoveStrategy(boolean isPlaying) {
         this.isPlaying = isPlaying;
     }
 
