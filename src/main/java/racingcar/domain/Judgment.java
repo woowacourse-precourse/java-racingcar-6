@@ -17,6 +17,7 @@ public class Judgment {
     private Judgment() {
     }
 
+    //싱글톤 유지
     public static Judgment getInstance() {
         if (judgment == null) {
             return judgment = new Judgment();
@@ -24,6 +25,7 @@ public class Judgment {
         return judgment;
     }
 
+    // 실행 횟수를 파라미터로 받아서 횟수만큼 getExecutionResult 실행 밎 결과 출력
     public void executeForCount(int count, List<String> cars) {
         IntStream.range(0, count).forEach(i -> {
             judgment.getExecutionResult(cars);
@@ -34,6 +36,7 @@ public class Judgment {
         });
     }
 
+    //랜덤수를 받고 전진 결과를 map({차량이름}, {전진 결과})에 저장
     private void getExecutionResult(List<String> cars) {
 
         for (String car : cars) {
@@ -51,6 +54,7 @@ public class Judgment {
         }
     }
 
+    //map 에 들어있는 value 중 가장 큰 값(중복허용)을 찾고 그 값을 리스트로 반환
     public List<String> getResultWinner() {
         int max = Collections.max(RESULT.values()).length();
 
