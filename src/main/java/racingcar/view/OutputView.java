@@ -7,16 +7,26 @@ import racingcar.domain.Car;
 import racingcar.util.Constants;
 
 public class OutputView {
-    public void printGameResult() {
-        System.out.println("\n" + Constants.GAME_RESULT_MESSAGE);
-    }
+
+    private boolean isFirstTime = true;
 
     public void printMoveResult(Map<Car, Integer> moveResults) {
+        printGameResultMessageForFirstTime();
+
         for (Car car : moveResults.keySet()) {
             String position = converterPosition(car.getPosition());
             System.out.printf("%s : %s\n", car.getName(), position);
         }
         System.out.println();
+    }
+
+    private void printGameResultMessageForFirstTime() {
+        if (!isFirstTime) {
+            return;
+        }
+
+        System.out.println("\n" + Constants.GAME_RESULT_MESSAGE);
+        this.isFirstTime = false;
     }
 
     public void printWinner(List<String> winnerList) {
