@@ -35,6 +35,11 @@ class InputValidationTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 자동차_이름_중복에_대한_예외_처리() {
+        assertThatThrownBy(() -> inputValidation.validateDuplicateName(new String[]{"pobi", "pobi", "jun"}))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 
     private static Stream<Arguments> inputOutOfRangeName() {
         return Stream.of(
