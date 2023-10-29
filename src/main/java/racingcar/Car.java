@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
 
-    private String name;
+    private final String name;
     private int distance = 0;
 
     public Car(String name) {
@@ -27,11 +27,6 @@ public class Car {
 
     public void printStatus() {
         System.out.println(this.name + " : " + "-".repeat(Math.max(0, this.distance)));
-    }
-
-    public String getStatus() {
-        return this.name + " : "
-                + "-".repeat(Math.max(0, this.distance));
     }
 
     public int getDistance() {
