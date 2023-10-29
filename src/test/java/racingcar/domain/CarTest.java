@@ -126,4 +126,69 @@ class CarTest {
         });
     }
 
+    @Test
+    void checkContainsConsecutiveCommas_입력값_쉼표_연속성_테스트1() {
+        //given
+        final String cars = ",,포비,포비2,포비3";
+        T.setStringCarList(cars);
+
+        //then
+        assertThrows(IllegalArgumentException.class, () -> {
+            //when
+            T.checkContainsConsecutiveCommas();
+        });
+    }
+
+    @Test
+    void checkContainsConsecutiveCommas_입력값_쉼표_연속성_테스트2() {
+        //given
+        final String cars = "포비,,포비2,포비3";
+        T.setStringCarList(cars);
+
+        //then
+        assertThrows(IllegalArgumentException.class, () -> {
+            //when
+            T.checkContainsConsecutiveCommas();
+        });
+    }
+
+    @Test
+    void checkContainsConsecutiveCommas_입력값_쉼표_연속성_테스트3() {
+        //given
+        final String cars = "포비,포비2,,포비3";
+        T.setStringCarList(cars);
+
+        //then
+        assertThrows(IllegalArgumentException.class, () -> {
+            //when
+            T.checkContainsConsecutiveCommas();
+        });
+    }
+
+    @Test
+    void checkContainsConsecutiveCommas_입력값_쉼표_연속성_테스트4() {
+        //given
+        final String cars = "포비,포비2,포비3,,";
+        T.setStringCarList(cars);
+
+        //then
+        assertThrows(IllegalArgumentException.class, () -> {
+            //when
+            T.checkContainsConsecutiveCommas();
+        });
+    }
+
+    @Test
+    void checkContainsConsecutiveCommas_입력값_쉼표_연속성_테스트5() {
+        //given
+        final String cars = ",,,,,,,,";
+        T.setStringCarList(cars);
+
+        //then
+        assertThrows(IllegalArgumentException.class, () -> {
+            //when
+            T.checkContainsConsecutiveCommas();
+        });
+    }
+
 }
