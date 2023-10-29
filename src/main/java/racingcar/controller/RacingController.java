@@ -1,10 +1,15 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import racingcar.model.Car;
+import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
 
 public class RacingController {
 
     private final InputView inputView;
+    private final List<Car> cars = new ArrayList<>();
 
     public RacingController(InputView inputView) {
         this.inputView = inputView;
@@ -16,8 +21,19 @@ public class RacingController {
         System.out.println("시도할 회수는 몇회인가요?");
         inputView.setNumberOfAttempts();
 
+        for (String name : inputView.getInputNames()) {
+            Car car = new Car(name);
+            cars.add(car);
+        }
+
         int count = 0;
         while (count < inputView.getNumberOfAttempts()) {
+            for (Car car : cars) {
+                int number = RandomNumberGenerator.createRandomNumber();
+                if (number >= 4) {
+                    car.move();
+                }
+            }
             count++;
         }
     }
