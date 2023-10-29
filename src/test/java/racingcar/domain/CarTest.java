@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -49,5 +51,11 @@ public class CarTest {
         for (String key : result.keySet()) {
             assertThat(result.get(key)).isEqualTo(1);
         }
+    }
+
+    @ParameterizedTest
+    @CsvSource({"2,false", "4,true", "1,false", "5,true", "8,true", "3,false"})
+    void isForward_전진_가능_여부(int randomNumber, boolean expected) {
+        assertThat(car.isForward(randomNumber)).isEqualTo(expected);
     }
 }
