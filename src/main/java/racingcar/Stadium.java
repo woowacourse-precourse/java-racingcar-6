@@ -12,12 +12,12 @@ public class Stadium {
     public Stadium() {
     }
 
-    String inputCars() {
+    public String inputCars() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         return Console.readLine();
     }
 
-    void saveInputCars(String inputCars) {
+    public void saveInputCars(String inputCars) {
         List<String> carNames = List.of(inputCars.split(","));
         for (String name : carNames) {
             if(name.length() > 5) {
@@ -27,14 +27,14 @@ public class Stadium {
         }
     }
 
-    String inputTryCount() {
+    public String inputTryCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
         System.out.println();
         return input;
     }
 
-    void saveTryCount(String inputNumber) {
+    public void saveTryCount(String inputNumber) {
         int count;
         try {
             count = Integer.parseInt(inputNumber);
@@ -48,7 +48,7 @@ public class Stadium {
         this.tryCount = count;
     }
 
-    void runAllCars() {
+    public void runAllCars() {
         this.cars.forEach(Car::run);
     }
 

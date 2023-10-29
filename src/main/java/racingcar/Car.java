@@ -15,20 +15,20 @@ public class Car {
         }
     }
 
+    private void plusStep(int number) {
+        this.step += number;
+    }
+
     private boolean isRunnable(){
         int number = Util.getRandomSingleDigit();
         return Util.getBooleanByNumber(number);
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public int getStep() {
+    int getStep() {
         return step;
-    }
-
-    private void plusStep(int number) {
-        this.step += number;
     }
 }

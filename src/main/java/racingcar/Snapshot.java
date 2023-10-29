@@ -41,6 +41,14 @@ public class Snapshot {
         return "-".repeat(number);
     }
 
+    public String printWinner(int order){
+        StringBuilder sb = new StringBuilder();
+        sb.append("최종 우승자 : ");
+        sb.append(findWinner(order));
+        System.out.print(sb);
+        return sb.toString();
+    }
+
     private String findWinner(int order){
         List<String> result = new ArrayList<>();
         Map<String, Integer> snapshot = getSnapshot(order);
@@ -53,12 +61,8 @@ public class Snapshot {
         return String.join(", ", result);
     }
 
-    public String printWinner(int order){
-        StringBuilder sb = new StringBuilder();
-        sb.append("최종 우승자 : ");
-        sb.append(findWinner(order));
-        System.out.print(sb);
-        return sb.toString();
+    private Map<String, Integer> getSnapshot(int order) {
+        return new LinkedHashMap<>(this.snapshots.get(order));
     }
 
     public void setSnapshot(int order, List<Car> cars) {
@@ -68,9 +72,5 @@ public class Snapshot {
         for (Car car : cars) {
             snapshot.put(car.getName(), car.getStep());
         }
-    }
-
-    private Map<String, Integer> getSnapshot(int order) {
-        return new LinkedHashMap<>(this.snapshots.get(order));
     }
 }
