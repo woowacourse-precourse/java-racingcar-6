@@ -19,6 +19,10 @@ public class GameModel {
         return scoreBoard.aggregateScore();
     }
 
+    public ArrayList<String> aggregateHighScore() {
+        return scoreBoard.aggregateHighScoreCarNames();
+    }
+
     public boolean raceTimeRemain() {
         return this.raceTimes != 0;
     }

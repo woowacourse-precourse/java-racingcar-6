@@ -17,10 +17,31 @@ public class ScoreBoard {
         ArrayList<String> roundScore = new ArrayList<>();
         for (Car car : this.carList) {
             car.move();
-            String score = car.getCarNameDistance();
-            roundScore.add(score);
+            String carNameScore = car.getCarNameDistance();
+            roundScore.add(carNameScore);
         }
         return roundScore;
+    }
+
+    public ArrayList<String> aggregateHighScoreCarNames() {
+        ArrayList<String> carNameList = new ArrayList<>();
+        int highScore = 0;
+
+        for (Car car : this.carList) {
+            int carScore = car.getMoveDistance();
+            String carName = car.getCarName();
+            if (highScore < carScore) {
+                carNameList.clear();
+                carNameList.add(carName);
+                highScore = carScore;
+                continue;
+            }
+            if (highScore == carScore) {
+                carNameList.add(carName);
+            }
+        }
+
+        return carNameList;
     }
 
 

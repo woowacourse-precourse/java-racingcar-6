@@ -16,6 +16,7 @@ public class GameController {
             processGame();
         }
         while (isRacing());
+        endGame();
     }
 
 
@@ -39,4 +40,8 @@ public class GameController {
         return this.gameModel.raceTimeRemain();
     }
 
+    public void endGame() {
+        ArrayList<String> winnerNames = this.gameModel.aggregateHighScore();
+        this.outputView.printWinnerOfGame(winnerNames);
+    }
 }

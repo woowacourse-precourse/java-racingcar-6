@@ -11,6 +11,10 @@ public class OutputView {
         System.out.println();
     }
 
+    public void printWinnerOfGame(ArrayList<String> carNames) {
+        System.out.println("최종 우승자: " + String.join(", ", carNames));
+    }
+
 
     public void printGameStart() {
         System.out.println("\n실행결과");
