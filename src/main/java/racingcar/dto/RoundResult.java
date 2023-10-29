@@ -1,6 +1,8 @@
-package racingcar.domain;
+package racingcar.dto;
 
 import java.util.List;
+import racingcar.domain.Car;
+import racingcar.domain.Cars;
 
 public record RoundResult(CarsDto carsDto) {
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import racingcar.config.GameConfig;
+import racingcar.dto.RoundResult;
 import racingcar.util.NumberGenerator;
 
 public class Game {
