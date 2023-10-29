@@ -11,15 +11,17 @@ public class Game {
     public void startGame() {
         gameManager.gameSetting();
         gamingWithTryCount();
-        System.out.println(gameElements.getCarMap());
+        System.out.println(checkWinner().toString());
         Output.printGameWinnerMessage(String.join(", ", checkWinner()));
     }
 
     private void gamingWithTryCount() {
         int totalTryCount = gameElements.getTryCount();
+        Output.printResultMessage();
 
         for (int tryCount = 0; tryCount < totalTryCount; tryCount++) {
             runGameForCar();
+            Output.printGameProgress(gameElements.getCarMap());
         }
     }
 
@@ -36,12 +38,12 @@ public class Game {
         }
     }
 
-    private List<String> checkWinner(){
+    private List<String> checkWinner() {
         int max = -1;
         List<String> winnerList = new ArrayList<>();
 
-        for(String car : gameElements.getCarNameList()){
-            if(max <= gameElements.getCarMap().get(car)){
+        for (String car : gameElements.getCarNameList()) {
+            if (max <= gameElements.getCarMap().get(car)) {
                 max = gameElements.getCarMap().get(car);
                 winnerList.add(car);
             }

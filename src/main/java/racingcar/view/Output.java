@@ -13,6 +13,7 @@ public class Output {
     }
 
     public static void printResultMessage() {
+        System.out.println("");
         System.out.println("실행 결과");
     }
 
@@ -23,9 +24,9 @@ public class Output {
     public static void printGameProgress(Map<String, Integer> carMap) {
         StringBuilder stringBuilder = new StringBuilder();
 
-        for(String car : carMap.keySet()){
-            stringBuilder.append(car+ " : ");
-            for(int forwardCount = 0; forwardCount < carMap.get(car); forwardCount++){
+        for (String car : carMap.keySet()) {
+            stringBuilder.append(car + " : ");
+            for (int forwardCount = 0; forwardCount < carMap.get(car); forwardCount++) {
                 stringBuilder.append("-");
             }
             stringBuilder.append("\n");
