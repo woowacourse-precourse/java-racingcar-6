@@ -16,7 +16,6 @@ public class Game {
     }
 
     public void start(){
-        List<String> winners = new ArrayList<>();
 
         for (int i = 0; i < frequency; i++){
             moveCarsForward(participants);
@@ -25,11 +24,8 @@ public class Game {
 
         int maxDistance = getMaxDistance(participants);
 
-        for (Car participant : participants) {
-            if (participant.getDistance() >= maxDistance){
-                winners.add(participant.getName());
-            }
-        }
+        List<String> winners = getWinners(participants, maxDistance);
+
         System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 
@@ -55,6 +51,16 @@ public class Game {
         return maxDistance;
     }
 
+    public List<String> getWinners(List<Car> participants, int maxDistance) {
+        List<String> winners = new ArrayList<>();
+
+        for (Car car : participants) {
+            if (car.getDistance() >= maxDistance){
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
 
     public List<Car> stringToCarList(String data) {
         List<Car> res = new ArrayList<>();
