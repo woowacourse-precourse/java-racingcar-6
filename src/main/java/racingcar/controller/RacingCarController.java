@@ -30,7 +30,7 @@ public class RacingCarController {
         racingCarView.printAskingNumberOfRetries();
         Integer numberOfRetries = askingNumberOfRetires();
 
-        RacingCar racingCar = new RacingCar(cars, numberOfRetries);
+        RacingCar racingCar = new RacingCar(cars);
     }
 
     public String askCarNames() {

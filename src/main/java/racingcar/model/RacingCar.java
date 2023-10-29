@@ -6,14 +6,12 @@ import java.util.List;
 public class RacingCar {
 
     private final List<Car> cars;
-    private final Integer numberOfRetry;
 
-    public RacingCar(List<Car> cars, Integer numberOfRetry) {
+    public RacingCar(List<Car> cars) {
         this.cars = cars;
-        this.numberOfRetry = numberOfRetry;
     }
 
-    private void moveRandomAllCar() {
+    public void moveRandomAllCar() {
         cars.forEach(car -> car.moveForward(createRandomNumber()));
     }
 
