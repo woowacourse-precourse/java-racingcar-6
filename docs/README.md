@@ -1,7 +1,7 @@
 ## 기능 목록
 - [ ] 입력받은 이름들을 토대로 각 자동차에 이름을 부여한다. - RacingCarProvider
-    - [ ] 올바른 입력인지 확인한다. - RacingCarProvider #validate
-        - [ ] 각 이름이 5자 이하인지 확인한다. - RacingCarProvider #isValidLength
+    - [x] 올바른 입력인지 확인한다. - RacingCarProvider #validate
+        - [x] 각 이름이 5자 이하인지 확인한다. - RacingCarProvider #isValidLength
     - [ ] 해당 개수만큼 자동차를 생성한다. - RacingCarProvider #getRacingCars
         - [ ] 각 자동차에 이름을 부여한다. - RacingCar #createRacingCar
 
