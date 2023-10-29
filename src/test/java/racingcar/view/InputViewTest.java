@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -40,5 +41,13 @@ class InputViewTest {
         List<String> carNames = InputView.getCarNames();
 
         assertThat(carNames).containsExactly("pobi", "woni", "jun");
+    }
+
+    @Test
+    void 자동차이름_5자초과입력_예외발생_통합테스트() {
+        String input = "pobi,woni,jun123";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        assertThatThrownBy(() -> InputView.getCarNames())
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
