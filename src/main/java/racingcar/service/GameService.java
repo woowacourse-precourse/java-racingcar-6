@@ -6,6 +6,8 @@ import racingcar.utils.RandomUtils;
 import racingcar.view.ForInputMessage;
 import racingcar.view.OutputMessage;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class GameService {
@@ -51,5 +53,28 @@ public class GameService {
             OutputMessage.printRandomPlayResultPositionMessage(car);
         }
         OutputMessage.printLn();
+    }
+
+    public void choiceWinner() {
+        List<Car> winnerList = new ArrayList<>();
+        int maxPosition = choiceMaxPosition();
+
+        for (Car c : game.getCarList()) {
+            if (c.getPosition() == maxPosition) {
+                winnerList.add(c);
+            }
+        }
+
+        OutputMessage.printWinnerMessage(winnerList);
+    }
+
+    private int choiceMaxPosition() {
+
+        List<Integer> positionList = new ArrayList<>();
+        for (Car c : game.getCarList()) {
+            positionList.add(c.getPosition());
+        }
+
+        return Collections.max(positionList);
     }
 }

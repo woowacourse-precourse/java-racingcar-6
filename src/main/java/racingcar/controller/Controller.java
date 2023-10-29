@@ -11,5 +11,6 @@ public class Controller {
     public void start() {
         gameService.initCarList();
         gameService.runGame();
+        gameService.choiceWinner();
     }
 }
