@@ -86,4 +86,25 @@ class ApplicationTest extends NsTest {
 		);
 	}
 
+	@Test
+	void 최대_거리_계산() {
+		GameProcess game = new GameProcess();
+		List<InformationOfCar> carList = new ArrayList<>();
+		carList.add(new InformationOfCar("aaa", "---"));
+		carList.add(new InformationOfCar("bbb", "--"));
+		carList.add(new InformationOfCar("ccc", "---"));
+		assertThat(game.calculateMaxDistance(carList)).isEqualTo(3);
+	}
+
+	@Test
+	void 최종_출력() {
+		GameProcess game = new GameProcess();
+		List<InformationOfCar> carList = new ArrayList<>();
+		carList.add(new InformationOfCar("aaa", "---"));
+		carList.add(new InformationOfCar("bbb", "---"));
+		carList.add(new InformationOfCar("ccc", "--"));
+		int maxDistance = 3;
+		game.printFinalString(maxDistance, carList);
+		assertThat(output()).isEqualTo("최종 우승자 : aaa, bbb");
+	}
 }
