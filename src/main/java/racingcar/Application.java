@@ -10,21 +10,23 @@ import java.util.List;
 
 
 public class Application {
+
+
+    private static void printMessage(String message){
+        System.out.println(message);
+    }
     public static void main(String[] args) {
         // TODO: 프로그램 구 현
 
         // 1. 자동차 이름 입력
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
-        String userInput = Console.readLine(); //수정 필요
+        Application.printMessage("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+
+        String userInput = Console.readLine();
+
         List<String> carNames = new ArrayList<>(
                 Arrays.asList(userInput.split(","))
         );
-
-        for (String carName : carNames) {
-            System.out.print("\"" + carName + "\"");
-        }
-        System.out.println();
 
         // 2대 미만 입력 => 예외 처리
         if (carNames.size() < 2) {
@@ -52,13 +54,8 @@ public class Application {
             carNames.set(i, carNames.get(i).trim());  // 수정 필요
         }
 
-        for (String carName : carNames) {
-            System.out.print("\"" + carName + "\"");
-        }
-        System.out.println();
-
         // 2. 시도 횟수 입력
-        System.out.println("시도할 회수는 몇회인가요?");
+        Application.printMessage("시도할 회수는 몇회인가요?");
 
         userInput = Console.readLine();
         int roundCount;
@@ -74,7 +71,7 @@ public class Application {
         }
 
         // 3. 이동 로직 구현
-        System.out.println("실행 결과");
+        Application.printMessage("실행 결과");
 
         List<String> movedCount = Arrays.asList(new String[carNames.size()]);
         movedCount.replaceAll(Null -> "");
@@ -106,7 +103,7 @@ public class Application {
 
         }
 
-        System.out.print("최종 우승자 : ");
+        Application.printMessage("최종 우승자 : ");
         int count = 0;
 
         for (int i = 0; i < carNames.size(); i++) {
