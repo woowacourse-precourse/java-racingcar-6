@@ -78,7 +78,7 @@ public class GameController {
     }
 
     private List<String> getWinners(Referee referee, List<Car> cars) {
-        return referee.judge(cars)
+        return referee.decideWinners(cars)
                 .stream()
                 .map(Car::getName)
                 .collect(Collectors.toList());

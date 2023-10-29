@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Referee {
 
-    public List<Car> judge(List<Car> cars) {
+    public List<Car> decideWinners(List<Car> cars) {
         int maxForwardCount = 0;
         for (Car car : cars) {
             maxForwardCount = car.getLargerForwardCount(maxForwardCount);
