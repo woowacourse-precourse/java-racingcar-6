@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.validator.exception.CarNameException;
 
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 public class CarNameValidatorTest {
 
     private CarNameValidator carNameValidator;
@@ -23,42 +25,26 @@ public class CarNameValidatorTest {
     void 차_이름_없는_입력_검증예외() {
         String emptyInput = "";
 
-        IllegalArgumentException emptyInputException = Assertions.assertThrows(
-                IllegalArgumentException.class,
-                () -> carNameValidator.validate(emptyInput));
-
-        Assertions.assertEquals(
-                CarNameException.NO_VALUE_NAME.getMessage(),
-                emptyInputException.getMessage()
-        );
+        assertThatThrownBy(() -> carNameValidator.validate(emptyInput))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(CarNameException.NO_VALUE_NAME.getMessage());
     }
 
     @Test
     void 차_이름_너무_긴_입력_검증예외() {
         String tooLongName = "LongNamingIsNotValidatedInThisGame";
 
-        IllegalArgumentException tooLongNameException = Assertions.assertThrows(
-                IllegalArgumentException.class,
-                () -> carNameValidator.validate(tooLongName));
-
-        Assertions.assertEquals(
-                CarNameException.INVALID_TOO_LONG_NAME.getMessage(),
-                tooLongNameException.getMessage()
-        );
+        assertThatThrownBy(() -> carNameValidator.validate(tooLongName))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(CarNameException.INVALID_TOO_LONG_NAME.getMessage());
     }
 
     @Test
     void 차_이름_너무_짧은_입력_검증예외() {
         String tooShortName = "C";
 
-        IllegalArgumentException tooShortNameException = Assertions.assertThrows(
-                IllegalArgumentException.class,
-                () -> carNameValidator.validate(tooShortName)
-        );
-
-        Assertions.assertEquals(
-                CarNameException.INVALID_TOO_SHORT_NAME.getMessage(),
-                tooShortNameException.getMessage()
-        );
+        assertThatThrownBy(() -> carNameValidator.validate(tooShortName))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(CarNameException.INVALID_TOO_SHORT_NAME.getMessage());
     }
 }
