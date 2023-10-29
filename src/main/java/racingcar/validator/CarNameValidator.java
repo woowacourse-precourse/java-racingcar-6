@@ -8,19 +8,14 @@ import java.util.Set;
 public class CarNameValidator {
 
     Set<String> uniqueWords = new HashSet<>();
-    List<String> carName = new ArrayList<>();
 
-    public List<String> validateInputCarName(String inputCarName) {
+    public boolean validateInputCarName(String word) {
 
-        for (String word : inputCarName.split(",")) {
-            System.out.println("word = " + word);
-            validateDuplicate(word);
-            validateBlank(word);
-            validateSpecialCharacter(word);
-            validateLength(word);
-            carName.add(word);
-        }
-        return carName;
+        validateDuplicate(word);
+        validateBlank(word);
+        validateSpecialCharacter(word);
+        validateLength(word);
+        return true;
     }
 
     private void validateDuplicate(String word) {
