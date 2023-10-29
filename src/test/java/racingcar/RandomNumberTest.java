@@ -3,14 +3,14 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
-import racingcar.service.Generate;
+import racingcar.service.RandomNumber;
 
-public class GenerateTest {
+public class RandomNumberTest {
 
     @Test
     void generate_랜덤값_확인(){
-        Generate generate = new Generate();
-        int randomNum = generate.RandomNumber();
+        RandomNumber randomNumber = new RandomNumber();
+        int randomNum = randomNumber.generate();
 
         assertThat(randomNum).isBetween(0,9);
     }
