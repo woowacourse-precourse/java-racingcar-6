@@ -12,7 +12,7 @@ public class GameController {
     private final InputView inputView = InputView.getInstance();
     private final GameService gameService = GameService.getInstance();
     private List<Car> cars;
-    private int round;
+    private int rounds;
 
     public GameController() {
     }
@@ -32,6 +32,6 @@ public class GameController {
 
     private void getRounds() {
         outputView.printMessage(Message.GET_ROUNDS);
-        round = inputView.getRounds();
+        rounds = inputView.getRounds();
     }
 }
