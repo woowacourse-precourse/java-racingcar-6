@@ -28,6 +28,7 @@ public class Controller {
             List<CarDTO> roundResult = racing.round();
             outputView.printRoundResult(roundResult);
         }
+        outputView.printRaceResult(racing.getWinner());
     }
 
     private Racing creatRacingByUserInput() {
