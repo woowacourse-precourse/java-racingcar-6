@@ -23,4 +23,11 @@ public class CreateCarV2 {
         }
         return stateMap;
     }
+
+    public int carCount(Map stateMap) {
+        int carCount = stateMap.size();
+        return carCount;
+    }
+
+
 }
