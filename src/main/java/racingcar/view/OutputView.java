@@ -9,4 +9,8 @@ public class OutputView {
         }
         System.out.println();
     }
+
+    public void printWinnerCars(String name) {
+        System.out.print("최종 우승자 : " + name);
+    }
 }
