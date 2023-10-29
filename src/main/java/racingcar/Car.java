@@ -6,7 +6,7 @@ public class Car {
     String progressbar;
 
     Car(String name){
-        this.name=nm;
+        this.name=name;
         this.counter=0;
         this.progressbar="";
     }
