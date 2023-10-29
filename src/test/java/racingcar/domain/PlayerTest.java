@@ -1,8 +1,10 @@
-package racingcar;
+
+package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Player;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -23,7 +25,8 @@ class PlayerTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        List<String> cars = Player.inputCarName();
+        Player player = Player.getInstance();
+        List<String> cars = player.inputCarName();
 
         assertThat(cars.get(0)).isEqualTo("pobi");
         assertThat(cars.get(1)).isEqualTo("woni");
@@ -36,7 +39,8 @@ class PlayerTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        int count = Player.inputCount();
+        Player player = Player.getInstance();
+        int count = player.inputCount();
 
         assertThat(count).isEqualTo(5);
     }
@@ -47,7 +51,9 @@ class PlayerTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        assertThatThrownBy(Player::inputCarName).isInstanceOf(IllegalArgumentException.class);
+        Player player = Player.getInstance();
+
+        assertThatThrownBy(player::inputCarName).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -56,7 +62,9 @@ class PlayerTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        assertThatThrownBy(Player::inputCarName).isInstanceOf(IllegalArgumentException.class);
+        Player player = Player.getInstance();
+
+        assertThatThrownBy(player::inputCarName).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -65,6 +73,8 @@ class PlayerTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        assertThatThrownBy(Player::inputCount).isInstanceOf(IllegalArgumentException.class);
+        Player player = Player.getInstance();
+
+        assertThatThrownBy(player::inputCount).isInstanceOf(IllegalArgumentException.class);
     }
 }
