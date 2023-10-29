@@ -21,7 +21,7 @@
 
 
 -[ ] 주어진 횟수 동안 경주를 진행한다. RacingRound
-  - [ ] 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다. RacingRound#input()
+  - [ ] 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다. RacingRound#attemptCount()
     - [ ] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.
 
 - [ ] 경주 게임의 최종 결과를 알려준다. RacingResult
