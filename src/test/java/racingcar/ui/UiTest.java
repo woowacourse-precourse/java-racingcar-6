@@ -4,13 +4,50 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import racingcar.domain.Score;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
 
 class UiTest {
     final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
     final PrintStream standardOut = System.out;
+
+    private static Stream<Arguments> 전진_시도_현황_케이스() {
+        return Stream.of(
+                Arguments.of(Arrays.asList(new Score("pobi", 1L), new Score("woni", 0L), new Score("jun", 1L)),
+                        "pobi : -\n" +
+                                "woni : \n" +
+                                "jun : -"),
+                Arguments.of(Arrays.asList(new Score("pobi", 2L), new Score("woni", 1L), new Score("jun", 2L)),
+                        "pobi : --\n" +
+                                "woni : -\n" +
+                                "jun : --"
+                ),
+                Arguments.of(Arrays.asList(new Score("pobi", 3L), new Score("woni", 2L), new Score("jun", 3L)),
+                        "pobi : ---\n" +
+                                "woni : --\n" +
+                                "jun : ---"
+                ),
+                Arguments.of(Arrays.asList(new Score("pobi", 3L), new Score("woni", 3L), new Score("jun", 3L)),
+                        "pobi : ---\n" +
+                                "woni : ---\n" +
+                                "jun : ---"
+                ),
+
+                Arguments.of(Arrays.asList(new Score("pobi", 4L), new Score("woni", 3L), new Score("jun", 4L)),
+                        "pobi : ----\n" +
+                                "woni : ---\n" +
+                                "jun : ----"
+                )
+        );
+    }
 
     @BeforeEach
     void setUp() {
@@ -34,5 +71,12 @@ class UiTest {
         String expectMessage = "시도할 회수는 몇회인가요?";
         new Ui().askPlayCount();
         Assertions.assertThat(outputStreamCaptor.toString().trim()).isEqualTo(expectMessage);
+    }
+
+    @ParameterizedTest
+    @MethodSource("전진_시도_현황_케이스")
+    void 전진_시도_현황을_출력한다(List<Score> scores, String expectMessage) {
+        new Ui().printGameStatus(scores);
+        Assertions.assertThat(outputStreamCaptor.toString().trim()).isEqualToIgnoringNewLines(expectMessage);
     }
 }
