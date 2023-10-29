@@ -1,10 +1,6 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Car;
-import racingcar.domain.Race;
-
 import java.util.ArrayList;
 import java.util.List;
 
