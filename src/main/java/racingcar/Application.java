@@ -28,5 +28,9 @@ public class Application {
 
         // 시도할 횟수 입력 안내 메세지 출력
         outputView.timesInputMessage();
+
+        // 시도할 횟수 입력
+        String times = inputView.timesInput();
+        invalidInputException.checkTimes(times);
     }
 }
