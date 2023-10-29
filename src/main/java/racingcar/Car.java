@@ -7,7 +7,7 @@ final class Car {
     private final Name name;
     private int moveCount;
 
-    private Car(String name) {
+    Car(String name) {
         this.name = new Name(name);
         this.moveCount = 0;
     }
