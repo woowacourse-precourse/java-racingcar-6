@@ -24,6 +24,16 @@ class InputValidatorTest {
         // when, then
         assertThatThrownBy(() -> inputValidator.validateCarNameEmptyOrNull(names))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
 
+    @DisplayName("자동차 이름이 1~5 사이가 아닐 경우 예외가 발생한다.")
+    @Test
+    void validateCarNameLength() {
+        // given
+        String names = "pobi,lee,yeongJae";
+
+        // when, then
+        assertThatThrownBy(() -> inputValidator.validateCarNameLength(names))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
