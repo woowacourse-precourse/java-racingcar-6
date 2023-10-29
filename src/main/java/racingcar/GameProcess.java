@@ -19,7 +19,8 @@ public class GameProcess {
 			}
 			System.out.println();
 		}
-		calculateMaxDistance(carList);
+		int maxDistance = calculateMaxDistance(carList);
+		makeFinalString(maxDistance, carList);
 	}
 
 	private void moveOrNot(InformationOfCar car) {
@@ -34,10 +35,9 @@ public class GameProcess {
 		return randomNumber >= 4;
 	}
 
-	private void calculateMaxDistance(ArrayList<InformationOfCar> carList) {
+	private int calculateMaxDistance(ArrayList<InformationOfCar> carList) {
 		carList.sort((car1, car2) -> car2.getDistance().length() - car1.getDistance().length());
-		int maxDistance = carList.get(0).getDistance().length();
-		makeFinalString(maxDistance, carList);
+		return carList.get(0).getDistance().length();
 	}
 
 	private void makeFinalString(int maxDistance, ArrayList<InformationOfCar> carList) {
@@ -48,7 +48,7 @@ public class GameProcess {
 				result.append(", ").append(car.getCarName());
 			}
 		}
-		System.out.println("최종 우승자 : " + result.toString());
+		System.out.println("최종 우승자 : " + result);
 	}
 
 }
