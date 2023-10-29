@@ -56,7 +56,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void validateCarNames_정상_처리() {
+    void validateCarNames_정상처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String carNames = "홍길동,test,a맨";
@@ -68,7 +68,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void validateCarName_정상_처리_한글() {
+    void validateCarName_한글_정상처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String carName = "홍길동";
@@ -80,7 +80,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void validateCarName_정상_처리_영어() {
+    void validateCarName_영어_정상처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String carName = "Asus";
@@ -92,7 +92,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void validateCarName_빈_문자열_예외_처리() {
+    void validateCarName_빈_문자열_예외처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String carName = "";
@@ -104,7 +104,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void validateCarName_5자_초과_예외_처리() {
+    void validateCarName_5자_초과_예외처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String carName = "superMan";
@@ -116,7 +116,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void validateCarName_개행_예외_처리() {
+    void validateCarName_개행_예외처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String carName = "\n";
@@ -128,11 +128,44 @@ public class InputValidatorTest {
     }
 
     @Test
-    void validateCarName_숫자_예외_처리() {
+    void validateCarName_숫자_예외처리() {
         Throwable result = catchThrowable(
                 () -> {
                     String carName = "666";
                     InputValidator.validateCarName(carName);
+                }
+        );
+
+        assertThat(result).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void validateIterationNumBer_양수_정상처리() {
+        Throwable result = catchThrowable(
+                () -> {
+                    InputValidator.validateIterationNumBer(5);
+                }
+        );
+
+        assertThat(result).doesNotThrowAnyException();
+    }
+
+    @Test
+    void validateIterationNumBer_0_예외처리() {
+        Throwable result = catchThrowable(
+                () -> {
+                    InputValidator.validateIterationNumBer(0);
+                }
+        );
+
+        assertThat(result).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void validateIterationNumBer_음수_예외처리() {
+        Throwable result = catchThrowable(
+                () -> {
+                    InputValidator.validateIterationNumBer(-12);
                 }
         );
 
