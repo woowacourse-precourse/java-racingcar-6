@@ -27,7 +27,7 @@ public class CarRacing {
         int tmpCountTrial = 0;
         // 사용자가 입력한 횟수에 다가갈 때 까지 반복
         while (tmpCountTrial < countTrial) {
-            boolean ifMoved = createRandomNumberAndMoveCar();
+            boolean ifMoved = moveCar();
             // 하나라도 움직인 차가 있다면 tmpCount 횟수 증가
             if (ifMoved == true) {
                 tmpCountTrial++;
@@ -57,14 +57,19 @@ public class CarRacing {
         }
     }
 
-    public static boolean createRandomNumberAndMoveCar() {
+    //  랜덤으로 0-9 사이 숫자 하나를 생성해서 반환
+    public static int createRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
+
+    public static boolean moveCar() {
         boolean ifMoved = false; // 이동한 자동차가 하나라도 있는지 확인
 
         for (Entry<String, Integer> m : carMoveMap.entrySet()) {
             String key = m.getKey();
             int value = m.getValue();
 
-            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            if (createRandomNumber() >= 4) {
                 carMoveMap.replace(key, value + 1);
                 ifMoved = true;
             }
