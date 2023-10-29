@@ -18,7 +18,6 @@ class CarNameInputValidatorTest {
     void validateAndGetCarNames_공백_없이_쉼표_구분() {
         String userInput = "pobi,woni,jun";
         List<String> carNames = validator.validateAndGetCarNames(userInput);
-        System.out.println(carNames);
         assertThat(carNames).containsExactly("pobi", "woni", "jun");
     }
 
@@ -33,7 +32,6 @@ class CarNameInputValidatorTest {
     void validateAndGetCarNames_한글이름() {
         String userInput = "안녕,나는,세민";
         List<String> carNames = validator.validateAndGetCarNames(userInput);
-        System.out.println(carNames);
         assertThat(carNames).containsExactly("안녕", "나는", "세민");
     }
 
