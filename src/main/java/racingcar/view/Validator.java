@@ -29,7 +29,14 @@ public class Validator {
                 validateDelimiter = false;
             }
         }
-
         return validateDelimiter;
+    }
+
+    private static boolean isEmpty(){
+        boolean isEmpty = true;
+        if (carNameList.isEmpty()) {
+            isEmpty = false;
+        }
+        return isEmpty;
     }
 }
