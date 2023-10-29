@@ -2,12 +2,7 @@ package racingcar.controller;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Car;
 import racingcar.domain.Game;
-import racingcar.service.InitService;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,31 +15,31 @@ class ControllerTest {
         Game game = new Game();
 
         assertThrows(IllegalArgumentException.class, () -> {
-            game.validationCarNameAndSetCar("가,가");
+            game.setCar("가,가");
         });
 
         assertThrows(IllegalArgumentException.class, () -> {
-            game.validationCarNameAndSetCar("가,,가");
+            game.setCar("가,,가");
         });
 
         assertThrows(IllegalArgumentException.class, () -> {
-            game.validationCarNameAndSetCar("가,다,");
+            game.setCar("가,다,");
         });
 
         assertThrows(IllegalArgumentException.class, () -> {
-            game.validationCarNameAndSetCar("");
+            game.setCar("");
         });
 
         assertThrows(IllegalArgumentException.class, () -> {
-            game.validationCarNameAndSetCar("가나다라마");
+            game.setCar("가나다라마");
         });
 
         assertThrows(IllegalArgumentException.class, () -> {
-            game.validationCarNameAndSetCar("가나다라마바사, 아자");
+            game.setCar("가나다라마바사, 아자");
         });
 
         assertThrows(IllegalArgumentException.class, () -> {
-            game.validationCarNameAndSetCar("간ㄴ, 아자");
+            game.setCar("간ㄴ, 아자");
         });
 
     }
@@ -57,7 +52,7 @@ class ControllerTest {
         String carNameListString = carNames[0] + "," + carNames[1];
 
         Game game = new Game();
-        game.validationCarNameAndSetCar(carNameListString);
+        game.setCar(carNameListString);
 
         for (int i = 0; i < game.getCarList().size(); i++) {
             assertEquals(carNames[i], game.getCarList().get(i).getName());

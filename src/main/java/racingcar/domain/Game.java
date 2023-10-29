@@ -12,13 +12,16 @@ public class Game {
 
     public Game() {}
 
-    public void validationCarNameAndSetGame(String carNameListString) {
+    public void setCar(String carNameListString) {
+        List<String> carNameList = validationCarName(carNameListString);
+        setCarList(carNameList);
+    }
+
+    private List<String> validationCarName(String carNameListString) {
         checkCarNameListIsEmpty(carNameListString);
         checkCarNameIsNull(carNameListString);
-        List<String> carNameList = splitCarList(carNameListString);
-        checkCarNameDuplicate(carNameList);
-
-        setCarList(carNameList);
+        checkCarNameListSize(carNameListString);
+        return checkCarNameDuplicate(carNameListString);
     }
 
     private void setCarList(List<String> carNameList) {
@@ -49,26 +52,28 @@ public class Game {
         }
     }
 
-    public List<String> splitCarList(String carNameListString) {
+    private void checkCarNameListSize(String carNameListString) {
         String[] carNames = carNameListString.split(",");
 
         if (carNames.length <= 1) {
             throw new IllegalArgumentException("경주할 자동차의 이름은 2개 이상 입력해야 합니다.");
         }
 
-        return new ArrayList<>(Arrays.asList(carNames));
     }
 
-    public void checkCarNameDuplicate(List<String> carNameList) {
+    private List<String> checkCarNameDuplicate(String carNameListString) {
+        String[] carNames = carNameListString.split(",");
+        List<String> carNameList = new ArrayList<>(Arrays.asList(carNames));
         Set<String> carNameSet = new HashSet<>(carNameList);
 
         if (carNameList.size() != carNameSet.size()) {
             throw new IllegalArgumentException("중복된 자동차 이름이 존재합니다.");
         }
 
+        return carNameList;
     }
 
-    public void checkCarNameIsNull(String carNameListString) {
+    private void checkCarNameIsNull(String carNameListString) {
         String[] carNames = carNameListString.split(",");
         int commaCount = 1;
 
