@@ -32,4 +32,10 @@ public class GameController {
             deliverToViewAboutOneGameResult(endCars);
         }
     }
+
+    private void deliverToViewAboutOneGameResult(List<Car> endCars) {
+        List<String> names = mappingToNames(endCars);
+        List<Long> moveCounts = mappingToMoveCounts(endCars);
+        view.printResult(names, moveCounts);
+    }
 }
