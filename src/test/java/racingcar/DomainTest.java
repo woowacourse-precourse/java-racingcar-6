@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
@@ -36,6 +35,6 @@ public class DomainTest {
     void Cars_객체_생성_테스트() {
         Cars cars = new Cars("pobi,woni,jun");
         cars.roundStatus(ROUND);
-        Assertions.assertThat(outputStream.toString()).isNotNull();
+        assertThat(outputStream.toString()).isNotNull();
     }
 }
