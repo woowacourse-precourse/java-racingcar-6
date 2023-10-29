@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
@@ -18,10 +19,12 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 전진_정지() {
+        Console.close();
         assertRandomNumberInRangeTest( // values 3으로 이뤄진 배열이 됨. 따라서 첫번째 pobi는 4, woni는 3의 값을 가짐.
                 () -> {
                     run("pobi,woni", "1");
                     assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                    Console.close();
                 },
                 MOVING_FORWARD, STOP
         );
@@ -51,6 +54,7 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 숫자값_잘못_입력시_예외_처리() {
+        Console.close();
         String inputName = "-5";
         CallNsTestMethod.myCommand(inputName);
         RacingGame racingGame = new RacingGame();
@@ -81,69 +85,69 @@ class ApplicationTest extends NsTest {
     @Test
     void 한_회차가_끝난_이후_총_이동거리_확인() {
         String[] nameArr = {"aa", "bb", "cc"};
-        List<String> nameList =(Arrays.asList(nameArr));
-        List<Integer> previousDistance = new ArrayList<>( Arrays.asList(1,3,0));
-        List<Integer> expectedList = new ArrayList<>( Arrays.asList(2,3,0));
+        List<String> nameList = (Arrays.asList(nameArr));
+        List<Integer> previousDistance = new ArrayList<>(Arrays.asList(1, 3, 0));
+        List<Integer> expectedList = new ArrayList<>(Arrays.asList(2, 3, 0));
         RacingGame racingGame = new RacingGame();
         CallNsTestMethod.assertRandomNumberInRangeTest(
-                ()->{
+                () -> {
                     racingGame.getDistanceList(nameList, previousDistance);
                     assertThat(previousDistance).isEqualTo(expectedList);
                 },
-                4,0
+                4, 0
         );
     }
 
     @Test
-    void 처음부터_여러번_회차_진행_이후_이동거리_확인(){
+    void 처음부터_여러번_회차_진행_이후_이동거리_확인() {
         RacingGame racingGame = new RacingGame();
         String[] nameArr = {"aa", "bb", "cc"};
-        List<String> nameList =(Arrays.asList(nameArr));
-        List<Integer> expectedList = new ArrayList<>(Arrays.asList(2,1,1));
+        List<String> nameList = (Arrays.asList(nameArr));
+        List<Integer> expectedList = new ArrayList<>(Arrays.asList(2, 1, 1));
         CallNsTestMethod.assertRandomNumberInRangeTest(
-                ()->{
+                () -> {
                     List<Integer> distanceList = racingGame.runAllCycle(nameList, 3);
                     assertThat(distanceList).isEqualTo(expectedList);
                 },
-                4,0,0,0,0,0,4,4,4
+                4, 0, 0, 0, 0, 0, 4, 4, 4
         );
     }
 
     @Test
-    void 최대값이_옳바르게_구해지는지_확인(){
+    void 최대값이_옳바르게_구해지는지_확인() {
         RacingGame racingGame = new RacingGame();
-        List<Integer> numList = new ArrayList<>(Arrays.asList(1,4,2,7,12,4,12,3,0));
+        List<Integer> numList = new ArrayList<>(Arrays.asList(1, 4, 2, 7, 12, 4, 12, 3, 0));
         int max = racingGame.findMax(numList);
         assertThat(max).isEqualTo(12);
 
     }
 
     @Test
-    void 우승자_이름_리스트(){
+    void 우승자_이름_리스트() {
         RacingGame racingGame = new RacingGame();
-        List<String> nameList = new ArrayList<>(Arrays.asList("aa","bb","cc"));
-        List<Integer> distanceList = new ArrayList<>(Arrays.asList(2,2,0));
+        List<String> nameList = new ArrayList<>(Arrays.asList("aa", "bb", "cc"));
+        List<Integer> distanceList = new ArrayList<>(Arrays.asList(2, 2, 0));
         List<String> winnerList = racingGame.chooseWinner(nameList, distanceList);
-        List<String> expectedList = new ArrayList<>(Arrays.asList("aa","bb"));
+        List<String> expectedList = new ArrayList<>(Arrays.asList("aa", "bb"));
         assertThat(winnerList).isEqualTo(expectedList);
     }
 
     @Test
-    void 우승자_이름_문자열_변환(){
+    void 우승자_이름_문자열_변환() {
         RacingGame racingGame = new RacingGame();
-        List<String> winnerList = new ArrayList<>(Arrays.asList("aa","bb","cc"));
+        List<String> winnerList = new ArrayList<>(Arrays.asList("aa", "bb", "cc"));
         String winnerStr = racingGame.getWinnerNameString(winnerList);
         assertThat(winnerStr).isEqualTo("aa,bb,cc");
     }
 
     @Test
-    void 게임_구동(){
-        RacingGame racingGame = new RacingGame();
+    void 게임_구동() {
+        Console.close();
         CallNsTestMethod.assertRandomNumberInRangeTest(
-                ()->{
-                    run("aa,bb,cc,dd","1");
+                () -> {
+                    run("aa,bb,cc,dd", "1");
                     assertThat(output()).contains("aa : -", "bb : ", "cc : -", "dd : ", "최종 우승자 : aa,cc");
-                },4,0,4,0
+                }, 4, 0, 4, 0
         );
     }
 
