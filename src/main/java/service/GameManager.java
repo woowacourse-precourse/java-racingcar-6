@@ -10,10 +10,15 @@ import java.util.Map;
 
 public class GameManager {
 
-    public List<Map.Entry<String, String>> carIdxNamePosList = new ArrayList<>();
+    private final List<Map.Entry<String, String>> carIdxNamePosList = new ArrayList<>();
 
-    public void makeCarIdxNamePosList() {
+    public List<Map.Entry<String, String>> getCarIdxNamePosList() {
+        return this.carIdxNamePosList;
+    }
+
+    public void setCarIdxNamePosList() {
         ArrayList<String> carsName = Controller.userInput.getCarsName();
+
         for (String name : carsName) {
             Map.Entry<String, String> car = new AbstractMap.SimpleEntry<>(name, "");
             this.carIdxNamePosList.add(car);

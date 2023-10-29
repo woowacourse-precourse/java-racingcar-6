@@ -6,6 +6,10 @@ import service.UserInput;
 import view.InputView;
 import view.OutputView;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 public class Controller {
 
     public static UserInput userInput = new UserInput();
@@ -25,7 +29,6 @@ public class Controller {
         String inputString = inputView.requestCarsName();
         userInput.setCarsName(inputString);
 
-
         outputView.printRequestPlayTime();
         int inputNum = inputView.requestPlayTime();
         userInput.setPlayTime(inputNum);
@@ -33,12 +36,13 @@ public class Controller {
 
     private void startGame() {
         outputView.printStartGame();
-        gameManager.makeCarIdxNamePosList();
+        gameManager.setCarIdxNamePosList();
 
         int playTime = userInput.getPlayTime();
+        List<Map.Entry<String, String>> carIdxNamePosList = gameManager.getCarIdxNamePosList();
         for (int time = 0; time < playTime; time++) {
             moveCars();
-            outputView.printCarsMove(gameManager.carIdxNamePosList);
+            outputView.printCarsMove(carIdxNamePosList);
         }
     }
 
@@ -52,7 +56,8 @@ public class Controller {
     }
 
     private void endGame() {
-        gameResult.chkWinners();
-        outputView.printWinners(gameResult.winnersList);
+        gameResult.setWinnersList();
+        ArrayList<String> winnersList = gameResult.getWinnersList();
+        outputView.printWinners(winnersList);
     }
 }
