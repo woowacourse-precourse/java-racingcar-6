@@ -69,6 +69,18 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    void 이름에_대한_예외_처리5() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,,pobi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    void 이름에_대한_예외_처리6() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,!@#sd,pobi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
     @Override
     public void runMain() {
         Application.main(new String[]{});

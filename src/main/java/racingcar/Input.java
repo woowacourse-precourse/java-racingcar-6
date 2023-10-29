@@ -11,14 +11,28 @@ public class Input {
         String[] answerArray;
         ArrayList<String> result = new ArrayList<>();
         Set<String> nameIdentify = new HashSet<String>();
+        Output.NameText();
         try {
             answer = Console.readLine();
         } catch (Exception e) {
             throw new IllegalArgumentException("readLine error");
         }
-        answerArray = answer.split(",");
 
-        // 공백 확인 및 5 글자 이상 예외처리
+        // 공백 확인
+        if(answer.isEmpty()){
+            throw new IllegalArgumentException("empty error");
+        }
+        // 맨 끝 , 경우 split 후 그냥 사라짐
+        if(answer.charAt(answer.length() - 1) == ','){
+            throw new IllegalArgumentException("not char error");
+        }
+
+
+        answerArray = answer.split(",");
+        for(String str : answerArray)
+            System.out.println(str);
+
+        // 중간 값 공백 확인 및 5 글자 이상 예외처리
         for(String str : answerArray) {
             if(str.isEmpty()){
                 throw new IllegalArgumentException("empty error");
@@ -29,6 +43,13 @@ public class Input {
                 nameIdentify.add(str);
             }
         }
+
+        // 문자 이외 판별
+        for(String str : answerArray){
+            CharTest(str);
+        }
+
+
 
         // 이름 중복확인
         if(nameIdentify.size() != result.size()){
@@ -41,7 +62,7 @@ public class Input {
         String answer;
         int test;
         int result;
-
+        Output.CountText();
         // readline 에러 확인하기
         try {
             answer = Console.readLine();
@@ -64,5 +85,14 @@ public class Input {
         result = Integer.parseInt(answer);
 
         return result;
+    }
+
+    static void CharTest(String str){
+        for (int i = 0; i < str.length(); i++) {
+            char test = str.charAt(i);
+            if (!Character.isLetter(test)) {
+                throw new IllegalArgumentException("not char error");
+            }
+        }
     }
 }
