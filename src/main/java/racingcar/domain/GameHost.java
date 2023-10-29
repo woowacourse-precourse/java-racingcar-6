@@ -29,6 +29,13 @@ public class GameHost {
         return winRaceCarList;
     }
 
+    /**
+     * 현제 RaceCarList의 RaceCar의 움직인 횟수중에
+     * 최고로 많은 횟수를 알려준다.
+     *
+     * @param progressCarList
+     * @return
+     */
     private Integer getCntMaxMove(List<RaceCar> progressCarList) {
         int max = progressCarList.stream()
                 .mapToInt(RaceCar::getCntMovementOfCar)
