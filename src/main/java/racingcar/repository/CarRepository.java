@@ -9,9 +9,13 @@ public class CarRepository {
 
     Map<String, Car> carMap = new HashMap<String,Car>();
     public Car save(String name) {
-        Car createCar = new Car(name);
-        carMap.put(name, createCar);
-        return createCar;
+        Car saveCar = new Car(name);
+        carMap.put(name, saveCar);
+        return saveCar;
+    }
+
+    public Car findByName(String name) {
+        return carMap.get(name);
     }
 
 }
