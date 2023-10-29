@@ -9,6 +9,7 @@ public class User {
     public void play() {
         save();
         race();
+        winner();
     }
 
     public void save() {
@@ -25,4 +26,7 @@ public class User {
         }
     }
 
+    public void winner() {
+        carController.getWinner();
+    }
 }

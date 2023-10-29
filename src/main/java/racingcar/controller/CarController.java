@@ -38,4 +38,8 @@ public class CarController {
     public void getRoundRaceResults() {
         System.out.println(carService.createRoundRaceResults());
     }
+
+    public void getWinner() {
+        System.out.println(carService.createWinner());
+    }
 }
