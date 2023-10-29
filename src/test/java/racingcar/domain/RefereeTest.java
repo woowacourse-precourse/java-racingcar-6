@@ -21,4 +21,15 @@ class RefereeTest {
         assertThat(answer).isEqualTo(expected);
     }
 
+    @Test
+    void 공동우승자인경우() {
+        List<Car> cars = new ArrayList<>();
+        cars.add(new Car("pobi",4));
+        cars.add(new Car("woni",4));
+        cars.add(new Car("jun",4));
+
+        List<String> answer = Referee.determineWinner(cars);
+        List<String> expected = List.of("pobi","woni","jun");
+        assertThat(answer).isEqualTo(expected);
+    }
 }
