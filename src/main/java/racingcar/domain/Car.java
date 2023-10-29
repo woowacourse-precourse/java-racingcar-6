@@ -11,4 +11,11 @@ public class Car {
         this.position = new Position(Constants.START_POSITION);
     }
 
+    public int move(int random){
+        if(random >= Constants.THRESHOLD_VALUE){
+            position.addPosition();
+        }
+        return position.getPosition();
+    }
+
 }
