@@ -61,4 +61,24 @@ class CarInputViewTest {
         }
     }
 
+    @Nested
+    @DisplayName("시도 횟수 입력 테스트")
+    class TryCountInputViewTest {
+
+        @Test
+        @DisplayName("시도 횟수 입력을 성공적으로 받아야 한다")
+        public void 시도_횟수_입력을_성공적으로_받아야_한다() {
+            CarInputView carInputView = new CarInputView();
+            MockedStatic<Console> consoleMockedStatic = mockStatic(Console.class);
+            when(Console.readLine()).thenReturn("5");
+
+            int tryCount = carInputView.getTryCount();
+
+            assertThat(tryCount).isEqualTo(5);
+
+            consoleMockedStatic.close();
+        }
+    }
+
+
 }
