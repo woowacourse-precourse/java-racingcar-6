@@ -20,8 +20,15 @@ public class RacingCarGame {
         carList.forEach(car -> {
             if (isRandomForwardMove()) {
                 car.moveForword();
+                updateFarthestDistance(car.getDistance());
             }
         });
+    }
+
+    public void updateFarthestDistance(int distance) {
+        if (farthestDistance < distance) {
+            farthestDistance = distance;
+        }
     }
 
 }
