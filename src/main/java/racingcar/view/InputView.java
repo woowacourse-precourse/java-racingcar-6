@@ -17,4 +17,11 @@ public class InputView {
         String names = Console.readLine();
         return utils.convertStringToList(names);
     }
+
+    public int insertTryTimes() {
+        System.out.println("시도할 회수는 몇회인가요?\n");
+        String tryNumber = Console.readLine();
+        return utils.convertStringToNumber(tryNumber);
+    }
+
 }
