@@ -20,4 +20,7 @@ public class Car {
                 "-".repeat(this.state);
     }
 
+    public int getState() {
+        return state;
+    }
 }
