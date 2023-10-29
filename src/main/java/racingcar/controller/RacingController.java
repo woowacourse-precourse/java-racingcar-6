@@ -2,27 +2,25 @@ package racingcar.controller;
 
 import java.util.List;
 
-import racingcar.util.StringUtil;
+import racingcar.application.RacingService;
 import racingcar.domain.Car;
 import racingcar.dto.RacingResult;
 import racingcar.factory.CarFactory;
-import racingcar.application.RacingService;
 import racingcar.ui.InputView;
 import racingcar.ui.OutputView;
+import racingcar.util.StringUtil;
 
 public class RacingController {
     private final InputView inputView;
     private final OutputView outputView;
     private final RacingService racingService;
-    private final StringUtil converter;
     private final CarFactory carFactory;
 
     public RacingController(InputView inputView, OutputView outputView, RacingService racingService,
-            StringUtil converter, CarFactory carFactory) {
+            CarFactory carFactory) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.racingService = racingService;
-        this.converter = converter;
         this.carFactory = carFactory;
     }
 
@@ -42,11 +40,11 @@ public class RacingController {
 
     private List<Car> createCars() {
         String carNames = inputView.inputCarNames();
-        return carFactory.createCars(converter.convertToListByDelimiter(carNames));
+        return carFactory.createCars(StringUtil.convertToListByDelimiter(carNames));
     }
 
     private int createTryCount() {
         String tryCount = inputView.inputTryCount();
-        return converter.convertToPositiveInt(tryCount);
+        return StringUtil.convertToPositiveInt(tryCount);
     }
 }

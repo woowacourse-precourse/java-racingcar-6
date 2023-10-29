@@ -14,11 +14,9 @@ public class Application {
     public static void main(String[] args) {
         final InputView inputView = new InputView(new InputValidator());
         final OutputView outputView = new OutputView();
-        final StringUtil converter = new StringUtil();
         final RacingService racingService = new RacingService(new RandomNumberGenerator());
         final CarFactory carFactory = new CarFactory();
-        final RacingController racingController = new RacingController(inputView, outputView, racingService, converter,
-                carFactory);
+        final RacingController racingController = new RacingController(inputView, outputView, racingService, carFactory);
 
         racingController.run();
         Console.close();
