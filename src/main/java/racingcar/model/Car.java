@@ -6,13 +6,19 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Car {
-    private Map<String, Integer> movingCars;
+  private String carName;
+  private int position;
 
-    public Map<String, Integer> getMovingCars() {
-        return movingCars;
+    public Car(String name) {
+        this.carName = name;
+        position = 0;
     }
 
-    public void inputCars(String carNames){
-        movingCars = InputValidation.checkedInputValidation(carNames);
+    public String getCarName() {
+        return carName;
+    }
+
+    public int getPosition() {
+        return position;
     }
 }
