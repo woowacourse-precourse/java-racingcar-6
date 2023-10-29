@@ -24,4 +24,13 @@ public class Controller {
 
         return carNameHashMap;
     }
+
+    public Integer racingCarCountController() {
+        checkException checkException = new checkException();
+        String askCount = inputView.askCount();
+        checkException.checkAskCount(askCount);
+        Integer count = Integer.parseInt(askCount);
+
+        return count;
+    }
 }
