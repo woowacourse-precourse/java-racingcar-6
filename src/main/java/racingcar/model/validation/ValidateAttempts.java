@@ -12,9 +12,14 @@ public class ValidateAttempts extends Validator {
         isNaturalNunmber(attempts);
     }
 
+    
     private static void isNaturalNunmber(String attempts) {
         try {
-            Integer.parseInt(attempts);
+            int input = Integer.parseInt(attempts);
+
+            if (input < 0) {
+                throw new IllegalArgumentException(errorMessage);
+            }
         } catch (Exception e) {
             throw new IllegalArgumentException(errorMessage);
         }

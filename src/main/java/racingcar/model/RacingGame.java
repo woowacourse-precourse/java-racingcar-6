@@ -21,7 +21,7 @@ public class RacingGame {
                 winners.append(", ");
             }
         }
-        cutStringTail(winners);
+        removeWinnersStringTail(winners);
 
         return winners.toString();
     }
@@ -38,11 +38,13 @@ public class RacingGame {
         return roundResult.toString();
     }
 
-    
+
     // 문자열 생성 과정에서 생긴 불필요한 부분 제거
-    private void cutStringTail(StringBuilder winners) {
-        int length = winners.length();
-        winners.delete(length - 2, length);
+    private void removeWinnersStringTail(StringBuilder winners) {
+        int REMOVE_FROM = winners.length() - 2;
+        int REMOVE_TO = winners.length();
+
+        winners.delete(REMOVE_FROM, REMOVE_TO);
     }
 
 }
