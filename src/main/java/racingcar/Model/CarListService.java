@@ -21,8 +21,18 @@ public class CarListService {
 
 		}
 
+		validateSize();
+
 		return CAR_LIST;
 
+	}
+
+	private void validateSize() {
+		final int MIN_LIST_LENGTH = 2;
+
+		if(CAR_LIST.size() < MIN_LIST_LENGTH) {
+			throw new IllegalArgumentException("2대 이상의 자동차가 존재해야 합니다.");
+		}
 	}
 
 	private String[] splitEnteredList(String enteredList) {
