@@ -8,6 +8,7 @@ import static racingcar.constant.MessageConst.EMPTY_MESSAGE;
 import static racingcar.constant.MessageConst.LENGTH_MESSAGE;
 import static racingcar.constant.MessageConst.NULL_MESSAGE;
 import static racingcar.constant.MessageConst.SPACE_MESSAGE;
+import static racingcar.constant.NumberConst.NUMERIC_FORMAT_MESSAGE;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -125,5 +126,20 @@ class InputValidationTest {
         // then
         assertThatCode(() -> inputValidation.validateCarNames(carNames))
                 .doesNotThrowAnyException();
+    }
+
+    @Test
+    @DisplayName("입력값이 숫자 포맷인지 검증을 하는 테스트")
+    void validateInputNumericFormatTest() {
+        // given
+        InputValidation inputValidation = new InputValidation();
+
+        // when
+        String input = "one";
+
+        // then
+        assertThatThrownBy(() -> inputValidation.validateInputNumericFormat(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(NUMERIC_FORMAT_MESSAGE);
     }
 }
