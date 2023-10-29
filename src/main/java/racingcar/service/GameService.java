@@ -21,7 +21,8 @@ public class GameService {
         printGameOutcomeMessage();
         long maxLocation = playGameForTimes(times, racingCars);
 
-        findFinalWinner(maxLocation, racingCars);
+        List<RacingCar> winners = findWinners(maxLocation, racingCars);
+        printWinners(winners);
     }
 
     public static List<RacingCar> createRacingCars() {
@@ -57,13 +58,13 @@ public class GameService {
         return maxLocation;
     }
 
-    public static void findFinalWinner(Long maxLocation, List<RacingCar> racingCars) {
+    public static List<RacingCar> findWinners(Long maxLocation, List<RacingCar> racingCars) {
         List<RacingCar> winners = new ArrayList<>();
 
         for (RacingCar racingCar : racingCars)
             if (racingCar.getLocation().equals(maxLocation))
                 winners.add(racingCar);
 
-        printFinalWinner(winners);
+        return winners;
     }
 }
