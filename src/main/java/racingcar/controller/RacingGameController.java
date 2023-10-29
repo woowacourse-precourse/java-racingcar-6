@@ -26,25 +26,13 @@ public class RacingGameController {
     public void run() {
         Cars cars = getCarsFromInputView();
         TryNumber tryNumber = getTryNumberFromInputView();
+
         RacingGame racingGame = gameSet(cars);
         gameStart(cars, tryNumber, racingGame);
 
-        outputView.printWinners(racingGame.getWinners());
-    }
+        List<CarName> winners = racingGame.getWinners();
 
-    private void gameStart(Cars cars, TryNumber tryNumber, RacingGame racingGame) {
-        outputView.printResultMessage();
-        for (int i = 0; i < tryNumber.number(); i++) {
-            racingGame.runOneTerm();
-            List<CarDto> carDtoList = CarDto.toDtoList(cars);
-            outputView.printResult(carDtoList);
-        }
-    }
-
-    private RacingGame gameSet(Cars cars) {
-        Referee referee = new Referee();
-        RacingGame racingGame = new RacingGame(cars, referee);
-        return racingGame;
+        outputView.printWinners(winners);
     }
 
     private Cars getCarsFromInputView() {
@@ -57,5 +45,26 @@ public class RacingGameController {
         outputView.printRequestCountMessage();
         Integer number = stringToInteger(inputView.inputTryNumber());
         return new TryNumber(number);
+    }
+
+    private RacingGame gameSet(Cars cars) {
+        Referee referee = new Referee();
+        RacingGame racingGame = new RacingGame(cars, referee);
+        return racingGame;
+    }
+
+    private void gameStart(Cars cars, TryNumber tryNumber, RacingGame racingGame) {
+        outputView.printResultMessage();
+        for (int i = 0; i < tryNumber.number(); i++) {
+            racingGame.runOneTerm();
+            List<CarDto> carDtoList = CarDto.toDtoList(cars);
+            printResultOfOneTerm(carDtoList);
+        }
+    }
+
+    private void printResultOfOneTerm(List<CarDto> carDtoList) {
+        carDtoList.stream().forEach(
+                carDto -> outputView.printResult(carDto.carName().name(), carDto.carDistance().distance()));
+        outputView.printLine();
     }
 }
