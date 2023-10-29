@@ -10,9 +10,12 @@ public class InputParser {
     }
 
     public static List<Car> carsSplit(String input) {
-        return Arrays.stream(input.split(","))
+        return Arrays.stream(input.split(",", -1))
                 .map(CarName::new)
                 .map(Car::new)
                 .toList();
     }
+
+
+
 }
