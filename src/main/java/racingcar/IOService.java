@@ -25,13 +25,22 @@ public class IOService {
             if (carName.length() > 5)
                 throw new IllegalArgumentException(carName + "은 5글자를 초과하였습니다.");
         }
-
     }
 
     public static void printCarState(Car car){
         StringBuilder stringBuilder = new StringBuilder(car.getName() + " : ");
         final String symbol = "-";
         stringBuilder.append(symbol.repeat(car.getPos()));
+
+        System.out.println(stringBuilder.toString());
+    }
+
+    public static void printWinners(List<String> winnerNames){
+        StringBuilder stringBuilder = new StringBuilder("최종 우승자 : " + winnerNames.get(0));
+
+        for(int i = 1; i < winnerNames.size(); ++i){
+            stringBuilder.append(", " + winnerNames.get(i));
+        }
 
         System.out.println(stringBuilder.toString());
     }
