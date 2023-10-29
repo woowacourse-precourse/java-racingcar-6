@@ -20,7 +20,7 @@ public class User {
     public Map<String,String> initUser(List<String> nameList){
         HashMap<String,String> userInformation = new HashMap<>();
         for(int index = 0; index < nameList.size();index++){
-            userInformation.put(nameList.get(index),"+");
+            userInformation.put(nameList.get(index),"");
         }
         return userInformation;
     }

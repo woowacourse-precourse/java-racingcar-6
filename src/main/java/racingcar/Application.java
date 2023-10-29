@@ -1,5 +1,6 @@
 package racingcar;
 
+import racingcar.domain.Car;
 import racingcar.domain.NumberGenerator;
 import racingcar.domain.User;
 
@@ -19,6 +20,11 @@ public class Application {
         List<String> list = user.initCarList();
         System.out.println(list);
         Map<String,String> users = user.initUser(list);
+        Car car = new Car();
         System.out.println(users.get(list.get(0)));
+        for(int i = 0 ; i < 3;i++){
+            car.moveForward(list.get(0),users);
+            System.out.println(users.get(list.get(0)));
+        }
     }
 }
