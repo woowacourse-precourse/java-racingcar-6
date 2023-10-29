@@ -44,7 +44,7 @@ public class RacingController {
         OutputView.printRacingWinner(winnerCars);
     }
 
-    private static List<String> computeRacingWinner(List<Car> cars) {
+    public static List<String> computeRacingWinner(List<Car> cars) {
         int winnerPosition = computeRacingWinnerPosition(cars);
         return cars.stream().filter(car -> car.getPosition() == winnerPosition)
                 .map(Car::getName)
