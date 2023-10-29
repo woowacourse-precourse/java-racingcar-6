@@ -14,6 +14,7 @@ import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.util.Car;
 import racingcar.viewer.*;
 
 public class ViewerTest {
@@ -88,5 +89,37 @@ public class ViewerTest {
                 assertThatThrownBy(() -> Error_Check.Number(error_num_5))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void Status_테스트(){
+        ByteArrayOutputStream outputMessage;
+        outputMessage = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputMessage));
+
+        Car car1 = new Car("pobi",1);
+        Car car2 = new Car("min",2);
+        List<Car> cars = new ArrayList<>();
+        cars.add(car1);
+        cars.add(car2);
+        Output_Viewer.Status(cars);
+        assertEquals("pobi : -\r\n" +
+                "min : --\r\n\r" +
+                "\n", outputMessage.toString());
+        System.setOut(System.out);
+    }
+    @Test
+    void Winners_2명_승리_테스트(){
+        ByteArrayOutputStream outputMessage;
+        outputMessage = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputMessage));
+        Car car1 = new Car("pobi",5);
+        Car car2 = new Car("min",5);
+        List<Car> cars = new ArrayList<>();
+        cars.add(car1);
+        cars.add(car2);
+        Output_Viewer.Winners(cars);
+        assertEquals("최종 우승자 : pobi, min\r\n"
+                , outputMessage.toString());
     }
 }
