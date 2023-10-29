@@ -1,12 +1,16 @@
 package racingcar.model;
 
 public class Round {
-    private int round;
+    private int roundNum;
     public Round(){
-        this.round = 0;
+        this.roundNum = 0;
     }
 
-    public void increaseRound(){
-        round++;
+    public int getRoundNum() {
+        return this.roundNum;
+    }
+
+    public void increaseRoundNum(){
+        this.roundNum++;
     }
 }
