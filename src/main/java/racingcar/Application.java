@@ -1,6 +1,9 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Application {
     public static void main(String[] args) {
@@ -11,7 +14,9 @@ public class Application {
     private static void racingGame () {
         String carNames = inputCarNames();
         int trialTimes = inputTrialTimes();
-
+        List<String> carNameList = parseCarNamesToList(carNames);
+        
+        
 
     }
 
@@ -25,5 +30,9 @@ public class Application {
         return Integer.parseInt(Console.readLine());
     }
 
+    private static List<String> parseCarNamesToList(String carNames) {
+        return Arrays.stream(carNames.split(","))
+                .collect(Collectors.toList());
+    }
 
 }
