@@ -1,21 +1,24 @@
 package racingcar.utils;
 
+import java.util.List;
 import racingcar.model.Car;
+import racingcar.view.ErrorView;
 
 public class Validation {
 
+
   public static void isBlank(String name) {
-    if(name == null || name.trim().isEmpty()) throw new IllegalArgumentException("공백이나 스페이스바가 있어요");
+    if(name == null || name.trim().isEmpty()) ErrorView.isBlankError();
   }
 
   public static void isLengthError(String name) {
-    if(name.length() > 5) throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+    if(name.length() > 5) ErrorView.isLengthError();
   }
 
-  public static void isDuplicated(String name, Car[] car) {
+  public static void isDuplicated(String name, List<Car> car) {
     for (Car c : car) {
       if (c != null && c.getName().equals(name)) {
-        throw new IllegalArgumentException("동일한 이름이 있다.");
+        ErrorView.isDuplicatedError();
       }
     }
   }
@@ -25,7 +28,7 @@ public class Validation {
       int num = Integer.parseInt(inputNum);
       return num;
     } catch (NumberFormatException e) {
-      throw new IllegalArgumentException("숫자가 아닙니다.");
+      return ErrorView.isNumber();
     }
   }
 
