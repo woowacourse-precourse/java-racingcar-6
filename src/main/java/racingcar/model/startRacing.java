@@ -21,5 +21,18 @@ public class startRacing {
         }
     }
 
+    public void racingResult(HashMap<String, Integer> carNameHashMap) {
+        Set<String> keySet = carNameHashMap.keySet();
+        for (String key : keySet) {
+            int value = carNameHashMap.get(key);
+            System.out.print(key + " : ");
+            for (int j = 0; j < value; j++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
 
 }
