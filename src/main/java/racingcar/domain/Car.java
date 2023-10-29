@@ -3,6 +3,7 @@ package racingcar.domain;
 public class Car {
 
     private static final int MAXIMUM_CAR_NAME_LENGTH = 5;
+    private static final String FORWARD_STEP_TOKEN = "-";
 
     private String name;
     private int forwardStep;
@@ -37,5 +38,10 @@ public class Car {
 
     public void moveForward() {
         forwardStep++;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s : %s", name, FORWARD_STEP_TOKEN.repeat(forwardStep));
     }
 }

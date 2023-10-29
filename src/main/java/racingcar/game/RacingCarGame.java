@@ -1,5 +1,6 @@
 package racingcar.game;
 
+import racingcar.domain.Car;
 import racingcar.domain.Racing;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -26,6 +27,8 @@ public class RacingCarGame {
         OutputView.printResultMessage();
         for (int i = 1; i <= movesNumber; i++) {
             racing.runRace();
+            List<Car> cars = racing.getCars();
+            OutputView.printRaceResult(cars);
         }
     }
 
