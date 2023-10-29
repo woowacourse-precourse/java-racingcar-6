@@ -20,6 +20,5 @@ public class CarNum {
         if (carNameParsing.length == 1 && carNameParsing[0].isBlank()) {
             throw new IllegalArgumentException("Error : 자동차 개수가 너무 적습니다 최소 하나라도 입력해 주세요");
         }
-        System.out.println("자동차 개수 : " + carNameParsing.length);
     }
 }

@@ -27,4 +27,12 @@ public class Car {
     void printInformation() {
         information.print();
     }
+
+    String getName() {
+        return (information.getName());
+    }
+
+    int getDestination() {
+        return (information.getDestination());
+    }
 }

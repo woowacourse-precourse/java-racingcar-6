@@ -27,4 +27,12 @@ public class Information {
             throw new IllegalArgumentException("Error : 자동차 이름이 너무 깁니다 이름 최대 길이 " + MAX_CAR_NAME);
         }
     }
+
+    String getName() {
+        return (name);
+    }
+
+    int getDestination() {
+        return (destination);
+    }
 }

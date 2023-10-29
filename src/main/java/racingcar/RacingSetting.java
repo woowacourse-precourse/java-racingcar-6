@@ -31,4 +31,8 @@ public class RacingSetting {
             throw new IllegalArgumentException("Error : 자동차 이름이 없습니다 최소 한글자 이상 적어주세요");
         }
     }
+
+    boolean isInRange(int index) {
+        return (moveNum.isInRange(index));
+    }
 }
