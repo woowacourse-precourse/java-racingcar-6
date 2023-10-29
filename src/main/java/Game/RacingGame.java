@@ -1,7 +1,6 @@
 package Game;
 
 import camp.nextstep.edu.missionutils.Randoms;
-
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class RacingGame {
@@ -12,6 +11,7 @@ public class RacingGame {
         public void startGame() {
             getInput();
             printTotalResult();
+            printResult();
         }
         public void getInput() {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기분으로 구분)");
@@ -59,4 +59,54 @@ public class RacingGame {
             }
             System.out.println();
         }
+        public int findMaxRun(){
+            int maxnum=0;
+            for(int i=0;i<count;i++){
+                if(gameResult[i]>maxnum){
+                    maxnum=gameResult[i];
+                }
+            }
+            return maxnum;
+        }
+        public int checkWinnerNum(){
+            int maxnum=findMaxRun();
+            int winner=0;
+            for(int i=0;i<count;i++){
+                if(gameResult[i]==maxnum){
+                    winner++;
+                }
+            }
+            return winner;
+        }
+        public void printOneWinner(){
+            System.out.print("최종 우승자 : ");
+            int maxnum=findMaxRun();
+            for(int i=0;i<count;i++){
+                if(gameResult[i]==maxnum){
+                    System.out.println(carName[i]);
+                    break;
+                }
+            }
+        }
+        public void printOneMoreWinner(){
+            System.out.print("최종 우승자 : ");
+            int maxnum=findMaxRun();
+            for(int i=0;i<count;i++){
+                if(gameResult[i]==maxnum){
+                    System.out.print(carName[i]);
+                    maxnum--;
+                }
+                if(maxnum>0){
+                    System.out.print(", ");
+                }
+            }
+        }
+        public void printResult(){
+            if(checkWinnerNum()==1){
+                printOneWinner();
+            }else{
+                printOneMoreWinner();
+            }
+        }
+
 }
