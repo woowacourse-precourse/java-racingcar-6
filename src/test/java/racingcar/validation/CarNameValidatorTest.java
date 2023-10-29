@@ -32,4 +32,10 @@ class CarNameValidatorTest {
         assertThrows(IllegalArgumentException.class,
                 () -> carNameValidator.validateCarName(List.of("nara", "na^^")));
     }
+
+    @Test
+    void 자동차_이름에_빈칸이_있을경우_예외발생() {
+        assertThrows(IllegalArgumentException.class,
+                () -> carNameValidator.validateCarName(List.of("nara", "na ra")));
+    }
 }
