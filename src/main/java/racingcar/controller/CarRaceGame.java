@@ -29,7 +29,7 @@ public class CarRaceGame {
         setUpAttemptNumber(attemptNumberString);
     }
 
-    public void createCar(String carNames) {
+    private void createCar(String carNames) {
         List<String> carNameList = CarNamesToList(carNames);
         for (String carName : carNameList) {
             Validator.carNameStringLength(carName);
@@ -42,6 +42,7 @@ public class CarRaceGame {
 
         return Arrays.stream(carNames.split(",")).toList();
     }
+
 
 
     private void setUpAttemptNumber(String attemptNumberString) {
