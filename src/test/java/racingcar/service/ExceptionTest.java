@@ -6,13 +6,10 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.service.Exception;
 
 class ExceptionTest {
 
@@ -84,6 +81,14 @@ class ExceptionTest {
         assertThrows(IllegalArgumentException.class,
                 () -> {
                     Exception.checkRaceCount("다섯번");
+                });
+    }
+
+    @Test
+    void 경주횟수등록_0입력_예외처리() {
+        assertThrows(IllegalArgumentException.class,
+                () -> {
+                    Exception.checkRaceCount("0");
                 });
     }
 }
