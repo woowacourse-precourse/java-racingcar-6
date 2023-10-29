@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,6 +18,12 @@ public class Application {
         System.out.println("시도할 횟수는 몇회인가요?");
         int move = getMove();
         System.out.println();
+
+        // 3. 시도횟수만큼 전진 처리
+        System.out.println("실행 결과");
+        for (int i = 0; i < move; i++) {
+            move();
+        }
     }
 
     static void getCars() {
@@ -32,5 +39,16 @@ public class Application {
 
     static int getMove() {
         return Integer.parseInt(Console.readLine());
+    }
+
+    static void move() {
+        for (String car : forwardMap.keySet()) {
+            System.out.print(car + " : ");
+            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+                forwardMap.put(car, forwardMap.get(car) + "-");
+            }
+            System.out.println(forwardMap.get(car));
+        }
+        System.out.println();
     }
 }
