@@ -47,20 +47,72 @@ class ApplicationTest extends NsTest {
             assertThat(result).isEqualTo(new String[]{"pobi", "woni", "june"});
         }
     }
-
+    
     @Test
-    @DisplayName("readNames 함수에서 입력 값에 쉼표가 없을 때 그대로 출력")
-    void readNames함수_쉼표가_없을_때_그대로_출력() {
-        try (MockedStatic<Console> mock = Mockito.mockStatic(Console.class)) {
-            //given
-            mock.when(Console::readLine).thenReturn("pobi");
-            //when
-            String[] result = Application.readNames();
-            //then
-            assertThat(result).isEqualTo(new String[]{"pobi"});
-        }
+    @DisplayName("isValidsting 함수에서 이름 정상으로 입력받은 경우 True 반환")
+    void isValidsting함수_이름_정상_입력시_False_반환() {
+        //given
+        String[] names = new String[]{"pobi", "woni", "june"};
+        //when
+        boolean result = Application.isValidString(names);
+        //then
+        assertThat(result).isTrue();
     }
 
+    @Test
+    @DisplayName("isValidsting 함수에서 공백을 입력받은 경우 False 반환")
+    void isValidsting함수_전체_공백_입력시_False_반환() {
+        //given
+        String[] names = new String[]{""};
+        //when
+        boolean result = Application.isValidString(names);
+        //then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    @DisplayName("isValidsting 함수에서 이름을 1개만 입력받은 경우 False 반환")
+    void isValidsting함수_이름_1개_입력시_False_반환() {
+        //given
+        String[] names = new String[]{"pobi"};
+        //when
+        boolean result = Application.isValidString(names);
+        //then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    @DisplayName("isValidsting 함수에서 입력받은 이름 중 5글자 초과인한 이름이 있는 경우 False 반환")
+    void isValidsting함수_이름_5글자_초과_포함시_False_반환() {
+        //given
+        String[] names = new String[]{"pobi", "woniwoni", "june"};
+        //when
+        boolean result = Application.isValidString(names);
+        //then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    @DisplayName("isValidsting 함수에서 입력받은 이름 중 공백이 있는 경우 False 반환")
+    void isValidsting함수_입력값_중_이름_공백_있으면_False_반환() {
+        //given
+        String[] names = new String[]{"pobi", "", "june"};
+        //when
+        boolean result = Application.isValidString(names);
+        //then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    @DisplayName("isValidsting 함수에서 중복된 이름 입력받았을 경우 False 반환")
+    void isValidsting함수_입력값_중_이름_중복_있으면_False_반환() {
+        //given
+        String[] names = new String[]{"pobi", "pobi", "june"};
+        //when
+        boolean result = Application.isValidString(names);
+        //then
+        assertThat(result).isFalse();
+    }
 
     @Override
     public void runMain() {
