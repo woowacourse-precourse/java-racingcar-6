@@ -6,11 +6,12 @@ public class CarNameValidator {
 
     private final List<String> carNames;
 
-    public CarNameValidator(String input) {
-        this.carNames = List.of(input.split(","));
+    public CarNameValidator(String carName) {
+        this.carNames = List.of(carName.split(","));
         validateCarNameExists();
         validateAlphanumericAndCommaCarName();
         validateCarNameLength();
+        validateCarNameDuplicate();
     }
 
     private void validateCarNameExists() {
@@ -28,6 +29,12 @@ public class CarNameValidator {
     private void validateCarNameLength() {
         if (carNames.stream().anyMatch(name -> name.length() > 5)) {
             throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다.");
+        }
+    }
+
+    private void validateCarNameDuplicate() {
+        if (carNames.size() != carNames.stream().distinct().count()) {
+            throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
         }
     }
 
