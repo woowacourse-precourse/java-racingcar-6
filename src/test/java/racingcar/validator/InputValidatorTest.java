@@ -3,27 +3,26 @@ package racingcar.validator;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.exception.car.name.BlankException.BlankExceptionMessage;
 import static racingcar.exception.car.name.LengthException.LengthExceptionMessage;
 import static racingcar.exception.cars.DuplicateException.DuplicateExceptionMessage;
 import static racingcar.exception.round.NonPositiveIntegerException.NonPositiveIntegerExceptionMessage;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.Application;
 
 public class InputValidatorTest {
     @ParameterizedTest
     @ValueSource(strings = {"a", "abc", "aca", "12345"})
     void 자동차_이름_올바른_입력_테스트(String carNames) {
-        assertThatCode(() -> InputValidator.validateCarList(carNames))
+        assertThatCode(() -> InputValidator.validateCarNames(carNames))
                 .doesNotThrowAnyException();
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"1,2,", ",2,3", "1,,3", "more_than_five,1,2", "1,2,abcdef", "1,2,123456", "1,2,아에이오우으"})
     void 자동차_이름_1자_이상_5자_이하가_아닌_경우(String carNames) {
-        assertThatThrownBy(() -> InputValidator.validateCarList(carNames))
+        assertThatThrownBy(() -> InputValidator.validateCarNames(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(LengthExceptionMessage);
     }
@@ -31,9 +30,17 @@ public class InputValidatorTest {
     @ParameterizedTest
     @ValueSource(strings = {"succ,ess,ful,ess", "ba,na,na"})
     void 자동차_이름_중복이_있는_경우(String carNames) {
-        assertThatThrownBy(() -> InputValidator.validateCarList(carNames))
+        assertThatThrownBy(() -> InputValidator.validateCarNames(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(DuplicateExceptionMessage);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"공 백,b,c", "태\t앱,b,c", "개\n행,b,c"})
+    void 자동차_이름_공백이_있는_경우(String carNames) {
+        assertThatThrownBy(() -> InputValidator.validateCarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(BlankExceptionMessage);
     }
 
     @ParameterizedTest
