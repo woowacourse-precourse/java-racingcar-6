@@ -33,16 +33,11 @@ class Input {
 
     private static void checkCarNameError(List<String> carNames) throws IllegalArgumentException {
         for (String carName : carNames) {
-            if (isNull(carName)
-                    || isBlank(carName)
+            if (isBlank(carName)
                     || isLength1To(carName, 5)) {
                 throw new IllegalArgumentException();
             }
         }
-    }
-
-    private static boolean isNull(String raw) {
-        return raw == null;
     }
 
     private static boolean isBlank(String raw) {
@@ -60,8 +55,7 @@ class Input {
     }
 
     private static void checkRepetitionsError(String repetitions) throws IllegalArgumentException {
-        if (isNull(repetitions)
-                || isBlank(repetitions)
+        if (isBlank(repetitions)
                 || isNotNumber(repetitions)
                 || isNotNaturalNumber(repetitions)) {
             throw new IllegalArgumentException();
