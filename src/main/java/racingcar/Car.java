@@ -37,6 +37,14 @@ public class Car {
         return name;
     }
 
-    public String toString() { return name; }
+    public String toString() {
+        String distanceDash = "";
+
+        for (int i=0; i<distance; i++) {
+            distanceDash += "-";
+        }
+
+        return String.format("%s : %s", name, distanceDash);
+    }
 
 }
