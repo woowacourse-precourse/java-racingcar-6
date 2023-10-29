@@ -17,5 +17,13 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-
+    public static void printCarsMove(String name, int postion){
+        StringBuilder carString = new StringBuilder();
+        carString.append(name);
+        carString.append(":");
+        for (int i = 0; i < postion; i++) {
+            carString.append(" - ");
+        }
+        System.out.println(carString);
+    }
 }
