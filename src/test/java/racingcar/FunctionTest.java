@@ -12,14 +12,17 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class FunctionTest {
-    private static final Car VALID_CAR = new Car("a,b,c");
+    private static final Car VALID_CAR = new Car("a");
+    private static final RacingCarGameConsole VALID_RACINGCARGAMECONSOLE
+            = new RacingCarGameConsole(VALID_CAR, 1);
 
     @Test
     void Car_생성자로_주어진_값을_구분() {
         String input = "a,b,c";
+        Car car = new Car(input);
 
         List<String> expected = List.of(input.split(","));
-        List<String> output = VALID_CAR.names();
+        List<String> output = car.names();
 
         assertThat(output).isEqualTo(expected);
     }
@@ -51,16 +54,21 @@ public class FunctionTest {
     @ParameterizedTest
     @ValueSource(ints = {3, 5})
     void randomNumber에따른_전진_여부_판별(int randomNumber) {
-        Car car = new Car("a");
-        RacingCarGameConsole racingCarGameConsole = new RacingCarGameConsole(car, 1);
-
-        racingCarGameConsole.updateCarMovement(randomNumber);
+        VALID_RACINGCARGAMECONSOLE.updateCarMovement(randomNumber);
 
         if (randomNumber < 4) {
-            assertThat(0).isEqualTo(car.movedLately(0));
+            assertThat(0).isEqualTo(VALID_CAR.movedLately(0));
         }
         if (randomNumber >= 4) {
-            assertThat(1).isEqualTo(car.movedLately(0));
+            assertThat(1).isEqualTo(VALID_CAR.movedLately(0));
         }
+    }
+
+    @Test
+    void 전진한_횟수를_형식에_맞게_출력() {
+        String expected = "a : ---";
+        String output = VALID_RACINGCARGAMECONSOLE.carMovement(3);
+
+        assertThat(output).isEqualTo(expected);
     }
 }
