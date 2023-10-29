@@ -1,10 +1,10 @@
 package racingcar;
 
-import racingcar.controller.RacingCarController;
+import racingcar.controller.RacingController;
 
 public class Application {
     public static void main(String[] args) {
-        RacingCarController racingCarController = new RacingCarController();
-        racingCarController.startRacing();
+        RacingController racingController = new RacingController();
+        racingController.startRacing();
     }
 }

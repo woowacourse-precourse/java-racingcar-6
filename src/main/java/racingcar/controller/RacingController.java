@@ -1,21 +1,18 @@
 package racingcar.controller;
 
-import racingcar.model.RacingCar;
-import racingcar.service.RacingCarService;
+import racingcar.service.RacingService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.List;
-
-public class RacingCarController {
+public class RacingController {
     private final InputView inputView;
     private final OutputView outputView;
-    private final RacingCarService racingCarService;
+    private final RacingService racingService;
 
-    public RacingCarController() {
+    public RacingController() {
         inputView = new InputView();
         outputView = new OutputView();
-        racingCarService = new RacingCarService();
+        racingService = new RacingService();
     }
 
     public void startRacing() {
@@ -25,19 +22,19 @@ public class RacingCarController {
         int attemptCount = Integer.parseInt(inputView.inputAttemptCounts());
         playRacing(attemptCount);
 
-        outputView.printWinners(racingCarService.getWinnerNames());
+        outputView.printWinners(racingService.getWinnerNames());
     }
 
     private void playRacing(int attemptCount) {
         outputView.printResultMessage();
         for (int attempt = 0; attempt < attemptCount; attempt++) {
-            racingCarService.playOneRacing();
-            outputView.printRacingResult(racingCarService.getRacingCars());
+            racingService.playOneRacing();
+            outputView.printRacingResult(racingService.getRacingCars());
         }
     }
 
     private void saveRacingCars(String carNames) {
-        String[] racingCarsStr = racingCarService.splitRacingCarsByComma(carNames);
-        racingCarService.saveRacingCars(racingCarsStr);
+        String[] racingCarsStr = racingService.splitRacingCarsByComma(carNames);
+        racingService.saveRacingCars(racingCarsStr);
     }
 }
