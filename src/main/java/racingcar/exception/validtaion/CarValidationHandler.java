@@ -7,6 +7,9 @@ public class CarValidationHandler {
     public static final String CAR_NAME_LENGTH_RESTRICTION = "자동차 이름은 5글자 이하로 입력해주세요.";
     public static final String CAR_NAME_FORMAT_RESTRICTION = "자동차 이름은 영어, 숫자의 조합 또는 영어와 숫자로만 입력해주세요.";
 
+    private CarValidationHandler() {
+    }
+
     public static void validationAlphaNumericOrAlphaOrNumeric(String carName) {
         if (!isAlphaNumericOrAlphaOrNumeric(carName)) {
             throw new IllegalArgumentException(CAR_NAME_FORMAT_RESTRICTION);
