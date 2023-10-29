@@ -13,4 +13,9 @@ public class InputHandler {
         List<String> carNamesWithoutSeparator = StringManipulator.toList(tokens);
         return carNamesWithoutSeparator;
     }
+
+    public int tryNumber(){
+        String trialNum = Console.readLine();
+        return Integer.parseInt(trialNum);
+    }
 }
