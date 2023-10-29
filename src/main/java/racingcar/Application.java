@@ -62,7 +62,7 @@ public class Application {
     private static void racing(List<Car> carList) {
         for (Car car : carList) {
             if (shouldMove()) car.move();
-            System.out.println(car.printCarName());
+            System.out.println(car.getCarStatus());
         }
     }
 

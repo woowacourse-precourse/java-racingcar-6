@@ -12,7 +12,7 @@ public class Car {
         this.name = name;
     }
 
-    public String printCarName() {
+    public String getCarStatus() {
         return name + " : " + position;
     }
 
