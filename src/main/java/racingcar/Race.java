@@ -20,4 +20,10 @@ public class Race {
         return cars;
     }
 
+    public void proceedRound() {
+        for (Car car : cars) {
+            car.proceed();
+        }
+    }
+
 }
