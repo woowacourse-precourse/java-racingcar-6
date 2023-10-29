@@ -37,4 +37,19 @@ class SnapshotTest {
         Assertions.assertThat(snapshot.printSnapshot(1))
                 .isEqualTo("no snapshot\n");
     }
+
+    @Test
+    void printWinner_메서드의_우승자_결과_테스트() {
+        Snapshot snapshot = new Snapshot(3);
+        List<Car> cars = List.of(
+                new Car("car1", 5),
+                new Car("car2", 5),
+                new Car("car3", 2)
+        );
+        int raceNumber = 4;
+        snapshot.setSnapshot(raceNumber, cars);
+
+        Assertions.assertThat(snapshot.printWinner(raceNumber))
+                .isEqualTo("최종 우승자 : car1, car2");
+    }
 }

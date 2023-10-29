@@ -37,12 +37,12 @@ Car.isRunnable()
 
 최종 승자 띄우기
 ```
-Stadium.findWinner()
-    최종 승자를 찾는다.
+Snapshot.findWinner(int order)
+    order번째 경기의 승자를 찾는다.
 ```
 ```
-Stadium.printWinner()
-    최종 승자를 출력한다.
+Snapshot.printWinner(int order)
+    order번째 경기의 승자를 출력한다.
 ```
 
 경기 중 진행기록을 남기는 스냅샷 기능

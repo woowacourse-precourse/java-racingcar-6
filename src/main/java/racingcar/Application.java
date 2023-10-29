@@ -15,5 +15,7 @@ public class Application {
             snapshot.printSnapshot(order);
         }
 
+        // 최종 결과
+        snapshot.printWinner(stadium.getTryCount());
     }
 }
