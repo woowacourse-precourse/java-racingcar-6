@@ -3,8 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    String carName;
-    Long totalMovements;
+    private String carName;
+    private Long totalMovements;
 
     public Car(String name) {
         this.carName = name;
@@ -15,7 +15,7 @@ public class Car {
         return carName;
     }
 
-    public Long getToTalMovements() {
+    public Long getTotalMovements() {
         return totalMovements;
     }
 
