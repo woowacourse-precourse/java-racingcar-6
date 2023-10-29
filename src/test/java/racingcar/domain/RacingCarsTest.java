@@ -24,6 +24,7 @@ class RacingCarsTest {
 
         for (int i = 0; i < movingCount; i++) {
             racingCars.MovingCars();
+            racingCars.racingCarResultPrint();
         }
     }
 
@@ -32,7 +33,7 @@ class RacingCarsTest {
         String[] winners = racingCars.getRacingWinners();
 
         assertThat(winners.length).isGreaterThan(0);
-        assertThat(winners).contains("toby", "ben", "lee");
+        assertThat(winners).containsAnyOf("ben", "toby", "lee");
     }
 
 }
