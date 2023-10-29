@@ -14,6 +14,7 @@ import racingcar.domain.entity.GameType;
 import racingcar.domain.entity.RacingCarGame;
 import racingcar.domain.repository.CarRepository;
 import racingcar.domain.repository.RacingCarGameRepository;
+import racingcar.exception.RacingCarGameException;
 import racingcar.exception.RacingCarGameRepositoryException;
 import racingcar.exception.validtaion.RacingCarGameValidationHandler;
 import racingcar.input.RegisterRacingCarGameInput;
@@ -23,7 +24,6 @@ class RacingCarGameServiceTest {
     RacingCarGameRepository racingCarGameRepository = new RacingCarGameRepository();
     CarRepository carRepository = new CarRepository();
     RacingCarGameService racingCarGameService = new RacingCarGameService(racingCarGameRepository);
-    CarService carService = new CarService(carRepository);
 
     @AfterEach
     void tearDown() {
@@ -138,16 +138,12 @@ class RacingCarGameServiceTest {
         carRepository.save(car1);
         carRepository.save(car2);
 
-        // 자동차 이동
-        int forwardNumber = 4;
-        int stopNumber = 1;
-        Car moveCar1 = carService.move(car1.getCarName(), forwardNumber);
-        Car moveCar2 = carService.move(car2.getCarName(), stopNumber);
+        car1.changeDistance(1);
 
         Long racingGameId = 1L;
         String gameCount = "5";
         RegisterRacingCarGameInput input = new RegisterRacingCarGameInput(racingGameId,
-                GameType.RACING_CAR_GAME, gameCount, List.of(moveCar1, moveCar2));
+                GameType.RACING_CAR_GAME, gameCount, List.of(car1, car2));
 
         RacingCarGame racingCarGame = RacingCarGame.createWithoutWinnerNames(input);
         racingCarGameRepository.save(racingCarGame);
@@ -184,5 +180,109 @@ class RacingCarGameServiceTest {
                 () -> racingCarGameService.computeCarsDistanceAndGameCount(racingGameId, cars))
                 .isInstanceOf(RacingCarGameRepositoryException.class)
                 .hasMessage(RacingCarGameRepositoryException.NOT_FOUND);
+    }
+
+    @Test
+    @DisplayName("자동차 경주 게임의 우승자 이름을 반환한다.")
+    void computeGameWinners() {
+        // given
+        Car car1 = Car.create("pobi");
+        Car car2 = Car.create("won");
+        Car car3 = Car.create("jang");
+
+        car1.changeDistance(1);
+        car2.changeDistance(2);
+        car3.changeDistance(3);
+        String winnerNames = "jang";
+
+        Long racingGameId = 1L;
+        String gameCount = "0";
+        RegisterRacingCarGameInput input = new RegisterRacingCarGameInput(racingGameId,
+                GameType.RACING_CAR_GAME, gameCount, List.of(car1, car2, car3));
+
+        RacingCarGame racingCarGame = RacingCarGame.createWithoutWinnerNames(input);
+        racingCarGameRepository.save(racingCarGame);
+
+        // when
+        List<String> findWinnerNames = racingCarGameService.computeGameWinners(racingGameId);
+
+        // then
+        RacingCarGame findRacingGame = racingCarGameRepository.findById(racingGameId).get();
+        assertAll(
+                () -> assertThat(findWinnerNames).hasSize(1)
+                        .contains(winnerNames),
+                () -> assertThat(findRacingGame.getWinnerNames()).hasSize(1)
+                        .contains(winnerNames)
+        );
+    }
+
+    @Test
+    @DisplayName("자동차 경주 게임의 우승자가 여러명이면 여러명의 이름을 오름차순으로 반환한다.")
+    void computeGameWinnersMany() {
+        // given
+        Car car1 = Car.create("pobi");
+        Car car2 = Car.create("won");
+        Car car3 = Car.create("jang");
+
+        car1.changeDistance(2);
+        car2.changeDistance(2);
+        car3.changeDistance(2);
+        String winnerNames1 = "jang";
+        String winnerNames2 = "pobi";
+        String winnerNames3 = "won";
+
+        Long racingGameId = 1L;
+        String gameCount = "0";
+        RegisterRacingCarGameInput input = new RegisterRacingCarGameInput(racingGameId,
+                GameType.RACING_CAR_GAME, gameCount, List.of(car1, car2, car3));
+
+        RacingCarGame racingCarGame = RacingCarGame.createWithoutWinnerNames(input);
+        racingCarGameRepository.save(racingCarGame);
+
+        // when
+        List<String> findWinnerNames = racingCarGameService.computeGameWinners(racingGameId);
+
+        // then
+        RacingCarGame findRacingGame = racingCarGameRepository.findById(racingGameId).get();
+        assertAll(
+                () -> assertThat(findWinnerNames).hasSize(3)
+                        .containsExactly(winnerNames1, winnerNames2, winnerNames3),
+                () -> assertThat(findRacingGame.getWinnerNames()).hasSize(3)
+                        .containsExactly(winnerNames1, winnerNames2, winnerNames3)
+        );
+    }
+
+    @Test
+    @DisplayName("자동차 경주 게임이 없으면 예외가 발생한다.")
+    void computeGameWinnersNotFoundGameException() {
+        // given
+        Long racingGameId = 1L;
+
+        // when // then
+        assertThatThrownBy(() -> racingCarGameService.computeGameWinners(racingGameId))
+                .isInstanceOf(RacingCarGameRepositoryException.class)
+                .hasMessage(RacingCarGameRepositoryException.NOT_FOUND);
+    }
+
+    @Test
+    @DisplayName("자동차 경주 게임 종료 조건이 아니면 예외가 발생한다.")
+    void computeGameWinnersEndConditionException() {
+        // given
+        Car car1 = Car.create("pobi");
+        Car car2 = Car.create("won");
+        Car car3 = Car.create("jang");
+
+        Long racingGameId = 1L;
+        String gameCount = "1"; // 게임 종료 조건이 아님
+        RegisterRacingCarGameInput input = new RegisterRacingCarGameInput(racingGameId,
+                GameType.RACING_CAR_GAME, gameCount, List.of(car1, car2, car3));
+
+        RacingCarGame racingCarGame = RacingCarGame.createWithoutWinnerNames(input);
+        racingCarGameRepository.save(racingCarGame);
+
+        // when // then
+        assertThatThrownBy(() -> racingCarGameService.computeGameWinners(racingGameId))
+                .isInstanceOf(RacingCarGameException.class)
+                .hasMessage(RacingCarGameException.NOT_GAME_END_CONDITION_RESTRICTION);
     }
 }
