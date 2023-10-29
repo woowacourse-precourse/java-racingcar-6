@@ -9,8 +9,8 @@ public class CheckValidation {
         ArrayList<String> carNameList = new ArrayList<>();
         String[] carNameArr = input.split(",");
 
-        if (carNameArr.length > Integer.MAX_VALUE) {
-            throw new IllegalArgumentException("입력 개수 오류");
+        if (carNameArr.length < 2) {
+            throw new IllegalArgumentException("최소 입력 개수 오류");
         }
 
         for (String carName : carNameArr) {
