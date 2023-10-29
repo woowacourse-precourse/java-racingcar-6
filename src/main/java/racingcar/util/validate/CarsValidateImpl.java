@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public class CarsValidateImpl implements CarsValidate {
 
-    public CarsValidateImpl(String[] input) {
+    private CarsValidateImpl(String[] input) {
         validateDuplicatedName(input);
     }
 

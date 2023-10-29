@@ -11,6 +11,7 @@ import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.util.car.CarHandler;
 import racingcar.util.car.CarHandlerImpl;
+import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 class carTest {
@@ -103,7 +104,8 @@ class carTest {
         // given
         String names = "pobi,woni";
         Cars carsModel = new Cars(names);
-        CarController controller = new CarController(carsModel.getCars());
+        InputView inputView = new InputView();
+        CarController controller = new CarController(carsModel, inputView);
         String newLine = System.lineSeparator();
 
         // when
@@ -135,5 +137,6 @@ class carTest {
         // then
         assertThatThrownBy(() -> new Cars(names)).isInstanceOf(IllegalArgumentException.class);
     }
+
 
 }
