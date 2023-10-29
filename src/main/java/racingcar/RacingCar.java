@@ -32,5 +32,6 @@ public final class RacingCar {
         if (Randoms.pickNumberInRange(0, 9) > 3) {
             distance.add("-");
         }
+        System.out.println(getNameAndDistance());
     }
 }

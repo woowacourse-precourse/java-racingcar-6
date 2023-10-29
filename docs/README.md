@@ -20,6 +20,7 @@
 - RacingCar 이름
 - RacingCar 이동 거리  `List<String> ?`
 - RacingCar 이동 여부 결정 메소드
+- RacingCar 이름과 이동 거리 출력 메소드
 
 ### RacingBoard
 - RacingCar 클래스를 담는 Collection 활용
@@ -28,6 +29,7 @@
 
 ### RacingGameLauncher
 - 구현한 기능으로 게임을 진행하는 클래스
+- 우승자를 출력하는 기능
 
 <br>
 
@@ -68,11 +70,6 @@
     ```json
     최종 우승자 :
     ```
-    
-
-### Print
-- 각 차수별 실행 결과를 출력하는 기능
-- 우승자를 출력하는 기능
 
 <br>
 
