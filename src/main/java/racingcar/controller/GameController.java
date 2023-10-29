@@ -3,6 +3,7 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.GameData;
 import racingcar.domain.TryCount;
 import racingcar.util.InputParser;
 import racingcar.view.InputView;
@@ -17,6 +18,11 @@ public class GameController {
         final Cars cars = generateCars();
         outputView.requestTryCount();
         final TryCount tryCount = generateTryCount();
+        GameData gameData = initializeGameData(cars, tryCount);
+    }
+
+    private GameData initializeGameData(final Cars cars, final TryCount tryCount) {
+        return new GameData(cars, tryCount);
     }
 
     private Cars generateCars() {
