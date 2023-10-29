@@ -68,15 +68,17 @@ public class GameProcess {
 
     /**
      * 새로운 자동차를 생성한다.
+     *
      * @param nameOfRaceCar
      * @return
      */
-    private  RaceCar generateNewRaceCar(String nameOfRaceCar) {
+    private RaceCar generateNewRaceCar(String nameOfRaceCar) {
         return new RaceCar(nameOfRaceCar);
     }
 
     /**
      * 현제 레이싱 자동차 리스트에 새로운 자동차를 추가한다.
+     *
      * @param newRaceCar
      */
     private void AddRaceCarOfCurrentList(RaceCar newRaceCar) {
@@ -116,13 +118,13 @@ public class GameProcess {
         raceCarOfWinnerList = gameHost.winRaceCar(raceCarOfCurrentList, cntTryRace);
         sizeOfWinnerList = raceCarOfWinnerList.size();
 
-        if (sizeOfWinnerList == 1) {
+        if (Utill.isSameNum(sizeOfWinnerList, 1)) {
             raceCar = raceCarOfWinnerList.get(0);
             nameOfWinnerRaceCar = raceCar.toString();
         } else if (sizeOfWinnerList >= 1) {
             raceCarOfWinnerArr = makeNameArrFromCarList(raceCarOfWinnerList);
             nameOfWinnerRaceCar = String.join(", ", raceCarOfWinnerArr);
-        } else if (sizeOfWinnerList == 0) {
+        } else if (Utill.isSameNum(sizeOfWinnerList, 0)) {
             nameOfWinnerRaceCar = String.join(", ", nameSplitList);
         }
         return nameOfWinnerRaceCar;
