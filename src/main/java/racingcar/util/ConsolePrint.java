@@ -20,9 +20,11 @@ public class ConsolePrint {
         System.out.println(Message.RESULT_RACING_INFO.getValue());
     }
 
-    public void racingTryResult(Car car, CarStatus status) {
-        System.out.println(car.getName() + SymbolType.CAR_RESULT.getValue() + car.getNowMoveTrace());
-
+    public void racingTryResult(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.println(car.getName() + SymbolType.CAR_RESULT.getValue() + car.getNowMoveTrace());
+        }
+        System.out.println();
     }
 
     public void finalWinner(List<Car> winners) {
