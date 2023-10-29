@@ -18,6 +18,10 @@ public class RaceCarNames {
          return carNames;
     }
 
+    public boolean isValid() {
+        return !raceCarNames.endsWith(",");
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

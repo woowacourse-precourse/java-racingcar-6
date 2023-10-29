@@ -35,6 +35,9 @@ public class GameController {
     public void receiveRaceCarNames() {
         String raceCarNamesInput = GameView.getRaceCarNames();
         RaceCarNames raceCarNames = new RaceCarNames(raceCarNamesInput);
+        if (!raceCarNames.isValid()) {
+            throw new IllegalArgumentException();
+        }
 
         List<String> carNameList = raceCarNames.parseCarNamesFromInput();
         for (String carName : carNameList) {

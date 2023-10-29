@@ -59,6 +59,17 @@ public class FeatureTest {
         assertThat(actualCarNames).containsExactlyElementsOf(expectedCarNames);
     }
 
+    @Test
+    void 자동차_이름_문자열_콤마로_끝남() {
+        String testCarNames = "hi,im,";
+        RaceCarNames raceCarNames = new RaceCarNames(testCarNames);
+
+        boolean actualResult = raceCarNames.isValid();
+        boolean expectedResult = false;
+
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
     @ParameterizedTest
     @CsvSource({
             "4, true",
