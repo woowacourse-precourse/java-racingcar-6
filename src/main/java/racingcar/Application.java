@@ -32,11 +32,11 @@ public class Application {
         }
     }
 
-    public String go(){
-        int random = Randoms.pickNumberInRange(0, 9);
+    // 파라미터의 random은 외부에서 랜덤 값을 생성하여 집어넣어주는 방식으로 구현 필요
+    public boolean go(int random){
         if (random >= 4) {
-            return "true";
+            return false;
         }
-        return "false";
+        return true;
     }
 }
