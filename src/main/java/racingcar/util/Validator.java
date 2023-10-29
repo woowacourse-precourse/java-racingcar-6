@@ -19,15 +19,14 @@ public class Validator {
         return userInput.isEmpty();
     }
 
-    public static void validateLength(List<String> splitUserInput) {
-        if (!isValidLength(splitUserInput)) {
+    public static void validateLength(String name) {
+        if (!isValidLength(name)) {
             throw RacingCarException.of(MORE_THAN_FIVE_CHARACTER);
         }
     }
 
-    private static boolean isValidLength(List<String> splitUserInput) {
-        Stream<String> strStream = splitUserInput.stream();
-        return strStream.allMatch(s-> s.length() <= 5);
+    private static boolean isValidLength(String name) {
+        return name.length() <= 5;
     }
 
     public static void validateDuplication(List<String> splitUserInput) {

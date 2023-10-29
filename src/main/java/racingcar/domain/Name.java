@@ -6,8 +6,7 @@ public class Name {
     private String name;
     private Name(String name) {
         validateEmpty(name);
-        //validateLength(name);
-        //validateContainEmpty(name);
+        validateLength(name);
         this.name = name;
     }
 

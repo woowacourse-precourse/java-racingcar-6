@@ -33,7 +33,7 @@ public class ValidatorTest {
 
     @Test
     void 길이가_6자_이상_이름_입력_예외테스트() {
-        assertThatThrownBy(()-> Validator.validateLength(Arrays.asList("wwwwww","pobi")))
+        assertThatThrownBy(()-> Validator.validateLength("wwwwww"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Car names should be less than five character.");
     }
