@@ -1,5 +1,10 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import camp.nextstep.edu.missionutils.Console;
+
 class Car {
     private String name;
     private Integer move;
@@ -24,6 +29,27 @@ class Car {
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+
+        List<Car> cars = getCars();
+    }
+
+    public static List<Car> getCars() {
+
+        List<Car> cars = new ArrayList<>();
+
+        String[] names = Console.readLine().split(",");
+
+        for (String name : names) {
+            checkNameLength(name);
+            cars.add(new Car(name));
+        }
+
+        return cars;
+    }
+
+    private static void checkNameLength(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException();
+        }
     }
 }
