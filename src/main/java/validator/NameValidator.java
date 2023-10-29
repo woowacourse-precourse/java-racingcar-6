@@ -15,7 +15,7 @@ public class NameValidator {
 
     private static final int MIN_COUNT_OF_NAME = 2;
 
-    public static List<String> nameValidator(List<String> nameList) {
+    public static List<String> validateName(List<String> nameList) {
         validateCountOfName(nameList);
         validateNameDup(nameList);
         validateLength(nameList);

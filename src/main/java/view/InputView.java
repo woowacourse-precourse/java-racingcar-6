@@ -11,7 +11,7 @@ public class InputView {
 
     public static List<String> inputCarNames() {
         OutputView.printInputCarName();
-        return NameValidator.nameValidator(splitWords(Console.readLine(), DELIMITER));
+        return NameValidator.validateName(splitWords(Console.readLine(), DELIMITER));
     }
 
     private static List<String> splitWords(String string, String delimiter) {
