@@ -30,4 +30,14 @@ public class Validator {
             throw new IllegalArgumentException("0이 아닌 정수 입력");
         }
     }
+
+    public static void countNumericCheck(String input) {
+        for (int i = 0; i < input.length(); i++) {
+            char inputChar = input.charAt(i);
+            if (!('0' <= inputChar && inputChar <= '9')) {
+                throw new IllegalArgumentException("잘못된 값 입력");
+            }
+        }
+    }
+
 }
