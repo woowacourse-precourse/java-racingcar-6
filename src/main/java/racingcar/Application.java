@@ -9,6 +9,10 @@ public class Application {
         String[] carName = userInput.split(",");
 
         sizeComparison(carName);
+
+        System.out.println("시도할 회수는 몇회인가요?");
+        String mN = Console.readLine();
+        int moveNumber = Integer.parseInt(mN);
     }
 
     public static void sizeComparison(String[] carname){ // 차 이름이 5자 이하가 아니면 예외
@@ -18,8 +22,4 @@ public class Application {
             }
         }
     }
-}
-
-class Car {
-
 }
