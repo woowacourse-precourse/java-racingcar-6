@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -24,8 +26,17 @@ class JudgementTest {
     }
 
     @Test
-    void getPlayCountFromUser올바른입력을한경우(){
+    void getPlayCountFromUser올바른입력을한경우() {
         Assertions.assertThat(Judgement.getPlayCountFromUser("10")).isEqualTo(10);
+    }
+
+    @Test
+    void printWinners(){
+        List<Car> participatingCars= new ArrayList<>();
+        participatingCars.add(new Car("소방차", 3));
+        participatingCars.add(new Car("구급차", 3));
+        participatingCars.add(new Car("경찰차", 2));
+        Assertions.assertThat(Judgement.printWinners(participatingCars)).isEqualTo("소방차, 구급차");
     }
 
 }

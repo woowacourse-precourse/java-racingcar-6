@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -38,5 +39,20 @@ public class Judgement {
         } catch (Exception e) {
             throw new IllegalArgumentException("숫자를 입력해야합니다.");
         }
+    }
+
+    public static String printWinners(List<Car> particiatingCars) {
+        //내림차순정렬
+        Collections.sort(particiatingCars, (o1, o2) -> {
+            return -1 * Integer.compare(o1.getPosition(), o2.getPosition());
+        });
+        StringBuilder winnersNames = new StringBuilder();
+        winnersNames.append(particiatingCars.get(0).getName());
+        for(int i = 1;  i < particiatingCars.size(); i++){
+            if(particiatingCars.get(i).getPosition() == particiatingCars.get(0).getPosition()){
+                winnersNames.append(", ").append(particiatingCars.get(i).getName());
+            }
+        }
+        return winnersNames.toString();
     }
 }
