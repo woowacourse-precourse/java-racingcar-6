@@ -13,31 +13,29 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import racingcar.domain.Car;
-import racingcar.domain.FixedCarEngine;
-import racingcar.domain.Position;
 import racingcar.domain.RacingResult;
 import racingcar.domain.RacingRoundResult;
+import racingcar.dto.CarInfo;
 
 public class RacingCarOutputViewTest {
     private static final ByteArrayOutputStream OUTPUT = new ByteArrayOutputStream();
 
-    private static Car setCar(String carName, boolean engineCanMove, int position) {
-        return new Car(carName, new FixedCarEngine(engineCanMove), new Position(position));
+    private static CarInfo setCarInfo(String carName, int position) {
+        return new CarInfo(carName, position);
     }
 
     static Stream<Arguments> providePrintEachRacingResultTestArguments() {
         return Stream.of(
-                arguments(new RacingRoundResult(List.of(setCar("pobi", true, 1),
-                                setCar("woni", false, 0))),
+                arguments(new RacingRoundResult(List.of(setCarInfo("pobi", 1),
+                                setCarInfo("woni", 0))),
                         """
                                 pobi : -
                                 woni :\s
                                                                 
                                 """),
-                arguments(new RacingRoundResult(List.of(setCar("pobi", true, 2),
-                                setCar("woni", false, 4),
-                                setCar("jun", true, 3))),
+                arguments(new RacingRoundResult(List.of(setCarInfo("pobi", 2),
+                                setCarInfo("woni", 4),
+                                setCarInfo("jun", 3))),
                         """
                                 pobi : --
                                 woni : ----
@@ -50,19 +48,19 @@ public class RacingCarOutputViewTest {
     static Stream<Arguments> providePrintWinnerTestArguments() {
         return Stream.of(
                 arguments(new RacingRoundResult(List.of(
-                                setCar("pobi", true, 2),
-                                setCar("woni", false, 4),
-                                setCar("jun", true, 3))),
+                                setCarInfo("pobi", 2),
+                                setCarInfo("woni", 4),
+                                setCarInfo("jun", 3))),
                         "최종 우승자 : woni\n",
                         new RacingRoundResult(List.of(
-                                setCar("pobi", true, 4),
-                                setCar("woni", false, 4),
-                                setCar("jun", true, 3))),
+                                setCarInfo("pobi", 4),
+                                setCarInfo("woni", 4),
+                                setCarInfo("jun", 3))),
                         "최종 우승자 : pobi, woni\n",
                         new RacingRoundResult(List.of(
-                                setCar("pobi", true, 1),
-                                setCar("woni", false, 1),
-                                setCar("jun", true, 1))),
+                                setCarInfo("pobi", 1),
+                                setCarInfo("woni", 1),
+                                setCarInfo("jun", 1))),
                         "최종 우승자 : pobi, woni, jun\n"
                 )
         );
