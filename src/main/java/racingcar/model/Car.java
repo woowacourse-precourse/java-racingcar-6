@@ -1,10 +1,6 @@
 package racingcar.model;
 
-import java.util.Comparator;
-import java.util.List;
-
 public class Car implements Comparable<Car> {
-    public static List<Car> carList;
 
     private final String name;
     private int position;
@@ -14,12 +10,15 @@ public class Car implements Comparable<Car> {
         this.position = 0;
     }
 
-    public void setPosition(int position) {
-        this.position += position;
-    }
-
     public String getName() {
         return this.name;
+    }
+
+    public void setPosition(int randomNumber) {
+        if (randomNumber >= 4) {
+            this.position++;
+        }
+        //this.position += position;
     }
 
     public int getPosition() {

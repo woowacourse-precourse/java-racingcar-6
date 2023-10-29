@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import racingcar.controller.GameController;
 import racingcar.model.Car;
 import racingcar.view.OutputView;
 
@@ -45,39 +46,41 @@ public class RacingGame {
         return this.raceActionCount;
     }
 
-
-
-
-
     public List<String> getWinnerList() {
         return winnerList;
     }
 
 
-
-
     public void startRace() {
         for (int i = 0; i < raceCount; i++, this.raceActionCount++) {
-
-            //setCarPosition();
-            //printCarPosition();
+            decideCarPosition();
+            sendRaceResult();
+            notifyResultEnd();
         }
-
     }
 
-    /**
-    private void setCarPosition() {
-        for (Car car : Car.carList) {
-            int randomNumber = setRandomNumber();
-            if (randomNumber >= 4) {
-                car.setPosition(1);
-            }
+    private void decideCarPosition() {
+        for (Car car : carList) {
+            car.setPosition(setRandomNumber());
         }
     }
 
     private int setRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
+
+    private void sendRaceResult() {
+        for (Car car : carList) {
+            GameController.showRaceResult(car.getName(), car.getPosition());
+        }
+    }
+
+    private void notifyResultEnd() {
+        GameController.markRaceEnd();
+    }
+
+
+    /*
 
     private void printCarPosition() {
         for (Car car : Car.carList) {
