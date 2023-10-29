@@ -81,5 +81,17 @@ public class Application {
             }
             System.out.println();
         }
+
+        Integer max = carList.stream()
+                .mapToInt(Car::getMoveCount)
+                .max()
+                .getAsInt();
+
+        String winners = carList.stream()
+                .filter(car -> car.getMoveCount() == max)
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+
+        System.out.print("최종 우승자 : " + winners);
     }
 }
