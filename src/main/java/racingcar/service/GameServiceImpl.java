@@ -1,10 +1,14 @@
 package racingcar.service;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.domain.Car;
+import racingcar.util.ExceptionUtil;
 
 public class GameServiceImpl implements GameService {
 
+    private final String EMPTY_INPUT_MESSAGE = "자동차 이름을 하나 이상 입력하세요.";
     private static GameServiceImpl gameService;
     private final CarService carService;
 
@@ -20,13 +24,20 @@ public class GameServiceImpl implements GameService {
     }
 
     public void processCarNamesInput(String input) {
-        Arrays.stream(input.split(","))
+        List<Car> carList = Arrays.stream(input.split(","))
                 .map(carName -> Car.create(carName))
-                .forEach(car -> carService.join(car));
+                .collect(Collectors.toList());
+
+        validateEmptyInput(input, carList);
+
+        carList.forEach(car -> carService.join(car));
     }
 
-    private void validateEmptyInput(String input) {
-
-
+    private void validateEmptyInput(String input, List<Car> carList) {
+        input = input.trim();
+        if (input.isEmpty() || carList.isEmpty()) {
+            ExceptionUtil.throwInvalidValueException(EMPTY_INPUT_MESSAGE);
+        }
     }
+
 }
