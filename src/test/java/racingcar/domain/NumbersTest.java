@@ -11,7 +11,7 @@ import racingcar.constant.MoveStatus;
 
 import java.util.List;
 
-@DisplayName("숫자 도메인 객체에")
+@DisplayName("숫자 도메인 일급컬렉션의 객체에")
 class NumbersTest {
 
     @Test
