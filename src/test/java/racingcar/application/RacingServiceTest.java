@@ -1,19 +1,17 @@
 package racingcar.application;
 
-import static org.assertj.core.api.Assertions.*;
-import static racingcar.enums.RacingConfig.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.domain.Car;
+import racingcar.dto.RacingResult;
+import racingcar.support.TestNumberGenerator;
 
 import java.util.List;
 import java.util.stream.IntStream;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-
-import racingcar.domain.Car;
-import racingcar.dto.RacingResult;
-import racingcar.enums.RacingConfig;
-import racingcar.support.TestNumberGenerator;
+import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.enums.RacingConfig.MOVE_CONDITION;
 
 class RacingServiceTest {
     private final TestNumberGenerator generator = new TestNumberGenerator();

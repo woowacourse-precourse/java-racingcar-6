@@ -1,8 +1,8 @@
 package racingcar.factory;
 
-import java.util.List;
-
 import racingcar.domain.Car;
+
+import java.util.List;
 
 public class CarFactory {
     public List<Car> createCars(List<String> carNames) {

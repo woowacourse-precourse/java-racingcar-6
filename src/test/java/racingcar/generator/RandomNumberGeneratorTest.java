@@ -1,9 +1,10 @@
 package racingcar.generator;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static racingcar.enums.RacingConfig.*;
-
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static racingcar.enums.RacingConfig.RANDOM_NUMBER_MAX;
+import static racingcar.enums.RacingConfig.RANDOM_NUMBER_MIN;
 
 class RandomNumberGeneratorTest {
     private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();

@@ -1,7 +1,5 @@
 package racingcar.controller;
 
-import java.util.List;
-
 import racingcar.application.RacingService;
 import racingcar.domain.Car;
 import racingcar.dto.RacingResult;
@@ -10,6 +8,8 @@ import racingcar.ui.InputView;
 import racingcar.ui.OutputView;
 import racingcar.util.StringUtil;
 
+import java.util.List;
+
 public class RacingController {
     private final InputView inputView;
     private final OutputView outputView;
@@ -17,7 +17,7 @@ public class RacingController {
     private final CarFactory carFactory;
 
     public RacingController(InputView inputView, OutputView outputView, RacingService racingService,
-            CarFactory carFactory) {
+                            CarFactory carFactory) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.racingService = racingService;

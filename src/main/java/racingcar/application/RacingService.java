@@ -1,12 +1,12 @@
 package racingcar.application;
 
-import static racingcar.enums.RacingConfig.*;
-
-import java.util.List;
-
 import racingcar.domain.Car;
 import racingcar.dto.RacingResult;
 import racingcar.generator.NumberGenerator;
+
+import java.util.List;
+
+import static racingcar.enums.RacingConfig.MOVE_CONDITION;
 
 public class RacingService {
     private final NumberGenerator generator;

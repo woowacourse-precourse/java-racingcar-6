@@ -1,13 +1,12 @@
 package racingcar.dto;
 
-import static org.assertj.core.api.Assertions.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.domain.Car;
 
 import java.util.stream.IntStream;
 
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-
-import racingcar.domain.Car;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class RacingResultTest {
     @ParameterizedTest

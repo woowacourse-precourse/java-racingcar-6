@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static racingcar.enums.RacingConfig.*;
+import static racingcar.enums.RacingConfig.CAR_NAME_MAX_LENGTH;
 
 public class Car {
     private final String name;

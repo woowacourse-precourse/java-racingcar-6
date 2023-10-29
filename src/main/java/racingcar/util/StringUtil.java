@@ -3,7 +3,8 @@ package racingcar.util;
 import java.util.List;
 
 public class StringUtil {
-    private StringUtil() {}
+    private StringUtil() {
+    }
 
     private static final String DELIMITER = ",";
 

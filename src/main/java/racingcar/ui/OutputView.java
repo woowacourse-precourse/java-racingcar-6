@@ -1,8 +1,8 @@
 package racingcar.ui;
 
-import java.util.List;
-
 import racingcar.dto.RacingResult;
+
+import java.util.List;
 
 public class OutputView {
     private static final String DELIMITER = ", ";
@@ -12,9 +12,7 @@ public class OutputView {
     }
 
     public void printRacingResult(List<RacingResult> racingResults) {
-        racingResults.forEach(result ->
-                System.out.printf("%s : %s%n", result.name(), result.position())
-        );
+        racingResults.forEach(result -> System.out.printf("%s : %s%n", result.name(), result.position()));
         System.out.println();
     }
 
