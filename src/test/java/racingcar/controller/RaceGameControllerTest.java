@@ -6,7 +6,7 @@ import org.mockito.BDDMockito;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import racingcar.OutputTestSupport;
-import racingcar.controller.dto.RaceGameInfo;
+import racingcar.dto.RaceGameInfoDto;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.RaceCars;
 import racingcar.util.Randoms;
@@ -26,10 +26,10 @@ class RaceGameControllerTest extends OutputTestSupport {
     public void startRaceGame() {
         // when
         userRequest();
-        RaceGameInfo raceGameInfo = raceGameController.startRaceGame();
+        RaceGameInfoDto raceGameInfoDto = raceGameController.startRaceGame();
         // then
-        List<Car> cars = raceGameInfo.getRaceCars().getCars();
-        int attemptCount = raceGameInfo.getAttemptCount();
+        List<Car> cars = raceGameInfoDto.getRaceCars().getCars();
+        int attemptCount = raceGameInfoDto.getAttemptCount();
 
         assertThat(cars).hasSize(1)
                 .extracting("name", "moveCount")
@@ -59,7 +59,7 @@ class RaceGameControllerTest extends OutputTestSupport {
         try (final MockedStatic<Randoms> randoms = Mockito.mockStatic(Randoms.class)) {
             BDDMockito.given(Randoms.getNumber()).willReturn(4);
             // when
-            raceGameController.run(new RaceGameInfo(raceCars,2));
+            raceGameController.run(new RaceGameInfoDto(raceCars,2));
         }
         //then
         assertThat(getOutput()).isEqualTo(result);

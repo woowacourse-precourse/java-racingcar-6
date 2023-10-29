@@ -2,7 +2,7 @@ package racingcar.service;
 
 import racingcar.domain.car.Car;
 import racingcar.domain.car.RaceCars;
-import racingcar.controller.dto.RaceGameInfo;
+import racingcar.dto.RaceGameInfoDto;
 import racingcar.util.Randoms;
 import racingcar.view.ExecutionView;
 
@@ -19,10 +19,10 @@ public class RaceGameService {
         this.executionView = new ExecutionView();
     }
 
-    public RaceCars run(RaceGameInfo raceGameInfo) {
+    public RaceCars run(RaceGameInfoDto raceGameInfoDto) {
         printRunMessage();
-        final RaceCars raceCars = raceGameInfo.getRaceCars();
-        final int attemptCount = raceGameInfo.getAttemptCount();
+        final RaceCars raceCars = raceGameInfoDto.getRaceCars();
+        final int attemptCount = raceGameInfoDto.getAttemptCount();
 
         IntStream.range(START_NUMBER, attemptCount)
                 .forEach(i -> executeRaceForCars(raceCars));

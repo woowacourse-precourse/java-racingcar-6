@@ -6,7 +6,7 @@ import org.mockito.BDDMockito;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import racingcar.OutputTestSupport;
-import racingcar.controller.dto.RaceGameInfo;
+import racingcar.dto.RaceGameInfoDto;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.RaceCars;
 import racingcar.util.Randoms;
@@ -28,12 +28,12 @@ class RaceGameServiceTest extends OutputTestSupport {
                         "haen : --\n\n";
 
         RaceCars raceCars = new RaceCars(List.of(new Car("haen")));
-        RaceGameInfo raceGameInfo = new RaceGameInfo(raceCars, 2);
+        RaceGameInfoDto raceGameInfoDto = new RaceGameInfoDto(raceCars, 2);
 
         try (final MockedStatic<Randoms> randoms = Mockito.mockStatic(Randoms.class)) {
             BDDMockito.given(Randoms.getNumber()).willReturn(4);
             //when
-            raceGameService.run(raceGameInfo);
+            raceGameService.run(raceGameInfoDto);
         }
         //then
         assertThat(getOutput()).isEqualTo(result);

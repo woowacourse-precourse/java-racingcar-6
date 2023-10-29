@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.car.Car;
 import racingcar.domain.car.RaceCars;
-import racingcar.controller.dto.RaceGameInfo;
+import racingcar.dto.RaceGameInfoDto;
 import racingcar.util.Console;
 import racingcar.service.RaceGameService;
 import racingcar.view.GameStartEndView;
@@ -21,9 +21,9 @@ public class RaceGameController {
         this.raceGameService = new RaceGameService();
     }
 
-    public RaceGameInfo startRaceGame() {
+    public RaceGameInfoDto startRaceGame() {
         List<Car> cars = convertCarNamesToCarList(requestCarNames());
-        return new RaceGameInfo(new RaceCars(cars), requestAttemptCount());
+        return new RaceGameInfoDto(new RaceCars(cars), requestAttemptCount());
     }
 
     private String[] requestCarNames() {
@@ -36,8 +36,8 @@ public class RaceGameController {
         return Console.getNumberOfMovementAttempts();
     }
 
-    public RaceCars run(RaceGameInfo raceGameInfo) {
-        return raceGameService.run(raceGameInfo);
+    public RaceCars run(RaceGameInfoDto raceGameInfoDto) {
+        return raceGameService.run(raceGameInfoDto);
     }
 
     public void printWinningCarNames(RaceCars raceCars) {

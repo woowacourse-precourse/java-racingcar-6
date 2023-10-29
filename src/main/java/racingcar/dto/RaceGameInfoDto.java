@@ -1,12 +1,12 @@
-package racingcar.controller.dto;
+package racingcar.dto;
 
 import racingcar.domain.car.RaceCars;
 
-public class RaceGameInfo {
+public class RaceGameInfoDto {
     private final RaceCars raceCars;
     private final int attemptCount;
 
-    public RaceGameInfo(RaceCars raceCars, int attemptCount) {
+    public RaceGameInfoDto(RaceCars raceCars, int attemptCount) {
         this.raceCars = raceCars;
         this.attemptCount = attemptCount;
     }
