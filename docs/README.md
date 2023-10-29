@@ -57,7 +57,7 @@
 Application : 프로그램 시작
 GameMessage : 사용자에게 출력될 메세지 상수
 GameProgress : 자동차 전진 기능
-GameWinner : 게임 우승자 판별 기능
+GameResult : 게임 우승자 판별 기능
 InputConvertor : 사용자 입력값 형변환
 InputView : 자동차 이름, 시도 횟수 입력 받기
 OutputView : 사용자에게 게임 문구 출력
