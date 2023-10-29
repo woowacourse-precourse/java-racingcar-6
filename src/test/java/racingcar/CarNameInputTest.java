@@ -1,9 +1,8 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.TestUtil.setInput;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.Set;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
@@ -18,8 +17,8 @@ class CarNameInputTest {
     @Test
     void 정상적인_이름_입력() {
         // given
-        String actual = "자동차1,자동차2,자동차3";
-        setInput(actual);
+        String input = "자동차1,자동차2,자동차3";
+        setInput(input);
 
         Set<Car> expected = Set.of(
                 new Car("자동차1"),
@@ -27,7 +26,7 @@ class CarNameInputTest {
                 new Car("자동차3")
         );
         // when
-        String[] carNames = inputView.askCarName().split(",");
+        String[] carNames = inputView.askCarNames().split(",");
         for (String carName : carNames) {
             race.add(new Car(carName));
         }
@@ -38,15 +37,15 @@ class CarNameInputTest {
     @Test
     void 중복된_이름_입력() {
         // given
-        String actual = "자동차1,자동차2,자동차1,자동차2";
-        setInput(actual);
+        String input = "자동차1,자동차2,자동차1,자동차2";
+        setInput(input);
 
         Set<Car> expected = Set.of(
                 new Car("자동차1"),
                 new Car("자동차2")
         );
         // when
-        String[] carNames = inputView.askCarName().split(",");
+        String[] carNames = inputView.askCarNames().split(",");
         for (String carName : carNames) {
             race.add(new Car(carName));
         }
@@ -54,8 +53,5 @@ class CarNameInputTest {
         assertThat(race.getCars()).isEqualTo(expected);
     }
 
-    void setInput(String input) {
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-    }
+
 }

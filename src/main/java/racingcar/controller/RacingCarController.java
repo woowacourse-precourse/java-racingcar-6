@@ -19,12 +19,17 @@ public class RacingCarController {
 
     public void start() {
         inputCarNames();
+        inputGameCount();
     }
 
     private void inputCarNames() {
-        String[] carNames = inputView.askCarName().split(",");
+        String[] carNames = inputView.askCarNames().split(",");
         for (String carName : carNames) {
             race.add(new Car(carName));
         }
+    }
+
+    private void inputGameCount() {
+        race.setGameCount(Integer.parseInt(inputView.askGameCount()));
     }
 }
