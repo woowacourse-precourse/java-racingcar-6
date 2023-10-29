@@ -3,6 +3,7 @@ package racingcar.validator;
 import static racingcar.constant.Constant.CAR_NAME_MAX_SIZE;
 import static racingcar.constant.ExceptionMessage.DUPLICATE_CAR_NAME;
 import static racingcar.constant.ExceptionMessage.EMPTY_CAR_NAME;
+import static racingcar.constant.ExceptionMessage.NOT_NUMBER_MESSAGE;
 import static racingcar.constant.ExceptionMessage.OVER_SIZE_CAR_NAME;
 
 import java.util.Arrays;
@@ -74,5 +75,14 @@ public class InputValidator {
                         }
                 );
     }
-    
+
+    public void validateTime(String playTime){
+        validateNumber(playTime);
+    }
+
+    protected void validateNumber(String playTime) {
+        if(!playTime.chars().allMatch(Character::isDigit)){
+            throw new IllegalArgumentException(NOT_NUMBER_MESSAGE.getMessage());
+        }
+    }
 }
