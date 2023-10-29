@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import racingcar.core.NamesParser;
-
 import java.util.ArrayList;
 import java.util.List;
 

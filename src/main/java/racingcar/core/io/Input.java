@@ -1,7 +1,5 @@
 package racingcar.core.io;
 
-import racingcar.core.NamesParser;
-
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.*;
@@ -31,7 +29,7 @@ public class Input {
         validator.valid(parsedNames);
     }
 
-    private int readTryNum(){
+    public int readTryNum(){
         System.out.println(INPUT_MAX_TRY);
         try {
             return Integer.parseInt(readLine());
