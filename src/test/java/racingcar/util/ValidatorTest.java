@@ -51,13 +51,13 @@ public class ValidatorTest extends NsTest {
 
     @Test
     void 횟수_입력값_비어있음_오류() {
-        assertThatThrownBy(() -> validator.validateTrialInput(""))
+        assertThatThrownBy(() -> validator.validateNumTrialInput(""))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void 횟수_입력값_0_이하_오류() {
-        assertThatThrownBy(() -> validator.validateTrialInput(0))
+        assertThatThrownBy(() -> validator.validateNumTrialInput(0))
                 .isInstanceOf(IllegalArgumentException.class);
         assertThatThrownBy(() -> validator.validateTrialInput(-5))
                 .isInstanceOf(IllegalArgumentException.class);
