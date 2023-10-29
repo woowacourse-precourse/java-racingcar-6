@@ -14,6 +14,7 @@ public class CarCreator {
         validateNameLength(carNames);
         validateSize(carNames);
         validateDuplicateCarName(carNames);
+        validateBlank(carNames);
     }
 
     private void validateNameLength(List<String> carNames) {
@@ -35,4 +36,11 @@ public class CarCreator {
             throw new IllegalArgumentException(MessageEnum.DUPLICATION_VALIDATE_MESSAGE.getMessage());
         }
     }
+
+    private void validateBlank(List<String> carNames) {
+        if (carNames.stream().anyMatch(name -> name.trim().isEmpty())) {
+            throw new IllegalArgumentException(MessageEnum.BLANK_INPUT_MESSAGE.getMessage());
+        }
+    }
+
 }
