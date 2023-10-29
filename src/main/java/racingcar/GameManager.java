@@ -18,6 +18,8 @@ public class GameManager {
         CarList carList = create();
 
         move(carList, moveCount());
+
+        carList.printWinners();
     }
 
     private CarList create() {
