@@ -5,8 +5,8 @@
     - [X] 5글자보다 크면 입력시 예외를 발생시킨다.
 - [X] 게임 횟수 입력받기 -> Controller, TryNumber
     - [X] 숫자가 아닐 경우 예외를 발생시킨다.
-- [ ] 자동차 객체 생성 -> Car, Position
-    - [ ] 이름을 가진다.
+- [X] 자동차 객체 생성 -> RacingCar, Car, Position
+    - [X] 이름을 가진다.
     - [ ] 이름은 5글자 이하이다.
     - [ ] 위치값을 가진다.
 - [ ] 0~9 사이의 랜덤값을 생성한다. -> RandomNumberFactory
