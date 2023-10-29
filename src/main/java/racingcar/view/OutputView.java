@@ -3,6 +3,7 @@ package racingcar.view;
 import java.util.List;
 import racingcar.constant.RaceConstant;
 import racingcar.dto.RaceResultResponse;
+import racingcar.dto.WinnerResponse;
 import racingcar.message.RaceMessage;
 
 public class OutputView {
@@ -17,8 +18,8 @@ public class OutputView {
         }
         System.out.println();
     }
-    public void printWinner(List<String> winner){
-        System.out.println(RaceMessage.WINNER + RaceConstant.COLON + String.join(RaceConstant.COMMA, winner));
+    public void printWinner(WinnerResponse winner){
+        System.out.println(RaceMessage.WINNER + RaceConstant.COLON + String.join(RaceConstant.COMMA, winner.getWinner()));
     }
 
     private static void printResultByCar(List<Integer> raceResult, List<String> cars, int i) {
