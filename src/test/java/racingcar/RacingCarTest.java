@@ -45,4 +45,28 @@ public class RacingCarTest {
                 .hasMessage("숫자가 아닙니다.");
     }
 
+    @Test
+    void 무작위_값이_4_미만인_경우_자동차가_전진하지_않는다() {
+        // given
+        String car = "wiz";
+
+        // when
+        int result = Application.moveCar(0, 0);
+
+        // then
+        assertThat(result).isEqualTo(0);
+    }
+
+    @Test
+    void 무작위_값이_4_이상인_경우_자동차가_전진한다() {
+        // given
+        String car = "wiz";
+
+        // when
+        int result = Application.moveCar(0, 5);
+
+        // then
+        assertThat(result).isEqualTo(1);
+    }
+
 }
