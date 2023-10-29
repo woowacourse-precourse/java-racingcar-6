@@ -34,7 +34,7 @@ class ApplicationTest extends NsTest {
 
     @Test
     @DisplayName("레이스의 참여한 자동차는 2대 이상이여야 한다.")
-    public void countCarInRace() throws Exception {
+    public void countCarInRace() {
 
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException(""))
