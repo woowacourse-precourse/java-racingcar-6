@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import java.util.stream.IntStream;
 import racingcar.domain.CarMovement;
 import racingcar.domain.CarStore;
 import racingcar.dto.Car;
@@ -22,26 +23,29 @@ public class GameController {
      * 역할 분리 for문 stream으로 수정
      */
     public void run() {
-        // 차이름, 횟수 입력받기
-        List<String> tmp = inputView.inputCarName();
-        for (int i = 0; i < tmp.size(); i++) {
-            Car car = new Car(i, tmp.get(i), 0);
-            carStore.saveCarInfo(car);
-        }
-        MAX_CAR_NUMBER = tmp.size();
-        MAX_ROUND = inputView.inputRoundNumber();
+        getCarNameInput(inputView.inputCarName());
+        getTotalRoundInput(inputView.inputRoundNumber());
 
         startGame();
     }
 
+    private void getTotalRoundInput(Integer integer) {
+        MAX_ROUND = integer;
+    }
+
+    private void getCarNameInput(List<String> carList) {
+        MAX_CAR_NUMBER = carList.size();
+        IntStream.range(0, MAX_CAR_NUMBER)
+                .mapToObj(i -> new Car(i, carList.get(i), 0))
+                .forEach(carStore::saveCarInfo);
+    }
+
     private void startGame() {
-        // while 라운드 체크 하며, 게임 수행
         do {
             increaseCurrentRound();
 
             // 게임 수행
             startRound();
-            System.out.println();
 
         } while (getCurrentRound() < MAX_ROUND);
 
@@ -53,12 +57,12 @@ public class GameController {
      * 랜덤값 추출하는 역할 따로 분리 for문 stream으로 변경 Game에게 go/stop에 대한 책임을 넘기기
      */
     private void startRound() {
-        // 조건 충족시, raceCar 이동
-        for (int i = 0; i < MAX_CAR_NUMBER; i++) {
-            Car currentRaceCar = carStore.getCarInfo(i);
-            new CarMovement(currentRaceCar);
-            OutputView.printStatusOfRaceCar(carStore.getCarInfo(i));
-        }
+        IntStream.range(0, MAX_CAR_NUMBER)
+                .mapToObj(carStore::getCarInfo)
+                .map(CarMovement::new)
+                .map(CarMovement::car)
+                .forEach(OutputView::printStatusOfRaceCar);
+        System.out.println();
     }
 
     public void increaseCurrentRound() {

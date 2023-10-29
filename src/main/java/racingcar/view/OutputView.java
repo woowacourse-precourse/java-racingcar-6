@@ -2,17 +2,14 @@ package racingcar.view;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import racingcar.dto.Car;
 
 public class OutputView {
 
     /* 자동차별 라운드 결과 출력 */
     public static void printStatusOfRaceCar(Car car) {
-        System.out.print(car.name() + " : ");
-        for (int i = 0; i < car.position(); i++) {
-            System.out.print("-");
-        }
-        System.out.println();
+        System.out.println(car.name() + " : " + "-".repeat(car.position()));
     }
 
     /* 최종 우승자 출력 */
@@ -27,10 +24,12 @@ public class OutputView {
                     .filter(car -> car.position().equals(maxPosition.get()))
                     .toList();
 
-            for (Car car : carsWithMaxPosition) {
-                System.out.print(car.name() + ",");
-            }
+            String result = carsWithMaxPosition.stream()
+                    .map(Car::name)
+                    .collect(Collectors.joining(","));
+
+            System.out.println(result);
+
         }
-        System.out.println();
     }
 }
