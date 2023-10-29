@@ -1,10 +1,12 @@
 package racingcar.validator;
 
 import static racingcar.constant.Constant.CAR_NAME_MAX_SIZE;
+import static racingcar.constant.Constant.ZERO;
 import static racingcar.constant.ExceptionMessage.DUPLICATE_CAR_NAME;
 import static racingcar.constant.ExceptionMessage.EMPTY_CAR_NAME;
 import static racingcar.constant.ExceptionMessage.NOT_NUMBER_MESSAGE;
 import static racingcar.constant.ExceptionMessage.OVER_SIZE_CAR_NAME;
+import static racingcar.constant.ExceptionMessage.ZERO_NUMBER_MESSAGE;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -76,13 +78,23 @@ public class InputValidator {
                 );
     }
 
-    public void validateTime(String playTime){
-        validateNumber(playTime);
+    public void validateTime(String playTimeInput){
+        Integer playTime = validateNumber(playTimeInput);
+        validateZero(playTime);
+
     }
 
-    protected void validateNumber(String playTime) {
+    protected Integer validateNumber(String playTime) {
         if(!playTime.chars().allMatch(Character::isDigit)){
             throw new IllegalArgumentException(NOT_NUMBER_MESSAGE.getMessage());
         }
+        return Integer.parseInt(playTime);
     }
+
+    protected void validateZero(Integer playTime){
+        if(playTime.equals(ZERO)){
+            throw new IllegalArgumentException(ZERO_NUMBER_MESSAGE.getMessage());
+        }
+    }
+
 }
