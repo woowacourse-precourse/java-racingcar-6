@@ -24,6 +24,13 @@ public class Application {
         }
     }
 
+    public static void checkEnglishInput(String inputStr) {
+        if (!inputStr.matches("^[a-zA-Z]*$")) {
+            throw new IllegalArgumentException("입력한 값은 영어가 아닙니다. 영어 문자만 허용됩니다.");
+        }
+    }
+
+
     public static void main(String[] args) {
         // TODO: 프로그램 구현
     }
