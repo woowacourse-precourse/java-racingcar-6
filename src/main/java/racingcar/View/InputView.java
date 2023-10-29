@@ -9,11 +9,15 @@ public class InputView {
 
     public static String requestCarNames() {
         System.out.println(CAR_NAME_INPUT_MESSAGE);
-        return Console.readLine();
+        String carNames = Console.readLine();
+        Console.close();
+        return carNames;
     }
 
     public static String requestRounds() {
         System.out.println(REQUEST_ROUNDS_MESSAGE);
-        return Console.readLine();
+        String rounds = Console.readLine();
+        Console.close();
+        return rounds;
     }
 }
