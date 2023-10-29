@@ -11,15 +11,21 @@ public class Game {
     final int COUNT_MINIMUM_CAR = 2;
     final String SEPARATOR_CAR_NAME = ",";
     final String MESSAGE_START = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n";
+    final String MESSAGE_ASK_TRY = "시도할 회수는 몇회인가요?\n";
     List<Car> carList;
+    int roundNumber;
 
     public Game() {
-        carList = new ArrayList<Car>();
+        this.carList = new ArrayList<Car>();
+        this.roundNumber = 0;
     }
 
     public void startGame() {
         System.out.print(MESSAGE_START);
         inputCarsName();
+
+        System.out.print(MESSAGE_ASK_TRY);
+        inputRoundNumber();
     }
 
     public void inputCarsName() {
@@ -40,6 +46,13 @@ public class Game {
         }
 
         createCarList(carNameList);
+    }
+
+    public void inputRoundNumber() {
+        String inputRoundNumber = Console.readLine();
+
+        validateIsOnlyNumber(inputRoundNumber);
+        validateIsGraterZero(inputRoundNumber);
     }
 
     private void createCarList(List<String> carNameList) {
@@ -64,5 +77,27 @@ public class Game {
         }
 
         return false;
+    }
+
+    public void validateIsOnlyNumber(String inputNumber) {
+        try {
+            roundNumber = Integer.parseInt(inputNumber);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자만 입력해주세요.");
+        }
+    }
+
+    private void validateIsGraterZero(String inputNumber) {
+        if (inputNumber == null) {
+            throw new IllegalArgumentException("0보다 큰 수를 입력해주세요");
+        }
+
+        int resultNumber = Integer.parseInt(inputNumber);
+
+        if (resultNumber < 0) {
+            throw new IllegalArgumentException("0보다 큰 수를 입력해주세요");
+        }
+
+        roundNumber = resultNumber;
     }
 }
