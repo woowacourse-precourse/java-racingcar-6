@@ -1,7 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import com.sun.security.jgss.GSSUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +54,10 @@ public class Race {
 
     private void play() {
         System.out.println("\n실행 결과");
-        int randomNumber = NumberGenerator.createRandomNumber();
+        for (int i = 0; i < gameCount; i++) {
+            for (Car car : cars) {
+                int randomNumber = NumberGenerator.createRandomNumber();
+            }
+        }
     }
 }
