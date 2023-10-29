@@ -16,4 +16,10 @@ public class Car {
     public String getName() {
         return name;
     }
+
+    public void go(int progress) {
+        if (progress >= 4) {
+            this.progress += progress;
+        }
+    }
 }
