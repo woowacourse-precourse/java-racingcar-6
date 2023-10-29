@@ -37,15 +37,12 @@ public class Application {
         carList = new CarList();
 
         List<String> carNameList = raceCarNames.parseCarNamesFromRaceCarInput();
-        boolean carNamesValidFlag = true;
         for (String carName : carNameList) {
             Car car = new Car(carName);
-            carNamesValidFlag &= car.isNameValid();
+            if (!car.isNameValid()) {
+                throw new IllegalArgumentException();
+            }
             carList.addCar(car);
-        }
-
-        if (!carNamesValidFlag) {
-            throw new IllegalArgumentException();
         }
     }
 
