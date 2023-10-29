@@ -76,6 +76,12 @@ class ApplicationTest extends NsTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 랜덤_숫자_범위_확인() {
+        int num = Application.getRandomNum();
+        assertThat(num).isBetween(0, 9);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
