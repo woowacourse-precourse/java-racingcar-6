@@ -9,6 +9,7 @@
 - 자동차를 생성하고 이름을 부여하는 기능
 
       구현) 자동차 이름 좌우 공백 제거
+      구현) 자동차 전진 횟수에 따라 순위 나열 추가(10.29) 
       예외) 이름이 중복되는 경우 IllegalArgumentException 발생
 
 - 몇 번 이동할 것인지 사용자 입력을 받는 기능
@@ -39,6 +40,7 @@
 - 자동차 객체 Car
 - n 대의 Car을 List Collection 형태로 저장하는 객체 Cars
 - 사용자가 입력한 이동 횟수 UserInputCarMoveCount
+- 사용자가 입력한 이동 횟수를 가공하는 객체 UserInputCarMoveCountService 추가(10.29)
 - 자동차 전진 기능을 구현하는 CarMoveService
 - 우승자를 알려주는 기능을 구현하는 CarWinnerService
 - 함수의 순서를 정의하는 CarGame
