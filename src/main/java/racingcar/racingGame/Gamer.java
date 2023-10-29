@@ -31,6 +31,15 @@ public class Gamer {
         return carNameList;
     }
 
+    public int getTryNum() {
+
+        String tryNum = Console.readLine();
+        
+        //TODO: 시도 횟수 유효성 검사 필요
+
+        return Integer.parseInt(tryNum);
+    }
+
 
 
 
