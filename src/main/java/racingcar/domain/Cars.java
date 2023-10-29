@@ -3,10 +3,10 @@ package racingcar.domain;
 import racingcar.util.Utils;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toUnmodifiableList;
 
 public class Cars {
 
@@ -18,7 +18,7 @@ public class Cars {
 
     public void makeCars(List<String> carNames) {
         cars.addAll(carNames.stream()
-                .map(Car::makeCar)
+                .map(Car::makeCarByName)
                 .collect(toList()));
     }
 
@@ -27,6 +27,8 @@ public class Cars {
     }
 
     public List<Car> getCars() {
-        return Collections.unmodifiableList(cars);
+        return cars.stream()
+                .map(car -> Car.makeCarByNameDistance(car.getName(), car.getDistance()))
+                .collect(toUnmodifiableList());
     }
 }
