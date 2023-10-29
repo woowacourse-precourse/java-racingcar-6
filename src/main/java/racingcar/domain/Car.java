@@ -1,9 +1,12 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Car {
 
     private static final int MOVE_CONDITION = 4;
-    private String name;
+    private final String name;
     private int position;
 
     public Car(String name) {
@@ -19,13 +22,24 @@ public class Car {
         return position;
     }
 
-    public void move(int speed){
-
+    public void move(){
+        if (NumberGenerator.createRandomNumber() >= MOVE_CONDITION) {
+            position++;
+        }
     }
 
-    public static Car createCar(String name) {
-        return null;
+    public static List<Car> createCars(String[] names) {
+
+        List<Car> cars = new ArrayList<>();
+
+        for (String name : names) {
+            cars.add(createCar(name));
+        }
+        return cars;
     }
 
+    private static Car createCar(String name) {
+        return new Car(name);
+    }
 
 }
